@@ -3401,6 +3401,147 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "shitou_sandokai": {
+      "id": "shitou_sandokai",
+      "title_zh": "石頭希遷大師 參同契與草庵歌",
+      "title_pinyin": "Shítóu Xīqiān Dàshī Cāntóngqì yǔ Cǎo'ān Gē",
+      "title_en": "Master Shitou Xiqian: Sandokai (Harmony of Difference and Sameness) & Song of the Grass Hut",
+      "cbeta_id": "T1985 / T2076",
+      "taisho_vol": 47,
+      "author_zh": "石頭希遷 禪師 (700–790 CE)",
+      "author_en": "Chan Master Shitou Xiqian, Ancestor of Caodong and Yunmen Lineages",
+      "era": "Tang Dynasty (8th Century)",
+      "genre": "Cornerstone Chanting Poem & Dialectical Verse (契與歌)",
+      "overview": "The foundational poem chanted daily in monasteries throughout East Asia, synthesizing relative phenomena (事 / difference) and the absolute source (理 / sameness) into a single non-dual reality.",
+      "sections": [
+        {
+          "section_id": "sandokai_full",
+          "title_zh": "參同契 全篇",
+          "title_pinyin": "Cāntóngqì Quánpiān",
+          "title_en": "Harmony of Difference and Sameness (Sandokai)",
+          "stanzas": [
+            {
+              "stanza_num": 1,
+              "zh": "竺土大仙心，東西密相付。人根有利鈍，道無南北祖。",
+              "pinyin": "Zhútǔ dàxiān xīn, dōng xī mì xiāng fù. Rén gēn yǒu lì dùn, dào wú nán běi zǔ.",
+              "translations": {
+                "red_pine": "The mind of the Great Sage of India was intimately transmitted east and west. Human faculties may be sharp or dull, but in the Way there is no northern or southern ancestor.",
+                "cleary": "The mind of the great sage of India was intimately conveyed east and west. Human faculties are sharp or dull, but the Way has no northern or southern ancestors.",
+                "sasaki": "The mind of the Great Sage of India was intimately transmitted from West to East. People may be sharp or dull, but in the Way there is no Northern or Southern Patriarch."
+              }
+            },
+            {
+              "stanza_num": 2,
+              "zh": "靈源明皎潔，枝派暗流注。執事元是迷，契理亦非悟。",
+              "pinyin": "Língyuán míng jiǎojié, zhīpài àn liúzhù. Zhíshì yuán shì mí, qì lǐ yì fēi wù.",
+              "translations": {
+                "red_pine": "The spiritual source shines clear and bright; the branching streams flow through the dark. Grasping at things is fundamentally delusion; merging with the principle is not yet awakening.",
+                "cleary": "The spiritual source is bright and clear; the branching streams flow in the dark. Grasping at things is confusion; merging with the principle is not yet enlightenment.",
+                "sasaki": "The spiritual source is clear and pure; the branching streams flow secretly in the dark. Grasping at phenomena is delusion; merging with the principle is not yet awakening."
+              }
+            },
+            {
+              "stanza_num": 3,
+              "zh": "門門一切境，迴互不迴互。迴而更相涉，不爾依位住。",
+              "pinyin": "Ménmén yīqiè jìng, huíhù bù huíhù. Huí ér gèng xiāngshè, bù'ěr yī wèi zhù.",
+              "translations": {
+                "red_pine": "Each and every sense gate and realm interact and do not interact. Interacting, they become mutually involved; otherwise, each abides in its own natural place.",
+                "cleary": "All sense faculties and objects interact and do not interact. Interacting, they are mutually involved; otherwise, they stay in their own places.",
+                "sasaki": "All senses and their objects interact and yet do not interact. Interacting, they merge with each other; otherwise, each stands in its own place."
+              }
+            },
+            {
+              "stanza_num": 4,
+              "zh": "色本殊質象，聲元異樂苦。暗合上中言，明明清濁句。",
+              "pinyin": "Sè běn shū zhìxiàng, shēng yuán yì lè kǔ. Àn hé shàng zhōng yán, míngmíng qīngzhuó jù.",
+              "translations": {
+                "red_pine": "Forms fundamentally differ in quality and appearance; sounds naturally distinguish joy and sorrow. The dark merges fine and coarse words; the light clarifies pure and turbid expressions.",
+                "cleary": "Forms fundamentally differ in substance and shape; sounds originally differ in pleasant and unpleasant. The dark unites high and low words; the light makes clear pure and muddy phrases.",
+                "sasaki": "Form inherently differs in substance; sound inherently separates pleasure and pain. In the dark, refined and common expressions merge; in the light, pure and muddy phrases stand distinct."
+              }
+            },
+            {
+              "stanza_num": 5,
+              "zh": "四大性自復，如子得其母。火熱風動搖，水濕地堅固。",
+              "pinyin": "Sì dà xìng zì fù, rú zǐ dé qí mǔ. Huǒ rè fēng dòngyáo, shuǐ shī dì jiāngù.",
+              "translations": {
+                "red_pine": "The four great elements return to their own nature, like a child finding its mother. Fire is hot, wind moves, water is wet, earth is solid.",
+                "cleary": "The four great elements return to their nature, as a child finds its mother. Fire heats, wind moves, water wets, earth is solid.",
+                "sasaki": "The four elements return to their nature, like a child running to its mother. Fire is hot, wind moves, water is wet, and earth is solid."
+              }
+            },
+            {
+              "stanza_num": 6,
+              "zh": "眼色耳音聲，鼻香舌鹹酢。然依一一法，依根葉分布。本末須歸宗，尊卑用其語。",
+              "pinyin": "Yǎn sè ěr yīnshēng, bí xiāng shé xián cù. Rán yī yīyī fǎ, yī gēn yè fēnbù. Běnmò xū guī zōng, zūnbēi yòng qí yǔ.",
+              "translations": {
+                "red_pine": "Eyes see form, ears hear sound, nose smells fragrance, tongue tastes salt and sour. Yet according to each and every dharma, leaves spread from the single root. Branch and root must return to the source; noble and humble each have their words.",
+                "cleary": "Eyes and forms, ears and sounds, nose and fragrances, tongue and tastes. According to each dharma, leaves spread from the root. Root and branch must return to the source; noble and base use their appropriate terms.",
+                "sasaki": "Eyes perceive forms, ears hear sounds, nose smells scents, tongue tastes sour and sweet. For each dharma, leaves branch out from the root. Root and branch must return to the source; words are applied to high and low."
+              }
+            },
+            {
+              "stanza_num": 7,
+              "zh": "當明中有暗，勿以暗相睹。當暗中有明，勿以明相睹。明暗各相對，比如前後步。",
+              "pinyin": "Dāng míng zhōng yǒu àn, wù yǐ àn xiāng dǔ. Dāng àn zhōng yǒu míng, wù yǐ míng xiāng dǔ. Míng'àn gè xiāngduì, bǐrú qiánhòu bù.",
+              "translations": {
+                "red_pine": "Right in the light there is darkness, but do not look at it as darkness. Right in the darkness there is light, but do not look at it as light. Light and darkness face each other, like the forward and backward steps of walking.",
+                "cleary": "In light there is darkness, do not see it as darkness. In darkness there is light, do not see it as light. Light and dark are relative to each other, like forward and backward steps in walking.",
+                "sasaki": "Within light there is darkness, but do not see it only as darkness. Within darkness there is light, but do not see it only as light. Light and darkness stand relative to each other, like forward and backward steps in walking."
+              }
+            },
+            {
+              "stanza_num": 8,
+              "zh": "萬物各有功，當言用及處。事存函蓋合，理應箭鋒拄。",
+              "pinyin": "Wànwù gè yǒu gōng, dāng yán yòng jí chù. Shì cún hán gài hé, lǐ yīng jiàn fēng zhǔ.",
+              "translations": {
+                "red_pine": "All things have their own function, spoken of according to use and place. Phenomena exist like box and lid fitting; the principle responds like two arrowheads meeting in mid-air.",
+                "cleary": "All things have their function, depending on their use and place. Phenomena exist as box and lid join; the principle responds as arrow points meet.",
+                "sasaki": "All things have their function, according with their use and station. Phenomena fit together like box and lid; the principle accords like arrow points meeting head on."
+              }
+            },
+            {
+              "stanza_num": 9,
+              "zh": "承言須會宗，勿自立規矩。觸目不會道，運足焉知路？",
+              "pinyin": "Chéng yán xū huì zōng, wù zì lì guījǔ. Chùmù bù huì dào, yùn zú yān zhī lù?",
+              "translations": {
+                "red_pine": "Hearing the words you must grasp the source; do not set up rigid rules of your own. If you do not understand the Way right before your eyes, how will you know the path as you move your feet?",
+                "cleary": "Receiving words, understand the source; do not set up standards of your own. If you do not understand the Way before your eyes, how can you know the road as you walk?",
+                "sasaki": "Hearing the words, you must realize the source; do not set up rules of your own. If you do not comprehend the Way before your eyes, how will you know the road as you walk?"
+              }
+            },
+            {
+              "stanza_num": 10,
+              "zh": "進步非近遠，迷隔山川固。謹白參玄人，光陰莫虛度。",
+              "pinyin": "Jìnbù fēi jìn yuǎn, mí gé shānchuān gù. Jǐnbái cān xuán rén, guāngyīn mò xū dù.",
+              "translations": {
+                "red_pine": "Advancing is not a matter of near or far; delusion creates barriers of mountains and rivers. I respectfully caution those who study the mystery: do not waste your lifetime in vain!",
+                "cleary": "Progress is not a matter of near or far; delusion creates obstacles of mountains and rivers. Respectfully I tell those who study the mystery: do not waste time in vain.",
+                "sasaki": "Progress is not a matter of far or near; delusion separates you by mountain ranges. Respectfully I declare to practitioners of the mystery: do not let time slip away in vain!"
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "caoan_ge",
+          "title_zh": "石頭和尚 草庵歌",
+          "title_pinyin": "Shítóu Héshang Cǎo'ān Gē",
+          "title_en": "Song of the Grass Hut (Cao'an Ge)",
+          "stanzas": [
+            {
+              "stanza_num": 1,
+              "zh": "吾結草庵無箇事，飽食休餐睡摩意。草庵雖小含法界，方丈老僧處太虛。雖無珍寶周身物，滿目青山不可量。",
+              "pinyin": "Wú jié cǎo'ān wú gè shì, bǎoshí xiū cān shuì mó yì. Cǎo'ān suī xiǎo hán fǎjiè, fāngzhàng lǎosēng chù tài xū. Suī wú zhēnbǎo zhōushēn wù, mǎnmù qīngshān bùkě liàng.",
+              "translations": {
+                "red_pine": "I built a grass hut where there is nothing of value; after eating my meal, I enjoy a peaceful nap. Though the grass hut is small, it embraces the universe; in ten feet square, an old monk rests in boundless space. Though there are no jewels or riches, the green mountains filling the eyes are immeasurable.",
+                "cleary": "I built a grass hut where there are no affairs; after eating I rest peacefully. The grass hut is small yet contains the universe; in ten feet square the old monk rests in open space. Though there are no jewels, the green mountains before my eyes are beyond measure.",
+                "sasaki": "I built a grass hut with no affairs; after eating I enjoy a quiet nap. Though the hut is small, it holds the cosmos; in a tiny room an old monk abides in the vast void."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
