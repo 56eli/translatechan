@@ -1,6 +1,6 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
-> Latest session: **2026-08-08 — Full Audit, B1–B10, canon pass, Wumenguan 48/48, UX Phases A–D complete** (branch `arena/019fe1b5-translatechan`) → durable log in [`AUDIT.md` §9](./AUDIT.md); UX plan in [`UX_ROADMAP.md`](./UX_ROADMAP.md). **UX Phase D shipped — roadmap 100% implemented**: cached search-unit index (no per-keystroke corpus traversal), lazy case rendering (12 cards first, "Show more" chunks, chips/nav auto-load targets, scroll preserved), `app_data.js` preload (D3 service worker skipped by zero-magic policy). Earlier: C1–C5 (print, hash routing, pan/zoom, a11y, studio/index polish), A+B, B1–B10 fixes, lineage 18→30, CBETA canon pass, **Wumenguan 48/48** (119 verified slots).
+> Latest session: **2026-08-08 — Full Audit, B1–B10, canon pass, Wumenguan 48/48, UX Phases A–D complete, PR #3 MERGED** (branch `arena/019fe1b5-translatechan` → merged into `main` as `8717e96`; live site rebuilt on `main`/`docs`) → durable log in [`AUDIT.md` §9](./AUDIT.md); UX plan in [`UX_ROADMAP.md`](./UX_ROADMAP.md); handoff in [`HANDOFF.md`](./HANDOFF.md) (PR #3 section). Session delivered: audit (no P0) + B1–B10 fixes, CBETA canon pass (10 corpus files + 5 master profiles), lineage 18→30, **Wumenguan 48/48** (119 verified slots, provenance v2.0), **UX roadmap A–D 100%** (calm reader, mobile-first, print/hash/pan-zoom, a11y, studio polish, cached search, lazy rendering).
 
 ### Summary of This Session:
 1. **Full audit completed** → [`AUDIT.md`](./AUDIT.md).
