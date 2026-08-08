@@ -42,6 +42,7 @@
     searchQuery: '',
     selectedMasterSchool: 'all',
     selectedLexiconCategory: 'all',
+    gonganThemeFilter: null,
     selectedStudioRefTranslator: 'red_pine',
     personalTranslations: (() => {
       try { return JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}') || {}; }
@@ -293,6 +294,9 @@
       });
     }
 
+    const readerPrintBtn = document.getElementById('reader-print-btn');
+    if (readerPrintBtn) readerPrintBtn.addEventListener('click', () => { try { window.print(); } catch (e) { /* ignore */ } });
+
     // Mobile bottom-bar: case index, scroll to top, pinyin toggle
     const mobileCasesBtn = document.getElementById('mobile-cases-btn');
     if (mobileCasesBtn) {
@@ -392,8 +396,10 @@
     elements.navTabs.forEach(tab => {
       if (tab.getAttribute('data-view') === viewName) {
         tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
       } else {
         tab.classList.remove('active');
+        tab.setAttribute('aria-selected', 'false');
       }
     });
 
@@ -1095,7 +1101,7 @@
       const color = schoolColors[master.school] || '#b38238';
 
       nodesHtml += `
-        <g class="graph-node" transform="translate(${x}, ${y})" style="cursor: pointer;" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
+        <g class="graph-node" transform="translate(${x}, ${y})" style="cursor: pointer;" role="button" tabindex="0" aria-label="${master.name_en} — open dossier" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
           <circle r="22" fill="var(--bg-card)" stroke="${color}" stroke-width="3" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.15))"></circle>
           <text text-anchor="middle" dy=".3em" font-size="11" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${master.name_zh.slice(-2)}</text>
           <text text-anchor="middle" dy="34" font-size="9.5" font-weight="600" fill="var(--text-secondary)">${master.name_en.split(' ').pop()}</text>
@@ -1192,6 +1198,14 @@
       view.x = 0; view.y = 0; view.k = 1;
       apply();
     };
+
+    svg.addEventListener('keydown', (e) => {
+      const node = e.target && e.target.closest ? e.target.closest('.graph-node') : null;
+      if (node && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        node.click();
+      }
+    });
   }
 
   // Master Dossier Modal Display
@@ -1244,9 +1258,20 @@
   // Render Gong'an Index
   function renderGonganIndex() {
     if (!elements.gonganTarget || !state.data.gongan_index) return;
-    const list = state.data.gongan_index;
+    let list = state.data.gongan_index;
+    if (state.gonganThemeFilter && state.gonganThemeFilter !== 'all') {
+      list = list.filter(g => (g.theme || '').toLowerCase().includes(state.gonganThemeFilter.toLowerCase()));
+    }
 
-    elements.gonganTarget.innerHTML = list.map(g => `
+    const themes = [...new Set(state.data.gongan_index.map(g => g.theme).filter(Boolean))];
+    const filterBar = `
+      <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.25rem; align-items:center;">
+        <span style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.6px;">Filter:</span>
+        <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all">All</button>
+        ${themes.map(t => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === t ? 'active' : ''}" data-gongan-filter="${t}">${t}</button>`).join('')}
+      </div>`;
+
+    elements.gonganTarget.innerHTML = filterBar + list.map(g => `
       <div class="case-card" style="margin-bottom: 1.25rem;">
         <div class="case-header">
           <span class="case-num-title">${g.title_zh}</span>
@@ -1264,6 +1289,16 @@
         </div>
       </div>
     `).join('');
+  }
+
+  // Gong'an theme filter chips
+  if (elements.gonganTarget) {
+    elements.gonganTarget.addEventListener('click', (e) => {
+      const chip = e.target.closest ? e.target.closest('.gongan-filter-chip') : null;
+      if (!chip) return;
+      state.gonganThemeFilter = chip.getAttribute('data-gongan-filter') === 'all' ? null : chip.getAttribute('data-gongan-filter');
+      renderGonganIndex();
+    });
   }
 
   // Render Lexicon
@@ -1314,9 +1349,8 @@
 
       const wm = corpus.wumenguan;
       if (wm && Array.isArray(wm.cases)) {
-        [1, 2, 3].forEach(num => {
-          const c = wm.cases.find(x => x.case_num === num);
-          if (c) add(`wumen_${num}`, `Wumenguan Case ${num}: ${c.title_en || c.title_zh}`, combineUnits(c.dialogue || []));
+        wm.cases.forEach(c => {
+          add(`wumen_${c.case_num}`, `Wumenguan Case ${c.case_num}: ${c.title_en || c.title_zh}`, combineUnits(c.dialogue || []));
         });
       }
       const linji = corpus.linji_yulu;
@@ -1622,21 +1656,47 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
     function renderSavedList() {
       if (!elements.studioSavedList) return;
-      const keys = Object.keys(state.personalTranslations);
+      const filterEl = document.getElementById('studio-draft-filter');
+      const q = filterEl ? filterEl.value.trim().toLowerCase() : '';
+      const keys = Object.keys(state.personalTranslations)
+        .filter(k => !q || (state.personalTranslations[k].title || '').toLowerCase().includes(q) ||
+                      (state.personalTranslations[k].translation || '').toLowerCase().includes(q))
+        .sort((a, b) => String(state.personalTranslations[b].updatedAt || '').localeCompare(String(state.personalTranslations[a].updatedAt || '')));
       if (keys.length === 0) {
-        elements.studioSavedList.innerHTML = '<p style="font-size: 0.85rem; color: var(--text-muted);">No saved personal translations yet.</p>';
+        elements.studioSavedList.innerHTML = '<p style="font-size: 0.85rem; color: var(--text-muted);">' +
+          (Object.keys(state.personalTranslations).length === 0 ? 'No saved personal translations yet.' : 'No drafts match your filter.') + '</p>';
         return;
       }
       elements.studioSavedList.innerHTML = keys.map(k => {
         const item = state.personalTranslations[k];
         return `
           <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 0.5rem;">
-            <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-gold);">${item.title}</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
+              <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-gold);">${item.title}</div>
+              <button class="btn-pill studio-draft-delete" data-draft-id="${k}" style="font-size:0.68rem; color:var(--accent-red); flex:none;" aria-label="Delete draft ${k}">✕ Delete</button>
+            </div>
             <div style="font-size: 0.82rem; margin: 0.25rem 0; color: var(--text-primary);">"${item.translation}"</div>
             <div style="font-size: 0.7rem; color: var(--text-muted);">Saved: ${item.updatedAt}</div>
           </div>
         `;
       }).join('');
+    }
+
+    const draftFilterEl = document.getElementById('studio-draft-filter');
+    if (draftFilterEl) draftFilterEl.addEventListener('input', renderSavedList);
+
+    window.TranslateChan.deleteDraft = function(id) {
+      if (state.personalTranslations[id]) {
+        delete state.personalTranslations[id];
+        try { localStorage.setItem('translatechan_user_translations', JSON.stringify(state.personalTranslations)); } catch (e) { /* ignore */ }
+        renderSavedList();
+      }
+    };
+    if (elements.studioSavedList) {
+      elements.studioSavedList.addEventListener('click', (e) => {
+        const btn = e.target.closest ? e.target.closest('.studio-draft-delete') : null;
+        if (btn) window.TranslateChan.deleteDraft(btn.getAttribute('data-draft-id'));
+      });
     }
 
     loadSelectedPassage(studioPassages[0].id);

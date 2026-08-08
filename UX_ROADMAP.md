@@ -75,7 +75,7 @@
 - `bilingual` remains default, but on touch devices default to 1 translation column (not 2) and hide pinyin until requested (a "show pinyin" toggle), cutting mobile page length ≈ 40 %.
 - Acceptance: Wumenguan case 1 on mobile = zh + 1 column + optional pinyin, no other chrome.
 
-### Phase C — "Deep-Functionality Polish" · M · ~1–2 sessions · ✅ **implemented 2026-08-08** (C1–C3)
+### Phase C — "Deep-Functionality Polish" · M · ~1–2 sessions · ✅ **implemented 2026-08-08** (C1–C5)
 
 **C1. Print / PDF stylesheet** — *fixes P8 (scholarly need)* · ✅ done
 - `@media print`: hide nav/sidebar/hero/tooltips; one translation column; page-break-inside avoid on case cards; black-on-white; include title + canon ID per case; `lang="zh"` on Chinese blocks.
@@ -89,11 +89,11 @@
 - Pan/zoom (wheel + pinch, CSS transform), node collision spreading, generation labels, tap/focus tooltip with mini-dossier, era range slider beside the school filter.
 - Acceptance: "All" view at 30 nodes has no overlapping labels; zooming to a branch is fluid on touch.
 
-**C4. Accessibility pass** — *fixes P9*
+**C4. Accessibility pass** — *fixes P9* · ✅ done
 - Skip-to-content link, `role="tablist"`/`aria-selected` on nav, `aria-label` on icon buttons, `:focus-visible` ring using `--border-focus`, contrast fixes (`--text-muted` darkened, or used only ≥14 px), `prefers-reduced-motion` disables `sereneFade`, `lang="zh"` on Chinese spans.
 - Acceptance: Lighthouse a11y ≥ 95 on desktop & mobile; full keyboard traversal of reader + studio.
 
-**C5. Studio & index polish** — *fixes P10-adjacent gaps*
+**C5. Studio & index polish** — *fixes P10-adjacent gaps* · ✅ done
 - Per-item delete + search box in the saved-drafts list; passage picker includes all 48 Wumenguan cases (currently 3); export menu gains a "complete text" option.
 - Gong'an index: make theme chips clickable filters (group by collection/theme).
 
@@ -127,7 +127,7 @@
 ```
 ✅ Session 1+2 (2026-08-08): A1–A5 + B1–B3   → "Calm Reader" + "Mobile-First" shipped
 ✅ Session 3 (2026-08-08): C1 + C2 + C3        → "Deep Polish" shipped
-Session 4:                C4 + C5                   → "Accessible & Complete"
+✅ Session 4 (2026-08-08): C4 + C5            → "Accessible & Complete" shipped
 Later:                    D1–D4                     → performance/resilience
 ```
 

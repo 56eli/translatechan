@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="app.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- Main Navigation Header -->
   <header>
@@ -28,39 +29,39 @@
       </a>
 
       <!-- Navigation Tabs -->
-      <ul class="nav-tabs">
-        <li>
-          <button class="nav-tab-btn active" data-view="reader">
+      <ul class="nav-tabs" role="tablist" aria-label="Main navigation">
+        <li role="none">
+          <button class="nav-tab-btn active" data-view="reader" role="tab" aria-selected="true">
             <span>📖</span> <span>Bilingual Reader</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="matrix">
+          <button class="nav-tab-btn" data-view="matrix" role="tab">
             <span>⚖️</span> <span>Comparative Matrix</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="lineage">
+          <button class="nav-tab-btn" data-view="lineage" role="tab">
             <span>🌳</span> <span>Lineage Tree</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="gongan">
+          <button class="nav-tab-btn" data-view="gongan" role="tab">
             <span>🗂️</span> <span>Gong'an Index</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="lexicon">
+          <button class="nav-tab-btn" data-view="lexicon" role="tab">
             <span>📚</span> <span>Chan Lexicon</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="studio">
+          <button class="nav-tab-btn" data-view="studio" role="tab">
             <span>✍️</span> <span>Translation Studio</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="agents">
+          <button class="nav-tab-btn" data-view="agents" role="tab">
             <span>🤖</span> <span>Arena AI Agents</span>
           </button>
         </li>
@@ -72,15 +73,15 @@
           <span class="search-icon">🔍</span>
           <input type="text" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off">
         </div>
-        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme">🌙</button>
-        <a href="https://github.com/56eli/translatechan" target="_blank" class="btn-icon" title="GitHub Repository">
+        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme">🌙</button>
+        <a href="https://github.com/56eli/translatechan" target="_blank" class="btn-icon" title="GitHub Repository" aria-label="GitHub repository (opens in new tab)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Zen Hero Welcome Banner -->
     <div class="zen-hero-banner">
       <div>
@@ -129,8 +130,9 @@
             </div>
             <div class="toolbar-group">
               <span class="toolbar-label">Typography:</span>
-              <button id="font-size-dec-btn" class="btn-pill" title="Decrease Chinese font size">A-</button>
-              <button id="font-size-inc-btn" class="btn-pill" title="Increase Chinese font size">A+</button>
+              <button id="font-size-dec-btn" class="btn-pill" title="Decrease Chinese font size" aria-label="Decrease Chinese font size">A-</button>
+              <button id="font-size-inc-btn" class="btn-pill" title="Increase Chinese font size" aria-label="Increase Chinese font size">A+</button>
+              <button id="reader-print-btn" class="btn-pill" title="Print or save as PDF" aria-label="Print or save as PDF">🖨 Print</button>
             </div>
           </div>
 
@@ -314,6 +316,7 @@
             <span>📚 Saved Personal Corpus</span>
             <button id="studio-clear-all-btn" class="btn-pill" style="font-size: 0.7rem; color: var(--accent-red);">Clear All</button>
           </div>
+          <input id="studio-draft-filter" class="search-input" type="search" placeholder="Filter saved drafts…" aria-label="Filter saved drafts">
           <div id="studio-saved-list" style="overflow-y: auto; max-height: 650px;"></div>
         </div>
       </div>

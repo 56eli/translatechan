@@ -55,6 +55,7 @@ globalThis.window = globalThis;
 globalThis.location = { hash: '', href: 'http://localhost/index.html', protocol: 'http:', host: 'localhost' };
 globalThis.addEventListener = () => {};
 globalThis.scrollTo = () => {};
+globalThis.print = () => {};
 
 globalThis.document = {
   readyState: 'complete',
@@ -166,6 +167,13 @@ if (!svgHtml.includes('lineage-panzoom')) { failures++; console.log('❌ lineage
 if (typeof window.TranslateChan.resetLineageView !== 'function') { failures++; console.log('❌ lineage reset view missing'); }
 // 4l. Hash routing: initial deep-link state + viewHash helper
 if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.log('❌ openDoc missing (hash routing depends on it)'); }
+// 4m. Studio passage picker covers all 48 Wumenguan cases (C5)
+const studioOptionCount = (ids['studio-select-text']._innerHTML.match(/<option/g) || []).length;
+if (studioOptionCount < 48) { failures++; console.log(`❌ studio picker has only ${studioOptionCount} passages (expected >= 48)`); }
+// 4n. Gong'an filter chips + draft delete helper (C5)
+if (typeof window.TranslateChan.deleteDraft !== 'function') { failures++; console.log('❌ deleteDraft missing'); }
+const gonganHtml = ids['gongan-content-target']._innerHTML;
+if (!gonganHtml.includes('gongan-filter-chip')) { failures++; console.log('❌ gongan filter chips missing'); }
 // 4e. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
   fireSearch(q);

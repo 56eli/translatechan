@@ -1,6 +1,6 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
-> Latest session: **2026-08-08 — Full Audit, B1–B10, canon pass, Wumenguan 48/48, UX Phases A+B+C** (branch `arena/019fe1b5-translatechan`) → durable log in [`AUDIT.md` §9](./AUDIT.md); UX plan in [`UX_ROADMAP.md`](./UX_ROADMAP.md). **UX Phase C shipped**: print/PDF stylesheet (+ `lang="zh"` on all Chinese blocks), hash routing with back/forward + deep links (`#/reader/wumenguan`; brand no longer reloads), lineage graph pan/zoom (wheel/pinch/drag + ⟲ Reset). Earlier: Phases A+B (case strip, collapsible cards, shared tap-friendly popover, persisted preferences, debounced search, mobile picker + bottom bar), B1–B10 fixes, lineage 18→30, CBETA canon pass, **Wumenguan 48/48** (119 verified slots).
+> Latest session: **2026-08-08 — Full Audit, B1–B10, canon pass, Wumenguan 48/48, UX Phases A–C** (branch `arena/019fe1b5-translatechan`) → durable log in [`AUDIT.md` §9](./AUDIT.md); UX plan in [`UX_ROADMAP.md`](./UX_ROADMAP.md). **UX Phases C4/C5 shipped**: accessibility pass (skip-link, tab roles + aria-selected, aria-labels, focus-visible rings, WCAG-AA muted-contrast fix, prefers-reduced-motion, keyboard-accessible lineage nodes) + studio/index polish (48-case passage picker, draft filter + per-draft delete, 🖨 Print button, Gong'an theme filter chips). Earlier: C1–C3 (print stylesheet, hash routing, lineage pan/zoom), A+B, B1–B10 fixes, lineage 18→30, CBETA canon pass, **Wumenguan 48/48** (119 verified slots).
 
 ### Summary of This Session:
 1. **Full audit completed** → [`AUDIT.md`](./AUDIT.md).

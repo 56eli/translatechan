@@ -18,7 +18,7 @@
   /* Ink & Tea Typography */
   --text-primary: #2c2523;
   --text-secondary: #6e645e;
-  --text-muted: #9c9189;
+  --text-muted: #756b64; /* darkened for WCAG AA contrast (was #9c9189 ≈ 2.8:1) */
   --text-chinese: #1f1a18;
 
   /* Zen Natural Accents */
@@ -62,7 +62,7 @@
 
   --text-primary: #ede8df;
   --text-secondary: #a49f96;
-  --text-muted: #736e67;
+  --text-muted: #8f8980; /* lightened for WCAG AA contrast on dark bg */
   --text-chinese: #f5f2eb;
 
   --accent-gold: #c89f55;
@@ -1326,4 +1326,72 @@ footer {
   .graph-hint {
     display: none;
   }
+}
+
+/* ==========================================================================
+   Phase C4/C5 — Accessibility & Studio/Index polish, 2026-08-08
+   ========================================================================== */
+
+/* Skip-to-content */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 500;
+  background: var(--accent-gold);
+  color: #ffffff;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Nav tabs: tab semantics (role set in HTML; aria-selected synced by JS) */
+.nav-tab-btn[aria-selected="true"] {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+}
+
+/* Reduced motion: respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Gong'an filter chips */
+.gongan-filter-chip.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+}
+
+/* Studio draft filter + delete affordance */
+#studio-draft-filter {
+  margin-bottom: 0.75rem;
+}
+
+.studio-draft-delete:hover {
+  border-color: var(--accent-red);
 }

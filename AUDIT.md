@@ -450,3 +450,13 @@ The roadmap's first Phase-2 full-text milestone is **done**: `data/corpus/wumeng
 | C3 | Lineage SVG: content wrapped in a `.lineage-panzoom` group; wheel zoom toward cursor, pointer-drag pan (with grab/grabbing cursor), two-finger pinch on touch (`touch-action: none`); clamped 0.35×–3×; `⟲ Reset View` button; transform preserved across re-renders (school filter) |
 
 Smoke test: location/scrollTo/addEventListener stubs added for the DOM harness; new checks 4k (pan-zoom group + resetLineageView) — suite green; bundle rebuilt; root↔docs byte-identical. Remaining UX: C4 accessibility pass, C5 studio/index polish, D1–D4 performance.
+
+### 9.7 — UX Phase C4/C5 implemented (same session, 2026-08-08; see UX_ROADMAP.md)
+
+| Item | What landed |
+|---|---|
+| C4 a11y | Skip-to-content link; nav tabs `role="tablist"/"tab"` + `aria-selected` synced by JS; `aria-label`s on icon buttons (theme, GitHub, font A−/A+, print) and on every lineage graph node (`role="button"`, `tabindex="0"`, Enter/Space opens dossier); global `:focus-visible` ring using `--border-focus`; **contrast fix**: `--text-muted` light theme `#9c9189 → #756b64` (≈2.8:1 → ≈4.7:1) and dark theme `#736e67 → #8f8980` (≈3.7:1 → ≈5.5:1); `prefers-reduced-motion` disables all animations/transitions + smooth scroll |
+| C5 studio | Passage picker now covers **all 48 Wumenguan cases** (+ Linji/Huangbo/Xinxin/Platform); saved-drafts list gains a **filter box** (title/translation match) and **per-draft ✕ Delete** (`deleteDraft`), sorted by last-modified; new 🖨 Print button in the reader toolbar (ties to the C1 print stylesheet) |
+| C5 index | Gong'an view gains a **theme filter bar** — clickable chips (All + per-theme), active state, re-renders filtered cards |
+
+Smoke test: `print` stub; new checks 4m (studio picker ≥48 passages), 4n (deleteDraft + gongan chips) — suite green; bundle rebuilt; root↔docs byte-identical. **UX roadmap now fully implemented through Phase C (A1–A5, B1–B3, C1–C5)**; remaining: Phase D performance (D1 prebuilt search index, D2 lazy case rendering, D3 optional SW, D4 font delivery).
