@@ -7,7 +7,7 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "běn lái miàn mù",
       "literal": "Original Face",
       "sanskrit": "svabhāva / mūlaprakṛti",
-      "category": "Ontology & Buddha-Nature",
+      "category": "Ontology",
       "definition": "One's original, primordial nature before birth and before the arising of dualistic thoughts. First famously formulated by the Sixth Patriarch Huineng: 'Without thinking of good or evil, what is your original face before your parents were born?'",
       "occurrences": [
         "Platform Sutra Chapter 1",
@@ -17,13 +17,27 @@ window.TRANSLATECHAN_DATA = {
       ]
     },
     {
+      "id": "yixin",
+      "term": "一心",
+      "pinyin": "yī xīn",
+      "literal": "One Mind",
+      "sanskrit": "eka-citta",
+      "category": "Ontology",
+      "definition": "The supreme Mahayana and Chan principle that the totality of phenomena is identical to the single unconditioned Mind. Central to Huangbo's Chuanxin Fayao and the Awakening of Faith.",
+      "occurrences": [
+        "Huangbo Chuanxin Fayao",
+        "Dacheng Qixin Lun",
+        "Zongjinglu"
+      ]
+    },
+    {
       "id": "zushi_xilai_yi",
       "term": "祖師西來意",
       "pinyin": "zǔ shī xī lái yì",
       "literal": "The First Patriarch's Intention in Coming from the West",
       "sanskrit": "ācāryasya paścimāgatābhiprāya",
-      "category": "Encounter Question / Gong'an Core",
-      "definition": "The quintessential question asked by Chan monks to test a master: What is the fundamental truth of Buddhism brought by Bodhidharma from India to China? Answers vary wildly from 'The cypress tree in the courtyard' (Zhaozhou) to 'Three pounds of flax' (Dongshan) or a blow from a stick (Deshan).",
+      "category": "Encounter",
+      "definition": "The quintessential question asked by Chan monks to test a master: What is the fundamental truth of Buddhism brought by Bodhidharma from India to China? Answers vary from 'The cypress tree in the courtyard' (Zhaozhou) to 'Three pounds of flax' (Dongshan) or a blow from a stick (Deshan).",
       "occurrences": [
         "Wumenguan Case 37",
         "Linji Yulu",
@@ -42,7 +56,7 @@ window.TRANSLATECHAN_DATA = {
       "occurrences": [
         "Wumenguan Case 1",
         "Zhaozhou Yulu",
-        "Biyanlu",
+        "Biyanlu Case 1",
         "Congronglu Case 18"
       ]
     },
@@ -52,7 +66,7 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "bàng hè",
       "literal": "Staff Strike and Resounding Shout",
       "sanskrit": "daṇḍa-krośa (pedagogical device)",
-      "category": "Pedagogical Method",
+      "category": "Pedagogical",
       "definition": "The hallmark dynamic teaching devices of Deshan (famous for his 30 blows with the staff) and Linji (famous for his four kinds of shouts / 臨濟四喝), used to shock the disciple out of conceptual deliberation directly into instantaneous awakening.",
       "occurrences": [
         "Linji Yulu",
@@ -67,7 +81,7 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "dùn wù",
       "literal": "Sudden Enlightenment / Instant Awakening",
       "sanskrit": "yugapad-avabodha",
-      "category": "Soteriology",
+      "category": "Ontology",
       "definition": "The cornerstone doctrine of Southern Chan established by Huineng and Shenhui: awakening is direct, sudden, and complete, not an accumulation of gradual meditative steps or progressive purification.",
       "occurrences": [
         "Platform Sutra Chapter 4",
@@ -122,7 +136,7 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "wú wèi zhēn rén",
       "literal": "True Person of No Rank",
       "sanskrit": "apadika-puruṣa",
-      "category": "Linji Anthropology",
+      "category": "Linji Dialectics",
       "definition": "Linji's description of true Buddha-nature in active human embodiment: 'In this lump of red flesh there is a True Person of No Rank, constantly going in and out through your facial gates.'",
       "occurrences": [
         "Linji Yulu Sermon 2",
@@ -135,7 +149,7 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "yě hú chán",
       "literal": "Wild Fox Chan",
       "sanskrit": "kṛtrima-dhyāna",
-      "category": "Critique & Gong'an",
+      "category": "Gong'an Barrier",
       "definition": "Spurious, superficial, or nihilistic understanding of Zen. Originates in Baizhang's encounter with the former abbot reincarnated as a fox for claiming an enlightened person 'does not fall into causality' (不落因果) instead of 'is not blind to causality' (不昧因果).",
       "occurrences": [
         "Wumenguan Case 2",
@@ -149,7 +163,7 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "píng cháng xīn shì dào",
       "literal": "Ordinary Mind is the Way",
       "sanskrit": "prākṛta-citta-mārga",
-      "category": "Mazu / Zhaozhou Axiom",
+      "category": "Ontology",
       "definition": "The foundational proclamation of Mazu Daoyi and reaffirmed by Nanquan Puyuan to Zhaozhou: The Way requires no artificial cultivation; drinking tea, eating rice, walking and resting without grasping or rejecting is the living Tao.",
       "occurrences": [
         "Wumenguan Case 19",
@@ -163,7 +177,7 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "chuán xīn fǎ yào",
       "literal": "Essentials of Mind Transmission",
       "sanskrit": "citta-sampradāna-hṛdaya",
-      "category": "Huangbo Doctrine",
+      "category": "Ontology",
       "definition": "The core teaching that all Buddhas and all sentient beings are nothing other than One Mind (一心), beyond creation, destruction, names, and forms.",
       "occurrences": [
         "Huangbo Chuanxin Fayao T2012A",
@@ -176,7 +190,7 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "bù shì wù",
       "literal": "It is Not a Thing",
       "sanskrit": "na vastu",
-      "category": "Encounter Quote",
+      "category": "Encounter",
       "definition": "Nanyue Huairang's famous reply to the Sixth Patriarch Huineng after eight years of reflection on 'What is it that comes thus?': 'To explain it as any single thing would miss the mark' (說似一物即不中).",
       "occurrences": [
         "Platform Sutra",
@@ -190,7 +204,7 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "niān huā wéi xiào",
       "literal": "Holding Up a Flower and Subtle Smile",
       "sanskrit": "puṣpa-dhāraṇa-smitam",
-      "category": "Origin Myth",
+      "category": "Encounter",
       "definition": "The origin of Chan transmission on Vulture Peak: Shakyamuni Buddha held up an udumbara flower before the assembly; only Mahākāśyapa broke into a smile, receiving the treasury of the true Dharma eye.",
       "occurrences": [
         "Wumenguan Case 6",
@@ -204,12 +218,222 @@ window.TRANSLATECHAN_DATA = {
       "pinyin": "tōng xuán fēng dǐng",
       "literal": "Atop the Mystic Peak",
       "sanskrit": "gūḍha-śikhara",
-      "category": "Poetic Metaphor",
+      "category": "Caodong Meditation",
       "definition": "Classical verse imagery expressing transcendent insight that cannot be reached by ordinary human path or dualistic logic, popularized by Fayan Wenyi and Linji disciples.",
       "occurrences": [
         "Fayan Yulu",
         "Biyanlu Case 23",
         "Chuandenglu"
+      ]
+    },
+    {
+      "id": "wuwei_junchen",
+      "term": "五位君臣",
+      "pinyin": "wǔ wèi jūn chén",
+      "literal": "Five Ranks of Lord and Vassal",
+      "sanskrit": "pañca-padāni",
+      "category": "Caodong Meditation",
+      "definition": "Dongshan Liangjie's dialectical matrix interweaving the Real/Absolute (Lord) and the Apparent/Relative (Vassal): 1) Apparent within the Real (正中偏); 2) Real within the Apparent (偏中正); 3) Coming from within the Real (正中來); 4) Arriving at both (兼中至); 5) Attainment in unity (兼中到).",
+      "occurrences": [
+        "Baojing Sanmei",
+        "Dongshan Yulu T1986",
+        "Congronglu"
+      ]
+    },
+    {
+      "id": "kuoran_wusheng",
+      "term": "廓然無聖",
+      "pinyin": "kuò rán wú shèng",
+      "literal": "Vast Emptiness, Nothing Holy",
+      "sanskrit": "mahāśūnyatā-anārya",
+      "category": "Gong'an Barrier",
+      "definition": "Bodhidharma's uncompromising response to Emperor Wu of Liang when asked for the highest meaning of the sacred truths, shattering all imperial vanity and religious merit.",
+      "occurrences": [
+        "Biyanlu Case 1",
+        "Jingde Chuandenglu Vol. 3",
+        "Lidai Fabao Ji"
+      ]
+    },
+    {
+      "id": "ma_sanjin",
+      "term": "麻三斤",
+      "pinyin": "má sān jīn",
+      "literal": "Three Pounds of Flax",
+      "sanskrit": "trīṇi-tulāni-śaṇam",
+      "category": "Gong'an Barrier",
+      "definition": "Dongshan Shouchu's answer when asked 'What is the Buddha?'. Demonstrates immediate, concrete Suchness (*tathatā*) free of metaphysical speculation.",
+      "occurrences": [
+        "Wumenguan Case 18",
+        "Biyanlu Case 12",
+        "Dongshan Yulu"
+      ]
+    },
+    {
+      "id": "ganshijue",
+      "term": "乾屎橛",
+      "pinyin": "gān shǐ jué",
+      "literal": "Dried Shit-Stick (Dung Scraper)",
+      "sanskrit": "śuṣka-viṣ-kāṣṭha",
+      "category": "Gong'an Barrier",
+      "definition": "Yunmen Wenyan's blunt response when asked 'What is Buddha?'. Smashes all pious idealizations and conceptual idol-worship.",
+      "occurrences": [
+        "Wumenguan Case 21",
+        "Biyanlu Case 21",
+        "Yunmen Yulu T1988"
+      ]
+    },
+    {
+      "id": "puqing",
+      "term": "普請",
+      "pinyin": "pǔ qǐng (Japanese: Samu)",
+      "literal": "Universal Request / Communal Labor",
+      "sanskrit": "sarva-nimantraṇa",
+      "category": "Pedagogical",
+      "definition": "Chan monastic tradition of all monks, from abbot to novice, engaging equally in manual agricultural labor. Formulated by Baizhang Huaihai: 'A day without work is a day without food' (一日不作，一日不食).",
+      "occurrences": [
+        "Baizhang Qinggui T2025",
+        "Chanyuan Qinggui",
+        "Zongjinglu"
+      ]
+    },
+    {
+      "id": "zhege",
+      "term": "這箇",
+      "pinyin": "zhè ge",
+      "literal": "This One / This Very Thing",
+      "sanskrit": "idam",
+      "category": "Pedagogical",
+      "definition": "Tang/Song vernacular demonstrative pronoun frequently used by masters to directly indicate the unmediated reality of the present moment without abstract nouns.",
+      "occurrences": [
+        "Linji Yulu",
+        "Zhaozhou Yulu",
+        "Wumenguan"
+      ]
+    },
+    {
+      "id": "zuomousheng",
+      "term": "作麼生",
+      "pinyin": "zuò me shēng",
+      "literal": "How? / What about it?",
+      "sanskrit": "katham",
+      "category": "Pedagogical",
+      "definition": "Ubiquitous Tang colloquial encounter phrase: 'What do you say to this?' or 'How do you understand it?' used to force immediate response.",
+      "occurrences": [
+        "Linji Yulu",
+        "Biyanlu",
+        "Chuandenglu"
+      ]
+    },
+    {
+      "id": "meijiaoshe",
+      "term": "沒交涉",
+      "pinyin": "méi jiāo shè",
+      "literal": "Has No Connection / Entirely Irrelevant",
+      "sanskrit": "asaṁbaddha",
+      "category": "Pedagogical",
+      "definition": "Tang vernacular phrase used by masters to dismiss an intellectual or dualistic conceptualization as having zero relation to the living Dharma.",
+      "occurrences": [
+        "Linji Yulu",
+        "Zhaozhou Yulu",
+        "Wumenguan Case 1"
+      ]
+    },
+    {
+      "id": "fangzhang",
+      "term": "方丈",
+      "pinyin": "fāng zhàng",
+      "literal": "Ten Feet Square / Abbot's Quarters",
+      "sanskrit": "daśa-pada-kuṭī (Vimalakīrti)",
+      "category": "Pedagogical",
+      "definition": "The abbot of a Chan monastery, derived from Vimalakirti's humble ten-foot square room which accommodated countless bodhisattvas in the Vimalakirti Sutra.",
+      "occurrences": [
+        "Baizhang Qinggui",
+        "Linji Yulu",
+        "Chanyuan Qinggui"
+      ]
+    },
+    {
+      "id": "shouzuo",
+      "term": "首座",
+      "pinyin": "shǒu zuò",
+      "literal": "Head Seat / Head Monk",
+      "sanskrit": "sthavira / prathama-āsana",
+      "category": "Pedagogical",
+      "definition": "The senior monk in the meditation hall who serves as the leader of the monastic community under the abbot.",
+      "occurrences": [
+        "Baizhang Qinggui",
+        "Biyanlu Case 1",
+        "Linji Yulu"
+      ]
+    },
+    {
+      "id": "weina",
+      "term": "維那",
+      "pinyin": "wéi nà (Japanese: Ino)",
+      "literal": "Monastery Director / Precentor",
+      "sanskrit": "karmadāna",
+      "category": "Pedagogical",
+      "definition": "The monastic officer responsible for discipline, scheduling meditation blocks, and chanting intonations in the hall.",
+      "occurrences": [
+        "Baizhang Qinggui",
+        "Chanyuan Qinggui",
+        "Biyanlu Case 3"
+      ]
+    },
+    {
+      "id": "dianzuo",
+      "term": "典座",
+      "pinyin": "diǎn zuò (Japanese: Tenzo)",
+      "literal": "Chief Cook / Head of Sustenance",
+      "sanskrit": "bhojana-kāri / supakāra",
+      "category": "Pedagogical",
+      "definition": "The vital monastic role in charge of preparing meals for the assembly with profound mindfulness and reverence, celebrated in Dogen's Tenzo Kyokun.",
+      "occurrences": [
+        "Baizhang Qinggui",
+        "Chanyuan Qinggui",
+        "Wudeng Huiyuan"
+      ]
+    },
+    {
+      "id": "jueduan_zhongliu",
+      "term": "截斷眾流",
+      "pinyin": "jié duàn zhòng liú",
+      "literal": "Cutting Off the Flow of All Streams",
+      "sanskrit": "sarva-srotaḥ-samuccheda",
+      "category": "Linji Dialectics",
+      "definition": "One of the Three Phrases of Yunmen (雲門三句): The decisive severing of all dualistic thought patterns, conceptual streams, and habitual mental proliferations (*papañca*).",
+      "occurrences": [
+        "Yunmen Yulu",
+        "Biyanlu Case 8",
+        "Congronglu"
+      ]
+    },
+    {
+      "id": "hangai_qiankun",
+      "term": "函蓋乾坤",
+      "pinyin": "hán gài qián kūn",
+      "literal": "Enclosing Heaven and Earth Like Box and Lid",
+      "sanskrit": "dyāvāpṛthivī-saṁvṛti",
+      "category": "Linji Dialectics",
+      "definition": "The second of the Three Phrases of Yunmen: Total harmony and integration with the universe, where absolute truth and relative phenomena fit together without gap.",
+      "occurrences": [
+        "Yunmen Yulu",
+        "Biyanlu Case 8",
+        "Zongjinglu"
+      ]
+    },
+    {
+      "id": "suibo_zhulang",
+      "term": "隨波逐浪",
+      "pinyin": "suí bō zhú làng",
+      "literal": "Following the Waves and Pursuing the Ripples",
+      "sanskrit": "taraṅgānuvartana",
+      "category": "Linji Dialectics",
+      "definition": "The third of the Three Phrases of Yunmen: The master's responsive adaptability to meet students wherever they are in their condition.",
+      "occurrences": [
+        "Yunmen Yulu",
+        "Biyanlu Case 8",
+        "Linji Yulu"
       ]
     }
   ],
