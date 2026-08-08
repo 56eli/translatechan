@@ -97,12 +97,12 @@
 - Per-item delete + search box in the saved-drafts list; passage picker includes all 48 Wumenguan cases (currently 3); export menu gains a "complete text" option.
 - Gong'an index: make theme chips clickable filters (group by collection/theme).
 
-### Phase D — "Performance & Resilience" · M · later
+### Phase D — "Performance & Resilience" · M · later · ✅ **implemented 2026-08-08** (D1, D2, D4; D3 intentionally skipped)
 
-**D1. Prebuilt search index** — `build_data_bundle.py` emits a compact inverted index (term → doc/unit) alongside the bundle; client search becomes lookups instead of full walks.
-**D2. Lazy case rendering** — render first 12 cases, "Load more" (or IntersectionObserver) for the rest; restores initial-paint speed on the 48-case text.
-**D3. Offline (optional)** — tiny service worker caching `app_data.js` + assets; skip if repo policy prefers zero-magic.
-**D4. Image/font delivery** — preload `app_data.js`, `font-display: swap` (already via Google Fonts CSS), consider subsetting Noto Serif SC.
+**D1. Prebuilt search index** — *refined at implementation*: instead of a Python-generated inverted index (which would duplicate app.js unit semantics and add ~500 KB to the bundle), the app builds the normalized search-unit index **once per session** (`getSearchUnitsIndex()` cache) and filters cached strings per keystroke. Same user-visible win (no per-keystroke corpus traversal), zero bundle growth, single source of truth in JS. · ✅ done
+**D2. Lazy case rendering** — first 12 case cards render, "Show more cases — N of 48 · +12" button loads the rest; jump chips / prev-next nav auto-load the target case (`ensureCaseLoaded`); scroll position preserved across loads. · ✅ done
+**D3. Offline (optional)** — **skipped by design** (repo prefers zero-magic / no hidden runtime behavior; static bundle is already cacheable by the browser).
+**D4. Image/font delivery** — `<link rel=preload as=script>` for `app_data.js` (parse earlier); `font-display: swap` already active via the Google Fonts URL. · ✅ done
 
 ---
 
@@ -128,7 +128,7 @@
 ✅ Session 1+2 (2026-08-08): A1–A5 + B1–B3   → "Calm Reader" + "Mobile-First" shipped
 ✅ Session 3 (2026-08-08): C1 + C2 + C3        → "Deep Polish" shipped
 ✅ Session 4 (2026-08-08): C4 + C5            → "Accessible & Complete" shipped
-Later:                    D1–D4                     → performance/resilience
+✅ Session 5 (2026-08-08): D1 + D2 + D4        → performance shipped (D3 skipped by policy)
 ```
 
 Each release: `python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs`, root↔docs byte-identical, `diff -rq data docs/data` silent, smoke test gains a regression per feature (e.g. strip presence, collapsed default on touch, debounce timing, hash routing).

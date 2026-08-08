@@ -460,3 +460,14 @@ Smoke test: location/scrollTo/addEventListener stubs added for the DOM harness; 
 | C5 index | Gong'an view gains a **theme filter bar** — clickable chips (All + per-theme), active state, re-renders filtered cards |
 
 Smoke test: `print` stub; new checks 4m (studio picker ≥48 passages), 4n (deleteDraft + gongan chips) — suite green; bundle rebuilt; root↔docs byte-identical. **UX roadmap now fully implemented through Phase C (A1–A5, B1–B3, C1–C5)**; remaining: Phase D performance (D1 prebuilt search index, D2 lazy case rendering, D3 optional SW, D4 font delivery).
+
+### 9.8 — UX Phase D implemented (same session, 2026-08-08; see UX_ROADMAP.md) — roadmap complete
+
+| Item | What landed |
+|---|---|
+| D1 | Search-unit index **cached once per session** (`getSearchUnitsIndex()` builds `extractSearchableUnits` for all 36 texts on first search, then per-keystroke filtering runs on cached normalized strings — no more full corpus traversal per keystroke). Refined from the roadmap's "Python inverted index" to avoid duplicating unit semantics in Python and adding ~500 KB to the bundle; documented in the roadmap |
+| D2 | **Lazy case rendering**: first 12 case cards render; "Show more cases — N of 48 · +12" button loads the rest in chunks; the case-chip strip and prev/next nav auto-load the target case (`ensureCaseLoaded`); reader scroll position preserved across loads; load-more button disappears when complete |
+| D3 | Service worker intentionally **skipped** (zero-magic policy; static bundle is browser-cacheable) — documented as out of scope |
+| D4 | `<link rel="preload" href="app_data.js" as="script">` added to head; `font-display: swap` already active |
+
+Smoke test: stub gains `getBoundingClientRect`; 4g rewritten for lazy rendering (48 chips in strip; exactly 12 case cards initially; `loadMoreCases()` ×3 → 48; button gone) — suite green; bundle deterministic; root↔docs byte-identical. **UX roadmap 100% implemented** (Phases A–D, D3 deliberately excluded). Remaining project work per ROADMAP.md: Phase 2 corpus completion (Biyanlu 7/100 next), verification round 10, PR to main.

@@ -34,6 +34,7 @@ class StubElement {
   getAttribute() { return null; }
   scrollIntoView() {}
   click() {}
+  getBoundingClientRect() { return { top: 0, left: 0, right: 900, bottom: 0, width: 900, height: 0 }; }
   querySelectorAll(sel) {
     // Parse corpus buttons out of assigned HTML so we can simulate clicks
     if (sel === '.corpus-btn' && this._innerHTML.includes('data-corpus-key')) {
@@ -147,10 +148,19 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
   // stub stores dataset via plain property; app sets dataset.mode — check direct assignment happened
   if (!('mode' in (ids['reader-content-target'].dataset || {}))) failures++; console.log('❌ reader data-mode not set');
 }
-// 4g. Wumenguan renders all 48 cases (regression guard for the 48/48 completion)
+// 4g. Wumenguan lazy rendering: 48 chips in the strip, 12 case cards initially,
+// then loadMoreCases() reveals the rest (Phase D2)
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
-const wmCaseCount = (ids['reader-content-target']._innerHTML.match(/id="case-/g) || []).length;
-if (wmCaseCount < 48) { failures++; console.log(`❌ wumenguan renders only ${wmCaseCount} cases (expected 48)`); }
+const wmStripChips = (ids['reader-content-target']._innerHTML.match(/data-jump-case=/g) || []).length;
+if (wmStripChips !== 48) { failures++; console.log(`❌ case strip has ${wmStripChips} chips (expected 48)`); }
+let wmCaseCount = (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length;
+if (wmCaseCount !== 12) { failures++; console.log(`❌ initial lazy render shows ${wmCaseCount} cases (expected 12)`); }
+if (!ids['reader-content-target']._innerHTML.includes('case-load-more-btn')) { failures++; console.log('❌ load-more button missing'); }
+try { window.TranslateChan.loadMoreCases(); window.TranslateChan.loadMoreCases(); window.TranslateChan.loadMoreCases(); }
+catch (e) { failures++; console.log(`❌ loadMoreCases crashed: ${e.message}`); }
+wmCaseCount = (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length;
+if (wmCaseCount !== 48) { failures++; console.log(`❌ after load-more: ${wmCaseCount} cases (expected 48)`); }
+if (ids['reader-content-target']._innerHTML.includes('case-load-more-btn')) { failures++; console.log('❌ load-more button still present after all cases loaded'); }
 // 4h. Case index strip + collapsible case cards + per-case nav footer (Calm Reader)
 const wmHtml = ids['reader-content-target']._innerHTML;
 if (!wmHtml.includes('case-jump-strip')) { failures++; console.log('❌ case index strip missing'); }

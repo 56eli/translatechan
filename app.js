@@ -43,6 +43,7 @@
     selectedMasterSchool: 'all',
     selectedLexiconCategory: 'all',
     gonganThemeFilter: null,
+    caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
     selectedStudioRefTranslator: 'red_pine',
     personalTranslations: (() => {
       try { return JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}') || {}; }
@@ -622,9 +623,20 @@
 
     if (doc.cases && doc.cases.length > 0) {
       const total = doc.cases.length;
-      doc.cases.forEach((caseItem, i) => {
+      const CASE_CHUNK = 12;
+      const limit = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
+      doc.cases.slice(0, limit).forEach((caseItem, i) => {
         html += renderCaseItem(caseItem, i, total);
       });
+      if (limit < total) {
+        const remaining = total - limit;
+        html += `
+          <div style="text-align: center; margin: 1.5rem 0;">
+            <button id="case-load-more-btn" class="btn-primary" onclick="window.TranslateChan.loadMoreCases()" aria-label="Show more cases">
+              Show more cases — ${limit} of ${total} · +${Math.min(CASE_CHUNK, remaining)}
+            </button>
+          </div>`;
+      }
     }
 
     if (doc.sections && doc.sections.length > 0) {
@@ -1790,6 +1802,18 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     return snip;
   }
 
+  // D1: searchable units are expensive to extract (traversal + string building),
+  // so build the full index ONCE per session and filter cached strings per keystroke.
+  let searchUnitsCache = null;
+  function getSearchUnitsIndex() {
+    if (searchUnitsCache) return searchUnitsCache;
+    searchUnitsCache = {};
+    Object.keys(state.data.corpus || {}).forEach(corpKey => {
+      searchUnitsCache[corpKey] = extractSearchableUnits(state.data.corpus[corpKey], corpKey);
+    });
+    return searchUnitsCache;
+  }
+
   // Global Search Handler — covers every corpus schema, with counts + highlighting
   function handleGlobalSearch() {
     const q = state.searchQuery;
@@ -1810,10 +1834,11 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     let bodyHtml = '';
     const MAX_TOTAL_HITS = 200; // keep results digestible — no wall-of-cards
 
+    const searchIndex = getSearchUnitsIndex();
     Object.keys(state.data.corpus).forEach(corpKey => {
       if (totalHits >= MAX_TOTAL_HITS) return;
       const doc = state.data.corpus[corpKey];
-      const units = extractSearchableUnits(doc, corpKey);
+      const units = searchIndex[corpKey];
       const hits = units.filter(u => u.blob.includes(qLower) || (u.zh && normalizeForSearch(u.zh).includes(qLower)));
       if (hits.length === 0) return;
 
@@ -1847,7 +1872,32 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
   // Global helpers (merge into existing namespace — do NOT overwrite openMasterDossier)
   window.TranslateChan = window.TranslateChan || {};
+  const CASE_CHUNK = 12;
+  function caseTotal() {
+    const d = state.data.corpus && state.data.corpus[state.currentCorpusKey];
+    return d && Array.isArray(d.cases) ? d.cases.length : 0;
+  }
+  function ensureCaseLoaded(num) {
+    const total = caseTotal();
+    const cur = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
+    if (num > cur) {
+      state.caseLimit[state.currentCorpusKey] = Math.min(total, num);
+      renderReader();
+    }
+  }
+  window.TranslateChan.loadMoreCases = function() {
+    const total = caseTotal();
+    const cur = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
+    state.caseLimit[state.currentCorpusKey] = Math.min(total, cur + CASE_CHUNK);
+    // keep the reader roughly in place after re-render
+    const btn = document.getElementById('case-load-more-btn');
+    const y = (btn && typeof btn.getBoundingClientRect === 'function')
+      ? btn.getBoundingClientRect().top + (window.scrollY || 0) : null;
+    renderReader();
+    if (y !== null) window.scrollTo({ top: Math.max(0, y - 96) });
+  };
   window.TranslateChan.scrollToCase = function(caseNum) {
+    ensureCaseLoaded(caseNum);
     expandCase(caseNum);
     setTimeout(() => {
       const el = document.getElementById(`case-${caseNum}`);
