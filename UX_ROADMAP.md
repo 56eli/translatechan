@@ -35,43 +35,43 @@
 
 ## 2. Roadmap (priority-ordered phases)
 
-### Phase A — "Calm Reader" (fixes the overload where users live) · S–M · ~1 session
+### Phase A — "Calm Reader" (fixes the overload where users live) · S–M · ~1 session · ✅ **implemented 2026-08-08** (commit e299187→)
 
-**A1. Case index & jump strip (Wumenguan & any 10+ unit text)** — *fixes P1*
+**A1. Case index & jump strip (Wumenguan & any 10+ unit text)** — *fixes P1* · ✅ done
 - Add a sticky (or header-adjacent) horizontal "case chip" strip: `第1則 … 第48則`, current case highlighted, click → scrollIntoView; plus ‹ Prev / Next › case buttons at the bottom of each case card.
 - Data: derive from `doc.cases` — no schema change. Guard: strip only renders when `cases.length ≥ 10`.
 - Acceptance: from case 1 you can reach case 48 in ≤2 clicks without scrolling; strip collapses to a `⤓` button on <600 px.
 
-**A2. Case cards collapsible** — *fixes P1*
+**A2. Case cards collapsible** — *fixes P1* · ✅ done
 - Each case card gets a header toggle (「− / ＋」): collapsed = title + first dialogue zh only; expanded = full case (commentary, verse, translations). Default: expanded on desktop, **collapsed on mobile** (via CSS `@media (hover: none)`).
 - State remembered in `localStorage` per text.
 - Acceptance: mobile Wumenguan first paint ≈ 1/5 of today's scroll length; one tap expands a case.
 
-**A3. Touch & keyboard tooltips** — *fixes P3*
+**A3. Touch & keyboard tooltips** — *fixes P3* · ✅ done
 - Add `focus`/`tap` activation: `:focus-within`/`:focus-visible` shows the tooltip; on touch, first tap highlights + shows tooltip (CSS-only via `@media (hover:none)` using `:active`-adjacent pattern), tap elsewhere closes.
 - Bonus (S): stop re-annotating — render tooltip content **once per term per view** via a shared `<template>`/hidden glossary panel instead of per-occurrence markup (removes ~200 duplicate nodes in Wumenguan); occurrences become plain highlighted spans that open the shared popover.
 - Acceptance: tooltip reachable via tap and keyboard on every annotated term; Wumenguan DOM node count drops measurably.
 
-**A4. Preference persistence** — *fixes P5*
+**A4. Preference persistence** — *fixes P5* · ✅ done
 - Persist `readerMode`, `currentFontSize`, `currentCorpusKey` (+ later: collapsed states) in `localStorage`; restore on boot.
 - Acceptance: reload keeps mode/font/text; toggle from any device setting works.
 
-**A5. Search debounce + result cap** — *fixes P6*
+**A5. Search debounce + result cap** — *fixes P6* · ✅ done
 - 200 ms debounce on the input event; cap results at 200 total with a "narrow your query" note (per-text cap already 12).
 - Acceptance: typing feels instant on a mid-range phone with the 48-case corpus.
 
-### Phase B — "Mobile-First Navigation" · S–M · ~1 session
+### Phase B — "Mobile-First Navigation" · S–M · ~1 session · ✅ **implemented 2026-08-08**
 
-**B1. Corpus picker instead of stacked sidebar (< 960 px)** — *fixes P4*
+**B1. Corpus picker instead of stacked sidebar (< 960 px)** — *fixes P4* · ✅ done
 - Mobile: the sidebar becomes a single `<select>`-style dropdown (or a collapsible "📚 Canonical Works" button) above the reader; below 960 px the sticky side list is hidden.
 - Desktop unchanged (300 px sticky sidebar is good).
 - Acceptance: on a 375 px phone, switching texts is 1 tap + 1 tap, and the reading surface starts above the fold.
 
-**B2. Mobile reader toolbar** — *fixes P1/P2 on phones*
+**B2. Mobile reader toolbar** — *fixes P1/P2 on phones* · ✅ done
 - Sticky bottom action bar on touch: `[A−][A+][☰ cases][⬆]` (font size, case index, scroll-to-top); reader mode switcher moves into it as a segmented control on <600 px.
 - Acceptance: all reading controls reachable with one thumb; nothing overlaps text (bar is compact, translucent).
 
-**B3. Default reading mode by device** — *fixes P2*
+**B3. Default reading mode by device** — *fixes P2* · ✅ done (1 translation column on narrow screens; pinyin toggleable)
 - `bilingual` remains default, but on touch devices default to 1 translation column (not 2) and hide pinyin until requested (a "show pinyin" toggle), cutting mobile page length ≈ 40 %.
 - Acceptance: Wumenguan case 1 on mobile = zh + 1 column + optional pinyin, no other chrome.
 
@@ -125,8 +125,7 @@
 ## 4. Effort & sequencing
 
 ```
-Session 1 (recommended):  A1 + A2 + A3 + A4 + A5   → "Calm Reader" release
-Session 2:                B1 + B2 + B3              → "Mobile-First" release
+✅ Session 1+2 (2026-08-08): A1–A5 + B1–B3   → "Calm Reader" + "Mobile-First" shipped
 Session 3:                C1 + C2 + C3              → "Deep Polish" release
 Session 4:                C4 + C5                   → "Accessible & Complete"
 Later:                    D1–D4                     → performance/resilience

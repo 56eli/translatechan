@@ -421,3 +421,22 @@ The roadmap's first Phase-2 full-text milestone is **done**: `data/corpus/wumeng
 **Verified tally now**: **119 verified quotation slots across 6 corpus texts + 2 verified matrix rows** (was 79). Wumenguan alone: 60 dialogue slots on the original anchors + 40 new = 100 verified slots, every case carrying the PD baseline.
 
 **Remaining Phase-2 work**: Biyanlu 7/100 → complete (next best ROI; note the Senzaki/Reps PD edition does not cover 碧巖錄, but Sekida's *Two Zen Classics* includes Hekiganroku as a partial substrate), then Congronglu, Chuandenglu, yulu completions. Optional round 10: Yamada/Aitken/Sekida/Blyth registers for the new 37 cases (substrates proven fetchable), scholar-register reconstructions for the new cases, gongan_index expansion to cover all 48 cases.
+
+### 9.5 — UX Phases A+B implemented (same session, 2026-08-08; see UX_ROADMAP.md)
+
+"Calm Reader" (A1–A5) + "Mobile-First" (B1–B3) shipped in one pass:
+
+| Item | What landed |
+|---|---|
+| A1 | Sticky case-index chip strip for texts with ≥10 cases (48 chips on Wumenguan; horizontal scroll on mobile); per-case ‹ prev / ⤒ / next › nav footer; `scrollToCase` expands + scrolls |
+| A2 | Collapsible case cards (`＋/−` toggle, `aria-expanded`); **collapsed by default on touch devices** (except case 1); user choices persisted per text in `localStorage` (`translatechan_collapsed_cases`) |
+| A3 | Tooltip DOM **de-duplicated**: occurrences are lean `<span class="term-highlight" data-term-id>` + `title`; content renders once into a single shared `#term-popover` (JS-positioned, flips near viewport edges). Activation: hover, keyboard focus, tap (toggle), Escape closes. Removes ~200 duplicate tooltip nodes from the 48-case page |
+| A4 | Persisted: reader mode, font size (A−/A+), active corpus, pinyin visibility, collapsed states — all restored on boot |
+| A5 | Search debounced 200 ms + results capped at 200 ("narrow your query" note) |
+| B1 | <960 px: sticky sidebar replaced by a corpus `<select>` picker (populated from the same corpusMap) |
+| B2 | Mobile bottom action bar (`<960px`): A−/A+ · mode segmented (雙語/多譯/漢) · 拼 (pinyin toggle) · 📑 (case strip) · ⬆ (top); sticky, translucent |
+| B3 | Translation grid single-column below 960 px; pinyin optional via 拼 toggle (persisted); `data-show-pinyin` CSS hook |
+
+**Files**: `app.js` (state/persistence, popover, collapse, strip, debounce, mobile bar wiring, corpus picker population), `index.html` (picker + bottom bar), `app.css` (popover, strip, collapse, mobile overrides), `scripts/smoke_test.mjs` (debounce-aware `fireSearch`; new checks 4h strip/toggle/nav, 4i no embedded tooltips, 4j picker populated).
+
+**Verification**: `node --check` clean; smoke test green (36 texts × all modes + 48-case render + strip/toggle/nav/picker/popover-DOM checks); bundle deterministic; root↔docs byte-identical; `diff -rq data docs/data` silent. Remaining UX phases: C1 print stylesheet, C2 hash routing, C3 lineage pan/zoom, C4 a11y pass, C5 studio/index polish, D1–D4 performance.

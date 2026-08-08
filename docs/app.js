@@ -7,11 +7,37 @@
   'use strict';
 
   // Application State
+  const TOUCH_DEVICE = typeof window.matchMedia === 'function' && window.matchMedia('(hover: none)').matches;
+  const READER_MODES = ['bilingual', 'chinese_only', 'multi_translators'];
   const state = {
     data: window.TRANSLATECHAN_DATA || {},
     currentView: 'reader',
-    currentCorpusKey: 'wumenguan',
-    readerMode: 'bilingual', // 'bilingual', 'chinese_only', 'multi_translators'
+    currentCorpusKey: (() => {
+      try {
+        const k = localStorage.getItem('translatechan_corpus_key');
+        return k && window.TRANSLATECHAN_DATA && window.TRANSLATECHAN_DATA.corpus && window.TRANSLATECHAN_DATA.corpus[k] ? k : 'wumenguan';
+      } catch (e) { return 'wumenguan'; }
+    })(),
+    readerMode: (() => {
+      try {
+        const m = localStorage.getItem('translatechan_reader_mode');
+        return READER_MODES.includes(m) ? m : 'bilingual';
+      } catch (e) { return 'bilingual'; }
+    })(),
+    showPinyin: (() => {
+      try { return localStorage.getItem('translatechan_show_pinyin') !== '0'; }
+      catch (e) { return true; }
+    })(),
+    fontSize: (() => {
+      try {
+        const v = parseFloat(localStorage.getItem('translatechan_font_size'));
+        return (v >= 1.0 && v <= 2.2) ? v : 1.35;
+      } catch (e) { return 1.35; }
+    })(),
+    collapsedCases: (() => {
+      try { return JSON.parse(localStorage.getItem('translatechan_collapsed_cases') || '{}') || {}; }
+      catch (e) { return {}; }
+    })(),
     theme: localStorage.getItem('translatechan_theme') || 'light',
     searchQuery: '',
     selectedMasterSchool: 'all',
@@ -65,7 +91,9 @@
   // Initialize
   function init() {
     applyTheme(state.theme);
+    document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
     setupEventListeners();
+    applyPinyinVisibility();
     renderCorpusList();
     renderReader();
     renderMatrix();
@@ -73,6 +101,117 @@
     renderGonganIndex();
     renderLexicon();
     setupStudio();
+    setActiveModeButtons();
+  }
+
+  // Reader mode switching (shared by sidebar + mobile bar, persisted)
+  function setReaderMode(mode) {
+    if (!READER_MODES.includes(mode)) return;
+    state.readerMode = mode;
+    try { localStorage.setItem('translatechan_reader_mode', mode); } catch (e) { /* ignore */ }
+    setActiveModeButtons();
+    renderReader();
+  }
+
+  function setActiveModeButtons() {
+    document.querySelectorAll('[data-reader-mode]').forEach(b => {
+      const on = b.getAttribute('data-reader-mode') === state.readerMode;
+      if (on) b.classList.add('active'); else b.classList.remove('active');
+    });
+  }
+
+  // Pinyin visibility (mobile-friendly; desktop default on)
+  function applyPinyinVisibility() {
+    if (!elements.readerContent) return;
+    elements.readerContent.dataset.showPinyin = state.showPinyin ? '1' : '0';
+    const btn = document.getElementById('mobile-pinyin-btn');
+    if (btn) { state.showPinyin ? btn.classList.add('active') : btn.classList.remove('active'); }
+  }
+
+  // ---- Shared glossary popover (one node, positioned; hover/focus/tap) ----
+  let termPopoverEl = null;
+  function getTermPopover() {
+    if (!termPopoverEl) {
+      termPopoverEl = document.createElement('div');
+      termPopoverEl.id = 'term-popover';
+      termPopoverEl.className = 'term-popover';
+      termPopoverEl.style.display = 'none';
+      document.body.appendChild(termPopoverEl);
+    }
+    return termPopoverEl;
+  }
+  function termById(id) {
+    const list = state.data.glossary || [];
+    return list.find(t => t && t.id === id) || null;
+  }
+  function showTermPopover(termSpan) {
+    if (!termSpan || typeof termSpan.getBoundingClientRect !== 'function') return;
+    const t = termById(termSpan.getAttribute('data-term-id'));
+    if (!t) return;
+    const pop = getTermPopover();
+    pop.innerHTML =
+      `<div class="tooltip-term-title">${t.term} (${t.pinyin || '—'})</div>` +
+      `<div class="tooltip-sanskrit">Sanskrit: ${t.sanskrit || '—'}</div>` +
+      `<div class="tooltip-row"><strong>Literal:</strong> ${t.literal || ''}</div>` +
+      `<div class="tooltip-row">${t.definition || ''}</div>`;
+    const rect = termSpan.getBoundingClientRect();
+    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
+    const popW = 290;
+    let left = Math.min(rect.left, vw - popW - 8);
+    if (left < 8) left = 8;
+    pop.style.left = `${left}px`;
+    pop.style.top = `${rect.bottom + 8}px`;
+    if (pop.style.top && rect.bottom + 8 + 160 > (window.innerHeight || 800)) {
+      pop.style.top = `${Math.max(8, rect.top - 8 - 150)}px`; // flip above
+    }
+    pop.style.display = 'block';
+  }
+  function hideTermPopover() {
+    if (termPopoverEl) termPopoverEl.style.display = 'none';
+  }
+  function toggleTermPopover(termSpan) {
+    if (termPopoverEl && termPopoverEl.style.display === 'block' &&
+        termPopoverEl._anchor === termSpan) {
+      hideTermPopover();
+      return;
+    }
+    showTermPopover(termSpan);
+    if (termPopoverEl) termPopoverEl._anchor = termSpan;
+  }
+
+  // ---- Collapsible case cards (touch defaults to collapsed) ----
+  // collapsedCases[corpusKey] = { caseNum: true|false } — explicit user choices
+  // only; unlisted cases fall back to the device default (collapsed on touch).
+  function caseCollapsedKey() { return state.currentCorpusKey; }
+  function caseCollapsedState(num, fallback) {
+    const m = state.collapsedCases[caseCollapsedKey()];
+    return (m && typeof m === 'object' && num in m) ? !!m[num] : !!fallback;
+  }
+  function setCaseCollapsed(num, collapsed) {
+    const key = caseCollapsedKey();
+    let m = state.collapsedCases[key];
+    if (!m || typeof m !== 'object') m = {};
+    m[num] = !!collapsed;
+    state.collapsedCases[key] = m;
+    try { localStorage.setItem('translatechan_collapsed_cases', JSON.stringify(state.collapsedCases)); } catch (e) { /* ignore */ }
+  }
+  function toggleCase(toggleBtn) {
+    const card = toggleBtn.closest ? toggleBtn.closest('.case-card') : null;
+    if (!card) return;
+    const num = parseInt(toggleBtn.getAttribute('data-case-toggle'), 10);
+    const collapsed = !card.classList.contains('collapsed');
+    card.classList.toggle('collapsed', collapsed);
+    toggleBtn.textContent = collapsed ? '＋' : '−';
+    toggleBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    if (!Number.isNaN(num)) setCaseCollapsed(num, collapsed);
+  }
+  function expandCase(num) {
+    const el = document.getElementById(`case-${num}`);
+    if (!el) return;
+    el.classList.remove('collapsed');
+    const toggle = el.querySelector('.case-toggle');
+    if (toggle) { toggle.textContent = '−'; toggle.setAttribute('aria-expanded', 'true'); }
+    if (!Number.isNaN(num)) setCaseCollapsed(num, false);
   }
 
   // Theme Management
@@ -102,40 +241,91 @@
 
     elements.readerModeButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        elements.readerModeButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        state.readerMode = btn.getAttribute('data-reader-mode');
-        renderReader();
+        setReaderMode(btn.getAttribute('data-reader-mode'));
       });
     });
 
     if (elements.globalSearch) {
+      let searchTimer = null;
       elements.globalSearch.addEventListener('input', (e) => {
         state.searchQuery = e.target.value.trim().toLowerCase();
-        handleGlobalSearch();
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(handleGlobalSearch, 200); // debounce: full-corpus walk per keystroke is heavy
       });
     }
 
-    // Reading font size adjusters
+    // Reading font size adjusters (persisted)
     const fontIncBtn = document.getElementById('font-size-inc-btn');
     const fontDecBtn = document.getElementById('font-size-dec-btn');
-    let currentFontSize = 1.35;
+    const fontIncBtnMobile = document.getElementById('mobile-font-inc-btn');
+    const fontDecBtnMobile = document.getElementById('mobile-font-dec-btn');
 
-    if (fontIncBtn && fontDecBtn) {
-      fontIncBtn.addEventListener('click', () => {
-        if (currentFontSize < 2.2) {
-          currentFontSize += 0.15;
-          document.documentElement.style.setProperty('--zh-font-size', `${currentFontSize}rem`);
-        }
-      });
-      fontDecBtn.addEventListener('click', () => {
-        if (currentFontSize > 1.0) {
-          currentFontSize -= 0.15;
-          document.documentElement.style.setProperty('--zh-font-size', `${currentFontSize}rem`);
-        }
+    function changeFontSize(delta) {
+      const next = Math.min(2.2, Math.max(1.0, Math.round((state.fontSize + delta) * 100) / 100));
+      if (next === state.fontSize) return;
+      state.fontSize = next;
+      document.documentElement.style.setProperty('--zh-font-size', `${next}rem`);
+      try { localStorage.setItem('translatechan_font_size', String(next)); } catch (e) { /* private mode */ }
+    }
+    if (fontIncBtn) fontIncBtn.addEventListener('click', () => changeFontSize(0.15));
+    if (fontDecBtn) fontDecBtn.addEventListener('click', () => changeFontSize(-0.15));
+    if (fontIncBtnMobile) fontIncBtnMobile.addEventListener('click', () => changeFontSize(0.15));
+    if (fontDecBtnMobile) fontDecBtnMobile.addEventListener('click', () => changeFontSize(-0.15));
+
+    // Mobile corpus picker
+    const mobileCorpusSelect = document.getElementById('corpus-mobile-select');
+    if (mobileCorpusSelect) {
+      mobileCorpusSelect.addEventListener('change', (e) => {
+        state.currentCorpusKey = e.target.value;
+        renderCorpusList();
+        renderReader();
       });
     }
 
+    // Mobile bottom-bar: case index, scroll to top, pinyin toggle
+    const mobileCasesBtn = document.getElementById('mobile-cases-btn');
+    if (mobileCasesBtn) {
+      mobileCasesBtn.addEventListener('click', () => {
+        const strip = document.getElementById('case-jump-strip');
+        if (strip) strip.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+    const mobileTopBtn = document.getElementById('mobile-top-btn');
+    if (mobileTopBtn) mobileTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const mobilePinyinBtn = document.getElementById('mobile-pinyin-btn');
+    if (mobilePinyinBtn) {
+      mobilePinyinBtn.addEventListener('click', () => {
+        state.showPinyin = !state.showPinyin;
+        try { localStorage.setItem('translatechan_show_pinyin', state.showPinyin ? '1' : '0'); } catch (e) { /* ignore */ }
+        applyPinyinVisibility();
+      });
+    }
+
+    // Shared glossary popover (hover / focus / tap) — delegated
+    const readerRoot = elements.readerContent;
+    if (readerRoot) {
+      readerRoot.addEventListener('mouseover', (e) => {
+        const t = e.target.closest ? e.target.closest('.term-highlight') : null;
+        if (t) showTermPopover(t);
+      });
+      readerRoot.addEventListener('mouseout', (e) => {
+        const t = e.target.closest ? e.target.closest('.term-highlight') : null;
+        if (t && !t.contains(e.relatedTarget)) hideTermPopover();
+      });
+      readerRoot.addEventListener('click', (e) => {
+        const t = e.target.closest ? e.target.closest('.term-highlight') : null;
+        if (t) { e.preventDefault(); toggleTermPopover(t); return; }
+        const toggle = e.target.closest ? e.target.closest('.case-toggle') : null;
+        if (toggle) { toggleCase(toggle); return; }
+        hideTermPopover();
+      });
+      readerRoot.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') hideTermPopover();
+      });
+    }
+
+    // Lineage school filter
     if (elements.lineageFilter) {
       elements.lineageFilter.addEventListener('change', (e) => {
         state.selectedMasterSchool = e.target.value;
@@ -187,10 +377,13 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Annotate text with glossary tooltips (single-pass: no nested/duplicated highlights)
+  // Annotate text with glossary markers (single-pass, no nested highlights).
+  // Tooltip CONTENT is emitted ONCE into a shared popover on demand (see
+  // showTermPopover) — occurrence spans carry only `data-term-id`, which keeps
+  // the DOM lean (previously every 無 occurrence inlined the full definition).
   function annotateClassicalChinese(text) {
     if (!text || !state.data.glossary || !Array.isArray(state.data.glossary)) return text;
-    const terms = state.data.glossary.filter(t => t && t.term && text.includes(t.term));
+    const terms = state.data.glossary.filter(t => t && t.term && t.id && text.includes(t.term));
     if (terms.length === 0) return text;
 
     // Collect every match span of every term, longest terms winning overlaps
@@ -211,12 +404,8 @@
       if (m.start < pos) return; // skip overlaps with an already-emitted longer/earlier match
       const t = m.termObj;
       out += text.slice(pos, m.start);
-      out += `<span class="term-highlight">${t.term}<span class="term-tooltip">` +
-             `<span class="tooltip-term-title">${t.term} (${t.pinyin || '—'})</span>` +
-             `<span class="tooltip-sanskrit">Sanskrit: ${t.sanskrit || '—'}</span>` +
-             `<span class="tooltip-row"><strong>Literal:</strong> ${t.literal || ''}</span>` +
-             `<span class="tooltip-row" style="margin-top: 0.35rem;">${t.definition || ''}</span>` +
-             `</span></span>`;
+      out += `<span class="term-highlight" data-term-id="${t.id}" tabindex="0" ` +
+             `title="${(t.term) + ' — ' + (t.literal || '')}">${t.term}</span>`;
       pos = m.end;
     });
     out += text.slice(pos);
@@ -279,17 +468,34 @@
         renderReader();
       });
     });
+
+    // Mobile corpus picker mirrors the sidebar list (hidden on desktop)
+    const mobileSelect = document.getElementById('corpus-mobile-select');
+    if (mobileSelect) {
+      mobileSelect.innerHTML = corpusMap.map(c => `
+        <option value="${c.key}" ${c.key === state.currentCorpusKey ? 'selected' : ''}>${c.title} — ${c.cbeta}</option>
+      `).join('');
+    }
   }
 
   // Render Reader View
   function renderReader() {
     if (!elements.readerContent || !state.data.corpus) return;
     elements.readerContent.dataset.mode = state.readerMode; // drives chinese_only CSS hiding of pinyin/translations
+    applyPinyinVisibility(); // dataset.showPinyin drives mobile pinyin hiding
     const doc = state.data.corpus[state.currentCorpusKey];
     if (!doc) {
       elements.readerContent.innerHTML = '<p>Corpus document loading...</p>';
       return;
     }
+
+    // Case index strip for long case-based texts (e.g. Wumenguan 48/48)
+    const caseStrip = (Array.isArray(doc.cases) && doc.cases.length >= 10)
+      ? `<div class="case-jump-strip" id="case-jump-strip" aria-label="Case index">
+           <span class="case-strip-label">📑 則 / Case</span>
+           ${doc.cases.map(c => `<button class="case-chip" data-jump-case="${c.case_num}" title="第${c.case_num}則 ${c.title_zh || ''}" onclick="window.TranslateChan.scrollToCase(${c.case_num})">${c.case_num}</button>`).join('')}
+         </div>`
+      : '';
 
     let html = `
       <div class="text-header">
@@ -302,6 +508,7 @@
           <span class="meta-chip">🏷️ Genre: ${doc.genre || ''}</span>
         </div>
       </div>
+      ${caseStrip}
     `;
 
     // Render Preface if exists
@@ -361,8 +568,9 @@
     }
 
     if (doc.cases && doc.cases.length > 0) {
-      doc.cases.forEach(caseItem => {
-        html += renderCaseItem(caseItem);
+      const total = doc.cases.length;
+      doc.cases.forEach((caseItem, i) => {
+        html += renderCaseItem(caseItem, i, total);
       });
     }
 
@@ -468,7 +676,7 @@
     elements.readerContent.innerHTML = html;
   }
 
-  function renderCaseItem(caseItem) {
+  function renderCaseItem(caseItem, idx, total) {
     let dialoguesHtml = '';
     if (caseItem.dialogue) {
       dialoguesHtml = caseItem.dialogue.map(d => `
@@ -481,12 +689,26 @@
       `).join('');
     }
 
+    // Collapse by default on touch devices (except the first case), honoring saved state
+    const defaultCollapsed = TOUCH_DEVICE && idx > 0;
+    const collapsed = caseCollapsedState(caseItem.case_num, defaultCollapsed);
+    const navFooter = (typeof idx === 'number' && typeof total === 'number' && total > 1) ? `
+      <div class="case-nav-footer">
+        ${idx > 0 ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num - 1})">‹ 第${caseItem.case_num - 1}則</button>` : '<span></span>'}
+        <button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num})">⤒ 本則</button>
+        ${idx < total - 1 ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num + 1})">第${caseItem.case_num + 1}則 ›</button>` : '<span></span>'}
+      </div>` : '';
+
     return `
-      <div class="case-card" id="case-${caseItem.case_num}">
+      <div class="case-card ${collapsed ? 'collapsed' : ''}" id="case-${caseItem.case_num}">
         <div class="case-header">
           <span class="case-num-title">第 ${caseItem.case_num} 則：${caseItem.title_zh}</span>
-          <span class="case-speaker">${caseItem.title_en}</span>
+          <span style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+            <span class="case-speaker">${caseItem.title_en}</span>
+            <button class="case-toggle" data-case-toggle="${caseItem.case_num}" aria-expanded="${collapsed ? 'false' : 'true'}" aria-label="${collapsed ? 'Expand' : 'Collapse'} case ${caseItem.case_num}" title="${collapsed ? 'Expand' : 'Collapse'} case">${collapsed ? '＋' : '−'}</button>
+          </span>
         </div>
+        <div class="case-body">
         ${caseItem.pointer_zh ? `
           <div class="commentary-block" style="background: var(--bg-card); border-left-color: var(--accent-blue); margin-bottom: 1rem;">
             <div class="commentary-label" style="color: var(--accent-blue);">垂示 / Pointer</div>
@@ -513,6 +735,8 @@
             ${caseItem.verse_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
           </div>
         ` : ''}
+        </div>
+        ${navFooter}
       </div>
     `;
   }
@@ -1390,8 +1614,10 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     let totalHits = 0;
     const perDocHits = {};
     let bodyHtml = '';
+    const MAX_TOTAL_HITS = 200; // keep results digestible — no wall-of-cards
 
     Object.keys(state.data.corpus).forEach(corpKey => {
+      if (totalHits >= MAX_TOTAL_HITS) return;
       const doc = state.data.corpus[corpKey];
       const units = extractSearchableUnits(doc, corpKey);
       const hits = units.filter(u => u.blob.includes(qLower) || (u.zh && normalizeForSearch(u.zh).includes(qLower)));
@@ -1417,7 +1643,8 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
       }
     });
 
-    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div></div>`;
+    const capped = totalHits >= MAX_TOTAL_HITS ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">… results capped at ${MAX_TOTAL_HITS} — narrow your query for more.</div>` : '';
+    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div>${capped}</div>`;
 
     elements.readerContent.innerHTML = totalHits === 0
       ? headerHtml + `<div class="case-card"><p>No matches found for "${q}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`
@@ -1426,16 +1653,20 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
   // Global helpers (merge into existing namespace — do NOT overwrite openMasterDossier)
   window.TranslateChan = window.TranslateChan || {};
+  window.TranslateChan.scrollToCase = function(caseNum) {
+    expandCase(caseNum);
+    setTimeout(() => {
+      const el = document.getElementById(`case-${caseNum}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  };
   window.TranslateChan.openCase = function(corpusKey, caseNum) {
     state.currentCorpusKey = corpusKey;
     state.searchQuery = '';
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();
     renderReader();
-    setTimeout(() => {
-      const el = document.getElementById(`case-${caseNum}`);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+    window.TranslateChan.scrollToCase(caseNum);
   };
   window.TranslateChan.openDoc = function(corpusKey) {
     state.currentCorpusKey = corpusKey;

@@ -98,10 +98,15 @@ for (const h of modeHandlers) {
   try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute()} crash: ${e.message}`); }
 }
 
-// 3. Exercise global search with several queries
+// 3. Exercise global search with several queries (search is debounced ~200ms — await it)
 const searchEl = ids['global-search'];
+const sleep = ms => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+const fireSearch = (q) => {
+  (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } }));
+  sleep(260);
+};
 for (const q of ['dog', '無', 'buddha', '平常心', 'xyz-not-found']) {
-  try { (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } })); }
+  try { fireSearch(q); }
   catch (e) { failures++; console.log(`  ❌ search crash for "${q}": ${e.message}`); }
 }
 
@@ -121,7 +126,7 @@ const schemaQueries = [
 ];
 for (const [q, label] of schemaQueries) {
   try {
-    (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } }));
+    fireSearch(q);
     const html = ids['reader-content-target']._innerHTML;
     if (html.includes('No matches found')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
   } catch (e) { failures++; console.log(`❌ full-schema search crash "${q}": ${e.message}`); }
@@ -142,19 +147,29 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const wmCaseCount = (ids['reader-content-target']._innerHTML.match(/id="case-/g) || []).length;
 if (wmCaseCount < 48) { failures++; console.log(`❌ wumenguan renders only ${wmCaseCount} cases (expected 48)`); }
+// 4h. Case index strip + collapsible case cards + per-case nav footer (Calm Reader)
+const wmHtml = ids['reader-content-target']._innerHTML;
+if (!wmHtml.includes('case-jump-strip')) { failures++; console.log('❌ case index strip missing'); }
+if (!wmHtml.includes('case-toggle')) { failures++; console.log('❌ case collapse toggle missing'); }
+if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case prev/next nav missing'); }
+// 4i. Tooltip DOM is de-duplicated: no embedded .term-tooltip nodes remain in reader output
+if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded tooltip markup still emitted (de-dup regression)'); }
+// 4j. Mobile corpus picker is populated (mirrors the sidebar)
+const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
+if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }
 // 4e. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
-  (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } }));
+  fireSearch(q);
   const html = ids['reader-content-target']._innerHTML;
   if (html.includes('No matches found')) { failures++; console.log(`❌ variant search missed results for "${q}"`); }
 }
 // 4f. Search query must be HTML-escaped (self-XSS guard)
-(searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: '<b>x' } }));
+fireSearch('<b>x');
 const searchHtml = ids['reader-content-target']._innerHTML;
 if (searchHtml.includes('<b>x') && !searchHtml.includes('&lt;b&gt;x')) { failures++; console.log('❌ search query not escaped'); }
 if (searchHtml.includes('<mark><b>')) { failures++; console.log('❌ search mark injection'); }
 // clear search
-(searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
+fireSearch('');
 
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();

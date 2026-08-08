@@ -99,6 +99,10 @@
 
     <!-- View 1: Bilingual Reader -->
     <section id="view-reader" class="view-section active">
+      <!-- Mobile corpus picker (sidebar is hidden below 960px) -->
+      <div class="mobile-corpus-picker">
+        <select id="corpus-mobile-select" class="search-input" aria-label="Select canonical text"></select>
+      </div>
       <div class="reader-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar-panel">
@@ -374,6 +378,20 @@
       </div>
     </section>
   </main>
+
+  <!-- Mobile bottom action bar (touch devices / narrow screens) -->
+  <div class="mobile-action-bar" role="toolbar" aria-label="Reading controls">
+    <button id="mobile-font-dec-btn" class="btn-pill" aria-label="Decrease Chinese font size">A−</button>
+    <button id="mobile-font-inc-btn" class="btn-pill" aria-label="Increase Chinese font size">A+</button>
+    <span class="mobile-bar-divider"></span>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode">📖 雙語</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode">⚖️ 多譯</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode">漢</button>
+    <span class="mobile-bar-divider"></span>
+    <button id="mobile-pinyin-btn" class="btn-pill active" aria-label="Toggle pinyin display" title="Show/hide pinyin">拼</button>
+    <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">📑</button>
+    <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">⬆</button>
+  </div>
 
   <footer>
     <div class="footer-quote">「不立文字，教外別傳；直指人心，見性成佛。」</div>
