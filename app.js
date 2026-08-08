@@ -453,6 +453,7 @@
 
   function formatTranslatorName(key) {
     const map = {
+      red_pine: 'Red Pine (Bill Porter)',
       cleary: 'Thomas Cleary',
       sasaki: 'Ruth Fuller Sasaki',
       suzuki: 'D.T. Suzuki',

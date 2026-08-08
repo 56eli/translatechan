@@ -13,7 +13,7 @@
 
 **TranslateChan** is an open-source, scholarly, and computational initiative created to:
 1. **Source and Ingest** the complete classical Chinese Chan (Zen) literature of the ancient masters (*唐宋諸祖語錄與傳燈公案文獻*), referencing canonical CBETA / Taishō Tripiṭaka volumes (T47, T48, T51, and the Zokuzōkyō).
-2. **Provide Multi-Translator Comparative Alignment** side-by-side, analyzing historical renderings (Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky) alongside AI-assisted hermeneutic synthesis.
+2. **Provide Multi-Translator Comparative Alignment** side-by-side, analyzing historical renderings (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky) alongside AI-assisted hermeneutic synthesis.
 3. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
 4. **Deploy a Zero-Backend GitHub Pages Web Studio** featuring an interactive bilingual reader, hover lexicon tooltips, comparative translation matrix, Gong'an index, and a personal translation & annotation studio.
 
@@ -133,7 +133,7 @@ This project is configured for 1-click zero-config deployment to GitHub Pages vi
 ## 📜 Canonical References & Acknowledgments
 
 - **CBETA (Chinese Buddhist Electronic Text Association)**: *Taishō Shinshū Daizōkyō* (大正新脩大藏經) & *Shinsan Dainihon Zokuzōkyō* (卍新纂大日本續藏經).
-- **Historical Translators**: Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky.
+- **Historical Translators**: Red Pine (Bill Porter), Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky.
 
 ---
 

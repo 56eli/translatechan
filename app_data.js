@@ -676,6 +676,13 @@ window.TRANSLATECHAN_DATA = {
           "notes": "Direct negative, focusing on cutting off the discursive question."
         },
         {
+          "translator": "Red Pine (Bill Porter)",
+          "work": "The Zen Works & Translations",
+          "style": "Hermit Hermeneutic & Vernacular Precision",
+          "text": "Does a dog have Buddha-nature or not? Zhaozhou said: 'Wu!'",
+          "notes": "Preserves Chinese 'Wu' while noting its function as a diamond sword severing duality."
+        },
+        {
           "translator": "Ruth Fuller Sasaki",
           "work": "The Record of Linji & Zen Commentary",
           "style": "Traditional Rinzai Scholarly",
@@ -719,6 +726,13 @@ window.TRANSLATECHAN_DATA = {
       "sentence_pinyin": "Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.",
       "translators": [
         {
+          "translator": "Red Pine (Bill Porter)",
+          "work": "The Zen Teaching of Bodhidharma & Early Masters",
+          "style": "Lyrical & Idiomatic Fidelity",
+          "text": "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
+          "notes": "Renders 洞然明白 as 'opens wide and clear', emphasizing the spatial awakening."
+        },
+        {
           "translator": "Thomas Cleary",
           "work": "Zen Essence",
           "style": "Direct Tao-Chan Precision",
@@ -755,6 +769,13 @@ window.TRANSLATECHAN_DATA = {
       "sentence_pinyin": "Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!",
       "translators": [
         {
+          "translator": "Red Pine (Bill Porter)",
+          "work": "The Zen Teaching of the Ancestors",
+          "style": "Direct Vernacular",
+          "text": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
+          "notes": "Translates 面門 as 'gates of your face' and 無位真人 as 'True Person without rank'."
+        },
+        {
           "translator": "Ruth Fuller Sasaki",
           "work": "The Record of Linji (2009)",
           "style": "Scholarly Definite Edition",
@@ -783,6 +804,13 @@ window.TRANSLATECHAN_DATA = {
       "sentence_zh": "菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。",
       "sentence_pinyin": "Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén'āi.",
       "translators": [
+        {
+          "translator": "Red Pine (Bill Porter)",
+          "work": "The Platform Sutra: The Zen Teaching of Hui-neng (2006)",
+          "style": "Philological Poet & Folk Cadence",
+          "text": "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
+          "notes": "Red Pine's celebrated translation highlighting Dunhuang vs. Dexin woodblock variations."
+        },
         {
           "translator": "Philip Yampolsky",
           "work": "The Platform Sutra of the Sixth Patriarch (1967)",
@@ -1438,6 +1466,7 @@ window.TRANSLATECHAN_DATA = {
           "zh": "至道無難，唯嫌揀擇。但莫憎愛，洞然明白。",
           "pinyin": "Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.",
           "translations": {
+            "red_pine": "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
             "cleary": "The Great Way is not difficult, it only avoids picking and choosing. Just do not love or hate, and it is clearly evident.",
             "suzuki": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
             "blyth": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
@@ -1450,6 +1479,7 @@ window.TRANSLATECHAN_DATA = {
           "zh": "毫釐有差，天地懸隔。欲得現前，莫存順逆。",
           "pinyin": "Háo lí yǒu chā, tiān dì xuán gé. Yù dé xiàn qián, mò cún shùn nì.",
           "translations": {
+            "red_pine": "A hair's breadth off, heaven and earth are set apart. If you want it to appear, don't hold on to for or against.",
             "cleary": "A hair's breadth difference is as the distance between heaven and earth. If you want it to appear before you, do not keep conformity and aversion.",
             "suzuki": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth, then hold no opinions for or against anything.",
             "blyth": "To set up what you like against what you dislike is the disease of the mind. A hair's breadth divergence separates heaven and earth.",
@@ -1462,6 +1492,7 @@ window.TRANSLATECHAN_DATA = {
           "zh": "違順相爭，是為心病。不生留情，本來平坦。",
           "pinyin": "Wéi shùn xiāng zhēng, shì wéi xīn bìng. Bù shēng liú qíng, běn lái píng tǎn.",
           "translations": {
+            "red_pine": "The battle between for and against is the mind's disease. Not harboring emotional bias, all is naturally smooth and level.",
             "cleary": "The struggle between opposition and agreement is the disease of the mind. When you do not generate clinging feelings, it is fundamentally level and smooth.",
             "suzuki": "To set up what you like against what you dislike is the disease of the mind. When the deep meaning of things is not understood, the mind's essential peace is disturbed.",
             "sasaki": "The conflict between agreeable and disagreeable is the sickness of the mind. Without lingering emotional attachment, everything is inherently open and level.",
@@ -1473,6 +1504,7 @@ window.TRANSLATECHAN_DATA = {
           "zh": "圓同太虛，無欠無餘。良由取捨，所以不如。",
           "pinyin": "Yuán tóng tài xū, wú qiàn wú yú. Liáng yóu qǔ shě, suǒ yǐ bù rú.",
           "translations": {
+            "red_pine": "Perfect as the great void, lacking nothing, with nothing extra. Truly because we choose and reject, we are not in accord with Suchness.",
             "cleary": "Round like great space, without lack, without excess. Truly because of taking and rejecting, you are therefore not in suchness.",
             "suzuki": "The Way is perfect like vast space where nothing is lacking and nothing is in excess. Indeed, it is due to our choosing to accept or reject that we do not see the true nature of things.",
             "sasaki": "Completely round like great empty space, lacking nothing, with nothing extra. Simply because of grasping and rejecting, one fails to be in accord with Suchness.",
@@ -1484,6 +1516,7 @@ window.TRANSLATECHAN_DATA = {
           "zh": "莫逐有緣，勿住空忍。一種平懷，泯然自盡。",
           "pinyin": "Mò zhú yǒu yuán, wù zhù kōng rěn. Yī zhǒng píng huái, mǐn rán zì jìn.",
           "translations": {
+            "red_pine": "Don't pursue conditions of existence, don't dwell in empty patience. In unified equanimity, confusion vanishes by itself.",
             "cleary": "Do not pursue conditioned existence, do not dwell in forbearance of emptiness. With a unified, even heart, all distinctions dissolve by themselves.",
             "suzuki": "Live neither in the entanglements of outer things, nor in inner feelings of emptiness. Be serene in the oneness of things and all erroneous dualisms will vanish of themselves.",
             "sasaki": "Do not chase after external conditions, do not abide in passive emptiness. Resting in uniform equanimity, dualistic confusion naturally extinguishes itself.",
@@ -1495,6 +1528,7 @@ window.TRANSLATECHAN_DATA = {
           "zh": "宗非促延，一念萬年。無在不在，十方目前。",
           "pinyin": "Zōng fēi cù yán, yī niàn wàn nián. Wú zài bù zài, shí fāng mù qián.",
           "translations": {
+            "red_pine": "The fundamental truth is not short or long: a single thought is ten thousand years. Not bound to presence or absence, the ten directions are before your eyes.",
             "cleary": "The source is neither hurried nor extended: a single thought is ten thousand years. Not bound to presence or absence, the ten directions are right before your eyes.",
             "suzuki": "One thought lasts for ten thousand years. What is here is nowhere else, what is not here is everywhere; the ten directions are right before your eyes.",
             "sasaki": "The fundamental truth is beyond short or long: one instant is ten thousand years. Neither existing nor non-existing, the ten directions are right in front of your eyes.",
@@ -1506,6 +1540,7 @@ window.TRANSLATECHAN_DATA = {
           "zh": "信心不二，不二信心。言語道斷，非去來今。",
           "pinyin": "Xìnxīn bù èr, bù èr xìnxīn. Yányǔ dào duàn, fēi qù lái jīn.",
           "translations": {
+            "red_pine": "Trust in Mind is not two; not two is Trust in Mind. The path of words is cut off: it is not of past, future, or now.",
             "cleary": "Faith in mind is non-dual; non-dual is faith in mind. The path of words and language is cut off: it is not of the past, future, or present.",
             "suzuki": "Trust in Mind is not dual; non-dual is Trust in Mind. Words! Words! The Way is beyond language, for in it there is no yesterday, no tomorrow, no today.",
             "sasaki": "Faith and Mind are not two; non-dual is the faithful Mind. The way of speech is cut off: it belongs neither to past, future, nor now.",
@@ -1706,6 +1741,7 @@ window.TRANSLATECHAN_DATA = {
               "zh": "身是菩提樹，心如明鏡臺。時時勤拂拭，勿使惹塵埃。",
               "pinyin": "Shēn shì pútí shù, xīn rú míngjìng tái. Shíshí qín fúshì, wù shǐ rě chén'āi.",
               "translations": {
+                "red_pine": "The body is a Bodhi tree, the mind is a mirror bright. Carefully we wipe them hour by hour, and let no dust alight.",
                 "cleary": "The body is the bodhi tree, the mind is like a clear mirror stand. Constantly wipe and polish it diligently, do not let dust gather on it.",
                 "suzuki": "The body is the Bodhi tree, the mind is like a clear mirror stand. At all times diligently wipe it, and let no dust alight.",
                 "yampolsky": "The body is the Bodhi tree, the mind like a clear mirror stand. Time and again brush it clean, and let no dust alight.",
@@ -1717,6 +1753,7 @@ window.TRANSLATECHAN_DATA = {
               "zh": "菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。",
               "pinyin": "Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén'āi.",
               "translations": {
+                "red_pine": "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
                 "cleary": "Bodhi fundamentally has no tree, nor is the clear mirror a stand. Originally there is not a single thing; where could dust gather?",
                 "suzuki": "Bodhi originally has no tree in it, nor has the mind-mirror any stand in it; originally there is not a single thing: Where can any dust gather?",
                 "yampolsky": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust gather?",
@@ -1736,9 +1773,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「善知識！我此法門，以定慧為本。大眾勿迷，言定慧別。定慧一體，不是二。定是慧體，慧是定用。即慧之時定在慧，即定之時慧在定。」",
               "pinyin": "Shī shì zhòng yún: 'Shànzhīshi! Wǒ cǐ fǎmén, yǐ dìng huì wéi běn. Dàzhòng wù mí, yán dìng huì bié. Dìng huì yītǐ, bù shì èr. Dìng shì huì tǐ, huì shì dìng yòng. Jí huì zhī shí dìng zài huì, jí dìng zhī shí huì zài dìng.'",
               "translations": {
-                "cleary": "The Master addressed the assembly: 'Good friends! This teaching of mine takes meditation (samadhi) and wisdom (prajna) as its foundation. Do not be confused and claim meditation and wisdom are different. Meditation and wisdom are one body, not two. Meditation is the substance of wisdom; wisdom is the function of meditation. At the very moment of wisdom, meditation is within wisdom; at the very moment of meditation, wisdom is within meditation.'",
+                "red_pine": "The Master told the assembly: 'Good friends, in this dharma door of mine, meditation and wisdom are fundamental. Do not mistakenly think they are separate. Meditation and wisdom are one essence, not two. Meditation is the body of wisdom, wisdom is the function of meditation.'",
+                "cleary": "The Master addressed the assembly: 'Good friends! This teaching of mine takes meditation (samadhi) and wisdom (prajna) as its foundation. Do not be confused and claim meditation and wisdom are different. Meditation and wisdom are one body, not two. Meditation is the substance of wisdom; wisdom is the function of meditation.'",
                 "yampolsky": "Good friends, my teaching takes samadhi and prajna as its basis. Do not say under any circumstances that samadhi and prajna are different. Samadhi and prajna are one essence, not two. Samadhi is the substance of prajna, prajna is the function of samadhi.",
-                "suzuki": "Good friends, in my system of Dharma, Dhyana and Prajna are of one essence. Dhyana is the body of Prajna, Prajna is the function of Dhyana. When Prajna functions, Dhyana is right in it; when Dhyana operates, Prajna is right in it."
+                "suzuki": "Good friends, in my system of Dharma, Dhyana and Prajna are of one essence. Dhyana is the body of Prajna, Prajna is the function of Dhyana."
               }
             }
           ]

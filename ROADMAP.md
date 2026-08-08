@@ -80,6 +80,7 @@ This document outlines the detailed engineering, data science, translation, and 
 - [x] **Multi-Translator Alignment**:
   - Sentence-by-sentence alignment format storing historical translations side-by-side with source Chinese.
   - Integrated historical translators:
+    - **Red Pine (Bill Porter)** (Hermit hermeneutics, lyrical fidelity, Dunhuang & woodblock collation)
     - **Thomas Cleary** (Precision, Taoist/Buddhist cross-synthesizing)
     - **Ruth Fuller Sasaki** (First Soto/Rinzai scholarly standard)
     - **D.T. Suzuki** (Early Western pioneer & philosophical depth)

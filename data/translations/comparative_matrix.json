@@ -13,6 +13,13 @@
         "notes": "Direct negative, focusing on cutting off the discursive question."
       },
       {
+        "translator": "Red Pine (Bill Porter)",
+        "work": "The Zen Works & Translations",
+        "style": "Hermit Hermeneutic & Vernacular Precision",
+        "text": "Does a dog have Buddha-nature or not? Zhaozhou said: 'Wu!'",
+        "notes": "Preserves Chinese 'Wu' while noting its function as a diamond sword severing duality."
+      },
+      {
         "translator": "Ruth Fuller Sasaki",
         "work": "The Record of Linji & Zen Commentary",
         "style": "Traditional Rinzai Scholarly",
@@ -56,6 +63,13 @@
     "sentence_pinyin": "Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.",
     "translators": [
       {
+        "translator": "Red Pine (Bill Porter)",
+        "work": "The Zen Teaching of Bodhidharma & Early Masters",
+        "style": "Lyrical & Idiomatic Fidelity",
+        "text": "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
+        "notes": "Renders 洞然明白 as 'opens wide and clear', emphasizing the spatial awakening."
+      },
+      {
         "translator": "Thomas Cleary",
         "work": "Zen Essence",
         "style": "Direct Tao-Chan Precision",
@@ -92,6 +106,13 @@
     "sentence_pinyin": "Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!",
     "translators": [
       {
+        "translator": "Red Pine (Bill Porter)",
+        "work": "The Zen Teaching of the Ancestors",
+        "style": "Direct Vernacular",
+        "text": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
+        "notes": "Translates 面門 as 'gates of your face' and 無位真人 as 'True Person without rank'."
+      },
+      {
         "translator": "Ruth Fuller Sasaki",
         "work": "The Record of Linji (2009)",
         "style": "Scholarly Definite Edition",
@@ -120,6 +141,13 @@
     "sentence_zh": "菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。",
     "sentence_pinyin": "Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén'āi.",
     "translators": [
+      {
+        "translator": "Red Pine (Bill Porter)",
+        "work": "The Platform Sutra: The Zen Teaching of Hui-neng (2006)",
+        "style": "Philological Poet & Folk Cadence",
+        "text": "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
+        "notes": "Red Pine's celebrated translation highlighting Dunhuang vs. Dexin woodblock variations."
+      },
       {
         "translator": "Philip Yampolsky",
         "work": "The Platform Sutra of the Sixth Patriarch (1967)",
