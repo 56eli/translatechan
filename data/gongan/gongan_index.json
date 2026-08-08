@@ -5,10 +5,10 @@
     "case_no": 1,
     "cbeta_id": "T2005",
     "title_zh": "趙州狗子 (無門關第一則)",
-    "title_en": "Zhaozhou's Dog (Mu)",
+    "title_en": "Zhaozhou's Dog (Mu / Wu)",
     "protagonist": "zhaozhou_congshen",
     "theme": "Buddha-Nature / Cutting Off Deliberation",
-    "cross_refs": ["Congronglu Case 18", "Zhaozhou Yulu", "Biyanlu"],
+    "cross_refs": ["Congronglu Case 18", "Zhaozhou Yulu", "Biyanlu Case 1"],
     "summary": "A monk asks whether a dog has Buddha-nature; Zhaozhou answers 'Wu', establishing the quintessential barrier of Zen."
   },
   {
@@ -20,7 +20,7 @@
     "title_en": "Baizhang's Wild Fox",
     "protagonist": "baizhang_huaihai",
     "theme": "Karma & Causality (不落 / 不昧)",
-    "cross_refs": ["Baizhang Yulu", "Biyanlu Case 17", "Chuandenglu"],
+    "cross_refs": ["Baizhang Yulu", "Biyanlu Case 17", "Chuandenglu Vol. 6"],
     "summary": "An old abbot reborn as a fox for 500 lives for saying an enlightened person 'does not fall into causality' is liberated when Baizhang says 'is not blind to causality'."
   },
   {
@@ -36,6 +36,30 @@
     "summary": "Juzhi raises one finger whenever asked about Chan; when an attendant boy mimics him, Juzhi cuts off the boy's finger, leading to the boy's instant awakening."
   },
   {
+    "id": "wumen_04",
+    "collection": "Wumenguan (無門關)",
+    "case_no": 4,
+    "cbeta_id": "T2005",
+    "title_zh": "胡子無鬚 (無門關第四則)",
+    "title_en": "Bodhidharma Has No Beard",
+    "protagonist": "huoan_shiti",
+    "theme": "Direct Realization Beyond Dual Perception",
+    "cross_refs": ["Wudeng Huiyuan Vol. 19", "Zongmen Tongyao Ji"],
+    "summary": "Huoan asks why the western bearded barbarian (Bodhidharma) has no beard."
+  },
+  {
+    "id": "wumen_05",
+    "collection": "Wumenguan (無門關)",
+    "case_no": 5,
+    "cbeta_id": "T2005",
+    "title_zh": "香嚴上樹 (無門關第五則)",
+    "title_en": "Xiangyan's Man Up a Tree",
+    "protagonist": "xiangyan_zhixian",
+    "theme": "Existential Urgency / Ineffable Speech",
+    "cross_refs": ["Guishan Yulu", "Chuandenglu Vol. 11"],
+    "summary": "A man hanging by his teeth from a high tree is asked the meaning of the Patriarch coming from the west."
+  },
+  {
     "id": "wumen_06",
     "collection": "Wumenguan (無門關)",
     "case_no": 6,
@@ -48,6 +72,18 @@
     "summary": "The Buddha silently holds up an udumbara flower on Vulture Peak; Mahākāśyapa smiles, receiving the eye of the True Dharma."
   },
   {
+    "id": "wumen_07",
+    "collection": "Wumenguan (無門關)",
+    "case_no": 7,
+    "cbeta_id": "T2005",
+    "title_zh": "趙州洗缽 (無門關第七則)",
+    "title_en": "Zhaozhou's Wash Your Bowl",
+    "protagonist": "zhaozhou_congshen",
+    "theme": "Ordinary Activity as Awakening",
+    "cross_refs": ["Zhaozhou Yulu", "Biyanlu Case 47"],
+    "summary": "A newly arrived monk asks for instruction; Zhaozhou asks 'Have you eaten your porridge?' and says 'Then wash your bowl.'"
+  },
+  {
     "id": "wumen_19",
     "collection": "Wumenguan (無門關)",
     "case_no": 19,
@@ -56,8 +92,44 @@
     "title_en": "Ordinary Mind is the Way",
     "protagonist": "nanquan_puyuan",
     "theme": "Immediacy / Non-Seeking",
-    "cross_refs": ["Mazu Yulu", "Zhaozhou Yulu", "Congronglu"],
+    "cross_refs": ["Mazu Yulu", "Zhaozhou Yulu", "Congronglu Case 67"],
     "summary": "Nanquan instructs Zhaozhou that Ordinary Mind is the Way, transcending knowing and not-knowing."
+  },
+  {
+    "id": "wumen_23",
+    "collection": "Wumenguan (無門關)",
+    "case_no": 23,
+    "cbeta_id": "T2005",
+    "title_zh": "不思善惡 (無門關第二十三則)",
+    "title_en": "Huineng's Original Face",
+    "protagonist": "huineng",
+    "theme": "Original Nature Beyond Morality",
+    "cross_refs": ["Platform Sutra Chapter 1", "Chuandenglu Vol. 5"],
+    "summary": "The Sixth Patriarch challenges Monk Ming: 'Without thinking of good or evil, what is your Original Face before your parents were born?'"
+  },
+  {
+    "id": "wumen_29",
+    "collection": "Wumenguan (無門關)",
+    "case_no": 29,
+    "cbeta_id": "T2005",
+    "title_zh": "非風非幡 (無門關第二十九則)",
+    "title_en": "Not the Wind, Not the Flag",
+    "protagonist": "huineng",
+    "theme": "Mind-Only Non-Duality",
+    "cross_refs": ["Platform Sutra Chapter 1", "Zongjinglu"],
+    "summary": "Two monks argue whether the wind or the banner is moving; Huineng says: 'It is your own mind that is moving.'"
+  },
+  {
+    "id": "wumen_37",
+    "collection": "Wumenguan (無門關)",
+    "case_no": 37,
+    "cbeta_id": "T2005",
+    "title_zh": "庭前柏樹 (無門關第三十七則)",
+    "title_en": "The Cypress Tree in the Courtyard",
+    "protagonist": "zhaozhou_congshen",
+    "theme": "Patriarch's Meaning / Direct Reality",
+    "cross_refs": ["Zhaozhou Yulu", "Biyanlu Case 47", "Congronglu Case 47"],
+    "summary": "Asked for the purpose of Bodhidharma coming from the west, Zhaozhou points to the cypress tree in the courtyard."
   },
   {
     "id": "biyan_01",
@@ -72,6 +144,18 @@
     "summary": "Emperor Wu asks about the highest holy truth; Bodhidharma declares 'Vast emptiness, nothing holy.'"
   },
   {
+    "id": "biyan_02",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 2,
+    "cbeta_id": "T2003",
+    "title_zh": "趙州至道無難 (碧巖錄第二則)",
+    "title_en": "Zhaozhou's Ultimate Path is Not Difficult",
+    "protagonist": "zhaozhou_congshen",
+    "theme": "Beyond Clarity and Discrimination",
+    "cross_refs": ["Xinxin Ming", "Zhaozhou Yulu"],
+    "summary": "Zhaozhou tests the assembly on the Great Way avoiding selection and clarity."
+  },
+  {
     "id": "biyan_03",
     "collection": "Biyanlu (碧巖錄)",
     "case_no": 3,
@@ -80,19 +164,55 @@
     "title_en": "Master Mazu is Unwell: Sun-Face Moon-Face",
     "protagonist": "mazu_daoyi",
     "theme": "Equanimity in Sickness and Health",
-    "cross_refs": ["Mazu Yulu", "Jingde Chuandenglu"],
+    "cross_refs": ["Mazu Yulu", "Jingde Chuandenglu Vol. 6"],
     "summary": "When asked about his illness, Mazu responds: 'Sun-Face Buddha, Moon-Face Buddha.'"
   },
   {
-    "id": "zhaozhou_cypress",
-    "collection": "Zhaozhou Yulu / Wumenguan Case 37",
-    "case_no": 37,
-    "cbeta_id": "T1987 / T2005",
-    "title_zh": "庭前柏樹子",
-    "title_en": "The Cypress Tree in the Courtyard",
-    "protagonist": "zhaozhou_congshen",
-    "theme": "Patriarch's Meaning / Present Reality",
-    "cross_refs": ["Wumenguan Case 37", "Biyanlu Case 47"],
-    "summary": "Asked for the purpose of Bodhidharma coming from the west, Zhaozhou points to the cypress tree right in the courtyard."
+    "id": "biyan_12",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 12,
+    "cbeta_id": "T2003",
+    "title_zh": "洞山麻三斤 (碧巖錄第十二則)",
+    "title_en": "Dongshan's Three Pounds of Flax",
+    "protagonist": "dongshan_shouchu",
+    "theme": "Concrete Reality / What is Buddha",
+    "cross_refs": ["Dongshan Yulu", "Wumenguan Case 18"],
+    "summary": "A monk asks Dongshan 'What is the Buddha?'; Dongshan replies 'Three pounds of flax.'"
+  },
+  {
+    "id": "biyan_14",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 14,
+    "cbeta_id": "T2003",
+    "title_zh": "南泉斬貓 (碧巖錄第十四則)",
+    "title_en": "Nanquan Cuts the Cat in Two",
+    "protagonist": "nanquan_puyuan",
+    "theme": "Cutting Duality / Straw Sandals on Head",
+    "cross_refs": ["Wumenguan Case 14", "Congronglu Case 9"],
+    "summary": "Nanquan cuts the cat in two when the monks fail to give a living word; Zhaozhou puts straw sandals on his head."
+  },
+  {
+    "id": "biyan_21",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 21,
+    "cbeta_id": "T2003",
+    "title_zh": "雲門乾屎橛 (碧巖錄第二十一則)",
+    "title_en": "Yunmen's Dried Shit-Stick",
+    "protagonist": "yunmen_wenyan",
+    "theme": "Shattering All Sanctimonious Conceits",
+    "cross_refs": ["Yunmen Yulu", "Wumenguan Case 21"],
+    "summary": "Asked 'What is Buddha?', Yunmen responds directly with 'A dried shit-stick.'"
+  },
+  {
+    "id": "biyan_43",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 43,
+    "cbeta_id": "T2003",
+    "title_zh": "洞山無寒暑 (碧巖錄第四十三則)",
+    "title_en": "Dongshan's Cold and Heat",
+    "protagonist": "dongshan_liangjie",
+    "theme": "Transcendence within Conditioned Reality",
+    "cross_refs": ["Dongshan Yulu", "Congronglu Case 43"],
+    "summary": "Asked how to avoid cold and heat, Dongshan says: 'When cold, let cold kill you; when hot, let heat kill you.'"
   }
 ]

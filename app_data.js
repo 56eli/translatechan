@@ -842,13 +842,13 @@ window.TRANSLATECHAN_DATA = {
       "case_no": 1,
       "cbeta_id": "T2005",
       "title_zh": "趙州狗子 (無門關第一則)",
-      "title_en": "Zhaozhou's Dog (Mu)",
+      "title_en": "Zhaozhou's Dog (Mu / Wu)",
       "protagonist": "zhaozhou_congshen",
       "theme": "Buddha-Nature / Cutting Off Deliberation",
       "cross_refs": [
         "Congronglu Case 18",
         "Zhaozhou Yulu",
-        "Biyanlu"
+        "Biyanlu Case 1"
       ],
       "summary": "A monk asks whether a dog has Buddha-nature; Zhaozhou answers 'Wu', establishing the quintessential barrier of Zen."
     },
@@ -864,7 +864,7 @@ window.TRANSLATECHAN_DATA = {
       "cross_refs": [
         "Baizhang Yulu",
         "Biyanlu Case 17",
-        "Chuandenglu"
+        "Chuandenglu Vol. 6"
       ],
       "summary": "An old abbot reborn as a fox for 500 lives for saying an enlightened person 'does not fall into causality' is liberated when Baizhang says 'is not blind to causality'."
     },
@@ -884,6 +884,36 @@ window.TRANSLATECHAN_DATA = {
       "summary": "Juzhi raises one finger whenever asked about Chan; when an attendant boy mimics him, Juzhi cuts off the boy's finger, leading to the boy's instant awakening."
     },
     {
+      "id": "wumen_04",
+      "collection": "Wumenguan (無門關)",
+      "case_no": 4,
+      "cbeta_id": "T2005",
+      "title_zh": "胡子無鬚 (無門關第四則)",
+      "title_en": "Bodhidharma Has No Beard",
+      "protagonist": "huoan_shiti",
+      "theme": "Direct Realization Beyond Dual Perception",
+      "cross_refs": [
+        "Wudeng Huiyuan Vol. 19",
+        "Zongmen Tongyao Ji"
+      ],
+      "summary": "Huoan asks why the western bearded barbarian (Bodhidharma) has no beard."
+    },
+    {
+      "id": "wumen_05",
+      "collection": "Wumenguan (無門關)",
+      "case_no": 5,
+      "cbeta_id": "T2005",
+      "title_zh": "香嚴上樹 (無門關第五則)",
+      "title_en": "Xiangyan's Man Up a Tree",
+      "protagonist": "xiangyan_zhixian",
+      "theme": "Existential Urgency / Ineffable Speech",
+      "cross_refs": [
+        "Guishan Yulu",
+        "Chuandenglu Vol. 11"
+      ],
+      "summary": "A man hanging by his teeth from a high tree is asked the meaning of the Patriarch coming from the west."
+    },
+    {
       "id": "wumen_06",
       "collection": "Wumenguan (無門關)",
       "case_no": 6,
@@ -899,6 +929,21 @@ window.TRANSLATECHAN_DATA = {
       "summary": "The Buddha silently holds up an udumbara flower on Vulture Peak; Mahākāśyapa smiles, receiving the eye of the True Dharma."
     },
     {
+      "id": "wumen_07",
+      "collection": "Wumenguan (無門關)",
+      "case_no": 7,
+      "cbeta_id": "T2005",
+      "title_zh": "趙州洗缽 (無門關第七則)",
+      "title_en": "Zhaozhou's Wash Your Bowl",
+      "protagonist": "zhaozhou_congshen",
+      "theme": "Ordinary Activity as Awakening",
+      "cross_refs": [
+        "Zhaozhou Yulu",
+        "Biyanlu Case 47"
+      ],
+      "summary": "A newly arrived monk asks for instruction; Zhaozhou asks 'Have you eaten your porridge?' and says 'Then wash your bowl.'"
+    },
+    {
       "id": "wumen_19",
       "collection": "Wumenguan (無門關)",
       "case_no": 19,
@@ -910,9 +955,55 @@ window.TRANSLATECHAN_DATA = {
       "cross_refs": [
         "Mazu Yulu",
         "Zhaozhou Yulu",
-        "Congronglu"
+        "Congronglu Case 67"
       ],
       "summary": "Nanquan instructs Zhaozhou that Ordinary Mind is the Way, transcending knowing and not-knowing."
+    },
+    {
+      "id": "wumen_23",
+      "collection": "Wumenguan (無門關)",
+      "case_no": 23,
+      "cbeta_id": "T2005",
+      "title_zh": "不思善惡 (無門關第二十三則)",
+      "title_en": "Huineng's Original Face",
+      "protagonist": "huineng",
+      "theme": "Original Nature Beyond Morality",
+      "cross_refs": [
+        "Platform Sutra Chapter 1",
+        "Chuandenglu Vol. 5"
+      ],
+      "summary": "The Sixth Patriarch challenges Monk Ming: 'Without thinking of good or evil, what is your Original Face before your parents were born?'"
+    },
+    {
+      "id": "wumen_29",
+      "collection": "Wumenguan (無門關)",
+      "case_no": 29,
+      "cbeta_id": "T2005",
+      "title_zh": "非風非幡 (無門關第二十九則)",
+      "title_en": "Not the Wind, Not the Flag",
+      "protagonist": "huineng",
+      "theme": "Mind-Only Non-Duality",
+      "cross_refs": [
+        "Platform Sutra Chapter 1",
+        "Zongjinglu"
+      ],
+      "summary": "Two monks argue whether the wind or the banner is moving; Huineng says: 'It is your own mind that is moving.'"
+    },
+    {
+      "id": "wumen_37",
+      "collection": "Wumenguan (無門關)",
+      "case_no": 37,
+      "cbeta_id": "T2005",
+      "title_zh": "庭前柏樹 (無門關第三十七則)",
+      "title_en": "The Cypress Tree in the Courtyard",
+      "protagonist": "zhaozhou_congshen",
+      "theme": "Patriarch's Meaning / Direct Reality",
+      "cross_refs": [
+        "Zhaozhou Yulu",
+        "Biyanlu Case 47",
+        "Congronglu Case 47"
+      ],
+      "summary": "Asked for the purpose of Bodhidharma coming from the west, Zhaozhou points to the cypress tree in the courtyard."
     },
     {
       "id": "biyan_01",
@@ -930,6 +1021,21 @@ window.TRANSLATECHAN_DATA = {
       "summary": "Emperor Wu asks about the highest holy truth; Bodhidharma declares 'Vast emptiness, nothing holy.'"
     },
     {
+      "id": "biyan_02",
+      "collection": "Biyanlu (碧巖錄)",
+      "case_no": 2,
+      "cbeta_id": "T2003",
+      "title_zh": "趙州至道無難 (碧巖錄第二則)",
+      "title_en": "Zhaozhou's Ultimate Path is Not Difficult",
+      "protagonist": "zhaozhou_congshen",
+      "theme": "Beyond Clarity and Discrimination",
+      "cross_refs": [
+        "Xinxin Ming",
+        "Zhaozhou Yulu"
+      ],
+      "summary": "Zhaozhou tests the assembly on the Great Way avoiding selection and clarity."
+    },
+    {
       "id": "biyan_03",
       "collection": "Biyanlu (碧巖錄)",
       "case_no": 3,
@@ -940,24 +1046,69 @@ window.TRANSLATECHAN_DATA = {
       "theme": "Equanimity in Sickness and Health",
       "cross_refs": [
         "Mazu Yulu",
-        "Jingde Chuandenglu"
+        "Jingde Chuandenglu Vol. 6"
       ],
       "summary": "When asked about his illness, Mazu responds: 'Sun-Face Buddha, Moon-Face Buddha.'"
     },
     {
-      "id": "zhaozhou_cypress",
-      "collection": "Zhaozhou Yulu / Wumenguan Case 37",
-      "case_no": 37,
-      "cbeta_id": "T1987 / T2005",
-      "title_zh": "庭前柏樹子",
-      "title_en": "The Cypress Tree in the Courtyard",
-      "protagonist": "zhaozhou_congshen",
-      "theme": "Patriarch's Meaning / Present Reality",
+      "id": "biyan_12",
+      "collection": "Biyanlu (碧巖錄)",
+      "case_no": 12,
+      "cbeta_id": "T2003",
+      "title_zh": "洞山麻三斤 (碧巖錄第十二則)",
+      "title_en": "Dongshan's Three Pounds of Flax",
+      "protagonist": "dongshan_shouchu",
+      "theme": "Concrete Reality / What is Buddha",
       "cross_refs": [
-        "Wumenguan Case 37",
-        "Biyanlu Case 47"
+        "Dongshan Yulu",
+        "Wumenguan Case 18"
       ],
-      "summary": "Asked for the purpose of Bodhidharma coming from the west, Zhaozhou points to the cypress tree right in the courtyard."
+      "summary": "A monk asks Dongshan 'What is the Buddha?'; Dongshan replies 'Three pounds of flax.'"
+    },
+    {
+      "id": "biyan_14",
+      "collection": "Biyanlu (碧巖錄)",
+      "case_no": 14,
+      "cbeta_id": "T2003",
+      "title_zh": "南泉斬貓 (碧巖錄第十四則)",
+      "title_en": "Nanquan Cuts the Cat in Two",
+      "protagonist": "nanquan_puyuan",
+      "theme": "Cutting Duality / Straw Sandals on Head",
+      "cross_refs": [
+        "Wumenguan Case 14",
+        "Congronglu Case 9"
+      ],
+      "summary": "Nanquan cuts the cat in two when the monks fail to give a living word; Zhaozhou puts straw sandals on his head."
+    },
+    {
+      "id": "biyan_21",
+      "collection": "Biyanlu (碧巖錄)",
+      "case_no": 21,
+      "cbeta_id": "T2003",
+      "title_zh": "雲門乾屎橛 (碧巖錄第二十一則)",
+      "title_en": "Yunmen's Dried Shit-Stick",
+      "protagonist": "yunmen_wenyan",
+      "theme": "Shattering All Sanctimonious Conceits",
+      "cross_refs": [
+        "Yunmen Yulu",
+        "Wumenguan Case 21"
+      ],
+      "summary": "Asked 'What is Buddha?', Yunmen responds directly with 'A dried shit-stick.'"
+    },
+    {
+      "id": "biyan_43",
+      "collection": "Biyanlu (碧巖錄)",
+      "case_no": 43,
+      "cbeta_id": "T2003",
+      "title_zh": "洞山無寒暑 (碧巖錄第四十三則)",
+      "title_en": "Dongshan's Cold and Heat",
+      "protagonist": "dongshan_liangjie",
+      "theme": "Transcendence within Conditioned Reality",
+      "cross_refs": [
+        "Dongshan Yulu",
+        "Congronglu Case 43"
+      ],
+      "summary": "Asked how to avoid cold and heat, Dongshan says: 'When cold, let cold kill you; when hot, let heat kill you.'"
     }
   ],
   "corpus": {
@@ -976,7 +1127,8 @@ window.TRANSLATECHAN_DATA = {
         "zh": "佛語心為宗，無門為法門。關既無門，趣向如何？豈不見道：從門入者，不是家珍；從緣得者，始終成壞。若作恁麼商量，正如以拳指空，畫地做餅，何所求哉？",
         "pinyin": "Fó yǔ xīn wéi zōng, wú mén wéi fǎ mén. Guān jì wú mén, qù xiàng rú hé? Qǐ bù jiàn dào: cóng mén rù zhě, bù shì jiā zhēn; cóng yuán dé zhě, shǐ zhōng chéng huài. Ruò zuò rèn me shāng liang, zhèng rú yǐ quán zhǐ kōng, huà dì zuò bǐng, hé suǒ qiú zāi?",
         "en_cleary": "The words of the Buddha take Mind as the source, and 'No-Gate' as the Dharma gate. Now, since it is gateless, how does one enter? Have you not heard it said: What comes in through the gate is not the family treasure; what is attained through external causes is subject to inception and decay.",
-        "en_sasaki": "The teachings of the Buddha make mind the foundation, and gatelessness the gate of the Dharma. Since the barrier is gateless, how does one enter it? Do you not know: That which enters through the gate is not the treasure of the house; what is gained from outer conditions always begins and perishes."
+        "en_sasaki": "The teachings of the Buddha make mind the foundation, and gatelessness the gate of the Dharma. Since the barrier is gateless, how does one enter it? Do you not know: That which enters through the gate is not the treasure of the house; what is gained from outer conditions always begins and perishes.",
+        "en_red_pine": "The Buddha's words make mind the source, and no-gate the Dharma gate. Since the barrier has no gate, how does one pass through? Have you not heard: What comes through the front gate is not the family heirloom; what is gained from external causes is subject to rise and fall."
       },
       "cases": [
         {
@@ -991,13 +1143,13 @@ window.TRANSLATECHAN_DATA = {
               "zh": "趙州和尚因僧問：「狗子還有佛性也無？」",
               "pinyin": "Zhàozhōu héshang yīn sēng wèn: 'Gǒuzi hái yǒu fóxìng yě wú?'",
               "translations": {
+                "red_pine": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?'",
                 "cleary": "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?'",
                 "sasaki": "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?'",
                 "suzuki": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
                 "blyth": "A monk asked Jōshū, 'Has a dog the Buddha Nature?'",
                 "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
-                "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
-                "ai_poetic": "A wandering monk asked master Zhaozhou: 'Does even a humble hound possess the luminous Buddha-nature?'"
+                "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'"
               }
             },
             {
@@ -1005,13 +1157,13 @@ window.TRANSLATECHAN_DATA = {
               "zh": "州云：「無。」",
               "pinyin": "Zhōu yún: 'Wú.'",
               "translations": {
+                "red_pine": "Zhaozhou said: 'Wu!'",
                 "cleary": "Zhaozhou said, 'No.'",
                 "sasaki": "Jōshū said: 'Mu!'",
                 "suzuki": "Chao-chou replied: 'Wu!'",
                 "blyth": "Jōshū answered: 'Mu!'",
                 "blofeld": "The Master replied: 'None!'",
-                "ai_literal": "Zhou said: 'Not.'",
-                "ai_poetic": "Zhaozhou thundered: 'Mu! (Emptiness/No!)'"
+                "ai_literal": "Zhou said: 'Not.'"
               }
             }
           ],
@@ -1034,9 +1186,9 @@ window.TRANSLATECHAN_DATA = {
               "zh": "百丈和尚凡參次，有一老人常隨眾聽法。眾人退，老人亦退。忽一日不退，師遂問：「面前立者復是何人？」",
               "pinyin": "Bǎizhàng héshang fán cān cì, yǒu yī lǎorén cháng suí zhòng tīng fǎ. Zhòngrén tuì, lǎorén yì tuì. Hū yī rì bù tuì, shī suì wèn: 'Miàn qián lì zhě fù shì hé rén?'",
               "translations": {
+                "red_pine": "Whenever Master Baizhang gave a talk, an old man would listen along with the assembly. When the assembly left, the old man also left. One day he did not leave.",
                 "cleary": "Whenever Master Baizhang held sermons, an old man would always follow the assembly to listen to the Dharma. When the monks withdrew, the old man also withdrew. One day he did not withdraw.",
-                "sasaki": "Whenever Master Hyakujō gave a sermon, an old man used to listen along with the assembly. When the assembly left, he left too. One day he remained behind.",
-                "ai_literal": "Whenever the monk Baizhang held talks, an old man always followed the group to hear the teaching. When the group retired, the old man retired too."
+                "sasaki": "Whenever Master Hyakujō gave a sermon, an old man used to listen along with the assembly. When the assembly left, he left too. One day he remained behind."
               }
             },
             {
@@ -1044,9 +1196,9 @@ window.TRANSLATECHAN_DATA = {
               "zh": "老人曰：「某非人也。於過去迦葉佛時，曾住此山。因學人問：『大修行底人還落因果也無？』某對云：『不落因果。』五百生墮野狐身。今請和尚代一轉語，貴脫野狐。」",
               "pinyin": "Lǎorén yuē: 'Mǒu fēi rén yě. Yú guòqù Jiāyè fó shí, céng zhù cǐ shān. Yīn xuérén wèn: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú?' Mǒu duì yún: 'Bù luò yīnguǒ.' Wǔbǎi shēng duò yěhú shēn. Jīn qǐng héshang dài yī zhuǎnyǔ, guì tuō yěhú.'",
               "translations": {
-                "cleary": "The old man said, 'I am not a human being. In the time of the past Kashyapa Buddha, I lived on this mountain. A student asked me: Does an adept of great cultivation still fall into cause and effect? I answered: Does not fall into cause and effect. Because of this I have fallen into five hundred lives as a wild fox. Now I beg the Master to turn a word for me so I may be released.'",
-                "sasaki": "The old man said: 'I am not a human being. In the age of Kāśyapa Buddha, I was head monk on this mountain. A monk asked: Does a great practitioner fall under cause and effect? I said: Does not fall. For 500 births I have been a fox.'",
-                "ai_literal": "The old man said: 'I am not a human. In the era of the past Kashyapa Buddha, I dwelt on this mountain. A student asked: Does a person of great practice still fall into cause and effect? I replied: Not falling into cause and effect. For 500 rebirths I fell into a wild fox body.'"
+                "red_pine": "The old man said: 'I am not a human. In the era of the past Kashyapa Buddha, I lived on this mountain. A student asked: Does a person of great practice still fall into causality? I replied: Does not fall into causality. For 500 lives I was reborn as a wild fox. Now I beg the master for a turning word.'",
+                "cleary": "The old man said, 'I am not a human being. In the time of the past Kashyapa Buddha, I lived on this mountain. A student asked me: Does an adept of great cultivation still fall into cause and effect? I answered: Does not fall into cause and effect. Because of this I have fallen into five hundred lives as a wild fox.'",
+                "sasaki": "The old man said: 'I am not a human being. In the age of Kāśyapa Buddha, I was head monk on this mountain. A monk asked: Does a great practitioner fall under cause and effect? I said: Does not fall. For 500 births I have been a fox.'"
               }
             },
             {
@@ -1054,14 +1206,14 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「汝問。」老人曰：「大修行底人還落因果也無？」師曰：「不昧因果。」老人於言下大悟。",
               "pinyin": "Shī yuē: 'Rǔ wèn.' Lǎorén yuē: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú?' Shī yuē: 'Bù mèi yīnguǒ.' Lǎorén yú yán xià dà wù.",
               "translations": {
+                "red_pine": "Baizhang said: 'Ask.' The old man asked: 'Does a person of great practice still fall into causality?' The Master said: 'Is not blind to causality.' At these words the old man had great awakening.",
                 "cleary": "The Master said, 'Ask.' The old man asked: 'Does a person of great cultivation still fall into cause and effect?' The Master said: 'Is not blind to cause and effect.' The old man was instantly enlightened at these words.",
-                "sasaki": "Hyakujō said: 'Ask me.' The old man asked: 'Does a great practitioner fall into cause and effect?' Hyakujō said: 'Not blind to cause and effect.' At these words the old man attained great awakening.",
-                "ai_literal": "The Master said: 'Ask.' The old man said: 'Does a person of great cultivation still fall into cause and effect?' The Master said: 'Not obscuring cause and effect.' The old man at these words had great awakening."
+                "sasaki": "Hyakujō said: 'Ask me.' The old man asked: 'Does a great practitioner fall into cause and effect?' Hyakujō said: 'Not blind to cause and effect.' At these words the old man attained great awakening."
               }
             }
           ],
           "commentary_zh": "無門曰：不落因果，為甚墮野狐？不昧因果，為甚脫野狐？若向者裏著得一隻眼，便知得前百丈贏得五百生風流趣向。",
-          "commentary_pinyin": "Wúmén yuē: Bù luò yīnguǒ, wèi shén duò yěhú? Bù mèi yīnguǒ, wèi shén tuō yěhú? Ruò xiàng zhèlǐ zhuó dé yī zhī yǎn, biàn zhī dé qián Bǎizhàng yíng dé wǔbǎi shēng fēngliú qùxiàng.",
+          "commentary_pinyin": "Wúmén yuē: Bù luò yīnguǒ, wèi shén duò yěhú? Bù mèi yīnguǒ, wèi shén duò yěhú? Ruò xiàng zhèlǐ zhuó dé yī zhī yǎn, biàn zhī dé qián Bǎizhàng yíng dé wǔbǎi shēng fēngliú qùxiàng.",
           "commentary_en": "Wumen says: 'Not falling into causality'—why did he fall into a fox body? 'Not blind to causality'—why did he escape the fox body? If you can gain a single eye here, you will understand how the former Baizhang enjoyed five hundred lives of glorious adventure.",
           "verse_zh": "不落不昧，兩采一賽。不昧不落，千錯萬錯。",
           "verse_pinyin": "Bù luò bù mèi, liǎng cǎi yī sài. Bù mèi bù luò, qiān cuò wàn cuò.",
@@ -1079,9 +1231,9 @@ window.TRANSLATECHAN_DATA = {
               "zh": "俱胝和尚，凡有詰問，唯舉一指。後有童子，因外人問：『和尚說何法要？』童子亦豎指示之。",
               "pinyin": "Jùzhī héshang, fán yǒu jiéwèn, wéi jǔ yī zhǐ. Hòu yǒu tóngzǐ, yīn wàirén wèn: 'Héshang shuō hé fǎ yào?' Tóngzǐ yì shù zhǐ shì zhī.",
               "translations": {
+                "red_pine": "Whenever Master Juzhi was asked a question, he only raised a finger. Later an attendant boy was asked by visitors: 'What Dharma does the Master teach?' The boy also held up a finger.",
                 "cleary": "Whenever Master Juzhi was questioned, he would simply raise one finger. Later, an attendant boy was asked by an outsider: 'What Dharma does the Master teach?' The boy also held up a finger.",
-                "sasaki": "Whenever Master Gutei was asked a question, he simply held up one finger. Later a boy attendant was asked by visitors: 'What Dharma does your master teach?' The boy too raised a finger.",
-                "ai_literal": "The monk Juzhi, whenever questioned, only raised a single finger. Later there was a boy attendant who, when asked by guests 'What dharma does the Master preach?', also held up a finger to show them."
+                "sasaki": "Whenever Master Gutei was asked a question, he simply held up one finger. Later a boy attendant was asked by visitors: 'What Dharma does your master teach?' The boy too raised a finger."
               }
             },
             {
@@ -1089,9 +1241,9 @@ window.TRANSLATECHAN_DATA = {
               "zh": "胝聞，遂以刃潛剪其指。童子負痛號哭而去，胝復召之。童子迴首，胝卻豎起指。童子忽然領悟。",
               "pinyin": "Zhī wén, suì yǐ rèn qián jiǎn qí zhǐ. Tóngzǐ fù tòng háokū ér qù, Zhī fù zhào zhī. Tóngzǐ huí shǒu, Zhī què shù qǐ zhǐ. Tóngzǐ hūrán lǐngwù.",
               "translations": {
+                "red_pine": "Juzhi heard of it, concealed a knife, and cut off the boy's finger. Crying out in agony, the boy ran off. Juzhi called out to him. As the boy turned his head, Juzhi raised his finger. The boy instantly woke up.",
                 "cleary": "Hearing of this, Juzhi secretly concealed a blade and sliced off the boy's finger. Screaming in pain, the boy ran out. Juzhi called out to him. As the boy turned his head, Juzhi raised his finger. The boy suddenly awakened.",
-                "sasaki": "Gutei heard of it, concealed a knife in his sleeve, and severed the boy's finger. Screaming, the boy ran out. Gutei shouted after him. The boy turned back; Gutei raised his finger. The boy instantly woke up.",
-                "ai_literal": "Juzhi heard of this and secretly cut off his finger with a blade. The boy bearing pain cried and ran away; Juzhi called to him again. The boy turned his head; Juzhi then held up a finger. The boy suddenly realized."
+                "sasaki": "Gutei heard of it, concealed a knife in his sleeve, and severed the boy's finger. Screaming, the boy ran out. Gutei shouted after him. The boy turned back; Gutei raised his finger. The boy instantly woke up."
               }
             }
           ],
@@ -1101,6 +1253,127 @@ window.TRANSLATECHAN_DATA = {
           "verse_zh": "俱胝鈍置黠童兒，剪刀截破大荒崖。巨靈抬手無多子，擘破華嶽千萬重。",
           "verse_pinyin": "Jùzhī dùnzhì xiá tóng'ér, jiǎndāo jiépò dà huāng yá. Jùlíng tái shǒu wú duō zǐ, bòpò Huáyuè qiān wàn chóng.",
           "verse_en": "Juzhi made a fool of the clever boy; / The shears cut through the primal wilderness! / The mountain giant raised his hand without effort, / Splitting Mount Hua into ten thousand peaks!"
+        },
+        {
+          "case_num": 4,
+          "title_zh": "胡子無鬚",
+          "title_pinyin": "Húzi Wú Xū",
+          "title_en": "Bodhidharma Has No Beard",
+          "protagonist": "huoan_shiti",
+          "dialogue": [
+            {
+              "speaker": "Huoan / 霍庵",
+              "zh": "或庵曰：「西天鬍子，因甚麼卻無鬚？」",
+              "pinyin": "Huò'ān yuē: 'Xītiān húzi, yīn shénme què wú xū?'",
+              "translations": {
+                "red_pine": "Huoan asked: 'Why does the western barbarian (Bodhidharma) have no beard?'",
+                "cleary": "Huoan said, 'Why does the Western barbarian have no beard?'",
+                "sasaki": "Wakuan said: 'Why has the Western Barbarian no beard?'",
+                "blyth": "Wakuan said, 'Why hasn't the barbarian from the West a beard?'"
+              }
+            }
+          ],
+          "commentary_zh": "無門曰：為參須實參，要悟須實悟。這箇梵僧，直須親見始得。說親見，早成兩個。",
+          "commentary_pinyin": "Wúmén yuē: Wèi cān xū shí cān, yào wù xū shí wù. Zhègè fàn sēng, zhí xū qīn jiàn shǐ dé. Shuō qīn jiàn, zǎo chéng liǎng gè.",
+          "commentary_en": "Wumen says: If you practice, you must truly practice; if you awaken, you must truly awaken. As for this Indian monk, you must see him directly in person. But to speak of seeing him in person is already making two!",
+          "verse_zh": "莫向癡人前，說夢。鬍子無鬚，惺惺添懵。",
+          "verse_pinyin": "Mò xiàng chī rén qián, shuō mèng. Húzi wú xū, xīngxīng tiān měng.",
+          "verse_en": "Do not tell your dream / In front of a fool! / The bearded barbarian has no beard: / Adding clarity only increases confusion!"
+        },
+        {
+          "case_num": 5,
+          "title_zh": "香嚴上樹",
+          "title_pinyin": "Xiāngyán Shàngshù",
+          "title_en": "Xiangyan's Man Up a Tree",
+          "protagonist": "xiangyan_zhixian",
+          "dialogue": [
+            {
+              "speaker": "Xiangyan / 香嚴",
+              "zh": "香嚴和尚云：「如人上樹，口銜樹枝，腳不踏枝，手不攀條。忽有人問：『如何是祖師西來意？』若不對，即違他所問；若對，又喪身失命。正恁麼時，作麼生對？」",
+              "pinyin": "Xiāngyán héshang yún: 'Rú rén shàng shù, kǒu xián shùzhī, jiǎo bù tà zhī, shǒu bù pān tiáo. Hū yǒu rén wèn: 'Rúhé shì zǔshī xī lái yì?' Ruò bù duì, jí wéi tā suǒ wèn; ruò duì, yòu sàng shēn shī mìng. Zhèng rèn me shí, zuò me shēng duì?'",
+              "translations": {
+                "red_pine": "Master Xiangyan said: 'It is like a man hanging from a high tree by his teeth, hands holding no branch, feet resting on no limb. Someone asks him: What is the meaning of the Patriarch coming from the west? If he does not answer, he ignores the questioner; if he answers, he loses his life. At that very moment, how would you reply?'",
+                "cleary": "Master Xiangyan said, 'It is like a person up a tree, biting a branch, feet not treading a branch, hands not grasping a twig. If someone asks about the meaning of the ancestral teacher coming from the west, if he does not answer, he ignores the question; if he does answer, he loses his life. At just such a time, how do you answer?'",
+                "sasaki": "Master Kyōgen said: 'A man hangs by his teeth from a tree branch, hands with no hold, feet with no footing. Someone under the tree asks: What is the meaning of Bodhidharma's coming from the West? If he does not answer, he fails; if he answers, he falls to his death. In such a plight, how would you respond?'"
+              }
+            }
+          ],
+          "commentary_zh": "無門曰：縱有懸河之辨，盡用不著；算得一大藏教，亦用不著。若向者裏對得去，活卻從前死路，死卻從前活路。",
+          "commentary_pinyin": "Wúmén yuē: Zòng yǒu xuánhé zhī biàn, jìn yòng bù zháo; suàn dé yī dà zàng jiào, yì yòng bù zháo. Ruò xiàng zhèlǐ duì dé qù, huó què cóng qián sǐ lù, sǐ què cóng qián huó lù.",
+          "commentary_en": "Wumen says: Even if you possess eloquence like a torrential river, it is of no use here; even if you can expound the entire Tripitaka, it is of no use. If you can answer here, you bring to life the formerly dead road, and put to death the formerly alive road.",
+          "verse_zh": "香嚴真杜撰，惡毒無盡限。啞卻衲僧口，鶻臭通身眼。",
+          "verse_pinyin": "Xiāngyán zhēn dùzhuàn, èdú wú jìn xiàn. Yǎ què nàsēng kǒu, gǔchòu tōng shēn yǎn.",
+          "verse_en": "Xiangyan is truly outrageous! / His poison is boundless and without end. / He mutes the mouths of all patched monks, / While their whole body turns into devilish eyes!"
+        },
+        {
+          "case_num": 6,
+          "title_zh": "世尊拈花",
+          "title_pinyin": "Shìzūn Niānhuā",
+          "title_en": "The Buddha Holds Up a Flower",
+          "protagonist": "shakyamuni_and_mahakasyapa",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "世尊在靈山會上，拈花示眾。是時大眾皆罔措，唯迦葉破顏微笑。",
+              "pinyin": "Shìzūn zài Língshān huì shàng, niānhuā shì zhòng. Shì shí dàzhòng jiē wǎngcuò, wéi Jiāyè pòyán wéixiào.",
+              "translations": {
+                "red_pine": "When the World-Honored One was on Vulture Peak, he held up a flower before the assembly. At that time the entire assembly remained silent; only Mahakasyapa broke into a smile.",
+                "cleary": "When the World-Honored One was on Vulture Peak, he held up a flower and showed it to the crowd. At that time everyone was silent; only Mahakasyapa broke into a subtle smile.",
+                "sasaki": "When the World-Honored One was at Vulture Peak, he plucked a flower and held it before the assembly. The whole assembly remained motionless; only Kāśyapa broke into a faint smile."
+              }
+            },
+            {
+              "speaker": "Buddha / 世尊",
+              "zh": "世尊云：「吾有正法眼藏，涅槃妙心，實相無相，微妙法門，不立文字，教外別傳，付囑摩訶迦葉。」",
+              "pinyin": "Shìzūn yún: 'Wú yǒu zhèng fǎ yǎn zàng, nièpán miào xīn, shíxiāng wúxiàng, wēimiào fǎmén, bù lì wénzì, jiào wài bié chuán, fùzhǔ Mókējiāyè.'",
+              "translations": {
+                "red_pine": "The World-Honored One said: 'I possess the treasury of the true Dharma eye, the wondrous mind of Nirvana, the formless true form, the subtle Dharma gate, not established upon words and letters, a special transmission outside the scriptures. I entrust it to Mahakasyapa.'",
+                "cleary": "The World-Honored One said, 'I have the treasury of the eye of true teaching, the subtle mind of nirvana, the true form without form, the subtle dharma gate, not founded on words and letters, a special transmission outside the doctrine. I entrust this to Mahakasyapa.'",
+                "sasaki": "The World-Honored One said: 'I have the Eye Treasury of the True Law, the Serene Mind of Nirvana, the Real Form without form, the Ineffable Dharma Gate, not founded on words, a special transmission outside the teachings. This I entrust to Mahākāśyapa.'"
+              }
+            }
+          ],
+          "commentary_zh": "無門曰：黃面瞿曇，旁若無人，壓良為賤，懸羊頭賣狗肉。將謂多少奇特。只如當時大眾都笑，正法眼藏作麼生傳？",
+          "commentary_pinyin": "Wúmén yuē: Huángmiàn Qútán, páng ruò wú rén, yā liáng wéi jiàn, xuán yáng tóu mài gǒu ròu. Jiāng wèi duō shǎo qítè. Zhǐ rú dāngshí dàzhòng dōu xiào, zhèng fǎ yǎn zàng zuò me shēng chuán?",
+          "commentary_en": "Wumen says: That yellow-faced Gautama acted as if nobody were watching, lowering free people into servitude and hanging up a sheep's head while selling dog meat! He thought he was being so extraordinary! Suppose the whole assembly had smiled at that moment: how would the treasury of the true Dharma eye have been transmitted?",
+          "verse_zh": "拈起花來，尾巴已露。天真地秀，迦葉無處。",
+          "verse_pinyin": "Niān qǐ huā lái, wěiba yǐ lù. Tiān zhēn dì xiù, Jiāyè wú chù.",
+          "verse_en": "Holding up the flower, / The tail is already exposed! / Heaven and earth are wide open; / Mahakasyapa has nowhere to hide!"
+        },
+        {
+          "case_num": 7,
+          "title_zh": "趙州洗缽",
+          "title_pinyin": "Zhàozhōu Xǐbō",
+          "title_en": "Zhaozhou's Wash Your Bowl",
+          "protagonist": "zhaozhou_congshen",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "趙州因僧問：「學人乍入叢林，乞師指示。」",
+              "pinyin": "Zhàozhōu yīn sēng wèn: 'Xuérén zhà rù cónglín, qǐ shī zhǐshì.'",
+              "translations": {
+                "red_pine": "A monk asked Zhaozhou: 'I have just entered the monastery, please instruct me.'",
+                "cleary": "A monk asked Zhaozhou, 'I have newly entered the monastery; please give me instructions.'",
+                "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'"
+              }
+            },
+            {
+              "speaker": "Zhaozhou / 趙州",
+              "zh": "州云：「喫粥了也未？」僧云：「喫粥了也。」州云：「洗缽盂去。」其僧有省。",
+              "pinyin": "Zhōu yún: 'Chī zhōu le yě wèi?' Sēng yún: 'Chī zhōu le yě.' Zhōu yún: 'Xǐ bōyú qù.' Qí sēng yǒu xǐng.",
+              "translations": {
+                "red_pine": "Zhaozhou asked: 'Have you eaten your porridge yet?' The monk said: 'I have.' Zhaozhou said: 'Then go wash your bowl.' The monk had an awakening.",
+                "cleary": "Zhaozhou said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten.' Zhaozhou said, 'Go wash your bowl.' That monk had an awakening.",
+                "sasaki": "Jōshū asked: 'Have you eaten your breakfast porridge?' The monk said: 'I have.' Jōshū said: 'Then wash your bowls.' That monk was awakened."
+              }
+            }
+          ],
+          "commentary_zh": "無門曰：趙州開口見膽，露出心肝。者僧聽事不真，喚鐘作甕。",
+          "commentary_pinyin": "Wúmén yuē: Zhàozhōu kāi kǒu jiàn dǎn, lù chū xīn gān. Zhě sēng tīng shì bù zhēn, huàn zhōng zuò wèng.",
+          "commentary_en": "Wumen says: When Zhaozhou opened his mouth, his gallbladder was visible and his heart and liver were exposed. If that monk did not hear it clearly, he would mistake a bronze bell for a clay pot.",
+          "verse_zh": "只為分明極，翻令所得遲。早知燈是火，飯熟已多時。",
+          "verse_pinyin": "Zhǐ wèi fēnmíng jí, fān lìng suǒ dé chí. Zǎo zhī dēng shì huǒ, fàn shú yǐ duō shí.",
+          "verse_en": "Just because it is so clear, / One's realization is delayed! / If you had known the lamp is fire, / The rice would have been cooked long ago!"
         },
         {
           "case_num": 19,
@@ -1114,10 +1387,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "趙州問南泉：「如何是道？」",
               "pinyin": "Zhàozhōu wèn Nánquán: 'Rúhé shì dào?'",
               "translations": {
+                "red_pine": "Zhaozhou asked Nanquan: 'What is the Way?'",
                 "cleary": "Zhaozhou asked Nanquan, 'What is the Way?'",
                 "sasaki": "Jōshū asked Nansen: 'What is the Way?'",
-                "suzuki": "Chao-chou asked Nan-ch'uan: 'What is the Tao?'",
-                "ai_literal": "Zhaozhou asked Nanquan: 'What is the Way?'"
+                "suzuki": "Chao-chou asked Nan-ch'uan: 'What is the Tao?'"
               }
             },
             {
@@ -1125,10 +1398,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "泉云：「平常心是道。」",
               "pinyin": "Quán yún: 'Píngcháng xīn shì dào.'",
               "translations": {
+                "red_pine": "Nanquan said: 'Ordinary mind is the Way.'",
                 "cleary": "Nanquan said, 'Ordinary mind is the Way.'",
                 "sasaki": "Nansen said: 'Ordinary mind is the Way.'",
-                "suzuki": "Nan-ch'uan said: 'Everyday mind is the Way.'",
-                "ai_literal": "Quan said: 'Ordinary mind is the Way.'"
+                "suzuki": "Nan-ch'uan said: 'Everyday mind is the Way.'"
               }
             },
             {
@@ -1136,9 +1409,9 @@ window.TRANSLATECHAN_DATA = {
               "zh": "州云：「還可趣向也無？」泉云：「擬向即乖。」",
               "pinyin": "Zhōu yún: 'Hái kě qùxiàng yě wú?' Quán yún: 'Nǐ xiàng jí guāi.'",
               "translations": {
+                "red_pine": "Zhaozhou said: 'Can one direct oneself toward it?' Nanquan said: 'To intend toward it is to go astray.'",
                 "cleary": "Zhaozhou asked, 'Can one direct oneself toward it?' Nanquan said, 'To intend toward it is to deviate from it.'",
-                "sasaki": "Jōshū said: 'Should one direct oneself toward it?' Nansen replied: 'If you try to direct yourself toward it, you go astray.'",
-                "ai_literal": "Zhou said: 'Can one still aim toward it or not?' Quan said: 'If you intend toward it, you immediately err.'"
+                "sasaki": "Jōshū said: 'Should one direct oneself toward it?' Nansen replied: 'If you try to direct yourself toward it, you go astray.'"
               }
             },
             {
@@ -1146,9 +1419,9 @@ window.TRANSLATECHAN_DATA = {
               "zh": "泉云：「道不屬知，不屬不知。知是妄覺，不知是無記。若真達不疑之道，如太虛廓然豁達，豈可強是非也？」州於言下頓悟。",
               "pinyin": "Quán yún: 'Dào bù shǔ zhī, bù shǔ bù zhī. Zhī shì wàng jué, bù zhī shì wú jì. Ruò zhēn dá bù yí zhī dào, rú tài xū kuò rán huò dá, qǐ kě qiǎng shì fēi yě?' Zhōu yú yán xià dùn wù.",
               "translations": {
+                "red_pine": "Nanquan said: 'The Way does not belong to knowing, nor does it belong to not-knowing. Knowing is delusion; not-knowing is blankness. If you truly reach the doubt-free Way, it is vast and boundless as open space. How can you force right and wrong into it?' At these words Zhaozhou had sudden awakening.",
                 "cleary": "Nanquan said: 'The Way does not belong to knowing, nor does it belong to not-knowing. Knowing is false awareness; not-knowing is blank indifference. If you truly reach the doubt-free Way, it is like vast space, wide open and boundless. How could you force right and wrong into it?' At these words, Zhaozhou attained sudden awakening.",
-                "sasaki": "Nansen said: 'The Way does not belong to knowing or not knowing. Knowing is delusion; not knowing is mere ignorance. When you reach the true Way beyond doubt, it is vast and boundless as the great empty sky. How can there be right and wrong?' Jōshū was immediately enlightened.",
-                "ai_literal": "Quan said: 'The Way does not belong to knowing, nor does it belong to not knowing. Knowing is false perception, not knowing is blank amnesia. If you truly arrive at the doubt-free Way, it is wide open like the great void; how could you force right and wrong upon it?' Zhaozhou at these words awakened suddenly."
+                "sasaki": "Nansen said: 'The Way does not belong to knowing or not knowing. Knowing is delusion; not knowing is mere ignorance. When you reach the true Way beyond doubt, it is vast and boundless as the great empty sky. How can there be right and wrong?' Jōshū was immediately enlightened."
               }
             }
           ],
@@ -1158,6 +1431,123 @@ window.TRANSLATECHAN_DATA = {
           "verse_zh": "春有百花秋有月，夏有涼風冬有雪。若無閑事挂心頭，便是人間好時節。",
           "verse_pinyin": "Chūn yǒu bǎi huā qiū yǒu yuè, xià yǒu liáng fēng dōng yǒu xuě. Ruò wú xián shì guà xīn tóu, biàn shì rénjiān hǎo shíjié.",
           "verse_en": "Spring has hundreds of flowers, autumn has the clear moon; / Summer has refreshing breezes, winter has white snow. / If no idle worries hang upon your mind, / This is truly the best season of human life!"
+        },
+        {
+          "case_num": 23,
+          "title_zh": "不思善惡",
+          "title_pinyin": "Bù Sī Shàn È",
+          "title_en": "Huineng's Original Face (Think Neither Good Nor Evil)",
+          "protagonist": "huineng",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "六祖因明上座趁逐及大庾嶺。祖見明走來，遂擲衣缽於石上云：「此衣表信，可力爭耶？任汝將去。」明遂舉之，如山不動，踟躕悚慄。",
+              "pinyin": "Liùzǔ yīn Míng shàngzuò chènzhú jí Dàyǔ Lǐng. Zǔ jiàn Míng zǒu lái, suì zhì yībō yú shí shàng yún: 'Cǐ yī biǎo xìn, kě lì zhēng yé? Rèn rǔ jiāng qù.' Míng suì jǔ zhī, rú shān bù dòng, chíchú sǒnglì.",
+              "translations": {
+                "red_pine": "Senior Monk Ming pursued the Sixth Patriarch to Dayu Ridge. Seeing Ming approaching, the Patriarch placed the robe and bowl upon a rock and said: 'This robe represents faith; can it be seized by force? Take it if you can.' Ming tried to lift it, but it was unmovable as a mountain. Trembling with fear, he faltered.",
+                "cleary": "The Sixth Patriarch was pursued by Senior Monk Ming as far as the Dayu Ridge. The Patriarch saw Ming coming, threw the robe and bowl on a rock, and said, 'This robe symbolizes faith; can it be fought over by force? You may take it.' Ming tried to pick it up, but it was immovable as a mountain.",
+                "sasaki": "Senior monk Myō pursued the Sixth Patriarch to Mount Daiyu. The Patriarch threw the robe and bowl on a stone, saying: 'This robe symbolizes faith. Can it be contested by force? Take it!' Myō tried to lift it, but it was unshakeable like a mountain."
+              }
+            },
+            {
+              "speaker": "Ming / 明上座",
+              "zh": "明云：「我來求法，非為衣也。願行者開示。」",
+              "pinyin": "Míng yún: 'Wǒ lái qiú fǎ, fēi wèi yī yě. Yuàn xíngzhě kāishì.'",
+              "translations": {
+                "red_pine": "Ming said: 'I came for the Dharma, not for the robe. I pray that the practitioner will instruct me.'",
+                "cleary": "Ming said, 'I have come for the Dharma, not for the robe. Please instruct me, practitioner.'",
+                "sasaki": "Myō said: 'I have come seeking the Dharma, not for the robe. I beg you, instruct me!'"
+              }
+            },
+            {
+              "speaker": "Huineng / 六祖",
+              "zh": "祖云：「不思善，不思惡，正與麼時，那個是明上座本來面目？」明當下大悟，遍體汗流。",
+              "pinyin": "Zǔ yún: 'Bù sī shàn, bù sī è, zhèng yǔ me shí, nǎ ge shì Míng shàngzuò běnlái miànmù?' Míng dāngxià dà wù, biàn tǐ hàn liú.",
+              "translations": {
+                "red_pine": "The Patriarch said: 'Do not think of good; do not think of evil. At this very moment, what is Senior Monk Ming's original face?' Ming was instantly awakened, sweat pouring from his entire body.",
+                "cleary": "The Patriarch said, 'Without thinking of good or evil, at this very moment, what is your original face?' Ming immediately had great enlightenment; sweat streamed from his whole body.",
+                "sasaki": "The Patriarch said: 'Think neither of good nor of evil. At this very instant, what is your Original Face?' In that moment Myō was enlightened, drenching his whole body in sweat."
+              }
+            }
+          ],
+          "commentary_zh": "無門曰：六祖可謂是關門老婆心，如擘栗蓬，擘出栗肉，分付與汝。",
+          "commentary_pinyin": "Wúmén yuē: Liùzǔ kě wèi shì guān mén lǎopó xīn, rú bò lì péng, bò chū lì ròu, fēn fù yǔ rǔ.",
+          "commentary_en": "Wumen says: The Sixth Patriarch can be said to have shown an urgent grandmotherly compassion—like peeling the prickly burr of a chestnut, taking out the sweet meat, and putting it right into your mouth.",
+          "verse_zh": "描不成兮畫不就，讚不及兮休呫囁。本來面目沒處藏，世界壞時渠不朽。",
+          "verse_pinyin": "Miáo bù chéng xī huà bù jiù, zàn bù jí xī xiū chèniè. Běnlái miànmù méi chù cáng, shìjiè huài shí qú bù xiǔ.",
+          "verse_en": "You cannot describe it or paint it; / Praises fall short, so cease your babbling! / The Original Face has nowhere to hide: / When the universe crumbles, It remains indestructible!"
+        },
+        {
+          "case_num": 29,
+          "title_zh": "非風非幡",
+          "title_pinyin": "Fēi Fēng Fēi Fān",
+          "title_en": "Not the Wind, Not the Flag (Mind is Moving)",
+          "protagonist": "huineng",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "六祖因風颭剎幡，有二僧對論。一云幡動，一云風動。往復酬答，曾未契理。",
+              "pinyin": "Liùzǔ yīn fēng zhǎn chà fān, yǒu èr sēng duì lùn. Yī yún fān dòng, yī yún fēng dòng. Wǎngfù chóudá, céng wèi qì lǐ.",
+              "translations": {
+                "red_pine": "The wind was flapping a temple banner, and two monks were debating. One said the banner was moving; the other said the wind was moving. They argued back and forth without reaching the truth.",
+                "cleary": "The wind was blowing a temple banner; two monks were arguing about it. One said the banner was moving, one said the wind was moving. They went back and forth, not reaching the principle.",
+                "sasaki": "The wind was blowing the temple flag, and two monks were arguing. One said: 'The flag moves.' The other said: 'The wind moves.' They argued incessantly."
+              }
+            },
+            {
+              "speaker": "Huineng / 六祖",
+              "zh": "祖云：「不是風動，不是幡動，仁者心動。」二僧竦然。",
+              "pinyin": "Zǔ yún: 'Bù shì fēng dòng, bù shì fān dòng, rénzhě xīn dòng.' Èr sēng sǒngrán.",
+              "translations": {
+                "red_pine": "The Patriarch said: 'It is not the wind that is moving; it is not the banner that is moving. Good friends, it is your own mind that is moving.' The two monks were struck with awe.",
+                "cleary": "The Patriarch said, 'It is not the wind moving; it is not the banner moving. Kind sirs, it is your minds moving.' The two monks were awestruck.",
+                "sasaki": "The Patriarch said: 'Neither wind nor flag moves; it is your minds that move.' The two monks stood in awe."
+              }
+            }
+          ],
+          "commentary_zh": "無門曰：不是風動，不是幡動，不是心動，甚處見祖師？若向者裏見得親切，方知二僧買金得鐵，祖師忍俊不禁。",
+          "commentary_pinyin": "Wúmén yuē: Bù shì fēng dòng, bù shì fān dòng, bù shì xīn dòng, shèn chù jiàn zǔshī? Ruò xiàng zhèlǐ jiàn dé qīnqiè, fāng zhī èr sēng mǎi jīn dé tiě, zǔshī rěnjùnbùjīn.",
+          "commentary_en": "Wumen says: It is not the wind moving, not the flag moving, not the mind moving—where do you see the Patriarch? If you can see intimately here, you will understand how the two monks bought gold and got iron, while the Patriarch could not hold back his laughter.",
+          "verse_zh": "風動幡動心動，說得入理深妙。只知開口見膽，不知話墮也無？",
+          "verse_pinyin": "Fēng dòng fān dòng xīn dòng, shuō dé rù lǐ shēn miào. Zhǐ zhī kāi kǒu jiàn dǎn, bù zhī huà duò yě wú?",
+          "verse_en": "Wind moves, flag moves, mind moves: / Expressing the profound principle with great subtlety! / He only knew to open his mouth and reveal his gallbladder, / Not knowing that his words fell into a trap!"
+        },
+        {
+          "case_num": 37,
+          "title_zh": "庭前柏樹",
+          "title_pinyin": "Tíngqián Bǎishù",
+          "title_en": "The Cypress Tree in the Courtyard",
+          "protagonist": "zhaozhou_congshen",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "趙州因僧問：「如何是祖師西來意？」",
+              "pinyin": "Zhàozhōu yīn sēng wèn: 'Rúhé shì zǔshī xī lái yì?'",
+              "translations": {
+                "red_pine": "A monk asked Zhaozhou: 'What is the meaning of the Patriarch coming from the west?'",
+                "cleary": "A monk asked Zhaozhou, 'What is the meaning of the ancestral teacher coming from the west?'",
+                "heine": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
+                "sasaki": "A monk asked Jōshū: 'What is the meaning of Bodhidharma's coming from the West?'"
+              }
+            },
+            {
+              "speaker": "Zhaozhou / 趙州",
+              "zh": "州云：「庭前柏樹子。」",
+              "pinyin": "Zhōu yún: 'Tíng qián bǎi shù zǐ.'",
+              "translations": {
+                "red_pine": "Zhaozhou said: 'The cypress tree in the courtyard.'",
+                "cleary": "Zhaozhou said, 'The cypress tree in the courtyard.'",
+                "heine": "Zhaozhou said, 'The cypress tree in front of the hall.'",
+                "sasaki": "Jōshū said: 'The oak tree in the front courtyard.'"
+              }
+            }
+          ],
+          "commentary_zh": "無門曰：若向趙州答處見得親切，前無釋迦，後無彌勒。",
+          "commentary_pinyin": "Wúmén yuē: Ruò xiàng Zhàozhōu dá chù jiàn dé qīnqiè, qián wú Shìjiā, hòu wú Mílè.",
+          "commentary_en": "Wumen says: If you can see intimately into Zhaozhou's reply, in front of you there is no Shakyamuni, and behind you there is no Maitreya.",
+          "verse_zh": "言不指事，言不干機。承言者喪，滯句者迷。",
+          "verse_pinyin": "Yán bù zhǐ shì, yán bù gān jī. Chéng yán zhě sàng, zhì jù zhě mí.",
+          "verse_en": "Words do not point to things; / Speech does not relate to triggers. / Those who accept words are lost; / Those who get stuck in phrases are deluded!"
         }
       ]
     },
@@ -1652,10 +2042,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "梁武帝問達磨大師：「如何是聖諦第一義？」",
               "pinyin": "Liáng Wǔdì wèn Dámó dàshī: 'Rúhé shì shèngdì dìyī yì?'",
               "translations": {
+                "red_pine": "Emperor Wu of Liang asked Great Master Bodhidharma: 'What is the highest meaning of the noble truth?'",
                 "cleary": "Emperor Wu of Liang asked Great Master Bodhidharma, 'What is the highest meaning of the holy truths?'",
                 "sasaki": "Emperor Wu of Liang asked Bodhidharma: 'What is the primal meaning of the sacred truth?'",
-                "suzuki": "Emperor Wu asked Bodhidharma: 'What is the first principle of the holy teaching?'",
-                "ai_literal": "Liang Emperor Wu asked Great Master Bodhidharma: 'What is the supreme first principle of the noble truths?'"
+                "suzuki": "Emperor Wu asked Bodhidharma: 'What is the first principle of the holy teaching?'"
               }
             },
             {
@@ -1663,10 +2053,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "磨云：「廓然無聖。」",
               "pinyin": "Mó yún: 'Kuòrán wú shèng.'",
               "translations": {
+                "red_pine": "Bodhidharma said: 'Vast emptiness, nothing holy.'",
                 "cleary": "Bodhidharma said, 'Vast emptiness, nothing holy.'",
                 "sasaki": "Bodhidharma said: 'Vast emptiness, nothing sacred.'",
-                "suzuki": "Bodhidharma replied: 'Vast emptiness and not a trace of holiness.'",
-                "ai_literal": "Mo said: 'Vast and open, without holy.'"
+                "suzuki": "Bodhidharma replied: 'Vast emptiness and not a trace of holiness.'"
               }
             },
             {
@@ -1674,14 +2064,46 @@ window.TRANSLATECHAN_DATA = {
               "zh": "帝曰：「對朕者誰？」磨云：「不識。」帝不契。達磨遂潛渡江至魏。",
               "pinyin": "Dì yuē: 'Duì zhèn zhě shuí?' Mó yún: 'Bù shí.' Dì bù qì. Dámó suì qián dù jiāng zhì Wèi.",
               "translations": {
+                "red_pine": "The Emperor said: 'Who faces me?' Bodhidharma said: 'I don't know.' The Emperor did not understand. Bodhidharma secretly crossed the Yangzi River and went north to Wei.",
                 "cleary": "The Emperor said, 'Who is facing me?' Bodhidharma said, 'I do not know.' The Emperor did not understand. Bodhidharma subsequently crossed the Yangzi River secretly and went north to Wei.",
-                "sasaki": "The Emperor asked: 'Who is this confronting me?' Bodhidharma answered: 'Do not know.' The Emperor failed to grasp. Bodhidharma crossed the river into Wei.",
-                "ai_literal": "The Emperor said: 'Who faces our imperial self?' Mo said: 'Not knowing.' The Emperor was not in accord. Bodhidharma secretly crossed the river to Wei."
+                "sasaki": "The Emperor asked: 'Who is this confronting me?' Bodhidharma answered: 'Do not know.' The Emperor failed to grasp. Bodhidharma crossed the river into Wei."
               }
             }
           ],
           "verse_zh": "聖諦廓然，何當辨的。對朕者誰，還云不識。因茲暗渡江，豈免生荊棘。",
           "verse_en": "The holy truths are vast and clear, / How could anyone distinguish them? / 'Who is facing me?' / Once more he says, 'I do not know.' / Because of this he secretly crossed the river— / How could he avoid sprouting thorns and brambles?"
+        },
+        {
+          "case_num": 2,
+          "title_zh": "趙州至道無難",
+          "title_pinyin": "Zhàozhōu Zhì Dào Wú Nán",
+          "title_en": "Zhaozhou's The Ultimate Path is Not Difficult",
+          "pointer_zh": "垂示云：乾坤窄，日月星辰一時黑。直饒棒如雨點，喝似雷奔，也未酬得向上宗乘。",
+          "pointer_en": "Pointer: Heaven and earth narrow; sun, moon, and stars go black at once. Even if staff strikes fall like raindrops and shouts resound like thunder, you still haven't matched the ultimate ancestral vehicle.",
+          "dialogue": [
+            {
+              "speaker": "Zhaozhou / 趙州",
+              "zh": "趙州示眾云：「至道無難，唯嫌揀擇。纔有語言，是揀擇，是明白。老僧不在明白裏，是汝還護惜也無？」",
+              "pinyin": "Zhàozhōu shì zhòng yún: 'Zhì dào wú nán, wéi xián jiǎnzé. Cái yǒu yǔyán, shì jiǎnzé, shì míngbái. Lǎosēng bù zài míngbái lǐ, shì rǔ hái hùxī yě wú?'",
+              "translations": {
+                "red_pine": "Zhaozhou instructed the assembly: 'The Great Way is not difficult, it only detests picking and choosing. The moment there are words, that is picking and choosing, that is clarity. This old monk is not inside clarity; do you cherish this or not?'",
+                "cleary": "Zhaozhou addressed the assembly: 'The Great Way is not difficult; it only avoids picking and choosing. As soon as there are words, this is picking and choosing, this is clarity. This old monk is not within clarity; do you still cherish it or not?'",
+                "sasaki": "Jōshū instructed the group: 'The Supreme Way is not difficult, it only dislikes selection. The moment you speak, that is selection, that is clarity. I do not dwell in clarity; do you cherish this or not?'"
+              }
+            },
+            {
+              "speaker": "Monk / 僧",
+              "zh": "時有僧問：「和尚既不在明白裏，護惜箇甚麼？」師云：「我亦不知。」僧云：「和尚既不知，為甚麼卻道不在明白裏？」師云：「問事即得，禮拜了退。」",
+              "pinyin": "Shí yǒu sēng wèn: 'Héshang jì bù zài míngbái lǐ, hùxī gè shénme?' Shī yún: 'Wǒ yì bù zhī.' Sēng yún: 'Héshang jì bù zhī, wèi shénme què dào bù zài míngbái lǐ?' Shī yún: 'Wèn shì jí dé, lǐbài le tuì.'",
+              "translations": {
+                "red_pine": "A monk asked: 'Since you are not in clarity, what do you cherish?' The Master said: 'I don't know either.' The monk said: 'If you don't know, why do you say you are not in clarity?' The Master said: 'Asking is enough; now make your prostration and retire.'",
+                "cleary": "A monk asked, 'Since you are not within clarity, what do you cherish?' The Master said, 'I don't know either.' The monk said, 'Since you don't know, why do you say you are not within clarity?' The Master said, 'It's enough to ask the question; make your bows and retire.'",
+                "sasaki": "A monk asked: 'If you don't dwell in clarity, what do you cherish?' Jōshū said: 'I don't know.' The monk said: 'If you don't know, why do you say you don't dwell in clarity?' Jōshū said: 'Enough questions; bow and leave.'"
+              }
+            }
+          ],
+          "verse_zh": "至道無難，言端語端。一有多種，二無兩般。天際日上月下，檻前山深水寒。",
+          "verse_en": "The Great Way is not difficult, / Words and speech are straight to the point. / In the One there are many forms; / In the Two there is no duality. / On the horizon the sun rises and moon sets; / Outside the railing, mountains are deep and waters cold."
         },
         {
           "case_num": 3,
@@ -1696,9 +2118,9 @@ window.TRANSLATECHAN_DATA = {
               "zh": "馬祖大師不安。院主問：「和尚近日尊位如何？」",
               "pinyin": "Mǎzǔ dàshī bù'ān. Yuànzhǔ wèn: 'Héshang jìnrì zūnwèi rúhé?'",
               "translations": {
+                "red_pine": "Great Master Mazu was unwell. The director asked: 'How has the Master's venerable health been lately?'",
                 "cleary": "Great Master Mazu was unwell. The monastery administrator asked, 'How is the Master's health these days?'",
-                "sasaki": "Master Baso was unwell. The temple administrator asked: 'How is the Master's venerable condition in recent days?'",
-                "ai_literal": "Great Master Mazu was physically ill. The director asked: 'How is the venerable condition of the Master in recent days?'"
+                "sasaki": "Master Baso was unwell. The temple administrator asked: 'How is the Master's venerable condition in recent days?'"
               }
             },
             {
@@ -1706,15 +2128,145 @@ window.TRANSLATECHAN_DATA = {
               "zh": "大師云：「日面佛，月面佛。」",
               "pinyin": "Dàshī yún: 'Rì miàn fó, yuè miàn fó.'",
               "translations": {
+                "red_pine": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha.'",
                 "cleary": "The Great Master said, 'Sun-Face Buddha, Moon-Face Buddha.'",
                 "sasaki": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha!'",
-                "suzuki": "Mazu said: 'Sun-faced Buddha, Moon-faced Buddha.'",
-                "ai_literal": "Great Master said: 'Sun-face Buddha, Moon-face Buddha.'"
+                "suzuki": "Mazu said: 'Sun-faced Buddha, Moon-faced Buddha.'"
               }
             }
           ],
           "verse_zh": "日面佛，月面佛。五帝三皇是何物？二十年來曾苦辛，為君幾下蒼龍窟。",
           "verse_en": "Sun-Face Buddha, Moon-Face Buddha! / What kind of things are the Three Emperors and Five Sovereigns? / For twenty years I struggled with hardship, / Entering the cave of the dark dragon for your sake!"
+        },
+        {
+          "case_num": 12,
+          "title_zh": "洞山麻三斤",
+          "title_pinyin": "Dòngshān Má Sān Jīn",
+          "title_en": "Dongshan's Three Pounds of Flax",
+          "pointer_zh": "垂示云：殺人刀，活人劍，乃上古之風規，亦今時之樞要。",
+          "pointer_en": "Pointer: The sword that kills the person, the sword that brings the person to life—this is the ancient tradition, and the pivot of the present moment.",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問洞山：「如何是佛？」",
+              "pinyin": "Sēng wèn Dòngshān: 'Rúhé shì fó?'",
+              "translations": {
+                "red_pine": "A monk asked Dongshan: 'What is Buddha?'",
+                "cleary": "A monk asked Dongshan, 'What is Buddha?'",
+                "sasaki": "A monk asked Tōzan: 'What is the Buddha?'"
+              }
+            },
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "洞山云：「麻三斤。」",
+              "pinyin": "Dòngshān yún: 'Má sān jīn.'",
+              "translations": {
+                "red_pine": "Dongshan said: 'Three pounds of flax.'",
+                "cleary": "Dongshan said, 'Three pounds of flax.'",
+                "sasaki": "Tōzan said: 'Three pounds of hemp.'",
+                "suzuki": "Dongshan answered: 'Three pounds of flax.'"
+              }
+            }
+          ],
+          "verse_zh": "金烏急，玉兔速，善巧相酬還審細。展拓為白浪滔天，卷縮為一毫端息。",
+          "verse_en": "The Golden Crow rushes, the Jade Rabbit speeds; / Skillful responses require rigorous precision! / Expanded, it is white waves engulfing the heavens; / Contracted, it rests on the tip of a single hair!"
+        },
+        {
+          "case_num": 14,
+          "title_zh": "南泉斬貓",
+          "title_pinyin": "Nánquán Zhǎn Māo",
+          "title_en": "Nanquan Cuts the Cat in Two",
+          "pointer_zh": "垂示云：空劫已前，別無名相。擬向即差，提撕不及。",
+          "pointer_en": "Pointer: Before the empty aeon, there were no names or forms. To deliberate is to err; to hesitate is to miss it completely.",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "南泉因東西兩堂爭貓兒。泉見，遂提起云：「道得即救，道不得即斬卻。」",
+              "pinyin": "Nánquán yīn dōng xī liǎng táng zhēng māo'er. Quán jiàn, suì tíqǐ yún: 'Dào dé jí jiù, dào bù dé jí zhǎn què.'",
+              "translations": {
+                "red_pine": "The monks of the Eastern and Western halls were arguing over a cat. Seeing this, Nanquan held up the cat and said: 'If any of you can speak a word, you save it; if not, I will cut it in two.'",
+                "cleary": "Nanquan, because the Eastern and Western halls were fighting over a cat, held it up and said, 'If you can speak, you save it; if not, I will cut it in two.'",
+                "sasaki": "The Eastern and Western halls were arguing over a cat. Nansen held it up, saying: 'If you can speak, I will spare it; if not, I will cut it in two.'"
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "眾無對。泉遂斬之。晚，趙州外歸，泉舉前話示之。州遂脫草鞋安頭上出。泉云：「子若在，恰救得貓兒。」",
+              "pinyin": "Zhòng wú duì. Quán suì zhǎn zhī. Wǎn, Zhàozhōu wài guī, Quán jǔ qián huà shì zhī. Zhōu suì tuō cǎoxié ān tóu shàng chū. Quán yún: 'Zǐ ruò zài, qià jiù dé māo'er.'",
+              "translations": {
+                "red_pine": "The assembly had no answer. Nanquan slashed the cat in two. In the evening Zhaozhou returned; Nanquan told him what had happened. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
+                "cleary": "The crowd had no reply. Nanquan then cut it in two. In the evening Zhaozhou returned from outside; Nanquan told him the story. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said, 'If you had been here, you would have saved the cat.'",
+                "sasaki": "The monks made no answer. Nansen cut the cat in two. That evening Jōshū returned. Nansen told him. Jōshū took off his straw sandals, placed them on his head, and walked out. Nansen said: 'Had you been here, you would have saved the cat.'"
+              }
+            }
+          ],
+          "verse_zh": "兩堂俱是杜撰漢，拈得貓兒成兩段。趙州頂戴草鞋行，直下令人骨毛寒。",
+          "verse_en": "Both halls were full of clumsy bunglers! / He picked up the cat and made two pieces of it. / Zhaozhou wearing straw sandals upon his head: / Directly making the hair and bones of monks turn ice cold!"
+        },
+        {
+          "case_num": 21,
+          "title_zh": "雲門乾屎橛",
+          "title_pinyin": "Yúnmén Gān Shǐ Jué",
+          "title_en": "Yunmen's Dried Shit-Stick",
+          "pointer_zh": "垂示云：拈一放一，未是奇特。直得函蓋相稱，把斷要津，始得作家。",
+          "pointer_en": "Pointer: Taking up one and releasing one is not yet extraordinary. When box and lid fit seamlessly, guarding the essential pass, then you are an authentic master.",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問雲門：「如何是佛？」",
+              "pinyin": "Sēng wèn Yúnmén: 'Rúhé shì fó?'",
+              "translations": {
+                "red_pine": "A monk asked Yunmen: 'What is Buddha?'",
+                "cleary": "A monk asked Yunmen, 'What is Buddha?'",
+                "sasaki": "A monk asked Ummon: 'What is the Buddha?'"
+              }
+            },
+            {
+              "speaker": "Yunmen / 雲門",
+              "zh": "門云：「乾屎橛。」",
+              "pinyin": "Mén yún: 'Gān shǐ jué.'",
+              "translations": {
+                "red_pine": "Yunmen said: 'A dried shit-stick.'",
+                "cleary": "Yunmen said, 'A dried dung scraper.'",
+                "sasaki": "Ummon said: 'A dried shit-stick.'",
+                "suzuki": "Yunmen replied: 'A dried piece of excrement.'"
+              }
+            }
+          ],
+          "verse_zh": "雲門一箭落雙鵰，大地乾坤沒處逃。萬里神光照耀處，靈鋒截斷赤肉膏。",
+          "verse_en": "Yunmen's single arrow brings down a pair of vultures; / Heaven and earth have nowhere to escape! / Where ten thousand leagues of wondrous light illuminate, / The razor blade slices straight through red flesh and bone!"
+        },
+        {
+          "case_num": 43,
+          "title_zh": "洞山無寒暑",
+          "title_pinyin": "Dòngshān Wú Hán Shǔ",
+          "title_en": "Dongshan's Cold and Heat",
+          "pointer_zh": "垂示云：放行則瓦礫生光，把住則真金失色。",
+          "pointer_en": "Pointer: Let go, and tile and gravel shine with light; hold fast, and pure gold loses its luster.",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問洞山：「寒暑到來，如何迴避？」",
+              "pinyin": "Sēng wèn Dòngshān: 'Hán shǔ dào lái, rúhé huíbì?'",
+              "translations": {
+                "red_pine": "A monk asked Dongshan: 'When cold and heat arrive, how do we avoid them?'",
+                "cleary": "A monk asked Dongshan, 'When cold and heat come, how can we avoid them?'",
+                "sasaki": "A monk asked Tōzan: 'When cold and heat come, how can we avoid them?'"
+              }
+            },
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "山云：「何不向無寒暑處去？」僧云：「如何是無寒暑處？」山云：「寒時寒殺闍黎，熱時熱殺闍黎。」",
+              "pinyin": "Shān yún: 'Hé bù xiàng wú hán shǔ chù qù?' Sēng yún: 'Rúhé shì wú hán shǔ chù?' Shān yún: 'Hán shí hán shā shélí, rè shí rè shā shélí.'",
+              "translations": {
+                "red_pine": "Dongshan said: 'Why not go to the place where there is no cold or heat?' The monk asked: 'What is the place where there is no cold or heat?' Dongshan said: 'When it is cold, the cold kills you; when it is hot, the heat kills you.'",
+                "cleary": "Dongshan said, 'Why don't you go where there is no cold or heat?' The monk said, 'What is the place where there is no cold or heat?' Dongshan said, 'When cold, the cold kills you; when hot, the heat kills you.'",
+                "sasaki": "Tōzan said: 'Why not go where there is neither cold nor heat?' The monk asked: 'Where is that place?' Tōzan said: 'When cold, let cold kill you; when hot, let heat kill you.'"
+              }
+            }
+          ],
+          "verse_zh": "垂手還同萬仞崖，正偏何必在安排。琉璃古殿照明月，忍俊韓盧空上階。",
+          "verse_en": "Reaching down his hand is like standing atop a ten-thousand fathom cliff; / Why must Real and Apparent be contrived? / The ancient lapis palace reflects the bright moon; / The sly hound Han Lu rushes up the steps in vain!"
         }
       ]
     },
