@@ -3114,6 +3114,105 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "fayan_yulu": {
+      "id": "fayan_yulu",
+      "title_zh": "金陵清涼院文益禪師語錄與宗門十規論",
+      "title_pinyin": "Jīnlíng Qīngliáng Yuàn Wényì Chánshī Yǔlù yǔ Zōngmén Shí Guī Lùn",
+      "title_en": "The Record of Master Fayan Wenyi and the Ten Rules of the Chan School",
+      "cbeta_id": "T1991 / X1265",
+      "taisho_vol": 47,
+      "author_zh": "法眼文益 禪師 說 / 宗門十規論",
+      "author_en": "Chan Master Fayan Wenyi (885–958), Founder of the Fayan School",
+      "era": "Five Dynasties (Southern Tang)",
+      "genre": "Discourse Record & Scholarly Critique (語錄與十規論)",
+      "overview": "The foundational literature of the Fayan (Hogen) School, synthesizing Huayan Buddhist philosophy (Mind-Only and the Six Characteristics of Dharma) with uncompromising Chan encounter dialogues.",
+      "sections": [
+        {
+          "section_id": "not_knowing_intimate",
+          "title_zh": "地藏問行腳：不知最親切",
+          "title_pinyin": "Dìzàng Wèn Xíngjiǎo: Bùzhī Zuì Qīnqiè",
+          "title_en": "Dizang Inquires of Fayan: Not Knowing is Most Intimate",
+          "dialogue": [
+            {
+              "speaker": "Dizang / 地藏桂琛",
+              "zh": "師因遊方，值雨阻雪，過地藏院。地藏問：「長老甚處去？」師云：「行腳去。」地藏云：「作麼生是行腳事？」師云：「不知。」",
+              "pinyin": "Shī yīn yóufāng, zhí yǔ zǔ xuě, guò Dìzàng Yuàn. Dìzàng wèn: 'Zhǎnglǎo shèn chù qù?' Shī yún: 'Xíngjiǎo qù.' Dìzàng yún: 'Zuò me shēng shì xíngjiǎo shì?' Shī yún: 'Bù zhī.'",
+              "translations": {
+                "red_pine": "During his travels, Master Fayan was delayed by snow and rain and stayed at Dizang Monastery. Master Dizang asked: 'Where are you going, Elder?' Fayan said: 'Traveling on pilgrimage.' Dizang said: 'What is the purpose of traveling on pilgrimage?' Fayan said: 'I do not know.'",
+                "cleary": "The Master was traveling on pilgrimage, delayed by rain and snow, and stayed at Dizang temple. Dizang asked, 'Where are you going, Elder?' Fayan said, 'On pilgrimage.' Dizang said, 'What is the business of pilgrimage?' Fayan said, 'I do not know.'",
+                "sasaki": "Master Hōgen was on pilgrimage and detained by snow at Dizang's temple. Dizang asked: 'Where are you going?' Hōgen said: 'On pilgrimage.' Dizang asked: 'What is the purpose of pilgrimage?' Hōgen replied: 'I do not know.'"
+              }
+            },
+            {
+              "speaker": "Dizang / 地藏桂琛",
+              "zh": "地藏云：「不知最親切。」師於言下大悟。",
+              "pinyin": "Dìzàng yún: 'Bù zhī zuì qīnqiè.' Shī yú yán xià dà wù.",
+              "translations": {
+                "red_pine": "Dizang said: 'Not knowing is most intimate.' At these words Master Fayan attained great awakening.",
+                "cleary": "Dizang said, 'Not knowing is most intimate.' Fayan had great enlightenment at these words.",
+                "sasaki": "Dizang said: 'Not knowing is most intimate.' At this Hōgen was completely enlightened."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "stone_in_mind",
+          "title_zh": "三界唯心：庭前片石",
+          "title_pinyin": "Sānjiè Wéixīn: Tíngqián Piànshí",
+          "title_en": "The Three Realms are Mind Only: The Boulder in the Courtyard",
+          "dialogue": [
+            {
+              "speaker": "Fayan / 法眼",
+              "zh": "師指庭前片石問僧：「佛教說三界唯心，萬法唯識。且道：這塊石在心內，在心外？」",
+              "pinyin": "Shī zhǐ tíng qián piàn shí wèn sēng: 'Fójiào shuō sānjiè wéixīn, wànfǎ wéishí. Qiě dào: zhè kuài shí zài xīn nèi, zài xīn wài?'",
+              "translations": {
+                "red_pine": "The Master pointed to a boulder in the courtyard and asked a monk: 'The Buddhist teachings say that the three realms are Mind only, and the myriad dharmas are Consciousness only. Tell me: is this stone inside your mind or outside your mind?'",
+                "cleary": "The Master pointed to a stone in the courtyard and asked a monk, 'Buddhism says the three realms are mind only, myriad dharmas are consciousness only. Tell me: is this stone inside your mind or outside your mind?'",
+                "sasaki": "Hōgen pointed to a stone in the garden and asked a monk: 'Scriptures say the three worlds are Mind alone. Is this stone inside or outside your mind?'"
+              }
+            },
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧曰：「在心內。」",
+              "pinyin": "Sēng yuē: 'Zài xīn nèi.'",
+              "translations": {
+                "red_pine": "The monk said: 'Inside my mind.'",
+                "cleary": "The monk said, 'Inside the mind.'",
+                "sasaki": "The monk said: 'Inside my mind.'"
+              }
+            },
+            {
+              "speaker": "Fayan / 法眼",
+              "zh": "師曰：「行腳人空肚腹，著甚麼死急，安一塊石頭在心頭？」僧無對。",
+              "pinyin": "Shī yuē: 'Xíngjiǎo rén kōng dùfù, zhuó shénme sǐ jí, ān yī kuài shítou zài xīn tóu?' Sēng wú duì.",
+              "translations": {
+                "red_pine": "The Master said: 'A wandering monk traveling on an empty stomach—what urgent misery makes you carry such a heavy rock inside your mind?' The monk had no answer.",
+                "cleary": "The Master said, 'A traveling monk on an empty stomach—why carry such a heavy rock around inside your mind?' The monk had no reply.",
+                "sasaki": "Hōgen said: 'A traveling monk on an empty belly—what madness causes you to carry a boulder around inside your mind?' The monk was speechless."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "ten_rules",
+          "title_zh": "宗門十規論綱要",
+          "title_pinyin": "Zōngmén Shí Guī Lùn Gāngyào",
+          "title_en": "Treatise on the Ten Rules of the Chan School (Zongmen Shi Gui Lun)",
+          "dialogue": [
+            {
+              "speaker": "Fayan / 法眼",
+              "zh": "第一、自己根腳未明，妄指他人非；第二、護己宗門，輕蔑餘派；第三、好立言句，馳逐文字；第四、不辨機宜，妄行棒喝；第五、理事相違，墮在偏枯。學道之人，直須息妄歸真，理事圓融。",
+              "pinyin": "Dì-yī, zìjǐ gēnjiǎo wèi míng, wàng zhǐ tārén fēi; Dì-èr, hù jǐ zōngmén, qīngmiè yúpài; Dì-sān, hào lì yánjù, chízhuú wénzì; Dì-sì, bù biàn jīyí, wàng xíng bànghè; Dì-wǔ, lǐshì xiāngwéi, duò zài piānkū. Xuédào zhī rén, zhí xū xī wàng guī zhēn, lǐshì yuánróng.",
+              "translations": {
+                "red_pine": "First: Failing to clarify one's own fundamental foundation, yet rashly criticizing others; Second: Fiercely defending one's own sect while disparaging other lineages; Third: Delighting in creating witty slogans while chasing after words and letters; Fourth: Failing to discern the student's capacity and thoughtlessly deploying staff strikes and shouts; Fifth: Confusing principle and phenomena, falling into one-sided deficiency. Practitioners of the Way must quiet delusion, return to truth, and harmonize principle and phenomena in complete unity.",
+                "cleary": "First, not being clear on one's own ground, yet pointing out others' faults; Second, defending one's own sect and scorning others; Third, loving to establish phrases and chasing words; Fourth, not understanding timing and indiscriminately shouting; Fifth, letting principle and phenomena clash. Seekers of the Way must stop delusion and harmonize principle and phenomena.",
+                "sasaki": "The Ten Rules of the Chan School: Clarify one's own awakening; avoid sectarian rivalry; do not cling to words; discern the moment before striking or shouting; and harmonize principle with worldly reality."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
