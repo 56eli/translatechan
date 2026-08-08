@@ -3808,6 +3808,75 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "lidai_fabao_ji": {
+      "id": "lidai_fabao_ji",
+      "title_zh": "敦煌寫本 歷代法寶記",
+      "title_pinyin": "Dūnhuáng Xiěběn Lìdài Fǎbǎo Jì",
+      "title_en": "Record of the Dharma Jewel Through the Generations (Lidai Fabao Ji)",
+      "cbeta_id": "T2075 / P.2125",
+      "taisho_vol": 51,
+      "author_zh": "唐 蜀都保唐寺 沙門 撰 (c. 774 CE)",
+      "author_en": "Compiled by the Disciples of Chan Master Wuzhu (714–774 CE) at Baotang Monastery, Chengdu",
+      "era": "High Tang Dynasty (8th Century)",
+      "genre": "Dunhuang Transmission History & Non-Thought Doctrine (史傳與無念)",
+      "overview": "The famous 8th-century Dunhuang manuscript chronicling the transmission of Bodhidharma's robe through Huineng, Empress Wu Zetian, and Master Wuzhu of Sichuan, celebrated for the radical doctrine of 'No Recollection, No Thought, No Delusion' (無憶、無念、莫妄).",
+      "sections": [
+        {
+          "section_id": "three_nos_formula",
+          "title_zh": "保唐無住三無綱領：無憶、無念、莫妄",
+          "title_pinyin": "Bǎotáng Wúzhù Sānwú Gānglǐng: Wúyì, Wúniàn, Mòwàng",
+          "title_en": "The Three-No Doctrine of Wuzhu: No Recollection, No Thought, No Delusion",
+          "dialogue": [
+            {
+              "speaker": "Wuzhu / 無住",
+              "zh": "大師每對四眾說法云：「無憶是戒，無念是定，莫妄是慧。此三句語，即是總持門。不念過去是無憶，不攀未來是無念，當下不生顛倒是莫妄。」",
+              "pinyin": "Dàshī měi duì sìzhòng shuōfǎ yún: 'Wúyì shì jiè, wúniàn shì dìng, mòwàng shì huì. Cǐ sān jù yǔ, jí shì zǒngchí mén. Bù niàn guòqù shì wúyì, bù pān wèilái shì wúniàn, dāngxià bù shēng diāndǎo shì mòwàng.'",
+              "translations": {
+                "red_pine": "The Master always instructed the fourfold assembly: 'No recollection is morality (śīla); no thought is meditation (samādhi); no delusion is wisdom (prajñā). These three phrases are the universal gate of dharani. Not thinking of the past is no recollection; not grasping at the future is no thought; not giving rise to confusion in the present moment is no delusion.'",
+                "adamek": "The Master always taught the four assemblies, saying: 'No recollection is discipline, no thought is meditation, and not being false is wisdom. These three phrases are the gate of universal retention. Not recollecting the past is no recollection; not anticipating the future is no thought; not being inverted in the present is not being false.'",
+                "cleary": "The Great Master constantly spoke to the assembly: 'No recollection is ethics, no thought is concentration, no falsehood is wisdom. These three statements are the door of total retention. Not dwelling on the past is no recollection; not seeking the future is no thought; not creating delusion in the present is no falsehood.'"
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "robe_transmission",
+          "title_zh": "六祖袈裟密傳：武則天請衣",
+          "title_pinyin": "Liùzǔ Jiāshā Mìchuán: Wǔ Zétiān Qǐng Yī",
+          "title_en": "The Secret Transmission of the Robe: Empress Wu Zetian",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 傳記",
+              "zh": "則天皇后遣內侍薛簡，召韶州曹溪六祖慧能。祖稱疾不起，進呈達摩木棉傳法袈裟。則天供養於宮中，後以袈裟賜資州智詵禪師，智詵密付無相，無相傳無住。信衣歸蜀，法寶相承。",
+              "pinyin": "Zétiān Huánghòu qiǎn nèishì Xuē Jiǎn, zhào Sháozhōu Cáoxī Liùzǔ Huìnéng. Zǔ chēng jí bù qǐ, jìnchéng Dámó mùmián chuánfǎ jiāshā. Zétiān gōngyǎng yú gōng zhōng, hòu yǐ jiāshā cì Zīzhōu Zhìshēn chánshī, Zhìshēn mì fù Wúxiāng, Wúxiāng chuán Wúzhù. Xìnyī guī Shǔ, fǎbǎo xiāngchéng.",
+              "translations": {
+                "red_pine": "Empress Wu Zetian dispatched court envoy Xue Jian to summon Sixth Patriarch Huineng from Caoxi. The Patriarch pleaded illness and sent Bodhidharma's cotton transmission robe to the palace. Empress Wu revered it in the imperial quarters and later granted the robe to Master Zhishen of Zizhou, who secretly transmitted it to Wuxiang, and Wuxiang to Wuzhu. Thus the robe of faith arrived in Sichuan, perpetuating the Dharma jewel.",
+                "adamek": "Empress Wu dispatched the eunuch Xue Jian to summon Sixth Patriarch Huineng. The Patriarch declined, offering Bodhidharma's robe. Empress Wu later bestowed the robe upon Master Zhishen, who transmitted it to Wuxiang, who transmitted it to Wuzhu. Thus the Dharma jewel was passed down through generations in Shu.",
+                "cleary": "Empress Wu sent an envoy to invite Sixth Patriarch Huineng. The Patriarch sent Bodhidharma's robe of transmission. Empress Wu presented the robe to Chan Master Zhishen, which was passed to Wuxiang and Wuzhu in Sichuan as the sacred inheritance."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "direct_non_thought",
+          "title_zh": "息念即真：無修無證",
+          "title_pinyin": "Xīniàn Jí Zhēn: Wúxiū Wúzhèng",
+          "title_en": "Ceasing Thought is Truth: Non-Cultivation and Non-Attainment",
+          "dialogue": [
+            {
+              "speaker": "Wuzhu / 無住",
+              "zh": "師示眾云：「息念即是見佛，起念即是沉淪。不於外求，不起妄照。常住法界，廓落無邊。此即第一義諦，佛佛密付，祖祖相傳。」",
+              "pinyin": "Shī shì zhòng yún: 'Xīniàn jí shì jiàn fó, qǐniàn jí shì chénlún. Bù yú wài qiú, bù qǐ wàng zhào. Cháng zhù fǎjiè, kuòluò wúbiān. Cǐ jí dìyī yìdì, fófó mì fù, zǔzǔ xiāngchuán.'",
+              "translations": {
+                "red_pine": "The Master instructed the assembly: 'Ceasing thought is seeing the Buddha; stirring thought is sinking into samsara. Do not seek externally; do not give rise to false illumination. Dwell constantly in the Dharma-realm, vast and boundless. This is the supreme ultimate truth, secretly entrusted by all Buddhas and passed from ancestor to ancestor.'",
+                "adamek": "The Master addressed the assembly: 'Ceasing thought is seeing the Buddha; giving rise to thought is sinking into delusion. Seek nothing outside; do not generate artificial illumination. Abiding in the boundless Dharma-realm is the highest truth transmitted by all Buddhas.'",
+                "cleary": "The Master said to the crowd: 'Resting thought is seeing the Buddha; giving rise to thought is sinking. Dwell in the boundless realm of reality; this is the highest truth transmitted by all ancestral teachers.'"
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
