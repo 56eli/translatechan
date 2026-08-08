@@ -179,9 +179,17 @@
       "current_locator": "T1985",
       "content_shape": "sections",
       "priority": "high",
-      "review_status": "needs_unit_locator",
+      "review_status": "in_review",
       "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
-      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+      "editorial_note": "First source anchor located: 無位真人 encounter, CBETA T47n1985_p0496c10–p0496c14. It is an anchor-identification pass only, not character-level collation.",
+      "reviewed_units": [
+        "sections.sermon_1"
+      ],
+      "remaining_units": [
+        "sections.four_shouts",
+        "sections.four_host_guest",
+        "sections.blind_donkey"
+      ]
     },
     {
       "document_key": "mazu_yulu",
