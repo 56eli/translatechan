@@ -15,10 +15,25 @@ The TranslateChan project has been fully established with:
 3. **Core Canonical Corpus Seeds** (`data/corpus/`): 36 excerpt-scale canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties (authentic anchor passages; completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
 4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 18 master profiles with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan.
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
-6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky (see sourcing note in [`AUDIT.md` §3.4](./AUDIT.md)).
+6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows now carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966), others labeled honestly (see sourcing note in [`AUDIT.md` §3.4](./AUDIT.md)).
 7. **Interactive Zero-Backend Web App & Studio** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative Zen aesthetic with dark/light mode, search, SVG lineage network graph, and personal translation studio with LaTeX/Markdown export. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`AUDIT.md` §8](./AUDIT.md); `node scripts/smoke_test.mjs` must pass before every push.)*
 8. **Synchronized GitHub Pages Bundle** (`docs/`): Fully compiled, zero-dependency static bundle; Pages publishing already active from `main /docs`.
 9. **Agent Pipeline & Tooling** (`scripts/`): `arena_agent_pipeline.py` prompt templates, `build_data_bundle.py` deterministic bundler, `ingest_cbeta.py` offline segmenter, `smoke_test.mjs` regression test.
+
+---
+
+## 📍 Session Delta Since PR #1 (all on `arena/019fe108-translatechan`, 2026-08-08)
+
+15 commits ready for `main`. One-sentence map (full detail in [`AUDIT.md` §8](./AUDIT.md)):
+
+1. **`37b263a`** Post-PR#1 full project audit → [`AUDIT.md`](./AUDIT.md) (P0 found: app wouldn't even parse).
+2. **`2a160c6`** P0 repair: fatal `app.js` syntax error + 6 runtime crashes; new `scripts/smoke_test.mjs` regression harness.
+3. **`84a59eb`** Docs-truth pass: measured statuses, `LICENSE` (MIT + CC BY-SA 4.0 + third-party notice), `.nojekyll`, phantom refs purged.
+4. **`5405a60`** Attribution-integrity: `provenance.json` provenance policy + ✅/⚠️ badges in the UI + mis-cited canon IDs fixed.
+5. **`5c35834`** Universal search (all 36 texts × all schemas), true reader modes, single-pass clean tooltips, Studio builds from the data bundle.
+6. **`7dbfec0`–`934b7ef` (7 commits)** Verified-quotation campaign rounds 1–8 → **79 verified slots across 8 texts + 2 verified matrix rows**; six ✅ editions on Wumenguan Case 1; Wumenguan anchors now public-domain complete (Senzaki & Reps 1934); `provenance.json` v1.9. Highlights: first-ever honest ✅/⚠️ labels on every scholar-attributed rendering; 4 paraphrases/near-paraphrases caught and replaced with verified wording; 1 non-canonical Chinese stanza corrected to T2010.
+
+**Release readiness**: `scripts/smoke_test.mjs` ✅ · deterministic bundle ✅ · `/docs` byte-synced ✅ · live site will self-heal on merge (Pages serves `main` `/docs`).
 
 ---
 

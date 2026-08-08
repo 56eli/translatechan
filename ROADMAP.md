@@ -30,6 +30,8 @@ This document outlines the detailed engineering, data science, translation, and 
 ```
 
 > Statuses above are **measured** (see [`AUDIT.md`](./AUDIT.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
+>
+> **Attribution-integrity milestone (2026-08-08)**: provenance policy live (`data/translations/provenance.json` v1.9, UI badges ✅/⚠️); **79 verified quotation slots across 8 texts + 2 verified matrix rows**, with the full provenance log in [`AUDIT.md` §8](./AUDIT.md). Phase-3 matrix curation now proceeds on a verified-only basis for scholarly citation.
 
 ---
 
@@ -49,7 +51,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Multi-Translator Comparison matrix (Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine, AI Drafts, Personal Workspace).
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
-  - Instant client-side search (currently indexed over case-structured texts; full-corpus indexing across all schemas is P2 — [`AUDIT.md` §2](./AUDIT.md)).
+  - Instant client-side search across **all 36 texts and every schema shape** (counts + highlighting + jump-to-anchor — landed 2026-08-08, [`AUDIT.md` §8](./AUDIT.md)).
   - Personal Translation Studio allowing users to draft personal translations, save to `localStorage`, and export to JSON, Markdown, or LaTeX.
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Text Seeds** (36 files; authentic anchor passages, excerpt-scale — completion is Phase 2):

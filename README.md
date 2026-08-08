@@ -14,7 +14,15 @@
 **TranslateChan** is an open-source, scholarly, and computational initiative created to:
 1. **Source and Ingest** the complete classical Chinese Chan (Zen) literature of the ancient masters (*唐宋諸祖語錄與傳燈公案文獻*), referencing canonical CBETA / Taishō Tripiṭaka volumes (T47, T48, T51, and the Zokuzōkyō).
 2. **Deploy Sandboxed Arena AI Agents** to autonomously parse Classical Chinese texts, generate multi-register translation drafts (Literal, Hermeneutic, and Poetic Zen Cadence), align contemporary published translations, and commit structured JSON datasets to the repository.
-3. **Provide Multi-Translator Comparative Alignment** side-by-side, analyzing historical and contemporary renderings (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky) alongside AI-assisted hermeneutic synthesis.
+3. **Provide Multi-Translator Comparative Alignment** side-by-side, analyzing historical and contemporary renderings (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky **— now extended with ✅ verified registers from Nyogen Senzaki & Paul Reps, Eiichi Shimomissé, Katsuki Sekida, Kōun Yamada, Robert Aitken, Burton Watson, Yoel Hoffman, Andy Ferguson, Richard B. Clarke**) alongside AI-assisted hermeneutic synthesis.
+
+## ✅ Verified Quotation Campaign (2026-08-08)
+
+Every rendering shown under a scholar's name is labeled: **✅ Verified quotation** (checked verbatim against a specific edition, source recorded) or **⚠️ Register reconstruction** (AI-composed in that scholar's documented style — *not* citable). The pioneering audit and eight verification rounds delivered:
+
+- **79 verified quotation slots across 8 texts + 2 verified comparative-matrix rows**, each with full work/edition/verification provenance in `data/translations/provenance.json` (v1.9).
+- **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
+- All checks and honest negatives logged in [`AUDIT.md` §8](./AUDIT.md).
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
 5. **Deploy a Zero-Backend Static GitHub Pages Web App** for personal research, bilingual reading, hover lexicon tooltips, comparative translation matrix, Gong'an index, and a personal translation & annotation studio.
 
@@ -44,7 +52,7 @@
 - Sentence-by-sentence Classical Chinese with standard Pinyin romanization and English translations across all 36 corpus texts.
 - Switchable reading modes: **Bilingual**, **Multi-Translators Side-by-Side**, or **Classical Chinese Only**.
 - Hover on key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
-- Client-side search (currently indexed over case-structured texts; full-corpus indexing in progress — see [`AUDIT.md` §2](./AUDIT.md)).
+- Client-side search across **all 36 corpus texts and all schema shapes** (case lists, sermons, dialogues, stanzas, chapters), with match counts, `<mark>` highlighting, and jump-to-anchor actions.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix
 - Segment-level side-by-side comparison across major 20th and 21st-century renderings (4 exemplar entries today).
