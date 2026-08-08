@@ -18,7 +18,7 @@
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
-Every visible translation register in the Reader and Comparative Matrix carries a **✅ Verified quotation**, **⚠️ Register reconstruction**, or **🤖 AI draft** badge. A verified item also exposes its recorded source details; reconstructions are AI-composed in a scholar's documented style and are *not* citable. The verification campaign delivered:
+Every visible translation register in the Reader and Comparative Matrix carries a **✅ Verified quotation**, **⚠️ AI register reconstruction**, or **🤖 AI draft** badge. Every translation disclosure also quotes its aligned original Chinese and shows the canonical source locator/status. A verified item exposes its recorded edition and verification details; a register reconstruction is newly written project text using broad style characteristics associated with a scholar, **not** copied from, checked against, or attributable as wording in that scholar's work, and is *not* citable. The verification campaign delivered:
 
 - **138 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
@@ -52,7 +52,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - Sentence-by-sentence Classical Chinese with standard Pinyin romanization and English translations across all 36 corpus texts.
 - Switchable reading modes: **Bilingual**, **Multi-Translators Side-by-Side**, or **Classical Chinese Only**.
 - Hover, focus, or tap key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
-- Visible canonical source locations for every reader document/case, with hover/focus/touch disclosure popups that state locator granularity and pending status honestly.
+- Visible canonical source locations for every reader document/case, plus reviewed unit-level source disclosures for the Linji (4 sections) and Xinxin Ming (7 stanzas) pilots; hover/focus/touch popups state locator granularity, collation status, and pending human review honestly.
 - Client-side search across **all 36 corpus texts and all schema shapes** (case lists, sermons, dialogues, stanzas, chapters), with match counts, `<mark>` highlighting, and jump-to-anchor actions.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix
@@ -97,7 +97,7 @@ translatechan/
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
 ├── data/
 │   ├── corpus_manifest.json    # Shared corpus order/navigation manifest (36 keys)
-│   ├── canonical_locators.json # Document/case source-locator registry
+│   ├── canonical_locators.json # Document/case/unit source-locator registry
 │   ├── project_metrics.json    # Deterministic, validator-generated project counts
 │   ├── corpus/                 # 36 structured canonical-text files (JSON, excerpt-scale → growing)
 │   │   ├── wumenguan.json            # + preface/epilogue

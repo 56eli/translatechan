@@ -149,9 +149,9 @@
       "current_locator": "T2012A",
       "content_shape": "sections",
       "priority": "high",
-      "review_status": "needs_unit_locator",
-      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
-      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+      "review_status": "in_review",
+      "next_action": "Collate the two remaining One Mind units against T48n2012A_p0379c18 onward, then record unit locators and obtain editor sign-off.",
+      "editorial_note": "2026-08-08: mixed T2012B compassion Q&A moved to huangbo_wanling; this T2012A seed now contains only its One Mind material and is ready for unit-level collation."
     },
     {
       "document_key": "huangbo_wanling",
@@ -160,8 +160,8 @@
       "content_shape": "sections",
       "priority": "high",
       "review_status": "needs_unit_locator",
-      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
-      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+      "next_action": "Add a T2012B unit locator for the moved 無緣大慈 Q&A and collate it with the existing Wanling sections before any upgrade.",
+      "editorial_note": "2026-08-08: received a two-unit 無緣大慈 Q&A moved from the incorrectly mixed T2012A seed; source is T2012B, but exact line-head collation remains pending."
     },
     {
       "document_key": "lidai_fabao_ji",
@@ -180,8 +180,8 @@
       "content_shape": "sections",
       "priority": "high",
       "review_status": "in_review",
-      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
-      "editorial_note": "First source anchor located: 無位真人 encounter, CBETA T47n1985_p0496c10–p0496c14. It is an anchor-identification pass only, not character-level collation.",
+      "next_action": "Obtain a human editor’s character-level review and sign-off for all four collated sections; do not upgrade them to source_checked_excerpt until that review is recorded.",
+      "editorial_note": "2026-08-08 collation pilot: all four rendered sections now use T1985-aligned source wording with documented punctuation/segmentation normalization. This remains in review pending human scholarly sign-off; it is not a source_checked claim.",
       "reviewed_units": [
         "sections.sermon_1"
       ],
@@ -277,9 +277,9 @@
       "current_locator": "T2010",
       "content_shape": "stanzas",
       "priority": "high",
-      "review_status": "needs_unit_locator",
-      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
-      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+      "review_status": "in_review",
+      "next_action": "Obtain a human editor’s review and sign-off for the seven collated T2010 stanza anchors; confirm the treatment of the 一念萬年 inline note in stanza 6 before any source_checked status.",
+      "editorial_note": "2026-08-08 locator pilot: all seven rendered stanzas have T2010 line-head anchors and documented punctuation normalization. This remains in review pending human scholarly sign-off."
     },
     {
       "document_key": "xuansha_yulu",

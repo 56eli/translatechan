@@ -7,11 +7,11 @@
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 16270,
+    "all_corpus_cjk_characters": 16457,
     "complete_documents": [
       "wumenguan"
     ],
-    "content_cjk_characters": 13090,
+    "content_cjk_characters": 13268,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -27,8 +27,8 @@
   "editorial_traceability": {
     "document_level_queue_records": 33,
     "statuses": {
-      "in_review": 1,
-      "needs_unit_locator": 32
+      "in_review": 3,
+      "needs_unit_locator": 30
     }
   },
   "lineage_profile_review": {

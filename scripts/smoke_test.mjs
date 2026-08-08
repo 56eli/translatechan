@@ -116,6 +116,25 @@ for (const [key, fn] of Object.entries(corpusClicks)) {
 }
 console.log(`RENDERER: ${Object.keys(corpusClicks).length} corpus texts exercised, ${failures} crashes`);
 
+// 1b. The Linji locator pilot must expose its reviewed unit anchor, not only T1985.
+try {
+  corpusClicks.linji_yulu();
+  const linjiHtml = ids['reader-content-target']._innerHTML;
+  const linjiAnchor = window.TRANSLATECHAN_DATA.canonical_locators.documents.linji_yulu.unit_locators['sections.four_shouts'];
+  if (!linjiHtml.includes('Section source: T47n1985_p0504a26–p0504a29') ||
+      linjiAnchor?.status !== 'collated_with_normalization') {
+    failures++; console.log('❌ Linji unit-level locator pilot is not rendered');
+  }
+} catch (e) { failures++; console.log(`❌ Linji locator pilot crash: ${e.message}`); }
+
+// 1c. The Xinxin Ming pilot exposes stanza-level T2010 source anchors.
+try {
+  corpusClicks.xinxin_ming();
+  if (!ids['reader-content-target']._innerHTML.includes('Stanza source: T48n2010_p0376b20–p0376b21')) {
+    failures++; console.log('❌ Xinxin Ming stanza-level locator pilot is not rendered');
+  }
+} catch (e) { failures++; console.log(`❌ Xinxin Ming locator pilot crash: ${e.message}`); }
+
 // 2. Exercise each reader mode
 for (const h of modeHandlers) {
   try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute()} crash: ${e.message}`); }
@@ -235,6 +254,20 @@ if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandl
   const citationPopover = createdElements.find(el => el.id === 'citation-popover');
   if (!citationPopover || !citationPopover._innerHTML.includes('Canonical location')) {
     failures++; console.log('❌ citation hover popover did not render source details');
+  }
+  // Translation disclosures must carry the aligned Chinese excerpt and source-review state.
+  const allCitationIds = [...wmHtml.matchAll(/data-citation-id="([^"]+)"/g)].map(m => m[1]);
+  let hasOriginalSourceDisclosure = false;
+  for (const id of allCitationIds) {
+    citationTrigger.getAttribute = () => id;
+    (documentHandlers.mouseover || []).forEach(fn => fn({ target, relatedTarget: null }));
+    if (citationPopover && citationPopover._innerHTML.includes('Original Chinese source') && citationPopover._innerHTML.includes('Source verification status')) {
+      hasOriginalSourceDisclosure = true;
+      break;
+    }
+  }
+  if (!hasOriginalSourceDisclosure) {
+    failures++; console.log('❌ translation disclosure omitted original Chinese or canonical verification status');
   }
 }
 // 4j. Tooltip DOM is de-duplicated: no embedded .term-tooltip nodes remain in reader output

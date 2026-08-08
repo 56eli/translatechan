@@ -2631,10 +2631,47 @@ window.TRANSLATECHAN_DATA = {
         "unit_locators": {
           "sections.sermon_1": {
             "canonical_locator": "T47n1985_p0496c10–p0496c14",
-            "status": "anchor_identified_not_collated",
+            "status": "collated_with_normalization",
             "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
             "review_date": "2026-08-08",
-            "note": "CBETA line-head range identifies the 無位真人 encounter. The project excerpt uses its own segmentation and normalized punctuation; a character-level collation and editor sign-off remain required before source_checked_excerpt status."
+            "note": "CBETA line-head range identifies the 無位真人 encounter. The project excerpt uses its own segmentation and normalized punctuation; character-level collation and editor sign-off remain required before source_checked_excerpt status.",
+            "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "All three rendered dialogue units align with T47n1985_p0496c10–p0496c14 after punctuation/segmentation normalization. Recorded textual differences include project 「師示眾云」 for CBETA 「上堂云」, 「諸人」 for 「汝等諸人」, and modern glyph 「託」 for CBETA 「托」. No substantive phrase was added."
+          },
+          "sections.four_shouts": {
+            "canonical_locator": "T47n1985_p0504a26–p0504a29",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+            "review_date": "2026-08-08",
+            "note": "CBETA paragraph pT47p0504a2601 contains the four-shouts encounter. The project excerpt uses normalized wording and segmentation; character-level collation and editor sign-off remain required.",
+            "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "The two rendered units align with T47n1985_p0504a26–p0504a29 after segmentation and normalization. The project changes CBETA 「踞地金毛師子」 to 「金毛師子蹲地」; preserve that as a normalized/reordered rendering rather than treating it as a diplomatic transcription."
+          },
+          "sections.four_host_guest": {
+            "canonical_locator": "T47n1985_p0501a02–p0501a15",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501a",
+            "review_date": "2026-08-08",
+            "note": "CBETA discussion of the four host/guest configurations spans these line heads. The project excerpt is a selective normalized segment; character-level collation and editor sign-off remain required.",
+            "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "The former selective/non-Taishō wording was replaced on 2026-08-08 with the faithful T47n1985_p0501a02–p0501a15 excerpt. Punctuation and segmentation are normalized; the English register reconstructions were revised to match this longer source passage. Human editor sign-off remains required."
+          },
+          "sections.blind_donkey": {
+            "canonical_locator": "T47n1985_p0506c03–p0506c07",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0506c",
+            "review_date": "2026-08-08",
+            "note": "CBETA paragraph pT47p0506c0301 contains the final exchange with Sansheng. The project excerpt has variant normalized wording; character-level collation and editor sign-off remain required.",
+            "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "The first dialogue was revised on 2026-08-08 to the T47n1985 據坐/爭敢 reading, and the final clause to 「端然示寂」. Punctuation and segmentation are normalized; human editor sign-off remains required."
           }
         }
       },
@@ -2900,7 +2937,79 @@ window.TRANSLATECHAN_DATA = {
         "canonical_locator": "T2010",
         "granularity": "document",
         "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
-        "status": "legacy_document_seed"
+        "status": "legacy_document_seed",
+        "unit_locators": {
+          "stanzas.1": {
+            "canonical_locator": "T48n2010_p0376b20–p0376b21",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+            "review_date": "2026-08-08",
+            "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+            "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+            "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+          },
+          "stanzas.2": {
+            "canonical_locator": "T48n2010_p0376b21–p0376b22",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+            "review_date": "2026-08-08",
+            "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+            "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+            "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+          },
+          "stanzas.3": {
+            "canonical_locator": "T48n2010_p0376b22–p0376b24",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+            "review_date": "2026-08-08",
+            "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+            "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+            "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+          },
+          "stanzas.4": {
+            "canonical_locator": "T48n2010_p0376b24–p0376b25",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+            "review_date": "2026-08-08",
+            "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+            "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+            "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+          },
+          "stanzas.5": {
+            "canonical_locator": "T48n2010_p0376b25–p0376b26",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+            "review_date": "2026-08-08",
+            "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+            "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+            "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+          },
+          "stanzas.6": {
+            "canonical_locator": "T48n2010_p0377a04–p0377a05",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0377a",
+            "review_date": "2026-08-08",
+            "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+            "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+            "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization. Stanza 6 treats CBETA’s inline 一念萬年 note as part of the project’s reading; human editor sign-off remains required."
+          },
+          "stanzas.7": {
+            "canonical_locator": "T48n2010_p0377a09–p0377a10",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0377a",
+            "review_date": "2026-08-08",
+            "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+            "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+            "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+          }
+        }
       },
       "xuansha_yulu": {
         "canonical_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
@@ -2966,11 +3075,11 @@ window.TRANSLATECHAN_DATA = {
       "documents": 36
     },
     "corpus": {
-      "all_corpus_cjk_characters": 16270,
+      "all_corpus_cjk_characters": 16457,
       "complete_documents": [
         "wumenguan"
       ],
-      "content_cjk_characters": 13090,
+      "content_cjk_characters": 13268,
       "content_shapes": {
         "cases": 3,
         "chapters": 1,
@@ -2986,8 +3095,8 @@ window.TRANSLATECHAN_DATA = {
     "editorial_traceability": {
       "document_level_queue_records": 33,
       "statuses": {
-        "in_review": 1,
-        "needs_unit_locator": 32
+        "in_review": 3,
+        "needs_unit_locator": 30
       }
     },
     "lineage_profile_review": {
@@ -6359,12 +6468,12 @@ window.TRANSLATECHAN_DATA = {
           "dialogue": [
             {
               "speaker": "Linji / 臨濟",
-              "zh": "師示眾云：「參學者，有主看客，有客看主，有主看主，有客看客。若主看主，如兩刃相交，互不相讓，乃作家相見；若客看客，如泥牛入海，彼此盲引，同入火坑。」",
-              "pinyin": "Shī shì zhòng yún: 'Cānxué zhě, yǒu zhǔ kàn kè, yǒu kè kàn zhǔ, yǒu zhǔ kàn zhǔ, yǒu kè kàn kè. Ruò zhǔ kàn zhǔ, rú liǎng rèn xiāng jiāo, hù bù xiāng ràng, nǎi zuòjiā xiāngjiàn; ruò kè kàn kè, rú níniú rù hǎi, bǐcǐ máng yǐn, tóng rù huǒkēng.'",
+              "zh": "道流！如禪宗見解死活循然，參學之人大須子細，如主客相見便有言論往來，或應物現形，或全體作用，或把機權喜怒，或現半身，或乘師子，或乘象王。如有真正學人便喝，先拈出一箇膠盆子。善知識不辨是境，便上他境上作模作樣。學人便喝，前人不肯放，此是膏肓之病不堪醫，喚作客看主。或是善知識不拈出物，隨學人問處即奪，學人被奪抵死不肯放，此是主看客。或有學人應一箇清淨境出善知識前，善知識辨得是境，把得拋向坑裏。學人言：「大好善知識。」知識即云：「咄哉，不識好惡。」學人便禮拜，此喚作主看主。或有學人披枷帶鎖出善知識前，善知識更與安一重枷鎖，學人歡喜，彼此不辨，呼為客看客。",
+              "pinyin": "Dàoliú! Rú Chánzōng jiànjiě sǐhuó xúnrán, cānxué zhī rén dà xū zǐxì, rú zhǔkè xiāngjiàn biàn yǒu yánlùn wǎnglái, huò yìngwù xiànxíng, huò quántǐ zuòyòng, huò bǎ jīquán xǐnù, huò xiàn bànshēn, huò chéng shīzi, huò chéng xiàngwáng. Rú yǒu zhēnzhèng xuérén biàn hè, xiān niān chū yī gè jiāopénzi. Shànzhīshì bù biàn shì jìng, biàn shàng tā jìng shàng zuò mó zuò yàng. Xuérén biàn hè, qiánrén bù kěn fàng, cǐ shì gāohuāng zhī bìng bù kān yī, huàn zuò kè kàn zhǔ. Huò shì shànzhīshì bù niān chū wù, suí xuérén wèn chù jí duó, xuérén bèi duó dǐ sǐ bù kěn fàng, cǐ shì zhǔ kàn kè. Huò yǒu xuérén yìng yī gè qīngjìng jìng chū shànzhīshì qián, shànzhīshì biàn dé shì jìng, bǎ dé pāo xiàng kēng lǐ. Xuérén yán: Dà hǎo shànzhīshì. Zhīshì jí yún: Duō zāi, bù shí hǎo è. Xuérén biàn lǐbài, cǐ huàn zuò zhǔ kàn zhǔ. Huò yǒu xuérén pī jiā dài suǒ chū shànzhīshì qián, shànzhīshì gèng yǔ ān yī chóng jiāsuǒ, xuérén huānxǐ, bǐcǐ bù biàn, hū wéi kè kàn kè.",
               "translations": {
-                "red_pine": "The Master instructed the assembly: 'Among practitioners, there is host seeing guest, guest seeing host, host seeing host, and guest seeing guest. When host meets host, it is like two sword blades crossing without either retreating—this is the meeting of true masters. When guest meets guest, it is like clay oxen dissolving into the sea, blindly leading each other into the fiery pit.'",
-                "sasaki": "The Master instructed the monks: 'In the encounter between seekers, there is host viewing guest, guest viewing host, host viewing host, and guest viewing guest. When host views host, it is like two crossed swords, neither yielding—this is authentic masters meeting. When guest views guest, both are blind.'",
-                "cleary": "The Master said to the group: 'Among practitioners, there is host viewing guest, guest viewing host, host viewing host, and guest viewing guest. When host views host, it is like two crossed swords, neither yielding—this is true masters meeting. When guest views guest, they blindly lead each other into a pit of fire.'"
+                "red_pine": "Among Chan students, encounters can take many forms: meeting as host and guest, responding to circumstances, or taking up the whole activity. When a student traps a teacher in a situation and the teacher cannot discern it, this is called guest seeing host. When a teacher takes away what the student asks for and the student will not release it, this is called host seeing guest. When both recognize and discard a pure situation, this is host seeing host; when both fail to discern and add another shackle, this is guest seeing guest.",
+                "sasaki": "Students of the Way must be very careful in the living exchange of host and guest. The text distinguishes the guest who tests a teacher, the host who takes away a student’s attachment, the mutual discernment of host and host, and the mutual confusion of guest and guest.",
+                "cleary": "Students of the Way must be very careful. In encounters there may be words and responses, manifestations and complete functioning. If a student presents a situation and the teacher cannot discern it, that is guest seeing host; if the teacher takes the student’s question and the student clings to it, that is host seeing guest. Clear discernment is host seeing host; mutual confusion is guest seeing guest."
               }
             }
           ]
@@ -6377,8 +6486,8 @@ window.TRANSLATECHAN_DATA = {
           "dialogue": [
             {
               "speaker": "Linji / 臨濟",
-              "zh": "師遷化時，囑三聖曰：「吾滅後，不得滅卻吾正法眼藏。」三聖曰：「怎敢滅卻和尚正法眼藏！」",
-              "pinyin": "Shī qiānhuà shí, zhǔ Sānshèng yuē: 'Wú miè hòu, bùdé miè què wú zhèng fǎyǎn zàng.' Sānshèng yuē: 'Zěn gǎn miè què héshang zhèng fǎyǎn zàng!'",
+              "zh": "師臨遷化時據坐云：「吾滅後不得滅却吾正法眼藏。」三聖出云：「爭敢滅却和尚正法眼藏？」",
+              "pinyin": "Shī lín qiānhuà shí jù zuò yún: Wú miè hòu bùdé miè què wú zhèng fǎyǎn zàng. Sānshèng chū yún: Zhēng gǎn miè què héshang zhèng fǎyǎn zàng?",
               "translations": {
                 "red_pine": "When the Master was about to pass away, he entrusted Sansheng: 'After I pass, you must not extinguish my treasury of the true Dharma eye.' Sansheng said: 'How could I dare extinguish the Master's treasury of the true Dharma eye!'",
                 "sasaki": "When the Master was about to enter nirvana, he instructed Sansheng: 'After my death, do not destroy my Eye Treasury of the True Law.' Sansheng said: 'How could I dare destroy your Eye Treasury of the True Law!'",
@@ -6389,7 +6498,7 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
                     "edition": "Wisdom Publications, 2011",
-                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08; Ferguson follows the T1985 師臨遷化時據坐云 reading, our unit zh follows the 囑三聖曰 variant",
+                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08; aligned to the T1985 據坐/爭敢 wording.",
                     "source_id": "ferguson-chinese-heritage-2011",
                     "reference": "pp. 173–176 (Linji section)"
                   }
@@ -6398,8 +6507,8 @@ window.TRANSLATECHAN_DATA = {
             },
             {
               "speaker": "Sansheng / 三聖",
-              "zh": "師曰：「已後有人問汝，汝向他道甚麼？」三聖便喝。師曰：「誰知吾正法眼藏，向這瞎驢邊滅卻！」言訖端坐示寂。",
-              "pinyin": "Shī yuē: 'Yǐhòu yǒu rén wèn rǔ, rǔ xiàng tā dào shènme?' Sānshèng biàn hè. Shī yuē: 'Shuí zhī wú zhèng fǎyǎn zàng, xiàng zhè xiālǘ biān mièquè!' Yán qì duānzuò shìjì.",
+              "zh": "師云：「已後有人問爾，向他道甚麼？」三聖便喝。師云：「誰知吾正法眼藏向這瞎驢邊滅却。」言訖端然示寂。",
+              "pinyin": "Shī yún: Yǐhòu yǒu rén wèn ěr, xiàng tā dào shénme? Sānshèng biàn hè. Shī yún: Shuí zhī wú zhèng fǎyǎn zàng xiàng zhè xiālǘ biān mièquè. Yán qì duānrán shìjì.",
               "translations": {
                 "red_pine": "The Master said: 'If someone asks you in the future, what will you say to them?' Sansheng immediately gave a thunderous shout! The Master smiled and said: 'Who would have known that my treasury of the true Dharma eye would be extinguished by this blind donkey!' Saying this, he sat upright and passed away.",
                 "sasaki": "The Master asked: 'If someone asks you in the future, what will you say?' Sansheng shouted! The Master said: 'Who would have thought that my Eye Treasury of the True Law would be destroyed by this blind donkey!' Having said this, the Master sat upright and passed away.",
@@ -6479,46 +6588,6 @@ window.TRANSLATECHAN_DATA = {
                 },
                 "cleary": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
                 "ai_literal": "Its immediate embodiment is it; stirring a thought is instantly deviating. Like empty space, without edges or borders, not measurable. Only this One Mind is Buddha; Buddha and sentient beings have no other difference."
-              }
-            },
-            {
-              "speaker": "Pei Xiu / 裴休",
-              "zh": "休問：「諸佛如何行大慈悲，為眾生說法？」",
-              "pinyin": "Xiū wèn: 'Zhūfó rúhé xíng dà cíbēi, wèi zhòngshēng shuō fǎ?'",
-              "translations": {
-                "blofeld": {
-                  "text": "How do the Buddhas, out of their vast mercy and compassion, preach the Dharma (Law) to sentient beings?",
-                  "status": "verified_quotation",
-                  "source": {
-                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
-                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
-                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
-                    "source_id": "blofeld-huangpo-1958",
-                    "reference": "Q&A no. 21"
-                  }
-                },
-                "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
-                "ai_literal": "Xiu asked: 'How do all Buddhas practice great compassion and preach dharma for sentient beings?'"
-              }
-            },
-            {
-              "speaker": "Huangbo / 黃檗",
-              "zh": "師曰：「佛慈悲者，無緣慈也。不見有佛可成，不見有眾生可度。無說無示，無聽無得，是名大慈悲。」",
-              "pinyin": "Shī yuē: 'Fó cíbēi zhě, wú yuán cí yě. Bù jiàn yǒu fó kě chéng, bù jiàn yǒu zhòngshēng kě dù. Wú shuō wú shì, wú tīng wú dé, shì míng dà cíbēi.'",
-              "translations": {
-                "blofeld": {
-                  "text": "We speak of their mercy and compassion as vast just because it is beyond causality (and therefore infinite). By mercy is really meant not conceiving of a Buddha to be Enlightened, while compassion really means not conceiving of sentient beings to be delivered. In reality, their Dharma is neither preached in words nor otherwise signified; and those who listen neither hear nor attain.",
-                  "status": "verified_quotation",
-                  "source": {
-                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
-                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
-                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
-                    "source_id": "blofeld-huangpo-1958",
-                    "reference": "Q&A no. 21"
-                  }
-                },
-                "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
-                "ai_literal": "Master said: 'Buddhas' compassion is conditionless compassion. Not seeing any Buddha to attain, not seeing any sentient beings to liberate. No speaking and no showing, no hearing and no acquiring: this is named great compassion.'"
               }
             }
           ]
@@ -9747,6 +9816,55 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ]
+        },
+        {
+          "section_id": "unconditioned_compassion",
+          "title_zh": "無緣大慈：不見有佛可成，眾生可度",
+          "title_pinyin": "Wúyuán Dàcí: Bù Jiàn Yǒu Fó Kě Chéng, Zhòngshēng Kě Dù",
+          "title_en": "Unconditioned Great Compassion",
+          "dialogue": [
+            {
+              "speaker": "Pei Xiu / 裴休",
+              "zh": "休問：「諸佛如何行大慈悲，為眾生說法？」",
+              "pinyin": "Xiū wèn: 'Zhūfó rúhé xíng dà cíbēi, wèi zhòngshēng shuō fǎ?'",
+              "translations": {
+                "blofeld": {
+                  "text": "How do the Buddhas, out of their vast mercy and compassion, preach the Dharma (Law) to sentient beings?",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
+                    "source_id": "blofeld-huangpo-1958",
+                    "reference": "Q&A no. 21"
+                  }
+                },
+                "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
+                "ai_literal": "Xiu asked: 'How do all Buddhas practice great compassion and preach dharma for sentient beings?'"
+              }
+            },
+            {
+              "speaker": "Huangbo / 黃檗",
+              "zh": "師曰：「佛慈悲者，無緣慈也。不見有佛可成，不見有眾生可度。無說無示，無聽無得，是名大慈悲。」",
+              "pinyin": "Shī yuē: 'Fó cíbēi zhě, wú yuán cí yě. Bù jiàn yǒu fó kě chéng, bù jiàn yǒu zhòngshēng kě dù. Wú shuō wú shì, wú tīng wú dé, shì míng dà cíbēi.'",
+              "translations": {
+                "blofeld": {
+                  "text": "We speak of their mercy and compassion as vast just because it is beyond causality (and therefore infinite). By mercy is really meant not conceiving of a Buddha to be Enlightened, while compassion really means not conceiving of sentient beings to be delivered. In reality, their Dharma is neither preached in words nor otherwise signified; and those who listen neither hear nor attain.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
+                    "source_id": "blofeld-huangpo-1958",
+                    "reference": "Q&A no. 21"
+                  }
+                },
+                "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
+                "ai_literal": "Master said: 'Buddhas' compassion is conditionless compassion. Not seeing any Buddha to attain, not seeing any sentient beings to liberate. No speaking and no showing, no hearing and no acquiring: this is named great compassion.'"
+              }
+            }
+          ],
+          "editorial_note": "Moved from the T2012A-labelled seed on 2026-08-08 after source review identified this Q&A as T2012B (宛陵錄) material. Unit-level collation remains pending."
         }
       ]
     },

@@ -20,7 +20,7 @@ A text or translation is only presented at the strongest available status. “Co
 
 - **Platform:** native GitHub Pages from `main` → `/docs`; the checked-in **Quality** workflow passes on the session branch.
 - **Corpus:** 36 structured documents. *Wumenguan* is the only complete work (48/48 cases plus preface/epilogue); 35 documents are honest excerpt seeds.
-- **Traceability:** all 57 stored case units have case-level locators; 33 non-case seed documents remain document-level `legacy_document_seed` records. `data/editorial/traceability_queue.json` now provides an enforced one-record-per-seed migration queue; queue membership is explicitly not evidence of collation.
+- **Traceability:** all 57 stored case units have case-level locators. The Linji pilot (4 sections, T1985) and Xinxin Ming pilot (7 stanzas, T2010) have CBETA line-head anchors marked `collated_with_normalization`, not source-checked: human editorial sign-off remains required. The remaining 33 non-case seed documents retain document-level `legacy_document_seed` records; the enforced migration queue is not evidence of collation. Huangbo material was separated by witness: the One Mind seed is T2012A, while the unconditioned-compassion Q&A now belongs to the T2012B Wanling seed and still needs unit-level collation.
 - **Translation disclosure:** 138 verified corpus quotation records and 2 verified Matrix records resolve to 13 rights-manifest source records; 5 verified records still need exact page/section references; human rights review remains pending.
 - **Lineage:** 30 internal edges are visibly traditional/pending (including four newly navigable frontier-profile links); none should be upgraded without exact source locators. `data/lineage/profile_review_queue.json` now tracks all 34 profiles for source-locator review without upgrading their evidence status.
 
@@ -37,7 +37,7 @@ A text or translation is only presented at the strongest available status. “Co
 
 ### 1 — Editorial traceability migration (highest scholarly priority)
 
-1. Establish a per-unit editorial worksheet format: source edition/URL or TEI revision, locator, collation date, reviewer, variant note, and confidence/status.
+1. Establish a per-unit editorial worksheet format: source edition/URL or TEI revision, locator, collation date, reviewer, variant note, and confidence/status. The Linji and Xinxin pilots are the reference implementation; their `collated_with_normalization` status is explicitly below human source-checked sign-off.
 2. Migrate the 33 `legacy_document_seed` locators one text at a time. Start with texts already used in the Matrix and Gong’an Index.
 3. Replace the 5 `Page/section locator pending` verified-quotation references with actual stable references or downgrade the item from verified status.
 4. Add exact source locators for lineage edges; preserve disputed/traditional distinctions rather than forcing a single genealogy.
