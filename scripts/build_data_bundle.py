@@ -39,7 +39,8 @@ def main():
             "dongshan_yulu": load_json(DATA_DIR / "corpus" / "dongshan_yulu.json"),
             "yunmen_yulu": load_json(DATA_DIR / "corpus" / "yunmen_yulu.json"),
             "fayan_yulu": load_json(DATA_DIR / "corpus" / "fayan_yulu.json"),
-            "guiyang_yulu": load_json(DATA_DIR / "corpus" / "guiyang_yulu.json")
+            "guiyang_yulu": load_json(DATA_DIR / "corpus" / "guiyang_yulu.json"),
+            "dahui_hongzhi": load_json(DATA_DIR / "corpus" / "dahui_hongzhi.json")
         },
         "meta": {
             "version": "1.0.0",

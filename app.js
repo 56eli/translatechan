@@ -207,7 +207,8 @@
       { key: 'dongshan_yulu', title: 'Dongshan Yulu & Five Ranks (洞山五位)', cbeta: 'T1986' },
       { key: 'yunmen_yulu', title: 'Yunmen Yulu (雲門語錄一字關)', cbeta: 'T1988' },
       { key: 'fayan_yulu', title: 'Fayan Yulu & Ten Rules (法眼十規論)', cbeta: 'T1991' },
-      { key: 'guiyang_yulu', title: 'Guiyang Yulu & Circles (溈仰九十六圓相)', cbeta: 'T1989' }
+      { key: 'guiyang_yulu', title: 'Guiyang Yulu & Circles (溈仰九十六圓相)', cbeta: 'T1989' },
+      { key: 'dahui_hongzhi', title: 'Dahui & Hongzhi (看話書問與默照銘)', cbeta: 'T1998A' }
     ];
 
     elements.corpusList.innerHTML = corpusMap.map(c => `
