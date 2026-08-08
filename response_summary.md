@@ -1,11 +1,11 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
 ### Summary of Completed Work:
-1. **Jingde Chuandenglu Ingestion (`data/corpus/chuandenglu.json`)**:
-   - Ingested the canonical 30-fascicle structure of *Jingde Chuandenglu* (*景德傳燈錄*, T2076, Vol. 51), indexing the transmission genealogy of 1,701 Chan masters from the Seven Buddhas of Antiquity and 28 Indian Patriarchs down through the Chinese generations to the Five Houses.
-   - Added core transmission records with sentence alignments: Nanyue Huairang grinding a brick to make a mirror (*南嶽磨磚作鏡*) and Layman Pang drinking up the West River in a single gulp (*龐居士參馬祖：一口吸盡西江水*).
-2. **Reader & App Integration**:
-   - Integrated Chuandenglu into the interactive web reader (`app.js`, `app_data.js`) with 30-fascicle overview navigation.
-   - Re-compiled `app_data.js` (172 KB) and verified live execution.
-3. **Repository Cleanliness & GitHub Push**:
-   - Committed and pushed all changes cleanly to `origin arena/019fe05c-translatechan`.
+1. **Interactive Transmission Lineage Graph Visualizer**:
+   - Built a custom **Interactive SVG Transmission Network Visualizer** embedded inside the Lineage Tree view with color-coded badges for all Six Patriarchs and Five Houses (*Linji, Caodong, Yunmen, Guiyang, Fayan*).
+   - Added transmission vectors connecting masters to disciples and teacher-lineage paths.
+   - Built an interactive **Master Dossier Inspector Modal** that displays biographical dates, primary monasteries, canonical CBETA text IDs, signature quotes (*公案法語*), and philosophical significance upon clicking any node.
+   - Built a view switcher between **🌐 Visual Network** and **🗃️ Master Cards**.
+2. **Repository & GitHub Synchronization**:
+   - Verified local preview server running cleanly on port 8080.
+   - Pushed all updates to `origin arena/019fe05c-translatechan`.

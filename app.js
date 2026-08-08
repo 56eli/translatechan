@@ -202,7 +202,8 @@
       { key: 'baojing_sanmei', title: 'Jewel Mirror Samadhi (寶鏡三昧)', cbeta: 'T1986' },
       { key: 'biyanlu_cases', title: 'Blue Cliff Record (碧巖錄)', cbeta: 'T2003' },
       { key: 'platform_sutra', title: 'Platform Sutra (六祖壇經)', cbeta: 'T2007' },
-      { key: 'chuandenglu', title: 'Transmission of Lamp (景德傳燈錄)', cbeta: 'T2076' }
+      { key: 'chuandenglu', title: 'Transmission of Lamp (景德傳燈錄)', cbeta: 'T2076' },
+      { key: 'qinggui_monastic_codes', title: 'Rules of Purity (百丈禪苑清規)', cbeta: 'T2025' }
     ];
 
     elements.corpusList.innerHTML = corpusMap.map(c => `

@@ -2783,6 +2783,95 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "qinggui_monastic_codes": {
+      "id": "qinggui_monastic_codes",
+      "title_zh": "禪苑清規與敕修百丈清規",
+      "title_pinyin": "Chányuàn Qīngguī yǔ Chìxiū Bǎizhàng Qīngguī",
+      "title_en": "Rules of Purity for the Chan Monastery (Baizhang Qinggui & Chanyuan Qinggui)",
+      "cbeta_id": "T2025 / X1245",
+      "taisho_vol": 48,
+      "author_zh": "唐 百丈懷海 祖述 / 宋 宗頤 禪師 編 (1103 CE) / 元 德輝 禪師 敕修 (1338 CE)",
+      "author_en": "Originated by Baizhang Huaihai (720–814), Compiled by Zongyi (1103 CE) and Dehui (1338 CE)",
+      "era": "Tang / Song / Yuan Dynasties",
+      "genre": "Monastic Codes & Rules of Purity (清規部)",
+      "overview": "The foundational monastic legislation and daily living codes that defined Chinese Chan communal monastery life, establishing independent agrarian monasteries, communal labor (samu), and mindfulness throughout all daily actions.",
+      "sections": [
+        {
+          "section_id": "communal_labor",
+          "title_zh": "普請法：一日不作，一日不食",
+          "title_pinyin": "Pǔqǐng Fǎ: Yī Rì Bù Zuò, Yī Rì Bù Shí",
+          "title_en": "Universal Communal Labor: A Day Without Work is a Day Without Food",
+          "dialogue": [
+            {
+              "speaker": "Baizhang / 百丈",
+              "zh": "師每日隨眾作務。主事者憫師年邁，潛收作具。師遂不食。眾問其故，師曰：「一日不作，一日不食。」自此叢林普請之風大興。",
+              "pinyin": "Shī měi rì suí zhòng zuòwù. Zhǔshì zhě mǐn shī nián mài, qián shōu zuòjù. Shī suì bù shí. Zhòng wèn qí gù, shī yuē: 'Yī rì bù zuò, yī rì bù shí.' Zì cǐ cónglín pǔqǐng zhī fēng dà xīng.",
+              "translations": {
+                "red_pine": "Every day the Master followed the assembly to do manual labor. The monastery administrator, taking pity on the Master's advanced age, secretly hid his working tools. The Master then refused to eat. When the monks asked the reason, the Master said: 'A day without work is a day without food.' From then on the tradition of universal communal labor flourished throughout all monasteries.",
+                "cleary": "Every day the Master followed the assembly in working. The administrator pitied his advanced age and secretly hid his tools. The Master thereupon did not eat. The assembly asked the reason; the Master said, 'A day without work is a day without food.' From this the custom of communal work flourished.",
+                "sasaki": "The Master worked daily with the community. The monks, pitying his old age, hid his farming tools. The Master refused to take food. When asked why, he replied: 'A day without work is a day without food.'"
+              }
+            },
+            {
+              "speaker": "Chanyuan Qinggui / 禪苑清規",
+              "zh": "普請之法，上自住持，下逮行者，普出人力，無有後先。古德云：『大眾作務，住持宜先。』此宗門勞動不離禪定之極則也。",
+              "pinyin": "Pǔqǐng zhī fǎ, shàng zì zhùchí, xià dài xíngzhě, pǔ chū rénlì, wú yǒu hòuxiān. Gǔdé yún: 'Dàzhòng zuòwù, zhùchí yí xiān.' Cǐ zōngmén láodòng bù lí chándìng zhī jízé yě.",
+              "translations": {
+                "red_pine": "The rule of communal labor: from the Abbot at the top down to postulants, all contribute their labor with none holding back. The ancients said: 'When the assembly works, the Abbot should take the lead.' This is the supreme standard of the ancestral school that physical labor is not separate from meditation.",
+                "cleary": "The method of communal work: from the abbot above down to novices below, everyone puts forth effort without delay. The ancients said, 'When the crowd works, the abbot should be first.' This is the ultimate principle of the school: labor is not separate from meditation.",
+                "sasaki": "In communal work, from the abbot to the postulant, all join together. The ancient masters taught: 'When the community works, the abbot leads.' Labor and Chan meditation are non-dual."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "monastic_roles",
+          "title_zh": "叢林兩序職事與侍者",
+          "title_pinyin": "Cónglín Liǎngxù Zhíshì yǔ Shìzhě",
+          "title_en": "Monastic Officers: The Two Ranks and Attendants",
+          "dialogue": [
+            {
+              "speaker": "Chanyuan Qinggui / 禪苑清規",
+              "zh": "叢林設東西兩序。西序主行法：首座居首，秉教弘宗；西堂次之；維那統理僧規，調和清眾。東序主世務：監院總領庫務，副寺、直歲共司田產，典座親掌飲食。",
+              "pinyin": "Cónglín shè dōng xī liǎngxù. Xīxù zhǔ xíngfǎ: shǒuzuò jū shǒu, bǐng jiào hóng zōng; xītáng cì zhī; wéinà tǒnglǐ sēngguī, tiáohé qīngzhòng. Dōngxù zhǔ shìwù: jiānyuàn zǒnglǐ kùwù, fùsì, zhísuì gòng sī tiánchǎn, diǎnzuò qīn zhǎng yǐnshí.",
+              "translations": {
+                "red_pine": "The monastery establishes Eastern and Western ranks. The Western rank directs spiritual practice: the Head Monk (Shouzuo) is foremost, upholding the teaching; the Ino (Weina) oversees monastic discipline and harmonizes the assembly. The Eastern rank manages temporal affairs: the Administrator (Jianyuan) directs finances, the Work Director (Zhisui) oversees lands, and the Chief Cook (Tenzo/Dianzuo) personally manages all food and sustenance.",
+                "cleary": "The monastery sets up the East and West orders. The West order directs spiritual teaching: the Chief Monk is first, holding the teaching; the Precentor governs monastic rules and harmonizes the community. The East order oversees practical affairs: the Director manages funds, the Work Master oversees land, the Cook handles meals.",
+                "sasaki": "The two orders of the monastery: The Western order governs the Dharma, led by the Head Monk and Ino; the Eastern order manages material duties, led by the Administrator and Tenzo."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "sitting_meditation",
+          "title_zh": "坐禪儀與心體空寂",
+          "title_pinyin": "Zuòchán Yí yǔ Xīntǐ Kōngjì",
+          "title_en": "Guidelines for Sitting Meditation (Zazen-gi)",
+          "dialogue": [
+            {
+              "speaker": "Zongyi / 宗頤",
+              "zh": "夫學般若菩薩，先當起大悲心，發弘誓願，精修三昧，誓度眾生，不求獨解。放捨諸緣，休息萬事。身心一如，動靜無間。調和氣息，端直其身。",
+              "pinyin": "Fú xué bōrě púsà, xiān dāng qǐ dàbēi xīn, fā hóngshì yuàn, jīng xiū sānmèi, shì dù zhòngshēng, bù qiú dú jiě. Fàngshě zhū yuán, xiūxī wànshì. Shēnxīn yīrú, dòngjìng wújiàn. Tiáohé qìxī, duānzhí qí shēn.",
+              "translations": {
+                "red_pine": "The bodhisattva studying prajna should first arouse great compassion, make vast vows, diligently cultivate samadhi, and vow to liberate all beings without seeking liberation for oneself alone. Cast away all conditions and put all affairs to rest. Body and mind are as one; movement and stillness are without gap. Harmonize breath and keep the torso straight.",
+                "cleary": "The bodhisattva studying transcendent wisdom should first produce great compassion, generate broad vows, cultivate samadhi, and vow to liberate beings. Release all entanglements and rest from all matters. Body and mind are as one; movement and stillness are seamless.",
+                "sasaki": "One who practices wisdom must first arouse great compassion and broad vows. Let go of all worldly entanglements. Body and mind become one; activity and stillness are uninterrupted."
+              }
+            },
+            {
+              "speaker": "Zongyi / 宗頤",
+              "zh": "不思善，不思惡，無念無想，莫計莫度。兀兀而坐，如太山嶽。心若馳散，攝之令返。久久純熟，自然契會。",
+              "pinyin": "Bù sī shàn, bù sī è, wú niàn wú xiǎng, mò jì mò dù. Wùwù ér zuò, rú tài shānyuè. Xīn ruò chí sàn, shè zhī lìng fǎn. Jiǔjiǔ chúnshú, zìrán qìhuì.",
+              "translations": {
+                "red_pine": "Think neither of good nor of evil; let there be no conceptual thoughts or calculations. Sit immovable like a mighty mountain peak. If the mind scatters, gently collect it and bring it back. Practicing thus over time, you will naturally accord with the truth.",
+                "cleary": "Do not think of good or evil, have no conceptualization or calculation. Sit steadfastly like a great mountain. If the mind wanders, gather it and bring it back. In time, you naturally harmonize.",
+                "sasaki": "Think neither of good nor evil; engage in no deliberations. Sit firm as a mountain peak. If thoughts wander, bring them back. With time, realization arrives naturally."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
