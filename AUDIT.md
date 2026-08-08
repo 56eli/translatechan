@@ -160,4 +160,22 @@ The `translations` blocks credit Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofel
 
 ---
 
-*This audit is factual and reproducible; every claim above maps to a command in §7. The single most urgent fact remains: **the merged site is currently broken — P0 repair before anything else ships.***
+## 8. Remediation Log
+
+### 2026-08-08 — P0 repair completed ✅ (branch `arena/019fe108-translatechan`)
+
+| Bug | Fix |
+|---|---|
+| Fatal syntax error (§1.1) | Restructured `renderReader()`: proper `if` guards, removed orphaned block + premature `innerHTML` assignment |
+| B1 unguarded `sample_records` | Guarded with `if (doc.sample_records && doc.sample_records.length > 0)` |
+| B2 `fascicle_structure.map` crash | Overview card now renders only when appropriate; fascicle grid separately guarded; five-ranks overview deduplicated |
+| B3 `window.TranslateChan` overwrite (`openMasterDossier` lost) | Namespace merge via `window.TranslateChan.openCase = ...` |
+| B4 Platform Sutra (`chapters`) never rendered | `doc.chapters` now routed through the existing `renderChapterItem()` |
+| Shitou Sandokai sections (schema: `stanzas` inside `sections`) crashed renderer | `renderSectionItem` now handles `dialogue` and/or embedded `stanzas` |
+| Search null-deref risk (`title_en`, `pinyin`) | Null-guards added in `handleGlobalSearch` |
+
+**Verification**: `node --check app.js` ✓ · new dependency-free smoke test `scripts/smoke_test.mjs` (executes the app against a DOM stub, clicks through **all 36 corpus texts, all 4 reader modes, 5 search queries** — 0 crashes) ✓ · bundle rebuilt deterministically ✓ · `docs/` re-synced ✓ · all assets 200 via local server ✓
+
+**Remaining open work**: §2 P1/P2 items (search coverage of all schemas + highlighting, reader-mode differentiation, tooltip nesting, studio data source), §3.3–3.4 (CBETA IDs, translator attribution policy), §4 (documentation truth pass, missing LICENSE / workflow / `align_translations.py`), §6 P3 (content completion starting with Wumenguan 48).
+
+---

@@ -398,12 +398,14 @@
       });
     }
 
-    elements.readerContent.innerHTML = html;
-      if (doc.overview) {
-        html += `
-          <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
-            <div class="case-num-title" style="margin-bottom: 0.5rem;">📚 30 Fascicles Canonical Architecture</div>
-            <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${doc.overview}</div>
+    // Render canonical scope / overview card (e.g. Chuandenglu architecture, Platform Sutra coverage)
+    // (skipped when a five_ranks block is present — it already surfaces doc.overview)
+    if (doc.overview && !doc.five_ranks) {
+      html += `
+        <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
+          <div class="case-num-title" style="margin-bottom: 0.5rem;">📚 Canonical Architecture & Scope</div>
+          <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${doc.overview}</div>
+          ${doc.fascicle_structure ? `
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem;">
               ${doc.fascicle_structure.map(f => `
                 <div style="background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 4px; border: 1px solid var(--border-color); font-size: 0.78rem;">
@@ -411,10 +413,13 @@
                 </div>
               `).join('')}
             </div>
-          </div>
-        `;
-      }
+          ` : ''}
+        </div>
+      `;
+    }
 
+    // Render Sample Records (e.g. Chuandenglu)
+    if (doc.sample_records && doc.sample_records.length > 0) {
       doc.sample_records.forEach(rec => {
         let diaHtml = rec.dialogue.map(d => `
           <div style="margin-bottom: 1.25rem;">
@@ -434,6 +439,13 @@
             ${diaHtml}
           </div>
         `;
+      });
+    }
+
+    // Render Chapters (e.g. Platform Sutra)
+    if (doc.chapters && doc.chapters.length > 0) {
+      doc.chapters.forEach(ch => {
+        html += renderChapterItem(ch);
       });
     }
 
@@ -488,12 +500,22 @@
   }
 
   function renderSectionItem(sec) {
-    let dialoguesHtml = sec.dialogue.map(d => `
+    let dialoguesHtml = (sec.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">${d.speaker}</div>
         <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${d.pinyin}</div>
         ${renderTranslationColumns(d.translations)}
+      </div>
+    `).join('');
+
+    // Sections may embed verse stanzas instead of dialogue (e.g. Shitou Sandokai / Grass Hut Song)
+    let stanzasHtml = (sec.stanzas || []).map(st => `
+      <div style="margin-bottom: 1.25rem;">
+        <div class="case-speaker">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</div>
+        <div class="classical-zh">${annotateClassicalChinese(st.zh)}</div>
+        <div class="pinyin-line">${st.pinyin}</div>
+        ${renderTranslationColumns(st.translations)}
       </div>
     `).join('');
 
@@ -503,13 +525,13 @@
           <span class="case-num-title">${sec.title_zh}</span>
           <span class="case-speaker">${sec.title_en}</span>
         </div>
-        ${dialoguesHtml}
+        ${dialoguesHtml}${stanzasHtml}
       </div>
     `;
   }
 
   function renderDialogueItem(dia) {
-    let dialoguesHtml = dia.dialogue.map(d => `
+    let dialoguesHtml = (dia.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">${d.speaker}</div>
         <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
@@ -1186,15 +1208,15 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
           let matched = false;
           let preview = '';
 
-          if (c.title_zh.includes(q) || c.title_en.toLowerCase().includes(q)) {
+          if ((c.title_zh || '').includes(q) || (c.title_en || '').toLowerCase().includes(q)) {
             matched = true;
-            preview = c.title_zh + ' / ' + c.title_en;
+            preview = (c.title_zh || '') + ' / ' + (c.title_en || '');
           }
           if (c.dialogue) {
             c.dialogue.forEach(d => {
-              if (d.zh.includes(q) || d.pinyin.toLowerCase().includes(q) || JSON.stringify(d.translations).toLowerCase().includes(q)) {
+              if ((d.zh || '').includes(q) || (d.pinyin || '').toLowerCase().includes(q) || JSON.stringify(d.translations || {}).toLowerCase().includes(q)) {
                 matched = true;
-                preview = d.zh;
+                preview = d.zh || '';
               }
             });
           }
@@ -1223,19 +1245,18 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     elements.readerContent.innerHTML = resultsHtml;
   }
 
-  // Global helper for opening case
-  window.TranslateChan = {
-    openCase: function(corpusKey, caseNum) {
-      state.currentCorpusKey = corpusKey;
-      state.searchQuery = '';
-      if (elements.globalSearch) elements.globalSearch.value = '';
-      renderCorpusList();
-      renderReader();
-      setTimeout(() => {
-        const el = document.getElementById(`case-${caseNum}`);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
+  // Global helper for opening case (merge into existing namespace — do NOT overwrite openMasterDossier)
+  window.TranslateChan = window.TranslateChan || {};
+  window.TranslateChan.openCase = function(corpusKey, caseNum) {
+    state.currentCorpusKey = corpusKey;
+    state.searchQuery = '';
+    if (elements.globalSearch) elements.globalSearch.value = '';
+    renderCorpusList();
+    renderReader();
+    setTimeout(() => {
+      const el = document.getElementById(`case-${caseNum}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   // Run on DOM ready
