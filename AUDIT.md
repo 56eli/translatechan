@@ -266,6 +266,16 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 
 ---
 
-**Open work as of 2026-08-08**: Phase 2 content (Wumenguan 48 — canonical Chinese substrate + Senzaki/Reps PD verified register both in hand), Blyth print retry, then PR to `main`.
+### 2026-08-08 — Verification round 4 completed ✅
+
+| Action | Result |
+|---|---|
+| Blyth — Wumenguan Case 1 (retry) | ✅ **verified** via the Mark T. Morse illustrated reproduction of Blyth's translation (verbatim, incl. his 'No-thing/Nay' gloss recorded as source note); prior near-verbatim paraphrase replaced — Case 1 now shows **5 verified editions** (Senzaki/Reps, Shimomissé, Sekida, Blyth, + Cleary-style reconstruction) |
+| Sasaki — Linji closing exchange (乾屎橛) | ✅ verified, completing the full 無位真人 sermon as verified register (3/3 dialogue lines) |
+| Suzuki Platform-verse register | **Unverifiable attribution** — the widely circulating "There is no Bodhi-tree…" rendering has no secure authored source traceable this session; kept as pending, dataset entry stays reconstruction (the honest outcome) |
+
+**Final tally (rounds 1–4)**: 16 verified quotation slots across 6 texts; 4 paraphrases correctly exposed & replaced; 1 zh canon correction; 1 attribution genuinely unresolved. `provenance.json` v1.5.
+
+**Open work as of 2026-08-08**: Phase 2 content (Wumenguan 48 — 5 verified editions + canonical Chinese + PD Senzaki text all in hand), then PR to `main`.
 
 

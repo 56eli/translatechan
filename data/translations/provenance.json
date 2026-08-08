@@ -1,5 +1,5 @@
 {
-  "policy_version": "1.4",
+  "policy_version": "1.5",
   "policy_date": "2026-08-08",
   "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
   "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -89,6 +89,16 @@
       "registers_pending": [
         "blyth Wumenguan Case 1 (PDF transcription illegible — retry later)",
         "suzuki Platform-verse register"
+      ]
+    },
+    {
+      "pilot": "Round 4 (2026-08-08): Blyth Case 1 retry + Linji closing exchange",
+      "registers_verified": [
+        "blyth — Wumenguan Case 1 (Zen and Zen Classics IV, 1966) via Mark Morse illustrated reproduction; prior paraphrase replaced",
+        "sasaki — Linji sermon closing exchange (乾屎橛), Record of Linji 2009"
+      ],
+      "registers_pending": [
+        "suzuki Platform-verse register (attribution uncertain — the widely circulating 'There is no Bodhi-tree…' rendering has no secure attribution; Suzuki's own wording differs)"
       ]
     }
   ]

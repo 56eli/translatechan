@@ -60,7 +60,15 @@
           "pinyin": "Shī xià chánchuáng, bǎzhù yún: 'Dào! Dào!' Sēng nǐyì. Shī tuōkāi yún: 'Wú wèi zhēn rén shì shénme gān shǐ jué!' Biàn guī fāngzhàng.",
           "translations": {
             "red_pine": "The Master got down from the meditation bench, seized the monk, and shouted: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person without rank—what a dried shit-stick!' and returned to his abbot's room.",
-            "sasaki": "The Master stepped down from the meditation seat, seized the monk, and said: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person of No Rank—what a dry shit-stick!' and returned to his quarters.",
+            "sasaki": {
+              "text": "The master got down from his seat, seized the monk, and cried, \"Speak, speak!\" The monk faltered. Shoving him away, the master said, \"The true man without rank—what kind of dried piece of shit is he!\" Then he returned to his quarters.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                "edition": "University of Hawaii Press, 2009",
+                "verification": "wording consistent across three independent reproductions, 2026-08-08"
+              }
+            },
             "cleary": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
             "suzuki": "The Master descended from his chair, seized the monk by the throat, and cried: 'Speak! Speak!' The monk faltered. Pushing him away, the Master shouted: 'What a worthless dried dirt scraper is your True Man of No Rank!' and returned to his abbot room."
           }

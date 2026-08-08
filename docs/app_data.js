@@ -1068,7 +1068,7 @@ window.TRANSLATECHAN_DATA = {
     }
   ],
   "translations_provenance": {
-    "policy_version": "1.4",
+    "policy_version": "1.5",
     "policy_date": "2026-08-08",
     "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
     "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -1158,6 +1158,16 @@ window.TRANSLATECHAN_DATA = {
         "registers_pending": [
           "blyth Wumenguan Case 1 (PDF transcription illegible — retry later)",
           "suzuki Platform-verse register"
+        ]
+      },
+      {
+        "pilot": "Round 4 (2026-08-08): Blyth Case 1 retry + Linji closing exchange",
+        "registers_verified": [
+          "blyth — Wumenguan Case 1 (Zen and Zen Classics IV, 1966) via Mark Morse illustrated reproduction; prior paraphrase replaced",
+          "sasaki — Linji sermon closing exchange (乾屎橛), Record of Linji 2009"
+        ],
+        "registers_pending": [
+          "suzuki Platform-verse register (attribution uncertain — the widely circulating 'There is no Bodhi-tree…' rendering has no secure attribution; Suzuki's own wording differs)"
         ]
       }
     ]
@@ -1481,7 +1491,16 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?'",
                 "sasaki": "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?'",
                 "suzuki": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
-                "blyth": "A monk asked Jōshū, 'Has a dog the Buddha Nature?'",
+                "blyth": {
+                  "text": "A monk once asked Joshu, \"Has a dog the Buddha-nature?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Zen and Zen Classics, Volume Four: Mumonkan, tr. R.H. Blyth",
+                    "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
+                    "verification": "verbatim vs Morse reproduction, 2026-08-08",
+                    "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation)."
+                  }
+                },
                 "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
                 "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
                 "senzaki_reps": {
@@ -1522,7 +1541,17 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "Zhaozhou said, 'No.'",
                 "sasaki": "Jōshū said: 'Mu!'",
                 "suzuki": "Chao-chou replied: 'Wu!'",
-                "blyth": "Jōshū answered: 'Mu!'",
+                "blyth": {
+                  "text": "Joshu answered, \"Mu!\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Zen and Zen Classics, Volume Four: Mumonkan, tr. R.H. Blyth",
+                    "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
+                    "verification": "verbatim vs Morse reproduction, 2026-08-08",
+                    "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
+                    "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'"
+                  }
+                },
                 "blofeld": "The Master replied: 'None!'",
                 "ai_literal": "Zhou said: 'Not.'",
                 "senzaki_reps": {
@@ -2001,7 +2030,15 @@ window.TRANSLATECHAN_DATA = {
               "pinyin": "Shī xià chánchuáng, bǎzhù yún: 'Dào! Dào!' Sēng nǐyì. Shī tuōkāi yún: 'Wú wèi zhēn rén shì shénme gān shǐ jué!' Biàn guī fāngzhàng.",
               "translations": {
                 "red_pine": "The Master got down from the meditation bench, seized the monk, and shouted: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person without rank—what a dried shit-stick!' and returned to his abbot's room.",
-                "sasaki": "The Master stepped down from the meditation seat, seized the monk, and said: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person of No Rank—what a dry shit-stick!' and returned to his quarters.",
+                "sasaki": {
+                  "text": "The master got down from his seat, seized the monk, and cried, \"Speak, speak!\" The monk faltered. Shoving him away, the master said, \"The true man without rank—what kind of dried piece of shit is he!\" Then he returned to his quarters.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                    "edition": "University of Hawaii Press, 2009",
+                    "verification": "wording consistent across three independent reproductions, 2026-08-08"
+                  }
+                },
                 "cleary": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
                 "suzuki": "The Master descended from his chair, seized the monk by the throat, and cried: 'Speak! Speak!' The monk faltered. Pushing him away, the Master shouted: 'What a worthless dried dirt scraper is your True Man of No Rank!' and returned to his abbot room."
               }

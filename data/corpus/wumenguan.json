@@ -40,7 +40,16 @@
             "cleary": "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?'",
             "sasaki": "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?'",
             "suzuki": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
-            "blyth": "A monk asked Jōshū, 'Has a dog the Buddha Nature?'",
+            "blyth": {
+              "text": "A monk once asked Joshu, \"Has a dog the Buddha-nature?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Zen and Zen Classics, Volume Four: Mumonkan, tr. R.H. Blyth",
+                "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
+                "verification": "verbatim vs Morse reproduction, 2026-08-08",
+                "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation)."
+              }
+            },
             "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
             "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
             "senzaki_reps": {
@@ -81,7 +90,17 @@
             "cleary": "Zhaozhou said, 'No.'",
             "sasaki": "Jōshū said: 'Mu!'",
             "suzuki": "Chao-chou replied: 'Wu!'",
-            "blyth": "Jōshū answered: 'Mu!'",
+            "blyth": {
+              "text": "Joshu answered, \"Mu!\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Zen and Zen Classics, Volume Four: Mumonkan, tr. R.H. Blyth",
+                "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
+                "verification": "verbatim vs Morse reproduction, 2026-08-08",
+                "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
+                "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'"
+              }
+            },
             "blofeld": "The Master replied: 'None!'",
             "ai_literal": "Zhou said: 'Not.'",
             "senzaki_reps": {
