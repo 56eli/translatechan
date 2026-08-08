@@ -306,6 +306,19 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 
 **Final tally (rounds 1–6)**: 27 verified quotation slots across 8 texts + 1 verified matrix row; 5 near-verbatim/paraphrase reconstructions corrected or replaced; 1 zh canon correction; 1 attribution genuinely unresolved. `provenance.json` v1.7. New translator keys this round: `ferguson`.
 
-**Open work as of 2026-08-08**: PR to `main` (11 commits ready — live site still serves the pre-fix build until merge), Phase 2 content (Wumenguan 48 — substrates in hand), optional round 7 (e.g. Aitken/Yamada Wumenguan registers; Sasaki 1975 via alternate OCR; Hoffman stone bridge via full-text source).
+---
+
+### 2026-08-08 — Verification round 7 completed ✅
+
+| Action | Result |
+|---|---|
+| Senzaki & Reps PD register extended to the whole Wumenguan excerpt set | ✅ **+22 verified slots** (cases 2–7, 19, 23, 29 + oak-tree case). Every Wumenguan anchor in the corpus now has **at least one ✅ verified register** — the free-to-quote 1934 John Murray text becomes the corpus's guaranteed-citable baseline |
+| oak-tree case numbering audited | ⚠️ **Documented edition variance**: our file follows the Senzaki/Reps arrangement (their no. 38); canonical T2005 case 37 is Panshan 三界無法 and the oak-tree koan is *non-canonical* for the Wumenguan — source notes now say so explicitly on both units |
+| Matrix `matrix_wumen_1` Blyth row | ✅ **Verified** (rewritten to his round-4-verified Hokuseido wording) → 2nd verified matrix row |
+| Suzuki c19 everyday-mind register | ❌ No secure D.T. Suzuki mirror (several weakly-attributed near-registers circulate) → stays `reconstruction_unverified`, honestly |
+
+**Final tally (rounds 1–7)**: 49 verified quotation slots across 8 texts (incl. **15/16 Wumenguan anchor-units waiting on only a substrate**, i.e. Wumenguan coverage is now PD-complete) + 2 verified matrix rows; 5 reconstructions corrected/replaced; 1 zh canon correction; 1 attribution genuinely unresolved; 1 edition-variance audit. `provenance.json` v1.8.
+
+**Open work as of 2026-08-08**: PR to `main` (12 commits ready — live site still serves the pre-fix build until merge), Phase 2 content (the PD-complete senzaki baseline now makes scaling Wumenguan 11→48 substantially safer), optional round 8 (Aitken/Yamada/Shibayama registers; Hoffman stone-bridge; Watson deathbed).
 
 
