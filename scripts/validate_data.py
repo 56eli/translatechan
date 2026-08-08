@@ -35,6 +35,7 @@ CORPUS_MANIFEST_PATH = DATA_DIR / "corpus_manifest.json"
 LOCATORS_PATH = DATA_DIR / "canonical_locators.json"
 RIGHTS_PATH = DATA_DIR / "translations" / "rights_manifest.json"
 LINEAGE_VERIFICATION_PATH = DATA_DIR / "lineage" / "lineage_verification.json"
+LINEAGE_PROFILE_QUEUE_PATH = DATA_DIR / "lineage" / "profile_review_queue.json"
 TRACEABILITY_QUEUE_PATH = DATA_DIR / "editorial" / "traceability_queue.json"
 PROVENANCE_PATH = DATA_DIR / "translations" / "provenance.json"
 MATRIX_PATH = DATA_DIR / "translations" / "comparative_matrix.json"
@@ -64,6 +65,7 @@ VALID_LINEAGE_EDGE_STATUSES = {
 VALID_LINEAGE_FRONTIER_STATUSES = {"frontier_unprofiled"}
 VALID_TRACEABILITY_QUEUE_STATUSES = {"needs_unit_locator", "in_review", "blocked_source", "complete"}
 VALID_TRACEABILITY_PRIORITIES = {"high", "normal"}
+VALID_PROFILE_REVIEW_STATUSES = {"needs_exact_locator", "frontier_source_needed", "in_review", "complete"}
 SOURCE_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 REQUIRED_DOCUMENT_FIELDS = {
     "title_zh",
@@ -451,6 +453,29 @@ def validate_lineage_verification(lineage: Any, registry: Any, issues: Issues) -
     }
 
 
+def validate_lineage_profile_queue(lineage: Any, queue: Any, issues: Issues) -> dict[str, Any]:
+    path = rel(LINEAGE_PROFILE_QUEUE_PATH)
+    expected = {m.get("id") for m in lineage if is_record(m) and nonempty_string(m.get("id"))} if isinstance(lineage, list) else set()
+    if not is_record(queue) or not isinstance(queue.get("records"), list):
+        issues.error(path, "requires an object with a records list")
+        return {}
+    actual: set[str] = set(); statuses: Counter[str] = Counter()
+    for index, record in enumerate(queue["records"]):
+        record_path = f"{path}.records[{index}]"
+        require_fields(record, ("master_id", "priority", "review_status", "current_evidence_status", "next_action", "note"), record_path, issues)
+        if not is_record(record): continue
+        master_id = record.get("master_id")
+        if master_id in actual: issues.error(record_path, f"duplicate master_id {master_id!r}")
+        actual.add(master_id)
+        if record.get("priority") not in VALID_TRACEABILITY_PRIORITIES: issues.error(record_path, "invalid priority")
+        if record.get("review_status") not in VALID_PROFILE_REVIEW_STATUSES: issues.error(record_path, "invalid review_status")
+        else: statuses[record["review_status"]] += 1
+    if actual != expected:
+        if expected - actual: issues.error(path, "missing profile queue record(s): " + ", ".join(sorted(expected - actual)))
+        if actual - expected: issues.error(path, "unknown profile queue record(s): " + ", ".join(sorted(actual - expected)))
+    return {"profile_queue_records": len(actual), "statuses": dict(sorted(statuses.items()))}
+
+
 def validate_manifest_sync(corpus_keys: set[str], manifest: Any, issues: Issues) -> dict[str, int]:
     path = rel(CORPUS_MANIFEST_PATH)
     if not is_record(manifest) or not isinstance(manifest.get("items"), list):
@@ -685,6 +710,7 @@ def compute_metrics(
     rights_metrics: dict[str, int],
     lineage_metrics: dict[str, Any],
     traceability_metrics: dict[str, Any],
+    profile_queue_metrics: dict[str, Any],
     manifest_metrics: dict[str, int],
 ) -> dict[str, Any]:
     matrix_statuses = {
@@ -727,6 +753,7 @@ def compute_metrics(
         "rights_coverage": rights_metrics,
         "lineage_verification": lineage_metrics,
         "editorial_traceability": traceability_metrics,
+        "lineage_profile_review": profile_queue_metrics,
         "manifest_integrity": manifest_metrics,
     }
 
@@ -781,9 +808,11 @@ def main() -> int:
     lineage_metrics = validate_lineage_verification(lineage, lineage_registry, issues)
     traceability_queue = load_json(TRACEABILITY_QUEUE_PATH, issues)
     traceability_metrics = validate_traceability_queue(corpus, locator_registry, traceability_queue, issues)
+    lineage_profile_queue = load_json(LINEAGE_PROFILE_QUEUE_PATH, issues)
+    profile_queue_metrics = validate_lineage_profile_queue(lineage, lineage_profile_queue, issues)
     manifest_metrics = validate_manifest_sync(set(corpus), corpus_manifest, issues)
 
-    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, manifest_metrics)
+    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, profile_queue_metrics, manifest_metrics)
     expected_metrics = canonical_json(metrics)
     if args.write_metrics:
         METRICS_PATH.write_text(expected_metrics, encoding="utf-8")

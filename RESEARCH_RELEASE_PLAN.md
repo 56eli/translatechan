@@ -22,7 +22,7 @@ A text or translation is only presented at the strongest available status. “Co
 - **Corpus:** 36 structured documents. *Wumenguan* is the only complete work (48/48 cases plus preface/epilogue); 35 documents are honest excerpt seeds.
 - **Traceability:** all 57 stored case units have case-level locators; 33 non-case seed documents remain document-level `legacy_document_seed` records. `data/editorial/traceability_queue.json` now provides an enforced one-record-per-seed migration queue; queue membership is explicitly not evidence of collation.
 - **Translation disclosure:** 138 verified corpus quotation records and 2 verified Matrix records resolve to 13 rights-manifest source records; 5 verified records still need exact page/section references; human rights review remains pending.
-- **Lineage:** 30 internal edges are visibly traditional/pending (including four newly navigable frontier-profile links); none should be upgraded without exact source locators.
+- **Lineage:** 30 internal edges are visibly traditional/pending (including four newly navigable frontier-profile links); none should be upgraded without exact source locators. `data/lineage/profile_review_queue.json` now tracks all 34 profiles for source-locator review without upgrading their evidence status.
 
 ## Delivery sequence
 

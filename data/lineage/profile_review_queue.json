@@ -1,0 +1,279 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Editorial queue for replacing lineage seed/frontier profile scaffolds with exact source records and reviewed locators.",
+  "policy": "A completed profile review requires a named source edition, exact locator, source-status decision, and editor review date. Traditional relationships remain pending unless their edge record independently meets that standard.",
+  "records": [
+    {
+      "master_id": "bodhidharma",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "huike",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "sengcan",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "daoxin",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "hongren",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "huineng",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "mazu_daoyi",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "shitou_xiqian",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "baizhang_huaihai",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "huangbo_xiyun",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "linji_yixuan",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "zhaozhou_congshen",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "dongshan_liangjie",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "yunmen_wenyan",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "guishan_lingyou",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "fayan_wenyi",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "yuanwu_keqin",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "wumen_huikai",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "nanyue_huairang",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "qingyuan_xingsi",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "nanquan_puyuan",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "yaoshan_weiyan",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "yunyan_tansheng",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "deshan_xuanjian",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "xuefeng_yicun",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "xuansha_shibei",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "luohan_guichen",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "baiyun_shouduan",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "wuzu_fayan",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "yuelin_shiguan",
+      "priority": "normal",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "prajnatara",
+      "priority": "high",
+      "review_status": "frontier_source_needed",
+      "current_evidence_status": "frontier_profile_unverified",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "longtan_chongxin",
+      "priority": "high",
+      "review_status": "frontier_source_needed",
+      "current_evidence_status": "frontier_profile_unverified",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "yangqi_fanghui",
+      "priority": "high",
+      "review_status": "frontier_source_needed",
+      "current_evidence_status": "frontier_profile_unverified",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
+      "master_id": "dahong_zuzheng",
+      "priority": "high",
+      "review_status": "frontier_source_needed",
+      "current_evidence_status": "frontier_profile_unverified",
+      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    }
+  ]
+}

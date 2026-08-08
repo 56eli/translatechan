@@ -2980,6 +2980,13 @@ window.TRANSLATECHAN_DATA = {
         "needs_unit_locator": 32
       }
     },
+    "lineage_profile_review": {
+      "profile_queue_records": 34,
+      "statuses": {
+        "frontier_source_needed": 4,
+        "needs_exact_locator": 30
+      }
+    },
     "lineage_verification": {
       "frontiers": 4,
       "internal_edges": 30,
