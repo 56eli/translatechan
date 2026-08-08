@@ -383,8 +383,11 @@
       "linji_yulu"
     ],
     "profile_evidence": {
-      "status": "seed_profile_pending_exact_locator",
-      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+      "status": "canonical_anchor_identified",
+      "source_id": "linji-record-t1985",
+      "canonical_locator": "T47n1985_p0496c10–p0496c14",
+      "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
+      "note": "The canonical line-head range identifies the 無位真人 encounter represented in this project’s Linji seed. This is a source-anchor identification, not a complete biographical review or a source-verified lineage claim."
     }
   },
   {

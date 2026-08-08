@@ -822,8 +822,11 @@ window.TRANSLATECHAN_DATA = {
         "linji_yulu"
       ],
       "profile_evidence": {
-        "status": "seed_profile_pending_exact_locator",
-        "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+        "status": "canonical_anchor_identified",
+        "source_id": "linji-record-t1985",
+        "canonical_locator": "T47n1985_p0496c10–p0496c14",
+        "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
+        "note": "The canonical line-head range identifies the 無位真人 encounter represented in this project’s Linji seed. This is a source-anchor identification, not a complete biographical review or a source-verified lineage claim."
       }
     },
     {
@@ -1641,6 +1644,13 @@ window.TRANSLATECHAN_DATA = {
         "canonical_id": "Locator pending",
         "reference": "Teacher is not yet profiled in the current dataset",
         "source_type": "frontier record"
+      },
+      {
+        "source_id": "linji-record-t1985",
+        "title": "鎮州臨濟慧照禪師語錄 / Record of Linji",
+        "canonical_id": "T1985",
+        "reference": "T47n1985_p0496c10–p0496c14 (無位真人 encounter)",
+        "source_type": "canonical master record"
       }
     ],
     "edges": [
@@ -2984,13 +2994,14 @@ window.TRANSLATECHAN_DATA = {
       "profile_queue_records": 34,
       "statuses": {
         "frontier_source_needed": 4,
-        "needs_exact_locator": 30
+        "in_review": 1,
+        "needs_exact_locator": 29
       }
     },
     "lineage_verification": {
       "frontiers": 4,
       "internal_edges": 30,
-      "source_records": 6,
+      "source_records": 7,
       "statuses": {
         "traditional_link_pending_exact_locator": 30
       }

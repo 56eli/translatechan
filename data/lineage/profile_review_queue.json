@@ -86,10 +86,10 @@
     {
       "master_id": "linji_yixuan",
       "priority": "high",
-      "review_status": "needs_exact_locator",
-      "current_evidence_status": "seed_profile_pending_exact_locator",
-      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
-      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+      "review_status": "in_review",
+      "current_evidence_status": "canonical_anchor_identified",
+      "next_action": "Complete a biographical and transmission-record review; do not promote the teacher edge without an independently exact lineage locator.",
+      "note": "Canonical seed encounter anchored at T47n1985_p0496c10–p0496c14; profile-level historical review remains open."
     },
     {
       "master_id": "zhaozhou_congshen",
