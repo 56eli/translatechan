@@ -140,6 +140,14 @@ This project is structured for zero-backend, instant deployment on GitHub Pages 
 
 ---
 
+## 📚 Documentation & Reference Guides
+
+- 📜 **Grand Vision & Architectural Blueprint**: [`vision.md`](./vision.md)
+- 🗺️ **Roadmap & Milestone Execution Plan**: [`ROADMAP.md`](./ROADMAP.md)
+- 🤝 **Pull Request & Deployment Handoff Guide**: [`HANDOFF.md`](./HANDOFF.md)
+
+---
+
 ## 📜 Canonical References & Acknowledgments
 
 - **CBETA (Chinese Buddhist Electronic Text Association)**: *Taishō Shinshū Daizōkyō* (大正新脩大藏經) & *Shinsan Dainihon Zokuzōkyō* (卍新纂大日本續藏經).

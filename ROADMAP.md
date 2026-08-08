@@ -39,12 +39,14 @@ This document outlines the detailed engineering, data science, translation, and 
   - `src/` or `app/`: Production-ready, client-side web application designed for instant GitHub Pages deployment.
 - [x] **Interactive Web Application (GitHub Pages)**:
   - Responsive, Zen-minimalist interface with Dark and Light mode themes.
+  - Reading font-size controls (`A+` / `A-`) for mobile, tablet, and desktop.
   - Side-by-side bilingual reading view (Classical Chinese with pinyin & English).
-  - Multi-Translator Comparison matrix (Cleary, Sasaki, Suzuki, Blofeld, AI Drafts, Personal Workspace).
+  - Multi-Translator Comparison matrix (Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine, AI Drafts, Personal Workspace).
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
   - Instant client-side full-text search across Classical Chinese and all English translations.
-  - Personal Translation Studio allowing users to draft personal translations, save to `localStorage`, and export to JSON/Markdown.
+  - Personal Translation Studio allowing users to draft personal translations, save to `localStorage`, and export to JSON, Markdown, or LaTeX.
+  - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Texts Included**:
   1. *Wumenguan* (無門關 / The Gateless Gate, T2005 - Cases & Prefaces)
   2. *Linji Yulu* (臨濟語錄 / The Record of Linji, T1985)
