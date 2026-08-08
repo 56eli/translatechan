@@ -1,15 +1,15 @@
 {
   "id": "dahui_shobogenzo",
-  "title_zh": "大慧普覺禪師 正法眼藏",
-  "title_pinyin": "Dàhuì Pǔjué Chánshī Zhèng Fǎyǎn Zàng",
-  "title_en": "Treasury of the Eye of the True Dharma (Dahui's Shobogenzo)",
+  "title_zh": "大慧普覺禪師 正法眼藏 卷一至卷二",
+  "title_pinyin": "Dàhuì Pǔjué Chánshī Zhèng Fǎyǎn Zàng Juànyī zhì Juàn'èr",
+  "title_en": "Treasury of the Eye of the True Dharma (Dahui's Shobogenzo: Vols. 1 & 2)",
   "cbeta_id": "T2002",
   "taisho_vol": 48,
   "author_zh": "宋 涇縣雙徑山 大慧宗杲 禪師 輯",
   "author_en": "Compiled by Chan Master Dahui Zonggao (1089–1163 CE)",
   "era": "Southern Song Dynasty (1147 CE)",
   "genre": "Universal Anthology of Chan Transmission (正法眼藏)",
-  "overview": "The original monumental Chinese 'Treasury of the Eye of the True Dharma' (Shōbōgenzō / 正法眼藏), comprising six fascicles and 661 core encounter records compiled by Master Dahui Zonggao to protect the living spirit of Chan from literalist degeneration.",
+  "overview": "The original monumental Chinese 'Treasury of the Eye of the True Dharma' (Shōbōgenzō / 正法眼藏), comprising six fascicles and 661 core encounter records compiled by Master Dahui Zonggao, covering the great transmission between Mazu in Jiangxi and Shitou in Hunan.",
   "sections": [
     {
       "section_id": "qianfeng_road",
@@ -35,6 +35,24 @@
             "cleary": "The monk later asked Yunmen for instruction on this. Yunmen held up his fan and said, 'This fan leaps up into the thirty-third heaven and hits the nostril of Indra; the carp of the Eastern Sea strikes a blow, and rain pours down like a tilted basin!'",
             "red_pine": "The monk later asked Yunmen. Yunmen held up a fan and said: 'This fan jumps up to the thirty-third heaven and pokes Indra in the nostril; the carp of the Eastern Sea gets hit once with a staff, and rain pours down in buckets!'",
             "sasaki": "The monk asked Yunmen. Ummon held up a fan: 'This fan leaps into the highest heaven, punching the god Indra in the nose; the carp of the Eastern Sea is struck, and the rains pour down!'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "mazu_shitou_roads",
+      "title_zh": "江西馬祖與湖南石頭：大路無偏",
+      "title_pinyin": "Jiāngxī Mǎzǔ yǔ Húnán Shítóu: Dàlù Wúpiān",
+      "title_en": "Mazu in Jiangxi and Shitou in Hunan: The Two Great Paths",
+      "dialogue": [
+        {
+          "speaker": "Dahui / 大慧宗杲",
+          "zh": "大慧示眾云：「江西主馬祖，湖南主石頭。往來憧憧，不見二大士者，為之無知也。石頭路滑，馬駒踏殺天下人。二大老同出一源，互為賓主，正眼洞照。」",
+          "pinyin": "Dàhuì shì zhòng yún: 'Jiāngxī zhǔ Mǎzǔ, Húnán zhǔ Shítóu. Wǎnglái chōngchōng, bù jiàn èr dàshì zhě, wéi zhī wúzhī yě. Shítóu lù huá, mǎjū tà shā tiānxià rén. Èr dàlǎo tóng chū yī yuán, hù wéi bīnzhǔ, zhèngyǎn dòngzhào.'",
+          "translations": {
+            "cleary": "Dahui said to the assembly: 'Jiangxi was led by Mazu, Hunan was led by Shitou. Those who traveled back and forth constantly without seeing these two great masters were considered ignorant. The road of Shitou is slippery; the colt of Mazu trampled everyone under heaven to death! The two great elders came from the same single source, acting as host and guest to each other, with the true eye illuminating completely.'",
+            "red_pine": "Dahui instructed the crowd: 'Mazu ruled in Jiangxi; Shitou ruled in Hunan. Those who went back and forth without having met these two great masters were thought fools. The path on Shitou is slippery; the young stallion Mazu trampled everyone on earth. The two elders sprang from the same source, reflecting each other as host and guest.'",
+            "sasaki": "Dahui said: 'In Jiangxi stood Baso; in Hunan stood Sekitō. The road of Sekitō is slippery, while Baso's colt trampled all under heaven. Both elders flowed from the One Source.'"
           }
         }
       ]
