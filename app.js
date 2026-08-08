@@ -120,10 +120,25 @@
       });
     }
 
-    if (elements.lexiconFilter) {
-      elements.lexiconFilter.addEventListener('change', (e) => {
-        state.selectedLexiconCategory = e.target.value;
-        renderLexicon();
+    // Mode switcher between Visual Network and Cards
+    const graphBtn = document.getElementById('lineage-mode-graph-btn');
+    const cardsBtn = document.getElementById('lineage-mode-cards-btn');
+    const graphContainer = document.getElementById('lineage-graph-container');
+    const cardsContainer = document.getElementById('lineage-content-target');
+
+    if (graphBtn && cardsBtn && graphContainer && cardsContainer) {
+      graphBtn.addEventListener('click', () => {
+        graphBtn.classList.add('active');
+        cardsBtn.classList.remove('active');
+        graphContainer.style.display = 'block';
+        cardsContainer.style.display = 'none';
+      });
+
+      cardsBtn.addEventListener('click', () => {
+        cardsBtn.classList.add('active');
+        graphBtn.classList.remove('active');
+        graphContainer.style.display = 'none';
+        cardsContainer.style.display = 'grid';
       });
     }
   }
@@ -537,8 +552,10 @@
       masters = masters.filter(m => m.school.toLowerCase().includes(state.selectedMasterSchool.toLowerCase()));
     }
 
+    renderVisualLineageGraph(masters);
+
     elements.lineageTarget.innerHTML = masters.map(m => `
-      <div class="master-card">
+      <div class="master-card" onclick="window.TranslateChan.openMasterDossier('${m.id}')" style="cursor: pointer;">
         <div>
           <div class="master-header">
             <div>
@@ -565,6 +582,132 @@
       </div>
     `).join('');
   }
+
+  // Interactive Visual SVG Lineage Graph
+  function renderVisualLineageGraph(masters) {
+    const svg = document.getElementById('lineage-svg-graph');
+    if (!svg) return;
+
+    const width = svg.clientWidth || 900;
+    const height = 480;
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    svg.innerHTML = '';
+
+    // Define school colors
+    const schoolColors = {
+      'Foundational Patriarch': '#b38238',
+      'East Mountain Teaching': '#c29d59',
+      'Southern School': '#c94a4c',
+      'Hongzhou School': '#b85d19',
+      'Hunan Lineage': '#4d9377',
+      'Linji School': '#b53335',
+      'Linji': '#b53335',
+      'Caodong School': '#3a6b56',
+      'Caodong': '#3a6b56',
+      'Yunmen School': '#2c5d79',
+      'Yunmen': '#2c5d79',
+      'Guiyang School': '#7d4a88',
+      'Guiyang': '#7d4a88',
+      'Fayan School': '#2d7d74',
+      'Fayan': '#2d7d74'
+    };
+
+    // Calculate node coordinates based on lineage generation
+    const genGroups = {};
+    masters.forEach(m => {
+      const gen = m.lineage_depth || 1;
+      if (!genGroups[gen]) genGroups[gen] = [];
+      genGroups[gen].push(m);
+    });
+
+    const gens = Object.keys(genGroups).map(Number).sort((a, b) => a - b);
+    const nodeCoords = {};
+
+    gens.forEach((gen, gIdx) => {
+      const group = genGroups[gen];
+      const x = 70 + gIdx * ((width - 140) / Math.max(1, gens.length - 1));
+      group.forEach((m, mIdx) => {
+        const y = 60 + (mIdx + 1) * ((height - 120) / (group.length + 1));
+        nodeCoords[m.id] = { x, y, master: m };
+      });
+    });
+
+    // Draw Links (Teacher -> Disciple)
+    let linksHtml = '<g class="graph-links" stroke="var(--border-focus)" stroke-width="1.8" stroke-opacity="0.6" stroke-dasharray="3,3">';
+    masters.forEach(m => {
+      if (m.teacher && nodeCoords[m.teacher] && nodeCoords[m.id]) {
+        const source = nodeCoords[m.teacher];
+        const target = nodeCoords[m.id];
+        linksHtml += `<line x1="${source.x}" y1="${source.y}" x2="${target.x}" y2="${target.y}" />`;
+      }
+    });
+    linksHtml += '</g>';
+
+    // Draw Nodes
+    let nodesHtml = '<g class="graph-nodes">';
+    Object.keys(nodeCoords).forEach(id => {
+      const { x, y, master } = nodeCoords[id];
+      const color = schoolColors[master.school] || '#b38238';
+
+      nodesHtml += `
+        <g class="graph-node" transform="translate(${x}, ${y})" style="cursor: pointer;" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
+          <circle r="22" fill="var(--bg-card)" stroke="${color}" stroke-width="3" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.15))"></circle>
+          <text text-anchor="middle" dy=".3em" font-size="11" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${master.name_zh.slice(-2)}</text>
+          <text text-anchor="middle" dy="34" font-size="9.5" font-weight="600" fill="var(--text-secondary)">${master.name_en.split(' ').pop()}</text>
+        </g>
+      `;
+    });
+    nodesHtml += '</g>';
+
+    svg.innerHTML = linksHtml + nodesHtml;
+  }
+
+  // Master Dossier Modal Display
+  window.TranslateChan = window.TranslateChan || {};
+  window.TranslateChan.openMasterDossier = function(masterId) {
+    if (!state.data.lineage) return;
+    const master = state.data.lineage.find(m => m.id === masterId);
+    if (!master) return;
+
+    const panel = document.getElementById('master-dossier-panel');
+    const nameZh = document.getElementById('dossier-name-zh');
+    const nameEn = document.getElementById('dossier-name-en');
+    const content = document.getElementById('dossier-content');
+    const closeBtn = document.getElementById('dossier-close-btn');
+
+    if (nameZh) nameZh.textContent = `${master.name_zh} (${master.title})`;
+    if (nameEn) nameEn.textContent = `${master.name_en} • Pinyin: ${master.name_pinyin} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
+    if (content) {
+      content.innerHTML = `
+        <div style="margin-top: 0.5rem; margin-bottom: 0.75rem;">
+          <strong>🏛️ School / Lineage:</strong> ${master.school} &nbsp;|&nbsp;
+          <strong>📍 Primary Monastery:</strong> ${master.location} &nbsp;|&nbsp;
+          <strong>📜 CBETA ID:</strong> ${master.cbeta_id}
+        </div>
+        <div class="master-quote" style="background: var(--bg-card); margin-bottom: 0.75rem;">
+          "${master.key_quote_zh}"
+          <div class="master-quote-en">"${master.key_quote_en}"</div>
+        </div>
+        <div style="margin-bottom: 0.5rem;">
+          <strong>📚 Primary Classical Texts & Records:</strong> ${master.texts ? master.texts.join(', ') : 'Transmission records in Jingde Chuandenglu'}
+        </div>
+        <div>
+          <strong>📖 Historical & Philosophical Significance:</strong> ${master.summary}
+        </div>
+      `;
+    }
+
+    if (panel) {
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (closeBtn) {
+      closeBtn.onclick = () => {
+        panel.style.display = 'none';
+      };
+    }
+  };
 
   // Render Gong'an Index
   function renderGonganIndex() {
