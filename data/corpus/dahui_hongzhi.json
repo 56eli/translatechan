@@ -3,7 +3,7 @@
   "title_zh": "大慧普覺禪師看話書問與宏智正覺默照銘",
   "title_pinyin": "Dàhuì Pǔjué Chánshī Kànhuà Shūwèn yǔ Hóngzhì Zhèngjué Mòzhào Míng",
   "title_en": "The Letters of Dahui Zonggao on Kanhua Chan & Hongzhi Zhengjue's Inscription on Silent Illumination",
-  "cbeta_id": "T1998A / T2001",
+  "cbeta_id": "T1998A (大慧普覺禪師語錄)",
   "taisho_vol": 47,
   "author_zh": "宋 大慧宗杲 禪師 撰 / 宏智正覺 禪師 撰",
   "author_en": "Chan Masters Dahui Zonggao (1089–1163) & Hongzhi Zhengjue (1091–1157)",
@@ -103,5 +103,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: dropped unverified '/T2001' pairing; the 看話書問 (letters) material is the 示/答 sections of the 語錄 itself (T47n1998A)."
 }

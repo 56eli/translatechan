@@ -3,8 +3,7 @@
   "title_zh": "龍門佛眼清遠禪師語錄：即心即見與靈光獨耀",
   "title_pinyin": "Lóngmén Fóyǎn Qīngyuǎn Chánshī Yǔlù: Jíxīn Jíjiàn yǔ Língguāng Dúyào",
   "title_en": "Instant Zen: The Recorded Sayings of Chan Master Foyan Qingyuan",
-  "cbeta_id": "T1995",
-  "taisho_vol": 47,
+  "cbeta_id": "X1315 (古尊宿語錄·佛眼語錄)",
   "author_zh": "宋 佛眼清遠 禪師 說",
   "author_en": "Chan Master Foyan Qingyuan (1067–1120 CE), Dharma Brother of Yuanwu Keqin",
   "era": "Northern Song Dynasty",
@@ -111,5 +110,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: prior 'T1995' is actually 法演禪師語錄 (Wuzu Fayan's record, T47n1995), NOT Foyan's. Foyan Qingyuan's record is 古尊宿語錄·佛眼語錄 (X68n1315, 卍續藏第68冊)."
 }

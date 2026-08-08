@@ -11,13 +11,16 @@
     data: window.TRANSLATECHAN_DATA || {},
     currentView: 'reader',
     currentCorpusKey: 'wumenguan',
-    readerMode: 'bilingual', // 'bilingual', 'stacked', 'chinese_only', 'multi_translators'
+    readerMode: 'bilingual', // 'bilingual', 'chinese_only', 'multi_translators'
     theme: localStorage.getItem('translatechan_theme') || 'light',
     searchQuery: '',
     selectedMasterSchool: 'all',
     selectedLexiconCategory: 'all',
     selectedStudioRefTranslator: 'red_pine',
-    personalTranslations: JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}')
+    personalTranslations: (() => {
+      try { return JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}') || {}; }
+      catch (e) { return {}; } // corrupted storage must not blank the app
+    })()
   };
 
   // DOM Elements
@@ -244,21 +247,21 @@
       { key: 'bodhidharma_erru', title: 'Bodhidharma Erru Sixing (二入四行論)', cbeta: 'T2009' },
       { key: 'niutou_juezhu', title: 'Niutou Farong Juezhu Lun (絕觀論)', cbeta: 'P.2885' },
       { key: 'lidai_fabao_ji', title: 'Lidai Fabao Ji (歷代法寶記)', cbeta: 'T2075' },
-      { key: 'dazhu_huihai', title: 'Dazhu Huihai Dunwu Yaomen (頓悟入道要門)', cbeta: 'X1258' },
-      { key: 'baizhang_guanglu', title: 'Baizhang Guanglu (百丈廣錄三句)', cbeta: 'X1304' },
-      { key: 'foyan_qingyuan', title: 'Foyan Qingyuan Instant Zen (佛眼坐禪銘)', cbeta: 'T1995' },
-      { key: 'dahui_shobogenzo', title: 'Dahui Shobogenzo (大慧正法眼藏)', cbeta: 'T2002' },
-      { key: 'mazu_yulu', title: 'Mazu Daoyi Yulu (江西馬祖語錄)', cbeta: 'X1304' },
+      { key: 'dazhu_huihai', title: 'Dazhu Huihai Dunwu Yaomen (頓悟入道要門)', cbeta: 'X1223' },
+      { key: 'baizhang_guanglu', title: 'Baizhang Guanglu (百丈廣錄三句)', cbeta: 'X1323' },
+      { key: 'foyan_qingyuan', title: 'Foyan Qingyuan Instant Zen (佛眼坐禪銘)', cbeta: 'X1315' },
+      { key: 'dahui_shobogenzo', title: 'Dahui Shobogenzo (大慧正法眼藏)', cbeta: 'X1309' },
+      { key: 'mazu_yulu', title: 'Mazu Daoyi Yulu (江西馬祖語錄)', cbeta: 'X1321' },
       { key: 'nanquan_yulu', title: 'Nanquan Puyuan Yulu (南泉普願語錄)', cbeta: 'X1315' },
       { key: 'deshan_yulu', title: 'Deshan Xuanjian Yulu (德山宣鑑語錄)', cbeta: 'T2076/X1565' },
-      { key: 'xuefeng_yantou', title: 'Xuefeng & Yantou Yulu (雪峰巖頭語錄)', cbeta: 'T1983' },
+      { key: 'xuefeng_yantou', title: 'Xuefeng & Yantou Yulu (雪峰巖頭語錄)', cbeta: 'X1333' },
       { key: 'congronglu_cases', title: 'Book of Serenity (從容庵錄)', cbeta: 'T2004' },
       { key: 'wudeng_huiyuan', title: 'Compendium of Five Lamps (五燈會元)', cbeta: 'X1565' },
       { key: 'sengzhao_zhaolun', title: 'Sengzhao Zhao Lun (僧肇肇論)', cbeta: 'T1858' },
       { key: 'hanshan_poems', title: 'Hanshan Cold Mountain Poems (寒山詩集)', cbeta: 'SBCK/Zoku' },
       { key: 'huangbo_wanling', title: 'Huangbo Wanling Lu (黃檗宛陵錄)', cbeta: 'T2012B' },
-      { key: 'xuansha_yulu', title: 'Xuansha Shibei Yulu (玄沙宗一語錄)', cbeta: 'X1310' },
-      { key: 'caoxi_zhuan', title: 'Caoxi Dashi Biezhuan (曹溪大師別傳)', cbeta: 'X1458' },
+      { key: 'xuansha_yulu', title: 'Xuansha Shibei Yulu (玄沙宗一語錄)', cbeta: 'X1445' },
+      { key: 'caoxi_zhuan', title: 'Caoxi Dashi Biezhuan (曹溪大師別傳)', cbeta: 'X1598' },
       { key: 'yuanwu_letters', title: 'Yuanwu Zen Letters (圓悟克勤心要)', cbeta: 'X1357' }
     ];
 
@@ -293,7 +296,7 @@
         <div class="text-title-zh">${doc.title_zh}</div>
         <div class="text-title-en">${doc.title_en} (${doc.title_pinyin})</div>
         <div class="text-meta-chips">
-          <span class="meta-chip">📜 Canon: ${doc.cbeta_id || 'Taisho'} (Vol. ${doc.taisho_vol || 48})</span>
+          <span class="meta-chip">📜 Canon: ${doc.cbeta_id || 'Taisho'}${(/T\d{4}/.test(doc.cbeta_id || '') && doc.taisho_vol) ? ` (Vol. ${doc.taisho_vol})` : ''}</span>
           <span class="meta-chip">✍️ Master/Author: ${doc.author_zh || ''}</span>
           <span class="meta-chip">⏳ Era: ${doc.era || ''}</span>
           <span class="meta-chip">🏷️ Genre: ${doc.genre || ''}</span>
@@ -779,7 +782,8 @@
       'Guiyang School': '#7d4a88',
       'Guiyang': '#7d4a88',
       'Fayan School': '#2d7d74',
-      'Fayan': '#2d7d74'
+      'Fayan': '#2d7d74',
+      'Linji / Yangqi Branch': '#b53335'
     };
 
     // Calculate node coordinates based on lineage generation
@@ -1282,11 +1286,25 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
   }
 
   // ---- Search: universal segment extraction across every corpus schema ----
+  // Orthographic variant pairs found across canon editions. Both spellings are
+  // normalized to ONE canonical side (first listed) so 洗鉢盂去/洗缽盂去, 師云/師曰
+  // etc. cross-match; variantRegex() still marks either spelling in the raw text.
+  const SEARCH_VARIANTS = { '鉢': '缽', '曰': '云', '臺': '台', '裏': '里', '無': '无' };
+  function normalizeForSearch(s) {
+    return String(s || '').toLowerCase().split('').map(ch => SEARCH_VARIANTS[ch] || ch).join('');
+  }
+  function escHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+  function variantRegex(q) {
+    const escaped = [...String(q)].map(ch => SEARCH_VARIANTS[ch] ? `[${ch}${SEARCH_VARIANTS[ch]}]` : ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('');
+    try { return new RegExp(escaped, 'gi'); } catch (e) { return null; }
+  }
   function extractSearchableUnits(doc, corpKey) {
     // Returns [{label, jump, zh, pinyin, blob}] covering cases, sections, dialogues,
     // stanzas, chapters, five_ranks, sample_records, preface/epilogue.
     const units = [];
-    const asBlob = (...parts) => parts.filter(Boolean).join(' ').toLowerCase();
+    const asBlob = (...parts) => normalizeForSearch(parts.filter(Boolean).join(' '));
     const blobWithTranslations = (tr) => tr ? Object.values(tr).map(v => (v && typeof v === 'object' ? v.text : v)).filter(Boolean).join(' ') : '';
     const fromDialogue = (items, label, jump) => (items || []).forEach(d => {
       units.push({
@@ -1342,13 +1360,15 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
   function makeSnippet(zh, q) {
     // window the classical text around the first hit, then highlight all hits
+    // (variant-aware; query text is HTML-escaped before insertion)
     const raw = zh || '';
-    const first = raw.indexOf(q);
+    const re = variantRegex(q);
+    const first = re ? raw.search(re) : -1;
     const center = first === -1 ? 0 : first;
     const start = Math.max(0, center - 30);
     const end = Math.min(raw.length, center + 50);
     let snip = (start > 0 ? '…' : '') + raw.slice(start, end) + (end < raw.length ? '…' : '');
-    if (q && snip.includes(q)) snip = snip.split(q).join(`<mark>${q}</mark>`);
+    if (re) snip = snip.replace(re, m => `<mark>${escHtml(m)}</mark>`);
     return snip;
   }
 
@@ -1366,7 +1386,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
     if (!elements.readerContent || !state.data.corpus) return;
 
-    const qLower = q.toLowerCase();
+    const qLower = normalizeForSearch(q);
     let totalHits = 0;
     const perDocHits = {};
     let bodyHtml = '';
@@ -1374,7 +1394,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     Object.keys(state.data.corpus).forEach(corpKey => {
       const doc = state.data.corpus[corpKey];
       const units = extractSearchableUnits(doc, corpKey);
-      const hits = units.filter(u => u.blob.includes(qLower) || (u.zh && u.zh.includes(q)));
+      const hits = units.filter(u => u.blob.includes(qLower) || (u.zh && normalizeForSearch(u.zh).includes(qLower)));
       if (hits.length === 0) return;
 
       perDocHits[corpKey] = hits.length;
@@ -1397,7 +1417,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
       }
     });
 
-    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${q}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div></div>`;
+    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div></div>`;
 
     elements.readerContent.innerHTML = totalHits === 0
       ? headerHtml + `<div class="case-card"><p>No matches found for "${q}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`

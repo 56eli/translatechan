@@ -3,8 +3,7 @@
   "title_zh": "福州玄沙宗一大師語錄",
   "title_pinyin": "Fúzhōu Xuánshā Zōngyī Dàshī Yǔlù",
   "title_en": "The Recorded Sayings of Master Xuansha Shibei (One Bright Pearl)",
-  "cbeta_id": "X1310 / T1991",
-  "taisho_vol": 47,
+  "cbeta_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
   "author_zh": "唐 福州 玄沙師備 禪師 說 (雪峰法嗣)",
   "author_en": "Chan Master Xuansha Shibei (835–908 CE), Master of Luohan Guichen (Fayan Lineage)",
   "era": "Late Tang Dynasty",
@@ -85,5 +84,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1310 / T1991' wrong — X1310 is 拈八方珠玉集; T1991 is 金陵清涼院文益禪師語錄 (Fayan). Xuansha's records are X73n1445 廣錄 and X73n1446 語錄 (明 林弘衍編次)."
 }

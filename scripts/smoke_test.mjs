@@ -61,7 +61,7 @@ globalThis.document = {
   querySelectorAll(sel) {
     if (sel === '[data-reader-mode]') {
       if (modeHandlers.length === 0) {
-        for (const mode of ['bilingual', 'stacked', 'chinese_only', 'multi_translators']) {
+        for (const mode of ['bilingual', 'chinese_only', 'multi_translators']) {
           modeHandlers.push({
             getAttribute: () => mode,
             classList: { add() {}, remove() {} },
@@ -138,6 +138,17 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
   // stub stores dataset via plain property; app sets dataset.mode — check direct assignment happened
   if (!('mode' in (ids['reader-content-target'].dataset || {}))) failures++; console.log('❌ reader data-mode not set');
 }
+// 4e. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
+for (const q of ['鉢', '曰']) {
+  (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } }));
+  const html = ids['reader-content-target']._innerHTML;
+  if (html.includes('No matches found')) { failures++; console.log(`❌ variant search missed results for "${q}"`); }
+}
+// 4f. Search query must be HTML-escaped (self-XSS guard)
+(searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: '<b>x' } }));
+const searchHtml = ids['reader-content-target']._innerHTML;
+if (searchHtml.includes('<b>x') && !searchHtml.includes('&lt;b&gt;x')) { failures++; console.log('❌ search query not escaped'); }
+if (searchHtml.includes('<mark><b>')) { failures++; console.log('❌ search mark injection'); }
 // clear search
 (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
 

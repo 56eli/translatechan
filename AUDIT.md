@@ -70,7 +70,7 @@ function renderCaseItem(...) {                      // ← now outside any scope
 
 ### 3.1 Corpus: genuine text, but excerpt-scale
 
-Total Classical Chinese across **all 36 corpus files: ≈ 9,610 characters** (about 3 pages of a single fascicle). The anchor passages I spot-checked are **genuine canonical Chinese** (verified against CBETA memory):
+Total Classical Chinese across **all 36 corpus files: ≈ 11,832 characters** (re-measured 2026-08-08 after the verification rounds and the canon-note pass; was 9,610 at first audit — about 3.5 pages of a single fascicle). The anchor passages I spot-checked are **genuine canonical Chinese** (verified against CBETA memory):
 
 - ✅ 信心銘 opening (至道無難，唯嫌揀擇), 證道歌 opening (絕學無為閒道人), 壇經 verse (菩提本無樹…), 參同契 opening (竺土大仙心), 寶鏡三昧 opening, 臨濟「無位真人」 — all authentic.
 
@@ -91,7 +91,7 @@ But coverage is far below the README/HANDOFF/ROADMAP narrative ("Complete 48 Cas
 | Dataset | Actual | Documentation claims |
 |---|---|---|
 | Glossary (`chan_terms.json`) | **31 terms** | "150+ technical terms" (README, HANDOFF) |
-| Lineage (`masters.json`) | **18 masters** | "complete genealogical graph" (ROADMAP ✓) |
+| Lineage (`masters.json`) | **30 masters** (18 → 30 on 2026-08-08) | "complete genealogical graph" (ROADMAP ✓) |
 | Comparative matrix | **4 entries** | "sentence-by-sentence alignment across corpus" |
 | Gong'an index | **18 entries** | "indexed across Wumenguan, Biyanlu, Congronglu" |
 
@@ -364,3 +364,41 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 | B8 | P3 | Stale corpus size in README/AUDIT §3.1: measured **11,454 zh chars** (was 9,610); "8 texts" → "6 corpus texts + 2 matrix rows" | Update counts |
 | B9 | P3 | Search doesn't normalize edition variants (缽/鉢, 云/曰, 臺/台, 裏/里) | Optional variant map in search |
 | B10 | P3 | `docs/scripts/build_data_bundle.py` is an old revision, never synced, unreferenced | Remove `docs/scripts/` |
+
+### 9.3 — Remediation (same session, 2026-08-08) — B1–B10 + canon-reference & lineage passes
+
+All findings closed in one verified push (branch `arena/019fe1b5-translatechan`):
+
+| ID | Fix | Verification |
+|---|---|---|
+| B1 | `build_data_bundle.py` now mirrors `data/ → docs/data` (rmtree + copytree, deletions propagated); docstring states the sync contract | `diff -rq data docs/data` silent; app assets byte-identical |
+| B2 | `index.html` Agents view: stale `arena/019fe05c-translatechan` → generic "session branch → PR → main" wording (docs copy re-synced) | grep clean |
+| B3+ | Volume chip only rendered when `cbeta_id` matches a T-number; `taisho_vol` nulled for non-Taishō texts | reader chips correct for X/P/SBCK texts |
+| B4 | Search escapes user query (`escHtml`) in snippets and results header; `makeSnippet` marks via variant-aware regex on raw text | smoke test 4f green |
+| B5 | `JSON.parse(localStorage)` guarded with try/catch fallback | app boots with corrupted storage |
+| B6/B11 | Dead `stacked` reader mode removed from state + smoke test (UI never exposed it) | smoke test green |
+| B7+ | Lineage graph 18 → **30 profiles**: added Nanyue Huairang, Qingyuan Xingsi, Nanquan Puyuan, Yaoshan Weiyan, Yunyan Tansheng, Deshan Xuanjian, Xuefeng Yicun, Xuansha Shibei, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan — every existing profile's `teacher` now resolves (26 SVG edges, was 8); 4 documented frontiers remain (Prajñātāra, Longtan Chongxin, Yangqi Fanghui, Dahong Zuzheng) | integrity script: 0 dangling id-refs, depths consistent, fayan 13→14 |
+| B8 | README/AUDIT counts updated: 11,454 zh chars; "6 corpus texts + 2 matrix rows" phrasing; 30 masters everywhere | grep clean |
+| B9 | Search variant normalization (鉢/缽, 曰/云, 臺/台, 裏/里, 無/无 → canonical + regex marking) | smoke test 4e green |
+| B10 | Stale `docs/scripts/` removed (scripts live at root only) | `git rm -r docs/scripts` |
+
+**Canon-reference integrity pass (CBETA-verified 2026-08-08)** — 10 corpus files + 5 master profiles carried wrong canon IDs (same class of error as the earlier hanshan-T2834 fix):
+
+| File | Was (wrong) | Now (CBETA-verified) |
+|---|---|---|
+| foyan_qingyuan | T1995 (= 法演語錄!) | X1315 古尊宿語錄·佛眼語錄 |
+| mazu_yulu | X1304 / T1985 | X1321 四家語錄卷一 |
+| baizhang_guanglu | T1985 / X1304 | X1323 四家語錄卷三 / X1315 |
+| nanquan_yulu | X1315 / T1985 | X1315 (dropped spurious T1985) |
+| xuansha_yulu | X1310 / T1991 | X1445 玄沙廣錄 / X1446 玄沙語錄 |
+| dazhu_huihai | X1258 / T2076 | X1223 頓悟入道要門論 / X1224 參問語錄 |
+| caoxi_zhuan | X1458 (vol 86) | X1598 曹溪大師別傳 / P.3018 |
+| dahui_shobogenzo | T2002 (= 如淨語錄!) | X1309 大慧正法眼藏 |
+| fayan_yulu | T1991 / X1265 | T1991 / X1226 宗門十規論 |
+| xuefeng_yantou | T1983 / T1985 | X1333 雪峰真覺語錄 / T2076 f.16 |
+| deshan/shitou/dazhu vol | 47 | 51 (T2076 embedded refs) |
+| hanshan/wudeng/niutou vol | 85/80/48 | null (non-Taishō; 續藏冊數 moved to notes) |
+| dahui_hongzhi | T1998A / T2001 | T1998A (unverifiable T2001 dropped) |
+| masters cbeta | mazu T1985/X1304; shitou T1985/T2076; zhaozhou T1985?/T2005; guishan T2007/T2076; yuanwu T2003 | T2076 f.6/X1321 · T2076 f.14/X1565 · T1987/X1315 · T1989/T2076 f.9 · T1997/X1357 |
+
+**Key CBETA evidence (fetched this session)**: T47n1985 臨濟錄 · T47n1998A 大慧語錄 · T47n1995 法演語錄 · T48n2002A 如淨語錄 · T48n2009 少室六門 · T51n2075 歷代法寶記 · X63n1223 · X67n1309 正法眼藏 · X68n1315 古尊宿語錄 (TOC: 南泉語要/佛眼語錄/百丈語錄) · X69n1320-1323 四家語錄 · X69n1333 雪峰 · X69n1354 月林 · X69n1357 圓悟心要 · X73n1445/1446 玄沙 · X80n1565 五燈會元 · X86n1598 曹溪別傳 · 五燈會元卷十九 (守端/法演 chapters, verbatim quotes) · 月林師觀語錄 X1354 opening verse.

@@ -21,7 +21,16 @@
           "zh": "師謂休曰：「諸佛與一切眾生，唯是一心，更無別法。此心無始已來，不曾生不曾滅，不青不黃，無形無相，不屬有無，不計新舊，非長非短，非大非小，超過一切限量名言蹤跡對待。」",
           "pinyin": "Shī wèi Xiū yuē: 'Zhūfó yǔ yīqiè zhòngshēng, wéi shì yī xīn, gèng wú bié fǎ. Cǐ xīn wú shǐ yǐ lái, bù céng shēng bù céng miè, bù qīng bù huáng, wú xíng wú xiàng, bù shǔ yǒu wú, bù jì xīn jiù, fēi cháng fēi duǎn, fēi dà fēi xiǎo, chāoguò yīqiè xiànliàng míngyán zōngjī duìdài.'",
           "translations": {
-            "blofeld": "The Master said to me: All the Buddhas and all sentient beings are nothing whatever but the One Mind, besides which nothing exists. This Mind, which is without beginning, is unborn and indestructible. It is neither green nor yellow, and has neither form nor appearance. It does not belong to the categories of things which exist or do not exist, nor can it be thought of in terms of new or old. It is neither long nor short, big nor small, for it transcends all limits, measures, names, traces, and comparisons.",
+            "blofeld": {
+              "text": "All the Buddhas and all sentient beings are nothing but the One Mind, beside which nothing exists. This Mind, which is without beginning, is unborn and indestructible. It is not green nor yellow, and has neither form nor appearance. It does not belong to the categories of things which exist or do not exist, nor can it be thought of in terms of new or old. It is neither long nor short, big nor small, for it transcends all limits, measures, names, traces and comparisons.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                "edition": "Rider & Co., 1958 (Chün Chou Record, teaching 1)",
+                "verification": "wording consistent across Grove Atlantic (publisher), Terebess reproduction, and two further mirrors, 2026-08-08",
+                "note": "Replaces a prior paraphrase ('nothing whatever but… besides which')."
+              }
+            },
             "cleary": "The Master said to Pei Xiu: All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes; it is not blue or yellow, has no form or characteristics, belongs neither to existence nor nonexistence, cannot be reckoned as new or old, is neither long nor short, neither large nor small, transcending all limits, words, traces, and polarities.",
             "suzuki": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
             "ai_literal": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs."
@@ -32,7 +41,15 @@
           "zh": "「當體便是，動念即乖。猶如虛空，無有邊際，不可度量。唯此一心即是佛，佛與眾生更無別異。」",
           "pinyin": "'Dāng tǐ biàn shì, dòng niàn jí guāi. Yóu rú xū kōng, wú yǒu biānjì, bù kě dùliàng. Wéi cǐ yī xīn jí shì fó, fó yǔ zhòngshēng gèng wú bié yì.'",
           "translations": {
-            "blofeld": "It is that which you see before you—begin to reason about it and you at once fall into error. It is like the boundless void which cannot be fathomed or measured. The One Mind alone is the Buddha, and there is no distinction between the Buddha and sentient beings.",
+            "blofeld": {
+              "text": "It is that which you see before you—begin to reason about it and you at once fall into error. It is like the boundless void which cannot be fathomed or measured. The One Mind alone is the Buddha, and there is no distinction between the Buddha and sentient things.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                "edition": "Grove Press (Part One: Chün Chou Record §1)",
+                "verification": "verbatim (span matching unit's zh) vs Terebess reproduction of Blofeld's text, 2026-08-08; prior reconstruction ended 'sentient beings' — Blofeld's wording is 'sentient things'"
+              }
+            },
             "cleary": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
             "ai_literal": "Its immediate embodiment is it; stirring a thought is instantly deviating. Like empty space, without edges or borders, not measurable. Only this One Mind is Buddha; Buddha and sentient beings have no other difference."
           }
@@ -42,7 +59,15 @@
           "zh": "休問：「諸佛如何行大慈悲，為眾生說法？」",
           "pinyin": "Xiū wèn: 'Zhūfó rúhé xíng dà cíbēi, wèi zhòngshēng shuō fǎ?'",
           "translations": {
-            "blofeld": "Pei Xiu asked: How do the Buddhas out of their great compassion preach the Dharma for sentient beings?",
+            "blofeld": {
+              "text": "How do the Buddhas, out of their vast mercy and compassion, preach the Dharma (Law) to sentient beings?",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+              }
+            },
             "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
             "ai_literal": "Xiu asked: 'How do all Buddhas practice great compassion and preach dharma for sentient beings?'"
           }
@@ -52,7 +77,15 @@
           "zh": "師曰：「佛慈悲者，無緣慈也。不見有佛可成，不見有眾生可度。無說無示，無聽無得，是名大慈悲。」",
           "pinyin": "Shī yuē: 'Fó cíbēi zhě, wú yuán cí yě. Bù jiàn yǒu fó kě chéng, bù jiàn yǒu zhòngshēng kě dù. Wú shuō wú shì, wú tīng wú dé, shì míng dà cíbēi.'",
           "translations": {
-            "blofeld": "The Master said: The compassion of the Buddhas is unconditioned compassion. They do not see any Buddha to be attained, nor do they see any sentient beings to be liberated. No speaking, no displaying, no hearing, no attaining—this is called Great Compassion.",
+            "blofeld": {
+              "text": "We speak of their mercy and compassion as vast just because it is beyond causality (and therefore infinite). By mercy is really meant not conceiving of a Buddha to be Enlightened, while compassion really means not conceiving of sentient beings to be delivered. In reality, their Dharma is neither preached in words nor otherwise signified; and those who listen neither hear nor attain.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+              }
+            },
             "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
             "ai_literal": "Master said: 'Buddhas' compassion is conditionless compassion. Not seeing any Buddha to attain, not seeing any sentient beings to liberate. No speaking and no showing, no hearing and no acquiring: this is named great compassion.'"
           }

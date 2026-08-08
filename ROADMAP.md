@@ -31,7 +31,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 > Statuses above are **measured** (see [`AUDIT.md`](./AUDIT.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
-> **Attribution-integrity milestone (2026-08-08)**: provenance policy live (`data/translations/provenance.json` v1.9, UI badges ✅/⚠️); **79 verified quotation slots across 8 texts + 2 verified matrix rows**, with the full provenance log in [`AUDIT.md` §8](./AUDIT.md). Phase-3 matrix curation now proceeds on a verified-only basis for scholarly citation.
+> **Attribution-integrity milestone (2026-08-08)**: provenance policy live (`data/translations/provenance.json` v1.9, UI badges ✅/⚠️); **79 verified quotation slots across 6 corpus texts + 2 verified matrix rows**, with the full provenance log in [`AUDIT.md` §8](./AUDIT.md). Phase-3 matrix curation now proceeds on a verified-only basis for scholarly citation.
 
 ---
 
@@ -54,7 +54,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Instant client-side search across **all 36 texts and every schema shape** (counts + highlighting + jump-to-anchor — landed 2026-08-08, [`AUDIT.md` §8](./AUDIT.md)).
   - Personal Translation Studio allowing users to draft personal translations, save to `localStorage`, and export to JSON, Markdown, or LaTeX.
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
-- [x] **Core Foundational Text Seeds** (36 files; authentic anchor passages, excerpt-scale — completion is Phase 2):
+- [x] **Core Foundational Text Seeds** (36 files; authentic anchor passages, excerpt-scale — completion is Phase 2; canon IDs audited against CBETA 2026-08-08):
   1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — preface, epilogue + 11/48 cases)
   2. *Linji Yulu* (臨濟語錄 / The Record of Linji, T1985 — 4 core sermons)
   3. *Huangbo Chuanxin Fayao* (黃檗傳心法要 / T2012A — opening sections)

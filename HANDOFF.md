@@ -13,7 +13,7 @@ The TranslateChan project has been fully established with:
 1. **Grand Vision & Architectural Blueprint** ([`vision.md`](./vision.md)): Canonical scope spanning CBETA / Taishō Tripiṭaka Volumes 47, 48, and 51.
 2. **Project Roadmap & Milestone Execution Plan** ([`ROADMAP.md`](./ROADMAP.md)): Phased milestones from foundational corpus to living knowledge graph (statuses measured, not aspirational).
 3. **Core Canonical Corpus Seeds** (`data/corpus/`): 36 excerpt-scale canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties (authentic anchor passages; completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
-4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 18 master profiles with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan.
+4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 30 master profiles with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan).
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
 6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows now carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966), others labeled honestly (see sourcing note in [`AUDIT.md` §3.4](./AUDIT.md)).
 7. **Interactive Zero-Backend Web App & Studio** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative Zen aesthetic with dark/light mode, search, SVG lineage network graph, and personal translation studio with LaTeX/Markdown export. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`AUDIT.md` §8](./AUDIT.md); `node scripts/smoke_test.mjs` must pass before every push.)*
@@ -31,7 +31,7 @@ The TranslateChan project has been fully established with:
 3. **`84a59eb`** Docs-truth pass: measured statuses, `LICENSE` (MIT + CC BY-SA 4.0 + third-party notice), `.nojekyll`, phantom refs purged.
 4. **`5405a60`** Attribution-integrity: `provenance.json` provenance policy + ✅/⚠️ badges in the UI + mis-cited canon IDs fixed.
 5. **`5c35834`** Universal search (all 36 texts × all schemas), true reader modes, single-pass clean tooltips, Studio builds from the data bundle.
-6. **`7dbfec0`–`934b7ef` (7 commits)** Verified-quotation campaign rounds 1–8 → **79 verified slots across 8 texts + 2 verified matrix rows**; six ✅ editions on Wumenguan Case 1; Wumenguan anchors now public-domain complete (Senzaki & Reps 1934); `provenance.json` v1.9. Highlights: first-ever honest ✅/⚠️ labels on every scholar-attributed rendering; 4 paraphrases/near-paraphrases caught and replaced with verified wording; 1 non-canonical Chinese stanza corrected to T2010.
+6. **`7dbfec0`–`934b7ef` (7 commits)** Verified-quotation campaign rounds 1–8 → **79 verified slots across 6 corpus texts + 2 verified matrix rows**; six ✅ editions on Wumenguan Case 1; Wumenguan anchors now public-domain complete (Senzaki & Reps 1934); `provenance.json` v1.9. Highlights: first-ever honest ✅/⚠️ labels on every scholar-attributed rendering; 4 paraphrases/near-paraphrases caught and replaced with verified wording; 1 non-canonical Chinese stanza corrected to T2010.
 
 **Release readiness**: `scripts/smoke_test.mjs` ✅ · deterministic bundle ✅ · `/docs` byte-synced ✅ · live site will self-heal on merge (Pages serves `main` `/docs`).
 
@@ -60,7 +60,7 @@ gh pr create --base main --head arena/019fe108-translatechan --title "..." --bod
 On every merge into `main`, the site re-publishes automatically within ~60 seconds.
 👉 **`https://56eli.github.io/translatechan/`**
 
-> **Release checklist before opening any PR affect­ing the app**: `python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs` must pass, and `cmp app.js docs/app.js` (etc.) must show root/docs in sync.
+> **Release checklist before opening any PR affect­ing the app**: `python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs` must pass, `cmp app.js docs/app.js` (etc.) must show root/docs in sync, and `diff -rq data docs/data` must be silent (data mirror).
 
 ---
 
@@ -104,25 +104,25 @@ translatechan/
 │   │   ├── fayan_yulu.json             # Ten Rules & Mind-Only (T1991)
 │   │   ├── guiyang_yulu.json           # 96 Circular Figures (T1989)
 │   │   ├── dahui_hongzhi.json          # Kanhua Letters & Mozhao Ming (T1998A)
-│   │   ├── dahui_shobogenzo.json       # Dahui Shobogenzo Vols 1 & 2 (T2002)
+│   │   ├── dahui_shobogenzo.json       # Dahui Shobogenzo Vols 1 & 2 (X1309)
 │   │   ├── shitou_sandokai.json        # Sandokai & Grass Hut Song (T1985)
 │   │   ├── zhengdao_ge.json            # Song of Enlightenment (T2014)
 │   │   ├── bodhidharma_erru.json       # Two Entrances & Four Practices (T2009)
 │   │   ├── niutou_juezhu.json          # Dunhuang Juezhu Lun (P.2885)
 │   │   ├── lidai_fabao_ji.json         # Dunhuang Baotang Record (T2075)
-│   │   ├── dazhu_huihai.json           # Sudden Awakening & Faxing (X1258)
-│   │   ├── baizhang_guanglu.json       # Three Propositions & Guanglu (X1304)
-│   │   ├── foyan_qingyuan.json         # Instant Zen & Rain Sound (T1995)
-│   │   ├── mazu_yulu.json              # Ordinary Mind is the Way (X1304)
+│   │   ├── dazhu_huihai.json           # Sudden Awakening & Faxing (X1223)
+│   │   ├── baizhang_guanglu.json       # Three Propositions & Guanglu (X1323)
+│   │   ├── foyan_qingyuan.json         # Instant Zen & Rain Sound (X1315)
+│   │   ├── mazu_yulu.json              # Ordinary Mind is the Way (X1321)
 │   │   ├── nanquan_yulu.json           # Water Buffalo & Peony Flower (X1315)
 │   │   ├── deshan_yulu.json            # Thirty Blows & Longtan Candle (T1985)
-│   │   ├── xuefeng_yantou.json         # Mount Ao Awakening (T1983)
+│   │   ├── xuefeng_yantou.json         # Mount Ao Awakening (X1333)
 │   │   ├── sengzhao_zhaolun.json       # Zhao Lun: Immutability of Things (T1858)
 │   │   ├── hanshan_poems.json          # Cold Mountain Poems (T2834)
-│   │   ├── caoxi_zhuan.json            # Dunhuang Caoxi Biezhuan (X1458)
+│   │   ├── caoxi_zhuan.json            # Dunhuang Caoxi Biezhuan (X1598)
 │   │   └── yuanwu_letters.json         # Yuanwu Xinyao Zen Letters (X1357)
 │   ├── lineage/
-│   │   └── masters.json                # 18 master profiles: genealogies, dates, quotes
+│   │   └── masters.json                # 30 master profiles: genealogies, dates, quotes
 │   ├── translations/
 │   │   └── comparative_matrix.json     # 4 exemplar sentence-aligned matrix entries
 │   ├── glossary/

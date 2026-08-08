@@ -609,7 +609,7 @@ window.TRANSLATECHAN_DATA = {
       ],
       "key_quote_zh": "若欲直會其道，平常心是道。何謂平常心？無造作，無是非，無取捨，無斷常，無凡無聖。",
       "key_quote_en": "If you wish to comprehend the Way directly, Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.",
-      "cbeta_id": "T1985 / X1304",
+      "cbeta_id": "T2076 f.6 / X1321",
       "summary": "Pioneered shock encounter dialogues, shouts, twisting noses, and the revolutionary doctrine that 'This very mind is Buddha' (即心即佛) and later 'Neither mind nor Buddha' (非心非佛)."
     },
     {
@@ -635,7 +635,7 @@ window.TRANSLATECHAN_DATA = {
       ],
       "key_quote_zh": "竺土大仙心，東西密相付。人根有利鈍，道無南北祖。",
       "key_quote_en": "The mind of the Great Sage of India was intimately transmitted east and west. Human faculties may be sharp or dull, but in the Way there is no northern or southern ancestor.",
-      "cbeta_id": "T1985 / T2076",
+      "cbeta_id": "T2076 f.14 / X1565",
       "summary": "Built a hut on a flat boulder at Mount Heng; author of the Sandokai which unites the relative (phenomena) and the absolute (noumenon) into one seamless reality."
     },
     {
@@ -734,7 +734,7 @@ window.TRANSLATECHAN_DATA = {
       ],
       "key_quote_zh": "僧問：『狗子還有佛性也無？』州云：『無。』",
       "key_quote_en": "A monk asked: 'Does a dog have Buddha-nature or not?' Zhaozhou said: 'Wu (No).'",
-      "cbeta_id": "T1987 / T2005",
+      "cbeta_id": "T1987 / X1315 (古尊宿語錄)",
       "summary": "The ancient master of 'Lively Zen' (*活句*), renowned for his 120-year lifespan, 'Drink tea' (*吃茶去*), 'Wash your bowl' (*洗缽去*), and the ultimate Gong'an barrier of 'Wu'."
     },
     {
@@ -809,7 +809,7 @@ window.TRANSLATECHAN_DATA = {
       ],
       "key_quote_zh": "夫業繫受身，未免形累。稟父母之遺體，假眾緣而共成。",
       "key_quote_en": "Bound by karma we receive this body, unable to avoid the burden of form. Inheriting the physical form of our parents, we are brought into being through a confluence of conditions.",
-      "cbeta_id": "T2007 / T2076",
+      "cbeta_id": "T1989 / T2076 f.9",
       "summary": "Kicked over the water pitcher when tested by Baizhang; established the first of the Five Houses with his disciple Yangshan Huiji."
     },
     {
@@ -822,7 +822,7 @@ window.TRANSLATECHAN_DATA = {
       "era": "Five Dynasties",
       "school": "Fayan School (法眼宗)",
       "location": "Qingliang Monastery, Jinling (Nanjing)",
-      "lineage_depth": 13,
+      "lineage_depth": 14,
       "teacher": "luohan_guichen",
       "disciples": [
         "tiantai_deshao"
@@ -858,7 +858,7 @@ window.TRANSLATECHAN_DATA = {
       ],
       "key_quote_zh": "若論佛法，一毫頭許是，即成魔業；一毫頭許不是，亦成魔業。",
       "key_quote_en": "If we speak of the Buddha-dharma, if you affirm it by the width of a single hair, you create demonic karma; if you deny it by the width of a single hair, you also create demonic karma.",
-      "cbeta_id": "T2003 (Vol. 48, p. 139)",
+      "cbeta_id": "T1997 / X1357",
       "summary": "Compiler of the magnificent commentaries and pointers to Xuedou's hundred verses in the Biyanlu (Blue Cliff Record), considered the pinnacle of Song Chan literary brilliance."
     },
     {
@@ -881,8 +881,305 @@ window.TRANSLATECHAN_DATA = {
       ],
       "key_quote_zh": "佛語心為宗，無門為法門。關既無門，趣向如何？",
       "key_quote_en": "The words of the Buddha take Mind as the core, and 'No Gate' (Wumen) as the Dharma gate. Since the barrier has no gate, how do you pass through it?",
-      "cbeta_id": "T2005 (Vol. 48, p. 292)",
+      "cbeta_id": "T2005 / X1355",
       "summary": "Author of the 48 cases of the Wumenguan, distilling the essence of Kanhua Chan into the most widely studied koan curriculum in world history."
+    },
+    {
+      "id": "nanyue_huairang",
+      "name_zh": "南嶽懷讓",
+      "name_pinyin": "Nányuè Huáiràng",
+      "name_en": "Nanyue Huairang",
+      "title": "Great Master of Nanyue (南嶽懷讓禪師)",
+      "dates": "677–744 CE",
+      "era": "Tang Dynasty",
+      "school": "Foundational Patriarch",
+      "location": "Bore Monastery, Mount Heng (南嶽般若寺), Hunan",
+      "lineage_depth": 7,
+      "teacher": "huineng",
+      "disciples": [
+        "mazu_daoyi"
+      ],
+      "texts": [
+        "Jingde Chuandenglu T2076 f.5",
+        "Guzunsu Yulu X1315 (南嶽大慧行狀)"
+      ],
+      "key_quote_zh": "磨磚既不成鏡，坐禪豈得成佛？",
+      "key_quote_en": "If polishing a tile cannot make a mirror, how can sitting in meditation make a Buddha?",
+      "cbeta_id": "T2076 f.5 / X1315",
+      "summary": "Huineng's foremost disciple in the southern (Nanyue) line; his 'polishing a tile' encounter with Mazu redirected Chan from seated meditation to direct realization and made Mazu the patriarch of the Hongzhou school."
+    },
+    {
+      "id": "qingyuan_xingsi",
+      "name_zh": "青原行思",
+      "name_pinyin": "Qīngyuán Xíngsī",
+      "name_en": "Qingyuan Xingsi",
+      "title": "Chan Master Qingyuan (青原行思禪師)",
+      "dates": "660–740 CE",
+      "era": "Tang Dynasty",
+      "school": "Foundational Patriarch",
+      "location": "Jingju Monastery, Mount Qingyuan (青原山), Jizhou, Jiangxi",
+      "lineage_depth": 7,
+      "teacher": "huineng",
+      "disciples": [
+        "shitou_xiqian"
+      ],
+      "texts": [
+        "Jingde Chuandenglu T2076 f.5",
+        "Wudeng Huiyuan X1565 f.3"
+      ],
+      "key_quote_zh": "聖諦亦不為。",
+      "key_quote_en": "I do not even practice the holy truths.",
+      "cbeta_id": "T2076 f.5 / X1565",
+      "summary": "Huineng's senior disciple who headed the Qingyuan line — source of the Shitou, Caodong, Yunmen and Fayan houses; his 'no falling into stages' exchange with Huineng is a canonical record of non-dual realization."
+    },
+    {
+      "id": "nanquan_puyuan",
+      "name_zh": "南泉普願",
+      "name_pinyin": "Nánquán Pǔyuàn",
+      "name_en": "Nanquan Puyuan",
+      "title": "Great Master Nanquan (南泉普願禪師)",
+      "dates": "748–835 CE",
+      "era": "Tang Dynasty",
+      "school": "Hongzhou School",
+      "location": "Nanquan Mountain, Chizhou (南泉山), Anhui",
+      "lineage_depth": 9,
+      "teacher": "mazu_daoyi",
+      "disciples": [
+        "zhaozhou_congshen",
+        "changsha_jingcen"
+      ],
+      "texts": [
+        "Guzunsu Yulu X1315 (池州南泉普願禪師語要)",
+        "Jingde Chuandenglu T2076 f.8"
+      ],
+      "key_quote_zh": "平常心是道。",
+      "key_quote_en": "Ordinary mind is the Way.",
+      "cbeta_id": "X1315 / T2076 f.8",
+      "summary": "Mazu's most independent-minded heir; his 'Ordinary mind is the Way' teaching and the 'cutting the cat' episode make him a defining master of encounter-dialectics, teacher of Zhaozhou."
+    },
+    {
+      "id": "yaoshan_weiyan",
+      "name_zh": "藥山惟儼",
+      "name_pinyin": "Yàoshān Wéiyǎn",
+      "name_en": "Yaoshan Weiyan",
+      "title": "Great Master Yaoshan (藥山惟儼禪師)",
+      "dates": "745–828 CE",
+      "era": "Tang Dynasty",
+      "school": "Hunan Lineage",
+      "location": "Yaoshan, Tanzhou (藥山), Hunan",
+      "lineage_depth": 9,
+      "teacher": "shitou_xiqian",
+      "disciples": [
+        "yunyan_tansheng",
+        "daowu_yuanzhi"
+      ],
+      "texts": [
+        "Jingde Chuandenglu T2076 f.14",
+        "Wudeng Huiyuan X1565 f.5"
+      ],
+      "key_quote_zh": "雲在青天，水在瓶。",
+      "key_quote_en": "Clouds in the blue sky, water in the vase.",
+      "cbeta_id": "T2076 f.14 / X1565",
+      "summary": "Shitou's heir at Yaoshan; his famous reply to Prefect Li Ao — 'clouds in the blue sky, water in the vase' — became the emblem of natural, non-contrived Chan, and he transmitted the line to Yunyan."
+    },
+    {
+      "id": "yunyan_tansheng",
+      "name_zh": "雲巖曇晟",
+      "name_pinyin": "Yúnyán Tánshèng",
+      "name_en": "Yunyan Tansheng",
+      "title": "Chan Master Yunyan (雲巖曇晟禪師)",
+      "dates": "782–841 CE",
+      "era": "Tang Dynasty",
+      "school": "Caodong School",
+      "location": "Yunyan Mountain, Tanzhou (雲巖山), Hunan",
+      "lineage_depth": 10,
+      "teacher": "yaoshan_weiyan",
+      "disciples": [
+        "dongshan_liangjie"
+      ],
+      "texts": [
+        "Jingde Chuandenglu T2076 f.14",
+        "Wudeng Huiyuan X1565 f.5"
+      ],
+      "key_quote_zh": "無情說法，無情得聞。",
+      "key_quote_en": "Insentient beings preach the Dharma; insentient beings hear it.",
+      "cbeta_id": "T2076 f.14 / X1565",
+      "summary": "Yaoshan's heir and Dongshan's teacher; his 'insentient beings preach the Dharma' teaching and parting gift to Dongshan lie at the root of the Caodong school's Silent Illumination doctrine."
+    },
+    {
+      "id": "deshan_xuanjian",
+      "name_zh": "德山宣鑑",
+      "name_pinyin": "Déshān Xuānjiàn",
+      "name_en": "Deshan Xuanjian",
+      "title": "Great Master Deshan (德山宣鑑禪師)",
+      "dates": "782–865 CE",
+      "era": "Tang Dynasty",
+      "school": "Hunan Lineage",
+      "location": "Deshan, Dingzhou (德山), Hunan",
+      "lineage_depth": 10,
+      "teacher": "Longtan Chongxin (龍潭崇信 — frontier: not yet profiled)",
+      "disciples": [
+        "xuefeng_yicun",
+        "yantou_quanhuo"
+      ],
+      "texts": [
+        "Jingde Chuandenglu T2076 f.15",
+        "Wudeng Huiyuan X1565 f.7",
+        "Deshan Yulu (corpus excerpt)"
+      ],
+      "key_quote_zh": "窮諸玄辯，若一毫置於太虛；竭世樞機，似一滴投於巨壑。",
+      "key_quote_en": "All the profound dialectic in the world is like a single hair cast into vast space; all the world's pivotal ingenuity is like a drop of water thrown into a great ravine.",
+      "cbeta_id": "T2076 f.15 / X1565",
+      "summary": "The scripture-scholar who burned his Diamond Sutra commentary and became the great 'blows' master of the Hongzhou tradition — 'thirty blows whether you can answer or not'; teacher of Xuefeng and Yantou."
+    },
+    {
+      "id": "xuefeng_yicun",
+      "name_zh": "雪峰義存",
+      "name_pinyin": "Xuěfēng Yìcún",
+      "name_en": "Xuefeng Yicun",
+      "title": "Chan Master Xuefeng (雪峰義存禪師 / 真覺禪師)",
+      "dates": "822–908 CE",
+      "era": "Tang Dynasty",
+      "school": "Hunan Lineage",
+      "location": "Xuefeng Mountain, Fuzhou (雪峰山), Fujian",
+      "lineage_depth": 11,
+      "teacher": "deshan_xuanjian",
+      "disciples": [
+        "yunmen_wenyan",
+        "xuansha_shibei"
+      ],
+      "texts": [
+        "Xuefeng Yicun Chanshi Yulu X1333",
+        "Jingde Chuandenglu T2076 f.16",
+        "Wudeng Huiyuan X1565 f.7"
+      ],
+      "key_quote_zh": "盡大地撮來如粟米粒大。",
+      "key_quote_en": "The whole great earth, gathered up, is the size of a grain of millet.",
+      "cbeta_id": "X1333 / T2076 f.16",
+      "summary": "Deshan's heir who built a vast assembly at Xuefeng Mountain; his 'grain of millet' saying (Biyanlu case 5) and towering presence made him the teacher of both Yunmen and Xuansha, progenitors of two houses."
+    },
+    {
+      "id": "xuansha_shibei",
+      "name_zh": "玄沙師備",
+      "name_pinyin": "Xuánshā Shībèi",
+      "name_en": "Xuansha Shibei",
+      "title": "Great Master Xuansha (玄沙宗一禪師)",
+      "dates": "835–908 CE",
+      "era": "Tang Dynasty",
+      "school": "Hunan Lineage",
+      "location": "Xuansha Mountain, Fuzhou (玄沙山), Fujian",
+      "lineage_depth": 12,
+      "teacher": "xuefeng_yicun",
+      "disciples": [
+        "luohan_guichen"
+      ],
+      "texts": [
+        "Xuansha Shibei Chanshi Guanglu X1445",
+        "Xuansha Shibei Chanshi Yulu X1446",
+        "Jingde Chuandenglu T2076 f.18"
+      ],
+      "key_quote_zh": "諸方老宿盡道接物利生，只如三種病人，汝作麼生接？",
+      "key_quote_en": "All the old worthies of the various quarters say they receive beings and benefit life — but with the three kinds of sick people, how would you receive them?",
+      "cbeta_id": "X1445 / T2076 f.18",
+      "summary": "Xuefeng's dharma brother-in-arms and heir whose 'three kinds of sick people' and exacting standards shaped the Fayan school; teacher of Luohan Guichen, whose disciple founded it."
+    },
+    {
+      "id": "luohan_guichen",
+      "name_zh": "羅漢桂琛",
+      "name_pinyin": "Luóhàn Guìchēn",
+      "name_en": "Luohan Guichen",
+      "title": "Chan Master Luohan (漳州羅漢桂琛禪師)",
+      "dates": "867–928 CE",
+      "era": "Five Dynasties",
+      "school": "Fayan School",
+      "location": "Luohan Yuan, Zhangzhou (漳州羅漢院), Fujian",
+      "lineage_depth": 13,
+      "teacher": "xuansha_shibei",
+      "disciples": [
+        "fayan_wenyi"
+      ],
+      "texts": [
+        "Jingde Chuandenglu T2076 f.21",
+        "Wudeng Huiyuan X1565 f.8"
+      ],
+      "key_quote_zh": "若論佛法，一切現成。",
+      "key_quote_en": "If we speak of the Buddhadharma — everything is already accomplished.",
+      "cbeta_id": "T2076 f.21 / X1565",
+      "summary": "Xuansha's heir at Zhangzhou whose 'everything is already accomplished' (一切現成) utterance awakened Fayan Wenyi, giving the Fayan school its founding insight."
+    },
+    {
+      "id": "baiyun_shouduan",
+      "name_zh": "白雲守端",
+      "name_pinyin": "Báiyún Shǒuduān",
+      "name_en": "Baiyun Shouduan",
+      "title": "Chan Master Baiyun (舒州白雲守端禪師)",
+      "dates": "1025–1072 CE",
+      "era": "Northern Song Dynasty",
+      "school": "Linji / Yangqi Branch",
+      "location": "Baiyun Mountain, Shuzhou (白雲山海會寺), Anhui",
+      "lineage_depth": 13,
+      "teacher": "Yangqi Fanghui (楊岐方會 — frontier: not yet profiled)",
+      "disciples": [
+        "wuzu_fayan"
+      ],
+      "texts": [
+        "Baiyun Shouduan Chanshi Yulu X1351",
+        "Baiyun Shouduan Chanshi Guanglu X1352",
+        "Wudeng Huiyuan X1565 f.19"
+      ],
+      "key_quote_zh": "泥佛不度水，木佛不度火，金佛不度爐，真佛內裏坐。",
+      "key_quote_en": "A clay Buddha cannot cross water; a wooden Buddha cannot cross fire; a metal Buddha cannot cross a furnace; the true Buddha sits within.",
+      "cbeta_id": "X1351 / X1565 f.19",
+      "summary": "Yangqi's heir and Wuzu Fayan's teacher; awakened when Yangqi pointed out 'others love laughter, you fear being laughed at'; his 上堂 sayings and strict style anchor the Song Yangqi branch."
+    },
+    {
+      "id": "wuzu_fayan",
+      "name_zh": "五祖法演",
+      "name_pinyin": "Wǔzǔ Fǎyǎn",
+      "name_en": "Wuzu Fayan",
+      "title": "Chan Master Wuzu Fayan (蘄州五祖法演禪師)",
+      "dates": "1024–1104 CE",
+      "era": "Northern Song Dynasty",
+      "school": "Linji / Yangqi Branch",
+      "location": "Wuzu Mountain (東山), Qizhou (五祖山), Hubei",
+      "lineage_depth": 14,
+      "teacher": "baiyun_shouduan",
+      "disciples": [
+        "yuanwu_keqin",
+        "foyan_qingyuan"
+      ],
+      "texts": [
+        "Fayan Chanshi Yulu T1995",
+        "Wudeng Huiyuan X1565 f.19"
+      ],
+      "key_quote_zh": "頻呼小玉元無事，祇要檀郎認得聲。",
+      "key_quote_en": "The little maid calls 'Jade!' again and again — it means nothing at all; she only wants her lover to recognize her voice.",
+      "cbeta_id": "T1995 / X1565 f.19",
+      "summary": "Baiyun's heir at East Mountain; his 'little maid Jade' verse awakened Yuanwu Keqin, and as teacher of Yuanwu and Foyan he made the Yangqi branch the dominant Chan line of the Song."
+    },
+    {
+      "id": "yuelin_shiguan",
+      "name_zh": "月林師觀",
+      "name_pinyin": "Yuèlín Shīguān",
+      "name_en": "Yuelin Shiguan",
+      "title": "Chan Master Yuelin (月林師觀禪師)",
+      "dates": "1143–1217 CE",
+      "era": "Southern Song Dynasty",
+      "school": "Linji / Yangqi Branch",
+      "location": "Wanshou Monastery, Pingjiang Fu (平江府萬壽寺), Suzhou",
+      "lineage_depth": 17,
+      "teacher": "Dahong Laoniu Zuzheng (大洪老衲祖證 — frontier: not yet profiled)",
+      "disciples": [
+        "wumen_huikai"
+      ],
+      "texts": [
+        "Yuelin Shiguan Chanshi Yulu X1354",
+        "Wudeng Huiyuan — (post-dates the collection)"
+      ],
+      "key_quote_zh": "佛語心為宗，無門為法門。箇裡全身入，別是一乾坤。",
+      "key_quote_en": "The Buddha's words make mind the source; the gateless is the Dharma-gate. Entering wholly here — it is another universe entirely.",
+      "cbeta_id": "X1354",
+      "summary": "Linji/Yangqi master of Wanshou Monastery whose attendant Wumen Huikai edited his record (X1354); his 'gateless is the Dharma-gate' verse prefigures the Gateless Gate, and he set Wumen to investigating the 'Wu' case."
     }
   ],
   "translations_matrix": [
@@ -4098,7 +4395,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "金陵清涼院文益禪師語錄與宗門十規論",
       "title_pinyin": "Jīnlíng Qīngliáng Yuàn Wényì Chánshī Yǔlù yǔ Zōngmén Shí Guī Lùn",
       "title_en": "The Record of Master Fayan Wenyi and the Ten Rules of the Chan School",
-      "cbeta_id": "T1991 / X1265",
+      "cbeta_id": "T1991 / X1226 (宗門十規論)",
       "taisho_vol": 47,
       "author_zh": "法眼文益 禪師 說 / 宗門十規論",
       "author_en": "Chan Master Fayan Wenyi (885–958), Founder of the Fayan School",
@@ -4190,7 +4487,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: prior 'X1265' wrong — X1265 is 禪林寶訓順硃. Fayan's record is T47n1991 金陵清涼院文益禪師語錄; his 宗門十規論 is X63n1226."
     },
     "guiyang_yulu": {
       "id": "guiyang_yulu",
@@ -4296,7 +4594,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "大慧普覺禪師看話書問與宏智正覺默照銘",
       "title_pinyin": "Dàhuì Pǔjué Chánshī Kànhuà Shūwèn yǔ Hóngzhì Zhèngjué Mòzhào Míng",
       "title_en": "The Letters of Dahui Zonggao on Kanhua Chan & Hongzhi Zhengjue's Inscription on Silent Illumination",
-      "cbeta_id": "T1998A / T2001",
+      "cbeta_id": "T1998A (大慧普覺禪師語錄)",
       "taisho_vol": 47,
       "author_zh": "宋 大慧宗杲 禪師 撰 / 宏智正覺 禪師 撰",
       "author_en": "Chan Masters Dahui Zonggao (1089–1163) & Hongzhi Zhengjue (1091–1157)",
@@ -4396,15 +4694,16 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: dropped unverified '/T2001' pairing; the 看話書問 (letters) material is the 示/答 sections of the 語錄 itself (T47n1998A)."
     },
     "shitou_sandokai": {
       "id": "shitou_sandokai",
       "title_zh": "石頭希遷大師 參同契與草庵歌",
       "title_pinyin": "Shítóu Xīqiān Dàshī Cāntóngqì yǔ Cǎo'ān Gē",
       "title_en": "Master Shitou Xiqian: Sandokai (Harmony of Difference and Sameness) & Song of the Grass Hut",
-      "cbeta_id": "embedded: T2076 f.30 / X1565",
-      "taisho_vol": 47,
+      "cbeta_id": "embedded: T2076 f.30 / X1565 f.14",
+      "taisho_vol": 51,
       "author_zh": "石頭希遷 禪師 (700–790 CE)",
       "author_en": "Chan Master Shitou Xiqian, Ancestor of Caodong and Yunmen Lineages",
       "era": "Tang Dynasty (8th Century)",
@@ -4538,7 +4837,7 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ],
-      "cbeta_note": "Corrects previous label \"T1985 / T2076\" — T1985 is strictly the Record of Linji. Sandokai & Grass Hut Song are embedded in Jingde Chuandenglu fascicle 30 (T2076) and transmitted via Wudeng Huiyuan (X1565)."
+      "cbeta_note": "Volume corrected 2026-08-08: T2076 (景德傳燈錄) is Taishō vol. 51 (was 47)."
     },
     "zhengdao_ge": {
       "id": "zhengdao_ge",
@@ -4723,7 +5022,6 @@ window.TRANSLATECHAN_DATA = {
       "title_pinyin": "Niútóu Fǎróng Chánshī Juéguān Lùn",
       "title_en": "Treatise on the Transcendence of Cognition (Juezhu Lun)",
       "cbeta_id": "Dunhuang P.2885 / S.5619",
-      "taisho_vol": 48,
       "author_zh": "牛頭山 法融 禪師 (594–657 CE)",
       "author_en": "Chan Master Niutou Farong, Founder of the Oxhead (Niutou) School",
       "era": "Early Tang Dynasty (7th Century)",
@@ -4804,7 +5102,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Volume removed 2026-08-08: 絕觀論 survives as Dunhuang manuscripts (P.2885, S.5619) — no Taishō volume."
     },
     "lidai_fabao_ji": {
       "id": "lidai_fabao_ji",
@@ -4880,8 +5179,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "大珠慧海禪師 頓悟入道要門論與諸方問答",
       "title_pinyin": "Dàzhū Huìhǎi Chánshī Dùnwù Rùdào Yàomén Lùn yǔ Zhūfāng Wèndá",
       "title_en": "The Zen Teaching of Hui Hai: On Sudden Awakening & Dialogues with All Quarters",
-      "cbeta_id": "X1258 / T2076",
-      "taisho_vol": 47,
+      "cbeta_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
       "author_zh": "唐 大珠慧海 禪師 說 (馬祖法嗣)",
       "author_en": "Chan Master Dazhu Huihai (fl. 8th Century), Dharma Heir of Mazu Daoyi",
       "era": "High Tang Dynasty",
@@ -4972,15 +5270,15 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: prior 'X1258' wrong — X1258 is 禪宗直指 (明 石成金著). Dazhu Huihai's texts are X63n1223 頓悟入道要門論 and X63n1224 參問語錄 (唐 慧海撰)."
     },
     "baizhang_guanglu": {
       "id": "baizhang_guanglu",
       "title_zh": "洪州百丈懷海禪師廣錄",
       "title_pinyin": "Hóngzhōu Bǎizhàng Huáihǎi Chánshī Guǎnglù",
       "title_en": "The Extensive Record of Chan Master Baizhang Huaihai (Baizhang Guanglu)",
-      "cbeta_id": "T1985 / X1304",
-      "taisho_vol": 47,
+      "cbeta_id": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
       "author_zh": "唐 百丈懷海 禪師 說",
       "author_en": "Chan Master Baizhang Huaihai (720–814 CE), Master of Huangbo and Guishan",
       "era": "Tang Dynasty",
@@ -5071,15 +5369,15 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: prior 'T1985 / X1304' wrong — T1985 is strictly the Record of Linji; X1304 is 虗堂集. Baizhang's 廣錄 is 四家語錄卷三 (X69n1323); his 語錄 also in 古尊宿語錄 (X68n1315)."
     },
     "foyan_qingyuan": {
       "id": "foyan_qingyuan",
       "title_zh": "龍門佛眼清遠禪師語錄：即心即見與靈光獨耀",
       "title_pinyin": "Lóngmén Fóyǎn Qīngyuǎn Chánshī Yǔlù: Jíxīn Jíjiàn yǔ Língguāng Dúyào",
       "title_en": "Instant Zen: The Recorded Sayings of Chan Master Foyan Qingyuan",
-      "cbeta_id": "T1995",
-      "taisho_vol": 47,
+      "cbeta_id": "X1315 (古尊宿語錄·佛眼語錄)",
       "author_zh": "宋 佛眼清遠 禪師 說",
       "author_en": "Chan Master Foyan Qingyuan (1067–1120 CE), Dharma Brother of Yuanwu Keqin",
       "era": "Northern Song Dynasty",
@@ -5186,15 +5484,15 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: prior 'T1995' is actually 法演禪師語錄 (Wuzu Fayan's record, T47n1995), NOT Foyan's. Foyan Qingyuan's record is 古尊宿語錄·佛眼語錄 (X68n1315, 卍續藏第68冊)."
     },
     "dahui_shobogenzo": {
       "id": "dahui_shobogenzo",
       "title_zh": "大慧普覺禪師 正法眼藏 卷一至卷二",
       "title_pinyin": "Dàhuì Pǔjué Chánshī Zhèng Fǎyǎn Zàng Juànyī zhì Juàn'èr",
       "title_en": "Treasury of the Eye of the True Dharma (Dahui's Shobogenzo: Vols. 1 & 2)",
-      "cbeta_id": "T2002",
-      "taisho_vol": 48,
+      "cbeta_id": "X1309 (大慧普覺禪師正法眼藏)",
       "author_zh": "宋 涇縣雙徑山 大慧宗杲 禪師 輯",
       "author_en": "Compiled by Chan Master Dahui Zonggao (1089–1163 CE)",
       "era": "Southern Song Dynasty (1147 CE)",
@@ -5265,15 +5563,15 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: prior 'T2002' wrong — T2002 is 如淨和尚語錄 (T48n2002A). Dahui's 正法眼藏 (宋 宗杲集並著語) is X67n1309 (卍續藏第67冊)."
     },
     "mazu_yulu": {
       "id": "mazu_yulu",
       "title_zh": "江西馬祖道一禪師語錄",
       "title_pinyin": "Jiāngxī Mǎzǔ Dàoyī Chánshī Yǔlù",
       "title_en": "The Recorded Sayings of Chan Master Mazu Daoyi",
-      "cbeta_id": "X1304 / T1985",
-      "taisho_vol": 47,
+      "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
       "author_zh": "唐 江西 馬祖道一 禪師 說",
       "author_en": "Great Master Mazu Daoyi (709–788 CE), Ancestor of Hongzhou Lineage",
       "era": "High Tang Dynasty",
@@ -5346,15 +5644,15 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: prior 'X1304 / T1985' wrong — X1304 is 林泉老人評唱丹霞淳禪師頌古虗堂集; T1985 is strictly the Record of Linji. Mazu's record is 四家語錄卷一 (X69n1321, 卍續藏第69冊); also 馬祖大寂行狀 in X1315."
     },
     "nanquan_yulu": {
       "id": "nanquan_yulu",
       "title_zh": "池州南泉普願禪師語錄",
       "title_pinyin": "Chízhōu Nánquán Pǔyuàn Chánshī Yǔlù",
       "title_en": "The Recorded Sayings of Chan Master Nanquan Puyuan",
-      "cbeta_id": "X1315 / T1985",
-      "taisho_vol": 47,
+      "cbeta_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
       "author_zh": "唐 池州 南泉普願 禪師 說 (馬祖法嗣)",
       "author_en": "Chan Master Nanquan Puyuan (748–835 CE), Teacher of Zhaozhou Congshen",
       "era": "High Tang Dynasty",
@@ -5445,15 +5743,16 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: dropped spurious '/T1985' pairing — T1985 is strictly the Record of Linji. Nanquan's record is 古尊宿語錄 (X68n1315, 卍續藏第68冊)."
     },
     "deshan_yulu": {
       "id": "deshan_yulu",
       "title_zh": "德山宣鑑禪師語錄：德山棒與焚經",
       "title_pinyin": "Déshān Xuānjiàn Chánshī Yǔlù: Déshān Bàng yǔ Fén Jīng",
       "title_en": "The Recorded Sayings of Master Deshan Xuanjian (The Thirty Blows & Burning the Sutras)",
-      "cbeta_id": "embedded: T2076 / X1565",
-      "taisho_vol": 47,
+      "cbeta_id": "embedded: T2076 f.15 / X1565 f.7",
+      "taisho_vol": 51,
       "author_zh": "唐 德山宣鑑 禪師 說 (石頭四世法嗣 / 龍潭法嗣)",
       "author_en": "Chan Master Deshan Xuanjian (782–865 CE), Master of Xuefeng Yicun and Yantou Quanhuo",
       "era": "Tang Dynasty",
@@ -5545,15 +5844,15 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ],
-      "cbeta_note": "Corrects previous label \"T1985 / T2076\" — T1985 is strictly the Record of Linji. Deshan Xuanjian's record is not separately in Taishō; his dialogues are embedded in Jingde Chuandenglu (T2076) and Wudeng Huiyuan (X1565)."
+      "cbeta_note": "Volume corrected 2026-08-08: T2076 (景德傳燈錄) is Taishō vol. 51 (was 47)."
     },
     "xuefeng_yantou": {
       "id": "xuefeng_yantou",
       "title_zh": "雪峰義存與巖頭全豁禪師語錄",
       "title_pinyin": "Xuěfēng Yìcún yǔ Yántóu Quánhuò Chánshī Yǔlù",
       "title_en": "The Recorded Sayings of Master Xuefeng Yicun & Yantou Quanhuo (Awakening on Mount Ao)",
-      "cbeta_id": "T1983 / T1985",
-      "taisho_vol": 47,
+      "cbeta_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+      "taisho_vol": 51,
       "author_zh": "唐 雪峰義存 禪師 說 / 門人 編",
       "author_en": "Chan Masters Xuefeng Yicun (822–908) & Yantou Quanhuo (828–887)",
       "era": "Late Tang Dynasty",
@@ -5616,7 +5915,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: prior 'T1983 / T1985' wrong — T1983 is 淨土五會念佛略法事儀讚; T1985 is strictly the Record of Linji. Xuefeng's record is X69n1333 (真覺禪師語錄); Xuefeng & Yantou biographies in 景德傳燈錄 卷16 (T51n2076)."
     },
     "congronglu_cases": {
       "id": "congronglu",
@@ -5690,8 +5990,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "五燈會元：五家宗派合璧",
       "title_pinyin": "Wǔdēng Huìyuán: Wǔjiā Zōngpài Hébì",
       "title_en": "Compendium of the Five Lamps (Wudeng Huiyuan)",
-      "cbeta_id": "X1565",
-      "taisho_vol": 80,
+      "cbeta_id": "X1565 (五燈會元)",
       "author_zh": "宋 靈隱沙門 普濟 輯 (1252 CE)",
       "author_en": "Compiled by Shi Puji of Lingyin Monastery (1179–1253 CE)",
       "era": "Southern Song Dynasty",
@@ -5744,7 +6043,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Volume field corrected 2026-08-08: X1565 五燈會元 is 卍續藏第80冊 (X80n1565) — the prior '80' was the 續藏 volume number stored under taisho_vol."
     },
     "sengzhao_zhaolun": {
       "id": "sengzhao_zhaolun",
@@ -5831,7 +6131,6 @@ window.TRANSLATECHAN_DATA = {
       "title_pinyin": "Tiāntáishān Hánshān Shídé Dàshì Shījī",
       "title_en": "The Collected Poems of Cold Mountain (Hanshan & Shide)",
       "cbeta_id": "SBCK / Zoku lineage (not in Taishō)",
-      "taisho_vol": 85,
       "author_zh": "唐 天台山 寒山子 撰 / 拾得 述",
       "author_en": "The Tang Hermit Poet Hanshan (Cold Mountain, 8th–9th Century) & Shide",
       "era": "Tang Dynasty",
@@ -5879,7 +6178,7 @@ window.TRANSLATECHAN_DATA = {
           }
         }
       ],
-      "cbeta_note": "Corrects previous label \"T2834\", which actually designates 大乘無生方便門 (Dunhuang, Taishō vol. 85). Hanshan collection is 寒山子詩集 — outside the Taishō canon proper (Sibu Congkan lineage; CBETA hosts it under non-Taishō collections)."
+      "cbeta_note": "Volume removed 2026-08-08: prior 'taisho_vol 85' implied a Taishō location, contradicting the label — Hanshan's poems are not in Taishō proper (SBCK / Zokuzōkyō lineage)."
     },
     "huangbo_wanling": {
       "id": "huangbo_wanling",
@@ -5975,8 +6274,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "福州玄沙宗一大師語錄",
       "title_pinyin": "Fúzhōu Xuánshā Zōngyī Dàshī Yǔlù",
       "title_en": "The Recorded Sayings of Master Xuansha Shibei (One Bright Pearl)",
-      "cbeta_id": "X1310 / T1991",
-      "taisho_vol": 47,
+      "cbeta_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
       "author_zh": "唐 福州 玄沙師備 禪師 說 (雪峰法嗣)",
       "author_en": "Chan Master Xuansha Shibei (835–908 CE), Master of Luohan Guichen (Fayan Lineage)",
       "era": "Late Tang Dynasty",
@@ -6057,15 +6355,15 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: prior 'X1310 / T1991' wrong — X1310 is 拈八方珠玉集; T1991 is 金陵清涼院文益禪師語錄 (Fayan). Xuansha's records are X73n1445 廣錄 and X73n1446 語錄 (明 林弘衍編次)."
     },
     "caoxi_zhuan": {
       "id": "caoxi_zhuan",
       "title_zh": "曹溪大師別傳",
       "title_pinyin": "Cáoxī Dàshī Biézhuàn",
       "title_en": "Special Biography of the Great Master of Caoxi (Sixth Patriarch Huineng)",
-      "cbeta_id": "X1458 / P.3018",
-      "taisho_vol": 86,
+      "cbeta_id": "X1598 (曹溪大師別傳) / P.3018",
       "author_zh": "唐 曹溪沙門 撰 (c. 781 CE)",
       "author_en": "Tang Dynasty Caoxi Chronicle (c. 781 CE), Earliest Extant Sixth Patriarch Biography",
       "era": "Tang Dynasty (8th Century)",
@@ -6136,7 +6434,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrected 2026-08-08: prior 'X1458' wrong — X1458 is 宗門寶積錄. The 曹溪大師別傳 is X86n1598 (卍續藏第86冊) plus the Dunhuang manuscript P.3018. The prior 'taisho_vol 86' was actually the 續藏 volume number."
     },
     "yuanwu_letters": {
       "id": "yuanwu_letters",

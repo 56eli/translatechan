@@ -3,8 +3,7 @@
   "title_zh": "大慧普覺禪師 正法眼藏 卷一至卷二",
   "title_pinyin": "Dàhuì Pǔjué Chánshī Zhèng Fǎyǎn Zàng Juànyī zhì Juàn'èr",
   "title_en": "Treasury of the Eye of the True Dharma (Dahui's Shobogenzo: Vols. 1 & 2)",
-  "cbeta_id": "T2002",
-  "taisho_vol": 48,
+  "cbeta_id": "X1309 (大慧普覺禪師正法眼藏)",
   "author_zh": "宋 涇縣雙徑山 大慧宗杲 禪師 輯",
   "author_en": "Compiled by Chan Master Dahui Zonggao (1089–1163 CE)",
   "era": "Southern Song Dynasty (1147 CE)",
@@ -75,5 +74,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: prior 'T2002' wrong — T2002 is 如淨和尚語錄 (T48n2002A). Dahui's 正法眼藏 (宋 宗杲集並著語) is X67n1309 (卍續藏第67冊)."
 }

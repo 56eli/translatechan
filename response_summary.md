@@ -1,6 +1,6 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
-> Latest session: **2026-08-08 — Second-pass Full Project Audit** (branch `arena/019fe1b5-translatechan`) → readable report in `SESSION_AUDIT_2026-08-08.md` (temporary), durable log in [`AUDIT.md` §9](./AUDIT.md). Verdict: no P0; all prior remediations hold; 10 new findings B1–B10 (docs/data sync gap, stale UI branch string, volume-chip labels, self-XSS search mark, localStorage guard, dead reader mode, 9 dangling lineage edges, stale char counts, variant search, stale docs/scripts).
+> Latest session: **2026-08-08 — Second-pass Full Project Audit + B1–B10 remediation** (branch `arena/019fe1b5-translatechan`) → readable report in `SESSION_AUDIT_2026-08-08.md` (temporary), durable log in [`AUDIT.md` §9](./AUDIT.md). Verdict: no P0. **All findings B1–B10 fixed and pushed**: docs/data mirror restored, stale UI branch string removed, volume-chip truth, search query escaping + variant normalization (鉢/缽, 曰/云…), localStorage guard, dead 'stacked' mode dropped, **lineage graph 18 → 30 masters** (every teacher edge now resolves), stale counts corrected, `docs/scripts` removed — plus a **CBETA canon-reference pass** correcting 10 corpus files & 5 master profiles (foyan T1995→X1315, mazu/baizhang →四家語錄 X1321/X1323, xuansha →X1445, dazhu →X1223, caoxi →X1598, dahui_shobogenzo T2002→X1309, xuefeng T1983→X1333, fayan →X1226, dahui_hongzhi T2001 dropped).
 
 ### Summary of This Session:
 1. **Full audit completed** → [`AUDIT.md`](./AUDIT.md).

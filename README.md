@@ -20,7 +20,7 @@
 
 Every rendering shown under a scholar's name is labeled: **✅ Verified quotation** (checked verbatim against a specific edition, source recorded) or **⚠️ Register reconstruction** (AI-composed in that scholar's documented style — *not* citable). The pioneering audit and eight verification rounds delivered:
 
-- **79 verified quotation slots across 8 texts + 2 verified comparative-matrix rows**, each with full work/edition/verification provenance in `data/translations/provenance.json` (v1.9).
+- **79 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix rows**, each with full work/edition/verification provenance in `data/translations/provenance.json` (v1.9).
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
 - All checks and honest negatives logged in [`AUDIT.md` §8](./AUDIT.md).
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
@@ -30,7 +30,7 @@ Every rendering shown under a scholar's name is labeled: **✅ Verified quotatio
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: the 36 corpus files in `data/corpus/` are currently **excerpt-scale seeds** (≈9,600 Classical Chinese characters total), with authentic CBETA-verified anchor passages — not complete texts. Per-text coverage is tracked in [`AUDIT.md §3`](./AUDIT.md); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, starting with all 48 Wumenguan cases.
+> **Honest status**: the 36 corpus files in `data/corpus/` are currently **excerpt-scale seeds** (≈11,800 Classical Chinese characters total — re-measured 2026-08-08), with authentic CBETA-verified anchor passages — not complete texts. Per-text coverage is tracked in [`AUDIT.md §3`](./AUDIT.md); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, starting with all 48 Wumenguan cases.
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -60,7 +60,7 @@ Every rendering shown under a scholar's name is labeled: **✅ Verified quotatio
 - ⚠️ **Sourcing note**: translator-attributed renderings in the seed data are *reconstructions in each scholar's register* unless individually verified against print editions; a verification/labeling pass is tracked in [`AUDIT.md` §3.4](./AUDIT.md).
 
 ### 3. 🌳 Lineage Knowledge Graph Explorer
-- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **18 master profiles** (seed set), with SVG network graph and clickable dossiers.
+- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **30 master profiles** (seed set), with SVG network graph and clickable dossiers.
 - Filter by lineage school, dates, temple location, canonical text reference, and signature quotes.
 
 ### 4. 🗂️ Gong'an Cross-Reference Index
@@ -96,7 +96,7 @@ translatechan/
 │   │   ├── biyanlu_cases.json
 │   │   ├── platform_sutra.json
 │   │   └── ... (32 more: yulu, treatises, poems — see data/corpus/)
-│   ├── lineage/            # Master genealogies and biographies (18 profiles)
+│   ├── lineage/            # Master genealogies and biographies (30 profiles)
 │   │   └── masters.json
 │   ├── translations/       # Sentence-aligned comparative translations (4 entries)
 │   │   └── comparative_matrix.json

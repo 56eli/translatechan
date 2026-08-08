@@ -3,8 +3,8 @@
   "title_zh": "雪峰義存與巖頭全豁禪師語錄",
   "title_pinyin": "Xuěfēng Yìcún yǔ Yántóu Quánhuò Chánshī Yǔlù",
   "title_en": "The Recorded Sayings of Master Xuefeng Yicun & Yantou Quanhuo (Awakening on Mount Ao)",
-  "cbeta_id": "T1983 / T1985",
-  "taisho_vol": 47,
+  "cbeta_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+  "taisho_vol": 51,
   "author_zh": "唐 雪峰義存 禪師 說 / 門人 編",
   "author_en": "Chan Masters Xuefeng Yicun (822–908) & Yantou Quanhuo (828–887)",
   "era": "Late Tang Dynasty",
@@ -67,5 +67,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: prior 'T1983 / T1985' wrong — T1983 is 淨土五會念佛略法事儀讚; T1985 is strictly the Record of Linji. Xuefeng's record is X69n1333 (真覺禪師語錄); Xuefeng & Yantou biographies in 景德傳燈錄 卷16 (T51n2076)."
 }

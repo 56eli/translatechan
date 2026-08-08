@@ -86,7 +86,7 @@ Search matches literal strings only; edition-authentic variants (缽/鉢, 云/�
 | Dataset | Measured | Doc claim | Verdict |
 |---|---|---|---|
 | Corpus files | 36 (`data/corpus/*.json`) | 36 | ✅ |
-| Classical Chinese total | **11,454 chars** (was 9,610 at last audit) | ~9,600 (README, stale) | 🟠 B8 |
+| Classical Chinese total | **11,832 chars** (11,454 at audit; +378 from canon-note pass) | ~9,600 (README, stale) | 🟠 B8 (fixed) |
 | Wumenguan coverage | 11 cases + preface + epilogue (cases 1–7, 19, 23, 29, 37) | 11/48 | ✅ honest |
 | Biyanlu / Congronglu | 7 / 2 cases | 7/100, 2/100 | ✅ honest |
 | Platform Sutra | 4 chapters, all rendering now | 4/10 | ✅ |
