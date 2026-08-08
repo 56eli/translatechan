@@ -22,6 +22,41 @@ The TranslateChan project has been fully established with:
 
 ---
 
+## ✅ Current Session Handoff — 2026-08-08
+
+### Public Pages scope
+
+The pending branch deliberately publishes only **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon**. Translation Studio, Arena-agent branding, and the header GitHub repository link were removed from root and `/docs` assets; the smoke test guards against their return.
+
+### Source, translation, and lineage disclosure
+
+- Every public Reader document/case now shows a canonical source location plus hover/focus/touch details. The Matrix resolves canonical source context through the same registry.
+- Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **135 / 140** verified quotation records now have a recorded case/page/section reference; the remaining **5** are explicitly marked pending rather than fabricated.
+- AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation.
+- The lineage graphic now reads from the verification registry: **26** in-set links and **4** frontiers are source-status aware; traditional links remain visually and textually pending until exact chart/record locators are reviewed. The chart was reworked into spacious vertical generation rows with source-aware edge interaction.
+
+### Quality gate run before handoff
+
+```bash
+python3 -m py_compile scripts/*.py
+python3 scripts/validate_data.py
+python3 scripts/build_data_bundle.py
+node scripts/smoke_test.mjs
+diff -rq data docs/data
+```
+
+All commands pass. Root and `/docs` assets/data are synchronized.
+
+### GitHub/CI exception
+
+All non-workflow work is pushed to `arena/019fe1f6-translatechan`. A ready `.github/workflows/quality.yml` remains local because GitHub rejected its push: the current Arena GitHub App lacks `workflows` permission. Reconnect GitHub in Arena, then stage/push that one file to enable CI; do not mistake the local workflow draft for published CI.
+
+### Merge readiness
+
+After reviewing the branch/preview, open a PR from `arena/019fe1f6-translatechan` to `main`, confirm the local quality gate above, then merge. GitHub Pages will republish `main` → `/docs` automatically.
+
+---
+
 ## 📍 Historical Session Delta Through PR #3 (2026-08-08)
 
 **PR #3 is merged into `main`; this is its historical one-sentence map** (full detail in [`AUDIT.md` §9](./AUDIT.md)):

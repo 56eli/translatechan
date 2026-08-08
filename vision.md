@@ -1,6 +1,6 @@
 # 🪷 TranslateChan: Vision & Architectural Blueprint
 
-> **Document type**: *aspirational architecture* — this is the long-range blueprint. For **measured current status**, see [`AUDIT.md`](./AUDIT.md); for phase tracking, see [`ROADMAP.md`](./ROADMAP.md); for operational flow, see [`HANDOFF.md`](./HANDOFF.md).
+> **Document type**: *aspirational architecture with a current public-scope note*. For **measured current status**, see [`AUDIT.md`](./AUDIT.md); for phase tracking, see [`ROADMAP.md`](./ROADMAP.md); for operational flow, see [`HANDOFF.md`](./HANDOFF.md). The public Pages interface is deliberately limited to Reader, Matrix, Lineage, Gong'an Index, and Lexicon; it does not expose browser drafting, Arena-agent branding, or a header GitHub link.
 
 > *"A special transmission outside the scriptures,  
 > Not founded upon words and letters;  
@@ -20,8 +20,8 @@ Centuries of profound dialogues, encounter dialogues (*機緣問答*), recorded 
 1. **Exhaustive Canonical Ingestion**: Systematically index and ingest the classical Chinese Chan literature preserved in CBETA / Taishō (principally Volumes 47, 48, and 51, alongside the *Zokuzōkyō* / 卍續藏經), establishing authoritative, verified Classical Chinese source texts with modern punctuation and paragraph segmentation.
 2. **Comprehensive Lineage & Genre Taxonomy**: Build a multi-dimensional knowledge graph that links masters, disciples, monasteries, eras, genres, and gong'an cross-references from the legendary First Patriarch Bodhidharma (*達摩*) through the Six Patriarchs, the "Five Houses and Seven Schools" (*五家七宗*), and the Song/Yuan transmission zen masters.
 3. **Multi-Translator Comparative Analysis**: Provide a sentence-aligned, side-by-side comparative matrix contrasting historical translations (e.g., Red Pine / Bill Porter, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, John Blofeld, R.H. Blyth, Steven Heine, Christoph Anderl) against one another and the original source.
-4. **Hybrid Translation Pipeline**: Combine classical Chinese philology, Buddhist/Chan technical glossaries, automated AI-assisted multi-variant draft synthesis, and an interactive personal translation studio.
-5. **Zero-Backend GitHub Pages Platform**: Deliver an ultra-fast, responsive, client-side web application directly hosted on GitHub Pages for personal study, research, side-by-side reading, translation note-taking, and offline exploration.
+4. **Source Verification & Disclosure Workflow**: Combine classical Chinese philology, technical glossaries, and clearly disclosed project/AI drafts with primary-source locators, book/edition references, page-or-section states, rights records, and hover/focus/touch citation details.
+5. **Zero-Backend Public Research Reader**: Deliver an ultra-fast, responsive GitHub Pages application for source-aware side-by-side reading, comparison, lineage exploration, gong'an indexing, and lexicon study.
 
 ---
 
@@ -150,52 +150,38 @@ A single Gong'an or Yulu passage often carries multiple distinct translations in
 | **R.H. Blyth** (*Zen and Zen Classics*, Vol. 4) | Literary, poetic, existential | *"A monk asked Jōshū, 'Has a dog the Buddha Nature?' Jōshū answered, 'Mu!'"* | Focuses on the instantaneous punch of the encounter dialogue; draws parallels with Western poetry and mysticism. |
 | **John Blofeld** (*Zen Teaching of Huang Po / Zen*) | Classical British Buddhist scholarship | *"A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?' The Master replied: 'None!'"* | Emphasizes the emptiness (*śūnyatā*) aspect of *wu*. |
 | **Steven Heine** (*Like Cats and Dogs*, 2014) | Critical hermeneutic, contextual | *"A monk asked Master Zhaozhou, 'Does a dog also have Buddha-nature, or not?' Zhaozhou replied, 'Wu.'"* | Explores the duality between the *Wu* answer and the alternative *You* (*有* / "Yes") version recorded in the *Zhaozhou Yulu*. |
-| **AI Multi-Draft Engine** | Hybrid contextual / literal / poetic | **Draft A (Literal)**: *"Monk asked Zhaozhou: 'Does a dog still possess Buddha-nature or not?' Zhou said: 'Not.'"*<br>**Draft B (Philosophical)**: *"A monk inquired of Master Zhaozhou, 'Does even a humble dog possess the Buddha-nature?' Zhaozhou declared: 'Emptiness / Non-being.'"* | Multi-tier AI generation with Classical Chinese syntax breakdown and term mappings. |
-| **Personal Translation Studio** | User customizable | *Editable workspace with custom footnotes, term overrides, and personal notes.* | Saved directly to browser local storage and exportable to clean JSON/Markdown for Git commit. |
+| **Project AI draft** | Clearly labeled literal / contextual / poetic draft | *Displayed only with an AI-draft badge, no claimed book quotation, and a disclosure popup.* | AI output never impersonates a scholar or verified edition. |
+| **Citation disclosure** | Source-aware public reading | *Canonical locator, book/edition, page-or-section state, verification, and rights record.* | Hover, focus, or touch reveals the full structured provenance. |
 
 ---
 
-## 5. The Arena AI Agent Sandboxed Translation Architecture
+## 5. Editorial Verification & AI Disclosure Workflow
 
-A foundational pillar of TranslateChan is that **all AI translations and canonical ingestion are produced by sandboxed, sessioned Arena AI agents**, working in synergy with contemporary scholarly editions and Git version control.
+TranslateChan treats AI assistance as an **editorial provenance category**, not a public persona or autonomous authority. The public site does not expose an Arena-agent view. Any project-generated wording must remain visibly categorized as `AI draft` or `register reconstruction`, while source text and verified quotations receive their own structured records.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                         Arena AI Agent Sandboxed Translation Flow                      │
+│                  Source Verification & Disclosure Flow                                │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                        │
-│   [ CBETA Canonical XML / Taishō Source ]                                              │
-│                     │                                                                  │
-│                     ▼                                                                  │
-│   ┌──────────────────────────────────────────────────────────┐                         │
-│   │           Sandboxed Arena AI Agent Session               │                         │
-│   ├──────────────────────────────────────────────────────────┤                         │
-│   │  1. Classical Philology: Sentence Tokenization & Pinyin  │                         │
-│   │  2. Master Terminology Lookup (Lexicon & Sanskrit roots) │                         │
-│   │  3. Multi-Register Generation (Literal, Hermeneutic,     │                         │
-│   │     Poetic Zen Cadence)                                  │                         │
-│   │  4. Alignment of Contemporary Published Translations     │                         │
-│   │     (Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld)   │                         │
-│   │  5. Verification & Schema Formatting (data/corpus/*.json)│                         │
-│   └──────────────────────────┬───────────────────────────────┘                         │
-│                              │                                                         │
-│                              ▼                                                         │
-│                 [ Git Commit & Automated Push ]                                        │
-│                              │                                                         │
-│                              ▼                                                         │
-│         [ Static GitHub Pages Web App & Research Studio ]                              │
-│              (Zero-Backend Client-Side Execution)                                      │
+│ [ Canonical source / edition ] → [ Locator + segmentation ] → [ Reader / Matrix ]    │
+│                                      │                         │                      │
+│                                      ▼                         ▼                      │
+│                         [ Source / book verification ]   [ Visible disclosure ]        │
+│                         • canonical location             • translator + status         │
+│                         • edition + page/section         • rights identifier           │
+│                         • exact-locator status           • hover/focus/touch detail    │
+│                                      │                                                │
+│                                      ▼                                                │
+│                         [ Clearly labeled project / AI draft ]                         │
+│                         • never a scholar quotation                                    │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 5.1 Roles of the Arena AI Agent in TranslateChan:
-1. **Philological Analysis & Sentence Alignment**: Parsing unpunctuated or complex classical Buddhist Chinese (*文言文/唐宋白話*), segmenting encounter dialogues into speaker units, and providing standard Hanyu Pinyin and Middle Chinese phonetics.
-2. **Multi-Register Draft Generation**: Producing distinct translation registers to capture the multi-dimensional nature of the Dharma:
-   - *Literal / Philological*: Strict syntactic fidelity preserving particles (底, 甚麼, 這箇, 阿誰).
-   - *Philosophical / Hermeneutic*: Deep ontological unfolding of Mind-Only, Emptiness, and dialectics.
-   - *Poetic / Zen Cadence*: Abrupt, sharp, living cadence matching the original encounter encounters.
-3. **Collation of Contemporary Translations**: Aligning published translations (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky) segment-by-segment with critical notes.
-4. **Autonomous Git Integration**: Committing structured JSON datasets to the active `arena/<session>-translatechan` branch, updating data bundles, and deploying through a pull request to static GitHub Pages.
+### 5.1 Editorial rules
+1. **Primary-source fidelity**: each displayed Chinese passage must carry a canonical locator or an explicit pending state.
+2. **Book verification**: each verified modern translation must carry translator, work, edition, and page/section reference; pending pagination is surfaced rather than invented.
+3. **AI disclosure**: project/AI wording is displayed only with an explicit status and no fabricated bibliographic citation.
+4. **Lineage verification**: every rendered teacher→disciple link is represented in the lineage verification registry and visually distinguishes verified, disputed, traditional-pending, and frontier states.
 
 ---
 
@@ -210,19 +196,19 @@ The TranslateChan web application is architected to run **100% client-side on Gi
 ├────────────────────────────────────────────────────────────────────────────────────────┤
 │  ┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────────────────┐  │
 │  │ 📖 Bilingual Reader  │  │ ⚖️ Comparison Matrix │  │ 🌳 Interactive Lineage Graph │  │
-│  │  • Sentence alignment│  │  • Side-by-side view │  │  • 6 Patriarchs & 5 Houses   │  │
-│  │  • Hover term lookup │  │  • Historical transl.│  │  • Master biographies        │  │
-│  │  • Pinyin & Hanzi    │  │  • AI multi-drafts   │  │  • Master-disciple links     │  │
+│  │  • source locations  │  │  • book/page status  │  │  • status-aware links        │  │
+│  │  • term + cite popup │  │  • AI disclosure     │  │  • chart-source details      │  │
+│  │  • Pinyin & Hanzi    │  │  • rights records    │  │  • master dossiers           │  │
 │  └──────────────────────┘  └──────────────────────┘  └──────────────────────────────┘  │
 │  ┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────────────────┐  │
-│  │ ✍️ Translation Studio│  │ 📚 Classical Lexicon │  │ 🔍 Fast Full-Text Search     │  │
-│  │  • Personal editor   │  │  • Chan/Buddhist Dict│  │  • Classical Chinese search  │  │
-│  │  • Diff & notes      │  │  • Sanskrit roots    │  │  • English search            │  │
-│  │  • JSON/MD export    │  │  • Occurrence count  │  │  • Filter by Master/Dynasty  │  │
+│  │ 🗂️ Gong'an Index     │  │ 📚 Classical Lexicon │  │ 🔍 Fast Full-Text Search     │  │
+│  │  • collection/theme  │  │  • Chan/Buddhist Dict│  │  • Classical Chinese search  │  │
+│  │  • canonical refs    │  │  • Sanskrit roots    │  │  • English search            │  │
+│  │  • cross-references  │  │  • Occurrence count  │  │  • filter by source text     │  │
 │  └──────────────────────┘  └──────────────────────┘  └──────────────────────────────┘  │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
-│                          Embedded Data Store (JSON / LocalStorage)                     │
-│  • Corpus Index (T47/T48/T51) • Masters & Lineage Tree • Gong'an Cross-Index • Lexicon │
+│                    Embedded Data Store (JSON + provenance registries)                 │
+│  • Corpus • locators • translation rights • lineage verification • Gong'an • Lexicon   │
 └────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -230,8 +216,8 @@ The TranslateChan web application is architected to run **100% client-side on Gi
 1. **Zero-Dependency Static Bundle**: Fully self-contained HTML/CSS/JavaScript with responsive, accessible UI, dark/light Zen aesthetics, and typography optimized for Classical Chinese (FangSong, KaiTi, Noto Serif CJK) and English reading.
 2. **Interactive Classical Chinese Lexicon**: Hovering over any term in the original text (e.g. *本來面目*, *祖師西來意*, *棒喝*, *頓悟*, *轉語*, *四料簡*) reveals the definition, Sanskrit origin where applicable, and contextual cross-references.
 3. **Lineage Tree Visualizer**: Dynamic, interactive graphical tree of Chan transmission from Bodhidharma to the modern era, allowing users to filter texts and encounter dialogues by master and school.
-4. **Personal Translation & Workspace Studio**: Users can draft their own translations for any sentence or case, compare them with Cleary/Sasaki/Suzuki/AI, take study notes, and export their research directly to JSON or Markdown.
-5. **Client-Side Full-Text Search**: Instant search across both Classical Chinese and multiple English translation versions with highlighting and filter chips (by Dynasty, School, Master, or Genre).
+4. **Citation & Disclosure Layer**: Every public source/translation surface exposes canonical location or explicit pending state, translator/work/edition/reference state, AI status, rights identifier, and hover/focus/touch details.
+5. **Client-Side Full-Text Search**: Instant search across Classical Chinese and English translation values with highlighting, accurate match-unit accounting, and reader jump actions.
 
 ---
 
@@ -252,7 +238,7 @@ The TranslateChan web application is architected to run **100% client-side on Gi
   - *Baojing Sanmei* (寶鏡三昧 / Jewel Mirror Samadhi)
   - *Biyanlu* Cases (碧巖錄 / Blue Cliff Record, T2003)
 - [x] Collate comparative multi-translator datasets (Cleary, Sasaki, Suzuki, Blyth, Blofeld, AI drafts).
-- [x] Build and launch interactive, GitHub Pages-ready Web Application with full client-side search, lineage explorer, comparison matrix, lexicon lookup, and personal translation studio.
+- [x] Build and launch the focused GitHub Pages public reader with full client-side search, source/citation disclosure, lineage explorer, comparison matrix, gong'an index, and lexicon lookup.
 
 ### Phase 2: Ingestion Pipeline & CBETA Automation
 - [ ] Implement automated Python/Node scrapers for CBETA XML/P5 format to extract Chan volumes (Taishō 47, 48, 51; Zokuzōkyō).
@@ -265,18 +251,15 @@ The TranslateChan web application is architected to run **100% client-side on Gi
 - [ ] Add variant apparatus (*異文校勘*) noting textual differences between Dunhuang manuscripts, Song woodblocks, and Ming/Taishō editions.
 - [ ] Interlinear commentary toggle: view Yuanwu's comments (*圓悟評唱*), Wumen's warnings (*無門關評*), and Dahui's letters side-by-side.
 
-### Phase 4: AI-Assisted Translation Studio & Prompt Engineering
-- [ ] Build automated prompt templates for LLMs (Claude, GPT-4, DeepSeek, Qwen) specialized in Classical Chinese Chan hermeneutics.
-- [ ] Provide multi-temperature generation modes:
-  - Mode 1: *Literal & Philological* (syntax-preserving, interlinear).
-  - Mode 2: *Philosophical & Contextual* (unfolding Buddhist technical terms).
-  - Mode 3: *Poetic & Zen Idiomatic* (capturing the brisk, enigmatic cadence of Chan masters).
-- [ ] Automated consistency checking against the TranslateChan Master Lexicon.
+### Phase 4: Source Verification, Disclosure & Editorial Review
+- [~] Complete exact canonical locators for every non-case seed unit (page/line or TEI anchors).
+- [~] Complete exact book-page/episode references and human rights review for every verified modern translation.
+- [x] Render AI drafts/reconstructions only with explicit disclosure, never as scholar quotations.
+- [x] Provide source/translation/lineage citation details by hover, focus, and touch in public Pages surfaces.
 
-### Phase 5: Personal Study Notebook & Sync
-- [ ] Local storage persistence with IndexedDB for extensive personal translation projects.
-- [ ] One-click export of translation work as structured Git PRs, academic Markdown papers, or LaTeX formatted dual-language editions.
+### Phase 5: Phonetics, Middle Chinese & Multilingual Global Canon
 - [ ] Audio chanting / pronunciation guide in Middle Chinese (*中古漢語*) reconstructions, Mandarin Pinyin, and Sino-Japanese readings (*Kanbun*).
+- [ ] Expand rigorously verified multilingual translations and citation records.
 
 ### Phase 6: Community Ecosystem & Living Canon
 - [ ] Community translation review and consensus voting on difficult classical passages (*難解字句*).
