@@ -1,0 +1,337 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Editorial work queue for migrating document-level seed locators to unit-level scholarly anchors. Queue membership is not evidence of collation.",
+  "policy": "A record may leave this queue only after every rendered unit in its declared content shape has a recorded source-specific anchor and an editor has recorded the source edition/revision and review date.",
+  "records": [
+    {
+      "document_key": "baizhang_guanglu",
+      "canonical_id": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
+      "current_locator": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "baojing_sanmei",
+      "canonical_id": "T1986",
+      "current_locator": "T1986",
+      "content_shape": "stanzas",
+      "priority": "high",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "bodhidharma_erru",
+      "canonical_id": "T2009",
+      "current_locator": "T2009",
+      "content_shape": "sections",
+      "priority": "high",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "caoxi_zhuan",
+      "canonical_id": "X1598 (曹溪大師別傳) / P.3018",
+      "current_locator": "X1598 (曹溪大師別傳) / P.3018",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "chuandenglu",
+      "canonical_id": "T2076",
+      "current_locator": "T2076",
+      "content_shape": "sample_records",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "dahui_hongzhi",
+      "canonical_id": "T1998A (大慧普覺禪師語錄)",
+      "current_locator": "T1998A (大慧普覺禪師語錄)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "dahui_shobogenzo",
+      "canonical_id": "X1309 (大慧普覺禪師正法眼藏)",
+      "current_locator": "X1309 (大慧普覺禪師正法眼藏)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "dazhu_huihai",
+      "canonical_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
+      "current_locator": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "deshan_yulu",
+      "canonical_id": "embedded: T2076 f.15 / X1565 f.7",
+      "current_locator": "embedded: T2076 f.15 / X1565 f.7",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "dongshan_yulu",
+      "canonical_id": "T1986",
+      "current_locator": "T1986",
+      "content_shape": "dialogues",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "fayan_yulu",
+      "canonical_id": "T1991 / X1226 (宗門十規論)",
+      "current_locator": "T1991 / X1226 (宗門十規論)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "foyan_qingyuan",
+      "canonical_id": "X1315 (古尊宿語錄·佛眼語錄)",
+      "current_locator": "X1315 (古尊宿語錄·佛眼語錄)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "guiyang_yulu",
+      "canonical_id": "T1989 / T1990",
+      "current_locator": "T1989 / T1990",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "hanshan_poems",
+      "canonical_id": "SBCK / Zoku lineage (not in Taishō)",
+      "current_locator": "SBCK / Zoku lineage (not in Taishō)",
+      "content_shape": "stanzas",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "huangbo_chuanxin",
+      "canonical_id": "T2012A",
+      "current_locator": "T2012A",
+      "content_shape": "sections",
+      "priority": "high",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "huangbo_wanling",
+      "canonical_id": "T2012B",
+      "current_locator": "T2012B",
+      "content_shape": "sections",
+      "priority": "high",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "lidai_fabao_ji",
+      "canonical_id": "T2075 / P.2125",
+      "current_locator": "T2075 / P.2125",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "linji_yulu",
+      "canonical_id": "T1985",
+      "current_locator": "T1985",
+      "content_shape": "sections",
+      "priority": "high",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "mazu_yulu",
+      "canonical_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
+      "current_locator": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "nanquan_yulu",
+      "canonical_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
+      "current_locator": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "niutou_juezhu",
+      "canonical_id": "Dunhuang P.2885 / S.5619",
+      "current_locator": "Dunhuang P.2885 / S.5619",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "platform_sutra",
+      "canonical_id": "T2007 / T2008",
+      "current_locator": "T2007 / T2008",
+      "content_shape": "chapters",
+      "priority": "high",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "qinggui_monastic_codes",
+      "canonical_id": "T2025 / X1245",
+      "current_locator": "T2025 / X1245",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "sengzhao_zhaolun",
+      "canonical_id": "T1858",
+      "current_locator": "T1858",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "shitou_sandokai",
+      "canonical_id": "embedded: T2076 f.30 / X1565 f.14",
+      "current_locator": "embedded: T2076 f.30 / X1565 f.14",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "wudeng_huiyuan",
+      "canonical_id": "X1565 (五燈會元)",
+      "current_locator": "X1565 (五燈會元)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "xinxin_ming",
+      "canonical_id": "T2010",
+      "current_locator": "T2010",
+      "content_shape": "stanzas",
+      "priority": "high",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "xuansha_yulu",
+      "canonical_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
+      "current_locator": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "xuefeng_yantou",
+      "canonical_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+      "current_locator": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "yuanwu_letters",
+      "canonical_id": "X1357 / T1997",
+      "current_locator": "X1357 / T1997",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "yunmen_yulu",
+      "canonical_id": "T1988",
+      "current_locator": "T1988",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "zhaozhou_yulu",
+      "canonical_id": "T1987",
+      "current_locator": "T1987",
+      "content_shape": "dialogues",
+      "priority": "high",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    },
+    {
+      "document_key": "zhengdao_ge",
+      "canonical_id": "T2014",
+      "current_locator": "T2014",
+      "content_shape": "stanzas",
+      "priority": "high",
+      "review_status": "needs_unit_locator",
+      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
+      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+    }
+  ]
+}

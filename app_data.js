@@ -2514,6 +2514,12 @@ window.TRANSLATECHAN_DATA = {
       "documents": 36,
       "excerpt_seed_documents": 35
     },
+    "editorial_traceability": {
+      "document_level_queue_records": 33,
+      "statuses": {
+        "needs_unit_locator": 33
+      }
+    },
     "lineage_verification": {
       "frontiers": 4,
       "internal_edges": 26,
