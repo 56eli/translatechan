@@ -1,0 +1,51 @@
+name: Quality
+
+on:
+  push:
+    branches:
+      - main
+      - "arena/**"
+  pull_request:
+    branches:
+      - main
+
+# This workflow reads the repository only. It does not deploy Pages, create
+# releases, write commits, or use third-party credentials.
+permissions:
+  contents: read
+
+jobs:
+  validate-build-smoke:
+    name: Validate data, generated artifacts, and reader
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check Python syntax
+        run: python3 -m py_compile scripts/*.py
+
+      - name: Validate source data and committed metrics
+        run: python3 scripts/validate_data.py
+
+      - name: Rebuild generated Pages artifacts
+        run: python3 scripts/build_data_bundle.py
+
+      - name: Require generated artifacts and deploy mirror to be committed
+        run: |
+          git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/data data/project_metrics.json
+
+      - name: Run dependency-free reader smoke test
+        run: node scripts/smoke_test.mjs
