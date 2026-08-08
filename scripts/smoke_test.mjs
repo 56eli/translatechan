@@ -131,6 +131,18 @@ if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files 
     Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 36) {
   throw new Error('app_data.js is missing validated metrics or canonical locator coverage');
 }
+// F4: per-text coverage metrics (zh counts, unit counts, N/M coverage strings)
+// must exist for every corpus key and agree with the README's headline claims.
+const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {};
+if (Object.keys(perText).length !== 36) {
+  throw new Error('app_data.js is missing per-text coverage metrics');
+}
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '7/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
+  if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
+}
+if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
+  throw new Error('per_text wumenguan declared zh_chars is not metrics-consistent');
+}
 console.log('DATA loaded. corpus keys:', Object.keys(window.TRANSLATECHAN_DATA.corpus).length);
 
 eval(readFileSync(join(ROOT, 'app.js'), 'utf8'));

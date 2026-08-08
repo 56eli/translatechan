@@ -22,7 +22,449 @@
       "stanzas": 4
     },
     "documents": 36,
-    "excerpt_seed_documents": 35
+    "excerpt_seed_documents": 35,
+    "per_text": {
+      "baizhang_guanglu": {
+        "all_cjk_chars": 333,
+        "cbeta_id": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
+        "content_zh_chars": 224,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Baizhang Guanglu (百丈廣錄三句)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "baojing_sanmei": {
+        "all_cjk_chars": 124,
+        "cbeta_id": "T1986",
+        "content_zh_chars": 104,
+        "shapes": [
+          "stanzas"
+        ],
+        "title": "Jewel Mirror Samadhi (寶鏡三昧)",
+        "unit_counts": {
+          "stanzas": 6
+        }
+      },
+      "biyanlu_cases": {
+        "all_cjk_chars": 762,
+        "cbeta_id": "T2003",
+        "content_zh_chars": 663,
+        "coverage": "7/100 cases",
+        "shapes": [
+          "cases"
+        ],
+        "title": "Blue Cliff Record (碧巖錄)",
+        "unit_counts": {
+          "cases": 7
+        }
+      },
+      "bodhidharma_erru": {
+        "all_cjk_chars": 456,
+        "cbeta_id": "T2009",
+        "content_zh_chars": 386,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Bodhidharma Erru Sixing (二入四行論)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "caoxi_zhuan": {
+        "all_cjk_chars": 327,
+        "cbeta_id": "X1598 (曹溪大師別傳) / P.3018",
+        "content_zh_chars": 237,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Caoxi Dashi Biezhuan (曹溪大師別傳)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "chuandenglu": {
+        "all_cjk_chars": 193,
+        "cbeta_id": "T2076",
+        "content_zh_chars": 142,
+        "shapes": [
+          "sample_records"
+        ],
+        "title": "Transmission of Lamp (景德傳燈錄)",
+        "unit_counts": {
+          "sample_records": 2
+        }
+      },
+      "congronglu_cases": {
+        "all_cjk_chars": 306,
+        "cbeta_id": "T2004",
+        "content_zh_chars": 255,
+        "coverage": "2/100 cases",
+        "shapes": [
+          "cases"
+        ],
+        "title": "Book of Serenity (從容庵錄)",
+        "unit_counts": {
+          "cases": 2
+        }
+      },
+      "dahui_hongzhi": {
+        "all_cjk_chars": 383,
+        "cbeta_id": "T1998A (大慧普覺禪師語錄)",
+        "content_zh_chars": 260,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Dahui & Hongzhi (看話書問與默照銘)",
+        "unit_counts": {
+          "sections": 4
+        }
+      },
+      "dahui_shobogenzo": {
+        "all_cjk_chars": 295,
+        "cbeta_id": "X1309 (大慧普覺禪師正法眼藏)",
+        "content_zh_chars": 180,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Dahui Shobogenzo (大慧正法眼藏)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "dazhu_huihai": {
+        "all_cjk_chars": 373,
+        "cbeta_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
+        "content_zh_chars": 260,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Dazhu Huihai Dunwu Yaomen (頓悟入道要門)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "deshan_yulu": {
+        "all_cjk_chars": 333,
+        "cbeta_id": "embedded: T2076 f.15 / X1565 f.7",
+        "content_zh_chars": 236,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Deshan Xuanjian Yulu (德山宣鑑語錄)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "dongshan_yulu": {
+        "all_cjk_chars": 507,
+        "cbeta_id": "T1986",
+        "content_zh_chars": 415,
+        "shapes": [
+          "dialogues",
+          "five_ranks"
+        ],
+        "title": "Dongshan Yulu & Five Ranks (洞山五位)",
+        "unit_counts": {
+          "dialogues": 2,
+          "five_ranks": 5
+        }
+      },
+      "fayan_yulu": {
+        "all_cjk_chars": 281,
+        "cbeta_id": "T1991 / X1226 (宗門十規論)",
+        "content_zh_chars": 179,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Fayan Yulu & Ten Rules (法眼十規論)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "foyan_qingyuan": {
+        "all_cjk_chars": 455,
+        "cbeta_id": "X1315 (古尊宿語錄·佛眼語錄)",
+        "content_zh_chars": 320,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Foyan Qingyuan Instant Zen (佛眼坐禪銘)",
+        "unit_counts": {
+          "sections": 5
+        }
+      },
+      "guiyang_yulu": {
+        "all_cjk_chars": 261,
+        "cbeta_id": "T1989 / T1990",
+        "content_zh_chars": 177,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Guiyang Yulu & Circles (溈仰九十六圓相)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "hanshan_poems": {
+        "all_cjk_chars": 167,
+        "cbeta_id": "SBCK / Zoku lineage (not in Taishō)",
+        "content_zh_chars": 140,
+        "shapes": [
+          "stanzas"
+        ],
+        "title": "Hanshan Cold Mountain Poems (寒山詩集)",
+        "unit_counts": {
+          "stanzas": 4
+        }
+      },
+      "huangbo_chuanxin": {
+        "all_cjk_chars": 143,
+        "cbeta_id": "T2012A",
+        "content_zh_chars": 102,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Transmission of Mind (黃檗法要)",
+        "unit_counts": {
+          "sections": 1
+        }
+      },
+      "huangbo_wanling": {
+        "all_cjk_chars": 311,
+        "cbeta_id": "T2012B",
+        "content_zh_chars": 214,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Huangbo Wanling Lu (黃檗宛陵錄)",
+        "unit_counts": {
+          "sections": 4
+        }
+      },
+      "lidai_fabao_ji": {
+        "all_cjk_chars": 237,
+        "cbeta_id": "T2075 / P.2125",
+        "content_zh_chars": 169,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Lidai Fabao Ji (歷代法寶記)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "linji_yulu": {
+        "all_cjk_chars": 534,
+        "cbeta_id": "T1985",
+        "content_zh_chars": 432,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Record of Linji (臨濟語錄)",
+        "unit_counts": {
+          "sections": 4
+        }
+      },
+      "mazu_yulu": {
+        "all_cjk_chars": 333,
+        "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
+        "content_zh_chars": 210,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Mazu Daoyi Yulu (江西馬祖語錄)",
+        "unit_counts": {
+          "sections": 2
+        }
+      },
+      "nanquan_yulu": {
+        "all_cjk_chars": 257,
+        "cbeta_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
+        "content_zh_chars": 148,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Nanquan Puyuan Yulu (南泉普願語錄)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "niutou_juezhu": {
+        "all_cjk_chars": 214,
+        "cbeta_id": "Dunhuang P.2885 / S.5619",
+        "content_zh_chars": 149,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Niutou Farong Juezhu Lun (絕觀論)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "platform_sutra": {
+        "all_cjk_chars": 399,
+        "cbeta_id": "T2007 / T2008",
+        "content_zh_chars": 278,
+        "coverage": "4/10 chapters",
+        "shapes": [
+          "chapters"
+        ],
+        "title": "Platform Sutra (六祖壇經)",
+        "unit_counts": {
+          "chapters": 4
+        }
+      },
+      "qinggui_monastic_codes": {
+        "all_cjk_chars": 315,
+        "cbeta_id": "T2025 / X1245",
+        "content_zh_chars": 239,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Rules of Purity (百丈禪苑清規)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "sengzhao_zhaolun": {
+        "all_cjk_chars": 263,
+        "cbeta_id": "T1858",
+        "content_zh_chars": 188,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Sengzhao Zhao Lun (僧肇肇論)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "shitou_sandokai": {
+        "all_cjk_chars": 303,
+        "cbeta_id": "embedded: T2076 f.30 / X1565 f.14",
+        "content_zh_chars": 262,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Shitou Sandokai & Grass Hut (參同契與草庵歌)",
+        "unit_counts": {
+          "sections": 2
+        }
+      },
+      "wudeng_huiyuan": {
+        "all_cjk_chars": 235,
+        "cbeta_id": "X1565 (五燈會元)",
+        "content_zh_chars": 166,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Compendium of Five Lamps (五燈會元)",
+        "unit_counts": {
+          "sections": 2
+        }
+      },
+      "wumenguan": {
+        "all_cjk_chars": 5895,
+        "cbeta_id": "T2005",
+        "content_zh_chars": 5528,
+        "coverage": "48/48 cases",
+        "coverage_note": "Complete — all 48 cases + preface + epilogue (completed 2026-08-08; T2005 宗紹編, 48則)",
+        "declared_zh_chars": 5528,
+        "shapes": [
+          "cases"
+        ],
+        "title": "The Gateless Gate (無門關)",
+        "unit_counts": {
+          "cases": 48
+        }
+      },
+      "xinxin_ming": {
+        "all_cjk_chars": 140,
+        "cbeta_id": "T2010",
+        "content_zh_chars": 112,
+        "shapes": [
+          "stanzas"
+        ],
+        "title": "Faith in Mind (信心銘)",
+        "unit_counts": {
+          "stanzas": 7
+        }
+      },
+      "xuansha_yulu": {
+        "all_cjk_chars": 334,
+        "cbeta_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
+        "content_zh_chars": 206,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Xuansha Shibei Yulu (玄沙宗一語錄)",
+        "unit_counts": {
+          "sections": 3
+        }
+      },
+      "xuefeng_yantou": {
+        "all_cjk_chars": 268,
+        "cbeta_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+        "content_zh_chars": 170,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Xuefeng & Yantou Yulu (雪峰巖頭語錄)",
+        "unit_counts": {
+          "sections": 2
+        }
+      },
+      "yuanwu_letters": {
+        "all_cjk_chars": 149,
+        "cbeta_id": "X1357 / T1997",
+        "content_zh_chars": 87,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Yuanwu Zen Letters (圓悟克勤心要)",
+        "unit_counts": {
+          "sections": 2
+        }
+      },
+      "yunmen_yulu": {
+        "all_cjk_chars": 206,
+        "cbeta_id": "T1988",
+        "content_zh_chars": 135,
+        "shapes": [
+          "sections"
+        ],
+        "title": "Yunmen Yulu (雲門語錄一字關)",
+        "unit_counts": {
+          "sections": 4
+        }
+      },
+      "zhaozhou_yulu": {
+        "all_cjk_chars": 177,
+        "cbeta_id": "T1987",
+        "content_zh_chars": 128,
+        "shapes": [
+          "dialogues"
+        ],
+        "title": "Sayings of Zhaozhou (趙州語錄)",
+        "unit_counts": {
+          "dialogues": 3
+        }
+      },
+      "zhengdao_ge": {
+        "all_cjk_chars": 188,
+        "cbeta_id": "T2014",
+        "content_zh_chars": 167,
+        "shapes": [
+          "stanzas"
+        ],
+        "title": "Yongjia Zhengdao Ge (永嘉證道歌)",
+        "unit_counts": {
+          "stanzas": 6
+        }
+      }
+    }
   },
   "editorial_traceability": {
     "document_level_queue_records": 33,
@@ -54,6 +496,7 @@
   "measurement_method": {
     "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
     "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
+    "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, declared coverage_note/zh_chars, and (when the shared manifest declares unit_targets) a machine-checkable 'N/M units' coverage string.",
     "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
   },
   "rights_coverage": {

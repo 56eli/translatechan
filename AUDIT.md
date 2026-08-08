@@ -662,7 +662,7 @@ The smoke suite asserts the layered generation labels and halo nodes so the char
 | F2 | P3 | HANDOFF "Current branch" pointed at prior session's branch | ✅ fixed |
 | F6 | P3 | AUDIT §10.2 "Huangbo Chuanxin 4" — actual split is Chuanxin 2 + Wanling 2 | ✅ fixed |
 | F3 | P2 | a11y/CSP (C10 carryover): inline `onclick` ×6, glossary terms not Enter/Space-activatable, tabs lacked tabpanel/aria-controls/arrow keys, no CSP | ✅ **remediated** (§11.3) |
-| F4 | P2 | Per-file coverage metadata exists only for wumenguan; doc counts can drift (F1 class) | open — validator should emit per-text coverage |
+| F4 | P2 | Per-file coverage metadata exists only for wumenguan; doc counts can drift (F1 class) | ✅ **remediated** (§11.4): deterministic `corpus.per_text` metrics, manifest `unit_targets`, validator-enforced `zh_chars`/`coverage_note` — immediately caught stale wumenguan `zh_chars` (5,876 → 5,528) |
 | F7 | P2 | Required Quality check on `main` unconfirmed (branch-protection API 403 for this token) | open — needs owner |
 | F10 | P2 | No real-browser regression suite yet | open — planned Phase 0 |
 | F5/F8/F9 | P3 | Annotator/search scaling advisory; "Zero-Backend Offline" chip vs Google Fonts; overpromising script docstrings | open — tracked |
@@ -677,3 +677,11 @@ The smoke suite asserts the layered generation labels and halo nodes so the char
 | Restrictive CSP meta tag | `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'` | Smoke 4u; `node --check`; full suite green; root↔docs byte-identical |
 
 **Boundary:** real-browser verification of CSP/keyboard paths and a full a11y scan remain (RESEARCH_RELEASE_PLAN Phase 0/4); the DOM-stub suite does not replace them.
+
+### 11.4 — F4 remediation: deterministic per-text coverage metrics (same session)
+
+| Item | What landed | Regression evidence |
+|---|---|---|
+| `corpus.per_text` in `project_metrics.json` | `validate_data.py --write-metrics` emits 36 per-key records: title, cbeta_id, content/all CJK char counts, shapes, unit counts, declared `coverage_note`/`zh_chars`, and (where declared) machine-checkable `N/M units` coverage strings | Smoke test throws on missing/incorrect per_text; sum of per-text content counts equals the aggregate 13,268 |
+| Manifest `unit_targets` | `corpus_manifest.json` now declares canonical totals for wumenguan (48 cases), biyanlu (100), congronglu (100), platform_sutra (10 chapters) | Validator rejects unknown units, non-positive targets, and documents exceeding their target |
+| Per-file metadata rule | Declared `zh_chars` must equal the computed content count; `coverage_note` must be non-empty | **Real catch**: wumenguan.json declared 5,876 (stale, matched no counting method) → corrected to 5,528 (documented content measure); README honest-status block now sources per-text facts from `corpus.per_text` |

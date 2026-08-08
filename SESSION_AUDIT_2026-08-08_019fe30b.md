@@ -72,8 +72,9 @@ HANDOFF §"Merge readiness" says *"Current branch: `arena/019fe2e0-translatechan
 Glossary `term-highlight` spans are focusable but **Enter/Space did not open the popover**; nav tabs had `role="tab"`/`aria-selected` but **no tabpanel roles, `aria-controls`, or arrow-key behavior**; case chips, case-nav footers, load-more, and search-jump buttons all used **inline `onclick`** → a strict Content-Security-Policy was impossible.
 **Status: FIXED this session** (see §2.1 Remediation below) — all six inline handlers replaced with a document-level delegated click handler over `data-*` attributes; Enter/Space now opens glossary popovers; complete ARIA tabs (tablist/tab/tabpanel, `aria-controls`, roving tabindex, arrow/Home/End); restrictive CSP meta tag shipped (`script-src 'self'`); smoke test extended with 4u–4x regression checks.
 
-### F4 — 🟡 P2 (data contract): per-file coverage metadata exists for only 1 of 36 files
-The AUDIT §3.3 recommendation (`coverage_note` + `zh_chars`) was applied to `wumenguan.json` only. `project_metrics.json` gives aggregate CJK counts, but **per-text coverage lives only in README/AUDIT prose** (e.g. "Biyanlu 7/100"), so a doc/data mismatch like F1 can recur silently. Cheap fix: have `validate_data.py --write-metrics` emit a per-text `{zh_chars, coverage_note}` block (or generate it from data) and have README consume it.
+### F4 — 🟡 P2 (data contract): per-file coverage metadata exists for only 1 of 36 files — **REMEDIATED this session** ✅
+The AUDIT §3.3 recommendation (`coverage_note` + `zh_chars`) was applied to `wumenguan.json` only. `project_metrics.json` gave aggregate CJK counts, but **per-text coverage lived only in README/AUDIT prose** (e.g. "Biyanlu 7/100"), so a doc/data mismatch like F1 could recur silently.
+**Status: FIXED this session** (see §2.2 below) — `validate_data.py --write-metrics` now emits a deterministic `corpus.per_text` block (36 keys: zh counts, shapes, unit counts, declared coverage metadata, and machine-checkable `N/M units` coverage strings where the manifest declares targets); the validator now (a) rejects per-file `zh_chars` that don't match the computed content count, (b) validates manifest `unit_targets`, and (c) enforces that no document exceeds its declared target. **Bonus catch:** the new rule immediately exposed a stale `zh_chars: 5876` in `wumenguan.json` (matches no documented counting method; corrected to the metrics-consistent 5,528).
 
 ### F5 — 🟢 P3 (performance, advisory): annotator and search-index scaling
 `annotateClassicalChinese()` does a linear glossary scan + `indexOf` per term per unit per render (31 terms × ~13K chars — fine today, O(T×N) as the glossary grows toward 150+/1,000 terms). Search builds the full unit index **synchronously on first keystroke** (~fine now; will jank on mid-range phones once Biyanlu/Chuandenglu land). Both have comments acknowledging the trade-off; worth revisiting before Phase-2 corpus growth — not urgent.
@@ -142,12 +143,11 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 
 ## 7. Recommended Next Steps (proposal — awaiting direction)
 
-1. **F4**: extend `validate_data.py` to emit per-text coverage metrics so README counts can never drift again (also closes the F1 class of bug permanently).
-2. **F7**: ask the repo owner to require the Quality check on `main` (one admin action).
-3. **F10**: add a small Playwright smoke suite (initial load, deep link, mobile picker, lazy cases, citation popover, keyboard, print).
-4. **Then Phase 2 content**: complete Biyanlu under the locator/provenance/rights contract (first 10 cases as pilot).
-5. **F9**: narrow the two script docstrings (2-minute fix) or budget real CBETA fetching.
-6. **F5**: revisit annotator/search-index scaling before major corpus growth.
+1. **F7**: ask the repo owner to require the Quality check on `main` (one admin action).
+2. **F10**: add a small Playwright smoke suite (initial load, deep link, mobile picker, lazy cases, citation popover, keyboard, print).
+3. **Then Phase 2 content**: complete Biyanlu under the locator/provenance/rights contract (first 10 cases as pilot) — per-text coverage strings now auto-track progress.
+4. **F9**: narrow the two script docstrings (2-minute fix) or budget real CBETA fetching.
+5. **F5**: revisit annotator/search-index scaling before major corpus growth.
 
 ---
 
@@ -165,6 +165,17 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 **Verification:** `python3 scripts/validate_data.py` ✅ · `python3 scripts/build_data_bundle.py` deterministic ✅ · `node scripts/smoke_test.mjs` ✅ (incl. new 4u–4x checks) · `diff -rq data docs/data` silent ✅ · `cmp` root↔docs app assets identical ✅.
 
 **Boundary kept explicit:** remaining keyboard/CSP work per `RESEARCH_RELEASE_PLAN.md` Phase 4 — real-browser (Playwright) verification of the CSP and keyboard paths, plus a full a11y scan; not replaced by the DOM-stub suite.
+
+### F4 — per-text coverage metrics completed ✅
+
+| Item | Change | Regression evidence |
+|---|---|---|
+| `corpus.per_text` in `project_metrics.json` | `validate_data.py --write-metrics` now emits 36 per-key records: `title`, `cbeta_id`, `content_zh_chars`, `all_cjk_chars`, `shapes`, `unit_counts`, declared `coverage_note`/`zh_chars`, and (where the manifest declares targets) a `coverage` string such as `7/100 cases` | Smoke test now throws if per_text is missing/36-keys/coverage strings wrong; sum of per-text `content_zh_chars` = aggregate 13,268 (verified) |
+| Manifest `unit_targets` | `corpus_manifest.json` items for wumenguan (48 cases), biyanlu (100), congronglu (100), platform_sutra (10 chapters) declare canonical unit totals | Validator rejects unknown units, non-positive targets, and documents that exceed their target |
+| Per-file metadata rule | Declared `zh_chars` must equal the computed content count; `coverage_note` must be a non-empty string | **Caught real drift immediately**: `wumenguan.json` declared 5,876 (stale; matches no counting method) → corrected to 5,528, the documented content measure |
+| README | Honest-status block now points at `project_metrics.json → corpus.per_text` as the source of per-text coverage facts | — |
+
+**Verification:** `python3 scripts/validate_data.py --write-metrics` ✅ (fresh, no second-pass diff) · smoke suite ✅ · bundle deterministic ✅ · root↔`docs` byte-identical ✅.
 
 ---
 

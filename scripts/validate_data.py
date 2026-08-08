@@ -85,6 +85,8 @@ CONTENT_COLLECTIONS = {
     "five_ranks",
     "sample_records",
 }
+# Order used for unit-count and coverage rendering (most meaningful first).
+UNIT_COUNT_ORDER = ("cases", "chapters", "stanzas", "dialogues", "sections", "five_ranks", "sample_records")
 CJK_RE = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
 
 
@@ -257,6 +259,25 @@ def validate_corpus_document(
     for name in CONTENT_COLLECTIONS - {"cases"}:
         if name in document and not isinstance(document[name], list):
             issues.error(path, f"'{name}' must be a list when present")
+
+    # Per-file coverage metadata (AUDIT §3.3 recommendation): when a document
+    # declares zh_chars it must match the computed content count, and any
+    # coverage_note must be a non-empty string. This keeps per-text counts that
+    # appear in docs and the UI verifiable rather than prose-only.
+    declared_chars = document.get("zh_chars")
+    if declared_chars is not None:
+        if not isinstance(declared_chars, int) or declared_chars < 0:
+            issues.error(path, "zh_chars must be a non-negative integer when present")
+        else:
+            computed = content_cjk_count(document)
+            if declared_chars != computed:
+                issues.error(
+                    path,
+                    f"declared zh_chars={declared_chars} does not match computed content count {computed}",
+                )
+    coverage_note = document.get("coverage_note")
+    if coverage_note is not None and not nonempty_string(coverage_note):
+        issues.error(path, "coverage_note must be a non-empty string when present")
 
     walk_translation_maps(document, path, issues, stats, verified_source_ids)
 
@@ -476,7 +497,7 @@ def validate_lineage_profile_queue(lineage: Any, queue: Any, issues: Issues) -> 
     return {"profile_queue_records": len(actual), "statuses": dict(sorted(statuses.items()))}
 
 
-def validate_manifest_sync(corpus_keys: set[str], manifest: Any, issues: Issues) -> dict[str, int]:
+def validate_manifest_sync(corpus: dict[str, Any], manifest: Any, issues: Issues) -> dict[str, int]:
     path = rel(CORPUS_MANIFEST_PATH)
     if not is_record(manifest) or not isinstance(manifest.get("items"), list):
         issues.error(path, "must contain an object with an items list")
@@ -484,6 +505,7 @@ def validate_manifest_sync(corpus_keys: set[str], manifest: Any, issues: Issues)
 
     if not manifest["items"]:
         issues.error(path, "items list must not be empty")
+    corpus_keys = set(corpus)
     manifest_keys: set[str] = set()
     for index, item in enumerate(manifest["items"]):
         item_path = f"{path}.items[{index}]"
@@ -494,6 +516,28 @@ def validate_manifest_sync(corpus_keys: set[str], manifest: Any, issues: Issues)
         if key in manifest_keys:
             issues.error(item_path, f"duplicate corpus key '{key}'")
         manifest_keys.add(key)
+
+        # Optional canonical unit targets (e.g. {"cases": 100} for Biyanlu) make
+        # per-text coverage claims ("7/100 cases") verifiable against live data.
+        targets = item.get("unit_targets")
+        if targets is not None:
+            if not is_record(targets) or not targets:
+                issues.error(item_path, "unit_targets must be a non-empty object when present")
+                continue
+            for unit_name, target in targets.items():
+                if unit_name not in CONTENT_COLLECTIONS:
+                    issues.error(item_path, f"unit_targets has unknown unit '{unit_name}'")
+                elif not isinstance(target, int) or target <= 0:
+                    issues.error(item_path, f"unit_targets.{unit_name} must be a positive integer")
+            document = corpus.get(key) if isinstance(corpus, dict) else None
+            if is_record(document):
+                for unit_name, target in targets.items():
+                    present = len(document[unit_name]) if isinstance(document.get(unit_name), list) else 0
+                    if present > target:
+                        issues.error(
+                            item_path,
+                            f"unit_targets.{unit_name}={target} but {key} contains {present} units",
+                        )
 
     missing = sorted(corpus_keys - manifest_keys)
     extra = sorted(manifest_keys - corpus_keys)
@@ -703,6 +747,65 @@ def content_shapes(document: Any) -> list[str]:
     return sorted(name for name in CONTENT_COLLECTIONS if isinstance(document.get(name), list) and document.get(name))
 
 
+def unit_counts(document: Any) -> dict[str, int]:
+    """Present unit counts per content collection (only non-empty lists)."""
+    if not is_record(document):
+        return {}
+    return {
+        name: len(document[name])
+        for name in UNIT_COUNT_ORDER
+        if isinstance(document.get(name), list) and document[name]
+    }
+
+
+def coverage_from_targets(counts: dict[str, int], targets: Any) -> str | None:
+    """Render '7/100 cases, 4/10 chapters' style coverage from manifest targets."""
+    if not is_record(targets):
+        return None
+    rendered = []
+    for unit_name in UNIT_COUNT_ORDER:
+        target = targets.get(unit_name)
+        if isinstance(target, int) and target > 0:
+            rendered.append(f"{counts.get(unit_name, 0)}/{target} {unit_name}")
+    return ", ".join(rendered) if rendered else None
+
+
+def per_text_metrics(corpus: dict[str, Any], manifest: Any) -> dict[str, Any]:
+    """Deterministic per-text coverage facts: zh counts, shapes, unit counts,
+    declared coverage metadata, and (where the manifest declares targets) a
+    machine-checkable '7/100 cases' coverage string. This is the single source
+    of truth for the README/AUDIT per-text numbers."""
+    manifest_by_key: dict[str, Any] = {}
+    if is_record(manifest) and isinstance(manifest.get("items"), list):
+        for item in manifest["items"]:
+            if is_record(item) and nonempty_string(item.get("key")):
+                manifest_by_key[item["key"]] = item
+    out: dict[str, Any] = {}
+    for key in sorted(corpus):
+        document = corpus[key]
+        item = manifest_by_key.get(key, {})
+        counts = unit_counts(document)
+        entry: dict[str, Any] = {
+            "title": str(item.get("title") or document.get("title_en") or key),
+            "cbeta_id": str(document.get("cbeta_id") or ""),
+            "content_zh_chars": content_cjk_count(document),
+            "all_cjk_chars": all_cjk_count(document),
+            "shapes": content_shapes(document),
+            "unit_counts": counts,
+        }
+        coverage_note = document.get("coverage_note")
+        if isinstance(coverage_note, str) and coverage_note:
+            entry["coverage_note"] = coverage_note
+        declared_chars = document.get("zh_chars")
+        if isinstance(declared_chars, int):
+            entry["declared_zh_chars"] = declared_chars
+        coverage = coverage_from_targets(counts, item.get("unit_targets"))
+        if coverage:
+            entry["coverage"] = coverage
+        out[key] = entry
+    return out
+
+
 def compute_metrics(
     corpus: dict[str, Any],
     stats: Counter[str],
@@ -712,6 +815,7 @@ def compute_metrics(
     traceability_metrics: dict[str, Any],
     profile_queue_metrics: dict[str, Any],
     manifest_metrics: dict[str, int],
+    corpus_manifest: Any,
 ) -> dict[str, Any]:
     matrix_statuses = {
         status.removeprefix("matrix_"): stats.get(f"matrix_{status}", 0)
@@ -727,7 +831,8 @@ def compute_metrics(
         "measurement_method": {
             "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
             "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
-            "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
+            "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status.",
+            "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, declared coverage_note/zh_chars, and (when the shared manifest declares unit_targets) a machine-checkable 'N/M units' coverage string."
         },
         "corpus": {
             "documents": len(corpus),
@@ -736,6 +841,7 @@ def compute_metrics(
             "content_cjk_characters": sum(content_cjk_count(doc) for doc in corpus.values()),
             "all_corpus_cjk_characters": sum(all_cjk_count(doc) for doc in corpus.values()),
             "content_shapes": dict(sorted(shapes.items())),
+            "per_text": per_text_metrics(corpus, corpus_manifest),
         },
         "translations": {
             "corpus_slots": stats.get("corpus_slots", 0),
@@ -810,9 +916,9 @@ def main() -> int:
     traceability_metrics = validate_traceability_queue(corpus, locator_registry, traceability_queue, issues)
     lineage_profile_queue = load_json(LINEAGE_PROFILE_QUEUE_PATH, issues)
     profile_queue_metrics = validate_lineage_profile_queue(lineage, lineage_profile_queue, issues)
-    manifest_metrics = validate_manifest_sync(set(corpus), corpus_manifest, issues)
+    manifest_metrics = validate_manifest_sync(corpus, corpus_manifest, issues)
 
-    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, profile_queue_metrics, manifest_metrics)
+    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, profile_queue_metrics, manifest_metrics, corpus_manifest)
     expected_metrics = canonical_json(metrics)
     if args.write_metrics:
         METRICS_PATH.write_text(expected_metrics, encoding="utf-8")
