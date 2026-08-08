@@ -92,6 +92,7 @@ translatechan/
 ├── docs/                   # Synchronized duplicate of the app (GitHub Pages serves main /docs)
 ├── vision.md               # Grand Vision & Architectural Specification
 ├── ROADMAP.md              # Multi-Phase Project Roadmap & Milestone Tracker
+├── RESEARCH_RELEASE_PLAN.md # Evidence-first corpus, rights, lineage & release plan
 ├── AUDIT.md                # Post-merge technical audit + remediation log (2026-08)
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
 ├── data/
@@ -104,9 +105,12 @@ translatechan/
 │   │   ├── biyanlu_cases.json
 │   │   ├── platform_sutra.json
 │   │   └── ... (32 more: yulu, treatises, poems — see data/corpus/)
-│   ├── lineage/            # Master genealogies and biographies (34 profiles; 4 frontier scaffolds)
+│   ├── editorial/          # Enforced document-level source-locator migration queue (33 seeds)
+│   │   └── traceability_queue.json
+│   ├── lineage/            # 34 profiles (30 seed profiles + 4 explicit frontier scaffolds)
 │   │   ├── masters.json
-│   │   └── lineage_verification.json  # Edge/frontier chart-source registry
+│   │   ├── lineage_verification.json  # 30 internal-edge + 4 frontier source-status records
+│   │   └── profile_review_queue.json  # Enforced exact-locator review queue (34 profiles)
 │   ├── translations/       # Comparative data, provenance, and rights controls
 │   │   ├── comparative_matrix.json
 │   │   ├── provenance.json
@@ -174,6 +178,7 @@ python3 -m http.server 8080
 - 🧘 **UX/UI Improvement Roadmap (mobile + desktop, anti-overload)**: [`UX_ROADMAP.md`](./UX_ROADMAP.md)
 - 🔍 **Technical Audit & Remediation Log**: [`AUDIT.md`](./AUDIT.md)
 - 🤝 **Pull Request & Deployment Handoff Guide**: [`HANDOFF.md`](./HANDOFF.md)
+- 🎯 **Evidence-First Research Release Plan**: [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md)
 
 ---
 

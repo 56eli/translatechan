@@ -26,14 +26,18 @@ The TranslateChan project has been fully established with:
 
 ### Public Pages scope
 
-The pending branch deliberately publishes only **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon**. Translation Studio, Arena-agent branding, and the header GitHub repository link were removed from root and `/docs` assets; the smoke test guards against their return.
+This branch deliberately publishes only **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon**. Translation Studio, Arena-agent branding, and the header GitHub repository link were removed from root and `/docs` assets; the smoke test guards against their return.
+
+### Branch delta and current release state
+
+This branch adds the checked-in **Quality** workflow (green on every pushed change), an evidence-first research-release plan, an enforced 33-record corpus-locator migration queue, an enforced 34-record lineage-profile review queue, and a source-anchor identification for Linji’s 無位真人 seed (`T47n1985_p0496c10–p0496c14`). The lineage explorer now has 34 navigable profiles (including four clearly marked frontier scaffolds), 30 traditional/pending internal edges, alternate-name/evidence disclosures, curated project-work links, display sorting, and delegated keyboard interaction. None of these additions upgrades unresolved relationships or seed excerpts to source-verified status.
 
 ### Source, translation, and lineage disclosure
 
 - Every public Reader document/case now shows a canonical source location plus hover/focus/touch details. The Matrix resolves canonical source context through the same registry.
 - Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **135 / 140** verified quotation records now have a recorded case/page/section reference; the remaining **5** are explicitly marked pending rather than fabricated.
 - AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation.
-- The lineage graphic now reads from the verification registry: **26** in-set links and **4** frontiers are source-status aware; traditional links remain visually and textually pending until exact chart/record locators are reviewed. The chart was reworked into spacious vertical generation rows with source-aware edge interaction.
+- The lineage graphic now reads from the verification registry: **30** in-set links and **4** frontiers are source-status aware; traditional links remain visually and textually pending until exact chart/record locators are reviewed. The chart was reworked into spacious vertical generation rows with source-aware edge interaction.
 
 ### Quality gate run before handoff
 
@@ -53,7 +57,7 @@ All commands pass. Root and `/docs` assets/data are synchronized.
 
 ### Merge readiness
 
-After reviewing the branch/preview, open a PR from `arena/019fe1f6-translatechan` to `main`, confirm the local quality gate above, then merge. GitHub Pages will republish `main` → `/docs` automatically.
+After reviewing the branch/preview, open a PR from the current `arena/019fe272-translatechan` branch to `main`, confirm the local quality gate above and the required **Quality** check, then merge. GitHub Pages will republish `main` → `/docs` automatically.
 
 ---
 
@@ -159,9 +163,12 @@ translatechan/
 │   │   ├── hanshan_poems.json          # Cold Mountain Poems (SBCK/Zoku lineage; not Taishō)
 │   │   ├── caoxi_zhuan.json            # Dunhuang Caoxi Biezhuan (X1598)
 │   │   └── yuanwu_letters.json         # Yuanwu Xinyao Zen Letters (X1357)
+│   ├── editorial/
+│   │   └── traceability_queue.json     # 33 document-level seed locator reviews
 │   ├── lineage/
-│   │   ├── masters.json                # 34 profiles (incl. 4 frontier scaffolds): genealogies, dates, quotes
-│   │   └── lineage_verification.json  # 26 edge records + 4 disclosed frontiers
+│   │   ├── masters.json                # 34 profiles (incl. 4 frontier scaffolds)
+│   │   ├── lineage_verification.json  # 30 edge records + 4 disclosed frontiers
+│   │   └── profile_review_queue.json  # 34 exact-locator profile reviews
 │   ├── translations/
 │   │   ├── comparative_matrix.json     # 4 exemplar sentence-aligned matrix entries
 │   │   ├── provenance.json             # Citation/status policy

@@ -26,7 +26,7 @@
 | P4 | **Mobile corpus navigation is buried** — below 960 px the 36-text sidebar stacks *above* the content: choose a text, then scroll past 36 buttons every time; no collapse, no jump. | `@media (max-width:960px)` `.reader-layout` → 1 column |
 | P5 | **Preferences don't persist** — reading mode, font size, and active text reset on reload (only theme persists). | `app.js` `setupEventListeners()` keeps `currentFontSize` in a local variable; `state.readerMode` never saved |
 | P6 | **Search re-indexes on every keystroke** — `handleGlobalSearch()` walks all 36 texts × every schema unit per `input` event; noticeable lag on mobile. | `app.js` `extractSearchableUnits()` + input listener without debounce |
-| P7 | **Lineage SVG is crowded** — 30 nodes across 18 generations in a fixed 480 px-high SVG; nodes/tap targets overlap in "All" view; no pan/zoom. | `renderVisualLineageGraph()`; `masters.json` now 30 profiles |
+| P7 | **Lineage SVG is crowded** — 34 nodes across the current generation layout in a fixed 480 px-high SVG; nodes/tap targets overlap in "All" view; no pan/zoom. | `renderVisualLineageGraph()`; `masters.json` now 34 profiles (including 4 explicit frontier scaffolds) |
 | P8 | **No long-page aids** — no scroll-to-top, no sticky case index, no "next case" affordance; no print stylesheet (a *scholarly* tool that can't produce a clean PDF). | `app.css` has no `@media print`; no floating controls |
 | P9 | **Accessibility debt** — nav tabs lack `aria-selected`/roles; theme toggle is an unlabeled icon button; tooltips not focusable; no skip-link; muted text contrast ≈ 3.2:1 (`#9c9189` on `#faf8f5`) fails WCAG AA; no `prefers-reduced-motion`. | `index.html` header markup; `app.css` tokens |
 | P10 | **SPA has no history integration** — view/text changes don't update the URL; browser back exits the app; the brand button force-reloads (`location.reload()`), losing all state. | `index.html` brand `onclick`; `switchView()` |
@@ -88,7 +88,7 @@
 **C3. Lineage graph upgrade** — *fixes P7* · ✅ reworked 2026-08-08
 - Vertically layered generation rows replace the cramped left-to-right strip; nodes receive spacious row gaps, quiet halos, shortened labels, and status-aware links.
 - The chart-status strip and controls now sit in normal layout flow rather than over the SVG; pan/zoom/reset remains available for inspection.
-- Acceptance: the 30-node view has no overlapping generation labels, traditional links are visually quieter than source-verified links, and zooming to a branch remains fluid on touch.
+- Acceptance: the 34-profile view has no overlapping generation labels, traditional links are visually quieter than source-verified links, and zooming to a branch remains fluid on touch.
 
 **C4. Accessibility pass** — *fixes P9* · ✅ done
 - Skip-to-content link, `role="tablist"`/`aria-selected` on nav, `aria-label` on icon buttons, `:focus-visible` ring using `--border-focus`, contrast fixes (`--text-muted` darkened, or used only ≥14 px), `prefers-reduced-motion` disables `sereneFade`, `lang="zh"` on Chinese spans.
