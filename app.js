@@ -83,6 +83,7 @@
     // Lineage Elements
     lineageFilter: document.getElementById('lineage-school-filter'),
     lineageTarget: document.getElementById('lineage-content-target'),
+    lineageVerificationSummary: document.getElementById('lineage-verification-summary'),
     // Gong'an Elements
     gonganTarget: document.getElementById('gongan-content-target'),
     // Lexicon Elements
@@ -1303,9 +1304,70 @@
     }).join('');
   }
 
+  // ---- Lineage chart aggregation + verification registry ----
+  function lineageVerificationRegistry() {
+    return isRecord(state.data.lineage_verification) ? state.data.lineage_verification : {};
+  }
+
+  function lineageEdgeRecord(teacher, disciple) {
+    const registry = lineageVerificationRegistry();
+    const edges = Array.isArray(registry.edges) ? registry.edges : [];
+    return edges.find(edge => edge && edge.teacher === teacher && edge.disciple === disciple) || {
+      teacher,
+      disciple,
+      status: 'source_missing',
+      source_id: '',
+      reference: 'No lineage verification record has been registered.',
+      note: 'Do not treat this displayed link as source-verified.'
+    };
+  }
+
+  function lineageSourceRecord(sourceId) {
+    const registry = lineageVerificationRegistry();
+    const sources = Array.isArray(registry.sources) ? registry.sources : [];
+    return sources.find(source => source && source.source_id === sourceId) || null;
+  }
+
+  function lineageStatusMeta(status) {
+    if (status === 'source_verified') return { label: 'Source verified', className: 'is-verified' };
+    if (status === 'disputed') return { label: 'Disputed lineage claim', className: 'is-disputed' };
+    if (status === 'traditional_link_pending_exact_locator') {
+      return { label: 'Traditional link — exact locator pending', className: 'is-pending' };
+    }
+    return { label: 'Source record pending', className: 'is-missing' };
+  }
+
+  function renderLineageVerificationSummary() {
+    if (!elements.lineageVerificationSummary) return;
+    const registry = lineageVerificationRegistry();
+    const edges = Array.isArray(registry.edges) ? registry.edges : [];
+    const frontiers = Array.isArray(registry.frontiers) ? registry.frontiers : [];
+    const counts = edges.reduce((out, edge) => {
+      const status = edge && edge.status ? edge.status : 'source_missing';
+      out[status] = (out[status] || 0) + 1;
+      return out;
+    }, {});
+    const pending = counts.traditional_link_pending_exact_locator || 0;
+    const verified = counts.source_verified || 0;
+    const detail = {
+      title: 'Lineage chart aggregation status',
+      rows: [
+        ['Internal links represented', String(edges.length)],
+        ['Source-verified links', String(verified)],
+        ['Traditional links awaiting exact locator', String(pending)],
+        ['Frontier teachers not yet profiled', String(frontiers.length)],
+        ['Policy', stringValue(registry.policy) || 'Lineage verification registry pending.']
+      ]
+    };
+    elements.lineageVerificationSummary.innerHTML =
+      `<span>📚 Chart status: ${verified} source-verified · ${pending} traditional links awaiting exact locators · ${frontiers.length} frontiers</span>` +
+      renderCitationTrigger(detail, 'ⓘ Verification details');
+  }
+
   // Render Lineage Explorer
   function renderLineage() {
     if (!elements.lineageTarget || !state.data.lineage) return;
+    renderLineageVerificationSummary();
     let masters = state.data.lineage;
 
     if (state.selectedMasterSchool !== 'all') {
@@ -1393,13 +1455,18 @@
       });
     });
 
-    // Draw Links (Teacher -> Disciple)
-    let linksHtml = '<g class="graph-links" stroke="var(--border-focus)" stroke-width="1.8" stroke-opacity="0.6" stroke-dasharray="3,3">';
+    // Draw Links (Teacher -> Disciple). Every displayed link resolves through
+    // the verification registry; pending traditional claims stay visually distinct.
+    let linksHtml = '<g class="graph-links">';
     masters.forEach(m => {
       if (m.teacher && nodeCoords[m.teacher] && nodeCoords[m.id]) {
         const source = nodeCoords[m.teacher];
         const target = nodeCoords[m.id];
-        linksHtml += `<line x1="${source.x}" y1="${source.y}" x2="${target.x}" y2="${target.y}" />`;
+        const edge = lineageEdgeRecord(m.teacher, m.id);
+        const meta = lineageStatusMeta(edge.status);
+        const sourceRecord = lineageSourceRecord(edge.source_id);
+        const edgeTitle = `${source.master.name_en} → ${target.master.name_en}: ${meta.label}${sourceRecord ? ` (${sourceRecord.title})` : ''}`;
+        linksHtml += `<line class="graph-link ${meta.className}" x1="${source.x}" y1="${source.y}" x2="${target.x}" y2="${target.y}" role="button" tabindex="0" aria-label="${escHtml(edgeTitle)}" onclick="window.TranslateChan.openLineageEdge('${m.teacher}', '${m.id}')"><title>${escHtml(edgeTitle)}</title></line>`;
       }
     });
     linksHtml += '</g>';
@@ -1511,9 +1578,10 @@
 
     svg.addEventListener('keydown', (e) => {
       const node = e.target && e.target.closest ? e.target.closest('.graph-node') : null;
-      if (node && (e.key === 'Enter' || e.key === ' ')) {
+      const edge = e.target && e.target.closest ? e.target.closest('.graph-link') : null;
+      if ((node || edge) && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
-        node.click();
+        (node || edge).click();
       }
     });
   }
@@ -1534,11 +1602,20 @@
     if (nameZh) nameZh.textContent = `${master.name_zh} (${master.title})`;
     if (nameEn) nameEn.textContent = `${master.name_en} • Pinyin: ${master.name_pinyin} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
     if (content) {
+      const masterCitation = {
+        title: 'Master profile source disclosure',
+        rows: [
+          ['Master', `${master.name_zh} / ${master.name_en}`],
+          ['Canonical record', stringValue(master.cbeta_id) || 'Locator pending'],
+          ['Primary texts', Array.isArray(master.texts) ? master.texts.join(', ') : 'Transmission record pending'],
+          ['Profile status', 'Seed profile — exact biographical/source locator pending']
+        ]
+      };
       content.innerHTML = `
         <div style="margin-top: 0.5rem; margin-bottom: 0.75rem;">
-          <strong>🏛️ School / Lineage:</strong> ${master.school} &nbsp;|&nbsp;
-          <strong>📍 Primary Monastery:</strong> ${master.location} &nbsp;|&nbsp;
-          <strong>📜 CBETA ID:</strong> ${master.cbeta_id}
+          <strong>🏛️ School / Lineage:</strong> ${escHtml(master.school)} &nbsp;|&nbsp;
+          <strong>📍 Primary Monastery:</strong> ${escHtml(master.location)} &nbsp;|&nbsp;
+          <strong>📜 Canonical record:</strong> ${escHtml(master.cbeta_id)} ${renderCitationTrigger(masterCitation, 'ⓘ Profile source')}
         </div>
         <div class="master-quote" style="background: var(--bg-card); margin-bottom: 0.75rem;">
           "${master.key_quote_zh}"
@@ -1563,6 +1640,53 @@
         panel.style.display = 'none';
       };
     }
+  };
+
+  window.TranslateChan.openLineageEdge = function(teacherId, discipleId) {
+    const edge = lineageEdgeRecord(teacherId, discipleId);
+    const source = lineageSourceRecord(edge.source_id);
+    const teacher = (state.data.lineage || []).find(master => master.id === teacherId);
+    const disciple = (state.data.lineage || []).find(master => master.id === discipleId);
+    const panel = document.getElementById('master-dossier-panel');
+    const nameZh = document.getElementById('dossier-name-zh');
+    const nameEn = document.getElementById('dossier-name-en');
+    const content = document.getElementById('dossier-content');
+    const closeBtn = document.getElementById('dossier-close-btn');
+    const meta = lineageStatusMeta(edge.status);
+    const teacherName = teacher ? `${teacher.name_zh} / ${teacher.name_en}` : teacherId;
+    const discipleName = disciple ? `${disciple.name_zh} / ${disciple.name_en}` : discipleId;
+    const detail = {
+      title: 'Lineage link citation',
+      rows: [
+        ['Teacher', teacherName],
+        ['Disciple', discipleName],
+        ['Status', meta.label],
+        ['Source chart / record', source ? stringValue(source.title) : 'Source record pending'],
+        ['Canonical source', source ? stringValue(source.canonical_id) : 'Locator pending'],
+        ['Source reference', source ? stringValue(source.reference) : 'Locator pending'],
+        ['Edge reference', stringValue(edge.reference)],
+        ['Verification note', stringValue(edge.note)]
+      ]
+    };
+
+    if (nameZh) nameZh.textContent = '法脈連結 / Lineage Link';
+    if (nameEn) nameEn.textContent = `${teacherName} → ${discipleName}`;
+    if (content) {
+      content.innerHTML = `
+        <div style="margin-top:0.5rem; margin-bottom:0.75rem;">
+          <strong>Verification status:</strong> ${escHtml(meta.label)}
+        </div>
+        <div class="commentary-block" style="background:var(--bg-card); border-left-color:var(--accent-blue); margin:0;">
+          <div class="commentary-label" style="color:var(--accent-blue);">Lineage chart disclosure</div>
+          <div style="font-size:0.9rem; color:var(--text-primary);">${escHtml(stringValue(edge.note) || 'No verification note recorded.')}</div>
+          <div style="margin-top:0.55rem;">${renderCitationTrigger(detail, 'ⓘ Source chart & verification')}</div>
+        </div>`;
+    }
+    if (panel) {
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (closeBtn) closeBtn.onclick = () => { panel.style.display = 'none'; };
   };
 
   // Render Gong'an Index

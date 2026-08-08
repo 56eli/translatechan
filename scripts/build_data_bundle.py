@@ -66,6 +66,7 @@ def main() -> None:
     data_bundle = {
         "glossary": load_json(DATA_DIR / "glossary" / "chan_terms.json"),
         "lineage": load_json(DATA_DIR / "lineage" / "masters.json"),
+        "lineage_verification": load_json(DATA_DIR / "lineage" / "lineage_verification.json"),
         "translations_matrix": load_json(DATA_DIR / "translations" / "comparative_matrix.json"),
         "translations_provenance": load_json(DATA_DIR / "translations" / "provenance.json"),
         "translations_rights": load_json(DATA_DIR / "translations" / "rights_manifest.json"),

@@ -24,6 +24,14 @@
     "documents": 36,
     "excerpt_seed_documents": 35
   },
+  "lineage_verification": {
+    "frontiers": 4,
+    "internal_edges": 26,
+    "source_records": 6,
+    "statuses": {
+      "traditional_link_pending_exact_locator": 26
+    }
+  },
   "manifest_integrity": {
     "corpus_files": 36,
     "shared_manifest_items": 36

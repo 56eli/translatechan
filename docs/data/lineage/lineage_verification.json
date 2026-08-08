@@ -1,0 +1,288 @@
+{
+  "schema_version": "1.0",
+  "policy": "This registry separates traditional lineage claims from edge-level source verification. An edge is not source_verified until a named chart/record and exact locator have been reviewed. The public graph must display the recorded status rather than imply settled historical fact.",
+  "sources": [
+    {
+      "source_id": "jingde-chuandenglu",
+      "title": "景德傳燈錄 / Jingde Chuandenglu (Record of the Transmission of the Lamp)",
+      "canonical_id": "T2076",
+      "reference": "Exact fascicle/entry locator pending per edge",
+      "source_type": "canonical transmission record"
+    },
+    {
+      "source_id": "wudeng-huiyuan",
+      "title": "五燈會元 / Wudeng Huiyuan (Compendium of Five Lamps)",
+      "canonical_id": "X1565",
+      "reference": "Exact fascicle/entry locator pending per edge",
+      "source_type": "later lineage compilation"
+    },
+    {
+      "source_id": "platform-sutra",
+      "title": "六祖壇經 / Platform Sutra",
+      "canonical_id": "T2007 / T2008",
+      "reference": "Lineage context; exact verse/chapter locator pending per edge",
+      "source_type": "canonical source text"
+    },
+    {
+      "source_id": "yuelin-shiguan-record",
+      "title": "月林師觀語錄 / Record of Yuelin Shiguan",
+      "canonical_id": "X1354",
+      "reference": "Exact teacher-disciple entry locator pending",
+      "source_type": "master record"
+    },
+    {
+      "source_id": "indian-patriarch-tradition",
+      "title": "Traditional Indian patriarchal lineage",
+      "canonical_id": "Locator pending",
+      "reference": "Prajñātāra → Bodhidharma relationship requires source-specific review",
+      "source_type": "frontier tradition"
+    },
+    {
+      "source_id": "frontier-master-record",
+      "title": "Frontier master relationship",
+      "canonical_id": "Locator pending",
+      "reference": "Teacher is not yet profiled in the current dataset",
+      "source_type": "frontier record"
+    }
+  ],
+  "edges": [
+    {
+      "teacher": "bodhidharma",
+      "disciple": "huike",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T2076 (Vol. 51, p. 220b)",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "huike",
+      "disciple": "sengcan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T2010 (Vol. 48, p. 376)",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "sengcan",
+      "disciple": "daoxin",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T2076",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "daoxin",
+      "disciple": "hongren",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T2011",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "hongren",
+      "disciple": "huineng",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "platform-sutra",
+      "reference": "Candidate source context: T2007 (Vol. 48, p. 337)",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "nanyue_huairang",
+      "disciple": "mazu_daoyi",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T2076 f.6 / X1321",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "qingyuan_xingsi",
+      "disciple": "shitou_xiqian",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "wudeng-huiyuan",
+      "reference": "Candidate source context: T2076 f.14 / X1565",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "mazu_daoyi",
+      "disciple": "baizhang_huaihai",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T1985 / T2025",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "baizhang_huaihai",
+      "disciple": "huangbo_xiyun",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T2012A (Vol. 48, p. 379)",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "huangbo_xiyun",
+      "disciple": "linji_yixuan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T1985 (Vol. 47, p. 496)",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "nanquan_puyuan",
+      "disciple": "zhaozhou_congshen",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T1987 / X1315 (古尊宿語錄)",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "yunyan_tansheng",
+      "disciple": "dongshan_liangjie",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T1986 (Vol. 47, p. 507)",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "xuefeng_yicun",
+      "disciple": "yunmen_wenyan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T1988 (Vol. 47, p. 545)",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "baizhang_huaihai",
+      "disciple": "guishan_lingyou",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T1989 / T2076 f.9",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "luohan_guichen",
+      "disciple": "fayan_wenyi",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T1991 (Vol. 47, p. 588)",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "wuzu_fayan",
+      "disciple": "yuanwu_keqin",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T1997 / X1357",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "yuelin_shiguan",
+      "disciple": "wumen_huikai",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "yuelin-shiguan-record",
+      "reference": "Candidate source context: T2005 / X1355",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "huineng",
+      "disciple": "nanyue_huairang",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T2076 f.5 / X1315",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "huineng",
+      "disciple": "qingyuan_xingsi",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "wudeng-huiyuan",
+      "reference": "Candidate source context: T2076 f.5 / X1565",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "mazu_daoyi",
+      "disciple": "nanquan_puyuan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: X1315 / T2076 f.8",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "shitou_xiqian",
+      "disciple": "yaoshan_weiyan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "wudeng-huiyuan",
+      "reference": "Candidate source context: T2076 f.14 / X1565",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "yaoshan_weiyan",
+      "disciple": "yunyan_tansheng",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "wudeng-huiyuan",
+      "reference": "Candidate source context: T2076 f.14 / X1565",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "deshan_xuanjian",
+      "disciple": "xuefeng_yicun",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: X1333 / T2076 f.16",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "xuefeng_yicun",
+      "disciple": "xuansha_shibei",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: X1445 / T2076 f.18",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "xuansha_shibei",
+      "disciple": "luohan_guichen",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "wudeng-huiyuan",
+      "reference": "Candidate source context: T2076 f.21 / X1565",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "baiyun_shouduan",
+      "disciple": "wuzu_fayan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "wudeng-huiyuan",
+      "reference": "Candidate source context: T1995 / X1565 f.19",
+      "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    }
+  ],
+  "frontiers": [
+    {
+      "teacher_label": "Prajñātāra (27th Indian Patriarch)",
+      "disciple": "bodhidharma",
+      "status": "frontier_unprofiled",
+      "source_id": "indian-patriarch-tradition",
+      "reference": "Teacher profile and exact source locator pending."
+    },
+    {
+      "teacher_label": "Longtan Chongxin (龍潭崇信 — frontier: not yet profiled)",
+      "disciple": "deshan_xuanjian",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Teacher profile and exact source locator pending."
+    },
+    {
+      "teacher_label": "Yangqi Fanghui (楊岐方會 — frontier: not yet profiled)",
+      "disciple": "baiyun_shouduan",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Teacher profile and exact source locator pending."
+    },
+    {
+      "teacher_label": "Dahong Laoniu Zuzheng (大洪老衲祖證 — frontier: not yet profiled)",
+      "disciple": "yuelin_shiguan",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Teacher profile and exact source locator pending."
+    }
+  ]
+}

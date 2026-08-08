@@ -34,6 +34,7 @@ METRICS_PATH = DATA_DIR / "project_metrics.json"
 CORPUS_MANIFEST_PATH = DATA_DIR / "corpus_manifest.json"
 LOCATORS_PATH = DATA_DIR / "canonical_locators.json"
 RIGHTS_PATH = DATA_DIR / "translations" / "rights_manifest.json"
+LINEAGE_VERIFICATION_PATH = DATA_DIR / "lineage" / "lineage_verification.json"
 PROVENANCE_PATH = DATA_DIR / "translations" / "provenance.json"
 MATRIX_PATH = DATA_DIR / "translations" / "comparative_matrix.json"
 SCHEMA_PATH = ROOT / "schemas" / "translatechan-data.schema.json"
@@ -54,6 +55,12 @@ VALID_REVIEW_STATUSES = {
     "needs_rights_review",
     "jurisdiction_review_required",
 }
+VALID_LINEAGE_EDGE_STATUSES = {
+    "source_verified",
+    "traditional_link_pending_exact_locator",
+    "disputed",
+}
+VALID_LINEAGE_FRONTIER_STATUSES = {"frontier_unprofiled"}
 SOURCE_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 REQUIRED_DOCUMENT_FIELDS = {
     "title_zh",
@@ -332,6 +339,105 @@ def validate_auxiliary_data(
         issues.error(rel(PROVENANCE_PATH), "must document rights_manifest path")
 
 
+def validate_lineage_verification(lineage: Any, registry: Any, issues: Issues) -> dict[str, Any]:
+    path = rel(LINEAGE_VERIFICATION_PATH)
+    if not isinstance(lineage, list) or not is_record(registry):
+        issues.error(path, "requires lineage profiles plus a verification registry object")
+        return {}
+
+    masters = {master.get("id"): master for master in lineage if is_record(master) and nonempty_string(master.get("id"))}
+    expected_edges = {
+        (master["teacher"], master["id"])
+        for master in masters.values()
+        if master.get("teacher") in masters
+    }
+    expected_frontiers = {
+        (str(master.get("teacher") or ""), master["id"])
+        for master in masters.values()
+        if master.get("teacher") not in masters
+    }
+
+    sources = registry.get("sources")
+    if not isinstance(sources, list) or not sources:
+        issues.error(path, "requires a non-empty sources list")
+        source_ids: set[str] = set()
+    else:
+        source_ids = set()
+        for index, source in enumerate(sources):
+            source_path = f"{path}.sources[{index}]"
+            require_fields(source, ("source_id", "title", "canonical_id", "reference", "source_type"), source_path, issues)
+            if is_record(source) and nonempty_string(source.get("source_id")):
+                source_id = source["source_id"]
+                if not SOURCE_ID_RE.fullmatch(source_id):
+                    issues.error(source_path, "source_id must use lowercase letters, digits, and hyphens")
+                if source_id in source_ids:
+                    issues.error(source_path, f"duplicate source_id '{source_id}'")
+                source_ids.add(source_id)
+
+    edges = registry.get("edges")
+    actual_edges: set[tuple[str, str]] = set()
+    status_counts: Counter[str] = Counter()
+    if not isinstance(edges, list):
+        issues.error(path, "requires an edges list")
+    else:
+        for index, edge in enumerate(edges):
+            edge_path = f"{path}.edges[{index}]"
+            require_fields(edge, ("teacher", "disciple", "status", "source_id", "reference", "note"), edge_path, issues)
+            if not is_record(edge):
+                continue
+            pair = (str(edge.get("teacher") or ""), str(edge.get("disciple") or ""))
+            if pair in actual_edges:
+                issues.error(edge_path, f"duplicate edge {pair[0]} → {pair[1]}")
+            actual_edges.add(pair)
+            status = edge.get("status")
+            if status not in VALID_LINEAGE_EDGE_STATUSES:
+                issues.error(edge_path, f"invalid edge status {status!r}")
+            else:
+                status_counts[status] += 1
+            if edge.get("source_id") not in source_ids:
+                issues.error(edge_path, f"unknown lineage source_id {edge.get('source_id')!r}")
+
+    if actual_edges != expected_edges:
+        missing = sorted(expected_edges - actual_edges)
+        extra = sorted(actual_edges - expected_edges)
+        if missing:
+            issues.error(path, "missing internal lineage edge(s): " + ", ".join(f"{a}→{b}" for a, b in missing))
+        if extra:
+            issues.error(path, "unknown lineage edge(s): " + ", ".join(f"{a}→{b}" for a, b in extra))
+
+    frontiers = registry.get("frontiers")
+    actual_frontiers: set[tuple[str, str]] = set()
+    if not isinstance(frontiers, list):
+        issues.error(path, "requires a frontiers list")
+    else:
+        for index, frontier in enumerate(frontiers):
+            frontier_path = f"{path}.frontiers[{index}]"
+            require_fields(frontier, ("teacher_label", "disciple", "status", "source_id", "reference"), frontier_path, issues)
+            if not is_record(frontier):
+                continue
+            pair = (str(frontier.get("teacher_label") or ""), str(frontier.get("disciple") or ""))
+            actual_frontiers.add(pair)
+            if frontier.get("status") not in VALID_LINEAGE_FRONTIER_STATUSES:
+                issues.error(frontier_path, f"invalid frontier status {frontier.get('status')!r}")
+            if frontier.get("source_id") not in source_ids:
+                issues.error(frontier_path, f"unknown lineage source_id {frontier.get('source_id')!r}")
+
+    if actual_frontiers != expected_frontiers:
+        missing = sorted(expected_frontiers - actual_frontiers)
+        extra = sorted(actual_frontiers - expected_frontiers)
+        if missing:
+            issues.error(path, "missing lineage frontier(s): " + ", ".join(f"{a}→{b}" for a, b in missing))
+        if extra:
+            issues.error(path, "unknown lineage frontier(s): " + ", ".join(f"{a}→{b}" for a, b in extra))
+
+    return {
+        "internal_edges": len(expected_edges),
+        "frontiers": len(expected_frontiers),
+        "statuses": dict(sorted(status_counts.items())),
+        "source_records": len(source_ids),
+    }
+
+
 def validate_manifest_sync(corpus_keys: set[str], manifest: Any, issues: Issues) -> dict[str, int]:
     path = rel(CORPUS_MANIFEST_PATH)
     if not is_record(manifest) or not isinstance(manifest.get("items"), list):
@@ -527,6 +633,7 @@ def compute_metrics(
     stats: Counter[str],
     locator_metrics: dict[str, int],
     rights_metrics: dict[str, int],
+    lineage_metrics: dict[str, Any],
     manifest_metrics: dict[str, int],
 ) -> dict[str, Any]:
     matrix_statuses = {
@@ -567,6 +674,7 @@ def compute_metrics(
         },
         "canonical_locator_coverage": locator_metrics,
         "rights_coverage": rights_metrics,
+        "lineage_verification": lineage_metrics,
         "manifest_integrity": manifest_metrics,
     }
 
@@ -617,9 +725,11 @@ def main() -> int:
     locator_metrics = validate_canonical_locators(corpus, locator_registry, issues)
     rights_manifest = load_json(RIGHTS_PATH, issues)
     rights_metrics = validate_rights_manifest(rights_manifest, verified_source_ids, issues)
+    lineage_registry = load_json(LINEAGE_VERIFICATION_PATH, issues)
+    lineage_metrics = validate_lineage_verification(lineage, lineage_registry, issues)
     manifest_metrics = validate_manifest_sync(set(corpus), corpus_manifest, issues)
 
-    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, manifest_metrics)
+    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, manifest_metrics)
     expected_metrics = canonical_json(metrics)
     if args.write_metrics:
         METRICS_PATH.write_text(expected_metrics, encoding="utf-8")

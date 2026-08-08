@@ -69,6 +69,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Heterogeneous JSON shapes for cases, sections, dialogues, stanzas, chapters, five ranks, and sample records are supported by the renderer and described in [`schemas/translatechan-data.schema.json`](./schemas/translatechan-data.schema.json).
   - `scripts/validate_data.py` enforces semantic invariants, shared corpus-manifest integrity, translation provenance, rights-manifest coverage, case-level locator coverage, and deterministic metrics; a CI workflow is prepared locally and awaits workflow-capable GitHub access before publication.
   - `data/canonical_locators.json` now covers every document and all 57 current case units. The 33 non-case seed documents remain honestly tagged `legacy_document_seed` until page/line or TEI locators are migrated.
+  - `data/lineage/lineage_verification.json` aggregates all 26 in-set graph links and 4 unprofiled frontiers with source-record status; the public chart never renders them as source-verified until exact locators are reviewed.
 - [x] **Ingestion Tooling (seed level)**:
   - `scripts/ingest_cbeta.py` — offline punctuation-based Classical Chinese sentence segmenter (manual input; no live CBETA fetching yet).
   - `scripts/validate_data.py` — dependency-free schema/semantic/rights/locator validation + metrics generation.
@@ -174,7 +175,7 @@ translatechan/
 │   ├── canonical_locators.json # Document/case source-locator registry
 │   ├── project_metrics.json    # Deterministic generated project counts
 │   ├── corpus/                 # 36 structured canonical-text files (JSON, excerpt-scale → growing)
-│   ├── lineage/                # masters.json (30 profiles; schools.json planned)
+│   ├── lineage/                # masters.json + lineage_verification.json (26 links / 4 frontiers)
 │   ├── translations/           # matrix, provenance, and rights manifest
 │   ├── glossary/           # chan_terms.json (31 terms)
 │   └── gongan/             # gongan_index.json (18 cases)

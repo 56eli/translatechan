@@ -62,7 +62,8 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - ⚠️ **Sourcing note**: translator-attributed renderings in the seed data are *reconstructions in each scholar's register* unless individually verified against print editions; AI drafts/reconstructions are visibly marked and never presented as book quotations.
 
 ### 3. 🌳 Lineage Knowledge Graph Explorer
-- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **30 master profiles** (seed set), with SVG network graph and clickable dossiers.
+- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **30 master profiles** (seed set), with an SVG network graph and clickable dossiers.
+- A visible chart-status disclosure distinguishes traditional links awaiting exact locators from future source-verified links; graph edges open source-chart/record details on click or keyboard activation.
 - Filter by lineage school, dates, temple location, canonical text reference, and signature quotes.
 
 ### 4. 🗂️ Gong'an Cross-Reference Index
@@ -104,7 +105,8 @@ translatechan/
 │   │   ├── platform_sutra.json
 │   │   └── ... (32 more: yulu, treatises, poems — see data/corpus/)
 │   ├── lineage/            # Master genealogies and biographies (30 profiles)
-│   │   └── masters.json
+│   │   ├── masters.json
+│   │   └── lineage_verification.json  # Edge/frontier chart-source registry
 │   ├── translations/       # Comparative data, provenance, and rights controls
 │   │   ├── comparative_matrix.json
 │   │   ├── provenance.json

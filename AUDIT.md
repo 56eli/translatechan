@@ -614,3 +614,16 @@ The public Reader and Matrix now implement the first executable portion of the P
 | Hover/focus/touch access | Shared `citation-trigger` controls open structured citation popups on hover, keyboard focus, or tap/click in Reader and Matrix. | Future lineage and index citation surfaces must reuse the component. |
 
 The disclosure UI intentionally distinguishes a source reference from a verified book quotation; it does not fabricate pages where the dataset has not yet recorded one.
+
+### 10.11 Lineage chart aggregation and verification baseline (same session)
+
+The public lineage graphic is now backed by `data/lineage/lineage_verification.json` and a semantic validator rather than silently drawing teacher→disciple assertions from profile strings alone.
+
+| Requirement | Implementation | Current state |
+|---|---|---|
+| Aggregate chart records | Registry captures all **26** in-set graph links, six candidate source records, and **4** unprofiled frontiers. | Every rendered internal edge has a registry record; every omitted frontier is explicitly disclosed. |
+| Verify chart against source information | The validator requires the registry to match the master dataset exactly and rejects missing/extra/duplicate edges or unknown source IDs. | All current links are deliberately labelled `traditional_link_pending_exact_locator`, not `source_verified`, until an editor records an exact chart/record locator. |
+| Make uncertainty visible | SVG links use status-aware styling; the graph shows a chart-status summary; clicking or keyboard-activating an edge opens a source-chart/verification citation panel. | No existing relationship is cosmetically upgraded to “verified”; the graph distinguishes source verification from traditional lineage aggregation. |
+| Hover/focus/touch disclosure | The citation trigger inside the edge panel uses the same hover/focus/touch disclosure mechanism as source and translation citations. | Future node-level source records can reuse the same registry/component. |
+
+This is an aggregation/verification framework, not a claim that the traditional lineage graph is historiographically settled. Exact locator review, disputed-link modeling, and source-verified upgrades are the next editorial step.

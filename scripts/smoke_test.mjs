@@ -245,7 +245,30 @@ if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobi
 const svgHtml = ids['lineage-svg-graph']._innerHTML;
 if (!svgHtml.includes('lineage-panzoom')) { failures++; console.log('❌ lineage pan/zoom group missing'); }
 if (typeof window.TranslateChan.resetLineageView !== 'function') { failures++; console.log('❌ lineage reset view missing'); }
-// 4l. Hash routing: initial deep-link state + viewHash helper
+// 4l. Lineage aggregation/verification: every internal graph link is registered
+// as a source-aware status, summary is visible, and click opens citation details.
+const lineageVerification = window.TRANSLATECHAN_DATA.lineage_verification;
+if (!lineageVerification || lineageVerification.edges.length !== 26 || lineageVerification.frontiers.length !== 4) {
+  failures++; console.log('❌ lineage verification registry coverage is incorrect');
+}
+if (!svgHtml.includes('graph-link is-pending') || typeof window.TranslateChan.openLineageEdge !== 'function') {
+  failures++; console.log('❌ source-aware lineage graph links missing');
+}
+const lineageSummaryHtml = ids['lineage-verification-summary']._innerHTML;
+if (!lineageSummaryHtml.includes('Chart status') || !lineageSummaryHtml.includes('citation-trigger')) {
+  failures++; console.log('❌ lineage verification summary disclosure missing');
+}
+try {
+  window.TranslateChan.openLineageEdge('bodhidharma', 'huike');
+  if (!ids['dossier-content']._innerHTML.includes('Traditional link') || !ids['dossier-content']._innerHTML.includes('citation-trigger')) {
+    failures++; console.log('❌ lineage edge citation panel missing');
+  }
+  window.TranslateChan.openMasterDossier('bodhidharma');
+  if (!ids['dossier-content']._innerHTML.includes('Profile source')) {
+    failures++; console.log('❌ master profile source disclosure missing');
+  }
+} catch (e) { failures++; console.log(`❌ lineage source disclosure crashed: ${e.message}`); }
+// 4m. Hash routing: initial deep-link state + viewHash helper
 if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.log('❌ openDoc missing (hash routing depends on it)'); }
 // 4m. Gong'an filter chips remain available in the public reading scope.
 const gonganHtml = ids['gongan-content-target']._innerHTML;
