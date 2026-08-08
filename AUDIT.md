@@ -70,7 +70,7 @@ function renderCaseItem(...) {                      // ← now outside any scope
 
 ### 3.1 Corpus: genuine text, but excerpt-scale
 
-Total Classical Chinese across **all 36 corpus files: ≈ 9,610 characters** (about 3 pages of a single fascicle). The anchor passages I spot-checked are **genuine canonical Chinese** (verified against CBETA memory):
+Total Classical Chinese across **all 36 corpus files: ≈ 11,832 characters** (re-measured 2026-08-08 after the verification rounds and the canon-note pass; was 9,610 at first audit — about 3.5 pages of a single fascicle). The anchor passages I spot-checked are **genuine canonical Chinese** (verified against CBETA memory):
 
 - ✅ 信心銘 opening (至道無難，唯嫌揀擇), 證道歌 opening (絕學無為閒道人), 壇經 verse (菩提本無樹…), 參同契 opening (竺土大仙心), 寶鏡三昧 opening, 臨濟「無位真人」 — all authentic.
 
@@ -91,7 +91,7 @@ But coverage is far below the README/HANDOFF/ROADMAP narrative ("Complete 48 Cas
 | Dataset | Actual | Documentation claims |
 |---|---|---|
 | Glossary (`chan_terms.json`) | **31 terms** | "150+ technical terms" (README, HANDOFF) |
-| Lineage (`masters.json`) | **18 masters** | "complete genealogical graph" (ROADMAP ✓) |
+| Lineage (`masters.json`) | **30 masters** (18 → 30 on 2026-08-08) | "complete genealogical graph" (ROADMAP ✓) |
 | Comparative matrix | **4 entries** | "sentence-by-sentence alignment across corpus" |
 | Gong'an index | **18 entries** | "indexed across Wumenguan, Biyanlu, Congronglu" |
 
@@ -337,3 +337,137 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 **Open work as of 2026-08-08**: PR to `main` (13 commits ready — live site still serves the pre-fix build until merge), Phase 2 content (Wumenguan 48 — PD baseline + Yamada/Aitken full texts proven fetchable, ready to scale), optional round 9 (Aitken later cases; Hinton/No-Gate Gateway; Seung Sahn register).
 
 
+
+---
+
+## 9. 2026-08-08 — Second-pass full audit (post-merge state; session `arena/019fe1b5-translatechan`)
+
+> Audited state: `f035254` = merge of PR #2 into `main` (live site now serves the fixed build). Full readable report: `SESSION_AUDIT_2026-08-08.md` (temporary session file). **Verdict: no P0; all §8 remediations hold under regression.**
+
+### 9.1 Verified healthy
+- `node --check app.js` clean; `node scripts/smoke_test.mjs` green (36 texts × all schemas, 4 modes, 7 queries, namespace, no double-annotation).
+- Bundle deterministic (rebuild leaves tree clean); root↔`docs` app assets byte-identical.
+- 36 corpus keys ↔ `corpusMap` (app.js) ↔ bundler list in perfect agreement.
+- Measured attribution state: **79 ✅ verified slots in 6 corpus texts + 2 ✅ matrix rows** (wumenguan 60, linji 6, zhaozhou 5, huangbo_chuanxin 4, platform 2, xinxin_ming 2); 718 remaining slots honestly reconstruction/ai.
+- Canonical anchors re-verified at codepoint level (乾屎橛 U+4E7E/5C4E/6A5B; Dunhuang verse 明鏡亦無臺，佛性常清淨 present with recension note).
+
+### 9.2 Findings (see session report for evidence)
+| ID | Sev | Item | Suggested fix |
+|---|---|---|---|
+| B1 | P1/P2 | `docs/data/` stale: 10 corpus files are pre-verification revisions, `provenance.json` missing; build script never mirrors `data/` (runtime unaffected — app is self-contained in `app_data.js`) | Extend `build_data_bundle.py` to mirror `data/ → docs/data` (or remove `docs/data` + fix README tree) |
+| B2 | P2 | `index.html` Agents view still references PR#1 branch `arena/019fe05c-translatechan` | Generic wording ("the session branch") |
+| B3 | P2 | Non-Taishō texts show misleading "(Vol. N)": `hanshan_poems` `taisho_vol: 85` contradicts its "not in Taishō" label; `caoxi_zhuan` `86` for X-series | Suppress volume for non-Taishō canons in renderer; fix the two fields |
+| B4 | P2 | Search injects raw query into innerHTML (`makeSnippet` mark + header) — self-XSS only | Escape `q` before interpolation |
+| B5 | P3 | Unguarded `JSON.parse(localStorage)` at init → corrupted storage blanks the app | try/catch fallback `{}` |
+| B6 | P3 | `stacked` reader mode is dead (no UI button; = `multi_translators`) | Wire 4th button or drop mode (align smoke test, B11) |
+| B7 | P3 | 9 dangling teacher refs in `masters.json` (Nanyue Huairang, Qingyuan Xingsi, Nanquan Puyuan, Yunyan Tansheng, Xuefeng Yicun, Luohan Guichen, Wuzu Fayan, Yuelin Shiguan, Prajñātāra) → SVG edges silently dropped | Add the 8 Chinese masters (18 → 26 profiles) |
+| B8 | P3 | Stale corpus size in README/AUDIT §3.1: measured **11,454 zh chars** (was 9,610); "8 texts" → "6 corpus texts + 2 matrix rows" | Update counts |
+| B9 | P3 | Search doesn't normalize edition variants (缽/鉢, 云/曰, 臺/台, 裏/里) | Optional variant map in search |
+| B10 | P3 | `docs/scripts/build_data_bundle.py` is an old revision, never synced, unreferenced | Remove `docs/scripts/` |
+
+### 9.3 — Remediation (same session, 2026-08-08) — B1–B10 + canon-reference & lineage passes
+
+All findings closed in one verified push (branch `arena/019fe1b5-translatechan`):
+
+| ID | Fix | Verification |
+|---|---|---|
+| B1 | `build_data_bundle.py` now mirrors `data/ → docs/data` (rmtree + copytree, deletions propagated); docstring states the sync contract | `diff -rq data docs/data` silent; app assets byte-identical |
+| B2 | `index.html` Agents view: stale `arena/019fe05c-translatechan` → generic "session branch → PR → main" wording (docs copy re-synced) | grep clean |
+| B3+ | Volume chip only rendered when `cbeta_id` matches a T-number; `taisho_vol` nulled for non-Taishō texts | reader chips correct for X/P/SBCK texts |
+| B4 | Search escapes user query (`escHtml`) in snippets and results header; `makeSnippet` marks via variant-aware regex on raw text | smoke test 4f green |
+| B5 | `JSON.parse(localStorage)` guarded with try/catch fallback | app boots with corrupted storage |
+| B6/B11 | Dead `stacked` reader mode removed from state + smoke test (UI never exposed it) | smoke test green |
+| B7+ | Lineage graph 18 → **30 profiles**: added Nanyue Huairang, Qingyuan Xingsi, Nanquan Puyuan, Yaoshan Weiyan, Yunyan Tansheng, Deshan Xuanjian, Xuefeng Yicun, Xuansha Shibei, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan — every existing profile's `teacher` now resolves (26 SVG edges, was 8); 4 documented frontiers remain (Prajñātāra, Longtan Chongxin, Yangqi Fanghui, Dahong Zuzheng) | integrity script: 0 dangling id-refs, depths consistent, fayan 13→14 |
+| B8 | README/AUDIT counts updated: 11,454 zh chars; "6 corpus texts + 2 matrix rows" phrasing; 30 masters everywhere | grep clean |
+| B9 | Search variant normalization (鉢/缽, 曰/云, 臺/台, 裏/里, 無/无 → canonical + regex marking) | smoke test 4e green |
+| B10 | Stale `docs/scripts/` removed (scripts live at root only) | `git rm -r docs/scripts` |
+
+**Canon-reference integrity pass (CBETA-verified 2026-08-08)** — 10 corpus files + 5 master profiles carried wrong canon IDs (same class of error as the earlier hanshan-T2834 fix):
+
+| File | Was (wrong) | Now (CBETA-verified) |
+|---|---|---|
+| foyan_qingyuan | T1995 (= 法演語錄!) | X1315 古尊宿語錄·佛眼語錄 |
+| mazu_yulu | X1304 / T1985 | X1321 四家語錄卷一 |
+| baizhang_guanglu | T1985 / X1304 | X1323 四家語錄卷三 / X1315 |
+| nanquan_yulu | X1315 / T1985 | X1315 (dropped spurious T1985) |
+| xuansha_yulu | X1310 / T1991 | X1445 玄沙廣錄 / X1446 玄沙語錄 |
+| dazhu_huihai | X1258 / T2076 | X1223 頓悟入道要門論 / X1224 參問語錄 |
+| caoxi_zhuan | X1458 (vol 86) | X1598 曹溪大師別傳 / P.3018 |
+| dahui_shobogenzo | T2002 (= 如淨語錄!) | X1309 大慧正法眼藏 |
+| fayan_yulu | T1991 / X1265 | T1991 / X1226 宗門十規論 |
+| xuefeng_yantou | T1983 / T1985 | X1333 雪峰真覺語錄 / T2076 f.16 |
+| deshan/shitou/dazhu vol | 47 | 51 (T2076 embedded refs) |
+| hanshan/wudeng/niutou vol | 85/80/48 | null (non-Taishō; 續藏冊數 moved to notes) |
+| dahui_hongzhi | T1998A / T2001 | T1998A (unverifiable T2001 dropped) |
+| masters cbeta | mazu T1985/X1304; shitou T1985/T2076; zhaozhou T1985?/T2005; guishan T2007/T2076; yuanwu T2003 | T2076 f.6/X1321 · T2076 f.14/X1565 · T1987/X1315 · T1989/T2076 f.9 · T1997/X1357 |
+
+**Key CBETA evidence (fetched this session)**: T47n1985 臨濟錄 · T47n1998A 大慧語錄 · T47n1995 法演語錄 · T48n2002A 如淨語錄 · T48n2009 少室六門 · T51n2075 歷代法寶記 · X63n1223 · X67n1309 正法眼藏 · X68n1315 古尊宿語錄 (TOC: 南泉語要/佛眼語錄/百丈語錄) · X69n1320-1323 四家語錄 · X69n1333 雪峰 · X69n1354 月林 · X69n1357 圓悟心要 · X73n1445/1446 玄沙 · X80n1565 五燈會元 · X86n1598 曹溪別傳 · 五燈會元卷十九 (守端/法演 chapters, verbatim quotes) · 月林師觀語錄 X1354 opening verse.
+
+### 9.4 — Wumenguan completed: 48/48 cases (same session, 2026-08-08)
+
+The roadmap's first Phase-2 full-text milestone is **done**: `data/corpus/wumenguan.json` now contains **all 48 cases + preface + epilogue** (was 11/48), making Wumenguan the corpus's first complete canonical text.
+
+| Item | Detail |
+|---|---|
+| Classical Chinese | All 48 case texts (dialogue + 無門曰 commentary + 頌 verse) from the CBETA T2005 recension (宗紹編; TOC verified against CBETA Online, incl. the case-37 庭前柏樹 numbering — see correction below) |
+| Verified register | **+40 verified Senzaki & Reps slots** (all 37 previously-missing cases), verbatim vs sacred-texts.com case pages — the 1934 John Murray edition, U.S. public domain via non-renewal; every dialogue unit now carries a ✅ verified quotation |
+| Pinyin | Machine-generated (pypinyin) with a curated 50-entry Buddhist-term override table (迦葉, 乾屎橛, 薄伽梵, 闍梨, 兜率, 應諾…); tone-sandhi disabled for corpus consistency (bù not bú); flagged in provenance as a machine draft |
+| commentary_en / verse_en | Project renderings (automatically labeled "unverified" in the UI); deliberately NO unverified scholar reconstructions on the new cases |
+| Coverage metadata | `coverage_note` + `zh_chars` fields added to wumenguan.json (AUDIT §3.3 recommendation) |
+| Regression | Smoke test now asserts ≥48 case cards render for wumenguan (4g); bundle rebuilt; root↔docs byte-identical |
+
+**Numbering correction (supersedes §9.2/round-8 note)**: CBETA Online's T2005 目次 confirms case 37 = **庭前柏樹** (Zhaozhou's cypress/oak) and case 38 = **牛過窗櫺** — the earlier "T2005 case 37 is Panshan 三界無法" note conflated **Biyanlu case 37** (盤山三界無法) with the Wumenguan. The corpus's existing case 37 was correct all along; the Senzaki/Reps edition prints the cypress case as its no. 38 (they add Amban's verse as no. 49). Provenance round-8 note corrected; both numberings documented in provenance v2.0.
+
+**Verified tally now**: **119 verified quotation slots across 6 corpus texts + 2 verified matrix rows** (was 79). Wumenguan alone: 60 dialogue slots on the original anchors + 40 new = 100 verified slots, every case carrying the PD baseline.
+
+**Remaining Phase-2 work**: Biyanlu 7/100 → complete (next best ROI; note the Senzaki/Reps PD edition does not cover 碧巖錄, but Sekida's *Two Zen Classics* includes Hekiganroku as a partial substrate), then Congronglu, Chuandenglu, yulu completions. Optional round 10: Yamada/Aitken/Sekida/Blyth registers for the new 37 cases (substrates proven fetchable), scholar-register reconstructions for the new cases, gongan_index expansion to cover all 48 cases.
+
+### 9.5 — UX Phases A+B implemented (same session, 2026-08-08; see UX_ROADMAP.md)
+
+"Calm Reader" (A1–A5) + "Mobile-First" (B1–B3) shipped in one pass:
+
+| Item | What landed |
+|---|---|
+| A1 | Sticky case-index chip strip for texts with ≥10 cases (48 chips on Wumenguan; horizontal scroll on mobile); per-case ‹ prev / ⤒ / next › nav footer; `scrollToCase` expands + scrolls |
+| A2 | Collapsible case cards (`＋/−` toggle, `aria-expanded`); **collapsed by default on touch devices** (except case 1); user choices persisted per text in `localStorage` (`translatechan_collapsed_cases`) |
+| A3 | Tooltip DOM **de-duplicated**: occurrences are lean `<span class="term-highlight" data-term-id>` + `title`; content renders once into a single shared `#term-popover` (JS-positioned, flips near viewport edges). Activation: hover, keyboard focus, tap (toggle), Escape closes. Removes ~200 duplicate tooltip nodes from the 48-case page |
+| A4 | Persisted: reader mode, font size (A−/A+), active corpus, pinyin visibility, collapsed states — all restored on boot |
+| A5 | Search debounced 200 ms + results capped at 200 ("narrow your query" note) |
+| B1 | <960 px: sticky sidebar replaced by a corpus `<select>` picker (populated from the same corpusMap) |
+| B2 | Mobile bottom action bar (`<960px`): A−/A+ · mode segmented (雙語/多譯/漢) · 拼 (pinyin toggle) · 📑 (case strip) · ⬆ (top); sticky, translucent |
+| B3 | Translation grid single-column below 960 px; pinyin optional via 拼 toggle (persisted); `data-show-pinyin` CSS hook |
+
+**Files**: `app.js` (state/persistence, popover, collapse, strip, debounce, mobile bar wiring, corpus picker population), `index.html` (picker + bottom bar), `app.css` (popover, strip, collapse, mobile overrides), `scripts/smoke_test.mjs` (debounce-aware `fireSearch`; new checks 4h strip/toggle/nav, 4i no embedded tooltips, 4j picker populated).
+
+**Verification**: `node --check` clean; smoke test green (36 texts × all modes + 48-case render + strip/toggle/nav/picker/popover-DOM checks); bundle deterministic; root↔docs byte-identical; `diff -rq data docs/data` silent. Remaining UX phases: C1 print stylesheet, C2 hash routing, C3 lineage pan/zoom, C4 a11y pass, C5 studio/index polish, D1–D4 performance.
+
+### 9.6 — UX Phase C implemented (same session, 2026-08-08; see UX_ROADMAP.md)
+
+| Item | What landed |
+|---|---|
+| C1 | `@media print` stylesheet: hides nav/hero/sidebar/toolbars/strip/popover/mobile bar; forces expanded case bodies; single-column translations; `break-inside: avoid` on cards; black-on-white. `lang="zh"` added to all 17 `.classical-zh` render templates (screen + print semantics) |
+| C2 | Hash routing: `#/view` + `#/reader/<corpus>`; `init()` restores view+corpus from the hash (deep links & refresh); `hashchange` → `applyHash()`; nav clicks, sidebar/mobile corpus changes, `openCase`/`openDoc` all sync the hash; brand link is now `#/reader` (no more `location.reload()` state loss); back/forward work |
+| C3 | Lineage SVG: content wrapped in a `.lineage-panzoom` group; wheel zoom toward cursor, pointer-drag pan (with grab/grabbing cursor), two-finger pinch on touch (`touch-action: none`); clamped 0.35×–3×; `⟲ Reset View` button; transform preserved across re-renders (school filter) |
+
+Smoke test: location/scrollTo/addEventListener stubs added for the DOM harness; new checks 4k (pan-zoom group + resetLineageView) — suite green; bundle rebuilt; root↔docs byte-identical. Remaining UX: C4 accessibility pass, C5 studio/index polish, D1–D4 performance.
+
+### 9.7 — UX Phase C4/C5 implemented (same session, 2026-08-08; see UX_ROADMAP.md)
+
+| Item | What landed |
+|---|---|
+| C4 a11y | Skip-to-content link; nav tabs `role="tablist"/"tab"` + `aria-selected` synced by JS; `aria-label`s on icon buttons (theme, GitHub, font A−/A+, print) and on every lineage graph node (`role="button"`, `tabindex="0"`, Enter/Space opens dossier); global `:focus-visible` ring using `--border-focus`; **contrast fix**: `--text-muted` light theme `#9c9189 → #756b64` (≈2.8:1 → ≈4.7:1) and dark theme `#736e67 → #8f8980` (≈3.7:1 → ≈5.5:1); `prefers-reduced-motion` disables all animations/transitions + smooth scroll |
+| C5 studio | Passage picker now covers **all 48 Wumenguan cases** (+ Linji/Huangbo/Xinxin/Platform); saved-drafts list gains a **filter box** (title/translation match) and **per-draft ✕ Delete** (`deleteDraft`), sorted by last-modified; new 🖨 Print button in the reader toolbar (ties to the C1 print stylesheet) |
+| C5 index | Gong'an view gains a **theme filter bar** — clickable chips (All + per-theme), active state, re-renders filtered cards |
+
+Smoke test: `print` stub; new checks 4m (studio picker ≥48 passages), 4n (deleteDraft + gongan chips) — suite green; bundle rebuilt; root↔docs byte-identical. **UX roadmap now fully implemented through Phase C (A1–A5, B1–B3, C1–C5)**; remaining: Phase D performance (D1 prebuilt search index, D2 lazy case rendering, D3 optional SW, D4 font delivery).
+
+### 9.8 — UX Phase D implemented (same session, 2026-08-08; see UX_ROADMAP.md) — roadmap complete
+
+| Item | What landed |
+|---|---|
+| D1 | Search-unit index **cached once per session** (`getSearchUnitsIndex()` builds `extractSearchableUnits` for all 36 texts on first search, then per-keystroke filtering runs on cached normalized strings — no more full corpus traversal per keystroke). Refined from the roadmap's "Python inverted index" to avoid duplicating unit semantics in Python and adding ~500 KB to the bundle; documented in the roadmap |
+| D2 | **Lazy case rendering**: first 12 case cards render; "Show more cases — N of 48 · +12" button loads the rest in chunks; the case-chip strip and prev/next nav auto-load the target case (`ensureCaseLoaded`); reader scroll position preserved across loads; load-more button disappears when complete |
+| D3 | Service worker intentionally **skipped** (zero-magic policy; static bundle is browser-cacheable) — documented as out of scope |
+| D4 | `<link rel="preload" href="app_data.js" as="script">` added to head; `font-display: swap` already active |
+
+Smoke test: stub gains `getBoundingClientRect`; 4g rewritten for lazy rendering (48 chips in strip; exactly 12 case cards initially; `loadMoreCases()` ×3 → 48; button gone) — suite green; bundle deterministic; root↔docs byte-identical. **UX roadmap 100% implemented** (Phases A–D, D3 deliberately excluded). Remaining project work per ROADMAP.md: Phase 2 corpus completion (Biyanlu 7/100 next), verification round 10, PR to main.

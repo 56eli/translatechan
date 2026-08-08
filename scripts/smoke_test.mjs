@@ -34,6 +34,7 @@ class StubElement {
   getAttribute() { return null; }
   scrollIntoView() {}
   click() {}
+  getBoundingClientRect() { return { top: 0, left: 0, right: 900, bottom: 0, width: 900, height: 0 }; }
   querySelectorAll(sel) {
     // Parse corpus buttons out of assigned HTML so we can simulate clicks
     if (sel === '.corpus-btn' && this._innerHTML.includes('data-corpus-key')) {
@@ -52,6 +53,10 @@ const corpusClicks = {};
 const modeHandlers = [];
 const ids = {};
 globalThis.window = globalThis;
+globalThis.location = { hash: '', href: 'http://localhost/index.html', protocol: 'http:', host: 'localhost' };
+globalThis.addEventListener = () => {};
+globalThis.scrollTo = () => {};
+globalThis.print = () => {};
 
 globalThis.document = {
   readyState: 'complete',
@@ -61,7 +66,7 @@ globalThis.document = {
   querySelectorAll(sel) {
     if (sel === '[data-reader-mode]') {
       if (modeHandlers.length === 0) {
-        for (const mode of ['bilingual', 'stacked', 'chinese_only', 'multi_translators']) {
+        for (const mode of ['bilingual', 'chinese_only', 'multi_translators']) {
           modeHandlers.push({
             getAttribute: () => mode,
             classList: { add() {}, remove() {} },
@@ -98,10 +103,15 @@ for (const h of modeHandlers) {
   try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute()} crash: ${e.message}`); }
 }
 
-// 3. Exercise global search with several queries
+// 3. Exercise global search with several queries (search is debounced ~200ms — await it)
 const searchEl = ids['global-search'];
+const sleep = ms => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+const fireSearch = (q) => {
+  (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } }));
+  sleep(260);
+};
 for (const q of ['dog', '無', 'buddha', '平常心', 'xyz-not-found']) {
-  try { (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } })); }
+  try { fireSearch(q); }
   catch (e) { failures++; console.log(`  ❌ search crash for "${q}": ${e.message}`); }
 }
 
@@ -121,7 +131,7 @@ const schemaQueries = [
 ];
 for (const [q, label] of schemaQueries) {
   try {
-    (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } }));
+    fireSearch(q);
     const html = ids['reader-content-target']._innerHTML;
     if (html.includes('No matches found')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
   } catch (e) { failures++; console.log(`❌ full-schema search crash "${q}": ${e.message}`); }
@@ -138,8 +148,55 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
   // stub stores dataset via plain property; app sets dataset.mode — check direct assignment happened
   if (!('mode' in (ids['reader-content-target'].dataset || {}))) failures++; console.log('❌ reader data-mode not set');
 }
+// 4g. Wumenguan lazy rendering: 48 chips in the strip, 12 case cards initially,
+// then loadMoreCases() reveals the rest (Phase D2)
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+const wmStripChips = (ids['reader-content-target']._innerHTML.match(/data-jump-case=/g) || []).length;
+if (wmStripChips !== 48) { failures++; console.log(`❌ case strip has ${wmStripChips} chips (expected 48)`); }
+let wmCaseCount = (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length;
+if (wmCaseCount !== 12) { failures++; console.log(`❌ initial lazy render shows ${wmCaseCount} cases (expected 12)`); }
+if (!ids['reader-content-target']._innerHTML.includes('case-load-more-btn')) { failures++; console.log('❌ load-more button missing'); }
+try { window.TranslateChan.loadMoreCases(); window.TranslateChan.loadMoreCases(); window.TranslateChan.loadMoreCases(); }
+catch (e) { failures++; console.log(`❌ loadMoreCases crashed: ${e.message}`); }
+wmCaseCount = (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length;
+if (wmCaseCount !== 48) { failures++; console.log(`❌ after load-more: ${wmCaseCount} cases (expected 48)`); }
+if (ids['reader-content-target']._innerHTML.includes('case-load-more-btn')) { failures++; console.log('❌ load-more button still present after all cases loaded'); }
+// 4h. Case index strip + collapsible case cards + per-case nav footer (Calm Reader)
+const wmHtml = ids['reader-content-target']._innerHTML;
+if (!wmHtml.includes('case-jump-strip')) { failures++; console.log('❌ case index strip missing'); }
+if (!wmHtml.includes('case-toggle')) { failures++; console.log('❌ case collapse toggle missing'); }
+if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case prev/next nav missing'); }
+// 4i. Tooltip DOM is de-duplicated: no embedded .term-tooltip nodes remain in reader output
+if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded tooltip markup still emitted (de-dup regression)'); }
+// 4j. Mobile corpus picker is populated (mirrors the sidebar)
+const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
+if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }
+// 4k. Lineage graph: pan/zoom group + reset controller present
+const svgHtml = ids['lineage-svg-graph']._innerHTML;
+if (!svgHtml.includes('lineage-panzoom')) { failures++; console.log('❌ lineage pan/zoom group missing'); }
+if (typeof window.TranslateChan.resetLineageView !== 'function') { failures++; console.log('❌ lineage reset view missing'); }
+// 4l. Hash routing: initial deep-link state + viewHash helper
+if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.log('❌ openDoc missing (hash routing depends on it)'); }
+// 4m. Studio passage picker covers all 48 Wumenguan cases (C5)
+const studioOptionCount = (ids['studio-select-text']._innerHTML.match(/<option/g) || []).length;
+if (studioOptionCount < 48) { failures++; console.log(`❌ studio picker has only ${studioOptionCount} passages (expected >= 48)`); }
+// 4n. Gong'an filter chips + draft delete helper (C5)
+if (typeof window.TranslateChan.deleteDraft !== 'function') { failures++; console.log('❌ deleteDraft missing'); }
+const gonganHtml = ids['gongan-content-target']._innerHTML;
+if (!gonganHtml.includes('gongan-filter-chip')) { failures++; console.log('❌ gongan filter chips missing'); }
+// 4e. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
+for (const q of ['鉢', '曰']) {
+  fireSearch(q);
+  const html = ids['reader-content-target']._innerHTML;
+  if (html.includes('No matches found')) { failures++; console.log(`❌ variant search missed results for "${q}"`); }
+}
+// 4f. Search query must be HTML-escaped (self-XSS guard)
+fireSearch('<b>x');
+const searchHtml = ids['reader-content-target']._innerHTML;
+if (searchHtml.includes('<b>x') && !searchHtml.includes('&lt;b&gt;x')) { failures++; console.log('❌ search query not escaped'); }
+if (searchHtml.includes('<mark><b>')) { failures++; console.log('❌ search mark injection'); }
 // clear search
-(searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
+fireSearch('');
 
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();

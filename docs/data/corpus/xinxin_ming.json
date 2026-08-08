@@ -20,7 +20,16 @@
         "suzuki": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
         "blyth": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
         "sasaki": "The supreme Way is not difficult, only dislike choosing. Just have neither hatred nor love, and all will be lucid and clear.",
-        "ai_literal": "The ultimate Way is without difficulty, only detesting picking and choosing. Simply do not hate or love, and it is penetratively clear."
+        "ai_literal": "The ultimate Way is without difficulty, only detesting picking and choosing. Simply do not hate or love, and it is penetratively clear.",
+        "clarke": {
+          "text": "The Great Way is not difficult for those who have no preferences. When love and hate are both absent everything becomes clear and undisguised.",
+          "status": "verified_quotation",
+          "source": {
+            "work": "Hsin-Hsin Ming: Verses on the Faith-Mind, tr. Richard B. Clarke (1973, White Wind Press)",
+            "edition": "widely mirrored online text",
+            "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08"
+          }
+        }
       }
     },
     {
@@ -33,20 +42,30 @@
         "suzuki": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth, then hold no opinions for or against anything.",
         "blyth": "To set up what you like against what you dislike is the disease of the mind. A hair's breadth divergence separates heaven and earth.",
         "sasaki": "An error by a hair's breadth separates heaven and earth. If you wish it to manifest, keep no clinging to pleasant or unpleasant.",
-        "ai_literal": "A millimeter's deviation separates heaven and earth. If wishing it to manifest, maintain neither agreeable nor contrary."
+        "ai_literal": "A millimeter's deviation separates heaven and earth. If wishing it to manifest, maintain neither agreeable nor contrary.",
+        "clarke": {
+          "text": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth then hold no opinions for or against anything.",
+          "status": "verified_quotation",
+          "source": {
+            "work": "Hsin-Hsin Ming: Verses on the Faith-Mind, tr. Richard B. Clarke (1973, White Wind Press)",
+            "edition": "widely mirrored online text",
+            "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08"
+          }
+        }
       }
     },
     {
       "stanza_num": 3,
-      "zh": "違順相爭，是為心病。不生留情，本來平坦。",
-      "pinyin": "Wéi shùn xiāng zhēng, shì wéi xīn bìng. Bù shēng liú qíng, běn lái píng tǎn.",
+      "zh": "違順相爭，是為心病。不識玄旨，徒勞念靜。",
+      "pinyin": "Wéi shùn xiāngzhēng, shì wéi xīnbìng. Bù shí xuán zhǐ, túláo niàn jìng.",
       "translations": {
         "red_pine": "The battle between for and against is the mind's disease. Not harboring emotional bias, all is naturally smooth and level.",
         "cleary": "The struggle between opposition and agreement is the disease of the mind. When you do not generate clinging feelings, it is fundamentally level and smooth.",
         "suzuki": "To set up what you like against what you dislike is the disease of the mind. When the deep meaning of things is not understood, the mind's essential peace is disturbed.",
         "sasaki": "The conflict between agreeable and disagreeable is the sickness of the mind. Without lingering emotional attachment, everything is inherently open and level.",
         "ai_literal": "Disagreement and agreement contending with each other is the mind's disease. Not generating lingering attachments, it is originally smooth and level."
-      }
+      },
+      "zh_correction": "Second couplet corrected to canonical T2010 reading (previous text 不生留情，本來平坦 was a non-canonical paraphrase). 2026-08-08."
     },
     {
       "stanza_num": 4,

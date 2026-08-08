@@ -3,8 +3,7 @@
   "title_zh": "池州南泉普願禪師語錄",
   "title_pinyin": "Chízhōu Nánquán Pǔyuàn Chánshī Yǔlù",
   "title_en": "The Recorded Sayings of Chan Master Nanquan Puyuan",
-  "cbeta_id": "X1315 / T1985",
-  "taisho_vol": 47,
+  "cbeta_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
   "author_zh": "唐 池州 南泉普願 禪師 說 (馬祖法嗣)",
   "author_en": "Chan Master Nanquan Puyuan (748–835 CE), Teacher of Zhaozhou Congshen",
   "era": "High Tang Dynasty",
@@ -95,5 +94,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: dropped spurious '/T1985' pairing — T1985 is strictly the Record of Linji. Nanquan's record is 古尊宿語錄 (X68n1315, 卍續藏第68冊)."
 }

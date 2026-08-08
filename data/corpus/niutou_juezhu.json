@@ -4,7 +4,6 @@
   "title_pinyin": "Niútóu Fǎróng Chánshī Juéguān Lùn",
   "title_en": "Treatise on the Transcendence of Cognition (Juezhu Lun)",
   "cbeta_id": "Dunhuang P.2885 / S.5619",
-  "taisho_vol": 48,
   "author_zh": "牛頭山 法融 禪師 (594–657 CE)",
   "author_en": "Chan Master Niutou Farong, Founder of the Oxhead (Niutou) School",
   "era": "Early Tang Dynasty (7th Century)",
@@ -85,5 +84,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Volume removed 2026-08-08: 絕觀論 survives as Dunhuang manuscripts (P.2885, S.5619) — no Taishō volume."
 }

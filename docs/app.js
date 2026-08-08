@@ -7,17 +7,48 @@
   'use strict';
 
   // Application State
+  const TOUCH_DEVICE = typeof window.matchMedia === 'function' && window.matchMedia('(hover: none)').matches;
+  const READER_MODES = ['bilingual', 'chinese_only', 'multi_translators'];
   const state = {
     data: window.TRANSLATECHAN_DATA || {},
     currentView: 'reader',
-    currentCorpusKey: 'wumenguan',
-    readerMode: 'bilingual', // 'bilingual', 'stacked', 'chinese_only', 'multi_translators'
+    currentCorpusKey: (() => {
+      try {
+        const k = localStorage.getItem('translatechan_corpus_key');
+        return k && window.TRANSLATECHAN_DATA && window.TRANSLATECHAN_DATA.corpus && window.TRANSLATECHAN_DATA.corpus[k] ? k : 'wumenguan';
+      } catch (e) { return 'wumenguan'; }
+    })(),
+    readerMode: (() => {
+      try {
+        const m = localStorage.getItem('translatechan_reader_mode');
+        return READER_MODES.includes(m) ? m : 'bilingual';
+      } catch (e) { return 'bilingual'; }
+    })(),
+    showPinyin: (() => {
+      try { return localStorage.getItem('translatechan_show_pinyin') !== '0'; }
+      catch (e) { return true; }
+    })(),
+    fontSize: (() => {
+      try {
+        const v = parseFloat(localStorage.getItem('translatechan_font_size'));
+        return (v >= 1.0 && v <= 2.2) ? v : 1.35;
+      } catch (e) { return 1.35; }
+    })(),
+    collapsedCases: (() => {
+      try { return JSON.parse(localStorage.getItem('translatechan_collapsed_cases') || '{}') || {}; }
+      catch (e) { return {}; }
+    })(),
     theme: localStorage.getItem('translatechan_theme') || 'light',
     searchQuery: '',
     selectedMasterSchool: 'all',
     selectedLexiconCategory: 'all',
+    gonganThemeFilter: null,
+    caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
     selectedStudioRefTranslator: 'red_pine',
-    personalTranslations: JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}')
+    personalTranslations: (() => {
+      try { return JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}') || {}; }
+      catch (e) { return {}; } // corrupted storage must not blank the app
+    })()
   };
 
   // DOM Elements
@@ -61,8 +92,15 @@
 
   // Initialize
   function init() {
+    // Initial URL state (#/view/corpus) — deep links & refresh restore position
+    const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
+    if (m && VALID_VIEWS.includes(m[1])) state.currentView = m[1];
+    if (m && m[2] && state.data.corpus && state.data.corpus[m[2]]) state.currentCorpusKey = m[2];
+
     applyTheme(state.theme);
+    document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
     setupEventListeners();
+    applyPinyinVisibility();
     renderCorpusList();
     renderReader();
     renderMatrix();
@@ -70,6 +108,118 @@
     renderGonganIndex();
     renderLexicon();
     setupStudio();
+    setActiveModeButtons();
+    switchViewRaw(state.currentView); // sync nav/section classes with the initial hash
+  }
+
+  // Reader mode switching (shared by sidebar + mobile bar, persisted)
+  function setReaderMode(mode) {
+    if (!READER_MODES.includes(mode)) return;
+    state.readerMode = mode;
+    try { localStorage.setItem('translatechan_reader_mode', mode); } catch (e) { /* ignore */ }
+    setActiveModeButtons();
+    renderReader();
+  }
+
+  function setActiveModeButtons() {
+    document.querySelectorAll('[data-reader-mode]').forEach(b => {
+      const on = b.getAttribute('data-reader-mode') === state.readerMode;
+      if (on) b.classList.add('active'); else b.classList.remove('active');
+    });
+  }
+
+  // Pinyin visibility (mobile-friendly; desktop default on)
+  function applyPinyinVisibility() {
+    if (!elements.readerContent) return;
+    elements.readerContent.dataset.showPinyin = state.showPinyin ? '1' : '0';
+    const btn = document.getElementById('mobile-pinyin-btn');
+    if (btn) { state.showPinyin ? btn.classList.add('active') : btn.classList.remove('active'); }
+  }
+
+  // ---- Shared glossary popover (one node, positioned; hover/focus/tap) ----
+  let termPopoverEl = null;
+  function getTermPopover() {
+    if (!termPopoverEl) {
+      termPopoverEl = document.createElement('div');
+      termPopoverEl.id = 'term-popover';
+      termPopoverEl.className = 'term-popover';
+      termPopoverEl.style.display = 'none';
+      document.body.appendChild(termPopoverEl);
+    }
+    return termPopoverEl;
+  }
+  function termById(id) {
+    const list = state.data.glossary || [];
+    return list.find(t => t && t.id === id) || null;
+  }
+  function showTermPopover(termSpan) {
+    if (!termSpan || typeof termSpan.getBoundingClientRect !== 'function') return;
+    const t = termById(termSpan.getAttribute('data-term-id'));
+    if (!t) return;
+    const pop = getTermPopover();
+    pop.innerHTML =
+      `<div class="tooltip-term-title">${t.term} (${t.pinyin || '—'})</div>` +
+      `<div class="tooltip-sanskrit">Sanskrit: ${t.sanskrit || '—'}</div>` +
+      `<div class="tooltip-row"><strong>Literal:</strong> ${t.literal || ''}</div>` +
+      `<div class="tooltip-row">${t.definition || ''}</div>`;
+    const rect = termSpan.getBoundingClientRect();
+    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
+    const popW = 290;
+    let left = Math.min(rect.left, vw - popW - 8);
+    if (left < 8) left = 8;
+    pop.style.left = `${left}px`;
+    pop.style.top = `${rect.bottom + 8}px`;
+    if (pop.style.top && rect.bottom + 8 + 160 > (window.innerHeight || 800)) {
+      pop.style.top = `${Math.max(8, rect.top - 8 - 150)}px`; // flip above
+    }
+    pop.style.display = 'block';
+  }
+  function hideTermPopover() {
+    if (termPopoverEl) termPopoverEl.style.display = 'none';
+  }
+  function toggleTermPopover(termSpan) {
+    if (termPopoverEl && termPopoverEl.style.display === 'block' &&
+        termPopoverEl._anchor === termSpan) {
+      hideTermPopover();
+      return;
+    }
+    showTermPopover(termSpan);
+    if (termPopoverEl) termPopoverEl._anchor = termSpan;
+  }
+
+  // ---- Collapsible case cards (touch defaults to collapsed) ----
+  // collapsedCases[corpusKey] = { caseNum: true|false } — explicit user choices
+  // only; unlisted cases fall back to the device default (collapsed on touch).
+  function caseCollapsedKey() { return state.currentCorpusKey; }
+  function caseCollapsedState(num, fallback) {
+    const m = state.collapsedCases[caseCollapsedKey()];
+    return (m && typeof m === 'object' && num in m) ? !!m[num] : !!fallback;
+  }
+  function setCaseCollapsed(num, collapsed) {
+    const key = caseCollapsedKey();
+    let m = state.collapsedCases[key];
+    if (!m || typeof m !== 'object') m = {};
+    m[num] = !!collapsed;
+    state.collapsedCases[key] = m;
+    try { localStorage.setItem('translatechan_collapsed_cases', JSON.stringify(state.collapsedCases)); } catch (e) { /* ignore */ }
+  }
+  function toggleCase(toggleBtn) {
+    const card = toggleBtn.closest ? toggleBtn.closest('.case-card') : null;
+    if (!card) return;
+    const num = parseInt(toggleBtn.getAttribute('data-case-toggle'), 10);
+    const collapsed = !card.classList.contains('collapsed');
+    card.classList.toggle('collapsed', collapsed);
+    toggleBtn.textContent = collapsed ? '＋' : '−';
+    toggleBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    if (!Number.isNaN(num)) setCaseCollapsed(num, collapsed);
+  }
+  function expandCase(num) {
+    const el = document.getElementById(`case-${num}`);
+    if (!el) return;
+    el.classList.remove('collapsed');
+    const toggle = el.querySelector('.case-toggle');
+    if (toggle) { toggle.textContent = '−'; toggle.setAttribute('aria-expanded', 'true'); }
+    if (!Number.isNaN(num)) setCaseCollapsed(num, false);
   }
 
   // Theme Management
@@ -97,42 +247,101 @@
       });
     });
 
+    // URL hash drives view + reader corpus (back/forward, deep links)
+    window.addEventListener('hashchange', applyHash);
+
     elements.readerModeButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        elements.readerModeButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        state.readerMode = btn.getAttribute('data-reader-mode');
-        renderReader();
+        setReaderMode(btn.getAttribute('data-reader-mode'));
       });
     });
 
     if (elements.globalSearch) {
+      let searchTimer = null;
       elements.globalSearch.addEventListener('input', (e) => {
         state.searchQuery = e.target.value.trim().toLowerCase();
-        handleGlobalSearch();
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(handleGlobalSearch, 200); // debounce: full-corpus walk per keystroke is heavy
       });
     }
 
-    // Reading font size adjusters
+    // Reading font size adjusters (persisted)
     const fontIncBtn = document.getElementById('font-size-inc-btn');
     const fontDecBtn = document.getElementById('font-size-dec-btn');
-    let currentFontSize = 1.35;
+    const fontIncBtnMobile = document.getElementById('mobile-font-inc-btn');
+    const fontDecBtnMobile = document.getElementById('mobile-font-dec-btn');
 
-    if (fontIncBtn && fontDecBtn) {
-      fontIncBtn.addEventListener('click', () => {
-        if (currentFontSize < 2.2) {
-          currentFontSize += 0.15;
-          document.documentElement.style.setProperty('--zh-font-size', `${currentFontSize}rem`);
-        }
-      });
-      fontDecBtn.addEventListener('click', () => {
-        if (currentFontSize > 1.0) {
-          currentFontSize -= 0.15;
-          document.documentElement.style.setProperty('--zh-font-size', `${currentFontSize}rem`);
-        }
+    function changeFontSize(delta) {
+      const next = Math.min(2.2, Math.max(1.0, Math.round((state.fontSize + delta) * 100) / 100));
+      if (next === state.fontSize) return;
+      state.fontSize = next;
+      document.documentElement.style.setProperty('--zh-font-size', `${next}rem`);
+      try { localStorage.setItem('translatechan_font_size', String(next)); } catch (e) { /* private mode */ }
+    }
+    if (fontIncBtn) fontIncBtn.addEventListener('click', () => changeFontSize(0.15));
+    if (fontDecBtn) fontDecBtn.addEventListener('click', () => changeFontSize(-0.15));
+    if (fontIncBtnMobile) fontIncBtnMobile.addEventListener('click', () => changeFontSize(0.15));
+    if (fontDecBtnMobile) fontDecBtnMobile.addEventListener('click', () => changeFontSize(-0.15));
+
+    // Mobile corpus picker
+    const mobileCorpusSelect = document.getElementById('corpus-mobile-select');
+    if (mobileCorpusSelect) {
+      mobileCorpusSelect.addEventListener('change', (e) => {
+        state.currentCorpusKey = e.target.value;
+        renderCorpusList();
+        renderReader();
+        const t = viewHash('reader', state.currentCorpusKey);
+        if (location.hash !== t) { try { location.hash = t; } catch (err) { /* ignore */ } }
       });
     }
 
+    const readerPrintBtn = document.getElementById('reader-print-btn');
+    if (readerPrintBtn) readerPrintBtn.addEventListener('click', () => { try { window.print(); } catch (e) { /* ignore */ } });
+
+    // Mobile bottom-bar: case index, scroll to top, pinyin toggle
+    const mobileCasesBtn = document.getElementById('mobile-cases-btn');
+    if (mobileCasesBtn) {
+      mobileCasesBtn.addEventListener('click', () => {
+        const strip = document.getElementById('case-jump-strip');
+        if (strip) strip.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+    const mobileTopBtn = document.getElementById('mobile-top-btn');
+    if (mobileTopBtn) mobileTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const mobilePinyinBtn = document.getElementById('mobile-pinyin-btn');
+    if (mobilePinyinBtn) {
+      mobilePinyinBtn.addEventListener('click', () => {
+        state.showPinyin = !state.showPinyin;
+        try { localStorage.setItem('translatechan_show_pinyin', state.showPinyin ? '1' : '0'); } catch (e) { /* ignore */ }
+        applyPinyinVisibility();
+      });
+    }
+
+    // Shared glossary popover (hover / focus / tap) — delegated
+    const readerRoot = elements.readerContent;
+    if (readerRoot) {
+      readerRoot.addEventListener('mouseover', (e) => {
+        const t = e.target.closest ? e.target.closest('.term-highlight') : null;
+        if (t) showTermPopover(t);
+      });
+      readerRoot.addEventListener('mouseout', (e) => {
+        const t = e.target.closest ? e.target.closest('.term-highlight') : null;
+        if (t && !t.contains(e.relatedTarget)) hideTermPopover();
+      });
+      readerRoot.addEventListener('click', (e) => {
+        const t = e.target.closest ? e.target.closest('.term-highlight') : null;
+        if (t) { e.preventDefault(); toggleTermPopover(t); return; }
+        const toggle = e.target.closest ? e.target.closest('.case-toggle') : null;
+        if (toggle) { toggleCase(toggle); return; }
+        hideTermPopover();
+      });
+      readerRoot.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') hideTermPopover();
+      });
+    }
+
+    // Lineage school filter
     if (elements.lineageFilter) {
       elements.lineageFilter.addEventListener('change', (e) => {
         state.selectedMasterSchool = e.target.value;
@@ -161,16 +370,37 @@
         cardsContainer.style.display = 'grid';
       });
     }
+
+    const lineageResetBtn = document.getElementById('lineage-reset-btn');
+    if (lineageResetBtn) {
+      lineageResetBtn.addEventListener('click', () => {
+        if (typeof window.TranslateChan.resetLineageView === 'function') window.TranslateChan.resetLineageView();
+      });
+    }
   }
 
-  // View Switcher
+  // View Switcher (updates DOM + URL hash so back/forward and deep links work)
+  const VALID_VIEWS = ['reader', 'matrix', 'lineage', 'gongan', 'lexicon', 'studio', 'agents'];
+  function viewHash(view, corpusKey) {
+    return `#/${view}${(view === 'reader' && corpusKey) ? '/' + corpusKey : ''}`;
+  }
   function switchView(viewName) {
+    switchViewRaw(viewName);
+    const target = viewHash(viewName, state.currentCorpusKey);
+    if (location.hash !== target) {
+      try { location.hash = target; } catch (e) { /* file:// edge cases */ }
+    }
+  }
+  function switchViewRaw(viewName) {
+    if (!VALID_VIEWS.includes(viewName)) return;
     state.currentView = viewName;
     elements.navTabs.forEach(tab => {
       if (tab.getAttribute('data-view') === viewName) {
         tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
       } else {
         tab.classList.remove('active');
+        tab.setAttribute('aria-selected', 'false');
       }
     });
 
@@ -184,10 +414,28 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Annotate text with glossary tooltips (single-pass: no nested/duplicated highlights)
+  // Apply the URL hash to app state (view + reader corpus); no re-render loop.
+  function applyHash() {
+    const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
+    const view = m && VALID_VIEWS.includes(m[1]) ? m[1] : 'reader';
+    if (view !== state.currentView) switchViewRaw(view);
+    if (view === 'reader') {
+      const key = m && m[2] ? m[2] : state.currentCorpusKey;
+      if (state.data.corpus && state.data.corpus[key] && key !== state.currentCorpusKey) {
+        state.currentCorpusKey = key;
+        renderCorpusList();
+        renderReader();
+      }
+    }
+  }
+
+  // Annotate text with glossary markers (single-pass, no nested highlights).
+  // Tooltip CONTENT is emitted ONCE into a shared popover on demand (see
+  // showTermPopover) — occurrence spans carry only `data-term-id`, which keeps
+  // the DOM lean (previously every 無 occurrence inlined the full definition).
   function annotateClassicalChinese(text) {
     if (!text || !state.data.glossary || !Array.isArray(state.data.glossary)) return text;
-    const terms = state.data.glossary.filter(t => t && t.term && text.includes(t.term));
+    const terms = state.data.glossary.filter(t => t && t.term && t.id && text.includes(t.term));
     if (terms.length === 0) return text;
 
     // Collect every match span of every term, longest terms winning overlaps
@@ -208,12 +456,8 @@
       if (m.start < pos) return; // skip overlaps with an already-emitted longer/earlier match
       const t = m.termObj;
       out += text.slice(pos, m.start);
-      out += `<span class="term-highlight">${t.term}<span class="term-tooltip">` +
-             `<span class="tooltip-term-title">${t.term} (${t.pinyin || '—'})</span>` +
-             `<span class="tooltip-sanskrit">Sanskrit: ${t.sanskrit || '—'}</span>` +
-             `<span class="tooltip-row"><strong>Literal:</strong> ${t.literal || ''}</span>` +
-             `<span class="tooltip-row" style="margin-top: 0.35rem;">${t.definition || ''}</span>` +
-             `</span></span>`;
+      out += `<span class="term-highlight" data-term-id="${t.id}" tabindex="0" ` +
+             `title="${(t.term) + ' — ' + (t.literal || '')}">${t.term}</span>`;
       pos = m.end;
     });
     out += text.slice(pos);
@@ -244,21 +488,21 @@
       { key: 'bodhidharma_erru', title: 'Bodhidharma Erru Sixing (二入四行論)', cbeta: 'T2009' },
       { key: 'niutou_juezhu', title: 'Niutou Farong Juezhu Lun (絕觀論)', cbeta: 'P.2885' },
       { key: 'lidai_fabao_ji', title: 'Lidai Fabao Ji (歷代法寶記)', cbeta: 'T2075' },
-      { key: 'dazhu_huihai', title: 'Dazhu Huihai Dunwu Yaomen (頓悟入道要門)', cbeta: 'X1258' },
-      { key: 'baizhang_guanglu', title: 'Baizhang Guanglu (百丈廣錄三句)', cbeta: 'X1304' },
-      { key: 'foyan_qingyuan', title: 'Foyan Qingyuan Instant Zen (佛眼坐禪銘)', cbeta: 'T1995' },
-      { key: 'dahui_shobogenzo', title: 'Dahui Shobogenzo (大慧正法眼藏)', cbeta: 'T2002' },
-      { key: 'mazu_yulu', title: 'Mazu Daoyi Yulu (江西馬祖語錄)', cbeta: 'X1304' },
+      { key: 'dazhu_huihai', title: 'Dazhu Huihai Dunwu Yaomen (頓悟入道要門)', cbeta: 'X1223' },
+      { key: 'baizhang_guanglu', title: 'Baizhang Guanglu (百丈廣錄三句)', cbeta: 'X1323' },
+      { key: 'foyan_qingyuan', title: 'Foyan Qingyuan Instant Zen (佛眼坐禪銘)', cbeta: 'X1315' },
+      { key: 'dahui_shobogenzo', title: 'Dahui Shobogenzo (大慧正法眼藏)', cbeta: 'X1309' },
+      { key: 'mazu_yulu', title: 'Mazu Daoyi Yulu (江西馬祖語錄)', cbeta: 'X1321' },
       { key: 'nanquan_yulu', title: 'Nanquan Puyuan Yulu (南泉普願語錄)', cbeta: 'X1315' },
       { key: 'deshan_yulu', title: 'Deshan Xuanjian Yulu (德山宣鑑語錄)', cbeta: 'T2076/X1565' },
-      { key: 'xuefeng_yantou', title: 'Xuefeng & Yantou Yulu (雪峰巖頭語錄)', cbeta: 'T1983' },
+      { key: 'xuefeng_yantou', title: 'Xuefeng & Yantou Yulu (雪峰巖頭語錄)', cbeta: 'X1333' },
       { key: 'congronglu_cases', title: 'Book of Serenity (從容庵錄)', cbeta: 'T2004' },
       { key: 'wudeng_huiyuan', title: 'Compendium of Five Lamps (五燈會元)', cbeta: 'X1565' },
       { key: 'sengzhao_zhaolun', title: 'Sengzhao Zhao Lun (僧肇肇論)', cbeta: 'T1858' },
       { key: 'hanshan_poems', title: 'Hanshan Cold Mountain Poems (寒山詩集)', cbeta: 'SBCK/Zoku' },
       { key: 'huangbo_wanling', title: 'Huangbo Wanling Lu (黃檗宛陵錄)', cbeta: 'T2012B' },
-      { key: 'xuansha_yulu', title: 'Xuansha Shibei Yulu (玄沙宗一語錄)', cbeta: 'X1310' },
-      { key: 'caoxi_zhuan', title: 'Caoxi Dashi Biezhuan (曹溪大師別傳)', cbeta: 'X1458' },
+      { key: 'xuansha_yulu', title: 'Xuansha Shibei Yulu (玄沙宗一語錄)', cbeta: 'X1445' },
+      { key: 'caoxi_zhuan', title: 'Caoxi Dashi Biezhuan (曹溪大師別傳)', cbeta: 'X1598' },
       { key: 'yuanwu_letters', title: 'Yuanwu Zen Letters (圓悟克勤心要)', cbeta: 'X1357' }
     ];
 
@@ -274,31 +518,51 @@
         state.currentCorpusKey = btn.getAttribute('data-corpus-key');
         renderCorpusList();
         renderReader();
+        const t = viewHash('reader', state.currentCorpusKey);
+        if (location.hash !== t) { try { location.hash = t; } catch (e) { /* ignore */ } }
       });
     });
+
+    // Mobile corpus picker mirrors the sidebar list (hidden on desktop)
+    const mobileSelect = document.getElementById('corpus-mobile-select');
+    if (mobileSelect) {
+      mobileSelect.innerHTML = corpusMap.map(c => `
+        <option value="${c.key}" ${c.key === state.currentCorpusKey ? 'selected' : ''}>${c.title} — ${c.cbeta}</option>
+      `).join('');
+    }
   }
 
   // Render Reader View
   function renderReader() {
     if (!elements.readerContent || !state.data.corpus) return;
     elements.readerContent.dataset.mode = state.readerMode; // drives chinese_only CSS hiding of pinyin/translations
+    applyPinyinVisibility(); // dataset.showPinyin drives mobile pinyin hiding
     const doc = state.data.corpus[state.currentCorpusKey];
     if (!doc) {
       elements.readerContent.innerHTML = '<p>Corpus document loading...</p>';
       return;
     }
 
+    // Case index strip for long case-based texts (e.g. Wumenguan 48/48)
+    const caseStrip = (Array.isArray(doc.cases) && doc.cases.length >= 10)
+      ? `<div class="case-jump-strip" id="case-jump-strip" aria-label="Case index">
+           <span class="case-strip-label">📑 則 / Case</span>
+           ${doc.cases.map(c => `<button class="case-chip" data-jump-case="${c.case_num}" title="第${c.case_num}則 ${c.title_zh || ''}" onclick="window.TranslateChan.scrollToCase(${c.case_num})">${c.case_num}</button>`).join('')}
+         </div>`
+      : '';
+
     let html = `
       <div class="text-header">
         <div class="text-title-zh">${doc.title_zh}</div>
         <div class="text-title-en">${doc.title_en} (${doc.title_pinyin})</div>
         <div class="text-meta-chips">
-          <span class="meta-chip">📜 Canon: ${doc.cbeta_id || 'Taisho'} (Vol. ${doc.taisho_vol || 48})</span>
+          <span class="meta-chip">📜 Canon: ${doc.cbeta_id || 'Taisho'}${(/T\d{4}/.test(doc.cbeta_id || '') && doc.taisho_vol) ? ` (Vol. ${doc.taisho_vol})` : ''}</span>
           <span class="meta-chip">✍️ Master/Author: ${doc.author_zh || ''}</span>
           <span class="meta-chip">⏳ Era: ${doc.era || ''}</span>
           <span class="meta-chip">🏷️ Genre: ${doc.genre || ''}</span>
         </div>
       </div>
+      ${caseStrip}
     `;
 
     // Render Preface if exists
@@ -308,7 +572,7 @@
           <div class="case-header">
             <span class="case-num-title">序言 / Preface</span>
           </div>
-          <div class="classical-zh">${annotateClassicalChinese(doc.preface.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.preface.zh)}</div>
           <div class="pinyin-line">${doc.preface.pinyin}</div>
           <div class="translation-grid">
             <div class="translation-col">
@@ -336,7 +600,7 @@
           <div class="case-header">
             <span class="case-num-title">後序與結頌 / Wumen's Epilogue & Gatha</span>
           </div>
-          <div class="classical-zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
           <div class="pinyin-line">${doc.epilogue.pinyin}</div>
           <div class="translation-grid">
             <div class="translation-col">
@@ -358,9 +622,21 @@
     }
 
     if (doc.cases && doc.cases.length > 0) {
-      doc.cases.forEach(caseItem => {
-        html += renderCaseItem(caseItem);
+      const total = doc.cases.length;
+      const CASE_CHUNK = 12;
+      const limit = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
+      doc.cases.slice(0, limit).forEach((caseItem, i) => {
+        html += renderCaseItem(caseItem, i, total);
       });
+      if (limit < total) {
+        const remaining = total - limit;
+        html += `
+          <div style="text-align: center; margin: 1.5rem 0;">
+            <button id="case-load-more-btn" class="btn-primary" onclick="window.TranslateChan.loadMoreCases()" aria-label="Show more cases">
+              Show more cases — ${limit} of ${total} · +${Math.min(CASE_CHUNK, remaining)}
+            </button>
+          </div>`;
+      }
     }
 
     if (doc.sections && doc.sections.length > 0) {
@@ -398,12 +674,12 @@
               <span class="case-num-title">第 ${r.rank_num} 位：${r.name_zh} (${r.name_en})</span>
               <span class="case-speaker">${r.symbol}</span>
             </div>
-            <div class="classical-zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
+            <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
             <div class="pinyin-line">${r.verse_pinyin}</div>
             ${renderTranslationColumns(r.translations)}
             <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--accent-green);">
               <div class="commentary-label" style="color: var(--accent-green);">曹山註解 / Caoshan Commentary</div>
-              <div class="classical-zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
+              <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
               <div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${r.commentary_en}</div>
             </div>
           </div>
@@ -437,7 +713,7 @@
         let diaHtml = rec.dialogue.map(d => `
           <div style="margin-bottom: 1.25rem;">
             <div class="case-speaker">${d.speaker}</div>
-            <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+            <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
             <div class="pinyin-line">${d.pinyin}</div>
             ${renderTranslationColumns(d.translations)}
           </div>
@@ -465,29 +741,43 @@
     elements.readerContent.innerHTML = html;
   }
 
-  function renderCaseItem(caseItem) {
+  function renderCaseItem(caseItem, idx, total) {
     let dialoguesHtml = '';
     if (caseItem.dialogue) {
       dialoguesHtml = caseItem.dialogue.map(d => `
         <div style="margin-bottom: 1.25rem;">
           <div class="case-speaker">${d.speaker}</div>
-          <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${d.pinyin}</div>
           ${renderTranslationColumns(d.translations)}
         </div>
       `).join('');
     }
 
+    // Collapse by default on touch devices (except the first case), honoring saved state
+    const defaultCollapsed = TOUCH_DEVICE && idx > 0;
+    const collapsed = caseCollapsedState(caseItem.case_num, defaultCollapsed);
+    const navFooter = (typeof idx === 'number' && typeof total === 'number' && total > 1) ? `
+      <div class="case-nav-footer">
+        ${idx > 0 ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num - 1})">‹ 第${caseItem.case_num - 1}則</button>` : '<span></span>'}
+        <button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num})">⤒ 本則</button>
+        ${idx < total - 1 ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num + 1})">第${caseItem.case_num + 1}則 ›</button>` : '<span></span>'}
+      </div>` : '';
+
     return `
-      <div class="case-card" id="case-${caseItem.case_num}">
+      <div class="case-card ${collapsed ? 'collapsed' : ''}" id="case-${caseItem.case_num}">
         <div class="case-header">
           <span class="case-num-title">第 ${caseItem.case_num} 則：${caseItem.title_zh}</span>
-          <span class="case-speaker">${caseItem.title_en}</span>
+          <span style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+            <span class="case-speaker">${caseItem.title_en}</span>
+            <button class="case-toggle" data-case-toggle="${caseItem.case_num}" aria-expanded="${collapsed ? 'false' : 'true'}" aria-label="${collapsed ? 'Expand' : 'Collapse'} case ${caseItem.case_num}" title="${collapsed ? 'Expand' : 'Collapse'} case">${collapsed ? '＋' : '−'}</button>
+          </span>
         </div>
+        <div class="case-body">
         ${caseItem.pointer_zh ? `
           <div class="commentary-block" style="background: var(--bg-card); border-left-color: var(--accent-blue); margin-bottom: 1rem;">
             <div class="commentary-label" style="color: var(--accent-blue);">垂示 / Pointer</div>
-            <div class="classical-zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
+            <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
             <div style="font-size: 0.88rem; color: var(--text-secondary);">${caseItem.pointer_en || ''}</div>
           </div>
         ` : ''}
@@ -495,7 +785,7 @@
         ${caseItem.commentary_zh ? `
           <div class="commentary-block">
             <div class="commentary-label">無門評唱 / Commentary</div>
-            <div class="classical-zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
+            <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.commentary_pinyin || ''}</div>
             <div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.commentary_en || ''}</div>
             ${caseItem.commentary_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
@@ -504,12 +794,14 @@
         ${caseItem.verse_zh ? `
           <div class="verse-block">
             <div class="commentary-label" style="color: var(--accent-green);">頌曰 / Verse</div>
-            <div class="classical-zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
+            <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.verse_pinyin || ''}</div>
             <div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.verse_en || ''}</div>
             ${caseItem.verse_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
           </div>
         ` : ''}
+        </div>
+        ${navFooter}
       </div>
     `;
   }
@@ -518,7 +810,7 @@
     let dialoguesHtml = (sec.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">${d.speaker}</div>
-        <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${d.pinyin}</div>
         ${renderTranslationColumns(d.translations)}
       </div>
@@ -528,7 +820,7 @@
     let stanzasHtml = (sec.stanzas || []).map(st => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</div>
-        <div class="classical-zh">${annotateClassicalChinese(st.zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${st.pinyin}</div>
         ${renderTranslationColumns(st.translations)}
       </div>
@@ -549,7 +841,7 @@
     let dialoguesHtml = (dia.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">${d.speaker}</div>
-        <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${d.pinyin}</div>
         ${renderTranslationColumns(d.translations)}
       </div>
@@ -572,7 +864,7 @@
         <div class="case-header">
           <span class="case-num-title">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</span>
         </div>
-        <div class="classical-zh">${annotateClassicalChinese(st.zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${st.pinyin}</div>
         ${renderTranslationColumns(st.translations)}
       </div>
@@ -585,7 +877,7 @@
       contentHtml = ch.verses.map(v => `
         <div style="margin-bottom: 1.25rem;">
           <div class="case-speaker">${v.author}</div>
-          <div class="classical-zh">${annotateClassicalChinese(v.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(v.zh)}</div>
           <div class="pinyin-line">${v.pinyin}</div>
           ${renderTranslationColumns(v.translations)}
           ${v.recension_note ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${v.recension_note}</div>` : ''}
@@ -595,7 +887,7 @@
       contentHtml = ch.dialogue.map(d => `
         <div style="margin-bottom: 1.25rem;">
           <div class="case-speaker">${d.speaker}</div>
-          <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${d.pinyin}</div>
           ${renderTranslationColumns(d.translations)}
         </div>
@@ -694,7 +986,7 @@
         <div class="matrix-header">
           <div class="matrix-ref">📌 ${item.source_ref}</div>
         </div>
-        <div class="classical-zh">${annotateClassicalChinese(item.sentence_zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(item.sentence_zh)}</div>
         <div class="pinyin-line">${item.sentence_pinyin}</div>
         <div class="matrix-grid">
           ${item.translators.map(t => `
@@ -753,7 +1045,7 @@
     `).join('');
   }
 
-  // Interactive Visual SVG Lineage Graph
+  // Interactive Visual SVG Lineage Graph (pan/zoom; reset via window.TranslateChan.resetLineageView)
   function renderVisualLineageGraph(masters) {
     const svg = document.getElementById('lineage-svg-graph');
     if (!svg) return;
@@ -779,7 +1071,8 @@
       'Guiyang School': '#7d4a88',
       'Guiyang': '#7d4a88',
       'Fayan School': '#2d7d74',
-      'Fayan': '#2d7d74'
+      'Fayan': '#2d7d74',
+      'Linji / Yangqi Branch': '#b53335'
     };
 
     // Calculate node coordinates based on lineage generation
@@ -820,7 +1113,7 @@
       const color = schoolColors[master.school] || '#b38238';
 
       nodesHtml += `
-        <g class="graph-node" transform="translate(${x}, ${y})" style="cursor: pointer;" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
+        <g class="graph-node" transform="translate(${x}, ${y})" style="cursor: pointer;" role="button" tabindex="0" aria-label="${master.name_en} — open dossier" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
           <circle r="22" fill="var(--bg-card)" stroke="${color}" stroke-width="3" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.15))"></circle>
           <text text-anchor="middle" dy=".3em" font-size="11" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${master.name_zh.slice(-2)}</text>
           <text text-anchor="middle" dy="34" font-size="9.5" font-weight="600" fill="var(--text-secondary)">${master.name_en.split(' ').pop()}</text>
@@ -829,7 +1122,102 @@
     });
     nodesHtml += '</g>';
 
-    svg.innerHTML = linksHtml + nodesHtml;
+    // Wrap in a transformable group for pan/zoom (kept across re-renders)
+    svg.innerHTML = `<g class="lineage-panzoom" id="lineage-panzoom">${linksHtml}${nodesHtml}</g>`;
+    ensureLineagePanZoom(svg);
+  }
+
+  // Pan / zoom controller (wheel + pointer drag + two-finger pinch), one per svg
+  function ensureLineagePanZoom(svg) {
+    const view = svg._panzoom || { x: 0, y: 0, k: 1 };
+    const group = () => svg.querySelector('.lineage-panzoom');
+    const apply = () => {
+      const g = group();
+      if (g) g.setAttribute('transform', `translate(${view.x}, ${view.y}) scale(${view.k})`);
+    };
+    if (svg._panzoom) { apply(); return; } // already bound — just re-apply transform after redraw
+    svg._panzoom = view;
+
+    const container = svg.closest ? svg.closest('#lineage-graph-container') : svg.parentNode;
+
+    svg.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = svg.getBoundingClientRect();
+      const cx = e.clientX - rect.left;
+      const cy = e.clientY - rect.top;
+      const f = Math.exp(-e.deltaY * 0.0015);
+      const k2 = Math.min(3, Math.max(0.35, view.k * f));
+      const r = k2 / view.k;
+      view.x = cx - (cx - view.x) * r;
+      view.y = cy - (cy - view.y) * r;
+      view.k = k2;
+      apply();
+    }, { passive: false });
+
+    const pointers = new Map();
+    let panning = false, lastX = 0, lastY = 0, lastDist = null, lastMid = null;
+
+    svg.addEventListener('pointerdown', (e) => {
+      if (svg.setPointerCapture) { try { svg.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ } }
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      lastX = e.clientX; lastY = e.clientY;
+      panning = true;
+      if (container) container.classList.add('panning');
+      e.preventDefault();
+    });
+
+    svg.addEventListener('pointermove', (e) => {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size === 1 && panning) {
+        view.x += e.clientX - lastX;
+        view.y += e.clientY - lastY;
+        lastX = e.clientX; lastY = e.clientY;
+        apply();
+      } else if (pointers.size === 2) {
+        const [a, b] = [...pointers.values()];
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
+        const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+        if (lastDist && lastMid) {
+          const rect = svg.getBoundingClientRect();
+          const f = dist / lastDist;
+          const k2 = Math.min(3, Math.max(0.35, view.k * f));
+          const r = k2 / view.k;
+          const mx = mid.x - rect.left, my = mid.y - rect.top;
+          view.x = mx - (mx - view.x) * r;
+          view.y = my - (my - view.y) * r;
+          view.x += mid.x - lastMid.x;
+          view.y += mid.y - lastMid.y;
+          view.k = k2;
+          apply();
+        }
+        lastDist = dist; lastMid = mid;
+      }
+    });
+
+    const endPointer = (e) => {
+      pointers.delete(e.pointerId);
+      if (pointers.size === 0) {
+        panning = false; lastDist = null; lastMid = null;
+        if (container) container.classList.remove('panning');
+      }
+    };
+    svg.addEventListener('pointerup', endPointer);
+    svg.addEventListener('pointercancel', endPointer);
+    svg.addEventListener('pointerleave', endPointer);
+
+    window.TranslateChan.resetLineageView = function() {
+      view.x = 0; view.y = 0; view.k = 1;
+      apply();
+    };
+
+    svg.addEventListener('keydown', (e) => {
+      const node = e.target && e.target.closest ? e.target.closest('.graph-node') : null;
+      if (node && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        node.click();
+      }
+    });
   }
 
   // Master Dossier Modal Display
@@ -882,9 +1270,20 @@
   // Render Gong'an Index
   function renderGonganIndex() {
     if (!elements.gonganTarget || !state.data.gongan_index) return;
-    const list = state.data.gongan_index;
+    let list = state.data.gongan_index;
+    if (state.gonganThemeFilter && state.gonganThemeFilter !== 'all') {
+      list = list.filter(g => (g.theme || '').toLowerCase().includes(state.gonganThemeFilter.toLowerCase()));
+    }
 
-    elements.gonganTarget.innerHTML = list.map(g => `
+    const themes = [...new Set(state.data.gongan_index.map(g => g.theme).filter(Boolean))];
+    const filterBar = `
+      <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.25rem; align-items:center;">
+        <span style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.6px;">Filter:</span>
+        <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all">All</button>
+        ${themes.map(t => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === t ? 'active' : ''}" data-gongan-filter="${t}">${t}</button>`).join('')}
+      </div>`;
+
+    elements.gonganTarget.innerHTML = filterBar + list.map(g => `
       <div class="case-card" style="margin-bottom: 1.25rem;">
         <div class="case-header">
           <span class="case-num-title">${g.title_zh}</span>
@@ -902,6 +1301,16 @@
         </div>
       </div>
     `).join('');
+  }
+
+  // Gong'an theme filter chips
+  if (elements.gonganTarget) {
+    elements.gonganTarget.addEventListener('click', (e) => {
+      const chip = e.target.closest ? e.target.closest('.gongan-filter-chip') : null;
+      if (!chip) return;
+      state.gonganThemeFilter = chip.getAttribute('data-gongan-filter') === 'all' ? null : chip.getAttribute('data-gongan-filter');
+      renderGonganIndex();
+    });
   }
 
   // Render Lexicon
@@ -952,9 +1361,8 @@
 
       const wm = corpus.wumenguan;
       if (wm && Array.isArray(wm.cases)) {
-        [1, 2, 3].forEach(num => {
-          const c = wm.cases.find(x => x.case_num === num);
-          if (c) add(`wumen_${num}`, `Wumenguan Case ${num}: ${c.title_en || c.title_zh}`, combineUnits(c.dialogue || []));
+        wm.cases.forEach(c => {
+          add(`wumen_${c.case_num}`, `Wumenguan Case ${c.case_num}: ${c.title_en || c.title_zh}`, combineUnits(c.dialogue || []));
         });
       }
       const linji = corpus.linji_yulu;
@@ -1260,16 +1668,25 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
     function renderSavedList() {
       if (!elements.studioSavedList) return;
-      const keys = Object.keys(state.personalTranslations);
+      const filterEl = document.getElementById('studio-draft-filter');
+      const q = filterEl ? filterEl.value.trim().toLowerCase() : '';
+      const keys = Object.keys(state.personalTranslations)
+        .filter(k => !q || (state.personalTranslations[k].title || '').toLowerCase().includes(q) ||
+                      (state.personalTranslations[k].translation || '').toLowerCase().includes(q))
+        .sort((a, b) => String(state.personalTranslations[b].updatedAt || '').localeCompare(String(state.personalTranslations[a].updatedAt || '')));
       if (keys.length === 0) {
-        elements.studioSavedList.innerHTML = '<p style="font-size: 0.85rem; color: var(--text-muted);">No saved personal translations yet.</p>';
+        elements.studioSavedList.innerHTML = '<p style="font-size: 0.85rem; color: var(--text-muted);">' +
+          (Object.keys(state.personalTranslations).length === 0 ? 'No saved personal translations yet.' : 'No drafts match your filter.') + '</p>';
         return;
       }
       elements.studioSavedList.innerHTML = keys.map(k => {
         const item = state.personalTranslations[k];
         return `
           <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 0.5rem;">
-            <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-gold);">${item.title}</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
+              <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-gold);">${item.title}</div>
+              <button class="btn-pill studio-draft-delete" data-draft-id="${k}" style="font-size:0.68rem; color:var(--accent-red); flex:none;" aria-label="Delete draft ${k}">✕ Delete</button>
+            </div>
             <div style="font-size: 0.82rem; margin: 0.25rem 0; color: var(--text-primary);">"${item.translation}"</div>
             <div style="font-size: 0.7rem; color: var(--text-muted);">Saved: ${item.updatedAt}</div>
           </div>
@@ -1277,16 +1694,47 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
       }).join('');
     }
 
+    const draftFilterEl = document.getElementById('studio-draft-filter');
+    if (draftFilterEl) draftFilterEl.addEventListener('input', renderSavedList);
+
+    window.TranslateChan.deleteDraft = function(id) {
+      if (state.personalTranslations[id]) {
+        delete state.personalTranslations[id];
+        try { localStorage.setItem('translatechan_user_translations', JSON.stringify(state.personalTranslations)); } catch (e) { /* ignore */ }
+        renderSavedList();
+      }
+    };
+    if (elements.studioSavedList) {
+      elements.studioSavedList.addEventListener('click', (e) => {
+        const btn = e.target.closest ? e.target.closest('.studio-draft-delete') : null;
+        if (btn) window.TranslateChan.deleteDraft(btn.getAttribute('data-draft-id'));
+      });
+    }
+
     loadSelectedPassage(studioPassages[0].id);
     renderSavedList();
   }
 
   // ---- Search: universal segment extraction across every corpus schema ----
+  // Orthographic variant pairs found across canon editions. Both spellings are
+  // normalized to ONE canonical side (first listed) so 洗鉢盂去/洗缽盂去, 師云/師曰
+  // etc. cross-match; variantRegex() still marks either spelling in the raw text.
+  const SEARCH_VARIANTS = { '鉢': '缽', '曰': '云', '臺': '台', '裏': '里', '無': '无' };
+  function normalizeForSearch(s) {
+    return String(s || '').toLowerCase().split('').map(ch => SEARCH_VARIANTS[ch] || ch).join('');
+  }
+  function escHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+  function variantRegex(q) {
+    const escaped = [...String(q)].map(ch => SEARCH_VARIANTS[ch] ? `[${ch}${SEARCH_VARIANTS[ch]}]` : ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('');
+    try { return new RegExp(escaped, 'gi'); } catch (e) { return null; }
+  }
   function extractSearchableUnits(doc, corpKey) {
     // Returns [{label, jump, zh, pinyin, blob}] covering cases, sections, dialogues,
     // stanzas, chapters, five_ranks, sample_records, preface/epilogue.
     const units = [];
-    const asBlob = (...parts) => parts.filter(Boolean).join(' ').toLowerCase();
+    const asBlob = (...parts) => normalizeForSearch(parts.filter(Boolean).join(' '));
     const blobWithTranslations = (tr) => tr ? Object.values(tr).map(v => (v && typeof v === 'object' ? v.text : v)).filter(Boolean).join(' ') : '';
     const fromDialogue = (items, label, jump) => (items || []).forEach(d => {
       units.push({
@@ -1342,14 +1790,28 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
   function makeSnippet(zh, q) {
     // window the classical text around the first hit, then highlight all hits
+    // (variant-aware; query text is HTML-escaped before insertion)
     const raw = zh || '';
-    const first = raw.indexOf(q);
+    const re = variantRegex(q);
+    const first = re ? raw.search(re) : -1;
     const center = first === -1 ? 0 : first;
     const start = Math.max(0, center - 30);
     const end = Math.min(raw.length, center + 50);
     let snip = (start > 0 ? '…' : '') + raw.slice(start, end) + (end < raw.length ? '…' : '');
-    if (q && snip.includes(q)) snip = snip.split(q).join(`<mark>${q}</mark>`);
+    if (re) snip = snip.replace(re, m => `<mark>${escHtml(m)}</mark>`);
     return snip;
+  }
+
+  // D1: searchable units are expensive to extract (traversal + string building),
+  // so build the full index ONCE per session and filter cached strings per keystroke.
+  let searchUnitsCache = null;
+  function getSearchUnitsIndex() {
+    if (searchUnitsCache) return searchUnitsCache;
+    searchUnitsCache = {};
+    Object.keys(state.data.corpus || {}).forEach(corpKey => {
+      searchUnitsCache[corpKey] = extractSearchableUnits(state.data.corpus[corpKey], corpKey);
+    });
+    return searchUnitsCache;
   }
 
   // Global Search Handler — covers every corpus schema, with counts + highlighting
@@ -1366,15 +1828,18 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
     if (!elements.readerContent || !state.data.corpus) return;
 
-    const qLower = q.toLowerCase();
+    const qLower = normalizeForSearch(q);
     let totalHits = 0;
     const perDocHits = {};
     let bodyHtml = '';
+    const MAX_TOTAL_HITS = 200; // keep results digestible — no wall-of-cards
 
+    const searchIndex = getSearchUnitsIndex();
     Object.keys(state.data.corpus).forEach(corpKey => {
+      if (totalHits >= MAX_TOTAL_HITS) return;
       const doc = state.data.corpus[corpKey];
-      const units = extractSearchableUnits(doc, corpKey);
-      const hits = units.filter(u => u.blob.includes(qLower) || (u.zh && u.zh.includes(q)));
+      const units = searchIndex[corpKey];
+      const hits = units.filter(u => u.blob.includes(qLower) || (u.zh && normalizeForSearch(u.zh).includes(qLower)));
       if (hits.length === 0) return;
 
       perDocHits[corpKey] = hits.length;
@@ -1388,7 +1853,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
         bodyHtml += `
           <div class="case-card" style="margin-bottom: 0.75rem;">
             <div class="case-header"><span class="case-num-title" style="font-size:0.95rem;">${u.label}</span></div>
-            <div class="classical-zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
+            <div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
             <div style="margin-top: 0.4rem;">${action}</div>
           </div>`;
       });
@@ -1397,7 +1862,8 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
       }
     });
 
-    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${q}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div></div>`;
+    const capped = totalHits >= MAX_TOTAL_HITS ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">… results capped at ${MAX_TOTAL_HITS} — narrow your query for more.</div>` : '';
+    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div>${capped}</div>`;
 
     elements.readerContent.innerHTML = totalHits === 0
       ? headerHtml + `<div class="case-card"><p>No matches found for "${q}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`
@@ -1406,16 +1872,47 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
   // Global helpers (merge into existing namespace — do NOT overwrite openMasterDossier)
   window.TranslateChan = window.TranslateChan || {};
+  const CASE_CHUNK = 12;
+  function caseTotal() {
+    const d = state.data.corpus && state.data.corpus[state.currentCorpusKey];
+    return d && Array.isArray(d.cases) ? d.cases.length : 0;
+  }
+  function ensureCaseLoaded(num) {
+    const total = caseTotal();
+    const cur = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
+    if (num > cur) {
+      state.caseLimit[state.currentCorpusKey] = Math.min(total, num);
+      renderReader();
+    }
+  }
+  window.TranslateChan.loadMoreCases = function() {
+    const total = caseTotal();
+    const cur = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
+    state.caseLimit[state.currentCorpusKey] = Math.min(total, cur + CASE_CHUNK);
+    // keep the reader roughly in place after re-render
+    const btn = document.getElementById('case-load-more-btn');
+    const y = (btn && typeof btn.getBoundingClientRect === 'function')
+      ? btn.getBoundingClientRect().top + (window.scrollY || 0) : null;
+    renderReader();
+    if (y !== null) window.scrollTo({ top: Math.max(0, y - 96) });
+  };
+  window.TranslateChan.scrollToCase = function(caseNum) {
+    ensureCaseLoaded(caseNum);
+    expandCase(caseNum);
+    setTimeout(() => {
+      const el = document.getElementById(`case-${caseNum}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
+  };
   window.TranslateChan.openCase = function(corpusKey, caseNum) {
     state.currentCorpusKey = corpusKey;
     state.searchQuery = '';
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();
     renderReader();
-    setTimeout(() => {
-      const el = document.getElementById(`case-${caseNum}`);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+    const t = viewHash('reader', corpusKey);
+    if (location.hash !== t) { try { location.hash = t; } catch (e) { /* ignore */ } }
+    window.TranslateChan.scrollToCase(caseNum);
   };
   window.TranslateChan.openDoc = function(corpusKey) {
     state.currentCorpusKey = corpusKey;
@@ -1423,6 +1920,8 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();
     renderReader();
+    const t = viewHash('reader', corpusKey);
+    if (location.hash !== t) { try { location.hash = t; } catch (e) { /* ignore */ } }
   };
 
   // Run on DOM ready

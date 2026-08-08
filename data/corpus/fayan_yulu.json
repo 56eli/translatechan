@@ -3,7 +3,7 @@
   "title_zh": "金陵清涼院文益禪師語錄與宗門十規論",
   "title_pinyin": "Jīnlíng Qīngliáng Yuàn Wényì Chánshī Yǔlù yǔ Zōngmén Shí Guī Lùn",
   "title_en": "The Record of Master Fayan Wenyi and the Ten Rules of the Chan School",
-  "cbeta_id": "T1991 / X1265",
+  "cbeta_id": "T1991 / X1226 (宗門十規論)",
   "taisho_vol": 47,
   "author_zh": "法眼文益 禪師 說 / 宗門十規論",
   "author_en": "Chan Master Fayan Wenyi (885–958), Founder of the Fayan School",
@@ -95,5 +95,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1265' wrong — X1265 is 禪林寶訓順硃. Fayan's record is T47n1991 金陵清涼院文益禪師語錄; his 宗門十規論 is X63n1226."
 }

@@ -3,8 +3,7 @@
   "title_zh": "五燈會元：五家宗派合璧",
   "title_pinyin": "Wǔdēng Huìyuán: Wǔjiā Zōngpài Hébì",
   "title_en": "Compendium of the Five Lamps (Wudeng Huiyuan)",
-  "cbeta_id": "X1565",
-  "taisho_vol": 80,
+  "cbeta_id": "X1565 (五燈會元)",
   "author_zh": "宋 靈隱沙門 普濟 輯 (1252 CE)",
   "author_en": "Compiled by Shi Puji of Lingyin Monastery (1179–1253 CE)",
   "era": "Southern Song Dynasty",
@@ -57,5 +56,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Volume field corrected 2026-08-08: X1565 五燈會元 is 卍續藏第80冊 (X80n1565) — the prior '80' was the 續藏 volume number stored under taisho_vol."
 }

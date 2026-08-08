@@ -4,6 +4,10 @@ TranslateChan Data Bundler & Docs Sync
 Combines all canonical texts, lineage graphs, glossaries, comparative translations,
 and gong'an indices into a consolidated, high-speed dataset for client-side execution,
 and synchronizes with /docs/ for seamless GitHub Pages deployment.
+
+Synchronization contract (verified by `diff -rq data docs/data` after each run):
+  app assets (index.html, app.css, app.js, app_data.js) are copied byte-for-byte,
+  and the data/ directory tree is mirrored into docs/data/.
 """
 
 import json
@@ -92,8 +96,13 @@ def main():
         if src_path.exists():
             shutil.copy2(src_path, DOCS_DIR / item)
 
+    # Mirror data/ -> docs/data/ (byte-identical, deletions propagated)
+    docs_data = DOCS_DIR / "data"
+    shutil.rmtree(docs_data, ignore_errors=True)
+    shutil.copytree(DATA_DIR, docs_data)
+
     print(f"✅ Successfully compiled root bundle: {OUTPUT_FILE} ({os.path.getsize(OUTPUT_FILE):,} bytes)")
-    print(f"✅ Successfully synchronized /docs for GitHub Pages deployment: {DOCS_DIR}")
+    print(f"✅ Successfully synchronized /docs for GitHub Pages deployment: {DOCS_DIR} (incl. data/ mirror)")
 
 if __name__ == "__main__":
     main()

@@ -3,8 +3,8 @@
   "title_zh": "石頭希遷大師 參同契與草庵歌",
   "title_pinyin": "Shítóu Xīqiān Dàshī Cāntóngqì yǔ Cǎo'ān Gē",
   "title_en": "Master Shitou Xiqian: Sandokai (Harmony of Difference and Sameness) & Song of the Grass Hut",
-  "cbeta_id": "T1985 / T2076",
-  "taisho_vol": 47,
+  "cbeta_id": "embedded: T2076 f.30 / X1565 f.14",
+  "taisho_vol": 51,
   "author_zh": "石頭希遷 禪師 (700–790 CE)",
   "author_en": "Chan Master Shitou Xiqian, Ancestor of Caodong and Yunmen Lineages",
   "era": "Tang Dynasty (8th Century)",
@@ -137,5 +137,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Volume corrected 2026-08-08: T2076 (景德傳燈錄) is Taishō vol. 51 (was 47)."
 }

@@ -3,8 +3,7 @@
   "title_zh": "大珠慧海禪師 頓悟入道要門論與諸方問答",
   "title_pinyin": "Dàzhū Huìhǎi Chánshī Dùnwù Rùdào Yàomén Lùn yǔ Zhūfāng Wèndá",
   "title_en": "The Zen Teaching of Hui Hai: On Sudden Awakening & Dialogues with All Quarters",
-  "cbeta_id": "X1258 / T2076",
-  "taisho_vol": 47,
+  "cbeta_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
   "author_zh": "唐 大珠慧海 禪師 說 (馬祖法嗣)",
   "author_en": "Chan Master Dazhu Huihai (fl. 8th Century), Dharma Heir of Mazu Daoyi",
   "era": "High Tang Dynasty",
@@ -95,5 +94,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1258' wrong — X1258 is 禪宗直指 (明 石成金著). Dazhu Huihai's texts are X63n1223 頓悟入道要門論 and X63n1224 參問語錄 (唐 慧海撰)."
 }

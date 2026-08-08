@@ -3,8 +3,7 @@
   "title_zh": "曹溪大師別傳",
   "title_pinyin": "Cáoxī Dàshī Biézhuàn",
   "title_en": "Special Biography of the Great Master of Caoxi (Sixth Patriarch Huineng)",
-  "cbeta_id": "X1458 / P.3018",
-  "taisho_vol": 86,
+  "cbeta_id": "X1598 (曹溪大師別傳) / P.3018",
   "author_zh": "唐 曹溪沙門 撰 (c. 781 CE)",
   "author_en": "Tang Dynasty Caoxi Chronicle (c. 781 CE), Earliest Extant Sixth Patriarch Biography",
   "era": "Tang Dynasty (8th Century)",
@@ -75,5 +74,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1458' wrong — X1458 is 宗門寶積錄. The 曹溪大師別傳 is X86n1598 (卍續藏第86冊) plus the Dunhuang manuscript P.3018. The prior 'taisho_vol 86' was actually the 續藏 volume number."
 }

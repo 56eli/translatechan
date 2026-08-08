@@ -3,8 +3,7 @@
   "title_zh": "江西馬祖道一禪師語錄",
   "title_pinyin": "Jiāngxī Mǎzǔ Dàoyī Chánshī Yǔlù",
   "title_en": "The Recorded Sayings of Chan Master Mazu Daoyi",
-  "cbeta_id": "X1304 / T1985",
-  "taisho_vol": 47,
+  "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
   "author_zh": "唐 江西 馬祖道一 禪師 說",
   "author_en": "Great Master Mazu Daoyi (709–788 CE), Ancestor of Hongzhou Lineage",
   "era": "High Tang Dynasty",
@@ -77,5 +76,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1304 / T1985' wrong — X1304 is 林泉老人評唱丹霞淳禪師頌古虗堂集; T1985 is strictly the Record of Linji. Mazu's record is 四家語錄卷一 (X69n1321, 卍續藏第69冊); also 馬祖大寂行狀 in X1315."
 }

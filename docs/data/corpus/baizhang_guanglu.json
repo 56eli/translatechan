@@ -3,8 +3,7 @@
   "title_zh": "洪州百丈懷海禪師廣錄",
   "title_pinyin": "Hóngzhōu Bǎizhàng Huáihǎi Chánshī Guǎnglù",
   "title_en": "The Extensive Record of Chan Master Baizhang Huaihai (Baizhang Guanglu)",
-  "cbeta_id": "T1985 / X1304",
-  "taisho_vol": 47,
+  "cbeta_id": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
   "author_zh": "唐 百丈懷海 禪師 說",
   "author_en": "Chan Master Baizhang Huaihai (720–814 CE), Master of Huangbo and Guishan",
   "era": "Tang Dynasty",
@@ -95,5 +94,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrected 2026-08-08: prior 'T1985 / X1304' wrong — T1985 is strictly the Record of Linji; X1304 is 虗堂集. Baizhang's 廣錄 is 四家語錄卷三 (X69n1323); his 語錄 also in 古尊宿語錄 (X68n1315)."
 }

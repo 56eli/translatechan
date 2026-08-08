@@ -18,7 +18,7 @@
   /* Ink & Tea Typography */
   --text-primary: #2c2523;
   --text-secondary: #6e645e;
-  --text-muted: #9c9189;
+  --text-muted: #756b64; /* darkened for WCAG AA contrast (was #9c9189 ≈ 2.8:1) */
   --text-chinese: #1f1a18;
 
   /* Zen Natural Accents */
@@ -62,7 +62,7 @@
 
   --text-primary: #ede8df;
   --text-secondary: #a49f96;
-  --text-muted: #736e67;
+  --text-muted: #8f8980; /* lightened for WCAG AA contrast on dark bg */
   --text-chinese: #f5f2eb;
 
   --accent-gold: #c89f55;
@@ -638,50 +638,41 @@ main {
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
-/* Interactive Lexicon Tooltips */
+/* Interactive Lexicon Markers (content lives in ONE shared popover — see #term-popover) */
 .term-highlight {
   border-bottom: 2px dotted var(--accent-gold);
   color: var(--accent-gold);
   cursor: help;
-  position: relative;
   font-weight: 600;
-  transition: var(--transition);
-}
-
-.term-highlight:hover {
-  background-color: rgba(158, 114, 50, 0.12);
   border-radius: 3px;
 }
 
-.term-tooltip {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%);
+.term-highlight:hover,
+.term-highlight:focus-visible {
+  background-color: rgba(158, 114, 50, 0.12);
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Shared glossary popover (one node, JS-positioned; hover / focus / tap) */
+.term-popover {
+  position: fixed;
+  z-index: 300;
+  width: 290px;
+  max-width: calc(100vw - 16px);
   background: var(--bg-card);
   color: var(--text-primary);
   padding: 0.85rem 1.1rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-lg);
-  width: 290px;
   font-size: 0.825rem;
-  z-index: 200;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-  pointer-events: none;
   font-family: var(--font-sans);
   text-align: left;
   line-height: 1.45;
+  pointer-events: none;
 }
 
-.term-highlight:hover .term-tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* Tooltip rows are spans (valid nesting inside .term-highlight span) */
 .tooltip-term-title,
 .tooltip-sanskrit,
 .tooltip-literal,
@@ -1052,4 +1043,355 @@ footer {
   color: var(--accent-gold);
   margin-bottom: 0.65rem;
   letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   Calm Reader & Mobile-First (Phase A + B, 2026-08-08 — see UX_ROADMAP.md)
+   ========================================================================== */
+
+/* --- Case index strip (long case-based texts) --- */
+.case-jump-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  position: sticky;
+  top: 4.4rem;
+  z-index: 40;
+  background: var(--bg-primary);
+  padding: 0.5rem 0 0.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.25rem;
+}
+
+.case-strip-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-secondary);
+  margin-right: 0.3rem;
+  white-space: nowrap;
+}
+
+.case-chip {
+  min-width: 2rem;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.case-chip:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: var(--accent-gold-light);
+}
+
+/* --- Collapsible case cards --- */
+.case-toggle {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--accent-gold);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+  transition: var(--transition);
+  flex: none;
+}
+
+.case-toggle:hover {
+  border-color: var(--accent-gold);
+  background: var(--accent-gold-light);
+}
+
+.case-card.collapsed .case-body {
+  display: none;
+}
+
+.case-card.collapsed {
+  margin-bottom: 1rem;
+  padding: 1rem 1.4rem;
+}
+
+.case-nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+/* --- Mobile corpus picker (sidebar hidden below 960px) --- */
+.mobile-corpus-picker {
+  display: none;
+  margin-bottom: 1rem;
+}
+
+/* --- Mobile bottom action bar --- */
+.mobile-action-bar {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.mobile-bar-divider {
+  width: 1px;
+  height: 1.4rem;
+  background: var(--border-color);
+  flex: none;
+}
+
+.mobile-mode-btn.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+}
+
+/* Pinyin toggle (persisted; desktop default on) */
+#reader-content-target[data-show-pinyin="0"] .pinyin-line {
+  display: none;
+}
+
+/* --- Mobile-first overrides --- */
+@media (max-width: 960px) {
+  .mobile-corpus-picker {
+    display: block;
+  }
+
+  .sidebar-panel {
+    display: none;
+  }
+
+  .mobile-action-bar {
+    display: flex;
+  }
+
+  body {
+    padding-bottom: 68px;
+  }
+
+  .case-jump-strip {
+    position: static;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .case-jump-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .case-strip-label {
+    position: sticky;
+    left: 0;
+    background: var(--bg-primary);
+    padding-right: 0.5rem;
+  }
+
+  /* Calm reading: one translation column on narrow screens */
+  .translation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reader-toolbar .toolbar-group:first-child {
+    display: none; /* static status chips are chrome noise on mobile */
+  }
+}
+
+/* ==========================================================================
+   Phase C — Print / PDF (C1) & Lineage pan/zoom (C3), 2026-08-08
+   ========================================================================== */
+
+/* --- C1: Print / Save-as-PDF --- */
+@media print {
+  header, .zen-hero-banner, .sidebar-panel, .reader-toolbar,
+  .mobile-corpus-picker, .mobile-action-bar, .case-jump-strip,
+  .case-toggle, .case-nav-footer, .term-popover, footer,
+  #term-popover, .graph-controls {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+  }
+
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .content-panel, .case-card, .matrix-card, .studio-panel {
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    padding: 0.5rem 0;
+    break-inside: avoid;
+  }
+
+  .case-card {
+    margin-bottom: 1.25rem;
+  }
+
+  .case-card.collapsed .case-body {
+    display: block !important; /* print everything, never collapsed */
+  }
+
+  .translation-grid, .matrix-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem;
+  }
+
+  .translation-col, .matrix-col {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    background: #ffffff !important;
+  }
+
+  .classical-zh, .pinyin-line, .translation-text, .commentary-block,
+  .verse-block, .text-title-zh, .text-title-en, .case-num-title {
+    color: #000000 !important;
+  }
+
+  .commentary-block, .verse-block {
+    border-left-width: 3px;
+    background: #fafafa !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: none;
+  }
+}
+
+/* --- C3: Lineage graph pan/zoom --- */
+#lineage-graph-container {
+  touch-action: none; /* enable touch pan/pinch inside the graph */
+  cursor: grab;
+}
+
+#lineage-graph-container.panning {
+  cursor: grabbing;
+}
+
+.graph-controls {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.graph-hint {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+}
+
+@media (max-width: 960px) {
+  .graph-hint {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Phase C4/C5 — Accessibility & Studio/Index polish, 2026-08-08
+   ========================================================================== */
+
+/* Skip-to-content */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 500;
+  background: var(--accent-gold);
+  color: #ffffff;
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Nav tabs: tab semantics (role set in HTML; aria-selected synced by JS) */
+.nav-tab-btn[aria-selected="true"] {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+}
+
+/* Reduced motion: respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Gong'an filter chips */
+.gongan-filter-chip.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+}
+
+/* Studio draft filter + delete affordance */
+#studio-draft-filter {
+  margin-bottom: 0.75rem;
+}
+
+.studio-draft-delete:hover {
+  border-color: var(--accent-red);
 }

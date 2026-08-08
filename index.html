@@ -10,13 +10,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
+  <!-- D4: parse the 600KB data bundle as early as possible -->
+  <link rel="preload" href="app_data.js" as="script">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- Main Navigation Header -->
   <header>
     <div class="nav-container">
-      <a href="#" class="brand" onclick="location.reload()">
+      <a href="#/reader" class="brand">
         <span class="brand-icon">🪷</span>
         <div>
           <div class="brand-title">
@@ -28,39 +31,39 @@
       </a>
 
       <!-- Navigation Tabs -->
-      <ul class="nav-tabs">
-        <li>
-          <button class="nav-tab-btn active" data-view="reader">
+      <ul class="nav-tabs" role="tablist" aria-label="Main navigation">
+        <li role="none">
+          <button class="nav-tab-btn active" data-view="reader" role="tab" aria-selected="true">
             <span>📖</span> <span>Bilingual Reader</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="matrix">
+          <button class="nav-tab-btn" data-view="matrix" role="tab">
             <span>⚖️</span> <span>Comparative Matrix</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="lineage">
+          <button class="nav-tab-btn" data-view="lineage" role="tab">
             <span>🌳</span> <span>Lineage Tree</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="gongan">
+          <button class="nav-tab-btn" data-view="gongan" role="tab">
             <span>🗂️</span> <span>Gong'an Index</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="lexicon">
+          <button class="nav-tab-btn" data-view="lexicon" role="tab">
             <span>📚</span> <span>Chan Lexicon</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="studio">
+          <button class="nav-tab-btn" data-view="studio" role="tab">
             <span>✍️</span> <span>Translation Studio</span>
           </button>
         </li>
         <li>
-          <button class="nav-tab-btn" data-view="agents">
+          <button class="nav-tab-btn" data-view="agents" role="tab">
             <span>🤖</span> <span>Arena AI Agents</span>
           </button>
         </li>
@@ -72,15 +75,15 @@
           <span class="search-icon">🔍</span>
           <input type="text" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off">
         </div>
-        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme">🌙</button>
-        <a href="https://github.com/56eli/translatechan" target="_blank" class="btn-icon" title="GitHub Repository">
+        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme">🌙</button>
+        <a href="https://github.com/56eli/translatechan" target="_blank" class="btn-icon" title="GitHub Repository" aria-label="GitHub repository (opens in new tab)">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- Zen Hero Welcome Banner -->
     <div class="zen-hero-banner">
       <div>
@@ -99,6 +102,10 @@
 
     <!-- View 1: Bilingual Reader -->
     <section id="view-reader" class="view-section active">
+      <!-- Mobile corpus picker (sidebar is hidden below 960px) -->
+      <div class="mobile-corpus-picker">
+        <select id="corpus-mobile-select" class="search-input" aria-label="Select canonical text"></select>
+      </div>
       <div class="reader-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar-panel">
@@ -125,8 +132,9 @@
             </div>
             <div class="toolbar-group">
               <span class="toolbar-label">Typography:</span>
-              <button id="font-size-dec-btn" class="btn-pill" title="Decrease Chinese font size">A-</button>
-              <button id="font-size-inc-btn" class="btn-pill" title="Increase Chinese font size">A+</button>
+              <button id="font-size-dec-btn" class="btn-pill" title="Decrease Chinese font size" aria-label="Decrease Chinese font size">A-</button>
+              <button id="font-size-inc-btn" class="btn-pill" title="Increase Chinese font size" aria-label="Increase Chinese font size">A+</button>
+              <button id="reader-print-btn" class="btn-pill" title="Print or save as PDF" aria-label="Print or save as PDF">🖨 Print</button>
             </div>
           </div>
 
@@ -174,10 +182,13 @@
 
       <!-- Interactive SVG/Canvas Visual Graph -->
       <div id="lineage-graph-container" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; min-height: 480px;">
-        <div style="position: absolute; top: 1rem; right: 1rem; z-index: 10; font-size: 0.75rem; color: var(--text-muted); background: var(--bg-primary); padding: 0.25rem 0.6rem; border-radius: 12px; border: 1px solid var(--border-color);">
-          💡 Click any master node to inspect complete dossier & primary texts
+        <div class="graph-controls">
+          <button id="lineage-reset-btn" class="btn-pill" style="font-size: 0.72rem;">⟲ Reset View</button>
         </div>
-        <svg id="lineage-svg-graph" width="100%" height="480" style="display: block; cursor: grab;"></svg>
+        <div class="graph-hint">
+          💡 Click any master node to inspect complete dossier & primary texts — drag to pan, scroll/pinch to zoom
+        </div>
+        <svg id="lineage-svg-graph" width="100%" height="480" style="display: block;"></svg>
       </div>
 
       <!-- Master Dossier Modal / Inspector Drawer -->
@@ -307,6 +318,7 @@
             <span>📚 Saved Personal Corpus</span>
             <button id="studio-clear-all-btn" class="btn-pill" style="font-size: 0.7rem; color: var(--accent-red);">Clear All</button>
           </div>
+          <input id="studio-draft-filter" class="search-input" type="search" placeholder="Filter saved drafts…" aria-label="Filter saved drafts">
           <div id="studio-saved-list" style="overflow-y: auto; max-height: 650px;"></div>
         </div>
       </div>
@@ -329,7 +341,7 @@
           </div>
           <div class="commentary-block" style="background: var(--bg-primary); border-left-color: var(--accent-gold); margin-top: 1rem;">
             <div class="commentary-label">Git-Backed Automated Deployment</div>
-            <div style="font-size: 0.85rem;">Commits directly to <code>arena/019fe05c-translatechan</code> and <code>main</code>, automatically updating the static GitHub Pages application bundle in <code>docs/</code>.</div>
+            <div style="font-size: 0.85rem;">Commits directly to the session branch (e.g. <code>arena/&lt;session&gt;-translatechan</code>) and then to <code>main</code> via pull request, automatically updating the static GitHub Pages application bundle in <code>docs/</code>.</div>
           </div>
         </div>
 
@@ -374,6 +386,20 @@
       </div>
     </section>
   </main>
+
+  <!-- Mobile bottom action bar (touch devices / narrow screens) -->
+  <div class="mobile-action-bar" role="toolbar" aria-label="Reading controls">
+    <button id="mobile-font-dec-btn" class="btn-pill" aria-label="Decrease Chinese font size">A−</button>
+    <button id="mobile-font-inc-btn" class="btn-pill" aria-label="Increase Chinese font size">A+</button>
+    <span class="mobile-bar-divider"></span>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode">📖 雙語</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode">⚖️ 多譯</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode">漢</button>
+    <span class="mobile-bar-divider"></span>
+    <button id="mobile-pinyin-btn" class="btn-pill active" aria-label="Toggle pinyin display" title="Show/hide pinyin">拼</button>
+    <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">📑</button>
+    <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">⬆</button>
+  </div>
 
   <footer>
     <div class="footer-quote">「不立文字，教外別傳；直指人心，見性成佛。」</div>

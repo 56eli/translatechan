@@ -1,6 +1,6 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
-> Latest session: **2026-08-08 — Full Project Audit** (branch `arena/019fe108-translatechan`)
+> Latest session: **2026-08-08 — Full Audit, B1–B10, canon pass, Wumenguan 48/48, UX Phases A–D complete** (branch `arena/019fe1b5-translatechan`) → durable log in [`AUDIT.md` §9](./AUDIT.md); UX plan in [`UX_ROADMAP.md`](./UX_ROADMAP.md). **UX Phase D shipped — roadmap 100% implemented**: cached search-unit index (no per-keystroke corpus traversal), lazy case rendering (12 cards first, "Show more" chunks, chips/nav auto-load targets, scroll preserved), `app_data.js` preload (D3 service worker skipped by zero-magic policy). Earlier: C1–C5 (print, hash routing, pan/zoom, a11y, studio/index polish), A+B, B1–B10 fixes, lineage 18→30, CBETA canon pass, **Wumenguan 48/48** (119 verified slots).
 
 ### Summary of This Session:
 1. **Full audit completed** → [`AUDIT.md`](./AUDIT.md).
