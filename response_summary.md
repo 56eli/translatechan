@@ -1,12 +1,12 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
 ### Summary of Completed Work:
-1. **Xuefeng & Yantou Yulu Ingestion (`data/corpus/xuefeng_yantou.json`)**:
-   - Ingested the recorded sayings of Master Xuefeng Yicun (*雪峰義存*, 822–908 CE) and Master Yantou Quanhuo (*巖頭全豁*, 828–887 CE), ancestors of both the Yunmen and Fayan traditions.
-   - Structured key classical encounter narratives: **Awakening on Mount Ao** (*鰲山成道：從門入者不是家珍，從自己胸襟中流出*), and **The Whole Great Earth as a Grain of Rice** (*盡大地撮來，如粟米粒大*).
-   - Sentence-aligned with Red Pine, Thomas Cleary, and Ruth Fuller Sasaki translations.
+1. **Book of Serenity Ingestion (`data/corpus/congronglu_cases.json`)**:
+   - Ingested the foundational Caodong (Soto) gong'an compendium *The Book of Serenity* (*萬松老人評唱天童頌古從容錄*, T2004, Vol. 48).
+   - Structured key cases: **The World-Honored One Ascends the Seat** (*世尊陞座：諦觀法王法，法王法如是*) and **Nanquan Cuts the Cat** (*南泉斬貓：趙州頭上草鞋出，滿地清光照古河*).
+   - Sentence-aligned with Thomas Cleary (*Book of Serenity*), Red Pine, and Ruth Fuller Sasaki translations.
 2. **Data Bundle & Application Recompilation**:
-   - Re-compiled `app_data.js` (345 KB) across all 28 canonical Chan collections.
+   - Re-compiled `app_data.js` (353 KB) across all 29 canonical Chan works.
    - Tested live on port 8080.
 3. **Repository Cleanliness & GitHub Push**:
    - Committed and pushed all updates cleanly to `origin arena/019fe05c-translatechan`.

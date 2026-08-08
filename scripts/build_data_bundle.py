@@ -54,7 +54,8 @@ def main():
             "nanquan_yulu": load_json(DATA_DIR / "corpus" / "nanquan_yulu.json"),
             "deshan_yulu": load_json(DATA_DIR / "corpus" / "deshan_yulu.json"),
             "xuefeng_yantou": load_json(DATA_DIR / "corpus" / "xuefeng_yantou.json"),
-            "congronglu_cases": load_json(DATA_DIR / "corpus" / "congronglu_cases.json")
+            "congronglu_cases": load_json(DATA_DIR / "corpus" / "congronglu_cases.json"),
+            "wudeng_huiyuan": load_json(DATA_DIR / "corpus" / "wudeng_huiyuan.json")
         },
         "meta": {
             "version": "1.0.0",

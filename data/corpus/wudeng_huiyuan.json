@@ -1,0 +1,61 @@
+{
+  "id": "wudeng_huiyuan",
+  "title_zh": "五燈會元：五家宗派合璧",
+  "title_pinyin": "Wǔdēng Huìyuán: Wǔjiā Zōngpài Hébì",
+  "title_en": "Compendium of the Five Lamps (Wudeng Huiyuan)",
+  "cbeta_id": "X1565",
+  "taisho_vol": 80,
+  "author_zh": "宋 靈隱沙門 普濟 輯 (1252 CE)",
+  "author_en": "Compiled by Shi Puji of Lingyin Monastery (1179–1253 CE)",
+  "era": "Southern Song Dynasty",
+  "genre": "Universal Synthesis of the Five Transmission Lamps (五燈總會)",
+  "overview": "The definitive Song dynasty synthesis uniting the five historical lamp records into a single master compendium of 20 fascicles, detailing the lives, awakenings, and encounter dialogues of over 2,000 Chan masters.",
+  "sections": [
+    {
+      "section_id": "five_lamps_synthesis",
+      "title_zh": "五家七宗綱宗流派源流",
+      "title_pinyin": "Wǔjiā Qīzōng Gāngzōng Liúpài Yuánliú",
+      "title_en": "The Genealogy and Hallmarks of the Five Houses and Seven Schools",
+      "dialogue": [
+        {
+          "speaker": "Puji / 靈隱普濟",
+          "zh": "夫宗門之設，達摩西來，單傳心印。六祖以降，南嶽、青原分派。南嶽出百丈、黃檗、臨濟、溈仰；青原出石頭、藥山、洞山、雲門、法眼。派分五家，流注七宗，同歸一極。",
+          "pinyin": "Fú zōngmén zhī shè, Dámó xī lái, dān chuán xīnyìn. Liùzǔ yǐjiàng, Nányuè, Qīngyuán fēnpài. Nányuè chū Bǎizhàng, Huángbò, Línjì, Guīyǎng; Qīngyuán chū Shítóu, Yàoshān, Dòngshān, Yúnmén, Fǎyǎn. Pài fēn wǔjiā, liúzhù qīzōng, tóng guī yī jí.",
+          "translations": {
+            "red_pine": "In the establishment of the ancestral school, Bodhidharma came from the west to transmit solely the mind seal. From the Sixth Patriarch onward, the lineage divided into Nanyue and Qingyuan. Nanyue yielded Baizhang, Huangbo, Linji, and Guiyang; Qingyuan yielded Shitou, Yaoshan, Dongshan (Caodong), Yunmen, and Fayan. Divided into Five Houses and flowing into Seven Schools, they all return to the single supreme source.",
+            "cleary": "In the establishment of the Chan school, Bodhidharma came from the west, transmitting only the mind seal. After the Sixth Patriarch, it divided into Nanyue and Qingyuan. Nanyue produced Baizhang, Huangbo, Linji, and Guiyang; Qingyuan produced Shitou, Dongshan, Yunmen, and Fayan. Divided into five houses, flowing into seven branches, they return to the one truth.",
+            "sasaki": "Bodhidharma came from the West to transmit the Mind Seal directly. From the Sixth Patriarch the stream branched into Nanyue and Qingyuan, yielding the Five Houses of Linji, Caodong, Yunmen, Guiyang, and Fayan, all converging in the One Mind."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "huineng_rice_pestle",
+      "title_zh": "六祖黃梅舂米：碓坊得法",
+      "title_pinyin": "Liùzǔ Huángméi Chōngmǐ: Duìfáng Défǎ",
+      "title_en": "Huineng Treads the Rice Pestle at Yellow Plum Mountain",
+      "dialogue": [
+        {
+          "speaker": "Hongren / 五祖弘忍",
+          "zh": "五祖一日至碓坊，見六祖腰石舂米，問曰：「米熟也未？」六祖曰：「米熟久矣，猶欠篩在。」祖以杖擊碓三下而去。",
+          "pinyin": "Wǔzǔ yī rì zhì duìfáng, jiàn Liùzǔ yāo shí chōng mǐ, wèn yuē: 'Mǐ shú yě wèi?' Liùzǔ yuē: 'Mǐ shú jiǔ yǐ, yóu qiàn shāi zài.' Zǔ yǐ zhàng jī duì sān xià ér qù.",
+          "translations": {
+            "red_pine": "One day the Fifth Patriarch visited the rice-threshing shed. Seeing Huineng treading the pestle with a heavy stone tied to his waist, he asked: 'Is the rice ready yet?' Huineng said: 'The rice has long been ready; it only lacks the final sieving.' The Patriarch struck the pestle three times with his staff and left.",
+            "cleary": "The Fifth Patriarch came to the threshing shed and saw Huineng with a stone tied to his waist pounding rice. He said, 'Is the rice ready?' Huineng said, 'The rice has been ready long since; it just lacks the sieve.' The Patriarch tapped the mortar three times with his staff and left.",
+            "sasaki": "The Fifth Patriarch visited the threshing shed, seeing Huineng pounding rice with a rock on his waist. 'Is the rice ready?' Huineng replied: 'The rice has long been ready; it only waits to be sieved.' The Master struck the mortar three times with his staff."
+          }
+        },
+        {
+          "speaker": "Huineng / 六祖慧能",
+          "zh": "六祖知祖意，遂於三更入室。五祖以袈裟遮圍，為說金剛經。至「應無所住而生其心」，六祖大悟，言：「何期自性本自清淨！何期自性本不生滅！何期自性能生萬法！」五祖遂傳衣缽。",
+          "pinyin": "Liùzǔ zhī zǔ yì, suì yú sāngēng rùshì. Wǔzǔ yǐ jiāshā zhēwéi, wèi shuō Jīngāng Jīng. Zhì 'yìng wú suǒ zhù ér shēng qí xīn', Liùzǔ dà wù, yán: 'Hé qī zìxìng běn zì qīngjìng! Hé qī zìxìng běn bù shēngmiè! Hé qī zìxìng néng shēng wànfǎ!' Wǔzǔ suì chuán yībō.",
+          "translations": {
+            "red_pine": "The Sixth Patriarch understood the Master's meaning and entered the abbot's room at the third watch of the night. The Fifth Patriarch shielded him with his robe and expounded the Diamond Sutra. When he reached 'Arouse the mind without dwelling on anything,' Huineng had great enlightenment and declared: 'Who could have expected that self-nature is fundamentally pure of itself! Who could have expected that self-nature is unborn and indestructible! Who could have expected that self-nature can generate the ten thousand dharmas!' The Fifth Patriarch then transmitted the robe and bowl.",
+            "cleary": "Huineng understood and entered the room at the third watch. The Patriarch covered him with his robe and expounded the Diamond Sutra. At the line 'Arouse the mind without abiding anywhere,' Huineng had great awakening: 'Who would have thought that self-nature is inherently pure! Who would have thought that self-nature generates all things!' The Patriarch transmitted the robe and bowl.",
+            "sasaki": "At the third watch Huineng entered. The Fifth Patriarch expounded the Diamond Sutra: 'Produce a mind that abides nowhere.' At this Huineng was completely enlightened: 'How wondrous that original nature is inherently pure and gives birth to all things!' The robe and bowl were transmitted."
+          }
+        }
+      ]
+    }
+  ]
+}
