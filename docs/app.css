@@ -925,6 +925,11 @@ mark {
   justify-content: space-between;
 }
 
+.master-card:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
 .master-card:hover {
   transform: translateY(-3px);
   border-color: var(--accent-gold);

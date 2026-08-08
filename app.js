@@ -469,6 +469,17 @@
       });
     }
 
+    if (elements.lineageTarget) {
+      elements.lineageTarget.addEventListener('click', (e) => {
+        const card = e.target.closest ? e.target.closest('[data-master-card]') : null;
+        if (card && !e.target.closest('.teacher-link')) window.TranslateChan.openMasterDossier(card.getAttribute('data-master-card'));
+      });
+      elements.lineageTarget.addEventListener('keydown', (e) => {
+        const card = e.target.closest ? e.target.closest('[data-master-card]') : null;
+        if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); window.TranslateChan.openMasterDossier(card.getAttribute('data-master-card')); }
+      });
+    }
+
     // Mode switcher between Visual Network and Cards
     const graphBtn = document.getElementById('lineage-mode-graph-btn');
     const cardsBtn = document.getElementById('lineage-mode-cards-btn');
@@ -1385,7 +1396,7 @@
 
   function lineageTeacherDetail(master) {
     const teacher = (state.data.lineage || []).find(m => m && m.id === master.teacher);
-    if (teacher) return `<button class="btn-pill" onclick="window.TranslateChan.openMasterDossier('${escHtml(teacher.id)}')">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(teacher.name_en)}</button>`;
+    if (teacher) return `<button class="btn-pill teacher-link" onclick="window.TranslateChan.openMasterDossier('${escHtml(teacher.id)}')">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(teacher.name_en)}</button>`;
     return `<span>Teacher frontier: ${escHtml(master.teacher || 'not recorded')} — profile/source record pending</span>`;
   }
 
@@ -1403,7 +1414,7 @@
     renderVisualLineageGraph(masters);
 
     elements.lineageTarget.innerHTML = masters.map(m => `
-      <div class="master-card" onclick="window.TranslateChan.openMasterDossier('${m.id}')" style="cursor: pointer;">
+      <div class="master-card" data-master-card="${escHtml(m.id)}" role="button" tabindex="0" aria-label="Open dossier for ${escHtml(m.name_en)}" style="cursor: pointer;">
         <div>
           <div class="master-header">
             <div>
@@ -1509,7 +1520,7 @@
         const meta = lineageStatusMeta(edge.status);
         const sourceRecord = lineageSourceRecord(edge.source_id);
         const edgeTitle = `${source.master.name_en} → ${target.master.name_en}: ${meta.label}${sourceRecord ? ` (${sourceRecord.title})` : ''}`;
-        linksHtml += `<line class="graph-link ${meta.className}" x1="${source.x}" y1="${source.y + 27}" x2="${target.x}" y2="${target.y - 27}" role="button" tabindex="0" aria-label="${escHtml(edgeTitle)}" onclick="window.TranslateChan.openLineageEdge('${m.teacher}', '${m.id}')"><title>${escHtml(edgeTitle)}</title></line>`;
+        linksHtml += `<line class="graph-link ${meta.className}" x1="${source.x}" y1="${source.y + 27}" x2="${target.x}" y2="${target.y - 27}" role="button" tabindex="0" aria-label="${escHtml(edgeTitle)}" data-lineage-teacher="${escHtml(m.teacher)}" data-lineage-disciple="${escHtml(m.id)}"><title>${escHtml(edgeTitle)}</title></line>`;
       }
     });
     linksHtml += '</g>';
@@ -1522,7 +1533,7 @@
 
       const shortName = stringValue(master.name_en).split(' ').pop().slice(0, 14);
       nodesHtml += `
-        <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
+        <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" data-master-node="${escHtml(master.id)}">
           <circle class="graph-node-halo" r="30" fill="${color}" fill-opacity="0.09"></circle>
           <circle r="24" fill="var(--bg-card)" stroke="${color}" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.12))"></circle>
           <text text-anchor="middle" dy=".34em" font-size="12" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${escHtml(master.name_zh.slice(-2))}</text>
@@ -1548,6 +1559,12 @@
     };
     if (svg._panzoom) { apply(); return; } // already bound — just re-apply transform after redraw
     svg._panzoom = view;
+    svg.addEventListener('click', (e) => {
+      const node = e.target && e.target.closest ? e.target.closest('[data-master-node]') : null;
+      const edge = e.target && e.target.closest ? e.target.closest('[data-lineage-teacher]') : null;
+      if (node) window.TranslateChan.openMasterDossier(node.getAttribute('data-master-node'));
+      else if (edge) window.TranslateChan.openLineageEdge(edge.getAttribute('data-lineage-teacher'), edge.getAttribute('data-lineage-disciple'));
+    });
 
     const container = svg.closest ? svg.closest('#lineage-graph-container') : svg.parentNode;
 
