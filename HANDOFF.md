@@ -31,7 +31,7 @@ The TranslateChan project has been fully established with:
 3. **`84a59eb`** Docs-truth pass: measured statuses, `LICENSE` (MIT + CC BY-SA 4.0 + third-party notice), `.nojekyll`, phantom refs purged.
 4. **`5405a60`** Attribution-integrity: `provenance.json` provenance policy + ✅/⚠️ badges in the UI + mis-cited canon IDs fixed.
 5. **`5c35834`** Universal search (all 36 texts × all schemas), true reader modes, single-pass clean tooltips, Studio builds from the data bundle.
-6. **`7dbfec0`–`934b7ef` (7 commits)** Verified-quotation campaign rounds 1–8 → **79 verified slots across 6 corpus texts + 2 verified matrix rows**; six ✅ editions on Wumenguan Case 1; Wumenguan anchors now public-domain complete (Senzaki & Reps 1934); `provenance.json` v1.9. Highlights: first-ever honest ✅/⚠️ labels on every scholar-attributed rendering; 4 paraphrases/near-paraphrases caught and replaced with verified wording; 1 non-canonical Chinese stanza corrected to T2010.
+6. **`7dbfec0`–`934b7ef` (7 commits)** Verified-quotation campaign rounds 1–8 → **119 verified slots across 6 corpus texts + 2 verified matrix rows**; six ✅ editions on Wumenguan Case 1; **Wumenguan completed 48/48** with the Senzaki & Reps 1934 public-domain register on every case (round 9, 2026-08-08); `provenance.json` v2.0. Highlights: first-ever honest ✅/⚠️ labels on every scholar-attributed rendering; 4 paraphrases/near-paraphrases caught and replaced with verified wording; 1 non-canonical Chinese stanza corrected to T2010.
 
 **Release readiness**: `scripts/smoke_test.mjs` ✅ · deterministic bundle ✅ · `/docs` byte-synced ✅ · live site will self-heal on merge (Pages serves `main` `/docs`).
 

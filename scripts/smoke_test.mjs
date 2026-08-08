@@ -138,6 +138,10 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
   // stub stores dataset via plain property; app sets dataset.mode — check direct assignment happened
   if (!('mode' in (ids['reader-content-target'].dataset || {}))) failures++; console.log('❌ reader data-mode not set');
 }
+// 4g. Wumenguan renders all 48 cases (regression guard for the 48/48 completion)
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+const wmCaseCount = (ids['reader-content-target']._innerHTML.match(/id="case-/g) || []).length;
+if (wmCaseCount < 48) { failures++; console.log(`❌ wumenguan renders only ${wmCaseCount} cases (expected 48)`); }
 // 4e. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
   (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } }));

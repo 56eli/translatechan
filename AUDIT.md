@@ -402,3 +402,22 @@ All findings closed in one verified push (branch `arena/019fe1b5-translatechan`)
 | masters cbeta | mazu T1985/X1304; shitou T1985/T2076; zhaozhou T1985?/T2005; guishan T2007/T2076; yuanwu T2003 | T2076 f.6/X1321 · T2076 f.14/X1565 · T1987/X1315 · T1989/T2076 f.9 · T1997/X1357 |
 
 **Key CBETA evidence (fetched this session)**: T47n1985 臨濟錄 · T47n1998A 大慧語錄 · T47n1995 法演語錄 · T48n2002A 如淨語錄 · T48n2009 少室六門 · T51n2075 歷代法寶記 · X63n1223 · X67n1309 正法眼藏 · X68n1315 古尊宿語錄 (TOC: 南泉語要/佛眼語錄/百丈語錄) · X69n1320-1323 四家語錄 · X69n1333 雪峰 · X69n1354 月林 · X69n1357 圓悟心要 · X73n1445/1446 玄沙 · X80n1565 五燈會元 · X86n1598 曹溪別傳 · 五燈會元卷十九 (守端/法演 chapters, verbatim quotes) · 月林師觀語錄 X1354 opening verse.
+
+### 9.4 — Wumenguan completed: 48/48 cases (same session, 2026-08-08)
+
+The roadmap's first Phase-2 full-text milestone is **done**: `data/corpus/wumenguan.json` now contains **all 48 cases + preface + epilogue** (was 11/48), making Wumenguan the corpus's first complete canonical text.
+
+| Item | Detail |
+|---|---|
+| Classical Chinese | All 48 case texts (dialogue + 無門曰 commentary + 頌 verse) from the CBETA T2005 recension (宗紹編; TOC verified against CBETA Online, incl. the case-37 庭前柏樹 numbering — see correction below) |
+| Verified register | **+40 verified Senzaki & Reps slots** (all 37 previously-missing cases), verbatim vs sacred-texts.com case pages — the 1934 John Murray edition, U.S. public domain via non-renewal; every dialogue unit now carries a ✅ verified quotation |
+| Pinyin | Machine-generated (pypinyin) with a curated 50-entry Buddhist-term override table (迦葉, 乾屎橛, 薄伽梵, 闍梨, 兜率, 應諾…); tone-sandhi disabled for corpus consistency (bù not bú); flagged in provenance as a machine draft |
+| commentary_en / verse_en | Project renderings (automatically labeled "unverified" in the UI); deliberately NO unverified scholar reconstructions on the new cases |
+| Coverage metadata | `coverage_note` + `zh_chars` fields added to wumenguan.json (AUDIT §3.3 recommendation) |
+| Regression | Smoke test now asserts ≥48 case cards render for wumenguan (4g); bundle rebuilt; root↔docs byte-identical |
+
+**Numbering correction (supersedes §9.2/round-8 note)**: CBETA Online's T2005 目次 confirms case 37 = **庭前柏樹** (Zhaozhou's cypress/oak) and case 38 = **牛過窗櫺** — the earlier "T2005 case 37 is Panshan 三界無法" note conflated **Biyanlu case 37** (盤山三界無法) with the Wumenguan. The corpus's existing case 37 was correct all along; the Senzaki/Reps edition prints the cypress case as its no. 38 (they add Amban's verse as no. 49). Provenance round-8 note corrected; both numberings documented in provenance v2.0.
+
+**Verified tally now**: **119 verified quotation slots across 6 corpus texts + 2 verified matrix rows** (was 79). Wumenguan alone: 60 dialogue slots on the original anchors + 40 new = 100 verified slots, every case carrying the PD baseline.
+
+**Remaining Phase-2 work**: Biyanlu 7/100 → complete (next best ROI; note the Senzaki/Reps PD edition does not cover 碧巖錄, but Sekida's *Two Zen Classics* includes Hekiganroku as a partial substrate), then Congronglu, Chuandenglu, yulu completions. Optional round 10: Yamada/Aitken/Sekida/Blyth registers for the new 37 cases (substrates proven fetchable), scholar-register reconstructions for the new cases, gongan_index expansion to cover all 48 cases.

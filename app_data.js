@@ -1366,7 +1366,7 @@ window.TRANSLATECHAN_DATA = {
     }
   ],
   "translations_provenance": {
-    "policy_version": "1.9",
+    "policy_version": "2.0",
     "policy_date": "2026-08-08",
     "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
     "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -1519,6 +1519,21 @@ window.TRANSLATECHAN_DATA = {
           "shibayama — substrate PDF (Zen Comments on the Mumonkan / Zen Inspirations excerpt) is an image-only scan → unverifiable this session, pending",
           "pending: hoffman stone-bridge; watson deathbed; shibayama registers; aitken cases 5–7,19,23,29,37 (parse window)"
         ]
+      },
+      {
+        "pilot": "Round 9 (2026-08-08): Wumenguan completed 48/48 — Senzaki & Reps public-domain register extended to all remaining cases",
+        "registers_verified": [
+          "senzaki_reps — +40 verified dialogue slots covering all 37 previously-missing cases (8–18, 20–22, 24–28, 30–36, 38–48), verbatim vs sacred-texts.com case pages (John Murray 1934, U.S. PD via non-renewal)"
+        ],
+        "data_corrections": [
+          "provenance round-8 note corrected: T2005 case 37 IS 庭前柏樹 (oak/cypress) per CBETA Online TOC — the 'Panshan 三界無法' claim conflated Biyanlu case 37 with Wumenguan 37",
+          "case 38 牛過窗櫺 follows CBETA numbering (Senzaki/Reps printed it as their no. 37; their no. 38 = our canonical 37 庭前柏樹 — both spellings documented)"
+        ],
+        "registers_pending": [
+          "yamada/aitken/sekida/blyth/shimomisse full-48 coverage (current verified registers cover the original 11 anchor cases only)",
+          "scholar-register reconstructions for the new 37 cases (deliberately omitted — new cases carry only the verified PD register)"
+        ],
+        "note": "New cases carry ONLY the verified senzaki_reps register (no unverified scholar reconstructions). commentary_en/verse_en are project renderings and display the automatic 'unverified' label. zh follows the CBETA T2005 recension (宗紹編); 缽/云/窗 etc. are edition variants, cross-matched by the app's variant-normalized search."
       }
     ]
   },
@@ -2413,6 +2428,507 @@ window.TRANSLATECHAN_DATA = {
           "verse_en": "Just because it is so clear, / One's realization is delayed! / If you had known the lamp is fire, / The rice would have been cooked long ago!"
         },
         {
+          "case_num": 8,
+          "title_zh": "奚仲造車",
+          "title_pinyin": "Xīzhòng zào chē",
+          "title_en": "Keichu's Wheel",
+          "protagonist": "yuean",
+          "dialogue": [
+            {
+              "speaker": "Getsuan / 月庵",
+              "zh": "月庵和尚問僧：「奚仲造車一百輻，拈卻兩頭，去卻軸，明甚麼邊事？」",
+              "pinyin": "yuè ān hé shàng wèn sēng：'xī zhòng zào chē yì bǎi fú，niān què liǎng tóu，qù què zhóu，míng shén me biān shì？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Getsuan said to his students: \"Keichu, the first wheel-maker of China, made two wheels of fifty spokes each. Now, suppose you removed the nave uniting the spokes. What would become of the wheel? And had Keichu done this, could he be called the master wheel-maker?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若也直下明得，眼似流星，機如掣電。",
+          "commentary_pinyin": "ruò yě zhí xià míng dé，yǎn shì liú xīng，jī rú chè diàn。",
+          "commentary_en": "If one sees through it directly, the eyes are like a shooting star and the activity like a flash of lightning.",
+          "verse_zh": "機輪轉處，達者猶迷；四維上下，南北東西。",
+          "verse_pinyin": "jī lún zhuǎn chù，dá zhě yóu mí；sì wéi shàng xià，nán běi dōng xī。",
+          "verse_en": "Where the wheel of the mechanism turns, even the adept is lost; above, below, and the four directions — south, north, east, west."
+        },
+        {
+          "case_num": 9,
+          "title_zh": "大通智勝",
+          "title_pinyin": "Dàtōng Zhìshèng",
+          "title_en": "A Buddha before History",
+          "protagonist": "xingyang_rang",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問：「大通智勝佛，十劫坐道場，佛法不現前，不得成佛道，時如何？」",
+              "pinyin": "sēng wèn：'dà tōng zhì shèng fú，shí jié zuò dào chǎng，fó fǎ bù xiàn qián，bù dé chéng fú dào，shí rú hé？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A monk asked Seijo: \"I understand that a Buddha who lived before recorded history sat in meditation for ten cycles of existence and could not realize the highest truth, and so could not become fully emancipated. Why was this so?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Xingyang Rang / 興陽讓",
+              "zh": "讓曰：「其問甚諦當。」",
+              "pinyin": "ràng yuē：'qí wèn shèn dì dāng。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Seijo replied: \"Your question is self-explanatory.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧云：「既是坐道場，為甚麼不得成佛道？」",
+              "pinyin": "sēng yún：'jì shì zuò dào chǎng，wèi shén me bù dé chéng fú dào？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "The monk asked: \"Since the Buddha was meditating, why could he not fulfill Buddhahood?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Xingyang Rang / 興陽讓",
+              "zh": "讓曰：「為伊不成佛。」",
+              "pinyin": "ràng yuē：'wèi yī bù chéng fú。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Seijo said: \"He was not a Buddha.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "只許老胡知，不許老胡會。凡夫若知即是聖人，聖人若會即是凡夫。",
+          "commentary_pinyin": "zhǐ xǔ lǎo hú zhī，bù xǔ lǎo hú huì。fán fū ruò zhī jí shì shèng rén，shèng rén ruò huì jí shì fán fū。",
+          "commentary_en": "The old barbarian may be allowed knowledge, but not understanding. When an ordinary person knows, he is a sage; when a sage understands, he is an ordinary person.",
+          "verse_zh": "了身何似了心休，了得心兮身不愁；若也身心俱了了，神仙何必更封侯。",
+          "verse_pinyin": "le shēn hé shì le xīn xiū，liǎo de xīn xī shēn bù chóu；ruò yě shēn xīn jù liǎo liǎo，shén xiān hé bì gèng fēng hóu。",
+          "verse_en": "Better to understand mind than body; once mind is understood the body gives no worry. If both body and mind are utterly understood, why should a transcendent one seek noble rank?"
+        },
+        {
+          "case_num": 10,
+          "title_zh": "清稅孤貧",
+          "title_pinyin": "Qīngshuì gūpín",
+          "title_en": "Seizei Alone and Poor",
+          "protagonist": "caoshan_benji",
+          "dialogue": [
+            {
+              "speaker": "Seizei / 清稅",
+              "zh": "清稅孤貧，乞師賑濟。",
+              "pinyin": "qīng shuì gū pín，qǐ shī zhèn jì。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A monk named Seizei asked of Sozan: \"Seizei is alone and poor. Will you give him support?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Caoshan / 曹山",
+              "zh": "山云：「稅闍梨！」稅應諾。",
+              "pinyin": "shān yún：'shuì shé lí！'shuì yìng nuò。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Sozan asked: \"Seizei?\" Seizei responded: \"Yes, sir.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Caoshan / 曹山",
+              "zh": "山曰：「青原白家酒，三盞喫了，猶道未沾唇。」",
+              "pinyin": "shān yuē：'qīng yuán bái jiā jiǔ，sān zhǎn chī le，yóu dào wèi zhān chún。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Sozan said: \"You have Zen, the best wine in China, and already have finished three cups, and still you are saying that they did not even wet your lips.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "清稅輸機，是何心行？曹山具眼，深辨來機。然雖如是，且道那裏是稅闍梨喫酒處？",
+          "commentary_pinyin": "qīng shuì shū jī，shì hé xīn xíng？cáo shān jù yǎn，shēn biàn lái jī。rán suī rú shì，qiě dào nà lǐ shì shuì shé lí chī jiǔ chù？",
+          "commentary_en": "Qingshui lost his move — what kind of mind was that? Caoshan had eyes and discerned the coming impulse. Even so: where exactly did Qingshui drink the wine?",
+          "verse_zh": "貧似范丹，氣如項羽；活計雖無，敢與鬥富。",
+          "verse_pinyin": "pín shì fàn dān，qì rú xiàng yǔ；huó jì suī wú，gǎn yǔ dòu fù。",
+          "verse_en": "Poor as Fan Dan, spirited as Xiang Yu; though his livelihood is nothing, he dares to rival the rich."
+        },
+        {
+          "case_num": 11,
+          "title_zh": "州勘庵主",
+          "title_pinyin": "Zhōu kān ānzhǔ",
+          "title_en": "Joshu Examines a Monk in Meditation",
+          "protagonist": "zhaozhou_congshen",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "趙州到一庵主處問：「有麼？有麼？」主豎起拳頭。州云：「水淺，不是泊舡處。」便行。",
+              "pinyin": "zhào zhōu dào yī ān zhǔ chù wèn：'yǒu me？yǒu me？'zhǔ shù qǐ quán tóu。zhōu yún：'shuǐ qiǎn，bú shì pō chuán chù。'biàn xíng。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Joshu went to a place where a monk had retired to meditate and asked him: \"What is, is what?\" The monk raised his fist. Joshu replied: \"Ships cannot remain where the water is too shallow.\" And he left.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "又到一庵主處云：「有麼？有麼？」主亦豎起拳頭。州云：「能縱能奪，能殺能活。」便作禮。",
+              "pinyin": "yòu dào yī ān zhǔ chù yún：'yǒu me？yǒu me？'zhǔ yì shù qǐ quán tóu。zhōu yún：'néng zòng néng duó，néng shā néng huó。'biàn zuò lǐ。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A few days later Joshu went again to visit the monk and asked the same question. The monk answered the same way. Joshu said: \"Well given, well taken, well killed, well saved.\" And he bowed to the monk.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "一般豎起拳頭，為甚麼肯一箇不肯一箇？且道誵訛在甚處？若向者裏下得一轉語，便見趙州舌頭無骨，扶起放倒，得大自在。雖然如是，爭奈趙州卻被二庵主勘破。若道二庵主有優劣，未具參學眼；若道無優劣，亦未具參學眼。",
+          "commentary_pinyin": "yì bān shù qǐ quán tóu，wèi shén me kěn yī gè bù kěn yī gè？qiě dào xiáo é zài shèn chù？ruò xiàng zhě lǐ xià dé yī zhuǎn yǔ，biàn jiàn zhào zhōu shé tóu wú gǔ，fú qǐ fàng dǎo，dé dà zì zài。suī rán rú shì，zhēng nài zhào zhōu què bèi èr ān zhǔ kān pò。ruò dào èr ān zhǔ yǒu yōu liè，wèi jù cān xué yǎn；ruò dào wú yōu liè，yì wèi jù cān xué yǎn。",
+          "commentary_en": "Both raised the same fist — why approve one and not the other? Where is the discrepancy? If you can turn a phrase right here, you will see Zhaozhou's boneless tongue, free to raise and to lay down. Even so, Zhaozhou was seen through by the two hermit-masters. Say the two are unequal and you lack the eye of practice; say they are equal — you still lack it.",
+          "verse_zh": "眼流星，機掣電；殺人刀，活人劍。",
+          "verse_pinyin": "yǎn liú xīng，jī chè diàn；shā rén dāo，huó rén jiàn。",
+          "verse_en": "Eyes a shooting star, activity a lightning flash; the sword that kills, the sword that gives life."
+        },
+        {
+          "case_num": 12,
+          "title_zh": "巖喚主人",
+          "title_pinyin": "Yán huàn zhǔrén",
+          "title_en": "Zuigan Calls His Own Master",
+          "protagonist": "ruiyan_shiyan",
+          "dialogue": [
+            {
+              "speaker": "Zuigan / 瑞巖",
+              "zh": "瑞巖彥和尚每日自喚：「主人公！」復自應諾，乃云：「惺惺著！」喏：「他時異日，莫受人瞞！」喏喏。",
+              "pinyin": "ruì yán yàn hé shàng měi rì zì huàn：'zhǔ rén gōng！'fù zì yìng nuò，nǎi yún：'xīng xīng zhù！'nuò：'tā shí yì rì，mò shòu rén mán！'nuò nuò。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Zuigan called out to himself every day: \"Master.\" Then he answered himself: \"Yes, sir.\" And after that he added: \"Become sober.\" Again he answered: \"Yes, sir.\" \"And after that,\" he continued, \"do not be deceived by others.\" \"Yes, sir; yes, sir,\" he answered.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "瑞巖老子自買自賣，弄出許多神頭鬼面。何故聾？一箇喚底，一箇應底，一箇惺惺底，一箇不受人瞞底，認著依前還不是。若也傚他，總是野狐見解。",
+          "commentary_pinyin": "ruì yán lǎo zi zì mǎi zì mài，nòng chū xǔ duō shén tóu guǐ miàn。hé gù lóng？yī gè huàn dǐ，yī gè yīng dǐ，yī gè xīng xīng dǐ，yī gè bù shòu rén mán dǐ，rèn zhù yī qián hái bú shì。ruò yě xiào tā，zǒng shì yě hú jiàn jiě。",
+          "commentary_en": "Old Ruiyan buys and sells himself, putting on all sorts of ghost faces. Why? One calls, one answers, one is awake, one is not fooled — cling to any of them and you still miss. Imitate him and it is all fox-view.",
+          "verse_zh": "學道之人不識真，只為從前認識神；無量劫來生死本，癡人喚作本來人。",
+          "verse_pinyin": "xué dào zhī rén bù shí zhēn，zhǐ wèi cóng qián rèn shí shén；wú liàng jié lái shēng sǐ běn，chī rén huàn zuò běn lái rén。",
+          "verse_en": "Students of the Way do not recognize the true, only recognizing the consciousness-spirit from of old; the root of birth and death through countless kalpas — fools call it the original person."
+        },
+        {
+          "case_num": 13,
+          "title_zh": "德山托缽",
+          "title_pinyin": "Déshān tuō bō",
+          "title_en": "Tokusan Holds His Bowl",
+          "protagonist": "deshan_xuanjian",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "德山一日托缽下堂，見雪峰。峰問：「者老漢！鐘未鳴，鼓未響，托缽向甚處去？」山便回方丈。",
+              "pinyin": "dé shān yī rì tuō bō xià táng，jiàn xuě fēng。fēng wèn：'zhě lǎo hàn！zhōng wèi míng，gǔ wèi xiǎng，tuō bō xiàng shèn chù qù？'shān biàn huí fāng zhàng。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Tokusan went to the dining room from the meditation hall holding his bowl. Seppo was on duty cooking. When he met Tokusan he said: \"The dinner drum is not yet beaten. Where are you going with your bowl?\" So Tokusan returned to his room.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "峰舉似巖頭，頭云：「大小德山，未會末後句。」山聞，令侍者喚巖頭來，問曰：「汝不肯老僧那？」巖頭密啟其意，山乃休去。",
+              "pinyin": "fēng jǔ shì yán tóu，tóu yún：'dà xiǎo dé shān，wèi huì mò hòu jù。'shān wén，lìng shì zhě huàn yán tóu lái，wèn yuē：'rǔ bù kěn lǎo sēng nà？'yán tóu mì qǐ qí yì，shān nǎi xiū qù。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Seppo told Ganto about this. Ganto said: \"Old Tokusan did not understand ultimate truth.\" Tokusan heard of this remark and asked Ganto to come to him. \"I have heard,\" he said, \"you are not approving my Zen.\" Ganto admitted this indirectly. Tokusan said nothing.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "明日陞座，果與尋常不同。巖頭至僧堂前，拊掌大笑云：「且喜得老漢會末後句，他後天下人不奈伊何。」",
+              "pinyin": "míng rì shēng zuò，guǒ yǔ xún cháng bù tóng。yán tóu zhì sēng táng qián，fǔ zhǎng dà xiào yún：'qiě xǐ dé lǎo hàn huì mò hòu jù，tā hòu tiān xià rén bù nài yī hé。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "The next day Tokusan delivered an entirely different kind of lecture to the monks. Ganto laughed and clapped his hands, saying: \"I see our old man understands ultimate truth indeed. None in China can surpass him.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若是末後句，巖頭德山俱未夢見在。撿點將來，好似一棚傀儡。",
+          "commentary_pinyin": "ruò shì mò hòu jù，yán tóu dé shān jù wèi mèng jiàn zài。jiǎn diǎn jiāng lái，hǎo sì yī péng kuǐ lěi。",
+          "commentary_en": "As for the ultimate word — neither Yantou nor Deshan even dreamed of it. Checked over, the whole affair is like a puppet show.",
+          "verse_zh": "識得最初句，便會末後句；末後與最初，不是者一句。",
+          "verse_pinyin": "shí dé zuì chū jù，biàn huì mò hòu jù；mò hòu yǔ zuì chū，bú shì zhě yī jù。",
+          "verse_en": "Understand the first word and you understand the last; the last and the first are not this one word."
+        },
+        {
+          "case_num": 14,
+          "title_zh": "南泉斬貓",
+          "title_pinyin": "Nánquán zhǎn māo",
+          "title_en": "Nansen Cuts the Cat in Two",
+          "protagonist": "nanquan_puyuan",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "南泉和尚因東西兩堂爭貓兒，泉乃提起云：「大眾道得即救，道不得即斬卻也。」眾無對，泉遂斬之。",
+              "pinyin": "nán quán hé shàng yīn dōng xī liǎng táng zhēng māo ér，quán nǎi tí qǐ yún：'dà zhòng dào dé jí jiù，dào bù dé jí zhǎn què yě。'zhòng wú duì，quán suì zhǎn zhī。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Nansen saw the monks of the eastern and western halls fighting over a cat. He seized the cat and told the monks: \"If any of you say a good word, you can save the cat.\" No one answered. So Nansen boldly cut the cat in two pieces.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "晚，趙州外歸，泉舉似州。州乃脫履，安頭上而出。泉云：「子若在，即救得貓兒。」",
+              "pinyin": "wǎn，zhào zhōu wài guī，quán jǔ shì zhōu。zhōu nǎi tuō lǚ，ān tóu shàng ér chū。quán yún：'zi ruò zài，jí jiù dé māo ér。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "That evening Joshu returned and Nansen told him about this. Joshu removed his sandals and, placing them on his head, walked out. Nansen said: \"If you had been there, you could have saved the cat.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "且道趙州頂草鞋意作麼生？若向者裏下得一轉語，便見南泉令不虛行。其或未然，險！",
+          "commentary_pinyin": "qiě dào zhào zhōu dǐng cǎo xié yì zuò me shēng？ruò xiàng zhě lǐ xià dé yī zhuǎn yǔ，biàn jiàn nán quán lìng bù xū xíng。qí huò wèi rán，xiǎn！",
+          "commentary_en": "What was the meaning of Zhaozhou's putting his sandals on his head? Turn one phrase right here and you will see that Nanguan's command was not issued in vain. Otherwise — danger!",
+          "verse_zh": "趙州若在，倒行此令；奪卻刀子，南泉乞命。",
+          "verse_pinyin": "zhào zhōu ruò zài，dào xíng cǐ lìng；duó què dāo zi，nán quán qǐ mìng。",
+          "verse_en": "Had Zhaozhou been there he would have reversed the order; snatching away the knife, he would make Nanguan beg for his life."
+        },
+        {
+          "case_num": 15,
+          "title_zh": "洞山三頓",
+          "title_pinyin": "Dòngshān sān dùn",
+          "title_en": "Tozan's Three Blows",
+          "protagonist": "yunmen_wenyan",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "雲門因洞山參次，門問曰：「近離甚處？」山云：「查渡。」門曰：「夏在甚處？」山云：「湖南報慈。」門曰：「幾時離彼？」山云：「八月二十五。」門曰：「放汝三頓棒。」",
+              "pinyin": "yún mén yīn dòng shān cān cì，mén wèn yuē：'jìn lí shèn chù？'shān yún：'chá dù。'mén yuē：'xià zài shèn chù？'shān yún：'hú nán bào cí。'mén yuē：'jǐ shí lí bǐ？'shān yún：'bā yuè èr shí wǔ。'mén yuē：'fàng rǔ sān dùn bàng。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Tozan went to Ummon. Ummon asked him where he had come from. Tozan said: \"From Sato village.\" Ummon asked: \"In what temple did you remain for the summer?\" Tozan replied: \"The temple of Hoji, south of the lake.\" \"When did you leave there?\" asked Ummon, wondering how long Tozan would continue with such factual answers. \"The twenty-fifth of August,\" answered Tozan. Ummon said: \"I should give you three blows with a stick, but today I forgive you.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "山至明日卻上問訊：「昨日蒙和尚放三頓棒，不知過在甚麼處？」門曰：「飯袋子！江西湖南便恁麼去！」山於此大悟。",
+              "pinyin": "shān zhì míng rì què shàng wèn xùn：'zuó rì méng hé shàng fàng sān dùn bàng，bù zhī guò zài shén me chù？'mén yuē：'fàn dài zi！jiāng xī hú nán biàn nèn me qù！'shān yú cǐ dà wù。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "The next day Tozan bowed to Ummon and asked: \"Yesterday you forgave me three blows. I do not know why you thought me wrong.\" Ummon, rebuking Tozan's spiritless responses, said: \"You are good for nothing. You simply wander from one monastery to another.\" Before Ummon's words were ended Tozan was enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "雲門當時便與本分草料，使洞山別有生機一路，家門不致寂寥。一夜在是非海裏著到，直待天明，再來又與他注破。洞山直下悟去，未是性燥。且問諸人：洞山三頓棒合喫不合喫？若道合喫，草木叢林皆合喫棒；若道不合喫，雲門又成誑語。向者裏明得，方與洞山出一口氣。",
+          "commentary_pinyin": "yún mén dāng shí biàn yǔ běn fèn cǎo liào，shǐ dòng shān bié yǒu shēng jī yī lù，jiā mén bù zhì jì liáo。yī yè zài shì fēi hǎi lǐ zhù dào，zhí dài tiān míng，zài lái yòu yǔ tā zhù pò。dòng shān zhí xià wù qù，wèi shì xìng zào。qiě wèn zhū rén：dòng shān sān dùn bàng hé chī bù hé chī？ruò dào hé chī，cǎo mù cóng lín jiē hé chī bàng；ruò dào bù hé chī，yún mén yòu chéng kuáng yǔ。xiàng zhě lǐ míng dé，fāng yǔ dòng shān chū yī kǒu qì。",
+          "commentary_en": "Yunmen at once gave him the proper fodder, giving Dongshan a live path so the family would not fall silent. A whole night tossing in the sea of right and wrong — then at dawn he spelled it out for him again. Dongshan's immediate awakening was not yet the true flair. I ask you all: did Dongshan deserve the three blows? Say yes, and every blade of grass and every tree deserves the stick; say no, and Yunmen becomes a liar. Understand this and you can breathe a sigh for Dongshan.",
+          "verse_zh": "獅子教兒迷子訣，擬前跳躑早翻身；無端再敘當頭著，前箭猶輕後箭深。",
+          "verse_pinyin": "shī zi jiào ér mí zi jué，nǐ qián tiào zhí zǎo fān shēn；wú duān zài xù dāng tóu zhù，qián jiàn yóu qīng hòu jiàn shēn。",
+          "verse_en": "The lioness's way of teaching her cubs — before they leap, she flips them over; then without warning she hits them again head-on: the first arrow light, the second deep."
+        },
+        {
+          "case_num": 16,
+          "title_zh": "鐘聲七條",
+          "title_pinyin": "Zhōngshēng qī tiáo",
+          "title_en": "Bells and Robes",
+          "protagonist": "yunmen_wenyan",
+          "dialogue": [
+            {
+              "speaker": "Yunmen / 雲門",
+              "zh": "雲門曰：「世界恁麼廣闊，因甚向鐘聲裏披七條？」",
+              "pinyin": "yún mén yuē：'shì jiè nèn me guǎng kuò，yīn shèn xiàng zhōng shēng lǐ pī qī tiáo？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Ummon asked: \"The world is such a wide world, why do you answer a bell and don ceremonial robes?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "大凡參禪學道，切忌隨聲逐色。縱使聞聲悟道，見色明心，也是尋常。殊不知衲僧家騎聲蓋色，頭頭上明，著著上妙。然雖如是，且道聲來耳畔，耳往聲邊，直饒響寂雙忘，到此如何話會？若將耳聽應難會，眼處聞聲方始親。",
+          "commentary_pinyin": "dà fán cān chán xué dào，qiè jì suí shēng zhú sè。zòng shǐ wén shēng wù dào，jiàn sè míng xīn，yě shì xún cháng。shū bù zhī nà sēng jiā qí shēng gài sè，tóu tóu shàng míng，zhù zhù shàng miào。rán suī rú shì，qiě dào shēng lái ěr pàn，ěr wǎng shēng biān，zhí ráo xiǎng jì shuāng wàng，dào cǐ rú hé huà huì？ruò jiāng ěr tīng yīng nán huì，yǎn chù wén shēng fāng shǐ qīn。",
+          "commentary_en": "In studying Zen, never chase sound and form. Even awakening upon hearing a voice or seeing a form is still commonplace. Know that the monk rides sound and covers form — luminous on every head, wondrous in every detail. Even so: does sound come to the ear, or the ear go to sound? When sound and silence both vanish, how do you speak of it? Heard with the ear it is hard to understand — only when sound is seen with the eye is it intimate.",
+          "verse_zh": "會則事同一家，不會萬別千差；不會事同一家，會則萬別千差。",
+          "verse_pinyin": "huì zé shì tóng yī jiā，bù huì wàn bié qiān chà；bù huì shì tóng yī jiā，huì zé wàn bié qiān chà。",
+          "verse_en": "Understand, and all is one family; fail to understand, and it is a thousand differences. Fail to understand, and it is one family; understand, and it is a thousand differences."
+        },
+        {
+          "case_num": 17,
+          "title_zh": "國師三喚",
+          "title_pinyin": "Guóshī sān huàn",
+          "title_en": "The Three Calls of the Emperor's Teacher",
+          "protagonist": "nanyang_huizhong",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "國師三喚侍者，侍者三應。國師云：「將謂吾辜負汝，元來卻是汝辜負吾。」",
+              "pinyin": "guó shī sān huàn shì zhě，shì zhě sān yīng。guó shī yún：'jiāng wèi wú gū fù rǔ，yuán lái què shì rǔ gū fù wú。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Chu, called Kokushi, the teacher of the emperor, called to his attendant: \"Oshin.\" Oshin answered: \"Yes.\" Chu repeated, to test his pupil: \"Oshin.\" Oshin repeated: \"Yes.\" Chu called: \"Oshin.\" Oshin answered: \"Yes.\" Chu said: \"I ought to apologize to you for all this calling, but really you ought to apologize to me.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "國師三喚，舌頭墮地；侍者三應，和光吐出。國師年老心孤，按牛頭喫草；侍者未肯承當，美食不中飽人餐。且道那裏是他辜負處？國清才子貴，家富小兒嬌。",
+          "commentary_pinyin": "guó shī sān huàn，shé tóu duò dì；shì zhě sān yīng，hé guāng tǔ chū。guó shī nián lǎo xīn gū，àn niú tóu chī cǎo；shì zhě wèi kěn chéng dāng，měi shí bù zhōng bǎo rén cān。qiě dào nà lǐ shì tā gū fù chù？guó qīng cái zi guì，jiā fù xiǎo ér jiāo。",
+          "commentary_en": "The National Teacher's three calls — his tongue fell to the ground. The attendant's three answers — he emitted harmony and light. The teacher was old and his heart lonely, pressing the ox's head to the grass; the attendant would not take it on — fine food does not satisfy the full. Where was his failure? When the country is pure, its talents are prized; when the home is rich, the children are spoiled.",
+          "verse_zh": "鐵枷無孔要人擔，累及兒孫不等閑；欲得撐門并拄戶，更須赤腳上刀山。",
+          "verse_pinyin": "tiě jiā wú kǒng yào rén dān，lěi jí ér sūn bù děng xián；yù dé chēng mén bìng zhǔ hù，gèng xū chì jiǎo shàng dāo shān。",
+          "verse_en": "An iron cangue without holes demands a bearer, involving children and grandchildren without respite; to prop the door and hold the gate, you must climb the knife-mountain barefoot."
+        },
+        {
+          "case_num": 18,
+          "title_zh": "洞山三斤",
+          "title_pinyin": "Dòngshān sān jīn",
+          "title_en": "Tozan's Three Pounds",
+          "protagonist": "dongshan_liangjie",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問：「如何是佛？」山云：「麻三斤。」",
+              "pinyin": "sēng wèn：'rú hé shì fú？'shān yún：'má sān jīn。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A monk asked Tozan when he was weighing some flax: \"What is Buddha?\" Tozan said: \"This flax weighs three pounds.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "洞山老人參得些蚌蛤禪，纔開兩片，露出肝腸。然雖如是，且道向甚處見洞山？",
+          "commentary_pinyin": "dòng shān lǎo rén cān dé xiē bàng há chán，cái kāi liǎng piàn，lù chū gān cháng。rán suī rú shì，qiě dào xiàng shèn chù jiàn dòng shān？",
+          "commentary_en": "Old Dongshan got a bit of clam-zen: the moment the two shells open, out come the guts. Even so — where do you see Dongshan?",
+          "verse_zh": "突出麻三斤，言親意更親；來說是非者，便是是非人。",
+          "verse_pinyin": "tū chū má sān jīn，yán qīn yì gèng qīn；lái shuō shì fēi zhě，biàn shì shì fēi rén。",
+          "verse_en": "Suddenly 'three pounds of flax' — the words intimate, the meaning more intimate still; those who come talking of right and wrong are themselves the people of right and wrong."
+        },
+        {
           "case_num": 19,
           "title_zh": "平常是道",
           "title_pinyin": "Píngcháng Shì Dào",
@@ -2542,6 +3058,131 @@ window.TRANSLATECHAN_DATA = {
           "verse_en": "Spring has hundreds of flowers, autumn has the clear moon; / Summer has refreshing breezes, winter has white snow. / If no idle worries hang upon your mind, / This is truly the best season of human life!"
         },
         {
+          "case_num": 20,
+          "title_zh": "大力量人",
+          "title_pinyin": "Dà lìliàng rén",
+          "title_en": "The Enlightened Man",
+          "protagonist": "songyuan_chongyue",
+          "dialogue": [
+            {
+              "speaker": "Songyuan / 松源",
+              "zh": "松源和尚云：「大力量人，因甚抬腳不起？」又云：「開口不在舌頭上。」",
+              "pinyin": "sōng yuán hé shàng yún：'dà lì liàng rén，yīn shèn tái jiǎo bù qǐ？'yòu yún：'kāi kǒu bù zài shé tóu shàng。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Shogen asked: \"Why does the enlightened man not stand on his feet and explain himself?\" And he also said: \"It is not necessary for speech to come from the tongue.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "松源可謂傾腸倒腹，只是欠人承當。縱饒直下承當，正好來無門處喫痛棒。何故聾？聻！要識真金，火裏看。",
+          "commentary_pinyin": "sōng yuán kě wèi qīng cháng dào fù，zhǐ shì qiàn rén chéng dāng。zòng ráo zhí xià chéng dāng，zhèng hǎo lái wú mén chù chī tòng bàng。hé gù lóng？nǐ！yào shí zhēn jīn，huǒ lǐ kàn。",
+          "commentary_en": "Songyuan may be said to have poured out his guts — he only lacked someone to take it on. Even if you take it on at once, you should still come to the Gateless Gate for a sound beating. Why? To know true gold, look at it in the fire.",
+          "verse_zh": "抬腳踏翻香水海，低頭俯視四禪天；一箇渾身無處著，請續一向。",
+          "verse_pinyin": "tái jiǎo tà fān xiāng shuǐ hǎi，dī tóu fǔ shì sì chán tiān；yī gè hún shēn wú chù zhù，qǐng xù yí xiàng。",
+          "verse_en": "A lift of the foot overturns the sea of fragrant water; a bow of the head looks down upon the four dhyana heavens. This one body has nowhere to rest — please continue this verse."
+        },
+        {
+          "case_num": 21,
+          "title_zh": "雲門屎橛",
+          "title_pinyin": "Yúnmén shǐjué",
+          "title_en": "Dried Dung",
+          "protagonist": "yunmen_wenyan",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問：「如何是佛？」門云：「乾屎橛。」",
+              "pinyin": "sēng wèn：'rú hé shì fú？'mén yún：'gān shǐ jué。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A monk asked Ummon: \"What is Buddha?\" Ummon answered him: \"Dried dung.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "雲門可謂家貧難辨素食，事忙不及草書，動便將屎橛來撐門拄戶，佛法興衰可見。",
+          "commentary_pinyin": "yún mén kě wèi jiā pín nán biàn sù shí，shì máng bù jí cǎo shū，dòng biàn jiāng shǐ jué lái chēng mén zhǔ hù，fó fǎ xìng shuāi kě jiàn。",
+          "commentary_en": "Yunmen may be said to be too poor to tell plain food from fine, too busy to write a proper letter — he uses a dried dung-stick to prop his gate. The rise and fall of the Dharma can be seen in it.",
+          "verse_zh": "閃電光，擊石火；眨得眼，已蹉過。",
+          "verse_pinyin": "shǎn diàn guāng，jī shí huǒ；zhǎ dé yǎn，yǐ cuō guò。",
+          "verse_en": "A flash of lightning, a spark from struck flint; blink your eyes and you have already missed it."
+        },
+        {
+          "case_num": 22,
+          "title_zh": "迦葉剎竿",
+          "title_pinyin": "Jiāshè chàgān",
+          "title_en": "Kashapa's Preaching Sign",
+          "protagonist": "mahakashyapa",
+          "dialogue": [
+            {
+              "speaker": "Ananda / 阿難",
+              "zh": "迦葉因阿難問云：「世尊傳金襴袈裟外，別傳何物？」",
+              "pinyin": "jiā shè yīn ā nán wèn yún：'shì zūn chuán jīn lán jiā shā wài，bié chuán hé wù？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Ananda asked Kashapa: \"Buddha gave you the golden-woven robe of successorship. What else did he give you?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Kashyapa / 迦葉",
+              "zh": "葉喚云：「阿難！」難應諾。",
+              "pinyin": "yè huàn yún：'ā nán！'nán yìng nuò。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Kashapa said: \"Ananda.\" Ananda answered: \"Yes, brother.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Kashyapa / 迦葉",
+              "zh": "葉云：「倒卻門前剎竿著！」",
+              "pinyin": "yè yún：'dào què mén qián chà gān zhù！'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Said Kashapa: \"Now you can take down my preaching sign and put up your own.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若向者裏下得一轉語，親切便見靈山一會儼然未散。其或未然，毘婆尸佛早留心，直至而今不得妙。",
+          "commentary_pinyin": "ruò xiàng zhě lǐ xià dé yī zhuǎn yǔ，qīn qiè biàn jiàn líng shān yī huì yǎn rán wèi sàn。qí huò wèi rán，pí pó shī fú zǎo liú xīn，zhí zhì ér jīn bù dé miào。",
+          "commentary_en": "Turn one phrase right here and you will see intimately that the assembly on Vulture Peak has not yet dispersed. Otherwise — Vipasyin Buddha took it to heart long ago, and to this day no subtlety is gained.",
+          "verse_zh": "問處何如答處親，幾人於此眼生筋；兄呼弟應揚家醜，不屬陰陽別是春。",
+          "verse_pinyin": "wèn chù hé rú dá chù qīn，jǐ rén yú cǐ yǎn shēng jīn；xiōng hū dì yīng yáng jiā chǒu，bù shǔ yīn yáng bié shì chūn。",
+          "verse_en": "How intimate the answer beside the question! How many open their eyes at this? Brother calls, brother answers — the family scandal aired; this spring belongs to no ordinary season."
+        },
+        {
           "case_num": 23,
           "title_zh": "不思善惡",
           "title_pinyin": "Bù Sī Shàn È",
@@ -2641,6 +3282,209 @@ window.TRANSLATECHAN_DATA = {
           "verse_en": "You cannot describe it or paint it; / Praises fall short, so cease your babbling! / The Original Face has nowhere to hide: / When the universe crumbles, It remains indestructible!"
         },
         {
+          "case_num": 24,
+          "title_zh": "離卻語言",
+          "title_pinyin": "Lí què yǔyán",
+          "title_en": "Without Words, Without Silence",
+          "protagonist": "fengxue_yan_zhao",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問：「語默涉離微，如何通不犯？」穴云：「長憶江南三月裏，鷓鴣啼處百花香。」",
+              "pinyin": "sēng wèn：'yǔ mò shè lí wēi，rú hé tōng bù fàn？'xué yún：'zhǎng yì jiāng nán sān yuè lǐ，zhè gū tí chù bǎi huā xiāng。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A monk asked Fuketsu: \"Without speaking, without silence, how can you express the truth?\" Fuketsu observed: \"I always remember springtime in southern China. The birds sing among innumerable kinds of fragrant flowers.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "風穴機如掣電，得路便行，爭奈坐前人舌頭不斷。若向者裏見得親切，自有出身之路。且離卻語言三昧，道將一句來！",
+          "commentary_pinyin": "fēng xué jī rú chè diàn，dé lù biàn xíng，zhēng nài zuò qián rén shé tóu bù duàn。ruò xiàng zhě lǐ jiàn dé qīn qiè，zì yǒu chū shēn zhī lù。qiě lí què yǔ yán sān mèi，dào jiāng yī jù lái！",
+          "commentary_en": "Fengxue's activity was like lightning — he took the road when he saw it. But his predecessor's tongue never stopped wagging. See intimately right here and you have your own way out. Now, leaving the samadhi of words and silence, say one phrase!",
+          "verse_zh": "不露風骨句，未語先分付；進步口喃喃，知君大罔措。",
+          "verse_pinyin": "bù lù fēng gǔ jù，wèi yǔ xiān fēn fù；jìn bù kǒu nán nán，zhī jūn dà wǎng cuò。",
+          "verse_en": "Without revealing his style in a word, he paid out the phrase before speaking; taking a step forward, mumbling on — I know you are utterly at a loss."
+        },
+        {
+          "case_num": 25,
+          "title_zh": "三座說法",
+          "title_pinyin": "Sān zuò shuōfǎ",
+          "title_en": "Preaching from the Third Seat",
+          "protagonist": "yangshan_huiji",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "仰山和尚夢見往彌勒所，安第三座。有一尊者白槌云：「今日當第三座說法。」山乃起白槌云：「摩訶衍法，離四句絕百非，諦聽諦聽！」",
+              "pinyin": "yǎng shān hé shàng mèng jiàn wǎng mí lè suǒ，ān dì sān zuò。yǒu yī zūn zhě bái chuí yún：'jīn rì dāng dì sān zuò shuō fǎ。'shān nǎi qǐ bái chuí yún：'mó hē yǎn fǎ，lí sì jù jué bǎi fēi，dì tīng dì tīng！'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "In a dream Kyozan went to Maitreya's Pure Land. He recognized himself seated in the third seat in the abode of Maitreya. Someone announced: \"Today the one who sits in the third seat will preach.\" Kyozan arose and, hitting the gavel, said: \"The truth of Mahayana teaching is transcendent, above words and thought. Do you understand?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "且道是說法不說法？開口即失，閉口又喪，不開不閉，十萬八千。",
+          "commentary_pinyin": "qiě dào shì shuō fǎ bù shuō fǎ？kāi kǒu jí shī，bì kǒu yòu sàng，bù kāi bù bì，shí wàn bā qiān。",
+          "commentary_en": "Did he preach or not? Open the mouth and you lose; shut the mouth and you lose; neither open nor shut — one hundred and eight thousand miles.",
+          "verse_zh": "白日青天，夢中說夢；捏怪捏怪，誑謼一眾。",
+          "verse_pinyin": "bái rì qīng tiān，mèng zhōng shuō mèng；niē guài niē guài，kuáng hū yī zhòng。",
+          "verse_en": "In broad daylight, a dream within a dream; monster of monsters — he deceived the whole assembly."
+        },
+        {
+          "case_num": 26,
+          "title_zh": "二僧卷簾",
+          "title_pinyin": "Èr sēng juǎn lián",
+          "title_en": "Two Monks Roll Up the Screen",
+          "protagonist": "fayan_wenyi",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "清涼大法眼因僧齋前上參，眼以手指簾，時有二僧同去卷簾。眼曰：「一得一失。」",
+              "pinyin": "qīng liáng dà fǎ yǎn yīn sēng zhāi qián shàng cān，yǎn yǐ shǒu zhǐ lián，shí yǒu èr sēng tóng qù juǎn lián。yǎn yuē：'yī de yī shī。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Hogen of Seiryo monastery was about to lecture before dinner when he noticed that the bamboo screen lowered for meditation had not been rolled up. He pointed to it. Two monks arose from the audience and rolled it up. Hogen, observing the physical moment, said: \"The state of the first monk is good, not that of the other.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "且道是誰得誰失？若向者裏著得一隻眼，便知清涼國師敗闕處。然雖如是，切忌向得失裏商量。",
+          "commentary_pinyin": "qiě dào shì shuí dé shuí shī？ruò xiàng zhě lǐ zhù dé yī zhī yǎn，biàn zhī qīng liáng guó shī bài què chù。rán suī rú shì，qiè jì xiàng dé shī lǐ shāng liáng。",
+          "commentary_en": "Who gained, who lost? Get one eye right here and you will see where the National Teacher Qingliang stumbled. Even so, do not deliberate in terms of gain and loss.",
+          "verse_zh": "卷起明明徹太空，太空猶未合吾宗；爭似從空都放下，綿綿密密不通風。",
+          "verse_pinyin": "juǎn qǐ míng míng chè tài kōng，tài kōng yóu wèi hé wú zōng；zhēng shì cóng kōng dōu fàng xià，mián mián mì mì bù tōng fēng。",
+          "verse_en": "Rolled up, it clearly penetrates the great void; yet the great void is not yet one with our school. Better to let it all fall from the void — dense and seamless, impervious to wind."
+        },
+        {
+          "case_num": 27,
+          "title_zh": "不是心佛",
+          "title_pinyin": "Bù shì xīn fó",
+          "title_en": "It Is Not Mind, It Is Not Buddha, It Is Not Things",
+          "protagonist": "nanquan_puyuan",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問：「還有不與人說底法麼？」泉云：「有。」",
+              "pinyin": "sēng wèn：'hái yǒu bù yǔ rén shuō dǐ fǎ me？'quán yún：'yǒu。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A monk asked Nansen: \"Is there a teaching no master ever preached before?\" Nansen said: \"Yes, there is.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧云：「如何是不與人說底法？」泉云：「不是心，不是佛，不是物。」",
+              "pinyin": "sēng yún：'rú hé shì bù yǔ rén shuō dǐ fǎ？'quán yún：'bú shì xīn，bú shì fú，bú shì wù。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "\"What is it?\" asked the monk. Nansen replied: \"It is not mind, it is not Buddha, it is not things.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "南泉被者一問，直得揣盡家私，郎當不少。",
+          "commentary_pinyin": "nán quán bèi zhě yī wèn，zhí dé chuāi jǐn jiā sī，láng dāng bù shǎo。",
+          "commentary_en": "Old Nanguan, hit by this question, scraped out all his family treasures and was left with nothing.",
+          "verse_zh": "叮嚀損君德，無言真有功；任從滄海變，終不為君通。",
+          "verse_pinyin": "dīng níng sǔn jūn dé，wú yán zhēn yǒu gōng；rèn cóng cāng hǎi biàn，zhōng bù wèi jūn tōng。",
+          "verse_en": "Admonishing harms the gentleman's virtue; wordlessness truly has merit. Let the blue sea change as it will — I will never open it for you."
+        },
+        {
+          "case_num": 28,
+          "title_zh": "久響龍潭",
+          "title_pinyin": "Jiǔ xiǎng Lóngtán",
+          "title_en": "Blow Out the Candle",
+          "protagonist": "longtan_chongxin",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "龍潭因德山請益抵夜，潭云：「夜深，子何不下去？」山遂珍重，揭簾而出，見外面黑，卻回云：「外面黑。」潭乃點紙燭度與，山擬接，潭便吹滅。山於此忽然有省，便作禮。",
+              "pinyin": "lóng tán yīn dé shān qǐng yì dǐ yè，tán yún：'yè shēn，zi hé bù xià qù？'shān suì zhēn zhòng，jiē lián ér chū，jiàn wài miàn hēi，què huí yún：'wài miàn hēi。'tán nǎi diǎn zhǐ zhú dù yǔ，shān nǐ jiē，tán biàn chuī miè。shān yú cǐ hū rán yǒu shěng，biàn zuò lǐ。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Tokusan was studying Zen under Ryutan. One night he came to Ryutan and asked many questions. The teacher said: \"The night is getting old. Why don't you retire?\" So Tokusan bowed and opened the screen to go out, observing: \"It is very dark outside.\" Ryutan offered Tokusan a lighted candle to find his way. Just as Tokusan received it, Ryutan blew it out. At that moment the mind of Tokusan was opened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "潭云：「子見箇甚麼道理？」山云：「某甲從今日去，不疑天下老和尚舌頭也。」",
+              "pinyin": "tán yún：'zi jiàn gè shén me dào lǐ？'shān yún：'mǒu jiǎ cóng jīn rì qù，bù yí tiān xià lǎo hé shàng shé tóu yě。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "\"What have you attained?\" asked Ryutan. \"From now on,\" said Tokusan, \"I will not doubt the teacher's words.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "至明日，龍潭陞堂云：「可中有箇漢，牙如劍樹，口似血盆，一棒打不回頭。他時異日，向孤峰頂上立吾道在。」山遂取疏抄，於法堂前將一炬火，提起云：「窮諸玄辨，若一毫致於太虛；竭世樞機，似一滴投於巨壑。」將疏抄便燒，於是禮辭。",
+              "pinyin": "zhì míng rì，lóng tán shēng táng yún：'kě zhōng yǒu gè hàn，yá rú jiàn shù，kǒu shì xuè pén，yī bàng dǎ bù huí tóu。tā shí yì rì，xiàng gū fēng dǐng shàng lì wú dào zài。'shān suì qǔ shū chāo，yú fǎ táng qián jiāng yī jù huǒ，tí qǐ yún：'qióng zhū xuán biàn，ruò yī háo zhì yú tài xū；jié shì shū jī，shì yī dī tóu yú jù hè。'jiāng shū chāo biàn shāo，yú shì lǐ cí。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "The next day Ryutan told the monks at his lecture: \"I see one monk among you. His teeth are like the sword tree, his mouth is like the blood bowl. If you hit him hard with a big stick, he will not even so much as look back at you. Someday he will mount the highest peak and carry my teaching there.\" On that day, in front of the lecture hall, Tokusan burned to ashes his commentaries on the sutras. He said: \"However abstruse the teachings are, in comparison with this enlightenment they are like a single hair to the great sky. However profound the complicated knowledge of the world, compared to this enlightenment it is like one drop of water to the great ocean.\" Then he left that monastery.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "德山未出關時，心憤憤口悱悱，得得來南方，要滅卻教外別傳之旨。及到澧州路上，問婆子買點心。婆云：「大德車子內是甚麼文字？」山云：「金剛經抄疏。」婆云：「只如經中道，過去心不可得，見在心不可得，未來心不可得。大德要點那箇心？」德山被者一問，直得口似匾檐。然雖如是，未肯向婆子句下死卻。遂問婆子：「近處有甚麼宗師？」婆云：「五里外有龍潭和尚。」及到龍潭，納盡敗闕，可謂是前言不應後語。龍潭大似憐兒不覺醜，見他有些子火種，郎忙將惡水驀頭一澆，澆殺。冷地看來，一場好笑。",
+          "commentary_pinyin": "dé shān wèi chū guān shí，xīn fèn fèn kǒu fěi fěi，dé dé lái nán fāng，yào miè què jiào wài bié chuán zhī zhǐ。jí dào lǐ zhōu lù shàng，wèn pó zi mǎi diǎn xīn。pó yún：'dà dé chē zi nèi shì shén me wén zì？'shān yún：'jīn gāng jīng chāo shū。'pó yún：'zhǐ rú jīng zhōng dào，guò qù xīn bù kě dé，jiàn zài xīn bù kě dé，wèi lái xīn bù kě dé。dà dé yào diǎn nà gè xīn？'dé shān bèi zhě yī wèn，zhí dé kǒu shì biǎn yán。rán suī rú shì，wèi kěn xiàng pó zǐ jù xià sǐ què。suì wèn pó zi：'jìn chù yǒu shén me zōng shī？'pó yún：'wǔ lǐ wài yǒu lóng tán hé shàng。'jí dào lóng tán，nà jǐn bài què，kě wèi shì qián yán bù yīng hòu yǔ。lóng tán dà shì lián ér bù jué chǒu，jiàn tā yǒu xiē zi huǒ zhǒng，láng máng jiāng è shuǐ mò tóu yī jiāo，jiāo shā。lěng dì kàn lái，yī chǎng hǎo xiào。",
+          "commentary_en": "Before Deshan left the pass he was bursting with indignation, and came south determined to extinguish the transmission outside the scriptures. On the road to Lizhou he stopped at an old woman's for refreshments. She asked: 'What texts are in your cart, reverend?' He said: 'A commentary on the Diamond Sutra.' She said: 'The sutra says the past mind cannot be grasped, the present mind cannot be grasped, the future mind cannot be grasped — which mind will you use for the refreshments?' Deshan was struck dumb. Yet he would not die under the old woman's words, and asked: 'Is there any master nearby?' She said: 'Master Longtan is five li away.' When he got to Longtan he made a complete fool of himself — truly his later words did not answer his earlier ones. Longtan, doting without noticing the shame, saw a spark in him and hurriedly dashed dirty water over his head to quench it. Viewed coldly, it is a fine comedy.",
+          "verse_zh": "聞名不如見面，見面不如聞名；雖然救得鼻孔，爭奈瞎卻眼睛。",
+          "verse_pinyin": "wén míng bù rú jiàn miàn，jiàn miàn bù rú wén míng；suī rán jiù dé bí kǒng，zhēng nài xiā què yǎn jīng。",
+          "verse_en": "Hearing of him is not like meeting him; meeting him is not like hearing of him. Though his nostrils were saved, his eyes were blinded after all."
+        },
+        {
           "case_num": 29,
           "title_zh": "非風非幡",
           "title_pinyin": "Fēi Fēng Fēi Fān",
@@ -2710,6 +3554,255 @@ window.TRANSLATECHAN_DATA = {
           "verse_zh": "風動幡動心動，說得入理深妙。只知開口見膽，不知話墮也無？",
           "verse_pinyin": "Fēng dòng fān dòng xīn dòng, shuō dé rù lǐ shēn miào. Zhǐ zhī kāi kǒu jiàn dǎn, bù zhī huà duò yě wú?",
           "verse_en": "Wind moves, flag moves, mind moves: / Expressing the profound principle with great subtlety! / He only knew to open his mouth and reveal his gallbladder, / Not knowing that his words fell into a trap!"
+        },
+        {
+          "case_num": 30,
+          "title_zh": "即心即佛",
+          "title_pinyin": "Jí xīn jí fó",
+          "title_en": "This Mind Is Buddha",
+          "protagonist": "mazu_daoyi",
+          "dialogue": [
+            {
+              "speaker": "Damei / 大梅",
+              "zh": "馬祖因大梅問：「如何是佛？」祖云：「即心是佛。」",
+              "pinyin": "mǎ zǔ yīn dà méi wèn：'rú hé shì fú？'zǔ yún：'jí xīn shì fú。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Daibai asked Baso: \"What is Buddha?\" Baso said: \"This mind is Buddha.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若能直下領略得去，著佛衣，喫佛飯，說佛話，行佛行，即是佛也。然雖如是，大梅引多少人錯認定盤星。爭知道說箇佛字，三日漱口。若是箇漢，見說即心是佛，掩耳便走。",
+          "commentary_pinyin": "ruò néng zhí xià lǐng lüè dé qù，zhù fú yī，chī fú fàn，shuō fú huà，xíng fú xíng，jí shì fú yě。rán suī rú shì，dà méi yǐn duō shǎo rén cuò rèn dìng pán xīng。zhēng zhī dào shuō gè fú zì，sān rì shù kǒu。ruò shì gè hàn，jiàn shuō jí xīn shì fú，yǎn ěr biàn zǒu。",
+          "commentary_en": "If you can grasp it directly, you wear Buddha's clothes, eat Buddha's food, speak Buddha's words, walk Buddha's walk — you are Buddha. Even so, Damei led many people astray to a false polestar. Know that after saying the word 'Buddha' one should rinse the mouth for three days. A true fellow, hearing 'this mind is Buddha,' stops his ears and walks away.",
+          "verse_zh": "青天白日，切忌尋覓；更問如何，抱贓叫屈。",
+          "verse_pinyin": "qīng tiān bái rì，qiè jì xún mì；gèng wèn rú hé，bào zāng jiào qū。",
+          "verse_en": "In the blue sky and bright sun, do not go searching; ask again 'how?' and you hug stolen goods and cry injustice."
+        },
+        {
+          "case_num": 31,
+          "title_zh": "趙州勘婆",
+          "title_pinyin": "Zhàozhōu kān pó",
+          "title_en": "Joshu Investigates",
+          "protagonist": "zhaozhou_congshen",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "趙州因僧問婆子：「臺山路向甚處去？」婆云：「驀直去。」僧纔行三五步，婆云：「好箇師僧，又恁麼去！」後有僧舉似州，州云：「待我去與爾勘過這婆子。」",
+              "pinyin": "zhào zhōu yīn sēng wèn pó zi：'tái shān lù xiàng shèn chù qù？'pó yún：'mò zhí qù。'sēng cái xíng sān wǔ bù，pó yún：'hǎo gè shī sēng，yòu nèn me qù！'hòu yǒu sēng jǔ shì zhōu，zhōu yún：'dài wǒ qù yǔ ěr kān guò zhè pó zi。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A traveling monk asked an old woman the road to Taizan, a popular temple supposed to give wisdom to the one who worships there. The old woman said: \"Go straight ahead.\" When the monk proceeded a few steps, she said to herself: \"He also is a common church-goer.\" Someone told this incident to Joshu, who said: \"Wait until I investigate.\" The next day he went and asked the same question, and the old woman gave the same answer.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "明日便去，亦如是問，婆亦如是答。州歸謂眾曰：「臺山婆子，我與爾勘破了也。」",
+              "pinyin": "míng rì biàn qù，yì rú shì wèn，pó yì rú shì dá。zhōu guī wèi zhòng yuē：'tái shān pó zi，wǒ yǔ ěr kān pò le yě。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Joshu remarked: \"I have investigated that old woman.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "婆子只解坐籌帷幄，要且著賊，不知趙州老人善用偷營劫塞之機，又且無大人相。撿點將來，二俱有過。且道那裏是趙州勘破婆子處？",
+          "commentary_pinyin": "pó zi zhǐ jiě zuò chóu wéi wò，yào qiě zhù zéi，bù zhī zhào zhōu lǎo rén shàn yòng tōu yíng jié sāi zhī jī，yòu qiě wú dà rén xiāng。jiǎn diǎn jiāng lái，èr jù yǒu guò。qiě dào nà lǐ shì zhào zhōu kān pò pó zi chù？",
+          "commentary_en": "The old woman knew how to plan a campaign from within the tent, but she was caught by the thief — she did not know old Zhaozhou's arts of stealth and ambush. And he was no great general either. Checked over, both are at fault. Where was the point at which Zhaozhou saw through the old woman?",
+          "verse_zh": "問既一般，答亦相似；飯裏有砂，泥中有刺。",
+          "verse_pinyin": "wèn jì yì bān，dá yì xiāng sì；fàn lǐ yǒu shā，ní zhōng yǒu cì。",
+          "verse_en": "The question was the same, the answer alike; sand in the rice, a thorn in the mud."
+        },
+        {
+          "case_num": 32,
+          "title_zh": "外道問佛",
+          "title_pinyin": "Wàidào wèn fó",
+          "title_en": "A Philosopher Asks Buddha",
+          "protagonist": "shakyamuni",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "世尊因外道問：「不問有言，不問無言。」世尊據座。外道讚歎云：「世尊大慈大悲，開我迷雲，令我得入。」乃具禮而去。",
+              "pinyin": "shì zūn yīn wài dào wèn：'bù wèn yǒu yán，bù wèn wú yán。'shì zūn jù zuò。wài dào zàn tàn yún：'shì zūn dà cí dà bēi，kāi wǒ mí yún，lìng wǒ dé rù。'nǎi jù lǐ ér qù。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A philosopher asked Buddha: \"Without words, without the wordless, will you tell me truth?\" The Buddha kept silence. The philosopher bowed and thanked the Buddha, saying: \"With your loving kindness I have cleared away my delusions and entered the true path.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "阿難尋問佛：「外道有何所證，讚歎而去？」世尊云：「如世良馬，見鞭影而行。」",
+              "pinyin": "ā nán xún wèn fú：'wài dào yǒu hé suǒ zhèng，zàn tàn ér qù？'shì zūn yún：'rú shì liáng mǎ，jiàn biān yǐng ér xíng。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "After the philosopher had gone, Ananda asked the Buddha what he had attained. The Buddha replied: \"A good horse runs even at the shadow of the whip.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "阿難乃佛弟子，宛不如外道見解。且道外道與佛弟子相去多少？",
+          "commentary_pinyin": "ā nán nǎi fú dì zǐ，wǎn bù rú wài dào jiàn jiě。qiě dào wài dào yǔ fú dì zǐ xiāng qù duō shǎo？",
+          "commentary_en": "Ananda, a disciple of the Buddha, was not equal to the heretic's insight. How far apart are the heretic and the Buddha's disciple?",
+          "verse_zh": "劍刃上行，冰稜上走；不涉階梯，懸崖撒手。",
+          "verse_pinyin": "jiàn rèn shàng háng，bīng léng shàng zǒu；bù shè jiē tī，xuán yá sā shǒu。",
+          "verse_en": "Walking on the edge of a sword, running on ice-crust; no ladder of stages — let go of the cliff and let fall the hands."
+        },
+        {
+          "case_num": 33,
+          "title_zh": "非心非佛",
+          "title_pinyin": "Fēi xīn fēi fó",
+          "title_en": "This Mind Is Not Buddha",
+          "protagonist": "mazu_daoyi",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "馬祖因僧問：「如何是佛？」祖曰：「非心非佛。」",
+              "pinyin": "mǎ zǔ yīn sēng wèn：'rú hé shì fú？'zǔ yuē：'fēi xīn fēi fú。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A monk asked Baso: \"What is Buddha?\" Baso said: \"This mind is not Buddha.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若向者裏見得，參學事畢。",
+          "commentary_pinyin": "ruò xiàng zhě lǐ jiàn dé，cān xué shì bì。",
+          "commentary_en": "See right here and the matter of practice is finished.",
+          "verse_zh": "路逢劍客須呈，不遇詩人莫獻；逢人且說三分，未可全施一片。",
+          "verse_pinyin": "lù féng jiàn kè xū chéng，bù yù shī rén mò xiàn；féng rén qiě shuō sān fēn，wèi kě quán shī yī piàn。",
+          "verse_en": "Meeting a swordsman on the road, you must show your blade; without a poet present, offer no poem. Say only three parts to others — never lay out the whole piece."
+        },
+        {
+          "case_num": 34,
+          "title_zh": "智不是道",
+          "title_pinyin": "Zhì bù shì dào",
+          "title_en": "Learning Is Not the Path",
+          "protagonist": "nanquan_puyuan",
+          "dialogue": [
+            {
+              "speaker": "Nanquan / 南泉",
+              "zh": "南泉云：「心不是佛，智不是道。」",
+              "pinyin": "nán quán yún：'xīn bú shì fú，zhì bú shì dào。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Nansen said: \"Mind is not Buddha. Learning is not the path.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "南泉可謂老不識羞，纔開臭口，家醜外揚。然雖如是，知恩者少。",
+          "commentary_pinyin": "nán quán kě wèi lǎo bù shí xiū，cái kāi chòu kǒu，jiā chǒu wài yáng。rán suī rú shì，zhī ēn zhě shǎo。",
+          "commentary_en": "Old Nanguan, shameless with age, opened his stinking mouth and aired the family scandal. Even so, few know gratitude.",
+          "verse_zh": "天晴日頭出，雨下地上濕；盡情都說了，只恐信不及。",
+          "verse_pinyin": "tiān qíng rì tóu chū，yǔ xià dì shàng shī；jǐn qíng dōu shuō le，zhǐ kǒng xìn bù jí。",
+          "verse_en": "When the sky clears the sun comes out; when the earth dries the rain falls. He told it all with open heart — I only fear it will not be believed."
+        },
+        {
+          "case_num": 35,
+          "title_zh": "倩女離魂",
+          "title_pinyin": "Qiànnǚ lí hún",
+          "title_en": "Two Souls",
+          "protagonist": "wuzu_fayan",
+          "dialogue": [
+            {
+              "speaker": "Wuzu / 五祖",
+              "zh": "五祖問僧云：「倩女離魂，那箇是真底？」",
+              "pinyin": "wǔ zǔ wèn sēng yún：'qiàn nǚ lí hún，nà gè shì zhēn dǐ？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "\"Seijo, the Chinese girl,\" observed Goso, \"had two souls, one always sick at home and the other in the city, a married woman with two children. Which was the true soul?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若向者裏悟得真底，便知出殼入殼，如宿旅舍。其或未然，切莫亂走。驀然地水火風一散，如落湯螃蟹七手八腳，那時莫言不道。",
+          "commentary_pinyin": "ruò xiàng zhě lǐ wù dé zhēn dǐ，biàn zhī chū ké rù ké，rú sù lǚ shè。qí huò wèi rán，qiè mò luàn zǒu。mò rán dì shuǐ huǒ fēng yī sàn，rú luò tāng páng xiè qī shǒu bā jiǎo，nà shí mò yán bù dào。",
+          "commentary_en": "If you awaken to the true one right here, you will know that leaving the shell and entering the shell is like staying at an inn. Otherwise, do not run about wildly — when earth, water, fire, and wind scatter, you will be like a crab dropped into boiling water, seven hands and eight feet scrambling. Do not then say I did not tell you.",
+          "verse_zh": "雲月是同，溪山各異；萬福萬福，是一是二。",
+          "verse_pinyin": "yún yuè shì tóng，xī shān gè yì；wàn fú wàn fú，shì yī shì èr。",
+          "verse_en": "The clouds and moon are the same; the streams and hills each different. Ten thousand blessings — is it one, or two?"
+        },
+        {
+          "case_num": 36,
+          "title_zh": "路逢達道",
+          "title_pinyin": "Lù féng dá dào",
+          "title_en": "Meeting a Zen Master on the Road",
+          "protagonist": "wuzu_fayan",
+          "dialogue": [
+            {
+              "speaker": "Wuzu / 五祖",
+              "zh": "五祖曰：「路逢達道人，不將語默對。且道將甚麼對？」",
+              "pinyin": "wǔ zǔ yuē：'lù féng dá dào rén，bù jiāng yǔ mò duì。qiě dào jiāng shén me duì？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Goso said: \"When you meet a Zen master on the road you cannot talk to him, you cannot face him with silence. What are you going to do?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若向者裏對得親切，不妨慶快。其或未然，也須一切處著眼。",
+          "commentary_pinyin": "ruò xiàng zhě lǐ duì dé qīn qiè，bù fáng qìng kuài。qí huò wèi rán，yě xū yī qiè chù zhù yǎn。",
+          "commentary_en": "Answer intimately right here and it is truly a joy. Otherwise, you must keep your eyes open in every place.",
+          "verse_zh": "路逢達道人，不將語默對；攔腮劈面拳，直下會便會。",
+          "verse_pinyin": "lù féng dá dào rén，bù jiāng yǔ mò duì；lán sāi pī miàn quán，zhí xià huì biàn huì。",
+          "verse_en": "Meeting a man of the Way on the road — do not meet him with words or silence. A slap across the cheek: understand directly and you understand."
         },
         {
           "case_num": 37,
@@ -2783,8 +3876,431 @@ window.TRANSLATECHAN_DATA = {
           "verse_zh": "言不指事，言不干機。承言者喪，滯句者迷。",
           "verse_pinyin": "Yán bù zhǐ shì, yán bù gān jī. Chéng yán zhě sàng, zhì jù zhě mí.",
           "verse_en": "Words do not point to things; / Speech does not relate to triggers. / Those who accept words are lost; / Those who get stuck in phrases are deluded!"
+        },
+        {
+          "case_num": 38,
+          "title_zh": "牛過窗櫺",
+          "title_pinyin": "Niú guò chuāng líng",
+          "title_en": "A Buffalo Passes Through the Enclosure",
+          "protagonist": "wuzu_fayan",
+          "dialogue": [
+            {
+              "speaker": "Wuzu / 五祖",
+              "zh": "五祖曰：「譬如水牯牛過窗櫺，頭角四蹄都過了，因甚麼尾巴過不得？」",
+              "pinyin": "wǔ zǔ yuē：'pì rú shuǐ gǔ niú guò chuāng líng，tóu jiǎo sì tí dōu guò le，yīn shén me wěi ba guò bù dé？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Goso said: \"When a buffalo goes out of his enclosure to the edge of the abyss, his horns and his head and his hoofs all pass through, but why can't the tail also pass?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若向者裏顛倒著得一隻眼，下得一轉語，可以上報四恩，下資三有。其或未然，更須照顧尾巴始得。",
+          "commentary_pinyin": "ruò xiàng zhě lǐ diān dào zhù dé yī zhī yǎn，xià dé yī zhuǎn yǔ，kě yǐ shàng bào sì ēn，xià zī sān yǒu。qí huò wèi rán，gèng xū zhào gù wěi ba shǐ dé。",
+          "commentary_en": "Turn one eye upside-down right here and speak one turning phrase, and you can repay the four kindnesses above and support the three realms below. Otherwise, better keep an eye on the tail.",
+          "verse_zh": "過去墮坑塹，回來卻被壞；者些尾巴子，直是甚奇怪。",
+          "verse_pinyin": "guò qù duò kēng qiàn，huí lái què bèi huài；zhě xiē wěi ba zi，zhí shì shèn qí guài。",
+          "verse_en": "Gone — it falls into the pit; come back — it is broken again. This little tail of his is a very strange thing."
+        },
+        {
+          "case_num": 39,
+          "title_zh": "雲門話墮",
+          "title_pinyin": "Yúnmén huà duò",
+          "title_en": "Ummon's Sidetrack",
+          "protagonist": "yunmen_wenyan",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問：「光明寂照遍河沙。」一句未絕，門遽曰：「豈不是張拙秀才語？」僧云：「是。」門云：「話墮也。」",
+              "pinyin": "sēng wèn：'guāng míng jì zhào biàn hé shā。'yī jù wèi jué，mén jù yuē：'qǐ bú shì zhāng zhuō xiù cái yǔ？'sēng yún：'shì。'mén yún：'huà duò yě。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A Zen student told Ummon: \"Brilliancy of Buddha illuminates the whole universe.\" Before he finished the phrase Ummon asked: \"You are reciting another's poem, are you not?\" \"Yes,\" answered the student. \"You are sidetracked,\" said Ummon.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "後來死心拈云：「且道那裏是者僧話墮處？」",
+              "pinyin": "hòu lái sǐ xīn niān yún：'qiě dào nà lǐ shì zhě sēng huà duò chù？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Afterwards another teacher, Shishin, asked his pupils: \"At what point did that student go off the track?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若向者裏見得雲門用處，孤危者僧因甚話墮，堪與人天為師。若也未明，自救不了。",
+          "commentary_pinyin": "ruò xiàng zhě lǐ jiàn dé yún mén yòng chù，gū wēi zhě sēng yīn shèn huà duò，kān yǔ rén tiān wèi shī。ruò yě wèi míng，zì jiù bù liǎo。",
+          "commentary_en": "See Yunmen's function right here: this lone, perilous monk — why did his words fall? He is worthy to be teacher of men and devas. If you do not understand, you cannot even save yourself.",
+          "verse_zh": "急流垂釣，貪餌者著；口縫纔開，性命喪卻。",
+          "verse_pinyin": "jí liú chuí diào，tān ěr zhě zhù；kǒu fèng cái kāi，xìng mìng sàng què。",
+          "verse_en": "Angling in the rapids — the greedy bait-taker is caught; the moment the mouth opens, life is lost."
+        },
+        {
+          "case_num": 40,
+          "title_zh": "趯倒淨瓶",
+          "title_pinyin": "Tì dǎo jìngpíng",
+          "title_en": "Tipping Over a Water Vase",
+          "protagonist": "guishan_lingyou",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "溈山和尚始在百丈會中充典座。百丈將選大溈主人，乃請同首座對眾下語，出格者可往。百丈遂拈淨瓶置地上，設問云：「不得喚作淨瓶，汝喚作甚麼？」首座乃云：「不可喚作木𣔻也。」百丈卻問於山，山乃趯倒淨瓶而去。",
+              "pinyin": "wéi shān hé shàng shǐ zài bǎi zhàng huì zhōng chōng diǎn zuò。bǎi zhàng jiāng xuǎn dà wéi zhǔ rén，nǎi qǐng tóng shǒu zuò duì zhòng xià yǔ，chū gé zhě kě wǎng。bǎi zhàng suì niān jìng píng zhì dì shàng，shè wèn yún：'bù dé huàn zuò jìng píng，rǔ huàn zuò shén me？'shǒu zuò nǎi yún：'bù kě huàn zuò mù𣔻yě。'bǎi zhàng què wèn yú shān，shān nǎi tì dào jìng píng ér qù。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Hyakujo wished to send a monk to open a new monastery. He told his pupils that whoever answered a question most ably would be appointed. Placing a water vase on the ground, he asked: \"Who can say what this is without calling its name?\" The chief monk said: \"No one can call it a wooden shoe.\" Isan, the cooking monk, tipped over the vase with his foot and went out.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Baizhang / 百丈",
+              "zh": "百丈笑云：「第一座輸卻山子也。」因命之為開山。",
+              "pinyin": "bǎi zhàng xiào yún：'dì yī zuò shū què shān zi yě。'yīn mìng zhī wèi kāi shān。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Hyakujo smiled and said: \"The chief monk loses.\" And Isan became the master of the new monastery.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "溈山一期之勇，爭奈跳百丈圈圚不出。撿點將來，便重不便輕。何故聾？脫得盤頭，擔起鐵枷。",
+          "commentary_pinyin": "wéi shān yī qī zhī yǒng，zhēng nài tiào bǎi zhàng quān huì bù chū。jiǎn diǎn jiāng lái，biàn zhòng bù biàn qīng。hé gù lóng？tuō dé pán tóu，dān qǐ tiě jiā。",
+          "commentary_en": "Guishan's one burst of courage — but he could not jump out of Baizhang's snare. Checked over, he took the heavy end rather than the light. Why? He slipped off his comfortable hat and shouldered an iron cangue.",
+          "verse_zh": "颺下箍籬并木杓，當陽一突絕周遮；百丈重關攔不住，腳尖趯出佛如麻。",
+          "verse_pinyin": "yáng xià gū lí bìng mù biāo，dāng yáng yī tū jué zhōu zhē；bǎi zhàng zhòng guān lán bú zhù，jiǎo jiān tì chū fú rú má。",
+          "verse_en": "Tossing down the basket and ladle, one sudden thrust cuts off all circumlocution; Baizhang's heavy barrier could not hold him — his toe kicked out Buddhas like hemp."
+        },
+        {
+          "case_num": 41,
+          "title_zh": "達磨安心",
+          "title_pinyin": "Dámó ānxīn",
+          "title_en": "Bodhidharma Pacifies the Mind",
+          "protagonist": "bodhidharma",
+          "dialogue": [
+            {
+              "speaker": "Huike / 二祖",
+              "zh": "達磨面壁，二祖立雪斷臂，云：「弟子心未安，乞師安心。」",
+              "pinyin": "dá mó miàn bì，èr zǔ lì xuě duàn bì，yún：'dì zǐ xīn wèi ān，qǐ shī ān xīn。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Bodhidharma sits facing the wall. His future successor stands in the snow and presents his severed arm to Bodhidharma. He cries: \"My mind is not pacified. Master, pacify my mind.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Bodhidharma / 達磨",
+              "zh": "磨云：「將心來，與汝安。」祖云：「覓心了不可得。」磨云：「為汝安心竟。」",
+              "pinyin": "mó yún：'jiāng xīn lái，yǔ rǔ ān。'zǔ yún：'mì xīn le bù kě dé。'mó yún：'wèi rǔ ān xīn jìng。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Bodhidharma says: \"If you bring me that mind, I will pacify it for you.\" The successor says: \"When I search my mind I cannot hold it.\" Bodhidharma says: \"Then your mind is pacified already.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "缺齒老胡，十萬里航海特特而來，可謂是無風起浪。末後接得一箇門人，又卻六根不具。咦！謝三郎不識四字。",
+          "commentary_pinyin": "quē chǐ lǎo hú，shí wàn lǐ háng hǎi tè tè ér lái，kě wèi shì wú fēng qǐ làng。mò hòu jiē dé yī gè mén rén，yòu què liù gēn bù jù。yí！xiè sān láng bù shí sì zì。",
+          "commentary_en": "The toothless old barbarian sailed a hundred thousand li over the sea, raising waves where there was no wind. In the end he took in one disciple — and he was missing an arm. Bah! Even Xie Sanlang could not read four characters.",
+          "verse_zh": "西來直指，事因囑起；撓聒叢林，元來是爾。",
+          "verse_pinyin": "xī lái zhí zhǐ，shì yīn zhǔ qǐ；náo guā cóng lín，yuán lái shì ěr。",
+          "verse_en": "The coming from the West pointing directly — this affair arose from a commission; it has disturbed the groves for ages — and in the end it is you."
+        },
+        {
+          "case_num": 42,
+          "title_zh": "女子出定",
+          "title_pinyin": "Nǚzǐ chū dìng",
+          "title_en": "The Girl Comes Out from Meditation",
+          "protagonist": "shakyamuni",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "世尊昔因文殊至諸佛集處，值諸佛各還本處，惟有一女人近彼佛坐，入於三昧。文殊乃白佛：「云何女人得近佛坐，而我不得？」佛告文殊：「汝但覺此女，令從三昧起，汝自問之。」文殊遶女人三匝，鳴指一下，乃托至梵天，盡其神力而不能出。",
+              "pinyin": "shì zūn xī yīn wén shū zhì zhū fú jí chù，zhí zhū fú gè hái běn chù，wéi yǒu yī nǚ rén jìn bǐ fú zuò，rù yú sān mèi。wén shū nǎi bái fú：'yún hé nǚ rén dé jìn fú zuò，ér wǒ bù dé？'fú gào wén shū：'rǔ dàn jué cǐ nǚ，lìng cóng sān mèi qǐ，rǔ zì wèn zhī。'wén shū rào nǚ rén sān zā，míng zhǐ yī xià，nǎi tuō zhì fàn tiān，jǐn qí shén lì ér bù néng chū。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "In the time of Buddha Shakyamuni, Manjusri went to the assemblage of the Buddhas. When he arrived there, the conference was over and each Buddha had returned to his own Buddha-land. Only one girl was yet unmoved in deep meditation. Manjusri asked Buddha Shakyamuni how it was possible for this girl to reach this state, one which even he could not attain. \"Bring her out from Samadhi and ask her yourself,\" said the Buddha. Manjusri walked around the girl three times and snapped his fingers. She still remained in meditation. So by his miracle power he transported her to a high heaven and tried his best to call her, but in vain.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Shakyamuni / 世尊",
+              "zh": "世尊云：「假使百千文殊，亦出此女人定不得。下方過一十二億河沙國土，有罔明菩薩，能出此女人定。」須臾罔明大士從地湧出，禮拜世尊。世尊敕罔明卻至女人前，鳴指一下，女人於是從定而出。",
+              "pinyin": "shì zūn yún：'jiǎ shǐ bǎi qiān wén shū，yì chū cǐ nǚ rén dìng bù dé。xià fāng guò yī shí èr yì hé shā guó tǔ，yǒu wǎng míng pú sà，néng chū cǐ nǚ rén dìng。'xū yú wǎng míng dà shì cóng dì yǒng chū，lǐ bài shì zūn。shì zūn chì wǎng míng què zhì nǚ rén qián，míng zhǐ yī xià，nǚ rén yú shì cóng dìng ér chū。",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Buddha Shakyamuni said: \"Even a hundred thousand Manjusris could not disturb her, but below this place, past twelve hundred million countries, is a Bodhisattva, Mo-myo, seed of delusion. If he comes here, she will awaken.\" No sooner had the Buddha spoken than that Bodhisattva sprang up from the earth and bowed and paid homage to the Buddha. Buddha directed him to arouse the girl. The Bodhisattva went in front of the girl and snapped his fingers, and in that instant the girl came out from her deep meditation.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "釋迦老子做者一場雜劇，不通小小。且道文殊是七佛之師，因甚出女人定不得？罔明初地菩薩，為甚卻出得？若向者裏見得親切，業識忙忙，那伽大定。",
+          "commentary_pinyin": "shì jiā lǎo zi zuò zhě yī chǎng zá jù，bù tōng xiǎo xiǎo。qiě dào wén shū shì qī fú zhī shī，yīn shèn chū nǚ rén dìng bù dé？wǎng míng chū dì pú sà，wèi shèn què chū dé？ruò xiàng zhě lǐ jiàn dé qīn qiè，yè shí máng máng，nà qié dà dìng。",
+          "commentary_en": "Old Shakya put on quite a little play, and not a small one. Why could Manjusri, teacher of the seven Buddhas, not bring the girl out of samadhi, while Wangming, a bodhisattva of the first stage, could? See intimately right here: the karmic consciousness bustles — the naga's great samadhi.",
+          "verse_zh": "出得出不得，渠儂得自由；神頭并鬼面，敗闕當風流。",
+          "verse_pinyin": "chū dé chū bù dé，qú nóng dé zì yóu；shén tóu bìng guǐ miàn，bài què dāng fēng liú。",
+          "verse_en": "She could be brought out, she could not be brought out — the fellow has his freedom; god-masks and ghost-faces — the defeat is stylish."
+        },
+        {
+          "case_num": 43,
+          "title_zh": "首山竹篦",
+          "title_pinyin": "Shǒushān zhúbì",
+          "title_en": "Shuzan's Short Staff",
+          "protagonist": "shoushan_shengnian",
+          "dialogue": [
+            {
+              "speaker": "Shoushan / 首山",
+              "zh": "首山和尚拈竹篦示眾云：「汝等諸人若喚作竹篦則觸，不喚作竹篦則背。汝諸人且道，喚作甚麼？」",
+              "pinyin": "shǒu shān hé shàng niān zhú bì shì zhòng yún：'rǔ děng zhū rén ruò huàn zuò zhú bì zé chù，bù huàn zuò zhú bì zé bèi。rǔ zhū rén qiě dào，huàn zuò shén me？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Shuzan held out his short staff and said: \"If you call this a short staff, you oppose its reality. If you do not call it a short staff, you ignore the fact. Now what do you wish to call this?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "喚作竹篦則觸，不喚作竹篦則背。不得有語，不得無語，速道速道！",
+          "commentary_pinyin": "huàn zuò zhú bì zé chù，bù huàn zuò zhú bì zé bèi。bù dé yǒu yǔ，bù dé wú yǔ，sù dào sù dào！",
+          "commentary_en": "Call it a bamboo staff and you oppose it; do not call it a staff and you turn your back on it. No words allowed, no silence allowed — speak quickly, speak quickly!",
+          "verse_zh": "拈起竹篦，行殺活令；背觸交馳，佛祖乞命。",
+          "verse_pinyin": "niān qǐ zhú bì，xíng shā huó lìng；bèi chù jiāo chí，fó zǔ qǐ mìng。",
+          "verse_en": "He lifts the bamboo staff, executing the order of kill and enliven; back and touch interweave — Buddhas and patriarchs beg for their lives."
+        },
+        {
+          "case_num": 44,
+          "title_zh": "芭蕉拄杖",
+          "title_pinyin": "Bājiāo zhǔzhàng",
+          "title_en": "Basho's Staff",
+          "protagonist": "bajiao_huiqing",
+          "dialogue": [
+            {
+              "speaker": "Bajiao / 芭蕉",
+              "zh": "芭蕉和尚示眾云：「爾有拄杖子，我與爾拄杖子；爾無拄杖子，我奪爾拄杖子。」",
+              "pinyin": "bā jiāo hé shàng shì zhòng yún：'ěr yǒu zhǔ zhàng zi，wǒ yǔ ěr zhǔ zhàng zi；ěr wú zhǔ zhàng zi，wǒ duó ěr zhǔ zhàng zi。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Basho said to his disciple: \"When you have a staff, I will give it to you. If you have no staff, I will take it away from you.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "扶過斷橋水，伴歸無月村。若喚作拄杖，入地獄如箭。",
+          "commentary_pinyin": "fú guò duàn qiáo shuǐ，bàn guī wú yuè cūn。ruò huàn zuò zhǔ zhàng，rù dì yù rú jiàn。",
+          "commentary_en": "It helps me across the broken bridge over the creek and escorts me home on the moonless night. But call it a staff and you enter hell like an arrow.",
+          "verse_zh": "諸方深與淺，都在掌握中；撐天并拄地，隨處振宗風。",
+          "verse_pinyin": "zhū fāng shēn yǔ qiǎn，dōu zài zhǎng wò zhōng；chēng tiān bìng zhǔ dì，suí chù zhèn zōng fēng。",
+          "verse_en": "The depths and shallows of all quarters lie within its grasp; propping heaven and bracing earth, wherever it goes the school's wind is stirred."
+        },
+        {
+          "case_num": 45,
+          "title_zh": "他是阿誰",
+          "title_pinyin": "Tā shì ā shuí",
+          "title_en": "Who Is He?",
+          "protagonist": "wuzu_fayan",
+          "dialogue": [
+            {
+              "speaker": "Wuzu / 五祖",
+              "zh": "東山演師祖曰：「釋迦彌勒猶是他奴，且道他是阿誰？」",
+              "pinyin": "dōng shān yǎn shī zǔ yuē：'shì jiā mí lè yóu shì tā nú，qiě dào tā shì ā shuí？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Hoen said: \"The past and future Buddhas, both are his servants. Who is he?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若也見得他分曉，譬如十字街頭撞見親爺相似，更不須問別人道是與不是。",
+          "commentary_pinyin": "ruò yě jiàn dé tā fēn xiǎo，pì rú shí zì jiē tóu zhuàng jiàn qīn yé xiāng sì，gèng bù xū wèn bié rén dào shì yǔ bú shì。",
+          "commentary_en": "If you see him clearly, it is like meeting your own father at a crossroads — no need to ask anyone whether it is so or not.",
+          "verse_zh": "他弓莫挽，他馬莫騎；他非莫辨，他事莫知。",
+          "verse_pinyin": "tā gōng mò wǎn，tā mǎ mò qí；tā fēi mò biàn，tā shì mò zhī。",
+          "verse_en": "Draw no man's bow, ride no man's horse, dispute no man's faults, meddle in no man's affairs."
+        },
+        {
+          "case_num": 46,
+          "title_zh": "竿頭進步",
+          "title_pinyin": "Gāntóu jìnbù",
+          "title_en": "Proceed from the Top of the Pole",
+          "protagonist": "shishuang_qingzhu",
+          "dialogue": [
+            {
+              "speaker": "Shishuang / 石霜",
+              "zh": "石霜和尚云：「百尺竿頭，如何進步？」又古德云：「百尺竿頭坐底人，雖然得入未為真；百尺竿頭須進步，十方世界現全身。」",
+              "pinyin": "shí shuāng hé shàng yún：'bǎi chǐ gān tóu，rú hé jìn bù？'yòu gǔ dé yún：'bǎi chǐ gān tóu zuò dǐ rén，suī rán dé rù wèi wèi zhēn；bǎi chǐ gān tóu xū jìn bù，shí fāng shì jiè xiàn quán shēn。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Sekiso asked: \"How can you proceed on from the top of a hundred-foot pole?\" Another Zen teacher said: \"One who sits on the top of a hundred-foot pole has attained a certain height but still is not handling Zen freely. He should proceed on from there and appear with his whole body in the ten parts of the world.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "進得步，翻得身，更嫌何處不稱尊？然雖如是，且道百尺竿頭如何進步？嗄！",
+          "commentary_pinyin": "jìn dé bù，fān dé shēn，gèng xián hé chù bù chēng zūn？rán suī rú shì，qiě dào bǎi chǐ gān tóu rú hé jìn bù？á！",
+          "commentary_en": "Take the step, turn the body — where else would you not be honored? Even so: how do you take a step from the top of the hundred-foot pole? Ha!",
+          "verse_zh": "瞎卻頂門眼，錯認定盤星；拚身能捨命，一盲引眾盲。",
+          "verse_pinyin": "xiā què dǐng mén yǎn，cuò rèn dìng pán xīng；pàn shēn néng shě mìng，yī máng yǐn zhòng máng。",
+          "verse_en": "Blinding the eye on the crown of the head, mistaking the polestar of the scale; risking the body, able to give up life — one blind man leading the blind."
+        },
+        {
+          "case_num": 47,
+          "title_zh": "兜率三關",
+          "title_pinyin": "Dōushuài sān guān",
+          "title_en": "Three Gates of Tosotsu",
+          "protagonist": "tousu_congyue",
+          "dialogue": [
+            {
+              "speaker": "Tosotsu / 兜率",
+              "zh": "兜率悅和尚設三關問學者：「撥草參玄，只圖見性，即今上人性在甚處？識得自性，方脫生死，眼光落時，作麼生脫？脫得生死，便知去處，四大分離，向甚處去？」",
+              "pinyin": "dōu shuài yuè hé shàng shè sān guān wèn xué zhě：'bō cǎo cān xuán，zhǐ tú jiàn xìng，jí jīn shàng rén xìng zài shèn chù？shí dé zì xìng，fāng tuō shēng sǐ，yǎn guāng luò shí，zuò me shēng tuō？tuō dé shēng sǐ，biàn zhī qù chù，sì dà fēn lí，xiàng shèn chù qù？'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "Tosotsu built three barriers and made the monks pass through them. The first barrier is studying Zen. In studying Zen the aim is to see one's own true nature. Now where is your true nature? Secondly, when one realizes his own true nature he will be free from birth and death. Now when you shut the light from your eyes and become a corpse, how can you free yourself? Thirdly, if you free yourself from birth and death, you should know where you are. Now your body separates into the four elements. Where are you?",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若能下得此三轉語，便可以隨處作主，遇緣即宗。其或未然，麤餐易飽，細嚼難飢。",
+          "commentary_pinyin": "ruò néng xià dé cǐ sān zhuǎn yǔ，biàn kě yǐ suí chù zuò zhǔ，yù yuán jí zōng。qí huò wèi rán，cū cān yì bǎo，xì jué nán jī。",
+          "commentary_en": "If you can pass these three turning words, you can be master wherever you stand and take every encounter as your source. Otherwise — coarse food fills quickly, but slow chewing stills hunger.",
+          "verse_zh": "一念普觀無量劫，無量劫事即如今；如今覷破箇一念，覷破如今覷底人。",
+          "verse_pinyin": "yī niàn pǔ guān wú liàng jié，wú liàng jié shì jí rú jīn；rú jīn qù pò gè yī niàn，qù pò rú jīn qù dǐ rén。",
+          "verse_en": "One thought contemplates countless kalpas; the affairs of countless kalpas are just now; now see through this one thought — see through the one who is seeing now."
+        },
+        {
+          "case_num": 48,
+          "title_zh": "乾峰一路",
+          "title_pinyin": "Qiánfēng yīlù",
+          "title_en": "One Road of Kembo",
+          "protagonist": "qianfeng",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "乾峰和尚因僧問：「十方薄伽梵，一路涅槃門。未審路頭在甚麼處？」峰拈起拄杖，劃一劃云：「在者裏。」",
+              "pinyin": "qián fēng hé shàng yīn sēng wèn：'shí fāng bó qié fàn，yī lù niè pán mén。wèi shěn lù tóu zài shén me chù？'fēng niān qǐ zhǔ zhàng，huà yī huà yún：'zài zhě lǐ。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "A Zen pupil asked Kembo: \"All Buddhas of the ten parts of the universe enter the one road of Nirvana. Where does that road begin?\" Kembo, raising his walking stick and drawing the figure one in the air, said: \"Here it is.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            },
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "後僧請益雲門，門拈起扇子云：「扇子勃跳，上三十三天，築著帝釋鼻孔。東海鯉魚打一棒，雨似盆傾。」",
+              "pinyin": "hòu sēng qǐng yì yún mén，mén niān qǐ shàn zi yún：'shàn zi bó tiào，shàng sān shí sān tiān，zhù zháo dì shì bí kǒng。dōng hǎi lǐ yú dǎ yī bàng，yǔ shì pén qīng。'",
+              "translations": {
+                "senzaki_reps": {
+                  "text": "This pupil went to Ummon and asked the same question. Ummon, who happened to have a fan in his hand, said: \"This fan will reach to the thirty-third heaven and hit the nose of the presiding deity there. It is like the Dragon Carp of the Eastern Sea tipping over the rain-cloud with his tail.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                  }
+                }
+              }
+            }
+          ],
+          "commentary_zh": "一人向深深海底行，簸土揚塵；一人於高高山頂立，白浪滔天。把定放行，各出一隻手，扶豎宗乘，大似兩箇馳子相撞著，世上應無直底人。正眼觀來，二大老總未識路頭在。",
+          "commentary_pinyin": "yī rén xiàng shēn shēn hǎi dǐ xíng，bǒ tǔ yáng chén；yī rén yú gāo gāo shān dǐng lì，bái làng tāo tiān。bǎ dìng fàng xíng，gè chū yī zhī shǒu，fú shù zōng chéng，dà shì liǎng gè chí zi xiāng zhuàng zhù，shì shàng yīng wú zhí dǐ rén。zhèng yǎn guān lái，èr dà lǎo zǒng wèi shí lù tóu zài。",
+          "commentary_en": "One walks on the deepest ocean floor, scattering dirt and raising dust; the other stands on the highest mountain peak, raising white waves to the sky. Holding and releasing, each puts out a hand to prop up the school — like two rams butting heads, with no straight man left in the world. Seen with a true eye, neither of the two great elders knew where the road began.",
+          "verse_zh": "未舉步時先已到，未動舌時先說了；直饒著著在機先，更須知有向上竅。",
+          "verse_pinyin": "wèi jǔ bù shí xiān yǐ dào，wèi dòng shé shí xiān shuō le；zhí ráo zhù zhù zài jī xiān，gèng xū zhī yǒu xiàng shàng qiào。",
+          "verse_en": "Before the step is taken you have already arrived; before the tongue moves it has already spoken. Even if every move precedes the trigger, you must still know the aperture above."
         }
-      ]
+      ],
+      "coverage_note": "Complete — all 48 cases + preface + epilogue (completed 2026-08-08; T2005 宗紹編, 48則)",
+      "zh_chars": 5876
     },
     "linji_yulu": {
       "id": "linji_yulu",

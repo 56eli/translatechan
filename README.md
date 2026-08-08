@@ -20,7 +20,7 @@
 
 Every rendering shown under a scholar's name is labeled: **✅ Verified quotation** (checked verbatim against a specific edition, source recorded) or **⚠️ Register reconstruction** (AI-composed in that scholar's documented style — *not* citable). The pioneering audit and eight verification rounds delivered:
 
-- **79 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix rows**, each with full work/edition/verification provenance in `data/translations/provenance.json` (v1.9).
+- **119 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix rows** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register), each with full work/edition/verification provenance in `data/translations/provenance.json` (v2.0).
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
 - All checks and honest negatives logged in [`AUDIT.md` §8](./AUDIT.md).
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
@@ -30,11 +30,11 @@ Every rendering shown under a scholar's name is labeled: **✅ Verified quotatio
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: the 36 corpus files in `data/corpus/` are currently **excerpt-scale seeds** (≈11,800 Classical Chinese characters total — re-measured 2026-08-08), with authentic CBETA-verified anchor passages — not complete texts. Per-text coverage is tracked in [`AUDIT.md §3`](./AUDIT.md); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, starting with all 48 Wumenguan cases.
+> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** (Wumenguan is the first **complete text**: 48/48 cases) (≈16,300 Classical Chinese characters total — re-measured 2026-08-08 after Wumenguan 48/48 completion), with authentic CBETA-verified anchor passages — not complete texts. Per-text coverage is tracked in [`AUDIT.md §3`](./AUDIT.md); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is now **complete: all 48 cases** (2026-08-08); next up is Biyanlu.
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
-| **The Gateless Gate** | 禪宗無門關 | **T2005** (Vol. 48) | Wumen Huikai (無門慧開, 1228 CE) | Preface, epilogue + 11 / 48 cases |
+| **The Gateless Gate** | 禪宗無門關 | **T2005** (Vol. 48) | Wumen Huikai (無門慧開, 1228 CE) | **48 / 48 cases ✅ complete** (+ preface, epilogue) |
 | **The Record of Linji** | 鎮州臨濟慧照禪師語錄 | **T1985** (Vol. 47) | Linji Yixuan / Sansheng Huiran | 4 core sermons incl. 無位真人 |
 | **Transmission of Mind** | 黃檗山斷際禪師傳心法要 | **T2012A** (Vol. 48) | Huangbo Xiyun / Pei Xiu (裴休) | Opening sections (One Mind) |
 | **Sayings of Zhaozhou** | 趙州真際禪師語錄 | **T1987** (Vol. 47) | Zhaozhou Congshen (趙州從諗) | Signature dialogues (狗子, 洗鉢盂…) |

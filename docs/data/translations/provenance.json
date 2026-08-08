@@ -1,5 +1,5 @@
 {
-  "policy_version": "1.9",
+  "policy_version": "2.0",
   "policy_date": "2026-08-08",
   "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
   "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -152,6 +152,21 @@
         "shibayama — substrate PDF (Zen Comments on the Mumonkan / Zen Inspirations excerpt) is an image-only scan → unverifiable this session, pending",
         "pending: hoffman stone-bridge; watson deathbed; shibayama registers; aitken cases 5–7,19,23,29,37 (parse window)"
       ]
+    },
+    {
+      "pilot": "Round 9 (2026-08-08): Wumenguan completed 48/48 — Senzaki & Reps public-domain register extended to all remaining cases",
+      "registers_verified": [
+        "senzaki_reps — +40 verified dialogue slots covering all 37 previously-missing cases (8–18, 20–22, 24–28, 30–36, 38–48), verbatim vs sacred-texts.com case pages (John Murray 1934, U.S. PD via non-renewal)"
+      ],
+      "data_corrections": [
+        "provenance round-8 note corrected: T2005 case 37 IS 庭前柏樹 (oak/cypress) per CBETA Online TOC — the 'Panshan 三界無法' claim conflated Biyanlu case 37 with Wumenguan 37",
+        "case 38 牛過窗櫺 follows CBETA numbering (Senzaki/Reps printed it as their no. 37; their no. 38 = our canonical 37 庭前柏樹 — both spellings documented)"
+      ],
+      "registers_pending": [
+        "yamada/aitken/sekida/blyth/shimomisse full-48 coverage (current verified registers cover the original 11 anchor cases only)",
+        "scholar-register reconstructions for the new 37 cases (deliberately omitted — new cases carry only the verified PD register)"
+      ],
+      "note": "New cases carry ONLY the verified senzaki_reps register (no unverified scholar reconstructions). commentary_en/verse_en are project renderings and display the automatic 'unverified' label. zh follows the CBETA T2005 recension (宗紹編); 缽/云/窗 etc. are edition variants, cross-matched by the app's variant-normalized search."
     }
   ]
 }

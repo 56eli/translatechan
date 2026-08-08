@@ -19,11 +19,11 @@ This document outlines the detailed engineering, data science, translation, and 
 │  • Core App     │    T47/48 text  │    Sasaki,      │    Templates    │    Chinese     │
 │  • 36 Text      │  • 48 Cases     │    Suzuki,      │    (staged)     │    Audio       │
 │    Excerpt Seeds│    Wumenguan    │    Blofeld      │  • Personal     │  • DDB / SAT   │
-│    (11/48 cases)│  • 7/100 Biyanlu│  • 31/150+ Chan │    Drafting     │    Integration │
+│    (48/48 ✅)   │  • 7/100 Biyanlu│  • 31/150+ Chan │    Drafting     │    Integration │
 │  • 18 Master    │  • Chuandenglu  │    Terms        │  • LocalStorage │  • Multi-ling  │
 │    Profiles     │    architecture │  • 4 Matrix     │  • Markdown/JSON│    (FR/DE/ES)  │
 │  • Search UI    │    only         │    Entries      │    Export       │                │
-│  • Smoke Test   │  [STATUS: ~10%] │  [STATUS: ~20%] │  [STATUS: ~60%] │  [STATUS: Planned]
+│  • Smoke Test   │  [STATUS: ~30%] │  [STATUS: ~20%] │  [STATUS: ~60%] │  [STATUS: Planned]
 │  [STATUS: 100%✓│                 │                 │                 │                │
 │   repaired 8/26]│                 │                 │                 │                │
 └─────────────────┴─────────────────┴─────────────────┴─────────────────┴────────────────┘
@@ -31,7 +31,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 > Statuses above are **measured** (see [`AUDIT.md`](./AUDIT.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
-> **Attribution-integrity milestone (2026-08-08)**: provenance policy live (`data/translations/provenance.json` v1.9, UI badges ✅/⚠️); **79 verified quotation slots across 6 corpus texts + 2 verified matrix rows**, with the full provenance log in [`AUDIT.md` §8](./AUDIT.md). Phase-3 matrix curation now proceeds on a verified-only basis for scholarly citation.
+> **Attribution-integrity milestone (2026-08-08)**: provenance policy live (`data/translations/provenance.json` v2.0, UI badges ✅/⚠️); **119 verified quotation slots across 6 corpus texts + 2 verified matrix rows** (Wumenguan 48/48 complete, 2026-08-08), with the full provenance log in [`AUDIT.md` §8](./AUDIT.md). Phase-3 matrix curation now proceeds on a verified-only basis for scholarly citation.
 
 ---
 
@@ -55,7 +55,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Personal Translation Studio allowing users to draft personal translations, save to `localStorage`, and export to JSON, Markdown, or LaTeX.
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Text Seeds** (36 files; authentic anchor passages, excerpt-scale — completion is Phase 2; canon IDs audited against CBETA 2026-08-08):
-  1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — preface, epilogue + 11/48 cases)
+  1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — **48/48 cases COMPLETE** + preface + epilogue, 2026-08-08)
   2. *Linji Yulu* (臨濟語錄 / The Record of Linji, T1985 — 4 core sermons)
   3. *Huangbo Chuanxin Fayao* (黃檗傳心法要 / T2012A — opening sections)
   4. *Zhaozhou Yulu* (趙州語錄 / recorded-saying extracts)
@@ -79,7 +79,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Real CBETA source fetching/normalization (Kanripo API or CBETA TEI download).
   - `scripts/align_translations.py` — sentence-level translation alignment (not yet written).
 - [ ] **Full-Text Ingestion Targets**:
-  - [~] Wumenguan (**11 / 48 cases** — completion is the next data milestone)
+  - [x] Wumenguan (**48 / 48 cases** — completed 2026-08-08; every case carries the verified Senzaki & Reps 1934 public-domain register)
   - [~] Biyanlu (**7 / 100 cases**)
   - [ ] Congronglu / Book of Serenity (All 100 Cases)
   - [ ] Jingde Chuandenglu (Complete 30 Fascicles, ~1,700 masters)
