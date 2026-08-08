@@ -155,6 +155,7 @@ python3 -m http.server 8080
 
 - 📜 **Grand Vision & Architectural Blueprint**: [`vision.md`](./vision.md)
 - 🗺️ **Roadmap & Milestone Execution Plan**: [`ROADMAP.md`](./ROADMAP.md)
+- 🧘 **UX/UI Improvement Roadmap (mobile + desktop, anti-overload)**: [`UX_ROADMAP.md`](./UX_ROADMAP.md)
 - 🔍 **Technical Audit & Remediation Log**: [`AUDIT.md`](./AUDIT.md)
 - 🤝 **Pull Request & Deployment Handoff Guide**: [`HANDOFF.md`](./HANDOFF.md)
 
