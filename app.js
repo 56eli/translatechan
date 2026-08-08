@@ -63,6 +63,7 @@
     theme: storageGet('translatechan_theme') || 'light',
     searchQuery: '',
     selectedMasterSchool: 'all',
+    lineageSort: 'generation',
     selectedLexiconCategory: 'all',
     gonganThemeFilter: null,
     caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
@@ -82,6 +83,7 @@
     matrixTarget: document.getElementById('matrix-content-target'),
     // Lineage Elements
     lineageFilter: document.getElementById('lineage-school-filter'),
+    lineageSort: document.getElementById('lineage-sort-filter'),
     lineageTarget: document.getElementById('lineage-content-target'),
     lineageVerificationSummary: document.getElementById('lineage-verification-summary'),
     // Gong'an Elements
@@ -456,6 +458,13 @@
     if (elements.lineageFilter) {
       elements.lineageFilter.addEventListener('change', (e) => {
         state.selectedMasterSchool = e.target.value;
+        renderLineage();
+      });
+    }
+
+    if (elements.lineageSort) {
+      elements.lineageSort.addEventListener('change', (e) => {
+        state.lineageSort = ['generation', 'chronology', 'name', 'school'].includes(e.target.value) ? e.target.value : 'generation';
         renderLineage();
       });
     }
@@ -1364,6 +1373,22 @@
       renderCitationTrigger(detail, 'ⓘ Verification details');
   }
 
+  function sortLineageMasters(masters) {
+    const list = [...masters];
+    const date = m => parseInt(String(m.dates || '').match(/\d{3,4}/)?.[0], 10) || 9999;
+    const byName = (a, b) => stringValue(a.name_en).localeCompare(stringValue(b.name_en));
+    if (state.lineageSort === 'chronology') return list.sort((a, b) => date(a) - date(b) || byName(a, b));
+    if (state.lineageSort === 'name') return list.sort(byName);
+    if (state.lineageSort === 'school') return list.sort((a, b) => stringValue(a.school).localeCompare(stringValue(b.school)) || byName(a, b));
+    return list.sort((a, b) => Number(a.lineage_depth) - Number(b.lineage_depth) || byName(a, b));
+  }
+
+  function lineageTeacherDetail(master) {
+    const teacher = (state.data.lineage || []).find(m => m && m.id === master.teacher);
+    if (teacher) return `<button class="btn-pill" onclick="window.TranslateChan.openMasterDossier('${escHtml(teacher.id)}')">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(teacher.name_en)}</button>`;
+    return `<span>Teacher frontier: ${escHtml(master.teacher || 'not recorded')} — profile/source record pending</span>`;
+  }
+
   // Render Lineage Explorer
   function renderLineage() {
     if (!elements.lineageTarget || !state.data.lineage) return;
@@ -1374,6 +1399,7 @@
       masters = masters.filter(m => m.school.toLowerCase().includes(state.selectedMasterSchool.toLowerCase()));
     }
 
+    masters = sortLineageMasters(masters);
     renderVisualLineageGraph(masters);
 
     elements.lineageTarget.innerHTML = masters.map(m => `
@@ -1392,6 +1418,7 @@
             <span>🏛️ Lineage: ${m.school}</span>
             <span>📍 Temple: ${m.location}</span>
             <span>📜 Canonical Ref: ${m.cbeta_id}</span>
+            <span>👤 ${lineageTeacherDetail(m)}</span>
           </div>
           <div class="master-quote">
             "${m.key_quote_zh}"
@@ -1438,7 +1465,7 @@
 
     // Calculate node coordinates based on lineage generation
     const genGroups = {};
-    masters.forEach(m => {
+    sortLineageMasters(masters).forEach(m => {
       const gen = m.lineage_depth || 1;
       if (!genGroups[gen]) genGroups[gen] = [];
       genGroups[gen].push(m);
@@ -1640,9 +1667,11 @@
           "${master.key_quote_zh}"
           <div class="master-quote-en">"${master.key_quote_en}"</div>
         </div>
+        <div style="margin-bottom: 0.5rem;"><strong>👤 Teacher:</strong> ${lineageTeacherDetail(master)}</div>
         <div style="margin-bottom: 0.5rem;">
-          <strong>📚 Primary Classical Texts & Records:</strong> ${master.texts ? master.texts.join(', ') : 'Transmission records in Jingde Chuandenglu'}
+          <strong>📚 Primary Classical Texts & Records:</strong> ${master.texts ? master.texts.map(escHtml).join(', ') : 'Transmission records pending'}
         </div>
+        <div style="margin-bottom: 0.5rem;"><strong>🔎 Names & record state:</strong> ${escHtml((master.alternative_names || []).join(' · ') || 'Alternative names not yet reviewed')} · ${escHtml(master.profile_status || 'Seed profile — exact biographical/source locator pending')}</div>
         <div>
           <strong>📖 Historical & Philosophical Significance:</strong> ${master.summary}
         </div>
