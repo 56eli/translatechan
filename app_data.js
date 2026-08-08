@@ -4249,6 +4249,87 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "mazu_yulu": {
+      "id": "mazu_yulu",
+      "title_zh": "江西馬祖道一禪師語錄",
+      "title_pinyin": "Jiāngxī Mǎzǔ Dàoyī Chánshī Yǔlù",
+      "title_en": "The Recorded Sayings of Chan Master Mazu Daoyi",
+      "cbeta_id": "X1304 / T1985",
+      "taisho_vol": 47,
+      "author_zh": "唐 江西 馬祖道一 禪師 說",
+      "author_en": "Great Master Mazu Daoyi (709–788 CE), Ancestor of Hongzhou Lineage",
+      "era": "High Tang Dynasty",
+      "genre": "Discourse Record & Dynamic Realization (語錄與大機大用)",
+      "overview": "The revolutionary recorded teachings of Great Master Mazu Daoyi, who transformed Chan literature through encounter dialogues, 'This very mind is Buddha' (即心即佛), 'Neither mind nor Buddha' (非心非佛), and 'Ordinary Mind is the Way' (平常心是道).",
+      "sections": [
+        {
+          "section_id": "ordinary_mind",
+          "title_zh": "平常心是道：道不用修，但莫污染",
+          "title_pinyin": "Píngcháng Xīn Shì Dào: Dào Bùyòng Xiū, Dàn Mò Wūrǎn",
+          "title_en": "Ordinary Mind is the Way: The Way Requires No Cultivation, Only No Defilement",
+          "dialogue": [
+            {
+              "speaker": "Mazu / 馬祖",
+              "zh": "示眾云：「道不用修，但莫污染。何為污染？但有生死心，造作趣向，皆是污染。若欲直會其道，平常心是道。何謂平常心？無造作，無是非，無取捨，無斷常，無凡無聖。」",
+              "pinyin": "Shì zhòng yún: 'Dào bùyòng xiū, dàn mò wūrǎn. Hé wéi wūrǎn? Dàn yǒu shēngsǐ xīn, zàozuò qùxiàng, jiē shì wūrǎn. Ruò yù zhí huì qí dào, píngcháng xīn shì dào. Hé wèi píngcháng xīn? Wú zàozuò, wú shì fēi, wú qǔ shě, wú duàn cháng, wú fán wú shèng.'",
+              "translations": {
+                "red_pine": "The Master told the assembly: 'The Way requires no cultivation; simply do not defile it. What is defilement? As long as you have thoughts of birth and death, calculating actions and directions, all of this is defilement. If you wish to comprehend the Way directly: Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.'",
+                "cleary": "The Master addressed the crowd: 'The Way needs no cultivation, just do not defile it. What is defilement? When you have a mind of birth and death, creating orientations, all is defilement. If you want to comprehend the Way directly, ordinary mind is the Way. What is ordinary mind? Free from fabrication, right and wrong, grasping and rejecting, nihilism and eternalism, mortal and holy.'",
+                "sasaki": "Master Baso said: 'The Tao needs no cultivation; just do not defile it. What is defilement? To have a mind of birth and death, striving toward something—this is defilement. Ordinary mind is the Way. What is ordinary mind? It has no contrivance, no right or wrong, no grasping or abandoning, no commoner or sage.'"
+              }
+            },
+            {
+              "speaker": "Mazu / 馬祖",
+              "zh": "「經云：『非凡夫行，非聖賢行，是菩薩行。』只如今行住坐臥，應機接物，盡是道。道即是法界，乃至河沙妙用，不出法界。」",
+              "pinyin": "'Jīng yún: Fēi fánfū xíng, fēi shèngxián xíng, shì púsà xíng. Zhǐ rújīn xíng zhù zuò wò, yīngjī jiēwù, jìn shì dào. Dào jí shì fǎjiè, nǎizhì héshā miàoyòng, bù chū fǎjiè.'",
+              "translations": {
+                "red_pine": "The sutra says: 'Neither the conduct of ordinary mortals nor the conduct of sages is the conduct of the Bodhisattva.' Right now, walking, standing, sitting, lying down, responding to situations and meeting things—all of this is the Way. The Way is simply the Dharma-realm; even wondrous functions as numerous as sands of the Ganges do not step outside the Dharma-realm.",
+                "cleary": "The scripture says, 'Neither the conduct of mortals nor sages is the conduct of bodhisattvas.' Just walking, standing, sitting, lying down right now, responding to conditions—all is the Way. The Way is the realm of reality; wondrous functions countless as Ganges sands do not leave the realm of reality.",
+                "sasaki": "Right now, your walking, standing, sitting, and resting, responding to circumstances—all are the Way. The Way is the Dharma-realm itself."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "this_mind_is_buddha",
+          "title_zh": "大梅問法：即心即佛與非心非佛",
+          "title_pinyin": "Dàméi Wèn Fǎ: Jíxīn Jífó yǔ Fēixīn Fēifó",
+          "title_en": "This Mind is Buddha and Neither Mind Nor Buddha",
+          "dialogue": [
+            {
+              "speaker": "Damei / 大梅法常",
+              "zh": "大梅法常初參馬祖，問：「如何是佛？」祖曰：「即心即佛。」大梅於言下大悟，遂往大梅山隱居。",
+              "pinyin": "Dàméi Fǎcháng chū cān Mǎzǔ, wèn: 'Rúhé shì fó?' Zǔ yuē: 'Jí xīn jí fó.' Dàméi yú yán xià dà wù, suì wǎng Dàméi Shān yǐnjū.",
+              "translations": {
+                "red_pine": "When Damei Fachang first visited Mazu, he asked: 'What is Buddha?' Mazu said: 'This very mind is Buddha.' Damei was enlightened at these words and went to dwell in seclusion on Mount Damei.",
+                "cleary": "Damei asked Mazu, 'What is the Buddha?' Mazu said, 'This mind is Buddha.' Damei had great enlightenment at these words and went to live in seclusion on Mount Damei.",
+                "sasaki": "Damei asked Baso: 'What is Buddha?' Baso replied: 'This very mind is Buddha.' Damei was deeply awakened at these words and went into mountain solitude."
+              }
+            },
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問馬祖：「和尚為甚麼說即心即佛？」祖曰：「為止小兒啼。」僧曰：「啼止時如何？」祖曰：「非心非佛。」",
+              "pinyin": "Sēng wèn Mǎzǔ: 'Héshang wèishénme shuō jí xīn jí fó?' Zǔ yuē: 'Wèi zhǐ xiǎo'ér tí.' Sēng yuē: 'Tí zhǐ shí rúhé?' Zǔ yuē: 'Fēi xīn fēi fó.'",
+              "translations": {
+                "red_pine": "A monk asked Mazu: 'Why do you teach that this very mind is Buddha?' Mazu said: 'To stop the crying of small babies.' The monk asked: 'When the crying stops, what then?' Mazu said: 'Neither mind nor Buddha.'",
+                "cleary": "A monk asked Mazu, 'Why do you say this mind is Buddha?' Mazu said, 'To stop babies crying.' 'When the crying stops, what then?' 'Not mind, not Buddha.'",
+                "sasaki": "A monk asked Baso: 'Why do you say this mind is Buddha?' Baso said: 'To stop a crying child.' 'When the child stops crying?' Baso said: 'Neither mind nor Buddha.'"
+              }
+            },
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧曰：「除此二種人來，如何指示？」祖曰：「向他道不是物。」僧曰：「忽遇其中人來時如何？」祖曰：「且教他體會大道。」",
+              "pinyin": "Sēng yuē: 'Chú cǐ èrzhǒng rén lái, rúhé zhǐshì?' Zǔ yuē: 'Xiàng tā dào bù shì wù.' Sēng yuē: 'Hū yù qízhōng rén lái shí rúhé?' Zǔ yuē: 'Qiě jiào tā tǐhuì dàdào.'",
+              "translations": {
+                "red_pine": "The monk said: 'If someone other than these two comes, how do you instruct them?' Mazu said: 'I tell them: It is not a thing.' 'What if someone in the midst of it comes?' Mazu said: 'I let them experience the Great Way.'",
+                "cleary": "The monk asked, 'If someone besides these two comes, how do you instruct them?' Mazu said, 'I tell them it is not a thing.' 'What if someone already within it comes?' Mazu said, 'I let them experience the Great Way directly.'",
+                "sasaki": "The monk asked: 'If someone comes who is neither of these?' Baso said: 'I tell him it is not a thing.'"
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

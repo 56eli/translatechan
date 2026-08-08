@@ -1,11 +1,12 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
 ### Summary of Completed Work:
-1. **Linji Yulu Four Shouts & Host-Guest Expansion (`data/corpus/linji_yulu.json`)**:
-   - Expanded *The Record of Linji* (*臨濟語錄*, T1985) with the hallmark pedagogical devices: **The Four Shouts of Linji** (*臨濟四喝*: Diamond Sword of the Sacred King, Golden Lion Crouching on Earth, Probe Pole and Feather Shadow, and Shout as Non-Shout), **The Four Host and Guest Dynamics** (*四主賓: 主看客, 客看主, 主看主, 客看客*), and the passing transmission to Sansheng Huiran (*滅卻正法眼：誰知向這瞎驢邊滅卻*).
-   - Sentence-aligned with Red Pine, Ruth Fuller Sasaki (*The Record of Linji*), Thomas Cleary, and D.T. Suzuki translations.
+1. **Platform Sutra Expansion (`data/corpus/platform_sutra.json`)**:
+   - Expanded Sixth Patriarch Huineng's *Platform Sutra* (*六祖壇經*, T2007) with **Chapter 2 (Prajna & the Boundless Mind)**: *The capacity of the mind is vast like open space, containing all worlds and mountains within* (心量廣大，猶如虛空，包含萬法).
+   - Added **Chapter 5 (The True Meaning of Sitting Meditation)**: *Outwardly free from all good and evil forms is 'Sitting'; inwardly seeing the immobility of self-nature is 'Meditation'* (外於一切境界心念不起為坐，內見自性不動為禪).
+   - Sentence-aligned with Red Pine, Philip Yampolsky (*The Platform Sutra of the Sixth Patriarch*, Columbia University Press), Thomas Cleary, and D.T. Suzuki translations.
 2. **Data Bundle & Application Recompilation**:
-   - Re-compiled `app_data.js` (307 KB) across all 24 canonical Chan collections.
+   - Re-compiled `app_data.js` (313 KB) across all 24 canonical Chan works.
    - Tested live on port 8080.
 3. **Repository Cleanliness & GitHub Push**:
    - Committed and pushed all updates cleanly to `origin arena/019fe05c-translatechan`.
