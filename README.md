@@ -18,9 +18,9 @@
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
-Every rendering shown under a scholar's name is labeled: **✅ Verified quotation** (checked verbatim against a specific edition, source recorded) or **⚠️ Register reconstruction** (AI-composed in that scholar's documented style — *not* citable). The pioneering audit and eight verification rounds delivered:
+The Reader labels most rendering columns as **✅ Verified quotation** (checked against a specific edition) or **⚠️ Register reconstruction** (AI-composed in a scholar's documented style — *not* citable). The current audit identifies Matrix/Studio labeling gaps that must be closed before this is an every-view guarantee. The verification campaign delivered:
 
-- **119 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix rows** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register), each with full work/edition/verification provenance in `data/translations/provenance.json` (v2.0).
+- **138 verified quotation slots across 6 corpus texts + 2 comparative-matrix entries marked verified** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus-object quotations carry full work/edition/verification fields; Matrix provenance needs the audit follow-up in [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3).
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
 - All checks and honest negatives logged in [`AUDIT.md` §8](./AUDIT.md).
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
@@ -142,7 +142,7 @@ python3 -m http.server 8080
 ✅ **Already active**: Pages publishes from branch **`main`**, folder **`/docs`**, HTTPS enforced.
 👉 Live at `https://56eli.github.io/translatechan/`
 
-**Publishing flow for new work** (agent sessions commit to session branches such as `arena/<session>-translatechan`; current: `arena/019fe1b5-translatechan`):
+**Publishing flow for new work** (agent sessions commit to branches such as `arena/<session>-translatechan`):
 1. On the session branch, run `python3 scripts/build_data_bundle.py` (syncs root + `/docs`) and `node scripts/smoke_test.mjs`.
 2. Commit, push the branch, and open a pull request into `main`.
 3. On merge, GitHub Pages re-publishes automatically within ~60 seconds.

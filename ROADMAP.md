@@ -20,7 +20,7 @@ This document outlines the detailed engineering, data science, translation, and 
 │  • 36 Text      │  • 48 Cases     │    Suzuki,      │    (staged)     │    Audio       │
 │    Excerpt Seeds│    Wumenguan    │    Blofeld      │  • Personal     │  • DDB / SAT   │
 │    (48/48 ✅)   │  • 7/100 Biyanlu│  • 31/150+ Chan │    Drafting     │    Integration │
-│  • 18 Master    │  • Chuandenglu  │    Terms        │  • LocalStorage │  • Multi-ling  │
+│  • 30 Master    │  • Chuandenglu  │    Terms        │  • LocalStorage │  • Multi-ling  │
 │    Profiles     │    architecture │  • 4 Matrix     │  • Markdown/JSON│    (FR/DE/ES)  │
 │  • Search UI    │    only         │    Entries      │    Export       │                │
 │  • Smoke Test   │  [STATUS: ~30%] │  [STATUS: ~20%] │  [STATUS: ~60%] │  [STATUS: Planned]
@@ -31,7 +31,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 > Statuses above are **measured** (see [`AUDIT.md`](./AUDIT.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
-> **Attribution-integrity milestone (2026-08-08)**: provenance policy live (`data/translations/provenance.json` v2.0, UI badges ✅/⚠️); **119 verified quotation slots across 6 corpus texts + 2 verified matrix rows** (Wumenguan 48/48 complete, 2026-08-08), with the full provenance log in [`AUDIT.md` §8](./AUDIT.md). Phase-3 matrix curation now proceeds on a verified-only basis for scholarly citation.
+> **Attribution-integrity milestone (2026-08-08)**: provenance policy live (`data/translations/provenance.json` v2.0, UI badges ✅/⚠️); **138 verified corpus quotation slots across 6 texts + 2 Matrix entries marked verified** (Wumenguan 48/48 complete, 2026-08-08). Corpus-object provenance is present; Matrix provenance/display gaps are tracked in [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3). Phase-3 curation must close those gaps before scholarly citation.
 
 ---
 
@@ -51,7 +51,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Multi-Translator Comparison matrix (Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine, AI Drafts, Personal Workspace).
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
-  - Instant client-side search across **all 36 texts and every schema shape** (counts + highlighting + jump-to-anchor — landed 2026-08-08, [`AUDIT.md` §8](./AUDIT.md)).
+  - Instant client-side search across **all 36 texts and primary schema shapes** (counts + highlighting + jump-to-anchor — landed 2026-08-08, with pointer/index completeness follow-up in [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3)).
   - Personal Translation Studio allowing users to draft personal translations, save to `localStorage`, and export to JSON, Markdown, or LaTeX.
   - **UX/UI improvement roadmap implemented (Phases A–D, 2026-08-08)** — calm reader (case strip, collapsible cards, shared tap/focus popover, persisted preferences, debounced search), mobile-first navigation (corpus picker, bottom action bar, single-column translations), deep polish (print/PDF, hash routing, lineage pan/zoom, WCAG-AA a11y), performance (cached search index, lazy case rendering). See [`UX_ROADMAP.md`](./UX_ROADMAP.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
@@ -70,8 +70,8 @@ This document outlines the detailed engineering, data science, translation, and 
 
 ## 📍 Phase 2: Complete Canonical Ingestion & Data Structuring (In Progress)
 
-- [x] **Standardized Data Schema**:
-  - JSON schema for canonical texts with paragraph/sentence tokens, speaker tags, commentary blocks, and CBETA line references.
+- [~] **Working Data Conventions**:
+  - Heterogeneous JSON shapes for cases, sections, dialogues, stanzas, chapters, five ranks, and sample records are supported by the renderer. A formal JSON Schema, per-unit canonical locators, and semantic validation remain required work (see [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3)).
 - [x] **Ingestion Tooling (seed level)**:
   - `scripts/ingest_cbeta.py` — offline punctuation-based Classical Chinese sentence segmenter (manual input; no live CBETA fetching yet).
   - `scripts/build_data_bundle.py` — deterministic bundle compiler + `/docs` sync.
@@ -169,7 +169,7 @@ translatechan/
 ├── README.md / HANDOFF.md / AUDIT.md
 ├── data/
 │   ├── corpus/             # 36 structured canonical-text files (JSON, excerpt-scale → growing)
-│   ├── lineage/            # masters.json (18 profiles; schools.json planned)
+│   ├── lineage/            # masters.json (30 profiles; schools.json planned)
 │   ├── translations/       # comparative_matrix.json (4 entries)
 │   ├── glossary/           # chan_terms.json (31 terms)
 │   └── gongan/             # gongan_index.json (18 cases)

@@ -195,7 +195,7 @@ A foundational pillar of TranslateChan is that **all AI translations and canonic
    - *Philosophical / Hermeneutic*: Deep ontological unfolding of Mind-Only, Emptiness, and dialectics.
    - *Poetic / Zen Cadence*: Abrupt, sharp, living cadence matching the original encounter encounters.
 3. **Collation of Contemporary Translations**: Aligning published translations (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky) segment-by-segment with critical notes.
-4. **Autonomous Git Integration**: Committing structured JSON datasets to the repository on branch `arena/019fe05c-translatechan`, updating data bundles, and deploying directly to static GitHub Pages.
+4. **Autonomous Git Integration**: Committing structured JSON datasets to the active `arena/<session>-translatechan` branch, updating data bundles, and deploying through a pull request to static GitHub Pages.
 
 ---
 
