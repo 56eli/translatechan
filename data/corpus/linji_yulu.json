@@ -143,7 +143,16 @@
           "translations": {
             "red_pine": "When the Master was about to pass away, he entrusted Sansheng: 'After I pass, you must not extinguish my treasury of the true Dharma eye.' Sansheng said: 'How could I dare extinguish the Master's treasury of the true Dharma eye!'",
             "sasaki": "When the Master was about to enter nirvana, he instructed Sansheng: 'After my death, do not destroy my Eye Treasury of the True Law.' Sansheng said: 'How could I dare destroy your Eye Treasury of the True Law!'",
-            "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'"
+            "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'",
+            "ferguson": {
+              "text": "When Linji was about to die he sat upright and said, \"After I'm gone, my Treasury of the True Dharma Eye cannot be destroyed.\" Linji's disciple, Sansheng, said, \"How can we dare destroy the master's Treasury of the True Dharma Eye?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
+                "edition": "Wisdom Publications, 2011",
+                "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08; Ferguson follows the T1985 師臨遷化時據坐云 reading, our unit zh follows the 囑三聖曰 variant"
+              }
+            }
           }
         },
         {
@@ -153,7 +162,16 @@
           "translations": {
             "red_pine": "The Master said: 'If someone asks you in the future, what will you say to them?' Sansheng immediately gave a thunderous shout! The Master smiled and said: 'Who would have known that my treasury of the true Dharma eye would be extinguished by this blind donkey!' Saying this, he sat upright and passed away.",
             "sasaki": "The Master asked: 'If someone asks you in the future, what will you say?' Sansheng shouted! The Master said: 'Who would have thought that my Eye Treasury of the True Law would be destroyed by this blind donkey!' Having said this, the Master sat upright and passed away.",
-            "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on."
+            "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on.",
+            "ferguson": {
+              "text": "Linji said, \"In the future if someone asks about my teaching, what will you say to them?\" Sansheng shouted. Linji said, \"Who would have thought that my Treasury of the True Dharma Eye would be destroyed by this blind ass!\" Upon saying these words Linji passed away, sitting upright.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
+                "edition": "Wisdom Publications, 2011",
+                "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08"
+              }
+            }
           }
         }
       ]

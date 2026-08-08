@@ -290,6 +290,22 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 
 **Final tally (rounds 1–5)**: 19 verified quotation slots across 7 texts + 1 verified matrix row; 4 paraphrases exposed & replaced; 1 zh canon correction; 1 attribution genuinely unresolved. `provenance.json` v1.6. New translator keys: `watson`, `hoffman`.
 
-**Open work as of 2026-08-08**: PR to `main` (9+ commits ready — live site still serves the pre-fix broken build until merge), Phase 2 content (Wumenguan 48 — substrates in hand), optional round 6 (Hoffman cypress/stone-bridge; Huangbo Wanling vs Blofeld).
+---
+
+### 2026-08-08 — Verification round 6 completed ✅
+
+| Action | Result |
+|---|---|
+| Hoffman — Zhaozhou 柏樹子 cypress-tree dialogue (3 units) | ✅ **verified** — *Radical Zen* (Autumn Press 1978) episode no. 12, verbatim vs Terebess PDF reproduction; notable register choice recorded: Hoffman renders 柏樹子 as **"the oak tree in the front yard"** |
+| Hoffman — Zhaozhou 石橋 stone-bridge register | ❌ Not verifiable this round: the Terebess Hoffman PDF (458 episodes) parses only to episode ~54; web mirrors carry other translators → stays pending |
+| Blofeld — Huangbo unit 2 (當體便是…) | ✅ **verified** — *Chün Chou Record* §1 span; prior reconstruction was near-verbatim but ended "sentient beings" vs Blofeld's **"sentient things"** → corrected to verbatim |
+| Blofeld — Huangbo Wanling Q&A (諸佛如何行大慈悲…) (2 units) | ✅ **verified** — *Wan Ling Record* Q&A no. 21, verbatim vs Terebess + Dailyzen mirrors |
+| Linji deathbed 瞎驢 — **Ferguson** register | ✅ **verified ×2 units** — Andy Ferguson, *Zen's Chinese Heritage* (Wisdom 2011), verbatim vs course-reader reproduction with explicit citation line; unit-zh variant noted (囑三聖曰 vs T1985 據坐云) |
+| Linji deathbed — Cleary | ⚠️ **Phrase-level confirmation only**: Cleary's wording *"The treasury of my True Dharma Eye will be destroyed by this blind donkey!"* appears in his translation of Guo Tianxi's 1298 preface; the record-body rendering is beyond the parse window → unit correctly stays `reconstruction_unverified` (honest badge) |
+| Linji deathbed — Watson wording | ❌ Not located (course-reader Watson excerpt ends at the sermons) → stays pending |
+
+**Final tally (rounds 1–6)**: 27 verified quotation slots across 8 texts + 1 verified matrix row; 5 near-verbatim/paraphrase reconstructions corrected or replaced; 1 zh canon correction; 1 attribution genuinely unresolved. `provenance.json` v1.7. New translator keys this round: `ferguson`.
+
+**Open work as of 2026-08-08**: PR to `main` (11 commits ready — live site still serves the pre-fix build until merge), Phase 2 content (Wumenguan 48 — substrates in hand), optional round 7 (e.g. Aitken/Yamada Wumenguan registers; Sasaki 1975 via alternate OCR; Hoffman stone bridge via full-text source).
 
 

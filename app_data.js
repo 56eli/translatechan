@@ -1068,7 +1068,7 @@ window.TRANSLATECHAN_DATA = {
     }
   ],
   "translations_provenance": {
-    "policy_version": "1.6",
+    "policy_version": "1.7",
     "policy_date": "2026-08-08",
     "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
     "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -1180,6 +1180,20 @@ window.TRANSLATECHAN_DATA = {
           "Sasaki/J.C. Cleary scanned PDFs unusable for verbatim checks (OCR images / 30-page parse window); J.C. Cleary usage-verifyable sections confirmed our 'cleary' entries are NOT verbatim — they remain correctly labeled reconstruction",
           "new translator keys: watson, hoffman",
           "pending: Watson/Sasaki deathbed 瞎驢 passage; Hoffman cypress-tree & stone-bridge registers (PDF located, next round)"
+        ]
+      },
+      {
+        "pilot": "Round 6 (2026-08-08): Hoffman cypress — Blofeld Wanling — Ferguson deathbed",
+        "registers_verified": [
+          "hoffman — Zhaozhou cypress-tree dialogue (Radical Zen, Autumn Press 1978, episode no. 12; Terebess PDF reproduction); note Hoffman renders 柏樹子 as 'oak tree in the front yard'",
+          "blofeld — Huangbo Chün Chou Record §1 span (prior reconstruction corrected to verbatim: 'sentient things') + Wan Ling Record Q&A no. 21 (mercy/compassion), verified vs Terebess + Dailyzen mirrors",
+          "ferguson — Linji deathbed exchange ×2 units (Zen's Chinese Heritage, Wisdom Publications 2011; verbatim vs tfreeman.net course-reader reproduction with explicit citation line)"
+        ],
+        "notes": [
+          "cleary deathbed line confirmed at PHRASE level only: 'The treasury of my True Dharma Eye will be destroyed by this blind donkey!' appears in J.C. Cleary's translation of Guo Tianxi's 1298 preface — the record-body rendering remains unverified, so the cleary unit correctly stays reconstruction",
+          "hoffman stone-bridge register (石橋): substrate lies beyond the readable window of the Terebess Hoffman PDF (458 episodes; parser reached ep. 54); only non-Hoffman renderings found → still pending",
+          "watson deathbed wording not located (Watson excerpts in tfreeman reader end at the sermons) → still pending",
+          "new translator key: ferguson"
         ]
       }
     ]
@@ -2125,7 +2139,16 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "When the Master was about to pass away, he entrusted Sansheng: 'After I pass, you must not extinguish my treasury of the true Dharma eye.' Sansheng said: 'How could I dare extinguish the Master's treasury of the true Dharma eye!'",
                 "sasaki": "When the Master was about to enter nirvana, he instructed Sansheng: 'After my death, do not destroy my Eye Treasury of the True Law.' Sansheng said: 'How could I dare destroy your Eye Treasury of the True Law!'",
-                "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'"
+                "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'",
+                "ferguson": {
+                  "text": "When Linji was about to die he sat upright and said, \"After I'm gone, my Treasury of the True Dharma Eye cannot be destroyed.\" Linji's disciple, Sansheng, said, \"How can we dare destroy the master's Treasury of the True Dharma Eye?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
+                    "edition": "Wisdom Publications, 2011",
+                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08; Ferguson follows the T1985 師臨遷化時據坐云 reading, our unit zh follows the 囑三聖曰 variant"
+                  }
+                }
               }
             },
             {
@@ -2135,7 +2158,16 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "The Master said: 'If someone asks you in the future, what will you say to them?' Sansheng immediately gave a thunderous shout! The Master smiled and said: 'Who would have known that my treasury of the true Dharma eye would be extinguished by this blind donkey!' Saying this, he sat upright and passed away.",
                 "sasaki": "The Master asked: 'If someone asks you in the future, what will you say?' Sansheng shouted! The Master said: 'Who would have thought that my Eye Treasury of the True Law would be destroyed by this blind donkey!' Having said this, the Master sat upright and passed away.",
-                "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on."
+                "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on.",
+                "ferguson": {
+                  "text": "Linji said, \"In the future if someone asks about my teaching, what will you say to them?\" Sansheng shouted. Linji said, \"Who would have thought that my Treasury of the True Dharma Eye would be destroyed by this blind ass!\" Upon saying these words Linji passed away, sitting upright.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
+                    "edition": "Wisdom Publications, 2011",
+                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08"
+                  }
+                }
               }
             }
           ]
@@ -2185,7 +2217,15 @@ window.TRANSLATECHAN_DATA = {
               "zh": "「當體便是，動念即乖。猶如虛空，無有邊際，不可度量。唯此一心即是佛，佛與眾生更無別異。」",
               "pinyin": "'Dāng tǐ biàn shì, dòng niàn jí guāi. Yóu rú xū kōng, wú yǒu biānjì, bù kě dùliàng. Wéi cǐ yī xīn jí shì fó, fó yǔ zhòngshēng gèng wú bié yì.'",
               "translations": {
-                "blofeld": "It is that which you see before you—begin to reason about it and you at once fall into error. It is like the boundless void which cannot be fathomed or measured. The One Mind alone is the Buddha, and there is no distinction between the Buddha and sentient beings.",
+                "blofeld": {
+                  "text": "It is that which you see before you—begin to reason about it and you at once fall into error. It is like the boundless void which cannot be fathomed or measured. The One Mind alone is the Buddha, and there is no distinction between the Buddha and sentient things.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part One: Chün Chou Record §1)",
+                    "verification": "verbatim (span matching unit's zh) vs Terebess reproduction of Blofeld's text, 2026-08-08; prior reconstruction ended 'sentient beings' — Blofeld's wording is 'sentient things'"
+                  }
+                },
                 "cleary": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
                 "ai_literal": "Its immediate embodiment is it; stirring a thought is instantly deviating. Like empty space, without edges or borders, not measurable. Only this One Mind is Buddha; Buddha and sentient beings have no other difference."
               }
@@ -2195,7 +2235,15 @@ window.TRANSLATECHAN_DATA = {
               "zh": "休問：「諸佛如何行大慈悲，為眾生說法？」",
               "pinyin": "Xiū wèn: 'Zhūfó rúhé xíng dà cíbēi, wèi zhòngshēng shuō fǎ?'",
               "translations": {
-                "blofeld": "Pei Xiu asked: How do the Buddhas out of their great compassion preach the Dharma for sentient beings?",
+                "blofeld": {
+                  "text": "How do the Buddhas, out of their vast mercy and compassion, preach the Dharma (Law) to sentient beings?",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+                  }
+                },
                 "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
                 "ai_literal": "Xiu asked: 'How do all Buddhas practice great compassion and preach dharma for sentient beings?'"
               }
@@ -2205,7 +2253,15 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「佛慈悲者，無緣慈也。不見有佛可成，不見有眾生可度。無說無示，無聽無得，是名大慈悲。」",
               "pinyin": "Shī yuē: 'Fó cíbēi zhě, wú yuán cí yě. Bù jiàn yǒu fó kě chéng, bù jiàn yǒu zhòngshēng kě dù. Wú shuō wú shì, wú tīng wú dé, shì míng dà cíbēi.'",
               "translations": {
-                "blofeld": "The Master said: The compassion of the Buddhas is unconditioned compassion. They do not see any Buddha to be attained, nor do they see any sentient beings to be liberated. No speaking, no displaying, no hearing, no attaining—this is called Great Compassion.",
+                "blofeld": {
+                  "text": "We speak of their mercy and compassion as vast just because it is beyond causality (and therefore infinite). By mercy is really meant not conceiving of a Buddha to be Enlightened, while compassion really means not conceiving of sentient beings to be delivered. In reality, their Dharma is neither preached in words nor otherwise signified; and those who listen neither hear nor attain.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+                  }
+                },
                 "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
                 "ai_literal": "Master said: 'Buddhas' compassion is conditionless compassion. Not seeing any Buddha to attain, not seeing any sentient beings to liberate. No speaking and no showing, no hearing and no acquiring: this is named great compassion.'"
               }
@@ -2240,7 +2296,16 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "A monk asked, 'What is the intention of the ancestral teacher coming from the west?'",
                 "heine": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
                 "sasaki": "A monk asked: 'What is the meaning of Bodhidharma's coming from the West?'",
-                "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'"
+                "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'",
+                "hoffman": {
+                  "text": "A monk asked, \"What does it mean, 'Our founder came from the west'?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978, episode no. 12",
+                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+                  }
+                }
               }
             },
             {
@@ -2251,7 +2316,16 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "The Master said, 'The cypress tree in the courtyard.'",
                 "heine": "The Master said, 'The cypress tree in front of the hall.'",
                 "sasaki": "The Master said: 'The oak tree in the front garden.'",
-                "ai_literal": "The Master said: 'The courtyard-front cypress tree.'"
+                "ai_literal": "The Master said: 'The courtyard-front cypress tree.'",
+                "hoffman": {
+                  "text": "Jōshū said, \"The oak tree in the front yard.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978, episode no. 12",
+                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+                  }
+                }
               }
             },
             {
@@ -2261,7 +2335,16 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "cleary": "The monk said, 'Master, do not point to objective circumstances to instruct people.' The Master said, 'I am not pointing to objective circumstances.' The monk said, 'What is the intention of the ancestral teacher coming from the west?' The Master said, 'The cypress tree in the courtyard.'",
                 "heine": "The monk said, 'Master, do not use external objects to show people.' The Master said, 'I am not using external objects.' The monk repeated, 'What is the Patriarch's meaning?' The Master replied: 'The cypress tree in the garden.'",
-                "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'"
+                "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'",
+                "hoffman": {
+                  "text": "The monk said, \"Please do not show the people the object.\" Jōshū said, \"I will not.\" The monk repeated his question: \"What does it mean, 'Our founder came from the west'?\" Jōshū said, \"The oak tree in the front yard.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978, episode no. 12",
+                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+                  }
+                }
               }
             }
           ]

@@ -672,6 +672,7 @@
       clarke: 'Richard B. Clarke',
       watson: 'Burton Watson',
       hoffman: 'Yoel Hoffman',
+      ferguson: 'Andy Ferguson',
       shimomisse: 'Eiichi Shimomissé',
       aitken: 'Robert Aitken',
       shibayama: 'Zenkei Shibayama',

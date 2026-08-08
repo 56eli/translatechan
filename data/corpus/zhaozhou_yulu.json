@@ -24,7 +24,16 @@
             "cleary": "A monk asked, 'What is the intention of the ancestral teacher coming from the west?'",
             "heine": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
             "sasaki": "A monk asked: 'What is the meaning of Bodhidharma's coming from the West?'",
-            "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'"
+            "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'",
+            "hoffman": {
+              "text": "A monk asked, \"What does it mean, 'Our founder came from the west'?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978, episode no. 12",
+                "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+              }
+            }
           }
         },
         {
@@ -35,7 +44,16 @@
             "cleary": "The Master said, 'The cypress tree in the courtyard.'",
             "heine": "The Master said, 'The cypress tree in front of the hall.'",
             "sasaki": "The Master said: 'The oak tree in the front garden.'",
-            "ai_literal": "The Master said: 'The courtyard-front cypress tree.'"
+            "ai_literal": "The Master said: 'The courtyard-front cypress tree.'",
+            "hoffman": {
+              "text": "Jōshū said, \"The oak tree in the front yard.\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978, episode no. 12",
+                "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+              }
+            }
           }
         },
         {
@@ -45,7 +63,16 @@
           "translations": {
             "cleary": "The monk said, 'Master, do not point to objective circumstances to instruct people.' The Master said, 'I am not pointing to objective circumstances.' The monk said, 'What is the intention of the ancestral teacher coming from the west?' The Master said, 'The cypress tree in the courtyard.'",
             "heine": "The monk said, 'Master, do not use external objects to show people.' The Master said, 'I am not using external objects.' The monk repeated, 'What is the Patriarch's meaning?' The Master replied: 'The cypress tree in the garden.'",
-            "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'"
+            "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'",
+            "hoffman": {
+              "text": "The monk said, \"Please do not show the people the object.\" Jōshū said, \"I will not.\" The monk repeated his question: \"What does it mean, 'Our founder came from the west'?\" Jōshū said, \"The oak tree in the front yard.\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978, episode no. 12",
+                "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+              }
+            }
           }
         }
       ]

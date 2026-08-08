@@ -15,7 +15,8 @@
 8b. **🔍 Verification round 3 DONE**: +✅ Sekida, +✅ Sasaki (paraphrase replaced), +✅ Blofeld (publisher-verified, paraphrase replaced); unattributed verse/commentary blocks now labeled; Blyth retry pending.
 8c. **🔍 Verification round 4 DONE**: Blyth Case 1 ✅ (via Morse illustrated reproduction; paraphrase replaced) — Case 1 now has 5 verified editions; Sasaki 乾屎橛 line completes the fully-verified Linji sermon; Suzuki Platform verse attribution found genuinely unresolvable (kept honest).
 8d. **🔍 Verification round 5 DONE**: +✅ **Burton Watson** (Linji Fourfold Shout, Columbia 1999 pp. 98–99), +✅ **Yoel Hoffman** (Zhaozhou wash-bowl ×2 units, *Radical Zen* 1978) — 19 verified slots across 7 texts; J.C. Cleary entries confirmed non-verbatim (honest badges); provenance.json v1.6.
-9. **Still open**: PR to `main` (live site still serves the pre-fix build until merge), Phase 2 content (Wumenguan 48 — all substrates in hand), optional verification round 6.
+8e. **🔍 Verification round 6 DONE**: +✅ **Hoffman** cypress-tree (×3 units, his famous **"oak tree"** register), +✅ **Blofeld** ×3 (Chün Chou §1 corrected to verbatim "sentient things"; Wan Ling Q21 mercy/compassion), +✅ **Andy Ferguson** Linji deathbed "blind ass" exchange (×2 units, new translator key) — **27 verified slots across 8 texts**; Cleary deathbed confirmed at phrase level (honest partial); Hoffman stone-bridge & Watson deathbed remain honestly pending; provenance.json v1.7.
+9. **Still open**: PR to `main` (live site still serves the pre-fix build until merge), Phase 2 content (Wumenguan 48 — all substrates in hand), optional verification round 7.
 
 ---
 <details><summary>Previous session (pre-audit history)</summary>

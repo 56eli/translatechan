@@ -1,5 +1,5 @@
 {
-  "policy_version": "1.6",
+  "policy_version": "1.7",
   "policy_date": "2026-08-08",
   "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
   "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -111,6 +111,20 @@
         "Sasaki/J.C. Cleary scanned PDFs unusable for verbatim checks (OCR images / 30-page parse window); J.C. Cleary usage-verifyable sections confirmed our 'cleary' entries are NOT verbatim — they remain correctly labeled reconstruction",
         "new translator keys: watson, hoffman",
         "pending: Watson/Sasaki deathbed 瞎驢 passage; Hoffman cypress-tree & stone-bridge registers (PDF located, next round)"
+      ]
+    },
+    {
+      "pilot": "Round 6 (2026-08-08): Hoffman cypress — Blofeld Wanling — Ferguson deathbed",
+      "registers_verified": [
+        "hoffman — Zhaozhou cypress-tree dialogue (Radical Zen, Autumn Press 1978, episode no. 12; Terebess PDF reproduction); note Hoffman renders 柏樹子 as 'oak tree in the front yard'",
+        "blofeld — Huangbo Chün Chou Record §1 span (prior reconstruction corrected to verbatim: 'sentient things') + Wan Ling Record Q&A no. 21 (mercy/compassion), verified vs Terebess + Dailyzen mirrors",
+        "ferguson — Linji deathbed exchange ×2 units (Zen's Chinese Heritage, Wisdom Publications 2011; verbatim vs tfreeman.net course-reader reproduction with explicit citation line)"
+      ],
+      "notes": [
+        "cleary deathbed line confirmed at PHRASE level only: 'The treasury of my True Dharma Eye will be destroyed by this blind donkey!' appears in J.C. Cleary's translation of Guo Tianxi's 1298 preface — the record-body rendering remains unverified, so the cleary unit correctly stays reconstruction",
+        "hoffman stone-bridge register (石橋): substrate lies beyond the readable window of the Terebess Hoffman PDF (458 episodes; parser reached ep. 54); only non-Hoffman renderings found → still pending",
+        "watson deathbed wording not located (Watson excerpts in tfreeman reader end at the sermons) → still pending",
+        "new translator key: ferguson"
       ]
     }
   ]
