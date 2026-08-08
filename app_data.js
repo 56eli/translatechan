@@ -4065,6 +4065,67 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "foyan_qingyuan": {
+      "id": "foyan_qingyuan",
+      "title_zh": "龍門佛眼清遠禪師語錄：即心即見",
+      "title_pinyin": "Lóngmén Fóyǎn Qīngyuǎn Chánshī Yǔlù: Jíxīn Jíjiàn",
+      "title_en": "Instant Zen: The Recorded Sayings of Chan Master Foyan Qingyuan",
+      "cbeta_id": "T1995",
+      "taisho_vol": 47,
+      "author_zh": "宋 佛眼清遠 禪師 說",
+      "author_en": "Chan Master Foyan Qingyuan (1067–1120 CE), Dharma Brother of Yuanwu Keqin",
+      "era": "Northern Song Dynasty",
+      "genre": "Direct Pointing & Sitting Inscriptions (即心法語與坐禪銘)",
+      "overview": "The profound and direct Song dynasty teachings on effortless presence and clear seeing, celebrated worldwide through Thomas Cleary's 'Instant Zen', famous for the dialectic of riding the donkey and dismounting the donkey.",
+      "sections": [
+        {
+          "section_id": "riding_donkey",
+          "title_zh": "二種病：騎驢覓驢與不肯下驢",
+          "title_pinyin": "Èrzhǒng Bìng: Qílǘ Mìlǘ yǔ Bùkěn Xiàlǘ",
+          "title_en": "The Two Sicknesses: Riding a Donkey to Search for a Donkey",
+          "dialogue": [
+            {
+              "speaker": "Foyan / 佛眼",
+              "zh": "師示眾云：「參禪只有二種病：第一是騎在驢上覓驢；第二是騎在驢上不肯下驢。汝道：如何是騎驢覓驢？自己是佛，卻向外馳求，此是騎驢覓驢也。」",
+              "pinyin": "Shī shì zhòng yún: 'Cānchán zhǐ yǒu èr zhǒng bìng: dì-yī shì qí zài lǘ shàng mì lǘ; dì-èr shì qí zài lǘ shàng bù kěn xià lǘ. Rǔ dào: rúhé shì qí lǘ mì lǘ? Zìjǐ shì fó, què xiàng wài chíqiú, cǐ shì qí lǘ mì lǘ yě.'",
+              "translations": {
+                "cleary": "The Master said to the assembly: 'In Zen practice there are only two sicknesses: one is riding a donkey to search for a donkey; the other is being unwilling to dismount after riding the donkey. Tell me: what is riding a donkey to search for a donkey? You yourself are the Buddha, yet you run outside seeking—this is riding a donkey to search for a donkey.'",
+                "red_pine": "The Master instructed the assembly: 'There are only two kinds of sickness in Zen: the first is riding a donkey to look for a donkey; the second is refusing to get off the donkey once you're on it. What is riding a donkey to look for a donkey? You yourself are the Buddha, yet you race outside to find it.'",
+                "sasaki": "Master Foyan said: 'In Zen there are but two sicknesses: riding a donkey in search of a donkey, and refusing to dismount once riding it. When you yourself are Buddha and yet seek outside, you are riding a donkey to look for a donkey.'"
+              }
+            },
+            {
+              "speaker": "Foyan / 佛眼",
+              "zh": "「既知是驢，不肯下驢者，得箇清淨，便執著清淨，不能通達物我無礙，此是第二種大病也。須知下驢之時，天地廓然，無驢可騎，亦無驢可下。」",
+              "pinyin": "'Jì zhī shì lǘ, bù kěn xià lǘ zhě, dé gè qīngjìng, biàn zhízhuó qīngjìng, bùnéng tōngdá wù wǒ wú'ài, cǐ shì dì-èr zhǒng dà bìng yě. Xū zhī xià lǘ zhī shí, tiāndì kuòrán, wú lǘ kě qí, yì wú lǘ kě xià.'",
+              "translations": {
+                "cleary": "Having recognized the donkey, being unwilling to dismount means: you attain a state of purity and cling to that purity, unable to realize the unobstructed harmony of self and world. This is the second great sickness. You must know that when you dismount, heaven and earth are vast and open: there is no donkey to ride, and no donkey to get off.",
+                "red_pine": "Once you know you're on the donkey, refusing to get off means you find a state of quiet purity and become attached to it, unable to move freely between self and things. When you get off the donkey, the cosmos is boundless: there is no donkey to ride and no donkey to dismount.",
+                "sasaki": "Refusing to dismount means attaining stillness and clinging to stillness. When you truly dismount, heaven and earth are vast and clear: there is no donkey to ride and none to get off."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "zazen_inscription",
+          "title_zh": "佛眼禪師 坐禪銘",
+          "title_pinyin": "Fóyǎn Chánshī Zuòchán Míng",
+          "title_en": "Sitting Meditation Inscription (Zazen-mei)",
+          "dialogue": [
+            {
+              "speaker": "Foyan / 佛眼",
+              "zh": "端身正坐，如如不動。莫隨妄緣，莫住枯寂。靈明自照，了了常知。不假修為，當體現成。百千法門，只在眼前。",
+              "pinyin": "Duān shēn zhèng zuò, rúrú bù dòng. Mò suí wàng yuán, mò zhù kūjì. Língmíng zì zhào, liǎoliǎo cháng zhī. Bù jiǎ xiūwéi, dāng tǐ xiànchéng. Bǎi qiān fǎmén, zhǐ zài yǎnqián.",
+              "translations": {
+                "cleary": "Sit upright, motionless in suchness. Do not follow deceptive conditions, do not dwell in dead silence. Luminous awareness shines of itself, clear and constantly knowing. Requiring no artificial cultivation, its very substance is already present. Hundreds of thousands of Dharma gates are right before your eyes.",
+                "red_pine": "Sit upright and erect, unmoving in suchness. Do not follow deluded conditions, do not dwell in sterile quietude. Luminous clarity shines of itself, radiant and always aware. Without borrowing contrivance, reality is complete as it is. Ten thousand Dharma gates are right before your eyes.",
+                "sasaki": "Sit straight, unmoved in Suchness. Neither chase after thoughts nor abide in dead quiet. Wondrous awareness shines of itself, ever clear. Without contrivance, all is complete right before you."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

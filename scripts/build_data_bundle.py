@@ -47,7 +47,8 @@ def main():
             "niutou_juezhu": load_json(DATA_DIR / "corpus" / "niutou_juezhu.json"),
             "lidai_fabao_ji": load_json(DATA_DIR / "corpus" / "lidai_fabao_ji.json"),
             "dazhu_huihai": load_json(DATA_DIR / "corpus" / "dazhu_huihai.json"),
-            "baizhang_guanglu": load_json(DATA_DIR / "corpus" / "baizhang_guanglu.json")
+            "baizhang_guanglu": load_json(DATA_DIR / "corpus" / "baizhang_guanglu.json"),
+            "foyan_qingyuan": load_json(DATA_DIR / "corpus" / "foyan_qingyuan.json")
         },
         "meta": {
             "version": "1.0.0",
