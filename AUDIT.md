@@ -723,3 +723,7 @@ Review approach: the live site is not reachable from this sandbox (github.io is 
 | **U3 (P3, polish): browser tab had no favicon.** | Inline SVG emoji favicon (🪷) added as a `data:` URI — no new files, CSP-safe (`img-src 'self' data:`). |
 
 Verification: reader scan across all 36 documents found no `undefined`/`NaN`/`[object Object]` leaks, no duplicate `id=` attributes, no broken hrefs; matrix/lineage/gongan/lexicon render fully (21 matrix badges, 34 graph nodes / 30 pending links / 4 frontiers, 23 gongan entries, 31 lexicon cards). Smoke suite green; root↔docs synced.
+
+### 11.9 — Session close: PR #7 merged to main (2026-08-08)
+
+PR #7 (`arena/019fe30b-translatechan` → `main`, merge commit `33f3fcf`) was merged after the **Quality** workflow passed; GitHub Pages republished `main` → `/docs` successfully (deployment `success`). The live site now serves this session's work: CSP + delegated events, ARIA tabs, per-text coverage metrics + reader coverage disclosure, Biyanlu cases 1–10 (14/100), gongan index 23 entries, and the documentation refresh. Owner follow-ups remain: require the Quality check on `main` (HANDOFF "Repository administration"), run the Playwright suite once on a browser-capable machine, and continue Biyanlu cases 11–100.
