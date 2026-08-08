@@ -23,7 +23,7 @@
 
 ## Highest-priority open work
 
-1. **Migrate legacy scholarly coverage:** upgrade the 33 document-level seed locators and 26 traditional lineage links to page/line, record, or TEI anchors; replace the 123 visible `Page/section locator pending` records with book references; and complete human editorial/rights review for modern quotation sources.
+1. **Migrate legacy scholarly coverage:** upgrade the 33 document-level seed locators and 26 traditional lineage links to page/line, record, or TEI anchors; replace the 11 visible book-page/episode pending records with exact book references; and complete human editorial/rights review for modern quotation sources.
 2. **Expand content under the new rails:** complete Biyanlu and deepen the public reader’s source/citation disclosure.
 3. **Finish accessibility/disclosure polish:** keyboard activation for all interactive controls and consistent hover/focus/touch citation popups.
 

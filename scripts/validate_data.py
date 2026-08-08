@@ -181,7 +181,7 @@ def validate_translation_map(
             source_id = validate_source(source, f"{entry_path}.source", issues)
             if source_id:
                 verified_source_ids.append(source_id)
-            stats["verified_reference_pending" if is_record(source) and source.get("reference") == "Page/section locator pending" else "verified_reference_recorded"] += 1
+            stats["verified_reference_pending" if is_record(source) and "pending" in str(source.get("reference") or "").lower() else "verified_reference_recorded"] += 1
 
 
 def walk_translation_maps(
@@ -297,7 +297,7 @@ def validate_matrix(
                 source_id = validate_source(source, f"{entry_path}.source", issues)
                 if source_id:
                     verified_source_ids.append(source_id)
-                stats["verified_reference_pending" if is_record(source) and source.get("reference") == "Page/section locator pending" else "verified_reference_recorded"] += 1
+                stats["verified_reference_pending" if is_record(source) and "pending" in str(source.get("reference") or "").lower() else "verified_reference_recorded"] += 1
 
 
 def validate_auxiliary_data(

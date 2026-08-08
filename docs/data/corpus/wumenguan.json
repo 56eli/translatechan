@@ -49,7 +49,7 @@
                 "verification": "verbatim vs Morse reproduction, 2026-08-08",
                 "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
                 "source_id": "blyth-mumonkan-1966",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 1"
               }
             },
             "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
@@ -62,7 +62,7 @@
                 "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
                 "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 1"
               }
             },
             "shimomisse": {
@@ -73,7 +73,7 @@
                 "edition": "Online edition (Terebess Asia Online mirror)",
                 "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08",
                 "source_id": "shimomisse-gateless-online",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 1"
               }
             },
             "sekida": {
@@ -84,7 +84,7 @@
                 "edition": "Weatherhill, 1977, pp. 26–137",
                 "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08",
                 "source_id": "sekida-two-zen-classics-1977",
-                "reference": "pp. 26–137"
+                "reference": "Canonical case 1; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -95,7 +95,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 1"
               }
             },
             "aitken": {
@@ -106,7 +106,7 @@
                 "edition": "North Point Press, 1990",
                 "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
                 "source_id": "aitken-gateless-barrier-1990",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 1"
               }
             }
           }
@@ -130,7 +130,7 @@
                 "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
                 "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'",
                 "source_id": "blyth-mumonkan-1966",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 2"
               }
             },
             "blofeld": "The Master replied: 'None!'",
@@ -143,7 +143,7 @@
                 "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
                 "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 2"
               }
             },
             "shimomisse": {
@@ -154,7 +154,7 @@
                 "edition": "Online edition (Terebess Asia Online mirror)",
                 "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08",
                 "source_id": "shimomisse-gateless-online",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 2"
               }
             },
             "sekida": {
@@ -165,7 +165,7 @@
                 "edition": "Weatherhill, 1977, pp. 26–137",
                 "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08",
                 "source_id": "sekida-two-zen-classics-1977",
-                "reference": "pp. 26–137"
+                "reference": "Canonical case 1; aligned dialogue unit 2"
               }
             },
             "yamada": {
@@ -176,7 +176,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 2"
               }
             },
             "aitken": {
@@ -187,7 +187,7 @@
                 "edition": "North Point Press, 1990",
                 "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
                 "source_id": "aitken-gateless-barrier-1990",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 1; aligned dialogue unit 2"
               }
             }
           }
@@ -223,7 +223,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 2; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -234,7 +234,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 2; aligned dialogue unit 1"
               }
             },
             "aitken": {
@@ -245,7 +245,7 @@
                 "edition": "North Point Press, 1990",
                 "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
                 "source_id": "aitken-gateless-barrier-1990",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 2; aligned dialogue unit 1"
               }
             }
           }
@@ -266,7 +266,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 2; aligned dialogue unit 2"
               }
             },
             "yamada": {
@@ -277,7 +277,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 2; aligned dialogue unit 2"
               }
             },
             "aitken": {
@@ -288,7 +288,7 @@
                 "edition": "North Point Press, 1990",
                 "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
                 "source_id": "aitken-gateless-barrier-1990",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 2; aligned dialogue unit 2"
               }
             }
           }
@@ -309,7 +309,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 2; aligned dialogue unit 3"
               }
             },
             "yamada": {
@@ -320,7 +320,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 2; aligned dialogue unit 3"
               }
             }
           }
@@ -356,7 +356,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 3; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -367,7 +367,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 3; aligned dialogue unit 1"
               }
             },
             "aitken": {
@@ -378,7 +378,7 @@
                 "edition": "North Point Press, 1990",
                 "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
                 "source_id": "aitken-gateless-barrier-1990",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 3; aligned dialogue unit 1"
               }
             }
           }
@@ -399,7 +399,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 3; aligned dialogue unit 2"
               }
             },
             "yamada": {
@@ -410,7 +410,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 3; aligned dialogue unit 2"
               }
             }
           }
@@ -447,7 +447,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 4; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -458,7 +458,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 4; aligned dialogue unit 1"
               }
             },
             "aitken": {
@@ -505,7 +505,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 5; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -516,7 +516,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Terebess scan's OCR artifact 'moth' corrected to the printed reading 'mouth'",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 5; aligned dialogue unit 1"
               }
             }
           }
@@ -552,7 +552,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 6; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -563,7 +563,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 6; aligned dialogue unit 1"
               }
             }
           }
@@ -584,7 +584,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 6; aligned dialogue unit 2"
               }
             },
             "yamada": {
@@ -595,7 +595,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 6; aligned dialogue unit 2"
               }
             }
           }
@@ -631,7 +631,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 7; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -642,7 +642,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 7; aligned dialogue unit 1"
               }
             }
           }
@@ -663,7 +663,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 7; aligned dialogue unit 2"
               }
             },
             "yamada": {
@@ -674,7 +674,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 7; aligned dialogue unit 2"
               }
             }
           }
@@ -707,7 +707,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 8; aligned dialogue unit 1"
               }
             }
           }
@@ -740,7 +740,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 9; aligned dialogue unit 1"
               }
             }
           }
@@ -758,7 +758,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 9; aligned dialogue unit 2"
               }
             }
           }
@@ -776,7 +776,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 9; aligned dialogue unit 3"
               }
             }
           }
@@ -794,7 +794,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 9; aligned dialogue unit 4"
               }
             }
           }
@@ -827,7 +827,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 10; aligned dialogue unit 1"
               }
             }
           }
@@ -845,7 +845,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 10; aligned dialogue unit 2"
               }
             }
           }
@@ -863,7 +863,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 10; aligned dialogue unit 3"
               }
             }
           }
@@ -896,7 +896,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 11; aligned dialogue unit 1"
               }
             }
           }
@@ -914,7 +914,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 11; aligned dialogue unit 2"
               }
             }
           }
@@ -947,7 +947,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 12; aligned dialogue unit 1"
               }
             }
           }
@@ -980,7 +980,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 13; aligned dialogue unit 1"
               }
             }
           }
@@ -998,7 +998,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 13; aligned dialogue unit 2"
               }
             }
           }
@@ -1016,7 +1016,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 13; aligned dialogue unit 3"
               }
             }
           }
@@ -1049,7 +1049,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 14; aligned dialogue unit 1"
               }
             }
           }
@@ -1067,7 +1067,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 14; aligned dialogue unit 2"
               }
             }
           }
@@ -1100,7 +1100,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 15; aligned dialogue unit 1"
               }
             }
           }
@@ -1118,7 +1118,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 15; aligned dialogue unit 2"
               }
             }
           }
@@ -1151,7 +1151,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 16; aligned dialogue unit 1"
               }
             }
           }
@@ -1184,7 +1184,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 17; aligned dialogue unit 1"
               }
             }
           }
@@ -1217,7 +1217,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 18; aligned dialogue unit 1"
               }
             }
           }
@@ -1254,7 +1254,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 19; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -1265,7 +1265,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 19; aligned dialogue unit 1"
               }
             }
           }
@@ -1287,7 +1287,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 19; aligned dialogue unit 2"
               }
             },
             "yamada": {
@@ -1298,7 +1298,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 19; aligned dialogue unit 2"
               }
             }
           }
@@ -1319,7 +1319,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 19; aligned dialogue unit 3"
               }
             },
             "yamada": {
@@ -1330,7 +1330,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 19; aligned dialogue unit 3"
               }
             }
           }
@@ -1351,7 +1351,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 19; aligned dialogue unit 4"
               }
             },
             "yamada": {
@@ -1362,7 +1362,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 19; aligned dialogue unit 4"
               }
             }
           }
@@ -1395,7 +1395,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 20; aligned dialogue unit 1"
               }
             }
           }
@@ -1428,7 +1428,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 21; aligned dialogue unit 1"
               }
             }
           }
@@ -1461,7 +1461,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 22; aligned dialogue unit 1"
               }
             }
           }
@@ -1479,7 +1479,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 22; aligned dialogue unit 2"
               }
             }
           }
@@ -1497,7 +1497,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 22; aligned dialogue unit 3"
               }
             }
           }
@@ -1533,7 +1533,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 23; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -1544,7 +1544,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 23; aligned dialogue unit 1"
               }
             }
           }
@@ -1565,7 +1565,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 23; aligned dialogue unit 2"
               }
             },
             "yamada": {
@@ -1576,7 +1576,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 23; aligned dialogue unit 2"
               }
             }
           }
@@ -1597,7 +1597,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 23; aligned dialogue unit 3"
               }
             },
             "yamada": {
@@ -1608,7 +1608,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 23; aligned dialogue unit 3"
               }
             }
           }
@@ -1641,7 +1641,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 24; aligned dialogue unit 1"
               }
             }
           }
@@ -1674,7 +1674,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 25; aligned dialogue unit 1"
               }
             }
           }
@@ -1707,7 +1707,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 26; aligned dialogue unit 1"
               }
             }
           }
@@ -1740,7 +1740,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 27; aligned dialogue unit 1"
               }
             }
           }
@@ -1758,7 +1758,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 27; aligned dialogue unit 2"
               }
             }
           }
@@ -1791,7 +1791,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 28; aligned dialogue unit 1"
               }
             }
           }
@@ -1809,7 +1809,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 28; aligned dialogue unit 2"
               }
             }
           }
@@ -1827,7 +1827,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 28; aligned dialogue unit 3"
               }
             }
           }
@@ -1863,7 +1863,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 29; aligned dialogue unit 1"
               }
             },
             "yamada": {
@@ -1874,7 +1874,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 29; aligned dialogue unit 1"
               }
             }
           }
@@ -1895,7 +1895,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                 "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 29; aligned dialogue unit 2"
               }
             },
             "yamada": {
@@ -1906,7 +1906,7 @@
                 "edition": "Wisdom Publications, Boston, 2004",
                 "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
                 "source_id": "yamada-gateless-2004",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 29; aligned dialogue unit 2"
               }
             }
           }
@@ -1939,7 +1939,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 30; aligned dialogue unit 1"
               }
             }
           }
@@ -1972,7 +1972,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 31; aligned dialogue unit 1"
               }
             }
           }
@@ -1990,7 +1990,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 31; aligned dialogue unit 2"
               }
             }
           }
@@ -2023,7 +2023,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 32; aligned dialogue unit 1"
               }
             }
           }
@@ -2041,7 +2041,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 32; aligned dialogue unit 2"
               }
             }
           }
@@ -2074,7 +2074,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 33; aligned dialogue unit 1"
               }
             }
           }
@@ -2107,7 +2107,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 34; aligned dialogue unit 1"
               }
             }
           }
@@ -2140,7 +2140,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 35; aligned dialogue unit 1"
               }
             }
           }
@@ -2173,7 +2173,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 36; aligned dialogue unit 1"
               }
             }
           }
@@ -2287,7 +2287,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 38; aligned dialogue unit 1"
               }
             }
           }
@@ -2320,7 +2320,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 39; aligned dialogue unit 1"
               }
             }
           }
@@ -2338,7 +2338,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 39; aligned dialogue unit 2"
               }
             }
           }
@@ -2371,7 +2371,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 40; aligned dialogue unit 1"
               }
             }
           }
@@ -2389,7 +2389,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 40; aligned dialogue unit 2"
               }
             }
           }
@@ -2422,7 +2422,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 41; aligned dialogue unit 1"
               }
             }
           }
@@ -2440,7 +2440,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 41; aligned dialogue unit 2"
               }
             }
           }
@@ -2473,7 +2473,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 42; aligned dialogue unit 1"
               }
             }
           }
@@ -2491,7 +2491,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 42; aligned dialogue unit 2"
               }
             }
           }
@@ -2524,7 +2524,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 43; aligned dialogue unit 1"
               }
             }
           }
@@ -2557,7 +2557,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 44; aligned dialogue unit 1"
               }
             }
           }
@@ -2590,7 +2590,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 45; aligned dialogue unit 1"
               }
             }
           }
@@ -2623,7 +2623,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 46; aligned dialogue unit 1"
               }
             }
           }
@@ -2656,7 +2656,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 47; aligned dialogue unit 1"
               }
             }
           }
@@ -2689,7 +2689,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 48; aligned dialogue unit 1"
               }
             }
           }
@@ -2707,7 +2707,7 @@
                 "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
                 "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
                 "source_id": "senzaki-reps-gateless-1934",
-                "reference": "Page/section locator pending"
+                "reference": "Canonical case 48; aligned dialogue unit 2"
               }
             }
           }
