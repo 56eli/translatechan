@@ -1,6 +1,6 @@
 # TranslateChan — Independent Audit Response
 
-> **Audited:** 2026-08-08 UTC · branch `arena/019fe272-translatechan` · baseline `ad8500f` (currently also `origin/main`)
+> **Audited:** 2026-08-08 UTC · branch `arena/019fe2e0-translatechan` · baseline `d7a035d` (also `origin/main` at audit start)
 >
 > **Scope:** static app/runtime, build and deployment path, source-data contracts, test coverage, documentation, research/disclosure readiness, and repository operations. This is an independent current-state report; historical findings remain in [`AUDIT.md`](./AUDIT.md).
 
@@ -40,7 +40,7 @@ diff -rq data docs/data
 Measured/current facts:
 
 - **GitHub Pages:** `main` → `/docs`, status `built`, HTTPS enforced.
-- **Bundle:** 36 corpus documents; generated `app_data.js` is **694,666 bytes** and root/`docs` copies are byte-identical.
+- **Bundle:** 36 corpus documents; generated `app_data.js` is **716,218 bytes** and root/`docs` copies are byte-identical.
 - **Corpus:** 36 documents; **Wumenguan 48/48** plus preface/epilogue; the other **35** remain excerpt seeds.
 - **Data contract:** validator reports **856** corpus translation slots, **138** verified corpus quotation objects, **21** matrix entries, and **57/57** case locators.
 - **Supporting data:** 31 glossary terms, 34 master profiles (including 4 explicitly marked frontier scaffolds), 30 registered internal lineage edges, 4 documented graph frontiers, 18 gong’an-index entries, and 4 comparative-matrix rows.
@@ -57,11 +57,11 @@ Measured/current facts:
 
 ## Open findings and recommended order
 
-### A1 — P2: CI is now published; protect `main` with its required check
+### A1 — P2: Require the existing CI quality check before merging to `main`
 
-`.github/workflows/quality.yml` is now checked in on this session branch and its first **Quality** run passed (Python compilation, semantic validation, deterministic build/artifact check, deploy mirror, and reader smoke test). This resolves the former missing-workflow finding. The remaining administrator action is to require **Validate data, generated artifacts, and reader** before merging to `main`; without branch protection, a pull request can still merge without the green gate.
+`.github/workflows/quality.yml` is checked in and its commands match the local audit gates: Python compilation, semantic validation, deterministic build/artifact checking, deploy-mirror verification, and the reader smoke test. I verified the workflow definition and executed the same commands locally. Branch-protection configuration was not independently confirmed in this audit; without a required check, a pull request can still merge without the green gate.
 
-**Recommendation:** enable the required status check in the repository’s branch protection/ruleset after the workflow appears in the GitHub UI. Keep Pages deployment native from `main` → `/docs`; Quality is intentionally verification-only.
+**Recommendation:** require **Validate data, generated artifacts, and reader** in the repository’s branch protection/ruleset. Keep Pages deployment native from `main` → `/docs`; Quality is intentionally verification-only.
 
 ### A2 — P1: Scholarly-release gate remains editorial, not automated
 
@@ -101,7 +101,7 @@ The browser uses the complete 695 KB `app_data.js` bundle, while `/docs/data/` m
 
 ## Recommended next milestone
 
-1. **Protect `main`:** require the now-green Quality status check before merging.
+1. **Protect `main`:** require the existing Quality status check before merging.
 2. **Start the editorial workstream:** migrate locators, resolve pending references, and complete rights review before substantial quotation expansion.
 3. **Choose the content pilot:** complete Biyanlu under those guardrails, including canonical locators and source-status records as each case is added.
 4. In parallel, complete **A4/A5** with a small browser/a11y pass before describing the public reader as release-tested across devices.
