@@ -3542,6 +3542,82 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "zhengdao_ge": {
+      "id": "zhengdao_ge",
+      "title_zh": "永嘉真覺大師 證道歌",
+      "title_pinyin": "Yǒngjiā Zhēnjué Dàshī Zhèngdào Gē",
+      "title_en": "Song of Enlightenment (Zhengdao Ge / Shodoka)",
+      "cbeta_id": "T2014",
+      "taisho_vol": 48,
+      "author_zh": "永嘉玄覺 大師 (665–713 CE)",
+      "author_en": "Chan Master Yongjia Xuanjue, Disciple of Sixth Patriarch Huineng (The 'Overnight Enlightened Guest' / 一宿覺)",
+      "era": "Tang Dynasty (8th Century)",
+      "genre": "Enlightenment Song & Chanting Poem (證道歌)",
+      "overview": "One of the most celebrated and exhilarating poetic masterpieces in world Buddhist literature, composed by the 'Overnight Enlightened Guest' who received transmission from Sixth Patriarch Huineng in a single night.",
+      "stanzas": [
+        {
+          "stanza_num": 1,
+          "zh": "君不見：絕學無為閒道人，不除妄想不求真。無明實性即佛性，幻化空身即法身。",
+          "pinyin": "Jūn bù jiàn: Juéxué wúwéi xián dàorén, bù chú wàngxiǎng bù qiú zhēn. Wúmíng shíxìng jí fóxìng, huànhuà kōng shēn jí fǎshēn.",
+          "translations": {
+            "red_pine": "Have you not seen the person of the Way who has ceased study and is at ease in non-doing? They do not banish delusion, nor do they seek the truth. The real nature of ignorance is itself the Buddha-nature; this empty illusory phantom body is itself the Dharma body.",
+            "cleary": "Have you not seen the person of the Way at leisure, beyond learning and non-doing, who neither eliminates delusion nor seeks reality? The real nature of ignorance is the Buddha nature; the empty phantom body is the body of reality.",
+            "suzuki": "Have you not seen him who has ceased learning and is at ease with life, who neither expels delusion nor seeks reality? The true nature of ignorance is the Buddha-nature; the empty illusory body is the Dharma body.",
+            "sasaki": "Do you not see the person of the Way who has finished learning, free of contrivance and at ease, who neither casts out delusion nor seeks the true? The real nature of ignorance is Buddha-nature; this illusory body is the Dharma-body."
+          }
+        },
+        {
+          "stanza_num": 2,
+          "zh": "法身覺了無一物，本源自性天真佛。五陰浮雲空去來，三毒水泡虛出沒。",
+          "pinyin": "Fǎshēn juéliǎo wú yī wù, běnyuán zìxìng tiānzhēn fó. Wǔyīn fúyún kōng qù lái, sāndú shuǐpào xū chūmò.",
+          "translations": {
+            "red_pine": "When the Dharma body is awakened, not a single thing exists; the original self-nature is the pristine Buddha of Heaven. The five aggregates are floating clouds drifting in the void; the three poisons are transient bubbles surfacing and vanishing in water.",
+            "cleary": "When the body of reality is realized, there is not a single thing; the primal self-nature is the natural real Buddha. The five clusters are floating clouds empty of coming and going; the three poisons are foam bubbles rising and vanishing in vain.",
+            "suzuki": "When the Dharma-body is realized, not a single thing exists; the original self-nature is the natural, innocent Buddha. The five skandhas are like floating clouds passing in the sky; the three poisons are like water bubbles rising and sinking."
+          }
+        },
+        {
+          "stanza_num": 3,
+          "zh": "證實相，無人法，剎那滅卻阿鼻業。若將妄語誑眾生，自招拔舌塵沙劫。",
+          "pinyin": "Zhèng shíxiāng, wú rén fǎ, chànà miè què ābí yè. Ruò jiāng wàngyǔ kuáng zhòngshēng, zì zhāo báshé chénshā jié.",
+          "translations": {
+            "red_pine": "Realizing the true mark of reality, there is neither person nor dharma: in a single split instant the karma of the Avici hell is dissolved away. If I use false words to deceive sentient beings, may I suffer tongue-pulling hell for dust-mote aeons!",
+            "cleary": "Realizing reality, there is no person and no thing: in an instant the karma of worst hells is wiped away. If I lie to deceive people, may my tongue be pulled out for aeons as many as grains of sand.",
+            "suzuki": "When reality is realized, there are neither persons nor dharmas; in a single moment the karma of the deepest hell is wiped away. If I am speaking falsehood to deceive beings, may my tongue be torn out for countless kalpas!"
+          }
+        },
+        {
+          "stanza_num": 4,
+          "zh": "頓覺了，如來禪，六度萬行體中圓。夢裏明明有六趣，覺後空空無大千。",
+          "pinyin": "Dùn jué liǎo, rúlái chán, liù dù wàn xíng tǐ zhōng yuán. Mèng lǐ míngmíng yǒu liù qù, jué hòu kōngkōng wú dàqiān.",
+          "translations": {
+            "red_pine": "Suddenly awakened to the Tathagata's Chan, the six perfections and ten thousand practices are completely fulfilled in its essence. In a dream, the six realms of existence clearly appear; once awakened, the great universe is completely empty!",
+            "cleary": "Suddenly awakening to the Zen of the Realized One, the six perfections and myriad practices are complete in its substance. In a dream, clearly there are six states of existence; after awakening, the entire cosmos is totally empty.",
+            "suzuki": "Suddenly awakening to the Tathagata Dhyana, the six paramitas and myriad practices are fulfilled in its body. In a dream there are clearly six paths of existence; after awakening there is not even a universe!"
+          }
+        },
+        {
+          "stanza_num": 5,
+          "zh": "師子吼，無畏說，百獸聞之皆腦裂。香象奔波失卻威，天龍寂聽生欣悅。",
+          "pinyin": "Shīzǐ hǒu, wúwèi shuō, bǎishòu wén zhī jiē nǎoliè. Xiāngxiàng bēnbō shī què wēi, tiānlóng jì tīng shēng xīnyuè.",
+          "translations": {
+            "red_pine": "The lion's roar, the fearless proclamation! When all the beasts hear it, their brains split open; the mighty scent-elephants run wildly, losing their dignity, while heavenly dragons listen quietly with boundless joy.",
+            "cleary": "The lion's roar is fearless speech: all beasts hearing it have their brains split. Fragrant elephants flee in panic, losing their dignity; heavenly dragons listen quietly, rejoicing.",
+            "suzuki": "The lion's roar is the fearless preaching: when the beasts hear it, their skulls split open; the scented elephants flee losing all majesty, while the heavenly dragons listen in deep silence and joy."
+          }
+        },
+        {
+          "stanza_num": 6,
+          "zh": "摩尼珠，人不識，如來藏裏親收得。六般神用空不空，一顆圓光色非色。",
+          "pinyin": "Móní zhū, rén bù shí, rúláizàng lǐ qīn shōudé. Liù bān shényòng kōng bù kōng, yī kē yuánguāng sè fēi sè.",
+          "translations": {
+            "red_pine": "The wish-fulfilling Mani jewel: people do not recognize it, yet it is intimately stored in the treasury of the Tathagata. Its sixfold wondrous functions are empty and not empty; this single spherical radiance is form and yet not form.",
+            "cleary": "The wish-fulfilling jewel, which people do not recognize, is intimately obtained in the womb of realization. Its six spiritual functions are empty yet not empty; its single orb of light is form yet not form.",
+            "suzuki": "The Mani jewel: nobody recognizes it, though it is personally found inside the Tathagatagarbha. Its six spiritual functions are empty and yet not empty; its one spherical light is color and yet not color."
+          }
+        }
+      ]
     }
   },
   "meta": {
