@@ -4140,8 +4140,8 @@ window.TRANSLATECHAN_DATA = {
     },
     "foyan_qingyuan": {
       "id": "foyan_qingyuan",
-      "title_zh": "龍門佛眼清遠禪師語錄：即心即見與聽雨聲",
-      "title_pinyin": "Lóngmén Fóyǎn Qīngyuǎn Chánshī Yǔlù: Jíxīn Jíjiàn yǔ Tīng Yǔshēng",
+      "title_zh": "龍門佛眼清遠禪師語錄：即心即見與靈光獨耀",
+      "title_pinyin": "Lóngmén Fóyǎn Qīngyuǎn Chánshī Yǔlù: Jíxīn Jíjiàn yǔ Língguāng Dúyào",
       "title_en": "Instant Zen: The Recorded Sayings of Chan Master Foyan Qingyuan",
       "cbeta_id": "T1995",
       "taisho_vol": 47,
@@ -4149,7 +4149,7 @@ window.TRANSLATECHAN_DATA = {
       "author_en": "Chan Master Foyan Qingyuan (1067–1120 CE), Dharma Brother of Yuanwu Keqin",
       "era": "Northern Song Dynasty",
       "genre": "Direct Pointing & Sitting Inscriptions (即心法語與坐禪銘)",
-      "overview": "The profound and direct Song dynasty teachings on effortless presence and clear seeing, celebrated worldwide through Thomas Cleary's 'Instant Zen', famous for the dialectic of riding the donkey and listening to the sound of rain.",
+      "overview": "The profound and direct Song dynasty teachings on effortless presence and clear seeing, celebrated worldwide through Thomas Cleary's 'Instant Zen', famous for the dialectic of riding the donkey, listening to rain, and the solitary radiant light of self-nature.",
       "sections": [
         {
           "section_id": "riding_donkey",
@@ -4175,6 +4175,24 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "Having recognized the donkey, being unwilling to dismount means: you attain a state of purity and cling to that purity, unable to realize the unobstructed harmony of self and world. This is the second great sickness. You must know that when you dismount, heaven and earth are vast and open: there is no donkey to ride, and no donkey to get off.",
                 "red_pine": "Once you know you're on the donkey, refusing to get off means you find a state of quiet purity and become attached to it, unable to move freely between self and things. When you get off the donkey, the cosmos is boundless: there is no donkey to ride and no donkey to dismount.",
                 "sasaki": "Refusing to dismount means attaining stillness and clinging to stillness. When you truly dismount, heaven and earth are vast and clear: there is no donkey to ride and none to get off."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "luminous_radiance",
+          "title_zh": "靈光獨耀：體露真常，心性無染",
+          "title_pinyin": "Língguāng Dúyào: Tǐ Lù Zhēncháng, Xīnxìng Wúrǎn",
+          "title_en": "The Solitary Radiant Light: Revealing the Eternal Body of Reality",
+          "dialogue": [
+            {
+              "speaker": "Foyan / 佛眼",
+              "zh": "師示眾云：「靈光獨耀，迴脫根塵。體露真常，不拘文字。心性無染，本自圓成。但離妄緣，即如如佛。汝等諸人，當體即是，更待何時？」",
+              "pinyin": "Shī shì zhòng yún: 'Língguāng dú yào, huítuō gēnchén. Tǐ lù zhēncháng, bù jū wénzì. Xīnxìng wúrǎn, běn zì yuánchéng. Dàn lí wàngyuán, jí rúrú fó. Rǔděng zhū rén, dāng tǐ jí shì, gèng dài hé shí?'",
+              "translations": {
+                "cleary": "The Master said: 'Spiritual light shines alone, transcending sense organs and objects. The body of reality is openly revealed, unbound by words and letters. The nature of mind has no defilement; it is inherently complete of itself. Just detach from false conditioning, and you are the Buddha of Thusness. You people are that very embodiment right now; what time are you waiting for?'",
+                "red_pine": "The Master instructed the assembly: 'Spiritual light shines solitary, free from sense organs and objects. The body reveals the eternal truth, beyond written letters. The heart-mind nature is undefiled, naturally round and complete. Simply let go of delusive attachments, and you are the Buddha of Suchness. You are it in your very embodiment right now; what else do you wait for?'",
+                "sasaki": "Master Foyan said: 'The spiritual light shines solitary, transcending senses and forms. The true nature is undefiled, complete from the beginning. Release false conditions, and you are the Buddha of Suchness.'"
               }
             }
           ]
