@@ -122,7 +122,7 @@ try {
   const linjiHtml = ids['reader-content-target']._innerHTML;
   const linjiAnchor = window.TRANSLATECHAN_DATA.canonical_locators.documents.linji_yulu.unit_locators['sections.four_shouts'];
   if (!linjiHtml.includes('Section source: T47n1985_p0504a26–p0504a29') ||
-      linjiAnchor?.status !== 'anchor_identified_not_collated') {
+      linjiAnchor?.status !== 'collated_with_normalization') {
     failures++; console.log('❌ Linji unit-level locator pilot is not rendered');
   }
 } catch (e) { failures++; console.log(`❌ Linji locator pilot crash: ${e.message}`); }

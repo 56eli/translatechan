@@ -182,31 +182,47 @@
       "unit_locators": {
         "sections.sermon_1": {
           "canonical_locator": "T47n1985_p0496c10–p0496c14",
-          "status": "anchor_identified_not_collated",
+          "status": "collated_with_normalization",
           "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
           "review_date": "2026-08-08",
-          "note": "CBETA line-head range identifies the 無位真人 encounter. The project excerpt uses its own segmentation and normalized punctuation; character-level collation and editor sign-off remain required before source_checked_excerpt status."
+          "note": "CBETA line-head range identifies the 無位真人 encounter. The project excerpt uses its own segmentation and normalized punctuation; character-level collation and editor sign-off remain required before source_checked_excerpt status.",
+          "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "All three rendered dialogue units align with T47n1985_p0496c10–p0496c14 after punctuation/segmentation normalization. Recorded textual differences include project 「師示眾云」 for CBETA 「上堂云」, 「諸人」 for 「汝等諸人」, and modern glyph 「託」 for CBETA 「托」. No substantive phrase was added."
         },
         "sections.four_shouts": {
           "canonical_locator": "T47n1985_p0504a26–p0504a29",
-          "status": "anchor_identified_not_collated",
+          "status": "collated_with_normalization",
           "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
           "review_date": "2026-08-08",
-          "note": "CBETA paragraph pT47p0504a2601 contains the four-shouts encounter. The project excerpt uses normalized wording and segmentation; character-level collation and editor sign-off remain required."
+          "note": "CBETA paragraph pT47p0504a2601 contains the four-shouts encounter. The project excerpt uses normalized wording and segmentation; character-level collation and editor sign-off remain required.",
+          "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "The two rendered units align with T47n1985_p0504a26–p0504a29 after segmentation and normalization. The project changes CBETA 「踞地金毛師子」 to 「金毛師子蹲地」; preserve that as a normalized/reordered rendering rather than treating it as a diplomatic transcription."
         },
         "sections.four_host_guest": {
           "canonical_locator": "T47n1985_p0501a02–p0501a15",
-          "status": "anchor_identified_not_collated",
+          "status": "collated_with_variants",
           "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501a",
           "review_date": "2026-08-08",
-          "note": "CBETA discussion of the four host/guest configurations spans these line heads. The project excerpt is a selective normalized segment; character-level collation and editor sign-off remain required."
+          "note": "CBETA discussion of the four host/guest configurations spans these line heads. The project excerpt is a selective normalized segment; character-level collation and editor sign-off remain required.",
+          "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "The current project passage is not a verbatim extraction of the Taishō main text at T47n1985_p0501a02–p0501a15. It conflates/selects host–guest material and requires a recension-specific source or replacement with a faithful T1985 excerpt before any source_checked status."
         },
         "sections.blind_donkey": {
           "canonical_locator": "T47n1985_p0506c03–p0506c07",
-          "status": "anchor_identified_not_collated",
+          "status": "collated_with_variants",
           "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0506c",
           "review_date": "2026-08-08",
-          "note": "CBETA paragraph pT47p0506c0301 contains the final exchange with Sansheng. The project excerpt has variant normalized wording; character-level collation and editor sign-off remain required."
+          "note": "CBETA paragraph pT47p0506c0301 contains the final exchange with Sansheng. The project excerpt has variant normalized wording; character-level collation and editor sign-off remain required.",
+          "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "T47n1985_p0506c03–p0506c07 has 「師臨遷化時據坐云」 and 「爭敢」; the project uses 「師遷化時，囑三聖曰」 and 「何敢」. Keep this as a variant-normalized project excerpt pending recension evidence or replacement before source_checked status."
         }
       }
     },

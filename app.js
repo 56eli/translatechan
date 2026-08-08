@@ -651,6 +651,8 @@
   function locatorStatusLabel(status) {
     if (status === 'case_level_anchor') return 'Case-level canonical anchor';
     if (status === 'anchor_identified_not_collated') return 'Anchor identified — character-level collation pending';
+    if (status === 'collated_with_normalization') return 'Collated with documented normalization — human sign-off pending';
+    if (status === 'collated_with_variants') return 'Collated variant/selective wording — not source-checked';
     if (status === 'source_checked_excerpt') return 'Source-checked excerpt';
     if (status === 'legacy_document_seed') return 'Document-level seed locator — unit locator pending';
     return status ? stringValue(status) : 'Locator pending';
@@ -678,6 +680,8 @@
         ['Canonical location', location],
         ['Granularity', stringValue(entry.granularity) || 'Document level'],
         ['Status', locatorStatusLabel(entry.status)],
+        ['Source edition', stringValue(entry.source_edition) || 'Edition/revision not recorded'],
+        ['Collation', stringValue(entry.collation_note) || 'No character-level collation note recorded.'],
         ['Source note', stringValue(entry.source_note) || 'No additional locator note recorded.']
       ]
     };

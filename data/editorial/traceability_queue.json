@@ -180,8 +180,8 @@
       "content_shape": "sections",
       "priority": "high",
       "review_status": "in_review",
-      "next_action": "Collate each rendered dialogue against its four recorded CBETA line-head anchors, record any normalized/variant readings, then obtain editor sign-off before upgrading any anchor status.",
-      "editorial_note": "Four section-level CBETA anchors were identified on 2026-08-08 (sermon_1, four_shouts, four_host_guest, blind_donkey). This remains a locator pilot only: anchors are not claims of character-level collation or source-checked excerpts.",
+      "next_action": "Obtain recension-specific evidence or replace the four_host_guest and blind_donkey project wording with faithful T1985 excerpts; a human editor must then sign off all four sections before any source_checked status.",
+      "editorial_note": "2026-08-08 collation pilot: sermon_1 and four_shouts align with documented normalization; four_host_guest and blind_donkey retain variant/selective project wording and are explicitly not source-checked. See canonical_locators.json unit_locators for evidence and differences.",
       "reviewed_units": [
         "sections.sermon_1"
       ],
