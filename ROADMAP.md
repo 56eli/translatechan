@@ -11,27 +11,23 @@ This document outlines the detailed engineering, data science, translation, and 
 │                               TranslateChan Milestone Roadmap                          │
 ├─────────────────┬─────────────────┬─────────────────┬─────────────────┬────────────────┤
 │  Phase 1        │  Phase 2        │  Phase 3        │  Phase 4        │  Phase 5 & 6   │
-│  Foundation &   │  CBETA Canon    │  Comparative    │  AI Multi-Draft │  Living Canon, │
-│  GitHub Pages   │  Ingestion &    │  Matrix &       │  & Translation  │  Academic PWA  │
-│  Interactive App│  Lineage Graph  │  Lexicon Engine │  Studio Sync    │  & Community   │
+│  Foundation &   │  Canon Ingestion│  Comparative    │  Source          │  Living Canon, │
+│  Public Reader  │  & Data         │  Matrix &       │  Verification &  │  Phonetics &   │
+│                 │  Structure      │  Lexicon        │  Disclosure      │  Community     │
 ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────┤
-│  • vision.md    │  • Plot CBETA   │  • Cleary,      │  • LLM Prompt   │  • Middle      │
-│  • Core App     │    T47/48 text  │    Sasaki,      │    Templates    │    Chinese     │
-│  • 36 Text      │  • 48 Cases     │    Suzuki,      │    (staged)     │    Audio       │
-│    Excerpt Seeds│    Wumenguan    │    Blofeld      │  • Personal     │  • DDB / SAT   │
-│    (48/48 ✅)   │  • 7/100 Biyanlu│  • 31/150+ Chan │    Drafting     │    Integration │
-│  • 18 Master    │  • Chuandenglu  │    Terms        │  • LocalStorage │  • Multi-ling  │
-│    Profiles     │    architecture │  • 4 Matrix     │  • Markdown/JSON│    (FR/DE/ES)  │
-│  • Search UI    │    only         │    Entries      │    Export       │                │
-│  • Smoke Test   │  [STATUS: ~30%] │  [STATUS: ~20%] │  [STATUS: ~60%] │  [STATUS: Planned]
-│  [STATUS: 100%✓│                 │                 │                 │                │
-│   repaired 8/26]│                 │                 │                 │                │
+│  • Public reader│  • 48/48        │  • 4 Matrix     │  • Primary text │  • Middle      │
+│    + matrix +   │    Wumenguan    │    entries       │    aggregation   │    Chinese     │
+│    lineage +    │  • 7/100        │  • 31/150+      │  • Book/edition │  • DDB / SAT   │
+│    index +      │    Biyanlu      │    Chan terms    │    verification  │  • Multi-ling  │
+│    lexicon      │  • 36 manifests │  • Status/rights │  • Hover/focus  │    / lineage   │
+│  • Smoke test   │    + locators   │    disclosure    │    citations     │    verification│
+│  [STATUS: 100%] │  [STATUS: ~30%] │  [STATUS: ~20%] │  [STATUS: ~40%] │  [Planned]     │
 └─────────────────┴─────────────────┴─────────────────┴─────────────────┴────────────────┘
 ```
 
 > Statuses above are **measured** (see [`AUDIT.md`](./AUDIT.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
-> **Attribution-integrity milestone (2026-08-08)**: provenance policy live (`data/translations/provenance.json` v2.0, UI badges ✅/⚠️); **119 verified quotation slots across 6 corpus texts + 2 verified matrix rows** (Wumenguan 48/48 complete, 2026-08-08), with the full provenance log in [`AUDIT.md` §8](./AUDIT.md). Phase-3 matrix curation now proceeds on a verified-only basis for scholarly citation.
+> **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **138 verified corpus quotation slots across 6 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
 
 ---
 
@@ -48,11 +44,10 @@ This document outlines the detailed engineering, data science, translation, and 
   - Responsive, Zen-minimalist interface with Dark and Light mode themes.
   - Reading font-size controls (`A+` / `A-`) for mobile, tablet, and desktop.
   - Side-by-side bilingual reading view (Classical Chinese with pinyin & English).
-  - Multi-Translator Comparison matrix (Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine, AI Drafts, Personal Workspace).
+  - Multi-Translator Comparison matrix with explicit scholar, verified-quotation, reconstruction, and AI-draft disclosure.
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
-  - Instant client-side search across **all 36 texts and every schema shape** (counts + highlighting + jump-to-anchor — landed 2026-08-08, [`AUDIT.md` §8](./AUDIT.md)).
-  - Personal Translation Studio allowing users to draft personal translations, save to `localStorage`, and export to JSON, Markdown, or LaTeX.
+  - Instant client-side search across **all 36 texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3)).
   - **UX/UI improvement roadmap implemented (Phases A–D, 2026-08-08)** — calm reader (case strip, collapsible cards, shared tap/focus popover, persisted preferences, debounced search), mobile-first navigation (corpus picker, bottom action bar, single-column translations), deep polish (print/PDF, hash routing, lineage pan/zoom, WCAG-AA a11y), performance (cached search index, lazy case rendering). See [`UX_ROADMAP.md`](./UX_ROADMAP.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Text Seeds** (36 files; authentic anchor passages, excerpt-scale — completion is Phase 2; canon IDs audited against CBETA 2026-08-08):
@@ -70,11 +65,15 @@ This document outlines the detailed engineering, data science, translation, and 
 
 ## 📍 Phase 2: Complete Canonical Ingestion & Data Structuring (In Progress)
 
-- [x] **Standardized Data Schema**:
-  - JSON schema for canonical texts with paragraph/sentence tokens, speaker tags, commentary blocks, and CBETA line references.
+- [x] **Data Contract & Release Guardrails**:
+  - Heterogeneous JSON shapes for cases, sections, dialogues, stanzas, chapters, five ranks, and sample records are supported by the renderer and described in [`schemas/translatechan-data.schema.json`](./schemas/translatechan-data.schema.json).
+  - `scripts/validate_data.py` enforces semantic invariants, shared corpus-manifest integrity, translation provenance, rights-manifest coverage, case-level locator coverage, and deterministic metrics; a CI workflow is prepared locally and awaits workflow-capable GitHub access before publication.
+  - `data/canonical_locators.json` now covers every document and all 57 current case units. The 33 non-case seed documents remain honestly tagged `legacy_document_seed` until page/line or TEI locators are migrated.
+  - `data/lineage/lineage_verification.json` aggregates all 26 in-set graph links and 4 unprofiled frontiers with source-record status; the public chart never renders them as source-verified until exact locators are reviewed.
 - [x] **Ingestion Tooling (seed level)**:
   - `scripts/ingest_cbeta.py` — offline punctuation-based Classical Chinese sentence segmenter (manual input; no live CBETA fetching yet).
-  - `scripts/build_data_bundle.py` — deterministic bundle compiler + `/docs` sync.
+  - `scripts/validate_data.py` — dependency-free schema/semantic/rights/locator validation + metrics generation.
+  - `scripts/build_data_bundle.py` — manifest-driven bundle compiler + `/docs` sync.
   - `scripts/smoke_test.mjs` — regression test exercising every corpus text through the renderer.
 - [ ] **Ingestion Tooling (to build)**:
   - Real CBETA source fetching/normalization (Kanripo API or CBETA TEI download).
@@ -114,23 +113,22 @@ This document outlines the detailed engineering, data science, translation, and 
 
 ---
 
-## 📍 Phase 4: AI Multi-Draft Translation Pipeline & Personal Studio
+## 📍 Phase 4: Source Verification, Disclosure & Editorial Workflow
 
-- [x] **AI Translation Pipeline & Arena AI Agent Integration**:
-  - Sandboxed Arena AI agent sessions perform classical Chinese extraction, sentence segmentation, and term alignment.
-  - Multi-register draft generation:
-    - Mode 1: *Literal & Philological* (Preserves Chinese syntactic structure and particles).
-    - Mode 2: *Philosophical & Hermeneutic* (Expands Mahayana & Chan technical concepts).
-    - Mode 3: *Poetic & Zen Cadence* (Short, sharp, enigmatic cadence matching the original encounter dialogues).
-  - Contemporary published translation collation (Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine).
-- [x] **Personal Translation Workspace**:
-  - Inline editing of any sentence or case.
-  - Personal commentary and study notes editor.
-  - Local browser persistence via `localStorage`.
-  - Export personal translations as standard JSON or structured Markdown.
-- [ ] **Automated GitHub Integration**:
-  - Webhook or direct GitHub PR generation from personal translation work.
-  - Community translation diff viewer.
+> **Public Pages scope:** the published GitHub Pages app is a reader, comparative matrix, lineage explorer, gong'an index, and lexicon. The Translation Studio, Arena AI Agents view, and header GitHub link are deliberately removed from the public navigation. Editorial/AI-assisted work may exist in repository data, but it is never presented as a public product feature or as a human scholar’s voice.
+
+- [~] **Source aggregation & verification**:
+  - Aggregate Classical Chinese text from a recorded primary source (CBETA/TEI, Taishō, Zokuzōkyō, or named manuscript/edition), retaining canonical ID plus a locator appropriate to the source (case, fascicle, page/line, or TEI anchor).
+  - Verify source text against that recorded source before display; do not upgrade a seed excerpt to “verified” merely because it is widely mirrored online.
+  - Verify published translations against the named **book/edition**, translator, and page or stable section reference. A web mirror may assist wording comparison but never substitutes for bibliographic provenance or rights review.
+- [~] **Content disclosure contract**:
+  - ✅ The public Reader and Matrix now render canonical source locations plus hover/focus/touch citation popups. Until a page/line or TEI locator exists, they show an honest `Locator pending`/document-level status rather than implying unit-level collation.
+  - ✅ Every displayed translation now renders translator, status, book/edition, page/section reference state, verification status, and citation/rights identifier. Current metrics record 135 recorded case/page/section references and 5 honest `Page/section locator pending` records; replacing those pending values is a blocking editorial task, not a silent omission.
+  - ✅ Every AI-produced or AI-reconstructed item is visibly marked **AI draft** or **register reconstruction**; it never appears as a verified quotation or a scholar’s verbatim translation.
+  - ✅ Citation/source badges are available by hover, keyboard focus, and touch popup in Reader and Matrix; future public surfaces must use the same component.
+- [ ] **Editorial review queue**:
+  - Upgrade the 33 `legacy_document_seed` locator records to page/line or TEI anchors.
+  - Complete human rights/editorial review for each modern-translation source in `rights_manifest.json` before broader quotation reuse.
 
 ---
 
@@ -147,6 +145,10 @@ This document outlines the detailed engineering, data science, translation, and 
 
 ## 📍 Phase 6: Living Knowledge Graph & Academic Community
 
+- [~] **Lineage chart aggregation & verification**:
+  - Aggregate lineage relationships from named lineage charts, canonical transmission records, and scholarly reference works; preserve each node/edge source, edition, locator, and confidence/status.
+  - Verify the public SVG lineage tree against the aggregated chart records before release; flag disputed, legendary, and frontier relationships rather than drawing them as settled fact.
+  - Give every public node and edge a hover/focus/touch citation popup showing source chart/record, date/edition, and verification state.
 - [ ] **Graph Database & Visual Navigation**:
   - D3.js / WebGL dynamic lineage graph visualization.
   - Search by teacher-student lineage path (e.g. Bodhidharma → ... → Mazu → Baizhang → Huangbo → Linji).
@@ -163,22 +165,27 @@ This document outlines the detailed engineering, data science, translation, and 
 translatechan/
 ├── index.html              # GitHub Pages entry point (Fast, zero-backend, responsive SPA)
 ├── app.css / app.js / app_data.js
+├── schemas/                # Formal source-data contract
 ├── docs/                   # Byte-identical Pages copy (served from main /docs)
 ├── vision.md               # Grand Vision & Architectural Blueprint
 ├── ROADMAP.md              # Project Roadmap & Milestone Tracker
 ├── README.md / HANDOFF.md / AUDIT.md
 ├── data/
-│   ├── corpus/             # 36 structured canonical-text files (JSON, excerpt-scale → growing)
-│   ├── lineage/            # masters.json (18 profiles; schools.json planned)
-│   ├── translations/       # comparative_matrix.json (4 entries)
+│   ├── corpus_manifest.json    # Shared reader/bundle ordering manifest
+│   ├── canonical_locators.json # Document/case source-locator registry
+│   ├── project_metrics.json    # Deterministic generated project counts
+│   ├── corpus/                 # 36 structured canonical-text files (JSON, excerpt-scale → growing)
+│   ├── lineage/                # masters.json + lineage_verification.json (26 links / 4 frontiers)
+│   ├── translations/           # matrix, provenance, and rights manifest
 │   ├── glossary/           # chan_terms.json (31 terms)
 │   └── gongan/             # gongan_index.json (18 cases)
 └── scripts/                # Ingestion, validation & parsing tools
     ├── ingest_cbeta.py        # Offline segmenter (manual input)
-    ├── build_data_bundle.py   # Deterministic bundle + /docs sync
+    ├── validate_data.py       # Semantic/rights/locator validator + metrics generator
+    ├── build_data_bundle.py   # Manifest-driven deterministic bundle + /docs sync
     ├── arena_agent_pipeline.py# Agent prompt templates & entry harness
     ├── smoke_test.mjs         # Dependency-free renderer regression test
     └── align_translations.py  # (planned — not yet written)
 ```
 
-> Deployment is native GitHub Pages branch publishing (`main` + `/docs`) — no Actions workflow needed.
+> Deployment is native GitHub Pages branch publishing (`main` + `/docs`). The prepared GitHub Actions quality workflow does not deploy Pages and awaits workflow-capable GitHub access before publication.

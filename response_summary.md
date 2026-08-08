@@ -1,31 +1,34 @@
-# 🪷 TranslateChan: Update & Milestone Report
+# 🪷 TranslateChan — Current Project Summary
 
-> Latest session: **2026-08-08 — Full Audit, B1–B10, canon pass, Wumenguan 48/48, UX Phases A–D complete** (branch `arena/019fe1b5-translatechan`) → durable log in [`AUDIT.md` §9](./AUDIT.md); UX plan in [`UX_ROADMAP.md`](./UX_ROADMAP.md). **UX Phase D shipped — roadmap 100% implemented**: cached search-unit index (no per-keystroke corpus traversal), lazy case rendering (12 cards first, "Show more" chunks, chips/nav auto-load targets, scroll preserved), `app_data.js` preload (D3 service worker skipped by zero-magic policy). Earlier: C1–C5 (print, hash routing, pan/zoom, a11y, studio/index polish), A+B, B1–B10 fixes, lineage 18→30, CBETA canon pass, **Wumenguan 48/48** (119 verified slots).
+> **Baseline audited snapshot:** `8717e969eab653ebe674c9ee76dcc41181dc8379` (2026-08-08); the current branch adds the integrity and reader-reliability remediations recorded in [`AUDIT.md` §§10.6–10.7](./AUDIT.md#106-integrity-hotfix--c1c2c3-remediated-same-session).
+> **Full current audit:** [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3). Historical session reports remain in `AUDIT.md` §§0–9 and `SESSION_AUDIT_2026-08-08.md`.
 
-### Summary of This Session:
-1. **Full audit completed** → [`AUDIT.md`](./AUDIT.md).
-2. **🔴 P0 found & FIXED**: `app.js` fatal syntax error + 6 runtime crashes repaired and verified ([`AUDIT.md` §8](./AUDIT.md)); new dependency-free regression tool `scripts/smoke_test.mjs`.
-3. **🟠 Docs-truth pass DONE**: README/ROADMAP/HANDOFF now state measured reality (31 terms, 11/48 cases, 4 matrix entries, excerpt-scale corpus); missing `LICENSE` created (MIT code + CC BY-SA data + third-party rights notice); phantom `align_translations.py`/`deploy.yml` refs removed; stale branch/merge instructions rewritten; `.nojekyll` added; `vision.md` marked aspirational. Logged in [`AUDIT.md` §8](./AUDIT.md).
-4. **Data measured**: 36 excerpt-scale files (≈9,610 zh chars; Wumenguan 11/48), glossary 31, lineage 18, matrix 4 — anchors verified authentic.
-5. **⚖️ Attribution-integrity pass DONE**: provenance policy `data/translations/provenance.json` (v1.1) bundled into the app; every translation column now badges `⚠️ Register reconstruction` / `AI draft` / `✅ Verified quotation`; matrix-view disclaimer; mis-cited canon IDs fixed (hanshan "T2834"→SBCK/Zoku — T2834 is actually 大乘無生方便門; deshan/shitou wrong "T1985"→correct embedded refs).
-6. **🟠 P1/P2 frontend hardening DONE**: search now indexes all 36 texts across every schema (counts + highlighting + jump buttons), reader modes truly differentiated (true Classical-Only mode), tooltips single-pass & valid HTML, Studio reads from the data bundle — regression checks added to `scripts/smoke_test.mjs` ([`AUDIT.md` §8](./AUDIT.md)).
-7. **🔍 Verification pilot DONE**: Wumenguan Case 1 gained its first `✅ Verified quotation` registers — **Senzaki & Reps (1934, public domain)** and **Shimomissé** — verified verbatim against surviving texts with full source records in the app; Blyth verification pending print (fetch failed); provenance.json v1.2 ([`AUDIT.md` §8](./AUDIT.md)).
-8. **Verified healthy**: deterministic bundle, `/docs` sync, smoke test green, Pages `status: built` (still serving pre-fix `main` until hotfix PR merges).
-8. **🔍 Verification round 2 DONE**: +✅ Clarke (Xinxin Ming st. 1–2, verbatim via 2 mirrors), +✅ Yampolsky (Shenxiu p.130 — replaced a proven paraphrase; Huineng **Dunhuang recension** added as its own verse), corrected first inauthentic zh found (xinxin_ming st. 3 → T2010 canon). Blyth/Suzuki pending print.
-8b. **🔍 Verification round 3 DONE**: +✅ Sekida, +✅ Sasaki (paraphrase replaced), +✅ Blofeld (publisher-verified, paraphrase replaced); unattributed verse/commentary blocks now labeled; Blyth retry pending.
-8c. **🔍 Verification round 4 DONE**: Blyth Case 1 ✅ (via Morse illustrated reproduction; paraphrase replaced) — Case 1 now has 5 verified editions; Sasaki 乾屎橛 line completes the fully-verified Linji sermon; Suzuki Platform verse attribution found genuinely unresolvable (kept honest).
-8d. **🔍 Verification round 5 DONE**: +✅ **Burton Watson** (Linji Fourfold Shout, Columbia 1999 pp. 98–99), +✅ **Yoel Hoffman** (Zhaozhou wash-bowl ×2 units, *Radical Zen* 1978) — 19 verified slots across 7 texts; J.C. Cleary entries confirmed non-verbatim (honest badges); provenance.json v1.6.
-8e. **🔍 Verification round 6 DONE**: +✅ **Hoffman** cypress-tree (×3 units, his famous **"oak tree"** register), +✅ **Blofeld** ×3 (Chün Chou §1 corrected to verbatim "sentient things"; Wan Ling Q21 mercy/compassion), +✅ **Andy Ferguson** Linji deathbed "blind ass" exchange (×2 units, new translator key) — **27 verified slots across 8 texts**; Cleary deathbed confirmed at phrase level (honest partial); Hoffman stone-bridge & Watson deathbed remain honestly pending; provenance.json v1.7.
-8f. **🔍 Verification round 7 DONE**: **Senzaki & Reps public-domain register extended across the entire Wumenguan excerpt set (+22 slots)** — every Wumenguan anchor now has a guaranteed-citable ✅ baseline; matrix Blyth row verified (2nd ✅ matrix row); oak-tree case edition variance documented (Senzaki #38, non-canonical vs T2005); Suzuki c19 stays honest reconstruction. **49 verified slots across 8 texts + 2 verified matrix rows**; provenance.json v1.8.
-8g. **🔍 Verification round 8 DONE**: +✅ **Kōun Yamada ×24 slots (all 11 Wumenguan cases)**, +✅ **Robert Aitken ×6 slots** — **Case 1 now displays SIX verified editions side by side**; OCR page-break seams skipped rather than overclaimed; oak-tree numbering audit refined (matches Aitken/Yamada slot 37; T2005 has Panshan); Shibayama substrate is image-scan → honestly pending. **79 verified slots across 8 texts + 2 verified matrix rows**; provenance.json v1.9.
-9. **Still open**: PR to `main` (live site still serves the pre-fix build until merge), Phase 2 content (Wumenguan 48 — Yamada/Aitken proven fully fetchable, de-risking scale-out), optional verification round 9.
+## Current state
 
----
-<details><summary>Previous session (pre-audit history)</summary>
+- **Deployment:** static GitHub Pages, publishing `main` → `/docs`; Pages status is built and HTTPS is enforced. Public navigation is limited to Reader, Matrix, Lineage, Gong’an Index, and Lexicon (no Translation Studio, Arena AI Agents view, or header GitHub link).
+- **Architecture:** vanilla HTML/CSS/JS; a shared `corpus_manifest.json` drives the bundle and reader navigation; source JSON is deterministically bundled into `app_data.js`; root assets and `/docs` data mirror are synchronized by `scripts/build_data_bundle.py`.
+- **Corpus:** 36 structured texts. *Wumenguan* is complete (48/48 cases plus preface/epilogue); the other 35 texts are explicitly excerpt-scale seeds.
+- **Measured data:** 31 glossary terms, 30 lineage profiles, 26 registered in-set lineage links plus 4 disclosed frontiers, 18 gong’an index entries, 4 comparative-matrix rows, 856 corpus translation slots, and 138 verified corpus quotation objects (plus 2 Matrix entries marked verified).
+- **Validation completed:** formal schema + semantic/rights/locator validation, deterministic metrics, Python/JavaScript syntax checks, bundle rebuild, root↔`docs` comparison, and the expanded smoke suite all pass; a CI workflow is prepared locally and awaits workflow-capable GitHub access before publication.
 
-### Summary of Completed Work:
-1. **Zen Minimalist, Serene & Responsive Theme**: rice-paper/tea contemplative reading interface (`app.css`, `index.html`), Noto Serif SC typography, responsive layout, `A+`/`A-` font adjusters.
-2. **GitHub Pages Deployment Preparedness**: `/docs/` bundle synchronization via `scripts/build_data_bundle.py`.
-3. **Repository Cleanliness & GitHub Push**: committed and pushed to `origin arena/019fe05c-translatechan`; local static execution verified on port 8080.
+## What is strong
 
-</details>
+1. The zero-backend deployment is simple, portable, and currently healthy.
+2. The bundle/build/smoke-test discipline catches broad renderer regressions across all 36 corpus schemas, including real debounced search, sparse navigation, pointer search, and blocked-storage execution.
+3. The corpus candidly distinguishes complete Wumenguan coverage from excerpt seeds.
+4. Reader and Matrix now share explicit reconstruction/AI/verified badges plus visible book/edition/page-reference disclosure and hover/focus/touch citation popups; verified entries expose source metadata and a rights-manifest identifier.
+5. Public scope is deliberately focused on comparative reading and research discovery rather than browser-based drafting or agent branding.
+6. Manifest-driven bundling, schema/semantic validation, canonical-locator registry, rights controls, deterministic metrics, and a prepared CI workflow will prevent silent data/deploy drift once workflow-capable GitHub access is restored.
+7. The lineage graph now uses a vertically layered, spacious generation layout with a normal-flow status strip, muted pending links, source-aware edge styling, and click/keyboard citation details rather than silently presenting traditional links as settled fact.
+
+## Highest-priority open work
+
+1. **Migrate legacy scholarly coverage:** upgrade the 33 document-level seed locators and 26 traditional lineage links to page/line, record, or TEI anchors; replace the 5 visible book-page/episode pending records with exact book references; and complete human editorial/rights review for modern quotation sources.
+2. **Expand content under the new rails:** complete Biyanlu and deepen the public reader’s source/citation disclosure.
+3. **Finish accessibility/disclosure polish:** keyboard activation for all interactive controls and consistent hover/focus/touch citation popups.
+
+> **Integrity, reader reliability, and research-release guardrails shipped in this session:** dynamic markup is escaped; verified translations/provenance are explicit; sparse navigation/search/storage are robust; the corpus manifest, locator registry, rights manifest, schema/semantic validator, deterministic metrics, and a prepared CI workflow protect future changes once workflow-capable GitHub access is restored.
+
+## Recommended next milestone
+
+Start **Biyanlu expansion under the new guardrails**, while separately planning page/line locator migration and editorial rights review for legacy seeds.

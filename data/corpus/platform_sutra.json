@@ -32,7 +32,9 @@
                 "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
                 "edition": "Columbia University Press, 1967, p. 130 (Dunhuang text)",
                 "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08",
-                "note": "Replaces a prior paraphrase that did not match Yampolsky's wording."
+                "note": "Replaces a prior paraphrase that did not match Yampolsky's wording.",
+                "source_id": "yampolsky-platform-1967",
+                "reference": "p. 130"
               }
             }
           }
@@ -59,7 +61,9 @@
               "source": {
                 "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
                 "edition": "Columbia University Press, 1967, p. 132 (Dunhuang text — the recension he translated; the received-text verse above reads 本來無一物)",
-                "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08"
+                "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08",
+                "source_id": "yampolsky-platform-1967",
+                "reference": "p. 132"
               }
             }
           },

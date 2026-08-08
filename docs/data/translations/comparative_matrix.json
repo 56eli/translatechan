@@ -10,28 +10,32 @@
         "work": "No Barrier: Unlocking the Zen Koan (1993)",
         "style": "Philosophical Minimalist",
         "text": "Does a dog have Buddha-nature? Zhaozhou said, 'No.'",
-        "notes": "Direct negative, focusing on cutting off the discursive question."
+        "notes": "Direct negative, focusing on cutting off the discursive question.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "Red Pine (Bill Porter)",
         "work": "The Zen Works & Translations",
         "style": "Hermit Hermeneutic & Vernacular Precision",
         "text": "Does a dog have Buddha-nature or not? Zhaozhou said: 'Wu!'",
-        "notes": "Preserves Chinese 'Wu' while noting its function as a diamond sword severing duality."
+        "notes": "Preserves Chinese 'Wu' while noting its function as a diamond sword severing duality.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "Ruth Fuller Sasaki",
         "work": "The Record of Linji & Zen Commentary",
         "style": "Traditional Rinzai Scholarly",
         "text": "Does even a dog have Buddha-nature, or not? Jōshū said: 'Mu!'",
-        "notes": "Preserves the Japanese/Chinese untranslated sacred syllable Mu (無)."
+        "notes": "Preserves the Japanese/Chinese untranslated sacred syllable Mu (無).",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "D.T. Suzuki",
         "work": "Essays in Zen Buddhism (1927)",
         "style": "Pioneering Hermeneutic",
         "text": "Has a dog Buddha-nature? Chao-chou replied: 'Wu!'",
-        "notes": "Emphasizes Wu as the living spirit beyond intellectual affirmative or negative."
+        "notes": "Emphasizes Wu as the living spirit beyond intellectual affirmative or negative.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "R.H. Blyth",
@@ -39,21 +43,32 @@
         "style": "Literary & Poetic",
         "text": "A monk once asked Joshu, \"Has a dog the Buddha-nature?\" Joshu answered, \"Mu!\"",
         "notes": "VERIFIED verbatim vs the Mark T. Morse illustrated reproduction of Blyth's translation (Zen and Zen Classics IV, Hokuseido Press 1966). Retains 'Mu' untranslated with Hokuseido-era spellings (Joshu, Buddha-nature).",
-        "status": "verified_quotation"
+        "status": "verified_quotation",
+        "source": {
+          "work": "Zen and Zen Classics, Volume Four: Mumonkan, tr. R.H. Blyth",
+          "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
+          "verification": "verbatim vs Morse reproduction, 2026-08-08",
+          "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
+          "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'",
+          "source_id": "blyth-mumonkan-1966",
+          "reference": "Case I (Hokuseido print page pending)"
+        }
       },
       {
         "translator": "John Blofeld",
         "work": "The Zen Teaching of Zen Masters",
         "style": "Classical British Scholarly",
         "text": "Has a dog Buddha-nature or not? The Master replied: 'None!'",
-        "notes": "Translates as 'None', emphasizing emptiness of inherent fixed nature."
+        "notes": "Translates as 'None', emphasizing emptiness of inherent fixed nature.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "AI Multi-Draft Engine",
         "work": "TranslateChan AI Hermeneutic Matrix",
         "style": "Synthesis / Multi-Register",
         "text": "A monk asked: 'Does a dog possess Buddha-nature?' Zhaozhou replied: 'Mu / Not.'",
-        "notes": "Provides glossing of 狗子 (diminutive/vernacular for dog) and 無 (as categorical ungraspability)."
+        "notes": "Provides glossing of 狗子 (diminutive/vernacular for dog) and 無 (as categorical ungraspability).",
+        "status": "ai_draft"
       },
       {
         "translator": "Nyogen Senzaki & Paul Reps",
@@ -61,7 +76,14 @@
         "style": "First English translation, plain register",
         "text": "Joshu answered: \"Mu.\"",
         "status": "verified_quotation",
-        "notes": "VERIFIED verbatim vs Wikisource/sacred-texts (1934 John Murray edition, non-renewed → public domain). Retains 'Mu' untranslated — the register that defined the case for Western readers."
+        "notes": "VERIFIED verbatim vs Wikisource/sacred-texts (1934 John Murray edition, non-renewed → public domain). Retains 'Mu' untranslated — the register that defined the case for Western readers.",
+        "source": {
+          "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
+          "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
+          "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08",
+          "source_id": "senzaki-reps-gateless-1934",
+          "reference": "p. 4 (1934 PDF/table of contents)"
+        }
       }
     ]
   },
@@ -76,35 +98,40 @@
         "work": "The Zen Teaching of Bodhidharma & Early Masters",
         "style": "Lyrical & Idiomatic Fidelity",
         "text": "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
-        "notes": "Renders 洞然明白 as 'opens wide and clear', emphasizing the spatial awakening."
+        "notes": "Renders 洞然明白 as 'opens wide and clear', emphasizing the spatial awakening.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "Thomas Cleary",
         "work": "Zen Essence",
         "style": "Direct Tao-Chan Precision",
         "text": "The Great Way is not difficult, it only avoids picking and choosing. Just do not love or hate, and it is clearly evident.",
-        "notes": "Renders 揀擇 as 'picking and choosing', 洞然 as 'clearly evident'."
+        "notes": "Renders 揀擇 as 'picking and choosing', 洞然 as 'clearly evident'.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "D.T. Suzuki",
         "work": "Manual of Zen Buddhism (1935)",
         "style": "Epistemological Non-duality",
         "text": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
-        "notes": "Renders 揀擇 as 'having no preferences', captures universal non-attachment."
+        "notes": "Renders 揀擇 as 'having no preferences', captures universal non-attachment.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "R.H. Blyth",
         "work": "Zen and Zen Classics",
         "style": "Poetic Cadence",
         "text": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
-        "notes": "Flowing poetic structure, standard in Western zendo chanting."
+        "notes": "Flowing poetic structure, standard in Western zendo chanting.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "Ruth Fuller Sasaki",
         "work": "Zen Texts & Translations",
         "style": "Literal Rigor",
         "text": "The supreme Way is not difficult, only dislike choosing. Just have neither hatred nor love, and all will be lucid and clear.",
-        "notes": "Faithful to Chinese word order and grammatical structure."
+        "notes": "Faithful to Chinese word order and grammatical structure.",
+        "status": "reconstruction_unverified"
       }
     ]
   },
@@ -119,28 +146,32 @@
         "work": "The Zen Teaching of the Ancestors",
         "style": "Direct Vernacular",
         "text": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
-        "notes": "Translates 面門 as 'gates of your face' and 無位真人 as 'True Person without rank'."
+        "notes": "Translates 面門 as 'gates of your face' and 無位真人 as 'True Person without rank'.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "Ruth Fuller Sasaki",
         "work": "The Record of Linji (2009)",
         "style": "Scholarly Definite Edition",
         "text": "On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!",
-        "notes": "Standard academic translation of 無位真人 as 'True Person of No Rank'."
+        "notes": "Standard academic translation of 無位真人 as 'True Person of No Rank'.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "Thomas Cleary",
         "work": "Teachings of Zen (1998)",
         "style": "Vernacular Dynamic",
         "text": "On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!",
-        "notes": "Renders 真人 as 'true human' and 無位 as 'no status'."
+        "notes": "Renders 真人 as 'true human' and 無位 as 'no status'.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "D.T. Suzuki",
         "work": "Introduction to Zen Buddhism",
         "style": "Existential Encounter",
         "text": "In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!",
-        "notes": "Uses 'True Man of No Title' and 'senses' for 面門 (facial gates)."
+        "notes": "Uses 'True Man of No Title' and 'senses' for 面門 (facial gates).",
+        "status": "reconstruction_unverified"
       }
     ]
   },
@@ -155,28 +186,32 @@
         "work": "The Platform Sutra: The Zen Teaching of Hui-neng (2006)",
         "style": "Philological Poet & Folk Cadence",
         "text": "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
-        "notes": "Red Pine's celebrated translation highlighting Dunhuang vs. Dexin woodblock variations."
+        "notes": "Red Pine's celebrated translation highlighting Dunhuang vs. Dexin woodblock variations.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "Philip Yampolsky",
         "work": "The Platform Sutra of the Sixth Patriarch (1967)",
         "style": "Columbia Academic Standard",
         "text": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?",
-        "notes": "Based on the Dunhuang manuscript transmission."
+        "notes": "Based on the Dunhuang manuscript transmission.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "Thomas Cleary",
         "work": "The Sutra of Hui-neng",
         "style": "Direct Insight",
         "text": "Bodhi fundamentally has no tree, nor is the clear mirror a stand. Originally there is not a single thing; where could dust gather?",
-        "notes": "Clean, unembellished rendering of the classic quadrain."
+        "notes": "Clean, unembellished rendering of the classic quadrain.",
+        "status": "reconstruction_unverified"
       },
       {
         "translator": "D.T. Suzuki",
         "work": "Manual of Zen Buddhism",
         "style": "Classical Early Western",
         "text": "Bodhi originally has no tree in it, nor has the mind-mirror any stand in it; originally there is not a single thing: Where can any dust gather?",
-        "notes": "Emphasizes the absolute Emptiness (śūnyatā) of original nature."
+        "notes": "Emphasizes the absolute Emptiness (śūnyatā) of original nature.",
+        "status": "reconstruction_unverified"
       }
     ]
   }

@@ -28,7 +28,9 @@
                 "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
                 "edition": "Rider & Co., 1958 (Chün Chou Record, teaching 1)",
                 "verification": "wording consistent across Grove Atlantic (publisher), Terebess reproduction, and two further mirrors, 2026-08-08",
-                "note": "Replaces a prior paraphrase ('nothing whatever but… besides which')."
+                "note": "Replaces a prior paraphrase ('nothing whatever but… besides which').",
+                "source_id": "blofeld-huangpo-1958",
+                "reference": "teaching 1"
               }
             },
             "cleary": "The Master said to Pei Xiu: All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes; it is not blue or yellow, has no form or characteristics, belongs neither to existence nor nonexistence, cannot be reckoned as new or old, is neither long nor short, neither large nor small, transcending all limits, words, traces, and polarities.",
@@ -47,7 +49,9 @@
               "source": {
                 "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
                 "edition": "Grove Press (Part One: Chün Chou Record §1)",
-                "verification": "verbatim (span matching unit's zh) vs Terebess reproduction of Blofeld's text, 2026-08-08; prior reconstruction ended 'sentient beings' — Blofeld's wording is 'sentient things'"
+                "verification": "verbatim (span matching unit's zh) vs Terebess reproduction of Blofeld's text, 2026-08-08; prior reconstruction ended 'sentient beings' — Blofeld's wording is 'sentient things'",
+                "source_id": "blofeld-huangpo-1958",
+                "reference": "§1"
               }
             },
             "cleary": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
@@ -65,7 +69,9 @@
               "source": {
                 "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
                 "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
-                "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+                "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
+                "source_id": "blofeld-huangpo-1958",
+                "reference": "Q&A no. 21"
               }
             },
             "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
@@ -83,7 +89,9 @@
               "source": {
                 "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
                 "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
-                "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+                "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
+                "source_id": "blofeld-huangpo-1958",
+                "reference": "Q&A no. 21"
               }
             },
             "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",

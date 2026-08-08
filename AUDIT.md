@@ -471,3 +471,171 @@ Smoke test: `print` stub; new checks 4m (studio picker ≥48 passages), 4n (dele
 | D4 | `<link rel="preload" href="app_data.js" as="script">` added to head; `font-display: swap` already active |
 
 Smoke test: stub gains `getBoundingClientRect`; 4g rewritten for lazy rendering (48 chips in strip; exactly 12 case cards initially; `loadMoreCases()` ×3 → 48; button gone) — suite green; bundle deterministic; root↔docs byte-identical. **UX roadmap 100% implemented** (Phases A–D, D3 deliberately excluded). Remaining project work per ROADMAP.md: Phase 2 corpus completion (Biyanlu 7/100 next), verification round 10, PR to main.
+
+---
+
+## 10. 2026-08-08 — Current independent audit (post-PR #3)
+
+> **Audited snapshot:** `8717e969eab653ebe674c9ee76dcc41181dc8379` on `main` and the current Arena working branch.
+> **Scope:** source tree, static deployment configuration, data/bundle integrity, renderer behavior, client-side storage/export paths, provenance model, and project documentation. This section is the current-state assessment; Sections 0–9 remain the useful historical remediation log.
+
+### 10.1 Executive verdict
+
+TranslateChan has a **sound, unusually well-documented static foundation**: it is a dependency-free GitHub Pages application with a deterministic data bundle, a real smoke test, synchronized deploy artifacts, and a much more honest corpus/provenance model than most early digital-humanities prototypes. There is no current P0 parse/build/render failure.
+
+The initial current-state review found three P1 reader/studio integrity concerns and three P2 reader-reliability concerns. The public-page scope was subsequently simplified: browser drafting and agent branding were retired, while the Reader and Matrix retain explicit provenance/disclosure. Sparse case navigation follows actual neighbors; search includes pointer text and reports truthful counts; and all remaining browser preferences fail safely. The same session also added a manifest-driven build, formal schema companion, semantic/rights/locator validator, deterministic metrics, and a prepared CI workflow. The remaining gate before large content import is editorial: migrate legacy document-level locators and complete human rights review.
+
+| Area | Current assessment | Grade |
+|---|---|---:|
+| Static build, deployment, and root↔`docs` synchronization | Healthy and reproducible | A− |
+| Reader rendering and broad schema support | All supported schemas render; sparse case navigation follows actual adjacent records | A− |
+| Search | Pointer blocks included; complete hit count and presentation-limit notice are truthful | A− |
+| Public Pages composition | Focused reader/matrix/lineage/index/lexicon scope; drafting, agent branding, and header GitHub link retired | A− |
+| Attribution/provenance model | Explicit status/source treatment plus source IDs and rights-manifest coverage; human rights review remains | B+ |
+| Corpus scope and scholarly traceability | Honest seed coverage; locator registry covers all documents/57 case units, while 33 non-case seeds still need page/line or TEI migration | B |
+| Accessibility and UX | Good baseline (skip link, focus states, reduced motion); interactive semantics still uneven | B |
+| Tooling and release discipline | Manifest-driven build, formal schema companion, semantic validator, deterministic metrics, and smoke coverage; CI workflow publication is pending GitHub permission | A− |
+
+### 10.2 What I verified
+
+**Build/runtime checks — all passed**
+
+```text
+node --check app.js
+node --check scripts/smoke_test.mjs
+python3 -m py_compile scripts/*.py
+python3 scripts/validate_data.py
+python3 scripts/build_data_bundle.py
+node scripts/smoke_test.mjs
+cmp root assets with docs assets
+diff -rq data docs/data
+```
+
+- The bundle rebuilt deterministically at **626,587 bytes**; `index.html`, `app.css`, `app.js`, `app_data.js`, and `data/` are byte-identical between root and `docs/` after the build.
+- The dependency-free smoke harness loaded the bundle, rendered all **36** corpus documents through all reader modes, executed debounced search for schema-specific and adversarial queries, exercised lazy Wumenguan rendering, Matrix provenance, graph wiring, public-scope exclusions, and storage-safe preferences with **0 failures**.
+- All JSON files parse. The 36 corpus filenames, the 36 bundler entries, and the 36 UI corpus-map entries agree exactly.
+- GitHub Pages is currently **built**, HTTPS-enforced, and configured to publish `main` → `/docs`.
+
+**Measured data snapshot**
+
+| Dataset | Current measured state |
+|---|---|
+| Corpus | 36 structured documents; Wumenguan is complete at 48/48 cases + preface/epilogue; the other 35 remain excerpt-scale seeds |
+| Classical Chinese size | 13,090 CJK characters in source-content `*_zh` fields after excluding title/author metadata; 16,270 CJK characters across all JSON strings. Documentation should name the counting method rather than imply that both are the same measure. |
+| Translation slots in corpus | 856 total: 138 object-form `verified_quotation`, 692 implicit scholar-register reconstructions, 26 AI drafts |
+| Verified corpus slots by text | Wumenguan 119; Linji 6; Zhaozhou 5; Huangbo *Chuanxin* 4; Platform Sutra 2; Xinxin Ming 2 |
+| Comparative Matrix | 4 rows / 21 translator entries; all 21 have explicit status; 2 verified entries carry source records |
+| Glossary / lineage / gong’an index | 31 terms / 30 master profiles / 18 index entries |
+| Lineage links | 26 in-set teacher edges render; four teacher references deliberately point beyond the current dataset (Prajñātāra, Longtan Chongxin, Yangqi Fanghui, Dahong Laoniu Zuzheng) |
+
+The 138 verified corpus objects and both verified Matrix entries contain required work, edition, reference-state, verification, and rights-source fields. The locator registry now anchors every current case unit; the remaining 33 non-case seed documents are explicitly document-level until their rendered units receive page/line or TEI locators.
+
+### 10.3 Current findings
+
+| ID | Severity | Finding and evidence | Recommended resolution |
+|---|---|---|---|
+| C1 | **P1** | **DOM injection remains possible in two user-controlled paths.** The no-results search branch interpolates raw `q` at `app.js:1869`, while `renderSavedList()` writes draft title, translation, timestamp, and ID directly into `innerHTML` at `1682–1693`. A user can save markup in a draft and have it parsed on the same origin. The current search smoke assertion is a false negative because it accepts an escaped header while raw markup remains in the no-results body. Present exposure is chiefly self-XSS/local-data corruption, but it becomes a stronger cross-user problem as soon as imports, sharing, or third-party data are added. | Render untrusted/user-originated values with `textContent`/DOM nodes or a single rigorous escape helper; escape the no-results query; validate local-storage draft shape; add adversarial regression cases. After removing inline handlers, add a restrictive CSP. |
+| C2 | **P1** | **Studio breaks on the project’s richer translation schema.** `updateRefTranslationDisplay()` interpolates a translation value directly (`1482–1489`). Verified translations are objects `{ text, status, source }`, so the UI displays `[object Object]`. The default Red Pine selection is absent from **37 of 48** Wumenguan cases; case 8 has only an object-form Senzaki/Reps value, making the defect immediately visible. The selector also omits Senzaki/Reps, Yamada, Aitken, and other verified registers. | Normalize every translation through one `getTranslationTextAndMeta()` function; derive selector options from the selected passage; preserve status/source badges in the Studio; add tests for string, object, fallback, and no-translation cases. |
+| C3 | **P1** | **The attribution policy is not consistently applied in the views most likely to be cited.** Nineteen of 21 Matrix entries have no `status`, and `renderMatrix()` renders no per-entry warning when it is missing. Its two ✅ entries have no `source` object. Preface/epilogue columns use a generic footer instead of individual badges, while Studio drops all badge/source context. This contradicts the README’s current “every rendering … is labeled” claim. | Make status mandatory in both corpus and Matrix schemas; apply a default reconstruction/AI status when absent; require source metadata for verified records; render the same compact provenance component in Reader, Matrix, Studio, and exports. |
+| C4 | **P2** | **Prev/next case navigation assumes consecutive numeric case IDs.** `renderCaseItem()` uses `case_num - 1` / `+ 1` (`762–764`) instead of adjacent array entries. It points to missing cards for Biyanlu `[1,2,3,12,14,21,43]` and Congronglu `[1,9]` (e.g., Biyanlu 3 → nonexistent 4). | Pass adjacent case numbers from `renderReader()` or resolve them by array index. Add a sparse-case regression fixture/assertion. |
+| C5 | **P2** | **Search is broad but not actually comprehensive and the cap’s count is inaccurate.** `extractSearchableUnits()` indexes case dialogue/commentary/verse but omits all 9 `pointer_zh` blocks in Biyanlu/Congronglu; it also omits pointer English. On broad queries such as `the`, actual unit matches exceed 300, but the loop stops by document and reports a partial count as if it were the total while showing only 12 cards per document. | Index pointer fields and explicitly state `200+` / “showing first N” rather than a partial total; cap before counting/rendering or compute an accurate total separately. |
+| C6 | **P2** | **Storage hardening is incomplete and corpus persistence is dead.** The integrity patch now shape-normalizes saved drafts and safely handles Studio save/delete/clear errors, but `state.theme` / `applyTheme` still use unguarded `localStorage` calls and the app reads `translatechan_corpus_key` at startup without ever writing it. | Extend safe storage wrappers to every preference; persist corpus selection on every selection path; version/validate stored data; test blocked/quota-exceeded storage. |
+| C7 | **P2** | **Scholarly traceability and rights controls are not yet at research-publication strength.** Classical Chinese units generally carry only a document-level `cbeta_id`/occasional note, not a canonical locator or revision source per unit. The repo redistributes 138 verified quotations, many from modern copyrighted translations; the broad CC BY-SA data statement plus a prose exception is not a durable rights manifest. This is a risk assessment, not legal advice. | Add per-unit canonical locator/edition fields and a validation rule; record quotation length, rights basis, jurisdiction, source URL/page, and license/permission in a dedicated third-party manifest; obtain a legal/editorial review before calling the corpus publication-ready. |
+| C8 | **P2** | **Documentation was drifting from the live snapshot.** The 119 verified-slot claim is now stale (the actual corpus count is 138); ROADMAP still said 18 master profiles in two places; `response_summary.md` reported a pre-merge state and old branch. I corrected current-facing documentation in this audit commit while preserving historical session reports as historical records. | Generate a small metrics table from data during the build/test step and make README/ROADMAP consume or verify it; keep session-specific branch names out of evergreen docs. |
+| C9 | **P2** | **The build is deterministic but lacks enforceable data quality gates.** The corpus manifest exists in both `build_data_bundle.py` and `app.js`; it matches today but can silently drift. There is no JSON Schema, semantic validator, CI workflow, or browser-level test. `ingest_cbeta.py` is a punctuation segmenter only, despite its broader docstring, and `arena_agent_pipeline.py` is prompt scaffolding rather than an ingestion/validation pipeline. | Add schema + semantic validation (unique IDs, required labels, translation object rules, source requirements, case adjacency); derive a shared corpus manifest; run build/smoke/validation in GitHub Actions; add a minimal real-browser test when practical. |
+| C10 | **P3** | **Accessibility/UI polish remains.** Reader term spans are focusable but do not activate on Enter/Space; clickable lineage card `<div>`s are not keyboard controls; tab roles lack tab-panel relationships and arrow-key behavior. The sidebar label says “CBETA” although entries include X-series, Dunhuang, and SBCK/Zoku material. Remote Google Fonts also make “offline” a qualified claim (functional fallback remains). | Use native buttons or full keyboard handling, complete ARIA tab semantics, rename the collection label, and self-host fonts or say “zero-backend static” rather than unqualified offline. |
+| C11 | **P3** | **Studio scope/export quality is narrower than its positioning.** It offers all 48 Wumenguan cases but only one selected passage each from five other texts, not a schema-driven corpus picker. The LaTeX exporter escapes only `#`, `&`, and `_`, so ordinary `%`, `$`, backslashes, braces, etc. can break generated TeX. | Expand the picker from the generic unit index; provide a robust TeX escape function or label the export experimental; use Blob URLs for larger exports. |
+
+### 10.4 Recommended sequence
+
+1. **✅ Integrity hotfix completed:** C1 + C2 + C3 are remediated with adversarial smoke coverage, translation normalization, and explicit Matrix status/source records; browser drafting was later retired from public scope.
+2. **✅ Reader reliability pass completed:** C4 + C5 + C6 are remediated with adjacent sparse-case navigation, pointer-inclusive/accurately counted search, safe storage wrappers, and persisted corpus choice.
+3. **✅ Structural research-release guardrails completed:** C9 and the enforceable portion of C7 now have a formal schema companion, manifest-driven build, locator registry, source-ID/rights manifest, deterministic metrics, and a prepared CI workflow.
+4. **Editorial migration + content next:** upgrade the 33 `legacy_document_seed` locators to page/line or TEI anchors, complete human rights review, then grow Biyanlu and the public reader under the new contract.
+
+### 10.5 Audit limitations
+
+This was a code/data integrity and product audit, not a line-by-line scholarly collation of all Classical Chinese against primary editions, a legal opinion on quotation/fair use, or a cross-browser assistive-technology certification. The static smoke test is green, but a browser automation pass should be added before calling the UX fully release-tested.
+
+### 10.6 Integrity hotfix — C1/C2/C3 remediated (same session)
+
+The following patch closes the three P1 findings documented above; the rows remain in §10.3 as the audit record.
+
+| Finding | Remediation | Regression evidence |
+|---|---|---|
+| C1 — user-controlled markup | Added `escHtml()` coverage to the no-results search body, saved-draft list, source snippets, Matrix fields, Studio reference output, glossary popover, and annotated Classical Chinese output. Stored drafts are normalized to a narrow plain-data shape before use; unsafe prototype keys are rejected. | Smoke test now performs a real debounced no-result search with an HTML payload and saves an HTML-bearing draft; it fails if raw markup appears. The former `Atomics.wait` pseudo-delay was replaced with `await setTimeout`, so the debounce callback actually executes. |
+| C2 — object-form Studio values | Added a shared `normalizeTranslationEntry()` adapter for legacy strings and `{text,status,source}` records. The Studio now populates its reference selector from the selected passage, selects a valid available register, and renders the normalized text plus status/source. | Smoke test selects Wumenguan Case 8 (Senzaki/Reps object-only), rejects `[object Object]`, and requires the verified badge/source line. |
+| C3 — inconsistent provenance | Added explicit statuses to all 21 Matrix records (18 reconstruction, 1 AI draft, 2 verified) and source records to both verified Matrix rows. Reader preface/epilogue columns, Matrix, and Studio use shared status/source renderers; policy later advanced to v2.2 with rights-manifest source IDs. | Smoke test validates every Matrix record's status and verified source fields, then asserts 21 visual badges and 2 Matrix source lines. Corpus verification check still confirms 138 source-complete verified objects. |
+
+**Result at this point:** no P0/P1 issue from this audit remained open. C4–C6 were completed immediately afterward in §10.7; structural C7/C9 guardrails followed in §10.8.
+
+### 10.7 Reader reliability pass — C4/C5/C6 remediated (same session)
+
+| Finding | Remediation | Regression evidence |
+|---|---|---|
+| C4 — sparse navigation | `renderCaseItem()` now receives the full case array and uses actual previous/next records; `ensureCaseLoaded()` resolves a target by array index rather than comparing a canonical case number with a render count. | Smoke test verifies Biyanlu 3 → 12 and 12 → 3, plus Congronglu 1 ↔ 9. |
+| C5 — pointer search and cap accounting | Search units now include `pointer_zh`/`pointer_en`. The search first computes all matching units, then limits only rendered cards (12 per document, 200 globally) and reports “Showing N of M” when anything is omitted. | Smoke test finds Biyanlu pointer text `見面便見` and checks that broad `the` search reports a total above 200 plus the truthful presentation notice. |
+| C6 — storage/persistence | Added guarded `storageGet`/`storageSet`/`storageRemove` wrappers for every preference and draft operation. A single `setCurrentCorpusKey()` path persists sidebar, mobile-picker, deep-link, and search-jump selection. | Smoke test confirms corpus selection is stored and exercises reader-mode/theme writes with a throwing storage stub without a crash. |
+
+**Result at this point:** reader reliability is restored. Structural research-release guardrails follow in §10.8.
+
+### 10.8 Structural research-release guardrails — C7/C9 implemented (same session)
+
+| Guardrail | Implementation | Enforced evidence |
+|---|---|---|
+| Shared corpus manifest | Added `data/corpus_manifest.json`; `build_data_bundle.py` loads it to construct the corpus and `app.js` reads the bundled manifest to render reader navigation. This removes the prior three-way manual corpus-list drift. | `validate_data.py` requires an exact 36-key agreement between source files and manifest and verifies both the bundler and UI consume the shared manifest. |
+| Formal + semantic data contract | Added `schemas/translatechan-data.schema.json` and dependency-free `scripts/validate_data.py`. The semantic layer validates identity metadata, heterogeneous content shapes, unique IDs/case numbers, corpus/matrix translation statuses, verified source fields, and bundle-navigation integrity. | `python3 scripts/validate_data.py` fails on malformed/missing/stale data and is run locally; the matching CI workflow awaits publication permission. |
+| Canonical locator registry | Added `data/canonical_locators.json`, covering all 36 corpus documents and all **57 currently stored case units** (48 Wumenguan, 7 Biyanlu, 2 Congronglu). | Validator requires every case document’s declared case numbers to have an exact registry counterpart. The remaining **33 non-case seed documents** are explicitly tagged `legacy_document_seed`, not misrepresented as unit-collated. |
+| Rights control | Added `source_id` to all **140** verified source records (138 corpus + 2 Matrix) and `data/translations/rights_manifest.json` with 13 editorial source records. Policy v2.2 requires a verified source to resolve through the manifest. | Validator rejects a verified quotation whose source ID is absent from the rights manifest. The manifest intentionally distinguishes a U.S.-specific public-domain claim from copyrighted/unknown-rights sources. |
+| Deterministic metrics | Added generated `data/project_metrics.json`, containing corpus coverage, source-content/all-string CJK counts, translation status counts, locator coverage, rights coverage, and manifest counts. | Validator compares the committed metrics file to the computed value; contributors run `--write-metrics` after a legitimate source-data change. |
+| CI workflow (pending publication) | Prepared `.github/workflows/quality.yml`: Python compilation, data validation, deterministic Pages rebuild, generated-artifact diff check, and renderer smoke test on pushes/PRs. GitHub rejected its push because the current App token lacks workflow permission. | Local validation runs the same commands now; publish this file after workflow-capable GitHub access is restored. |
+
+**Boundary kept explicit:** this closes the **structural/enforceable** part of C7/C9. It is not a legal opinion, does not turn online mirrors into licenses, and does not yet supply page/line or TEI anchors for 33 legacy non-case seeds. Those editorial migrations remain the prerequisite for calling the corpus scholarly publication-ready.
+
+### 10.9 Public Pages scope simplification (same session)
+
+At product direction, the published interface was narrowed to the **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon**. The following were removed from root and `/docs` Pages assets:
+
+- Translation Studio navigation, view markup, browser-draft/local-storage/export code, and now-dead styling/tests;
+- Arena AI Agents navigation, architecture/promotional content, and hero branding;
+- the header GitHub repository link and repository-handle footer context.
+
+The source data may still contain clearly labeled `ai_draft` and `reconstruction_unverified` values; those remain visible only as disclosed translation statuses in the Reader/Matrix. The current roadmap (§Phase 4) now governs source verification, citation disclosure, AI marking, and hover/focus/touch provenance rather than public drafting or agent branding. Smoke coverage rejects a reintroduction of the removed public-page views or GitHub URL.
+
+### 10.10 Source and translation disclosure baseline (same session)
+
+The public Reader and Matrix now implement the first executable portion of the Phase 4 disclosure roadmap:
+
+| Disclosure requirement | Public implementation | Current measured gap |
+|---|---|---|
+| Source text location | Every reader document shows a visible canonical source location; all 57 stored case units also show their case-level source anchor. Matrix source sentences resolve through the same locator registry when a canonical identifier is available. | 33 non-case seed documents remain document-level (`legacy_document_seed`) until page/line or TEI anchors are added. |
+| Translation attribution | Every displayed translation shows its translator/label and explicit status. Verified records show book, edition, page/section reference state, verification, and rights record; reconstructions/AI drafts state plainly that they are not external book quotations. | 5 of 140 verified source records still display a book-page/episode pending state; 135 carry a recorded case/page/section reference. |
+| AI disclosure | `ai_draft` and `reconstruction_unverified` values visibly say **AI draft** or **Project register reconstruction** and are not styled as quotations. | Content/editorial work must replace pending references before any wider quotation claim. |
+| Hover/focus/touch access | Shared `citation-trigger` controls open structured citation popups on hover, keyboard focus, or tap/click in Reader and Matrix. | Future lineage and index citation surfaces must reuse the component. |
+
+The disclosure UI intentionally distinguishes a source reference from a verified book quotation; it does not fabricate pages where the dataset has not yet recorded one.
+
+### 10.11 Lineage chart aggregation and verification baseline (same session)
+
+The public lineage graphic is now backed by `data/lineage/lineage_verification.json` and a semantic validator rather than silently drawing teacher→disciple assertions from profile strings alone.
+
+| Requirement | Implementation | Current state |
+|---|---|---|
+| Aggregate chart records | Registry captures all **26** in-set graph links, six candidate source records, and **4** unprofiled frontiers. | Every rendered internal edge has a registry record; every omitted frontier is explicitly disclosed. |
+| Verify chart against source information | The validator requires the registry to match the master dataset exactly and rejects missing/extra/duplicate edges or unknown source IDs. | All current links are deliberately labelled `traditional_link_pending_exact_locator`, not `source_verified`, until an editor records an exact chart/record locator. |
+| Make uncertainty visible | SVG links use status-aware styling; the graph shows a chart-status summary; clicking or keyboard-activating an edge opens a source-chart/verification citation panel. | No existing relationship is cosmetically upgraded to “verified”; the graph distinguishes source verification from traditional lineage aggregation. |
+| Hover/focus/touch disclosure | The citation trigger inside the edge panel uses the same hover/focus/touch disclosure mechanism as source and translation citations. | Future node-level source records can reuse the same registry/component. |
+
+This is an aggregation/verification framework, not a claim that the traditional lineage graph is historiographically settled. Exact locator review, disputed-link modeling, and source-verified upgrades are the next editorial step.
+
+### 10.12 Lineage chart visual rework (same session)
+
+The first source-status chart compressed 18 lineage depths into a short horizontal SVG, making nodes, labels, and thick pending links compete for space. The graph is now a vertically layered genealogical chart:
+
+- one calm horizontal row per generation, with dynamic SVG height and wide node spacing;
+- compact generation labels, node halos, shortened names, and links that terminate outside node circles;
+- a normal-flow verification strip and toolbar instead of status/control overlays on top of the graph;
+- thin, muted dashed traditional links, with stronger visual treatment reserved for future source-verified or disputed links;
+- the existing pan/zoom/reset, edge citation panel, node citation panel, and keyboard interaction retained.
+
+The smoke suite asserts the layered generation labels and halo nodes so the chart cannot silently regress to the cramped layout.

@@ -1,0 +1,68 @@
+{
+  "canonical_locator_coverage": {
+    "case_level_documents": 3,
+    "case_locators": 57,
+    "declared_cases": 57,
+    "document_level_seed_documents": 33,
+    "documents": 36
+  },
+  "corpus": {
+    "all_corpus_cjk_characters": 16270,
+    "complete_documents": [
+      "wumenguan"
+    ],
+    "content_cjk_characters": 13090,
+    "content_shapes": {
+      "cases": 3,
+      "chapters": 1,
+      "dialogues": 2,
+      "five_ranks": 1,
+      "sample_records": 1,
+      "sections": 25,
+      "stanzas": 4
+    },
+    "documents": 36,
+    "excerpt_seed_documents": 35
+  },
+  "lineage_verification": {
+    "frontiers": 4,
+    "internal_edges": 26,
+    "source_records": 6,
+    "statuses": {
+      "traditional_link_pending_exact_locator": 26
+    }
+  },
+  "manifest_integrity": {
+    "corpus_files": 36,
+    "shared_manifest_items": 36
+  },
+  "measurement_method": {
+    "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
+    "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
+    "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
+  },
+  "rights_coverage": {
+    "distinct_verified_sources": 13,
+    "manifest_sources": 13,
+    "verified_source_records": 140
+  },
+  "schema_version": "1.0",
+  "translations": {
+    "corpus_slots": 856,
+    "corpus_statuses": {
+      "ai_draft": 26,
+      "reconstruction_unverified": 692,
+      "verified_quotation": 138
+    },
+    "matrix_entries": 21,
+    "matrix_statuses": {
+      "ai_draft": 1,
+      "reconstruction_unverified": 18,
+      "verified_quotation": 2
+    },
+    "verified_reference_coverage": {
+      "pending": 5,
+      "recorded": 135
+    }
+  }
+}

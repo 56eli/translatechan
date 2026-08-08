@@ -9,46 +9,63 @@
   // Application State
   const TOUCH_DEVICE = typeof window.matchMedia === 'function' && window.matchMedia('(hover: none)').matches;
   const READER_MODES = ['bilingual', 'chinese_only', 'multi_translators'];
+
+  // Data that originated in browser storage must be treated as untrusted input.
+  // Keep generic browser-provided records narrow so malformed persisted
+  // preferences cannot break the public reader.
+  function isRecord(value) {
+    return value !== null && typeof value === 'object' && !Array.isArray(value);
+  }
+  function stringValue(value) {
+    return typeof value === 'string' ? value : (value == null ? '' : String(value));
+  }
+  // Storage can throw in privacy-restricted frames, disabled-storage modes, or
+  // quota failures. Preferences improve the app but must never prevent reading.
+  function storageGet(key) {
+    try { return window.localStorage ? window.localStorage.getItem(key) : null; }
+    catch (e) { return null; }
+  }
+  function storageSet(key, value) {
+    try {
+      if (!window.localStorage) return false;
+      window.localStorage.setItem(key, value);
+      return true;
+    } catch (e) { return false; }
+  }
+  function storageRemove(key) {
+    try {
+      if (!window.localStorage) return false;
+      window.localStorage.removeItem(key);
+      return true;
+    } catch (e) { return false; }
+  }
+
   const state = {
     data: window.TRANSLATECHAN_DATA || {},
     currentView: 'reader',
     currentCorpusKey: (() => {
-      try {
-        const k = localStorage.getItem('translatechan_corpus_key');
-        return k && window.TRANSLATECHAN_DATA && window.TRANSLATECHAN_DATA.corpus && window.TRANSLATECHAN_DATA.corpus[k] ? k : 'wumenguan';
-      } catch (e) { return 'wumenguan'; }
+      const k = storageGet('translatechan_corpus_key');
+      return k && window.TRANSLATECHAN_DATA && window.TRANSLATECHAN_DATA.corpus && window.TRANSLATECHAN_DATA.corpus[k] ? k : 'wumenguan';
     })(),
     readerMode: (() => {
-      try {
-        const m = localStorage.getItem('translatechan_reader_mode');
-        return READER_MODES.includes(m) ? m : 'bilingual';
-      } catch (e) { return 'bilingual'; }
+      const m = storageGet('translatechan_reader_mode');
+      return READER_MODES.includes(m) ? m : 'bilingual';
     })(),
-    showPinyin: (() => {
-      try { return localStorage.getItem('translatechan_show_pinyin') !== '0'; }
-      catch (e) { return true; }
-    })(),
+    showPinyin: storageGet('translatechan_show_pinyin') !== '0',
     fontSize: (() => {
-      try {
-        const v = parseFloat(localStorage.getItem('translatechan_font_size'));
-        return (v >= 1.0 && v <= 2.2) ? v : 1.35;
-      } catch (e) { return 1.35; }
+      const v = parseFloat(storageGet('translatechan_font_size'));
+      return (v >= 1.0 && v <= 2.2) ? v : 1.35;
     })(),
     collapsedCases: (() => {
-      try { return JSON.parse(localStorage.getItem('translatechan_collapsed_cases') || '{}') || {}; }
+      try { return JSON.parse(storageGet('translatechan_collapsed_cases') || '{}') || {}; }
       catch (e) { return {}; }
     })(),
-    theme: localStorage.getItem('translatechan_theme') || 'light',
+    theme: storageGet('translatechan_theme') || 'light',
     searchQuery: '',
     selectedMasterSchool: 'all',
     selectedLexiconCategory: 'all',
     gonganThemeFilter: null,
     caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
-    selectedStudioRefTranslator: 'red_pine',
-    personalTranslations: (() => {
-      try { return JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}') || {}; }
-      catch (e) { return {}; } // corrupted storage must not blank the app
-    })()
   };
 
   // DOM Elements
@@ -66,36 +83,29 @@
     // Lineage Elements
     lineageFilter: document.getElementById('lineage-school-filter'),
     lineageTarget: document.getElementById('lineage-content-target'),
+    lineageVerificationSummary: document.getElementById('lineage-verification-summary'),
     // Gong'an Elements
     gonganTarget: document.getElementById('gongan-content-target'),
     // Lexicon Elements
     lexiconFilter: document.getElementById('lexicon-cat-filter'),
     lexiconTarget: document.getElementById('lexicon-content-target'),
-    // Studio Elements
-    studioSelectText: document.getElementById('studio-select-text'),
-    studioSourceZh: document.getElementById('studio-source-zh'),
-    studioSourcePinyin: document.getElementById('studio-source-pinyin'),
-    studioCharCount: document.getElementById('studio-char-count'),
-    studioRefTranslatorSelect: document.getElementById('studio-ref-translator-select'),
-    studioRefText: document.getElementById('studio-ref-text'),
-    studioDetectedTerms: document.getElementById('studio-detected-terms'),
-    studioUserTranslation: document.getElementById('studio-user-translation'),
-    studioUserNotes: document.getElementById('studio-user-notes'),
-    studioSaveBtn: document.getElementById('studio-save-btn'),
-    studioExportJsonBtn: document.getElementById('studio-export-json-btn'),
-    studioExportMdBtn: document.getElementById('studio-export-md-btn'),
-    studioExportLatexBtn: document.getElementById('studio-export-latex-btn'),
-    studioClearAllBtn: document.getElementById('studio-clear-all-btn'),
-    studioStatus: document.getElementById('studio-status'),
-    studioSavedList: document.getElementById('studio-saved-list')
   };
+
+  // Corpus selection has a single persistence path so sidebar, mobile picker,
+  // deep links, and search jumps all restore the same reading context.
+  function setCurrentCorpusKey(key) {
+    if (!key || !state.data.corpus || !state.data.corpus[key]) return false;
+    state.currentCorpusKey = key;
+    storageSet('translatechan_corpus_key', key);
+    return true;
+  }
 
   // Initialize
   function init() {
     // Initial URL state (#/view/corpus) — deep links & refresh restore position
     const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
     if (m && VALID_VIEWS.includes(m[1])) state.currentView = m[1];
-    if (m && m[2] && state.data.corpus && state.data.corpus[m[2]]) state.currentCorpusKey = m[2];
+    if (m && m[2]) setCurrentCorpusKey(m[2]);
 
     applyTheme(state.theme);
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
@@ -107,7 +117,6 @@
     renderLineage();
     renderGonganIndex();
     renderLexicon();
-    setupStudio();
     setActiveModeButtons();
     switchViewRaw(state.currentView); // sync nav/section classes with the initial hash
   }
@@ -116,7 +125,7 @@
   function setReaderMode(mode) {
     if (!READER_MODES.includes(mode)) return;
     state.readerMode = mode;
-    try { localStorage.setItem('translatechan_reader_mode', mode); } catch (e) { /* ignore */ }
+    storageSet('translatechan_reader_mode', mode);
     setActiveModeButtons();
     renderReader();
   }
@@ -158,10 +167,10 @@
     if (!t) return;
     const pop = getTermPopover();
     pop.innerHTML =
-      `<div class="tooltip-term-title">${t.term} (${t.pinyin || '—'})</div>` +
-      `<div class="tooltip-sanskrit">Sanskrit: ${t.sanskrit || '—'}</div>` +
-      `<div class="tooltip-row"><strong>Literal:</strong> ${t.literal || ''}</div>` +
-      `<div class="tooltip-row">${t.definition || ''}</div>`;
+      `<div class="tooltip-term-title">${escHtml(t.term)} (${escHtml(t.pinyin || '—')})</div>` +
+      `<div class="tooltip-sanskrit">Sanskrit: ${escHtml(t.sanskrit || '—')}</div>` +
+      `<div class="tooltip-row"><strong>Literal:</strong> ${escHtml(t.literal || '')}</div>` +
+      `<div class="tooltip-row">${escHtml(t.definition || '')}</div>`;
     const rect = termSpan.getBoundingClientRect();
     const vw = window.innerWidth || document.documentElement.clientWidth || 900;
     const popW = 290;
@@ -187,6 +196,107 @@
     if (termPopoverEl) termPopoverEl._anchor = termSpan;
   }
 
+  // ---- Shared citation/disclosure popover (source + translation provenance) ----
+  // Rendered citation details live in JS rather than data attributes so book/source
+  // metadata stays structured and never becomes an executable HTML payload.
+  let citationPopoverEl = null;
+  let citationSerial = 0;
+  const citationDetails = new Map();
+
+  function registerCitation(detail) {
+    const id = `citation-${++citationSerial}`;
+    citationDetails.set(id, detail);
+    return id;
+  }
+
+  function getCitationPopover() {
+    if (!citationPopoverEl) {
+      citationPopoverEl = document.createElement('div');
+      citationPopoverEl.id = 'citation-popover';
+      citationPopoverEl.className = 'citation-popover';
+      citationPopoverEl.style.display = 'none';
+      document.body.appendChild(citationPopoverEl);
+    }
+    return citationPopoverEl;
+  }
+
+  function citationRow(label, value) {
+    if (!value) return '';
+    return `<div class="citation-row"><strong>${escHtml(label)}:</strong> ${escHtml(value)}</div>`;
+  }
+
+  function renderCitationTrigger(detail, label = 'ⓘ Details', className = '') {
+    const id = registerCitation(detail);
+    const title = detail && detail.title ? `${detail.title} — hover, focus, or tap for disclosure` : 'Hover, focus, or tap for disclosure';
+    return `<button type="button" class="citation-trigger ${className}" data-citation-id="${id}" aria-label="${escHtml(title)}" title="${escHtml(title)}">${escHtml(label)}</button>`;
+  }
+
+  function positionCitationPopover(pop, anchor) {
+    const rect = anchor.getBoundingClientRect();
+    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
+    const popW = 340;
+    let left = Math.min(rect.left, vw - popW - 8);
+    if (left < 8) left = 8;
+    let top = rect.bottom + 8;
+    if (top + 190 > (window.innerHeight || 800)) top = Math.max(8, rect.top - 198);
+    pop.style.left = `${left}px`;
+    pop.style.top = `${top}px`;
+  }
+
+  function showCitationPopover(trigger) {
+    if (!trigger || typeof trigger.getBoundingClientRect !== 'function') return;
+    const detail = citationDetails.get(trigger.getAttribute('data-citation-id'));
+    if (!detail) return;
+    const pop = getCitationPopover();
+    const rows = Array.isArray(detail.rows) ? detail.rows : [];
+    pop.innerHTML = `<div class="citation-title">${escHtml(detail.title || 'Citation & disclosure')}</div>` +
+      rows.map(row => citationRow(row[0], row[1])).join('');
+    positionCitationPopover(pop, trigger);
+    pop.style.display = 'block';
+    pop._anchor = trigger;
+  }
+
+  function hideCitationPopover() {
+    if (citationPopoverEl) citationPopoverEl.style.display = 'none';
+  }
+
+  function toggleCitationPopover(trigger) {
+    if (citationPopoverEl && citationPopoverEl.style.display === 'block' && citationPopoverEl._anchor === trigger) {
+      hideCitationPopover();
+      return;
+    }
+    showCitationPopover(trigger);
+  }
+
+  function setupCitationPopoverListeners() {
+    document.addEventListener('mouseover', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger) showCitationPopover(trigger);
+    });
+    document.addEventListener('mouseout', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger && !trigger.contains(e.relatedTarget)) hideCitationPopover();
+    });
+    document.addEventListener('focusin', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger) showCitationPopover(trigger);
+    });
+    document.addEventListener('focusout', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger && !trigger.contains(e.relatedTarget)) hideCitationPopover();
+    });
+    document.addEventListener('click', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger) {
+        e.preventDefault();
+        toggleCitationPopover(trigger);
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') hideCitationPopover();
+    });
+  }
+
   // ---- Collapsible case cards (touch defaults to collapsed) ----
   // collapsedCases[corpusKey] = { caseNum: true|false } — explicit user choices
   // only; unlisted cases fall back to the device default (collapsed on touch).
@@ -201,7 +311,7 @@
     if (!m || typeof m !== 'object') m = {};
     m[num] = !!collapsed;
     state.collapsedCases[key] = m;
-    try { localStorage.setItem('translatechan_collapsed_cases', JSON.stringify(state.collapsedCases)); } catch (e) { /* ignore */ }
+    storageSet('translatechan_collapsed_cases', JSON.stringify(state.collapsedCases));
   }
   function toggleCase(toggleBtn) {
     const card = toggleBtn.closest ? toggleBtn.closest('.case-card') : null;
@@ -226,7 +336,7 @@
   function applyTheme(theme) {
     state.theme = theme;
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('translatechan_theme', theme);
+    storageSet('translatechan_theme', theme);
     if (elements.themeToggle) {
       elements.themeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
     }
@@ -234,6 +344,7 @@
 
   // Event Listeners
   function setupEventListeners() {
+    setupCitationPopoverListeners();
     if (elements.themeToggle) {
       elements.themeToggle.addEventListener('click', () => {
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
@@ -276,7 +387,7 @@
       if (next === state.fontSize) return;
       state.fontSize = next;
       document.documentElement.style.setProperty('--zh-font-size', `${next}rem`);
-      try { localStorage.setItem('translatechan_font_size', String(next)); } catch (e) { /* private mode */ }
+      storageSet('translatechan_font_size', String(next));
     }
     if (fontIncBtn) fontIncBtn.addEventListener('click', () => changeFontSize(0.15));
     if (fontDecBtn) fontDecBtn.addEventListener('click', () => changeFontSize(-0.15));
@@ -287,7 +398,7 @@
     const mobileCorpusSelect = document.getElementById('corpus-mobile-select');
     if (mobileCorpusSelect) {
       mobileCorpusSelect.addEventListener('change', (e) => {
-        state.currentCorpusKey = e.target.value;
+        if (!setCurrentCorpusKey(e.target.value)) return;
         renderCorpusList();
         renderReader();
         const t = viewHash('reader', state.currentCorpusKey);
@@ -313,7 +424,7 @@
     if (mobilePinyinBtn) {
       mobilePinyinBtn.addEventListener('click', () => {
         state.showPinyin = !state.showPinyin;
-        try { localStorage.setItem('translatechan_show_pinyin', state.showPinyin ? '1' : '0'); } catch (e) { /* ignore */ }
+        storageSet('translatechan_show_pinyin', state.showPinyin ? '1' : '0');
         applyPinyinVisibility();
       });
     }
@@ -380,7 +491,7 @@
   }
 
   // View Switcher (updates DOM + URL hash so back/forward and deep links work)
-  const VALID_VIEWS = ['reader', 'matrix', 'lineage', 'gongan', 'lexicon', 'studio', 'agents'];
+  const VALID_VIEWS = ['reader', 'matrix', 'lineage', 'gongan', 'lexicon'];
   function viewHash(view, corpusKey) {
     return `#/${view}${(view === 'reader' && corpusKey) ? '/' + corpusKey : ''}`;
   }
@@ -422,7 +533,7 @@
     if (view === 'reader') {
       const key = m && m[2] ? m[2] : state.currentCorpusKey;
       if (state.data.corpus && state.data.corpus[key] && key !== state.currentCorpusKey) {
-        state.currentCorpusKey = key;
+        setCurrentCorpusKey(key);
         renderCorpusList();
         renderReader();
       }
@@ -434,9 +545,10 @@
   // showTermPopover) — occurrence spans carry only `data-term-id`, which keeps
   // the DOM lean (previously every 無 occurrence inlined the full definition).
   function annotateClassicalChinese(text) {
-    if (!text || !state.data.glossary || !Array.isArray(state.data.glossary)) return text;
+    if (!text) return '';
+    if (!state.data.glossary || !Array.isArray(state.data.glossary)) return escHtml(text);
     const terms = state.data.glossary.filter(t => t && t.term && t.id && text.includes(t.term));
-    if (terms.length === 0) return text;
+    if (terms.length === 0) return escHtml(text);
 
     // Collect every match span of every term, longest terms winning overlaps
     const matches = [];
@@ -455,67 +567,44 @@
     matches.forEach(m => {
       if (m.start < pos) return; // skip overlaps with an already-emitted longer/earlier match
       const t = m.termObj;
-      out += text.slice(pos, m.start);
-      out += `<span class="term-highlight" data-term-id="${t.id}" tabindex="0" ` +
-             `title="${(t.term) + ' — ' + (t.literal || '')}">${t.term}</span>`;
+      out += escHtml(text.slice(pos, m.start));
+      out += `<span class="term-highlight" data-term-id="${escHtml(t.id)}" tabindex="0" ` +
+             `title="${escHtml((t.term) + ' — ' + (t.literal || ''))}">${escHtml(t.term)}</span>`;
       pos = m.end;
     });
-    out += text.slice(pos);
+    out += escHtml(text.slice(pos));
     return out;
   }
 
   // Render Sidebar Corpus List
   function renderCorpusList() {
     if (!elements.corpusList || !state.data.corpus) return;
-    const corpusMap = [
-      { key: 'wumenguan', title: 'The Gateless Gate (無門關)', cbeta: 'T2005' },
-      { key: 'linji_yulu', title: 'Record of Linji (臨濟語錄)', cbeta: 'T1985' },
-      { key: 'huangbo_chuanxin', title: 'Transmission of Mind (黃檗法要)', cbeta: 'T2012A' },
-      { key: 'zhaozhou_yulu', title: 'Sayings of Zhaozhou (趙州語錄)', cbeta: 'T1987' },
-      { key: 'xinxin_ming', title: 'Faith in Mind (信心銘)', cbeta: 'T2010' },
-      { key: 'baojing_sanmei', title: 'Jewel Mirror Samadhi (寶鏡三昧)', cbeta: 'T1986' },
-      { key: 'biyanlu_cases', title: 'Blue Cliff Record (碧巖錄)', cbeta: 'T2003' },
-      { key: 'platform_sutra', title: 'Platform Sutra (六祖壇經)', cbeta: 'T2007' },
-      { key: 'chuandenglu', title: 'Transmission of Lamp (景德傳燈錄)', cbeta: 'T2076' },
-      { key: 'qinggui_monastic_codes', title: 'Rules of Purity (百丈禪苑清規)', cbeta: 'T2025' },
-      { key: 'dongshan_yulu', title: 'Dongshan Yulu & Five Ranks (洞山五位)', cbeta: 'T1986' },
-      { key: 'yunmen_yulu', title: 'Yunmen Yulu (雲門語錄一字關)', cbeta: 'T1988' },
-      { key: 'fayan_yulu', title: 'Fayan Yulu & Ten Rules (法眼十規論)', cbeta: 'T1991' },
-      { key: 'guiyang_yulu', title: 'Guiyang Yulu & Circles (溈仰九十六圓相)', cbeta: 'T1989' },
-      { key: 'dahui_hongzhi', title: 'Dahui & Hongzhi (看話書問與默照銘)', cbeta: 'T1998A' },
-      { key: 'shitou_sandokai', title: 'Shitou Sandokai & Grass Hut (參同契與草庵歌)', cbeta: 'T2076 f.30' },
-      { key: 'zhengdao_ge', title: 'Yongjia Zhengdao Ge (永嘉證道歌)', cbeta: 'T2014' },
-      { key: 'bodhidharma_erru', title: 'Bodhidharma Erru Sixing (二入四行論)', cbeta: 'T2009' },
-      { key: 'niutou_juezhu', title: 'Niutou Farong Juezhu Lun (絕觀論)', cbeta: 'P.2885' },
-      { key: 'lidai_fabao_ji', title: 'Lidai Fabao Ji (歷代法寶記)', cbeta: 'T2075' },
-      { key: 'dazhu_huihai', title: 'Dazhu Huihai Dunwu Yaomen (頓悟入道要門)', cbeta: 'X1223' },
-      { key: 'baizhang_guanglu', title: 'Baizhang Guanglu (百丈廣錄三句)', cbeta: 'X1323' },
-      { key: 'foyan_qingyuan', title: 'Foyan Qingyuan Instant Zen (佛眼坐禪銘)', cbeta: 'X1315' },
-      { key: 'dahui_shobogenzo', title: 'Dahui Shobogenzo (大慧正法眼藏)', cbeta: 'X1309' },
-      { key: 'mazu_yulu', title: 'Mazu Daoyi Yulu (江西馬祖語錄)', cbeta: 'X1321' },
-      { key: 'nanquan_yulu', title: 'Nanquan Puyuan Yulu (南泉普願語錄)', cbeta: 'X1315' },
-      { key: 'deshan_yulu', title: 'Deshan Xuanjian Yulu (德山宣鑑語錄)', cbeta: 'T2076/X1565' },
-      { key: 'xuefeng_yantou', title: 'Xuefeng & Yantou Yulu (雪峰巖頭語錄)', cbeta: 'X1333' },
-      { key: 'congronglu_cases', title: 'Book of Serenity (從容庵錄)', cbeta: 'T2004' },
-      { key: 'wudeng_huiyuan', title: 'Compendium of Five Lamps (五燈會元)', cbeta: 'X1565' },
-      { key: 'sengzhao_zhaolun', title: 'Sengzhao Zhao Lun (僧肇肇論)', cbeta: 'T1858' },
-      { key: 'hanshan_poems', title: 'Hanshan Cold Mountain Poems (寒山詩集)', cbeta: 'SBCK/Zoku' },
-      { key: 'huangbo_wanling', title: 'Huangbo Wanling Lu (黃檗宛陵錄)', cbeta: 'T2012B' },
-      { key: 'xuansha_yulu', title: 'Xuansha Shibei Yulu (玄沙宗一語錄)', cbeta: 'X1445' },
-      { key: 'caoxi_zhuan', title: 'Caoxi Dashi Biezhuan (曹溪大師別傳)', cbeta: 'X1598' },
-      { key: 'yuanwu_letters', title: 'Yuanwu Zen Letters (圓悟克勤心要)', cbeta: 'X1357' }
-    ];
+    const manifestItems = state.data.corpus_manifest && Array.isArray(state.data.corpus_manifest.items)
+      ? state.data.corpus_manifest.items
+      : [];
+    // The manifest is bundled from data/corpus_manifest.json and is shared with
+    // build_data_bundle.py. Keep a metadata fallback for an old cached bundle.
+    const corpusMap = manifestItems.length > 0
+      ? manifestItems.filter(item => item && state.data.corpus[item.key])
+      : Object.keys(state.data.corpus).sort().map(key => {
+          const doc = state.data.corpus[key] || {};
+          return {
+            key,
+            title: `${doc.title_en || key} (${doc.title_zh || ''})`,
+            cbeta: doc.cbeta_id || '—'
+          };
+        });
 
     elements.corpusList.innerHTML = corpusMap.map(c => `
-      <button class="corpus-btn ${c.key === state.currentCorpusKey ? 'active' : ''}" data-corpus-key="${c.key}">
-        <span>${c.title}</span>
-        <span class="corpus-badge">${c.cbeta}</span>
+      <button class="corpus-btn ${c.key === state.currentCorpusKey ? 'active' : ''}" data-corpus-key="${escHtml(c.key)}">
+        <span>${escHtml(c.title)}</span>
+        <span class="corpus-badge">${escHtml(c.cbeta)}</span>
       </button>
     `).join('');
 
     elements.corpusList.querySelectorAll('.corpus-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        state.currentCorpusKey = btn.getAttribute('data-corpus-key');
+        if (!setCurrentCorpusKey(btn.getAttribute('data-corpus-key'))) return;
         renderCorpusList();
         renderReader();
         const t = viewHash('reader', state.currentCorpusKey);
@@ -527,9 +616,84 @@
     const mobileSelect = document.getElementById('corpus-mobile-select');
     if (mobileSelect) {
       mobileSelect.innerHTML = corpusMap.map(c => `
-        <option value="${c.key}" ${c.key === state.currentCorpusKey ? 'selected' : ''}>${c.title} — ${c.cbeta}</option>
+        <option value="${escHtml(c.key)}" ${c.key === state.currentCorpusKey ? 'selected' : ''}>${escHtml(c.title)} — ${escHtml(c.cbeta)}</option>
       `).join('');
     }
+  }
+
+  // ---- Canonical source-location disclosure ----
+  function locatorDocumentForKey(key) {
+    const registry = state.data.canonical_locators;
+    const documents = registry && isRecord(registry.documents) ? registry.documents : {};
+    return isRecord(documents[key]) ? documents[key] : null;
+  }
+
+  function locatorStatusLabel(status) {
+    if (status === 'case_level_anchor') return 'Case-level canonical anchor';
+    if (status === 'legacy_document_seed') return 'Document-level seed locator — unit locator pending';
+    return status ? stringValue(status) : 'Locator pending';
+  }
+
+  function renderSourceLocationDisclosure(locator, label = 'Source location', className = '') {
+    const entry = isRecord(locator) ? locator : {};
+    const location = stringValue(entry.canonical_locator) || 'Locator pending';
+    const detail = {
+      title: `${label} disclosure`,
+      rows: [
+        ['Canonical location', location],
+        ['Granularity', stringValue(entry.granularity) || 'Document level'],
+        ['Status', locatorStatusLabel(entry.status)],
+        ['Source note', stringValue(entry.source_note) || 'No additional locator note recorded.']
+      ]
+    };
+    return `<div class="source-location ${className}"><span>📍 ${escHtml(label)}: ${escHtml(location)}</span>${renderCitationTrigger(detail, 'ⓘ Source')}</div>`;
+  }
+
+  function renderDocumentSourceDisclosure(doc, corpusKey) {
+    const locator = locatorDocumentForKey(corpusKey) || {
+      canonical_locator: doc && doc.cbeta_id,
+      granularity: 'document',
+      status: 'locator_pending',
+      source_note: 'Source registry entry pending.'
+    };
+    return renderSourceLocationDisclosure(locator, 'Source location', 'document-source-location');
+  }
+
+  function renderCaseSourceDisclosure(caseNum) {
+    const documentLocator = locatorDocumentForKey(state.currentCorpusKey);
+    const caseLocators = documentLocator && isRecord(documentLocator.case_locators) ? documentLocator.case_locators : {};
+    const caseLocator = isRecord(caseLocators[String(caseNum)]) ? caseLocators[String(caseNum)] : null;
+    const locator = caseLocator ? {
+      ...documentLocator,
+      canonical_locator: caseLocator.canonical_locator,
+      granularity: 'case',
+      status: caseLocator.status,
+      source_note: documentLocator.source_note
+    } : documentLocator;
+    return renderSourceLocationDisclosure(locator, 'Case source', 'case-source-location');
+  }
+
+  function matrixLocatorForReference(sourceRef) {
+    const documents = state.data.canonical_locators && isRecord(state.data.canonical_locators.documents)
+      ? state.data.canonical_locators.documents
+      : {};
+    const reference = stringValue(sourceRef);
+    const tokens = reference.match(/(?:T|X)\d{4}[A-Z]?|P\.\d+/g) || [];
+    for (const token of tokens) {
+      const match = Object.values(documents).find(entry => isRecord(entry) && stringValue(entry.canonical_id).includes(token));
+      if (match) {
+        const caseMatch = reference.match(/Case\s+(\d+)/i);
+        const caseLocators = isRecord(match.case_locators) ? match.case_locators : {};
+        const caseLocator = caseMatch && isRecord(caseLocators[caseMatch[1]]) ? caseLocators[caseMatch[1]] : null;
+        return caseLocator ? {
+          ...match,
+          canonical_locator: caseLocator.canonical_locator,
+          granularity: 'case',
+          status: caseLocator.status
+        } : match;
+      }
+    }
+    return null;
   }
 
   // Render Reader View
@@ -561,6 +725,7 @@
           <span class="meta-chip">⏳ Era: ${doc.era || ''}</span>
           <span class="meta-chip">🏷️ Genre: ${doc.genre || ''}</span>
         </div>
+        ${renderDocumentSourceDisclosure(doc, state.currentCorpusKey)}
       </div>
       ${caseStrip}
     `;
@@ -574,21 +739,11 @@
           </div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.preface.zh)}</div>
           <div class="pinyin-line">${doc.preface.pinyin}</div>
-          <div class="translation-grid">
-            <div class="translation-col">
-              <div class="translator-tag">Red Pine (Bill Porter)</div>
-              <div class="translation-text">${doc.preface.en_red_pine || doc.preface.en_cleary || ''}</div>
-            </div>
-            <div class="translation-col">
-              <div class="translator-tag">Thomas Cleary</div>
-              <div class="translation-text">${doc.preface.en_cleary || ''}</div>
-            </div>
-            <div class="translation-col">
-              <div class="translator-tag">Ruth Fuller Sasaki</div>
-              <div class="translation-text">${doc.preface.en_sasaki || ''}</div>
-            </div>
-          </div>
-          <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.3rem;" title="AI-crafted renderings in each scholar's register — not verbatim published text">⚠️ Register reconstructions (unverified) — provenance policy v1.1</div>
+          ${renderFlatTranslationColumns([
+            { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.preface.en_red_pine || doc.preface.en_cleary || '' },
+            { key: 'cleary', name: 'Thomas Cleary', text: doc.preface.en_cleary || '' },
+            { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.preface.en_sasaki || '' }
+          ])}
         </div>
       `;
     }
@@ -602,21 +757,11 @@
           </div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
           <div class="pinyin-line">${doc.epilogue.pinyin}</div>
-          <div class="translation-grid">
-            <div class="translation-col">
-              <div class="translator-tag">Red Pine (Bill Porter)</div>
-              <div class="translation-text">${doc.epilogue.en_red_pine || ''}</div>
-            </div>
-            <div class="translation-col">
-              <div class="translator-tag">Thomas Cleary</div>
-              <div class="translation-text">${doc.epilogue.en_cleary || ''}</div>
-            </div>
-            <div class="translation-col">
-              <div class="translator-tag">Ruth Fuller Sasaki</div>
-              <div class="translation-text">${doc.epilogue.en_sasaki || ''}</div>
-            </div>
-          </div>
-          <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.3rem;" title="AI-crafted renderings in each scholar's register — not verbatim published text">⚠️ Register reconstructions (unverified) — provenance policy v1.1</div>
+          ${renderFlatTranslationColumns([
+            { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.epilogue.en_red_pine || '' },
+            { key: 'cleary', name: 'Thomas Cleary', text: doc.epilogue.en_cleary || '' },
+            { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.epilogue.en_sasaki || '' }
+          ])}
         </div>
       `;
     }
@@ -626,7 +771,7 @@
       const CASE_CHUNK = 12;
       const limit = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
       doc.cases.slice(0, limit).forEach((caseItem, i) => {
-        html += renderCaseItem(caseItem, i, total);
+        html += renderCaseItem(caseItem, i, doc.cases);
       });
       if (limit < total) {
         const remaining = total - limit;
@@ -680,7 +825,7 @@
             <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--accent-green);">
               <div class="commentary-label" style="color: var(--accent-green);">曹山註解 / Caoshan Commentary</div>
               <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
-              <div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${r.commentary_en}</div>
+              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft')}` : ''}
             </div>
           </div>
         `;
@@ -741,7 +886,7 @@
     elements.readerContent.innerHTML = html;
   }
 
-  function renderCaseItem(caseItem, idx, total) {
+  function renderCaseItem(caseItem, idx, allCases) {
     let dialoguesHtml = '';
     if (caseItem.dialogue) {
       dialoguesHtml = caseItem.dialogue.map(d => `
@@ -757,11 +902,16 @@
     // Collapse by default on touch devices (except the first case), honoring saved state
     const defaultCollapsed = TOUCH_DEVICE && idx > 0;
     const collapsed = caseCollapsedState(caseItem.case_num, defaultCollapsed);
-    const navFooter = (typeof idx === 'number' && typeof total === 'number' && total > 1) ? `
+    // Case seeds need not be numerically consecutive (e.g. Biyanlu 1, 2, 3,
+    // 12, 14, 21, 43). Navigate through actual neighbors, not arithmetic IDs.
+    const cases = Array.isArray(allCases) ? allCases : [];
+    const previousCase = idx > 0 ? cases[idx - 1] : null;
+    const nextCase = idx < cases.length - 1 ? cases[idx + 1] : null;
+    const navFooter = cases.length > 1 ? `
       <div class="case-nav-footer">
-        ${idx > 0 ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num - 1})">‹ 第${caseItem.case_num - 1}則</button>` : '<span></span>'}
+        ${previousCase ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${previousCase.case_num})">‹ 第${previousCase.case_num}則</button>` : '<span></span>'}
         <button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num})">⤒ 本則</button>
-        ${idx < total - 1 ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num + 1})">第${caseItem.case_num + 1}則 ›</button>` : '<span></span>'}
+        ${nextCase ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${nextCase.case_num})">第${nextCase.case_num}則 ›</button>` : '<span></span>'}
       </div>` : '';
 
     return `
@@ -770,6 +920,7 @@
           <span class="case-num-title">第 ${caseItem.case_num} 則：${caseItem.title_zh}</span>
           <span style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
             <span class="case-speaker">${caseItem.title_en}</span>
+            ${renderCaseSourceDisclosure(caseItem.case_num)}
             <button class="case-toggle" data-case-toggle="${caseItem.case_num}" aria-expanded="${collapsed ? 'false' : 'true'}" aria-label="${collapsed ? 'Expand' : 'Collapse'} case ${caseItem.case_num}" title="${collapsed ? 'Expand' : 'Collapse'} case">${collapsed ? '＋' : '−'}</button>
           </span>
         </div>
@@ -778,7 +929,7 @@
           <div class="commentary-block" style="background: var(--bg-card); border-left-color: var(--accent-blue); margin-bottom: 1rem;">
             <div class="commentary-label" style="color: var(--accent-blue);">垂示 / Pointer</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
-            <div style="font-size: 0.88rem; color: var(--text-secondary);">${caseItem.pointer_en || ''}</div>
+            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.88rem; color: var(--text-secondary);">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft')}` : ''}
           </div>
         ` : ''}
         ${dialoguesHtml}
@@ -787,8 +938,7 @@
             <div class="commentary-label">無門評唱 / Commentary</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.commentary_pinyin || ''}</div>
-            <div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.commentary_en || ''}</div>
-            ${caseItem.commentary_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
+            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft')}` : ''}
           </div>
         ` : ''}
         ${caseItem.verse_zh ? `
@@ -796,8 +946,7 @@
             <div class="commentary-label" style="color: var(--accent-green);">頌曰 / Verse</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.verse_pinyin || ''}</div>
-            <div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.verse_en || ''}</div>
-            ${caseItem.verse_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
+            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft')}` : ''}
           </div>
         ` : ''}
         </div>
@@ -905,6 +1054,146 @@
     `;
   }
 
+  // Translation records are deliberately polymorphic: legacy/reconstruction entries
+  // are strings, while citation-ready entries carry { text, status, source }. Keep
+  // their normalization in one place so the Reader and Matrix cannot diverge.
+  function normalizeTranslationEntry(key, raw, options = {}) {
+    const objectValue = isRecord(raw);
+    const explicitStatus = options.status || (objectValue ? raw.status : '');
+    const isAi = options.isAI === true || String(key || '').startsWith('ai_');
+    const status = explicitStatus || (isAi ? 'ai_draft' : 'reconstruction_unverified');
+    const source = isRecord(options.source)
+      ? options.source
+      : (objectValue && isRecord(raw.source) ? raw.source : null);
+    return {
+      key: stringValue(key),
+      text: objectValue ? stringValue(raw.text) : stringValue(raw),
+      status,
+      source
+    };
+  }
+
+  function translationStatusMeta(status) {
+    if (status === 'verified_quotation') {
+      return {
+        label: '✅ Verified quotation',
+        title: 'Checked against a specific edition; source details are shown below.',
+        className: 'is-verified'
+      };
+    }
+    if (status === 'ai_draft') {
+      return {
+        label: '🤖 AI draft',
+        title: 'Explicitly AI-generated project draft.',
+        className: 'is-ai'
+      };
+    }
+    return {
+      label: '⚠️ Register reconstruction',
+      title: 'AI-crafted rendering in this scholar\'s documented register — not a verbatim published quotation.',
+      className: 'is-reconstruction'
+    };
+  }
+
+  function renderTranslationStatus(entry) {
+    const meta = translationStatusMeta(entry.status);
+    return `<span class="translation-status ${meta.className}" title="${escHtml(meta.title)}">${meta.label}</span>`;
+  }
+
+  function sourceReference(source) {
+    if (!isRecord(source)) return 'Not applicable';
+    const explicit = stringValue(source.page || source.section || source.reference || source.locator);
+    if (explicit) return explicit;
+    // Preserve an actual page/section token embedded in legacy edition metadata;
+    // otherwise disclose the missing locator instead of inventing one.
+    const embedded = `${stringValue(source.edition)} ${stringValue(source.verification)}`
+      .match(/(?:pp?\.?\s*\d+(?:[–-]\d+)?|§\s*[^,;)\n]+|Q&A\s*(?:no\.)?\s*\d+|teaching\s*\d+|episode\s*(?:no\.)?\s*\d+|case\s*\d+)/i);
+    return embedded ? embedded[0] : 'Page/section locator pending';
+  }
+
+  function rightsRecordFor(sourceId) {
+    const manifest = state.data.translations_rights;
+    const sources = manifest && Array.isArray(manifest.sources) ? manifest.sources : [];
+    return sources.find(item => item && item.source_id === sourceId) || null;
+  }
+
+  function renderTranslationSource(entry, translatorName) {
+    const translator = stringValue(translatorName) || formatTranslatorName(entry.key);
+    if (entry.status === 'verified_quotation') {
+      if (!isRecord(entry.source)) {
+        const detail = {
+          title: 'Verified quotation disclosure',
+          rows: [
+            ['Translator', translator],
+            ['Status', 'Verified quotation'],
+            ['Book / edition', 'Source record pending'],
+            ['Page / section', 'Locator pending']
+          ]
+        };
+        return `<div class="translation-source source-missing">⚠️ Source record pending ${renderCitationTrigger(detail, 'ⓘ Citation')}</div>`;
+      }
+      const source = entry.source;
+      const work = stringValue(source.work) || 'Book title pending';
+      const edition = stringValue(source.edition) || 'Edition pending';
+      const page = sourceReference(source);
+      const sourceId = stringValue(source.source_id);
+      const rights = rightsRecordFor(sourceId);
+      const detail = {
+        title: 'Verified translation citation',
+        rows: [
+          ['Translator', translator],
+          ['Status', 'Verified quotation'],
+          ['Book', work],
+          ['Edition', edition],
+          ['Page / section', page],
+          ['Verification', stringValue(source.verification) || 'Verification note pending'],
+          ['Rights record', sourceId || 'Rights identifier pending'],
+          ['Rights status', rights ? stringValue(rights.rights_status) : 'Rights record pending']
+        ]
+      };
+      return `<div class="translation-source">📖 <strong>${escHtml(translator)}</strong> · ${escHtml(work)}<br>Edition: ${escHtml(edition)}<br>Page / section: ${escHtml(page)} ${renderCitationTrigger(detail, 'ⓘ Citation')}</div>`;
+    }
+
+    const isAi = entry.status === 'ai_draft';
+    const disclosure = isAi
+      ? 'AI draft — no external book quotation'
+      : 'Project register reconstruction — not a published book quotation';
+    const detail = {
+      title: 'Translation disclosure',
+      rows: [
+        ['Translator / label', translator],
+        ['Status', isAi ? 'AI draft' : 'Register reconstruction'],
+        ['Book / edition', 'Not applicable — this displayed text is not a verified quotation'],
+        ['Page / section', 'Not applicable — citation prohibited for this project draft'],
+        ['Disclosure', disclosure]
+      ]
+    };
+    return `<div class="translation-source source-disclosure">${isAi ? '🤖' : '⚠️'} <strong>${escHtml(translator)}</strong> — ${escHtml(disclosure)} ${renderCitationTrigger(detail, 'ⓘ Disclosure')}</div>`;
+  }
+
+  function renderProjectDraftDisclosure(label = 'Project AI draft') {
+    if (state.readerMode === 'chinese_only') return '';
+    return renderTranslationSource({ key: 'ai_project', status: 'ai_draft', source: null }, label);
+  }
+
+  function renderFlatTranslationColumns(entries) {
+    return `
+      <div class="translation-grid">
+        ${entries.map(item => {
+          const entry = normalizeTranslationEntry(item.key, item.text);
+          return `
+            <div class="translation-col">
+              <div class="translator-tag">
+                <span>${escHtml(item.name || formatTranslatorName(item.key))}</span>
+                ${renderTranslationStatus(entry)}
+              </div>
+              <div class="translation-text">${escHtml(entry.text)}</div>
+              ${renderTranslationSource(entry, item.name || formatTranslatorName(item.key))}
+            </div>`;
+        }).join('')}
+      </div>`;
+  }
+
   function renderTranslationColumns(translations) {
     if (!translations) return '';
     if (state.readerMode === 'chinese_only') return '';
@@ -922,28 +1211,15 @@
     return `
       <div class="translation-grid">
         ${displayKeys.map(k => {
-          const raw = translations[k];
-          // Support provenance object form {text, status, source} as well as plain strings
-          const isObj = raw && typeof raw === 'object';
-          const text = isObj ? (raw.text || '') : (raw || '');
-          const status = isObj && raw.status ? raw.status : (k.startsWith('ai_') ? 'ai_draft' : 'reconstruction_unverified');
-          const badge = status === 'verified_quotation' ? '✅ Verified quotation'
-                      : status === 'ai_draft' ? 'AI draft'
-                      : '⚠️ Register reconstruction';
-          const badgeTip = status === 'verified_quotation' ? 'Checked against a specific edition (see source field)'
-                      : status === 'ai_draft' ? 'Explicitly AI-generated draft'
-                      : 'AI-crafted rendering in this scholar\'s register — not verbatim published text (see data/translations/provenance.json)';
-          const sourceLine = (status === 'verified_quotation' && isObj && raw.source)
-            ? `<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.35;">📖 ${raw.source.work || ''}${raw.source.edition ? ' · ' + raw.source.edition : ''}${raw.source.verification ? '<br>✓ ' + raw.source.verification : ''}</div>`
-            : '';
+          const entry = normalizeTranslationEntry(k, translations[k]);
           return `
           <div class="translation-col">
             <div class="translator-tag">
-              <span>${formatTranslatorName(k)}</span>
-              <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: normal;" title="${badgeTip}">${badge}</span>
+              <span>${escHtml(formatTranslatorName(k))}</span>
+              ${renderTranslationStatus(entry)}
             </div>
-            <div class="translation-text">${text}</div>
-            ${sourceLine}
+            <div class="translation-text">${escHtml(entry.text)}</div>
+            ${renderTranslationSource(entry, formatTranslatorName(k))}
           </div>`;
         }).join('')}
       </div>
@@ -961,6 +1237,9 @@
       heine: 'Steven Heine',
       yampolsky: 'Philip Yampolsky',
       senzaki_reps: 'Senzaki & Reps (1934)',
+      snyder: 'Gary Snyder',
+      adamek: 'Wendi L. Adamek',
+      liebenthal: 'Walter Liebenthal',
       clarke: 'Richard B. Clarke',
       watson: 'Burton Watson',
       hoffman: 'Yoel Hoffman',
@@ -976,38 +1255,119 @@
     return map[key] || key.replace('_', ' ').toUpperCase();
   }
 
-  // Render Comparison Matrix
+  // Render Comparison Matrix. Unlike the early matrix seed, every visible
+  // translator entry now receives an explicit provenance status and (where
+  // verified) the same citation treatment used by the Reader.
   function renderMatrix() {
-    if (!elements.matrixTarget || !state.data.translations_matrix) return;
+    if (!elements.matrixTarget || !Array.isArray(state.data.translations_matrix)) return;
     const matrixList = state.data.translations_matrix;
 
-    elements.matrixTarget.innerHTML = matrixList.map(item => `
+    elements.matrixTarget.innerHTML = matrixList.map(rawItem => {
+      const item = isRecord(rawItem) ? rawItem : {};
+      const translators = Array.isArray(item.translators) ? item.translators : [];
+      const locator = matrixLocatorForReference(item.source_ref);
+      const sourceDisclosure = renderSourceLocationDisclosure(locator, 'Source location', 'matrix-source-location');
+      return `
       <div class="matrix-card">
         <div class="matrix-header">
-          <div class="matrix-ref">📌 ${item.source_ref}</div>
+          <div class="matrix-ref">📌 ${escHtml(item.source_ref)}</div>
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(item.sentence_zh)}</div>
-        <div class="pinyin-line">${item.sentence_pinyin}</div>
+        <div class="pinyin-line">${escHtml(item.sentence_pinyin)}</div>
+        ${sourceDisclosure}
         <div class="matrix-grid">
-          ${item.translators.map(t => `
+          ${translators.map(rawTranslator => {
+            const t = isRecord(rawTranslator) ? rawTranslator : {};
+            const entry = normalizeTranslationEntry(t.translator, {
+              text: t.text,
+              status: t.status,
+              source: t.source
+            }, {
+              isAI: /\bAI\b/i.test(stringValue(t.translator))
+            });
+            return `
             <div class="matrix-col">
               <div>
-                <div class="matrix-author">${t.translator}</div>
-                <div class="matrix-work">${t.work} (${t.style})</div>
-                <div class="matrix-text">"${t.text}"</div>
+                <div class="matrix-author">${escHtml(t.translator)}</div>
+                <div class="matrix-work">${escHtml(t.work)}${t.style ? ` (${escHtml(t.style)})` : ''}</div>
+                <div class="matrix-text">“${escHtml(entry.text)}”</div>
               </div>
-              ${t.status ? `<div style="font-size:0.68rem; margin-top:0.4rem; color: var(--text-muted);">${t.status === 'verified_quotation' ? '✅ Verified quotation' : t.status === 'ai_draft' ? '🤖 AI draft' : '⚠️ Register reconstruction (unverified)'}</div>` : ''}
-              <div class="matrix-note">💡 ${t.notes}</div>
+              ${renderTranslationStatus(entry)}
+              ${renderTranslationSource(entry, t.translator)}
+              <div class="matrix-note">💡 ${escHtml(t.notes)}</div>
             </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
       </div>
-    `).join('');
+      `;
+    }).join('');
+  }
+
+  // ---- Lineage chart aggregation + verification registry ----
+  function lineageVerificationRegistry() {
+    return isRecord(state.data.lineage_verification) ? state.data.lineage_verification : {};
+  }
+
+  function lineageEdgeRecord(teacher, disciple) {
+    const registry = lineageVerificationRegistry();
+    const edges = Array.isArray(registry.edges) ? registry.edges : [];
+    return edges.find(edge => edge && edge.teacher === teacher && edge.disciple === disciple) || {
+      teacher,
+      disciple,
+      status: 'source_missing',
+      source_id: '',
+      reference: 'No lineage verification record has been registered.',
+      note: 'Do not treat this displayed link as source-verified.'
+    };
+  }
+
+  function lineageSourceRecord(sourceId) {
+    const registry = lineageVerificationRegistry();
+    const sources = Array.isArray(registry.sources) ? registry.sources : [];
+    return sources.find(source => source && source.source_id === sourceId) || null;
+  }
+
+  function lineageStatusMeta(status) {
+    if (status === 'source_verified') return { label: 'Source verified', className: 'is-verified' };
+    if (status === 'disputed') return { label: 'Disputed lineage claim', className: 'is-disputed' };
+    if (status === 'traditional_link_pending_exact_locator') {
+      return { label: 'Traditional link — exact locator pending', className: 'is-pending' };
+    }
+    return { label: 'Source record pending', className: 'is-missing' };
+  }
+
+  function renderLineageVerificationSummary() {
+    if (!elements.lineageVerificationSummary) return;
+    const registry = lineageVerificationRegistry();
+    const edges = Array.isArray(registry.edges) ? registry.edges : [];
+    const frontiers = Array.isArray(registry.frontiers) ? registry.frontiers : [];
+    const counts = edges.reduce((out, edge) => {
+      const status = edge && edge.status ? edge.status : 'source_missing';
+      out[status] = (out[status] || 0) + 1;
+      return out;
+    }, {});
+    const pending = counts.traditional_link_pending_exact_locator || 0;
+    const verified = counts.source_verified || 0;
+    const detail = {
+      title: 'Lineage chart aggregation status',
+      rows: [
+        ['Internal links represented', String(edges.length)],
+        ['Source-verified links', String(verified)],
+        ['Traditional links awaiting exact locator', String(pending)],
+        ['Frontier teachers not yet profiled', String(frontiers.length)],
+        ['Policy', stringValue(registry.policy) || 'Lineage verification registry pending.']
+      ]
+    };
+    elements.lineageVerificationSummary.innerHTML =
+      `<span>📚 Chart status: ${verified} source-verified · ${pending} traditional links awaiting exact locators · ${frontiers.length} frontiers</span>` +
+      renderCitationTrigger(detail, 'ⓘ Verification details');
   }
 
   // Render Lineage Explorer
   function renderLineage() {
     if (!elements.lineageTarget || !state.data.lineage) return;
+    renderLineageVerificationSummary();
     let masters = state.data.lineage;
 
     if (state.selectedMasterSchool !== 'all') {
@@ -1050,9 +1410,10 @@
     const svg = document.getElementById('lineage-svg-graph');
     if (!svg) return;
 
-    const width = svg.clientWidth || 900;
-    const height = 480;
-    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    const width = Math.max(720, svg.clientWidth || 900);
+    const ROW_GAP = 88;
+    const TOP_PAD = 78;
+    const BOTTOM_PAD = 74;
     svg.innerHTML = '';
 
     // Define school colors
@@ -1084,24 +1445,44 @@
     });
 
     const gens = Object.keys(genGroups).map(Number).sort((a, b) => a - b);
+    const height = Math.max(720, TOP_PAD + Math.max(0, gens.length - 1) * ROW_GAP + BOTTOM_PAD);
+    svg.setAttribute('height', String(height));
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+    // A vertical generation layout trades the old compressed 18-column strip for
+    // breathing room: each generation is a calm horizontal row, labels have a
+    // full row gap, and the chart scrolls naturally rather than overlapping.
     const nodeCoords = {};
+    const rowLabelX = 18;
+    const horizontalMargin = Math.min(108, Math.max(64, width * 0.12));
+    let generationLabelsHtml = '<g class="graph-generation-labels">';
 
     gens.forEach((gen, gIdx) => {
       const group = genGroups[gen];
-      const x = 70 + gIdx * ((width - 140) / Math.max(1, gens.length - 1));
+      const y = TOP_PAD + gIdx * ROW_GAP;
+      const availableWidth = width - horizontalMargin * 2;
+      generationLabelsHtml += `<text x="${rowLabelX}" y="${y + 4}" text-anchor="start" font-size="10" font-weight="700" fill="var(--text-muted)" font-family="var(--font-sans)">G${gen}</text>`;
       group.forEach((m, mIdx) => {
-        const y = 60 + (mIdx + 1) * ((height - 120) / (group.length + 1));
+        const x = group.length === 1
+          ? width / 2
+          : horizontalMargin + mIdx * (availableWidth / Math.max(1, group.length - 1));
         nodeCoords[m.id] = { x, y, master: m };
       });
     });
+    generationLabelsHtml += '</g>';
 
-    // Draw Links (Teacher -> Disciple)
-    let linksHtml = '<g class="graph-links" stroke="var(--border-focus)" stroke-width="1.8" stroke-opacity="0.6" stroke-dasharray="3,3">';
+    // Draw Links (Teacher -> Disciple). Every displayed link resolves through
+    // the verification registry; pending traditional claims stay visually distinct.
+    let linksHtml = '<g class="graph-links">';
     masters.forEach(m => {
       if (m.teacher && nodeCoords[m.teacher] && nodeCoords[m.id]) {
         const source = nodeCoords[m.teacher];
         const target = nodeCoords[m.id];
-        linksHtml += `<line x1="${source.x}" y1="${source.y}" x2="${target.x}" y2="${target.y}" />`;
+        const edge = lineageEdgeRecord(m.teacher, m.id);
+        const meta = lineageStatusMeta(edge.status);
+        const sourceRecord = lineageSourceRecord(edge.source_id);
+        const edgeTitle = `${source.master.name_en} → ${target.master.name_en}: ${meta.label}${sourceRecord ? ` (${sourceRecord.title})` : ''}`;
+        linksHtml += `<line class="graph-link ${meta.className}" x1="${source.x}" y1="${source.y + 27}" x2="${target.x}" y2="${target.y - 27}" role="button" tabindex="0" aria-label="${escHtml(edgeTitle)}" onclick="window.TranslateChan.openLineageEdge('${m.teacher}', '${m.id}')"><title>${escHtml(edgeTitle)}</title></line>`;
       }
     });
     linksHtml += '</g>';
@@ -1112,18 +1493,21 @@
       const { x, y, master } = nodeCoords[id];
       const color = schoolColors[master.school] || '#b38238';
 
+      const shortName = stringValue(master.name_en).split(' ').pop().slice(0, 14);
       nodesHtml += `
-        <g class="graph-node" transform="translate(${x}, ${y})" style="cursor: pointer;" role="button" tabindex="0" aria-label="${master.name_en} — open dossier" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
-          <circle r="22" fill="var(--bg-card)" stroke="${color}" stroke-width="3" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.15))"></circle>
-          <text text-anchor="middle" dy=".3em" font-size="11" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${master.name_zh.slice(-2)}</text>
-          <text text-anchor="middle" dy="34" font-size="9.5" font-weight="600" fill="var(--text-secondary)">${master.name_en.split(' ').pop()}</text>
+        <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
+          <circle class="graph-node-halo" r="30" fill="${color}" fill-opacity="0.09"></circle>
+          <circle r="24" fill="var(--bg-card)" stroke="${color}" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.12))"></circle>
+          <text text-anchor="middle" dy=".34em" font-size="12" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${escHtml(master.name_zh.slice(-2))}</text>
+          <text text-anchor="middle" y="40" font-size="10" font-weight="650" fill="var(--text-secondary)" font-family="var(--font-sans)">${escHtml(shortName)}</text>
         </g>
       `;
     });
     nodesHtml += '</g>';
 
-    // Wrap in a transformable group for pan/zoom (kept across re-renders)
-    svg.innerHTML = `<g class="lineage-panzoom" id="lineage-panzoom">${linksHtml}${nodesHtml}</g>`;
+    // Wrap in a transformable group for pan/zoom (kept across re-renders).
+    // Generation labels travel with the chart, so panning never detaches context.
+    svg.innerHTML = `<g class="lineage-panzoom" id="lineage-panzoom">${generationLabelsHtml}${linksHtml}${nodesHtml}</g>`;
     ensureLineagePanZoom(svg);
   }
 
@@ -1213,9 +1597,10 @@
 
     svg.addEventListener('keydown', (e) => {
       const node = e.target && e.target.closest ? e.target.closest('.graph-node') : null;
-      if (node && (e.key === 'Enter' || e.key === ' ')) {
+      const edge = e.target && e.target.closest ? e.target.closest('.graph-link') : null;
+      if ((node || edge) && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
-        node.click();
+        (node || edge).click();
       }
     });
   }
@@ -1236,11 +1621,20 @@
     if (nameZh) nameZh.textContent = `${master.name_zh} (${master.title})`;
     if (nameEn) nameEn.textContent = `${master.name_en} • Pinyin: ${master.name_pinyin} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
     if (content) {
+      const masterCitation = {
+        title: 'Master profile source disclosure',
+        rows: [
+          ['Master', `${master.name_zh} / ${master.name_en}`],
+          ['Canonical record', stringValue(master.cbeta_id) || 'Locator pending'],
+          ['Primary texts', Array.isArray(master.texts) ? master.texts.join(', ') : 'Transmission record pending'],
+          ['Profile status', 'Seed profile — exact biographical/source locator pending']
+        ]
+      };
       content.innerHTML = `
         <div style="margin-top: 0.5rem; margin-bottom: 0.75rem;">
-          <strong>🏛️ School / Lineage:</strong> ${master.school} &nbsp;|&nbsp;
-          <strong>📍 Primary Monastery:</strong> ${master.location} &nbsp;|&nbsp;
-          <strong>📜 CBETA ID:</strong> ${master.cbeta_id}
+          <strong>🏛️ School / Lineage:</strong> ${escHtml(master.school)} &nbsp;|&nbsp;
+          <strong>📍 Primary Monastery:</strong> ${escHtml(master.location)} &nbsp;|&nbsp;
+          <strong>📜 Canonical record:</strong> ${escHtml(master.cbeta_id)} ${renderCitationTrigger(masterCitation, 'ⓘ Profile source')}
         </div>
         <div class="master-quote" style="background: var(--bg-card); margin-bottom: 0.75rem;">
           "${master.key_quote_zh}"
@@ -1265,6 +1659,53 @@
         panel.style.display = 'none';
       };
     }
+  };
+
+  window.TranslateChan.openLineageEdge = function(teacherId, discipleId) {
+    const edge = lineageEdgeRecord(teacherId, discipleId);
+    const source = lineageSourceRecord(edge.source_id);
+    const teacher = (state.data.lineage || []).find(master => master.id === teacherId);
+    const disciple = (state.data.lineage || []).find(master => master.id === discipleId);
+    const panel = document.getElementById('master-dossier-panel');
+    const nameZh = document.getElementById('dossier-name-zh');
+    const nameEn = document.getElementById('dossier-name-en');
+    const content = document.getElementById('dossier-content');
+    const closeBtn = document.getElementById('dossier-close-btn');
+    const meta = lineageStatusMeta(edge.status);
+    const teacherName = teacher ? `${teacher.name_zh} / ${teacher.name_en}` : teacherId;
+    const discipleName = disciple ? `${disciple.name_zh} / ${disciple.name_en}` : discipleId;
+    const detail = {
+      title: 'Lineage link citation',
+      rows: [
+        ['Teacher', teacherName],
+        ['Disciple', discipleName],
+        ['Status', meta.label],
+        ['Source chart / record', source ? stringValue(source.title) : 'Source record pending'],
+        ['Canonical source', source ? stringValue(source.canonical_id) : 'Locator pending'],
+        ['Source reference', source ? stringValue(source.reference) : 'Locator pending'],
+        ['Edge reference', stringValue(edge.reference)],
+        ['Verification note', stringValue(edge.note)]
+      ]
+    };
+
+    if (nameZh) nameZh.textContent = '法脈連結 / Lineage Link';
+    if (nameEn) nameEn.textContent = `${teacherName} → ${discipleName}`;
+    if (content) {
+      content.innerHTML = `
+        <div style="margin-top:0.5rem; margin-bottom:0.75rem;">
+          <strong>Verification status:</strong> ${escHtml(meta.label)}
+        </div>
+        <div class="commentary-block" style="background:var(--bg-card); border-left-color:var(--accent-blue); margin:0;">
+          <div class="commentary-label" style="color:var(--accent-blue);">Lineage chart disclosure</div>
+          <div style="font-size:0.9rem; color:var(--text-primary);">${escHtml(stringValue(edge.note) || 'No verification note recorded.')}</div>
+          <div style="margin-top:0.55rem;">${renderCitationTrigger(detail, 'ⓘ Source chart & verification')}</div>
+        </div>`;
+    }
+    if (panel) {
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (closeBtn) closeBtn.onclick = () => { panel.style.display = 'none'; };
   };
 
   // Render Gong'an Index
@@ -1335,386 +1776,6 @@
     `).join('');
   }
 
-  // Setup Personal Translation Studio
-  function setupStudio() {
-    if (!elements.studioSelectText) return;
-
-    // Build studio passages live from the data bundle (single source of truth);
-    // combines a unit's dialogue/zh/pinyin and merges its translation registers.
-    function combineUnits(units) {
-      const zh = units.map(u => u.zh || '').filter(Boolean).join(' ');
-      const pinyin = units.map(u => u.pinyin || '').filter(Boolean).join(' ');
-      const translations = {};
-      units.forEach(u => {
-        const tr = u.translations || {};
-        Object.keys(tr).forEach(k => { if (!translations[k]) translations[k] = tr[k]; });
-      });
-      return { zh, pinyin, translations };
-    }
-
-    function buildStudioPassages() {
-      const corpus = state.data.corpus || {};
-      const passages = [];
-      const add = (id, label, combined) => {
-        if (combined && combined.zh) passages.push({ id, label, zh: combined.zh, pinyin: combined.pinyin, translations: combined.translations });
-      };
-
-      const wm = corpus.wumenguan;
-      if (wm && Array.isArray(wm.cases)) {
-        wm.cases.forEach(c => {
-          add(`wumen_${c.case_num}`, `Wumenguan Case ${c.case_num}: ${c.title_en || c.title_zh}`, combineUnits(c.dialogue || []));
-        });
-      }
-      const linji = corpus.linji_yulu;
-      if (linji && linji.sections && linji.sections[0]) {
-        add('linji_1', `Linji Yulu: ${linji.sections[0].title_en || linji.sections[0].title_zh}`, combineUnits((linji.sections[0].dialogue || []).slice(0, 3)));
-      }
-      const hb = corpus.huangbo_chuanxin;
-      if (hb && hb.sections && hb.sections[0]) {
-        add('huangbo_1', `Huangbo Chuanxin: ${hb.sections[0].title_en || hb.sections[0].title_zh}`, combineUnits((hb.sections[0].dialogue || []).slice(0, 1)));
-      }
-      const xxm = corpus.xinxin_ming;
-      if (xxm && xxm.stanzas && xxm.stanzas[0]) {
-        add('xinxin_1', 'Xinxin Ming: Opening Stanza (至道無難)', combineUnits([xxm.stanzas[0]]));
-      }
-      const ps = corpus.platform_sutra;
-      if (ps && ps.chapters && ps.chapters[0] && ps.chapters[0].verses) {
-        const ch = ps.chapters[0];
-        const huineng = ch.verses.find(v => v.zh && v.zh.includes('菩提本無樹')) || ch.verses[0];
-        add('platform_1', `Platform Sutra: ${ch.title_en || ch.title_zh}`, combineUnits([huineng]));
-      }
-      return passages;
-    }
-
-    let studioPassages = buildStudioPassages();
-
-    // Fallback (should not trigger while the bundle is intact)
-    if (studioPassages.length === 0) {
-      studioPassages = [
-      {
-        id: 'wumen_1',
-        label: 'Wumenguan Case 1: Zhaozhou Dog (狗子還有佛性也無？州云：無。)',
-        zh: '趙州和尚因僧問：「狗子還有佛性也無？」州云：「無。」',
-        pinyin: 'Zhàozhōu héshang yīn sēng wèn: "Gǒuzi hái yǒu fóxìng yě wú?" Zhōu yún: "Wú."',
-        translations: {
-          red_pine: "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?' Zhaozhou said: 'Wu!'",
-          cleary: "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?' Zhaozhou said, 'No.'",
-          sasaki: "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?' Jōshū said: 'Mu!'",
-          suzuki: "A monk asked Chao-chou: 'Has a dog Buddha-nature?' Chao-chou replied: 'Wu!'",
-          blyth: "A monk asked Jōshū, 'Has a dog the Buddha Nature?' Jōshū answered: 'Mu!'",
-          blofeld: "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?' The Master replied: 'None!'",
-          ai_literal: "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?' Zhou said: 'Not.'"
-        }
-      },
-      {
-        id: 'wumen_2',
-        label: 'Wumenguan Case 2: Baizhang Fox (大修行底人還落因果也無？不昧因果。)',
-        zh: '大修行底人還落因果也無？師曰：不昧因果。',
-        pinyin: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú? Shī yuē: Bù mèi yīnguǒ.',
-        translations: {
-          red_pine: "Does a person of great practice still fall into causality? The Master said: Is not blind to causality.",
-          cleary: "Does an adept of great cultivation still fall into cause and effect? The Master said: Is not blind to cause and effect.",
-          sasaki: "Does a great practitioner fall under cause and effect? Hyakujō said: Not blind to cause and effect."
-        }
-      },
-      {
-        id: 'wumen_19',
-        label: 'Wumenguan Case 19: Ordinary Mind (平常心是道。擬向即乖。)',
-        zh: '平常心是道。擬向即乖。道不屬知，不屬不知。',
-        pinyin: 'Píngcháng xīn shì dào. Nǐ xiàng jí guāi. Dào bù shǔ zhī, bù shǔ bù zhī.',
-        translations: {
-          red_pine: "Ordinary mind is the Way. To intend toward it is to go astray. The Way belongs neither to knowing nor not-knowing.",
-          cleary: "Ordinary mind is the Way. To intend toward it is to deviate from it. The Way does not belong to knowing or not-knowing.",
-          sasaki: "Ordinary mind is the Way. If you try to direct yourself toward it, you go astray."
-        }
-      },
-      {
-        id: 'linji_1',
-        label: 'Linji Yulu: True Person of No Rank (赤肉團上有一無位真人)',
-        zh: '赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！',
-        pinyin: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!',
-        translations: {
-          red_pine: "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
-          cleary: "On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!",
-          sasaki: "On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!"
-        }
-      },
-      {
-        id: 'huangbo_1',
-        label: 'Huangbo Chuanxin: One Mind (諸佛與一切眾生唯是一心)',
-        zh: '諸佛與一切眾生，唯是一心，更無別法。此心無始已來，不曾生不曾滅。',
-        pinyin: 'Zhūfó yǔ yīqiè zhòngshēng, wéi shì yī xīn, gèng wú bié fǎ. Cǐ xīn wú shǐ yǐ lái, bù céng shēng bù céng miè.',
-        translations: {
-          blofeld: "All the Buddhas and all sentient beings are nothing whatever but the One Mind, besides which nothing exists. This Mind from beginningless time is unborn and indestructible.",
-          cleary: "All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes.",
-          red_pine: "Buddhas and all sentient beings are nothing other than One Mind, beyond which is no other dharma."
-        }
-      },
-      {
-        id: 'xinxin_1',
-        label: 'Xinxin Ming: Line 1 (至道無難，唯嫌揀擇。但莫憎愛，洞然明白。)',
-        zh: '至道無難，唯嫌揀擇。但莫憎愛，洞然明白。',
-        pinyin: 'Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.',
-        translations: {
-          red_pine: "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
-          cleary: "The Great Way is not difficult, it only avoids picking and choosing. Just do not love or hate, and it is clearly evident.",
-          suzuki: "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised."
-        }
-      },
-      {
-        id: 'platform_1',
-        label: 'Platform Sutra: Huineng Verse (菩提本無樹，明鏡亦非臺。)',
-        zh: '菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。',
-        pinyin: 'Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén\'āi.',
-        translations: {
-          red_pine: "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
-          cleary: "Bodhi fundamentally has no tree, nor is the clear mirror a stand. Originally there is not a single thing; where could dust gather?",
-          yampolsky: "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?"
-        }
-      }
-      ];
-    }
-
-    elements.studioSelectText.innerHTML = studioPassages.map(opt => `
-      <option value="${opt.id}">${opt.label}</option>
-    `).join('');
-
-    function updateRefTranslationDisplay(selectedPassage) {
-      if (!selectedPassage || !elements.studioRefText) return;
-      const refKey = elements.studioRefTranslatorSelect ? elements.studioRefTranslatorSelect.value : 'red_pine';
-      const text = (selectedPassage.translations && selectedPassage.translations[refKey]) ||
-                   (selectedPassage.translations && Object.values(selectedPassage.translations)[0]) ||
-                   'No reference available for this translator.';
-      elements.studioRefText.innerHTML = `<strong>${formatTranslatorName(refKey)}:</strong> "${text}"`;
-    }
-
-    function detectTermsInPassage(zhText) {
-      if (!elements.studioDetectedTerms || !state.data.glossary) return;
-      const termsFound = state.data.glossary.filter(item => zhText.includes(item.term));
-      if (termsFound.length === 0) {
-        elements.studioDetectedTerms.innerHTML = '';
-        return;
-      }
-      elements.studioDetectedTerms.innerHTML = `
-        <div style="width: 100%; font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.2rem;">Detected Terms in Lexicon:</div>
-        ${termsFound.map(t => `
-          <span class="meta-chip" style="cursor: pointer; background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold);" title="${t.definition}">
-            📖 ${t.term} (${t.literal})
-          </span>
-        `).join('')}
-      `;
-    }
-
-    function loadSelectedPassage(id) {
-      const selected = studioPassages.find(o => o.id === id);
-      if (selected) {
-        elements.studioSourceZh.innerHTML = annotateClassicalChinese(selected.zh);
-        elements.studioSourcePinyin.textContent = selected.pinyin;
-        if (elements.studioCharCount) {
-          elements.studioCharCount.textContent = `${selected.zh.length} classical characters`;
-        }
-
-        updateRefTranslationDisplay(selected);
-        detectTermsInPassage(selected.zh);
-
-        const saved = state.personalTranslations[id];
-        if (saved) {
-          elements.studioUserTranslation.value = saved.translation || '';
-          elements.studioUserNotes.value = saved.notes || '';
-          if (elements.studioStatus) elements.studioStatus.textContent = `Loaded saved draft (${saved.updatedAt})`;
-        } else {
-          elements.studioUserTranslation.value = '';
-          elements.studioUserNotes.value = '';
-          if (elements.studioStatus) elements.studioStatus.textContent = 'Ready for drafting.';
-        }
-      }
-    }
-
-    elements.studioSelectText.addEventListener('change', (e) => {
-      loadSelectedPassage(e.target.value);
-    });
-
-    if (elements.studioRefTranslatorSelect) {
-      elements.studioRefTranslatorSelect.addEventListener('change', () => {
-        const id = elements.studioSelectText.value;
-        const selected = studioPassages.find(o => o.id === id);
-        updateRefTranslationDisplay(selected);
-      });
-    }
-
-    // Save translation
-    if (elements.studioSaveBtn) {
-      elements.studioSaveBtn.addEventListener('click', () => {
-        const id = elements.studioSelectText.value;
-        const selected = studioPassages.find(o => o.id === id);
-        state.personalTranslations[id] = {
-          passageId: id,
-          title: selected ? selected.label : id,
-          source_zh: selected ? selected.zh : '',
-          source_pinyin: selected ? selected.pinyin : '',
-          translation: elements.studioUserTranslation.value,
-          notes: elements.studioUserNotes.value,
-          updatedAt: new Date().toLocaleString()
-        };
-        localStorage.setItem('translatechan_user_translations', JSON.stringify(state.personalTranslations));
-        if (elements.studioStatus) {
-          elements.studioStatus.textContent = '✅ Saved translation to local repository storage!';
-          setTimeout(() => {
-            elements.studioStatus.textContent = `Last modified: ${new Date().toLocaleString()}`;
-          }, 2500);
-        }
-        renderSavedList();
-      });
-    }
-
-    // Export JSON
-    if (elements.studioExportJsonBtn) {
-      elements.studioExportJsonBtn.addEventListener('click', () => {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state.personalTranslations, null, 2));
-        const dlAnchor = document.createElement('a');
-        dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", "translatechan_personal_corpus.json");
-        dlAnchor.click();
-      });
-    }
-
-    // Export Markdown
-    if (elements.studioExportMdBtn) {
-      elements.studioExportMdBtn.addEventListener('click', () => {
-        let md = `# TranslateChan: Personal Translation & Scholarly Notebook\n\nGenerated: ${new Date().toISOString()}\nProject: https://github.com/56eli/translatechan\n\n---\n\n`;
-        Object.keys(state.personalTranslations).forEach(k => {
-          const item = state.personalTranslations[k];
-          md += `## ${item.title}\n\n`;
-          md += `### Classical Chinese Source\n> ${item.source_zh}\n\n`;
-          if (item.source_pinyin) md += `*Pinyin*: \`${item.source_pinyin}\`\n\n`;
-          md += `### Personal English Translation\n> ${item.translation}\n\n`;
-          md += `### Philological Commentary & Hermeneutics\n${item.notes}\n\n`;
-          md += `*Last modified: ${item.updatedAt}*\n\n---\n\n`;
-        });
-        const dataStr = "data:text/markdown;charset=utf-8," + encodeURIComponent(md);
-        const dlAnchor = document.createElement('a');
-        dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", "translatechan_scholarly_notebook.md");
-        dlAnchor.click();
-      });
-    }
-
-    // Export LaTeX
-    if (elements.studioExportLatexBtn) {
-      elements.studioExportLatexBtn.addEventListener('click', () => {
-        let tex = `% TranslateChan Academic Paper Edition
-\\documentclass[11pt,twocolumn]{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{ctex}
-\\usepackage{amsmath,amssymb}
-\\usepackage{geometry}
-\\geometry{margin=1in}
-
-\\title{TranslateChan: Critical Bilingual Editions of Classical Chinese Chan Literature}
-\\author{TranslateChan Research Scholar}
-\\date{\\today}
-
-\\begin{document}
-\\maketitle
-
-\\begin{abstract}
-This document contains personal critical translations, sentence-aligned Classical Chinese source texts, and philological notes produced via the TranslateChan platform (\\texttt{56eli/translatechan}).
-\\end{abstract}
-
-\\section{Canonical Translations}
-`;
-        Object.keys(state.personalTranslations).forEach((k, idx) => {
-          const item = state.personalTranslations[k];
-          tex += `
-\\subsection{${item.title.replace(/[#&_]/g, '\\$&')}}
-
-\\noindent\\textbf{Classical Chinese Source:}
-\\begin{quote}
-\\large ${item.source_zh}
-\\end{quote}
-
-\\noindent\\textbf{Personal Translation:}
-\\begin{quote}
-${item.translation.replace(/[#&_]/g, '\\$&')}
-\\end{quote}
-
-\\noindent\\textbf{Philological Apparatus:}
-\\begin{enumerate}
-\\item ${item.notes.replace(/[#&_]/g, '\\$&')}
-\\end{enumerate}
-`;
-        });
-        tex += `\n\\end{document}\n`;
-
-        const dataStr = "data:text/plain;charset=utf-8," + encodeURIComponent(tex);
-        const dlAnchor = document.createElement('a');
-        dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", "translatechan_edition.tex");
-        dlAnchor.click();
-      });
-    }
-
-    // Clear All
-    if (elements.studioClearAllBtn) {
-      elements.studioClearAllBtn.addEventListener('click', () => {
-        if (confirm("Are you sure you want to clear all saved personal translation drafts? This cannot be undone.")) {
-          state.personalTranslations = {};
-          localStorage.removeItem('translatechan_user_translations');
-          renderSavedList();
-          loadSelectedPassage(elements.studioSelectText.value);
-        }
-      });
-    }
-
-    function renderSavedList() {
-      if (!elements.studioSavedList) return;
-      const filterEl = document.getElementById('studio-draft-filter');
-      const q = filterEl ? filterEl.value.trim().toLowerCase() : '';
-      const keys = Object.keys(state.personalTranslations)
-        .filter(k => !q || (state.personalTranslations[k].title || '').toLowerCase().includes(q) ||
-                      (state.personalTranslations[k].translation || '').toLowerCase().includes(q))
-        .sort((a, b) => String(state.personalTranslations[b].updatedAt || '').localeCompare(String(state.personalTranslations[a].updatedAt || '')));
-      if (keys.length === 0) {
-        elements.studioSavedList.innerHTML = '<p style="font-size: 0.85rem; color: var(--text-muted);">' +
-          (Object.keys(state.personalTranslations).length === 0 ? 'No saved personal translations yet.' : 'No drafts match your filter.') + '</p>';
-        return;
-      }
-      elements.studioSavedList.innerHTML = keys.map(k => {
-        const item = state.personalTranslations[k];
-        return `
-          <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 0.5rem;">
-            <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
-              <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-gold);">${item.title}</div>
-              <button class="btn-pill studio-draft-delete" data-draft-id="${k}" style="font-size:0.68rem; color:var(--accent-red); flex:none;" aria-label="Delete draft ${k}">✕ Delete</button>
-            </div>
-            <div style="font-size: 0.82rem; margin: 0.25rem 0; color: var(--text-primary);">"${item.translation}"</div>
-            <div style="font-size: 0.7rem; color: var(--text-muted);">Saved: ${item.updatedAt}</div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    const draftFilterEl = document.getElementById('studio-draft-filter');
-    if (draftFilterEl) draftFilterEl.addEventListener('input', renderSavedList);
-
-    window.TranslateChan.deleteDraft = function(id) {
-      if (state.personalTranslations[id]) {
-        delete state.personalTranslations[id];
-        try { localStorage.setItem('translatechan_user_translations', JSON.stringify(state.personalTranslations)); } catch (e) { /* ignore */ }
-        renderSavedList();
-      }
-    };
-    if (elements.studioSavedList) {
-      elements.studioSavedList.addEventListener('click', (e) => {
-        const btn = e.target.closest ? e.target.closest('.studio-draft-delete') : null;
-        if (btn) window.TranslateChan.deleteDraft(btn.getAttribute('data-draft-id'));
-      });
-    }
-
-    loadSelectedPassage(studioPassages[0].id);
-    renderSavedList();
-  }
-
   // ---- Search: universal segment extraction across every corpus schema ----
   // Orthographic variant pairs found across canon editions. Both spellings are
   // normalized to ONE canonical side (first listed) so 洗鉢盂去/洗缽盂去, 師云/師曰
@@ -1731,8 +1792,9 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     try { return new RegExp(escaped, 'gi'); } catch (e) { return null; }
   }
   function extractSearchableUnits(doc, corpKey) {
-    // Returns [{label, jump, zh, pinyin, blob}] covering cases, sections, dialogues,
-    // stanzas, chapters, five_ranks, sample_records, preface/epilogue.
+    // Returns [{label, jump, zh, pinyin, blob}] covering cases (including pointers,
+    // commentary and verses), sections, dialogues, stanzas, chapters, five_ranks,
+    // sample_records, and preface/epilogue.
     const units = [];
     const asBlob = (...parts) => normalizeForSearch(parts.filter(Boolean).join(' '));
     const blobWithTranslations = (tr) => tr ? Object.values(tr).map(v => (v && typeof v === 'object' ? v.text : v)).filter(Boolean).join(' ') : '';
@@ -1755,6 +1817,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     (doc.cases || []).forEach(c => {
       const label = `第${c.case_num}則 ${c.title_zh || ''} / ${c.title_en || ''}`;
       fromDialogue(c.dialogue, label, { kind: 'case', num: c.case_num });
+      if (c.pointer_zh) units.push({ label: label + ' · pointer', jump: { kind: 'case', num: c.case_num }, zh: c.pointer_zh, pinyin: c.pointer_pinyin || '', blob: asBlob(label, c.pointer_zh, c.pointer_pinyin, c.pointer_en) });
       if (c.commentary_zh) units.push({ label: label + ' · commentary', jump: { kind: 'case', num: c.case_num }, zh: c.commentary_zh, pinyin: c.commentary_pinyin || '', blob: asBlob(label, c.commentary_zh, c.commentary_pinyin, c.commentary_en) });
       if (c.verse_zh) units.push({ label: label + ' · verse', jump: { kind: 'case', num: c.case_num }, zh: c.verse_zh, pinyin: c.verse_pinyin || '', blob: asBlob(label, c.verse_zh, c.verse_pinyin, c.verse_en) });
       // explicit title unit so title-only queries surface the case
@@ -1789,17 +1852,31 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
   }
 
   function makeSnippet(zh, q) {
-    // window the classical text around the first hit, then highlight all hits
-    // (variant-aware; query text is HTML-escaped before insertion)
-    const raw = zh || '';
+    // Window the classical text around the first hit, then highlight all hits.
+    // Escape every non-match too: escaping only the marked match left a source-data
+    // injection path in the previous implementation.
+    const raw = stringValue(zh);
     const re = variantRegex(q);
     const first = re ? raw.search(re) : -1;
     const center = first === -1 ? 0 : first;
     const start = Math.max(0, center - 30);
     const end = Math.min(raw.length, center + 50);
-    let snip = (start > 0 ? '…' : '') + raw.slice(start, end) + (end < raw.length ? '…' : '');
-    if (re) snip = snip.replace(re, m => `<mark>${escHtml(m)}</mark>`);
-    return snip;
+    const snip = (start > 0 ? '…' : '') + raw.slice(start, end) + (end < raw.length ? '…' : '');
+    if (!re) return escHtml(snip);
+
+    let html = '';
+    let cursor = 0;
+    let match;
+    re.lastIndex = 0;
+    while ((match = re.exec(snip)) !== null) {
+      html += escHtml(snip.slice(cursor, match.index));
+      html += `<mark>${escHtml(match[0])}</mark>`;
+      cursor = re.lastIndex;
+      // The UI never submits an empty query, but keep the loop safe if this
+      // helper is reused with a zero-width expression in the future.
+      if (match[0] === '') re.lastIndex++;
+    }
+    return html + escHtml(snip.slice(cursor));
   }
 
   // D1: searchable units are expensive to extract (traversal + string building),
@@ -1829,44 +1906,55 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     if (!elements.readerContent || !state.data.corpus) return;
 
     const qLower = normalizeForSearch(q);
-    let totalHits = 0;
-    const perDocHits = {};
-    let bodyHtml = '';
-    const MAX_TOTAL_HITS = 200; // keep results digestible — no wall-of-cards
-
+    const MAX_RESULT_CARDS = 200;
+    const MAX_PER_DOCUMENT = 12;
     const searchIndex = getSearchUnitsIndex();
-    Object.keys(state.data.corpus).forEach(corpKey => {
-      if (totalHits >= MAX_TOTAL_HITS) return;
+    const matchedDocuments = Object.keys(state.data.corpus).map(corpKey => {
       const doc = state.data.corpus[corpKey];
-      const units = searchIndex[corpKey];
+      const units = searchIndex[corpKey] || [];
       const hits = units.filter(u => u.blob.includes(qLower) || (u.zh && normalizeForSearch(u.zh).includes(qLower)));
-      if (hits.length === 0) return;
+      return { corpKey, doc, hits };
+    }).filter(result => result.hits.length > 0);
 
-      perDocHits[corpKey] = hits.length;
-      totalHits += hits.length;
+    // Count every matched unit before applying presentation limits. This keeps the
+    // header truthful even when cards are deliberately capped for readability.
+    const totalHits = matchedDocuments.reduce((sum, result) => sum + result.hits.length, 0);
+    let displayedHits = 0;
+    let bodyHtml = '';
 
-      bodyHtml += `<div style="margin: 1.25rem 0 0.4rem; font-weight: 700; color: var(--accent-gold);">${doc.title_zh} · ${doc.title_en} — ${hits.length} 處 / hit(s)</div>`;
-      hits.slice(0, 12).forEach(u => {
+    matchedDocuments.forEach(({ corpKey, doc, hits }) => {
+      const remaining = MAX_RESULT_CARDS - displayedHits;
+      if (remaining <= 0) return;
+      const shown = hits.slice(0, Math.min(MAX_PER_DOCUMENT, remaining));
+      if (shown.length === 0) return;
+
+      bodyHtml += `<div style="margin: 1.25rem 0 0.4rem; font-weight: 700; color: var(--accent-gold);">${escHtml(doc.title_zh)} · ${escHtml(doc.title_en)} — ${hits.length} matching unit(s)</div>`;
+      shown.forEach(u => {
         const action = u.jump && u.jump.kind === 'case'
           ? `<button class="btn-pill active" onclick="window.TranslateChan.openCase('${corpKey}', ${u.jump.num})">View Case in Reader</button>`
           : `<button class="btn-pill active" onclick="window.TranslateChan.openDoc('${corpKey}')">View in Reader</button>`;
         bodyHtml += `
           <div class="case-card" style="margin-bottom: 0.75rem;">
-            <div class="case-header"><span class="case-num-title" style="font-size:0.95rem;">${u.label}</span></div>
+            <div class="case-header"><span class="case-num-title" style="font-size:0.95rem;">${escHtml(u.label)}</span></div>
             <div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
             <div style="margin-top: 0.4rem;">${action}</div>
           </div>`;
       });
-      if (hits.length > 12) {
-        bodyHtml += `<div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.75rem;">… ${hits.length - 12} further hits in this text (open the text to browse).</div>`;
+      displayedHits += shown.length;
+      const hiddenInDocument = hits.length - shown.length;
+      if (hiddenInDocument > 0) {
+        bodyHtml += `<div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.75rem;">… ${hiddenInDocument} additional match(es) in this text (open the text to browse).</div>`;
       }
     });
 
-    const capped = totalHits >= MAX_TOTAL_HITS ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">… results capped at ${MAX_TOTAL_HITS} — narrow your query for more.</div>` : '';
-    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div>${capped}</div>`;
+    const hiddenTotal = totalHits - displayedHits;
+    const resultNotice = hiddenTotal > 0
+      ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">Showing ${displayedHits} of ${totalHits} matching units; narrow your query for more focused results.</div>`
+      : '';
+    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} matching unit(s) across ${matchedDocuments.length} text(s)</div>${resultNotice}</div>`;
 
     elements.readerContent.innerHTML = totalHits === 0
-      ? headerHtml + `<div class="case-card"><p>No matches found for "${q}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`
+      ? headerHtml + `<div class="case-card"><p>No matches found for "${escHtml(q)}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`
       : headerHtml + bodyHtml;
   }
 
@@ -1877,11 +1965,16 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     const d = state.data.corpus && state.data.corpus[state.currentCorpusKey];
     return d && Array.isArray(d.cases) ? d.cases.length : 0;
   }
-  function ensureCaseLoaded(num) {
-    const total = caseTotal();
+  function ensureCaseLoaded(caseNum) {
+    const doc = state.data.corpus && state.data.corpus[state.currentCorpusKey];
+    const cases = doc && Array.isArray(doc.cases) ? doc.cases : [];
+    const total = cases.length;
+    const targetIndex = cases.findIndex(c => String(c.case_num) === String(caseNum));
+    if (targetIndex < 0) return;
     const cur = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
-    if (num > cur) {
-      state.caseLimit[state.currentCorpusKey] = Math.min(total, num);
+    const required = targetIndex + 1;
+    if (required > cur) {
+      state.caseLimit[state.currentCorpusKey] = Math.min(total, required);
       renderReader();
     }
   }
@@ -1905,7 +1998,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     }, 60);
   };
   window.TranslateChan.openCase = function(corpusKey, caseNum) {
-    state.currentCorpusKey = corpusKey;
+    if (!setCurrentCorpusKey(corpusKey)) return;
     state.searchQuery = '';
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();
@@ -1915,7 +2008,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     window.TranslateChan.scrollToCase(caseNum);
   };
   window.TranslateChan.openDoc = function(corpusKey) {
-    state.currentCorpusKey = corpusKey;
+    if (!setCurrentCorpusKey(corpusKey)) return;
     state.searchQuery = '';
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();

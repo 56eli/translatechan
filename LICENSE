@@ -47,5 +47,7 @@ https://creativecommons.org/licenses/by-sa/4.0/
   publishers (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki,
   R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky, et al.). They are
   referenced here for scholarly comparison only; matrix attributions are
-  being verified/labeled per `AUDIT.md` §3.4. Do not redistribute them as
-  if they were original published text.
+  verified/labeled under `data/translations/provenance.json`. Each verified
+  source resolves to `data/translations/rights_manifest.json`; that manifest
+  is an editorial control record, **not** a license grant or legal opinion.
+  Do not redistribute quotations as if they were original published text.

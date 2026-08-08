@@ -85,17 +85,18 @@
 - `#/reader/wumenguan`, `#/lineage`, `#/lexicon` …; `hashchange` drives `switchView`/`renderReader`; brand link becomes `href="#/reader"` (no reload).
 - Acceptance: back/forward navigate views and texts; deep links work.
 
-**C3. Lineage graph upgrade** — *fixes P7* · ✅ done (pan/zoom/reset)
-- Pan/zoom (wheel + pinch, CSS transform), node collision spreading, generation labels, tap/focus tooltip with mini-dossier, era range slider beside the school filter.
-- Acceptance: "All" view at 30 nodes has no overlapping labels; zooming to a branch is fluid on touch.
+**C3. Lineage graph upgrade** — *fixes P7* · ✅ reworked 2026-08-08
+- Vertically layered generation rows replace the cramped left-to-right strip; nodes receive spacious row gaps, quiet halos, shortened labels, and status-aware links.
+- The chart-status strip and controls now sit in normal layout flow rather than over the SVG; pan/zoom/reset remains available for inspection.
+- Acceptance: the 30-node view has no overlapping generation labels, traditional links are visually quieter than source-verified links, and zooming to a branch remains fluid on touch.
 
 **C4. Accessibility pass** — *fixes P9* · ✅ done
 - Skip-to-content link, `role="tablist"`/`aria-selected` on nav, `aria-label` on icon buttons, `:focus-visible` ring using `--border-focus`, contrast fixes (`--text-muted` darkened, or used only ≥14 px), `prefers-reduced-motion` disables `sereneFade`, `lang="zh"` on Chinese spans.
-- Acceptance: Lighthouse a11y ≥ 95 on desktop & mobile; full keyboard traversal of reader + studio.
+- Acceptance: Lighthouse a11y ≥ 95 on desktop & mobile; full keyboard traversal of reader, matrix, lineage, index, and lexicon.
 
-**C5. Studio & index polish** — *fixes P10-adjacent gaps* · ✅ done
-- Per-item delete + search box in the saved-drafts list; passage picker includes all 48 Wumenguan cases (currently 3); export menu gains a "complete text" option.
+**C5. Index polish** — *fixes P10-adjacent gaps* · ✅ done
 - Gong'an index: make theme chips clickable filters (group by collection/theme).
+- Public-scope update (2026-08-08): browser drafting controls were deliberately retired; the public app remains focused on reading, comparison, lineage, index, and lexicon.
 
 ### Phase D — "Performance & Resilience" · M · later · ✅ **implemented 2026-08-08** (D1, D2, D4; D3 intentionally skipped)
 
@@ -117,7 +118,7 @@
 | Lexicon tooltips | Hover + focus (A3) | Tap-to-open popover (A3) |
 | Font size / mode | Toolbar (persisted A4) | Thumb bar (B2, persisted A4) |
 | Lineage graph | Pan/zoom + filters + reset (C3) | Same, touch pinch (C3) |
-| Output | Print/PDF clean (C1) | Export JSON/MD/LaTeX from studio |
+| Output | Print/PDF clean (C1) | Print/PDF clean (C1) |
 | URL state | Hash routes + back (C2) | Same |
 
 ---

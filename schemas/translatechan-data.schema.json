@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/56eli/translatechan/blob/main/schemas/translatechan-data.schema.json",
+  "title": "TranslateChan source-data contract",
+  "description": "Formal companion to scripts/validate_data.py. The validator enforces cross-file and heterogeneous-schema rules that JSON Schema cannot conveniently express alone.",
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "quotationSource": {
+      "type": "object",
+      "required": [
+        "work",
+        "edition",
+        "reference",
+        "verification",
+        "source_id"
+      ],
+      "properties": {
+        "work": { "$ref": "#/$defs/nonEmptyString" },
+        "edition": { "$ref": "#/$defs/nonEmptyString" },
+        "reference": { "$ref": "#/$defs/nonEmptyString" },
+        "verification": { "$ref": "#/$defs/nonEmptyString" },
+        "source_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        }
+      },
+      "additionalProperties": true
+    },
+    "translationRecord": {
+      "type": "object",
+      "required": [
+        "text",
+        "status"
+      ],
+      "properties": {
+        "text": { "$ref": "#/$defs/nonEmptyString" },
+        "status": {
+          "enum": [
+            "verified_quotation",
+            "reconstruction_unverified",
+            "ai_draft"
+          ]
+        },
+        "source": { "$ref": "#/$defs/quotationSource" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": { "const": "verified_quotation" }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["source"]
+          }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "translationValue": {
+      "oneOf": [
+        { "$ref": "#/$defs/nonEmptyString" },
+        { "$ref": "#/$defs/translationRecord" }
+      ]
+    },
+    "translationMap": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/translationValue" }
+    },
+    "corpusDocument": {
+      "type": "object",
+      "required": [
+        "title_zh",
+        "title_en",
+        "title_pinyin",
+        "cbeta_id",
+        "author_zh",
+        "era",
+        "genre"
+      ],
+      "properties": {
+        "title_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "title_en": { "$ref": "#/$defs/nonEmptyString" },
+        "title_pinyin": { "$ref": "#/$defs/nonEmptyString" },
+        "cbeta_id": { "$ref": "#/$defs/nonEmptyString" },
+        "author_zh": { "$ref": "#/$defs/nonEmptyString" },
+        "era": { "$ref": "#/$defs/nonEmptyString" },
+        "genre": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": true
+    },
+    "matrixTranslator": {
+      "type": "object",
+      "required": [
+        "translator",
+        "work",
+        "style",
+        "text",
+        "notes",
+        "status"
+      ],
+      "properties": {
+        "translator": { "$ref": "#/$defs/nonEmptyString" },
+        "work": { "$ref": "#/$defs/nonEmptyString" },
+        "style": { "$ref": "#/$defs/nonEmptyString" },
+        "text": { "$ref": "#/$defs/nonEmptyString" },
+        "notes": { "$ref": "#/$defs/nonEmptyString" },
+        "status": {
+          "enum": [
+            "verified_quotation",
+            "reconstruction_unverified",
+            "ai_draft"
+          ]
+        },
+        "source": { "$ref": "#/$defs/quotationSource" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": { "const": "verified_quotation" }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "required": ["source"]
+          }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "lineageVerificationEdge": {
+      "type": "object",
+      "required": [
+        "teacher",
+        "disciple",
+        "status",
+        "source_id",
+        "reference",
+        "note"
+      ],
+      "properties": {
+        "teacher": { "$ref": "#/$defs/nonEmptyString" },
+        "disciple": { "$ref": "#/$defs/nonEmptyString" },
+        "status": {
+          "enum": [
+            "source_verified",
+            "traditional_link_pending_exact_locator",
+            "disputed"
+          ]
+        },
+        "source_id": { "$ref": "#/$defs/nonEmptyString" },
+        "reference": { "$ref": "#/$defs/nonEmptyString" },
+        "note": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": true
+    },
+    "lineageVerificationRegistry": {
+      "type": "object",
+      "required": ["schema_version", "policy", "sources", "edges", "frontiers"],
+      "properties": {
+        "schema_version": { "$ref": "#/$defs/nonEmptyString" },
+        "policy": { "$ref": "#/$defs/nonEmptyString" },
+        "sources": { "type": "array", "minItems": 1 },
+        "edges": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/lineageVerificationEdge" }
+        },
+        "frontiers": { "type": "array" }
+      },
+      "additionalProperties": true
+    }
+  }
+}

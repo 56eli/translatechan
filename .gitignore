@@ -1,0 +1,6 @@
+# Python bytecode created by local validation tools
+__pycache__/
+*.py[cod]
+
+# Common local editor/OS noise
+.DS_Store

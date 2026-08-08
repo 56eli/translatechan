@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TranslateChan | Classical Chinese Chan/Zen Translation & Preservation Matrix</title>
-  <meta name="description" content="A serene, open, and contemplative digital corpus, lineage knowledge graph, comparative translation matrix, and personal translation studio for Chinese Chan Masters of Old (CBETA / Taishō 47, 48, 51).">
+  <meta name="description" content="A serene, open, and contemplative digital corpus, lineage knowledge graph, comparative translation matrix, and lexicon for Chinese Chan Masters of Old (CBETA / Taishō 47, 48, 51).">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,16 +57,6 @@
             <span>📚</span> <span>Chan Lexicon</span>
           </button>
         </li>
-        <li>
-          <button class="nav-tab-btn" data-view="studio" role="tab">
-            <span>✍️</span> <span>Translation Studio</span>
-          </button>
-        </li>
-        <li>
-          <button class="nav-tab-btn" data-view="agents" role="tab">
-            <span>🤖</span> <span>Arena AI Agents</span>
-          </button>
-        </li>
       </ul>
 
       <!-- Controls & Search -->
@@ -76,9 +66,6 @@
           <input type="text" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off">
         </div>
         <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme">🌙</button>
-        <a href="https://github.com/56eli/translatechan" target="_blank" class="btn-icon" title="GitHub Repository" aria-label="GitHub repository (opens in new tab)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
       </div>
     </div>
   </header>
@@ -95,7 +82,6 @@
       <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
         <span class="meta-chip">📜 36 Canonical Works</span>
         <span class="meta-chip">⚖️ 8+ Translators Aligned</span>
-        <span class="meta-chip">🤖 Sandboxed Arena AI</span>
         <span class="meta-chip">🌐 Zero-Backend Offline</span>
       </div>
     </div>
@@ -109,7 +95,7 @@
       <div class="reader-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar-panel">
-          <div class="sidebar-title">Canonical Works (CBETA)</div>
+          <div class="sidebar-title">Canonical & Related Works</div>
           <div id="corpus-selector-list" class="corpus-selector-list"></div>
 
           <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
@@ -180,15 +166,19 @@
         </div>
       </div>
 
-      <!-- Interactive SVG/Canvas Visual Graph -->
-      <div id="lineage-graph-container" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; min-height: 480px;">
-        <div class="graph-controls">
-          <button id="lineage-reset-btn" class="btn-pill" style="font-size: 0.72rem;">⟲ Reset View</button>
+      <div id="lineage-verification-summary" class="lineage-verification-summary" aria-live="polite"></div>
+
+      <!-- Interactive SVG lineage chart: vertically layered for readable generations. -->
+      <div id="lineage-graph-container" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; min-height: 480px;">
+        <div class="graph-toolbar">
+          <div class="graph-controls">
+            <button id="lineage-reset-btn" class="btn-pill" style="font-size: 0.72rem;">⟲ Reset View</button>
+          </div>
+          <div class="graph-hint">
+            Traditional links are dashed until exact chart/record locators are reviewed · click a node or link for details
+          </div>
         </div>
-        <div class="graph-hint">
-          💡 Click any master node to inspect complete dossier & primary texts — drag to pan, scroll/pinch to zoom
-        </div>
-        <svg id="lineage-svg-graph" width="100%" height="480" style="display: block;"></svg>
+        <svg id="lineage-svg-graph" width="100%" height="720" style="display: block;"></svg>
       </div>
 
       <!-- Master Dossier Modal / Inspector Drawer -->
@@ -239,152 +229,6 @@
       <div id="lexicon-content-target" class="lexicon-grid"></div>
     </section>
 
-    <!-- View 6: Personal Translation Studio -->
-    <section id="view-studio" class="view-section">
-      <div class="text-header">
-        <div class="text-title-zh">個人研讀與翻譯研習室 / Personal Translation & Scholarly Studio</div>
-        <div class="text-title-en">Draft translations, compare against historical editions, inspect detected terminology, and export to LaTeX, Markdown, or JSON</div>
-      </div>
-
-      <div class="studio-layout">
-        <!-- Editor Panel -->
-        <div class="studio-panel">
-          <div class="studio-title">
-            <span>✍️ Translation Workspace</span>
-            <span id="studio-status" style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal;">Ready</span>
-          </div>
-
-          <div>
-            <label style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 0.35rem;">Select Passage to Translate:</label>
-            <select id="studio-select-text" class="search-input" style="width: 100%;"></select>
-          </div>
-
-          <!-- Source Classical Chinese Box -->
-          <div style="background: var(--bg-primary); padding: 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">Source Classical Chinese:</span>
-              <span id="studio-char-count" style="font-size: 0.75rem; color: var(--text-muted);">0 characters</span>
-            </div>
-            <div id="studio-source-zh" class="classical-zh" style="font-size: 1.25rem;"></div>
-            <div id="studio-source-pinyin" class="pinyin-line" style="margin-bottom: 0; padding-bottom: 0; border: none;"></div>
-          </div>
-
-          <!-- Comparative Reference Drawer -->
-          <div style="background: var(--accent-gold-light); padding: 0.95rem; border-radius: var(--radius-sm); border-left: 4px solid var(--accent-gold);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">Reference Translator:</span>
-              <select id="studio-ref-translator-select" class="search-input" style="width: auto; padding: 0.2rem 0.5rem; font-size: 0.75rem;">
-                <option value="red_pine">Red Pine (Bill Porter)</option>
-                <option value="cleary">Thomas Cleary</option>
-                <option value="sasaki">Ruth Fuller Sasaki</option>
-                <option value="suzuki">D.T. Suzuki</option>
-                <option value="blyth">R.H. Blyth</option>
-                <option value="blofeld">John Blofeld</option>
-                <option value="ai_literal">AI Draft (Literal)</option>
-              </select>
-            </div>
-            <div id="studio-ref-text" style="font-size: 0.9rem; color: var(--text-primary); font-style: italic;">
-              Select a reference translator to view comparative rendering.
-            </div>
-          </div>
-
-          <!-- Detected Lexicon Terms -->
-          <div id="studio-detected-terms" style="display: flex; gap: 0.35rem; flex-wrap: wrap;"></div>
-
-          <!-- User Translation Textarea -->
-          <div>
-            <label style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 0.35rem;">Your English Translation:</label>
-            <textarea id="studio-user-translation" class="studio-textarea" placeholder="Enter your translation here (e.g. rendering of idioms, particles, and philosophical nuance)..."></textarea>
-          </div>
-
-          <!-- Philological Notes -->
-          <div>
-            <label style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 0.35rem;">Philological & Commentary Notes:</label>
-            <textarea id="studio-user-notes" class="studio-textarea" style="min-height: 90px;" placeholder="Add term breakdowns, lineage cross-references, or translator comparisons..."></textarea>
-          </div>
-
-          <!-- Action Buttons -->
-          <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-            <button id="studio-save-btn" class="btn-primary">💾 Save Draft</button>
-            <button id="studio-export-latex-btn" class="btn-secondary">📄 Export LaTeX (.tex)</button>
-            <button id="studio-export-md-btn" class="btn-secondary">📑 Export Markdown (.md)</button>
-            <button id="studio-export-json-btn" class="btn-secondary">📥 Export JSON</button>
-          </div>
-        </div>
-
-        <!-- Saved Translations Panel -->
-        <div class="studio-panel">
-          <div class="studio-title">
-            <span>📚 Saved Personal Corpus</span>
-            <button id="studio-clear-all-btn" class="btn-pill" style="font-size: 0.7rem; color: var(--accent-red);">Clear All</button>
-          </div>
-          <input id="studio-draft-filter" class="search-input" type="search" placeholder="Filter saved drafts…" aria-label="Filter saved drafts">
-          <div id="studio-saved-list" style="overflow-y: auto; max-height: 650px;"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- View 7: Arena AI Agents Architecture -->
-    <section id="view-agents" class="view-section">
-      <div class="text-header">
-        <div class="text-title-zh">沙盒化 Arena AI 智能體翻譯架構 / Arena AI Agent Architecture</div>
-        <div class="text-title-en">Sandboxed, sessioned Arena AI agents parsing Classical Chinese, generating multi-register drafts, and committing structured datasets to Git</div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-        <div class="studio-panel">
-          <div class="studio-title">
-            <span>🛡️ Sandboxed Sessioned Execution</span>
-          </div>
-          <div style="font-size: 0.92rem; color: var(--text-primary); line-height: 1.6;">
-            All AI translation drafts and CBETA canonical ingestion in <strong>TranslateChan</strong> are executed by sessioned <strong>Arena AI Agents</strong> operating in isolated sandboxes. The agents ingest Classical Chinese texts, segment dialogues, enforce lexicon consistency, and commit structured JSON directly to Git.
-          </div>
-          <div class="commentary-block" style="background: var(--bg-primary); border-left-color: var(--accent-gold); margin-top: 1rem;">
-            <div class="commentary-label">Git-Backed Automated Deployment</div>
-            <div style="font-size: 0.85rem;">Commits directly to the session branch (e.g. <code>arena/&lt;session&gt;-translatechan</code>) and then to <code>main</code> via pull request, automatically updating the static GitHub Pages application bundle in <code>docs/</code>.</div>
-          </div>
-        </div>
-
-        <div class="studio-panel">
-          <div class="studio-title">
-            <span>⚖️ Multi-Register Translation Pipeline</span>
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-              <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent-gold);">1. Literal & Philological Register</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Preserves Tang/Song vernacular Chinese particles (底, 甚麼, 這箇, 阿誰) and strict syntax.</div>
-            </div>
-            <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-              <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent-blue);">2. Philosophical & Hermeneutic Register</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Expands non-dual ontology, Mind-Only, Emptiness (śūnyatā), and dialectical structures.</div>
-            </div>
-            <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-              <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent-green);">3. Poetic & Zen Cadence Register</div>
-              <div style="font-size: 0.8rem; color: var(--text-secondary);">Captures the sharp, brisk, enigmatic cadence of Chan masters (Red Pine & Cleary style).</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="studio-panel">
-        <div class="studio-title">
-          <span>📚 Contemporary Scholarly Translation Matrix Alignment</span>
-        </div>
-        <div style="font-size: 0.92rem; color: var(--text-primary); line-height: 1.6; margin-bottom: 1rem;">
-          In addition to AI-synthesized multi-register drafts, Arena AI agents systematically align published translations from historical and contemporary scholars:
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem;">
-          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Red Pine (Bill Porter)</strong>: Lyrical & Hermit fidelity</div>
-          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Thomas Cleary</strong>: Tao-Chan precision</div>
-          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Ruth Fuller Sasaki</strong>: Rinzai scholarly standard</div>
-          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>D.T. Suzuki</strong>: Pioneering philosophical non-duality</div>
-          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>R.H. Blyth</strong>: Zen & World Literature</div>
-          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>John Blofeld</strong>: Huangbo & Mind Transmission</div>
-          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Steven Heine</strong>: Modern hermeneutic analysis</div>
-          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Philip Yampolsky</strong>: Platform Sutra Dunhuang text</div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- Mobile bottom action bar (touch devices / narrow screens) -->
@@ -403,7 +247,7 @@
 
   <footer>
     <div class="footer-quote">「不立文字，教外別傳；直指人心，見性成佛。」</div>
-    <div>TranslateChan (56eli/translatechan) • Open-Source Classical Chan Preservation & Translation Project</div>
+    <div>TranslateChan • Open Classical Chan Preservation & Comparative Reading Project</div>
     <div style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">
       Canonical Source References: CBETA / Taishō Tripiṭaka Volumes 47, 48, 51 • Designed for Personal Research on GitHub Pages
     </div>
