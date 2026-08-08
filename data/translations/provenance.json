@@ -1,8 +1,8 @@
 {
-  "policy_version": "2.1",
+  "policy_version": "2.2",
   "policy_date": "2026-08-08",
   "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
-  "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless an explicit per-item status marks them verified against a specific edition. Reader, Matrix, and Studio render the same visible status; verified corpus and Matrix entries record source details. Reconstructions are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
+  "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless an explicit per-item status marks them verified against a specific edition. Reader, Matrix, and Studio render the same visible status; verified corpus and Matrix entries record source details plus a source_id resolving to the editorial rights manifest. Reconstructions are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
   "status_legend": {
     "verified_quotation": "Checked verbatim against a specific print/digital edition; full source recorded in the item's `source` field.",
     "reconstruction_unverified": "AI-crafted rendering in the scholar's known register/style. NOT a quotation of published text.",
@@ -47,6 +47,10 @@
   },
   "classical_text_policy": "All `zh` strings must be verifiable against CBETA / Taishō lineage (or a recorded manuscript recension). Changes to `zh` text require a comment in the commit message naming the source edition.",
   "copyright_note": "Published modern translations remain copyright of their translators/publishers; reconstructions are original to this project and covered by the repository's CC BY-SA 4.0 dataset license (see LICENSE §2).",
+  "rights_manifest": {
+    "path": "data/translations/rights_manifest.json",
+    "policy": "Every verified quotation source must carry source_id and resolve to an editorial rights record. The manifest is not a legal opinion or license grant."
+  },
   "pilot_verifications": [
     {
       "pilot": "Wumenguan Case 1 dialogue (2026-08-08)",

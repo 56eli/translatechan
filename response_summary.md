@@ -6,27 +6,28 @@
 ## Current state
 
 - **Deployment:** static GitHub Pages, publishing `main` → `/docs`; Pages status is built and HTTPS is enforced.
-- **Architecture:** vanilla HTML/CSS/JS; source JSON is deterministically bundled into `app_data.js`; root assets and `/docs` data mirror are synchronized by `scripts/build_data_bundle.py`.
+- **Architecture:** vanilla HTML/CSS/JS; a shared `corpus_manifest.json` drives the bundle and reader navigation; source JSON is deterministically bundled into `app_data.js`; root assets and `/docs` data mirror are synchronized by `scripts/build_data_bundle.py`.
 - **Corpus:** 36 structured texts. *Wumenguan* is complete (48/48 cases plus preface/epilogue); the other 35 texts are explicitly excerpt-scale seeds.
 - **Measured data:** 31 glossary terms, 30 lineage profiles, 18 gong’an index entries, 4 comparative-matrix rows, 856 corpus translation slots, and 138 verified corpus quotation objects (plus 2 Matrix entries marked verified).
-- **Validation completed:** JavaScript syntax checks, Python compilation, deterministic bundle rebuild, full JSON parse, root↔`docs` comparison, and a debounced-search-aware `node scripts/smoke_test.mjs` covering sparse navigation, pointers, cap accounting, and blocked storage all pass.
+- **Validation completed:** formal schema + semantic/rights/locator validation, deterministic metrics, Python/JavaScript syntax checks, bundle rebuild, root↔`docs` comparison, and the expanded smoke suite all pass; a CI workflow is prepared locally and awaits workflow-capable GitHub access before publication.
 
 ## What is strong
 
 1. The zero-backend deployment is simple, portable, and currently healthy.
 2. The bundle/build/smoke-test discipline catches broad renderer regressions across all 36 corpus schemas, including real debounced search, sparse navigation, pointer search, and blocked-storage execution.
 3. The corpus candidly distinguishes complete Wumenguan coverage from excerpt seeds.
-4. Reader, Matrix, and Studio now share explicit reconstruction/AI/verified badges; verified corpus and Matrix entries expose source metadata.
+4. Reader, Matrix, and Studio now share explicit reconstruction/AI/verified badges; verified corpus and Matrix entries expose source metadata and a rights-manifest identifier.
 5. The Studio safely renders object-form verified translations and dynamically offers only registers available for the selected passage; corpus choice and all preferences now use safe browser-storage access.
+6. Manifest-driven bundling, schema/semantic validation, canonical-locator registry, rights controls, deterministic metrics, and a prepared CI workflow will prevent silent data/deploy drift once workflow-capable GitHub access is restored.
 
 ## Highest-priority open work
 
-1. **Add research-release guardrails:** schema/semantic validation, per-unit canonical locators, a third-party quotation/rights manifest, derived metrics, and CI before large-scale corpus ingestion.
-2. **Expand content only after those rails:** complete Biyanlu and broaden the Studio’s schema-driven passage picker.
+1. **Migrate legacy scholarly coverage:** upgrade the 33 document-level seed locators to page/line or TEI anchors, and complete human editorial/rights review for modern quotation sources.
+2. **Expand content under the new rails:** complete Biyanlu and broaden the Studio’s schema-driven passage picker.
 3. **Finish accessibility/export polish:** keyboard activation for all interactive controls and robust LaTeX escaping.
 
-> **Integrity and reader-reliability patches shipped in this session:** dynamic markup is escaped; stored drafts are shape-normalized; rich verified translations no longer render as `[object Object]`; Matrix status/source metadata is explicit; sparse case navigation follows actual records; pointer search is indexed; result caps report truthfully; and corpus/preferences persist safely.
+> **Integrity, reader reliability, and research-release guardrails shipped in this session:** dynamic markup is escaped; stored drafts are shape-normalized; verified translations/provenance are explicit; sparse navigation/search/storage are robust; the corpus manifest, locator registry, rights manifest, schema/semantic validator, deterministic metrics, and a prepared CI workflow protect future changes once workflow-capable GitHub access is restored.
 
 ## Recommended next milestone
 
-Ship **research-release guardrails** (schema/semantic validation, canonical locators, rights manifest, and CI) before expanding Biyanlu or adding more translations.
+Start **Biyanlu expansion under the new guardrails**, while separately planning page/line locator migration and editorial rights review for legacy seeds.

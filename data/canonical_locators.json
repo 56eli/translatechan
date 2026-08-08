@@ -1,0 +1,497 @@
+{
+  "documents": {
+    "baizhang_guanglu": {
+      "canonical_id": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
+      "canonical_locator": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "baojing_sanmei": {
+      "canonical_id": "T1986",
+      "canonical_locator": "T1986",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "biyanlu_cases": {
+      "canonical_id": "T2003",
+      "canonical_locator": "T2003",
+      "case_locators": {
+        "1": {
+          "canonical_locator": "T2003, case 1",
+          "status": "case_level_anchor"
+        },
+        "12": {
+          "canonical_locator": "T2003, case 12",
+          "status": "case_level_anchor"
+        },
+        "14": {
+          "canonical_locator": "T2003, case 14",
+          "status": "case_level_anchor"
+        },
+        "2": {
+          "canonical_locator": "T2003, case 2",
+          "status": "case_level_anchor"
+        },
+        "21": {
+          "canonical_locator": "T2003, case 21",
+          "status": "case_level_anchor"
+        },
+        "3": {
+          "canonical_locator": "T2003, case 3",
+          "status": "case_level_anchor"
+        },
+        "43": {
+          "canonical_locator": "T2003, case 43",
+          "status": "case_level_anchor"
+        }
+      },
+      "granularity": "case",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "case_level_anchor"
+    },
+    "bodhidharma_erru": {
+      "canonical_id": "T2009",
+      "canonical_locator": "T2009",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "caoxi_zhuan": {
+      "canonical_id": "X1598 (曹溪大師別傳) / P.3018",
+      "canonical_locator": "X1598 (曹溪大師別傳) / P.3018",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "chuandenglu": {
+      "canonical_id": "T2076",
+      "canonical_locator": "T2076",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "congronglu_cases": {
+      "canonical_id": "T2004",
+      "canonical_locator": "T2004",
+      "case_locators": {
+        "1": {
+          "canonical_locator": "T2004, case 1",
+          "status": "case_level_anchor"
+        },
+        "9": {
+          "canonical_locator": "T2004, case 9",
+          "status": "case_level_anchor"
+        }
+      },
+      "granularity": "case",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "case_level_anchor"
+    },
+    "dahui_hongzhi": {
+      "canonical_id": "T1998A (大慧普覺禪師語錄)",
+      "canonical_locator": "T1998A (大慧普覺禪師語錄)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "dahui_shobogenzo": {
+      "canonical_id": "X1309 (大慧普覺禪師正法眼藏)",
+      "canonical_locator": "X1309 (大慧普覺禪師正法眼藏)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "dazhu_huihai": {
+      "canonical_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
+      "canonical_locator": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "deshan_yulu": {
+      "canonical_id": "embedded: T2076 f.15 / X1565 f.7",
+      "canonical_locator": "embedded: T2076 f.15 / X1565 f.7",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "dongshan_yulu": {
+      "canonical_id": "T1986",
+      "canonical_locator": "T1986",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "fayan_yulu": {
+      "canonical_id": "T1991 / X1226 (宗門十規論)",
+      "canonical_locator": "T1991 / X1226 (宗門十規論)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "foyan_qingyuan": {
+      "canonical_id": "X1315 (古尊宿語錄·佛眼語錄)",
+      "canonical_locator": "X1315 (古尊宿語錄·佛眼語錄)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "guiyang_yulu": {
+      "canonical_id": "T1989 / T1990",
+      "canonical_locator": "T1989 / T1990",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "hanshan_poems": {
+      "canonical_id": "SBCK / Zoku lineage (not in Taishō)",
+      "canonical_locator": "SBCK / Zoku lineage (not in Taishō)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "huangbo_chuanxin": {
+      "canonical_id": "T2012A",
+      "canonical_locator": "T2012A",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "huangbo_wanling": {
+      "canonical_id": "T2012B",
+      "canonical_locator": "T2012B",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "lidai_fabao_ji": {
+      "canonical_id": "T2075 / P.2125",
+      "canonical_locator": "T2075 / P.2125",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "linji_yulu": {
+      "canonical_id": "T1985",
+      "canonical_locator": "T1985",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "mazu_yulu": {
+      "canonical_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
+      "canonical_locator": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "nanquan_yulu": {
+      "canonical_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
+      "canonical_locator": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "niutou_juezhu": {
+      "canonical_id": "Dunhuang P.2885 / S.5619",
+      "canonical_locator": "Dunhuang P.2885 / S.5619",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "platform_sutra": {
+      "canonical_id": "T2007 / T2008",
+      "canonical_locator": "T2007 / T2008",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "qinggui_monastic_codes": {
+      "canonical_id": "T2025 / X1245",
+      "canonical_locator": "T2025 / X1245",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "sengzhao_zhaolun": {
+      "canonical_id": "T1858",
+      "canonical_locator": "T1858",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "shitou_sandokai": {
+      "canonical_id": "embedded: T2076 f.30 / X1565 f.14",
+      "canonical_locator": "embedded: T2076 f.30 / X1565 f.14",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "wudeng_huiyuan": {
+      "canonical_id": "X1565 (五燈會元)",
+      "canonical_locator": "X1565 (五燈會元)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "wumenguan": {
+      "canonical_id": "T2005",
+      "canonical_locator": "T2005",
+      "case_locators": {
+        "1": {
+          "canonical_locator": "T2005, case 1",
+          "status": "case_level_anchor"
+        },
+        "10": {
+          "canonical_locator": "T2005, case 10",
+          "status": "case_level_anchor"
+        },
+        "11": {
+          "canonical_locator": "T2005, case 11",
+          "status": "case_level_anchor"
+        },
+        "12": {
+          "canonical_locator": "T2005, case 12",
+          "status": "case_level_anchor"
+        },
+        "13": {
+          "canonical_locator": "T2005, case 13",
+          "status": "case_level_anchor"
+        },
+        "14": {
+          "canonical_locator": "T2005, case 14",
+          "status": "case_level_anchor"
+        },
+        "15": {
+          "canonical_locator": "T2005, case 15",
+          "status": "case_level_anchor"
+        },
+        "16": {
+          "canonical_locator": "T2005, case 16",
+          "status": "case_level_anchor"
+        },
+        "17": {
+          "canonical_locator": "T2005, case 17",
+          "status": "case_level_anchor"
+        },
+        "18": {
+          "canonical_locator": "T2005, case 18",
+          "status": "case_level_anchor"
+        },
+        "19": {
+          "canonical_locator": "T2005, case 19",
+          "status": "case_level_anchor"
+        },
+        "2": {
+          "canonical_locator": "T2005, case 2",
+          "status": "case_level_anchor"
+        },
+        "20": {
+          "canonical_locator": "T2005, case 20",
+          "status": "case_level_anchor"
+        },
+        "21": {
+          "canonical_locator": "T2005, case 21",
+          "status": "case_level_anchor"
+        },
+        "22": {
+          "canonical_locator": "T2005, case 22",
+          "status": "case_level_anchor"
+        },
+        "23": {
+          "canonical_locator": "T2005, case 23",
+          "status": "case_level_anchor"
+        },
+        "24": {
+          "canonical_locator": "T2005, case 24",
+          "status": "case_level_anchor"
+        },
+        "25": {
+          "canonical_locator": "T2005, case 25",
+          "status": "case_level_anchor"
+        },
+        "26": {
+          "canonical_locator": "T2005, case 26",
+          "status": "case_level_anchor"
+        },
+        "27": {
+          "canonical_locator": "T2005, case 27",
+          "status": "case_level_anchor"
+        },
+        "28": {
+          "canonical_locator": "T2005, case 28",
+          "status": "case_level_anchor"
+        },
+        "29": {
+          "canonical_locator": "T2005, case 29",
+          "status": "case_level_anchor"
+        },
+        "3": {
+          "canonical_locator": "T2005, case 3",
+          "status": "case_level_anchor"
+        },
+        "30": {
+          "canonical_locator": "T2005, case 30",
+          "status": "case_level_anchor"
+        },
+        "31": {
+          "canonical_locator": "T2005, case 31",
+          "status": "case_level_anchor"
+        },
+        "32": {
+          "canonical_locator": "T2005, case 32",
+          "status": "case_level_anchor"
+        },
+        "33": {
+          "canonical_locator": "T2005, case 33",
+          "status": "case_level_anchor"
+        },
+        "34": {
+          "canonical_locator": "T2005, case 34",
+          "status": "case_level_anchor"
+        },
+        "35": {
+          "canonical_locator": "T2005, case 35",
+          "status": "case_level_anchor"
+        },
+        "36": {
+          "canonical_locator": "T2005, case 36",
+          "status": "case_level_anchor"
+        },
+        "37": {
+          "canonical_locator": "T2005, case 37",
+          "status": "case_level_anchor"
+        },
+        "38": {
+          "canonical_locator": "T2005, case 38",
+          "status": "case_level_anchor"
+        },
+        "39": {
+          "canonical_locator": "T2005, case 39",
+          "status": "case_level_anchor"
+        },
+        "4": {
+          "canonical_locator": "T2005, case 4",
+          "status": "case_level_anchor"
+        },
+        "40": {
+          "canonical_locator": "T2005, case 40",
+          "status": "case_level_anchor"
+        },
+        "41": {
+          "canonical_locator": "T2005, case 41",
+          "status": "case_level_anchor"
+        },
+        "42": {
+          "canonical_locator": "T2005, case 42",
+          "status": "case_level_anchor"
+        },
+        "43": {
+          "canonical_locator": "T2005, case 43",
+          "status": "case_level_anchor"
+        },
+        "44": {
+          "canonical_locator": "T2005, case 44",
+          "status": "case_level_anchor"
+        },
+        "45": {
+          "canonical_locator": "T2005, case 45",
+          "status": "case_level_anchor"
+        },
+        "46": {
+          "canonical_locator": "T2005, case 46",
+          "status": "case_level_anchor"
+        },
+        "47": {
+          "canonical_locator": "T2005, case 47",
+          "status": "case_level_anchor"
+        },
+        "48": {
+          "canonical_locator": "T2005, case 48",
+          "status": "case_level_anchor"
+        },
+        "5": {
+          "canonical_locator": "T2005, case 5",
+          "status": "case_level_anchor"
+        },
+        "6": {
+          "canonical_locator": "T2005, case 6",
+          "status": "case_level_anchor"
+        },
+        "7": {
+          "canonical_locator": "T2005, case 7",
+          "status": "case_level_anchor"
+        },
+        "8": {
+          "canonical_locator": "T2005, case 8",
+          "status": "case_level_anchor"
+        },
+        "9": {
+          "canonical_locator": "T2005, case 9",
+          "status": "case_level_anchor"
+        }
+      },
+      "granularity": "case",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "case_level_anchor"
+    },
+    "xinxin_ming": {
+      "canonical_id": "T2010",
+      "canonical_locator": "T2010",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "xuansha_yulu": {
+      "canonical_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
+      "canonical_locator": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "xuefeng_yantou": {
+      "canonical_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+      "canonical_locator": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "yuanwu_letters": {
+      "canonical_id": "X1357 / T1997",
+      "canonical_locator": "X1357 / T1997",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "yunmen_yulu": {
+      "canonical_id": "T1988",
+      "canonical_locator": "T1988",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "zhaozhou_yulu": {
+      "canonical_id": "T1987",
+      "canonical_locator": "T1987",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    },
+    "zhengdao_ge": {
+      "canonical_id": "T2014",
+      "canonical_locator": "T2014",
+      "granularity": "document",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+      "status": "legacy_document_seed"
+    }
+  },
+  "policy": {
+    "case_locator_scope": "A case locator anchors the project’s segmented dialogue, commentary, pointer, and verse units to their canonical case container; it is not a substitute for future page/line collation.",
+    "legacy_content": "Non-case excerpt seeds are currently documented at document level. They remain explicitly marked legacy_document_seed until their rendered units receive source-specific locators.",
+    "new_content": "Every new corpus document must have a document locator; every new case-based unit must have a case locator. Add page/line or TEI anchors whenever the source supplies them."
+  },
+  "purpose": "Canonical locator registry for source documents and case-based seed units.",
+  "schema_version": "1.0"
+}

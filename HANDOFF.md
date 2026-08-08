@@ -15,10 +15,10 @@ The TranslateChan project has been fully established with:
 3. **Core Canonical Corpus Seeds** (`data/corpus/`): 36 excerpt-scale canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties (authentic anchor passages; completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
 4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 30 master profiles with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan).
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
-6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader, Matrix, and Studio now display the same provenance status; verified Matrix rows include source records (policy v2.1).
+6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader, Matrix, and Studio display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
 7. **Interactive Zero-Backend Web App & Studio** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative Zen aesthetic with dark/light mode, search, SVG lineage network graph, and personal translation studio with LaTeX/Markdown export. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`AUDIT.md` §8](./AUDIT.md); `node scripts/smoke_test.mjs` must pass before every push.)*
 8. **Synchronized GitHub Pages Bundle** (`docs/`): Fully compiled, zero-dependency static bundle; Pages publishing already active from `main /docs`.
-9. **Agent Pipeline & Tooling** (`scripts/`): `arena_agent_pipeline.py` prompt templates, `build_data_bundle.py` deterministic bundler, `ingest_cbeta.py` offline segmenter, `smoke_test.mjs` regression test.
+9. **Agent Pipeline & Tooling** (`scripts/`): `arena_agent_pipeline.py` prompt templates, `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `ingest_cbeta.py` offline segmenter, and `smoke_test.mjs` renderer regression test. A CI workflow is prepared locally but needs workflow-capable GitHub access before publication.
 
 ---
 
@@ -59,7 +59,7 @@ gh pr create --base main --head "$(git branch --show-current)" --title "..." --b
 On every merge into `main`, the site re-publishes automatically within ~60 seconds.
 👉 **`https://56eli.github.io/translatechan/`**
 
-> **Release checklist before opening any PR affect­ing the app**: `python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs` must pass, `cmp app.js docs/app.js` (etc.) must show root/docs in sync, and `diff -rq data docs/data` must be silent (data mirror).
+> **Release checklist before opening any PR affecting the app/data**: `python3 scripts/validate_data.py && python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs` must pass, `cmp app.js docs/app.js` (etc.) must show root/docs in sync, and `diff -rq data docs/data` must be silent (data mirror). These commands are the authoritative local gate until the prepared CI workflow can be published.
 
 ---
 
@@ -72,7 +72,8 @@ translatechan/
 ├── index.html              # Root entry point (Zen responsive single page app)
 ├── app.css                 # Serene tea & paper palette, responsive typography
 ├── app.js                  # Client-side router, hover lexicon, lineage graph, studio
-├── app_data.js             # Compiled master bundle (generated, zero-latency execution)
+├── app_data.js             # Generated master bundle (zero-latency execution)
+├── schemas/                # Formal data-contract schema
 ├── docs/                   # Synchronized GitHub Pages deployment directory
 │   ├── index.html
 │   ├── app.css
@@ -84,7 +85,10 @@ translatechan/
 ├── README.md               # User documentation & Quickstart guide
 ├── HANDOFF.md              # This handoff & deployment document
 ├── data/
-│   ├── corpus/             # 36 Canonical Texts in structured JSON
+│   ├── corpus_manifest.json    # Shared ordered reader/bundle manifest
+│   ├── canonical_locators.json # Document/case canonical locator registry
+│   ├── project_metrics.json    # Deterministic generated metrics
+│   ├── corpus/                 # 36 Canonical Texts in structured JSON
 │   │   ├── wumenguan.json              # Gateless Gate (T2005)
 │   │   ├── linji_yulu.json             # Record of Linji (T1985)
 │   │   ├── huangbo_chuanxin.json       # Transmission of Mind (T2012A)
@@ -123,7 +127,9 @@ translatechan/
 │   ├── lineage/
 │   │   └── masters.json                # 30 master profiles: genealogies, dates, quotes
 │   ├── translations/
-│   │   └── comparative_matrix.json     # 4 exemplar sentence-aligned matrix entries
+│   │   ├── comparative_matrix.json     # 4 exemplar sentence-aligned matrix entries
+│   │   ├── provenance.json             # Citation/status policy
+│   │   └── rights_manifest.json        # Editorial third-party rights controls
 │   ├── glossary/
 │   │   └── chan_terms.json             # 31 Classical Chan & Buddhist lexicon terms
 │   └── gongan/
@@ -132,6 +138,7 @@ translatechan/
     ├── build_data_bundle.py            # Bundles data/ and synchronizes /docs
     ├── arena_agent_pipeline.py         # Multi-register Arena AI agent harness
     ├── ingest_cbeta.py                 # Offline Classical Chinese segmenter (manual input)
+    ├── validate_data.py                # Semantic/rights/locator validator + metrics generator
     └── smoke_test.mjs                  # Dependency-free renderer regression test
 ```
 
@@ -140,16 +147,18 @@ translatechan/
 ## 🛠️ Ongoing Maintenance & Arena Agent Workflow
 
 When new canonical texts or translations are added by sessioned Arena AI agents:
-1. Save the structured JSON file in `data/corpus/<name>.json` (declare any new key in `build_data_bundle.py`'s corpus list **and** `app.js`'s `corpusMap`).
-2. Run the automated bundler:
+1. Save the structured JSON file in `data/corpus/<name>.json`, add its display/order entry to `data/corpus_manifest.json`, and add a canonical locator record in `data/canonical_locators.json`. Verified modern quotations also require `source.source_id` resolving to `data/translations/rights_manifest.json`.
+2. Regenerate and validate deterministic metrics:
+   ```bash
+   python3 scripts/validate_data.py --write-metrics
+   python3 scripts/validate_data.py
+   ```
+3. Run the automated bundler and renderer regression test:
    ```bash
    python3 scripts/build_data_bundle.py   # updates app_data.js + syncs /docs
-   ```
-3. Run the renderer regression test and confirm zero crashes:
-   ```bash
    node scripts/smoke_test.mjs
    ```
-4. Commit and push **to the session branch**:
+4. Commit generated metrics/bundle artifacts and push **to the session branch**:
    ```bash
    git add .
    git commit -m "feat: add new canonical text"

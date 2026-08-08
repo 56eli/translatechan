@@ -31,7 +31,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 > Statuses above are **measured** (see [`AUDIT.md`](./AUDIT.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
-> **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.1 is live (`data/translations/provenance.json`, explicit Reader/Matrix/Studio badges ✅/⚠️/🤖); **138 verified corpus quotation slots across 6 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Verified entries carry source records; Phase-3 curation proceeds on a provenance-first basis.
+> **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix/Studio badges ✅/⚠️/🤖); **138 verified corpus quotation slots across 6 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
 
 ---
 
@@ -51,7 +51,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Multi-Translator Comparison matrix (Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine, AI Drafts, Personal Workspace).
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
-  - Instant client-side search across **all 36 texts and primary schema shapes** (counts + highlighting + jump-to-anchor — landed 2026-08-08, with pointer/index completeness follow-up in [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3)).
+  - Instant client-side search across **all 36 texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3)).
   - Personal Translation Studio allowing users to draft personal translations, save to `localStorage`, and export to JSON, Markdown, or LaTeX.
   - **UX/UI improvement roadmap implemented (Phases A–D, 2026-08-08)** — calm reader (case strip, collapsible cards, shared tap/focus popover, persisted preferences, debounced search), mobile-first navigation (corpus picker, bottom action bar, single-column translations), deep polish (print/PDF, hash routing, lineage pan/zoom, WCAG-AA a11y), performance (cached search index, lazy case rendering). See [`UX_ROADMAP.md`](./UX_ROADMAP.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
@@ -70,11 +70,14 @@ This document outlines the detailed engineering, data science, translation, and 
 
 ## 📍 Phase 2: Complete Canonical Ingestion & Data Structuring (In Progress)
 
-- [~] **Working Data Conventions**:
-  - Heterogeneous JSON shapes for cases, sections, dialogues, stanzas, chapters, five ranks, and sample records are supported by the renderer. A formal JSON Schema, per-unit canonical locators, and semantic validation remain required work (see [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3)).
+- [x] **Data Contract & Release Guardrails**:
+  - Heterogeneous JSON shapes for cases, sections, dialogues, stanzas, chapters, five ranks, and sample records are supported by the renderer and described in [`schemas/translatechan-data.schema.json`](./schemas/translatechan-data.schema.json).
+  - `scripts/validate_data.py` enforces semantic invariants, shared corpus-manifest integrity, translation provenance, rights-manifest coverage, case-level locator coverage, and deterministic metrics; a CI workflow is prepared locally and awaits workflow-capable GitHub access before publication.
+  - `data/canonical_locators.json` now covers every document and all 57 current case units. The 33 non-case seed documents remain honestly tagged `legacy_document_seed` until page/line or TEI locators are migrated.
 - [x] **Ingestion Tooling (seed level)**:
   - `scripts/ingest_cbeta.py` — offline punctuation-based Classical Chinese sentence segmenter (manual input; no live CBETA fetching yet).
-  - `scripts/build_data_bundle.py` — deterministic bundle compiler + `/docs` sync.
+  - `scripts/validate_data.py` — dependency-free schema/semantic/rights/locator validation + metrics generation.
+  - `scripts/build_data_bundle.py` — manifest-driven bundle compiler + `/docs` sync.
   - `scripts/smoke_test.mjs` — regression test exercising every corpus text through the renderer.
 - [ ] **Ingestion Tooling (to build)**:
   - Real CBETA source fetching/normalization (Kanripo API or CBETA TEI download).
@@ -163,22 +166,27 @@ This document outlines the detailed engineering, data science, translation, and 
 translatechan/
 ├── index.html              # GitHub Pages entry point (Fast, zero-backend, responsive SPA)
 ├── app.css / app.js / app_data.js
+├── schemas/                # Formal source-data contract
 ├── docs/                   # Byte-identical Pages copy (served from main /docs)
 ├── vision.md               # Grand Vision & Architectural Blueprint
 ├── ROADMAP.md              # Project Roadmap & Milestone Tracker
 ├── README.md / HANDOFF.md / AUDIT.md
 ├── data/
-│   ├── corpus/             # 36 structured canonical-text files (JSON, excerpt-scale → growing)
-│   ├── lineage/            # masters.json (30 profiles; schools.json planned)
-│   ├── translations/       # comparative_matrix.json (4 entries)
+│   ├── corpus_manifest.json    # Shared reader/bundle ordering manifest
+│   ├── canonical_locators.json # Document/case source-locator registry
+│   ├── project_metrics.json    # Deterministic generated project counts
+│   ├── corpus/                 # 36 structured canonical-text files (JSON, excerpt-scale → growing)
+│   ├── lineage/                # masters.json (30 profiles; schools.json planned)
+│   ├── translations/           # matrix, provenance, and rights manifest
 │   ├── glossary/           # chan_terms.json (31 terms)
 │   └── gongan/             # gongan_index.json (18 cases)
 └── scripts/                # Ingestion, validation & parsing tools
     ├── ingest_cbeta.py        # Offline segmenter (manual input)
-    ├── build_data_bundle.py   # Deterministic bundle + /docs sync
+    ├── validate_data.py       # Semantic/rights/locator validator + metrics generator
+    ├── build_data_bundle.py   # Manifest-driven deterministic bundle + /docs sync
     ├── arena_agent_pipeline.py# Agent prompt templates & entry harness
     ├── smoke_test.mjs         # Dependency-free renderer regression test
     └── align_translations.py  # (planned — not yet written)
 ```
 
-> Deployment is native GitHub Pages branch publishing (`main` + `/docs`) — no Actions workflow needed.
+> Deployment is native GitHub Pages branch publishing (`main` + `/docs`). The prepared GitHub Actions quality workflow does not deploy Pages and awaits workflow-capable GitHub access before publication.

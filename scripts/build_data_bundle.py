@@ -1,108 +1,109 @@
 #!/usr/bin/env python3
-"""
-TranslateChan Data Bundler & Docs Sync
-Combines all canonical texts, lineage graphs, glossaries, comparative translations,
-and gong'an indices into a consolidated, high-speed dataset for client-side execution,
-and synchronizes with /docs/ for seamless GitHub Pages deployment.
+"""Build the TranslateChan browser bundle and synchronize GitHub Pages assets.
+
+The ordered corpus manifest in data/corpus_manifest.json is the single source of
+truth for both the bundle and the reader navigation.  Run
+scripts/validate_data.py before this command when editing source data; CI enforces
+that the generated metrics and deploy artifacts are committed.
 
 Synchronization contract (verified by `diff -rq data docs/data` after each run):
   app assets (index.html, app.css, app.js, app_data.js) are copied byte-for-byte,
   and the data/ directory tree is mirrored into docs/data/.
 """
 
+from __future__ import annotations
+
 import json
-import os
 import shutil
 from pathlib import Path
+from typing import Any
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 DOCS_DIR = BASE_DIR / "docs"
 OUTPUT_FILE = BASE_DIR / "app_data.js"
 DOCS_OUTPUT_FILE = DOCS_DIR / "app_data.js"
+CORPUS_MANIFEST_FILE = DATA_DIR / "corpus_manifest.json"
 
-def load_json(filepath):
-    with open(filepath, 'r', encoding='utf-8') as f:
-        return json.load(f)
 
-def main():
+def load_json(filepath: Path) -> Any:
+    with filepath.open("r", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def load_corpus_manifest() -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    manifest = load_json(CORPUS_MANIFEST_FILE)
+    if not isinstance(manifest, dict) or not isinstance(manifest.get("items"), list):
+        raise ValueError(f"{CORPUS_MANIFEST_FILE} must contain an object with an items list")
+    items = manifest["items"]
+    seen: set[str] = set()
+    for index, item in enumerate(items):
+        if not isinstance(item, dict) or not isinstance(item.get("key"), str) or not item["key"]:
+            raise ValueError(f"corpus_manifest.items[{index}] requires a non-empty key")
+        key = item["key"]
+        if key in seen:
+            raise ValueError(f"corpus_manifest contains duplicate key: {key}")
+        seen.add(key)
+    return manifest, items
+
+
+def load_corpus(items: list[dict[str, Any]]) -> dict[str, Any]:
+    corpus: dict[str, Any] = {}
+    for item in items:
+        key = item["key"]
+        corpus_path = DATA_DIR / "corpus" / f"{key}.json"
+        if not corpus_path.exists():
+            raise FileNotFoundError(f"manifest key '{key}' has no source file: {corpus_path}")
+        corpus[key] = load_json(corpus_path)
+    return corpus
+
+
+def main() -> None:
     print("Bundling TranslateChan Classical Corpus...")
+    corpus_manifest, corpus_items = load_corpus_manifest()
+    corpus = load_corpus(corpus_items)
 
     data_bundle = {
         "glossary": load_json(DATA_DIR / "glossary" / "chan_terms.json"),
         "lineage": load_json(DATA_DIR / "lineage" / "masters.json"),
         "translations_matrix": load_json(DATA_DIR / "translations" / "comparative_matrix.json"),
         "translations_provenance": load_json(DATA_DIR / "translations" / "provenance.json"),
+        "translations_rights": load_json(DATA_DIR / "translations" / "rights_manifest.json"),
+        "canonical_locators": load_json(DATA_DIR / "canonical_locators.json"),
+        "project_metrics": load_json(DATA_DIR / "project_metrics.json"),
         "gongan_index": load_json(DATA_DIR / "gongan" / "gongan_index.json"),
-        "corpus": {
-            "wumenguan": load_json(DATA_DIR / "corpus" / "wumenguan.json"),
-            "linji_yulu": load_json(DATA_DIR / "corpus" / "linji_yulu.json"),
-            "huangbo_chuanxin": load_json(DATA_DIR / "corpus" / "huangbo_chuanxin.json"),
-            "zhaozhou_yulu": load_json(DATA_DIR / "corpus" / "zhaozhou_yulu.json"),
-            "xinxin_ming": load_json(DATA_DIR / "corpus" / "xinxin_ming.json"),
-            "baojing_sanmei": load_json(DATA_DIR / "corpus" / "baojing_sanmei.json"),
-            "biyanlu_cases": load_json(DATA_DIR / "corpus" / "biyanlu_cases.json"),
-            "platform_sutra": load_json(DATA_DIR / "corpus" / "platform_sutra.json"),
-            "chuandenglu": load_json(DATA_DIR / "corpus" / "chuandenglu.json"),
-            "qinggui_monastic_codes": load_json(DATA_DIR / "corpus" / "qinggui_monastic_codes.json"),
-            "dongshan_yulu": load_json(DATA_DIR / "corpus" / "dongshan_yulu.json"),
-            "yunmen_yulu": load_json(DATA_DIR / "corpus" / "yunmen_yulu.json"),
-            "fayan_yulu": load_json(DATA_DIR / "corpus" / "fayan_yulu.json"),
-            "guiyang_yulu": load_json(DATA_DIR / "corpus" / "guiyang_yulu.json"),
-            "dahui_hongzhi": load_json(DATA_DIR / "corpus" / "dahui_hongzhi.json"),
-            "shitou_sandokai": load_json(DATA_DIR / "corpus" / "shitou_sandokai.json"),
-            "zhengdao_ge": load_json(DATA_DIR / "corpus" / "zhengdao_ge.json"),
-            "bodhidharma_erru": load_json(DATA_DIR / "corpus" / "bodhidharma_erru.json"),
-            "niutou_juezhu": load_json(DATA_DIR / "corpus" / "niutou_juezhu.json"),
-            "lidai_fabao_ji": load_json(DATA_DIR / "corpus" / "lidai_fabao_ji.json"),
-            "dazhu_huihai": load_json(DATA_DIR / "corpus" / "dazhu_huihai.json"),
-            "baizhang_guanglu": load_json(DATA_DIR / "corpus" / "baizhang_guanglu.json"),
-            "foyan_qingyuan": load_json(DATA_DIR / "corpus" / "foyan_qingyuan.json"),
-            "dahui_shobogenzo": load_json(DATA_DIR / "corpus" / "dahui_shobogenzo.json"),
-            "mazu_yulu": load_json(DATA_DIR / "corpus" / "mazu_yulu.json"),
-            "nanquan_yulu": load_json(DATA_DIR / "corpus" / "nanquan_yulu.json"),
-            "deshan_yulu": load_json(DATA_DIR / "corpus" / "deshan_yulu.json"),
-            "xuefeng_yantou": load_json(DATA_DIR / "corpus" / "xuefeng_yantou.json"),
-            "congronglu_cases": load_json(DATA_DIR / "corpus" / "congronglu_cases.json"),
-            "wudeng_huiyuan": load_json(DATA_DIR / "corpus" / "wudeng_huiyuan.json"),
-            "sengzhao_zhaolun": load_json(DATA_DIR / "corpus" / "sengzhao_zhaolun.json"),
-            "hanshan_poems": load_json(DATA_DIR / "corpus" / "hanshan_poems.json"),
-            "huangbo_wanling": load_json(DATA_DIR / "corpus" / "huangbo_wanling.json"),
-            "xuansha_yulu": load_json(DATA_DIR / "corpus" / "xuansha_yulu.json"),
-            "caoxi_zhuan": load_json(DATA_DIR / "corpus" / "caoxi_zhuan.json"),
-            "yuanwu_letters": load_json(DATA_DIR / "corpus" / "yuanwu_letters.json")
-        },
+        "corpus_manifest": corpus_manifest,
+        "corpus": corpus,
         "meta": {
-            "version": "1.0.0",
+            "version": "1.1.0",
             "project": "TranslateChan",
-            "license": "CC-BY-SA 4.0 / MIT",
-            "cbeta_sources": ["T47", "T48", "T51", "X-Series"]
-        }
+            "license": "CC-BY-SA 4.0 / MIT (third-party quotation exceptions apply)",
+            "cbeta_sources": ["T47", "T48", "T51", "X-Series"],
+            "data_contract": "schemas/translatechan-data.schema.json",
+        },
     }
 
-    js_content = f"// Auto-generated TranslateChan Master Corpus Bundle\nwindow.TRANSLATECHAN_DATA = {json.dumps(data_bundle, ensure_ascii=False, indent=2)};\n"
+    js_content = (
+        "// Auto-generated TranslateChan Master Corpus Bundle\n"
+        f"window.TRANSLATECHAN_DATA = {json.dumps(data_bundle, ensure_ascii=False, indent=2)};\n"
+    )
 
-    # Write root bundle
-    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        f.write(js_content)
-
-    # Ensure /docs directory exists and sync assets
+    OUTPUT_FILE.write_text(js_content, encoding="utf-8")
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
-    with open(DOCS_OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        f.write(js_content)
+    DOCS_OUTPUT_FILE.write_text(js_content, encoding="utf-8")
 
-    for item in ["index.html", "app.css", "app.js"]:
+    for item in ("index.html", "app.css", "app.js"):
         src_path = BASE_DIR / item
         if src_path.exists():
             shutil.copy2(src_path, DOCS_DIR / item)
 
-    # Mirror data/ -> docs/data/ (byte-identical, deletions propagated)
     docs_data = DOCS_DIR / "data"
     shutil.rmtree(docs_data, ignore_errors=True)
     shutil.copytree(DATA_DIR, docs_data)
 
-    print(f"✅ Successfully compiled root bundle: {OUTPUT_FILE} ({os.path.getsize(OUTPUT_FILE):,} bytes)")
+    print(f"✅ Successfully compiled {len(corpus)} corpus documents: {OUTPUT_FILE} ({OUTPUT_FILE.stat().st_size:,} bytes)")
     print(f"✅ Successfully synchronized /docs for GitHub Pages deployment: {DOCS_DIR} (incl. data/ mirror)")
+
 
 if __name__ == "__main__":
     main()

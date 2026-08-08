@@ -1233,7 +1233,8 @@ window.TRANSLATECHAN_DATA = {
             "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
             "verification": "verbatim vs Morse reproduction, 2026-08-08",
             "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
-            "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'"
+            "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'",
+            "source_id": "blyth-mumonkan-1966"
           }
         },
         {
@@ -1262,7 +1263,8 @@ window.TRANSLATECHAN_DATA = {
           "source": {
             "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
             "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
-            "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+            "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08",
+            "source_id": "senzaki-reps-gateless-1934"
           }
         }
       ]
@@ -1397,10 +1399,10 @@ window.TRANSLATECHAN_DATA = {
     }
   ],
   "translations_provenance": {
-    "policy_version": "2.1",
+    "policy_version": "2.2",
     "policy_date": "2026-08-08",
     "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
-    "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless an explicit per-item status marks them verified against a specific edition. Reader, Matrix, and Studio render the same visible status; verified corpus and Matrix entries record source details. Reconstructions are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
+    "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless an explicit per-item status marks them verified against a specific edition. Reader, Matrix, and Studio render the same visible status; verified corpus and Matrix entries record source details plus a source_id resolving to the editorial rights manifest. Reconstructions are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
     "status_legend": {
       "verified_quotation": "Checked verbatim against a specific print/digital edition; full source recorded in the item's `source` field.",
       "reconstruction_unverified": "AI-crafted rendering in the scholar's known register/style. NOT a quotation of published text.",
@@ -1445,6 +1447,10 @@ window.TRANSLATECHAN_DATA = {
     },
     "classical_text_policy": "All `zh` strings must be verifiable against CBETA / Taishō lineage (or a recorded manuscript recension). Changes to `zh` text require a comment in the commit message naming the source edition.",
     "copyright_note": "Published modern translations remain copyright of their translators/publishers; reconstructions are original to this project and covered by the repository's CC BY-SA 4.0 dataset license (see LICENSE §2).",
+    "rights_manifest": {
+      "path": "data/translations/rights_manifest.json",
+      "policy": "Every verified quotation source must carry source_id and resolve to an editorial rights record. The manifest is not a legal opinion or license grant."
+    },
     "pilot_verifications": [
       {
         "pilot": "Wumenguan Case 1 dialogue (2026-08-08)",
@@ -1582,6 +1588,669 @@ window.TRANSLATECHAN_DATA = {
         "source.edition",
         "source.verification"
       ]
+    }
+  },
+  "translations_rights": {
+    "manifest_version": "1.0",
+    "policy": "This manifest is an editorial control record, not legal advice or a license grant. A source_id on a verified quotation must resolve here before it can be bundled. Modern translations are retained only as short, source-attributed comparative quotations; they are not relicensed as project-owned CC BY-SA material. Jurisdiction, edition, and fair-dealing/fair-use analysis require human review before redistribution beyond this research project.",
+    "sources": [
+      {
+        "source_id": "aitken-gateless-barrier-1990",
+        "translator": "Robert Aitken",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "North Point Press edition cited in source metadata."
+      },
+      {
+        "source_id": "blofeld-huangpo-1958",
+        "translator": "John Blofeld",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "Publisher/reproduction verification is provenance evidence, not a reuse license."
+      },
+      {
+        "source_id": "blyth-mumonkan-1966",
+        "translator": "R.H. Blyth",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "Hokuseido edition verified through a reproduction; rights status must be reviewed independently."
+      },
+      {
+        "source_id": "clarke-xinxin-1973",
+        "translator": "Richard B. Clarke",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "Online mirrors establish wording only and do not establish a reuse license."
+      },
+      {
+        "source_id": "ferguson-chinese-heritage-2011",
+        "translator": "Andy Ferguson",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "Wisdom Publications edition cited in source metadata."
+      },
+      {
+        "source_id": "hoffman-radical-zen-1978",
+        "translator": "Yoel Hoffman",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "Autumn Press edition cited in source metadata."
+      },
+      {
+        "source_id": "sasaki-linji-2009",
+        "translator": "Ruth Fuller Sasaki / Thomas Yūhō Kirchner edition",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "University of Hawaii Press edition cited in source metadata."
+      },
+      {
+        "source_id": "sekida-two-zen-classics-1977",
+        "translator": "Katsuki Sekida",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "Weatherhill edition cited in source metadata."
+      },
+      {
+        "source_id": "senzaki-reps-gateless-1934",
+        "translator": "Nyogen Senzaki & Paul Reps",
+        "rights_status": "public_domain_claimed_us",
+        "review_status": "jurisdiction_review_required",
+        "redistribution_policy": "Use the cited 1934 text with source attribution; confirm status in each distribution jurisdiction.",
+        "rights_note": "Project records a U.S. non-renewal/public-domain claim. That claim is jurisdiction-specific."
+      },
+      {
+        "source_id": "shimomisse-gateless-online",
+        "translator": "Eiichi Shimomissé",
+        "rights_status": "online_rights_unverified",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Keep as a short attributed comparative quotation pending rights review.",
+        "rights_note": "An online mirror verifies wording but does not determine license status."
+      },
+      {
+        "source_id": "watson-linchi-1999",
+        "translator": "Burton Watson",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "Columbia University Press edition cited in source metadata."
+      },
+      {
+        "source_id": "yamada-gateless-2004",
+        "translator": "Kōun Yamada",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "Wisdom Publications edition cited in source metadata."
+      },
+      {
+        "source_id": "yampolsky-platform-1967",
+        "translator": "Philip B. Yampolsky",
+        "rights_status": "copyrighted_or_rights_uncertain",
+        "review_status": "needs_rights_review",
+        "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+        "rights_note": "Columbia University Press edition cited in source metadata."
+      }
+    ]
+  },
+  "canonical_locators": {
+    "documents": {
+      "baizhang_guanglu": {
+        "canonical_id": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
+        "canonical_locator": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "baojing_sanmei": {
+        "canonical_id": "T1986",
+        "canonical_locator": "T1986",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "biyanlu_cases": {
+        "canonical_id": "T2003",
+        "canonical_locator": "T2003",
+        "case_locators": {
+          "1": {
+            "canonical_locator": "T2003, case 1",
+            "status": "case_level_anchor"
+          },
+          "12": {
+            "canonical_locator": "T2003, case 12",
+            "status": "case_level_anchor"
+          },
+          "14": {
+            "canonical_locator": "T2003, case 14",
+            "status": "case_level_anchor"
+          },
+          "2": {
+            "canonical_locator": "T2003, case 2",
+            "status": "case_level_anchor"
+          },
+          "21": {
+            "canonical_locator": "T2003, case 21",
+            "status": "case_level_anchor"
+          },
+          "3": {
+            "canonical_locator": "T2003, case 3",
+            "status": "case_level_anchor"
+          },
+          "43": {
+            "canonical_locator": "T2003, case 43",
+            "status": "case_level_anchor"
+          }
+        },
+        "granularity": "case",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "case_level_anchor"
+      },
+      "bodhidharma_erru": {
+        "canonical_id": "T2009",
+        "canonical_locator": "T2009",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "caoxi_zhuan": {
+        "canonical_id": "X1598 (曹溪大師別傳) / P.3018",
+        "canonical_locator": "X1598 (曹溪大師別傳) / P.3018",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "chuandenglu": {
+        "canonical_id": "T2076",
+        "canonical_locator": "T2076",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "congronglu_cases": {
+        "canonical_id": "T2004",
+        "canonical_locator": "T2004",
+        "case_locators": {
+          "1": {
+            "canonical_locator": "T2004, case 1",
+            "status": "case_level_anchor"
+          },
+          "9": {
+            "canonical_locator": "T2004, case 9",
+            "status": "case_level_anchor"
+          }
+        },
+        "granularity": "case",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "case_level_anchor"
+      },
+      "dahui_hongzhi": {
+        "canonical_id": "T1998A (大慧普覺禪師語錄)",
+        "canonical_locator": "T1998A (大慧普覺禪師語錄)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "dahui_shobogenzo": {
+        "canonical_id": "X1309 (大慧普覺禪師正法眼藏)",
+        "canonical_locator": "X1309 (大慧普覺禪師正法眼藏)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "dazhu_huihai": {
+        "canonical_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
+        "canonical_locator": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "deshan_yulu": {
+        "canonical_id": "embedded: T2076 f.15 / X1565 f.7",
+        "canonical_locator": "embedded: T2076 f.15 / X1565 f.7",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "dongshan_yulu": {
+        "canonical_id": "T1986",
+        "canonical_locator": "T1986",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "fayan_yulu": {
+        "canonical_id": "T1991 / X1226 (宗門十規論)",
+        "canonical_locator": "T1991 / X1226 (宗門十規論)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "foyan_qingyuan": {
+        "canonical_id": "X1315 (古尊宿語錄·佛眼語錄)",
+        "canonical_locator": "X1315 (古尊宿語錄·佛眼語錄)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "guiyang_yulu": {
+        "canonical_id": "T1989 / T1990",
+        "canonical_locator": "T1989 / T1990",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "hanshan_poems": {
+        "canonical_id": "SBCK / Zoku lineage (not in Taishō)",
+        "canonical_locator": "SBCK / Zoku lineage (not in Taishō)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "huangbo_chuanxin": {
+        "canonical_id": "T2012A",
+        "canonical_locator": "T2012A",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "huangbo_wanling": {
+        "canonical_id": "T2012B",
+        "canonical_locator": "T2012B",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "lidai_fabao_ji": {
+        "canonical_id": "T2075 / P.2125",
+        "canonical_locator": "T2075 / P.2125",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "linji_yulu": {
+        "canonical_id": "T1985",
+        "canonical_locator": "T1985",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "mazu_yulu": {
+        "canonical_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
+        "canonical_locator": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "nanquan_yulu": {
+        "canonical_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
+        "canonical_locator": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "niutou_juezhu": {
+        "canonical_id": "Dunhuang P.2885 / S.5619",
+        "canonical_locator": "Dunhuang P.2885 / S.5619",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "platform_sutra": {
+        "canonical_id": "T2007 / T2008",
+        "canonical_locator": "T2007 / T2008",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "qinggui_monastic_codes": {
+        "canonical_id": "T2025 / X1245",
+        "canonical_locator": "T2025 / X1245",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "sengzhao_zhaolun": {
+        "canonical_id": "T1858",
+        "canonical_locator": "T1858",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "shitou_sandokai": {
+        "canonical_id": "embedded: T2076 f.30 / X1565 f.14",
+        "canonical_locator": "embedded: T2076 f.30 / X1565 f.14",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "wudeng_huiyuan": {
+        "canonical_id": "X1565 (五燈會元)",
+        "canonical_locator": "X1565 (五燈會元)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "wumenguan": {
+        "canonical_id": "T2005",
+        "canonical_locator": "T2005",
+        "case_locators": {
+          "1": {
+            "canonical_locator": "T2005, case 1",
+            "status": "case_level_anchor"
+          },
+          "10": {
+            "canonical_locator": "T2005, case 10",
+            "status": "case_level_anchor"
+          },
+          "11": {
+            "canonical_locator": "T2005, case 11",
+            "status": "case_level_anchor"
+          },
+          "12": {
+            "canonical_locator": "T2005, case 12",
+            "status": "case_level_anchor"
+          },
+          "13": {
+            "canonical_locator": "T2005, case 13",
+            "status": "case_level_anchor"
+          },
+          "14": {
+            "canonical_locator": "T2005, case 14",
+            "status": "case_level_anchor"
+          },
+          "15": {
+            "canonical_locator": "T2005, case 15",
+            "status": "case_level_anchor"
+          },
+          "16": {
+            "canonical_locator": "T2005, case 16",
+            "status": "case_level_anchor"
+          },
+          "17": {
+            "canonical_locator": "T2005, case 17",
+            "status": "case_level_anchor"
+          },
+          "18": {
+            "canonical_locator": "T2005, case 18",
+            "status": "case_level_anchor"
+          },
+          "19": {
+            "canonical_locator": "T2005, case 19",
+            "status": "case_level_anchor"
+          },
+          "2": {
+            "canonical_locator": "T2005, case 2",
+            "status": "case_level_anchor"
+          },
+          "20": {
+            "canonical_locator": "T2005, case 20",
+            "status": "case_level_anchor"
+          },
+          "21": {
+            "canonical_locator": "T2005, case 21",
+            "status": "case_level_anchor"
+          },
+          "22": {
+            "canonical_locator": "T2005, case 22",
+            "status": "case_level_anchor"
+          },
+          "23": {
+            "canonical_locator": "T2005, case 23",
+            "status": "case_level_anchor"
+          },
+          "24": {
+            "canonical_locator": "T2005, case 24",
+            "status": "case_level_anchor"
+          },
+          "25": {
+            "canonical_locator": "T2005, case 25",
+            "status": "case_level_anchor"
+          },
+          "26": {
+            "canonical_locator": "T2005, case 26",
+            "status": "case_level_anchor"
+          },
+          "27": {
+            "canonical_locator": "T2005, case 27",
+            "status": "case_level_anchor"
+          },
+          "28": {
+            "canonical_locator": "T2005, case 28",
+            "status": "case_level_anchor"
+          },
+          "29": {
+            "canonical_locator": "T2005, case 29",
+            "status": "case_level_anchor"
+          },
+          "3": {
+            "canonical_locator": "T2005, case 3",
+            "status": "case_level_anchor"
+          },
+          "30": {
+            "canonical_locator": "T2005, case 30",
+            "status": "case_level_anchor"
+          },
+          "31": {
+            "canonical_locator": "T2005, case 31",
+            "status": "case_level_anchor"
+          },
+          "32": {
+            "canonical_locator": "T2005, case 32",
+            "status": "case_level_anchor"
+          },
+          "33": {
+            "canonical_locator": "T2005, case 33",
+            "status": "case_level_anchor"
+          },
+          "34": {
+            "canonical_locator": "T2005, case 34",
+            "status": "case_level_anchor"
+          },
+          "35": {
+            "canonical_locator": "T2005, case 35",
+            "status": "case_level_anchor"
+          },
+          "36": {
+            "canonical_locator": "T2005, case 36",
+            "status": "case_level_anchor"
+          },
+          "37": {
+            "canonical_locator": "T2005, case 37",
+            "status": "case_level_anchor"
+          },
+          "38": {
+            "canonical_locator": "T2005, case 38",
+            "status": "case_level_anchor"
+          },
+          "39": {
+            "canonical_locator": "T2005, case 39",
+            "status": "case_level_anchor"
+          },
+          "4": {
+            "canonical_locator": "T2005, case 4",
+            "status": "case_level_anchor"
+          },
+          "40": {
+            "canonical_locator": "T2005, case 40",
+            "status": "case_level_anchor"
+          },
+          "41": {
+            "canonical_locator": "T2005, case 41",
+            "status": "case_level_anchor"
+          },
+          "42": {
+            "canonical_locator": "T2005, case 42",
+            "status": "case_level_anchor"
+          },
+          "43": {
+            "canonical_locator": "T2005, case 43",
+            "status": "case_level_anchor"
+          },
+          "44": {
+            "canonical_locator": "T2005, case 44",
+            "status": "case_level_anchor"
+          },
+          "45": {
+            "canonical_locator": "T2005, case 45",
+            "status": "case_level_anchor"
+          },
+          "46": {
+            "canonical_locator": "T2005, case 46",
+            "status": "case_level_anchor"
+          },
+          "47": {
+            "canonical_locator": "T2005, case 47",
+            "status": "case_level_anchor"
+          },
+          "48": {
+            "canonical_locator": "T2005, case 48",
+            "status": "case_level_anchor"
+          },
+          "5": {
+            "canonical_locator": "T2005, case 5",
+            "status": "case_level_anchor"
+          },
+          "6": {
+            "canonical_locator": "T2005, case 6",
+            "status": "case_level_anchor"
+          },
+          "7": {
+            "canonical_locator": "T2005, case 7",
+            "status": "case_level_anchor"
+          },
+          "8": {
+            "canonical_locator": "T2005, case 8",
+            "status": "case_level_anchor"
+          },
+          "9": {
+            "canonical_locator": "T2005, case 9",
+            "status": "case_level_anchor"
+          }
+        },
+        "granularity": "case",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "case_level_anchor"
+      },
+      "xinxin_ming": {
+        "canonical_id": "T2010",
+        "canonical_locator": "T2010",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "xuansha_yulu": {
+        "canonical_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
+        "canonical_locator": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "xuefeng_yantou": {
+        "canonical_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+        "canonical_locator": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "yuanwu_letters": {
+        "canonical_id": "X1357 / T1997",
+        "canonical_locator": "X1357 / T1997",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "yunmen_yulu": {
+        "canonical_id": "T1988",
+        "canonical_locator": "T1988",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "zhaozhou_yulu": {
+        "canonical_id": "T1987",
+        "canonical_locator": "T1987",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      },
+      "zhengdao_ge": {
+        "canonical_id": "T2014",
+        "canonical_locator": "T2014",
+        "granularity": "document",
+        "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
+        "status": "legacy_document_seed"
+      }
+    },
+    "policy": {
+      "case_locator_scope": "A case locator anchors the project’s segmented dialogue, commentary, pointer, and verse units to their canonical case container; it is not a substitute for future page/line collation.",
+      "legacy_content": "Non-case excerpt seeds are currently documented at document level. They remain explicitly marked legacy_document_seed until their rendered units receive source-specific locators.",
+      "new_content": "Every new corpus document must have a document locator; every new case-based unit must have a case locator. Add page/line or TEI anchors whenever the source supplies them."
+    },
+    "purpose": "Canonical locator registry for source documents and case-based seed units.",
+    "schema_version": "1.0"
+  },
+  "project_metrics": {
+    "canonical_locator_coverage": {
+      "case_level_documents": 3,
+      "case_locators": 57,
+      "declared_cases": 57,
+      "document_level_seed_documents": 33,
+      "documents": 36
+    },
+    "corpus": {
+      "all_corpus_cjk_characters": 16270,
+      "complete_documents": [
+        "wumenguan"
+      ],
+      "content_cjk_characters": 13090,
+      "content_shapes": {
+        "cases": 3,
+        "chapters": 1,
+        "dialogues": 2,
+        "five_ranks": 1,
+        "sample_records": 1,
+        "sections": 25,
+        "stanzas": 4
+      },
+      "documents": 36,
+      "excerpt_seed_documents": 35
+    },
+    "manifest_integrity": {
+      "corpus_files": 36,
+      "shared_manifest_items": 36
+    },
+    "measurement_method": {
+      "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
+      "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
+      "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
+    },
+    "rights_coverage": {
+      "distinct_verified_sources": 13,
+      "manifest_sources": 13,
+      "verified_source_records": 140
+    },
+    "schema_version": "1.0",
+    "translations": {
+      "corpus_slots": 856,
+      "corpus_statuses": {
+        "ai_draft": 26,
+        "reconstruction_unverified": 692,
+        "verified_quotation": 138
+      },
+      "matrix_entries": 21,
+      "matrix_statuses": {
+        "ai_draft": 1,
+        "reconstruction_unverified": 18,
+        "verified_quotation": 2
+      }
     }
   },
   "gongan_index": [
@@ -1860,6 +2529,192 @@ window.TRANSLATECHAN_DATA = {
       "summary": "Asked how to avoid cold and heat, Dongshan says: 'When cold, let cold kill you; when hot, let heat kill you.'"
     }
   ],
+  "corpus_manifest": {
+    "schema_version": "1.0",
+    "description": "Single source of truth for corpus ordering and reader-navigation labels. Each key must map to data/corpus/<key>.json.",
+    "items": [
+      {
+        "key": "wumenguan",
+        "title": "The Gateless Gate (無門關)",
+        "cbeta": "T2005"
+      },
+      {
+        "key": "linji_yulu",
+        "title": "Record of Linji (臨濟語錄)",
+        "cbeta": "T1985"
+      },
+      {
+        "key": "huangbo_chuanxin",
+        "title": "Transmission of Mind (黃檗法要)",
+        "cbeta": "T2012A"
+      },
+      {
+        "key": "zhaozhou_yulu",
+        "title": "Sayings of Zhaozhou (趙州語錄)",
+        "cbeta": "T1987"
+      },
+      {
+        "key": "xinxin_ming",
+        "title": "Faith in Mind (信心銘)",
+        "cbeta": "T2010"
+      },
+      {
+        "key": "baojing_sanmei",
+        "title": "Jewel Mirror Samadhi (寶鏡三昧)",
+        "cbeta": "T1986"
+      },
+      {
+        "key": "biyanlu_cases",
+        "title": "Blue Cliff Record (碧巖錄)",
+        "cbeta": "T2003"
+      },
+      {
+        "key": "platform_sutra",
+        "title": "Platform Sutra (六祖壇經)",
+        "cbeta": "T2007"
+      },
+      {
+        "key": "chuandenglu",
+        "title": "Transmission of Lamp (景德傳燈錄)",
+        "cbeta": "T2076"
+      },
+      {
+        "key": "qinggui_monastic_codes",
+        "title": "Rules of Purity (百丈禪苑清規)",
+        "cbeta": "T2025"
+      },
+      {
+        "key": "dongshan_yulu",
+        "title": "Dongshan Yulu & Five Ranks (洞山五位)",
+        "cbeta": "T1986"
+      },
+      {
+        "key": "yunmen_yulu",
+        "title": "Yunmen Yulu (雲門語錄一字關)",
+        "cbeta": "T1988"
+      },
+      {
+        "key": "fayan_yulu",
+        "title": "Fayan Yulu & Ten Rules (法眼十規論)",
+        "cbeta": "T1991"
+      },
+      {
+        "key": "guiyang_yulu",
+        "title": "Guiyang Yulu & Circles (溈仰九十六圓相)",
+        "cbeta": "T1989"
+      },
+      {
+        "key": "dahui_hongzhi",
+        "title": "Dahui & Hongzhi (看話書問與默照銘)",
+        "cbeta": "T1998A"
+      },
+      {
+        "key": "shitou_sandokai",
+        "title": "Shitou Sandokai & Grass Hut (參同契與草庵歌)",
+        "cbeta": "T2076 f.30"
+      },
+      {
+        "key": "zhengdao_ge",
+        "title": "Yongjia Zhengdao Ge (永嘉證道歌)",
+        "cbeta": "T2014"
+      },
+      {
+        "key": "bodhidharma_erru",
+        "title": "Bodhidharma Erru Sixing (二入四行論)",
+        "cbeta": "T2009"
+      },
+      {
+        "key": "niutou_juezhu",
+        "title": "Niutou Farong Juezhu Lun (絕觀論)",
+        "cbeta": "P.2885"
+      },
+      {
+        "key": "lidai_fabao_ji",
+        "title": "Lidai Fabao Ji (歷代法寶記)",
+        "cbeta": "T2075"
+      },
+      {
+        "key": "dazhu_huihai",
+        "title": "Dazhu Huihai Dunwu Yaomen (頓悟入道要門)",
+        "cbeta": "X1223"
+      },
+      {
+        "key": "baizhang_guanglu",
+        "title": "Baizhang Guanglu (百丈廣錄三句)",
+        "cbeta": "X1323"
+      },
+      {
+        "key": "foyan_qingyuan",
+        "title": "Foyan Qingyuan Instant Zen (佛眼坐禪銘)",
+        "cbeta": "X1315"
+      },
+      {
+        "key": "dahui_shobogenzo",
+        "title": "Dahui Shobogenzo (大慧正法眼藏)",
+        "cbeta": "X1309"
+      },
+      {
+        "key": "mazu_yulu",
+        "title": "Mazu Daoyi Yulu (江西馬祖語錄)",
+        "cbeta": "X1321"
+      },
+      {
+        "key": "nanquan_yulu",
+        "title": "Nanquan Puyuan Yulu (南泉普願語錄)",
+        "cbeta": "X1315"
+      },
+      {
+        "key": "deshan_yulu",
+        "title": "Deshan Xuanjian Yulu (德山宣鑑語錄)",
+        "cbeta": "T2076/X1565"
+      },
+      {
+        "key": "xuefeng_yantou",
+        "title": "Xuefeng & Yantou Yulu (雪峰巖頭語錄)",
+        "cbeta": "X1333"
+      },
+      {
+        "key": "congronglu_cases",
+        "title": "Book of Serenity (從容庵錄)",
+        "cbeta": "T2004"
+      },
+      {
+        "key": "wudeng_huiyuan",
+        "title": "Compendium of Five Lamps (五燈會元)",
+        "cbeta": "X1565"
+      },
+      {
+        "key": "sengzhao_zhaolun",
+        "title": "Sengzhao Zhao Lun (僧肇肇論)",
+        "cbeta": "T1858"
+      },
+      {
+        "key": "hanshan_poems",
+        "title": "Hanshan Cold Mountain Poems (寒山詩集)",
+        "cbeta": "SBCK/Zoku"
+      },
+      {
+        "key": "huangbo_wanling",
+        "title": "Huangbo Wanling Lu (黃檗宛陵錄)",
+        "cbeta": "T2012B"
+      },
+      {
+        "key": "xuansha_yulu",
+        "title": "Xuansha Shibei Yulu (玄沙宗一語錄)",
+        "cbeta": "X1445"
+      },
+      {
+        "key": "caoxi_zhuan",
+        "title": "Caoxi Dashi Biezhuan (曹溪大師別傳)",
+        "cbeta": "X1598"
+      },
+      {
+        "key": "yuanwu_letters",
+        "title": "Yuanwu Zen Letters (圓悟克勤心要)",
+        "cbeta": "X1357"
+      }
+    ]
+  },
   "corpus": {
     "wumenguan": {
       "id": "wumenguan",
@@ -1910,7 +2765,8 @@ window.TRANSLATECHAN_DATA = {
                     "work": "Zen and Zen Classics, Volume Four: Mumonkan, tr. R.H. Blyth",
                     "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
                     "verification": "verbatim vs Morse reproduction, 2026-08-08",
-                    "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation)."
+                    "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
+                    "source_id": "blyth-mumonkan-1966"
                   }
                 },
                 "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
@@ -1921,7 +2777,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
-                    "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+                    "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "shimomisse": {
@@ -1930,7 +2787,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Eiichi Shimomissé",
                     "edition": "Online edition (Terebess Asia Online mirror)",
-                    "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+                    "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08",
+                    "source_id": "shimomisse-gateless-online"
                   }
                 },
                 "sekida": {
@@ -1939,7 +2797,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Two Zen Classics: Mumonkan & Hekiganroku, tr. Katsuki Sekida",
                     "edition": "Weatherhill, 1977, pp. 26–137",
-                    "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
+                    "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08",
+                    "source_id": "sekida-two-zen-classics-1977"
                   }
                 },
                 "yamada": {
@@ -1948,7 +2807,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 },
                 "aitken": {
@@ -1957,7 +2817,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
                     "edition": "North Point Press, 1990",
-                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
+                    "source_id": "aitken-gateless-barrier-1990"
                   }
                 }
               }
@@ -1979,7 +2840,8 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
                     "verification": "verbatim vs Morse reproduction, 2026-08-08",
                     "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
-                    "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'"
+                    "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'",
+                    "source_id": "blyth-mumonkan-1966"
                   }
                 },
                 "blofeld": "The Master replied: 'None!'",
@@ -1990,7 +2852,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
-                    "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+                    "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "shimomisse": {
@@ -1999,7 +2862,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Eiichi Shimomissé",
                     "edition": "Online edition (Terebess Asia Online mirror)",
-                    "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+                    "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08",
+                    "source_id": "shimomisse-gateless-online"
                   }
                 },
                 "sekida": {
@@ -2008,7 +2872,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Two Zen Classics: Mumonkan & Hekiganroku, tr. Katsuki Sekida",
                     "edition": "Weatherhill, 1977, pp. 26–137",
-                    "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
+                    "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08",
+                    "source_id": "sekida-two-zen-classics-1977"
                   }
                 },
                 "yamada": {
@@ -2017,7 +2882,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 },
                 "aitken": {
@@ -2026,7 +2892,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
                     "edition": "North Point Press, 1990",
-                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
+                    "source_id": "aitken-gateless-barrier-1990"
                   }
                 }
               }
@@ -2060,7 +2927,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2069,7 +2937,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 },
                 "aitken": {
@@ -2078,7 +2947,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
                     "edition": "North Point Press, 1990",
-                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
+                    "source_id": "aitken-gateless-barrier-1990"
                   }
                 }
               }
@@ -2097,7 +2967,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2106,7 +2977,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 },
                 "aitken": {
@@ -2115,7 +2987,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
                     "edition": "North Point Press, 1990",
-                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
+                    "source_id": "aitken-gateless-barrier-1990"
                   }
                 }
               }
@@ -2134,7 +3007,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2143,7 +3017,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -2177,7 +3052,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2186,7 +3062,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 },
                 "aitken": {
@@ -2195,7 +3072,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
                     "edition": "North Point Press, 1990",
-                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08",
+                    "source_id": "aitken-gateless-barrier-1990"
                   }
                 }
               }
@@ -2214,7 +3092,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2223,7 +3102,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -2258,7 +3138,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2267,7 +3148,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 },
                 "aitken": {
@@ -2276,7 +3158,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
                     "edition": "North Point Press, 1990",
-                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08; Aitken numbers this case 4 (canonical agreement)"
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08; Aitken numbers this case 4 (canonical agreement)",
+                    "source_id": "aitken-gateless-barrier-1990"
                   }
                 }
               }
@@ -2310,7 +3193,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2319,7 +3203,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Terebess scan's OCR artifact 'moth' corrected to the printed reading 'mouth'"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Terebess scan's OCR artifact 'moth' corrected to the printed reading 'mouth'",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -2353,7 +3238,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2362,7 +3248,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -2381,7 +3268,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2390,7 +3278,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -2424,7 +3313,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2433,7 +3323,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -2452,7 +3343,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -2461,7 +3353,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -2492,7 +3385,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2523,7 +3417,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2539,7 +3434,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2555,7 +3451,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2571,7 +3468,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2602,7 +3500,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2618,7 +3517,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2634,7 +3534,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2665,7 +3566,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2681,7 +3583,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2712,7 +3615,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2743,7 +3647,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2759,7 +3664,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2775,7 +3681,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2806,7 +3713,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2822,7 +3730,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2853,7 +3762,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2869,7 +3779,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2900,7 +3811,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2931,7 +3843,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2962,7 +3875,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -2997,7 +3911,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3006,7 +3921,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3026,7 +3942,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3035,7 +3952,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3054,7 +3972,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3063,7 +3982,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3082,7 +4002,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3091,7 +4012,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3122,7 +4044,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3153,7 +4076,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3184,7 +4108,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3200,7 +4125,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3216,7 +4142,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3250,7 +4177,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3259,7 +4187,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3278,7 +4207,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3287,7 +4217,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3306,7 +4237,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3315,7 +4247,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3346,7 +4279,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3377,7 +4311,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3408,7 +4343,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3439,7 +4375,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3455,7 +4392,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3486,7 +4424,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3502,7 +4441,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3518,7 +4458,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3552,7 +4493,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3561,7 +4503,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3580,7 +4523,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3589,7 +4533,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3620,7 +4565,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3651,7 +4597,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3667,7 +4614,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3698,7 +4646,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3714,7 +4663,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3745,7 +4695,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3776,7 +4727,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3807,7 +4759,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3838,7 +4791,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3873,7 +4827,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08; Senzaki/Reps number this case 38 ('An Oak Tree in the Garden') — their edition inserts the oak-tree koan non-canonically (canonical case 37 is Panshan)"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08; Senzaki/Reps number this case 38 ('An Oak Tree in the Garden') — their edition inserts the oak-tree koan non-canonically (canonical case 37 is Panshan)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3882,7 +4837,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Yamada numbers this case 37 (his edition's slot for the oak tree, replacing canonical Panshan)"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Yamada numbers this case 37 (his edition's slot for the oak tree, replacing canonical Panshan)",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3902,7 +4858,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
-                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08; Senzaki/Reps number this case 38 ('An Oak Tree in the Garden') — their edition inserts the oak-tree koan non-canonically (canonical case 37 is Panshan)"
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08; Senzaki/Reps number this case 38 ('An Oak Tree in the Garden') — their edition inserts the oak-tree koan non-canonically (canonical case 37 is Panshan)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 },
                 "yamada": {
@@ -3911,7 +4868,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, tr. Kōun Yamada",
                     "edition": "Wisdom Publications, Boston, 2004",
-                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Yamada numbers this case 37 (his edition's slot for the oak tree, replacing canonical Panshan)"
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Yamada numbers this case 37 (his edition's slot for the oak tree, replacing canonical Panshan)",
+                    "source_id": "yamada-gateless-2004"
                   }
                 }
               }
@@ -3942,7 +4900,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3973,7 +4932,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -3989,7 +4949,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4020,7 +4981,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4036,7 +4998,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4067,7 +5030,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4083,7 +5047,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4114,7 +5079,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4130,7 +5096,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4161,7 +5128,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4192,7 +5160,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4223,7 +5192,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4254,7 +5224,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4285,7 +5256,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4316,7 +5288,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4332,7 +5305,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; sacred-texts.com reproduction)",
-                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)"
+                    "verification": "verbatim vs sacred-texts.com/bud/glg (case pages fetched 2026-08-08)",
+                    "source_id": "senzaki-reps-gateless-1934"
                   }
                 }
               }
@@ -4379,7 +5353,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
                     "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
-                    "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+                    "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08",
+                    "source_id": "sasaki-linji-2009"
                   }
                 },
                 "cleary": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
@@ -4398,7 +5373,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
                     "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
-                    "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+                    "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08",
+                    "source_id": "sasaki-linji-2009"
                   }
                 },
                 "cleary": "Then a monk came forward and asked, 'What is the true human of no status?'",
@@ -4417,7 +5393,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
                     "edition": "University of Hawaii Press, 2009",
-                    "verification": "wording consistent across three independent reproductions, 2026-08-08"
+                    "verification": "wording consistent across three independent reproductions, 2026-08-08",
+                    "source_id": "sasaki-linji-2009"
                   }
                 },
                 "cleary": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
@@ -4446,7 +5423,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Zen Teachings of Master Lin-Chi, tr. Burton Watson",
                     "edition": "Columbia University Press, 1999, pp. 98–99",
-                    "verification": "verbatim as cited in Wikipedia 'Katsu (Zen)' sourcing Watson pp. 98–99, 2026-08-08"
+                    "verification": "verbatim as cited in Wikipedia 'Katsu (Zen)' sourcing Watson pp. 98–99, 2026-08-08",
+                    "source_id": "watson-linchi-1999"
                   }
                 }
               }
@@ -4501,7 +5479,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
                     "edition": "Wisdom Publications, 2011",
-                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08; Ferguson follows the T1985 師臨遷化時據坐云 reading, our unit zh follows the 囑三聖曰 variant"
+                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08; Ferguson follows the T1985 師臨遷化時據坐云 reading, our unit zh follows the 囑三聖曰 variant",
+                    "source_id": "ferguson-chinese-heritage-2011"
                   }
                 }
               }
@@ -4520,7 +5499,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
                     "edition": "Wisdom Publications, 2011",
-                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08"
+                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08",
+                    "source_id": "ferguson-chinese-heritage-2011"
                   }
                 }
               }
@@ -4559,7 +5539,8 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
                     "edition": "Rider & Co., 1958 (Chün Chou Record, teaching 1)",
                     "verification": "wording consistent across Grove Atlantic (publisher), Terebess reproduction, and two further mirrors, 2026-08-08",
-                    "note": "Replaces a prior paraphrase ('nothing whatever but… besides which')."
+                    "note": "Replaces a prior paraphrase ('nothing whatever but… besides which').",
+                    "source_id": "blofeld-huangpo-1958"
                   }
                 },
                 "cleary": "The Master said to Pei Xiu: All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes; it is not blue or yellow, has no form or characteristics, belongs neither to existence nor nonexistence, cannot be reckoned as new or old, is neither long nor short, neither large nor small, transcending all limits, words, traces, and polarities.",
@@ -4578,7 +5559,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
                     "edition": "Grove Press (Part One: Chün Chou Record §1)",
-                    "verification": "verbatim (span matching unit's zh) vs Terebess reproduction of Blofeld's text, 2026-08-08; prior reconstruction ended 'sentient beings' — Blofeld's wording is 'sentient things'"
+                    "verification": "verbatim (span matching unit's zh) vs Terebess reproduction of Blofeld's text, 2026-08-08; prior reconstruction ended 'sentient beings' — Blofeld's wording is 'sentient things'",
+                    "source_id": "blofeld-huangpo-1958"
                   }
                 },
                 "cleary": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
@@ -4596,7 +5578,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
                     "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
-                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
+                    "source_id": "blofeld-huangpo-1958"
                   }
                 },
                 "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
@@ -4614,7 +5597,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
                     "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
-                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
+                    "source_id": "blofeld-huangpo-1958"
                   }
                 },
                 "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
@@ -4658,7 +5642,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
                     "edition": "Autumn Press, 1978, episode no. 12",
-                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'",
+                    "source_id": "hoffman-radical-zen-1978"
                   }
                 }
               }
@@ -4678,7 +5663,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
                     "edition": "Autumn Press, 1978, episode no. 12",
-                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'",
+                    "source_id": "hoffman-radical-zen-1978"
                   }
                 }
               }
@@ -4697,7 +5683,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
                     "edition": "Autumn Press, 1978, episode no. 12",
-                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'",
+                    "source_id": "hoffman-radical-zen-1978"
                   }
                 }
               }
@@ -4725,7 +5712,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
                     "edition": "Autumn Press, 1978",
-                    "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+                    "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08",
+                    "source_id": "hoffman-radical-zen-1978"
                   }
                 }
               }
@@ -4745,7 +5733,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
                     "edition": "Autumn Press, 1978",
-                    "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+                    "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08",
+                    "source_id": "hoffman-radical-zen-1978"
                   }
                 }
               }
@@ -4811,7 +5800,8 @@ window.TRANSLATECHAN_DATA = {
               "source": {
                 "work": "Hsin-Hsin Ming: Verses on the Faith-Mind, tr. Richard B. Clarke (1973, White Wind Press)",
                 "edition": "widely mirrored online text",
-                "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08"
+                "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08",
+                "source_id": "clarke-xinxin-1973"
               }
             }
           }
@@ -4833,7 +5823,8 @@ window.TRANSLATECHAN_DATA = {
               "source": {
                 "work": "Hsin-Hsin Ming: Verses on the Faith-Mind, tr. Richard B. Clarke (1973, White Wind Press)",
                 "edition": "widely mirrored online text",
-                "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08"
+                "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08",
+                "source_id": "clarke-xinxin-1973"
               }
             }
           }
@@ -5266,7 +6257,8 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
                     "edition": "Columbia University Press, 1967, p. 130 (Dunhuang text)",
                     "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08",
-                    "note": "Replaces a prior paraphrase that did not match Yampolsky's wording."
+                    "note": "Replaces a prior paraphrase that did not match Yampolsky's wording.",
+                    "source_id": "yampolsky-platform-1967"
                   }
                 }
               }
@@ -5293,7 +6285,8 @@ window.TRANSLATECHAN_DATA = {
                   "source": {
                     "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
                     "edition": "Columbia University Press, 1967, p. 132 (Dunhuang text — the recension he translated; the received-text verse above reads 本來無一物)",
-                    "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08"
+                    "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08",
+                    "source_id": "yampolsky-platform-1967"
                   }
                 }
               },
@@ -8053,14 +9046,15 @@ window.TRANSLATECHAN_DATA = {
     }
   },
   "meta": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "project": "TranslateChan",
-    "license": "CC-BY-SA 4.0 / MIT",
+    "license": "CC-BY-SA 4.0 / MIT (third-party quotation exceptions apply)",
     "cbeta_sources": [
       "T47",
       "T48",
       "T51",
       "X-Series"
-    ]
+    ],
+    "data_contract": "schemas/translatechan-data.schema.json"
   }
 };

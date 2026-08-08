@@ -85,6 +85,13 @@ globalThis.document = {
 // Load data bundle + app
 eval(readFileSync(join(ROOT, 'app_data.js'), 'utf8'));
 if (!window.TRANSLATECHAN_DATA) throw new Error('app_data.js did not populate TRANSLATECHAN_DATA');
+if (!Array.isArray(window.TRANSLATECHAN_DATA.corpus_manifest?.items) || window.TRANSLATECHAN_DATA.corpus_manifest.items.length !== 36) {
+  throw new Error('app_data.js is missing the shared 36-item corpus manifest');
+}
+if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 36 ||
+    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 36) {
+  throw new Error('app_data.js is missing validated metrics or canonical locator coverage');
+}
 console.log('DATA loaded. corpus keys:', Object.keys(window.TRANSLATECHAN_DATA.corpus).length);
 
 eval(readFileSync(join(ROOT, 'app.js'), 'utf8'));

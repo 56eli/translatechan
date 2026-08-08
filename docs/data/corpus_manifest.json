@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0",
+  "description": "Single source of truth for corpus ordering and reader-navigation labels. Each key must map to data/corpus/<key>.json.",
+  "items": [
+    {
+      "key": "wumenguan",
+      "title": "The Gateless Gate (無門關)",
+      "cbeta": "T2005"
+    },
+    {
+      "key": "linji_yulu",
+      "title": "Record of Linji (臨濟語錄)",
+      "cbeta": "T1985"
+    },
+    {
+      "key": "huangbo_chuanxin",
+      "title": "Transmission of Mind (黃檗法要)",
+      "cbeta": "T2012A"
+    },
+    {
+      "key": "zhaozhou_yulu",
+      "title": "Sayings of Zhaozhou (趙州語錄)",
+      "cbeta": "T1987"
+    },
+    {
+      "key": "xinxin_ming",
+      "title": "Faith in Mind (信心銘)",
+      "cbeta": "T2010"
+    },
+    {
+      "key": "baojing_sanmei",
+      "title": "Jewel Mirror Samadhi (寶鏡三昧)",
+      "cbeta": "T1986"
+    },
+    {
+      "key": "biyanlu_cases",
+      "title": "Blue Cliff Record (碧巖錄)",
+      "cbeta": "T2003"
+    },
+    {
+      "key": "platform_sutra",
+      "title": "Platform Sutra (六祖壇經)",
+      "cbeta": "T2007"
+    },
+    {
+      "key": "chuandenglu",
+      "title": "Transmission of Lamp (景德傳燈錄)",
+      "cbeta": "T2076"
+    },
+    {
+      "key": "qinggui_monastic_codes",
+      "title": "Rules of Purity (百丈禪苑清規)",
+      "cbeta": "T2025"
+    },
+    {
+      "key": "dongshan_yulu",
+      "title": "Dongshan Yulu & Five Ranks (洞山五位)",
+      "cbeta": "T1986"
+    },
+    {
+      "key": "yunmen_yulu",
+      "title": "Yunmen Yulu (雲門語錄一字關)",
+      "cbeta": "T1988"
+    },
+    {
+      "key": "fayan_yulu",
+      "title": "Fayan Yulu & Ten Rules (法眼十規論)",
+      "cbeta": "T1991"
+    },
+    {
+      "key": "guiyang_yulu",
+      "title": "Guiyang Yulu & Circles (溈仰九十六圓相)",
+      "cbeta": "T1989"
+    },
+    {
+      "key": "dahui_hongzhi",
+      "title": "Dahui & Hongzhi (看話書問與默照銘)",
+      "cbeta": "T1998A"
+    },
+    {
+      "key": "shitou_sandokai",
+      "title": "Shitou Sandokai & Grass Hut (參同契與草庵歌)",
+      "cbeta": "T2076 f.30"
+    },
+    {
+      "key": "zhengdao_ge",
+      "title": "Yongjia Zhengdao Ge (永嘉證道歌)",
+      "cbeta": "T2014"
+    },
+    {
+      "key": "bodhidharma_erru",
+      "title": "Bodhidharma Erru Sixing (二入四行論)",
+      "cbeta": "T2009"
+    },
+    {
+      "key": "niutou_juezhu",
+      "title": "Niutou Farong Juezhu Lun (絕觀論)",
+      "cbeta": "P.2885"
+    },
+    {
+      "key": "lidai_fabao_ji",
+      "title": "Lidai Fabao Ji (歷代法寶記)",
+      "cbeta": "T2075"
+    },
+    {
+      "key": "dazhu_huihai",
+      "title": "Dazhu Huihai Dunwu Yaomen (頓悟入道要門)",
+      "cbeta": "X1223"
+    },
+    {
+      "key": "baizhang_guanglu",
+      "title": "Baizhang Guanglu (百丈廣錄三句)",
+      "cbeta": "X1323"
+    },
+    {
+      "key": "foyan_qingyuan",
+      "title": "Foyan Qingyuan Instant Zen (佛眼坐禪銘)",
+      "cbeta": "X1315"
+    },
+    {
+      "key": "dahui_shobogenzo",
+      "title": "Dahui Shobogenzo (大慧正法眼藏)",
+      "cbeta": "X1309"
+    },
+    {
+      "key": "mazu_yulu",
+      "title": "Mazu Daoyi Yulu (江西馬祖語錄)",
+      "cbeta": "X1321"
+    },
+    {
+      "key": "nanquan_yulu",
+      "title": "Nanquan Puyuan Yulu (南泉普願語錄)",
+      "cbeta": "X1315"
+    },
+    {
+      "key": "deshan_yulu",
+      "title": "Deshan Xuanjian Yulu (德山宣鑑語錄)",
+      "cbeta": "T2076/X1565"
+    },
+    {
+      "key": "xuefeng_yantou",
+      "title": "Xuefeng & Yantou Yulu (雪峰巖頭語錄)",
+      "cbeta": "X1333"
+    },
+    {
+      "key": "congronglu_cases",
+      "title": "Book of Serenity (從容庵錄)",
+      "cbeta": "T2004"
+    },
+    {
+      "key": "wudeng_huiyuan",
+      "title": "Compendium of Five Lamps (五燈會元)",
+      "cbeta": "X1565"
+    },
+    {
+      "key": "sengzhao_zhaolun",
+      "title": "Sengzhao Zhao Lun (僧肇肇論)",
+      "cbeta": "T1858"
+    },
+    {
+      "key": "hanshan_poems",
+      "title": "Hanshan Cold Mountain Poems (寒山詩集)",
+      "cbeta": "SBCK/Zoku"
+    },
+    {
+      "key": "huangbo_wanling",
+      "title": "Huangbo Wanling Lu (黃檗宛陵錄)",
+      "cbeta": "T2012B"
+    },
+    {
+      "key": "xuansha_yulu",
+      "title": "Xuansha Shibei Yulu (玄沙宗一語錄)",
+      "cbeta": "X1445"
+    },
+    {
+      "key": "caoxi_zhuan",
+      "title": "Caoxi Dashi Biezhuan (曹溪大師別傳)",
+      "cbeta": "X1598"
+    },
+    {
+      "key": "yuanwu_letters",
+      "title": "Yuanwu Zen Letters (圓悟克勤心要)",
+      "cbeta": "X1357"
+    }
+  ]
+}

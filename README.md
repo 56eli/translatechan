@@ -20,7 +20,7 @@
 
 Every visible translation register in the Reader, Comparative Matrix, and Studio carries a **✅ Verified quotation**, **⚠️ Register reconstruction**, or **🤖 AI draft** badge. A verified item also exposes its recorded source details; reconstructions are AI-composed in a scholar's documented style and are *not* citable. The verification campaign delivered:
 
-- **138 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields under the provenance policy v2.1.
+- **138 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
 - All checks and honest negatives logged in [`AUDIT.md` §8](./AUDIT.md).
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
@@ -30,7 +30,7 @@ Every visible translation register in the Reader, Comparative Matrix, and Studio
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** (Wumenguan is the first **complete text**: 48/48 cases) (≈16,300 Classical Chinese characters total — re-measured 2026-08-08 after Wumenguan 48/48 completion), with authentic CBETA-verified anchor passages — not complete texts. Per-text coverage is tracked in [`AUDIT.md §3`](./AUDIT.md); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is now **complete: all 48 cases** (2026-08-08); next up is Biyanlu.
+> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** (Wumenguan is the first **complete text**: 48/48 cases). The generated metrics report **13,090 source-content CJK characters** (or 16,270 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage is tracked in [`data/project_metrics.json`](./data/project_metrics.json) and [`AUDIT.md §10`](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu is next.
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -83,14 +83,18 @@ translatechan/
 ├── index.html              # GitHub Pages entry point (Fast, zero-backend, responsive SPA)
 ├── app.css                 # Zen minimalist light/dark styling & typography
 ├── app.js                  # Client-side routing, search, lexicon popups, and studio engine
-├── app_data.js             # Compiled master data bundle for zero-latency client-side search
+├── app_data.js             # Generated master data bundle for zero-latency client-side search
+├── schemas/                # Formal JSON Schema companion to semantic validation
 ├── docs/                   # Synchronized duplicate of the app (GitHub Pages serves main /docs)
 ├── vision.md               # Grand Vision & Architectural Specification
 ├── ROADMAP.md              # Multi-Phase Project Roadmap & Milestone Tracker
 ├── AUDIT.md                # Post-merge technical audit + remediation log (2026-08)
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
 ├── data/
-│   ├── corpus/             # 36 structured canonical-text files (JSON, excerpt-scale → growing)
+│   ├── corpus_manifest.json    # Shared corpus order/navigation manifest (36 keys)
+│   ├── canonical_locators.json # Document/case source-locator registry
+│   ├── project_metrics.json    # Deterministic, validator-generated project counts
+│   ├── corpus/                 # 36 structured canonical-text files (JSON, excerpt-scale → growing)
 │   │   ├── wumenguan.json            # + preface/epilogue
 │   │   ├── linji_yulu.json
 │   │   ├── biyanlu_cases.json
@@ -98,8 +102,10 @@ translatechan/
 │   │   └── ... (32 more: yulu, treatises, poems — see data/corpus/)
 │   ├── lineage/            # Master genealogies and biographies (30 profiles)
 │   │   └── masters.json
-│   ├── translations/       # Sentence-aligned comparative translations (4 entries)
-│   │   └── comparative_matrix.json
+│   ├── translations/       # Comparative data, provenance, and rights controls
+│   │   ├── comparative_matrix.json
+│   │   ├── provenance.json
+│   │   └── rights_manifest.json
 │   ├── glossary/           # Classical Chan & Buddhist lexicon (31 terms)
 │   │   └── chan_terms.json
 │   └── gongan/             # Gong'an cross-reference catalog (18 cases)
@@ -108,10 +114,11 @@ translatechan/
     ├── build_data_bundle.py   # Compiles data/ into app_data.js + syncs /docs (deterministic)
     ├── arena_agent_pipeline.py# Prompt templates & entry harness for sandboxed agent work
     ├── ingest_cbeta.py        # Offline Classical Chinese sentence segmenter (manual input)
-    └── smoke_test.mjs         # Dependency-free regression test (node scripts/smoke_test.mjs)
+    ├── validate_data.py       # Schema/semantic/rights/locator validator + metrics generator
+    └── smoke_test.mjs         # Dependency-free renderer regression test
 ```
 
-> **Note on deployment automation**: GitHub Pages is served directly from the `main` branch `/docs` folder (native branch publishing — no GitHub Actions workflow is required or present).
+> **Note on deployment automation**: GitHub Pages is served directly from the `main` branch `/docs` folder (native branch publishing). Run the documented validation/build/smoke commands before each PR; the prepared CI workflow requires workflow-capable GitHub access before it can be published.
 
 ---
 
@@ -124,13 +131,17 @@ To run locally without any build tools or dependencies:
 git clone https://github.com/56eli/translatechan.git
 cd translatechan
 
-# 2. Rebuild the data bundle (after modifying files in data/)
+# 2. After modifying source data, regenerate and verify deterministic metrics
+python3 scripts/validate_data.py --write-metrics
+python3 scripts/validate_data.py
+
+# 3. Rebuild the bundle (also syncs root assets and docs/)
 python3 scripts/build_data_bundle.py
 
-# 3. Run the regression smoke test after any app.js or data change
+# 4. Run the dependency-free renderer regression suite
 node scripts/smoke_test.mjs
 
-# 4. Launch a local preview server
+# 5. Launch a local preview server
 python3 -m http.server 8080
 # Open http://localhost:8080 in your browser
 ```
@@ -143,8 +154,8 @@ python3 -m http.server 8080
 👉 Live at `https://56eli.github.io/translatechan/`
 
 **Publishing flow for new work** (agent sessions commit to branches such as `arena/<session>-translatechan`):
-1. On the session branch, run `python3 scripts/build_data_bundle.py` (syncs root + `/docs`) and `node scripts/smoke_test.mjs`.
-2. Commit, push the branch, and open a pull request into `main`.
+1. On the session branch, run `python3 scripts/validate_data.py`, `python3 scripts/build_data_bundle.py` (syncs root + `/docs`), and `node scripts/smoke_test.mjs`.
+2. Commit generated metrics/bundle artifacts with the source change, push the branch, and open a pull request into `main`.
 3. On merge, GitHub Pages re-publishes automatically within ~60 seconds.
 
 > The app at root `/` and the `/docs` copy are byte-identical by construction, so the branch could also publish from `/ (root)` if ever preferred.

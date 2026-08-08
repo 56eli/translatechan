@@ -1,0 +1,110 @@
+{
+  "manifest_version": "1.0",
+  "policy": "This manifest is an editorial control record, not legal advice or a license grant. A source_id on a verified quotation must resolve here before it can be bundled. Modern translations are retained only as short, source-attributed comparative quotations; they are not relicensed as project-owned CC BY-SA material. Jurisdiction, edition, and fair-dealing/fair-use analysis require human review before redistribution beyond this research project.",
+  "sources": [
+    {
+      "source_id": "aitken-gateless-barrier-1990",
+      "translator": "Robert Aitken",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "North Point Press edition cited in source metadata."
+    },
+    {
+      "source_id": "blofeld-huangpo-1958",
+      "translator": "John Blofeld",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "Publisher/reproduction verification is provenance evidence, not a reuse license."
+    },
+    {
+      "source_id": "blyth-mumonkan-1966",
+      "translator": "R.H. Blyth",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "Hokuseido edition verified through a reproduction; rights status must be reviewed independently."
+    },
+    {
+      "source_id": "clarke-xinxin-1973",
+      "translator": "Richard B. Clarke",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "Online mirrors establish wording only and do not establish a reuse license."
+    },
+    {
+      "source_id": "ferguson-chinese-heritage-2011",
+      "translator": "Andy Ferguson",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "Wisdom Publications edition cited in source metadata."
+    },
+    {
+      "source_id": "hoffman-radical-zen-1978",
+      "translator": "Yoel Hoffman",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "Autumn Press edition cited in source metadata."
+    },
+    {
+      "source_id": "sasaki-linji-2009",
+      "translator": "Ruth Fuller Sasaki / Thomas Yūhō Kirchner edition",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "University of Hawaii Press edition cited in source metadata."
+    },
+    {
+      "source_id": "sekida-two-zen-classics-1977",
+      "translator": "Katsuki Sekida",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "Weatherhill edition cited in source metadata."
+    },
+    {
+      "source_id": "senzaki-reps-gateless-1934",
+      "translator": "Nyogen Senzaki & Paul Reps",
+      "rights_status": "public_domain_claimed_us",
+      "review_status": "jurisdiction_review_required",
+      "redistribution_policy": "Use the cited 1934 text with source attribution; confirm status in each distribution jurisdiction.",
+      "rights_note": "Project records a U.S. non-renewal/public-domain claim. That claim is jurisdiction-specific."
+    },
+    {
+      "source_id": "shimomisse-gateless-online",
+      "translator": "Eiichi Shimomissé",
+      "rights_status": "online_rights_unverified",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Keep as a short attributed comparative quotation pending rights review.",
+      "rights_note": "An online mirror verifies wording but does not determine license status."
+    },
+    {
+      "source_id": "watson-linchi-1999",
+      "translator": "Burton Watson",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "Columbia University Press edition cited in source metadata."
+    },
+    {
+      "source_id": "yamada-gateless-2004",
+      "translator": "Kōun Yamada",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "Wisdom Publications edition cited in source metadata."
+    },
+    {
+      "source_id": "yampolsky-platform-1967",
+      "translator": "Philip B. Yampolsky",
+      "rights_status": "copyrighted_or_rights_uncertain",
+      "review_status": "needs_rights_review",
+      "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
+      "rights_note": "Columbia University Press edition cited in source metadata."
+    }
+  ]
+}

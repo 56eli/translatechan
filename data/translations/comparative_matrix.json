@@ -49,7 +49,8 @@
           "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
           "verification": "verbatim vs Morse reproduction, 2026-08-08",
           "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
-          "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'"
+          "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'",
+          "source_id": "blyth-mumonkan-1966"
         }
       },
       {
@@ -78,7 +79,8 @@
         "source": {
           "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
           "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
-          "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+          "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08",
+          "source_id": "senzaki-reps-gateless-1934"
         }
       }
     ]
