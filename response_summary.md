@@ -9,8 +9,9 @@
 4. **Data measured**: 36 excerpt-scale files (≈9,610 zh chars; Wumenguan 11/48), glossary 31, lineage 18, matrix 4 — anchors verified authentic.
 5. **⚖️ Attribution-integrity pass DONE**: provenance policy `data/translations/provenance.json` (v1.1) bundled into the app; every translation column now badges `⚠️ Register reconstruction` / `AI draft` / `✅ Verified quotation`; matrix-view disclaimer; mis-cited canon IDs fixed (hanshan "T2834"→SBCK/Zoku — T2834 is actually 大乘無生方便門; deshan/shitou wrong "T1985"→correct embedded refs).
 6. **🟠 P1/P2 frontend hardening DONE**: search now indexes all 36 texts across every schema (counts + highlighting + jump buttons), reader modes truly differentiated (true Classical-Only mode), tooltips single-pass & valid HTML, Studio reads from the data bundle — regression checks added to `scripts/smoke_test.mjs` ([`AUDIT.md` §8](./AUDIT.md)).
-7. **Verified healthy**: deterministic bundle, `/docs` sync, smoke test green, Pages `status: built` (still serving pre-fix `main` until hotfix PR merges).
-8. **Still open**: per-item translation verification vs. print (gradual), Phase 2 content (Wumenguan 48 first), and opening a PR to `main` — the site stays broken until then.
+7. **🔍 Verification pilot DONE**: Wumenguan Case 1 gained its first `✅ Verified quotation` registers — **Senzaki & Reps (1934, public domain)** and **Shimomissé** — verified verbatim against surviving texts with full source records in the app; Blyth verification pending print (fetch failed); provenance.json v1.2 ([`AUDIT.md` §8](./AUDIT.md)).
+8. **Verified healthy**: deterministic bundle, `/docs` sync, smoke test green, Pages `status: built` (still serving pre-fix `main` until hotfix PR merges).
+9. **Still open**: gradual verification (Blyth print next), Phase 2 content (Wumenguan 48; Senzaki/Reps PD text is freely quotable as verified register), and the PR to `main`.
 
 ---
 <details><summary>Previous session (pre-audit history)</summary>

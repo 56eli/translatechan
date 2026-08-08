@@ -226,6 +226,16 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 
 ---
 
-**Open work as of 2026-08-08**: §3.4 per-item verification of renderings against print editions (gradual), §6 P3 content work (Wumenguan 48 first), then PR to `main` to publish everything accumulated on this branch.
+### 2026-08-08 — Translation-verification pilot completed ✅ (§3.4, first closure step)
+
+| Action | Result |
+|---|---|
+| Ground-truth check attempted for Blyth's *Zen and Zen Classics* vol. 4 (1966) via surviving PDF | Not verifiable this session (fetch failed at the Case 1 pages) → **remains `reconstruction_unverified`; registered as "print check pending" in provenance.json v1.2**. Method shown to work for future sessions. |
+| **Senzaki & Reps (1934)** added to Wumenguan Case 1 dialogue (both lines) | First English translation (*The Gateless Gate*, John Murray 1934); **public domain (non-renewal)** — verified verbatim vs Wikisource/sacred-texts and marked `✅ verified_quotation` with full source records. Also added as a row to `comparative_matrix.json` (`matrix_wumen_1`). |
+| **Eiichi Shimomissé** online edition added to Wumenguan Case 1 dialogue | Verified verbatim vs the Terebess Asia Online reproduction; `✅ verified_quotation` with source. |
+| App now differentiates visually | Verified columns/rows display `✅ Verified quotation` + a full source line (work · edition · verification note); matrix cards show status badges. |
+| Truth-in-labeling consequence | The two newly added registers are the editions *actually translated* (Senzaki/Reps' 1934 indeed exists). Previously fabricated pairings (e.g., Sasaki/Blofeld/Red-Pine-on-Wumenguan) stay flagged as reconstructions with no claim of existence. |
+
+**Open work as of 2026-08-08**: gradual per-item verification against print (Blyth next), Phase 2 content work (Wumenguan 48 first — Senzaki/Reps public-domain text can be quoted freely as the verified register), then PR to `main` to publish everything accumulated on this branch.
 
 

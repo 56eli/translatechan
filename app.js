@@ -638,6 +638,9 @@
           const badgeTip = status === 'verified_quotation' ? 'Checked against a specific edition (see source field)'
                       : status === 'ai_draft' ? 'Explicitly AI-generated draft'
                       : 'AI-crafted rendering in this scholar\'s register — not verbatim published text (see data/translations/provenance.json)';
+          const sourceLine = (status === 'verified_quotation' && isObj && raw.source)
+            ? `<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.35;">📖 ${raw.source.work || ''}${raw.source.edition ? ' · ' + raw.source.edition : ''}${raw.source.verification ? '<br>✓ ' + raw.source.verification : ''}</div>`
+            : '';
           return `
           <div class="translation-col">
             <div class="translator-tag">
@@ -645,6 +648,7 @@
               <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: normal;" title="${badgeTip}">${badge}</span>
             </div>
             <div class="translation-text">${text}</div>
+            ${sourceLine}
           </div>`;
         }).join('')}
       </div>
@@ -661,6 +665,12 @@
       blofeld: 'John Blofeld',
       heine: 'Steven Heine',
       yampolsky: 'Philip Yampolsky',
+      senzaki_reps: 'Senzaki & Reps (1934)',
+      shimomisse: 'Eiichi Shimomissé',
+      aitken: 'Robert Aitken',
+      shibayama: 'Zenkei Shibayama',
+      sekida: 'Katsuki Sekida',
+      yamada: 'Kōun Yamada',
       ai_literal: 'AI Draft (Literal)',
       ai_poetic: 'AI Draft (Poetic Zen)'
     };
@@ -687,6 +697,7 @@
                 <div class="matrix-work">${t.work} (${t.style})</div>
                 <div class="matrix-text">"${t.text}"</div>
               </div>
+              ${t.status ? `<div style="font-size:0.68rem; margin-top:0.4rem; color: var(--text-muted);">${t.status === 'verified_quotation' ? '✅ Verified quotation' : t.status === 'ai_draft' ? '🤖 AI draft' : '⚠️ Register reconstruction (unverified)'}</div>` : ''}
               <div class="matrix-note">💡 ${t.notes}</div>
             </div>
           `).join('')}

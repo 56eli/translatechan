@@ -940,6 +940,14 @@ window.TRANSLATECHAN_DATA = {
           "style": "Synthesis / Multi-Register",
           "text": "A monk asked: 'Does a dog possess Buddha-nature?' Zhaozhou replied: 'Mu / Not.'",
           "notes": "Provides glossing of 狗子 (diminutive/vernacular for dog) and 無 (as categorical ungraspability)."
+        },
+        {
+          "translator": "Nyogen Senzaki & Paul Reps",
+          "work": "The Gateless Gate (1934) — public domain",
+          "style": "First English translation, plain register",
+          "text": "Joshu answered: \"Mu.\"",
+          "status": "verified_quotation",
+          "notes": "VERIFIED verbatim vs Wikisource/sacred-texts (1934 John Murray edition, non-renewed → public domain). Retains 'Mu' untranslated — the register that defined the case for Western readers."
         }
       ]
     },
@@ -1060,7 +1068,7 @@ window.TRANSLATECHAN_DATA = {
     }
   ],
   "translations_provenance": {
-    "policy_version": "1.1",
+    "policy_version": "1.2",
     "policy_date": "2026-08-08",
     "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
     "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -1107,7 +1115,20 @@ window.TRANSLATECHAN_DATA = {
       }
     },
     "classical_text_policy": "All `zh` strings must be verifiable against CBETA / Taishō lineage (or a recorded manuscript recension). Changes to `zh` text require a comment in the commit message naming the source edition.",
-    "copyright_note": "Published modern translations remain copyright of their translators/publishers; reconstructions are original to this project and covered by the repository's CC BY-SA 4.0 dataset license (see LICENSE §2)."
+    "copyright_note": "Published modern translations remain copyright of their translators/publishers; reconstructions are original to this project and covered by the repository's CC BY-SA 4.0 dataset license (see LICENSE §2).",
+    "pilot_verifications": [
+      {
+        "pilot": "Wumenguan Case 1 dialogue (2026-08-08)",
+        "registers_verified": [
+          "senzaki_reps (1934, public domain)",
+          "shimomisse (online edition)"
+        ],
+        "registers_pending": [
+          "blyth (Zen and Zen Classics vol. 4, 1966 — print check pending; remains reconstruction_unverified)"
+        ],
+        "note": "senzaki_reps/shimomisse keys were ADDED to the dataset; they are not scholar-default registers and always carry their own object-form status. Existing red_pine/cleary/sasaki/suzuki/blyth/blofeld entries remain reconstruction_unverified — several (Sasaki, Blofeld, Red Pine on Wumenguan) have no published Wumenguan translation to verify against."
+      }
+    ]
   },
   "gongan_index": [
     {
@@ -1430,7 +1451,25 @@ window.TRANSLATECHAN_DATA = {
                 "suzuki": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
                 "blyth": "A monk asked Jōshū, 'Has a dog the Buddha Nature?'",
                 "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
-                "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'"
+                "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
+                "senzaki_reps": {
+                  "text": "A monk asked Joshu, a Chinese Zen master: \"Has a dog Buddha-nature or not?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
+                    "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+                  }
+                },
+                "shimomisse": {
+                  "text": "A monk asked Joshu, \"Has the dog the Buddha nature?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Eiichi Shimomissé",
+                    "edition": "Online edition (Terebess Asia Online mirror)",
+                    "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1444,7 +1483,25 @@ window.TRANSLATECHAN_DATA = {
                 "suzuki": "Chao-chou replied: 'Wu!'",
                 "blyth": "Jōshū answered: 'Mu!'",
                 "blofeld": "The Master replied: 'None!'",
-                "ai_literal": "Zhou said: 'Not.'"
+                "ai_literal": "Zhou said: 'Not.'",
+                "senzaki_reps": {
+                  "text": "Joshu answered: \"Mu.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
+                    "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+                  }
+                },
+                "shimomisse": {
+                  "text": "Joshu replied, \"Mu (nothing)!\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Eiichi Shimomissé",
+                    "edition": "Online edition (Terebess Asia Online mirror)",
+                    "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+                  }
+                }
               }
             }
           ],

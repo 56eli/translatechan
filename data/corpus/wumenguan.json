@@ -42,7 +42,25 @@
             "suzuki": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
             "blyth": "A monk asked Jōshū, 'Has a dog the Buddha Nature?'",
             "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
-            "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'"
+            "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
+            "senzaki_reps": {
+              "text": "A monk asked Joshu, a Chinese Zen master: \"Has a dog Buddha-nature or not?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
+                "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
+                "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+              }
+            },
+            "shimomisse": {
+              "text": "A monk asked Joshu, \"Has the dog the Buddha nature?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Gateless Gate, tr. Eiichi Shimomissé",
+                "edition": "Online edition (Terebess Asia Online mirror)",
+                "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+              }
+            }
           }
         },
         {
@@ -56,7 +74,25 @@
             "suzuki": "Chao-chou replied: 'Wu!'",
             "blyth": "Jōshū answered: 'Mu!'",
             "blofeld": "The Master replied: 'None!'",
-            "ai_literal": "Zhou said: 'Not.'"
+            "ai_literal": "Zhou said: 'Not.'",
+            "senzaki_reps": {
+              "text": "Joshu answered: \"Mu.\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
+                "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
+                "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+              }
+            },
+            "shimomisse": {
+              "text": "Joshu replied, \"Mu (nothing)!\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Gateless Gate, tr. Eiichi Shimomissé",
+                "edition": "Online edition (Terebess Asia Online mirror)",
+                "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+              }
+            }
           }
         }
       ],
