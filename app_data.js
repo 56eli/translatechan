@@ -5032,6 +5032,95 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "xuansha_yulu": {
+      "id": "xuansha_yulu",
+      "title_zh": "福州玄沙宗一大師語錄",
+      "title_pinyin": "Fúzhōu Xuánshā Zōngyī Dàshī Yǔlù",
+      "title_en": "The Recorded Sayings of Master Xuansha Shibei (One Bright Pearl)",
+      "cbeta_id": "X1310 / T1991",
+      "taisho_vol": 47,
+      "author_zh": "唐 福州 玄沙師備 禪師 說 (雪峰法嗣)",
+      "author_en": "Chan Master Xuansha Shibei (835–908 CE), Master of Luohan Guichen (Fayan Lineage)",
+      "era": "Late Tang Dynasty",
+      "genre": "Discourse Record & Radical Non-Duality (語錄與明珠)",
+      "overview": "The sharp, direct, and uncompromising teachings of Master Xuansha Shibei, famed for stubbing his toe on pilgrimage, 'The entire universe is a single bright pearl' (盡十方世界是一顆明珠), and the Three Kinds of Disabled Seekers.",
+      "sections": [
+        {
+          "section_id": "stubbing_toe",
+          "title_zh": "踏痛腳指：達摩不來東土，二祖不往西天",
+          "title_pinyin": "Tà tòng jiǎozhǐ: Dámó bù lái dōngtǔ, Èrzǔ bù wǎng xītiān",
+          "title_en": "Stubbing the Toe on Pilgrimage: Bodhidharma Did Not Come to China",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "師欲遍歷諸方，挑包出山。才行數武，磕傷腳指，流血痛甚。師豁然大悟，曰：「是身非有，痛從何來？」遂回雪峰。",
+              "pinyin": "Shī yù biànlì zhūfāng, tiāobāo chūshān. Cái xíng shù wǔ, kē shāng jiǎozhǐ, liúxuè tòng shèn. Shī huòrán dà wù, yuē: 'Shì shēn fēi yǒu, tòng cóng hé lái?' Suì huí Xuěfēng.",
+              "translations": {
+                "red_pine": "The Master wished to travel on pilgrimage throughout China and packed his bundle to leave the mountain. Having walked only a few paces, he stubbed his toe against a rock, bleeding profusely in searing pain. The Master had great awakening and exclaimed: 'This body is fundamentally non-existent; where does this pain come from?' He immediately turned around and returned to Xuefeng.",
+                "cleary": "The Master was about to go on pilgrimage to various quarters. Carrying his pack, he set out. Walking a few steps, he stubbed his toe; bleeding and in pain, he had great enlightenment: 'This body is not real; where does pain come from?' He then went back to Xuefeng.",
+                "sasaki": "Xuansha packed his bundle to visit teachers in the north. Stepping out, he stubbed his toe on a boulder. In severe pain and bleeding, he suddenly woke up: 'This body is void; where does pain arise?' He turned straight back."
+              }
+            },
+            {
+              "speaker": "Xuefeng / 雪峰",
+              "zh": "雪峰見師回，問曰：「備頭陀何不遍參去？」師曰：「達摩不來東土，二祖不往西天。」雪峰大喜，印可之。",
+              "pinyin": "Xuěfēng jiàn shī huí, wèn yuē: 'Bèi tóutuó hé bù biàncān qù?' Shī yuē: 'Dámó bù lái dōngtǔ, Èrzǔ bù wǎng xītiān.' Xuěfēng dà xǐ, yìnkě zhī.",
+              "translations": {
+                "red_pine": "Xuefeng saw him return and asked: 'Ascetic Bei, why haven't you gone on pilgrimage?' The Master said: 'Bodhidharma did not come to China; the Second Patriarch did not go to India!' Xuefeng was overjoyed and granted him the seal of transmission.",
+                "cleary": "Xuefeng saw him return and said, 'Ascetic Bei, why didn't you go on pilgrimage?' The Master said, 'Bodhidharma did not come to the East; the Second Patriarch did not go to the West.' Xuefeng was delighted and gave his seal.",
+                "sasaki": "Xuefeng asked: 'Ascetic Bei, why don't you go on pilgrimage?' Xuansha replied: 'Bodhidharma never came to China; the Second Patriarch never went to India!' Xuefeng deeply approved."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "one_bright_pearl",
+          "title_zh": "盡十方世界是一顆明珠",
+          "title_pinyin": "Jìn Shífāng Shìjiè Shì Yīkē Míngzhū",
+          "title_en": "The Entire Universe in All Ten Directions is a Single Bright Pearl",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "師示眾云：「盡十方世界是一顆明珠。」有僧問：「和尚道盡十方世界是一顆明珠，學人如何得會？」",
+              "pinyin": "Shī shì zhòng yún: 'Jìn shífāng shìjiè shì yī kē míngzhū.' Yǒu sēng wèn: 'Héshang dào jìn shífāng shìjiè shì yī kē míngzhū, xuérén rúhé dé huì?'",
+              "translations": {
+                "red_pine": "The Master instructed the assembly: 'The entire universe in all ten directions is a single bright pearl.' A monk asked: 'The Master says the entire universe in all ten directions is a single bright pearl; how can a student comprehend this?'",
+                "cleary": "The Master said to the crowd, 'The universe in the ten directions is a single bright pearl.' A monk asked, 'The Master says the universe in the ten directions is a single bright pearl; how can I understand this?'",
+                "sasaki": "Master Gensa told the monks: 'The whole universe in the ten directions is one bright pearl.' A monk asked: 'How can I understand that the universe is one bright pearl?'"
+              }
+            },
+            {
+              "speaker": "Xuansha / 玄沙",
+              "zh": "師曰：「盡十方世界是一顆明珠，用會作麼？」僧於言下有省。",
+              "pinyin": "Shī yuē: 'Jìn shífāng shìjiè shì yī kē míngzhū, yòng huì zuò me?' Sēng yú yán xià yǒu xǐng.",
+              "translations": {
+                "red_pine": "The Master said: 'The entire universe in all ten directions is a single bright pearl; what is the use of comprehending it!' The monk had an awakening at these words.",
+                "cleary": "The Master said, 'The universe in the ten directions is a single bright pearl; what use is understanding?' The monk had an awakening.",
+                "sasaki": "Gensa said: 'The whole universe is one bright pearl; what need is there to understand it!' The monk was enlightened."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "three_disabilities",
+          "title_zh": "三種病人：盲聾啞如何接引？",
+          "title_pinyin": "Sānzhǒng Bìngrén: Máng Lóng Yǎ Rúhé Jiēyǐn?",
+          "title_en": "The Three Kinds of Patients: How to Guide the Blind, Deaf, and Mute",
+          "dialogue": [
+            {
+              "speaker": "Xuansha / 玄沙",
+              "zh": "師示眾云：「諸方善知識，皆言接引利生。忽遇盲聾啞三種人來，作麼生接引？拈槌豎拂，他眼又不見；口說玄言，他耳又不聞；教他開口，他口又不能語。作麼生為人？若接他不得，佛法無靈驗！」",
+              "pinyin": "Shī shì zhòng yún: 'Zhūfāng shànzhīshi, jiē yán jiēyǐn lìshēng. Hū yù máng lóng yǎ sān zhǒng rén lái, zuò me shēng jiēyǐn? Niān chuí shù fú, tā yǎn yòu bù jiàn; kǒu shuō xuányán, tā ěr yòu bù wén; jiào tā kāikǒu, tā kǒu yòu bùnéng yǔ. Zuò me shēng wèi rén? Ruò jiē tā bùdé, fófǎ wú língyàn!'",
+              "translations": {
+                "red_pine": "The Master addressed the assembly: 'Teachers in all quarters claim they guide and benefit sentient beings. If they suddenly encounter a blind person, a deaf person, and a mute person, how will they guide them? If you pick up a mallet or raise a fly-whisk, their eyes cannot see; if you speak subtle words, their ears cannot hear; if you tell them to speak, their mouth cannot talk. How will you help them? If you cannot guide them, the Buddha Dharma has no efficacy!'",
+                "cleary": "The Master addressed the assembly: 'Masters in all quarters say they guide people. If three kinds of disabled seekers come—the blind, deaf, and mute—how do you guide them? If you hold up a whisk, the blind cannot see; if you speak, the deaf cannot hear; if you question them, the mute cannot speak. How do you help them? If you cannot, the Buddha Dharma is powerless!'",
+                "sasaki": "Xuansha said: 'All masters claim to save beings. If a blind, deaf, and mute person arrives, how do you save them? Whisk is unseen, words unheard, and speech impossible. How do you guide them?'"
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
