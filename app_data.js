@@ -5121,6 +5121,85 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "caoxi_zhuan": {
+      "id": "caoxi_zhuan",
+      "title_zh": "曹溪大師別傳",
+      "title_pinyin": "Cáoxī Dàshī Biézhuàn",
+      "title_en": "Special Biography of the Great Master of Caoxi (Sixth Patriarch Huineng)",
+      "cbeta_id": "X1458 / P.3018",
+      "taisho_vol": 86,
+      "author_zh": "唐 曹溪沙門 撰 (c. 781 CE)",
+      "author_en": "Tang Dynasty Caoxi Chronicle (c. 781 CE), Earliest Extant Sixth Patriarch Biography",
+      "era": "Tang Dynasty (8th Century)",
+      "genre": "Early Patriarch Biography & Dunhuang Manuscript (別傳與法寶)",
+      "overview": "The earliest extant biographical and transmission chronicle of Sixth Patriarch Huineng, pre-dating later Song redactions and preserving the authentic direct encounters of the illiterate woodcutter from Lingnan.",
+      "sections": [
+        {
+          "section_id": "hearing_sutra",
+          "title_zh": "嶺南市井：忽聞客誦金剛經",
+          "title_pinyin": "Lǐngnán Shìjǐng: Hūwén Kè Sòng Jīngāng Jīng",
+          "title_en": "In the Marketplace of Lingnan: Overhearing the Diamond Sutra",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 傳記",
+              "zh": "祖幼孤貧，採薪鬻市。一日負薪至市，見一客誦經。祖忽聞「應無所住而生其心」，言下大悟。遂問客：「誦何經？」客曰：「金剛般若波羅蜜經，五祖弘忍大師於黃梅所授也。」祖遂辭母，直指黃梅。",
+              "pinyin": "Zǔ yòu gūpín, cǎixīn yù shì. Yī rì fùxīn zhì shì, jiàn yī kè sòng jīng. Zǔ hū wén 'yìng wú suǒ zhù ér shēng qí xīn', yán xià dà wù. Suì wèn kè: 'Sòng hé jīng?' Kè yuē: 'Jīngāng Bōrě Bōluómì Jīng, Wǔzǔ Hóngrěn dàshī yú Huángméi suǒ shòu yě.' Zǔ suì cí mǔ, zhí zhǐ Huángméi.",
+              "translations": {
+                "red_pine": "The Patriarch was fatherless and poor in his youth, gathering firewood to sell in the market. One day as he brought firewood to the market, he saw a traveler chanting a scripture. The Patriarch suddenly heard the words: 'Arouse the mind without dwelling on anything,' and was instantly awakened. He asked the traveler: 'What scripture are you chanting?' The traveler said: 'The Diamond Prajnaparamita Sutra, taught by the Fifth Patriarch Hongren at Yellow Plum Mountain.' The Patriarch immediately took leave of his mother and headed straight for Huangmei.",
+                "cleary": "Huineng was poor in his youth, selling firewood in the city. One day carrying wood to market, he heard someone reciting scripture. Hearing 'Arouse the mind without abiding anywhere,' he had great enlightenment. Asking the traveler what it was, the traveler said it was the Diamond Sutra taught by Fifth Patriarch Hongren. Huineng then went to Huangmei.",
+                "yampolsky": "Huineng sold firewood in the market. Hearing a customer recite the Diamond Sutra at the phrase 'Produce a mind that abides nowhere,' his mind opened to awakening. Learning of Fifth Patriarch Hongren at Huangmei, he set out for the North."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "first_meeting_hongren",
+          "title_zh": "黃梅初見五祖：人有南北，佛性無南北",
+          "title_pinyin": "Huángméi Chūjiàn Wǔzǔ: Rén Yǒu Nánběi, Fóxìng Wú Nánběi",
+          "title_en": "First Meeting with the Fifth Patriarch: People Have South and North, Buddha-Nature Has None",
+          "dialogue": [
+            {
+              "speaker": "Hongren / 五祖弘忍",
+              "zh": "五祖見祖，問曰：「汝自何來？」祖曰：「嶺南新州百姓。」祖曰：「汝來求何事？」六祖曰：「唯求作佛，不求餘物。」",
+              "pinyin": "Wǔzǔ jiàn zǔ, wèn yuē: 'Rǔ zì hé lái?' Zǔ yuē: 'Lǐngnán Xīnzhōu bǎixìng.' Zǔ yuē: 'Rǔ lái qiú hé shì?' Liùzǔ yuē: 'Wéi qiú zuò fó, bù qiú yú wù.'",
+              "translations": {
+                "red_pine": "The Fifth Patriarch saw him and asked: 'Where have you come from?' Huineng said: 'A commoner from Xinzhou in Lingnan.' Hongren asked: 'What do you seek coming here?' Huineng said: 'I seek only to become a Buddha; I seek nothing else.'",
+                "cleary": "The Fifth Patriarch asked, 'Where do you come from?' 'A commoner from Lingnan.' 'What are you seeking?' Huineng said, 'I seek only to become a Buddha, nothing else.'",
+                "yampolsky": "Hongren asked: 'Where are you from?' Huineng replied: 'I am a peasant from Lingnan.' Hongren asked: 'What do you seek?' 'I seek only to attain Buddhahood.'"
+              }
+            },
+            {
+              "speaker": "Hongren / 五祖弘忍",
+              "zh": "五祖曰：「汝是嶺南獦獠，若為堪得作佛？」六祖曰：「人雖有南北，佛性本無南北。獦獠身與和尚身不同，佛性有何差別？」五祖知其異人，叱令隨眾作務。",
+              "pinyin": "Wǔzǔ yuē: 'Rǔ shì Lǐngnán géliáo, ruò wéi kān dé zuò fó?' Liùzǔ yuē: 'Rén suī yǒu nánběi, fóxìng běn wú nánběi. Géliáo shēn yǔ héshang shēn bùtóng, fóxìng yǒu hé chābié?' Wǔzǔ zhī qí yìrén, chì lìng suí zhòng zuòwù.",
+              "translations": {
+                "red_pine": "The Fifth Patriarch said: 'You are a barbarian from Lingnan; how could you possibly become a Buddha?' Huineng said: 'People may have south and north, but in the Buddha-nature what south or north is there? The physical body of a barbarian differs from the Master's venerable body, but what difference is there in our Buddha-nature?' The Fifth Patriarch knew he was an extraordinary person, and ordered him to work with the community.",
+                "cleary": "Hongren said, 'You are a barbarian from the south; how can you become a Buddha?' Huineng said, 'People have north and south, but Buddha-nature has no north and south. A barbarian body differs from the Master's body, but what difference is there in Buddha-nature?' The Patriarch knew he was exceptional and sent him to work with the monks.",
+                "yampolsky": "Hongren said: 'You are a southern barbarian, how can you be a Buddha?' Huineng said: 'Although people have south and north, the Buddha-nature has no south and north.' Hongren recognized his brilliance and sent him to the granary."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "hiding_with_hunters",
+          "title_zh": "隱於獵人隊十五年：肉邊菜",
+          "title_pinyin": "Yǐn Yú Lièrén Duì Shíwǔ Nián: Ròubiān Cài",
+          "title_en": "Fifteen Years Among the Hunters: Vegetables beside the Meat",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 傳記",
+              "zh": "六祖得衣缽後，南下避難，隱於四會、懷集獵人隊中十五載。每於獵人守網之際，隨宜放生。每至飯時，以菜寄煮肉鍋。人問其故，祖曰：「但喫肉邊菜。」迨至時至機熟，乃出廣州法性寺，開演頓教法門。",
+              "pinyin": "Liùzǔ dé yībō hòu, nán xià bìnàn, yǐn yú Sìhuì, Huáijí lièrén duì zhōng shíwǔ zǎi. Měi yú lièrén shǒu wǎng zhī jì, suíyí fàngshēng. Měi zhì fàn shí, yǐ cài jì zhǔ ròuguō. Rén wèn qí gù, zǔ yuē: 'Dàn chī ròubiān cài.' Dài zhì shí zhì jī shú, nǎi chū Guǎngzhōu Fǎxìng Sì, kāiyǎn dùnjiào fǎmén.",
+              "translations": {
+                "red_pine": "After receiving the robe and bowl, the Sixth Patriarch fled south to avoid persecution, hiding among a band of hunters in Sihui and Huaiji for fifteen years. Whenever the hunters put him on watch over their nets, he released trapped animals whenever possible. At mealtimes, he placed wild greens to cook beside the meat. When asked why, the Patriarch said: 'I only eat the vegetables beside the meat.' When the time ripened, he stepped forth at Faxing Temple in Guangzhou to unfold the Sudden Teaching of Southern Chan.",
+                "cleary": "After receiving the robe, Huineng fled south and concealed himself among hunters for fifteen years. When guarding nets, he let animals go. At meals, he cooked greens alongside meat, saying 'I only eat vegetables cooked with meat.' When the time came, he appeared at Faxing temple in Guangzhou to reveal the Dharma.",
+                "yampolsky": "Huineng lived with hunters for fifteen years in Sihui. He cooked herbs beside the meat, eating only the greens. When the time was right, he traveled to Faxing Temple in Guangzhou to turn the wheel of the Law."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
