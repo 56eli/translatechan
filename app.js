@@ -203,7 +203,8 @@
       { key: 'biyanlu_cases', title: 'Blue Cliff Record (碧巖錄)', cbeta: 'T2003' },
       { key: 'platform_sutra', title: 'Platform Sutra (六祖壇經)', cbeta: 'T2007' },
       { key: 'chuandenglu', title: 'Transmission of Lamp (景德傳燈錄)', cbeta: 'T2076' },
-      { key: 'qinggui_monastic_codes', title: 'Rules of Purity (百丈禪苑清規)', cbeta: 'T2025' }
+      { key: 'qinggui_monastic_codes', title: 'Rules of Purity (百丈禪苑清規)', cbeta: 'T2025' },
+      { key: 'dongshan_yulu', title: 'Dongshan Yulu & Five Ranks (洞山五位)', cbeta: 'T1986' }
     ];
 
     elements.corpusList.innerHTML = corpusMap.map(c => `
@@ -296,7 +297,36 @@
     }
 
     // Render Sample Records (e.g. Chuandenglu)
-    if (doc.sample_records && doc.sample_records.length > 0) {
+    // Render Five Ranks (e.g. Dongshan Yulu)
+    if (doc.five_ranks && doc.five_ranks.length > 0) {
+      html += `
+        <div class="case-card" style="border-left: 4px solid var(--accent-green); margin-bottom: 1.5rem;">
+          <div class="case-num-title" style="margin-bottom: 0.5rem; color: var(--accent-green);">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</div>
+          <div style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">${doc.overview || ''}</div>
+        </div>
+      `;
+
+      doc.five_ranks.forEach(r => {
+        html += `
+          <div class="case-card">
+            <div class="case-header">
+              <span class="case-num-title">第 ${r.rank_num} 位：${r.name_zh} (${r.name_en})</span>
+              <span class="case-speaker">${r.symbol}</span>
+            </div>
+            <div class="classical-zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
+            <div class="pinyin-line">${r.verse_pinyin}</div>
+            ${renderTranslationColumns(r.translations)}
+            <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--accent-green);">
+              <div class="commentary-label" style="color: var(--accent-green);">曹山註解 / Caoshan Commentary</div>
+              <div class="classical-zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
+              <div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${r.commentary_en}</div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    elements.readerContent.innerHTML = html;
       if (doc.overview) {
         html += `
           <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">

@@ -2872,6 +2872,141 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "dongshan_yulu": {
+      "id": "dongshan_yulu",
+      "title_zh": "瑞州洞山良价禪師語錄與五位君臣",
+      "title_pinyin": "Ruìzhōu Dòngshān Liángjiè Chánshī Yǔlù yǔ Wǔwèi Jūnchén",
+      "title_en": "The Record of Dongshan Liangjie and the Dialectic of the Five Ranks",
+      "cbeta_id": "T1986",
+      "taisho_vol": 47,
+      "author_zh": "洞山良价 禪師 說 / 曹山本寂 禪師 註",
+      "author_en": "Spoken by Dongshan Liangjie (807–869), Commented by Caoshan Benji (840–901)",
+      "era": "Tang Dynasty",
+      "genre": "Caodong Cornerstone / Discourse Record (語錄與五位)",
+      "overview": "The profound dialectical matrix of the Caodong (Soto) school, formulating the Five Ranks of Lord and Vassal (五位君臣) which integrate the Real/Absolute (正 / Li) and the Apparent/Relative (偏 / Shi).",
+      "five_ranks": [
+        {
+          "rank_num": 1,
+          "name_zh": "正中偏",
+          "name_pinyin": "Zhèng zhōng piān (Japanese: Shō-chū-hen)",
+          "name_en": "The Apparent within the Real (The Relative within the Absolute)",
+          "symbol": "● ○ (Lord oversees the Vassal)",
+          "verse_zh": "三更初夜月明前，莫怪相逢不相識。隱隱猶懷昔日嫌。",
+          "verse_pinyin": "Sān gēng chū yè yuè míng qián, mò guài xiāngféng bù xiāngshí. Yǐnyǐn yóu huái xīrì xián.",
+          "translations": {
+            "red_pine": "In the third watch of the night before the moon shines, do not be surprised if they meet and do not recognize each other. Still dimly harboring the resentment of former days.",
+            "cleary": "In the third watch of the night, before the moon appears, do not wonder when they meet without recognizing each other. Still faintly harboring the hidden aversion of former days.",
+            "sasaki": "In the third watch of the night, before the moon appears, no wonder that meeting they do not recognize each other. Still concealed within is a lingering trace of past alienation."
+          },
+          "commentary_zh": "曹山曰：『正位即是空界，本來無物；偏位即是色界，有萬象形。正中偏者，捨理就事也。』",
+          "commentary_en": "Caoshan explains: The Real is the realm of Emptiness, where fundamentally not a single thing exists. The Apparent is the realm of Form, filled with myriad phenomena. The Apparent within the Real means leaving the principle to enter affairs."
+        },
+        {
+          "rank_num": 2,
+          "name_zh": "偏中正",
+          "name_pinyin": "Piān zhōng zhèng (Japanese: Hen-chū-shō)",
+          "name_en": "The Real within the Apparent (The Absolute within the Relative)",
+          "symbol": "○ ● (Vassal turns toward the Lord)",
+          "verse_zh": "白頭宮女卸殘妝，醒來不辨菱花面。平生笑傲幾人知？",
+          "verse_pinyin": "Bái tóu gōngnǚ xiè cán zhuāng, xǐng lái bù biàn línghuā miàn. Píngshēng xiào'ào jǐ rén zhī?",
+          "translations": {
+            "red_pine": "An old white-haired court lady removes her faded makeup; awakening, she cannot distinguish her face in the water-chestnut mirror. In all her life, who has known her joyful pride?",
+            "cleary": "An old crone having overslept encounters an ancient mirror; distinctly seeing the face, there is no other. Do not lose your head and chase your reflection.",
+            "sasaki": "A white-haired palace lady removes her faded ornaments; awakening, she looks into the ancient mirror. How many people understand her lifetime of transcendent laughter?"
+          },
+          "commentary_zh": "曹山曰：『偏中正者，捨事入理也。萬象森羅之中，睹露真空法界。』",
+          "commentary_en": "Caoshan explains: The Real within the Apparent means leaving worldly affairs to enter the principle. In the very midst of the myriad bustling phenomena, one perceives the radiant, empty Dharma-realm."
+        },
+        {
+          "rank_num": 3,
+          "name_zh": "正中來",
+          "name_pinyin": "Zhèng zhōng lái (Japanese: Shō-chū-rai)",
+          "name_en": "Coming from within the Real (Emergence of Function from the Absolute)",
+          "symbol": "● ──► (The Lord steps down)",
+          "verse_zh": "無中有路出塵埃，但能不觸當今諱。也勝前朝斷舌才。",
+          "verse_pinyin": "Wú zhōng yǒu lù chū chén'āi, dàn néng bù chù dāngjīn huì. Yě shèng qiáncháo duàn shé cái.",
+          "translations": {
+            "red_pine": "Within non-being there is a path leading out of the dust; if you can avoid violating the present Emperor's taboo name, you surpass the eloquent talents of past dynasties.",
+            "cleary": "Within nothingness is a path leading out of the dust; simply be able not to touch the reigning taboo, and you surpass the eloquent wits who cut off tongues.",
+            "sasaki": "From within nothingness a path leads out of the dust; if you only avoid violating the present taboo, you surpass the great orators of ancient courts."
+          },
+          "commentary_zh": "曹山曰：『正中來者，不墮有無，從真如本體流出大用，化物無方也。』",
+          "commentary_en": "Caoshan explains: Coming from within the Real means not falling into existence or non-existence, allowing great functioning to flow naturally from the substance of Suchness to liberate beings without fixed methods."
+        },
+        {
+          "rank_num": 4,
+          "name_zh": "兼中至",
+          "name_pinyin": "Jiān zhōng zhì (Japanese: Ken-chū-shi)",
+          "name_en": "Arriving at Both (Dynamic Synthesis of Absolute and Relative)",
+          "symbol": "⚔️ (Crossed sword blades)",
+          "verse_zh": "兩刃相交不須避，好手猶如火裏蓮。宛然自有沖天志。",
+          "verse_pinyin": "Liǎng rèn xiāng jiāo bù xū bì, hǎo shǒu yóu rú huǒ lǐ lián. Wǎnrán zì yǒu chōng tiān zhì.",
+          "translations": {
+            "red_pine": "When two crossed sword blades meet, there is no need to retreat; a master swordsman is like a lotus blooming in the midst of fire. Effortlessly possessing an aspiration that pierces heaven.",
+            "cleary": "Two crossed sword blades, neither need evade; a skillful adept is like a lotus in fire. Plainly having of itself an ambition piercing the sky.",
+            "sasaki": "When two sharp blades cross, there is no need to avoid them; the skillful master is like a lotus blooming in blazing fire. Naturally soaring straight into the heavens."
+          },
+          "commentary_zh": "曹山曰：『兼中至者，理體事相，交互圓融，如兩鏡相照，重重無盡。』",
+          "commentary_en": "Caoshan explains: Arriving at Both means principle and phenomena are completely interfused without obstruction, like two mirrors facing each other in infinite luminous reflection."
+        },
+        {
+          "rank_num": 5,
+          "name_zh": "兼中到",
+          "name_pinyin": "Jiān zhōng dào (Japanese: Ken-chū-tō)",
+          "name_en": "Attainment in Unity (Absolute Integration / Sitting in the Ashes)",
+          "symbol": "⚪ (Seamless wholeness)",
+          "verse_zh": "不落有無誰敢和？人人盡欲出常流。折合還歸炭裏坐。",
+          "verse_pinyin": "Bù luò yǒu wú shuí gǎn hè? Rénrén jìn yù chū cháng liú. Zhéhé hái guī tàn lǐ zuò.",
+          "translations": {
+            "red_pine": "Not falling into being or non-being, who dares harmonize with it? Everyone wishes to escape the common flow, yet in the end they return to sit in the charcoal ashes.",
+            "cleary": "Not falling into existence or nonexistence, who dares harmonize? Everyone wants to leave the ordinary current, yet in the end they return to sit in the charcoal.",
+            "sasaki": "Not falling into being or non-being, who can match it? All people seek to transcend the common stream, but in the end they return to sit in the ashes."
+          },
+          "commentary_zh": "曹山曰：『兼中到者，大用現前，不存軌則，灰頭土面，入廛垂手，隨緣度生。』",
+          "commentary_en": "Caoshan explains: Attainment in Unity means the great function manifests with zero traces or rigid rules; with ash on the head and dirt on the face, entering the marketplace with open hands to liberate beings according to conditions."
+        }
+      ],
+      "dialogues": [
+        {
+          "dialogue_id": "non_sentient_preaching",
+          "title_zh": "無情說法",
+          "title_pinyin": "Wúqíng Shuōfǎ",
+          "title_en": "The Non-Sentient Preach the Dharma",
+          "dialogue": [
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "師問雲巖：「無情說法，甚麼人得聞？」",
+              "pinyin": "Shī wèn Yúnyán: 'Wúqíng shuōfǎ, shénme rén dé wén?'",
+              "translations": {
+                "red_pine": "Dongshan asked Master Yunyan: 'When non-sentient beings preach the Dharma, who can hear it?'",
+                "cleary": "Dongshan asked Yunyan, 'When inanimate objects expound the Dharma, who can hear it?'",
+                "sasaki": "Dongshan asked Yunyan: 'When insentient beings preach the Law, who hears it?'"
+              }
+            },
+            {
+              "speaker": "Yunyan / 雲巖",
+              "zh": "巖曰：「無情得聞。」師曰：「和尚還聞否？」巖曰：「我若聞，汝即不聞吾說法也。」",
+              "pinyin": "Yán yuē: 'Wúqíng dé wén.' Shī yuē: 'Héshang hái wén fǒu?' Yán yuē: 'Wǒ ruò wén, rǔ jí bù wén wú shuōfǎ yě.'",
+              "translations": {
+                "red_pine": "Yunyan said: 'Non-sentient beings hear it.' Dongshan asked: 'Do you hear it, Master?' Yunyan said: 'If I heard it, you would not be hearing me preach the Dharma.'",
+                "cleary": "Yunyan said, 'The inanimate can hear it.' Dongshan said, 'Do you hear it, Master?' Yunyan said, 'If I heard it, you would not hear me teaching.'",
+                "sasaki": "Yunyan said: 'Insentient beings hear it.' Dongshan said: 'Do you hear it?' Yunyan replied: 'If I heard it, you would not hear me preaching.'"
+              }
+            },
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "師乃作偈曰：「也大奇，也大奇！無情說法不思議。若將耳聽終難會，眼處聞聲方得知。」",
+              "pinyin": "Shī nǎi zuò jì yuē: 'Yě dà qí, yě dà qí! Wúqíng shuōfǎ bùsīyì. Ruò jiāng ěr tīng zhōng nán huì, yǎn chù wén shēng fāng dé zhī.'",
+              "translations": {
+                "red_pine": "Dongshan then composed a verse: 'How marvelous! How wondrous! Non-sentient beings preaching the Dharma is inconceivable. If you try to hear it with your ears you will never understand; when you hear sound through your eyes, only then do you know!'",
+                "cleary": "Dongshan composed a verse: 'How extraordinary! How extraordinary! Inanimate beings expounding the Dharma is inconceivable. If you listen with your ears you will never understand; hearing voices with your eyes, then you know.'",
+                "sasaki": "Dongshan composed a verse: 'How extraordinary! Inconceivable is the insentient preaching the Law! If you try to hear with your ears, you will never get it; hearing sounds through your eyes, you understand at last!'"
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
