@@ -297,6 +297,33 @@
       `;
     }
 
+    // Render Epilogue if exists
+    if (doc.epilogue) {
+      html += `
+        <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
+          <div class="case-header">
+            <span class="case-num-title">後序與結頌 / Wumen's Epilogue & Gatha</span>
+          </div>
+          <div class="classical-zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
+          <div class="pinyin-line">${doc.epilogue.pinyin}</div>
+          <div class="translation-grid">
+            <div class="translation-col">
+              <div class="translator-tag">Red Pine (Bill Porter)</div>
+              <div class="translation-text">${doc.epilogue.en_red_pine || ''}</div>
+            </div>
+            <div class="translation-col">
+              <div class="translator-tag">Thomas Cleary</div>
+              <div class="translation-text">${doc.epilogue.en_cleary || ''}</div>
+            </div>
+            <div class="translation-col">
+              <div class="translator-tag">Ruth Fuller Sasaki</div>
+              <div class="translation-text">${doc.epilogue.en_sasaki || ''}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     if (doc.cases && doc.cases.length > 0) {
       doc.cases.forEach(caseItem => {
         html += renderCaseItem(caseItem);

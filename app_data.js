@@ -1354,6 +1354,13 @@ window.TRANSLATECHAN_DATA = {
         "en_sasaki": "The teachings of the Buddha make mind the foundation, and gatelessness the gate of the Dharma. Since the barrier is gateless, how does one enter it? Do you not know: That which enters through the gate is not the treasure of the house; what is gained from outer conditions always begins and perishes.",
         "en_red_pine": "The Buddha's words make mind the source, and no-gate the Dharma gate. Since the barrier has no gate, how does one pass through? Have you not heard: What comes through the front gate is not the family heirloom; what is gained from external causes is subject to rise and fall."
       },
+      "epilogue": {
+        "zh": "大路坦然，何用更通？從此門入者，行步闊遠，坐斷十方。頂門具眼，腳踏乾坤。從來無門關，祖關在目前。踏破無門路，十方是我家。",
+        "pinyin": "Dà lù tǎnrán, hé yòng gèng tōng? Cóng cǐ mén rù zhě, xíngbù kuòyuǎn, zuòduàn shífāng. Dǐngmén jù yǎn, jiǎo tà qiánkūn. Cónglái wú mén guān, zǔ guān zài mùqián. Tàpò wú mén lù, shífāng shì wǒ jiā.",
+        "en_red_pine": "The Great Road is flat and clear; why must there be another gate? Those who enter through this gate walk with vast, stride-long steps, cutting off all ten directions. Possessing an eye upon the crown of their heads, they tread upon heaven and earth. From the beginning there has never been a gate; the patriarchal barrier is right before your eyes. Tread through the gateless road, and all ten directions are your home!",
+        "en_cleary": "The Great Road is wide and open; why need it be opened further? Those who enter through this door stride far and wide, sitting across the ten directions. Possessing an eye on the forehead, their feet tread the universe. From the beginning the barrier is gateless; the ancestral gate is right in front of you. Tread across the gateless road, and the ten directions are your home.",
+        "en_sasaki": "The Great Way is broad and level; why seek another gate? Entering here, your strides encompass the ten directions. From the start there is no gate; the barrier stands before your eyes. Stride through the gateless path, and the universe is your home."
+      },
       "cases": [
         {
           "case_num": 1,
@@ -1437,7 +1444,7 @@ window.TRANSLATECHAN_DATA = {
             }
           ],
           "commentary_zh": "無門曰：不落因果，為甚墮野狐？不昧因果，為甚脫野狐？若向者裏著得一隻眼，便知得前百丈贏得五百生風流趣向。",
-          "commentary_pinyin": "Wúmén yuē: Bù luò yīnguǒ, wèi shén duò yěhú? Bù mèi yīnguǒ, wèi shén duò yěhú? Ruò xiàng zhèlǐ zhuó dé yī zhī yǎn, biàn zhī dé qián Bǎizhàng yíng dé wǔbǎi shēng fēngliú qùxiàng.",
+          "commentary_pinyin": "Wúmén yuē: Bù luò yīnguǒ, wèi shén duò yěhú? Bù mèi yīnguǒ, wèi shén tuō yěhú? Ruò xiàng zhèlǐ zhuó dé yī zhī yǎn, biàn zhī dé qián Bǎizhàng yíng dé wǔbǎi shēng fēngliú qùxiàng.",
           "commentary_en": "Wumen says: 'Not falling into causality'—why did he fall into a fox body? 'Not blind to causality'—why did he escape the fox body? If you can gain a single eye here, you will understand how the former Baizhang enjoyed five hundred lives of glorious adventure.",
           "verse_zh": "不落不昧，兩采一賽。不昧不落，千錯萬錯。",
           "verse_pinyin": "Bù luò bù mèi, liǎng cǎi yī sài. Bù mèi bù luò, qiān cuò wàn cuò.",
