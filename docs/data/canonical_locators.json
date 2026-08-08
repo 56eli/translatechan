@@ -204,25 +204,25 @@
         },
         "sections.four_host_guest": {
           "canonical_locator": "T47n1985_p0501a02–p0501a15",
-          "status": "collated_with_variants",
+          "status": "collated_with_normalization",
           "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501a",
           "review_date": "2026-08-08",
           "note": "CBETA discussion of the four host/guest configurations spans these line heads. The project excerpt is a selective normalized segment; character-level collation and editor sign-off remain required.",
           "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
           "source_revision": "CBETA Online reports last updated 2025-09-01",
           "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
-          "collation_note": "The current project passage is not a verbatim extraction of the Taishō main text at T47n1985_p0501a02–p0501a15. It conflates/selects host–guest material and requires a recension-specific source or replacement with a faithful T1985 excerpt before any source_checked status."
+          "collation_note": "The former selective/non-Taishō wording was replaced on 2026-08-08 with the faithful T47n1985_p0501a02–p0501a15 excerpt. Punctuation and segmentation are normalized; the English register reconstructions were revised to match this longer source passage. Human editor sign-off remains required."
         },
         "sections.blind_donkey": {
           "canonical_locator": "T47n1985_p0506c03–p0506c07",
-          "status": "collated_with_variants",
+          "status": "collated_with_normalization",
           "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0506c",
           "review_date": "2026-08-08",
           "note": "CBETA paragraph pT47p0506c0301 contains the final exchange with Sansheng. The project excerpt has variant normalized wording; character-level collation and editor sign-off remain required.",
           "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
           "source_revision": "CBETA Online reports last updated 2025-09-01",
           "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
-          "collation_note": "T47n1985_p0506c03–p0506c07 has 「師臨遷化時據坐云」 and 「爭敢」; the project uses 「師遷化時，囑三聖曰」 and 「何敢」. Keep this as a variant-normalized project excerpt pending recension evidence or replacement before source_checked status."
+          "collation_note": "The first dialogue was revised on 2026-08-08 to the T47n1985 據坐/爭敢 reading, and the final clause to 「端然示寂」. Punctuation and segmentation are normalized; human editor sign-off remains required."
         }
       }
     },

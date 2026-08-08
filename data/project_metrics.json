@@ -7,11 +7,11 @@
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 16270,
+    "all_corpus_cjk_characters": 16440,
     "complete_documents": [
       "wumenguan"
     ],
-    "content_cjk_characters": 13090,
+    "content_cjk_characters": 13268,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,

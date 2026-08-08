@@ -180,8 +180,8 @@
       "content_shape": "sections",
       "priority": "high",
       "review_status": "in_review",
-      "next_action": "Obtain recension-specific evidence or replace the four_host_guest and blind_donkey project wording with faithful T1985 excerpts; a human editor must then sign off all four sections before any source_checked status.",
-      "editorial_note": "2026-08-08 collation pilot: sermon_1 and four_shouts align with documented normalization; four_host_guest and blind_donkey retain variant/selective project wording and are explicitly not source-checked. See canonical_locators.json unit_locators for evidence and differences.",
+      "next_action": "Obtain a human editor’s character-level review and sign-off for all four collated sections; do not upgrade them to source_checked_excerpt until that review is recorded.",
+      "editorial_note": "2026-08-08 collation pilot: all four rendered sections now use T1985-aligned source wording with documented punctuation/segmentation normalization. This remains in review pending human scholarly sign-off; it is not a source_checked claim.",
       "reviewed_units": [
         "sections.sermon_1"
       ],
