@@ -3,12 +3,12 @@
 > Latest session: **2026-08-08 — Full Project Audit** (branch `arena/019fe108-translatechan`)
 
 ### Summary of This Session:
-1. **Full audit completed** → see [`AUDIT.md`](./AUDIT.md) (code, data, docs, deployment).
-2. **🔴 P0 found & FIXED**: `app.js` fatal syntax error (merged via PR #1) repaired — the live render path works again; 6 follow-on crash bugs fixed (unguarded `sample_records`/`fascicle_structure`, `window.TranslateChan` overwrite, Platform Sutra chapters never rendered, Shitou embedded stanzas, search null-guards). Details in [`AUDIT.md` §8](./AUDIT.md).
-3. **New regression tooling**: `scripts/smoke_test.mjs` (dependency-free) exercises all 36 corpus texts × 4 reader modes × search with 0 crashes; run after every data/app change.
-4. **Data measured**: 36 excerpt-scale corpus files (≈9,610 zh chars total; Wumenguan 11/48 cases), glossary 31 terms (docs claim 150+), matrix 4 entries. Core anchor passages verified authentic vs canon.
-5. **Docs drift logged (pending fix)**: missing `LICENSE`, missing `.github/workflows/deploy.yml`, missing `scripts/align_translations.py`, stale merge instructions.
-6. **Verified healthy**: deterministic bundle, `/docs` sync, Pages `status: built`, authentic canonical text, zero-dependency architecture.
+1. **Full audit completed** → [`AUDIT.md`](./AUDIT.md).
+2. **🔴 P0 found & FIXED**: `app.js` fatal syntax error + 6 runtime crashes repaired and verified ([`AUDIT.md` §8](./AUDIT.md)); new dependency-free regression tool `scripts/smoke_test.mjs`.
+3. **🟠 Docs-truth pass DONE**: README/ROADMAP/HANDOFF now state measured reality (31 terms, 11/48 cases, 4 matrix entries, excerpt-scale corpus); missing `LICENSE` created (MIT code + CC BY-SA data + third-party rights notice); phantom `align_translations.py`/`deploy.yml` refs removed; stale branch/merge instructions rewritten; `.nojekyll` added; `vision.md` marked aspirational. Logged in [`AUDIT.md` §8](./AUDIT.md).
+4. **Data measured**: 36 excerpt-scale files (≈9,610 zh chars; Wumenguan 11/48), glossary 31, lineage 18, matrix 4 — anchors verified authentic.
+5. **Verified healthy**: deterministic bundle, `/docs` sync, Pages `status: built` (still serving pre-fix `main` until hotfix PR merges).
+6. **Still open**: translator-attribution verification/labeling (§3.4), CBETA ID fixes, P1/P2 frontend hardening (§2), Phase 2 content (Wumenguan 48 first).
 
 ---
 <details><summary>Previous session (pre-audit history)</summary>

@@ -176,6 +176,24 @@ The `translations` blocks credit Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofel
 
 **Verification**: `node --check app.js` ✓ · new dependency-free smoke test `scripts/smoke_test.mjs` (executes the app against a DOM stub, clicks through **all 36 corpus texts, all 4 reader modes, 5 search queries** — 0 crashes) ✓ · bundle rebuilt deterministically ✓ · `docs/` re-synced ✓ · all assets 200 via local server ✓
 
-**Remaining open work**: §2 P1/P2 items (search coverage of all schemas + highlighting, reader-mode differentiation, tooltip nesting, studio data source), §3.3–3.4 (CBETA IDs, translator attribution policy), §4 (documentation truth pass, missing LICENSE / workflow / `align_translations.py`), §6 P3 (content completion starting with Wumenguan 48).
+### 2026-08-08 — Documentation-truth pass completed ✅
+
+| §4 drift item | Fix |
+|---|---|
+| Phantom `scripts/align_translations.py` | ROADMAP now marks it "(planned — not yet written)" |
+| Phantom `.github/workflows/deploy.yml` | Removed from both structure trees; docs now state native branch publishing (no workflow needed) |
+| Missing `LICENSE` | Created: dual MIT (code) + CC BY-SA 4.0 (datasets) + third-party rights notice for classical texts & modern translations |
+| "150+ terms" | README/HANDOFF/ROADMAP corrected to measured **31**, with 150+ as target |
+| "Complete 48 Cases" checkbox | Unchecked to measured **11/48**; all Phase 2 targets now show real counts |
+| Stale merge instructions (`arena/019fe05c…`) | Rewritten around current session-branch → PR → `main` flow; Pages marked already-live |
+| Phase status percentages (60/85/90%) | Replaced with measured ~10%/~20%/~60% + explicit "measured, not aspirational" note |
+| `ingest_cbeta.py` oversold as CBETA automation | Described honestly as offline segmenter; real CBETA fetching listed as to-build |
+| Corpus tables implying complete texts | Retitled "seed excerpts" with per-text coverage column; vision.md got an aspirational-doc banner |
+| Missing `.nojekyll` | Added at root + `/docs` |
+| Missing smoke test in docs workflows | Added to README dev quickstart + HANDOFF release checklist |
 
 ---
+
+**Open work as of 2026-08-08**: §2 P1/P2 frontend items (full-schema search + highlighting, reader-mode differentiation, tooltip nesting, studio reads from bundle), §3.3–3.4 (CBETA ID verification, translator-attribution verification/labeling policy), §6 P3 content work (Wumenguan 48 first). Everything ships to `main` via session-branch PRs.
+
+
