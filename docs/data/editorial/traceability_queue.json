@@ -180,8 +180,8 @@
       "content_shape": "sections",
       "priority": "high",
       "review_status": "in_review",
-      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
-      "editorial_note": "First source anchor located: 無位真人 encounter, CBETA T47n1985_p0496c10–p0496c14. It is an anchor-identification pass only, not character-level collation.",
+      "next_action": "Collate each rendered dialogue against its four recorded CBETA line-head anchors, record any normalized/variant readings, then obtain editor sign-off before upgrading any anchor status.",
+      "editorial_note": "Four section-level CBETA anchors were identified on 2026-08-08 (sermon_1, four_shouts, four_host_guest, blind_donkey). This remains a locator pilot only: anchors are not claims of character-level collation or source-checked excerpts.",
       "reviewed_units": [
         "sections.sermon_1"
       ],

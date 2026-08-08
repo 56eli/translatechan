@@ -116,6 +116,17 @@ for (const [key, fn] of Object.entries(corpusClicks)) {
 }
 console.log(`RENDERER: ${Object.keys(corpusClicks).length} corpus texts exercised, ${failures} crashes`);
 
+// 1b. The Linji locator pilot must expose its reviewed unit anchor, not only T1985.
+try {
+  corpusClicks.linji_yulu();
+  const linjiHtml = ids['reader-content-target']._innerHTML;
+  const linjiAnchor = window.TRANSLATECHAN_DATA.canonical_locators.documents.linji_yulu.unit_locators['sections.four_shouts'];
+  if (!linjiHtml.includes('Section source: T47n1985_p0504a26–p0504a29') ||
+      linjiAnchor?.status !== 'anchor_identified_not_collated') {
+    failures++; console.log('❌ Linji unit-level locator pilot is not rendered');
+  }
+} catch (e) { failures++; console.log(`❌ Linji locator pilot crash: ${e.message}`); }
+
 // 2. Exercise each reader mode
 for (const h of modeHandlers) {
   try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute()} crash: ${e.message}`); }

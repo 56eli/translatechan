@@ -2634,7 +2634,28 @@ window.TRANSLATECHAN_DATA = {
             "status": "anchor_identified_not_collated",
             "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
             "review_date": "2026-08-08",
-            "note": "CBETA line-head range identifies the 無位真人 encounter. The project excerpt uses its own segmentation and normalized punctuation; a character-level collation and editor sign-off remain required before source_checked_excerpt status."
+            "note": "CBETA line-head range identifies the 無位真人 encounter. The project excerpt uses its own segmentation and normalized punctuation; character-level collation and editor sign-off remain required before source_checked_excerpt status."
+          },
+          "sections.four_shouts": {
+            "canonical_locator": "T47n1985_p0504a26–p0504a29",
+            "status": "anchor_identified_not_collated",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+            "review_date": "2026-08-08",
+            "note": "CBETA paragraph pT47p0504a2601 contains the four-shouts encounter. The project excerpt uses normalized wording and segmentation; character-level collation and editor sign-off remain required."
+          },
+          "sections.four_host_guest": {
+            "canonical_locator": "T47n1985_p0501a02–p0501a15",
+            "status": "anchor_identified_not_collated",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501a",
+            "review_date": "2026-08-08",
+            "note": "CBETA discussion of the four host/guest configurations spans these line heads. The project excerpt is a selective normalized segment; character-level collation and editor sign-off remain required."
+          },
+          "sections.blind_donkey": {
+            "canonical_locator": "T47n1985_p0506c03–p0506c07",
+            "status": "anchor_identified_not_collated",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0506c",
+            "review_date": "2026-08-08",
+            "note": "CBETA paragraph pT47p0506c0301 contains the final exchange with Sansheng. The project excerpt has variant normalized wording; character-level collation and editor sign-off remain required."
           }
         }
       },

@@ -650,8 +650,23 @@
 
   function locatorStatusLabel(status) {
     if (status === 'case_level_anchor') return 'Case-level canonical anchor';
+    if (status === 'anchor_identified_not_collated') return 'Anchor identified — character-level collation pending';
+    if (status === 'source_checked_excerpt') return 'Source-checked excerpt';
     if (status === 'legacy_document_seed') return 'Document-level seed locator — unit locator pending';
     return status ? stringValue(status) : 'Locator pending';
+  }
+
+  function unitLocatorForKey(key, unitKey) {
+    const documentLocator = locatorDocumentForKey(key);
+    const unitLocators = documentLocator && isRecord(documentLocator.unit_locators) ? documentLocator.unit_locators : {};
+    const unit = isRecord(unitLocators[unitKey]) ? unitLocators[unitKey] : null;
+    if (!unit) return documentLocator;
+    return {
+      ...documentLocator,
+      ...unit,
+      granularity: 'unit',
+      source_note: stringValue(unit.note) || stringValue(documentLocator.source_note)
+    };
   }
 
   function renderSourceLocationDisclosure(locator, label = 'Source location', className = '') {
@@ -976,12 +991,13 @@
   }
 
   function renderSectionItem(sec) {
+    const sectionLocator = unitLocatorForKey(state.currentCorpusKey, `sections.${sec.section_id}`);
     let dialoguesHtml = (sec.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">${d.speaker}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${d.pinyin}</div>
-        ${renderTranslationColumns(d.translations, d.zh)}
+        ${renderTranslationColumns(d.translations, d.zh, sectionLocator)}
       </div>
     `).join('');
 
@@ -991,7 +1007,7 @@
         <div class="case-speaker">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${st.pinyin}</div>
-        ${renderTranslationColumns(st.translations, st.zh)}
+        ${renderTranslationColumns(st.translations, st.zh, sectionLocator)}
       </div>
     `).join('');
 
@@ -1000,6 +1016,7 @@
         <div class="case-header">
           <span class="case-num-title">${sec.title_zh}</span>
           <span class="case-speaker">${sec.title_en}</span>
+          ${renderSourceLocationDisclosure(sectionLocator, 'Section source', 'case-source-location')}
         </div>
         ${dialoguesHtml}${stanzasHtml}
       </div>
@@ -1232,11 +1249,11 @@
       </div>`;
   }
 
-  function renderTranslationColumns(translations, zh = '') {
+  function renderTranslationColumns(translations, zh = '', locatorOverride = null) {
     if (!translations) return '';
     if (state.readerMode === 'chinese_only') return '';
 
-    const originalContext = { zh, locator: locatorDocumentForKey(state.currentCorpusKey) };
+    const originalContext = { zh, locator: locatorOverride || locatorDocumentForKey(state.currentCorpusKey) };
     const keys = Object.keys(translations);
     if (keys.length === 0) return '';
 
