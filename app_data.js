@@ -2952,8 +2952,8 @@ window.TRANSLATECHAN_DATA = {
       "author_zh": "洞山良价 禪師 說 / 曹山本寂 禪師 註",
       "author_en": "Spoken by Dongshan Liangjie (807–869), Commented by Caoshan Benji (840–901)",
       "era": "Tang Dynasty",
-      "genre": "Caodong Cornerstone / Discourse Record (語錄與五位)",
-      "overview": "The profound dialectical matrix of the Caodong (Soto) school, formulating the Five Ranks of Lord and Vassal (五位君臣) which integrate the Real/Absolute (正 / Li) and the Apparent/Relative (偏 / Shi).",
+      "genre": "Caodong Cornerstone / Discourse Record & Stream Verse (語錄、五位與逢渠偈)",
+      "overview": "The profound dialectical matrix of the Caodong (Soto) school, formulating the Five Ranks of Lord and Vassal (五位君臣), the Non-Sentient Preaching the Dharma (無情說法), and Dongshan's immortal awakening verse on meeting his reflection in the river (逢渠偈).",
       "five_ranks": [
         {
           "rank_num": 1,
@@ -3038,10 +3038,38 @@ window.TRANSLATECHAN_DATA = {
       ],
       "dialogues": [
         {
+          "dialogue_id": "river_reflection",
+          "title_zh": "洞山過水睹影：逢渠偈",
+          "title_pinyin": "Dòngshān Guòshuǐ Dǔyǐng: Féngqú Jì",
+          "title_en": "Wading the River & Meeting the Reflection: The Fengqu Gatha",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 傳記",
+              "zh": "師辭雲巖行腳。雲巖曰：「甚處去？」師曰：「雖離和尚，未卜所止。」雲巖曰：「莫湖南去？」師曰：「無。」曰：「歸鄉去？」師曰：「無。」巖曰：「早晚卻回。」師曰：「待和尚有住處即來。」師涉水睹影，大悟前旨，作偈曰：",
+              "pinyin": "Shī cí Yúnyán xíngjiǎo. Yúnyán yuē: 'Shèn chù qù?' Shī yuē: 'Suī lí héshang, wèi bǔ suǒ zhǐ.' Yúnyán yuē: 'Mò Húnán qù?' Shī yuē: 'Wú.' Yuē: 'Guī xiāng qù?' Shī yuē: 'Wú.' Yán yuē: 'Zǎowǎn què huí.' Shī yuē: 'Dài héshang yǒu zhùchù jí lái.' Shī shèshuǐ dǔyǐng, dà wù qián zhǐ, zuò jì yuē:",
+              "translations": {
+                "red_pine": "The Master took leave of Master Yunyan on pilgrimage. Yunyan asked: 'Where are you going?' The Master said: 'Though I leave you, I have no fixed destination.' Yunyan said: 'Are you going to Hunan?' 'No.' 'Returning to your hometown?' 'No.' Yunyan said: 'Return sooner or later.' The Master said: 'When you have a fixed dwelling, I will return.' As the Master waded across a river, he saw his reflection in the water, deeply awakened to the fundamental teaching, and composed a verse:",
+                "cleary": "Dongshan took leave of Yunyan. Yunyan said, 'Where are you going?' 'Though I leave the Master, I don't know where I'll stop.' 'Are you going to Hunan?' 'No.' 'Going home?' 'No.' 'Return early or late.' 'When the Master has a fixed abode, I will come.' Wading a river, Dongshan saw his reflection, had great enlightenment, and composed a verse:",
+                "sasaki": "Dongshan left Yunyan on pilgrimage. Wading across a stream, he saw his reflection in the water and attained great awakening, uttering this famous verse:"
+              }
+            },
+            {
+              "speaker": "Dongshan / 洞山良价",
+              "zh": "切忌從他覓，迢迢與我踈。我今獨自往，處處得逢渠。渠今正是我，我今不是渠。應須恁麼會，方得契如如。",
+              "pinyin": "Qiējì cóng tā mì, tiáotiáo yǔ wǒ shū. Wǒ jīn dúzì wǎng, chùchù dé féng qú. Qú jīn zhèng shì wǒ, wǒ jīn bùshì qú. Yīng xū rèn me huì, fāng dé qì rúrú.",
+              "translations": {
+                "red_pine": "Avoid seeking after it through another, or you will become estranged from yourself. Now I go on alone, yet everywhere I meet Him. He is now truly me, but I am not Him. You must understand in this way to harmonize with Suchness.",
+                "cleary": "Do not seek from another, or you will be alienated from yourself. Now I go on alone, yet everywhere I meet Him. He is now me, I am not Him. You must understand in this way to merge with Suchness.",
+                "sasaki": "Never seek after it from another, or it will be alienated from you. Now I go on alone, yet everywhere I meet Him. He is now truly me, but I am not Him. Only by understanding thus can you accord with Suchness."
+              }
+            }
+          ]
+        },
+        {
           "dialogue_id": "non_sentient_preaching",
-          "title_zh": "無情說法",
-          "title_pinyin": "Wúqíng Shuōfǎ",
-          "title_en": "The Non-Sentient Preach the Dharma",
+          "title_zh": "無情說法：眼處聞聲",
+          "title_pinyin": "Wúqíng Shuōfǎ: Yǎnchù Wénshēng",
+          "title_en": "The Non-Sentient Preach the Dharma: Hearing Sounds with the Eyes",
           "dialogue": [
             {
               "speaker": "Dongshan / 洞山",
