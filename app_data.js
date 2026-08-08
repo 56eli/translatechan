@@ -4330,6 +4330,105 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "nanquan_yulu": {
+      "id": "nanquan_yulu",
+      "title_zh": "池州南泉普願禪師語錄",
+      "title_pinyin": "Chízhōu Nánquán Pǔyuàn Chánshī Yǔlù",
+      "title_en": "The Recorded Sayings of Chan Master Nanquan Puyuan",
+      "cbeta_id": "X1315 / T1985",
+      "taisho_vol": 47,
+      "author_zh": "唐 池州 南泉普願 禪師 說 (馬祖法嗣)",
+      "author_en": "Chan Master Nanquan Puyuan (748–835 CE), Teacher of Zhaozhou Congshen",
+      "era": "High Tang Dynasty",
+      "genre": "Discourse Record & Radical Encounters (語錄與機鋒)",
+      "overview": "The sharp, enigmatic, and revolutionary encounters of Master Nanquan Puyuan, teacher of Zhaozhou, famed for 'Ordinary Mind is the Way' (平常心是道), cutting the cat in two (斬貓), and becoming a water buffalo (水牯牛).",
+      "sections": [
+        {
+          "section_id": "water_buffalo",
+          "title_zh": "百年後作水牯牛：銜取一莖草來",
+          "title_pinyin": "Bǎinián Hòu Zuò Shuǐgǔniú: Xián Qǔ Yī Jīng Cǎo Lái",
+          "title_en": "Reborn as a Water Buffalo: Bring a Blade of Grass",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "師遷化前，僧問：「和尚百年後，向甚處去？」",
+              "pinyin": "Shī qiānhuà qián, sēng wèn: 'Héshang bǎinián hòu, xiàng shèn chù qù?'",
+              "translations": {
+                "red_pine": "Before the Master passed away, a monk asked: 'After you pass on, Master, where will you go?'",
+                "cleary": "Before the Master's passing, a monk asked, 'After a hundred years, where will the Master go?'",
+                "sasaki": "Before Nansen passed away, a monk asked: 'After your death, Master, where will you go?'"
+              }
+            },
+            {
+              "speaker": "Nanquan / 南泉",
+              "zh": "師曰：「山下作一頭水牯牛去。」僧曰：「學人隨和尚去得否？」師曰：「汝若隨我，銜取一莖草來。」",
+              "pinyin": "Shī yuē: 'Shānxià zuò yī tóu shuǐgǔniú qù.' Sēng yuē: 'Xuérén suí héshang qù dé fǒu?' Shī yuē: 'Rǔ ruò suí wǒ, xián qǔ yī jīng cǎo lái.'",
+              "translations": {
+                "red_pine": "The Master said: 'I will go down to the foot of the mountain and become a water buffalo.' The monk said: 'May I follow you there, Master?' The Master said: 'If you wish to follow me, you must bring a blade of grass in your mouth!'",
+                "cleary": "The Master said, 'I will go to the foot of the mountain and become a water buffalo.' The monk said, 'May I follow the Master?' The Master said, 'If you follow me, bring a blade of grass in your mouth.'",
+                "sasaki": "Nansen said: 'I will go down the mountain and be a water buffalo.' The monk said: 'May I follow you?' Nansen said: 'If you follow me, you must come with a mouthful of grass!'"
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "not_mind_not_buddha",
+          "title_zh": "不是心，不是佛，不是物",
+          "title_pinyin": "Bù Shì Xīn, Bù Shì Fó, Bù Shì Wù",
+          "title_en": "It is Not Mind, Not Buddha, Not a Thing",
+          "dialogue": [
+            {
+              "speaker": "Monk / 僧",
+              "zh": "僧問：「古人生生世世，說心說佛。和尚今日說何法？」",
+              "pinyin": "Sēng wèn: 'Gǔrén shēngshēng shìshì, shuō xīn shuō fó. Héshang jīnrì shuō hé fǎ?'",
+              "translations": {
+                "red_pine": "A monk asked: 'Generation after generation the ancients spoke of Mind and spoke of Buddha. What Dharma do you teach today, Master?'",
+                "cleary": "A monk asked, 'The ancients for generations spoke of mind and Buddha. What teaching does the Master preach today?'",
+                "sasaki": "A monk asked: 'Ancient masters always preached mind and preached Buddha. What do you teach today?'"
+              }
+            },
+            {
+              "speaker": "Nanquan / 南泉",
+              "zh": "師曰：「不是心，不是佛，不是物。」僧曰：「向甚處歸著？」師曰：「任汝穿耳，任汝踏毛。」",
+              "pinyin": "Shī yuē: 'Bù shì xīn, bù shì fó, bù shì wù.' Sēng yuē: 'Xiàng shèn chù guīzhuó?' Shī yuē: 'Rèn rǔ chuān'ěr, rèn rǔ tàmáo.'",
+              "translations": {
+                "red_pine": "The Master said: 'It is not mind, it is not Buddha, it is not a thing.' The monk said: 'Where does one rest then?' The Master said: 'Pierce your ears as you please, trample your fur as you wish!'",
+                "cleary": "The Master said, 'Not mind, not Buddha, not a thing.' The monk said, 'Where does it belong?' The Master said, 'Let your ears be pierced, let your hair be trodden.'",
+                "sasaki": "Nansen said: 'Not mind, not Buddha, not a thing.' The monk said: 'Where does one settle?' Nansen said: 'Pierce your ears and tread on your fur!'"
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "peony_flower",
+          "title_zh": "陸亘大夫看牡丹：如夢相似",
+          "title_pinyin": "Lù Gèn Dàfū Kàn Mǔdān: Rú Mèng Xiàngsì",
+          "title_en": "Governor Lu Gen and the Peony Flower: Like a Dream",
+          "dialogue": [
+            {
+              "speaker": "Governor Lu / 陸亘大夫",
+              "zh": "陸亘大夫問南泉：「肇法師道：『天地與我同根，萬物與我一體。』也甚奇怪。」",
+              "pinyin": "Lù Gèn dàfū wèn Nánquán: 'Zhào fǎshī dào: 'Tiāndì yǔ wǒ tóng gēn, wànwù yǔ wǒ yītǐ.' Yě shèn qīguài.'",
+              "translations": {
+                "red_pine": "Governor Lu Gen asked Nanquan: 'Master Sengzhao said: Heaven and earth share the same root with me; the myriad things are one body with me. Isn't this truly extraordinary?'",
+                "cleary": "Governor Lu Gen asked Nanquan, 'Master Sengzhao said, Heaven and earth share the same root with me, the myriad things are of one body with me. Isn't this most extraordinary?'",
+                "sasaki": "Governor Riko said to Nansen: 'Master Jō said: Heaven and earth share the same root as myself; all things are one with me. Isn't this wondrous?'"
+              }
+            },
+            {
+              "speaker": "Nanquan / 南泉",
+              "zh": "南泉指庭前牡丹花曰：「大夫！時人見此一株花，如夢相似。」大夫罔措。",
+              "pinyin": "Nánquán zhǐ tíng qián mǔdān huā yuē: 'Dàfū! Shí rén jiàn cǐ yī zhū huā, rú mèng xiàngsì.' Dàfū wǎngcuò.",
+              "translations": {
+                "red_pine": "Nanquan pointed to a blooming peony in the courtyard and said: 'Governor! People of the world look at this single flower as if in a dream!' The Governor was at a loss.",
+                "cleary": "Nanquan pointed to a peony in the garden: 'Governor, people today see this flower as if in a dream.' The Governor was nonplussed.",
+                "sasaki": "Nansen pointed to a peony flower in the garden: 'Governor, people of this world look at this flower as if in a dream.' Riko was speechless."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
