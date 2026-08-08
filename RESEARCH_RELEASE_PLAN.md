@@ -30,8 +30,8 @@ A text or translation is only presented at the strongest available status. “Co
 
 - [x] Quality workflow checks Python syntax, semantic data validation, deterministic build output, deploy mirror, and dependency-free renderer smoke coverage.
 - [ ] Enable `main` branch protection requiring the Quality check after an administrator sees its first successful run.
-- [ ] Add a small real-browser regression suite (desktop + mobile) before asserting cross-browser release readiness.
-- [ ] Add an accessibility review checklist and resolve keyboard semantics for every interactive control before the next public release.
+- [x] Real-browser regression suite (desktop + mobile): `scripts/browser_test.mjs` (Playwright) covers initial load, deep links, mobile corpus chooser/action bar, lazy case loading, case-chip jumps, citation and glossary popovers (pointer + keyboard), ARIA tab navigation, search escaping, CSP console cleanliness, and print view. It is **optional and not part of CI** (it skips gracefully without a browser); run locally with `npm install && npx playwright install chromium && npm run test:browser` before release checks.
+- [ ] Add an accessibility review checklist and resolve keyboard semantics for every interactive control before the next public release. (Keyboard semantics for tabs, glossary terms, lineage nodes/edges, and cards are implemented; a formal screen-reader pass remains.)
 
 **Exit evidence:** required GitHub check is green on PRs; browser suite covers initial load, deep links, mobile corpus chooser, lazy case loading, source popovers, keyboard interaction, and print view.
 

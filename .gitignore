@@ -4,3 +4,4 @@ __pycache__/
 
 # Common local editor/OS noise
 .DS_Store
+node_modules/

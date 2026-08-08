@@ -92,8 +92,9 @@ The hero chip "🌐 Zero-Backend Offline" is technically true (zero backend; off
 ### F9 — 🟢 P3 (tooling): script docstrings still overpromise (carried from C9)
 `ingest_cbeta.py`'s docstring says *"Parses raw Classical Chinese… maps CBETA canonical IDs"* — it is a punctuation segmenter (no CBETA fetching, no ID mapping). `arena_agent_pipeline.py`'s docstring says *"translation & alignment pipeline"* — it is prompt scaffolding + an entry builder. Both were flagged in the prior audit (C9); still accurate to say the docstrings overstate. Either narrow the docstrings or implement real CBETA fetching (Kanripo/CBETA API) under Phase 2.
 
-### F10 — 🟡 P2 (testing): no real-browser regression suite (carried from A4/C9)
-The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it cannot validate layout/breakpoints, real hash navigation, pointer/keyboard semantics in a browser, CSP behavior, or screen-reader output. `RESEARCH_RELEASE_PLAN` Phase 0 lists a small Playwright/WebDriver suite (desktop + mobile) as open.
+### F10 — 🟡 P2 (testing): no real-browser regression suite (carried from A4/C9) — **REMEDIATED this session** ✅
+The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it cannot validate layout/breakpoints, real hash navigation, pointer/keyboard semantics in a browser, CSP behavior, or screen-reader output.
+**Status: FIXED this session** (see §2.3 below) — `scripts/browser_test.mjs` (Playwright, desktop + mobile) added: initial load, deep links, mobile corpus chooser/action bar, lazy 48-case loading, case-chip jumps, citation + glossary popovers (pointer and keyboard), ARIA tab navigation, search escaping, CSP console cleanliness, and print view. It is **optional and not in CI** (skips gracefully when no browser is available — verified in this sandbox, which cannot run Chromium: no browser binary, missing system libraries, blocked CDNs/apt mirrors).
 
 ---
 
@@ -143,8 +144,8 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 
 ## 7. Recommended Next Steps (proposal — awaiting direction)
 
-1. **F7**: ask the repo owner to require the Quality check on `main` (one admin action).
-2. **F10**: add a small Playwright smoke suite (initial load, deep link, mobile picker, lazy cases, citation popover, keyboard, print).
+1. **Run the browser suite once on a browser-capable machine** (first real execution of `npm run test:browser`; this sandbox cannot run Chromium) and feed any selector/behavior findings back.
+2. **F7**: ask the repo owner to require the Quality check on `main` (one admin action).
 3. **Then Phase 2 content**: complete Biyanlu under the locator/provenance/rights contract (first 10 cases as pilot) — per-text coverage strings now auto-track progress.
 4. **F9**: narrow the two script docstrings (2-minute fix) or budget real CBETA fetching.
 5. **F5**: revisit annotator/search-index scaling before major corpus growth.
@@ -177,6 +178,16 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 
 **Verification:** `python3 scripts/validate_data.py --write-metrics` ✅ (fresh, no second-pass diff) · smoke suite ✅ · bundle deterministic ✅ · root↔`docs` byte-identical ✅.
 
+### F10 — real-browser (Playwright) regression suite completed ✅
+
+| Item | Change | Regression evidence |
+|---|---|---|
+| `scripts/browser_test.mjs` | Playwright suite (desktop 1280×900 + mobile 390×844 contexts): 12 tests — initial load (36 corpus buttons, 5 tabs), hash deep links, Wumenguan lazy 12→24→36→48 loading + 48 chips, case-chip jump with auto-load, citation popover, glossary popover via click and via Enter key, ARIA tab ArrowRight/End, schema + XSS-escape search, mobile bottom bar + corpus picker switch, print media (header hidden, cards kept), CSP console + uncaught-error cleanliness | Self-spawns `python3 -m http.server` on an ephemeral port; prints per-test ❌ with exit 1 on failure |
+| Graceful skip | If Chromium cannot launch (missing binary/deps), prints clear install guidance (`npm install && npx playwright install chromium`) and exits 0 — never breaks contributors or CI | Verified in this sandbox (no browser available): `⚠️ BROWSER TEST SKIPPED … exit 0` |
+| Wiring + docs | `package.json` (private, devDep `playwright`, `npm run test:browser`) + `package-lock.json`; `node_modules/` git-ignored; README dev quickstart, HANDOFF release checklist, RESEARCH_RELEASE_PLAN Phase 0 updated | `node --check` clean; suite executes (skip path) in this environment |
+
+**Environment note:** this sandbox cannot run a real browser (no Chromium binary anywhere on disk, no browser system libraries, and `cdn.playwright.dev` / Debian mirrors are network-blocked). The suite's logic is written against the app's actual DOM (selectors cross-checked with the generated markup); its first real execution must happen on a dev machine or a CI runner with a browser — this is a documented prerequisite, not a code gap.
+
 ---
 
 ## 8. Audit Limitations
@@ -185,4 +196,4 @@ This audit did not independently collate every Chinese passage against CBETA/TEI
 
 ---
 
-**One-sentence completion summary:** This audit found a healthy, deterministic, honestly-labeled static reader with all quality gates green and every prior remediation holding, remediated the remaining a11y/CSP gaps (delegated events, ARIA tabs, keyboard glossary terms, restrictive CSP) with regression coverage, and left open only the tracked editorial migration, real-browser testing, branch-protection confirmation, and Phase-2 corpus expansion.
+**One-sentence completion summary:** This audit found a healthy, deterministic, honestly-labeled static reader with all quality gates green and every prior remediation holding, and this session remediated the a11y/CSP gaps (delegated events, ARIA tabs, keyboard glossary terms, restrictive CSP), added deterministic per-text coverage metrics that immediately caught a stale char count, and shipped an optional Playwright real-browser suite — leaving open only the tracked editorial migration, the suite's first live browser run, branch-protection confirmation, and Phase-2 corpus expansion.

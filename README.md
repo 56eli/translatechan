@@ -124,7 +124,9 @@ translatechan/
     ├── arena_agent_pipeline.py# Prompt templates & entry harness for sandboxed agent work
     ├── ingest_cbeta.py        # Offline Classical Chinese sentence segmenter (manual input)
     ├── validate_data.py       # Schema/semantic/rights/locator validator + metrics generator
-    └── smoke_test.mjs         # Dependency-free renderer regression test
+    ├── smoke_test.mjs         # Dependency-free renderer regression test (CI gate)
+    ├── browser_test.mjs       # Optional Playwright real-browser suite (desktop + mobile; not in CI)
+    └── ingest_cbeta.py        # Offline Classical Chinese segmenter (manual input)
 ```
 
 > **Note on deployment automation**: GitHub Pages is served directly from the `main` branch `/docs` folder (native branch publishing). The checked-in GitHub Actions **Quality** workflow verifies Python syntax, source data/metrics, deterministic generated artifacts, deploy synchronization, and the reader smoke test on pushes and pull requests; it does not deploy Pages.
@@ -150,7 +152,12 @@ python3 scripts/build_data_bundle.py
 # 4. Run the dependency-free renderer regression suite
 node scripts/smoke_test.mjs
 
-# 5. Launch a local preview server
+# 5. (Optional) Run the real-browser Playwright suite (desktop + mobile)
+npm install                    # devDependency: playwright
+npx playwright install chromium  # once per machine; `install-deps` on Linux if needed
+npm run test:browser           # skips gracefully when no Chromium is available
+
+# 6. Launch a local preview server
 python3 -m http.server 8080
 # Open http://localhost:8080 in your browser
 ```

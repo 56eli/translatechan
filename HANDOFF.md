@@ -100,7 +100,7 @@ gh pr create --base main --head "$(git branch --show-current)" --title "..." --b
 On every merge into `main`, the site re-publishes automatically within ~60 seconds.
 👉 **`https://56eli.github.io/translatechan/`**
 
-> **Release checklist before opening any PR affecting the app/data**: `python3 scripts/validate_data.py && python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs` must pass, `cmp app.js docs/app.js` (etc.) must show root/docs in sync, and `diff -rq data docs/data` must be silent (data mirror). Run these commands locally before opening a PR; the same checks are enforced by the GitHub Actions Quality workflow.
+> **Release checklist before opening any PR affecting the app/data**: `python3 scripts/validate_data.py && python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs` must pass, `cmp app.js docs/app.js` (etc.) must show root/docs in sync, and `diff -rq data docs/data` must be silent (data mirror). Run these commands locally before opening a PR; the same checks are enforced by the GitHub Actions Quality workflow. Optionally (dev machines only, not CI): `npm install && npx playwright install chromium && npm run test:browser` runs the real-browser Playwright suite (desktop + mobile); it prints a clear SKIP when no Chromium is available.
 
 ---
 
