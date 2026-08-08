@@ -30,7 +30,9 @@ This branch deliberately publishes only **Bilingual Reader, Comparative Matrix, 
 
 ### Branch delta and current release state
 
-This branch adds the checked-in **Quality** workflow (green on every pushed change), an evidence-first research-release plan, an enforced 33-record corpus-locator migration queue, an enforced 34-record lineage-profile review queue, and a source-anchor identification for Linji’s 無位真人 seed (`T47n1985_p0496c10–p0496c14`). The lineage explorer now has 34 navigable profiles (including four clearly marked frontier scaffolds), 30 traditional/pending internal edges, alternate-name/evidence disclosures, curated project-work links, display sorting, and delegated keyboard interaction. None of these additions upgrades unresolved relationships or seed excerpts to source-verified status.
+This branch adds the checked-in **Quality** workflow, evidence-first release controls, and two completed **locator pilots**: all four rendered Linji sections are linked to T1985 line-head ranges and all seven rendered Xinxin Ming stanzas are linked to T2010 line-head ranges. Their public Reader disclosures say **“collated with documented normalization — human sign-off pending”**; none is represented as a source-checked scholarly edition. The UI now carries the aligned original Chinese and canonical source status in every translation disclosure, and defines an AI register reconstruction as newly written project text—not wording copied from, verified against, or attributable to the named scholar.
+
+The Huangbo seed was corrected for witness integrity: the One Mind material remains in `huangbo_chuanxin.json` (T2012A), while the unconditioned-compassion Q&A was moved to `huangbo_wanling.json` (T2012B). The moved material still needs its own unit-level collation; the queue documents this openly. These changes do not upgrade unresolved seed excerpts, translation rights, or lineage relationships to source-verified status.
 
 ### Source, translation, and lineage disclosure
 
@@ -57,7 +59,7 @@ All commands pass. Root and `/docs` assets/data are synchronized.
 
 ### Merge readiness
 
-After reviewing the branch/preview, open a PR from the current `arena/019fe272-translatechan` branch to `main`, confirm the local quality gate above and the required **Quality** check, then merge. GitHub Pages will republish `main` → `/docs` automatically.
+Current branch: `arena/019fe2e0-translatechan`. Before merging, confirm the local quality gate above and the required **Quality** check; after merge, Pages republishes `main` → `/docs` automatically. GitHub Pages will republish `main` → `/docs` automatically.
 
 ---
 
@@ -125,7 +127,7 @@ translatechan/
 ├── HANDOFF.md              # This handoff & deployment document
 ├── data/
 │   ├── corpus_manifest.json    # Shared ordered reader/bundle manifest
-│   ├── canonical_locators.json # Document/case canonical locator registry
+│   ├── canonical_locators.json # Document/case/unit canonical locator registry
 │   ├── project_metrics.json    # Deterministic generated metrics
 │   ├── corpus/                 # 36 Canonical Texts in structured JSON
 │   │   ├── wumenguan.json              # Gateless Gate (T2005)

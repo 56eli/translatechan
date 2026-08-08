@@ -52,7 +52,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - Sentence-by-sentence Classical Chinese with standard Pinyin romanization and English translations across all 36 corpus texts.
 - Switchable reading modes: **Bilingual**, **Multi-Translators Side-by-Side**, or **Classical Chinese Only**.
 - Hover, focus, or tap key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
-- Visible canonical source locations for every reader document/case, with hover/focus/touch disclosure popups that state locator granularity and pending status honestly.
+- Visible canonical source locations for every reader document/case, plus reviewed unit-level source disclosures for the Linji (4 sections) and Xinxin Ming (7 stanzas) pilots; hover/focus/touch popups state locator granularity, collation status, and pending human review honestly.
 - Client-side search across **all 36 corpus texts and all schema shapes** (case lists, sermons, dialogues, stanzas, chapters), with match counts, `<mark>` highlighting, and jump-to-anchor actions.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix
@@ -97,7 +97,7 @@ translatechan/
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
 ├── data/
 │   ├── corpus_manifest.json    # Shared corpus order/navigation manifest (36 keys)
-│   ├── canonical_locators.json # Document/case source-locator registry
+│   ├── canonical_locators.json # Document/case/unit source-locator registry
 │   ├── project_metrics.json    # Deterministic, validator-generated project counts
 │   ├── corpus/                 # 36 structured canonical-text files (JSON, excerpt-scale → growing)
 │   │   ├── wumenguan.json            # + preface/epilogue
