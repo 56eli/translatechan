@@ -184,30 +184,40 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Annotate text with glossary tooltips
+  // Annotate text with glossary tooltips (single-pass: no nested/duplicated highlights)
   function annotateClassicalChinese(text) {
-    if (!text || !state.data.glossary) return text;
-    let annotated = text;
-    const sortedTerms = [...state.data.glossary].sort((a, b) => b.term.length - a.term.length);
+    if (!text || !state.data.glossary || !Array.isArray(state.data.glossary)) return text;
+    const terms = state.data.glossary.filter(t => t && t.term && text.includes(t.term));
+    if (terms.length === 0) return text;
 
-    sortedTerms.forEach(termObj => {
-      const term = termObj.term;
-      if (annotated.includes(term)) {
-        const regex = new RegExp(term, 'g');
-        const tooltipHtml = `
-          <span class="term-highlight">${term}
-            <span class="term-tooltip">
-              <div class="tooltip-term-title">${term} (${termObj.pinyin})</div>
-              <div class="tooltip-sanskrit">Sanskrit: ${termObj.sanskrit || '—'}</div>
-              <div><strong>Literal:</strong> ${termObj.literal}</div>
-              <div style="margin-top: 0.35rem;">${termObj.definition}</div>
-            </span>
-          </span>
-        `;
-        annotated = annotated.replace(regex, tooltipHtml);
+    // Collect every match span of every term, longest terms winning overlaps
+    const matches = [];
+    terms.sort((a, b) => b.term.length - a.term.length);
+    terms.forEach(termObj => {
+      let idx = text.indexOf(termObj.term);
+      while (idx !== -1) {
+        matches.push({ start: idx, end: idx + termObj.term.length, termObj });
+        idx = text.indexOf(termObj.term, idx + 1);
       }
     });
-    return annotated;
+    matches.sort((a, b) => a.start - b.start || (b.end - b.start) - (a.end - a.start));
+
+    let out = '';
+    let pos = 0;
+    matches.forEach(m => {
+      if (m.start < pos) return; // skip overlaps with an already-emitted longer/earlier match
+      const t = m.termObj;
+      out += text.slice(pos, m.start);
+      out += `<span class="term-highlight">${t.term}<span class="term-tooltip">` +
+             `<span class="tooltip-term-title">${t.term} (${t.pinyin || '—'})</span>` +
+             `<span class="tooltip-sanskrit">Sanskrit: ${t.sanskrit || '—'}</span>` +
+             `<span class="tooltip-row"><strong>Literal:</strong> ${t.literal || ''}</span>` +
+             `<span class="tooltip-row" style="margin-top: 0.35rem;">${t.definition || ''}</span>` +
+             `</span></span>`;
+      pos = m.end;
+    });
+    out += text.slice(pos);
+    return out;
   }
 
   // Render Sidebar Corpus List
@@ -229,7 +239,7 @@
       { key: 'fayan_yulu', title: 'Fayan Yulu & Ten Rules (法眼十規論)', cbeta: 'T1991' },
       { key: 'guiyang_yulu', title: 'Guiyang Yulu & Circles (溈仰九十六圓相)', cbeta: 'T1989' },
       { key: 'dahui_hongzhi', title: 'Dahui & Hongzhi (看話書問與默照銘)', cbeta: 'T1998A' },
-      { key: 'shitou_sandokai', title: 'Shitou Sandokai & Grass Hut (參同契與草庵歌)', cbeta: 'T1985' },
+      { key: 'shitou_sandokai', title: 'Shitou Sandokai & Grass Hut (參同契與草庵歌)', cbeta: 'T2076 f.30' },
       { key: 'zhengdao_ge', title: 'Yongjia Zhengdao Ge (永嘉證道歌)', cbeta: 'T2014' },
       { key: 'bodhidharma_erru', title: 'Bodhidharma Erru Sixing (二入四行論)', cbeta: 'T2009' },
       { key: 'niutou_juezhu', title: 'Niutou Farong Juezhu Lun (絕觀論)', cbeta: 'P.2885' },
@@ -240,12 +250,12 @@
       { key: 'dahui_shobogenzo', title: 'Dahui Shobogenzo (大慧正法眼藏)', cbeta: 'T2002' },
       { key: 'mazu_yulu', title: 'Mazu Daoyi Yulu (江西馬祖語錄)', cbeta: 'X1304' },
       { key: 'nanquan_yulu', title: 'Nanquan Puyuan Yulu (南泉普願語錄)', cbeta: 'X1315' },
-      { key: 'deshan_yulu', title: 'Deshan Xuanjian Yulu (德山宣鑑語錄)', cbeta: 'T1985' },
+      { key: 'deshan_yulu', title: 'Deshan Xuanjian Yulu (德山宣鑑語錄)', cbeta: 'T2076/X1565' },
       { key: 'xuefeng_yantou', title: 'Xuefeng & Yantou Yulu (雪峰巖頭語錄)', cbeta: 'T1983' },
       { key: 'congronglu_cases', title: 'Book of Serenity (從容庵錄)', cbeta: 'T2004' },
       { key: 'wudeng_huiyuan', title: 'Compendium of Five Lamps (五燈會元)', cbeta: 'X1565' },
       { key: 'sengzhao_zhaolun', title: 'Sengzhao Zhao Lun (僧肇肇論)', cbeta: 'T1858' },
-      { key: 'hanshan_poems', title: 'Hanshan Cold Mountain Poems (寒山詩集)', cbeta: 'T2834' },
+      { key: 'hanshan_poems', title: 'Hanshan Cold Mountain Poems (寒山詩集)', cbeta: 'SBCK/Zoku' },
       { key: 'huangbo_wanling', title: 'Huangbo Wanling Lu (黃檗宛陵錄)', cbeta: 'T2012B' },
       { key: 'xuansha_yulu', title: 'Xuansha Shibei Yulu (玄沙宗一語錄)', cbeta: 'X1310' },
       { key: 'caoxi_zhuan', title: 'Caoxi Dashi Biezhuan (曹溪大師別傳)', cbeta: 'X1458' },
@@ -271,6 +281,7 @@
   // Render Reader View
   function renderReader() {
     if (!elements.readerContent || !state.data.corpus) return;
+    elements.readerContent.dataset.mode = state.readerMode; // drives chinese_only CSS hiding of pinyin/translations
     const doc = state.data.corpus[state.currentCorpusKey];
     if (!doc) {
       elements.readerContent.innerHTML = '<p>Corpus document loading...</p>';
@@ -313,6 +324,7 @@
               <div class="translation-text">${doc.preface.en_sasaki || ''}</div>
             </div>
           </div>
+          <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.3rem;" title="AI-crafted renderings in each scholar's register — not verbatim published text">⚠️ Register reconstructions (unverified) — provenance policy v1.1</div>
         </div>
       `;
     }
@@ -340,6 +352,7 @@
               <div class="translation-text">${doc.epilogue.en_sasaki || ''}</div>
             </div>
           </div>
+          <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.3rem;" title="AI-crafted renderings in each scholar's register — not verbatim published text">⚠️ Register reconstructions (unverified) — provenance policy v1.1</div>
         </div>
       `;
     }
@@ -398,12 +411,14 @@
       });
     }
 
-    elements.readerContent.innerHTML = html;
-      if (doc.overview) {
-        html += `
-          <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
-            <div class="case-num-title" style="margin-bottom: 0.5rem;">📚 30 Fascicles Canonical Architecture</div>
-            <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${doc.overview}</div>
+    // Render canonical scope / overview card (e.g. Chuandenglu architecture, Platform Sutra coverage)
+    // (skipped when a five_ranks block is present — it already surfaces doc.overview)
+    if (doc.overview && !doc.five_ranks) {
+      html += `
+        <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
+          <div class="case-num-title" style="margin-bottom: 0.5rem;">📚 Canonical Architecture & Scope</div>
+          <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${doc.overview}</div>
+          ${doc.fascicle_structure ? `
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem;">
               ${doc.fascicle_structure.map(f => `
                 <div style="background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 4px; border: 1px solid var(--border-color); font-size: 0.78rem;">
@@ -411,10 +426,13 @@
                 </div>
               `).join('')}
             </div>
-          </div>
-        `;
-      }
+          ` : ''}
+        </div>
+      `;
+    }
 
+    // Render Sample Records (e.g. Chuandenglu)
+    if (doc.sample_records && doc.sample_records.length > 0) {
       doc.sample_records.forEach(rec => {
         let diaHtml = rec.dialogue.map(d => `
           <div style="margin-bottom: 1.25rem;">
@@ -434,6 +452,13 @@
             ${diaHtml}
           </div>
         `;
+      });
+    }
+
+    // Render Chapters (e.g. Platform Sutra)
+    if (doc.chapters && doc.chapters.length > 0) {
+      doc.chapters.forEach(ch => {
+        html += renderChapterItem(ch);
       });
     }
 
@@ -473,6 +498,7 @@
             <div class="classical-zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.commentary_pinyin || ''}</div>
             <div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.commentary_en || ''}</div>
+            ${caseItem.commentary_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
           </div>
         ` : ''}
         ${caseItem.verse_zh ? `
@@ -481,6 +507,7 @@
             <div class="classical-zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.verse_pinyin || ''}</div>
             <div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.verse_en || ''}</div>
+            ${caseItem.verse_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
           </div>
         ` : ''}
       </div>
@@ -488,12 +515,22 @@
   }
 
   function renderSectionItem(sec) {
-    let dialoguesHtml = sec.dialogue.map(d => `
+    let dialoguesHtml = (sec.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">${d.speaker}</div>
         <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${d.pinyin}</div>
         ${renderTranslationColumns(d.translations)}
+      </div>
+    `).join('');
+
+    // Sections may embed verse stanzas instead of dialogue (e.g. Shitou Sandokai / Grass Hut Song)
+    let stanzasHtml = (sec.stanzas || []).map(st => `
+      <div style="margin-bottom: 1.25rem;">
+        <div class="case-speaker">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</div>
+        <div class="classical-zh">${annotateClassicalChinese(st.zh)}</div>
+        <div class="pinyin-line">${st.pinyin}</div>
+        ${renderTranslationColumns(st.translations)}
       </div>
     `).join('');
 
@@ -503,13 +540,13 @@
           <span class="case-num-title">${sec.title_zh}</span>
           <span class="case-speaker">${sec.title_en}</span>
         </div>
-        ${dialoguesHtml}
+        ${dialoguesHtml}${stanzasHtml}
       </div>
     `;
   }
 
   function renderDialogueItem(dia) {
-    let dialoguesHtml = dia.dialogue.map(d => `
+    let dialoguesHtml = (dia.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">${d.speaker}</div>
         <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
@@ -551,6 +588,7 @@
           <div class="classical-zh">${annotateClassicalChinese(v.zh)}</div>
           <div class="pinyin-line">${v.pinyin}</div>
           ${renderTranslationColumns(v.translations)}
+          ${v.recension_note ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${v.recension_note}</div>` : ''}
         </div>
       `).join('');
     } else if (ch.dialogue) {
@@ -584,20 +622,38 @@
 
     let displayKeys = keys;
     if (state.readerMode === 'bilingual') {
-      displayKeys = keys.slice(0, 2);
+      // Prefer the two anchor registers (Red Pine + Cleary); fall back to first two available
+      const preferred = ['red_pine', 'cleary'].filter(k => keys.includes(k));
+      displayKeys = preferred.length > 0 ? preferred : keys.slice(0, 2);
     }
 
     return `
       <div class="translation-grid">
-        ${displayKeys.map(k => `
+        ${displayKeys.map(k => {
+          const raw = translations[k];
+          // Support provenance object form {text, status, source} as well as plain strings
+          const isObj = raw && typeof raw === 'object';
+          const text = isObj ? (raw.text || '') : (raw || '');
+          const status = isObj && raw.status ? raw.status : (k.startsWith('ai_') ? 'ai_draft' : 'reconstruction_unverified');
+          const badge = status === 'verified_quotation' ? '✅ Verified quotation'
+                      : status === 'ai_draft' ? 'AI draft'
+                      : '⚠️ Register reconstruction';
+          const badgeTip = status === 'verified_quotation' ? 'Checked against a specific edition (see source field)'
+                      : status === 'ai_draft' ? 'Explicitly AI-generated draft'
+                      : 'AI-crafted rendering in this scholar\'s register — not verbatim published text (see data/translations/provenance.json)';
+          const sourceLine = (status === 'verified_quotation' && isObj && raw.source)
+            ? `<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.35;">📖 ${raw.source.work || ''}${raw.source.edition ? ' · ' + raw.source.edition : ''}${raw.source.verification ? '<br>✓ ' + raw.source.verification : ''}</div>`
+            : '';
+          return `
           <div class="translation-col">
             <div class="translator-tag">
               <span>${formatTranslatorName(k)}</span>
-              <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: normal;">${k.startsWith('ai_') ? 'AI Synthesis' : 'Scholarly'}</span>
+              <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: normal;" title="${badgeTip}">${badge}</span>
             </div>
-            <div class="translation-text">${translations[k]}</div>
-          </div>
-        `).join('')}
+            <div class="translation-text">${text}</div>
+            ${sourceLine}
+          </div>`;
+        }).join('')}
       </div>
     `;
   }
@@ -612,6 +668,16 @@
       blofeld: 'John Blofeld',
       heine: 'Steven Heine',
       yampolsky: 'Philip Yampolsky',
+      senzaki_reps: 'Senzaki & Reps (1934)',
+      clarke: 'Richard B. Clarke',
+      watson: 'Burton Watson',
+      hoffman: 'Yoel Hoffman',
+      ferguson: 'Andy Ferguson',
+      shimomisse: 'Eiichi Shimomissé',
+      aitken: 'Robert Aitken',
+      shibayama: 'Zenkei Shibayama',
+      sekida: 'Katsuki Sekida',
+      yamada: 'Kōun Yamada',
       ai_literal: 'AI Draft (Literal)',
       ai_poetic: 'AI Draft (Poetic Zen)'
     };
@@ -638,6 +704,7 @@
                 <div class="matrix-work">${t.work} (${t.style})</div>
                 <div class="matrix-text">"${t.text}"</div>
               </div>
+              ${t.status ? `<div style="font-size:0.68rem; margin-top:0.4rem; color: var(--text-muted);">${t.status === 'verified_quotation' ? '✅ Verified quotation' : t.status === 'ai_draft' ? '🤖 AI draft' : '⚠️ Register reconstruction (unverified)'}</div>` : ''}
               <div class="matrix-note">💡 ${t.notes}</div>
             </div>
           `).join('')}
@@ -863,7 +930,59 @@
   function setupStudio() {
     if (!elements.studioSelectText) return;
 
-    const studioPassages = [
+    // Build studio passages live from the data bundle (single source of truth);
+    // combines a unit's dialogue/zh/pinyin and merges its translation registers.
+    function combineUnits(units) {
+      const zh = units.map(u => u.zh || '').filter(Boolean).join(' ');
+      const pinyin = units.map(u => u.pinyin || '').filter(Boolean).join(' ');
+      const translations = {};
+      units.forEach(u => {
+        const tr = u.translations || {};
+        Object.keys(tr).forEach(k => { if (!translations[k]) translations[k] = tr[k]; });
+      });
+      return { zh, pinyin, translations };
+    }
+
+    function buildStudioPassages() {
+      const corpus = state.data.corpus || {};
+      const passages = [];
+      const add = (id, label, combined) => {
+        if (combined && combined.zh) passages.push({ id, label, zh: combined.zh, pinyin: combined.pinyin, translations: combined.translations });
+      };
+
+      const wm = corpus.wumenguan;
+      if (wm && Array.isArray(wm.cases)) {
+        [1, 2, 3].forEach(num => {
+          const c = wm.cases.find(x => x.case_num === num);
+          if (c) add(`wumen_${num}`, `Wumenguan Case ${num}: ${c.title_en || c.title_zh}`, combineUnits(c.dialogue || []));
+        });
+      }
+      const linji = corpus.linji_yulu;
+      if (linji && linji.sections && linji.sections[0]) {
+        add('linji_1', `Linji Yulu: ${linji.sections[0].title_en || linji.sections[0].title_zh}`, combineUnits((linji.sections[0].dialogue || []).slice(0, 3)));
+      }
+      const hb = corpus.huangbo_chuanxin;
+      if (hb && hb.sections && hb.sections[0]) {
+        add('huangbo_1', `Huangbo Chuanxin: ${hb.sections[0].title_en || hb.sections[0].title_zh}`, combineUnits((hb.sections[0].dialogue || []).slice(0, 1)));
+      }
+      const xxm = corpus.xinxin_ming;
+      if (xxm && xxm.stanzas && xxm.stanzas[0]) {
+        add('xinxin_1', 'Xinxin Ming: Opening Stanza (至道無難)', combineUnits([xxm.stanzas[0]]));
+      }
+      const ps = corpus.platform_sutra;
+      if (ps && ps.chapters && ps.chapters[0] && ps.chapters[0].verses) {
+        const ch = ps.chapters[0];
+        const huineng = ch.verses.find(v => v.zh && v.zh.includes('菩提本無樹')) || ch.verses[0];
+        add('platform_1', `Platform Sutra: ${ch.title_en || ch.title_zh}`, combineUnits([huineng]));
+      }
+      return passages;
+    }
+
+    let studioPassages = buildStudioPassages();
+
+    // Fallback (should not trigger while the bundle is intact)
+    if (studioPassages.length === 0) {
+      studioPassages = [
       {
         id: 'wumen_1',
         label: 'Wumenguan Case 1: Zhaozhou Dog (狗子還有佛性也無？州云：無。)',
@@ -945,7 +1064,8 @@
           yampolsky: "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?"
         }
       }
-    ];
+      ];
+    }
 
     elements.studioSelectText.innerHTML = studioPassages.map(opt => `
       <option value="${opt.id}">${opt.label}</option>
@@ -1161,7 +1281,78 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     renderSavedList();
   }
 
-  // Global Search Handler
+  // ---- Search: universal segment extraction across every corpus schema ----
+  function extractSearchableUnits(doc, corpKey) {
+    // Returns [{label, jump, zh, pinyin, blob}] covering cases, sections, dialogues,
+    // stanzas, chapters, five_ranks, sample_records, preface/epilogue.
+    const units = [];
+    const asBlob = (...parts) => parts.filter(Boolean).join(' ').toLowerCase();
+    const blobWithTranslations = (tr) => tr ? Object.values(tr).map(v => (v && typeof v === 'object' ? v.text : v)).filter(Boolean).join(' ') : '';
+    const fromDialogue = (items, label, jump) => (items || []).forEach(d => {
+      units.push({
+        label, jump,
+        zh: d.zh || '', pinyin: d.pinyin || '',
+        blob: asBlob(label, d.speaker, d.zh, d.pinyin, blobWithTranslations(d.translations))
+      });
+    });
+
+    if (doc.preface && doc.preface.zh) {
+      units.push({ label: '序言 / Preface', jump: null, zh: doc.preface.zh, pinyin: doc.preface.pinyin || '',
+        blob: asBlob('preface', doc.preface.zh, doc.preface.pinyin, doc.preface.en_red_pine, doc.preface.en_cleary, doc.preface.en_sasaki) });
+    }
+    if (doc.epilogue && doc.epilogue.zh) {
+      units.push({ label: '後序 / Epilogue', jump: null, zh: doc.epilogue.zh, pinyin: doc.epilogue.pinyin || '',
+        blob: asBlob('epilogue', doc.epilogue.zh, doc.epilogue.pinyin, doc.epilogue.en_red_pine, doc.epilogue.en_cleary, doc.epilogue.en_sasaki) });
+    }
+    (doc.cases || []).forEach(c => {
+      const label = `第${c.case_num}則 ${c.title_zh || ''} / ${c.title_en || ''}`;
+      fromDialogue(c.dialogue, label, { kind: 'case', num: c.case_num });
+      if (c.commentary_zh) units.push({ label: label + ' · commentary', jump: { kind: 'case', num: c.case_num }, zh: c.commentary_zh, pinyin: c.commentary_pinyin || '', blob: asBlob(label, c.commentary_zh, c.commentary_pinyin, c.commentary_en) });
+      if (c.verse_zh) units.push({ label: label + ' · verse', jump: { kind: 'case', num: c.case_num }, zh: c.verse_zh, pinyin: c.verse_pinyin || '', blob: asBlob(label, c.verse_zh, c.verse_pinyin, c.verse_en) });
+      // explicit title unit so title-only queries surface the case
+      units.push({ label, jump: { kind: 'case', num: c.case_num }, zh: c.title_zh || '', pinyin: c.title_pinyin || '', blob: asBlob(label) });
+    });
+    (doc.sections || []).forEach(sec => {
+      const label = `${sec.title_zh || ''} / ${sec.title_en || ''}`;
+      fromDialogue(sec.dialogue, label, null);
+      fromDialogue(sec.stanzas, label, null);
+    });
+    (doc.dialogues || []).forEach(dia => {
+      fromDialogue(dia.dialogue, `${dia.title_zh || ''} / ${dia.title_en || ''}`, null);
+    });
+    (doc.stanzas || []).forEach(st => {
+      units.push({ label: `Stanza ${st.stanza_num}`, jump: null, zh: st.zh || '', pinyin: st.pinyin || '',
+        blob: asBlob(`stanza ${st.stanza_num}`, st.zh, st.pinyin, blobWithTranslations(st.translations)) });
+    });
+    (doc.chapters || []).forEach(ch => {
+      const label = `${ch.title_zh || ''} / ${ch.title_en || ''}`;
+      fromDialogue(ch.dialogue, label, null);
+      (ch.verses || []).forEach(v => units.push({ label, jump: null, zh: v.zh || '', pinyin: v.pinyin || '',
+        blob: asBlob(label, v.author, v.zh, v.pinyin, blobWithTranslations(v.translations)) }));
+    });
+    (doc.five_ranks || []).forEach(r => {
+      units.push({ label: `Five Ranks · ${r.name_zh || ''}`, jump: null, zh: r.verse_zh || '', pinyin: r.verse_pinyin || '',
+        blob: asBlob(r.name_zh, r.name_en, r.verse_zh, r.verse_pinyin, r.commentary_zh, r.commentary_en, blobWithTranslations(r.translations)) });
+    });
+    (doc.sample_records || []).forEach(rec => {
+      fromDialogue(rec.dialogue, `卷${rec.fascicle} ${rec.title_zh || ''}`, null);
+    });
+    return units;
+  }
+
+  function makeSnippet(zh, q) {
+    // window the classical text around the first hit, then highlight all hits
+    const raw = zh || '';
+    const first = raw.indexOf(q);
+    const center = first === -1 ? 0 : first;
+    const start = Math.max(0, center - 30);
+    const end = Math.min(raw.length, center + 50);
+    let snip = (start > 0 ? '…' : '') + raw.slice(start, end) + (end < raw.length ? '…' : '');
+    if (q && snip.includes(q)) snip = snip.split(q).join(`<mark>${q}</mark>`);
+    return snip;
+  }
+
+  // Global Search Handler — covers every corpus schema, with counts + highlighting
   function handleGlobalSearch() {
     const q = state.searchQuery;
     if (!q) {
@@ -1175,67 +1366,63 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
 
     if (!elements.readerContent || !state.data.corpus) return;
 
-    let matchCount = 0;
-    let resultsHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${q}"</div></div>`;
+    const qLower = q.toLowerCase();
+    let totalHits = 0;
+    const perDocHits = {};
+    let bodyHtml = '';
 
     Object.keys(state.data.corpus).forEach(corpKey => {
       const doc = state.data.corpus[corpKey];
+      const units = extractSearchableUnits(doc, corpKey);
+      const hits = units.filter(u => u.blob.includes(qLower) || (u.zh && u.zh.includes(q)));
+      if (hits.length === 0) return;
 
-      if (doc.cases) {
-        doc.cases.forEach(c => {
-          let matched = false;
-          let preview = '';
+      perDocHits[corpKey] = hits.length;
+      totalHits += hits.length;
 
-          if (c.title_zh.includes(q) || c.title_en.toLowerCase().includes(q)) {
-            matched = true;
-            preview = c.title_zh + ' / ' + c.title_en;
-          }
-          if (c.dialogue) {
-            c.dialogue.forEach(d => {
-              if (d.zh.includes(q) || d.pinyin.toLowerCase().includes(q) || JSON.stringify(d.translations).toLowerCase().includes(q)) {
-                matched = true;
-                preview = d.zh;
-              }
-            });
-          }
-          if (matched) {
-            matchCount++;
-            resultsHtml += `
-              <div class="case-card" style="margin-bottom: 1rem;">
-                <div class="case-header">
-                  <span class="case-num-title">${doc.title_zh} - Case ${c.case_num}: ${c.title_zh}</span>
-                </div>
-                <div class="classical-zh">${annotateClassicalChinese(preview)}</div>
-                <div style="margin-top: 0.5rem;">
-                  <button class="btn-pill active" onclick="window.TranslateChan.openCase('${corpKey}', ${c.case_num})">View Case in Reader</button>
-                </div>
-              </div>
-            `;
-          }
-        });
+      bodyHtml += `<div style="margin: 1.25rem 0 0.4rem; font-weight: 700; color: var(--accent-gold);">${doc.title_zh} · ${doc.title_en} — ${hits.length} 處 / hit(s)</div>`;
+      hits.slice(0, 12).forEach(u => {
+        const action = u.jump && u.jump.kind === 'case'
+          ? `<button class="btn-pill active" onclick="window.TranslateChan.openCase('${corpKey}', ${u.jump.num})">View Case in Reader</button>`
+          : `<button class="btn-pill active" onclick="window.TranslateChan.openDoc('${corpKey}')">View in Reader</button>`;
+        bodyHtml += `
+          <div class="case-card" style="margin-bottom: 0.75rem;">
+            <div class="case-header"><span class="case-num-title" style="font-size:0.95rem;">${u.label}</span></div>
+            <div class="classical-zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
+            <div style="margin-top: 0.4rem;">${action}</div>
+          </div>`;
+      });
+      if (hits.length > 12) {
+        bodyHtml += `<div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.75rem;">… ${hits.length - 12} further hits in this text (open the text to browse).</div>`;
       }
     });
 
-    if (matchCount === 0) {
-      resultsHtml += `<div class="case-card"><p>No matches found for "${q}". Try searching for Classical Chinese (e.g. 狗子, 無, 佛性, 平常心) or English terms (e.g. Red Pine, Cleary, Buddha, mind, fox).</p></div>`;
-    }
+    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${q}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div></div>`;
 
-    elements.readerContent.innerHTML = resultsHtml;
+    elements.readerContent.innerHTML = totalHits === 0
+      ? headerHtml + `<div class="case-card"><p>No matches found for "${q}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`
+      : headerHtml + bodyHtml;
   }
 
-  // Global helper for opening case
-  window.TranslateChan = {
-    openCase: function(corpusKey, caseNum) {
-      state.currentCorpusKey = corpusKey;
-      state.searchQuery = '';
-      if (elements.globalSearch) elements.globalSearch.value = '';
-      renderCorpusList();
-      renderReader();
-      setTimeout(() => {
-        const el = document.getElementById(`case-${caseNum}`);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
+  // Global helpers (merge into existing namespace — do NOT overwrite openMasterDossier)
+  window.TranslateChan = window.TranslateChan || {};
+  window.TranslateChan.openCase = function(corpusKey, caseNum) {
+    state.currentCorpusKey = corpusKey;
+    state.searchQuery = '';
+    if (elements.globalSearch) elements.globalSearch.value = '';
+    renderCorpusList();
+    renderReader();
+    setTimeout(() => {
+      const el = document.getElementById(`case-${caseNum}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+  window.TranslateChan.openDoc = function(corpusKey) {
+    state.currentCorpusKey = corpusKey;
+    state.searchQuery = '';
+    if (elements.globalSearch) elements.globalSearch.value = '';
+    renderCorpusList();
+    renderReader();
   };
 
   // Run on DOM ready

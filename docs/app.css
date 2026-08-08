@@ -681,6 +681,29 @@ main {
   opacity: 1;
 }
 
+/* Tooltip rows are spans (valid nesting inside .term-highlight span) */
+.tooltip-term-title,
+.tooltip-sanskrit,
+.tooltip-literal,
+.tooltip-row {
+  display: block;
+}
+
+/* Reader mode: 漢 Classical Only — hide pinyin and all translation grids (incl. hardcoded preface/epilogue grids) */
+#reader-content-target[data-mode="chinese_only"] .pinyin-line,
+#reader-content-target[data-mode="chinese_only"] .translation-grid,
+#reader-content-target[data-mode="chinese_only"] .translator-tag {
+  display: none;
+}
+
+/* Search hit highlighting */
+mark {
+  background: rgba(158, 114, 50, 0.28);
+  color: inherit;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
 .tooltip-term-title {
   font-weight: 700;
   font-size: 0.95rem;

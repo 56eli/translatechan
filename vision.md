@@ -1,5 +1,7 @@
 # 🪷 TranslateChan: Vision & Architectural Blueprint
 
+> **Document type**: *aspirational architecture* — this is the long-range blueprint. For **measured current status**, see [`AUDIT.md`](./AUDIT.md); for phase tracking, see [`ROADMAP.md`](./ROADMAP.md); for operational flow, see [`HANDOFF.md`](./HANDOFF.md).
+
 > *"A special transmission outside the scriptures,  
 > Not founded upon words and letters;  
 > Pointing directly to the human mind,  

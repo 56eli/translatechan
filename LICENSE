@@ -1,0 +1,51 @@
+# TranslateChan License
+
+This repository is dual-licensed:
+
+## 1. Software & Code (MIT License)
+
+Applies to: `index.html`, `app.css`, `app.js`, `scripts/`, and all other code.
+
+MIT License
+
+Copyright (c) 2026 56eli / TranslateChan contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## 2. Text Corpus, Translations & Datasets (CC BY-SA 4.0)
+
+Applies to: `data/` (corpus excerpts, glossary, lineage graph, gong'an index,
+comparative matrix entries authored by this project).
+
+Licensed under the Creative Commons Attribution-ShareAlike 4.0 International
+License. To view a copy of this license, visit
+https://creativecommons.org/licenses/by-sa/4.0/
+
+### Third-party rights notice
+
+- **Classical Chinese source texts** (Taishō / CBETA canon) are public-domain
+  historical works; CBETA markup and databases have their own terms — consult
+  https://cbetaonline.dila.edu.tw/ before bulk reuse of CBETA materials.
+- **Published modern translations** quoted or reconstructed within the
+  comparative matrix remain the property of their respective translators and
+  publishers (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki,
+  R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky, et al.). They are
+  referenced here for scholarly comparison only; matrix attributions are
+  being verified/labeled per `AUDIT.md` §3.4. Do not redistribute them as
+  if they were original published text.

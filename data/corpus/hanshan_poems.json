@@ -3,7 +3,7 @@
   "title_zh": "天台山寒山拾得大士詩集",
   "title_pinyin": "Tiāntáishān Hánshān Shídé Dàshì Shījī",
   "title_en": "The Collected Poems of Cold Mountain (Hanshan & Shide)",
-  "cbeta_id": "T2834 / S.5731",
+  "cbeta_id": "SBCK / Zoku lineage (not in Taishō)",
   "taisho_vol": 85,
   "author_zh": "唐 天台山 寒山子 撰 / 拾得 述",
   "author_en": "The Tang Hermit Poet Hanshan (Cold Mountain, 8th–9th Century) & Shide",
@@ -51,5 +51,6 @@
         "snyder": "Climbing the Cold Mountain road / The Cold Mountain road has no end / The long creeks are piled with stones / The deep ravines are choked with grass / The moss is slippery though it hasn't rained / The pines sing with no wind / Who can leave the world's dust / To sit with me in the white clouds?"
       }
     }
-  ]
+  ],
+  "cbeta_note": "Corrects previous label \"T2834\", which actually designates 大乘無生方便門 (Dunhuang, Taishō vol. 85). Hanshan collection is 寒山子詩集 — outside the Taishō canon proper (Sibu Congkan lineage; CBETA hosts it under non-Taishō collections)."
 }

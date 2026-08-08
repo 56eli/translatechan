@@ -22,7 +22,15 @@
           "pinyin": "Shī shì zhòng yún: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!'",
           "translations": {
             "red_pine": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
-            "sasaki": "The Master instructed the assembly, saying: 'On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!'",
+            "sasaki": {
+              "text": "The Master, taking the high seat in the hall, said, \"On your lump of red flesh is a true man without rank who is always going in and out of the face of every one of you. Those who have not yet confirmed this, look, look!\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
+                "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+              }
+            },
             "cleary": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
             "suzuki": "The Master said: 'In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!'"
           }
@@ -33,7 +41,15 @@
           "pinyin": "Shí yǒu sēng chū wèn: 'Rúhé shì wú wèi zhēn rén?'",
           "translations": {
             "red_pine": "Then a monk came forward and asked: 'What is the True Person without rank?'",
-            "sasaki": "Then a monk came forward and asked: 'What is the True Person of No Rank?'",
+            "sasaki": {
+              "text": "Then a monk came forward and asked, \"What about the true man without rank?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
+                "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+              }
+            },
             "cleary": "Then a monk came forward and asked, 'What is the true human of no status?'",
             "suzuki": "A monk stepped out and asked: 'What kind of person is the True Man of No Title?'"
           }
@@ -44,7 +60,15 @@
           "pinyin": "Shī xià chánchuáng, bǎzhù yún: 'Dào! Dào!' Sēng nǐyì. Shī tuōkāi yún: 'Wú wèi zhēn rén shì shénme gān shǐ jué!' Biàn guī fāngzhàng.",
           "translations": {
             "red_pine": "The Master got down from the meditation bench, seized the monk, and shouted: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person without rank—what a dried shit-stick!' and returned to his abbot's room.",
-            "sasaki": "The Master stepped down from the meditation seat, seized the monk, and said: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person of No Rank—what a dry shit-stick!' and returned to his quarters.",
+            "sasaki": {
+              "text": "The master got down from his seat, seized the monk, and cried, \"Speak, speak!\" The monk faltered. Shoving him away, the master said, \"The true man without rank—what kind of dried piece of shit is he!\" Then he returned to his quarters.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                "edition": "University of Hawaii Press, 2009",
+                "verification": "wording consistent across three independent reproductions, 2026-08-08"
+              }
+            },
             "cleary": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
             "suzuki": "The Master descended from his chair, seized the monk by the throat, and cried: 'Speak! Speak!' The monk faltered. Pushing him away, the Master shouted: 'What a worthless dried dirt scraper is your True Man of No Rank!' and returned to his abbot room."
           }
@@ -64,7 +88,16 @@
           "translations": {
             "red_pine": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the sacred king; sometimes a shout is like the golden-haired lion crouching on the earth; sometimes a shout is like a probe pole and grass shadow; sometimes a shout does not function as a shout. How do you understand this?'",
             "sasaki": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the vajra king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a sounding pole and feather shadow; sometimes a shout does not function as a shout. How do you understand this?'",
-            "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'"
+            "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'",
+            "watson": {
+              "text": "The Master said to a monk, \"At times my shout is like the precious sword of the Diamond King. At times my shout is like a golden-haired lion crouching on the ground. At times my shout is like the search pole and the shadow grass. At times my shout doesn't work like a shout at all. Do you understand?\" The monk started to answer, whereupon the Master gave a shout.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Zen Teachings of Master Lin-Chi, tr. Burton Watson",
+                "edition": "Columbia University Press, 1999, pp. 98–99",
+                "verification": "verbatim as cited in Wikipedia 'Katsu (Zen)' sourcing Watson pp. 98–99, 2026-08-08"
+              }
+            }
           }
         },
         {
@@ -110,7 +143,16 @@
           "translations": {
             "red_pine": "When the Master was about to pass away, he entrusted Sansheng: 'After I pass, you must not extinguish my treasury of the true Dharma eye.' Sansheng said: 'How could I dare extinguish the Master's treasury of the true Dharma eye!'",
             "sasaki": "When the Master was about to enter nirvana, he instructed Sansheng: 'After my death, do not destroy my Eye Treasury of the True Law.' Sansheng said: 'How could I dare destroy your Eye Treasury of the True Law!'",
-            "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'"
+            "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'",
+            "ferguson": {
+              "text": "When Linji was about to die he sat upright and said, \"After I'm gone, my Treasury of the True Dharma Eye cannot be destroyed.\" Linji's disciple, Sansheng, said, \"How can we dare destroy the master's Treasury of the True Dharma Eye?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
+                "edition": "Wisdom Publications, 2011",
+                "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08; Ferguson follows the T1985 師臨遷化時據坐云 reading, our unit zh follows the 囑三聖曰 variant"
+              }
+            }
           }
         },
         {
@@ -120,7 +162,16 @@
           "translations": {
             "red_pine": "The Master said: 'If someone asks you in the future, what will you say to them?' Sansheng immediately gave a thunderous shout! The Master smiled and said: 'Who would have known that my treasury of the true Dharma eye would be extinguished by this blind donkey!' Saying this, he sat upright and passed away.",
             "sasaki": "The Master asked: 'If someone asks you in the future, what will you say?' Sansheng shouted! The Master said: 'Who would have thought that my Eye Treasury of the True Law would be destroyed by this blind donkey!' Having said this, the Master sat upright and passed away.",
-            "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on."
+            "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on.",
+            "ferguson": {
+              "text": "Linji said, \"In the future if someone asks about my teaching, what will you say to them?\" Sansheng shouted. Linji said, \"Who would have thought that my Treasury of the True Dharma Eye would be destroyed by this blind ass!\" Upon saying these words Linji passed away, sitting upright.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
+                "edition": "Wisdom Publications, 2011",
+                "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08"
+              }
+            }
           }
         }
       ]

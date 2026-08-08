@@ -3,7 +3,7 @@
   "title_zh": "德山宣鑑禪師語錄：德山棒與焚經",
   "title_pinyin": "Déshān Xuānjiàn Chánshī Yǔlù: Déshān Bàng yǔ Fén Jīng",
   "title_en": "The Recorded Sayings of Master Deshan Xuanjian (The Thirty Blows & Burning the Sutras)",
-  "cbeta_id": "T1985 / T2076",
+  "cbeta_id": "embedded: T2076 / X1565",
   "taisho_vol": 47,
   "author_zh": "唐 德山宣鑑 禪師 說 (石頭四世法嗣 / 龍潭法嗣)",
   "author_en": "Chan Master Deshan Xuanjian (782–865 CE), Master of Xuefeng Yicun and Yantou Quanhuo",
@@ -95,5 +95,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrects previous label \"T1985 / T2076\" — T1985 is strictly the Record of Linji. Deshan Xuanjian's record is not separately in Taishō; his dialogues are embedded in Jingde Chuandenglu (T2076) and Wudeng Huiyuan (X1565)."
 }

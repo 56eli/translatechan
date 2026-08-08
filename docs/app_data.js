@@ -924,8 +924,9 @@ window.TRANSLATECHAN_DATA = {
           "translator": "R.H. Blyth",
           "work": "Zen and Zen Classics, Vol. 4 (1966)",
           "style": "Literary & Poetic",
-          "text": "Has a dog the Buddha Nature? Jōshū answered: 'Mu!'",
-          "notes": "Parallels the barrier to sudden aesthetic and mystical illumination."
+          "text": "A monk once asked Joshu, \"Has a dog the Buddha-nature?\" Joshu answered, \"Mu!\"",
+          "notes": "VERIFIED verbatim vs the Mark T. Morse illustrated reproduction of Blyth's translation (Zen and Zen Classics IV, Hokuseido Press 1966). Retains 'Mu' untranslated with Hokuseido-era spellings (Joshu, Buddha-nature).",
+          "status": "verified_quotation"
         },
         {
           "translator": "John Blofeld",
@@ -940,6 +941,14 @@ window.TRANSLATECHAN_DATA = {
           "style": "Synthesis / Multi-Register",
           "text": "A monk asked: 'Does a dog possess Buddha-nature?' Zhaozhou replied: 'Mu / Not.'",
           "notes": "Provides glossing of 狗子 (diminutive/vernacular for dog) and 無 (as categorical ungraspability)."
+        },
+        {
+          "translator": "Nyogen Senzaki & Paul Reps",
+          "work": "The Gateless Gate (1934) — public domain",
+          "style": "First English translation, plain register",
+          "text": "Joshu answered: \"Mu.\"",
+          "status": "verified_quotation",
+          "notes": "VERIFIED verbatim vs Wikisource/sacred-texts (1934 John Murray edition, non-renewed → public domain). Retains 'Mu' untranslated — the register that defined the case for Western readers."
         }
       ]
     },
@@ -1059,6 +1068,163 @@ window.TRANSLATECHAN_DATA = {
       ]
     }
   ],
+  "translations_provenance": {
+    "policy_version": "1.9",
+    "policy_date": "2026-08-08",
+    "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
+    "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
+    "status_legend": {
+      "verified_quotation": "Checked verbatim against a specific print/digital edition; full source recorded in the item's `source` field.",
+      "reconstruction_unverified": "AI-crafted rendering in the scholar's known register/style. NOT a quotation of published text.",
+      "ai_draft": "Explicitly AI-generated draft with no scholar attribution (keys beginning with 'ai_')."
+    },
+    "defaults": {
+      "scholar_keys": {
+        "keys": [
+          "red_pine",
+          "cleary",
+          "sasaki",
+          "suzuki",
+          "blyth",
+          "blofeld",
+          "heine",
+          "yampolsky"
+        ],
+        "status": "reconstruction_unverified",
+        "ui_badge": "Reconstruction • unverified"
+      },
+      "ai_keys": {
+        "prefix": "ai_",
+        "status": "ai_draft",
+        "ui_badge": "AI draft"
+      }
+    },
+    "override_schema": {
+      "description": "Any `translations` value may be upgraded from a plain string to an object to record verification:",
+      "example": {
+        "red_pine": {
+          "text": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?'",
+          "status": "verified_quotation",
+          "source": {
+            "work": "The Collected Songs of Cold Mountain",
+            "edition": "Copper Canyon Press, 2000",
+            "page": "—",
+            "verified_by": "—",
+            "verified_date": "—"
+          }
+        }
+      }
+    },
+    "classical_text_policy": "All `zh` strings must be verifiable against CBETA / Taishō lineage (or a recorded manuscript recension). Changes to `zh` text require a comment in the commit message naming the source edition.",
+    "copyright_note": "Published modern translations remain copyright of their translators/publishers; reconstructions are original to this project and covered by the repository's CC BY-SA 4.0 dataset license (see LICENSE §2).",
+    "pilot_verifications": [
+      {
+        "pilot": "Wumenguan Case 1 dialogue (2026-08-08)",
+        "registers_verified": [
+          "senzaki_reps (1934, public domain)",
+          "shimomisse (online edition)"
+        ],
+        "registers_pending": [
+          "blyth (Zen and Zen Classics vol. 4, 1966 — print check pending; remains reconstruction_unverified)"
+        ],
+        "note": "senzaki_reps/shimomisse keys were ADDED to the dataset; they are not scholar-default registers and always carry their own object-form status. Existing red_pine/cleary/sasaki/suzuki/blyth/blofeld entries remain reconstruction_unverified — several (Sasaki, Blofeld, Red Pine on Wumenguan) have no published Wumenguan translation to verify against."
+      },
+      {
+        "pilot": "Round 2 (2026-08-08): Xinxin Ming stanzas 1–2 + Platform Sutra verses",
+        "registers_verified": [
+          "clarke — Xinxin Ming stanza 1 & 2, verbatim vs two independent mirrors",
+          "yampolsky — Shenxiu verse p.130 + Huineng Dunhuang-recension verse p.132 (vs published citations)"
+        ],
+        "data_corrections": [
+          "platform_sutra: prior Shenxiu 'yampolsky' paraphrase replaced by verified quotation",
+          "platform_sutra: Huineng received-text 'yampolsky' remains reconstruction (he translated only the Dunhuang recension); Dunhuang variant verse added for direct comparison",
+          "xinxin_ming stanza 3 zh corrected to canonical T2010 (was non-canonical paraphrase 不生留情，本來平坦)"
+        ],
+        "registers_pending": [
+          "blyth (print check pending)",
+          "suzuki Platform-verse register (source check pending)"
+        ]
+      },
+      {
+        "pilot": "Round 3 (2026-08-08): Wumenguan Sekida; Linji Sasaki; Huangbo Blofeld",
+        "registers_verified": [
+          "sekida — Wumenguan Case 1 dialogue (Two Zen Classics, 1977; vs Terebess PDF + reddit quotation)",
+          "sasaki — Linji 無位真人 passage, 2 lines (Record of Linji, Kirchner 2009; 3 mirrors)",
+          "blofeld — Huangbo One Mind opening (Zen Teaching of Huang Po, 1958; publisher + 3 mirrors)"
+        ],
+        "data_corrections": [
+          "linji sasaki & huangbo blofeld entries: previous paraphrases replaced by verified quotations",
+          "app: unattributed verse_en/commentary_en blocks now visibly labeled 'Project rendering • unverified'"
+        ],
+        "registers_pending": [
+          "blyth Wumenguan Case 1 (PDF transcription illegible — retry later)",
+          "suzuki Platform-verse register"
+        ]
+      },
+      {
+        "pilot": "Round 4 (2026-08-08): Blyth Case 1 retry + Linji closing exchange",
+        "registers_verified": [
+          "blyth — Wumenguan Case 1 (Zen and Zen Classics IV, 1966) via Mark Morse illustrated reproduction; prior paraphrase replaced",
+          "sasaki — Linji sermon closing exchange (乾屎橛), Record of Linji 2009"
+        ],
+        "registers_pending": [
+          "suzuki Platform-verse register (attribution uncertain — the widely circulating 'There is no Bodhi-tree…' rendering has no secure attribution; Suzuki's own wording differs)"
+        ]
+      },
+      {
+        "pilot": "Round 5 (2026-08-08): Linji 四喝 (Watson) + Zhaozhou wash-bowl (Hoffman)",
+        "registers_verified": [
+          "watson — Linji Fourfold Shout, Zen Teachings of Master Lin-Chi pp. 98–99 (citation-secure via Wikipedia)",
+          "hoffman — Zhaozhou wash-bowl dialogue (Radical Zen, 1978; Terebess reproduction)"
+        ],
+        "notes": [
+          "Sasaki/J.C. Cleary scanned PDFs unusable for verbatim checks (OCR images / 30-page parse window); J.C. Cleary usage-verifyable sections confirmed our 'cleary' entries are NOT verbatim — they remain correctly labeled reconstruction",
+          "new translator keys: watson, hoffman",
+          "pending: Watson/Sasaki deathbed 瞎驢 passage; Hoffman cypress-tree & stone-bridge registers (PDF located, next round)"
+        ]
+      },
+      {
+        "pilot": "Round 6 (2026-08-08): Hoffman cypress — Blofeld Wanling — Ferguson deathbed",
+        "registers_verified": [
+          "hoffman — Zhaozhou cypress-tree dialogue (Radical Zen, Autumn Press 1978, episode no. 12; Terebess PDF reproduction); note Hoffman renders 柏樹子 as 'oak tree in the front yard'",
+          "blofeld — Huangbo Chün Chou Record §1 span (prior reconstruction corrected to verbatim: 'sentient things') + Wan Ling Record Q&A no. 21 (mercy/compassion), verified vs Terebess + Dailyzen mirrors",
+          "ferguson — Linji deathbed exchange ×2 units (Zen's Chinese Heritage, Wisdom Publications 2011; verbatim vs tfreeman.net course-reader reproduction with explicit citation line)"
+        ],
+        "notes": [
+          "cleary deathbed line confirmed at PHRASE level only: 'The treasury of my True Dharma Eye will be destroyed by this blind donkey!' appears in J.C. Cleary's translation of Guo Tianxi's 1298 preface — the record-body rendering remains unverified, so the cleary unit correctly stays reconstruction",
+          "hoffman stone-bridge register (石橋): substrate lies beyond the readable window of the Terebess Hoffman PDF (458 episodes; parser reached ep. 54); only non-Hoffman renderings found → still pending",
+          "watson deathbed wording not located (Watson excerpts in tfreeman reader end at the sermons) → still pending",
+          "new translator key: ferguson"
+        ]
+      },
+      {
+        "pilot": "Round 7 (2026-08-08): Senzaki & Reps PD register extended across the whole Wumenguan excerpt set",
+        "registers_verified": [
+          "senzaki_reps — cases 2,3,4,5,6,7,19,23,29 + the oak-tree case, 22 new verified slots (The Gateless Gate, John Murray 1934, public domain via U.S. non-renewal); every remaining Wumenguan anchor now has at least one ✅ register",
+          "matrix matrix_wumen_1 — Blyth row rewritten to his round-4-verified wording and marked ✅ (2nd verified matrix row)"
+        ],
+        "notes": [
+          "EDITION NOTE on the oak-tree case: our file follows the Senzaki/Reps arrangement (their no. 38, 'An Oak Tree in the Garden'); canonical T2005 case 37 is Panshan 三界無法 — the oak-tree koan is non-canonical for the Wumenguan. The source note on those two units now says so explicitly",
+          "suzuki case-19 register: no secure D.T. Suzuki mirror located (several near-registers circulate with weak attribution) → stays reconstruction",
+          "pending: Aitken/Yamada/Shibayama Wumenguan registers; Hoffman stone-bridge full text; Watson deathbed"
+        ]
+      },
+      {
+        "pilot": "Round 8 (2026-08-08): Yamada & Aitken registers across the Wumenguan excerpt set",
+        "registers_verified": [
+          "yamada — Kōun Yamada, The Gateless Gate (Wisdom 2004): 24 verified slots covering ALL 11 corpus Wumenguan cases (Terebess Mumon.pdf excerpts reproduction)",
+          "aitken — Robert Aitken, The Gateless Barrier (North Point Press 1990): 6 verified slots (cases 1, 2 u0–u1, 3 u0, 4; deeper cases beyond this session's PDF parse window)"
+        ],
+        "notes": [
+          "All four headline Wumenguan translations-in-dialogue (Senzaki/Reps 1934 PD, Shimomissé, Sekida, Blyth, Yamada, Aitken) now verified on case 1 — SIX ✅ editions side by side",
+          "OCR seam policy exercised: Aitken c2 u2 / c3 u1 skipped (page-break seam = not provably verbatim); Yamada c5 'moth' corrected to printed 'mouth' (scan artifact, documented)",
+          "NUMBERING audit refined: our oak-tree case number 37 matches Aitken & Yamada (slot 37 substitutes the oak tree for canonical Panshan); Senzaki/Reps place it at 38; T2005 case 37 is Panshan 三界無法. Earlier v1.7 note attributed our numbering solely to Senzaki — corrected here",
+          "shibayama — substrate PDF (Zen Comments on the Mumonkan / Zen Inspirations excerpt) is an image-only scan → unverifiable this session, pending",
+          "pending: hoffman stone-bridge; watson deathbed; shibayama registers; aitken cases 5–7,19,23,29,37 (parse window)"
+        ]
+      }
+    ]
+  },
   "gongan_index": [
     {
       "id": "wumen_01",
@@ -1378,9 +1544,63 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?'",
                 "sasaki": "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?'",
                 "suzuki": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
-                "blyth": "A monk asked Jōshū, 'Has a dog the Buddha Nature?'",
+                "blyth": {
+                  "text": "A monk once asked Joshu, \"Has a dog the Buddha-nature?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Zen and Zen Classics, Volume Four: Mumonkan, tr. R.H. Blyth",
+                    "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
+                    "verification": "verbatim vs Morse reproduction, 2026-08-08",
+                    "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation)."
+                  }
+                },
                 "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
-                "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'"
+                "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
+                "senzaki_reps": {
+                  "text": "A monk asked Joshu, a Chinese Zen master: \"Has a dog Buddha-nature or not?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
+                    "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+                  }
+                },
+                "shimomisse": {
+                  "text": "A monk asked Joshu, \"Has the dog the Buddha nature?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Eiichi Shimomissé",
+                    "edition": "Online edition (Terebess Asia Online mirror)",
+                    "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+                  }
+                },
+                "sekida": {
+                  "text": "A monk asked Jōshū, \"Has a dog the Buddha Nature?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Two Zen Classics: Mumonkan & Hekiganroku, tr. Katsuki Sekida",
+                    "edition": "Weatherhill, 1977, pp. 26–137",
+                    "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The monk asked Jôshû in all earnestness, \"Does a dog have Buddha nature or not?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "A monk asked Chao-chou, \"Has the dog Buddha nature or not?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1392,9 +1612,64 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "Zhaozhou said, 'No.'",
                 "sasaki": "Jōshū said: 'Mu!'",
                 "suzuki": "Chao-chou replied: 'Wu!'",
-                "blyth": "Jōshū answered: 'Mu!'",
+                "blyth": {
+                  "text": "Joshu answered, \"Mu!\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Zen and Zen Classics, Volume Four: Mumonkan, tr. R.H. Blyth",
+                    "edition": "Hokuseido Press, 1966 — text per the Mark T. Morse illustrated reproduction (gatelessgatestudio.com, which states it uses Blyth verbatim)",
+                    "verification": "verbatim vs Morse reproduction, 2026-08-08",
+                    "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
+                    "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'"
+                  }
+                },
                 "blofeld": "The Master replied: 'None!'",
-                "ai_literal": "Zhou said: 'Not.'"
+                "ai_literal": "Zhou said: 'Not.'",
+                "senzaki_reps": {
+                  "text": "Joshu answered: \"Mu.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
+                    "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08"
+                  }
+                },
+                "shimomisse": {
+                  "text": "Joshu replied, \"Mu (nothing)!\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Eiichi Shimomissé",
+                    "edition": "Online edition (Terebess Asia Online mirror)",
+                    "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+                  }
+                },
+                "sekida": {
+                  "text": "Jōshū answered, \"Mu.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Two Zen Classics: Mumonkan & Hekiganroku, tr. Katsuki Sekida",
+                    "edition": "Weatherhill, 1977, pp. 26–137",
+                    "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Jôshû said, \"Mu!\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "Chao-chou said, \"Mu.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
+                }
               }
             }
           ],
@@ -1419,7 +1694,34 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Whenever Master Baizhang gave a talk, an old man would listen along with the assembly. When the assembly left, the old man also left. One day he did not leave.",
                 "cleary": "Whenever Master Baizhang held sermons, an old man would always follow the assembly to listen to the Dharma. When the monks withdrew, the old man also withdrew. One day he did not withdraw.",
-                "sasaki": "Whenever Master Hyakujō gave a sermon, an old man used to listen along with the assembly. When the assembly left, he left too. One day he remained behind."
+                "sasaki": "Whenever Master Hyakujō gave a sermon, an old man used to listen along with the assembly. When the assembly left, he left too. One day he remained behind.",
+                "senzaki_reps": {
+                  "text": "Once when Hyakujo delivered some Zen lectures an old man attended them, unseen by the monks. At the end of each talk when the monks left so did he. But one day he remained after they had gone, and Hyakujo asked him: \"Who are you?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Whenever master Hyakujô delivered a sermon, an old man was always there listening with the monks. When they left, he left too. One day, however, he remained behind. The master asked him, \"What man are you, standing in front of me?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "Once when Pai-chang gave a series of talks, a certain old man was always there listening together with the monks. When they left, he would leave too. One day, however, he remained behind. Pai-chang asked him, \"Who are you, standing here before me?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1429,7 +1731,34 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "The old man said: 'I am not a human. In the era of the past Kashyapa Buddha, I lived on this mountain. A student asked: Does a person of great practice still fall into causality? I replied: Does not fall into causality. For 500 lives I was reborn as a wild fox. Now I beg the master for a turning word.'",
                 "cleary": "The old man said, 'I am not a human being. In the time of the past Kashyapa Buddha, I lived on this mountain. A student asked me: Does an adept of great cultivation still fall into cause and effect? I answered: Does not fall into cause and effect. Because of this I have fallen into five hundred lives as a wild fox.'",
-                "sasaki": "The old man said: 'I am not a human being. In the age of Kāśyapa Buddha, I was head monk on this mountain. A monk asked: Does a great practitioner fall under cause and effect? I said: Does not fall. For 500 births I have been a fox.'"
+                "sasaki": "The old man said: 'I am not a human being. In the age of Kāśyapa Buddha, I was head monk on this mountain. A monk asked: Does a great practitioner fall under cause and effect? I said: Does not fall. For 500 births I have been a fox.'",
+                "senzaki_reps": {
+                  "text": "The old man replied: \"I am not a human being, but I was a human being when the Kashapa Buddha preached in this world. I was a Zen master and lived on this mountain. At that time one of my students asked me whether or not the enlightened man is subject to the law of causation. I answered him: 'The enlightened man is not subject to the law of causation.' For this answer evidencing a clinging to absoluteness I became a fox for five hundred rebirths, and I am still a fox. Will you save me from this condition with your Zen words and let me get out of a fox's body? Now may I ask you: Is the enlightened man subject to the law of causation?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The man replied, \"Indeed, I am not a man. In the past, in the time of Kashyapa Buddha, I lived on this mountain as a priest. On one occasion a monk asked me, 'Does a perfectly enlightened person fall under the law of cause and effect or not?' I answered, 'He does not.' Because of this answer, I fell into the state of a fox for 500 lives. Now, I beg you, Master, please say a turning word on my behalf and release me from the body of a fox.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "The old man replied, \"I am not a human being. In the far distant past, in the time of Kāśyapa Buddha, I was head priest at this mountain. One day a monk asked me, 'Does an enlightened person fall under the law of cause and effect or not?' I replied, 'Such a person does not fall under the law of cause and effect.' With this I was reborn five hundred times as a fox. Please say a turning word for me and release me from the body of a fox.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1439,7 +1768,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Baizhang said: 'Ask.' The old man asked: 'Does a person of great practice still fall into causality?' The Master said: 'Is not blind to causality.' At these words the old man had great awakening.",
                 "cleary": "The Master said, 'Ask.' The old man asked: 'Does a person of great cultivation still fall into cause and effect?' The Master said: 'Is not blind to cause and effect.' The old man was instantly enlightened at these words.",
-                "sasaki": "Hyakujō said: 'Ask me.' The old man asked: 'Does a great practitioner fall into cause and effect?' Hyakujō said: 'Not blind to cause and effect.' At these words the old man attained great awakening."
+                "sasaki": "Hyakujō said: 'Ask me.' The old man asked: 'Does a great practitioner fall into cause and effect?' Hyakujō said: 'Not blind to cause and effect.' At these words the old man attained great awakening.",
+                "senzaki_reps": {
+                  "text": "Hyakujo said: \"The enlightened man is one with the law of causation.\" At the words of Hyakujo the old man was enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Then he asked, \"Does a perfectly enlightened person fall under the law of cause and effect or not?\" The master answered, \"The law of cause and effect cannot be obscured.\" Upon hearing this, the old man immediately became deeply enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             }
           ],
@@ -1464,7 +1811,34 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Whenever Master Juzhi was asked a question, he only raised a finger. Later an attendant boy was asked by visitors: 'What Dharma does the Master teach?' The boy also held up a finger.",
                 "cleary": "Whenever Master Juzhi was questioned, he would simply raise one finger. Later, an attendant boy was asked by an outsider: 'What Dharma does the Master teach?' The boy also held up a finger.",
-                "sasaki": "Whenever Master Gutei was asked a question, he simply held up one finger. Later a boy attendant was asked by visitors: 'What Dharma does your master teach?' The boy too raised a finger."
+                "sasaki": "Whenever Master Gutei was asked a question, he simply held up one finger. Later a boy attendant was asked by visitors: 'What Dharma does your master teach?' The boy too raised a finger.",
+                "senzaki_reps": {
+                  "text": "Gutei raised his finger whenever he was asked a question about Zen. A boy attendant began to imitate him in this way. When anyone asked the boy what his master had preached about, the boy would raise his finger.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Whatever he was asked about Zen, Master Gutei simply stuck up his finger. He had a boy attendant whom a visitor asked, \"What kind of teaching does your master give?\" The boy held up one finger too.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "Whenever Chü-chih was asked a question, he simply raised one finger. One day a visitor asked Chü-chih's attendant what his master preached. The boy raised a finger.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1474,7 +1848,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Juzhi heard of it, concealed a knife, and cut off the boy's finger. Crying out in agony, the boy ran off. Juzhi called out to him. As the boy turned his head, Juzhi raised his finger. The boy instantly woke up.",
                 "cleary": "Hearing of this, Juzhi secretly concealed a blade and sliced off the boy's finger. Screaming in pain, the boy ran out. Juzhi called out to him. As the boy turned his head, Juzhi raised his finger. The boy suddenly awakened.",
-                "sasaki": "Gutei heard of it, concealed a knife in his sleeve, and severed the boy's finger. Screaming, the boy ran out. Gutei shouted after him. The boy turned back; Gutei raised his finger. The boy instantly woke up."
+                "sasaki": "Gutei heard of it, concealed a knife in his sleeve, and severed the boy's finger. Screaming, the boy ran out. Gutei shouted after him. The boy turned back; Gutei raised his finger. The boy instantly woke up.",
+                "senzaki_reps": {
+                  "text": "Gutei heard about the boy's mischief. He seized him and cut off his finger. The boy cried and ran away. Gutei called and stopped him. When the boy turned his head to Gutei, Gutei raised up his own finger. In that instant the boy was enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Hearing of this, Gutei cut off the boy's finger with a knife. As the boy ran away, screaming with pain, Gutei called to him. When the boy turned his head, Gutei stuck up one finger. The boy was suddenly enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             }
           ],
@@ -1500,7 +1892,34 @@ window.TRANSLATECHAN_DATA = {
                 "red_pine": "Huoan asked: 'Why does the western barbarian (Bodhidharma) have no beard?'",
                 "cleary": "Huoan said, 'Why does the Western barbarian have no beard?'",
                 "sasaki": "Wakuan said: 'Why has the Western Barbarian no beard?'",
-                "blyth": "Wakuan said, 'Why hasn't the barbarian from the West a beard?'"
+                "blyth": "Wakuan said, 'Why hasn't the barbarian from the West a beard?'",
+                "senzaki_reps": {
+                  "text": "Wakuan complained when he saw a picture of bearded Bodhidharma: \"Why hasn't that fellow a beard?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Wakuan said, \"Why has the western barbarian no beard?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "Huo-an asked, \"Why has the Western Barbarian no beard?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08; Aitken numbers this case 4 (canonical agreement)"
+                  }
+                }
               }
             }
           ],
@@ -1525,7 +1944,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Master Xiangyan said: 'It is like a man hanging from a high tree by his teeth, hands holding no branch, feet resting on no limb. Someone asks him: What is the meaning of the Patriarch coming from the west? If he does not answer, he ignores the questioner; if he answers, he loses his life. At that very moment, how would you reply?'",
                 "cleary": "Master Xiangyan said, 'It is like a person up a tree, biting a branch, feet not treading a branch, hands not grasping a twig. If someone asks about the meaning of the ancestral teacher coming from the west, if he does not answer, he ignores the question; if he does answer, he loses his life. At just such a time, how do you answer?'",
-                "sasaki": "Master Kyōgen said: 'A man hangs by his teeth from a tree branch, hands with no hold, feet with no footing. Someone under the tree asks: What is the meaning of Bodhidharma's coming from the West? If he does not answer, he fails; if he answers, he falls to his death. In such a plight, how would you respond?'"
+                "sasaki": "Master Kyōgen said: 'A man hangs by his teeth from a tree branch, hands with no hold, feet with no footing. Someone under the tree asks: What is the meaning of Bodhidharma's coming from the West? If he does not answer, he fails; if he answers, he falls to his death. In such a plight, how would you respond?'",
+                "senzaki_reps": {
+                  "text": "Kyogen said: \"Zen is like a man hanging in a tree by his teeth over a precipice. His hands grasp no branch, his feet rest on no limb, and under the tree another person asks him: 'Why did Bodhidharma come to China from India?' If the man in the tree does not answer, he fails; and if he does answer, he falls and loses his life. Now what shall he do?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Master Kyôgen said, \"It's like a man up the tree, hanging from a branch by his mouth; his hands cannot grasp a branch, his feet won't reach a bough. Suppose there is another man under the tree who asks him, 'What is the meaning of Bodhidharma's coming from the west?' If he does not respond, he goes against the wish of the questioner. If he answers, he will lose his life. At such a time, how should he respond?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Terebess scan's OCR artifact 'moth' corrected to the printed reading 'mouth'"
+                  }
+                }
               }
             }
           ],
@@ -1550,7 +1987,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "When the World-Honored One was on Vulture Peak, he held up a flower before the assembly. At that time the entire assembly remained silent; only Mahakasyapa broke into a smile.",
                 "cleary": "When the World-Honored One was on Vulture Peak, he held up a flower and showed it to the crowd. At that time everyone was silent; only Mahakasyapa broke into a subtle smile.",
-                "sasaki": "When the World-Honored One was at Vulture Peak, he plucked a flower and held it before the assembly. The whole assembly remained motionless; only Kāśyapa broke into a faint smile."
+                "sasaki": "When the World-Honored One was at Vulture Peak, he plucked a flower and held it before the assembly. The whole assembly remained motionless; only Kāśyapa broke into a faint smile.",
+                "senzaki_reps": {
+                  "text": "When Buddha was in Grdhrakuta mountain he turned a flower in his fingers and held it before his listeners. Every one was silent. Only Maha-Kashapa smiled at this revelation, although he tried to control the lines of his face.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Once in ancient times, when the World-Honored One was at Mount Grdhrakûta, he held up a flower, twirled it, and showed it to the assemblage. At this, they all remained silent. Only the venerable Kashyapa broke into a smile.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1560,7 +2015,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "The World-Honored One said: 'I possess the treasury of the true Dharma eye, the wondrous mind of Nirvana, the formless true form, the subtle Dharma gate, not established upon words and letters, a special transmission outside the scriptures. I entrust it to Mahakasyapa.'",
                 "cleary": "The World-Honored One said, 'I have the treasury of the eye of true teaching, the subtle mind of nirvana, the true form without form, the subtle dharma gate, not founded on words and letters, a special transmission outside the doctrine. I entrust this to Mahakasyapa.'",
-                "sasaki": "The World-Honored One said: 'I have the Eye Treasury of the True Law, the Serene Mind of Nirvana, the Real Form without form, the Ineffable Dharma Gate, not founded on words, a special transmission outside the teachings. This I entrust to Mahākāśyapa.'"
+                "sasaki": "The World-Honored One said: 'I have the Eye Treasury of the True Law, the Serene Mind of Nirvana, the Real Form without form, the Ineffable Dharma Gate, not founded on words, a special transmission outside the teachings. This I entrust to Mahākāśyapa.'",
+                "senzaki_reps": {
+                  "text": "Buddha said: \"I have the eye of the true teaching, the heart of Nirvana, the true aspect of non-form, and the ineffable stride of Dharma. It is not expressed by words, but especially transmitted beyond teaching. This teaching I have given to Maha-Kashapa.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The World-Honored One said: \"I have the eye treasury of the true Dharma, the marvelous mind of nirvana, the true form of no-form, the subtle gate of the Dharma. It does not depend on letters, being specially transmitted outside all teachings. Now I entrust Mahakashyapa with this.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             }
           ],
@@ -1585,7 +2058,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "A monk asked Zhaozhou: 'I have just entered the monastery, please instruct me.'",
                 "cleary": "A monk asked Zhaozhou, 'I have newly entered the monastery; please give me instructions.'",
-                "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'"
+                "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
+                "senzaki_reps": {
+                  "text": "A monk told Joshu: \"I have just entered the monastery. Please teach me.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "A monk asked Jôshû in all earnestness, \"I have just entered this monastery. I beg you, Master, please give me instructions.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1595,7 +2086,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Zhaozhou asked: 'Have you eaten your porridge yet?' The monk said: 'I have.' Zhaozhou said: 'Then go wash your bowl.' The monk had an awakening.",
                 "cleary": "Zhaozhou said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten.' Zhaozhou said, 'Go wash your bowl.' That monk had an awakening.",
-                "sasaki": "Jōshū asked: 'Have you eaten your breakfast porridge?' The monk said: 'I have.' Jōshū said: 'Then wash your bowls.' That monk was awakened."
+                "sasaki": "Jōshū asked: 'Have you eaten your breakfast porridge?' The monk said: 'I have.' Jōshū said: 'Then wash your bowls.' That monk was awakened.",
+                "senzaki_reps": {
+                  "text": "Joshu asked: \"Have you eaten your rice porridge?\" The monk replied: \"I have eaten.\" Joshu said: \"Then you had better wash your bowl.\" At that moment the monk was enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Jôshû asked, \"Have you eaten your rice gruel yet?\" The monk answered, \"Yes, I have.\" Jôshû said, \"Then wash your bowls.\" The monk attained some realization.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             }
           ],
@@ -1621,7 +2130,25 @@ window.TRANSLATECHAN_DATA = {
                 "red_pine": "Zhaozhou asked Nanquan: 'What is the Way?'",
                 "cleary": "Zhaozhou asked Nanquan, 'What is the Way?'",
                 "sasaki": "Jōshū asked Nansen: 'What is the Way?'",
-                "suzuki": "Chao-chou asked Nan-ch'uan: 'What is the Tao?'"
+                "suzuki": "Chao-chou asked Nan-ch'uan: 'What is the Tao?'",
+                "senzaki_reps": {
+                  "text": "Joshu asked Nansen: \"What is the path?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Jôshû earnestly asked Nansen, \"What is the Way?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1632,7 +2159,25 @@ window.TRANSLATECHAN_DATA = {
                 "red_pine": "Nanquan said: 'Ordinary mind is the Way.'",
                 "cleary": "Nanquan said, 'Ordinary mind is the Way.'",
                 "sasaki": "Nansen said: 'Ordinary mind is the Way.'",
-                "suzuki": "Nan-ch'uan said: 'Everyday mind is the Way.'"
+                "suzuki": "Nan-ch'uan said: 'Everyday mind is the Way.'",
+                "senzaki_reps": {
+                  "text": "Nansen said: \"Everyday life is the path.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Nansen said, \"The ordinary mind is the Way.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1642,7 +2187,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Zhaozhou said: 'Can one direct oneself toward it?' Nanquan said: 'To intend toward it is to go astray.'",
                 "cleary": "Zhaozhou asked, 'Can one direct oneself toward it?' Nanquan said, 'To intend toward it is to deviate from it.'",
-                "sasaki": "Jōshū said: 'Should one direct oneself toward it?' Nansen replied: 'If you try to direct yourself toward it, you go astray.'"
+                "sasaki": "Jōshū said: 'Should one direct oneself toward it?' Nansen replied: 'If you try to direct yourself toward it, you go astray.'",
+                "senzaki_reps": {
+                  "text": "Joshu asked: \"Can it be studied?\" Nansen said: \"If you try to study, you will be far away from it.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Jôshû said, \"Should I direct myself toward it or not?\" Nansen said, \"If you try to turn toward it, you go against it.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1652,7 +2215,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Nanquan said: 'The Way does not belong to knowing, nor does it belong to not-knowing. Knowing is delusion; not-knowing is blankness. If you truly reach the doubt-free Way, it is vast and boundless as open space. How can you force right and wrong into it?' At these words Zhaozhou had sudden awakening.",
                 "cleary": "Nanquan said: 'The Way does not belong to knowing, nor does it belong to not-knowing. Knowing is false awareness; not-knowing is blank indifference. If you truly reach the doubt-free Way, it is like vast space, wide open and boundless. How could you force right and wrong into it?' At these words, Zhaozhou attained sudden awakening.",
-                "sasaki": "Nansen said: 'The Way does not belong to knowing or not knowing. Knowing is delusion; not knowing is mere ignorance. When you reach the true Way beyond doubt, it is vast and boundless as the great empty sky. How can there be right and wrong?' Jōshū was immediately enlightened."
+                "sasaki": "Nansen said: 'The Way does not belong to knowing or not knowing. Knowing is delusion; not knowing is mere ignorance. When you reach the true Way beyond doubt, it is vast and boundless as the great empty sky. How can there be right and wrong?' Jōshū was immediately enlightened.",
+                "senzaki_reps": {
+                  "text": "Nansen said: \"The path does not belong to the perception world, neither does it belong to the nonperception world. Cognition is a delusion and noncognition is senseless. If you want to reach the true path beyond doubt, place yourself in the same freedom as sky. You name it neither good nor not-good.\" At these words Joshu was enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Nansen said, \"The Way does not belong to knowing or not-knowing. Knowing is delusion; not-knowing is a blank consciousness. When you have really reached the true Way beyond all doubt, you will find it as vast and boundless as the great empty firmament. How can it be talked about on a level of right and wrong?\" At these words, Jôshû was suddenly enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             }
           ],
@@ -1677,7 +2258,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Senior Monk Ming pursued the Sixth Patriarch to Dayu Ridge. Seeing Ming approaching, the Patriarch placed the robe and bowl upon a rock and said: 'This robe represents faith; can it be seized by force? Take it if you can.' Ming tried to lift it, but it was unmovable as a mountain. Trembling with fear, he faltered.",
                 "cleary": "The Sixth Patriarch was pursued by Senior Monk Ming as far as the Dayu Ridge. The Patriarch saw Ming coming, threw the robe and bowl on a rock, and said, 'This robe symbolizes faith; can it be fought over by force? You may take it.' Ming tried to pick it up, but it was immovable as a mountain.",
-                "sasaki": "Senior monk Myō pursued the Sixth Patriarch to Mount Daiyu. The Patriarch threw the robe and bowl on a stone, saying: 'This robe symbolizes faith. Can it be contested by force? Take it!' Myō tried to lift it, but it was unshakeable like a mountain."
+                "sasaki": "Senior monk Myō pursued the Sixth Patriarch to Mount Daiyu. The Patriarch threw the robe and bowl on a stone, saying: 'This robe symbolizes faith. Can it be contested by force? Take it!' Myō tried to lift it, but it was unshakeable like a mountain.",
+                "senzaki_reps": {
+                  "text": "When he became emancipated the sixth patriarch received from the fifth patriarch the bowl and robe given from the Buddha to his successors, generation after generation. A monk named E-myo out of envy pursued the patriarch to take this great treasure away from him. The sixth patriarch placed the bowl and robe on a stone in the road and told E-myo: \"These objects just symbolize the faith. There is no use fighting over them. If you desire to take them, take them now.\" When E-myo went to move the bowl and robe they were as heavy as mountains. He could not budge them.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The sixth patriarch was once pursued by the monk Myô as far as Mount Daiyu. The patriarch, seeing Myô coming, laid the robe and bowl on a rock and said, \"This robe represents the faith. How can it be competed for by force? I will allow you to take it away.\" Myô tried to lift it up, but it was as immovable as a mountain.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1687,7 +2286,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "Ming said: 'I came for the Dharma, not for the robe. I pray that the practitioner will instruct me.'",
                 "cleary": "Ming said, 'I have come for the Dharma, not for the robe. Please instruct me, practitioner.'",
-                "sasaki": "Myō said: 'I have come seeking the Dharma, not for the robe. I beg you, instruct me!'"
+                "sasaki": "Myō said: 'I have come seeking the Dharma, not for the robe. I beg you, instruct me!'",
+                "senzaki_reps": {
+                  "text": "Trembling for shame he said: \"I came wanting the teaching, not the material treasures. Please teach me.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Terrified and trembling with awe, he said, \"I came for the Dharma, not the robe. I beg you, lay brother, please reveal it to me.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1697,7 +2314,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "The Patriarch said: 'Do not think of good; do not think of evil. At this very moment, what is Senior Monk Ming's original face?' Ming was instantly awakened, sweat pouring from his entire body.",
                 "cleary": "The Patriarch said, 'Without thinking of good or evil, at this very moment, what is your original face?' Ming immediately had great enlightenment; sweat streamed from his whole body.",
-                "sasaki": "The Patriarch said: 'Think neither of good nor of evil. At this very instant, what is your Original Face?' In that moment Myō was enlightened, drenching his whole body in sweat."
+                "sasaki": "The Patriarch said: 'Think neither of good nor of evil. At this very instant, what is your Original Face?' In that moment Myō was enlightened, drenching his whole body in sweat.",
+                "senzaki_reps": {
+                  "text": "The sixth patriarch said: \"When you do not think good and when you do not think not-good, what is your true self?\" At these words E-myo was illumined. Perspiration broke out all over his body.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The patriarch said, \"Not thinking good or evil: at that very moment, what is the primal face of Monk Myô?\" In that instant, Myô suddenly attained deep realization, and his whole body was covered with sweat.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             }
           ],
@@ -1722,7 +2357,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "The wind was flapping a temple banner, and two monks were debating. One said the banner was moving; the other said the wind was moving. They argued back and forth without reaching the truth.",
                 "cleary": "The wind was blowing a temple banner; two monks were arguing about it. One said the banner was moving, one said the wind was moving. They went back and forth, not reaching the principle.",
-                "sasaki": "The wind was blowing the temple flag, and two monks were arguing. One said: 'The flag moves.' The other said: 'The wind moves.' They argued incessantly."
+                "sasaki": "The wind was blowing the temple flag, and two monks were arguing. One said: 'The flag moves.' The other said: 'The wind moves.' They argued incessantly.",
+                "senzaki_reps": {
+                  "text": "Two monks were arguing about a flag. One said: \"The flag is moving.\" The other said: \"The wind is moving.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The wind was flapping a temple flag, and two monks were having an argument about it. One said, \"The flag is moving.\" The other said, \"The wind is moving.\" They argued back and forth but could not reach the truth.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1732,7 +2385,25 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "The Patriarch said: 'It is not the wind that is moving; it is not the banner that is moving. Good friends, it is your own mind that is moving.' The two monks were struck with awe.",
                 "cleary": "The Patriarch said, 'It is not the wind moving; it is not the banner moving. Kind sirs, it is your minds moving.' The two monks were awestruck.",
-                "sasaki": "The Patriarch said: 'Neither wind nor flag moves; it is your minds that move.' The two monks stood in awe."
+                "sasaki": "The Patriarch said: 'Neither wind nor flag moves; it is your minds that move.' The two monks stood in awe.",
+                "senzaki_reps": {
+                  "text": "The sixth patriarch happened to be passing by. He told them: \"Not the wind, not the flag; mind is moving.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The sixth patriarch said, \"It is not the wind that moves. It is not the flag that moves. It is your mind that moves.\" The two monks were struck with awe.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                }
               }
             }
           ],
@@ -1758,7 +2429,25 @@ window.TRANSLATECHAN_DATA = {
                 "red_pine": "A monk asked Zhaozhou: 'What is the meaning of the Patriarch coming from the west?'",
                 "cleary": "A monk asked Zhaozhou, 'What is the meaning of the ancestral teacher coming from the west?'",
                 "heine": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
-                "sasaki": "A monk asked Jōshū: 'What is the meaning of Bodhidharma's coming from the West?'"
+                "sasaki": "A monk asked Jōshū: 'What is the meaning of Bodhidharma's coming from the West?'",
+                "senzaki_reps": {
+                  "text": "A monk asked Joshu why Bodhidharma came to China.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08; Senzaki/Reps number this case 38 ('An Oak Tree in the Garden') — their edition inserts the oak-tree koan non-canonically (canonical case 37 is Panshan)"
+                  }
+                },
+                "yamada": {
+                  "text": "A monk asked Jôshû in all earnestness, \"What is the meaning of the patriarch's coming from the West?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Yamada numbers this case 37 (his edition's slot for the oak tree, replacing canonical Panshan)"
+                  }
+                }
               }
             },
             {
@@ -1769,7 +2458,25 @@ window.TRANSLATECHAN_DATA = {
                 "red_pine": "Zhaozhou said: 'The cypress tree in the courtyard.'",
                 "cleary": "Zhaozhou said, 'The cypress tree in the courtyard.'",
                 "heine": "Zhaozhou said, 'The cypress tree in front of the hall.'",
-                "sasaki": "Jōshū said: 'The oak tree in the front courtyard.'"
+                "sasaki": "Jōshū said: 'The oak tree in the front courtyard.'",
+                "senzaki_reps": {
+                  "text": "Joshu said: \"An oak tree in the garden.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
+                    "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
+                    "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08; Senzaki/Reps number this case 38 ('An Oak Tree in the Garden') — their edition inserts the oak-tree koan non-canonically (canonical case 37 is Panshan)"
+                  }
+                },
+                "yamada": {
+                  "text": "Jôshû said, \"The oak tree there in the garden.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Yamada numbers this case 37 (his edition's slot for the oak tree, replacing canonical Panshan)"
+                  }
+                }
               }
             }
           ],
@@ -1806,7 +2513,15 @@ window.TRANSLATECHAN_DATA = {
               "pinyin": "Shī shì zhòng yún: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!'",
               "translations": {
                 "red_pine": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
-                "sasaki": "The Master instructed the assembly, saying: 'On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!'",
+                "sasaki": {
+                  "text": "The Master, taking the high seat in the hall, said, \"On your lump of red flesh is a true man without rank who is always going in and out of the face of every one of you. Those who have not yet confirmed this, look, look!\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                    "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
+                    "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+                  }
+                },
                 "cleary": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
                 "suzuki": "The Master said: 'In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!'"
               }
@@ -1817,7 +2532,15 @@ window.TRANSLATECHAN_DATA = {
               "pinyin": "Shí yǒu sēng chū wèn: 'Rúhé shì wú wèi zhēn rén?'",
               "translations": {
                 "red_pine": "Then a monk came forward and asked: 'What is the True Person without rank?'",
-                "sasaki": "Then a monk came forward and asked: 'What is the True Person of No Rank?'",
+                "sasaki": {
+                  "text": "Then a monk came forward and asked, \"What about the true man without rank?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                    "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
+                    "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+                  }
+                },
                 "cleary": "Then a monk came forward and asked, 'What is the true human of no status?'",
                 "suzuki": "A monk stepped out and asked: 'What kind of person is the True Man of No Title?'"
               }
@@ -1828,7 +2551,15 @@ window.TRANSLATECHAN_DATA = {
               "pinyin": "Shī xià chánchuáng, bǎzhù yún: 'Dào! Dào!' Sēng nǐyì. Shī tuōkāi yún: 'Wú wèi zhēn rén shì shénme gān shǐ jué!' Biàn guī fāngzhàng.",
               "translations": {
                 "red_pine": "The Master got down from the meditation bench, seized the monk, and shouted: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person without rank—what a dried shit-stick!' and returned to his abbot's room.",
-                "sasaki": "The Master stepped down from the meditation seat, seized the monk, and said: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person of No Rank—what a dry shit-stick!' and returned to his quarters.",
+                "sasaki": {
+                  "text": "The master got down from his seat, seized the monk, and cried, \"Speak, speak!\" The monk faltered. Shoving him away, the master said, \"The true man without rank—what kind of dried piece of shit is he!\" Then he returned to his quarters.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                    "edition": "University of Hawaii Press, 2009",
+                    "verification": "wording consistent across three independent reproductions, 2026-08-08"
+                  }
+                },
                 "cleary": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
                 "suzuki": "The Master descended from his chair, seized the monk by the throat, and cried: 'Speak! Speak!' The monk faltered. Pushing him away, the Master shouted: 'What a worthless dried dirt scraper is your True Man of No Rank!' and returned to his abbot room."
               }
@@ -1848,7 +2579,16 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the sacred king; sometimes a shout is like the golden-haired lion crouching on the earth; sometimes a shout is like a probe pole and grass shadow; sometimes a shout does not function as a shout. How do you understand this?'",
                 "sasaki": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the vajra king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a sounding pole and feather shadow; sometimes a shout does not function as a shout. How do you understand this?'",
-                "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'"
+                "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'",
+                "watson": {
+                  "text": "The Master said to a monk, \"At times my shout is like the precious sword of the Diamond King. At times my shout is like a golden-haired lion crouching on the ground. At times my shout is like the search pole and the shadow grass. At times my shout doesn't work like a shout at all. Do you understand?\" The monk started to answer, whereupon the Master gave a shout.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teachings of Master Lin-Chi, tr. Burton Watson",
+                    "edition": "Columbia University Press, 1999, pp. 98–99",
+                    "verification": "verbatim as cited in Wikipedia 'Katsu (Zen)' sourcing Watson pp. 98–99, 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -1894,7 +2634,16 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "When the Master was about to pass away, he entrusted Sansheng: 'After I pass, you must not extinguish my treasury of the true Dharma eye.' Sansheng said: 'How could I dare extinguish the Master's treasury of the true Dharma eye!'",
                 "sasaki": "When the Master was about to enter nirvana, he instructed Sansheng: 'After my death, do not destroy my Eye Treasury of the True Law.' Sansheng said: 'How could I dare destroy your Eye Treasury of the True Law!'",
-                "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'"
+                "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'",
+                "ferguson": {
+                  "text": "When Linji was about to die he sat upright and said, \"After I'm gone, my Treasury of the True Dharma Eye cannot be destroyed.\" Linji's disciple, Sansheng, said, \"How can we dare destroy the master's Treasury of the True Dharma Eye?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
+                    "edition": "Wisdom Publications, 2011",
+                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08; Ferguson follows the T1985 師臨遷化時據坐云 reading, our unit zh follows the 囑三聖曰 variant"
+                  }
+                }
               }
             },
             {
@@ -1904,7 +2653,16 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "The Master said: 'If someone asks you in the future, what will you say to them?' Sansheng immediately gave a thunderous shout! The Master smiled and said: 'Who would have known that my treasury of the true Dharma eye would be extinguished by this blind donkey!' Saying this, he sat upright and passed away.",
                 "sasaki": "The Master asked: 'If someone asks you in the future, what will you say?' Sansheng shouted! The Master said: 'Who would have thought that my Eye Treasury of the True Law would be destroyed by this blind donkey!' Having said this, the Master sat upright and passed away.",
-                "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on."
+                "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on.",
+                "ferguson": {
+                  "text": "Linji said, \"In the future if someone asks about my teaching, what will you say to them?\" Sansheng shouted. Linji said, \"Who would have thought that my Treasury of the True Dharma Eye would be destroyed by this blind ass!\" Upon saying these words Linji passed away, sitting upright.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Zen's Chinese Heritage: The Masters and Their Teachings, tr. Andy Ferguson",
+                    "edition": "Wisdom Publications, 2011",
+                    "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08"
+                  }
+                }
               }
             }
           ]
@@ -1934,7 +2692,16 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師謂休曰：「諸佛與一切眾生，唯是一心，更無別法。此心無始已來，不曾生不曾滅，不青不黃，無形無相，不屬有無，不計新舊，非長非短，非大非小，超過一切限量名言蹤跡對待。」",
               "pinyin": "Shī wèi Xiū yuē: 'Zhūfó yǔ yīqiè zhòngshēng, wéi shì yī xīn, gèng wú bié fǎ. Cǐ xīn wú shǐ yǐ lái, bù céng shēng bù céng miè, bù qīng bù huáng, wú xíng wú xiàng, bù shǔ yǒu wú, bù jì xīn jiù, fēi cháng fēi duǎn, fēi dà fēi xiǎo, chāoguò yīqiè xiànliàng míngyán zōngjī duìdài.'",
               "translations": {
-                "blofeld": "The Master said to me: All the Buddhas and all sentient beings are nothing whatever but the One Mind, besides which nothing exists. This Mind, which is without beginning, is unborn and indestructible. It is neither green nor yellow, and has neither form nor appearance. It does not belong to the categories of things which exist or do not exist, nor can it be thought of in terms of new or old. It is neither long nor short, big nor small, for it transcends all limits, measures, names, traces, and comparisons.",
+                "blofeld": {
+                  "text": "All the Buddhas and all sentient beings are nothing but the One Mind, beside which nothing exists. This Mind, which is without beginning, is unborn and indestructible. It is not green nor yellow, and has neither form nor appearance. It does not belong to the categories of things which exist or do not exist, nor can it be thought of in terms of new or old. It is neither long nor short, big nor small, for it transcends all limits, measures, names, traces and comparisons.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Rider & Co., 1958 (Chün Chou Record, teaching 1)",
+                    "verification": "wording consistent across Grove Atlantic (publisher), Terebess reproduction, and two further mirrors, 2026-08-08",
+                    "note": "Replaces a prior paraphrase ('nothing whatever but… besides which')."
+                  }
+                },
                 "cleary": "The Master said to Pei Xiu: All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes; it is not blue or yellow, has no form or characteristics, belongs neither to existence nor nonexistence, cannot be reckoned as new or old, is neither long nor short, neither large nor small, transcending all limits, words, traces, and polarities.",
                 "suzuki": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
                 "ai_literal": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs."
@@ -1945,7 +2712,15 @@ window.TRANSLATECHAN_DATA = {
               "zh": "「當體便是，動念即乖。猶如虛空，無有邊際，不可度量。唯此一心即是佛，佛與眾生更無別異。」",
               "pinyin": "'Dāng tǐ biàn shì, dòng niàn jí guāi. Yóu rú xū kōng, wú yǒu biānjì, bù kě dùliàng. Wéi cǐ yī xīn jí shì fó, fó yǔ zhòngshēng gèng wú bié yì.'",
               "translations": {
-                "blofeld": "It is that which you see before you—begin to reason about it and you at once fall into error. It is like the boundless void which cannot be fathomed or measured. The One Mind alone is the Buddha, and there is no distinction between the Buddha and sentient beings.",
+                "blofeld": {
+                  "text": "It is that which you see before you—begin to reason about it and you at once fall into error. It is like the boundless void which cannot be fathomed or measured. The One Mind alone is the Buddha, and there is no distinction between the Buddha and sentient things.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part One: Chün Chou Record §1)",
+                    "verification": "verbatim (span matching unit's zh) vs Terebess reproduction of Blofeld's text, 2026-08-08; prior reconstruction ended 'sentient beings' — Blofeld's wording is 'sentient things'"
+                  }
+                },
                 "cleary": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
                 "ai_literal": "Its immediate embodiment is it; stirring a thought is instantly deviating. Like empty space, without edges or borders, not measurable. Only this One Mind is Buddha; Buddha and sentient beings have no other difference."
               }
@@ -1955,7 +2730,15 @@ window.TRANSLATECHAN_DATA = {
               "zh": "休問：「諸佛如何行大慈悲，為眾生說法？」",
               "pinyin": "Xiū wèn: 'Zhūfó rúhé xíng dà cíbēi, wèi zhòngshēng shuō fǎ?'",
               "translations": {
-                "blofeld": "Pei Xiu asked: How do the Buddhas out of their great compassion preach the Dharma for sentient beings?",
+                "blofeld": {
+                  "text": "How do the Buddhas, out of their vast mercy and compassion, preach the Dharma (Law) to sentient beings?",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+                  }
+                },
                 "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
                 "ai_literal": "Xiu asked: 'How do all Buddhas practice great compassion and preach dharma for sentient beings?'"
               }
@@ -1965,7 +2748,15 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「佛慈悲者，無緣慈也。不見有佛可成，不見有眾生可度。無說無示，無聽無得，是名大慈悲。」",
               "pinyin": "Shī yuē: 'Fó cíbēi zhě, wú yuán cí yě. Bù jiàn yǒu fó kě chéng, bù jiàn yǒu zhòngshēng kě dù. Wú shuō wú shì, wú tīng wú dé, shì míng dà cíbēi.'",
               "translations": {
-                "blofeld": "The Master said: The compassion of the Buddhas is unconditioned compassion. They do not see any Buddha to be attained, nor do they see any sentient beings to be liberated. No speaking, no displaying, no hearing, no attaining—this is called Great Compassion.",
+                "blofeld": {
+                  "text": "We speak of their mercy and compassion as vast just because it is beyond causality (and therefore infinite). By mercy is really meant not conceiving of a Buddha to be Enlightened, while compassion really means not conceiving of sentient beings to be delivered. In reality, their Dharma is neither preached in words nor otherwise signified; and those who listen neither hear nor attain.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08"
+                  }
+                },
                 "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
                 "ai_literal": "Master said: 'Buddhas' compassion is conditionless compassion. Not seeing any Buddha to attain, not seeing any sentient beings to liberate. No speaking and no showing, no hearing and no acquiring: this is named great compassion.'"
               }
@@ -2000,7 +2791,16 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "A monk asked, 'What is the intention of the ancestral teacher coming from the west?'",
                 "heine": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
                 "sasaki": "A monk asked: 'What is the meaning of Bodhidharma's coming from the West?'",
-                "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'"
+                "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'",
+                "hoffman": {
+                  "text": "A monk asked, \"What does it mean, 'Our founder came from the west'?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978, episode no. 12",
+                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+                  }
+                }
               }
             },
             {
@@ -2011,7 +2811,16 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "The Master said, 'The cypress tree in the courtyard.'",
                 "heine": "The Master said, 'The cypress tree in front of the hall.'",
                 "sasaki": "The Master said: 'The oak tree in the front garden.'",
-                "ai_literal": "The Master said: 'The courtyard-front cypress tree.'"
+                "ai_literal": "The Master said: 'The courtyard-front cypress tree.'",
+                "hoffman": {
+                  "text": "Jōshū said, \"The oak tree in the front yard.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978, episode no. 12",
+                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+                  }
+                }
               }
             },
             {
@@ -2021,7 +2830,16 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "cleary": "The monk said, 'Master, do not point to objective circumstances to instruct people.' The Master said, 'I am not pointing to objective circumstances.' The monk said, 'What is the intention of the ancestral teacher coming from the west?' The Master said, 'The cypress tree in the courtyard.'",
                 "heine": "The monk said, 'Master, do not use external objects to show people.' The Master said, 'I am not using external objects.' The monk repeated, 'What is the Patriarch's meaning?' The Master replied: 'The cypress tree in the garden.'",
-                "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'"
+                "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'",
+                "hoffman": {
+                  "text": "The monk said, \"Please do not show the people the object.\" Jōshū said, \"I will not.\" The monk repeated his question: \"What does it mean, 'Our founder came from the west'?\" Jōshū said, \"The oak tree in the front yard.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978, episode no. 12",
+                    "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+                  }
+                }
               }
             }
           ]
@@ -2040,7 +2858,16 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "A monk said, 'I have just newly entered the monastery; please give me instructions.'",
                 "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
                 "suzuki": "A newly arrived monk asked Chao-chou: 'I am a new beginner; please show me the Way.'",
-                "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'"
+                "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'",
+                "hoffman": {
+                  "text": "A novice once said to the master, \"I am only newly admitted into this monastery, and I beseech Your Reverence to teach and guide me.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978",
+                    "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -2051,7 +2878,16 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "The Master said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten it.' The Master said, 'Go wash your bowl.' At this the monk had a great realization.",
                 "sasaki": "Jōshū said: 'Have you eaten your breakfast porridge?' The monk replied: 'I have.' Jōshū said: 'Then wash your bowls.' At these words the monk attained great awakening.",
                 "suzuki": "Chao-chou asked: 'Have you had your breakfast?' 'Yes, Master, I have.' 'Then wash your bowls!' That monk was enlightened.",
-                "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening."
+                "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening.",
+                "hoffman": {
+                  "text": "The master asked, \"Have you taken your breakfast?\" \"Yes, master, I have.\" \"Go wash your bowl,\" said the master. At these words, the novice experienced an instantaneous enlightenment.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978",
+                    "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+                  }
+                }
               }
             }
           ]
@@ -2108,7 +2944,16 @@ window.TRANSLATECHAN_DATA = {
             "suzuki": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
             "blyth": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
             "sasaki": "The supreme Way is not difficult, only dislike choosing. Just have neither hatred nor love, and all will be lucid and clear.",
-            "ai_literal": "The ultimate Way is without difficulty, only detesting picking and choosing. Simply do not hate or love, and it is penetratively clear."
+            "ai_literal": "The ultimate Way is without difficulty, only detesting picking and choosing. Simply do not hate or love, and it is penetratively clear.",
+            "clarke": {
+              "text": "The Great Way is not difficult for those who have no preferences. When love and hate are both absent everything becomes clear and undisguised.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Hsin-Hsin Ming: Verses on the Faith-Mind, tr. Richard B. Clarke (1973, White Wind Press)",
+                "edition": "widely mirrored online text",
+                "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08"
+              }
+            }
           }
         },
         {
@@ -2121,20 +2966,30 @@ window.TRANSLATECHAN_DATA = {
             "suzuki": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth, then hold no opinions for or against anything.",
             "blyth": "To set up what you like against what you dislike is the disease of the mind. A hair's breadth divergence separates heaven and earth.",
             "sasaki": "An error by a hair's breadth separates heaven and earth. If you wish it to manifest, keep no clinging to pleasant or unpleasant.",
-            "ai_literal": "A millimeter's deviation separates heaven and earth. If wishing it to manifest, maintain neither agreeable nor contrary."
+            "ai_literal": "A millimeter's deviation separates heaven and earth. If wishing it to manifest, maintain neither agreeable nor contrary.",
+            "clarke": {
+              "text": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth then hold no opinions for or against anything.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Hsin-Hsin Ming: Verses on the Faith-Mind, tr. Richard B. Clarke (1973, White Wind Press)",
+                "edition": "widely mirrored online text",
+                "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08"
+              }
+            }
           }
         },
         {
           "stanza_num": 3,
-          "zh": "違順相爭，是為心病。不生留情，本來平坦。",
-          "pinyin": "Wéi shùn xiāng zhēng, shì wéi xīn bìng. Bù shēng liú qíng, běn lái píng tǎn.",
+          "zh": "違順相爭，是為心病。不識玄旨，徒勞念靜。",
+          "pinyin": "Wéi shùn xiāngzhēng, shì wéi xīnbìng. Bù shí xuán zhǐ, túláo niàn jìng.",
           "translations": {
             "red_pine": "The battle between for and against is the mind's disease. Not harboring emotional bias, all is naturally smooth and level.",
             "cleary": "The struggle between opposition and agreement is the disease of the mind. When you do not generate clinging feelings, it is fundamentally level and smooth.",
             "suzuki": "To set up what you like against what you dislike is the disease of the mind. When the deep meaning of things is not understood, the mind's essential peace is disturbed.",
             "sasaki": "The conflict between agreeable and disagreeable is the sickness of the mind. Without lingering emotional attachment, everything is inherently open and level.",
             "ai_literal": "Disagreement and agreement contending with each other is the mind's disease. Not generating lingering attachments, it is originally smooth and level."
-          }
+          },
+          "zh_correction": "Second couplet corrected to canonical T2010 reading (previous text 不生留情，本來平坦 was a non-canonical paraphrase). 2026-08-08."
         },
         {
           "stanza_num": 4,
@@ -2544,7 +3399,16 @@ window.TRANSLATECHAN_DATA = {
                 "red_pine": "The body is a Bodhi tree, the mind is a mirror bright. Carefully we wipe them hour by hour, and let no dust alight.",
                 "cleary": "The body is the bodhi tree, the mind is like a clear mirror stand. Constantly wipe and polish it diligently, do not let dust gather on it.",
                 "suzuki": "The body is the Bodhi tree, the mind is like a clear mirror stand. At all times diligently wipe it, and let no dust alight.",
-                "yampolsky": "The body is the Bodhi tree, the mind like a clear mirror stand. Time and again brush it clean, and let no dust alight."
+                "yampolsky": {
+                  "text": "The body is the Bodhi tree, the mind is like a clear mirror. At all times we must strive to polish it, and must not let the dust collect.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
+                    "edition": "Columbia University Press, 1967, p. 130 (Dunhuang text)",
+                    "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08",
+                    "note": "Replaces a prior paraphrase that did not match Yampolsky's wording."
+                  }
+                }
               }
             },
             {
@@ -2557,6 +3421,23 @@ window.TRANSLATECHAN_DATA = {
                 "suzuki": "Bodhi originally has no tree in it, nor has the mind-mirror any stand in it; originally there is not a single thing: Where can any dust gather?",
                 "yampolsky": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?"
               }
+            },
+            {
+              "author": "Huineng / 六祖慧能 (Dunhuang recension 敦煌本)",
+              "zh": "菩提本無樹，明鏡亦無臺。佛性常清淨，何處有塵埃。",
+              "pinyin": "Pútí běn wú shù, míngjìng yì wú tái. Fóxìng cháng qīngjìng, héchù yǒu chén'āi.",
+              "translations": {
+                "yampolsky": {
+                  "text": "Bodhi originally has no tree, the mirror also has no stand. Buddha-nature is always clean and pure; where is there room for dust?",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
+                    "edition": "Columbia University Press, 1967, p. 132 (Dunhuang text — the recension he translated; the received-text verse above reads 本來無一物)",
+                    "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08"
+                  }
+                }
+              },
+              "recension_note": "Later received text (宗寶本) reads 明鏡亦非臺。本來無一物，何處惹塵埃 — shown in the verse above; the Dunhuang manuscript line 佛性常清淨 is older."
             }
           ]
         },
@@ -3522,7 +4403,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "石頭希遷大師 參同契與草庵歌",
       "title_pinyin": "Shítóu Xīqiān Dàshī Cāntóngqì yǔ Cǎo'ān Gē",
       "title_en": "Master Shitou Xiqian: Sandokai (Harmony of Difference and Sameness) & Song of the Grass Hut",
-      "cbeta_id": "T1985 / T2076",
+      "cbeta_id": "embedded: T2076 f.30 / X1565",
       "taisho_vol": 47,
       "author_zh": "石頭希遷 禪師 (700–790 CE)",
       "author_en": "Chan Master Shitou Xiqian, Ancestor of Caodong and Yunmen Lineages",
@@ -3656,7 +4537,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrects previous label \"T1985 / T2076\" — T1985 is strictly the Record of Linji. Sandokai & Grass Hut Song are embedded in Jingde Chuandenglu fascicle 30 (T2076) and transmitted via Wudeng Huiyuan (X1565)."
     },
     "zhengdao_ge": {
       "id": "zhengdao_ge",
@@ -4570,7 +5452,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "德山宣鑑禪師語錄：德山棒與焚經",
       "title_pinyin": "Déshān Xuānjiàn Chánshī Yǔlù: Déshān Bàng yǔ Fén Jīng",
       "title_en": "The Recorded Sayings of Master Deshan Xuanjian (The Thirty Blows & Burning the Sutras)",
-      "cbeta_id": "T1985 / T2076",
+      "cbeta_id": "embedded: T2076 / X1565",
       "taisho_vol": 47,
       "author_zh": "唐 德山宣鑑 禪師 說 (石頭四世法嗣 / 龍潭法嗣)",
       "author_en": "Chan Master Deshan Xuanjian (782–865 CE), Master of Xuefeng Yicun and Yantou Quanhuo",
@@ -4662,7 +5544,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrects previous label \"T1985 / T2076\" — T1985 is strictly the Record of Linji. Deshan Xuanjian's record is not separately in Taishō; his dialogues are embedded in Jingde Chuandenglu (T2076) and Wudeng Huiyuan (X1565)."
     },
     "xuefeng_yantou": {
       "id": "xuefeng_yantou",
@@ -4947,7 +5830,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "天台山寒山拾得大士詩集",
       "title_pinyin": "Tiāntáishān Hánshān Shídé Dàshì Shījī",
       "title_en": "The Collected Poems of Cold Mountain (Hanshan & Shide)",
-      "cbeta_id": "T2834 / S.5731",
+      "cbeta_id": "SBCK / Zoku lineage (not in Taishō)",
       "taisho_vol": 85,
       "author_zh": "唐 天台山 寒山子 撰 / 拾得 述",
       "author_en": "The Tang Hermit Poet Hanshan (Cold Mountain, 8th–9th Century) & Shide",
@@ -4995,7 +5878,8 @@ window.TRANSLATECHAN_DATA = {
             "snyder": "Climbing the Cold Mountain road / The Cold Mountain road has no end / The long creeks are piled with stones / The deep ravines are choked with grass / The moss is slippery though it hasn't rained / The pines sing with no wind / Who can leave the world's dust / To sit with me in the white clouds?"
           }
         }
-      ]
+      ],
+      "cbeta_note": "Corrects previous label \"T2834\", which actually designates 大乘無生方便門 (Dunhuang, Taishō vol. 85). Hanshan collection is 寒山子詩集 — outside the Taishō canon proper (Sibu Congkan lineage; CBETA hosts it under non-Taishō collections)."
     },
     "huangbo_wanling": {
       "id": "huangbo_wanling",

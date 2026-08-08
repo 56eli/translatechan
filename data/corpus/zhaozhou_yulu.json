@@ -24,7 +24,16 @@
             "cleary": "A monk asked, 'What is the intention of the ancestral teacher coming from the west?'",
             "heine": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
             "sasaki": "A monk asked: 'What is the meaning of Bodhidharma's coming from the West?'",
-            "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'"
+            "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'",
+            "hoffman": {
+              "text": "A monk asked, \"What does it mean, 'Our founder came from the west'?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978, episode no. 12",
+                "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+              }
+            }
           }
         },
         {
@@ -35,7 +44,16 @@
             "cleary": "The Master said, 'The cypress tree in the courtyard.'",
             "heine": "The Master said, 'The cypress tree in front of the hall.'",
             "sasaki": "The Master said: 'The oak tree in the front garden.'",
-            "ai_literal": "The Master said: 'The courtyard-front cypress tree.'"
+            "ai_literal": "The Master said: 'The courtyard-front cypress tree.'",
+            "hoffman": {
+              "text": "Jōshū said, \"The oak tree in the front yard.\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978, episode no. 12",
+                "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+              }
+            }
           }
         },
         {
@@ -45,7 +63,16 @@
           "translations": {
             "cleary": "The monk said, 'Master, do not point to objective circumstances to instruct people.' The Master said, 'I am not pointing to objective circumstances.' The monk said, 'What is the intention of the ancestral teacher coming from the west?' The Master said, 'The cypress tree in the courtyard.'",
             "heine": "The monk said, 'Master, do not use external objects to show people.' The Master said, 'I am not using external objects.' The monk repeated, 'What is the Patriarch's meaning?' The Master replied: 'The cypress tree in the garden.'",
-            "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'"
+            "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'",
+            "hoffman": {
+              "text": "The monk said, \"Please do not show the people the object.\" Jōshū said, \"I will not.\" The monk repeated his question: \"What does it mean, 'Our founder came from the west'?\" Jōshū said, \"The oak tree in the front yard.\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978, episode no. 12",
+                "verification": "verbatim vs Terebess PDF reproduction of the Autumn Press text, 2026-08-08; Hoffman renders 柏樹子 as 'oak tree in the front yard'"
+              }
+            }
           }
         }
       ]
@@ -64,7 +91,16 @@
             "cleary": "A monk said, 'I have just newly entered the monastery; please give me instructions.'",
             "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
             "suzuki": "A newly arrived monk asked Chao-chou: 'I am a new beginner; please show me the Way.'",
-            "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'"
+            "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'",
+            "hoffman": {
+              "text": "A novice once said to the master, \"I am only newly admitted into this monastery, and I beseech Your Reverence to teach and guide me.\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978",
+                "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+              }
+            }
           }
         },
         {
@@ -75,7 +111,16 @@
             "cleary": "The Master said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten it.' The Master said, 'Go wash your bowl.' At this the monk had a great realization.",
             "sasaki": "Jōshū said: 'Have you eaten your breakfast porridge?' The monk replied: 'I have.' Jōshū said: 'Then wash your bowls.' At these words the monk attained great awakening.",
             "suzuki": "Chao-chou asked: 'Have you had your breakfast?' 'Yes, Master, I have.' 'Then wash your bowls!' That monk was enlightened.",
-            "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening."
+            "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening.",
+            "hoffman": {
+              "text": "The master asked, \"Have you taken your breakfast?\" \"Yes, master, I have.\" \"Go wash your bowl,\" said the master. At these words, the novice experienced an instantaneous enlightenment.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978",
+                "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+              }
+            }
           }
         }
       ]

@@ -25,7 +25,16 @@
             "red_pine": "The body is a Bodhi tree, the mind is a mirror bright. Carefully we wipe them hour by hour, and let no dust alight.",
             "cleary": "The body is the bodhi tree, the mind is like a clear mirror stand. Constantly wipe and polish it diligently, do not let dust gather on it.",
             "suzuki": "The body is the Bodhi tree, the mind is like a clear mirror stand. At all times diligently wipe it, and let no dust alight.",
-            "yampolsky": "The body is the Bodhi tree, the mind like a clear mirror stand. Time and again brush it clean, and let no dust alight."
+            "yampolsky": {
+              "text": "The body is the Bodhi tree, the mind is like a clear mirror. At all times we must strive to polish it, and must not let the dust collect.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
+                "edition": "Columbia University Press, 1967, p. 130 (Dunhuang text)",
+                "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08",
+                "note": "Replaces a prior paraphrase that did not match Yampolsky's wording."
+              }
+            }
           }
         },
         {
@@ -38,6 +47,23 @@
             "suzuki": "Bodhi originally has no tree in it, nor has the mind-mirror any stand in it; originally there is not a single thing: Where can any dust gather?",
             "yampolsky": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?"
           }
+        },
+        {
+          "author": "Huineng / 六祖慧能 (Dunhuang recension 敦煌本)",
+          "zh": "菩提本無樹，明鏡亦無臺。佛性常清淨，何處有塵埃。",
+          "pinyin": "Pútí běn wú shù, míngjìng yì wú tái. Fóxìng cháng qīngjìng, héchù yǒu chén'āi.",
+          "translations": {
+            "yampolsky": {
+              "text": "Bodhi originally has no tree, the mirror also has no stand. Buddha-nature is always clean and pure; where is there room for dust?",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
+                "edition": "Columbia University Press, 1967, p. 132 (Dunhuang text — the recension he translated; the received-text verse above reads 本來無一物)",
+                "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08"
+              }
+            }
+          },
+          "recension_note": "Later received text (宗寶本) reads 明鏡亦非臺。本來無一物，何處惹塵埃 — shown in the verse above; the Dunhuang manuscript line 佛性常清淨 is older."
         }
       ]
     },

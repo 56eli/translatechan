@@ -28,6 +28,7 @@ def main():
         "glossary": load_json(DATA_DIR / "glossary" / "chan_terms.json"),
         "lineage": load_json(DATA_DIR / "lineage" / "masters.json"),
         "translations_matrix": load_json(DATA_DIR / "translations" / "comparative_matrix.json"),
+        "translations_provenance": load_json(DATA_DIR / "translations" / "provenance.json"),
         "gongan_index": load_json(DATA_DIR / "gongan" / "gongan_index.json"),
         "corpus": {
             "wumenguan": load_json(DATA_DIR / "corpus" / "wumenguan.json"),
