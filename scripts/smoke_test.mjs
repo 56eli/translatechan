@@ -323,6 +323,13 @@ if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandl
 }
 // 4j. Tooltip DOM is de-duplicated: no embedded .term-tooltip nodes remain in reader output
 if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded tooltip markup still emitted (de-dup regression)'); }
+// 4j2. Coverage disclosure (truth-in-UI): an excerpt must never be mistaken for
+// a complete text — the reader header shows validator-derived coverage.
+corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
+const biyanCovHtml = ids['reader-content-target']._innerHTML;
+if (!biyanCovHtml.includes('📊 Coverage: 14/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+if (!ids['reader-content-target']._innerHTML.includes('📊 Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
 const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
 if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }

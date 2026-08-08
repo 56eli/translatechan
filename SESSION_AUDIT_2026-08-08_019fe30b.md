@@ -210,6 +210,18 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 
 **Boundary kept explicit:** this proves the Phase-2 pilot contract end-to-end (source → locator → segmented fields → labeled renderings → validator/metrics/regression). Remaining Biyanlu work: post-verse 評唱 English, human sign-off on the `collated_with_normalization` anchors, and cases 11–100.
 
+### User-perspective review (same session)
+
+The live site is unreachable from this sandbox (github.io network-blocked), so the review ran against the identical local build: every view rendered through the DOM harness and inspected as a user would see it.
+
+| Finding | Fix |
+|---|---|
+| **U1 (P2, truth-in-UI): excerpts can be mistaken for complete texts.** A Biyanlu reader saw 14 cases with no hint that the canon has 100; same for every seed. `coverage_note`/metrics existed only in data files. | New **`📊 Coverage` disclosure** in every reader header: `48/48 cases`, `14/100 cases`, or `Excerpt seed (N units)` with a citation popover carrying the full note. Sources: `project_metrics.json → corpus.per_text` + the document's `coverage_note`. Smoke 4j2 asserts it. |
+| **U2 (P3): hero chip "🌐 Zero-Backend Offline" overstates (Google Fonts).** | Chip now reads **"🌐 Zero-Backend Static"**. |
+| **U3 (P3): no favicon.** | Inline SVG 🪷 favicon via `data:` URI (CSP-safe, zero new files). |
+
+Verification: 36-document render scan — no `undefined`/`NaN`/`[object Object]`, no duplicate `id=`, no broken hrefs; matrix (21 badges), lineage (34 nodes/30 links/4 frontiers), gongan (23 entries), lexicon (31 cards) all render; smoke green; root↔docs synced.
+
 ---
 
 ## 8. Audit Limitations

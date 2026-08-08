@@ -711,3 +711,15 @@ The smoke suite asserts the layered generation labels and halo nodes so the char
 | Gates | `validate_data.py` ✅ (slots 874 · verified 138 · locators 64/64) · deterministic build ✅ · smoke suite ✅ · root↔docs synced ✅. |
 
 **Boundary kept explicit:** this proves the Phase-2 pilot contract end-to-end (source → locator → segmented fields → labeled renderings → validator/metrics/regression). Remaining Biyanlu work: post-verse 評唱 English, human sign-off on the `collated_with_normalization` anchors, and cases 11–100.
+
+### 11.8 — User-perspective review of the public reader (same session)
+
+Review approach: the live site is not reachable from this sandbox (github.io is network-blocked), so the review ran against the identical local build, rendering every view through the DOM harness and inspecting the produced HTML/CSS as a user would.
+
+| Finding | Fix |
+|---|---|
+| **U1 (P2, truth-in-UI): an excerpt can be mistaken for a complete text.** A reader of Biyanlu saw 14 cases with no indication that the canonical text has 100; same for every seed (Zhaozhou's 3 dialogues, etc.). The `coverage_note`/metrics existed only in data files. | New **`📊 Coverage` disclosure** in every reader header: shows `48/48 cases` (Wumenguan), `14/100 cases` (Biyanlu), or `Excerpt seed (N units)` with unit counts, plus a hover/focus/tap citation popover carrying the full note ("post-verse 評唱 rendering pending", "Phase 2", etc.). Sources: validator-generated `project_metrics.json → corpus.per_text` + the document's own `coverage_note`. Smoke test 4j2 asserts Biyanlu `14/100 cases` and Wumenguan `48/48 cases`. |
+| **U2 (P3, copy): hero chip "🌐 Zero-Backend Offline" overstates** — the app loads Google Fonts (F8 carryover). | Chip now reads **"🌐 Zero-Backend Static"**. |
+| **U3 (P3, polish): browser tab had no favicon.** | Inline SVG emoji favicon (🪷) added as a `data:` URI — no new files, CSP-safe (`img-src 'self' data:`). |
+
+Verification: reader scan across all 36 documents found no `undefined`/`NaN`/`[object Object]` leaks, no duplicate `id=` attributes, no broken hrefs; matrix/lineage/gongan/lexicon render fully (21 matrix badges, 34 graph nodes / 30 pending links / 4 frontiers, 23 gongan entries, 31 lexicon cards). Smoke suite green; root↔docs synced.

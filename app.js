@@ -761,6 +761,36 @@
     return renderSourceLocationDisclosure(locator, 'Source location', 'document-source-location');
   }
 
+  // Coverage disclosure: never let an excerpt be mistaken for a complete text.
+  // Source of truth is the validator-generated per-text metrics (which embed the
+  // document's own coverage_note when present); unit counts come from live data.
+  function renderCoverageDisclosure(corpusKey) {
+    const doc = state.data.corpus && state.data.corpus[corpusKey];
+    const metrics = state.data.project_metrics;
+    const perText = metrics && metrics.corpus && metrics.corpus.per_text
+      ? metrics.corpus.per_text[corpusKey] : null;
+    const coverageNote = (isRecord(doc) && stringValue(doc.coverage_note))
+      || (perText && stringValue(perText.coverage_note));
+    const unitCounts = perText && isRecord(perText.unit_counts) ? perText.unit_counts : {};
+    const UNIT_LABELS = {
+      cases: 'cases', sections: 'sections', dialogues: 'dialogues', stanzas: 'stanzas',
+      chapters: 'chapters', five_ranks: 'five ranks', sample_records: 'sample records'
+    };
+    const unitSummary = Object.entries(unitCounts).map(([k, v]) => `${v} ${UNIT_LABELS[k] || k}`).join(' · ');
+    const coverage = perText && stringValue(perText.coverage)
+      ? perText.coverage
+      : (unitSummary ? `Excerpt seed (${unitSummary})` : 'Excerpt seed');
+    const detail = {
+      title: 'Coverage disclosure',
+      rows: [
+        ['Coverage', coverage],
+        ['Note', coverageNote || 'Excerpt-scale seed: the full canonical text is not yet ingested (Phase 2).'],
+        ['Measured by', 'data/project_metrics.json → corpus.per_text (validator-generated, 2026-08-08)']
+      ]
+    };
+    return `<div class="source-location coverage-disclosure"><span>📊 Coverage: ${escHtml(coverage)}</span>${renderCitationTrigger(detail, 'ⓘ Coverage')}</div>`;
+  }
+
   function renderCaseSourceDisclosure(caseNum) {
     const documentLocator = locatorDocumentForKey(state.currentCorpusKey);
     const caseLocators = documentLocator && isRecord(documentLocator.case_locators) ? documentLocator.case_locators : {};
@@ -828,6 +858,7 @@
           <span class="meta-chip">🏷️ Genre: ${doc.genre || ''}</span>
         </div>
         ${renderDocumentSourceDisclosure(doc, state.currentCorpusKey)}
+        ${renderCoverageDisclosure(state.currentCorpusKey)}
       </div>
       ${caseStrip}
     `;
