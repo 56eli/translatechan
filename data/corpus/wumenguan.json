@@ -1,0 +1,200 @@
+{
+  "id": "wumenguan",
+  "title_zh": "禪宗無門關",
+  "title_pinyin": "Chánzōng Wúmén Guān",
+  "title_en": "The Gateless Gate (The Gateless Barrier)",
+  "cbeta_id": "T2005",
+  "taisho_vol": 48,
+  "author_zh": "無門慧開 禪師 撰",
+  "author_en": "Compiled by Chan Master Wumen Huikai (1183–1260)",
+  "era": "Southern Song Dynasty (1228 CE)",
+  "genre": "Gong'an / Koan Collection (公案錄)",
+  "preface": {
+    "zh": "佛語心為宗，無門為法門。關既無門，趣向如何？豈不見道：從門入者，不是家珍；從緣得者，始終成壞。若作恁麼商量，正如以拳指空，畫地做餅，何所求哉？",
+    "pinyin": "Fó yǔ xīn wéi zōng, wú mén wéi fǎ mén. Guān jì wú mén, qù xiàng rú hé? Qǐ bù jiàn dào: cóng mén rù zhě, bù shì jiā zhēn; cóng yuán dé zhě, shǐ zhōng chéng huài. Ruò zuò rèn me shāng liang, zhèng rú yǐ quán zhǐ kōng, huà dì zuò bǐng, hé suǒ qiú zāi?",
+    "en_cleary": "The words of the Buddha take Mind as the source, and 'No-Gate' as the Dharma gate. Now, since it is gateless, how does one enter? Have you not heard it said: What comes in through the gate is not the family treasure; what is attained through external causes is subject to inception and decay.",
+    "en_sasaki": "The teachings of the Buddha make mind the foundation, and gatelessness the gate of the Dharma. Since the barrier is gateless, how does one enter it? Do you not know: That which enters through the gate is not the treasure of the house; what is gained from outer conditions always begins and perishes."
+  },
+  "cases": [
+    {
+      "case_num": 1,
+      "title_zh": "趙州狗子",
+      "title_pinyin": "Zhàozhōu Gǒuzi",
+      "title_en": "Zhaozhou's Dog (Mu / Wu)",
+      "protagonist": "zhaozhou_congshen",
+      "dialogue": [
+        {
+          "speaker": "Monk / 僧",
+          "zh": "趙州和尚因僧問：「狗子還有佛性也無？」",
+          "pinyin": "Zhàozhōu héshang yīn sēng wèn: 'Gǒuzi hái yǒu fóxìng yě wú?'",
+          "translations": {
+            "cleary": "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?'",
+            "sasaki": "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?'",
+            "suzuki": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
+            "blyth": "A monk asked Jōshū, 'Has a dog the Buddha Nature?'",
+            "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
+            "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
+            "ai_poetic": "A wandering monk asked master Zhaozhou: 'Does even a humble hound possess the luminous Buddha-nature?'"
+          }
+        },
+        {
+          "speaker": "Zhaozhou / 趙州",
+          "zh": "州云：「無。」",
+          "pinyin": "Zhōu yún: 'Wú.'",
+          "translations": {
+            "cleary": "Zhaozhou said, 'No.'",
+            "sasaki": "Jōshū said: 'Mu!'",
+            "suzuki": "Chao-chou replied: 'Wu!'",
+            "blyth": "Jōshū answered: 'Mu!'",
+            "blofeld": "The Master replied: 'None!'",
+            "ai_literal": "Zhou said: 'Not.'",
+            "ai_poetic": "Zhaozhou thundered: 'Mu! (Emptiness/No!)'"
+          }
+        }
+      ],
+      "commentary_zh": "無門曰：參禪須透祖師關，妙悟要窮心路絕。祖關不透，心路不絕，盡是依草附木精靈。且道：如何是祖師關？只這一個「無」字，乃宗門一關也。遂目之曰「禪宗無門關」。",
+      "commentary_pinyin": "Wúmén yuē: Cān chán xū tòu zǔshī guān, miào wù yào qióng xīn lù jué. Zǔ guān bù tòu, xīn lù bù jué, jìn shì yī cǎo fù mù jīnglíng. Qiě dào: Rú hé shì zǔshī guān? Zhǐ zhè yī gè 'Wú' zì, nǎi zōng mén yī guān yě. Suì mù zhī yuē 'Chánzōng Wúmén Guān'.",
+      "commentary_en": "Wumen says: To practice Chan, you must pass through the barrier of the patriarchs; to achieve subtle realization, you must exhaust the pathways of the delusive mind. If you do not pass the patriarchal barrier and do not cut off mental pathways, you are like ghosts clinging to weeds and trees. Tell me: What is the patriarchal barrier? It is simply this single word 'Wu'—the premier barrier of the ancestral school.",
+      "verse_zh": "狗子佛性，全提正令。纔涉有無，喪身失命。",
+      "verse_pinyin": "Gǒuzi fóxìng, quán tí zhèng lìng. Cái shè yǒu wú, sàng shēn shī mìng.",
+      "verse_en": "The dog, the Buddha-nature; / The official proclamation is fully displayed. / The moment you enter 'has' or 'has not', / You lose your body and forfeit your life!"
+    },
+    {
+      "case_num": 2,
+      "title_zh": "百丈野狐",
+      "title_pinyin": "Bǎizhàng Yěhú",
+      "title_en": "Baizhang and the Wild Fox",
+      "protagonist": "baizhang_huaihai",
+      "dialogue": [
+        {
+          "speaker": "Narrative / 本事",
+          "zh": "百丈和尚凡參次，有一老人常隨眾聽法。眾人退，老人亦退。忽一日不退，師遂問：「面前立者復是何人？」",
+          "pinyin": "Bǎizhàng héshang fán cān cì, yǒu yī lǎorén cháng suí zhòng tīng fǎ. Zhòngrén tuì, lǎorén yì tuì. Hū yī rì bù tuì, shī suì wèn: 'Miàn qián lì zhě fù shì hé rén?'",
+          "translations": {
+            "cleary": "Whenever Master Baizhang held sermons, an old man would always follow the assembly to listen to the Dharma. When the monks withdrew, the old man also withdrew. One day he did not withdraw.",
+            "sasaki": "Whenever Master Hyakujō gave a sermon, an old man used to listen along with the assembly. When the assembly left, he left too. One day he remained behind.",
+            "ai_literal": "Whenever the monk Baizhang held talks, an old man always followed the group to hear the teaching. When the group retired, the old man retired too."
+          }
+        },
+        {
+          "speaker": "Old Man / 老人",
+          "zh": "老人曰：「某非人也。於過去迦葉佛時，曾住此山。因學人問：『大修行底人還落因果也無？』某對云：『不落因果。』五百生墮野狐身。今請和尚代一轉語，貴脫野狐。」",
+          "pinyin": "Lǎorén yuē: 'Mǒu fēi rén yě. Yú guòqù Jiāyè fó shí, céng zhù cǐ shān. Yīn xuérén wèn: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú?' Mǒu duì yún: 'Bù luò yīnguǒ.' Wǔbǎi shēng duò yěhú shēn. Jīn qǐng héshang dài yī zhuǎnyǔ, guì tuō yěhú.'",
+          "translations": {
+            "cleary": "The old man said, 'I am not a human being. In the time of the past Kashyapa Buddha, I lived on this mountain. A student asked me: Does an adept of great cultivation still fall into cause and effect? I answered: Does not fall into cause and effect. Because of this I have fallen into five hundred lives as a wild fox. Now I beg the Master to turn a word for me so I may be released.'",
+            "sasaki": "The old man said: 'I am not a human being. In the age of Kāśyapa Buddha, I was head monk on this mountain. A monk asked: Does a great practitioner fall under cause and effect? I said: Does not fall. For 500 births I have been a fox.'",
+            "ai_literal": "The old man said: 'I am not a human. In the era of the past Kashyapa Buddha, I dwelt on this mountain. A student asked: Does a person of great practice still fall into cause and effect? I replied: Not falling into cause and effect. For 500 rebirths I fell into a wild fox body.'"
+          }
+        },
+        {
+          "speaker": "Baizhang / 百丈",
+          "zh": "師曰：「汝問。」老人曰：「大修行底人還落因果也無？」師曰：「不昧因果。」老人於言下大悟。",
+          "pinyin": "Shī yuē: 'Rǔ wèn.' Lǎorén yuē: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú?' Shī yuē: 'Bù mèi yīnguǒ.' Lǎorén yú yán xià dà wù.",
+          "translations": {
+            "cleary": "The Master said, 'Ask.' The old man asked: 'Does a person of great cultivation still fall into cause and effect?' The Master said: 'Is not blind to cause and effect.' The old man was instantly enlightened at these words.",
+            "sasaki": "Hyakujō said: 'Ask me.' The old man asked: 'Does a great practitioner fall into cause and effect?' Hyakujō said: 'Not blind to cause and effect.' At these words the old man attained great awakening.",
+            "ai_literal": "The Master said: 'Ask.' The old man said: 'Does a person of great cultivation still fall into cause and effect?' The Master said: 'Not obscuring cause and effect.' The old man at these words had great awakening."
+          }
+        }
+      ],
+      "commentary_zh": "無門曰：不落因果，為甚墮野狐？不昧因果，為甚脫野狐？若向者裏著得一隻眼，便知得前百丈贏得五百生風流趣向。",
+      "commentary_pinyin": "Wúmén yuē: Bù luò yīnguǒ, wèi shén duò yěhú? Bù mèi yīnguǒ, wèi shén tuō yěhú? Ruò xiàng zhèlǐ zhuó dé yī zhī yǎn, biàn zhī dé qián Bǎizhàng yíng dé wǔbǎi shēng fēngliú qùxiàng.",
+      "commentary_en": "Wumen says: 'Not falling into causality'—why did he fall into a fox body? 'Not blind to causality'—why did he escape the fox body? If you can gain a single eye here, you will understand how the former Baizhang enjoyed five hundred lives of glorious adventure.",
+      "verse_zh": "不落不昧，兩采一賽。不昧不落，千錯萬錯。",
+      "verse_pinyin": "Bù luò bù mèi, liǎng cǎi yī sài. Bù mèi bù luò, qiān cuò wàn cuò.",
+      "verse_en": "Not falling, not blind: / Two sides of the same die! / Not blind, not falling: / A thousand errors, ten thousand mistakes!"
+    },
+    {
+      "case_num": 3,
+      "title_zh": "俱胝一指",
+      "title_pinyin": "Jùzhī Yīzhǐ",
+      "title_en": "Juzhi's One Finger",
+      "protagonist": "juzhi",
+      "dialogue": [
+        {
+          "speaker": "Narrative / 本事",
+          "zh": "俱胝和尚，凡有詰問，唯舉一指。後有童子，因外人問：『和尚說何法要？』童子亦豎指示之。",
+          "pinyin": "Jùzhī héshang, fán yǒu jiéwèn, wéi jǔ yī zhǐ. Hòu yǒu tóngzǐ, yīn wàirén wèn: 'Héshang shuō hé fǎ yào?' Tóngzǐ yì shù zhǐ shì zhī.",
+          "translations": {
+            "cleary": "Whenever Master Juzhi was questioned, he would simply raise one finger. Later, an attendant boy was asked by an outsider: 'What Dharma does the Master teach?' The boy also held up a finger.",
+            "sasaki": "Whenever Master Gutei was asked a question, he simply held up one finger. Later a boy attendant was asked by visitors: 'What Dharma does your master teach?' The boy too raised a finger.",
+            "ai_literal": "The monk Juzhi, whenever questioned, only raised a single finger. Later there was a boy attendant who, when asked by guests 'What dharma does the Master preach?', also held up a finger to show them."
+          }
+        },
+        {
+          "speaker": "Juzhi / 俱胝",
+          "zh": "胝聞，遂以刃潛剪其指。童子負痛號哭而去，胝復召之。童子迴首，胝卻豎起指。童子忽然領悟。",
+          "pinyin": "Zhī wén, suì yǐ rèn qián jiǎn qí zhǐ. Tóngzǐ fù tòng háokū ér qù, Zhī fù zhào zhī. Tóngzǐ huí shǒu, Zhī què shù qǐ zhǐ. Tóngzǐ hūrán lǐngwù.",
+          "translations": {
+            "cleary": "Hearing of this, Juzhi secretly concealed a blade and sliced off the boy's finger. Screaming in pain, the boy ran out. Juzhi called out to him. As the boy turned his head, Juzhi raised his finger. The boy suddenly awakened.",
+            "sasaki": "Gutei heard of it, concealed a knife in his sleeve, and severed the boy's finger. Screaming, the boy ran out. Gutei shouted after him. The boy turned back; Gutei raised his finger. The boy instantly woke up.",
+            "ai_literal": "Juzhi heard of this and secretly cut off his finger with a blade. The boy bearing pain cried and ran away; Juzhi called to him again. The boy turned his head; Juzhi then held up a finger. The boy suddenly realized."
+          }
+        }
+      ],
+      "commentary_zh": "無門曰：俱胝并童子悟處，不在指頭上。若向者裏覷得透，俱胝并童子與自己一串穿卻。",
+      "commentary_pinyin": "Wúmén yuē: Jùzhī bìng tóngzǐ wù chù, bù zài zhǐtóu shàng. Ruò xiàng zhèlǐ qù dé tòu, Jùzhī bìng tóngzǐ yǔ zìjǐ yī chuàn chuān què.",
+      "commentary_en": "Wumen says: The realization of Juzhi and the boy was never on the tip of the finger. If you can see clearly into this, Juzhi, the boy, and yourself are strung together on a single skewer.",
+      "verse_zh": "俱胝鈍置黠童兒，剪刀截破大荒崖。巨靈抬手無多子，擘破華嶽千萬重。",
+      "verse_pinyin": "Jùzhī dùnzhì xiá tóng'ér, jiǎndāo jiépò dà huāng yá. Jùlíng tái shǒu wú duō zǐ, bòpò Huáyuè qiān wàn chóng.",
+      "verse_en": "Juzhi made a fool of the clever boy; / The shears cut through the primal wilderness! / The mountain giant raised his hand without effort, / Splitting Mount Hua into ten thousand peaks!"
+    },
+    {
+      "case_num": 19,
+      "title_zh": "平常是道",
+      "title_pinyin": "Píngcháng Shì Dào",
+      "title_en": "Ordinary Mind is the Way",
+      "protagonist": "nanquan_puyuan",
+      "dialogue": [
+        {
+          "speaker": "Zhaozhou / 趙州",
+          "zh": "趙州問南泉：「如何是道？」",
+          "pinyin": "Zhàozhōu wèn Nánquán: 'Rúhé shì dào?'",
+          "translations": {
+            "cleary": "Zhaozhou asked Nanquan, 'What is the Way?'",
+            "sasaki": "Jōshū asked Nansen: 'What is the Way?'",
+            "suzuki": "Chao-chou asked Nan-ch'uan: 'What is the Tao?'",
+            "ai_literal": "Zhaozhou asked Nanquan: 'What is the Way?'"
+          }
+        },
+        {
+          "speaker": "Nanquan / 南泉",
+          "zh": "泉云：「平常心是道。」",
+          "pinyin": "Quán yún: 'Píngcháng xīn shì dào.'",
+          "translations": {
+            "cleary": "Nanquan said, 'Ordinary mind is the Way.'",
+            "sasaki": "Nansen said: 'Ordinary mind is the Way.'",
+            "suzuki": "Nan-ch'uan said: 'Everyday mind is the Way.'",
+            "ai_literal": "Quan said: 'Ordinary mind is the Way.'"
+          }
+        },
+        {
+          "speaker": "Zhaozhou / 趙州",
+          "zh": "州云：「還可趣向也無？」泉云：「擬向即乖。」",
+          "pinyin": "Zhōu yún: 'Hái kě qùxiàng yě wú?' Quán yún: 'Nǐ xiàng jí guāi.'",
+          "translations": {
+            "cleary": "Zhaozhou asked, 'Can one direct oneself toward it?' Nanquan said, 'To intend toward it is to deviate from it.'",
+            "sasaki": "Jōshū said: 'Should one direct oneself toward it?' Nansen replied: 'If you try to direct yourself toward it, you go astray.'",
+            "ai_literal": "Zhou said: 'Can one still aim toward it or not?' Quan said: 'If you intend toward it, you immediately err.'"
+          }
+        },
+        {
+          "speaker": "Nanquan / 南泉",
+          "zh": "泉云：「道不屬知，不屬不知。知是妄覺，不知是無記。若真達不疑之道，如太虛廓然豁達，豈可強是非也？」州於言下頓悟。",
+          "pinyin": "Quán yún: 'Dào bù shǔ zhī, bù shǔ bù zhī. Zhī shì wàng jué, bù zhī shì wú jì. Ruò zhēn dá bù yí zhī dào, rú tài xū kuò rán huò dá, qǐ kě qiǎng shì fēi yě?' Zhōu yú yán xià dùn wù.",
+          "translations": {
+            "cleary": "Nanquan said: 'The Way does not belong to knowing, nor does it belong to not-knowing. Knowing is false awareness; not-knowing is blank indifference. If you truly reach the doubt-free Way, it is like vast space, wide open and boundless. How could you force right and wrong into it?' At these words, Zhaozhou attained sudden awakening.",
+            "sasaki": "Nansen said: 'The Way does not belong to knowing or not knowing. Knowing is delusion; not knowing is mere ignorance. When you reach the true Way beyond doubt, it is vast and boundless as the great empty sky. How can there be right and wrong?' Jōshū was immediately enlightened.",
+            "ai_literal": "Quan said: 'The Way does not belong to knowing, nor does it belong to not knowing. Knowing is false perception, not knowing is blank amnesia. If you truly arrive at the doubt-free Way, it is wide open like the great void; how could you force right and wrong upon it?' Zhaozhou at these words awakened suddenly."
+          }
+        }
+      ],
+      "commentary_zh": "無門曰：南泉被趙州發問，直得瓦解冰消，分疏不下。趙州縱悟去，更參三十年始得。",
+      "commentary_pinyin": "Wúmén yuē: Nánquán bèi Zhàozhōu fā wèn, zhí dé wǎ jiě bīng xiāo, fēn shū bù xià. Zhàozhōu zòng wù qù, gèng cān sānshí nián shǐ dé.",
+      "commentary_en": "Wumen says: Pressed by Zhaozhou's question, Nanquan was dissolved like melting ice and collapsing tiles, unable to defend his position. Even though Zhaozhou awakened, he still needed to practice for another thirty years before truly getting it.",
+      "verse_zh": "春有百花秋有月，夏有涼風冬有雪。若無閑事挂心頭，便是人間好時節。",
+      "verse_pinyin": "Chūn yǒu bǎi huā qiū yǒu yuè, xià yǒu liáng fēng dōng yǒu xuě. Ruò wú xián shì guà xīn tóu, biàn shì rénjiān hǎo shíjié.",
+      "verse_en": "Spring has hundreds of flowers, autumn has the clear moon; / Summer has refreshing breezes, winter has white snow. / If no idle worries hang upon your mind, / This is truly the best season of human life!"
+    }
+  ]
+}

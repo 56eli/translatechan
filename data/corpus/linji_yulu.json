@@ -1,0 +1,113 @@
+{
+  "id": "linji_yulu",
+  "title_zh": "鎮州臨濟慧照禪師語錄",
+  "title_pinyin": "Zhènzhōu Línjì Huìzhào Chánshī Yǔlù",
+  "title_en": "The Record of Linji (The Zen Teaching of Rinzai)",
+  "cbeta_id": "T1985",
+  "taisho_vol": 47,
+  "author_zh": "臨濟義玄 禪師 說 / 門人 三聖慧然 編",
+  "author_en": "Recorded Sayings of Chan Master Linji Yixuan (d. 866), Compiled by Sansheng Huiran",
+  "era": "Tang Dynasty (c. 867 CE)",
+  "genre": "Discourse Record (語錄)",
+  "sections": [
+    {
+      "section_id": "sermon_1",
+      "title_zh": "上堂法要：無位真人",
+      "title_pinyin": "Shàngtáng Fǎyào: Wúwèi Zhēnrén",
+      "title_en": "Sermon: The True Person of No Rank",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "師示眾云：「赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！」",
+          "pinyin": "Shī shì zhòng yún: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!'",
+          "translations": {
+            "sasaki": "The Master instructed the assembly, saying: 'On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!'",
+            "cleary": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
+            "suzuki": "The Master said: 'In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!'",
+            "ai_literal": "The Master showed the group, saying: 'Upon the red flesh lump there is a no-rank true person, always entering and leaving through everyone's face gates. Those who haven't verified it: look, look!'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "時有僧出問：「如何是無位真人？」",
+          "pinyin": "Shí yǒu sēng chū wèn: 'Rúhé shì wú wèi zhēn rén?'",
+          "translations": {
+            "sasaki": "Then a monk came forward and asked: 'What is the True Person of No Rank?'",
+            "cleary": "Then a monk came forward and asked, 'What is the true human of no status?'",
+            "suzuki": "A monk stepped out and asked: 'What kind of person is the True Man of No Title?'",
+            "ai_literal": "At that time a monk stepped out and asked: 'What is the no-rank true person?'"
+          }
+        },
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "師下禪床，把住云：「道！道！」僧擬議。師託開云：「無位真人是什麼乾屎橛！」便歸方丈。",
+          "pinyin": "Shī xià chánchuáng, bǎzhù yún: 'Dào! Dào!' Sēng nǐyì. Shī tuōkāi yún: 'Wú wèi zhēn rén shì shénme gān shǐ jué!' Biàn guī fāngzhàng.",
+          "translations": {
+            "sasaki": "The Master stepped down from the meditation seat, seized the monk, and said: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person of No Rank—what a dry shit-stick!' and returned to his quarters.",
+            "cleary": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
+            "suzuki": "The Master descended from his chair, seized the monk by the throat, and cried: 'Speak! Speak!' The monk faltered. Pushing him away, the Master shouted: 'What a worthless dried dirt scraper is your True Man of No Rank!' and returned to his abbot room.",
+            "ai_literal": "The Master stepped down from the meditation bench, gripped him and said: 'Speak! Speak!' The monk deliberated. The Master pushed him aside and said: 'The true person of no rank—what a dried dung scraper!' Then returned to the abbot's room."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "four_processes",
+      "title_zh": "臨濟四料簡",
+      "title_pinyin": "Línjì Sì Liàojiǎn",
+      "title_en": "The Four Classifications (Four Dispositions of Person and Environment)",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "師晚參示眾云：「我資化有時奪人不奪境，有時奪境不奪人，有時人境俱奪，有時人境俱不奪。」",
+          "pinyin": "Shī wǎn cān shì zhòng yún: 'Wǒ zī huà yǒu shí duó rén bù duó jìng, yǒu shí duó jìng bù duó rén, yǒu shí rén jìng jù duó, yǒu shí rén jìng jù bù duó.'",
+          "translations": {
+            "sasaki": "In the evening sermon the Master said: 'Sometimes I snatch away the person but do not snatch away the environment; sometimes I snatch away the environment but do not snatch away the person; sometimes I snatch away both person and environment; sometimes I snatch away neither person nor environment.'",
+            "cleary": "The Master gave an evening talk to the group: 'Sometimes I take away the person but not the environment; sometimes I take away the environment but not the person; sometimes I take away both person and environment; sometimes I take away neither person nor environment.'",
+            "ai_literal": "The Master at evening instructions showed the assembly, saying: 'In my transformative teaching, sometimes I take away the person but do not take away the context; sometimes I take away the context but do not take away the person; sometimes person and context are both taken away; sometimes neither person nor context is taken away.'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "僧問：「如何是奪人不奪境？」師曰：「煦日發生鋪地錦，嬰兒垂髮白如絲。」",
+          "pinyin": "Sēng wèn: 'Rúhé shì duó rén bù duó jìng?' Shī yuē: 'Xù rì fā shēng pū dì jǐn, yīng'ér chuí fà bái rú sī.'",
+          "translations": {
+            "sasaki": "A monk asked: 'What is snatching away the person but not the environment?' The Master said: 'The spring sun brings forth life, paving the earth with brocade; the infant's hair hangs down, white as silk.'",
+            "cleary": "A monk asked, 'What is taking away the person but not the environment?' The Master said, 'The warm sun bursts forth, carpeting the earth with brocade; an infant's hanging hair is white as silk.'",
+            "ai_literal": "Monk asked: 'What is taking the person and not the environment?' Master said: 'The warm sun generates growth spreading a brocade over the earth; the infant's drooping hair is white as silk threads.'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "問：「如何是奪境不奪人？」師曰：「王令已行天下遍，將軍塞外絕煙塵。」",
+          "pinyin": "Wèn: 'Rúhé shì duó jìng bù duó rén?' Shī yuē: 'Wáng lìng yǐ xíng tiān xià biàn, jiāng jūn sài wài jué yān chén.'",
+          "translations": {
+            "sasaki": "Asked: 'What is snatching away the environment but not the person?' The Master said: 'The sovereign's command is carried out throughout the realm; beyond the border fortress the general leaves no trace of dust.'",
+            "cleary": "Asked, 'What is taking away the environment but not the person?' The Master said, 'The king's command has already circulated throughout the land; the general beyond the border cuts off all smoke and dust.'",
+            "ai_literal": "Asked: 'What is taking the environment and not the person?' Master said: 'The king's decree has already traveled universally through all under heaven; the general beyond the frontier cuts off all smoke and dust.'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "問：「如何是人境俱奪？」師曰：「并汾絕代，獨處一方。」",
+          "pinyin": "Wèn: 'Rúhé shì rén jìng jù duó?' Shī yuē: 'Bìng Fén jué dài, dú chǔ yī fāng.'",
+          "translations": {
+            "sasaki": "Asked: 'What is snatching away both person and environment?' The Master said: 'Bing and Fen are cut off from communication, dwelling alone in isolated lands.'",
+            "cleary": "Asked, 'What is taking away both person and environment?' The Master said, 'Bing and Fen are completely cut off, occupying their own region in isolation.'",
+            "ai_literal": "Asked: 'What is taking both person and environment?' Master said: 'Bing and Fen isolated from communication, standing alone in a realm.'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "問：「如何是人境俱不奪？」師曰：「王登寶殿，野老謳歌。」",
+          "pinyin": "Wèn: 'Rúhé shì rén jìng jù bù duó?' Shī yuē: 'Wáng dēng bǎodiàn, yělǎo ōugē.'",
+          "translations": {
+            "sasaki": "Asked: 'What is snatching away neither person nor environment?' The Master said: 'The King ascends the jewel palace; the old peasant in the field breaks into song.'",
+            "cleary": "Asked, 'What is taking away neither person nor environment?' The Master said, 'The king ascends the jewel throne, rustic elders sing their songs.'",
+            "ai_literal": "Asked: 'What is taking neither person nor environment?' Master said: 'The King ascends the jewel hall; the rustic old peasant sings folk songs.'"
+          }
+        }
+      ]
+    }
+  ]
+}

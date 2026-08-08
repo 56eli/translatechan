@@ -1,0 +1,146 @@
+[
+  {
+    "id": "matrix_wumen_1",
+    "source_ref": "Wumenguan Case 1 (T2005)",
+    "sentence_zh": "狗子還有佛性也無？州云：無。",
+    "sentence_pinyin": "Gǒuzi hái yǒu fúxìng yě wú? Zhōu yún: Wú.",
+    "translators": [
+      {
+        "translator": "Thomas Cleary",
+        "work": "No Barrier: Unlocking the Zen Koan (1993)",
+        "style": "Philosophical Minimalist",
+        "text": "Does a dog have Buddha-nature? Zhaozhou said, 'No.'",
+        "notes": "Direct negative, focusing on cutting off the discursive question."
+      },
+      {
+        "translator": "Ruth Fuller Sasaki",
+        "work": "The Record of Linji & Zen Commentary",
+        "style": "Traditional Rinzai Scholarly",
+        "text": "Does even a dog have Buddha-nature, or not? Jōshū said: 'Mu!'",
+        "notes": "Preserves the Japanese/Chinese untranslated sacred syllable Mu (無)."
+      },
+      {
+        "translator": "D.T. Suzuki",
+        "work": "Essays in Zen Buddhism (1927)",
+        "style": "Pioneering Hermeneutic",
+        "text": "Has a dog Buddha-nature? Chao-chou replied: 'Wu!'",
+        "notes": "Emphasizes Wu as the living spirit beyond intellectual affirmative or negative."
+      },
+      {
+        "translator": "R.H. Blyth",
+        "work": "Zen and Zen Classics, Vol. 4 (1966)",
+        "style": "Literary & Poetic",
+        "text": "Has a dog the Buddha Nature? Jōshū answered: 'Mu!'",
+        "notes": "Parallels the barrier to sudden aesthetic and mystical illumination."
+      },
+      {
+        "translator": "John Blofeld",
+        "work": "The Zen Teaching of Zen Masters",
+        "style": "Classical British Scholarly",
+        "text": "Has a dog Buddha-nature or not? The Master replied: 'None!'",
+        "notes": "Translates as 'None', emphasizing emptiness of inherent fixed nature."
+      },
+      {
+        "translator": "AI Multi-Draft Engine",
+        "work": "TranslateChan AI Hermeneutic Matrix",
+        "style": "Synthesis / Multi-Register",
+        "text": "A monk asked: 'Does a dog possess Buddha-nature?' Zhaozhou replied: 'Mu / Not.'",
+        "notes": "Provides glossing of 狗子 (diminutive/vernacular for dog) and 無 (as categorical ungraspability)."
+      }
+    ]
+  },
+  {
+    "id": "matrix_xinxin_1",
+    "source_ref": "Xinxin Ming (T2010)",
+    "sentence_zh": "至道無難，唯嫌揀擇。但莫憎愛，洞然明白。",
+    "sentence_pinyin": "Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.",
+    "translators": [
+      {
+        "translator": "Thomas Cleary",
+        "work": "Zen Essence",
+        "style": "Direct Tao-Chan Precision",
+        "text": "The Great Way is not difficult, it only avoids picking and choosing. Just do not love or hate, and it is clearly evident.",
+        "notes": "Renders 揀擇 as 'picking and choosing', 洞然 as 'clearly evident'."
+      },
+      {
+        "translator": "D.T. Suzuki",
+        "work": "Manual of Zen Buddhism (1935)",
+        "style": "Epistemological Non-duality",
+        "text": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
+        "notes": "Renders 揀擇 as 'having no preferences', captures universal non-attachment."
+      },
+      {
+        "translator": "R.H. Blyth",
+        "work": "Zen and Zen Classics",
+        "style": "Poetic Cadence",
+        "text": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
+        "notes": "Flowing poetic structure, standard in Western zendo chanting."
+      },
+      {
+        "translator": "Ruth Fuller Sasaki",
+        "work": "Zen Texts & Translations",
+        "style": "Literal Rigor",
+        "text": "The supreme Way is not difficult, only dislike choosing. Just have neither hatred nor love, and all will be lucid and clear.",
+        "notes": "Faithful to Chinese word order and grammatical structure."
+      }
+    ]
+  },
+  {
+    "id": "matrix_linji_1",
+    "source_ref": "Linji Yulu Sermon 1 (T1985)",
+    "sentence_zh": "赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！",
+    "sentence_pinyin": "Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!",
+    "translators": [
+      {
+        "translator": "Ruth Fuller Sasaki",
+        "work": "The Record of Linji (2009)",
+        "style": "Scholarly Definite Edition",
+        "text": "On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!",
+        "notes": "Standard academic translation of 無位真人 as 'True Person of No Rank'."
+      },
+      {
+        "translator": "Thomas Cleary",
+        "work": "Teachings of Zen (1998)",
+        "style": "Vernacular Dynamic",
+        "text": "On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!",
+        "notes": "Renders 真人 as 'true human' and 無位 as 'no status'."
+      },
+      {
+        "translator": "D.T. Suzuki",
+        "work": "Introduction to Zen Buddhism",
+        "style": "Existential Encounter",
+        "text": "In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!",
+        "notes": "Uses 'True Man of No Title' and 'senses' for 面門 (facial gates)."
+      }
+    ]
+  },
+  {
+    "id": "matrix_platform_1",
+    "source_ref": "Platform Sutra Verse (T2007)",
+    "sentence_zh": "菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。",
+    "sentence_pinyin": "Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén'āi.",
+    "translators": [
+      {
+        "translator": "Philip Yampolsky",
+        "work": "The Platform Sutra of the Sixth Patriarch (1967)",
+        "style": "Columbia Academic Standard",
+        "text": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?",
+        "notes": "Based on the Dunhuang manuscript transmission."
+      },
+      {
+        "translator": "Thomas Cleary",
+        "work": "The Sutra of Hui-neng",
+        "style": "Direct Insight",
+        "text": "Bodhi fundamentally has no tree, nor is the clear mirror a stand. Originally there is not a single thing; where could dust gather?",
+        "notes": "Clean, unembellished rendering of the classic quadrain."
+      },
+      {
+        "translator": "D.T. Suzuki",
+        "work": "Manual of Zen Buddhism",
+        "style": "Classical Early Western",
+        "text": "Bodhi originally has no tree in it, nor has the mind-mirror any stand in it; originally there is not a single thing: Where can any dust gather?",
+        "notes": "Emphasizes the absolute Emptiness (śūnyatā) of original nature."
+      }
+    ]
+  }
+]

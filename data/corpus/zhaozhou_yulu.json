@@ -1,0 +1,112 @@
+{
+  "id": "zhaozhou_yulu",
+  "title_zh": "趙州真際禪師語錄",
+  "title_pinyin": "Zhàozhōu Zhēnjì Chánshī Yǔlù",
+  "title_en": "The Recorded Sayings of Master Zhaozhou",
+  "cbeta_id": "T1987",
+  "taisho_vol": 47,
+  "author_zh": "趙州從諗 禪師 說",
+  "author_en": "Chan Master Zhaozhou Congshen (778–897 CE)",
+  "era": "Tang Dynasty",
+  "genre": "Discourse Record (語錄)",
+  "dialogues": [
+    {
+      "dialogue_id": "cypress_tree",
+      "title_zh": "庭前柏樹子",
+      "title_pinyin": "Tíngqián Bǎishùzǐ",
+      "title_en": "The Cypress Tree in the Courtyard",
+      "dialogue": [
+        {
+          "speaker": "Monk / 僧",
+          "zh": "僧問：「如何是祖師西來意？」",
+          "pinyin": "Sēng wèn: 'Rúhé shì zǔshī xī lái yì?'",
+          "translations": {
+            "cleary": "A monk asked, 'What is the intention of the ancestral teacher coming from the west?'",
+            "heine": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
+            "sasaki": "A monk asked: 'What is the meaning of Bodhidharma's coming from the West?'",
+            "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'"
+          }
+        },
+        {
+          "speaker": "Zhaozhou / 趙州",
+          "zh": "師曰：「庭前柏樹子。」",
+          "pinyin": "Shī yuē: 'Tíng qián bǎi shù zǐ.'",
+          "translations": {
+            "cleary": "The Master said, 'The cypress tree in the courtyard.'",
+            "heine": "The Master said, 'The cypress tree in front of the hall.'",
+            "sasaki": "The Master said: 'The oak tree in the front garden.'",
+            "ai_literal": "The Master said: 'The courtyard-front cypress tree.'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "僧云：「和尚莫將境示人。」師曰：「我不將境示人。」僧云：「如何是祖師西來意？」師曰：「庭前柏樹子。」",
+          "pinyin": "Sēng yún: 'Héshang mò jiāng jìng shì rén.' Shī yuē: 'Wǒ bù jiāng jìng shì rén.' Sēng yún: 'Rúhé shì zǔshī xī lái yì?' Shī yuē: 'Tíng qián bǎi shù zǐ.'",
+          "translations": {
+            "cleary": "The monk said, 'Master, do not point to objective circumstances to instruct people.' The Master said, 'I am not pointing to objective circumstances.' The monk said, 'What is the intention of the ancestral teacher coming from the west?' The Master said, 'The cypress tree in the courtyard.'",
+            "heine": "The monk said, 'Master, do not use external objects to show people.' The Master said, 'I am not using external objects.' The monk repeated, 'What is the Patriarch's meaning?' The Master replied: 'The cypress tree in the garden.'",
+            "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'"
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "wash_your_bowl",
+      "title_zh": "趙州洗缽",
+      "title_pinyin": "Zhàozhōu Xǐbō",
+      "title_en": "Wash Your Bowl",
+      "dialogue": [
+        {
+          "speaker": "Monk / 僧",
+          "zh": "僧問：「學人乍入叢林，乞師指示。」",
+          "pinyin": "Sēng wèn: 'Xuérén zhà rù cónglín, qǐ shī zhǐshì.'",
+          "translations": {
+            "cleary": "A monk said, 'I have just newly entered the monastery; please give me instructions.'",
+            "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
+            "suzuki": "A newly arrived monk asked Chao-chou: 'I am a new beginner; please show me the Way.'",
+            "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'"
+          }
+        },
+        {
+          "speaker": "Zhaozhou / 趙州",
+          "zh": "師曰：「喫粥了也未？」僧曰：「喫粥了也。」師曰：「洗缽盂去。」其僧因此大悟。",
+          "pinyin": "Shī yuē: 'Chī zhōu le yě wèi?' Sēng yuē: 'Chī zhōu le yě.' Shī yuē: 'Xǐ bōyú qù.' Qí sēng yīn cǐ dà wù.",
+          "translations": {
+            "cleary": "The Master said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten it.' The Master said, 'Go wash your bowl.' At this the monk had a great realization.",
+            "sasaki": "Jōshū said: 'Have you eaten your breakfast porridge?' The monk replied: 'I have.' Jōshū said: 'Then wash your bowls.' At these words the monk attained great awakening.",
+            "suzuki": "Chao-chou asked: 'Have you had your breakfast?' 'Yes, Master, I have.' 'Then wash your bowls!' That monk was enlightened.",
+            "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening."
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "stone_bridge",
+      "title_zh": "趙州石橋",
+      "title_pinyin": "Zhàozhōu Shíqiáo",
+      "title_en": "The Stone Bridge of Zhaozhou",
+      "dialogue": [
+        {
+          "speaker": "Monk / 僧",
+          "zh": "僧問：「久嚮趙州石橋，到來只見略彴子。」",
+          "pinyin": "Sēng wèn: 'Jiǔ xiàng Zhàozhōu shíqiáo, dào lái zhǐ jiàn lüèzhuózi.'",
+          "translations": {
+            "cleary": "A monk asked, 'For a long time I have heard of the stone bridge of Zhaozhou, but having arrived here, I only see a simple plank bridge.'",
+            "sasaki": "A monk asked: 'For long I have heard of the famous Stone Bridge of Jōshū, but coming here I see only a simple stepping-stone plank.'",
+            "ai_literal": "Monk asked: 'For long I admired the Zhaozhou stone bridge, but upon arriving I only see a narrow log plank.'"
+          }
+        },
+        {
+          "speaker": "Zhaozhou / 趙州",
+          "zh": "師曰：「汝只見略彴子，不見石橋。」僧曰：「如何是石橋？」師曰：「度驢度馬。」",
+          "pinyin": "Shī yuē: 'Rǔ zhǐ jiàn lüèzhuózi, bù jiàn shíqiáo.' Sēng yuē: 'Rúhé shì shíqiáo?' Shī yuē: 'Dù lǘ dù mǎ.'",
+          "translations": {
+            "cleary": "The Master said, 'You only see the plank bridge; you do not see the stone bridge.' The monk asked, 'What is the stone bridge?' The Master said, 'It ferries donkeys, it ferries horses.'",
+            "sasaki": "Jōshū said: 'You only see the simple plank, you don't see the stone bridge.' The monk said: 'What is the stone bridge?' Jōshū said: 'It lets donkeys cross, it lets horses cross.'",
+            "ai_literal": "Master said: 'You only see the simple plank, not seeing the stone bridge.' Monk said: 'What is the stone bridge?' Master said: 'Carries donkeys, carries horses.'"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "platform_sutra",
+  "title_zh": "六祖大師法寶壇經",
+  "title_pinyin": "Liùzǔ Dàshī Fǎbǎo Tánjīng",
+  "title_en": "The Platform Sutra of the Sixth Patriarch",
+  "cbeta_id": "T2007 / T2008",
+  "taisho_vol": 48,
+  "author_zh": "六祖 慧能 大師 說 / 門人 法海 集",
+  "author_en": "Spoken by Sixth Patriarch Huineng (638–713), Recorded by Fahai",
+  "era": "Tang Dynasty",
+  "genre": "Foundational Scripture & Transmission (壇經)",
+  "chapters": [
+    {
+      "chapter_num": 1,
+      "title_zh": "行由品第一：傳承偈頌",
+      "title_pinyin": "Xíngyóu Pǐn Dì-yī: Chuánchéng Jìsòng",
+      "title_en": "Chapter 1: Origin and the Transmission Verses",
+      "verses": [
+        {
+          "author": "Shenxiu / 神秀上座",
+          "zh": "身是菩提樹，心如明鏡臺。時時勤拂拭，勿使惹塵埃。",
+          "pinyin": "Shēn shì pútí shù, xīn rú míngjìng tái. Shíshí qín fúshì, wù shǐ rě chén'āi.",
+          "translations": {
+            "cleary": "The body is the bodhi tree, the mind is like a clear mirror stand. Constantly wipe and polish it diligently, do not let dust gather on it.",
+            "suzuki": "The body is the Bodhi tree, the mind is like a clear mirror stand. At all times diligently wipe it, and let no dust alight.",
+            "yampolsky": "The body is the Bodhi tree, the mind like a clear mirror stand. Time and again brush it clean, and let no dust alight.",
+            "ai_literal": "The body is the Bodhi tree, the mind like a bright mirror stand. Time and again diligently wipe and polish, do not cause it to gather dust."
+          }
+        },
+        {
+          "author": "Huineng / 六祖慧能",
+          "zh": "菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。",
+          "pinyin": "Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén'āi.",
+          "translations": {
+            "cleary": "Bodhi fundamentally has no tree, nor is the clear mirror a stand. Originally there is not a single thing; where could dust gather?",
+            "suzuki": "Bodhi originally has no tree in it, nor has the mind-mirror any stand in it; originally there is not a single thing: Where can any dust gather?",
+            "yampolsky": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust gather?",
+            "ai_literal": "Bodhi originally has no tree, bright mirror is also not a stand. From the origin there is not a single thing: where can it attract dust?"
+          }
+        }
+      ]
+    },
+    {
+      "chapter_num": 4,
+      "title_zh": "定慧品第四：即定即慧",
+      "title_pinyin": "Dìnghuì Pǐn Dì-sì: Jí Dìng Jí Huì",
+      "title_en": "Chapter 4: Samadhi and Prajna Are One",
+      "dialogue": [
+        {
+          "speaker": "Huineng / 慧能",
+          "zh": "師示眾云：「善知識！我此法門，以定慧為本。大眾勿迷，言定慧別。定慧一體，不是二。定是慧體，慧是定用。即慧之時定在慧，即定之時慧在定。」",
+          "pinyin": "Shī shì zhòng yún: 'Shànzhīshi! Wǒ cǐ fǎmén, yǐ dìng huì wéi běn. Dàzhòng wù mí, yán dìng huì bié. Dìng huì yītǐ, bù shì èr. Dìng shì huì tǐ, huì shì dìng yòng. Jí huì zhī shí dìng zài huì, jí dìng zhī shí huì zài dìng.'",
+          "translations": {
+            "cleary": "The Master addressed the assembly: 'Good friends! This teaching of mine takes meditation (samadhi) and wisdom (prajna) as its foundation. Do not be confused and claim meditation and wisdom are different. Meditation and wisdom are one body, not two. Meditation is the substance of wisdom; wisdom is the function of meditation. At the very moment of wisdom, meditation is within wisdom; at the very moment of meditation, wisdom is within meditation.'",
+            "yampolsky": "Good friends, my teaching takes samadhi and prajna as its basis. Do not say under any circumstances that samadhi and prajna are different. Samadhi and prajna are one essence, not two. Samadhi is the substance of prajna, prajna is the function of samadhi.",
+            "suzuki": "Good friends, in my system of Dharma, Dhyana and Prajna are of one essence. Dhyana is the body of Prajna, Prajna is the function of Dhyana. When Prajna functions, Dhyana is right in it; when Dhyana operates, Prajna is right in it."
+          }
+        }
+      ]
+    }
+  ]
+}

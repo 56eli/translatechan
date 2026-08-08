@@ -1,0 +1,152 @@
+[
+  {
+    "id": "benlai_mianmu",
+    "term": "本來面目",
+    "pinyin": "běn lái miàn mù",
+    "literal": "Original Face",
+    "sanskrit": "svabhāva / mūlaprakṛti",
+    "category": "Ontology & Buddha-Nature",
+    "definition": "One's original, primordial nature before birth and before the arising of dualistic thoughts. First famously formulated by the Sixth Patriarch Huineng: 'Without thinking of good or evil, what is your original face before your parents were born?'",
+    "occurrences": ["Platform Sutra Chapter 1", "Wumenguan Case 23", "Linji Yulu", "Biyanlu Case 24"]
+  },
+  {
+    "id": "zushi_xilai_yi",
+    "term": "祖師西來意",
+    "pinyin": "zǔ shī xī lái yì",
+    "literal": "The First Patriarch's Intention in Coming from the West",
+    "sanskrit": "ācāryasya paścimāgatābhiprāya",
+    "category": "Encounter Question / Gong'an Core",
+    "definition": "The quintessential question asked by Chan monks to test a master: What is the fundamental truth of Buddhism brought by Bodhidharma from India to China? Answers vary wildly from 'The cypress tree in the courtyard' (Zhaozhou) to 'Three pounds of flax' (Dongshan) or a blow from a stick (Deshan).",
+    "occurrences": ["Wumenguan Case 37", "Linji Yulu", "Biyanlu Case 20", "Zhaozhou Yulu"]
+  },
+  {
+    "id": "wu",
+    "term": "無",
+    "pinyin": "wú (Japanese: Mu)",
+    "literal": "No / Not / Emptiness / Non-being",
+    "sanskrit": "asattva / abhāva / śūnyatā",
+    "category": "Gong'an Barrier",
+    "definition": "Master Zhaozhou's barrier syllable when asked whether a dog has Buddha-nature. In Wumen's commentary, it is described as the iron ball in the throat, cutting through all dualistic conceptualizations and intellectual discrimination.",
+    "occurrences": ["Wumenguan Case 1", "Zhaozhou Yulu", "Biyanlu", "Congronglu Case 18"]
+  },
+  {
+    "id": "bang_he",
+    "term": "棒喝",
+    "pinyin": "bàng hè",
+    "literal": "Staff Strike and Resounding Shout",
+    "sanskrit": "daṇḍa-krośa (pedagogical device)",
+    "category": "Pedagogical Method",
+    "definition": "The hallmark dynamic teaching devices of Deshan (famous for his 30 blows with the staff) and Linji (famous for his four kinds of shouts / 臨濟四喝), used to shock the disciple out of conceptual deliberation directly into instantaneous awakening.",
+    "occurrences": ["Linji Yulu", "Biyanlu Case 4", "Chuandenglu Vol. 12", "Wudeng Huiyuan"]
+  },
+  {
+    "id": "dunwu",
+    "term": "頓悟",
+    "pinyin": "dùn wù",
+    "literal": "Sudden Enlightenment / Instant Awakening",
+    "sanskrit": "yugapad-avabodha",
+    "category": "Soteriology",
+    "definition": "The cornerstone doctrine of Southern Chan established by Huineng and Shenhui: awakening is direct, sudden, and complete, not an accumulation of gradual meditative steps or progressive purification.",
+    "occurrences": ["Platform Sutra Chapter 4", "Huangbo Chuanxin Fayao", "Zongjinglu"]
+  },
+  {
+    "id": "zhaoyong",
+    "term": "照用",
+    "pinyin": "zhào yòng",
+    "literal": "Illumination and Function",
+    "sanskrit": "prakāśa-kāritra",
+    "category": "Linji Dialectics",
+    "definition": "Linji's fourfold matrix of teaching: Sometimes illumination precedes function; sometimes function precedes illumination; sometimes illumination and function are simultaneous; sometimes neither illumination nor function is deployed.",
+    "occurrences": ["Linji Yulu", "Biyanlu Case 11", "Chanyuan Qinggui"]
+  },
+  {
+    "id": "mo_zhao",
+    "term": "默照",
+    "pinyin": "mò zhào",
+    "literal": "Silent Illumination",
+    "sanskrit": "śānta-prabhāsa",
+    "category": "Caodong Meditation",
+    "definition": "The signature meditative approach of the Caodong (Soto) school, systematized by Hongzhi Zhengjue: quiet sitting in open, wordless awareness where the mind is naturally clear, reflective, and non-attached.",
+    "occurrences": ["Hongzhi Guanglu", "Baojing Sanmei", "Tiansheng Guangdenglu"]
+  },
+  {
+    "id": "si_liaojian",
+    "term": "四料簡",
+    "pinyin": "sì liào jiǎn",
+    "literal": "The Four Classifications / Four Processes",
+    "sanskrit": "catvāri vivekāni",
+    "category": "Linji Dialectics",
+    "definition": "Linji's pedagogy regarding person and environment: 1) Snatch the person but not the environment; 2) Snatch the environment but not the person; 3) Snatch both person and environment; 4) Snatch neither person nor environment.",
+    "occurrences": ["Linji Yulu Chapter 1", "Zhenzhou Linji Huizhao Chanshi Yulu"]
+  },
+  {
+    "id": "wuwei_zhenren",
+    "term": "無位真人",
+    "pinyin": "wú wèi zhēn rén",
+    "literal": "True Person of No Rank",
+    "sanskrit": "apadika-puruṣa",
+    "category": "Linji Anthropology",
+    "definition": "Linji's description of true Buddha-nature in active human embodiment: 'In this lump of red flesh there is a True Person of No Rank, constantly going in and out through your facial gates.'",
+    "occurrences": ["Linji Yulu Sermon 2", "Biyanlu Case 92"]
+  },
+  {
+    "id": "yehu_chan",
+    "term": "野狐禪",
+    "pinyin": "yě hú chán",
+    "literal": "Wild Fox Chan",
+    "sanskrit": "kṛtrima-dhyāna",
+    "category": "Critique & Gong'an",
+    "definition": "Spurious, superficial, or nihilistic understanding of Zen. Originates in Baizhang's encounter with the former abbot reincarnated as a fox for claiming an enlightened person 'does not fall into causality' (不落因果) instead of 'is not blind to causality' (不昧因果).",
+    "occurrences": ["Wumenguan Case 2", "Baizhang Yulu", "Biyanlu"]
+  },
+  {
+    "id": "pingchang_xin_shi_dao",
+    "term": "平常心是道",
+    "pinyin": "píng cháng xīn shì dào",
+    "literal": "Ordinary Mind is the Way",
+    "sanskrit": "prākṛta-citta-mārga",
+    "category": "Mazu / Zhaozhou Axiom",
+    "definition": "The foundational proclamation of Mazu Daoyi and reaffirmed by Nanquan Puyuan to Zhaozhou: The Way requires no artificial cultivation; drinking tea, eating rice, walking and resting without grasping or rejecting is the living Tao.",
+    "occurrences": ["Wumenguan Case 19", "Mazu Yulu", "Zhaozhou Yulu"]
+  },
+  {
+    "id": "chuanshen_fayao",
+    "term": "傳心法要",
+    "pinyin": "chuán xīn fǎ yào",
+    "literal": "Essentials of Mind Transmission",
+    "sanskrit": "citta-sampradāna-hṛdaya",
+    "category": "Huangbo Doctrine",
+    "definition": "The core teaching that all Buddhas and all sentient beings are nothing other than One Mind (一心), beyond creation, destruction, names, and forms.",
+    "occurrences": ["Huangbo Chuanxin Fayao T2012A", "Wanling Lu"]
+  },
+  {
+    "id": "bushi_wu",
+    "term": "不是物",
+    "pinyin": "bù shì wù",
+    "literal": "It is Not a Thing",
+    "sanskrit": "na vastu",
+    "category": "Encounter Quote",
+    "definition": "Nanyue Huairang's famous reply to the Sixth Patriarch Huineng after eight years of reflection on 'What is it that comes thus?': 'To explain it as any single thing would miss the mark' (說似一物即不中).",
+    "occurrences": ["Platform Sutra", "Jingde Chuandenglu Vol. 5", "Biyanlu"]
+  },
+  {
+    "id": "nianhua_weixiao",
+    "term": "拈花微笑",
+    "pinyin": "niān huā wéi xiào",
+    "literal": "Holding Up a Flower and Subtle Smile",
+    "sanskrit": "puṣpa-dhāraṇa-smitam",
+    "category": "Origin Myth",
+    "definition": "The origin of Chan transmission on Vulture Peak: Shakyamuni Buddha held up an udumbara flower before the assembly; only Mahākāśyapa broke into a smile, receiving the treasury of the true Dharma eye.",
+    "occurrences": ["Wumenguan Case 6", "Lianbiao Shizi Xu", "Zongmen Tongyao Ji"]
+  },
+  {
+    "id": "tong_xuan_feng",
+    "term": "通玄峰頂",
+    "pinyin": "tōng xuán fēng dǐng",
+    "literal": "Atop the Mystic Peak",
+    "sanskrit": "gūḍha-śikhara",
+    "category": "Poetic Metaphor",
+    "definition": "Classical verse imagery expressing transcendent insight that cannot be reached by ordinary human path or dualistic logic, popularized by Fayan Wenyi and Linji disciples.",
+    "occurrences": ["Fayan Yulu", "Biyanlu Case 23", "Chuandenglu"]
+  }
+]

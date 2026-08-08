@@ -1,0 +1,91 @@
+{
+  "id": "biyanlu",
+  "title_zh": "佛果圓悟禪師 碧巖錄",
+  "title_pinyin": "Fóguǒ Yuánwù Chánshī Bìyán Lù",
+  "title_en": "The Blue Cliff Record (Hekiganroku)",
+  "cbeta_id": "T2003",
+  "taisho_vol": 48,
+  "author_zh": "雪竇重顯 頌古 / 圓悟克勤 評唱",
+  "author_en": "Verses by Xuedou Chongxian (980–1052), Commentary and Pointers by Yuanwu Keqin (1063–1135)",
+  "era": "Song Dynasty (1125 CE)",
+  "genre": "Gong'an & Songgu (公案與評唱)",
+  "cases": [
+    {
+      "case_num": 1,
+      "title_zh": "梁武帝問達磨：廓然無聖",
+      "title_pinyin": "Liáng Wǔdì Wèn Dámó: Kuòrán Wúshèng",
+      "title_en": "Emperor Wu Asks Bodhidharma: Vast Emptiness, Nothing Holy",
+      "pointer_zh": "垂示云：見面便見，更無可言。若向言中取則，句裏商量，正如以管窺天，以蠡酌海。且道：廓然無聖，如何承當？",
+      "pointer_en": "Pointer: Seeing the face, you immediately see; there is nothing more to say. If you seek rules in words or deliberate in phrases, you are looking at the sky through a straw or scooping up the ocean with a ladle. Tell me: Vast emptiness, nothing holy—how do you take it up?",
+      "dialogue": [
+        {
+          "speaker": "Emperor Wu / 梁武帝",
+          "zh": "梁武帝問達磨大師：「如何是聖諦第一義？」",
+          "pinyin": "Liáng Wǔdì wèn Dámó dàshī: 'Rúhé shì shèngdì dìyī yì?'",
+          "translations": {
+            "cleary": "Emperor Wu of Liang asked Great Master Bodhidharma, 'What is the highest meaning of the holy truths?'",
+            "sasaki": "Emperor Wu of Liang asked Bodhidharma: 'What is the primal meaning of the sacred truth?'",
+            "suzuki": "Emperor Wu asked Bodhidharma: 'What is the first principle of the holy teaching?'",
+            "ai_literal": "Liang Emperor Wu asked Great Master Bodhidharma: 'What is the supreme first principle of the noble truths?'"
+          }
+        },
+        {
+          "speaker": "Bodhidharma / 達磨",
+          "zh": "磨云：「廓然無聖。」",
+          "pinyin": "Mó yún: 'Kuòrán wú shèng.'",
+          "translations": {
+            "cleary": "Bodhidharma said, 'Vast emptiness, nothing holy.'",
+            "sasaki": "Bodhidharma said: 'Vast emptiness, nothing sacred.'",
+            "suzuki": "Bodhidharma replied: 'Vast emptiness and not a trace of holiness.'",
+            "ai_literal": "Mo said: 'Vast and open, without holy.'"
+          }
+        },
+        {
+          "speaker": "Emperor Wu / 梁武帝",
+          "zh": "帝曰：「對朕者誰？」磨云：「不識。」帝不契。達磨遂潛渡江至魏。",
+          "pinyin": "Dì yuē: 'Duì zhèn zhě shuí?' Mó yún: 'Bù shí.' Dì bù qì. Dámó suì qián dù jiāng zhì Wèi.",
+          "translations": {
+            "cleary": "The Emperor said, 'Who is facing me?' Bodhidharma said, 'I do not know.' The Emperor did not understand. Bodhidharma subsequently crossed the Yangzi River secretly and went north to Wei.",
+            "sasaki": "The Emperor asked: 'Who is this confronting me?' Bodhidharma answered: 'Do not know.' The Emperor failed to grasp. Bodhidharma crossed the river into Wei.",
+            "ai_literal": "The Emperor said: 'Who faces our imperial self?' Mo said: 'Not knowing.' The Emperor was not in accord. Bodhidharma secretly crossed the river to Wei."
+          }
+        }
+      ],
+      "verse_zh": "聖諦廓然，何當辨的。對朕者誰，還云不識。因茲暗渡江，豈免生荊棘。",
+      "verse_en": "The holy truths are vast and clear, / How could anyone distinguish them? / 'Who is facing me?' / Once more he says, 'I do not know.' / Because of this he secretly crossed the river— / How could he avoid sprouting thorns and brambles?"
+    },
+    {
+      "case_num": 3,
+      "title_zh": "馬祖不安：日面佛月面佛",
+      "title_pinyin": "Mǎzǔ Bù'ān: Rìmiàn Fó Yuèmiàn Fó",
+      "title_en": "Master Mazu is Unwell: Sun-Face Buddha, Moon-Face Buddha",
+      "pointer_zh": "垂示云：一機一境，一棒一喝，若能徹照根源，便能坐斷天下人舌頭。",
+      "pointer_en": "Pointer: One dynamic trigger, one realm; one staff strike, one shout. If you can penetrate to the source, you can cut off the tongues of everyone under heaven.",
+      "dialogue": [
+        {
+          "speaker": "Monastery Ino / 院主",
+          "zh": "馬祖大師不安。院主問：「和尚近日尊位如何？」",
+          "pinyin": "Mǎzǔ dàshī bù'ān. Yuànzhǔ wèn: 'Héshang jìnrì zūnwèi rúhé?'",
+          "translations": {
+            "cleary": "Great Master Mazu was unwell. The monastery administrator asked, 'How is the Master's health these days?'",
+            "sasaki": "Master Baso was unwell. The temple administrator asked: 'How is the Master's venerable condition in recent days?'",
+            "ai_literal": "Great Master Mazu was physically ill. The director asked: 'How is the venerable condition of the Master in recent days?'"
+          }
+        },
+        {
+          "speaker": "Mazu / 馬祖",
+          "zh": "大師云：「日面佛，月面佛。」",
+          "pinyin": "Dàshī yún: 'Rì miàn fó, yuè miàn fó.'",
+          "translations": {
+            "cleary": "The Great Master said, 'Sun-Face Buddha, Moon-Face Buddha.'",
+            "sasaki": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha!'",
+            "suzuki": "Mazu said: 'Sun-faced Buddha, Moon-faced Buddha.'",
+            "ai_literal": "Great Master said: 'Sun-face Buddha, Moon-face Buddha.'"
+          }
+        }
+      ],
+      "verse_zh": "日面佛，月面佛。五帝三皇是何物？二十年來曾苦辛，為君幾下蒼龍窟。",
+      "verse_en": "Sun-Face Buddha, Moon-Face Buddha! / What kind of things are the Three Emperors and Five Sovereigns? / For twenty years I struggled with hardship, / Entering the cave of the dark dragon for your sake!"
+    }
+  ]
+}
