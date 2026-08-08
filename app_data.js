@@ -4925,6 +4925,95 @@ window.TRANSLATECHAN_DATA = {
           }
         }
       ]
+    },
+    "huangbo_wanling": {
+      "id": "huangbo_wanling",
+      "title_zh": "黃檗山斷際禪師宛陵錄",
+      "title_pinyin": "Huángbò Shān Duànjì Chánshī Wǎnlíng Lù",
+      "title_en": "The Zen Teaching of Huang Po: The Wanling Record",
+      "cbeta_id": "T2012B",
+      "taisho_vol": 48,
+      "author_zh": "黃檗希運 禪師 說 / 唐 相國 裴休 集",
+      "author_en": "Chan Master Huangbo Xiyun (d. 850), Recorded by Prime Minister Pei Xiu at Wanling",
+      "era": "Tang Dynasty (c. 858 CE)",
+      "genre": "Mind Transmission & Dialogues with Prime Minister Pei Xiu (宛陵法要)",
+      "overview": "The celebrated second volume of Master Huangbo's teachings recorded by Prime Minister Pei Xiu, famous for the encounter of the painted portrait and the proclamation that 'In all of China there are no Chan teachers!'",
+      "sections": [
+        {
+          "section_id": "portrait_encounter",
+          "title_zh": "裴休進畫像：真容在此，長老在甚麼處？",
+          "title_pinyin": "Péi Xiū Jìn Huàxiàng: Zhēnróng Zài Cǐ, Zhǎnglǎo Zài Shènme Chù?",
+          "title_en": "Pei Xiu Presents the Portrait: Where is the Master?",
+          "dialogue": [
+            {
+              "speaker": "Pei Xiu / 裴休",
+              "zh": "相國裴休一日請師至府，指壁上畫像問曰：「真容在此，長老在甚麼處？」師應聲召曰：「裴休！」休應曰：「諾！」",
+              "pinyin": "Xiàngguó Péi Xiū yī rì qǐng shī zhì fǔ, zhǐ bì shàng huàxiàng wèn yuē: 'Zhēnróng zài cǐ, zhǎnglǎo zài shènme chù?' Shī yìngshēng zhào yuē: 'Péi Xiū!' Xiū yìng yuē: 'Nuò!'",
+              "translations": {
+                "blofeld": "One day Prime Minister Pei Xiu invited the Master to the government hall, pointed to a portrait of a monk on the wall, and asked: 'The portrait is here, but where is the Master?' The Master immediately called out: 'Pei Xiu!' The Prime Minister answered: 'Yes!'",
+                "red_pine": "Prime Minister Pei Xiu invited the Master to his quarters. Pointing to a monk's portrait on the wall, he asked: 'The likeness is right here, but where is the Master?' The Master immediately called out: 'Pei Xiu!' Pei Xiu replied: 'Yes, Master!'",
+                "cleary": "Prime Minister Pei Xiu invited the Master to his office, pointed to a painting of a high monk on the wall, and asked, 'The true likeness is here; where is the elder?' The Master called out, 'Pei Xiu!' Xiu answered, 'Yes!'"
+              }
+            },
+            {
+              "speaker": "Huangbo / 黃檗",
+              "zh": "師曰：「在甚麼處？」休於言下大悟，如獲寶珠，便禮拜謝師。",
+              "pinyin": "Shī yuē: 'Zài shènme chù?' Xiū yú yán xià dà wù, rú huò bǎozhū, biàn lǐbài xiè shī.",
+              "translations": {
+                "blofeld": "The Master said: 'Where is he?' At these words the Prime Minister was greatly awakened, as if finding a priceless gem, and bowed in deep gratitude to the Master.",
+                "red_pine": "The Master said: 'Where are you?' At these words Pei Xiu attained great awakening, as if finding a hidden jewel, and bowed in veneration.",
+                "cleary": "The Master said, 'Where are you?' Pei Xiu had great enlightenment at these words, as if obtaining a jewel, and bowed in gratitude."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "no_chan_teachers",
+          "title_zh": "大唐國內無禪師：不道無禪，祇是無師",
+          "title_pinyin": "Dàtáng Guónèi Wú Chánshī: Bù dào wú chán, zhǐ shì wú shī",
+          "title_en": "In All of Tang China There Are No Chan Teachers",
+          "dialogue": [
+            {
+              "speaker": "Huangbo / 黃檗",
+              "zh": "師示眾云：「汝等諸人，盡是噇酒糟漢！恁麼行腳，何處有今日？還知大唐國內無禪師麼？」",
+              "pinyin": "Shī shì zhòng yún: 'Rǔděng zhū rén, jìn shì chuáng jiǔzāo hàn! Rèn me xíngjiǎo, hé chù yǒu jīnrì? Hái zhī Dàtáng guónèi wú chánshī me?'",
+              "translations": {
+                "blofeld": "The Master instructed the assembly: 'All of you people are eaters of wine dregs! If you go on wandering like this, where will you find today? Do you know that in all of Great Tang China there is not a single Chan teacher?'",
+                "red_pine": "The Master addressed the assembly: 'You people are all guzzlers of dregs! Wandering about on pilgrimage like this, where will you ever find the present moment? Do you know that in all the great empire of Tang there are no Chan teachers?'",
+                "cleary": "The Master said to the assembly, 'You people are all eaters of dregs! If you go traveling like this, where will you find today? Do you know there are no Zen teachers in the whole Tang empire?'"
+              }
+            },
+            {
+              "speaker": "Monk / 僧",
+              "zh": "時有僧出問：「只如諸方聚眾接人，又作麼生？」師曰：「不道無禪，祇是無師。」",
+              "pinyin": "Shí yǒu sēng chū wèn: 'Zhǐ rú zhūfāng jùzhòng jiērén, yòu zuò me shēng?' Shī yuē: 'Bù dào wú chán, zhǐ shì wú shī.'",
+              "translations": {
+                "blofeld": "Then a monk came forward and asked: 'What about those in all quarters who gather followers and instruct disciples?' The Master said: 'I do not say there is no Chan; I only say there are no teachers!'",
+                "red_pine": "A monk stepped out and asked: 'What about those everywhere who lead assemblies and instruct people?' The Master said: 'I don't say there is no Chan; only that there are no teachers.'",
+                "cleary": "Then a monk came forward and asked, 'What about those everywhere who gather groups and lead people?' The Master said, 'I don't say there is no Zen, just that there are no teachers.'"
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "mind_as_void",
+          "title_zh": "虛空本無體，心亦如虛空",
+          "title_pinyin": "Xūkōng Běn Wútǐ, Xīn Yì Rú Xūkōng",
+          "title_en": "The Void Has No Body; Mind is Likewise Like the Void",
+          "dialogue": [
+            {
+              "speaker": "Huangbo / 黃檗",
+              "zh": "虛空不可度量，心體亦不可度量。若能了達無心，則十方虛空盡是自心。起心動念，即乖法體；休歇無求，當下菩提。",
+              "pinyin": "Xūkōng bùkě dùliàng, xīntǐ yì bùkě dùliàng. Ruò néng liǎodá wúxīn, zé shífāng xūkōng jìn shì zì xīn. Qǐxīn dòngniàn, jí guāi fǎtǐ; xiūxiē wúqiú, dāngxià pútí.",
+              "translations": {
+                "blofeld": "The void cannot be measured, and the substance of Mind cannot be measured. If you can comprehend No-Mind, then the ten directions of open space are all your own mind. Stirring a thought or moving a concept deviates from the body of reality; resting in non-seeking is instant Bodhi.",
+                "red_pine": "The void cannot be measured, nor can the substance of mind be measured. If you realize No-Mind, the void in all ten directions is your own mind. Stirring thoughts deviates from reality; resting in non-seeking is immediate Bodhi.",
+                "cleary": "Space cannot be measured, and the body of mind cannot be measured. If you realize no-mind, the space of the ten directions is all your own mind. Arousing thoughts is deviation; resting without seeking is Bodhi right now."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
