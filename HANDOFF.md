@@ -1,7 +1,7 @@
 # 🤝 TranslateChan: Project Handoff, Pull Request & Deployment Guide
 
 > **Repository**: `56eli/translatechan`  
-> **Working Branch**: agent sessions work on session branches (e.g. `arena/019fe05c-translatechan` → merged as PR #1; current: `arena/019fe108-translatechan`)  
+> **Working Branch**: agent sessions work on session branches (e.g. `arena/019fe05c-translatechan` → merged as PR #1; `arena/019fe108-translatechan` → merged as PR #2; **current: `arena/019fe1b5-translatechan` → PR #3**)  
 > **Target Branch**: `main`  
 > **GitHub Pages URL**: `https://56eli.github.io/translatechan/` (**live**: branch `main`, folder `/docs`)
 
@@ -22,33 +22,32 @@ The TranslateChan project has been fully established with:
 
 ---
 
-## 📍 Session Delta Since PR #1 (all on `arena/019fe108-translatechan`, 2026-08-08)
+## 📍 Session Delta Since PR #2 (all on `arena/019fe1b5-translatechan`, 2026-08-08)
 
-15 commits ready for `main`. One-sentence map (full detail in [`AUDIT.md` §8](./AUDIT.md)):
+**10 commits ready for `main` (PR #3)**. One-sentence map (full detail in [`AUDIT.md` §9](./AUDIT.md)):
 
-1. **`37b263a`** Post-PR#1 full project audit → [`AUDIT.md`](./AUDIT.md) (P0 found: app wouldn't even parse).
-2. **`2a160c6`** P0 repair: fatal `app.js` syntax error + 6 runtime crashes; new `scripts/smoke_test.mjs` regression harness.
-3. **`84a59eb`** Docs-truth pass: measured statuses, `LICENSE` (MIT + CC BY-SA 4.0 + third-party notice), `.nojekyll`, phantom refs purged.
-4. **`5405a60`** Attribution-integrity: `provenance.json` provenance policy + ✅/⚠️ badges in the UI + mis-cited canon IDs fixed.
-5. **`5c35834`** Universal search (all 36 texts × all schemas), true reader modes, single-pass clean tooltips, Studio builds from the data bundle.
-6. **`7dbfec0`–`934b7ef` (7 commits)** Verified-quotation campaign rounds 1–8 → **119 verified slots across 6 corpus texts + 2 verified matrix rows**; six ✅ editions on Wumenguan Case 1; **Wumenguan completed 48/48** with the Senzaki & Reps 1934 public-domain register on every case (round 9, 2026-08-08); `provenance.json` v2.0. Highlights: first-ever honest ✅/⚠️ labels on every scholar-attributed rendering; 4 paraphrases/near-paraphrases caught and replaced with verified wording; 1 non-canonical Chinese stanza corrected to T2010.
+1. **`8ea6c46`** Second-pass full audit → no P0; all PR#2 remediations verified holding; 10 new findings B1–B10 ([`AUDIT.md` §9.2](./AUDIT.md); readable report `SESSION_AUDIT_2026-08-08.md`).
+2. **`f074b7e`** **B1–B10 remediation + CBETA canon-reference pass**: `docs/data` mirror restored; stale UI branch string; volume-chip truth; search escaping + variant normalization (鉢/缽, 曰/云, 臺/台, 裏/里, 無/无); localStorage guard; dead `stacked` mode dropped; `docs/scripts` removed; **lineage 18 → 30 masters** (every teacher edge resolves); **canon IDs corrected vs CBETA for 10 corpus files + 5 master profiles** (foyan T1995→X1315, mazu/baizhang→四家語錄 X1321/X1323, xuansha→X1445, dazhu→X1223, caoxi→X1598, dahui_shobogenzo T2002→X1309, xuefeng T1983→X1333, fayan→X1226, dahui_hongzhi T2001 dropped, taisho_vol truth).
+3. **`e299187`** **Wumenguan completed 48/48** — the corpus's first complete canonical text: all 48 cases + preface + epilogue (zh per CBETA T2005 宗紹編), **+40 verified Senzaki & Reps 1934 PD slots → 119 verified slots total**; CBETA numbering correction (case 37 IS 庭前柏樹); coverage metadata; `provenance.json` v2.0.
+4. **`11ad640`** UX/UI improvement roadmap ([`UX_ROADMAP.md`](./UX_ROADMAP.md)) — 10 measured pain points, phases A–D, mobile + desktop, zero-backend contract.
+5. **`2ed729c` + `584a51f` + `b7083b4` + `15e1f9d`** **UX Phases A–D implemented (roadmap 100%)**: case-index strip + collapsible cards; tap/focus shared glossary popover (de-duplicated DOM); persisted preferences; debounced + capped search; mobile corpus picker + bottom action bar; single-column mobile translations; print/PDF stylesheet; hash routing + deep links; lineage pan/zoom/reset; WCAG-AA a11y pass; studio (48-case picker, draft filter/delete, 🖨 Print) + Gong'an theme filters; cached search index; lazy case rendering; `app_data.js` preload.
 
-**Release readiness**: `scripts/smoke_test.mjs` ✅ · deterministic bundle ✅ · `/docs` byte-synced ✅ · live site will self-heal on merge (Pages serves `main` `/docs`).
+**Release readiness**: `scripts/smoke_test.mjs` ✅ (36 texts × all modes + 48-case lazy-render + strip/toggle/nav/picker/popover/pan-zoom/studio checks) · deterministic bundle ✅ · root↔`docs` byte-identical ✅ · `diff -rq data docs/data` silent ✅ · live site will self-heal on merge (Pages serves `main` `/docs`).
 
 ---
 
 ## 🔀 Merging & GitHub Pull Request Instructions
 
-Session work is committed and pushed to the session branch (currently `origin arena/019fe108-translatechan`). To merge into `main`:
+Session work is committed and pushed to the session branch (currently `origin arena/019fe1b5-translatechan` → PR #3). To merge into `main`:
 
 ### Method 1: Via GitHub Web UI
-1. Navigate to: **`https://github.com/56eli/translatechan/pull/new/arena/019fe108-translatechan`** (substitute the current session branch).
+1. Navigate to: **`https://github.com/56eli/translatechan/pull/new/arena/019fe1b5-translatechan`** (substitute the current session branch).
 2. Give the PR a descriptive title (conventional-commit style preferred), click **Create Pull Request**, then **Merge Pull Request**.
 
 ### Method 2: Via GitHub CLI (`gh`) — from the session branch
 ```bash
 # Agent sessions must stay on their own branch; open the PR from there:
-gh pr create --base main --head arena/019fe108-translatechan --title "..." --body "..."
+gh pr create --base main --head arena/019fe1b5-translatechan --title "..." --body "..."
 # Merging is performed by the repository owner (or via `gh pr merge`).
 ```
 
@@ -79,7 +78,7 @@ translatechan/
 │   ├── app.css
 │   ├── app.js
 │   ├── app_data.js
-│   └── data/               # Canonical JSON datasets
+│   └── data/               # Canonical JSON datasets (mirrored byte-identically by build_data_bundle.py)
 ├── vision.md               # Grand Vision & Architectural Specification
 ├── ROADMAP.md              # Project Roadmap & Multi-Phase Tracker
 ├── README.md               # User documentation & Quickstart guide

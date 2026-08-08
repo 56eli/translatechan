@@ -142,7 +142,7 @@ python3 -m http.server 8080
 ✅ **Already active**: Pages publishes from branch **`main`**, folder **`/docs`**, HTTPS enforced.
 👉 Live at `https://56eli.github.io/translatechan/`
 
-**Publishing flow for new work** (agent sessions commit to session branches such as `arena/019fe108-translatechan`):
+**Publishing flow for new work** (agent sessions commit to session branches such as `arena/<session>-translatechan`; current: `arena/019fe1b5-translatechan`):
 1. On the session branch, run `python3 scripts/build_data_bundle.py` (syncs root + `/docs`) and `node scripts/smoke_test.mjs`.
 2. Commit, push the branch, and open a pull request into `main`.
 3. On merge, GitHub Pages re-publishes automatically within ~60 seconds.
