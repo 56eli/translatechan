@@ -3618,6 +3618,107 @@ window.TRANSLATECHAN_DATA = {
           }
         }
       ]
+    },
+    "bodhidharma_erru": {
+      "id": "bodhidharma_erru",
+      "title_zh": "達摩大師 二入四行論",
+      "title_pinyin": "Dámó Dàshī Èrrù Sìxíng Lùn",
+      "title_en": "Bodhidharma's Treatise on the Two Entrances and Four Practices",
+      "cbeta_id": "T2009",
+      "taisho_vol": 48,
+      "author_zh": "初祖 菩提達摩 說 / 門人 曇林 序",
+      "author_en": "First Patriarch Bodhidharma (d. ~532 CE), Recorded by Disciple Tanlin",
+      "era": "Northern & Southern Dynasties (Northern Wei, c. 520 CE)",
+      "genre": "Proto-Chan & Foundational Treatise (達摩論)",
+      "overview": "The earliest extant Chan text, preserved in Dunhuang manuscripts and Taishō Vol. 48, articulating the foundational dual approach of Entrance by Principle (理入) through Wall-Gazing and Entrance by Practice (行入) through the Four Practices.",
+      "sections": [
+        {
+          "section_id": "two_entrances",
+          "title_zh": "總綱：理入與行入",
+          "title_pinyin": "Zǒnggāng: Lǐrù yǔ Xíngrù",
+          "title_en": "The Two Entrances: Principle and Practice",
+          "dialogue": [
+            {
+              "speaker": "Bodhidharma / 達摩",
+              "zh": "夫入道多途，要而言之，不出二種：一是理入，二是行入。",
+              "pinyin": "Fú rù dào duō tú, yào ér yán zhī, bù chū èr zhǒng: yī shì lǐrù, èr shì xíngrù.",
+              "translations": {
+                "red_pine": "Many roads lead to the Way, but basically there are only two: reason and practice.",
+                "cleary": "There are many avenues of entry to the Way, but essentially they do not go beyond two kinds: one is entry by principle, the second is entry by practice.",
+                "suzuki": "There are many ways to enter the Path, but briefly speaking they are of two sorts only: the Entrance by Reason and the Entrance by Conduct.",
+                "sasaki": "Many are the ways to enter the Tao, but in essence they are of two kinds: Entrance by Principle and Entrance by Practice."
+              }
+            },
+            {
+              "speaker": "Bodhidharma / 達摩",
+              "zh": "理入者，謂藉教悟宗，深信含生同一真性，但為客塵妄想所覆，不能顯了。若也捨妄歸真，凝住壁觀，無自無他，凡聖等一，堅住不移，更不隨於言教，此即與理冥符，無有分別，寂然無為，名之理入。",
+              "pinyin": "Lǐrù zhě, wèi jiè jiào wù zōng, shēnxìn hánshēng tóngyī zhēnxìng, dàn wèi kèchén wàngxiǎng suǒ fù, bùnéng xiǎnliǎo. Ruò yě shě wàng guī zhēn, níngzhù bìguān, wú zì wú tā, fán shèng děng yī, jiānzhù bù yí, gèng bù suí yú yánjiào, cǐ jí yǔ lǐ míng fú, wú yǒu fēnbié, jìrán wúwéi, míng zhī lǐrù.",
+              "translations": {
+                "red_pine": "To enter by reason means to realize the essence through instruction and to believe deeply that all living beings share the same true nature, which isn't apparent because it's shrouded by sensation and delusion. Those who turn from delusion to reality, who meditate on walls, the absence of self and other, the oneness of mortal and sage, and who remain unmoved even by scriptures are in complete and unspoken agreement with reason. Without discrimination, still and unmoving, this is called entry by reason.",
+                "cleary": "Entry by principle means realizing the source through teaching, deeply believing that sentient beings share the same true nature, which is obscured by adventitious dust and false thought. If you abandon delusion and return to reality, remaining firmly in wall-gazing, without self or other, ordinary and holy are equal and one. Unmoving, no longer following scriptures, this silently accords with principle: free of discrimination, quiet and unconditioned, it is called entry by principle.",
+                "suzuki": "By Entrance by Reason we mean the realization of the spirit of Buddhism by the aid of the scriptural teachings. We then come to have a deep faith in the True Nature which is one and the same in all sentient beings. If we abandon the false and return to the real, gazing at walls, where self and other are not two, we abide unmoved, silently attuned to Suchness.",
+                "sasaki": "Entrance by Principle means to grasp the fundamental truth through the teachings, firmly believing that all living beings possess the same True Nature. Resting in wall-gazing, there is neither self nor other; sage and commoner are equal and one."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "four_practices_1_2",
+          "title_zh": "行入前二：報冤行與隨緣行",
+          "title_pinyin": "Xíngrù Qián'èr: Bàoyuān Xíng yǔ Suíyuán Xíng",
+          "title_en": "Practices 1 & 2: Requiting Injustice and Adapting to Conditions",
+          "dialogue": [
+            {
+              "speaker": "Bodhidharma / 達摩",
+              "zh": "一、報冤行：修道行人，若受苦時，當自念言：我往昔無數劫中，棄本從末，流浪諸有，多起冤憎，違害無限。今雖無犯，是我宿殃，惡業果熟，非天非人所能見與。甘心忍受，都無冤訴。經云：逢苦不憂。何以故？識達故。此心生時，與理相應，體冤進道，故說報冤行。",
+              "pinyin": "Yī, bàoyuān xíng: Xiūdào xíngrén, ruò shòu kǔ shí, dāng zì niàn yán: Wǒ wǎngxī wúshù jié zhōng, qì běn cóng mò, liúlàng zhū yǒu, duō qǐ yuān zēng, wéihài wúxiàn. Jīn suī wú fàn, shì wǒ sùyāng, èyè guǒ shú, fēi tiān fēi rén suǒ néng jiàn yǔ. Gānxīn rěnshòu, dōu wú yuān sù. Jīng yún: Féng kǔ bù yōu. Héyǐ gù? Shí dá gù. Cǐ xīn shēng shí, yǔ lǐ xiāngyìng, tǐ yuān jìn dào, gù shuō bàoyuān xíng.",
+              "translations": {
+                "red_pine": "First: Requiting Injustice. When those who search for the Way encounter suffering, they should think: In past kalpas I pursued the trivial instead of the essential, drifting through all states of existence, creating endless ill will. Though I commit no offense now, this is the fruition of past karma, not inflicted by gods or men. I willingly accept it without complaint. The sutras say: 'When you meet with suffering, do not be distressed.' Why? Because you understand. When this attitude arises, it accords with reason; using hardship to advance along the Way, this is called requiting injustice.",
+                "cleary": "First, the practice of requiting grievance. When practitioners of the Way encounter suffering, they should reflect: In countless past ages I abandoned the root to follow the branches, producing boundless hostility. Though I do no wrong now, this is the ripening of past karma. I accept it willingly without complaint. This is called the practice of requiting grievance.",
+                "suzuki": "First, how to requite hatred. When the practitioner of the Path encounters suffering, he should think: In past ages I wandered through existence, giving rise to much anger and resentment. This suffering is the ripening of past deeds. I bear it cheerfully without grudge."
+              }
+            },
+            {
+              "speaker": "Bodhidharma / 達摩",
+              "zh": "二、隨緣行：眾生無我，並緣業所轉。苦樂齊受，都從緣生。若得勝報榮譽等事，是我過去宿因所感，今方得之。緣盡還無，何喜之有？得失從緣，心無增減，喜風不動，冥順於道，是故說隨緣行。",
+              "pinyin": "Èr, suíyuán xíng: Zhòngshēng wú wǒ, bìng yuán yè suǒ zhuǎn. Kǔlè qí shòu, dōu cóng yuán shēng. Ruò dé shèngbào róngyù děng shì, shì wǒ guòqù sùyīn suǒ gǎn, jīn fāng dé zhī. Yuán jìn hái wú, hé xǐ zhī yǒu? Déshī cóng yuán, xīn wú zēngjiǎn, xǐ fēng bù dòng, míng shùn yú dào, shìgù shuō suíyuán xíng.",
+              "translations": {
+                "red_pine": "Second: Adapting to Conditions. Sentient beings have no self; they are governed by karma. Pain and pleasure arise together from conditions. If I obtain praise, success, and prosperity, it is the result of past causes; when conditions exhaust, it vanishes. Why rejoice? Gain and loss follow conditions, while the mind neither increases nor decreases. Unmoved by the winds of delight, silently according with the Way, this is called adapting to conditions.",
+                "cleary": "Second, the practice of following conditions. Sentient beings have no self; they are driven by karma. Pain and pleasure are born of conditions. If I gain honor and success, it was caused by past actions; when conditions end, it returns to nothing. Why be glad? Gain and loss follow conditions; the mind does not increase or decrease. Unmoved by winds of joy, silently in accord with the Way, this is called following conditions.",
+                "suzuki": "Second, to be obedient to conditions. There is no self in any sentient being; we are moved by conditions and karma. Pleasure and pain are born of conditions. If I attain honor, it was earned in past lives; when conditions cease, it ends. Unmoved by gain or loss, this is called accordance with conditions."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "four_practices_3_4",
+          "title_zh": "行入後二：無所求行與稱法行",
+          "title_pinyin": "Xíngrù Hòu'èr: Wúsuǒqiú Xíng yǔ Chèngfǎ Xíng",
+          "title_en": "Practices 3 & 4: Seeking Nothing and Accordance with Dharma",
+          "dialogue": [
+            {
+              "speaker": "Bodhidharma / 達摩",
+              "zh": "三、無所求行：世人長迷，處處貪著，名之為求。智者悟真，理將俗反。安心無為，形隨運轉。萬有斯空，無所願樂。經云：有求皆苦，無求即樂。判知無求，真為道行，故言無所求行。",
+              "pinyin": "Sān, wúsuǒqiú xíng: Shìrén cháng mí, chùchù tānzhuó, míng zhī wéi qiú. Zhìzhě wù zhēn, lǐ jiāng sú fǎn. Ānxīn wúwéi, xíng suí yùnzhuǎn. Wànyǒu sī kōng, wú suǒ yuàn lè. Jīng yún: Yǒu qiú jiē kǔ, wú qiú jí lè. Pàn zhī wú qiú, zhēn wéi dào xíng, gù yán wúsuǒqiú xíng.",
+              "translations": {
+                "red_pine": "Third: Seeking Nothing. People of the world are perpetually deluded, everywhere attached to things; this is called seeking. The wise awaken to reality and choose the reverse of worldly ways. They pacify their minds in non-doing, letting their physical forms move with the seasons. The myriad things are empty, with nothing to desire or seek. The sutras say: 'To seek is suffering; to seek nothing is joy.' Knowing that non-seeking is the true practice of the Way, this is called seeking nothing.",
+                "cleary": "Third, the practice of seeking nothing. People are long deluded, greedy and attached everywhere; this is called seeking. The wise awaken to truth, their principles opposite to the mundane. They settle the mind in non-contrivance, while bodily forms follow fortune's turns. All existence is empty, with nothing to wish for. The sutras say, 'To seek is all suffering; seeking nothing is bliss.' Knowing non-seeking is true practice, this is called the practice of seeking nothing.",
+                "suzuki": "Third, to seek nothing. Worldly people are always lost in delusion, grasping at everything; this is called seeking. The wise awaken to truth and reverse worldly ways. Settling the mind in non-doing, they recognize all existence as empty. The sutra says: 'Seeking is suffering; non-seeking is peace.'"
+              }
+            },
+            {
+              "speaker": "Bodhidharma / 達摩",
+              "zh": "四、稱法行：性淨之理，目之為法。此理眾相斯空，無染無著，無此無彼。經云：法無眾生，離眾生垢故；法無有我，離我垢故。智者若能信解此理，應當稱法而行。",
+              "pinyin": "Sì, chèngfǎ xíng: Xìng jìng zhī lǐ, mù zhī wéi fǎ. Cǐ lǐ zhòngxiàng sī kōng, wú rǎn wú zhuó, wú cǐ wú bǐ. Jīng yún: Fǎ wú zhòngshēng, lí zhòngshēng gòu gù; fǎ wú yǒu wǒ, lí wǒ gòu gù. Zhìzhě ruò néng xìnjiě cǐ lǐ, yīngdāng chèngfǎ ér xíng.",
+              "translations": {
+                "red_pine": "Fourth: Practicing the Dharma. The fundamental truth of pure nature is named Dharma. In this truth, all forms are empty: there is no defilement, no attachment, no this or that. The sutras say: 'In the Dharma there are no sentient beings, because it is free from the stain of sentient beings; in the Dharma there is no self, because it is free from the stain of self.' If the wise can understand this truth, they should practice in accordance with the Dharma.",
+                "cleary": "Fourth, the practice of accordance with Dharma. The principle of purity of nature is called Dharma. In this principle, all forms are empty: without defilement and without attachment, without this and without that. The sutra says, 'In Dharma there are no sentient beings, because it is free from the defilement of beings; in Dharma there is no self, because it is free from the defilement of self.' When the wise believe and understand this principle, they should practice in accordance with Dharma.",
+                "suzuki": "Fourth, to be in accord with the Dharma. The principle of pure nature is called the Dharma. In this principle all forms are empty, free from attachment and duality. The sutra says: 'In the Dharma there is no self and no other.' When the wise comprehend this, they act in accord with the Dharma."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
