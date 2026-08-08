@@ -1068,7 +1068,7 @@ window.TRANSLATECHAN_DATA = {
     }
   ],
   "translations_provenance": {
-    "policy_version": "1.2",
+    "policy_version": "1.3",
     "policy_date": "2026-08-08",
     "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
     "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -1127,6 +1127,22 @@ window.TRANSLATECHAN_DATA = {
           "blyth (Zen and Zen Classics vol. 4, 1966 — print check pending; remains reconstruction_unverified)"
         ],
         "note": "senzaki_reps/shimomisse keys were ADDED to the dataset; they are not scholar-default registers and always carry their own object-form status. Existing red_pine/cleary/sasaki/suzuki/blyth/blofeld entries remain reconstruction_unverified — several (Sasaki, Blofeld, Red Pine on Wumenguan) have no published Wumenguan translation to verify against."
+      },
+      {
+        "pilot": "Round 2 (2026-08-08): Xinxin Ming stanzas 1–2 + Platform Sutra verses",
+        "registers_verified": [
+          "clarke — Xinxin Ming stanza 1 & 2, verbatim vs two independent mirrors",
+          "yampolsky — Shenxiu verse p.130 + Huineng Dunhuang-recension verse p.132 (vs published citations)"
+        ],
+        "data_corrections": [
+          "platform_sutra: prior Shenxiu 'yampolsky' paraphrase replaced by verified quotation",
+          "platform_sutra: Huineng received-text 'yampolsky' remains reconstruction (he translated only the Dunhuang recension); Dunhuang variant verse added for direct comparison",
+          "xinxin_ming stanza 3 zh corrected to canonical T2010 (was non-canonical paraphrase 不生留情，本來平坦)"
+        ],
+        "registers_pending": [
+          "blyth (print check pending)",
+          "suzuki Platform-verse register (source check pending)"
+        ]
       }
     ]
   },
@@ -2215,7 +2231,16 @@ window.TRANSLATECHAN_DATA = {
             "suzuki": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
             "blyth": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
             "sasaki": "The supreme Way is not difficult, only dislike choosing. Just have neither hatred nor love, and all will be lucid and clear.",
-            "ai_literal": "The ultimate Way is without difficulty, only detesting picking and choosing. Simply do not hate or love, and it is penetratively clear."
+            "ai_literal": "The ultimate Way is without difficulty, only detesting picking and choosing. Simply do not hate or love, and it is penetratively clear.",
+            "clarke": {
+              "text": "The Great Way is not difficult for those who have no preferences. When love and hate are both absent everything becomes clear and undisguised.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Hsin-Hsin Ming: Verses on the Faith-Mind, tr. Richard B. Clarke (1973, White Wind Press)",
+                "edition": "widely mirrored online text",
+                "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08"
+              }
+            }
           }
         },
         {
@@ -2228,20 +2253,30 @@ window.TRANSLATECHAN_DATA = {
             "suzuki": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth, then hold no opinions for or against anything.",
             "blyth": "To set up what you like against what you dislike is the disease of the mind. A hair's breadth divergence separates heaven and earth.",
             "sasaki": "An error by a hair's breadth separates heaven and earth. If you wish it to manifest, keep no clinging to pleasant or unpleasant.",
-            "ai_literal": "A millimeter's deviation separates heaven and earth. If wishing it to manifest, maintain neither agreeable nor contrary."
+            "ai_literal": "A millimeter's deviation separates heaven and earth. If wishing it to manifest, maintain neither agreeable nor contrary.",
+            "clarke": {
+              "text": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth then hold no opinions for or against anything.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Hsin-Hsin Ming: Verses on the Faith-Mind, tr. Richard B. Clarke (1973, White Wind Press)",
+                "edition": "widely mirrored online text",
+                "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08"
+              }
+            }
           }
         },
         {
           "stanza_num": 3,
-          "zh": "違順相爭，是為心病。不生留情，本來平坦。",
-          "pinyin": "Wéi shùn xiāng zhēng, shì wéi xīn bìng. Bù shēng liú qíng, běn lái píng tǎn.",
+          "zh": "違順相爭，是為心病。不識玄旨，徒勞念靜。",
+          "pinyin": "Wéi shùn xiāngzhēng, shì wéi xīnbìng. Bù shí xuán zhǐ, túláo niàn jìng.",
           "translations": {
             "red_pine": "The battle between for and against is the mind's disease. Not harboring emotional bias, all is naturally smooth and level.",
             "cleary": "The struggle between opposition and agreement is the disease of the mind. When you do not generate clinging feelings, it is fundamentally level and smooth.",
             "suzuki": "To set up what you like against what you dislike is the disease of the mind. When the deep meaning of things is not understood, the mind's essential peace is disturbed.",
             "sasaki": "The conflict between agreeable and disagreeable is the sickness of the mind. Without lingering emotional attachment, everything is inherently open and level.",
             "ai_literal": "Disagreement and agreement contending with each other is the mind's disease. Not generating lingering attachments, it is originally smooth and level."
-          }
+          },
+          "zh_correction": "Second couplet corrected to canonical T2010 reading (previous text 不生留情，本來平坦 was a non-canonical paraphrase). 2026-08-08."
         },
         {
           "stanza_num": 4,
@@ -2651,7 +2686,16 @@ window.TRANSLATECHAN_DATA = {
                 "red_pine": "The body is a Bodhi tree, the mind is a mirror bright. Carefully we wipe them hour by hour, and let no dust alight.",
                 "cleary": "The body is the bodhi tree, the mind is like a clear mirror stand. Constantly wipe and polish it diligently, do not let dust gather on it.",
                 "suzuki": "The body is the Bodhi tree, the mind is like a clear mirror stand. At all times diligently wipe it, and let no dust alight.",
-                "yampolsky": "The body is the Bodhi tree, the mind like a clear mirror stand. Time and again brush it clean, and let no dust alight."
+                "yampolsky": {
+                  "text": "The body is the Bodhi tree, the mind is like a clear mirror. At all times we must strive to polish it, and must not let the dust collect.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
+                    "edition": "Columbia University Press, 1967, p. 130 (Dunhuang text)",
+                    "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08",
+                    "note": "Replaces a prior paraphrase that did not match Yampolsky's wording."
+                  }
+                }
               }
             },
             {
@@ -2664,6 +2708,23 @@ window.TRANSLATECHAN_DATA = {
                 "suzuki": "Bodhi originally has no tree in it, nor has the mind-mirror any stand in it; originally there is not a single thing: Where can any dust gather?",
                 "yampolsky": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?"
               }
+            },
+            {
+              "author": "Huineng / 六祖慧能 (Dunhuang recension 敦煌本)",
+              "zh": "菩提本無樹，明鏡亦無臺。佛性常清淨，何處有塵埃。",
+              "pinyin": "Pútí běn wú shù, míngjìng yì wú tái. Fóxìng cháng qīngjìng, héchù yǒu chén'āi.",
+              "translations": {
+                "yampolsky": {
+                  "text": "Bodhi originally has no tree, the mirror also has no stand. Buddha-nature is always clean and pure; where is there room for dust?",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Platform Sutra of the Sixth Patriarch, tr. Philip B. Yampolsky",
+                    "edition": "Columbia University Press, 1967, p. 132 (Dunhuang text — the recension he translated; the received-text verse above reads 本來無一物)",
+                    "verification": "against published citations of Yampolsky pp. 130–132, 2026-08-08"
+                  }
+                }
+              },
+              "recension_note": "Later received text (宗寶本) reads 明鏡亦非臺。本來無一物，何處惹塵埃 — shown in the verse above; the Dunhuang manuscript line 佛性常清淨 is older."
             }
           ]
         },

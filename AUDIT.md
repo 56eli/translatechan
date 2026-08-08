@@ -236,6 +236,20 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 | App now differentiates visually | Verified columns/rows display `✅ Verified quotation` + a full source line (work · edition · verification note); matrix cards show status badges. |
 | Truth-in-labeling consequence | The two newly added registers are the editions *actually translated* (Senzaki/Reps' 1934 indeed exists). Previously fabricated pairings (e.g., Sasaki/Blofeld/Red-Pine-on-Wumenguan) stay flagged as reconstructions with no claim of existence. |
 
-**Open work as of 2026-08-08**: gradual per-item verification against print (Blyth next), Phase 2 content work (Wumenguan 48 first — Senzaki/Reps public-domain text can be quoted freely as the verified register), then PR to `main` to publish everything accumulated on this branch.
+### 2026-08-08 — Verification round 2 completed ✅
+
+| Action | Result |
+|---|---|
+| Xinxin Ming stanzas 1–2 vs Richard B. Clarke's published translation | **Verified verbatim** via two independent mirrors → `✅ verified_quotation` with sources |
+| Platform Sutra Shenxiu verse vs Yampolsky (1967, p. 130) | Prior dataset entry was a **paraphrase that did not match** → replaced with verified quotation (documented) |
+| Platform Sutra Huineng received-text "yampolsky" | **Confirmed misattribution scope**: Yampolsky translated only the Dunhuang recension (佛性常清淨…), not the received 本來無一物 line → remains `reconstruction_unverified`; **Dunhuang variant verse added** with Yampolsky's actual p. 132 rendering ✅ verified — the app now displays the recension difference itself |
+| 🔴 First inauthentic `zh` found: xinxin_ming stanza 3 (was 不生留情，本來平坦) | **Corrected to canonical T2010** reading (不識玄旨，徒勞念靜); logged in data + commit |
+| Blyth Case 1 / Suzuki Platform-verse register | Still pending print check (registered in provenance.json v1.3) |
+
+**Running tally**: 8 verified quotation slots across 3 texts (Wumenguan c1 ×4, Xinxin Ming ×2, Platform ×2); 1 zh correction; 1 paraphrase replaced. `provenance.json` v1.3.
+
+---
+
+**Open work as of 2026-08-08**: Phase 2 content (Wumenguan 48 — Senzaki/Reps PD text is freely quotable as the verified register), gradual print verification, then PR to `main`.
 
 

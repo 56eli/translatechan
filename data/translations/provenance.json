@@ -1,5 +1,5 @@
 {
-  "policy_version": "1.2",
+  "policy_version": "1.3",
   "policy_date": "2026-08-08",
   "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
   "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -58,6 +58,22 @@
         "blyth (Zen and Zen Classics vol. 4, 1966 — print check pending; remains reconstruction_unverified)"
       ],
       "note": "senzaki_reps/shimomisse keys were ADDED to the dataset; they are not scholar-default registers and always carry their own object-form status. Existing red_pine/cleary/sasaki/suzuki/blyth/blofeld entries remain reconstruction_unverified — several (Sasaki, Blofeld, Red Pine on Wumenguan) have no published Wumenguan translation to verify against."
+    },
+    {
+      "pilot": "Round 2 (2026-08-08): Xinxin Ming stanzas 1–2 + Platform Sutra verses",
+      "registers_verified": [
+        "clarke — Xinxin Ming stanza 1 & 2, verbatim vs two independent mirrors",
+        "yampolsky — Shenxiu verse p.130 + Huineng Dunhuang-recension verse p.132 (vs published citations)"
+      ],
+      "data_corrections": [
+        "platform_sutra: prior Shenxiu 'yampolsky' paraphrase replaced by verified quotation",
+        "platform_sutra: Huineng received-text 'yampolsky' remains reconstruction (he translated only the Dunhuang recension); Dunhuang variant verse added for direct comparison",
+        "xinxin_ming stanza 3 zh corrected to canonical T2010 (was non-canonical paraphrase 不生留情，本來平坦)"
+      ],
+      "registers_pending": [
+        "blyth (print check pending)",
+        "suzuki Platform-verse register (source check pending)"
+      ]
     }
   ]
 }

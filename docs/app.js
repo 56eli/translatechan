@@ -586,6 +586,7 @@
           <div class="classical-zh">${annotateClassicalChinese(v.zh)}</div>
           <div class="pinyin-line">${v.pinyin}</div>
           ${renderTranslationColumns(v.translations)}
+          ${v.recension_note ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${v.recension_note}</div>` : ''}
         </div>
       `).join('');
     } else if (ch.dialogue) {
@@ -666,6 +667,7 @@
       heine: 'Steven Heine',
       yampolsky: 'Philip Yampolsky',
       senzaki_reps: 'Senzaki & Reps (1934)',
+      clarke: 'Richard B. Clarke',
       shimomisse: 'Eiichi Shimomissé',
       aitken: 'Robert Aitken',
       shibayama: 'Zenkei Shibayama',

@@ -11,7 +11,8 @@
 6. **🟠 P1/P2 frontend hardening DONE**: search now indexes all 36 texts across every schema (counts + highlighting + jump buttons), reader modes truly differentiated (true Classical-Only mode), tooltips single-pass & valid HTML, Studio reads from the data bundle — regression checks added to `scripts/smoke_test.mjs` ([`AUDIT.md` §8](./AUDIT.md)).
 7. **🔍 Verification pilot DONE**: Wumenguan Case 1 gained its first `✅ Verified quotation` registers — **Senzaki & Reps (1934, public domain)** and **Shimomissé** — verified verbatim against surviving texts with full source records in the app; Blyth verification pending print (fetch failed); provenance.json v1.2 ([`AUDIT.md` §8](./AUDIT.md)).
 8. **Verified healthy**: deterministic bundle, `/docs` sync, smoke test green, Pages `status: built` (still serving pre-fix `main` until hotfix PR merges).
-9. **Still open**: gradual verification (Blyth print next), Phase 2 content (Wumenguan 48; Senzaki/Reps PD text is freely quotable as verified register), and the PR to `main`.
+8. **🔍 Verification round 2 DONE**: +✅ Clarke (Xinxin Ming st. 1–2, verbatim via 2 mirrors), +✅ Yampolsky (Shenxiu p.130 — replaced a proven paraphrase; Huineng **Dunhuang recension** added as its own verse), corrected first inauthentic zh found (xinxin_ming st. 3 → T2010 canon). Blyth/Suzuki pending print.
+9. **Still open**: Phase 2 content (Wumenguan 48; Senzaki/Reps PD freely quotable), gradual print verification, and the PR to `main`.
 
 ---
 <details><summary>Previous session (pre-audit history)</summary>
