@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+"""
+TranslateChan Data Bundler & Docs Sync
+Combines all canonical texts, lineage graphs, glossaries, comparative translations,
+and gong'an indices into a consolidated, high-speed dataset for client-side execution,
+and synchronizes with /docs/ for seamless GitHub Pages deployment.
+"""
+
+import json
+import os
+import shutil
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+DOCS_DIR = BASE_DIR / "docs"
+OUTPUT_FILE = BASE_DIR / "app_data.js"
+DOCS_OUTPUT_FILE = DOCS_DIR / "app_data.js"
+
+def load_json(filepath):
+    with open(filepath, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def main():
+    print("Bundling TranslateChan Classical Corpus...")
+
+    data_bundle = {
+        "glossary": load_json(DATA_DIR / "glossary" / "chan_terms.json"),
+        "lineage": load_json(DATA_DIR / "lineage" / "masters.json"),
+        "translations_matrix": load_json(DATA_DIR / "translations" / "comparative_matrix.json"),
+        "gongan_index": load_json(DATA_DIR / "gongan" / "gongan_index.json"),
+        "corpus": {
+            "wumenguan": load_json(DATA_DIR / "corpus" / "wumenguan.json"),
+            "linji_yulu": load_json(DATA_DIR / "corpus" / "linji_yulu.json"),
+            "huangbo_chuanxin": load_json(DATA_DIR / "corpus" / "huangbo_chuanxin.json"),
+            "zhaozhou_yulu": load_json(DATA_DIR / "corpus" / "zhaozhou_yulu.json"),
+            "xinxin_ming": load_json(DATA_DIR / "corpus" / "xinxin_ming.json"),
+            "baojing_sanmei": load_json(DATA_DIR / "corpus" / "baojing_sanmei.json"),
+            "biyanlu_cases": load_json(DATA_DIR / "corpus" / "biyanlu_cases.json"),
+            "platform_sutra": load_json(DATA_DIR / "corpus" / "platform_sutra.json"),
+            "chuandenglu": load_json(DATA_DIR / "corpus" / "chuandenglu.json"),
+            "qinggui_monastic_codes": load_json(DATA_DIR / "corpus" / "qinggui_monastic_codes.json"),
+            "dongshan_yulu": load_json(DATA_DIR / "corpus" / "dongshan_yulu.json"),
+            "yunmen_yulu": load_json(DATA_DIR / "corpus" / "yunmen_yulu.json"),
+            "fayan_yulu": load_json(DATA_DIR / "corpus" / "fayan_yulu.json"),
+            "guiyang_yulu": load_json(DATA_DIR / "corpus" / "guiyang_yulu.json"),
+            "dahui_hongzhi": load_json(DATA_DIR / "corpus" / "dahui_hongzhi.json"),
+            "shitou_sandokai": load_json(DATA_DIR / "corpus" / "shitou_sandokai.json"),
+            "zhengdao_ge": load_json(DATA_DIR / "corpus" / "zhengdao_ge.json"),
+            "bodhidharma_erru": load_json(DATA_DIR / "corpus" / "bodhidharma_erru.json"),
+            "niutou_juezhu": load_json(DATA_DIR / "corpus" / "niutou_juezhu.json"),
+            "lidai_fabao_ji": load_json(DATA_DIR / "corpus" / "lidai_fabao_ji.json"),
+            "dazhu_huihai": load_json(DATA_DIR / "corpus" / "dazhu_huihai.json"),
+            "baizhang_guanglu": load_json(DATA_DIR / "corpus" / "baizhang_guanglu.json"),
+            "foyan_qingyuan": load_json(DATA_DIR / "corpus" / "foyan_qingyuan.json"),
+            "dahui_shobogenzo": load_json(DATA_DIR / "corpus" / "dahui_shobogenzo.json"),
+            "mazu_yulu": load_json(DATA_DIR / "corpus" / "mazu_yulu.json"),
+            "nanquan_yulu": load_json(DATA_DIR / "corpus" / "nanquan_yulu.json"),
+            "deshan_yulu": load_json(DATA_DIR / "corpus" / "deshan_yulu.json"),
+            "xuefeng_yantou": load_json(DATA_DIR / "corpus" / "xuefeng_yantou.json"),
+            "congronglu_cases": load_json(DATA_DIR / "corpus" / "congronglu_cases.json"),
+            "wudeng_huiyuan": load_json(DATA_DIR / "corpus" / "wudeng_huiyuan.json"),
+            "sengzhao_zhaolun": load_json(DATA_DIR / "corpus" / "sengzhao_zhaolun.json"),
+            "hanshan_poems": load_json(DATA_DIR / "corpus" / "hanshan_poems.json"),
+            "huangbo_wanling": load_json(DATA_DIR / "corpus" / "huangbo_wanling.json"),
+            "xuansha_yulu": load_json(DATA_DIR / "corpus" / "xuansha_yulu.json"),
+            "caoxi_zhuan": load_json(DATA_DIR / "corpus" / "caoxi_zhuan.json"),
+            "yuanwu_letters": load_json(DATA_DIR / "corpus" / "yuanwu_letters.json")
+        },
+        "meta": {
+            "version": "1.0.0",
+            "project": "TranslateChan",
+            "license": "CC-BY-SA 4.0 / MIT",
+            "cbeta_sources": ["T47", "T48", "T51", "X-Series"]
+        }
+    }
+
+    js_content = f"// Auto-generated TranslateChan Master Corpus Bundle\nwindow.TRANSLATECHAN_DATA = {json.dumps(data_bundle, ensure_ascii=False, indent=2)};\n"
+
+    # Write root bundle
+    with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        f.write(js_content)
+
+    # Ensure /docs directory exists and sync assets
+    DOCS_DIR.mkdir(parents=True, exist_ok=True)
+    with open(DOCS_OUTPUT_FILE, 'w', encoding='utf-8') as f:
+        f.write(js_content)
+
+    for item in ["index.html", "app.css", "app.js"]:
+        src_path = BASE_DIR / item
+        if src_path.exists():
+            shutil.copy2(src_path, DOCS_DIR / item)
+
+    print(f"✅ Successfully compiled root bundle: {OUTPUT_FILE} ({os.path.getsize(OUTPUT_FILE):,} bytes)")
+    print(f"✅ Successfully synchronized /docs for GitHub Pages deployment: {DOCS_DIR}")
+
+if __name__ == "__main__":
+    main()

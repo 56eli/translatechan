@@ -1,0 +1,115 @@
+{
+  "id": "foyan_qingyuan",
+  "title_zh": "龍門佛眼清遠禪師語錄：即心即見與靈光獨耀",
+  "title_pinyin": "Lóngmén Fóyǎn Qīngyuǎn Chánshī Yǔlù: Jíxīn Jíjiàn yǔ Língguāng Dúyào",
+  "title_en": "Instant Zen: The Recorded Sayings of Chan Master Foyan Qingyuan",
+  "cbeta_id": "T1995",
+  "taisho_vol": 47,
+  "author_zh": "宋 佛眼清遠 禪師 說",
+  "author_en": "Chan Master Foyan Qingyuan (1067–1120 CE), Dharma Brother of Yuanwu Keqin",
+  "era": "Northern Song Dynasty",
+  "genre": "Direct Pointing & Sitting Inscriptions (即心法語與坐禪銘)",
+  "overview": "The profound and direct Song dynasty teachings on effortless presence and clear seeing, celebrated worldwide through Thomas Cleary's 'Instant Zen', famous for the dialectic of riding the donkey, listening to rain, and the solitary radiant light of self-nature.",
+  "sections": [
+    {
+      "section_id": "riding_donkey",
+      "title_zh": "二種病：騎驢覓驢與不肯下驢",
+      "title_pinyin": "Èrzhǒng Bìng: Qílǘ Mìlǘ yǔ Bùkěn Xiàlǘ",
+      "title_en": "The Two Sicknesses: Riding a Donkey to Search for a Donkey",
+      "dialogue": [
+        {
+          "speaker": "Foyan / 佛眼",
+          "zh": "師示眾云：「參禪只有二種病：第一是騎在驢上覓驢；第二是騎在驢上不肯下驢。汝道：如何是騎驢覓驢？自己是佛，卻向外馳求，此是騎驢覓驢也。」",
+          "pinyin": "Shī shì zhòng yún: 'Cānchán zhǐ yǒu èr zhǒng bìng: dì-yī shì qí zài lǘ shàng mì lǘ; dì-èr shì qí zài lǘ shàng bù kěn xià lǘ. Rǔ dào: rúhé shì qí lǘ mì lǘ? Zìjǐ shì fó, què xiàng wài chíqiú, cǐ shì qí lǘ mì lǘ yě.'",
+          "translations": {
+            "cleary": "The Master said to the assembly: 'In Zen practice there are only two sicknesses: one is riding a donkey to search for a donkey; the other is being unwilling to dismount after riding the donkey. Tell me: what is riding a donkey to search for a donkey? You yourself are the Buddha, yet you run outside seeking—this is riding a donkey to search for a donkey.'",
+            "red_pine": "The Master instructed the assembly: 'There are only two kinds of sickness in Zen: the first is riding a donkey to look for a donkey; the second is refusing to get off the donkey once you're on it. What is riding a donkey to look for a donkey? You yourself are the Buddha, yet you race outside to find it.'",
+            "sasaki": "Master Foyan said: 'In Zen there are but two sicknesses: riding a donkey in search of a donkey, and refusing to dismount once riding it. When you yourself are Buddha and yet seek outside, you are riding a donkey to look for a donkey.'"
+          }
+        },
+        {
+          "speaker": "Foyan / 佛眼",
+          "zh": "「既知是驢，不肯下驢者，得箇清淨，便執著清淨，不能通達物我無礙，此是第二種大病也。須知下驢之時，天地廓然，無驢可騎，亦無驢可下。」",
+          "pinyin": "'Jì zhī shì lǘ, bù kěn xià lǘ zhě, dé gè qīngjìng, biàn zhízhuó qīngjìng, bùnéng tōngdá wù wǒ wú'ài, cǐ shì dì-èr zhǒng dà bìng yě. Xū zhī xià lǘ zhī shí, tiāndì kuòrán, wú lǘ kě qí, yì wú lǘ kě xià.'",
+          "translations": {
+            "cleary": "Having recognized the donkey, being unwilling to dismount means: you attain a state of purity and cling to that purity, unable to realize the unobstructed harmony of self and world. This is the second great sickness. You must know that when you dismount, heaven and earth are vast and open: there is no donkey to ride, and no donkey to get off.",
+            "red_pine": "Once you know you're on the donkey, refusing to get off means you find a state of quiet purity and become attached to it, unable to move freely between self and things. When you get off the donkey, the cosmos is boundless: there is no donkey to ride and no donkey to dismount.",
+            "sasaki": "Refusing to dismount means attaining stillness and clinging to stillness. When you truly dismount, heaven and earth are vast and clear: there is no donkey to ride and none to get off."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "luminous_radiance",
+      "title_zh": "靈光獨耀：體露真常，心性無染",
+      "title_pinyin": "Língguāng Dúyào: Tǐ Lù Zhēncháng, Xīnxìng Wúrǎn",
+      "title_en": "The Solitary Radiant Light: Revealing the Eternal Body of Reality",
+      "dialogue": [
+        {
+          "speaker": "Foyan / 佛眼",
+          "zh": "師示眾云：「靈光獨耀，迴脫根塵。體露真常，不拘文字。心性無染，本自圓成。但離妄緣，即如如佛。汝等諸人，當體即是，更待何時？」",
+          "pinyin": "Shī shì zhòng yún: 'Língguāng dú yào, huítuō gēnchén. Tǐ lù zhēncháng, bù jū wénzì. Xīnxìng wúrǎn, běn zì yuánchéng. Dàn lí wàngyuán, jí rúrú fó. Rǔděng zhū rén, dāng tǐ jí shì, gèng dài hé shí?'",
+          "translations": {
+            "cleary": "The Master said: 'Spiritual light shines alone, transcending sense organs and objects. The body of reality is openly revealed, unbound by words and letters. The nature of mind has no defilement; it is inherently complete of itself. Just detach from false conditioning, and you are the Buddha of Thusness. You people are that very embodiment right now; what time are you waiting for?'",
+            "red_pine": "The Master instructed the assembly: 'Spiritual light shines solitary, free from sense organs and objects. The body reveals the eternal truth, beyond written letters. The heart-mind nature is undefiled, naturally round and complete. Simply let go of delusive attachments, and you are the Buddha of Suchness. You are it in your very embodiment right now; what else do you wait for?'",
+            "sasaki": "Master Foyan said: 'The spiritual light shines solitary, transcending senses and forms. The true nature is undefiled, complete from the beginning. Release false conditions, and you are the Buddha of Suchness.'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "sound_of_rain",
+      "title_zh": "聽雨聲：以耳聽之，還是以心會之？",
+      "title_pinyin": "Tīng Yǔshēng: Yǐ Ěr Tīng Zhī, Háishì Yǐ Xīn Huì Zhī?",
+      "title_en": "Listening to the Sound of Rain: Direct Hearing and Inner Resonance",
+      "dialogue": [
+        {
+          "speaker": "Foyan / 佛眼",
+          "zh": "師示眾云：「夜來窗外雨聲滴瀝，打在芭蕉竹林之上。汝等以耳聽之，但名雨聲；若以心會之，是阿誰聲？山河大地，草木叢林，皆在心體之內。既在心內，雨聲豈在心外？」",
+          "pinyin": "Shī shì zhòng yún: 'Yè lái chuāngwài yǔshēng dīlì, dǎ zài bājiāo zhúlín zhīshàng. Rǔděng yǐ ěr tīng zhī, dàn míng yǔshēng; ruò yǐ xīn huì zhī, shì ā shuí shēng? Shānhé dàdì, cǎomù cónglín, jiē zài xīntǐ zhīnèi. Jì zài xīn nèi, yǔshēng qǐ zài xīn wài?'",
+          "translations": {
+            "cleary": "The Master said to the assembly: 'In the night, the sound of rain dripped outside the window, falling upon the plantains and bamboo. If you listen with your ears, it is merely the sound of rain; if you understand it with your mind, whose sound is it? Mountains, rivers, the great earth, grass and trees are all inside the substance of mind. Since they are inside the mind, how could the sound of rain be outside the mind?'",
+            "red_pine": "The Master told the assembly: 'Last night rain dripped outside the window, tapping on the bamboo grove. If you listen with your ears, it's just the sound of rain; if you meet it with your heart-mind, whose voice is it? Mountains, rivers, and the great earth are all inside the mind's substance. Being within the mind, how could the sound of rain be outside?'",
+            "sasaki": "Master Foyan said: 'At night rain falls upon the bamboo. Hearing it with ears, you call it rain; meeting it with mind, who is speaking? The great earth is within mind; how could rain be outside?'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "saving_energy",
+      "title_zh": "省力處便是得力處：如在海中呼口渴",
+      "title_pinyin": "Shěnglì Chù Biànshì Délì Chù: Rú Zài Hǎizhōng Hū Kǒukě",
+      "title_en": "Saving Energy is Gaining Strength: Thirsty in the Middle of the Ocean",
+      "dialogue": [
+        {
+          "speaker": "Foyan / 佛眼",
+          "zh": "師云：「大凡參禪，省力處便是得力處。何謂省力？放下萬緣，不起造作。如人在大海之中，四望無際，卻大呼口渴！啟口皆是水，運足皆是路。不假修持，當下圓成。」",
+          "pinyin": "Shī yún: 'Dàfán cānchán, shěnglì chù biànshì délì chù. Hé wèi shěnglì? Fàngxià wànyuán, bù qǐ zàozuò. Rú rén zài dàhǎi zhīzhōng, sìwàng wújì, què dà hū kǒukě! Qǐ kǒu jiē shì shuǐ, yùn zú jiē shì lù. Bù jiǎ xiūchí, dāngxià yuánchéng.'",
+          "translations": {
+            "cleary": "The Master said: 'In Zen practice generally, where you save energy is where you gain strength. What is saving energy? Let go of all entanglements, do not give rise to contrivance. You are like someone in the middle of the great ocean, looking out at the boundless expanse, yet loudly shouting that you are thirsty! Open your mouth, and it is all water; move your feet, and it is all the Way. Without relying on artificial effort, right now all is completely fulfilled.'",
+            "red_pine": "The Master said: 'In Chan, saving effort is gaining strength. What is saving effort? Laying down all conditions and avoiding fabrication. It is like being in the middle of the ocean, surrounded by water on all sides, yet screaming you are thirsty! Open your mouth, it's all water; walk your feet, it's all the path. It requires no contrivance; in the immediate present it is perfectly complete.'",
+            "sasaki": "Master Foyan said: 'Where you save energy, you gain realization. You are like someone in the ocean shouting that you are thirsty. Open your mouth and it is all water; step forward and it is all the Way.'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "zazen_inscription",
+      "title_zh": "佛眼禪師 坐禪銘",
+      "title_pinyin": "Fóyǎn Chánshī Zuòchán Míng",
+      "title_en": "Sitting Meditation Inscription (Zazen-mei)",
+      "dialogue": [
+        {
+          "speaker": "Foyan / 佛眼",
+          "zh": "端身正坐，如如不動。莫隨妄緣，莫住枯寂。靈明自照，了了常知。不假修為，當體現成。百千法門，只在眼前。",
+          "pinyin": "Duān shēn zhèng zuò, rúrú bù dòng. Mò suí wàng yuán, mò zhù kūjì. Língmíng zì zhào, liǎoliǎo cháng zhī. Bù jiǎ xiūwéi, dāng tǐ xiànchéng. Bǎi qiān fǎmén, zhǐ zài yǎnqián.",
+          "translations": {
+            "cleary": "Sit upright, motionless in suchness. Do not follow deceptive conditions, do not dwell in dead silence. Luminous awareness shines of itself, clear and constantly knowing. Requiring no artificial cultivation, its very substance is already present. Hundreds of thousands of Dharma gates are right before your eyes.",
+            "red_pine": "Sit upright and erect, unmoving in suchness. Do not follow deluded conditions, do not dwell in sterile quietude. Luminous clarity shines of itself, radiant and always aware. Without borrowing contrivance, reality is complete as it is. Ten thousand Dharma gates are right before your eyes.",
+            "sasaki": "Sit straight, unmoved in Suchness. Neither chase after thoughts nor abide in dead quiet. Wondrous awareness shines of itself, ever clear. Without contrivance, all is complete right before you."
+          }
+        }
+      ]
+    }
+  ]
+}

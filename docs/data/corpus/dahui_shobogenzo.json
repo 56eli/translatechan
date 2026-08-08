@@ -1,0 +1,79 @@
+{
+  "id": "dahui_shobogenzo",
+  "title_zh": "大慧普覺禪師 正法眼藏 卷一至卷二",
+  "title_pinyin": "Dàhuì Pǔjué Chánshī Zhèng Fǎyǎn Zàng Juànyī zhì Juàn'èr",
+  "title_en": "Treasury of the Eye of the True Dharma (Dahui's Shobogenzo: Vols. 1 & 2)",
+  "cbeta_id": "T2002",
+  "taisho_vol": 48,
+  "author_zh": "宋 涇縣雙徑山 大慧宗杲 禪師 輯",
+  "author_en": "Compiled by Chan Master Dahui Zonggao (1089–1163 CE)",
+  "era": "Southern Song Dynasty (1147 CE)",
+  "genre": "Universal Anthology of Chan Transmission (正法眼藏)",
+  "overview": "The original monumental Chinese 'Treasury of the Eye of the True Dharma' (Shōbōgenzō / 正法眼藏), comprising six fascicles and 661 core encounter records compiled by Master Dahui Zonggao, covering the great transmission between Mazu in Jiangxi and Shitou in Hunan.",
+  "sections": [
+    {
+      "section_id": "qianfeng_road",
+      "title_zh": "乾峰一路與雲門扇子",
+      "title_pinyin": "Qiānfēng Yīlù yǔ Yúnmén Shànzi",
+      "title_en": "Qianfeng's One Road and Yunmen's Fan",
+      "dialogue": [
+        {
+          "speaker": "Monk / 僧",
+          "zh": "越州乾峰和尚因僧問：「十方薄伽梵，一路涅槃門。未審路頭在甚麼處？」乾峰拈起拄杖，畫一畫云：「在者裏。」",
+          "pinyin": "Yuèzhōu Qiānfēng héshang yīn sēng wèn: 'Shífāng pójīafàn, yī lù nièpán mén. Wèi shěn lùtóu zài shènme chù?' Qiānfēng niān qǐ zhǔzhàng, huà yī huà yún: 'Zài zhèlǐ.'",
+          "translations": {
+            "cleary": "A monk asked Master Qianfeng, 'The World-Honored Ones of the ten directions have a single road to the gate of Nirvana. Where does that road begin?' Qianfeng took his staff, drew a line in the air, and said, 'Right here.'",
+            "red_pine": "A monk asked Master Qianfeng: 'The Bhagavans of the ten directions have one single road to the gate of Nirvana. Where is the road's beginning?' Qianfeng raised his staff, drew a line, and said: 'Right here.'",
+            "sasaki": "A monk asked Qianfeng: 'All Buddhas of the ten directions have but one road to Nirvana. Where does this road start?' Qianfeng drew a line with his staff: 'Here!'"
+          }
+        },
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "僧後請益雲門。門拈起扇子云：「扇子𨁝跳，上三十三天，築著帝釋鼻孔；東海鯉魚打一棒，雨似盆傾。」",
+          "pinyin": "Sēng hòu qǐngyì Yúnmén. Mén niān qǐ shànzi yún: 'Shànzi tiàotiào, shàng sānshísāntiān, zhùzháo Dìshì bíkǒng; dōnghǎi lǐyú dǎ yī bàng, yǔ sì pén qīng.'",
+          "translations": {
+            "cleary": "The monk later asked Yunmen for instruction on this. Yunmen held up his fan and said, 'This fan leaps up into the thirty-third heaven and hits the nostril of Indra; the carp of the Eastern Sea strikes a blow, and rain pours down like a tilted basin!'",
+            "red_pine": "The monk later asked Yunmen. Yunmen held up a fan and said: 'This fan jumps up to the thirty-third heaven and pokes Indra in the nostril; the carp of the Eastern Sea gets hit once with a staff, and rain pours down in buckets!'",
+            "sasaki": "The monk asked Yunmen. Ummon held up a fan: 'This fan leaps into the highest heaven, punching the god Indra in the nose; the carp of the Eastern Sea is struck, and the rains pour down!'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "mazu_shitou_roads",
+      "title_zh": "江西馬祖與湖南石頭：大路無偏",
+      "title_pinyin": "Jiāngxī Mǎzǔ yǔ Húnán Shítóu: Dàlù Wúpiān",
+      "title_en": "Mazu in Jiangxi and Shitou in Hunan: The Two Great Paths",
+      "dialogue": [
+        {
+          "speaker": "Dahui / 大慧宗杲",
+          "zh": "大慧示眾云：「江西主馬祖，湖南主石頭。往來憧憧，不見二大士者，為之無知也。石頭路滑，馬駒踏殺天下人。二大老同出一源，互為賓主，正眼洞照。」",
+          "pinyin": "Dàhuì shì zhòng yún: 'Jiāngxī zhǔ Mǎzǔ, Húnán zhǔ Shítóu. Wǎnglái chōngchōng, bù jiàn èr dàshì zhě, wéi zhī wúzhī yě. Shítóu lù huá, mǎjū tà shā tiānxià rén. Èr dàlǎo tóng chū yī yuán, hù wéi bīnzhǔ, zhèngyǎn dòngzhào.'",
+          "translations": {
+            "cleary": "Dahui said to the assembly: 'Jiangxi was led by Mazu, Hunan was led by Shitou. Those who traveled back and forth constantly without seeing these two great masters were considered ignorant. The road of Shitou is slippery; the colt of Mazu trampled everyone under heaven to death! The two great elders came from the same single source, acting as host and guest to each other, with the true eye illuminating completely.'",
+            "red_pine": "Dahui instructed the crowd: 'Mazu ruled in Jiangxi; Shitou ruled in Hunan. Those who went back and forth without having met these two great masters were thought fools. The path on Shitou is slippery; the young stallion Mazu trampled everyone on earth. The two elders sprang from the same source, reflecting each other as host and guest.'",
+            "sasaki": "Dahui said: 'In Jiangxi stood Baso; in Hunan stood Sekitō. The road of Sekitō is slippery, while Baso's colt trampled all under heaven. Both elders flowed from the One Source.'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "true_dharma_eye_def",
+      "title_zh": "正法眼藏何所指？鐵饅頭無下口處",
+      "title_pinyin": "Zhèng Fǎyǎn Zàng Hé Suǒ Zhǐ? Tiě Mántou Wú Xiàkǒu Chù",
+      "title_en": "What is the Treasury of the True Dharma Eye? The Iron Hammer Without Handle",
+      "dialogue": [
+        {
+          "speaker": "Dahui / 大慧宗杲",
+          "zh": "正法眼藏，非名相，非修證，非文字。如大火聚，近之則燎卻面門；如鐵酸餡，咬著則崩卻牙齒。無可取，無可捨，是名如來妙心。",
+          "pinyin": "Zhèng fǎyǎn zàng, fēi míngxiàng, fēi xiūzhèng, fēi wénzì. Rú dà huǒ jù, jìn zhī zé liáo què miànmén; rú tiě suānxiàn, yǎo zháo zé bēng què yáchǐ. Wú kě qǔ, wú kě shě, shì míng rúlái miào xīn.",
+          "translations": {
+            "cleary": "The treasury of the eye of true teaching is not names or forms, not cultivation or attainment, not words and letters. It is like a great fire mass: approach it and your face is scorched; it is like an iron dumpling: bite into it and your teeth are shattered. Nothing to grasp, nothing to abandon: this is named the wondrous mind of the Realized One.",
+            "red_pine": "The treasury of the true Dharma eye is not names or concepts, not cultivation or realization, not words and letters. It is like a roaring mass of fire: come near and your face is scorched; like an iron dumpling: bite down and your teeth break. Nothing to take, nothing to throw away: this is called the wondrous mind of the Tathagata.",
+            "sasaki": "The Eye Treasury of the True Law is beyond words, beyond practice and attainment. Like a blazing fireball, to touch it is to be consumed; like an iron ball, it cannot be bitten into. Beyond grasping and rejecting, it is the mind of Suchness."
+          }
+        }
+      ]
+    }
+  ]
+}

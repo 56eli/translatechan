@@ -1,0 +1,78 @@
+{
+  "id": "baojing_sanmei",
+  "title_zh": "洞山良价大師 寶鏡三昧歌",
+  "title_pinyin": "Dòngshān Liángjiè Dàshī Bǎojìng Sānmèi Gē",
+  "title_en": "Song of the Jewel Mirror Samadhi (Baojing Sanmei)",
+  "cbeta_id": "T1986",
+  "taisho_vol": 47,
+  "author_zh": "洞山良价 禪師 (807–869 CE)",
+  "author_en": "Chan Master Dongshan Liangjie, Co-founder of Caodong (Soto) School",
+  "era": "Tang Dynasty",
+  "genre": "Caodong Cornerstone / Samadhi Poem (三昧歌)",
+  "stanzas": [
+    {
+      "stanza_num": 1,
+      "zh": "如是之法，佛祖密付。汝今得之，宜善保護。",
+      "pinyin": "Rú shì zhī fǎ, fó zǔ mì fù. Rǔ jīn dé zhī, yí shàn bǎohù.",
+      "translations": {
+        "cleary": "The Dharma of Thusness is intimately transmitted by Buddhas and Patriarchs. Now that you have obtained it, you should preserve it well.",
+        "sasaki": "The Dharma of Thusness was intimately transmitted by the Buddhas and Ancestors. Now that you have received it, preserve it well.",
+        "suzuki": "The Dharma of Suchness is intimately communicated by Buddhas and Patriarchs; now that you have it, guard it well.",
+        "ai_literal": "Such a dharma as this, Buddhas and Ancestors secretly entrusted. You now having obtained it, ought to skillfully protect it."
+      }
+    },
+    {
+      "stanza_num": 2,
+      "zh": "銀碗盛雪，明月藏鷺。類之弗齊，混則知處。",
+      "pinyin": "Yín wǎn chéng xuě, míng yuè cáng lù. Lèi zhī fú qí, hùn zé zhī chù.",
+      "translations": {
+        "cleary": "A silver bowl filled with snow; a bright moon concealing a white heron. Classified, they are not the same; blended, their distinct places are known.",
+        "sasaki": "A silver bowl filled with snow; the bright moon hiding a heron. Resembling each other they are not the same; blended, their distinctive place is known.",
+        "suzuki": "A silver bowl filled with snow, a bright moon concealing a white heron. When you classify them they are not the same; when you blend them you know where each is.",
+        "ai_literal": "A silver bowl holding snow; the bright moon hiding a heron. Categorizing them they are not uniform; mixed together, their location is recognized."
+      }
+    },
+    {
+      "stanza_num": 3,
+      "zh": "意不在言，來機便赴。動成窠臼，差落顧佇。",
+      "pinyin": "Yì bù zài yán, lái jī biàn fù. Dòng chéng kējiù, chā luò gùzhù.",
+      "translations": {
+        "cleary": "The meaning is not in words, yet it responds to the arriving impulse. Move and you form a trap; miss and you fall into hesitation.",
+        "sasaki": "The intention is not in words, yet it meets the coming moment. A move creates a rut; a slip falls into hesitating reflection.",
+        "ai_literal": "The meaning lies not in words, meeting the incoming opportunity immediately. Moving creates a rut; erring drops into hesitant gazing."
+      }
+    },
+    {
+      "stanza_num": 4,
+      "zh": "背觸共忌，如大火聚。但形文彩，即屬染污。",
+      "pinyin": "Bèi chù gòng jì, rú dà huǒ jù. Dàn xíng wéncǎi, jí shǔ rǎnwū.",
+      "translations": {
+        "cleary": "Turning away and touching are both taboos, like a great mass of fire. To merely portray it with literary embellishment is already defilement.",
+        "sasaki": "Turning away and touching are both to be avoided, like a great fireball. Just to portray it in literary form is already to fall into defilement.",
+        "suzuki": "To turn away and to touch are both wrong, for it is like a great fire. If you only express it with ornate language, you fall into defilement.",
+        "ai_literal": "Turning away and making contact are both avoided, like a great fire heap. Merely shaping literary colors already belongs to defilement."
+      }
+    },
+    {
+      "stanza_num": 5,
+      "zh": "夜半正明，天曉不露。為物作則，用拔諸苦。",
+      "pinyin": "Yèbàn zhèng míng, tiān xiǎo bù lù. Wèi wù zuò zé, yòng bá zhū kǔ.",
+      "translations": {
+        "cleary": "At midnight it is truly bright; at daybreak it does not appear. It acts as a standard for all beings, working to pull out all suffering.",
+        "sasaki": "At midnight it is truly luminous; at dawn it does not show itself. Acting as a guide for all beings, its function uproots all suffering.",
+        "ai_literal": "At midnight it is directly clear; at dawn's light it is not exposed. Acting as a standard for things, employed to pluck out all sufferings."
+      }
+    },
+    {
+      "stanza_num": 6,
+      "zh": "雖非有為，不是無語。如面臨鏡，容色相覷。汝不是渠，渠正是汝。",
+      "pinyin": "Suī fēi yǒu wéi, bù shì wú yǔ. Rú miàn lín jìng, róng sè xiāng qù. Rǔ bù shì qú, qú zhèng shì rǔ.",
+      "translations": {
+        "cleary": "Although it is not conditioned activity, it is not without words. Like facing a mirror where form and reflection gaze at each other: You are not it, but it is truly you.",
+        "sasaki": "Although it is not fabricated, it is not wordless. Like facing a mirror: form and reflection behold each other. You are not it, but it is truly you.",
+        "suzuki": "Though it is not unconditioned, it is not without words. It is like facing a mirror: form and reflection behold each other. You are not He, but He is you.",
+        "ai_literal": "Though not conditioned action, it is not wordless. Like a face before a mirror, forms and colors looking at each other: You are not Him; He is truly you."
+      }
+    }
+  ]
+}

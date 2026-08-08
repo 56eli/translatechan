@@ -1,0 +1,107 @@
+{
+  "id": "dahui_hongzhi",
+  "title_zh": "大慧普覺禪師看話書問與宏智正覺默照銘",
+  "title_pinyin": "Dàhuì Pǔjué Chánshī Kànhuà Shūwèn yǔ Hóngzhì Zhèngjué Mòzhào Míng",
+  "title_en": "The Letters of Dahui Zonggao on Kanhua Chan & Hongzhi Zhengjue's Inscription on Silent Illumination",
+  "cbeta_id": "T1998A / T2001",
+  "taisho_vol": 47,
+  "author_zh": "宋 大慧宗杲 禪師 撰 / 宏智正覺 禪師 撰",
+  "author_en": "Chan Masters Dahui Zonggao (1089–1163) & Hongzhi Zhengjue (1091–1157)",
+  "era": "Song Dynasty (12th Century)",
+  "genre": "Letters, Sermons & Meditation Inscriptions (書問、普說與默照銘)",
+  "overview": "The twin pinnacles of Song Dynasty Chan pedagogy: Dahui's revolutionary Kanhua Chan (investigating the critical phrase / huatou in active daily life) and Hongzhi's sublime poetry of Silent Illumination (Mozhao Chan).",
+  "sections": [
+    {
+      "section_id": "mozhao_ming",
+      "title_zh": "宏智禪師 默照銘",
+      "title_pinyin": "Hóngzhì Chánshī Mòzhào Míng",
+      "title_en": "Inscription on Silent Illumination (Mozhao Ming)",
+      "dialogue": [
+        {
+          "speaker": "Hongzhi / 宏智正覺",
+          "zh": "默默忘言，昭昭現前。鑑時廓爾，體處靈然。靈然獨照，照中還妙。露月星河，雪覆夜沼。水天一色，纖塵無表。",
+          "pinyin": "Mòmò wàng yán, zhāozhāo xiànqián. Jiàn shí kuò'ěr, tǐ chù língrán. Língrán dú zhào, zhào zhōng hái miào. Lù yuè xīnghé, xuě fù yè zhǎo. Shuǐ tiān yīsè, xiānchén wú biǎo.",
+          "translations": {
+            "red_pine": "Silently and serenely one forgets all words; clearly and vividly that appears before you. When you gaze into it, it is vast and boundless; where you embody it, it is alive and wondrous. Living awareness shines alone, and within the illumination is subtle marvel. The dew, the moon, the river of stars; snow covering the nighttime pond. Water and sky merge in single color; not a speck of dust shows itself.",
+            "cleary": "Silently and steadily one forgets all words; clearly and vividly it appears before you. When you see it, it is vast; where you embody it, it is luminous. Luminous and solitary, in its illumination it is subtle. Dew, moon, Milky Way; snow blanketing the night pond. Water and sky are one color; not a speck of dust appears.",
+            "sasaki": "In silence words are forgotten; radiant and clear it appears before you. Contemplated, it is boundless; embodied, it is wondrously alive. In solitary illumination, subtle wonder shines. Dew, moon, and river of stars; snow covers the silent pond."
+          }
+        },
+        {
+          "speaker": "Hongzhi / 宏智正覺",
+          "zh": "妙存默處，功見照中。清白傳家，深根不動。正當恁麼時，只這箇是。",
+          "pinyin": "Miào cún mò chù, gōng jiàn zhào zhōng. Qīngbái chuánjiā, shēn gēn bù dòng. Zhèng dāng rèn me shí, zhǐ zhè gè shì.",
+          "translations": {
+            "red_pine": "Wonder resides in the place of silence; function is revealed within illumination. The pristine heritage is passed down; deep roots remain immovable. At this very moment, this very thing is it.",
+            "cleary": "Subtlety rests in silence; mastery appears in illumination. The pure white legacy is transmitted; deep roots are unmoved. Right at such a time, only this is it.",
+            "sasaki": "Wonder resides in silence; power manifests in illumination. Transmitting the pure white lineage, deep roots remain unshaken. At this very instant, this is it."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanhua_letters",
+      "title_zh": "大慧普覺禪師示張九成：看「無」字話頭",
+      "title_pinyin": "Dàhuì Pǔjué Chánshī Shì Zhāng Jiǔchéng: Kàn 'Wú' Zì Huàtóu",
+      "title_en": "Dahui's Letter to Minister Zhang: Investigating the Word 'Wu' (Mu)",
+      "dialogue": [
+        {
+          "speaker": "Dahui / 大慧宗杲",
+          "zh": "僧問趙州：「狗子還有佛性也無？」州云：「無。」此一字便是箇破生死底大刀斧。十二時中，行住坐臥，茶飯酬酢，但單提這箇「無」字。",
+          "pinyin": "Sēng wèn Zhàozhōu: 'Gǒuzi hái yǒu fóxìng yě wú?' Zhōu yún: 'Wú.' Cǐ yī zì biàn shì gè pò shēngsǐ dǐ dà dāofǔ. Shí'èr shí zhōng, xíng zhù zuò wò, cháfàn chóucuò, dàn dān tí zhègè 'Wú' zì.",
+          "translations": {
+            "red_pine": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?' Zhaozhou said: 'Wu.' This single word is a great broadaxe that shatters birth and death. Throughout the twelve periods of the day, whether walking, standing, sitting, or lying down, drinking tea, eating meals, or greeting guests, simply hold up this single word 'Wu.'",
+            "cleary": "A monk asked Zhaozhou, 'Does a dog have Buddha-nature?' Zhaozhou said, 'No.' This single word is a great axe shattering birth and death. Throughout the day, walking, standing, sitting, lying down, eating, simply bring up this single word 'No.'",
+            "sasaki": "A monk asked Jōshū: 'Does a dog have Buddha-nature?' Jōshū said: 'Mu.' This one syllable is the great sword that cuts through birth and death. At all times, walking, standing, sitting, or reclining, solely hold up this 'Mu.'"
+          }
+        },
+        {
+          "speaker": "Dahui / 大慧宗杲",
+          "zh": "不得作有無會，不得作道理會，不得向意根下卜度。情識路絕，思量不行，忽然如桶底脫落，打破漆桶，方知本來無事。",
+          "pinyin": "Bùdé zuò yǒu wú huì, bùdé zuò dàolǐ huì, bùdé xiàng yìgēn xià bǔduò. Qíngshí lù jué, sīliang bù xíng, hūrán rú tǒng dǐ tuōluò, dǎpò qītǒng, fāng zhī běnlái wú shì.",
+          "translations": {
+            "red_pine": "Do not understand it as existence or non-existence; do not understand it as a philosophical principle; do not calculate it under the faculty of intellect. When the path of emotional consciousness is severed and conceptual thinking ceases, suddenly like the bottom falling out of a bucket or smashing a black lacquer tub, you will know that fundamentally there is nothing amiss.",
+            "cleary": "Do not take it as being or nonbeing, do not take it as reason, do not reckon it intellectually. When feelings and thoughts are cut off and deliberation does not work, suddenly like the bottom falling out of a bucket, you break the tub of black lacquer and realize fundamentally there is nothing to do.",
+            "sasaki": "Do not take it as 'has' or 'has not'; do not treat it as intellectual theory. When conceptual thinking is exhausted, suddenly the bottom of the bucket drops out, and you realize that originally there has never been anything at all."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "letter_to_minister_lu",
+      "title_zh": "示陸內翰：官事佛事，打成一片",
+      "title_pinyin": "Shì Lù Nèihàn: Guānshì Fóshì, Dǎchéng Yīpiàn",
+      "title_en": "Letter to Vice Minister Lu: Government Affairs and Buddha Affairs Merged as One",
+      "dialogue": [
+        {
+          "speaker": "Dahui / 大慧宗杲",
+          "zh": "示陸內翰云：「日用隨緣，即是道場。不須別尋靜室，向枯木死灰處討佛法。官事佛事，本是一體。遇事逢緣，但看箇『無』字。日久歲深，觸著磕著，忽然契悟，方知朝廷之中，即是少室峰前！」",
+          "pinyin": "Shì Lù Nèihàn yún: 'Rìyòng suíyuán, jí shì dàochǎng. Bùxū bié xún jìngshì, xiàng kūmù sǐhuī chù tǎo fófǎ. Guānshì fóshì, běn shì yītǐ. Yùshì féngyuán, dàn kàn gè 'Wú' zì. Rì jiǔ suì shēn, chù zháo kē zháo, hūrán qìwù, fāng zhī cháotíng zhīzhōng, jí shì Shǎoshì Fēng qián!'",
+          "translations": {
+            "cleary": "The Master instructed Vice Minister Lu: 'Daily life according with conditions is itself the place of enlightenment. There is no need to search for a quiet room elsewhere to beg for Buddha-dharma in dry wood and dead ashes. Government business and Buddha business are fundamentally one body. When meeting affairs and encountering conditions, simply look at the word 'Wu.' With time and depth, bumping into things, you will suddenly awaken and realize that right in the midst of the imperial court is Shaolin before Bodhidharma!'",
+            "red_pine": "Letter to Minister Lu: 'Daily life in the world is itself the bodhimanda. You don't need to find a quiet hermitage to look for Zen in dead embers. Secular duties and spiritual realization are one single fabric. When busy with affairs, just maintain the word 'Wu.' One day bumping against something, you will suddenly realize that the government office is right in front of Bodhidharma's cave!'",
+            "sasaki": "To Minister Lu: 'Daily duties are the dojo. Do not flee into quiet rooms to seek the Dharma in dead ashes. Worldly affairs and Chan are one essence. Hold up 'Mu' in the midst of daily activity; suddenly the court is none other than Shaolin!'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "great_doubt",
+      "title_zh": "大疑大悟，小疑小悟",
+      "title_pinyin": "Dàyí Dàwù, Xiǎoyí Xiǎowù",
+      "title_en": "Great Doubt, Great Awakening",
+      "dialogue": [
+        {
+          "speaker": "Dahui / 大慧宗杲",
+          "zh": "千疑萬疑，只是一疑。話頭上疑破，則千生萬劫疑一時破。大疑大悟，小疑小悟，不疑不悟。",
+          "pinyin": "Qiān yí wàn yí, zhǐ shì yī yí. Huàtóu shàng yí pò, zé qiān shēng wàn jié yí yī shí pò. Dàyí dàwù, xiǎoyí xiǎowù, bù yí bù wù.",
+          "translations": {
+            "red_pine": "A thousand doubts and ten thousand doubts are simply one single doubt. When the doubt upon the huatou is shattered, the doubts of a thousand lifetimes and ten thousand aeons are shattered in a single instant. Great doubt yields great awakening; small doubt yields small awakening; no doubt yields no awakening.",
+            "cleary": "A thousand doubts and ten thousand doubts are just one doubt. Shatter doubt upon the keyword, and doubts of thousands of lives are shattered at once. Great doubt, great enlightenment; small doubt, small enlightenment; no doubt, no enlightenment.",
+            "sasaki": "A thousand doubts are but one doubt. When the doubt on the huatou breaks, the doubts of countless kalpas shatter at once. Great doubt brings great awakening; small doubt brings small awakening; no doubt brings no awakening."
+          }
+        }
+      ]
+    }
+  ]
+}

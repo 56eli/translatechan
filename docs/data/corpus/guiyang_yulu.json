@@ -1,0 +1,99 @@
+{
+  "id": "guiyang_yulu",
+  "title_zh": "潭州溈山靈祐禪師語錄與溈仰九十六圓相",
+  "title_pinyin": "Tánzhōu Guīshān Língyòu Chánshī Yǔlù yǔ Guīyǎng Jiǔshíliù Yuánxiàng",
+  "title_en": "The Record of Guishan Lingyou & Yangshan Huiji (The Guiyang School and Circular Figures)",
+  "cbeta_id": "T1989 / T1990",
+  "taisho_vol": 47,
+  "author_zh": "溈山靈祐 禪師 說 / 仰山慧寂 禪師 述",
+  "author_en": "Chan Masters Guishan Lingyou (771–853) & Yangshan Huiji (807–883)",
+  "era": "Tang Dynasty",
+  "genre": "Discourse Record & Circular Figures (語錄與圓相)",
+  "overview": "The foundational literature of the Guiyang (Igyo) School, the first of the Five Houses of Chan, famous for harmonious father-and-son attunement (父子相印) and the Ninety-Six Circular Figures (九十六圓相).",
+  "sections": [
+    {
+      "section_id": "kicking_pitcher",
+      "title_zh": "百丈選住持：踢倒淨瓶",
+      "title_pinyin": "Bǎizhàng Xuǎn Zhùchí: Tīdǎo Jìngpíng",
+      "title_en": "Baizhang Selects the Abbot: Kicking Over the Water Pitcher",
+      "dialogue": [
+        {
+          "speaker": "Baizhang / 百丈",
+          "zh": "百丈將選大溈山住持，乃設問試眾。置淨瓶於地問曰：「不得喚作淨瓶，汝喚作甚麼？」",
+          "pinyin": "Bǎizhàng jiāng xuǎn Dàguīshān zhùchí, nǎi shè wèn shì zhòng. Zhì jìngpíng yú dì wèn yuē: 'Bùdé huàn zuò jìngpíng, rǔ huàn zuò shénme?'",
+          "translations": {
+            "red_pine": "Master Baizhang wished to choose the abbot for Mount Da-gui, so he posed a question to test the assembly. Placing a water pitcher on the ground, he asked: 'You cannot call this a water pitcher; what do you call it?'",
+            "cleary": "Baizhang was about to choose an abbot for Mount Gui, so he posed a question to test the crowd. He set a water pitcher on the ground and asked, 'You cannot call this a water pitcher; what do you call it?'",
+            "sasaki": "Hyakujō wished to appoint an abbot for Mount Dai-i, and set a question to the assembly. Placing a water pitcher on the floor, he asked: 'Not calling this a water pitcher, what do you call it?'"
+          }
+        },
+        {
+          "speaker": "Head Monk / 首座",
+          "zh": "首座曰：「不可喚作木𣐎也。」",
+          "pinyin": "Shǒuzuò yuē: 'Bùkě huàn zuò mù tū yě.'",
+          "translations": {
+            "red_pine": "The Head Monk said: 'It cannot be called a wooden stub.'",
+            "cleary": "The Head Monk said, 'It cannot be called a wooden block.'",
+            "sasaki": "The Head Monk said: 'You cannot call it a piece of wood.'"
+          }
+        },
+        {
+          "speaker": "Guishan / 溈山",
+          "zh": "師乃踢倒淨瓶，便出去。百丈笑曰：「首座輸卻山子也。」遂命師開山。",
+          "pinyin": "Shī nǎi tī dǎo jìngpíng, biàn chū qù. Bǎizhàng xiào yuē: 'Shǒuzuò shū què shānzǐ yě.' Suì mìng shī kāishān.",
+          "translations": {
+            "red_pine": "Guishan walked forward, kicked over the water pitcher, and walked out. Baizhang laughed and said: 'The Head Monk has lost the mountain to this one!' And appointed Guishan to open the monastery.",
+            "cleary": "Guishan kicked over the pitcher and went out. Baizhang laughed and said, 'The Head Monk has lost the mountain!' And sent Guishan to open the mountain.",
+            "sasaki": "Guishan came forward, kicked over the water pitcher, and walked out. Hyakujō laughed: 'The Head Monk has lost the mountain!' And appointed Guishan as founder."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "circular_figures",
+      "title_zh": "仰山九十六圓相之法",
+      "title_pinyin": "Yǎngshān Jiǔshíliù Yuánxiàng zhī Fǎ",
+      "title_en": "The Ninety-Six Circular Figures of Yangshan",
+      "dialogue": [
+        {
+          "speaker": "Yangshan / 仰山",
+          "zh": "仰山受溈山印可，以圓相傳心。於地上畫一圓相「○」，師曰：「諸佛密意，不落言詮。這箇圓相，從何處起，向何處滅？」",
+          "pinyin": "Yǎngshān shòu Guīshān yìnkě, yǐ yuánxiàng chuánxīn. Yú dìshàng huà yī yuánxiàng '○', shī yuē: 'Zhūfó mìyì, bù luò yánquán. Zhègè yuánxiàng, cóng hé chù qǐ, xiàng hé chù miè?'",
+          "translations": {
+            "red_pine": "Yangshan received the seal of transmission from Guishan and used circular figures to transmit the mind seal. Drawing a circle '○' on the earth, he asked: 'The secret intention of all Buddhas does not fall into speech. Where does this circular figure arise from, and where does it vanish?'",
+            "cleary": "Yangshan received Guishan's seal and transmitted the mind via circular figures. Drawing a circle '○' on the ground, he said, 'The esoteric meaning of Buddhas is not caught in words. Where does this circle arise, where does it cease?'",
+            "sasaki": "Yangshan drew a circle '○' on the ground with his staff and said: 'The Buddhas' seal is beyond words. Where does this circle begin, and where does it end?'"
+          }
+        },
+        {
+          "speaker": "Guishan / 溈山",
+          "zh": "溈山見之，於圓相中畫一「十」字「⊕」。仰山於旁添作「⊙」。師資相照，妙入微契。",
+          "pinyin": "Guīshān jiàn zhī, yú yuánxiàng zhōng huà yī 'shí' zì '⊕'. Yǎngshān yú páng tiān zuò '⊙'. Shīzī xiāngzhào, miào rù wēiqì.",
+          "translations": {
+            "red_pine": "Seeing it, Guishan drew a cross within the circle '⊕'. Yangshan then placed a dot at the center '⊙'. Master and disciple illuminated each other in perfect subtle harmony.",
+            "cleary": "Guishan drew a cross within the circle '⊕'. Yangshan added a dot '⊙'. Teacher and pupil reflected each other, harmonizing in subtle attunement.",
+            "sasaki": "Guishan drew a cross in the circle '⊕'. Yangshan added a central dot '⊙'. Master and disciple were perfectly attuned without a word."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "guishan_admonitions",
+      "title_zh": "溈山警策：出家行履",
+      "title_pinyin": "Guīshān Jǐngcè: Chūjiā Xínglǚ",
+      "title_en": "Admonitions of Guishan (Guishan Jingce)",
+      "dialogue": [
+        {
+          "speaker": "Guishan / 溈山",
+          "zh": "夫出家者，捨俗入道，發足超方。心形異俗，紹隆聖種。時光易過，日月如梭。幻化之軀，旦暮難保。若不精修，虛生浪死。",
+          "pinyin": "Fú chūjiā zhě, shě sú rù dào, fā zú chāo fāng. Xīn xíng yì sú, shào lóng shèng zhǒng. Shíguāng yì guò, rìyuè rú suō. Huànhuà zhī qū, dànmù nán bǎo. Ruò bù jīng xiū, xū shēng làng sǐ.",
+          "translations": {
+            "red_pine": "Those who leave home renounce worldly life to enter the Way, stepping beyond ordinary limits. Their heart and bodily form differ from the common world, continuing the sacred lineage. Time passes swiftly like a weaver's shuttle; this illusory body cannot be guaranteed from morning to dusk. If you do not practice diligently, you live in vain and die a wasted death.",
+            "cleary": "Those who renounce worldly life leave the mundane to enter the Way, transcending ordinary realms. In heart and form they differ from the world, perpetuating the sacred lineage. Time passes easily, sun and moon fly like shuttles. This illusory body is fragile from dawn to dusk. If you do not cultivate rigorously, you live in vain and die foolishly.",
+            "sasaki": "One who leaves household life enters the Way to transcend worldly bonds. Time flies like a weaver's shuttle; this phantom body is fleeting. Strive with all your might, lest your life be spent in vain."
+          }
+        }
+      ]
+    }
+  ]
+}

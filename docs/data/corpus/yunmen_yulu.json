@@ -1,0 +1,107 @@
+{
+  "id": "yunmen_yulu",
+  "title_zh": "雲門匡真禪師廣錄",
+  "title_pinyin": "Yúnmén Kuāngzhēn Chánshī Guǎnglù",
+  "title_en": "The Master of Yunmen: The Recorded Sayings of Chan Master Yunmen Wenyan",
+  "cbeta_id": "T1988",
+  "taisho_vol": 47,
+  "author_zh": "雲門文偃 禪師 說 / 門人 守堅 編",
+  "author_en": "Spoken by Chan Master Yunmen Wenyan (864–949), Compiled by Shoujian",
+  "era": "Five Dynasties and Ten Kingdoms (Southern Han)",
+  "genre": "Discourse Record & One-Word Barriers (語錄與一字關)",
+  "overview": "The razor-sharp, lightning-quick dialogues and sermons of Master Yunmen Wenyan, celebrated for his One-Word Barriers (一字關) and the Three Phrases of Yunmen (雲門三句).",
+  "sections": [
+    {
+      "section_id": "three_phrases",
+      "title_zh": "雲門三句綱宗",
+      "title_pinyin": "Yúnmén Sānjù Gāngzōng",
+      "title_en": "The Three Phrases of Yunmen",
+      "dialogue": [
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "師示眾云：「函蓋乾坤，目機銖兩，截斷眾流，隨波逐浪。作麼生商量？」眾無對。",
+          "pinyin": "Shī shì zhòng yún: 'Hán gài qián kūn, mù jī zhū liǎng, jié duàn zhòng liú, suí bō zhú làng. Zuò me shēng shāng liang?' Zhòng wú duì.",
+          "translations": {
+            "red_pine": "The Master instructed the assembly: 'Enclosing heaven and earth like box and lid; weighing every subtle grain at a single glance; cutting off the flow of all streams; following the waves and pursuing the ripples. How do you deliberate upon this?' The assembly had no answer.",
+            "cleary": "The Master addressed the group: 'Covering heaven and earth, discerning the impulse to the ounce, cutting off all streams, going along with the ripples. How do you assess this?' The crowd had no reply.",
+            "sasaki": "Master Ummon instructed the assembly: 'Enclosing heaven and earth; discerning the pivot to the smallest ounce; cutting off all streams; following the waves. What is your understanding?' The monks were silent."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "every_day_good_day",
+      "title_zh": "十五日已前：日日是好日",
+      "title_pinyin": "Shíwǔ Rì Yǐqián: Rìrì Shì Hǎorì",
+      "title_en": "Fifteen Days: Every Day is a Good Day",
+      "dialogue": [
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "師示眾云：「十五日已前不問汝，十五日已後道將一句來。」大眾無對。師自代云：「日日是好日。」",
+          "pinyin": "Shī shì zhòng yún: 'Shíwǔ rì yǐqián bù wèn rǔ, shíwǔ rì yǐhòu dào jiāng yī jù lái.' Dàzhòng wú duì. Shī zì dài yún: 'Rì rì shì hǎo rì.'",
+          "translations": {
+            "red_pine": "The Master instructed the assembly: 'I do not ask you about before the fifteenth day; after the fifteenth day, say a single sentence!' The assembly had no answer. The Master spoke for them: 'Every day is a good day.'",
+            "cleary": "The Master addressed the assembly, 'I don't ask you about before the fifteenth day; bring me a word about after the fifteenth day.' The assembly had no reply. The Master answered for them, 'Every day is a good day.'",
+            "sasaki": "Ummon said: 'I don't ask you about the days before the full moon; tell me a word about after the full moon.' The monks made no reply. Ummon said: 'Every day is a good day.'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "one_word_barriers",
+      "title_zh": "雲門一字關",
+      "title_pinyin": "Yúnmén Yīzìguān",
+      "title_en": "The One-Word Barriers",
+      "dialogue": [
+        {
+          "speaker": "Monk / 僧",
+          "zh": "僧問：「如何是正法眼藏？」師云：「普。」",
+          "pinyin": "Sēng wèn: 'Rúhé shì zhèng fǎ yǎn zàng?' Shī yún: 'Pǔ.'",
+          "translations": {
+            "red_pine": "A monk asked: 'What is the treasury of the true Dharma eye?' The Master said: 'Universal!'",
+            "cleary": "A monk asked, 'What is the eye treasury of the true teaching?' The Master said, 'Universal.'",
+            "sasaki": "A monk asked: 'What is the Eye Treasury of the True Law?' Ummon said: 'Universal!'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "問：「如何是雲門一劍？」師云：「祖。」",
+          "pinyin": "Wèn: 'Rúhé shì Yúnmén yī jiàn?' Shī yún: 'Zǔ.'",
+          "translations": {
+            "red_pine": "Asked: 'What is the single sword of Yunmen?' The Master said: 'Ancestor!'",
+            "cleary": "Asked, 'What is the single sword of Yunmen?' The Master said, 'Ancestor.'",
+            "sasaki": "Asked: 'What is the sword of Ummon?' Ummon said: 'Patriarch!'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "問：「乾峰一路，趣向如何？」師云：「關。」",
+          "pinyin": "Wèn: 'Qiānfēng yī lù, qùxiàng rúhé?' Shī yún: 'Guān.'",
+          "translations": {
+            "red_pine": "Asked: 'What is the destination of Qianfeng's single road?' The Master said: 'Barrier!'",
+            "cleary": "Asked, 'What is the orientation of the single path of Qianfeng?' The Master said, 'Barrier.'",
+            "sasaki": "Asked: 'Where does the single road of Kempō lead?' Ummon said: 'Barrier!'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "treasure_in_body",
+      "title_zh": "宇宙之內，中有一寶",
+      "title_pinyin": "Yǔzhòu Zhīnèi, Zhōng Yǒu Yībǎo",
+      "title_en": "The Hidden Jewel within the Body",
+      "dialogue": [
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "師示眾引志公云：「乾坤之內，宇宙之間，中有一寶，秘在形山。拈燈籠向佛殿裏，將三門來燈籠上。」",
+          "pinyin": "Shī shì zhòng yǐn Zhìgōng yún: 'Qiánkūn zhīnèi, yǔzhòu zhījiān, zhōng yǒu yī bǎo, mì zài xíng shān. Niān dēnglóng xiàng fódiàn lǐ, jiāng sānmén lái dēnglóng shàng.'",
+          "translations": {
+            "red_pine": "The Master cited Master Baozhi to the assembly: 'Inside heaven and earth, within the universe, there is a single jewel, hidden in the mountain of bodily form. Pick up the lantern and bring it into the Buddha hall; take the mountain gate and put it on top of the lantern!'",
+            "cleary": "The Master cited Master Baozhi: 'Within heaven and earth, in the cosmos, there is a treasure hidden in the mountain of form. Bring the lantern into the Buddha hall; put the mountain gate on top of the lantern.'",
+            "sasaki": "Ummon cited Master Hōshi: 'Within the cosmos there is a jewel hidden in the body. Take the lantern into the Buddha hall; set the temple gate on top of the lantern!'"
+          }
+        }
+      ]
+    }
+  ]
+}
