@@ -137,7 +137,7 @@ const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {
 if (Object.keys(perText).length !== 36) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '7/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '14/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
@@ -230,8 +230,19 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
 // arithmetic case numbers; selecting a corpus also persists the reading context.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanHtml = ids['reader-content-target']._innerHTML;
-if (!biyanHtml.includes('data-jump-case="12">第12則 ›') || !biyanHtml.includes('data-jump-case="3">‹ 第3則')) {
+if (!biyanHtml.includes('data-jump-case="4">第4則 ›') || !biyanHtml.includes('data-jump-case="2">‹ 第2則')) {
   failures++; console.log('❌ Biyanlu sparse prev/next navigation is incorrect');
+}
+// 4e1. Biyanlu pilot cases 4-10 render with labeled AI-draft renderings
+// (cases 1-12 render in the lazy first chunk, so 4/6/8 are present).
+if (!biyanHtml.includes('勘破了也') || !biyanHtml.includes('Deshan') || !biyanHtml.includes('AI draft')) {
+  failures++; console.log('❌ Biyanlu case 4 content or AI-draft labeling missing');
+}
+if (!biyanHtml.includes('日日是好日') || !biyanHtml.includes('Yunmen')) {
+  failures++; console.log('❌ Biyanlu case 6 (Yunmen) content missing');
+}
+if (!biyanHtml.includes('翠嵒眉毛') || !biyanHtml.includes('Barrier')) {
+  failures++; console.log('❌ Biyanlu case 8 (Cuiyan) content missing');
 }
 if (store['translatechan_corpus_key'] !== 'biyanlu_cases') { failures++; console.log('❌ corpus selection was not persisted'); }
 const mobileCorpusSelect = ids['corpus-mobile-select'];

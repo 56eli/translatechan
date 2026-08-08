@@ -17,7 +17,7 @@ This document outlines the detailed engineering, data science, translation, and 
 ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────┤
 │  • Public reader│  • 48/48        │  • 4 Matrix     │  • Primary text │  • Middle      │
 │    + matrix +   │    Wumenguan    │    entries       │    aggregation   │    Chinese     │
-│    lineage +    │  • 7/100        │  • 31/150+      │  • Book/edition │  • DDB / SAT   │
+│    lineage +    │  • 14/100       │  • 31/150+      │  • Book/edition │  • DDB / SAT   │
 │    index +      │    Biyanlu      │    Chan terms    │    verification  │  • Multi-ling  │
 │    lexicon      │  • 36 manifests │  • Status/rights │  • Hover/focus  │    / lineage   │
 │  • Smoke test   │    + locators   │    disclosure    │    citations     │    verification│
@@ -57,7 +57,7 @@ This document outlines the detailed engineering, data science, translation, and 
   4. *Zhaozhou Yulu* (趙州語錄 / recorded-saying extracts)
   5. *Xinxin Ming* (信心銘 / opening stanzas)
   6. *Baojing Sanmei* (寶鏡三昧 / opening stanzas)
-  7. *Biyanlu* (碧巖錄 / Blue Cliff Record, T2003 — 7/100 cases)
+  7. *Biyanlu* (碧巖錄 / Blue Cliff Record, T2003 — 14/100 cases; cases 1–10 complete)
   8. *Platform Sutra* (六祖壇經 / T2007 — 4/10 chapters)
   9. *+28 further yulu, treatises & poems* (Mazu, Nanquan, Dongshan + Five Ranks, Yunmen, Fayan, Guiyang, Dahui, Hongzhi, Shitou, Hanshan, Sengzhao, monastic codes, Dunhuang texts…)
 
@@ -80,7 +80,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - `scripts/align_translations.py` — sentence-level translation alignment (not yet written).
 - [ ] **Full-Text Ingestion Targets**:
   - [x] Wumenguan (**48 / 48 cases** — completed 2026-08-08; every case carries the verified Senzaki & Reps 1934 public-domain register)
-  - [~] Biyanlu (**7 / 100 cases**)
+  - [~] Biyanlu (**14 / 100 cases** — cases 1–10 complete with pointer, 本則, pre-verse 評唱 and 頌; post-verse 評唱 rendering pending)
   - [ ] Congronglu / Book of Serenity (All 100 Cases)
   - [ ] Jingde Chuandenglu (Complete 30 Fascicles, ~1,700 masters)
   - [ ] Baizhang Qinggui & Chanyuan Qinggui (Monastic codes)

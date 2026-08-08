@@ -19,32 +19,88 @@
       "canonical_locator": "T2003",
       "case_locators": {
         "1": {
-          "canonical_locator": "T2003, case 1",
-          "status": "case_level_anchor"
-        },
-        "12": {
-          "canonical_locator": "T2003, case 12",
-          "status": "case_level_anchor"
-        },
-        "14": {
-          "canonical_locator": "T2003, case 14",
-          "status": "case_level_anchor"
+          "canonical_locator": "T2003 case 1 · T48n2003 p.0140a13–p.0141b20",
+          "status": "case_level_anchor",
+          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
         },
         "2": {
-          "canonical_locator": "T2003, case 2",
-          "status": "case_level_anchor"
-        },
-        "21": {
-          "canonical_locator": "T2003, case 21",
-          "status": "case_level_anchor"
+          "canonical_locator": "T2003 case 2 · T48n2003 p.0141b21–p.0142c04",
+          "status": "case_level_anchor",
+          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
         },
         "3": {
-          "canonical_locator": "T2003, case 3",
-          "status": "case_level_anchor"
+          "canonical_locator": "T2003 case 3 · T48n2003 p.0142c05–p.0143b01",
+          "status": "case_level_anchor",
+          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+        },
+        "4": {
+          "canonical_locator": "T2003 case 4 · T48n2003 p.0143b02–p.0144c18",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30)",
+          "collation_note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending.",
+          "note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending."
+        },
+        "5": {
+          "canonical_locator": "T2003 case 5 · T48n2003 p.0144c19–p.0145c12",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30)",
+          "collation_note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending.",
+          "note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending."
+        },
+        "6": {
+          "canonical_locator": "T2003 case 6 · T48n2003 p.0145c13–p.0147a17",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30)",
+          "collation_note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending.",
+          "note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending."
+        },
+        "7": {
+          "canonical_locator": "T2003 case 7 · T48n2003 p.0147a18–p.0148a20",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30)",
+          "collation_note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending.",
+          "note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending."
+        },
+        "8": {
+          "canonical_locator": "T2003 case 8 · T48n2003 p.0148a21–p.0149a14",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30)",
+          "collation_note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending.",
+          "note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending."
+        },
+        "9": {
+          "canonical_locator": "T2003 case 9 · T48n2003 p.0149a15–p.0150a16",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30)",
+          "collation_note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending.",
+          "note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending."
+        },
+        "10": {
+          "canonical_locator": "T2003 case 10 · T48n2003 p.0150a17–p.0151b08",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30)",
+          "collation_note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending.",
+          "note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending."
+        },
+        "12": {
+          "canonical_locator": "T2003 case 12 · T48n2003 p.0152c15–p.0153c15",
+          "status": "case_level_anchor",
+          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+        },
+        "14": {
+          "canonical_locator": "T2003 case 14 · T48n2003 p.0154c03–p.0155a18",
+          "status": "case_level_anchor",
+          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+        },
+        "21": {
+          "canonical_locator": "T2003 case 21 · T48n2003 p.0161c19–p.0162b27",
+          "status": "case_level_anchor",
+          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
         },
         "43": {
-          "canonical_locator": "T2003, case 43",
-          "status": "case_level_anchor"
+          "canonical_locator": "T2003 case 43 · T48n2003 p.0180a13–p.0180c21",
+          "status": "case_level_anchor",
+          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
         }
       },
       "granularity": "case",

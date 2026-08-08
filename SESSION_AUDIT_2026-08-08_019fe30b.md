@@ -196,6 +196,20 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 | F9 — script docstrings | `ingest_cbeta.py` and `arena_agent_pipeline.py` module docstrings rewritten to state exactly what each script does (offline punctuation segmenter / prompt-register + entry-builder helpers) and explicitly defer CBETA fetching + alignment to Phase 2 | `python3 -m py_compile scripts/*.py` clean; README descriptions already matched the new wording |
 | F7 — required-check instruction | HANDOFF.md gains a **"Repository administration"** section: exact ~2-minute owner steps (confirm the workflow ran once → Settings → Branches → protect `main` → require status check **Validate data, generated artifacts, and reader**; recommended PR requirement; note that Pages stays native and needs no deploy workflow) | The agent token cannot modify branch protection (API 403 confirmed), so this is now a precise owner checklist rather than an open unknown |
 
+### Phase-2 content: Biyanlu cases 4–10 (first 10 cases complete) ✅
+
+| Item | Detail |
+|---|---|
+| Corpus | `biyanlu_cases.json` 7 → **14 cases**; cases **1–10 complete** (pointer 垂示, 本則, pre-verse 評唱, 頌) — zh collated byte-exact from **CBETA TEI T48n2003** (sparse-cloned from `cbeta-org/xml-p5`, rev. 2025-01-30) |
+| Locators | All 14 biyanlu case locators now carry CBETA line ranges; new cases `collated_with_normalization` (+source edition, collation note), existing excerpts keep `case_level_anchor`; 57 → **64/64** locator coverage |
+| Translations | New renderings are `ai_literal` project drafts (auto-labeled 🤖); no scholar attribution added; post-verse 評唱 English pending (documented in `coverage_note`) |
+| Pinyin | pypinyin machine draft + curated proper-name/Buddhist override table (溈山, 般若, 單于, 佛→fó …) |
+| Gong'an index | 18 → **23** entries (biyan_04/05/06/07/09) |
+| Coverage metadata | biyanlu gains validator-checked `zh_chars` (7,412) + `coverage_note` |
+| Gates | validator ✅ (slots 874 · verified 138 · locators 64/64) · deterministic build ✅ · smoke ✅ (updated sparse-nav 3→4/12→10, per_text `14/100 cases`, new case-4/6/8 content checks) · root↔docs synced ✅ |
+
+**Boundary kept explicit:** this proves the Phase-2 pilot contract end-to-end (source → locator → segmented fields → labeled renderings → validator/metrics/regression). Remaining Biyanlu work: post-verse 評唱 English, human sign-off on the `collated_with_normalization` anchors, and cases 11–100.
+
 ---
 
 ## 8. Audit Limitations
@@ -204,4 +218,4 @@ This audit did not independently collate every Chinese passage against CBETA/TEI
 
 ---
 
-**One-sentence completion summary:** This audit found a healthy, deterministic, honestly-labeled static reader with all quality gates green and every prior remediation holding, and this session remediated the a11y/CSP gaps, added deterministic per-text coverage metrics (which caught a stale char count), shipped an optional Playwright real-browser suite, and drafted the owner-only branch-protection instruction — leaving open only the tracked editorial migration, the suite's first live browser run, the owner's 2-minute admin step, and Phase-2 corpus expansion.
+**One-sentence completion summary:** This audit found a healthy, deterministic, honestly-labeled static reader with all quality gates green and every prior remediation holding, and this session remediated the a11y/CSP gaps, added deterministic per-text coverage metrics, shipped an optional Playwright real-browser suite, drafted the owner-only branch-protection instruction, and completed the first Phase-2 content milestone (Biyanlu cases 1–10, collated byte-exact from the CBETA TEI with line locators and labeled AI-draft renderings) — leaving open only the editorial migration, the suite's first live browser run, the owner's admin step, and cases 11–100.

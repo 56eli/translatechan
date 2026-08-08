@@ -695,3 +695,19 @@ The smoke suite asserts the layered generation labels and halo nodes so the char
 **F9 (fixed):** the module docstrings of `scripts/ingest_cbeta.py` and `scripts/arena_agent_pipeline.py` overpromised ("…maps CBETA canonical IDs", "…Translation & Alignment Pipeline"). Both are rewritten to state exactly what they do — an offline punctuation/dialogue-delimiter segmenter, and prompt-register + entry-builder helpers — with CBETA fetching and translation alignment explicitly deferred to Phase 2. `py_compile` clean.
 
 **F7 (instruction drafted):** branch protection cannot be set by the agent token (API 403 verified). HANDOFF.md now carries a precise **"Repository administration — require the Quality check on `main`"** checklist for the owner: confirm one green Quality run → Settings → Branches → protect `main` → require status check **Validate data, generated artifacts, and reader** (job name), recommended PR requirement, and a note that Pages stays native (`main` → `/docs`) with no deploy workflow. This converts the open unknown into a ~2-minute owner checklist.
+
+### 11.7 — Phase-2 content: Biyanlu cases 4–10 (first 10 cases complete) — 2026-08-08
+
+| Item | Detail |
+|---|---|
+| Corpus growth | `biyanlu_cases.json`: 7 → **14 cases** (1,2,3,4,5,6,7,8,9,10,12,14,21,43). Cases **1–10 are now complete** with pointer (垂示), main case (本則), pre-verse 評唱 commentary, and Xuedou's verse (頌); cases 12/14/21/43 remain excerpt seeds. |
+| Source integrity | All new zh collated from the **CBETA TEI T48n2003** (`cbeta-org/xml-p5`, rev. 2025-01-30) fetched via sparse git clone; every pointer/commentary/verse string verified byte-equal against the TEI extraction; dialogue units verified to tile the 本則 exactly (著語 inline notes normalized out, documented). |
+| Locators | `canonical_locators.json` biyanlu case_locators: 7 → **14**, each with CBETA line ranges (`T48n2003 p.0143b02–p.0144c18` style) recorded from the TEI. New cases carry `collated_with_normalization` + source edition + collation note (human sign-off pending); pre-existing excerpt cases keep `case_level_anchor` with the line range noted. Locator coverage 57 → **64/64**. |
+| Translations | New dialogue renderings are project text under the `ai_literal` register (auto-labeled 🤖 **AI draft**); pointer/verse English likewise project renderings; **no scholar-attributed text added**. Post-verse 評唱 English rendering is explicitly pending (documented in `coverage_note`). |
+| Pinyin | Machine-generated (pypinyin) with a curated proper-name/Buddhist-term override table (溈山, 般若, 單于, 雪竇, 雲門, 趙州, 睦州, 翠嵒, 首座, 佛→fó …); flagged as machine draft per provenance policy. |
+| Gong'an index | 18 → **23 entries**: biyan_04 (Deshan/Guishan), biyan_05 (Xuefeng), biyan_06 (Yunmen everyday day), biyan_07 (Fayan/Huichao), biyan_09 (Zhaozhou four gates). |
+| Coverage metadata | `coverage_note` + `zh_chars` (7,412, validator-checked) added to the biyanlu document — the F4 per-file metadata pattern now applies to a second text. |
+| Regression | Smoke test updated: sparse nav 3→4 / 12→10; per_text coverage `14/100 cases`; new checks assert case 4/6/8 content + AI-draft labels render. |
+| Gates | `validate_data.py` ✅ (slots 874 · verified 138 · locators 64/64) · deterministic build ✅ · smoke suite ✅ · root↔docs synced ✅. |
+
+**Boundary kept explicit:** this proves the Phase-2 pilot contract end-to-end (source → locator → segmented fields → labeled renderings → validator/metrics/regression). Remaining Biyanlu work: post-verse 評唱 English, human sign-off on the `collated_with_normalization` anchors, and cases 11–100.

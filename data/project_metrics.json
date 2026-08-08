@@ -1,17 +1,17 @@
 {
   "canonical_locator_coverage": {
     "case_level_documents": 3,
-    "case_locators": 57,
-    "declared_cases": 57,
+    "case_locators": 64,
+    "declared_cases": 64,
     "document_level_seed_documents": 33,
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 16457,
+    "all_corpus_cjk_characters": 23314,
     "complete_documents": [
       "wumenguan"
     ],
-    "content_cjk_characters": 13268,
+    "content_cjk_characters": 20017,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -49,16 +49,18 @@
         }
       },
       "biyanlu_cases": {
-        "all_cjk_chars": 762,
+        "all_cjk_chars": 7619,
         "cbeta_id": "T2003",
-        "content_zh_chars": 663,
-        "coverage": "7/100 cases",
+        "content_zh_chars": 7412,
+        "coverage": "14/100 cases",
+        "coverage_note": "14/100 cases — cases 1–10 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08; 著語 inline notes normalized out of 本則; post-verse 評唱 rendering and human sign-off pending); cases 12, 14, 21, 43 remain excerpt seeds.",
+        "declared_zh_chars": 7412,
         "shapes": [
           "cases"
         ],
         "title": "Blue Cliff Record (碧巖錄)",
         "unit_counts": {
-          "cases": 7
+          "cases": 14
         }
       },
       "bodhidharma_erru": {
@@ -506,9 +508,9 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 856,
+    "corpus_slots": 874,
     "corpus_statuses": {
-      "ai_draft": 26,
+      "ai_draft": 44,
       "reconstruction_unverified": 692,
       "verified_quotation": 138
     },

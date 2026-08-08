@@ -30,7 +30,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** (Wumenguan is the first **complete text**: 48/48 cases). The generated metrics report **13,268 source-content CJK characters** (or 16,457 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `7/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`AUDIT.md §10`](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu is next.
+> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** (Wumenguan is the first **complete text**: 48/48 cases). The generated metrics report **13,268 source-content CJK characters** (or 16,457 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `14/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`AUDIT.md §10`](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu cases 1–10 are now complete (14/100).
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -40,7 +40,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 | **Sayings of Zhaozhou** | 趙州真際禪師語錄 | **T1987** (Vol. 47) | Zhaozhou Congshen (趙州從諗) | Signature dialogues (狗子, 洗鉢盂…) |
 | **Inscription on Faith in Mind** | 信心銘 | **T2010** (Vol. 48) | Third Patriarch Jianzhi Sengcan | Opening stanzas |
 | **Jewel Mirror Samadhi** | 寶鏡三昧歌 | **T1986** (Vol. 47) | Dongshan Liangjie (洞山良价) | Opening stanzas |
-| **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | 7 / 100 cases |
+| **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | 14 / 100 cases (1–10 complete) |
 | **The Platform Sutra** | 六祖大師法寶壇經 | **T2007** (Vol. 48) | Sixth Patriarch Huineng / Fahai | 4 / 10 chapters (incl. 菩提本無樹 verse) |
 | **(+ 28 further yulu, treatises & poems)** | — | T/X canon | Mazu, Dongshan, Yunmen, Fayan, Guiyang, Dahui, Hanshan… | Excerpt seeds — see `data/corpus/` |
 
