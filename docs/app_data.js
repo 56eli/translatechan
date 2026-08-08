@@ -1523,7 +1523,7 @@ window.TRANSLATECHAN_DATA = {
             "note": "Replaces a prior near-verbatim paraphrase ('asked' for 'once asked'; hyphenation).",
             "gloss": "Blyth adds: '(Mu is the negative symbol in Chinese, meaning No-thing or Nay.)'",
             "source_id": "blyth-mumonkan-1966",
-            "reference": "Wumenguan Case 1 / aligned matrix row (translation book page pending)"
+            "reference": "Case I (Hokuseido print page pending)"
           }
         },
         {
@@ -1554,7 +1554,7 @@ window.TRANSLATECHAN_DATA = {
             "edition": "John Murray, Los Angeles, 1934 — public domain (non-renewal)",
             "verification": "verbatim vs Wikisource / sacred-texts.com text, 2026-08-08",
             "source_id": "senzaki-reps-gateless-1934",
-            "reference": "Wumenguan Case 1 / aligned matrix row (translation book page pending)"
+            "reference": "p. 4 (1934 PDF/table of contents)"
           }
         }
       ]
@@ -2551,8 +2551,8 @@ window.TRANSLATECHAN_DATA = {
         "verified_quotation": 2
       },
       "verified_reference_coverage": {
-        "pending": 11,
-        "recorded": 129
+        "pending": 5,
+        "recorded": 135
       }
     }
   },
@@ -5777,7 +5777,7 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
                     "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08",
                     "source_id": "sasaki-linji-2009",
-                    "reference": "T1985 / Sermon: The True Person of No Rank, dialogue unit 1 (translation book page pending)"
+                    "reference": "p. 5 (Recorded Sayings / Discourses)"
                   }
                 },
                 "cleary": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
@@ -5798,7 +5798,7 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
                     "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08",
                     "source_id": "sasaki-linji-2009",
-                    "reference": "T1985 / Sermon: The True Person of No Rank, dialogue unit 2 (translation book page pending)"
+                    "reference": "p. 5 (Recorded Sayings / Discourses)"
                   }
                 },
                 "cleary": "Then a monk came forward and asked, 'What is the true human of no status?'",
@@ -5819,7 +5819,7 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "University of Hawaii Press, 2009",
                     "verification": "wording consistent across three independent reproductions, 2026-08-08",
                     "source_id": "sasaki-linji-2009",
-                    "reference": "T1985 / Sermon: The True Person of No Rank, dialogue unit 3 (translation book page pending)"
+                    "reference": "p. 5 (Recorded Sayings / Discourses)"
                   }
                 },
                 "cleary": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
@@ -5907,7 +5907,7 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "Wisdom Publications, 2011",
                     "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08; Ferguson follows the T1985 師臨遷化時據坐云 reading, our unit zh follows the 囑三聖曰 variant",
                     "source_id": "ferguson-chinese-heritage-2011",
-                    "reference": "T1985 / Extinguishing the True Dharma Eye: The Blind Donkey, dialogue unit 1 (translation book page pending)"
+                    "reference": "pp. 173–176 (Linji section)"
                   }
                 }
               }
@@ -5928,7 +5928,7 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "Wisdom Publications, 2011",
                     "verification": "verbatim vs tfreeman.net course-reader reproduction carrying an explicit Ferguson/Wisdom 2011 citation line, 2026-08-08",
                     "source_id": "ferguson-chinese-heritage-2011",
-                    "reference": "T1985 / Extinguishing the True Dharma Eye: The Blind Donkey, dialogue unit 2 (translation book page pending)"
+                    "reference": "pp. 173–176 (Linji section)"
                   }
                 }
               }
@@ -6239,7 +6239,7 @@ window.TRANSLATECHAN_DATA = {
                 "edition": "widely mirrored online text",
                 "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08",
                 "source_id": "clarke-xinxin-1973",
-                "reference": "T2010 / stanza 1 (translation book page pending)"
+                "reference": "T2010 stanza 1; online facsimile pp. 1–2 (print-book pagination pending)"
               }
             }
           }
@@ -6263,7 +6263,7 @@ window.TRANSLATECHAN_DATA = {
                 "edition": "widely mirrored online text",
                 "verification": "verbatim vs two independent mirrors (selfdefinition.org + scienceandnonduality.com), 2026-08-08",
                 "source_id": "clarke-xinxin-1973",
-                "reference": "T2010 / stanza 2 (translation book page pending)"
+                "reference": "T2010 stanza 2; online facsimile pp. 1–2 (print-book pagination pending)"
               }
             }
           }
