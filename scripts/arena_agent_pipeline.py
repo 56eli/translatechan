@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""
-TranslateChan: Arena AI Agent Translation & Alignment Pipeline
-Designed for sandboxed, sessioned Arena AI agents to ingest Classical Chinese,
-generate multi-register translations, and align contemporary published translations.
+"""TranslateChan: Arena AI agent prompt registers & entry-builder helpers.
+
+This module is NOT an ingestion/alignment pipeline. It provides (a) structured
+prompt templates for sandboxed Arena AI sessions (literal-philological,
+philosophical-hermeneutic, poetic-Zen registers) and (b) a helper that builds a
+standardized comparative-matrix entry from given translations/AI drafts. Any
+produced text must still be labeled per data/translations/provenance.json
+(reconstruction_unverified / ai_draft) before it can appear in the corpus.
 """
 
 import json

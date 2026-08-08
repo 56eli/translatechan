@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
-"""
-TranslateChan CBETA Ingestion & Segmentation Pipeline
-Parses raw Classical Chinese Buddhist texts, segments into sentence units,
-generates Pinyin transliteration references, and maps CBETA canonical IDs.
+"""TranslateChan offline Classical Chinese sentence segmenter.
+
+Splits raw Classical Chinese into sentence units on standard punctuation and
+dialogue delimiters (。！？； 「」『』). Manual/offline input only: it does NOT
+fetch from CBETA, generate pinyin, or map CBETA canonical IDs yet — those are
+Phase-2 ingestion-tooling goals (see ROADMAP.md). Output is written next to the
+input file as '<name>.segmented.json' when a file argument is given; with no
+argument it prints a demo segmentation of a Linji passage.
 """
 
 import sys

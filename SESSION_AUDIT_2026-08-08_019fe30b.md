@@ -1,0 +1,233 @@
+# 🔍 TranslateChan — Full Project Audit (2026-08-08, session `arena/019fe30b-translatechan`)
+
+> **Temporary response file** — created for review of this session's full-project audit. Durable log entry should be folded into [`AUDIT.md`](./AUDIT.md) §11 when the owner accepts it. Delete this file after review (it is not part of the project's canonical docs).
+>
+> **Audited snapshot:** commit `243fe3f` (single squashed commit on `main` = merge of PR #6) — the same tree the live GitHub Pages site serves (`main` → `/docs`).
+>
+> **Audit method:** every claim below was re-measured this session by running the project's own tooling (`validate_data.py`, `build_data_bundle.py`, `smoke_test.mjs`), plus independent greps/census of the source tree. This is a code/data/documentation integrity audit — not a line-by-line scholarly collation against CBETA/TEI, not a legal opinion on quotation rights, and not a cross-browser assistive-technology certification.
+
+---
+
+## 0. Executive Verdict
+
+**The project is in strong, honest health — no P0, no P1 issue was found this pass.** The static app builds deterministically, all 36 corpus texts render across all reader modes, search is schema-comprehensive and truthful, provenance/rights/locator disclosure is genuinely disciplined, and the documentation culture (measured, not aspirational) is a real asset. The remaining work is the same class the project already tracks: **editorial migration (33 document-level locators, 5 pending references, rights review), a11y/CSP hardening, real-browser testing, and Phase-2 corpus expansion (Biyanlu 7/100)**.
+
+| Area | Verdict | Grade |
+|---|---|---|
+| Build, determinism & deploy sync | Deterministic rebuild leaves tree clean; root↔`docs` byte-identical; `diff -rq data docs/data` silent; Pages live on `main`/`docs` (built, HTTPS) | 🟢 A |
+| Runtime & rendering | All 36 texts × all reader modes; lazy 48-case Wumenguan; sparse case nav; hash routing; print CSS; pan/zoom lineage | 🟢 A− |
+| Search | All schemas indexed incl. pointers; variant normalization (鉢/缽, 曰/云…); truthful "Showing N of M" cap accounting; HTML-escaped queries | 🟢 A− |
+| Attribution & provenance | 138 verified corpus slots + 2 verified matrix rows, all resolving through 13 rights-manifest sources; 135/140 references recorded, 5 honest pending; AI/reconstruction badges everywhere | 🟢 A |
+| Data contract & tooling | Shared manifest (36↔36↔36), schema companion + semantic validator, locator registry (57/57 case units), deterministic metrics, checked-in CI workflow | 🟢 A− |
+| Documentation accuracy | Two stale CJK-count figures + one stale branch line found and fixed this session (F1/F2); otherwise consistent | 🟢 A− |
+| Corpus coverage vs Phase-2 goals | Wumenguan complete (48/48); 35/36 still excerpt seeds; Biyanlu 7/100 — honestly measured, the main product gap | 🟠 C (known, tracked) |
+| Accessibility / CSP | Good baseline (skip link, focus rings, contrast fixes, reduced motion); **keyboard gaps + inline `onclick` remediated this session** (delegated events, Enter/Space glossary terms, full ARIA tabs, restrictive CSP) | 🟢 B+ (was B−) |
+| Release engineering | CI workflow checked in; branch-protection requirement **cannot be confirmed** (403 — token lacks admin); no real-browser suite yet | 🟠 B+ |
+
+---
+
+## 1. Verification Run (all commands executed this session)
+
+```text
+node --check app.js                                       → clean
+node --check scripts/smoke_test.mjs                       → clean
+python3 -m py_compile scripts/*.py                        → OK
+python3 scripts/validate_data.py                          → ✅ PASSED  corpus=36 | slots=856 | verified=138 | matrix=21 | locators=57/57
+python3 scripts/validate_data.py --write-metrics          → no diff (metrics fresh)
+python3 scripts/build_data_bundle.py                      → deterministic (tree stays clean), bundle 728,245 B
+node scripts/smoke_test.mjs                               → ✅ SMOKE TEST PASSED
+cmp index.html docs/index.html  ·  app.js / app.css / app_data.js  → identical
+diff -rq data docs/data                                   → silent
+gh api repos/56eli/translatechan/pages                    → status: built · main → /docs · https_enforced: true
+```
+
+The smoke suite covers: 36 texts × all reader modes, schema-specific search (stanzas/chapters/sections/pointers/translations), variant search, HTML-injection search, sparse-case navigation (Biyanlu 3↔12, Congronglu 1↔9), lazy 48-case rendering, blocked-storage preference writes, citation popovers on hover/focus/touch, matrix provenance badges (21/21), lineage verification registry (30 edges + 4 frontiers), pan/zoom group, and public-scope exclusions (no studio/agents/GitHub link).
+
+---
+
+## 2. Verified Healthy (measured again this session)
+
+1. **Deterministic build & sync contract** — rebuild is byte-identical; root and `/docs` (including `docs/data/`) match exactly. The B1 docs/data-mirror fix from the prior session holds.
+2. **Metrics are fresh** — `--write-metrics` produces zero diff; committed `data/project_metrics.json` equals computed values. Current measured: **13,268 content CJK chars** / **16,457 all-string CJK chars** across 36 corpus files (see F1 — docs lagged this).
+3. **Attribution honesty holds** — 138 `verified_quotation` objects (wumenguan 119, linji 6, zhaozhou 5, huangbo_chuanxin 2 + huangbo_wanling 2, platform 2, xinxin_ming 2) all carry `{text, status, source:{work, edition, reference, verification, source_id}}`; all 140 verified records (incl. 2 matrix) resolve through `rights_manifest.json` (13 sources). 692 reconstruction + 26 AI slots never claim verification. 135/140 references recorded; 5 explicitly pending.
+4. **Canonical anchors re-spotted** — 狗子還有佛性也無？州云：無 (T2005 c1), 無位真人/乾屎橛 (T1985), 洗缽盂去 (T1987), 菩提本無樹 with Dunhuang-recension note (T2007), 至道無難，唯嫌揀擇 (T2010) — present and edition-authentic, incl. the documented 庭前柏樹 case-37 numbering (T2005 目次-verified).
+5. **Lineage integrity** — 30 profiles render 26+ in-set teacher edges; all teacher refs resolve; `lineage_verification.json` (30 edges, 4 frontiers) matches the validator exactly; every internal edge honestly `traditional_link_pending_exact_locator`.
+6. **Locator registry** — 36 documents + 57/57 case units covered; Linji (4 sections) and Xinxin Ming (7 stanzas) carry `collated_with_normalization` unit pilots (honest: below human sign-off); 33 non-case seeds explicitly `legacy_document_seed`.
+7. **Reader resilience** — corrupted/blocked storage, HTML-bearing search queries, HTML-bearing saved-state, sparse case arrays, nonconsecutive case numbers, and variant orthography all have regression coverage and pass.
+8. **Data contract** — 36 corpus files ↔ 36 manifest items ↔ 36 bundler entries ↔ 36 UI corpus-map keys agree; validator enforces manifest/registry/metrics alignment.
+
+---
+
+## 3. New Findings (this session, priority-ordered)
+
+### F1 — 🟢 P3 (docs): CJK character counts stale in README and AUDIT §10.2
+`data/project_metrics.json` (fresh, validator-generated) measures **13,268 content CJK / 16,457 all-string CJK**; README §"Honest status" and AUDIT §10.2 still print **13,090 / 16,270**. Counts changed ~178 chars when the corpus last grew; the prose docs weren't re-synced.
+**Status: FIXED this session** — README + AUDIT §10.2 updated to the measured figures (root docs only; historical session files left untouched).
+
+### F2 — 🟢 P3 (docs): HANDOFF.md points at the previous session's branch
+HANDOFF §"Merge readiness" says *"Current branch: `arena/019fe2e0-translatechan`"* — that was PR #6's branch. The working convention is `arena/<session>-translatechan`, so the line should name the live session branch.
+**Status: FIXED this session** — updated to `arena/019fe30b-translatechan`.
+
+### F3 — 🟡 P2 (a11y/CSP): keyboard + CSP hardening — **REMEDIATED this session** ✅
+Glossary `term-highlight` spans are focusable but **Enter/Space did not open the popover**; nav tabs had `role="tab"`/`aria-selected` but **no tabpanel roles, `aria-controls`, or arrow-key behavior**; case chips, case-nav footers, load-more, and search-jump buttons all used **inline `onclick`** → a strict Content-Security-Policy was impossible.
+**Status: FIXED this session** (see §2.1 Remediation below) — all six inline handlers replaced with a document-level delegated click handler over `data-*` attributes; Enter/Space now opens glossary popovers; complete ARIA tabs (tablist/tab/tabpanel, `aria-controls`, roving tabindex, arrow/Home/End); restrictive CSP meta tag shipped (`script-src 'self'`); smoke test extended with 4u–4x regression checks.
+
+### F4 — 🟡 P2 (data contract): per-file coverage metadata exists for only 1 of 36 files — **REMEDIATED this session** ✅
+The AUDIT §3.3 recommendation (`coverage_note` + `zh_chars`) was applied to `wumenguan.json` only. `project_metrics.json` gave aggregate CJK counts, but **per-text coverage lived only in README/AUDIT prose** (e.g. "Biyanlu 7/100"), so a doc/data mismatch like F1 could recur silently.
+**Status: FIXED this session** (see §2.2 below) — `validate_data.py --write-metrics` now emits a deterministic `corpus.per_text` block (36 keys: zh counts, shapes, unit counts, declared coverage metadata, and machine-checkable `N/M units` coverage strings where the manifest declares targets); the validator now (a) rejects per-file `zh_chars` that don't match the computed content count, (b) validates manifest `unit_targets`, and (c) enforces that no document exceeds its declared target. **Bonus catch:** the new rule immediately exposed a stale `zh_chars: 5876` in `wumenguan.json` (matches no documented counting method; corrected to the metrics-consistent 5,528).
+
+### F5 — 🟢 P3 (performance, advisory): annotator and search-index scaling
+`annotateClassicalChinese()` does a linear glossary scan + `indexOf` per term per unit per render (31 terms × ~13K chars — fine today, O(T×N) as the glossary grows toward 150+/1,000 terms). Search builds the full unit index **synchronously on first keystroke** (~fine now; will jank on mid-range phones once Biyanlu/Chuandenglu land). Both have comments acknowledging the trade-off; worth revisiting before Phase-2 corpus growth — not urgent.
+
+### F6 — 🟢 P3 (docs nit): "Huangbo *Chuanxin* 4" vs actual split
+AUDIT §10.2's verified-by-text row says *"Huangbo Chuanxin 4"* but the 4 verified slots are split **2 in `huangbo_chuanxin.json` (T2012A) + 2 in `huangbo_wanling.json` (T2012B)**. The README's "6 corpus texts" is defensible (Huangbo counted as one text entity), but the AUDIT row should read *"Huangbo (Chuanxin 2 + Wanling 2)"* for precision.
+**Status: FIXED this session** (AUDIT §10.2 row).
+
+### F7 — 🟡 P2 (release engineering): required-check enforcement still unconfirmed — **instruction drafted** ⏳
+The Quality workflow is checked in and triggers on `push` to `main`/`arena/**` + PRs to `main`. Whether it is a **required** check on `main` could not be confirmed (branch-protection API returns 403 for this token) — this is the previous audit's A1, and needs the repo owner/admin.
+**Status: instruction drafted** (see §2.3 below + HANDOFF "Repository administration") — a ~2-minute owner-only action; the agent token cannot perform it.
+
+### F8 — 🟢 P3 (UX truth): "Zero-Backend Offline" chip vs Google Fonts
+The hero chip "🌐 Zero-Backend Offline" is technically true (zero backend; offline works with fallback fonts) but the app loads Noto Serif SC + Inter from Google Fonts. `RESEARCH_RELEASE_PLAN` Phase 4 and C10 suggested rewording to "Zero-Backend Static" or self-hosting fonts. Minor.
+
+### F9 — 🟢 P3 (tooling): script docstrings still overpromise (carried from C9) — **FIXED this session** ✅
+`ingest_cbeta.py`'s docstring said *"Parses raw Classical Chinese… maps CBETA canonical IDs"* — it is a punctuation segmenter (no CBETA fetching, no ID mapping). `arena_agent_pipeline.py`'s docstring said *"translation & alignment pipeline"* — it is prompt scaffolding + an entry builder.
+**Status: FIXED this session** (§2.3) — both docstrings rewritten to state exactly what the scripts do and do not do; real CBETA fetching remains a Phase-2 goal.
+
+### F10 — 🟡 P2 (testing): no real-browser regression suite (carried from A4/C9) — **REMEDIATED this session** ✅
+The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it cannot validate layout/breakpoints, real hash navigation, pointer/keyboard semantics in a browser, CSP behavior, or screen-reader output.
+**Status: FIXED this session** (see §2.3 below) — `scripts/browser_test.mjs` (Playwright, desktop + mobile) added: initial load, deep links, mobile corpus chooser/action bar, lazy 48-case loading, case-chip jumps, citation + glossary popovers (pointer and keyboard), ARIA tab navigation, search escaping, CSP console cleanliness, and print view. It is **optional and not in CI** (skips gracefully when no browser is available — verified in this sandbox, which cannot run Chromium: no browser binary, missing system libraries, blocked CDNs/apt mirrors).
+
+---
+
+## 4. Measured Data Snapshot (this session)
+
+| Dataset | Measured | Doc claim | Verdict |
+|---|---|---|---|
+| Corpus files / manifest / UI keys | 36 / 36 / 36 | 36 | ✅ |
+| Content CJK chars (source `zh` fields, excl. metadata) | **13,268** | 13,090 (README/AUDIT — stale) | 🟠 F1 → fixed |
+| All-string CJK chars | **16,457** | 16,270 (stale) | 🟠 F1 → fixed |
+| Wumenguan | 48/48 + preface + epilogue | complete | ✅ |
+| Biyanlu / Congronglu | 7 / 2 cases | 7/100, 2/100 | ✅ honest |
+| Translation slots (corpus) | 856 (138 ✅ · 692 ⚠️ · 26 🤖) | — | ✅ |
+| Verified matrix rows | 2 (Blyth; Senzaki & Reps) | 2 | ✅ |
+| Verified reference coverage | 135 recorded / 5 pending | 135/140 | ✅ |
+| Glossary / Lineage profiles / Gong'an index | 31 / 30(+4 frontiers) / 18 | 31 · 30+4 · 18 | ✅ |
+| Locators | 36 docs + 57/57 case units | 57/57 | ✅ |
+| Rights manifest sources | 13 (12 `needs_rights_review` / `jurisdiction_review_required`) | 13 | ✅ |
+| Editorial queues | 33 traceability records (30 need unit locators) · 34 profile reviews (29 need exact locators) | same | ✅ |
+| Bundle | `app_data.js` 728,245 B, deterministic | — | ✅ |
+
+---
+
+## 5. What's Genuinely Good (keep protecting)
+
+1. **Zero-backend static architecture** — single deterministic bundle, no runtime fetches, no build step for contributors; ideal for GitHub Pages longevity.
+2. **Deterministic build + validator + smoke suite** — the safety net that has made every prior audit's fixes stick; `diff -rq data docs/data` is a real guard now.
+3. **Attribution-integrity discipline** — machine-readable provenance policy v2.2, per-column badges, honest negatives (5 pending references stay pending; Suzuki/Cleary unverifiable registers stay reconstruction), rights-manifest resolution enforced by the validator.
+4. **Measured-not-aspirational documentation culture** — counts come from the validator; the "excerpt seed" honesty (35/36) is a genuine scholarly strength.
+5. **Schema heterogeneity handled cleanly** — cases/sections/dialogues/stanzas/chapters/five_ranks/sample_records/preface/epilogue all render and all search; sparse case navigation resolves actual neighbors.
+6. **Editorial queues exist and are enforced** — traceability (33), profile review (34), and lineage verification registries make the remaining work visible and auditable rather than hidden.
+
+---
+
+## 6. Open Items Carried From Prior Audits (unchanged, still open)
+
+- **A1/F7** — require the Quality check on `main` (needs owner).
+- **A2/C7** — editorial migration of 33 `legacy_document_seed` locators + rights review of the 13 sources before publication claims.
+- **A4/F10** — real-browser (Playwright) suite.
+- **A5/C10/F3** — ~~keyboard semantics + CSP (inline `onclick` removal)~~ **remediated this session** (§2.1); real-browser verification of the CSP/keyboard paths remains part of F10.
+- **A6** — Phase-2 content: Biyanlu 7/100 is the agreed next pilot.
+- **A7** — bundle payload growth strategy before major corpus expansion.
+- **C11** — (historical; Studio/LaTeX export was retired from public scope with the Studio itself).
+- **D3** — service worker: intentionally skipped by design (zero-magic policy).
+
+---
+
+## 7. Recommended Next Steps (proposal — awaiting direction)
+
+1. **Run the browser suite once on a browser-capable machine** (first real execution of `npm run test:browser`; this sandbox cannot run Chromium) and feed any selector/behavior findings back.
+2. **Owner action (F7)**: follow HANDOFF's "Repository administration" checklist to require the Quality check on `main` (~2 minutes; agent token cannot do it).
+3. **Then Phase 2 content**: complete Biyanlu under the locator/provenance/rights contract (first 10 cases as pilot) — per-text coverage strings now auto-track progress.
+4. **F5**: revisit annotator/search-index scaling before major corpus growth.
+
+---
+
+## 2.1 Remediation Log (same session, `arena/019fe30b-translatechan`)
+
+### F3 — a11y/CSP hardening completed ✅
+
+| Item | Change | Regression evidence |
+|---|---|---|
+| Six inline `onclick` handlers removed | Case chips, case prev/current/next footer, load-more, teacher links, master work links, and search-jump buttons now carry `data-*` attributes routed through one **document-level delegated click handler** (`[data-jump-case]`, `#case-load-more-btn`, `[data-open-case]`, `[data-open-doc]`, `[data-master-teacher]`) | Smoke 4v: simulated delegated clicks reach `scrollToCase`/`openDoc`; 4u greps `app.js` + `index.html` source and fails on any `onclick="…"`-style attribute |
+| Glossary terms keyboard-activatable | Reader `keydown` now opens the shared popover on **Enter/Space** (Escape still closes) | Smoke 4w: Enter on a focused `.term-highlight` populates the `#term-popover` |
+| Complete ARIA tabs | Nav buttons carry `id` + `aria-controls`; view sections carry `role="tabpanel"` + `aria-labelledby`; all `<li>` wrappers `role="none"`; JS applies **roving tabindex** (active `0`, others `-1`) and **ArrowLeft/Right + Home/End** navigation that activates like a click | Smoke 4x: after init only the active tab is tabbable; ArrowRight activates matrix→lineage; End activates lexicon |
+| Restrictive CSP | `<meta http-equiv="Content-Security-Policy">` with `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'` — no inline scripts/event-handler attributes possible | Smoke 4u asserts the meta tag + `script-src 'self'`; `node --check` clean; full suite green; root↔`docs` byte-identical |
+
+**Verification:** `python3 scripts/validate_data.py` ✅ · `python3 scripts/build_data_bundle.py` deterministic ✅ · `node scripts/smoke_test.mjs` ✅ (incl. new 4u–4x checks) · `diff -rq data docs/data` silent ✅ · `cmp` root↔docs app assets identical ✅.
+
+**Boundary kept explicit:** remaining keyboard/CSP work per `RESEARCH_RELEASE_PLAN.md` Phase 4 — real-browser (Playwright) verification of the CSP and keyboard paths, plus a full a11y scan; not replaced by the DOM-stub suite.
+
+### F4 — per-text coverage metrics completed ✅
+
+| Item | Change | Regression evidence |
+|---|---|---|
+| `corpus.per_text` in `project_metrics.json` | `validate_data.py --write-metrics` now emits 36 per-key records: `title`, `cbeta_id`, `content_zh_chars`, `all_cjk_chars`, `shapes`, `unit_counts`, declared `coverage_note`/`zh_chars`, and (where the manifest declares targets) a `coverage` string such as `7/100 cases` | Smoke test now throws if per_text is missing/36-keys/coverage strings wrong; sum of per-text `content_zh_chars` = aggregate 13,268 (verified) |
+| Manifest `unit_targets` | `corpus_manifest.json` items for wumenguan (48 cases), biyanlu (100), congronglu (100), platform_sutra (10 chapters) declare canonical unit totals | Validator rejects unknown units, non-positive targets, and documents that exceed their target |
+| Per-file metadata rule | Declared `zh_chars` must equal the computed content count; `coverage_note` must be a non-empty string | **Caught real drift immediately**: `wumenguan.json` declared 5,876 (stale; matches no counting method) → corrected to 5,528, the documented content measure |
+| README | Honest-status block now points at `project_metrics.json → corpus.per_text` as the source of per-text coverage facts | — |
+
+**Verification:** `python3 scripts/validate_data.py --write-metrics` ✅ (fresh, no second-pass diff) · smoke suite ✅ · bundle deterministic ✅ · root↔`docs` byte-identical ✅.
+
+### F10 — real-browser (Playwright) regression suite completed ✅
+
+| Item | Change | Regression evidence |
+|---|---|---|
+| `scripts/browser_test.mjs` | Playwright suite (desktop 1280×900 + mobile 390×844 contexts): 12 tests — initial load (36 corpus buttons, 5 tabs), hash deep links, Wumenguan lazy 12→24→36→48 loading + 48 chips, case-chip jump with auto-load, citation popover, glossary popover via click and via Enter key, ARIA tab ArrowRight/End, schema + XSS-escape search, mobile bottom bar + corpus picker switch, print media (header hidden, cards kept), CSP console + uncaught-error cleanliness | Self-spawns `python3 -m http.server` on an ephemeral port; prints per-test ❌ with exit 1 on failure |
+| Graceful skip | If Chromium cannot launch (missing binary/deps), prints clear install guidance (`npm install && npx playwright install chromium`) and exits 0 — never breaks contributors or CI | Verified in this sandbox (no browser available): `⚠️ BROWSER TEST SKIPPED … exit 0` |
+| Wiring + docs | `package.json` (private, devDep `playwright`, `npm run test:browser`) + `package-lock.json`; `node_modules/` git-ignored; README dev quickstart, HANDOFF release checklist, RESEARCH_RELEASE_PLAN Phase 0 updated | `node --check` clean; suite executes (skip path) in this environment |
+
+**Environment note:** this sandbox cannot run a real browser (no Chromium binary anywhere on disk, no browser system libraries, and `cdn.playwright.dev` / Debian mirrors are network-blocked). The suite's logic is written against the app's actual DOM (selectors cross-checked with the generated markup); its first real execution must happen on a dev machine or a CI runner with a browser — this is a documented prerequisite, not a code gap.
+
+### F7 + F9 — release-ops tidy-up completed ✅ (F7: instruction drafted ⏳)
+
+| Item | Change | Verification |
+|---|---|---|
+| F9 — script docstrings | `ingest_cbeta.py` and `arena_agent_pipeline.py` module docstrings rewritten to state exactly what each script does (offline punctuation segmenter / prompt-register + entry-builder helpers) and explicitly defer CBETA fetching + alignment to Phase 2 | `python3 -m py_compile scripts/*.py` clean; README descriptions already matched the new wording |
+| F7 — required-check instruction | HANDOFF.md gains a **"Repository administration"** section: exact ~2-minute owner steps (confirm the workflow ran once → Settings → Branches → protect `main` → require status check **Validate data, generated artifacts, and reader**; recommended PR requirement; note that Pages stays native and needs no deploy workflow) | The agent token cannot modify branch protection (API 403 confirmed), so this is now a precise owner checklist rather than an open unknown |
+
+### Phase-2 content: Biyanlu cases 4–10 (first 10 cases complete) ✅
+
+| Item | Detail |
+|---|---|
+| Corpus | `biyanlu_cases.json` 7 → **14 cases**; cases **1–10 complete** (pointer 垂示, 本則, pre-verse 評唱, 頌) — zh collated byte-exact from **CBETA TEI T48n2003** (sparse-cloned from `cbeta-org/xml-p5`, rev. 2025-01-30) |
+| Locators | All 14 biyanlu case locators now carry CBETA line ranges; new cases `collated_with_normalization` (+source edition, collation note), existing excerpts keep `case_level_anchor`; 57 → **64/64** locator coverage |
+| Translations | New renderings are `ai_literal` project drafts (auto-labeled 🤖); no scholar attribution added; post-verse 評唱 English pending (documented in `coverage_note`) |
+| Pinyin | pypinyin machine draft + curated proper-name/Buddhist override table (溈山, 般若, 單于, 佛→fó …) |
+| Gong'an index | 18 → **23** entries (biyan_04/05/06/07/09) |
+| Coverage metadata | biyanlu gains validator-checked `zh_chars` (7,412) + `coverage_note` |
+| Gates | validator ✅ (slots 874 · verified 138 · locators 64/64) · deterministic build ✅ · smoke ✅ (updated sparse-nav 3→4/12→10, per_text `14/100 cases`, new case-4/6/8 content checks) · root↔docs synced ✅ |
+
+**Boundary kept explicit:** this proves the Phase-2 pilot contract end-to-end (source → locator → segmented fields → labeled renderings → validator/metrics/regression). Remaining Biyanlu work: post-verse 評唱 English, human sign-off on the `collated_with_normalization` anchors, and cases 11–100.
+
+### User-perspective review (same session)
+
+The live site is unreachable from this sandbox (github.io network-blocked), so the review ran against the identical local build: every view rendered through the DOM harness and inspected as a user would see it.
+
+| Finding | Fix |
+|---|---|
+| **U1 (P2, truth-in-UI): excerpts can be mistaken for complete texts.** A Biyanlu reader saw 14 cases with no hint that the canon has 100; same for every seed. `coverage_note`/metrics existed only in data files. | New **`📊 Coverage` disclosure** in every reader header: `48/48 cases`, `14/100 cases`, or `Excerpt seed (N units)` with a citation popover carrying the full note. Sources: `project_metrics.json → corpus.per_text` + the document's `coverage_note`. Smoke 4j2 asserts it. |
+| **U2 (P3): hero chip "🌐 Zero-Backend Offline" overstates (Google Fonts).** | Chip now reads **"🌐 Zero-Backend Static"**. |
+| **U3 (P3): no favicon.** | Inline SVG 🪷 favicon via `data:` URI (CSP-safe, zero new files). |
+
+Verification: 36-document render scan — no `undefined`/`NaN`/`[object Object]`, no duplicate `id=`, no broken hrefs; matrix (21 badges), lineage (34 nodes/30 links/4 frontiers), gongan (23 entries), lexicon (31 cards) all render; smoke green; root↔docs synced.
+
+---
+
+## 8. Audit Limitations
+
+This audit did not independently collate every Chinese passage against CBETA/TEI, verify every modern quotation against print editions, provide legal advice on copyright/fair use, execute a real browser matrix, or certify screen-reader support. Passing local checks establishes code/data/documentation consistency — not scholarly or legal publication clearance. GitHub API checks were read-only and token-scoped (branch protection returned 403).
+
+---
+
+**One-sentence completion summary:** This audit found a healthy, deterministic, honestly-labeled static reader with all quality gates green and every prior remediation holding, and this session remediated the a11y/CSP gaps, added deterministic per-text coverage metrics, shipped an optional Playwright real-browser suite, drafted the owner-only branch-protection instruction, and completed the first Phase-2 content milestone (Biyanlu cases 1–10, collated byte-exact from the CBETA TEI with line locators and labeled AI-draft renderings) — leaving open only the editorial migration, the suite's first live browser run, the owner's admin step, and cases 11–100.

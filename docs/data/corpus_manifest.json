@@ -5,7 +5,10 @@
     {
       "key": "wumenguan",
       "title": "The Gateless Gate (無門關)",
-      "cbeta": "T2005"
+      "cbeta": "T2005",
+      "unit_targets": {
+        "cases": 48
+      }
     },
     {
       "key": "linji_yulu",
@@ -35,12 +38,18 @@
     {
       "key": "biyanlu_cases",
       "title": "Blue Cliff Record (碧巖錄)",
-      "cbeta": "T2003"
+      "cbeta": "T2003",
+      "unit_targets": {
+        "cases": 100
+      }
     },
     {
       "key": "platform_sutra",
       "title": "Platform Sutra (六祖壇經)",
-      "cbeta": "T2007"
+      "cbeta": "T2007",
+      "unit_targets": {
+        "chapters": 10
+      }
     },
     {
       "key": "chuandenglu",
@@ -145,7 +154,10 @@
     {
       "key": "congronglu_cases",
       "title": "Book of Serenity (從容庵錄)",
-      "cbeta": "T2004"
+      "cbeta": "T2004",
+      "unit_targets": {
+        "cases": 100
+      }
     },
     {
       "key": "wudeng_huiyuan",

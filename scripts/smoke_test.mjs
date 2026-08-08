@@ -43,6 +43,7 @@ class StubElement {
   scrollIntoView() {}
   click() {}
   getBoundingClientRect() { return { top: 0, left: 0, right: 900, bottom: 0, width: 900, height: 0 }; }
+  querySelector(sel) { return null; }
   querySelectorAll(sel) {
     // Parse corpus buttons out of assigned HTML so we can simulate clicks
     if (sel === '.corpus-btn' && this._innerHTML.includes('data-corpus-key')) {
@@ -62,19 +63,46 @@ const modeHandlers = [];
 const ids = {};
 const createdElements = [];
 const documentHandlers = {};
+let tabStubs = null;
 globalThis.window = globalThis;
 globalThis.location = { hash: '', href: 'http://localhost/index.html', protocol: 'http:', host: 'localhost' };
 globalThis.addEventListener = () => {};
 globalThis.scrollTo = () => {};
 globalThis.print = () => {};
 
+const makeTabStub = (view) => {
+  const el = {
+    _attrs: { 'data-view': view },
+    _handlers: {},
+    _clicked: false,
+    classList: { add() {}, remove() {}, contains() { return false; } },
+    setAttribute(n, val) { el._attrs[n] = String(val); },
+    getAttribute(n) { return el._attrs[n] || null; },
+    addEventListener(ev, fn) { el._handlers[ev] = fn; },
+    click() { el._clicked = true; if (el._handlers.click) el._handlers.click(); },
+    focus() {}
+  };
+  return el;
+};
+
 globalThis.document = {
   readyState: 'complete',
+  activeElement: null,
   documentElement: { setAttribute() {}, style: { setProperty() {} } },
   body: { appendChild() {} },
   getElementById(id) { return (ids[id] ||= new StubElement(id)); },
   createElement(tag) { const el = new StubElement(tag); createdElements.push(el); return el; },
+  querySelector(sel) {
+    if (sel === '.nav-tabs') {
+      return { addEventListener(ev, fn) { (documentHandlers['navtabs_' + ev] ||= []).push(fn); } };
+    }
+    return null;
+  },
   querySelectorAll(sel) {
+    if (sel === '.nav-tab-btn') {
+      if (!tabStubs) tabStubs = ['reader', 'matrix', 'lineage', 'gongan', 'lexicon'].map(makeTabStub);
+      return tabStubs;
+    }
     if (sel === '[data-reader-mode]') {
       if (modeHandlers.length === 0) {
         for (const mode of ['bilingual', 'chinese_only', 'multi_translators']) {
@@ -102,6 +130,18 @@ if (!Array.isArray(window.TRANSLATECHAN_DATA.corpus_manifest?.items) || window.T
 if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 36 ||
     Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 36) {
   throw new Error('app_data.js is missing validated metrics or canonical locator coverage');
+}
+// F4: per-text coverage metrics (zh counts, unit counts, N/M coverage strings)
+// must exist for every corpus key and agree with the README's headline claims.
+const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {};
+if (Object.keys(perText).length !== 36) {
+  throw new Error('app_data.js is missing per-text coverage metrics');
+}
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '14/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
+  if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
+}
+if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
+  throw new Error('per_text wumenguan declared zh_chars is not metrics-consistent');
 }
 console.log('DATA loaded. corpus keys:', Object.keys(window.TRANSLATECHAN_DATA.corpus).length);
 
@@ -190,8 +230,19 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
 // arithmetic case numbers; selecting a corpus also persists the reading context.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanHtml = ids['reader-content-target']._innerHTML;
-if (!biyanHtml.includes('scrollToCase(12)">第12則 ›') || !biyanHtml.includes('scrollToCase(3)">‹ 第3則')) {
+if (!biyanHtml.includes('data-jump-case="4">第4則 ›') || !biyanHtml.includes('data-jump-case="2">‹ 第2則')) {
   failures++; console.log('❌ Biyanlu sparse prev/next navigation is incorrect');
+}
+// 4e1. Biyanlu pilot cases 4-10 render with labeled AI-draft renderings
+// (cases 1-12 render in the lazy first chunk, so 4/6/8 are present).
+if (!biyanHtml.includes('勘破了也') || !biyanHtml.includes('Deshan') || !biyanHtml.includes('AI draft')) {
+  failures++; console.log('❌ Biyanlu case 4 content or AI-draft labeling missing');
+}
+if (!biyanHtml.includes('日日是好日') || !biyanHtml.includes('Yunmen')) {
+  failures++; console.log('❌ Biyanlu case 6 (Yunmen) content missing');
+}
+if (!biyanHtml.includes('翠嵒眉毛') || !biyanHtml.includes('Barrier')) {
+  failures++; console.log('❌ Biyanlu case 8 (Cuiyan) content missing');
 }
 if (store['translatechan_corpus_key'] !== 'biyanlu_cases') { failures++; console.log('❌ corpus selection was not persisted'); }
 const mobileCorpusSelect = ids['corpus-mobile-select'];
@@ -200,7 +251,7 @@ mobileCorpusSelect.value = 'congronglu_cases';
 if (store['translatechan_corpus_key'] !== 'congronglu_cases') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
 corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
 const congrongHtml = ids['reader-content-target']._innerHTML;
-if (!congrongHtml.includes('scrollToCase(9)">第9則 ›') || !congrongHtml.includes('scrollToCase(1)">‹ 第1則')) {
+if (!congrongHtml.includes('data-jump-case="9">第9則 ›') || !congrongHtml.includes('data-jump-case="1">‹ 第1則')) {
   failures++; console.log('❌ Congronglu sparse prev/next navigation is incorrect');
 }
 // 4f. Preference writes must be non-fatal when browser storage is unavailable.
@@ -217,7 +268,7 @@ try {
 // 4g. Wumenguan lazy rendering: 48 chips in the strip, 12 case cards initially,
 // then loadMoreCases() reveals the rest (Phase D2)
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
-const wmStripChips = (ids['reader-content-target']._innerHTML.match(/data-jump-case=/g) || []).length;
+const wmStripChips = (ids['reader-content-target']._innerHTML.match(/class="case-chip"/g) || []).length;
 if (wmStripChips !== 48) { failures++; console.log(`❌ case strip has ${wmStripChips} chips (expected 48)`); }
 let wmCaseCount = (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length;
 if (wmCaseCount !== 12) { failures++; console.log(`❌ initial lazy render shows ${wmCaseCount} cases (expected 12)`); }
@@ -272,6 +323,13 @@ if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandl
 }
 // 4j. Tooltip DOM is de-duplicated: no embedded .term-tooltip nodes remain in reader output
 if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded tooltip markup still emitted (de-dup regression)'); }
+// 4j2. Coverage disclosure (truth-in-UI): an excerpt must never be mistaken for
+// a complete text — the reader header shows validator-derived coverage.
+corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
+const biyanCovHtml = ids['reader-content-target']._innerHTML;
+if (!biyanCovHtml.includes('📊 Coverage: 14/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+if (!ids['reader-content-target']._innerHTML.includes('📊 Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
 const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
 if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }
@@ -345,6 +403,75 @@ if (!searchHtml.includes('&lt;img')) { failures++; console.log('❌ escaped sear
 if (searchHtml.includes('<mark><img')) { failures++; console.log('❌ search mark injection'); }
 // clear search
 await fireSearch('');
+
+// 4u. CSP/a11y hardening: no inline event-handler attributes may exist in
+// index.html or app.js source (a strict Content-Security-Policy is enforced
+// via the meta tag, so script-src 'self' must be satisfiable).
+const appSrc = readFileSync(join(ROOT, 'app.js'), 'utf8');
+for (const [label, src] of [['index.html', publicHtml], ['app.js', appSrc]]) {
+  for (const attr of ['onclick="', 'onload="', 'onerror="', 'onchange="', 'oninput="', 'onmouseover="', 'onmouseout="', 'onkeydown="', 'onfocus="', 'onblur="']) {
+    if (src.includes(attr)) { failures++; console.log(`❌ ${label} still contains inline handler attribute '${attr}'`); }
+  }
+}
+if (!publicHtml.includes('http-equiv="Content-Security-Policy"') || !publicHtml.includes("script-src 'self'")) {
+  failures++; console.log('❌ CSP meta tag missing or not restrictive for scripts');
+}
+// 4v. Delegated clicks replace inline onclick: a [data-jump-case] chip and a
+// [data-open-doc] button must route through the document-level handler.
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+let jumpedNum = null;
+const origScrollToCase = window.TranslateChan.scrollToCase;
+window.TranslateChan.scrollToCase = (num) => { jumpedNum = num; };
+const jumpTarget = {
+  getAttribute: n => n === 'data-jump-case' ? '3' : null,
+  closest: sel => sel === '[data-jump-case]' ? jumpTarget : null
+};
+try { (documentHandlers.click || []).forEach(fn => fn({ target: jumpTarget, preventDefault() {} })); }
+catch (e) { failures++; console.log(`❌ delegated jump-chip click crashed: ${e.message}`); }
+window.TranslateChan.scrollToCase = origScrollToCase;
+if (jumpedNum !== 3) { failures++; console.log('❌ [data-jump-case] delegation did not reach scrollToCase'); }
+const docTarget = {
+  getAttribute: n => n === 'data-open-doc' ? 'xinxin_ming' : null,
+  closest: sel => sel === '[data-open-doc]' ? docTarget : null
+};
+try { (documentHandlers.click || []).forEach(fn => fn({ target: docTarget, preventDefault() {} })); }
+catch (e) { failures++; console.log(`❌ delegated open-doc click crashed: ${e.message}`); }
+if (store['translatechan_corpus_key'] !== 'xinxin_ming') { failures++; console.log('❌ [data-open-doc] delegation did not open the document'); }
+// 4w. Glossary terms are keyboard-activatable: Enter on a .term-highlight span
+// opens the shared popover (focus alone must not be a dead end).
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+const termId = (ids['reader-content-target']._innerHTML.match(/data-term-id="([^"]+)"/) || [])[1];
+if (!termId) { failures++; console.log('❌ no annotated glossary term found in reader'); }
+else {
+  const termSpan = {
+    getAttribute: n => n === 'data-term-id' ? termId : null,
+    getBoundingClientRect: () => ({ left: 100, top: 100, bottom: 112, right: 130, width: 30, height: 12 })
+  };
+  (ids['reader-content-target']._handlers['keydown'] || []).forEach(fn => fn({
+    key: 'Enter',
+    preventDefault() {},
+    target: { closest: sel => sel === '.term-highlight' ? termSpan : null }
+  }));
+  const termPopover = createdElements.find(el => el.id === 'term-popover');
+  const glossaryTerm = (window.TRANSLATECHAN_DATA.glossary || []).find(t => t.id === termId);
+  if (!termPopover || !glossaryTerm || !termPopover._innerHTML.includes(glossaryTerm.term)) {
+    failures++; console.log('❌ Enter did not open the glossary popover for the focused term');
+  }
+}
+// 4x. ARIA tabs: only the active tab is tabbable (roving tabindex), and the
+// tablist arrow/Home/End keys activate the adjacent tab like a click would.
+const navTabStubs = document.querySelectorAll('.nav-tab-btn');
+const activeTab = navTabStubs.find(t => t.getAttribute('aria-selected') === 'true');
+if (!activeTab || activeTab.getAttribute('tabindex') !== '0') { failures++; console.log('❌ active nav tab is not the roving-focus target'); }
+if (navTabStubs.some(t => t !== activeTab && t.getAttribute('tabindex') !== '-1')) { failures++; console.log('❌ inactive nav tabs are still tabbable'); }
+document.activeElement = navTabStubs[1]; // matrix
+(documentHandlers['navtabs_keydown'] || []).forEach(fn => fn({ key: 'ArrowRight', preventDefault() {} }));
+if (!navTabStubs[2]._clicked || navTabStubs[2].getAttribute('aria-selected') !== 'true' || navTabStubs[1].getAttribute('aria-selected') !== 'false') {
+  failures++; console.log('❌ ArrowRight did not activate the next nav tab');
+}
+document.activeElement = navTabStubs[4]; // lexicon
+(documentHandlers['navtabs_keydown'] || []).forEach(fn => fn({ key: 'End', preventDefault() {} }));
+if (!navTabStubs[4]._clicked) { failures++; console.log('❌ End did not activate the last nav tab'); }
 
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();

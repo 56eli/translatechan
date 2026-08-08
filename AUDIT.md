@@ -521,9 +521,9 @@ diff -rq data docs/data
 | Dataset | Current measured state |
 |---|---|
 | Corpus | 36 structured documents; Wumenguan is complete at 48/48 cases + preface/epilogue; the other 35 remain excerpt-scale seeds |
-| Classical Chinese size | 13,090 CJK characters in source-content `*_zh` fields after excluding title/author metadata; 16,270 CJK characters across all JSON strings. Documentation should name the counting method rather than imply that both are the same measure. |
+| Classical Chinese size | 13,268 CJK characters in source-content `*_zh` fields after excluding title/author metadata; 16,457 CJK characters across all JSON strings. Documentation should name the counting method rather than imply that both are the same measure. |
 | Translation slots in corpus | 856 total: 138 object-form `verified_quotation`, 692 implicit scholar-register reconstructions, 26 AI drafts |
-| Verified corpus slots by text | Wumenguan 119; Linji 6; Zhaozhou 5; Huangbo *Chuanxin* 4; Platform Sutra 2; Xinxin Ming 2 |
+| Verified corpus slots by text | Wumenguan 119; Linji 6; Zhaozhou 5; Huangbo (Chuanxin T2012A 2 + Wanling T2012B 2) 4; Platform Sutra 2; Xinxin Ming 2 |
 | Comparative Matrix | 4 rows / 21 translator entries; all 21 have explicit status; 2 verified entries carry source records |
 | Glossary / lineage / gong’an index | 31 terms / 30 master profiles / 18 index entries |
 | Lineage links | 26 in-set teacher edges render; four teacher references deliberately point beyond the current dataset (Prajñātāra, Longtan Chongxin, Yangqi Fanghui, Dahong Laoniu Zuzheng) |
@@ -639,3 +639,87 @@ The first source-status chart compressed 18 lineage depths into a short horizont
 - the existing pan/zoom/reset, edge citation panel, node citation panel, and keyboard interaction retained.
 
 The smoke suite asserts the layered generation labels and halo nodes so the chart cannot silently regress to the cramped layout.
+
+---
+
+## 11. 2026-08-08 — Session `arena/019fe30b-translatechan`: full audit + a11y/CSP hardening
+
+> **Audited snapshot:** `243fe3f` (post-PR #6, the tree the live site serves). Full readable report: `SESSION_AUDIT_2026-08-08_019fe30b.md` (temporary session file). **Verdict: no P0/P1; all prior remediations hold under regression.** Three documentation-drift items (F1/F2/F6) were corrected in the same commit; the C10-class a11y/CSP finding (F3) was remediated in a follow-up commit.
+
+### 11.1 Verified healthy (re-measured this session)
+
+- All gates green: `py_compile`, `validate_data.py` (corpus=36 | slots=856 | verified=138 | matrix=21 | locators=57/57), deterministic `build_data_bundle.py` (tree stays clean), `smoke_test.mjs`, root↔`docs` byte-identical, `diff -rq data docs/data` silent.
+- GitHub Pages live: `status: built`, `main` → `/docs`, HTTPS enforced.
+- Metrics fresh: `--write-metrics` produces zero diff; measured **13,268 content CJK / 16,457 all-string CJK** characters.
+- Attribution honesty: 138 verified corpus slots + 2 verified matrix rows resolve through 13 rights-manifest sources; 135/140 references recorded, 5 honest pending; 692 reconstruction + 26 AI slots never claim verification.
+- Wumenguan 48/48 + preface/epilogue complete; case 37 = 庭前柏樹 (T2005 目次-verified); Biyanlu 7/100, Congronglu 2/100, other 35 files honest excerpt seeds.
+
+### 11.2 Findings and fixes (same session)
+
+| ID | Sev | Finding | Status |
+|---|---|---|---|
+| F1 | P3 | README/AUDIT §10.2 CJK counts stale (13,090/16,270 vs measured 13,268/16,457) | ✅ fixed |
+| F2 | P3 | HANDOFF "Current branch" pointed at prior session's branch | ✅ fixed |
+| F6 | P3 | AUDIT §10.2 "Huangbo Chuanxin 4" — actual split is Chuanxin 2 + Wanling 2 | ✅ fixed |
+| F3 | P2 | a11y/CSP (C10 carryover): inline `onclick` ×6, glossary terms not Enter/Space-activatable, tabs lacked tabpanel/aria-controls/arrow keys, no CSP | ✅ **remediated** (§11.3) |
+| F4 | P2 | Per-file coverage metadata exists only for wumenguan; doc counts can drift (F1 class) | ✅ **remediated** (§11.4): deterministic `corpus.per_text` metrics, manifest `unit_targets`, validator-enforced `zh_chars`/`coverage_note` — immediately caught stale wumenguan `zh_chars` (5,876 → 5,528) |
+| F7 | P2 | Required Quality check on `main` unconfirmed (branch-protection API 403 for this token) | ⏳ instruction drafted (§11.6 + HANDOFF "Repository administration"); ~2-minute owner-only action |
+| F10 | P2 | No real-browser regression suite yet | ✅ **remediated** (§11.5): `scripts/browser_test.mjs` Playwright suite (desktop + mobile, 12 tests) added; optional, not in CI, skips gracefully without a browser |
+| F5/F8/F9 | P3 | Annotator/search scaling advisory; "Zero-Backend Offline" chip vs Google Fonts; overpromising script docstrings | F9 ✅ fixed (§11.6); F5/F8 tracked (advisory) |
+
+### 11.3 — F3 remediation: delegated events, ARIA tabs, keyboard glossary terms, CSP
+
+| Item | What landed | Regression evidence |
+|---|---|---|
+| Inline `onclick` removed (case chips, case nav footer, load-more, teacher links, master work links, search jump) | One document-level delegated click handler over `[data-jump-case]`, `#case-load-more-btn`, `[data-open-case]`, `[data-open-doc]`, `[data-master-teacher]` | Smoke 4u greps both sources and fails on any inline handler attribute; 4v simulates delegated clicks |
+| Glossary term keyboard activation | Enter/Space on a focused `.term-highlight` opens the shared popover; Escape closes | Smoke 4w |
+| Full ARIA tabs | `id`/`aria-controls` on tabs, `role="tabpanel"`/`aria-labelledby` on sections, `role="none"` on `<li>`, roving tabindex, Arrow/Home/End | Smoke 4x |
+| Restrictive CSP meta tag | `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'` | Smoke 4u; `node --check`; full suite green; root↔docs byte-identical |
+
+**Boundary:** real-browser verification of CSP/keyboard paths and a full a11y scan remain (RESEARCH_RELEASE_PLAN Phase 0/4); the DOM-stub suite does not replace them.
+
+### 11.4 — F4 remediation: deterministic per-text coverage metrics (same session)
+
+| Item | What landed | Regression evidence |
+|---|---|---|
+| `corpus.per_text` in `project_metrics.json` | `validate_data.py --write-metrics` emits 36 per-key records: title, cbeta_id, content/all CJK char counts, shapes, unit counts, declared `coverage_note`/`zh_chars`, and (where declared) machine-checkable `N/M units` coverage strings | Smoke test throws on missing/incorrect per_text; sum of per-text content counts equals the aggregate 13,268 |
+| Manifest `unit_targets` | `corpus_manifest.json` now declares canonical totals for wumenguan (48 cases), biyanlu (100), congronglu (100), platform_sutra (10 chapters) | Validator rejects unknown units, non-positive targets, and documents exceeding their target |
+| Per-file metadata rule | Declared `zh_chars` must equal the computed content count; `coverage_note` must be non-empty | **Real catch**: wumenguan.json declared 5,876 (stale, matched no counting method) → corrected to 5,528 (documented content measure); README honest-status block now sources per-text facts from `corpus.per_text` |
+
+### 11.5 — F10 remediation: real-browser Playwright suite (same session)
+
+`scripts/browser_test.mjs` adds an optional Playwright suite (desktop 1280×900 + mobile 390×844 contexts) covering initial load, hash deep links, Wumenguan lazy 12→48 loading, case-chip jumps, citation/glossary popovers (pointer + keyboard), ARIA tab navigation, search escaping, mobile corpus chooser/action bar, print media, and CSP/uncaught-error console cleanliness. It self-spawns a static server, exits 1 on failures, and **skips gracefully (exit 0) with install guidance when Chromium is unavailable** — it is optional and not part of CI, keeping the zero-dependency contributor path intact. `package.json` (private, devDep `playwright`) + lockfile added; `node_modules/` git-ignored; README/HANDOFF/RESEARCH_RELEASE_PLAN Phase 0 updated. **Environment note:** this sandbox cannot execute a real browser (no binary, missing system libs, blocked CDNs/apt); the suite's first live run must happen on a browser-capable machine, which is a documented prerequisite rather than a code gap.
+
+### 11.6 — F7 + F9 remediation: release-ops tidy-up (same session)
+
+**F9 (fixed):** the module docstrings of `scripts/ingest_cbeta.py` and `scripts/arena_agent_pipeline.py` overpromised ("…maps CBETA canonical IDs", "…Translation & Alignment Pipeline"). Both are rewritten to state exactly what they do — an offline punctuation/dialogue-delimiter segmenter, and prompt-register + entry-builder helpers — with CBETA fetching and translation alignment explicitly deferred to Phase 2. `py_compile` clean.
+
+**F7 (instruction drafted):** branch protection cannot be set by the agent token (API 403 verified). HANDOFF.md now carries a precise **"Repository administration — require the Quality check on `main`"** checklist for the owner: confirm one green Quality run → Settings → Branches → protect `main` → require status check **Validate data, generated artifacts, and reader** (job name), recommended PR requirement, and a note that Pages stays native (`main` → `/docs`) with no deploy workflow. This converts the open unknown into a ~2-minute owner checklist.
+
+### 11.7 — Phase-2 content: Biyanlu cases 4–10 (first 10 cases complete) — 2026-08-08
+
+| Item | Detail |
+|---|---|
+| Corpus growth | `biyanlu_cases.json`: 7 → **14 cases** (1,2,3,4,5,6,7,8,9,10,12,14,21,43). Cases **1–10 are now complete** with pointer (垂示), main case (本則), pre-verse 評唱 commentary, and Xuedou's verse (頌); cases 12/14/21/43 remain excerpt seeds. |
+| Source integrity | All new zh collated from the **CBETA TEI T48n2003** (`cbeta-org/xml-p5`, rev. 2025-01-30) fetched via sparse git clone; every pointer/commentary/verse string verified byte-equal against the TEI extraction; dialogue units verified to tile the 本則 exactly (著語 inline notes normalized out, documented). |
+| Locators | `canonical_locators.json` biyanlu case_locators: 7 → **14**, each with CBETA line ranges (`T48n2003 p.0143b02–p.0144c18` style) recorded from the TEI. New cases carry `collated_with_normalization` + source edition + collation note (human sign-off pending); pre-existing excerpt cases keep `case_level_anchor` with the line range noted. Locator coverage 57 → **64/64**. |
+| Translations | New dialogue renderings are project text under the `ai_literal` register (auto-labeled 🤖 **AI draft**); pointer/verse English likewise project renderings; **no scholar-attributed text added**. Post-verse 評唱 English rendering is explicitly pending (documented in `coverage_note`). |
+| Pinyin | Machine-generated (pypinyin) with a curated proper-name/Buddhist-term override table (溈山, 般若, 單于, 雪竇, 雲門, 趙州, 睦州, 翠嵒, 首座, 佛→fó …); flagged as machine draft per provenance policy. |
+| Gong'an index | 18 → **23 entries**: biyan_04 (Deshan/Guishan), biyan_05 (Xuefeng), biyan_06 (Yunmen everyday day), biyan_07 (Fayan/Huichao), biyan_09 (Zhaozhou four gates). |
+| Coverage metadata | `coverage_note` + `zh_chars` (7,412, validator-checked) added to the biyanlu document — the F4 per-file metadata pattern now applies to a second text. |
+| Regression | Smoke test updated: sparse nav 3→4 / 12→10; per_text coverage `14/100 cases`; new checks assert case 4/6/8 content + AI-draft labels render. |
+| Gates | `validate_data.py` ✅ (slots 874 · verified 138 · locators 64/64) · deterministic build ✅ · smoke suite ✅ · root↔docs synced ✅. |
+
+**Boundary kept explicit:** this proves the Phase-2 pilot contract end-to-end (source → locator → segmented fields → labeled renderings → validator/metrics/regression). Remaining Biyanlu work: post-verse 評唱 English, human sign-off on the `collated_with_normalization` anchors, and cases 11–100.
+
+### 11.8 — User-perspective review of the public reader (same session)
+
+Review approach: the live site is not reachable from this sandbox (github.io is network-blocked), so the review ran against the identical local build, rendering every view through the DOM harness and inspecting the produced HTML/CSS as a user would.
+
+| Finding | Fix |
+|---|---|
+| **U1 (P2, truth-in-UI): an excerpt can be mistaken for a complete text.** A reader of Biyanlu saw 14 cases with no indication that the canonical text has 100; same for every seed (Zhaozhou's 3 dialogues, etc.). The `coverage_note`/metrics existed only in data files. | New **`📊 Coverage` disclosure** in every reader header: shows `48/48 cases` (Wumenguan), `14/100 cases` (Biyanlu), or `Excerpt seed (N units)` with unit counts, plus a hover/focus/tap citation popover carrying the full note ("post-verse 評唱 rendering pending", "Phase 2", etc.). Sources: validator-generated `project_metrics.json → corpus.per_text` + the document's own `coverage_note`. Smoke test 4j2 asserts Biyanlu `14/100 cases` and Wumenguan `48/48 cases`. |
+| **U2 (P3, copy): hero chip "🌐 Zero-Backend Offline" overstates** — the app loads Google Fonts (F8 carryover). | Chip now reads **"🌐 Zero-Backend Static"**. |
+| **U3 (P3, polish): browser tab had no favicon.** | Inline SVG emoji favicon (🪷) added as a `data:` URI — no new files, CSP-safe (`img-src 'self' data:`). |
+
+Verification: reader scan across all 36 documents found no `undefined`/`NaN`/`[object Object]` leaks, no duplicate `id=` attributes, no broken hrefs; matrix/lineage/gongan/lexicon render fully (21 matrix badges, 34 graph nodes / 30 pending links / 4 frontiers, 23 gongan entries, 31 lexicon cards). Smoke suite green; root↔docs synced.

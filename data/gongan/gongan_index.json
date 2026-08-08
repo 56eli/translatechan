@@ -8,7 +8,11 @@
     "title_en": "Zhaozhou's Dog (Mu / Wu)",
     "protagonist": "zhaozhou_congshen",
     "theme": "Buddha-Nature / Cutting Off Deliberation",
-    "cross_refs": ["Congronglu Case 18", "Zhaozhou Yulu", "Biyanlu Case 1"],
+    "cross_refs": [
+      "Congronglu Case 18",
+      "Zhaozhou Yulu",
+      "Biyanlu Case 1"
+    ],
     "summary": "A monk asks whether a dog has Buddha-nature; Zhaozhou answers 'Wu', establishing the quintessential barrier of Zen."
   },
   {
@@ -20,7 +24,11 @@
     "title_en": "Baizhang's Wild Fox",
     "protagonist": "baizhang_huaihai",
     "theme": "Karma & Causality (不落 / 不昧)",
-    "cross_refs": ["Baizhang Yulu", "Biyanlu Case 17", "Chuandenglu Vol. 6"],
+    "cross_refs": [
+      "Baizhang Yulu",
+      "Biyanlu Case 17",
+      "Chuandenglu Vol. 6"
+    ],
     "summary": "An old abbot reborn as a fox for 500 lives for saying an enlightened person 'does not fall into causality' is liberated when Baizhang says 'is not blind to causality'."
   },
   {
@@ -32,7 +40,10 @@
     "title_en": "Juzhi's One Finger",
     "protagonist": "juzhi",
     "theme": "Direct Pointing / Cutting Conceptual Mimicry",
-    "cross_refs": ["Biyanlu Case 19", "Chuandenglu Vol. 11"],
+    "cross_refs": [
+      "Biyanlu Case 19",
+      "Chuandenglu Vol. 11"
+    ],
     "summary": "Juzhi raises one finger whenever asked about Chan; when an attendant boy mimics him, Juzhi cuts off the boy's finger, leading to the boy's instant awakening."
   },
   {
@@ -44,7 +55,10 @@
     "title_en": "Bodhidharma Has No Beard",
     "protagonist": "huoan_shiti",
     "theme": "Direct Realization Beyond Dual Perception",
-    "cross_refs": ["Wudeng Huiyuan Vol. 19", "Zongmen Tongyao Ji"],
+    "cross_refs": [
+      "Wudeng Huiyuan Vol. 19",
+      "Zongmen Tongyao Ji"
+    ],
     "summary": "Huoan asks why the western bearded barbarian (Bodhidharma) has no beard."
   },
   {
@@ -56,7 +70,10 @@
     "title_en": "Xiangyan's Man Up a Tree",
     "protagonist": "xiangyan_zhixian",
     "theme": "Existential Urgency / Ineffable Speech",
-    "cross_refs": ["Guishan Yulu", "Chuandenglu Vol. 11"],
+    "cross_refs": [
+      "Guishan Yulu",
+      "Chuandenglu Vol. 11"
+    ],
     "summary": "A man hanging by his teeth from a high tree is asked the meaning of the Patriarch coming from the west."
   },
   {
@@ -68,7 +85,10 @@
     "title_en": "The Buddha Holds Up a Flower",
     "protagonist": "shakyamuni_and_mahakasyapa",
     "theme": "Origin of Chan Transmission",
-    "cross_refs": ["Lianbiao Shizi Xu", "Zongmen Tongyao Ji"],
+    "cross_refs": [
+      "Lianbiao Shizi Xu",
+      "Zongmen Tongyao Ji"
+    ],
     "summary": "The Buddha silently holds up an udumbara flower on Vulture Peak; Mahākāśyapa smiles, receiving the eye of the True Dharma."
   },
   {
@@ -80,7 +100,10 @@
     "title_en": "Zhaozhou's Wash Your Bowl",
     "protagonist": "zhaozhou_congshen",
     "theme": "Ordinary Activity as Awakening",
-    "cross_refs": ["Zhaozhou Yulu", "Biyanlu Case 47"],
+    "cross_refs": [
+      "Zhaozhou Yulu",
+      "Biyanlu Case 47"
+    ],
     "summary": "A newly arrived monk asks for instruction; Zhaozhou asks 'Have you eaten your porridge?' and says 'Then wash your bowl.'"
   },
   {
@@ -92,7 +115,11 @@
     "title_en": "Ordinary Mind is the Way",
     "protagonist": "nanquan_puyuan",
     "theme": "Immediacy / Non-Seeking",
-    "cross_refs": ["Mazu Yulu", "Zhaozhou Yulu", "Congronglu Case 67"],
+    "cross_refs": [
+      "Mazu Yulu",
+      "Zhaozhou Yulu",
+      "Congronglu Case 67"
+    ],
     "summary": "Nanquan instructs Zhaozhou that Ordinary Mind is the Way, transcending knowing and not-knowing."
   },
   {
@@ -104,7 +131,10 @@
     "title_en": "Huineng's Original Face",
     "protagonist": "huineng",
     "theme": "Original Nature Beyond Morality",
-    "cross_refs": ["Platform Sutra Chapter 1", "Chuandenglu Vol. 5"],
+    "cross_refs": [
+      "Platform Sutra Chapter 1",
+      "Chuandenglu Vol. 5"
+    ],
     "summary": "The Sixth Patriarch challenges Monk Ming: 'Without thinking of good or evil, what is your Original Face before your parents were born?'"
   },
   {
@@ -116,7 +146,10 @@
     "title_en": "Not the Wind, Not the Flag",
     "protagonist": "huineng",
     "theme": "Mind-Only Non-Duality",
-    "cross_refs": ["Platform Sutra Chapter 1", "Zongjinglu"],
+    "cross_refs": [
+      "Platform Sutra Chapter 1",
+      "Zongjinglu"
+    ],
     "summary": "Two monks argue whether the wind or the banner is moving; Huineng says: 'It is your own mind that is moving.'"
   },
   {
@@ -128,7 +161,11 @@
     "title_en": "The Cypress Tree in the Courtyard",
     "protagonist": "zhaozhou_congshen",
     "theme": "Patriarch's Meaning / Direct Reality",
-    "cross_refs": ["Zhaozhou Yulu", "Biyanlu Case 47", "Congronglu Case 47"],
+    "cross_refs": [
+      "Zhaozhou Yulu",
+      "Biyanlu Case 47",
+      "Congronglu Case 47"
+    ],
     "summary": "Asked for the purpose of Bodhidharma coming from the west, Zhaozhou points to the cypress tree in the courtyard."
   },
   {
@@ -140,7 +177,10 @@
     "title_en": "Emperor Wu Asks Bodhidharma: Vast Emptiness",
     "protagonist": "bodhidharma",
     "theme": "Emptiness / Transcending Imperial Merit",
-    "cross_refs": ["Chuandenglu Vol. 3", "Lidai Fabao Ji"],
+    "cross_refs": [
+      "Chuandenglu Vol. 3",
+      "Lidai Fabao Ji"
+    ],
     "summary": "Emperor Wu asks about the highest holy truth; Bodhidharma declares 'Vast emptiness, nothing holy.'"
   },
   {
@@ -152,7 +192,10 @@
     "title_en": "Zhaozhou's Ultimate Path is Not Difficult",
     "protagonist": "zhaozhou_congshen",
     "theme": "Beyond Clarity and Discrimination",
-    "cross_refs": ["Xinxin Ming", "Zhaozhou Yulu"],
+    "cross_refs": [
+      "Xinxin Ming",
+      "Zhaozhou Yulu"
+    ],
     "summary": "Zhaozhou tests the assembly on the Great Way avoiding selection and clarity."
   },
   {
@@ -164,7 +207,10 @@
     "title_en": "Master Mazu is Unwell: Sun-Face Moon-Face",
     "protagonist": "mazu_daoyi",
     "theme": "Equanimity in Sickness and Health",
-    "cross_refs": ["Mazu Yulu", "Jingde Chuandenglu Vol. 6"],
+    "cross_refs": [
+      "Mazu Yulu",
+      "Jingde Chuandenglu Vol. 6"
+    ],
     "summary": "When asked about his illness, Mazu responds: 'Sun-Face Buddha, Moon-Face Buddha.'"
   },
   {
@@ -176,7 +222,10 @@
     "title_en": "Dongshan's Three Pounds of Flax",
     "protagonist": "dongshan_shouchu",
     "theme": "Concrete Reality / What is Buddha",
-    "cross_refs": ["Dongshan Yulu", "Wumenguan Case 18"],
+    "cross_refs": [
+      "Dongshan Yulu",
+      "Wumenguan Case 18"
+    ],
     "summary": "A monk asks Dongshan 'What is the Buddha?'; Dongshan replies 'Three pounds of flax.'"
   },
   {
@@ -188,7 +237,10 @@
     "title_en": "Nanquan Cuts the Cat in Two",
     "protagonist": "nanquan_puyuan",
     "theme": "Cutting Duality / Straw Sandals on Head",
-    "cross_refs": ["Wumenguan Case 14", "Congronglu Case 9"],
+    "cross_refs": [
+      "Wumenguan Case 14",
+      "Congronglu Case 9"
+    ],
     "summary": "Nanquan cuts the cat in two when the monks fail to give a living word; Zhaozhou puts straw sandals on his head."
   },
   {
@@ -200,7 +252,10 @@
     "title_en": "Yunmen's Dried Shit-Stick",
     "protagonist": "yunmen_wenyan",
     "theme": "Shattering All Sanctimonious Conceits",
-    "cross_refs": ["Yunmen Yulu", "Wumenguan Case 21"],
+    "cross_refs": [
+      "Yunmen Yulu",
+      "Wumenguan Case 21"
+    ],
     "summary": "Asked 'What is Buddha?', Yunmen responds directly with 'A dried shit-stick.'"
   },
   {
@@ -212,7 +267,79 @@
     "title_en": "Dongshan's Cold and Heat",
     "protagonist": "dongshan_liangjie",
     "theme": "Transcendence within Conditioned Reality",
-    "cross_refs": ["Dongshan Yulu", "Congronglu Case 43"],
+    "cross_refs": [
+      "Dongshan Yulu",
+      "Congronglu Case 43"
+    ],
     "summary": "Asked how to avoid cold and heat, Dongshan says: 'When cold, let cold kill you; when hot, let heat kill you.'"
+  },
+  {
+    "id": "biyan_04",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 4,
+    "cbeta_id": "T2003",
+    "title_zh": "德山到溈山：勘破了也",
+    "title_en": "Deshan Visits Guishan: \"He Saw Through It\"",
+    "protagonist": "deshan_xuanjian",
+    "theme": "Direct Encounter / Seeing Through",
+    "cross_refs": [
+      "Chuandenglu Deshan record",
+      "Zhaozhou Yulu"
+    ],
+    "summary": "Deshan arrives at Guishan carrying his bundle, walks across the Dharma hall without greeting, and leaves; Xuedou punctuates the whole exchange with \"He saw through it,\" which Guishan completes with \"frost on top of snow.\""
+  },
+  {
+    "id": "biyan_05",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 5,
+    "cbeta_id": "T2003",
+    "title_zh": "雪峯盡大地：粟米粒大",
+    "title_en": "Xuefeng: The Whole Earth as a Grain of Millet",
+    "protagonist": "xuefeng_yicun",
+    "theme": "The Whole Earth / One Grain of Millet",
+    "cross_refs": [
+      "Yunmen Yulu"
+    ],
+    "summary": "Xuefeng gathers the entire earth into a grain of millet and tosses it before the assembly; Yunmen, Changqing and Dagui Zhe add their own turns on the exchange."
+  },
+  {
+    "id": "biyan_06",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 6,
+    "cbeta_id": "T2003",
+    "title_zh": "雲門日日是好日",
+    "title_en": "Yunmen: Every Day Is a Good Day",
+    "protagonist": "yunmen_wenyan",
+    "theme": "Everyday Mind / Each Day Is a Good Day",
+    "cross_refs": [
+      "Yunmen Yulu"
+    ],
+    "summary": "Yunmen asks for a phrase about the fifteenth day and answers himself: every day is a good day — the classic statement of everyday mind."
+  },
+  {
+    "id": "biyan_07",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 7,
+    "cbeta_id": "T2003",
+    "title_zh": "法眼答慧超：汝是慧超",
+    "title_en": "Fayan Answers Huichao: \"You Are Huichao\"",
+    "protagonist": "fayan_wenyi",
+    "theme": "You Are It / Direct Pointing",
+    "cross_refs": [],
+    "summary": "A monk asks Fayan what Buddha is; Fayan replies \"You are Huichao,\" the paradigm of Fayan-school direct pointing."
+  },
+  {
+    "id": "biyan_09",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 9,
+    "cbeta_id": "T2003",
+    "title_zh": "趙州四門",
+    "title_en": "Zhaozhou's Four Gates",
+    "protagonist": "zhaozhou_congshen",
+    "theme": "The Living Master / Four Gates",
+    "cross_refs": [
+      "Zhaozhou Yulu"
+    ],
+    "summary": "Asked what Zhaozhou is, Zhaozhou answers with the four gates of the city — the master is not a concept but a living place."
   }
 ]

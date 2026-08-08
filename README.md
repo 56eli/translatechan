@@ -30,7 +30,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** (Wumenguan is the first **complete text**: 48/48 cases). The generated metrics report **13,090 source-content CJK characters** (or 16,270 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage is tracked in [`data/project_metrics.json`](./data/project_metrics.json) and [`AUDIT.md §10`](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu is next.
+> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and Biyanlu's excerpt has grown to **14/100 cases with cases 1–10 complete** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **13,268 source-content CJK characters** (or 16,457 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `14/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`AUDIT.md §10`](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu cases 1–10 are now complete (14/100).
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -40,7 +40,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 | **Sayings of Zhaozhou** | 趙州真際禪師語錄 | **T1987** (Vol. 47) | Zhaozhou Congshen (趙州從諗) | Signature dialogues (狗子, 洗鉢盂…) |
 | **Inscription on Faith in Mind** | 信心銘 | **T2010** (Vol. 48) | Third Patriarch Jianzhi Sengcan | Opening stanzas |
 | **Jewel Mirror Samadhi** | 寶鏡三昧歌 | **T1986** (Vol. 47) | Dongshan Liangjie (洞山良价) | Opening stanzas |
-| **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | 7 / 100 cases |
+| **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | 14 / 100 cases (1–10 complete) |
 | **The Platform Sutra** | 六祖大師法寶壇經 | **T2007** (Vol. 48) | Sixth Patriarch Huineng / Fahai | 4 / 10 chapters (incl. 菩提本無樹 verse) |
 | **(+ 28 further yulu, treatises & poems)** | — | T/X canon | Mazu, Dongshan, Yunmen, Fayan, Guiyang, Dahui, Hanshan… | Excerpt seeds — see `data/corpus/` |
 
@@ -52,7 +52,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - Sentence-by-sentence Classical Chinese with standard Pinyin romanization and English translations across all 36 corpus texts.
 - Switchable reading modes: **Bilingual**, **Multi-Translators Side-by-Side**, or **Classical Chinese Only**.
 - Hover, focus, or tap key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
-- Visible canonical source locations for every reader document/case, plus reviewed unit-level source disclosures for the Linji (4 sections) and Xinxin Ming (7 stanzas) pilots; hover/focus/touch popups state locator granularity, collation status, and pending human review honestly.
+- Visible canonical source locations for every reader document/case, plus a **validator-derived coverage disclosure** (`48/48 cases`, `14/100 cases`, or `Excerpt seed (N units)` with a full coverage note) so excerpts are never mistaken for complete texts; reviewed unit-level source disclosures for the Linji (4 sections) and Xinxin Ming (7 stanzas) pilots; hover/focus/touch popups state locator granularity, collation status, and pending human review honestly.
 - Client-side search across **all 36 corpus texts and all schema shapes** (case lists, sermons, dialogues, stanzas, chapters), with match counts, `<mark>` highlighting, and jump-to-anchor actions.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix
@@ -67,7 +67,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - Filter by lineage school, dates, temple location, canonical text reference, and signature quotes.
 
 ### 4. 🗂️ Gong'an Cross-Reference Index
-- Canonical cases indexed by theme, protagonist, and cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* — **18 indexed cases** at present.
+- Canonical cases indexed by theme, protagonist, and cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* — **23 indexed cases** at present (incl. 5 new Biyanlu entries, 2026-08-08).
 
 ### 5. 📚 Classical Chan Lexicon
 - Dictionary of technical Chan idioms, Buddhist ontology, dialectical structures, and monastic expressions — **31 terms** today, expanding toward 150+ (see Roadmap Phase 3).
@@ -117,14 +117,16 @@ translatechan/
 │   │   └── rights_manifest.json
 │   ├── glossary/           # Classical Chan & Buddhist lexicon (31 terms)
 │   │   └── chan_terms.json
-│   └── gongan/             # Gong'an cross-reference catalog (18 cases)
+│   └── gongan/             # Gong'an cross-reference catalog (23 cases)
 │       └── gongan_index.json
 └── scripts/
     ├── build_data_bundle.py   # Compiles data/ into app_data.js + syncs /docs (deterministic)
     ├── arena_agent_pipeline.py# Prompt templates & entry harness for sandboxed agent work
     ├── ingest_cbeta.py        # Offline Classical Chinese sentence segmenter (manual input)
     ├── validate_data.py       # Schema/semantic/rights/locator validator + metrics generator
-    └── smoke_test.mjs         # Dependency-free renderer regression test
+    ├── smoke_test.mjs         # Dependency-free renderer regression test (CI gate)
+    ├── browser_test.mjs       # Optional Playwright real-browser suite (desktop + mobile; not in CI)
+    └── ingest_cbeta.py        # Offline Classical Chinese segmenter (manual input)
 ```
 
 > **Note on deployment automation**: GitHub Pages is served directly from the `main` branch `/docs` folder (native branch publishing). The checked-in GitHub Actions **Quality** workflow verifies Python syntax, source data/metrics, deterministic generated artifacts, deploy synchronization, and the reader smoke test on pushes and pull requests; it does not deploy Pages.
@@ -150,7 +152,12 @@ python3 scripts/build_data_bundle.py
 # 4. Run the dependency-free renderer regression suite
 node scripts/smoke_test.mjs
 
-# 5. Launch a local preview server
+# 5. (Optional) Run the real-browser Playwright suite (desktop + mobile)
+npm install                    # devDependency: playwright
+npx playwright install chromium  # once per machine; `install-deps` on Linux if needed
+npm run test:browser           # skips gracefully when no Chromium is available
+
+# 6. Launch a local preview server
 python3 -m http.server 8080
 # Open http://localhost:8080 in your browser
 ```

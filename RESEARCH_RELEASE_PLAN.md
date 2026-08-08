@@ -19,7 +19,7 @@ A text or translation is only presented at the strongest available status. “Co
 ## Current baseline (2026-08-08)
 
 - **Platform:** native GitHub Pages from `main` → `/docs`; the checked-in **Quality** workflow passes on the session branch.
-- **Corpus:** 36 structured documents. *Wumenguan* is the only complete work (48/48 cases plus preface/epilogue); 35 documents are honest excerpt seeds.
+- **Corpus:** 36 structured documents. *Wumenguan* is the only complete work (48/48 cases plus preface/epilogue); **Biyanlu cases 1–10 are complete (14/100 total)** under the pilot contract (pointer, main case, pre-verse 評唱, verse; CBETA TEI line locators; labeled AI-draft renderings; post-verse 評唱 English pending); the remaining 34 documents are honest excerpt seeds. Per-text coverage is emitted deterministically in `project_metrics.json → corpus.per_text` and displayed in the Reader header.
 - **Traceability:** all 57 stored case units have case-level locators. The Linji pilot (4 sections, T1985) and Xinxin Ming pilot (7 stanzas, T2010) have CBETA line-head anchors marked `collated_with_normalization`, not source-checked: human editorial sign-off remains required. The remaining 33 non-case seed documents retain document-level `legacy_document_seed` records; the enforced migration queue is not evidence of collation. Huangbo material was separated by witness: the One Mind seed is T2012A, while the unconditioned-compassion Q&A now belongs to the T2012B Wanling seed and still needs unit-level collation.
 - **Translation disclosure:** 138 verified corpus quotation records and 2 verified Matrix records resolve to 13 rights-manifest source records; 5 verified records still need exact page/section references; human rights review remains pending.
 - **Lineage:** 30 internal edges are visibly traditional/pending (including four newly navigable frontier-profile links); none should be upgraded without exact source locators. `data/lineage/profile_review_queue.json` now tracks all 34 profiles for source-locator review without upgrading their evidence status.
@@ -30,8 +30,8 @@ A text or translation is only presented at the strongest available status. “Co
 
 - [x] Quality workflow checks Python syntax, semantic data validation, deterministic build output, deploy mirror, and dependency-free renderer smoke coverage.
 - [ ] Enable `main` branch protection requiring the Quality check after an administrator sees its first successful run.
-- [ ] Add a small real-browser regression suite (desktop + mobile) before asserting cross-browser release readiness.
-- [ ] Add an accessibility review checklist and resolve keyboard semantics for every interactive control before the next public release.
+- [x] Real-browser regression suite (desktop + mobile): `scripts/browser_test.mjs` (Playwright) covers initial load, deep links, mobile corpus chooser/action bar, lazy case loading, case-chip jumps, citation and glossary popovers (pointer + keyboard), ARIA tab navigation, search escaping, CSP console cleanliness, and print view. It is **optional and not part of CI** (it skips gracefully without a browser); run locally with `npm install && npx playwright install chromium && npm run test:browser` before release checks.
+- [ ] Add an accessibility review checklist and resolve keyboard semantics for every interactive control before the next public release. (Keyboard semantics for tabs, glossary terms, lineage nodes/edges, and cards are implemented; a formal screen-reader pass remains.)
 
 **Exit evidence:** required GitHub check is green on PRs; browser suite covers initial load, deep links, mobile corpus chooser, lazy case loading, source popovers, keyboard interaction, and print view.
 
@@ -68,12 +68,14 @@ For each new case:
 
 **Pilot exit evidence:** the first 10 Biyanlu cases are complete against the selected edition, with unit locators and no unlabelled translations. Reassess data model, loading performance, and editorial throughput before scaling to 100 cases.
 
+> ✅ **Pilot milestone (2026-08-08):** cases 1–10 complete (14/100) with CBETA TEI line locators, validator-checked coverage metadata, and regression coverage — the contract held end-to-end. Post-verse 評唱 English and human sign-off on the `collated_with_normalization` anchors remain; cases 11–100 are next.
+
 ### 4 — Reader and research UX hardening
 
-- Replace inline `onclick` and clickable non-controls with delegated events/native buttons, then apply a restrictive Content Security Policy.
-- Ensure Enter/Space behavior and ARIA relationships for glossary terms, lineage cards/nodes/edges, tabs, and filters.
-- Add browser/screen-reader checks for citations on hover, focus, and touch.
-- Measure mobile first-load performance before corpus growth makes the monolithic bundle costly; choose lazy per-text data only if evidence justifies the added complexity.
+- [x] Replace inline `onclick` and clickable non-controls with delegated events/native buttons, then apply a restrictive Content Security Policy (completed 2026-08-08, session `arena/019fe30b`): all generated controls now use `data-*` attributes with a single document-level delegated click handler; the app ships a CSP meta tag with `script-src 'self'`; the smoke suite fails on any reintroduced inline handler attribute.
+- [x] Ensure Enter/Space behavior and ARIA relationships for glossary terms, lineage cards/nodes/edges, tabs, and filters (completed 2026-08-08): Enter/Space opens glossary popovers; tabs are full ARIA `tablist`/`tab`/`tabpanel` with roving tabindex and arrow/Home/End navigation; lineage cards/nodes/edges already carry button semantics and Enter/Space activation.
+- [ ] Add browser/screen-reader checks for citations on hover, focus, and touch (real-browser suite still pending — see Phase 0).
+- [ ] Measure mobile first-load performance before corpus growth makes the monolithic bundle costly; choose lazy per-text data only if evidence justifies the added complexity.
 
 **Exit evidence:** no keyboard-only dead end in public interaction paths; CSP permits no inline event handlers; mobile performance budget is documented and tested.
 

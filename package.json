@@ -1,0 +1,11 @@
+{
+  "name": "translatechan-browser-tests",
+  "private": true,
+  "description": "Optional real-browser regression suite for TranslateChan (dev-only; not required for contributors or CI).",
+  "scripts": {
+    "test:browser": "node scripts/browser_test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}
