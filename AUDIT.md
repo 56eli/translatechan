@@ -440,3 +440,13 @@ The roadmap's first Phase-2 full-text milestone is **done**: `data/corpus/wumeng
 **Files**: `app.js` (state/persistence, popover, collapse, strip, debounce, mobile bar wiring, corpus picker population), `index.html` (picker + bottom bar), `app.css` (popover, strip, collapse, mobile overrides), `scripts/smoke_test.mjs` (debounce-aware `fireSearch`; new checks 4h strip/toggle/nav, 4i no embedded tooltips, 4j picker populated).
 
 **Verification**: `node --check` clean; smoke test green (36 texts × all modes + 48-case render + strip/toggle/nav/picker/popover-DOM checks); bundle deterministic; root↔docs byte-identical; `diff -rq data docs/data` silent. Remaining UX phases: C1 print stylesheet, C2 hash routing, C3 lineage pan/zoom, C4 a11y pass, C5 studio/index polish, D1–D4 performance.
+
+### 9.6 — UX Phase C implemented (same session, 2026-08-08; see UX_ROADMAP.md)
+
+| Item | What landed |
+|---|---|
+| C1 | `@media print` stylesheet: hides nav/hero/sidebar/toolbars/strip/popover/mobile bar; forces expanded case bodies; single-column translations; `break-inside: avoid` on cards; black-on-white. `lang="zh"` added to all 17 `.classical-zh` render templates (screen + print semantics) |
+| C2 | Hash routing: `#/view` + `#/reader/<corpus>`; `init()` restores view+corpus from the hash (deep links & refresh); `hashchange` → `applyHash()`; nav clicks, sidebar/mobile corpus changes, `openCase`/`openDoc` all sync the hash; brand link is now `#/reader` (no more `location.reload()` state loss); back/forward work |
+| C3 | Lineage SVG: content wrapped in a `.lineage-panzoom` group; wheel zoom toward cursor, pointer-drag pan (with grab/grabbing cursor), two-finger pinch on touch (`touch-action: none`); clamped 0.35×–3×; `⟲ Reset View` button; transform preserved across re-renders (school filter) |
+
+Smoke test: location/scrollTo/addEventListener stubs added for the DOM harness; new checks 4k (pan-zoom group + resetLineageView) — suite green; bundle rebuilt; root↔docs byte-identical. Remaining UX: C4 accessibility pass, C5 studio/index polish, D1–D4 performance.

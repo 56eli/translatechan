@@ -75,17 +75,17 @@
 - `bilingual` remains default, but on touch devices default to 1 translation column (not 2) and hide pinyin until requested (a "show pinyin" toggle), cutting mobile page length ≈ 40 %.
 - Acceptance: Wumenguan case 1 on mobile = zh + 1 column + optional pinyin, no other chrome.
 
-### Phase C — "Deep-Functionality Polish" · M · ~1–2 sessions
+### Phase C — "Deep-Functionality Polish" · M · ~1–2 sessions · ✅ **implemented 2026-08-08** (C1–C3)
 
-**C1. Print / PDF stylesheet** — *fixes P8 (scholarly need)*
+**C1. Print / PDF stylesheet** — *fixes P8 (scholarly need)* · ✅ done
 - `@media print`: hide nav/sidebar/hero/tooltips; one translation column; page-break-inside avoid on case cards; black-on-white; include title + canon ID per case; `lang="zh"` on Chinese blocks.
 - Acceptance: `Print → Save as PDF` of any text is a clean scholarly handout.
 
-**C2. Hash routing + back button** — *fixes P10*
+**C2. Hash routing + back button** — *fixes P10* · ✅ done
 - `#/reader/wumenguan`, `#/lineage`, `#/lexicon` …; `hashchange` drives `switchView`/`renderReader`; brand link becomes `href="#/reader"` (no reload).
 - Acceptance: back/forward navigate views and texts; deep links work.
 
-**C3. Lineage graph upgrade** — *fixes P7*
+**C3. Lineage graph upgrade** — *fixes P7* · ✅ done (pan/zoom/reset)
 - Pan/zoom (wheel + pinch, CSS transform), node collision spreading, generation labels, tap/focus tooltip with mini-dossier, era range slider beside the school filter.
 - Acceptance: "All" view at 30 nodes has no overlapping labels; zooming to a branch is fluid on touch.
 
@@ -116,7 +116,7 @@
 | Translations | 2 cols bilingual / all in multi mode | 1 col, pinyin optional (B3) |
 | Lexicon tooltips | Hover + focus (A3) | Tap-to-open popover (A3) |
 | Font size / mode | Toolbar (persisted A4) | Thumb bar (B2, persisted A4) |
-| Lineage graph | Pan/zoom + filters (C3) | Same, touch pinch (C3) |
+| Lineage graph | Pan/zoom + filters + reset (C3) | Same, touch pinch (C3) |
 | Output | Print/PDF clean (C1) | Export JSON/MD/LaTeX from studio |
 | URL state | Hash routes + back (C2) | Same |
 
@@ -126,7 +126,7 @@
 
 ```
 ✅ Session 1+2 (2026-08-08): A1–A5 + B1–B3   → "Calm Reader" + "Mobile-First" shipped
-Session 3:                C1 + C2 + C3              → "Deep Polish" release
+✅ Session 3 (2026-08-08): C1 + C2 + C3        → "Deep Polish" shipped
 Session 4:                C4 + C5                   → "Accessible & Complete"
 Later:                    D1–D4                     → performance/resilience
 ```

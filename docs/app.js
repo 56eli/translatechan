@@ -90,6 +90,11 @@
 
   // Initialize
   function init() {
+    // Initial URL state (#/view/corpus) — deep links & refresh restore position
+    const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
+    if (m && VALID_VIEWS.includes(m[1])) state.currentView = m[1];
+    if (m && m[2] && state.data.corpus && state.data.corpus[m[2]]) state.currentCorpusKey = m[2];
+
     applyTheme(state.theme);
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
     setupEventListeners();
@@ -102,6 +107,7 @@
     renderLexicon();
     setupStudio();
     setActiveModeButtons();
+    switchViewRaw(state.currentView); // sync nav/section classes with the initial hash
   }
 
   // Reader mode switching (shared by sidebar + mobile bar, persisted)
@@ -239,6 +245,9 @@
       });
     });
 
+    // URL hash drives view + reader corpus (back/forward, deep links)
+    window.addEventListener('hashchange', applyHash);
+
     elements.readerModeButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         setReaderMode(btn.getAttribute('data-reader-mode'));
@@ -279,6 +288,8 @@
         state.currentCorpusKey = e.target.value;
         renderCorpusList();
         renderReader();
+        const t = viewHash('reader', state.currentCorpusKey);
+        if (location.hash !== t) { try { location.hash = t; } catch (err) { /* ignore */ } }
       });
     }
 
@@ -354,10 +365,29 @@
         cardsContainer.style.display = 'grid';
       });
     }
+
+    const lineageResetBtn = document.getElementById('lineage-reset-btn');
+    if (lineageResetBtn) {
+      lineageResetBtn.addEventListener('click', () => {
+        if (typeof window.TranslateChan.resetLineageView === 'function') window.TranslateChan.resetLineageView();
+      });
+    }
   }
 
-  // View Switcher
+  // View Switcher (updates DOM + URL hash so back/forward and deep links work)
+  const VALID_VIEWS = ['reader', 'matrix', 'lineage', 'gongan', 'lexicon', 'studio', 'agents'];
+  function viewHash(view, corpusKey) {
+    return `#/${view}${(view === 'reader' && corpusKey) ? '/' + corpusKey : ''}`;
+  }
   function switchView(viewName) {
+    switchViewRaw(viewName);
+    const target = viewHash(viewName, state.currentCorpusKey);
+    if (location.hash !== target) {
+      try { location.hash = target; } catch (e) { /* file:// edge cases */ }
+    }
+  }
+  function switchViewRaw(viewName) {
+    if (!VALID_VIEWS.includes(viewName)) return;
     state.currentView = viewName;
     elements.navTabs.forEach(tab => {
       if (tab.getAttribute('data-view') === viewName) {
@@ -375,6 +405,21 @@
       }
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Apply the URL hash to app state (view + reader corpus); no re-render loop.
+  function applyHash() {
+    const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
+    const view = m && VALID_VIEWS.includes(m[1]) ? m[1] : 'reader';
+    if (view !== state.currentView) switchViewRaw(view);
+    if (view === 'reader') {
+      const key = m && m[2] ? m[2] : state.currentCorpusKey;
+      if (state.data.corpus && state.data.corpus[key] && key !== state.currentCorpusKey) {
+        state.currentCorpusKey = key;
+        renderCorpusList();
+        renderReader();
+      }
+    }
   }
 
   // Annotate text with glossary markers (single-pass, no nested highlights).
@@ -466,6 +511,8 @@
         state.currentCorpusKey = btn.getAttribute('data-corpus-key');
         renderCorpusList();
         renderReader();
+        const t = viewHash('reader', state.currentCorpusKey);
+        if (location.hash !== t) { try { location.hash = t; } catch (e) { /* ignore */ } }
       });
     });
 
@@ -518,7 +565,7 @@
           <div class="case-header">
             <span class="case-num-title">序言 / Preface</span>
           </div>
-          <div class="classical-zh">${annotateClassicalChinese(doc.preface.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.preface.zh)}</div>
           <div class="pinyin-line">${doc.preface.pinyin}</div>
           <div class="translation-grid">
             <div class="translation-col">
@@ -546,7 +593,7 @@
           <div class="case-header">
             <span class="case-num-title">後序與結頌 / Wumen's Epilogue & Gatha</span>
           </div>
-          <div class="classical-zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
           <div class="pinyin-line">${doc.epilogue.pinyin}</div>
           <div class="translation-grid">
             <div class="translation-col">
@@ -609,12 +656,12 @@
               <span class="case-num-title">第 ${r.rank_num} 位：${r.name_zh} (${r.name_en})</span>
               <span class="case-speaker">${r.symbol}</span>
             </div>
-            <div class="classical-zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
+            <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
             <div class="pinyin-line">${r.verse_pinyin}</div>
             ${renderTranslationColumns(r.translations)}
             <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--accent-green);">
               <div class="commentary-label" style="color: var(--accent-green);">曹山註解 / Caoshan Commentary</div>
-              <div class="classical-zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
+              <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
               <div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${r.commentary_en}</div>
             </div>
           </div>
@@ -648,7 +695,7 @@
         let diaHtml = rec.dialogue.map(d => `
           <div style="margin-bottom: 1.25rem;">
             <div class="case-speaker">${d.speaker}</div>
-            <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+            <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
             <div class="pinyin-line">${d.pinyin}</div>
             ${renderTranslationColumns(d.translations)}
           </div>
@@ -682,7 +729,7 @@
       dialoguesHtml = caseItem.dialogue.map(d => `
         <div style="margin-bottom: 1.25rem;">
           <div class="case-speaker">${d.speaker}</div>
-          <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${d.pinyin}</div>
           ${renderTranslationColumns(d.translations)}
         </div>
@@ -712,7 +759,7 @@
         ${caseItem.pointer_zh ? `
           <div class="commentary-block" style="background: var(--bg-card); border-left-color: var(--accent-blue); margin-bottom: 1rem;">
             <div class="commentary-label" style="color: var(--accent-blue);">垂示 / Pointer</div>
-            <div class="classical-zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
+            <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
             <div style="font-size: 0.88rem; color: var(--text-secondary);">${caseItem.pointer_en || ''}</div>
           </div>
         ` : ''}
@@ -720,7 +767,7 @@
         ${caseItem.commentary_zh ? `
           <div class="commentary-block">
             <div class="commentary-label">無門評唱 / Commentary</div>
-            <div class="classical-zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
+            <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.commentary_pinyin || ''}</div>
             <div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.commentary_en || ''}</div>
             ${caseItem.commentary_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
@@ -729,7 +776,7 @@
         ${caseItem.verse_zh ? `
           <div class="verse-block">
             <div class="commentary-label" style="color: var(--accent-green);">頌曰 / Verse</div>
-            <div class="classical-zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
+            <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.verse_pinyin || ''}</div>
             <div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.verse_en || ''}</div>
             ${caseItem.verse_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
@@ -745,7 +792,7 @@
     let dialoguesHtml = (sec.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">${d.speaker}</div>
-        <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${d.pinyin}</div>
         ${renderTranslationColumns(d.translations)}
       </div>
@@ -755,7 +802,7 @@
     let stanzasHtml = (sec.stanzas || []).map(st => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</div>
-        <div class="classical-zh">${annotateClassicalChinese(st.zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${st.pinyin}</div>
         ${renderTranslationColumns(st.translations)}
       </div>
@@ -776,7 +823,7 @@
     let dialoguesHtml = (dia.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
         <div class="case-speaker">${d.speaker}</div>
-        <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${d.pinyin}</div>
         ${renderTranslationColumns(d.translations)}
       </div>
@@ -799,7 +846,7 @@
         <div class="case-header">
           <span class="case-num-title">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</span>
         </div>
-        <div class="classical-zh">${annotateClassicalChinese(st.zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${st.pinyin}</div>
         ${renderTranslationColumns(st.translations)}
       </div>
@@ -812,7 +859,7 @@
       contentHtml = ch.verses.map(v => `
         <div style="margin-bottom: 1.25rem;">
           <div class="case-speaker">${v.author}</div>
-          <div class="classical-zh">${annotateClassicalChinese(v.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(v.zh)}</div>
           <div class="pinyin-line">${v.pinyin}</div>
           ${renderTranslationColumns(v.translations)}
           ${v.recension_note ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${v.recension_note}</div>` : ''}
@@ -822,7 +869,7 @@
       contentHtml = ch.dialogue.map(d => `
         <div style="margin-bottom: 1.25rem;">
           <div class="case-speaker">${d.speaker}</div>
-          <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${d.pinyin}</div>
           ${renderTranslationColumns(d.translations)}
         </div>
@@ -921,7 +968,7 @@
         <div class="matrix-header">
           <div class="matrix-ref">📌 ${item.source_ref}</div>
         </div>
-        <div class="classical-zh">${annotateClassicalChinese(item.sentence_zh)}</div>
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(item.sentence_zh)}</div>
         <div class="pinyin-line">${item.sentence_pinyin}</div>
         <div class="matrix-grid">
           ${item.translators.map(t => `
@@ -980,7 +1027,7 @@
     `).join('');
   }
 
-  // Interactive Visual SVG Lineage Graph
+  // Interactive Visual SVG Lineage Graph (pan/zoom; reset via window.TranslateChan.resetLineageView)
   function renderVisualLineageGraph(masters) {
     const svg = document.getElementById('lineage-svg-graph');
     if (!svg) return;
@@ -1057,7 +1104,94 @@
     });
     nodesHtml += '</g>';
 
-    svg.innerHTML = linksHtml + nodesHtml;
+    // Wrap in a transformable group for pan/zoom (kept across re-renders)
+    svg.innerHTML = `<g class="lineage-panzoom" id="lineage-panzoom">${linksHtml}${nodesHtml}</g>`;
+    ensureLineagePanZoom(svg);
+  }
+
+  // Pan / zoom controller (wheel + pointer drag + two-finger pinch), one per svg
+  function ensureLineagePanZoom(svg) {
+    const view = svg._panzoom || { x: 0, y: 0, k: 1 };
+    const group = () => svg.querySelector('.lineage-panzoom');
+    const apply = () => {
+      const g = group();
+      if (g) g.setAttribute('transform', `translate(${view.x}, ${view.y}) scale(${view.k})`);
+    };
+    if (svg._panzoom) { apply(); return; } // already bound — just re-apply transform after redraw
+    svg._panzoom = view;
+
+    const container = svg.closest ? svg.closest('#lineage-graph-container') : svg.parentNode;
+
+    svg.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      const rect = svg.getBoundingClientRect();
+      const cx = e.clientX - rect.left;
+      const cy = e.clientY - rect.top;
+      const f = Math.exp(-e.deltaY * 0.0015);
+      const k2 = Math.min(3, Math.max(0.35, view.k * f));
+      const r = k2 / view.k;
+      view.x = cx - (cx - view.x) * r;
+      view.y = cy - (cy - view.y) * r;
+      view.k = k2;
+      apply();
+    }, { passive: false });
+
+    const pointers = new Map();
+    let panning = false, lastX = 0, lastY = 0, lastDist = null, lastMid = null;
+
+    svg.addEventListener('pointerdown', (e) => {
+      if (svg.setPointerCapture) { try { svg.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ } }
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      lastX = e.clientX; lastY = e.clientY;
+      panning = true;
+      if (container) container.classList.add('panning');
+      e.preventDefault();
+    });
+
+    svg.addEventListener('pointermove', (e) => {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pointers.size === 1 && panning) {
+        view.x += e.clientX - lastX;
+        view.y += e.clientY - lastY;
+        lastX = e.clientX; lastY = e.clientY;
+        apply();
+      } else if (pointers.size === 2) {
+        const [a, b] = [...pointers.values()];
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
+        const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+        if (lastDist && lastMid) {
+          const rect = svg.getBoundingClientRect();
+          const f = dist / lastDist;
+          const k2 = Math.min(3, Math.max(0.35, view.k * f));
+          const r = k2 / view.k;
+          const mx = mid.x - rect.left, my = mid.y - rect.top;
+          view.x = mx - (mx - view.x) * r;
+          view.y = my - (my - view.y) * r;
+          view.x += mid.x - lastMid.x;
+          view.y += mid.y - lastMid.y;
+          view.k = k2;
+          apply();
+        }
+        lastDist = dist; lastMid = mid;
+      }
+    });
+
+    const endPointer = (e) => {
+      pointers.delete(e.pointerId);
+      if (pointers.size === 0) {
+        panning = false; lastDist = null; lastMid = null;
+        if (container) container.classList.remove('panning');
+      }
+    };
+    svg.addEventListener('pointerup', endPointer);
+    svg.addEventListener('pointercancel', endPointer);
+    svg.addEventListener('pointerleave', endPointer);
+
+    window.TranslateChan.resetLineageView = function() {
+      view.x = 0; view.y = 0; view.k = 1;
+      apply();
+    };
   }
 
   // Master Dossier Modal Display
@@ -1634,7 +1768,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
         bodyHtml += `
           <div class="case-card" style="margin-bottom: 0.75rem;">
             <div class="case-header"><span class="case-num-title" style="font-size:0.95rem;">${u.label}</span></div>
-            <div class="classical-zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
+            <div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
             <div style="margin-top: 0.4rem;">${action}</div>
           </div>`;
       });
@@ -1666,6 +1800,8 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();
     renderReader();
+    const t = viewHash('reader', corpusKey);
+    if (location.hash !== t) { try { location.hash = t; } catch (e) { /* ignore */ } }
     window.TranslateChan.scrollToCase(caseNum);
   };
   window.TranslateChan.openDoc = function(corpusKey) {
@@ -1674,6 +1810,8 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();
     renderReader();
+    const t = viewHash('reader', corpusKey);
+    if (location.hash !== t) { try { location.hash = t; } catch (e) { /* ignore */ } }
   };
 
   // Run on DOM ready

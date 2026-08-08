@@ -52,6 +52,9 @@ const corpusClicks = {};
 const modeHandlers = [];
 const ids = {};
 globalThis.window = globalThis;
+globalThis.location = { hash: '', href: 'http://localhost/index.html', protocol: 'http:', host: 'localhost' };
+globalThis.addEventListener = () => {};
+globalThis.scrollTo = () => {};
 
 globalThis.document = {
   readyState: 'complete',
@@ -157,6 +160,12 @@ if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded too
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
 const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
 if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }
+// 4k. Lineage graph: pan/zoom group + reset controller present
+const svgHtml = ids['lineage-svg-graph']._innerHTML;
+if (!svgHtml.includes('lineage-panzoom')) { failures++; console.log('❌ lineage pan/zoom group missing'); }
+if (typeof window.TranslateChan.resetLineageView !== 'function') { failures++; console.log('❌ lineage reset view missing'); }
+// 4l. Hash routing: initial deep-link state + viewHash helper
+if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.log('❌ openDoc missing (hash routing depends on it)'); }
 // 4e. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
   fireSearch(q);

@@ -1221,3 +1221,109 @@ footer {
     display: none; /* static status chips are chrome noise on mobile */
   }
 }
+
+/* ==========================================================================
+   Phase C — Print / PDF (C1) & Lineage pan/zoom (C3), 2026-08-08
+   ========================================================================== */
+
+/* --- C1: Print / Save-as-PDF --- */
+@media print {
+  header, .zen-hero-banner, .sidebar-panel, .reader-toolbar,
+  .mobile-corpus-picker, .mobile-action-bar, .case-jump-strip,
+  .case-toggle, .case-nav-footer, .term-popover, footer,
+  #term-popover, .graph-controls {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+  }
+
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .content-panel, .case-card, .matrix-card, .studio-panel {
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    padding: 0.5rem 0;
+    break-inside: avoid;
+  }
+
+  .case-card {
+    margin-bottom: 1.25rem;
+  }
+
+  .case-card.collapsed .case-body {
+    display: block !important; /* print everything, never collapsed */
+  }
+
+  .translation-grid, .matrix-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem;
+  }
+
+  .translation-col, .matrix-col {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    background: #ffffff !important;
+  }
+
+  .classical-zh, .pinyin-line, .translation-text, .commentary-block,
+  .verse-block, .text-title-zh, .text-title-en, .case-num-title {
+    color: #000000 !important;
+  }
+
+  .commentary-block, .verse-block {
+    border-left-width: 3px;
+    background: #fafafa !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: none;
+  }
+}
+
+/* --- C3: Lineage graph pan/zoom --- */
+#lineage-graph-container {
+  touch-action: none; /* enable touch pan/pinch inside the graph */
+  cursor: grab;
+}
+
+#lineage-graph-container.panning {
+  cursor: grabbing;
+}
+
+.graph-controls {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.graph-hint {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+}
+
+@media (max-width: 960px) {
+  .graph-hint {
+    display: none;
+  }
+}
