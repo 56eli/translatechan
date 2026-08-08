@@ -312,7 +312,7 @@ def validate_auxiliary_data(
 ) -> None:
     for label, records, fields in (
         ("data/glossary/chan_terms.json", glossary, ("id", "term", "pinyin", "literal", "definition", "category")),
-        ("data/lineage/masters.json", lineage, ("id", "name_zh", "name_en", "school", "teacher")),
+        ("data/lineage/masters.json", lineage, ("id", "name_zh", "name_en", "school", "teacher", "profile_status")),
         ("data/gongan/gongan_index.json", gongan, ("id", "title_zh", "title_en", "collection", "theme")),
     ):
         if not isinstance(records, list) or not records:
@@ -329,6 +329,16 @@ def validate_auxiliary_data(
                 if record_id in seen:
                     issues.error(record_path, f"duplicate id '{record_id}'")
                 seen.add(record_id)
+            if label == "data/lineage/masters.json":
+                aliases = record.get("alternative_names", [])
+                links = record.get("linked_corpus_keys", [])
+                evidence = record.get("profile_evidence")
+                if not isinstance(aliases, list) or not all(nonempty_string(alias) for alias in aliases):
+                    issues.error(record_path, "alternative_names must be a list of non-empty strings")
+                if not isinstance(links, list) or not all(nonempty_string(key) for key in links):
+                    issues.error(record_path, "linked_corpus_keys must be a list of non-empty corpus keys")
+                if not is_record(evidence) or not nonempty_string(evidence.get("status")) or not nonempty_string(evidence.get("note")):
+                    issues.error(record_path, "profile_evidence requires non-empty status and note")
 
     if not is_record(provenance):
         issues.error(rel(PROVENANCE_PATH), "must be an object")

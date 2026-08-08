@@ -32,7 +32,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "bodhidharma_erru"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "huike",
@@ -58,7 +62,11 @@
     "summary": "Severed his arm in the deep snow to demonstrate his sincerity to Bodhidharma; received the transmission of the mind seal and the Lankavatara Sutra.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "sengcan",
@@ -86,7 +94,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "xinxin_ming"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "daoxin",
@@ -113,7 +125,11 @@
     "summary": "Established the first permanent settled monastic community for Chan at Twin Peaks, beginning the transition from wandering mendicants to settled agricultural monasticism.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "hongren",
@@ -141,7 +157,11 @@
     "summary": "Leader of the thriving community of over 500 monks at Yellow Plum Mountain; transmitted the robe and bowl to Huineng.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "huineng",
@@ -175,7 +195,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "platform_sutra"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "mazu_daoyi",
@@ -210,7 +234,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "mazu_yulu"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "shitou_xiqian",
@@ -241,7 +269,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "shitou_sandokai"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "baizhang_huaihai",
@@ -272,7 +304,11 @@
     "linked_corpus_keys": [
       "baizhang_guanglu",
       "qinggui_monastic_codes"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "huangbo_xiyun",
@@ -307,7 +343,11 @@
     "linked_corpus_keys": [
       "huangbo_chuanxin",
       "huangbo_wanling"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "linji_yixuan",
@@ -341,7 +381,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "linji_yulu"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "zhaozhou_congshen",
@@ -374,7 +418,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "zhaozhou_yulu"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "dongshan_liangjie",
@@ -410,7 +458,11 @@
     "linked_corpus_keys": [
       "dongshan_yulu",
       "baojing_sanmei"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "yunmen_wenyan",
@@ -443,7 +495,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "yunmen_yulu"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "guishan_lingyou",
@@ -473,7 +529,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "guiyang_yulu"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "fayan_wenyi",
@@ -502,7 +562,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "fayan_yulu"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "yuanwu_keqin",
@@ -537,7 +601,11 @@
     "linked_corpus_keys": [
       "biyanlu_cases",
       "yuanwu_letters"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "wumen_huikai",
@@ -569,7 +637,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "wumenguan"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "nanyue_huairang",
@@ -596,7 +668,11 @@
     "summary": "Huineng's foremost disciple in the southern (Nanyue) line; his 'polishing a tile' encounter with Mazu redirected Chan from seated meditation to direct realization and made Mazu the patriarch of the Hongzhou school.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "qingyuan_xingsi",
@@ -623,7 +699,11 @@
     "summary": "Huineng's senior disciple who headed the Qingyuan line — source of the Shitou, Caodong, Yunmen and Fayan houses; his 'no falling into stages' exchange with Huineng is a canonical record of non-dual realization.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "nanquan_puyuan",
@@ -651,7 +731,11 @@
     "summary": "Mazu's most independent-minded heir; his 'Ordinary mind is the Way' teaching and the 'cutting the cat' episode make him a defining master of encounter-dialectics, teacher of Zhaozhou.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "yaoshan_weiyan",
@@ -679,7 +763,11 @@
     "summary": "Shitou's heir at Yaoshan; his famous reply to Prefect Li Ao — 'clouds in the blue sky, water in the vase' — became the emblem of natural, non-contrived Chan, and he transmitted the line to Yunyan.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "yunyan_tansheng",
@@ -706,7 +794,11 @@
     "summary": "Yaoshan's heir and Dongshan's teacher; his 'insentient beings preach the Dharma' teaching and parting gift to Dongshan lie at the root of the Caodong school's Silent Illumination doctrine.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "deshan_xuanjian",
@@ -735,7 +827,11 @@
     "summary": "The scripture-scholar who burned his Diamond Sutra commentary and became the great 'blows' master of the Hongzhou tradition — 'thirty blows whether you can answer or not'; teacher of Xuefeng and Yantou.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "xuefeng_yicun",
@@ -766,7 +862,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "xuefeng_yantou"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "xuansha_shibei",
@@ -796,7 +896,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "xuansha_yulu"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "luohan_guichen",
@@ -823,7 +927,11 @@
     "summary": "Xuansha's heir at Zhangzhou whose 'everything is already accomplished' (一切現成) utterance awakened Fayan Wenyi, giving the Fayan school its founding insight.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "baiyun_shouduan",
@@ -851,7 +959,11 @@
     "summary": "Yangqi's heir and Wuzu Fayan's teacher; awakened when Yangqi pointed out 'others love laughter, you fear being laughed at'; his 上堂 sayings and strict style anchor the Song Yangqi branch.",
     "alternative_names": [],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "wuzu_fayan",
@@ -881,7 +993,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "foyan_qingyuan"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "yuelin_shiguan",
@@ -910,7 +1026,11 @@
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "wumenguan"
-    ]
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+    }
   },
   {
     "id": "prajnatara",
@@ -937,7 +1057,11 @@
     "cbeta_id": "No source record assigned",
     "summary": "Traditional predecessor of Bodhidharma in later patriarchal lists. This scaffold preserves the graph frontier without asserting an exact source locator or a settled historical biography.",
     "profile_status": "Frontier profile — no exact biographical/source locator recorded",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "frontier_profile_unverified",
+      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding."
+    }
   },
   {
     "id": "longtan_chongxin",
@@ -964,7 +1088,11 @@
     "cbeta_id": "No source record assigned",
     "summary": "Included to make Deshan’s displayed teacher relationship navigable. Exact textual and biographical evidence remains to be recorded.",
     "profile_status": "Frontier profile — no exact biographical/source locator recorded",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "frontier_profile_unverified",
+      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding."
+    }
   },
   {
     "id": "yangqi_fanghui",
@@ -991,7 +1119,11 @@
     "cbeta_id": "No source record assigned",
     "summary": "Included to connect Baiyun Shouduan’s traditional teacher relationship in the navigable tree. Exact records and dates remain an editorial task.",
     "profile_status": "Frontier profile — no exact biographical/source locator recorded",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "frontier_profile_unverified",
+      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding."
+    }
   },
   {
     "id": "dahong_zuzheng",
@@ -1018,6 +1150,10 @@
     "cbeta_id": "No source record assigned",
     "summary": "Included to connect Yuelin Shiguan’s traditional teacher relationship in the navigable tree. Exact records and dates remain an editorial task.",
     "profile_status": "Frontier profile — no exact biographical/source locator recorded",
-    "linked_corpus_keys": []
+    "linked_corpus_keys": [],
+    "profile_evidence": {
+      "status": "frontier_profile_unverified",
+      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding."
+    }
   }
 ]

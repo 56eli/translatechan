@@ -1699,6 +1699,7 @@
           <strong>📚 Primary Classical Texts & Records:</strong> ${master.texts ? master.texts.map(escHtml).join(', ') : 'Transmission records pending'}
         </div>
         <div style="margin-bottom: 0.5rem;"><strong>🔎 Names & record state:</strong> ${escHtml((master.alternative_names || []).join(' · ') || 'Alternative names not yet reviewed')} · ${escHtml(master.profile_status || 'Seed profile — exact biographical/source locator pending')}</div>
+        <div style="margin-bottom: 0.5rem;"><strong>🧾 Evidence status:</strong> ${escHtml(master.profile_evidence?.status || 'not recorded')} — ${escHtml(master.profile_evidence?.note || 'No evidence note recorded.')}</div>
         <div style="margin-bottom: 0.5rem;"><strong>🔗 Cross-referenced project works:</strong> ${renderMasterWorkLinks(master)}</div>
         <div>
           <strong>📖 Historical & Philosophical Significance:</strong> ${master.summary}
