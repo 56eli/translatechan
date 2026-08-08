@@ -24,12 +24,27 @@
     "documents": 36,
     "excerpt_seed_documents": 35
   },
+  "editorial_traceability": {
+    "document_level_queue_records": 33,
+    "statuses": {
+      "in_review": 1,
+      "needs_unit_locator": 32
+    }
+  },
+  "lineage_profile_review": {
+    "profile_queue_records": 34,
+    "statuses": {
+      "frontier_source_needed": 4,
+      "in_review": 1,
+      "needs_exact_locator": 29
+    }
+  },
   "lineage_verification": {
     "frontiers": 4,
-    "internal_edges": 26,
-    "source_records": 6,
+    "internal_edges": 30,
+    "source_records": 7,
     "statuses": {
-      "traditional_link_pending_exact_locator": 26
+      "traditional_link_pending_exact_locator": 30
     }
   },
   "manifest_integrity": {

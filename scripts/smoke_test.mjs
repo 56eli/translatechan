@@ -249,7 +249,7 @@ if (typeof window.TranslateChan.resetLineageView !== 'function') { failures++; c
 // 4l. Lineage aggregation/verification: every internal graph link is registered
 // as a source-aware status, summary is visible, and click opens citation details.
 const lineageVerification = window.TRANSLATECHAN_DATA.lineage_verification;
-if (!lineageVerification || lineageVerification.edges.length !== 26 || lineageVerification.frontiers.length !== 4) {
+if (!lineageVerification || lineageVerification.edges.length !== 30 || lineageVerification.frontiers.length !== 4) {
   failures++; console.log('❌ lineage verification registry coverage is incorrect');
 }
 if (!svgHtml.includes('graph-link is-pending') || !svgHtml.includes('graph-generation-labels') || !svgHtml.includes('graph-node-halo') || typeof window.TranslateChan.openLineageEdge !== 'function') {

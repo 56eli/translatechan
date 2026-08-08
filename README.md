@@ -62,7 +62,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - ⚠️ **Sourcing note**: translator-attributed renderings in the seed data are *reconstructions in each scholar's register* unless individually verified against print editions; AI drafts/reconstructions are visibly marked and never presented as book quotations.
 
 ### 3. 🌳 Lineage Knowledge Graph Explorer
-- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **30 master profiles** (seed set), with an SVG network graph and clickable dossiers.
+- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **34 master profiles** (30 researched seed profiles + 4 explicitly marked frontier scaffolds), with an SVG network graph and clickable dossiers.
 - A visible chart-status disclosure distinguishes traditional links awaiting exact locators from future source-verified links; graph edges open source-chart/record details on click or keyboard activation.
 - Filter by lineage school, dates, temple location, canonical text reference, and signature quotes.
 
@@ -92,6 +92,7 @@ translatechan/
 ├── docs/                   # Synchronized duplicate of the app (GitHub Pages serves main /docs)
 ├── vision.md               # Grand Vision & Architectural Specification
 ├── ROADMAP.md              # Multi-Phase Project Roadmap & Milestone Tracker
+├── RESEARCH_RELEASE_PLAN.md # Evidence-first corpus, rights, lineage & release plan
 ├── AUDIT.md                # Post-merge technical audit + remediation log (2026-08)
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
 ├── data/
@@ -104,9 +105,12 @@ translatechan/
 │   │   ├── biyanlu_cases.json
 │   │   ├── platform_sutra.json
 │   │   └── ... (32 more: yulu, treatises, poems — see data/corpus/)
-│   ├── lineage/            # Master genealogies and biographies (30 profiles)
+│   ├── editorial/          # Enforced document-level source-locator migration queue (33 seeds)
+│   │   └── traceability_queue.json
+│   ├── lineage/            # 34 profiles (30 seed profiles + 4 explicit frontier scaffolds)
 │   │   ├── masters.json
-│   │   └── lineage_verification.json  # Edge/frontier chart-source registry
+│   │   ├── lineage_verification.json  # 30 internal-edge + 4 frontier source-status records
+│   │   └── profile_review_queue.json  # Enforced exact-locator review queue (34 profiles)
 │   ├── translations/       # Comparative data, provenance, and rights controls
 │   │   ├── comparative_matrix.json
 │   │   ├── provenance.json
@@ -123,7 +127,7 @@ translatechan/
     └── smoke_test.mjs         # Dependency-free renderer regression test
 ```
 
-> **Note on deployment automation**: GitHub Pages is served directly from the `main` branch `/docs` folder (native branch publishing). Run the documented validation/build/smoke commands before each PR; the prepared CI workflow requires workflow-capable GitHub access before it can be published.
+> **Note on deployment automation**: GitHub Pages is served directly from the `main` branch `/docs` folder (native branch publishing). The checked-in GitHub Actions **Quality** workflow verifies Python syntax, source data/metrics, deterministic generated artifacts, deploy synchronization, and the reader smoke test on pushes and pull requests; it does not deploy Pages.
 
 ---
 
@@ -174,6 +178,7 @@ python3 -m http.server 8080
 - 🧘 **UX/UI Improvement Roadmap (mobile + desktop, anti-overload)**: [`UX_ROADMAP.md`](./UX_ROADMAP.md)
 - 🔍 **Technical Audit & Remediation Log**: [`AUDIT.md`](./AUDIT.md)
 - 🤝 **Pull Request & Deployment Handoff Guide**: [`HANDOFF.md`](./HANDOFF.md)
+- 🎯 **Evidence-First Research Release Plan**: [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md)
 
 ---
 

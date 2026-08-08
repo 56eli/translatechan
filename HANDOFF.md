@@ -13,12 +13,12 @@ The TranslateChan project has been fully established with:
 1. **Grand Vision & Architectural Blueprint** ([`vision.md`](./vision.md)): Canonical scope spanning CBETA / Taishō Tripiṭaka Volumes 47, 48, and 51.
 2. **Project Roadmap & Milestone Execution Plan** ([`ROADMAP.md`](./ROADMAP.md)): Phased milestones from foundational corpus to living knowledge graph (statuses measured, not aspirational).
 3. **Core Canonical Corpus Seeds** (`data/corpus/`): 36 excerpt-scale canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties (authentic anchor passages; completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
-4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 30 master profiles with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan).
+4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 34 master profiles (30 researched seeds plus 4 clearly labeled frontier scaffolds) with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan).
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
 6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
 7. **Interactive Zero-Backend Public Reader** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative reader/matrix/lineage/index/lexicon interface with dark/light mode, search, and an SVG lineage network graph. Translation Studio, Arena AI Agents, and the header GitHub link are intentionally absent from the public Pages UI. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`AUDIT.md` §8](./AUDIT.md); `node scripts/smoke_test.mjs` must pass before every push.)*
 8. **Synchronized GitHub Pages Bundle** (`docs/`): Fully compiled, zero-dependency static bundle; Pages publishing already active from `main /docs`.
-9. **Editorial Data Tooling** (`scripts/`): `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `ingest_cbeta.py` offline segmenter, and `smoke_test.mjs` renderer regression test. A CI workflow is prepared locally but needs workflow-capable GitHub access before publication.
+9. **Editorial Data Tooling** (`scripts/`): `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `ingest_cbeta.py` offline segmenter, and `smoke_test.mjs` renderer regression test. The checked-in GitHub Actions **Quality** workflow runs the same validation, deterministic-build, generated-artifact, and reader-smoke gate on pushes and pull requests; native GitHub Pages publishing remains separate.
 
 ---
 
@@ -26,14 +26,18 @@ The TranslateChan project has been fully established with:
 
 ### Public Pages scope
 
-The pending branch deliberately publishes only **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon**. Translation Studio, Arena-agent branding, and the header GitHub repository link were removed from root and `/docs` assets; the smoke test guards against their return.
+This branch deliberately publishes only **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon**. Translation Studio, Arena-agent branding, and the header GitHub repository link were removed from root and `/docs` assets; the smoke test guards against their return.
+
+### Branch delta and current release state
+
+This branch adds the checked-in **Quality** workflow (green on every pushed change), an evidence-first research-release plan, an enforced 33-record corpus-locator migration queue, an enforced 34-record lineage-profile review queue, and a source-anchor identification for Linji’s 無位真人 seed (`T47n1985_p0496c10–p0496c14`). The lineage explorer now has 34 navigable profiles (including four clearly marked frontier scaffolds), 30 traditional/pending internal edges, alternate-name/evidence disclosures, curated project-work links, display sorting, and delegated keyboard interaction. None of these additions upgrades unresolved relationships or seed excerpts to source-verified status.
 
 ### Source, translation, and lineage disclosure
 
 - Every public Reader document/case now shows a canonical source location plus hover/focus/touch details. The Matrix resolves canonical source context through the same registry.
 - Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **135 / 140** verified quotation records now have a recorded case/page/section reference; the remaining **5** are explicitly marked pending rather than fabricated.
 - AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation.
-- The lineage graphic now reads from the verification registry: **26** in-set links and **4** frontiers are source-status aware; traditional links remain visually and textually pending until exact chart/record locators are reviewed. The chart was reworked into spacious vertical generation rows with source-aware edge interaction.
+- The lineage graphic now reads from the verification registry: **30** in-set links and **4** frontiers are source-status aware; traditional links remain visually and textually pending until exact chart/record locators are reviewed. The chart was reworked into spacious vertical generation rows with source-aware edge interaction.
 
 ### Quality gate run before handoff
 
@@ -47,13 +51,13 @@ diff -rq data docs/data
 
 All commands pass. Root and `/docs` assets/data are synchronized.
 
-### GitHub/CI exception
+### GitHub Actions quality gate
 
-All non-workflow work is pushed to `arena/019fe1f6-translatechan`. A ready `.github/workflows/quality.yml` remains local because GitHub rejected its push: the current Arena GitHub App lacks `workflows` permission. Reconnect GitHub in Arena, then stage/push that one file to enable CI; do not mistake the local workflow draft for published CI.
+`.github/workflows/quality.yml` is checked in and runs on pushes to `main` and `arena/**`, plus pull requests targeting `main`. It validates Python syntax, source data/metrics, deterministic generated artifacts, the `/docs` mirror, and the dependency-free reader smoke suite. It does **not** deploy Pages; Pages remains native branch publishing from `main` `/docs`. Repository administrators should require the `Validate data, generated artifacts, and reader` check before merging to `main`.
 
 ### Merge readiness
 
-After reviewing the branch/preview, open a PR from `arena/019fe1f6-translatechan` to `main`, confirm the local quality gate above, then merge. GitHub Pages will republish `main` → `/docs` automatically.
+After reviewing the branch/preview, open a PR from the current `arena/019fe272-translatechan` branch to `main`, confirm the local quality gate above and the required **Quality** check, then merge. GitHub Pages will republish `main` → `/docs` automatically.
 
 ---
 
@@ -94,7 +98,7 @@ gh pr create --base main --head "$(git branch --show-current)" --title "..." --b
 On every merge into `main`, the site re-publishes automatically within ~60 seconds.
 👉 **`https://56eli.github.io/translatechan/`**
 
-> **Release checklist before opening any PR affecting the app/data**: `python3 scripts/validate_data.py && python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs` must pass, `cmp app.js docs/app.js` (etc.) must show root/docs in sync, and `diff -rq data docs/data` must be silent (data mirror). These commands are the authoritative local gate until the prepared CI workflow can be published.
+> **Release checklist before opening any PR affecting the app/data**: `python3 scripts/validate_data.py && python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs` must pass, `cmp app.js docs/app.js` (etc.) must show root/docs in sync, and `diff -rq data docs/data` must be silent (data mirror). Run these commands locally before opening a PR; the same checks are enforced by the GitHub Actions Quality workflow.
 
 ---
 
@@ -159,9 +163,12 @@ translatechan/
 │   │   ├── hanshan_poems.json          # Cold Mountain Poems (SBCK/Zoku lineage; not Taishō)
 │   │   ├── caoxi_zhuan.json            # Dunhuang Caoxi Biezhuan (X1598)
 │   │   └── yuanwu_letters.json         # Yuanwu Xinyao Zen Letters (X1357)
+│   ├── editorial/
+│   │   └── traceability_queue.json     # 33 document-level seed locator reviews
 │   ├── lineage/
-│   │   ├── masters.json                # 30 master profiles: genealogies, dates, quotes
-│   │   └── lineage_verification.json  # 26 edge records + 4 disclosed frontiers
+│   │   ├── masters.json                # 34 profiles (incl. 4 frontier scaffolds)
+│   │   ├── lineage_verification.json  # 30 edge records + 4 disclosed frontiers
+│   │   └── profile_review_queue.json  # 34 exact-locator profile reviews
 │   ├── translations/
 │   │   ├── comparative_matrix.json     # 4 exemplar sentence-aligned matrix entries
 │   │   ├── provenance.json             # Citation/status policy

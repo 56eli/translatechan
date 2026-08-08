@@ -63,6 +63,7 @@
     theme: storageGet('translatechan_theme') || 'light',
     searchQuery: '',
     selectedMasterSchool: 'all',
+    lineageSort: 'generation',
     selectedLexiconCategory: 'all',
     gonganThemeFilter: null,
     caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
@@ -82,6 +83,7 @@
     matrixTarget: document.getElementById('matrix-content-target'),
     // Lineage Elements
     lineageFilter: document.getElementById('lineage-school-filter'),
+    lineageSort: document.getElementById('lineage-sort-filter'),
     lineageTarget: document.getElementById('lineage-content-target'),
     lineageVerificationSummary: document.getElementById('lineage-verification-summary'),
     // Gong'an Elements
@@ -457,6 +459,24 @@
       elements.lineageFilter.addEventListener('change', (e) => {
         state.selectedMasterSchool = e.target.value;
         renderLineage();
+      });
+    }
+
+    if (elements.lineageSort) {
+      elements.lineageSort.addEventListener('change', (e) => {
+        state.lineageSort = ['generation', 'chronology', 'name', 'school'].includes(e.target.value) ? e.target.value : 'generation';
+        renderLineage();
+      });
+    }
+
+    if (elements.lineageTarget) {
+      elements.lineageTarget.addEventListener('click', (e) => {
+        const card = e.target.closest ? e.target.closest('[data-master-card]') : null;
+        if (card && !e.target.closest('.teacher-link')) window.TranslateChan.openMasterDossier(card.getAttribute('data-master-card'));
+      });
+      elements.lineageTarget.addEventListener('keydown', (e) => {
+        const card = e.target.closest ? e.target.closest('[data-master-card]') : null;
+        if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); window.TranslateChan.openMasterDossier(card.getAttribute('data-master-card')); }
       });
     }
 
@@ -1364,6 +1384,22 @@
       renderCitationTrigger(detail, 'ⓘ Verification details');
   }
 
+  function sortLineageMasters(masters) {
+    const list = [...masters];
+    const date = m => parseInt(String(m.dates || '').match(/\d{3,4}/)?.[0], 10) || 9999;
+    const byName = (a, b) => stringValue(a.name_en).localeCompare(stringValue(b.name_en));
+    if (state.lineageSort === 'chronology') return list.sort((a, b) => date(a) - date(b) || byName(a, b));
+    if (state.lineageSort === 'name') return list.sort(byName);
+    if (state.lineageSort === 'school') return list.sort((a, b) => stringValue(a.school).localeCompare(stringValue(b.school)) || byName(a, b));
+    return list.sort((a, b) => Number(a.lineage_depth) - Number(b.lineage_depth) || byName(a, b));
+  }
+
+  function lineageTeacherDetail(master) {
+    const teacher = (state.data.lineage || []).find(m => m && m.id === master.teacher);
+    if (teacher) return `<button class="btn-pill teacher-link" onclick="window.TranslateChan.openMasterDossier('${escHtml(teacher.id)}')">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(teacher.name_en)}</button>`;
+    return `<span>Teacher frontier: ${escHtml(master.teacher || 'not recorded')} — profile/source record pending</span>`;
+  }
+
   // Render Lineage Explorer
   function renderLineage() {
     if (!elements.lineageTarget || !state.data.lineage) return;
@@ -1374,10 +1410,11 @@
       masters = masters.filter(m => m.school.toLowerCase().includes(state.selectedMasterSchool.toLowerCase()));
     }
 
+    masters = sortLineageMasters(masters);
     renderVisualLineageGraph(masters);
 
     elements.lineageTarget.innerHTML = masters.map(m => `
-      <div class="master-card" onclick="window.TranslateChan.openMasterDossier('${m.id}')" style="cursor: pointer;">
+      <div class="master-card" data-master-card="${escHtml(m.id)}" role="button" tabindex="0" aria-label="Open dossier for ${escHtml(m.name_en)}" style="cursor: pointer;">
         <div>
           <div class="master-header">
             <div>
@@ -1392,6 +1429,7 @@
             <span>🏛️ Lineage: ${m.school}</span>
             <span>📍 Temple: ${m.location}</span>
             <span>📜 Canonical Ref: ${m.cbeta_id}</span>
+            <span>👤 ${lineageTeacherDetail(m)}</span>
           </div>
           <div class="master-quote">
             "${m.key_quote_zh}"
@@ -1438,7 +1476,7 @@
 
     // Calculate node coordinates based on lineage generation
     const genGroups = {};
-    masters.forEach(m => {
+    sortLineageMasters(masters).forEach(m => {
       const gen = m.lineage_depth || 1;
       if (!genGroups[gen]) genGroups[gen] = [];
       genGroups[gen].push(m);
@@ -1482,7 +1520,7 @@
         const meta = lineageStatusMeta(edge.status);
         const sourceRecord = lineageSourceRecord(edge.source_id);
         const edgeTitle = `${source.master.name_en} → ${target.master.name_en}: ${meta.label}${sourceRecord ? ` (${sourceRecord.title})` : ''}`;
-        linksHtml += `<line class="graph-link ${meta.className}" x1="${source.x}" y1="${source.y + 27}" x2="${target.x}" y2="${target.y - 27}" role="button" tabindex="0" aria-label="${escHtml(edgeTitle)}" onclick="window.TranslateChan.openLineageEdge('${m.teacher}', '${m.id}')"><title>${escHtml(edgeTitle)}</title></line>`;
+        linksHtml += `<line class="graph-link ${meta.className}" x1="${source.x}" y1="${source.y + 27}" x2="${target.x}" y2="${target.y - 27}" role="button" tabindex="0" aria-label="${escHtml(edgeTitle)}" data-lineage-teacher="${escHtml(m.teacher)}" data-lineage-disciple="${escHtml(m.id)}"><title>${escHtml(edgeTitle)}</title></line>`;
       }
     });
     linksHtml += '</g>';
@@ -1495,7 +1533,7 @@
 
       const shortName = stringValue(master.name_en).split(' ').pop().slice(0, 14);
       nodesHtml += `
-        <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
+        <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" data-master-node="${escHtml(master.id)}">
           <circle class="graph-node-halo" r="30" fill="${color}" fill-opacity="0.09"></circle>
           <circle r="24" fill="var(--bg-card)" stroke="${color}" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.12))"></circle>
           <text text-anchor="middle" dy=".34em" font-size="12" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${escHtml(master.name_zh.slice(-2))}</text>
@@ -1521,6 +1559,12 @@
     };
     if (svg._panzoom) { apply(); return; } // already bound — just re-apply transform after redraw
     svg._panzoom = view;
+    svg.addEventListener('click', (e) => {
+      const node = e.target && e.target.closest ? e.target.closest('[data-master-node]') : null;
+      const edge = e.target && e.target.closest ? e.target.closest('[data-lineage-teacher]') : null;
+      if (node) window.TranslateChan.openMasterDossier(node.getAttribute('data-master-node'));
+      else if (edge) window.TranslateChan.openLineageEdge(edge.getAttribute('data-lineage-teacher'), edge.getAttribute('data-lineage-disciple'));
+    });
 
     const container = svg.closest ? svg.closest('#lineage-graph-container') : svg.parentNode;
 
@@ -1605,6 +1649,16 @@
     });
   }
 
+  function renderMasterWorkLinks(master) {
+    const keys = Array.isArray(master.linked_corpus_keys) ? master.linked_corpus_keys : [];
+    const items = state.data.corpus_manifest && Array.isArray(state.data.corpus_manifest.items) ? state.data.corpus_manifest.items : [];
+    const labels = new Map(items.map(item => [item.key, item.title]));
+    if (!keys.length) return '<span>Project corpus link not yet curated.</span>';
+    return keys.filter(key => state.data.corpus && state.data.corpus[key]).map(key =>
+      `<button class="btn-pill" onclick="window.TranslateChan.openDoc('${escHtml(key)}')">Open ${escHtml(labels.get(key) || key)}</button>`
+    ).join(' ');
+  }
+
   // Master Dossier Modal Display
   window.TranslateChan = window.TranslateChan || {};
   window.TranslateChan.openMasterDossier = function(masterId) {
@@ -1640,9 +1694,13 @@
           "${master.key_quote_zh}"
           <div class="master-quote-en">"${master.key_quote_en}"</div>
         </div>
+        <div style="margin-bottom: 0.5rem;"><strong>👤 Teacher:</strong> ${lineageTeacherDetail(master)}</div>
         <div style="margin-bottom: 0.5rem;">
-          <strong>📚 Primary Classical Texts & Records:</strong> ${master.texts ? master.texts.join(', ') : 'Transmission records in Jingde Chuandenglu'}
+          <strong>📚 Primary Classical Texts & Records:</strong> ${master.texts ? master.texts.map(escHtml).join(', ') : 'Transmission records pending'}
         </div>
+        <div style="margin-bottom: 0.5rem;"><strong>🔎 Names & record state:</strong> ${escHtml((master.alternative_names || []).join(' · ') || 'Alternative names not yet reviewed')} · ${escHtml(master.profile_status || 'Seed profile — exact biographical/source locator pending')}</div>
+        <div style="margin-bottom: 0.5rem;"><strong>🧾 Evidence status:</strong> ${escHtml(master.profile_evidence?.status || 'not recorded')} — ${escHtml(master.profile_evidence?.note || 'No evidence note recorded.')}</div>
+        <div style="margin-bottom: 0.5rem;"><strong>🔗 Cross-referenced project works:</strong> ${renderMasterWorkLinks(master)}</div>
         <div>
           <strong>📖 Historical & Philosophical Significance:</strong> ${master.summary}
         </div>

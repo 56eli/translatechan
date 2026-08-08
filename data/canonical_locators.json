@@ -178,7 +178,16 @@
       "canonical_locator": "T1985",
       "granularity": "document",
       "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
-      "status": "legacy_document_seed"
+      "status": "legacy_document_seed",
+      "unit_locators": {
+        "sections.sermon_1": {
+          "canonical_locator": "T47n1985_p0496c10–p0496c14",
+          "status": "anchor_identified_not_collated",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
+          "review_date": "2026-08-08",
+          "note": "CBETA line-head range identifies the 無位真人 encounter. The project excerpt uses its own segmentation and normalized punctuation; a character-level collation and editor sign-off remain required before source_checked_excerpt status."
+        }
+      }
     },
     "mazu_yulu": {
       "canonical_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
@@ -490,7 +499,11 @@
   "policy": {
     "case_locator_scope": "A case locator anchors the project’s segmented dialogue, commentary, pointer, and verse units to their canonical case container; it is not a substitute for future page/line collation.",
     "legacy_content": "Non-case excerpt seeds are currently documented at document level. They remain explicitly marked legacy_document_seed until their rendered units receive source-specific locators.",
-    "new_content": "Every new corpus document must have a document locator; every new case-based unit must have a case locator. Add page/line or TEI anchors whenever the source supplies them."
+    "new_content": "Every new corpus document must have a document locator; every new case-based unit must have a case locator. Add page/line or TEI anchors whenever the source supplies them.",
+    "unit_locator_statuses": {
+      "anchor_identified_not_collated": "A stable source range has been identified for a rendered unit, but no character-level collation/editor sign-off is claimed.",
+      "source_checked_excerpt": "A source range and editorial collation record have been completed for the rendered excerpt."
+    }
   },
   "purpose": "Canonical locator registry for source documents and case-based seed units.",
   "schema_version": "1.0"
