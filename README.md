@@ -13,9 +13,10 @@
 
 **TranslateChan** is an open-source, scholarly, and computational initiative created to:
 1. **Source and Ingest** the complete classical Chinese Chan (Zen) literature of the ancient masters (*唐宋諸祖語錄與傳燈公案文獻*), referencing canonical CBETA / Taishō Tripiṭaka volumes (T47, T48, T51, and the Zokuzōkyō).
-2. **Provide Multi-Translator Comparative Alignment** side-by-side, analyzing historical renderings (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky) alongside AI-assisted hermeneutic synthesis.
-3. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
-4. **Deploy a Zero-Backend GitHub Pages Web Studio** featuring an interactive bilingual reader, hover lexicon tooltips, comparative translation matrix, Gong'an index, and a personal translation & annotation studio.
+2. **Deploy Sandboxed Arena AI Agents** to autonomously parse Classical Chinese texts, generate multi-register translation drafts (Literal, Hermeneutic, and Poetic Zen Cadence), align contemporary published translations, and commit structured JSON datasets to the repository.
+3. **Provide Multi-Translator Comparative Alignment** side-by-side, analyzing historical and contemporary renderings (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky) alongside AI-assisted hermeneutic synthesis.
+4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
+5. **Deploy a Zero-Backend Static GitHub Pages Web App** for personal research, bilingual reading, hover lexicon tooltips, comparative translation matrix, Gong'an index, and a personal translation & annotation studio.
 
 ---
 

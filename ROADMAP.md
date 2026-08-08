@@ -99,10 +99,13 @@ This document outlines the detailed engineering, data science, translation, and 
 
 ## 📍 Phase 4: AI Multi-Draft Translation Pipeline & Personal Studio
 
-- [x] **AI Translation Pipeline Specs**:
-  - Mode 1: *Literal & Philological* (Preserves Chinese syntactic structure and punctuation).
-  - Mode 2: *Philosophical & Hermeneutic* (Expands Mahayana & Chan technical concepts).
-  - Mode 3: *Poetic & Zen Cadence* (Short, sharp, enigmatic cadence matching the original encounter dialogues).
+- [x] **AI Translation Pipeline & Arena AI Agent Integration**:
+  - Sandboxed Arena AI agent sessions perform classical Chinese extraction, sentence segmentation, and term alignment.
+  - Multi-register draft generation:
+    - Mode 1: *Literal & Philological* (Preserves Chinese syntactic structure and particles).
+    - Mode 2: *Philosophical & Hermeneutic* (Expands Mahayana & Chan technical concepts).
+    - Mode 3: *Poetic & Zen Cadence* (Short, sharp, enigmatic cadence matching the original encounter dialogues).
+  - Contemporary published translation collation (Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine).
 - [x] **Personal Translation Workspace**:
   - Inline editing of any sentence or case.
   - Personal commentary and study notes editor.

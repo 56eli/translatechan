@@ -153,7 +153,51 @@ A single Gong'an or Yulu passage often carries multiple distinct translations in
 
 ---
 
-## 5. Technical Architecture (Zero-Backend GitHub Pages)
+## 5. The Arena AI Agent Sandboxed Translation Architecture
+
+A foundational pillar of TranslateChan is that **all AI translations and canonical ingestion are produced by sandboxed, sessioned Arena AI agents**, working in synergy with contemporary scholarly editions and Git version control.
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                         Arena AI Agent Sandboxed Translation Flow                      │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                        │
+│   [ CBETA Canonical XML / Taishō Source ]                                              │
+│                     │                                                                  │
+│                     ▼                                                                  │
+│   ┌──────────────────────────────────────────────────────────┐                         │
+│   │           Sandboxed Arena AI Agent Session               │                         │
+│   ├──────────────────────────────────────────────────────────┤                         │
+│   │  1. Classical Philology: Sentence Tokenization & Pinyin  │                         │
+│   │  2. Master Terminology Lookup (Lexicon & Sanskrit roots) │                         │
+│   │  3. Multi-Register Generation (Literal, Hermeneutic,     │                         │
+│   │     Poetic Zen Cadence)                                  │                         │
+│   │  4. Alignment of Contemporary Published Translations     │                         │
+│   │     (Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld)   │                         │
+│   │  5. Verification & Schema Formatting (data/corpus/*.json)│                         │
+│   └──────────────────────────┬───────────────────────────────┘                         │
+│                              │                                                         │
+│                              ▼                                                         │
+│                 [ Git Commit & Automated Push ]                                        │
+│                              │                                                         │
+│                              ▼                                                         │
+│         [ Static GitHub Pages Web App & Research Studio ]                              │
+│              (Zero-Backend Client-Side Execution)                                      │
+└────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 5.1 Roles of the Arena AI Agent in TranslateChan:
+1. **Philological Analysis & Sentence Alignment**: Parsing unpunctuated or complex classical Buddhist Chinese (*文言文/唐宋白話*), segmenting encounter dialogues into speaker units, and providing standard Hanyu Pinyin and Middle Chinese phonetics.
+2. **Multi-Register Draft Generation**: Producing distinct translation registers to capture the multi-dimensional nature of the Dharma:
+   - *Literal / Philological*: Strict syntactic fidelity preserving particles (底, 甚麼, 這箇, 阿誰).
+   - *Philosophical / Hermeneutic*: Deep ontological unfolding of Mind-Only, Emptiness, and dialectics.
+   - *Poetic / Zen Cadence*: Abrupt, sharp, living cadence matching the original encounter encounters.
+3. **Collation of Contemporary Translations**: Aligning published translations (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky) segment-by-segment with critical notes.
+4. **Autonomous Git Integration**: Committing structured JSON datasets to the repository on branch `arena/019fe05c-translatechan`, updating data bundles, and deploying directly to static GitHub Pages.
+
+---
+
+## 6. Technical Architecture (Zero-Backend GitHub Pages)
 
 The TranslateChan web application is architected to run **100% client-side on GitHub Pages** with zero backend server dependencies, ensuring maximum longevity, speed, offline accessibility, and portability.
 
@@ -189,7 +233,7 @@ The TranslateChan web application is architected to run **100% client-side on Gi
 
 ---
 
-## 6. Comprehensive Multi-Phase Roadmap
+## 7. Comprehensive Multi-Phase Roadmap
 
 ### Phase 1: Foundation, Architecture & Vision (Current)
 - [x] Establish project vision, canonical taxonomy, and architecture specification (`vision.md`).
@@ -239,7 +283,7 @@ The TranslateChan web application is architected to run **100% client-side on Gi
 
 ---
 
-## 7. Principles of Classical Chan Translation
+## 8. Principles of Classical Chan Translation
 
 Translating Classical Chinese Chan literature requires balancing three essential dimensions:
 

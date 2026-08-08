@@ -56,6 +56,11 @@
             <span>✍️</span> <span>Translation Studio</span>
           </button>
         </li>
+        <li>
+          <button class="nav-tab-btn" data-view="agents">
+            <span>🤖</span> <span>Arena AI Agents</span>
+          </button>
+        </li>
       </ul>
 
       <!-- Controls & Search -->
@@ -279,6 +284,66 @@
             <button id="studio-clear-all-btn" class="btn-pill" style="font-size: 0.7rem; color: var(--accent-red);">Clear All</button>
           </div>
           <div id="studio-saved-list" style="overflow-y: auto; max-height: 650px;"></div>
+        </div>
+      </div>
+    <!-- View 7: Arena AI Agents Architecture -->
+    <section id="view-agents" class="view-section">
+      <div class="text-header">
+        <div class="text-title-zh">沙盒化 Arena AI 智能體翻譯架構 / Arena AI Agent Architecture</div>
+        <div class="text-title-en">Sandboxed, sessioned Arena AI agents parsing Classical Chinese, generating multi-register drafts, and committing structured datasets to Git</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+        <div class="studio-panel">
+          <div class="studio-title">
+            <span>🛡️ Sandboxed Sessioned Execution</span>
+          </div>
+          <div style="font-size: 0.92rem; color: var(--text-primary); line-height: 1.6;">
+            All AI translation drafts and CBETA canonical ingestion in <strong>TranslateChan</strong> are executed by sessioned <strong>Arena AI Agents</strong> operating in isolated sandboxes. The agents ingest Classical Chinese texts, segment dialogues, enforce lexicon consistency, and commit structured JSON directly to Git.
+          </div>
+          <div class="commentary-block" style="background: var(--bg-primary); border-left-color: var(--accent-gold); margin-top: 1rem;">
+            <div class="commentary-label">Git-Backed Automated Deployment</div>
+            <div style="font-size: 0.85rem;">Commits directly to <code>arena/019fe05c-translatechan</code> and <code>main</code>, automatically updating the static GitHub Pages application bundle.</div>
+          </div>
+        </div>
+
+        <div class="studio-panel">
+          <div class="studio-title">
+            <span>⚖️ Multi-Register Translation Pipeline</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent-gold);">1. Literal & Philological Register</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">Preserves Tang/Song vernacular Chinese particles (底, 甚麼, 這箇, 阿誰) and strict syntax.</div>
+            </div>
+            <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent-blue);">2. Philosophical & Hermeneutic Register</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">Expands non-dual ontology, Mind-Only, Emptiness (śūnyatā), and dialectical structures.</div>
+            </div>
+            <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <div style="font-weight: 700; font-size: 0.85rem; color: var(--accent-green);">3. Poetic & Zen Cadence Register</div>
+              <div style="font-size: 0.8rem; color: var(--text-secondary);">Captures the sharp, brisk, enigmatic cadence of Chan masters (Red Pine & Cleary style).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="studio-panel">
+        <div class="studio-title">
+          <span>📚 Contemporary Scholarly Translation Matrix Alignment</span>
+        </div>
+        <div style="font-size: 0.92rem; color: var(--text-primary); line-height: 1.6; margin-bottom: 1rem;">
+          In addition to AI-synthesized multi-register drafts, Arena AI agents systematically align published translations from historical and contemporary translators:
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem;">
+          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Red Pine (Bill Porter)</strong>: Lyrical & Hermit fidelity</div>
+          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Thomas Cleary</strong>: Tao-Chan precision</div>
+          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Ruth Fuller Sasaki</strong>: Rinzai scholarly standard</div>
+          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>D.T. Suzuki</strong>: Pioneering philosophical non-duality</div>
+          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>R.H. Blyth</strong>: Zen & World Literature</div>
+          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>John Blofeld</strong>: Huangbo & Mind Transmission</div>
+          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Steven Heine</strong>: Modern hermeneutic analysis</div>
+          <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Philip Yampolsky</strong>: Platform Sutra Dunhuang text</div>
         </div>
       </div>
     </section>
