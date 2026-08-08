@@ -3385,8 +3385,8 @@ window.TRANSLATECHAN_DATA = {
       "author_zh": "宋 大慧宗杲 禪師 撰 / 宏智正覺 禪師 撰",
       "author_en": "Chan Masters Dahui Zonggao (1089–1163) & Hongzhi Zhengjue (1091–1157)",
       "era": "Song Dynasty (12th Century)",
-      "genre": "Letters & Meditation Inscriptions (書問與默照銘)",
-      "overview": "The twin pinnacles of Song Dynasty Chan pedagogy: Dahui's revolutionary Kanhua Chan (investigating the critical phrase / huatou) and Hongzhi's sublime poetry of Silent Illumination (Mozhao Chan).",
+      "genre": "Letters, Sermons & Meditation Inscriptions (書問、普說與默照銘)",
+      "overview": "The twin pinnacles of Song Dynasty Chan pedagogy: Dahui's revolutionary Kanhua Chan (investigating the critical phrase / huatou in active daily life) and Hongzhi's sublime poetry of Silent Illumination (Mozhao Chan).",
       "sections": [
         {
           "section_id": "mozhao_ming",
@@ -3440,6 +3440,24 @@ window.TRANSLATECHAN_DATA = {
                 "red_pine": "Do not understand it as existence or non-existence; do not understand it as a philosophical principle; do not calculate it under the faculty of intellect. When the path of emotional consciousness is severed and conceptual thinking ceases, suddenly like the bottom falling out of a bucket or smashing a black lacquer tub, you will know that fundamentally there is nothing amiss.",
                 "cleary": "Do not take it as being or nonbeing, do not take it as reason, do not reckon it intellectually. When feelings and thoughts are cut off and deliberation does not work, suddenly like the bottom falling out of a bucket, you break the tub of black lacquer and realize fundamentally there is nothing to do.",
                 "sasaki": "Do not take it as 'has' or 'has not'; do not treat it as intellectual theory. When conceptual thinking is exhausted, suddenly the bottom of the bucket drops out, and you realize that originally there has never been anything at all."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "letter_to_minister_lu",
+          "title_zh": "示陸內翰：官事佛事，打成一片",
+          "title_pinyin": "Shì Lù Nèihàn: Guānshì Fóshì, Dǎchéng Yīpiàn",
+          "title_en": "Letter to Vice Minister Lu: Government Affairs and Buddha Affairs Merged as One",
+          "dialogue": [
+            {
+              "speaker": "Dahui / 大慧宗杲",
+              "zh": "示陸內翰云：「日用隨緣，即是道場。不須別尋靜室，向枯木死灰處討佛法。官事佛事，本是一體。遇事逢緣，但看箇『無』字。日久歲深，觸著磕著，忽然契悟，方知朝廷之中，即是少室峰前！」",
+              "pinyin": "Shì Lù Nèihàn yún: 'Rìyòng suíyuán, jí shì dàochǎng. Bùxū bié xún jìngshì, xiàng kūmù sǐhuī chù tǎo fófǎ. Guānshì fóshì, běn shì yītǐ. Yùshì féngyuán, dàn kàn gè 'Wú' zì. Rì jiǔ suì shēn, chù zháo kē zháo, hūrán qìwù, fāng zhī cháotíng zhīzhōng, jí shì Shǎoshì Fēng qián!'",
+              "translations": {
+                "cleary": "The Master instructed Vice Minister Lu: 'Daily life according with conditions is itself the place of enlightenment. There is no need to search for a quiet room elsewhere to beg for Buddha-dharma in dry wood and dead ashes. Government business and Buddha business are fundamentally one body. When meeting affairs and encountering conditions, simply look at the word 'Wu.' With time and depth, bumping into things, you will suddenly awaken and realize that right in the midst of the imperial court is Shaolin before Bodhidharma!'",
+                "red_pine": "Letter to Minister Lu: 'Daily life in the world is itself the bodhimanda. You don't need to find a quiet hermitage to look for Zen in dead embers. Secular duties and spiritual realization are one single fabric. When busy with affairs, just maintain the word 'Wu.' One day bumping against something, you will suddenly realize that the government office is right in front of Bodhidharma's cave!'",
+                "sasaki": "To Minister Lu: 'Daily duties are the dojo. Do not flee into quiet rooms to seek the Dharma in dead ashes. Worldly affairs and Chan are one essence. Hold up 'Mu' in the midst of daily activity; suddenly the court is none other than Shaolin!'"
               }
             }
           ]
