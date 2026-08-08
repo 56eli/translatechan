@@ -43,7 +43,7 @@ Measured/current facts:
 - **Bundle:** 36 corpus documents; generated `app_data.js` is **694,666 bytes** and root/`docs` copies are byte-identical.
 - **Corpus:** 36 documents; **Wumenguan 48/48** plus preface/epilogue; the other **35** remain excerpt seeds.
 - **Data contract:** validator reports **856** corpus translation slots, **138** verified corpus quotation objects, **21** matrix entries, and **57/57** case locators.
-- **Supporting data:** 31 glossary terms, 30 master profiles, 26 registered internal lineage edges, 4 documented graph frontiers, 18 gong’an-index entries, and 4 comparative-matrix rows.
+- **Supporting data:** 31 glossary terms, 34 master profiles (including 4 explicitly marked frontier scaffolds), 30 registered internal lineage edges, 4 documented graph frontiers, 18 gong’an-index entries, and 4 comparative-matrix rows.
 - **Renderer smoke test:** all 36 corpus texts exercised with zero crashes; checks include schema-specific/pointer/variant search, truthful result caps, escaped search input, sparse case navigation, blocked-storage preference writes, lazy 48-case rendering, public-scope exclusions, citation popovers, Matrix provenance, and lineage chart wiring.
 
 ## What is working well

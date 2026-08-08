@@ -13,7 +13,7 @@ The TranslateChan project has been fully established with:
 1. **Grand Vision & Architectural Blueprint** ([`vision.md`](./vision.md)): Canonical scope spanning CBETA / Taishō Tripiṭaka Volumes 47, 48, and 51.
 2. **Project Roadmap & Milestone Execution Plan** ([`ROADMAP.md`](./ROADMAP.md)): Phased milestones from foundational corpus to living knowledge graph (statuses measured, not aspirational).
 3. **Core Canonical Corpus Seeds** (`data/corpus/`): 36 excerpt-scale canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties (authentic anchor passages; completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
-4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 30 master profiles with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan).
+4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 34 master profiles (30 researched seeds plus 4 clearly labeled frontier scaffolds) with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan).
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
 6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
 7. **Interactive Zero-Backend Public Reader** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative reader/matrix/lineage/index/lexicon interface with dark/light mode, search, and an SVG lineage network graph. Translation Studio, Arena AI Agents, and the header GitHub link are intentionally absent from the public Pages UI. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`AUDIT.md` §8](./AUDIT.md); `node scripts/smoke_test.mjs` must pass before every push.)*
@@ -160,7 +160,7 @@ translatechan/
 │   │   ├── caoxi_zhuan.json            # Dunhuang Caoxi Biezhuan (X1598)
 │   │   └── yuanwu_letters.json         # Yuanwu Xinyao Zen Letters (X1357)
 │   ├── lineage/
-│   │   ├── masters.json                # 30 master profiles: genealogies, dates, quotes
+│   │   ├── masters.json                # 34 profiles (incl. 4 frontier scaffolds): genealogies, dates, quotes
 │   │   └── lineage_verification.json  # 26 edge records + 4 disclosed frontiers
 │   ├── translations/
 │   │   ├── comparative_matrix.json     # 4 exemplar sentence-aligned matrix entries

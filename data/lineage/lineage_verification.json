@@ -253,33 +253,65 @@
       "source_id": "wudeng-huiyuan",
       "reference": "Candidate source context: T1995 / X1565 f.19",
       "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
+    },
+    {
+      "teacher": "prajnatara",
+      "disciple": "bodhidharma",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional relationship retained from the previous frontier record; exact locator pending.",
+      "note": "Profile scaffold makes this relationship navigable but does not upgrade it to source-verified status."
+    },
+    {
+      "teacher": "longtan_chongxin",
+      "disciple": "deshan_xuanjian",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional relationship retained from the previous frontier record; exact locator pending.",
+      "note": "Profile scaffold makes this relationship navigable but does not upgrade it to source-verified status."
+    },
+    {
+      "teacher": "yangqi_fanghui",
+      "disciple": "baiyun_shouduan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional relationship retained from the previous frontier record; exact locator pending.",
+      "note": "Profile scaffold makes this relationship navigable but does not upgrade it to source-verified status."
+    },
+    {
+      "teacher": "dahong_zuzheng",
+      "disciple": "yuelin_shiguan",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "frontier-master-record",
+      "reference": "Traditional relationship retained from the previous frontier record; exact locator pending.",
+      "note": "Profile scaffold makes this relationship navigable but does not upgrade it to source-verified status."
     }
   ],
   "frontiers": [
     {
-      "teacher_label": "Prajñātāra (27th Indian Patriarch)",
-      "disciple": "bodhidharma",
-      "status": "frontier_unprofiled",
-      "source_id": "indian-patriarch-tradition",
-      "reference": "Teacher profile and exact source locator pending."
-    },
-    {
-      "teacher_label": "Longtan Chongxin (龍潭崇信 — frontier: not yet profiled)",
-      "disciple": "deshan_xuanjian",
+      "teacher_label": "Indian patriarchal tradition — teacher/source not yet recorded",
+      "disciple": "prajnatara",
       "status": "frontier_unprofiled",
       "source_id": "frontier-master-record",
       "reference": "Teacher profile and exact source locator pending."
     },
     {
-      "teacher_label": "Yangqi Fanghui (楊岐方會 — frontier: not yet profiled)",
-      "disciple": "baiyun_shouduan",
+      "teacher_label": "Teacher/source not yet recorded",
+      "disciple": "longtan_chongxin",
       "status": "frontier_unprofiled",
       "source_id": "frontier-master-record",
       "reference": "Teacher profile and exact source locator pending."
     },
     {
-      "teacher_label": "Dahong Laoniu Zuzheng (大洪老衲祖證 — frontier: not yet profiled)",
-      "disciple": "yuelin_shiguan",
+      "teacher_label": "Teacher/source not yet recorded",
+      "disciple": "yangqi_fanghui",
+      "status": "frontier_unprofiled",
+      "source_id": "frontier-master-record",
+      "reference": "Teacher profile and exact source locator pending."
+    },
+    {
+      "teacher_label": "Teacher/source not yet recorded",
+      "disciple": "dahong_zuzheng",
       "status": "frontier_unprofiled",
       "source_id": "frontier-master-record",
       "reference": "Teacher profile and exact source locator pending."

@@ -33,10 +33,10 @@
   },
   "lineage_verification": {
     "frontiers": 4,
-    "internal_edges": 26,
+    "internal_edges": 30,
     "source_records": 6,
     "statuses": {
-      "traditional_link_pending_exact_locator": 26
+      "traditional_link_pending_exact_locator": 30
     }
   },
   "manifest_integrity": {
