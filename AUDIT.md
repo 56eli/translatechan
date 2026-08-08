@@ -210,6 +210,22 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 
 ---
 
-**Open work as of 2026-08-08**: §2 P1/P2 frontend items (full-schema search + highlighting, reader-mode differentiation, tooltip nesting, studio reads from bundle), §3.4 per-verified-verification of renderings (gradual), §6 P3 content work (Wumenguan 48 first). Everything ships to `main` via session-branch PRs.
+### 2026-08-08 — P1/P2 frontend hardening completed ✅ (§2)
+
+| §2 item | Fix |
+|---|---|
+| 1. Search only covered `doc.cases` (7/36 texts) | New `extractSearchableUnits()` indexes **every schema** (cases+commentary+verse, sections w/ dialogue or stanzas, dialogues, stanzas, chapters+verses, five_ranks, sample_records, preface/epilogue); results grouped per text with hit counts, `<mark>` highlighting, and working jump buttons (`openCase`/`openDoc`) |
+| 2. Reader modes not differentiated | `bilingual` now prefers Red Pine + Cleary registers; `chinese_only` is a true classical-only mode (CSS `data-mode` hides pinyin + all translation grids incl. preface/epilogue); `multi_translators` shows all registers |
+| 3. Tooltip double-annotation + `<div>` inside `<span>` | `annotateClassicalChinese()` rewritten single-pass (collect → sort → skip overlaps → emit once); tooltip internals now valid spans |
+| 4. Studio passages hardcoded in `app.js` | `buildStudioPassages()` now extracts passages live from `TRANSLATECHAN_DATA` (Wumenguan cases 1–3, Linji sermon, Huangbo opening, Xinxin Ming, Platform verse) with the old list kept only as inert fallback |
+| Search crash guards | already added during P0 + new pipeline has guards throughout |
+
+**Regression coverage added to `scripts/smoke_test.mjs`**: schema-specific search queries across stanzas/chapters/sections/embedded-stanzas/translations, double-annotation check, `data-mode` presence, `openDoc` presence — all green.
+
+**Verification note**: `build_data_bundle.py` re-run (bundle copied to `/docs`, root↔docs byte-identical); `node --check app.js` clean.
+
+---
+
+**Open work as of 2026-08-08**: §3.4 per-item verification of renderings against print editions (gradual), §6 P3 content work (Wumenguan 48 first), then PR to `main` to publish everything accumulated on this branch.
 
 

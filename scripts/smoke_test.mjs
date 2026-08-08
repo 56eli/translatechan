@@ -20,6 +20,7 @@ class StubElement {
     this._handlers = {};
     this.clientWidth = 900;
     this.value = '';
+    this.dataset = {};
     const self = this;
     this.style = new Proxy({}, { get: (t, p) => (p === 'setProperty' ? () => {} : self['_' + String(p)]), set: () => true });
     this.classList = { add() {}, remove() {}, contains() { return false; } };
@@ -107,6 +108,38 @@ for (const q of ['dog', '無', 'buddha', '平常心', 'xyz-not-found']) {
 // 4. Verify namespace merge
 if (typeof window.TranslateChan.openCase !== 'function') { failures++; console.log('❌ openCase missing'); }
 if (typeof window.TranslateChan.openMasterDossier !== 'function') { failures++; console.log('❌ openMasterDossier OVERWRITTEN'); }
+if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.log('❌ openDoc missing'); }
+
+// 4b. Full-schema search: queries must hit sections/stanzas/chapters texts, not just cases
+const schemaQueries = [
+  ['絕學無為', 'zhengdao_ge (stanzas schema)'],
+  ['至道無難', 'xinxin_ming (stanzas schema)'],
+  ['菩提本無樹', 'platform_sutra (chapters schema)'],
+  ['竺土大仙心', 'shitou_sandokai (embedded stanzas)'],
+  ['赤肉團', 'linji_yulu (sections schema)'],
+  ['Buddha-nature', 'translations text search']
+];
+for (const [q, label] of schemaQueries) {
+  try {
+    (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } }));
+    const html = ids['reader-content-target']._innerHTML;
+    if (html.includes('No matches found')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
+  } catch (e) { failures++; console.log(`❌ full-schema search crash "${q}": ${e.message}`); }
+}
+
+// 4c. No nested/duplicated term highlights from the annotator
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+const annotatedHtml = ids['reader-content-target']._innerHTML;
+if (annotatedHtml.includes('term-highlight"><span class="term-highlight') || annotatedHtml.split('term-highlight').length > 200) {
+  failures++; console.log('❌ tooltip double-annotation regression');
+}
+// 4d. Mode attribute is set on the reader container
+if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset.mode === undefined) {
+  // stub stores dataset via plain property; app sets dataset.mode — check direct assignment happened
+  if (!('mode' in (ids['reader-content-target'].dataset || {}))) failures++; console.log('❌ reader data-mode not set');
+}
+// clear search
+(searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
 
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();

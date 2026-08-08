@@ -8,8 +8,9 @@
 3. **🟠 Docs-truth pass DONE**: README/ROADMAP/HANDOFF now state measured reality (31 terms, 11/48 cases, 4 matrix entries, excerpt-scale corpus); missing `LICENSE` created (MIT code + CC BY-SA data + third-party rights notice); phantom `align_translations.py`/`deploy.yml` refs removed; stale branch/merge instructions rewritten; `.nojekyll` added; `vision.md` marked aspirational. Logged in [`AUDIT.md` §8](./AUDIT.md).
 4. **Data measured**: 36 excerpt-scale files (≈9,610 zh chars; Wumenguan 11/48), glossary 31, lineage 18, matrix 4 — anchors verified authentic.
 5. **⚖️ Attribution-integrity pass DONE**: provenance policy `data/translations/provenance.json` (v1.1) bundled into the app; every translation column now badges `⚠️ Register reconstruction` / `AI draft` / `✅ Verified quotation`; matrix-view disclaimer; mis-cited canon IDs fixed (hanshan "T2834"→SBCK/Zoku — T2834 is actually 大乘無生方便門; deshan/shitou wrong "T1985"→correct embedded refs).
-6. **Verified healthy**: deterministic bundle, `/docs` sync, smoke test green, Pages `status: built` (still serving pre-fix `main` until hotfix PR merges).
-7. **Still open**: per-item translation verification vs. print (gradual), P1/P2 frontend hardening (§2), Phase 2 content (Wumenguan 48 first), and opening a PR to `main`.
+6. **🟠 P1/P2 frontend hardening DONE**: search now indexes all 36 texts across every schema (counts + highlighting + jump buttons), reader modes truly differentiated (true Classical-Only mode), tooltips single-pass & valid HTML, Studio reads from the data bundle — regression checks added to `scripts/smoke_test.mjs` ([`AUDIT.md` §8](./AUDIT.md)).
+7. **Verified healthy**: deterministic bundle, `/docs` sync, smoke test green, Pages `status: built` (still serving pre-fix `main` until hotfix PR merges).
+8. **Still open**: per-item translation verification vs. print (gradual), Phase 2 content (Wumenguan 48 first), and opening a PR to `main` — the site stays broken until then.
 
 ---
 <details><summary>Previous session (pre-audit history)</summary>
