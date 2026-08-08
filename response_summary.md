@@ -1,13 +1,10 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
 ### Summary of Completed Work:
-1. **Full Canonical Gong'an Expansion**:
-   - Expanded *Wumenguan* (`data/corpus/wumenguan.json`) with cornerstone cases: Case 1 (Zhaozhou's Dog), Case 2 (Baizhang's Fox), Case 3 (Juzhi's One Finger), Case 4 (Bodhidharma Has No Beard), Case 5 (Xiangyan's Man Up a Tree), Case 6 (The Buddha Holds Up a Flower), Case 7 (Zhaozhou's Wash Your Bowl), Case 19 (Ordinary Mind is the Way), Case 23 (Huineng's Original Face), Case 29 (Not the Wind, Not the Flag), and Case 37 (The Cypress Tree in the Courtyard).
-   - Expanded *Biyanlu* (`data/corpus/biyanlu_cases.json`) with Yuanwu's pointers, Xuedou's verses, and dialogues for Case 1 (Emperor Wu & Bodhidharma), Case 2 (Zhaozhou's Supreme Way), Case 3 (Mazu's Sun-Face Moon-Face), Case 12 (Dongshan's Three Pounds of Flax), Case 14 (Nanquan Cuts the Cat), Case 21 (Yunmen's Dried Shit-Stick), and Case 43 (Dongshan's Cold and Heat).
-   - Enriched *Gong'an Index* (`data/gongan/gongan_index.json`) linking cross-references across *Wumenguan*, *Biyanlu*, *Congronglu*, and *Chuandenglu*.
-2. **Red Pine (Bill Porter) Translation Layer**:
-   - Incorporated Red Pine's translations across all comparative matrices, *Platform Sutra*, *Xinxin Ming*, and *Wumenguan*.
-3. **Data Bundle & Application Recompilation**:
-   - Re-generated `app_data.js` (152 KB) and verified zero-backend execution on port 8080.
-4. **Git Synchronization**:
-   - Committed and pushed changes to `origin arena/019fe05c-translatechan`.
+1. **Classical Chan Lexicon Expansion (`data/glossary/chan_terms.json`)**:
+   - Added exhaustive terminology across **Ontology & Buddha-Nature** (*本來面目*, *一心*, *如來藏*, *佛性*, *廓然無聖*), **Gong'an Barriers & Dialectics** (*無*, *麻三斤*, *乾屎橛*, *庭前柏樹子*, *野狐禪*, *不是物*, *拈花微笑*), **Linji & Caodong Pedagogical Devices** (*棒喝*, *四料簡*, *四賓主*, *五位君臣*, *默照*, *截斷眾流*, *函蓋乾坤*, *隨波逐浪*), and **Tang/Song Monastic Titles & Vernacular Particles** (*首座*, *維那*, *典座*, *方丈*, *普請*, *這箇*, *作麼生*, *沒交涉*).
+   - Each term includes classical Hanzi, standard Pinyin, literal rendering, Sanskrit/Pali root, philosophical context, and verified canonical occurrences.
+2. **Interactive Tooltips & Bundle Recompilation**:
+   - Re-compiled `app_data.js` (161 KB), enabling real-time hover lookup across all Classical Chinese text readers.
+3. **Continuous Synchronization**:
+   - All improvements committed and pushed to `origin arena/019fe05c-translatechan`.

@@ -100,7 +100,7 @@
               <span class="meta-chip">Hover Lexicon Enabled</span>
             </div>
             <div class="toolbar-group">
-              <span class="toolbar-label">Hover any highlighted term to view classical definition</span>
+              <span class="toolbar-label">Hover highlighted terms for Classical definitions</span>
             </div>
           </div>
 
@@ -114,7 +114,7 @@
     <section id="view-matrix" class="view-section">
       <div class="text-header">
         <div class="text-title-zh">多譯本對照矩陣 / Comparative Matrix</div>
-        <div class="text-title-en">Sentence-by-sentence side-by-side comparison across Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine, and AI Synthesis</div>
+        <div class="text-title-en">Sentence-by-sentence side-by-side comparison across Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine, and AI Synthesis</div>
       </div>
       <div id="matrix-content-target" class="matrix-container"></div>
     </section>
@@ -177,8 +177,8 @@
     <!-- View 6: Personal Translation Studio -->
     <section id="view-studio" class="view-section">
       <div class="text-header">
-        <div class="text-title-zh">個人研讀與翻譯研習室 / Personal Translation Studio</div>
-        <div class="text-title-en">Draft your personal translations, add philological annotations, save to local browser storage, and export to JSON or Markdown</div>
+        <div class="text-title-zh">個人研讀與翻譯研習室 / Personal Translation & Scholarly Studio</div>
+        <div class="text-title-en">Draft translations, compare against historical editions, inspect detected terminology, and export to LaTeX, Markdown, or JSON</div>
       </div>
 
       <div class="studio-layout">
@@ -194,35 +194,66 @@
             <select id="studio-select-text" class="search-input" style="width: 100%;"></select>
           </div>
 
+          <!-- Source Classical Chinese Box -->
           <div style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-            <div style="font-size: 0.75rem; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 0.35rem;">Source Classical Chinese:</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">Source Classical Chinese:</span>
+              <span id="studio-char-count" style="font-size: 0.75rem; color: var(--text-muted);">0 characters</span>
+            </div>
             <div id="studio-source-zh" class="classical-zh" style="font-size: 1.25rem;"></div>
             <div id="studio-source-pinyin" class="pinyin-line" style="margin-bottom: 0; padding-bottom: 0; border: none;"></div>
           </div>
 
+          <!-- Comparative Reference Drawer -->
+          <div style="background: var(--accent-gold-light); padding: 0.85rem; border-radius: var(--radius-sm); border-left: 4px solid var(--accent-gold);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+              <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">Reference Translator:</span>
+              <select id="studio-ref-translator-select" class="search-input" style="width: auto; padding: 0.2rem 0.5rem; font-size: 0.75rem;">
+                <option value="red_pine">Red Pine (Bill Porter)</option>
+                <option value="cleary">Thomas Cleary</option>
+                <option value="sasaki">Ruth Fuller Sasaki</option>
+                <option value="suzuki">D.T. Suzuki</option>
+                <option value="blyth">R.H. Blyth</option>
+                <option value="blofeld">John Blofeld</option>
+                <option value="ai_literal">AI Draft (Literal)</option>
+              </select>
+            </div>
+            <div id="studio-ref-text" style="font-size: 0.88rem; color: var(--text-primary); font-style: italic;">
+              Select a reference translator to view comparative rendering.
+            </div>
+          </div>
+
+          <!-- Detected Lexicon Terms -->
+          <div id="studio-detected-terms" style="display: flex; gap: 0.35rem; flex-wrap: wrap;"></div>
+
+          <!-- User Translation Textarea -->
           <div>
             <label style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 0.35rem;">Your English Translation:</label>
             <textarea id="studio-user-translation" class="studio-textarea" placeholder="Enter your translation here (e.g. rendering of idioms, particles, and philosophical nuance)..."></textarea>
           </div>
 
+          <!-- Philological Notes -->
           <div>
             <label style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 0.35rem;">Philological & Commentary Notes:</label>
-            <textarea id="studio-user-notes" class="studio-textarea" style="min-height: 100px;" placeholder="Add term breakdowns, lineage cross-references, or translator comparisons..."></textarea>
+            <textarea id="studio-user-notes" class="studio-textarea" style="min-height: 90px;" placeholder="Add term breakdowns, lineage cross-references, or translator comparisons..."></textarea>
           </div>
 
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <button id="studio-save-btn" class="btn-primary">💾 Save to Local Repository</button>
+          <!-- Action Buttons -->
+          <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+            <button id="studio-save-btn" class="btn-primary">💾 Save Draft</button>
+            <button id="studio-export-latex-btn" class="btn-secondary">📄 Export LaTeX (.tex)</button>
+            <button id="studio-export-md-btn" class="btn-secondary">📑 Export Markdown (.md)</button>
             <button id="studio-export-json-btn" class="btn-secondary">📥 Export JSON</button>
-            <button id="studio-export-md-btn" class="btn-secondary">📑 Export Markdown</button>
           </div>
         </div>
 
         <!-- Saved Translations Panel -->
         <div class="studio-panel">
           <div class="studio-title">
-            <span>📚 Saved Personal Translations</span>
+            <span>📚 Saved Personal Corpus</span>
+            <button id="studio-clear-all-btn" class="btn-pill" style="font-size: 0.7rem; color: var(--accent-red);">Clear All</button>
           </div>
-          <div id="studio-saved-list" style="overflow-y: auto; max-height: 580px;"></div>
+          <div id="studio-saved-list" style="overflow-y: auto; max-height: 650px;"></div>
         </div>
       </div>
     </section>

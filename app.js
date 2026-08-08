@@ -16,6 +16,7 @@
     searchQuery: '',
     selectedMasterSchool: 'all',
     selectedLexiconCategory: 'all',
+    selectedStudioRefTranslator: 'red_pine',
     personalTranslations: JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}')
   };
 
@@ -43,11 +44,17 @@
     studioSelectText: document.getElementById('studio-select-text'),
     studioSourceZh: document.getElementById('studio-source-zh'),
     studioSourcePinyin: document.getElementById('studio-source-pinyin'),
+    studioCharCount: document.getElementById('studio-char-count'),
+    studioRefTranslatorSelect: document.getElementById('studio-ref-translator-select'),
+    studioRefText: document.getElementById('studio-ref-text'),
+    studioDetectedTerms: document.getElementById('studio-detected-terms'),
     studioUserTranslation: document.getElementById('studio-user-translation'),
     studioUserNotes: document.getElementById('studio-user-notes'),
     studioSaveBtn: document.getElementById('studio-save-btn'),
     studioExportJsonBtn: document.getElementById('studio-export-json-btn'),
     studioExportMdBtn: document.getElementById('studio-export-md-btn'),
+    studioExportLatexBtn: document.getElementById('studio-export-latex-btn'),
+    studioClearAllBtn: document.getElementById('studio-clear-all-btn'),
     studioStatus: document.getElementById('studio-status'),
     studioSavedList: document.getElementById('studio-saved-list')
   };
@@ -77,14 +84,12 @@
 
   // Event Listeners
   function setupEventListeners() {
-    // Theme toggle
     if (elements.themeToggle) {
       elements.themeToggle.addEventListener('click', () => {
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
       });
     }
 
-    // Navigation Tabs
     elements.navTabs.forEach(tab => {
       tab.addEventListener('click', () => {
         const view = tab.getAttribute('data-view');
@@ -92,7 +97,6 @@
       });
     });
 
-    // Reader Mode Buttons
     elements.readerModeButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         elements.readerModeButtons.forEach(b => b.classList.remove('active'));
@@ -102,7 +106,6 @@
       });
     });
 
-    // Global Search
     if (elements.globalSearch) {
       elements.globalSearch.addEventListener('input', (e) => {
         state.searchQuery = e.target.value.trim().toLowerCase();
@@ -110,7 +113,6 @@
       });
     }
 
-    // Lineage Filter
     if (elements.lineageFilter) {
       elements.lineageFilter.addEventListener('change', (e) => {
         state.selectedMasterSchool = e.target.value;
@@ -118,7 +120,6 @@
       });
     }
 
-    // Lexicon Filter
     if (elements.lexiconFilter) {
       elements.lexiconFilter.addEventListener('change', (e) => {
         state.selectedLexiconCategory = e.target.value;
@@ -152,7 +153,6 @@
   function annotateClassicalChinese(text) {
     if (!text || !state.data.glossary) return text;
     let annotated = text;
-    // Sort terms by length descending to match compound phrases first
     const sortedTerms = [...state.data.glossary].sort((a, b) => b.term.length - a.term.length);
 
     sortedTerms.forEach(termObj => {
@@ -238,6 +238,10 @@
           <div class="pinyin-line">${doc.preface.pinyin}</div>
           <div class="translation-grid">
             <div class="translation-col">
+              <div class="translator-tag">Red Pine (Bill Porter)</div>
+              <div class="translation-text">${doc.preface.en_red_pine || doc.preface.en_cleary || ''}</div>
+            </div>
+            <div class="translation-col">
               <div class="translator-tag">Thomas Cleary</div>
               <div class="translation-text">${doc.preface.en_cleary || ''}</div>
             </div>
@@ -250,35 +254,30 @@
       `;
     }
 
-    // Render Cases (e.g. Wumenguan / Biyanlu)
     if (doc.cases && doc.cases.length > 0) {
       doc.cases.forEach(caseItem => {
         html += renderCaseItem(caseItem);
       });
     }
 
-    // Render Sections (e.g. Linji Yulu, Huangbo)
     if (doc.sections && doc.sections.length > 0) {
       doc.sections.forEach(sec => {
         html += renderSectionItem(sec);
       });
     }
 
-    // Render Dialogues (e.g. Zhaozhou Yulu)
     if (doc.dialogues && doc.dialogues.length > 0) {
       doc.dialogues.forEach(dia => {
         html += renderDialogueItem(dia);
       });
     }
 
-    // Render Stanzas (e.g. Xinxin Ming, Baojing Sanmei)
     if (doc.stanzas && doc.stanzas.length > 0) {
       doc.stanzas.forEach(st => {
         html += renderStanzaItem(st);
       });
     }
 
-    // Render Chapters (e.g. Platform Sutra)
     if (doc.chapters && doc.chapters.length > 0) {
       doc.chapters.forEach(ch => {
         html += renderChapterItem(ch);
@@ -430,7 +429,6 @@
     const keys = Object.keys(translations);
     if (keys.length === 0) return '';
 
-    // If bilingual mode, prioritize Cleary, Sasaki, or Suzuki
     let displayKeys = keys;
     if (state.readerMode === 'bilingual') {
       displayKeys = keys.slice(0, 2);
@@ -584,31 +582,137 @@
   function setupStudio() {
     if (!elements.studioSelectText) return;
 
-    // Populate selectable passages
-    const options = [
-      { id: 'wumen_1', label: 'Wumenguan Case 1: Zhaozhou Dog (狗子還有佛性也無？州云：無。)', zh: '趙州和尚因僧問：「狗子還有佛性也無？」州云：「無。」', pinyin: 'Zhàozhōu héshang yīn sēng wèn: "Gǒuzi hái yǒu fóxìng yě wú?" Zhōu yún: "Wú."' },
-      { id: 'wumen_2', label: 'Wumenguan Case 2: Baizhang Fox (大修行底人還落因果也無？不昧因果。)', zh: '大修行底人還落因果也無？師曰：不昧因果。', pinyin: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú? Shī yuē: Bù mèi yīnguǒ.' },
-      { id: 'wumen_19', label: 'Wumenguan Case 19: Ordinary Mind (平常心是道。擬向即乖。)', zh: '平常心是道。擬向即乖。道不屬知，不屬不知。', pinyin: 'Píngcháng xīn shì dào. Nǐ xiàng jí guāi. Dào bù shǔ zhī, bù shǔ bù zhī.' },
-      { id: 'linji_1', label: 'Linji Yulu: True Person of No Rank (赤肉團上有一無位真人)', zh: '赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！', pinyin: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!' },
-      { id: 'huangbo_1', label: 'Huangbo Chuanxin: One Mind (諸佛與一切眾生唯是一心)', zh: '諸佛與一切眾生，唯是一心，更無別法。此心無始已來，不曾生不曾滅。', pinyin: 'Zhūfó yǔ yīqiè zhòngshēng, wéi shì yī xīn, gèng wú bié fǎ. Cǐ xīn wú shǐ yǐ lái, bù céng shēng bù céng miè.' },
-      { id: 'xinxin_1', label: 'Xinxin Ming: Line 1 (至道無難，唯嫌揀擇。但莫憎愛，洞然明白。)', zh: '至道無難，唯嫌揀擇。但莫憎愛，洞然明白。', pinyin: 'Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.' },
-      { id: 'platform_1', label: 'Platform Sutra: Huineng Verse (菩提本無樹，明鏡亦非臺。)', zh: '菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。', pinyin: 'Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén\'āi.' }
+    const studioPassages = [
+      {
+        id: 'wumen_1',
+        label: 'Wumenguan Case 1: Zhaozhou Dog (狗子還有佛性也無？州云：無。)',
+        zh: '趙州和尚因僧問：「狗子還有佛性也無？」州云：「無。」',
+        pinyin: 'Zhàozhōu héshang yīn sēng wèn: "Gǒuzi hái yǒu fóxìng yě wú?" Zhōu yún: "Wú."',
+        translations: {
+          red_pine: "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?' Zhaozhou said: 'Wu!'",
+          cleary: "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?' Zhaozhou said, 'No.'",
+          sasaki: "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?' Jōshū said: 'Mu!'",
+          suzuki: "A monk asked Chao-chou: 'Has a dog Buddha-nature?' Chao-chou replied: 'Wu!'",
+          blyth: "A monk asked Jōshū, 'Has a dog the Buddha Nature?' Jōshū answered: 'Mu!'",
+          blofeld: "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?' The Master replied: 'None!'",
+          ai_literal: "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?' Zhou said: 'Not.'"
+        }
+      },
+      {
+        id: 'wumen_2',
+        label: 'Wumenguan Case 2: Baizhang Fox (大修行底人還落因果也無？不昧因果。)',
+        zh: '大修行底人還落因果也無？師曰：不昧因果。',
+        pinyin: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú? Shī yuē: Bù mèi yīnguǒ.',
+        translations: {
+          red_pine: "Does a person of great practice still fall into causality? The Master said: Is not blind to causality.",
+          cleary: "Does an adept of great cultivation still fall into cause and effect? The Master said: Is not blind to cause and effect.",
+          sasaki: "Does a great practitioner fall under cause and effect? Hyakujō said: Not blind to cause and effect."
+        }
+      },
+      {
+        id: 'wumen_19',
+        label: 'Wumenguan Case 19: Ordinary Mind (平常心是道。擬向即乖。)',
+        zh: '平常心是道。擬向即乖。道不屬知，不屬不知。',
+        pinyin: 'Píngcháng xīn shì dào. Nǐ xiàng jí guāi. Dào bù shǔ zhī, bù shǔ bù zhī.',
+        translations: {
+          red_pine: "Ordinary mind is the Way. To intend toward it is to go astray. The Way belongs neither to knowing nor not-knowing.",
+          cleary: "Ordinary mind is the Way. To intend toward it is to deviate from it. The Way does not belong to knowing or not-knowing.",
+          sasaki: "Ordinary mind is the Way. If you try to direct yourself toward it, you go astray."
+        }
+      },
+      {
+        id: 'linji_1',
+        label: 'Linji Yulu: True Person of No Rank (赤肉團上有一無位真人)',
+        zh: '赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！',
+        pinyin: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!',
+        translations: {
+          red_pine: "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
+          cleary: "On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!",
+          sasaki: "On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!"
+        }
+      },
+      {
+        id: 'huangbo_1',
+        label: 'Huangbo Chuanxin: One Mind (諸佛與一切眾生唯是一心)',
+        zh: '諸佛與一切眾生，唯是一心，更無別法。此心無始已來，不曾生不曾滅。',
+        pinyin: 'Zhūfó yǔ yīqiè zhòngshēng, wéi shì yī xīn, gèng wú bié fǎ. Cǐ xīn wú shǐ yǐ lái, bù céng shēng bù céng miè.',
+        translations: {
+          blofeld: "All the Buddhas and all sentient beings are nothing whatever but the One Mind, besides which nothing exists. This Mind from beginningless time is unborn and indestructible.",
+          cleary: "All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes.",
+          red_pine: "Buddhas and all sentient beings are nothing other than One Mind, beyond which is no other dharma."
+        }
+      },
+      {
+        id: 'xinxin_1',
+        label: 'Xinxin Ming: Line 1 (至道無難，唯嫌揀擇。但莫憎愛，洞然明白。)',
+        zh: '至道無難，唯嫌揀擇。但莫憎愛，洞然明白。',
+        pinyin: 'Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.',
+        translations: {
+          red_pine: "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
+          cleary: "The Great Way is not difficult, it only avoids picking and choosing. Just do not love or hate, and it is clearly evident.",
+          suzuki: "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised."
+        }
+      },
+      {
+        id: 'platform_1',
+        label: 'Platform Sutra: Huineng Verse (菩提本無樹，明鏡亦非臺。)',
+        zh: '菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。',
+        pinyin: 'Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén\'āi.',
+        translations: {
+          red_pine: "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
+          cleary: "Bodhi fundamentally has no tree, nor is the clear mirror a stand. Originally there is not a single thing; where could dust gather?",
+          yampolsky: "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?"
+        }
+      }
     ];
 
-    elements.studioSelectText.innerHTML = options.map(opt => `
+    elements.studioSelectText.innerHTML = studioPassages.map(opt => `
       <option value="${opt.id}">${opt.label}</option>
     `).join('');
 
+    function updateRefTranslationDisplay(selectedPassage) {
+      if (!selectedPassage || !elements.studioRefText) return;
+      const refKey = elements.studioRefTranslatorSelect ? elements.studioRefTranslatorSelect.value : 'red_pine';
+      const text = (selectedPassage.translations && selectedPassage.translations[refKey]) ||
+                   (selectedPassage.translations && Object.values(selectedPassage.translations)[0]) ||
+                   'No reference available for this translator.';
+      elements.studioRefText.innerHTML = `<strong>${formatTranslatorName(refKey)}:</strong> "${text}"`;
+    }
+
+    function detectTermsInPassage(zhText) {
+      if (!elements.studioDetectedTerms || !state.data.glossary) return;
+      const termsFound = state.data.glossary.filter(item => zhText.includes(item.term));
+      if (termsFound.length === 0) {
+        elements.studioDetectedTerms.innerHTML = '';
+        return;
+      }
+      elements.studioDetectedTerms.innerHTML = `
+        <div style="width: 100%; font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.2rem;">Detected Terms in Lexicon:</div>
+        ${termsFound.map(t => `
+          <span class="meta-chip" style="cursor: pointer; background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold);" title="${t.definition}">
+            📖 ${t.term} (${t.literal})
+          </span>
+        `).join('')}
+      `;
+    }
+
     function loadSelectedPassage(id) {
-      const selected = options.find(o => o.id === id);
+      const selected = studioPassages.find(o => o.id === id);
       if (selected) {
         elements.studioSourceZh.innerHTML = annotateClassicalChinese(selected.zh);
         elements.studioSourcePinyin.textContent = selected.pinyin;
+        if (elements.studioCharCount) {
+          elements.studioCharCount.textContent = `${selected.zh.length} classical characters`;
+        }
+
+        updateRefTranslationDisplay(selected);
+        detectTermsInPassage(selected.zh);
+
         const saved = state.personalTranslations[id];
         if (saved) {
           elements.studioUserTranslation.value = saved.translation || '';
           elements.studioUserNotes.value = saved.notes || '';
-          if (elements.studioStatus) elements.studioStatus.textContent = `Loaded saved draft (last modified: ${saved.updatedAt})`;
+          if (elements.studioStatus) elements.studioStatus.textContent = `Loaded saved draft (${saved.updatedAt})`;
         } else {
           elements.studioUserTranslation.value = '';
           elements.studioUserNotes.value = '';
@@ -621,15 +725,24 @@
       loadSelectedPassage(e.target.value);
     });
 
+    if (elements.studioRefTranslatorSelect) {
+      elements.studioRefTranslatorSelect.addEventListener('change', () => {
+        const id = elements.studioSelectText.value;
+        const selected = studioPassages.find(o => o.id === id);
+        updateRefTranslationDisplay(selected);
+      });
+    }
+
     // Save translation
     if (elements.studioSaveBtn) {
       elements.studioSaveBtn.addEventListener('click', () => {
         const id = elements.studioSelectText.value;
-        const selected = options.find(o => o.id === id);
+        const selected = studioPassages.find(o => o.id === id);
         state.personalTranslations[id] = {
           passageId: id,
           title: selected ? selected.label : id,
           source_zh: selected ? selected.zh : '',
+          source_pinyin: selected ? selected.pinyin : '',
           translation: elements.studioUserTranslation.value,
           notes: elements.studioUserNotes.value,
           updatedAt: new Date().toLocaleString()
@@ -659,20 +772,88 @@
     // Export Markdown
     if (elements.studioExportMdBtn) {
       elements.studioExportMdBtn.addEventListener('click', () => {
-        let md = `# TranslateChan: Personal Translation Notebook\n\nExported on: ${new Date().toISOString()}\n\n---\n\n`;
+        let md = `# TranslateChan: Personal Translation & Scholarly Notebook\n\nGenerated: ${new Date().toISOString()}\nProject: https://github.com/56eli/translatechan\n\n---\n\n`;
         Object.keys(state.personalTranslations).forEach(k => {
           const item = state.personalTranslations[k];
           md += `## ${item.title}\n\n`;
-          md += `**Classical Chinese**: \n> ${item.source_zh}\n\n`;
-          md += `**Translation**: \n> ${item.translation}\n\n`;
-          md += `**Notes & Hermeneutics**: \n${item.notes}\n\n`;
-          md += `*Last updated: ${item.updatedAt}*\n\n---\n\n`;
+          md += `### Classical Chinese Source\n> ${item.source_zh}\n\n`;
+          if (item.source_pinyin) md += `*Pinyin*: \`${item.source_pinyin}\`\n\n`;
+          md += `### Personal English Translation\n> ${item.translation}\n\n`;
+          md += `### Philological Commentary & Hermeneutics\n${item.notes}\n\n`;
+          md += `*Last modified: ${item.updatedAt}*\n\n---\n\n`;
         });
         const dataStr = "data:text/markdown;charset=utf-8," + encodeURIComponent(md);
         const dlAnchor = document.createElement('a');
         dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", "translatechan_translations.md");
+        dlAnchor.setAttribute("download", "translatechan_scholarly_notebook.md");
         dlAnchor.click();
+      });
+    }
+
+    // Export LaTeX
+    if (elements.studioExportLatexBtn) {
+      elements.studioExportLatexBtn.addEventListener('click', () => {
+        let tex = `% TranslateChan Academic Paper Edition
+\\documentclass[11pt,twocolumn]{article}
+\\usepackage[utf8]{inputenc}
+\\usepackage{ctex}
+\\usepackage{amsmath,amssymb}
+\\usepackage{geometry}
+\\geometry{margin=1in}
+
+\\title{TranslateChan: Critical Bilingual Editions of Classical Chinese Chan Literature}
+\\author{TranslateChan Research Scholar}
+\\date{\\today}
+
+\\begin{document}
+\\maketitle
+
+\\begin{abstract}
+This document contains personal critical translations, sentence-aligned Classical Chinese source texts, and philological notes produced via the TranslateChan platform (\\texttt{56eli/translatechan}).
+\\end{abstract}
+
+\\section{Canonical Translations}
+`;
+        Object.keys(state.personalTranslations).forEach((k, idx) => {
+          const item = state.personalTranslations[k];
+          tex += `
+\\subsection{${item.title.replace(/[#&_]/g, '\\$&')}}
+
+\\noindent\\textbf{Classical Chinese Source:}
+\\begin{quote}
+\\large ${item.source_zh}
+\\end{quote}
+
+\\noindent\\textbf{Personal Translation:}
+\\begin{quote}
+${item.translation.replace(/[#&_]/g, '\\$&')}
+\\end{quote}
+
+\\noindent\\textbf{Philological Apparatus:}
+\\begin{enumerate}
+\\item ${item.notes.replace(/[#&_]/g, '\\$&')}
+\\end{enumerate}
+`;
+        });
+        tex += `\n\\end{document}\n`;
+
+        const dataStr = "data:text/plain;charset=utf-8," + encodeURIComponent(tex);
+        const dlAnchor = document.createElement('a');
+        dlAnchor.setAttribute("href", dataStr);
+        dlAnchor.setAttribute("download", "translatechan_edition.tex");
+        dlAnchor.click();
+      });
+    }
+
+    // Clear All
+    if (elements.studioClearAllBtn) {
+      elements.studioClearAllBtn.addEventListener('click', () => {
+        if (confirm("Are you sure you want to clear all saved personal translation drafts? This cannot be undone.")) {
+          state.personalTranslations = {};
+          localStorage.removeItem('translatechan_user_translations');
+          renderSavedList();
+          loadSelectedPassage(elements.studioSelectText.value);
+        }
       });
     }
 
@@ -688,14 +869,14 @@
         return `
           <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 0.5rem;">
             <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-gold);">${item.title}</div>
-            <div style="font-size: 0.82rem; margin: 0.25rem 0;">"${item.translation}"</div>
+            <div style="font-size: 0.82rem; margin: 0.25rem 0; color: var(--text-primary);">"${item.translation}"</div>
             <div style="font-size: 0.7rem; color: var(--text-muted);">Saved: ${item.updatedAt}</div>
           </div>
         `;
       }).join('');
     }
 
-    loadSelectedPassage(options[0].id);
+    loadSelectedPassage(studioPassages[0].id);
     renderSavedList();
   }
 
@@ -716,11 +897,9 @@
     let matchCount = 0;
     let resultsHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${q}"</div></div>`;
 
-    // Search across all texts in corpus
     Object.keys(state.data.corpus).forEach(corpKey => {
       const doc = state.data.corpus[corpKey];
 
-      // Check cases
       if (doc.cases) {
         doc.cases.forEach(c => {
           let matched = false;
@@ -757,7 +936,7 @@
     });
 
     if (matchCount === 0) {
-      resultsHtml += `<div class="case-card"><p>No matches found for "${q}". Try searching for Classical Chinese (e.g. 狗子, 無, 佛性, 平常心) or English terms (e.g. Cleary, Buddha, mind, fox).</p></div>`;
+      resultsHtml += `<div class="case-card"><p>No matches found for "${q}". Try searching for Classical Chinese (e.g. 狗子, 無, 佛性, 平常心) or English terms (e.g. Red Pine, Cleary, Buddha, mind, fox).</p></div>`;
     }
 
     elements.readerContent.innerHTML = resultsHtml;
