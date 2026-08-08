@@ -483,14 +483,14 @@ Smoke test: stub gains `getBoundingClientRect`; 4g rewritten for lazy rendering 
 
 TranslateChan has a **sound, unusually well-documented static foundation**: it is a dependency-free GitHub Pages application with a deterministic data bundle, a real smoke test, synchronized deploy artifacts, and a much more honest corpus/provenance model than most early digital-humanities prototypes. There is no current P0 parse/build/render failure.
 
-The initial current-state review found three P1 reader/studio integrity concerns and three P2 reader-reliability concerns. Both groups were remediated in the same working session: dynamic user-facing markup is escaped; the Studio normalizes object-form translations and exposes available registers; provenance is explicit across Reader, Matrix, and Studio; sparse case navigation follows actual neighbors; search includes pointer text and reports truthful counts; and all browser-storage access now fails safely. The same session also added a manifest-driven build, formal schema companion, semantic/rights/locator validator, deterministic metrics, and a prepared CI workflow. The remaining gate before large content import is editorial: migrate legacy document-level locators and complete human rights review.
+The initial current-state review found three P1 reader/studio integrity concerns and three P2 reader-reliability concerns. The public-page scope was subsequently simplified: browser drafting and agent branding were retired, while the Reader and Matrix retain explicit provenance/disclosure. Sparse case navigation follows actual neighbors; search includes pointer text and reports truthful counts; and all remaining browser preferences fail safely. The same session also added a manifest-driven build, formal schema companion, semantic/rights/locator validator, deterministic metrics, and a prepared CI workflow. The remaining gate before large content import is editorial: migrate legacy document-level locators and complete human rights review.
 
 | Area | Current assessment | Grade |
 |---|---|---:|
 | Static build, deployment, and root↔`docs` synchronization | Healthy and reproducible | A− |
 | Reader rendering and broad schema support | All supported schemas render; sparse case navigation follows actual adjacent records | A− |
 | Search | Pointer blocks included; complete hit count and presentation-limit notice are truthful | A− |
-| Studio and personal-data resilience | Rich translation values, dynamic reference selection, stored-draft display, and browser-storage failure handling hardened | A− |
+| Public Pages composition | Focused reader/matrix/lineage/index/lexicon scope; drafting, agent branding, and header GitHub link retired | A− |
 | Attribution/provenance model | Explicit status/source treatment plus source IDs and rights-manifest coverage; human rights review remains | B+ |
 | Corpus scope and scholarly traceability | Honest seed coverage; locator registry covers all documents/57 case units, while 33 non-case seeds still need page/line or TEI migration | B |
 | Accessibility and UX | Good baseline (skip link, focus states, reduced motion); interactive semantics still uneven | B |
@@ -512,7 +512,7 @@ diff -rq data docs/data
 ```
 
 - The bundle rebuilt deterministically at **626,587 bytes**; `index.html`, `app.css`, `app.js`, `app_data.js`, and `data/` are byte-identical between root and `docs/` after the build.
-- The dependency-free smoke harness loaded the bundle, rendered all **36** corpus documents through all reader modes, executed debounced search for schema-specific and adversarial queries, exercised lazy Wumenguan rendering, Matrix provenance, graph wiring, Studio object-form translations, and escaped saved drafts with **0 failures**.
+- The dependency-free smoke harness loaded the bundle, rendered all **36** corpus documents through all reader modes, executed debounced search for schema-specific and adversarial queries, exercised lazy Wumenguan rendering, Matrix provenance, graph wiring, public-scope exclusions, and storage-safe preferences with **0 failures**.
 - All JSON files parse. The 36 corpus filenames, the 36 bundler entries, and the 36 UI corpus-map entries agree exactly.
 - GitHub Pages is currently **built**, HTTPS-enforced, and configured to publish `main` → `/docs`.
 
@@ -548,10 +548,10 @@ The 138 verified corpus objects and both verified Matrix entries contain the req
 
 ### 10.4 Recommended sequence
 
-1. **✅ Integrity hotfix completed:** C1 + C2 + C3 are remediated with adversarial smoke coverage, object-form translation normalization, passage-aware Studio registers, and explicit Matrix status/source records.
+1. **✅ Integrity hotfix completed:** C1 + C2 + C3 are remediated with adversarial smoke coverage, translation normalization, and explicit Matrix status/source records; browser drafting was later retired from public scope.
 2. **✅ Reader reliability pass completed:** C4 + C5 + C6 are remediated with adjacent sparse-case navigation, pointer-inclusive/accurately counted search, safe storage wrappers, and persisted corpus choice.
 3. **✅ Structural research-release guardrails completed:** C9 and the enforceable portion of C7 now have a formal schema companion, manifest-driven build, locator registry, source-ID/rights manifest, deterministic metrics, and a prepared CI workflow.
-4. **Editorial migration + content next:** upgrade the 33 `legacy_document_seed` locators to page/line or TEI anchors, complete human rights review, then grow Biyanlu and the Studio under the new contract.
+4. **Editorial migration + content next:** upgrade the 33 `legacy_document_seed` locators to page/line or TEI anchors, complete human rights review, then grow Biyanlu and the public reader under the new contract.
 
 ### 10.5 Audit limitations
 
@@ -591,3 +591,13 @@ The following patch closes the three P1 findings documented above; the rows rema
 | CI workflow (pending publication) | Prepared `.github/workflows/quality.yml`: Python compilation, data validation, deterministic Pages rebuild, generated-artifact diff check, and renderer smoke test on pushes/PRs. GitHub rejected its push because the current App token lacks workflow permission. | Local validation runs the same commands now; publish this file after workflow-capable GitHub access is restored. |
 
 **Boundary kept explicit:** this closes the **structural/enforceable** part of C7/C9. It is not a legal opinion, does not turn online mirrors into licenses, and does not yet supply page/line or TEI anchors for 33 legacy non-case seeds. Those editorial migrations remain the prerequisite for calling the corpus scholarly publication-ready.
+
+### 10.9 Public Pages scope simplification (same session)
+
+At product direction, the published interface was narrowed to the **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon**. The following were removed from root and `/docs` Pages assets:
+
+- Translation Studio navigation, view markup, browser-draft/local-storage/export code, and now-dead styling/tests;
+- Arena AI Agents navigation, architecture/promotional content, and hero branding;
+- the header GitHub repository link and repository-handle footer context.
+
+The source data may still contain clearly labeled `ai_draft` and `reconstruction_unverified` values; those remain visible only as disclosed translation statuses in the Reader/Matrix. The current roadmap (§Phase 4) now governs source verification, citation disclosure, AI marking, and hover/focus/touch provenance rather than public drafting or agent branding. Smoke coverage rejects a reintroduction of the removed public-page views or GitHub URL.

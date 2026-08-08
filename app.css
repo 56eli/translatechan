@@ -612,8 +612,8 @@ main {
   flex-grow: 1;
 }
 
-/* Shared provenance treatment: Reader, Matrix, and Studio use the same
-   visible status vocabulary so a quotation is never detached from its basis. */
+/* Shared provenance treatment: Reader and Matrix use the same visible status
+   vocabulary so a quotation is never detached from its basis. */
 .translation-status {
   display: inline-flex;
   align-items: center;
@@ -643,19 +643,6 @@ main {
   color: var(--accent-red);
 }
 
-.studio-reference-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem;
-  margin-bottom: 0.35rem;
-}
-
-.studio-reference-text {
-  font-size: 0.9rem;
-  color: var(--text-primary);
-  line-height: 1.55;
-}
 
 .matrix-col > .translation-status {
   margin-top: 0.45rem;
@@ -982,60 +969,6 @@ mark {
   border: 1px solid var(--border-color);
 }
 
-/* Personal Translation Studio */
-.studio-layout {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 1.75rem;
-}
-
-@media (max-width: 960px) {
-  .studio-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-.studio-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.65rem;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  gap: 1.15rem;
-}
-
-.studio-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.studio-textarea {
-  width: 100%;
-  min-height: 140px;
-  padding: 0.95rem;
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  outline: none;
-  resize: vertical;
-  transition: var(--transition);
-  line-height: 1.6;
-}
-
-.studio-textarea:focus {
-  border-color: var(--accent-gold);
-  background: var(--bg-card);
-  box-shadow: 0 0 0 3px rgba(158, 114, 50, 0.12);
-}
 
 .btn-primary {
   background: var(--accent-gold);
@@ -1056,24 +989,6 @@ mark {
   background: var(--accent-gold-hover);
 }
 
-.btn-secondary {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.875rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: var(--transition);
-}
-
-.btn-secondary:hover {
-  background: var(--bg-hover);
-  border-color: var(--border-focus);
-}
 
 /* Footer */
 footer {
@@ -1295,7 +1210,7 @@ footer {
     padding: 0;
   }
 
-  .content-panel, .case-card, .matrix-card, .studio-panel {
+  .content-panel, .case-card, .matrix-card {
     box-shadow: none !important;
     border: none !important;
     background: #ffffff !important;
@@ -1378,7 +1293,7 @@ footer {
 }
 
 /* ==========================================================================
-   Phase C4/C5 — Accessibility & Studio/Index polish, 2026-08-08
+   Phase C4/C5 — Accessibility & index polish, 2026-08-08
    ========================================================================== */
 
 /* Skip-to-content */
@@ -1434,13 +1349,4 @@ textarea:focus-visible,
   background: var(--accent-gold);
   border-color: var(--accent-gold);
   color: #ffffff;
-}
-
-/* Studio draft filter + delete affordance */
-#studio-draft-filter {
-  margin-bottom: 0.75rem;
-}
-
-.studio-draft-delete:hover {
-  border-color: var(--accent-red);
 }

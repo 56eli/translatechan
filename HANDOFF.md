@@ -15,10 +15,10 @@ The TranslateChan project has been fully established with:
 3. **Core Canonical Corpus Seeds** (`data/corpus/`): 36 excerpt-scale canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties (authentic anchor passages; completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
 4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 30 master profiles with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan).
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
-6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader, Matrix, and Studio display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
-7. **Interactive Zero-Backend Web App & Studio** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative Zen aesthetic with dark/light mode, search, SVG lineage network graph, and personal translation studio with LaTeX/Markdown export. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`AUDIT.md` §8](./AUDIT.md); `node scripts/smoke_test.mjs` must pass before every push.)*
+6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
+7. **Interactive Zero-Backend Public Reader** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative reader/matrix/lineage/index/lexicon interface with dark/light mode, search, and an SVG lineage network graph. Translation Studio, Arena AI Agents, and the header GitHub link are intentionally absent from the public Pages UI. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`AUDIT.md` §8](./AUDIT.md); `node scripts/smoke_test.mjs` must pass before every push.)*
 8. **Synchronized GitHub Pages Bundle** (`docs/`): Fully compiled, zero-dependency static bundle; Pages publishing already active from `main /docs`.
-9. **Agent Pipeline & Tooling** (`scripts/`): `arena_agent_pipeline.py` prompt templates, `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `ingest_cbeta.py` offline segmenter, and `smoke_test.mjs` renderer regression test. A CI workflow is prepared locally but needs workflow-capable GitHub access before publication.
+9. **Editorial Data Tooling** (`scripts/`): `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `ingest_cbeta.py` offline segmenter, and `smoke_test.mjs` renderer regression test. A CI workflow is prepared locally but needs workflow-capable GitHub access before publication.
 
 ---
 
@@ -30,9 +30,9 @@ The TranslateChan project has been fully established with:
 2. **`f074b7e`** **B1–B10 remediation + CBETA canon-reference pass**: `docs/data` mirror restored; stale UI branch string; volume-chip truth; search escaping + variant normalization (鉢/缽, 曰/云, 臺/台, 裏/里, 無/无); localStorage guard; dead `stacked` mode dropped; `docs/scripts` removed; **lineage 18 → 30 masters** (four documented frontier teacher references remain outside the seed set); **canon IDs corrected vs CBETA for 10 corpus files + 5 master profiles** (foyan T1995→X1315, mazu/baizhang→四家語錄 X1321/X1323, xuansha→X1445, dazhu→X1223, caoxi→X1598, dahui_shobogenzo T2002→X1309, xuefeng T1983→X1333, fayan→X1226, dahui_hongzhi T2001 dropped, taisho_vol truth).
 3. **`e299187`** **Wumenguan completed 48/48** — the corpus's first complete canonical text: all 48 cases + preface + epilogue (zh per CBETA T2005 宗紹編), **+40 verified Senzaki & Reps 1934 PD slots → the historical 119-slot tally at that milestone**; CBETA numbering correction (case 37 IS 庭前柏樹); coverage metadata; `provenance.json` v2.0.
 4. **`11ad640`** UX/UI improvement roadmap ([`UX_ROADMAP.md`](./UX_ROADMAP.md)) — 10 measured pain points, phases A–D, mobile + desktop, zero-backend contract.
-5. **`2ed729c` + `584a51f` + `b7083b4` + `15e1f9d`** **UX Phases A–D implemented (roadmap 100%)**: case-index strip + collapsible cards; tap/focus shared glossary popover (de-duplicated DOM); persisted preferences; debounced + capped search; mobile corpus picker + bottom action bar; single-column mobile translations; print/PDF stylesheet; hash routing + deep links; lineage pan/zoom/reset; WCAG-AA a11y pass; studio (48-case picker, draft filter/delete, 🖨 Print) + Gong'an theme filters; cached search index; lazy case rendering; `app_data.js` preload.
+5. **`2ed729c` + `584a51f` + `b7083b4` + `15e1f9d`** **UX Phases A–D implemented (historical)**: case-index strip + collapsible cards; tap/focus shared glossary popover; persisted preferences; debounced + capped search; mobile corpus picker + bottom action bar; single-column mobile translations; print/PDF stylesheet; hash routing + deep links; lineage pan/zoom/reset; WCAG-AA a11y pass; Gong'an theme filters; cached search index; lazy case rendering; `app_data.js` preload. Public scope was subsequently narrowed to reader/matrix/lineage/index/lexicon.
 
-**Historical release verification:** `scripts/smoke_test.mjs` ✅ (36 texts × all modes + 48-case lazy-render + strip/toggle/nav/picker/popover/pan-zoom/studio checks) · deterministic bundle ✅ · root↔`docs` byte-identical ✅ · `diff -rq data docs/data` silent ✅. Pages now serves `main` `/docs`.
+**Historical release verification:** `scripts/smoke_test.mjs` ✅ (36 texts × reader modes + lazy rendering + strip/toggle/nav/popover/pan-zoom/index checks) · deterministic bundle ✅ · root↔`docs` byte-identical ✅ · `diff -rq data docs/data` silent ✅. Pages now serves `main` `/docs`.
 
 ---
 
@@ -71,7 +71,7 @@ On every merge into `main`, the site re-publishes automatically within ~60 secon
 translatechan/
 ├── index.html              # Root entry point (Zen responsive single page app)
 ├── app.css                 # Serene tea & paper palette, responsive typography
-├── app.js                  # Client-side router, hover lexicon, lineage graph, studio
+├── app.js                  # Client-side router, hover lexicon, lineage graph, reader views
 ├── app_data.js             # Generated master bundle (zero-latency execution)
 ├── schemas/                # Formal data-contract schema
 ├── docs/                   # Synchronized GitHub Pages deployment directory
@@ -136,7 +136,6 @@ translatechan/
 │       └── gongan_index.json           # 18 Gong'an cross-references index entries
 └── scripts/
     ├── build_data_bundle.py            # Bundles data/ and synchronizes /docs
-    ├── arena_agent_pipeline.py         # Multi-register Arena AI agent harness
     ├── ingest_cbeta.py                 # Offline Classical Chinese segmenter (manual input)
     ├── validate_data.py                # Semantic/rights/locator validator + metrics generator
     └── smoke_test.mjs                  # Dependency-free renderer regression test
@@ -144,9 +143,9 @@ translatechan/
 
 ---
 
-## 🛠️ Ongoing Maintenance & Arena Agent Workflow
+## 🛠️ Ongoing Editorial Maintenance Workflow
 
-When new canonical texts or translations are added by sessioned Arena AI agents:
+When new canonical texts or translations are added by editorial contributors:
 1. Save the structured JSON file in `data/corpus/<name>.json`, add its display/order entry to `data/corpus_manifest.json`, and add a canonical locator record in `data/canonical_locators.json`. Verified modern quotations also require `source.source_id` resolving to `data/translations/rights_manifest.json`.
 2. Regenerate and validate deterministic metrics:
    ```bash

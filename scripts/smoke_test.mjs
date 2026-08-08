@@ -6,6 +6,13 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
+// Public Pages scope deliberately excludes browser drafting, agent branding, and
+// a header GitHub link; keep that composition from regressing during app work.
+const publicHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
+for (const forbidden of ['data-view="studio"', 'data-view="agents"', 'id="view-studio"', 'id="view-agents"', 'https://github.com/56eli/translatechan']) {
+  if (publicHtml.includes(forbidden)) throw new Error(`public Pages scope regression: ${forbidden}`);
+}
+
 const store = {};
 globalThis.localStorage = {
   getItem: k => (k in store ? store[k] : null),
@@ -213,41 +220,19 @@ if (!svgHtml.includes('lineage-panzoom')) { failures++; console.log('❌ lineage
 if (typeof window.TranslateChan.resetLineageView !== 'function') { failures++; console.log('❌ lineage reset view missing'); }
 // 4l. Hash routing: initial deep-link state + viewHash helper
 if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.log('❌ openDoc missing (hash routing depends on it)'); }
-// 4m. Studio passage picker covers all 48 Wumenguan cases (C5)
-const studioSelect = ids['studio-select-text'];
-const studioOptionCount = (studioSelect._innerHTML.match(/<option/g) || []).length;
-if (studioOptionCount < 48) { failures++; console.log(`❌ studio picker has only ${studioOptionCount} passages (expected >= 48)`); }
-// 4n. Gong'an filter chips + draft delete helper (C5)
-if (typeof window.TranslateChan.deleteDraft !== 'function') { failures++; console.log('❌ deleteDraft missing'); }
+// 4m. Gong'an filter chips remain available in the public reading scope.
 const gonganHtml = ids['gongan-content-target']._innerHTML;
 if (!gonganHtml.includes('gongan-filter-chip')) { failures++; console.log('❌ gongan filter chips missing'); }
-// 4o. Matrix provenance is explicit for every translator, with citations for verified rows.
+// 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
 const malformedMatrixEntries = matrixEntries.filter(t => !t.status ||
-  (t.status === 'verified_quotation' && (!t.source || !t.source.work || !t.source.edition || !t.source.verification)));
+  (t.status === 'verified_quotation' && (!t.source || !t.source.work || !t.source.edition || !t.source.verification || !t.source.source_id)));
 if (malformedMatrixEntries.length) { failures++; console.log(`❌ matrix provenance incomplete for ${malformedMatrixEntries.length} entry/entries`); }
 const matrixHtml = ids['matrix-content-target']._innerHTML;
 const matrixStatusCount = (matrixHtml.match(/class="translation-status/g) || []).length;
 if (matrixStatusCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixStatusCount} provenance badges (expected ${matrixEntries.length})`); }
 const matrixSourceCount = (matrixHtml.match(/class="translation-source/g) || []).length;
 if (matrixSourceCount !== 2) { failures++; console.log(`❌ matrix has ${matrixSourceCount} verified source lines (expected 2)`); }
-// 4p. Object-form verified translations must render as text in the Studio, and
-// the selector must adapt when a passage only has the Senzaki/Reps register.
-studioSelect.value = 'wumen_8';
-(studioSelect._handlers.change || []).forEach(fn => fn({ target: studioSelect }));
-const studioRefHtml = ids['studio-ref-text']._innerHTML;
-if (studioRefHtml.includes('[object Object]')) { failures++; console.log('❌ Studio rendered an object-form translation literally'); }
-if (!studioRefHtml.includes('Senzaki &amp; Reps') && !studioRefHtml.includes('Senzaki & Reps')) { failures++; console.log('❌ Studio did not expose the available verified translator'); }
-if (!studioRefHtml.includes('Verified quotation') || !studioRefHtml.includes('translation-source')) { failures++; console.log('❌ Studio lost verified provenance/source metadata'); }
-// 4q. Saved user drafts are escaped before entering innerHTML (self-XSS guard).
-studioSelect.value = 'wumen_1';
-(studioSelect._handlers.change || []).forEach(fn => fn({ target: studioSelect }));
-ids['studio-user-translation'].value = '<img src=x onerror="alert(1)">';
-ids['studio-user-notes'].value = '<b>unsafe note</b>';
-(ids['studio-save-btn']._handlers.click || []).forEach(fn => fn());
-const savedDraftHtml = ids['studio-saved-list']._innerHTML;
-if (savedDraftHtml.includes('<img') || savedDraftHtml.includes('<b>unsafe')) { failures++; console.log('❌ saved draft markup was not escaped'); }
-if (!savedDraftHtml.includes('&lt;img')) { failures++; console.log('❌ saved draft escape regression'); }
 // 4r. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
   await fireSearch(q);

@@ -1,6 +1,6 @@
 # 🪷 TranslateChan (`translatechan`)
 
-> **The Classical Chinese Chan/Zen Masters Corpus, Comparative Translation Matrix & Personal Research Studio**  
+> **The Classical Chinese Chan/Zen Masters Corpus, Comparative Translation Matrix & Research Reader**
 > *"A special transmission outside the scriptures, not founded upon words and letters; pointing directly to the human mind, seeing into one's nature and attaining Buddhahood."*
 
 [![GitHub Pages Deployment](https://img.shields.io/badge/GitHub%20Pages-Ready-brightgreen.svg)](https://56eli.github.io/translatechan/)
@@ -13,18 +13,18 @@
 
 **TranslateChan** is an open-source, scholarly, and computational initiative created to:
 1. **Source and Ingest** the complete classical Chinese Chan (Zen) literature of the ancient masters (*唐宋諸祖語錄與傳燈公案文獻*), referencing canonical CBETA / Taishō Tripiṭaka volumes (T47, T48, T51, and the Zokuzōkyō).
-2. **Deploy Sandboxed Arena AI Agents** to autonomously parse Classical Chinese texts, generate multi-register translation drafts (Literal, Hermeneutic, and Poetic Zen Cadence), align contemporary published translations, and commit structured JSON datasets to the repository.
+2. **Maintain a source-aware editorial workflow** for Classical Chinese parsing, multi-register project drafts, published-translation collation, and structured provenance data — with every AI-derived rendering disclosed as such.
 3. **Provide Multi-Translator Comparative Alignment** side-by-side, analyzing historical and contemporary renderings (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky **— now extended with ✅ verified registers from Nyogen Senzaki & Paul Reps, Eiichi Shimomissé, Katsuki Sekida, Kōun Yamada, Robert Aitken, Burton Watson, Yoel Hoffman, Andy Ferguson, Richard B. Clarke**) alongside AI-assisted hermeneutic synthesis.
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
-Every visible translation register in the Reader, Comparative Matrix, and Studio carries a **✅ Verified quotation**, **⚠️ Register reconstruction**, or **🤖 AI draft** badge. A verified item also exposes its recorded source details; reconstructions are AI-composed in a scholar's documented style and are *not* citable. The verification campaign delivered:
+Every visible translation register in the Reader and Comparative Matrix carries a **✅ Verified quotation**, **⚠️ Register reconstruction**, or **🤖 AI draft** badge. A verified item also exposes its recorded source details; reconstructions are AI-composed in a scholar's documented style and are *not* citable. The verification campaign delivered:
 
 - **138 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
 - All checks and honest negatives logged in [`AUDIT.md` §8](./AUDIT.md).
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
-5. **Deploy a Zero-Backend Static GitHub Pages Web App** for personal research, bilingual reading, hover lexicon tooltips, comparative translation matrix, Gong'an index, and a personal translation & annotation studio.
+5. **Deploy a Zero-Backend Static GitHub Pages Web App** for focused bilingual reading, hover lexicon tooltips, comparative translation, lineage study, and Gong'an indexing.
 
 ---
 
@@ -69,10 +69,11 @@ Every visible translation register in the Reader, Comparative Matrix, and Studio
 ### 5. 📚 Classical Chan Lexicon
 - Dictionary of technical Chan idioms, Buddhist ontology, dialectical structures, and monastic expressions — **31 terms** today, expanding toward 150+ (see Roadmap Phase 3).
 
-### 6. ✍️ Personal Translation & Research Studio
-- In-browser translation and annotation editor.
-- Automatically persists your translation drafts and study notes in browser storage (`localStorage`).
-- One-click export to **JSON** or **Markdown** notebook.
+---
+
+## 🧭 Public Pages Scope
+
+The public GitHub Pages app intentionally contains the **Bilingual Reader**, **Comparative Matrix**, **Lineage Tree**, **Gong'an Index**, and **Chan Lexicon** only. The Translation Studio, Arena AI Agents view, and header GitHub link are not part of the public interface. AI-derived content that remains in the corpus/matrix is disclosed by its visible status badge and provenance record.
 
 ---
 
@@ -82,7 +83,7 @@ Every visible translation register in the Reader, Comparative Matrix, and Studio
 translatechan/
 ├── index.html              # GitHub Pages entry point (Fast, zero-backend, responsive SPA)
 ├── app.css                 # Zen minimalist light/dark styling & typography
-├── app.js                  # Client-side routing, search, lexicon popups, and studio engine
+├── app.js                  # Client-side routing, search, lexicon popups, and reader views
 ├── app_data.js             # Generated master data bundle for zero-latency client-side search
 ├── schemas/                # Formal JSON Schema companion to semantic validation
 ├── docs/                   # Synchronized duplicate of the app (GitHub Pages serves main /docs)

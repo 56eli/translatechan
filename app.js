@@ -11,8 +11,8 @@
   const READER_MODES = ['bilingual', 'chinese_only', 'multi_translators'];
 
   // Data that originated in browser storage must be treated as untrusted input.
-  // Keep the shape narrow so a corrupted/legacy draft cannot break the Studio
-  // or become executable markup when it is subsequently rendered.
+  // Keep generic browser-provided records narrow so malformed persisted
+  // preferences cannot break the public reader.
   function isRecord(value) {
     return value !== null && typeof value === 'object' && !Array.isArray(value);
   }
@@ -38,23 +38,6 @@
       window.localStorage.removeItem(key);
       return true;
     } catch (e) { return false; }
-  }
-  function normalizeStoredDrafts(value) {
-    if (!isRecord(value)) return {};
-    const drafts = {};
-    Object.entries(value).forEach(([id, raw]) => {
-      if (!isRecord(raw) || ['__proto__', 'prototype', 'constructor'].includes(id)) return;
-      drafts[id] = {
-        passageId: stringValue(raw.passageId || id),
-        title: stringValue(raw.title),
-        source_zh: stringValue(raw.source_zh),
-        source_pinyin: stringValue(raw.source_pinyin),
-        translation: stringValue(raw.translation),
-        notes: stringValue(raw.notes),
-        updatedAt: stringValue(raw.updatedAt)
-      };
-    });
-    return drafts;
   }
 
   const state = {
@@ -83,11 +66,6 @@
     selectedLexiconCategory: 'all',
     gonganThemeFilter: null,
     caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
-    selectedStudioRefTranslator: 'red_pine',
-    personalTranslations: (() => {
-      try { return normalizeStoredDrafts(JSON.parse(storageGet('translatechan_user_translations') || '{}')); }
-      catch (e) { return {}; } // corrupted storage must not blank the app
-    })()
   };
 
   // DOM Elements
@@ -110,23 +88,6 @@
     // Lexicon Elements
     lexiconFilter: document.getElementById('lexicon-cat-filter'),
     lexiconTarget: document.getElementById('lexicon-content-target'),
-    // Studio Elements
-    studioSelectText: document.getElementById('studio-select-text'),
-    studioSourceZh: document.getElementById('studio-source-zh'),
-    studioSourcePinyin: document.getElementById('studio-source-pinyin'),
-    studioCharCount: document.getElementById('studio-char-count'),
-    studioRefTranslatorSelect: document.getElementById('studio-ref-translator-select'),
-    studioRefText: document.getElementById('studio-ref-text'),
-    studioDetectedTerms: document.getElementById('studio-detected-terms'),
-    studioUserTranslation: document.getElementById('studio-user-translation'),
-    studioUserNotes: document.getElementById('studio-user-notes'),
-    studioSaveBtn: document.getElementById('studio-save-btn'),
-    studioExportJsonBtn: document.getElementById('studio-export-json-btn'),
-    studioExportMdBtn: document.getElementById('studio-export-md-btn'),
-    studioExportLatexBtn: document.getElementById('studio-export-latex-btn'),
-    studioClearAllBtn: document.getElementById('studio-clear-all-btn'),
-    studioStatus: document.getElementById('studio-status'),
-    studioSavedList: document.getElementById('studio-saved-list')
   };
 
   // Corpus selection has a single persistence path so sidebar, mobile picker,
@@ -155,7 +116,6 @@
     renderLineage();
     renderGonganIndex();
     renderLexicon();
-    setupStudio();
     setActiveModeButtons();
     switchViewRaw(state.currentView); // sync nav/section classes with the initial hash
   }
@@ -428,7 +388,7 @@
   }
 
   // View Switcher (updates DOM + URL hash so back/forward and deep links work)
-  const VALID_VIEWS = ['reader', 'matrix', 'lineage', 'gongan', 'lexicon', 'studio', 'agents'];
+  const VALID_VIEWS = ['reader', 'matrix', 'lineage', 'gongan', 'lexicon'];
   function viewHash(view, corpusKey) {
     return `#/${view}${(view === 'reader' && corpusKey) ? '/' + corpusKey : ''}`;
   }
@@ -918,7 +878,7 @@
 
   // Translation records are deliberately polymorphic: legacy/reconstruction entries
   // are strings, while citation-ready entries carry { text, status, source }. Keep
-  // their normalization in one place so Reader, Matrix, and Studio cannot diverge.
+  // their normalization in one place so the Reader and Matrix cannot diverge.
   function normalizeTranslationEntry(key, raw, options = {}) {
     const objectValue = isRecord(raw);
     const explicitStatus = options.status || (objectValue ? raw.status : '');
@@ -1428,442 +1388,6 @@
         </div>
       </div>
     `).join('');
-  }
-
-  // Setup Personal Translation Studio
-  function setupStudio() {
-    if (!elements.studioSelectText) return;
-
-    // Build studio passages live from the data bundle (single source of truth);
-    // combines a unit's dialogue/zh/pinyin and merges its translation registers.
-    function combineUnits(units) {
-      const zh = units.map(u => u.zh || '').filter(Boolean).join(' ');
-      const pinyin = units.map(u => u.pinyin || '').filter(Boolean).join(' ');
-      const translations = {};
-      units.forEach(u => {
-        const tr = u.translations || {};
-        Object.keys(tr).forEach(k => { if (!translations[k]) translations[k] = tr[k]; });
-      });
-      return { zh, pinyin, translations };
-    }
-
-    function buildStudioPassages() {
-      const corpus = state.data.corpus || {};
-      const passages = [];
-      const add = (id, label, combined) => {
-        if (combined && combined.zh) passages.push({ id, label, zh: combined.zh, pinyin: combined.pinyin, translations: combined.translations });
-      };
-
-      const wm = corpus.wumenguan;
-      if (wm && Array.isArray(wm.cases)) {
-        wm.cases.forEach(c => {
-          add(`wumen_${c.case_num}`, `Wumenguan Case ${c.case_num}: ${c.title_en || c.title_zh}`, combineUnits(c.dialogue || []));
-        });
-      }
-      const linji = corpus.linji_yulu;
-      if (linji && linji.sections && linji.sections[0]) {
-        add('linji_1', `Linji Yulu: ${linji.sections[0].title_en || linji.sections[0].title_zh}`, combineUnits((linji.sections[0].dialogue || []).slice(0, 3)));
-      }
-      const hb = corpus.huangbo_chuanxin;
-      if (hb && hb.sections && hb.sections[0]) {
-        add('huangbo_1', `Huangbo Chuanxin: ${hb.sections[0].title_en || hb.sections[0].title_zh}`, combineUnits((hb.sections[0].dialogue || []).slice(0, 1)));
-      }
-      const xxm = corpus.xinxin_ming;
-      if (xxm && xxm.stanzas && xxm.stanzas[0]) {
-        add('xinxin_1', 'Xinxin Ming: Opening Stanza (至道無難)', combineUnits([xxm.stanzas[0]]));
-      }
-      const ps = corpus.platform_sutra;
-      if (ps && ps.chapters && ps.chapters[0] && ps.chapters[0].verses) {
-        const ch = ps.chapters[0];
-        const huineng = ch.verses.find(v => v.zh && v.zh.includes('菩提本無樹')) || ch.verses[0];
-        add('platform_1', `Platform Sutra: ${ch.title_en || ch.title_zh}`, combineUnits([huineng]));
-      }
-      return passages;
-    }
-
-    let studioPassages = buildStudioPassages();
-
-    // Fallback (should not trigger while the bundle is intact)
-    if (studioPassages.length === 0) {
-      studioPassages = [
-      {
-        id: 'wumen_1',
-        label: 'Wumenguan Case 1: Zhaozhou Dog (狗子還有佛性也無？州云：無。)',
-        zh: '趙州和尚因僧問：「狗子還有佛性也無？」州云：「無。」',
-        pinyin: 'Zhàozhōu héshang yīn sēng wèn: "Gǒuzi hái yǒu fóxìng yě wú?" Zhōu yún: "Wú."',
-        translations: {
-          red_pine: "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?' Zhaozhou said: 'Wu!'",
-          cleary: "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?' Zhaozhou said, 'No.'",
-          sasaki: "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?' Jōshū said: 'Mu!'",
-          suzuki: "A monk asked Chao-chou: 'Has a dog Buddha-nature?' Chao-chou replied: 'Wu!'",
-          blyth: "A monk asked Jōshū, 'Has a dog the Buddha Nature?' Jōshū answered: 'Mu!'",
-          blofeld: "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?' The Master replied: 'None!'",
-          ai_literal: "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?' Zhou said: 'Not.'"
-        }
-      },
-      {
-        id: 'wumen_2',
-        label: 'Wumenguan Case 2: Baizhang Fox (大修行底人還落因果也無？不昧因果。)',
-        zh: '大修行底人還落因果也無？師曰：不昧因果。',
-        pinyin: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú? Shī yuē: Bù mèi yīnguǒ.',
-        translations: {
-          red_pine: "Does a person of great practice still fall into causality? The Master said: Is not blind to causality.",
-          cleary: "Does an adept of great cultivation still fall into cause and effect? The Master said: Is not blind to cause and effect.",
-          sasaki: "Does a great practitioner fall under cause and effect? Hyakujō said: Not blind to cause and effect."
-        }
-      },
-      {
-        id: 'wumen_19',
-        label: 'Wumenguan Case 19: Ordinary Mind (平常心是道。擬向即乖。)',
-        zh: '平常心是道。擬向即乖。道不屬知，不屬不知。',
-        pinyin: 'Píngcháng xīn shì dào. Nǐ xiàng jí guāi. Dào bù shǔ zhī, bù shǔ bù zhī.',
-        translations: {
-          red_pine: "Ordinary mind is the Way. To intend toward it is to go astray. The Way belongs neither to knowing nor not-knowing.",
-          cleary: "Ordinary mind is the Way. To intend toward it is to deviate from it. The Way does not belong to knowing or not-knowing.",
-          sasaki: "Ordinary mind is the Way. If you try to direct yourself toward it, you go astray."
-        }
-      },
-      {
-        id: 'linji_1',
-        label: 'Linji Yulu: True Person of No Rank (赤肉團上有一無位真人)',
-        zh: '赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！',
-        pinyin: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!',
-        translations: {
-          red_pine: "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
-          cleary: "On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!",
-          sasaki: "On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!"
-        }
-      },
-      {
-        id: 'huangbo_1',
-        label: 'Huangbo Chuanxin: One Mind (諸佛與一切眾生唯是一心)',
-        zh: '諸佛與一切眾生，唯是一心，更無別法。此心無始已來，不曾生不曾滅。',
-        pinyin: 'Zhūfó yǔ yīqiè zhòngshēng, wéi shì yī xīn, gèng wú bié fǎ. Cǐ xīn wú shǐ yǐ lái, bù céng shēng bù céng miè.',
-        translations: {
-          blofeld: "All the Buddhas and all sentient beings are nothing whatever but the One Mind, besides which nothing exists. This Mind from beginningless time is unborn and indestructible.",
-          cleary: "All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes.",
-          red_pine: "Buddhas and all sentient beings are nothing other than One Mind, beyond which is no other dharma."
-        }
-      },
-      {
-        id: 'xinxin_1',
-        label: 'Xinxin Ming: Line 1 (至道無難，唯嫌揀擇。但莫憎愛，洞然明白。)',
-        zh: '至道無難，唯嫌揀擇。但莫憎愛，洞然明白。',
-        pinyin: 'Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.',
-        translations: {
-          red_pine: "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
-          cleary: "The Great Way is not difficult, it only avoids picking and choosing. Just do not love or hate, and it is clearly evident.",
-          suzuki: "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised."
-        }
-      },
-      {
-        id: 'platform_1',
-        label: 'Platform Sutra: Huineng Verse (菩提本無樹，明鏡亦非臺。)',
-        zh: '菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。',
-        pinyin: 'Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén\'āi.',
-        translations: {
-          red_pine: "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
-          cleary: "Bodhi fundamentally has no tree, nor is the clear mirror a stand. Originally there is not a single thing; where could dust gather?",
-          yampolsky: "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?"
-        }
-      }
-      ];
-    }
-
-    elements.studioSelectText.innerHTML = studioPassages.map(opt => `
-      <option value="${escHtml(opt.id)}">${escHtml(opt.label)}</option>
-    `).join('');
-
-    function translationKeysForPassage(selectedPassage) {
-      if (!selectedPassage || !isRecord(selectedPassage.translations)) return [];
-      return Object.keys(selectedPassage.translations).filter(key => {
-        const entry = normalizeTranslationEntry(key, selectedPassage.translations[key]);
-        return Boolean(entry.text);
-      });
-    }
-
-    function populateReferenceTranslatorSelect(selectedPassage) {
-      if (!elements.studioRefTranslatorSelect) return '';
-      const keys = translationKeysForPassage(selectedPassage);
-      if (keys.length === 0) {
-        elements.studioRefTranslatorSelect.innerHTML = '<option value="">No reference available</option>';
-        elements.studioRefTranslatorSelect.value = '';
-        state.selectedStudioRefTranslator = '';
-        return '';
-      }
-      const preferred = keys.includes(state.selectedStudioRefTranslator)
-        ? state.selectedStudioRefTranslator
-        : keys[0];
-      elements.studioRefTranslatorSelect.innerHTML = keys.map(key =>
-        `<option value="${escHtml(key)}">${escHtml(formatTranslatorName(key))}</option>`
-      ).join('');
-      elements.studioRefTranslatorSelect.value = preferred;
-      state.selectedStudioRefTranslator = preferred;
-      return preferred;
-    }
-
-    function updateRefTranslationDisplay(selectedPassage) {
-      if (!elements.studioRefText) return;
-      const refKey = elements.studioRefTranslatorSelect
-        ? elements.studioRefTranslatorSelect.value
-        : state.selectedStudioRefTranslator;
-      const translations = selectedPassage && isRecord(selectedPassage.translations)
-        ? selectedPassage.translations
-        : null;
-      if (!refKey || !translations || !(refKey in translations)) {
-        elements.studioRefText.innerHTML = '<em>No reference translation is available for this passage.</em>';
-        return;
-      }
-      const entry = normalizeTranslationEntry(refKey, translations[refKey]);
-      elements.studioRefText.innerHTML = `
-        <div class="studio-reference-header"><strong>${escHtml(formatTranslatorName(refKey))}</strong>${renderTranslationStatus(entry)}</div>
-        <div class="studio-reference-text">“${escHtml(entry.text)}”</div>
-        ${renderTranslationSource(entry)}
-      `;
-    }
-
-    function detectTermsInPassage(zhText) {
-      if (!elements.studioDetectedTerms || !state.data.glossary) return;
-      const termsFound = state.data.glossary.filter(item => zhText.includes(item.term));
-      if (termsFound.length === 0) {
-        elements.studioDetectedTerms.innerHTML = '';
-        return;
-      }
-      elements.studioDetectedTerms.innerHTML = `
-        <div style="width: 100%; font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.2rem;">Detected Terms in Lexicon:</div>
-        ${termsFound.map(t => `
-          <span class="meta-chip" style="cursor: pointer; background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold);" title="${escHtml(t.definition)}">
-            📖 ${escHtml(t.term)} (${escHtml(t.literal)})
-          </span>
-        `).join('')}
-      `;
-    }
-
-    function loadSelectedPassage(id) {
-      const selected = studioPassages.find(o => o.id === id);
-      if (selected) {
-        elements.studioSourceZh.innerHTML = annotateClassicalChinese(selected.zh);
-        elements.studioSourcePinyin.textContent = selected.pinyin;
-        if (elements.studioCharCount) {
-          elements.studioCharCount.textContent = `${selected.zh.length} classical characters`;
-        }
-
-        populateReferenceTranslatorSelect(selected);
-        updateRefTranslationDisplay(selected);
-        detectTermsInPassage(selected.zh);
-
-        const saved = state.personalTranslations[id];
-        if (saved) {
-          elements.studioUserTranslation.value = saved.translation || '';
-          elements.studioUserNotes.value = saved.notes || '';
-          if (elements.studioStatus) elements.studioStatus.textContent = `Loaded saved draft (${saved.updatedAt})`;
-        } else {
-          elements.studioUserTranslation.value = '';
-          elements.studioUserNotes.value = '';
-          if (elements.studioStatus) elements.studioStatus.textContent = 'Ready for drafting.';
-        }
-      }
-    }
-
-    elements.studioSelectText.addEventListener('change', (e) => {
-      loadSelectedPassage(e.target.value);
-    });
-
-    if (elements.studioRefTranslatorSelect) {
-      elements.studioRefTranslatorSelect.addEventListener('change', () => {
-        state.selectedStudioRefTranslator = elements.studioRefTranslatorSelect.value;
-        const id = elements.studioSelectText.value;
-        const selected = studioPassages.find(o => o.id === id);
-        updateRefTranslationDisplay(selected);
-      });
-    }
-
-    function persistPersonalTranslations() {
-      const saved = storageSet('translatechan_user_translations', JSON.stringify(state.personalTranslations));
-      if (!saved && elements.studioStatus) elements.studioStatus.textContent = '⚠️ Could not save this draft in browser storage.';
-      return saved;
-    }
-
-    // Save translation
-    if (elements.studioSaveBtn) {
-      elements.studioSaveBtn.addEventListener('click', () => {
-        const id = elements.studioSelectText.value;
-        const selected = studioPassages.find(o => o.id === id);
-        state.personalTranslations[id] = {
-          passageId: id,
-          title: selected ? selected.label : id,
-          source_zh: selected ? selected.zh : '',
-          source_pinyin: selected ? selected.pinyin : '',
-          translation: elements.studioUserTranslation.value,
-          notes: elements.studioUserNotes.value,
-          updatedAt: new Date().toLocaleString()
-        };
-        const persisted = persistPersonalTranslations();
-        if (elements.studioStatus && persisted) {
-          elements.studioStatus.textContent = '✅ Saved translation to browser storage.';
-          setTimeout(() => {
-            elements.studioStatus.textContent = `Last modified: ${new Date().toLocaleString()}`;
-          }, 2500);
-        }
-        renderSavedList();
-      });
-    }
-
-    // Export JSON
-    if (elements.studioExportJsonBtn) {
-      elements.studioExportJsonBtn.addEventListener('click', () => {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state.personalTranslations, null, 2));
-        const dlAnchor = document.createElement('a');
-        dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", "translatechan_personal_corpus.json");
-        dlAnchor.click();
-      });
-    }
-
-    // Export Markdown
-    if (elements.studioExportMdBtn) {
-      elements.studioExportMdBtn.addEventListener('click', () => {
-        let md = `# TranslateChan: Personal Translation & Scholarly Notebook\n\nGenerated: ${new Date().toISOString()}\nProject: https://github.com/56eli/translatechan\n\n---\n\n`;
-        Object.keys(state.personalTranslations).forEach(k => {
-          const item = state.personalTranslations[k];
-          md += `## ${item.title}\n\n`;
-          md += `### Classical Chinese Source\n> ${item.source_zh}\n\n`;
-          if (item.source_pinyin) md += `*Pinyin*: \`${item.source_pinyin}\`\n\n`;
-          md += `### Personal English Translation\n> ${item.translation}\n\n`;
-          md += `### Philological Commentary & Hermeneutics\n${item.notes}\n\n`;
-          md += `*Last modified: ${item.updatedAt}*\n\n---\n\n`;
-        });
-        const dataStr = "data:text/markdown;charset=utf-8," + encodeURIComponent(md);
-        const dlAnchor = document.createElement('a');
-        dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", "translatechan_scholarly_notebook.md");
-        dlAnchor.click();
-      });
-    }
-
-    // Export LaTeX
-    if (elements.studioExportLatexBtn) {
-      elements.studioExportLatexBtn.addEventListener('click', () => {
-        let tex = `% TranslateChan Academic Paper Edition
-\\documentclass[11pt,twocolumn]{article}
-\\usepackage[utf8]{inputenc}
-\\usepackage{ctex}
-\\usepackage{amsmath,amssymb}
-\\usepackage{geometry}
-\\geometry{margin=1in}
-
-\\title{TranslateChan: Critical Bilingual Editions of Classical Chinese Chan Literature}
-\\author{TranslateChan Research Scholar}
-\\date{\\today}
-
-\\begin{document}
-\\maketitle
-
-\\begin{abstract}
-This document contains personal critical translations, sentence-aligned Classical Chinese source texts, and philological notes produced via the TranslateChan platform (\\texttt{56eli/translatechan}).
-\\end{abstract}
-
-\\section{Canonical Translations}
-`;
-        Object.keys(state.personalTranslations).forEach((k, idx) => {
-          const item = state.personalTranslations[k];
-          tex += `
-\\subsection{${item.title.replace(/[#&_]/g, '\\$&')}}
-
-\\noindent\\textbf{Classical Chinese Source:}
-\\begin{quote}
-\\large ${item.source_zh}
-\\end{quote}
-
-\\noindent\\textbf{Personal Translation:}
-\\begin{quote}
-${item.translation.replace(/[#&_]/g, '\\$&')}
-\\end{quote}
-
-\\noindent\\textbf{Philological Apparatus:}
-\\begin{enumerate}
-\\item ${item.notes.replace(/[#&_]/g, '\\$&')}
-\\end{enumerate}
-`;
-        });
-        tex += `\n\\end{document}\n`;
-
-        const dataStr = "data:text/plain;charset=utf-8," + encodeURIComponent(tex);
-        const dlAnchor = document.createElement('a');
-        dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", "translatechan_edition.tex");
-        dlAnchor.click();
-      });
-    }
-
-    // Clear All
-    if (elements.studioClearAllBtn) {
-      elements.studioClearAllBtn.addEventListener('click', () => {
-        if (confirm("Are you sure you want to clear all saved personal translation drafts? This cannot be undone.")) {
-          state.personalTranslations = {};
-          if (!storageRemove('translatechan_user_translations') && elements.studioStatus) {
-            elements.studioStatus.textContent = '⚠️ Could not clear browser storage; the in-memory list was cleared.';
-          }
-          renderSavedList();
-          loadSelectedPassage(elements.studioSelectText.value);
-        }
-      });
-    }
-
-    function renderSavedList() {
-      if (!elements.studioSavedList) return;
-      const filterEl = document.getElementById('studio-draft-filter');
-      const q = stringValue(filterEl ? filterEl.value : '').trim().toLowerCase();
-      const itemFor = k => isRecord(state.personalTranslations[k]) ? state.personalTranslations[k] : {};
-      const keys = Object.keys(state.personalTranslations)
-        .filter(k => {
-          const item = itemFor(k);
-          return !q || stringValue(item.title).toLowerCase().includes(q) ||
-            stringValue(item.translation).toLowerCase().includes(q);
-        })
-        .sort((a, b) => stringValue(itemFor(b).updatedAt).localeCompare(stringValue(itemFor(a).updatedAt)));
-      if (keys.length === 0) {
-        elements.studioSavedList.innerHTML = '<p style="font-size: 0.85rem; color: var(--text-muted);">' +
-          (Object.keys(state.personalTranslations).length === 0 ? 'No saved personal translations yet.' : 'No drafts match your filter.') + '</p>';
-        return;
-      }
-      elements.studioSavedList.innerHTML = keys.map(k => {
-        const item = itemFor(k);
-        const title = stringValue(item.title);
-        const translation = stringValue(item.translation);
-        const updatedAt = stringValue(item.updatedAt);
-        return `
-          <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 0.5rem;">
-            <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
-              <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-gold);">${escHtml(title)}</div>
-              <button class="btn-pill studio-draft-delete" data-draft-id="${escHtml(k)}" style="font-size:0.68rem; color:var(--accent-red); flex:none;" aria-label="Delete draft ${escHtml(k)}">✕ Delete</button>
-            </div>
-            <div style="font-size: 0.82rem; margin: 0.25rem 0; color: var(--text-primary);">“${escHtml(translation)}”</div>
-            <div style="font-size: 0.7rem; color: var(--text-muted);">Saved: ${escHtml(updatedAt)}</div>
-          </div>
-        `;
-      }).join('');
-    }
-
-    const draftFilterEl = document.getElementById('studio-draft-filter');
-    if (draftFilterEl) draftFilterEl.addEventListener('input', renderSavedList);
-
-    window.TranslateChan.deleteDraft = function(id) {
-      if (state.personalTranslations[id]) {
-        delete state.personalTranslations[id];
-        persistPersonalTranslations();
-        renderSavedList();
-      }
-    };
-    if (elements.studioSavedList) {
-      elements.studioSavedList.addEventListener('click', (e) => {
-        const btn = e.target.closest ? e.target.closest('.studio-draft-delete') : null;
-        if (btn) window.TranslateChan.deleteDraft(btn.getAttribute('data-draft-id'));
-      });
-    }
-
-    loadSelectedPassage(studioPassages[0].id);
-    renderSavedList();
   }
 
   // ---- Search: universal segment extraction across every corpus schema ----

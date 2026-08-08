@@ -91,11 +91,11 @@
 
 **C4. Accessibility pass** — *fixes P9* · ✅ done
 - Skip-to-content link, `role="tablist"`/`aria-selected` on nav, `aria-label` on icon buttons, `:focus-visible` ring using `--border-focus`, contrast fixes (`--text-muted` darkened, or used only ≥14 px), `prefers-reduced-motion` disables `sereneFade`, `lang="zh"` on Chinese spans.
-- Acceptance: Lighthouse a11y ≥ 95 on desktop & mobile; full keyboard traversal of reader + studio.
+- Acceptance: Lighthouse a11y ≥ 95 on desktop & mobile; full keyboard traversal of reader, matrix, lineage, index, and lexicon.
 
-**C5. Studio & index polish** — *fixes P10-adjacent gaps* · ✅ done
-- Per-item delete + search box in the saved-drafts list; passage picker includes all 48 Wumenguan cases (currently 3); export menu gains a "complete text" option.
+**C5. Index polish** — *fixes P10-adjacent gaps* · ✅ done
 - Gong'an index: make theme chips clickable filters (group by collection/theme).
+- Public-scope update (2026-08-08): browser drafting controls were deliberately retired; the public app remains focused on reading, comparison, lineage, index, and lexicon.
 
 ### Phase D — "Performance & Resilience" · M · later · ✅ **implemented 2026-08-08** (D1, D2, D4; D3 intentionally skipped)
 
@@ -117,7 +117,7 @@
 | Lexicon tooltips | Hover + focus (A3) | Tap-to-open popover (A3) |
 | Font size / mode | Toolbar (persisted A4) | Thumb bar (B2, persisted A4) |
 | Lineage graph | Pan/zoom + filters + reset (C3) | Same, touch pinch (C3) |
-| Output | Print/PDF clean (C1) | Export JSON/MD/LaTeX from studio |
+| Output | Print/PDF clean (C1) | Print/PDF clean (C1) |
 | URL state | Hash routes + back (C2) | Same |
 
 ---
