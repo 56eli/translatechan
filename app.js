@@ -763,7 +763,7 @@
             { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.preface.en_red_pine || doc.preface.en_cleary || '' },
             { key: 'cleary', name: 'Thomas Cleary', text: doc.preface.en_cleary || '' },
             { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.preface.en_sasaki || '' }
-          ])}
+          ], { zh: doc.preface.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
         </div>
       `;
     }
@@ -781,7 +781,7 @@
             { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.epilogue.en_red_pine || '' },
             { key: 'cleary', name: 'Thomas Cleary', text: doc.epilogue.en_cleary || '' },
             { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.epilogue.en_sasaki || '' }
-          ])}
+          ], { zh: doc.epilogue.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
         </div>
       `;
     }
@@ -841,11 +841,11 @@
             </div>
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
             <div class="pinyin-line">${r.verse_pinyin}</div>
-            ${renderTranslationColumns(r.translations)}
+            ${renderTranslationColumns(r.translations, r.verse_zh)}
             <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--accent-green);">
               <div class="commentary-label" style="color: var(--accent-green);">曹山註解 / Caoshan Commentary</div>
               <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
-              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft')}` : ''}
+              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: r.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
             </div>
           </div>
         `;
@@ -880,7 +880,7 @@
             <div class="case-speaker">${d.speaker}</div>
             <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
             <div class="pinyin-line">${d.pinyin}</div>
-            ${renderTranslationColumns(d.translations)}
+            ${renderTranslationColumns(d.translations, d.zh)}
           </div>
         `).join('');
 
@@ -914,7 +914,7 @@
           <div class="case-speaker">${d.speaker}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${d.pinyin}</div>
-          ${renderTranslationColumns(d.translations)}
+          ${renderTranslationColumns(d.translations, d.zh)}
         </div>
       `).join('');
     }
@@ -949,7 +949,7 @@
           <div class="commentary-block" style="background: var(--bg-card); border-left-color: var(--accent-blue); margin-bottom: 1rem;">
             <div class="commentary-label" style="color: var(--accent-blue);">垂示 / Pointer</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
-            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.88rem; color: var(--text-secondary);">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft')}` : ''}
+            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.88rem; color: var(--text-secondary);">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft', { zh: caseItem.pointer_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${dialoguesHtml}
@@ -958,7 +958,7 @@
             <div class="commentary-label">無門評唱 / Commentary</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.commentary_pinyin || ''}</div>
-            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft')}` : ''}
+            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: caseItem.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${caseItem.verse_zh ? `
@@ -966,7 +966,7 @@
             <div class="commentary-label" style="color: var(--accent-green);">頌曰 / Verse</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.verse_pinyin || ''}</div>
-            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft')}` : ''}
+            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         </div>
@@ -981,7 +981,7 @@
         <div class="case-speaker">${d.speaker}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${d.pinyin}</div>
-        ${renderTranslationColumns(d.translations)}
+        ${renderTranslationColumns(d.translations, d.zh)}
       </div>
     `).join('');
 
@@ -991,7 +991,7 @@
         <div class="case-speaker">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${st.pinyin}</div>
-        ${renderTranslationColumns(st.translations)}
+        ${renderTranslationColumns(st.translations, st.zh)}
       </div>
     `).join('');
 
@@ -1012,7 +1012,7 @@
         <div class="case-speaker">${d.speaker}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${d.pinyin}</div>
-        ${renderTranslationColumns(d.translations)}
+        ${renderTranslationColumns(d.translations, d.zh)}
       </div>
     `).join('');
 
@@ -1035,7 +1035,7 @@
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${st.pinyin}</div>
-        ${renderTranslationColumns(st.translations)}
+        ${renderTranslationColumns(st.translations, st.zh)}
       </div>
     `;
   }
@@ -1048,7 +1048,7 @@
           <div class="case-speaker">${v.author}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(v.zh)}</div>
           <div class="pinyin-line">${v.pinyin}</div>
-          ${renderTranslationColumns(v.translations)}
+          ${renderTranslationColumns(v.translations, v.zh)}
           ${v.recension_note ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${v.recension_note}</div>` : ''}
         </div>
       `).join('');
@@ -1058,7 +1058,7 @@
           <div class="case-speaker">${d.speaker}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${d.pinyin}</div>
-          ${renderTranslationColumns(d.translations)}
+          ${renderTranslationColumns(d.translations, d.zh)}
         </div>
       `).join('');
     }
@@ -1109,8 +1109,8 @@
       };
     }
     return {
-      label: '⚠️ Register reconstruction',
-      title: 'AI-crafted rendering in this scholar\'s documented register — not a verbatim published quotation.',
+      label: '⚠️ AI register reconstruction',
+      title: 'Written for TranslateChan using broad style characteristics associated with this translator. It was not copied from, checked against, or attributable as wording in that translator’s book; do not cite it as their translation.',
       className: 'is-reconstruction'
     };
   }
@@ -1137,8 +1137,22 @@
     return sources.find(item => item && item.source_id === sourceId) || null;
   }
 
-  function renderTranslationSource(entry, translatorName) {
+  function renderOriginalSourceRows(context = {}) {
+    const zh = stringValue(context.zh);
+    const locator = isRecord(context.locator) ? context.locator : null;
+    const rows = [];
+    if (zh) rows.push(['Original Chinese source', zh]);
+    if (locator) {
+      rows.push(['Canonical source', stringValue(locator.canonical_id) || 'Canonical identifier pending']);
+      rows.push(['Source locator', stringValue(locator.canonical_locator) || 'Exact locator pending']);
+      rows.push(['Source verification status', stringValue(locator.status) || 'Status pending']);
+    }
+    return rows;
+  }
+
+  function renderTranslationSource(entry, translatorName, originalContext = {}) {
     const translator = stringValue(translatorName) || formatTranslatorName(entry.key);
+    const originalRows = renderOriginalSourceRows(originalContext);
     if (entry.status === 'verified_quotation') {
       if (!isRecord(entry.source)) {
         const detail = {
@@ -1147,7 +1161,8 @@
             ['Translator', translator],
             ['Status', 'Verified quotation'],
             ['Book / edition', 'Source record pending'],
-            ['Page / section', 'Locator pending']
+            ['Page / section', 'Locator pending'],
+            ...originalRows
           ]
         };
         return `<div class="translation-source source-missing">⚠️ Source record pending ${renderCitationTrigger(detail, 'ⓘ Citation')}</div>`;
@@ -1168,7 +1183,8 @@
           ['Page / section', page],
           ['Verification', stringValue(source.verification) || 'Verification note pending'],
           ['Rights record', sourceId || 'Rights identifier pending'],
-          ['Rights status', rights ? stringValue(rights.rights_status) : 'Rights record pending']
+          ['Rights status', rights ? stringValue(rights.rights_status) : 'Rights record pending'],
+          ...originalRows
         ]
       };
       return `<div class="translation-source">📖 <strong>${escHtml(translator)}</strong> · ${escHtml(work)}<br>Edition: ${escHtml(edition)}<br>Page / section: ${escHtml(page)} ${renderCitationTrigger(detail, 'ⓘ Citation')}</div>`;
@@ -1185,18 +1201,20 @@
         ['Status', isAi ? 'AI draft' : 'Register reconstruction'],
         ['Book / edition', 'Not applicable — this displayed text is not a verified quotation'],
         ['Page / section', 'Not applicable — citation prohibited for this project draft'],
-        ['Disclosure', disclosure]
+        ['Disclosure', disclosure],
+        ['Citation rule', isAi ? 'Do not cite as an external translation.' : 'Do not cite as a translation by the named scholar.'],
+        ...originalRows
       ]
     };
     return `<div class="translation-source source-disclosure">${isAi ? '🤖' : '⚠️'} <strong>${escHtml(translator)}</strong> — ${escHtml(disclosure)} ${renderCitationTrigger(detail, 'ⓘ Disclosure')}</div>`;
   }
 
-  function renderProjectDraftDisclosure(label = 'Project AI draft') {
+  function renderProjectDraftDisclosure(label = 'Project AI draft', originalContext = {}) {
     if (state.readerMode === 'chinese_only') return '';
-    return renderTranslationSource({ key: 'ai_project', status: 'ai_draft', source: null }, label);
+    return renderTranslationSource({ key: 'ai_project', status: 'ai_draft', source: null }, label, originalContext);
   }
 
-  function renderFlatTranslationColumns(entries) {
+  function renderFlatTranslationColumns(entries, originalContext = {}) {
     return `
       <div class="translation-grid">
         ${entries.map(item => {
@@ -1208,16 +1226,17 @@
                 ${renderTranslationStatus(entry)}
               </div>
               <div class="translation-text">${escHtml(entry.text)}</div>
-              ${renderTranslationSource(entry, item.name || formatTranslatorName(item.key))}
+              ${renderTranslationSource(entry, item.name || formatTranslatorName(item.key), originalContext)}
             </div>`;
         }).join('')}
       </div>`;
   }
 
-  function renderTranslationColumns(translations) {
+  function renderTranslationColumns(translations, zh = '') {
     if (!translations) return '';
     if (state.readerMode === 'chinese_only') return '';
 
+    const originalContext = { zh, locator: locatorDocumentForKey(state.currentCorpusKey) };
     const keys = Object.keys(translations);
     if (keys.length === 0) return '';
 
@@ -1239,7 +1258,7 @@
               ${renderTranslationStatus(entry)}
             </div>
             <div class="translation-text">${escHtml(entry.text)}</div>
-            ${renderTranslationSource(entry, formatTranslatorName(k))}
+            ${renderTranslationSource(entry, formatTranslatorName(k), originalContext)}
           </div>`;
         }).join('')}
       </div>
@@ -1313,7 +1332,7 @@
                 <div class="matrix-text">“${escHtml(entry.text)}”</div>
               </div>
               ${renderTranslationStatus(entry)}
-              ${renderTranslationSource(entry, t.translator)}
+              ${renderTranslationSource(entry, t.translator, { zh: item.sentence_zh, locator })}
               <div class="matrix-note">💡 ${escHtml(t.notes)}</div>
             </div>
             `;

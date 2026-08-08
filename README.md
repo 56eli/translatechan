@@ -18,7 +18,7 @@
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
-Every visible translation register in the Reader and Comparative Matrix carries a **✅ Verified quotation**, **⚠️ Register reconstruction**, or **🤖 AI draft** badge. A verified item also exposes its recorded source details; reconstructions are AI-composed in a scholar's documented style and are *not* citable. The verification campaign delivered:
+Every visible translation register in the Reader and Comparative Matrix carries a **✅ Verified quotation**, **⚠️ AI register reconstruction**, or **🤖 AI draft** badge. Every translation disclosure also quotes its aligned original Chinese and shows the canonical source locator/status. A verified item exposes its recorded edition and verification details; a register reconstruction is newly written project text using broad style characteristics associated with a scholar, **not** copied from, checked against, or attributable as wording in that scholar's work, and is *not* citable. The verification campaign delivered:
 
 - **138 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).

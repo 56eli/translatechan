@@ -236,6 +236,20 @@ if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandl
   if (!citationPopover || !citationPopover._innerHTML.includes('Canonical location')) {
     failures++; console.log('❌ citation hover popover did not render source details');
   }
+  // Translation disclosures must carry the aligned Chinese excerpt and source-review state.
+  const allCitationIds = [...wmHtml.matchAll(/data-citation-id="([^"]+)"/g)].map(m => m[1]);
+  let hasOriginalSourceDisclosure = false;
+  for (const id of allCitationIds) {
+    citationTrigger.getAttribute = () => id;
+    (documentHandlers.mouseover || []).forEach(fn => fn({ target, relatedTarget: null }));
+    if (citationPopover && citationPopover._innerHTML.includes('Original Chinese source') && citationPopover._innerHTML.includes('Source verification status')) {
+      hasOriginalSourceDisclosure = true;
+      break;
+    }
+  }
+  if (!hasOriginalSourceDisclosure) {
+    failures++; console.log('❌ translation disclosure omitted original Chinese or canonical verification status');
+  }
 }
 // 4j. Tooltip DOM is de-duplicated: no embedded .term-tooltip nodes remain in reader output
 if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded tooltip markup still emitted (de-dup regression)'); }
