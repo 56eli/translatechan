@@ -521,9 +521,9 @@ diff -rq data docs/data
 | Dataset | Current measured state |
 |---|---|
 | Corpus | 36 structured documents; Wumenguan is complete at 48/48 cases + preface/epilogue; the other 35 remain excerpt-scale seeds |
-| Classical Chinese size | 13,090 CJK characters in source-content `*_zh` fields after excluding title/author metadata; 16,270 CJK characters across all JSON strings. Documentation should name the counting method rather than imply that both are the same measure. |
+| Classical Chinese size | 13,268 CJK characters in source-content `*_zh` fields after excluding title/author metadata; 16,457 CJK characters across all JSON strings. Documentation should name the counting method rather than imply that both are the same measure. |
 | Translation slots in corpus | 856 total: 138 object-form `verified_quotation`, 692 implicit scholar-register reconstructions, 26 AI drafts |
-| Verified corpus slots by text | Wumenguan 119; Linji 6; Zhaozhou 5; Huangbo *Chuanxin* 4; Platform Sutra 2; Xinxin Ming 2 |
+| Verified corpus slots by text | Wumenguan 119; Linji 6; Zhaozhou 5; Huangbo (Chuanxin T2012A 2 + Wanling T2012B 2) 4; Platform Sutra 2; Xinxin Ming 2 |
 | Comparative Matrix | 4 rows / 21 translator entries; all 21 have explicit status; 2 verified entries carry source records |
 | Glossary / lineage / gong’an index | 31 terms / 30 master profiles / 18 index entries |
 | Lineage links | 26 in-set teacher edges render; four teacher references deliberately point beyond the current dataset (Prajñātāra, Longtan Chongxin, Yangqi Fanghui, Dahong Laoniu Zuzheng) |

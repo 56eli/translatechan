@@ -59,7 +59,7 @@ All commands pass. Root and `/docs` assets/data are synchronized.
 
 ### Merge readiness
 
-Current branch: `arena/019fe2e0-translatechan`. Before merging, confirm the local quality gate above and the required **Quality** check; after merge, Pages republishes `main` → `/docs` automatically. GitHub Pages will republish `main` → `/docs` automatically.
+Current branch: `arena/019fe30b-translatechan`. Before merging, confirm the local quality gate above and the required **Quality** check; after merge, Pages republishes `main` → `/docs` automatically. GitHub Pages will republish `main` → `/docs` automatically.
 
 ---
 
