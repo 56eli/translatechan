@@ -22,32 +22,37 @@ The TranslateChan project has been fully established with:
 
 ---
 
-## ✅ Current Session Handoff — 2026-08-08
+## ✅ Current Session Handoff — 2026-08-08 (session `arena/019fe30b-translatechan`)
 
 ### Public Pages scope
 
-This branch deliberately publishes only **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon**. Translation Studio, Arena-agent branding, and the header GitHub repository link were removed from root and `/docs` assets; the smoke test guards against their return.
+The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return).
 
-### Branch delta and current release state
+### What this session delivered (7 commits, all gates green)
 
-This branch adds the checked-in **Quality** workflow, evidence-first release controls, and two completed **locator pilots**: all four rendered Linji sections are linked to T1985 line-head ranges and all seven rendered Xinxin Ming stanzas are linked to T2010 line-head ranges. Their public Reader disclosures say **“collated with documented normalization — human sign-off pending”**; none is represented as a source-checked scholarly edition. The UI now carries the aligned original Chinese and canonical source status in every translation disclosure, and defines an AI register reconstruction as newly written project text—not wording copied from, verified against, or attributable to the named scholar.
-
-The Huangbo seed was corrected for witness integrity: the One Mind material remains in `huangbo_chuanxin.json` (T2012A), while the unconditioned-compassion Q&A was moved to `huangbo_wanling.json` (T2012B). The moved material still needs its own unit-level collation; the queue documents this openly. These changes do not upgrade unresolved seed excerpts, translation rights, or lineage relationships to source-verified status.
+1. **Full-project audit** (`SESSION_AUDIT_2026-08-08_019fe30b.md`, durable log in `AUDIT.md` §11): no P0/P1; every prior remediation verified holding; documentation-drift fixes (CJK counts in README/AUDIT, HANDOFF branch line, Huangbo verified-slot split).
+2. **a11y/CSP hardening (F3)**: all inline `onclick` handlers replaced by a document-level delegated handler over `data-*` attributes; glossary terms open on Enter/Space; complete ARIA tabs (tablist/tab/tabpanel, roving tabindex, arrow/Home/End); restrictive CSP meta (`script-src 'self'`); smoke checks 4u–4x.
+3. **Deterministic per-text coverage metrics (F4)**: `validate_data.py --write-metrics` now emits `project_metrics.json → corpus.per_text` for all 36 texts (zh counts, shapes, unit counts, `N/M units` coverage strings); validator-enforced `zh_chars`/`coverage_note`/manifest `unit_targets` rules — which immediately caught a stale `zh_chars` in wumenguan (5,876 → 5,528).
+4. **Optional Playwright real-browser suite (F10)**: `scripts/browser_test.mjs` (12 tests, desktop + mobile, self-spawning server, graceful skip without Chromium); `package.json`/lockfile added; not part of CI.
+5. **Release-ops (F7/F9)**: script docstrings narrowed to actual behavior; HANDOFF "Repository administration" checklist for requiring the Quality check on `main` (owner-only ~2-minute action).
+6. **Phase-2 content pilot: Biyanlu cases 4–10** — first 10 cases complete (pointer, 本則, pre-verse 評唱, 頌), zh collated byte-exact from CBETA TEI T48n2003 (sparse-cloned from `cbeta-org/xml-p5`), all 14 case locators now carry CBETA line ranges, new renderings are labeled AI drafts, gongan index 18 → 23 entries, `coverage_note`/`zh_chars` added.
+7. **User-perspective UX pass**: new `📊 Coverage` disclosure in every reader header (excerpts can no longer be mistaken for complete texts), hero chip "Zero-Backend Offline" → "Zero-Backend Static", inline SVG favicon.
 
 ### Source, translation, and lineage disclosure
 
-- Every public Reader document/case now shows a canonical source location plus hover/focus/touch details. The Matrix resolves canonical source context through the same registry.
-- Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **135 / 140** verified quotation records now have a recorded case/page/section reference; the remaining **5** are explicitly marked pending rather than fabricated.
-- AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation.
-- The lineage graphic now reads from the verification registry: **30** in-set links and **4** frontiers are source-status aware; traditional links remain visually and textually pending until exact chart/record locators are reviewed. The chart was reworked into spacious vertical generation rows with source-aware edge interaction.
+- Every public Reader document/case shows a canonical source location plus hover/focus/touch details, **and now a validator-derived coverage disclosure** (e.g. `48/48 cases`, `14/100 cases`, `Excerpt seed (N units)`).
+- Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **135 / 140** verified quotation records have a recorded reference; the remaining **5** are explicitly pending.
+- AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation; the new Biyanlu renderings are `ai_literal` project drafts.
+- The lineage graphic reads from the verification registry: **30** in-set links and **4** frontiers are source-status aware; traditional links remain pending until exact locators are reviewed.
 
 ### Quality gate run before handoff
 
 ```bash
 python3 -m py_compile scripts/*.py
-python3 scripts/validate_data.py
+python3 scripts/validate_data.py          # corpus=36 | slots=874 | verified=138 | matrix=21 | locators=64/64
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
+node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium
 diff -rq data docs/data
 ```
 

@@ -179,7 +179,7 @@ translatechan/
 │   ├── lineage/                # masters.json + verification + profile_review_queue (30 links / 4 frontiers)
 │   ├── translations/           # matrix, provenance, and rights manifest
 │   ├── glossary/           # chan_terms.json (31 terms)
-│   └── gongan/             # gongan_index.json (18 cases)
+│   └── gongan/             # gongan_index.json (23 cases)
 └── scripts/                # Ingestion, validation & parsing tools
     ├── ingest_cbeta.py        # Offline segmenter (manual input)
     ├── validate_data.py       # Semantic/rights/locator validator + metrics generator
