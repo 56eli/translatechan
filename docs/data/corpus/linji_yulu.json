@@ -1,0 +1,129 @@
+{
+  "id": "linji_yulu",
+  "title_zh": "鎮州臨濟慧照禪師語錄",
+  "title_pinyin": "Zhènzhōu Línjì Huìzhào Chánshī Yǔlù",
+  "title_en": "The Record of Linji (The Zen Teaching of Rinzai)",
+  "cbeta_id": "T1985",
+  "taisho_vol": 47,
+  "author_zh": "臨濟義玄 禪師 說 / 門人 三聖慧然 編",
+  "author_en": "Recorded Sayings of Chan Master Linji Yixuan (d. 866), Compiled by Sansheng Huiran",
+  "era": "Late Tang Dynasty (c. 867 CE)",
+  "genre": "Discourse Record & Dynamic Encounters (語錄與棒喝)",
+  "sections": [
+    {
+      "section_id": "sermon_1",
+      "title_zh": "上堂法要：無位真人",
+      "title_pinyin": "Shàngtáng Fǎyào: Wúwèi Zhēnrén",
+      "title_en": "Sermon: The True Person of No Rank",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "師示眾云：「赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！」",
+          "pinyin": "Shī shì zhòng yún: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!'",
+          "translations": {
+            "red_pine": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
+            "sasaki": "The Master instructed the assembly, saying: 'On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!'",
+            "cleary": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
+            "suzuki": "The Master said: 'In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "時有僧出問：「如何是無位真人？」",
+          "pinyin": "Shí yǒu sēng chū wèn: 'Rúhé shì wú wèi zhēn rén?'",
+          "translations": {
+            "red_pine": "Then a monk came forward and asked: 'What is the True Person without rank?'",
+            "sasaki": "Then a monk came forward and asked: 'What is the True Person of No Rank?'",
+            "cleary": "Then a monk came forward and asked, 'What is the true human of no status?'",
+            "suzuki": "A monk stepped out and asked: 'What kind of person is the True Man of No Title?'"
+          }
+        },
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "師下禪床，把住云：「道！道！」僧擬議。師託開云：「無位真人是什麼乾屎橛！」便歸方丈。",
+          "pinyin": "Shī xià chánchuáng, bǎzhù yún: 'Dào! Dào!' Sēng nǐyì. Shī tuōkāi yún: 'Wú wèi zhēn rén shì shénme gān shǐ jué!' Biàn guī fāngzhàng.",
+          "translations": {
+            "red_pine": "The Master got down from the meditation bench, seized the monk, and shouted: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person without rank—what a dried shit-stick!' and returned to his abbot's room.",
+            "sasaki": "The Master stepped down from the meditation seat, seized the monk, and said: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person of No Rank—what a dry shit-stick!' and returned to his quarters.",
+            "cleary": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
+            "suzuki": "The Master descended from his chair, seized the monk by the throat, and cried: 'Speak! Speak!' The monk faltered. Pushing him away, the Master shouted: 'What a worthless dried dirt scraper is your True Man of No Rank!' and returned to his abbot room."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "four_shouts",
+      "title_zh": "臨濟四喝：金剛王寶劍",
+      "title_pinyin": "Línjì Sìhè: Jīngāng Wáng Bǎojiàn",
+      "title_en": "The Four Shouts of Linji",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "師問僧：「有時一喝如金剛王寶劍，有時一喝如金毛師子蹲地，有時一喝如探竿影草，有時一喝不作一喝用。汝作麼生會？」",
+          "pinyin": "Shī wèn sēng: 'Yǒu shí yī hè rú jīngāng wáng bǎojiàn, yǒu shí yī hè rú jīnmáo shīzǐ dūndì, yǒu shí yī hè rú tàngān yǐngcǎo, yǒu shí yī hè bù zuò yī hè yòng. Rǔ zuò me shēng huì?'",
+          "translations": {
+            "red_pine": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the sacred king; sometimes a shout is like the golden-haired lion crouching on the earth; sometimes a shout is like a probe pole and grass shadow; sometimes a shout does not function as a shout. How do you understand this?'",
+            "sasaki": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the vajra king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a sounding pole and feather shadow; sometimes a shout does not function as a shout. How do you understand this?'",
+            "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'"
+          }
+        },
+        {
+          "speaker": "Monk / 僧",
+          "zh": "僧擬議。師便喝。",
+          "pinyin": "Sēng nǐyì. Shī biàn hè.",
+          "translations": {
+            "red_pine": "The monk hesitated to reply. The Master immediately gave a resounding shout!",
+            "sasaki": "The monk hesitated. The Master gave a shout!",
+            "cleary": "The monk deliberated. The Master gave a shout."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "four_host_guest",
+      "title_zh": "臨濟四主賓：主看客，客看主",
+      "title_pinyin": "Línjì Sì Zhǔbīn: Zhǔ Kàn Kè, Kè Kàn Zhǔ",
+      "title_en": "The Four Host and Guest Dynamics",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "師示眾云：「參學者，有主看客，有客看主，有主看主，有客看客。若主看主，如兩刃相交，互不相讓，乃作家相見；若客看客，如泥牛入海，彼此盲引，同入火坑。」",
+          "pinyin": "Shī shì zhòng yún: 'Cānxué zhě, yǒu zhǔ kàn kè, yǒu kè kàn zhǔ, yǒu zhǔ kàn zhǔ, yǒu kè kàn kè. Ruò zhǔ kàn zhǔ, rú liǎng rèn xiāng jiāo, hù bù xiāng ràng, nǎi zuòjiā xiāngjiàn; ruò kè kàn kè, rú níniú rù hǎi, bǐcǐ máng yǐn, tóng rù huǒkēng.'",
+          "translations": {
+            "red_pine": "The Master instructed the assembly: 'Among practitioners, there is host seeing guest, guest seeing host, host seeing host, and guest seeing guest. When host meets host, it is like two sword blades crossing without either retreating—this is the meeting of true masters. When guest meets guest, it is like clay oxen dissolving into the sea, blindly leading each other into the fiery pit.'",
+            "sasaki": "The Master instructed the monks: 'In the encounter between seekers, there is host viewing guest, guest viewing host, host viewing host, and guest viewing guest. When host views host, it is like two crossed swords, neither yielding—this is authentic masters meeting. When guest views guest, both are blind.'",
+            "cleary": "The Master said to the group: 'Among practitioners, there is host viewing guest, guest viewing host, host viewing host, and guest viewing guest. When host views host, it is like two crossed swords, neither yielding—this is true masters meeting. When guest views guest, they blindly lead each other into a pit of fire.'"
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "blind_donkey",
+      "title_zh": "滅卻正法眼：誰知吾正法眼藏向這瞎驢邊滅卻！",
+      "title_pinyin": "Mièquè Zhèng Fǎyǎn: Shuí zhī wú zhèng fǎyǎn zàng xiàng zhè xiālǘ biān mièquè!",
+      "title_en": "Extinguishing the True Dharma Eye: The Blind Donkey",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "師遷化時，囑三聖曰：「吾滅後，不得滅卻吾正法眼藏。」三聖曰：「怎敢滅卻和尚正法眼藏！」",
+          "pinyin": "Shī qiānhuà shí, zhǔ Sānshèng yuē: 'Wú miè hòu, bùdé miè què wú zhèng fǎyǎn zàng.' Sānshèng yuē: 'Zěn gǎn miè què héshang zhèng fǎyǎn zàng!'",
+          "translations": {
+            "red_pine": "When the Master was about to pass away, he entrusted Sansheng: 'After I pass, you must not extinguish my treasury of the true Dharma eye.' Sansheng said: 'How could I dare extinguish the Master's treasury of the true Dharma eye!'",
+            "sasaki": "When the Master was about to enter nirvana, he instructed Sansheng: 'After my death, do not destroy my Eye Treasury of the True Law.' Sansheng said: 'How could I dare destroy your Eye Treasury of the True Law!'",
+            "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'"
+          }
+        },
+        {
+          "speaker": "Sansheng / 三聖",
+          "zh": "師曰：「已後有人問汝，汝向他道甚麼？」三聖便喝。師曰：「誰知吾正法眼藏，向這瞎驢邊滅卻！」言訖端坐示寂。",
+          "pinyin": "Shī yuē: 'Yǐhòu yǒu rén wèn rǔ, rǔ xiàng tā dào shènme?' Sānshèng biàn hè. Shī yuē: 'Shuí zhī wú zhèng fǎyǎn zàng, xiàng zhè xiālǘ biān mièquè!' Yán qì duānzuò shìjì.",
+          "translations": {
+            "red_pine": "The Master said: 'If someone asks you in the future, what will you say to them?' Sansheng immediately gave a thunderous shout! The Master smiled and said: 'Who would have known that my treasury of the true Dharma eye would be extinguished by this blind donkey!' Saying this, he sat upright and passed away.",
+            "sasaki": "The Master asked: 'If someone asks you in the future, what will you say?' Sansheng shouted! The Master said: 'Who would have thought that my Eye Treasury of the True Law would be destroyed by this blind donkey!' Having said this, the Master sat upright and passed away.",
+            "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on."
+          }
+        }
+      ]
+    }
+  ]
+}

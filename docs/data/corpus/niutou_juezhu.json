@@ -1,0 +1,89 @@
+{
+  "id": "niutou_juezhu",
+  "title_zh": "牛頭法融禪師 絕觀論",
+  "title_pinyin": "Niútóu Fǎróng Chánshī Juéguān Lùn",
+  "title_en": "Treatise on the Transcendence of Cognition (Juezhu Lun)",
+  "cbeta_id": "Dunhuang P.2885 / S.5619",
+  "taisho_vol": 48,
+  "author_zh": "牛頭山 法融 禪師 (594–657 CE)",
+  "author_en": "Chan Master Niutou Farong, Founder of the Oxhead (Niutou) School",
+  "era": "Early Tang Dynasty (7th Century)",
+  "genre": "Dunhuang Proto-Chan Masterwork (絕觀論)",
+  "overview": "The earliest dialogue-format Chan philosophical masterpiece discovered in the Dunhuang caves, setting forth the radical non-dual ontology where not establishing a mind is the true pacification of mind.",
+  "sections": [
+    {
+      "section_id": "nature_of_mind",
+      "title_zh": "問答發端：何者為心？何者為安心？",
+      "title_pinyin": "Wèndá Fāduān: Hézhě Wéi Xīn? Hézhě Wéi Ānxīn?",
+      "title_en": "The Opening Dialogue: What is Mind and Pacifying the Mind?",
+      "dialogue": [
+        {
+          "speaker": "Student / 問曰",
+          "zh": "問曰：夫欲入道者，當知本源。何者為心？何者為安心？",
+          "pinyin": "Wèn yuē: Fú yù rù dào zhě, dāng zhī běnyuán. Hézhě wéi xīn? Hézhě wéi ānxīn?",
+          "translations": {
+            "red_pine": "Question: One who wishes to enter the Way must understand the primordial source. What is the mind? And what is pacifying the mind?",
+            "cleary": "Question: Those who wish to enter the Way should know the fundamental source. What is mind? What is pacifying mind?",
+            "sasaki": "Question: He who desires to enter the Tao must know the primal root. What is mind? What is pacification of mind?"
+          }
+        },
+        {
+          "speaker": "Master Farong / 答曰",
+          "zh": "答曰：汝不應立心，亦不應求安心。無心可立，無安可求，是名安心。",
+          "pinyin": "Dá yuē: Rǔ bù yīng lì xīn, yì bù yīng qiú ānxīn. Wú xīn kě lì, wú ān kě qiú, shì míng ānxīn.",
+          "translations": {
+            "red_pine": "Answer: You should not establish a mind, nor should you seek to pacify it. When there is no mind to establish and no pacification to seek: this is named pacifying the mind.",
+            "cleary": "Answer: You should not set up a mind, nor should you seek to pacify mind. Having no mind to set up, and no pacification to seek, is called pacifying mind.",
+            "sasaki": "Answer: You must not posit a mind, nor must you seek to pacify it. No mind to establish, no peace to seek: this is called peace of mind."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "seeing_without_seer",
+      "title_zh": "見無所見：真見與真知",
+      "title_pinyin": "Jiàn Wú Suǒ Jiàn: Zhēnjiàn yǔ Zhēnzhī",
+      "title_en": "Seeing Without a Seer: True Seeing and True Knowing",
+      "dialogue": [
+        {
+          "speaker": "Student / 問曰",
+          "zh": "問曰：若無心者，阿誰能見？阿誰能知？",
+          "pinyin": "Wèn yuē: Ruò wú xīn zhě, ā shuí néng jiàn? Ā shuí néng zhī?",
+          "translations": {
+            "red_pine": "Question: If there is no mind, who is it that can see? Who is it that can know?",
+            "cleary": "Question: If there is no mind, who can see? Who can know?",
+            "sasaki": "Question: If there is no mind, who is it that sees? Who is it that knows?"
+          }
+        },
+        {
+          "speaker": "Master Farong / 答曰",
+          "zh": "答曰：見無所見，是為真見；知無所知，是為真知。見非眼根，知非心量。空寂體中，任運洞照。",
+          "pinyin": "Dá yuē: Jiàn wú suǒ jiàn, shì wéi zhēn jiàn; zhī wú suǒ zhī, shì wéi zhēn zhī. Jiàn fēi yǎngēn, zhī fēi xīnliàng. Kōngjì tǐ zhōng, rènyùn dòngzhào.",
+          "translations": {
+            "red_pine": "Answer: Seeing without any object seen is true seeing; knowing without any object known is true knowing. Seeing does not belong to the eye organ; knowing does not belong to intellectual calculation. In the substance of empty stillness, spontaneous illumination functions unobstructed.",
+            "cleary": "Answer: Seeing without seeing anything is true seeing; knowing without knowing anything is true knowing. Seeing is not of the eye faculty; knowing is not of mental calculation. Within the substance of empty stillness, illumination operates spontaneously.",
+            "sasaki": "Answer: To see without seeing an object is true seeing; to know without knowing an object is true knowing. In the silent void of nature, radiant illumination functions freely."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "four_patriarch_meeting",
+      "title_zh": "四祖道信點化：百鳥不獻花",
+      "title_pinyin": "Sìzǔ Dàoxìn Diǎnhuà: Bǎiniǎo Bù Xiànhuā",
+      "title_en": "Fourth Patriarch Daoxin Instructs Niutou: The Birds Bring No Flowers",
+      "dialogue": [
+        {
+          "speaker": "Narrative / 傳記",
+          "zh": "師初住幽棲寺北岩，百鳥銜花獻供。及四祖道信往訪，為說心地法要，悟得本來無物。自此百鳥不復來獻花。蓋以前有跡可尋，悟後神鬼莫測矣。",
+          "pinyin": "Shī chū zhù Yōuqī Sì běiyán, bǎiniǎo xiánhuā xiàngòng. Jí Sìzǔ Dàoxìn wǎng fǎng, wèi shuō xīndì fǎyào, wù dé běnlái wú wù. Zì cǐ bǎiniǎo bù fù lái xiànhuā. Gài yǐqián yǒu jī kě xún, wù hòu shénguǐ mò cè yǐ.",
+          "translations": {
+            "red_pine": "When Master Farong first dwelt at the northern cliff of Youqi Temple, hundreds of wild birds carried flowers in their beaks to make offerings. When the Fourth Patriarch Daoxin visited and transmitted the Mind Dharma, Farong realized that fundamentally not a single thing exists. From that moment on, the birds no longer brought flowers—because before his awakening there was still a trace to be found; after awakening, even spirits and ghosts could not fathom him.",
+            "cleary": "When the Master first lived on the northern cliff, wild birds brought flowers in their beaks. When the Fourth Patriarch Daoxin visited and preached the essence of Mind, he realized that originally not a thing exists. Thereafter the birds no longer brought flowers: before, he had traces; after, even spirits could not detect him.",
+            "sasaki": "Before meeting Daoxin, birds brought flowers to Farong's cave because of his pious aura. After awakening to the Great Emptiness, the birds appeared no more, for he left no trace in heaven or earth."
+          }
+        }
+      ]
+    }
+  ]
+}

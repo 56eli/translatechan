@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
 """
-TranslateChan Data Bundler & Docs Sync
+TranslateChan Data Bundler
 Combines all canonical texts, lineage graphs, glossaries, comparative translations,
-and gong'an indices into a consolidated, high-speed dataset for client-side execution,
-and synchronizes with /docs/ for seamless GitHub Pages deployment.
+and gong'an indices into a consolidated, high-speed dataset for client-side execution.
 """
 
 import json
 import os
-import shutil
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
-DOCS_DIR = BASE_DIR / "docs"
 OUTPUT_FILE = BASE_DIR / "app_data.js"
-DOCS_OUTPUT_FILE = DOCS_DIR / "app_data.js"
 
 def load_json(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -77,22 +73,10 @@ def main():
 
     js_content = f"// Auto-generated TranslateChan Master Corpus Bundle\nwindow.TRANSLATECHAN_DATA = {json.dumps(data_bundle, ensure_ascii=False, indent=2)};\n"
 
-    # Write root bundle
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
         f.write(js_content)
 
-    # Ensure /docs directory exists and sync assets
-    DOCS_DIR.mkdir(parents=True, exist_ok=True)
-    with open(DOCS_OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        f.write(js_content)
-
-    for item in ["index.html", "app.css", "app.js"]:
-        src_path = BASE_DIR / item
-        if src_path.exists():
-            shutil.copy2(src_path, DOCS_DIR / item)
-
-    print(f"✅ Successfully compiled root bundle: {OUTPUT_FILE} ({os.path.getsize(OUTPUT_FILE):,} bytes)")
-    print(f"✅ Successfully synchronized /docs for GitHub Pages deployment: {DOCS_DIR}")
+    print(f"✅ Successfully compiled bundle to {OUTPUT_FILE} ({os.path.getsize(OUTPUT_FILE):,} bytes)")
 
 if __name__ == "__main__":
     main()

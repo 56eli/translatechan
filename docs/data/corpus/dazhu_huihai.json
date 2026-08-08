@@ -1,0 +1,99 @@
+{
+  "id": "dazhu_huihai",
+  "title_zh": "大珠慧海禪師 頓悟入道要門論與諸方問答",
+  "title_pinyin": "Dàzhū Huìhǎi Chánshī Dùnwù Rùdào Yàomén Lùn yǔ Zhūfāng Wèndá",
+  "title_en": "The Zen Teaching of Hui Hai: On Sudden Awakening & Dialogues with All Quarters",
+  "cbeta_id": "X1258 / T2076",
+  "taisho_vol": 47,
+  "author_zh": "唐 大珠慧海 禪師 說 (馬祖法嗣)",
+  "author_en": "Chan Master Dazhu Huihai (fl. 8th Century), Dharma Heir of Mazu Daoyi",
+  "era": "High Tang Dynasty",
+  "genre": "Sudden Enlightenment Treatise & Dharma-Nature Dialogues (頓悟法門與法性)",
+  "overview": "The celebrated High Tang guide to Southern Chan sudden realization, famously praised by Mazu as 'the flawless great pearl', demonstrating that one's own mind is the inexhaustible treasure house requiring no external seeking.",
+  "sections": [
+    {
+      "section_id": "treasure_house",
+      "title_zh": "馬祖點化：自家寶藏",
+      "title_pinyin": "Mǎzǔ Diǎnhuà: Zìjiā Bǎozàng",
+      "title_en": "Mazu Points to the Family Treasure: The Inexhaustible Treasury Within",
+      "dialogue": [
+        {
+          "speaker": "Mazu / 馬祖",
+          "zh": "師初參馬祖。祖問：「從何處來？」師曰：「越州大雲寺來。」祖曰：「來此擬須何事？」師曰：「來求佛法。」祖曰：「我這裏一物也無，求甚麼佛法？自家寶藏不顧，拋家散走，作甚麼！」",
+          "pinyin": "Shī chū cān Mǎzǔ. Zǔ wèn: 'Cóng hé chù lái?' Shī yuē: 'Yuèzhōu Dàyún Sì lái.' Zǔ yuē: 'Lái cǐ nǐ xū hé shì?' Shī yuē: 'Lái qiú fófǎ.' Zǔ yuē: 'Wǒ zhèlǐ yī wù yě wú, qiú shènme fófǎ? Zìjiā bǎozàng bù gù, pāojiā sànzǒu, zuò shénme!'",
+          "translations": {
+            "blofeld": "When the Master first came to Mazu, Mazu asked: 'Where do you come from?' 'From Dayun Monastery in Yuezhou.' 'What do you intend to seek coming here?' 'I have come seeking the Buddha-dharma.' Mazu said: 'I have not a single thing here; what Buddha-dharma are you seeking? You neglect your own treasure at home and go wandering around outside—what for!'",
+            "red_pine": "When Master Huihai first visited Mazu, Mazu asked: 'Where have you come from?' 'From Dayun Temple.' 'What are you planning to do coming here?' 'I have come seeking the Buddha Dharma.' Mazu said: 'I have not a single thing here; what Buddha Dharma do you seek? Ignoring your own treasure house at home, abandoning your home and running about—what are you doing!'",
+            "cleary": "Huihai visited Mazu. Mazu asked, 'Where do you come from?' 'From Dayun temple.' 'What are you seeking here?' 'Seeking the Buddha Dharma.' Mazu said, 'I have not a single thing here; what Buddha Dharma are you seeking? Neglecting your own treasure at home and wandering around outside—what are you doing?'"
+          }
+        },
+        {
+          "speaker": "Huihai / 慧海",
+          "zh": "師遂問：「阿那個是慧海自家寶藏？」祖曰：「即今問我者，是汝寶藏。一切具足，更無欠少，使用自在，何假向外求覓！」師於言下自識本心，踴躍禮謝。",
+          "pinyin": "Shī suì wèn: 'Ā nǎ ge shì Huìhǎi zìjiā bǎozàng?' Zǔ yuē: 'Jí jīn wèn wǒ zhě, shì rǔ bǎozàng. Yīqiè jùzú, gèng wú qiàn shǎo, shǐyòng zìzài, hé jiǎ xiàng wài qiúmì!' Shī yú yán xià zì shí běn xīn, yǒngyuè lǐxiè.",
+          "translations": {
+            "blofeld": "Huihai then bowed and asked: 'Which one is Huihai's own treasure house?' Mazu said: 'That which is right now asking me is your own treasure house! It contains everything completely without lack, free to use at will. Why should you seek outside!' At these words Huihai recognized his original mind and bowed in overflowing joy.",
+            "red_pine": "Huihai asked: 'Which one is Huihai's own treasure house?' Mazu said: 'That which is asking me right this moment is your own treasure house! It possesses everything completely with nothing lacking, perfectly free to use. Why borrow from outside to seek it!' At these words Huihai realized his fundamental mind and bowed in ecstasy.",
+            "cleary": "Huihai asked, 'Which is Huihai's own treasure?' Mazu said, 'That which is asking me right now is your treasure. Everything is complete, lacking nothing, freely used. Why seek outside?' At these words Huihai recognized his original mind."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "seeing_nature_blind",
+      "title_zh": "法性無形與盲人見暗",
+      "title_pinyin": "Fǎxìng Wúxíng yǔ Mángrén Jiàn'àn",
+      "title_en": "Dharma-Nature is Formless & The Blind See Darkness",
+      "dialogue": [
+        {
+          "speaker": "Questioner / 問曰",
+          "zh": "問曰：「法性無形，從何而見？」師曰：「即今能見者，便是法性。」",
+          "pinyin": "Wèn yuē: 'Fǎxìng wúxíng, cóng hé ér jiàn?' Shī yuē: 'Jí jīn néng jiàn zhě, biàn shì fǎxìng.'",
+          "translations": {
+            "blofeld": "Question: Since the Dharma-nature has no form, through what is it seen? The Master said: That which is right now able to see is itself the Dharma-nature.",
+            "red_pine": "Question: Since the Dharma-nature is formless, where is it seen? Master said: That which is capable of seeing right now is itself the Dharma-nature.",
+            "cleary": "Question: Dharma-nature has no form; through what is it seen? Master said: That which is able to see right now is the Dharma-nature."
+          }
+        },
+        {
+          "speaker": "Questioner / 問曰",
+          "zh": "曰：「盲人無眼，盲人還見否？」師曰：「盲人見暗。」曰：「見暗豈得名為見？」師曰：「盲人見暗，明眼人見明。明暗有異，其見不殊。見性元無生滅也。」",
+          "pinyin": "Yuē: 'Mángrén wú yǎn, mángrén hái jiàn fǒu?' Shī yuē: 'Mángrén jiàn àn.' Yuē: 'Jiàn àn qǐ dé míng wéi jiàn?' Shī yuē: 'Mángrén jiàn àn, míngyǎn rén jiàn míng. Míng'àn yǒu yì, qí jiàn bù shū. Jiànxìng yuán wú shēngmiè yě.'",
+          "translations": {
+            "blofeld": "Question: Blind people have no eyes; do blind people still see? The Master said: Blind people see darkness. Question: How can seeing darkness be called seeing? The Master said: The blind see darkness; those with eyes see light. Light and dark are different, but the nature of seeing is not different. The seeing-nature has never been subject to birth or destruction.",
+            "red_pine": "Question: Blind people have no vision; do blind people still see? Master said: The blind see darkness. 'How can seeing darkness be called seeing?' Master said: The blind see dark; the sighted see light. Light and dark differ, but the seeing is non-dual. The seeing-nature is unborn and undying.",
+            "cleary": "Question: The blind have no eyes; do they see? Master said: The blind see darkness. 'Can seeing darkness be called seeing?' Master said: Sighted people see light; blind people see darkness. Light and darkness differ, but the seeing nature is not different."
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "ordinary_living",
+      "title_zh": "飢來喫飯，困來即眠",
+      "title_pinyin": "Jī Lái Chīfàn, Kùn Lái Jí Mián",
+      "title_en": "When Hungry, Eat; When Tired, Sleep",
+      "dialogue": [
+        {
+          "speaker": "Vinaya Master / 律師",
+          "zh": "有源律師問：「和尚修道，還用功否？」師曰：「用功。」曰：「如何用功？」師曰：「飢來喫飯，困來即眠。」",
+          "pinyin": "Yǒu Yuán lǜshī wèn: 'Héshang xiūdào, hái yònggōng fǒu?' Shī yuē: 'Yònggōng.' Yuē: 'Rúhé yònggōng?' Shī yuē: 'Jī lái chīfàn, kùn lái jí mián.'",
+          "translations": {
+            "blofeld": "Vinaya Master Yuan asked: 'Do you make effort when practicing the Way, Master?' Master Huihai said: 'I make effort.' 'How do you make effort?' The Master said: 'When hungry, I eat; when tired, I sleep.'",
+            "red_pine": "Vinaya Master Yuan asked: 'Does the Master apply effort when cultivating the Way?' Master said: 'I apply effort.' 'How do you apply effort?' Master said: 'When hungry, I eat; when exhausted, I sleep.'",
+            "cleary": "Vinaya Master Yuan asked, 'Do you apply effort in practicing the Way?' The Master said, 'I apply effort.' 'How do you apply effort?' 'When hungry I eat, when tired I sleep.'"
+          }
+        },
+        {
+          "speaker": "Vinaya Master / 律師",
+          "zh": "曰：「一切人總如是，同師用功否？」師曰：「不同。他第一箇喫飯時須索百般，睡時情慮萬種。所以不同也。」源律師杜口。",
+          "pinyin": "Yuē: 'Yīqiè rén zǒng rú shì, tóng shī yònggōng fǒu?' Shī yuē: 'Bù tóng. Tā dì-yī gè chīfàn shí xū suǒ bǎi bān, shuì shí qínglǜ wàn zhǒng. Suǒyǐ bù tóng yě.' Yuán lǜshī dù kǒu.",
+          "translations": {
+            "blofeld": "Yuan said: 'Everyone does this; is their effort the same as yours?' The Master said: 'Not the same. When they eat, they do not merely eat but crave a hundred things; when they sleep, they do not merely sleep but calculate a myriad worries. Therefore it is not the same.' Vinaya Master Yuan was speechless.",
+            "red_pine": "Yuan said: 'All people do this; is their effort identical to yours?' The Master said: 'Not identical. When they eat, they demand a hundred things; when they sleep, they churn through ten thousand worries. That is why it is not the same.' Vinaya Master Yuan had no reply.",
+            "cleary": "Yuan said, 'Everyone does that; is their effort the same as yours?' The Master said, 'Not the same. When they eat they crave a hundred things; when they sleep they worry about ten thousand things. Therefore it is not the same.' The Vinaya Master was silent."
+          }
+        }
+      ]
+    }
+  ]
+}

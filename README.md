@@ -123,11 +123,20 @@ python3 -m http.server 8080
 
 ## 🌐 Deploying to GitHub Pages
 
-This project is configured for 1-click zero-config deployment to GitHub Pages via GitHub Actions:
-1. Push your changes to GitHub on the `main` branch.
+This project is structured for zero-backend, instant deployment on GitHub Pages through any of the following standard options:
+
+### Option 1: Deploy from `/docs` folder on `main` (Recommended & Ready)
+1. Merge the `arena/019fe05c-translatechan` branch into `main`.
 2. In your GitHub repository, go to **Settings** > **Pages**.
-3. Under **Build and deployment**, select **GitHub Actions** as the source.
-4. Your site will automatically build and publish at `https://<username>.github.io/translatechan/`.
+3. Under **Build and deployment** > **Source**, choose **Deploy from a branch**.
+4. Set Branch to **`main`** and folder to **`/docs`**, then click **Save**.
+5. Your site is live immediately at `https://56eli.github.io/translatechan/`!
+
+### Option 2: Deploy from `root /` on `main`
+- Under **Settings** > **Pages** > **Source**, choose Branch **`main`** and folder **`/ (root)`**.
+
+### Option 3: Automated Continuous Ingestion via Arena AI Agents
+- Sandboxed Arena AI agents run ingestion scripts (`scripts/arena_agent_pipeline.py` and `scripts/build_data_bundle.py`), updating canonical JSON files and compiling `app_data.js` directly to both root and `/docs` on every push.
 
 ---
 

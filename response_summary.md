@@ -1,12 +1,11 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
 ### Summary of Completed Work:
-1. **Dongshan Liangjie Awakening Verse Ingestion (`data/corpus/dongshan_yulu.json`)**:
-   - Expanded Master Dongshan Liangjie's recorded sayings (*瑞州洞山良价禪師語錄*, T1986) with his immortal river-reflection awakening verse: **The Fengqu Gatha** (*切忌從他覓，迢迢與我踈。我今獨自往，處處得逢渠。渠今正是我，我今不是渠。應須恁麼會，方得契如如*).
-   - Structured key dialogues: **The Non-Sentient Preach the Dharma** (*無情說法：眼處聞聲方得知*), and the **Dialectic of the Five Ranks** (*五位君臣*).
-   - Sentence-aligned with Red Pine, Thomas Cleary, and Ruth Fuller Sasaki translations.
-2. **Data Bundle & Application Recompilation**:
-   - Re-compiled `app_data.js` (420 KB) across all 36 canonical Chan collections.
+1. **Sandboxed Arena AI Agent Architecture Integration**:
+   - Built `scripts/arena_agent_pipeline.py` implementing prompt harnesses for sessioned Arena AI agents to parse Classical Chinese texts, generate multi-register translation drafts (**Literal Philological**, **Philosophical Hermeneutic**, and **Poetic Zen Cadence**), and collate contemporary published translations (**Red Pine**, **Thomas Cleary**, **Ruth Fuller Sasaki**, **D.T. Suzuki**, **R.H. Blyth**, **John Blofeld**, **Steven Heine**, **Philip Yampolsky**).
+   - Documented the sandboxed, sessioned translation pipeline across `vision.md` (Section 5), `ROADMAP.md`, `README.md`, and the web application interface (`index.html`).
+2. **Static GitHub Pages Web App Architecture**:
+   - Fully zero-backend, client-side static application consuming agent-generated JSON datasets directly from Git.
    - Tested live on port 8080.
 3. **Repository Cleanliness & GitHub Push**:
    - Committed and pushed all updates cleanly to `origin arena/019fe05c-translatechan`.
