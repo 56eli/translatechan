@@ -8,14 +8,14 @@
 
 TranslateChan is a **healthy static research-reader foundation**, not yet a publication-ready scholarly corpus. The Pages build is live and reproducible; all local quality gates pass; the Reader successfully handles the project’s heterogeneous data shapes; and provenance/rights/locator work is substantially stronger than a typical early project. No current P0 load, parse, build, or deterministic-sync failure was found.
 
-The principal risks are now editorial and release-engineering rather than a broken product: 35/36 texts remain excerpts, most non-case text locators are document-level, modern-translation rights review is incomplete, traditional lineage relationships lack exact source locators, and the intended CI workflow is not actually present in this checkout or on `main`.
+The principal risks are now editorial and release-engineering rather than a broken product: 35/36 texts remain excerpts, most non-case text locators are document-level, modern-translation rights review is incomplete, traditional lineage relationships lack exact source locators, and human-enforced branch protection has not yet been confirmed.
 
 | Area | Assessment | Grade |
 |---|---|---:|
 | Runtime/rendering | 36 documents render; search, sparse case navigation, lazy Wumenguan loading, disclosure UI, and storage fallbacks pass smoke coverage | A− |
 | Build/deployment | Manifest-driven bundle; root and `/docs` assets/data synchronize exactly; Pages is built and HTTPS-enforced | A− |
 | Data integrity tooling | Semantic validator, metrics, locator registry, provenance, and rights manifest are valuable and passing | A− |
-| Test/release automation | Strong dependency-free smoke test, but no checked-in/published CI workflow and no real-browser test | B |
+| Test/release automation | Checked-in GitHub Actions Quality workflow plus strong dependency-free smoke test; no real-browser test yet | B+ |
 | Research/editorial readiness | Honest status labels and registries; locators/rights/source review remain incomplete | B− |
 | Content breadth | Wumenguan is complete; the other 35 corpus files are deliberately excerpt-scale seeds | C |
 | Accessibility/security hardening | Good baseline, but keyboard semantics and CSP-compatible event handling remain incomplete | B− |
@@ -57,11 +57,11 @@ Measured/current facts:
 
 ## Open findings and recommended order
 
-### A1 — P1: CI is documented as “prepared locally,” but no workflow exists in the repository
+### A1 — P2: CI is now published; protect `main` with its required check
 
-`git ls-tree -r HEAD` and `origin/main` show **no `.github/workflows/*` file**. `HANDOFF.md`, `README.md`, `ROADMAP.md`, and the prior summary describe a ready local workflow awaiting permission, but this checkout does not contain that draft. The local commands are healthy, yet a GitHub PR can merge without an enforceable quality gate.
+`.github/workflows/quality.yml` is now checked in on this session branch and its first **Quality** run passed (Python compilation, semantic validation, deterministic build/artifact check, deploy mirror, and reader smoke test). This resolves the former missing-workflow finding. The remaining administrator action is to require **Validate data, generated artifacts, and reader** before merging to `main`; without branch protection, a pull request can still merge without the green gate.
 
-**Recommendation:** either restore and commit `.github/workflows/quality.yml` when workflow permission is available, or change current-facing docs to say that CI is *planned*, not prepared. The workflow should run Python compilation, validator, deterministic build/artifact-diff check, smoke test, and (once added) browser tests.
+**Recommendation:** enable the required status check in the repository’s branch protection/ruleset after the workflow appears in the GitHub UI. Keep Pages deployment native from `main` → `/docs`; Quality is intentionally verification-only.
 
 ### A2 — P1: Scholarly-release gate remains editorial, not automated
 
@@ -101,13 +101,13 @@ The browser uses the complete 695 KB `app_data.js` bundle, while `/docs/data/` m
 
 ## Recommended next milestone
 
-1. **Resolve A1 first:** make CI truthful and enforce it when permissions permit.
-2. **Plan A2 as an editorial workstream:** start the locator/reference/rights review queue before substantial quotation expansion.
-3. **Choose a content pilot:** complete Biyanlu under those guardrails, including canonical locators and source-status records as each case is added.
+1. **Protect `main`:** require the now-green Quality status check before merging.
+2. **Start the editorial workstream:** migrate locators, resolve pending references, and complete rights review before substantial quotation expansion.
+3. **Choose the content pilot:** complete Biyanlu under those guardrails, including canonical locators and source-status records as each case is added.
 4. In parallel, complete **A4/A5** with a small browser/a11y pass before describing the public reader as release-tested across devices.
 
 ## Audit limitations
 
 This audit did not independently collate every Chinese passage against CBETA/TEI, verify every modern quotation against print editions, provide legal advice on copyright/fair use, execute a live browser matrix, or certify screen-reader support. Passing local checks establishes code/data consistency—not scholarly or legal publication clearance.
 
-**One-sentence completion summary:** The audit found a healthy, reproducible static reader with no critical runtime defects, while CI publication, editorial source/rights migration, browser/a11y verification, and corpus expansion remain the highest-value next work.
+**One-sentence completion summary:** The audit found a healthy, reproducible static reader with a now-passing CI workflow, while branch protection, editorial source/rights migration, browser/a11y verification, and corpus expansion remain the highest-value next work.
