@@ -67,7 +67,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 - [x] **Data Contract & Release Guardrails**:
   - Heterogeneous JSON shapes for cases, sections, dialogues, stanzas, chapters, five ranks, and sample records are supported by the renderer and described in [`schemas/translatechan-data.schema.json`](./schemas/translatechan-data.schema.json).
-  - `scripts/validate_data.py` enforces semantic invariants, shared corpus-manifest integrity, translation provenance, rights-manifest coverage, case-level locator coverage, and deterministic metrics; a CI workflow is prepared locally and awaits workflow-capable GitHub access before publication.
+  - `scripts/validate_data.py` enforces semantic invariants, shared corpus-manifest integrity, translation provenance, rights-manifest coverage, case-level locator coverage, and deterministic metrics; `.github/workflows/quality.yml` runs Python compilation, data validation, deterministic artifact checks, deploy-mirror verification, and reader smoke coverage on pushes and pull requests.
   - `data/canonical_locators.json` now covers every document and all 57 current case units. The 33 non-case seed documents remain honestly tagged `legacy_document_seed` until page/line or TEI locators are migrated.
   - `data/lineage/lineage_verification.json` aggregates all 26 in-set graph links and 4 unprofiled frontiers with source-record status; the public chart never renders them as source-verified until exact locators are reviewed.
 - [x] **Ingestion Tooling (seed level)**:
@@ -188,4 +188,4 @@ translatechan/
     └── align_translations.py  # (planned — not yet written)
 ```
 
-> Deployment is native GitHub Pages branch publishing (`main` + `/docs`). The prepared GitHub Actions quality workflow does not deploy Pages and awaits workflow-capable GitHub access before publication.
+> Deployment is native GitHub Pages branch publishing (`main` + `/docs`). The GitHub Actions Quality workflow verifies repository quality only; it does not deploy Pages.

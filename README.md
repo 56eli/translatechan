@@ -123,7 +123,7 @@ translatechan/
     └── smoke_test.mjs         # Dependency-free renderer regression test
 ```
 
-> **Note on deployment automation**: GitHub Pages is served directly from the `main` branch `/docs` folder (native branch publishing). Run the documented validation/build/smoke commands before each PR; the prepared CI workflow requires workflow-capable GitHub access before it can be published.
+> **Note on deployment automation**: GitHub Pages is served directly from the `main` branch `/docs` folder (native branch publishing). The checked-in GitHub Actions **Quality** workflow verifies Python syntax, source data/metrics, deterministic generated artifacts, deploy synchronization, and the reader smoke test on pushes and pull requests; it does not deploy Pages.
 
 ---
 

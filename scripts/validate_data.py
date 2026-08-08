@@ -35,6 +35,7 @@ CORPUS_MANIFEST_PATH = DATA_DIR / "corpus_manifest.json"
 LOCATORS_PATH = DATA_DIR / "canonical_locators.json"
 RIGHTS_PATH = DATA_DIR / "translations" / "rights_manifest.json"
 LINEAGE_VERIFICATION_PATH = DATA_DIR / "lineage" / "lineage_verification.json"
+TRACEABILITY_QUEUE_PATH = DATA_DIR / "editorial" / "traceability_queue.json"
 PROVENANCE_PATH = DATA_DIR / "translations" / "provenance.json"
 MATRIX_PATH = DATA_DIR / "translations" / "comparative_matrix.json"
 SCHEMA_PATH = ROOT / "schemas" / "translatechan-data.schema.json"
@@ -61,6 +62,8 @@ VALID_LINEAGE_EDGE_STATUSES = {
     "disputed",
 }
 VALID_LINEAGE_FRONTIER_STATUSES = {"frontier_unprofiled"}
+VALID_TRACEABILITY_QUEUE_STATUSES = {"needs_unit_locator", "in_review", "blocked_source", "complete"}
+VALID_TRACEABILITY_PRIORITIES = {"high", "normal"}
 SOURCE_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 REQUIRED_DOCUMENT_FIELDS = {
     "title_zh",
@@ -548,6 +551,43 @@ def validate_canonical_locators(
     }
 
 
+def validate_traceability_queue(corpus: dict[str, Any], locator_registry: Any, queue: Any, issues: Issues) -> dict[str, int]:
+    path = rel(TRACEABILITY_QUEUE_PATH)
+    if not is_record(locator_registry) or not isinstance(locator_registry.get("documents"), dict):
+        return {}
+    expected = {key for key, entry in locator_registry["documents"].items() if is_record(entry) and entry.get("granularity") == "document"}
+    if not is_record(queue) or not isinstance(queue.get("records"), list):
+        issues.error(path, "requires an object with a records list")
+        return {}
+    actual: set[str] = set()
+    statuses: Counter[str] = Counter()
+    for index, record in enumerate(queue["records"]):
+        record_path = f"{path}.records[{index}]"
+        require_fields(record, ("document_key", "canonical_id", "current_locator", "content_shape", "priority", "review_status", "next_action", "editorial_note"), record_path, issues)
+        if not is_record(record):
+            continue
+        key = record.get("document_key")
+        if key in actual:
+            issues.error(record_path, f"duplicate document_key {key!r}")
+        actual.add(key)
+        if key not in corpus:
+            issues.error(record_path, f"unknown corpus document {key!r}")
+            continue
+        locator = locator_registry["documents"].get(key, {})
+        if record.get("canonical_id") != locator.get("canonical_id") or record.get("current_locator") != locator.get("canonical_locator"):
+            issues.error(record_path, "canonical_id/current_locator must match canonical_locators.json")
+        if record.get("review_status") not in VALID_TRACEABILITY_QUEUE_STATUSES:
+            issues.error(record_path, f"invalid review_status {record.get('review_status')!r}")
+        else:
+            statuses[record["review_status"]] += 1
+        if record.get("priority") not in VALID_TRACEABILITY_PRIORITIES:
+            issues.error(record_path, f"invalid priority {record.get('priority')!r}")
+    if actual != expected:
+        if expected - actual: issues.error(path, "missing queue record(s): " + ", ".join(sorted(expected - actual)))
+        if actual - expected: issues.error(path, "queue contains non-document-level record(s): " + ", ".join(sorted(actual - expected)))
+    return {"document_level_queue_records": len(actual), "statuses": dict(sorted(statuses.items()))}
+
+
 def validate_rights_manifest(
     manifest: Any,
     verified_source_ids: list[str],
@@ -634,6 +674,7 @@ def compute_metrics(
     locator_metrics: dict[str, int],
     rights_metrics: dict[str, int],
     lineage_metrics: dict[str, Any],
+    traceability_metrics: dict[str, Any],
     manifest_metrics: dict[str, int],
 ) -> dict[str, Any]:
     matrix_statuses = {
@@ -675,6 +716,7 @@ def compute_metrics(
         "canonical_locator_coverage": locator_metrics,
         "rights_coverage": rights_metrics,
         "lineage_verification": lineage_metrics,
+        "editorial_traceability": traceability_metrics,
         "manifest_integrity": manifest_metrics,
     }
 
@@ -727,9 +769,11 @@ def main() -> int:
     rights_metrics = validate_rights_manifest(rights_manifest, verified_source_ids, issues)
     lineage_registry = load_json(LINEAGE_VERIFICATION_PATH, issues)
     lineage_metrics = validate_lineage_verification(lineage, lineage_registry, issues)
+    traceability_queue = load_json(TRACEABILITY_QUEUE_PATH, issues)
+    traceability_metrics = validate_traceability_queue(corpus, locator_registry, traceability_queue, issues)
     manifest_metrics = validate_manifest_sync(set(corpus), corpus_manifest, issues)
 
-    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, manifest_metrics)
+    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, manifest_metrics)
     expected_metrics = canonical_json(metrics)
     if args.write_metrics:
         METRICS_PATH.write_text(expected_metrics, encoding="utf-8")
