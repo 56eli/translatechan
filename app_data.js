@@ -3942,15 +3942,15 @@ window.TRANSLATECHAN_DATA = {
     },
     "dazhu_huihai": {
       "id": "dazhu_huihai",
-      "title_zh": "大珠慧海禪師 頓悟入道要門論",
-      "title_pinyin": "Dàzhū Huìhǎi Chánshī Dùnwù Rùdào Yàomén Lùn",
-      "title_en": "The Zen Teaching of Hui Hai: On Sudden Awakening (Dunwu Rudao Yaomen Lun)",
+      "title_zh": "大珠慧海禪師 頓悟入道要門論與諸方問答",
+      "title_pinyin": "Dàzhū Huìhǎi Chánshī Dùnwù Rùdào Yàomén Lùn yǔ Zhūfāng Wèndá",
+      "title_en": "The Zen Teaching of Hui Hai: On Sudden Awakening & Dialogues with All Quarters",
       "cbeta_id": "X1258 / T2076",
       "taisho_vol": 47,
       "author_zh": "唐 大珠慧海 禪師 說 (馬祖法嗣)",
       "author_en": "Chan Master Dazhu Huihai (fl. 8th Century), Dharma Heir of Mazu Daoyi",
       "era": "High Tang Dynasty",
-      "genre": "Sudden Enlightenment Treatise & Dialogue (頓悟法門)",
+      "genre": "Sudden Enlightenment Treatise & Dharma-Nature Dialogues (頓悟法門與法性)",
       "overview": "The celebrated High Tang guide to Southern Chan sudden realization, famously praised by Mazu as 'the flawless great pearl', demonstrating that one's own mind is the inexhaustible treasure house requiring no external seeking.",
       "sections": [
         {
@@ -3982,19 +3982,29 @@ window.TRANSLATECHAN_DATA = {
           ]
         },
         {
-          "section_id": "sudden_awakening_def",
-          "title_zh": "何名頓悟？何名入道？",
-          "title_pinyin": "Hé Míng Dùnwù? Hé Míng Rùdào?",
-          "title_en": "What is Sudden Awakening? What is Entering the Way?",
+          "section_id": "seeing_nature_blind",
+          "title_zh": "法性無形與盲人見暗",
+          "title_pinyin": "Fǎxìng Wúxíng yǔ Mángrén Jiàn'àn",
+          "title_en": "Dharma-Nature is Formless & The Blind See Darkness",
           "dialogue": [
             {
               "speaker": "Questioner / 問曰",
-              "zh": "問曰：欲修何法，即得解脫？答曰：唯有頓悟一門，即得解脫。問曰：何名頓悟？答曰：頓者，頓除妄念；悟者，悟無所得。",
-              "pinyin": "Wèn yuē: Yù xiū hé fǎ, jí dé jiětuō? Dá yuē: Wéi yǒu dùnwù yī mén, jí dé jiětuō. Wèn yuē: Hé míng dùnwù? Dá yuē: Dùn zhě, dùn chú wàngniàn; wù zhě, wù wú suǒ dé.",
+              "zh": "問曰：「法性無形，從何而見？」師曰：「即今能見者，便是法性。」",
+              "pinyin": "Wèn yuē: 'Fǎxìng wúxíng, cóng hé ér jiàn?' Shī yuē: 'Jí jīn néng jiàn zhě, biàn shì fǎxìng.'",
               "translations": {
-                "blofeld": "Question: What practice should one cultivate to attain liberation? Answer: Only the single gate of Sudden Awakening brings liberation. Question: What is meant by 'sudden awakening'? Answer: 'Sudden' means instantaneously severing all deluded thoughts; 'awakening' means realizing that fundamentally there is nothing to be attained.",
-                "red_pine": "Question: What Dharma should one cultivate to gain liberation? Answer: Only the single gate of sudden awakening brings liberation. Question: What is called sudden awakening? Answer: 'Sudden' means suddenly casting away deluded thoughts; 'awakening' means realizing there is nothing to be attained.",
-                "cleary": "Question: What practice yields liberation? Answer: Only the single door of sudden enlightenment. Question: What is sudden enlightenment? Answer: Sudden means suddenly eliminating false thoughts; enlightenment means realizing there is nothing to attain."
+                "blofeld": "Question: Since the Dharma-nature has no form, through what is it seen? The Master said: That which is right now able to see is itself the Dharma-nature.",
+                "red_pine": "Question: Since the Dharma-nature is formless, where is it seen? Master said: That which is capable of seeing right now is itself the Dharma-nature.",
+                "cleary": "Question: Dharma-nature has no form; through what is it seen? Master said: That which is able to see right now is the Dharma-nature."
+              }
+            },
+            {
+              "speaker": "Questioner / 問曰",
+              "zh": "曰：「盲人無眼，盲人還見否？」師曰：「盲人見暗。」曰：「見暗豈得名為見？」師曰：「盲人見暗，明眼人見明。明暗有異，其見不殊。見性元無生滅也。」",
+              "pinyin": "Yuē: 'Mángrén wú yǎn, mángrén hái jiàn fǒu?' Shī yuē: 'Mángrén jiàn àn.' Yuē: 'Jiàn àn qǐ dé míng wéi jiàn?' Shī yuē: 'Mángrén jiàn àn, míngyǎn rén jiàn míng. Míng'àn yǒu yì, qí jiàn bù shū. Jiànxìng yuán wú shēngmiè yě.'",
+              "translations": {
+                "blofeld": "Question: Blind people have no eyes; do blind people still see? The Master said: Blind people see darkness. Question: How can seeing darkness be called seeing? The Master said: The blind see darkness; those with eyes see light. Light and dark are different, but the nature of seeing is not different. The seeing-nature has never been subject to birth or destruction.",
+                "red_pine": "Question: Blind people have no vision; do blind people still see? Master said: The blind see darkness. 'How can seeing darkness be called seeing?' Master said: The blind see dark; the sighted see light. Light and dark differ, but the seeing is non-dual. The seeing-nature is unborn and undying.",
+                "cleary": "Question: The blind have no eyes; do they see? Master said: The blind see darkness. 'Can seeing darkness be called seeing?' Master said: Sighted people see light; blind people see darkness. Light and darkness differ, but the seeing nature is not different."
               }
             }
           ]
