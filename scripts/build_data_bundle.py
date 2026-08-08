@@ -36,7 +36,8 @@ def main():
             "platform_sutra": load_json(DATA_DIR / "corpus" / "platform_sutra.json"),
             "chuandenglu": load_json(DATA_DIR / "corpus" / "chuandenglu.json"),
             "qinggui_monastic_codes": load_json(DATA_DIR / "corpus" / "qinggui_monastic_codes.json"),
-            "dongshan_yulu": load_json(DATA_DIR / "corpus" / "dongshan_yulu.json")
+            "dongshan_yulu": load_json(DATA_DIR / "corpus" / "dongshan_yulu.json"),
+            "yunmen_yulu": load_json(DATA_DIR / "corpus" / "yunmen_yulu.json")
         },
         "meta": {
             "version": "1.0.0",
