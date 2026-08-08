@@ -1,0 +1,67 @@
+{
+  "id": "congronglu",
+  "title_zh": "萬松老人評唱天童頌古 從容錄",
+  "title_pinyin": "Wànsōng Lǎorén Píngchàng Tiāntóng Sònggǔ Cóngróng Lù",
+  "title_en": "The Book of Serenity (Congrong Lu / Shoyoroku)",
+  "cbeta_id": "T2004",
+  "taisho_vol": 48,
+  "author_zh": "天童正覺 頌古 / 萬松行秀 評唱",
+  "author_en": "Verses by Hongzhi Zhengjue (1091–1157), Commentaries by Wansong Xingxiu (1166–1246)",
+  "era": "Song & Jin Dynasties",
+  "genre": "Caodong Gong'an & Songgu Masterwork (公案與評唱)",
+  "overview": "The definitive Caodong (Soto) counterpart to the Blue Cliff Record, uniting the poetic subtlety of Master Hongzhi Zhengjue with the vast, encyclopedic commentaries of Master Wansong Xingxiu of the Hermitage of Serenity.",
+  "cases": [
+    {
+      "case_num": 1,
+      "title_zh": "世尊陞座：法王法如是",
+      "title_pinyin": "Shìzūn Shēngzuò: Fǎwáng Fǎ Rúshì",
+      "title_en": "The World-Honored One Ascends the Seat: The Law of the Dharma King is Thus",
+      "pointer_zh": "示眾云：閉門造車，出門合轍。正當開口不得，進退無門之時，作麼生委悉？",
+      "pointer_en": "Pointer: Making a cart behind closed doors, going out the door it fits the tracks. Right when you cannot open your mouth and there is no room to advance or retreat, how do you comprehend?",
+      "dialogue": [
+        {
+          "speaker": "Narrative / 本事",
+          "zh": "世尊一日陞座。大眾才集，文殊白槌云：「諦觀法王法，法王法如是。」世尊便下座。",
+          "pinyin": "Shìzūn yī rì shēngzuò. Dàzhòng cái jí, Wénshū bái chuí yún: 'Dì guān fǎwáng fǎ, fǎwáng fǎ rúshì.' Shìzūn biàn xiàzuò.",
+          "translations": {
+            "cleary": "One day the World-Honored One ascended the seat. As the crowd gathered, Manjushri struck the gavel and said, 'Clearly observe the Dharma of the King of Dharma; the Dharma of the King of Dharma is thus!' The World-Honored One then got down from the seat.",
+            "red_pine": "One day the World-Honored One ascended the teaching seat. As the assembly gathered, Manjushri struck the gavel and announced: 'Clearly observe the Dharma of the Dharma King; the Dharma of the Dharma King is thus!' The World-Honored One immediately stepped down from the seat.",
+            "sasaki": "One day the World-Honored One ascended the platform. Manjushri struck the gavel: 'Carefully behold the Law of the King of the Law; the Law of the King of the Law is thus!' The Buddha descended from his seat."
+          }
+        }
+      ],
+      "commentary_zh": "萬松曰：世尊全提正令，文殊一槌擊碎萬象。不著文字，不犯窠臼，天然本具。",
+      "commentary_pinyin": "Wànsōng yuē: Shìzūn quán tí zhèng lìng, Wénshū yī chuí jī suì wànxiàng. Bù zhuó wénzì, bù fàn kējiù, tiānrán běnjù.",
+      "commentary_en": "Wansong says: The World-Honored One brings forth the official order completely; Manjushri shatters myriad forms with a single stroke of the gavel. Not clinging to words and letters, not falling into worn ruts, it is naturally complete from the beginning.",
+      "verse_zh": "秋風瑟瑟水連天，月白松青萬境玄。文殊一槌驚睡雁，不知身在碧雲巔。",
+      "verse_pinyin": "Qiūfēng sèsè shuǐ liántiān, yuè bái sōng qīng wàn jìng xuán. Wénshū yī chuí jīng shuì yàn, bù zhī shēn zài bìyún diān.",
+      "verse_en": "The autumn breeze soughs, water merges with sky; / The moon is white, pines green, all realms profound. / Manjushri's single gavel startles the sleeping wild geese, / Not knowing they are flying atop the emerald clouds!"
+    },
+    {
+      "case_num": 9,
+      "title_zh": "南泉斬貓：草鞋頂戴",
+      "title_pinyin": "Nánquán Zhǎn Māo: Cǎoxié Dǐngdài",
+      "title_en": "Nanquan Cuts the Cat in Two: The Straw Sandals on the Head",
+      "pointer_zh": "示眾云：截鐵斬釘，臨機不斷。透得這箇關捩子，方見祖師向上家風。",
+      "pointer_en": "Pointer: Cutting through iron and severing nails, when meeting the moment do not hesitate. If you penetrate this pivot, you see the ultimate ancestral family style.",
+      "dialogue": [
+        {
+          "speaker": "Narrative / 本事",
+          "zh": "南泉因兩堂爭貓，提起云：「道得即救，道不得即斬卻。」眾無對，泉斬之。趙州晚歸，泉舉示。州脫草鞋安頭上出。泉曰：「子若在，恰救得貓兒。」",
+          "pinyin": "Nánquán yīn liǎngtáng zhēng māo, tíqǐ yún: 'Dào dé jí jiù, dào bù dé jí zhǎn què.' Zhòng wú duì, Quán zhǎn zhī. Zhàozhōu wǎn guī, Quán jǔ shì. Zhōu tuō cǎoxié ān tóu shàng chū. Quán yuē: 'Zǐ ruò zài, qià jiù dé māo'er.'",
+          "translations": {
+            "cleary": "Because the two halls were disputing over a cat, Nanquan held it up and said, 'If you can speak, you save it; if not, I'll cut it.' The crowd had no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, put them on his head, and went out. Nanquan said, 'Had you been here, you'd have saved the cat.'",
+            "red_pine": "Because the Eastern and Western halls fought over a cat, Nanquan lifted it up: 'If you can speak, you save it; if not, I will cut it in two.' The monks made no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, placed them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
+            "sasaki": "Nansen held up the cat: 'Speak and save it; if not, I cut it.' The monks were silent; Nansen cut it in two. Jōshū put his straw sandals on his head and walked out. Nansen said: 'Had you been here, you would have saved it.'"
+          }
+        }
+      ],
+      "commentary_zh": "萬松曰：南泉提起貓兒，全提殺活大用。趙州頂戴草鞋，倒轉機輪。一人行正令，一人見生機。",
+      "commentary_pinyin": "Wànsōng yuē: Nánquán tíqǐ māo'er, quán tí shā huó dàyòng. Zhàozhōu dǐngdài cǎoxié, dào zhuǎn jīlún. Yī rén xíng zhèng lìng, yī rén jiàn shēngjī.",
+      "commentary_en": "Wansong says: When Nanquan lifted the cat, he brought forth the great functioning of killing and reviving. When Zhaozhou put the sandals on his head, he turned around the wheel of potential. One executed the official decree; the other demonstrated the living vitality.",
+      "verse_zh": "公案圓成沒奈何，掀翻窠臼起風波。趙州頭上草鞋出，滿地清光照古河。",
+      "verse_pinyin": "Gōng'àn yuánchéng mò nàihé, xiānfān kējiù qǐ fēngbō. Zhàozhōu tóu shàng cǎoxié chū, mǎndì qīngguāng zhào gǔ hé.",
+      "verse_en": "The gong'an is fully accomplished with no excuse; / Overturning all worn traps, raising wind and waves! / Zhaozhou walks out with straw sandals on his head; / The whole earth is covered in pure light illuminating the ancient river!"
+    }
+  ]
+}

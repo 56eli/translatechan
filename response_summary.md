@@ -1,12 +1,12 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
 ### Summary of Completed Work:
-1. **Deshan Xuanjian Yulu Ingestion (`data/corpus/deshan_yulu.json`)**:
-   - Ingested the recorded sayings and encounters of Master Deshan Xuanjian (*德山宣鑑禪師語錄*, T1985 / T2076).
-   - Structured key classical teachings: **The Old Woman and the Diamond Sutra Refreshments** (*婆子點心：過去心不可得，點那箇心？*), **Blowing Out the Candle at Longtan & Burning the Commentaries** (*龍潭吹滅紙燭：窮諸玄辯，若一毫置於太虛*), and **The Thirty Blows of Deshan's Staff** (*德山棒：道得也三十棒，道不得也三十棒*).
-   - Sentence-aligned with Red Pine, Thomas Cleary, D.T. Suzuki, and Ruth Fuller Sasaki translations.
+1. **Xuefeng & Yantou Yulu Ingestion (`data/corpus/xuefeng_yantou.json`)**:
+   - Ingested the recorded sayings of Master Xuefeng Yicun (*雪峰義存*, 822–908 CE) and Master Yantou Quanhuo (*巖頭全豁*, 828–887 CE), ancestors of both the Yunmen and Fayan traditions.
+   - Structured key classical encounter narratives: **Awakening on Mount Ao** (*鰲山成道：從門入者不是家珍，從自己胸襟中流出*), and **The Whole Great Earth as a Grain of Rice** (*盡大地撮來，如粟米粒大*).
+   - Sentence-aligned with Red Pine, Thomas Cleary, and Ruth Fuller Sasaki translations.
 2. **Data Bundle & Application Recompilation**:
-   - Re-compiled `app_data.js` (339 KB) across all 27 canonical Chan collections.
+   - Re-compiled `app_data.js` (345 KB) across all 28 canonical Chan collections.
    - Tested live on port 8080.
 3. **Repository Cleanliness & GitHub Push**:
    - Committed and pushed all updates cleanly to `origin arena/019fe05c-translatechan`.

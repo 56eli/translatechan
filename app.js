@@ -221,7 +221,8 @@
       { key: 'mazu_yulu', title: 'Mazu Daoyi Yulu (江西馬祖語錄)', cbeta: 'X1304' },
       { key: 'nanquan_yulu', title: 'Nanquan Puyuan Yulu (南泉普願語錄)', cbeta: 'X1315' },
       { key: 'deshan_yulu', title: 'Deshan Xuanjian Yulu (德山宣鑑語錄)', cbeta: 'T1985' },
-      { key: 'xuefeng_yantou', title: 'Xuefeng & Yantou Yulu (雪峰巖頭語錄)', cbeta: 'T1983' }
+      { key: 'xuefeng_yantou', title: 'Xuefeng & Yantou Yulu (雪峰巖頭語錄)', cbeta: 'T1983' },
+      { key: 'congronglu_cases', title: 'Book of Serenity (從容庵錄)', cbeta: 'T2004' }
     ];
 
     elements.corpusList.innerHTML = corpusMap.map(c => `
