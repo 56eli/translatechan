@@ -18,9 +18,9 @@
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
-The Reader labels most rendering columns as **✅ Verified quotation** (checked against a specific edition) or **⚠️ Register reconstruction** (AI-composed in a scholar's documented style — *not* citable). The current audit identifies Matrix/Studio labeling gaps that must be closed before this is an every-view guarantee. The verification campaign delivered:
+Every visible translation register in the Reader, Comparative Matrix, and Studio carries a **✅ Verified quotation**, **⚠️ Register reconstruction**, or **🤖 AI draft** badge. A verified item also exposes its recorded source details; reconstructions are AI-composed in a scholar's documented style and are *not* citable. The verification campaign delivered:
 
-- **138 verified quotation slots across 6 corpus texts + 2 comparative-matrix entries marked verified** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus-object quotations carry full work/edition/verification fields; Matrix provenance needs the audit follow-up in [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3).
+- **138 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields under the provenance policy v2.1.
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
 - All checks and honest negatives logged in [`AUDIT.md` §8](./AUDIT.md).
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).

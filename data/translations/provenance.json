@@ -1,8 +1,8 @@
 {
-  "policy_version": "2.0",
+  "policy_version": "2.1",
   "policy_date": "2026-08-08",
   "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
-  "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
+  "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless an explicit per-item status marks them verified against a specific edition. Reader, Matrix, and Studio render the same visible status; verified corpus and Matrix entries record source details. Reconstructions are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
   "status_legend": {
     "verified_quotation": "Checked verbatim against a specific print/digital edition; full source recorded in the item's `source` field.",
     "reconstruction_unverified": "AI-crafted rendering in the scholar's known register/style. NOT a quotation of published text.",
@@ -168,5 +168,21 @@
       ],
       "note": "New cases carry ONLY the verified senzaki_reps register (no unverified scholar reconstructions). commentary_en/verse_en are project renderings and display the automatic 'unverified' label. zh follows the CBETA T2005 recension (宗紹編); 缽/云/窗 etc. are edition variants, cross-matched by the app's variant-normalized search."
     }
-  ]
+  ],
+  "matrix_entry_schema": {
+    "description": "Every comparative-matrix translator entry carries an explicit status. Verified entries additionally record a source object.",
+    "required_fields": [
+      "translator",
+      "work",
+      "style",
+      "text",
+      "notes",
+      "status"
+    ],
+    "verified_required_fields": [
+      "source.work",
+      "source.edition",
+      "source.verification"
+    ]
+  }
 }

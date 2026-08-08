@@ -612,6 +612,55 @@ main {
   flex-grow: 1;
 }
 
+/* Shared provenance treatment: Reader, Matrix, and Studio use the same
+   visible status vocabulary so a quotation is never detached from its basis. */
+.translation-status {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.65rem;
+  line-height: 1.25;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.translation-status.is-verified {
+  color: var(--accent-green);
+}
+
+.translation-status.is-ai {
+  color: var(--accent-blue);
+}
+
+.translation-source {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  line-height: 1.35;
+}
+
+.translation-source.source-missing {
+  color: var(--accent-red);
+}
+
+.studio-reference-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+}
+
+.studio-reference-text {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.matrix-col > .translation-status {
+  margin-top: 0.45rem;
+}
+
 /* Commentary & Verse Blocks */
 .commentary-block {
   margin-top: 1.25rem;

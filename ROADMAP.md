@@ -31,7 +31,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 > Statuses above are **measured** (see [`AUDIT.md`](./AUDIT.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
-> **Attribution-integrity milestone (2026-08-08)**: provenance policy live (`data/translations/provenance.json` v2.0, UI badges ✅/⚠️); **138 verified corpus quotation slots across 6 texts + 2 Matrix entries marked verified** (Wumenguan 48/48 complete, 2026-08-08). Corpus-object provenance is present; Matrix provenance/display gaps are tracked in [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3). Phase-3 curation must close those gaps before scholarly citation.
+> **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.1 is live (`data/translations/provenance.json`, explicit Reader/Matrix/Studio badges ✅/⚠️/🤖); **138 verified corpus quotation slots across 6 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Verified entries carry source records; Phase-3 curation proceeds on a provenance-first basis.
 
 ---
 

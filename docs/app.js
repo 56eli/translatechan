@@ -9,6 +9,34 @@
   // Application State
   const TOUCH_DEVICE = typeof window.matchMedia === 'function' && window.matchMedia('(hover: none)').matches;
   const READER_MODES = ['bilingual', 'chinese_only', 'multi_translators'];
+
+  // Data that originated in browser storage must be treated as untrusted input.
+  // Keep the shape narrow so a corrupted/legacy draft cannot break the Studio
+  // or become executable markup when it is subsequently rendered.
+  function isRecord(value) {
+    return value !== null && typeof value === 'object' && !Array.isArray(value);
+  }
+  function stringValue(value) {
+    return typeof value === 'string' ? value : (value == null ? '' : String(value));
+  }
+  function normalizeStoredDrafts(value) {
+    if (!isRecord(value)) return {};
+    const drafts = {};
+    Object.entries(value).forEach(([id, raw]) => {
+      if (!isRecord(raw) || ['__proto__', 'prototype', 'constructor'].includes(id)) return;
+      drafts[id] = {
+        passageId: stringValue(raw.passageId || id),
+        title: stringValue(raw.title),
+        source_zh: stringValue(raw.source_zh),
+        source_pinyin: stringValue(raw.source_pinyin),
+        translation: stringValue(raw.translation),
+        notes: stringValue(raw.notes),
+        updatedAt: stringValue(raw.updatedAt)
+      };
+    });
+    return drafts;
+  }
+
   const state = {
     data: window.TRANSLATECHAN_DATA || {},
     currentView: 'reader',
@@ -46,7 +74,7 @@
     caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
     selectedStudioRefTranslator: 'red_pine',
     personalTranslations: (() => {
-      try { return JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}') || {}; }
+      try { return normalizeStoredDrafts(JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}')); }
       catch (e) { return {}; } // corrupted storage must not blank the app
     })()
   };
@@ -158,10 +186,10 @@
     if (!t) return;
     const pop = getTermPopover();
     pop.innerHTML =
-      `<div class="tooltip-term-title">${t.term} (${t.pinyin || '—'})</div>` +
-      `<div class="tooltip-sanskrit">Sanskrit: ${t.sanskrit || '—'}</div>` +
-      `<div class="tooltip-row"><strong>Literal:</strong> ${t.literal || ''}</div>` +
-      `<div class="tooltip-row">${t.definition || ''}</div>`;
+      `<div class="tooltip-term-title">${escHtml(t.term)} (${escHtml(t.pinyin || '—')})</div>` +
+      `<div class="tooltip-sanskrit">Sanskrit: ${escHtml(t.sanskrit || '—')}</div>` +
+      `<div class="tooltip-row"><strong>Literal:</strong> ${escHtml(t.literal || '')}</div>` +
+      `<div class="tooltip-row">${escHtml(t.definition || '')}</div>`;
     const rect = termSpan.getBoundingClientRect();
     const vw = window.innerWidth || document.documentElement.clientWidth || 900;
     const popW = 290;
@@ -434,9 +462,10 @@
   // showTermPopover) — occurrence spans carry only `data-term-id`, which keeps
   // the DOM lean (previously every 無 occurrence inlined the full definition).
   function annotateClassicalChinese(text) {
-    if (!text || !state.data.glossary || !Array.isArray(state.data.glossary)) return text;
+    if (!text) return '';
+    if (!state.data.glossary || !Array.isArray(state.data.glossary)) return escHtml(text);
     const terms = state.data.glossary.filter(t => t && t.term && t.id && text.includes(t.term));
-    if (terms.length === 0) return text;
+    if (terms.length === 0) return escHtml(text);
 
     // Collect every match span of every term, longest terms winning overlaps
     const matches = [];
@@ -455,12 +484,12 @@
     matches.forEach(m => {
       if (m.start < pos) return; // skip overlaps with an already-emitted longer/earlier match
       const t = m.termObj;
-      out += text.slice(pos, m.start);
-      out += `<span class="term-highlight" data-term-id="${t.id}" tabindex="0" ` +
-             `title="${(t.term) + ' — ' + (t.literal || '')}">${t.term}</span>`;
+      out += escHtml(text.slice(pos, m.start));
+      out += `<span class="term-highlight" data-term-id="${escHtml(t.id)}" tabindex="0" ` +
+             `title="${escHtml((t.term) + ' — ' + (t.literal || ''))}">${escHtml(t.term)}</span>`;
       pos = m.end;
     });
-    out += text.slice(pos);
+    out += escHtml(text.slice(pos));
     return out;
   }
 
@@ -574,21 +603,11 @@
           </div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.preface.zh)}</div>
           <div class="pinyin-line">${doc.preface.pinyin}</div>
-          <div class="translation-grid">
-            <div class="translation-col">
-              <div class="translator-tag">Red Pine (Bill Porter)</div>
-              <div class="translation-text">${doc.preface.en_red_pine || doc.preface.en_cleary || ''}</div>
-            </div>
-            <div class="translation-col">
-              <div class="translator-tag">Thomas Cleary</div>
-              <div class="translation-text">${doc.preface.en_cleary || ''}</div>
-            </div>
-            <div class="translation-col">
-              <div class="translator-tag">Ruth Fuller Sasaki</div>
-              <div class="translation-text">${doc.preface.en_sasaki || ''}</div>
-            </div>
-          </div>
-          <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.3rem;" title="AI-crafted renderings in each scholar's register — not verbatim published text">⚠️ Register reconstructions (unverified) — provenance policy v1.1</div>
+          ${renderFlatTranslationColumns([
+            { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.preface.en_red_pine || doc.preface.en_cleary || '' },
+            { key: 'cleary', name: 'Thomas Cleary', text: doc.preface.en_cleary || '' },
+            { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.preface.en_sasaki || '' }
+          ])}
         </div>
       `;
     }
@@ -602,21 +621,11 @@
           </div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
           <div class="pinyin-line">${doc.epilogue.pinyin}</div>
-          <div class="translation-grid">
-            <div class="translation-col">
-              <div class="translator-tag">Red Pine (Bill Porter)</div>
-              <div class="translation-text">${doc.epilogue.en_red_pine || ''}</div>
-            </div>
-            <div class="translation-col">
-              <div class="translator-tag">Thomas Cleary</div>
-              <div class="translation-text">${doc.epilogue.en_cleary || ''}</div>
-            </div>
-            <div class="translation-col">
-              <div class="translator-tag">Ruth Fuller Sasaki</div>
-              <div class="translation-text">${doc.epilogue.en_sasaki || ''}</div>
-            </div>
-          </div>
-          <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.3rem;" title="AI-crafted renderings in each scholar's register — not verbatim published text">⚠️ Register reconstructions (unverified) — provenance policy v1.1</div>
+          ${renderFlatTranslationColumns([
+            { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.epilogue.en_red_pine || '' },
+            { key: 'cleary', name: 'Thomas Cleary', text: doc.epilogue.en_cleary || '' },
+            { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.epilogue.en_sasaki || '' }
+          ])}
         </div>
       `;
     }
@@ -905,6 +914,83 @@
     `;
   }
 
+  // Translation records are deliberately polymorphic: legacy/reconstruction entries
+  // are strings, while citation-ready entries carry { text, status, source }. Keep
+  // their normalization in one place so Reader, Matrix, and Studio cannot diverge.
+  function normalizeTranslationEntry(key, raw, options = {}) {
+    const objectValue = isRecord(raw);
+    const explicitStatus = options.status || (objectValue ? raw.status : '');
+    const isAi = options.isAI === true || String(key || '').startsWith('ai_');
+    const status = explicitStatus || (isAi ? 'ai_draft' : 'reconstruction_unverified');
+    const source = isRecord(options.source)
+      ? options.source
+      : (objectValue && isRecord(raw.source) ? raw.source : null);
+    return {
+      key: stringValue(key),
+      text: objectValue ? stringValue(raw.text) : stringValue(raw),
+      status,
+      source
+    };
+  }
+
+  function translationStatusMeta(status) {
+    if (status === 'verified_quotation') {
+      return {
+        label: '✅ Verified quotation',
+        title: 'Checked against a specific edition; source details are shown below.',
+        className: 'is-verified'
+      };
+    }
+    if (status === 'ai_draft') {
+      return {
+        label: '🤖 AI draft',
+        title: 'Explicitly AI-generated project draft.',
+        className: 'is-ai'
+      };
+    }
+    return {
+      label: '⚠️ Register reconstruction',
+      title: 'AI-crafted rendering in this scholar\'s documented register — not a verbatim published quotation.',
+      className: 'is-reconstruction'
+    };
+  }
+
+  function renderTranslationStatus(entry) {
+    const meta = translationStatusMeta(entry.status);
+    return `<span class="translation-status ${meta.className}" title="${escHtml(meta.title)}">${meta.label}</span>`;
+  }
+
+  function renderTranslationSource(entry) {
+    if (entry.status !== 'verified_quotation') return '';
+    if (!isRecord(entry.source)) {
+      return '<div class="translation-source source-missing">⚠️ Source record pending</div>';
+    }
+    const source = entry.source;
+    const work = stringValue(source.work);
+    const edition = stringValue(source.edition);
+    const page = stringValue(source.page);
+    const verification = stringValue(source.verification);
+    const citation = [work, edition, page].filter(Boolean).map(escHtml).join(' · ');
+    return `<div class="translation-source">📖 ${citation || 'Source record'}${verification ? '<br>✓ ' + escHtml(verification) : ''}</div>`;
+  }
+
+  function renderFlatTranslationColumns(entries) {
+    return `
+      <div class="translation-grid">
+        ${entries.map(item => {
+          const entry = normalizeTranslationEntry(item.key, item.text);
+          return `
+            <div class="translation-col">
+              <div class="translator-tag">
+                <span>${escHtml(item.name || formatTranslatorName(item.key))}</span>
+                ${renderTranslationStatus(entry)}
+              </div>
+              <div class="translation-text">${escHtml(entry.text)}</div>
+            </div>`;
+        }).join('')}
+      </div>`;
+  }
+
   function renderTranslationColumns(translations) {
     if (!translations) return '';
     if (state.readerMode === 'chinese_only') return '';
@@ -922,28 +1008,15 @@
     return `
       <div class="translation-grid">
         ${displayKeys.map(k => {
-          const raw = translations[k];
-          // Support provenance object form {text, status, source} as well as plain strings
-          const isObj = raw && typeof raw === 'object';
-          const text = isObj ? (raw.text || '') : (raw || '');
-          const status = isObj && raw.status ? raw.status : (k.startsWith('ai_') ? 'ai_draft' : 'reconstruction_unverified');
-          const badge = status === 'verified_quotation' ? '✅ Verified quotation'
-                      : status === 'ai_draft' ? 'AI draft'
-                      : '⚠️ Register reconstruction';
-          const badgeTip = status === 'verified_quotation' ? 'Checked against a specific edition (see source field)'
-                      : status === 'ai_draft' ? 'Explicitly AI-generated draft'
-                      : 'AI-crafted rendering in this scholar\'s register — not verbatim published text (see data/translations/provenance.json)';
-          const sourceLine = (status === 'verified_quotation' && isObj && raw.source)
-            ? `<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.3rem; line-height: 1.35;">📖 ${raw.source.work || ''}${raw.source.edition ? ' · ' + raw.source.edition : ''}${raw.source.verification ? '<br>✓ ' + raw.source.verification : ''}</div>`
-            : '';
+          const entry = normalizeTranslationEntry(k, translations[k]);
           return `
           <div class="translation-col">
             <div class="translator-tag">
-              <span>${formatTranslatorName(k)}</span>
-              <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: normal;" title="${badgeTip}">${badge}</span>
+              <span>${escHtml(formatTranslatorName(k))}</span>
+              ${renderTranslationStatus(entry)}
             </div>
-            <div class="translation-text">${text}</div>
-            ${sourceLine}
+            <div class="translation-text">${escHtml(entry.text)}</div>
+            ${renderTranslationSource(entry)}
           </div>`;
         }).join('')}
       </div>
@@ -961,6 +1034,9 @@
       heine: 'Steven Heine',
       yampolsky: 'Philip Yampolsky',
       senzaki_reps: 'Senzaki & Reps (1934)',
+      snyder: 'Gary Snyder',
+      adamek: 'Wendi L. Adamek',
+      liebenthal: 'Walter Liebenthal',
       clarke: 'Richard B. Clarke',
       watson: 'Burton Watson',
       hoffman: 'Yoel Hoffman',
@@ -976,33 +1052,50 @@
     return map[key] || key.replace('_', ' ').toUpperCase();
   }
 
-  // Render Comparison Matrix
+  // Render Comparison Matrix. Unlike the early matrix seed, every visible
+  // translator entry now receives an explicit provenance status and (where
+  // verified) the same citation treatment used by the Reader.
   function renderMatrix() {
-    if (!elements.matrixTarget || !state.data.translations_matrix) return;
+    if (!elements.matrixTarget || !Array.isArray(state.data.translations_matrix)) return;
     const matrixList = state.data.translations_matrix;
 
-    elements.matrixTarget.innerHTML = matrixList.map(item => `
+    elements.matrixTarget.innerHTML = matrixList.map(rawItem => {
+      const item = isRecord(rawItem) ? rawItem : {};
+      const translators = Array.isArray(item.translators) ? item.translators : [];
+      return `
       <div class="matrix-card">
         <div class="matrix-header">
-          <div class="matrix-ref">📌 ${item.source_ref}</div>
+          <div class="matrix-ref">📌 ${escHtml(item.source_ref)}</div>
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(item.sentence_zh)}</div>
-        <div class="pinyin-line">${item.sentence_pinyin}</div>
+        <div class="pinyin-line">${escHtml(item.sentence_pinyin)}</div>
         <div class="matrix-grid">
-          ${item.translators.map(t => `
+          ${translators.map(rawTranslator => {
+            const t = isRecord(rawTranslator) ? rawTranslator : {};
+            const entry = normalizeTranslationEntry(t.translator, {
+              text: t.text,
+              status: t.status,
+              source: t.source
+            }, {
+              isAI: /\bAI\b/i.test(stringValue(t.translator))
+            });
+            return `
             <div class="matrix-col">
               <div>
-                <div class="matrix-author">${t.translator}</div>
-                <div class="matrix-work">${t.work} (${t.style})</div>
-                <div class="matrix-text">"${t.text}"</div>
+                <div class="matrix-author">${escHtml(t.translator)}</div>
+                <div class="matrix-work">${escHtml(t.work)}${t.style ? ` (${escHtml(t.style)})` : ''}</div>
+                <div class="matrix-text">“${escHtml(entry.text)}”</div>
               </div>
-              ${t.status ? `<div style="font-size:0.68rem; margin-top:0.4rem; color: var(--text-muted);">${t.status === 'verified_quotation' ? '✅ Verified quotation' : t.status === 'ai_draft' ? '🤖 AI draft' : '⚠️ Register reconstruction (unverified)'}</div>` : ''}
-              <div class="matrix-note">💡 ${t.notes}</div>
+              ${renderTranslationStatus(entry)}
+              ${renderTranslationSource(entry)}
+              <div class="matrix-note">💡 ${escHtml(t.notes)}</div>
             </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
       </div>
-    `).join('');
+      `;
+    }).join('');
   }
 
   // Render Lineage Explorer
@@ -1476,16 +1569,55 @@
     }
 
     elements.studioSelectText.innerHTML = studioPassages.map(opt => `
-      <option value="${opt.id}">${opt.label}</option>
+      <option value="${escHtml(opt.id)}">${escHtml(opt.label)}</option>
     `).join('');
 
+    function translationKeysForPassage(selectedPassage) {
+      if (!selectedPassage || !isRecord(selectedPassage.translations)) return [];
+      return Object.keys(selectedPassage.translations).filter(key => {
+        const entry = normalizeTranslationEntry(key, selectedPassage.translations[key]);
+        return Boolean(entry.text);
+      });
+    }
+
+    function populateReferenceTranslatorSelect(selectedPassage) {
+      if (!elements.studioRefTranslatorSelect) return '';
+      const keys = translationKeysForPassage(selectedPassage);
+      if (keys.length === 0) {
+        elements.studioRefTranslatorSelect.innerHTML = '<option value="">No reference available</option>';
+        elements.studioRefTranslatorSelect.value = '';
+        state.selectedStudioRefTranslator = '';
+        return '';
+      }
+      const preferred = keys.includes(state.selectedStudioRefTranslator)
+        ? state.selectedStudioRefTranslator
+        : keys[0];
+      elements.studioRefTranslatorSelect.innerHTML = keys.map(key =>
+        `<option value="${escHtml(key)}">${escHtml(formatTranslatorName(key))}</option>`
+      ).join('');
+      elements.studioRefTranslatorSelect.value = preferred;
+      state.selectedStudioRefTranslator = preferred;
+      return preferred;
+    }
+
     function updateRefTranslationDisplay(selectedPassage) {
-      if (!selectedPassage || !elements.studioRefText) return;
-      const refKey = elements.studioRefTranslatorSelect ? elements.studioRefTranslatorSelect.value : 'red_pine';
-      const text = (selectedPassage.translations && selectedPassage.translations[refKey]) ||
-                   (selectedPassage.translations && Object.values(selectedPassage.translations)[0]) ||
-                   'No reference available for this translator.';
-      elements.studioRefText.innerHTML = `<strong>${formatTranslatorName(refKey)}:</strong> "${text}"`;
+      if (!elements.studioRefText) return;
+      const refKey = elements.studioRefTranslatorSelect
+        ? elements.studioRefTranslatorSelect.value
+        : state.selectedStudioRefTranslator;
+      const translations = selectedPassage && isRecord(selectedPassage.translations)
+        ? selectedPassage.translations
+        : null;
+      if (!refKey || !translations || !(refKey in translations)) {
+        elements.studioRefText.innerHTML = '<em>No reference translation is available for this passage.</em>';
+        return;
+      }
+      const entry = normalizeTranslationEntry(refKey, translations[refKey]);
+      elements.studioRefText.innerHTML = `
+        <div class="studio-reference-header"><strong>${escHtml(formatTranslatorName(refKey))}</strong>${renderTranslationStatus(entry)}</div>
+        <div class="studio-reference-text">“${escHtml(entry.text)}”</div>
+        ${renderTranslationSource(entry)}
+      `;
     }
 
     function detectTermsInPassage(zhText) {
@@ -1498,8 +1630,8 @@
       elements.studioDetectedTerms.innerHTML = `
         <div style="width: 100%; font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.2rem;">Detected Terms in Lexicon:</div>
         ${termsFound.map(t => `
-          <span class="meta-chip" style="cursor: pointer; background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold);" title="${t.definition}">
-            📖 ${t.term} (${t.literal})
+          <span class="meta-chip" style="cursor: pointer; background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold);" title="${escHtml(t.definition)}">
+            📖 ${escHtml(t.term)} (${escHtml(t.literal)})
           </span>
         `).join('')}
       `;
@@ -1514,6 +1646,7 @@
           elements.studioCharCount.textContent = `${selected.zh.length} classical characters`;
         }
 
+        populateReferenceTranslatorSelect(selected);
         updateRefTranslationDisplay(selected);
         detectTermsInPassage(selected.zh);
 
@@ -1536,10 +1669,21 @@
 
     if (elements.studioRefTranslatorSelect) {
       elements.studioRefTranslatorSelect.addEventListener('change', () => {
+        state.selectedStudioRefTranslator = elements.studioRefTranslatorSelect.value;
         const id = elements.studioSelectText.value;
         const selected = studioPassages.find(o => o.id === id);
         updateRefTranslationDisplay(selected);
       });
+    }
+
+    function persistPersonalTranslations() {
+      try {
+        localStorage.setItem('translatechan_user_translations', JSON.stringify(state.personalTranslations));
+        return true;
+      } catch (e) {
+        if (elements.studioStatus) elements.studioStatus.textContent = '⚠️ Could not save this draft in browser storage.';
+        return false;
+      }
     }
 
     // Save translation
@@ -1556,9 +1700,9 @@
           notes: elements.studioUserNotes.value,
           updatedAt: new Date().toLocaleString()
         };
-        localStorage.setItem('translatechan_user_translations', JSON.stringify(state.personalTranslations));
-        if (elements.studioStatus) {
-          elements.studioStatus.textContent = '✅ Saved translation to local repository storage!';
+        const persisted = persistPersonalTranslations();
+        if (elements.studioStatus && persisted) {
+          elements.studioStatus.textContent = '✅ Saved translation to browser storage.';
           setTimeout(() => {
             elements.studioStatus.textContent = `Last modified: ${new Date().toLocaleString()}`;
           }, 2500);
@@ -1659,7 +1803,10 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
       elements.studioClearAllBtn.addEventListener('click', () => {
         if (confirm("Are you sure you want to clear all saved personal translation drafts? This cannot be undone.")) {
           state.personalTranslations = {};
-          localStorage.removeItem('translatechan_user_translations');
+          try { localStorage.removeItem('translatechan_user_translations'); }
+          catch (e) {
+            if (elements.studioStatus) elements.studioStatus.textContent = '⚠️ Could not clear browser storage; the in-memory list was cleared.';
+          }
           renderSavedList();
           loadSelectedPassage(elements.studioSelectText.value);
         }
@@ -1669,26 +1816,33 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     function renderSavedList() {
       if (!elements.studioSavedList) return;
       const filterEl = document.getElementById('studio-draft-filter');
-      const q = filterEl ? filterEl.value.trim().toLowerCase() : '';
+      const q = stringValue(filterEl ? filterEl.value : '').trim().toLowerCase();
+      const itemFor = k => isRecord(state.personalTranslations[k]) ? state.personalTranslations[k] : {};
       const keys = Object.keys(state.personalTranslations)
-        .filter(k => !q || (state.personalTranslations[k].title || '').toLowerCase().includes(q) ||
-                      (state.personalTranslations[k].translation || '').toLowerCase().includes(q))
-        .sort((a, b) => String(state.personalTranslations[b].updatedAt || '').localeCompare(String(state.personalTranslations[a].updatedAt || '')));
+        .filter(k => {
+          const item = itemFor(k);
+          return !q || stringValue(item.title).toLowerCase().includes(q) ||
+            stringValue(item.translation).toLowerCase().includes(q);
+        })
+        .sort((a, b) => stringValue(itemFor(b).updatedAt).localeCompare(stringValue(itemFor(a).updatedAt)));
       if (keys.length === 0) {
         elements.studioSavedList.innerHTML = '<p style="font-size: 0.85rem; color: var(--text-muted);">' +
           (Object.keys(state.personalTranslations).length === 0 ? 'No saved personal translations yet.' : 'No drafts match your filter.') + '</p>';
         return;
       }
       elements.studioSavedList.innerHTML = keys.map(k => {
-        const item = state.personalTranslations[k];
+        const item = itemFor(k);
+        const title = stringValue(item.title);
+        const translation = stringValue(item.translation);
+        const updatedAt = stringValue(item.updatedAt);
         return `
           <div style="background: var(--bg-primary); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); margin-bottom: 0.5rem;">
             <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
-              <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-gold);">${item.title}</div>
-              <button class="btn-pill studio-draft-delete" data-draft-id="${k}" style="font-size:0.68rem; color:var(--accent-red); flex:none;" aria-label="Delete draft ${k}">✕ Delete</button>
+              <div style="font-weight: 600; font-size: 0.85rem; color: var(--accent-gold);">${escHtml(title)}</div>
+              <button class="btn-pill studio-draft-delete" data-draft-id="${escHtml(k)}" style="font-size:0.68rem; color:var(--accent-red); flex:none;" aria-label="Delete draft ${escHtml(k)}">✕ Delete</button>
             </div>
-            <div style="font-size: 0.82rem; margin: 0.25rem 0; color: var(--text-primary);">"${item.translation}"</div>
-            <div style="font-size: 0.7rem; color: var(--text-muted);">Saved: ${item.updatedAt}</div>
+            <div style="font-size: 0.82rem; margin: 0.25rem 0; color: var(--text-primary);">“${escHtml(translation)}”</div>
+            <div style="font-size: 0.7rem; color: var(--text-muted);">Saved: ${escHtml(updatedAt)}</div>
           </div>
         `;
       }).join('');
@@ -1700,7 +1854,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     window.TranslateChan.deleteDraft = function(id) {
       if (state.personalTranslations[id]) {
         delete state.personalTranslations[id];
-        try { localStorage.setItem('translatechan_user_translations', JSON.stringify(state.personalTranslations)); } catch (e) { /* ignore */ }
+        persistPersonalTranslations();
         renderSavedList();
       }
     };
@@ -1789,17 +1943,31 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
   }
 
   function makeSnippet(zh, q) {
-    // window the classical text around the first hit, then highlight all hits
-    // (variant-aware; query text is HTML-escaped before insertion)
-    const raw = zh || '';
+    // Window the classical text around the first hit, then highlight all hits.
+    // Escape every non-match too: escaping only the marked match left a source-data
+    // injection path in the previous implementation.
+    const raw = stringValue(zh);
     const re = variantRegex(q);
     const first = re ? raw.search(re) : -1;
     const center = first === -1 ? 0 : first;
     const start = Math.max(0, center - 30);
     const end = Math.min(raw.length, center + 50);
-    let snip = (start > 0 ? '…' : '') + raw.slice(start, end) + (end < raw.length ? '…' : '');
-    if (re) snip = snip.replace(re, m => `<mark>${escHtml(m)}</mark>`);
-    return snip;
+    const snip = (start > 0 ? '…' : '') + raw.slice(start, end) + (end < raw.length ? '…' : '');
+    if (!re) return escHtml(snip);
+
+    let html = '';
+    let cursor = 0;
+    let match;
+    re.lastIndex = 0;
+    while ((match = re.exec(snip)) !== null) {
+      html += escHtml(snip.slice(cursor, match.index));
+      html += `<mark>${escHtml(match[0])}</mark>`;
+      cursor = re.lastIndex;
+      // The UI never submits an empty query, but keep the loop safe if this
+      // helper is reused with a zero-width expression in the future.
+      if (match[0] === '') re.lastIndex++;
+    }
+    return html + escHtml(snip.slice(cursor));
   }
 
   // D1: searchable units are expensive to extract (traversal + string building),
@@ -1845,14 +2013,14 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
       perDocHits[corpKey] = hits.length;
       totalHits += hits.length;
 
-      bodyHtml += `<div style="margin: 1.25rem 0 0.4rem; font-weight: 700; color: var(--accent-gold);">${doc.title_zh} · ${doc.title_en} — ${hits.length} 處 / hit(s)</div>`;
+      bodyHtml += `<div style="margin: 1.25rem 0 0.4rem; font-weight: 700; color: var(--accent-gold);">${escHtml(doc.title_zh)} · ${escHtml(doc.title_en)} — ${hits.length} 處 / hit(s)</div>`;
       hits.slice(0, 12).forEach(u => {
         const action = u.jump && u.jump.kind === 'case'
           ? `<button class="btn-pill active" onclick="window.TranslateChan.openCase('${corpKey}', ${u.jump.num})">View Case in Reader</button>`
           : `<button class="btn-pill active" onclick="window.TranslateChan.openDoc('${corpKey}')">View in Reader</button>`;
         bodyHtml += `
           <div class="case-card" style="margin-bottom: 0.75rem;">
-            <div class="case-header"><span class="case-num-title" style="font-size:0.95rem;">${u.label}</span></div>
+            <div class="case-header"><span class="case-num-title" style="font-size:0.95rem;">${escHtml(u.label)}</span></div>
             <div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
             <div style="margin-top: 0.4rem;">${action}</div>
           </div>`;
@@ -1866,7 +2034,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div>${capped}</div>`;
 
     elements.readerContent.innerHTML = totalHits === 0
-      ? headerHtml + `<div class="case-card"><p>No matches found for "${q}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`
+      ? headerHtml + `<div class="case-card"><p>No matches found for "${escHtml(q)}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`
       : headerHtml + bodyHtml;
   }
 

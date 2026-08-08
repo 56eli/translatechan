@@ -483,19 +483,15 @@ Smoke test: stub gains `getBoundingClientRect`; 4g rewritten for lazy rendering 
 
 TranslateChan has a **sound, unusually well-documented static foundation**: it is a dependency-free GitHub Pages application with a deterministic data bundle, a real smoke test, synchronized deploy artifacts, and a much more honest corpus/provenance model than most early digital-humanities prototypes. There is no current P0 parse/build/render failure.
 
-The next work should **not** be another large content import before addressing the reader/studio integrity layer. Three P1 concerns affect public trust or a core workflow:
-
-1. two DOM-injection paths remain despite the prior search hardening;
-2. the Studio renders object-form verified translations as `[object Object]` for many of the newly completed Wumenguan cases; and
-3. the Matrix/Studio do not consistently carry the project’s own ✅/⚠️ provenance semantics.
+The initial current-state review found three P1 reader/studio integrity concerns. They were remediated in the same working session before this report was finalized: dynamic user-facing markup is escaped, the Studio normalizes object-form translations and exposes available registers, and provenance is now explicit in Reader, Matrix, and Studio. The next work should therefore be reader correctness/resilience rather than another large content import.
 
 | Area | Current assessment | Grade |
 |---|---|---:|
 | Static build, deployment, and root↔`docs` synchronization | Healthy and reproducible | A− |
 | Reader rendering and broad schema support | Healthy overall; sparse-case navigation has a concrete defect | B+ |
 | Search | Fast enough for current scale; incomplete for pointer text and misleading at the cap | B |
-| Studio and personal-data resilience | Useful design, but rich translations and unsafe rendering need repair | C+ |
-| Attribution/provenance model | Strong source schema for corpus objects; incomplete Matrix/Studio presentation | B− |
+| Studio and personal-data resilience | Rich translation values, dynamic reference selection, and stored-draft display hardened; broader storage persistence remains | B+ |
+| Attribution/provenance model | Explicit status/source treatment is now shared across Reader, Matrix, and Studio; canonical locators/rights work remains | B |
 | Corpus scope and scholarly traceability | Honest about seed coverage; needs per-unit canonical anchors and rights controls before expansion | B− |
 | Accessibility and UX | Good baseline (skip link, focus states, reduced motion); interactive semantics still uneven | B |
 | Tooling and release discipline | Good manual checks; no schema gate, CI, or browser-level regression layer | B |
@@ -514,8 +510,8 @@ cmp root assets with docs assets
 diff -rq data docs/data
 ```
 
-- The bundle rebuilt deterministically at **624,237 bytes**; `index.html`, `app.css`, `app.js`, `app_data.js`, and `data/` are byte-identical between root and `docs/` after the build.
-- The dependency-free smoke harness loaded the bundle, rendered all **36** corpus documents through all reader modes, exercised lazy Wumenguan rendering, search, graph wiring, and Studio setup with **0 failures**.
+- The bundle rebuilt deterministically at **626,587 bytes**; `index.html`, `app.css`, `app.js`, `app_data.js`, and `data/` are byte-identical between root and `docs/` after the build.
+- The dependency-free smoke harness loaded the bundle, rendered all **36** corpus documents through all reader modes, executed debounced search for schema-specific and adversarial queries, exercised lazy Wumenguan rendering, Matrix provenance, graph wiring, Studio object-form translations, and escaped saved drafts with **0 failures**.
 - All JSON files parse. The 36 corpus filenames, the 36 bundler entries, and the 36 UI corpus-map entries agree exactly.
 - GitHub Pages is currently **built**, HTTPS-enforced, and configured to publish `main` → `/docs`.
 
@@ -527,11 +523,11 @@ diff -rq data docs/data
 | Classical Chinese size | 13,090 CJK characters in source-content `*_zh` fields after excluding title/author metadata; 16,270 CJK characters across all JSON strings. Documentation should name the counting method rather than imply that both are the same measure. |
 | Translation slots in corpus | 856 total: 138 object-form `verified_quotation`, 692 implicit scholar-register reconstructions, 26 AI drafts |
 | Verified corpus slots by text | Wumenguan 119; Linji 6; Zhaozhou 5; Huangbo *Chuanxin* 4; Platform Sutra 2; Xinxin Ming 2 |
-| Comparative Matrix | 4 rows / 21 translator entries; 2 entries claim `verified_quotation` |
+| Comparative Matrix | 4 rows / 21 translator entries; all 21 have explicit status; 2 verified entries carry source records |
 | Glossary / lineage / gong’an index | 31 terms / 30 master profiles / 18 index entries |
 | Lineage links | 26 in-set teacher edges render; four teacher references deliberately point beyond the current dataset (Prajñātāra, Longtan Chongxin, Yangqi Fanghui, Dahong Laoniu Zuzheng) |
 
-The 138 verified corpus objects each contain the required `source.work`, `source.edition`, and `source.verification` fields. That is a real strength. It does **not** yet provide a source locator for each Classical Chinese unit, nor equivalent machine-readable provenance for the two verified Matrix entries.
+The 138 verified corpus objects and both verified Matrix entries contain the required `source.work`, `source.edition`, and `source.verification` fields. That is a real strength. The corpus still does **not** provide a canonical locator for each Classical Chinese unit.
 
 ### 10.3 Current findings
 
@@ -542,7 +538,7 @@ The 138 verified corpus objects each contain the required `source.work`, `source
 | C3 | **P1** | **The attribution policy is not consistently applied in the views most likely to be cited.** Nineteen of 21 Matrix entries have no `status`, and `renderMatrix()` renders no per-entry warning when it is missing. Its two ✅ entries have no `source` object. Preface/epilogue columns use a generic footer instead of individual badges, while Studio drops all badge/source context. This contradicts the README’s current “every rendering … is labeled” claim. | Make status mandatory in both corpus and Matrix schemas; apply a default reconstruction/AI status when absent; require source metadata for verified records; render the same compact provenance component in Reader, Matrix, Studio, and exports. |
 | C4 | **P2** | **Prev/next case navigation assumes consecutive numeric case IDs.** `renderCaseItem()` uses `case_num - 1` / `+ 1` (`762–764`) instead of adjacent array entries. It points to missing cards for Biyanlu `[1,2,3,12,14,21,43]` and Congronglu `[1,9]` (e.g., Biyanlu 3 → nonexistent 4). | Pass adjacent case numbers from `renderReader()` or resolve them by array index. Add a sparse-case regression fixture/assertion. |
 | C5 | **P2** | **Search is broad but not actually comprehensive and the cap’s count is inaccurate.** `extractSearchableUnits()` indexes case dialogue/commentary/verse but omits all 9 `pointer_zh` blocks in Biyanlu/Congronglu; it also omits pointer English. On broad queries such as `the`, actual unit matches exceed 300, but the loop stops by document and reports a partial count as if it were the total while showing only 12 cards per document. | Index pointer fields and explicitly state `200+` / “showing first N” rather than a partial total; cap before counting/rendering or compute an accurate total separately. |
-| C6 | **P2** | **Storage hardening is incomplete and corpus persistence is dead.** `state.theme`, `applyTheme`, Studio save, and clear-all use unguarded `localStorage` calls (`41`, `229`, `1559`, `1662`), which can throw in restricted/privacy contexts. The app reads `translatechan_corpus_key` at startup but never writes it, despite the UI/old documentation claiming active-corpus persistence. | Add safe storage wrappers with user-visible failure status; persist corpus selection on every selection path; version/validate the stored draft schema; test blocked/quota-exceeded storage. |
+| C6 | **P2** | **Storage hardening is incomplete and corpus persistence is dead.** The integrity patch now shape-normalizes saved drafts and safely handles Studio save/delete/clear errors, but `state.theme` / `applyTheme` still use unguarded `localStorage` calls and the app reads `translatechan_corpus_key` at startup without ever writing it. | Extend safe storage wrappers to every preference; persist corpus selection on every selection path; version/validate stored data; test blocked/quota-exceeded storage. |
 | C7 | **P2** | **Scholarly traceability and rights controls are not yet at research-publication strength.** Classical Chinese units generally carry only a document-level `cbeta_id`/occasional note, not a canonical locator or revision source per unit. The repo redistributes 138 verified quotations, many from modern copyrighted translations; the broad CC BY-SA data statement plus a prose exception is not a durable rights manifest. This is a risk assessment, not legal advice. | Add per-unit canonical locator/edition fields and a validation rule; record quotation length, rights basis, jurisdiction, source URL/page, and license/permission in a dedicated third-party manifest; obtain a legal/editorial review before calling the corpus publication-ready. |
 | C8 | **P2** | **Documentation was drifting from the live snapshot.** The 119 verified-slot claim is now stale (the actual corpus count is 138); ROADMAP still said 18 master profiles in two places; `response_summary.md` reported a pre-merge state and old branch. I corrected current-facing documentation in this audit commit while preserving historical session reports as historical records. | Generate a small metrics table from data during the build/test step and make README/ROADMAP consume or verify it; keep session-specific branch names out of evergreen docs. |
 | C9 | **P2** | **The build is deterministic but lacks enforceable data quality gates.** The corpus manifest exists in both `build_data_bundle.py` and `app.js`; it matches today but can silently drift. There is no JSON Schema, semantic validator, CI workflow, or browser-level test. `ingest_cbeta.py` is a punctuation segmenter only, despite its broader docstring, and `arena_agent_pipeline.py` is prompt scaffolding rather than an ingestion/validation pipeline. | Add schema + semantic validation (unique IDs, required labels, translation object rules, source requirements, case adjacency); derive a shared corpus manifest; run build/smoke/validation in GitHub Actions; add a minimal real-browser test when practical. |
@@ -551,11 +547,23 @@ The 138 verified corpus objects each contain the required `source.work`, `source
 
 ### 10.4 Recommended sequence
 
-1. **Integrity hotfix (first):** C1 + C2 + C3. Make rendering safe, normalize translation values, dynamically expose available registers, and make status/source provenance visible everywhere. This gives the project a trustworthy comparative core.
-2. **Reader correctness pass:** C4 + C5 + C6. Repair sparse navigation, pointer search, truthful result caps, and persistence/storage failures; add focused regressions to the existing smoke harness.
+1. **✅ Integrity hotfix completed:** C1 + C2 + C3 are remediated in this session with adversarial smoke coverage, object-form translation normalization, passage-aware Studio registers, and explicit Matrix status/source records.
+2. **Reader correctness pass:** C4 + C5 + C6. Repair sparse navigation, pointer search, truthful result caps, and remaining preference/corpus persistence failures; add focused regressions to the existing smoke harness.
 3. **Research-release guardrails:** C7 + C9. Introduce a formal data schema/validator, source locators, a rights manifest, derived metrics, and CI before sizeable corpus imports.
 4. **Then grow content:** Complete Biyanlu and expand the Studio only after those rails are in place. Pair each new segment with canonical location, pinyin provenance, translation status, and rights record from the start.
 
 ### 10.5 Audit limitations
 
 This was a code/data integrity and product audit, not a line-by-line scholarly collation of all Classical Chinese against primary editions, a legal opinion on quotation/fair use, or a cross-browser assistive-technology certification. The static smoke test is green, but a browser automation pass should be added before calling the UX fully release-tested.
+
+### 10.6 Integrity hotfix — C1/C2/C3 remediated (same session)
+
+The following patch closes the three P1 findings documented above; the rows remain in §10.3 as the audit record.
+
+| Finding | Remediation | Regression evidence |
+|---|---|---|
+| C1 — user-controlled markup | Added `escHtml()` coverage to the no-results search body, saved-draft list, source snippets, Matrix fields, Studio reference output, glossary popover, and annotated Classical Chinese output. Stored drafts are normalized to a narrow plain-data shape before use; unsafe prototype keys are rejected. | Smoke test now performs a real debounced no-result search with an HTML payload and saves an HTML-bearing draft; it fails if raw markup appears. The former `Atomics.wait` pseudo-delay was replaced with `await setTimeout`, so the debounce callback actually executes. |
+| C2 — object-form Studio values | Added a shared `normalizeTranslationEntry()` adapter for legacy strings and `{text,status,source}` records. The Studio now populates its reference selector from the selected passage, selects a valid available register, and renders the normalized text plus status/source. | Smoke test selects Wumenguan Case 8 (Senzaki/Reps object-only), rejects `[object Object]`, and requires the verified badge/source line. |
+| C3 — inconsistent provenance | Added explicit statuses to all 21 Matrix records (18 reconstruction, 1 AI draft, 2 verified) and source records to both verified Matrix rows. Reader preface/epilogue columns, Matrix, and Studio use shared status/source renderers; policy updated to v2.1. | Smoke test validates every Matrix record's status and verified source fields, then asserts 21 visual badges and 2 Matrix source lines. Corpus verification check still confirms 138 source-complete verified objects. |
+
+**Result:** no P0/P1 issue from this audit remains open. The next recommended implementation target is C4–C6, followed by C7/C9 research-release guardrails.

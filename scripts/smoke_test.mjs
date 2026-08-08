@@ -105,13 +105,13 @@ for (const h of modeHandlers) {
 
 // 3. Exercise global search with several queries (search is debounced ~200ms — await it)
 const searchEl = ids['global-search'];
-const sleep = ms => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
-const fireSearch = (q) => {
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const fireSearch = async (q) => {
   (searchEl._handlers['input'] || []).forEach(fn => fn({ target: { value: q } }));
-  sleep(260);
+  await sleep(260); // allow the application's debounced timer to run
 };
 for (const q of ['dog', '無', 'buddha', '平常心', 'xyz-not-found']) {
-  try { fireSearch(q); }
+  try { await fireSearch(q); }
   catch (e) { failures++; console.log(`  ❌ search crash for "${q}": ${e.message}`); }
 }
 
@@ -131,7 +131,7 @@ const schemaQueries = [
 ];
 for (const [q, label] of schemaQueries) {
   try {
-    fireSearch(q);
+    await fireSearch(q);
     const html = ids['reader-content-target']._innerHTML;
     if (html.includes('No matches found')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
   } catch (e) { failures++; console.log(`❌ full-schema search crash "${q}": ${e.message}`); }
@@ -178,25 +178,54 @@ if (typeof window.TranslateChan.resetLineageView !== 'function') { failures++; c
 // 4l. Hash routing: initial deep-link state + viewHash helper
 if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.log('❌ openDoc missing (hash routing depends on it)'); }
 // 4m. Studio passage picker covers all 48 Wumenguan cases (C5)
-const studioOptionCount = (ids['studio-select-text']._innerHTML.match(/<option/g) || []).length;
+const studioSelect = ids['studio-select-text'];
+const studioOptionCount = (studioSelect._innerHTML.match(/<option/g) || []).length;
 if (studioOptionCount < 48) { failures++; console.log(`❌ studio picker has only ${studioOptionCount} passages (expected >= 48)`); }
 // 4n. Gong'an filter chips + draft delete helper (C5)
 if (typeof window.TranslateChan.deleteDraft !== 'function') { failures++; console.log('❌ deleteDraft missing'); }
 const gonganHtml = ids['gongan-content-target']._innerHTML;
 if (!gonganHtml.includes('gongan-filter-chip')) { failures++; console.log('❌ gongan filter chips missing'); }
+// 4o. Matrix provenance is explicit for every translator, with citations for verified rows.
+const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
+const malformedMatrixEntries = matrixEntries.filter(t => !t.status ||
+  (t.status === 'verified_quotation' && (!t.source || !t.source.work || !t.source.edition || !t.source.verification)));
+if (malformedMatrixEntries.length) { failures++; console.log(`❌ matrix provenance incomplete for ${malformedMatrixEntries.length} entry/entries`); }
+const matrixHtml = ids['matrix-content-target']._innerHTML;
+const matrixStatusCount = (matrixHtml.match(/class="translation-status/g) || []).length;
+if (matrixStatusCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixStatusCount} provenance badges (expected ${matrixEntries.length})`); }
+const matrixSourceCount = (matrixHtml.match(/class="translation-source/g) || []).length;
+if (matrixSourceCount !== 2) { failures++; console.log(`❌ matrix has ${matrixSourceCount} verified source lines (expected 2)`); }
+// 4p. Object-form verified translations must render as text in the Studio, and
+// the selector must adapt when a passage only has the Senzaki/Reps register.
+studioSelect.value = 'wumen_8';
+(studioSelect._handlers.change || []).forEach(fn => fn({ target: studioSelect }));
+const studioRefHtml = ids['studio-ref-text']._innerHTML;
+if (studioRefHtml.includes('[object Object]')) { failures++; console.log('❌ Studio rendered an object-form translation literally'); }
+if (!studioRefHtml.includes('Senzaki &amp; Reps') && !studioRefHtml.includes('Senzaki & Reps')) { failures++; console.log('❌ Studio did not expose the available verified translator'); }
+if (!studioRefHtml.includes('Verified quotation') || !studioRefHtml.includes('translation-source')) { failures++; console.log('❌ Studio lost verified provenance/source metadata'); }
+// 4q. Saved user drafts are escaped before entering innerHTML (self-XSS guard).
+studioSelect.value = 'wumen_1';
+(studioSelect._handlers.change || []).forEach(fn => fn({ target: studioSelect }));
+ids['studio-user-translation'].value = '<img src=x onerror="alert(1)">';
+ids['studio-user-notes'].value = '<b>unsafe note</b>';
+(ids['studio-save-btn']._handlers.click || []).forEach(fn => fn());
+const savedDraftHtml = ids['studio-saved-list']._innerHTML;
+if (savedDraftHtml.includes('<img') || savedDraftHtml.includes('<b>unsafe')) { failures++; console.log('❌ saved draft markup was not escaped'); }
+if (!savedDraftHtml.includes('&lt;img')) { failures++; console.log('❌ saved draft escape regression'); }
 // 4e. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
-  fireSearch(q);
+  await fireSearch(q);
   const html = ids['reader-content-target']._innerHTML;
   if (html.includes('No matches found')) { failures++; console.log(`❌ variant search missed results for "${q}"`); }
 }
-// 4f. Search query must be HTML-escaped (self-XSS guard)
-fireSearch('<b>x');
+// 4f. Search query must be HTML-escaped in both the header and no-results body (self-XSS guard)
+await fireSearch('<img src=x onerror="alert(1)">');
 const searchHtml = ids['reader-content-target']._innerHTML;
-if (searchHtml.includes('<b>x') && !searchHtml.includes('&lt;b&gt;x')) { failures++; console.log('❌ search query not escaped'); }
-if (searchHtml.includes('<mark><b>')) { failures++; console.log('❌ search mark injection'); }
+if (searchHtml.includes('<img') || searchHtml.includes('onerror="alert(1)"')) { failures++; console.log('❌ search query markup was not escaped'); }
+if (!searchHtml.includes('&lt;img')) { failures++; console.log('❌ escaped search query missing'); }
+if (searchHtml.includes('<mark><img')) { failures++; console.log('❌ search mark injection'); }
 // clear search
-fireSearch('');
+await fireSearch('');
 
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
