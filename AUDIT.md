@@ -663,9 +663,9 @@ The smoke suite asserts the layered generation labels and halo nodes so the char
 | F6 | P3 | AUDIT §10.2 "Huangbo Chuanxin 4" — actual split is Chuanxin 2 + Wanling 2 | ✅ fixed |
 | F3 | P2 | a11y/CSP (C10 carryover): inline `onclick` ×6, glossary terms not Enter/Space-activatable, tabs lacked tabpanel/aria-controls/arrow keys, no CSP | ✅ **remediated** (§11.3) |
 | F4 | P2 | Per-file coverage metadata exists only for wumenguan; doc counts can drift (F1 class) | ✅ **remediated** (§11.4): deterministic `corpus.per_text` metrics, manifest `unit_targets`, validator-enforced `zh_chars`/`coverage_note` — immediately caught stale wumenguan `zh_chars` (5,876 → 5,528) |
-| F7 | P2 | Required Quality check on `main` unconfirmed (branch-protection API 403 for this token) | open — needs owner |
+| F7 | P2 | Required Quality check on `main` unconfirmed (branch-protection API 403 for this token) | ⏳ instruction drafted (§11.6 + HANDOFF "Repository administration"); ~2-minute owner-only action |
 | F10 | P2 | No real-browser regression suite yet | ✅ **remediated** (§11.5): `scripts/browser_test.mjs` Playwright suite (desktop + mobile, 12 tests) added; optional, not in CI, skips gracefully without a browser |
-| F5/F8/F9 | P3 | Annotator/search scaling advisory; "Zero-Backend Offline" chip vs Google Fonts; overpromising script docstrings | open — tracked |
+| F5/F8/F9 | P3 | Annotator/search scaling advisory; "Zero-Backend Offline" chip vs Google Fonts; overpromising script docstrings | F9 ✅ fixed (§11.6); F5/F8 tracked (advisory) |
 
 ### 11.3 — F3 remediation: delegated events, ARIA tabs, keyboard glossary terms, CSP
 
@@ -689,3 +689,9 @@ The smoke suite asserts the layered generation labels and halo nodes so the char
 ### 11.5 — F10 remediation: real-browser Playwright suite (same session)
 
 `scripts/browser_test.mjs` adds an optional Playwright suite (desktop 1280×900 + mobile 390×844 contexts) covering initial load, hash deep links, Wumenguan lazy 12→48 loading, case-chip jumps, citation/glossary popovers (pointer + keyboard), ARIA tab navigation, search escaping, mobile corpus chooser/action bar, print media, and CSP/uncaught-error console cleanliness. It self-spawns a static server, exits 1 on failures, and **skips gracefully (exit 0) with install guidance when Chromium is unavailable** — it is optional and not part of CI, keeping the zero-dependency contributor path intact. `package.json` (private, devDep `playwright`) + lockfile added; `node_modules/` git-ignored; README/HANDOFF/RESEARCH_RELEASE_PLAN Phase 0 updated. **Environment note:** this sandbox cannot execute a real browser (no binary, missing system libs, blocked CDNs/apt); the suite's first live run must happen on a browser-capable machine, which is a documented prerequisite rather than a code gap.
+
+### 11.6 — F7 + F9 remediation: release-ops tidy-up (same session)
+
+**F9 (fixed):** the module docstrings of `scripts/ingest_cbeta.py` and `scripts/arena_agent_pipeline.py` overpromised ("…maps CBETA canonical IDs", "…Translation & Alignment Pipeline"). Both are rewritten to state exactly what they do — an offline punctuation/dialogue-delimiter segmenter, and prompt-register + entry-builder helpers — with CBETA fetching and translation alignment explicitly deferred to Phase 2. `py_compile` clean.
+
+**F7 (instruction drafted):** branch protection cannot be set by the agent token (API 403 verified). HANDOFF.md now carries a precise **"Repository administration — require the Quality check on `main`"** checklist for the owner: confirm one green Quality run → Settings → Branches → protect `main` → require status check **Validate data, generated artifacts, and reader** (job name), recommended PR requirement, and a note that Pages stays native (`main` → `/docs`) with no deploy workflow. This converts the open unknown into a ~2-minute owner checklist.

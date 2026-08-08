@@ -55,7 +55,20 @@ All commands pass. Root and `/docs` assets/data are synchronized.
 
 ### GitHub Actions quality gate
 
-`.github/workflows/quality.yml` is checked in and runs on pushes to `main` and `arena/**`, plus pull requests targeting `main`. It validates Python syntax, source data/metrics, deterministic generated artifacts, the `/docs` mirror, and the dependency-free reader smoke suite. It does **not** deploy Pages; Pages remains native branch publishing from `main` `/docs`. Repository administrators should require the `Validate data, generated artifacts, and reader` check before merging to `main`.
+`.github/workflows/quality.yml` is checked in and runs on pushes to `main` and `arena/**`, plus pull requests targeting `main`. It validates Python syntax, source data/metrics, deterministic generated artifacts, the `/docs` mirror, and the dependency-free reader smoke suite. It does **not** deploy Pages; Pages remains native branch publishing from `main` `/docs`.
+
+### Repository administration — require the Quality check on `main` (owner action, ~2 minutes)
+
+The Quality workflow is the merge gate; **requiring** it is a one-time admin step that no agent token can perform:
+
+1. **Confirm the workflow has run at least once** — any push/PR run appears under *Actions → Quality* (job name: **Validate data, generated artifacts, and reader**). It reads the repo only and needs no secrets.
+2. Open **Settings → Branches → Add branch protection rule** (or edit the existing rule) for branch `main`:
+   - ☑ **Require status checks to pass before merging**
+   - In the search box pick **Validate data, generated artifacts, and reader** (the job name above), then confirm it is listed.
+   - Recommended extras: ☑ **Require a pull request before merging** (with at least 1 approving review), and leave **Do not allow bypassing the above settings** checked.
+3. Save. Do **not** add any Pages/deploy workflow — native branch publishing from `main` → `/docs` republishes automatically on merge.
+
+The same commands the workflow runs are the local release checklist above, so the required check should always be green for conforming PRs.
 
 ### Merge readiness
 

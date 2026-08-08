@@ -83,14 +83,16 @@ The AUDIT §3.3 recommendation (`coverage_note` + `zh_chars`) was applied to `wu
 AUDIT §10.2's verified-by-text row says *"Huangbo Chuanxin 4"* but the 4 verified slots are split **2 in `huangbo_chuanxin.json` (T2012A) + 2 in `huangbo_wanling.json` (T2012B)**. The README's "6 corpus texts" is defensible (Huangbo counted as one text entity), but the AUDIT row should read *"Huangbo (Chuanxin 2 + Wanling 2)"* for precision.
 **Status: FIXED this session** (AUDIT §10.2 row).
 
-### F7 — 🟡 P2 (release engineering): required-check enforcement still unconfirmed
-The Quality workflow is checked in and triggers on `push` to `main`/`arena/**` + PRs to `main`. Whether it is a **required** check on `main` could not be confirmed (branch-protection API returns 403 for this token). This is the previous audit's A1, still open — needs the repo owner/admin to enable the requirement.
+### F7 — 🟡 P2 (release engineering): required-check enforcement still unconfirmed — **instruction drafted** ⏳
+The Quality workflow is checked in and triggers on `push` to `main`/`arena/**` + PRs to `main`. Whether it is a **required** check on `main` could not be confirmed (branch-protection API returns 403 for this token) — this is the previous audit's A1, and needs the repo owner/admin.
+**Status: instruction drafted** (see §2.3 below + HANDOFF "Repository administration") — a ~2-minute owner-only action; the agent token cannot perform it.
 
 ### F8 — 🟢 P3 (UX truth): "Zero-Backend Offline" chip vs Google Fonts
 The hero chip "🌐 Zero-Backend Offline" is technically true (zero backend; offline works with fallback fonts) but the app loads Noto Serif SC + Inter from Google Fonts. `RESEARCH_RELEASE_PLAN` Phase 4 and C10 suggested rewording to "Zero-Backend Static" or self-hosting fonts. Minor.
 
-### F9 — 🟢 P3 (tooling): script docstrings still overpromise (carried from C9)
-`ingest_cbeta.py`'s docstring says *"Parses raw Classical Chinese… maps CBETA canonical IDs"* — it is a punctuation segmenter (no CBETA fetching, no ID mapping). `arena_agent_pipeline.py`'s docstring says *"translation & alignment pipeline"* — it is prompt scaffolding + an entry builder. Both were flagged in the prior audit (C9); still accurate to say the docstrings overstate. Either narrow the docstrings or implement real CBETA fetching (Kanripo/CBETA API) under Phase 2.
+### F9 — 🟢 P3 (tooling): script docstrings still overpromise (carried from C9) — **FIXED this session** ✅
+`ingest_cbeta.py`'s docstring said *"Parses raw Classical Chinese… maps CBETA canonical IDs"* — it is a punctuation segmenter (no CBETA fetching, no ID mapping). `arena_agent_pipeline.py`'s docstring said *"translation & alignment pipeline"* — it is prompt scaffolding + an entry builder.
+**Status: FIXED this session** (§2.3) — both docstrings rewritten to state exactly what the scripts do and do not do; real CBETA fetching remains a Phase-2 goal.
 
 ### F10 — 🟡 P2 (testing): no real-browser regression suite (carried from A4/C9) — **REMEDIATED this session** ✅
 The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it cannot validate layout/breakpoints, real hash navigation, pointer/keyboard semantics in a browser, CSP behavior, or screen-reader output.
@@ -145,10 +147,9 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 ## 7. Recommended Next Steps (proposal — awaiting direction)
 
 1. **Run the browser suite once on a browser-capable machine** (first real execution of `npm run test:browser`; this sandbox cannot run Chromium) and feed any selector/behavior findings back.
-2. **F7**: ask the repo owner to require the Quality check on `main` (one admin action).
+2. **Owner action (F7)**: follow HANDOFF's "Repository administration" checklist to require the Quality check on `main` (~2 minutes; agent token cannot do it).
 3. **Then Phase 2 content**: complete Biyanlu under the locator/provenance/rights contract (first 10 cases as pilot) — per-text coverage strings now auto-track progress.
-4. **F9**: narrow the two script docstrings (2-minute fix) or budget real CBETA fetching.
-5. **F5**: revisit annotator/search-index scaling before major corpus growth.
+4. **F5**: revisit annotator/search-index scaling before major corpus growth.
 
 ---
 
@@ -188,6 +189,13 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 
 **Environment note:** this sandbox cannot run a real browser (no Chromium binary anywhere on disk, no browser system libraries, and `cdn.playwright.dev` / Debian mirrors are network-blocked). The suite's logic is written against the app's actual DOM (selectors cross-checked with the generated markup); its first real execution must happen on a dev machine or a CI runner with a browser — this is a documented prerequisite, not a code gap.
 
+### F7 + F9 — release-ops tidy-up completed ✅ (F7: instruction drafted ⏳)
+
+| Item | Change | Verification |
+|---|---|---|
+| F9 — script docstrings | `ingest_cbeta.py` and `arena_agent_pipeline.py` module docstrings rewritten to state exactly what each script does (offline punctuation segmenter / prompt-register + entry-builder helpers) and explicitly defer CBETA fetching + alignment to Phase 2 | `python3 -m py_compile scripts/*.py` clean; README descriptions already matched the new wording |
+| F7 — required-check instruction | HANDOFF.md gains a **"Repository administration"** section: exact ~2-minute owner steps (confirm the workflow ran once → Settings → Branches → protect `main` → require status check **Validate data, generated artifacts, and reader**; recommended PR requirement; note that Pages stays native and needs no deploy workflow) | The agent token cannot modify branch protection (API 403 confirmed), so this is now a precise owner checklist rather than an open unknown |
+
 ---
 
 ## 8. Audit Limitations
@@ -196,4 +204,4 @@ This audit did not independently collate every Chinese passage against CBETA/TEI
 
 ---
 
-**One-sentence completion summary:** This audit found a healthy, deterministic, honestly-labeled static reader with all quality gates green and every prior remediation holding, and this session remediated the a11y/CSP gaps (delegated events, ARIA tabs, keyboard glossary terms, restrictive CSP), added deterministic per-text coverage metrics that immediately caught a stale char count, and shipped an optional Playwright real-browser suite — leaving open only the tracked editorial migration, the suite's first live browser run, branch-protection confirmation, and Phase-2 corpus expansion.
+**One-sentence completion summary:** This audit found a healthy, deterministic, honestly-labeled static reader with all quality gates green and every prior remediation holding, and this session remediated the a11y/CSP gaps, added deterministic per-text coverage metrics (which caught a stale char count), shipped an optional Playwright real-browser suite, and drafted the owner-only branch-protection instruction — leaving open only the tracked editorial migration, the suite's first live browser run, the owner's 2-minute admin step, and Phase-2 corpus expansion.
