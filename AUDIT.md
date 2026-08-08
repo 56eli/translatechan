@@ -483,14 +483,14 @@ Smoke test: stub gains `getBoundingClientRect`; 4g rewritten for lazy rendering 
 
 TranslateChan has a **sound, unusually well-documented static foundation**: it is a dependency-free GitHub Pages application with a deterministic data bundle, a real smoke test, synchronized deploy artifacts, and a much more honest corpus/provenance model than most early digital-humanities prototypes. There is no current P0 parse/build/render failure.
 
-The initial current-state review found three P1 reader/studio integrity concerns. They were remediated in the same working session before this report was finalized: dynamic user-facing markup is escaped, the Studio normalizes object-form translations and exposes available registers, and provenance is now explicit in Reader, Matrix, and Studio. The next work should therefore be reader correctness/resilience rather than another large content import.
+The initial current-state review found three P1 reader/studio integrity concerns and three P2 reader-reliability concerns. Both groups were remediated in the same working session: dynamic user-facing markup is escaped; the Studio normalizes object-form translations and exposes available registers; provenance is explicit across Reader, Matrix, and Studio; sparse case navigation follows actual neighbors; search includes pointer text and reports truthful counts; and all browser-storage access now fails safely. The next work should be research-release guardrails before another large content import.
 
 | Area | Current assessment | Grade |
 |---|---|---:|
 | Static build, deployment, and root↔`docs` synchronization | Healthy and reproducible | A− |
-| Reader rendering and broad schema support | Healthy overall; sparse-case navigation has a concrete defect | B+ |
-| Search | Fast enough for current scale; incomplete for pointer text and misleading at the cap | B |
-| Studio and personal-data resilience | Rich translation values, dynamic reference selection, and stored-draft display hardened; broader storage persistence remains | B+ |
+| Reader rendering and broad schema support | All supported schemas render; sparse case navigation follows actual adjacent records | A− |
+| Search | Pointer blocks included; complete hit count and presentation-limit notice are truthful | A− |
+| Studio and personal-data resilience | Rich translation values, dynamic reference selection, stored-draft display, and browser-storage failure handling hardened | A− |
 | Attribution/provenance model | Explicit status/source treatment is now shared across Reader, Matrix, and Studio; canonical locators/rights work remains | B |
 | Corpus scope and scholarly traceability | Honest about seed coverage; needs per-unit canonical anchors and rights controls before expansion | B− |
 | Accessibility and UX | Good baseline (skip link, focus states, reduced motion); interactive semantics still uneven | B |
@@ -547,9 +547,9 @@ The 138 verified corpus objects and both verified Matrix entries contain the req
 
 ### 10.4 Recommended sequence
 
-1. **✅ Integrity hotfix completed:** C1 + C2 + C3 are remediated in this session with adversarial smoke coverage, object-form translation normalization, passage-aware Studio registers, and explicit Matrix status/source records.
-2. **Reader correctness pass:** C4 + C5 + C6. Repair sparse navigation, pointer search, truthful result caps, and remaining preference/corpus persistence failures; add focused regressions to the existing smoke harness.
-3. **Research-release guardrails:** C7 + C9. Introduce a formal data schema/validator, source locators, a rights manifest, derived metrics, and CI before sizeable corpus imports.
+1. **✅ Integrity hotfix completed:** C1 + C2 + C3 are remediated with adversarial smoke coverage, object-form translation normalization, passage-aware Studio registers, and explicit Matrix status/source records.
+2. **✅ Reader reliability pass completed:** C4 + C5 + C6 are remediated with adjacent sparse-case navigation, pointer-inclusive/accurately counted search, safe storage wrappers, and persisted corpus choice.
+3. **Research-release guardrails (next):** C7 + C9. Introduce a formal data schema/validator, source locators, a rights manifest, derived metrics, and CI before sizeable corpus imports.
 4. **Then grow content:** Complete Biyanlu and expand the Studio only after those rails are in place. Pair each new segment with canonical location, pinyin provenance, translation status, and rights record from the start.
 
 ### 10.5 Audit limitations
@@ -566,4 +566,14 @@ The following patch closes the three P1 findings documented above; the rows rema
 | C2 — object-form Studio values | Added a shared `normalizeTranslationEntry()` adapter for legacy strings and `{text,status,source}` records. The Studio now populates its reference selector from the selected passage, selects a valid available register, and renders the normalized text plus status/source. | Smoke test selects Wumenguan Case 8 (Senzaki/Reps object-only), rejects `[object Object]`, and requires the verified badge/source line. |
 | C3 — inconsistent provenance | Added explicit statuses to all 21 Matrix records (18 reconstruction, 1 AI draft, 2 verified) and source records to both verified Matrix rows. Reader preface/epilogue columns, Matrix, and Studio use shared status/source renderers; policy updated to v2.1. | Smoke test validates every Matrix record's status and verified source fields, then asserts 21 visual badges and 2 Matrix source lines. Corpus verification check still confirms 138 source-complete verified objects. |
 
-**Result:** no P0/P1 issue from this audit remains open. The next recommended implementation target is C4–C6, followed by C7/C9 research-release guardrails.
+**Result at this point:** no P0/P1 issue from this audit remained open. C4–C6 were completed immediately afterward in §10.7; C7/C9 research-release guardrails are now next.
+
+### 10.7 Reader reliability pass — C4/C5/C6 remediated (same session)
+
+| Finding | Remediation | Regression evidence |
+|---|---|---|
+| C4 — sparse navigation | `renderCaseItem()` now receives the full case array and uses actual previous/next records; `ensureCaseLoaded()` resolves a target by array index rather than comparing a canonical case number with a render count. | Smoke test verifies Biyanlu 3 → 12 and 12 → 3, plus Congronglu 1 ↔ 9. |
+| C5 — pointer search and cap accounting | Search units now include `pointer_zh`/`pointer_en`. The search first computes all matching units, then limits only rendered cards (12 per document, 200 globally) and reports “Showing N of M” when anything is omitted. | Smoke test finds Biyanlu pointer text `見面便見` and checks that broad `the` search reports a total above 200 plus the truthful presentation notice. |
+| C6 — storage/persistence | Added guarded `storageGet`/`storageSet`/`storageRemove` wrappers for every preference and draft operation. A single `setCurrentCorpusKey()` path persists sidebar, mobile-picker, deep-link, and search-jump selection. | Smoke test confirms corpus selection is stored and exercises reader-mode/theme writes with a throwing storage stub without a crash. |
+
+**Current engineering priority:** C7/C9 research-release guardrails (schema, canonical locators, rights manifest, CI), then content expansion.

@@ -19,6 +19,26 @@
   function stringValue(value) {
     return typeof value === 'string' ? value : (value == null ? '' : String(value));
   }
+  // Storage can throw in privacy-restricted frames, disabled-storage modes, or
+  // quota failures. Preferences improve the app but must never prevent reading.
+  function storageGet(key) {
+    try { return window.localStorage ? window.localStorage.getItem(key) : null; }
+    catch (e) { return null; }
+  }
+  function storageSet(key, value) {
+    try {
+      if (!window.localStorage) return false;
+      window.localStorage.setItem(key, value);
+      return true;
+    } catch (e) { return false; }
+  }
+  function storageRemove(key) {
+    try {
+      if (!window.localStorage) return false;
+      window.localStorage.removeItem(key);
+      return true;
+    } catch (e) { return false; }
+  }
   function normalizeStoredDrafts(value) {
     if (!isRecord(value)) return {};
     const drafts = {};
@@ -41,32 +61,23 @@
     data: window.TRANSLATECHAN_DATA || {},
     currentView: 'reader',
     currentCorpusKey: (() => {
-      try {
-        const k = localStorage.getItem('translatechan_corpus_key');
-        return k && window.TRANSLATECHAN_DATA && window.TRANSLATECHAN_DATA.corpus && window.TRANSLATECHAN_DATA.corpus[k] ? k : 'wumenguan';
-      } catch (e) { return 'wumenguan'; }
+      const k = storageGet('translatechan_corpus_key');
+      return k && window.TRANSLATECHAN_DATA && window.TRANSLATECHAN_DATA.corpus && window.TRANSLATECHAN_DATA.corpus[k] ? k : 'wumenguan';
     })(),
     readerMode: (() => {
-      try {
-        const m = localStorage.getItem('translatechan_reader_mode');
-        return READER_MODES.includes(m) ? m : 'bilingual';
-      } catch (e) { return 'bilingual'; }
+      const m = storageGet('translatechan_reader_mode');
+      return READER_MODES.includes(m) ? m : 'bilingual';
     })(),
-    showPinyin: (() => {
-      try { return localStorage.getItem('translatechan_show_pinyin') !== '0'; }
-      catch (e) { return true; }
-    })(),
+    showPinyin: storageGet('translatechan_show_pinyin') !== '0',
     fontSize: (() => {
-      try {
-        const v = parseFloat(localStorage.getItem('translatechan_font_size'));
-        return (v >= 1.0 && v <= 2.2) ? v : 1.35;
-      } catch (e) { return 1.35; }
+      const v = parseFloat(storageGet('translatechan_font_size'));
+      return (v >= 1.0 && v <= 2.2) ? v : 1.35;
     })(),
     collapsedCases: (() => {
-      try { return JSON.parse(localStorage.getItem('translatechan_collapsed_cases') || '{}') || {}; }
+      try { return JSON.parse(storageGet('translatechan_collapsed_cases') || '{}') || {}; }
       catch (e) { return {}; }
     })(),
-    theme: localStorage.getItem('translatechan_theme') || 'light',
+    theme: storageGet('translatechan_theme') || 'light',
     searchQuery: '',
     selectedMasterSchool: 'all',
     selectedLexiconCategory: 'all',
@@ -74,7 +85,7 @@
     caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
     selectedStudioRefTranslator: 'red_pine',
     personalTranslations: (() => {
-      try { return normalizeStoredDrafts(JSON.parse(localStorage.getItem('translatechan_user_translations') || '{}')); }
+      try { return normalizeStoredDrafts(JSON.parse(storageGet('translatechan_user_translations') || '{}')); }
       catch (e) { return {}; } // corrupted storage must not blank the app
     })()
   };
@@ -118,12 +129,21 @@
     studioSavedList: document.getElementById('studio-saved-list')
   };
 
+  // Corpus selection has a single persistence path so sidebar, mobile picker,
+  // deep links, and search jumps all restore the same reading context.
+  function setCurrentCorpusKey(key) {
+    if (!key || !state.data.corpus || !state.data.corpus[key]) return false;
+    state.currentCorpusKey = key;
+    storageSet('translatechan_corpus_key', key);
+    return true;
+  }
+
   // Initialize
   function init() {
     // Initial URL state (#/view/corpus) — deep links & refresh restore position
     const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
     if (m && VALID_VIEWS.includes(m[1])) state.currentView = m[1];
-    if (m && m[2] && state.data.corpus && state.data.corpus[m[2]]) state.currentCorpusKey = m[2];
+    if (m && m[2]) setCurrentCorpusKey(m[2]);
 
     applyTheme(state.theme);
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
@@ -144,7 +164,7 @@
   function setReaderMode(mode) {
     if (!READER_MODES.includes(mode)) return;
     state.readerMode = mode;
-    try { localStorage.setItem('translatechan_reader_mode', mode); } catch (e) { /* ignore */ }
+    storageSet('translatechan_reader_mode', mode);
     setActiveModeButtons();
     renderReader();
   }
@@ -229,7 +249,7 @@
     if (!m || typeof m !== 'object') m = {};
     m[num] = !!collapsed;
     state.collapsedCases[key] = m;
-    try { localStorage.setItem('translatechan_collapsed_cases', JSON.stringify(state.collapsedCases)); } catch (e) { /* ignore */ }
+    storageSet('translatechan_collapsed_cases', JSON.stringify(state.collapsedCases));
   }
   function toggleCase(toggleBtn) {
     const card = toggleBtn.closest ? toggleBtn.closest('.case-card') : null;
@@ -254,7 +274,7 @@
   function applyTheme(theme) {
     state.theme = theme;
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('translatechan_theme', theme);
+    storageSet('translatechan_theme', theme);
     if (elements.themeToggle) {
       elements.themeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
     }
@@ -304,7 +324,7 @@
       if (next === state.fontSize) return;
       state.fontSize = next;
       document.documentElement.style.setProperty('--zh-font-size', `${next}rem`);
-      try { localStorage.setItem('translatechan_font_size', String(next)); } catch (e) { /* private mode */ }
+      storageSet('translatechan_font_size', String(next));
     }
     if (fontIncBtn) fontIncBtn.addEventListener('click', () => changeFontSize(0.15));
     if (fontDecBtn) fontDecBtn.addEventListener('click', () => changeFontSize(-0.15));
@@ -315,7 +335,7 @@
     const mobileCorpusSelect = document.getElementById('corpus-mobile-select');
     if (mobileCorpusSelect) {
       mobileCorpusSelect.addEventListener('change', (e) => {
-        state.currentCorpusKey = e.target.value;
+        if (!setCurrentCorpusKey(e.target.value)) return;
         renderCorpusList();
         renderReader();
         const t = viewHash('reader', state.currentCorpusKey);
@@ -341,7 +361,7 @@
     if (mobilePinyinBtn) {
       mobilePinyinBtn.addEventListener('click', () => {
         state.showPinyin = !state.showPinyin;
-        try { localStorage.setItem('translatechan_show_pinyin', state.showPinyin ? '1' : '0'); } catch (e) { /* ignore */ }
+        storageSet('translatechan_show_pinyin', state.showPinyin ? '1' : '0');
         applyPinyinVisibility();
       });
     }
@@ -450,7 +470,7 @@
     if (view === 'reader') {
       const key = m && m[2] ? m[2] : state.currentCorpusKey;
       if (state.data.corpus && state.data.corpus[key] && key !== state.currentCorpusKey) {
-        state.currentCorpusKey = key;
+        setCurrentCorpusKey(key);
         renderCorpusList();
         renderReader();
       }
@@ -544,7 +564,7 @@
 
     elements.corpusList.querySelectorAll('.corpus-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        state.currentCorpusKey = btn.getAttribute('data-corpus-key');
+        if (!setCurrentCorpusKey(btn.getAttribute('data-corpus-key'))) return;
         renderCorpusList();
         renderReader();
         const t = viewHash('reader', state.currentCorpusKey);
@@ -635,7 +655,7 @@
       const CASE_CHUNK = 12;
       const limit = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
       doc.cases.slice(0, limit).forEach((caseItem, i) => {
-        html += renderCaseItem(caseItem, i, total);
+        html += renderCaseItem(caseItem, i, doc.cases);
       });
       if (limit < total) {
         const remaining = total - limit;
@@ -750,7 +770,7 @@
     elements.readerContent.innerHTML = html;
   }
 
-  function renderCaseItem(caseItem, idx, total) {
+  function renderCaseItem(caseItem, idx, allCases) {
     let dialoguesHtml = '';
     if (caseItem.dialogue) {
       dialoguesHtml = caseItem.dialogue.map(d => `
@@ -766,11 +786,16 @@
     // Collapse by default on touch devices (except the first case), honoring saved state
     const defaultCollapsed = TOUCH_DEVICE && idx > 0;
     const collapsed = caseCollapsedState(caseItem.case_num, defaultCollapsed);
-    const navFooter = (typeof idx === 'number' && typeof total === 'number' && total > 1) ? `
+    // Case seeds need not be numerically consecutive (e.g. Biyanlu 1, 2, 3,
+    // 12, 14, 21, 43). Navigate through actual neighbors, not arithmetic IDs.
+    const cases = Array.isArray(allCases) ? allCases : [];
+    const previousCase = idx > 0 ? cases[idx - 1] : null;
+    const nextCase = idx < cases.length - 1 ? cases[idx + 1] : null;
+    const navFooter = cases.length > 1 ? `
       <div class="case-nav-footer">
-        ${idx > 0 ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num - 1})">‹ 第${caseItem.case_num - 1}則</button>` : '<span></span>'}
+        ${previousCase ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${previousCase.case_num})">‹ 第${previousCase.case_num}則</button>` : '<span></span>'}
         <button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num})">⤒ 本則</button>
-        ${idx < total - 1 ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num + 1})">第${caseItem.case_num + 1}則 ›</button>` : '<span></span>'}
+        ${nextCase ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${nextCase.case_num})">第${nextCase.case_num}則 ›</button>` : '<span></span>'}
       </div>` : '';
 
     return `
@@ -1677,13 +1702,9 @@
     }
 
     function persistPersonalTranslations() {
-      try {
-        localStorage.setItem('translatechan_user_translations', JSON.stringify(state.personalTranslations));
-        return true;
-      } catch (e) {
-        if (elements.studioStatus) elements.studioStatus.textContent = '⚠️ Could not save this draft in browser storage.';
-        return false;
-      }
+      const saved = storageSet('translatechan_user_translations', JSON.stringify(state.personalTranslations));
+      if (!saved && elements.studioStatus) elements.studioStatus.textContent = '⚠️ Could not save this draft in browser storage.';
+      return saved;
     }
 
     // Save translation
@@ -1803,9 +1824,8 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
       elements.studioClearAllBtn.addEventListener('click', () => {
         if (confirm("Are you sure you want to clear all saved personal translation drafts? This cannot be undone.")) {
           state.personalTranslations = {};
-          try { localStorage.removeItem('translatechan_user_translations'); }
-          catch (e) {
-            if (elements.studioStatus) elements.studioStatus.textContent = '⚠️ Could not clear browser storage; the in-memory list was cleared.';
+          if (!storageRemove('translatechan_user_translations') && elements.studioStatus) {
+            elements.studioStatus.textContent = '⚠️ Could not clear browser storage; the in-memory list was cleared.';
           }
           renderSavedList();
           loadSelectedPassage(elements.studioSelectText.value);
@@ -1885,8 +1905,9 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     try { return new RegExp(escaped, 'gi'); } catch (e) { return null; }
   }
   function extractSearchableUnits(doc, corpKey) {
-    // Returns [{label, jump, zh, pinyin, blob}] covering cases, sections, dialogues,
-    // stanzas, chapters, five_ranks, sample_records, preface/epilogue.
+    // Returns [{label, jump, zh, pinyin, blob}] covering cases (including pointers,
+    // commentary and verses), sections, dialogues, stanzas, chapters, five_ranks,
+    // sample_records, and preface/epilogue.
     const units = [];
     const asBlob = (...parts) => normalizeForSearch(parts.filter(Boolean).join(' '));
     const blobWithTranslations = (tr) => tr ? Object.values(tr).map(v => (v && typeof v === 'object' ? v.text : v)).filter(Boolean).join(' ') : '';
@@ -1909,6 +1930,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     (doc.cases || []).forEach(c => {
       const label = `第${c.case_num}則 ${c.title_zh || ''} / ${c.title_en || ''}`;
       fromDialogue(c.dialogue, label, { kind: 'case', num: c.case_num });
+      if (c.pointer_zh) units.push({ label: label + ' · pointer', jump: { kind: 'case', num: c.case_num }, zh: c.pointer_zh, pinyin: c.pointer_pinyin || '', blob: asBlob(label, c.pointer_zh, c.pointer_pinyin, c.pointer_en) });
       if (c.commentary_zh) units.push({ label: label + ' · commentary', jump: { kind: 'case', num: c.case_num }, zh: c.commentary_zh, pinyin: c.commentary_pinyin || '', blob: asBlob(label, c.commentary_zh, c.commentary_pinyin, c.commentary_en) });
       if (c.verse_zh) units.push({ label: label + ' · verse', jump: { kind: 'case', num: c.case_num }, zh: c.verse_zh, pinyin: c.verse_pinyin || '', blob: asBlob(label, c.verse_zh, c.verse_pinyin, c.verse_en) });
       // explicit title unit so title-only queries surface the case
@@ -1997,24 +2019,30 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     if (!elements.readerContent || !state.data.corpus) return;
 
     const qLower = normalizeForSearch(q);
-    let totalHits = 0;
-    const perDocHits = {};
-    let bodyHtml = '';
-    const MAX_TOTAL_HITS = 200; // keep results digestible — no wall-of-cards
-
+    const MAX_RESULT_CARDS = 200;
+    const MAX_PER_DOCUMENT = 12;
     const searchIndex = getSearchUnitsIndex();
-    Object.keys(state.data.corpus).forEach(corpKey => {
-      if (totalHits >= MAX_TOTAL_HITS) return;
+    const matchedDocuments = Object.keys(state.data.corpus).map(corpKey => {
       const doc = state.data.corpus[corpKey];
-      const units = searchIndex[corpKey];
+      const units = searchIndex[corpKey] || [];
       const hits = units.filter(u => u.blob.includes(qLower) || (u.zh && normalizeForSearch(u.zh).includes(qLower)));
-      if (hits.length === 0) return;
+      return { corpKey, doc, hits };
+    }).filter(result => result.hits.length > 0);
 
-      perDocHits[corpKey] = hits.length;
-      totalHits += hits.length;
+    // Count every matched unit before applying presentation limits. This keeps the
+    // header truthful even when cards are deliberately capped for readability.
+    const totalHits = matchedDocuments.reduce((sum, result) => sum + result.hits.length, 0);
+    let displayedHits = 0;
+    let bodyHtml = '';
 
-      bodyHtml += `<div style="margin: 1.25rem 0 0.4rem; font-weight: 700; color: var(--accent-gold);">${escHtml(doc.title_zh)} · ${escHtml(doc.title_en)} — ${hits.length} 處 / hit(s)</div>`;
-      hits.slice(0, 12).forEach(u => {
+    matchedDocuments.forEach(({ corpKey, doc, hits }) => {
+      const remaining = MAX_RESULT_CARDS - displayedHits;
+      if (remaining <= 0) return;
+      const shown = hits.slice(0, Math.min(MAX_PER_DOCUMENT, remaining));
+      if (shown.length === 0) return;
+
+      bodyHtml += `<div style="margin: 1.25rem 0 0.4rem; font-weight: 700; color: var(--accent-gold);">${escHtml(doc.title_zh)} · ${escHtml(doc.title_en)} — ${hits.length} matching unit(s)</div>`;
+      shown.forEach(u => {
         const action = u.jump && u.jump.kind === 'case'
           ? `<button class="btn-pill active" onclick="window.TranslateChan.openCase('${corpKey}', ${u.jump.num})">View Case in Reader</button>`
           : `<button class="btn-pill active" onclick="window.TranslateChan.openDoc('${corpKey}')">View in Reader</button>`;
@@ -2025,13 +2053,18 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
             <div style="margin-top: 0.4rem;">${action}</div>
           </div>`;
       });
-      if (hits.length > 12) {
-        bodyHtml += `<div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.75rem;">… ${hits.length - 12} further hits in this text (open the text to browse).</div>`;
+      displayedHits += shown.length;
+      const hiddenInDocument = hits.length - shown.length;
+      if (hiddenInDocument > 0) {
+        bodyHtml += `<div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.75rem;">… ${hiddenInDocument} additional match(es) in this text (open the text to browse).</div>`;
       }
     });
 
-    const capped = totalHits >= MAX_TOTAL_HITS ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">… results capped at ${MAX_TOTAL_HITS} — narrow your query for more.</div>` : '';
-    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} hit(s) across ${Object.keys(perDocHits).length} text(s)</div>${capped}</div>`;
+    const hiddenTotal = totalHits - displayedHits;
+    const resultNotice = hiddenTotal > 0
+      ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">Showing ${displayedHits} of ${totalHits} matching units; narrow your query for more focused results.</div>`
+      : '';
+    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} matching unit(s) across ${matchedDocuments.length} text(s)</div>${resultNotice}</div>`;
 
     elements.readerContent.innerHTML = totalHits === 0
       ? headerHtml + `<div class="case-card"><p>No matches found for "${escHtml(q)}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`
@@ -2045,11 +2078,16 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     const d = state.data.corpus && state.data.corpus[state.currentCorpusKey];
     return d && Array.isArray(d.cases) ? d.cases.length : 0;
   }
-  function ensureCaseLoaded(num) {
-    const total = caseTotal();
+  function ensureCaseLoaded(caseNum) {
+    const doc = state.data.corpus && state.data.corpus[state.currentCorpusKey];
+    const cases = doc && Array.isArray(doc.cases) ? doc.cases : [];
+    const total = cases.length;
+    const targetIndex = cases.findIndex(c => String(c.case_num) === String(caseNum));
+    if (targetIndex < 0) return;
     const cur = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
-    if (num > cur) {
-      state.caseLimit[state.currentCorpusKey] = Math.min(total, num);
+    const required = targetIndex + 1;
+    if (required > cur) {
+      state.caseLimit[state.currentCorpusKey] = Math.min(total, required);
       renderReader();
     }
   }
@@ -2073,7 +2111,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     }, 60);
   };
   window.TranslateChan.openCase = function(corpusKey, caseNum) {
-    state.currentCorpusKey = corpusKey;
+    if (!setCurrentCorpusKey(corpusKey)) return;
     state.searchQuery = '';
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();
@@ -2083,7 +2121,7 @@ ${item.translation.replace(/[#&_]/g, '\\$&')}
     window.TranslateChan.scrollToCase(caseNum);
   };
   window.TranslateChan.openDoc = function(corpusKey) {
-    state.currentCorpusKey = corpusKey;
+    if (!setCurrentCorpusKey(corpusKey)) return;
     state.searchQuery = '';
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();

@@ -127,6 +127,7 @@ const schemaQueries = [
   ['菩提本無樹', 'platform_sutra (chapters schema)'],
   ['竺土大仙心', 'shitou_sandokai (embedded stanzas)'],
   ['赤肉團', 'linji_yulu (sections schema)'],
+  ['見面便見', 'biyanlu (pointer schema)'],
   ['Buddha-nature', 'translations text search']
 ];
 for (const [q, label] of schemaQueries) {
@@ -147,6 +148,34 @@ if (annotatedHtml.includes('term-highlight"><span class="term-highlight') || ann
 if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset.mode === undefined) {
   // stub stores dataset via plain property; app sets dataset.mode — check direct assignment happened
   if (!('mode' in (ids['reader-content-target'].dataset || {}))) failures++; console.log('❌ reader data-mode not set');
+}
+// 4e. Sparse case collections navigate through actual adjacent records, not
+// arithmetic case numbers; selecting a corpus also persists the reading context.
+corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
+const biyanHtml = ids['reader-content-target']._innerHTML;
+if (!biyanHtml.includes('scrollToCase(12)">第12則 ›') || !biyanHtml.includes('scrollToCase(3)">‹ 第3則')) {
+  failures++; console.log('❌ Biyanlu sparse prev/next navigation is incorrect');
+}
+if (store['translatechan_corpus_key'] !== 'biyanlu_cases') { failures++; console.log('❌ corpus selection was not persisted'); }
+const mobileCorpusSelect = ids['corpus-mobile-select'];
+mobileCorpusSelect.value = 'congronglu_cases';
+(mobileCorpusSelect._handlers.change || []).forEach(fn => fn({ target: mobileCorpusSelect }));
+if (store['translatechan_corpus_key'] !== 'congronglu_cases') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
+corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
+const congrongHtml = ids['reader-content-target']._innerHTML;
+if (!congrongHtml.includes('scrollToCase(9)">第9則 ›') || !congrongHtml.includes('scrollToCase(1)">‹ 第1則')) {
+  failures++; console.log('❌ Congronglu sparse prev/next navigation is incorrect');
+}
+// 4f. Preference writes must be non-fatal when browser storage is unavailable.
+const originalStorageSet = localStorage.setItem;
+localStorage.setItem = () => { throw new Error('storage blocked'); };
+try {
+  modeHandlers[0]._click && modeHandlers[0]._click();
+  (ids['theme-toggle']._handlers.click || []).forEach(fn => fn());
+} catch (e) {
+  failures++; console.log(`❌ blocked-storage preference update crashed: ${e.message}`);
+} finally {
+  localStorage.setItem = originalStorageSet;
 }
 // 4g. Wumenguan lazy rendering: 48 chips in the strip, 12 case cards initially,
 // then loadMoreCases() reveals the rest (Phase D2)
@@ -212,13 +241,21 @@ ids['studio-user-notes'].value = '<b>unsafe note</b>';
 const savedDraftHtml = ids['studio-saved-list']._innerHTML;
 if (savedDraftHtml.includes('<img') || savedDraftHtml.includes('<b>unsafe')) { failures++; console.log('❌ saved draft markup was not escaped'); }
 if (!savedDraftHtml.includes('&lt;img')) { failures++; console.log('❌ saved draft escape regression'); }
-// 4e. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
+// 4r. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
   await fireSearch(q);
   const html = ids['reader-content-target']._innerHTML;
   if (html.includes('No matches found')) { failures++; console.log(`❌ variant search missed results for "${q}"`); }
 }
-// 4f. Search query must be HTML-escaped in both the header and no-results body (self-XSS guard)
+// 4s. Broad searches report the true hit count while clearly describing a
+// presentation limit, rather than claiming a truncated count is the total.
+await fireSearch('the');
+const broadSearchHtml = ids['reader-content-target']._innerHTML;
+const broadCount = broadSearchHtml.match(/(\d+) matching unit\(s\) across/);
+if (!broadCount || Number(broadCount[1]) <= 200 || !/Showing \d+ of \d+ matching units/.test(broadSearchHtml)) {
+  failures++; console.log('❌ broad-search count/cap accounting is not truthful');
+}
+// 4t. Search query must be HTML-escaped in both the header and no-results body (self-XSS guard)
 await fireSearch('<img src=x onerror="alert(1)">');
 const searchHtml = ids['reader-content-target']._innerHTML;
 if (searchHtml.includes('<img') || searchHtml.includes('onerror="alert(1)"')) { failures++; console.log('❌ search query markup was not escaped'); }
