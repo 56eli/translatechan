@@ -22,7 +22,15 @@
           "pinyin": "Shī shì zhòng yún: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!'",
           "translations": {
             "red_pine": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
-            "sasaki": "The Master instructed the assembly, saying: 'On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!'",
+            "sasaki": {
+              "text": "The Master, taking the high seat in the hall, said, \"On your lump of red flesh is a true man without rank who is always going in and out of the face of every one of you. Those who have not yet confirmed this, look, look!\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
+                "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+              }
+            },
             "cleary": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
             "suzuki": "The Master said: 'In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!'"
           }
@@ -33,7 +41,15 @@
           "pinyin": "Shí yǒu sēng chū wèn: 'Rúhé shì wú wèi zhēn rén?'",
           "translations": {
             "red_pine": "Then a monk came forward and asked: 'What is the True Person without rank?'",
-            "sasaki": "Then a monk came forward and asked: 'What is the True Person of No Rank?'",
+            "sasaki": {
+              "text": "Then a monk came forward and asked, \"What about the true man without rank?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
+                "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+              }
+            },
             "cleary": "Then a monk came forward and asked, 'What is the true human of no status?'",
             "suzuki": "A monk stepped out and asked: 'What kind of person is the True Man of No Title?'"
           }

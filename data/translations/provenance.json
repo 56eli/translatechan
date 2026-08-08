@@ -1,5 +1,5 @@
 {
-  "policy_version": "1.3",
+  "policy_version": "1.4",
   "policy_date": "2026-08-08",
   "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
   "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -73,6 +73,22 @@
       "registers_pending": [
         "blyth (print check pending)",
         "suzuki Platform-verse register (source check pending)"
+      ]
+    },
+    {
+      "pilot": "Round 3 (2026-08-08): Wumenguan Sekida; Linji Sasaki; Huangbo Blofeld",
+      "registers_verified": [
+        "sekida — Wumenguan Case 1 dialogue (Two Zen Classics, 1977; vs Terebess PDF + reddit quotation)",
+        "sasaki — Linji 無位真人 passage, 2 lines (Record of Linji, Kirchner 2009; 3 mirrors)",
+        "blofeld — Huangbo One Mind opening (Zen Teaching of Huang Po, 1958; publisher + 3 mirrors)"
+      ],
+      "data_corrections": [
+        "linji sasaki & huangbo blofeld entries: previous paraphrases replaced by verified quotations",
+        "app: unattributed verse_en/commentary_en blocks now visibly labeled 'Project rendering • unverified'"
+      ],
+      "registers_pending": [
+        "blyth Wumenguan Case 1 (PDF transcription illegible — retry later)",
+        "suzuki Platform-verse register"
       ]
     }
   ]

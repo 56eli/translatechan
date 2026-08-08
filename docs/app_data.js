@@ -1068,7 +1068,7 @@ window.TRANSLATECHAN_DATA = {
     }
   ],
   "translations_provenance": {
-    "policy_version": "1.3",
+    "policy_version": "1.4",
     "policy_date": "2026-08-08",
     "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
     "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -1142,6 +1142,22 @@ window.TRANSLATECHAN_DATA = {
         "registers_pending": [
           "blyth (print check pending)",
           "suzuki Platform-verse register (source check pending)"
+        ]
+      },
+      {
+        "pilot": "Round 3 (2026-08-08): Wumenguan Sekida; Linji Sasaki; Huangbo Blofeld",
+        "registers_verified": [
+          "sekida — Wumenguan Case 1 dialogue (Two Zen Classics, 1977; vs Terebess PDF + reddit quotation)",
+          "sasaki — Linji 無位真人 passage, 2 lines (Record of Linji, Kirchner 2009; 3 mirrors)",
+          "blofeld — Huangbo One Mind opening (Zen Teaching of Huang Po, 1958; publisher + 3 mirrors)"
+        ],
+        "data_corrections": [
+          "linji sasaki & huangbo blofeld entries: previous paraphrases replaced by verified quotations",
+          "app: unattributed verse_en/commentary_en blocks now visibly labeled 'Project rendering • unverified'"
+        ],
+        "registers_pending": [
+          "blyth Wumenguan Case 1 (PDF transcription illegible — retry later)",
+          "suzuki Platform-verse register"
         ]
       }
     ]
@@ -1485,6 +1501,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "Online edition (Terebess Asia Online mirror)",
                     "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
                   }
+                },
+                "sekida": {
+                  "text": "A monk asked Jōshū, \"Has a dog the Buddha Nature?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Two Zen Classics: Mumonkan & Hekiganroku, tr. Katsuki Sekida",
+                    "edition": "Weatherhill, 1977, pp. 26–137",
+                    "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
+                  }
                 }
               }
             },
@@ -1516,6 +1541,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, tr. Eiichi Shimomissé",
                     "edition": "Online edition (Terebess Asia Online mirror)",
                     "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+                  }
+                },
+                "sekida": {
+                  "text": "Jōshū answered, \"Mu.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Two Zen Classics: Mumonkan & Hekiganroku, tr. Katsuki Sekida",
+                    "edition": "Weatherhill, 1977, pp. 26–137",
+                    "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
                   }
                 }
               }
@@ -1929,7 +1963,15 @@ window.TRANSLATECHAN_DATA = {
               "pinyin": "Shī shì zhòng yún: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!'",
               "translations": {
                 "red_pine": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
-                "sasaki": "The Master instructed the assembly, saying: 'On your lump of red flesh is a True Person of No Rank who is constantly going in and out through your facial gates. Those who have not yet recognized him: look, look!'",
+                "sasaki": {
+                  "text": "The Master, taking the high seat in the hall, said, \"On your lump of red flesh is a true man without rank who is always going in and out of the face of every one of you. Those who have not yet confirmed this, look, look!\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                    "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
+                    "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+                  }
+                },
                 "cleary": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
                 "suzuki": "The Master said: 'In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!'"
               }
@@ -1940,7 +1982,15 @@ window.TRANSLATECHAN_DATA = {
               "pinyin": "Shí yǒu sēng chū wèn: 'Rúhé shì wú wèi zhēn rén?'",
               "translations": {
                 "red_pine": "Then a monk came forward and asked: 'What is the True Person without rank?'",
-                "sasaki": "Then a monk came forward and asked: 'What is the True Person of No Rank?'",
+                "sasaki": {
+                  "text": "Then a monk came forward and asked, \"What about the true man without rank?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Record of Linji, tr. Ruth Fuller Sasaki (ed. Thomas Yūhō Kirchner)",
+                    "edition": "University of Hawaii Press, 2009 (orig. Institute for Zen Studies, 1975) — renders fuller canonical passage T1985 including 上堂/汝等",
+                    "verification": "wording consistent across three independent reproductions incl. Wikipedia citing Kirchner 2009, 2026-08-08"
+                  }
+                },
                 "cleary": "Then a monk came forward and asked, 'What is the true human of no status?'",
                 "suzuki": "A monk stepped out and asked: 'What kind of person is the True Man of No Title?'"
               }
@@ -2057,7 +2107,16 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師謂休曰：「諸佛與一切眾生，唯是一心，更無別法。此心無始已來，不曾生不曾滅，不青不黃，無形無相，不屬有無，不計新舊，非長非短，非大非小，超過一切限量名言蹤跡對待。」",
               "pinyin": "Shī wèi Xiū yuē: 'Zhūfó yǔ yīqiè zhòngshēng, wéi shì yī xīn, gèng wú bié fǎ. Cǐ xīn wú shǐ yǐ lái, bù céng shēng bù céng miè, bù qīng bù huáng, wú xíng wú xiàng, bù shǔ yǒu wú, bù jì xīn jiù, fēi cháng fēi duǎn, fēi dà fēi xiǎo, chāoguò yīqiè xiànliàng míngyán zōngjī duìdài.'",
               "translations": {
-                "blofeld": "The Master said to me: All the Buddhas and all sentient beings are nothing whatever but the One Mind, besides which nothing exists. This Mind, which is without beginning, is unborn and indestructible. It is neither green nor yellow, and has neither form nor appearance. It does not belong to the categories of things which exist or do not exist, nor can it be thought of in terms of new or old. It is neither long nor short, big nor small, for it transcends all limits, measures, names, traces, and comparisons.",
+                "blofeld": {
+                  "text": "All the Buddhas and all sentient beings are nothing but the One Mind, beside which nothing exists. This Mind, which is without beginning, is unborn and indestructible. It is not green nor yellow, and has neither form nor appearance. It does not belong to the categories of things which exist or do not exist, nor can it be thought of in terms of new or old. It is neither long nor short, big nor small, for it transcends all limits, measures, names, traces and comparisons.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Rider & Co., 1958 (Chün Chou Record, teaching 1)",
+                    "verification": "wording consistent across Grove Atlantic (publisher), Terebess reproduction, and two further mirrors, 2026-08-08",
+                    "note": "Replaces a prior paraphrase ('nothing whatever but… besides which')."
+                  }
+                },
                 "cleary": "The Master said to Pei Xiu: All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes; it is not blue or yellow, has no form or characteristics, belongs neither to existence nor nonexistence, cannot be reckoned as new or old, is neither long nor short, neither large nor small, transcending all limits, words, traces, and polarities.",
                 "suzuki": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
                 "ai_literal": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs."

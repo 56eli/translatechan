@@ -60,6 +60,15 @@
                 "edition": "Online edition (Terebess Asia Online mirror)",
                 "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
               }
+            },
+            "sekida": {
+              "text": "A monk asked Jōshū, \"Has a dog the Buddha Nature?\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Two Zen Classics: Mumonkan & Hekiganroku, tr. Katsuki Sekida",
+                "edition": "Weatherhill, 1977, pp. 26–137",
+                "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
+              }
             }
           }
         },
@@ -91,6 +100,15 @@
                 "work": "The Gateless Gate, tr. Eiichi Shimomissé",
                 "edition": "Online edition (Terebess Asia Online mirror)",
                 "verification": "verbatim vs terebess.hu/english/gateless.html, 2026-08-08"
+              }
+            },
+            "sekida": {
+              "text": "Jōshū answered, \"Mu.\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Two Zen Classics: Mumonkan & Hekiganroku, tr. Katsuki Sekida",
+                "edition": "Weatherhill, 1977, pp. 26–137",
+                "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
               }
             }
           }

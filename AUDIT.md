@@ -250,6 +250,22 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 
 ---
 
-**Open work as of 2026-08-08**: Phase 2 content (Wumenguan 48 — Senzaki/Reps PD text is freely quotable as the verified register), gradual print verification, then PR to `main`.
+### 2026-08-08 — Verification round 3 completed ✅
+
+| Action | Result |
+|---|---|
+| Sekida — Wumenguan Case 1 dialogue | ✅ verified (Terebess reproduction of *Two Zen Classics* 1977 + independent quotation of verse) |
+| Sasaki — Linji 無位真人 passage (2 lines) | ✅ verified vs 3 mirrors incl. Wikipedia citing Kirchner 2009; **prior paraphrase replaced** |
+| Blofeld — Huangbo One Mind opening | ✅ verified vs publisher (Grove Atlantic) + Terebess + 2 mirrors; **prior paraphrase replaced** |
+| Blyth — Case 1 | Still pending (source PDF page-range transcription illegible; will retry via alternate copy) |
+| App gap found & fixed | Unattributed `verse_en`/`commentary_en` blocks now labeled "↳ Project rendering • unverified" |
+
+**Tally**: 13 verified quotation slots across 5 texts + 1 verified matrix row; 2 paraphrase replacements this round (3 total); 1 zh canon correction. `provenance.json` v1.4.
+
+**Bonus for Phase 2**: the Sekida reproduction includes *authentic Chinese* for all 48 cases (Taishō-lineage, Iwanami Bunkō) — ready-made substrate for completing Wumenguan with a verified English register.
+
+---
+
+**Open work as of 2026-08-08**: Phase 2 content (Wumenguan 48 — canonical Chinese substrate + Senzaki/Reps PD verified register both in hand), Blyth print retry, then PR to `main`.
 
 
