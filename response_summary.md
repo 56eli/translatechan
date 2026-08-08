@@ -1,6 +1,6 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
-> Latest session: **2026-08-08 — Full Project Audit** (branch `arena/019fe108-translatechan`)
+> Latest session: **2026-08-08 — Second-pass Full Project Audit** (branch `arena/019fe1b5-translatechan`) → readable report in `SESSION_AUDIT_2026-08-08.md` (temporary), durable log in [`AUDIT.md` §9](./AUDIT.md). Verdict: no P0; all prior remediations hold; 10 new findings B1–B10 (docs/data sync gap, stale UI branch string, volume-chip labels, self-XSS search mark, localStorage guard, dead reader mode, 9 dangling lineage edges, stale char counts, variant search, stale docs/scripts).
 
 ### Summary of This Session:
 1. **Full audit completed** → [`AUDIT.md`](./AUDIT.md).

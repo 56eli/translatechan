@@ -337,3 +337,30 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 **Open work as of 2026-08-08**: PR to `main` (13 commits ready — live site still serves the pre-fix build until merge), Phase 2 content (Wumenguan 48 — PD baseline + Yamada/Aitken full texts proven fetchable, ready to scale), optional round 9 (Aitken later cases; Hinton/No-Gate Gateway; Seung Sahn register).
 
 
+
+---
+
+## 9. 2026-08-08 — Second-pass full audit (post-merge state; session `arena/019fe1b5-translatechan`)
+
+> Audited state: `f035254` = merge of PR #2 into `main` (live site now serves the fixed build). Full readable report: `SESSION_AUDIT_2026-08-08.md` (temporary session file). **Verdict: no P0; all §8 remediations hold under regression.**
+
+### 9.1 Verified healthy
+- `node --check app.js` clean; `node scripts/smoke_test.mjs` green (36 texts × all schemas, 4 modes, 7 queries, namespace, no double-annotation).
+- Bundle deterministic (rebuild leaves tree clean); root↔`docs` app assets byte-identical.
+- 36 corpus keys ↔ `corpusMap` (app.js) ↔ bundler list in perfect agreement.
+- Measured attribution state: **79 ✅ verified slots in 6 corpus texts + 2 ✅ matrix rows** (wumenguan 60, linji 6, zhaozhou 5, huangbo_chuanxin 4, platform 2, xinxin_ming 2); 718 remaining slots honestly reconstruction/ai.
+- Canonical anchors re-verified at codepoint level (乾屎橛 U+4E7E/5C4E/6A5B; Dunhuang verse 明鏡亦無臺，佛性常清淨 present with recension note).
+
+### 9.2 Findings (see session report for evidence)
+| ID | Sev | Item | Suggested fix |
+|---|---|---|---|
+| B1 | P1/P2 | `docs/data/` stale: 10 corpus files are pre-verification revisions, `provenance.json` missing; build script never mirrors `data/` (runtime unaffected — app is self-contained in `app_data.js`) | Extend `build_data_bundle.py` to mirror `data/ → docs/data` (or remove `docs/data` + fix README tree) |
+| B2 | P2 | `index.html` Agents view still references PR#1 branch `arena/019fe05c-translatechan` | Generic wording ("the session branch") |
+| B3 | P2 | Non-Taishō texts show misleading "(Vol. N)": `hanshan_poems` `taisho_vol: 85` contradicts its "not in Taishō" label; `caoxi_zhuan` `86` for X-series | Suppress volume for non-Taishō canons in renderer; fix the two fields |
+| B4 | P2 | Search injects raw query into innerHTML (`makeSnippet` mark + header) — self-XSS only | Escape `q` before interpolation |
+| B5 | P3 | Unguarded `JSON.parse(localStorage)` at init → corrupted storage blanks the app | try/catch fallback `{}` |
+| B6 | P3 | `stacked` reader mode is dead (no UI button; = `multi_translators`) | Wire 4th button or drop mode (align smoke test, B11) |
+| B7 | P3 | 9 dangling teacher refs in `masters.json` (Nanyue Huairang, Qingyuan Xingsi, Nanquan Puyuan, Yunyan Tansheng, Xuefeng Yicun, Luohan Guichen, Wuzu Fayan, Yuelin Shiguan, Prajñātāra) → SVG edges silently dropped | Add the 8 Chinese masters (18 → 26 profiles) |
+| B8 | P3 | Stale corpus size in README/AUDIT §3.1: measured **11,454 zh chars** (was 9,610); "8 texts" → "6 corpus texts + 2 matrix rows" | Update counts |
+| B9 | P3 | Search doesn't normalize edition variants (缽/鉢, 云/曰, 臺/台, 裏/里) | Optional variant map in search |
+| B10 | P3 | `docs/scripts/build_data_bundle.py` is an old revision, never synced, unreferenced | Remove `docs/scripts/` |
