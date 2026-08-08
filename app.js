@@ -186,7 +186,8 @@
       { key: 'xinxin_ming', title: 'Faith in Mind (信心銘)', cbeta: 'T2010' },
       { key: 'baojing_sanmei', title: 'Jewel Mirror Samadhi (寶鏡三昧)', cbeta: 'T1986' },
       { key: 'biyanlu_cases', title: 'Blue Cliff Record (碧巖錄)', cbeta: 'T2003' },
-      { key: 'platform_sutra', title: 'Platform Sutra (六祖壇經)', cbeta: 'T2007' }
+      { key: 'platform_sutra', title: 'Platform Sutra (六祖壇經)', cbeta: 'T2007' },
+      { key: 'chuandenglu', title: 'Transmission of Lamp (景德傳燈錄)', cbeta: 'T2076' }
     ];
 
     elements.corpusList.innerHTML = corpusMap.map(c => `
@@ -278,9 +279,43 @@
       });
     }
 
-    if (doc.chapters && doc.chapters.length > 0) {
-      doc.chapters.forEach(ch => {
-        html += renderChapterItem(ch);
+    // Render Sample Records (e.g. Chuandenglu)
+    if (doc.sample_records && doc.sample_records.length > 0) {
+      if (doc.overview) {
+        html += `
+          <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
+            <div class="case-num-title" style="margin-bottom: 0.5rem;">📚 30 Fascicles Canonical Architecture</div>
+            <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${doc.overview}</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem;">
+              ${doc.fascicle_structure.map(f => `
+                <div style="background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 4px; border: 1px solid var(--border-color); font-size: 0.78rem;">
+                  <strong>卷 ${f.fascicle}:</strong> ${f.scope}
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      doc.sample_records.forEach(rec => {
+        let diaHtml = rec.dialogue.map(d => `
+          <div style="margin-bottom: 1.25rem;">
+            <div class="case-speaker">${d.speaker}</div>
+            <div class="classical-zh">${annotateClassicalChinese(d.zh)}</div>
+            <div class="pinyin-line">${d.pinyin}</div>
+            ${renderTranslationColumns(d.translations)}
+          </div>
+        `).join('');
+
+        html += `
+          <div class="case-card">
+            <div class="case-header">
+              <span class="case-num-title">卷 ${rec.fascicle} 傳燈本則：${rec.title_zh}</span>
+              <span class="case-speaker">${rec.title_en}</span>
+            </div>
+            ${diaHtml}
+          </div>
+        `;
       });
     }
 

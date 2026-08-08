@@ -2558,6 +2558,231 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "chuandenglu": {
+      "id": "chuandenglu",
+      "title_zh": "景德傳燈錄",
+      "title_pinyin": "Jǐngdé Chuándēng Lù",
+      "title_en": "The Jingde Record of the Transmission of the Lamp",
+      "cbeta_id": "T2076",
+      "taisho_vol": 51,
+      "author_zh": "宋 東吳沙門 道原 纂",
+      "author_en": "Compiled by Shi Daoyuan of the Song Dynasty (1004 CE), Presented to Emperor Zhenzong",
+      "era": "Northern Song Dynasty (1004 CE)",
+      "genre": "Transmission of the Lamp / Universal Lineage History (傳燈錄)",
+      "fascicles_count": 30,
+      "masters_indexed": 1701,
+      "overview": "The monumental thirty-fascicle historical and genealogical compendium documenting the transmission of the mind seal from the Seven Ancient Buddhas and 28 Indian Patriarchs down through the Chinese generations to the Five Houses of Chan in the Song Dynasty.",
+      "fascicle_structure": [
+        {
+          "fascicle": 1,
+          "scope": "Seven Buddhas of Antiquity & Indian Patriarchs 1–7 (Mahakasyapa to Vasumitra)"
+        },
+        {
+          "fascicle": 2,
+          "scope": "Indian Patriarchs 8–14 (Buddhanandi to Nagarjuna)"
+        },
+        {
+          "fascicle": 3,
+          "scope": "Indian Patriarchs 15–28 (Kanadeva to Bodhidharma) & 2nd Chinese Patriarch Huike"
+        },
+        {
+          "fascicle": 4,
+          "scope": "Chinese Patriarchs 3–6 (Sengcan, Daoxin, Hongren, Huineng) & Niutou Farong"
+        },
+        {
+          "fascicle": 5,
+          "scope": "Huineng Disciples: Nanyue Huairang, Qingyuan Xingsi, Nanyang Huizhong, Yongjia Xuanjue"
+        },
+        {
+          "fascicle": 6,
+          "scope": "Generation of Mazu Daoyi and Shitou Xiqian"
+        },
+        {
+          "fascicle": 7,
+          "scope": "Disciples of Mazu: Nanquan Puyuan, Dazhu Huihai, Damei Fachang, Yanguan"
+        },
+        {
+          "fascicle": 8,
+          "scope": "Disciples of Mazu: Baizhang Huaihai, Xitang Zhizang, Guizong Zhichang"
+        },
+        {
+          "fascicle": 9,
+          "scope": "Disciples of Shitou: Yaoshan Weiyan, Danxia Tianran, Tianhuang Daowu"
+        },
+        {
+          "fascicle": 10,
+          "scope": "Disciples of Baizhang: Guishan Lingyou, Huangbo Xiyun, Baizhang Niepan"
+        },
+        {
+          "fascicle": 11,
+          "scope": "Disciples of Guishan (Guiyang School): Yangshan Huiji, Xiangyan Zhixian"
+        },
+        {
+          "fascicle": 12,
+          "scope": "Disciples of Huangbo: Linji Yixuan (Founder of Linji School) & Heirs"
+        },
+        {
+          "fascicle": 13,
+          "scope": "Disciples of Yaoshan: Yunyan Tansheng, Daowu Yuanzhi"
+        },
+        {
+          "fascicle": 14,
+          "scope": "Disciples of Yunyan (Caodong School): Dongshan Liangjie & Heirs"
+        },
+        {
+          "fascicle": 15,
+          "scope": "Disciples of Dongshan: Caoshan Benji, Yunju Daoying"
+        },
+        {
+          "fascicle": 16,
+          "scope": "Disciples of Deshan Xuanjian: Xuefeng Yicun, Yantou Quanhuo"
+        },
+        {
+          "fascicle": 17,
+          "scope": "Disciples of Xuefeng: Caodong and Caoxi Lines"
+        },
+        {
+          "fascicle": 18,
+          "scope": "Founder of Yunmen School: Yunmen Wenyan & Heirs"
+        },
+        {
+          "fascicle": 19,
+          "scope": "Disciples of Xuansha Shibei & Luohan Guichen"
+        },
+        {
+          "fascicle": 20,
+          "scope": "Founder of Fayan School: Fayan Wenyi & Heirs"
+        },
+        {
+          "fascicle": 21,
+          "scope": "Song Dynasty Heirs of Linji, Fayan, and Yunmen Lines"
+        },
+        {
+          "fascicle": 22,
+          "scope": "Song Dynasty Heirs: Tiantai Deshao, Yongming Yanshou"
+        },
+        {
+          "fascicle": 23,
+          "scope": "Song Dynasty Heirs: Shoushan Xingnian, Fenyang Shanzhao"
+        },
+        {
+          "fascicle": 24,
+          "scope": "Song Dynasty Heirs & Lay Adepts: Layman Pang (龐居士), Pei Xiu, Li Bo"
+        },
+        {
+          "fascicle": 25,
+          "scope": "Song Dynasty Masters & Contemporary Transmission"
+        },
+        {
+          "fascicle": 26,
+          "scope": "Famous Gathas, Transmission Verses, and Inscriptions"
+        },
+        {
+          "fascicle": 27,
+          "scope": "Master Eulogies and Questions on Essential Principles"
+        },
+        {
+          "fascicle": 28,
+          "scope": "Special Recorded Sermons and Essential Sayings"
+        },
+        {
+          "fascicle": 29,
+          "scope": "Poetry, Songs, and Inscriptions (Xinxin Ming, Sandokai, Baojing Sanmei)"
+        },
+        {
+          "fascicle": 30,
+          "scope": "Imperial Prefaces, Imperial Edicts, and Author's Concluding Memorial"
+        }
+      ],
+      "sample_records": [
+        {
+          "record_id": "mazu_nanyue",
+          "fascicle": 5,
+          "title_zh": "南嶽磨磚作鏡",
+          "title_pinyin": "Nányuè Mózhuān Zuòjìng",
+          "title_en": "Nanyue Polishes a Brick to Make a Mirror",
+          "protagonists": [
+            "nanyue_huairang",
+            "mazu_daoyi"
+          ],
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "開元中，有沙門道一，住傳法院，常日坐禪。師知是法器，往問曰：「大德坐禪圖甚麼？」",
+              "pinyin": "Kāiyuán zhōng, yǒu shāmén Dàoyī, zhù Chuánfǎ Yuàn, cháng rì zuòchán. Shī zhī shì fǎqì, wǎng wèn yuē: 'Dàdé zuòchán tú shénme?'",
+              "translations": {
+                "red_pine": "During the Kaiyuan era, the monk Daoyi was residing at Chuanfa Monastery, sitting in meditation all day long. Master Nanyue Huairang knew he was a vessel of the Dharma, went to him and asked: 'Venerable, what are you aiming at by sitting in meditation?'",
+                "cleary": "During the Kaiyuan era, monk Daoyi was staying at Chuanfa temple, constantly sitting in meditation. The Master knew he was a vessel of Dharma, went and asked, 'Great Worthy, what are you aiming for by sitting in meditation?'",
+                "sasaki": "In the Kaiyuan era, monk Daoyi dwelt in the Chuanfa Temple and sat in meditation all day. Master Huairang, recognizing him as a vessel of the Law, went and asked: 'Venerable monk, what are you aiming at in sitting in meditation?'"
+              }
+            },
+            {
+              "speaker": "Mazu / 馬祖",
+              "zh": "一曰：「圖作佛。」",
+              "pinyin": "Yī yuē: 'Tú zuò fó.'",
+              "translations": {
+                "red_pine": "Daoyi said: 'I am aiming to become a Buddha.'",
+                "cleary": "Daoyi said, 'I aim to become a Buddha.'",
+                "sasaki": "Daoyi replied: 'I am aiming to become a Buddha.'"
+              }
+            },
+            {
+              "speaker": "Nanyue / 南嶽",
+              "zh": "師乃取一磚，於彼庵前石上磨。一曰：「磨磚作麼？」師曰：「磨作鏡。」一曰：「磨磚豈得成鏡耶？」師曰：「坐禪豈得作佛耶？」",
+              "pinyin": "Shī nǎi qǔ yī zhuān, yú bǐ ān qián shí shàng mó. Yī yuē: 'Mó zhuān zuò me?' Shī yuē: 'Mó zuò jìng.' Yī yuē: 'Mó zhuān qǐ dé chéng jìng yé?' Shī yuē: 'Zuòchán qǐ dé zuò fó yé?'",
+              "translations": {
+                "red_pine": "The Master then picked up a brick and ground it upon a rock in front of the hermitage. Daoyi asked: 'What are you doing grinding a brick?' The Master said: 'I am grinding it to make a mirror.' Daoyi said: 'How can grinding a brick ever make a mirror?' The Master replied: 'How can sitting in meditation make a Buddha?'",
+                "cleary": "The Master then took a brick and polished it on a stone before the hermitage. Daoyi said, 'What are you doing grinding a brick?' The Master said, 'Grinding it to make a mirror.' Daoyi said, 'How can you make a mirror by grinding a brick?' The Master said, 'How can you become a Buddha by sitting in meditation?'",
+                "sasaki": "Huairang picked up a tile brick and began rubbing it on a stone. Daoyi asked: 'What are you doing grinding a brick?' Huairang said: 'I am grinding it to make a mirror.' Daoyi said: 'How can grinding a brick make a mirror?' Huairang said: 'How can sitting in meditation make you a Buddha?'"
+              }
+            },
+            {
+              "speaker": "Mazu / 馬祖",
+              "zh": "一曰：「如何即是？」師曰：「如人駕車，車若不行，打車即是？打牛即是？」一無對。",
+              "pinyin": "Yī yuē: 'Rúhé jí shì?' Shī yuē: 'Rú rén jià chē, chē ruò bù xíng, dǎ chē jí shì? Dǎ niú jí shì?' Yī wú duì.",
+              "translations": {
+                "red_pine": "Daoyi asked: 'What should one do then?' The Master said: 'It is like driving a cart. If the cart does not move, do you strike the cart or do you strike the ox?' Daoyi had no answer.",
+                "cleary": "Daoyi said, 'What is the right way?' The Master said, 'It is like someone driving a cart: if the cart does not go, is it right to hit the cart, or is it right to hit the ox?' Daoyi had no reply.",
+                "sasaki": "Daoyi asked: 'What then is right?' Huairang said: 'It is like driving a cart: if the cart stops, do you whip the cart, or do you whip the ox?' Daoyi was silent."
+              }
+            }
+          ]
+        },
+        {
+          "record_id": "layman_pang",
+          "fascicle": 8,
+          "title_zh": "龐居士參馬祖：一口吸盡西江水",
+          "title_pinyin": "Páng Jūshì Cān Mǎzǔ: Yīkǒu Xījìn Xījiāng Shuǐ",
+          "title_en": "Layman Pang Inquires of Mazu: Swallowing the West River",
+          "protagonists": [
+            "layman_pang",
+            "mazu_daoyi"
+          ],
+          "dialogue": [
+            {
+              "speaker": "Layman Pang / 龐居士",
+              "zh": "龐居士問馬祖：「不與萬法為侶者，是甚麼人？」",
+              "pinyin": "Páng jūshì wèn Mǎzǔ: 'Bù yǔ wànfǎ wéi lǚ zhě, shì shénme rén?'",
+              "translations": {
+                "red_pine": "Layman Pang asked Master Mazu: 'Who is the one who is not a companion to the myriad dharmas?'",
+                "cleary": "Layman Pang asked Mazu, 'Who is the one who does not keep company with the myriad things?'",
+                "sasaki": "Layman Pang asked Baso: 'Who is he that is not companion to the ten thousand things?'"
+              }
+            },
+            {
+              "speaker": "Mazu / 馬祖",
+              "zh": "祖曰：「待汝一口吸盡西江水，即向汝道。」士於言下大悟。",
+              "pinyin": "Zǔ yuē: 'Dài rǔ yī kǒu xī jìn Xījiāng shuǐ, jí xiàng rǔ dào.' Shì yú yán xià dà wù.",
+              "translations": {
+                "red_pine": "Mazu said: 'When you swallow the West River in a single gulp, I will tell you.' At these words the Layman attained great awakening.",
+                "cleary": "Mazu said, 'When you drink up the water of the West River in a single gulp, I will tell you.' The Layman had great awakening at these words.",
+                "sasaki": "Baso said: 'When you swallow up all the waters of the West River in one gulp, I will tell you.' At this Pang attained great awakening."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {

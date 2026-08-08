@@ -33,7 +33,8 @@ def main():
             "xinxin_ming": load_json(DATA_DIR / "corpus" / "xinxin_ming.json"),
             "baojing_sanmei": load_json(DATA_DIR / "corpus" / "baojing_sanmei.json"),
             "biyanlu_cases": load_json(DATA_DIR / "corpus" / "biyanlu_cases.json"),
-            "platform_sutra": load_json(DATA_DIR / "corpus" / "platform_sutra.json")
+            "platform_sutra": load_json(DATA_DIR / "corpus" / "platform_sutra.json"),
+            "chuandenglu": load_json(DATA_DIR / "corpus" / "chuandenglu.json")
         },
         "meta": {
             "version": "1.0.0",
