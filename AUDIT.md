@@ -319,6 +319,21 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 
 **Final tally (rounds 1–7)**: 49 verified quotation slots across 8 texts (incl. **15/16 Wumenguan anchor-units waiting on only a substrate**, i.e. Wumenguan coverage is now PD-complete) + 2 verified matrix rows; 5 reconstructions corrected/replaced; 1 zh canon correction; 1 attribution genuinely unresolved; 1 edition-variance audit. `provenance.json` v1.8.
 
-**Open work as of 2026-08-08**: PR to `main` (12 commits ready — live site still serves the pre-fix build until merge), Phase 2 content (the PD-complete senzaki baseline now makes scaling Wumenguan 11→48 substantially safer), optional round 8 (Aitken/Yamada/Shibayama registers; Hoffman stone-bridge; Watson deathbed).
+---
+
+### 2026-08-08 — Verification round 8 completed ✅
+
+| Action | Result |
+|---|---|
+| Yamada — Wumenguan (Kōun Yamada, Wisdom 2004) | ✅ **+24 verified slots covering all 11 corpus cases** (Terebess `Mumon.pdf` excerpts reproduction); Yamada c5 scan artifact "moth" corrected to printed "mouth" (documented) |
+| Aitken — Wumenguan (North Point Press 1990) | ✅ **+6 verified slots** (c1, c2 u0–u1, c3 u0, c4); Aitken's deep commentaries push later cases outside the session parse window — c2 u2 / c3 u1 deliberately **skipped** (PDF page-break seams = not provably verbatim) |
+| Case-1 register completion | ✅ **SIX ✅ editions now stand side by side on Wumenguan Case 1** (Senzaki/Reps PD, Shimomissé, Sekida, Blyth, Yamada, Aitken) |
+| Oak-tree numbering audit refined | 📝 Our slot-37 numbering matches **Aitken & Yamada** (substituting the oak tree for canonical Panshan); Senzaki/Reps place it at 38; **T2005 case 37 is Panshan 三界無法** — v1.7 note refined |
+| Shibayama — *Zen Comments on the Mumonkan* | ❌ Substrate is an image-only scanned PDF → honestly pending |
+| Hoffman stone-bridge / Watson deathbed | ❌ Still pending from rounds 6–7 |
+
+**Final tally (rounds 1–8)**: 79 verified quotation slots across 8 texts (Wumenguan excerpt set now carries **4–6 ✅ editions in parallel** on several anchors) + 2 verified matrix rows; 5 reconstructions corrected/replaced; 1 zh canon correction; 1 attribution genuinely unresolved; 2 numbering/edition audits. `provenance.json` v1.9.
+
+**Open work as of 2026-08-08**: PR to `main` (13 commits ready — live site still serves the pre-fix build until merge), Phase 2 content (Wumenguan 48 — PD baseline + Yamada/Aitken full texts proven fetchable, ready to scale), optional round 9 (Aitken later cases; Hinton/No-Gate Gateway; Seung Sahn register).
 
 

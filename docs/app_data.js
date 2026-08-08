@@ -1069,7 +1069,7 @@ window.TRANSLATECHAN_DATA = {
     }
   ],
   "translations_provenance": {
-    "policy_version": "1.8",
+    "policy_version": "1.9",
     "policy_date": "2026-08-08",
     "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
     "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -1207,6 +1207,20 @@ window.TRANSLATECHAN_DATA = {
           "EDITION NOTE on the oak-tree case: our file follows the Senzaki/Reps arrangement (their no. 38, 'An Oak Tree in the Garden'); canonical T2005 case 37 is Panshan 三界無法 — the oak-tree koan is non-canonical for the Wumenguan. The source note on those two units now says so explicitly",
           "suzuki case-19 register: no secure D.T. Suzuki mirror located (several near-registers circulate with weak attribution) → stays reconstruction",
           "pending: Aitken/Yamada/Shibayama Wumenguan registers; Hoffman stone-bridge full text; Watson deathbed"
+        ]
+      },
+      {
+        "pilot": "Round 8 (2026-08-08): Yamada & Aitken registers across the Wumenguan excerpt set",
+        "registers_verified": [
+          "yamada — Kōun Yamada, The Gateless Gate (Wisdom 2004): 24 verified slots covering ALL 11 corpus Wumenguan cases (Terebess Mumon.pdf excerpts reproduction)",
+          "aitken — Robert Aitken, The Gateless Barrier (North Point Press 1990): 6 verified slots (cases 1, 2 u0–u1, 3 u0, 4; deeper cases beyond this session's PDF parse window)"
+        ],
+        "notes": [
+          "All four headline Wumenguan translations-in-dialogue (Senzaki/Reps 1934 PD, Shimomissé, Sekida, Blyth, Yamada, Aitken) now verified on case 1 — SIX ✅ editions side by side",
+          "OCR seam policy exercised: Aitken c2 u2 / c3 u1 skipped (page-break seam = not provably verbatim); Yamada c5 'moth' corrected to printed 'mouth' (scan artifact, documented)",
+          "NUMBERING audit refined: our oak-tree case number 37 matches Aitken & Yamada (slot 37 substitutes the oak tree for canonical Panshan); Senzaki/Reps place it at 38; T2005 case 37 is Panshan 三界無法. Earlier v1.7 note attributed our numbering solely to Senzaki — corrected here",
+          "shibayama — substrate PDF (Zen Comments on the Mumonkan / Zen Inspirations excerpt) is an image-only scan → unverifiable this session, pending",
+          "pending: hoffman stone-bridge; watson deathbed; shibayama registers; aitken cases 5–7,19,23,29,37 (parse window)"
         ]
       }
     ]
@@ -1568,6 +1582,24 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "Weatherhill, 1977, pp. 26–137",
                     "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "The monk asked Jôshû in all earnestness, \"Does a dog have Buddha nature or not?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "A monk asked Chao-chou, \"Has the dog Buddha nature or not?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
                 }
               }
             },
@@ -1619,6 +1651,24 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "Weatherhill, 1977, pp. 26–137",
                     "verification": "verbatim vs Terebess reproduction + independent r/zen quotation of verse, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "Jôshû said, \"Mu!\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "Chao-chou said, \"Mu.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
                 }
               }
             }
@@ -1653,6 +1703,24 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "Whenever master Hyakujô delivered a sermon, an old man was always there listening with the monks. When they left, he left too. One day, however, he remained behind. The master asked him, \"What man are you, standing in front of me?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "Once when Pai-chang gave a series of talks, a certain old man was always there listening together with the monks. When they left, he would leave too. One day, however, he remained behind. Pai-chang asked him, \"Who are you, standing here before me?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
                 }
               }
             },
@@ -1672,6 +1740,24 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "The man replied, \"Indeed, I am not a man. In the past, in the time of Kashyapa Buddha, I lived on this mountain as a priest. On one occasion a monk asked me, 'Does a perfectly enlightened person fall under the law of cause and effect or not?' I answered, 'He does not.' Because of this answer, I fell into the state of a fox for 500 lives. Now, I beg you, Master, please say a turning word on my behalf and release me from the body of a fox.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "The old man replied, \"I am not a human being. In the far distant past, in the time of Kāśyapa Buddha, I was head priest at this mountain. One day a monk asked me, 'Does an enlightened person fall under the law of cause and effect or not?' I replied, 'Such a person does not fall under the law of cause and effect.' With this I was reborn five hundred times as a fox. Please say a turning word for me and release me from the body of a fox.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
                 }
               }
             },
@@ -1690,6 +1776,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Then he asked, \"Does a perfectly enlightened person fall under the law of cause and effect or not?\" The master answered, \"The law of cause and effect cannot be obscured.\" Upon hearing this, the old man immediately became deeply enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
                   }
                 }
               }
@@ -1725,6 +1820,24 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "Whatever he was asked about Zen, Master Gutei simply stuck up his finger. He had a boy attendant whom a visitor asked, \"What kind of teaching does your master give?\" The boy held up one finger too.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "Whenever Chü-chih was asked a question, he simply raised one finger. One day a visitor asked Chü-chih's attendant what his master preached. The boy raised a finger.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08"
+                  }
                 }
               }
             },
@@ -1743,6 +1856,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Hearing of this, Gutei cut off the boy's finger with a knife. As the boy ran away, screaming with pain, Gutei called to him. When the boy turned his head, Gutei stuck up one finger. The boy was suddenly enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
                   }
                 }
               }
@@ -1779,6 +1901,24 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "Wakuan said, \"Why has the western barbarian no beard?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
+                },
+                "aitken": {
+                  "text": "Huo-an asked, \"Why has the Western Barbarian no beard?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Barrier: The Wu-Men Kuan (Mumonkan), tr. Robert Aitken",
+                    "edition": "North Point Press, 1990",
+                    "verification": "verbatim vs Terebess gateless-barrier.pdf reproduction, 2026-08-08; Aitken numbers this case 4 (canonical agreement)"
+                  }
                 }
               }
             }
@@ -1812,6 +1952,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Master Kyôgen said, \"It's like a man up the tree, hanging from a branch by his mouth; his hands cannot grasp a branch, his feet won't reach a bough. Suppose there is another man under the tree who asks him, 'What is the meaning of Bodhidharma's coming from the west?' If he does not respond, he goes against the wish of the questioner. If he answers, he will lose his life. At such a time, how should he respond?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Terebess scan's OCR artifact 'moth' corrected to the printed reading 'mouth'"
                   }
                 }
               }
@@ -1847,6 +1996,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "Once in ancient times, when the World-Honored One was at Mount Grdhrakûta, he held up a flower, twirled it, and showed it to the assemblage. At this, they all remained silent. Only the venerable Kashyapa broke into a smile.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
                 }
               }
             },
@@ -1865,6 +2023,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The World-Honored One said: \"I have the eye treasury of the true Dharma, the marvelous mind of nirvana, the true form of no-form, the subtle gate of the Dharma. It does not depend on letters, being specially transmitted outside all teachings. Now I entrust Mahakashyapa with this.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
                   }
                 }
               }
@@ -1900,6 +2067,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "A monk asked Jôshû in all earnestness, \"I have just entered this monastery. I beg you, Master, please give me instructions.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
                 }
               }
             },
@@ -1918,6 +2094,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Jôshû asked, \"Have you eaten your rice gruel yet?\" The monk answered, \"Yes, I have.\" Jôshû said, \"Then wash your bowls.\" The monk attained some realization.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
                   }
                 }
               }
@@ -1954,6 +2139,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "Jôshû earnestly asked Nansen, \"What is the Way?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
                 }
               }
             },
@@ -1974,6 +2168,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "Nansen said, \"The ordinary mind is the Way.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
                 }
               }
             },
@@ -1993,6 +2196,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "Jôshû said, \"Should I direct myself toward it or not?\" Nansen said, \"If you try to turn toward it, you go against it.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
                 }
               }
             },
@@ -2011,6 +2223,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "Nansen said, \"The Way does not belong to knowing or not-knowing. Knowing is delusion; not-knowing is a blank consciousness. When you have really reached the true Way beyond all doubt, you will find it as vast and boundless as the great empty firmament. How can it be talked about on a level of right and wrong?\" At these words, Jôshû was suddenly enlightened.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
                   }
                 }
               }
@@ -2046,6 +2267,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "The sixth patriarch was once pursued by the monk Myô as far as Mount Daiyu. The patriarch, seeing Myô coming, laid the robe and bowl on a rock and said, \"This robe represents the faith. How can it be competed for by force? I will allow you to take it away.\" Myô tried to lift it up, but it was as immovable as a mountain.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
                 }
               }
             },
@@ -2065,6 +2295,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "Terrified and trembling with awe, he said, \"I came for the Dharma, not the robe. I beg you, lay brother, please reveal it to me.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
                 }
               }
             },
@@ -2083,6 +2322,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The patriarch said, \"Not thinking good or evil: at that very moment, what is the primal face of Monk Myô?\" In that instant, Myô suddenly attained deep realization, and his whole body was covered with sweat.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
                   }
                 }
               }
@@ -2118,6 +2366,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
                   }
+                },
+                "yamada": {
+                  "text": "The wind was flapping a temple flag, and two monks were having an argument about it. One said, \"The flag is moving.\" The other said, \"The wind is moving.\" They argued back and forth but could not reach the truth.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
+                  }
                 }
               }
             },
@@ -2136,6 +2393,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08"
+                  }
+                },
+                "yamada": {
+                  "text": "The sixth patriarch said, \"It is not the wind that moves. It is not the flag that moves. It is your mind that moves.\" The two monks were struck with awe.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08"
                   }
                 }
               }
@@ -2172,6 +2438,15 @@ window.TRANSLATECHAN_DATA = {
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08; Senzaki/Reps number this case 38 ('An Oak Tree in the Garden') — their edition inserts the oak-tree koan non-canonically (canonical case 37 is Panshan)"
                   }
+                },
+                "yamada": {
+                  "text": "A monk asked Jôshû in all earnestness, \"What is the meaning of the patriarch's coming from the West?\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Yamada numbers this case 37 (his edition's slot for the oak tree, replacing canonical Panshan)"
+                  }
                 }
               }
             },
@@ -2191,6 +2466,15 @@ window.TRANSLATECHAN_DATA = {
                     "work": "The Gateless Gate, transcribed by Nyogen Senzaki & Paul Reps",
                     "edition": "John Murray, Los Angeles, 1934 (public domain, U.S. non-renewal; Terebess/sacred-texts reproduction)",
                     "verification": "verbatim vs Terebess Wumen-guan.doc reproduction, 2026-08-08; Senzaki/Reps number this case 38 ('An Oak Tree in the Garden') — their edition inserts the oak-tree koan non-canonically (canonical case 37 is Panshan)"
+                  }
+                },
+                "yamada": {
+                  "text": "Jôshû said, \"The oak tree there in the garden.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Gateless Gate, tr. Kōun Yamada",
+                    "edition": "Wisdom Publications, Boston, 2004",
+                    "verification": "verbatim vs Terebess Mumon.pdf excerpts reproduction ('originally excerpts from Y. Kōun, The Gateless Gate, Boston 2004'), 2026-08-08; Yamada numbers this case 37 (his edition's slot for the oak tree, replacing canonical Panshan)"
                   }
                 }
               }
