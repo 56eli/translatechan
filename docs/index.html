@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TranslateChan | Classical Chinese Chan/Zen Translation & Preservation Matrix</title>
-  <meta name="description" content="A comprehensive digital corpus, lineage graph, comparative translation matrix, and personal translation studio for Chinese Chan Masters of Old (CBETA / Taishō 47, 48, 51).">
+  <meta name="description" content="A serene, open, and contemplative digital corpus, lineage knowledge graph, comparative translation matrix, and personal translation studio for Chinese Chan Masters of Old (CBETA / Taishō 47, 48, 51).">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,10 @@
       <a href="#" class="brand" onclick="location.reload()">
         <span class="brand-icon">🪷</span>
         <div>
-          <div class="brand-title">TranslateChan 譯禪</div>
+          <div class="brand-title">
+            <span>TranslateChan</span>
+            <span class="brand-title-chinese">譯禪</span>
+          </div>
           <div class="brand-sub">Chan Master Corpus & Comparative Translation Matrix</div>
         </div>
       </a>
@@ -78,6 +81,22 @@
   </header>
 
   <main>
+    <!-- Zen Hero Welcome Banner -->
+    <div class="zen-hero-banner">
+      <div>
+        <div class="zen-quote-main">「若欲直會其道，平常心是道。但莫污染，當體即是。」</div>
+        <div class="zen-quote-sub">
+          An open, serene, and contemplative digital matrix for exploring, translating, and comparing the Classical Chinese Chan literature of ancient masters (CBETA / Taishō 47, 48, 51).
+        </div>
+      </div>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        <span class="meta-chip">📜 36 Canonical Works</span>
+        <span class="meta-chip">⚖️ 8+ Translators Aligned</span>
+        <span class="meta-chip">🤖 Sandboxed Arena AI</span>
+        <span class="meta-chip">🌐 Zero-Backend Offline</span>
+      </div>
+    </div>
+
     <!-- View 1: Bilingual Reader -->
     <section id="view-reader" class="view-section active">
       <div class="reader-layout">
@@ -105,7 +124,9 @@
               <span class="meta-chip">Hover Lexicon Enabled</span>
             </div>
             <div class="toolbar-group">
-              <span class="toolbar-label">Hover highlighted terms for Classical definitions</span>
+              <span class="toolbar-label">Typography:</span>
+              <button id="font-size-dec-btn" class="btn-pill" title="Decrease Chinese font size">A-</button>
+              <button id="font-size-inc-btn" class="btn-pill" title="Increase Chinese font size">A+</button>
             </div>
           </div>
 
@@ -157,7 +178,7 @@
       </div>
 
       <!-- Master Dossier Modal / Inspector Drawer -->
-      <div id="master-dossier-panel" style="display: none; background: var(--accent-gold-light); border: 2px solid var(--accent-gold); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; animation: fadeIn 0.3s ease;">
+      <div id="master-dossier-panel" style="display: none; background: var(--accent-gold-light); border: 2px solid var(--accent-gold); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; animation: sereneFade 0.3s ease;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
           <div>
             <div id="dossier-name-zh" class="master-name-zh" style="font-size: 1.75rem; color: var(--accent-gold);"></div>
@@ -225,7 +246,7 @@
           </div>
 
           <!-- Source Classical Chinese Box -->
-          <div style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+          <div style="background: var(--bg-primary); padding: 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
               <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">Source Classical Chinese:</span>
               <span id="studio-char-count" style="font-size: 0.75rem; color: var(--text-muted);">0 characters</span>
@@ -235,7 +256,7 @@
           </div>
 
           <!-- Comparative Reference Drawer -->
-          <div style="background: var(--accent-gold-light); padding: 0.85rem; border-radius: var(--radius-sm); border-left: 4px solid var(--accent-gold);">
+          <div style="background: var(--accent-gold-light); padding: 0.95rem; border-radius: var(--radius-sm); border-left: 4px solid var(--accent-gold);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
               <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">Reference Translator:</span>
               <select id="studio-ref-translator-select" class="search-input" style="width: auto; padding: 0.2rem 0.5rem; font-size: 0.75rem;">
@@ -248,7 +269,7 @@
                 <option value="ai_literal">AI Draft (Literal)</option>
               </select>
             </div>
-            <div id="studio-ref-text" style="font-size: 0.88rem; color: var(--text-primary); font-style: italic;">
+            <div id="studio-ref-text" style="font-size: 0.9rem; color: var(--text-primary); font-style: italic;">
               Select a reference translator to view comparative rendering.
             </div>
           </div>
@@ -286,6 +307,8 @@
           <div id="studio-saved-list" style="overflow-y: auto; max-height: 650px;"></div>
         </div>
       </div>
+    </section>
+
     <!-- View 7: Arena AI Agents Architecture -->
     <section id="view-agents" class="view-section">
       <div class="text-header">
@@ -303,7 +326,7 @@
           </div>
           <div class="commentary-block" style="background: var(--bg-primary); border-left-color: var(--accent-gold); margin-top: 1rem;">
             <div class="commentary-label">Git-Backed Automated Deployment</div>
-            <div style="font-size: 0.85rem;">Commits directly to <code>arena/019fe05c-translatechan</code> and <code>main</code>, automatically updating the static GitHub Pages application bundle.</div>
+            <div style="font-size: 0.85rem;">Commits directly to <code>arena/019fe05c-translatechan</code> and <code>main</code>, automatically updating the static GitHub Pages application bundle in <code>docs/</code>.</div>
           </div>
         </div>
 
@@ -333,7 +356,7 @@
           <span>📚 Contemporary Scholarly Translation Matrix Alignment</span>
         </div>
         <div style="font-size: 0.92rem; color: var(--text-primary); line-height: 1.6; margin-bottom: 1rem;">
-          In addition to AI-synthesized multi-register drafts, Arena AI agents systematically align published translations from historical and contemporary translators:
+          In addition to AI-synthesized multi-register drafts, Arena AI agents systematically align published translations from historical and contemporary scholars:
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem;">
           <div class="meta-chip" style="padding: 0.5rem; justify-content: flex-start;"><strong>Red Pine (Bill Porter)</strong>: Lyrical & Hermit fidelity</div>

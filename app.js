@@ -113,6 +113,26 @@
       });
     }
 
+    // Reading font size adjusters
+    const fontIncBtn = document.getElementById('font-size-inc-btn');
+    const fontDecBtn = document.getElementById('font-size-dec-btn');
+    let currentFontSize = 1.35;
+
+    if (fontIncBtn && fontDecBtn) {
+      fontIncBtn.addEventListener('click', () => {
+        if (currentFontSize < 2.2) {
+          currentFontSize += 0.15;
+          document.documentElement.style.setProperty('--zh-font-size', `${currentFontSize}rem`);
+        }
+      });
+      fontDecBtn.addEventListener('click', () => {
+        if (currentFontSize > 1.0) {
+          currentFontSize -= 0.15;
+          document.documentElement.style.setProperty('--zh-font-size', `${currentFontSize}rem`);
+        }
+      });
+    }
+
     if (elements.lineageFilter) {
       elements.lineageFilter.addEventListener('change', (e) => {
         state.selectedMasterSchool = e.target.value;
