@@ -1,0 +1,55 @@
+{
+  "id": "hanshan_poems",
+  "title_zh": "天台山寒山拾得大士詩集",
+  "title_pinyin": "Tiāntáishān Hánshān Shídé Dàshì Shījī",
+  "title_en": "The Collected Poems of Cold Mountain (Hanshan & Shide)",
+  "cbeta_id": "T2834 / S.5731",
+  "taisho_vol": 85,
+  "author_zh": "唐 天台山 寒山子 撰 / 拾得 述",
+  "author_en": "The Tang Hermit Poet Hanshan (Cold Mountain, 8th–9th Century) & Shide",
+  "era": "Tang Dynasty",
+  "genre": "Chan Hermit Poetry & Enlightenment Songs (禪詩與心印)",
+  "overview": "The immortal poems of Master Hanshan of Mount Tiantai, celebrated worldwide in translations by Red Pine and Gary Snyder, expressing radical solitude, luminous non-duality, and the wild freedom of the ancient Chan hermits.",
+  "stanzas": [
+    {
+      "stanza_num": 1,
+      "zh": "吾心似秋月，碧潭清皎潔。無物堪比倫，教我如何說？",
+      "pinyin": "Wú xīn sì qiū yuè, bì tán qīng jiǎojié. Wú wù kān bǐ lún, jiào wǒ rúhé shuō?",
+      "translations": {
+        "red_pine": "My mind is like the autumn moon, shining pure in the emerald pool. Nothing can compare with it; teach me: how can I explain it?",
+        "cleary": "My mind is like the autumn moon, clean and clear in the green pool. Nothing can compare with it; how can you have me speak of it?",
+        "snyder": "My heart is like the autumn moon / perfectly relatively bright in the green pool / nothing can compare with it / tell me, how shall I explain it?"
+      }
+    },
+    {
+      "stanza_num": 2,
+      "zh": "杳杳寒山道，落落冷澗濱。啾啾常有鳥，寂寂更無人。淅淅風吹面，紛紛雪積身。朝朝不見日，歲歲不知春。",
+      "pinyin": "Yǎoyǎo hánshān dào, luòluò lěngjiàn bīn. Jiūjiū cháng yǒu niǎo, jìjì gèng wú rén. Xīxī fēng chuī miàn, fēnfēn xuě jī shēn. Zhāozhāo bù jiàn rì, suìsuì bù zhī chūn.",
+      "translations": {
+        "red_pine": "Faint is the path to Cold Mountain; deep are the banks of the chilly stream. Birds chirp continuously; in vast silence there are no people. Whistling winds blow against my face; swirling snow accumulates upon my body. Day after day I see no sun; year after year I know no spring.",
+        "cleary": "Remote is the path to Cold Mountain; steep are the chilly riverbanks. Chirping birds are always there; quiet and still, there are no people. Whistling winds blow on my face; drifting snow falls on my body. Dawn after dawn I see no sun; year after year I know no spring.",
+        "snyder": "Clambering up the Cold Mountain path / The Cold Mountain trail goes on and on / The long gorge choked with stones and boulders / The wide creek, the mist-blurred grass / The moss is slippery, though there's been no rain / The pine sings, but there's no wind / Who can leap the world's ties / And sit with me among the white clouds?"
+      }
+    },
+    {
+      "stanza_num": 3,
+      "zh": "高高峰頂上，四望極無邊。獨坐無人知，孤月照寒泉。泉中且無月，月是在青天。吟此一曲歌，歌中不是禪。",
+      "pinyin": "Gāogāo fēngdǐng shàng, sìwàng jí wúbiān. Dú zuò wú rén zhī, gū yuè zhào hán quán. Quán zhōng qiě wú yuè, yuè shì zài qīngtiān. Yín cǐ yī qǔ gē, gē zhōng bùshì chán.",
+      "translations": {
+        "red_pine": "High, high atop the peak of the mountain, looking out in four directions without bound. Sitting alone, nobody knows; the solitary moon shines upon the cold spring. In the spring there is no moon; the moon is in the blue sky. Singing this single tune of song: within the song is not Zen!",
+        "cleary": "High on the mountain peak, looking in four directions without bounds. Sitting alone without anyone knowing, the solitary moon illuminates the cold spring. In the spring there is no moon; the moon is in the blue sky. Singing this single melody: in the song is not Zen.",
+        "snyder": "High on the peak of the mountain / Looking in all directions without bounds / Sitting alone with no one knowing / The solitary moon reflects on the cold spring / Yet there is no moon in the water / The moon is in the clear blue sky / Chanting this single verse: / In the song there is no Zen!"
+      }
+    },
+    {
+      "stanza_num": 4,
+      "zh": "登陟寒山道，寒山路不窮。長溪石磊磊，短澗草濛濛。苔滑非關雨，松鳴不假風。誰能超世累，共坐白雲中？",
+      "pinyin": "Dēngzhì hánshān dào, hánshān lù bù qióng. Cháng xī shí lěilěi, duǎn jiàn cǎo méngméng. Tái huá fēi guān yǔ, sōng míng bù jiǎ fēng. Shuí néng chāo shì lèi, gòng zuò bái yún zhōng?",
+      "translations": {
+        "red_pine": "Climbing the path to Cold Mountain, the Cold Mountain road is endless. Long streams strewn with boulders; short gorges misted with grass. The moss is slippery without rain; the pines sing without wind. Who can transcend the worldly burden and come sit with me in the white clouds?",
+        "cleary": "Climbing the path of Cold Mountain, the Cold Mountain trail never ends. The long brook is piled with rocks; the short gully is thick with grass. The moss is slippery without rain; the pine roars without wind. Who can transcend worldly entanglements and sit together in the white clouds?",
+        "snyder": "Climbing the Cold Mountain road / The Cold Mountain road has no end / The long creeks are piled with stones / The deep ravines are choked with grass / The moss is slippery though it hasn't rained / The pines sing with no wind / Who can leave the world's dust / To sit with me in the white clouds?"
+      }
+    }
+  ]
+}
