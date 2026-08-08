@@ -1,12 +1,12 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
 ### Summary of Completed Work:
-1. **Book of Serenity Ingestion (`data/corpus/congronglu_cases.json`)**:
-   - Ingested the foundational Caodong (Soto) gong'an compendium *The Book of Serenity* (*萬松老人評唱天童頌古從容錄*, T2004, Vol. 48).
-   - Structured key cases: **The World-Honored One Ascends the Seat** (*世尊陞座：諦觀法王法，法王法如是*) and **Nanquan Cuts the Cat** (*南泉斬貓：趙州頭上草鞋出，滿地清光照古河*).
-   - Sentence-aligned with Thomas Cleary (*Book of Serenity*), Red Pine, and Ruth Fuller Sasaki translations.
+1. **Wudeng Huiyuan Ingestion (`data/corpus/wudeng_huiyuan.json`)**:
+   - Ingested the master Song dynasty transmission compendium *Wudeng Huiyuan* (*五燈會元*, X1565 / CBETA Vol. 80), uniting the five major historical lamp records into a unified genealogical matrix.
+   - Structured key classical narratives: **The Genealogy of the Five Houses and Seven Schools** (*五家七宗流派合璧*) and **Huineng Treading the Rice Pestle at Yellow Plum Mountain** (*六祖黃梅舂米：何期自性本自清淨，能生萬法*).
+   - Sentence-aligned with Red Pine, Thomas Cleary, and Ruth Fuller Sasaki translations.
 2. **Data Bundle & Application Recompilation**:
-   - Re-compiled `app_data.js` (353 KB) across all 29 canonical Chan works.
+   - Re-compiled `app_data.js` (360 KB) across all 30 canonical Chan collections.
    - Tested live on port 8080.
 3. **Repository Cleanliness & GitHub Push**:
    - Committed and pushed all updates cleanly to `origin arena/019fe05c-translatechan`.

@@ -4130,8 +4130,8 @@ window.TRANSLATECHAN_DATA = {
     },
     "foyan_qingyuan": {
       "id": "foyan_qingyuan",
-      "title_zh": "龍門佛眼清遠禪師語錄：即心即見",
-      "title_pinyin": "Lóngmén Fóyǎn Qīngyuǎn Chánshī Yǔlù: Jíxīn Jíjiàn",
+      "title_zh": "龍門佛眼清遠禪師語錄：即心即見與聽雨聲",
+      "title_pinyin": "Lóngmén Fóyǎn Qīngyuǎn Chánshī Yǔlù: Jíxīn Jíjiàn yǔ Tīng Yǔshēng",
       "title_en": "Instant Zen: The Recorded Sayings of Chan Master Foyan Qingyuan",
       "cbeta_id": "T1995",
       "taisho_vol": 47,
@@ -4139,7 +4139,7 @@ window.TRANSLATECHAN_DATA = {
       "author_en": "Chan Master Foyan Qingyuan (1067–1120 CE), Dharma Brother of Yuanwu Keqin",
       "era": "Northern Song Dynasty",
       "genre": "Direct Pointing & Sitting Inscriptions (即心法語與坐禪銘)",
-      "overview": "The profound and direct Song dynasty teachings on effortless presence and clear seeing, celebrated worldwide through Thomas Cleary's 'Instant Zen', famous for the dialectic of riding the donkey and dismounting the donkey.",
+      "overview": "The profound and direct Song dynasty teachings on effortless presence and clear seeing, celebrated worldwide through Thomas Cleary's 'Instant Zen', famous for the dialectic of riding the donkey and listening to the sound of rain.",
       "sections": [
         {
           "section_id": "riding_donkey",
@@ -4165,6 +4165,42 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "Having recognized the donkey, being unwilling to dismount means: you attain a state of purity and cling to that purity, unable to realize the unobstructed harmony of self and world. This is the second great sickness. You must know that when you dismount, heaven and earth are vast and open: there is no donkey to ride, and no donkey to get off.",
                 "red_pine": "Once you know you're on the donkey, refusing to get off means you find a state of quiet purity and become attached to it, unable to move freely between self and things. When you get off the donkey, the cosmos is boundless: there is no donkey to ride and no donkey to dismount.",
                 "sasaki": "Refusing to dismount means attaining stillness and clinging to stillness. When you truly dismount, heaven and earth are vast and clear: there is no donkey to ride and none to get off."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "sound_of_rain",
+          "title_zh": "聽雨聲：以耳聽之，還是以心會之？",
+          "title_pinyin": "Tīng Yǔshēng: Yǐ Ěr Tīng Zhī, Háishì Yǐ Xīn Huì Zhī?",
+          "title_en": "Listening to the Sound of Rain: Direct Hearing and Inner Resonance",
+          "dialogue": [
+            {
+              "speaker": "Foyan / 佛眼",
+              "zh": "師示眾云：「夜來窗外雨聲滴瀝，打在芭蕉竹林之上。汝等以耳聽之，但名雨聲；若以心會之，是阿誰聲？山河大地，草木叢林，皆在心體之內。既在心內，雨聲豈在心外？」",
+              "pinyin": "Shī shì zhòng yún: 'Yè lái chuāngwài yǔshēng dīlì, dǎ zài bājiāo zhúlín zhīshàng. Rǔděng yǐ ěr tīng zhī, dàn míng yǔshēng; ruò yǐ xīn huì zhī, shì ā shuí shēng? Shānhé dàdì, cǎomù cónglín, jiē zài xīntǐ zhīnèi. Jì zài xīn nèi, yǔshēng qǐ zài xīn wài?'",
+              "translations": {
+                "cleary": "The Master said to the assembly: 'In the night, the sound of rain dripped outside the window, falling upon the plantains and bamboo. If you listen with your ears, it is merely the sound of rain; if you understand it with your mind, whose sound is it? Mountains, rivers, the great earth, grass and trees are all inside the substance of mind. Since they are inside the mind, how could the sound of rain be outside the mind?'",
+                "red_pine": "The Master told the assembly: 'Last night rain dripped outside the window, tapping on the bamboo grove. If you listen with your ears, it's just the sound of rain; if you meet it with your heart-mind, whose voice is it? Mountains, rivers, and the great earth are all inside the mind's substance. Being within the mind, how could the sound of rain be outside?'",
+                "sasaki": "Master Foyan said: 'At night rain falls upon the bamboo. Hearing it with ears, you call it rain; meeting it with mind, who is speaking? The great earth is within mind; how could rain be outside?'"
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "saving_energy",
+          "title_zh": "省力處便是得力處：如在海中呼口渴",
+          "title_pinyin": "Shěnglì Chù Biànshì Délì Chù: Rú Zài Hǎizhōng Hū Kǒukě",
+          "title_en": "Saving Energy is Gaining Strength: Thirsty in the Middle of the Ocean",
+          "dialogue": [
+            {
+              "speaker": "Foyan / 佛眼",
+              "zh": "師云：「大凡參禪，省力處便是得力處。何謂省力？放下萬緣，不起造作。如人在大海之中，四望無際，卻大呼口渴！啟口皆是水，運足皆是路。不假修持，當下圓成。」",
+              "pinyin": "Shī yún: 'Dàfán cānchán, shěnglì chù biànshì délì chù. Hé wèi shěnglì? Fàngxià wànyuán, bù qǐ zàozuò. Rú rén zài dàhǎi zhīzhōng, sìwàng wújì, què dà hū kǒukě! Qǐ kǒu jiē shì shuǐ, yùn zú jiē shì lù. Bù jiǎ xiūchí, dāngxià yuánchéng.'",
+              "translations": {
+                "cleary": "The Master said: 'In Zen practice generally, where you save energy is where you gain strength. What is saving energy? Let go of all entanglements, do not give rise to contrivance. You are like someone in the middle of the great ocean, looking out at the boundless expanse, yet loudly shouting that you are thirsty! Open your mouth, and it is all water; move your feet, and it is all the Way. Without relying on artificial effort, right now all is completely fulfilled.'",
+                "red_pine": "The Master said: 'In Chan, saving effort is gaining strength. What is saving effort? Laying down all conditions and avoiding fabrication. It is like being in the middle of the ocean, surrounded by water on all sides, yet screaming you are thirsty! Open your mouth, it's all water; walk your feet, it's all the path. It requires no contrivance; in the immediate present it is perfectly complete.'",
+                "sasaki": "Master Foyan said: 'Where you save energy, you gain realization. You are like someone in the ocean shouting that you are thirsty. Open your mouth and it is all water; step forward and it is all the Way.'"
               }
             }
           ]
