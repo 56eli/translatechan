@@ -60,7 +60,8 @@ def main():
             "hanshan_poems": load_json(DATA_DIR / "corpus" / "hanshan_poems.json"),
             "huangbo_wanling": load_json(DATA_DIR / "corpus" / "huangbo_wanling.json"),
             "xuansha_yulu": load_json(DATA_DIR / "corpus" / "xuansha_yulu.json"),
-            "caoxi_zhuan": load_json(DATA_DIR / "corpus" / "caoxi_zhuan.json")
+            "caoxi_zhuan": load_json(DATA_DIR / "corpus" / "caoxi_zhuan.json"),
+            "yuanwu_letters": load_json(DATA_DIR / "corpus" / "yuanwu_letters.json")
         },
         "meta": {
             "version": "1.0.0",
