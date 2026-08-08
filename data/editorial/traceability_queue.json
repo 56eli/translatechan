@@ -277,9 +277,9 @@
       "current_locator": "T2010",
       "content_shape": "stanzas",
       "priority": "high",
-      "review_status": "needs_unit_locator",
-      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
-      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+      "review_status": "in_review",
+      "next_action": "Obtain a human editor’s review and sign-off for the seven collated T2010 stanza anchors; confirm the treatment of the 一念萬年 inline note in stanza 6 before any source_checked status.",
+      "editorial_note": "2026-08-08 locator pilot: all seven rendered stanzas have T2010 line-head anchors and documented punctuation normalization. This remains in review pending human scholarly sign-off."
     },
     {
       "document_key": "xuansha_yulu",

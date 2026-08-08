@@ -1049,14 +1049,16 @@
   }
 
   function renderStanzaItem(st) {
+    const stanzaLocator = unitLocatorForKey(state.currentCorpusKey, `stanzas.${st.stanza_num}`);
     return `
       <div class="case-card">
         <div class="case-header">
           <span class="case-num-title">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</span>
+          ${renderSourceLocationDisclosure(stanzaLocator, 'Stanza source', 'case-source-location')}
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${st.pinyin}</div>
-        ${renderTranslationColumns(st.translations, st.zh)}
+        ${renderTranslationColumns(st.translations, st.zh, stanzaLocator)}
       </div>
     `;
   }

@@ -488,7 +488,79 @@
       "canonical_locator": "T2010",
       "granularity": "document",
       "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
-      "status": "legacy_document_seed"
+      "status": "legacy_document_seed",
+      "unit_locators": {
+        "stanzas.1": {
+          "canonical_locator": "T48n2010_p0376b20–p0376b21",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+          "review_date": "2026-08-08",
+          "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+          "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+        },
+        "stanzas.2": {
+          "canonical_locator": "T48n2010_p0376b21–p0376b22",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+          "review_date": "2026-08-08",
+          "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+          "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+        },
+        "stanzas.3": {
+          "canonical_locator": "T48n2010_p0376b22–p0376b24",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+          "review_date": "2026-08-08",
+          "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+          "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+        },
+        "stanzas.4": {
+          "canonical_locator": "T48n2010_p0376b24–p0376b25",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+          "review_date": "2026-08-08",
+          "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+          "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+        },
+        "stanzas.5": {
+          "canonical_locator": "T48n2010_p0376b25–p0376b26",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0376b",
+          "review_date": "2026-08-08",
+          "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+          "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+        },
+        "stanzas.6": {
+          "canonical_locator": "T48n2010_p0377a04–p0377a05",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0377a",
+          "review_date": "2026-08-08",
+          "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+          "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization. Stanza 6 treats CBETA’s inline 一念萬年 note as part of the project’s reading; human editor sign-off remains required."
+        },
+        "stanzas.7": {
+          "canonical_locator": "T48n2010_p0377a09–p0377a10",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T48n2010_p0377a",
+          "review_date": "2026-08-08",
+          "source_edition": "CBETA XML P5 / CBETA Online, T48n2010",
+          "source_revision": "CBETA XML P5 header revision 1.6 (2009-04-23); current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Rendered four-line stanza aligns with the recorded T2010 line-head range after punctuation normalization; human editor sign-off remains required."
+        }
+      }
     },
     "xuansha_yulu": {
       "canonical_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",

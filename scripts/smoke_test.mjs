@@ -127,6 +127,14 @@ try {
   }
 } catch (e) { failures++; console.log(`❌ Linji locator pilot crash: ${e.message}`); }
 
+// 1c. The Xinxin Ming pilot exposes stanza-level T2010 source anchors.
+try {
+  corpusClicks.xinxin_ming();
+  if (!ids['reader-content-target']._innerHTML.includes('Stanza source: T48n2010_p0376b20–p0376b21')) {
+    failures++; console.log('❌ Xinxin Ming stanza-level locator pilot is not rendered');
+  }
+} catch (e) { failures++; console.log(`❌ Xinxin Ming locator pilot crash: ${e.message}`); }
+
 // 2. Exercise each reader mode
 for (const h of modeHandlers) {
   try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute()} crash: ${e.message}`); }
