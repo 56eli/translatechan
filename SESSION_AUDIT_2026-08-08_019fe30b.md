@@ -21,7 +21,7 @@
 | Data contract & tooling | Shared manifest (36↔36↔36), schema companion + semantic validator, locator registry (57/57 case units), deterministic metrics, checked-in CI workflow | 🟢 A− |
 | Documentation accuracy | Two stale CJK-count figures + one stale branch line found and fixed this session (F1/F2); otherwise consistent | 🟢 A− |
 | Corpus coverage vs Phase-2 goals | Wumenguan complete (48/48); 35/36 still excerpt seeds; Biyanlu 7/100 — honestly measured, the main product gap | 🟠 C (known, tracked) |
-| Accessibility / CSP | Good baseline (skip link, focus rings, contrast fixes, reduced motion); keyboard activation gaps + inline `onclick` remain (carried from C10) | 🟠 B− |
+| Accessibility / CSP | Good baseline (skip link, focus rings, contrast fixes, reduced motion); **keyboard gaps + inline `onclick` remediated this session** (delegated events, Enter/Space glossary terms, full ARIA tabs, restrictive CSP) | 🟢 B+ (was B−) |
 | Release engineering | CI workflow checked in; branch-protection requirement **cannot be confirmed** (403 — token lacks admin); no real-browser suite yet | 🟠 B+ |
 
 ---
@@ -68,8 +68,9 @@ The smoke suite covers: 36 texts × all reader modes, schema-specific search (st
 HANDOFF §"Merge readiness" says *"Current branch: `arena/019fe2e0-translatechan`"* — that was PR #6's branch. The working convention is `arena/<session>-translatechan`, so the line should name the live session branch.
 **Status: FIXED this session** — updated to `arena/019fe30b-translatechan`.
 
-### F3 — 🟡 P2 (a11y/CSP, carried from C10): keyboard + CSP hardening still open
-Verified current code: glossary `term-highlight` spans are focusable (`tabindex="0"`, `:focus-visible` styled) but **Enter/Space does not open the popover** (reader `keydown` handles only Escape); nav tabs have `role="tab"`/`aria-selected` but **no tabpanel roles, `aria-controls`, or arrow-key behavior**; case chips, case-nav footers, load-more, and search-jump buttons all use **inline `onclick`** → a strict Content-Security-Policy is impossible today. All three were flagged in the previous audit (C10) and are listed in `RESEARCH_RELEASE_PLAN.md` Phase 4; none has regressed, but none is fixed.
+### F3 — 🟡 P2 (a11y/CSP): keyboard + CSP hardening — **REMEDIATED this session** ✅
+Glossary `term-highlight` spans are focusable but **Enter/Space did not open the popover**; nav tabs had `role="tab"`/`aria-selected` but **no tabpanel roles, `aria-controls`, or arrow-key behavior**; case chips, case-nav footers, load-more, and search-jump buttons all used **inline `onclick`** → a strict Content-Security-Policy was impossible.
+**Status: FIXED this session** (see §2.1 Remediation below) — all six inline handlers replaced with a document-level delegated click handler over `data-*` attributes; Enter/Space now opens glossary popovers; complete ARIA tabs (tablist/tab/tabpanel, `aria-controls`, roving tabindex, arrow/Home/End); restrictive CSP meta tag shipped (`script-src 'self'`); smoke test extended with 4u–4x regression checks.
 
 ### F4 — 🟡 P2 (data contract): per-file coverage metadata exists for only 1 of 36 files
 The AUDIT §3.3 recommendation (`coverage_note` + `zh_chars`) was applied to `wumenguan.json` only. `project_metrics.json` gives aggregate CJK counts, but **per-text coverage lives only in README/AUDIT prose** (e.g. "Biyanlu 7/100"), so a doc/data mismatch like F1 can recur silently. Cheap fix: have `validate_data.py --write-metrics` emit a per-text `{zh_chars, coverage_note}` block (or generate it from data) and have README consume it.
@@ -131,7 +132,7 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 - **A1/F7** — require the Quality check on `main` (needs owner).
 - **A2/C7** — editorial migration of 33 `legacy_document_seed` locators + rights review of the 13 sources before publication claims.
 - **A4/F10** — real-browser (Playwright) suite.
-- **A5/C10/F3** — keyboard semantics + CSP (inline `onclick` removal).
+- **A5/C10/F3** — ~~keyboard semantics + CSP (inline `onclick` removal)~~ **remediated this session** (§2.1); real-browser verification of the CSP/keyboard paths remains part of F10.
 - **A6** — Phase-2 content: Biyanlu 7/100 is the agreed next pilot.
 - **A7** — bundle payload growth strategy before major corpus expansion.
 - **C11** — (historical; Studio/LaTeX export was retired from public scope with the Studio itself).
@@ -141,12 +142,29 @@ The smoke test is a hand-built DOM stub + `eval` — excellent breadth, but it c
 
 ## 7. Recommended Next Steps (proposal — awaiting direction)
 
-1. **F3 (a11y/CSP)**: convert inline `onclick` to delegated listeners (case chips, nav footers, load-more, search jump), wire Enter/Space for glossary terms, complete ARIA tab semantics — then optionally add a restrictive CSP. (`RESEARCH_RELEASE_PLAN` Phase 4 already scopes this.)
-2. **F4**: extend `validate_data.py` to emit per-text coverage metrics so README counts can never drift again (also closes the F1 class of bug permanently).
-3. **F7**: ask the repo owner to require the Quality check on `main` (one admin action).
-4. **F10**: add a small Playwright smoke suite (initial load, deep link, mobile picker, lazy cases, citation popover, keyboard, print).
-5. **Then Phase 2 content**: complete Biyanlu under the locator/provenance/rights contract (first 10 cases as pilot).
-6. **F9**: narrow the two script docstrings (2-minute fix) or budget real CBETA fetching.
+1. **F4**: extend `validate_data.py` to emit per-text coverage metrics so README counts can never drift again (also closes the F1 class of bug permanently).
+2. **F7**: ask the repo owner to require the Quality check on `main` (one admin action).
+3. **F10**: add a small Playwright smoke suite (initial load, deep link, mobile picker, lazy cases, citation popover, keyboard, print).
+4. **Then Phase 2 content**: complete Biyanlu under the locator/provenance/rights contract (first 10 cases as pilot).
+5. **F9**: narrow the two script docstrings (2-minute fix) or budget real CBETA fetching.
+6. **F5**: revisit annotator/search-index scaling before major corpus growth.
+
+---
+
+## 2.1 Remediation Log (same session, `arena/019fe30b-translatechan`)
+
+### F3 — a11y/CSP hardening completed ✅
+
+| Item | Change | Regression evidence |
+|---|---|---|
+| Six inline `onclick` handlers removed | Case chips, case prev/current/next footer, load-more, teacher links, master work links, and search-jump buttons now carry `data-*` attributes routed through one **document-level delegated click handler** (`[data-jump-case]`, `#case-load-more-btn`, `[data-open-case]`, `[data-open-doc]`, `[data-master-teacher]`) | Smoke 4v: simulated delegated clicks reach `scrollToCase`/`openDoc`; 4u greps `app.js` + `index.html` source and fails on any `onclick="…"`-style attribute |
+| Glossary terms keyboard-activatable | Reader `keydown` now opens the shared popover on **Enter/Space** (Escape still closes) | Smoke 4w: Enter on a focused `.term-highlight` populates the `#term-popover` |
+| Complete ARIA tabs | Nav buttons carry `id` + `aria-controls`; view sections carry `role="tabpanel"` + `aria-labelledby`; all `<li>` wrappers `role="none"`; JS applies **roving tabindex** (active `0`, others `-1`) and **ArrowLeft/Right + Home/End** navigation that activates like a click | Smoke 4x: after init only the active tab is tabbable; ArrowRight activates matrix→lineage; End activates lexicon |
+| Restrictive CSP | `<meta http-equiv="Content-Security-Policy">` with `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'` — no inline scripts/event-handler attributes possible | Smoke 4u asserts the meta tag + `script-src 'self'`; `node --check` clean; full suite green; root↔`docs` byte-identical |
+
+**Verification:** `python3 scripts/validate_data.py` ✅ · `python3 scripts/build_data_bundle.py` deterministic ✅ · `node scripts/smoke_test.mjs` ✅ (incl. new 4u–4x checks) · `diff -rq data docs/data` silent ✅ · `cmp` root↔docs app assets identical ✅.
+
+**Boundary kept explicit:** remaining keyboard/CSP work per `RESEARCH_RELEASE_PLAN.md` Phase 4 — real-browser (Playwright) verification of the CSP and keyboard paths, plus a full a11y scan; not replaced by the DOM-stub suite.
 
 ---
 
@@ -156,4 +174,4 @@ This audit did not independently collate every Chinese passage against CBETA/TEI
 
 ---
 
-**One-sentence completion summary:** This audit found a healthy, deterministic, honestly-labeled static reader with all quality gates green and every prior remediation holding, leaving open only the tracked editorial migration, a11y/CSP hardening, browser-testing, branch-protection confirmation, and Phase-2 corpus expansion.
+**One-sentence completion summary:** This audit found a healthy, deterministic, honestly-labeled static reader with all quality gates green and every prior remediation holding, remediated the remaining a11y/CSP gaps (delegated events, ARIA tabs, keyboard glossary terms, restrictive CSP) with regression coverage, and left open only the tracked editorial migration, real-browser testing, branch-protection confirmation, and Phase-2 corpus expansion.

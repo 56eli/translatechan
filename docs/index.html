@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TranslateChan | Classical Chinese Chan/Zen Translation & Preservation Matrix</title>
   <meta name="description" content="A serene, open, and contemplative digital corpus, lineage knowledge graph, comparative translation matrix, and lexicon for Chinese Chan Masters of Old (CBETA / Taishō 47, 48, 51).">
+  <!-- Restrictive CSP: no inline scripts/event-handler attributes (all app
+       interactivity is delegated in app.js); Google Fonts stylesheet + font
+       files and inline style attributes are explicitly allowed. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,27 +37,27 @@
       <!-- Navigation Tabs -->
       <ul class="nav-tabs" role="tablist" aria-label="Main navigation">
         <li role="none">
-          <button class="nav-tab-btn active" data-view="reader" role="tab" aria-selected="true">
+          <button class="nav-tab-btn active" data-view="reader" role="tab" id="tab-reader" aria-controls="view-reader" aria-selected="true" tabindex="0">
             <span>📖</span> <span>Bilingual Reader</span>
           </button>
         </li>
-        <li>
-          <button class="nav-tab-btn" data-view="matrix" role="tab">
+        <li role="none">
+          <button class="nav-tab-btn" data-view="matrix" role="tab" id="tab-matrix" aria-controls="view-matrix" aria-selected="false" tabindex="-1">
             <span>⚖️</span> <span>Comparative Matrix</span>
           </button>
         </li>
-        <li>
-          <button class="nav-tab-btn" data-view="lineage" role="tab">
+        <li role="none">
+          <button class="nav-tab-btn" data-view="lineage" role="tab" id="tab-lineage" aria-controls="view-lineage" aria-selected="false" tabindex="-1">
             <span>🌳</span> <span>Lineage Tree</span>
           </button>
         </li>
-        <li>
-          <button class="nav-tab-btn" data-view="gongan" role="tab">
+        <li role="none">
+          <button class="nav-tab-btn" data-view="gongan" role="tab" id="tab-gongan" aria-controls="view-gongan" aria-selected="false" tabindex="-1">
             <span>🗂️</span> <span>Gong'an Index</span>
           </button>
         </li>
-        <li>
-          <button class="nav-tab-btn" data-view="lexicon" role="tab">
+        <li role="none">
+          <button class="nav-tab-btn" data-view="lexicon" role="tab" id="tab-lexicon" aria-controls="view-lexicon" aria-selected="false" tabindex="-1">
             <span>📚</span> <span>Chan Lexicon</span>
           </button>
         </li>
@@ -87,7 +91,7 @@
     </div>
 
     <!-- View 1: Bilingual Reader -->
-    <section id="view-reader" class="view-section active">
+    <section id="view-reader" class="view-section active" role="tabpanel" aria-labelledby="tab-reader">
       <!-- Mobile corpus picker (sidebar is hidden below 960px) -->
       <div class="mobile-corpus-picker">
         <select id="corpus-mobile-select" class="search-input" aria-label="Select canonical text"></select>
@@ -131,7 +135,7 @@
     </section>
 
     <!-- View 2: Comparative Matrix -->
-    <section id="view-matrix" class="view-section">
+    <section id="view-matrix" class="view-section" role="tabpanel" aria-labelledby="tab-matrix">
       <div class="text-header">
         <div class="text-title-zh">多譯本對照矩陣 / Comparative Matrix</div>
         <div class="text-title-en">Sentence-by-sentence side-by-side comparison across Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine, and AI Synthesis</div>
@@ -143,7 +147,7 @@
     </section>
 
     <!-- View 3: Lineage Tree Explorer -->
-    <section id="view-lineage" class="view-section">
+    <section id="view-lineage" class="view-section" role="tabpanel" aria-labelledby="tab-lineage">
       <div class="text-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
         <div>
           <div class="text-title-zh">禪宗宗派法脈傳承譜 / Lineage Knowledge Graph</div>
@@ -204,7 +208,7 @@
     </section>
 
     <!-- View 4: Gong'an Cross-Reference Index -->
-    <section id="view-gongan" class="view-section">
+    <section id="view-gongan" class="view-section" role="tabpanel" aria-labelledby="tab-gongan">
       <div class="text-header">
         <div class="text-title-zh">歷代宗門公案總目 / Gong'an & Koan Master Index</div>
         <div class="text-title-en">Canonical encounter cases cross-indexed across Wumenguan, Biyanlu, Congronglu, and Chuandenglu</div>
@@ -213,7 +217,7 @@
     </section>
 
     <!-- View 5: Classical Chan Lexicon -->
-    <section id="view-lexicon" class="view-section">
+    <section id="view-lexicon" class="view-section" role="tabpanel" aria-labelledby="tab-lexicon">
       <div class="text-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
         <div>
           <div class="text-title-zh">禪宗名相與術語典籍 / Classical Chan Lexicon</div>

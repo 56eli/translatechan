@@ -639,3 +639,41 @@ The first source-status chart compressed 18 lineage depths into a short horizont
 - the existing pan/zoom/reset, edge citation panel, node citation panel, and keyboard interaction retained.
 
 The smoke suite asserts the layered generation labels and halo nodes so the chart cannot silently regress to the cramped layout.
+
+---
+
+## 11. 2026-08-08 — Session `arena/019fe30b-translatechan`: full audit + a11y/CSP hardening
+
+> **Audited snapshot:** `243fe3f` (post-PR #6, the tree the live site serves). Full readable report: `SESSION_AUDIT_2026-08-08_019fe30b.md` (temporary session file). **Verdict: no P0/P1; all prior remediations hold under regression.** Three documentation-drift items (F1/F2/F6) were corrected in the same commit; the C10-class a11y/CSP finding (F3) was remediated in a follow-up commit.
+
+### 11.1 Verified healthy (re-measured this session)
+
+- All gates green: `py_compile`, `validate_data.py` (corpus=36 | slots=856 | verified=138 | matrix=21 | locators=57/57), deterministic `build_data_bundle.py` (tree stays clean), `smoke_test.mjs`, root↔`docs` byte-identical, `diff -rq data docs/data` silent.
+- GitHub Pages live: `status: built`, `main` → `/docs`, HTTPS enforced.
+- Metrics fresh: `--write-metrics` produces zero diff; measured **13,268 content CJK / 16,457 all-string CJK** characters.
+- Attribution honesty: 138 verified corpus slots + 2 verified matrix rows resolve through 13 rights-manifest sources; 135/140 references recorded, 5 honest pending; 692 reconstruction + 26 AI slots never claim verification.
+- Wumenguan 48/48 + preface/epilogue complete; case 37 = 庭前柏樹 (T2005 目次-verified); Biyanlu 7/100, Congronglu 2/100, other 35 files honest excerpt seeds.
+
+### 11.2 Findings and fixes (same session)
+
+| ID | Sev | Finding | Status |
+|---|---|---|---|
+| F1 | P3 | README/AUDIT §10.2 CJK counts stale (13,090/16,270 vs measured 13,268/16,457) | ✅ fixed |
+| F2 | P3 | HANDOFF "Current branch" pointed at prior session's branch | ✅ fixed |
+| F6 | P3 | AUDIT §10.2 "Huangbo Chuanxin 4" — actual split is Chuanxin 2 + Wanling 2 | ✅ fixed |
+| F3 | P2 | a11y/CSP (C10 carryover): inline `onclick` ×6, glossary terms not Enter/Space-activatable, tabs lacked tabpanel/aria-controls/arrow keys, no CSP | ✅ **remediated** (§11.3) |
+| F4 | P2 | Per-file coverage metadata exists only for wumenguan; doc counts can drift (F1 class) | open — validator should emit per-text coverage |
+| F7 | P2 | Required Quality check on `main` unconfirmed (branch-protection API 403 for this token) | open — needs owner |
+| F10 | P2 | No real-browser regression suite yet | open — planned Phase 0 |
+| F5/F8/F9 | P3 | Annotator/search scaling advisory; "Zero-Backend Offline" chip vs Google Fonts; overpromising script docstrings | open — tracked |
+
+### 11.3 — F3 remediation: delegated events, ARIA tabs, keyboard glossary terms, CSP
+
+| Item | What landed | Regression evidence |
+|---|---|---|
+| Inline `onclick` removed (case chips, case nav footer, load-more, teacher links, master work links, search jump) | One document-level delegated click handler over `[data-jump-case]`, `#case-load-more-btn`, `[data-open-case]`, `[data-open-doc]`, `[data-master-teacher]` | Smoke 4u greps both sources and fails on any inline handler attribute; 4v simulates delegated clicks |
+| Glossary term keyboard activation | Enter/Space on a focused `.term-highlight` opens the shared popover; Escape closes | Smoke 4w |
+| Full ARIA tabs | `id`/`aria-controls` on tabs, `role="tabpanel"`/`aria-labelledby` on sections, `role="none"` on `<li>`, roving tabindex, Arrow/Home/End | Smoke 4x |
+| Restrictive CSP meta tag | `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'` | Smoke 4u; `node --check`; full suite green; root↔docs byte-identical |
+
+**Boundary:** real-browser verification of CSP/keyboard paths and a full a11y scan remain (RESEARCH_RELEASE_PLAN Phase 0/4); the DOM-stub suite does not replace them.

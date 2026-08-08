@@ -450,7 +450,12 @@
         hideTermPopover();
       });
       readerRoot.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') hideTermPopover();
+        if (e.key === 'Escape') { hideTermPopover(); return; }
+        // Keyboard activation for glossary terms (Enter/Space open the shared popover)
+        if ((e.key === 'Enter' || e.key === ' ') && e.target && e.target.closest && e.target.closest('.term-highlight')) {
+          e.preventDefault();
+          toggleTermPopover(e.target.closest('.term-highlight'));
+        }
       });
     }
 
@@ -508,6 +513,66 @@
         if (typeof window.TranslateChan.resetLineageView === 'function') window.TranslateChan.resetLineageView();
       });
     }
+
+    // ---- Delegated clicks: generated controls use data-* attributes instead of
+    // inline `onclick` so a restrictive Content-Security-Policy (script-src 'self')
+    // can be enforced. Native <button>/<a> semantics already provide Enter/Space.
+    document.addEventListener('click', (e) => {
+      if (!e.target || typeof e.target.closest !== 'function') return;
+      const hit = (sel) => e.target.closest(sel);
+
+      // Case strip chips + per-case prev/current/next footer (reader)
+      const jump = hit('[data-jump-case]');
+      if (jump) {
+        e.preventDefault();
+        const num = parseInt(jump.getAttribute('data-jump-case'), 10);
+        if (num) window.TranslateChan.scrollToCase(num);
+        return;
+      }
+      if (hit('#case-load-more-btn')) {
+        e.preventDefault();
+        window.TranslateChan.loadMoreCases();
+        return;
+      }
+      // Search result jump buttons
+      const openCaseBtn = hit('[data-open-case]');
+      if (openCaseBtn) {
+        e.preventDefault();
+        window.TranslateChan.openCase(openCaseBtn.getAttribute('data-open-case'), parseInt(openCaseBtn.getAttribute('data-case-num'), 10) || 0);
+        return;
+      }
+      const openDocBtn = hit('[data-open-doc]');
+      if (openDocBtn) {
+        e.preventDefault();
+        window.TranslateChan.openDoc(openDocBtn.getAttribute('data-open-doc'));
+        return;
+      }
+      // Lineage teacher links inside master cards / dossier
+      const teacherLink = hit('[data-master-teacher]');
+      if (teacherLink) {
+        e.preventDefault();
+        window.TranslateChan.openMasterDossier(teacherLink.getAttribute('data-master-teacher'));
+      }
+    });
+
+    // ---- ARIA tabs: roving tabindex + arrow/Home/End navigation on the tablist.
+    const tabList = (typeof document.querySelector === 'function') ? document.querySelector('.nav-tabs') : null;
+    if (tabList && typeof tabList.addEventListener === 'function') {
+      tabList.addEventListener('keydown', (e) => {
+        const tabs = Array.from(elements.navTabs || []);
+        const idx = tabs.indexOf(document.activeElement);
+        if (idx < 0 || tabs.length === 0) return;
+        let next = null;
+        if (e.key === 'ArrowRight') next = tabs[(idx + 1) % tabs.length];
+        else if (e.key === 'ArrowLeft') next = tabs[(idx - 1 + tabs.length) % tabs.length];
+        else if (e.key === 'Home') next = tabs[0];
+        else if (e.key === 'End') next = tabs[tabs.length - 1];
+        if (!next) return;
+        e.preventDefault();
+        next.focus();
+        next.click(); // activates the view (same path as pointer activation)
+      });
+    }
   }
 
   // View Switcher (updates DOM + URL hash so back/forward and deep links work)
@@ -526,13 +591,11 @@
     if (!VALID_VIEWS.includes(viewName)) return;
     state.currentView = viewName;
     elements.navTabs.forEach(tab => {
-      if (tab.getAttribute('data-view') === viewName) {
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-      } else {
-        tab.classList.remove('active');
-        tab.setAttribute('aria-selected', 'false');
-      }
+      const on = tab.getAttribute('data-view') === viewName;
+      if (on) tab.classList.add('active'); else tab.classList.remove('active');
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      // Roving tabindex: only the active tab is tabbable (ARIA tabs pattern)
+      if (typeof tab.setAttribute === 'function') tab.setAttribute('tabindex', on ? '0' : '-1');
     });
 
     elements.viewSections.forEach(section => {
@@ -750,7 +813,7 @@
     const caseStrip = (Array.isArray(doc.cases) && doc.cases.length >= 10)
       ? `<div class="case-jump-strip" id="case-jump-strip" aria-label="Case index">
            <span class="case-strip-label">📑 則 / Case</span>
-           ${doc.cases.map(c => `<button class="case-chip" data-jump-case="${c.case_num}" title="第${c.case_num}則 ${c.title_zh || ''}" onclick="window.TranslateChan.scrollToCase(${c.case_num})">${c.case_num}</button>`).join('')}
+           ${doc.cases.map(c => `<button class="case-chip" data-jump-case="${c.case_num}" title="第${c.case_num}則 ${c.title_zh || ''}">${c.case_num}</button>`).join('')}
          </div>`
       : '';
 
@@ -816,7 +879,7 @@
         const remaining = total - limit;
         html += `
           <div style="text-align: center; margin: 1.5rem 0;">
-            <button id="case-load-more-btn" class="btn-primary" onclick="window.TranslateChan.loadMoreCases()" aria-label="Show more cases">
+            <button id="case-load-more-btn" class="btn-primary" aria-label="Show more cases">
               Show more cases — ${limit} of ${total} · +${Math.min(CASE_CHUNK, remaining)}
             </button>
           </div>`;
@@ -948,9 +1011,9 @@
     const nextCase = idx < cases.length - 1 ? cases[idx + 1] : null;
     const navFooter = cases.length > 1 ? `
       <div class="case-nav-footer">
-        ${previousCase ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${previousCase.case_num})">‹ 第${previousCase.case_num}則</button>` : '<span></span>'}
-        <button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${caseItem.case_num})">⤒ 本則</button>
-        ${nextCase ? `<button class="btn-pill" onclick="window.TranslateChan.scrollToCase(${nextCase.case_num})">第${nextCase.case_num}則 ›</button>` : '<span></span>'}
+        ${previousCase ? `<button class="btn-pill" data-jump-case="${previousCase.case_num}">‹ 第${previousCase.case_num}則</button>` : '<span></span>'}
+        <button class="btn-pill" data-jump-case="${caseItem.case_num}">⤒ 本則</button>
+        ${nextCase ? `<button class="btn-pill" data-jump-case="${nextCase.case_num}">第${nextCase.case_num}則 ›</button>` : '<span></span>'}
       </div>` : '';
 
     return `
@@ -1438,7 +1501,7 @@
 
   function lineageTeacherDetail(master) {
     const teacher = (state.data.lineage || []).find(m => m && m.id === master.teacher);
-    if (teacher) return `<button class="btn-pill teacher-link" onclick="window.TranslateChan.openMasterDossier('${escHtml(teacher.id)}')">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(teacher.name_en)}</button>`;
+    if (teacher) return `<button class="btn-pill teacher-link" data-master-teacher="${escHtml(teacher.id)}">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(teacher.name_en)}</button>`;
     return `<span>Teacher frontier: ${escHtml(master.teacher || 'not recorded')} — profile/source record pending</span>`;
   }
 
@@ -1697,7 +1760,7 @@
     const labels = new Map(items.map(item => [item.key, item.title]));
     if (!keys.length) return '<span>Project corpus link not yet curated.</span>';
     return keys.filter(key => state.data.corpus && state.data.corpus[key]).map(key =>
-      `<button class="btn-pill" onclick="window.TranslateChan.openDoc('${escHtml(key)}')">Open ${escHtml(labels.get(key) || key)}</button>`
+      `<button class="btn-pill" data-open-doc="${escHtml(key)}">Open ${escHtml(labels.get(key) || key)}</button>`
     ).join(' ');
   }
 
@@ -2031,8 +2094,8 @@
       bodyHtml += `<div style="margin: 1.25rem 0 0.4rem; font-weight: 700; color: var(--accent-gold);">${escHtml(doc.title_zh)} · ${escHtml(doc.title_en)} — ${hits.length} matching unit(s)</div>`;
       shown.forEach(u => {
         const action = u.jump && u.jump.kind === 'case'
-          ? `<button class="btn-pill active" onclick="window.TranslateChan.openCase('${corpKey}', ${u.jump.num})">View Case in Reader</button>`
-          : `<button class="btn-pill active" onclick="window.TranslateChan.openDoc('${corpKey}')">View in Reader</button>`;
+          ? `<button class="btn-pill active" data-open-case="${escHtml(corpKey)}" data-case-num="${u.jump.num}">View Case in Reader</button>`
+          : `<button class="btn-pill active" data-open-doc="${escHtml(corpKey)}">View in Reader</button>`;
         bodyHtml += `
           <div class="case-card" style="margin-bottom: 0.75rem;">
             <div class="case-header"><span class="case-num-title" style="font-size:0.95rem;">${escHtml(u.label)}</span></div>

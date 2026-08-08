@@ -70,10 +70,10 @@ For each new case:
 
 ### 4 — Reader and research UX hardening
 
-- Replace inline `onclick` and clickable non-controls with delegated events/native buttons, then apply a restrictive Content Security Policy.
-- Ensure Enter/Space behavior and ARIA relationships for glossary terms, lineage cards/nodes/edges, tabs, and filters.
-- Add browser/screen-reader checks for citations on hover, focus, and touch.
-- Measure mobile first-load performance before corpus growth makes the monolithic bundle costly; choose lazy per-text data only if evidence justifies the added complexity.
+- [x] Replace inline `onclick` and clickable non-controls with delegated events/native buttons, then apply a restrictive Content Security Policy (completed 2026-08-08, session `arena/019fe30b`): all generated controls now use `data-*` attributes with a single document-level delegated click handler; the app ships a CSP meta tag with `script-src 'self'`; the smoke suite fails on any reintroduced inline handler attribute.
+- [x] Ensure Enter/Space behavior and ARIA relationships for glossary terms, lineage cards/nodes/edges, tabs, and filters (completed 2026-08-08): Enter/Space opens glossary popovers; tabs are full ARIA `tablist`/`tab`/`tabpanel` with roving tabindex and arrow/Home/End navigation; lineage cards/nodes/edges already carry button semantics and Enter/Space activation.
+- [ ] Add browser/screen-reader checks for citations on hover, focus, and touch (real-browser suite still pending — see Phase 0).
+- [ ] Measure mobile first-load performance before corpus growth makes the monolithic bundle costly; choose lazy per-text data only if evidence justifies the added complexity.
 
 **Exit evidence:** no keyboard-only dead end in public interaction paths; CSP permits no inline event handlers; mobile performance budget is documented and tested.
 
