@@ -195,6 +195,107 @@
     if (termPopoverEl) termPopoverEl._anchor = termSpan;
   }
 
+  // ---- Shared citation/disclosure popover (source + translation provenance) ----
+  // Rendered citation details live in JS rather than data attributes so book/source
+  // metadata stays structured and never becomes an executable HTML payload.
+  let citationPopoverEl = null;
+  let citationSerial = 0;
+  const citationDetails = new Map();
+
+  function registerCitation(detail) {
+    const id = `citation-${++citationSerial}`;
+    citationDetails.set(id, detail);
+    return id;
+  }
+
+  function getCitationPopover() {
+    if (!citationPopoverEl) {
+      citationPopoverEl = document.createElement('div');
+      citationPopoverEl.id = 'citation-popover';
+      citationPopoverEl.className = 'citation-popover';
+      citationPopoverEl.style.display = 'none';
+      document.body.appendChild(citationPopoverEl);
+    }
+    return citationPopoverEl;
+  }
+
+  function citationRow(label, value) {
+    if (!value) return '';
+    return `<div class="citation-row"><strong>${escHtml(label)}:</strong> ${escHtml(value)}</div>`;
+  }
+
+  function renderCitationTrigger(detail, label = 'ⓘ Details', className = '') {
+    const id = registerCitation(detail);
+    const title = detail && detail.title ? `${detail.title} — hover, focus, or tap for disclosure` : 'Hover, focus, or tap for disclosure';
+    return `<button type="button" class="citation-trigger ${className}" data-citation-id="${id}" aria-label="${escHtml(title)}" title="${escHtml(title)}">${escHtml(label)}</button>`;
+  }
+
+  function positionCitationPopover(pop, anchor) {
+    const rect = anchor.getBoundingClientRect();
+    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
+    const popW = 340;
+    let left = Math.min(rect.left, vw - popW - 8);
+    if (left < 8) left = 8;
+    let top = rect.bottom + 8;
+    if (top + 190 > (window.innerHeight || 800)) top = Math.max(8, rect.top - 198);
+    pop.style.left = `${left}px`;
+    pop.style.top = `${top}px`;
+  }
+
+  function showCitationPopover(trigger) {
+    if (!trigger || typeof trigger.getBoundingClientRect !== 'function') return;
+    const detail = citationDetails.get(trigger.getAttribute('data-citation-id'));
+    if (!detail) return;
+    const pop = getCitationPopover();
+    const rows = Array.isArray(detail.rows) ? detail.rows : [];
+    pop.innerHTML = `<div class="citation-title">${escHtml(detail.title || 'Citation & disclosure')}</div>` +
+      rows.map(row => citationRow(row[0], row[1])).join('');
+    positionCitationPopover(pop, trigger);
+    pop.style.display = 'block';
+    pop._anchor = trigger;
+  }
+
+  function hideCitationPopover() {
+    if (citationPopoverEl) citationPopoverEl.style.display = 'none';
+  }
+
+  function toggleCitationPopover(trigger) {
+    if (citationPopoverEl && citationPopoverEl.style.display === 'block' && citationPopoverEl._anchor === trigger) {
+      hideCitationPopover();
+      return;
+    }
+    showCitationPopover(trigger);
+  }
+
+  function setupCitationPopoverListeners() {
+    document.addEventListener('mouseover', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger) showCitationPopover(trigger);
+    });
+    document.addEventListener('mouseout', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger && !trigger.contains(e.relatedTarget)) hideCitationPopover();
+    });
+    document.addEventListener('focusin', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger) showCitationPopover(trigger);
+    });
+    document.addEventListener('focusout', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger && !trigger.contains(e.relatedTarget)) hideCitationPopover();
+    });
+    document.addEventListener('click', (e) => {
+      const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
+      if (trigger) {
+        e.preventDefault();
+        toggleCitationPopover(trigger);
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') hideCitationPopover();
+    });
+  }
+
   // ---- Collapsible case cards (touch defaults to collapsed) ----
   // collapsedCases[corpusKey] = { caseNum: true|false } — explicit user choices
   // only; unlisted cases fall back to the device default (collapsed on touch).
@@ -242,6 +343,7 @@
 
   // Event Listeners
   function setupEventListeners() {
+    setupCitationPopoverListeners();
     if (elements.themeToggle) {
       elements.themeToggle.addEventListener('click', () => {
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
@@ -518,6 +620,81 @@
     }
   }
 
+  // ---- Canonical source-location disclosure ----
+  function locatorDocumentForKey(key) {
+    const registry = state.data.canonical_locators;
+    const documents = registry && isRecord(registry.documents) ? registry.documents : {};
+    return isRecord(documents[key]) ? documents[key] : null;
+  }
+
+  function locatorStatusLabel(status) {
+    if (status === 'case_level_anchor') return 'Case-level canonical anchor';
+    if (status === 'legacy_document_seed') return 'Document-level seed locator — unit locator pending';
+    return status ? stringValue(status) : 'Locator pending';
+  }
+
+  function renderSourceLocationDisclosure(locator, label = 'Source location', className = '') {
+    const entry = isRecord(locator) ? locator : {};
+    const location = stringValue(entry.canonical_locator) || 'Locator pending';
+    const detail = {
+      title: `${label} disclosure`,
+      rows: [
+        ['Canonical location', location],
+        ['Granularity', stringValue(entry.granularity) || 'Document level'],
+        ['Status', locatorStatusLabel(entry.status)],
+        ['Source note', stringValue(entry.source_note) || 'No additional locator note recorded.']
+      ]
+    };
+    return `<div class="source-location ${className}"><span>📍 ${escHtml(label)}: ${escHtml(location)}</span>${renderCitationTrigger(detail, 'ⓘ Source')}</div>`;
+  }
+
+  function renderDocumentSourceDisclosure(doc, corpusKey) {
+    const locator = locatorDocumentForKey(corpusKey) || {
+      canonical_locator: doc && doc.cbeta_id,
+      granularity: 'document',
+      status: 'locator_pending',
+      source_note: 'Source registry entry pending.'
+    };
+    return renderSourceLocationDisclosure(locator, 'Source location', 'document-source-location');
+  }
+
+  function renderCaseSourceDisclosure(caseNum) {
+    const documentLocator = locatorDocumentForKey(state.currentCorpusKey);
+    const caseLocators = documentLocator && isRecord(documentLocator.case_locators) ? documentLocator.case_locators : {};
+    const caseLocator = isRecord(caseLocators[String(caseNum)]) ? caseLocators[String(caseNum)] : null;
+    const locator = caseLocator ? {
+      ...documentLocator,
+      canonical_locator: caseLocator.canonical_locator,
+      granularity: 'case',
+      status: caseLocator.status,
+      source_note: documentLocator.source_note
+    } : documentLocator;
+    return renderSourceLocationDisclosure(locator, 'Case source', 'case-source-location');
+  }
+
+  function matrixLocatorForReference(sourceRef) {
+    const documents = state.data.canonical_locators && isRecord(state.data.canonical_locators.documents)
+      ? state.data.canonical_locators.documents
+      : {};
+    const reference = stringValue(sourceRef);
+    const tokens = reference.match(/(?:T|X)\d{4}[A-Z]?|P\.\d+/g) || [];
+    for (const token of tokens) {
+      const match = Object.values(documents).find(entry => isRecord(entry) && stringValue(entry.canonical_id).includes(token));
+      if (match) {
+        const caseMatch = reference.match(/Case\s+(\d+)/i);
+        const caseLocators = isRecord(match.case_locators) ? match.case_locators : {};
+        const caseLocator = caseMatch && isRecord(caseLocators[caseMatch[1]]) ? caseLocators[caseMatch[1]] : null;
+        return caseLocator ? {
+          ...match,
+          canonical_locator: caseLocator.canonical_locator,
+          granularity: 'case',
+          status: caseLocator.status
+        } : match;
+      }
+    }
+    return null;
+  }
+
   // Render Reader View
   function renderReader() {
     if (!elements.readerContent || !state.data.corpus) return;
@@ -547,6 +724,7 @@
           <span class="meta-chip">⏳ Era: ${doc.era || ''}</span>
           <span class="meta-chip">🏷️ Genre: ${doc.genre || ''}</span>
         </div>
+        ${renderDocumentSourceDisclosure(doc, state.currentCorpusKey)}
       </div>
       ${caseStrip}
     `;
@@ -646,7 +824,7 @@
             <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--accent-green);">
               <div class="commentary-label" style="color: var(--accent-green);">曹山註解 / Caoshan Commentary</div>
               <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
-              <div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${r.commentary_en}</div>
+              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft')}` : ''}
             </div>
           </div>
         `;
@@ -741,6 +919,7 @@
           <span class="case-num-title">第 ${caseItem.case_num} 則：${caseItem.title_zh}</span>
           <span style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
             <span class="case-speaker">${caseItem.title_en}</span>
+            ${renderCaseSourceDisclosure(caseItem.case_num)}
             <button class="case-toggle" data-case-toggle="${caseItem.case_num}" aria-expanded="${collapsed ? 'false' : 'true'}" aria-label="${collapsed ? 'Expand' : 'Collapse'} case ${caseItem.case_num}" title="${collapsed ? 'Expand' : 'Collapse'} case">${collapsed ? '＋' : '−'}</button>
           </span>
         </div>
@@ -749,7 +928,7 @@
           <div class="commentary-block" style="background: var(--bg-card); border-left-color: var(--accent-blue); margin-bottom: 1rem;">
             <div class="commentary-label" style="color: var(--accent-blue);">垂示 / Pointer</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
-            <div style="font-size: 0.88rem; color: var(--text-secondary);">${caseItem.pointer_en || ''}</div>
+            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.88rem; color: var(--text-secondary);">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft')}` : ''}
           </div>
         ` : ''}
         ${dialoguesHtml}
@@ -758,8 +937,7 @@
             <div class="commentary-label">無門評唱 / Commentary</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.commentary_pinyin || ''}</div>
-            <div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.commentary_en || ''}</div>
-            ${caseItem.commentary_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
+            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft')}` : ''}
           </div>
         ` : ''}
         ${caseItem.verse_zh ? `
@@ -767,8 +945,7 @@
             <div class="commentary-label" style="color: var(--accent-green);">頌曰 / Verse</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${caseItem.verse_pinyin || ''}</div>
-            <div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${caseItem.verse_en || ''}</div>
-            ${caseItem.verse_en ? '<div style="font-size: 0.62rem; color: var(--text-muted); margin-top: 0.2rem;" title="English rendering produced by this project">&nbsp;↳ Project rendering • unverified</div>' : ''}
+            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft')}` : ''}
           </div>
         ` : ''}
         </div>
@@ -922,18 +1099,80 @@
     return `<span class="translation-status ${meta.className}" title="${escHtml(meta.title)}">${meta.label}</span>`;
   }
 
-  function renderTranslationSource(entry) {
-    if (entry.status !== 'verified_quotation') return '';
-    if (!isRecord(entry.source)) {
-      return '<div class="translation-source source-missing">⚠️ Source record pending</div>';
+  function sourceReference(source) {
+    if (!isRecord(source)) return 'Not applicable';
+    const explicit = stringValue(source.page || source.section || source.reference || source.locator);
+    if (explicit) return explicit;
+    // Preserve an actual page/section token embedded in legacy edition metadata;
+    // otherwise disclose the missing locator instead of inventing one.
+    const embedded = `${stringValue(source.edition)} ${stringValue(source.verification)}`
+      .match(/(?:pp?\.?\s*\d+(?:[–-]\d+)?|§\s*[^,;)\n]+|Q&A\s*(?:no\.)?\s*\d+|teaching\s*\d+|episode\s*(?:no\.)?\s*\d+|case\s*\d+)/i);
+    return embedded ? embedded[0] : 'Page/section locator pending';
+  }
+
+  function rightsRecordFor(sourceId) {
+    const manifest = state.data.translations_rights;
+    const sources = manifest && Array.isArray(manifest.sources) ? manifest.sources : [];
+    return sources.find(item => item && item.source_id === sourceId) || null;
+  }
+
+  function renderTranslationSource(entry, translatorName) {
+    const translator = stringValue(translatorName) || formatTranslatorName(entry.key);
+    if (entry.status === 'verified_quotation') {
+      if (!isRecord(entry.source)) {
+        const detail = {
+          title: 'Verified quotation disclosure',
+          rows: [
+            ['Translator', translator],
+            ['Status', 'Verified quotation'],
+            ['Book / edition', 'Source record pending'],
+            ['Page / section', 'Locator pending']
+          ]
+        };
+        return `<div class="translation-source source-missing">⚠️ Source record pending ${renderCitationTrigger(detail, 'ⓘ Citation')}</div>`;
+      }
+      const source = entry.source;
+      const work = stringValue(source.work) || 'Book title pending';
+      const edition = stringValue(source.edition) || 'Edition pending';
+      const page = sourceReference(source);
+      const sourceId = stringValue(source.source_id);
+      const rights = rightsRecordFor(sourceId);
+      const detail = {
+        title: 'Verified translation citation',
+        rows: [
+          ['Translator', translator],
+          ['Status', 'Verified quotation'],
+          ['Book', work],
+          ['Edition', edition],
+          ['Page / section', page],
+          ['Verification', stringValue(source.verification) || 'Verification note pending'],
+          ['Rights record', sourceId || 'Rights identifier pending'],
+          ['Rights status', rights ? stringValue(rights.rights_status) : 'Rights record pending']
+        ]
+      };
+      return `<div class="translation-source">📖 <strong>${escHtml(translator)}</strong> · ${escHtml(work)}<br>Edition: ${escHtml(edition)}<br>Page / section: ${escHtml(page)} ${renderCitationTrigger(detail, 'ⓘ Citation')}</div>`;
     }
-    const source = entry.source;
-    const work = stringValue(source.work);
-    const edition = stringValue(source.edition);
-    const page = stringValue(source.page);
-    const verification = stringValue(source.verification);
-    const citation = [work, edition, page].filter(Boolean).map(escHtml).join(' · ');
-    return `<div class="translation-source">📖 ${citation || 'Source record'}${verification ? '<br>✓ ' + escHtml(verification) : ''}</div>`;
+
+    const isAi = entry.status === 'ai_draft';
+    const disclosure = isAi
+      ? 'AI draft — no external book quotation'
+      : 'Project register reconstruction — not a published book quotation';
+    const detail = {
+      title: 'Translation disclosure',
+      rows: [
+        ['Translator / label', translator],
+        ['Status', isAi ? 'AI draft' : 'Register reconstruction'],
+        ['Book / edition', 'Not applicable — this displayed text is not a verified quotation'],
+        ['Page / section', 'Not applicable — citation prohibited for this project draft'],
+        ['Disclosure', disclosure]
+      ]
+    };
+    return `<div class="translation-source source-disclosure">${isAi ? '🤖' : '⚠️'} <strong>${escHtml(translator)}</strong> — ${escHtml(disclosure)} ${renderCitationTrigger(detail, 'ⓘ Disclosure')}</div>`;
+  }
+
+  function renderProjectDraftDisclosure(label = 'Project AI draft') {
+    if (state.readerMode === 'chinese_only') return '';
+    return renderTranslationSource({ key: 'ai_project', status: 'ai_draft', source: null }, label);
   }
 
   function renderFlatTranslationColumns(entries) {
@@ -948,6 +1187,7 @@
                 ${renderTranslationStatus(entry)}
               </div>
               <div class="translation-text">${escHtml(entry.text)}</div>
+              ${renderTranslationSource(entry, item.name || formatTranslatorName(item.key))}
             </div>`;
         }).join('')}
       </div>`;
@@ -978,7 +1218,7 @@
               ${renderTranslationStatus(entry)}
             </div>
             <div class="translation-text">${escHtml(entry.text)}</div>
-            ${renderTranslationSource(entry)}
+            ${renderTranslationSource(entry, formatTranslatorName(k))}
           </div>`;
         }).join('')}
       </div>
@@ -1024,6 +1264,8 @@
     elements.matrixTarget.innerHTML = matrixList.map(rawItem => {
       const item = isRecord(rawItem) ? rawItem : {};
       const translators = Array.isArray(item.translators) ? item.translators : [];
+      const locator = matrixLocatorForReference(item.source_ref);
+      const sourceDisclosure = renderSourceLocationDisclosure(locator, 'Source location', 'matrix-source-location');
       return `
       <div class="matrix-card">
         <div class="matrix-header">
@@ -1031,6 +1273,7 @@
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(item.sentence_zh)}</div>
         <div class="pinyin-line">${escHtml(item.sentence_pinyin)}</div>
+        ${sourceDisclosure}
         <div class="matrix-grid">
           ${translators.map(rawTranslator => {
             const t = isRecord(rawTranslator) ? rawTranslator : {};
@@ -1049,7 +1292,7 @@
                 <div class="matrix-text">“${escHtml(entry.text)}”</div>
               </div>
               ${renderTranslationStatus(entry)}
-              ${renderTranslationSource(entry)}
+              ${renderTranslationSource(entry, t.translator)}
               <div class="matrix-note">💡 ${escHtml(t.notes)}</div>
             </div>
             `;

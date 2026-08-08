@@ -186,6 +186,7 @@
     "verified_required_fields": [
       "source.work",
       "source.edition",
+      "source.reference",
       "source.verification"
     ]
   }

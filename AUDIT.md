@@ -528,7 +528,7 @@ diff -rq data docs/data
 | Glossary / lineage / gong’an index | 31 terms / 30 master profiles / 18 index entries |
 | Lineage links | 26 in-set teacher edges render; four teacher references deliberately point beyond the current dataset (Prajñātāra, Longtan Chongxin, Yangqi Fanghui, Dahong Laoniu Zuzheng) |
 
-The 138 verified corpus objects and both verified Matrix entries contain the required `source.work`, `source.edition`, and `source.verification` fields. The locator registry now anchors every current case unit; the remaining 33 non-case seed documents are explicitly document-level until their rendered units receive page/line or TEI locators.
+The 138 verified corpus objects and both verified Matrix entries contain required work, edition, reference-state, verification, and rights-source fields. The locator registry now anchors every current case unit; the remaining 33 non-case seed documents are explicitly document-level until their rendered units receive page/line or TEI locators.
 
 ### 10.3 Current findings
 
@@ -601,3 +601,16 @@ At product direction, the published interface was narrowed to the **Bilingual Re
 - the header GitHub repository link and repository-handle footer context.
 
 The source data may still contain clearly labeled `ai_draft` and `reconstruction_unverified` values; those remain visible only as disclosed translation statuses in the Reader/Matrix. The current roadmap (§Phase 4) now governs source verification, citation disclosure, AI marking, and hover/focus/touch provenance rather than public drafting or agent branding. Smoke coverage rejects a reintroduction of the removed public-page views or GitHub URL.
+
+### 10.10 Source and translation disclosure baseline (same session)
+
+The public Reader and Matrix now implement the first executable portion of the Phase 4 disclosure roadmap:
+
+| Disclosure requirement | Public implementation | Current measured gap |
+|---|---|---|
+| Source text location | Every reader document shows a visible canonical source location; all 57 stored case units also show their case-level source anchor. Matrix source sentences resolve through the same locator registry when a canonical identifier is available. | 33 non-case seed documents remain document-level (`legacy_document_seed`) until page/line or TEI anchors are added. |
+| Translation attribution | Every displayed translation shows its translator/label and explicit status. Verified records show book, edition, page/section reference state, verification, and rights record; reconstructions/AI drafts state plainly that they are not external book quotations. | 123 of 140 verified source records still display `Page/section locator pending`; 17 carry an extracted/recorded reference. |
+| AI disclosure | `ai_draft` and `reconstruction_unverified` values visibly say **AI draft** or **Project register reconstruction** and are not styled as quotations. | Content/editorial work must replace pending references before any wider quotation claim. |
+| Hover/focus/touch access | Shared `citation-trigger` controls open structured citation popups on hover, keyboard focus, or tap/click in Reader and Matrix. | Future lineage and index citation surfaces must reuse the component. |
+
+The disclosure UI intentionally distinguishes a source reference from a verified book quotation; it does not fabricate pages where the dataset has not yet recorded one.

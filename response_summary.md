@@ -16,13 +16,13 @@
 1. The zero-backend deployment is simple, portable, and currently healthy.
 2. The bundle/build/smoke-test discipline catches broad renderer regressions across all 36 corpus schemas, including real debounced search, sparse navigation, pointer search, and blocked-storage execution.
 3. The corpus candidly distinguishes complete Wumenguan coverage from excerpt seeds.
-4. Reader and Matrix now share explicit reconstruction/AI/verified badges; verified corpus and Matrix entries expose source metadata and a rights-manifest identifier.
+4. Reader and Matrix now share explicit reconstruction/AI/verified badges plus visible book/edition/page-reference disclosure and hover/focus/touch citation popups; verified entries expose source metadata and a rights-manifest identifier.
 5. Public scope is deliberately focused on comparative reading and research discovery rather than browser-based drafting or agent branding.
 6. Manifest-driven bundling, schema/semantic validation, canonical-locator registry, rights controls, deterministic metrics, and a prepared CI workflow will prevent silent data/deploy drift once workflow-capable GitHub access is restored.
 
 ## Highest-priority open work
 
-1. **Migrate legacy scholarly coverage:** upgrade the 33 document-level seed locators to page/line or TEI anchors, and complete human editorial/rights review for modern quotation sources.
+1. **Migrate legacy scholarly coverage:** upgrade the 33 document-level seed locators to page/line or TEI anchors, replace the 123 visible `Page/section locator pending` records with book references, and complete human editorial/rights review for modern quotation sources.
 2. **Expand content under the new rails:** complete Biyanlu and deepen the public reader’s source/citation disclosure.
 3. **Finish accessibility/disclosure polish:** keyboard activation for all interactive controls and consistent hover/focus/touch citation popups.
 

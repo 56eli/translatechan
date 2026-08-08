@@ -13,12 +13,14 @@
       "required": [
         "work",
         "edition",
+        "reference",
         "verification",
         "source_id"
       ],
       "properties": {
         "work": { "$ref": "#/$defs/nonEmptyString" },
         "edition": { "$ref": "#/$defs/nonEmptyString" },
+        "reference": { "$ref": "#/$defs/nonEmptyString" },
         "verification": { "$ref": "#/$defs/nonEmptyString" },
         "source_id": {
           "type": "string",

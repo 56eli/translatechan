@@ -131,7 +131,7 @@ def validate_source(source: Any, path: str, issues: Issues) -> str | None:
     if not is_record(source):
         issues.error(path, "verified quotation requires a source object")
         return None
-    require_fields(source, ("work", "edition", "verification", "source_id"), path, issues)
+    require_fields(source, ("work", "edition", "reference", "verification", "source_id"), path, issues)
     source_id = source.get("source_id")
     if nonempty_string(source_id) and not SOURCE_ID_RE.fullmatch(source_id):
         issues.error(path, "source_id must use lowercase letters, digits, and hyphens")
@@ -170,9 +170,11 @@ def validate_translation_map(
             continue
         stats[status] += 1
         if status == "verified_quotation":
-            source_id = validate_source(value.get("source"), f"{entry_path}.source", issues)
+            source = value.get("source")
+            source_id = validate_source(source, f"{entry_path}.source", issues)
             if source_id:
                 verified_source_ids.append(source_id)
+            stats["verified_reference_pending" if is_record(source) and source.get("reference") == "Page/section locator pending" else "verified_reference_recorded"] += 1
 
 
 def walk_translation_maps(
@@ -284,9 +286,11 @@ def validate_matrix(
             stats[f"matrix_{status}"] += 1
             stats["matrix_entries"] += 1
             if status == "verified_quotation":
-                source_id = validate_source(entry.get("source"), f"{entry_path}.source", issues)
+                source = entry.get("source")
+                source_id = validate_source(source, f"{entry_path}.source", issues)
                 if source_id:
                     verified_source_ids.append(source_id)
+                stats["verified_reference_pending" if is_record(source) and source.get("reference") == "Page/section locator pending" else "verified_reference_recorded"] += 1
 
 
 def validate_auxiliary_data(
@@ -556,6 +560,10 @@ def compute_metrics(
             },
             "matrix_entries": stats.get("matrix_entries", 0),
             "matrix_statuses": matrix_statuses,
+            "verified_reference_coverage": {
+                "recorded": stats.get("verified_reference_recorded", 0),
+                "pending": stats.get("verified_reference_pending", 0),
+            },
         },
         "canonical_locator_coverage": locator_metrics,
         "rights_coverage": rights_metrics,

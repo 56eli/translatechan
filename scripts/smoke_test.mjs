@@ -59,6 +59,8 @@ class StubElement {
 const corpusClicks = {};
 const modeHandlers = [];
 const ids = {};
+const createdElements = [];
+const documentHandlers = {};
 globalThis.window = globalThis;
 globalThis.location = { hash: '', href: 'http://localhost/index.html', protocol: 'http:', host: 'localhost' };
 globalThis.addEventListener = () => {};
@@ -68,8 +70,9 @@ globalThis.print = () => {};
 globalThis.document = {
   readyState: 'complete',
   documentElement: { setAttribute() {}, style: { setProperty() {} } },
+  body: { appendChild() {} },
   getElementById(id) { return (ids[id] ||= new StubElement(id)); },
-  createElement(tag) { return new StubElement(tag); },
+  createElement(tag) { const el = new StubElement(tag); createdElements.push(el); return el; },
   querySelectorAll(sel) {
     if (sel === '[data-reader-mode]') {
       if (modeHandlers.length === 0) {
@@ -86,7 +89,7 @@ globalThis.document = {
     if (sel === '.nav-tab-btn' || sel === '.view-section') return [];
     return [];
   },
-  addEventListener() {}
+  addEventListener(ev, fn) { (documentHandlers[ev] ||= []).push(fn); }
 };
 
 // Load data bundle + app
@@ -209,7 +212,31 @@ const wmHtml = ids['reader-content-target']._innerHTML;
 if (!wmHtml.includes('case-jump-strip')) { failures++; console.log('❌ case index strip missing'); }
 if (!wmHtml.includes('case-toggle')) { failures++; console.log('❌ case collapse toggle missing'); }
 if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case prev/next nav missing'); }
-// 4i. Tooltip DOM is de-duplicated: no embedded .term-tooltip nodes remain in reader output
+// 4i. Public reader source/translation disclosure: document + case locations,
+// book/page status, translator, AI/reconstruction label, and hoverable citation triggers.
+if (!wmHtml.includes('Source location: T2005') || !wmHtml.includes('Case source: T2005, case 1') || !wmHtml.includes('citation-trigger')) {
+  failures++; console.log('❌ reader source-location disclosure missing');
+}
+if (!wmHtml.includes('Page / section:') || !wmHtml.includes('Project register reconstruction — not a published book quotation') || !wmHtml.includes('AI draft — no external book quotation')) {
+  failures++; console.log('❌ reader translation/AI disclosure missing');
+}
+const citationId = (wmHtml.match(/data-citation-id="([^"]+)"/) || [])[1];
+if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandlers.focusin || []).length || !(documentHandlers.click || []).length) {
+  failures++; console.log('❌ citation hover/focus/touch handlers missing');
+} else {
+  const citationTrigger = {
+    getAttribute: () => citationId,
+    getBoundingClientRect: () => ({ top: 0, left: 0, bottom: 12 }),
+    contains: () => false
+  };
+  const target = { closest: selector => selector === '.citation-trigger' ? citationTrigger : null };
+  (documentHandlers.mouseover || []).forEach(fn => fn({ target, relatedTarget: null }));
+  const citationPopover = createdElements.find(el => el.id === 'citation-popover');
+  if (!citationPopover || !citationPopover._innerHTML.includes('Canonical location')) {
+    failures++; console.log('❌ citation hover popover did not render source details');
+  }
+}
+// 4j. Tooltip DOM is de-duplicated: no embedded .term-tooltip nodes remain in reader output
 if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded tooltip markup still emitted (de-dup regression)'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
 const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
@@ -226,13 +253,16 @@ if (!gonganHtml.includes('gongan-filter-chip')) { failures++; console.log('❌ g
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
 const malformedMatrixEntries = matrixEntries.filter(t => !t.status ||
-  (t.status === 'verified_quotation' && (!t.source || !t.source.work || !t.source.edition || !t.source.verification || !t.source.source_id)));
+  (t.status === 'verified_quotation' && (!t.source || !t.source.work || !t.source.edition || !t.source.reference || !t.source.verification || !t.source.source_id)));
 if (malformedMatrixEntries.length) { failures++; console.log(`❌ matrix provenance incomplete for ${malformedMatrixEntries.length} entry/entries`); }
 const matrixHtml = ids['matrix-content-target']._innerHTML;
 const matrixStatusCount = (matrixHtml.match(/class="translation-status/g) || []).length;
 if (matrixStatusCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixStatusCount} provenance badges (expected ${matrixEntries.length})`); }
 const matrixSourceCount = (matrixHtml.match(/class="translation-source/g) || []).length;
-if (matrixSourceCount !== 2) { failures++; console.log(`❌ matrix has ${matrixSourceCount} verified source lines (expected 2)`); }
+if (matrixSourceCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixSourceCount} disclosure lines (expected ${matrixEntries.length})`); }
+if (!matrixHtml.includes('Source location:') || !matrixHtml.includes('Page / section:') || !matrixHtml.includes('AI draft — no external book quotation') || !matrixHtml.includes('citation-trigger')) {
+  failures++; console.log('❌ matrix citation/disclosure rendering missing');
+}
 // 4r. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
   await fireSearch(q);

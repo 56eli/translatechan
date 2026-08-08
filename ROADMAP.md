@@ -121,10 +121,10 @@ This document outlines the detailed engineering, data science, translation, and 
   - Verify source text against that recorded source before display; do not upgrade a seed excerpt to “verified” merely because it is widely mirrored online.
   - Verify published translations against the named **book/edition**, translator, and page or stable section reference. A web mirror may assist wording comparison but never substitutes for bibliographic provenance or rights review.
 - [~] **Content disclosure contract**:
-  - Every displayed source passage must expose its canonical location. Until a page/line or TEI locator exists, display an honest `Locator pending`/document-level status rather than implying unit-level collation.
-  - Every displayed translation must expose translator, work, edition, page/section reference, verification status, and a citation/rights identifier. Missing page data is a blocking editorial task, not a silent omission.
-  - Every AI-produced or AI-reconstructed item must be visibly marked **AI draft** or **register reconstruction**; it must never appear as a verified quotation or a scholar’s verbatim translation.
-  - Citation/source badges must be available by hover, keyboard focus, and touch popup, with the same disclosure information in Reader, Matrix, and any future public surface.
+  - ✅ The public Reader and Matrix now render canonical source locations plus hover/focus/touch citation popups. Until a page/line or TEI locator exists, they show an honest `Locator pending`/document-level status rather than implying unit-level collation.
+  - ✅ Every displayed translation now renders translator, status, book/edition, page/section reference state, verification status, and citation/rights identifier. Current metrics record 17 explicit references and 123 honest `Page/section locator pending` records; replacing those pending values is a blocking editorial task, not a silent omission.
+  - ✅ Every AI-produced or AI-reconstructed item is visibly marked **AI draft** or **register reconstruction**; it never appears as a verified quotation or a scholar’s verbatim translation.
+  - ✅ Citation/source badges are available by hover, keyboard focus, and touch popup in Reader and Matrix; future public surfaces must use the same component.
 - [ ] **Editorial review queue**:
   - Upgrade the 33 `legacy_document_seed` locator records to page/line or TEI anchors.
   - Complete human rights/editorial review for each modern-translation source in `rights_manifest.json` before broader quotation reuse.

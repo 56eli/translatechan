@@ -239,7 +239,7 @@ header {
   pointer-events: none;
 }
 
-.theme-toggle, .btn-icon {
+.theme-toggle {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
@@ -254,7 +254,7 @@ header {
   text-decoration: none;
 }
 
-.theme-toggle:hover, .btn-icon:hover {
+.theme-toggle:hover {
   border-color: var(--border-focus);
   background: var(--bg-hover);
 }
@@ -643,6 +643,92 @@ main {
   color: var(--accent-red);
 }
 
+.translation-source.source-disclosure {
+  color: var(--text-secondary);
+}
+
+.source-location {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.7rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.document-source-location {
+  padding: 0.55rem 0.7rem;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.case-source-location {
+  margin: 0;
+  font-size: 0.68rem;
+}
+
+.matrix-source-location {
+  margin-top: -0.55rem;
+  margin-bottom: 0.4rem;
+}
+
+.citation-trigger {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--accent-blue);
+  border-radius: 999px;
+  padding: 0.1rem 0.45rem;
+  font: inherit;
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1.35;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.citation-trigger:hover,
+.citation-trigger:focus-visible {
+  border-color: var(--accent-blue);
+  background: var(--accent-blue-light);
+}
+
+.citation-popover {
+  position: fixed;
+  z-index: 320;
+  width: 340px;
+  max-width: calc(100vw - 16px);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.78rem;
+  font-family: var(--font-sans);
+  line-height: 1.45;
+  pointer-events: none;
+}
+
+.citation-title {
+  color: var(--accent-gold);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.citation-row {
+  margin-top: 0.25rem;
+  color: var(--text-secondary);
+}
+
+.citation-row strong {
+  color: var(--text-primary);
+}
 
 .matrix-col > .translation-status {
   margin-top: 0.45rem;
@@ -1195,7 +1281,7 @@ footer {
   header, .zen-hero-banner, .sidebar-panel, .reader-toolbar,
   .mobile-corpus-picker, .mobile-action-bar, .case-jump-strip,
   .case-toggle, .case-nav-footer, .term-popover, footer,
-  #term-popover, .graph-controls {
+  #term-popover, #citation-popover, .graph-controls {
     display: none !important;
   }
 

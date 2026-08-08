@@ -51,13 +51,15 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 ### 1. 📖 Interactive Bilingual Reader
 - Sentence-by-sentence Classical Chinese with standard Pinyin romanization and English translations across all 36 corpus texts.
 - Switchable reading modes: **Bilingual**, **Multi-Translators Side-by-Side**, or **Classical Chinese Only**.
-- Hover on key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
+- Hover, focus, or tap key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
+- Visible canonical source locations for every reader document/case, with hover/focus/touch disclosure popups that state locator granularity and pending status honestly.
 - Client-side search across **all 36 corpus texts and all schema shapes** (case lists, sermons, dialogues, stanzas, chapters), with match counts, `<mark>` highlighting, and jump-to-anchor actions.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix
 - Segment-level side-by-side comparison across major 20th and 21st-century renderings (4 exemplar entries today).
-- Critical notes examining why renderings differ (e.g., *Mu* vs. *No* vs. *None* vs. *Emptiness*).
-- ⚠️ **Sourcing note**: translator-attributed renderings in the seed data are *reconstructions in each scholar's register* unless individually verified against print editions; a verification/labeling pass is tracked in [`AUDIT.md` §3.4](./AUDIT.md).
+- Each displayed translation discloses translator, status, book/edition, page-or-section reference state, verification, and rights identifier through visible lines plus hover/focus/touch citation popups.
+- Critical notes examine why renderings differ (e.g., *Mu* vs. *No* vs. *None* vs. *Emptiness*).
+- ⚠️ **Sourcing note**: translator-attributed renderings in the seed data are *reconstructions in each scholar's register* unless individually verified against print editions; AI drafts/reconstructions are visibly marked and never presented as book quotations.
 
 ### 3. 🌳 Lineage Knowledge Graph Explorer
 - Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **30 master profiles** (seed set), with SVG network graph and clickable dossiers.
