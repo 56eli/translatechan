@@ -464,8 +464,14 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "A special transmission outside the scriptures, not founded upon words and letters; pointing directly to the human mind, seeing into one's nature and attaining Buddhahood.",
       "cbeta_id": "T2009 / T2076",
       "summary": "The 28th Indian Patriarch and 1st Chinese Patriarch who brought the direct mind-to-mind transmission of Dhyana to China, sitting facing a wall for nine years at Shaolin.",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Bodhidharma / Damo",
+        "菩提達磨"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "bodhidharma_erru"
+      ]
     },
     {
       "id": "huike",
@@ -490,7 +496,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2076 (Vol. 51, p. 220b)",
       "summary": "Severed his arm in the deep snow to demonstrate his sincerity to Bodhidharma; received the transmission of the mind seal and the Lankavatara Sutra.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "sengcan",
@@ -515,7 +522,10 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2010 (Vol. 48, p. 376)",
       "summary": "Author of the Xinxin Ming, the earliest poetic synthesis of Chan non-duality and non-attachment in Chinese literature.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "xinxin_ming"
+      ]
     },
     {
       "id": "daoxin",
@@ -541,7 +551,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2076",
       "summary": "Established the first permanent settled monastic community for Chan at Twin Peaks, beginning the transition from wandering mendicants to settled agricultural monasticism.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "hongren",
@@ -568,7 +579,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2011",
       "summary": "Leader of the thriving community of over 500 monks at Yellow Plum Mountain; transmitted the robe and bowl to Huineng.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "huineng",
@@ -595,8 +607,14 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "Bodhi originally has no tree, nor is the clear mirror a stand. Fundamentally not a single thing exists; where could any dust collect?",
       "cbeta_id": "T2007 (Vol. 48, p. 337)",
       "summary": "The illiterate woodcutter from Lingnan whose realization revolutionized Chan, establishing the Southern school of Sudden Enlightenment as the definitive standard.",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Hui-neng",
+        "慧能"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "platform_sutra"
+      ]
     },
     {
       "id": "mazu_daoyi",
@@ -623,8 +641,15 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "If you wish to comprehend the Way directly, Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.",
       "cbeta_id": "T2076 f.6 / X1321",
       "summary": "Pioneered shock encounter dialogues, shouts, twisting noses, and the revolutionary doctrine that 'This very mind is Buddha' (即心即佛) and later 'Neither mind nor Buddha' (非心非佛).",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Ma-tsu Tao-i",
+        "Baso Dōitsu",
+        "馬祖道一"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "mazu_yulu"
+      ]
     },
     {
       "id": "shitou_xiqian",
@@ -652,7 +677,10 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2076 f.14 / X1565",
       "summary": "Built a hut on a flat boulder at Mount Heng; author of the Sandokai which unites the relative (phenomena) and the absolute (noumenon) into one seamless reality.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "shitou_sandokai"
+      ]
     },
     {
       "id": "baizhang_huaihai",
@@ -679,7 +707,11 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T1985 / T2025",
       "summary": "Codified the Chan monastic rules of communal physical labor (*普請*) and founded the pedagogical branches that yielded both Linji and Guiyang schools.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "baizhang_guanglu",
+        "qinggui_monastic_codes"
+      ]
     },
     {
       "id": "huangbo_xiyun",
@@ -705,8 +737,16 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "All Buddhas and all sentient beings are nothing other than One Mind; outside this mind there is not a single dharma. This mind from the beginningless past has never been born and never ceased.",
       "cbeta_id": "T2012A (Vol. 48, p. 379)",
       "summary": "Teacher of Linji; delivered uncompromising teachings on the One Mind recorded by Prime Minister Pei Xiu (*裴休*).",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Huang-po Hsi-yün",
+        "Ōbaku Kiun",
+        "黃檗希運"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "huangbo_chuanxin",
+        "huangbo_wanling"
+      ]
     },
     {
       "id": "linji_yixuan",
@@ -732,8 +772,15 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "Upon this lump of red flesh is a True Person of No Rank, constantly going in and out through your facial gates. Those who have not yet verified this: look! look!",
       "cbeta_id": "T1985 (Vol. 47, p. 496)",
       "summary": "Famous for his thunderous shouts (*喝*), stick strikes, the Four Processes (*四料簡*), and vigorous encouragement of complete spiritual autonomy: 'If you meet the Buddha, kill the Buddha!'",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Lin-chi I-hsüan",
+        "Rinzai Gigen",
+        "臨濟義玄"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "linji_yulu"
+      ]
     },
     {
       "id": "zhaozhou_congshen",
@@ -758,8 +805,15 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "A monk asked: 'Does a dog have Buddha-nature or not?' Zhaozhou said: 'Wu (No).'",
       "cbeta_id": "T1987 / X1315 (古尊宿語錄)",
       "summary": "The ancient master of 'Lively Zen' (*活句*), renowned for his 120-year lifespan, 'Drink tea' (*吃茶去*), 'Wash your bowl' (*洗缽去*), and the ultimate Gong'an barrier of 'Wu'.",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Chao-chou Ts’ung-shen",
+        "Jōshū Jūshin",
+        "趙州從諗"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "zhaozhou_yulu"
+      ]
     },
     {
       "id": "dongshan_liangjie",
@@ -786,8 +840,16 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "Avoid seeking after it through another, or you will become estranged from yourself. Now I go on alone, yet everywhere I meet Him. He is now truly me, but I am not Him.",
       "cbeta_id": "T1986 (Vol. 47, p. 507)",
       "summary": "Formulated the dialectic of the Five Ranks of Lord and Vassal (*五位君臣*), the Non-Sentient Preaching the Dharma (*無情說法*), and the Jewel Mirror Samadhi.",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Tung-shan Liang-chieh",
+        "Tōzan Ryōkai",
+        "洞山良价"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "dongshan_yulu",
+        "baojing_sanmei"
+      ]
     },
     {
       "id": "yunmen_wenyan",
@@ -812,8 +874,15 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "Every day is a good day.",
       "cbeta_id": "T1988 (Vol. 47, p. 545)",
       "summary": "Famous for his one-word barriers (*一字關*), the Three Phrases of Yunmen (*雲門三句*), and bold, razor-sharp sayings.",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Yün-men Wen-yen",
+        "Ummon Bun’en",
+        "雲門文偃"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "yunmen_yulu"
+      ]
     },
     {
       "id": "guishan_lingyou",
@@ -840,7 +909,10 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T1989 / T2076 f.9",
       "summary": "Kicked over the water pitcher when tested by Baizhang; established the first of the Five Houses with his disciple Yangshan Huiji.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "guiyang_yulu"
+      ]
     },
     {
       "id": "fayan_wenyi",
@@ -866,7 +938,10 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T1991 (Vol. 47, p. 588)",
       "summary": "Integrated Huayan philosophy with Chan realization, formulating the Six Characteristics of Dharma (*六相*).",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "fayan_yulu"
+      ]
     },
     {
       "id": "yuanwu_keqin",
@@ -892,8 +967,16 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "If we speak of the Buddha-dharma, if you affirm it by the width of a single hair, you create demonic karma; if you deny it by the width of a single hair, you also create demonic karma.",
       "cbeta_id": "T1997 / X1357",
       "summary": "Compiler of the magnificent commentaries and pointers to Xuedou's hundred verses in the Biyanlu (Blue Cliff Record), considered the pinnacle of Song Chan literary brilliance.",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Yüan-wu K’o-ch’in",
+        "Engo Kokugon",
+        "圓悟克勤"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "biyanlu_cases",
+        "yuanwu_letters"
+      ]
     },
     {
       "id": "wumen_huikai",
@@ -917,8 +1000,15 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "The words of the Buddha take Mind as the core, and 'No Gate' (Wumen) as the Dharma gate. Since the barrier has no gate, how do you pass through it?",
       "cbeta_id": "T2005 / X1355",
       "summary": "Author of the 48 cases of the Wumenguan, distilling the essence of Kanhua Chan into the most widely studied koan curriculum in world history.",
-      "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "alternative_names": [
+        "Wu-men Hui-k’ai",
+        "Mumon Ekai",
+        "無門慧開"
+      ],
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "wumenguan"
+      ]
     },
     {
       "id": "nanyue_huairang",
@@ -944,7 +1034,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2076 f.5 / X1315",
       "summary": "Huineng's foremost disciple in the southern (Nanyue) line; his 'polishing a tile' encounter with Mazu redirected Chan from seated meditation to direct realization and made Mazu the patriarch of the Hongzhou school.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "qingyuan_xingsi",
@@ -970,7 +1061,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2076 f.5 / X1565",
       "summary": "Huineng's senior disciple who headed the Qingyuan line — source of the Shitou, Caodong, Yunmen and Fayan houses; his 'no falling into stages' exchange with Huineng is a canonical record of non-dual realization.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "nanquan_puyuan",
@@ -997,7 +1089,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "X1315 / T2076 f.8",
       "summary": "Mazu's most independent-minded heir; his 'Ordinary mind is the Way' teaching and the 'cutting the cat' episode make him a defining master of encounter-dialectics, teacher of Zhaozhou.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "yaoshan_weiyan",
@@ -1024,7 +1117,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2076 f.14 / X1565",
       "summary": "Shitou's heir at Yaoshan; his famous reply to Prefect Li Ao — 'clouds in the blue sky, water in the vase' — became the emblem of natural, non-contrived Chan, and he transmitted the line to Yunyan.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "yunyan_tansheng",
@@ -1050,7 +1144,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2076 f.14 / X1565",
       "summary": "Yaoshan's heir and Dongshan's teacher; his 'insentient beings preach the Dharma' teaching and parting gift to Dongshan lie at the root of the Caodong school's Silent Illumination doctrine.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "deshan_xuanjian",
@@ -1078,7 +1173,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2076 f.15 / X1565",
       "summary": "The scripture-scholar who burned his Diamond Sutra commentary and became the great 'blows' master of the Hongzhou tradition — 'thirty blows whether you can answer or not'; teacher of Xuefeng and Yantou.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "xuefeng_yicun",
@@ -1106,7 +1202,10 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "X1333 / T2076 f.16",
       "summary": "Deshan's heir who built a vast assembly at Xuefeng Mountain; his 'grain of millet' saying (Biyanlu case 5) and towering presence made him the teacher of both Yunmen and Xuansha, progenitors of two houses.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "xuefeng_yantou"
+      ]
     },
     {
       "id": "xuansha_shibei",
@@ -1133,7 +1232,10 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "X1445 / T2076 f.18",
       "summary": "Xuefeng's dharma brother-in-arms and heir whose 'three kinds of sick people' and exacting standards shaped the Fayan school; teacher of Luohan Guichen, whose disciple founded it.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "xuansha_yulu"
+      ]
     },
     {
       "id": "luohan_guichen",
@@ -1159,7 +1261,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T2076 f.21 / X1565",
       "summary": "Xuansha's heir at Zhangzhou whose 'everything is already accomplished' (一切現成) utterance awakened Fayan Wenyi, giving the Fayan school its founding insight.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "baiyun_shouduan",
@@ -1186,7 +1289,8 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "X1351 / X1565 f.19",
       "summary": "Yangqi's heir and Wuzu Fayan's teacher; awakened when Yangqi pointed out 'others love laughter, you fear being laughed at'; his 上堂 sayings and strict style anchor the Song Yangqi branch.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": []
     },
     {
       "id": "wuzu_fayan",
@@ -1213,7 +1317,10 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "T1995 / X1565 f.19",
       "summary": "Baiyun's heir at East Mountain; his 'little maid Jade' verse awakened Yuanwu Keqin, and as teacher of Yuanwu and Foyan he made the Yangqi branch the dominant Chan line of the Song.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "foyan_qingyuan"
+      ]
     },
     {
       "id": "yuelin_shiguan",
@@ -1239,7 +1346,10 @@ window.TRANSLATECHAN_DATA = {
       "cbeta_id": "X1354",
       "summary": "Linji/Yangqi master of Wanshou Monastery whose attendant Wumen Huikai edited his record (X1354); his 'gateless is the Dharma-gate' verse prefigures the Gateless Gate, and he set Wumen to investigating the 'Wu' case.",
       "alternative_names": [],
-      "profile_status": "Seed profile — exact biographical/source locator pending"
+      "profile_status": "Seed profile — exact biographical/source locator pending",
+      "linked_corpus_keys": [
+        "wumenguan"
+      ]
     },
     {
       "id": "prajnatara",
@@ -1265,7 +1375,8 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
       "cbeta_id": "No source record assigned",
       "summary": "Traditional predecessor of Bodhidharma in later patriarchal lists. This scaffold preserves the graph frontier without asserting an exact source locator or a settled historical biography.",
-      "profile_status": "Frontier profile — no exact biographical/source locator recorded"
+      "profile_status": "Frontier profile — no exact biographical/source locator recorded",
+      "linked_corpus_keys": []
     },
     {
       "id": "longtan_chongxin",
@@ -1291,7 +1402,8 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
       "cbeta_id": "No source record assigned",
       "summary": "Included to make Deshan’s displayed teacher relationship navigable. Exact textual and biographical evidence remains to be recorded.",
-      "profile_status": "Frontier profile — no exact biographical/source locator recorded"
+      "profile_status": "Frontier profile — no exact biographical/source locator recorded",
+      "linked_corpus_keys": []
     },
     {
       "id": "yangqi_fanghui",
@@ -1317,7 +1429,8 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
       "cbeta_id": "No source record assigned",
       "summary": "Included to connect Baiyun Shouduan’s traditional teacher relationship in the navigable tree. Exact records and dates remain an editorial task.",
-      "profile_status": "Frontier profile — no exact biographical/source locator recorded"
+      "profile_status": "Frontier profile — no exact biographical/source locator recorded",
+      "linked_corpus_keys": []
     },
     {
       "id": "dahong_zuzheng",
@@ -1343,7 +1456,8 @@ window.TRANSLATECHAN_DATA = {
       "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
       "cbeta_id": "No source record assigned",
       "summary": "Included to connect Yuelin Shiguan’s traditional teacher relationship in the navigable tree. Exact records and dates remain an editorial task.",
-      "profile_status": "Frontier profile — no exact biographical/source locator recorded"
+      "profile_status": "Frontier profile — no exact biographical/source locator recorded",
+      "linked_corpus_keys": []
     }
   ],
   "lineage_verification": {

@@ -1649,6 +1649,16 @@
     });
   }
 
+  function renderMasterWorkLinks(master) {
+    const keys = Array.isArray(master.linked_corpus_keys) ? master.linked_corpus_keys : [];
+    const items = state.data.corpus_manifest && Array.isArray(state.data.corpus_manifest.items) ? state.data.corpus_manifest.items : [];
+    const labels = new Map(items.map(item => [item.key, item.title]));
+    if (!keys.length) return '<span>Project corpus link not yet curated.</span>';
+    return keys.filter(key => state.data.corpus && state.data.corpus[key]).map(key =>
+      `<button class="btn-pill" onclick="window.TranslateChan.openDoc('${escHtml(key)}')">Open ${escHtml(labels.get(key) || key)}</button>`
+    ).join(' ');
+  }
+
   // Master Dossier Modal Display
   window.TranslateChan = window.TranslateChan || {};
   window.TranslateChan.openMasterDossier = function(masterId) {
@@ -1689,6 +1699,7 @@
           <strong>📚 Primary Classical Texts & Records:</strong> ${master.texts ? master.texts.map(escHtml).join(', ') : 'Transmission records pending'}
         </div>
         <div style="margin-bottom: 0.5rem;"><strong>🔎 Names & record state:</strong> ${escHtml((master.alternative_names || []).join(' · ') || 'Alternative names not yet reviewed')} · ${escHtml(master.profile_status || 'Seed profile — exact biographical/source locator pending')}</div>
+        <div style="margin-bottom: 0.5rem;"><strong>🔗 Cross-referenced project works:</strong> ${renderMasterWorkLinks(master)}</div>
         <div>
           <strong>📖 Historical & Philosophical Significance:</strong> ${master.summary}
         </div>
