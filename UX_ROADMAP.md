@@ -85,9 +85,10 @@
 - `#/reader/wumenguan`, `#/lineage`, `#/lexicon` …; `hashchange` drives `switchView`/`renderReader`; brand link becomes `href="#/reader"` (no reload).
 - Acceptance: back/forward navigate views and texts; deep links work.
 
-**C3. Lineage graph upgrade** — *fixes P7* · ✅ done (pan/zoom/reset)
-- Pan/zoom (wheel + pinch, CSS transform), node collision spreading, generation labels, tap/focus tooltip with mini-dossier, era range slider beside the school filter.
-- Acceptance: "All" view at 30 nodes has no overlapping labels; zooming to a branch is fluid on touch.
+**C3. Lineage graph upgrade** — *fixes P7* · ✅ reworked 2026-08-08
+- Vertically layered generation rows replace the cramped left-to-right strip; nodes receive spacious row gaps, quiet halos, shortened labels, and status-aware links.
+- The chart-status strip and controls now sit in normal layout flow rather than over the SVG; pan/zoom/reset remains available for inspection.
+- Acceptance: the 30-node view has no overlapping generation labels, traditional links are visually quieter than source-verified links, and zooming to a branch remains fluid on touch.
 
 **C4. Accessibility pass** — *fixes P9* · ✅ done
 - Skip-to-content link, `role="tablist"`/`aria-selected` on nav, `aria-label` on icon buttons, `:focus-visible` ring using `--border-focus`, contrast fixes (`--text-muted` darkened, or used only ≥14 px), `prefers-reduced-motion` disables `sereneFade`, `lang="zh"` on Chinese spans.

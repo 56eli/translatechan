@@ -28,6 +28,7 @@ class StubElement {
     this.clientWidth = 900;
     this.value = '';
     this.dataset = {};
+    this._attrs = {};
     const self = this;
     this.style = new Proxy({}, { get: (t, p) => (p === 'setProperty' ? () => {} : self['_' + String(p)]), set: () => true });
     this.classList = { add() {}, remove() {}, contains() { return false; } };
@@ -37,8 +38,8 @@ class StubElement {
   set textContent(v) { this._text = String(v); }
   get textContent() { return this._text || ''; }
   addEventListener(ev, fn) { (this._handlers[ev] ||= []).push(fn); }
-  setAttribute() {}
-  getAttribute() { return null; }
+  setAttribute(name, value) { this._attrs[name] = String(value); }
+  getAttribute(name) { return this._attrs[name] || null; }
   scrollIntoView() {}
   click() {}
   getBoundingClientRect() { return { top: 0, left: 0, right: 900, bottom: 0, width: 900, height: 0 }; }
@@ -251,8 +252,11 @@ const lineageVerification = window.TRANSLATECHAN_DATA.lineage_verification;
 if (!lineageVerification || lineageVerification.edges.length !== 26 || lineageVerification.frontiers.length !== 4) {
   failures++; console.log('❌ lineage verification registry coverage is incorrect');
 }
-if (!svgHtml.includes('graph-link is-pending') || typeof window.TranslateChan.openLineageEdge !== 'function') {
-  failures++; console.log('❌ source-aware lineage graph links missing');
+if (!svgHtml.includes('graph-link is-pending') || !svgHtml.includes('graph-generation-labels') || !svgHtml.includes('graph-node-halo') || typeof window.TranslateChan.openLineageEdge !== 'function') {
+  failures++; console.log('❌ source-aware layered lineage chart missing');
+}
+if (Number(ids['lineage-svg-graph']._attrs.height || 0) < 1200) {
+  failures++; console.log('❌ lineage chart did not expand into readable generation rows');
 }
 const lineageSummaryHtml = ids['lineage-verification-summary']._innerHTML;
 if (!lineageSummaryHtml.includes('Chart status') || !lineageSummaryHtml.includes('citation-trigger')) {

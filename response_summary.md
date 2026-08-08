@@ -19,7 +19,7 @@
 4. Reader and Matrix now share explicit reconstruction/AI/verified badges plus visible book/edition/page-reference disclosure and hover/focus/touch citation popups; verified entries expose source metadata and a rights-manifest identifier.
 5. Public scope is deliberately focused on comparative reading and research discovery rather than browser-based drafting or agent branding.
 6. Manifest-driven bundling, schema/semantic validation, canonical-locator registry, rights controls, deterministic metrics, and a prepared CI workflow will prevent silent data/deploy drift once workflow-capable GitHub access is restored.
-7. The lineage graph now exposes a chart-status summary, source-aware edge styling, and click/keyboard citation details rather than silently presenting all traditional links as settled fact.
+7. The lineage graph now uses a vertically layered, spacious generation layout with a normal-flow status strip, muted pending links, source-aware edge styling, and click/keyboard citation details rather than silently presenting traditional links as settled fact.
 
 ## Highest-priority open work
 

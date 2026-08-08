@@ -627,3 +627,15 @@ The public lineage graphic is now backed by `data/lineage/lineage_verification.j
 | Hover/focus/touch disclosure | The citation trigger inside the edge panel uses the same hover/focus/touch disclosure mechanism as source and translation citations. | Future node-level source records can reuse the same registry/component. |
 
 This is an aggregation/verification framework, not a claim that the traditional lineage graph is historiographically settled. Exact locator review, disputed-link modeling, and source-verified upgrades are the next editorial step.
+
+### 10.12 Lineage chart visual rework (same session)
+
+The first source-status chart compressed 18 lineage depths into a short horizontal SVG, making nodes, labels, and thick pending links compete for space. The graph is now a vertically layered genealogical chart:
+
+- one calm horizontal row per generation, with dynamic SVG height and wide node spacing;
+- compact generation labels, node halos, shortened names, and links that terminate outside node circles;
+- a normal-flow verification strip and toolbar instead of status/control overlays on top of the graph;
+- thin, muted dashed traditional links, with stronger visual treatment reserved for future source-verified or disputed links;
+- the existing pan/zoom/reset, edge citation panel, node citation panel, and keyboard interaction retained.
+
+The smoke suite asserts the layered generation labels and halo nodes so the chart cannot silently regress to the cramped layout.

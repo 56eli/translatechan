@@ -1410,9 +1410,10 @@
     const svg = document.getElementById('lineage-svg-graph');
     if (!svg) return;
 
-    const width = svg.clientWidth || 900;
-    const height = 480;
-    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    const width = Math.max(720, svg.clientWidth || 900);
+    const ROW_GAP = 88;
+    const TOP_PAD = 78;
+    const BOTTOM_PAD = 74;
     svg.innerHTML = '';
 
     // Define school colors
@@ -1444,16 +1445,31 @@
     });
 
     const gens = Object.keys(genGroups).map(Number).sort((a, b) => a - b);
+    const height = Math.max(720, TOP_PAD + Math.max(0, gens.length - 1) * ROW_GAP + BOTTOM_PAD);
+    svg.setAttribute('height', String(height));
+    svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+    // A vertical generation layout trades the old compressed 18-column strip for
+    // breathing room: each generation is a calm horizontal row, labels have a
+    // full row gap, and the chart scrolls naturally rather than overlapping.
     const nodeCoords = {};
+    const rowLabelX = 18;
+    const horizontalMargin = Math.min(108, Math.max(64, width * 0.12));
+    let generationLabelsHtml = '<g class="graph-generation-labels">';
 
     gens.forEach((gen, gIdx) => {
       const group = genGroups[gen];
-      const x = 70 + gIdx * ((width - 140) / Math.max(1, gens.length - 1));
+      const y = TOP_PAD + gIdx * ROW_GAP;
+      const availableWidth = width - horizontalMargin * 2;
+      generationLabelsHtml += `<text x="${rowLabelX}" y="${y + 4}" text-anchor="start" font-size="10" font-weight="700" fill="var(--text-muted)" font-family="var(--font-sans)">G${gen}</text>`;
       group.forEach((m, mIdx) => {
-        const y = 60 + (mIdx + 1) * ((height - 120) / (group.length + 1));
+        const x = group.length === 1
+          ? width / 2
+          : horizontalMargin + mIdx * (availableWidth / Math.max(1, group.length - 1));
         nodeCoords[m.id] = { x, y, master: m };
       });
     });
+    generationLabelsHtml += '</g>';
 
     // Draw Links (Teacher -> Disciple). Every displayed link resolves through
     // the verification registry; pending traditional claims stay visually distinct.
@@ -1466,7 +1482,7 @@
         const meta = lineageStatusMeta(edge.status);
         const sourceRecord = lineageSourceRecord(edge.source_id);
         const edgeTitle = `${source.master.name_en} → ${target.master.name_en}: ${meta.label}${sourceRecord ? ` (${sourceRecord.title})` : ''}`;
-        linksHtml += `<line class="graph-link ${meta.className}" x1="${source.x}" y1="${source.y}" x2="${target.x}" y2="${target.y}" role="button" tabindex="0" aria-label="${escHtml(edgeTitle)}" onclick="window.TranslateChan.openLineageEdge('${m.teacher}', '${m.id}')"><title>${escHtml(edgeTitle)}</title></line>`;
+        linksHtml += `<line class="graph-link ${meta.className}" x1="${source.x}" y1="${source.y + 27}" x2="${target.x}" y2="${target.y - 27}" role="button" tabindex="0" aria-label="${escHtml(edgeTitle)}" onclick="window.TranslateChan.openLineageEdge('${m.teacher}', '${m.id}')"><title>${escHtml(edgeTitle)}</title></line>`;
       }
     });
     linksHtml += '</g>';
@@ -1477,18 +1493,21 @@
       const { x, y, master } = nodeCoords[id];
       const color = schoolColors[master.school] || '#b38238';
 
+      const shortName = stringValue(master.name_en).split(' ').pop().slice(0, 14);
       nodesHtml += `
-        <g class="graph-node" transform="translate(${x}, ${y})" style="cursor: pointer;" role="button" tabindex="0" aria-label="${master.name_en} — open dossier" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
-          <circle r="22" fill="var(--bg-card)" stroke="${color}" stroke-width="3" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.15))"></circle>
-          <text text-anchor="middle" dy=".3em" font-size="11" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${master.name_zh.slice(-2)}</text>
-          <text text-anchor="middle" dy="34" font-size="9.5" font-weight="600" fill="var(--text-secondary)">${master.name_en.split(' ').pop()}</text>
+        <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" onclick="window.TranslateChan.openMasterDossier('${master.id}')">
+          <circle class="graph-node-halo" r="30" fill="${color}" fill-opacity="0.09"></circle>
+          <circle r="24" fill="var(--bg-card)" stroke="${color}" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.12))"></circle>
+          <text text-anchor="middle" dy=".34em" font-size="12" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${escHtml(master.name_zh.slice(-2))}</text>
+          <text text-anchor="middle" y="40" font-size="10" font-weight="650" fill="var(--text-secondary)" font-family="var(--font-sans)">${escHtml(shortName)}</text>
         </g>
       `;
     });
     nodesHtml += '</g>';
 
-    // Wrap in a transformable group for pan/zoom (kept across re-renders)
-    svg.innerHTML = `<g class="lineage-panzoom" id="lineage-panzoom">${linksHtml}${nodesHtml}</g>`;
+    // Wrap in a transformable group for pan/zoom (kept across re-renders).
+    // Generation labels travel with the chart, so panning never detaches context.
+    svg.innerHTML = `<g class="lineage-panzoom" id="lineage-panzoom">${generationLabelsHtml}${linksHtml}${nodesHtml}</g>`;
     ensureLineagePanZoom(svg);
   }
 
