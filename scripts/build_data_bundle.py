@@ -46,7 +46,8 @@ def main():
             "bodhidharma_erru": load_json(DATA_DIR / "corpus" / "bodhidharma_erru.json"),
             "niutou_juezhu": load_json(DATA_DIR / "corpus" / "niutou_juezhu.json"),
             "lidai_fabao_ji": load_json(DATA_DIR / "corpus" / "lidai_fabao_ji.json"),
-            "dazhu_huihai": load_json(DATA_DIR / "corpus" / "dazhu_huihai.json")
+            "dazhu_huihai": load_json(DATA_DIR / "corpus" / "dazhu_huihai.json"),
+            "baizhang_guanglu": load_json(DATA_DIR / "corpus" / "baizhang_guanglu.json")
         },
         "meta": {
             "version": "1.0.0",

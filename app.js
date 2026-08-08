@@ -214,7 +214,8 @@
       { key: 'bodhidharma_erru', title: 'Bodhidharma Erru Sixing (二入四行論)', cbeta: 'T2009' },
       { key: 'niutou_juezhu', title: 'Niutou Farong Juezhu Lun (絕觀論)', cbeta: 'P.2885' },
       { key: 'lidai_fabao_ji', title: 'Lidai Fabao Ji (歷代法寶記)', cbeta: 'T2075' },
-      { key: 'dazhu_huihai', title: 'Dazhu Huihai Dunwu Yaomen (頓悟入道要門)', cbeta: 'X1258' }
+      { key: 'dazhu_huihai', title: 'Dazhu Huihai Dunwu Yaomen (頓悟入道要門)', cbeta: 'X1258' },
+      { key: 'baizhang_guanglu', title: 'Baizhang Guanglu (百丈廣錄三句)', cbeta: 'X1304' }
     ];
 
     elements.corpusList.innerHTML = corpusMap.map(c => `

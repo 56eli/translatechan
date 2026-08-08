@@ -1,12 +1,12 @@
 # 🪷 TranslateChan: Update & Milestone Report
 
 ### Summary of Completed Work:
-1. **Lidai Fabao Ji Ingestion (`data/corpus/lidai_fabao_ji.json`)**:
-   - Ingested the foundational 8th-century Dunhuang chronicle of the Sichuan Baotang School (*歷代法寶記*, T2075 & P.2125).
-   - Structured key historical narratives: **The Three-No Doctrine of Master Wuzhu** (*無憶是戒，無念是定，莫妄是慧*), **The Transmission of Bodhidharma's Robe by Empress Wu Zetian** (*武則天請六祖衣缽*), and **Ceasing Thought is Seeing the Buddha** (*息念即是見佛*).
-   - Sentence-aligned with Red Pine, Wendi Adamek (Columbia Univ. Press), and Thomas Cleary translations.
+1. **Dazhu Huihai Corpus Ingestion (`data/corpus/dazhu_huihai.json`)**:
+   - Ingested the foundational Southern Chan sudden realization treatise of Master Dazhu Huihai (*大珠慧海禪師頓悟入道要門論*, X1258).
+   - Structured key classical teachings: **Mazu Points to the Inexhaustible Treasury Within** (*自家寶藏不顧，拋家散走，作甚麼！*), **The Definition of Sudden Awakening** (*頓者，頓除妄念；悟者，悟無所得*), and **Effortless Living in the Tao** (*飢來喫飯，困來即眠*).
+   - Sentence-aligned with John Blofeld (*The Zen Teaching of Hui Hai*), Red Pine, Thomas Cleary, and Ruth Fuller Sasaki translations.
 2. **Data Bundle & Application Recompilation**:
-   - Re-compiled `app_data.js` (275 KB) across all 20 canonical Chan collections.
+   - Re-compiled `app_data.js` (284 KB) across all 21 canonical collections.
    - Tested live on port 8080.
 3. **Repository Cleanliness & GitHub Push**:
    - Committed and pushed all updates cleanly to `origin arena/019fe05c-translatechan`.

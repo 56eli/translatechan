@@ -3966,6 +3966,105 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "baizhang_guanglu": {
+      "id": "baizhang_guanglu",
+      "title_zh": "洪州百丈懷海禪師廣錄",
+      "title_pinyin": "Hóngzhōu Bǎizhàng Huáihǎi Chánshī Guǎnglù",
+      "title_en": "The Extensive Record of Chan Master Baizhang Huaihai (Baizhang Guanglu)",
+      "cbeta_id": "T1985 / X1304",
+      "taisho_vol": 47,
+      "author_zh": "唐 百丈懷海 禪師 說",
+      "author_en": "Chan Master Baizhang Huaihai (720–814 CE), Master of Huangbo and Guishan",
+      "era": "Tang Dynasty",
+      "genre": "Extensive Discourse & Three Propositions (廣錄與三句)",
+      "overview": "The monumental extensive teachings of Master Baizhang Huaihai, setting forth the Three Propositions (百丈三句 / Three Phrases of Non-Attachment) and the classical encounter dialogues with his teacher Mazu Daoyi.",
+      "sections": [
+        {
+          "section_id": "three_propositions",
+          "title_zh": "百丈三句綱要：三階超拔",
+          "title_pinyin": "Bǎizhàng Sānjù Gāngyào: Sānjiē Chāobá",
+          "title_en": "The Three Propositions of Baizhang: The Three Stages of Non-Attachment",
+          "dialogue": [
+            {
+              "speaker": "Baizhang / 百丈",
+              "zh": "師示眾云：「初透初關，不著世間染法；次透中關，不滯出世淨法；後透極頂，亦不居無滯無礙之處。此即百丈三句也。」",
+              "pinyin": "Shī shì zhòng yún: 'Chū tòu chū guān, bù zhuó shìjiān rǎnfǎ; cì tòu zhōng guān, bù zhì chūshì jìngfǎ; hòu tòu jídǐng, yì bù jū wú zhì wú ài zhī chù. Cǐ jí Bǎizhàng sānjù yě.'",
+              "translations": {
+                "red_pine": "The Master instructed the assembly: 'First, pass through the first barrier, not attached to worldly defilements; second, pass through the middle barrier, not lingering in transcendent purity; finally, pass beyond the highest summit, not dwelling even in the place of non-obstruction. These are the Three Propositions of Baizhang.'",
+                "cleary": "The Master said to the group: 'First, pass the initial barrier: do not attach to worldly things; next, pass the middle barrier: do not linger in pure detachment; finally, pass the ultimate barrier: do not dwell even in the place of unobstructed freedom. This is called the three phrases of Baizhang.'",
+                "sasaki": "Hyakujō instructed the monks: 'First, transcend worldly defilements; second, transcend holy detachment; third, leave no trace of freedom itself. These are my three propositions.'"
+              }
+            },
+            {
+              "speaker": "Baizhang / 百丈",
+              "zh": "「若但了初句，是為凡夫脫縛；若了中句，是為二乘聖人；若圓通三句，不住凡聖，方名佛祖大用現前。」",
+              "pinyin": "'Ruò dàn liǎo chū jù, shì wéi fánfū tuō fù; ruò liǎo zhōng jù, shì wéi èrchéng shèngrén; ruò yuántōng sān jù, bù zhù fán shèng, fāng míng fózǔ dàyòng xiànqián.'",
+              "translations": {
+                "red_pine": "If you only comprehend the first phrase, you liberate mortals from bondage; if you comprehend the second phrase, you are a Hinayana practitioner; if you penetrate all three phrases seamlessly, dwelling neither in mortal nor holy, only then does the great functioning of the Buddhas and Patriarchs manifest before you.",
+                "cleary": "If you understand the first phrase, you are freed from bonds; if you understand the middle phrase, you are an ascetic; if you penetrate all three phrases, not abiding in mortal or holy, only then does the great action of Buddhas manifest.",
+                "sasaki": "If you master the first phrase, you free the mind from bonds; if you master the second, you attain purity; if you fulfill all three, resting neither in common nor holy, the living Dharma functions freely."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "twisting_nose",
+          "title_zh": "馬祖捏鼻頭：何曾飛去？",
+          "title_pinyin": "Mǎzǔ Niē Bítou: Hécéng Fēiqù?",
+          "title_en": "Mazu Twists Baizhang's Nose: When Did They Ever Fly Away?",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "師隨馬祖行次，見野鴨子飛過。祖曰：「是甚麼？」師曰：「野鴨子。」祖曰：「甚處去也？」師曰：「飛過去也。」",
+              "pinyin": "Shī suí Mǎzǔ xíng cì, jiàn yěyāzi fēiguò. Zǔ yuē: 'Shì shénme?' Shī yuē: 'Yěyāzi.' Zǔ yuē: 'Shèn chù qù yě?' Shī yuē: 'Fēi guòqù yě.'",
+              "translations": {
+                "red_pine": "The Master was walking alongside Master Mazu when a flock of wild ducks flew past overhead. Mazu asked: 'What is that?' The Master said: 'Wild ducks.' Mazu asked: 'Where have they gone?' The Master said: 'They have flown away.'",
+                "cleary": "The Master was walking with Mazu and saw wild ducks flying past. Mazu said, 'What is that?' The Master said, 'Wild ducks.' Mazu said, 'Where are they going?' The Master said, 'They've flown away.'",
+                "sasaki": "Hyakujō was accompanying Baso on a walk when they saw a flock of wild ducks fly by. Baso said: 'What is that?' Hyakujō said: 'Wild ducks.' Baso asked: 'Where are they going?' Hyakujō said: 'They have flown away.'"
+              }
+            },
+            {
+              "speaker": "Mazu / 馬祖",
+              "zh": "祖遂把師鼻頭猛捏，師負痛失聲。祖曰：「又道飛過去也！」師於言下大悟。",
+              "pinyin": "Zǔ suì bǎ shī bítou měng niē, shī fù tòng shī shēng. Zǔ yuē: 'Yòu dào fēi guòqù yě!' Shī yú yán xià dà wù.",
+              "translations": {
+                "red_pine": "Mazu thereupon seized the Master's nose and gave it a violent twist. The Master cried out in pain. Mazu said: 'And you said they have flown away!' At these words the Master attained great awakening.",
+                "cleary": "Mazu then twisted the Master's nose violently. The Master cried out in pain. Mazu said, 'And yet you say they've flown away!' At these words the Master had great awakening.",
+                "sasaki": "Baso grabbed Hyakujō's nose and twisted it hard. Hyakujō cried out in pain. Baso said: 'When have they ever flown away!' At these words Hyakujō was deeply enlightened."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "rolling_up_mat",
+          "title_zh": "馬祖上堂：百丈卷席",
+          "title_pinyin": "Mǎzǔ Shàngtáng: Bǎizhàng Juǎnxí",
+          "title_en": "Mazu Ascends the Seat: Baizhang Rolls Up the Mat",
+          "dialogue": [
+            {
+              "speaker": "Narrative / 本事",
+              "zh": "次日，馬祖陞座，眾才集，師即出卷卻席。祖便下座歸方丈。師隨後入。祖曰：「我適來未曾說話，汝因何便卷席？」",
+              "pinyin": "Cì rì, Mǎzǔ shēngzuò, zhòng cái jí, shī jí chū juǎn què xí. Zǔ biàn xiàzuò guī fāngzhàng. Shī suíhòu rù. Zǔ yuē: 'Wǒ shìlái wèi céng shuōhuà, rǔ yīnhé biàn juǎnxí?'",
+              "translations": {
+                "red_pine": "The next day, as Mazu ascended the teaching hall and the assembly gathered, the Master walked forward and rolled up the sitting mat. Mazu immediately descended from the seat and returned to his abbot's room. The Master followed him inside. Mazu asked: 'I had not yet said a single word just now; why did you roll up the mat?'",
+                "cleary": "The next day Mazu took the high seat. As soon as the crowd gathered, the Master came forward and rolled up the mat. Mazu got down from the seat and went back to his room. The Master followed. Mazu said, 'I had not yet spoken; why did you roll up the mat?'",
+                "sasaki": "Next day, as Baso took his seat and the monks gathered, Hyakujō stepped out and rolled up the mat. Baso left the platform and returned to his room. Hyakujō followed him. Baso asked: 'I had not yet spoken; why did you roll up the mat?'"
+              }
+            },
+            {
+              "speaker": "Baizhang / 百丈",
+              "zh": "師曰：「昨日被和尚捏得鼻頭痛。」祖曰：「汝昨日向甚處留心？」師曰：「今日鼻頭又不痛也。」祖曰：「汝深明昨日事。」",
+              "pinyin": "Shī yuē: 'Zuórì bèi héshang niē dé bítou tòng.' Zǔ yuē: 'Rǔ zuórì xiàng shèn chù liúxīn?' Shī yuē: 'Jīnrì bítou yòu bù tòng yě.' Zǔ yuē: 'Rǔ shēn míng zuórì shì.'",
+              "translations": {
+                "red_pine": "The Master said: 'Yesterday my nose was twisted painfully by the Master.' Mazu said: 'Where did your mind rest yesterday?' The Master said: 'Today my nose doesn't hurt at all.' Mazu said: 'You deeply understand yesterday's affair.'",
+                "cleary": "The Master said, 'Yesterday my nose hurt when twisted by the Master.' Mazu said, 'Where did you pay attention yesterday?' The Master said, 'Today the nose doesn't hurt.' Mazu said, 'You understand yesterday's business thoroughly.'",
+                "sasaki": "Hyakujō said: 'Yesterday my nose hurt when you twisted it.' Baso said: 'Where was your mind yesterday?' Hyakujō said: 'Today my nose doesn't hurt at all.' Baso said: 'You understand yesterday's affair deeply.'"
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
