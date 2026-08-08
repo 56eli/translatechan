@@ -7,7 +7,7 @@
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 16440,
+    "all_corpus_cjk_characters": 16457,
     "complete_documents": [
       "wumenguan"
     ],
@@ -27,8 +27,7 @@
   "editorial_traceability": {
     "document_level_queue_records": 33,
     "statuses": {
-      "blocked_source": 1,
-      "in_review": 2,
+      "in_review": 3,
       "needs_unit_locator": 30
     }
   },

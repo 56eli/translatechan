@@ -149,9 +149,9 @@
       "current_locator": "T2012A",
       "content_shape": "sections",
       "priority": "high",
-      "review_status": "blocked_source",
-      "next_action": "Split or relabel the mixed seed before assigning unit locators: the first two One Mind units align with T2012A (T48n2012A_p0379c18 onward), while the displayed 慈悲 Q&A is attested in T2012B (宛陵錄), not T2012A. Then collate each unit against its correct witness.",
-      "editorial_note": "2026-08-08 preflight found mixed canonical witnesses in this single T2012A-labelled seed. No unit-level locator is published because a document-level T2012A label would misrepresent the 慈悲 Q&A provenance."
+      "review_status": "in_review",
+      "next_action": "Collate the two remaining One Mind units against T48n2012A_p0379c18 onward, then record unit locators and obtain editor sign-off.",
+      "editorial_note": "2026-08-08: mixed T2012B compassion Q&A moved to huangbo_wanling; this T2012A seed now contains only its One Mind material and is ready for unit-level collation."
     },
     {
       "document_key": "huangbo_wanling",
@@ -160,8 +160,8 @@
       "content_shape": "sections",
       "priority": "high",
       "review_status": "needs_unit_locator",
-      "next_action": "Record a source edition/revision and add stable section, stanza, dialogue, or page/line anchors before upgrading this seed.",
-      "editorial_note": "Queue record only; no unit-level collation is asserted by this entry."
+      "next_action": "Add a T2012B unit locator for the moved 無緣大慈 Q&A and collate it with the existing Wanling sections before any upgrade.",
+      "editorial_note": "2026-08-08: received a two-unit 無緣大慈 Q&A moved from the incorrectly mixed T2012A seed; source is T2012B, but exact line-head collation remains pending."
     },
     {
       "document_key": "lidai_fabao_ji",

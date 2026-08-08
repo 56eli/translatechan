@@ -3075,7 +3075,7 @@ window.TRANSLATECHAN_DATA = {
       "documents": 36
     },
     "corpus": {
-      "all_corpus_cjk_characters": 16440,
+      "all_corpus_cjk_characters": 16457,
       "complete_documents": [
         "wumenguan"
       ],
@@ -3095,8 +3095,7 @@ window.TRANSLATECHAN_DATA = {
     "editorial_traceability": {
       "document_level_queue_records": 33,
       "statuses": {
-        "blocked_source": 1,
-        "in_review": 2,
+        "in_review": 3,
         "needs_unit_locator": 30
       }
     },
@@ -6590,46 +6589,6 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
                 "ai_literal": "Its immediate embodiment is it; stirring a thought is instantly deviating. Like empty space, without edges or borders, not measurable. Only this One Mind is Buddha; Buddha and sentient beings have no other difference."
               }
-            },
-            {
-              "speaker": "Pei Xiu / 裴休",
-              "zh": "休問：「諸佛如何行大慈悲，為眾生說法？」",
-              "pinyin": "Xiū wèn: 'Zhūfó rúhé xíng dà cíbēi, wèi zhòngshēng shuō fǎ?'",
-              "translations": {
-                "blofeld": {
-                  "text": "How do the Buddhas, out of their vast mercy and compassion, preach the Dharma (Law) to sentient beings?",
-                  "status": "verified_quotation",
-                  "source": {
-                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
-                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
-                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
-                    "source_id": "blofeld-huangpo-1958",
-                    "reference": "Q&A no. 21"
-                  }
-                },
-                "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
-                "ai_literal": "Xiu asked: 'How do all Buddhas practice great compassion and preach dharma for sentient beings?'"
-              }
-            },
-            {
-              "speaker": "Huangbo / 黃檗",
-              "zh": "師曰：「佛慈悲者，無緣慈也。不見有佛可成，不見有眾生可度。無說無示，無聽無得，是名大慈悲。」",
-              "pinyin": "Shī yuē: 'Fó cíbēi zhě, wú yuán cí yě. Bù jiàn yǒu fó kě chéng, bù jiàn yǒu zhòngshēng kě dù. Wú shuō wú shì, wú tīng wú dé, shì míng dà cíbēi.'",
-              "translations": {
-                "blofeld": {
-                  "text": "We speak of their mercy and compassion as vast just because it is beyond causality (and therefore infinite). By mercy is really meant not conceiving of a Buddha to be Enlightened, while compassion really means not conceiving of sentient beings to be delivered. In reality, their Dharma is neither preached in words nor otherwise signified; and those who listen neither hear nor attain.",
-                  "status": "verified_quotation",
-                  "source": {
-                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
-                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
-                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
-                    "source_id": "blofeld-huangpo-1958",
-                    "reference": "Q&A no. 21"
-                  }
-                },
-                "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
-                "ai_literal": "Master said: 'Buddhas' compassion is conditionless compassion. Not seeing any Buddha to attain, not seeing any sentient beings to liberate. No speaking and no showing, no hearing and no acquiring: this is named great compassion.'"
-              }
             }
           ]
         }
@@ -9857,6 +9816,55 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ]
+        },
+        {
+          "section_id": "unconditioned_compassion",
+          "title_zh": "無緣大慈：不見有佛可成，眾生可度",
+          "title_pinyin": "Wúyuán Dàcí: Bù Jiàn Yǒu Fó Kě Chéng, Zhòngshēng Kě Dù",
+          "title_en": "Unconditioned Great Compassion",
+          "dialogue": [
+            {
+              "speaker": "Pei Xiu / 裴休",
+              "zh": "休問：「諸佛如何行大慈悲，為眾生說法？」",
+              "pinyin": "Xiū wèn: 'Zhūfó rúhé xíng dà cíbēi, wèi zhòngshēng shuō fǎ?'",
+              "translations": {
+                "blofeld": {
+                  "text": "How do the Buddhas, out of their vast mercy and compassion, preach the Dharma (Law) to sentient beings?",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
+                    "source_id": "blofeld-huangpo-1958",
+                    "reference": "Q&A no. 21"
+                  }
+                },
+                "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
+                "ai_literal": "Xiu asked: 'How do all Buddhas practice great compassion and preach dharma for sentient beings?'"
+              }
+            },
+            {
+              "speaker": "Huangbo / 黃檗",
+              "zh": "師曰：「佛慈悲者，無緣慈也。不見有佛可成，不見有眾生可度。無說無示，無聽無得，是名大慈悲。」",
+              "pinyin": "Shī yuē: 'Fó cíbēi zhě, wú yuán cí yě. Bù jiàn yǒu fó kě chéng, bù jiàn yǒu zhòngshēng kě dù. Wú shuō wú shì, wú tīng wú dé, shì míng dà cíbēi.'",
+              "translations": {
+                "blofeld": {
+                  "text": "We speak of their mercy and compassion as vast just because it is beyond causality (and therefore infinite). By mercy is really meant not conceiving of a Buddha to be Enlightened, while compassion really means not conceiving of sentient beings to be delivered. In reality, their Dharma is neither preached in words nor otherwise signified; and those who listen neither hear nor attain.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teaching of Huang Po: On the Transmission of Mind, tr. John Blofeld",
+                    "edition": "Grove Press (Part Two: Wan Ling Record, Q&A no. 21)",
+                    "verification": "verbatim vs Terebess reproduction + Dailyzen mirror, 2026-08-08",
+                    "source_id": "blofeld-huangpo-1958",
+                    "reference": "Q&A no. 21"
+                  }
+                },
+                "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
+                "ai_literal": "Master said: 'Buddhas' compassion is conditionless compassion. Not seeing any Buddha to attain, not seeing any sentient beings to liberate. No speaking and no showing, no hearing and no acquiring: this is named great compassion.'"
+              }
+            }
+          ],
+          "editorial_note": "Moved from the T2012A-labelled seed on 2026-08-08 after source review identified this Q&A as T2012B (宛陵錄) material. Unit-level collation remains pending."
         }
       ]
     },
