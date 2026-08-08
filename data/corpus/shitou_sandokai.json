@@ -3,7 +3,7 @@
   "title_zh": "石頭希遷大師 參同契與草庵歌",
   "title_pinyin": "Shítóu Xīqiān Dàshī Cāntóngqì yǔ Cǎo'ān Gē",
   "title_en": "Master Shitou Xiqian: Sandokai (Harmony of Difference and Sameness) & Song of the Grass Hut",
-  "cbeta_id": "T1985 / T2076",
+  "cbeta_id": "embedded: T2076 f.30 / X1565",
   "taisho_vol": 47,
   "author_zh": "石頭希遷 禪師 (700–790 CE)",
   "author_en": "Chan Master Shitou Xiqian, Ancestor of Caodong and Yunmen Lineages",
@@ -137,5 +137,6 @@
         }
       ]
     }
-  ]
+  ],
+  "cbeta_note": "Corrects previous label \"T1985 / T2076\" — T1985 is strictly the Record of Linji. Sandokai & Grass Hut Song are embedded in Jingde Chuandenglu fascicle 30 (T2076) and transmitted via Wudeng Huiyuan (X1565)."
 }

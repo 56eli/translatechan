@@ -194,6 +194,22 @@ The `translations` blocks credit Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofel
 
 ---
 
-**Open work as of 2026-08-08**: §2 P1/P2 frontend items (full-schema search + highlighting, reader-mode differentiation, tooltip nesting, studio reads from bundle), §3.3–3.4 (CBETA ID verification, translator-attribution verification/labeling policy), §6 P3 content work (Wumenguan 48 first). Everything ships to `main` via session-branch PRs.
+### 2026-08-08 — Attribution-integrity pass completed ✅ (§3.3 / §3.4)
+
+| Item | Fix |
+|---|---|
+| §3.4 fabricated-citation risk | New machine-readable policy `data/translations/provenance.json` (v1.1): scholar-attributed renderings default to **`reconstruction_unverified`**; `verified_quotation` requires a per-item object with full source. Bundled into `app_data.js` as `translations_provenance`. |
+| UI implied "Scholarly" status | `renderTranslationColumns` now badges every column: `⚠️ Register reconstruction` / `AI draft` / `✅ Verified quotation`, with hover explanation; supports object-form `{text, status, source}` translations (backward compatible). |
+| Matrix view had no disclaimer | Sourcing banner added to matrix view in `index.html` (and mirrored in `/docs`). |
+| Reader preface/epilogue hardcoded columns | Provenance note added under both hardcoded translator grids. |
+| §3.3 `hanshan_poems` "T2834" miscite | Verified against CBETA Online: **T2834 = 大乘無生方便門** (Dunhuang, vol. 85) — corrected to "SBCK / Zoku lineage (not in Taishō)" with `cbeta_note`. |
+| §3.3 `deshan_yulu` / `shitou_sandokai` wrongly labeled "T1985" (Linji's ID) | Corrected to embedded references: Deshan → "T2076 / X1565"; Sandokai → "T2076 f.30 / X1565", with `cbeta_note` documentation. `corpusMap` badges in `app.js` aligned. |
+| `baojing_sanmei` vs `dongshan_yulu` both T1986 | Legitimate (poem embedded in the yulu) — retained; relation documented in AUDIT (this row). |
+
+Remaining for full closure of §3.4: verifying individual renderings against print editions (gradual, per-text).
+
+---
+
+**Open work as of 2026-08-08**: §2 P1/P2 frontend items (full-schema search + highlighting, reader-mode differentiation, tooltip nesting, studio reads from bundle), §3.4 per-verified-verification of renderings (gradual), §6 P3 content work (Wumenguan 48 first). Everything ships to `main` via session-branch PRs.
 
 

@@ -1,0 +1,41 @@
+{
+  "policy_version": "1.1",
+  "policy_date": "2026-08-08",
+  "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
+  "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
+  "status_legend": {
+    "verified_quotation": "Checked verbatim against a specific print/digital edition; full source recorded in the item's `source` field.",
+    "reconstruction_unverified": "AI-crafted rendering in the scholar's known register/style. NOT a quotation of published text.",
+    "ai_draft": "Explicitly AI-generated draft with no scholar attribution (keys beginning with 'ai_')."
+  },
+  "defaults": {
+    "scholar_keys": {
+      "keys": ["red_pine", "cleary", "sasaki", "suzuki", "blyth", "blofeld", "heine", "yampolsky"],
+      "status": "reconstruction_unverified",
+      "ui_badge": "Reconstruction • unverified"
+    },
+    "ai_keys": {
+      "prefix": "ai_",
+      "status": "ai_draft",
+      "ui_badge": "AI draft"
+    }
+  },
+  "override_schema": {
+    "description": "Any `translations` value may be upgraded from a plain string to an object to record verification:",
+    "example": {
+      "red_pine": {
+        "text": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?'",
+        "status": "verified_quotation",
+        "source": {
+          "work": "The Collected Songs of Cold Mountain",
+          "edition": "Copper Canyon Press, 2000",
+          "page": "—",
+          "verified_by": "—",
+          "verified_date": "—"
+        }
+      }
+    }
+  },
+  "classical_text_policy": "All `zh` strings must be verifiable against CBETA / Taishō lineage (or a recorded manuscript recension). Changes to `zh` text require a comment in the commit message naming the source edition.",
+  "copyright_note": "Published modern translations remain copyright of their translators/publishers; reconstructions are original to this project and covered by the repository's CC BY-SA 4.0 dataset license (see LICENSE §2)."
+}

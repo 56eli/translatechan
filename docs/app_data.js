@@ -1059,6 +1059,56 @@ window.TRANSLATECHAN_DATA = {
       ]
     }
   ],
+  "translations_provenance": {
+    "policy_version": "1.1",
+    "policy_date": "2026-08-08",
+    "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
+    "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
+    "status_legend": {
+      "verified_quotation": "Checked verbatim against a specific print/digital edition; full source recorded in the item's `source` field.",
+      "reconstruction_unverified": "AI-crafted rendering in the scholar's known register/style. NOT a quotation of published text.",
+      "ai_draft": "Explicitly AI-generated draft with no scholar attribution (keys beginning with 'ai_')."
+    },
+    "defaults": {
+      "scholar_keys": {
+        "keys": [
+          "red_pine",
+          "cleary",
+          "sasaki",
+          "suzuki",
+          "blyth",
+          "blofeld",
+          "heine",
+          "yampolsky"
+        ],
+        "status": "reconstruction_unverified",
+        "ui_badge": "Reconstruction • unverified"
+      },
+      "ai_keys": {
+        "prefix": "ai_",
+        "status": "ai_draft",
+        "ui_badge": "AI draft"
+      }
+    },
+    "override_schema": {
+      "description": "Any `translations` value may be upgraded from a plain string to an object to record verification:",
+      "example": {
+        "red_pine": {
+          "text": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?'",
+          "status": "verified_quotation",
+          "source": {
+            "work": "The Collected Songs of Cold Mountain",
+            "edition": "Copper Canyon Press, 2000",
+            "page": "—",
+            "verified_by": "—",
+            "verified_date": "—"
+          }
+        }
+      }
+    },
+    "classical_text_policy": "All `zh` strings must be verifiable against CBETA / Taishō lineage (or a recorded manuscript recension). Changes to `zh` text require a comment in the commit message naming the source edition.",
+    "copyright_note": "Published modern translations remain copyright of their translators/publishers; reconstructions are original to this project and covered by the repository's CC BY-SA 4.0 dataset license (see LICENSE §2)."
+  },
   "gongan_index": [
     {
       "id": "wumen_01",
@@ -3522,7 +3572,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "石頭希遷大師 參同契與草庵歌",
       "title_pinyin": "Shítóu Xīqiān Dàshī Cāntóngqì yǔ Cǎo'ān Gē",
       "title_en": "Master Shitou Xiqian: Sandokai (Harmony of Difference and Sameness) & Song of the Grass Hut",
-      "cbeta_id": "T1985 / T2076",
+      "cbeta_id": "embedded: T2076 f.30 / X1565",
       "taisho_vol": 47,
       "author_zh": "石頭希遷 禪師 (700–790 CE)",
       "author_en": "Chan Master Shitou Xiqian, Ancestor of Caodong and Yunmen Lineages",
@@ -3656,7 +3706,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrects previous label \"T1985 / T2076\" — T1985 is strictly the Record of Linji. Sandokai & Grass Hut Song are embedded in Jingde Chuandenglu fascicle 30 (T2076) and transmitted via Wudeng Huiyuan (X1565)."
     },
     "zhengdao_ge": {
       "id": "zhengdao_ge",
@@ -4570,7 +4621,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "德山宣鑑禪師語錄：德山棒與焚經",
       "title_pinyin": "Déshān Xuānjiàn Chánshī Yǔlù: Déshān Bàng yǔ Fén Jīng",
       "title_en": "The Recorded Sayings of Master Deshan Xuanjian (The Thirty Blows & Burning the Sutras)",
-      "cbeta_id": "T1985 / T2076",
+      "cbeta_id": "embedded: T2076 / X1565",
       "taisho_vol": 47,
       "author_zh": "唐 德山宣鑑 禪師 說 (石頭四世法嗣 / 龍潭法嗣)",
       "author_en": "Chan Master Deshan Xuanjian (782–865 CE), Master of Xuefeng Yicun and Yantou Quanhuo",
@@ -4662,7 +4713,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "cbeta_note": "Corrects previous label \"T1985 / T2076\" — T1985 is strictly the Record of Linji. Deshan Xuanjian's record is not separately in Taishō; his dialogues are embedded in Jingde Chuandenglu (T2076) and Wudeng Huiyuan (X1565)."
     },
     "xuefeng_yantou": {
       "id": "xuefeng_yantou",
@@ -4947,7 +4999,7 @@ window.TRANSLATECHAN_DATA = {
       "title_zh": "天台山寒山拾得大士詩集",
       "title_pinyin": "Tiāntáishān Hánshān Shídé Dàshì Shījī",
       "title_en": "The Collected Poems of Cold Mountain (Hanshan & Shide)",
-      "cbeta_id": "T2834 / S.5731",
+      "cbeta_id": "SBCK / Zoku lineage (not in Taishō)",
       "taisho_vol": 85,
       "author_zh": "唐 天台山 寒山子 撰 / 拾得 述",
       "author_en": "The Tang Hermit Poet Hanshan (Cold Mountain, 8th–9th Century) & Shide",
@@ -4995,7 +5047,8 @@ window.TRANSLATECHAN_DATA = {
             "snyder": "Climbing the Cold Mountain road / The Cold Mountain road has no end / The long creeks are piled with stones / The deep ravines are choked with grass / The moss is slippery though it hasn't rained / The pines sing with no wind / Who can leave the world's dust / To sit with me in the white clouds?"
           }
         }
-      ]
+      ],
+      "cbeta_note": "Corrects previous label \"T2834\", which actually designates 大乘無生方便門 (Dunhuang, Taishō vol. 85). Hanshan collection is 寒山子詩集 — outside the Taishō canon proper (Sibu Congkan lineage; CBETA hosts it under non-Taishō collections)."
     },
     "huangbo_wanling": {
       "id": "huangbo_wanling",

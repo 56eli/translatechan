@@ -229,7 +229,7 @@
       { key: 'fayan_yulu', title: 'Fayan Yulu & Ten Rules (法眼十規論)', cbeta: 'T1991' },
       { key: 'guiyang_yulu', title: 'Guiyang Yulu & Circles (溈仰九十六圓相)', cbeta: 'T1989' },
       { key: 'dahui_hongzhi', title: 'Dahui & Hongzhi (看話書問與默照銘)', cbeta: 'T1998A' },
-      { key: 'shitou_sandokai', title: 'Shitou Sandokai & Grass Hut (參同契與草庵歌)', cbeta: 'T1985' },
+      { key: 'shitou_sandokai', title: 'Shitou Sandokai & Grass Hut (參同契與草庵歌)', cbeta: 'T2076 f.30' },
       { key: 'zhengdao_ge', title: 'Yongjia Zhengdao Ge (永嘉證道歌)', cbeta: 'T2014' },
       { key: 'bodhidharma_erru', title: 'Bodhidharma Erru Sixing (二入四行論)', cbeta: 'T2009' },
       { key: 'niutou_juezhu', title: 'Niutou Farong Juezhu Lun (絕觀論)', cbeta: 'P.2885' },
@@ -240,12 +240,12 @@
       { key: 'dahui_shobogenzo', title: 'Dahui Shobogenzo (大慧正法眼藏)', cbeta: 'T2002' },
       { key: 'mazu_yulu', title: 'Mazu Daoyi Yulu (江西馬祖語錄)', cbeta: 'X1304' },
       { key: 'nanquan_yulu', title: 'Nanquan Puyuan Yulu (南泉普願語錄)', cbeta: 'X1315' },
-      { key: 'deshan_yulu', title: 'Deshan Xuanjian Yulu (德山宣鑑語錄)', cbeta: 'T1985' },
+      { key: 'deshan_yulu', title: 'Deshan Xuanjian Yulu (德山宣鑑語錄)', cbeta: 'T2076/X1565' },
       { key: 'xuefeng_yantou', title: 'Xuefeng & Yantou Yulu (雪峰巖頭語錄)', cbeta: 'T1983' },
       { key: 'congronglu_cases', title: 'Book of Serenity (從容庵錄)', cbeta: 'T2004' },
       { key: 'wudeng_huiyuan', title: 'Compendium of Five Lamps (五燈會元)', cbeta: 'X1565' },
       { key: 'sengzhao_zhaolun', title: 'Sengzhao Zhao Lun (僧肇肇論)', cbeta: 'T1858' },
-      { key: 'hanshan_poems', title: 'Hanshan Cold Mountain Poems (寒山詩集)', cbeta: 'T2834' },
+      { key: 'hanshan_poems', title: 'Hanshan Cold Mountain Poems (寒山詩集)', cbeta: 'SBCK/Zoku' },
       { key: 'huangbo_wanling', title: 'Huangbo Wanling Lu (黃檗宛陵錄)', cbeta: 'T2012B' },
       { key: 'xuansha_yulu', title: 'Xuansha Shibei Yulu (玄沙宗一語錄)', cbeta: 'X1310' },
       { key: 'caoxi_zhuan', title: 'Caoxi Dashi Biezhuan (曹溪大師別傳)', cbeta: 'X1458' },
@@ -313,6 +313,7 @@
               <div class="translation-text">${doc.preface.en_sasaki || ''}</div>
             </div>
           </div>
+          <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.3rem;" title="AI-crafted renderings in each scholar's register — not verbatim published text">⚠️ Register reconstructions (unverified) — provenance policy v1.1</div>
         </div>
       `;
     }
@@ -340,6 +341,7 @@
               <div class="translation-text">${doc.epilogue.en_sasaki || ''}</div>
             </div>
           </div>
+          <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.3rem;" title="AI-crafted renderings in each scholar's register — not verbatim published text">⚠️ Register reconstructions (unverified) — provenance policy v1.1</div>
         </div>
       `;
     }
@@ -611,15 +613,27 @@
 
     return `
       <div class="translation-grid">
-        ${displayKeys.map(k => `
+        ${displayKeys.map(k => {
+          const raw = translations[k];
+          // Support provenance object form {text, status, source} as well as plain strings
+          const isObj = raw && typeof raw === 'object';
+          const text = isObj ? (raw.text || '') : (raw || '');
+          const status = isObj && raw.status ? raw.status : (k.startsWith('ai_') ? 'ai_draft' : 'reconstruction_unverified');
+          const badge = status === 'verified_quotation' ? '✅ Verified quotation'
+                      : status === 'ai_draft' ? 'AI draft'
+                      : '⚠️ Register reconstruction';
+          const badgeTip = status === 'verified_quotation' ? 'Checked against a specific edition (see source field)'
+                      : status === 'ai_draft' ? 'Explicitly AI-generated draft'
+                      : 'AI-crafted rendering in this scholar\'s register — not verbatim published text (see data/translations/provenance.json)';
+          return `
           <div class="translation-col">
             <div class="translator-tag">
               <span>${formatTranslatorName(k)}</span>
-              <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: normal;">${k.startsWith('ai_') ? 'AI Synthesis' : 'Scholarly'}</span>
+              <span style="font-size: 0.65rem; color: var(--text-muted); font-weight: normal;" title="${badgeTip}">${badge}</span>
             </div>
-            <div class="translation-text">${translations[k]}</div>
-          </div>
-        `).join('')}
+            <div class="translation-text">${text}</div>
+          </div>`;
+        }).join('')}
       </div>
     `;
   }
