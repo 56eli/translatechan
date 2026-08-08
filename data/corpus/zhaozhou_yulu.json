@@ -64,7 +64,16 @@
             "cleary": "A monk said, 'I have just newly entered the monastery; please give me instructions.'",
             "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
             "suzuki": "A newly arrived monk asked Chao-chou: 'I am a new beginner; please show me the Way.'",
-            "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'"
+            "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'",
+            "hoffman": {
+              "text": "A novice once said to the master, \"I am only newly admitted into this monastery, and I beseech Your Reverence to teach and guide me.\"",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978",
+                "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+              }
+            }
           }
         },
         {
@@ -75,7 +84,16 @@
             "cleary": "The Master said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten it.' The Master said, 'Go wash your bowl.' At this the monk had a great realization.",
             "sasaki": "Jōshū said: 'Have you eaten your breakfast porridge?' The monk replied: 'I have.' Jōshū said: 'Then wash your bowls.' At these words the monk attained great awakening.",
             "suzuki": "Chao-chou asked: 'Have you had your breakfast?' 'Yes, Master, I have.' 'Then wash your bowls!' That monk was enlightened.",
-            "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening."
+            "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening.",
+            "hoffman": {
+              "text": "The master asked, \"Have you taken your breakfast?\" \"Yes, master, I have.\" \"Go wash your bowl,\" said the master. At these words, the novice experienced an instantaneous enlightenment.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                "edition": "Autumn Press, 1978",
+                "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+              }
+            }
           }
         }
       ]

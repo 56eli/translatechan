@@ -14,7 +14,8 @@
 8. **🔍 Verification round 2 DONE**: +✅ Clarke (Xinxin Ming st. 1–2, verbatim via 2 mirrors), +✅ Yampolsky (Shenxiu p.130 — replaced a proven paraphrase; Huineng **Dunhuang recension** added as its own verse), corrected first inauthentic zh found (xinxin_ming st. 3 → T2010 canon). Blyth/Suzuki pending print.
 8b. **🔍 Verification round 3 DONE**: +✅ Sekida, +✅ Sasaki (paraphrase replaced), +✅ Blofeld (publisher-verified, paraphrase replaced); unattributed verse/commentary blocks now labeled; Blyth retry pending.
 8c. **🔍 Verification round 4 DONE**: Blyth Case 1 ✅ (via Morse illustrated reproduction; paraphrase replaced) — Case 1 now has 5 verified editions; Sasaki 乾屎橛 line completes the fully-verified Linji sermon; Suzuki Platform verse attribution found genuinely unresolvable (kept honest).
-9. **Still open**: Phase 2 content (Wumenguan 48 — all substrates in hand), then the PR to `main`.
+8d. **🔍 Verification round 5 DONE**: +✅ **Burton Watson** (Linji Fourfold Shout, Columbia 1999 pp. 98–99), +✅ **Yoel Hoffman** (Zhaozhou wash-bowl ×2 units, *Radical Zen* 1978) — 19 verified slots across 7 texts; J.C. Cleary entries confirmed non-verbatim (honest badges); provenance.json v1.6.
+9. **Still open**: PR to `main` (live site still serves the pre-fix build until merge), Phase 2 content (Wumenguan 48 — all substrates in hand), optional verification round 6.
 
 ---
 <details><summary>Previous session (pre-audit history)</summary>

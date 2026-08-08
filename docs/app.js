@@ -670,6 +670,8 @@
       yampolsky: 'Philip Yampolsky',
       senzaki_reps: 'Senzaki & Reps (1934)',
       clarke: 'Richard B. Clarke',
+      watson: 'Burton Watson',
+      hoffman: 'Yoel Hoffman',
       shimomisse: 'Eiichi Shimomissé',
       aitken: 'Robert Aitken',
       shibayama: 'Zenkei Shibayama',

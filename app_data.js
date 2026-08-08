@@ -1068,7 +1068,7 @@ window.TRANSLATECHAN_DATA = {
     }
   ],
   "translations_provenance": {
-    "policy_version": "1.5",
+    "policy_version": "1.6",
     "policy_date": "2026-08-08",
     "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
     "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -1168,6 +1168,18 @@ window.TRANSLATECHAN_DATA = {
         ],
         "registers_pending": [
           "suzuki Platform-verse register (attribution uncertain — the widely circulating 'There is no Bodhi-tree…' rendering has no secure attribution; Suzuki's own wording differs)"
+        ]
+      },
+      {
+        "pilot": "Round 5 (2026-08-08): Linji 四喝 (Watson) + Zhaozhou wash-bowl (Hoffman)",
+        "registers_verified": [
+          "watson — Linji Fourfold Shout, Zen Teachings of Master Lin-Chi pp. 98–99 (citation-secure via Wikipedia)",
+          "hoffman — Zhaozhou wash-bowl dialogue (Radical Zen, 1978; Terebess reproduction)"
+        ],
+        "notes": [
+          "Sasaki/J.C. Cleary scanned PDFs unusable for verbatim checks (OCR images / 30-page parse window); J.C. Cleary usage-verifyable sections confirmed our 'cleary' entries are NOT verbatim — they remain correctly labeled reconstruction",
+          "new translator keys: watson, hoffman",
+          "pending: Watson/Sasaki deathbed 瞎驢 passage; Hoffman cypress-tree & stone-bridge registers (PDF located, next round)"
         ]
       }
     ]
@@ -2058,7 +2070,16 @@ window.TRANSLATECHAN_DATA = {
               "translations": {
                 "red_pine": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the sacred king; sometimes a shout is like the golden-haired lion crouching on the earth; sometimes a shout is like a probe pole and grass shadow; sometimes a shout does not function as a shout. How do you understand this?'",
                 "sasaki": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the vajra king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a sounding pole and feather shadow; sometimes a shout does not function as a shout. How do you understand this?'",
-                "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'"
+                "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'",
+                "watson": {
+                  "text": "The Master said to a monk, \"At times my shout is like the precious sword of the Diamond King. At times my shout is like a golden-haired lion crouching on the ground. At times my shout is like the search pole and the shadow grass. At times my shout doesn't work like a shout at all. Do you understand?\" The monk started to answer, whereupon the Master gave a shout.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "The Zen Teachings of Master Lin-Chi, tr. Burton Watson",
+                    "edition": "Columbia University Press, 1999, pp. 98–99",
+                    "verification": "verbatim as cited in Wikipedia 'Katsu (Zen)' sourcing Watson pp. 98–99, 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -2259,7 +2280,16 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "A monk said, 'I have just newly entered the monastery; please give me instructions.'",
                 "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
                 "suzuki": "A newly arrived monk asked Chao-chou: 'I am a new beginner; please show me the Way.'",
-                "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'"
+                "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'",
+                "hoffman": {
+                  "text": "A novice once said to the master, \"I am only newly admitted into this monastery, and I beseech Your Reverence to teach and guide me.\"",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978",
+                    "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+                  }
+                }
               }
             },
             {
@@ -2270,7 +2300,16 @@ window.TRANSLATECHAN_DATA = {
                 "cleary": "The Master said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten it.' The Master said, 'Go wash your bowl.' At this the monk had a great realization.",
                 "sasaki": "Jōshū said: 'Have you eaten your breakfast porridge?' The monk replied: 'I have.' Jōshū said: 'Then wash your bowls.' At these words the monk attained great awakening.",
                 "suzuki": "Chao-chou asked: 'Have you had your breakfast?' 'Yes, Master, I have.' 'Then wash your bowls!' That monk was enlightened.",
-                "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening."
+                "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening.",
+                "hoffman": {
+                  "text": "The master asked, \"Have you taken your breakfast?\" \"Yes, master, I have.\" \"Go wash your bowl,\" said the master. At these words, the novice experienced an instantaneous enlightenment.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Radical Zen: The Sayings of Jōshū, tr. Yoel Hoffman",
+                    "edition": "Autumn Press, 1978",
+                    "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08"
+                  }
+                }
               }
             }
           ]

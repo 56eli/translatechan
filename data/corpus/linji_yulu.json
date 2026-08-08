@@ -88,7 +88,16 @@
           "translations": {
             "red_pine": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the sacred king; sometimes a shout is like the golden-haired lion crouching on the earth; sometimes a shout is like a probe pole and grass shadow; sometimes a shout does not function as a shout. How do you understand this?'",
             "sasaki": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the vajra king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a sounding pole and feather shadow; sometimes a shout does not function as a shout. How do you understand this?'",
-            "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'"
+            "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'",
+            "watson": {
+              "text": "The Master said to a monk, \"At times my shout is like the precious sword of the Diamond King. At times my shout is like a golden-haired lion crouching on the ground. At times my shout is like the search pole and the shadow grass. At times my shout doesn't work like a shout at all. Do you understand?\" The monk started to answer, whereupon the Master gave a shout.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "The Zen Teachings of Master Lin-Chi, tr. Burton Watson",
+                "edition": "Columbia University Press, 1999, pp. 98–99",
+                "verification": "verbatim as cited in Wikipedia 'Katsu (Zen)' sourcing Watson pp. 98–99, 2026-08-08"
+              }
+            }
           }
         },
         {

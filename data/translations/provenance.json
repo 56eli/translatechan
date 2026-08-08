@@ -1,5 +1,5 @@
 {
-  "policy_version": "1.5",
+  "policy_version": "1.6",
   "policy_date": "2026-08-08",
   "policy_author": "TranslateChan audit (see AUDIT.md §3.4)",
   "summary": "English renderings attributed to named scholars in this dataset are AI reconstructions composed in each scholar's documented register, unless a per-item override marks them verified against a specific edition. They are provided for stylistic/comparative study only and must NOT be cited as published translations. Classical Chinese source text is authentic canonical language (CBETA lineage).",
@@ -99,6 +99,18 @@
       ],
       "registers_pending": [
         "suzuki Platform-verse register (attribution uncertain — the widely circulating 'There is no Bodhi-tree…' rendering has no secure attribution; Suzuki's own wording differs)"
+      ]
+    },
+    {
+      "pilot": "Round 5 (2026-08-08): Linji 四喝 (Watson) + Zhaozhou wash-bowl (Hoffman)",
+      "registers_verified": [
+        "watson — Linji Fourfold Shout, Zen Teachings of Master Lin-Chi pp. 98–99 (citation-secure via Wikipedia)",
+        "hoffman — Zhaozhou wash-bowl dialogue (Radical Zen, 1978; Terebess reproduction)"
+      ],
+      "notes": [
+        "Sasaki/J.C. Cleary scanned PDFs unusable for verbatim checks (OCR images / 30-page parse window); J.C. Cleary usage-verifyable sections confirmed our 'cleary' entries are NOT verbatim — they remain correctly labeled reconstruction",
+        "new translator keys: watson, hoffman",
+        "pending: Watson/Sasaki deathbed 瞎驢 passage; Hoffman cypress-tree & stone-bridge registers (PDF located, next round)"
       ]
     }
   ]

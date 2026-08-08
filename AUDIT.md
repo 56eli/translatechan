@@ -276,6 +276,20 @@ Remaining for full closure of §3.4: verifying individual renderings against pri
 
 **Final tally (rounds 1–4)**: 16 verified quotation slots across 6 texts; 4 paraphrases correctly exposed & replaced; 1 zh canon correction; 1 attribution genuinely unresolved. `provenance.json` v1.5.
 
-**Open work as of 2026-08-08**: Phase 2 content (Wumenguan 48 — 5 verified editions + canonical Chinese + PD Senzaki text all in hand), then PR to `main`.
+---
+
+### 2026-08-08 — Verification round 5 completed ✅
+
+| Action | Result |
+|---|---|
+| Watson — Linji 四喝 (Fourfold Shout) | ✅ **verified** — *The Zen Teachings of Master Lin-Chi* (Columbia UP, 1999), **pp. 98–99**, citation-secure via Wikipedia "Katsu (Zen)" footnote 17; adds a 2nd *verified* translator register to the Linji record |
+| Hoffman — Zhaozhou 洗缽 wash-bowl dialogue (2 units) | ✅ **verified** — *Radical Zen: The Sayings of Jōshū* (Autumn Press, 1978), verbatim vs Terebess reproduction; 3rd verified register on this anchor (with Sasaki + Cleary-style reconstructions alongside) |
+| J.C. Cleary — Linji (usage-verifyable sections) | Confirmed our `cleary` entries are **NOT** verbatim → correctly stay `reconstruction_unverified` (negative verification: badges are honest) |
+| Watson/Sasaki — Linji deathbed 瞎驢 verse | Watson wording not located this round → stays reconstruction |
+| Next substrates located | Hoffman 柏樹子/石橋 registers (PDF on Terebess zhaozhou hub, not yet fetched) |
+
+**Final tally (rounds 1–5)**: 19 verified quotation slots across 7 texts + 1 verified matrix row; 4 paraphrases exposed & replaced; 1 zh canon correction; 1 attribution genuinely unresolved. `provenance.json` v1.6. New translator keys: `watson`, `hoffman`.
+
+**Open work as of 2026-08-08**: PR to `main` (9+ commits ready — live site still serves the pre-fix broken build until merge), Phase 2 content (Wumenguan 48 — substrates in hand), optional round 6 (Hoffman cypress/stone-bridge; Huangbo Wanling vs Blofeld).
 
 
