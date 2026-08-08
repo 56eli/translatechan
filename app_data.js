@@ -4763,6 +4763,85 @@ window.TRANSLATECHAN_DATA = {
           ]
         }
       ]
+    },
+    "sengzhao_zhaolun": {
+      "id": "sengzhao_zhaolun",
+      "title_zh": "僧肇法師 肇論：物不遷與不真空",
+      "title_pinyin": "Sēngzhào Fǎshī Zhàolùn: Wù Bùqiān yǔ Bù Zhēnkōng",
+      "title_en": "The Treatises of Sengzhao (Zhao Lun: On the Immutability of Things & Emptiness of the Unreal)",
+      "cbeta_id": "T1858",
+      "taisho_vol": 45,
+      "author_zh": "東晉 鳩摩羅什門人 僧肇 法師 撰 (384–414 CE)",
+      "author_en": "Master Sengzhao, Chief Disciple of Kumarajiva",
+      "era": "Eastern Jin Dynasty (5th Century)",
+      "genre": "Proto-Chan Madhyamaka Masterpiece (中觀法華綱宗)",
+      "overview": "The monumental early Chinese Buddhist philosophical masterwork cited constantly by ancient Chan masters (Nanquan, Huineng, Shitou, Dahui), synthesizing Nagarjuna's Madhyamaka emptiness with indigenous Chinese dialectics.",
+      "sections": [
+        {
+          "section_id": "immutability_of_things",
+          "title_zh": "物不遷論：江河競注而不流",
+          "title_pinyin": "Wù Bùqiān Lùn: Jiānghé Jìngzhù ér Bù Liú",
+          "title_en": "On the Immutability of Things: Rivers Rush Yet Do Not Flow",
+          "dialogue": [
+            {
+              "speaker": "Sengzhao / 僧肇",
+              "zh": "夫生死交謝，寒暑迭遷。有為之法，念念不住。旋嵐偃嶽而常靜，江河競注而不流，野馬飄鼓而不動，日月歷天而不周。復何怪哉？",
+              "pinyin": "Fú shēngsǐ jiāoxiè, hánshǔ diéqiān. Yǒuwéi zhī fǎ, niànniàn bù zhù. Xuánlán yǎn yuè ér cháng jìng, jiānghé jìngzhù ér bù liú, yěmǎ piāogǔ ér bù dòng, rìyuè lì tiān ér bù zhōu. Fù hé guài zāi?",
+              "translations": {
+                "red_pine": "Birth and death alternate, cold and heat replace one another. Conditioned phenomena do not abide for a single thought. Whirlwinds that flatten mountains are forever calm; rushing rivers that race to the sea do not flow; shimmering mirages do not move; sun and moon circling the sky do not revolve. What is so strange about this?",
+                "cleary": "Birth and death alternate, cold and heat succeed each other. Conditioned things do not stay for an instant. Fierce gales that uproot mountains are perpetually calm; rushing rivers racing along do not flow; floating dust blown by wind does not move; sun and moon crossing the heavens do not revolve. Why wonder at this?",
+                "liebenthal": "Whirlwinds that level mountains are eternally calm; rivers rushing to the ocean do not move; blowing dust is motionless; sun and moon circling the heavens do not change place."
+              }
+            },
+            {
+              "speaker": "Sengzhao / 僧肇",
+              "zh": "往物在於往，不來至現在；今物在於今，不去至過去。求向物於向，於向未嘗無；求向物於今，於今未嘗有。是故動靜未始異，古今常如一。",
+              "pinyin": "Wǎng wù zài yú wǎng, bù lái zhì xiànzài; jīn wù zài yú jīn, bù qù zhì guòqù. Qiú xiàng wù yú xiàng, yú xiàng wèicháng wú; qiú xiàng wù yú jīn, yú jīn wèicháng yǒu. Shìgù dòngjìng wèishǐ yì, gǔjīn cháng rúyī.",
+              "translations": {
+                "red_pine": "Past things abide in the past and do not travel to the present; present things abide in the present and do not travel to the past. If you look for past things in the past, in the past they were never absent; if you look for past things in the present, in the present they never exist. Therefore motion and stillness have never been different; past and present are forever as one.",
+                "cleary": "Past things remain in the past, not coming to the present; present things remain in the present, not going to the past. Seeking past things in the past, they are never absent; seeking past things in the present, they never exist. Thus motion and stillness are not different; antiquity and today are ever as one.",
+                "liebenthal": "Things of the past remain in the past; they do not come to the present. Things of the present remain in the present; they do not depart to the past. Therefore motion and rest are fundamentally identical."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "emptiness_of_unreal",
+          "title_zh": "不真空論：非有非無",
+          "title_pinyin": "Bù Zhēnkōng Lùn: Fēi Yǒu Fēi Wú",
+          "title_en": "On the Emptiness of the Unreal: Neither Existence Nor Non-Existence",
+          "dialogue": [
+            {
+              "speaker": "Sengzhao / 僧肇",
+              "zh": "夫萬物非真，故名為幻。幻非真有，故不可言有；幻非都無，故不可言無。非有非無，諸法實相。欲言其有，象非真象；欲言其無，萬象宛然。",
+              "pinyin": "Fú wànwù fēi zhēn, gù míng wéi huàn. Huàn fēi zhēn yǒu, gù bùkě yán yǒu; huàn fēi dōu wú, gù bùkě yán wú. Fēi yǒu fēi wú, zhūfǎ shíxiāng. Yù yán qí yǒu, xiàng fēi zhēn xiàng; yù yán qí wú, wànxiàng wǎnrán.",
+              "translations": {
+                "red_pine": "The myriad things are not truly real, and so are named illusions. Illusions are not truly existing, so they cannot be called 'being'; illusions are not totally non-existent, so they cannot be called 'non-being.' Neither being nor non-being is the true mark of all dharmas. If you wish to call them existing, their forms are not real forms; if you wish to call them non-existing, the ten thousand forms are plainly manifest.",
+                "cleary": "The myriad things are not real, so they are called illusory. Illusions are not real existence, so one cannot say they are; illusions are not total nothingness, so one cannot say they are not. Neither existence nor nonexistence is the true state of phenomena.",
+                "liebenthal": "All things are unreal, therefore they are like phantoms. Phantoms are not truly existing, nor are they totally non-existent. Neither being nor non-being: this is the true reality of all things."
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "one_body_universe",
+          "title_zh": "涅槃無名：天地與我同根，萬物與我一體",
+          "title_pinyin": "Nièpán Wúmíng: Tiāndì Yǔ Wǒ Tónggēn, Wànwù Yǔ Wǒ Yītǐ",
+          "title_en": "Nirvana is Nameless: Heaven and Earth Share the Same Root with Me",
+          "dialogue": [
+            {
+              "speaker": "Sengzhao / 僧肇",
+              "zh": "天地與我同根，萬物與我一體。涅槃之妙，湛若靈海。含吐十方，包育萬彙。無得無失，寂然常存。",
+              "pinyin": "Tiāndì yǔ wǒ tónggēn, wànwù yǔ wǒ yītǐ. Nièpán zhī miào, zhàn ruò línghǎi. Hán tǔ shífāng, bāoyù wànhuì. Wú dé wú shī, jìrán cháng cún.",
+              "translations": {
+                "red_pine": "Heaven and earth share the same root with me; the myriad things are of one body with me. The marvel of Nirvana is clear and profound like a spiritual sea, embracing and breathing forth the ten directions, nurturing all living varieties. Without gain and without loss, quietly and eternally present.",
+                "cleary": "Heaven and earth share the same root with me, myriad things are of one body with me. The marvel of Nirvana is deep as a spiritual sea, containing the ten directions, nurturing all beings.",
+                "liebenthal": "Heaven and earth have the same origin as myself; all things form one body with me. Nirvana is serene and inexhaustible like the ocean."
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
