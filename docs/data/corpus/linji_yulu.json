@@ -1036,15 +1036,357 @@
       ]
     },
     {
+      "section_id": "kanbian_01",
+      "title_zh": "勘辨一 · 飯頭二石五",
+      "title_pinyin": "Kānbiàn Yī · Fàntóu Èrshíwǔ",
+      "title_en": "Testing 1 — The Rice Server’s Two and a Half Piculs",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "黃蘗因入厨次，問飯頭：「作什麼？」飯頭云：「揀眾僧米。」黃蘗云：「一日喫多少？」飯頭云：「二石五。」黃蘗云：「莫太多麼？」飯頭云：「猶恐少在。」黃蘗便打。飯頭却舉似師，師云：「我為汝勘這老漢。」纔到侍立次，黃蘗舉前話，師云：「飯頭不會，請和尚代一轉語。」師便問：「莫太多麼？」黃蘗云：「何不道來日更喫一頓？」師云：「說什麼來日？即今便喫。」道了便掌。黃蘗云：「這風顛漢又來這裏捋虎鬚。」師便喝出去。後溈山問仰山：「此二尊宿意作麼生？」仰山云：「和尚作麼生？」溈山云：「養子方知父慈。」仰山云：「不然。」溈山云：「子又作麼生？」仰山云：「大似勾賊破家。」",
+          "pinyin": "Huángbò yīn rù chú cì， wèn Fàntóu：「 Zuò shén me？」 Fàntóu yún：「 Jiǎn zhòng sēng mǐ。」 Huángbò yún：「 Yī rì chī duō shǎo？」 Fàntóu yún：「 Èr shí wǔ。」 Huángbò yún：「 Mò tài duō me？」 Fàntóu yún：「 Yóu kǒng shǎo zài。」 Huángbò biàn dǎ。 Fàntóu què jǔ shì shī， shī yún：「 Wǒ wèi rǔ kān zhè lǎohàn。」 Cái dào shì lì cì， Huángbò jǔ qián huà， shī yún：「 Fàntóu bù huì， qǐng Héshàng dài yī zhuǎn yǔ。」 Shī biàn wèn：「 Mò tài duō me？」 Huángbò yún：「 Hé bù dào lái rì gèng chī yī dùn？」 Shī yún：「 Shuō shén me lái rì？ Jí jīn biàn chī。」 Dào le biàn zhǎng。 Huángbò yún：「 Zhè fēng diān hàn yòu lái zhè lǐ luō hǔ xū。」 Shī biàn hè chū qù。 Hòu Wéishān wèn Yǎngshān：「 Cǐ èr zūn sù yì zuò me shēng？」 Yǎngshān yún：「 Héshàng zuò me shēng？」 Wéishān yún：「 Yǎng zi fāng zhī fù cí。」 Yǎngshān yún：「 Bù rán。」 Wéishān yún：「 Zi yòu zuò me shēng？」 Yǎngshān yún：「 Dà shì gōu zéi pò jiā。」",
+          "translations": {
+            "ai_literal": {
+              "text": "Once, when Huangbo went into the kitchen, he asked the rice server: \"What are you doing?\" The rice server said: \"Sorting the monks' rice.\" Huangbo said: \"How much do they eat in a day?\" The rice server said: \"Two and a half piculs.\" Huangbo said: \"Isn't that too much?\" The rice server said: \"I'm afraid it's not yet enough.\" Huangbo struck him. Later the rice server reported this to the master, who said: \"I'll test that old fellow for you.\" Scarcely had the master come to attend on Huangbo when Huangbo brought the story up. The master said: \"The rice server didn't understand — please give him a turn of words yourself.\" Huangbo said: \"Why don't you say: tomorrow you'll have another meal?\" The master said: \"What 'tomorrow'? Eat right now!\" Saying so, he slapped him. Huangbo said: \"This madman has come here to stroke the tiger's whiskers again.\" The master gave a shout and walked out. Later Weishan asked Yangshan: \"What did those two venerables intend?\" Yangshan said: \"What is your view, master?\" Weishan said: \"Only when you raise a child do you know a father's kindness.\" Yangshan said: \"Not so.\" Weishan said: \"And what do you say?\" Yangshan said: \"Much like luring a thief to ruin the house.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_02",
+      "title_zh": "勘辨二 · 便打三僧",
+      "title_pinyin": "Kānbiàn Èr · Biàn Dǎ Sānsēng",
+      "title_en": "Testing 2 — Three Monks, Three Blows",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師問僧：「什麼處來？」僧便喝，師便揖坐。僧擬議，師便打。師見僧來便竪起拂子，僧禮拜，師便打。又見僧來，亦竪起拂子，僧不顧，師亦打。",
+          "pinyin": "Shī wèn sēng：「 Shén me chù lái？」 Sēng biàn hè， shī biàn yī zuò。 Sēng nǐ yì， shī biàn dǎ。 Shī jiàn sēng lái biàn shù qǐ fú zi， sēng lǐ bài， shī biàn dǎ。 Yòu jiàn sēng lái， yì shù qǐ fú zi， sēng bù gù， shī yì dǎ。",
+          "translations": {
+            "ai_literal": {
+              "text": "The master asked a monk: \"Where do you come from?\" The monk gave a shout; the master greeted him and sat down. As the monk deliberated, the master struck him. Seeing a monk come, the master raised his whisk; the monk bowed, and the master struck him. Seeing another monk come, he again raised his whisk; the monk paid no heed, and the master likewise struck him.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_03",
+      "title_zh": "勘辨三 · 普化踏倒飯床",
+      "title_pinyin": "Kānbiàn Sān · Pǔhuà Tàdǎo Fànchuáng",
+      "title_en": "Testing 3 — Puhua Kicks Over the Table",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師一日同普化赴施主家齋次。師問：「毛吞巨海、芥納須彌，為是神通妙用？本體如然？」普化踏倒飯床。師云：「太麁生。」普化云：「這裏是什麼所在，說麁、說細？」師來日又同普化赴齋。問：「今日供養何似昨日？」普化依前踏倒飯床。師云：「得即得，太麁生。」普化云：「瞎漢！佛法說什麼麁細？」師乃吐舌。",
+          "pinyin": "Shī yī rì tóng Pǔhuà fù shī zhǔ jiā zhāi cì。 Shī wèn：「 Máo tūn jù hǎi、 jiè nà xū mí， wèi shì shén tōng miào yòng？ Běn tǐ rú rán？」 Pǔhuà tà dào fàn chuáng。 Shī yún：「 Tài cū shēng。」 Pǔhuà yún：「 Zhè lǐ shì shén me suǒ zài， shuō cū、 shuō xì？」 Shī lái rì yòu tóng Pǔhuà fù zhāi。 Wèn：「 Jīn rì gōng yǎng hé shì zuó rì？」 Pǔhuà yī qián tà dào fàn chuáng。 Shī yún：「 Dé jí dé， tài cū shēng。」 Pǔhuà yún：「 Xiā hàn！ Fó fǎ shuō shén me cū xì？」 Shī nǎi tǔ shé。",
+          "translations": {
+            "ai_literal": {
+              "text": "One day the master went with Puhua to a meal at a donor's house. The master asked: \"A hair swallows the giant sea, a mustard seed holds Sumeru — is that the miracle-working function of spirit, or is its own substance just so?\" Puhua kicked over the low table. The master said: \"Too rough!\" Puhua said: \"What kind of place is this to be talking of rough or fine?\" The following day the master again went to a meal with Puhua and asked: \"How does today's offering compare with yesterday's?\" Puhua kicked over the low table as before. The master said: \"Granted — but too rough!\" Puhua said: \"Blind man! What has the Buddha-dharma to say of rough or fine?\" Thereupon the master stuck out his tongue.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_04",
+      "title_zh": "勘辨四 · 臨濟小廝兒具一隻眼",
+      "title_pinyin": "Kānbiàn Sì · Línjì Xiǎosīr Jù Yī Zhīyǎn",
+      "title_en": "Testing 4 — “Little Squirt Linji Has an Eye”",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師一日與河陽木塔長老同在僧堂地爐內坐，因說：「普化每日在街市掣風掣顛，知他是凡？是聖？」言猶未了，普化入來。師便問：「汝是凡？是聖？」普化云：「汝且道我是凡？是聖？」師便喝。普化以手指云：「河陽新婦子、木塔老婆禪、臨濟小廝兒，却具一隻眼。」師云：「這賊。」普化云：「賊賊。」便出去。",
+          "pinyin": "Shī yī rì yǔ Héyáng Mùtǎ zhǎng lǎo tóng zài sēng táng dì lú nèi zuò， yīn shuō：「 Pǔhuà měi rì zài jiē shì chè fēng chè diān， zhī tā shì fán？ Shì shèng？」 Yán yóu wèi liǎo， Pǔhuà rù lái。 Shī biàn wèn：「 Rǔ shì fán？ Shì shèng？」 Pǔhuà yún：「 Rǔ qiě dào wǒ shì fán？ Shì shèng？」 Shī biàn hè。 Pǔhuà yǐ shǒu zhǐ yún：「 Héyáng xīn fù zi、 Mùtǎ lǎo pó chán、 Línjì xiǎo sī ér， què jù yī zhī yǎn。」 Shī yún：「 Zhè zéi。」 Pǔhuà yún：「 Zéi zéi。」 Biàn chū qù。",
+          "translations": {
+            "ai_literal": {
+              "text": "One day the master was sitting with Elder Muta of Heyang by the heating pit in the monks' hall and remarked: \"Every day Puhua carries on like a madman in the streets and markets — who can tell whether he is worldly or saintly?\" Scarcely had he spoken when Puhua came in. The master asked: \"Are you worldly or saintly?\" Puhua said: \"You tell me whether I am worldly or saintly.\" The master gave a shout. Puhua pointed his finger and said: \"The little bride of Heyang, Muta's old-woman Chan, that little squirt Linji — yet they each have an eye.\" The master said: \"The thief!\" Puhua said: \"Thief, thief!\" and walked out.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_05",
+      "title_zh": "勘辨五 · 喫生菜作驢鳴",
+      "title_pinyin": "Kānbiàn Wǔ · Chī Shēngcài Zuò Lǘmíng",
+      "title_en": "Testing 5 — Raw Greens and Braying like a Donkey",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "一日普化在僧堂前喫生菜。師見云：「大似一頭驢。」普化便作驢鳴。師云：「這賊。」普化云：「賊賊。」便出去。",
+          "pinyin": "Yī rì Pǔhuà zài sēng táng qián chī shēng cài。 Shī jiàn yún：「 Dà shì yī tóu lǘ。」 Pǔhuà biàn zuò lǘ míng。 Shī yún：「 Zhè zéi。」 Pǔhuà yún：「 Zéi zéi。」 Biàn chū qù。",
+          "translations": {
+            "ai_literal": {
+              "text": "One day Puhua was eating raw lettuce in front of the monks' hall. Seeing him, the master said: \"Much like a donkey.\" Puhua at once brayed like a donkey. The master said: \"The thief!\" Puhua said: \"Thief, thief!\" and walked out.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_06",
+      "title_zh": "勘辨六 · 明頭來明頭打",
+      "title_pinyin": "Kānbiàn Liù · Míngtóulái Míngtóu Dǎ",
+      "title_en": "Testing 6 — “Come in the Light and I Strike in the Light”",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "因普化常於街市搖鈴云：「明頭來明頭打、暗頭來暗頭打，四方八面來旋風打，虛空來連架打。」師令侍者去，纔見如是道，便把住云：「總不與麼來時如何？」普化托開，云：「來日大悲院裏有齋。」侍者回舉似師。師云：「我從來疑著這漢。」",
+          "pinyin": "Yīn Pǔhuà cháng yú jiē shì yáo líng yún：「 Míng tóu lái míng tóu dǎ、 àn tóu lái àn tóu dǎ， sì fāng bā miàn lái xuán fēng dǎ， xū kōng lái lián jià dǎ。」 Shī lìng Shìzhě qù， cái jiàn rú shì dào， biàn bǎ zhù yún：「 Zǒng bù yǔ me lái shí rú hé？」 Pǔhuà tuō kāi， yún：「 Lái rì Dàbēiyuàn lǐ yǒu zhāi。」 Shìzhě huí jǔ shì shī。 Shī yún：「 Wǒ cóng lái yí zhù zhè hàn。」",
+          "translations": {
+            "ai_literal": {
+              "text": "Since Puhua used to ring a bell in the streets and markets, saying: \"Come in the light and I strike in the light; come in the dark and I strike in the dark; come from the four quarters and eight directions and I strike like a whirlwind; come out of empty space and I go on flailing\" — the master sent an attendant, who, the moment he saw him say this, grabbed him and asked: \"And when none of that comes at all — what then?\" Puhua pushed him aside, saying: \"Tomorrow there is a meal at the Great Compassion Cloister.\" The attendant returned and repeated this to the master, who said: \"All along I have suspected that fellow.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_07",
+      "title_zh": "勘辨七 · 賊賊與南泉官馬相踏",
+      "title_pinyin": "Kānbiàn Qī · Zéizéi yǔ Nánquán Guānmǎ Xiāngtà",
+      "title_en": "Testing 7 — “Thief, Thief!” and Nanquan’s “Official Horses Kicking”",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "有一老宿參師，未曾人事便問：「禮拜即是？不禮拜即是？」師便喝，老宿便禮拜。師云：「好箇草賊。」老宿云：「賊賊。」便出去。師云：「莫道無事好。」首座侍立次，師云：「還有過也無？」首座云：「有。」師云：「賓家有過？主家有過？」首座云：「二俱有過。」師云：「過在什麼處？」首座便出去。師云：「莫道無事好。」後有僧舉似南泉。南泉云：「官馬相踏。」",
+          "pinyin": "Yǒu yī lǎo sù cān shī， wèi céng rén shì biàn wèn：「 Lǐ bài jí shì？ Bù lǐ bài jí shì？」 Shī biàn hè， lǎo sù biàn lǐ bài。 Shī yún：「 Hǎo gè cǎo zéi。」 Lǎo sù yún：「 Zéi zéi。」 Biàn chū qù。 Shī yún：「 Mò dào wú shì hǎo。」 Shǒuzuò shì lì cì， shī yún：「 Hái yǒu guò yě wú？」 Shǒuzuò yún：「 Yǒu。」 Shī yún：「 Bīn jiā yǒu guò？ Zhǔ jiā yǒu guò？」 Shǒuzuò yún：「 Èr jù yǒu guò。」 Shī yún：「 Guò zài shén me chù？」 Shǒuzuò biàn chū qù。 Shī yún：「 Mò dào wú shì hǎo。」 Hòu yǒu sēng jǔ shì Nánquán。 Nánquán yún：「 Guān mǎ xiāng tà。」",
+          "translations": {
+            "ai_literal": {
+              "text": "An old worthy came to visit the master and, before even paying his respects, asked: \"Is bowing right, or is not bowing right?\" The master gave a shout; the old worthy bowed forthwith. The master said: \"What a fine grass-thief.\" The old worthy said: \"Thief, thief!\" and walked out. The master said: \"Do not think nothing happened.\" As the head seat stood by attending, the master said: \"Was there any fault or not?\" The head seat said: \"There was.\" The master said: \"Was the fault with the guest or with the host?\" The head seat said: \"Both were at fault.\" The master said: \"And where does the fault lie?\" The head seat forthwith walked out. The master said: \"Do not think nothing happened.\" Later a monk told of this to Nanquan, who said: \"Official horses kicking one another.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_08",
+      "title_zh": "勘辨八 · 露柱是凡是聖",
+      "title_pinyin": "Kānbiàn Bā · Lùzhù shì Fán shì Shèng",
+      "title_en": "Testing 8 — The Exposed Pillar: Worldly or Saintly?",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師因入軍營赴齋，門首見員僚，師指露柱問：「是凡？是聖？」員僚無語。師打露柱，云：「直饒道得，也秖是箇木橛。」便入去。",
+          "pinyin": "Shī yīn rù jūn yíng fù zhāi， mén shǒu jiàn yuán liáo， shī zhǐ lù zhù wèn：「 Shì fán？ Shì shèng？」 Yuán liáo wú yǔ。 Shī dǎ lù zhù， yún：「 Zhí ráo dào dé， yě zhǐ shì gè mù jué。」 Biàn rù qù。",
+          "translations": {
+            "ai_literal": {
+              "text": "Once, going into an army camp for a meal and seeing some staff officers at the gate, the master pointed at the exposed pillar and asked: \"Worldly or saintly?\" The officers had no reply. The master struck the pillar and said: \"Even if you could answer, it would still be a wooden stake,\" and went in.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_09",
+      "title_zh": "勘辨九 · 糶米與百法座主",
+      "title_pinyin": "Kānbiàn Jiǔ · Tiàomǐ yǔ Bǎifǎ Zuòzhǔ",
+      "title_en": "Testing 9 — Selling the Yellow Rice; Teaching via the Hundred-Dharma Lecturer",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師問院主：「什麼處來？」主云：「州中糶黃米去來。」師云：「糶得盡麼？」主云：「糶得盡。」師以杖面前畫一畫，云：「還糶得這箇麼？」主便喝，師便打。典座至，師舉前語。典座云：「院主不會和尚意。」師云：「爾作麼生？」典座便禮拜，師亦打。有座主來相看次，師問座主：「講何經論？」主云：「某甲荒虛粗習《百法論》。」師云：「有一人於三乘十二分教明得、有一人於三乘十二分教明不得，是同？是別？」主云：「明得即同，明不得即別。」樂普為侍者，在師後立，云：「座主這裏是什麼所在？說同？說別？」師回首問侍者：「汝又作麼生？」侍者便喝。師送座主，回來遂問侍者：「適來是汝喝老僧？」侍者云：「是。」師便打。",
+          "pinyin": "Shī wèn Yuànzhǔ：「 Shén me chù lái？」 Zhǔ yún：「 Zhōu zhōng tiào huáng mǐ qù lái。」 Shī yún：「 Tiào dé jǐn me？」 Zhǔ yún：「 Tiào dé jǐn。」 Shī yǐ zhàng miàn qián huà yī huà， yún：「 Hái tiào dé zhè gè me？」 Zhǔ biàn hè， shī biàn dǎ。 Diǎnzuò zhì， shī jǔ qián yǔ。 Diǎnzuò yún：「 Yuànzhǔ bù huì Héshàng yì。」 Shī yún：「 Ěr zuò me shēng？」 Diǎnzuò biàn lǐ bài， shī yì dǎ。 Yǒu Zuòzhǔ lái xiāng kàn cì， shī wèn Zuòzhǔ：「 Jiǎng hé jīng lùn？」 Zhǔ yún：「 Mǒu jiǎ huāng xū cū xí《 Bǎifǎ Lùn》。」 Shī yún：「 Yǒu yī rén yú sān chéng shí èr fēn jiào míng dé、 yǒu yī rén yú sān chéng shí èr fēn jiào míng bù dé， shì tóng？ Shì bié？」 Zhǔ yún：「 Míng dé jí tóng， míng bù dé jí bié。」 Lèpǔ wèi Shìzhě， zài shī hòu lì， yún：「 Zuòzhǔ zhè lǐ shì shén me suǒ zài？ Shuō tóng？ Shuō bié？」 Shī huí shǒu wèn Shìzhě：「 Rǔ yòu zuò me shēng？」 Shìzhě biàn hè。 Shī sòng Zuòzhǔ， huí lái suì wèn Shìzhě：「 Shì lái shì rǔ hè lǎo sēng？」 Shìzhě yún：「 Shì。」 Shī biàn dǎ。",
+          "translations": {
+            "ai_literal": {
+              "text": "The master asked the prior: \"Where have you been?\" The prior said: \"Selling the yellow rice in the prefecture, and back.\" The master said: \"Did you sell all of it?\" The prior said: \"All of it.\" With his staff the master drew a stroke on the ground in front of him and said: \"Could you sell this as well?\" The prior gave a shout; the master struck him. The cook came, and the master told him of the exchange. The cook said: \"The prior didn't understand your meaning.\" The master said: \"And what do you do about it?\" The cook forthwith bowed; the master likewise struck him. Then a lecturer came to call, and the master asked him: \"What sutras and treatises do you lecture on?\" The lecturer said: \"Poorly grounded as I am, I have roughly studied the Treatise on the Hundred Dharmas.\" The master said: \"Suppose one man has mastered the three vehicles and twelve divisions of the teaching and one man has not — same or different?\" The lecturer said: \"Having mastered it is the same; not having mastered it is different.\" Lepu, who was serving as attendant standing behind the master, said: \"Lecturer! What kind of place is this to be talking of same or different?\" The master turned and asked the attendant: \"And what do you do about it?\" The attendant gave a shout. When the master came back from seeing the lecturer out, he asked the attendant: \"Was that you who shouted at me a moment ago?\" The attendant said: \"It was.\" The master struck him.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_10",
+      "title_zh": "勘辨十 · 道得也三十棒",
+      "title_pinyin": "Kānbiàn Shí · Dàodé Yě Sānshí Bàng",
+      "title_en": "Testing 10 — “Thirty Blows Whether You Can Say It or Not”",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師聞第二代德山垂示云：「道得也三十棒，道不得也三十棒。」師令樂普去問：「道得為什麼也三十棒？待伊打汝，接住棒送一送，看他作麼生？」普到彼如教而問，德山便打，普接住送一送，德山便歸方丈。普回舉似師，師云：「我從來疑著這漢，雖然如是，汝還見德山麼？」普擬議，師便打。",
+          "pinyin": "Shī wén dì èr dài Déshān chuí shì yún：「 Dào dé yě sān shí bàng， dào bù dé yě sān shí bàng。」 Shī lìng Lèpǔ qù wèn：「 Dào dé wèi shén me yě sān shí bàng？ Dài yī dǎ rǔ， jiē zhù bàng sòng yī sòng， kàn tā zuò me shēng？」 Pǔ dào bǐ rú jiào ér wèn， Déshān biàn dǎ， pǔ jiē zhù sòng yī sòng， Déshān biàn guī fāng zhàng。 Pǔ huí jǔ shì shī， shī yún：「 Wǒ cóng lái yí zhù zhè hàn， suī rán rú shì， rǔ hái jiàn Déshān me？」 Pǔ nǐ yì， shī biàn dǎ。",
+          "translations": {
+            "ai_literal": {
+              "text": "The master heard that the second-generation Deshan had instructed: \"Whether you can say it or not — thirty blows.\" The master sent Lepu to ask: \"Why is it thirty blows even when you can say it? When he hits you, catch the staff and push it back at him — see what he does.\" Lepu went there and asked exactly as instructed; Deshan struck him. Lepu caught the staff and pushed it back at him, and Deshan returned to the abbot's room. Lepu came back and reported to the master, who said: \"All along I have suspected that fellow. Even so — did you see Deshan at all?\" As Lepu deliberated, the master struck him.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_11",
+      "title_zh": "勘辨十一 · 成佛作祖去",
+      "title_pinyin": "Kānbiàn Shíyī · Chéngfó Zuòzǔ Qù",
+      "title_en": "Testing 11 — “I Train Them All to Become Buddhas and Patriarchs”",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "王常侍一日訪師，同師於僧堂前看，乃問：「這一堂僧還看經麼？」師云：「不看經。」侍云：「還學禪麼？」師云：「不學禪。」侍云：「經又不看、禪又不學，畢竟作箇什麼？」師云：「總教伊成佛作祖去。」侍云：「金屑雖貴，落眼成翳，又作麼生？」師云：「將為爾是箇俗漢。」",
+          "pinyin": "Wáng Chángshì yī rì fǎng shī， tóng shī yú sēng táng qián kàn， nǎi wèn：「 Zhè yī táng sēng hái kàn jīng me？」 Shī yún：「 Bù kàn jīng。」 Shì yún：「 Hái xué chán me？」 Shī yún：「 Bù xué chán。」 Shì yún：「 Jīng yòu bù kàn、 chán yòu bù xué， bì jìng zuò gè shén me？」 Shī yún：「 Zǒng jiào yī chéng fú zuò zǔ qù。」 Shì yún：「 Jīn xiè suī guì， luò yǎn chéng yì， yòu zuò me shēng？」 Shī yún：「 Jiāng wèi ěr shì gè sú hàn。」",
+          "translations": {
+            "ai_literal": {
+              "text": "One day Commissioner Wang came to see the master and stood with him before the monks' hall, whereupon he asked: \"Do the monks of this hall read the sutras?\" The master said: \"They do not read sutras.\" The Commissioner said: \"Do they study Chan?\" The master said: \"They do not study Chan.\" The Commissioner said: \"Sutras so unread and Chan so unstudied — what in the end do they do?\" The master said: \"I train them all to become buddhas and patriarchs.\" The Commissioner said: \"Gold dust is precious, yet fallen in the eye it becomes a film — what then?\" The master said: \"And I thought you were a homespun fellow!\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_12",
+      "title_zh": "勘辨十二 · 露地白牛",
+      "title_pinyin": "Kānbiàn Shíèr · Lùdì Báiniú",
+      "title_en": "Testing 12 — The White Ox on the Open Ground",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師問杏山：「如何是露地白牛？」山云：「吽吽。」師云：「啞那。」山云：「長老作麼生？」師云：「這畜生。」",
+          "pinyin": "Shī wèn Xìngshān：「 Rú hé shì lù dì bái niú？」 Shān yún：「 Hōng hōng。」 Shī yún：「 Yǎ nà。」 Shān yún：「 Zhǎng lǎo zuò me shēng？」 Shī yún：「 Zhè chù sheng。」",
+          "translations": {
+            "ai_literal": {
+              "text": "The master asked Xingshan: \"What is the white ox on the open ground?\" Xingshan said: \"Om — om!\" The master said: \"Gone dumb, have you?\" Xingshan said: \"And what does the venerable do?\" The master said: \"The beast!\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_13",
+      "title_zh": "勘辨十三 · 行棒行喝阿那箇親",
+      "title_pinyin": "Kānbiàn Shísān · Xíngbàng Xínghè Ānǎgè Qīn",
+      "title_en": "Testing 13 — Staff or Shout: Which Is Closer?",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師問樂普云：「從上來，一人行棒、一人行喝，阿那箇親？」普云：「總不親。」師云：「親處作麼生？」普便喝，師乃打。",
+          "pinyin": "Shī wèn Lèpǔ yún：「 Cóng shàng lái， yī rén xíng bàng、 yī rén xíng hè， ā nà gè qīn？」 Pǔ yún：「 Zǒng bù qīn。」 Shī yún：「 Qīn chù zuò me shēng？」 Pǔ biàn hè， shī nǎi dǎ。",
+          "translations": {
+            "ai_literal": {
+              "text": "The master asked Lepu: \"From of old, one master wielded the staff and one wielded the shout — which comes closest?\" Lepu said: \"Neither is close.\" The master said: \"And what is close?\" Lepu at once gave a shout; whereupon the master struck him.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_14",
+      "title_zh": "勘辨十四 · 渾崙擘不開",
+      "title_pinyin": "Kānbiàn Shísì · Húnlún Bòbùkāi",
+      "title_en": "Testing 14 — All of a Piece, Impossible to Crack Open",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師見僧來，展開兩手，僧無語，師云：「會麼？」云：「不會。」師云：「渾崙擘不開，與爾兩文錢。」",
+          "pinyin": "Shī jiàn sēng lái， zhǎn kāi liǎng shǒu， sēng wú yǔ， shī yún：「 Huì me？」 Yún：「 Bù huì。」 Shī yún：「 Hún lún bāi bù kāi， yǔ ěr liǎng wén qián。」",
+          "translations": {
+            "ai_literal": {
+              "text": "Seeing a monk come, the master spread both his hands wide; the monk was speechless. The master said: \"Do you understand?\" He replied: \"I do not.\" The master said: \"All of a piece, it cannot be cracked open — here are two cash for you.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_15",
+      "title_zh": "勘辨十五 · 大覺不審",
+      "title_pinyin": "Kānbiàn Shíwǔ · Dàjué Bùshěn",
+      "title_en": "Testing 15 — Dajue’s “I Don’t Understand”",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "大覺到參，師舉起拂子，大覺敷坐具。師擲下拂子，大覺收坐具入僧堂。眾僧云：「這僧莫是和尚親故？不禮拜，又不喫棒。」師聞，令喚覺，覺出，師云：「大眾道汝未參長老。」覺云：「不審。」便自歸眾。",
+          "pinyin": "Dàjué dào cān， shī jǔ qǐ fú zi， Dàjué fū zuò jù。 Shī zhì xià fú zi， Dàjué shōu zuò jù rù sēng táng。 Zhòng sēng yún：「 Zhè sēng mò shì Héshàng qīn gù？ Bù lǐ bài， yòu bù chī bàng。」 Shī wén， lìng huàn jué， jué chū， shī yún：「 Dà zhòng dào rǔ wèi cān zhǎng lǎo。」 Jué yún：「 Bù shěn。」 Biàn zì guī zhòng。",
+          "translations": {
+            "ai_literal": {
+              "text": "When Dajue came to call, the master raised his whisk: Dajue spread out his sitting mat. The master threw down the whisk: Dajue gathered up the mat and went into the monks' hall. The monks said: \"That monk must be kin or an old friend of the master — he neither bowed nor took a beating.\" Hearing of this, the master had Dajue summoned. When Dajue came out, the master said: \"The assembly says that you have not called on the abbot.\" Dajue said: \"I don't understand,\" and went back into the assembly on his own.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_16",
+      "title_zh": "勘辨十六 · 趙州遇洗脚",
+      "title_pinyin": "Kānbiàn Shíliù · Zhàozhōu Yù Xǐjiǎo",
+      "title_en": "Testing 16 — Zhaozhou Catches Linji Washing His Feet",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "趙州行脚時參師，遇師洗脚次，州便問：「如何是祖師西來意？」師云：「恰值老僧洗脚。」州近前作聽勢，師云：「更要第二杓惡水潑在。」州便下去。",
+          "pinyin": "Zhàozhōu xíng jiǎo shí cān shī， yù shī xǐ jiǎo cì， zhōu biàn wèn：「 Rú hé shì Zǔshī xī lái yì？」 Shī yún：「 Qià zhí lǎo sēng xǐ jiǎo。」 Zhōu jìn qián zuò tīng shì， shī yún：「 Gèng yào dì èr biāo è shuǐ pō zài。」 Zhōu biàn xià qù。",
+          "translations": {
+            "ai_literal": {
+              "text": "When Zhaozhou was on pilgrimage he called on the master and caught him washing his feet. Zhaozhou forthwith asked: \"What is the meaning of the patriarch's coming from the west?\" The master said: \"You've caught me washing my feet.\" Zhaozhou stepped up close and cocked an ear as if to listen. The master said: \"What — you want a second ladle of dirty water poured on you.\" Zhaozhou went straight out.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_17",
+      "title_zh": "勘辨十七 · 定上座一掌大悟",
+      "title_pinyin": "Kānbiàn Shíqī · Dìng Shàngzuò Yīzhǎng Dàwù",
+      "title_en": "Testing 17 — Instructor Ding: One Slap, Great Awakening",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "有定上座到參，問：「如何是佛法大意？」師下繩床，擒住與一掌便托開，定佇立。傍僧云：「定上座何不禮拜？」定方禮拜，忽然大悟。",
+          "pinyin": "Yǒu Dìng Shàngzuò dào cān， wèn：「 Rú hé shì fó fǎ dà yì？」 Shī xià shéng chuáng， qín zhù yǔ yī zhǎng biàn tuō kāi， dìng zhù lì。 Bàng sēng yún：「 Dìng Shàngzuò hé bù lǐ bài？」 Dìng fāng lǐ bài， hū rán dà wù。",
+          "translations": {
+            "ai_literal": {
+              "text": "A certain Instructor Ding came to call and asked: \"What is the great meaning of the Buddha-dharma?\" Coming down from the rope bench, the master seized him, gave him one slap, and pushed him off. Ding stood stock-still. A monk beside him said: \"Instructor Ding, why not bow?\" As Ding began to bow, he was suddenly and greatly awakened.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_18",
+      "title_zh": "勘辨十八 · 十二面觀音",
+      "title_pinyin": "Kānbiàn Shíbā · Shíèr Miàn Guānyīn",
+      "title_en": "Testing 18 — The Twelve-Faced Guanyin",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "麻谷到參，敷坐具，問：「十二面觀音，阿那面正？」師下繩床，一手收坐具，一手搊麻谷，云：「十二面觀音，向什麼處去也？」麻谷轉身擬坐繩床，師拈拄杖打，麻谷接却，相捉入方丈。",
+          "pinyin": "Mágǔ dào cān， fū zuò jù， wèn：「 Shí èr miàn Guānyīn， ā nà miàn zhèng？」 Shī xià shéng chuáng， yī shǒu shōu zuò jù， yī shǒu chōu Mágǔ， yún：「 Shí èr miàn Guānyīn， xiàng shén me chù qù yě？」 Mágǔ zhuǎn shēn nǐ zuò shéng chuáng， shī niān zhǔ zhàng dǎ， Mágǔ jiē què， xiāng zhuō rù fāng zhàng。",
+          "translations": {
+            "ai_literal": {
+              "text": "When Magu came to call, he spread out his sitting mat and asked: \"Of the twelve-faced Guanyin, which face is the true one?\" Coming down from the rope bench, the master gathered the mat up with one hand and clutched Magu with the other, saying: \"The twelve-faced Guanyin — where has it gone?\" Magu wheeled around and made to sit on the bench; the master took up his staff to strike. Magu caught the staff, and grappling together they went into the abbot's room.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
       "section_id": "four_shouts",
-      "title_zh": "臨濟四喝：金剛王寶劍",
-      "title_pinyin": "Línjì Sìhè: Jīngāng Wáng Bǎojiàn",
-      "title_en": "The Four Shouts of Linji",
+      "title_zh": "勘辨十九 · 臨濟四喝",
+      "title_pinyin": "Kānbiàn Shíjiǔ · Línjì Sìhè",
+      "title_en": "Testing 19 — The Four Shouts of Linji",
       "dialogue": [
         {
           "speaker": "Linji / 臨濟",
-          "zh": "師問僧：「有時一喝如金剛王寶劍，有時一喝如金毛師子蹲地，有時一喝如探竿影草，有時一喝不作一喝用。汝作麼生會？」",
-          "pinyin": "Shī wèn sēng: 'Yǒu shí yī hè rú jīngāng wáng bǎojiàn, yǒu shí yī hè rú jīnmáo shīzǐ dūndì, yǒu shí yī hè rú tàngān yǐngcǎo, yǒu shí yī hè bù zuò yī hè yòng. Rǔ zuò me shēng huì?'",
+          "zh": "師問僧：「有時一喝如金剛王寶劍、有時一喝如踞地金毛師子、有時一喝如探竿影草、有時一喝不作一喝用，汝作麼生會？」",
+          "pinyin": "Shī wèn sēng：「 Yǒu shí yī hè rú jīn gāng wáng bǎo jiàn、 yǒu shí yī hè rú jù dì jīn máo shī zi、 yǒu shí yī hè rú tàn gān yǐng cǎo、 yǒu shí yī hè bù zuò yī hè yòng， rǔ zuò me shēng huì？」",
           "translations": {
             "red_pine": {
               "text": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the sacred king; sometimes a shout is like the golden-haired lion crouching on the earth; sometimes a shout is like a probe pole and grass shadow; sometimes a shout does not function as a shout. How do you understand this?'",
@@ -1073,8 +1415,8 @@
         },
         {
           "speaker": "Monk / 僧",
-          "zh": "僧擬議。師便喝。",
-          "pinyin": "Sēng nǐyì. Shī biàn hè.",
+          "zh": "僧擬議，師便喝。",
+          "pinyin": "Sēng nǐ yì， shī biàn hè。",
           "translations": {
             "red_pine": {
               "text": "The monk hesitated to reply. The Master immediately gave a resounding shout!",
@@ -1087,6 +1429,82 @@
             "cleary": {
               "text": "The monk deliberated. The Master gave a shout.",
               "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_20",
+      "title_zh": "勘辨二十 · 善來惡來",
+      "title_pinyin": "Kānbiàn Èrshí · Shànlái Èlái",
+      "title_en": "Testing 20 — “Come Well or Come Ill”",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "師問一尼：「善來？惡來？」尼便喝，師拈棒，云：「更道，更道。」尼又喝，師便打。",
+          "pinyin": "Shī wèn yī ní：「 Shàn lái？ È lái？」 Ní biàn hè， shī niān bàng， yún：「 Gèng dào， gèng dào。」 Ní yòu hè， shī biàn dǎ。",
+          "translations": {
+            "ai_literal": {
+              "text": "The master asked a nun: \"Come well or come ill?\" The nun gave a shout; the master took up his staff and said: \"Speak on, speak on!\" The nun shouted again, and the master struck her.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_21",
+      "title_zh": "勘辨二十一 · 要且無祖師意",
+      "title_pinyin": "Kānbiàn Èrshíyī · Yàoqiě Wú Zǔshī Yì",
+      "title_en": "Testing 21 — Longya: “And Yet There Is No Patriarch’s Meaning”",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "龍牙問：「如何是祖師西來意？」師云：「與我過禪板來。」牙便過禪板與師，師接得便打。牙云：「打即任打，要且無祖師意。」牙後到翠微問：「如何是祖師西來意？」微云：「與我過蒲團來。」牙便過蒲團與翠微，翠微接得便打。牙云：「打即任打，要且無祖師意。」牙住院，後有僧入室請益，云：「和尚行脚時參二尊宿因緣，還肯他也無？」牙云：「肯即深肯，要且無祖師意。」",
+          "pinyin": "Lóngyá wèn：「 Rú hé shì Zǔshī xī lái yì？」 Shī yún：「 Yǔ wǒ guò chán bǎn lái。」 Yá biàn guò chán bǎn yǔ shī， shī jiē dé biàn dǎ。 Yá yún：「 Dǎ jí rèn dǎ， yào qiě wú Zǔshī yì。」 Yá hòu dào cuì wēi wèn：「 Rú hé shì Zǔshī xī lái yì？」 Wēi yún：「 Yǔ wǒ guò pú tuán lái。」 Yá biàn guò pú tuán yǔ cuì wēi， cuì wēi jiē dé biàn dǎ。 Yá yún：「 Dǎ jí rèn dǎ， yào qiě wú Zǔshī yì。」 Yá zhù yuàn， hòu yǒu sēng rù shì qǐng yì， yún：「 Héshàng xíng jiǎo shí cān èr zūn sù yīn yuán， hái kěn tā yě wú？」 Yá yún：「 Kěn jí shēn kěn， yào qiě wú Zǔshī yì。」",
+          "translations": {
+            "ai_literal": {
+              "text": "Longya asked: \"What is the meaning of the patriarch's coming from the west?\" The master said: \"Pass me the sitting board.\" Longya passed the sitting board to the master, who took it and struck him with it. Longya said: \"Strike me as you will, but there is still no patriarch's meaning!\" Later Longya went to Cuiwei and asked: \"What is the meaning of the patriarch's coming from the west?\" Cuiwei said: \"Pass me the cushion.\" Longya passed the cushion to Cuiwei, who took it and struck him with it. Longya said: \"Strike me as you will, but there is still no patriarch's meaning!\" When Longya later held his own abbacy, a monk came into his room for instruction, saying: \"When you were on pilgrimage you called on those two venerable elders — do you, after all, endorse them?\" Longya said: \"I endorse them deeply — yet still there is no patriarch's meaning.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_22",
+      "title_zh": "勘辨二十二 · 黃蘗遣師到徑山",
+      "title_pinyin": "Kānbiàn Èrshíèr · Huángbò Qiǎn Shī Dào Jìngshān",
+      "title_en": "Testing 22 — Sent by Huangbo to Master Jingshan",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "徑山有五百眾，少人參請，黃蘗令師到徑山，乃謂師曰：「汝到彼作麼生？」師云：「某甲到彼自有方便。」師到徑山，裝腰上法堂見徑山。徑山方舉頭，師便喝。徑山擬開口，師拂袖便行。尋有僧問徑山：「這僧適來有什麼言句便喝和尚？」徑山云：「這僧從黃蘗會裏來，爾要知麼？且問取他。」徑山五百眾太半分散。",
+          "pinyin": "Jìngshān yǒu wǔ bǎi zhòng， shǎo rén cān qǐng， Huángbò lìng shī dào Jìngshān， nǎi wèi shī yuē：「 Rǔ dào bǐ zuò me shēng？」 Shī yún：「 Mǒu jiǎ dào bǐ zì yǒu fāng biàn。」 Shī dào Jìngshān， zhuāng yāo shàng fǎ táng jiàn Jìngshān。 Jìngshān fāng jǔ tóu， shī biàn hè。 Jìngshān nǐ kāi kǒu， shī fú xiù biàn xíng。 Xún yǒu sēng wèn Jìngshān：「 Zhè sēng shì lái yǒu shén me yán jù biàn hè Héshàng？」 Jìngshān yún：「 Zhè sēng cóng Huángbò huì lǐ lái， ěr yào zhī me？ Qiě wèn qǔ tā。」 Jìngshān wǔ bǎi zhòng tài bàn fēn sàn。",
+          "translations": {
+            "ai_literal": {
+              "text": "Jingshan had five hundred monks, but few came to call, so Huangbo sent the master there and said to him: \"What will you do when you arrive?\" The master said: \"Once I am there I have my own device.\" Reaching Jingshan, he hitched up his robe and went up to the Dharma hall to see him. Just as Jingshan was lifting his head, the master gave a shout. Just as Jingshan was about to open his mouth, the master shook out his sleeves and walked on out. Presently a monk asked Jingshan: \"What did that monk say just now, that he should shout at you?\" Jingshan said: \"That monk comes from Huangbo's assembly. If you want to know, go ask him yourself.\" More than half of Jingshan's five hundred monks scattered.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "kanbian_23",
+      "title_zh": "勘辨二十三 · 普化遷化空中鈴響",
+      "title_pinyin": "Kānbiàn Èrshísān · Pǔhuà Qiānhuà Kōngzhōng Língxiǎng",
+      "title_en": "Testing 23 — Puhua’s Passing; A Bell Fading in the Sky",
+      "dialogue": [
+        {
+          "speaker": "Record / 錄",
+          "zh": "普化一日於街市中就人乞直裰，人皆與之，普化俱不要。師令院主買棺一具，普化歸來，師云：「我與汝做得箇直裰了也。」普化便自擔去，繞街市叫云：「臨濟與我做直裰了也，我往東門遷化去。」市人競隨看之。普化云：「我今日未，來日往南門遷化去。」如是三日，人皆不信，至第四日無人隨看，獨出城外，自入棺內，倩路行人釘之，即時傳布，市人競往開棺，乃見全身脫去，秖聞空中鈴響隱隱而去。",
+          "pinyin": "Pǔhuà yī rì yú jiē shì zhōng jiù rén qǐ zhí duō， rén jiē yǔ zhī， Pǔhuà jù bú yào。 Shī lìng Yuànzhǔ mǎi guān yī jù， Pǔhuà guī lái， shī yún：「 Wǒ yǔ rǔ zuò dé gè zhí duō le yě。」 Pǔhuà biàn zì dān qù， rào jiē shì jiào yún：「 Línjì yǔ wǒ zuò zhí duō le yě， wǒ wǎng dōng mén qiān huà qù。」 Shì rén jìng suí kàn zhī。 Pǔhuà yún：「 Wǒ jīn rì wèi， lái rì wǎng nán mén qiān huà qù。」 Rú shì sān rì， rén jiē bù xìn， zhì dì sì rì wú rén suí kàn， dú chū chéng wài， zì rù guān nèi， qiàn lù xíng rén dīng zhī， jí shí chuán bù， shì rén jìng wǎng kāi guān， nǎi jiàn quán shēn tuō qù， zhǐ wén kōng zhōng líng xiǎng yǐn yǐn ér qù。",
+          "translations": {
+            "ai_literal": {
+              "text": "One day Puhua was in the streets and markets begging people for a robe; everyone offered him one, but he would take none of them. The master had the prior buy a coffin, and when Puhua returned, the master said: \"I have had your robe made for you.\" At once Puhua took the coffin onto his shoulders and went around the market crying: \"Linji has made me a robe! I am off to the East Gate to pass away,\" and the townsfolk vied to follow and watch. Puhua said: \"Not today — tomorrow I am off to the South Gate to pass away.\" So it went for three days, and nobody believed him any longer. On the fourth day no one followed; he left the city alone, got into the coffin himself, and asked a passing traveler to nail it shut. The news spread at once; the townsfolk raced to pry the coffin open — and found the whole body gone, hearing only a bell's faint ringing fading away into the empty sky.",
+              "status": "ai_draft"
             }
           }
         }
@@ -1161,5 +1579,5 @@
       ]
     }
   ],
-  "zh_chars": 11471
+  "zh_chars": 13367
 }
