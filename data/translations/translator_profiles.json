@@ -16,7 +16,9 @@
       "robo_name": "Senzaki & Reps (1934)",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 83,
-      "evidence_pointers": ["data/corpus/wumenguan.json — 83 verified slots, every case (The Gateless Gate / 1934 Senzaki & Reps, U.S. public domain via non-renewal)"],
+      "evidence_pointers": [
+        "data/corpus/wumenguan.json — 83 verified slots, every case (The Gateless Gate / 1934 Senzaki & Reps, U.S. public domain via non-renewal)"
+      ],
       "rendering_of_wu": "Mu. (calm, period-terminated; the word left untranslated as a teaching device)",
       "naming": "Joshu (no diacritic); appositive context added, e.g. 'Joshu, a Chinese Zen master'",
       "observed_features": [
@@ -33,7 +35,9 @@
       "robo_name": "Robo Yamada",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 24,
-      "evidence_pointers": ["data/corpus/wumenguan.json — 24 verified slots (Gateless Gate / Yamada)"],
+      "evidence_pointers": [
+        "data/corpus/wumenguan.json — 24 verified slots (Gateless Gate / Yamada)"
+      ],
       "rendering_of_wu": "Mu! (exclamatory)",
       "naming": "Jôshû (circumflex romaji); 'the monk' / 'Jôshû'",
       "observed_features": [
@@ -49,7 +53,9 @@
       "robo_name": "Robo Aitken",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 6,
-      "evidence_pointers": ["data/corpus/wumenguan.json — verified slots (Aitken, Gateless Gate)"],
+      "evidence_pointers": [
+        "data/corpus/wumenguan.json — verified slots (Aitken, Gateless Gate)"
+      ],
       "rendering_of_wu": "Mu. (period)",
       "naming": "Chao-chou (Wade-Giles); 'the dog' with definite article",
       "observed_features": [
@@ -65,7 +71,9 @@
       "robo_name": "Robo Sekida",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 2,
-      "evidence_pointers": ["data/corpus/wumenguan.json — 2 verified slots (Sekida, Gateless Gate)"],
+      "evidence_pointers": [
+        "data/corpus/wumenguan.json — 2 verified slots (Sekida, Gateless Gate)"
+      ],
       "rendering_of_wu": "Mu. (period)",
       "naming": "Jōshū (macron); 'the Buddha Nature' (article + caps)",
       "observed_features": [
@@ -81,7 +89,9 @@
       "robo_name": "Robo Blyth",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 2,
-      "evidence_pointers": ["data/corpus/wumenguan.json — Case 1 verified slots (Zen and Zen Classics v.4 / Mumonkan, Hokuseido 1966)"],
+      "evidence_pointers": [
+        "data/corpus/wumenguan.json — Case 1 verified slots (Zen and Zen Classics v.4 / Mumonkan, Hokuseido 1966)"
+      ],
       "rendering_of_wu": "Mu! (punchy, exclamatory)",
       "naming": "Joshu (no diacritic); 'the Buddha-nature' (article + hyphen)",
       "observed_features": [
@@ -97,7 +107,9 @@
       "robo_name": "Robo Ruth",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 3,
-      "evidence_pointers": ["data/corpus/linji_yulu.json — 3 verified slots (The Record of Linji, tr. Sasaki / ed. Kirchner, U Hawaii Press 2009)"],
+      "evidence_pointers": [
+        "data/corpus/linji_yulu.json — 3 verified slots (The Record of Linji, tr. Sasaki / ed. Kirchner, U Hawaii Press 2009)"
+      ],
       "rendering_of_wu": "Mu (untranslated technical term)",
       "naming": "Jōshū (macron); 'the Master' (capitalized) for the teacher",
       "observed_features": [
@@ -114,7 +126,9 @@
       "robo_name": "Roblofeld",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 4,
-      "evidence_pointers": ["data/corpus/huangbo_wanling.json & huangbo_chuanxin.json — 4 verified slots (The Zen Teaching of Huang Po, Blofeld, Rider 1958 / Grove Press)"],
+      "evidence_pointers": [
+        "data/corpus/huangbo_wanling.json & huangbo_chuanxin.json — 4 verified slots (The Zen Teaching of Huang Po, Blofeld, Rider 1958 / Grove Press)"
+      ],
       "rendering_of_wu": "None! (negative/emptiness, exclamatory)",
       "naming": "'the Master'; capitalized abstract nouns",
       "observed_features": [
@@ -131,7 +145,9 @@
       "robo_name": "Robo Clarke",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 2,
-      "evidence_pointers": ["data/corpus/xinxin_ming.json — 2 verified slots (Verses on the Faith Mind, Clarke)"],
+      "evidence_pointers": [
+        "data/corpus/xinxin_ming.json — 2 verified slots (Verses on the Faith Mind, Clarke)"
+      ],
       "rendering_of_wu": "(n/a in verified sample; poem register)",
       "naming": "'the Great Way'",
       "observed_features": [
@@ -146,7 +162,9 @@
       "robo_name": "Robo Ferguson",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 2,
-      "evidence_pointers": ["data/corpus/linji_yulu.json — 2 verified slots (Zen's Chinese Heritage, Ferguson)"],
+      "evidence_pointers": [
+        "data/corpus/linji_yulu.json — 2 verified slots (Zen's Chinese Heritage, Ferguson)"
+      ],
       "rendering_of_wu": "(n/a in verified sample)",
       "naming": "'Linji'; biographical-narrative frame",
       "observed_features": [
@@ -161,7 +179,9 @@
       "robo_name": "Robo Hoffman",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 5,
-      "evidence_pointers": ["data/corpus/yunmen_yulu.json — 5 verified slots (Hoffman compile/translation work)"],
+      "evidence_pointers": [
+        "data/corpus/yunmen_yulu.json — 5 verified slots (Hoffman compile/translation work)"
+      ],
       "rendering_of_wu": "(n/a in verified sample)",
       "naming": "Direct quotation framing",
       "observed_features": [
@@ -176,7 +196,9 @@
       "robo_name": "Robo Shimomissé",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 2,
-      "evidence_pointers": ["data/corpus/wumenguan.json — 2 verified slots (Shimomissé, Gateless Gate)"],
+      "evidence_pointers": [
+        "data/corpus/wumenguan.json — 2 verified slots (Shimomissé, Gateless Gate)"
+      ],
       "rendering_of_wu": "Mu (nothing)! (glosses Mu inline)",
       "naming": "Joshu (no diacritic); 'the dog', 'the Buddha nature' (article + caps, no hyphen)",
       "observed_features": [
@@ -192,7 +214,9 @@
       "robo_name": "Robo Watson",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 1,
-      "evidence_pointers": ["data/corpus/linji_yulu.json — 1 verified slot (Watson, Linji)"],
+      "evidence_pointers": [
+        "data/corpus/linji_yulu.json — 1 verified slot (Watson, Linji)"
+      ],
       "rendering_of_wu": "(n/a in verified sample)",
       "naming": "'The Master'; 'a monk'",
       "observed_features": [
@@ -207,7 +231,9 @@
       "robo_name": "Robo Yampolsky",
       "evidence_source": "in_corpus_verified",
       "verified_sample_count": 2,
-      "evidence_pointers": ["data/corpus/platform_sutra.json — 2 verified slots (The Platform Sutra, Yampolsky, Columbia UP)"],
+      "evidence_pointers": [
+        "data/corpus/platform_sutra.json — 2 verified slots (The Platform Sutra, Yampolsky, Columbia UP)"
+      ],
       "rendering_of_wu": "(n/a in verified sample)",
       "naming": "Caps inherited Buddhist terms: 'Bodhi'",
       "observed_features": [
@@ -216,7 +242,6 @@
       ],
       "personality": "The Columbia don who footnotes the enlightenment."
     },
-
     {
       "register_key": "red_pine",
       "translator": "Red Pine (Bill Porter)",
@@ -251,16 +276,20 @@
       "register_key": "suzuki",
       "translator": "D.T. Suzuki",
       "robo_name": "Robozuki",
-      "evidence_source": "documented_external",
-      "evidence_pending": "No in-corpus verified sample yet. Profile records widely-documented features of Suzuki's early-20th-century academic-English Zen exposition; add a verified sample to promote.",
+      "evidence_source": "in_corpus_verified",
       "rendering_of_wu": "Mu. (he did much to canonize 'Mu' in English)",
       "naming": "Wade-Giles (Chao-chou); 'the Master'",
       "observed_features": [
-        "Early-20th-century academic English, slightly archaic and earnest.",
-        "Wade-Giles romanization; ready to expound the philosophy around the line.",
-        "Didactic, expository, fond of framing Zen against Western thought."
+        "Caps the key term: 'The Perfect Way knows no difficulties ...'.",
+        "Abstracts the verb: 'refuses to make preferences' for 唯嫌揀擇.",
+        "Semicolon-heavy, lineated, slightly archaic early-20th-century academic English.",
+        "Rendered from the Japanese title Shinjin-no-mei; reads the Chinese via the Sino-Japanese tradition."
       ],
-      "personality": "The ambassador-professor who lectures the West into the koan, sentence by sentence."
+      "personality": "The ambassador-professor who lectures the West into the koan, sentence by sentence.",
+      "verified_sample_count": 1,
+      "evidence_pointers": [
+        "data/corpus/xinxin_ming.json — stanza 1 (Manual of Zen Buddhism, Suzuki, 1935, Section IV.2 'On Believing in Mind')"
+      ]
     },
     {
       "register_key": "heine",

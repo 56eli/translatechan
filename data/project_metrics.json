@@ -505,17 +505,17 @@
     "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
   },
   "rights_coverage": {
-    "distinct_verified_sources": 13,
-    "manifest_sources": 13,
-    "verified_source_records": 140
+    "distinct_verified_sources": 14,
+    "manifest_sources": 14,
+    "verified_source_records": 141
   },
   "schema_version": "1.0",
   "translations": {
     "corpus_slots": 1023,
     "corpus_statuses": {
       "ai_draft": 206,
-      "reconstruction_unverified": 679,
-      "verified_quotation": 138
+      "reconstruction_unverified": 678,
+      "verified_quotation": 139
     },
     "matrix_entries": 21,
     "matrix_statuses": {
@@ -526,7 +526,7 @@
     "verified_corpus_texts": 7,
     "verified_reference_coverage": {
       "pending": 5,
-      "recorded": 135
+      "recorded": 136
     }
   }
 }

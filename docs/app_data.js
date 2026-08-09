@@ -2567,16 +2567,20 @@ window.TRANSLATECHAN_DATA = {
         "register_key": "suzuki",
         "translator": "D.T. Suzuki",
         "robo_name": "Robozuki",
-        "evidence_source": "documented_external",
-        "evidence_pending": "No in-corpus verified sample yet. Profile records widely-documented features of Suzuki's early-20th-century academic-English Zen exposition; add a verified sample to promote.",
+        "evidence_source": "in_corpus_verified",
         "rendering_of_wu": "Mu. (he did much to canonize 'Mu' in English)",
         "naming": "Wade-Giles (Chao-chou); 'the Master'",
         "observed_features": [
-          "Early-20th-century academic English, slightly archaic and earnest.",
-          "Wade-Giles romanization; ready to expound the philosophy around the line.",
-          "Didactic, expository, fond of framing Zen against Western thought."
+          "Caps the key term: 'The Perfect Way knows no difficulties ...'.",
+          "Abstracts the verb: 'refuses to make preferences' for 唯嫌揀擇.",
+          "Semicolon-heavy, lineated, slightly archaic early-20th-century academic English.",
+          "Rendered from the Japanese title Shinjin-no-mei; reads the Chinese via the Sino-Japanese tradition."
         ],
-        "personality": "The ambassador-professor who lectures the West into the koan, sentence by sentence."
+        "personality": "The ambassador-professor who lectures the West into the koan, sentence by sentence.",
+        "verified_sample_count": 1,
+        "evidence_pointers": [
+          "data/corpus/xinxin_ming.json — stanza 1 (Manual of Zen Buddhism, Suzuki, 1935, Section IV.2 'On Believing in Mind')"
+        ]
       },
       {
         "register_key": "heine",
@@ -2949,6 +2953,14 @@ window.TRANSLATECHAN_DATA = {
         "review_status": "needs_rights_review",
         "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
         "rights_note": "Columbia University Press edition cited in source metadata."
+      },
+      {
+        "source_id": "suzuki-mzb-1935",
+        "translator": "D.T. Suzuki",
+        "rights_status": "public_domain_claimed_us",
+        "review_status": "jurisdiction_review_required",
+        "redistribution_policy": "Use the cited 1935 text with source attribution; confirm public-domain status in each distribution jurisdiction.",
+        "rights_note": "Manual of Zen Buddhism (1935) is recorded as U.S. public domain via non-renewal (hosted by sacred-texts.com and Golden Elixir Press as PD). That claim is jurisdiction-specific."
       }
     ]
   },
@@ -5443,17 +5455,17 @@ window.TRANSLATECHAN_DATA = {
       "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
     },
     "rights_coverage": {
-      "distinct_verified_sources": 13,
-      "manifest_sources": 13,
-      "verified_source_records": 140
+      "distinct_verified_sources": 14,
+      "manifest_sources": 14,
+      "verified_source_records": 141
     },
     "schema_version": "1.0",
     "translations": {
       "corpus_slots": 1023,
       "corpus_statuses": {
         "ai_draft": 206,
-        "reconstruction_unverified": 679,
-        "verified_quotation": 138
+        "reconstruction_unverified": 678,
+        "verified_quotation": 139
       },
       "matrix_entries": 21,
       "matrix_statuses": {
@@ -5464,7 +5476,7 @@ window.TRANSLATECHAN_DATA = {
       "verified_corpus_texts": 7,
       "verified_reference_coverage": {
         "pending": 5,
-        "recorded": 135
+        "recorded": 136
       }
     }
   },
@@ -10996,11 +11008,19 @@ window.TRANSLATECHAN_DATA = {
               "status": "reconstruction_unverified"
             },
             "suzuki": {
-              "text": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
-              "status": "reconstruction_unverified"
+              "text": "The Perfect Way knows no difficulties except that it refuses to make preferences; only when freed from hate and love, it reveals itself fully and without disguise.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Manual of Zen Buddhism",
+                "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.2 'On Believing in Mind (Shinjin-no-mei)'",
+                "reference": "Section IV.2, stanza 1",
+                "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; stanza-1 wording matches verbatim.",
+                "source_id": "suzuki-mzb-1935",
+                "page": "IV.2, stanza 1"
+              }
             },
             "blyth": {
-              "text": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
+              "text": "The Perfect Way is not hard — it only hates picking and choosing. Free of love and hate, it stands clear and undisguised.",
               "status": "reconstruction_unverified"
             },
             "sasaki": {
