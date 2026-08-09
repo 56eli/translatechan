@@ -57,6 +57,9 @@ python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium
 diff -rq data docs/data
+diff -q theme-init.js docs/theme-init.js   # FOUC guard, added 2026-08-09
+diff -q robots.txt docs/robots.txt
+diff -q sitemap.xml docs/sitemap.xml
 ```
 
 All commands pass. Root and `/docs` assets/data are synchronized.
@@ -64,6 +67,8 @@ All commands pass. Root and `/docs` assets/data are synchronized.
 ### GitHub Actions quality gate
 
 `.github/workflows/quality.yml` is checked in and runs on pushes to `main` and `arena/**`, plus pull requests targeting `main`. It validates Python syntax, source data/metrics, deterministic generated artifacts, the `/docs` mirror, and the dependency-free reader smoke suite. It does **not** deploy Pages; Pages remains native branch publishing from `main` `/docs`.
+
+Owner follow-up (2026-08-09): the session token could not update workflow YAML, so `.github/workflows/quality.yml`'s generated-artifact `git diff --exit-code` path list should be extended to include `docs/theme-init.js`, `docs/robots.txt`, and `docs/sitemap.xml`. Local gates already enforce these via `diff -q`; the smoke test also requires their presence.
 
 ### Repository administration — require the Quality check on `main` (owner action, ~2 minutes)
 

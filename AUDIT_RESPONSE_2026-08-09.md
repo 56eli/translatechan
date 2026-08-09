@@ -109,35 +109,17 @@ visually-hidden `<h1>` per SPA), reader doc titles to `<h2>`, and case titles to
 `<h3>`, reusing the existing classes so visual design is unchanged. This is
 probably the highest-value accessibility improvement remaining.
 
-**B3 — Decorative emoji are announced by screen readers (P4, a11y)**
-The nav-tab and brand emoji (`🪷 📖 ⚖️ 🌳 🗂️ 📚 🌙 ☀️ 📍 💡 🔍 ＋ − ⟲ 🖨 ⬆ 📑 拼`)
-sit in bare `<span>`s; assistive tech may read "open book", "balance scale",
-etc. alongside the visible label. Adding `aria-hidden="true"` to the decorative
-icon spans (and keeping the text label) is a ~15-minute cleanup. The emoji also
-render inconsistently across OSes; not a blocker, just noting.
+**B3 — Decorative emoji are announced by screen readers (P4, a11y)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
+Decorative emoji spans in the brand, navigation tabs, search box, theme toggle, and hero chips now carry `aria-hidden="true"`; visible text labels remain intact. The theme toggle's JS-generated sun/moon glyph also renders inside an `aria-hidden` span. A smoke test guards that static decorative emoji spans in `index.html` are hidden from assistive technology.
 
 **B4 — `app_data.js` preload is redundant with the end-of-body `<script>` (P4, perf)**
-`index.html` line 19 has `<link rel="preload" as="script" href="app_data.js">`,
-and line 260 loads the same file with a normal `<script src>`. Browsers *do*
-reuse the preload for a matching plain script request in modern engines, so this
-is mostly fine, but `defer` on both scripts would let them download in parallel
-with HTML parsing and execute in order after parse — a measurable first-paint win
-given the 799 KB bundle. Today both scripts are synchronous at the end of body,
-which is already decent; `defer` is a strict improvement and removes any
-ambiguity about preload reuse.
+`index.html` has `<link rel="preload" as="script" href="app_data.js">` and later loads the same file with a normal `<script src>`. Browsers reuse the preload for a matching plain script request in modern engines, so this is mostly fine, but `defer` on both scripts would let them download in parallel with HTML parsing and execute in order after parse — a measurable first-paint win given the 873 KB bundle. Today both scripts are synchronous at the end of body, which is already decent; `defer` is a strict improvement and removes any ambiguity about preload reuse.
 
-**B5 — No `theme-color`, Open Graph/Twitter cards, or sitemap/robots (P4, polish)**
-The app is public on GitHub Pages but has no `theme-color` meta (mobile browser
-chrome), no `og:title`/`og:description`/`og:image` (unfurl previews when shared),
-and no `robots.txt`/`sitemap.xml`. Easy SEO/share-polish win. A canonical
-`<link rel="canonical">` would also prevent the root-vs-`/docs` duplication from
-being misread by crawlers.
+**B5 — No `theme-color`, Open Graph/Twitter cards, or sitemap/robots (P4, polish)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
+Added light/dark `theme-color` meta tags, canonical URL, Open Graph title/description/url, Twitter card metadata, and root-level `robots.txt` and `sitemap.xml`. The build now copies both crawler files into `docs/`, and the smoke test checks that the metadata and generated crawler files exist.
 
-**B6 — Hero chip "8+ Translators Aligned" understates reality (P4, copy)**
-The hero says "8+ Translators Aligned"; the matrix actually carries 9 unique
-named translator labels plus AI. The "8+" is technically true but undersells it
-and, like A3, is a hand-maintained number adjacent to a system that already
-computes the real count. Could derive it or just say "9+ translators".
+**B6 — Hero chip "8+ Translators Aligned" understates reality (P4, copy)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
+The hero corpus and translator counts are now data-derived at startup (`updateHeroCounts()`), replacing the hand-maintained `8+ Translators Aligned` chip with the actual number of unique non-AI translator labels in the comparative matrix. Smoke tests guard the data-derived behavior, and the decorative emoji in the hero chips are marked `aria-hidden`.
 
 ### C. Code quality / maintainability
 

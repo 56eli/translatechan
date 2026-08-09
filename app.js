@@ -93,6 +93,25 @@
     lexiconTarget: document.getElementById('lexicon-content-target'),
   };
 
+  // Keep the hero's hand-authored "36 works / 8+ translators" chips truthful
+  // without adding those counts to the doc-gate: derive them from live data.
+  function updateHeroCounts() {
+    const corpusChip = document.getElementById('hero-corpus-count');
+    if (corpusChip && state.data.corpus) {
+      corpusChip.textContent = `📜 ${Object.keys(state.data.corpus).length} Canonical Works`;
+    }
+    const translatorChip = document.getElementById('hero-translator-count');
+    const rows = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : [];
+    const translators = new Set();
+    rows.forEach(row => (row.translators || []).forEach(t => {
+      const name = stringValue(t && t.translator);
+      if (name && !/\bAI\b/i.test(name)) translators.add(name);
+    }));
+    if (translatorChip) {
+      translatorChip.textContent = `⚖️ ${translators.size} Translators Aligned`;
+    }
+  }
+
   // Corpus selection has a single persistence path so sidebar, mobile picker,
   // deep links, and search jumps all restore the same reading context.
   function setCurrentCorpusKey(key) {
@@ -111,6 +130,7 @@
 
     applyTheme(state.theme);
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
+    updateHeroCounts();
     populateLineageSchoolFilter();
     populateLexiconCategoryFilter();
     setupEventListeners();
@@ -342,7 +362,7 @@
     document.documentElement.setAttribute('data-theme', theme);
     storageSet('translatechan_theme', theme);
     if (elements.themeToggle) {
-      elements.themeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+      elements.themeToggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">☀️</span>' : '<span aria-hidden="true">🌙</span>';
     }
   }
 

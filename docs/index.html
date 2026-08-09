@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121214" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://56eli.github.io/translatechan/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TranslateChan">
+  <meta property="og:title" content="TranslateChan | Classical Chinese Chan/Zen Corpus & Translation Matrix">
+  <meta property="og:description" content="An open, contemplative digital corpus, lineage knowledge graph, comparative translation matrix, and lexicon for Classical Chinese Chan literature (CBETA / Taishō 47, 48, 51).">
+  <meta property="og:url" content="https://56eli.github.io/translatechan/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="TranslateChan | Classical Chinese Chan/Zen Corpus & Translation Matrix">
+  <meta name="twitter:description" content="A serene, open digital corpus, lineage graph, comparative translation matrix, and Chan lexicon.">
   <title>TranslateChan | Classical Chinese Chan/Zen Translation & Preservation Matrix</title>
   <meta name="description" content="A serene, open, and contemplative digital corpus, lineage knowledge graph, comparative translation matrix, and lexicon for Chinese Chan Masters of Old (CBETA / Taishō 47, 48, 51).">
   <!-- Apply the persisted theme before first paint to avoid a light-mode flash
@@ -29,7 +40,7 @@
   <header>
     <div class="nav-container">
       <a href="#/reader" class="brand">
-        <span class="brand-icon">🪷</span>
+        <span class="brand-icon" aria-hidden="true">🪷</span>
         <div>
           <div class="brand-title">
             <span>TranslateChan</span>
@@ -43,27 +54,27 @@
       <ul class="nav-tabs" role="tablist" aria-label="Main navigation">
         <li role="none">
           <button class="nav-tab-btn active" data-view="reader" role="tab" id="tab-reader" aria-controls="view-reader" aria-selected="true" tabindex="0">
-            <span>📖</span> <span>Bilingual Reader</span>
+            <span aria-hidden="true">📖</span> <span>Bilingual Reader</span>
           </button>
         </li>
         <li role="none">
           <button class="nav-tab-btn" data-view="matrix" role="tab" id="tab-matrix" aria-controls="view-matrix" aria-selected="false" tabindex="-1">
-            <span>⚖️</span> <span>Comparative Matrix</span>
+            <span aria-hidden="true">⚖️</span> <span>Comparative Matrix</span>
           </button>
         </li>
         <li role="none">
           <button class="nav-tab-btn" data-view="lineage" role="tab" id="tab-lineage" aria-controls="view-lineage" aria-selected="false" tabindex="-1">
-            <span>🌳</span> <span>Lineage Tree</span>
+            <span aria-hidden="true">🌳</span> <span>Lineage Tree</span>
           </button>
         </li>
         <li role="none">
           <button class="nav-tab-btn" data-view="gongan" role="tab" id="tab-gongan" aria-controls="view-gongan" aria-selected="false" tabindex="-1">
-            <span>🗂️</span> <span>Gong'an Index</span>
+            <span aria-hidden="true">🗂️</span> <span>Gong'an Index</span>
           </button>
         </li>
         <li role="none">
           <button class="nav-tab-btn" data-view="lexicon" role="tab" id="tab-lexicon" aria-controls="view-lexicon" aria-selected="false" tabindex="-1">
-            <span>📚</span> <span>Chan Lexicon</span>
+            <span aria-hidden="true">📚</span> <span>Chan Lexicon</span>
           </button>
         </li>
       </ul>
@@ -71,10 +82,10 @@
       <!-- Controls & Search -->
       <div class="nav-controls">
         <div class="search-box">
-          <span class="search-icon">🔍</span>
+          <span class="search-icon" aria-hidden="true">🔍</span>
           <input type="text" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off">
         </div>
-        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme">🌙</button>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme"><span aria-hidden="true">🌙</span></button>
       </div>
     </div>
   </header>
@@ -89,9 +100,9 @@
         </div>
       </div>
       <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <span class="meta-chip">📜 36 Canonical Works</span>
-        <span class="meta-chip">⚖️ 8+ Translators Aligned</span>
-        <span class="meta-chip">🌐 Zero-Backend Static</span>
+        <span class="meta-chip" id="hero-corpus-count" aria-hidden="true">📜 36 Canonical Works</span>
+        <span class="meta-chip" id="hero-translator-count" aria-hidden="true">⚖️ 8+ Translators Aligned</span>
+        <span class="meta-chip" aria-hidden="true">🌐 Zero-Backend Static</span>
       </div>
     </div>
 

@@ -1,7 +1,7 @@
 // Minimal DOM stub smoke test for TranslateChan app.js
 // TranslateChan smoke test — exercises renderReader for every corpus text, all modes, search, namespace.
 // Run: node scripts/smoke_test.mjs   (no dependencies)
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -25,6 +25,29 @@ if (publicHtml.indexOf('<script src="theme-init.js"></script>') > publicHtml.ind
 }
 if (!/localStorage[^]*translatechan_theme[^]*setAttribute\(['"]data-theme['"]/.test(themeInitSrc)) {
   throw new Error('theme-init.js must read translatechan_theme and set data-theme before paint');
+}
+// B5: public share/SEO metadata and crawler files.
+for (const requiredMeta of [
+  'name="theme-color"',
+  'property="og:title"',
+  'property="og:description"',
+  'name="twitter:card"',
+  'rel="canonical" href="https://56eli.github.io/translatechan/"'
+]) {
+  if (!publicHtml.includes(requiredMeta)) throw new Error(`missing public metadata: ${requiredMeta}`);
+}
+for (const requiredFile of ['robots.txt', 'sitemap.xml']) {
+  if (!existsSync(join(ROOT, requiredFile)) || !existsSync(join(ROOT, 'docs', requiredFile))) {
+    throw new Error(`missing generated ${requiredFile} at root and docs/`);
+  }
+}
+// B3/B6: decorative nav emoji are hidden, and the hero chip count is data-derived.
+for (const iconSpan of publicHtml.match(/<span[^>]*>[\u{1F300}-\u{1FAFF}️⃣][^<]*<\/span>/gu) || []) {
+  if (iconSpan.includes('<span>Bilingual') || iconSpan.includes('<span>Comparative')) continue;
+  if (!iconSpan.includes('aria-hidden="true"')) throw new Error(`decorative emoji span is not aria-hidden: ${iconSpan}`);
+}
+if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.includes('translators.size')) {
+  throw new Error('hero translator/corpus counts are not derived from data');
 }
 
 const store = {};
