@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TranslateChan: Zen Minimalist & Serene Aesthetic
+   Fake Chan Factory: Zen Minimalist & Serene Aesthetic
    Designed for deep contemplative reading on mobile, tablet, and desktop.
    ========================================================================== */
 
@@ -747,6 +747,59 @@ main {
   color: var(--text-primary);
 }
 
+/* --- Robo-name real-fakeness affordance (Fake Chan Factory) ---
+   Hover/focus/tap a Robo name to see its real-fakeness score popover. */
+.robo-name {
+  cursor: help;
+  border-bottom: 2px dotted var(--accent-blue);
+  color: var(--accent-blue);
+  border-radius: 3px;
+}
+
+.robo-name:hover,
+.robo-name:focus-visible {
+  background-color: var(--accent-blue-light);
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.real-name {
+  border-bottom: 2px solid var(--accent-green);
+}
+
+.robo-popover {
+  position: fixed;
+  z-index: 310;
+  width: 300px;
+  max-width: calc(100vw - 16px);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.825rem;
+  font-family: var(--font-sans);
+  line-height: 1.45;
+  max-height: min(60vh, 22rem);
+  overflow-y: auto;
+  pointer-events: auto;
+}
+
+.robo-popover .robo-score {
+  font-size: 0.78rem;
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+.robo-popover .robo-tier-row {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0.15rem 0 0.4rem;
+}
+
 .matrix-col > .translation-status {
   margin-top: 0.45rem;
 }
@@ -1325,7 +1378,7 @@ footer {
   header, .zen-hero-banner, .sidebar-panel, .reader-toolbar,
   .mobile-corpus-picker, .mobile-action-bar, .case-jump-strip,
   .case-toggle, .case-nav-footer, .term-popover, footer,
-  #term-popover, #citation-popover, .graph-controls {
+  #term-popover, #citation-popover, #robo-popover, .graph-controls {
     display: none !important;
   }
 

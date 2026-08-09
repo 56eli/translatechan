@@ -248,6 +248,84 @@
     if (termPopoverEl) termPopoverEl._anchor = termSpan;
   }
 
+  // ---- Robo-name real-fakeness popover (hover/focus/tap a Robo name) ----
+  let roboPopoverEl = null;
+  function getRoboPopover() {
+    if (!roboPopoverEl) {
+      roboPopoverEl = document.createElement('div');
+      roboPopoverEl.id = 'robo-popover';
+      roboPopoverEl.className = 'robo-popover';
+      roboPopoverEl.setAttribute('role', 'tooltip');
+      roboPopoverEl.style.display = 'none';
+      roboPopoverEl.addEventListener('mouseleave', () => { hideRoboPopover(); });
+      document.body.appendChild(roboPopoverEl);
+    }
+    return roboPopoverEl;
+  }
+  function showRoboPopover(span) {
+    if (!span || typeof span.getBoundingClientRect !== 'function') return;
+    const key = span.getAttribute('data-robo-key');
+    const p = key ? profileForKey(key) : null;
+    const meta = p ? fakenessFromProfile(p) : null;
+    const pop = getRoboPopover();
+    if (meta) {
+      const hour = meta.pending ? ' \u23f3' : '';
+      pop.innerHTML =
+        `<div class="tooltip-term-title">${escHtml(p.robo_name)} <span class="robo-score">\u{1F916} ${escHtml(meta.label)}${hour}</span></div>` +
+        `<div class="robo-tier-row">Real-fakeness: tier ${meta.tier}/5 · ${meta.pending ? 'evidence pending' : 'evidence-backed'}</div>` +
+        `<div class="tooltip-row">${escHtml(meta.blurb)}</div>` +
+        (meta.wu ? `<div class="tooltip-row"><strong>Renders 無:</strong> ${escHtml(meta.wu)}</div>` : '') +
+        (meta.personality ? `<div class="tooltip-row" style="margin-top:.35rem;font-style:italic;color:var(--text-secondary)">${escHtml(meta.personality)}</div>` : '');
+    } else {
+      pop.innerHTML = `<div class="tooltip-term-title">Robo channeling</div><div class="tooltip-row">AI text in a translator\u2019s register — not their actual words. Profile pending.</div>`;
+    }
+    pop.style.display = 'block';
+    positionFloatingPopover(pop, span, 300);
+    pop._anchor = span;
+  }
+  function hideRoboPopover() {
+    if (roboPopoverEl) roboPopoverEl.style.display = 'none';
+  }
+  function toggleRoboPopover(span) {
+    if (roboPopoverEl && roboPopoverEl.style.display === 'block' && roboPopoverEl._anchor === span) {
+      hideRoboPopover();
+      return;
+    }
+    showRoboPopover(span);
+  }
+  function setupRoboNameListeners() {
+    document.addEventListener('mouseover', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      if (span) showRoboPopover(span);
+    });
+    document.addEventListener('mouseout', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      const intoPop = e.relatedTarget && typeof e.relatedTarget.closest === 'function' && e.relatedTarget.closest('#robo-popover');
+      if (span && !span.contains(e.relatedTarget) && !intoPop) hideRoboPopover();
+    });
+    document.addEventListener('focusin', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      if (span && typeof span.matches === 'function' && span.matches(':focus-visible')) showRoboPopover(span);
+    });
+    document.addEventListener('focusout', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      if (span && !span.contains(e.relatedTarget)) hideRoboPopover();
+    });
+    document.addEventListener('click', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      if (span) { e.preventDefault(); toggleRoboPopover(span); return; }
+      const insidePop = e.target && typeof e.target.closest === 'function' && e.target.closest('#robo-popover');
+      if (!insidePop) hideRoboPopover();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { hideRoboPopover(); return; }
+      if ((e.key === 'Enter' || e.key === ' ') && e.target && e.target.closest && e.target.closest('.robo-name')) {
+        e.preventDefault();
+        toggleRoboPopover(e.target.closest('.robo-name'));
+      }
+    });
+  }
+
   // ---- Shared citation/disclosure popover (source + translation provenance) ----
   // Rendered citation details live in JS rather than data attributes so book/source
   // metadata stays structured and never becomes an executable HTML payload.
@@ -394,6 +472,7 @@
   // Event Listeners
   function setupEventListeners() {
     setupCitationPopoverListeners();
+    setupRoboNameListeners();
     if (elements.themeToggle) {
       elements.themeToggle.addEventListener('click', () => {
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
@@ -600,7 +679,8 @@
       if (e.key !== 'Escape') return;
       // Let an open tooltip absorb the first Escape press before the dossier closes.
       if ((citationPopoverEl && citationPopoverEl.style.display === 'block') ||
-          (termPopoverEl && termPopoverEl.style.display === 'block')) return;
+          (termPopoverEl && termPopoverEl.style.display === 'block') ||
+          (roboPopoverEl && roboPopoverEl.style.display === 'block')) return;
       closeDossierPanel();
     });
 
@@ -1448,7 +1528,7 @@
           return `
             <div class="translation-col">
               <div class="translator-tag">
-                <span>${escHtml(name)}</span>
+                <span>${roboNameSpan(item.key, entry.status, name)}</span>
                 ${renderTranslationStatus(entry)}
               </div>
               <div class="translation-text">${escHtml(entry.text)}</div>
@@ -1481,7 +1561,7 @@
           return `
           <div class="translation-col">
             <div class="translator-tag">
-              <span>${escHtml(name)}</span>
+              <span>${roboNameSpan(k, entry.status, name)}</span>
               ${renderTranslationStatus(entry)}
             </div>
             <div class="translation-text">${escHtml(entry.text)}</div>
@@ -1573,6 +1653,71 @@
     return 'Robo ' + real;
   }
 
+  // ---- Real-fakeness score (Fake Chan Factory) ----
+  // Hover/focus/tap a Robo name to see how *confidently* its voice is faked.
+  // The scale is deliberately upside-down: MORE evidence (verified samples in the
+  // corpus) => a better imitation => "truly fake"; LESS evidence => just "fake",
+  // flagged ⏳ (we're faking it but can't prove we faked it well). Verified (real)
+  // names are the honest opposite: not fake at all.
+  function profileList() {
+    const tp = state.data.translator_profiles;
+    if (Array.isArray(tp)) return tp;            // future-proof: direct array
+    if (tp && Array.isArray(tp.profiles)) return tp.profiles;  // current bundled shape
+    return [];
+  }
+  function profileForKey(key) {
+    const list = profileList();
+    return list.find(p => p && p.register_key === key) || null;
+  }
+  function _normName(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+  function profileForName(name) {
+    const list = profileList();
+    const norm = _normName(name);
+    let hit = list.find(p => p && _normName(p.translator) === norm);
+    if (hit) return hit;
+    const last = String(name || '').split(/\s+/).filter(Boolean).pop();
+    if (last) {
+      const ln = _normName(last);
+      hit = list.find(p => p && _normName(p.translator).includes(ln));
+      if (hit) return hit;
+    }
+    return null;
+  }
+  function fakenessFromProfile(p) {
+    if (!p) return null;
+    const n = Number(p.verified_sample_count) || 0;
+    const src = p.evidence_source;
+    const wu = stringValue(p.rendering_of_wu);
+    const personality = stringValue(p.personality);
+    if (src === 'not_applicable') {
+      return { tier: 0, label: 'the literal machine', blurb: 'Not a translator imitation at all — the project\u2019s deliberately wooden word-for-word control.', wu, personality, pending: false };
+    }
+    if (src === 'documented_external' || n === 0) {
+      return { tier: 1, label: 'fake', blurb: 'We\u2019re faking it, but the corpus has no verified sample for this translator yet — so we can\u2019t prove we faked the voice well.', wu, personality, pending: true };
+    }
+    if (n <= 2) return { tier: 2, label: 'fairly fake', blurb: `Grounded in ${n} verified sample(s) already in the corpus — a tentative imitation.`, wu, personality, pending: false };
+    if (n <= 5) return { tier: 3, label: 'very fake', blurb: `Grounded in ${n} verified samples — a confident imitation.`, wu, personality, pending: false };
+    if (n <= 23) return { tier: 4, label: 'truly fake', blurb: `Excellent imitation: ${n} verified samples anchor the voice.`, wu, personality, pending: false };
+    return { tier: 5, label: 'certifiably fake', blurb: `Supremely fake: ${n} verified samples — the voice is richly documented.`, wu, personality, pending: false };
+  }
+  function roboNameSpanFromProfile(p, status, displayName, key) {
+    const name = stringValue(displayName);
+    if (status === 'verified_quotation') {
+      return `<span class="real-name" title="✅ Real text (verified) — genuine quotation, not a Robo.">${escHtml(name)}</span>`;
+    }
+    const meta = p ? fakenessFromProfile(p) : null;
+    const hourglass = meta && meta.pending ? ' \u23f3' : '';
+    const titleTxt = meta ? `\u{1F916} ${meta.label}${hourglass} — hover/focus for the real-fakeness score` : 'Robo channeling — not the translator\u2019s actual words';
+    return `<span class="robo-name" data-robo-key="${escHtml(key || '')}" tabindex="0" role="button" aria-label="${escHtml(name)} — real-fakeness score" title="${escHtml(titleTxt)}">${escHtml(name)}</span>`;
+  }
+  function roboNameSpan(key, status, displayName) {
+    return roboNameSpanFromProfile(profileForKey(key), status, displayName || formatTranslatorName(key, status), key);
+  }
+  function roboNameSpanByName(name, status) {
+    const p = profileForName(name);
+    return roboNameSpanFromProfile(p, status, roboifyTranslatorName(name, status), p ? p.register_key : '');
+  }
+
   // Render Comparison Matrix. Unlike the early matrix seed, every visible
   // translator entry now receives an explicit provenance status and (where
   // verified) the same citation treatment used by the Reader.
@@ -1607,7 +1752,7 @@
             return `
             <div class="matrix-col">
               <div>
-                <div class="matrix-author">${escHtml(displayTranslator)}</div>
+                <div class="matrix-author">${roboNameSpanByName(t.translator, entry.status)}</div>
                 <div class="matrix-work">${escHtml(t.work)}${t.style ? ` (${escHtml(t.style)})` : ''}</div>
                 <div class="matrix-text">“${escHtml(entry.text)}”</div>
               </div>

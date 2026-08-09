@@ -69,6 +69,7 @@ def main() -> None:
         "lineage_verification": load_json(DATA_DIR / "lineage" / "lineage_verification.json"),
         "lineage_school_vocab": load_json(DATA_DIR / "lineage" / "school_vocabulary.json"),
         "translations_matrix": load_json(DATA_DIR / "translations" / "comparative_matrix.json"),
+        "translator_profiles": load_json(DATA_DIR / "translations" / "translator_profiles.json"),
         "translations_provenance": load_json(DATA_DIR / "translations" / "provenance.json"),
         "translations_rights": load_json(DATA_DIR / "translations" / "rights_manifest.json"),
         "canonical_locators": load_json(DATA_DIR / "canonical_locators.json"),
