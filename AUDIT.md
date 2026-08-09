@@ -27,7 +27,7 @@ guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
 - Translations: **875 corpus slots**; **138 verified quotations**; **21 matrix registers**; verified-reference coverage **135 recorded / 5 pending**.
 - Locators: **65/65 case-level**; **33 document-level seeds** pending unit locators.
 - Lineage: **34 masters** (30 seed + 4 frontier scaffolds), **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**, source-status aware.
-- Glossary: **31 terms**; Gong'an index: **23 entries** (7 validator-enforced theme groups).
+- Glossary: **31 terms**; Gong'an index: **24 entries** (7 validator-enforced theme groups).
 - Bundle: ~795 KB zero-backend static build; root and `/docs` byte-identical by CI gate.
 
 ## 2. Standing recommendations (priority order)

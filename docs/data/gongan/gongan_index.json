@@ -364,5 +364,21 @@
       "Zhaozhou Yulu"
     ],
     "summary": "Asked what Zhaozhou is, Zhaozhou answers with the four gates of the city — the master is not a concept but a living place."
+  },
+  {
+    "id": "biyan_11",
+    "collection": "Biyanlu (碧巖錄)",
+    "case_no": 11,
+    "cbeta_id": "T2003",
+    "title_zh": "黃檗酒糟 (碧巖錄第十一則)",
+    "title_en": "Huangbo's Wine-Lees Guzzlers",
+    "protagonist": "huangbo",
+    "theme": "Transmission & Direct Pointing: 'No Chan, Only No Teachers' (不道無禪，只是無師)",
+    "theme_group": "direct_pointing",
+    "cross_refs": [
+      "Huangbo Chuanxin Fayao (T2012A)",
+      "Linji Yulu (T1985) — Linji's three questions under Huangbo & Dayu awakening"
+    ],
+    "summary": "Huangbo scolds the assembly as wine-lees guzzlers and declares that Tang China has no Chan teachers; pressed by a monk, he answers 'I do not say there is no Chan — only no teachers,' the same judgment hidden in his driving Linji to Dayu, where Linji awakens ('Huangbo's teaching holds nothing more')."
   }
 ]

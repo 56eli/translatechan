@@ -227,7 +227,7 @@ translatechan/
 │   ├── glossary/
 │   │   └── chan_terms.json             # 31 Classical Chan & Buddhist lexicon terms
 │   └── gongan/
-│       ├── gongan_index.json           # 23 Gong'an cross-references index entries
+│       ├── gongan_index.json           # 24 Gong'an cross-references index entries
 │       └── theme_vocabulary.json       # Controlled 7-group theme taxonomy (drives index filter chips)
 └── scripts/
     ├── build_data_bundle.py            # Bundles data/ and synchronizes /docs
