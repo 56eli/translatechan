@@ -2,7 +2,7 @@
 
 > Working summary only (overwritten per session per AUDIT.md §5); not canonical documentation.
 
-## Status: a11y + search-UX batches shipped, awaiting direction
+## Status: a11y + search-UX + P4 batches shipped, awaiting direction
 
 - Gates green after each batch: `validate_data.py`
   (`corpus=36 | slots=874 | verified=138 | matrix=21 | locators=64/64`),
@@ -13,10 +13,11 @@
   dialog w/ focus restore & Escape · N3 focus-revealed glossary popover +
   `role="tooltip"` · N6 search landmark + accessible name · N4 search cards
   disclose the matched field (register / pinyin / title + windowed snippet) ·
-  N5 diacritic-folded pinyin search (toneless `foxing` → `fóxìng`).
-- Open: N7 lineage resize re-layout · N8 popover max-height · N9 session index +
-  root temp-file housekeeping · N10 stale ~799 KB comment / README tree /
-  0.62 rem citation legibility · CF-1 CI gate paths (token-permission test) ·
-  CF-2 switchViewRaw scroll-restore · owner/program items (branch protection,
-  editorial locator migration, C1/C2/C4, Phase 2 content).
-- Next: user to pick (P4 sweep / housekeeping / content Phase 2 / something new).
+  N5 diacritic-folded pinyin search · N7 debounced lineage resize re-layout ·
+  N8 capped/scrollable/interactive popovers w/ measured flip ·
+  N10 citation legibility floor 0.62 → 0.72 rem.
+- Open: N9 session index + root temp-file housekeeping · N10 remainder
+  (stale ~799 KB comment / README tree) · CF-1 CI gate paths (token-permission
+  test) · CF-2 switchViewRaw scroll-restore · owner/program items (branch
+  protection, editorial locator migration, C1/C2/C4, Phase 2 content).
+- Next: user to pick (housekeeping / content Phase 2 / audit-follow-up batch).

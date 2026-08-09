@@ -189,6 +189,8 @@
       termPopoverEl.className = 'term-popover';
       termPopoverEl.setAttribute('role', 'tooltip');
       termPopoverEl.style.display = 'none';
+      // N8: the popover itself is interactive (scrollable); leaving it hides it.
+      termPopoverEl.addEventListener('mouseleave', () => { hideTermPopover(); });
       document.body.appendChild(termPopoverEl);
     }
     return termPopoverEl;
@@ -197,6 +199,22 @@
     const list = state.data.glossary || [];
     return list.find(t => t && t.id === id) || null;
   }
+  // Shared popover positioning (N8, 2026-08-09, session 019fe731): measure the
+  // real rendered height (add display before calling) instead of hardcoding a
+  // guess, so long citations/definitions flip cleanly above the anchor.
+  function positionFloatingPopover(pop, anchor, popW) {
+    const rect = anchor.getBoundingClientRect();
+    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
+    const vh = window.innerHeight || 800;
+    let left = Math.min(rect.left, vw - popW - 8);
+    if (left < 8) left = 8;
+    const height = pop.offsetHeight || 220;
+    let top = rect.bottom + 8;
+    if (top + height > vh - 8) top = Math.max(8, rect.top - 8 - height);
+    pop.style.left = `${left}px`;
+    pop.style.top = `${top}px`;
+  }
+
   function showTermPopover(termSpan) {
     if (!termSpan || typeof termSpan.getBoundingClientRect !== 'function') return;
     const t = termById(termSpan.getAttribute('data-term-id'));
@@ -207,17 +225,9 @@
       `<div class="tooltip-sanskrit">Sanskrit: ${escHtml(t.sanskrit || '—')}</div>` +
       `<div class="tooltip-row"><strong>Literal:</strong> ${escHtml(t.literal || '')}</div>` +
       `<div class="tooltip-row">${escHtml(t.definition || '')}</div>`;
-    const rect = termSpan.getBoundingClientRect();
-    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
-    const popW = 290;
-    let left = Math.min(rect.left, vw - popW - 8);
-    if (left < 8) left = 8;
-    pop.style.left = `${left}px`;
-    pop.style.top = `${rect.bottom + 8}px`;
-    if (pop.style.top && rect.bottom + 8 + 160 > (window.innerHeight || 800)) {
-      pop.style.top = `${Math.max(8, rect.top - 8 - 150)}px`; // flip above
-    }
-    pop.style.display = 'block';
+    pop.style.display = 'block'; // display first so the positioner can measure
+    positionFloatingPopover(pop, termSpan, 290);
+    pop._anchor = termSpan;
   }
   function hideTermPopover() {
     if (termPopoverEl) termPopoverEl.style.display = 'none';
@@ -252,6 +262,8 @@
       citationPopoverEl.className = 'citation-popover';
       citationPopoverEl.setAttribute('role', 'tooltip');
       citationPopoverEl.style.display = 'none';
+      // N8: the popover itself is interactive (scrollable); leaving it hides it.
+      citationPopoverEl.addEventListener('mouseleave', () => { hideCitationPopover(); });
       document.body.appendChild(citationPopoverEl);
     }
     return citationPopoverEl;
@@ -268,18 +280,6 @@
     return `<button type="button" class="citation-trigger ${className}" data-citation-id="${id}" aria-label="${escHtml(title)}" title="${escHtml(title)}">${escHtml(label)}</button>`;
   }
 
-  function positionCitationPopover(pop, anchor) {
-    const rect = anchor.getBoundingClientRect();
-    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
-    const popW = 340;
-    let left = Math.min(rect.left, vw - popW - 8);
-    if (left < 8) left = 8;
-    let top = rect.bottom + 8;
-    if (top + 190 > (window.innerHeight || 800)) top = Math.max(8, rect.top - 198);
-    pop.style.left = `${left}px`;
-    pop.style.top = `${top}px`;
-  }
-
   function showCitationPopover(trigger) {
     if (!trigger || typeof trigger.getBoundingClientRect !== 'function') return;
     const detail = citationDetails.get(trigger.getAttribute('data-citation-id'));
@@ -288,8 +288,8 @@
     const rows = Array.isArray(detail.rows) ? detail.rows : [];
     pop.innerHTML = `<div class="citation-title">${escHtml(detail.title || 'Citation & disclosure')}</div>` +
       rows.map(row => citationRow(row[0], row[1])).join('');
-    positionCitationPopover(pop, trigger);
-    pop.style.display = 'block';
+    pop.style.display = 'block'; // display first so the positioner can measure
+    positionFloatingPopover(pop, trigger, 340);
     pop._anchor = trigger;
   }
 
@@ -312,7 +312,9 @@
     });
     document.addEventListener('mouseout', (e) => {
       const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
-      if (trigger && !trigger.contains(e.relatedTarget)) hideCitationPopover();
+      // N8: keep the popover alive when the pointer moves INTO it (scrollable content)
+      const intoPop = e.relatedTarget && typeof e.relatedTarget.closest === 'function' && e.relatedTarget.closest('#citation-popover');
+      if (trigger && !trigger.contains(e.relatedTarget) && !intoPop) hideCitationPopover();
     });
     document.addEventListener('focusin', (e) => {
       const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
@@ -327,7 +329,11 @@
       if (trigger) {
         e.preventDefault();
         toggleCitationPopover(trigger);
+        return;
       }
+      // N8: a tap/click outside the trigger and the popover dismisses it (touch)
+      const insidePop = e.target && typeof e.target.closest === 'function' && e.target.closest('#citation-popover');
+      if (!insidePop) hideCitationPopover();
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') hideCitationPopover();
@@ -475,7 +481,9 @@
       });
       readerRoot.addEventListener('mouseout', (e) => {
         const t = e.target.closest ? e.target.closest('.term-highlight') : null;
-        if (t && !t.contains(e.relatedTarget)) hideTermPopover();
+        // N8: keep the popover alive when the pointer moves INTO it (scrollable content)
+        const intoPop = e.relatedTarget && typeof e.relatedTarget.closest === 'function' && e.relatedTarget.closest('#term-popover');
+        if (t && !t.contains(e.relatedTarget) && !intoPop) hideTermPopover();
       });
       // Keyboard discoverability (a11y N3, 2026-08-09): Tab-focus on a term
       // reveals its definition just like hover does; gated on :focus-visible
@@ -571,6 +579,13 @@
       });
     }
 
+    // N8: a tap/click outside any term highlight or the shared glossary popover
+    // dismisses it (readerRoot only covers taps inside the reader panel).
+    document.addEventListener('click', (e) => {
+      const t = e.target && typeof e.target.closest === 'function' ? e.target.closest('.term-highlight, #term-popover') : null;
+      if (!t) hideTermPopover();
+    });
+
     // Dossier dialog (N2): the ✕ button and Escape both close through the same
     // focus-restoring path; bound once here, not per dossier open.
     const dossierCloseBtn = document.getElementById('dossier-close-btn');
@@ -622,6 +637,17 @@
         e.preventDefault();
         window.TranslateChan.openMasterDossier(teacherLink.getAttribute('data-master-teacher'));
       }
+    });
+
+    // N7 (2026-08-09, session 019fe731): the lineage graph lays out from the
+    // live viewport width — re-render (debounced) on resize so rotated phones /
+    // resized desktops never keep a stale viewBox. Pan/zoom survives via
+    // svg._panzoom (ensureLineagePanZoom re-applies the transform on redraw).
+    let lineageResizeTimer = null;
+    window.addEventListener('resize', () => {
+      if (state.currentView !== 'lineage') return;
+      clearTimeout(lineageResizeTimer);
+      lineageResizeTimer = setTimeout(renderLineage, 220);
     });
 
     // ---- ARIA tabs: roving tabindex + arrow/Home/End navigation on the tablist.

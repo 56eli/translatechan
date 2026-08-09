@@ -98,6 +98,28 @@ if (!appSrc.includes(".normalize('NFD')") || !appSrc.includes('\\u0300-\\u036f')
 if (!appSrc.includes('Matched in translations')) {
   throw new Error('search result cards must disclose translation-field matches');
 }
+// N7: the lineage graph re-lays out (debounced) on viewport resize while the
+// lineage view is visible.
+if (!appSrc.includes("addEventListener('resize',") || !appSrc.includes('setTimeout(renderLineage, 220)')) {
+  throw new Error('lineage graph must re-render on debounced resize while the view is visible');
+}
+// N8: popovers are capped, scrollable, interactive, and positioned from their
+// measured height (no hardcoded flip-height guesses).
+const appCss = readFileSync(join(ROOT, 'app.css'), 'utf8');
+if (!appSrc.includes('positionFloatingPopover(pop, anchor, popW)')) {
+  throw new Error('popovers must share the measured positionFloatingPopover positioner');
+}
+for (const popSel of ['.citation-popover {', '.term-popover {']) {
+  const start = appCss.indexOf(popSel);
+  const block = start === -1 ? '' : appCss.slice(start, appCss.indexOf('}', start));
+  if (!block.includes('max-height: min(60vh') || !block.includes('overflow-y: auto') || !block.includes('pointer-events: auto')) {
+    throw new Error(`${popSel} must be capped, scrollable, and interactive (N8)`);
+  }
+}
+// N10: citation metadata legibility floor — no sub-11px source text.
+if (appCss.includes('font-size: 0.62rem')) {
+  throw new Error('.translation-source fell below the 0.72rem legibility floor');
+}
 
 const store = {};
 globalThis.localStorage = {

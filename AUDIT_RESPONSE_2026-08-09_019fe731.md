@@ -49,10 +49,12 @@ Corpus pinyin is tone-marked (14,660 combining-mark characters across `data/corp
 The input is now `type="search"` with `aria-label="Search all corpus texts — Chinese, pinyin, or English"` inside a `role="search"` landmark wrapper. Smoke-guarded.
 `<input id="global-search" type="text" placeholder="Search Chinese / English...">` relies on the placeholder alone (the three `<select>`s all have `aria-label`; this input doesn't). Add `aria-label="Search all corpus texts"` and consider `type="search"` for semantics/mobile keyboards. One-attribute fix.
 
-**N7 — Lineage graph never re-lays out on viewport change (P4, UX)** 🆕
+**N7 — Lineage graph never re-lays out on viewport change (P4, UX)** 🆕 — ✅ FIXED 2026-08-09 (session `019fe731`)
+A debounced (220 ms) `resize` listener re-renders the lineage view while it is visible, recomputing the layout from the live viewport width; pan/zoom state survives by design (`svg._panzoom` re-applies on redraw). Smoke-guarded.
 `renderVisualLineageGraph()` computes `width` once per render from `svg.clientWidth`; there is no `resize` listener. Rotate a phone or resize a desktop window and the viewBox keeps the stale width until the user changes a filter/sort. Fix: debounced `resize` listener that re-renders while the lineage view is visible (preserve pan/zoom state, which already survives re-renders by design).
 
-**N8 — Popovers can't be scrolled and guess their height (P4, UX)** 🆕
+**N8 — Popovers can't be scrolled and guess their height (P4, UX)** 🆕 — ✅ FIXED 2026-08-09 (session `019fe731`)
+Both popovers are now capped at `min(60vh, …)` with internal scrolling and are interactive surfaces (hovering into them keeps them open; click/tap-outside and Escape dismiss). A shared `positionFloatingPopover()` measures the real rendered height for the flip decision, replacing the ~160/190 px guesses. Smoke-guarded (CSS invariants + shared positioner).
 `.citation-popover`/`.term-popover` are `pointer-events: none` with no `max-height`/`overflow`, and the flip logic hardcodes ~160–190 px content guesses. A long citation near the viewport bottom on mobile can overflow with no way to read it. Fix: `max-height: 60vh; overflow-y: auto` (keep `pointer-events: none` if hover-to-dismiss is preferred, but measure real height for the flip).
 
 ### Documentation / repo hygiene
@@ -63,7 +65,7 @@ The most recent merged session (PR #9, commit `c464181`) is summarized in AUDIT.
 **N10 — Small doc drift the gates can't see (P4)** 🆕
 - `theme-init.js:4` comment still says "~799 KB data bundle"; the bundle has been 873,042 bytes since the A4 migration (index.html's D4 comment correctly says ~873 KB).
 - README "Repository Structure" tree omits `theme-init.js`, `robots.txt`, `sitemap.xml`, `.nojekyll`, `package.json/package-lock.json`, `scripts/ingest_cbeta.py` (deprecated wrapper), `scripts/migrate_translations.py`, `gongan/theme_vocabulary.json`, and `response_summary.md` — all shipped/handled by gates. One small tree refresh closes the gap.
-- `.translation-source` renders at **0.62 rem (~10 px)** — below a comfortable legibility floor for citation metadata; consider 0.72 rem.
+- ~~`.translation-source` renders at **0.62 rem (~10 px)**~~ ✅ FIXED 2026-08-09 (session `019fe731`): raised to 0.72 rem; smoke-guarded legibility floor.
 
 ---
 
