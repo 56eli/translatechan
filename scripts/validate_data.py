@@ -11,7 +11,9 @@ combines a published schema with semantic checks:
 * translation/provenance records are structurally valid;
 * verified quotations link to the rights manifest;
 * canonical locator registry covers every document and every case-based unit;
-* generated project_metrics.json matches the live data.
+* generated project_metrics.json matches the live data;
+* live prose docs (README.md, HANDOFF.md, index.html) quote the same deterministic
+  numbers — the "doc truthfulness" gate (skip with --skip-docs if editing docs).
 
 Run normally in CI to verify committed metrics, or pass --write-metrics after a
 legitimate data change to regenerate data/project_metrics.json deterministically.
@@ -894,6 +896,59 @@ def canonical_json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
 
 
+def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: Any, gongan: Any, issues: Issues) -> None:
+    """Guard the curated live docs against quoting stale deterministic numbers.
+
+    Prose cannot be schema-validated, but every repeated drift incident (see
+    AUDIT.md §11 F1, §12) came from docs echoing numbers the validator already
+    computes.  Each rule below is (file, exact snippet, description): the
+    snippet is built from live values, and the document must contain it — an
+    absent snippet means the prose drifted (or was reworded: update the rule).
+    Historical session logs (AUDIT.md §…, SESSION_AUDIT_*) are intentionally
+    not checked: they are dated records, not live documentation.
+    """
+    corpus = metrics["corpus"]
+    translations = metrics["translations"]
+    locators = metrics["canonical_locator_coverage"]
+    ref_cov = translations.get("verified_reference_coverage", {})
+    recorded = ref_cov.get("recorded", 0)
+    pending = ref_cov.get("pending", 0)
+    biyanlu = corpus.get("per_text", {}).get("biyanlu_cases", {})
+    checks = [
+        ("README.md", f"**{corpus['content_cjk_characters']:,} source-content CJK characters** "
+                      f"(or {corpus['all_corpus_cjk_characters']:,} across every corpus JSON string",
+         "honest-status CJK counts"),
+        ("README.md", f"manifest ({corpus['documents']} keys)", "manifest key count in repo tree"),
+        ("README.md", "48 / 48 cases ✅ complete", "Wumenguan coverage in corpus table"),
+        ("README.md", f"currently **{len(lineage)} master profiles**", "master profile count in lineage feature"),
+        ("README.md", f"— **{len(gongan)} indexed cases** at present", "gong'an count in index feature"),
+        ("README.md", f"**{len(glossary)} terms** today", "glossary count in lexicon feature"),
+        ("HANDOFF.md", f"corpus={corpus['documents']} | slots={translations['corpus_slots']} | "
+                       f"verified={translations['corpus_statuses']['verified_quotation']} | "
+                       f"matrix={translations['matrix_entries']} | "
+                       f"locators={locators.get('case_locators', 0)}/{locators.get('declared_cases', 0)}",
+         "quality-gate summary numbers"),
+        ("HANDOFF.md", f"**{recorded} / {recorded + pending}**", "verified-reference coverage split"),
+        ("HANDOFF.md", f"the remaining **{pending}**", "verified-reference pending count"),
+        ("HANDOFF.md", f"# {len(glossary)} Classical Chan & Buddhist lexicon terms", "glossary count in repo tree"),
+        ("HANDOFF.md", f"# {len(gongan)} Gong'an cross-references index entries", "gong'an count in repo tree"),
+        ("index.html", f"📜 {corpus['documents']} Canonical Works", "hero corpus chip"),
+    ]
+    if biyanlu.get("coverage"):
+        checks.append(("README.md", biyanlu["coverage"], "Biyanlu coverage string in honest status"))
+    for filename, snippet, description in checks:
+        path = ROOT / filename
+        if not path.exists():
+            issues.error(filename, f"doc truthfulness check cannot run — file missing ({description})")
+            continue
+        if snippet not in path.read_text(encoding="utf-8"):
+            issues.error(
+                filename,
+                f"doc truthfulness: {description} drifted — expected snippet not found: {snippet!r} "
+                f"(update the document, or the check rule in validate_data.py if the prose changed intentionally)",
+            )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -902,6 +957,11 @@ def main() -> int:
         help="write the deterministic data/project_metrics.json file instead of failing when it is stale",
     )
     parser.add_argument("--quiet", action="store_true", help="only print errors/warnings")
+    parser.add_argument(
+        "--skip-docs",
+        action="store_true",
+        help="skip documentation-truthfulness checks (README/HANDOFF/index.html must quote live metrics)",
+    )
     args = parser.parse_args()
 
     issues = Issues()
@@ -946,6 +1006,8 @@ def main() -> int:
     manifest_metrics = validate_manifest_sync(corpus, corpus_manifest, issues)
 
     metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, profile_queue_metrics, manifest_metrics, corpus_manifest)
+    if not args.skip_docs:
+        validate_doc_truthfulness(metrics, glossary, lineage, gongan, issues)
     expected_metrics = canonical_json(metrics)
     if args.write_metrics:
         METRICS_PATH.write_text(expected_metrics, encoding="utf-8")

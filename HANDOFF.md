@@ -50,6 +50,8 @@ The published interface remains deliberately limited to **Bilingual Reader, Comp
 ```bash
 python3 -m py_compile scripts/*.py
 python3 scripts/validate_data.py          # corpus=36 | slots=874 | verified=138 | matrix=21 | locators=64/64
+                                          # (+ doc-truthfulness gate: README/HANDOFF/index.html must
+                                          #  quote live metrics — audit §12 P2-A; --skip-docs to bypass)
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium

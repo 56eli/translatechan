@@ -17,7 +17,7 @@ What this audit did find is a *pattern*: **prose documentation and hard-coded UI
 | Runtime/rendering | All gates green; delegation-based handlers, CSP, ARIA tabs all in place | A− |
 | Build/deployment | Deterministic bundle; root↔docs byte-identical; CI mirrors local gates | A− |
 | Data integrity tooling | Validator + metrics + locator registry remain the strongest part of the project | A− |
-| Documentation truthfulness | Fixed again this session, but prose metrics have no automated guard and re-drifted within one session | B− |
+| Documentation truthfulness | **Resolved this session**: validator now enforces a 13-rule doc-truthfulness gate (README/HANDOFF/index.html must quote live metrics); all current drift fixed | A− |
 | Data consistency | **Resolved this session**: 22 school variants → 12 validator-enforced `school_key` groups; school & lexicon-category filters now data-derived; gong'an themes remain per-entry free text | B+ |
 | Renderer escaping hygiene | Matrix escapes rigorously; lineage/gong'an/lexicon/dossier interpolate raw (trusted data, latent inconsistency) | B |
 | Test automation | Dependency-free smoke suite + optional Playwright; no prose-doc or vocabulary checks | B+ |
@@ -53,11 +53,11 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 
 ## 3. Open findings (priority-ordered)
 
-### P2-A — Prose documentation has no automated truthfulness guard *(likely root cause of repeats)*
+### P2-A — Prose documentation has no automated truthfulness guard ✅ **DELIVERED THIS SESSION**
 
-`project_metrics.json` is deterministic and CI-verified, but **nothing checks the prose** that quotes those numbers (README, HANDOFF, index.html copy). The same F1 class of drift has now occurred in two consecutive sessions — it will recur every corpus-growth session.
+`project_metrics.json` is deterministic and CI-verified, but **nothing checked the prose** that quotes those numbers (README, HANDOFF, index.html copy). The same F1 class of drift occurred in two consecutive sessions and recurred every corpus-growth session.
 
-**Recommendation:** extend `scripts/validate_data.py` with a `--check-docs` gate that asserts the current `content_cjk_characters` / `all_corpus_cjk_characters` (and key unit counts: 36 docs, 23 gong'an, 31 terms, 34 masters) appear where referenced in README/HANDOFF — or, lighter-weight, replace prose constants with a single "Current numbers" section whose values docs explicitly say to read from `project_metrics.json`. Add to `quality.yml` once implemented. *Small, high-leverage.*
+**Delivered 2026-08-09:** `validate_data.py` now runs a **doc-truthfulness gate** (`validate_doc_truthfulness`) on every invocation — 13 rules asserting that README.md, HANDOFF.md, and index.html contain exact snippets built from live metrics (CJK counts, corpus/manifest/gong'an/glossary/master counts, Wumenguan+Biyanlu coverage strings, the HANDOFF quality-gate line, the 135/140 verified-reference split, the hero corpus chip). Historical session logs (AUDIT.md, SESSION_AUDIT_*) are intentionally excluded as dated records. Negative-tested: drift produces exit-1 with a precise error naming the rule; `--skip-docs` bypasses while intentionally editing prose. CI enforces it with no workflow change (the Quality job already runs the validator).
 
 ### P2-B — Master `school` labels are an unowned vocabulary ✅ **DELIVERED THIS SESSION**
 
@@ -104,7 +104,7 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 
 ## 5. Recommended next actions (choose)
 
-1. **P2-A docs guard** (`validate_data.py --check-docs` + CI line) — kills the recurring drift class. *(S)*
+1. ~~**P2-A docs guard** (`validate_data.py --check-docs` + CI line) — kills the recurring drift class.~~ ✅ delivered this session.
 2. ~~**P2-B school vocabulary normalization + data-derived lineage filter options.**~~ ✅ delivered this session.
 3. **P2-C escaping consistency pass.** *(S)*
 4. **P2-D sessions-folder convention + AUDIT.md slimming.** *(S)*

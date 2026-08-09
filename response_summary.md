@@ -1,8 +1,8 @@
 # 📋 Session Response — 2026-08-09 (branch `arena/019fe5d5-translatechan`)
 
-> **Task:** full project audit → user directed: **P2-B (school vocabulary + data-driven filters)**.
+> **Tasks so far:** full project audit → P2-B (school vocabulary) → **P2-A (docs-truthfulness guard)**.
 >
-> **One-sentence summary:** ✅ Audit delivered (6 doc-drift fixes) **and** P2-B shipped — 22 free-text lineage school labels normalized into 12 validator-enforced `school_key` groups with data-derived filter UI and graph colors; bonus find: the Lexicon category dropdown was completely unwired (fixed). Full detail: **`SESSION_AUDIT_2026-08-09_019fe5d5.md`**.
+> **One-sentence summary:** ✅ P2-A shipped — `validate_data.py` now fails the build when README/HANDOFF/index.html quote stale numbers (13 live-metric rules, drift-negative-tested, CI-enforced with zero workflow changes), ending the recurring doc-drift class; session total: audit + 6 doc fixes + school vocabulary/filters + lexicon-listener bug fix. Full detail: **`SESSION_AUDIT_2026-08-09_019fe5d5.md`**.
 
 ---
 
@@ -19,10 +19,19 @@
 
 **Gates:** `validate_data.py` ✅ · `build_data_bundle.py` ✅ (795 KB, root↔docs synced) · `smoke_test.mjs` ✅ · committed & pushed.
 
+## P2-A delivery summary (this turn)
+
+| Deliverable | Detail |
+|---|---|
+| Doc-truthfulness gate | `validate_doc_truthfulness()` in `validate_data.py` — 13 rules: CJK counts, corpus/manifest/gong'an/glossary/master counts, Wu+Biyanlu coverage strings, HANDOFF gate line, 135/140 reference split, hero chip — each built from **live computed metrics** |
+| Enforcement | Runs on every validator call; CI Quality job enforces automatically (step renamed); drift → exit 1 naming the exact failing rule; `--skip-docs` opt-out for prose-editing sessions |
+| Negative tests | Verified: broken README CJK number and broken hero chip each fail correctly; restore passes |
+| Docs | README dev workflow + HANDOFF gate block + AUDIT.md §12 + session audit updated |
+
 ## Remaining backlog (your call)
 
-1. **P2-A** — `validate_data.py --check-docs` guard so prose numbers (README etc.) can't drift from metrics again *(recurring class, S)*
-2. **P2-C** — escaping consistency pass in lineage/gong'an/lexicon renderers *(S)*
-3. **P2-D** — session-artifact convention + AUDIT.md slimming *(S)*
-4. Gong'an theme taxonomy (23 free-text themes → curated set) *(M, editorial)*
-5. Content Phase 2 — next corpus text pilot *(M–L)*
+1. **P2-C** — escaping consistency pass in lineage/gong'an/lexicon renderers *(S)*
+2. **P2-D** — session-artifact convention + AUDIT.md slimming *(S)*
+3. Gong'an theme taxonomy (23 free-text themes → curated set) *(M, editorial)*
+4. Content Phase 2 — next corpus text pilot (Biyanlu 11–20 or Linji expansion) *(M–L)*
+5. A1/A2 standing ops+editorial items (branch protection; reference/rights sign-off)

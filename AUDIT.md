@@ -739,4 +739,6 @@ Full report: [`SESSION_AUDIT_2026-08-09_019fe5d5.md`](./SESSION_AUDIT_2026-08-09
 - **Found while wiring:** the Lexicon "Category" dropdown had **no change listener at all** (inert UI since introduction) — now wired, with `<label for>` association.
 - Smoke regression checks: vocabulary-derived options, exact Linji group filtering, school_key graph palette, lexicon filter restrict/reset.
 
-**Standing:** A1 branch protection (owner action); A2 editorial reference/rights sign-off; P2-A prose-docs guard (`validate_data.py --check-docs`) recommended to kill the recurring F1 drift class; P2-C escaping consistency pass; content Phase 2.
+**Standing:** A1 branch protection (owner action); A2 editorial reference/rights sign-off; P2-C escaping consistency pass; content Phase 2.
+
+**P2-A delivered — doc-truthfulness gate:** `validate_data.py` now enforces 13 rules asserting README.md / HANDOFF.md / index.html quote live deterministic metrics (CJK counts, corpus/manifest/gong'an/glossary/master counts, coverage strings, the HANDOFF gate line, the 135/140 verified-reference split, hero chip). Drift → exit 1 with the failing rule named; `--skip-docs` bypasses while editing prose; CI enforces with no workflow change; negative-tested. Session logs (AUDIT.md, SESSION_AUDIT_*) remain dated records, excluded by design.
