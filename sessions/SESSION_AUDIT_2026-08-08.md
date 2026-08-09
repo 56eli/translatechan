@@ -1,5 +1,8 @@
 # 🔍 TranslateChan — Session Audit Report (2026-08-08, session `arena/019fe1b5-translatechan`)
 
+> 🗂️ **Moved 2026-08-09** (session-artifact convention): this dated report now lives in `sessions/`; the current-state summary + index is repo-root [`AUDIT.md`](../AUDIT.md). Links in dated reports are historical.
+
+
 > **Temporary response file** — created for review of this session's full-project audit. Durable log entry lives in [`AUDIT.md` §9](./AUDIT.md). Delete this file after review (it is not part of the project's canonical docs).
 >
 > **Fix status (same session)**: all findings B1–B10 below were remediated and pushed in commit `f074b7e` — see [AUDIT.md §9.3](./AUDIT.md) for the fix log. A bonus **CBETA canon-reference pass** corrected 10 corpus files and 5 master profiles (several IDs pointed at entirely different texts), the lineage graph grew 18 → 30 masters, and **Wumenguan was completed 48/48** (§9.4).

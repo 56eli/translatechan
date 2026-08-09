@@ -16,7 +16,7 @@ The TranslateChan project has been fully established with:
 4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 34 master profiles (30 researched seeds plus 4 clearly labeled frontier scaffolds) with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan; **school affiliation normalized 2026-08-09** into the validator-enforced `school_key` vocabulary in `data/lineage/school_vocabulary.json`, which now drives the filter UI and graph colors).
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
 6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
-7. **Interactive Zero-Backend Public Reader** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative reader/matrix/lineage/index/lexicon interface with dark/light mode, search, and an SVG lineage network graph. Translation Studio, Arena AI Agents, and the header GitHub link are intentionally absent from the public Pages UI. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`AUDIT.md` §8](./AUDIT.md); `node scripts/smoke_test.mjs` must pass before every push.)*
+7. **Interactive Zero-Backend Public Reader** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative reader/matrix/lineage/index/lexicon interface with dark/light mode, search, and an SVG lineage network graph. Translation Studio, Arena AI Agents, and the header GitHub link are intentionally absent from the public Pages UI. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`sessions/AUDIT_archive_2026-08-08.md` §8](./sessions/AUDIT_archive_2026-08-08.md); `node scripts/smoke_test.mjs` must pass before every push.)*
 8. **Synchronized GitHub Pages Bundle** (`docs/`): Fully compiled, zero-dependency static bundle; Pages publishing already active from `main /docs`.
 9. **Editorial Data Tooling** (`scripts/`): `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `ingest_cbeta.py` offline segmenter, and `smoke_test.mjs` renderer regression test. The checked-in GitHub Actions **Quality** workflow runs the same validation, deterministic-build, generated-artifact, and reader-smoke gate on pushes and pull requests; native GitHub Pages publishing remains separate.
 
@@ -30,7 +30,7 @@ The published interface remains deliberately limited to **Bilingual Reader, Comp
 
 ### What this session delivered (7 commits, all gates green)
 
-1. **Full-project audit** (`SESSION_AUDIT_2026-08-08_019fe30b.md`, durable log in `AUDIT.md` §11): no P0/P1; every prior remediation verified holding; documentation-drift fixes (CJK counts in README/AUDIT, HANDOFF branch line, Huangbo verified-slot split).
+1. **Full-project audit** ([`sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`](./sessions/SESSION_AUDIT_2026-08-08_019fe30b.md), durable log in `sessions/AUDIT_archive_2026-08-08.md` §11): no P0/P1; every prior remediation verified holding; documentation-drift fixes (CJK counts in README/AUDIT, HANDOFF branch line, Huangbo verified-slot split).
 2. **a11y/CSP hardening (F3)**: all inline `onclick` handlers replaced by a document-level delegated handler over `data-*` attributes; glossary terms open on Enter/Space; complete ARIA tabs (tablist/tab/tabpanel, roving tabindex, arrow/Home/End); restrictive CSP meta (`script-src 'self'`); smoke checks 4u–4x.
 3. **Deterministic per-text coverage metrics (F4)**: `validate_data.py --write-metrics` now emits `project_metrics.json → corpus.per_text` for all 36 texts (zh counts, shapes, unit counts, `N/M units` coverage strings); validator-enforced `zh_chars`/`coverage_note`/manifest `unit_targets` rules — which immediately caught a stale `zh_chars` in wumenguan (5,876 → 5,528).
 4. **Optional Playwright real-browser suite (F10)**: `scripts/browser_test.mjs` (12 tests, desktop + mobile, self-spawning server, graceful skip without Chromium); `package.json`/lockfile added; not part of CI.
@@ -77,6 +77,13 @@ The Quality workflow is the merge gate; **requiring** it is a one-time admin ste
 
 The same commands the workflow runs are the local release checklist above, so the required check should always be green for conforming PRs.
 
+### Session artifacts convention (est. 2026-08-09, audit P2-D)
+
+- **Dated session reports and the audit history archive live in [`sessions/`](./sessions/)** — write `sessions/SESSION_AUDIT_<date>[_<session>].md` per session; never rewrite them afterwards.
+- **Repo-root `AUDIT.md` stays slim**: current verdict, standing recommendations, gates, and the session index — append your session row there, don't absorb the whole report.
+- **`response_summary.md` at root is the live session working summary** (overwritten by each session, not canonical docs).
+- Guarded by design: the validator's doc-truthfulness gate checks README/HANDOFF/index.html numbers; it intentionally does **not** check session logs (dated records).
+
 ### Merge readiness
 
 Current branch: `arena/019fe30b-translatechan`. Before merging, confirm the local quality gate above and the required **Quality** check; after merge, Pages republishes `main` → `/docs` automatically. GitHub Pages will republish `main` → `/docs` automatically.
@@ -85,9 +92,9 @@ Current branch: `arena/019fe30b-translatechan`. Before merging, confirm the loca
 
 ## 📍 Historical Session Delta Through PR #3 (2026-08-08)
 
-**PR #3 is merged into `main`; this is its historical one-sentence map** (full detail in [`AUDIT.md` §9](./AUDIT.md)):
+**PR #3 is merged into `main`; this is its historical one-sentence map** (full detail in [`sessions/AUDIT_archive_2026-08-08.md` §9](./sessions/AUDIT_archive_2026-08-08.md)):
 
-1. **`8ea6c46`** Second-pass full audit → no P0; all PR#2 remediations verified holding; 10 new findings B1–B10 ([`AUDIT.md` §9.2](./AUDIT.md); readable report `SESSION_AUDIT_2026-08-08.md`).
+1. **`8ea6c46`** Second-pass full audit → no P0; all PR#2 remediations verified holding; 10 new findings B1–B10 ([`sessions/AUDIT_archive_2026-08-08.md` §9.2](./sessions/AUDIT_archive_2026-08-08.md); readable report [`sessions/SESSION_AUDIT_2026-08-08.md`](./sessions/SESSION_AUDIT_2026-08-08.md)).
 2. **`f074b7e`** **B1–B10 remediation + CBETA canon-reference pass**: `docs/data` mirror restored; stale UI branch string; volume-chip truth; search escaping + variant normalization (鉢/缽, 曰/云, 臺/台, 裏/里, 無/无); localStorage guard; dead `stacked` mode dropped; `docs/scripts` removed; **lineage 18 → 30 masters** (four documented frontier teacher references remain outside the seed set); **canon IDs corrected vs CBETA for 10 corpus files + 5 master profiles** (foyan T1995→X1315, mazu/baizhang→四家語錄 X1321/X1323, xuansha→X1445, dazhu→X1223, caoxi→X1598, dahui_shobogenzo T2002→X1309, xuefeng T1983→X1333, fayan→X1226, dahui_hongzhi T2001 dropped, taisho_vol truth).
 3. **`e299187`** **Wumenguan completed 48/48** — the corpus's first complete canonical text: all 48 cases + preface + epilogue (zh per CBETA T2005 宗紹編), **+40 verified Senzaki & Reps 1934 PD slots → the historical 119-slot tally at that milestone**; CBETA numbering correction (case 37 IS 庭前柏樹); coverage metadata; `provenance.json` v2.0.
 4. **`11ad640`** UX/UI improvement roadmap ([`UX_ROADMAP.md`](./UX_ROADMAP.md)) — 10 measured pain points, phases A–D, mobile + desktop, zero-backend contract.
@@ -126,7 +133,7 @@ On every merge into `main`, the site re-publishes automatically within ~60 secon
 
 ## 📂 Repository Layout & File Manifest
 
-> Corpus file descriptions below name the **canonical work and its scope**; current file contents are excerpt-scale seeds (see [`AUDIT.md` §3](./AUDIT.md) for measured coverage).
+> Corpus file descriptions below name the **canonical work and its scope**; current file contents are excerpt-scale seeds (see [`sessions/AUDIT_archive_2026-08-08.md` §3](./sessions/AUDIT_archive_2026-08-08.md) for measured coverage).
 
 ```
 translatechan/

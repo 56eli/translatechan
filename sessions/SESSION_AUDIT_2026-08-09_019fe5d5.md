@@ -71,18 +71,11 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 
 **Delivered 2026-08-09:** ~60 interpolation sites across the reader, lineage cards, gong'an index + filter chips, lexicon cards, and dossier now consistently apply `escHtml()` (attributes included); text content already assigned via `textContent`/citation rows stays as-is. **Regression guard (smoke 4y):** a poison fixture (`<img src=x onerror=…>` injected into a master name, a gong'an theme, a glossary term, and a case title) must render **escaped** in all four views — efficacy-verified by temporarily reverting one escape and watching the check fail, then restoring.
 
-### P2-D — Session artifacts accumulate at repo root
+### P2-D — Session artifacts accumulate at repo root ✅ **DELIVERED THIS SESSION**
 
-`response_summary.md` (dated 2026-08-08, session `019fe2e0`) is committed; two same-day `SESSION_AUDIT_2026-08-08*.md` files coexist; `AUDIT.md` is 84 KB of append-only log whose durable verdicts are mixed with session history.
+`response_summary.md` was a committed leftover; two same-day `SESSION_AUDIT_2026-08-08*.md` files coexisted; `AUDIT.md` was 84 KB of append-only log mixing durable verdicts with session process.
 
-**Recommendation:** adopt a convention — session artifacts either dated by name or in `docs/sessions/`; `AUDIT.md` links to session files instead of absorbing them; `response_summary.md` overwritten or removed at session end. (Left for user decision; this session writes its own dated audit file.)
-
-### P3 — Minor UX/consistency notes (post-UX-roadmap)
-
-1. Hero chips hardcode "36 Canonical Works / 8+ Translators" — same drift class as P2-A; either generate from data or accept as infrequently-true copy.
-2. `switchViewRaw()` scrolls to top on every programmatic call, including hash-restore paths; acceptable, but scroll-restore would be nicer for back/forward.
-3. Gong'an chips encode the filter value unescaped in a `data-*` attribute — works today, fits inside P2-C fix.
-4. ~~Lexicon category filter, lineage filter live in markup~~ — resolved with P2-B: both filters are now data-derived.
+**Delivered 2026-08-09:** `sessions/` now holds all dated reports + the audit history archive (`sessions/AUDIT_archive_2026-08-08.md`, nothing lost); repo-root `AUDIT.md` is a slim current-state summary (verdict, standing items, gates, index, convention) — all links in README/HANDOFF/ROADMAP/index.html updated to archive paths; the validator's doc-truthfulness gate continues to pass on every edited doc; root `response_summary.md` is documented as the *live* per-session working file. Convention recorded in AUDIT.md §5 and HANDOFF.md.
 
 ### Standing (carried from previous audits, still open)
 
@@ -107,5 +100,5 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 1. ~~**P2-A docs guard** (`validate_data.py --check-docs` + CI line) — kills the recurring drift class.~~ ✅ delivered this session.
 2. ~~**P2-B school vocabulary normalization + data-derived lineage filter options.**~~ ✅ delivered this session.
 3. ~~**P2-C escaping consistency pass.**~~ ✅ delivered this session.
-4. **P2-D sessions-folder convention + AUDIT.md slimming.** *(S)*
+4. ~~**P2-D sessions-folder convention + AUDIT.md slimming.**~~ ✅ delivered this session.
 5. **Content**: next Phase-2 text pilot (e.g. Biyanlu 11–20 or Linji expansion), continuing the established CBETA-collated workflow. *(M–L)*

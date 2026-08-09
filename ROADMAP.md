@@ -25,7 +25,7 @@ This document outlines the detailed engineering, data science, translation, and 
 └─────────────────┴─────────────────┴─────────────────┴─────────────────┴────────────────┘
 ```
 
-> Statuses above are **measured** (see [`AUDIT.md`](./AUDIT.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
+> Statuses above are **measured** (see [`sessions/AUDIT_archive_2026-08-08.md`](./sessions/AUDIT_archive_2026-08-08.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
 > **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **138 verified corpus quotation slots across 6 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
 
@@ -47,7 +47,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Multi-Translator Comparison matrix with explicit scholar, verified-quotation, reconstruction, and AI-draft disclosure.
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
-  - Instant client-side search across **all 36 texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`AUDIT.md` §10](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3)).
+  - Instant client-side search across **all 36 texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3)).
   - **UX/UI improvement roadmap implemented (Phases A–D, 2026-08-08)** — calm reader (case strip, collapsible cards, shared tap/focus popover, persisted preferences, debounced search), mobile-first navigation (corpus picker, bottom action bar, single-column translations), deep polish (print/PDF, hash routing, lineage pan/zoom, WCAG-AA a11y), performance (cached search index, lazy case rendering). See [`UX_ROADMAP.md`](./UX_ROADMAP.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Text Seeds** (36 files; authentic anchor passages, excerpt-scale — completion is Phase 2; canon IDs audited against CBETA 2026-08-08):
@@ -94,7 +94,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 - [~] **Multi-Translator Alignment** (format complete; **4 exemplar entries** populated):
   - Sentence-by-sentence alignment format storing historical translations side-by-side with source Chinese.
-  - Target translator roster (register exemplars seeded; verbatim verification pending — [`AUDIT.md` §3.4](./AUDIT.md)):
+  - Target translator roster (register exemplars seeded; verbatim verification pending — [`sessions/AUDIT_archive_2026-08-08.md` §3.4](./sessions/AUDIT_archive_2026-08-08.md)):
     - **Red Pine (Bill Porter)** (Hermit hermeneutics, lyrical fidelity, Dunhuang & woodblock collation)
     - **Thomas Cleary** (Precision, Taoist/Buddhist cross-synthesizing)
     - **Ruth Fuller Sasaki** (First Soto/Rinzai scholarly standard)
@@ -105,7 +105,7 @@ This document outlines the detailed engineering, data science, translation, and 
 - [~] **Classical Chan Lexicon** (**31 / 150+ foundational terms** — growing):
   - Terms defined with Sanskrit equivalents, literal meanings, and Chan philosophical contexts.
   - Interactive hover tooltips embedded directly in the Chinese reader text.
-  - ⚠️ Translator-attributed renderings are seed reconstructions pending verification — see [`AUDIT.md` §3.4](./AUDIT.md).
+  - ⚠️ Translator-attributed renderings are seed reconstructions pending verification — see [`sessions/AUDIT_archive_2026-08-08.md` §3.4](./sessions/AUDIT_archive_2026-08-08.md).
 - [ ] **Expansion to 150+, then 1,000 Classical Terms**:
   - Tang/Song vernacular particles (*這箇*, *遮裏*, *生盲*, *沒弦琴*, *泥牛入海*).
   - Technical monastic titles (*首座*, *維那*, *侍者*, *典座*, *方丈*).

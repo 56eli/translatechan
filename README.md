@@ -22,7 +22,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 
 - **138 verified quotation slots across 6 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
-- All checks and honest negatives logged in [`AUDIT.md` §8](./AUDIT.md).
+- All checks and honest negatives logged in [`sessions/AUDIT_archive_2026-08-08.md` §8](./sessions/AUDIT_archive_2026-08-08.md).
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
 5. **Deploy a Zero-Backend Static GitHub Pages Web App** for focused bilingual reading, hover lexicon tooltips, comparative translation, lineage study, and Gong'an indexing.
 
@@ -30,7 +30,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and Biyanlu's excerpt has grown to **14/100 cases with cases 1–10 complete** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **20,017 source-content CJK characters** (or 23,314 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `14/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`AUDIT.md §10`](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu cases 1–10 are now complete (14/100).
+> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and Biyanlu's excerpt has grown to **14/100 cases with cases 1–10 complete** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **20,017 source-content CJK characters** (or 23,314 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `14/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu cases 1–10 are now complete (14/100).
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -93,7 +93,8 @@ translatechan/
 ├── vision.md               # Grand Vision & Architectural Specification
 ├── ROADMAP.md              # Multi-Phase Project Roadmap & Milestone Tracker
 ├── RESEARCH_RELEASE_PLAN.md # Evidence-first corpus, rights, lineage & release plan
-├── AUDIT.md                # Post-merge technical audit + remediation log (2026-08)
+├── AUDIT.md                # Current-state audit summary + session index (durable history in sessions/)
+├── sessions/               # Dated session audit reports + historical audit archive (append-only)
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
 ├── data/
 │   ├── corpus_manifest.json    # Shared corpus order/navigation manifest (36 keys)
