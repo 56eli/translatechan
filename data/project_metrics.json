@@ -7,11 +7,11 @@
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 92450,
+    "all_corpus_cjk_characters": 95299,
     "complete_documents": [
       "wumenguan"
     ],
-    "content_cjk_characters": 88263,
+    "content_cjk_characters": 90927,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -259,15 +259,15 @@
         }
       },
       "linji_yulu": {
-        "all_cjk_chars": 534,
+        "all_cjk_chars": 3383,
         "cbeta_id": "T1985",
-        "content_zh_chars": 432,
+        "content_zh_chars": 3096,
         "shapes": [
           "sections"
         ],
         "title": "Record of Linji (臨濟語錄)",
         "unit_counts": {
-          "sections": 4
+          "sections": 16
         }
       },
       "mazu_yulu": {
@@ -508,9 +508,9 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 949,
+    "corpus_slots": 971,
     "corpus_statuses": {
-      "ai_draft": 132,
+      "ai_draft": 154,
       "reconstruction_unverified": 679,
       "verified_quotation": 138
     },

@@ -1013,9 +1013,22 @@
     }
 
     if (doc.sections && doc.sections.length > 0) {
-      doc.sections.forEach(sec => {
+      // Lazy-render long sections documents (complete-text Linji has 88 units)
+      const secTotal = doc.sections.length;
+      const SEC_CHUNK = 12;
+      const secLimit = state.caseLimit[state.currentCorpusKey] || (secTotal > SEC_CHUNK ? SEC_CHUNK : secTotal);
+      doc.sections.slice(0, secLimit).forEach(sec => {
         html += renderSectionItem(sec);
       });
+      if (secLimit < secTotal) {
+        const remaining = secTotal - secLimit;
+        html += `
+          <div style="text-align: center; margin: 1.5rem 0;">
+            <button id="case-load-more-btn" class="btn-primary" aria-label="Show more sections">
+              Show more sections — ${secLimit} of ${secTotal} · +${Math.min(SEC_CHUNK, remaining)}
+            </button>
+          </div>`;
+      }
     }
 
     if (doc.dialogues && doc.dialogues.length > 0) {
@@ -2415,7 +2428,8 @@
   const CASE_CHUNK = 12;
   function caseTotal() {
     const d = state.data.corpus && state.data.corpus[state.currentCorpusKey];
-    return d && Array.isArray(d.cases) ? d.cases.length : 0;
+    if (d && Array.isArray(d.cases) && d.cases.length) return d.cases.length;
+    return d && Array.isArray(d.sections) ? d.sections.length : 0;
   }
   function ensureCaseLoaded(caseNum) {
     const doc = state.data.corpus && state.data.corpus[state.currentCorpusKey];
