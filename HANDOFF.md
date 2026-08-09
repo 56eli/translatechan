@@ -53,7 +53,7 @@ Independent full-project audit found no P0/P1/P2 defects. Shipped improvements:
 
 ```bash
 python3 -m py_compile scripts/*.py
-python3 scripts/validate_data.py          # corpus=36 | slots=985 | verified=138 | matrix=21 | locators=150/150
+python3 scripts/validate_data.py          # corpus=36 | slots=1001 | verified=138 | matrix=21 | locators=150/150
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium

@@ -714,14 +714,25 @@
     },
     {
       "section_id": "four_host_guest",
-      "title_zh": "臨濟四主賓：主看客，客看主",
-      "title_pinyin": "Línjì Sì Zhǔbīn: Zhǔ Kàn Kè, Kè Kàn Zhǔ",
-      "title_en": "The Four Host and Guest Dynamics",
+      "title_zh": "示衆十五 · 大丈夫漢與四賓主",
+      "title_pinyin": "Shìzhòng Shíwǔ · Dàzhàngfūhàn yǔ Sìbīnzhǔ",
+      "title_en": "Instructing the Assembly 15 — A Valiant One; The Fourfold Guest and Host",
       "dialogue": [
         {
           "speaker": "Linji / 臨濟",
-          "zh": "道流！如禪宗見解死活循然，參學之人大須子細，如主客相見便有言論往來，或應物現形，或全體作用，或把機權喜怒，或現半身，或乘師子，或乘象王。如有真正學人便喝，先拈出一箇膠盆子。善知識不辨是境，便上他境上作模作樣。學人便喝，前人不肯放，此是膏肓之病不堪醫，喚作客看主。或是善知識不拈出物，隨學人問處即奪，學人被奪抵死不肯放，此是主看客。或有學人應一箇清淨境出善知識前，善知識辨得是境，把得拋向坑裏。學人言：「大好善知識。」知識即云：「咄哉，不識好惡。」學人便禮拜，此喚作主看主。或有學人披枷帶鎖出善知識前，善知識更與安一重枷鎖，學人歡喜，彼此不辨，呼為客看客。",
-          "pinyin": "Dàoliú! Rú Chánzōng jiànjiě sǐhuó xúnrán, cānxué zhī rén dà xū zǐxì, rú zhǔkè xiāngjiàn biàn yǒu yánlùn wǎnglái, huò yìngwù xiànxíng, huò quántǐ zuòyòng, huò bǎ jīquán xǐnù, huò xiàn bànshēn, huò chéng shīzi, huò chéng xiàngwáng. Rú yǒu zhēnzhèng xuérén biàn hè, xiān niān chū yī gè jiāopénzi. Shànzhīshì bù biàn shì jìng, biàn shàng tā jìng shàng zuò mó zuò yàng. Xuérén biàn hè, qiánrén bù kěn fàng, cǐ shì gāohuāng zhī bìng bù kān yī, huàn zuò kè kàn zhǔ. Huò shì shànzhīshì bù niān chū wù, suí xuérén wèn chù jí duó, xuérén bèi duó dǐ sǐ bù kěn fàng, cǐ shì zhǔ kàn kè. Huò yǒu xuérén yìng yī gè qīngjìng jìng chū shànzhīshì qián, shànzhīshì biàn dé shì jìng, bǎ dé pāo xiàng kēng lǐ. Xuérén yán: Dà hǎo shànzhīshì. Zhīshì jí yún: Duō zāi, bù shí hǎo è. Xuérén biàn lǐbài, cǐ huàn zuò zhǔ kàn zhǔ. Huò yǒu xuérén pī jiā dài suǒ chū shànzhīshì qián, shànzhīshì gèng yǔ ān yī chóng jiāsuǒ, xuérén huānxǐ, bǐcǐ bù biàn, hū wéi kè kàn kè.",
+          "zh": "道流！大丈夫漢更疑箇什麼？目前用處更是阿誰把得便用，莫著名字，號為玄旨，與麼見得勿嫌底法。古人云：『心隨萬境轉，轉處實能幽，隨流認得性，無喜亦無憂。』",
+          "pinyin": "Dào liú！ Dà zhàng fū hàn gèng yí gè shén me？ Mù qián yòng chù gèng shì ā shuí bǎ dé biàn yòng， mò zhù míng zì， hào wèi xuán zhǐ， yǔ me jiàn dé wù xián dǐ fǎ。 Gǔ rén yún：『 Xīn suí wàn jìng zhuǎn， zhuǎn chù shí néng yōu， suí liú rèn dé xìng， wú xǐ yì wú yōu。』",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Followers of the Way! Valiant ones, what is there still to doubt? What is working before you now — who else do you suppose can take hold of it and use it? Put no name on it: that is called the dark purport. See it like this, and there is no dharma to object to. The ancients said: 'When the mind turns with the ten thousand circumstances, the turning place is truly profound; following the current you recognize your nature — no joy, and no sorrow either.'\"",
+              "status": "ai_draft"
+            }
+          }
+        },
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "道流！如禪宗見解死活循然，參學之人大須子細，如主客相見便有言論往來，或應物現形、或全體作用、或把機權喜怒、或現半身、或乘師子、或乘象王。如有真正學人便喝，先拈出一箇膠盆子。善知識不辨是境，便上他境上作模作樣。學人便喝，前人不肯放。此是膏肓之病不堪醫，喚作客看主。或是善知識不拈出物，隨學人問處即奪。學人被奪抵死不放，此是主看客。或有學人應一箇清淨境出善知識前，善知識辨得是境，把得拋向坑裏。學人言：『大好善知識。』即云：『咄哉，不識好惡。』學人便禮拜，此喚作主看主。或有學人披枷帶鎖出善知識前，善知識更與安一重枷鎖，學人歡喜。彼此不辨，呼為客看客。",
+          "pinyin": "Dào liú！ Rú chán zōng jiàn jiě sǐ huó xún rán， cān xué zhī rén dà xū zi xì， rú zhǔ kè xiāng jiàn biàn yǒu yán lùn wǎng lái， huò yīng wù xiàn xíng、 huò quán tǐ zuò yòng、 huò bǎ jī quán xǐ nù、 huò xiàn bàn shēn、 huò chéng shī zi、 huò chéng xiàng wáng。 Rú yǒu zhēn zhèng xué rén biàn hè， xiān niān chū yī gè jiāo pén zi。 Shàn zhī shí bù biàn shì jìng， biàn shàng tā jìng shàng zuò mó zuò yàng。 Xué rén biàn hè， qián rén bù kěn fàng。 Cǐ shì gāo huāng zhī bìng bù kān yī， huàn zuò kè kàn zhǔ。 Huò shì shàn zhī shí bù niān chū wù， suí xué rén wèn chù jí duó。 Xué rén bèi duó dǐ sǐ bù fàng， cǐ shì zhǔ kàn kè。 Huò yǒu xué rén yīng yī gè qīng jìng jìng chū shàn zhī shí qián， shàn zhī shí biàn dé shì jìng， bǎ dé pāo xiàng kēng lǐ。 Xué rén yán：『 Dà hǎo shàn zhī shí。』 Jí yún：『 Duō zāi， bù shí hǎo è。』 Xué rén biàn lǐ bài， cǐ huàn zuò zhǔ kàn zhǔ。 Huò yǒu xué rén pī jiā dài suǒ chū shàn zhī shí qián， shàn zhī shí gèng yǔ ān yī zhòng jiā suǒ， xué rén huān xǐ。 Bǐ cǐ bù biàn， hū wèi kè kàn kè。",
           "translations": {
             "red_pine": {
               "text": "Among Chan students, encounters can take many forms: meeting as host and guest, responding to circumstances, or taking up the whole activity. When a student traps a teacher in a situation and the teacher cannot discern it, this is called guest seeing host. When a teacher takes away what the student asks for and the student will not release it, this is called host seeing guest. When both recognize and discard a pure situation, this is host seeing host; when both fail to discern and add another shackle, this is guest seeing guest.",
@@ -734,6 +745,291 @@
             "cleary": {
               "text": "Students of the Way must be very careful. In encounters there may be words and responses, manifestations and complete functioning. If a student presents a situation and the teacher cannot discern it, that is guest seeing host; if the teacher takes the student’s question and the student clings to it, that is host seeing guest. Clear discernment is host seeing host; mutual confusion is guest seeing guest.",
               "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_16",
+      "title_zh": "示衆十六 · 辨魔揀異三種根器",
+      "title_pinyin": "Shìzhòng Shíliù · Biànmó Jiǎnyì Sānzhǒng Gēnqì",
+      "title_en": "Instructing the Assembly 16 — Discerning Demons; Judging Three Grades of Capacity",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「大德！山僧如是所舉，皆是辨魔揀異，知其邪正。道流！寔情大難，佛法幽玄，解得可可地。山僧竟日與他說破，學者總不在意，千遍萬遍脚底踏過，黑沒焌地，無一箇形段，歷歷孤明。學人信不及，便向名句上生解，年登半百，秖管傍家負死屍行，檐却檐子天下走，索草鞋錢有日在。「大德！山僧說向外無法。學人不會，便即向裏作解，便即倚壁坐，舌拄上齶，湛然不動，取此為是祖門佛法也。大錯，是爾若取不動清淨境為是，爾即認他無明為郎主。古人云：『湛湛黑暗深坑寔可怖畏。』此之是也。爾若認他動者是，一切草木皆解動，應可是道也。所以，動者是風大、不動者是地大，動與不動俱無自性。爾若向動處捉他，他向不動處立；爾若向不動處捉他，他向動處立。譬如潛泉魚鼓波而自躍。大德！動與不動是二種境，還是無依，道人用動、用不動。如諸方學人來，山僧此間作三種根器斷：如中下根器來，我便奪其境，而不除其法；或中上根器來，我便境法俱奪；如上上根器來，我便境法人俱不奪；如有出格見解人來，山僧此間便全體作用不歷根器。",
+          "pinyin": "「 Dà dé！ Shān sēng rú shì suǒ jǔ， jiē shì biàn mó jiǎn yì， zhī qí xié zhèng。 Dào liú！ Shí qíng dà nán， fó fǎ yōu xuán， jiě dé kě kě dì。 Shān sēng jìng rì yǔ tā shuō pò， xué zhě zǒng bù zài yì， qiān biàn wàn biàn jiǎo dǐ tà guò， hēi méi qū dì， wú yī gè xíng duàn， lì lì gū míng。 Xué rén xìn bù jí， biàn xiàng míng jù shàng shēng jiě， nián dēng bàn bǎi， zhǐ guǎn bàng jiā fù sǐ shī xíng， yán què yán zi tiān xià zǒu， suǒ cǎo xié qián yǒu rì zài。「 Dà dé！ Shān sēng shuō xiàng wài wú fǎ。 Xué rén bù huì， biàn jí xiàng lǐ zuò jiě， biàn jí yǐ bì zuò， shé zhǔ shàng è， zhàn rán bù dòng， qǔ cǐ wèi shì zǔ mén fó fǎ yě。 Dà cuò， shì ěr ruò qǔ bù dòng qīng jìng jìng wèi shì， ěr jí rèn tā wú míng wèi láng zhǔ。 Gǔ rén yún：『 Zhàn zhàn hēi àn shēn kēng shí kě bù wèi。』 Cǐ zhī shì yě。 Ěr ruò rèn tā dòng zhě shì， yī qiè cǎo mù jiē jiě dòng， yīng kě shì dào yě。 Suǒ yǐ， dòng zhě shì fēng dà、 bù dòng zhě shì dì dà， dòng yǔ bù dòng jù wú zì xìng。 Ěr ruò xiàng dòng chù zhuō tā， tā xiàng bù dòng chù lì； Ěr ruò xiàng bù dòng chù zhuō tā， tā xiàng dòng chù lì。 Pì rú qián quán yú gǔ bō ér zì yuè。 Dà dé！ Dòng yǔ bù dòng shì èr zhǒng jìng， hái shì wú yī， dào rén yòng dòng、 yòng bù dòng。 Rú zhū fāng xué rén lái， shān sēng cǐ jiān zuò sān zhǒng gēn qì duàn： Rú zhōng xià gēn qì lái， wǒ biàn duó qí jìng， ér bù chú qí fǎ； Huò zhōng shàng gēn qì lái， wǒ biàn jìng fǎ jù duó； Rú shàng shàng gēn qì lái， wǒ biàn jìng fǎ rén jù bù duó； Rú yǒu chū gé jiàn jiě rén lái， shān sēng cǐ jiān biàn quán tǐ zuò yòng bù lì gēn qì。",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Virtuous ones! All that I have set forth is for discerning demons and picking out the crooked, for knowing the true from the false. Followers of the Way! The real thing is hard indeed; the Buddha-dharma is dark and deep, yet what is understood fits together neatly. All day long I spell it out for you, and students pay it no mind — a thousand times, ten thousand times you tread it underfoot: black as pitch, without a single shape or feature, vividly solitary-bright. Students' faith does not reach it, so they form concepts over names and phrases — well past fifty, still lugging a corpse around at others' houses, shouldering a pole-basket all over the land; the day will come when they owe the straw-sandal money. Virtuous ones! I say there is no dharma outside. Students do not understand and at once form concepts pointing inward: they lean against a wall and sit, tongue pressed to the roof of the mouth, motionless and crystal-still, taking this to be the buddha-dharma of the patriarchal gates. Greatly wrong! If you take a motionless pure field for the truth, you recognize your own unknowing as lord and master. The ancients said: 'Deep, deep dark, a black pit — truly a thing to dread.' This is the case. If you recognize movement as the truth — all grasses and trees understand movement; should they count as the Way? Movement is the wind element, stillness the earth element; both movement and stillness have no self-nature. If you grasp it in movement, it stands in stillness; if you grasp it in stillness, it stands in movement — like the fish of a hidden spring leaping of itself amid the waves. Virtuous ones! Movement and stillness are two objects; it is still the unattached person of the Way who uses movement and uses stillness. When students come from anywhere, I judge them here as three grades of capacity: if they come of middling-to-lower capacity, I take away their object without removing their dharma; if middling-to-higher, I take away both object and dharma; if of the highest, I take away neither object nor dharma nor person; if one comes with an out-of-the-ordinary view and understanding, I act with the whole body, reckoning no grade at all.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_17",
+      "title_zh": "示衆十七 · 石火電光擬心即差",
+      "title_pinyin": "Shìzhòng Shíqī · Shíhuǒ Diànguāng Nǐxīn Jí Chā",
+      "title_en": "Instructing the Assembly 17 — Flint and Lightning: To Frame a Thought Is to Miss",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「大德！到這裏學人著力處不通風，石火電光即過了也。學人若眼定動，即沒交涉，擬心即差，動念即乖。有人解者，不離目前。大德！爾檐鉢囊屎檐子，傍家走求佛求法，即今與麼馳求底，爾還識渠麼？活撥撥地，秖是勿根株，擁不聚、撥不散，求著即轉遠、不求還在目前。靈音屬耳，若人不信，徒勞百年。",
+          "pinyin": "「 Dà dé！ Dào zhè lǐ xué rén zhù lì chù bù tōng fēng， shí huǒ diàn guāng jí guò le yě。 Xué rén ruò yǎn dìng dòng， jí méi jiāo shè， nǐ xīn jí chà， dòng niàn jí guāi。 Yǒu rén jiě zhě， bù lí mù qián。 Dà dé！ Ěr yán bō náng shǐ yán zi， bàng jiā zǒu qiú fú qiú fǎ， jí jīn yǔ me chí qiú dǐ， ěr hái shí qú me？ Huó bō bō dì， zhǐ shì wù gēn zhū， yōng bù jù、 bō bù sàn， qiú zhù jí zhuǎn yuǎn、 bù qiú hái zài mù qián。 Líng yīn shǔ ěr， ruò rén bù xìn， tú láo bǎi nián。",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Virtuous ones! At this point where students exert themselves there is no crack of air: flint-spark and lightning-flash have already passed by. If a student's eye hesitates or shifts, there is no connection; to frame a thought is to miss it; to move a thought is to be off it. The one who can does not leave the present. Virtuous ones! You shoulder your bowl-bag and dung-basket, going to others' houses seeking Buddha and Dharma — this one racing about and seeking right now, do you know him? Alive and bounding, he is simply without any rootstock: gather him and he does not bunch, part him and he does not scatter; seek him and he strays farther, do not seek and he is right before you. His subtle sound fills the ear — if a person cannot trust this, a hundred years toil in vain.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_18",
+      "title_zh": "示衆十八 · 剎那遍入唯有空名",
+      "title_pinyin": "Shìzhòng Shíbā · Chànà Biànrù Wéiyǒu Kōngmíng",
+      "title_en": "Instructing the Assembly 18 — In an Instant, Entering All Lands: Only Empty Names",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「道流！一剎那間便入華藏世界、入毘盧遮那國土、入解脫國土、入神通國土、入清淨國土、入法界、入穢入淨、入凡入聖、入餓鬼畜生，處處討覓尋皆，不見有生、有死，唯有空名。幻化空花不勞把捉，得失是非一時放却。",
+          "pinyin": "「 Dào liú！ Yī shā nà jiān biàn rù Huázàng shì jiè、 rù Pílúzhēnà guó tǔ、 rù jiě tuō guó tǔ、 rù shén tōng guó tǔ、 rù qīng jìng guó tǔ、 rù fǎ jiè、 rù huì rù jìng、 rù fán rù shèng、 rù è guǐ chù sheng， chù chù tǎo mì xún jiē， bù jiàn yǒu shēng、 yǒu sǐ， wéi yǒu kòng míng。 Huàn huà kōng huā bù láo bǎ zhuō， dé shī shì fēi yī shí fàng què。",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Followers of the Way! In a single instant you enter the Flower Garland world, enter Vairocana's lands, enter the liberation lands, enter the supernormal-power lands, enter the pure lands, enter the Dharma realm, enter taint and purity, the worldly and the saintly, and the states of hungry ghosts and animals — everywhere you may hunt and seek, you see neither birth nor death, only empty names. Phantom flowers in the empty sky ask no grasping; gain and loss, right and wrong — let them all go at once.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_19",
+      "title_zh": "示衆十九 · 諸宗匠用處",
+      "title_pinyin": "Shìzhòng Shíjiǔ · Zhū Zōngjiàng Yòngchù",
+      "title_en": "Instructing the Assembly 19 — The Functioning of the Old House Masters",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「道流！山僧佛法的的相承，從麻谷和尚、丹霞和尚、道一和尚、廬山拽石頭和尚，一路行遍天下，無人信得，盡皆起謗。如道一和尚用處純一無雜，學人三百、五百盡皆不見他意。如廬山和尚自在真正順逆用處，學人不測涯際，悉皆忙然。如丹霞和尚翫珠隱顯，學人來者皆悉被罵。如麻谷用處苦如黃蘗，近皆不得。如石鞏用處向箭頭上覓人，來者皆懼。如山僧今日用處真正成壞，翫弄神變，入一切境，隨處無事，境不能換。",
+          "pinyin": "「 Dào liú！ Shān sēng fó fǎ de de xiāng chéng， cóng Mágǔ Héshàng、 Dānxiá Héshàng、 Dàoyī Héshàng、 Lúshān zhuāi shí tóu Héshàng， yī lù xíng biàn tiān xià， wú rén xìn dé， jǐn jiē qǐ bàng。 Rú Dàoyī Héshàng yòng chù chún yī wú zá， xué rén sān bǎi、 wǔ bǎi jǐn jiē bù jiàn tā yì。 Rú Lúshān Héshàng zì zài zhēn zhèng shùn nì yòng chù， xué rén bù cè yá jì， xī jiē máng rán。 Rú Dānxiá Héshàng wán zhū yǐn xiǎn， xué rén lái zhě jiē xī bèi mà。 Rú Mágǔ yòng chù kǔ rú Huángbò， jìn jiē bù dé。 Rú Shígǒng yòng chù xiàng jiàn tóu shàng mì rén， lái zhě jiē jù。 Rú shān sēng jīn rì yòng chù zhēn zhèng chéng huài， wán nòng shén biàn， rù yī qiè jìng， suí chù wú shì， jìng bù néng huàn。",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Followers of the Way! My Buddha-dharma has been handed down in true succession: from master Magu, master Danxia, master Daoyi (Mazu), and the master who hauled stones on Mount Lu — one road running all over the land. Nobody trusted it, and all of them met with slander. Daoyi's functioning was pure and single without mixture; students by the three hundreds and five hundreds could not see his meaning. Lushan's functioning, genuine in the favorable and adverse alike — students could not plumb its shores and were all at a loss. Danxia played with his pearl, hiding and revealing it; all who came to him met with scolding. Magu's functioning was bitter as Huangbo's — none could approach. Shigong's functioning sought the man right on the arrowhead — all who came were afraid. My own functioning today creates genuineness and destroys it, playing with spiritual transformations, entering every field, at rest wherever I go — the fields cannot turn me about.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_20",
+      "title_zh": "示衆二十 · 莫認衣",
+      "title_pinyin": "Shìzhòng Èrshí · Mò Rèn Yī",
+      "title_en": "Instructing the Assembly 20 — Do Not Mistake the Robe for the Wearer",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「但有來求者，我即便出看渠，渠不識我，我便著數般衣，學人生解一向入我言句：『苦哉，瞎禿子無眼人把我著底衣認青、黃、赤、白，我脫却入清淨境中。』學人一見便生忻欲。我又脫却，學人失心，忙然狂走，言：『我無衣。』我即向渠道：『爾識我著衣底人否？』忽爾回頭，認我了也。『大德！爾莫認衣，衣不能動，人能著衣，有箇清淨衣、有箇無生衣、菩提衣、涅槃衣、有祖衣、有佛衣。大德！但有聲名文句，皆悉是衣變，從臍輪氣海中鼓激、牙齒敲磕成其句義，明知是幻化。大德！外發聲語業、內表心所法，以思有念，皆悉是衣。爾秖麼認他著底衣為寔解，縱經塵劫秖是衣通，三界循還輪回生死；不如無事，相逢不相識、共語不知名。今時學人不得，蓋為認名字為解，大策子上抄死老漢語，三重五重複子裹，不教人見，道是玄旨，以為保重。大錯，瞎屢生！爾向枯骨上覓什麼汁？有一般不識好惡，向教中取意度商量成於句義，如把屎塊子向口裏含了吐過與別人。猶如俗人打傳口令相似，一生虛過也。道我出家，被他問著佛法，便即杜口無詞，眼似漆突、口如楄檐，如此之類逢彌勒出世，移置他方世界寄地獄受苦。大德！爾波波地往諸方覓什麼物？踏爾脚板闊，無佛可求、無道可成、無法可得。外求有相佛，與汝不相似，欲識汝本心，非合亦非離。』",
+          "pinyin": "「 Dàn yǒu lái qiú zhě， wǒ jí biàn chū kàn qú， qú bù shí wǒ， wǒ biàn zhù shù bān yī， xué rén shēng jiě yí xiàng rù wǒ yán jù：『 Kǔ zāi， xiā tū zi wú yǎn rén bǎ wǒ zhù dǐ yī rèn qīng、 huáng、 chì、 bái， wǒ tuō què rù qīng jìng jìng zhōng。』 Xué rén yī jiàn biàn shēng xīn yù。 Wǒ yòu tuō què， xué rén shī xīn， máng rán kuáng zǒu， yán：『 Wǒ wú yī。』 Wǒ jí xiàng qú dào：『 Ěr shí wǒ zhù yī dǐ rén fǒu？』 Hū ěr huí tóu， rèn wǒ le yě。『 Dà dé！ Ěr mò rèn yī， yī bù néng dòng， rén néng zhù yī， yǒu gè qīng jìng yī、 yǒu gè wú shēng yī、 Pútí yī、 Nièpán yī、 yǒu zǔ yī、 yǒu fú yī。 Dà dé！ Dàn yǒu shēng míng wén jù， jiē xī shì yī biàn， cóng qí lún qì hǎi zhōng gǔ jī、 yá chǐ qiāo kē chéng qí jù yì， míng zhī shì huàn huà。 Dà dé！ Wài fā shēng yǔ yè、 nèi biǎo xīn suǒ fǎ， yǐ sī yǒu niàn， jiē xī shì yī。 Ěr zhǐ me rèn tā zhù dǐ yī wèi shí jiě， zòng jīng chén jié zhǐ shì yī tōng， sān jiè xún hái lún huí shēng sǐ； Bù rú wú shì， xiāng féng bù xiāng shí、 gòng yǔ bù zhī míng。 Jīn shí xué rén bù dé， gài wèi rèn míng zì wèi jiě， dà cè zi shàng chāo sǐ lǎohàn yǔ， sān chóng wǔ zhòng fù zi guǒ， bù jiào rén jiàn， dào shì xuán zhǐ， yǐ wèi bǎo zhòng。 Dà cuò， xiā lǚ shēng！ Ěr xiàng kū gǔ shàng mì shén me zhī？ Yǒu yì bān bù shí hǎo è， xiàng jiào zhōng qǔ yì dù shāng liáng chéng yú jù yì， rú bǎ shǐ kuài zi xiàng kǒu lǐ hán le tǔ guò yǔ bié rén。 Yóu rú sú rén dǎ chuán kǒu lìng xiāng sì， yī shēng xū guò yě。 Dào wǒ chū jiā， bèi tā wèn zhù fó fǎ， biàn jí dù kǒu wú cí， yǎn shì qī tū、 kǒu rú pián yán， rú cǐ zhī lèi féng Mílè chū shì， yí zhì tā fāng shì jiè jì dì yù shòu kǔ。 Dà dé！ Ěr bō bō dì wǎng zhū fāng mì shén me wù？ Tà ěr jiǎo bǎn kuò， wú fú kě qiú、 wú dào kě chéng、 wú fǎ kě dé。 Wài qiú yǒu xiāng fú， yǔ rǔ bù xiāng sì， yù shí rǔ běn xīn， fēi hé yì fēi lí。』",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Whenever people come seeking, I go out at once to look at them; they do not recognize me, so I put on several sorts of robe. Students fall into concepts and forever enter my phrases: 'Alas! Those blind baldpates, those eyeless people — the robe I am wearing they name blue, yellow, red, or white! I strip it off and enter the field of purity' — and the moment students see that, delight and craving arise. I strip that off too; the students lose heart and rush wildly about, saying that I have no robe. Then I say to them: 'Do you recognize me, the one who wears all the robes?' And suddenly they turn their heads and recognize me. Virtuous ones! Do not recognize the robe — the robe cannot move; the person wears the robe. There is a robe of purity, a robe of the unborn, a bodhi robe, a nirvana robe, a patriarch robe, a buddha robe. Virtuous ones! Whatever fine names and phrases there are, they are all changes of robe: drummed out from the ocean of breath at the navel wheel, knocked and tapped with the teeth into the meaning of phrases — know them plainly to be phantom transformations. Virtuous ones! Verbal action voiced outside, mind-dharmas manifested within — thought having thought — all of these are robes. If you take the robe being worn for real understanding, then even through kalpas innumerable as dust it is only robe-wisdom, and you circle the three realms in the rounds of birth and death. Better to have nothing to do: to meet without recognizing, to talk without knowing names. Students today fail entirely because they take names and words for understanding, copying a dead old man's phrases into great ledgers, wrapping them in three and five layers so no one sees, calling this the dark purport and guarding it as treasure. Greatly wrong, blind fools! What juice do you hope to suck from dried bones? A kind that cannot tell good from bad takes from the teachings, thinks, weighs, and deliberates, concocting the meaning of phrases — as if they held a lump of dung in the mouth and spat it out for others, like the worldly game of passing the password: a whole life spent in vain. Calling myself a home-leaver — questioned about the Buddha-dharma, such folk are struck dumb, eyes like lacquered stumps, mouths like carrying poles. The likes of them, when Maitreya appears in the world, will be shifted to a neighboring world-realm and lodged in hell to suffer. Virtuous ones! Why race about everywhere? You will wear your feet wide. No Buddha can be sought, no Way attained, no Dharma obtained. Seeking outside for a marked Buddha — he bears no likeness to you. If you would know your own fundamental mind — it is neither joining nor parting.'\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_21",
+      "title_zh": "示衆二十一 · 三法混融",
+      "title_pinyin": "Shìzhòng Èrshíyī · Sānfǎ Húnróng",
+      "title_en": "Instructing the Assembly 21 — The Three Dharmas Melted into One",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「道流！真佛無形、真道無體、真法無相，三法混融和合一處，辨既不得，喚作忙忙業識眾生。」",
+          "pinyin": "「 Dào liú！ Zhēn fú wú xíng、 zhēn dào wú tǐ、 zhēn fǎ wú xiāng， sān fǎ hùn róng hé hé yī chù， biàn jì bù dé， huàn zuò máng máng yè shí zhòng shēng。」",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Followers of the Way! The true Buddha has no form; the true Way has no substance; the true Dharma has no marks. The three dharmas melt and blend into one place. Since that still cannot be discerned, they are called the milling, busy beings of karma and consciousness.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_22",
+      "title_zh": "示衆二十二 · 真佛真法真道",
+      "title_pinyin": "Shìzhòng Èrshíèr · Zhēnfó Zhēnfǎ Zhēndào",
+      "title_en": "Instructing the Assembly 22 — True Buddha, True Dharma, True Way",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "問：「如何是真佛？真法？真道？乞垂開示。」師云：「佛者，心清淨是；法者，心光明是；道者，處處無礙淨光是。三即一，皆是空名，而無寔有，如真正學道人念念心不間斷。自達磨大師從西土來，秖是覓箇不受人惑底人。後遇二祖，一言便了，始知從前虛用功夫。山僧今日見處與祖佛不別，若第一句中得，與祖佛為師；若第二句中得，與人天為師；若第三句中得，自救不了。」",
+          "pinyin": "Wèn：「 Rú hé shì zhēn fú？ Zhēn fǎ？ Zhēn dào？ Qǐ chuí kāi shì。」 Shī yún：「 Fú zhě， xīn qīng jìng shì； Fǎ zhě， xīn guāng míng shì； Dào zhě， chù chù wú ài jìng guāng shì。 Sān jí yī， jiē shì kōng míng， ér wú shí yǒu， rú zhēn zhèng xué dào rén niàn niàn xīn bù jiān duàn。 Zì Dámó dà shī cóng xī tǔ lái， zhǐ shì mì gè bù shòu rén huò dǐ rén。 Hòu yù èr zǔ， yī yán biàn liǎo， shǐ zhī cóng qián xū yòng gōng fu。 Shān sēng jīn rì jiàn chù yǔ zǔ fú bù bié， ruò dì yī jù zhōng dé， yǔ zǔ fú wèi shī； Ruò dì èr jù zhōng dé， yǔ rén tiān wèi shī； Ruò dì sān jù zhōng dé， zì jiù bù liǎo。」",
+          "translations": {
+            "ai_literal": {
+              "text": "A monk asked: \"What is true Buddha, true Dharma, true Way? I beg your instructing revelation.\" The master said: \"Buddha is purity of mind; Dharma is the mind's radiance; the Way is the unhindered pure light everywhere. The three are one — all are empty names and have no real existence, as a genuine student of the Way whose thought never flags. From the day the great master Bodhidharma came from the western lands, he sought only a person undeceived by others. Later he met the second patriarch; at a single word all was finished, and he knew his earlier effort had been spent in vain. My own view today is no different from the patriarch-buddhas: if you get it in the first statement, you act as teacher to patriarch-buddhas; if you get it in the second statement, you act as teacher to humans and gods; if you get it in the third statement, you cannot even save yourself.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_23",
+      "title_zh": "示衆二十三 · 西來意",
+      "title_pinyin": "Shìzhòng Èrshísān · Xīlái Yì",
+      "title_en": "Instructing the Assembly 23 — The Meaning of the Patriarch’s Coming from the West",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "問：「如何是西來意？」師云：「若有意，自救不了。」云：「既無意，云何二祖得法？」師云：「得者是不得。」云：「既若不得，云何是不得底意？」師云：「為爾向一切處馳求，心不能歇。所以，祖師言：『咄哉，丈夫！將頭覓頭。』儞言下便自回光返照，更不別求。知身心與祖佛不別，當下無事，方名得法。大德！山僧今時事不獲已，話度說出許多不才淨。爾且莫錯，據我見處，寔無許多般道理，要用便用、不用便休。秖如諸方說六度萬行以為佛法，我道是莊嚴門、佛事門，非是佛法，乃至持齋、持戒，擎油不㴸，道眼不明，盡須抵債，索飯錢有日在。何故如此？入道不通理，復身還信施。長者八十一，其樹不生耳，乃至孤峯獨宿，一食卯齋，長坐不臥，六時行道皆是造業底人，乃至頭、目、髓、腦、國城、妻子、象、馬、七珍盡皆捨施，如是等見皆是苦身心故，還招苦果，不如無事純一無雜。乃至十地滿心菩薩皆求此道流蹤跡了不可得，所以諸天歡喜，地神捧足，十方諸佛無不稱歎。緣何如此？為今聽法道人用處無蹤跡。」",
+          "pinyin": "Wèn：「 Rú hé shì xī lái yì？」 Shī yún：「 Ruò yǒu yì， zì jiù bù liǎo。」 Yún：「 Jì wú yì， yún hé èr zǔ dé fǎ？」 Shī yún：「 Dé zhě shì bù dé。」 Yún：「 Jì ruò bù dé， yún hé shì bù dé dǐ yì？」 Shī yún：「 Wèi ěr xiàng yī qiè chù chí qiú， xīn bù néng xiē。 Suǒ yǐ， Zǔshī yán：『 Duō zāi， zhàng fū！ Jiāng tóu mì tóu。』 Nǐ yán xià biàn zì huí guāng fǎn zhào， gèng bù bié qiú。 Zhī shēn xīn yǔ zǔ fú bù bié， dāng xià wú shì， fāng míng dé fǎ。 Dà dé！ Shān sēng jīn shí shì bù huò yǐ， huà dù shuō chū xǔ duō bù cái jìng。 Ěr qiě mò cuò， jù wǒ jiàn chù， shí wú xǔ duō bān dào lǐ， yào yòng biàn yòng、 bù yòng biàn xiū。 Zhǐ rú zhū fāng shuō liù dù wàn xíng yǐ wèi fó fǎ， wǒ dào shì zhuāng yán mén、 fó shì mén， fēi shì fó fǎ， nǎi zhì chí zhāi、 chí jiè， qíng yóu bù shǎn， dào yǎn bù míng， jǐn xū dǐ zhài， suǒ fàn qián yǒu rì zài。 Hé gù rú cǐ？ Rù dào bù tōng lǐ， fù shēn hái xìn shī。 Zhǎng zhě bā shí yī， qí shù bù shēng ěr， nǎi zhì gū fēng dú sù， yī shí mǎo zhāi， zhǎng zuò bù wò， liù shí háng dào jiē shì zào yè dǐ rén， nǎi zhì tóu、 mù、 suǐ、 nǎo、 guó chéng、 qī zǐ、 xiàng、 mǎ、 qī zhēn jǐn jiē shě shī， rú shì děng jiàn jiē shì kǔ shēn xīn gù， hái zhāo kǔ guǒ， bù rú wú shì chún yī wú zá。 Nǎi zhì shí dì mǎn xīn pú sà jiē qiú cǐ dào liú zōng jī le bù kě dé， suǒ yǐ zhū tiān huān xǐ， dì shén pěng zú， shí fāng zhū fú wú bù chēng tàn。 Yuán hé rú cǐ？ Wèi jīn tīng fǎ dào rén yòng chù wú zōng jī。」",
+          "translations": {
+            "ai_literal": {
+              "text": "A monk asked: \"What is the meaning of the patriarch's coming from the west?\" The master said: \"If it had a meaning, you could not even save yourself.\" It was said: \"If there is no meaning, how did the second patriarch gain the Dharma?\" The master said: \"To gain is to not-gain.\" It was said: \"If it is not gained, what is the meaning of not gaining?\" The master said: \"It is because you chase about everywhere, and your mind cannot stop. That is why the patriarch said: 'Ah! Great man — you take your own head and go hunting for a head.' The moment those words land, you turn your light back of itself and shine it within, seeking nothing further. Knowing your mind-and-body is no different from the patriarch-buddhas, and that right now there is nothing to do — that is called gaining the Dharma. Virtuous ones! I cannot help myself these days and talk it out in many clumsy and impure ways. Make no mistake: from where I see it, there really are not so many principles — use it when you need it, let it go when you do not. People everywhere speak of the six paramitas and ten thousand practices as the Buddha-dharma; I say these are the gates of adornment, the gates of the Buddha's work — not the Buddha-dharma itself. Even keeping fasts and holding precepts, carrying oil without spilling a drop — if the way-eye is not clear, all must repay the debt; the day will come when they owe the rice-bill. Why? Because after entering the Way without piercing the principle, you return the donors' alms with your own person. An elder of eighty-one: his tree will not sprout fungus-ears. Even lodging alone on a solitary peak, taking one meal before the hour of the hare, sitting long without lying down, treading the path six times a day — all are people making karma. Even giving up head, eyes, marrow, and brains, kingdoms and cities, wife and children, elephants, horses, and the seven treasures — all such views torment body and mind and call down bitter fruit in return. Better to have nothing to do, pure and single without mixture. Even tenth-stage bodhisattvas with fulfilled minds all seek the traces of this follower of the Way and cannot find them — so the gods rejoice, the earth spirits cup his feet, and the buddhas of the ten directions all give praise. Why? Because the person of the Way listening to the Dharma now leaves no trace in his functioning.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_24",
+      "title_zh": "示衆二十四 · 大通智勝佛",
+      "title_pinyin": "Shìzhòng Èrshísì · Dàtōng Zhìshèng Fó",
+      "title_en": "Instructing the Assembly 24 — Great Universal-Wisdom Victorious Buddha",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "問：「大通智勝佛十劫坐道場，佛法不現前，不得成佛道。未審此意如何？乞師指示。」師云：「大通者，是自己，於處處達其萬法無性、無相，名為大通。智勝者，於一切處不疑、不得一法，名為智勝。佛者，心清淨，光明透徹法界，得名為佛。十劫坐道場者，十波羅密是。佛法不現前者，佛本不生、法本不滅，云何更有現前？不得成佛道者，佛不應更作佛。古人云：『佛常在世間，而不染世間法。』道流！爾欲得作佛，莫隨萬物。心生種種法生、心滅種種法滅，一心不生，萬法無咎。世與出世，無佛、無法，亦不現前、亦不曾失。設有者，皆是名言章句，接引小兒施設藥病，表顯名句。且名句不自名句，還是爾目前昭昭靈靈鑒覺聞知照燭底，安一切名句。大德！造五無間業方得解脫。」",
+          "pinyin": "Wèn：「 Dàtōng Zhìshèng Fó shí jié zuò dào chǎng， fó fǎ bù xiàn qián， bù dé chéng fú dào。 Wèi shěn cǐ yì rú hé？ Qǐ shī zhǐ shì。」 Shī yún：「 Dà tōng zhě， shì zì jǐ， yú chù chù dá qí wàn fǎ wú xìng、 wú xiāng， míng wèi dà tōng。 Zhì shèng zhě， yú yī qiè chù bù yí、 bù dé yī fǎ， míng wèi zhì shèng。 Fú zhě， xīn qīng jìng， guāng míng tòu chè fǎ jiè， dé míng wèi fú。 Shí jié zuò dào chǎng zhě， shí bō luó mì shì。 Fó fǎ bù xiàn qián zhě， fú běn bù shēng、 fǎ běn bù miè， yún hé gèng yǒu xiàn qián？ Bù dé chéng fú dào zhě， fú bù yīng gèng zuò fú。 Gǔ rén yún：『 Fú cháng zài shì jiān， ér bù rǎn shì jiān fǎ。』 Dào liú！ Ěr yù dé zuò fú， mò suí wàn wù。 Xīn shēng zhǒng zhǒng fǎ shēng、 xīn miè zhǒng zhǒng fǎ miè， yī xīn bù shēng， wàn fǎ wú jiù。 Shì yǔ chū shì， wú fú、 wú fǎ， yì bù xiàn qián、 yì bù céng shī。 Shè yǒu zhě， jiē shì míng yán zhāng jù， jiē yǐn xiǎo ér shī shè yào bìng， biǎo xiǎn míng jù。 Qiě míng jù bù zì míng jù， hái shì ěr mù qián zhāo zhāo líng líng jiàn jué wén zhī zhào zhú dǐ， ān yī qiè míng jù。 Dà dé！ Zào wǔ wú jiān yè fāng dé jiě tuō。」",
+          "translations": {
+            "ai_literal": {
+              "text": "A monk asked: \"Great Universal-Wisdom Victorious Buddha sat in the seat of the Way for ten kalpas, yet the Buddha-dharma did not appear to him and he could not fulfill the buddha-way. What does this mean? I beg your instruction.\" The master said: \"'Great Universal' is oneself: everywhere you penetrate that the ten thousand dharmas have no self-nature and no marks — that is called Great Universal. 'Wisdom Victorious': nowhere doubting, not gaining a single dharma anywhere — that is called Wisdom Victorious. 'Buddha': purity of mind, its radiance piercing through the Dharma realm — that gets the name Buddha. 'Sitting in the seat of the Way for ten kalpas': that is the ten paramitas. 'The Buddha-dharma did not appear to him': Buddha is fundamentally unborn, the Dharma fundamentally unperishing — how could there be a further appearing? 'Could not fulfill the buddha-way': a Buddha should not further make himself Buddha. The ancients said: 'Buddha is ever in the world, yet untainted by worldly dharmas.' Followers of the Way! If you would become Buddha, do not follow the ten thousand things. When mind arises, all kinds of dharmas arise; when mind perishes, all kinds of dharmas perish. When the one mind does not arise, the ten thousand dharmas have no fault. In the world and beyond the world there is no Buddha and no Dharma, nothing that appears, nothing ever lost. Whatever there is, is all names and phrases — gates set up to lead little children, displays of medicine for sickness, markers of expressive words. Yet names and phrases are not names and phrases of themselves: it is this, bright and alert before you now, perceiving and hearing and knowing and illumining, that affixes all names and phrases. Virtuous ones! Make the five uninterrupted karma-deeds — only then will you be liberated.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_25",
+      "title_zh": "示衆二十五 · 五無間業",
+      "title_pinyin": "Shìzhòng Èrshíwǔ · Wǔ Wújiànyè",
+      "title_en": "Instructing the Assembly 25 — The Five Uninterrupted Karma-Deeds",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "問：「如何是五無間業？」師云：「殺父、害母、出佛身血、破和合僧、焚燒經像等，此是五無間業。」云：「如何是父？」師云：「無明是父，爾一念心求起滅處不得，如響應空，隨處無事，名為殺父。」云：「如何是母？」師云：「貪愛為母，爾一念心入欲界中求其貪愛，唯見諸法空相，處處無著，名為害母。」云：「如何是出佛身血？」師云：「爾向清淨法界中無一念心生解，便處處黑暗，是出佛身血。」云：「如何是破和合僧？」師云：「爾一念心正達煩惱結使，如空無所依，是破和合僧。」云：「如何是焚燒經像？」師云：「見因緣空、心空、法空，一念決定斷，逈然無事，便是焚燒經像。大德！若如是達得，免被他凡聖名礙。爾一念心秖向空拳指上生寔解，根境法中虛揑怪，自輕而退屈，言：『我是凡夫，他是聖人。』禿屢生！有甚死急？披他師子皮，却作野干鳴。大丈夫漢不作丈夫氣息，自家屋裏物不肯信，秖麼向外覓，上他古人閑名句，倚陰博陽，不能特達，逢境便緣、逢塵便執，觸處惑起，自無准定。",
+          "pinyin": "Wèn：「 Rú hé shì wǔ wú jiān yè？」 Shī yún：「 Shā fù、 hài mǔ、 chū fú shēn xuè、 pò hé hé sēng、 fén shāo jīng xiàng děng， cǐ shì wǔ wú jiān yè。」 Yún：「 Rú hé shì fù？」 Shī yún：「 Wú míng shì fù， ěr yī niàn xīn qiú qǐ miè chù bù dé， rú xiǎng yīng kōng， suí chù wú shì， míng wèi shā fù。」 Yún：「 Rú hé shì mǔ？」 Shī yún：「 Tān ài wèi mǔ， ěr yī niàn xīn rù yù jiè zhōng qiú qí tān ài， wéi jiàn zhū fǎ kōng xiāng， chù chù wú zhù， míng wèi hài mǔ。」 Yún：「 Rú hé shì chū fú shēn xuè？」 Shī yún：「 Ěr xiàng qīng jìng fǎ jiè zhōng wú yī niàn xīn shēng jiě， biàn chù chù hēi àn， shì chū fú shēn xuè。」 Yún：「 Rú hé shì pò hé hé sēng？」 Shī yún：「 Ěr yī niàn xīn zhèng dá fán nǎo jié shǐ， rú kōng wú suǒ yī， shì pò hé hé sēng。」 Yún：「 Rú hé shì fén shāo jīng xiàng？」 Shī yún：「 Jiàn yīn yuán kōng、 xīn kōng、 fǎ kōng， yī niàn jué dìng duàn， jiǒng rán wú shì， biàn shì fén shāo jīng xiàng。 Dà dé！ Ruò rú shì dá dé， miǎn bèi tā fán shèng míng ài。 Ěr yī niàn xīn zhǐ xiàng kōng quán zhǐ shàng shēng shí jiě， gēn jìng fǎ zhōng xū niē guài， zì qīng ér tuì qū， yán：『 Wǒ shì fán fū， tā shì shèng rén。』 Tū lǚ shēng！ Yǒu shèn sǐ jí？ Pī tā shī zi pí， què zuò yě gàn míng。 Dà zhàng fū hàn bù zuò zhàng fū qì xī， zì jiā wū lǐ wù bù kěn xìn， zhǐ me xiàng wài mì， shàng tā gǔ rén xián míng jù， yǐ yīn bó yáng， bù néng tè dá， féng jìng biàn yuán、 féng chén biàn zhí， chù chù huò qǐ， zì wú zhǔn dìng。",
+          "translations": {
+            "ai_literal": {
+              "text": "A monk asked: \"What are the five uninterrupted karma-deeds?\" The master said: \"Killing your father, harming your mother, drawing blood from the Buddha's body, breaking the harmony of the sangha, and burning the scriptures and images — those are the five uninterrupted karma-deeds.\" It was said: \"What is 'father'?\" The master said: \"Unknowing is the father. When with one thought of mind you seek the place of arising and ceasing and cannot find it, like an echo in empty space, every place at rest — that is called killing the father.\" It was said: \"What is 'mother'?\" The master said: \"Craving is the mother. When with one thought of mind you enter the realm of desire and seek its craving, seeing only the empty marks of all dharmas, attached nowhere — that is called harming the mother.\" It was said: \"What is 'drawing blood from the Buddha's body'?\" The master said: \"When you conceive not one thought of understanding amid the pure Dharma realm, and every place is dark — that is drawing blood from the Buddha's body.\" It was said: \"What is 'breaking the harmony of the sangha'?\" The master said: \"When with one thought of mind you rightly penetrate the knotting, driving afflictions as empty, resting on nothing — that is breaking the harmony of the sangha.\" It was said: \"What is 'burning the scriptures and images'?\" The master said: \"Seeing causes and conditions as empty, mind as empty, dharmas as empty, cutting through decisively in a single thought, far flung with nothing to do — that is burning the scriptures and images. Virtuous ones! If you penetrate thus, you escape the blockage of the names 'worldly' and 'saintly.' Yet one thought of yours still keeps forming solid concepts over the pointing finger of the empty fist, conjuring phantoms amid the dharma of roots and fields. Belittling yourselves, you shrink back, saying: 'I am a common mortal; he is a sage.' Bald fools! What is the deadly hurry? Wearing the lion's skin, you make the wild dog's howl. A great man does not take up a great man's bearing — refusing to trust the things in his own house, he seeks them outward like this, clambering upon the ancients' idle names and phrases, leaning on shadows and borrowing daylight, never piercing through directly. Meeting a field he chases it; meeting dust he grasps it; wherever he touches, confusion rises — with nothing settled of his own.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_26",
+      "title_zh": "示衆二十六 · 文殊仗劍鴦掘持刀",
+      "title_pinyin": "Shìzhòng Èrshíliù · Wénshū Zhàngjiàn Yāngjué Chídāo",
+      "title_en": "Instructing the Assembly 26 — Manjusri Raised the Sword, Angulimalla the Knife",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「道流！莫取山僧說處。何故？說無憑據。一期間圖畫虛空，如彩畫像等喻。道流！莫將佛為究竟，我見猶如廁孔。菩薩、羅漢盡是枷鎖、縛人底物。所以，文殊仗劍殺於瞿曇、鴦掘持刀害於釋氏。道流！無佛可得，乃至三乘、五性、圓頓教迹皆是一期藥病相治，並無實法。設有，皆是相似，表顯路布，文字差排，且如是說。",
+          "pinyin": "「 Dào liú！ Mò qǔ shān sēng shuō chù。 Hé gù？ Shuō wú píng jù。 Yī qī jiān tú huà xū kōng， rú cǎi huà xiàng děng yù。 Dào liú！ Mò jiāng fú wèi jiū jìng， wǒ jiàn yóu rú cè kǒng。 Pú sà、 Luóhàn jǐn shì jiā suǒ、 fù rén dǐ wù。 Suǒ yǐ， Wénshū zhàng jiàn shā yú Qútán、 Yāngjué chí dāo hài yú shì shì。 Dào liú！ Wú fú kě dé， nǎi zhì sān chéng、 wǔ xìng、 yuán dùn jiào jì jiē shì yī qī yào bìng xiāng zhì， bìng wú shí fǎ。 Shè yǒu， jiē shì xiāng sì， biǎo xiǎn lù bù， wén zì chà pái， qiě rú shì shuō。",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Followers of the Way! Do not take what I say. Why? Teaching has nothing on which to stand: for a season it paints in the empty sky, like colored drawn portraits and suchlike similes. Followers of the Way! Do not take Buddha to be the ultimate — I see him as a privy hole. Bodhisattvas and arhats are all cangues and shackles, things for binding people. That is why Manjusri raised his sword and killed Gautama, and Angulimalla took his knife and harmed the Sakyas. Followers of the Way! No Buddha can be gained. Even the three vehicles, the five natures, and the sudden-and-rounded teaching-traces are all medicine fitted to sickness for the time being — none of them a real dharma. Whatever there is, is all mere resemblance, display-road-notices passed along, apportioned in letters — for now, speak of them just so.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_27",
+      "title_zh": "示衆二十七 · 不如無事底阿師",
+      "title_pinyin": "Shìzhòng Èrshíqī · Bùrú Wúshì Dǐ Āshī",
+      "title_en": "Instructing the Assembly 27 — No Match for a Master with Nothing to Do",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「道流！有一般禿子便向裏許著功，擬求出世之法，錯了也。若人求佛，是人失佛；若人求道，是人失道；若人求祖，是人失祖。大德莫錯，我且不取爾解經論、我亦不取爾國王大臣、我亦不取爾辯似懸河、我亦不取爾聰明智慧，唯要爾真正見解。「道流！設解得百本經論，不如一箇無事底阿師。爾解得——即輕蔑他人、勝負修羅、人我無明、長地獄業，如善星比丘解十二分教，生身陷地獄，大地不容。不如無事休歇去，飢來喫飯、睡來合眼，愚人笑我、智乃知焉。道流！莫向文字中求，心動疲勞，吸冷氣無益，不如一念緣起無生，超出三乘權學菩薩。",
+          "pinyin": "「 Dào liú！ Yǒu yì bān tū zi biàn xiàng lǐ xǔ zhù gōng， nǐ qiú chū shì zhī fǎ， cuò le yě。 Ruò rén qiú fú， shì rén shī fú； Ruò rén qiú dào， shì rén shī dào； Ruò rén qiú zǔ， shì rén shī zǔ。 Dà dé mò cuò， wǒ qiě bù qǔ ěr jiě jīng lùn、 wǒ yì bù qǔ ěr guó wáng dà chén、 wǒ yì bù qǔ ěr biàn shì xuán hé、 wǒ yì bù qǔ ěr cōng míng zhì huì， wéi yào ěr zhēn zhèng jiàn jiě。「 Dào liú！ Shè jiě dé bǎi běn jīng lùn， bù rú yī gè wú shì dǐ ā shī。 Ěr jiě dé—— jí qīng miè tā rén、 shèng fù xiū luó、 rén wǒ wú míng、 zhǎng dì yù yè， rú Shànxīng bǐ qiū jiě shí èr fēn jiào， shēng shēn xiàn dì yù， dà dì bù róng。 Bù rú wú shì xiū xiē qù， jī lái chī fàn、 shuì lái hé yǎn， yú rén xiào wǒ、 zhì nǎi zhī yān。 Dào liú！ Mò xiàng wén zì zhōng qiú， xīn dòng pí láo， xī lěng qì wú yì， bù rú yī niàn yuán qǐ wú shēng， chāo chū sān chéng quán xué pú sà。",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Followers of the Way! A certain kind of baldpate applies his effort down in there, intending to seek a transcendent dharma — mistaken. If a person seeks Buddha, that person loses Buddha; if a person seeks the Way, that person loses the Way; if a person seeks the patriarchs, that person loses the patriarchs. Virtuous ones, make no mistake. I accept neither your mastery of sutras and sastras, nor your being kings and great ministers, nor the hanging torrent of your eloquence, nor your cleverness and knowledge — I want only your true view. Followers of the Way! Suppose you could master a hundred volumes of sutras and sastras — that is no match for one master who has nothing to do. The one who understands looks down on others, contends like an asura over victory and defeat, breeds the unknowing of self and other, fattens his hell-karma — like the bhiksu Virtuous-Star, who understood the twelve divisions of the teaching and fell into hell alive: the great earth could not hold him. Better to rest and have nothing to do: hungry, eat; sleepy, close your eyes. Fools laugh at me; the wise understand. Followers of the Way! Do not seek within letters, wearing your mind and body out, sucking cold air without benefit. Better one thought in which dependent origination is unborn — that surpasses the bodhisattvas at the provisional study of the three vehicles.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_28",
+      "title_zh": "示衆二十八 · 莫因循過日",
+      "title_pinyin": "Shìzhòng Èrshíbā · Mò Yīnxún Guòrì",
+      "title_en": "Instructing the Assembly 28 — Do Not Drift Your Days Away",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「大德！莫因循過日。山僧往日未有見處時，黑漫漫地，光陰不可空過，腹熱心忙，奔波訪道，後還得力，始到今日共道流如是話度。勸諸道流莫為衣食，看世界易過，善知識難遇，如優曇花時一現耳。",
+          "pinyin": "「 Dà dé！ Mò yīn xún guò rì。 Shān sēng wǎng rì wèi yǒu jiàn chù shí， hēi màn màn dì， guāng yīn bù kě kōng guò， fù rè xīn máng， bēn bō fǎng dào， hòu hái dé lì， shǐ dào jīn rì gòng dào liú rú shì huà dù。 Quàn zhū dào liú mò wèi yī shí， kàn shì jiè yì guò， shàn zhī shí nán yù， rú Yōután huā shí yī xiàn ěr。",
+          "translations": {
+            "ai_literal": {
+              "text": "\"Virtuous ones! Do not pass your days in drifting. In olden days, when I had not yet gained insight, all was black murk — time may not be spent in vain; belly afire and mind racing, I hurried about visiting teachers. Later still I made the effort and reached today, talking it over with you followers of the Way like this. I counsel you: do not do it for food and clothing. Watch how easily the world goes by; a good knowing friend is hard to meet — like the udumbara flower, appearing once in an age.\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_29",
+      "title_zh": "示衆二十九 · 龍象蹴踏非驢所堪",
+      "title_pinyin": "Shìzhòng Èrshíjiǔ · Lóngxiàng Cùtà Fēi Lǘ Suǒkān",
+      "title_en": "Instructing the Assembly 29 — A Dragon-Elephant’s Trample: Not for Donkeys to Bear",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「儞諸方聞道有箇臨濟老漢出來，便擬問難，教語不得，被山僧全體作用。學人空開得眼，口總動不得，懵然不知以何答我。我向伊道：『龍象蹴踏，非驢所堪。』爾諸處秖指胸點肋，道我解禪、解道，三箇兩箇到這裏不奈何。咄哉，爾將這箇身心到處簸兩片皮誑謼閭閻，喫鐵棒有日在，非出家兒，盡向阿修羅界攝。",
+          "pinyin": "「 Nǐ zhū fāng wén dào yǒu gè Línjì lǎohàn chū lái， biàn nǐ wèn nán， jiào yǔ bù dé， bèi shān sēng quán tǐ zuò yòng。 Xué rén kōng kāi dé yǎn， kǒu zǒng dòng bù dé， měng rán bù zhī yǐ hé dá wǒ。 Wǒ xiàng yī dào：『 Lóng xiàng cù tà， fēi lǘ suǒ kān。』 Ěr zhū chù zhǐ zhǐ xiōng diǎn lē， dào wǒ jiě chán、 jiě dào， sān gè liǎng gè dào zhè lǐ bù nài hé。 Duō zāi， ěr jiāng zhè gè shēn xīn dào chù bǒ liǎng piàn pí kuáng hū lǘ yán， chī tiě bàng yǒu rì zài， fēi chū jiā ér， jǐn xiàng Āxiūluó jiè shè。",
+          "translations": {
+            "ai_literal": {
+              "text": "\"You everywhere have heard that this old fellow Linji has come out, and you plan to pose him a hard question to put him at a loss for words — but you are met by my whole-body function. Students open their eyes in vain, their mouths utterly unable to move, dazed, at a loss how to answer me. I say to them: 'A dragon-elephant's trample is not for donkeys to bear.' Everywhere you slap your breast and tap your ribs, saying you understand Chan, understand the Way — two or three of you come in here and are helpless. Ah! You take this body-and-mind around everywhere flapping your two lips, deceiving the village folk — the day will come when you eat the iron staff. Not home-leavers at all: every one of you gets herded into the asura realm.\"\"",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "shizhong_30",
+      "title_zh": "示衆三十 · 說似一物則不中",
+      "title_pinyin": "Shìzhòng Sānshí · Shuōsì Yīwù Zé Bùzhòng",
+      "title_en": "Instructing the Assembly 30 — “Likened to One Single Thing, It Misses”",
+      "dialogue": [
+        {
+          "speaker": "Linji / 臨濟",
+          "zh": "「夫如至理之道，非諍論而求激揚，鏗鏘以摧外道，至於佛祖相承更無別意。設有言教，落在化儀三乘、五性、人天因果，如圓頓之教，又且不然，童子善財皆不求過。大德！莫錯用心，如大海不停死屍，秖麼擔却擬天下走，自起見障以礙於心。日上無雲，麗天普照，眼中無翳、空裏無花。道流！爾欲得如法，但莫生疑，展則彌綸法界，收則絲髮不立，歷歷孤明未曾欠少。眼不見、耳不聞，喚作什麼物？古人云：『說似一物則不中。』爾但自家看，更有什麼。說亦無盡，各自著力。珍重。」",
+          "pinyin": "「 Fū rú zhì lǐ zhī dào， fēi zhèng lùn ér qiú jī yáng， kēng qiāng yǐ cuī wài dào， zhì yú fó zǔ xiāng chéng gèng wú bié yì。 Shè yǒu yán jiào， luò zài huà yí sān chéng、 wǔ xìng、 rén tiān yīn guǒ， rú yuán dùn zhī jiào， yòu qiě bù rán， tóng zi Shàncái jiē bù qiú guò。 Dà dé！ Mò cuò yòng xīn， rú dà hǎi bù tíng sǐ shī， zhǐ me dān què nǐ tiān xià zǒu， zì qǐ jiàn zhàng yǐ ài yú xīn。 Rì shàng wú yún， lì tiān pǔ zhào， yǎn zhōng wú yì、 kōng lǐ wú huā。 Dào liú！ Ěr yù dé rú fǎ， dàn mò shēng yí， zhǎn zé mí lún fǎ jiè， shōu zé sī fà bù lì， lì lì gū míng wèi céng qiàn shǎo。 Yǎn bù jiàn、 ěr bù wén， huàn zuò shén me wù？ Gǔ rén yún：『 Shuō shì yī wù zé bù zhōng。』 Ěr dàn zì jiā kàn， gèng yǒu shén me。 Shuō yì wú jǐn， gè zì zhù lì。 Zhēn zhòng。」",
+          "translations": {
+            "ai_literal": {
+              "text": "\"The way of the utmost truth is not sought in ringing, resonant debate to crush outsiders; what the buddhas and patriarchs have handed down has no further meaning. If there were verbal teachings, they would fall within the instructional three vehicles, five natures, and the cause-and-effect of humans and gods; as for the sudden and rounded teaching, it is not so — even the boy Sudhana seeks none of these. Virtuous ones! Do not put your minds to mistaken use. The great sea does not keep a corpse afloat on it — so do not shoulder that burden and set off marching under heaven; you raise views of your own and obstruct your minds with them. When no clouds veil the sun, it shines beautifully across the sky; when no film veils the eye, there are no flowers in the air. Followers of the Way! If you want to be in accord with the Dharma, just doubt no more: spread out, it blankets the Dharma realm; drawn in, not a single hair is left standing — vivid, solitary-bright, it has never lacked anything. Eyes cannot see it, ears cannot hear it — what do you call that thing? The ancients said: 'Likened to one single thing, it already misses.' Just look into it yourselves — what more is there? Words can never end it; each of you must strive. Take care.\"",
+              "status": "ai_draft"
             }
           }
         }
@@ -865,5 +1161,5 @@
       ]
     }
   ],
-  "zh_chars": 8496
+  "zh_chars": 11471
 }
