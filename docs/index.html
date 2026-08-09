@@ -165,15 +165,10 @@
             <option value="name">Name order</option>
             <option value="school">School order</option>
           </select>
-          <select id="lineage-school-filter" class="search-input" aria-label="Filter masters by lineage school" style="width: auto; padding: 0.35rem 0.75rem;">
-            <option value="all">All Lineages & Patriarchs</option>
-            <option value="Foundational Patriarch">Foundational Patriarchs (達摩至六祖)</option>
-            <option value="Linji">Linji School (臨濟宗)</option>
-            <option value="Caodong">Caodong School (曹洞宗)</option>
-            <option value="Yunmen">Yunmen School (雲門宗)</option>
-            <option value="Guiyang">Guiyang School (溈仰宗)</option>
-            <option value="Fayan">Fayan School (法眼宗)</option>
-          </select>
+          <!-- Options are generated from the bundled school vocabulary (app.js
+               populateLineageSchoolFilter); mastery of drift is impossible: data
+               changes appear here automatically. -->
+          <select id="lineage-school-filter" class="search-input" aria-label="Filter masters by lineage school" style="width: auto; padding: 0.35rem 0.75rem;"></select>
         </div>
       </div>
 
@@ -225,16 +220,10 @@
           <div class="text-title-en">Foundational terminology, technical Sanskrit roots, and philosophical definitions</div>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Category:</label>
-          <select id="lexicon-cat-filter" class="search-input" style="width: auto; padding: 0.35rem 0.75rem;">
-            <option value="all">All Categories</option>
-            <option value="Ontology">Ontology & Buddha-Nature</option>
-            <option value="Encounter">Encounter Dialogue</option>
-            <option value="Gong'an Barrier">Gong'an Barriers</option>
-            <option value="Pedagogical">Pedagogical Devices</option>
-            <option value="Linji Dialectics">Linji Dialectics</option>
-            <option value="Caodong Meditation">Caodong Meditation</option>
-          </select>
+          <label for="lexicon-cat-filter" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Category:</label>
+          <!-- Options are generated from the glossary data (app.js
+               populateLexiconCategoryFilter), never hardcoded. -->
+          <select id="lexicon-cat-filter" class="search-input" style="width: auto; padding: 0.35rem 0.75rem;"></select>
         </div>
       </div>
       <div id="lexicon-content-target" class="lexicon-grid"></div>

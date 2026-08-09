@@ -723,3 +723,20 @@ Review approach: the live site is not reachable from this sandbox (github.io is 
 | **U3 (P3, polish): browser tab had no favicon.** | Inline SVG emoji favicon (🪷) added as a `data:` URI — no new files, CSP-safe (`img-src 'self' data:`). |
 
 Verification: reader scan across all 36 documents found no `undefined`/`NaN`/`[object Object]` leaks, no duplicate `id=` attributes, no broken hrefs; matrix/lineage/gongan/lexicon render fully (21 matrix badges, 34 graph nodes / 30 pending links / 4 frontiers, 23 gongan entries, 31 lexicon cards). Smoke suite green; root↔docs synced.
+
+---
+
+## 12. 2026-08-09 — Session `arena/019fe5d5-translatechan`: full audit + controlled school vocabulary
+
+Full report: [`SESSION_AUDIT_2026-08-09_019fe5d5.md`](./SESSION_AUDIT_2026-08-09_019fe5d5.md). All gates green at baseline; no P0/P1.
+
+**Doc-drift fixes (F1–F6):** README CJK counts re-synced to validator metrics (13,268/16,457 → **20,017/23,314** — the same drift class as §11 F1, recurring because prose has no guard); duplicate `ingest_cbeta.py` tree entry removed; bundle-size comment (600KB → ~790KB); matrix subtitle named a translator absent from the data (Heine) while omitting two present ones (Yampolsky, Senzaki & Reps) — now matches `comparative_matrix.json`; HANDOFF tree (gong'an 18→23, missing scripts); missing `aria-label` on the lineage school filter.
+
+**P2-B delivered — controlled lineage-school vocabulary:**
+- 22 free-text school variants across 34 masters → **12 canonical `school_key` groups** in `data/lineage/school_vocabulary.json` (new); every master carries `school_key` + the canonical `school` display, validator-enforced (unknown key or mismatched display string = error).
+- Lineage school filter options and graph node colors are **derived from the vocabulary/data** (previously hardcoded options mostly unreachable and color lookups mostly falling back to default — both silently).
+- Lexicon category filter options are likewise data-derived.
+- **Found while wiring:** the Lexicon "Category" dropdown had **no change listener at all** (inert UI since introduction) — now wired, with `<label for>` association.
+- Smoke regression checks: vocabulary-derived options, exact Linji group filtering, school_key graph palette, lexicon filter restrict/reset.
+
+**Standing:** A1 branch protection (owner action); A2 editorial reference/rights sign-off; P2-A prose-docs guard (`validate_data.py --check-docs`) recommended to kill the recurring F1 drift class; P2-C escaping consistency pass; content Phase 2.

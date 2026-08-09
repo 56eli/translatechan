@@ -109,6 +109,7 @@ translatechan/
 │   │   └── traceability_queue.json
 │   ├── lineage/            # 34 profiles (30 seed profiles + 4 explicit frontier scaffolds)
 │   │   ├── masters.json
+│   │   ├── school_vocabulary.json   # Controlled school_key/display vocabulary (validator-enforced)
 │   │   ├── lineage_verification.json  # 30 internal-edge + 4 frontier source-status records
 │   │   └── profile_review_queue.json  # Enforced exact-locator review queue (34 profiles)
 │   ├── translations/       # Comparative data, provenance, and rights controls

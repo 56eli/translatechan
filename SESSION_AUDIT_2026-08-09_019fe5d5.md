@@ -18,7 +18,7 @@ What this audit did find is a *pattern*: **prose documentation and hard-coded UI
 | Build/deployment | Deterministic bundle; root↔docs byte-identical; CI mirrors local gates | A− |
 | Data integrity tooling | Validator + metrics + locator registry remain the strongest part of the project | A− |
 | Documentation truthfulness | Fixed again this session, but prose metrics have no automated guard and re-drifted within one session | B− |
-| Data consistency | School labels unnormalized (22 variants for 34 masters); themes/categories are per-item free text; filters hardcoded against assumed vocabularies | B− |
+| Data consistency | **Resolved this session**: 22 school variants → 12 validator-enforced `school_key` groups; school & lexicon-category filters now data-derived; gong'an themes remain per-entry free text | B+ |
 | Renderer escaping hygiene | Matrix escapes rigorously; lineage/gong'an/lexicon/dossier interpolate raw (trusted data, latent inconsistency) | B |
 | Test automation | Dependency-free smoke suite + optional Playwright; no prose-doc or vocabulary checks | B+ |
 | Content breadth | Unchanged: 1/36 complete (Wumenguan), Biyanlu 14/100; excerpt seeds elsewhere | C |
@@ -59,11 +59,11 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 
 **Recommendation:** extend `scripts/validate_data.py` with a `--check-docs` gate that asserts the current `content_cjk_characters` / `all_corpus_cjk_characters` (and key unit counts: 36 docs, 23 gong'an, 31 terms, 34 masters) appear where referenced in README/HANDOFF — or, lighter-weight, replace prose constants with a single "Current numbers" section whose values docs explicitly say to read from `project_metrics.json`. Add to `quality.yml` once implemented. *Small, high-leverage.*
 
-### P2-B — Master `school` labels are an unowned vocabulary
+### P2-B — Master `school` labels are an unowned vocabulary ✅ **DELIVERED THIS SESSION**
 
-22 distinct `school` strings across 34 masters: `"Caodong School"` **and** `"Caodong School (曹洞宗)"`; `"Linji / Yangqi Branch"` **and** `"Linji / Yangqi tradition"`; `"Hunan Lineage"` **and** `"Hunan Lineage (Caodong & Yunmen ancestor)"`; unlisted groups (`Hongzhou School`, `East Mountain Teaching`, `Southern School`, `Indian Patriarchal Tradition`, `Chan transmission tradition`). The lineage filter is a **hardcoded 6-option list** (`Linji`, `Caodong`, …) doing substring matching — it happens to work, but newer lineage groups are unreachable by filter, and any data edit can silently break an option.
+22 distinct `school` strings across 34 masters: `"Caodong School"` **and** `"Caodong School (曹洞宗)"`; `"Linji / Yangqi Branch"` **and** `"Linji / Yangqi tradition"`; `"Hunan Lineage"` **and** `"Hunan Lineage (Caodong & Yunmen ancestor)"`; unlisted groups (`Hongzhou School`, `East Mountain Teaching`, `Southern School`, `Indian Patriarchal Tradition`). The lineage filter was a **hardcoded 6-option list** doing substring matching — newer lineage groups were unreachable by filter, and the SVG graph's color map (keyed on exact free-text school strings) mostly fell back to the default color.
 
-**Recommendation:** introduce a controlled school vocabulary in `masters.json` (e.g. `school_key` + display string), derive filter options from the data at render time, and have the validator reject school strings outside the vocabulary. Same treatment later for gong'an `theme` (23 entries → 23 themes; a taxonomy of ~8–12 themes would make the chips meaningful) and glossary `category` filter (also hardcoded in `index.html`).
+**Delivered 2026-08-09:** `data/lineage/school_vocabulary.json` defines **12 canonical school_key groups** (Indian Patriarchs, Six Patriarchs, Tang branch roots, Hongzhou, Shitou/Hunan, Linji, Linji/Yangqi, Caodong, Yunmen, Guiyang, Fayan, transmission tradition); all 34 masters carry `school_key` + the canonical `school` display — `validate_data.py` errors on an unknown key or a mismatched display string. The lineage filter options and graph palette are now **derived from the vocabulary/data**, and the lexicon category filter is likewise data-derived. **Bug found while wiring:** the Lexicon "Category" dropdown had no change listener at all (inert UI since introduction) — now wired, with `<label for>` association. Smoke checks 4m2/4m3 guard the derived options, exact Linji group filtering, the school_key palette, and lexicon restrict/reset. *Remaining candidate: gong'an `theme` is still per-entry free text (23 entries → 23 themes); a curated taxonomy is future editorial work.*
 
 ### P2-C — Renderer HTML-escaping is inconsistent across views
 
@@ -82,7 +82,7 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 1. Hero chips hardcode "36 Canonical Works / 8+ Translators" — same drift class as P2-A; either generate from data or accept as infrequently-true copy.
 2. `switchViewRaw()` scrolls to top on every programmatic call, including hash-restore paths; acceptable, but scroll-restore would be nicer for back/forward.
 3. Gong'an chips encode the filter value unescaped in a `data-*` attribute — works today, fits inside P2-C fix.
-4. Lexicon category filter, lineage filter live in markup; data-driven generation kills three drift points at once (with P2-B).
+4. ~~Lexicon category filter, lineage filter live in markup~~ — resolved with P2-B: both filters are now data-derived.
 
 ### Standing (carried from previous audits, still open)
 
@@ -105,7 +105,7 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 ## 5. Recommended next actions (choose)
 
 1. **P2-A docs guard** (`validate_data.py --check-docs` + CI line) — kills the recurring drift class. *(S)*
-2. **P2-B school vocabulary normalization + data-derived lineage filter options.** *(S–M)*
+2. ~~**P2-B school vocabulary normalization + data-derived lineage filter options.**~~ ✅ delivered this session.
 3. **P2-C escaping consistency pass.** *(S)*
 4. **P2-D sessions-folder convention + AUDIT.md slimming.** *(S)*
 5. **Content**: next Phase-2 text pilot (e.g. Biyanlu 11–20 or Linji expansion), continuing the established CBETA-collated workflow. *(M–L)*

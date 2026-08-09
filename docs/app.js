@@ -111,6 +111,8 @@
 
     applyTheme(state.theme);
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
+    populateLineageSchoolFilter();
+    populateLexiconCategoryFilter();
     setupEventListeners();
     applyPinyinVisibility();
     renderCorpusList();
@@ -471,6 +473,15 @@
       elements.lineageSort.addEventListener('change', (e) => {
         state.lineageSort = ['generation', 'chronology', 'name', 'school'].includes(e.target.value) ? e.target.value : 'generation';
         renderLineage();
+      });
+    }
+
+    // Lexicon category filter (state existed but no listener did — the control
+    // was inert until this handler; now derived from data + wired).
+    if (elements.lexiconFilter) {
+      elements.lexiconFilter.addEventListener('change', (e) => {
+        state.selectedLexiconCategory = e.target.value || 'all';
+        renderLexicon();
       });
     }
 
@@ -1537,13 +1548,53 @@
   }
 
   // Render Lineage Explorer
+  // Controlled school vocabulary (data-driven; enforced by validate_data.py).
+  // Returns ordered [{key, display}] restricted to keys actually present in
+  // the master data so filter options never point at empty groups.
+  function lineageSchoolOptions() {
+    const masters = Array.isArray(state.data.lineage) ? state.data.lineage : [];
+    const present = new Map();
+    masters.forEach(m => {
+      if (!m || typeof m.school_key !== 'string') return;
+      const count = present.get(m.school_key) || { key: m.school_key, display: stringValue(m.school), count: 0 };
+      count.count += 1;
+      present.set(m.school_key, count);
+    });
+    const vocab = state.data.lineage_school_vocab && Array.isArray(state.data.lineage_school_vocab.schools)
+      ? state.data.lineage_school_vocab.schools : [];
+    const ordered = [];
+    vocab.forEach(v => {
+      if (v && present.has(v.key)) {
+        const p = present.get(v.key);
+        ordered.push({ key: v.key, display: stringValue(v.display) || p.display, count: p.count });
+        present.delete(v.key);
+      }
+    });
+    // Any key present in data but missing from the vocabulary still shows up (validator rejects this state).
+    present.forEach(p => ordered.push(p));
+    return ordered;
+  }
+
+  // Filter options are generated from the bundled vocabulary, not hardcoded in
+  // index.html: new schools added to the data appear automatically, and stale
+  // options can never linger after data changes.
+  function populateLineageSchoolFilter() {
+    const sel = elements.lineageFilter;
+    if (!sel) return;
+    const allLabel = 'All Lineages & Patriarchs';
+    sel.innerHTML = `<option value="all">${escHtml(allLabel)}</option>` +
+      lineageSchoolOptions().map(o =>
+        `<option value="${escHtml(o.key)}">${escHtml(o.display)} · ${o.count}</option>`
+      ).join('');
+  }
+
   function renderLineage() {
     if (!elements.lineageTarget || !state.data.lineage) return;
     renderLineageVerificationSummary();
     let masters = state.data.lineage;
 
     if (state.selectedMasterSchool !== 'all') {
-      masters = masters.filter(m => m.school.toLowerCase().includes(state.selectedMasterSchool.toLowerCase()));
+      masters = masters.filter(m => m.school_key === state.selectedMasterSchool);
     }
 
     masters = sortLineageMasters(masters);
@@ -1590,24 +1641,21 @@
     const BOTTOM_PAD = 74;
     svg.innerHTML = '';
 
-    // Define school colors
+    // School colors are keyed by the controlled school_key vocabulary
+    // (previously keyed by free-text school strings — most lookups fell back).
     const schoolColors = {
-      'Foundational Patriarch': '#b38238',
-      'East Mountain Teaching': '#c29d59',
-      'Southern School': '#c94a4c',
-      'Hongzhou School': '#b85d19',
-      'Hunan Lineage': '#4d9377',
-      'Linji School': '#b53335',
-      'Linji': '#b53335',
-      'Caodong School': '#3a6b56',
-      'Caodong': '#3a6b56',
-      'Yunmen School': '#2c5d79',
-      'Yunmen': '#2c5d79',
-      'Guiyang School': '#7d4a88',
-      'Guiyang': '#7d4a88',
-      'Fayan School': '#2d7d74',
-      'Fayan': '#2d7d74',
-      'Linji / Yangqi Branch': '#b53335'
+      indian_patriarchs: '#8a6d3b',
+      foundational_patriarchs: '#b38238',
+      tang_branch_roots: '#c29d59',
+      hongzhou: '#b85d19',
+      shitou_hunan: '#4d9377',
+      linji: '#b53335',
+      linji_yangqi: '#c94a4c',
+      caodong: '#3a6b56',
+      yunmen: '#2c5d79',
+      guiyang: '#7d4a88',
+      fayan: '#2d7d74',
+      chan_transmission: '#756b64'
     };
 
     // Calculate node coordinates based on lineage generation
@@ -1665,7 +1713,7 @@
     let nodesHtml = '<g class="graph-nodes">';
     Object.keys(nodeCoords).forEach(id => {
       const { x, y, master } = nodeCoords[id];
-      const color = schoolColors[master.school] || '#b38238';
+      const color = schoolColors[master.school_key] || '#b38238';
 
       const shortName = stringValue(master.name_en).split(' ').pop().slice(0, 14);
       nodesHtml += `
@@ -1948,13 +1996,38 @@
     });
   }
 
+  // Lexicon categories are derived from the glossary data (with display labels
+  // for known categories), so the filter can never lag glossary growth.
+  const LEXICON_CATEGORY_LABELS = {
+    'Ontology': 'Ontology & Buddha-Nature',
+    'Encounter': 'Encounter Dialogue',
+    "Gong'an Barrier": "Gong'an Barriers",
+    'Pedagogical': 'Pedagogical Devices',
+    'Linji Dialectics': 'Linji Dialectics',
+    'Caodong Meditation': 'Caodong Meditation'
+  };
+  function populateLexiconCategoryFilter() {
+    const sel = elements.lexiconFilter;
+    if (!sel || !Array.isArray(state.data.glossary)) return;
+    const seen = new Map();
+    state.data.glossary.forEach(item => {
+      if (!item || typeof item.category !== 'string') return;
+      seen.set(item.category, (seen.get(item.category) || 0) + 1);
+    });
+    const ordered = Object.keys(LEXICON_CATEGORY_LABELS).filter(c => seen.has(c));
+    seen.forEach((count, cat) => { if (!ordered.includes(cat)) ordered.push(cat); });
+    sel.innerHTML = '<option value="all">All Categories</option>' + ordered.map(cat =>
+      `<option value="${escHtml(cat)}">${escHtml(LEXICON_CATEGORY_LABELS[cat] || cat)} · ${seen.get(cat)}</option>`
+    ).join('');
+  }
+
   // Render Lexicon
   function renderLexicon() {
     if (!elements.lexiconTarget || !state.data.glossary) return;
     let list = state.data.glossary;
 
     if (state.selectedLexiconCategory !== 'all') {
-      list = list.filter(item => item.category.toLowerCase().includes(state.selectedLexiconCategory.toLowerCase()));
+      list = list.filter(item => item.category === state.selectedLexiconCategory);
     }
 
     elements.lexiconTarget.innerHTML = list.map(item => `

@@ -35,6 +35,7 @@ CORPUS_MANIFEST_PATH = DATA_DIR / "corpus_manifest.json"
 LOCATORS_PATH = DATA_DIR / "canonical_locators.json"
 RIGHTS_PATH = DATA_DIR / "translations" / "rights_manifest.json"
 LINEAGE_VERIFICATION_PATH = DATA_DIR / "lineage" / "lineage_verification.json"
+LINEAGE_SCHOOL_VOCAB_PATH = DATA_DIR / "lineage" / "school_vocabulary.json"
 LINEAGE_PROFILE_QUEUE_PATH = DATA_DIR / "lineage" / "profile_review_queue.json"
 TRACEABILITY_QUEUE_PATH = DATA_DIR / "editorial" / "traceability_queue.json"
 PROVENANCE_PATH = DATA_DIR / "translations" / "provenance.json"
@@ -326,16 +327,35 @@ def validate_matrix(
                 stats["verified_reference_pending" if is_record(source) and "pending" in str(source.get("reference") or "").lower() else "verified_reference_recorded"] += 1
 
 
+def load_school_vocabulary(path: Path, issues: Issues) -> dict[str, str]:
+    """Controlled lineage-school vocabulary: key -> canonical display string."""
+    raw = load_json(path, issues)
+    if not is_record(raw) or not isinstance(raw.get("schools"), list) or not raw["schools"]:
+        issues.error(rel(path), "requires a non-empty schools list")
+        return {}
+    vocab: dict[str, str] = {}
+    for index, entry in enumerate(raw["schools"]):
+        entry_path = f"{rel(path)}.schools[{index}]"
+        if not is_record(entry) or not nonempty_string(entry.get("key")) or not nonempty_string(entry.get("display")):
+            issues.error(entry_path, "each school requires non-empty key and display strings")
+            continue
+        if entry["key"] in vocab:
+            issues.error(entry_path, f"duplicate school key '{entry['key']}'")
+        vocab[entry["key"]] = entry["display"]
+    return vocab
+
+
 def validate_auxiliary_data(
     glossary: Any,
     lineage: Any,
     gongan: Any,
     provenance: Any,
     issues: Issues,
+    school_vocab: dict[str, str] | None = None,
 ) -> None:
     for label, records, fields in (
         ("data/glossary/chan_terms.json", glossary, ("id", "term", "pinyin", "literal", "definition", "category")),
-        ("data/lineage/masters.json", lineage, ("id", "name_zh", "name_en", "school", "teacher", "profile_status")),
+        ("data/lineage/masters.json", lineage, ("id", "name_zh", "name_en", "school", "school_key", "teacher", "profile_status")),
         ("data/gongan/gongan_index.json", gongan, ("id", "title_zh", "title_en", "collection", "theme")),
     ):
         if not isinstance(records, list) or not records:
@@ -362,6 +382,12 @@ def validate_auxiliary_data(
                     issues.error(record_path, "linked_corpus_keys must be a list of non-empty corpus keys")
                 if not is_record(evidence) or not nonempty_string(evidence.get("status")) or not nonempty_string(evidence.get("note")):
                     issues.error(record_path, "profile_evidence requires non-empty status and note")
+                if school_vocab:
+                    school_key = record.get("school_key")
+                    if school_key not in school_vocab:
+                        issues.error(record_path, f"school_key '{school_key}' is not in the controlled vocabulary (data/lineage/school_vocabulary.json)")
+                    elif record.get("school") != school_vocab[school_key]:
+                        issues.error(record_path, f"school must be the canonical display for key '{school_key}': {school_vocab[school_key]!r}")
 
     if not is_record(provenance):
         issues.error(rel(PROVENANCE_PATH), "must be an object")
@@ -903,7 +929,8 @@ def main() -> int:
     lineage = load_json(DATA_DIR / "lineage" / "masters.json", issues)
     gongan = load_json(DATA_DIR / "gongan" / "gongan_index.json", issues)
     provenance = load_json(PROVENANCE_PATH, issues)
-    validate_auxiliary_data(glossary, lineage, gongan, provenance, issues)
+    school_vocab = load_school_vocabulary(LINEAGE_SCHOOL_VOCAB_PATH, issues)
+    validate_auxiliary_data(glossary, lineage, gongan, provenance, issues, school_vocab)
 
     corpus_manifest = load_json(CORPUS_MANIFEST_PATH, issues)
     locator_registry = load_json(LOCATORS_PATH, issues)

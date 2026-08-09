@@ -368,6 +368,33 @@ if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.lo
 // 4m. Gong'an filter chips remain available in the public reading scope.
 const gonganHtml = ids['gongan-content-target']._innerHTML;
 if (!gonganHtml.includes('gongan-filter-chip')) { failures++; console.log('❌ gongan filter chips missing'); }
+// 4m2. Lineage school filter is generated from the controlled vocabulary
+// (validator-enforced school_key groups), not hardcoded options.
+const schoolFilterHtml = ids['lineage-school-filter']._innerHTML;
+if (!schoolFilterHtml.includes('value="linji_yangqi"') || !schoolFilterHtml.includes('Foundational Patriarch') || schoolFilterHtml.includes('value="Linji"')) {
+  failures++; console.log('❌ lineage school filter is not generated from the controlled school vocabulary');
+}
+(ids['lineage-school-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'linji' } }));
+const lineageFilteredCards = ids['lineage-content-target']._innerHTML;
+if (!lineageFilteredCards.includes('臨濟義玄') || lineageFilteredCards.includes('洞山良价') || lineageFilteredCards.includes('馬祖道一')) {
+  failures++; console.log('❌ lineage school filter did not select exactly the Linji group');
+}
+if (!ids['lineage-svg-graph']._innerHTML.includes('stroke="#b53335"')) {
+  failures++; console.log('❌ lineage graph is not using the school_key color palette');
+}
+(ids['lineage-school-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
+// 4m3. Lexicon category filter is data-derived and actually wired (state +
+// listener existed only after the 2026-08-09 vocabulary pass).
+const lexiconFilterHtml = ids['lexicon-cat-filter']._innerHTML;
+if (!lexiconFilterHtml.includes('value="Ontology"') || !lexiconFilterHtml.includes('Ontology &amp; Buddha-Nature')) {
+  failures++; console.log('❌ lexicon category filter is not generated from glossary data');
+}
+(ids['lexicon-cat-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'Ontology' } }));
+const lexiconFiltered = ids['lexicon-content-target']._innerHTML;
+if (!lexiconFiltered.includes('本來面目') || lexiconFiltered.includes('祖師西來意')) {
+  failures++; console.log('❌ lexicon category filter did not restrict to Ontology terms');
+}
+(ids['lexicon-cat-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
 const malformedMatrixEntries = matrixEntries.filter(t => !t.status ||
