@@ -255,7 +255,11 @@
         "Pinyin romanization throughout; few Japanese terms.",
         "Light, readable, unpretentious — often the most accessible version."
       ],
-      "personality": "The wanderer-poet who translates the way he talks: no fuss, just the road."
+      "personality": "The wanderer-poet who translates the way he talks: no fuss, just the road.",
+      "sample_search": {
+        "date": "2026-08-09",
+        "outcome": "No reliable, verbatim, edition-verifiable online source found for this translator’s rendering of a corpus-aligned passage. Major works are modern and copyrighted (Red Pine, The Gateless Gate / Cleary, No Barrier: Unlocking the Zen Koan, 1993). Remains documented_external until a print-edition-verified sample is contributed. Promotion to in_corpus_verified requires the owner to supply the exact text from a print edition (then a copyrighted_or_rights_uncertain / needs_rights_review rights record is added, as for the 11 other modern translators already in the manifest)."
+      }
     },
     {
       "register_key": "cleary",
@@ -270,7 +274,11 @@
         "Tends to definite articles and exact terms: 'the Buddha-nature'.",
         "Often pairs translation with explanatory apparatus in the wider work."
       ],
-      "personality": "The systematic scholar who files each particle in its philosophical drawer."
+      "personality": "The systematic scholar who files each particle in its philosophical drawer.",
+      "sample_search": {
+        "date": "2026-08-09",
+        "outcome": "No reliable, verbatim, edition-verifiable online source found for this translator’s rendering of a corpus-aligned passage. Major works are modern and copyrighted (Red Pine, The Gateless Gate / Cleary, No Barrier: Unlocking the Zen Koan, 1993). Remains documented_external until a print-edition-verified sample is contributed. Promotion to in_corpus_verified requires the owner to supply the exact text from a print edition (then a copyrighted_or_rights_uncertain / needs_rights_review rights record is added, as for the 11 other modern translators already in the manifest)."
+      }
     },
     {
       "register_key": "suzuki",
