@@ -2577,9 +2577,13 @@ window.TRANSLATECHAN_DATA = {
           "Rendered from the Japanese title Shinjin-no-mei; reads the Chinese via the Sino-Japanese tradition."
         ],
         "personality": "The ambassador-professor who lectures the West into the koan, sentence by sentence.",
-        "verified_sample_count": 1,
+        "verified_sample_count": 5,
         "evidence_pointers": [
-          "data/corpus/xinxin_ming.json — stanza 1 (Manual of Zen Buddhism, Suzuki, 1935, Section IV.2 'On Believing in Mind')"
+          "data/corpus/xinxin_ming.json — stanza 1 (Manual of Zen Buddhism, 1935, IV.2 'Believing in Mind')",
+          "data/corpus/bodhidharma_erru.json — Twofold Entrance opening (1935, IV.1)",
+          "data/corpus/zhengdao_ge.json — stanza 1 (1935, IV.4 'Song of Enlightenment')",
+          "data/corpus/huangbo_chuanxin.json — One Mind opening (1935, IV.6 'Huang-po's Sermon')",
+          "data/corpus/biyanlu_cases.json — case 88 / Gensha three invalids (1935, IV.7, literal Case LXXXVIII)"
         ]
       },
       {
@@ -4957,7 +4961,7 @@ window.TRANSLATECHAN_DATA = {
       "documents": 36
     },
     "corpus": {
-      "all_corpus_cjk_characters": 106160,
+      "all_corpus_cjk_characters": 106172,
       "complete_documents": [
         "biyanlu_cases",
         "wumenguan"
@@ -5000,7 +5004,7 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "biyanlu_cases": {
-          "all_cjk_chars": 76755,
+          "all_cjk_chars": 76761,
           "cbeta_id": "T2003",
           "content_zh_chars": 75658,
           "coverage": "100/100 cases",
@@ -5015,7 +5019,7 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "bodhidharma_erru": {
-          "all_cjk_chars": 456,
+          "all_cjk_chars": 460,
           "cbeta_id": "T2009",
           "content_zh_chars": 386,
           "shapes": [
@@ -5174,7 +5178,7 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "huangbo_chuanxin": {
-          "all_cjk_chars": 143,
+          "all_cjk_chars": 145,
           "cbeta_id": "T2012A",
           "content_zh_chars": 102,
           "shapes": [
@@ -5457,15 +5461,15 @@ window.TRANSLATECHAN_DATA = {
     "rights_coverage": {
       "distinct_verified_sources": 14,
       "manifest_sources": 14,
-      "verified_source_records": 141
+      "verified_source_records": 145
     },
     "schema_version": "1.0",
     "translations": {
-      "corpus_slots": 1023,
+      "corpus_slots": 1024,
       "corpus_statuses": {
         "ai_draft": 206,
-        "reconstruction_unverified": 678,
-        "verified_quotation": 139
+        "reconstruction_unverified": 675,
+        "verified_quotation": 143
       },
       "matrix_entries": 21,
       "matrix_statuses": {
@@ -5473,10 +5477,10 @@ window.TRANSLATECHAN_DATA = {
         "reconstruction_unverified": 18,
         "verified_quotation": 2
       },
-      "verified_corpus_texts": 7,
+      "verified_corpus_texts": 10,
       "verified_reference_coverage": {
         "pending": 5,
-        "recorded": 136
+        "recorded": 140
       }
     }
   },
@@ -10701,8 +10705,16 @@ window.TRANSLATECHAN_DATA = {
                   "status": "reconstruction_unverified"
                 },
                 "suzuki": {
-                  "text": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
-                  "status": "reconstruction_unverified"
+                  "text": "Buddhas and sentient beings both grow out of One Mind, and there is no other reality than this Mind. It has been in existence since the beginningless past; it knows neither birth nor death; it is neither blue nor yellow; it has neither shape nor form; it is beyond the category of being and non-being; it is not to be measured by age, old or new; it is neither long nor short; it is neither large nor small; for it transcends all limits, words, traces, and opposites. It must be taken just as it is in itself; when an attempt is made on our part to grasp it in our thoughts, it eludes. It is like space whose boundaries are altogether beyond measurement; no concepts are applicable here.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Manual of Zen Buddhism",
+                    "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.6 'Huang-po's Sermon, from Treatise on the Essentials of the Transmission of Mind (Denshin Hoyo)'",
+                    "reference": "Section IV.6, opening (One Mind / 一心)",
+                    "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; opening wording matches verbatim.",
+                    "source_id": "suzuki-mzb-1935",
+                    "page": "IV.6, opening"
+                  }
                 },
                 "ai_literal": {
                   "text": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs.",
@@ -13740,6 +13752,18 @@ window.TRANSLATECHAN_DATA = {
                 "ai_literal": {
                   "text": "Xuansha addressed the assembly: 'The venerable ones everywhere speak of welcoming beings and benefiting life. Suppose three kinds of patients arrive — how will you receive them? For one suffering blindness: hold up the hammer, raise the whisk — but he cannot see. For one suffering deafness: speak in your samadhi of words — but he cannot hear. For one suffering muteness: tell him to speak — but he cannot speak. How will you receive them? If you cannot receive these people, the Buddha's teaching has no true power.' A monk asked Yunmen about this. Yunmen said, 'You — bow.' As the monk arose from bowing, Yunmen jabbed at him with the staff; the monk stepped back. Yunmen said, 'You are not blind.' Again he said, 'Come closer.' The monk came closer. Yunmen said, 'You are not deaf.' Then he asked, 'Do you understand?' The monk said, 'No.' Yunmen said, 'You are not mute.' At this, the monk had insight.",
                   "status": "ai_draft"
+                },
+                "suzuki": {
+                  "text": "It is asserted by all the worthy masters of the present time that they are working for the benefit of all beings. This being the case, what will you do if there suddenly appear before you three kinds of invalids? Those who are blind fail to see you even when you hold up a mallet or a hossu. Those who are deaf fail to hear you even when you talk volubly enough. Those who are dumb fail to speak out, whatever understanding they may have inwardly. What treatment are you going to accord to such people? If you do not know how to go on with them, Buddhism must be said to be lacking in miraculous works.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Manual of Zen Buddhism",
+                    "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.7 'Gensha on the Three Invalids' (a literal translation of Case LXXXVIII of the Pi-yen Chi / Biyanlu)",
+                    "reference": "Section IV.7, Illustrative Case (= Biyanlu Case 88, 玄沙三種病人)",
+                    "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; Suzuki labels it a literal translation of Pi-yen Chi Case LXXXVIII; main-case sermon wording matches verbatim (Yengo's bracketed interjections omitted).",
+                    "source_id": "suzuki-mzb-1935",
+                    "page": "IV.7, Illustrative Case"
+                  }
                 }
               }
             }
@@ -15804,8 +15828,16 @@ window.TRANSLATECHAN_DATA = {
               "status": "reconstruction_unverified"
             },
             "suzuki": {
-              "text": "Have you not seen him who has ceased learning and is at ease with life, who neither expels delusion nor seeks reality? The true nature of ignorance is the Buddha-nature; the empty illusory body is the Dharma body.",
-              "status": "reconstruction_unverified"
+              "text": "Knowest thou that leisurely philosopher who has gone beyond learning and is not exerting himself in anything? He neither endeavours to avoid idle thoughts nor seeks after the truth; for he knows that ignorance in reality is the Buddha-nature, and that this empty visionary body is no less than the Dharma-body.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Manual of Zen Buddhism",
+                "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.4 'Yoka Daishi's Song of Enlightenment' (Cheng-tao Ke / Zhengdao Ge)",
+                "reference": "Section IV.4, stanza 1",
+                "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; stanza-1 wording matches verbatim (Suzuki's bracketed glosses folded into the sentence).",
+                "source_id": "suzuki-mzb-1935",
+                "page": "IV.4, stanza 1"
+              }
             },
             "sasaki": {
               "text": "Do you not see the person of the Way who has finished learning, free of contrivance and at ease, who neither casts out delusion nor seeks the true? The real nature of ignorance is Buddha-nature; this illusory body is the Dharma-body.",
@@ -15943,8 +15975,16 @@ window.TRANSLATECHAN_DATA = {
                   "status": "reconstruction_unverified"
                 },
                 "suzuki": {
-                  "text": "There are many ways to enter the Path, but briefly speaking they are of two sorts only: the Entrance by Reason and the Entrance by Conduct.",
-                  "status": "reconstruction_unverified"
+                  "text": "There are many ways to enter the Path, but briefly speaking they are of two sorts only. The one is \"Entrance by Reason\" and the other \"Entrance by Conduct\".",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Manual of Zen Buddhism",
+                    "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.1 'Bodhidharma on the Twofold Entrance to the Tao' (from The Transmission of the Lamp, XXX)",
+                    "reference": "Section IV.1, opening (理入 / 行入)",
+                    "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; wording matches verbatim (one scan capitalization typo normalized).",
+                    "source_id": "suzuki-mzb-1935",
+                    "page": "IV.1, opening"
+                  }
                 },
                 "sasaki": {
                   "text": "Many are the ways to enter the Tao, but in essence they are of two kinds: Entrance by Principle and Entrance by Practice.",

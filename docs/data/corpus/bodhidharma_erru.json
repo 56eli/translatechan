@@ -31,8 +31,16 @@
               "status": "reconstruction_unverified"
             },
             "suzuki": {
-              "text": "There are many ways to enter the Path, but briefly speaking they are of two sorts only: the Entrance by Reason and the Entrance by Conduct.",
-              "status": "reconstruction_unverified"
+              "text": "There are many ways to enter the Path, but briefly speaking they are of two sorts only. The one is \"Entrance by Reason\" and the other \"Entrance by Conduct\".",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Manual of Zen Buddhism",
+                "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.1 'Bodhidharma on the Twofold Entrance to the Tao' (from The Transmission of the Lamp, XXX)",
+                "reference": "Section IV.1, opening (理入 / 行入)",
+                "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; wording matches verbatim (one scan capitalization typo normalized).",
+                "source_id": "suzuki-mzb-1935",
+                "page": "IV.1, opening"
+              }
             },
             "sasaki": {
               "text": "Many are the ways to enter the Tao, but in essence they are of two kinds: Entrance by Principle and Entrance by Practice.",

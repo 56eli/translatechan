@@ -286,9 +286,13 @@
         "Rendered from the Japanese title Shinjin-no-mei; reads the Chinese via the Sino-Japanese tradition."
       ],
       "personality": "The ambassador-professor who lectures the West into the koan, sentence by sentence.",
-      "verified_sample_count": 1,
+      "verified_sample_count": 5,
       "evidence_pointers": [
-        "data/corpus/xinxin_ming.json — stanza 1 (Manual of Zen Buddhism, Suzuki, 1935, Section IV.2 'On Believing in Mind')"
+        "data/corpus/xinxin_ming.json — stanza 1 (Manual of Zen Buddhism, 1935, IV.2 'Believing in Mind')",
+        "data/corpus/bodhidharma_erru.json — Twofold Entrance opening (1935, IV.1)",
+        "data/corpus/zhengdao_ge.json — stanza 1 (1935, IV.4 'Song of Enlightenment')",
+        "data/corpus/huangbo_chuanxin.json — One Mind opening (1935, IV.6 'Huang-po's Sermon')",
+        "data/corpus/biyanlu_cases.json — case 88 / Gensha three invalids (1935, IV.7, literal Case LXXXVIII)"
       ]
     },
     {

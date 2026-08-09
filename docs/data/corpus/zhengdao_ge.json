@@ -25,8 +25,16 @@
           "status": "reconstruction_unverified"
         },
         "suzuki": {
-          "text": "Have you not seen him who has ceased learning and is at ease with life, who neither expels delusion nor seeks reality? The true nature of ignorance is the Buddha-nature; the empty illusory body is the Dharma body.",
-          "status": "reconstruction_unverified"
+          "text": "Knowest thou that leisurely philosopher who has gone beyond learning and is not exerting himself in anything? He neither endeavours to avoid idle thoughts nor seeks after the truth; for he knows that ignorance in reality is the Buddha-nature, and that this empty visionary body is no less than the Dharma-body.",
+          "status": "verified_quotation",
+          "source": {
+            "work": "Manual of Zen Buddhism",
+            "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.4 'Yoka Daishi's Song of Enlightenment' (Cheng-tao Ke / Zhengdao Ge)",
+            "reference": "Section IV.4, stanza 1",
+            "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; stanza-1 wording matches verbatim (Suzuki's bracketed glosses folded into the sentence).",
+            "source_id": "suzuki-mzb-1935",
+            "page": "IV.4, stanza 1"
+          }
         },
         "sasaki": {
           "text": "Do you not see the person of the Way who has finished learning, free of contrivance and at ease, who neither casts out delusion nor seeks the true? The real nature of ignorance is Buddha-nature; this illusory body is the Dharma-body.",

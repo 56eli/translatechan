@@ -7,7 +7,7 @@
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 106160,
+    "all_corpus_cjk_characters": 106172,
     "complete_documents": [
       "biyanlu_cases",
       "wumenguan"
@@ -50,7 +50,7 @@
         }
       },
       "biyanlu_cases": {
-        "all_cjk_chars": 76755,
+        "all_cjk_chars": 76761,
         "cbeta_id": "T2003",
         "content_zh_chars": 75658,
         "coverage": "100/100 cases",
@@ -65,7 +65,7 @@
         }
       },
       "bodhidharma_erru": {
-        "all_cjk_chars": 456,
+        "all_cjk_chars": 460,
         "cbeta_id": "T2009",
         "content_zh_chars": 386,
         "shapes": [
@@ -224,7 +224,7 @@
         }
       },
       "huangbo_chuanxin": {
-        "all_cjk_chars": 143,
+        "all_cjk_chars": 145,
         "cbeta_id": "T2012A",
         "content_zh_chars": 102,
         "shapes": [
@@ -507,15 +507,15 @@
   "rights_coverage": {
     "distinct_verified_sources": 14,
     "manifest_sources": 14,
-    "verified_source_records": 141
+    "verified_source_records": 145
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 1023,
+    "corpus_slots": 1024,
     "corpus_statuses": {
       "ai_draft": 206,
-      "reconstruction_unverified": 678,
-      "verified_quotation": 139
+      "reconstruction_unverified": 675,
+      "verified_quotation": 143
     },
     "matrix_entries": 21,
     "matrix_statuses": {
@@ -523,10 +523,10 @@
       "reconstruction_unverified": 18,
       "verified_quotation": 2
     },
-    "verified_corpus_texts": 7,
+    "verified_corpus_texts": 10,
     "verified_reference_coverage": {
       "pending": 5,
-      "recorded": 136
+      "recorded": 140
     }
   }
 }
