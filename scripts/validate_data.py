@@ -364,6 +364,11 @@ def load_controlled_vocabulary(path: Path, issues: Issues, field: str) -> dict[s
         # School vocabulary also carries the curated graph color; enforce a
         # 3/6-digit hex so the lineage graph can derive its palette from data
         # instead of a hardcoded map (audit A2, 2026-08-09).
+
+        allowed = {"key", "display", "color", "note"} if field == "schools" else {"key", "display", "note"}
+        extra_fields = set(entry) - allowed
+        if extra_fields:
+            issues.error(entry_path, f"has unknown {field[:-1]} field(s): {sorted(extra_fields)}")
         if field == "schools":
             color = entry.get("color")
             if not isinstance(color, str) or not re.fullmatch(r"#[0-9a-fA-F]{6}", color):
