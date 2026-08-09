@@ -646,10 +646,10 @@ main {
 }
 
 .translation-source {
-  font-size: 0.62rem;
+  font-size: 0.72rem; /* raised from 0.62rem (~10px) — citation metadata must stay legible (N10, 2026-08-09) */
   color: var(--text-muted);
   margin-top: 0.3rem;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .translation-source.source-missing {
@@ -723,7 +723,11 @@ main {
   font-size: 0.78rem;
   font-family: var(--font-sans);
   line-height: 1.45;
-  pointer-events: none;
+  /* N8: long disclosures stay fully reachable — capped height, internal scroll,
+     interactive surface (dismissed via trigger/click-outside/Escape). */
+  max-height: min(60vh, 26rem);
+  overflow-y: auto;
+  pointer-events: auto;
 }
 
 .citation-title {
@@ -805,7 +809,11 @@ main {
   font-family: var(--font-sans);
   text-align: left;
   line-height: 1.45;
-  pointer-events: none;
+  /* N8: capped height + internal scroll so long definitions never overflow the
+     viewport; interactive surface keeps hover while scrolling. */
+  max-height: min(60vh, 22rem);
+  overflow-y: auto;
+  pointer-events: auto;
 }
 
 .tooltip-term-title,
@@ -828,6 +836,24 @@ mark {
   color: inherit;
   padding: 0 1px;
   border-radius: 2px;
+}
+
+/* Search UX N4 (2026-08-09): when a result matched a translation, the pinyin,
+   or the title rather than the Chinese, the card discloses that field with a
+   windowed snippet so the user sees what actually hit. */
+.search-match-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  border-left: 3px solid var(--accent-blue);
+  padding: 0.35rem 0.6rem;
+  margin-bottom: 0.65rem;
+  background: var(--accent-blue-light);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  line-height: 1.5;
+}
+
+.search-match-note strong {
+  color: var(--accent-blue);
 }
 
 .tooltip-term-title {

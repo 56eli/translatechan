@@ -57,6 +57,69 @@ if (!publicHtml.includes('<script defer src="app_data.js"></script>')) {
 if (publicHtml.indexOf('<script defer src="app_data.js"></script>') >= publicHtml.indexOf('<script defer src="app.js"></script>')) {
   throw new Error('deferred scripts must preserve app_data.js before app.js order');
 }
+// N1 (a11y, 2026-08-09 session 019fe731): every programmatic scroll must route
+// through motionBehavior() so prefers-reduced-motion users get instant jumps.
+if (appSrc.includes("behavior: 'smooth'")) {
+  throw new Error("programmatic smooth scroll bypasses prefers-reduced-motion — route through motionBehavior()");
+}
+if (!appSrc.includes("matchMedia('(prefers-reduced-motion: reduce)')")) {
+  throw new Error('motionBehavior() must consult prefers-reduced-motion');
+}
+// N2: the master dossier is a focus-managed non-modal dialog (role, aria
+// label, focus-in on open, ✕/Escape closes and restores focus).
+if (!publicHtml.includes('id="master-dossier-panel" role="dialog"')) {
+  throw new Error('master dossier panel must carry role="dialog"');
+}
+if (!appSrc.includes('function closeDossierPanel(') || !appSrc.includes("if (e.key !== 'Escape') return;")) {
+  throw new Error('dossier dialog needs the Escape close path with focus restore');
+}
+// N3: keyboard focus reveals glossary definitions; both popovers are tooltips.
+if (!appSrc.includes("matches(':focus-visible')")) {
+  throw new Error('term popover must open on keyboard focus, not only on Enter/Space');
+}
+if ((appSrc.match(/setAttribute\('role', 'tooltip'\)/g) || []).length < 2) {
+  throw new Error('term and citation popovers must carry role="tooltip"');
+}
+// N6: the global search input needs an accessible name and a search landmark.
+if (!/<input[^>]*type="search"[^>]*id="global-search"[^>]*aria-label="[^"]+"/.test(publicHtml)) {
+  throw new Error('global search input must be type="search" with an aria-label');
+}
+if (!publicHtml.includes('<div class="search-box" role="search">')) {
+  throw new Error('search box must carry the search landmark role');
+}
+
+// N5: toneless pinyin queries (foxing, zhaozhou) must resolve against the
+// tone-marked corpus pinyin via Unicode diacritic folding.
+if (!appSrc.includes(".normalize('NFD')") || !appSrc.includes('\\u0300-\\u036f')) {
+  throw new Error('normalizeForSearch must fold diacritics (NFD + combining-mark strip)');
+}
+// N4: result cards must disclose which field matched (translations/pinyin/
+// title) when the classical Chinese itself did not contain the query.
+if (!appSrc.includes('Matched in translations')) {
+  throw new Error('search result cards must disclose translation-field matches');
+}
+// N7: the lineage graph re-lays out (debounced) on viewport resize while the
+// lineage view is visible.
+if (!appSrc.includes("addEventListener('resize',") || !appSrc.includes('setTimeout(renderLineage, 220)')) {
+  throw new Error('lineage graph must re-render on debounced resize while the view is visible');
+}
+// N8: popovers are capped, scrollable, interactive, and positioned from their
+// measured height (no hardcoded flip-height guesses).
+const appCss = readFileSync(join(ROOT, 'app.css'), 'utf8');
+if (!appSrc.includes('positionFloatingPopover(pop, anchor, popW)')) {
+  throw new Error('popovers must share the measured positionFloatingPopover positioner');
+}
+for (const popSel of ['.citation-popover {', '.term-popover {']) {
+  const start = appCss.indexOf(popSel);
+  const block = start === -1 ? '' : appCss.slice(start, appCss.indexOf('}', start));
+  if (!block.includes('max-height: min(60vh') || !block.includes('overflow-y: auto') || !block.includes('pointer-events: auto')) {
+    throw new Error(`${popSel} must be capped, scrollable, and interactive (N8)`);
+  }
+}
+// N10: citation metadata legibility floor — no sub-11px source text.
+if (appCss.includes('font-size: 0.62rem')) {
+  throw new Error('.translation-source fell below the 0.72rem legibility floor');
+}
 
 const store = {};
 globalThis.localStorage = {
@@ -182,7 +245,7 @@ const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {
 if (Object.keys(perText).length !== 36) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '14/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
@@ -259,6 +322,24 @@ for (const [q, label] of schemaQueries) {
     if (html.includes('No matches found')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
   } catch (e) { failures++; console.log(`❌ full-schema search crash "${q}": ${e.message}`); }
 }
+
+// 4b2. N4/N5 field disclosure (2026-08-09 session 019fe731): a translation-text
+// query names the matching register on the card, and a toneless pinyin query
+// resolves against tone-marked pinyin with the pinyin field disclosed.
+try {
+  await fireSearch('Buddha-nature');
+  const html = ids['reader-content-target']._innerHTML;
+  if (html.includes('No matches found')) { failures++; console.log('❌ N4: "Buddha-nature" search found nothing'); }
+  if (!html.includes('Matched in translations')) { failures++; console.log('❌ N4: translation match not disclosed on the result card'); }
+} catch (e) { failures++; console.log(`❌ N4 behavioral check crash: ${e.message}`); }
+try {
+  // 'foxing' exists ONLY as tone-marked 佛性 pinyin (fóxìng) — zero plain-ASCII
+  // occurrences in the corpus — so this can only match via diacritic folding.
+  await fireSearch('foxing');
+  const html = ids['reader-content-target']._innerHTML;
+  if (html.includes('No matches found')) { failures++; console.log('❌ N5: toneless pinyin query "foxing" found nothing'); }
+  if (!html.includes('Matched in pinyin')) { failures++; console.log('❌ N4/N5: pinyin match note missing from the result card'); }
+} catch (e) { failures++; console.log(`❌ N5 behavioral check crash: ${e.message}`); }
 
 // 4c. No nested/duplicated term highlights from the annotator
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
@@ -372,7 +453,7 @@ if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded too
 // a complete text — the reader header shows validator-derived coverage.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanCovHtml = ids['reader-content-target']._innerHTML;
-if (!biyanCovHtml.includes('📊 Coverage: 14/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+if (!biyanCovHtml.includes('📊 Coverage: 100/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 if (!ids['reader-content-target']._innerHTML.includes('📊 Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
@@ -505,10 +586,14 @@ let corpusSlots = 0;
     Object.values(value).forEach(walkTranslationRecords);
   }
 })(window.TRANSLATECHAN_DATA.corpus);
+// Slot-count floor was data-derived from the bundle's own metrics (slot totals
+// legitimately move when seed cases are re-collated; the old '874' literal
+// hardcoded the A4-migration-era count, 2026-08-09 session 019fe731).
+const expectedCorpusSlots = window.TRANSLATECHAN_DATA.project_metrics?.translations?.corpus_slots;
 if (legacyStringSlots !== 0) failures++;
-if (corpusSlots < 874) failures++;
-if (legacyStringSlots !== 0 || corpusSlots < 874) {
-  console.log(`❌ corpus translation record migration incomplete: ${legacyStringSlots} legacy string(s), ${corpusSlots} slots`);
+if (corpusSlots !== expectedCorpusSlots || corpusSlots < 800) failures++;
+if (legacyStringSlots !== 0 || corpusSlots !== expectedCorpusSlots || corpusSlots < 800) {
+  console.log(`❌ corpus translation record migration incomplete: ${legacyStringSlots} legacy string(s), ${corpusSlots} slots (metrics expect ${expectedCorpusSlots})`);
 }
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);

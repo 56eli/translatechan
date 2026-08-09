@@ -40,6 +40,17 @@
     } catch (e) { return false; }
   }
 
+  // Honor the OS/browser reduced-motion preference for programmatic scrolls:
+  // vestibular-sensitive users get instant jumps instead of animated pans.
+  // CSS @media covers declarative animation, but the scroll APIs take an
+  // explicit behavior token, so every smooth scroll in this file routes here
+  // (a11y audit 2026-08-09, session 019fe731, N1; smoke-guarded).
+  function motionBehavior() {
+    const reduced = typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return reduced ? 'auto' : 'smooth';
+  }
+
   const state = {
     data: window.TRANSLATECHAN_DATA || {},
     currentView: 'reader',
@@ -176,7 +187,10 @@
       termPopoverEl = document.createElement('div');
       termPopoverEl.id = 'term-popover';
       termPopoverEl.className = 'term-popover';
+      termPopoverEl.setAttribute('role', 'tooltip');
       termPopoverEl.style.display = 'none';
+      // N8: the popover itself is interactive (scrollable); leaving it hides it.
+      termPopoverEl.addEventListener('mouseleave', () => { hideTermPopover(); });
       document.body.appendChild(termPopoverEl);
     }
     return termPopoverEl;
@@ -185,6 +199,22 @@
     const list = state.data.glossary || [];
     return list.find(t => t && t.id === id) || null;
   }
+  // Shared popover positioning (N8, 2026-08-09, session 019fe731): measure the
+  // real rendered height (add display before calling) instead of hardcoding a
+  // guess, so long citations/definitions flip cleanly above the anchor.
+  function positionFloatingPopover(pop, anchor, popW) {
+    const rect = anchor.getBoundingClientRect();
+    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
+    const vh = window.innerHeight || 800;
+    let left = Math.min(rect.left, vw - popW - 8);
+    if (left < 8) left = 8;
+    const height = pop.offsetHeight || 220;
+    let top = rect.bottom + 8;
+    if (top + height > vh - 8) top = Math.max(8, rect.top - 8 - height);
+    pop.style.left = `${left}px`;
+    pop.style.top = `${top}px`;
+  }
+
   function showTermPopover(termSpan) {
     if (!termSpan || typeof termSpan.getBoundingClientRect !== 'function') return;
     const t = termById(termSpan.getAttribute('data-term-id'));
@@ -195,17 +225,9 @@
       `<div class="tooltip-sanskrit">Sanskrit: ${escHtml(t.sanskrit || '—')}</div>` +
       `<div class="tooltip-row"><strong>Literal:</strong> ${escHtml(t.literal || '')}</div>` +
       `<div class="tooltip-row">${escHtml(t.definition || '')}</div>`;
-    const rect = termSpan.getBoundingClientRect();
-    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
-    const popW = 290;
-    let left = Math.min(rect.left, vw - popW - 8);
-    if (left < 8) left = 8;
-    pop.style.left = `${left}px`;
-    pop.style.top = `${rect.bottom + 8}px`;
-    if (pop.style.top && rect.bottom + 8 + 160 > (window.innerHeight || 800)) {
-      pop.style.top = `${Math.max(8, rect.top - 8 - 150)}px`; // flip above
-    }
-    pop.style.display = 'block';
+    pop.style.display = 'block'; // display first so the positioner can measure
+    positionFloatingPopover(pop, termSpan, 290);
+    pop._anchor = termSpan;
   }
   function hideTermPopover() {
     if (termPopoverEl) termPopoverEl.style.display = 'none';
@@ -238,7 +260,10 @@
       citationPopoverEl = document.createElement('div');
       citationPopoverEl.id = 'citation-popover';
       citationPopoverEl.className = 'citation-popover';
+      citationPopoverEl.setAttribute('role', 'tooltip');
       citationPopoverEl.style.display = 'none';
+      // N8: the popover itself is interactive (scrollable); leaving it hides it.
+      citationPopoverEl.addEventListener('mouseleave', () => { hideCitationPopover(); });
       document.body.appendChild(citationPopoverEl);
     }
     return citationPopoverEl;
@@ -255,18 +280,6 @@
     return `<button type="button" class="citation-trigger ${className}" data-citation-id="${id}" aria-label="${escHtml(title)}" title="${escHtml(title)}">${escHtml(label)}</button>`;
   }
 
-  function positionCitationPopover(pop, anchor) {
-    const rect = anchor.getBoundingClientRect();
-    const vw = window.innerWidth || document.documentElement.clientWidth || 900;
-    const popW = 340;
-    let left = Math.min(rect.left, vw - popW - 8);
-    if (left < 8) left = 8;
-    let top = rect.bottom + 8;
-    if (top + 190 > (window.innerHeight || 800)) top = Math.max(8, rect.top - 198);
-    pop.style.left = `${left}px`;
-    pop.style.top = `${top}px`;
-  }
-
   function showCitationPopover(trigger) {
     if (!trigger || typeof trigger.getBoundingClientRect !== 'function') return;
     const detail = citationDetails.get(trigger.getAttribute('data-citation-id'));
@@ -275,8 +288,8 @@
     const rows = Array.isArray(detail.rows) ? detail.rows : [];
     pop.innerHTML = `<div class="citation-title">${escHtml(detail.title || 'Citation & disclosure')}</div>` +
       rows.map(row => citationRow(row[0], row[1])).join('');
-    positionCitationPopover(pop, trigger);
-    pop.style.display = 'block';
+    pop.style.display = 'block'; // display first so the positioner can measure
+    positionFloatingPopover(pop, trigger, 340);
     pop._anchor = trigger;
   }
 
@@ -299,7 +312,9 @@
     });
     document.addEventListener('mouseout', (e) => {
       const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
-      if (trigger && !trigger.contains(e.relatedTarget)) hideCitationPopover();
+      // N8: keep the popover alive when the pointer moves INTO it (scrollable content)
+      const intoPop = e.relatedTarget && typeof e.relatedTarget.closest === 'function' && e.relatedTarget.closest('#citation-popover');
+      if (trigger && !trigger.contains(e.relatedTarget) && !intoPop) hideCitationPopover();
     });
     document.addEventListener('focusin', (e) => {
       const trigger = e.target && e.target.closest ? e.target.closest('.citation-trigger') : null;
@@ -314,7 +329,11 @@
       if (trigger) {
         e.preventDefault();
         toggleCitationPopover(trigger);
+        return;
       }
+      // N8: a tap/click outside the trigger and the popover dismisses it (touch)
+      const insidePop = e.target && typeof e.target.closest === 'function' && e.target.closest('#citation-popover');
+      if (!insidePop) hideCitationPopover();
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') hideCitationPopover();
@@ -438,12 +457,12 @@
     if (mobileCasesBtn) {
       mobileCasesBtn.addEventListener('click', () => {
         const strip = document.getElementById('case-jump-strip');
-        if (strip) strip.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        else window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (strip) strip.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
+        else window.scrollTo({ top: 0, behavior: motionBehavior() });
       });
     }
     const mobileTopBtn = document.getElementById('mobile-top-btn');
-    if (mobileTopBtn) mobileTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    if (mobileTopBtn) mobileTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: motionBehavior() }));
     const mobilePinyinBtn = document.getElementById('mobile-pinyin-btn');
     if (mobilePinyinBtn) {
       mobilePinyinBtn.addEventListener('click', () => {
@@ -462,6 +481,21 @@
       });
       readerRoot.addEventListener('mouseout', (e) => {
         const t = e.target.closest ? e.target.closest('.term-highlight') : null;
+        // N8: keep the popover alive when the pointer moves INTO it (scrollable content)
+        const intoPop = e.relatedTarget && typeof e.relatedTarget.closest === 'function' && e.relatedTarget.closest('#term-popover');
+        if (t && !t.contains(e.relatedTarget) && !intoPop) hideTermPopover();
+      });
+      // Keyboard discoverability (a11y N3, 2026-08-09): Tab-focus on a term
+      // reveals its definition just like hover does; gated on :focus-visible
+      // so a mouse click-focus keeps the click-to-toggle semantics unchanged.
+      readerRoot.addEventListener('focusin', (e) => {
+        const t = e.target && e.target.closest ? e.target.closest('.term-highlight') : null;
+        if (!t) return;
+        if (typeof t.matches === 'function' && !t.matches(':focus-visible')) return;
+        showTermPopover(t);
+      });
+      readerRoot.addEventListener('focusout', (e) => {
+        const t = e.target && e.target.closest ? e.target.closest('.term-highlight') : null;
         if (t && !t.contains(e.relatedTarget)) hideTermPopover();
       });
       readerRoot.addEventListener('click', (e) => {
@@ -545,6 +579,25 @@
       });
     }
 
+    // N8: a tap/click outside any term highlight or the shared glossary popover
+    // dismisses it (readerRoot only covers taps inside the reader panel).
+    document.addEventListener('click', (e) => {
+      const t = e.target && typeof e.target.closest === 'function' ? e.target.closest('.term-highlight, #term-popover') : null;
+      if (!t) hideTermPopover();
+    });
+
+    // Dossier dialog (N2): the ✕ button and Escape both close through the same
+    // focus-restoring path; bound once here, not per dossier open.
+    const dossierCloseBtn = document.getElementById('dossier-close-btn');
+    if (dossierCloseBtn) dossierCloseBtn.addEventListener('click', closeDossierPanel);
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      // Let an open tooltip absorb the first Escape press before the dossier closes.
+      if ((citationPopoverEl && citationPopoverEl.style.display === 'block') ||
+          (termPopoverEl && termPopoverEl.style.display === 'block')) return;
+      closeDossierPanel();
+    });
+
     // ---- Delegated clicks: generated controls use data-* attributes instead of
     // inline `onclick` so a restrictive Content-Security-Policy (script-src 'self')
     // can be enforced. Native <button>/<a> semantics already provide Enter/Space.
@@ -584,6 +637,17 @@
         e.preventDefault();
         window.TranslateChan.openMasterDossier(teacherLink.getAttribute('data-master-teacher'));
       }
+    });
+
+    // N7 (2026-08-09, session 019fe731): the lineage graph lays out from the
+    // live viewport width — re-render (debounced) on resize so rotated phones /
+    // resized desktops never keep a stale viewBox. Pan/zoom survives via
+    // svg._panzoom (ensureLineagePanZoom re-applies the transform on redraw).
+    let lineageResizeTimer = null;
+    window.addEventListener('resize', () => {
+      if (state.currentView !== 'lineage') return;
+      clearTimeout(lineageResizeTimer);
+      lineageResizeTimer = setTimeout(renderLineage, 220);
     });
 
     // ---- ARIA tabs: roving tabindex + arrow/Home/End navigation on the tablist.
@@ -636,7 +700,7 @@
         section.classList.remove('active');
       }
     });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: motionBehavior() });
   }
 
   // Apply the URL hash to app state (view + reader corpus); no re-render loop.
@@ -1865,6 +1929,31 @@
     ).join(' ');
   }
 
+  // Master dossier = non-modal dialog (a11y N2, 2026-08-09): the panel carries
+  // role="dialog" in index.html, focus moves into it on open, and ✕/Escape
+  // closes it and returns focus to the invoking control for continuous reading.
+  function getDossierPanel() { return document.getElementById('master-dossier-panel'); }
+  function openDossierPanel() {
+    const panel = getDossierPanel();
+    if (!panel) return;
+    panel._invoker = (typeof document.activeElement !== 'undefined') ? document.activeElement : null;
+    panel.style.display = 'block';
+    if (typeof panel.scrollIntoView === 'function') panel.scrollIntoView({ behavior: motionBehavior() });
+    if (typeof panel.focus === 'function') {
+      try { panel.focus({ preventScroll: true }); } catch (e) { try { panel.focus(); } catch (err) { /* ignore */ } }
+    }
+  }
+  function closeDossierPanel() {
+    const panel = getDossierPanel();
+    if (!panel || panel.style.display === 'none') return;
+    panel.style.display = 'none';
+    const invoker = panel._invoker || null;
+    panel._invoker = null;
+    if (invoker && typeof document.contains === 'function' && document.contains(invoker) && typeof invoker.focus === 'function') {
+      invoker.focus();
+    }
+  }
+
   // Master Dossier Modal Display
   window.TranslateChan = window.TranslateChan || {};
   window.TranslateChan.openMasterDossier = function(masterId) {
@@ -1872,11 +1961,9 @@
     const master = state.data.lineage.find(m => m.id === masterId);
     if (!master) return;
 
-    const panel = document.getElementById('master-dossier-panel');
     const nameZh = document.getElementById('dossier-name-zh');
     const nameEn = document.getElementById('dossier-name-en');
     const content = document.getElementById('dossier-content');
-    const closeBtn = document.getElementById('dossier-close-btn');
 
     if (nameZh) nameZh.textContent = `${master.name_zh} (${master.title})`;
     if (nameEn) nameEn.textContent = `${master.name_en} • Pinyin: ${master.name_pinyin} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
@@ -1913,16 +2000,7 @@
       `;
     }
 
-    if (panel) {
-      panel.style.display = 'block';
-      panel.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    if (closeBtn) {
-      closeBtn.onclick = () => {
-        panel.style.display = 'none';
-      };
-    }
+    openDossierPanel();
   };
 
   window.TranslateChan.openLineageEdge = function(teacherId, discipleId) {
@@ -1930,11 +2008,9 @@
     const source = lineageSourceRecord(edge.source_id);
     const teacher = (state.data.lineage || []).find(master => master.id === teacherId);
     const disciple = (state.data.lineage || []).find(master => master.id === discipleId);
-    const panel = document.getElementById('master-dossier-panel');
     const nameZh = document.getElementById('dossier-name-zh');
     const nameEn = document.getElementById('dossier-name-en');
     const content = document.getElementById('dossier-content');
-    const closeBtn = document.getElementById('dossier-close-btn');
     const meta = lineageStatusMeta(edge.status);
     const teacherName = teacher ? `${teacher.name_zh} / ${teacher.name_en}` : teacherId;
     const discipleName = disciple ? `${disciple.name_zh} / ${disciple.name_en}` : discipleId;
@@ -1965,11 +2041,7 @@
           <div style="margin-top:0.55rem;">${renderCitationTrigger(detail, 'ⓘ Source chart & verification')}</div>
         </div>`;
     }
-    if (panel) {
-      panel.style.display = 'block';
-      panel.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (closeBtn) closeBtn.onclick = () => { panel.style.display = 'none'; };
+    openDossierPanel();
   };
 
   // Gong'an filter chips are generated from the controlled theme taxonomy
@@ -2101,8 +2173,17 @@
   // normalized to ONE canonical side (first listed) so 洗鉢盂去/洗缽盂去, 師云/師曰
   // etc. cross-match; variantRegex() still marks either spelling in the raw text.
   const SEARCH_VARIANTS = { '鉢': '缽', '曰': '云', '臺': '台', '裏': '里', '無': '无' };
+  // Diacritic folding (search UX N5, 2026-08-09, session 019fe731): corpus
+  // pinyin is tone-marked (Zhàozhōu, fóxìng), but realistic queries are typed
+  // toneless (zhaozhou, foxing). NFD + combining-mark strip makes both sides
+  // comparable; CJK characters have no decomposable marks and are unaffected.
+  const COMBINING_MARKS = /[\u0300-\u036f]/g;
   function normalizeForSearch(s) {
-    return String(s || '').toLowerCase().split('').map(ch => SEARCH_VARIANTS[ch] || ch).join('');
+    return String(s || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(COMBINING_MARKS, '')
+      .split('').map(ch => SEARCH_VARIANTS[ch] || ch).join('');
   }
   function escHtml(s) {
     return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -2118,30 +2199,48 @@
     const units = [];
     const asBlob = (...parts) => normalizeForSearch(parts.filter(Boolean).join(' '));
     const blobWithTranslations = (tr) => tr ? Object.values(tr).map(v => (v && typeof v === 'object' ? v.text : v)).filter(Boolean).join(' ') : '';
+    // Human-readable per-register English fields, carried next to the blob so a
+    // result card can disclose WHAT matched (register + text) when the classical
+    // Chinese itself did not (search UX N4, 2026-08-09, session 019fe731).
+    const registerPairs = (tr) => tr ? Object.entries(tr)
+      .map(([k, v]) => ({ name: formatTranslatorName(k), text: stringValue(v && typeof v === 'object' ? v.text : v) }))
+      .filter(p => p.text) : [];
+    const namedPair = (name, text) => (text ? [{ name, text: stringValue(text) }] : []);
     const fromDialogue = (items, label, jump) => (items || []).forEach(d => {
       units.push({
         label, jump,
         zh: d.zh || '', pinyin: d.pinyin || '',
+        en: registerPairs(d.translations),
         blob: asBlob(label, d.speaker, d.zh, d.pinyin, blobWithTranslations(d.translations))
       });
     });
 
     if (doc.preface && doc.preface.zh) {
       units.push({ label: '序言 / Preface', jump: null, zh: doc.preface.zh, pinyin: doc.preface.pinyin || '',
+        en: [
+          ...namedPair(formatTranslatorName('red_pine'), doc.preface.en_red_pine),
+          ...namedPair(formatTranslatorName('cleary'), doc.preface.en_cleary),
+          ...namedPair(formatTranslatorName('sasaki'), doc.preface.en_sasaki)
+        ],
         blob: asBlob('preface', doc.preface.zh, doc.preface.pinyin, doc.preface.en_red_pine, doc.preface.en_cleary, doc.preface.en_sasaki) });
     }
     if (doc.epilogue && doc.epilogue.zh) {
       units.push({ label: '後序 / Epilogue', jump: null, zh: doc.epilogue.zh, pinyin: doc.epilogue.pinyin || '',
+        en: [
+          ...namedPair(formatTranslatorName('red_pine'), doc.epilogue.en_red_pine),
+          ...namedPair(formatTranslatorName('cleary'), doc.epilogue.en_cleary),
+          ...namedPair(formatTranslatorName('sasaki'), doc.epilogue.en_sasaki)
+        ],
         blob: asBlob('epilogue', doc.epilogue.zh, doc.epilogue.pinyin, doc.epilogue.en_red_pine, doc.epilogue.en_cleary, doc.epilogue.en_sasaki) });
     }
     (doc.cases || []).forEach(c => {
       const label = `第${c.case_num}則 ${c.title_zh || ''} / ${c.title_en || ''}`;
       fromDialogue(c.dialogue, label, { kind: 'case', num: c.case_num });
-      if (c.pointer_zh) units.push({ label: label + ' · pointer', jump: { kind: 'case', num: c.case_num }, zh: c.pointer_zh, pinyin: c.pointer_pinyin || '', blob: asBlob(label, c.pointer_zh, c.pointer_pinyin, c.pointer_en) });
-      if (c.commentary_zh) units.push({ label: label + ' · commentary', jump: { kind: 'case', num: c.case_num }, zh: c.commentary_zh, pinyin: c.commentary_pinyin || '', blob: asBlob(label, c.commentary_zh, c.commentary_pinyin, c.commentary_en) });
-      if (c.verse_zh) units.push({ label: label + ' · verse', jump: { kind: 'case', num: c.case_num }, zh: c.verse_zh, pinyin: c.verse_pinyin || '', blob: asBlob(label, c.verse_zh, c.verse_pinyin, c.verse_en) });
+      if (c.pointer_zh) units.push({ label: label + ' · pointer', jump: { kind: 'case', num: c.case_num }, zh: c.pointer_zh, pinyin: c.pointer_pinyin || '', en: namedPair('Pointer (project draft)', c.pointer_en), blob: asBlob(label, c.pointer_zh, c.pointer_pinyin, c.pointer_en) });
+      if (c.commentary_zh) units.push({ label: label + ' · commentary', jump: { kind: 'case', num: c.case_num }, zh: c.commentary_zh, pinyin: c.commentary_pinyin || '', en: namedPair('Commentary (project draft)', c.commentary_en), blob: asBlob(label, c.commentary_zh, c.commentary_pinyin, c.commentary_en) });
+      if (c.verse_zh) units.push({ label: label + ' · verse', jump: { kind: 'case', num: c.case_num }, zh: c.verse_zh, pinyin: c.verse_pinyin || '', en: namedPair('Verse (project draft)', c.verse_en), blob: asBlob(label, c.verse_zh, c.verse_pinyin, c.verse_en) });
       // explicit title unit so title-only queries surface the case
-      units.push({ label, jump: { kind: 'case', num: c.case_num }, zh: c.title_zh || '', pinyin: c.title_pinyin || '', blob: asBlob(label) });
+      units.push({ label, jump: { kind: 'case', num: c.case_num }, zh: c.title_zh || '', pinyin: c.title_pinyin || '', en: [], blob: asBlob(label) });
     });
     (doc.sections || []).forEach(sec => {
       const label = `${sec.title_zh || ''} / ${sec.title_en || ''}`;
@@ -2153,16 +2252,19 @@
     });
     (doc.stanzas || []).forEach(st => {
       units.push({ label: `Stanza ${st.stanza_num}`, jump: null, zh: st.zh || '', pinyin: st.pinyin || '',
+        en: registerPairs(st.translations),
         blob: asBlob(`stanza ${st.stanza_num}`, st.zh, st.pinyin, blobWithTranslations(st.translations)) });
     });
     (doc.chapters || []).forEach(ch => {
       const label = `${ch.title_zh || ''} / ${ch.title_en || ''}`;
       fromDialogue(ch.dialogue, label, null);
       (ch.verses || []).forEach(v => units.push({ label, jump: null, zh: v.zh || '', pinyin: v.pinyin || '',
+        en: registerPairs(v.translations),
         blob: asBlob(label, v.author, v.zh, v.pinyin, blobWithTranslations(v.translations)) }));
     });
     (doc.five_ranks || []).forEach(r => {
       units.push({ label: `Five Ranks · ${r.name_zh || ''}`, jump: null, zh: r.verse_zh || '', pinyin: r.verse_pinyin || '',
+        en: [...registerPairs(r.translations), ...namedPair('Caoshan commentary (project draft)', r.commentary_en)],
         blob: asBlob(r.name_zh, r.name_en, r.verse_zh, r.verse_pinyin, r.commentary_zh, r.commentary_en, blobWithTranslations(r.translations)) });
     });
     (doc.sample_records || []).forEach(rec => {
@@ -2197,6 +2299,35 @@
       if (match[0] === '') re.lastIndex++;
     }
     return html + escHtml(snip.slice(cursor));
+  }
+
+  // Window a matched non-Chinese field (translation, pinyin) for display. When
+  // the query literally occurs there, makeSnippet marks it; toneless queries
+  // that only match after diacritic folding get an unmarked window instead of
+  // a misleading highlight (search UX N4/N5, 2026-08-09, session 019fe731).
+  function makeFieldSnippet(raw, q) {
+    const text = stringValue(raw);
+    const re = variantRegex(q);
+    if (re && re.test(text)) return makeSnippet(text, q);
+    const idx = normalizeForSearch(text).indexOf(normalizeForSearch(q));
+    const center = idx === -1 ? 0 : idx;
+    const start = Math.max(0, center - 30);
+    const end = Math.min(text.length, center + 50);
+    return escHtml((start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : ''));
+  }
+
+  // Disclose which field satisfied the query when the classical Chinese did
+  // not: first matching translation register, else pinyin, else the title.
+  function renderSearchMatchNote(u, q, qLower) {
+    if (u.zh && normalizeForSearch(u.zh).includes(qLower)) return '';
+    const enHit = (u.en || []).find(p => normalizeForSearch(p.text).includes(qLower));
+    if (enHit) {
+      return `<div class="search-match-note">⚖️ Matched in translations — <strong>${escHtml(enHit.name)}</strong>: “${makeFieldSnippet(enHit.text, q)}”</div>`;
+    }
+    if (u.pinyin && normalizeForSearch(u.pinyin).includes(qLower)) {
+      return `<div class="search-match-note">🔤 Matched in pinyin: ${makeFieldSnippet(u.pinyin, q)}</div>`;
+    }
+    return `<div class="search-match-note">🏷️ Matched in the unit title or speaker label</div>`;
   }
 
   // D1: searchable units are expensive to extract (traversal + string building),
@@ -2256,7 +2387,8 @@
         bodyHtml += `
           <div class="case-card" style="margin-bottom: 0.75rem;">
             <div class="case-header"><h2 class="case-num-title" style="font-size:0.95rem;">${escHtml(u.label)}</h2></div>
-            <div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
+            ${u.zh ? `<div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>` : ''}
+            ${renderSearchMatchNote(u, q, qLower)}
             <div style="margin-top: 0.4rem;">${action}</div>
           </div>`;
       });
@@ -2314,7 +2446,7 @@
     expandCase(caseNum);
     setTimeout(() => {
       const el = document.getElementById(`case-${caseNum}`);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (el) el.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
     }, 60);
   };
   window.TranslateChan.openCase = function(corpusKey, caseNum) {
