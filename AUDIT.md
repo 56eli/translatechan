@@ -34,7 +34,7 @@ guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
 1. **A1 — Repository ops (owner, ~2 min):** require the Quality workflow check *"Validate data, generated artifacts, and reader"* in branch protection/rulesets for `main` so a PR cannot merge without the green gate. Still unverified/unactioned by the owner.
 2. **A2 — Scholarly release gate (editorial):** resolve the **5 pending verified-source references**; migrate the **33 document-level locators** to unit/page-line anchors via `data/editorial/traceability_queue.json`; human sign-off per rights-manifest record before expanding quotation reuse. The validator enforces structure, not collation/copyright — keep it that explicit.
 3. **Content Phase 2:** continue the CBETA-collated completion campaign (ROADMAP.md); Biyanlu 11–100 and Linji are the natural next pilots; every new text runs the established locator/provenance/metrics workflow.
-4. **Editorial candidates (small):** gong'an theme taxonomy (23 free-text themes → curated set); `switchViewRaw` scroll-restore on back/forward.
+4. **Editorial candidates (small):** ~~gong'an theme taxonomy~~ ✅ delivered 2026-08-09 (`data/gongan/theme_vocabulary.json`, 7 groups, validator-enforced); `switchViewRaw` scroll-restore on back/forward.
 
 ## 3. Quality gates (must pass before every push)
 
@@ -55,7 +55,7 @@ diff -rq data docs/data                   # byte-identical data mirror
 | 2026-08-08 | `019fe1b5` | [`sessions/SESSION_AUDIT_2026-08-08.md`](./sessions/SESSION_AUDIT_2026-08-08.md) + archive §9 | Second-pass audit B1–B10 fixed; CBETA canon-reference corrections; Wumenguan completed 48/48 |
 | 2026-08-08 | `019fe2e0` | archive §10 | Independent post-PR#3 audit; locator/rights/editorial program started |
 | 2026-08-08 | `019fe30b` | [`sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`](./sessions/SESSION_AUDIT_2026-08-08_019fe30b.md) + archive §11 | a11y/CSP hardening; per-text metrics; Playwright suite; Biyanlu 4–10 (14/100); coverage disclosures |
-| 2026-08-09 | `019fe5d5` | [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md) | Full audit; doc-truthfulness gate (P2-A); controlled school vocabulary + data-derived filters (P2-B, incl. dead-lexicon-filter bug fix); renderer escaping consistency + poison regression (P2-C); this convention (P2-D) |
+| 2026-08-09 | `019fe5d5` | [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md) | Full audit; doc-truthfulness gate (P2-A); controlled school vocabulary + data-derived filters (P2-B, incl. dead-lexicon-filter bug fix); renderer escaping consistency + poison regression (P2-C); sessions convention + AUDIT.md slimming (P2-D); gong'an 7-group theme taxonomy |
 
 ## 5. Session artifact convention (est. 2026-08-09)
 

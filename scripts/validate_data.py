@@ -38,6 +38,7 @@ LOCATORS_PATH = DATA_DIR / "canonical_locators.json"
 RIGHTS_PATH = DATA_DIR / "translations" / "rights_manifest.json"
 LINEAGE_VERIFICATION_PATH = DATA_DIR / "lineage" / "lineage_verification.json"
 LINEAGE_SCHOOL_VOCAB_PATH = DATA_DIR / "lineage" / "school_vocabulary.json"
+GONGAN_THEME_VOCAB_PATH = DATA_DIR / "gongan" / "theme_vocabulary.json"
 LINEAGE_PROFILE_QUEUE_PATH = DATA_DIR / "lineage" / "profile_review_queue.json"
 TRACEABILITY_QUEUE_PATH = DATA_DIR / "editorial" / "traceability_queue.json"
 PROVENANCE_PATH = DATA_DIR / "translations" / "provenance.json"
@@ -329,20 +330,24 @@ def validate_matrix(
                 stats["verified_reference_pending" if is_record(source) and "pending" in str(source.get("reference") or "").lower() else "verified_reference_recorded"] += 1
 
 
-def load_school_vocabulary(path: Path, issues: Issues) -> dict[str, str]:
-    """Controlled lineage-school vocabulary: key -> canonical display string."""
+def load_controlled_vocabulary(path: Path, issues: Issues, field: str) -> dict[str, str]:
+    """Controlled vocabulary loader: key -> canonical display string.
+
+    Used for the lineage-school vocabulary (field 'schools') and the gong'an
+    theme taxonomy (field 'themes'); both enforce key/display membership here.
+    """
     raw = load_json(path, issues)
-    if not is_record(raw) or not isinstance(raw.get("schools"), list) or not raw["schools"]:
-        issues.error(rel(path), "requires a non-empty schools list")
+    if not is_record(raw) or not isinstance(raw.get(field), list) or not raw[field]:
+        issues.error(rel(path), f"requires a non-empty {field} list")
         return {}
     vocab: dict[str, str] = {}
-    for index, entry in enumerate(raw["schools"]):
-        entry_path = f"{rel(path)}.schools[{index}]"
+    for index, entry in enumerate(raw[field]):
+        entry_path = f"{rel(path)}.{field}[{index}]"
         if not is_record(entry) or not nonempty_string(entry.get("key")) or not nonempty_string(entry.get("display")):
-            issues.error(entry_path, "each school requires non-empty key and display strings")
+            issues.error(entry_path, "each entry requires non-empty key and display strings")
             continue
         if entry["key"] in vocab:
-            issues.error(entry_path, f"duplicate school key '{entry['key']}'")
+            issues.error(entry_path, f"duplicate key '{entry['key']}'")
         vocab[entry["key"]] = entry["display"]
     return vocab
 
@@ -354,11 +359,12 @@ def validate_auxiliary_data(
     provenance: Any,
     issues: Issues,
     school_vocab: dict[str, str] | None = None,
+    theme_vocab: dict[str, str] | None = None,
 ) -> None:
     for label, records, fields in (
         ("data/glossary/chan_terms.json", glossary, ("id", "term", "pinyin", "literal", "definition", "category")),
         ("data/lineage/masters.json", lineage, ("id", "name_zh", "name_en", "school", "school_key", "teacher", "profile_status")),
-        ("data/gongan/gongan_index.json", gongan, ("id", "title_zh", "title_en", "collection", "theme")),
+        ("data/gongan/gongan_index.json", gongan, ("id", "title_zh", "title_en", "collection", "theme", "theme_group")),
     ):
         if not isinstance(records, list) or not records:
             issues.error(label, "must be a non-empty list")
@@ -390,6 +396,10 @@ def validate_auxiliary_data(
                         issues.error(record_path, f"school_key '{school_key}' is not in the controlled vocabulary (data/lineage/school_vocabulary.json)")
                     elif record.get("school") != school_vocab[school_key]:
                         issues.error(record_path, f"school must be the canonical display for key '{school_key}': {school_vocab[school_key]!r}")
+            if label == "data/gongan/gongan_index.json" and theme_vocab:
+                theme_group = record.get("theme_group")
+                if theme_group not in theme_vocab:
+                    issues.error(record_path, f"theme_group '{theme_group}' is not in the gong'an theme taxonomy (data/gongan/theme_vocabulary.json)")
 
     if not is_record(provenance):
         issues.error(rel(PROVENANCE_PATH), "must be an object")
@@ -989,8 +999,9 @@ def main() -> int:
     lineage = load_json(DATA_DIR / "lineage" / "masters.json", issues)
     gongan = load_json(DATA_DIR / "gongan" / "gongan_index.json", issues)
     provenance = load_json(PROVENANCE_PATH, issues)
-    school_vocab = load_school_vocabulary(LINEAGE_SCHOOL_VOCAB_PATH, issues)
-    validate_auxiliary_data(glossary, lineage, gongan, provenance, issues, school_vocab)
+    school_vocab = load_controlled_vocabulary(LINEAGE_SCHOOL_VOCAB_PATH, issues, "schools")
+    theme_vocab = load_controlled_vocabulary(GONGAN_THEME_VOCAB_PATH, issues, "themes")
+    validate_auxiliary_data(glossary, lineage, gongan, provenance, issues, school_vocab, theme_vocab)
 
     corpus_manifest = load_json(CORPUS_MANIFEST_PATH, issues)
     locator_registry = load_json(LOCATORS_PATH, issues)

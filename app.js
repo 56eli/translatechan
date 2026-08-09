@@ -1950,20 +1950,50 @@
     if (closeBtn) closeBtn.onclick = () => { panel.style.display = 'none'; };
   };
 
+  // Gong'an filter chips are generated from the controlled theme taxonomy
+  // (validator-enforced theme_group keys), so chips group cases instead of
+  // listing 23 one-off labels. The rich per-entry `theme` stays on the card.
+  function gonganThemeGroups() {
+    const entries = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
+    const present = new Map();
+    entries.forEach(g => {
+      if (!g || typeof g.theme_group !== 'string') return;
+      present.set(g.theme_group, (present.get(g.theme_group) || 0) + 1);
+    });
+    const vocab = state.data.gongan_theme_vocab && Array.isArray(state.data.gongan_theme_vocab.themes)
+      ? state.data.gongan_theme_vocab.themes : [];
+    const ordered = [];
+    vocab.forEach(v => {
+      if (v && present.has(v.key)) {
+        ordered.push({ key: v.key, display: stringValue(v.display) || v.key, count: present.get(v.key) });
+        present.delete(v.key);
+      }
+    });
+    // Any group present in data but missing from the taxonomy still shows up (validator rejects this state).
+    present.forEach((count, key) => ordered.push({ key, display: key, count }));
+    return ordered;
+  }
+  function gonganGroupDisplay(key) {
+    const vocab = state.data.gongan_theme_vocab && Array.isArray(state.data.gongan_theme_vocab.themes)
+      ? state.data.gongan_theme_vocab.themes : [];
+    const hit = vocab.find(v => v && v.key === key);
+    return hit ? stringValue(hit.display) : key;
+  }
+
   // Render Gong'an Index
   function renderGonganIndex() {
     if (!elements.gonganTarget || !state.data.gongan_index) return;
     let list = state.data.gongan_index;
     if (state.gonganThemeFilter && state.gonganThemeFilter !== 'all') {
-      list = list.filter(g => (g.theme || '').toLowerCase().includes(state.gonganThemeFilter.toLowerCase()));
+      list = list.filter(g => g.theme_group === state.gonganThemeFilter);
     }
 
-    const themes = [...new Set(state.data.gongan_index.map(g => g.theme).filter(Boolean))];
+    const groups = gonganThemeGroups();
     const filterBar = `
       <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.25rem; align-items:center;">
-        <span style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.6px;">Filter:</span>
-        <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all">All</button>
-        ${themes.map(t => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === t ? 'active' : ''}" data-gongan-filter="${escHtml(t)}">${escHtml(t)}</button>`).join('')}
+        <span style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.6px;">Theme groups:</span>
+        <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all">All · ${state.data.gongan_index.length}</button>
+        ${groups.map(g => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === g.key ? 'active' : ''}" data-gongan-filter="${escHtml(g.key)}">${escHtml(g.display)} · ${g.count}</button>`).join('')}
       </div>`;
 
     elements.gonganTarget.innerHTML = filterBar + list.map(g => `
@@ -1979,6 +2009,7 @@
           ${escHtml(g.summary)}
         </div>
         <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
+          <span class="meta-chip">🏷️ ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</span>
           <span class="meta-chip">🎯 Theme: ${escHtml(g.theme)}</span>
           ${g.cross_refs ? g.cross_refs.map(cr => `<span class="meta-chip">🔗 ${escHtml(cr)}</span>`).join('') : ''}
         </div>

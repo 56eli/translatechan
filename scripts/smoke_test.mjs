@@ -395,6 +395,22 @@ if (!lexiconFiltered.includes('本來面目') || lexiconFiltered.includes('祖�
   failures++; console.log('❌ lexicon category filter did not restrict to Ontology terms');
 }
 (ids['lexicon-cat-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
+// 4m4. Gong'an theme chips are generated from the controlled theme taxonomy
+// (validator-enforced theme_group keys), grouping cases instead of 23 one-off labels.
+const gonganChipsHtml = ids['gongan-content-target']._innerHTML;
+if (!gonganChipsHtml.includes('data-gongan-filter="everyday_way"') || !gonganChipsHtml.includes('data-gongan-filter="what_is_buddha"')) {
+  failures++; console.log('❌ gongan theme chips are not generated from the controlled theme taxonomy');
+}
+if (!gonganChipsHtml.includes('🏷️ The Everyday Way')) { failures++; console.log('❌ gongan cards do not show the theme group tag'); }
+const chipClick = (key) => (ids['gongan-content-target']._handlers.click || []).forEach(fn => fn({
+  target: { closest: (sel) => (sel === '.gongan-filter-chip' ? { getAttribute: () => key } : null) }
+}));
+chipClick('everyday_way');
+const gonganFilteredHtml = ids['gongan-content-target']._innerHTML;
+if (!gonganFilteredHtml.includes('趙州洗缽') || gonganFilteredHtml.includes('趙州狗子')) {
+  failures++; console.log('❌ gongan theme-group chip did not restrict the index to the Everyday Way group');
+}
+chipClick('all');
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
 const malformedMatrixEntries = matrixEntries.filter(t => !t.status ||

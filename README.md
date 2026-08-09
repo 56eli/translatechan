@@ -67,7 +67,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - Filter by lineage school, dates, temple location, canonical text reference, and signature quotes.
 
 ### 4. 🗂️ Gong'an Cross-Reference Index
-- Canonical cases indexed by theme, protagonist, and cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* — **23 indexed cases** at present (incl. 5 new Biyanlu entries, 2026-08-08).
+- Canonical cases indexed by theme, protagonist, and cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* — **23 indexed cases** at present (incl. 5 new Biyanlu entries, 2026-08-08), organized into **7 curated theme groups** (Buddha-Nature, Beyond Duality, What is Buddha, Direct Pointing, Everyday Way, Transmission & Causality, Existential Barrier) from the validator-enforced taxonomy in `data/gongan/theme_vocabulary.json`; cards keep a rich per-case theme descriptor while filter chips group by family.
 
 ### 5. 📚 Classical Chan Lexicon
 - Dictionary of technical Chan idioms, Buddhist ontology, dialectical structures, and monastic expressions — **31 terms** today, expanding toward 150+ (see Roadmap Phase 3).

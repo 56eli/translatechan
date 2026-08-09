@@ -74,6 +74,7 @@ def main() -> None:
         "canonical_locators": load_json(DATA_DIR / "canonical_locators.json"),
         "project_metrics": load_json(DATA_DIR / "project_metrics.json"),
         "gongan_index": load_json(DATA_DIR / "gongan" / "gongan_index.json"),
+        "gongan_theme_vocab": load_json(DATA_DIR / "gongan" / "theme_vocabulary.json"),
         "corpus_manifest": corpus_manifest,
         "corpus": corpus,
         "meta": {

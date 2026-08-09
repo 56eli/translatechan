@@ -206,7 +206,8 @@ translatechan/
 │   ├── glossary/
 │   │   └── chan_terms.json             # 31 Classical Chan & Buddhist lexicon terms
 │   └── gongan/
-│       └── gongan_index.json           # 23 Gong'an cross-references index entries
+│       ├── gongan_index.json           # 23 Gong'an cross-references index entries
+│       └── theme_vocabulary.json       # Controlled 7-group theme taxonomy (drives index filter chips)
 └── scripts/
     ├── build_data_bundle.py            # Bundles data/ and synchronizes /docs
     ├── arena_agent_pipeline.py         # Prompt templates & entry harness for sandboxed agent work
@@ -221,7 +222,7 @@ translatechan/
 ## 🛠️ Ongoing Editorial Maintenance Workflow
 
 When new canonical texts or translations are added by editorial contributors:
-1. Save the structured JSON file in `data/corpus/<name>.json`, add its display/order entry to `data/corpus_manifest.json`, and add a canonical locator record in `data/canonical_locators.json`. Verified modern quotations also require `source.source_id` plus `source.reference`, resolving to `data/translations/rights_manifest.json`. New lineage links require a source/status record in `data/lineage/lineage_verification.json`. Every master profile carries a `school_key` from `data/lineage/school_vocabulary.json` plus the matching canonical `school` display string — extend the vocabulary file first if a genuinely new group appears (the lineage filter UI and graph colors derive from it automatically).
+1. Save the structured JSON file in `data/corpus/<name>.json`, add its display/order entry to `data/corpus_manifest.json`, and add a canonical locator record in `data/canonical_locators.json`. Verified modern quotations also require `source.source_id` plus `source.reference`, resolving to `data/translations/rights_manifest.json`. New lineage links require a source/status record in `data/lineage/lineage_verification.json`. Every master profile carries a `school_key` from `data/lineage/school_vocabulary.json` plus the matching canonical `school` display string — extend the vocabulary file first if a genuinely new group appears (the lineage filter UI and graph colors derive from it automatically). Gong'an index entries likewise carry a `theme_group` from `data/gongan/theme_vocabulary.json` (7 curated theme families drive the index chips); the per-entry `theme` string stays the rich, case-specific descriptor.
 2. Regenerate and validate deterministic metrics:
    ```bash
    python3 scripts/validate_data.py --write-metrics

@@ -1,8 +1,8 @@
 # 📋 Session Response — 2026-08-09 (branch `arena/019fe5d5-translatechan`)
 
-> **Tasks so far:** full project audit → P2-B (school vocabulary) → P2-A (docs-truthfulness guard) → P2-C (escaping consistency) → **P2-D (session-artifact convention)**.
+> **Tasks so far:** full project audit → P2-B → P2-A → P2-C → P2-D → **gong'an theme taxonomy**.
 >
-> **One-sentence summary:** ✅ P2-D shipped — `sessions/` now holds all dated reports and the audit archive, repo-root `AUDIT.md` is a slim current-state summary + index, every cross-link updated, and the doc-truthfulness gate still passes on each edited doc; session total: audit + 6 doc fixes + vocabulary/filters + lexicon-listener fix + docs guard + escaping pass + repo hygiene. Full detail: **`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`**.
+> **One-sentence summary:** ✅ Theme taxonomy shipped — the 23 one-off free-text gong'an themes now sit under 7 curated, validator-enforced groups (Buddha-Nature, Beyond Duality, What is Buddha, Direct Pointing, Everyday Way, Transmission & Causality, Existential Barrier) that drive the index chips with counts; session total: audit + 6 doc fixes + vocabulary/filters + lexicon-listener fix + docs guard + escaping pass + repo hygiene + taxonomy. Full detail: **`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`**.
 
 ---
 
@@ -20,7 +20,25 @@
 **Gates (every turn):** py_compile ✅ · validate ✅ · build (root↔docs synced) ✅ · smoke ✅ · committed & pushed.
 </details>
 
-## P2-D delivery summary (this turn)
+## Gong'an theme taxonomy (this turn)
+
+| Item | Detail |
+|---|---|
+| `data/gongan/theme_vocabulary.json` | 7 curated groups with bilingual display + editorial notes; every one of the 23 entries assigned by dominant hermeneutic thrust |
+| Validator | `theme_group` required + membership enforced (negative-tested); loader generalized to serve both school & theme vocabularies |
+| Index UI | Chips now = theme groups with counts (was: 23 single-use labels); cards keep the rich per-case theme descriptor plus a group 🏷️ tag |
+| Regression | Smoke 4m4: chip derivation, Everyday-Way restriction (趙州洗缽 present, 趙州狗子 filtered out), group tag rendered |
+
+## Remaining backlog (your call)
+
+1. **Open a PR to `main`** — this branch holds 6 commits of gated green work
+2. Content Phase 2 — next corpus text pilot (Biyanlu 11–20 or Linji) *(M–L)*
+3. A1/A2 standing items (branch protection = owner 2-min; editorial reference/rights sign-off)
+4. Micro: `switchViewRaw` scroll-restore on back/forward
+
+<details><summary>Earlier turns: audit + P2-B + P2-A + P2-C + P2-D summaries</summary>
+
+### P2-D delivery summary
 
 | Item | Detail |
 |---|---|

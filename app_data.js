@@ -3759,6 +3759,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Zhaozhou's Dog (Mu / Wu)",
       "protagonist": "zhaozhou_congshen",
       "theme": "Buddha-Nature / Cutting Off Deliberation",
+      "theme_group": "buddha_nature",
       "cross_refs": [
         "Congronglu Case 18",
         "Zhaozhou Yulu",
@@ -3775,6 +3776,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Baizhang's Wild Fox",
       "protagonist": "baizhang_huaihai",
       "theme": "Karma & Causality (不落 / 不昧)",
+      "theme_group": "transmission_causality",
       "cross_refs": [
         "Baizhang Yulu",
         "Biyanlu Case 17",
@@ -3791,6 +3793,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Juzhi's One Finger",
       "protagonist": "juzhi",
       "theme": "Direct Pointing / Cutting Conceptual Mimicry",
+      "theme_group": "direct_pointing",
       "cross_refs": [
         "Biyanlu Case 19",
         "Chuandenglu Vol. 11"
@@ -3806,6 +3809,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Bodhidharma Has No Beard",
       "protagonist": "huoan_shiti",
       "theme": "Direct Realization Beyond Dual Perception",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Wudeng Huiyuan Vol. 19",
         "Zongmen Tongyao Ji"
@@ -3821,6 +3825,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Xiangyan's Man Up a Tree",
       "protagonist": "xiangyan_zhixian",
       "theme": "Existential Urgency / Ineffable Speech",
+      "theme_group": "existential_barrier",
       "cross_refs": [
         "Guishan Yulu",
         "Chuandenglu Vol. 11"
@@ -3836,6 +3841,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "The Buddha Holds Up a Flower",
       "protagonist": "shakyamuni_and_mahakasyapa",
       "theme": "Origin of Chan Transmission",
+      "theme_group": "transmission_causality",
       "cross_refs": [
         "Lianbiao Shizi Xu",
         "Zongmen Tongyao Ji"
@@ -3851,6 +3857,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Zhaozhou's Wash Your Bowl",
       "protagonist": "zhaozhou_congshen",
       "theme": "Ordinary Activity as Awakening",
+      "theme_group": "everyday_way",
       "cross_refs": [
         "Zhaozhou Yulu",
         "Biyanlu Case 47"
@@ -3866,6 +3873,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Ordinary Mind is the Way",
       "protagonist": "nanquan_puyuan",
       "theme": "Immediacy / Non-Seeking",
+      "theme_group": "everyday_way",
       "cross_refs": [
         "Mazu Yulu",
         "Zhaozhou Yulu",
@@ -3882,6 +3890,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Huineng's Original Face",
       "protagonist": "huineng",
       "theme": "Original Nature Beyond Morality",
+      "theme_group": "buddha_nature",
       "cross_refs": [
         "Platform Sutra Chapter 1",
         "Chuandenglu Vol. 5"
@@ -3897,6 +3906,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Not the Wind, Not the Flag",
       "protagonist": "huineng",
       "theme": "Mind-Only Non-Duality",
+      "theme_group": "buddha_nature",
       "cross_refs": [
         "Platform Sutra Chapter 1",
         "Zongjinglu"
@@ -3912,6 +3922,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "The Cypress Tree in the Courtyard",
       "protagonist": "zhaozhou_congshen",
       "theme": "Patriarch's Meaning / Direct Reality",
+      "theme_group": "what_is_buddha",
       "cross_refs": [
         "Zhaozhou Yulu",
         "Biyanlu Case 47",
@@ -3928,6 +3939,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Emperor Wu Asks Bodhidharma: Vast Emptiness",
       "protagonist": "bodhidharma",
       "theme": "Emptiness / Transcending Imperial Merit",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Chuandenglu Vol. 3",
         "Lidai Fabao Ji"
@@ -3943,6 +3955,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Zhaozhou's Ultimate Path is Not Difficult",
       "protagonist": "zhaozhou_congshen",
       "theme": "Beyond Clarity and Discrimination",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Xinxin Ming",
         "Zhaozhou Yulu"
@@ -3958,6 +3971,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Master Mazu is Unwell: Sun-Face Moon-Face",
       "protagonist": "mazu_daoyi",
       "theme": "Equanimity in Sickness and Health",
+      "theme_group": "everyday_way",
       "cross_refs": [
         "Mazu Yulu",
         "Jingde Chuandenglu Vol. 6"
@@ -3973,6 +3987,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Dongshan's Three Pounds of Flax",
       "protagonist": "dongshan_shouchu",
       "theme": "Concrete Reality / What is Buddha",
+      "theme_group": "what_is_buddha",
       "cross_refs": [
         "Dongshan Yulu",
         "Wumenguan Case 18"
@@ -3988,6 +4003,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Nanquan Cuts the Cat in Two",
       "protagonist": "nanquan_puyuan",
       "theme": "Cutting Duality / Straw Sandals on Head",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Wumenguan Case 14",
         "Congronglu Case 9"
@@ -4003,6 +4019,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Yunmen's Dried Shit-Stick",
       "protagonist": "yunmen_wenyan",
       "theme": "Shattering All Sanctimonious Conceits",
+      "theme_group": "what_is_buddha",
       "cross_refs": [
         "Yunmen Yulu",
         "Wumenguan Case 21"
@@ -4018,6 +4035,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Dongshan's Cold and Heat",
       "protagonist": "dongshan_liangjie",
       "theme": "Transcendence within Conditioned Reality",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Dongshan Yulu",
         "Congronglu Case 43"
@@ -4033,6 +4051,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Deshan Visits Guishan: \"He Saw Through It\"",
       "protagonist": "deshan_xuanjian",
       "theme": "Direct Encounter / Seeing Through",
+      "theme_group": "direct_pointing",
       "cross_refs": [
         "Chuandenglu Deshan record",
         "Zhaozhou Yulu"
@@ -4048,6 +4067,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Xuefeng: The Whole Earth as a Grain of Millet",
       "protagonist": "xuefeng_yicun",
       "theme": "The Whole Earth / One Grain of Millet",
+      "theme_group": "direct_pointing",
       "cross_refs": [
         "Yunmen Yulu"
       ],
@@ -4062,6 +4082,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Yunmen: Every Day Is a Good Day",
       "protagonist": "yunmen_wenyan",
       "theme": "Everyday Mind / Each Day Is a Good Day",
+      "theme_group": "everyday_way",
       "cross_refs": [
         "Yunmen Yulu"
       ],
@@ -4076,6 +4097,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Fayan Answers Huichao: \"You Are Huichao\"",
       "protagonist": "fayan_wenyi",
       "theme": "You Are It / Direct Pointing",
+      "theme_group": "direct_pointing",
       "cross_refs": [],
       "summary": "A monk asks Fayan what Buddha is; Fayan replies \"You are Huichao,\" the paradigm of Fayan-school direct pointing."
     },
@@ -4088,12 +4110,53 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Zhaozhou's Four Gates",
       "protagonist": "zhaozhou_congshen",
       "theme": "The Living Master / Four Gates",
+      "theme_group": "what_is_buddha",
       "cross_refs": [
         "Zhaozhou Yulu"
       ],
       "summary": "Asked what Zhaozhou is, Zhaozhou answers with the four gates of the city — the master is not a concept but a living place."
     }
   ],
+  "gongan_theme_vocab": {
+    "policy_note": "Controlled thematic taxonomy for the Gong'an index. Every entry in data/gongan/gongan_index.json must carry a theme_group key from this list (enforced by validate_data.py). The per-entry `theme` string remains the rich, case-specific descriptor and is still displayed on cards; the index filter chips are generated from these groups (with counts), so chips group cases meaningfully instead of listing 23 one-off labels. Extend this file first when a genuinely new thematic family appears.",
+    "themes": [
+      {
+        "key": "buddha_nature",
+        "display": "Buddha-Nature & Original Mind (佛性本心)",
+        "note": "The ground of awakening: dog's Buddha-nature, face before good/evil, flag and wind as mind-only."
+      },
+      {
+        "key": "beyond_duality",
+        "display": "Beyond Dualistic Discrimination (絕待不二)",
+        "note": "Cases that cut off the dualistic intellect: vast emptiness, 'the Way is not difficult', the cat cut in two, neither cold nor heat."
+      },
+      {
+        "key": "what_is_buddha",
+        "display": "The Ultimate Question: What is Buddha? (如何是佛)",
+        "note": "Cases circling the defining question of the tradition: three pounds of hemp, dried dung, the cypress tree, the living master's four gates."
+      },
+      {
+        "key": "direct_pointing",
+        "display": "Direct Pointing at the Person (直指汝是)",
+        "note": "Cases where the master points at the questioner or the concrete particular: one finger, 'You are Huichao', 'seen through!', the whole earth as a grain of millet."
+      },
+      {
+        "key": "everyday_way",
+        "display": "The Everyday Way (平常是道)",
+        "note": "Awakening in ordinary activity and circumstances: washing the bowl, ordinary mind, sun-faced/moon-faced Buddha, every day is a good day."
+      },
+      {
+        "key": "transmission_causality",
+        "display": "Transmission & Causality (傳法因果)",
+        "note": "Dharma order and lineage: the flower sermon that founded wordless transmission, and the wild fox's five hundred lives on cause and effect."
+      },
+      {
+        "key": "existential_barrier",
+        "display": "The Existential Barrier (生死難關)",
+        "note": "The life-and-death urgency where words fail: Xiangyan up a tree."
+      }
+    ]
+  },
   "corpus_manifest": {
     "schema_version": "1.0",
     "description": "Single source of truth for corpus ordering and reader-navigation labels. Each key must map to data/corpus/<key>.json.",

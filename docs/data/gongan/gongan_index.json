@@ -8,6 +8,7 @@
     "title_en": "Zhaozhou's Dog (Mu / Wu)",
     "protagonist": "zhaozhou_congshen",
     "theme": "Buddha-Nature / Cutting Off Deliberation",
+    "theme_group": "buddha_nature",
     "cross_refs": [
       "Congronglu Case 18",
       "Zhaozhou Yulu",
@@ -24,6 +25,7 @@
     "title_en": "Baizhang's Wild Fox",
     "protagonist": "baizhang_huaihai",
     "theme": "Karma & Causality (不落 / 不昧)",
+    "theme_group": "transmission_causality",
     "cross_refs": [
       "Baizhang Yulu",
       "Biyanlu Case 17",
@@ -40,6 +42,7 @@
     "title_en": "Juzhi's One Finger",
     "protagonist": "juzhi",
     "theme": "Direct Pointing / Cutting Conceptual Mimicry",
+    "theme_group": "direct_pointing",
     "cross_refs": [
       "Biyanlu Case 19",
       "Chuandenglu Vol. 11"
@@ -55,6 +58,7 @@
     "title_en": "Bodhidharma Has No Beard",
     "protagonist": "huoan_shiti",
     "theme": "Direct Realization Beyond Dual Perception",
+    "theme_group": "beyond_duality",
     "cross_refs": [
       "Wudeng Huiyuan Vol. 19",
       "Zongmen Tongyao Ji"
@@ -70,6 +74,7 @@
     "title_en": "Xiangyan's Man Up a Tree",
     "protagonist": "xiangyan_zhixian",
     "theme": "Existential Urgency / Ineffable Speech",
+    "theme_group": "existential_barrier",
     "cross_refs": [
       "Guishan Yulu",
       "Chuandenglu Vol. 11"
@@ -85,6 +90,7 @@
     "title_en": "The Buddha Holds Up a Flower",
     "protagonist": "shakyamuni_and_mahakasyapa",
     "theme": "Origin of Chan Transmission",
+    "theme_group": "transmission_causality",
     "cross_refs": [
       "Lianbiao Shizi Xu",
       "Zongmen Tongyao Ji"
@@ -100,6 +106,7 @@
     "title_en": "Zhaozhou's Wash Your Bowl",
     "protagonist": "zhaozhou_congshen",
     "theme": "Ordinary Activity as Awakening",
+    "theme_group": "everyday_way",
     "cross_refs": [
       "Zhaozhou Yulu",
       "Biyanlu Case 47"
@@ -115,6 +122,7 @@
     "title_en": "Ordinary Mind is the Way",
     "protagonist": "nanquan_puyuan",
     "theme": "Immediacy / Non-Seeking",
+    "theme_group": "everyday_way",
     "cross_refs": [
       "Mazu Yulu",
       "Zhaozhou Yulu",
@@ -131,6 +139,7 @@
     "title_en": "Huineng's Original Face",
     "protagonist": "huineng",
     "theme": "Original Nature Beyond Morality",
+    "theme_group": "buddha_nature",
     "cross_refs": [
       "Platform Sutra Chapter 1",
       "Chuandenglu Vol. 5"
@@ -146,6 +155,7 @@
     "title_en": "Not the Wind, Not the Flag",
     "protagonist": "huineng",
     "theme": "Mind-Only Non-Duality",
+    "theme_group": "buddha_nature",
     "cross_refs": [
       "Platform Sutra Chapter 1",
       "Zongjinglu"
@@ -161,6 +171,7 @@
     "title_en": "The Cypress Tree in the Courtyard",
     "protagonist": "zhaozhou_congshen",
     "theme": "Patriarch's Meaning / Direct Reality",
+    "theme_group": "what_is_buddha",
     "cross_refs": [
       "Zhaozhou Yulu",
       "Biyanlu Case 47",
@@ -177,6 +188,7 @@
     "title_en": "Emperor Wu Asks Bodhidharma: Vast Emptiness",
     "protagonist": "bodhidharma",
     "theme": "Emptiness / Transcending Imperial Merit",
+    "theme_group": "beyond_duality",
     "cross_refs": [
       "Chuandenglu Vol. 3",
       "Lidai Fabao Ji"
@@ -192,6 +204,7 @@
     "title_en": "Zhaozhou's Ultimate Path is Not Difficult",
     "protagonist": "zhaozhou_congshen",
     "theme": "Beyond Clarity and Discrimination",
+    "theme_group": "beyond_duality",
     "cross_refs": [
       "Xinxin Ming",
       "Zhaozhou Yulu"
@@ -207,6 +220,7 @@
     "title_en": "Master Mazu is Unwell: Sun-Face Moon-Face",
     "protagonist": "mazu_daoyi",
     "theme": "Equanimity in Sickness and Health",
+    "theme_group": "everyday_way",
     "cross_refs": [
       "Mazu Yulu",
       "Jingde Chuandenglu Vol. 6"
@@ -222,6 +236,7 @@
     "title_en": "Dongshan's Three Pounds of Flax",
     "protagonist": "dongshan_shouchu",
     "theme": "Concrete Reality / What is Buddha",
+    "theme_group": "what_is_buddha",
     "cross_refs": [
       "Dongshan Yulu",
       "Wumenguan Case 18"
@@ -237,6 +252,7 @@
     "title_en": "Nanquan Cuts the Cat in Two",
     "protagonist": "nanquan_puyuan",
     "theme": "Cutting Duality / Straw Sandals on Head",
+    "theme_group": "beyond_duality",
     "cross_refs": [
       "Wumenguan Case 14",
       "Congronglu Case 9"
@@ -252,6 +268,7 @@
     "title_en": "Yunmen's Dried Shit-Stick",
     "protagonist": "yunmen_wenyan",
     "theme": "Shattering All Sanctimonious Conceits",
+    "theme_group": "what_is_buddha",
     "cross_refs": [
       "Yunmen Yulu",
       "Wumenguan Case 21"
@@ -267,6 +284,7 @@
     "title_en": "Dongshan's Cold and Heat",
     "protagonist": "dongshan_liangjie",
     "theme": "Transcendence within Conditioned Reality",
+    "theme_group": "beyond_duality",
     "cross_refs": [
       "Dongshan Yulu",
       "Congronglu Case 43"
@@ -282,6 +300,7 @@
     "title_en": "Deshan Visits Guishan: \"He Saw Through It\"",
     "protagonist": "deshan_xuanjian",
     "theme": "Direct Encounter / Seeing Through",
+    "theme_group": "direct_pointing",
     "cross_refs": [
       "Chuandenglu Deshan record",
       "Zhaozhou Yulu"
@@ -297,6 +316,7 @@
     "title_en": "Xuefeng: The Whole Earth as a Grain of Millet",
     "protagonist": "xuefeng_yicun",
     "theme": "The Whole Earth / One Grain of Millet",
+    "theme_group": "direct_pointing",
     "cross_refs": [
       "Yunmen Yulu"
     ],
@@ -311,6 +331,7 @@
     "title_en": "Yunmen: Every Day Is a Good Day",
     "protagonist": "yunmen_wenyan",
     "theme": "Everyday Mind / Each Day Is a Good Day",
+    "theme_group": "everyday_way",
     "cross_refs": [
       "Yunmen Yulu"
     ],
@@ -325,6 +346,7 @@
     "title_en": "Fayan Answers Huichao: \"You Are Huichao\"",
     "protagonist": "fayan_wenyi",
     "theme": "You Are It / Direct Pointing",
+    "theme_group": "direct_pointing",
     "cross_refs": [],
     "summary": "A monk asks Fayan what Buddha is; Fayan replies \"You are Huichao,\" the paradigm of Fayan-school direct pointing."
   },
@@ -337,6 +359,7 @@
     "title_en": "Zhaozhou's Four Gates",
     "protagonist": "zhaozhou_congshen",
     "theme": "The Living Master / Four Gates",
+    "theme_group": "what_is_buddha",
     "cross_refs": [
       "Zhaozhou Yulu"
     ],
