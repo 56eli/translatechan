@@ -329,6 +329,9 @@ def validate_matrix(
             if status not in VALID_TRANSLATION_STATUSES:
                 issues.error(entry_path, f"has invalid status {status!r}")
                 continue
+            extra_fields = set(entry) - {"translator", "work", "style", "text", "notes", "status", "source"}
+            if extra_fields:
+                issues.error(entry_path, f"has unknown matrix translator field(s): {sorted(extra_fields)}")
             stats[f"matrix_{status}"] += 1
             stats["matrix_entries"] += 1
             if status == "verified_quotation":
@@ -456,13 +459,17 @@ def validate_lineage_verification(lineage: Any, registry: Any, issues: Issues) -
         for index, source in enumerate(sources):
             source_path = f"{path}.sources[{index}]"
             require_fields(source, ("source_id", "title", "canonical_id", "reference", "source_type"), source_path, issues)
-            if is_record(source) and nonempty_string(source.get("source_id")):
-                source_id = source["source_id"]
-                if not SOURCE_ID_RE.fullmatch(source_id):
-                    issues.error(source_path, "source_id must use lowercase letters, digits, and hyphens")
-                if source_id in source_ids:
-                    issues.error(source_path, f"duplicate source_id '{source_id}'")
-                source_ids.add(source_id)
+            if is_record(source):
+                extra_fields = set(source) - {"source_id", "title", "canonical_id", "reference", "source_type"}
+                if extra_fields:
+                    issues.error(source_path, f"has unknown lineage source field(s): {sorted(extra_fields)}")
+                if nonempty_string(source.get("source_id")):
+                    source_id = source["source_id"]
+                    if not SOURCE_ID_RE.fullmatch(source_id):
+                        issues.error(source_path, "source_id must use lowercase letters, digits, and hyphens")
+                    if source_id in source_ids:
+                        issues.error(source_path, f"duplicate source_id '{source_id}'")
+                    source_ids.add(source_id)
 
     edges = registry.get("edges")
     actual_edges: set[tuple[str, str]] = set()
@@ -475,6 +482,9 @@ def validate_lineage_verification(lineage: Any, registry: Any, issues: Issues) -
             require_fields(edge, ("teacher", "disciple", "status", "source_id", "reference", "note"), edge_path, issues)
             if not is_record(edge):
                 continue
+            extra_fields = set(edge) - {"teacher", "disciple", "status", "source_id", "reference", "note"}
+            if extra_fields:
+                issues.error(edge_path, f"has unknown lineage edge field(s): {sorted(extra_fields)}")
             pair = (str(edge.get("teacher") or ""), str(edge.get("disciple") or ""))
             if pair in actual_edges:
                 issues.error(edge_path, f"duplicate edge {pair[0]} → {pair[1]}")

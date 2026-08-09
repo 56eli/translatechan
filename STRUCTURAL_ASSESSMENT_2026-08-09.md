@@ -94,3 +94,19 @@ keep the historical filename intentionally.
 | C1 module split | Medium | Medium | Medium | Defer until next view feature |
 | C2 schema strictness | Small/medium | Small | Medium | Incremental, starting with translationRecord |
 | C3 rename | XS | XS | Small | Do in isolated cleanup if no real ingest is imminent |
+
+
+## C2 update — additional strict objects shipped 2026-08-09
+
+After `translationRecord` and `quotationSource`, schema/validator strictness was
+extended to:
+
+- `matrixTranslator`: only `translator`, `work`, `style`, `text`, `notes`,
+  `status`, and `source` are allowed.
+- `lineageVerificationEdge`: only `teacher`, `disciple`, `status`, `source_id`,
+  `reference`, and `note` are allowed.
+- lineage verification `sources`: only `source_id`, `title`, `canonical_id`,
+  `reference`, and `source_type` are allowed.
+
+The Python validator mirrors each additional-property rule so typos fail even
+without a JSON Schema evaluator dependency.
