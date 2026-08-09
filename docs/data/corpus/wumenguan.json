@@ -37,19 +37,19 @@
           "pinyin": "Zhàozhōu héshang yīn sēng wèn: 'Gǒuzi hái yǒu fóxìng yě wú?'",
           "translations": {
             "red_pine": {
-              "text": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?'",
+              "text": "A monk asked Zhaozhou, ‘Does a dog have Buddha-nature or not?’",
               "status": "reconstruction_unverified"
             },
             "cleary": {
-              "text": "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?'",
+              "text": "A monk asked Master Zhaozhou, ‘Does a dog have the Buddha-nature?’",
               "status": "reconstruction_unverified"
             },
             "sasaki": {
-              "text": "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?'",
+              "text": "A monk asked the Master Jōshū, ‘Does even a dog have the Buddha-nature or not?’",
               "status": "reconstruction_unverified"
             },
             "suzuki": {
-              "text": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
+              "text": "A monk asked the Master Chao-chou, ‘Has a dog the Buddha-nature, or has it not?’",
               "status": "reconstruction_unverified"
             },
             "blyth": {
@@ -65,11 +65,11 @@
               }
             },
             "blofeld": {
-              "text": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
+              "text": "A monk enquired of the Master Chao-chou, saying, ‘Has a dog the Buddha-nature, or has it not?’",
               "status": "reconstruction_unverified"
             },
             "ai_literal": {
-              "text": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
+              "text": "Zhaozhou-monk, because [a] monk asked: ‘Dog, also have Buddha-nature, or not?’",
               "status": "ai_draft"
             },
             "senzaki_reps": {
@@ -135,19 +135,19 @@
           "pinyin": "Zhōu yún: 'Wú.'",
           "translations": {
             "red_pine": {
-              "text": "Zhaozhou said: 'Wu!'",
+              "text": "Zhaozhou said, ‘No.’",
               "status": "reconstruction_unverified"
             },
             "cleary": {
-              "text": "Zhaozhou said, 'No.'",
+              "text": "Zhaozhou said, ‘No.’",
               "status": "reconstruction_unverified"
             },
             "sasaki": {
-              "text": "Jōshū said: 'Mu!'",
+              "text": "Jōshū said, ‘Mu!’",
               "status": "reconstruction_unverified"
             },
             "suzuki": {
-              "text": "Chao-chou replied: 'Wu!'",
+              "text": "To which the Master replied, ‘Mu.’",
               "status": "reconstruction_unverified"
             },
             "blyth": {
@@ -164,11 +164,11 @@
               }
             },
             "blofeld": {
-              "text": "The Master replied: 'None!'",
+              "text": "The Master made answer, ‘None!’",
               "status": "reconstruction_unverified"
             },
             "ai_literal": {
-              "text": "Zhou said: 'Not.'",
+              "text": "Zhou said: ‘Wú [not-have].’",
               "status": "ai_draft"
             },
             "senzaki_reps": {
