@@ -89,6 +89,18 @@
           <input type="search" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off" aria-label="Search all corpus texts — Chinese, pinyin, or English">
         </div>
         <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme"><span aria-hidden="true">🌙</span></button>
+        <div class="settings-menu">
+          <button id="settings-btn" class="theme-toggle" title="Display settings" aria-label="Display settings" aria-expanded="false" aria-controls="settings-panel"><span aria-hidden="true">⚙️</span></button>
+          <div id="settings-panel" class="settings-panel" role="region" aria-label="Display settings" hidden>
+            <div class="settings-row">
+              <span class="settings-label">Master names</span>
+              <div class="settings-options" role="radiogroup" aria-label="Master name romanization">
+                <button type="button" class="settings-opt active" data-name-mode="pinyin" role="radio" aria-checked="true">Pinyin <small>Zhaozhou</small></button>
+                <button type="button" class="settings-opt" data-name-mode="romaji" role="radio" aria-checked="false">Rōmaji <small>Jōshū</small></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>

@@ -78,6 +78,7 @@
       catch (e) { return {}; }
     })(),
     theme: storageGet('translatechan_theme') || 'light',
+    nameMode: (() => { const v = storageGet('translatechan_name_mode'); return v === 'romaji' ? 'romaji' : 'pinyin'; })(),
     searchQuery: '',
     selectedMasterSchool: 'all',
     lineageSort: 'generation',
@@ -146,6 +147,7 @@
     if (m && m[2]) setCurrentCorpusKey(m[2]);
 
     applyTheme(state.theme);
+    syncSettingsUI();
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
     updateHeroCounts();
     populateLineageSchoolFilter();
@@ -478,6 +480,39 @@
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
       });
     }
+
+    // Display settings menu (gear) — romanization preference, persisted.
+    const settingsBtn = document.getElementById('settings-btn');
+    const settingsPanel = document.getElementById('settings-panel');
+    let settingsOpen = false;
+    if (settingsBtn && settingsPanel) {
+      const applyOpen = (open) => {
+        settingsOpen = open;
+        if (open) settingsPanel.removeAttribute('hidden'); else settingsPanel.setAttribute('hidden', '');
+        settingsBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      settingsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        applyOpen(!settingsOpen);
+      });
+      document.addEventListener('click', (e) => {
+        if (!settingsOpen) return;
+        if (!settingsPanel.contains(e.target) && e.target !== settingsBtn && !settingsBtn.contains(e.target)) applyOpen(false);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && settingsOpen) applyOpen(false);
+      });
+    }
+    document.querySelectorAll('.settings-opt[data-name-mode]').forEach(opt => {
+      opt.addEventListener('click', () => {
+        const mode = opt.getAttribute('data-name-mode');
+        if (mode !== 'pinyin' && mode !== 'romaji') return;
+        state.nameMode = mode;
+        storageSet('translatechan_name_mode', mode);
+        syncSettingsUI();
+        renderLineage();
+      });
+    });
 
     elements.navTabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -1840,8 +1875,28 @@
 
   function lineageTeacherDetail(master) {
     const teacher = (state.data.lineage || []).find(m => m && m.id === master.teacher);
-    if (teacher) return `<button class="btn-pill teacher-link" data-master-teacher="${escHtml(teacher.id)}">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(teacher.name_en)}</button>`;
+    if (teacher) return `<button class="btn-pill teacher-link" data-master-teacher="${escHtml(teacher.id)}">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(masterDisplayName(teacher))}</button>`;
     return `<span>Teacher frontier: ${escHtml(master.teacher || 'not recorded')} — profile/source record pending</span>`;
+  }
+
+  // Display-settings: master-name romanization (Pinyin ↔ Japanese Rōmaji).
+  // Pinyin is the scholarly default; Rōmaji honors the Japanese Zen lineage
+  // reading (Rinzai, Jōshū, Ōbaku…). Falls back to the pinyin name_en if a
+  // master has no romaji form recorded.
+  function masterDisplayName(master) {
+    if (!isRecord(master)) return '';
+    if (state.nameMode === 'romaji') {
+      const r = stringValue(master.name_romaji);
+      if (r) return r;
+    }
+    return stringValue(master.name_en);
+  }
+  function syncSettingsUI() {
+    document.querySelectorAll('.settings-opt[data-name-mode]').forEach(o => {
+      const on = o.getAttribute('data-name-mode') === state.nameMode;
+      o.classList.toggle('active', on);
+      o.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
   }
 
   // Render Lineage Explorer
@@ -1915,7 +1970,7 @@
           <div class="master-header">
             <div>
               <h2 class="master-name-zh">${escHtml(m.name_zh)}</h2>
-              <div class="master-name-en">${escHtml(m.name_en)} (${escHtml(m.name_pinyin)})</div>
+              <div class="master-name-en">${escHtml(masterDisplayName(m))} <span style="color:var(--text-muted)">(${escHtml(m.name_pinyin)})</span></div>
             </div>
             <span class="corpus-badge" style="font-weight: 600;">Gen ${escHtml(m.lineage_depth)}</span>
           </div>
@@ -2014,7 +2069,7 @@
     // the fallback only covers a malformed/old cached bundle.
     const color = schoolColors[master.school_key] || '#b38238';
 
-      const shortName = stringValue(master.name_en).split(' ').pop().slice(0, 14);
+      const shortName = stringValue(masterDisplayName(master)).split(' ').pop().slice(0, 14);
       nodesHtml += `
         <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" data-master-node="${escHtml(master.id)}">
           <circle class="graph-node-halo" r="30" fill="${color}" fill-opacity="0.09"></circle>
@@ -2179,7 +2234,7 @@
     const content = document.getElementById('dossier-content');
 
     if (nameZh) nameZh.textContent = `${master.name_zh} (${master.title})`;
-    if (nameEn) nameEn.textContent = `${master.name_en} • Pinyin: ${master.name_pinyin} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
+    if (nameEn) nameEn.textContent = `${masterDisplayName(master)} • Pinyin: ${master.name_pinyin}${master.name_romaji ? ' • Rōmaji: ' + master.name_romaji : ''} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
     if (content) {
       const masterCitation = {
         title: 'Master profile source disclosure',
