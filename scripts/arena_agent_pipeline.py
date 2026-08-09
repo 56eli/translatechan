@@ -4,9 +4,11 @@
 This module is NOT an ingestion/alignment pipeline. It provides (a) structured
 prompt templates for sandboxed Arena AI sessions (literal-philological,
 philosophical-hermeneutic, poetic-Zen registers) and (b) a helper that builds a
-standardized comparative-matrix entry from given translations/AI drafts. Any
-produced text must still be labeled per data/translations/provenance.json
-(reconstruction_unverified / ai_draft) before it can appear in the corpus.
+standardized comparative-matrix entry from given translations/AI drafts. The
+helper emits validator-shaped entries (status attached per provenance policy
+v2.2 — reconstruction_unverified by default, ai_draft for Arena drafts,
+verified_quotation only with a full source record that also exists in the
+rights manifest), so its output passes scripts/validate_data.py as-is.
 """
 
 import json
@@ -71,7 +73,14 @@ def create_translation_entry(source_id, source_title, sentence_zh, sentence_piny
         "translators": []
     }
 
-    # Add contemporary published translations
+    # Add contemporary published translations.  Provenance policy v2.2: any
+    # entry rendered in the Matrix needs an explicit status; a string-keyed
+    # translator register without print collation is a register reconstruction,
+    # never an unverified-by-default blank.  Callers collating a real edition
+    # may pass status='verified_quotation' together with a full `source`
+    # object ({work, edition, reference, verification, source_id}) — that
+    # source_id must also exist in data/translations/rights_manifest.json or
+    # the validator will refuse the commit.
     if contemporary_translations:
         for trans in contemporary_translations:
             entry["translators"].append({
@@ -79,10 +88,12 @@ def create_translation_entry(source_id, source_title, sentence_zh, sentence_piny
                 "work": trans.get("work"),
                 "style": trans.get("style", "Contemporary Scholarly"),
                 "text": trans.get("text"),
-                "notes": trans.get("notes", "")
+                "notes": trans.get("notes", ""),
+                "status": trans.get("status", "reconstruction_unverified"),
+                **({"source": trans["source"]} if isinstance(trans.get("source"), dict) else {}),
             })
 
-    # Add Arena AI Agent generated drafts
+    # Add Arena AI Agent generated drafts (always disclosed AI output).
     if ai_drafts:
         for draft in ai_drafts:
             entry["translators"].append({
@@ -90,7 +101,8 @@ def create_translation_entry(source_id, source_title, sentence_zh, sentence_piny
                 "work": f"TranslateChan AI Matrix: {draft.get('register_label', 'Multi-Register')}",
                 "style": draft.get("style", "AI Synthesis"),
                 "text": draft.get("text"),
-                "notes": draft.get("notes", "Generated in sandboxed Arena AI session")
+                "notes": draft.get("notes", "Generated in sandboxed Arena AI session"),
+                "status": draft.get("status", "ai_draft"),
             })
 
     return entry

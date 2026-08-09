@@ -411,6 +411,12 @@ if (!gonganFilteredHtml.includes('趙州洗缽') || gonganFilteredHtml.includes(
   failures++; console.log('❌ gongan theme-group chip did not restrict the index to the Everyday Way group');
 }
 chipClick('all');
+// 4m5. Lexicon occurrence scope note (audit A5): occurrence tags cite canonical
+// loci (chapter/fascicle/case) which may lie outside the excerpted units — the
+// Lexicon header must keep disclosing that scoping.
+if (!publicHtml.includes('occurrence tags cite each term') || !publicHtml.includes('canonical work')) {
+  failures++; console.log('❌ lexicon occurrence scope note missing');
+}
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
 const malformedMatrixEntries = matrixEntries.filter(t => !t.status ||

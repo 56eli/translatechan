@@ -883,6 +883,7 @@ def compute_metrics(
         },
         "translations": {
             "corpus_slots": stats.get("corpus_slots", 0),
+            "verified_corpus_texts": stats.get("verified_corpus_texts", 0),
             "corpus_statuses": {
                 status: stats.get(status, 0) for status in sorted(VALID_TRANSLATION_STATUSES)
             },
@@ -906,24 +907,32 @@ def canonical_json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
 
 
-def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: Any, gongan: Any, issues: Issues) -> None:
+def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: Any, gongan: Any, school_vocab: dict[str, str], issues: Issues) -> None:
     """Guard the curated live docs against quoting stale deterministic numbers.
 
     Prose cannot be schema-validated, but every repeated drift incident (see
-    AUDIT.md §11 F1, §12) came from docs echoing numbers the validator already
-    computes.  Each rule below is (file, exact snippet, description): the
-    snippet is built from live values, and the document must contain it — an
-    absent snippet means the prose drifted (or was reworded: update the rule).
-    Historical session logs (AUDIT.md §…, SESSION_AUDIT_*) are intentionally
-    not checked: they are dated records, not live documentation.
+    sessions/AUDIT_archive_2026-08-08.md §11 F1, §12) came from docs echoing
+    numbers the validator already computes.  Each rule below is (file, exact
+    snippet, description): the snippet is built from live values, and the
+    document must contain it — an absent snippet means the prose drifted (or
+    was reworded: update the rule).  Dated session logs (sessions/*.md) are
+    intentionally not checked; AUDIT.md's *current-verdict* section IS guarded
+    because, per the §5 convention, it republishes live numbers rather than
+    being a dated log (added after the 2026-08-09 audit found the "6 corpus
+    texts" claim had drifted to 7 uncovered).
     """
     corpus = metrics["corpus"]
     translations = metrics["translations"]
     locators = metrics["canonical_locator_coverage"]
+    lineage_registry = metrics.get("lineage_verification", {})
     ref_cov = translations.get("verified_reference_coverage", {})
     recorded = ref_cov.get("recorded", 0)
     pending = ref_cov.get("pending", 0)
     biyanlu = corpus.get("per_text", {}).get("biyanlu_cases", {})
+    wumenguan = corpus.get("per_text", {}).get("wumenguan", {})
+    verified_slots = translations["corpus_statuses"]["verified_quotation"]
+    verified_texts = translations.get("verified_corpus_texts", 0)
+    matrix_verified = translations.get("matrix_statuses", {}).get("verified_quotation", 0)
     checks = [
         ("README.md", f"**{corpus['content_cjk_characters']:,} source-content CJK characters** "
                       f"(or {corpus['all_corpus_cjk_characters']:,} across every corpus JSON string",
@@ -943,9 +952,33 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
         ("HANDOFF.md", f"# {len(glossary)} Classical Chan & Buddhist lexicon terms", "glossary count in repo tree"),
         ("HANDOFF.md", f"# {len(gongan)} Gong'an cross-references index entries", "gong'an count in repo tree"),
         ("index.html", f"📜 {corpus['documents']} Canonical Works", "hero corpus chip"),
+        # AUDIT 2026-08-09 turn-2: the verified-slot tallies must name the true
+        # corpus-text spread (drifted 6 → 7 texts before this rule existed).
+        ("README.md", f"**{verified_slots} verified quotation slots across {verified_texts} corpus texts + {matrix_verified} verified comparative-matrix entries**",
+         "verified-slot corpus-text spread (campaign bullet)"),
+        ("ROADMAP.md", f"**{verified_slots} verified corpus quotation slots across {verified_texts} texts + {matrix_verified} verified Matrix entries**",
+         "verified-slot corpus-text spread (milestone note)"),
+        # AUDIT.md §1 "Current verdict" republishes live numbers per the §5
+        # convention — guard them like README/HANDOFF (previously unguarded).
+        ("AUDIT.md", f"Corpus: **{corpus['documents']} documents**", "current-verdict corpus document count"),
+        ("AUDIT.md", f"**{corpus['excerpt_seed_documents']} excerpt seeds**", "current-verdict excerpt-seed count"),
+        ("AUDIT.md", f"**{corpus['content_cjk_characters']:,} content CJK / {corpus['all_corpus_cjk_characters']:,} all-string CJK**",
+         "current-verdict CJK counts"),
+        ("AUDIT.md", f"Translations: **{translations['corpus_slots']} corpus slots**; **{verified_slots} verified quotations**; **{translations['matrix_entries']} matrix registers**",
+         "current-verdict translation tallies"),
+        ("AUDIT.md", f"verified-reference coverage **{recorded} recorded / {pending} pending**", "current-verdict reference coverage"),
+        ("AUDIT.md", f"Locators: **{locators.get('case_locators', 0)}/{locators.get('declared_cases', 0)} case-level**; **{locators.get('document_level_seed_documents', 0)} document-level seeds**",
+         "current-verdict locator coverage"),
+        ("AUDIT.md", f"Lineage: **{len(lineage)} masters**", "current-verdict master count"),
+        ("AUDIT.md", f"**{len(school_vocab)} controlled `school_key` groups**", "current-verdict school vocabulary size"),
+        ("AUDIT.md", f"**{lineage_registry.get('internal_edges', 0)} edge records + {lineage_registry.get('frontiers', 0)} frontiers**", "current-verdict lineage registry"),
+        ("AUDIT.md", f"Glossary: **{len(glossary)} terms**; Gong'an index: **{len(gongan)} entries**", "current-verdict glossary/gong'an counts"),
     ]
     if biyanlu.get("coverage"):
         checks.append(("README.md", biyanlu["coverage"], "Biyanlu coverage string in honest status"))
+        checks.append(("AUDIT.md", f"Biyanlu **{biyanlu['coverage']}**", "current-verdict Biyanlu coverage"))
+    if wumenguan.get("coverage"):
+        checks.append(("AUDIT.md", f"Wumenguan **{wumenguan['coverage']}** complete", "current-verdict Wumenguan coverage"))
     for filename, snippet, description in checks:
         path = ROOT / filename
         if not path.exists():
@@ -991,7 +1024,12 @@ def main() -> int:
     stats: Counter[str] = Counter()
     verified_source_ids: list[str] = []
     for key, document in corpus.items():
+        before = len(verified_source_ids)
         validate_corpus_document(key, document, issues, stats, verified_source_ids)
+        if len(verified_source_ids) > before:
+            # Distinct corpus texts carrying at least one verified quotation —
+            # quoted in README/ROADMAP prose and guarded by the doc gate.
+            stats["verified_corpus_texts"] += 1
 
     matrix = load_json(MATRIX_PATH, issues)
     validate_matrix(matrix, issues, stats, verified_source_ids)
@@ -1018,7 +1056,7 @@ def main() -> int:
 
     metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, profile_queue_metrics, manifest_metrics, corpus_manifest)
     if not args.skip_docs:
-        validate_doc_truthfulness(metrics, glossary, lineage, gongan, issues)
+        validate_doc_truthfulness(metrics, glossary, lineage, gongan, school_vocab, issues)
     expected_metrics = canonical_json(metrics)
     if args.write_metrics:
         METRICS_PATH.write_text(expected_metrics, encoding="utf-8")

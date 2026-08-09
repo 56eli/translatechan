@@ -3743,6 +3743,7 @@ window.TRANSLATECHAN_DATA = {
         "reconstruction_unverified": 18,
         "verified_quotation": 2
       },
+      "verified_corpus_texts": 7,
       "verified_reference_coverage": {
         "pending": 5,
         "recorded": 135

@@ -1,90 +1,24 @@
-# 📋 Session Response — 2026-08-09 (branch `arena/019fe5d5-translatechan`)
+# 📋 Session Response — 2026-08-09 · Turn 2: deep audit + A1–A5 remediation ✅ SHIPPED
 
-> **Tasks so far:** full project audit → P2-B → P2-A → P2-C → P2-D → **gong'an theme taxonomy**.
->
-> **One-sentence summary:** ✅ Theme taxonomy shipped — the 23 one-off free-text gong'an themes now sit under 7 curated, validator-enforced groups (Buddha-Nature, Beyond Duality, What is Buddha, Direct Pointing, Everyday Way, Transmission & Causality, Existential Barrier) that drive the index chips with counts; session total: audit + 6 doc fixes + vocabulary/filters + lexicon-listener fix + docs guard + escaping pass + repo hygiene + taxonomy. Full detail: **`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`**.
+> **Tasks:** deep independent audit (structure → code → data → docs) → numbered issue review → approved repair pass (user chose "fix all five").
+> **One-sentence summary:** ✅ Independent audit (all prior gates re-verified, doc-gate negative-tested, live-served) found **5 new issues** — a stale "6→7 corpus texts" verification claim the doc gate missed, an unguarded AUDIT.md current-verdict section, a pipeline helper emitting validator-rejected entries (missing `status`), stale § cross-references, and an undscoped Lexicon occurrence display — **all five fixed** with the doc-truthfulness gate extended 13→25 rules (incl. new `verified_corpus_texts` metric), every new rule negative-tested, all gates green. Durable detail: `sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md` §6.
 
 ---
 
 ## What shipped in this turn
 
-| Deliverable | Detail |
+| Fix | Detail |
 |---|---|
-| Controlled vocabulary | `data/lineage/school_vocabulary.json` — 12 groups (Six Patriarchs, Tang branch roots, Hongzhou, Shitou/Hunan, Linji, Linji/Yangqi, Caodong, Yunmen, Guiyang, Fayan, Indian Patriarchs, transmission tradition); all 34 masters carry `school_key` + canonical display |
-| Validator enforcement | Unknown `school_key` or display-string mismatch = validation error (same philosophy as `zh_chars` coverage rules) |
-| Data-derived UI | Lineage school filter options now generated from the vocabulary (with counts); SVG lineage graph colors keyed by `school_key` (previously keyed on free-text → mostly silent default fallback); lexicon category filter generated from glossary |
-| **Bug found & fixed** | The Lexicon "Category:" dropdown had **no change listener** — inert UI since introduction. Now wired + `<label for>` associated |
-| Regression coverage | Smoke checks 4m2/4m3: derived options, exact Linji-group filtering, school_key palette, lexicon restrict/reset |
-| Docs | README/HANDOFF trees + editorial workflow mention the vocabulary; AUDIT.md §12 durable log; session audit updated |
+| **A1 — verification tally drift (P3)** | README + ROADMAP: "138 verified quotation slots across **6** corpus texts" → **7** (computed: wumenguan 119, linji 6, zhaozhou 5, huangbo×2, xinxin 2, platform 2); HANDOFF: matrix "2 verified rows" → **2 verified registers on the single Case-1 row** |
+| **A2 — gate blind spot (P3)** | `validate_doc_truthfulness` 13 → **25 rules**: new `verified_corpus_texts` metric (in `project_metrics.json`); README campaign + ROADMAP milestone spread rules; 11 AUDIT.md §1 rules (doc/CJK/slot/verified/matrix/locator/master/school-vocab/edge/frontier/glossary/gong'an counts + coverage strings); AUDIT prose reshaped to gate form; AUDIT §1 scope sentence updated |
+| **A3 — tooling contract (P4)** | `arena_agent_pipeline.create_translation_entry` now emits **validator-shaped entries** (default `reconstruction_unverified`; `ai_draft` for Arena drafts; `verified_quotation`+`source` passthrough documented); self-tested against the validator's field contract |
+| **A4 — stale pointers (P4)** | Validator docstring + response_summary § refs "AUDIT.md §11/§12" → `sessions/AUDIT_archive_2026-08-08.md` §11/§12; stray `</details>` removed via rewrite |
+| **A5 — lexicon scope (P4)** | Lexicon header gains a scope-note chip: occurrence tags cite the *canonical work* locus, which may lie outside excerpted units; smoke **4m5** guards it |
 
-**Gates (every turn):** py_compile ✅ · validate ✅ · build (root↔docs synced) ✅ · smoke ✅ · committed & pushed.
-</details>
+**Efficacy:** every new gate rule negative-tested individually (drift → exit 1 naming the rule; restore → exit 0). **Gates:** py_compile ✅ · validate ✅ · write-metrics ✅ · build ✅ (798,825 B; root↔docs byte-identical) · smoke ✅ · mirror diff silent ✅ · browser_test syntax ✅ · committed & pushed.
 
-## Gong'an theme taxonomy (this turn)
+## Audit sweep — also checked and cleared
+Manifest badge vs full cbeta_id pattern (intentional), favicon 404 (inline SVG), preface translations in chinese_only (CSS-covered), pinyin blank lines (none), Wumenguan 1–48 numbering, matrix registers = subtitle (9), 5 pending verified refs (known/disclosed), broken markdown links (none), lineage dates/frontiers/school displays, `.pyc` untracked, preview-host serving on port 8090 (live).
 
-| Item | Detail |
-|---|---|
-| `data/gongan/theme_vocabulary.json` | 7 curated groups with bilingual display + editorial notes; every one of the 23 entries assigned by dominant hermeneutic thrust |
-| Validator | `theme_group` required + membership enforced (negative-tested); loader generalized to serve both school & theme vocabularies |
-| Index UI | Chips now = theme groups with counts (was: 23 single-use labels); cards keep the rich per-case theme descriptor plus a group 🏷️ tag |
-| Regression | Smoke 4m4: chip derivation, Everyday-Way restriction (趙州洗缽 present, 趙州狗子 filtered out), group tag rendered |
-
-## Remaining backlog (your call)
-
-1. **Open a PR to `main`** — this branch holds 6 commits of gated green work
-2. Content Phase 2 — next corpus text pilot (Biyanlu 11–20 or Linji) *(M–L)*
-3. A1/A2 standing items (branch protection = owner 2-min; editorial reference/rights sign-off)
-4. Micro: `switchViewRaw` scroll-restore on back/forward
-
-<details><summary>Earlier turns: audit + P2-B + P2-A + P2-C + P2-D summaries</summary>
-
-### P2-D delivery summary
-
-| Item | Detail |
-|---|---|
-| `sessions/` folder | All 4 dated artifacts moved (`git mv`): 3 session audits + `AUDIT_archive_2026-08-08.md` (nothing deleted) |
-| Slim `AUDIT.md` | ~90 KB append-only log → current verdict, standing recommendations, gates, session index, convention (§5) |
-| Link hygiene | 13 references in README/HANDOFF/ROADMAP/index.html repointed to archive paths; a "moved" note atop each archived file |
-| Convention | Documented in AUDIT.md §5 + HANDOFF.md; doc-truthfulness gate verified passing on every edited doc |
-
-## Remaining backlog (your call)
-
-1. **Open a PR to `main`** — this branch holds 5 commits of gated green work
-2. Gong'an theme taxonomy (23 free-text themes → curated set) *(M, editorial)*
-3. Content Phase 2 — next corpus text pilot (Biyanlu 11–20 or Linji) *(M–L)*
-4. A1/A2 standing items (branch protection = owner 2-min; editorial reference/rights sign-off)
-
-<details><summary>Earlier turns: audit + P2-B + P2-A + P2-C summaries</summary>
-
-### P2-C delivery summary
-
-| Item | Detail |
-|---|---|
-| Escaping pass | ~60 raw `${}` sites → `escHtml()` across reader (headers, speaker/pinyin lines, titles, sample records, five ranks, overview), lineage cards, gong'an cards **+ `data-gongan-filter` attribute**, lexicon cards, master dossier (quotes + summary) |
-| Regression guard | Smoke **4y**: poison fixture (`<img src=x onerror=…>` in master name / gong'an theme / glossary term / case title) must render escaped in all 4 views; **efficacy-tested** by reverting one escape → check fails → restore passes |
-| Notes | Matrix/search/disclosures were already escaped; behavioral identity preserved (accents/pinyin render identically) |
-
-## Remaining backlog (your call)
-
-1. **P2-D** — session-artifact convention + AUDIT.md slimming *(S)*
-2. Gong'an theme taxonomy (23 free-text themes → curated set) *(M, editorial)*
-3. Content Phase 2 — next corpus text pilot (Biyanlu 11–20 or Linji) *(M–L)*
-4. A1/A2 standing ops+editorial (branch protection; reference/rights sign-off)
-5. *(Earlier summaries for P1/P2-A/P2-B remain in this file below)*
-
-<details><summary>P2-A delivery summary (previous turn)</summary>
-
-| Deliverable | Detail |
-|---|---|
-| Doc-truthfulness gate | `validate_doc_truthfulness()` in `validate_data.py` — 13 rules: CJK counts, corpus/manifest/gong'an/glossary/master counts, Wu+Biyanlu coverage strings, HANDOFF gate line, 135/140 reference split, hero chip — each built from **live computed metrics** |
-| Enforcement | Runs on every validator call; CI Quality job enforces automatically (step renamed); drift → exit 1 naming the exact failing rule; `--skip-docs` opt-out for prose-editing sessions |
-| Negative tests | Verified: broken README CJK number and broken hero chip each fail correctly; restore passes |
-| Docs | README dev workflow + HANDOFF gate block + AUDIT.md §12 + session audit updated |
-
-## Remaining backlog (your call)
-
-1. **P2-C** — escaping consistency pass in lineage/gong'an/lexicon renderers *(S)*
-2. **P2-D** — session-artifact convention + AUDIT.md slimming *(S)*
-3. Gong'an theme taxonomy (23 free-text themes → curated set) *(M, editorial)*
-4. Content Phase 2 — next corpus text pilot (Biyanlu 11–20 or Linji expansion) *(M–L)*
-5. A1/A2 standing ops+editorial items (branch protection; reference/rights sign-off)
+## Standing (unchanged, carried)
+Owner: require Quality check in `main` branch protection (A1-ops, ~2 min). Editorial: 5 pending verified refs (clarke×2, hoffman×2, blyth×1), 33 document-level locators, rights sign-off. Content Phase 2 (Biyanlu/Linji collation). Formal screen-reader pass; mobile perf measurement. — Live preview still running on port 8090.

@@ -102,3 +102,25 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 3. ~~**P2-C escaping consistency pass.**~~ ✅ delivered this session.
 4. ~~**P2-D sessions-folder convention + AUDIT.md slimming.**~~ ✅ delivered this session.
 5. **Content**: next Phase-2 text pilot (e.g. Biyanlu 11–20 or Linji expansion), continuing the established CBETA-collated workflow. *(M–L)*
+
+---
+
+## 6. Second-pass independent audit + remediation (same session, later turn)
+
+> Trigger: user-requested deep audit "structural → code → data → docs; distrust prior documentation; independent judgment", then fix on approval (approved: fix all five).
+
+**Baseline re-verified independently** (not trusted from docs): py_compile ✅, validate ✅ (36/874/138/21, 64/64), build ✅ (798,791 B pre-remediation), smoke ✅, data↔docs/data diff silent, doc-gate negative-tested (fires exit 1 on injected drift, passes after restore), git clean & pushed, live HTTP serve 200s incl. preview-host header, Wumenguan numbering 1–48 sequential, 5 pending verified refs identified by name, matrix registers = 9 (matches subtitle), no broken internal markdown links. Real-browser suite could only skip (Chromium download blocked in sandbox) — remains optional per design.
+
+**Findings & remediation (A1–A5, all delivered this turn):**
+
+| # | Sev | Was | Now |
+|---|---|---|---|
+| A1 | P3 | README/ROADMAP: verified slots "across **6** corpus texts" — live data spans **7** (zhaozhou 5 + linji 6 + wumenguan 119 + huangbo×2 + xinxin 2 + platform 2 = 138); HANDOFF: matrix verified "2 rows" — actually **2 registers on the single Case-1 row** | prose corrected in all three docs |
+| A2 | P3 | Doc-truthfulness gate (13 rules) covered README/HANDOFF/index.html only — AUDIT.md "Current verdict" numbers + the 6/7-texts claim were unguarded and had already drifted (6→7) | Gate extended to **25 rules**: new `verified_corpus_texts` metric (now in `project_metrics.json`), README campaign bullet + ROADMAP milestone spread rules, and 11 AUDIT.md current-verdict rules (corpus/translations/locators/lineage/glossary counts, CJK, coverage strings, school-vocab size, edge/frontier counts); AUDIT prose re-shaped to gate-matching form |
+| A3 | P4 | `arena_agent_pipeline.create_translation_entry()` emitted matrix entries **without the required `status` field** — the project's own helper produced uncommittable data | Emits validator-shaped entries: `reconstruction_unverified` default, `ai_draft` for Arena drafts, `verified_quotation` + `source` passthrough supported (rights-manifest linkage documented); self-tested against the validator's field contract |
+| A4 | P4 | Validator docstring + old response_summary cited "AUDIT.md §11/§12" — content moved to `sessions/AUDIT_archive_2026-08-08.md` §11/§12 in P2-D | Pointers corrected |
+| A5 | P4 | Glossary `occurrences` cite canonical loci (e.g. "Biyanlu Case 24") not present in the excerpted corpus, shown in the Lexicon with no scope note | Scope-note chip added under the Lexicon header; smoke 4m5 guards it |
+
+**Cleared after inspection (no action):** manifest short cbeta badges vs full cbeta_id (intentional badge/header pattern); favicon 404 (inline SVG declared); preface/epilogue translations in chinese_only mode (hidden by CSS token, JS guard redundant); lineage frontier labels/dates/school displays; `.pyc` untracked via .gitignore.
+
+**Efficacy verification:** each new gate rule negative-tested individually (injected drift → exit 1 naming the rule; restore → exit 0). Full gates re-run green: py_compile ✅ · validate ✅ · write-metrics (adds `translations.verified_corpus_texts = 7`) ✅ · build ✅ (798,825 B; root↔docs byte-identical) · smoke ✅ · data mirror silent ✅ · browser_test syntax ✅.

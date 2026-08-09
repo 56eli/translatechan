@@ -16,17 +16,18 @@
 every session change since; the app renders all 36 corpus documents, the
 validator enforces the data contract (schema companion + semantics + rights +
 locators + deterministic metrics + controlled school vocabulary + doc
-truthfulness), and the dependency-free smoke suite covers rendering, search,
+truthfulness across README/HANDOFF/ROADMAP/index.html **and the §1 numbers of
+this file**), and the dependency-free smoke suite covers rendering, search,
 a11y/ARIA behavior, filter derivations, and escaping.
 
 Current measured facts (validator-generated; the prose numbers below are
 guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
 
-- Corpus: **36 documents**; Wumenguan **48/48 cases** complete; Biyanlu **14/100** (cases 1–10 complete); **35 excerpt seeds**; **20,017 content CJK / 23,314 all-string CJK**.
+- Corpus: **36 documents**; Wumenguan **48/48 cases** complete; Biyanlu **14/100 cases** (cases 1–10 complete); **35 excerpt seeds**; **20,017 content CJK / 23,314 all-string CJK**.
 - Translations: **874 corpus slots**; **138 verified quotations**; **21 matrix registers**; verified-reference coverage **135 recorded / 5 pending**.
 - Locators: **64/64 case-level**; **33 document-level seeds** pending unit locators.
 - Lineage: **34 masters** (30 seed + 4 frontier scaffolds), **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**, source-status aware.
-- Glossary: **31 terms**; Gong'an index: **23 entries** (per-entry free-text themes).
+- Glossary: **31 terms**; Gong'an index: **23 entries** (7 validator-enforced theme groups).
 - Bundle: ~795 KB zero-backend static build; root and `/docs` byte-identical by CI gate.
 
 ## 2. Standing recommendations (priority order)
@@ -55,7 +56,7 @@ diff -rq data docs/data                   # byte-identical data mirror
 | 2026-08-08 | `019fe1b5` | [`sessions/SESSION_AUDIT_2026-08-08.md`](./sessions/SESSION_AUDIT_2026-08-08.md) + archive §9 | Second-pass audit B1–B10 fixed; CBETA canon-reference corrections; Wumenguan completed 48/48 |
 | 2026-08-08 | `019fe2e0` | archive §10 | Independent post-PR#3 audit; locator/rights/editorial program started |
 | 2026-08-08 | `019fe30b` | [`sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`](./sessions/SESSION_AUDIT_2026-08-08_019fe30b.md) + archive §11 | a11y/CSP hardening; per-text metrics; Playwright suite; Biyanlu 4–10 (14/100); coverage disclosures |
-| 2026-08-09 | `019fe5d5` | [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md) | Full audit; doc-truthfulness gate (P2-A); controlled school vocabulary + data-derived filters (P2-B, incl. dead-lexicon-filter bug fix); renderer escaping consistency + poison regression (P2-C); sessions convention + AUDIT.md slimming (P2-D); gong'an 7-group theme taxonomy |
+| 2026-08-09 | `019fe5d5` | [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md) | Full audit; doc-truthfulness gate (P2-A); controlled school vocabulary + data-derived filters (P2-B, incl. dead-lexicon-filter bug fix); renderer escaping consistency + poison regression (P2-C); sessions convention + AUDIT.md slimming (P2-D); gong'an 7-group theme taxonomy. **Turn 2**: independent second-pass audit → A1–A5 remediation: verified-text spread 6→**7** (README/ROADMAP) + matrix "2 rows"→2 registers (HANDOFF); doc gate extended to 25 rules incl. **AUDIT.md §1 numbers** + new `verified_corpus_texts` metric; pipeline helper emits validator-shaped entries (status field); stale § pointers fixed; Lexicon occurrence **scope note** (smoke 4m5) |
 
 ## 5. Session artifact convention (est. 2026-08-09)
 
