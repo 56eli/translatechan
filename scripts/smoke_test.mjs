@@ -417,6 +417,23 @@ chipClick('all');
 if (!publicHtml.includes('occurrence tags cite each term') || !publicHtml.includes('canonical work')) {
   failures++; console.log('❌ lexicon occurrence scope note missing');
 }
+// 4m6. Semantic document outline (a11y audit 2026-08-09): each public view's
+// title is a real heading element, not a styled <div>, so screen-reader users
+// get "next heading" navigation. The reader document title is an <h1> and every
+// case/section/matrix/master/lexicon card title is an <h2>.
+const outlineReaderHtml = ids['reader-content-target']._innerHTML;
+if (!/<h1 class="text-title-zh">/.test(outlineReaderHtml)) { failures++; console.log('❌ reader document title is not an <h1>'); }
+if ((outlineReaderHtml.match(/<h2 class="case-num-title">/g) || []).length < 48) {
+  failures++; console.log('❌ reader case/unit titles are not <h2> headings');
+}
+for (const [view, id] of [['matrix', 'matrix-content-target'], ['gongan', 'gongan-content-target'], ['lexicon', 'lexicon-content-target'], ['lineage', 'lineage-content-target']]) {
+  const html = ids[id]._innerHTML;
+  if (!/<h2 class="/.test(html)) { failures++; console.log(`❌ ${view} cards have no <h2> headings`); }
+}
+// The four non-reader view titles live as <h1 class="text-title-zh"> in index.html
+// (matrix, lineage, gongan, lexicon); the dossier heading also uses that class.
+const staticH1Count = (publicHtml.match(/<h1 class="text-title-zh">/g) || []).length;
+if (staticH1Count < 4) { failures++; console.log('❌ non-reader view titles are not <h1> in index.html'); }
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
 const malformedMatrixEntries = matrixEntries.filter(t => !t.status ||

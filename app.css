@@ -97,6 +97,19 @@ body {
   overflow-x: hidden;
 }
 
+/* Semantic headings (h1/h2) carry the same visual classes as the former
+   div/span titles; reset UA margins/weights so the design is unchanged while
+   assistive tech gets a real document outline (a11y audit 2026-08-09). */
+h1.text-title-zh,
+h2.case-num-title,
+h2.matrix-ref,
+h2.master-name-zh,
+h2.term-card-zh {
+  margin: 0;
+  font-weight: 700;
+  line-height: inherit;
+}
+
 /* Header & Navigation */
 header {
   background-color: var(--bg-secondary);
