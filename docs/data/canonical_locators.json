@@ -298,6 +298,20 @@
           "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
           "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
         },
+        "41": {
+          "canonical_locator": "T2003 case 41 · T48n2003 p.0178c11–p.0179b10",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0178c11–c15, 本則 p.0178c16–c18, pre-verse 評唱 p.0178c19–p.0179a19, 頌 p.0179a20–a23; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0178c11–c15, 本則 p.0178c16–c18, pre-verse 評唱 p.0178c19–p.0179a19, 頌 p.0179a20–a23; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "42": {
+          "canonical_locator": "T2003 case 42 · T48n2003 p.0179b11–p.0180a12",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0179b15–b23 incl. Xuedou's canonical 別云, pre-verse 評唱 p.0179b24–p.0180a04, 頌 p.0180a05–a08; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0179b15–b23 incl. Xuedou's canonical 別云, pre-verse 評唱 p.0179b24–p.0180a04, 頌 p.0180a05–a08; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
         "43": {
           "canonical_locator": "T2003 case 43 · T48n2003 p.0180a13–p.0180c21",
           "status": "collated_with_normalization",

@@ -2858,6 +2858,20 @@ window.TRANSLATECHAN_DATA = {
             "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
             "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
           },
+          "41": {
+            "canonical_locator": "T2003 case 41 · T48n2003 p.0178c11–p.0179b10",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0178c11–c15, 本則 p.0178c16–c18, pre-verse 評唱 p.0178c19–p.0179a19, 頌 p.0179a20–a23; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0178c11–c15, 本則 p.0178c16–c18, pre-verse 評唱 p.0178c19–p.0179a19, 頌 p.0179a20–a23; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "42": {
+            "canonical_locator": "T2003 case 42 · T48n2003 p.0179b11–p.0180a12",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0179b15–b23 incl. Xuedou's canonical 別云, pre-verse 評唱 p.0179b24–p.0180a04, 頌 p.0180a05–a08; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0179b15–b23 incl. Xuedou's canonical 別云, pre-verse 評唱 p.0179b24–p.0180a04, 頌 p.0180a05–a08; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
           "43": {
             "canonical_locator": "T2003 case 43 · T48n2003 p.0180a13–p.0180c21",
             "status": "collated_with_normalization",
@@ -3439,17 +3453,17 @@ window.TRANSLATECHAN_DATA = {
   "project_metrics": {
     "canonical_locator_coverage": {
       "case_level_documents": 3,
-      "case_locators": 91,
-      "declared_cases": 91,
+      "case_locators": 93,
+      "declared_cases": 93,
       "document_level_seed_documents": 33,
       "documents": 36
     },
     "corpus": {
-      "all_corpus_cjk_characters": 51590,
+      "all_corpus_cjk_characters": 52845,
       "complete_documents": [
         "wumenguan"
       ],
-      "content_cjk_characters": 48006,
+      "content_cjk_characters": 49242,
       "content_shapes": {
         "cases": 3,
         "chapters": 1,
@@ -3487,18 +3501,18 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "biyanlu_cases": {
-          "all_cjk_chars": 35895,
+          "all_cjk_chars": 37150,
           "cbeta_id": "T2003",
-          "content_zh_chars": 35401,
-          "coverage": "41/100 cases",
-          "coverage_note": "41/100 cases — cases 1–40 and 43 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, extended 2026-08-09 session-019fe731: cases 11/13/15–40 collated from cbeta-org/xml-p5, 1–3/12 verses completed to canon, case 14 replaced with the canonical 雲門『對一說』, case 21 replaced with the canonical 智門蓮花 after seed re-verification; cases 6/14/18/26/28/30/34/36 have no 垂示 in T (recorded); T-印刷 variants 韻陽/韶陽 (case 14) and 韓獹 (case 43, glossed 通作盧) recorded; case 20 carries its two canonical 頌 joined, case 22 includes Xuedou's closing shout; 著語 and CBETA glyph/footnote variants normalized out; post-verse 評唱 rendering and human sign-off pending).",
-          "declared_zh_chars": 35401,
+          "content_zh_chars": 36637,
+          "coverage": "43/100 cases",
+          "coverage_note": "43/100 cases — cases 1–43 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, extended 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–43) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; no-垂示 cases recorded (6/14/18/26/28/30/34/36/42); variants 韻陽/韶陽 (14) and 韓獹 (43, 通作盧) recorded; case 20 joins its two 頌; case 22 keeps the printed closing shout; 著語 and glyph/footnote variants normalized out; post-verse 評唱 rendering and human sign-off pending).",
+          "declared_zh_chars": 36637,
           "shapes": [
             "cases"
           ],
           "title": "Blue Cliff Record (碧巖錄)",
           "unit_counts": {
-            "cases": 41
+            "cases": 43
           }
         },
         "bodhidharma_erru": {
@@ -3946,9 +3960,9 @@ window.TRANSLATECHAN_DATA = {
     },
     "schema_version": "1.0",
     "translations": {
-      "corpus_slots": 890,
+      "corpus_slots": 892,
       "corpus_statuses": {
-        "ai_draft": 73,
+        "ai_draft": 75,
         "reconstruction_unverified": 679,
         "verified_quotation": 138
       },
@@ -9752,6 +9766,52 @@ window.TRANSLATECHAN_DATA = {
           "verse_en": "Hearing, seeing, awareness, knowing — not one after another; / the mountains and rivers are not viewed in a mirror. / Frosty sky, the moon sinking, the night half gone — / who will join me, cold, gazing at shadows on the still pond?"
         },
         {
+          "case_num": 41,
+          "title_zh": "趙州投明",
+          "title_pinyin": "Zhàozhōu Tóumíng",
+          "title_en": "Zhaozhou and Touzi: 'Arrive by Daybreak'",
+          "pointer_zh": "垂示云。是非交結處。聖亦不能知。逆順縱橫時。佛亦不能辨。為絕世超倫之士。顯逸群大士之能。向氷凌上行。劍刃上走。直下如麒麟頭角。似火裏蓮花。宛見超方。始知同道。誰是好手者。試舉看。",
+          "pointer_en": "Pointer: Where yes and no are knotted together, even sages cannot know; when with and against cross freely, even buddhas cannot discern. To be a scholar unsurpassed in the world, showing the capacity of an exceptional adept, one must walk upon thin ice and tread the edge of swords — straight down, like the horn of a kirin, like the lotus in the flame. Glimpse that which is beyond measure, and you first know fellows of the Way. Who is such a master? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "趙州與投子 / Zhaozhou and Touzi",
+              "zh": "趙州問投子：「大死底人却活時如何？」投子云：「不許夜行，投明須到。」",
+              "pinyin": "Zhàozhōu wèn Tóuzǐ：「 Dà sǐ dǐ rén què huó shí rúhé？」 Tóuzǐ yún：「 Bùxǔ yèxíng， tóumíng xū dào。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Zhaozhou asked Touzi, 'When one who has died the great death comes back to life — what then?' Touzi said, 'Traveling by night is forbidden — you must arrive by daybreak.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。趙州問投子。大死底人却活時如何投子云。不許夜行。投明須到。趙州問投子。大死底人却活時如何。投子對他道。不許夜行。投明須到。且道是什麼時節。無孔笛撞著氈拍版。此謂之驗主問。亦謂之心行問。投子趙州諸方皆美之得逸群之辯。二老雖承嗣不同。看他機鋒相投一船。投子一日為趙州。置茶筵相待。自過蒸餅與趙州。州不管。投子令行者過胡餅與趙州。州禮行者三拜。且道他意是如何。看他盡是向根本上。提此本分事為人。有僧問。如何是道。答云。道。如何是佛。答云。佛。又問。金鎖未開時如何。答云。開。金雞未鳴時如何。答云。無這箇音響。鳴後如何。答云。各自知時。投子平生問答總如此。看趙州問。大死底人却活時如何。他便道。不許夜行。投明須到。直下如擊石火。似閃電光。還他向上人始得。大死底人。都無佛法道理玄妙得失是非長短。到這裏只恁麼休去。古人謂之平地上死人無數。過得荊棘林是好手。也須是透過那邊始得。雖然如是。如今人到這般田地。早是難得。或若有依倚有解會。則沒交涉。喆和尚謂之見不淨潔。五祖先師。謂之命根不斷。須是大死一番。却活始得。浙中永光和尚道。言鋒若差鄉關萬里。直須懸崖撒手。自肯承當。絕後再甦。欺君不得。非常之旨。人焉廋哉。趙州問意如此。投子是作家。亦不辜負他所問。只是絕情絕迹。不妨難會。只露面前些子。所以古人道。欲得親切。莫將問來問。問在答處。答在問處。若非投子。被趙州一問。也大難酬對。只為他是作家漢。舉著便知落處。頌云。廋。",
+          "verse_zh": "活中有眼還同死藥忌何須鑒作家古佛尚言會未到不知誰解撒塵沙",
+          "verse_en": "Among the living, having eyes is reckoned the same as dead; / for drug contra-indications, why assay the master? / Even the ancient buddhas said they never reached it — / who knows how to scatter dust and sand?"
+        },
+        {
+          "case_num": 42,
+          "title_zh": "龐居士好雪",
+          "title_pinyin": "Pángjūshì Hàoxuě",
+          "title_en": "Layman P'ang's 'Fine Snow'",
+          "dialogue": [
+            {
+              "speaker": "龐居士與全禪客 / Layman P'ang and Zen guest Quan",
+              "zh": "龐居士辭藥山，山命十人禪客相送至門首。居士指空中雪云：「好雪！片片不落別處。」時有全禪客云：「落在什麼處？」士打一掌。全云：「居士也不得草草。」士云：「汝恁麼稱禪客，閻老子未放汝在。」全云：「居士作麼生？」士又打一掌云：「眼見如盲，口說如啞。」雪竇別云：「初問處但握雪團便打。」",
+              "pinyin": "Pángjūshì cí Yàoshān， Shān mìng shí rén chánkè xiāngsòng zhì ménshǒu。 Jūshì zhǐ kōngzhōng xuě yún：「 Hàoxuě！ Piànpiàn bù luò biéchù。」 Shí yǒu Quán chánkè yún：「 Luò zài shénme chù？」 Shì dǎ yī zhǎng。 Quán yún：「 Jūshì yě bùdé cǎocǎo。」 Shì yún：「 Rǔ nènme chēng chánkè， Yánlǎozǐ wèi fàng rǔ zài。」 Quán yún：「 Jūshì zuòmòsheng？」 Shì yòu dǎ yī zhǎng yún：「 Yǎnjiàn rú máng， kǒushuō rú yǎ。」 Xuědòu bié yún：「 Chū wèn chù dàn wò xuětuán biàn dǎ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "As Layman P'ang took leave of Yaoshan, the master had ten Zen guests see him to the gate. The layman pointed to the falling snow and said, 'Fine snow! Not a flake lands anywhere else.' Then the Zen guest Quan said, 'Where do they land?' The layman slapped him. Quan said, 'Layman, you mustn't be so rough.' The layman said, 'Calling yourself a Zen guest like that — Old Man Yama hasn't let you off yet.' Quan said, 'And what about you, layman?' The layman slapped him again and said, 'Eyes seeing, yet blind; mouth speaking, yet mute.' Xuedou adds by another tack: 'At the first question I would just have made a snowball and hit him.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。龐居士辭藥山山命十人禪客。相送至門首居士指空中雪云。好雪片片不落別處時有全禪客云。落在什麼處士打一掌全云。居士也不得草草士云。汝恁麼稱禪客。閻老子未放汝在全云。居士作麼生士又打一掌云眼見如盲。口說如啞雪竇別云。初問處但握雪團便打。龐居士。參馬祖石頭兩處有頌。初見石頭。便問。不與萬法為侶。是什麼人。聲未斷。被石頭掩却口。有箇省處作頌道。日用事無別。唯吾自偶諧。頭頭非取捨。處處沒張乖。朱紫誰為號。青山絕點埃。神通并妙用。運水及搬柴後參馬祖。又問。不與萬法為侶。是什麼人。祖云。待爾一口吸盡西江水。即向汝道。士豁然大悟。作頌云。十方同聚會。箇箇學無為。此是選佛場。心空及第歸。為他是作家。後列剎相望。所至競譽。到藥山盤桓既久。遂辭藥山。山至重他。命十人禪客相送。是時值雪下。居士指雪云。好雪片片不落別處。全禪客云。落在什麼處。士便掌。全禪客既不能行令。居士令行一半。令雖行。全禪客恁麼酬對。也不是他不知落處。各有機鋒。卷舒不同。然有不到居士處。所以落他架下。難出他彀中。居士打了。更與說道理云。眼見如盲口說如啞。雪竇別前語云。初問處但握雪團便打。雪竇恁麼。要不辜他問端。只是機遲。慶藏主道。居士機如掣電。等爾握雪團。到幾時。和聲便應和聲打。方始勦絕。雪竇自頌他打處云。彀。",
+          "verse_zh": "雪團打雪團打龐老機關沒可把天上人間不自知眼裏耳裏絕瀟灑瀟灑絕碧眼胡僧難辨別",
+          "verse_en": "Snowball — strike! Snowball — strike! / Old P'ang's device admits no grasp. / In heaven and among men he knows himself no more — / in eyes, in ears, utter carefreeness. / Carefree, absolute — even the blue-eyed barbarian monk / finds it hard to tell apart."
+        },
+        {
           "case_num": 43,
           "title_zh": "洞山無寒暑",
           "title_pinyin": "Dòngshān Wú Hán Shǔ",
@@ -9803,8 +9863,8 @@ window.TRANSLATECHAN_DATA = {
           "commentary_zh": "黃龍新和尚拈云。洞山袖頭打領腋下剜襟。爭柰這僧不甘。如今有箇出來問黃龍。且道如何支遣。良久云。安禪不必須山水。滅却心頭火自涼。諸人且道。洞山圈繢落在什麼處。若明辨得。始知洞山下五位回互正偏接人。不妨奇特。到這向上境界。方能如此。不消安排。自然恰好。所以道。正中偏。三更初夜月明前。莫怪相逢不相識。隱隱猶懷舊日嫌。偏中正失。曉老婆逢古鏡。分明覿面更無真。休更迷頭還認影。正中來。無中有路出塵埃。但能不觸當今諱。也勝前朝斷舌才。偏中至。兩刃交鋒不須避。好手還同火裏蓮。宛然自有衝天氣。兼中到。不落有無誰敢和。人人盡欲出常流。折合還歸炭裏坐。浮山遠錄公。以此公案。為五位之格。若會得一則。餘者自然易會。巖頭道。如水上葫蘆子相似。捺著便轉。殊不消絲毫氣力。曾有僧問洞山。文殊普賢來參時如何。山云。趕向水牯牛群裏去。僧云。和尚入地獄如箭。山云。全得他力。洞山道。何不向無寒暑處去。此是偏中正。僧云。如何是無寒暑處。山云。寒時寒殺闍黎。熱時熱殺闍黎。此是正中偏。雖正却偏雖偏。却圓曹洞錄中。備載子細。若是臨濟下。無許多事。這般公案直下便會。有者道。大好無寒暑。有什麼巴鼻。古人道。若向劍刃上走則快。若向情識上見則遲。不見僧問翠微。如何是祖師西來意。微云。待無人來。向爾道。遂入園中行。僧云。此間無人。請和尚道。微指竹云。這一竿竹得恁麼長。那一竿竹得恁麼短其僧忽然大悟。又曹山問僧。恁麼熱。向什麼處迴避。僧云。鑊湯爐炭裏迴避。山云。鑊湯爐炭裏如何迴避。僧云。眾苦不能到。看他家裏人。自然會他家裏人說話。雪竇用他家裏事頌出。"
         }
       ],
-      "coverage_note": "41/100 cases — cases 1–40 and 43 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, extended 2026-08-09 session-019fe731: cases 11/13/15–40 collated from cbeta-org/xml-p5, 1–3/12 verses completed to canon, case 14 replaced with the canonical 雲門『對一說』, case 21 replaced with the canonical 智門蓮花 after seed re-verification; cases 6/14/18/26/28/30/34/36 have no 垂示 in T (recorded); T-印刷 variants 韻陽/韶陽 (case 14) and 韓獹 (case 43, glossed 通作盧) recorded; case 20 carries its two canonical 頌 joined, case 22 includes Xuedou's closing shout; 著語 and CBETA glyph/footnote variants normalized out; post-verse 評唱 rendering and human sign-off pending).",
-      "zh_chars": 35401
+      "coverage_note": "43/100 cases — cases 1–43 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, extended 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–43) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; no-垂示 cases recorded (6/14/18/26/28/30/34/36/42); variants 韻陽/韶陽 (14) and 韓獹 (43, 通作盧) recorded; case 20 joins its two 頌; case 22 keeps the printed closing shout; 著語 and glyph/footnote variants normalized out; post-verse 評唱 rendering and human sign-off pending).",
+      "zh_chars": 36637
     },
     "platform_sutra": {
       "id": "platform_sutra",

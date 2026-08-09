@@ -245,7 +245,7 @@ const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {
 if (Object.keys(perText).length !== 36) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '41/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '43/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
@@ -453,7 +453,7 @@ if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded too
 // a complete text — the reader header shows validator-derived coverage.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanCovHtml = ids['reader-content-target']._innerHTML;
-if (!biyanCovHtml.includes('📊 Coverage: 41/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+if (!biyanCovHtml.includes('📊 Coverage: 43/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 if (!ids['reader-content-target']._innerHTML.includes('📊 Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
