@@ -28,7 +28,7 @@ The TranslateChan project has been fully established with:
 
 The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return).
 
-### What this session delivered (PR #9, all gates green; full report: [`AUDIT_RESPONSE_2026-08-09.md`](./AUDIT_RESPONSE_2026-08-09.md))
+### What this session delivered (PR #9, all gates green; full report: [`sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md))
 
 Independent full-project audit found no P0/P1/P2 defects. Shipped improvements:
 

@@ -15,7 +15,7 @@ This is a temporary response file for review. Durable session history lives in
   - `node scripts/smoke_test.mjs` → 36 texts exercised, 0 crashes ✅
   - `diff -rq data docs/data` ✅; root ↔ docs mirrors byte-identical for `index.html`, `app.js`, `app.css`, `theme-init.js`, `robots.txt`, `sitemap.xml` ✅
 - Read all 2,346 lines of `app.js`, all 1,529 lines of `app.css`, `index.html`, `theme-init.js`, `build_data_bundle.py`, the doc-truthfulness section of `validate_data.py`, the CI workflow, the smoke test, and spot-checked the data layer (wumenguan/biyanlu shapes, matrix labels, pinyin characteristics, metrics).
-- Cross-checked every claim against prior audit artifacts (`AUDIT.md`, `AUDIT_RESPONSE_2026-08-09.md`, `STRUCTURAL_ASSESSMENT_2026-08-09.md`, session reports) so this report only carries **genuinely new findings** plus carried-forward standing items.
+- Cross-checked every claim against prior audit artifacts (`AUDIT.md`, `sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md`, `sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md`, session reports) so this report only carries **genuinely new findings** plus carried-forward standing items.
 
 Prior audits already shipped: heading outline, data-derived graph colors, FOUC guard, bare-string→record migration (736 slots), aria-hidden emoji, data-derived hero counts, OG/Twitter/robots/sitemap/canonical, deferred scripts, segmenter rename, schema strictness wave 1–2. Verified all present and guarded.
 
@@ -59,12 +59,12 @@ Both popovers are now capped at `min(60vh, …)` with internal scrolling and are
 
 ### Documentation / repo hygiene
 
-**N9 — Session `019fe64a` is missing from AUDIT.md §4 index; its report lives at root (P3, convention consistency)** 🆕
-The most recent merged session (PR #9, commit `c464181`) is summarized in AUDIT.md §2 but has **no row in the §4 session archive index table**, and its full report `AUDIT_RESPONSE_2026-08-09.md` sits at repo root — contradicting the §5 convention ("`sessions/` holds dated session reports", root files are "temporary"). `STRUCTURAL_ASSESSMENT_2026-08-09.md` is likewise a lingering temporary file. Fix: move both into `sessions/` (dated filenames), add the §4 index row, delete the root copies. Zero content risk.
+**N9 — Session `019fe64a` is missing from AUDIT.md §4 index; its report lives at root (P3, convention consistency)** 🆕 — ✅ FIXED 2026-08-09 (session `019fe731`)
+Both files were archived with session-dated names (`sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md`, `sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md`), links in AUDIT.md §2/HANDOFF.md pointed at the new locations, and §4 gained index rows for sessions `019fe64a` and `019fe731` (this report marked **live — archive at close**). Root is convention-clean; this live report is the only remaining temp file, by design.
 
 **N10 — Small doc drift the gates can't see (P4)** 🆕
-- `theme-init.js:4` comment still says "~799 KB data bundle"; the bundle has been 873,042 bytes since the A4 migration (index.html's D4 comment correctly says ~873 KB).
-- README "Repository Structure" tree omits `theme-init.js`, `robots.txt`, `sitemap.xml`, `.nojekyll`, `package.json/package-lock.json`, `scripts/ingest_cbeta.py` (deprecated wrapper), `scripts/migrate_translations.py`, `gongan/theme_vocabulary.json`, and `response_summary.md` — all shipped/handled by gates. One small tree refresh closes the gap.
+- ~~`theme-init.js:4` comment still says "~799 KB data bundle"~~ ✅ FIXED 2026-08-09 (session `019fe731`): comment now reads ~873 KB.
+- ~~README "Repository Structure" tree omits `theme-init.js`, `robots.txt`, `sitemap.xml`, `.nojekyll`, `package.json/package-lock.json`, `scripts/ingest_cbeta.py` (deprecated wrapper), `scripts/migrate_translations.py`, `gongan/theme_vocabulary.json`, and `response_summary.md`~~ ✅ FIXED 2026-08-09 (session `019fe731`): tree refreshed to cover every gated file and script.
 - ~~`.translation-source` renders at **0.62 rem (~10 px)**~~ ✅ FIXED 2026-08-09 (session `019fe731`): raised to 0.72 rem; smoke-guarded legibility floor.
 
 ---

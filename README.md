@@ -85,9 +85,12 @@ The public GitHub Pages app intentionally contains the **Bilingual Reader**, **C
 ```
 translatechan/
 ├── index.html              # GitHub Pages entry point (Fast, zero-backend, responsive SPA)
+├── theme-init.js           # Pre-paint persisted-theme bootstrap (dark-mode FOUC guard)
 ├── app.css                 # Zen minimalist light/dark styling & typography
 ├── app.js                  # Client-side routing, search, lexicon popups, and reader views
 ├── app_data.js             # Generated master data bundle for zero-latency client-side search
+├── robots.txt / sitemap.xml# Crawler policy + sitemap (mirrored into docs/)
+├── package.json + lock     # Optional Playwright browser-test devDependency only
 ├── schemas/                # Formal JSON Schema companion to semantic validation
 ├── docs/                   # Synchronized duplicate of the app (GitHub Pages serves main /docs)
 ├── vision.md               # Grand Vision & Architectural Specification
@@ -96,6 +99,7 @@ translatechan/
 ├── AUDIT.md                # Current-state audit summary + session index (durable history in sessions/)
 ├── sessions/               # Dated session audit reports + historical audit archive (append-only)
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
+├── response_summary.md     # Live working summary of the current session (overwritten per session)
 ├── data/
 │   ├── corpus_manifest.json    # Shared corpus order/navigation manifest (36 keys)
 │   ├── canonical_locators.json # Document/case/unit source-locator registry
@@ -110,7 +114,7 @@ translatechan/
 │   │   └── traceability_queue.json
 │   ├── lineage/            # 34 profiles (30 seed profiles + 4 explicit frontier scaffolds)
 │   │   ├── masters.json
-│   │   ├── school_vocabulary.json   # Controlled school_key/display vocabulary (validator-enforced)
+│   │   ├── school_vocabulary.json   # Controlled school_key/display/color vocabulary (validator-enforced)
 │   │   ├── lineage_verification.json  # 30 internal-edge + 4 frontier source-status records
 │   │   └── profile_review_queue.json  # Enforced exact-locator review queue (34 profiles)
 │   ├── translations/       # Comparative data, provenance, and rights controls
@@ -120,11 +124,14 @@ translatechan/
 │   ├── glossary/           # Classical Chan & Buddhist lexicon (31 terms)
 │   │   └── chan_terms.json
 │   └── gongan/             # Gong'an cross-reference catalog (23 cases)
-│       └── gongan_index.json
+│       ├── gongan_index.json
+│       └── theme_vocabulary.json # Validator-enforced 7-group theme taxonomy
 └── scripts/
     ├── build_data_bundle.py   # Compiles data/ into app_data.js + syncs /docs (deterministic)
     ├── arena_agent_pipeline.py# Prompt templates & entry harness for sandboxed agent work
     ├── segment_classical.py   # Offline Classical Chinese sentence segmenter (manual input)
+    ├── ingest_cbeta.py        # Deprecated compatibility wrapper → segment_classical.py
+    ├── migrate_translations.py# One-time bare-string → {text,status} record migration (reference)
     ├── validate_data.py       # Schema/semantic/rights/locator validator + metrics generator
     ├── smoke_test.mjs         # Dependency-free renderer regression test (CI gate)
     └── browser_test.mjs       # Optional Playwright real-browser suite (desktop + mobile; not in CI)
