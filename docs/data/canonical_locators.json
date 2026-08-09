@@ -165,6 +165,69 @@
           "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
           "collation_note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried Wumenguan-case-21 (雲門乾屎橛) material and a fabricated verse — with the canonical Biyanlu case 21 (智門蓮花) collated from cbeta-org/xml-p5 T48n2003 (垂示 p.0161c19–c21, 本則 p.0161c21–c24, pre-verse 評唱 p.0161c25–p.0162a17, 頌 p.0162a24–a26); 著語 and CBETA glyph/footnote variants normalized; post-verse 評唱 not yet ingested; human sign-off pending."
         },
+        "22": {
+          "canonical_locator": "T2003 case 22 · T48n2003 p.0162b28–p.0164a24",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0162b28–c01, 本則 p.0162c02–c10, pre-verse 評唱 through p.0163c02, 頌 from p.0163c03 (including the printed closing shout 師高聲喝云。看脚下); span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0162b28–c01, 本則 p.0162c02–c10, pre-verse 評唱 through p.0163c02, 頌 from p.0163c03 (including the printed closing shout 師高聲喝云。看脚下); span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "23": {
+          "canonical_locator": "T2003 case 23 · T48n2003 p.0164a26–p.0165a01",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0164a26–a29, 本則 from p.0164b (with Xuedou 著語云 glosses normalized out), pre-verse 評唱 through p.0164c20, 頌 (妙峯孤頂草離離) p.0164c21 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0164a26–a29, 本則 from p.0164b (with Xuedou 著語云 glosses normalized out), pre-verse 評唱 through p.0164c20, 頌 (妙峯孤頂草離離) p.0164c21 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "24": {
+          "canonical_locator": "T2003 case 24 · T48n2003 p.0165a02–p.0165c04",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165a02–a05, 本則 p.0165a06–a08, pre-verse 評唱 through p.0165b10, 頌 (曾騎鐵馬入重城) p.0165b11 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165a02–a05, 本則 p.0165a06–a08, pre-verse 評唱 through p.0165b10, 頌 (曾騎鐵馬入重城) p.0165b11 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "25": {
+          "canonical_locator": "T2003 case 25 · T48n2003 p.0165c05–p.0166c26",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165c05–c08, 本則 p.0165c09-c11, pre-verse 評唱 through p.0166b16, 頌 (眼裏塵沙耳裏土) p.0166b17 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165c05–c08, 本則 p.0165c09-c11, pre-verse 評唱 through p.0166b16, 頌 (眼裏塵沙耳裏土) p.0166b17 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "26": {
+          "canonical_locator": "T2003 case 26 · T48n2003 p.0166c26–p.0167b21",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0166c26–c28, pre-verse 評唱 through p.0167a25, 頌 (祖域交馳天馬駒) p.0167a26 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0166c26–c28, pre-verse 評唱 through p.0167a25, 頌 (祖域交馳天馬駒) p.0167a26 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "27": {
+          "canonical_locator": "T2003 case 27 · T48n2003 p.0167b22–p.0168a27",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0167b22–b24, 本則 p.0167b25–b26, pre-verse 評唱 through p.0167c24, 頌 (問既有宗答亦攸仝) p.0167c25 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0167b22–b24, 本則 p.0167b25–b26, pre-verse 評唱 through p.0167c24, 頌 (問既有宗答亦攸仝) p.0167c25 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "28": {
+          "canonical_locator": "T2003 case 28 · T48n2003 p.0168a27–p.0169a14",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0168a27–b09, pre-verse 評唱 through p.0168c08, 頌 (祖佛從來不為人) p.0168c09 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0168a27–b09, pre-verse 評唱 through p.0168c08, 頌 (祖佛從來不為人) p.0168c09 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "29": {
+          "canonical_locator": "T2003 case 29 · T48n2003 p.0169a15–p.0169c04",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0169a15–a18, 本則 p.0169a19–a21, pre-verse 評唱 through p.0169b23, 頌 (劫火光中立問端) p.0169b24 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0169a15–a18, 本則 p.0169a19–a21, pre-verse 評唱 through p.0169b23, 頌 (劫火光中立問端) p.0169b24 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "30": {
+          "canonical_locator": "T2003 case 30 · T48n2003 p.0169c04–p.0170a20",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0169c04–c05, pre-verse 評唱 through p.0169c27, 頌 (鎮州出大蘿蔔) p.0169c28 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0169c04–c05, pre-verse 評唱 through p.0169c27, 頌 (鎮州出大蘿蔔) p.0169c28 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
         "43": {
           "canonical_locator": "T2003 case 43 · T48n2003 p.0180a13–p.0180c21",
           "status": "collated_with_normalization",

@@ -17,7 +17,7 @@ This document outlines the detailed engineering, data science, translation, and 
 ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────┤
 │  • Public reader│  • 48/48        │  • 4 Matrix     │  • Primary text │  • Middle      │
 │    + matrix +   │    Wumenguan    │    entries       │    aggregation   │    Chinese     │
-│    lineage +    │  • 22/100       │  • 31/150+      │  • Book/edition │  • DDB / SAT   │
+│    lineage +    │  • 31/100       │  • 31/150+      │  • Book/edition │  • DDB / SAT   │
 │    index +      │    Biyanlu      │    Chan terms    │    verification  │  • Multi-ling  │
 │    lexicon      │  • 36 manifests │  • Status/rights │  • Hover/focus  │    / lineage   │
 │  • Smoke test   │    + locators   │    disclosure    │    citations     │    verification│
@@ -57,7 +57,7 @@ This document outlines the detailed engineering, data science, translation, and 
   4. *Zhaozhou Yulu* (趙州語錄 / recorded-saying extracts)
   5. *Xinxin Ming* (信心銘 / opening stanzas)
   6. *Baojing Sanmei* (寶鏡三昧 / opening stanzas)
-  7. *Biyanlu* (碧巖錄 / Blue Cliff Record, T2003 — 22/100 cases; cases 1–21, 43 complete)
+  7. *Biyanlu* (碧巖錄 / Blue Cliff Record, T2003 — 31/100 cases; cases 1–30, 43 complete)
   8. *Platform Sutra* (六祖壇經 / T2007 — 4/10 chapters)
   9. *+28 further yulu, treatises & poems* (Mazu, Nanquan, Dongshan + Five Ranks, Yunmen, Fayan, Guiyang, Dahui, Hongzhi, Shitou, Hanshan, Sengzhao, monastic codes, Dunhuang texts…)
 
