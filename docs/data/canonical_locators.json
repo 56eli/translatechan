@@ -228,6 +228,76 @@
           "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0169c04–c05, pre-verse 評唱 through p.0169c27, 頌 (鎮州出大蘿蔔) p.0169c28 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
           "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0169c04–c05, pre-verse 評唱 through p.0169c27, 頌 (鎮州出大蘿蔔) p.0169c28 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
         },
+        "31": {
+          "canonical_locator": "T2003 case 31 · T48n2003 p.0170a20–p.0171b23",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0170a20; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0170a20; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "32": {
+          "canonical_locator": "T2003 case 32 · T48n2003 p.0171b23–p.0172a11",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0171b23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0171b23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "33": {
+          "canonical_locator": "T2003 case 33 · T48n2003 p.0172a11–p.0172c19",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0172a11; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0172a11; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "34": {
+          "canonical_locator": "T2003 case 34 · T48n2003 p.0172c19–p.0173b25",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0172c19; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0172c19; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "35": {
+          "canonical_locator": "T2003 case 35 · T48n2003 p.0173b25–p.0174b03",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0173b25; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0173b25; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "36": {
+          "canonical_locator": "T2003 case 36 · T48n2003 p.0174b03–p.0175a07",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0174b03; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0174b03; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "37": {
+          "canonical_locator": "T2003 case 37 · T48n2003 p.0175a07–p.0175c05",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "38": {
+          "canonical_locator": "T2003 case 38 · T48n2003 p.0175c05–p.0177b10",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175c05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175c05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "39": {
+          "canonical_locator": "T2003 case 39 · T48n2003 p.0177b10–p.0177c29",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "40": {
+          "canonical_locator": "T2003 case 40 · T48n2003 p.0177c29–p.0178c16",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
         "43": {
           "canonical_locator": "T2003 case 43 · T48n2003 p.0180a13–p.0180c21",
           "status": "collated_with_normalization",
