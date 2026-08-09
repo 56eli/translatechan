@@ -20,18 +20,24 @@
       "case_locators": {
         "1": {
           "canonical_locator": "T2003 case 1 · T48n2003 p.0140a13–p.0141b20",
-          "status": "case_level_anchor",
-          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+          "status": "collated_with_normalization",
+          "note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+          "collation_note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
         },
         "2": {
           "canonical_locator": "T2003 case 2 · T48n2003 p.0141b21–p.0142c04",
-          "status": "case_level_anchor",
-          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+          "status": "collated_with_normalization",
+          "note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+          "collation_note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
         },
         "3": {
           "canonical_locator": "T2003 case 3 · T48n2003 p.0142c05–p.0143b01",
-          "status": "case_level_anchor",
-          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+          "status": "collated_with_normalization",
+          "note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+          "collation_note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
         },
         "4": {
           "canonical_locator": "T2003 case 4 · T48n2003 p.0143b02–p.0144c18",
@@ -82,25 +88,635 @@
           "collation_note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending.",
           "note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending."
         },
+        "11": {
+          "canonical_locator": "T2003 case 11 · T48n2003 p.0151b08–p.0152b04",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+          "collation_note": "Chinese collated against CBETA Online T48n2003 on 2026-08-09 (session 019fe731); 著語 (Yuanwu interlinear) notes normalized out of the 本則 and 頌; post-verse 評唱 (T48n2003 p.0152b05–c13) not yet ingested; human sign-off pending.",
+          "note": "Chinese collated against CBETA Online T48n2003 on 2026-08-09 (session 019fe731); 著語 (Yuanwu interlinear) notes normalized out of the 本則 and 頌; post-verse 評唱 (T48n2003 p.0152b05–c13) not yet ingested; human sign-off pending."
+        },
         "12": {
           "canonical_locator": "T2003 case 12 · T48n2003 p.0152c15–p.0153c15",
-          "status": "case_level_anchor",
-          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+          "status": "collated_with_normalization",
+          "note": "本則/pointer collated from CBETA TEI T48n2003 (rev. 2025-01-30) on 2026-08-08; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the previously seeded non-canonical verse tail was replaced with the full canonical Xuedou 頌 (T48n2003 p.0153a11–a17) via CBETA Online; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+          "collation_note": "本則/pointer collated from CBETA TEI T48n2003 (rev. 2025-01-30) on 2026-08-08; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the previously seeded non-canonical verse tail was replaced with the full canonical Xuedou 頌 (T48n2003 p.0153a11–a17) via CBETA Online; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "13": {
+          "canonical_locator": "T2003 case 13 · T48n2003 p.0153c15–p.0154b18",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+          "collation_note": "Chinese collated against CBETA Online T48n2003 on 2026-08-09 (session 019fe731); 著語 (Yuanwu interlinear) notes normalized out of 本則 and 頌; post-verse 評唱 (from T48n2003 p.0154b19) not yet ingested; human sign-off pending.",
+          "note": "Chinese collated against CBETA Online T48n2003 on 2026-08-09 (session 019fe731); 著語 (Yuanwu interlinear) notes normalized out of 本則 and 頌; post-verse 評唱 (from T48n2003 p.0154b19) not yet ingested; human sign-off pending."
         },
         "14": {
           "canonical_locator": "T2003 case 14 · T48n2003 p.0154c03–p.0155a18",
-          "status": "case_level_anchor",
-          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+          "status": "collated_with_normalization",
+          "note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried the Wumenguan-case-14 (Nanquan's cat) story and a non-canonical verse under this slot — with the canonical Biyanlu case 14 (雲門『對一說』) collated against CBETA Online T48n2003 (本則 p.0154c02–c03, pre-verse 評唱 p.0154c04–c20, 頌 p.0154c21–c26; T prints 韻陽 in the 頌 where the 頌評唱 quotes 韶陽, recorded as printed; 著語 normalized out; no 垂示 exists for this case in T); post-verse 評唱 not yet ingested; human sign-off pending.",
+          "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+          "collation_note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried the Wumenguan-case-14 (Nanquan's cat) story and a non-canonical verse under this slot — with the canonical Biyanlu case 14 (雲門『對一說』) collated against CBETA Online T48n2003 (本則 p.0154c02–c03, pre-verse 評唱 p.0154c04–c20, 頌 p.0154c21–c26; T prints 韻陽 in the 頌 where the 頌評唱 quotes 韶陽, recorded as printed; 著語 normalized out; no 垂示 exists for this case in T); post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "15": {
+          "canonical_locator": "T2003 case 15 · T48n2003 p.0155a18–p.0156a12",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0155a18–a20, 本則 p.0155a21–a23, pre-verse 評唱 p.0155a24–p.0155b20, 頌 p.0155b21–b25; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0155a18–a20, 本則 p.0155a21–a23, pre-verse 評唱 p.0155a24–p.0155b20, 頌 p.0155b21–b25; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "16": {
+          "canonical_locator": "T2003 case 16 · T48n2003 p.0156a13–p.0157a15",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0156a13–a20, 本則 p.0156a21–a24, pre-verse 評唱 p.0156a25–p.0156c04, 頌 p.0156c05–c09; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0156a13–a20, 本則 p.0156a21–a24, pre-verse 評唱 p.0156a25–p.0156c04, 頌 p.0156c05–c09; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "17": {
+          "canonical_locator": "T2003 case 17 · T48n2003 p.0157a16–p.0157c17",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0157a16–a18, 本則 p.0157a19–a20, pre-verse 評唱 p.0157a21–p.0157c04, 頌 p.0157c05–c07; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0157a16–a18, 本則 p.0157a19–a20, pre-verse 評唱 p.0157a21–p.0157c04, 頌 p.0157c05–c07; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "18": {
+          "canonical_locator": "T2003 case 18 · T48n2003 p.0157c18–p.0159a10",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 本則 p.0157c18–c24 (no 垂示 exists for this case in T), with Xuedou 著語云 glosses and Yuanwu inline notes normalized out; pre-verse 評唱 p.0157c25–p.0159a04, 頌 p.0159a05–a08; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 本則 p.0157c18–c24 (no 垂示 exists for this case in T), with Xuedou 著語云 glosses and Yuanwu inline notes normalized out; pre-verse 評唱 p.0157c25–p.0159a04, 頌 p.0159a05–a08; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "19": {
+          "canonical_locator": "T2003 case 19 · T48n2003 p.0159a11–p.0160a14",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0159a11–a15, 本則 p.0159a16, pre-verse 評唱 p.0159a17–p.0160a02, 頌 p.0160a03–a04; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0159a11–a15, 本則 p.0159a16, pre-verse 評唱 p.0159a17–p.0160a02, 頌 p.0160a03–a04; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "20": {
+          "canonical_locator": "T2003 case 20 · T48n2003 p.0160a15–p.0161c17",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0160a15–a19, 本則 p.0160a20–a26, pre-verse 評唱 p.0160a27–p.0161b09, 頌古 p.0161b10–b13 with 別頌 p.0161b26–b29 joined after it; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0160a15–a19, 本則 p.0160a20–a26, pre-verse 評唱 p.0160a27–p.0161b09, 頌古 p.0161b10–b13 with 別頌 p.0161b26–b29 joined after it; post-verse 評唱 not yet ingested; human sign-off pending."
         },
         "21": {
           "canonical_locator": "T2003 case 21 · T48n2003 p.0161c19–p.0162b27",
-          "status": "case_level_anchor",
-          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+          "status": "collated_with_normalization",
+          "note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried Wumenguan-case-21 (雲門乾屎橛) material and a fabricated verse — with the canonical Biyanlu case 21 (智門蓮花) collated from cbeta-org/xml-p5 T48n2003 (垂示 p.0161c19–c21, 本則 p.0161c21–c24, pre-verse 評唱 p.0161c25–p.0162a17, 頌 p.0162a24–a26); 著語 and CBETA glyph/footnote variants normalized; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried Wumenguan-case-21 (雲門乾屎橛) material and a fabricated verse — with the canonical Biyanlu case 21 (智門蓮花) collated from cbeta-org/xml-p5 T48n2003 (垂示 p.0161c19–c21, 本則 p.0161c21–c24, pre-verse 評唱 p.0161c25–p.0162a17, 頌 p.0162a24–a26); 著語 and CBETA glyph/footnote variants normalized; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "22": {
+          "canonical_locator": "T2003 case 22 · T48n2003 p.0162b28–p.0164a24",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0162b28–c01, 本則 p.0162c02–c10, pre-verse 評唱 through p.0163c02, 頌 from p.0163c03 (including the printed closing shout 師高聲喝云。看脚下); span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0162b28–c01, 本則 p.0162c02–c10, pre-verse 評唱 through p.0163c02, 頌 from p.0163c03 (including the printed closing shout 師高聲喝云。看脚下); span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "23": {
+          "canonical_locator": "T2003 case 23 · T48n2003 p.0164a26–p.0165a01",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0164a26–a29, 本則 from p.0164b (with Xuedou 著語云 glosses normalized out), pre-verse 評唱 through p.0164c20, 頌 (妙峯孤頂草離離) p.0164c21 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0164a26–a29, 本則 from p.0164b (with Xuedou 著語云 glosses normalized out), pre-verse 評唱 through p.0164c20, 頌 (妙峯孤頂草離離) p.0164c21 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "24": {
+          "canonical_locator": "T2003 case 24 · T48n2003 p.0165a02–p.0165c04",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165a02–a05, 本則 p.0165a06–a08, pre-verse 評唱 through p.0165b10, 頌 (曾騎鐵馬入重城) p.0165b11 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165a02–a05, 本則 p.0165a06–a08, pre-verse 評唱 through p.0165b10, 頌 (曾騎鐵馬入重城) p.0165b11 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "25": {
+          "canonical_locator": "T2003 case 25 · T48n2003 p.0165c05–p.0166c26",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165c05–c08, 本則 p.0165c09-c11, pre-verse 評唱 through p.0166b16, 頌 (眼裏塵沙耳裏土) p.0166b17 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165c05–c08, 本則 p.0165c09-c11, pre-verse 評唱 through p.0166b16, 頌 (眼裏塵沙耳裏土) p.0166b17 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "26": {
+          "canonical_locator": "T2003 case 26 · T48n2003 p.0166c26–p.0167b21",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0166c26–c28, pre-verse 評唱 through p.0167a25, 頌 (祖域交馳天馬駒) p.0167a26 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0166c26–c28, pre-verse 評唱 through p.0167a25, 頌 (祖域交馳天馬駒) p.0167a26 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "27": {
+          "canonical_locator": "T2003 case 27 · T48n2003 p.0167b22–p.0168a27",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0167b22–b24, 本則 p.0167b25–b26, pre-verse 評唱 through p.0167c24, 頌 (問既有宗答亦攸仝) p.0167c25 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0167b22–b24, 本則 p.0167b25–b26, pre-verse 評唱 through p.0167c24, 頌 (問既有宗答亦攸仝) p.0167c25 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "28": {
+          "canonical_locator": "T2003 case 28 · T48n2003 p.0168a27–p.0169a14",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0168a27–b09, pre-verse 評唱 through p.0168c08, 頌 (祖佛從來不為人) p.0168c09 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0168a27–b09, pre-verse 評唱 through p.0168c08, 頌 (祖佛從來不為人) p.0168c09 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "29": {
+          "canonical_locator": "T2003 case 29 · T48n2003 p.0169a15–p.0169c04",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0169a15–a18, 本則 p.0169a19–a21, pre-verse 評唱 through p.0169b23, 頌 (劫火光中立問端) p.0169b24 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0169a15–a18, 本則 p.0169a19–a21, pre-verse 評唱 through p.0169b23, 頌 (劫火光中立問端) p.0169b24 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "30": {
+          "canonical_locator": "T2003 case 30 · T48n2003 p.0169c04–p.0170a20",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0169c04–c05, pre-verse 評唱 through p.0169c27, 頌 (鎮州出大蘿蔔) p.0169c28 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0169c04–c05, pre-verse 評唱 through p.0169c27, 頌 (鎮州出大蘿蔔) p.0169c28 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "31": {
+          "canonical_locator": "T2003 case 31 · T48n2003 p.0170a20–p.0171b23",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0170a20; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0170a20; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "32": {
+          "canonical_locator": "T2003 case 32 · T48n2003 p.0171b23–p.0172a11",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0171b23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0171b23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "33": {
+          "canonical_locator": "T2003 case 33 · T48n2003 p.0172a11–p.0172c19",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0172a11; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0172a11; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "34": {
+          "canonical_locator": "T2003 case 34 · T48n2003 p.0172c19–p.0173b25",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0172c19; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0172c19; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "35": {
+          "canonical_locator": "T2003 case 35 · T48n2003 p.0173b25–p.0174b03",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0173b25; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0173b25; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "36": {
+          "canonical_locator": "T2003 case 36 · T48n2003 p.0174b03–p.0175a07",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0174b03; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0174b03; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "37": {
+          "canonical_locator": "T2003 case 37 · T48n2003 p.0175a07–p.0175c05",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "38": {
+          "canonical_locator": "T2003 case 38 · T48n2003 p.0175c05–p.0177b10",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175c05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175c05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "39": {
+          "canonical_locator": "T2003 case 39 · T48n2003 p.0177b10–p.0177c29",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "40": {
+          "canonical_locator": "T2003 case 40 · T48n2003 p.0177c29–p.0178c16",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "41": {
+          "canonical_locator": "T2003 case 41 · T48n2003 p.0178c11–p.0179b10",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0178c11–c15, 本則 p.0178c16–c18, pre-verse 評唱 p.0178c19–p.0179a19, 頌 p.0179a20–a23; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0178c11–c15, 本則 p.0178c16–c18, pre-verse 評唱 p.0178c19–p.0179a19, 頌 p.0179a20–a23; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "42": {
+          "canonical_locator": "T2003 case 42 · T48n2003 p.0179b11–p.0180a12",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0179b15–b23 incl. Xuedou's canonical 別云, pre-verse 評唱 p.0179b24–p.0180a04, 頌 p.0180a05–a08; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0179b15–b23 incl. Xuedou's canonical 別云, pre-verse 評唱 p.0179b24–p.0180a04, 頌 p.0180a05–a08; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
         },
         "43": {
           "canonical_locator": "T2003 case 43 · T48n2003 p.0180a13–p.0180c21",
-          "status": "case_level_anchor",
-          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+          "status": "collated_with_normalization",
+          "note": "2026-08-09 (session 019fe731): seed dialogue verified verbatim against cbeta-org/xml-p5 T48n2003; 垂示 (p.0180a13–a16) and pre-verse 評唱 (p.0180a21–p.0180b24) newly collated; verse corrected to the printed 韓獹 (glossed 通作盧 in T's inline note) plus the T's one-character closing 獹。; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "2026-08-09 (session 019fe731): seed dialogue verified verbatim against cbeta-org/xml-p5 T48n2003; 垂示 (p.0180a13–a16) and pre-verse 評唱 (p.0180a21–p.0180b24) newly collated; verse corrected to the printed 韓獹 (glossed 通作盧 in T's inline note) plus the T's one-character closing 獹。; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "44": {
+          "canonical_locator": "T2003 case 44 · T48n2003 p.0180c21–p.0181c13",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0180c21; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0180c21; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "45": {
+          "canonical_locator": "T2003 case 45 · T48n2003 p.0181c13–p.0182b15",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0181c13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0181c13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "46": {
+          "canonical_locator": "T2003 case 46 · T48n2003 p.0182b15–p.0183a13",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0182b15; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0182b15; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "47": {
+          "canonical_locator": "T2003 case 47 · T48n2003 p.0183a13–p.0183c13",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0183a13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0183a13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "48": {
+          "canonical_locator": "T2003 case 48 · T48n2003 p.0183c13–p.0184c07",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0183c13; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0183c13; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "49": {
+          "canonical_locator": "T2003 case 49 · T48n2003 p.0184c07–p.0185b03",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0184c07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0184c07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "50": {
+          "canonical_locator": "T2003 case 50 · T48n2003 p.0185b03–p.0185c28",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0185b03; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0185b03; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "51": {
+          "canonical_locator": "T2003 case 51 · T48n2003 p.0185c22–p.0187a21",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0185c22; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0185c22; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "52": {
+          "canonical_locator": "T2003 case 52 · T48n2003 p.0187a21–p.0187c12",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0187a21; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0187a21; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "53": {
+          "canonical_locator": "T2003 case 53 · T48n2003 p.0187c12–p.0188b16",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0187c12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0187c12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "54": {
+          "canonical_locator": "T2003 case 54 · T48n2003 p.0188b16–p.0188c26",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0188b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0188b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "55": {
+          "canonical_locator": "T2003 case 55 · T48n2003 p.0188c26–p.0190a07",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0188c26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0188c26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "56": {
+          "canonical_locator": "T2003 case 56 · T48n2003 p.0190a07–p.0190c27",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0190a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0190a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "57": {
+          "canonical_locator": "T2003 case 57 · T48n2003 p.0190c27–p.0191b12",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0190c27; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0190c27; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "58": {
+          "canonical_locator": "T2003 case 58 · T48n2003 p.0191b12–p.0191c14",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0191b12; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0191b12; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "59": {
+          "canonical_locator": "T2003 case 59 · T48n2003 p.0191c14–p.0192b02",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0191c14; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0191c14; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "60": {
+          "canonical_locator": "T2003 case 60 · T48n2003 p.0192b02–p.0193b04",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0192b02; span covers 本則/評唱/頌 through the un-ingested 頌評唱; verse includes the printed closing shout 師驀拈拄杖下座。大眾一時走散曝; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0192b02; span covers 本則/評唱/頌 through the un-ingested 頌評唱; verse includes the printed closing shout 師驀拈拄杖下座。大眾一時走散曝; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "61": {
+          "canonical_locator": "T2003 case 61 · T48n2003 p.0193a29–p.0193c19",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0193a29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0193a29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "62": {
+          "canonical_locator": "T2003 case 62 · T48n2003 p.0193c19–p.0194c04",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0193c19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0193c19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "63": {
+          "canonical_locator": "T2003 case 63 · T48n2003 p.0194c04–p.0195a14",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0194c04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0194c04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "64": {
+          "canonical_locator": "T2003 case 64 · T48n2003 p.0195a14–p.0195b22",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0195a14; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0195a14; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "65": {
+          "canonical_locator": "T2003 case 65 · T48n2003 p.0195b22–p.0196b18",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0195b22; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0195b22; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "66": {
+          "canonical_locator": "T2003 case 66 · T48n2003 p.0196b18–p.0197a24",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0196b18; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0196b18; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "67": {
+          "canonical_locator": "T2003 case 67 · T48n2003 p.0197a24–p.0197c26",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0197a24; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0197a24; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "68": {
+          "canonical_locator": "T2003 case 68 · T48n2003 p.0197c26–p.0198c07",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0197c26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0197c26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "69": {
+          "canonical_locator": "T2003 case 69 · T48n2003 p.0198c07–p.0199b12",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0198c07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0198c07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "70": {
+          "canonical_locator": "T2003 case 70 · T48n2003 p.0199b12–p.0200a16",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0199b12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0199b12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "71": {
+          "canonical_locator": "T2003 case 71 · T48n2003 p.0200a16–p.0200b13",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0200a16; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0200a16; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "72": {
+          "canonical_locator": "T2003 case 72 · T48n2003 p.0200b13–p.0200c10",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0200b13; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0200b13; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "73": {
+          "canonical_locator": "T2003 case 73 · T48n2003 p.0200c10–p.0201c16",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0200c10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0200c10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "74": {
+          "canonical_locator": "T2003 case 74 · T48n2003 p.0201c16–p.0202b07",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0201c16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0201c16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "75": {
+          "canonical_locator": "T2003 case 75 · T48n2003 p.0202b07–p.0203b16",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0202b07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0202b07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "76": {
+          "canonical_locator": "T2003 case 76 · T48n2003 p.0203b16–p.0204b05",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0203b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0203b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "77": {
+          "canonical_locator": "T2003 case 77 · T48n2003 p.0204b05–p.0205a02",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0204b05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0204b05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "78": {
+          "canonical_locator": "T2003 case 78 · T48n2003 p.0205a02–p.0205b26",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0205a02; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0205a02; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "79": {
+          "canonical_locator": "T2003 case 79 · T48n2003 p.0205b26–p.0206b05",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0205b26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0205b26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "80": {
+          "canonical_locator": "T2003 case 80 · T48n2003 p.0206b05–p.0207b11",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0206b05; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0206b05; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "81": {
+          "canonical_locator": "T2003 case 81 · T48n2003 p.0207b08–p.0208a26",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0207b08; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0207b08; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "82": {
+          "canonical_locator": "T2003 case 82 · T48n2003 p.0208a23–p.0208c29",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0208a23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0208a23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "83": {
+          "canonical_locator": "T2003 case 83 · T48n2003 p.0208c29–p.0209b21",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0208c29; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0208c29; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "84": {
+          "canonical_locator": "T2003 case 84 · T48n2003 p.0209b16–p.0210b19",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0209b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0209b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "85": {
+          "canonical_locator": "T2003 case 85 · T48n2003 p.0210b13–p.0211b13",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0210b13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0210b13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "86": {
+          "canonical_locator": "T2003 case 86 · T48n2003 p.0211b10–p.0212a11",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0211b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0211b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "87": {
+          "canonical_locator": "T2003 case 87 · T48n2003 p.0212a04–p.0212c08",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0212a04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0212a04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "88": {
+          "canonical_locator": "T2003 case 88 · T48n2003 p.0212c04–p.0213c19",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0212c04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0212c04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "89": {
+          "canonical_locator": "T2003 case 89 · T48n2003 p.0213c13–p.0214c22",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0213c13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0213c13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "90": {
+          "canonical_locator": "T2003 case 90 · T48n2003 p.0214c19–p.0215c01",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0214c19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0214c19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "91": {
+          "canonical_locator": "T2003 case 91 · T48n2003 p.0215b26–p.0216b18",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0215b26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0215b26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "92": {
+          "canonical_locator": "T2003 case 92 · T48n2003 p.0216b14–p.0217a01",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0216b14; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0216b14; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "93": {
+          "canonical_locator": "T2003 case 93 · T48n2003 p.0217a01–p.0217b13",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0217a01; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0217a01; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "94": {
+          "canonical_locator": "T2003 case 94 · T48n2003 p.0217b09–p.0218a23",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0217b09; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0217b09; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "95": {
+          "canonical_locator": "T2003 case 95 · T48n2003 p.0218a19–p.0219a02",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0218a19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0218a19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "96": {
+          "canonical_locator": "T2003 case 96 · T48n2003 p.0219a02–p.0220a16",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0219a02; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0219a02; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "97": {
+          "canonical_locator": "T2003 case 97 · T48n2003 p.0220a12–p.0221a21",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0220a12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0220a12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "98": {
+          "canonical_locator": "T2003 case 98 · T48n2003 p.0221a18–p.0222b03",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0221a18; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0221a18; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "99": {
+          "canonical_locator": "T2003 case 99 · T48n2003 p.0222a28–p.0223b21",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0222a28; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0222a28; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+        },
+        "100": {
+          "canonical_locator": "T2003 case 100 · T48n2003 p.0223b17–p.0224b07",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 included; 本則/評唱/頌 complete the text; T's colophon/coda follows after; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 included; 本則/評唱/頌 complete the text; T's colophon/coda follows after; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
         }
       },
       "granularity": "case",
@@ -240,34 +856,34 @@
           "canonical_locator": "T47n1985_p0496c10–p0496c14",
           "status": "collated_with_normalization",
           "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
-          "review_date": "2026-08-08",
+          "review_date": "2026-08-09",
           "note": "CBETA line-head range identifies the 無位真人 encounter. The project excerpt uses its own segmentation and normalized punctuation; character-level collation and editor sign-off remain required before source_checked_excerpt status.",
           "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
           "source_revision": "CBETA Online reports last updated 2025-09-01",
           "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
-          "collation_note": "All three rendered dialogue units align with T47n1985_p0496c10–p0496c14 after punctuation/segmentation normalization. Recorded textual differences include project 「師示眾云」 for CBETA 「上堂云」, 「諸人」 for 「汝等諸人」, and modern glyph 「託」 for CBETA 「托」. No substantive phrase was added."
+          "collation_note": "All three rendered dialogue units align with T47n1985_p0496c10–p0496c14 after punctuation/segmentation normalization. Recorded textual differences include project 「師示眾云」 for CBETA 「上堂云」, 「諸人」 for 「汝等諸人」, and modern glyph 「託」 for CBETA 「托」. No substantive phrase was added. 2026-08-09 completion pass: unit zh re-aligned verbatim to the CBETA canonical readings (上堂云 for the earlier 師示眾云; 汝等諸人 for 諸人; 其僧擬議，師托開，云 for the earlier segmentation; 乾屎橛？ for 乾屎橛！); pinyin regenerated. The published translations were retained because they render precisely these canonical readings."
         },
         "sections.four_shouts": {
           "canonical_locator": "T47n1985_p0504a26–p0504a29",
           "status": "collated_with_normalization",
           "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
-          "review_date": "2026-08-08",
+          "review_date": "2026-08-09",
           "note": "CBETA paragraph pT47p0504a2601 contains the four-shouts encounter. The project excerpt uses normalized wording and segmentation; character-level collation and editor sign-off remain required.",
           "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
           "source_revision": "CBETA Online reports last updated 2025-09-01",
           "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
-          "collation_note": "The two rendered units align with T47n1985_p0504a26–p0504a29 after segmentation and normalization. The project changes CBETA 「踞地金毛師子」 to 「金毛師子蹲地」; preserve that as a normalized/reordered rendering rather than treating it as a diplomatic transcription."
+          "collation_note": "The two rendered units align with T47n1985_p0504a26–p0504a29 after segmentation and normalization. The project changes CBETA 「踞地金毛師子」 to 「金毛師子蹲地」; preserve that as a normalized/reordered rendering rather than treating it as a diplomatic transcription. 2026-08-09 completion pass: unit zh re-aligned verbatim to the CBETA canonical readings (踞地金毛師子 restored in canonical order for the earlier reordered 金毛師子蹲地; serial punctuation 、; 僧擬議，師便喝。 for the earlier 僧擬議。師便喝。); pinyin regenerated. Published translations retained as they render these same meanings."
         },
         "sections.four_host_guest": {
           "canonical_locator": "T47n1985_p0501a02–p0501a15",
           "status": "collated_with_normalization",
           "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501a",
-          "review_date": "2026-08-08",
-          "note": "CBETA discussion of the four host/guest configurations spans these line heads. The project excerpt is a selective normalized segment; character-level collation and editor sign-off remain required.",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph pT47p0501a02–p0501a15 contains the fourfold guest/host teaching; with the 2026-08-09 completion pass the section covers the whole canonical paragraph from pT47p0500c27. The published translation units and the added head unit are normalized for punctuation/segmentation; character-level collation of the whole paragraph is recorded and editor sign-off remains pending.",
           "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
           "source_revision": "CBETA Online reports last updated 2025-09-01",
           "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
-          "collation_note": "The former selective/non-Taishō wording was replaced on 2026-08-08 with the faithful T47n1985_p0501a02–p0501a15 excerpt. Punctuation and segmentation are normalized; the English register reconstructions were revised to match this longer source passage. Human editor sign-off remains required."
+          "collation_note": "The former selective/non-Taishō wording was replaced on 2026-08-08 with the faithful T47n1985_p0501a02–p0501a15 excerpt. Punctuation and segmentation are normalized; the English register reconstructions were revised to match this longer source passage. Human editor sign-off remains required. 2026-08-09 completion pass: unit zh re-aligned verbatim to the CBETA canonical readings (、 for 。 in the serial list; 學人被奪抵死不放 for 抵死不肯放; 即云『咄哉』 for 知識即云; 『』 for 「」), and the paragraph’s preceding teaching (大丈夫漢…無喜亦無憂) added as a first unit with a project AI draft so the section now covers the whole canonical paragraph pT47p0500c27–p0501a15. Published translations retained as they render these same meanings."
         },
         "sections.blind_donkey": {
           "canonical_locator": "T47n1985_p0506c03–p0506c07",
@@ -279,6 +895,699 @@
           "source_revision": "CBETA Online reports last updated 2025-09-01",
           "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
           "collation_note": "The first dialogue was revised on 2026-08-08 to the T47n1985 據坐/爭敢 reading, and the final clause to 「端然示寂」. Punctuation and segmentation are normalized; human editor sign-off remains required."
+        },
+        "sections.preface_conglun": {
+          "canonical_locator": "T47n1985_p0495a05–p0495a22",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0495a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0495a05–p0495a22).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.preface_guotianxi": {
+          "canonical_locator": "T47n1985_p0495a27–p0495c06",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0495b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0495a27–p0495c06).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.preface_wufeng": {
+          "canonical_locator": "T47n1985_p0495c11–p0496a15",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0495c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0495c11–p0496a15).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.verse_preface": {
+          "canonical_locator": "T47n1985_p0496a23–p0496b08",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496a23–p0496b08).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shangtang_01": {
+          "canonical_locator": "T47n1985_p0496b14–p0496c03",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496b14–p0496c03).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shangtang_02": {
+          "canonical_locator": "T47n1985_p0496c04–p0496c09",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496c04–p0496c09).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shangtang_04": {
+          "canonical_locator": "T47n1985_p0496c15–p0496c22",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496c15–p0496c22).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shangtang_05": {
+          "canonical_locator": "T47n1985_p0496c23–p0497a01",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496c23–p0497a01).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shangtang_06": {
+          "canonical_locator": "T47n1985_p0497a02–p0497a08",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a02–p0497a08).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shangtang_07": {
+          "canonical_locator": "T47n1985_p0497a09–p0497a11",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a09–p0497a11).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shangtang_08": {
+          "canonical_locator": "T47n1985_p0497a12–p0497a14",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a12–p0497a14).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shangtang_09": {
+          "canonical_locator": "T47n1985_p0497a15–p0497a21",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a15–p0497a21).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_01": {
+          "canonical_locator": "T47n1985_p0497a22–p0497c25",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a22–p0497c25).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_02": {
+          "canonical_locator": "T47n1985_p0497c26–p0498a15",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497c26–p0498a15).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_03": {
+          "canonical_locator": "T47n1985_p0498a16–p0498b01",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498a16–p0498b01).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_04": {
+          "canonical_locator": "T47n1985_p0498b02–p0498b24",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498b02–p0498b24).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_05": {
+          "canonical_locator": "T47n1985_p0498b25–p0498c17",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498b25–p0498c17).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_06": {
+          "canonical_locator": "T47n1985_p0498c18–p0499a03",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498c18–p0499a03).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_07": {
+          "canonical_locator": "T47n1985_p0499a04–p0499a27",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499a04–p0499a27).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_08": {
+          "canonical_locator": "T47n1985_p0499a28–p0499c13",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499a28–p0499c13).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_09": {
+          "canonical_locator": "T47n1985_p0499c14–p0500a02",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499c14–p0500a02).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_10": {
+          "canonical_locator": "T47n1985_p0500a02–p0500a12",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a02–p0500a12).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_11": {
+          "canonical_locator": "T47n1985_p0500a12–p0500a26",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a12–p0500a26).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_12": {
+          "canonical_locator": "T47n1985_p0500a26–p0500b21",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a26–p0500b21).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_13": {
+          "canonical_locator": "T47n1985_p0500b21–p0500c06",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500b21–p0500c06).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_14": {
+          "canonical_locator": "T47n1985_p0500c06–p0500c27",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500c06–p0500c27).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_16": {
+          "canonical_locator": "T47n1985_p0501a15–p0501b08",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501a15–p0501b08).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_17": {
+          "canonical_locator": "T47n1985_p0501b08–p0501b14",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501b08–p0501b14).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_18": {
+          "canonical_locator": "T47n1985_p0501b14–p0501b19",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501b14–p0501b19).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_19": {
+          "canonical_locator": "T47n1985_p0501b19–p0501b29",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501b19–p0501b29).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_20": {
+          "canonical_locator": "T47n1985_p0501b29–p0501c25",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501b29–p0501c25).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_21": {
+          "canonical_locator": "T47n1985_p0501c25–p0501c27",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501c25–p0501c27).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_22": {
+          "canonical_locator": "T47n1985_p0501c28–p0502a07",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501c28–p0502a07).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_23": {
+          "canonical_locator": "T47n1985_p0502a08–p0502a27",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502a08–p0502a27).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_24": {
+          "canonical_locator": "T47n1985_p0502a28–p0502b13",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502a28–p0502b13).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_25": {
+          "canonical_locator": "T47n1985_p0502b14–p0502c03",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502b14–p0502c03).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_26": {
+          "canonical_locator": "T47n1985_p0502c03–p0502c10",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502c03–p0502c10).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_27": {
+          "canonical_locator": "T47n1985_p0502c10–p0502c22",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502c10–p0502c22).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_28": {
+          "canonical_locator": "T47n1985_p0502c22–p0502c27",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502c22–p0502c27).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_29": {
+          "canonical_locator": "T47n1985_p0502c27–p0503a05",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502c27–p0503a05).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_30": {
+          "canonical_locator": "T47n1985_p0503a05–p0503a15",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503a05–p0503a15).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_01": {
+          "canonical_locator": "T47n1985_p0503a17–p0503a28",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503a17–p0503a28).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_02": {
+          "canonical_locator": "T47n1985_p0503a29–p0503b02",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503a29–p0503b02).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_03": {
+          "canonical_locator": "T47n1985_p0503b03–p0503b09",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b03–p0503b09).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_04": {
+          "canonical_locator": "T47n1985_p0503b10–p0503b16",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b10–p0503b16).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_05": {
+          "canonical_locator": "T47n1985_p0503b17–p0503b19",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b17–p0503b19).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_06": {
+          "canonical_locator": "T47n1985_p0503b20–p0503b24",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b20–p0503b24).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_07": {
+          "canonical_locator": "T47n1985_p0503b25–p0503c02",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b25–p0503c02).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_08": {
+          "canonical_locator": "T47n1985_p0503c03–p0503c05",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503c03–p0503c05).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_09": {
+          "canonical_locator": "T47n1985_p0503c06–p0503c18",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503c06–p0503c18).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_10": {
+          "canonical_locator": "T47n1985_p0503c19–p0503c25",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503c19–p0503c25).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_11": {
+          "canonical_locator": "T47n1985_p0503c26–p0504a02",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503c26–p0504a02).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_12": {
+          "canonical_locator": "T47n1985_p0504a03–p0504a04",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a03–p0504a04).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_13": {
+          "canonical_locator": "T47n1985_p0504a05–p0504a07",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a05–p0504a07).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_14": {
+          "canonical_locator": "T47n1985_p0504a08–p0504a09",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a08–p0504a09).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_15": {
+          "canonical_locator": "T47n1985_p0504a10–p0504a14",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a10–p0504a14).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_16": {
+          "canonical_locator": "T47n1985_p0504a15–p0504a18",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a15–p0504a18).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_17": {
+          "canonical_locator": "T47n1985_p0504a19–p0504a21",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a19–p0504a21).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_18": {
+          "canonical_locator": "T47n1985_p0504a22–p0504a25",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a22–p0504a25).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_20": {
+          "canonical_locator": "T47n1985_p0504b01–p0504b02",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504b01–p0504b02).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_21": {
+          "canonical_locator": "T47n1985_p0504b03–p0504b10",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504b03–p0504b10).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_22": {
+          "canonical_locator": "T47n1985_p0504b11–p0504b17",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504b11–p0504b17).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.kanbian_23": {
+          "canonical_locator": "T47n1985_p0504b18–p0504b26",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504b18–p0504b26).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
         }
       }
     },

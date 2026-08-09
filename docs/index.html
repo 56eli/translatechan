@@ -84,9 +84,9 @@
 
       <!-- Controls & Search -->
       <div class="nav-controls">
-        <div class="search-box">
+        <div class="search-box" role="search">
           <span class="search-icon" aria-hidden="true">🔍</span>
-          <input type="text" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off">
+          <input type="search" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off" aria-label="Search all corpus texts — Chinese, pinyin, or English">
         </div>
         <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme"><span aria-hidden="true">🌙</span></button>
       </div>
@@ -205,8 +205,9 @@
         <svg id="lineage-svg-graph" width="100%" height="720" style="display: block;"></svg>
       </div>
 
-      <!-- Master Dossier Modal / Inspector Drawer -->
-      <div id="master-dossier-panel" style="display: none; background: var(--accent-gold-light); border: 2px solid var(--accent-gold); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; animation: sereneFade 0.3s ease;">
+      <!-- Master Dossier Modal / Inspector Drawer (non-modal dialog: focus moves
+           in on open, Escape closes and restores focus — see app.js N2 a11y) -->
+      <div id="master-dossier-panel" role="dialog" aria-labelledby="dossier-name-zh" tabindex="-1" style="display: none; background: var(--accent-gold-light); border: 2px solid var(--accent-gold); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; animation: sereneFade 0.3s ease;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
           <div>
             <h2 id="dossier-name-zh" class="master-name-zh" style="font-size: 1.75rem; color: var(--accent-gold);"></h2>
@@ -244,8 +245,8 @@
           <select id="lexicon-cat-filter" class="search-input" style="width: auto; padding: 0.35rem 0.75rem;"></select>
         </div>
       </div>
-      <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="Occurrence tags cite the term's locus in the canonical work (chapter, fascicle, or case). That locus may lie outside the units currently excerpted into this corpus — e.g. a Biyanlu case-reference beyond the 14 ingested cases.">
-        📖 <strong>Scope note:</strong> occurrence tags cite each term's locus in the <em>canonical work</em> (chapter, fascicle, or case); a cited locus may lie outside the units currently excerpted into this corpus.
+      <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="Occurrence tags cite the term's locus in the canonical work (chapter, fascicle, or case). That locus may lie outside the units currently excerpted into this corpus — e.g. a case-reference in one of the corpus texts still at excerpt-seed scale (see each Reader text's 📊 coverage disclosure).">
+        📖 <strong>Scope note:</strong> occurrence tags cite each term's locus in the <em>canonical work</em> (chapter, fascicle, or case); a cited locus may lie outside the units currently excerpted into this corpus — most corpus texts remain excerpt-scale seeds (each Reader text carries a 📊 coverage disclosure).
       </div>
       <div id="lexicon-content-target" class="lexicon-grid"></div>
     </section>
