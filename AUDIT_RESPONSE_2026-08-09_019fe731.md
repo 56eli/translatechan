@@ -25,13 +25,16 @@ Prior audits already shipped: heading outline, data-derived graph colors, FOUC g
 
 ### Front-end / accessibility
 
-**N1 — JS smooth-scrolling ignores `prefers-reduced-motion` (P3, a11y)** 🆕
+**N1 — JS smooth-scrolling ignores `prefers-reduced-motion` (P3, a11y)** 🆕 — ✅ FIXED 2026-08-09 (session `019fe731`)
+All 7 programmatic scrolls (case-strip jump, scroll-to-top ×2, view switch, dossier open ×2, case deep-link) now route through a centralized `motionBehavior()` helper that returns `'auto'` for reduced-motion users; CSS still covers declarative animation. Smoke-guarded (no `behavior: 'smooth'` literal may regress).
 `app.css:1513` neutralizes CSS animation/scroll-behavior for reduced-motion users, but `app.js` performs 7 programmatic `behavior: 'smooth'` scrolls (`window.scrollTo` ×4, `scrollIntoView` ×3 — lines 441–446, 639, 1918, 1970, 2317) without consulting `matchMedia('(prefers-reduced-motion: reduce)')`. CSS `scroll-behavior: auto !important` does **not** override behavior passed explicitly to the scroll APIs. Vestibular-sensitive users still get animated scrolling for case jumps, view switches, dossier opens, and "load more". Fix: one `prefersReducedMotion()` helper returning `'auto'` vs `'smooth'` (~10 lines), centralized like `escHtml`.
 
-**N2 — Dossier panel is not a dialog (P3, a11y)** 🆕
+**N2 — Dossier panel is not a dialog (P3, a11y)** 🆕 — ✅ FIXED 2026-08-09 (session `019fe731`)
+`#master-dossier-panel` now carries `role="dialog" aria-labelledby="dossier-name-zh" tabindex="-1"`; shared `openDossierPanel()` moves focus into the panel on open (both master and edge views) and records the invoking control; `closeDossierPanel()` is reached from the ✕ button and Escape (with an open tooltip absorbing the first press) and restores focus to the invoker. Smoke-guarded.
 `#master-dossier-panel` opens on node/card/edge activation but has no `role="dialog"`/`aria-modal`/`aria-labelledby`, focus is not moved into it, Escape does not close it (only citation/term popovers handle Escape), and background content is not inert. Keyboard/SR users get no signal that content appeared above their position. Fix: set focus to the panel (or close button) on open, `Escape` → close + restore focus to the invoker, add role/aria attributes. All static markup already exists — pure JS/attribute change, no redesign.
 
-**N3 — Glossary popover not shown on keyboard focus (P3, a11y/discoverability)** 🆕
+**N3 — Glossary popover not shown on keyboard focus (P3, a11y/discoverability)** 🆕 — ✅ FIXED 2026-08-09 (session `019fe731`)
+Tab-focusing a `.term-highlight` now reveals the shared definition popover (gated on `:focus-visible` so mouse click-to-toggle semantics are unchanged); both the glossary and citation popovers now carry `role="tooltip"`. Enter/Space toggle still works. Smoke-guarded.
 `.term-highlight` spans are `tabindex="0"` and Enter/Space toggles the popover, but plain Tab-focus shows nothing (only a dotted-outline style change). The shared document-level `focusin` handler covers `.citation-trigger` only; terms get `mouseover`/`click`/`keydown` on the reader root. Keyboard users cannot discover that a definition exists without guessing a key. Fix: handle `focusin`/`focusout` for `.term-highlight` the same way the citation popover does. Related P4: neither popover carries `role="tooltip"` or an `aria-describedby` link from the trigger.
 
 **N4 — English/translation search hits never surface the matched text (P3, UX)** 🆕
@@ -40,7 +43,8 @@ Prior audits already shipped: heading outline, data-derived graph colors, FOUC g
 **N5 — Toneless/partial pinyin search fails (P3, UX)** 🆕
 Corpus pinyin is tone-marked (14,660 combining-mark characters across `data/corpus/*.json`, e.g. `Zhàozhōu … fóxìng`), and `normalizeForSearch()` lowercases + maps 5 glyph variants but never strips diacritics. A user typing `wu`, `foxing`, or `zhaozhou` (the realistic romanization query) gets zero pinyin hits. Fix: NFD-normalize and strip `\p{M}` in addition to the variant map (one line with Unicode property escapes; Node 22 + all modern browsers support it).
 
-**N6 — Global search input has no accessible name (P4, a11y)** 🆕
+**N6 — Global search input has no accessible name (P4, a11y)** 🆕 — ✅ FIXED 2026-08-09 (session `019fe731`)
+The input is now `type="search"` with `aria-label="Search all corpus texts — Chinese, pinyin, or English"` inside a `role="search"` landmark wrapper. Smoke-guarded.
 `<input id="global-search" type="text" placeholder="Search Chinese / English...">` relies on the placeholder alone (the three `<select>`s all have `aria-label`; this input doesn't). Add `aria-label="Search all corpus texts"` and consider `type="search"` for semantics/mobile keyboards. One-attribute fix.
 
 **N7 — Lineage graph never re-lays out on viewport change (P4, UX)** 🆕

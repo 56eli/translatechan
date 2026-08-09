@@ -57,6 +57,36 @@ if (!publicHtml.includes('<script defer src="app_data.js"></script>')) {
 if (publicHtml.indexOf('<script defer src="app_data.js"></script>') >= publicHtml.indexOf('<script defer src="app.js"></script>')) {
   throw new Error('deferred scripts must preserve app_data.js before app.js order');
 }
+// N1 (a11y, 2026-08-09 session 019fe731): every programmatic scroll must route
+// through motionBehavior() so prefers-reduced-motion users get instant jumps.
+if (appSrc.includes("behavior: 'smooth'")) {
+  throw new Error("programmatic smooth scroll bypasses prefers-reduced-motion — route through motionBehavior()");
+}
+if (!appSrc.includes("matchMedia('(prefers-reduced-motion: reduce)')")) {
+  throw new Error('motionBehavior() must consult prefers-reduced-motion');
+}
+// N2: the master dossier is a focus-managed non-modal dialog (role, aria
+// label, focus-in on open, ✕/Escape closes and restores focus).
+if (!publicHtml.includes('id="master-dossier-panel" role="dialog"')) {
+  throw new Error('master dossier panel must carry role="dialog"');
+}
+if (!appSrc.includes('function closeDossierPanel(') || !appSrc.includes("if (e.key !== 'Escape') return;")) {
+  throw new Error('dossier dialog needs the Escape close path with focus restore');
+}
+// N3: keyboard focus reveals glossary definitions; both popovers are tooltips.
+if (!appSrc.includes("matches(':focus-visible')")) {
+  throw new Error('term popover must open on keyboard focus, not only on Enter/Space');
+}
+if ((appSrc.match(/setAttribute\('role', 'tooltip'\)/g) || []).length < 2) {
+  throw new Error('term and citation popovers must carry role="tooltip"');
+}
+// N6: the global search input needs an accessible name and a search landmark.
+if (!/<input[^>]*type="search"[^>]*id="global-search"[^>]*aria-label="[^"]+"/.test(publicHtml)) {
+  throw new Error('global search input must be type="search" with an aria-label');
+}
+if (!publicHtml.includes('<div class="search-box" role="search">')) {
+  throw new Error('search box must carry the search landmark role');
+}
 
 const store = {};
 globalThis.localStorage = {

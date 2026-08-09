@@ -40,6 +40,17 @@
     } catch (e) { return false; }
   }
 
+  // Honor the OS/browser reduced-motion preference for programmatic scrolls:
+  // vestibular-sensitive users get instant jumps instead of animated pans.
+  // CSS @media covers declarative animation, but the scroll APIs take an
+  // explicit behavior token, so every smooth scroll in this file routes here
+  // (a11y audit 2026-08-09, session 019fe731, N1; smoke-guarded).
+  function motionBehavior() {
+    const reduced = typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return reduced ? 'auto' : 'smooth';
+  }
+
   const state = {
     data: window.TRANSLATECHAN_DATA || {},
     currentView: 'reader',
@@ -176,6 +187,7 @@
       termPopoverEl = document.createElement('div');
       termPopoverEl.id = 'term-popover';
       termPopoverEl.className = 'term-popover';
+      termPopoverEl.setAttribute('role', 'tooltip');
       termPopoverEl.style.display = 'none';
       document.body.appendChild(termPopoverEl);
     }
@@ -238,6 +250,7 @@
       citationPopoverEl = document.createElement('div');
       citationPopoverEl.id = 'citation-popover';
       citationPopoverEl.className = 'citation-popover';
+      citationPopoverEl.setAttribute('role', 'tooltip');
       citationPopoverEl.style.display = 'none';
       document.body.appendChild(citationPopoverEl);
     }
@@ -438,12 +451,12 @@
     if (mobileCasesBtn) {
       mobileCasesBtn.addEventListener('click', () => {
         const strip = document.getElementById('case-jump-strip');
-        if (strip) strip.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        else window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (strip) strip.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
+        else window.scrollTo({ top: 0, behavior: motionBehavior() });
       });
     }
     const mobileTopBtn = document.getElementById('mobile-top-btn');
-    if (mobileTopBtn) mobileTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    if (mobileTopBtn) mobileTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: motionBehavior() }));
     const mobilePinyinBtn = document.getElementById('mobile-pinyin-btn');
     if (mobilePinyinBtn) {
       mobilePinyinBtn.addEventListener('click', () => {
@@ -462,6 +475,19 @@
       });
       readerRoot.addEventListener('mouseout', (e) => {
         const t = e.target.closest ? e.target.closest('.term-highlight') : null;
+        if (t && !t.contains(e.relatedTarget)) hideTermPopover();
+      });
+      // Keyboard discoverability (a11y N3, 2026-08-09): Tab-focus on a term
+      // reveals its definition just like hover does; gated on :focus-visible
+      // so a mouse click-focus keeps the click-to-toggle semantics unchanged.
+      readerRoot.addEventListener('focusin', (e) => {
+        const t = e.target && e.target.closest ? e.target.closest('.term-highlight') : null;
+        if (!t) return;
+        if (typeof t.matches === 'function' && !t.matches(':focus-visible')) return;
+        showTermPopover(t);
+      });
+      readerRoot.addEventListener('focusout', (e) => {
+        const t = e.target && e.target.closest ? e.target.closest('.term-highlight') : null;
         if (t && !t.contains(e.relatedTarget)) hideTermPopover();
       });
       readerRoot.addEventListener('click', (e) => {
@@ -544,6 +570,18 @@
         if (typeof window.TranslateChan.resetLineageView === 'function') window.TranslateChan.resetLineageView();
       });
     }
+
+    // Dossier dialog (N2): the ✕ button and Escape both close through the same
+    // focus-restoring path; bound once here, not per dossier open.
+    const dossierCloseBtn = document.getElementById('dossier-close-btn');
+    if (dossierCloseBtn) dossierCloseBtn.addEventListener('click', closeDossierPanel);
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      // Let an open tooltip absorb the first Escape press before the dossier closes.
+      if ((citationPopoverEl && citationPopoverEl.style.display === 'block') ||
+          (termPopoverEl && termPopoverEl.style.display === 'block')) return;
+      closeDossierPanel();
+    });
 
     // ---- Delegated clicks: generated controls use data-* attributes instead of
     // inline `onclick` so a restrictive Content-Security-Policy (script-src 'self')
@@ -636,7 +674,7 @@
         section.classList.remove('active');
       }
     });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: motionBehavior() });
   }
 
   // Apply the URL hash to app state (view + reader corpus); no re-render loop.
@@ -1865,6 +1903,31 @@
     ).join(' ');
   }
 
+  // Master dossier = non-modal dialog (a11y N2, 2026-08-09): the panel carries
+  // role="dialog" in index.html, focus moves into it on open, and ✕/Escape
+  // closes it and returns focus to the invoking control for continuous reading.
+  function getDossierPanel() { return document.getElementById('master-dossier-panel'); }
+  function openDossierPanel() {
+    const panel = getDossierPanel();
+    if (!panel) return;
+    panel._invoker = (typeof document.activeElement !== 'undefined') ? document.activeElement : null;
+    panel.style.display = 'block';
+    if (typeof panel.scrollIntoView === 'function') panel.scrollIntoView({ behavior: motionBehavior() });
+    if (typeof panel.focus === 'function') {
+      try { panel.focus({ preventScroll: true }); } catch (e) { try { panel.focus(); } catch (err) { /* ignore */ } }
+    }
+  }
+  function closeDossierPanel() {
+    const panel = getDossierPanel();
+    if (!panel || panel.style.display === 'none') return;
+    panel.style.display = 'none';
+    const invoker = panel._invoker || null;
+    panel._invoker = null;
+    if (invoker && typeof document.contains === 'function' && document.contains(invoker) && typeof invoker.focus === 'function') {
+      invoker.focus();
+    }
+  }
+
   // Master Dossier Modal Display
   window.TranslateChan = window.TranslateChan || {};
   window.TranslateChan.openMasterDossier = function(masterId) {
@@ -1872,11 +1935,9 @@
     const master = state.data.lineage.find(m => m.id === masterId);
     if (!master) return;
 
-    const panel = document.getElementById('master-dossier-panel');
     const nameZh = document.getElementById('dossier-name-zh');
     const nameEn = document.getElementById('dossier-name-en');
     const content = document.getElementById('dossier-content');
-    const closeBtn = document.getElementById('dossier-close-btn');
 
     if (nameZh) nameZh.textContent = `${master.name_zh} (${master.title})`;
     if (nameEn) nameEn.textContent = `${master.name_en} • Pinyin: ${master.name_pinyin} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
@@ -1913,16 +1974,7 @@
       `;
     }
 
-    if (panel) {
-      panel.style.display = 'block';
-      panel.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    if (closeBtn) {
-      closeBtn.onclick = () => {
-        panel.style.display = 'none';
-      };
-    }
+    openDossierPanel();
   };
 
   window.TranslateChan.openLineageEdge = function(teacherId, discipleId) {
@@ -1930,11 +1982,9 @@
     const source = lineageSourceRecord(edge.source_id);
     const teacher = (state.data.lineage || []).find(master => master.id === teacherId);
     const disciple = (state.data.lineage || []).find(master => master.id === discipleId);
-    const panel = document.getElementById('master-dossier-panel');
     const nameZh = document.getElementById('dossier-name-zh');
     const nameEn = document.getElementById('dossier-name-en');
     const content = document.getElementById('dossier-content');
-    const closeBtn = document.getElementById('dossier-close-btn');
     const meta = lineageStatusMeta(edge.status);
     const teacherName = teacher ? `${teacher.name_zh} / ${teacher.name_en}` : teacherId;
     const discipleName = disciple ? `${disciple.name_zh} / ${disciple.name_en}` : discipleId;
@@ -1965,11 +2015,7 @@
           <div style="margin-top:0.55rem;">${renderCitationTrigger(detail, 'ⓘ Source chart & verification')}</div>
         </div>`;
     }
-    if (panel) {
-      panel.style.display = 'block';
-      panel.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (closeBtn) closeBtn.onclick = () => { panel.style.display = 'none'; };
+    openDossierPanel();
   };
 
   // Gong'an filter chips are generated from the controlled theme taxonomy
@@ -2314,7 +2360,7 @@
     expandCase(caseNum);
     setTimeout(() => {
       const el = document.getElementById(`case-${caseNum}`);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (el) el.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
     }, 60);
   };
   window.TranslateChan.openCase = function(corpusKey, caseNum) {
