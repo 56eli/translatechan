@@ -30,7 +30,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and Biyanlu's excerpt has grown to **14/100 cases with cases 1–10 complete** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **20,017 source-content CJK characters** (or 23,314 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `14/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu cases 1–10 are now complete (14/100).
+> **Honest status**: 34 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and the Biyanlu is **COMPLETE at 100/100 cases** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **88,263 source-content CJK characters** (or 92,450 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `100/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu is complete (100/100).
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -40,7 +40,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 | **Sayings of Zhaozhou** | 趙州真際禪師語錄 | **T1987** (Vol. 47) | Zhaozhou Congshen (趙州從諗) | Signature dialogues (狗子, 洗鉢盂…) |
 | **Inscription on Faith in Mind** | 信心銘 | **T2010** (Vol. 48) | Third Patriarch Jianzhi Sengcan | Opening stanzas |
 | **Jewel Mirror Samadhi** | 寶鏡三昧歌 | **T1986** (Vol. 47) | Dongshan Liangjie (洞山良价) | Opening stanzas |
-| **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | 14 / 100 cases (1–10 complete) |
+| **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | **100 / 100 cases ✅ complete** |
 | **The Platform Sutra** | 六祖大師法寶壇經 | **T2007** (Vol. 48) | Sixth Patriarch Huineng / Fahai | 4 / 10 chapters (incl. 菩提本無樹 verse) |
 | **(+ 28 further yulu, treatises & poems)** | — | T/X canon | Mazu, Dongshan, Yunmen, Fayan, Guiyang, Dahui, Hanshan… | Excerpt seeds — see `data/corpus/` |
 
@@ -52,7 +52,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - Sentence-by-sentence Classical Chinese with standard Pinyin romanization and English translations across all 36 corpus texts.
 - Switchable reading modes: **Bilingual**, **Multi-Translators Side-by-Side**, or **Classical Chinese Only**.
 - Hover, focus, or tap key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
-- Visible canonical source locations for every reader document/case, plus a **validator-derived coverage disclosure** (`48/48 cases`, `14/100 cases`, or `Excerpt seed (N units)` with a full coverage note) so excerpts are never mistaken for complete texts; reviewed unit-level source disclosures for the Linji (4 sections) and Xinxin Ming (7 stanzas) pilots; hover/focus/touch popups state locator granularity, collation status, and pending human review honestly.
+- Visible canonical source locations for every reader document/case, plus a **validator-derived coverage disclosure** (`48/48 cases`, `100/100 cases`, or `Excerpt seed (N units)` with a full coverage note) so excerpts are never mistaken for complete texts; reviewed unit-level source disclosures for the Linji (4 sections) and Xinxin Ming (7 stanzas) pilots; hover/focus/touch popups state locator granularity, collation status, and pending human review honestly.
 - Client-side search across **all 36 corpus texts and all schema shapes** (case lists, sermons, dialogues, stanzas, chapters), with match counts, `<mark>` highlighting, and jump-to-anchor actions.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix
@@ -67,7 +67,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - Filter by lineage school, dates, temple location, canonical text reference, and signature quotes.
 
 ### 4. 🗂️ Gong'an Cross-Reference Index
-- Canonical cases indexed by theme, protagonist, and cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* — **23 indexed cases** at present (incl. 5 new Biyanlu entries, 2026-08-08), organized into **7 curated theme groups** (Buddha-Nature, Beyond Duality, What is Buddha, Direct Pointing, Everyday Way, Transmission & Causality, Existential Barrier) from the validator-enforced taxonomy in `data/gongan/theme_vocabulary.json`; cards keep a rich per-case theme descriptor while filter chips group by family.
+- Canonical cases indexed by theme, protagonist, and cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* — **24 indexed cases** at present (incl. 5 new Biyanlu entries, 2026-08-08), organized into **7 curated theme groups** (Buddha-Nature, Beyond Duality, What is Buddha, Direct Pointing, Everyday Way, Transmission & Causality, Existential Barrier) from the validator-enforced taxonomy in `data/gongan/theme_vocabulary.json`; cards keep a rich per-case theme descriptor while filter chips group by family.
 
 ### 5. 📚 Classical Chan Lexicon
 - Dictionary of technical Chan idioms, Buddhist ontology, dialectical structures, and monastic expressions — **31 terms** today, expanding toward 150+ (see Roadmap Phase 3).
@@ -85,9 +85,12 @@ The public GitHub Pages app intentionally contains the **Bilingual Reader**, **C
 ```
 translatechan/
 ├── index.html              # GitHub Pages entry point (Fast, zero-backend, responsive SPA)
+├── theme-init.js           # Pre-paint persisted-theme bootstrap (dark-mode FOUC guard)
 ├── app.css                 # Zen minimalist light/dark styling & typography
 ├── app.js                  # Client-side routing, search, lexicon popups, and reader views
 ├── app_data.js             # Generated master data bundle for zero-latency client-side search
+├── robots.txt / sitemap.xml# Crawler policy + sitemap (mirrored into docs/)
+├── package.json + lock     # Optional Playwright browser-test devDependency only
 ├── schemas/                # Formal JSON Schema companion to semantic validation
 ├── docs/                   # Synchronized duplicate of the app (GitHub Pages serves main /docs)
 ├── vision.md               # Grand Vision & Architectural Specification
@@ -96,6 +99,7 @@ translatechan/
 ├── AUDIT.md                # Current-state audit summary + session index (durable history in sessions/)
 ├── sessions/               # Dated session audit reports + historical audit archive (append-only)
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
+├── response_summary.md     # Live working summary of the current session (overwritten per session)
 ├── data/
 │   ├── corpus_manifest.json    # Shared corpus order/navigation manifest (36 keys)
 │   ├── canonical_locators.json # Document/case/unit source-locator registry
@@ -110,7 +114,7 @@ translatechan/
 │   │   └── traceability_queue.json
 │   ├── lineage/            # 34 profiles (30 seed profiles + 4 explicit frontier scaffolds)
 │   │   ├── masters.json
-│   │   ├── school_vocabulary.json   # Controlled school_key/display vocabulary (validator-enforced)
+│   │   ├── school_vocabulary.json   # Controlled school_key/display/color vocabulary (validator-enforced)
 │   │   ├── lineage_verification.json  # 30 internal-edge + 4 frontier source-status records
 │   │   └── profile_review_queue.json  # Enforced exact-locator review queue (34 profiles)
 │   ├── translations/       # Comparative data, provenance, and rights controls
@@ -119,12 +123,15 @@ translatechan/
 │   │   └── rights_manifest.json
 │   ├── glossary/           # Classical Chan & Buddhist lexicon (31 terms)
 │   │   └── chan_terms.json
-│   └── gongan/             # Gong'an cross-reference catalog (23 cases)
-│       └── gongan_index.json
+│   └── gongan/             # Gong'an cross-reference catalog (24 cases)
+│       ├── gongan_index.json
+│       └── theme_vocabulary.json # Validator-enforced 7-group theme taxonomy
 └── scripts/
     ├── build_data_bundle.py   # Compiles data/ into app_data.js + syncs /docs (deterministic)
     ├── arena_agent_pipeline.py# Prompt templates & entry harness for sandboxed agent work
     ├── segment_classical.py   # Offline Classical Chinese sentence segmenter (manual input)
+    ├── ingest_cbeta.py        # Deprecated compatibility wrapper → segment_classical.py
+    ├── migrate_translations.py# One-time bare-string → {text,status} record migration (reference)
     ├── validate_data.py       # Schema/semantic/rights/locator validator + metrics generator
     ├── smoke_test.mjs         # Dependency-free renderer regression test (CI gate)
     └── browser_test.mjs       # Optional Playwright real-browser suite (desktop + mobile; not in CI)

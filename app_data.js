@@ -2580,18 +2580,24 @@ window.TRANSLATECHAN_DATA = {
         "case_locators": {
           "1": {
             "canonical_locator": "T2003 case 1 · T48n2003 p.0140a13–p.0141b20",
-            "status": "case_level_anchor",
-            "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+            "status": "collated_with_normalization",
+            "note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+            "collation_note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
           },
           "2": {
             "canonical_locator": "T2003 case 2 · T48n2003 p.0141b21–p.0142c04",
-            "status": "case_level_anchor",
-            "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+            "status": "collated_with_normalization",
+            "note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+            "collation_note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
           },
           "3": {
             "canonical_locator": "T2003 case 3 · T48n2003 p.0142c05–p.0143b01",
-            "status": "case_level_anchor",
-            "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+            "status": "collated_with_normalization",
+            "note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+            "collation_note": "本則/pointer previously seeded from CBETA TEI T48n2003; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the truncated Xuedou 頌 was completed to the full canonical verse via CBETA Online; 著語 (Yuanwu interlinear) notes and CBETA footnote-variant markers normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
           },
           "4": {
             "canonical_locator": "T2003 case 4 · T48n2003 p.0143b02–p.0144c18",
@@ -2642,25 +2648,635 @@ window.TRANSLATECHAN_DATA = {
             "collation_note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending.",
             "note": "Chinese collated from CBETA TEI T48n2003 (cbeta-org/xml-p5, rev. 2025-01-30) on 2026-08-08; 著語 (Yuanwu interlinear) notes normalized out of the 本則; human sign-off pending."
           },
+          "11": {
+            "canonical_locator": "T2003 case 11 · T48n2003 p.0151b08–p.0152b04",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+            "collation_note": "Chinese collated against CBETA Online T48n2003 on 2026-08-09 (session 019fe731); 著語 (Yuanwu interlinear) notes normalized out of the 本則 and 頌; post-verse 評唱 (T48n2003 p.0152b05–c13) not yet ingested; human sign-off pending.",
+            "note": "Chinese collated against CBETA Online T48n2003 on 2026-08-09 (session 019fe731); 著語 (Yuanwu interlinear) notes normalized out of the 本則 and 頌; post-verse 評唱 (T48n2003 p.0152b05–c13) not yet ingested; human sign-off pending."
+          },
           "12": {
             "canonical_locator": "T2003 case 12 · T48n2003 p.0152c15–p.0153c15",
-            "status": "case_level_anchor",
-            "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+            "status": "collated_with_normalization",
+            "note": "本則/pointer collated from CBETA TEI T48n2003 (rev. 2025-01-30) on 2026-08-08; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the previously seeded non-canonical verse tail was replaced with the full canonical Xuedou 頌 (T48n2003 p.0153a11–a17) via CBETA Online; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+            "collation_note": "本則/pointer collated from CBETA TEI T48n2003 (rev. 2025-01-30) on 2026-08-08; on 2026-08-09 (session 019fe731) the pre-verse 評唱 was collated and the previously seeded non-canonical verse tail was replaced with the full canonical Xuedou 頌 (T48n2003 p.0153a11–a17) via CBETA Online; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+          },
+          "13": {
+            "canonical_locator": "T2003 case 13 · T48n2003 p.0153c15–p.0154b18",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+            "collation_note": "Chinese collated against CBETA Online T48n2003 on 2026-08-09 (session 019fe731); 著語 (Yuanwu interlinear) notes normalized out of 本則 and 頌; post-verse 評唱 (from T48n2003 p.0154b19) not yet ingested; human sign-off pending.",
+            "note": "Chinese collated against CBETA Online T48n2003 on 2026-08-09 (session 019fe731); 著語 (Yuanwu interlinear) notes normalized out of 本則 and 頌; post-verse 評唱 (from T48n2003 p.0154b19) not yet ingested; human sign-off pending."
           },
           "14": {
             "canonical_locator": "T2003 case 14 · T48n2003 p.0154c03–p.0155a18",
-            "status": "case_level_anchor",
-            "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+            "status": "collated_with_normalization",
+            "note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried the Wumenguan-case-14 (Nanquan's cat) story and a non-canonical verse under this slot — with the canonical Biyanlu case 14 (雲門『對一說』) collated against CBETA Online T48n2003 (本則 p.0154c02–c03, pre-verse 評唱 p.0154c04–c20, 頌 p.0154c21–c26; T prints 韻陽 in the 頌 where the 頌評唱 quotes 韶陽, recorded as printed; 著語 normalized out; no 垂示 exists for this case in T); post-verse 評唱 not yet ingested; human sign-off pending.",
+            "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
+            "collation_note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried the Wumenguan-case-14 (Nanquan's cat) story and a non-canonical verse under this slot — with the canonical Biyanlu case 14 (雲門『對一說』) collated against CBETA Online T48n2003 (本則 p.0154c02–c03, pre-verse 評唱 p.0154c04–c20, 頌 p.0154c21–c26; T prints 韻陽 in the 頌 where the 頌評唱 quotes 韶陽, recorded as printed; 著語 normalized out; no 垂示 exists for this case in T); post-verse 評唱 not yet ingested; human sign-off pending."
+          },
+          "15": {
+            "canonical_locator": "T2003 case 15 · T48n2003 p.0155a18–p.0156a12",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0155a18–a20, 本則 p.0155a21–a23, pre-verse 評唱 p.0155a24–p.0155b20, 頌 p.0155b21–b25; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0155a18–a20, 本則 p.0155a21–a23, pre-verse 評唱 p.0155a24–p.0155b20, 頌 p.0155b21–b25; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+          },
+          "16": {
+            "canonical_locator": "T2003 case 16 · T48n2003 p.0156a13–p.0157a15",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0156a13–a20, 本則 p.0156a21–a24, pre-verse 評唱 p.0156a25–p.0156c04, 頌 p.0156c05–c09; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0156a13–a20, 本則 p.0156a21–a24, pre-verse 評唱 p.0156a25–p.0156c04, 頌 p.0156c05–c09; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+          },
+          "17": {
+            "canonical_locator": "T2003 case 17 · T48n2003 p.0157a16–p.0157c17",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0157a16–a18, 本則 p.0157a19–a20, pre-verse 評唱 p.0157a21–p.0157c04, 頌 p.0157c05–c07; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0157a16–a18, 本則 p.0157a19–a20, pre-verse 評唱 p.0157a21–p.0157c04, 頌 p.0157c05–c07; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+          },
+          "18": {
+            "canonical_locator": "T2003 case 18 · T48n2003 p.0157c18–p.0159a10",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 本則 p.0157c18–c24 (no 垂示 exists for this case in T), with Xuedou 著語云 glosses and Yuanwu inline notes normalized out; pre-verse 評唱 p.0157c25–p.0159a04, 頌 p.0159a05–a08; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 本則 p.0157c18–c24 (no 垂示 exists for this case in T), with Xuedou 著語云 glosses and Yuanwu inline notes normalized out; pre-verse 評唱 p.0157c25–p.0159a04, 頌 p.0159a05–a08; post-verse 評唱 not yet ingested; human sign-off pending."
+          },
+          "19": {
+            "canonical_locator": "T2003 case 19 · T48n2003 p.0159a11–p.0160a14",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0159a11–a15, 本則 p.0159a16, pre-verse 評唱 p.0159a17–p.0160a02, 頌 p.0160a03–a04; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0159a11–a15, 本則 p.0159a16, pre-verse 評唱 p.0159a17–p.0160a02, 頌 p.0160a03–a04; post-verse 評唱 not yet ingested; human sign-off pending."
+          },
+          "20": {
+            "canonical_locator": "T2003 case 20 · T48n2003 p.0160a15–p.0161c17",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0160a15–a19, 本則 p.0160a20–a26, pre-verse 評唱 p.0160a27–p.0161b09, 頌古 p.0161b10–b13 with 別頌 p.0161b26–b29 joined after it; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0160a15–a19, 本則 p.0160a20–a26, pre-verse 評唱 p.0160a27–p.0161b09, 頌古 p.0161b10–b13 with 別頌 p.0161b26–b29 joined after it; post-verse 評唱 not yet ingested; human sign-off pending."
           },
           "21": {
             "canonical_locator": "T2003 case 21 · T48n2003 p.0161c19–p.0162b27",
-            "status": "case_level_anchor",
-            "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+            "status": "collated_with_normalization",
+            "note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried Wumenguan-case-21 (雲門乾屎橛) material and a fabricated verse — with the canonical Biyanlu case 21 (智門蓮花) collated from cbeta-org/xml-p5 T48n2003 (垂示 p.0161c19–c21, 本則 p.0161c21–c24, pre-verse 評唱 p.0161c25–p.0162a17, 頌 p.0162a24–a26); 著語 and CBETA glyph/footnote variants normalized; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried Wumenguan-case-21 (雲門乾屎橛) material and a fabricated verse — with the canonical Biyanlu case 21 (智門蓮花) collated from cbeta-org/xml-p5 T48n2003 (垂示 p.0161c19–c21, 本則 p.0161c21–c24, pre-verse 評唱 p.0161c25–p.0162a17, 頌 p.0162a24–a26); 著語 and CBETA glyph/footnote variants normalized; post-verse 評唱 not yet ingested; human sign-off pending."
+          },
+          "22": {
+            "canonical_locator": "T2003 case 22 · T48n2003 p.0162b28–p.0164a24",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0162b28–c01, 本則 p.0162c02–c10, pre-verse 評唱 through p.0163c02, 頌 from p.0163c03 (including the printed closing shout 師高聲喝云。看脚下); span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0162b28–c01, 本則 p.0162c02–c10, pre-verse 評唱 through p.0163c02, 頌 from p.0163c03 (including the printed closing shout 師高聲喝云。看脚下); span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "23": {
+            "canonical_locator": "T2003 case 23 · T48n2003 p.0164a26–p.0165a01",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0164a26–a29, 本則 from p.0164b (with Xuedou 著語云 glosses normalized out), pre-verse 評唱 through p.0164c20, 頌 (妙峯孤頂草離離) p.0164c21 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0164a26–a29, 本則 from p.0164b (with Xuedou 著語云 glosses normalized out), pre-verse 評唱 through p.0164c20, 頌 (妙峯孤頂草離離) p.0164c21 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "24": {
+            "canonical_locator": "T2003 case 24 · T48n2003 p.0165a02–p.0165c04",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165a02–a05, 本則 p.0165a06–a08, pre-verse 評唱 through p.0165b10, 頌 (曾騎鐵馬入重城) p.0165b11 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165a02–a05, 本則 p.0165a06–a08, pre-verse 評唱 through p.0165b10, 頌 (曾騎鐵馬入重城) p.0165b11 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "25": {
+            "canonical_locator": "T2003 case 25 · T48n2003 p.0165c05–p.0166c26",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165c05–c08, 本則 p.0165c09-c11, pre-verse 評唱 through p.0166b16, 頌 (眼裏塵沙耳裏土) p.0166b17 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0165c05–c08, 本則 p.0165c09-c11, pre-verse 評唱 through p.0166b16, 頌 (眼裏塵沙耳裏土) p.0166b17 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "26": {
+            "canonical_locator": "T2003 case 26 · T48n2003 p.0166c26–p.0167b21",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0166c26–c28, pre-verse 評唱 through p.0167a25, 頌 (祖域交馳天馬駒) p.0167a26 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0166c26–c28, pre-verse 評唱 through p.0167a25, 頌 (祖域交馳天馬駒) p.0167a26 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "27": {
+            "canonical_locator": "T2003 case 27 · T48n2003 p.0167b22–p.0168a27",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0167b22–b24, 本則 p.0167b25–b26, pre-verse 評唱 through p.0167c24, 頌 (問既有宗答亦攸仝) p.0167c25 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0167b22–b24, 本則 p.0167b25–b26, pre-verse 評唱 through p.0167c24, 頌 (問既有宗答亦攸仝) p.0167c25 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "28": {
+            "canonical_locator": "T2003 case 28 · T48n2003 p.0168a27–p.0169a14",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0168a27–b09, pre-verse 評唱 through p.0168c08, 頌 (祖佛從來不為人) p.0168c09 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0168a27–b09, pre-verse 評唱 through p.0168c08, 頌 (祖佛從來不為人) p.0168c09 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "29": {
+            "canonical_locator": "T2003 case 29 · T48n2003 p.0169a15–p.0169c04",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0169a15–a18, 本則 p.0169a19–a21, pre-verse 評唱 through p.0169b23, 頌 (劫火光中立問端) p.0169b24 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0169a15–a18, 本則 p.0169a19–a21, pre-verse 評唱 through p.0169b23, 頌 (劫火光中立問端) p.0169b24 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "30": {
+            "canonical_locator": "T2003 case 30 · T48n2003 p.0169c04–p.0170a20",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0169c04–c05, pre-verse 評唱 through p.0169c27, 頌 (鎮州出大蘿蔔) p.0169c28 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0169c04–c05, pre-verse 評唱 through p.0169c27, 頌 (鎮州出大蘿蔔) p.0169c28 area; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "31": {
+            "canonical_locator": "T2003 case 31 · T48n2003 p.0170a20–p.0171b23",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0170a20; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0170a20; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "32": {
+            "canonical_locator": "T2003 case 32 · T48n2003 p.0171b23–p.0172a11",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0171b23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0171b23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "33": {
+            "canonical_locator": "T2003 case 33 · T48n2003 p.0172a11–p.0172c19",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0172a11; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0172a11; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "34": {
+            "canonical_locator": "T2003 case 34 · T48n2003 p.0172c19–p.0173b25",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0172c19; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0172c19; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "35": {
+            "canonical_locator": "T2003 case 35 · T48n2003 p.0173b25–p.0174b03",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0173b25; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0173b25; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "36": {
+            "canonical_locator": "T2003 case 36 · T48n2003 p.0174b03–p.0175a07",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0174b03; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0174b03; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "37": {
+            "canonical_locator": "T2003 case 37 · T48n2003 p.0175a07–p.0175c05",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "38": {
+            "canonical_locator": "T2003 case 38 · T48n2003 p.0175c05–p.0177b10",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175c05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0175c05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "39": {
+            "canonical_locator": "T2003 case 39 · T48n2003 p.0177b10–p.0177c29",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "40": {
+            "canonical_locator": "T2003 case 40 · T48n2003 p.0177c29–p.0178c16",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0177c29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "41": {
+            "canonical_locator": "T2003 case 41 · T48n2003 p.0178c11–p.0179b10",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0178c11–c15, 本則 p.0178c16–c18, pre-verse 評唱 p.0178c19–p.0179a19, 頌 p.0179a20–a23; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0178c11–c15, 本則 p.0178c16–c18, pre-verse 評唱 p.0178c19–p.0179a19, 頌 p.0179a20–a23; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "42": {
+            "canonical_locator": "T2003 case 42 · T48n2003 p.0179b11–p.0180a12",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0179b15–b23 incl. Xuedou's canonical 別云, pre-verse 評唱 p.0179b24–p.0180a04, 頌 p.0180a05–a08; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 p.0179b15–b23 incl. Xuedou's canonical 別云, pre-verse 評唱 p.0179b24–p.0180a04, 頌 p.0180a05–a08; span covers through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
           },
           "43": {
             "canonical_locator": "T2003 case 43 · T48n2003 p.0180a13–p.0180c21",
-            "status": "case_level_anchor",
-            "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+            "status": "collated_with_normalization",
+            "note": "2026-08-09 (session 019fe731): seed dialogue verified verbatim against cbeta-org/xml-p5 T48n2003; 垂示 (p.0180a13–a16) and pre-verse 評唱 (p.0180a21–p.0180b24) newly collated; verse corrected to the printed 韓獹 (glossed 通作盧 in T's inline note) plus the T's one-character closing 獹。; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "2026-08-09 (session 019fe731): seed dialogue verified verbatim against cbeta-org/xml-p5 T48n2003; 垂示 (p.0180a13–a16) and pre-verse 評唱 (p.0180a21–p.0180b24) newly collated; verse corrected to the printed 韓獹 (glossed 通作盧 in T's inline note) plus the T's one-character closing 獹。; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+          },
+          "44": {
+            "canonical_locator": "T2003 case 44 · T48n2003 p.0180c21–p.0181c13",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0180c21; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0180c21; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "45": {
+            "canonical_locator": "T2003 case 45 · T48n2003 p.0181c13–p.0182b15",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0181c13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0181c13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "46": {
+            "canonical_locator": "T2003 case 46 · T48n2003 p.0182b15–p.0183a13",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0182b15; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0182b15; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "47": {
+            "canonical_locator": "T2003 case 47 · T48n2003 p.0183a13–p.0183c13",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0183a13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0183a13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "48": {
+            "canonical_locator": "T2003 case 48 · T48n2003 p.0183c13–p.0184c07",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0183c13; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0183c13; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "49": {
+            "canonical_locator": "T2003 case 49 · T48n2003 p.0184c07–p.0185b03",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0184c07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0184c07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "50": {
+            "canonical_locator": "T2003 case 50 · T48n2003 p.0185b03–p.0185c28",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0185b03; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0185b03; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "51": {
+            "canonical_locator": "T2003 case 51 · T48n2003 p.0185c22–p.0187a21",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0185c22; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0185c22; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "52": {
+            "canonical_locator": "T2003 case 52 · T48n2003 p.0187a21–p.0187c12",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0187a21; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0187a21; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "53": {
+            "canonical_locator": "T2003 case 53 · T48n2003 p.0187c12–p.0188b16",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0187c12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0187c12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "54": {
+            "canonical_locator": "T2003 case 54 · T48n2003 p.0188b16–p.0188c26",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0188b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0188b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "55": {
+            "canonical_locator": "T2003 case 55 · T48n2003 p.0188c26–p.0190a07",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0188c26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0188c26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "56": {
+            "canonical_locator": "T2003 case 56 · T48n2003 p.0190a07–p.0190c27",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0190a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0190a07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "57": {
+            "canonical_locator": "T2003 case 57 · T48n2003 p.0190c27–p.0191b12",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0190c27; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0190c27; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "58": {
+            "canonical_locator": "T2003 case 58 · T48n2003 p.0191b12–p.0191c14",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0191b12; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0191b12; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "59": {
+            "canonical_locator": "T2003 case 59 · T48n2003 p.0191c14–p.0192b02",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0191c14; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0191c14; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "60": {
+            "canonical_locator": "T2003 case 60 · T48n2003 p.0192b02–p.0193b04",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0192b02; span covers 本則/評唱/頌 through the un-ingested 頌評唱; verse includes the printed closing shout 師驀拈拄杖下座。大眾一時走散曝; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0192b02; span covers 本則/評唱/頌 through the un-ingested 頌評唱; verse includes the printed closing shout 師驀拈拄杖下座。大眾一時走散曝; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "61": {
+            "canonical_locator": "T2003 case 61 · T48n2003 p.0193a29–p.0193c19",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0193a29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0193a29; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "62": {
+            "canonical_locator": "T2003 case 62 · T48n2003 p.0193c19–p.0194c04",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0193c19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0193c19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "63": {
+            "canonical_locator": "T2003 case 63 · T48n2003 p.0194c04–p.0195a14",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0194c04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0194c04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "64": {
+            "canonical_locator": "T2003 case 64 · T48n2003 p.0195a14–p.0195b22",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0195a14; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0195a14; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "65": {
+            "canonical_locator": "T2003 case 65 · T48n2003 p.0195b22–p.0196b18",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0195b22; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0195b22; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "66": {
+            "canonical_locator": "T2003 case 66 · T48n2003 p.0196b18–p.0197a24",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0196b18; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0196b18; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "67": {
+            "canonical_locator": "T2003 case 67 · T48n2003 p.0197a24–p.0197c26",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0197a24; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0197a24; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "68": {
+            "canonical_locator": "T2003 case 68 · T48n2003 p.0197c26–p.0198c07",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0197c26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0197c26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "69": {
+            "canonical_locator": "T2003 case 69 · T48n2003 p.0198c07–p.0199b12",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0198c07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0198c07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "70": {
+            "canonical_locator": "T2003 case 70 · T48n2003 p.0199b12–p.0200a16",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0199b12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0199b12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "71": {
+            "canonical_locator": "T2003 case 71 · T48n2003 p.0200a16–p.0200b13",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0200a16; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0200a16; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "72": {
+            "canonical_locator": "T2003 case 72 · T48n2003 p.0200b13–p.0200c10",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0200b13; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0200b13; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "73": {
+            "canonical_locator": "T2003 case 73 · T48n2003 p.0200c10–p.0201c16",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0200c10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0200c10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "74": {
+            "canonical_locator": "T2003 case 74 · T48n2003 p.0201c16–p.0202b07",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0201c16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0201c16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "75": {
+            "canonical_locator": "T2003 case 75 · T48n2003 p.0202b07–p.0203b16",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0202b07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0202b07; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "76": {
+            "canonical_locator": "T2003 case 76 · T48n2003 p.0203b16–p.0204b05",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0203b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0203b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "77": {
+            "canonical_locator": "T2003 case 77 · T48n2003 p.0204b05–p.0205a02",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0204b05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0204b05; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "78": {
+            "canonical_locator": "T2003 case 78 · T48n2003 p.0205a02–p.0205b26",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0205a02; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0205a02; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "79": {
+            "canonical_locator": "T2003 case 79 · T48n2003 p.0205b26–p.0206b05",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0205b26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0205b26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "80": {
+            "canonical_locator": "T2003 case 80 · T48n2003 p.0206b05–p.0207b11",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0206b05; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0206b05; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "81": {
+            "canonical_locator": "T2003 case 81 · T48n2003 p.0207b08–p.0208a26",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0207b08; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0207b08; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "82": {
+            "canonical_locator": "T2003 case 82 · T48n2003 p.0208a23–p.0208c29",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0208a23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0208a23; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "83": {
+            "canonical_locator": "T2003 case 83 · T48n2003 p.0208c29–p.0209b21",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0208c29; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0208c29; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "84": {
+            "canonical_locator": "T2003 case 84 · T48n2003 p.0209b16–p.0210b19",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0209b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0209b16; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "85": {
+            "canonical_locator": "T2003 case 85 · T48n2003 p.0210b13–p.0211b13",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0210b13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0210b13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "86": {
+            "canonical_locator": "T2003 case 86 · T48n2003 p.0211b10–p.0212a11",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0211b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0211b10; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "87": {
+            "canonical_locator": "T2003 case 87 · T48n2003 p.0212a04–p.0212c08",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0212a04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0212a04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "88": {
+            "canonical_locator": "T2003 case 88 · T48n2003 p.0212c04–p.0213c19",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0212c04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0212c04; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "89": {
+            "canonical_locator": "T2003 case 89 · T48n2003 p.0213c13–p.0214c22",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0213c13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0213c13; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "90": {
+            "canonical_locator": "T2003 case 90 · T48n2003 p.0214c19–p.0215c01",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0214c19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0214c19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "91": {
+            "canonical_locator": "T2003 case 91 · T48n2003 p.0215b26–p.0216b18",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0215b26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0215b26; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "92": {
+            "canonical_locator": "T2003 case 92 · T48n2003 p.0216b14–p.0217a01",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0216b14; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0216b14; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "93": {
+            "canonical_locator": "T2003 case 93 · T48n2003 p.0217a01–p.0217b13",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0217a01; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0217a01; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "94": {
+            "canonical_locator": "T2003 case 94 · T48n2003 p.0217b09–p.0218a23",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0217b09; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0217b09; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "95": {
+            "canonical_locator": "T2003 case 95 · T48n2003 p.0218a19–p.0219a02",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0218a19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0218a19; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "96": {
+            "canonical_locator": "T2003 case 96 · T48n2003 p.0219a02–p.0220a16",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0219a02; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); no 垂示 exists for this case in T; 本則 from p.0219a02; span covers 評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "97": {
+            "canonical_locator": "T2003 case 97 · T48n2003 p.0220a12–p.0221a21",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0220a12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0220a12; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "98": {
+            "canonical_locator": "T2003 case 98 · T48n2003 p.0221a18–p.0222b03",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0221a18; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0221a18; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "99": {
+            "canonical_locator": "T2003 case 99 · T48n2003 p.0222a28–p.0223b21",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0222a28; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 from p.0222a28; span covers 本則/評唱/頌 through the un-ingested 頌評唱; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
+          },
+          "100": {
+            "canonical_locator": "T2003 case 100 · T48n2003 p.0223b17–p.0224b07",
+            "status": "collated_with_normalization",
+            "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+            "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 included; 本則/評唱/頌 complete the text; T's colophon/coda follows after; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending.",
+            "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 included; 本則/評唱/頌 complete the text; T's colophon/coda follows after; 著語 and CBETA glyph/footnote variants normalized out; human sign-off pending."
           }
         },
         "granularity": "case",
@@ -3236,17 +3852,18 @@ window.TRANSLATECHAN_DATA = {
   "project_metrics": {
     "canonical_locator_coverage": {
       "case_level_documents": 3,
-      "case_locators": 64,
-      "declared_cases": 64,
+      "case_locators": 150,
+      "declared_cases": 150,
       "document_level_seed_documents": 33,
       "documents": 36
     },
     "corpus": {
-      "all_corpus_cjk_characters": 23314,
+      "all_corpus_cjk_characters": 92450,
       "complete_documents": [
+        "biyanlu_cases",
         "wumenguan"
       ],
-      "content_cjk_characters": 20017,
+      "content_cjk_characters": 88263,
       "content_shapes": {
         "cases": 3,
         "chapters": 1,
@@ -3257,7 +3874,7 @@ window.TRANSLATECHAN_DATA = {
         "stanzas": 4
       },
       "documents": 36,
-      "excerpt_seed_documents": 35,
+      "excerpt_seed_documents": 34,
       "per_text": {
         "baizhang_guanglu": {
           "all_cjk_chars": 333,
@@ -3284,18 +3901,18 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "biyanlu_cases": {
-          "all_cjk_chars": 7619,
+          "all_cjk_chars": 76755,
           "cbeta_id": "T2003",
-          "content_zh_chars": 7412,
-          "coverage": "14/100 cases",
-          "coverage_note": "14/100 cases — cases 1–10 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08; 著語 inline notes normalized out of 本則; post-verse 評唱 rendering and human sign-off pending); cases 12, 14, 21, 43 remain excerpt seeds.",
-          "declared_zh_chars": 7412,
+          "content_zh_chars": 75658,
+          "coverage": "100/100 cases",
+          "coverage_note": "100/100 cases — the Biyanlu is COMPLETE: all 100 cases carry pointer (where canon present), main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, completed 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–100 building on the 2026-08-08 1–14 seed run) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; T cases with no 垂示 recorded (6/14/18/26/28/30/34/36/42/44/48/52/58/64/67/71/72/78/80/83/93/96 = 22 cases); variants 韻陽/韶陽 (14), 韓獹 (43, 通作盧), 頗 (63) recorded; case 20 joins its two 頌; cases 22/60 keep printed closing shouts; cases 81–100 頌評唱, plus all post-verse 評唱 renderings, and human sign-off remain pending).",
+          "declared_zh_chars": 75658,
           "shapes": [
             "cases"
           ],
           "title": "Blue Cliff Record (碧巖錄)",
           "unit_counts": {
-            "cases": 14
+            "cases": 100
           }
         },
         "bodhidharma_erru": {
@@ -3732,6 +4349,7 @@ window.TRANSLATECHAN_DATA = {
     },
     "measurement_method": {
       "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
+      "complete_documents": "Documents whose every manifest-declared unit target is met by present units (e.g. Wumenguan 48/48, Biyanlu 100/100).",
       "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
       "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, declared coverage_note/zh_chars, and (when the shared manifest declares unit_targets) a machine-checkable 'N/M units' coverage string.",
       "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
@@ -3743,10 +4361,10 @@ window.TRANSLATECHAN_DATA = {
     },
     "schema_version": "1.0",
     "translations": {
-      "corpus_slots": 874,
+      "corpus_slots": 949,
       "corpus_statuses": {
-        "ai_draft": 44,
-        "reconstruction_unverified": 692,
+        "ai_draft": 132,
+        "reconstruction_unverified": 679,
         "verified_quotation": 138
       },
       "matrix_entries": 21,
@@ -4028,16 +4646,16 @@ window.TRANSLATECHAN_DATA = {
       "collection": "Biyanlu (碧巖錄)",
       "case_no": 21,
       "cbeta_id": "T2003",
-      "title_zh": "雲門乾屎橛 (碧巖錄第二十一則)",
-      "title_en": "Yunmen's Dried Shit-Stick",
-      "protagonist": "yunmen_wenyan",
-      "theme": "Shattering All Sanctimonious Conceits",
-      "theme_group": "what_is_buddha",
+      "title_zh": "智門蓮花 (碧巖錄第二十一則)",
+      "title_en": "Zhimên's Lotus: Before and After the Water",
+      "protagonist": "zhimen_kuan",
+      "theme": "Beyond Before-and-After: One Lotus, No Track",
+      "theme_group": "beyond_duality",
       "cross_refs": [
-        "Yunmen Yulu",
-        "Wumenguan Case 21"
+        "Xianglin Chengyuan (香林澄遠) — Zhimên's own realization",
+        "Wumenguan Case 21 (雲門乾屎橛; the earlier seed confused the two cases)"
       ],
-      "summary": "Asked 'What is Buddha?', Yunmen responds directly with 'A dried shit-stick.'"
+      "summary": "Asked how the lotus is before it leaves the water, Zhimên says 'A lotus'; asked about after, he says 'Lotus leaves' — dissolving before-and-after in one exchange."
     },
     {
       "id": "biyan_43",
@@ -4128,6 +4746,22 @@ window.TRANSLATECHAN_DATA = {
         "Zhaozhou Yulu"
       ],
       "summary": "Asked what Zhaozhou is, Zhaozhou answers with the four gates of the city — the master is not a concept but a living place."
+    },
+    {
+      "id": "biyan_11",
+      "collection": "Biyanlu (碧巖錄)",
+      "case_no": 11,
+      "cbeta_id": "T2003",
+      "title_zh": "黃檗酒糟 (碧巖錄第十一則)",
+      "title_en": "Huangbo's Wine-Lees Guzzlers",
+      "protagonist": "huangbo",
+      "theme": "Transmission & Direct Pointing: 'No Chan, Only No Teachers' (不道無禪，只是無師)",
+      "theme_group": "direct_pointing",
+      "cross_refs": [
+        "Huangbo Chuanxin Fayao (T2012A)",
+        "Linji Yulu (T1985) — Linji's three questions under Huangbo & Dayu awakening"
+      ],
+      "summary": "Huangbo scolds the assembly as wine-lees guzzlers and declares that Tang China has no Chan teachers; pressed by a monk, he answers 'I do not say there is no Chan — only no teachers,' the same judgment hidden in his driving Linji to Dayu, where Linji awakens ('Huangbo's teaching holds nothing more')."
     }
   ],
   "gongan_theme_vocab": {
@@ -8393,8 +9027,9 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ],
-          "verse_zh": "聖諦廓然，何當辨的。對朕者誰，還云不識。因茲暗渡江，豈免生荊棘。",
-          "verse_en": "The holy truths are vast and clear, / How could anyone distinguish them? / 'Who is facing me?' / Once more he says, 'I do not know.' / Because of this he secretly crossed the river— / How could he avoid sprouting thorns and brambles?"
+          "verse_zh": "聖諦廓然，何當辨的。對朕者誰，還云不識。因茲暗渡江，豈免生荊棘。闔國人追不再來，千古萬古空相憶。休相憶，清風匝地有何極。",
+          "verse_en": "The holy truth: vast emptiness — how can it be discerned? / 'Facing me, who?' — and again, 'I do not know.' / Because of this, a secret crossing of the river — how could thorns be avoided? / The whole kingdom pursued him, but he never came back; / for a thousand, ten thousand ages, all remember him in vain. / Cease remembering — the pure wind over all the earth has no end.",
+          "commentary_zh": "達磨遙觀此土有大乘根器。遂泛海得得而來。單傳心印。開示迷塗。不立文字。直指人心。見性成佛。若恁麼見得。便有自由分。不隨一切語言轉。脫體現成。便能於後頭。與武帝對譚。并二祖安心處。自然見得。無計較情塵。一刀截斷。洒洒落落。何必更分是分非。辨得辨失。雖然恁麼。能有幾人。武帝甞披袈裟。自講放光般若經。感得天花亂墜地變黃金。辨道奉佛。誥詔天下。起寺度僧。依教修行。人謂之佛心天子。達磨初見武帝。帝問。朕起寺度僧。有何功德。磨云。無功德。早是惡水驀頭澆。若透得這箇無功德話。許爾親見達磨。且道。起寺度僧。為什麼都無功德。此意在什麼處。帝與婁約法師傅大士昭明太子。持論真俗二諦。據教中說。真諦以明非有。俗諦以明非無。真俗不二。即是聖諦第一義。此是教家極妙窮玄處。帝便拈此極則處。問達磨。如何是聖諦第一義。磨云。廓然無聖。天下衲僧跳不出。達磨與他一刀截斷。如今人多少錯會。却去弄精魂。瞠眼睛云。廓然無聖。且喜沒交涉。五祖先師甞說。只這廓然無聖。若人透得。歸家穩坐。一等是打葛藤。不妨與他打破漆桶。達磨就中奇特。所以道。參得一句透。千句萬句一時透。自然坐得斷把得定。古人道。粉骨碎身未足酬。一句了然超百億。達磨劈頭與他一拶。多少漏逗了也。帝不省。却以人我見故。再問對朕者誰。達磨慈悲忒殺。又向道不識。直得武帝眼目定動不知落處。是何言說。到這裏有事無事。拈來即不堪。端和尚有頌云。一箭尋常落一鵰。更加一箭已相饒。直歸少室峯前坐。梁主休言更去招。復云。誰欲招。帝不契。遂潛出國。這老漢只得懡㦬。渡江至魏。時魏孝明帝當位。乃此北人種族姓拓跋氏。後來方名中國。達磨至彼。亦不出見。直過少林。面壁九年。接得二祖。彼方號為壁觀婆羅門。梁武帝後問志公。公云。陛下還識此人否。帝曰。不識。且道與達磨道底。是同是別。似則也似。是則不是。人多錯會道。前來達磨是答他禪。後來武帝是對他志公。乃相識之識。且得沒交涉。當時志公恁麼問。且道作麼生祇對。何不一棒打殺。免見搽胡。武帝却供他欵道不識。志公見機而作。便云。此是觀音大士。傳佛心印。帝悔遂遣使去取。好不唧𠺕。當時等他道此是觀音大士傳佛心印。亦好擯他出國。猶較些子。人傳。志公天鑒十三年化去。達磨普通元年方來。自隔七年。何故却道同時相見。此必是謬傳。據傳中所載。如今不論這事。只要知他大綱。且道達磨是觀音。志公是觀音。阿那箇是端的底觀音。既是觀音。為什麼却有兩箇。何止兩箇。成群作隊。時後魏光統律師。菩提流支三藏。與師論議。師斥相指心。而褊局之量。自不堪任。競起害心。數加毒藥。至第六度。化緣已畢。傳法得人。遂不復救。端居而逝。葬於熊耳山定林寺。後魏宋雲奉使。於葱嶺遇師手携隻履而往。武帝追憶。自撰碑文云。嗟夫。見之不見。逢之不逢。遇之不遇。今之古之。怨之恨之。復讚云。心有也。曠劫而滯凡夫。心無也。剎那而登妙覺。且道。達磨即今在什麼處。蹉過也不知。"
         },
         {
           "case_num": 2,
@@ -8443,8 +9078,9 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ],
-          "verse_zh": "至道無難，言端語端。一有多種，二無兩般。天際日上月下，檻前山深水寒。",
-          "verse_en": "The Great Way is not difficult, / Words and speech are straight to the point. / In the One there are many forms; / In the Two there is no duality. / On the horizon the sun rises and moon sets; / Outside the railing, mountains are deep and waters cold."
+          "verse_zh": "至道無難，言端語端。一有多種，二無兩般。天際日上月下，檻前山深水寒。髑髏識盡喜何立？枯木龍吟銷未乾。難！難！揀擇明白君自看。",
+          "verse_en": "The highest way is not hard — words genuine, phrases genuine. / One has many kinds, yet two is never twofold. / At sky's edge the sun rises, the moon sets; / before the railing the mountains are deep, the waters cold. / When a skull's consciousness is spent, what joy can stand? / A dragon's song in dead wood — the thaw not yet dry. / Hard! Hard! Choosing, clarity — see for yourself.",
+          "commentary_zh": "趙州和尚。尋常舉此話頭。只是唯嫌揀擇。此是三祖信心銘云。至道無難。唯嫌揀擇。但莫憎愛。洞然明白。纔有是非。是揀擇。是明白。纔恁麼會。蹉過了也。鉸釘膠粘。堪作何用。州云。是揀擇。是明白。如今參禪問道。不在揀擇中。便坐在明白裏。老僧不在明白裏。汝等還護惜也無。汝諸人既不在明白裏。且道。趙州在什麼處。為什麼却教人護惜。五祖先師當說道。垂手來似過爾。爾作麼生會。且道。作麼生是垂手處。識取鉤頭意。莫認定盤星。這僧出來。也不妨奇特。捉趙州空處。便去拶他。既不在明白裏。護惜箇什麼。趙州更不行棒行喝。只道。我亦不知。若不是這老漢。被他拶著。往往忘前失後。賴是這老漢。有轉身自在處。所以如此答他。如今禪和子。問著也道。我亦不知不會。爭奈同途不同轍。這僧有奇特處。方始會問。和尚既不知。為什麼却道不在明白裏。更好一拶。若是別人。往往分疏不下。趙州是作家。只向他道。問事即得。禮拜了退。這僧依舊無奈這老漢何。只得飲氣吞聲。此是大手宗師。不與爾論玄論妙。論機論境。一向以本分事接人。所以道。相罵饒爾接嘴。相唾饒爾潑水。殊不知。這老漢平生不以棒喝接人。只以平常言語。只是天下人不奈何。蓋為他平生無許多計較。所以橫拈倒用。逆行順行。得大自在。如今人不理會得。只管道。趙州不答話。不為人說。殊不知。當面蹉過。"
         },
         {
           "case_num": 3,
@@ -8497,8 +9133,9 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ],
-          "verse_zh": "日面佛，月面佛。五帝三皇是何物？二十年來曾苦辛，為君幾下蒼龍窟。",
-          "verse_en": "Sun-Face Buddha, Moon-Face Buddha! / What kind of things are the Three Emperors and Five Sovereigns? / For twenty years I struggled with hardship, / Entering the cave of the dark dragon for your sake!"
+          "verse_zh": "日面佛，月面佛。五帝三皇是何物？二十年來曾苦辛，為君幾下蒼龍窟。屈！堪述。明眼衲僧莫輕忽。",
+          "verse_en": "Sun-faced Buddha, moon-faced Buddha. / The five emperors and three august kings — what are they? / Twenty years of toil and bitterness, / for you I plunged into the black dragon's cave. / Thwarted — worth telling: / clear-eyed monks, do not take it lightly.",
+          "commentary_zh": "馬大師不安。院主問。和尚近日尊候如何。大師云日面佛月面佛。祖師若不以本分事相見。如何得此道光輝。此箇公案。若知落處便獨步丹霄。若不知落處。往往枯木巖前差路去在。若是本分人到這裏。須是有驅耕夫之牛。奪飢人之食底手脚。方見馬大師為人處。如今多有人道。馬大師接院主。且喜沒交涉。如今眾中多錯會瞠眼云。在這裏。左眼是日面。右眼是月面。有什麼交涉。驢年未夢見在。只管蹉過古人事。只如馬大師如此道。意在什麼處。有底云。點平胃散一盞來。有什麼巴鼻。到這裏。作麼生得平穩去。所以道。向上一路千聖不傳。學者勞形如猿捉影。只這日面佛月面佛。極是難見。雪竇到此。亦是難頌。却為他見得透。用盡平生工夫。指注他。諸人要見雪竇麼。看取下文。"
         },
         {
           "case_num": 4,
@@ -8793,6 +9430,30 @@ window.TRANSLATECHAN_DATA = {
           "verse_en": "Two shouts, then three— / the adept knows the change of the moment. / If you say, 'Riding the tiger's head'— / both become blind men. / Who is blind? / Take it out and show it to all under heaven."
         },
         {
+          "case_num": 11,
+          "title_zh": "黃檗酒糟",
+          "title_pinyin": "Huángbò Jiǔzāo",
+          "title_en": "Huangbo's Wine-Lees Guzzlers",
+          "pointer_zh": "垂示云。佛祖大機。全歸掌握。人天命脈。悉受指呼。等閑一句一言。驚群動眾。一機一境。打鎖敲枷。接向上機。提向上事。且道什麼人曾恁麼來。還有知落處麼。試舉看。",
+          "pointer_en": "Pointer: The great capacity of buddhas and patriarchs rests wholly in one's grasp; the very life-pulse of humans and devas receives its direction. An offhand word or phrase startles the flock and stirs the crowd; every device and every circumstance knocks open locks and breaks off cangues. I take up the higher mechanism and raise the ultimate affair. Tell me: who has ever come like this? Do any of you know where it comes to rest? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "黃檗與僧 / Huangbo and the monk",
+              "zh": "黃檗示眾云：「汝等諸人，盡是噇酒糟漢。恁麼行脚，何處有今日？還知大唐國裏無禪師麼？」時有僧出云：「只如諸方匡徒領眾，又作麼生？」檗云：「不道無禪，只是無師。」",
+              "pinyin": "Huángbò shìzhòng yún：「 Rǔ děng zhūrén， jìn shì chuáng jiǔzāo hàn。 Nènme xíngjiǎo， hé chù yǒu jīnrì？ Hái zhī dà Táng guó lǐ wú chánshī me？」 Shí yǒu sēng chū yún：「 Zhǐrú zhūfāng kuāngtú lǐngzhòng， yòu zuòmòsheng？」 Bò yún：「 bù dào wú chán， zhǐ shì wú shī。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Huangbo addressed the assembly: 'You people—all of you are wine-lees guzzlers. Wandering on pilgrimage like this, where will you ever find today? Do you know that in the whole land of Tang China there is no Chan teacher?' At that a monk came forward and said: 'But what about those in every quarter who train disciples and lead assemblies—what are they?' Huangbo said: 'I do not say there is no Chan—only that there are no teachers.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "黃檗身長七尺。額有圓珠。天性會禪。師昔遊天台。路逢一僧。與之談笑。如故相識。熟視之目光射人。頗有異相。乃偕行。屬溪水暴漲。乃植杖捐笠而止。其僧率師同渡。師曰。請渡。彼即褰衣。躡波如履平地。回顧云渡來渡來。師咄云。這自了漢。吾早知揑怪。當斫汝脛。其僧歎曰。真大乘法器。言訖不見。初到百丈。丈問云。巍巍堂堂。從什麼處來。檗云。巍巍堂堂從嶺中來。丈云。來為何事。檗云。不為別事。百丈深器之。次日辭百丈。丈云。什麼處去。檗云。江西禮拜馬大師去。丈云。馬大師已遷化去也。儞道黃檗恁麼問。是知來問。是不知來問。却云。某甲特地去禮拜。福緣淺薄。不及一見。未審平日有何言句。願聞舉示。丈遂舉再參馬祖因緣。祖見我來。便竪起拂子。我問云。即此用。離此用。祖遂掛拂子於禪床角良久。祖却問我。汝已後鼓兩片皮。如何為人。我取拂子竪起。祖云。即此用。離此用。我將拂子。掛禪床角。祖振威一喝。我當時直得三日耳聾。黃檗不覺悚然吐舌。丈云。子已後莫承嗣馬大師麼。檗云。不然。今日因師舉。得見馬大師大機大用。若承嗣馬師。他日已後喪我兒孫。丈云。如是如是。見與師齊。減師半德。智過於師。方堪傳授。子今見處宛有超師之作。諸人且道。黃檗恁麼問。是知而故問耶。是不知而問耶。須是親見他家父子行履處始得。黃檗一日又問百丈。從上宗乘。如何指示。百丈良久。檗云。不可教後人斷絕去。百丈云。將謂汝是箇人。遂乃起入方丈。檗與裴相國為方外友。裴鎮宛陵請師至郡。以所解一編。示師。師接置於座。略不披閱。良久乃云。會麼。裴云。不會。檗云。若便恁麼會得。猶較些子。若也形於紙墨。何處更有吾宗。裴乃以頌贊云。自從大士傳心印。額有圓珠七尺身。掛錫十年棲蜀水。浮盃今日渡漳濱。八千龍象隨高步。萬里香花結勝因。擬欲事師為弟子。不知將法付何人。師亦無喜色云。心如大海無邊際。口吐紅蓮養病身。自有一雙無事手。不曾祇揖等閑人。檗住後。機鋒峭峻。臨濟在會下。睦州為首座。問云。上座在此多時。何不去問話。濟云。教某甲問什麼話即得。座云。何不去問如何是佛法的的大意。濟便去問。三度被打出。濟辭座曰。蒙首座令三番去問。被打出。恐因緣不在這裏。暫且下山。座云。子若去須辭和尚去方可。首座預去白檗云。問話上座。甚不可得。和尚何不穿鑿教成一株樹去。與後人為陰涼。檗云。吾已知。濟來辭。檗云。汝不得向別處去。直向高安灘頭。見大愚去。濟到大愚。遂舉前話。不知某甲過在什麼處。愚云。檗與麼老婆心切。為儞徹困。更說什麼有過無過。濟忽然大悟云。黃檗佛法無多子。大愚搊住云。儞適來又道有過。而今却道佛法無多子。濟於大愚脇下築三拳。愚拓開云。汝師黃檗非干我事。一日檗示眾云。牛頭融大師。橫說竪說。猶未知向上關捩子在。是時石頭馬祖下。禪和子浩浩地。說禪說道。他何故却與麼道。所以示眾云。汝等諸人盡是噇酒糟漢。恁麼行脚。取笑於人。但見八百一千人處便去。不可只圖熱鬧也。可中總似汝如此容易。何處更有今日事也。唐時愛罵人。作噇酒糟漢。人多喚作黃檗罵人。具眼者自見他落處。大意垂一鉤。釣人問。眾中有不惜身命底禪和。便解恁麼出眾問他道。只如諸方匡徒領眾。又作麼生。也好一拶。這老漢果然分疎不下。便却漏逗云。不道無禪。只是無師。且道意在什麼處。他從上宗旨。有時擒。有時縱。有時殺。有時活。有時放。有時收。敢問諸人。作麼生是禪中師。山僧恁麼道。已是和頭沒却了也。諸人鼻孔在什麼處。良久云。穿却了也。",
+          "verse_zh": "凜凜孤風不自誇端居寰海定龍蛇大中天子曾輕觸三度親遭弄爪牙",
+          "verse_en": "Aloft, a lone wind that never sings its own praise, / calmly poised over the four seas, settling dragons from snakes. / The Dazhong emperor once brashly brushed against it— / three times in person he met its claws and fangs at play."
+        },
+        {
           "case_num": 12,
           "title_zh": "洞山麻三斤",
           "title_pinyin": "Dòngshān Má Sān Jīn",
@@ -8843,120 +9504,721 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ],
-          "verse_zh": "金烏急，玉兔速，善巧相酬還審細。展拓為白浪滔天，卷縮為一毫端息。",
-          "verse_en": "The Golden Crow rushes, the Jade Rabbit speeds; / Skillful responses require rigorous precision! / Expanded, it is white waves engulfing the heavens; / Contracted, it rests on the tip of a single hair!"
+          "verse_zh": "金烏急，玉兔速。善應何曾有輕觸。展事投機見洞山。跛鱉盲龜入空谷。花簇簇，錦簇簇。南地竹兮北地木。因思長慶陸大夫，解道合笑不合哭。咦！",
+          "verse_en": "The golden crow hastens, the jade rabbit speeds. / Skillful response never made light contact. / Unfolding the matter and matching the moment — see Dongshan; / a lame turtle, a blind tortoise entering the empty valley. / Blossoms clustering, brocade clustering — / southern bamboo, northern trees. / Then I think of Governor Lu of Changqing, / who understood that one should laugh, not weep. / Hai!",
+          "commentary_zh": "這箇公案。多少人錯會。直是難咬嚼。無爾下口處。何故淡而無味。古人有多少答佛話。或云。殿裏底。或云。三十二相。或云。杖林山下竹筋鞭。及至洞山。却道麻三斤。不妨截斷古人舌頭。人多作話會道。洞山是時在庫下。秤麻。有僧問。所以如此答。有底道。洞山問東答西。有底道。爾是佛。更去問佛。所以洞山遶路答之。死漢更有一般道。只這麻三斤便是佛。且得沒交涉。爾若恁麼去洞山句下尋討。參到彌勒佛下生。也未夢見在。何故言語只是載道之器。殊不知古人意。只管去句中求。有什麼巴鼻。不見古人道。道本無言。因言顯道。見道即忘言。若到這裏。還我第一機來始得。只這麻三斤。一似長安大路一條相似。舉足下足。無有不是。這箇話。與雲門餬餅話。是一般。不妨難會。五祖先師頌云。賤賣擔板漢。貼秤麻三斤。千百年滯貨。無處著渾身。爾但打疊得情塵意想。計較得失是非。一時淨盡自然會去。"
+        },
+        {
+          "case_num": 13,
+          "title_zh": "巴陵銀椀",
+          "title_pinyin": "Bālíng Yínwǎn",
+          "title_en": "Baling's Silver Bowl of Snow",
+          "pointer_zh": "垂示云。雲凝大野。遍界不藏。雪覆蘆花。難分朕迹。冷處冷如氷雪。細處細如米末。深深處佛眼難窺。密密處魔外莫測。舉一明三即且止。坐斷天下人舌頭。作麼生道。且道是什麼人分上事。試舉看。",
+          "pointer_en": "Pointer: Clouds mass over the great plain — nothing in the world is hidden. Snow covers the reeds — tracks can hardly be told apart. Where it is cold, cold as ice and snow; where it is fine, fine as grains of rice. In its depths the Buddha-eye cannot pierce; in its density maras and outsiders cannot measure. Raising one to illuminate three — let that rest. To cut off the tongues of everyone under heaven — what would you say? Tell me: whose business is this? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "巴陵與僧 / Baling and the monk",
+              "zh": "僧問巴陵：「如何是提婆宗？」巴陵云：「銀椀裏盛雪。」",
+              "pinyin": "Sēng wèn Bālíng：「 Rúhé shì Típó zōng？」 Bālíng yún：「 Yínwǎn lǐ chéng xuě。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Baling, 'What is the Kanadeva school?' Baling said, 'Snow held in a silver bowl.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "這箇公案。人多錯會道。此是外道宗。有什麼交涉。第十五祖。提婆尊者。亦是外道中一數。因見第十四祖。龍樹尊者。以針投鉢。龍樹深器之。傳佛心宗。繼為第十五祖。楞伽經云。佛語心為宗。無門為法門。馬祖云。凡有言句。是提婆宗。只以此箇為主。諸人盡是衲僧門下客。還曾體究得提婆宗麼。若體究得。西天九十六種外道。被汝一時降伏。若體究不得。未免著返披袈裟去在。且道是作麼生。若道言句是。也沒交涉。若道言句不是。也沒交涉。且道馬大師意在什麼處。後來雲門道。馬大師好言語。只是無人問。有僧便問。如何是提婆宗。門云。九十六種。汝是最下一種。昔有僧辭大隋。隋云。什麼處去。僧云。禮拜普賢去。大隋竪起拂子云。文殊普賢盡在這裏。僧畫一圓相以手托呈師。又拋向背後。隋云。侍者將一貼茶來。與這僧去。雲門別云。西天斬頭截臂。這裏自領出去。又云。赤旛在我手裏。西天論議勝者手執赤旛。負墮者返披袈裟。從偏門出入。西天欲論議。須得奉王勅。於大寺中。聲鐘擊鼓。然後論議。於是外道於僧寺中。封禁鐘鼓。為之沙汰。時迦那提婆尊者。知佛法有難。遂運神通。登樓撞鐘。欲擯外道。外道遂問。樓上聲鍾者誰。提婆云。天。外道云。天是誰。婆云。我。外道云。我是誰。婆云。我是爾。外道云。爾是誰。婆云。爾是狗。外道云。狗是誰。婆云。狗是爾。如是七返。外道自知負墮。伏義遂自開門。提婆於是從樓上持赤旛下來。外道云。汝何不後。婆云。汝何不前。外道云。汝是賤人。婆云。汝是良人。如是展轉酬問。提婆折以無礙之辯。由是歸伏。時提婆尊者。手持赤旛。義墮者旛下立。外道皆斬首謝過。時提婆止之。但化令削髮入道。於是提婆宗大興。雪竇後用此事而頌之。巴陵眾中謂之鑒多口。常縫坐具行脚。深得他雲門脚跟下大事。所以奇特。後出世法嗣雲門。先住岳州巴陵。更不作法嗣書。只將三轉語上雲門。如何是道。明眼人落井。如何是吹毛劍。珊瑚枝枝撐著月。如何是提婆宗。銀椀裏盛雪。雲門云。他日老僧忌辰只舉此三轉語。報恩足矣。自後果不作忌辰齋。依雲門之囑。只舉此三轉語。然諸方答此話。多就事上答。唯有巴陵恁麼道。極是孤峻。不妨難會。亦不露些子鋒鋩。八面受敵。著著有出身之路。有陷虎之機。脫人情見。若論一色邊事。到這裏須是自家透脫了。却須是遇人始得。所以道。道吾舞笏同人會。石鞏彎弓作者諳。此理若無師印授。擬將何法語玄談。雪竇隨後拈提為人。所以頌出。",
+          "verse_zh": "老新開端的別解道銀椀裏盛雪九十六箇應自知不知却問天邊月提婆宗提婆宗赤旛之下起清風",
+          "verse_en": "Old Xinkai's verdict stands apart: / snow held in a silver bowl — / the ninety-six kinds should know it in themselves; / if you do not know, go ask the moon at heaven's edge. / The Kanadeva school! The Kanadeva school! / Beneath the red banner rises a clear wind."
         },
         {
           "case_num": 14,
-          "title_zh": "南泉斬貓",
-          "title_pinyin": "Nánquán Zhǎn Māo",
-          "title_en": "Nanquan Cuts the Cat in Two",
-          "pointer_zh": "垂示云：空劫已前，別無名相。擬向即差，提撕不及。",
-          "pointer_en": "Pointer: Before the empty aeon, there were no names or forms. To deliberate is to err; to hesitate is to miss it completely.",
+          "title_zh": "雲門對一說",
+          "title_pinyin": "Yúnmén Duì Yī Shuō",
+          "title_en": "Yunmen's 'Facing the One'",
           "dialogue": [
             {
-              "speaker": "Narrative / 本事",
-              "zh": "南泉因東西兩堂爭貓兒。泉見，遂提起云：「道得即救，道不得即斬卻。」",
-              "pinyin": "Nánquán yīn dōng xī liǎng táng zhēng māo'er. Quán jiàn, suì tíqǐ yún: 'Dào dé jí jiù, dào bù dé jí zhǎn què.'",
+              "speaker": "雲門與僧 / Yunmen and the monk",
+              "zh": "僧問雲門：「如何是一代時教？」雲門云：「對一說。」",
+              "pinyin": "Sēng wèn Yúnmén：「 Rúhé shì yīdài shíjiào？」 Yúnmén yún：「 Duì yī shuō。」",
               "translations": {
-                "red_pine": {
-                  "text": "The monks of the Eastern and Western halls were arguing over a cat. Seeing this, Nanquan held up the cat and said: 'If any of you can speak a word, you save it; if not, I will cut it in two.'",
-                  "status": "reconstruction_unverified"
-                },
-                "cleary": {
-                  "text": "Nanquan, because the Eastern and Western halls were fighting over a cat, held it up and said, 'If you can speak, you save it; if not, I will cut it in two.'",
-                  "status": "reconstruction_unverified"
-                },
-                "sasaki": {
-                  "text": "The Eastern and Western halls were arguing over a cat. Nansen held it up, saying: 'If you can speak, I will spare it; if not, I will cut it in two.'",
-                  "status": "reconstruction_unverified"
-                }
-              }
-            },
-            {
-              "speaker": "Narrative / 本事",
-              "zh": "眾無對。泉遂斬之。晚，趙州外歸，泉舉前話示之。州遂脫草鞋安頭上出。泉云：「子若在，恰救得貓兒。」",
-              "pinyin": "Zhòng wú duì. Quán suì zhǎn zhī. Wǎn, Zhàozhōu wài guī, Quán jǔ qián huà shì zhī. Zhōu suì tuō cǎoxié ān tóu shàng chū. Quán yún: 'Zǐ ruò zài, qià jiù dé māo'er.'",
-              "translations": {
-                "red_pine": {
-                  "text": "The assembly had no answer. Nanquan slashed the cat in two. In the evening Zhaozhou returned; Nanquan told him what had happened. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
-                  "status": "reconstruction_unverified"
-                },
-                "cleary": {
-                  "text": "The crowd had no reply. Nanquan then cut it in two. In the evening Zhaozhou returned from outside; Nanquan told him the story. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said, 'If you had been here, you would have saved the cat.'",
-                  "status": "reconstruction_unverified"
-                },
-                "sasaki": {
-                  "text": "The monks made no answer. Nansen cut the cat in two. That evening Jōshū returned. Nansen told him. Jōshū took off his straw sandals, placed them on his head, and walked out. Nansen said: 'Had you been here, you would have saved the cat.'",
-                  "status": "reconstruction_unverified"
+                "ai_literal": {
+                  "text": "A monk asked Yunmen, 'What is the teaching of an entire era?' Yunmen said, 'Facing the One.'",
+                  "status": "ai_draft"
                 }
               }
             }
           ],
-          "verse_zh": "兩堂俱是杜撰漢，拈得貓兒成兩段。趙州頂戴草鞋行，直下令人骨毛寒。",
-          "verse_en": "Both halls were full of clumsy bunglers! / He picked up the cat and made two pieces of it. / Zhaozhou wearing straw sandals upon his head: / Directly making the hair and bones of monks turn ice cold!"
+          "commentary_zh": "禪家流。欲知佛性義。當觀時節因緣。謂之教外別傳。單傳心印。直指人心。見性成佛。釋迦老子。四十九年住世。三百六十會。開談頓漸權實。謂之一代時教。這僧拈來問云。如何是一代時教。雲門何不與他紛紛解說。却向他道箇對一說。雲門尋常一句中。須具三句。謂之函蓋乾坤句。隨波逐浪句。截斷眾流句。放去收來。自然奇特。如斬釘截鐵。教人義解卜度他底不得。一大藏教。只消三箇字。四方八面。無爾穿鑿處。人多錯會。却道對一時機宜之事。故說。又道森羅及萬象。皆是一法之所印。謂之對一說。更有道。只是說那箇一法。有什麼交涉。非唯不會。更入地獄如箭。殊不知。古人意不如此。所以道。粉骨碎身未足酬。一句了然超百億。不妨奇特。如何是一代時教。只消道箇對一說。若當頭薦得。便可歸家穩坐。若薦不得。且伏聽處分。",
+          "verse_zh": "對一說太孤絕無孔鐵鎚重下楔閻浮樹下笑呵呵昨夜驪龍拗角折別別韻陽老人得一橛",
+          "verse_en": "'Facing the One' — utter, solitary pinnacle, / a holeless iron hammer driving in another wedge. / Under the Jambu tree, laughing ho-ho — / last night the black dragon's horn snapped off. / Apart! Apart! The old man of Yunyang won one stud."
+        },
+        {
+          "case_num": 15,
+          "title_zh": "雲門倒一說",
+          "title_pinyin": "Yúnmén Dào Yī Shuō",
+          "title_en": "Yunmen's 'Reversed Teaching'",
+          "pointer_zh": "垂示云。殺人刀活人劍。乃上古之風規。是今時之樞要。且道。如今那箇是。殺人刀活人劍。試舉看。",
+          "pointer_en": "Pointer: The sword that kills, the sword that brings to life — these are the working pivots of antiquity and of this very hour. Tell me: right now, which is the killing sword and which the life-giving sword? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "雲門與僧 / Yunmen and the monk",
+              "zh": "僧問雲門：「不是目前機，亦非目前事時如何？」雲門云：「倒一說。」",
+              "pinyin": "Sēng wèn Yúnmén：「 Bù shì mùqián jī， yì fēi mùqián shì， shí rúhé？」 Yúnmén yún：「 Dào yī shuō。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Yunmen, 'When it is not the matter of the moment, nor the affair of the moment—what then?' Yunmen said, 'A reversed teaching.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "這僧不妨是箇作家。解恁麼問。頭邊謂之請益。此是呈解問。亦謂之藏鋒問。若不是雲門。也不奈他何。雲門有這般手脚。他既將問來。不得已而應之。何故作家宗師。如明鏡臨臺。胡來胡現漢來漢現。古人道。欲得親切。莫將問來問。何故。問在答處。答在問處。從上諸聖。何曾有一法與人。那裏有禪道與爾來。爾若不造地獄業。自然不招地獄果。爾若不造天堂因。自然不受天堂果。一切業緣。皆是自作自受。古人分明向爾道。若論此事。不在言句上。若在言句上。三乘十二分教。豈是無言句。更何用祖師西來。前頭道對一說。這裏却道倒一說。只爭一字。為什麼却有千差萬別。且道。聱訛在什麼處。所以道。法隨法行。法幢隨處建立。不是目前機。亦非目前事時如何。只消當頭一點。若是具眼漢。一點也謾他不得問處既聱訛。答處須得恁麼。其實雲門騎賊馬趕賊。有者錯會道。本是主家話。却是賓家道。所以雲門云倒一說。有什麼死急。這僧問得好。不是目前機。亦非目前事時如何。雲門何不答他別語言。却只向他道倒一說。雲門一時打破他底。到這裏道倒一說。也是好肉上剜瘡。何故。言迹之興白雲萬里。異途之所由生也。設使一時無言無句露柱燈籠。何曾有言句。還會麼。若不會到這裏也須是轉動始知落處。",
+          "verse_zh": "倒一說分一節同死同生為君訣八萬四千非鳳毛三十三人入虎穴別別擾擾怱怱水裏月",
+          "verse_en": "A reversed teaching, apportioned part by part; / dying the same death, living the same life, take my word. / Eighty-four thousand — none a phoenix-feather heir; / thirty-three entered the tiger's den. / Apart, apart! Flurried, frantic — the moon in the water."
+        },
+        {
+          "case_num": 16,
+          "title_zh": "鏡清啐啄",
+          "title_pinyin": "Jìngqīng Cuìzhuó",
+          "title_en": "Jingqing: The Chick and the Hen, Pecking in Tandem",
+          "pointer_zh": "垂示云。道無橫徑。立者孤危。法非見聞。言思逈絕。若能透過荊棘林。解開佛祖縛。得箇穩密田地。諸天捧花無路。外道潛窺無門。終日行而未甞行。終日說而未甞說。便可以自由自在。展啐啄之機。用殺活之劍。直饒恁麼更須知有建化門中一手擡一手搦。猶較些子。若是本分事上。且得沒交涉。作麼生是本分事。試舉看。",
+          "pointer_en": "Pointer: The way has no side paths; to stand is to be alone and perilous. The teaching is beyond seeing and hearing; thought and words are a world apart. If you can pierce the thicket of thorns and undo the bonds of buddha and patriarch, you win a firm, secret ground — where devas find no road to offer flowers and maras find no crack to peer through. Then you may walk all day without walking, speak all day without speaking, freely at ease, wielding the chick-peck and the hen-peck, the sword of death and the sword of life. Even so, you must still know there is one hand raised and one pressed down in the gate of instruction — that comes somewhat closer. On the fundamental matter, it does not touch at all. What is the fundamental matter? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "鏡清與僧 / Jingqing and the monk",
+              "zh": "僧問鏡清：「學人啐，請師啄。」清云：「還得活也無？」僧云：「若不活，遭人怪笑。」清云：「也是草裏漢。」",
+              "pinyin": "Sēng wèn Jìngqīng：「 Xuérén cuì， qǐng shī zhuó。」 Qīng yún：「 Hái dé huó yě wú？」 Sēng yún：「 Ruò bù huó， zāo rén guàixiào。」 Qīng yún：「 Yě shì cǎolǐ hàn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk said to Jingqing, 'The student pecks from within — pray, Master, peck from without.' Jingqing said, 'Can you come out alive?' The monk said, 'If I do not come out alive, people will laugh at me.' Jingqing said, 'Then you too are a man of the weeds.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "鏡清承嗣雪峯。與本仁玄沙疎山太原孚輩同時。初見雪峯。得旨後。常以啐啄之機。開示後學。善能應機說法。示眾云。大凡行脚人。須具啐啄同時眼。有啐啄同時用。方稱衲僧。如母欲啄。而子不得不啐。子欲啐。而母不得不啄。有僧便出問。母啄子啐。於和尚分上。成得箇什麼邊事。清云。好箇消息。僧云。子啐母啄。於學人分上。成得箇什麼邊事。清云。露箇面目。所以鏡清門下。有啐啄之機。這僧亦是他門下客。會他家裏事。所以如此問。學人啐請師啄。此問洞下謂之借事明機。那裏如此。子啐而母啄。自然恰好同時。鏡清也好。可謂拳踢相應。心眼相照。便答道。還得活也無。其僧也好。亦知機變。一句下有賓有主。有照有用。有殺有活。僧云。若不活遭人怪笑。清云。也是草裏漢。一等是入泥入水。鏡清不妨惡脚手。這僧既會恁麼問。為什麼却道。也是草裏漢。所以作家眼目。須是恁麼。如擊石火似閃電光。構得構不得。未免喪身失命。若恁麼。便見鏡清道草裏漢。所以南院示眾云。諸方只具啐啄同時眼。不具啐啄同時用。有僧出問。如何是啐啄同時用。南院云。作家不啐啄。啐啄同時失。僧云。猶是學人疑處。南院云。作麼生是爾疑處。僧云。失。南院便打。其僧不肯。院便趕出。僧後到雲門會裏舉前話。有一僧云。南院棒折那。其僧豁然有省。且道意在什麼處。其僧却回見南院。院適已遷化。却見風穴。纔禮拜。穴云。莫是當時問先師啐啄同時底僧麼。僧云。是。穴云。爾當時作麼生會。僧云。某甲當初時。如燈影裏行相似。穴云。爾會也。且道是箇什麼道理。這僧都來只道某甲當初時。如燈影裏行相似。因甚麼風穴便向他道爾會也。後來翠巖拈云。南院雖然運籌帷幄。爭柰土曠人稀。知音者少。風穴拈云。南院當時。待他開口。劈脊便打。看他作麼生。若見此公案。便見這僧與鏡清相見處。諸人作麼生。免得他道草裏漢。所以雪竇愛他道草裏漢。便頌出。",
+          "verse_zh": "古佛有家風對揚遭貶剝子母不相知是誰同啐啄啄覺猶在殼重遭撲天下衲僧徒名邈",
+          "verse_en": "The ancient buddhas had a house style — / face-to-face reply, yet met with disgrace. / Mother and child knew nothing of each other — / so who joined in the pecking? / 'Peck!' 'Awake!' — still inside the shell; / struck once more — monks of the world pursue faint names in vain."
+        },
+        {
+          "case_num": 17,
+          "title_zh": "香林西來意",
+          "title_pinyin": "Xiānglín Xīlái Yì",
+          "title_en": "Xianglin: 'Long Sitting Makes Toil'",
+          "pointer_zh": "垂示云。斬釘截鐵。始可為本分宗師。避箭隈刀。焉能為通方作者。針劄不入處。則且置。白浪滔天時如何。試舉看。",
+          "pointer_en": "Pointer: Only one who cuts nails and severs iron can serve as a true master of our lineage; one who dodges arrows and edges around blades can never be a master of the open way. Let us set aside for now the place where not even a needle can enter: when the white waves tower to the sky — what then? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "香林與僧 / Xianglin and the monk",
+              "zh": "僧問香林：「如何是祖師西來意？」林云：「坐久成勞。」",
+              "pinyin": "Sēng wèn Xiānglín：「 Rúhé shì zǔshī xīlái yì？」 Lín yún：「 Zuò jiǔ chéng láo。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Xianglin, 'What is the meaning of the Patriarch's coming from the West?' Xianglin said, 'Long sitting makes toil.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "香林道。坐久成勞。還會麼。若會得。百草頭上。罷却干戈。若也不會。伏聽處分。古人行脚。結交擇友。為同行道伴。撥草瞻風。是時雲門旺化廣南。香林得得出蜀。與鵝湖鏡清同時。先參湖南報慈。後方至雲門會下。作侍者十八年。在雲門處。親得親聞。他悟時雖晚。不妨是大根器。居雲門左右十八年。雲門常只喚遠侍者。纔應喏。門云是什麼。香林當時。也下語呈見解弄精魂。終不相契。一日忽云。我會也。門云。何不向上道將來。又住三年。雲門室中。垂大機辯。多半為他遠侍者。隨處入作。雲門凡有一言一句。都收在遠侍者處。香林後歸蜀。初住導江水晶宮。後住青城香林。智門祚和尚。本浙人。盛聞香林道化。特來入蜀參禮。祚乃雪竇師也。雲門雖接人無數。當代道行者。只香林一派最盛。歸川住院四十年。八十歲方遷化。嘗云。我四十年。方打成一片。凡示眾云。大凡行脚。參尋知識。要帶眼行。須分緇素。看淺深始得。先須立志。而釋迦老子。在因地時。發一言一念。皆是立志。後來僧問。如何是室內一盞燈。林云。三人證龜成鼈。又問。如何是衲衣下事。林云。臘月火燒山。古來答祖師意甚多。唯香林此一則坐斷天下人舌頭。無爾計較作道理處。僧問。如何是祖師西來意。林云。坐久成勞。可謂言無味句無味。無味之談。塞斷人口。無爾出氣處。要見便見。若不見切忌作解會。香林曾遇作家來。所以有雲門手段。有三句體調。人多錯會道。祖師西來。九年面壁。豈不是坐久成勞。有什麼巴鼻。不見他古人得大自在處。他是脚踏實地。無許多佛法知見道理。臨時應用。所謂法隨法行。法幢隨處建立。雪竇因風吹火。傍指出一箇半箇。",
+          "verse_zh": "一箇兩箇千萬箇脫却籠頭卸角馱左轉右轉隨後來紫胡要打劉鐵磨",
+          "verse_en": "One or two, ten thousand of them — / shed the cage, drop the pack-saddle. / Turning left, turning right, coming on behind — / Zihu is about to strike Lau T'ieh-mo."
+        },
+        {
+          "case_num": 18,
+          "title_zh": "肅宗無縫塔",
+          "title_pinyin": "Sùzōng Wúfèngtǎ",
+          "title_en": "Emperor Suzong and the Seamless Tower",
+          "dialogue": [
+            {
+              "speaker": "肅宗與忠國師、耽源 / Suzong, National Teacher Zhong, and Danyuan",
+              "zh": "肅宗皇帝問忠國師：「百年後所須何物？」國師云：「與老僧作箇無縫塔。」帝曰：「請師塔樣。」國師良久云：「會麼？」帝云：「不會。」國師云：「吾有付法弟子耽源，却諳此事，請詔問之。」國師遷化後，帝詔耽源問：「此意如何？」源云：「湘之南，潭之北，中有黃金充一國。無影樹下合同船，瑠璃殿上無知識。」",
+              "pinyin": "Sùzōng huángdì wèn Zhōng guóshī：「 Bǎinián hòu suǒxū héwù？」 Guóshī yún：「 Yǔ lǎosēng zuò ge wúfèngtǎ。」 Dì yuē：「 Qǐng shī tǎyàng。」 Guóshī liángjiǔ yún：「 Huì me？」 Dì yún：「 Bù huì。」 Guóshī yún：「 Wú yǒu fùfǎ dìzǐ Dānyuán， què ān cǐshì， qǐng zhào wèn zhī。」 Guóshī qiānhuà hòu， dì zhào Dānyuán wèn：「 Cǐyì rúhé？」 Yuán yún：「 xiāng zhī nán， tán zhī běi， zhōng yǒu huángjīn chōng yīguó。 Wúyǐngshù xià hétóngchuán， liúlí diàn shàng wú zhīshí。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Emperor Suzong asked National Teacher Zhong, 'What will you need a hundred years from now?' The teacher said, 'Build this old monk a seamless tower.' The emperor said, 'Show me the design of the tower.' The teacher paused a long while, then said, 'Do you understand?' The emperor said, 'No.' The teacher said, 'I have a Dharma-heir disciple, Danyuan, who knows this matter well — summon him and ask.' After the teacher passed away, the emperor had Danyuan summoned and asked, 'What was his meaning?' Danyuan said: 'South of the Xiang, north of the Tan — at its heart gold fills a whole kingdom. Beneath the shadowless tree, one shared boat; in the hall of lapis lazuli, no knowing mind.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "肅宗代宗。皆玄宗之子孫。為太子時。常愛參禪。為國有巨盜。玄宗遂幸蜀。唐本都長安。為安祿山僣據。後都洛陽。肅宗攝政。是時忠國師。在鄧州白崖山住庵。今香嚴道場是也。四十餘年不下山。道行聞于帝里。上元二年勅中使。詔入內。待以師禮。甚敬重之。甞與帝演無上道。師退朝。帝自攀車而送之。朝臣皆有慍色。欲奏其不便。國師具他心通。而先見聖奏曰。我在天帝釋前。見粟散天子。如閃電光相似。帝愈加敬重。及代宗臨御。復延止光宅寺。十有六載。隨機說法。至大曆十年。遷化。山南府青銼山和尚。昔與國師同行。國師甞奏帝令詔他。三詔不起。常罵國師耽名愛利。戀著人間。國師於他父于三朝中。為國師。他家父子。一時參禪。據傳燈錄所考。此乃是代宗設問。若是問國師如何是十身調御。此却是肅宗問也。國師緣終。將入涅槃。乃辭代宗。代宗問曰。國師百年後。所須何物。也只是平常一箇問端。這老漢無風起浪。却道與老僧造箇無縫塔。且道白日青天如此作什麼。做箇塔便了。為什麼却道。做箇無縫塔。代宗也不妨作家。與爾一拶道。請師塔樣。國師良久云。會麼。奇怪這些子。最是難參。大小大國師。被他一拶。直得口似匾檐。然雖如此。若不是這老漢。幾乎弄倒了。多少人道。國師不言處。便是塔樣。若恁麼會。遶磨一宗掃地而盡。若謂良久便是。啞子也合會禪。豈不見外道問佛。不問有言不問無言世尊良久。外道禮拜。贊嘆曰。世尊大慈大悲。開我迷雲。令我得入。及外道去後。阿難問佛。外道有何所證。而言得入。世尊云。如世良馬。見鞭影而行。人多向良久處會。有什麼巴鼻。五祖先師拈云。前面是珍珠瑪瑙。後面是瑪瑙珍珠。左邊是觀音勢至。右邊是文殊普賢。中間有箇旛子。被風吹著。道胡盧胡盧。國師云。會麼。帝曰。不會。却較些子。且道這箇不會。與武帝不識。是同是別。雖然似則似。是則未是。國師云。吾有付法弟子耽源。却諳此事。請詔問之。雪竇拈云。獨掌不浪鳴。代宗不會則且置。耽源還會麼。只消道箇請師塔樣。盡大地人不柰何。五祖先師拈云。爾是一國之師。為箇什麼不道却推與弟子。國師遷化後。帝詔耽源問此意如何。源便來為國師。胡言漢語說道理。自然會他國師說話。只消一頌湘之南潭之北。中有黃金充一國。無影樹下合同船。瑠璃殿上無知識。耽源名應真。在國師處作侍者。後住吉州耽源寺。時仰山來參耽源。源言重性惡不可犯。住不得。仰山先去參性空禪師。有僧問性空。如何是祖師西來意。空云。如人在千尺井中。不假寸繩出得此人。即答汝西來意。僧云。近日湖南暢和尚。亦為人東語西話。空乃喚沙彌拽出這死屍著山後舉問耽源。如何出得井中人。耽源曰。咄。癡漢。誰在井中。仰山不契。後問溈山。山乃呼慧寂。山應諾。溈云。出了也。仰山因此大悟。云。我在耽源處得體。溈山處得用。也只是這一箇頌子。引人邪解不少。人多錯會道。相是相見。譚是譚論。中間有箇無縫塔。所以道。中有黃金充一國。帝與國師對答。便是無影樹下合同船。帝不會。遂道瑠璃殿上無知識。又有底道。相是相州之南。潭是潭州之北。中有黃金充一國。頌官家眨眼顧視云。這箇是無縫塔。若恁麼會。不出情見。只如雪竇下四轉語。又作麼生會。今人殊不知古人意。且道。湘之南。潭之北。爾作麼生會。中有黃金充一國。爾作麼生會。無影樹下合同船。爾作麼生會。瑠璃殿上無知識。爾作麼生會。若恁麼見得。不妨慶快平生。湘之南潭之北。雪竇道。獨掌不浪鳴。不得已與爾說。中有黃金充一國。雪竇道。山形拄杖子。古人道。識得拄杖子。一生參學事畢。無影樹下合同船。雪竇道。海晏河清。一時豁開戶牖。八面玲瓏。瑠璃殿上無知識。雪竇道。拈了也。一時與爾說了也。不妨難見。見得也好。只是有些子錯認處。隨語生解。至末後道拈了也。却較些子。雪竇分明一時下語了。後面單頌箇無縫塔子。",
+          "verse_zh": "無縫塔見還難澄潭不許蒼龍蟠層落落影團團千古萬古與人看",
+          "verse_en": "The seamless tower — to see it is still hard; / the clear pond lets no grey dragon coil. / Tier upon tier, shadow rings round — / for a thousand ages, ten thousand ages, it stands for all to see."
+        },
+        {
+          "case_num": 19,
+          "title_zh": "俱胝一指",
+          "title_pinyin": "Jùzhī Yīzhǐ",
+          "title_en": "Juzhi's One Finger",
+          "pointer_zh": "垂示云。一塵舉大地收。一花開世界起。只如塵未舉花未開時。如何著眼。所以道。如斬一綟絲。一斬一切斬。如染一綟絲。一染一切染。只如今便將葛藤截斷。運出自己家珍。高低普應。前後無差。各各現成。儻或未然。看取下文。",
+          "pointer_en": "Pointer: Raise one mote of dust and the whole earth is gathered; one flower opens and a world springs into being. But before the mote is raised, before the flower opens — how will you focus your eye? Thus it is said: cut one strand of silk and every strand is cut; dye one strand and every strand is dyed. Right now, cut through the tangled vines once and for all and bring forth the treasure of your own house — high and low, all-answering, before and after without gap, each ready-made. If you cannot yet, watch what follows.",
+          "dialogue": [
+            {
+              "speaker": "俱胝和尚 / Master Juzhi",
+              "zh": "俱胝和尚，凡有所問，只竪一指。",
+              "pinyin": "Jùzhī héshàng， fán yǒu suǒ wèn， zhǐ shù yī zhǐ。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Whenever Master Juzhi was asked anything, he simply raised one finger.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "若向指頭上會。則辜負俱胝。若不向指頭上會。則生鐵鑄就相似。會也恁麼去。不會也恁麼去。高也恁麼去。低也恁麼去。是也恁麼去。非也恁麼去。所以道。一塵纔起大地全收。一花欲開世界便起。一毛頭獅子。百億毛頭現。圓明道。寒則普天普地寒。熱則普天普地熱。山河大地。下徹黃泉。萬象森羅。上通霄漢。且道。是什麼物得恁麼奇怪。若也識得。不消一揑。若識不得。礙塞殺人。俱胝和尚。乃婺州金華人。初住庵時。有一尼名實際。到庵直入。更不下笠。持錫遶禪床三匝云。道得即下笠。如是三問。俱胝無對。尼便去。俱胝曰。天勢稍晚。且留一宿。尼曰道得即宿。胝又無對。尼便行。胝嘆曰。我雖處丈夫之形。而無丈夫之氣。遂發憤要明此事。擬棄庵往諸方參請。打疊行脚。其夜山神告曰。不須離此。來日有肉身菩薩。來為和尚說法。不須去。果是次日。天龍和尚到庵。胝乃迎禮。具陳前事。天龍只竪一指而示之。俱胝忽然大悟。是他當時鄭重專注。所以桶底易脫。後來凡有所問。只竪一指。長慶道。美食不中飽人喫。玄沙道。我當時若見。拗折指頭。玄覺云。玄沙恁麼道。意作麼生。雲居錫云。只如玄沙恁麼道。是肯伊。是不肯伊。若肯伊。何言拗折指頭。若不肯伊。俱胝過在什麼處。先曹山云。俱胝承當處莽鹵。只認得一機一境。一等是拍手撫掌。見他西園奇怪。玄覺又云。且道俱胝還悟也未。為什麼承當處莽鹵。若是不悟。又道平生。只用一指頭禪不盡。且道曹山意在什麼處。當時俱胝實然不會。及乎到他悟後凡有所問。只竪一指。因什麼。千人萬人。羅籠不住。撲他不破。爾若用作指頭會。決定不見古人意。這般禪易參。只是難會。如今人纔問著。也竪指竪拳。只是弄精魂。也須是徹骨徹髓。見透始得。俱胝庵中有一童子。於外被人詰曰。和尚尋常以何法示人。童子竪起指頭。歸而舉似師。俱胝以刀斷其指。童子叫喚走出。俱胝召一聲。童子回首。俱胝却竪起指頭。童子豁然領解。且道見箇什麼道理。及至遷化。謂眾曰。吾得天龍一指頭禪。平生用不盡。要會麼。竪起指頭便脫去後來明招獨眼龍問國泰深師叔云。古人道。俱胝只念三行呪。便得名超一切人。作麼生與他拈却三行呪。深亦竪起一指頭。招云。不因今日。爭識得這瓜州客。且道。意作麼生。祕魔平生。只用一杈。打地和尚凡有所問。只打地一下。後被人藏却他棒。却問如何是佛。他只張口。亦是一生用不盡。無業云。祖師觀此土有大乘根器。唯單傳心印。指示迷塗。得之者不揀愚之與智。凡之與聖且多虛不如少實。大丈夫漢。即今直下休歇去。頓息萬緣去。超生死流。逈出常格。縱有眷屬莊嚴。不求自得。無業一生凡有所問。只道莫妄想。所以道。一處透。千處萬處一時透。一機明。千機萬機一時明。如今人總不恁麼。只管恣意情解。不會他古人省要處。他豈不是無機關轉換處。為什麼只用一指頭。須知俱胝到這裏。有深密為人處。要會得省力麼。還他圓明道寒則普天普地寒。熱則普天普地熱。山河大地。通上孤危。萬象森羅。徹下嶮峻什麼處得一指頭禪來。",
+          "verse_zh": "對揚深愛老俱胝宇宙空來更有誰曾向滄溟下浮木夜濤相共接盲龜",
+          "verse_en": "Facing him, Xuedou deeply loves old Juzhi — / the universe emptied, who else remains? / Once he lowered driftwood into the dark sea; / in the night surge, together, he lifted the blind turtle."
+        },
+        {
+          "case_num": 20,
+          "title_zh": "龍牙西來意",
+          "title_pinyin": "Lóngyá Xīlái Yì",
+          "title_en": "Longya and the Patriarch's Meaning",
+          "pointer_zh": "垂示云。堆山積嶽。撞牆磕壁。佇思停機。一場苦屈。或有箇漢出來掀翻大海。踢倒須彌。喝散白雲。打破虛空。直下向一機一境。坐斷天下人舌頭。無爾近傍處。且道從上來。是什麼人曾恁麼。試舉看。",
+          "pointer_en": "Pointer: Pile up mountains, heap up peaks, run your head against walls — all thought stops, one session of bitter grievance. But suppose someone comes along who overturns the great sea, kicks Mount Sumeru down, scatters the white clouds with a shout and shatters the empty sky — directly, with one device and one circumstance, cutting off the tongues of everyone under heaven with no one able to draw near. Tell me: since ancient times, who has ever been like this? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "龍牙與翠微臨濟 / Longya, Cuiwei, and Linji",
+              "zh": "龍牙問翠微：「如何是祖師西來意？」微云：「與我過禪板來。」牙過禪板與翠微，微接得便打。牙云：「打即任打，要且無祖師西來意。」牙又問臨濟：「如何是祖師西來意？」濟云：「與我過蒲團來。」牙取蒲團過與臨濟，濟接得便打。牙云：「打即任打，要且無祖師西來意。」",
+              "pinyin": "Lóngyá wèn Cuìwēi：「 Rúhé shì zǔshī xīlái yì？」 Wēi yún：「 Yǔ wǒ guò chánbǎn lái。」 Yá guò chánbǎn yǔ Cuìwēi， wēi jiēdé biàn dǎ。 Yá yún：「 Dǎ jí rèn dǎ， yàoqiě wú zǔshī xīlái yì。」 Yá yòu wèn Línjì：「 Rúhé shì zǔshī xīlái yì？」 Jì yún：「 Yǔ wǒ guò pútuán lái。」 Yá qǔ pútuán guò yǔ Línjì， jì jiēdé biàn dǎ。 Yá yún：「 Dǎ jí rèn dǎ， yàoqiě wú zǔshī xīlái yì。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Longya asked Cuiwei, 'What is the meaning of the Patriarch's coming from the West?' Cuiwei said, 'Hand me my meditation board.' Longya passed the board to Cuiwei, who took it and struck him at once. Longya said, 'Strike me as you please — but still, there is no meaning in the Patriarch's coming from the West.' Longya then asked Linji, 'What is the meaning of the Patriarch's coming from the West?' Linji said, 'Bring me my cushion.' Longya fetched the cushion for Linji, who took it and struck him at once. Longya said, 'Strike me as you please — but still, there is no meaning in the Patriarch's coming from the West.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "翠巖芝和尚云。當時如是。今時衲子。皮下還有血麼。溈山喆云。翠微臨濟。可謂本分宗師。龍牙一等是撥草瞻風。不妨與後人作龜鑑。住院後有僧問。和尚當時還肯二尊宿麼。牙云。肯即肯。只是無祖師西來意。龍牙瞻前顧後。應病與藥。大溈則不然。待伊問和尚當時還肯二尊宿麼。明不明。劈脊便打。非惟扶竪翠微臨濟。亦不辜負來問。石門聰云。龍牙無人拶著。猶可。被箇衲子挨著。失却一隻眼。雪竇云。臨濟翠微。只解把住不解放開。我當時如作龍牙。待伊索蒲團禪板。拈起劈面便擲。五祖戒云。和尚得恁麼面長。或云。祖師土宿臨頭。黃龍新云。龍牙驅耕夫之牛。奪飢人之食。既明則明矣。因什麼却無祖師西來意。會麼。棒頭有眼明如日。要識真金火裏看。大凡激揚要妙。提唱宗乘。向第一機下明得。可以坐斷天下人舌頭。儻或躊躇落在第二。這二老漢。雖然打風打雨。驚天動地。要且不曾打著箇明眼漢。古人參禪多少辛苦。立大丈夫志氣。經歷山川。參見尊宿。龍牙先參翠微臨濟。後參德山。遂問學人仗鏌鎁劍。擬取師頭時如何。德山引頸云。㘞。牙云。師頭落也。山微笑便休去。次到洞山。洞山問。近離甚處。牙云。德山來。洞山云。德山有何言句。牙遂舉前話。洞山云。他道什麼。牙云。他無語。洞山云。莫道無語。且試將德山落底頭呈似老僧看。牙於此有省。遂焚香遙望德山禮拜懺悔。德山聞云。洞山老漢不識好惡。這漢死來多少時。救得有什麼用處。從他擔老僧頭遶天下走。龍牙根性聰敏。擔一肚皮禪。行脚。直向長安翠微。便問。如何是祖師西來意。微云。與我過禪板來。牙取禪板與微。微接得便打。牙云。打即任打。要且無祖師西來意。又問臨濟。如何是祖師西來意。濟云。與我過蒲團來。牙取蒲團與臨濟。濟接得便打。牙云。打即任打。要且無祖師西來意。他致箇問端。不妨要見他曲彔木床上老漢。亦要明自己一段大事。可謂言不虛設。機不亂發。出在做工夫處。不見五洩參石頭。先自約曰。若一言相契。即住。不然即去。石頭據座。洩拂袖而出。石頭知是法器。即垂開示。洩不領其旨。告辭而出至門。石頭呼之云。闍黎。洩回顧。石頭云。從生至死。只是這箇。回頭轉腦。更莫別求。洩於言下大悟。又麻谷持錫到章敬。遶禪床三匝。振錫一下。卓然而立。敬云。是是。又到南泉。依前遶床振錫而立。南泉云。不是不是。此是風力所轉。終成敗壞。谷云。章敬道是。和尚為什麼道不是。南泉云。章敬即是。是汝不是。古人也不妨要提持透脫此一件事。如今人纔問著。全無些子用工夫處。今日也只是恁麼。明日也只是恁麼。爾若只恁麼盡未來際。也未有了日。須是抖擻精神。始得有少分相應。爾看龍牙發一問道。如何是祖師西來意。翠微云。與我過禪板來。牙過與微。微接得便打。牙當時取禪板時。豈不知翠微要打他。也不得便道他不會。為什麼却過禪板與他。且道當機承當得時。合作麼生。他不向活水處用。自去死水裏作活計。一向作主宰。便道打即任打。要且無祖師西來意。又走去河北參臨濟。依前恁麼問。濟云。與我過蒲團來。牙過與濟。濟接得便打。牙云。打即任打。要且無祖師西來意。且道二尊宿。又不同法嗣。為什麼答處相似。用處一般。須知古人。一言一句。不亂施為。他後來住院。有僧問云。和尚當時見二尊宿。是肯他不肯他。牙云。肯則肯。要且無祖師西來意。爛泥裏有刺。放過與人。已落第二。這老漢把得定。只做得洞下尊宿。若是德山臨濟門下。須知別有生涯。若是山僧則不然。只向他道。肯即未肯。要且無祖師西來意。不見僧問大梅。如何是祖師西來意。梅云。西來無意。鹽官聞云。一箇棺材。兩箇死漢。玄沙聞云。鹽官是作家。雪竇道。三箇也有。只如這僧問祖師西來意。却向他道西來無意。爾若恁麼會。墮在無事界裏。所以道。須參活句。莫參死句。活句下薦得。永劫不忘。死句下薦得。自救不了。龍牙恁麼道。不妨盡善。古人道相續也大難。他古人一言一句。不亂施為。前後相照。有權有實。有照有用。賓主歷然。互換縱橫。若要辨其親切。龍牙雖不昧宗乘。爭柰落在第二頭。當時二尊宿。索禪板蒲團。牙不可不知他意。是他要用他胸襟裏事。雖然如是。不妨用得太峻。龍牙恁麼問。二老恁麼答。為什麼却無祖師西來意。到這裏須知別有箇奇特處。雪竇拈出令人看。",
+          "verse_zh": "龍牙山裏龍無眼死水何曾振古風禪板蒲團不能用只應分付與盧公盧公付了亦何憑坐倚休將繼祖燈堪對暮雲歸未合遠山無限碧層層",
+          "verse_en": "Longya — a dragon of the mountains, yet blind; / dead water — how could it rouse the ancient wind? / Board and cushion he could not use: / better hand them over to Lord Lu. / Lord Lu, once paid — what warrant remains? / Sit and lean, but do not pass the patriarchs' lamp. / Fit to face the evening clouds gathering yet unjoined — / the far mountains: endless folds of blue."
         },
         {
           "case_num": 21,
-          "title_zh": "雲門乾屎橛",
-          "title_pinyin": "Yúnmén Gān Shǐ Jué",
-          "title_en": "Yunmen's Dried Shit-Stick",
-          "pointer_zh": "垂示云：拈一放一，未是奇特。直得函蓋相稱，把斷要津，始得作家。",
-          "pointer_en": "Pointer: Taking up one and releasing one is not yet extraordinary. When box and lid fit seamlessly, guarding the essential pass, then you are an authentic master.",
+          "title_zh": "智門蓮花",
+          "title_pinyin": "Zhìmén Liánhuā",
+          "title_en": "Zhimên's Lotus",
+          "pointer_zh": "垂示云。建法幢立宗旨。錦上鋪花。脫籠頭卸角馱。太平時節或若辨得格外句。舉一明三。其或未然。依舊伏聽處分。",
+          "pointer_en": "Pointer: To raise the dharma banner and establish the teaching is to lay brocade over flowers. To shed the cage and drop the burden is to live in a time of peace. Yet if you can discern the phrase beyond the patterns, you raise one and illumine three. If not, still you must listen for the verdict. Watch as I raise the case.",
           "dialogue": [
             {
-              "speaker": "Monk / 僧",
-              "zh": "僧問雲門：「如何是佛？」",
-              "pinyin": "Sēng wèn Yúnmén: 'Rúhé shì fó?'",
+              "speaker": "智門與僧 / Zhimên and the monk",
+              "zh": "僧問智門：「蓮花未出水時如何？」智門云：「蓮花。」僧云：「出水後如何？」門云：「荷葉。」",
+              "pinyin": "Sēng wèn Zhìmén：「 Liánhuā wèi chū shuǐ shí rúhé？」 Zhìmén yún：「 Liánhuā。」 Sēng yún：「 Chū shuǐ hòu rúhé？」 Mén yún：「 Héyè。」",
               "translations": {
-                "red_pine": {
-                  "text": "A monk asked Yunmen: 'What is Buddha?'",
-                  "status": "reconstruction_unverified"
-                },
-                "cleary": {
-                  "text": "A monk asked Yunmen, 'What is Buddha?'",
-                  "status": "reconstruction_unverified"
-                },
-                "sasaki": {
-                  "text": "A monk asked Ummon: 'What is the Buddha?'",
-                  "status": "reconstruction_unverified"
-                }
-              }
-            },
-            {
-              "speaker": "Yunmen / 雲門",
-              "zh": "門云：「乾屎橛。」",
-              "pinyin": "Mén yún: 'Gān shǐ jué.'",
-              "translations": {
-                "red_pine": {
-                  "text": "Yunmen said: 'A dried shit-stick.'",
-                  "status": "reconstruction_unverified"
-                },
-                "cleary": {
-                  "text": "Yunmen said, 'A dried dung scraper.'",
-                  "status": "reconstruction_unverified"
-                },
-                "sasaki": {
-                  "text": "Ummon said: 'A dried shit-stick.'",
-                  "status": "reconstruction_unverified"
-                },
-                "suzuki": {
-                  "text": "Yunmen replied: 'A dried piece of excrement.'",
-                  "status": "reconstruction_unverified"
+                "ai_literal": {
+                  "text": "A monk asked Zhimên, 'How is the lotus before it has left the water?' Zhimên said, 'A lotus.' The monk asked, 'And after it has left the water?' The master said, 'Lotus leaves.'",
+                  "status": "ai_draft"
                 }
               }
             }
           ],
-          "verse_zh": "雲門一箭落雙鵰，大地乾坤沒處逃。萬里神光照耀處，靈鋒截斷赤肉膏。",
-          "verse_en": "Yunmen's single arrow brings down a pair of vultures; / Heaven and earth have nowhere to escape! / Where ten thousand leagues of wondrous light illuminate, / The razor blade slices straight through red flesh and bone!"
+          "commentary_zh": "智門若是應機接物。猶較些子。若是截斷眾流。千里萬里。且道這蓮花。出水與未出水。是一是二。若恁麼見得。許爾有箇入處。雖然如是。若道是一。顢頇佛性儱侗真如。若道是二。心境未忘落在解路上走有什麼歇期。且道古人意作麼生。其實無許多事。所以投子道爾但莫著名言數句。若了諸事自然不著即無許多位次不同。爾攝一切法。一切法攝爾不得。本無得失夢幻如許多名目不可強與他安立名字。誑諕爾諸人得麼。爾諸人問故所以有言。爾若不問。教我向爾道什麼即得。一切事。皆是爾將得來。都不干我事。古人道。欲識佛性義當觀時節因緣。不見雲門舉僧問靈雲云。佛未出世時如何。雲竪起拂子。僧云。出世後如何。雲亦竪起拂子。雲門云。前頭打著。後頭打不著。又云不說出與不出。何處有伊問時節也。古人一問一答。應時應節無許多事。爾若尋言逐句。了無交涉。爾若能言中透得言。意中透得意。機中透得機。放令閑閑地。方見智門答話處。問佛未出世時如何。牛頭未見四祖時如何。斑石內混沌未分時如何。父母未生時如何。雲門道。從古至今。只是一段事。無是無非。無得無失。無生與未生。古人到這裏。放一綫道有出有入。若是未了底人。扶籬摸壁。依草附木。或教他放下。又打入莽莽蕩蕩荒然處去。若是得底人。二六時中。不依倚一物。雖不依倚一物。若露一機一境。作麼生摸索他。這僧問道。蓮花未出水時如何。智門云。蓮花。便只攔問一答。不妨奇特。諸方皆謂之顛倒語。那裏如此。不見嵒頭道。常貴未開口已前。猶較些子。古人露機處。已是漏逗了也。如今學者。不省古人意。只管去。理論出水與未出水。有什麼交涉。不見僧問智門。如何是般若體。門云。蚌含明月。僧云如何是般若用。門云。兔子懷胎。看他如此對答。天下人討他語脈不得。或有人問夾山道。蓮花未出水時如何。只對他道。露柱燈籠。且道與蓮花是同是別。出水後如何。對他道。杖頭挑日月。脚下太泥深。爾且道是不是。且莫錯認定盤星。雪竇忒殺慈悲。打破人情解。所以頌出。",
+          "verse_zh": "蓮花荷葉報君知出水何如未出時江北江南問王老一狐疑了一狐疑",
+          "verse_en": "Lotus flowers, lotus leaves — I tell you plainly: / what differs between surfaced and unsurfaced? / North of the river, south of the river, go ask old Wang — / doubt on doubt, like a fox crossing thin ice, listening for the crack."
+        },
+        {
+          "case_num": 22,
+          "title_zh": "雪峯鼈鼻蛇",
+          "title_pinyin": "Xuěfēng Biēbíshé",
+          "title_en": "Xuefeng's Soft-Shelled Snake on South Mountain",
+          "pointer_zh": "垂示云。大方無外細若隣虛。擒縱非他。卷舒在我。必欲解粘去縛。直須削迹吞聲。人人坐斷要津。箇箇壁立千仞。且道是什麼人境界。試舉看。",
+          "pointer_en": "Pointer: The great square has no outside; the fine is like dust-motes nearly void. Hold and release are not with another — rollup and expansion rest in me. To unglue and unbind, you must erase your tracks and swallow your voice. Every man sits athwart the vital ford; each stands like a wall a thousand fathoms high. Tell me: whose realm is this? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "雪峯、長慶、玄沙、雲門 / Xuefeng, Changqing, Xuansha, Yunmen",
+              "zh": "雪峯示眾云：「南山有一條鼈鼻蛇，汝等諸人，切須好看。」長慶云：「今日堂中，大有人喪身失命。」僧舉似玄沙，玄沙云：「須是稜兄始得。雖然如此，我即不恁麼。」僧云：「和尚作麼生？」玄沙云：「用南山作什麼？」雲門以拄杖，攛向雪峯面前，作怕勢。",
+              "pinyin": "Xuěfēng shìzhòng yún：「 Nánshān yǒu yī tiáo biēbíshé， rǔ děng zhūrén， qiè xū hǎokàn。」 Chángqìng yún：「 Jīnrì táng zhōng， dàyǒu rén sàngshēn shīmìng。」 Sēng jǔsì Xuánshā， Xuánshā yún：「 Xū shì Léng xiōng shǐdé。 Suīrán rúcǐ， wǒ jí bù nènme。」 Sēng yún：「 Héshàng zuòmòsheng？」 Xuánshā yún：「 Yòng Nánshān zuò shénme？」 Yúnmén yǐ zhǔzhàng， cuān xiàng Xuěfēng miànqián， zuò pàshì。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Xuefeng addressed the assembly: 'On South Mountain there is a soft-shelled snake — all of you, look at it carefully.' Changqing said, 'In this hall today, many will lose body and life.' A monk related this to Xuansha, who said, 'It must be Elder Brother Leng (Changqing) who can do it. Even so, I would not say it that way.' The monk said, 'What would you say, Master?' Xuansha said, 'What use is South Mountain?' Yunmen thrust his staff forward in front of Xuefeng, making a gesture of fear.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "雪峯示眾云。南山有一條鼈鼻蛇汝等諸人。切須好看長慶云。今日堂中。大有人喪身失命僧舉似玄沙玄沙云。須是稜兄始得。雖然如此。我即不恁麼僧云。和尚作麼生玄沙云。用南山作什麼雲門以拄杖。攛向雪峯面前。作怕勢。爾若平展一任平展。爾若打破一任打破。雪峯與巖頭欽山同行。凡三到投子九上洞山。後參德山。方打破漆桶。一日率巖頭訪欽山。至鰲山店上阻雪。巖頭每日只是打睡。雪峯一向坐禪。巖頭喝云。噇眠去。每日床上。恰似七村裏土地相似。他時後日。魔魅人家男女去在。峯自點胸云。某甲這裏未穩在。不敢自瞞。頭云。我將謂爾已後。向孤峯頂上。盤結草庵。播揚大教。猶作這箇語話。峯云。某甲實未穩在。頭云。爾若實如此。據爾見處。一一通來。是處我與爾證明。不是處與爾剗却。峯遂舉見鹽官上堂舉色空義。得箇入處。頭云。此去三十年。切忌舉著。峯又舉。見洞山過水頌。得箇入處。頭云。若與麼自救不了。後到德山。問從上宗乘中事。學人還有分也無。山打一棒。道什麼。我當時如桶底脫相似。頭遂喝云。爾不聞道。從門入者。不是家珍。峯云。他後如何即是。頭云。他日若欲播揚大教。一一從自己胸襟流出將來。與我蓋天蓋地去。峯於言下大悟。便禮拜。起來連聲叫云。今日始是鰲山成道。今日始是鰲山成道。後回閩中住象骨山。自貽作頌云。人生倏忽暫須臾。浮世那能得久居。出嶺纔登三十二。入閩早是四旬餘。他非不用頻頻舉。已過應須旋旋除。奉報滿朝朱紫貴。閻王不怕佩金魚。凡上堂示眾云。一一蓋天蓋地。更不說玄說妙。亦不說心說性。突然獨露。如大火聚。近之則燎却面門。似太阿劍。擬之則喪身失命。若也佇思停機。則沒干涉。只如百丈問黃檗。甚處去來。檗云。大雄山下採菌去來。丈云。還見大蟲麼。檗便作虎聲。丈便拈斧作斫勢。檗遂打百丈一摑。丈吟吟而。笑便歸陞座謂眾云。大雄山有一大蟲。汝等諸人。切須好看。老僧今日。親遭一口趙州凡見僧便問曾到此間麼。云曾到。或云不曾到。州總云喫茶去。院主云。和尚尋常問僧。曾到與不曾到。總道喫茶去。意旨如何。州云。院主。主應諾州云。喫茶去。紫胡門下立一牌。牌上書云。紫胡有一狗。上取人頭。中取人腰。下取人脚。擬議則喪身失命。或新到纔相看。師便喝云。看狗。僧纔回首。師便歸方丈。正如雪峯道。南山有一條鼈鼻蛇。汝等諸人切須好看。正當恁麼時。爾作麼生祇對。不躡前蹤。試請道看。到這裏也須是會格外句始得。一切公案語言。舉得將來。便知落處。看他恁麼示眾。且不與爾說行說解。還將情識測度得麼。是他家兒孫。自然道得恰好。所以古人道。承言須會宗。勿自立規矩。言須有格外。句須要透關。若是語不離。窠窟。墮在毒海中也。雪峯恁麼示眾。可謂無味之談。塞斷人口。長慶玄沙。皆是他家屋裏人。方會他恁麼說話。只如雪峯道南山有一條鼈鼻蛇。諸人還知落處麼。到這裏須是具通方眼始得。不見真淨有頌云。打鼓弄琵琶。相逢兩會家。雲門能唱和。長慶解隨邪。古曲無音韻。南山鼈鼻蛇。何人知此意。端的是玄沙。只如長慶恁麼祇對。且道意作麼生。到這裏如擊石火。似閃電光。方可搆得。若有纖毫去不盡。便搆他底不得。可惜許。人多向長慶言下生情解。道堂中纔有聞處。便是喪身失命。有者道。元無一星事。平白地上說這般話疑人。人聞他道南山有一條鼈鼻蛇爾便疑著。若恁麼會。且得沒交涉。只去他言語上作活計。既不恁麼會。又作麼生會。後來有僧舉似玄沙。玄沙云。須是稜兄始得。雖然如是。我即不恁麼。僧云。和尚又作麼生。沙云。用南山作什麼。但看玄沙語中便有出身處。便云。用南山作什麼。若不是玄沙。也大難酬對。只如他恁麼道南山有一條鼈鼻蛇。且道在什麼處。到這裏須是向上人方會恁麼說話。古人道。釣魚船上謝三郎。不愛南山鼈鼻蛇。却到雲門。以拄杖攛向雪峯面前作怕勢。雲門有弄蛇手脚。不犯鋒鋩。明頭也打著。暗頭也打著。他尋常為人。如舞太阿劍相似。有時飛向人眉毛眼睫上。有時飛向三千里外取人頭。雲門攛拄杖作怕勢。且不是弄精魂。他莫也是喪身失命麼。作家宗師。終不去一言一句上作活計。雪竇只為愛雲門契證得雪峯意。所以頌出。",
+          "verse_zh": "象骨巖高人不到到者須是弄蛇手稜師備師不柰何喪身失命有多少韶陽知重撥草南北東西無處討忽然突出拄杖頭拋對雪峯大張口大張口兮同閃電剔起眉毛還不見如今藏在乳峯前來者一一看方便師高聲喝云。看脚下",
+          "verse_en": "Atop Elephant Bone Crag few arrive; / who comes must be a snake-handler. / Master Leng, Master Bei could do nothing — / how many lost body and life! / Shaoyang knew: probe the grass again — / north, south, east, west, nowhere to be found. / Suddenly it juts from the staff's tip, / thrown at Xuefeng with mouth agape. / The great gaping mouth, like a lightning flash — / raise your brows and still you miss it. / These days it hides before Ru Peak; / let each comer watch for his own opening. / And the teacher shouted loud: 'Watch your step!'"
+        },
+        {
+          "case_num": 23,
+          "title_zh": "保福妙峯頂",
+          "title_pinyin": "Bǎofú Miàofēng Dǐng",
+          "title_en": "Baofu's 'Right Here Is the Wondrous Peak'",
+          "pointer_zh": "垂示云。玉將火試。金將石試。劍將毛試。水將杖試。至於衲僧門下。一言一句。一機一境。一出一入。一挨一拶。要見深淺。要見向背。且道將什麼。試請舉看。",
+          "pointer_en": "Pointer: Jade is tested by fire, gold by stone, a sword by a hair, water by a staff. So it is at the monk's gate: with one word or phrase, one device or circumstance, one emergence or entry, one shove — we see the deep and the shallow, we see the with and the against. Tell me: with what shall we test you? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "保福與長慶鏡清 / Baofu, Changqing, and Jingqing",
+              "zh": "保福長慶遊山次，福以手指云：「只這裏便是妙峯頂。」慶云：「是則是，可惜許。」後舉似鏡清，清云：「若不是孫公，便見髑髏遍野。」",
+              "pinyin": "Bǎofú Chángqìng yóushān cì， Fú yǐ shǒuzhǐ yún：「 Zhǐ zhèlǐ biàn shì Miàofēng dǐng。」 Qìng yún：「 Shì zé shì， kěxīxǔ。」 Hòu jǔsì Jìngqīng， Qīng yún：「 Ruò bù shì Sūn gōng， biàn jiàn dúlóu biànyě。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "As Baofu and Changqing were walking in the mountains, Baofu pointed with his finger and said, 'Right here — this is the summit of the Wondrous Peak.' Changqing said, 'It is indeed — but what a pity.' Later this was told to Jingqing, who said, 'Were it not for Lord Sun (Changqing), you would see wretched skulls strewn across the fields.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。保福長慶遊山次福以手指云。只這裏便是妙峯頂慶云。是則是。可惜許雪竇著語云。今日共這漢遊山。圖箇什麼復云。百千年後不道無。只是少後舉似鏡清清云。若不是孫公。便見髑髏遍野。保福長慶鏡清。總承嗣雪峯。他三人同得同證。同見同聞。同拈同用。一出一入。遞相挨拶。蓋為他是同條生底人。舉著便知落處。在雪峯會裏。居常問答。只是他三人。古人行住坐臥。以此道為念。所以舉著便知落處。一日遊山次。保福以手指云。只這裏便是妙峯頂。如今禪和子。恁麼問著。便只口似匾檐。賴值問著長慶。爾道保福恁麼道。圖箇什麼。古人如此。要驗他有眼無眼。是他家裏人。自然知他落處。便對他道。是即是可惜許。且道長慶恁麼道。意旨如何。不可一向恁麼去也。似則似。罕有等閑無一星事。賴是長慶識破他。雪竇著語云。今日共這漢遊山。圖箇什麼。且道落在什麼處。復云。百千年後不道無。只是少。雪竇解點胸正似黃檗道不道無禪。只是無師。雪竇恁麼道。也不妨險峻。若不是同聲相應。爭得如此孤危奇怪。此謂之著語。落在兩邊。雖落在兩邊。却不住兩邊。後舉似鏡清。清云。若不是孫公便見髑髏遍野孫公乃長慶俗姓也。不見僧問趙州。如何是妙峯孤頂。州云。老僧不答爾這話。僧云。為什麼不答這話。州云。我若答爾。恐落在平地上教中說妙峯孤頂。德雲比丘。從來不下山。善財去參。七日不逢。一日却在別峯相見。及乎見了。却與他說一念三世。一切諸佛。智慧光明。普見法門。德雲既不下山。因什麼却在別峯相見。若道他下山。教中道。德雲比丘從來不曾下山。常在妙峯孤頂到這裏。德雲與善財。的的在那裏。自後李長者打葛藤。打得好。道妙峯孤頂。是一味平等法門。一一皆真。一一皆全。向無得無失。無是無非處獨露。所以善財不見。到稱性處。如眼不自見。耳不自聞。指不自觸。如刀不自割。火不自燒。水不自洗。到這裏。教中大有老婆相為處。所以放一線道。於第二義門。立賓立主。立機境立問答。所以道。諸佛不出世。亦無有涅槃。方便度眾生。故現如斯事。且道畢竟作麼生免得鏡清雪竇恁麼道去。當時不能拍拍相應。所以盡大地人髑髏遍野。鏡清恁麼證將來。那兩箇恁麼用將來。雪竇後面頌出更顯煥。頌云。",
+          "verse_zh": "妙峯孤頂草離離拈得分明付與誰不是孫公辨端的髑髏著地幾人知",
+          "verse_en": "On the Wondrous Peak's lone top the grass grows thick; / plucked and shown — but handed on to whom? / Without Lord Sun's discernment of the true, / how many know the skulls that lie scattered on the ground?"
+        },
+        {
+          "case_num": 24,
+          "title_zh": "劉鐵磨",
+          "title_pinyin": "Liú Tiěmó",
+          "title_en": "Lau T'ieh-mo Calls on Guishan",
+          "pointer_zh": "垂示云。高高峯頂立。魔外莫能知。深深海底行。佛眼覷不見。直饒眼似流星。機如掣電。未免靈龜曳尾。到這裏合作麼生。試舉看。",
+          "pointer_en": "Pointer: Stand on the highest peak — maras and outsiders cannot know you. Walk deep on the ocean floor — the Buddha-eye cannot see you. Even with eyes like shooting stars and a device swift as lightning, the spirit tortoise still drags its tail. Arriving here, what should you do? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "溈山與劉鐵磨 / Guishan and Lau T'ieh-mo",
+              "zh": "劉鐵磨到溈山，山云：「老牸牛，汝來也。」磨云：「來日臺山大會齋，和尚還去麼？」溈山放身臥，磨便出去。",
+              "pinyin": "Liú Tiěmó dào Guīshān， Shān yún：「 Lǎo zìniú， rǔ lái yě。」 Mó yún：「 Láirì Táishān dàhuì zhāi， héshàng hái qù me？」 Guīshān fàngshēn wò， mó biàn chūqù。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Old Lau T'ieh-mo came to see Guishan. Guishan said, 'You old water-buffalo cow — so you've come.' Lau said, 'Tomorrow there is the great feast on Mount T'ai — will you be going, Master?' Guishan stretched himself out and lay down. Lau walked straight out.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。劉鐵磨到溈山山云老牸牛。汝來也磨云。來日臺山大會齋。和尚還去麼溈山放身臥磨便出去。劉鐵磨如擊石火。似閃電光。擬議則喪身失命。禪道若到緊要處。那裏有許多事。他作家相見。如隔牆見角便知是牛。隔山見煙便知是火。拶著便動。捺著便轉。溈山道。老僧百年後。向山下檀越家。作一頭水牯牛。左脇下書五字云。溈山僧某甲。且正當恁麼時。喚作溈山僧。即是喚作水牯牛。即是。如今人問著。管取分疎不下。劉鐵磨久參機鋒峭峻。人號為劉鐵磨。去溈山十里卓庵。一日去訪溈山。山見來便云。老牸牛。汝來也。磨云。來日臺山大會齋。和尚還去麼。溈山放身便臥。磨便出去。爾看他一如說話相似。且不是禪又不是道。喚作無事會得麼。溈山去臺山。自隔數千里。劉鐵磨因什麼却令溈山去齋。旦道意旨如何。這老婆會他溈山說話。絲來線去。一放一收。互相酬唱。如兩鏡相照。無影像可觀。機機相副。句句相投。如今人三搭不迴頭。這老婆一點也瞞他不得。這箇却不是世諦情見。如明鏡當臺。明珠在掌。胡來胡現。漢來漢現。是他知有向上事。所以如此。如今只管做無事會。四祖演和尚道。莫將有事為無事。往往事從無事生。爾若參得透去。見他恁麼如尋常人說話一般。多被言語隔礙。所以不會。唯是知音方會他底只如乾峯示眾云。舉一不得舉二。放過一著落在第二。雲門出眾云。昨日有一僧。從天台來却往南岳去。乾峯云。典座今日不得普請。看他兩人。放則雙放。收則雙收。溈仰下謂之境致。風塵草動。悉究端倪。亦謂之隔身句。意通而語隔。到這裏。須是左撥右轉方是作家。",
+          "verse_zh": "曾騎鐵馬入重城勅下傳聞六國清猶握金鞭問歸客夜深誰共御街行",
+          "verse_en": "Once she rode an iron horse into the walled city; / by imperial word the six kingdoms stood at peace. / Still holding her golden whip, she asks the homebound rider: / deep in the night, who walks with her down the imperial street?"
+        },
+        {
+          "case_num": 25,
+          "title_zh": "蓮花峯庵主",
+          "title_pinyin": "Liánhuāfēng Ānzhǔ",
+          "title_en": "The Hermit of Lotus Flower Peak",
+          "pointer_zh": "垂示云。機不離位。墮在毒海。語不驚群。陷於流俗。忽若擊石火裏別緇素。閃電光中辨殺活。可以坐斷十方。壁立千仞。還知有恁麼時節麼。試舉看。",
+          "pointer_en": "Pointer: A device that never leaves its seat drowns in a sea of poison; a phrase that does not startle the crowd sinks into the commonplace. But if you can sort out the black and the white inside a striking spark, and tell the killing from the reviving in a lightning flash, you can sit astride the ten directions and stand like a wall a thousand fathoms high. Do you know such a moment? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "蓮花峯庵主 / The hermit of Lotus Flower Peak",
+              "zh": "蓮花峯庵主拈拄杖示眾云：「古人到這裏，為什麼不肯住？」眾無語。自代云：「為他途路不得力。」復云：「畢竟如何？」又自代云：「楖𣗖橫擔不顧人，直入千峯萬峯去。」",
+              "pinyin": "Liánhuāfēng Ānzhǔ niān zhǔzhàng shìzhòng yún：「 Gǔrén dào zhèlǐ， wèishénme bù kěn zhù？」 Zhòng wúyǔ。 Zìdài yún：「 Wèi tā túlù bùdé lì。」 Fù yún：「 Bìjìng rúhé？」 Yòu zìdài yún：「 Jílì héngdān bù gù rén， zhí rù qiānfēng wànfēng qù。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The hermit of Lotus Flower Peak raised his staff before the assembly and said, 'The ancients who reached this point — why would they not stay?' The assembly was silent. He answered for them: 'Because the road would not sustain them.' Again he asked, 'But after all, how is it?' And answered for them again: 'A dry stick slung across his shoulder, heeding no one — straight into a thousand peaks, ten thousand peaks he goes.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。蓮花峯庵主。拈拄杖示眾云古人到這裏。為什麼不肯住眾無語自代云。為他途路不得力復云。畢竟如何又自代云。楖𣗖橫擔不顧人。直入千峯萬峯去。諸人還裁辨得蓮花峯庵主麼。脚跟也未點地在。國初時在天台蓮花峯卓庵。古人既得道之後。茅茨石室中。折脚鐺兒內。煮野菜根喫過日。且不求名利。放曠隨緣。垂一轉語。且要報佛祖恩。傳佛心印。纔見僧來。便拈拄杖云。古人到這裏為什麼不肯住。前後二十餘年。終無一人答得。只這一問。也有權有實。有照有用。若也知他圈繢。不消一揑。爾且道因什麼二十年如此問。既是宗師所為。何故只守一橛。若向箇裏見得。自然不向情塵上走。凡二十年中。有多少人。與他平展下語呈見解。做盡伎倆。設有箇道得。也不到他極則處。況此事雖不在言句中。非言句即不能辨。不見道。道本無言因言顯道。所以驗人端的處。下口便知音。古人垂一言半句。亦無他。只要見爾知有不知有他見人不會。所以自代云。為他途路不得力。看他道得。自然契理契機。幾曾失却宗旨。古人云。承言須會宗。勿自立規矩。如今人只管撞將去便了。得則得。爭柰顢頇儱侗。若到作家面前。將三要語印空。印泥印水驗他。便見方木逗圓孔。無下落處。到這裏討一箇同得同證。臨時向什麼處求。若是知有底人。開懷通箇消息。有何不可。若不遇人。且卷而懷之。且問爾諸人。拄杖子是衲僧尋常用底。因什麼却道途路不得力。古人到此不肯住。其實金屑雖貴落眼成翳。石室善道和尚。當時遭沙汰。常以拄杖示眾云。過去諸佛也恁麼。未來諸佛也恁麼。現前諸佛也恁麼。雪峯一日僧堂前拈拄杖示眾云。這箇只為中下根人。時有僧出問云。忽遇上上人來時如何。峯拈拄杖便去。雲門云。我即不似雪峯打破狼籍。僧問未審和尚如何。雲門便打。大凡參問也無許多事。為爾外見有山河大地。內見有見聞覺知。上見有諸佛可求。下見有眾生可度。直須一時吐却。然後十二時中。行住坐臥。打成一片。雖在一毛頭上。寬若大千沙界。雖居鑊湯爐炭中。如在安樂國土。雖居七珍八寶中。如在茅茨蓬蒿下。這般事。若是通方作者。到古人實處。自然不費力。他見無人搆得他底。復自徵云。畢竟如何。又柰何不得。自云。楖𣗖橫擔不顧人。直入千峯萬峯去。這箇意又作麼生。且道指什麼處為地頭不妨句中有眼。言外有意。自起自倒。自放自收。豈不見嚴陽尊者。路逢一僧。拈起拄杖云。是什麼。僧云。不識嚴云一條拄杖也不識嚴復以拄杖。地上劄一下云。還識麼。僧云。不識嚴云。土窟子也不識。嚴復以拄杖擔云會麼。僧云不會。嚴云楖𣗖橫擔不顧人。直入千峯萬峯去。古人到這裏。為什麼不肯住。雪竇有頌云。誰當機舉不賺。亦還希。摧殘峭峻銷鑠玄微。重關曾巨闢。作者未同歸。玉兔乍圓乍缺。金烏似飛不飛。盧老不知何處去。白雲流水共依依。因什麼山僧道。腦後見腮莫與往來。纔作計較。便是黑山鬼窟裏作活計。若見得徹信得及。千人萬人。自然羅籠不住。柰何不得。動著拶著。自然有殺有活。雪竇會他意道直入千峯萬峯去。方始成頌。要知落處。看取雪竇頌云。",
+          "verse_zh": "眼裏塵沙耳裏土千峯萬峯不肯住落花流水太茫茫剔起眉毛何處去",
+          "verse_en": "Dust and sand in the eyes, grit in the ears; / a thousand peaks, ten thousand peaks — he would not stay. / Falling flowers, flowing water, vast and boundless — / raising his brows, where did he go?"
+        },
+        {
+          "case_num": 26,
+          "title_zh": "百丈獨坐",
+          "title_pinyin": "Bǎizhàng Dúzuò",
+          "title_en": "Baizhang Sits Alone on the Great Hero Peak",
+          "dialogue": [
+            {
+              "speaker": "百丈與僧 / Baizhang and the monk",
+              "zh": "僧問百丈：「如何是奇特事？」丈云：「獨坐大雄峯。」僧禮拜，丈便打。",
+              "pinyin": "Sēng wèn Bǎizhàng：「 Rúhé shì qítè shì？」 Zhàng yún：「 Dú zuò Dàxióng fēng。」 Sēng lǐbài， zhàng biàn dǎ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Baizhang, 'What is the matter of wonder?' Baizhang said, 'Sitting alone on Great Hero Peak.' The monk bowed — and Baizhang struck him.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問百丈。如何是奇特事丈云。獨坐大雄峯僧禮拜丈便打。臨機具眼。不顧危亡。所以道。不入虎穴。爭得虎子。百丈尋常如虎插翅相似。這僧也不避死生。敢捋虎鬚便問。如何是奇特事。這僧也具眼。百丈便與他擔荷云。獨坐大雄峯。其僧便禮拜。衲僧家須是別未問已前意始得。這僧禮拜。與尋常不同。也須是具眼始得。莫教平生心膽向人傾。相識還如不相識。只這僧問。如何是奇特事。百丈云。獨坐大雄峯。僧禮拜。丈便打。看他放去則一時俱是。收來則掃蹤滅跡。且道他便禮拜意旨如何。若道是好。因甚百丈便打他作什麼。若道是不好。他禮拜有什麼不得處。到這裏須是識休咎別緇素。立向千峯頂上始得。這僧便禮拜。似捋虎鬚相似。只爭轉身處。賴值百丈頂門有眼。肘後有符。照破四天下。深辨來風。所以便打。若是別人無柰他何。這僧以機投機。以意遣意。他所以禮拜。如南泉云。文殊普賢。昨夜三更。起佛見法見。各與二十棒。貶向二鐵圍山去也。時趙州出眾云。和尚棒教誰喫。泉云。王老師有什麼過。州禮拜。宗師家等閑不見他受用處。纔到當機拈弄處。自然活鱍鱍地。五祖先師常說。如馬前相撲相似。爾但常教見聞聲色一時坐斷。把得定作得主。始見他百丈。且道放過時作麼生。看取雪竇頌出云。",
+          "verse_zh": "祖域交馳天馬駒化門舒卷不同途電光石火存機變堪笑人來捋虎鬚",
+          "verse_en": "In the patriarchs' field, a heavenly colt runs; / through the gate of teaching, spread and fold on different roads. / In lightning and flint-spark he kept the living device — / how laughable, that man who came to stroke the tiger's whiskers!"
+        },
+        {
+          "case_num": 27,
+          "title_zh": "雲門體露金風",
+          "title_pinyin": "Yúnmén Tǐlù Jīnfēng",
+          "title_en": "Yunmen: 'The Body Exposed in the Autumn Wind'",
+          "pointer_zh": "垂示云。問一答十。舉一明三見兔放鷹。因風吹火。不惜眉毛則且置。只如入虎穴時如何。試舉看。",
+          "pointer_en": "Pointer: To answer ten when asked one, to raise one and illumine three, to loose the hawk on sighting the hare, to fan the fire in the wind — sparing no brow-hairs, let that rest. But when you yourself enter the tiger's den — what then? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "雲門與僧 / Yunmen and the monk",
+              "zh": "僧問雲門：「樹凋葉落時如何？」雲門云：「體露金風。」",
+              "pinyin": "Sēng wèn Yúnmén：「 Shù diāo yè luò shí rúhé？」 Yúnmén yún：「 Tǐ lù jīnfēng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Yunmen, 'When the tree withers and the leaves have fallen — what then?' Yunmen said, 'The body exposed in the autumn wind.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問雲門。樹凋葉落時如何雲門云。體露金風。若向箇裏薦得。始見雲門為人處。其或未然。依舊只是指鹿為馬。眼瞎耳聾。誰人到這境界。且道雲門為復是答他話。為復是與他酬唱。若道答他話。錯認定盤星。若道與他唱和。且得沒交涉。既不恁麼。畢竟作麼生。爾若見得透。衲僧鼻孔。不消一揑。其或未然。依舊打入鬼窟裏去。大凡扶竪宗乘。也須是全身擔荷。不惜眉毛。向虎口橫身。任他橫拕倒拽。若不如此。爭能為得人。這僧致箇問端。也不妨嶮峻。若以尋常事看他。只似箇管閑事底僧。若據衲僧門下。去命脈裏覷時。不妨有妙處。且道樹凋葉落是什麼人境界。十八問中。此謂之辨主問。亦謂之借事問。雲門不移易一絲毫。只向他道。體露金風。答得甚妙。亦不敢辜負他問頭。蓋為他問處有眼。答處亦端的。古人道。欲得親切。莫將問來問。若是知音底。舉著便知落處。爾若向雲門語脈裏討。便錯了也。只是雲門句中。多愛惹人情解。若作情解會。未免喪我兒孫。雲門愛恁麼騎賊馬趁賊。不見僧問。如何是非思量處。門云。識情難測。這僧問。樹凋葉落時如何。門云。體露金風。句中不妨把斷要津不通凡聖。須會他舉一明三。舉三明一。爾若去他三句中求。則腦後拔箭。他一句中須具三句。函蓋乾坤句。隨波逐浪句。截斷眾流句。自然恰好。雲門三句中。且道用那句接人。試辨看。頌曰。",
+          "verse_zh": "問既有宗答亦攸仝三句可辨一鏃遼空大野兮涼飈颯颯長天兮疎雨濛濛君不見少林久坐未歸客靜依熊耳一叢叢",
+          "verse_en": "The question has its tradition, the answer its totality; / three phrases can be told apart, one arrow arcs the vast sky. / Over the great plains the cool wind soughs; / through the long sky sparse rain drizzles on. / Have you not seen him, the one who sat long at Shaolin, / calmly leaning on the thickets of Bear's-Ear (Songshan)?"
+        },
+        {
+          "case_num": 28,
+          "title_zh": "南泉不說法",
+          "title_pinyin": "Nánquán Bù Shuōfǎ",
+          "title_en": "Nanquan and the Dharma Never Preached",
+          "dialogue": [
+            {
+              "speaker": "百丈與南泉 / Baizhang and Nanquan",
+              "zh": "南泉參百丈涅槃和尚，丈問：「從上諸聖，還有不為人說底法麼？」泉云：「有。」丈云：「作麼生是不為人說底法？」泉云：「不是心，不是佛，不是物。」丈云：「說了也。」泉云：「某甲只恁麼，和尚作麼生？」丈云：「我又不是大善知識，爭知有說不說？」泉云：「某甲不會。」丈云：「我太殺為爾說了也。」",
+              "pinyin": "Nánquán cān Bǎizhàng nièpán héshàng， Zhàng wèn：「 Cóng shàng zhūshèng， hái yǒu bù wèi rén shuō dǐ fǎ me？」 Quán yún：「 Yǒu。」 Zhàng yún：「 Zuòmòsheng shì bù wèi rén shuō dǐ fǎ？」 Quán yún：「 Bù shì xīn， bù shì fó， bù shì wù。」 Zhàng yún：「 Shuō le yě。」 Quán yún：「 Mǒujiǎ zhǐ nènme， héshàng zuòmòsheng？」 Zhàng yún：「 Wǒ yòu bù shì dà shànzhīshí， zhēng zhī yǒu shuō bù shuō？」 Quán yún：「 Mǒujiǎ bù huì。」 Zhàng yún：「 Wǒ tàishā wèi ěr shuō le yě。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Nanquan called on Baizhang (the 'Nirvana' monk). Baizhang asked, 'Is there a dharma that the saints of old never preached to people?' Nanquan said, 'There is.' Baizhang said, 'What is the dharma never preached to people?' Nanquan said, 'Not mind, not Buddha, not things.' Baizhang said, 'There — you have preached it.' Nanquan said, 'I can only say so much. How about you, Master?' Baizhang said, 'I am no great teacher — how would I know what can or cannot be preached?' Nanquan said, 'I do not understand.' Baizhang said, 'I fear I have preached far too much for you already.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。南泉參百丈涅槃和尚。丈問。從上諸聖。還有不為人說底法麼泉云。有丈云。作麼生是不為人說底法泉云。不是心。不是佛。不是物丈云。說了也泉云。某甲只恁麼。和尚作麼生丈云。我又不是大善知識。爭知有說不說泉云。某甲不會丈云。我太殺為爾說了也。到這裏。也不消即心不即心。不消非心不非心。直下從頂至足。眉毛一莖也無。猶較些子。即心非心。壽禪師謂之表詮遮詮。此是涅槃和尚法正禪師也。昔時在百丈作西堂。開田說大義者。是時南泉已見馬祖了。只是往諸方決擇。百丈致此一問。也大難酬。云從上諸聖。還有不為人說底法麼。若是山僧。掩耳而出。看這老漢一場懡㦬。若是作家。見他恁麼問便識破得他。南泉只據他所見。便道有。也是孟八郎。百丈便將錯就錯。隨後道作麼生是不為人說底法。泉云。不是心。不是佛。不是物。這漢貪觀天上月。失却掌中珠。丈云。說了也。可惜許。與他注破。當時但劈脊便棒。教他知痛痒。雖然如是。爾且道什麼處是說處。據南泉見處。不是心不是佛不是物。不曾說著。且問爾諸人。因什麼却道。說了也。他語下又無蹤迹。若道他不說。百丈為什麼却恁麼道。南泉是變通底人。便隨後一拶云。某甲只恁麼。和尚又作麼生。若是別人。未免分疎不下。爭柰百丈是作家。答處不妨奇特。便道。我又不是大善知識。爭知有說不說。南泉便道箇不會。是渠果會來道不會。莫是真箇不會。百丈云。我太殺為爾說了也。且道什麼處是說處。若是弄泥團漢時。兩箇淈淈𣸩𣸩。若是二俱作家時。如明鏡當臺。其實前頭二俱作家。後頭二俱放過。若是具眼漢。分明驗取。且道作麼生驗他。看雪竇頌出云。",
+          "verse_zh": "祖佛從來不為人衲僧今古競頭走明鏡當臺列像殊一一面南看北斗斗柄垂無處討拈得鼻孔失却口",
+          "verse_en": "The buddhas and patriarchs never preached it; / monks past and present run on heedlessly. / A bright mirror on its stand lines up every likeness — / one by one, facing south, they gaze at the Dipper. / The Dipper hangs — nowhere to find it: / seize the nose and the mouth is lost."
+        },
+        {
+          "case_num": 29,
+          "title_zh": "大隋隨他去",
+          "title_pinyin": "Dàsuí Suítāqù",
+          "title_en": "Dasui's 'Let It Go with Him'",
+          "pointer_zh": "垂示云。魚行水濁。鳥飛毛落。明辨主賓。洞分緇素。直似當臺明鏡。掌內明珠。漢現胡來。聲彰色顯。且道為什麼如此。試舉看。",
+          "pointer_en": "Pointer: When the fish swims, the water grows turbid; when the bird flies, feathers fall. Clear discernment of host and guest, a thorough sorting of black and white — like the bright mirror on its stand, the bright pearl in the palm: Chinese and foreigners arriving, echo and color made plain. Tell me: why is it so? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "大隋與僧 / Dasui and the monk",
+              "zh": "僧問大隋：「劫火洞然，大千俱壞，未審這箇壞不壞？」隋云：「壞。」僧云：「恁麼則隨他去也。」隋云：「隨他去。」",
+              "pinyin": "Sēng wèn Dàsuí：「 Jiéhuǒ dòngrán， dàqiān jù huài， wèishěn zhège huài bù huài？」 Suí yún：「 Huài。」 Sēng yún：「 Nènme zé suí tā qù yě。」 Suí yún：「 Suí tā qù。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Dasui, 'The aeon's end-fire blazes and the great thousandfold world is destroyed — will this thing be destroyed or not?' Dasui said, 'Destroyed.' The monk said, 'Then will it go with it?' Dasui said, 'It will go with it.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問大隋。劫火洞然大千俱壞。未審這箇壞不壞隋云。壞僧云。恁麼則隨他去也隋云。隨他去。大隋真如和尚承嗣大安禪師。乃東川鹽亭縣人。參見六十餘員善知識。昔時在溈山會裏作火頭。一日溈山問云。子在此數年。亦不解致箇問來看如何。隋云。令某甲問箇什麼即得。溈山云。子便不會問如何是佛。隋以手掩溈山口。山云。汝已後覓箇掃地人也無。後歸川。先於堋口山路次。煎茶接待往來。凡三年。後方出世。開山住大隋。有僧問。劫火洞然。大千俱壞。未審這箇壞不壞。這僧只據教意來問。教中云。成住壞空。三災劫起。壞至三禪天。這僧元來不知話頭落處。且道這箇是什麼人。多作情解道。這箇是眾生本性。隋云。壞。僧云。恁麼則隨他去也。隋云。隨他去。只這箇。多少人情解。摸索不著。若道隨他去。在什麼處。若道不隨他去。又作麼生。不見道欲得親切。莫將問來問。後有僧問修山主。劫火洞然大千俱壞。未審這箇壞不壞。山主云。不壞。僧云。為什麼不壞。主云。為同於大千。壞也礙塞殺人。不壞也礙塞殺人。其僧既不會大隋說話。是他也不妨以此事為念。却持此問。直往舒州投子山。投子問近離甚處。僧云。西蜀大隋。投云。大隋有何言句。僧遂舉前話。投子焚香禮拜云。西蜀有古佛出世。汝且速回。其僧復回至大隋。隋已遷化。這僧一場懡㦬。後有唐僧景遵題大隋云了然無別法。誰道印南能。一句隨他語。千山走衲僧。蛩寒鳴砌葉。鬼夜禮龕燈。吟罷孤窓外。徘徊恨不勝。所以雪竇後面引此兩句頌出。如今也不得作壞會。也不得作不壞會。畢竟作麼生會。急著眼看。",
+          "verse_zh": "劫火光中立問端衲僧猶滯兩重關可憐一句隨他語萬里區區獨往還",
+          "verse_en": "A question raised standing in the aeon-fire's light; / the monk still sticks in the double barrier. / Pity that one phrase — 'let it go with him': / ten thousand miles, back and forth, alone he went."
+        },
+        {
+          "case_num": 30,
+          "title_zh": "趙州大蘿蔔",
+          "title_pinyin": "Zhàozhōu Dà Luóbo",
+          "title_en": "Zhaozhou's Giant Radish of Zhenzhou",
+          "dialogue": [
+            {
+              "speaker": "趙州與僧 / Zhaozhou and the monk",
+              "zh": "僧問趙州：「承聞和尚親見南泉，是否？」州云：「鎮州出大蘿蔔頭。」",
+              "pinyin": "Sēng wèn Zhaozhōu：「 Chéngwén héshàng qīn jiàn Nánquán， shìfǒu？」 Zhōu yún：「 Zhènzhōu chū dà luóbotóu。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Zhaozhou, 'We have heard that you personally saw Nanquan — is it true?' Zhaozhou said, 'In Zhenzhou they grow giant radishes.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問趙州。承聞和尚親見南泉。是否州云。鎮州出大蘿蔔頭。這僧也是箇久參底。問中不妨有眼。爭奈趙州是作家。便答他道。鎮州出大蘿蔔頭。可謂無味之談。塞斷人口。這老漢大似箇白拈賊相似。爾纔開口。便換却爾眼睛。若是特達英靈底漢。直下向擊石火裏閃電光中。纔聞舉著。剔起便行。苟或佇思停機。不免喪身失命。江西澄散聖判。謂之東問西答。喚作不答話。不上他圈繢。若恁麼會爭得。遠錄公云。此是傍瞥語。收在九帶中。若恁麼會。夢也未夢見在。更帶累趙州去。有者道鎮州從來出大蘿蔔頭。天下人皆知。趙州從來參見南泉。天下人皆知。這僧却更問道。承聞和尚親見南泉是否。所以州向他道。鎮州出大蘿蔔頭。且得沒交涉。都不恁麼會。畢竟作麼生會。他家自有通霄路。不見僧問九峯。承聞和尚親見延壽來。是否。峯云。山前麥熟也未。正對得趙州答此僧話。渾似兩箇無孔鐵鎚。趙州老漢。是箇無事底人。爾輕輕問著。便換却爾眼睛。若是知有底人。細嚼來嚥。若是不知有底人。一似渾崙吞箇棗。",
+          "verse_zh": "鎮州出大蘿蔔天下衲僧取則只知自古自今爭辨鵠白烏黑賊賊衲僧鼻孔曾拈得",
+          "verse_en": "In Zhenzhou they grow giant radishes — / monks of the world take them as a rule. / They know only old and new, now and then — / how can they tell a swan from a crow? / Thief, thief! The monks' noses — / they were seized long ago."
+        },
+        {
+          "case_num": 31,
+          "title_zh": "麻谷振錫",
+          "title_pinyin": "Mágǔ Zhènxī",
+          "title_en": "Magu Shakes His Staff",
+          "pointer_zh": "垂示云。動則影現。覺則氷生。其或不動不覺。不免入野狐窟裏。透得徹信得及。無絲毫障翳。如龍得水似虎靠山。放行也瓦礫生光。把定也真金失色。古人公案。未免周遮。且道評論什麼邊事。試舉看。",
+          "pointer_en": "Pointer: Move and reflections appear; think and ice forms. But if you neither move nor think, you run straight into the foxes' den. Only one who pierces it through and trusts it fully, without a thread's obstruction, is like a dragon in water, a tiger against the mountain. Set free — even tiles shine; held fast — even true gold loses its color. The ancients' cases cannot but zigzag. Tell me: what territory do they appraise? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "麻谷、章敬與南泉 / Magu, Zhangjing, and Nanquan",
+              "zh": "麻谷持錫到章敬，遶禪床三匝，振錫一下，卓然而立。敬云：「是是。」麻谷又到南泉，遶禪床三匝，振錫一下，卓然而立。泉云：「不是不是。」麻谷當時云：「章敬道是，和尚為什麼道不是？」泉云：「章敬即是，是汝不是。此是風力所轉，終成敗壞。」",
+              "pinyin": "Mágǔ chí xī dào Zhāngjìng， rào chánchuáng sān zā， zhèn xī yī xià， zhuōrán ér lì。 Jìng yún：「 Shì shì。」 Mágǔ yòu dào Nánquán， rào chánchuáng sān zā， zhèn xī yī xià， zhuōrán ér lì。 Quán yún：「 Bù shì bù shì。」 Mágǔ dāngshí yún：「 Zhāngjìng dào shì， héshàng wèishénme dào bù shì？」 Quán yún：「 Zhāngjìng jí shì， shì rǔ bù shì。 Cǐ shì fēnglì suǒ zhuǎn， zhōng chéng bàihuài。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Magu, staff in hand, came to Zhangjing, circled the meditation seat three times, shook the staff once, and stood bolt upright. Zhangjing said, 'Yes, yes.' Magu then went to Nanquan, circled the meditation seat three times, shook the staff once, and stood bolt upright. Nanquan said, 'No, no.' Magu said, 'Zhangjing said yes — why do you say no?' Nanquan said, 'Zhangjing is right; it is you who are wrong. Such conduct is driven by the wind of force — it ends in ruin.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。麻谷持錫到章敬。遶禪床三匝。振錫一下。卓然而立敬云。是是雪竇著語云。錯麻谷又到南泉遶禪床三匝。振錫一下。卓然而立泉云。不是不是雪竇著語云。錯麻谷當時云。章敬道是。和尚為什麼道不是泉云。章敬即是是。汝不是此是風力所轉。終成敗壞。古人行脚。遍歷叢林。直以此事為念。要辨他曲錄木床上老和尚。具眼不具眼。古人一言相契即住。一言不契即去。看他麻谷到章敬。遶禪床三匝。振錫一下。卓然而立。章敬云。是是殺人刀活人劍。須是本分作家。雪竇云。錯。落在兩邊。爾若去兩邊會。不見雪竇意。他卓然而立。且道。為什麼事。雪竇為什麼却道錯。什麼處是他錯處。章敬道是。什麼處是是處。雪竇如坐讀判語。麻谷檐箇是字。便去見南泉。依然遶禪床三匝。振錫一下。卓然而立。泉云。不是不是。殺人刀活人劍。須是本分宗師。雪竇云。錯。章敬道是是。南泉云。不是不是。為復是同是別。前頭道是。為什麼也錯。後頭道不是。為什麼也錯。若向章敬句下薦得。自救也不了。若向南泉句下薦得。可與祖佛為師。雖然恁麼。衲僧家須是自肯始得。莫一向取人口辯。他問既一般。為什麼一箇道是。一箇道不是。若是通方作者。得大解脫底人。必須別有生涯。若是機境不忘底。決定滯在這兩頭。若要明辨古今。坐斷天下人舌頭。須是明取這兩錯始得。及至後頭雪竇頌。也只頌這兩錯。雪竇要提活鱍鱍處。所以如此。若是皮下有血底漢。自然不向言句中作解會。不向繫驢橛上作道理。有者道。雪竇代麻谷下這兩錯。有什麼交涉。殊不知。古人著語。鎖斷要關。這邊也是。那邊也是。畢竟不在這兩頭。慶藏主道。持錫遶禪床是與不是俱錯。其實亦不在此。爾不見。永嘉到曹溪見六祖。遶禪床三匝。振錫一下。卓然而立。祖云。夫沙門者。具三千威儀。八萬細行。大德從何方而來。生大我慢。為什麼六祖却道他生大我慢。此箇也不說是。也不說不是。是與不是都是繫驢橛。唯有雪竇下兩錯。猶較些子。麻谷云。章敬道是。和尚為什麼道不是。這老漢不惜眉毛。漏逗不少。南泉道章敬則是是汝不是。南泉可謂見兔放鷹。慶藏主云。南泉忒殺郎當。不是便休。更與他出過道。此是風力所轉。終成敗壞。圓覺經云。我今此身。四大和合。所謂髮毛爪齒。皮肉筋骨。髓腦垢色。皆歸於地。唾涕膿血。皆歸於水。暖氣歸火。動轉歸風。四大各離今者妄身。當在何處。他麻谷持錫遶禪床。既是風力所轉。終成敗壞。且道畢竟。發明心宗底事。在什麼處。到這裏。也須是生鐵鑄就底箇漢始得。豈不見張拙秀才。參西堂藏禪師。問云。山河大地。是有是無。三世諸佛。是有是無藏云。有張拙秀才云。錯。藏云。先輩曾參見什麼人來。拙云。參見徑山和尚來。某甲凡有所問話。徑山皆言無。藏云。先輩有什麼眷屬。拙云。有一山妻兩箇癡頑。又却問。徑山有甚眷屬。拙云。徑山古佛。和尚莫謗渠好。藏云。待先輩得似徑山時。一切言無。張拙俛首而已。大凡作家宗師。要與人解粘去縛。抽釘拔楔。不可只守一邊。左撥右轉。右撥左轉。但看仰山到中邑處謝戒。邑見來。於禪床上拍手云。和尚。仰山即東邊立。又西邊立。又於中心立。然後謝戒了。却退後立。邑云。什麼處得此三昧來。仰山云。於曹溪印子上。脫將來。邑云。汝道曹溪用此三昧接什麼人。仰云。接一宿覺。仰山又復問中邑云。和尚什麼處得此三昧來。邑云。我於馬祖處得此三昧來。似恁麼說話。豈不是舉一明三。見本逐末底漢。龍牙示眾道。夫參學人。須透過祖佛始得。新豐和尚道。見祖佛言教。如生冤家。始有參學分。若透不得。即被祖佛瞞去。時有僧問。祖佛還有瞞人之心也無。牙云。汝道江湖還有礙人之心也無。又云江湖雖無礙人之心。自是時人過不得。所以江湖却成礙人去。不得道江湖不礙人。祖佛雖無瞞人之心。自是時人透不得。祖佛却成瞞人去也。不得道祖佛不瞞人。若透得祖佛過。此人即過却祖佛。也須是體得祖佛意。方與向上。古人同。如未透得。儻學佛學祖。則萬劫無有得期。又問如何得不被祖佛瞞去。牙云。直須自悟去。到這裏須是如此始得。何故為人須為徹。殺人須見血。南泉雪竇是這般人。方敢拈弄。頌云。",
+          "verse_zh": "此錯彼錯切忌拈却四海浪平百川潮落古策風高十二門門門有路空蕭索非蕭索作者好求無病藥",
+          "verse_en": "This wrong, that wrong — above all, do not single them out. / The four seas' waves run calm, the hundred streams' tide falls. / The ancient policy blows high through the twelve gates — / every gate a road, all empty and desolate. / Not desolate! The adept seeks only the medicine of no-sickness."
+        },
+        {
+          "case_num": 32,
+          "title_zh": "定上座大悟",
+          "title_pinyin": "Dìng Shàngzuò Dàwù",
+          "title_en": "Elder Din's Awakening under Linji",
+          "pointer_zh": "垂示云。十方坐斷千眼頓開。一句截流萬機寢削。還有同死同生底麼。見成公案打疊不下。古人葛藤試請舉看。",
+          "pointer_en": "Pointer: Sitting astride the ten directions, a thousand eyes instantly open; one phrase dams the stream and the ten thousand devices are pared away. Is there anyone who will die the same death and live the same life? A ready-made case cannot be packed away. The ancients' tangled vines: watch as I raise one.",
+          "dialogue": [
+            {
+              "speaker": "定上座與臨濟 / Elder Din and Linji",
+              "zh": "定上座問臨濟：「如何是佛法大意？」濟下禪床擒住，與一掌，便托開。定佇立，傍僧云：「定上座何不禮拜？」定方禮拜，忽然大悟。",
+              "pinyin": "Dìng shàngzuò wèn Línjì：「 Rúhé shì fófǎ dàyì？」 Jì xià chánchuáng qín zhù， yǔ yī zhǎng， biàn tuō kāi。 Dìng zhù lì， bàngsēng yún：「 Dìng shàngzuò hébù lǐbài？」 Dìng fāng lǐbài， hūrán dàwù。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Elder Din asked Linji, 'What is the great meaning of the Buddha's teaching?' Linji came down from the meditation seat, seized him, gave him one slap, and pushed him away. Din stood there rooted. A monk nearby said, 'Elder Din, why don't you bow?' As Din began to bow, he suddenly awakened.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。定上座。問臨濟。如何是佛法大意濟下禪床擒住。與一掌。便托開定佇立傍僧云。定上座何不禮拜定方禮拜忽然大悟。看他恁麼。直出直入。直往直來。乃是臨濟正宗。有恁麼作用。若透得去。便可翻天作地。自得受用。定上座是這般漢。被臨濟一掌。禮拜起來。便知落處。他是向北人。最朴直。既得之後。更不出世。後來全用臨濟機。也不妨頴脫。一日路逢巖頭雪峯欽山三人。巖頭乃問甚處來。定云。臨濟。頭云。和尚萬福。定云。已順世了也。頭云。某等三人。特去禮拜。福緣淺薄。又值歸寂。未審和尚在日。有何言句。請上座舉一兩則看。定遂舉臨濟一日示眾云。赤肉團上。有一無位真人。常從汝諸人面門出入。未證據者看看。時有僧出問。如何是無位真人。濟便擒住云。道道。僧擬議。濟便托開云。無位真人。是什麼乾屎橛。便歸方丈。巖頭不覺吐舌。欽山云。何不道非無位真人。被定擒住云。無位真人與非無位真人。相去多少。速道速道。山無語。直得面黃面青。巖頭雪峯。近前禮拜云。這新戒不識好惡。觸忤上座。望慈悲且放過。定云。若不是這兩箇老漢。𡎺殺這尿床鬼子。又在鎮州齋回。到橋上歇。逢三人座主。一人問。如何是禪河深處。須窮底。定擒住擬拋向橋下。時二座主。連忙救云。休休。是伊觸忤上座。且望慈悲。定云。若不是二座。主從他窮到底去。看他恁麼手段。全是臨濟作用。更看雪竇頌出云。",
+          "verse_zh": "斷際全機繼後蹤持來何必在從容巨靈擡手無多子分破華山千萬重",
+          "verse_en": "The Broken-World master's whole device continues his track; / there was no need to hold him gently. / Giant Spirit raised his hand — nothing much between — / and split Mount Hua into ten thousand folds."
+        },
+        {
+          "case_num": 33,
+          "title_zh": "陳操圓相",
+          "title_pinyin": "Chéncāo Yuánxiàng",
+          "title_en": "Minister Chen Cao and the Circle",
+          "pointer_zh": "垂示云。東西不辨南北不分。從朝至暮從暮至朝。還道伊瞌睡麼。有時眼似流星。還道伊惺惺麼有時呼南作北。且道是有心是無心。是道人是常人。若向箇裏透得。始知落處。方知古人恁麼不恁麼。且道是什麼時節。試舉看。",
+          "pointer_en": "Pointer: He cannot tell east from west, nor south from north; from morning to dusk, from dusk to morning — would you say he is dozing? Sometimes his eyes are shooting stars; would you say he is wide awake? Sometimes he calls south north. Tell me: has he a mind or not; is he a man of the Way or a common man? If you can pierce through here, you first know where it settles and see why the ancients acted thus and not-thus. Tell me: what moment is this? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "陳操尚書與資福 / Minister Chen Cao and Zifu",
+              "zh": "陳操尚書看資福，福見來便畫一圓相。操云：「弟子恁麼來，早是不著便，何況更畫一圓相？」福便掩却方丈門。雪竇云：「陳操只具一隻眼。」",
+              "pinyin": "Chéncāo shàngshū kàn Zīfú， Fú jiàn lái biàn huà yī yuánxiàng。 Cāo yún：「 Dìzǐ nènme lái， zǎo shì bù zhuóbiàn， hékuàng gèng huà yī yuánxiàng？」 Fú biàn yǎn què fāngzhàng mén。 Xuědòu yún：「 Chéncāo zhǐ jù yī zhī yǎn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Minister Chen Cao came to see Zifu. Seeing him arrive, Zifu at once drew a circle. Chen Cao said, 'Coming like this, your disciple already missed the mark — how much more so drawing a circle!' Zifu simply closed the abbot's door. Xuedou remarks: 'Chen Cao has only one eye.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。陳操尚書看資福。福見來便畫一圓相操云。弟子恁麼來。早是不著便。何況更畫一圓相福便掩却方丈門雪竇云。陳操只具一隻眼。陳操尚書。與裴休李翱同時。凡見一僧來。先請齋。襯錢三百。須是勘辨。一日雲門到相看便問。儒書中即不問。三乘十二分教。自有座主。作麼生是衲僧家行脚事。雲門云。尚書曾問幾人來。操云。即今問上座。門云。即今且置。作麼生是教意。操云。黃卷赤軸。門云。這箇是文字語言。作麼生是教意。操云。口欲談而辭喪。心欲緣而慮亡。門云。口欲談而辭喪。為對有言。心欲緣而慮亡。為對妄想。作麼生是教意。操無語。門云。見說尚書看法華經是否。操云是門云。經中道。一切治生產業。皆與實相不相違背。且道非非想天。即今有幾人退位。操又無語。門云。尚書且莫草草。師僧家拋却三經五論來入叢林。十年二十年。尚自不奈何。尚書又爭得會。操禮拜云。某甲罪過。又一日與眾官登樓次。望見數僧來。一官人云。來者總是禪僧。操云。不是。官云。焉知不是。操云。待近來與爾勘過。僧至樓前。操驀召云。上座。僧舉頭。書謂眾官云。不信道。唯有雲門一人。他勘不得。他參見睦州來。一日去參資福。福見來。便畫一圓相。資福乃溈山仰山下尊宿。尋常愛以境致接人。見陳操尚書便畫一圓相。爭奈操却是作家。不受人瞞。解自點檢云。弟子恁麼來早是不著便。那堪更畫一圓相。福掩却門。這般公案謂之言中辨的句裏藏機。雪竇道。陳操只具。一隻眼。雪竇可謂頂門具眼。且道意在什麼處。也好與一圓相。若總恁麼地。衲僧家如何為人。我且問爾。當時若是諸人作陳操時。堪下得箇什麼語。免得雪竇道他只具一隻眼。所以雪竇踏翻頌云。",
+          "verse_zh": "團團珠遶玉珊珊馬載驢駝上鐵船分付海山無事客釣鼇時下一圈攣",
+          "verse_en": "A perfect pearl rings round like jade bracelets; / horses, donkeys, camels board an iron ship. / Hand it to the idle guest of seas and mountains: / when hooking the giant turtle, lower one snare."
+        },
+        {
+          "case_num": 34,
+          "title_zh": "仰山遊山",
+          "title_pinyin": "Yǎngshān Yóushān",
+          "title_en": "Yangshan: 'You Have Never Been on the Mountain'",
+          "dialogue": [
+            {
+              "speaker": "仰山與僧 / Yangshan and the monk",
+              "zh": "仰山問僧：「近離甚處？」僧云：「廬山。」山云：「曾遊五老峯麼？」僧云：「不曾到。」山云：「闍黎不曾遊山。」雲門云：「此語皆為慈悲之故，有落草之談。」",
+              "pinyin": "Yǎngshān wèn sēng：「 Jìn lí shèn chù？」 Sēng yún：「 Lúshān。」 Shān yún：「 Céng yóu Wǔlǎo fēng me？」 Sēng yún：「 Bùcéng dào。」 Shān yún：「 Shélí bùcéng yóushān。」 Yúnmén yún：「 Cǐ yǔ jiē wèi cíbēi zhī gù， yǒu luòcǎo zhī tán。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yangshan asked a monk, 'Where have you just left?' The monk said, 'Mount Lu.' Yangshan asked, 'Did you visit the Five Elders' Peak?' The monk said, 'Never got there.' Yangshan said, 'Then you have never been on the mountain at all.' Yunmen comments: 'Such words, out of compassion, still end up as talk low in the grass.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。仰山問僧。近離甚處僧云。廬山山云曾遊五老峯麼僧云。不曾到山云。闍黎不曾遊山雲門云。此語皆為慈悲之故。有落草之談。驗人端的處。下口便知音。古人道。沒量大人。向語脈裏轉却。若是頂門具眼。舉著便知落處。看他一問一答。歷歷分明。雲門為什麼却道。此語皆為慈悲之故。有落草之談。古人到這裏。如明鏡當臺明珠在掌。胡來胡現漢來漢。現一箇蠅子也過他鑑不得。且道作麼生是慈悲之故有落草之談。也不妨險峻。到這田地。也須是箇漢始可提掇。雲門拈云這僧親從廬山來。因什麼却道。闍黎不曾遊山溈山。一日問抑山云。諸方若有僧來。汝將什麼驗他。仰山云。某甲有驗處。溈山云。子試舉看。仰云。某甲尋常見僧來。只舉拂子向伊道。諸方還有這箇麼。待伊有語只向伊道。這箇即且置。那箇如何。溈山云。此是向上人牙爪。豈不見。馬祖問百丈。什麼處來。丈云。山下來。祖云。路上還逢著一人麼。丈云。不曾。祖云。為什麼不曾逢著。丈云。若逢著。即舉似和尚。祖云。那裏得這消息來。丈云。某甲罪過。祖云。却是老僧罪過。仰山問僧正相類此。當時待他道曾到五老峯麼。這僧若是箇漢。但云禍事。却道不曾到。這僧既不作家。仰山何不據令而行。免見後面許多葛藤。却云。闍黎不曾遊山。所以雲門道。此語皆為慈悲之故。有落草之談。若是出草之談。則不恁麼。",
+          "verse_zh": "出草入草誰解尋討白雲重重紅日杲杲左顧無瑕右盻已老君不見。寒山子行太早十年歸不得忘却來時道",
+          "verse_en": "Out of the grass, into the grass — who can search him out? / White clouds layering on, the red sun bright and high. / Glance left — flawless; glance right — already old. / Have you not seen Hanshanzi, who set out too early: / ten years and could not return, forgetting the road by which he came."
+        },
+        {
+          "case_num": 35,
+          "title_zh": "無著問文殊",
+          "title_pinyin": "Wúzhuó Wèn Wénshū",
+          "title_en": "Wuzhuo Questions Manjushri",
+          "pointer_zh": "垂示云。定龍蛇分玉石。別緇素決猶豫。若不是頂門上有眼。肘臂下有符。往往當頭蹉過。只如今見聞不昧。聲色純真。且道是皂是白。是曲是直。到這裏作麼生辨。",
+          "pointer_en": "Pointer: To settle dragons from snakes and part jade from stone, to sort black from white and cut indecision — without an eye on the crown of your head and a tally under your forearm you will fumble it head-on again and again. Right now, with seeing and hearing undimmed and sound and color pure and true — tell me: which is black, which is white; which is bent, which is straight? Arriving here, how do you discern?",
+          "dialogue": [
+            {
+              "speaker": "無著與文殊 / Wuzhuo and Manjushri",
+              "zh": "文殊問無著：「近離什麼處？」無著云：「南方。」殊云：「南方佛法，如何住持？」著云：「末法比丘，少奉戒律。」殊云：「多少眾？」著云：「或三百，或五百。」無著問文殊：「此間如何住持？」殊云：「凡聖同居，龍蛇混雜。」著云：「多少眾？」殊云：「前三三，後三三。」",
+              "pinyin": "Wénshū wèn Wúzhuó：「 Jìn lí shénme chù？」 Wúzhuó yún：「 Nánfāng。」 Shū yún：「 Nánfāng fófǎ， rúhé zhùchí？」 Zhuó yún：「 Mòfǎ bǐqiū， shǎo fèng jièlǜ。」 Shū yún：「 Duōshǎo zhòng？」 Zhuó yún：「 Huò sānbǎi， huò wǔbǎi。」 Wúzhuó wèn Wénshū：「 Cǐjiān rúhé zhùchí？」 Shū yún：「 Fánshèng tóngjū， lóngshé hùnzá。」 Zhuó yún：「 Duōshǎo zhòng？」 Shū yún：「 Qián sānsān， hòu sānsān。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Manjushri asked Wuzhuo, 'Where have you just left?' Wuzhuo said, 'The South.' Manjushri asked, 'How is the Buddha's teaching sustained in the South?' Wuzhuo said, 'Monks of the final age scarcely keep the precepts.' Manjushri asked, 'How many are there?' Wuzhuo said, 'Three hundred here, five hundred there.' Wuzhuu asked Manjushri, 'And how is it sustained here?' Manjushri said, 'Ordinary and holy dwell together; dragons and snakes are mixed.' Wuzhuo asked, 'How many are there?' Manjushri said, 'Three in front, three behind.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。文殊問無著。近離什麼處無著云。南方殊云。南方佛法。如何住持著云。末法比丘。少奉戒律殊云。多少眾著云。或三百或五百無著問文殊。此間如何住持殊云。凡聖同居龍蛇混雜著云。多少眾殊云。前三三後三三。無著遊五臺。至中路荒僻處。文殊化一寺。接他宿。遂問。近離甚處。著云。南方。殊云。南方佛法。如何住持。著云。末法比丘。少奉戒律。殊云。多少眾。著云。或三百或五百。無著却問文殊。此間如何住持。殊云。凡聖同居龍蛇混雜。著云。多少眾。殊云。前三三後三三。却喫茶。文殊舉起玻璃盞子云。南方還有這箇麼。著云。無。殊云。尋常將什麼喫茶。著無語遂辭去。文殊令均提童子。送出門首。無著問童子云。適來道前三三後三三。是多少。童子云。大德著應喏。童子云。是多少。又問此是何寺。童子指金剛後面。著回首。化寺童子。悉隱不見。只是空谷。彼處後來謂之金剛窟。後有僧問風穴。如何是清涼山中主。穴云。一句不遑無著問。迄今猶作野盤僧。若要參透平平實實。脚踏實地。向無著言下薦得。自然居鑊湯爐炭中。亦不聞熱。居寒氷上亦不聞冷。若要參透使孤危峭峻。如金剛王寶劍。向文殊言下薦取。自然水灑不著風吹不入。不見漳州地藏問僧。近離甚處。僧云。南方。藏云。彼中佛法如何。僧云。商量浩浩地。藏云。爭似我這裏種田博飯喫。且道與文殊答處。是同是別。有底道。無著答處不是。文殊答處。也有龍有蛇。有凡有聖。有什麼交涉。還辨明得前三三後三三麼。前箭猶輕後箭深。且道是多少。若向這裏透得。千句萬句。只是一句。若向此一句下。截得斷把得住。相次間到這境界。",
+          "verse_zh": "千峯盤屈色如藍誰謂文殊是對談堪笑清涼多少眾前三三與後三三",
+          "verse_en": "A thousand peaks bend, their color like indigo — / who says Manjushri was truly facing him? / Laughable, the many on Qingliang's slopes: / three in front, three behind."
+        },
+        {
+          "case_num": 36,
+          "title_zh": "長沙遊山",
+          "title_pinyin": "Chángshā Yóushān",
+          "title_en": "Changsha Rambles in the Mountains",
+          "dialogue": [
+            {
+              "speaker": "長沙與首座 / Changsha and the head monk",
+              "zh": "長沙一日遊山，歸至門首。首座問：「和尚什麼處去來？」沙云：「遊山來。」首座云：「到什麼處來？」沙云：「始隨芳草去，又逐落花回。」座云：「大似春意。」沙云：「也勝秋露滴芙蕖。」雪竇著語云：「謝答話。」",
+              "pinyin": "Chángshā yīrì yóushān， guī zhì ménshǒu。 Shǒuzuò wèn：「 Héshàng shénme chù qù lái？」 Shā yún：「 Yóushān lái。」 Shǒuzuò yún：「 Dào shénme chù lái？」 Shā yún：「 Shǐ suí fāngcǎo qù， yòu zhú luòhuā huí。」 Zuò yún：「 Dàsì chūnyì。」 Shā yún：「 Yě shèng qiūlù dī fúqú。」 Xuědòu zhùyǔ yún：「 Xiè dáhuà。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day Changsha returned from the mountains to the gate. The head monk asked, 'Where have you been, Master?' Changsha said, 'Rambling in the mountains.' The head monk said, 'How far did you go?' Changsha said, 'First I followed the fragrant grasses out, then I came back chasing the falling flowers.' The head monk said, 'That is very much the mood of spring.' Changsha said, 'Better than autumn dew dripping on lotus blossoms.' Xuedou remarks: 'Thanks for the reply.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。長沙。一日遊山。歸至門首首座問。和尚什麼處去來沙云。遊山來首座云。到什麼處來沙云。始隨芳草去。又逐落花回座云。大似春意沙云。也勝秋露滴芙蕖雪竇著語云。謝答話。長沙鹿苑招賢大師。法嗣南泉。與趙州紫胡輩同時。機鋒敏捷。有人問教。便與說教。要頌便與頌。爾若要作家相見。便與爾作家相見。仰山尋常機鋒。最為第一。一日同長沙翫月次。仰山指月云。人人盡有這箇。只是用不得。沙云恰是。便倩爾用那。仰山云。爾試用看。沙一踏踏倒仰山起云。師叔一似箇大蟲。後來人號為岑大蟲。因一日遊山歸。首座亦是他會下人。便問和尚什麼處去來。沙云。遊山來。座云。到什麼處去來。沙云。始隨芳草去。又逐落花回。須是坐斷十方底人始得。古人出入未甞不以此事為念。看他賓主互換。當機直截。各不相饒。既是遊山。為什麼却問道。到什麼處去來。若是如今禪和子。便道到夾山亭來。看他古人。無絲毫道理計較。亦無住著處。所以道。始隨芳草去。又逐落花回。首座便隨他意向他道。大似春意。沙云。也勝秋露滴芙蕖。雪竇云。謝答語。代末後語也。也落兩邊。畢竟不在這兩邊。昔有張拙秀才。看千佛名經。乃問百千諸佛。但聞其名。未審居何國土。還化物也無。沙云。黃鶴樓崔顥題詩後。秀才曾題也未。拙云。未曾題。沙云。得閑題取一篇也好。岑大蟲平生為人。直得珠回玉轉。要人當面便會。頌云。",
+          "verse_zh": "大地絕纖埃何人眼不開始隨芳草去又逐落花回羸鶴翹寒木狂猿嘯古臺長沙無限意",
+          "verse_en": "The great earth, not a speck of dust — whose eye is unopened? / He first followed fragrant grasses out, then chased falling flowers home. / A gaunt crane stands on a wintry tree; a mad ape howls from an ancient terrace. / Changsha's meaning is boundless —"
+        },
+        {
+          "case_num": 37,
+          "title_zh": "盤山無法",
+          "title_pinyin": "Pánshān Wúfǎ",
+          "title_en": "Panshan: 'No Dharma in the Three Realms'",
+          "pointer_zh": "垂示云。掣電之機徒勞佇思。當空霹靂。掩耳難諧。腦門上播紅旗。耳背後輪雙劍。若不是眼辨手親。爭能搆得。有般底。低頭佇思。意根下卜度。殊不知髑髏前見鬼無數。且道不落意根。不抱得失。忽有箇恁麼舉覺。作麼生祗對。試舉看。",
+          "pointer_en": "Pointer: A device swift as lightning — thinking about it is toil in vain; thunder splitting the sky cannot be matched by covering your ears. A red banner planted on the brow, twin swords wheeling behind the head — without a discerning eye and a familiar hand, who could catch it? Some, heads lowered, stall in thought and divine with the root of mind, little knowing that countless ghosts peer before their skulls. Tell me: without falling into the root of mind, without clutching gain and loss — if someone raises this awakeningly, how will you respond? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "盤山寶積 / Panshan Baoji",
+              "zh": "盤山垂語云：「三界無法，何處求心？」",
+              "pinyin": "Pánshān chuíyǔ yún：「 Sānjiè wú fǎ， hé chù qiú xīn？」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Panshan let fall this saying: 'In the three realms there is no dharma at all — where will you seek mind?'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。盤山垂語云。三界無法何處求心。向北幽州盤山寶積和尚。乃馬祖下尊宿。後出普化一人。師臨遷化謂眾云。還有人邈得吾真麼。眾皆寫真呈師。師皆叱之。普化出云。某甲邈得。師云。何不呈似老僧。普化便打筋斗而出。師云。這漢向後如風狂接人去在一日示眾云。三界無法。何處求心。四大本空。佛依何住。璿璣不動。寂止無痕。覿面相呈。更無餘事。雪竇拈兩句來頌。直是渾金璞玉。不見道。瘥病不假驢駝藥。山僧為什麼道。和聲便打。只為他擔枷過狀。古人道。聞稱聲外句。莫向意中求。且道他意作麼生。直得奔流度刃。電轉星飛。若擬議尋思。千佛出世。也摸索他不著。若是深入閫奧。徹骨徹髓。見得透底。盤山一場敗缺。若承言會宗左轉右轉底。盤山只得一橛。若是拕泥帶水。聲色堆裏轉。未夢見盤山在。五祖先師道。透過那邊方有自由分。不見三祖道。執之失度必入邪路。放之自然體無去住。若向這裏。道無佛無法。又打入鬼窟裏去。古人謂之解脫深坑。本是善因而招惡果。所以道。無為無事人。猶遭金鎖難。也須是窮到底始得。若向無言處言得。行不得處行得。謂之轉身處。三界無法何處求心。爾若作情解。只在他言下死却。雪竇見處。七穿八穴。所以頌出。",
+          "verse_zh": "三界無法何處求心白雲為蓋流泉作琴一曲兩曲無人會雨過夜塘秋水深",
+          "verse_en": "No dharma in the three realms — where will you seek mind? / White clouds for a canopy, the flowing spring for a zither. / One tune, another tune — no one understands; / after rain, the autumn waters of the pond run deep."
+        },
+        {
+          "case_num": 38,
+          "title_zh": "風穴鐵牛",
+          "title_pinyin": "Fēngxuè Tiěniú",
+          "title_en": "Fengxue and the Iron Ox Seal",
+          "pointer_zh": "垂示云。若論漸也。返常合道。閙市裏七縱八橫。若論頓也。不留朕迹。千聖亦摸索不著。儻或不立頓漸。又作麼生。快人一言快馬一鞭。正恁麼時。誰是作者。試舉看。",
+          "pointer_en": "Pointer: Speaking of the gradual — he returned to the ordinary and joined the Way, weaving freely through the busy market. Speaking of the sudden — he left not a trace; a thousand saints could not find him by groping. If we stand on neither sudden nor gradual — what then? A quick man needs one word, a quick horse one whip. Right at such a moment, who is the master? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "風穴與盧陂長老 / Fengxue and Elder Lubi",
+              "zh": "風穴在郢州衙內，上堂云：「祖師心印，狀似鐵牛之機，去即印住，住即印破。只如不去不住，印即是，不印即是？」時有盧陂長老出問：「某甲有鐵牛之機，請師不搭印。」穴云：「慣釣鯨鯢澄巨浸，却嗟蛙步輾泥沙。」陂佇思，穴喝云：「長老何不進語？」陂擬議，穴打一拂子。穴云：「還記得話頭麼？試舉看。」陂擬開口，穴又打一拂子。牧主云：「佛法與王法一般。」穴云：「見箇什麼道理？」牧主云：「當斷不斷，返招其亂。」穴便下座。",
+              "pinyin": "Fēngxuè zài Yǐngzhōu yánèi， shàngtáng yún：「 Zǔshī xīnyìn， zhuàng sì tiěniú zhī jī， qù jí yìn zhù， zhù jí yìn pò。 Zhǐ rú bù qù bù zhù， yìn jí shì， bù yìn jí shì？」 Shí yǒu Lúbēi zhǎnglǎo chū wèn：「 Mǒujiǎ yǒu tiěniú zhī jī， qǐng shī bù dā yìn。」 Xuè yún：「 Guàn diào jīngní chéng jù jìn， què jiē wābù niǎn níshā。」 Bēi zhùsī， xuè hè yún：「 Zhǎnglǎo hébù jìn yǔ？」 Bēi nǐyì， xuè dǎ yī fúzi。 Xuè yún：「 Hái jìdé huàtóu me？ Shì jǔ kàn。」 Bēi nǐ kāikǒu， xuè yòu dǎ yī fúzi。 Mùzhǔ yún：「 Fófǎ yǔ wángfǎ yībān。」 Xuè yún：「 Jiàn ge shénme dàolǐ？」 Mùzhǔ yún：「 Dāng duàn bù duàn， fǎn zhāo qí luàn。」 Xuè biàn xiàzuò。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "At the Yamen of Yingzhou, Fengxue addressed the assembly: 'The mind-seal of the patriarchs is shaped like the device of the iron ox: if it goes, the seal holds; if it stays, the seal is broken. But if it neither goes nor stays — shall I seal it or not?' Then Elder Lubi came forward and said, 'I have the device of the iron ox — pray, Master, do not seal me.' Fengxue said, 'You who have always fished out the giant serpent from clear deep waters — why now pity the frog dragging through mud and sand?' Lubi stood thinking. Fengxue shouted, 'Elder, why don't you speak?' As Lubi hesitated, Fengxue struck him once with a fly-whisk. Fengxue said, 'Do you still remember the topic? Try raising it.' As Lubi opened his mouth, Fengxue struck him again. The magistrate said, 'The Buddha's law is like the king's law.' Fengxue asked, 'What principle do you see?' The magistrate said, 'To hesitate at cutting is to call down disorder on oneself.' Fengxue stepped down from the seat.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。風穴在郢州衙內。上堂云。祖師心印。狀似鐵牛之機去即印住住即印破只如不去不住印即是不印即是時有盧陂長老出問。某甲有鐵牛之機請師不搭印穴云。慣釣鯨鯢澄巨浸。却嗟蛙步輾泥沙陂佇思穴喝云。長老何不進語陂擬議穴打一拂子穴云。還記得話頭麼。試舉看陂擬開口穴又打一拂子。牧主云。佛法與王法一般穴云。見箇什麼道理牧主云。當斷不斷返招其亂穴便下座。風穴乃臨濟下尊宿。臨濟當初在黃檗會下栽松次。檗云。深山裏栽許多松作什麼。濟云。一與山門作境致。二與後人作標榜。道了便钁地一下。檗云。雖然如是。子已喫二十棒了也。濟又打地一下云。噓噓。檗云。吾宗到汝大興於世。溈山喆云。臨濟恁麼。大似平地喫交。雖然如是。臨危不變。始稱真丈夫。檗云。吾宗到汝大興於世。大似憐兒不覺醜。後來溈山問仰山。黃檗當時。只囑付臨濟一人。別更有在。仰山云有。只是年代深遠。不欲舉似和尚。溈山。云雖然如是。吾亦要知。但舉看。仰山云。一人指南吳越令行。遇大風即止。此乃讖風穴也。穴初參雪峯五年。因請益。臨濟入堂。兩堂首座齊下一喝。僧問臨濟。還有賓主也無。濟云。賓主歷然。穴云。未審意旨如何。峯云。吾昔與巖頭欽山。去見臨濟。在途中聞已遷化。若要會他賓主話。須是參他宗派下尊宿。穴後又見瑞巖常自喚主人公。自云喏。復云。惺惺著。他後莫受人瞞却。穴云。自拈自弄。有什麼難。後在襄州鹿門與廓侍者過夏。廓指他來參南院。穴云。入門須辨主。端的請師分。一日遂見南院。舉前話云。某甲特來親覲。南院云。雪峯古佛。一日見鏡清。清問近離甚處。穴云。自離東來。清云。還過小江否。穴云。大舸獨飄空。小江無可濟。清云。鏡水圖山。鳥飛不渡。子莫盜聽遺言。穴云。滄溟尚怯蒙輪勢。列漢飛帆渡五湖。清竪起拂子云。爭奈這箇何。穴云。這箇是什麼。清云。果然不識。穴云。出沒卷舒。與師同用。清云。杓卜聽虛聲。熟睡饒譫語。穴云。澤廣藏山理能伏豹。清云。赦罪放愆。速須出去。穴云。出即失。乃便出至法堂上。自謂言。大丈夫。公案未了。豈可便休。却回再入方丈。清坐次。便問。某適來輒呈騃見。冐瀆尊顏。伏蒙和尚慈悲。未賜罪責。清云。適來從東來。豈不是翠嚴來。穴云。雪竇親棲寶蓋東。清云。不逐亡羊狂解息。却來這裏念詩篇。穴云。路逢劍客須呈劍。不是詩人莫獻詩。清云。詩速祕却。略借劍峯穴云。󱓒首甑人携劍去。清云。不獨觸風化。亦自顯顢頇。穴云。若不觸風化。焉明古佛心。清云。何名古佛心。穴又云再許允容。師今何有清云。東來衲子菽麥不分。穴云。只聞不以而以。何得抑以而以。清云。巨浪湧千尋。澄波不離水。穴云。一句截流萬機寢削。穴便禮拜。清以拂子點三點云。俊哉。且坐喫茶。風穴初到南院。入門不禮拜。院云。入門須辨主。穴云。端的請師分。院左手拍膝一下。穴便喝。院右手拍膝一下。穴亦喝。院舉左手云。這箇即從闍黎。又舉右手云。這箇又作麼生。穴云。瞎院遂拈拄杖。穴云。作什麼。某甲奪却拄杖。打著和尚。莫言不道。院便擲下拄杖云。今日被這黃面浙子。鈍置一上。穴云。和尚大似持鉢不得。詐道不飢。院云。闍黎莫曾到此間麼。穴云。是何言歟。院云。好好借問。穴云。也不得放過。院云。且坐喫茶。爾看俊流自是機鋒峭峻。南院亦未辨得他。至次日南院只作平常問云。今夏在什麼處。穴云。鹿門與廓侍者同過夏。院云。元來親見作家來。又云他向爾道什麼。穴云。始終只教某甲一向作主。院便打推出方丈云。這般納敗缺底漢。有什麼用處。穴自此服膺。在南院會下作園頭。一日院到園裏問云。南方一棒作麼生商量。穴云。作奇特商量。穴云。和尚此間作麼生商量。院拈棒起云。棒下無生忍。臨機不讓師。穴於是豁然大悟。是時五代離亂。郢州牧主請師度夏是。時臨濟一宗大盛。他凡是問答垂示。不妨語句尖新。攢花簇錦。字字皆有下落。一日牧主。請師上堂。示眾云。祖師心印。狀似鐵牛之機。去即印住。住即印破。只如不去不住。印即是不印即是。何故。不似石人木馬之機。直下似鐵牛之機。無爾撼動處。爾才去即印住。爾才住即印破。教爾百雜碎。只如不去不住。印即是不印即是。看他恁麼垂示可謂鉤頭有餌。是時座下有盧陂長老。亦是臨濟下尊宿。敢出頭來與他對機。便轉他話頭。致箇問端。不妨奇特。道某甲有鐵牛之機。請師不搭印。爭奈風穴是作家。便答他道。慣釣鯨鯢澄巨浸。却嗟蛙步輾泥沙。也是言中有響。雲門云。垂鉤四海只釣獰龍。格外玄機為尋知已。巨浸乃十二頭水牯牛。為鉤餌。却只釣得一蛙出來。此語且無玄妙。亦無道理計較。古人道。若向事上覻則易。若向意根下卜度則沒交涉。盧陂佇思。見之不取千載難逢。可惜許。所以道。直饒講得千經論。一可臨機下口難。其實盧陂要討好語對他。不欲行令。被風穴一向用攙旗奪皷底機鋒。一向逼將去。只得沒奈何。俗諺云。陣敗不禁苕菷掃。當初更要討鎗法敵他。等爾討得來。即頭落地。牧主亦久參風穴。解道佛法與王法一般。穴云。爾見箇什麼。牧主云。當斷不斷返招其亂。風穴渾是一團精神。如水上葫蘆子相似。捺著便轉。按著便動。解隨機說法。若不隨機翻成妄語。穴便下座。只如臨濟有四賓主話。夫參學之人。大須子細。如賓主相見。有語論賓主往來。或應物見形。全體作用。或把機權喜怒。或現半身。或乘獅子。或乘象王。如有真正學人便喝。先拈出一箇膠盆子。善知識不辨是境。便上他境上。作模作樣。便學人又喝。前人不肯放下。此是膏肓之病。不堪醫治。喚作賓看主。或是善知識。不拈出物。隨學人問處便奪。學人被奪。抵死不放。此是主看賓。或有學人。應一箇清淨境。出善知識前。知識辨得是境。把他拋向坑裏。學人言。大好善知識。知識即云。咄哉不識好惡。學人禮拜。此喚作主看主。或有學人。披枷帶鎖。出善知識前。知識更與他安一重枷鎖。學人歡喜。彼此不辨。呼為賓看賓。大德山僧所舉。皆是辨魔揀異。知其邪正。不見僧問慈明。一喝分賓主。照用一時行時如何。慈明便喝。又雲居弘覺禪師示眾云。譬如獅子捉象亦全其力。捉兔亦全其力。時有僧問。未審全什麼力。雲居云。不欺之力。看他雪竇頌出　󱓒。",
+          "verse_zh": "擒得盧陂跨鐵牛三玄戈甲未輕酬楚王城畔朝宗水喝下曾令却倒流",
+          "verse_en": "Having caught Lubi astride the iron ox — / arms of the three mysteries are never lightly repaid. / At the Chu ramparts' edge, where the rivers converge: / drink him down, and once they flowed backward."
+        },
+        {
+          "case_num": 39,
+          "title_zh": "雲門花藥欄",
+          "title_pinyin": "Yúnmén Huāyàolán",
+          "title_en": "Yunmen's 'The Flowered Herbs Rail'",
+          "pointer_zh": "垂示云。途中受用底。似虎靠山。世諦流布底。如猿在檻。欲知佛性義。當觀時節因緣。欲煅百鍊精金。須是作家爐韛。且道大用現前底。將什麼試驗。",
+          "pointer_en": "Pointer: What avails on the Way is like the tiger against the mountain; what circulates in worldly custom is like the ape in a cage. If you would know the meaning of Buddha-nature, observe time and circumstance. If you would forge hundred-times-refined gold, you need a master's forge and bellows. Tell me: with what shall we test the great working present before us?",
+          "dialogue": [
+            {
+              "speaker": "雲門與僧 / Yunmen and the monk",
+              "zh": "僧問雲門：「如何是清淨法身？」門云：「花藥欄。」僧云：「便恁麼去時如何？」門云：「金毛獅子。」",
+              "pinyin": "Sēng wèn Yúnmén：「 Rúhé shì qīngjìng fǎshēn？」 Mén yún：「 Huāyàolán。」 Sēng yún：「 Biàn nènme qù shí rúhé？」 Mén yún：「 Jīnmáo shīzi。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Yunmen, 'What is the pure Dharma-body?' Yunmen said, 'The railing of flowering herbs.' The monk said, 'And if I were to proceed just so — what then?' Yunmen said, 'The golden-haired lion.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問雲門。如何是清淨法身門云。花藥欄僧云。便恁麼去時如何門云。金毛獅子。諸人還知這僧問處與雲門答處麼。若知得。兩口同無一舌。若不知。未免顢頇。僧問玄沙。如何是清淨法身。沙云。膿滴滴地。具金剛眼。試請辨看。雲門不同別人。有時把定壁立萬仞。無爾湊泊處。有時與爾開一線道。同死同生。雲門三寸甚密。有者道。是信彩答去。若恁麼會。且道雲門落在什麼處。這箇是屋裏事。莫向外卜度。所以百丈道。森羅萬象。一切語言。皆轉歸自己。令轉轆轆地。向活潑潑處便道。若擬議尋思。便落第二句了也。永嘉道。法身覺了無一物。本源自性天真佛。雲門驗這僧。其僧亦是他屋裏人。自是久參。知他屋裏事。進云。便恁麼去時如何。門云。金毛獅子。且道是肯他。是不肯他。是褒他是貶他。巖頭道。若論戰也。箇箇立在轉處。又道他參活句。不參死句。活句下薦得。永劫不忘。死句下薦得。自救不了。又僧問雲門。佛法如水中月是否。門云。清波無透路。進云。和尚從何而得。門云。再問復何來。僧云。正恁麼去時如何。門云。重疊關山路。須知此事。不在言句上。如擊石火似閃電光。構得構不得。未免喪身失命。雪竇是其中人。便當頭頌出。",
+          "verse_zh": "花藥欄莫顢頇星在秤兮不在盤便恁麼太無端金毛獅子大家看",
+          "verse_en": "The flowering herbs rail: no dullness here. / The star is on the beam, not on the pan. / 'Just proceed so' — all too unfounded: / the golden-haired lion — let everyone look!"
+        },
+        {
+          "case_num": 40,
+          "title_zh": "南泉一株花",
+          "title_pinyin": "Nánquán Yī Zhū Huā",
+          "title_en": "Nanquan Points at a Garden Flower",
+          "pointer_zh": "垂示云。休去歇去。鐵樹開花。有麼有麼黠兒落。節。直饒七縱八橫。不免穿他鼻孔。且道誵訛在什麼處。試舉看。",
+          "pointer_en": "Pointer: Cease, rest — an iron tree will have to bloom. Is there such a one? The sharp lad drops his scheme. Even granted seven releases and eight across, you can hardly escape having your nose ringed. Tell me: where is the turning point? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "南泉與陸亘大夫 / Nanquan and Governor Lu Geng",
+              "zh": "陸亘大夫與南泉語話次，陸云：「肇法師道：『天地與我同根，萬物與我一體。』也甚奇怪。」南泉指庭前花，召大夫云：「時人見此一株花，如夢相似。」",
+              "pinyin": "Lùgèn dàifū yǔ Nánquán yǔhuà cì， Lù yún：「 Zhào fǎshī dào：『 Tiāndì yǔ wǒ tónggēn， wànwù yǔ wǒ yītǐ。』 yě shèn qíguài。」 Nánquán zhǐ tíng qián huā， zhào dàifū yún：「 Shírén jiàn cǐ yī zhū huā， rú mèng xiāngsì。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "As Governor Lu Geng was conversing with Nanquan, Lu said, 'Dharma-master Zhao wrote, &lsquo;Heaven and earth share my root; the ten thousand things are one body with me.&rsquo; How strange!' Nanquan pointed to a flower in the courtyard and called to the governor, 'People of our time see this single flower as though in a dream.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。陸亘大夫。與南泉語話次。陸云。肇法師道。天地與我同根。萬物與我一體。也甚奇怪南泉指庭前花召大夫云。時人見此一株花。如夢相似。陸亘大夫久參南泉。尋常留心於理性中。游泳肇論。一日坐次。遂拈此兩句。以為奇特。問云。肇法師道。天地與我同根。萬物與我一體。也甚奇怪。肇法師。乃晉時高僧。與生融叡。同在羅什門下。謂之四哲。幼年好讀莊老。後因寫古維摩經。有悟處。方知莊老猶未盡善。故綜諸經。乃造四論。莊老意謂。天地形之大也。我形亦爾也。同生於虛無之中。莊生大意。只論齊物。肇公大意論性皆歸自己。不見他論中道。夫至人空洞無象。而萬物無非我造。會萬物為自己者。其唯聖人乎。雖有神有人有賢有聖。各別而皆同一性一體。古人道。盡乾坤大地。只是一箇自己。寒則普天普地寒。熱則普天普地熱。有則普天普地有。無則普天普地無。是則普天普地是。非則普天普地非。法眼云。渠渠渠。我我我。南北東西皆可可。不可可。但唯我無不可。所以道。天上天下唯我獨尊。石頭因看肇論。至此會萬物為自己處。豁然大悟。後作一本參同契。亦不出此意。看他恁麼問。且道。同什麼根。同那箇體。到這裏。也不妨奇特。豈同他常人。不知天之高地之厚。豈有恁麼事。陸亘大夫恁麼問。奇則甚奇。只是不出教意。若道教意是極則。世尊何故更拈花。祖師更西來作麼。南泉答處。用衲僧巴鼻。與他拈出痛處。破他窠窟。遂指庭前花。召大夫云。時人見此一株花。如夢相似。如引人向萬丈懸崖上打一推。令他命斷。爾若平地上推倒彌勒佛下生。也只不解命斷。亦如人在夢。欲覺不覺被人喚醒相似。南泉若是眼目不正。必定被他搽糊將去。看他恁麼說話。也不妨難會。若是眼目定動。活底聞得。如醍醐上味。若是死底聞得翻成毒藥。古人道。若於事上見。墮在常情。若向意根下卜度。卒摸索不著。巖頭道。此是向上人活計。只露目前些子。如同電拂。南泉大意如此。有擒虎兕定龍蛇底手脚。到這裏也須是自會始得。不見道。向上一路千聖不傳。學者勞形如猿捉影。看他雪竇頌出。",
+          "verse_zh": "聞見覺知非一一山河不在鏡中觀霜天月落夜將半誰共澄潭照影寒",
+          "verse_en": "Hearing, seeing, awareness, knowing — not one after another; / the mountains and rivers are not viewed in a mirror. / Frosty sky, the moon sinking, the night half gone — / who will join me, cold, gazing at shadows on the still pond?"
+        },
+        {
+          "case_num": 41,
+          "title_zh": "趙州投明",
+          "title_pinyin": "Zhàozhōu Tóumíng",
+          "title_en": "Zhaozhou and Touzi: 'Arrive by Daybreak'",
+          "pointer_zh": "垂示云。是非交結處。聖亦不能知。逆順縱橫時。佛亦不能辨。為絕世超倫之士。顯逸群大士之能。向氷凌上行。劍刃上走。直下如麒麟頭角。似火裏蓮花。宛見超方。始知同道。誰是好手者。試舉看。",
+          "pointer_en": "Pointer: Where yes and no are knotted together, even sages cannot know; when with and against cross freely, even buddhas cannot discern. To be a scholar unsurpassed in the world, showing the capacity of an exceptional adept, one must walk upon thin ice and tread the edge of swords — straight down, like the horn of a kirin, like the lotus in the flame. Glimpse that which is beyond measure, and you first know fellows of the Way. Who is such a master? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "趙州與投子 / Zhaozhou and Touzi",
+              "zh": "趙州問投子：「大死底人却活時如何？」投子云：「不許夜行，投明須到。」",
+              "pinyin": "Zhàozhōu wèn Tóuzǐ：「 Dà sǐ dǐ rén què huó shí rúhé？」 Tóuzǐ yún：「 Bùxǔ yèxíng， tóumíng xū dào。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Zhaozhou asked Touzi, 'When one who has died the great death comes back to life — what then?' Touzi said, 'Traveling by night is forbidden — you must arrive by daybreak.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。趙州問投子。大死底人却活時如何投子云。不許夜行。投明須到。趙州問投子。大死底人却活時如何。投子對他道。不許夜行。投明須到。且道是什麼時節。無孔笛撞著氈拍版。此謂之驗主問。亦謂之心行問。投子趙州諸方皆美之得逸群之辯。二老雖承嗣不同。看他機鋒相投一船。投子一日為趙州。置茶筵相待。自過蒸餅與趙州。州不管。投子令行者過胡餅與趙州。州禮行者三拜。且道他意是如何。看他盡是向根本上。提此本分事為人。有僧問。如何是道。答云。道。如何是佛。答云。佛。又問。金鎖未開時如何。答云。開。金雞未鳴時如何。答云。無這箇音響。鳴後如何。答云。各自知時。投子平生問答總如此。看趙州問。大死底人却活時如何。他便道。不許夜行。投明須到。直下如擊石火。似閃電光。還他向上人始得。大死底人。都無佛法道理玄妙得失是非長短。到這裏只恁麼休去。古人謂之平地上死人無數。過得荊棘林是好手。也須是透過那邊始得。雖然如是。如今人到這般田地。早是難得。或若有依倚有解會。則沒交涉。喆和尚謂之見不淨潔。五祖先師。謂之命根不斷。須是大死一番。却活始得。浙中永光和尚道。言鋒若差鄉關萬里。直須懸崖撒手。自肯承當。絕後再甦。欺君不得。非常之旨。人焉廋哉。趙州問意如此。投子是作家。亦不辜負他所問。只是絕情絕迹。不妨難會。只露面前些子。所以古人道。欲得親切。莫將問來問。問在答處。答在問處。若非投子。被趙州一問。也大難酬對。只為他是作家漢。舉著便知落處。頌云。廋。",
+          "verse_zh": "活中有眼還同死藥忌何須鑒作家古佛尚言會未到不知誰解撒塵沙",
+          "verse_en": "Among the living, having eyes is reckoned the same as dead; / for drug contra-indications, why assay the master? / Even the ancient buddhas said they never reached it — / who knows how to scatter dust and sand?"
+        },
+        {
+          "case_num": 42,
+          "title_zh": "龐居士好雪",
+          "title_pinyin": "Pángjūshì Hàoxuě",
+          "title_en": "Layman P'ang's 'Fine Snow'",
+          "dialogue": [
+            {
+              "speaker": "龐居士與全禪客 / Layman P'ang and Zen guest Quan",
+              "zh": "龐居士辭藥山，山命十人禪客相送至門首。居士指空中雪云：「好雪！片片不落別處。」時有全禪客云：「落在什麼處？」士打一掌。全云：「居士也不得草草。」士云：「汝恁麼稱禪客，閻老子未放汝在。」全云：「居士作麼生？」士又打一掌云：「眼見如盲，口說如啞。」雪竇別云：「初問處但握雪團便打。」",
+              "pinyin": "Pángjūshì cí Yàoshān， Shān mìng shí rén chánkè xiāngsòng zhì ménshǒu。 Jūshì zhǐ kōngzhōng xuě yún：「 Hàoxuě！ Piànpiàn bù luò biéchù。」 Shí yǒu Quán chánkè yún：「 Luò zài shénme chù？」 Shì dǎ yī zhǎng。 Quán yún：「 Jūshì yě bùdé cǎocǎo。」 Shì yún：「 Rǔ nènme chēng chánkè， Yánlǎozǐ wèi fàng rǔ zài。」 Quán yún：「 Jūshì zuòmòsheng？」 Shì yòu dǎ yī zhǎng yún：「 Yǎnjiàn rú máng， kǒushuō rú yǎ。」 Xuědòu bié yún：「 Chū wèn chù dàn wò xuětuán biàn dǎ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "As Layman P'ang took leave of Yaoshan, the master had ten Zen guests see him to the gate. The layman pointed to the falling snow and said, 'Fine snow! Not a flake lands anywhere else.' Then the Zen guest Quan said, 'Where do they land?' The layman slapped him. Quan said, 'Layman, you mustn't be so rough.' The layman said, 'Calling yourself a Zen guest like that — Old Man Yama hasn't let you off yet.' Quan said, 'And what about you, layman?' The layman slapped him again and said, 'Eyes seeing, yet blind; mouth speaking, yet mute.' Xuedou adds by another tack: 'At the first question I would just have made a snowball and hit him.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。龐居士辭藥山山命十人禪客。相送至門首居士指空中雪云。好雪片片不落別處時有全禪客云。落在什麼處士打一掌全云。居士也不得草草士云。汝恁麼稱禪客。閻老子未放汝在全云。居士作麼生士又打一掌云眼見如盲。口說如啞雪竇別云。初問處但握雪團便打。龐居士。參馬祖石頭兩處有頌。初見石頭。便問。不與萬法為侶。是什麼人。聲未斷。被石頭掩却口。有箇省處作頌道。日用事無別。唯吾自偶諧。頭頭非取捨。處處沒張乖。朱紫誰為號。青山絕點埃。神通并妙用。運水及搬柴後參馬祖。又問。不與萬法為侶。是什麼人。祖云。待爾一口吸盡西江水。即向汝道。士豁然大悟。作頌云。十方同聚會。箇箇學無為。此是選佛場。心空及第歸。為他是作家。後列剎相望。所至競譽。到藥山盤桓既久。遂辭藥山。山至重他。命十人禪客相送。是時值雪下。居士指雪云。好雪片片不落別處。全禪客云。落在什麼處。士便掌。全禪客既不能行令。居士令行一半。令雖行。全禪客恁麼酬對。也不是他不知落處。各有機鋒。卷舒不同。然有不到居士處。所以落他架下。難出他彀中。居士打了。更與說道理云。眼見如盲口說如啞。雪竇別前語云。初問處但握雪團便打。雪竇恁麼。要不辜他問端。只是機遲。慶藏主道。居士機如掣電。等爾握雪團。到幾時。和聲便應和聲打。方始勦絕。雪竇自頌他打處云。彀。",
+          "verse_zh": "雪團打雪團打龐老機關沒可把天上人間不自知眼裏耳裏絕瀟灑瀟灑絕碧眼胡僧難辨別",
+          "verse_en": "Snowball — strike! Snowball — strike! / Old P'ang's device admits no grasp. / In heaven and among men he knows himself no more — / in eyes, in ears, utter carefreeness. / Carefree, absolute — even the blue-eyed barbarian monk / finds it hard to tell apart."
         },
         {
           "case_num": 43,
           "title_zh": "洞山無寒暑",
           "title_pinyin": "Dòngshān Wú Hán Shǔ",
           "title_en": "Dongshan's Cold and Heat",
-          "pointer_zh": "垂示云：放行則瓦礫生光，把住則真金失色。",
-          "pointer_en": "Pointer: Let go, and tile and gravel shine with light; hold fast, and pure gold loses its luster.",
+          "pointer_zh": "垂示云。定乾坤句。萬世共遵。擒虎兕機。千聖莫辨。直下更無纖翳。全機隨處齊彰。要明向上鉗鎚。須是作家爐韛。且道從上來還有恁麼家風也無。試舉看。",
+          "pointer_en": "Pointer: The phrase that settles heaven and earth is honored for ten thousand generations; the move that captures tigers and rhinos evades even a thousand sages. Right here, not a speck obscures — the whole capacity shines in every circumstance. To learn the fire-tongs of the summit, you must be a master of the forge. Tell me: since ancient times, has such a house style ever existed? Watch as I raise the case.",
           "dialogue": [
             {
               "speaker": "Monk / 僧",
@@ -8997,12 +10259,1355 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ],
-          "verse_zh": "垂手還同萬仞崖，正偏何必在安排。琉璃古殿照明月，忍俊韓盧空上階。",
-          "verse_en": "Reaching down his hand is like standing atop a ten-thousand fathom cliff; / Why must Real and Apparent be contrived? / The ancient lapis palace reflects the bright moon; / The sly hound Han Lu rushes up the steps in vain!"
+          "verse_zh": "垂手還同萬仞崖正偏何必在安排琉璃古殿照明月忍俊韓獹空上階獹",
+          "verse_en": "Lowering his hand — like a ten-thousand-fathom cliff; / the true and the partial — why arrange them at all? / Moonlight fills the ancient lapis-lazuli hall; / unable to help it, Han's greyhound bounds up the steps in vain — the greyhound!",
+          "commentary_zh": "黃龍新和尚拈云。洞山袖頭打領腋下剜襟。爭柰這僧不甘。如今有箇出來問黃龍。且道如何支遣。良久云。安禪不必須山水。滅却心頭火自涼。諸人且道。洞山圈繢落在什麼處。若明辨得。始知洞山下五位回互正偏接人。不妨奇特。到這向上境界。方能如此。不消安排。自然恰好。所以道。正中偏。三更初夜月明前。莫怪相逢不相識。隱隱猶懷舊日嫌。偏中正失。曉老婆逢古鏡。分明覿面更無真。休更迷頭還認影。正中來。無中有路出塵埃。但能不觸當今諱。也勝前朝斷舌才。偏中至。兩刃交鋒不須避。好手還同火裏蓮。宛然自有衝天氣。兼中到。不落有無誰敢和。人人盡欲出常流。折合還歸炭裏坐。浮山遠錄公。以此公案。為五位之格。若會得一則。餘者自然易會。巖頭道。如水上葫蘆子相似。捺著便轉。殊不消絲毫氣力。曾有僧問洞山。文殊普賢來參時如何。山云。趕向水牯牛群裏去。僧云。和尚入地獄如箭。山云。全得他力。洞山道。何不向無寒暑處去。此是偏中正。僧云。如何是無寒暑處。山云。寒時寒殺闍黎。熱時熱殺闍黎。此是正中偏。雖正却偏雖偏。却圓曹洞錄中。備載子細。若是臨濟下。無許多事。這般公案直下便會。有者道。大好無寒暑。有什麼巴鼻。古人道。若向劍刃上走則快。若向情識上見則遲。不見僧問翠微。如何是祖師西來意。微云。待無人來。向爾道。遂入園中行。僧云。此間無人。請和尚道。微指竹云。這一竿竹得恁麼長。那一竿竹得恁麼短其僧忽然大悟。又曹山問僧。恁麼熱。向什麼處迴避。僧云。鑊湯爐炭裏迴避。山云。鑊湯爐炭裏如何迴避。僧云。眾苦不能到。看他家裏人。自然會他家裏人說話。雪竇用他家裏事頌出。"
+        },
+        {
+          "case_num": 44,
+          "title_zh": "禾山打鼓",
+          "title_pinyin": "Héshān Dǎgǔ",
+          "title_en": "Heshan's 'He Knows the Drum'",
+          "dialogue": [
+            {
+              "speaker": "禾山與僧 / Heshan and the monk",
+              "zh": "禾山垂語云：「習學謂之聞，絕學謂之隣，過此二者，是為真過。」僧出問：「如何是真過？」山云：「解打鼓。」又問：「如何是真諦？」山云：「解打鼓。」又問：「即心即佛即不問，如何是非心非佛？」山云：「解打鼓。」又問：「向上人來時如何接？」山云：「解打鼓。」",
+              "pinyin": "Héshān chuíyǔ yún：「 Xíxué wèi zhī wén， juéxué wèi zhī lín， guò cǐ èr zhě， shì wèi zhēn guò。」 Sēng chū wèn：「 Rúhé shì zhēn guò？」 Shān yún：「 Jiě dǎgǔ。」 Yòu wèn：「 Rúhé shì zhēndì？」 Shān yún：「 Jiě dǎgǔ。」 Yòu wèn：「 Jíxīn jìfó jí bù wèn， rúhé shì fēixīn fēifó？」 Shān yún：「 Jiě dǎgǔ。」 Yòu wèn：「 Xiàngshàng rén lái shí rúhé jiē？」 Shān yún：「 Jiě dǎgǔ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Heshan let fall this saying: 'Studied learning is called hearing; learning ended is called near-ness; passing beyond both is the real passing beyond.' A monk came forward and asked, 'What is the real passing beyond?' Heshan said, 'He knows the drum.' Again he asked, 'What is the true meaning?' Heshan said, 'He knows the drum.' Again he asked, 'Leaving aside that mind itself is Buddha — what is neither-mind nor-Buddha?' Heshan said, 'He knows the drum.' Again he asked, 'When one of the higher sort arrives, how do you receive him?' Heshan said, 'He knows the drum.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。禾山垂語云。習學謂之聞。絕學謂之隣過此二者。是為真過僧出問。如何是真過山云。解打鼓又問。如何是真諦山云。解打鼓又問。即心即佛即不問。如何是非心非佛山云。解打鼓又問。向上人來時如何接山云。解打鼓。禾山垂示云。習學謂之聞。絕學謂之隣。過此二者。是為真過。此一則語。出寶藏論。學至無學。謂之絕學。所以道。淺聞深悟。深聞不悟。謂之絕學。一宿覺道。吾早年來積學問。亦曾討疏尋經論。習學既盡。謂之絕學無為閑道人。及至絕學。方始與道相近。直得過此二學。是謂真過。其僧也不妨明敏。便拈此語問禾山。山云。解打鼓。所謂言無味語無味。欲明這箇公案。須是向上人方能見此語不涉理性。亦無議論處。直下便會。如桶底脫相似。方是衲僧安穩處。始契得祖師西來意。所以雲門道。雪峯輥毬。禾山打鼓。國師水碗。趙州喫茶。盡是向上拈提。又問。如何是真諦。山云。解打鼓。真諦更不立一法。若是俗諦萬物俱備。真俗無二。是聖諦第一義。又問。即心即佛即不問。如何是非心非佛。山云。解打鼓。即心即佛即易求。若到非心非佛即難。少有人到。又問。向上人來時如何接。山云。解打鼓。向上人即是透脫灑落底人。此四句語諸方以為宗旨。謂之禾山四打鼓。只如僧問鏡清。新年頭還有佛法也無。清云。有。僧云。如何是新年頭佛法。清云。元正啟祚萬物咸新。僧云。謝師答話。清云。老僧今日失利。似此答話。有十八般失利。又僧問淨果大師。鶴立孤松時如何。果云。脚底下一場懡㦬。又問雪覆千山時如何。果云。日出後一場懡㦬。又問。會昌沙汰時。護法神向什麼處去。果云。三門外兩箇漢一場懡㦬。諸方謂之三懡㦬。又保福問僧。殿裏是什麼佛。僧云。和尚定當看。福云。釋迦老子。僧云。莫瞞人好。福云。却是爾瞞我。又問僧云。爾名什麼。僧云。咸澤。福云。或遇枯涸時如何。僧云。誰是枯涸者。福云。我。僧云。和尚莫瞞人好。福云。却是爾瞞我。又問僧。爾作什麼業。喫得恁麼大。僧云。和尚也不小。福作蹲身勢。僧云。和尚莫瞞人好。福云。却是爾瞞我。又問浴主。浴鍋闊多少。主云。請和尚量看。福作量勢。主云。和尚莫瞞人好。福云。却是爾瞞我。諸方謂之保福四瞞人。又如雪峯四漆桶。皆是從上宗師。各出深妙之旨接人之機。雪竇後面引一落索。依雲門示眾。頌出此公案。",
+          "verse_zh": "一拽石二般土發機須是千鈞弩象骨老師曾輥毬爭似禾山解打鼓報君知莫莽鹵甜者甜兮苦者苦",
+          "verse_en": "One load of rock, two kinds of earth; / to loose the trigger you need a thousand-jin bow. / Old teacher Elephant-Bone played at rolling a ball — / how could that match Heshan's knowing the drum? / I tell you now: be not careless — / the sweet is sweet, the bitter is bitter."
+        },
+        {
+          "case_num": 45,
+          "title_zh": "趙州七斤衫",
+          "title_pinyin": "Zhàozhōu Qījīn Shān",
+          "title_en": "Zhaozhou's Seven-Pound Shirt",
+          "pointer_zh": "垂示云。要道便道。舉世無雙。當行即行。全機不讓。如擊石火。似閃電光。疾焰過風。奔流度刃。拈起向上鉗鎚。未免亡鋒結舌。放一線道。試舉看。",
+          "pointer_en": "Pointer: Speak when there is something to say — unmatched in the world; go when it is time to go — yielding the whole device to no one. Like a striking spark, like a lightning flash, a racing flame outrunning wind, a torrent outflashing the blade. Raise the fire-tongs of the summit and you can only lose the edge and bite your tongue. Let us set out a single thread: watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "趙州與僧 / Zhaozhou and the monk",
+              "zh": "僧問趙州：「萬法歸一，一歸何處？」州云：「我在青州，作一領布衫，重七斤。」",
+              "pinyin": "Sēng wèn Zhaozhōu：「 Wànfǎ guī yī， yī guī héchù？」 Zhōu yún：「 Wǒ zài Qīngzhōu， zuò yī lǐng bùshān， zhòng qī jīn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Zhaozhou, 'The ten thousand things return to the one — where does the one return to?' Zhaozhou said, 'In Qingzhou I made a plain robe — it weighs seven pounds.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問趙州。萬法歸一。一歸何處州云。我在青州。作一領布衫。重七斤。若向一擊便行處會去。天下老和尚鼻孔一時穿却。不奈爾何。自然水到渠成。苟或躊躇。老僧在爾脚跟下。佛法省要處。言不在多。語不在繁。只如這僧問趙州。萬法歸一。一歸何處。他却答道。我在青州作一領布衫重七斤。若向語句上辨。錯認定盤星。不向語句上辨。爭奈却恁麼道。這箇公案。雖難見却易會。雖易會却難見。難則銀山鐵壁。易則直下惺惺。無爾計較是非處。此話與普化道來日大悲院裏有齋話。更無兩般。一日僧問趙州。如何是祖師西來意。州云。庭前柏樹子。僧云。和尚莫將境示人。州云。老僧不曾將境示人。看他恁麼向極則轉不得處轉得。自然蓋天蓋地。若轉不得。觸途成滯。且道他有佛法商量也無。若道他有佛法。他又何曾說心說性。說玄說妙。若道他無佛法旨趣。他又不曾辜負爾問頭。豈不見。僧問木平和尚。如何是佛法大意。平云。這箇冬瓜如許大。又僧問古德。深山懸崖逈絕無人處。還有佛法也無。古德云。有。僧云。如何是深山裏佛法。古德云。石頭大底大小底小。看這般公案。誵訛在什麼處。雪竇知他落處。故打開義路。與爾頌出。",
+          "verse_zh": "編辟曾挨老古錐七斤衫重幾人知如今拋擲西湖裏下載清風付與誰",
+          "verse_en": "Through narrow straits I once pressed this ancient awl; / the shirt's seven pounds — how many ever knew? / Today I toss it into West Lake — / the wind that rides its surface: bequeathed to whom?"
+        },
+        {
+          "case_num": 46,
+          "title_zh": "鏡清雨滴聲",
+          "title_pinyin": "Jìngqīng Yǔdī Shēng",
+          "title_en": "Jingqing and the Sound of Raindrops",
+          "pointer_zh": "垂示云。一槌便成超凡越聖。片言可折。去縛解粘。如氷凌上行。劍刃上走。聲色堆裏坐。聲色頭上行。縱橫妙用則且置。剎那便去時如何。試舉看。",
+          "pointer_en": "Pointer: With one hammer-blow it is done — surpassing the ordinary, passing the saints; one phrase can break through, unsticking and unbinding. As if walking on thin ice, treading sword-blades, sitting amid sound and form yet walking above sound and form. Setting aside all free and subtle working — at the instant of going, what then? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "鏡清與僧 / Jingqing and the monk",
+              "zh": "鏡清問僧：「門外是什麼聲？」僧云：「雨滴聲。」清云：「眾生顛倒，迷己逐物。」僧云：「和尚作麼生？」清云：「洎不迷己。」僧云：「洎不迷己，意旨如何？」清云：「出身猶可易，脫體道應難。」",
+              "pinyin": "Jìngqīng wèn sēng：「 Ménwài shì shénme shēng？」 Sēng yún：「 Yǔdī shēng。」 Qīng yún：「 Zhòngshēng diāndǎo， míjǐ zhúwù。」 Sēng yún：「 Héshàng zuòmòsheng？」 Qīng yún：「 Jì bù míjǐ。」 Sēng yún：「 Jì bù míjǐ yìzhǐ rúhé？」 Qīng yún：「 Chūshēn yóu kě yì， tuōtǐ dào yìng nán。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Jingqing asked a monk, 'What is that sound outside the gate?' The monk said, 'The sound of raindrops.' Jingqing said, 'Sentient beings are upside-down: they lose themselves and chase after things.' The monk said, 'And you, Master?' Jingqing said, 'So as never to lose myself.' The monk said, 'What does that mean, &ldquo;never to lose myself&rdquo;?' Jingqing said, 'To step out of your skin may still be easy; to drop the body and speak — that is hard.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。鏡清問僧。門外是什麼聲僧云。雨滴聲清云。眾生顛倒迷己逐物僧云。和尚作麼生清云。洎不迷己僧云。洎不迷己意旨如何清云。出身猶可易。脫體道應難洎。只這裏也好薦取。古人垂示一機一境。要接人。一日鏡清問僧。門外是什麼聲。僧云。雨滴聲。清云。眾生顛倒迷己逐物。又問。門外什麼聲。僧云。鵓鳩聲。清云。欲得不招為間業。莫謗如來正法輪。又問。門外什麼聲。僧云。蛇咬蝦䗫聲。清云。將謂眾生苦。更有苦眾生。此語與前頭公案。更無兩般。衲僧家於這裏透得去。於聲色堆裏不妨自由。若透不得。便被聲色所拘。這般公案。諸方謂之煅煉語。若是煅煉只成心行。不見他古人為人處。亦喚作透聲色。一明道眼。二明聲色。三明心宗。四明忘情。五明展演。然不妨子細。爭奈有窠臼在。鏡清恁麼問。門外什麼聲。僧云。雨滴聲。却道。眾生顛倒迷己逐物。人皆錯會。喚作故意轉人。且得沒交涉。殊不知鏡清有為人底手脚。膽大不抅一機一境。忒殺不惜眉毛。鏡清豈不知是雨滴聲。何消更問。須知古人以探竿影草。要驗這僧。這僧也善挨拶便道。和尚又作麼生直得。鏡清入泥入水向他道。洎不迷己。其僧迷己逐物。則故是鏡清為什麼也迷己。須知驗他句中便有出身處。這僧太懞懂要勦絕此話。更問道。只箇洎不迷己意旨如何。若是德山臨濟門下棒喝已行。鏡清通一線道。隨他打葛藤。更向他道。出身猶可易。脫體道應難。雖然恁麼。古人道。相續也大難。他鏡清只一句。便與這僧明脚跟下大事。雪竇頌云。",
+          "verse_zh": "虛堂雨滴聲作者難酬對若謂曾入流依前還不會。曾不會南山北山轉𩃎霈",
+          "verse_en": "In the empty hall, the sound of raindrops — / even masters find it hard to reply. / If you say you once entered the stream — / all along you never understood. Never understood: / South Mountain, North Mountain, turning mist and rain."
+        },
+        {
+          "case_num": 47,
+          "title_zh": "雲門六不收",
+          "title_pinyin": "Yúnmén Liùbùshōu",
+          "title_en": "Yunmen: 'Not Gathered from the Six'",
+          "pointer_zh": "垂示云。天何言哉。四時行焉。地何言哉。萬物生焉。向四時行處。可以見體。於萬物生處。可以見用。且道向什麼處見得衲僧。離却言語動用行住坐臥。併却咽喉唇吻。還辨得麼。",
+          "pointer_en": "Pointer: 'Does Heaven speak? Yet the four seasons run their course. Does Earth speak? Yet the ten thousand things are born.' Where the four seasons run, you may see the substance; where the ten thousand things are born, you may see the working. Tell me: at what place do you see the monk — when speech, gesture, walking, standing, sitting, lying down are all shed, and lips and throat sealed? Can you discern it?",
+          "dialogue": [
+            {
+              "speaker": "雲門與僧 / Yunmen and the monk",
+              "zh": "僧問雲門：「如何是法身？」門云：「六不收。」",
+              "pinyin": "Sēng wèn Yúnmén：「 Rúhé shì fǎshēn？」 Mén yún：「 Liù bù shōu。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Yunmen, 'What is the Dharma-body?' Yunmen said, 'Not gathered from the six.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問雲門。如何是法身門云。六不收。雲門道。六不收。直是難搆。若向朕兆未分時搆得。已是第二頭。若向朕兆已生後薦得。又落第三首。若向言句上辨明。卒摸索不著。且畢竟以何為法身。若是作家底。聊聞舉著。剔起便行。苟或佇思停機。伏聽處分。太原孚上座本為講師。一日登座講次。說法身云。竪窮三際。橫亘十方。有一禪客。在座下聞之失笑。孚下座云。某甲適來有甚短處。願禪者為說看。禪者云。座主只講得法身量邊事。不見法身。孚云。畢竟如何即是。禪者云。可暫罷講於靜室中坐。必得自見。孚如其言。一夜靜坐。忽聞打五更鐘。忽然大悟。遂敲禪者門云。我會也。禪者云。爾試道看。孚云。我從今日去。更不將父母所生鼻孔扭揑也。又教中道。佛真法身。猶若虛空。應物現形。如水中月。又僧問夾山。如何是法身。山云。法身無相。如何是法眼。山云。法眼。無瑕。雲門道。六不收。此公案有者道。只是六根六塵六識。此六皆從法身生。六根收他不得。若恁麼情解。且喜沒交涉。更帶累雲門。要見便見。無爾穿鑿處。不見教中道。是法非思量分別之所能解。他答話多惹人情解。所以一句中。須具三句。更不辜負爾問頭。應時應節。一言一句。一點一畫。不妨有出身處。所以道。一句透。千句萬句一時透。且道是法身。是祖師。放爾三十棒。雪竇頌云。",
+          "verse_zh": "一二三四五六碧眼胡僧數不足少林謾道付神光卷衣又說歸天竺天竺茫茫無處尋夜來却對乳峯宿",
+          "verse_en": "One, two, three, four, five, six — / the blue-eyed barbarian monk cannot count them all. / At Shaolin they told of imparting the divine light; / rolling up his robe, he again spoke of returning to India. / Vast India — nowhere to be found: / last night he came back to sleep at Ru Peak."
+        },
+        {
+          "case_num": 48,
+          "title_zh": "朗上座翻茶銚",
+          "title_pinyin": "Lǎng Shàngzuò Fān Chádiào",
+          "title_en": "Elder Lang Tips the Tea Kettle",
+          "dialogue": [
+            {
+              "speaker": "朗上座、明招與王太傅 / Elder Lang, Mingzhao, and Grand Tutor Wang",
+              "zh": "王太傅入招慶煎茶，時朗上座與明招把銚，朗翻却茶銚。太傅見問上座：「茶爐下是什麼？」朗云：「捧爐神。」太傅云：「既是捧爐神，為什麼翻却茶銚？」朗云：「仕官千日，失在一朝。」太傅拂袖便去。明招云：「朗上座喫却招慶飯了，却去江外打野榸。」朗云：「和尚作麼生？」招云：「非人得其便。」雪竇云：「當時但踏倒茶爐。」",
+              "pinyin": "Wáng Tàifù rù Zhāoqìng jiānchá， shí Lǎng shàngzuò yǔ Míngzhāo bǎ diào， Lǎng fān què chádiào。 Tàifù jiàn wèn shàngzuò：「 Chálú xià shì shénme？」 Lǎng yún：「 Pěng lú shén。」 Tàifù yún：「 Jì shì pěng lú shén， wèishénme fān què chádiào？」 Lǎng yún：「 Shìguān qiānrì， shī zài yīzhāo。」 Tàifù fúxiù biàn qù。 Míngzhāo yún：「 Lǎng shàngzuò chī què Zhāoqìng fàn le， què qù jiāngwài dǎyěchái。」 Lǎng yún：「 Héshàng zuòmòsheng？」 Zhāo yún：「 Fēirén dé qí biàn。」 Xuědòu yún：「 Dāngshí dàn tàdǎo chálú。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Grand Tutor Wang entered Zhaqing to brew tea; Elder Lang was holding the kettle with Mingzhao, and Lang tipped the kettle over. The tutor saw it and asked Elder Lang, 'What is beneath the stove?' Lang said, 'The fire-cradling god.' The tutor said, 'If it is the fire-cradling god, why did you tip the kettle?' Lang said, 'A thousand days of office — the loss comes in one morning.' The tutor swished his sleeves and left. Mingzhao said, 'Elder Lang ate Zhaqing's rice, then went beyond the river to split wild firewood.' Lang said, 'And what would you do, Master?' Mingzhao said, 'The un-person took the opportunity.' Xuedou says: 'At that moment I'd simply have kicked the tea stove over.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。王太傅入招慶煎茶時朗上座與明招把銚朗翻却茶銚太傅見問上座。茶爐下是什麼朗云。捧爐神太傅云。既是捧爐神。為什麼翻却茶銚朗云。仕官千日失在一朝太傅拂袖便去明招云。朗上座喫却招慶飯了。却去江外。打野榸朗云。和尚作麼生招云。非人得其便雪竇云。當時但踏倒茶爐榸。欲知佛性義。當觀時節因緣。王太傅知泉州。久參招慶。一日因入寺。時朗上座煎茶次。翻却茶銚。太傅也是箇作家。纔見他翻却茶銚。便問上座。茶爐下是什麼。朗云。捧爐神。不妨言中有響。爭柰首尾相違失却宗旨傷鋒犯手。不惟辜負自己。亦且觸忤他人。這箇雖是無得失底事。若拈起來。依舊有親疎有皂白。若論此事。不在言句上。却要向言句上辨箇活處。所以道。他參活句。不參死句。據朗上座恁麼道。如狂狗逐塊。太傅拂袖便去。似不肯他。明招云。朗上座喫却招慶飯了。却去江外打野榸。野榸即是荒野中。火燒底木橛。謂之野榸。用明朗上座不向正處行。却向外邊走。朗拶云。和尚又作麼生。招云。非人得其便。明招自然。有出身處。亦不辜負他所問。所以道。俊狗咬人不露牙。溈山哲和尚云。王太傅大似相如奪璧直得鬚鬢衡冠。蓋明招忍俊不禁難逢其便。大溈若作朗上座。見他太傅拂袖便行。放下茶銚。呵呵大笑。何故。見之不取。千載難逢。不見寶壽問胡釘鉸云。久聞胡釘鉸。莫便是否。胡云。是壽云。還釘得虛空麼。胡云。請師打破將來。壽便打。胡不肯。壽云。異日自有多口阿師。為爾點破在。胡後見趙州。舉似前話。州云爾因什麼被他打。胡云。不知過在什麼處。州云。只這一縫。尚不奈何。更教他打破虛空來。胡便休去。州代云。且釘這一縫。胡於是有省。京兆米七師行脚歸。有老宿問云。月夜斷井索。人皆喚作蛇。未審七師見佛時。喚作什麼。七師云。若有所見即同眾生。老宿云。也是千年桃核。忠國師問紫璘供奉。聞說供奉解註思益經。是否。奉云。是師云。凡當註經。須解佛意始得。奉云。若不會意。爭敢言註經。師遂令侍者將一椀水七粒米一隻筯在椀上送與供奉。問云。是什麼義。奉云。不會。師云。老師意尚不會。更說甚佛意。王太傅與朗上座。如此話會不一。雪竇末後却道。當時但與踏倒茶爐。明招雖是如此。終不如雪竇。雪峯在洞山會下作飯頭。一日淘米次。山問。作什麼。峯云。淘米。山云。淘米去沙。淘沙去米。峯云。沙米一時去。山云。大眾喫箇什麼。峯便覆却盆。山云。子因緣不在此。雖然恁麼。爭似雪竇云當時但踏倒茶爐。一等是什麼時節。到他用處。自然騰今煥古有活脫處。頌云。",
+          "verse_zh": "來問若成風應機非善巧堪悲獨眼龍曾未呈牙爪牙爪開生雲雷逆水之波經幾回",
+          "verse_en": "His coming question rides the wind; / in meeting the device, no fine skill at all. / Pitiful the One-Eyed Dragon — / never once showed claws or fangs. / When claws and fangs opened, clouds and thunder rose; / going against the current's stream — how many times?"
+        },
+        {
+          "case_num": 49,
+          "title_zh": "透網金鱗",
+          "title_pinyin": "Tòuwǎng Jīnlín",
+          "title_en": "The Golden Fish Through the Net",
+          "pointer_zh": "垂示云。七穿八穴。攙鼓奪旗。百匝千重。瞻前顧後。踞虎頭收虎尾。未是作家。牛頭沒馬頭回。亦未為奇特。且道過量底人來時如何。試舉看。",
+          "pointer_en": "Pointer: Piercing seven openings and eight holes, seizing drum and flag, a hundred circuits and a thousand folds, watching fore and aft — to sit on the tiger's head and take hold of its tail is not yet mastery; ox-head gone, horse-head turning — not yet extraordinary. Tell me: when a person who surpasses all measure arrives — what then? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "三聖與雪峯 / Sansheng and Xuefeng",
+              "zh": "三聖問雪峯：「透網金鱗，未審以何為食？」峯云：「待汝出網來，向汝道。」聖云：「一千五百人善知識，話頭也不識。」峯云：「老僧住持事繁。」",
+              "pinyin": "Sānshèng wèn Xuěfēng：「 Tòuwǎng jīnlín， wèishěn yǐ hé wéi shí？」 Fēng yún：「 Dài rǔ chū wǎng lái， xiàng rǔ dào。」 Shèng yún：「 Yīqiān wǔbǎi rén shànzhīshí， huàtóu yě bù shí。」 Fēng yún：「 Lǎosēng zhùchí shì fán。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Sansheng asked Xuefeng, 'A golden fish through the net — what does it eat?' Xuefeng said, 'Come out of the net first, and I will tell you.' Sansheng said, 'A teacher of fifteen hundred people — and you don't even know the answer to the question?' Xuefeng said, 'This old monk's management of the temple keeps him very busy.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。三聖問雪峯。透網金鱗未審以何為食峯云。待汝出網來。向汝道聖云。一千五百人善知識。話頭也不識峯云。老僧住持事繁。雪峯三聖。雖然一出一入一挨一拶。未分勝負在。且道這二尊宿具什麼眼目。三聖自臨濟受訣。遍歷諸方。皆以高賓待之。看他致箇問端。多少人摸索不著。且不涉理性佛法。却問道。透網金鱗以何為食。且道他意作麼生。透網金鱗尋常既不食他香餌。不知以什麼為食。雪峯是作家匹似閑。只以一二分酬他。却向他道。待汝出網來。向汝道。汾陽謂之呈解問。洞下謂之借事問。須是超倫絕類得大受用。頂門有眼方謂之透網金鱗。爭奈雪峯是作家。不妨減人聲價。却云。待汝出網來。向汝道。看他兩家。把定封疆。壁立萬仞。若不是三聖。只此一句便去不得。爭奈三聖亦是作家。方解向他道。一千五百人善知識。話頭也不識。雪峯却道。老僧住持事繁。此語得恁麼頑慢。他作家相見。一擒一縱。逢強即弱。遇賤即貴。爾若作勝負會。未夢見雪峯在。看他二人。最初孤危峭峻。末後二俱死郎當。且道還有得失勝負麼。他作家酬唱。必不知此。三聖在臨濟作院主。臨濟遷化垂示云。吾去後不得滅吾正法眼藏。三聖出云。爭敢滅却和尚正法眼藏。濟云。已後有人問爾。作麼生。三聖便喝。濟云。誰知吾正法眼藏。向這瞎驢邊滅却三聖便禮拜。他是臨濟真子。方敢如此酬唱。雪竇末後。只頌透網金鱗。顯他作家相見處。頌云。",
+          "verse_zh": "透網金鱗休云滯水搖乾蕩坤振鬣擺尾千尺鯨噴洪浪飛一聲雷震清飈起清飈起天上人間知幾幾",
+          "verse_en": "The golden fish through the net — say not it stays in the shallows: / it shakes heaven and earth, thrashing mane and tail. / A whale a thousand feet spouts a flood, flying; / with one thunderclap the clear wind rises. / The clear wind rises — of all between heaven and earth, / how many truly know?"
+        },
+        {
+          "case_num": 50,
+          "title_zh": "雲門鉢裏飯",
+          "title_pinyin": "Yúnmén Bōlǐ Fàn",
+          "title_en": "Yunmen: 'Rice in the Bowl, Water in the Pail'",
+          "pointer_zh": "垂示云。度越階級超絕方便。機機相應。句句相投。儻非入大解脫門。得大解脫用。何以權衡佛祖。龜鑑宗乘。且道當機直截。逆順縱橫。如何道得出身句。試請舉看。",
+          "pointer_en": "Pointer: Surpassing all stages and outrunning all expedients, one device answering another, one phrase fitting the next — without entering the gate of great liberation and winning the use of great liberation, how could you weigh buddha and patriarch or mirror the vehicle of our tradition? Tell me: facing the moment directly, forward and backward across, what words win you a way out? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "雲門與僧 / Yunmen and the monk",
+              "zh": "僧問雲門：「如何是塵塵三昧？」門云：「鉢裏飯，桶裏水。」",
+              "pinyin": "Sēng wèn Yúnmén：「 Rúhé shì chénchén sānmèi？」 Mén yún：「 Bō lǐ fàn， tǒng lǐ shuǐ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Yunmen, 'What is the samadhi in every particle of dust?' Yunmen said, 'Rice in the bowl, water in the pail.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問雲門。如何是塵塵三昧門云。鉢裏飯桶裏水。還定當得麼。若定當得雲門鼻孔。在諸人手裏。若定當不得。諸人鼻孔。在雲門手裏。雲門有斬釘截鐵句。此一句中具三句。有底問著。便道鉢裏飯。粒粒皆圓。桶裏水。滴滴皆顯。若恁麼會。且不見雲門端的為人處。頌云。",
+          "verse_zh": "鉢裏飯桶裏水多口阿師難下嘴北斗南星位不殊白浪滔天平地起擬不擬止不止箇箇無裩長者子",
+          "verse_en": "Rice in the bowl, water in the pail — / a long-mouthed teacher finds it hard to chew. / North and south dipper stars hold unequal places — / white waves tower on what was level ground. / Hesitating? Don't hesitate. Stop? Don't stop. / Every last one of them: elder sons with no trousers."
+        },
+        {
+          "case_num": 51,
+          "title_zh": "雪峯是什麼",
+          "title_pinyin": "Xuěfēng Shì Shénme",
+          "title_en": "Xuefeng's 'What Is It?'",
+          "pointer_zh": "垂示云。纔有是非。紛然失心。不落階級。又無摸索。且道放行即是。把住即是。到這裏。若有一絲毫解路。猶滯言詮。尚拘機境。盡是依草附木。直饒便到獨脫處。未免萬里望鄉關。還搆得麼。若未搆得。且只理會箇理成公案。試舉看。",
+          "pointer_en": "Pointer: The moment yes and no arise, the mind is utterly lost. Where there are no steps, there is also no groping. Tell me: is it right to set free, or right to hold fast? Arriving here, with even a hair's-breadth of a path of understanding you are still stuck in words and bound to devices and realms — all of it leaning on grass and clinging to trees. Even if you arrive straight at the place of solitary release, you are still ten thousand miles from home, gazing at the pass. Can you grasp it? If not, then just attend to the ready-made case: watch as I raise it.",
+          "dialogue": [
+            {
+              "speaker": "雪峯與二僧、巖頭 / Xuefeng, the two monks, and Yantou",
+              "zh": "雪峯住庵時，有兩僧來禮拜。峯見來，以手托庵門，放身出云：「是什麼？」僧亦云：「是什麼？」峯低頭歸庵。僧後到巖頭。頭問：「什麼處來？」僧云：「嶺南來。」頭云：「曾到雪峯麼？」僧云：「曾到。」頭云：「有何言句？」僧舉前話。頭云：「他道什麼？」僧云：「他無語低頭歸庵。」頭云：「噫！我當初悔不向他道末後句。若向伊道，天下人不奈雪老何。」僧於夏末，再舉前話請益。頭云：「何不早問？」僧云：「未曾有妨。」頭云：「雪峯雖與我同條生，不與我同條死。要識末後句，只這是。」",
+              "pinyin": "Xuěfēng zhù ān shí， yǒu liǎng sēng lái lǐbài。 Fēng jiàn lái， yǐ shǒu tuō ānmén， fàng shēn chū yún：「 Shì shénme？」 Sēng yì yún：「 Shì shénme？」 Fēng dītóu guī ān。 Sēng hòu dào Yántóu。 Tóu wèn：「 Shénme chù lái？」 Sēng yún：「 Lǐngnán lái。」 Tóu yún：「 Céng dào Xuěfēng me？」 Sēng yún：「 Céng dào。」 Tóu yún：「 Yǒu hé yánjù？」 Sēng jǔ qiánhuà。 Tóu yún：「 Tā dào shénme？」 Sēng yún：「 Tā wúyǔ dītóu guī ān。」 Tóu yún：「 Yī！ Wǒ dāngchū huǐ bù xiàng tā dào mòhòujù。 Ruò xiàng yī dào， tiānxià rén bùnài Xuělǎo hé。」 Sēng yú xià mò， zài jǔ qiánhuà qǐngyì。 Tóu yún：「 Hébù zǎo wèn？」 Sēng yún：「 Wèi céng yǒu fáng。」 Tóu yún：「 Xuěfēng suī yǔ wǒ tóngtiáo shēng， bù yǔ wǒ tóngtiáo sǐ。 Yào shí mòhòujù， zhǐ zhè shì。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "While Xuefeng was living in a hut, two monks came to pay respects. Seeing them, Xuefeng raised a hand to the hut's gate, leaned out, and said, 'What is it?' The monks also said, 'What is it?' Xuefeng bowed his head and went back inside. Later the monks came to Yantou. Yantou asked, 'Where did you come from?' They said, 'From south of the ridge.' Yantou said, 'Did you visit Xuefeng?' They said, 'We did.' Yantou said, 'What did he say?' They told the story. Yantou asked, 'What did Xuefeng say?' They said, 'He bowed his head and went back inside without a word.' Yantou said, 'Ah! I regret that I did not tell him the Final Word. Had I told him, no one under heaven could have done anything with old Xue.' At summer's end one of the monks raised the matter again for instruction. Yantou said, 'Why didn't you ask sooner?' The monk said, 'I dared not.' Yantou said, 'Though Xuefeng and I were born on the same branch, we do not die on the same branch. If you want to know the Final Word — this is it.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。雪峯住庵時。有兩僧來禮拜峯見來。以手托庵門。放身出云。是什麼僧亦云。是什麼峯低頭歸庵僧後到巖頭頭問。什麼處來僧云。嶺南來頭云。曾到雪峯麼僧云。曾到頭云。有何言句僧舉前話頭云。他道什麼僧云。他無語低頭歸庵頭云。噫我當初悔不向他道末後句若向伊道。天下人不奈雪老何僧至夏末。再舉前話請益頭云。何不早問僧云。未敢容易頭云。雪峯雖與我同條生。不與我同條死要識末句後。只這是。大凡扶竪宗教。須是辨箇當機。知進退是非。明殺活擒縱。若忽眼目迷黎麻羅。到處逢問便問。逢答便答。殊不知鼻孔在別人手裏。只如雪峯巖頭。同參德山。此僧參雪峯。見解只到恁麼處。及乎見巖頭。亦不曾成得一事。虛煩他二老宿。一問一答。一擒一縱。直至如今。天下人成節角誵訛。分疎不下。且道節角誵訛。在什麼處。雪峯雖遍歷諸方。末後於鰲山店。巖頭因而激之。方得勦絕大徹。巖頭後值沙汰。於湖邊作渡子。兩岸各懸一板。有人過敲板一下。頭云。爾過那邊。遂從蘆葦間。舞棹而出。雪峯歸嶺南住庵。這僧亦是久參底人。雪峯見來。以手托庵門。放身出云。是什麼。如今有底。恁麼問著。便去他語下咬嚼。這僧亦怪。也只向他道是什麼。峯低頭歸庵。往往喚作無語會去也。這僧便摸索不著。有底道。雪峯被這僧一問直得。無語歸庵。殊不知雪峯意有毒害處。雪峯雖得便宜。爭奈藏身露影。這僧後辭雪峯。持此公案。令巖頭判。既到彼。巖頭問。什麼處來。僧云。嶺南來。頭云。曾到雪峯麼。若要見雪峯。只此一問。也好急著眼看。僧云。曾到。頭云。有何言句。此語亦不空過。這僧不曉。只管逐他語脈轉。頭云。他道什麼。僧云。他低頭無語歸庵。這僧殊不知。巖頭著草鞋。在他肚皮裏行。幾回了也。巖頭云。噫我當初悔不向他道末後句。若向他道。天下人不奈雪老何。巖頭也是扶強不扶弱。這僧依舊黑漫漫地。不分緇素。懷一肚皮疑。真箇道。雪峯不會。至夏末。再舉前話。請益巖頭。頭云。何不早問。這老漢。計較生也。僧云。未敢容易。頭云。雪峯雖與我同條生。不與我同條死。要識末後句。只這是巖頭太殺不惜眉毛。諸人畢竟作麼生會。雪峯在德山會下作飯頭。一日齋晚。德山托鉢下至法堂。峯云。鐘未鳴鼓未響。這老漢。托鉢向什麼處去。山無語低頭歸方丈。雪峯舉似巖頭。頭云。大小德山。不會末後句。山聞令侍者喚至方丈問云。汝不肯老僧那頭密啟其語。山至來日上堂。與尋常不同。頭於僧堂前。撫掌大笑云。且喜老漢會末後句。他後天下人。不奈他何。雖然如是。只得三年。此公案中。如雪峯見德山無語。將謂得便宜。殊不知著賊了也。蓋為他曾著賊來。後來亦解做賊。所以古人道。末後一句。始到牢關。有者道。巖頭勝雪峯。則錯會了也。巖頭常用此機示眾云。明眼漢沒窠臼。却物為上。逐物為下。這末後句。設使親見祖師來。也理會不得。德山齋晚。老子自捧鉢下法堂去。巖頭道。大小德山。未會末後句在。雪竇拈云。曾聞說箇獨眼龍。元來只具一隻眼。殊不知。德山是箇無齒大蟲。若不是巖頭識破。爭知得昨日與今日不同。諸人要會末後句麼。只許老胡知。不許老胡會。自古及今。公案萬別千差。如荊棘林相似。爾若透得去。天下人不奈何。三世諸佛。立在下風。爾若透不得。巖頭道。雪峯雖與我同條生。不與我同條死。只這一句自然有出身處。雪竇頌云。",
+          "verse_zh": "末後句為君說明暗雙雙底時節同條生也共相知不同條死還殊絕還殊絕黃頭碧眼須甄別南北東西歸去來夜深同看千巖雪",
+          "verse_en": "The Final Word — I tell you now: / bright and dark, the paired season. / Come from the same branch — we know each other well; / not dying on the same branch — utterly apart. Apart! / Yellow head and blue eyes must be told apart; / north, south, east, west — come back home, / deep in the night, together, gaze at snow on a thousand crags."
+        },
+        {
+          "case_num": 52,
+          "title_zh": "趙州石橋",
+          "title_pinyin": "Zhàozhōu Shíqiáo",
+          "title_en": "Zhaozhou's Stone Bridge",
+          "dialogue": [
+            {
+              "speaker": "趙州與僧 / Zhaozhou and the monk",
+              "zh": "僧問趙州：「久響趙州石橋，到來只見略彴。」州云：「汝只見略彴，且不見石橋。」僧云：「如何是石橋？」州云：「渡驢渡馬。」",
+              "pinyin": "Sēng wèn Zhaozhōu：「 Jiǔ xiǎng Zhàozhōu shíqiáo， dàolái zhǐ jiàn lüèzhuó。」 Zhōu yún：「 Rǔ zhǐ jiàn lüèzhuó， qiě bù jiàn shíqiáo。」 Sēng yún：「 Rúhé shì shíqiáo？」 Zhōu yún：「 Dù lǘ dù mǎ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk said to Zhaozhou, 'Long have I heard of Zhaozhou's Stone Bridge, yet arriving I see only a log plank.' Zhaozhou said, 'You see only the log plank — you do not see the Stone Bridge.' The monk asked, 'What is the Stone Bridge?' Zhaozhou said, 'It carries donkeys across, it carries horses across.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問趙州。久響趙州石橋。到來只見略彴州云。汝只見略彴。且不見石橋僧云。如何是石橋州云。渡驢渡馬彴。趙州有石橋。蓋李膺造也。至今天下有名。略彴者。即是獨木橋也。其僧故意減他威光問他道。久響趙州石橋。到來只見略彴。趙州便道。汝只見略彴。且不見石橋。據他問處。也只是平常說話相似。趙州用去釣他。這僧果然上鉤。隨後便問。如何是石橋。州云。渡驢渡馬。不妨言中自有出身處。趙州不似臨濟德山。行棒行喝。他只以言句殺活。這公案好好看來。只是尋常鬪機鋒相似。雖然如是。也不妨難湊泊。一日與首座看石橋。州乃問首座。是什麼人造。座云。李膺造。州云。造時向什麼處下手。座無對。州云。尋常說石橋。問著下手處也不知。又一日州掃地次。僧問。和尚是善知識。為什麼有塵。州云。外來底。又問。清淨伽藍。為什麼有塵。州云。又有一點也。又僧問。如何是道。州云。牆外底。僧云。不問這箇道。問大道。州云。大道透長安。趙州偏用此機。他到平實安穩處。為人更不傷鋒犯手。自然孤峻。用得此機甚妙。雪竇頌云。",
+          "verse_zh": "孤危不立道方高入海還須釣巨鼇堪笑同時灌溪老解云劈箭亦徒勞",
+          "verse_en": "Lone and perilous, not standing on its own — the Way is high; / to enter the sea you must angle for the giant turtle. / Laughable, old Master Guanxi of the same age: / 'Splitting the swift arrow' was wasted effort."
+        },
+        {
+          "case_num": 53,
+          "title_zh": "百丈野鴨子",
+          "title_pinyin": "Bǎizhàng Yěyāzǐ",
+          "title_en": "Baizhang and the Wild Ducks",
+          "pointer_zh": "垂示云。遍界不藏。全機獨露。觸途無滯。著著有出身之機。句下無私。頭頭有殺人之意。且道古人。畢竟向什麼處休歇。試舉看。",
+          "pointer_en": "Pointer: Nothing in the whole realm is hidden; the entire device stands alone, exposed. Every road unblocked — each step a device for finding the way out; no bias under the phrases — every head-turn an intent to kill or to make live. Tell me: in the end, where did the ancients come to rest? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "馬大師與百丈 / Master Ma and Baizhang",
+              "zh": "馬大師與百丈行次，見野鴨子飛過。大師云：「是什麼？」丈云：「野鴨子。」大師云：「什麼處去也？」丈云：「飛過去也。」大師遂扭百丈鼻頭，丈作忍痛聲。大師云：「何曾飛去？」",
+              "pinyin": "Mǎ Dàshī yǔ Bǎizhàng xíng cì， jiàn yěyāzǐ fēiguò。 Dàshī yún：「 Shì shénme？」 Zhàng yún：「 Yěyāzǐ。」 Dàshī yún：「 Shénme chù qù yě？」 Zhàng yún：「 Fēiguòqù yě。」 Dàshī suì niǔ Bǎizhàng bítóu， zhàng zuò rěntòng shēng。 Dàshī yún：「 Hécéng fēiqù？」",
+              "translations": {
+                "ai_literal": {
+                  "text": "As Master Ma was walking with Baizhang, they saw wild ducks fly past. The master asked, 'What is that?' Baizhang said, 'Wild ducks.' The master asked, 'Where did they go?' Baizhang said, 'Flown away.' The master grabbed Baizhang's nose and twisted it. Baizhang cried out in pain, and the master said, 'When did they ever fly away?'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。馬大師與百丈行次。見野鴨子飛過大師云。是什麼丈云。野鴨子大師云。什麼處去也丈云。飛過去也大師遂扭百丈鼻頭丈作忍痛聲大師云。何曾飛去。正眼觀來却是百丈具正因。馬大師無風起浪。諸人要與佛祖為師。參取百丈。要自救不了。參取馬祖大師。看他古人二六時中。未甞不在箇裏。百丈丱歲離塵。三學該練。屬大寂闡化南昌。乃傾心依附。二十年為侍者。及至再參。於喝下方始大悟。而今有者道。本無悟處。作箇悟門建立此事。若恁麼見解。如獅子身中蟲。自食獅子肉不見古人道。源不深者流不長。智不大者見不遠。若用作建立會。佛法豈到如今。看他馬大師與百丈行次。見野鴨子飛過。大師豈不知是野鴨子。為什麼却恁麼問。且道他意落在什麼處。百丈只管隨他後走。馬祖遂扭他鼻孔。丈作忍痛聲馬祖云。何曾飛去百丈便省。而今有底錯會。纔問著便作忍痛聲。且喜跳不出。宗師家為人須為教徹。見他不會。不免傷鋒犯手。只要教他明此事。所以道。會則途中受用。不會則世諦流布。馬祖當時若不扭住。只成世諦流布。也須是逢境遇緣。宛轉教歸自己。十二時中。無空缺處。謂之性地明白。若只依草附木。認箇驢前馬後。有何用處。看他馬祖百丈恁麼用。雖似昭昭靈靈。却不住在昭昭靈靈處。百丈作忍痛聲。若恁麼見去。遍界不藏頭頭成現。所以道。一處透千處萬處一時透。馬祖次日陞堂眾纔集。百丈出卷却拜蓆。馬祖便下座。歸方丈次問百丈。我適來上堂。未曾說法。爾為什麼。便卷却蓆丈云。昨日被和尚扭得鼻孔痛。祖云。爾昨日向甚處留心。丈云。今日鼻頭又不痛也。祖云。爾深知今日事。丈乃作禮。却歸侍者寮哭。同事侍者問云。爾哭作什麼。丈云。爾去問取和尚。侍者遂去問馬祖。祖云。爾去問取他看。侍者却歸寮問百丈。丈却呵呵大笑。侍者云。爾適來哭。而今為什麼却笑。丈云。我適來哭。如今却笑。看他悟後。阿轆轆地。羅籠不住。自然玲瓏。雪竇頌云。",
+          "verse_zh": "野鴨子知何許馬祖見來相共語話盡山雲海月情依前不會還飛去欲飛去却把住道道",
+          "verse_en": "The wild ducks — where are they, where? / Master Ma comes and we speak together. / Words run out like clouds on the peaks, moon on the sea's mood; / all the same, not understood — again away they flew. / About to fly off — yet he held them fast: 'Speak! Speak!'"
+        },
+        {
+          "case_num": 54,
+          "title_zh": "雲門展兩手",
+          "title_pinyin": "Yúnmén Zhǎn Liǎngshǒu",
+          "title_en": "Yunmen: The Monk Opens Both Hands",
+          "pointer_zh": "垂示云。透出生死。撥轉機關。等閑截鐵斬釘。隨處蓋天蓋地。且道是什麼人行履處。試舉看。",
+          "pointer_en": "Pointer: Piercing out of birth and death, turning the pivot of the device — casually cutting iron and shearing nails, covering heaven and earth wherever you go. Tell me: whose track is this? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "雲門與僧 / Yunmen and the monk",
+              "zh": "雲門問僧：「近離甚處？」僧云：「西禪。」門云：「西禪近日有何言句？」僧展兩手。門打一掌。僧云：「某甲話在。」門却展兩手。僧無語。門便打。",
+              "pinyin": "Yúnmén wèn sēng：「 Jìn lí shèn chù？」 Sēng yún：「 Xīchán。」 Mén yún：「 Xīchán jìnrì yǒu hé yánjù？」 Sēng zhǎn liǎngshǒu。 Mén dǎ yī zhǎng。 Sēng yún：「 Mǒujiǎ huà zài。」 Mén què zhǎn liǎngshǒu。 Sēng wúyǔ。 Mén biàn dǎ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yunmen asked a monk, 'Where have you just left?' The monk said, 'Xichan.' Yunmen asked, 'What sayings were current at Xichan lately?' The monk opened both hands. Yunmen slapped him. The monk said, 'I have the word.' Yunmen opened both hands. The monk was silent — and Yunmen struck him.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。雲門問僧近離甚處僧云。西禪門云。西禪近日有何言句僧展兩手門打一掌僧云。某甲話在門却展兩手僧無語門便打。雲門問這僧。近離甚處。僧云。西禪。這箇是當面話。如閃電相似。門云。近日有何言句。也只是平常說話。這僧也不妨是箇作家。却倒去驗雲門。便展兩手。若是尋常人遭此一驗。便見手忙脚亂。他雲門有石火電光之機。便打一掌。僧云。打即故是。爭奈某甲話在。這僧有轉身處。所以雲門放開。却展兩手。其僧無語。門便打。看他雲門自是作家。行一步知一步落處。會瞻前亦解顧後。不失蹤由。這僧只解瞻前不能顧後。頌云。",
+          "verse_zh": "虎頭虎尾一時收凜凜威風四百州却問不知何太嶮師云。放過一著",
+          "verse_en": "Tiger's head and tiger's tail gathered in one stroke; / awe-inspiring through the four hundred provinces. / Yet ask: why so perilous? — The master says: 'I let one move go by.'"
+        },
+        {
+          "case_num": 55,
+          "title_zh": "道吾不道",
+          "title_pinyin": "Dàowú Bùdào",
+          "title_en": "Daowu's 'I Will Not Say'",
+          "pointer_zh": "垂示云。穩密全真。當頭取證。涉流轉物。直下承當。向擊石火閃電光中。坐斷誵訛。於據虎頭收虎尾處。壁立千仞。則且置。放一線道。還有為人處也無。試舉看。",
+          "pointer_en": "Pointer: Firm and secret, wholly true — seize the proof head-on; turned by the current, swept along — take it up outright. Amid striking sparks and lightning, sit astride the cunning turn; at the place of gripping the tiger's head and taking its tail, stand a wall a thousand fathoms high — but set that aside. Given one thread of a path, is there anywhere left to instruct? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "道吾與漸源、石霜 / Daowu, Jianyuan, and Shishuang",
+              "zh": "道吾與漸源至一家弔慰。源拍棺云：「生邪？死邪？」吾云：「生也不道，死也不道。」源云：「為什麼不道？」吾云：「不道不道。」回至中路，源云：「和尚快與某甲道，若不道，打和尚去也。」吾云：「打即任打，道即不道。」源便打。後道吾遷化，源到石霜，舉似前話。霜云：「生也不道，死也不道。」源云：「為什麼不道？」霜云：「不道不道。」源於言下有省。",
+              "pinyin": "Dàowú yǔ Jiànyuán zhì yī jiā diàowèi。 Yuán pāi guān yún：「 Shēng yé？ Sǐ yé？」 Wú yún：「 Shēng yě bù dào， sǐ yě bù dào。」 Yuán yún：「 Wèishénme bù dào？」 Wú yún：「 Bù dào bù dào。」 Huí zhì zhōnglù， Yuán yún：「 Héshàng kuài yǔ mǒujiǎ dào， ruò bù dào， dǎ héshàng qù yě。」 Wú yún：「 Dǎ jí rèn dǎ， dào jí bù dào。」 Yuán biàn dǎ。 Hòu Dàowú qiānhuà， Yuán dào Shíshuāng， jǔsì qiánhuà。 Shuāng yún：「 Shēng yě bù dào， sǐ yě bù dào。」 Yuán yún：「 Wèishénme bù dào？」 Shuāng yún：「 Bù dào bù dào。」 Yuán yú yánxià yǒuxǐng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Daowu went with Jianyuan to a house to pay condolences. Jianyuan slapped the coffin and said, 'Alive or dead?' Daowu said, 'Alive — I will not say; dead — I will not say.' Jianyuan said, 'Why won't you say?' Daowu said, 'I won't say, I won't say.' On the way back Jianyuan said, 'Master, tell me right now — if you don't, I'll hit you.' Daowu said, 'Hit me as you will — say it I will not.' Jianyuan struck him. After Daowu passed on, Jianyuan came to Shishuang and related the matter. Shishuang said, 'Alive — I will not say; dead — I will not say.' Jianyuan asked, 'Why won't you say?' Shishuang said, 'I won't say, I won't say.' At these words Jianyuan had insight.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。道吾與漸源至一家弔慰。源拍棺云。生邪死邪吾云。生也不道。死也不道源云。為什麼不道吾云。不道不道回至中路源云。和尚快與某甲道。若不道。打和尚去也吾云。打即任打。道即不道源便打後道吾遷化。源到石霜舉似前話霜云。生也不道。死也不道源云。為什麼不道霜云。不道不道源於言下有省源一日將鍬子。於法堂上。從東過西。從西過東霜云。作什麼源云。覓先師靈骨霜云。洪波浩渺白浪滔天。覓什麼先師靈骨雪竇著語云。蒼天蒼天源云。正好著力太原孚云。先師靈骨猶在。道吾與漸源。至一家弔慰。源拍棺木云。生邪死邪。吾曰生也不道。死也不道。若向句下便入得。言下便知歸。只這便是透脫生死底關鍵。其或未然。往往當頭蹉過。看他古人行住坐臥。不妨以此事為念。纔至人家弔慰。漸源便拍棺問道吾云。生邪死邪。道吾不移易一絲毫。對他道。生也不道。死也不道。漸源當面蹉過。逐他語句走更云。為什麼不道。吾云。不道不道。吾可謂赤心片片。將錯就錯。源猶自不惺惺。回至中路又云。和尚快與某甲道。若不道。打和尚去也。這漢識什麼好惡。所謂好心不得好報。道吾依舊老婆心切更向他道。打即任打。道即不道。源便打。雖然如是。却是他贏得一籌。道吾恁麼血滴滴地為他。漸源得恁麼不瞥地。道吾既被他打。遂向漸源云。汝且去。恐院中知事探得。與爾作禍。密遣漸源出去。道吾忒殺傷慈。源後來至一小院。聞行者誦觀音經云。應以比丘身得度者即現比丘身而為說法。忽然大悟云。我當時錯怪先師。爭知此事。不在言句上。古人道。沒量大人。被語脈裏轉却。有底情解道。道吾云。不道不道。便是道了也。喚作打背翻筋斗。教人摸索不著。若恁麼會。作麼生得平穩去。若脚踏實地。不隔一絲毫。不見七賢女遊屍陀林。遂指屍問云。屍在這裏。人在什麼處。大姊云。作麼作麼。一眾齊證無生法忍。且道有幾箇。千箇萬箇。只是一箇。漸源後到石霜。舉前話。石霜依前云。生也不道。死也不道。源云。為什麼不道。霜云。不道不道。他便悟去。一日將鍬子。於法堂上。從東過西。從西過東。意欲呈己見解。霜果問云。作什麼。源云。覓先師靈骨。霜便截斷他脚跟云。我這裏洪波浩渺白浪滔天。覓什麼先師靈骨。他既是覓先師靈骨。石霜為什麼却恁麼道。到這裏。若於生也不道。死也不道處。言下薦得。方知自始至終全機受用。爾若作道理。擬議尋思。直是難見。漸源云。正好著力。看他悟後道得自然奇特。道吾一片頂骨如金色。擊時作銅聲。雪竇著語云。蒼天蒼天。其意落在兩邊。太原孚云。先師靈骨猶在。自然道得穩當。這一落索。一時拈向一邊。且道作麼生是省要處。作麼生是著力處。不見道。一處透千處萬處一時透。若向不道不道處透得去。便乃坐斷天下人舌頭。若透不得。也須是自參自悟。不可容易過日。可惜許時光。雪竇頌云。",
+          "verse_zh": "兔馬有角牛羊無角絕毫絕氂如山如嶽黃金靈骨今猶在白浪滔天何處著無處著隻履西歸曾失却",
+          "verse_en": "Rabbits and horses have horns, oxen and sheep have none; / not a hair, not a wisp — like mountains, like peaks. / Golden numinous bones still here today; / beneath towering white waves — nowhere to rest them. / Nowhere to rest — a single shoe went west, / and was lost along the way."
+        },
+        {
+          "case_num": 56,
+          "title_zh": "良禪客一鏃",
+          "title_pinyin": "Liáng Chánkè Yīzú",
+          "title_en": "Zen Guest Liang's Single Arrow Through Three Barriers",
+          "pointer_zh": "垂示云。諸佛不曾出世。亦無一法與人。祖師不曾西來。未甞以心傳授。自是時人不了。向外馳求。殊不知自己脚跟下。一段大事因緣。千聖亦摸索不著。只如今見不見聞不聞。說不說知不知。從什麼處得來。若未能洞達。且向葛藤窟裏會取。試舉看。",
+          "pointer_en": "Pointer: The buddhas never appeared in the world, nor was a single dharma given to people; the patriarch never came from the West, nor was mind ever entrusted. It is only that people of our time fail to realize this and search outward, never knowing that at the very ground beneath your heels a great causal matter stands, which a thousand saints cannot find by groping. Right now — seeing or not seeing, hearing or not hearing, saying or not saying, knowing or not knowing — from where does it come? If you cannot yet penetrate it, then find your assembly in the thicket of vines. Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "良禪客與欽山 / Zen guest Liang and Qinshan",
+              "zh": "良禪客問欽山：「一鏃破三關時如何？」山云：「放出關中主看。」良云：「恁麼則知過必改。」山云：「更待何時？」良云：「好箭放不著所在。」便出。山云：「且來，闍黎。」良回首。山把住云：「一鏃破三關即且止，試與欽山發箭看。」良擬議，山打七棒云：「且聽這漢疑三十年。」",
+              "pinyin": "Liáng chánkè wèn Qīnshān：「 Yīzú pò sānguān shí rúhé？」 Shān yún：「 Fàngchū guānzhōng zhǔ kàn。」 Liáng yún：「 Nènme zé zhīguò bì gǎi。」 Shān yún：「 Gèng dài hé shí？」 Liáng yún：「 Hào jiàn fàng bù zhuó suǒzài。」 Biàn chū。 Shān yún：「 Qiě lái， shélí。」 Liáng huíshǒu。 Shān bǎ zhù yún：「 Yīzú pò sānguān jí qiě zhǐ， shì yǔ Qīnshān fājiàn kàn。」 Liáng nǐyì， shān dǎ qī bàng yún：「 Qiě tīng zhè hàn yí sānshí nián。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Zen guest Liang asked Qinshan, 'How is it when one arrow breaks through three barriers?' Qinshan said, 'Show us the master of the barrier-keep first.' Liang said, 'So — one knows his fault and must correct it.' Qinshan said, 'What are you waiting for?' Liang said, 'A fine arrow, with no place to loose it,' and started for the gate. Qinshan said, 'Come here, monk.' Liang turned back. Qinshan grabbed him and said, 'One arrow through three barriers — set that aside: try loosing an arrow for Qinshan.' Liang hesitated — Qinshan struck him seven times with the staff and said, 'Let this fellow doubt for thirty years.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。良禪客問欽山。一鏃破三關時如何山云。放出關中主看良云。恁麼則知過必改山云。更待何時良云。好箭放不著所在便出山云。且來闍黎良回首山把住云。一鏃破三關即且止。試與欽山發箭看良擬議山打七棒云。且聽這漢疑三十年。良禪客也不妨是一員戰將。向欽山手裏。左盤右轉。墜鞭閃鐙。末後可惜許。弓折箭盡。雖然如是。李將軍自有嘉聲在。不得封侯也是閑。這箇公案。一出一入。一擒一縱。當機覿面提。覿面當機疾。都不落有無得失。謂之玄機。稍虧些子力量。便有顛蹶。這僧亦是箇英靈底衲子。致箇問端。不妨驚群。欽山是作家宗師。便知他問頭落處。鏃者箭鏃也。一箭射透三關時如何。欽山意道。爾射透得則且置。試放出關中主看。良云。恁麼則知過必改。也不妨奇特。欽山云。更待何時。看他恁麼祇對。欽山所問。更無些子空缺處。後頭良禪客却道。好箭放不著所在。拂袖便出。欽山纔見他恁麼道。便喚云。且來闍黎。良禪客果然把不住。便回首。欽山擒住云。一鏃破三關則且止。試與欽山發箭看。良擬議。欽山便打七棒。更隨後與他念一道呪云。且聽這漢疑三十年。如今禪和子盡道。為什麼不打八下。又不打六下。只打七下。不然等他問道試與欽山發箭看。便打。似則也似。是則未是在。這箇公案。須是胸襟裏不懷些子道理計較。超出語言之外。方能有一句下破三關。及有放箭處。若存是之與非。卒摸索不著。當時這僧。若是箇漢。欽山也大嶮。他既不能行此令。不免倒行。且道關中主。畢竟是什麼人。看雪竇頌云。",
+          "verse_zh": "與君放出關中主放箭之徒莫莽鹵取箇眼兮耳必聾捨箇耳兮目雙瞽可憐一鏃破三關的的分明箭後路君不見玄沙有言兮大丈夫先天為心祖",
+          "verse_en": "I release for you the master of the barrier-keep; / arrow-loosing fellows, don't be careless now! / Take the eye and the ear goes deaf; spare the ear and both eyes go blind. / Pitiful that one arrow through three barriers — / clear and distinct, the road behind the arrow. / Have you not heard it: Xuansha's saying — / 'A great man takes the prior-to-heaven as his patriarchal heart.'"
+        },
+        {
+          "case_num": 57,
+          "title_zh": "趙州唯我獨尊",
+          "title_pinyin": "Zhàozhōu Wéiwǒ Dúzūn",
+          "title_en": "Zhaozhou: 'I Alone Am Honored'",
+          "pointer_zh": "垂示云。未透得已前。一似銀山鐵壁。及乎透得了。自己元來是鐵壁銀山。或有人問且作麼生。但向他道。若尚箇裏。露得一機。看得一境。坐斷要津不通凡聖。未為分外。苟或未然。看取古人樣子。",
+          "pointer_en": "Pointer: Before you pierce it, it is like silver mountains and iron walls; once you have pierced it, you yourself were the iron walls and silver mountains all along. If someone asks how it is, just tell them this: if in this very place you show one device and observe one realm, sitting astride the vital pass beyond ordinary and holy — that is nothing out of the ordinary. If you cannot yet, look at the ancients' example.",
+          "dialogue": [
+            {
+              "speaker": "趙州與僧 / Zhaozhou and the monk",
+              "zh": "僧問趙州：「至道無難，唯嫌揀擇。如何是不揀擇？」州云：「天上天下，唯我獨尊。」僧云：「此猶是揀擇。」州云：「田厙奴！什麼處是揀擇？」僧無語。",
+              "pinyin": "Sēng wèn Zhaozhōu：「 Zhìdào wúnán， wéi xián jiǎnzé。 Rúhé shì bù jiǎnzé？」 Zhōu yún：「 Tiānshàng tiānxià， wéi wǒ dúzūn。」 Sēng yún：「 Cǐ yóu shì jiǎnzé。」 Zhōu yún：「 Tiánshè nú！ Shénme chù shì jiǎnzé？」 Sēng wúyǔ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Zhaozhou, '&ldquo;The highest way is not hard — it only dislikes choosing.&rdquo; What is not choosing?' Zhaozhou said, 'Above heaven and under heaven, I alone am honored.' The monk said, 'Isn't that choosing too?' Zhaozhou said, 'You bumpkin! Where is the choosing?' The monk was silent.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問趙州。至道無難唯嫌揀擇。如何是不揀擇州云。天上天下唯我獨尊僧云。此猶是揀擇州云。田厙奴。什麼處是揀擇僧無語厙。僧問趙州。至道無難唯嫌揀擇。三祖信心銘劈頭便道這兩句。有多少人錯會。何故至道本無難。亦無不難。只是唯嫌揀擇。若恁麼會。一萬年也未夢見在。趙州常以此語問人。這僧將此語。倒去問他。若向語上覓。此僧却驚天動地。若不在語句上。又且如何更參三十年。這箇些子關捩子。須是轉得始解。捋虎鬚也須是本分手段始得。這僧也不顧危亡。敢捋虎鬚便道。此猶是揀擇。趙州劈口便塞道。田厙奴。什麼處是揀擇。若問著別底。便見脚忙手亂。爭奈這老漢是作家。向動不得處動。向轉不得處轉。爾若透得一切惡毒言句。乃至千差萬狀。世間戲論。皆是醍醐上味。若到著實處。方見趙州赤心片片。田厙奴。乃福唐人。鄉語罵人。似無意智相似。這僧道此猶是揀擇。趙州道田厙奴。什麼處是揀擇。宗師眼目。須至恁麼。如金翅鳥擘海直取龍吞。雪竇頌云。",
+          "verse_zh": "似海之深如山之固蚊虻弄空裏猛風螻蟻撼於鐵柱揀兮擇兮當軒布鼓",
+          "verse_en": "Deep as the sea, firm as mountains — / gnats toil in the empty sky, fierce ant swarms shake iron pillars. / Choosing, choosing, choosing — / a drum displayed at the gate."
+        },
+        {
+          "case_num": 58,
+          "title_zh": "趙州五年",
+          "title_pinyin": "Zhàozhōu Wǔnián",
+          "title_en": "Zhaozhou's Five Years Without a Reply",
+          "dialogue": [
+            {
+              "speaker": "趙州與僧 / Zhaozhou and the monk",
+              "zh": "僧問趙州：「至道無難，唯嫌揀擇。是時人窠窟否？」州云：「曾有人問我，直得五年分疎不下。」",
+              "pinyin": "Sēng wèn Zhaozhōu：「 Zhìdào wúnán， wéi xián jiǎnzé。 Shì shírén kēkū fǒu？」 Zhōu yún：「 Céng yǒu rén wèn wǒ， zhídé wǔnián fēnshū bù xià。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Zhaozhou, '&ldquo;The highest way is not hard — it only dislikes choosing&rdquo; — is that a foxes' den for ordinary people?' Zhaozhou said, 'A man once asked me that — and for five years I could not find a way to answer.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問趙州。至道無難唯嫌揀擇。是時人窠窟否州云。曾有人問我。直得五年分疎不下。趙州平生不行棒喝。用得過於棒喝。這僧問得來。也甚奇怪。若不是趙州。也難答伊。蓋趙州是作家。只向伊道。曾有人問我。直得五年分疎不下。問處壁立千仞。答處亦不輕他。只恁麼會直是當頭。若不會。且莫作道理計較。不見投子宗道者。在雪竇會下作書記。雪竇令參至道無難唯嫌揀擇。於此有省。一日雪竇問他。至道無難唯嫌揀擇。意作麼生。宗云。畜生畜生。後隱居投子。凡去住持。將袈裟裹草鞋與經文。僧問。如何是道者家風。宗云。袈裟裹草鞋。僧云。未審意旨如何。宗云。赤脚下桐城。所以道。獻佛不在香多。若透得脫去。縱奪在我。既是一問一答。歷歷現成。為什麼趙州却道。分疎不下。且道是時人窠窟否。趙州在窠窟裏答他。在窠窟外答他。須知此事不在言句上。或有箇漢徹骨徹髓。信得及去。如龍得水。似虎靠山。頌云。",
+          "verse_zh": "象王嚬呻獅子哮吼無味之談塞斷人口南北東西烏飛兔走",
+          "verse_en": "The elephant king trumpeting, the lion roaring — / tasteless talk that seals men's mouths. / North and south, east and west — / crows fly, rabbits run."
+        },
+        {
+          "case_num": 59,
+          "title_zh": "趙州引盡這語",
+          "title_pinyin": "Zhàozhōu Yǐnjìn Zhèyǔ",
+          "title_en": "Zhaozhou: 'Why Not Recite It to the Very End?'",
+          "pointer_zh": "垂示云。該天括地。越聖超凡。百草頭上指出涅槃妙心。干戈叢裏點定衲僧命脈。且道承箇什麼人恩力。便得恁麼。試舉看。",
+          "pointer_en": "Pointer: Encompassing heaven, binding earth, surpassing the holy, passing beyond the ordinary — pointing out nirvana's wondrous mind at the tip of every blade of grass, fixing the monk's life-pulse amid spears and halberds. Tell me: through whose gracious power does one come to act thus? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "趙州與僧 / Zhaozhou and the monk",
+              "zh": "僧問趙州：「『至道無難，唯嫌揀擇。纔有語言是揀擇。』和尚如何為人？」州云：「何不引盡這語？」僧云：「某甲只念到這裏。」州云：「只這至道無難，唯嫌揀擇！」",
+              "pinyin": "Sēng wèn Zhaozhōu：「『Zhìdào wúnán， wéi xián jiǎnzé。 Cái yǒu yǔyán shì jiǎnzé。』 Héshàng rúhé wéirén？」 Zhōu yún：「 Hébù yǐnjìn zhè yǔ？」 Sēng yún：「 Mǒujiǎ zhǐ niàn dào zhèlǐ。」 Zhōu yún：「 Zhǐ zhè zhìdào wúnán wéi xián jiǎnzé！」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Zhaozhou, '&ldquo;The highest way is not hard — it only dislikes choosing; the moment there is speech, that is choosing.&rdquo; Master, how do you instruct people?' Zhaozhou said, 'Why not recite it to the very end?' The monk said, 'That is as far as I could recite.' Zhaozhou said, 'Just this: the highest way is not hard — it only dislikes choosing!'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問趙州。至道無難。唯嫌揀擇纔有語言是揀擇和尚如何為人州云。何不引盡這語僧云。某甲只念到這裏州云。只這至道無難唯嫌揀擇。趙州道。只這至道無難唯嫌揀擇。如擊石火似閃電光。擒縱殺活。得恁麼自在。諸方皆謂。趙州有逸群之辯。趙州尋常示眾。有此一篇云。至道無難唯嫌揀擇。纔有語言。是揀擇。是明白。老僧不在明白裹。是汝等還護惜也無。時有僧問云。既不在明白裏。護惜箇什麼。州云。我亦不知。僧云。和尚既不知。為什麼道。不在明白裏。州云。問事即得。禮拜了退。後來這僧只拈他釁罅處去問他。問得也不妨奇特。爭奈只是心行。若是別人奈何他不得。爭奈趙州是作家。便道何不引盡這語。這僧也會轉身吐氣。便道某甲只念到這裏。一似安排相似。趙州隨聲拈起便答。不須計較。古人謂之相續也大難。他辨龍蛇別休咎。還他本分作家。趙州換却這僧眼睛。不犯鋒鋩。不著計較。自然恰好。爾喚作有句也不得。喚作無句也不得。喚作不有不無句也不得。離四句絕百非。何故。若論此事。如擊石火。似閃電光。急著眼看方見。若或擬議躊躇。不免喪身失命。雪竇頌云　躊躇。",
+          "verse_zh": "水灑不著風吹不入虎步龍行鬼號神泣頭長三尺知是誰相對無言獨足立",
+          "verse_en": "Water cannot sprinkle it, wind cannot enter it; / tiger-stepping, dragon-walking, ghosts wailing, spirits sobbing. / A head three feet long — who knows who it is? / Facing you in silence, standing alone on one foot."
+        },
+        {
+          "case_num": 60,
+          "title_zh": "雲門杖化龍",
+          "title_pinyin": "Yúnmén Zhàng Huà Lóng",
+          "title_en": "Yunmen: The Staff Becomes a Dragon and Swallows the Universe",
+          "pointer_zh": "垂示云。諸佛眾生本來無異。山河自己寧有等差。為什麼却渾成兩邊去也。若能撥轉話頭。坐斷要津。放過即不可。若不放過。盡大地不消一揑。且作麼生是撥轉話頭處。試舉看。",
+          "pointer_en": "Pointer: Buddhas and sentient beings are from the first not different; mountains and rivers and oneself admit of no distinction. So why do they split into two banks? If you can turn the topic around and sit astride the vital ford — letting go is not allowed; if you don't let go, the whole earth can't take a single pinch. What is the place of turning the topic around? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "雲門 / Yunmen",
+              "zh": "雲門以拄杖示眾云：「拄杖子化為龍，吞却乾坤了也。山河大地甚處得來？」",
+              "pinyin": "Yúnmén yǐ zhǔzhàng shìzhòng yún：「 Zhǔzhàng zǐ huà wéi lóng， tūn què qiánkūn le yě。 Shānhé dàdì shèn chù dé lái？」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yunmen raised his staff before the assembly and said, 'The staff has turned into a dragon and swallowed heaven and earth whole. From where do mountains, rivers, and the great world come to appear?'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。雲門以拄杖示眾云拄杖子化為龍吞却乾坤了也山河大地甚處得來。只如雲門道。挂杖子化為龍。吞却乾坤了也。山河大地甚處得來。若道有則瞎。若道無則死。還見雲門為人處麼。還我拄杖子來。如今人不會他雲門獨露處。却道即色明心。附物顯理。且如釋迦老子四十九年說法。不可不知此議論。何故。更用拈花。迦葉微笑。這老漢便搽胡道。吾有正法眼藏涅槃妙心。分付摩訶大迦葉。更何必單傳心印。諸人既是祖師門下客。還明得單傳底心麼。胸中若有一物。山河大地。摐然現前胸中若無一物。外則了無絲毫。說什麼理與智冥境與神會。何故一會一切會。一明一切明。長沙道。學道之人不識真。只為從前認識神。無量劫來生死本。癡人喚作本來人。忽若打破陰界。身心一如身外無餘。猶未得一半在。說什麼即色明心附物顯理。古人道。一塵纔起。大地全收。且道是那箇一塵。若識得這一塵。便識得拄杖子。纔拈起拄杖子。便見縱橫妙用。恁麼說話。早是葛藤了也。何況更化為龍。慶藏主云。五千四十八卷。還曾有恁麼。說話麼。雲門每向拄杖處。拈掇全機大用。活潑潑地為人。芭蕉示眾云。衲僧巴鼻。盡在拄杖頭上。永嘉亦云。不是標形虛事褫。如來寶杖親蹤跡。如來昔於然燈佛時。布髮掩泥。以待彼佛。然燈曰。此處當建梵剎。時有一天子。遂標一莖草云。建梵剎竟。諸人且道。這箇消息。從那裏得來。祖師道。棒頭取證。喝下承當。且道承當箇什麼。忽有人問。如何是拄杖子。莫是打筋斗麼。莫是撫掌一下麼。總是弄精魂。且喜沒交涉。雪竇頌云　褫。",
+          "verse_zh": "拄杖子吞乾坤徒說桃花浪奔燒尾者不在拏雲攫霧曝腮者何必喪膽亡魂拈了也聞不聞直須灑灑落落休更紛紛紜紜七十二棒且輕恕一百五十難放君師驀拈拄杖下座。大眾一時走散曝",
+          "verse_en": "The staff swallows heaven and earth — / vainly they speak of peach-blossom waves running. / Those whose tails are scorched need not seize clouds and grasp mists; / those gills laid bare need not lose guts and souls. / Snatched, heard — you must be free and easy, / never again tangled and dishevelled. / Seventy-two blows — light forgiveness; / a hundred-fifty — hard to release for you. / The master suddenly grabbed his staff and stepped down; the assembly scattered at once — exposed."
+        },
+        {
+          "case_num": 61,
+          "title_zh": "風穴立一塵",
+          "title_pinyin": "Fēngxuè Lì Yīchén",
+          "title_en": "Fengxue: 'If One Mote Is Raised'",
+          "pointer_zh": "垂示云。建法幢立宗旨。還他本分宗師。定龍蛇別緇素。須是作家知識。劍刃上論殺活。棒頭上別機宜。則且置。且道獨據寰中事一句作麼生商量。試舉看。",
+          "pointer_en": "Pointer: To raise the banner and establish the teaching takes a master true to his station; to settle dragons from snakes and sort black from white takes a seasoned adept. To judge the killing and the reviving on a sword's edge, to discern right measure on the tip of a staff — set that aside. Tell me: how would you assess the one phrase that holds the whole realm alone? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "風穴與雪竇 / Fengxue, with Xuedou's raising",
+              "zh": "風穴垂語云：「若立一塵，家國興盛；不立一塵，家國喪亡。」雪竇拈拄杖云：「還有同生同死底衲僧麼？」",
+              "pinyin": "Fēngxuè chuíyǔ yún：「 Ruò lì yīchén， jiāguó xīngshèng； bù lì yīchén， jiāguó sàngwáng。」 Xuědòu niān zhǔzhàng yún：「 Hái yǒu tóngshēng tóngsǐ dǐ násēng me？」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Fengxue let fall this saying: 'If one mote is raised, house and kingdom flourish; if no mote is raised, house and kingdom are lost.' Xuedou raised his staff and said, 'Is there any monk who will share in its life and death?'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。風穴垂語云若立一塵家國興盛不立一塵家國喪亡雪竇拈拄杖云還有同生同死底衲僧麼。只如風穴示眾云。若立一塵。家國興盛。不立一塵。家國喪亡。且道立一塵即是。不立一塵即是。到這裏。須是大用現前始得。所以道。設使言前薦得。猶是滯殼迷封。直饒句下精通。未免觸途狂見。他是臨濟下尊宿。直下用本分草料。若立一塵。家國興盛野老顰蹙。意在立國安邦。須藉謀臣猛將。然後麒麟出鳳凰翔。乃太平之祥瑞也。他三家村裏人。爭知有恁麼事。不立一塵。家國喪亡。風颯颯地。野老為什麼。出來謳歌。只為家國喪亡。洞下謂之轉變處。更無佛無眾生。無是無非。無好無惡。絕音響蹤跡。所以道。金屑雖貴。落眼成瞖。又云。金屑眼中瞖。衣珠法上塵。己靈猶不重。佛祖是何人。七穿八穴。神通妙用。不為奇特。到箇裏。衲被蒙頭萬事休。此時山僧都不會。若更說心說性。說玄說妙。都用不著。何故。他家自有神仙境。南泉示眾云。黃梅七百高僧。盡是會佛法底人。不得他衣鉢。唯有盧行者。不會佛法。所以得他衣鉢。又云。三世諸佛不知有。狸奴白牯却知有。野老或顰蹙。或謳歌且道作麼生會。且道他具什麼眼却恁麼。須知野老門前。別有條章。雪竇雙拈了。却拈拄杖云。還有同生同死底衲僧麼。當時若有箇漢出來。道得一句。互為賓主。免得雪竇這老漢後面自點胸。",
+          "verse_zh": "野老從教不展眉且圖家國立雄基謀臣猛將今何在萬里清風只自知",
+          "verse_en": "The rustic elder never furrows his brow — / his one concern is founding house and kingdom firm. / Wisdom's ministers and brave generals — where are they now? / A thousand miles of clear wind — only he himself knows."
+        },
+        {
+          "case_num": 62,
+          "title_zh": "雲門一寶",
+          "title_pinyin": "Yúnmén Yībǎo",
+          "title_en": "Yunmen: 'A Treasure Hidden in the Mountain of Form'",
+          "pointer_zh": "垂示云。以無師智。發無作妙用。以無緣慈。作不請勝友。向一句下。有殺有活。於一機中。有縱有擒。且道什麼人曾恁麼來。試舉看。",
+          "pointer_en": "Pointer: With the wisdom of no teacher, unfold the subtle working of no doing; with the compassion of no cause, befriend the noble friend who never asks. In one phrase, both killing and reviving; in one device, both letting go and holding fast. Tell me: who has ever come like this? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "雲門 / Yunmen",
+              "zh": "雲門示眾云：「乾坤之內，宇宙之間，中有一寶，祕在形山。拈燈籠向佛殿裏，將三門來燈籠上。」",
+              "pinyin": "Yúnmén shìzhòng yún：「 Qiánkūn zhī nèi， yǔzhòu zhī jiān， zhōng yǒu yī bǎo， mì zài xíngshān。 Niān dēnglóng xiàng fódiàn lǐ， jiāng sānmén lái dēnglóng shàng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yunmen addressed the assembly: 'Within heaven and earth, amid space and time, there is one treasure, hidden in the mountain of form.' He took up a lantern and went to the Buddha Hall, and brought the mountain gate to stand upon the lantern.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。雲門示眾云。乾坤之內宇宙之間中有一寶祕在形山拈燈籠向佛殿裏將三門來燈籠上。雲門道。乾坤之內。宇宙之間。中有一寶。祕在形山。且道雲門意在釣竿頭。意在燈籠上。此乃肇法師寶藏論數句。雲門拈來示眾。肇公時於後秦逍遙園造論。寫維摩經。方知莊老未盡其妙。肇乃禮羅什為師。又參瓦棺寺跋陀婆羅菩薩。從西天二十七祖處。傳心印來。肇深造其堂奧。肇一日遭難。臨刑之時。乞七日假。造寶藏論。雲門便拈論中四句。示眾。大意云。如何以無價之寶。隱在陰界之中。論中語言。皆與宗門說話相符合。不見鏡清問曹山。清虛之理。畢竟無身時如何。山云。理即如是。事作麼生。清云。如理如事。山云瞞曹山一人即得。爭柰諸聖眼。何清。云若無諸聖眼。爭知不恁麼。山云。官不容針。私通車馬。所以道。乾坤之內。宇宙之間。中有一寶。祕在形山。大意明人人具足箇箇圓成。雲門便拈來示眾。已是十分現成。不可更似座主相似。與爾注解去。他慈悲更與爾下注脚道。拈燈籠向佛殿裏。將三門來燈籠上。且道雲門恁麼道。意作麼生。不見古人云。無明實性即佛性。幻化空身即法身。又云。即凡心而見佛心。形山即是四大五蘊也。中有一寶。祕在形山。所以道。諸佛在心頭。迷人向外求。內懷無價寶不識。一生休。又道。佛性堂堂顯現。住相有情難見。若悟眾生無我。我面何殊佛面。心是本來心。面是娘生面。劫石可移動。箇中無改變。有者。只認箇昭昭靈靈為寶。只是不得其用。亦不得其妙。所以動轉不得。開撥不行。古人道。窮則變。變則通。拈燈籠向佛殿裏。若是常情可測度得。將三門來燈籠上。還測度得麼。雲門與爾一時。打破情識意想得失是非了也。雪竇道。我愛韶陽新定機。一生與人抽釘拔楔。又云。曲木據位知幾何。利刃剪却令人愛。他道。拈燈籠向佛殿裏。這一句已截斷了也。又將三門來燈籠上。若論此事。如擊石火。似閃電光。雲門道。汝若相當去。且覓箇入路。微塵諸佛在爾脚跟下。三藏聖教。在爾舌頭上。不如悟去好。和尚子莫妄想。天是天地是地。山是山水是水。僧是僧俗是俗。良久云。與我拈面前按山來看。便有僧出問云。學人見山是山水是水時如何。門云。三門為什麼從這裏過。恐爾死却。遂以手劃一劃云。識得時。是醍醐上味。若識不得。反為毒藥也。所以道。了了了時無可了。玄玄玄處直須呵。雪竇又拈云。乾坤之內宇宙之間。中有一寶。祕在形山。掛在壁上。達磨九年。不敢正眼覷著。而今衲僧要見。劈脊便棒。看他本分宗師。終不將實法繫綴人。玄沙云。羅籠不肯住。呼喚不回頭。雖然恁麼。也是靈龜曳尾。雪竇頌云。",
+          "verse_zh": "看看古岸何人把釣竿雲冉冉水漫漫明月蘆花君自看",
+          "verse_en": "Look! Look! Who on the ancient bank holds the fishing rod? / Clouds drift, waters stretch — / moon bright on the reed flowers: see for yourself."
+        },
+        {
+          "case_num": 63,
+          "title_zh": "南泉斬猫",
+          "title_pinyin": "Nánquán Zhǎn Māo",
+          "title_en": "Nanquan Cuts the Cat",
+          "pointer_zh": "垂示云。意路不到。正好提撕。言詮不及。宜急著眼。若也電轉星飛。便可傾湫倒嶽。眾中莫有辨得底麼。試舉看。",
+          "pointer_en": "Pointer: Where the road of thought cannot reach — best to grab hold; where words fall short — best to open the eye. If you can wheel with lightning and fly with meteors, you can drain the pool and level the peak. Is there anyone in the assembly who can discern it? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "南泉與兩堂眾 / Nanquan and the two halls",
+              "zh": "南泉一日東西兩堂爭猫兒，南泉見，遂提起云：「道得即不斬。」眾無對，泉斬猫兒為兩段。",
+              "pinyin": "Nánquán yīrì dōngxī liǎngtáng zhēng māoér， Nánquán jiàn， suì tíqǐ yún：「 Dào dé jí bù zhǎn。」 Zhòng wúduì， quán zhǎn māoér wéi liǎng duàn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day Nanquan found the eastern and western halls quarreling over a cat. Seeing them, he held it up and said, 'Give me a word and it will not be cut.' The assembly had no reply — and Nanquan cut the cat in two.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。南泉一日東西兩堂爭猫兒南泉見遂提起云。道得即不斬眾無對泉斬猫兒為兩段。宗師家。看他一動一靜。一出一入。且道意旨如何。這斬猫兒話。天下叢林。商量浩浩地。有者道。提起處便是。有底道。在斬處。且得都沒交涉。他若不提起時。亦匝匝地作盡道理。殊不知。他古人。有定乾坤底眼。有定乾坤底劍。爾且道。畢竟是誰斬猫兒。只如南泉提起云。道得即不斬。當時忽有人道得。且道南泉斬不斬。所以道。正令當行十方坐斷。出頭天外看。誰是箇中人。其實當時元不斬。此話亦不在斬與不斬處。此事軒知。如此分明。不在情塵意見上討。若向情塵意見上討。則辜負南泉去。但向當鋒劍刃上看。是有也得無也得。不有不無也得。所以古人道。窮則變變則通。而今人不解變通。只管向語句上走。南泉恁麼提起。不可教人合下得甚語。只要教人自薦。各各自用自知。若不恁麼會。卒摸索不著。雪竇當頭頌云。",
+          "verse_zh": "兩堂俱是杜禪和撥動煙塵不柰何賴得南泉能舉令一刀兩段任偏頗頗",
+          "verse_en": "Both halls full of fake 'Chan masters' — / stir only smoke and dust, useless all. / Thank goodness Nanquan could wield the command: / one blade, two halves — crooked, slanted, and all."
+        },
+        {
+          "case_num": 64,
+          "title_zh": "趙州草鞋頭戴",
+          "title_pinyin": "Zhàozhōu Cǎoxié Tóudài",
+          "title_en": "Zhaozhou Wears His Straw Sandals on His Head",
+          "dialogue": [
+            {
+              "speaker": "南泉與趙州 / Nanquan and Zhaozhou",
+              "zh": "南泉復舉前話問趙州，州便脫草鞋，於頭上戴出。南泉云：「子若在，恰救得猫兒。」",
+              "pinyin": "Nánquán fù jǔ qiánhuà wèn Zhaozhōu， Zhōu biàn tuō cǎoxié， yú tóu shàng dài chū。 Nánquán yún：「 Zǐ ruò zài， qià jiùdé māoér。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Nanquan raised the previous matter and put it to Zhaozhou. Zhaozhou at once took off his straw sandals, set them on his head, and walked out. Nanquan said, 'Had you been there — the cat would have been saved.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "南泉復舉前話。問趙州州便脫草鞋。於頭上戴出南泉云。子若在。恰救得猫兒。趙州乃南泉的子。道頭會尾。舉著便知落處。南泉晚間復舉前話問趙州。州是老作家。便脫草鞋。於頭上戴出。泉云。子若在却救得猫兒。且道真箇恁麼不恁麼。南泉云。道得即不斬。如擊石火似閃電光。趙州便脫草鞋。於頭上戴出。他參活句。不參死句。日日新時時新。千聖移易一絲毫不得。須是運出自己家珍。方見他全機大用。他道。我為法王於法自在。人多錯會道。趙州權將草鞋。作猫兒。有者道。待他云道得即不斬。便戴草鞋出去。自是爾斬猫兒。不干我事。且得沒交涉。只是弄精魂。殊不知。古人意。如天普蓋。似地普擎。他父子相投。機鋒相合。那箇舉頭。他便會尾。如今學者。不識古人轉處。空去意路上卜度。若要見。但去他南泉趙州轉處便見好。頌云。",
+          "verse_zh": "公案圓來問趙州長安城裏任閑遊草鞋頭戴無人會歸到家山即便休𡎺磕",
+          "verse_en": "The case made round, he put it to Zhaozhou: / strolling free in Chang'an city, / sandals on his head — no one understands. / Back at his home mountain, that would have been the end of it. Starting and knocking!"
+        },
+        {
+          "case_num": 65,
+          "title_zh": "外道問佛良久",
+          "title_pinyin": "Wàidào Wènfó Liángjiǔ",
+          "title_en": "The Outsider Questions the Buddha — a Long Silence",
+          "pointer_zh": "垂示云。無相而形。充十虛而方廣。無心而應。遍剎海而不煩。舉一明三目機銖兩。直得棒如雨點喝似雷奔。也未當得向上人行履在。且道作麼生。是向上人事。試舉看。",
+          "pointer_en": "Pointer: Formless, taking form — filling the ten directions with breadth; mindless, answering — covering seas of kshetras without weariness. Raise one and illumine three, eyes weighing by the grain — even a staff pouring like rain and a shout rolling like thunder does not yet match a person of the summit. Tell me: what is a person of the summit? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "外道與世尊阿難 / The outsider, the World-Honored One, and Ananda",
+              "zh": "外道問佛：「不問有言，不問無言。」世尊良久。外道讚歎云：「世尊大慈大悲，開我迷雲，令我得入。」外道去後，阿難問佛：「外道有何所證，而言得入？」佛云：「如世良馬，見鞭影而行。」",
+              "pinyin": "Wàidào wèn fó：「 Bù wèn yǒuyán， bù wèn wúyán。」 Shìzūn liángjiǔ。 Wàidào zàntàn yún：「 Shìzūn dàcí dàbēi， kāi wǒ míyún， lìng wǒ dé rù。」 Wàidào qù hòu， ānán wèn fó：「 Wàidào yǒu hé suǒ zhèng， ér yán dé rù？」 Fó yún：「 Rú shì liángmǎ， jiàn biānyǐng ér xíng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "An outsider said to the Buddha, 'I do not ask with words, I do not ask without words.' The World-Honored One paused for a long time. The outsider praised him: 'World-Honored One, so greatly kind and merciful — you have parted the clouds of my delusion and let me enter.' After the outsider left, Ananda asked the Buddha, 'What did he realize, that you said he entered?' The Buddha said, 'Like a fine horse of the world, it moves at the shadow of the whip.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。外道問佛。不問有言。不問無言世尊良久外道讚歎云。世尊大慈大悲。開我迷雲。令我得入外道去後阿難問佛。外道有何所證。而言得入佛云。如世良馬見鞭影而行。此事若在言句上。三乘十二分教。豈是無言句。或道無言便是。又何消祖師西來作什麼。只如從上來。許多公案。畢竟如何見其下落。這一則公案。話會者不少。有底喚作良久。有底喚作據坐。有底喚作默然不對。且喜沒交涉。幾曾摸索得著來。此事其實。不在言句上。亦不離言句中。若稍有擬議。則千里萬里去也。看他外道省悟後。方知亦不在此。亦不在彼。亦不在是。亦不在不是。且道是箇什麼。天衣懷和尚頌云。維摩不默不良久。據坐商量成過咎。吹毛匣裏冷光寒。外道天魔皆拱手。百丈常和尚參法眼。眼令看此話。法眼一日問。爾看什麼因緣。常云。外道問佛話。眼云。爾試舉看。常擬開口。眼云。住住。爾擬向良久處會那。常於言下。忽然大悟。後示眾云。百丈有三訣。喫茶珍重。歇。擬議更思量。知君猶未徹。翠巖真點胸拈云。六合九。有青黃赤白。一一交羅外道會四維陀典論。自云。我是一切智人。在處索人論議。他致問端。要坐斷釋迦老子舌頭。世尊不費纖毫氣力。他便省去。讚歎云。世尊大慈大悲。開我迷雲。令我得入且道作麼生。是大慈大悲處。世尊隻眼通三世。外道雙眸貫五天。溈山真如拈云。外道懷藏至寶。世尊親為高提。森羅顯現。萬象歷然。且畢竟外道悟箇什麼。如趁狗逼牆。至極則無路處。他須回來。便乃活鱍鱍地。若計較是非。一時放下情盡見除。自然徹底分明。外道去後。阿難問佛云。外道有何所證而言得入。佛云。如世良馬見鞭影而行。後來諸方便道。又被風吹別調。中又云。龍頭蛇尾。什麼處是世尊鞭影。什麼處是見鞭影處。雪竇云。邪正不分。過由鞭影。真如云。阿難金鐘再擊。四眾共聞。雖然如是。大似二龍爭珠。長他智者威獰。雪竇頌云。",
+          "verse_zh": "機輪曾未轉轉必兩頭走明鏡忽臨臺當下分妍醜妍醜分兮迷雲開慈門何處生塵埃因思良馬窺鞭影千里追風喚得回喚得回鳴指三下",
+          "verse_en": "The carrying wheel never turned — / once turned, it runs off both ways. / A bright mirror suddenly set on its stand — / beauty and ugliness sorted on the spot. / Beauty and ugliness sorted — the clouds of delusion part; / whence rises dust in the gate of kindness? / Then I think of the fine horse glimpsing the whip's shadow — / pursued the wind a thousand miles, called back. / Called back — one snaps the fingers thrice."
+        },
+        {
+          "case_num": 66,
+          "title_zh": "巖頭收劍",
+          "title_pinyin": "Yántóu Shōu Jiàn",
+          "title_en": "The Monk Who Kept the Sword",
+          "pointer_zh": "垂示云。當機覿面。提陷虎之機。正按傍提。布擒賊之略。明合暗合。雙放雙收解弄死蛇。還他作者。",
+          "pointer_en": "Pointer: Facing the moment, raise the tiger trapping device; pressing straight or lifting obliquely, lay the strategy for catching thieves. Bright agreement, dark agreement — release both, gather both, playing the dead snake to perfection — leave that to the adept.",
+          "dialogue": [
+            {
+              "speaker": "巖頭與僧、雪峯 / Yantou, the monk, and Xuefeng",
+              "zh": "巖頭問僧：「什麼處來？」僧云：「西京來。」頭云：「黃巢過後，還收得劍麼？」僧云：「收得。」巖頭引頸近前云：「㘞！」僧云：「師頭落也。」巖頭呵呵大笑。僧後到雪峯。峯問：「什麼處來？」僧云：「巖頭來。」峯云：「有何言句？」僧舉前話。雪峯打三十棒趕出。",
+              "pinyin": "Yántóu wèn sēng：「 Shénme chù lái？」 Sēng yún：「 Xījīng lái。」 Tóu yún：「 Huángcháo guò hòu， hái shōu dé jiàn me？」 Sēng yún：「 Shōu dé。」 Yántóu yǐn jǐng jìn qián yún：「 Kuò！」 Sēng yún：「 Shī tóu luò yě。」 Yántóu hēhē dàxiào。 Sēng hòu dào Xuěfēng。 Fēng wèn：「 Shénme chù lái？」 Sēng yún：「 Yántóu lái。」 Fēng yún：「 Yǒu hé yánjù？」 Sēng jǔ qiánhuà。 Xuěfēng dǎ sānshí bàng gǎn chū。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yantou asked a monk, 'Where do you come from?' The monk said, 'From the western capital.' Yantou asked, 'After Huang Chao passed through, did you still get your sword back?' The monk said, 'I got it.' Yantou stretched his neck toward him and cried, 'Kuò!' The monk said, 'Master's head has fallen.' Yantou laughed loudly. Later the monk came to Xuefeng. Xuefeng asked, 'Where do you come from?' The monk said, 'From Yantou.' Xuefeng said, 'What did he say?' The monk told the story — Xuefeng struck him thirty blows and drove him out.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。巖頭問僧什麼處來僧云。西京來頭云。黃巢過後。還收得劍麼僧云。收得巖頭引頸近前云。㘞僧云。師頭落也巖頭呵呵大笑僧後到雪峯峯問。什麼處來僧云。巖頭來峯云。有何言句僧舉前話雪峯打三十棒趕出。大凡挑囊負鉢。撥草瞻風。也須是具行脚眼始得。這僧眼似流星。也被巖頭勘破了一串穿却。當時若是箇漢。或殺或活。舉著便用。這僧砑郎當。却道收得。似恁麼行脚。閻羅老子問爾。索飯錢在。知他踏破多少草鞋。直到雪峯。當時若有些子眼筋。便解瞥地去。豈不快哉。這箇因緣。有節角誵訛處。此事雖然無得失。得失甚大。雖然無揀擇。到這裏。却要具眼揀擇。看他龍牙行脚時。致箇問端。問德山。學人仗鏌鎁劍。擬取師頭時如何。德山引頸近前云。㘞。龍牙云。師頭落也。山便歸方丈。牙後舉似洞山。洞山云。德山當時道什麼。牙云。他無語。洞山云。他無語則且置。借我德山落底頭來看。牙於言下大悟。遂焚香遙望德山禮拜懺悔。有僧傳到德山處。德山云。洞山老漢。不識好惡。這漢死來多少時也。救得有什麼用處。這箇公案。與龍牙底一般。德山歸方丈。則暗中最妙。巖頭大笑。他笑中有毒。若有人辨得。天下橫行。這僧當時若辨得出。千古之下。免得檢責。於巖頭門下。已是一場蹉過。看他雪峯老人是同參。便知落處。也不與他說破。只打三十棒趕出院。可以光前絕後。這箇是拈作家衲僧鼻孔。為人底手段。更不與他如之若何。教他自悟去。本分宗師為人。有時籠罩。不教伊出頭。有時放令死郎當地。却須有出身處。大小大巖頭雪峯倒被箇喫飯禪和勘破。只如巖頭道。黃巢過後還收得劍麼。諸人且道。這裏合下得什麼語。免得他笑。又免得雪峯行棒趕出。這裏誵訛。若不曾親證親悟。縱使口頭快利。至究竟透脫生死不得。山僧尋常教人覰這機關轉處。若擬議則遠之遠矣。不見投子問鹽平僧云。黃巢過後。收得劍麼。僧以手指地。投子云。三十年弄馬騎。今日却被驢子撲。看這僧。也不妨是箇作家。也不道收得。也不道收不得。與西京僧。如隔海在。真如拈云。他古人。一箇做頭。一箇做尾定也。雪竇頌云。",
+          "verse_zh": "黃巢過後曾收劍大笑還應作者知三十山藤且輕恕得便宜是落便宜",
+          "verse_en": "After Huang Chao, he still had that sword — / the loud laugh, worthy of the adept's knowing. / Thirty mountain-vine blows — light mercy, they say: / gaining the cheap advantage is losing the easy one."
+        },
+        {
+          "case_num": 67,
+          "title_zh": "傅大士揮案",
+          "title_pinyin": "Fù Dàshì Huī'àn",
+          "title_en": "Master Fu Strikes the Desk Once",
+          "dialogue": [
+            {
+              "speaker": "梁武帝、傅大士與誌公 / Emperor Wu, Master Fu, and Zhigong",
+              "zh": "梁武帝請傅大士講金剛經。大士便於座上，揮案一下，便下座。武帝愕然。誌公問：「陛下還會麼？」帝云：「不會。」誌公云：「大士講經竟。」",
+              "pinyin": "Liáng Wǔdì qǐng Fù Dàshì jiǎng Jīngāngjīng。 Dàshì biàn yú zuò shàng， huī àn yī xià， biàn xiàzuò。 Wǔdì èrán。 Zhìgōng wèn：「 Bìxià hái huì me？」 Dì yún：「 Bù huì。」 Zhìgōng yún：「 Dàshì jiǎngjīng jìng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Emperor Wu of Liang invited Master Fu to lecture on the Diamond Sutra. The master ascended the seat, struck the desk once, and stepped down. The emperor was astonished. Zhigong asked him, 'Does Your Majesty understand?' The emperor said, 'No.' Zhigong said, 'The master has finished lecturing the sutra.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。梁武帝請傅大士講金剛經大士便於座上。揮案一下。便下座武帝愕然誌公問。陛下還會麼帝云。不會誌公云。大士講經竟。梁高祖武帝。蕭氏。諱衍。字叔達。立功業。以至受齊禪。即位後。別註五經講議。奉黃老甚篤。而性至孝。一日思得出世之法。以報劬勞。於是捨道事佛。廼受菩薩戒。於婁約法師處。披佛袈裟。自講放光般若經。以報父母。時誌公大士。以顯異惑眾。繫於獄中。誌公乃分身。遊化城邑。帝一日知之。感悟極推重之。誌公數行遮護。隱顯逮不可測。時婺州有大士者。居雲黃山。手栽二樹。謂之雙林。自稱當來善慧大士。一日修書。命弟子。上表聞於帝。時朝廷以其無君臣之禮不受。傅大士將入金陵城中賣魚。時武帝或請誌公講金剛經。誌公曰。貧道不能講。市中有傅大士者。能講此經。帝下詔召之入禁中。傅大士既至。於講座上。揮案一下。便下座。當時便與推轉。免見一場狼籍。却被誌公云陛下還會麼。帝云。不會。誌公云。大士講經竟也。是一人作頭。一人作尾。誌公恁麼道。還夢見傅大士麼。一等是弄精魂。這箇就中奇特。雖是死蛇。解弄也活。既是講經為甚。却不大分為二。一如尋常座主道。金剛之體堅固。物物不能壞。利用故能摧萬物。如此講說。方喚作講經。雖然如是。諸人殊不知。傅大士只拈向上關捩子。略露鋒鋩。教人知落處。直截與爾。壁立萬仞。恰好被誌公不識好惡。却云大士講經竟。正是好心不得好報。如美酒一盞。却被誌公以水攙過。如一釜羹。被誌公將一顆鼠糞污了。且道既不是講經。畢竟喚作什麼。頌云。",
+          "verse_zh": "不向雙林寄此身却於梁土惹埃塵當時不得誌公老也是栖栖去國人",
+          "verse_en": "He would not lodge himself in twin sala trees — / instead, on Liang soil, he stirred the dust. / Had he not met old Zhigong then, / he too would have been a restless exile from his country."
+        },
+        {
+          "case_num": 68,
+          "title_zh": "仰山問名",
+          "title_pinyin": "Yǎngshān Wèn Míng",
+          "title_en": "Yangshan Asks Sansheng His Name",
+          "pointer_zh": "垂示云。掀天關翻地軸。擒虎兕辨龍蛇。須是箇活鱍鱍漢。始得句句相投機機相應。且從上來什麼人合恁麼。請舉看。",
+          "pointer_en": "Pointer: Heaving heaven's hinges and flipping earth's axis, capturing tigers and rhinos and sorting dragons from snakes — it takes a live, leaping fellow to make phrase teach phrase and device answer device. Since ancient times, who has deserved to act thus? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "仰山與三聖 / Yangshan and Sansheng",
+              "zh": "仰山問三聖：「汝名什麼？」聖云：「惠寂。」仰山云：「惠寂是我。」聖云：「我名惠然。」仰山呵呵大笑。",
+              "pinyin": "Yǎngshān wèn Sānshèng：「 Rǔ míng shénme？」 Shèng yún：「 Huìjì。」 Yǎngshān yún：「 Huìjì shì wǒ。」 Shèng yún：「 Wǒ míng Huìrán。」 Yǎngshān hēhē dàxiào。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yangshan asked Sansheng, 'What is your name?' Sansheng said, 'Huiji.' Yangshan said, 'Huiji is me.' Sansheng said, 'My name is Huiran.' Yangshan laughed out loud.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。仰山問三聖。汝名什麼聖云。惠寂仰山云。惠寂是我聖云。我名惠然仰山呵呵大笑。三聖是臨濟下尊宿。少具出群作略。有大機有大用。在眾中。昂昂藏藏。名聞諸方。後辭臨濟。遍遊淮海。到處叢林。皆以高賓待之。自向北至南方。先造雪峯便問。透網金鱗。未審以何為食。峯云。待汝出網來。即向汝道。聖云。一千五百人善知識。話頭也不識。峯云。老僧住持事繁。峯往寺莊。路逢獼猴。乃云。這獼猴各各佩一面古鏡。聖云。歷劫無名。何以彰為古鏡。峯云。瑕生也。聖云。一千五百人善知識。話頭也不識。峯云。罪過。老僧住持事繁。後至仰山。山極愛其俊利。待之於明窓下。一日有官人來參仰山。山問。官居何位。云推官。山竪起拂子云。還推得這箇麼。官人無語。眾人下語。俱不契仰山意。時三聖病在延壽堂。仰山令侍者持此語問之。聖云。和尚有事也。再令侍者問未審有什麼事。聖云。再犯不容。仰山深肯之。百丈當時。以禪板蒲團付黃檗。拄杖拂子付溈山。溈山後付仰山。仰山既大肯三聖。聖一日辭去。仰山以拄杖拂子付三聖。聖云。某甲已有師。仰山詰其由。乃臨濟的子也。只如仰山問三聖。汝名什麼。他不可不知其名。何故更恁麼問。所以作家。要驗人得知子細。只似等閑。問云。汝名什麼。更道無計較。何故三聖不云惠然。却道惠寂。看他具眼漢。自然不同。三聖恁麼。又不是顛。一向攙旗奪鼓。意在仰山語外。此語不墮常情。難為摸索。這般漢手段。却活得人。所以道。他參活句。不參死句。若順常情。則歇人不得。看他古人念道如此。用盡精神。始能大悟。既悟了用時還同未悟時人相似。隨分一言半句。不得落常情。三聖知他仰山落處。便向他道。我名惠寂。仰山要收三聖。三聖倒收仰山。仰山只得就身打劫道。惠寂是我。是放行處。三聖云。我名惠然。亦是放行。所以雪竇後面頌云。雙收雙放若為宗。只一句內一時頌了。仰山呵呵大笑。也有權有實。也有照有用。為他八面玲瓏。所以用處得大自在。這箇笑與巖頭笑不同。巖頭笑有毒藥。這箇笑。千古萬古。清風凜凜地。雪竇頌云。",
+          "verse_zh": "雙收雙放若為宗騎虎由來要絕功笑罷不知何處去只應千古動悲風",
+          "verse_en": "Gathering both, releasing both — how do you keep the tradition? / Riding the tiger has always required consummate skill. / When the laughter ends, who knows where he went? / For a thousand years, there can only be grief in the wind."
+        },
+        {
+          "case_num": 69,
+          "title_zh": "南泉圓相",
+          "title_pinyin": "Nánquán Yuánxiàng",
+          "title_en": "Nanquan's Circle on the Ground",
+          "pointer_zh": "垂示云。無啗啄處。祖師心印。狀似鐵牛之機。透荊棘林。衲僧家。如紅爐上一點雪。平地上七穿八穴則且止。不落寅緣。又作麼生。試舉看。",
+          "pointer_en": "Pointer: Where there is no pecking, the patriarchs' mind-seal shows the iron ox's device; piercing the thorn thicket, the monk is like one flake of snow on a red-hot stove. Seven piercings and eight holes on level ground — set that aside: not landing in first-degree acceptance — what then? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "南泉、歸宗與麻谷 / Nanquan, Guizong, and Magu",
+              "zh": "南泉歸宗麻谷，同去禮拜忠國師。至中路，南泉於地上，畫一圓相云：「道得即去。」歸宗於圓相中坐，麻谷便作女人拜。泉云：「恁麼則不去也。」歸宗云：「是什麼心行？」",
+              "pinyin": "Nánquán Guīzōng Mágǔ， tóng qù lǐbài Zhōng guóshī。 Zhì zhōnglù， Nánquán yú dì shàng， huà yī yuánxiàng yún：「 Dào dé jí qù。」 Guīzōng yú yuánxiàng zhōng zuò， Mágǔ biàn zuò nǚrén bài。 Quán yún：「 Nènme zé bù qù yě。」 Guīzōng yún：「 Shì shénme xīnxíng？」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Nanquan, Guizong, and Magu were going together to pay respects to National Teacher Zhong. On the road, Nanquan drew a circle on the ground and said, 'Speak the right word and we go on.' Guizong sat down inside the circle. Magu made a woman's bow. Nanquan said, 'Then we will not go.' Guizong said, 'What kind of mind is that?'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。南泉歸宗麻谷。同去禮拜忠國師。至中路南泉於地上。畫一圓相云。道得即去歸宗於圓相中坐麻谷便作女人拜泉云。恁麼則不去也歸宗云。是什麼心行。當時馬祖盛化於江西。石頭道行於湖湘。忠國師道化於長安。他親見六祖來。是時南方擎頭帶角者。無有不欲升其堂入其室。若不爾。為人所恥。這老漢三箇。欲去禮拜忠國師。至中路。做這一場敗缺。南泉云。恁麼則不去也。既是一一道得。為什麼却道不去。且道古人意作麼生。當時待他道恁麼則不去也。劈耳便掌。看他作什麼伎倆。萬古振綱宗。只是這些子機要。所以慈明道。要牽只在索頭邊。撥著點著便轉。如水上捺葫蘆子相似。人多喚作不相肯語。殊不知。此事到極則處。須離泥離水。拔楔抽釘。爾若作心行會。則沒交涉。古人轉變得好。到這裏。不得不恁麼。須是有殺有活。看他一人去圓相中坐。一人作女人拜。也甚好。南泉云。恁麼則不去也。歸宗云。是什麼心行。孟八郎漢。又恁麼去也。他恁麼道。大意要驗南泉。南泉尋常道。喚作如如。早是變了也。南泉歸宗麻谷。却是一家裏人。一擒一縱。一殺一活。不妨奇特。雪竇頌云。",
+          "verse_zh": "由基箭射猿遶樹何太直千箇與萬箇是誰曾中的相呼相喚歸去來曹溪路上休登陟。",
+          "verse_en": "Youji's arrow shot the monkey round the tree — how on-target! / A thousand, ten thousand — who ever hits the mark? / Calling, calling — come back home again: / on the road to Caoqi, do not climb this peak."
+        },
+        {
+          "case_num": 70,
+          "title_zh": "溈山卻請和尚道",
+          "title_pinyin": "Guīshān Què Qǐng Héshàng Dào",
+          "title_en": "Guishan: 'Please, Master — Tell It Yourself'",
+          "pointer_zh": "垂示云。快人一言快馬一鞭。萬年一念一念萬年。要知直截。未舉已前。且道未舉已前。作麼生摸索。請舉看。",
+          "pointer_en": "Pointer: A quick man needs one word, a quick horse one whip; ten thousand years, one thought — one thought, ten thousand years. To know what is direct, look before anything is raised. Tell me: before anything is raised, how do you fumble for it? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "百丈與溈山 / Baizhang and Guishan",
+              "zh": "溈山五峯雲巖，同侍立百丈。百丈問溈山：「併却咽喉唇吻，作麼生道？」溈山云：「却請和尚道。」丈云：「我不辭向汝道，恐已後喪我兒孫。」",
+              "pinyin": "Guīshān Wǔfēng Yúnyán， tóng shìlì Bǎizhàng。 Bǎizhàng wèn Guīshān：「 Bìng què yānhóu chúnwěn， zuòmòsheng dào？」 Guīshān yún：「 Què qǐng héshàng dào。」 Zhàng yún：「 Wǒ bùcí xiàng rǔ dào， kǒng yǐhòu sàng wǒ érsūn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Guishan, Wufeng, and Yunyan stood attending Baizhang. Baizhang asked Guishan, 'With throat and lips sealed — how would you speak?' Guishan said, 'Please, Master — tell it yourself.' Baizhang said, 'I am willing to tell you, but I fear it would destroy my line of descendants.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。溈山五峯雲巖。同侍立百丈百丈問溈山。併却咽喉唇吻。作麼生道溈山云。却請和尚道丈云。我不辭向汝道。恐已後喪我兒孫。溈山五峯雲巖。同侍立百丈。百丈問溈山。併却咽喉唇吻。作麼生道。山云。却請和尚道。丈云。我不辭向汝道。恐已後喪我兒孫。百丈雖然如此。鍋子已被別人奪去了也。丈復問五峯。峯云。和尚也須併却。丈云。無人處斫額望汝。又問雲巖。巖云。和尚有也未。丈云。喪我兒孫。三人各是一家。古人道。平地上死人無數。過得荊棘林者。是好手。所以宗師家。以荊棘林驗人。何故若於常情句下。驗人不得。衲僧家須是句裏呈機。言中辨的。若是擔板漢。多向句中死却。便道。併却咽喉唇吻。更無下口處。若是變通底人。有逆水之波。只向問頭上有一條路。不傷鋒犯手。溈山云。却請和尚道。且道他意作麼生。向箇裏如擊石火似閃電光相似。拶他問處便答。自有出身之路。不費纖毫氣力。所以道。他參活句。不參死句。百丈却不采他。只云。不辭向汝道。恐已後喪我兒孫。大凡宗師為人。抽釘拔楔。若是如今人便道。此答不肯他不領話。殊不知。箇裏一路生機處。壁立千仞。賓主互換。活鱍鱍地。雪竇愛他此語風措。宛轉自在。又能把定封疆。所以頌云。",
+          "verse_zh": "却請和尚道虎頭生角出荒草十洲春盡花凋殘珊瑚樹林日杲杲",
+          "verse_en": "'Please, Master — tell it yourself:' / a tiger's head sprouts horns in the wild weeds. / Spring ends across the ten isles, blossoms wither; / in the coral grove the sun blazes bright."
+        },
+        {
+          "case_num": 71,
+          "title_zh": "五峯併却",
+          "title_pinyin": "Wǔfēng Bìngquè",
+          "title_en": "Wufeng: 'You Too Must Seal It'",
+          "dialogue": [
+            {
+              "speaker": "百丈與五峯 / Baizhang and Wufeng",
+              "zh": "百丈復問五峯：「併却咽喉唇吻，作麼生道？」峯云：「和尚也須併却。」丈云：「無人處斫額望汝。」",
+              "pinyin": "Bǎizhàng fù wèn Wǔfēng：「 Bìng què yānhóu chúnwěn， zuòmòsheng dào？」 Fēng yún：「 Héshàng yě xū bìng què。」 Zhàng yún：「 Wú rén chù zhuó'é wàng rǔ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Baizhang next asked Wufeng, 'With throat and lips sealed — how would you speak?' Wufeng said, 'You too must seal it, Master.' Baizhang said, 'In a place with no one around, I will bang my forehead and look to you.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。百丈復問五峯。併却咽喉唇吻。作麼生道峯云和尚也須併却丈云。無人處斫額望汝。溈山把定封疆。五峯截斷眾流。這些子。要是箇漢當面提掇。如馬前相撲。不容擬議。直下便用緊迅危峭。不似溈山盤礴滔滔地。如今禪和子。只向架下行。不能出他一頭地。所以道。欲得親切。莫將問來問。五峯答處。當頭坐斷。不妨快俊。百丈云。無人處斫額望汝。且道是肯他。是不肯他。是殺是活。見他阿轆轆地。只與他一點。雪竇頌云。",
+          "verse_zh": "和尚也併却龍蛇陣上看謀略令人長憶李將軍萬里天邊飛一鶚",
+          "verse_en": "'You too must seal it, Master:' / in the dragon-and-snake ranks — look at the strategy! / It makes one long for General Li again: / from a thousand miles away, an osprey soaring through the heavens."
+        },
+        {
+          "case_num": 72,
+          "title_zh": "雲巖有也未",
+          "title_pinyin": "Yúnyán Yǒu Yěwèi",
+          "title_en": "Yunyan: 'And Do You Have It, Master?'",
+          "dialogue": [
+            {
+              "speaker": "百丈與雲巖 / Baizhang and Yunyan",
+              "zh": "百丈又問雲巖：「併却咽喉唇吻，作麼生道？」巖云：「和尚有也未？」丈云：「喪我兒孫。」",
+              "pinyin": "Bǎizhàng yòu wèn Yúnyán：「 Bìng què yānhóu chúnwěn， zuòmòsheng dào？」 Yán yún：「 Héshàng yǒu yěwèi？」 Zhàng yún：「 Sàng wǒ érsūn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Baizhang then asked Yunyan, 'With throat and lips sealed — how would you speak?' Yunyan said, 'And do you have it, Master?' Baizhang said, 'Now my line of descendants is destroyed.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。百丈又問雲巖。併却咽喉唇吻。作麼生道巖云。和尚有也未丈云。喪我兒孫。雲巖在百丈。二十年作侍者。後同道吾至藥山。山問云。子在百丈會下。為箇什麼事。巖云。透脫生死。山云。還透脫也未。巖云。渠無生死。山云。二十年在百丈。習氣也未除。巖辭去見南泉。後復歸藥山。方契悟。看他古人。二十年參究。猶自半青半黃。粘皮著骨。不能頴脫。是則也是。只是前不搆村。後不迭店。不見道。語不離窠臼。焉能出蓋纏。白雲橫谷口。迷却幾人源。洞下謂之觸破。故云。躍開仙仗鳳凰樓。時人嫌觸當今號。所以道。荊棘林須是透過始得。若不透過。終始涉廉纖。斬不斷。適來道。前不搆村。後不迭店。雲巖只管去。點檢他人底。百丈見他如此。一時把來打殺了也。雪竇頌云。",
+          "verse_zh": "和尚有也未金毛獅子不踞地兩兩三三舊路行大雄山下空彈指",
+          "verse_en": "'And do you have it, Master?' / the golden-haired lion never sits on the ground. / Two by two, three by three, walking the old road — / below Great Hero Mountain, a snapping of fingers in vain."
+        },
+        {
+          "case_num": 73,
+          "title_zh": "馬大師頭痛",
+          "title_pinyin": "Mǎ Dàshī Tóutòng",
+          "title_en": "Master Ma's Headache",
+          "pointer_zh": "垂示云。夫說法者。無說無示。其聽法者。無聞無得。說既無說無示。爭如不說。聽既無聞無得。爭如不聽。而無說又無聽。却較些子。只如今諸人。聽山僧在這裏說。作麼生免得此過。具透關眼者。試舉看。",
+          "pointer_en": "Pointer: One who preaches the dharma has no preaching and no showing; one who hears the dharma has no hearing and no obtaining. If preaching has no preaching and no showing — best not to preach; if hearing has no hearing and no obtaining — best not to hear. But then neither preaching nor hearing: that comes somewhat closer. Right now, as all of you listen to this mountain monk speaking here, how do you avoid this fault? Those with barrier-piercing eyes: watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "馬大師、智藏與海兄 / Master Ma, Zhizang, and Brother Hai",
+              "zh": "僧問馬大師：「離四句，絕百非，請師直指某甲西來意。」馬師云：「我今日勞倦，不能為汝說，問取智藏去。」僧問智藏，藏云：「何不問和尚？」僧云：「和尚教來問。」藏云：「我今日頭痛，不能為汝說，問取海兄去。」僧問海兄，海云：「我到這裏却不會。」僧舉似馬大師，馬師云：「藏頭白，海頭黑。」",
+              "pinyin": "Sēng wèn Mǎ Dàshī：「 Lí sìjù， jué bǎifēi， qǐng shī zhízhǐ mǒujiǎ xīlái yì。」 Mǎshī yún：「 Wǒ jīnrì láojuàn， bùnéng wéi rǔ shuō， wènqǔ Zhìzàng qù。」 Sēng wèn Zhìzàng， Zàng yún：「 Hébù wèn héshàng？」 Sēng yún：「 Héshàng jiào lái wèn。」 Zàng yún：「 Wǒ jīnrì tóutòng， bùnéng wéi rǔ shuō， wènqǔ Hǎi xiōng qù。」 Sēng wèn Hǎi xiōng， Hǎi yún：「 Wǒ dào zhèlǐ què bù huì。」 Sēng jǔsì Mǎ Dàshī， Mǎshī yún：「 Zàng tóu bái， Hǎi tóu hēi。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Master Ma, 'Leaving behind the four propositions and cutting off the hundred negations — I beg you, Master, point directly for me at the Patriarch's meaning in coming from the West.' Master Ma said, 'I am tired today and cannot tell you; go ask Zhizang.' The monk asked Zhizang, who said, 'Why not ask the Master?' The monk said, 'The Master told me to ask you.' Zhizang said, 'My head aches today and I cannot tell you; go ask Brother Hai.' The monk asked Brother Hai, who said, 'When it comes to that, this I do not know.' The monk reported back to Master Ma, who said: 'Zang's head is white, Hai's head is black.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問馬大師。離四句絕百非。請師直指某甲西來意馬師云。我今日勞倦。不能為汝說。問取智藏去僧問智藏藏云。何不問和尚僧云。和尚教來問藏云。我今日頭痛。不能為汝說。問取海兄去僧問海兄海云。我到這裏却不會僧舉似馬大師馬師云。藏頭白海頭黑。這箇公案。山僧舊日。在成都參真覺。覺云。只消看馬祖第一句。自然一時理會得。且道這僧。是會來問。不會來問。此問不妨深遠。離四句者。有。無。非有。非無。非非有。非非無。離此四句。絕其百非。只管作道理。不識話頭。討頭腦不見。若是山僧。待馬祖道了。也便與展坐具。禮三拜。看他作麼生道。當時馬祖。若見這僧來。問離四句絕百非。請師直指某甲西來意。以拄杖劈脊便棒趕出。看他省不省。馬大師只管與他打葛藤。以至這漢。當面蹉過。更令去問智藏。殊不知馬大師來風深辨。這僧懞懂。走去問智藏。藏云。何不問和尚。僧云。和尚教來問。看他這些子。拶著便轉。更無閑暇處。智藏云。我今日頭痛。不能為汝說得。問取海兄去。這僧又去問海兄。海兄云。我到這裏却不會。且道為什麼。一人道頭痛。一人云不會。畢竟作麼生。這僧却回來。舉似馬大師。師云。藏頭白海頭黑。若以解路卜度。却謂之相瞞。有者道。只是相推過。有者道。三箇總識他問頭。所以不答。總是拍盲地。一時將古人醍醐上味。著毒藥在裏許。所以馬祖道。待汝一口吸盡西江水。即向汝道。與此公案一般。若會得藏頭白海頭黑。便會西江水話。這僧將一檐懞懂。換得箇不安樂。更勞他三人尊宿。入泥入水。畢竟這僧不瞥地。雖然一恁麼。這三箇宗師。却被箇擔板漢勘破。如今人只管去語言上。作活計云。白是明頭合。黑是暗頭合。只管鑽研計較。殊不知。古人一句截斷意根。須是向正脈裏。自看始得穩當。所以道。末後一句。始到牢關。把斷要津。不通凡聖。若論此事。如當門按一口劍相似。擬議則喪身失命。又道。譬如擲劍揮空。莫論及之不及。但向八面玲瓏處會取。不見古人道。這漆桶。或云。野狐精。或云。瞎漢。且道與一棒一喝。是同是別。若知千差萬別。只是一般。自然八面受敵。要會藏頭白海頭黑麼。五祖先師道。封后先生。雪竇頌云。",
+          "verse_zh": "藏頭白海頭黑明眼衲僧會不得馬駒踏殺天下人臨濟未是白拈賊離四句絕百非天上人間唯我知",
+          "verse_en": "Zang's head white, Hai's head black — / even clear-eyed monks fail to understand. / The colt of Ma trampled everyone under heaven: / even Linji is no untutored thief. / Leaving four propositions, cutting a hundred negations — / in heaven and among men, I alone know."
+        },
+        {
+          "case_num": 74,
+          "title_zh": "金牛喫飯來",
+          "title_pinyin": "Jīnniú Chīfàn Lái",
+          "title_en": "Golden Ox's 'Come and Eat, Bodhisattvas'",
+          "pointer_zh": "垂示云。鏌鎁橫按。鋒前剪斷葛藤窠。明鏡高懸。句中引出毘盧印。田地穩密處。著衣喫飯。神通遊戲處。如何湊泊。還委悉麼。看取下文。",
+          "pointer_en": "Pointer: The Moye-brandished blade cuts the nest of tangled vines at the sharp edge; the bright mirror hung high draws forth the Vairochana seal from within the phrases. Where the field is firm and secret — wearing clothes, eating rice; where spirit-powers play — how do you make yourself at home? Do you understand? Look at what follows.",
+          "dialogue": [
+            {
+              "speaker": "金牛和尚 / Master Jinniu (Golden Ox)",
+              "zh": "金牛和尚每至齋時，自將飯桶，於僧堂前作舞，呵呵大笑云：「菩薩子，喫飯來！」雪竇云：「雖然如此，金牛不是好心。」",
+              "pinyin": "Jīnniú héshàng měi zhì zhāi shí， zì jiāng fàntǒng， yú sēngtáng qián zuò wǔ， hēhē dàxiào yún：「 Púsàzǐ， chīfàn lái！」 Xuědòu yún：「 Suīrán rúcǐ， Jīnniú bù shì hàoxīn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Every mealtime, Master Jinniu would carry the rice bucket himself and dance before the monks' hall, laughing out loud: 'O sons of bodhisattvas — come and eat!' Xuedou comments: 'Even so, Jinniu did not mean well.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。金牛和尚每至齋時。自將飯桶。於僧堂前作舞。呵呵大笑云。菩薩子喫飯來雪竇云。雖然如此。金牛不是好心僧問長慶。古人道。菩薩子喫飯來。意旨如何慶云。大似因齋慶讚。金牛乃馬祖下尊宿。每至齋時。自將飯桶。於僧堂前作舞。呵呵大笑云。菩薩子喫飯來。如此者二十年。且道他意在什麼處。若只喚作喫飯。尋常敲魚擊鼓。亦自告報矣。又何須更自將飯桶來。作許多伎倆。莫是他顛麼。莫是提唱建立麼。若是提唱此事。何不去寶華王座上。敲床竪拂。須要如此作什麼。今人殊不知。古人意在言外。何不且看祖師當時初來底題目道什麼。分明說道。教外別傳。單傳心印。古人方便。也只教爾直截承當去。後來人妄自卜度。便道那裏有許多事。寒則向火。熱則乘涼。飢則喫飯。困則打眠。若恁麼以常情。義解詮註。達磨一宗。掃土而盡。不知古人。向二六時中。念念不捨。要明此事。雪竇云。雖然如此。金牛不是好心。只這一句。多少人錯會。所謂醍醐上味。為世所珍。遇斯等人。翻成毒藥。金牛既是落草為人。雪竇為什麼道。不是好心。因什麼却恁麼道。衲僧家須是有生機始得。今人不到古人田地。只管道見什麼心。有什麼佛。若作這見解。壞却金牛老作家了也。須是子細看始得。若只今日明日。口快些子。無有了期。後來長慶上堂。僧問。古人道。菩薩子喫飯來。意旨如何。慶云。大似因齋慶讚。尊宿家忒殺慈悲。漏逗不少。是則是。因齋慶讚。爾且道。慶讚箇什麼。看他雪竇頌云。",
+          "verse_zh": "白雲影裏笑呵呵兩手持來付與他若是金毛獅子子三千里外見誵訛",
+          "verse_en": "Within shadows of white clouds — laughing out loud, / holding it out with both hands, he gives it to them. / If these are the children of the golden-haired lion, / from three thousand miles away you still see the point."
+        },
+        {
+          "case_num": 75,
+          "title_zh": "烏臼棒頭有眼",
+          "title_pinyin": "Wūjiù Bàngtóu Yǒuyǎn",
+          "title_en": "Old Bird Mortar: 'The Staff Has Eyes'",
+          "pointer_zh": "垂示云。靈鋒寶劍。常露現前。亦能殺人亦能活人。在彼在此。同得同失。若要提持。一任提持。若要平展。一任平展。且道不落賓主。不拘回互時如何。試舉看。",
+          "pointer_en": "Pointer: The numinous blade of the precious sword, laid bare before you always — it can kill, it can also bring to life; over there, over here, shared gain, shared loss. If you would lift it, lift at will; if you would lay it flat, lay flat at will. Tell me: what is the moment that falls into neither guest nor host and is not caught in mutual turning? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "烏臼與僧 / Old Bird Mortar and the monk",
+              "zh": "僧從定州和尚會裏，來到烏臼。烏臼問：「定州法道，何似這裏？」僧云：「不別。」臼云：「若不別，更轉彼中去。」便打。僧云：「棒頭有眼，不得草草打人。」臼云：「今日打著一箇也。」又打三下。僧便出去。臼云：「屈棒元來有人喫在。」僧轉身云：「爭奈杓柄在和尚手裏。」臼云：「汝若要，山僧回與汝。」僧近前奪臼手中棒，打臼三下。臼云：「屈棒屈棒。」僧云：「有人喫在。」臼呵呵大笑云：「隨緣消舊業，更莫造新殃。」僧云：「將謂今日賴對。」臼云：「猶較些子。」",
+              "pinyin": "Sēng cóng Dìngzhōu héshàng huì lǐ， láidào Wūjiù。 Wūjiù wèn：「 Dìngzhōu fǎdào， hésì zhèlǐ？」 Sēng yún：「 Bù bié。」 Jiù yún：「 Ruò bù bié， gèng zhuǎn bǐzhōng qù。」 Biàn dǎ。 Sēng yún：「 Bàngtóu yǒuyǎn， bùdé cǎocǎo dǎ rén。」 Jiù yún：「 Jīnrì dǎzhuó yī ge yě。」 Yòu dǎ sān xià。 Sēng biàn chūqù。 Jiù yún：「 Qūbàng yuánlái yǒu rén chī zài。」 Sēng zhuǎnshēn yún：「 Zhēngnài sháobǐng zài héshàng shǒu lǐ。」 Jiù yún：「 Rǔ ruò yào， shānsēng huí yǔ rǔ。」 Sēng jìnqián duó jiù shǒuzhōng bàng， dǎ jiù sān xià。 Jiù yún：「 Qūbàng qūbàng。」 Sēng yún：「 Yǒu rén chī zài。」 Jiù hēhē dàxiào yún：「 Suíyuán xiāo jiùyè， gèng mò zào xīnyāng。」 Sēng yún：「 Jiāngwèi jīnrì lài duì。」 Jiù yún：「 Yóu jiào xiēzǐ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk came from Master Dingzhou's assembly to Old Bird Mortar. Wujiu asked, 'How does Dingzhou's way compare with here?' The monk said, 'No different.' Wujiu said, 'If no different, get yourself back there,' and struck him. The monk said, 'The tip of the staff has eyes — you must not hit people so carelessly.' Wujiu said, 'Today I hit the right one,' and struck him three more times. The monk went out. Wujiu said, 'As it happens, there was someone made for undeserved blows.' The monk turned back: 'Though the ladle handle lies in the Master's hand.' Wujiu said, 'If you want it, this mountain monk will hand it to you.' The monk stepped close, snatched the staff from Wujiu's hands, and struck Wujiu three times. Wujiu cried, 'Undeserved blows! Undeserved blows!' The monk said, 'There is someone for those.' Wujiu burst out laughing: 'Follow conditions and dissolve old karma — do not create new woe.' The monk said, 'I thought I answered for today.' Wujiu said, 'You come close — even closer.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧從定州和尚會裏。來到烏臼。烏臼問。定州法道何似這裏僧云。不別臼云。若不別更轉彼中去。便打僧云。棒頭有眼。不得草草打人臼云。今日打著一箇也。又打三下僧便出去臼云。屈棒元來有人喫在僧轉身云。爭奈杓柄。在和尚手裏臼云。汝若要山僧回與汝僧近前奪臼手中棒。打臼三下臼云。屈棒屈棒僧云。有人喫在臼云。草草打著箇漢僧便禮拜臼云。和尚却恁麼去也僧大笑而出臼云。消得恁麼。消得恁麼。僧從定州和尚會裏來到烏臼。臼亦是作家。諸人若向這裏。識得此二人一出一入。千箇萬箇只是一箇。作主也恁麼。作賓也恁麼。二人畢竟合成一家。一期勘辨。賓主問答。始終作家。看烏臼問這僧云。定州法道何似這裏。僧便云。不別。當時若不是烏臼。難奈這僧何。臼云。若不別。更轉彼中去。便打。爭奈這僧是作家漢。便云。棒頭有眼不得草草打人。臼一向行令云。今日打著一箇也。又打三下。其僧便出去。看他兩箇轉轆轆地。俱是作家。了這一事。須要分緇素別休咎。這僧雖出去。這公案。却未了在。烏臼始終。要驗他實處看他如何。這僧却似撐門拄戶。所以未見得他。烏臼却云。屈棒元來有人喫在。這僧要轉身吐氣。却不與他爭。輕輕轉云。爭奈杓柄在和尚手裏。烏臼是頂門具眼底宗師。敢向猛虎口裏橫身云。汝若要山僧回與汝。這漢是箇肘下有符底漢。所謂見義不為無勇也。更不擬議。近前奪烏臼手中棒。打臼三下。臼云。屈棒屈棒。爾且道意作麼生。頭上道。屈棒元來有人喫在。及乎到這僧打他。却道屈棒屈棒。僧云。有人喫在。臼云。草草打著箇漢。頭上道草草打著一箇也。到末後自喫棒。為什麼亦道草草打著箇漢。當時若不是這僧卓朔地。也不奈他何。這僧便禮拜。這箇禮拜最毒。也不是好心。若不是烏臼。也識他不破。烏臼云。却恁麼去也。其僧大笑而出。烏臼云。消得恁麼消得恁麼。看他作家相見。始終賓主分明。斷而能續。其實也只是互換之機。他到這裏。亦不道有箇互換處。自是他古人。絕情塵意想。彼此作家。亦不道有得有失。雖是一期間語言。兩個活鱍鱍地。都有血脈針線。若能於此見得。亦乃向十二時中。歷歷分明。其僧便出是雙放。已下是雙收。謂之互換也。雪竇正恁麼地。頌出。",
+          "verse_zh": "呼即易遣即難互換機鋒子細看劫石固來猶可壞滄溟深處立須乾烏臼老烏臼老幾何般與他杓柄太無端",
+          "verse_en": "Call — easy; send away — hard. / Watch closely as device and edge exchange places: / the stone of kalpas, fixed, may still decay; / the ocean's depth, stood upon, dries at last. / Old Wujiu, old Wujiu — what a way to be: / that ladle handle of his — all too unrestrained."
+        },
+        {
+          "case_num": 76,
+          "title_zh": "丹霞喫飯了也未",
+          "title_pinyin": "Dānxiá Chīfàn Le Yěwèi",
+          "title_en": "Danxia: 'And Does the One Who Fed You Have Eyes?'",
+          "pointer_zh": "垂示云。細如米末。冷似氷霜。畐塞乾坤。離明絕暗。低低處觀之有餘。高高處平之不足。把住放行。總在這裏許還有出身處也無。試舉看。",
+          "pointer_en": "Pointer: Fine as grains of rice, cold as frost — brim-full of heaven and earth, yet apart from brightness and cut off from dark. Seen from low ground there is a surplus; leveled from high ground there is a lack. Hold or let go — all inside this allowance: is there any way out? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "丹霞與僧、長慶保福 / Danxia, the monk, Changqing, and Baofu",
+              "zh": "丹霞問僧：「甚處來？」僧云：「山下來。」霞云：「喫飯了也未？」僧云：「喫飯了。」霞云：「將飯來與汝喫底人，還具眼麼？」僧無語。長慶問保福：「將飯與人喫，報恩有分，為什麼不具眼？」福云：「施者受者，二俱瞎漢。」長慶云：「盡其機來，還成瞎否？」福云：「道我瞎得麼？」",
+              "pinyin": "Dānxiá wèn sēng：「 Shèn chù lái？」 Sēng yún：「 Shān xià lái。」 Xiá yún：「 Chīfàn le yěwèi？」 Sēng yún：「 Chīfàn le。」 Xiá yún：「 Jiāng fàn lái yǔ rǔ chī dǐ rén， hái jù yǎn me？」 Sēng wúyǔ。 Chángqìng wèn Bǎofú：「 Jiāng fàn yǔ rén chī， bào'ēn yǒu fèn， wèishénme bù jù yǎn？」 Fú yún：「 Shī zhě shòu zhě， èr jù xiā hàn。」 Chángqìng yún：「 Jìn qí jī lái， hái chéng xiā fǒu？」 Fú yún：「 Dào wǒ xiā dé me？」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Danxia asked a monk, 'Where do you come from?' The monk said, 'From the foot of the mountain.' Danxia asked, 'Have you eaten your rice yet?' The monk said, 'I have eaten.' Danxia said, 'The one who brought you rice to eat — did that one have eyes?' The monk was silent. Changqing asked Baofu: 'To bring people rice to eat is to share in repaying kindness — why then does one not have eyes?' Baofu said, 'Giver and receiver — both are blind men.' Changqing said, 'When a device is exhausted, is it still blind?' Baofu said, 'Can you call me blind?'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。丹霞問僧。甚處來僧云。山下來霞云。喫飯了也未僧云。喫飯了霞云。將飯來與汝喫底人。還具眼麼僧無語長慶問保福。將飯與人喫。報恩有分。為什麼不具眼福云。施者受者二俱瞎漢長慶云。盡其機來。還成瞎否福云。道我瞎得麼。鄧州丹霞天然禪師。不知何許人。初習儒學。將入長安應舉。方宿於逆旅。忽夢白光滿室。占者曰。解空之祥。偶一禪客問曰。仁者何往。曰。選官去。禪客曰。選官何如選佛。霞云。選佛當往何所。禪客曰。今江西馬大師出世。是選佛之場。仁者可往。遂直造江西。才見馬大師。以兩手托幞頭脚。馬師顧視云。吾非汝師。南嶽石頭處去。遽抵南嶽。還以前意投之。石頭云。著槽廠去。師禮謝。入行者堂。隨眾作務。凡三年。石頭一日告眾云。來日剗佛殿前草。至來日。大眾各備鍬鋤剗草。丹霞獨以盆盛水淨頭。於師前跪膝。石頭見而笑之。便與剃髮。又為說戒。丹霞掩耳而出。便往江西。再謁馬祖。未參禮。便去僧堂內。騎聖僧頸而坐。時大眾驚愕。急報馬祖。祖躬入堂。視之曰。我子天然。霞便下禮拜曰。謝師賜法號。因名天然他古人天然。如此頴脫。所謂選官不如選佛也。傳燈錄中載其語句。直是壁立千仞。句句有與人抽釘拔楔底手脚。似問這僧道。什麼處來。僧云。山下來。這僧却不通來處。一如具眼倒去勘主家相似。當時若不是丹霞。也難為收拾。丹霞却云。喫飯了也未。頭邊總未見得。此是第二回勘他。僧云。喫飯了也。懵懂漢元來不會。霞云。將飯與汝喫底人。還具眼麼。僧無語。丹霞意道。與爾這般漢飯喫。堪作什麼。這僧若是箇漢。試與他一劄。看他如何。雖然如是。丹霞也未放爾在。這僧便眼眨眨地無語。保福長慶。同在雪峯會下。常舉古人公案商量。長慶問保福。將飯與人喫。報恩有分。為什麼不具眼。不必盡問公案中事。大綱借此語作話頭。要驗他諦當處。保福云。施者受者二俱瞎漢。快哉到這裏。只論當機事。家裏有出身之路。長慶云。盡其機來。還成瞎否。保福云。道我瞎得麼。保福意謂。我恁麼具眼。與爾道了也。還道我瞎得麼。雖然如是。半合半開。當時若是山僧。等他道盡其機來。還成瞎否。只向他道瞎。可惜許。保福當時。若下得這箇瞎字。免得雪竇許多葛藤。雪竇亦只用此意頌。",
+          "verse_zh": "盡機不成瞎按牛頭喫草四七二三諸祖師寶器持來成過咎過咎深無處尋天上人間同陸沈廠眨",
+          "verse_en": "Even exhausting every device, one is not blind — / like pushing the ox's head to eat grass. / From four to seven, from two to three, the patriarchs: / the precious vessel, brought along, becomes a fault. / The fault runs deep — nowhere to search: / in heaven and among men, together they sink. Flicker, flicker."
+        },
+        {
+          "case_num": 77,
+          "title_zh": "雲門餬餅",
+          "title_pinyin": "Yúnmén Húbǐng",
+          "title_en": "Yunmen's Rice Cake",
+          "pointer_zh": "垂示云。向上轉去。可以穿天下人鼻孔。似鶻捉鳩。向下轉去。自己鼻孔在別人手裏。如龜藏殼。箇中忽有箇出來道。本來無向上向下。用轉作什麼。只向伊道。我也知爾向鬼窟裏作活計。且道作麼生辨。",
+          "pointer_en": "Pointer: Turn upward and you can thread the noses of everyone under heaven — like a falcon seizing a dove. Turn downward and your own nose is in someone else's hands — like a tortoise drawing into its shell. Suppose someone suddenly comes out and says, 'From the beginning there is no up and no down — what use is turning?' Tell him only this: 'I too know that you are nesting in a fox den.' Tell me: how do you discern?",
+          "dialogue": [
+            {
+              "speaker": "雲門與僧 / Yunmen and the monk",
+              "zh": "僧問雲門：「如何是超佛越祖之談？」門云：「餬餅。」",
+              "pinyin": "Sēng wèn Yúnmén：「 Rúhé shì chāofó yuèzǔ zhī tán？」 Mén yún：「 Húbǐng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Yunmen, 'What is talk that goes beyond buddha and patriarch?' Yunmen said, 'A rice cake.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問雲門。如何是超佛越祖之談門云。餬餅。這僧問雲門。如何是超佛越祖之談。門云。餬餅。還覺寒毛卓竪麼。衲僧家問佛問祖。問禪問道。問向上向下了。更無可得問。却致箇問端。問超佛越祖之談。雲門是作家。便水長船高。泥多佛大。便答道。餬餅。可謂道不虛行。功不浪施。雲門復示眾云。爾勿可作了。見人道著祖師意。便問超佛越祖之談道理。爾且喚什麼作佛。喚什麼作祖。即說超佛越祖之談。便問箇出三界。爾把三界來看。有什麼見聞覺知隔礙著爾。有什麼聲色佛法與汝可了。了箇什麼碗。以那箇為差殊之見。他古聖勿奈爾何。橫身為物。道箇舉體全真物物覿體。不可得。我向汝道。直下有什麼事。早是埋沒了也。會得此語。便識得餬餅。五祖云。驢屎比麝香。所謂直截根源佛所印。摘葉尋枝我不能。到這裏欲得親切。莫將問來問。看這僧問。如何是超佛越祖之談。門云。餬餅。還識羞慚麼。還覺漏逗麼。有一般人。杜撰道。雲門見兔放鷹。便道餬餅。若恁麼將餬餅。便是超佛越祖之談見去。豈有活路。莫作餬餅會。又不作超佛越祖會。便是活路也。與麻三斤解打鼓一般。雖然只道餬餅。其實難見。後人多作道理云。麁言及細語皆歸第一義。若恁麼會。且去作座主。一生贏得多知多解。如今禪和子道。超佛越祖之時。諸佛也踏在脚跟下。祖師也踏在脚跟下。所以雲門只向他道餬餅。既是餬餅。豈解超佛越祖。試去參詳看。諸方頌極多。盡向問頭邊作言語。唯雪竇頌得最好試舉看。頌云。",
+          "verse_zh": "超談禪客問偏多縫罅披離見也麼餬餅𡎺來猶不住至今天下有誵訛𡎺",
+          "verse_en": "Exceeding talk — monks' questions multiply; / seams parting, revealing, can you see it? / The rice cake set out is still not enough — / to this very day the whole world argues the point."
+        },
+        {
+          "case_num": 78,
+          "title_zh": "十六開士浴因",
+          "title_pinyin": "Shíliù Kāishì Yùyīn",
+          "title_en": "The Sixteen Adepts Awaken in the Bath",
+          "dialogue": [
+            {
+              "speaker": "十六開士 / The sixteen adepts",
+              "zh": "古有十六開士，於浴僧時，隨例入浴，忽悟水因。諸禪德，作麼生會？他道：「妙觸宣明，成佛子住。」",
+              "pinyin": "Gǔ yǒu shíliù kāishì， yú yùsēng shí， suílì rù yù， hū wù shuǐ yīn。 Zhū chándé， zuòmòsheng huì？ Tā dào：「 Miào chù xuānmíng， chéng fózǐ zhù。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Of old there were sixteen adepts who, at the monks' bathing hour, entered the bath as custom prescribed — and suddenly awakened to the cause of water. Zen worthies, how do you understand it? They said: 'Subtle touch clearly illumined — one becomes a buddha's son and abides there.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。古有十六開士於浴僧時隨例入浴忽悟水因諸禪德作麼生會。他道妙觸宣明成佛子住也須七穿八穴始得。楞嚴會上。跋陀婆羅菩薩。與十六開士。各修梵行。乃各說所證圓通法門之因。此亦二十五圓通之一數也。他因浴僧時。隨例入浴。忽悟水因。云。既不洗塵。亦不洗體。且道洗箇什麼。若會得去。中間安然。得無所有。千箇萬箇。更近傍不得。所謂以無所得是真般若。若有所得。是相似般若。不見達磨謂二祖云。將心來與汝安。二祖云。覓心了不可得。這裏些子。是衲僧性命根本。更總不消得如許多葛藤。只消道箇忽悟水因。自然了當。既不洗塵。亦不洗體。且道悟箇什麼。到這般田地。一點也著不得。道箇佛字。也須諱却。他道。妙觸宣明。成佛子住。宣則是顯也。妙觸是明也。既悟妙觸。成佛子住。即住佛地也。如今人亦入浴亦洗水。也恁麼觸。因甚却不悟。皆被塵境惑障。粘皮著骨。所以不能便惺惺去。若向這裏。洗亦無所得。觸亦無所得。水因亦無所得。且道。是妙觸宣明。不是妙觸宣明。若向箇裏。直下見得。便是妙觸宣明。成佛子住。如今人亦觸。還見妙處麼。妙觸非常觸與觸者合則為觸。離則非也。玄沙過嶺。磕著脚指頭。以至德山棒。豈不是妙觸。雖然恁麼。也須是七穿八穴始得。若只向身上摸索。有什麼交涉。爾若七穿八穴去。何須入浴。便於一毫端上現寶王剎。向微塵裏。轉大法輪。一處透得。千處萬處一時透。莫只守一窠一窟。一切處都是觀音入理之門。古人亦有聞聲悟道見色明心。若一人悟去。則故是。因甚十六開士。同時悟去。是故古人同修同證。同悟同解。雪竇拈他教意。令人去妙觸處會取。出他教眼頌。免得人去教網裏籠罩半醉半醒。要令人直下灑灑落落。頌云。",
+          "verse_zh": "了事衲僧消一箇長連床上展脚臥夢中曾說悟圓通香水洗來驀面唾。",
+          "verse_en": "A monk who has finished the matter spends one: / sprawled out asleep on the long bench, / in a dream he once preached awakening through touch — / perfumed water splashed straight in his face."
+        },
+        {
+          "case_num": 79,
+          "title_zh": "投子莫㞘沸",
+          "title_pinyin": "Tóuzǐ Mò",
+          "title_en": "Touzi Strikes the Blasphemer",
+          "pointer_zh": "垂示云。大用現前。不存軌則。活捉生擒。不勞餘力。且道是什麼人。曾恁麼來。試舉看。",
+          "pointer_en": "Pointer: The great working present before you keeps no fixed rule; caught alive, taken whole, with no extra effort needed. Tell me: who has ever come like this? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "投子與僧 / Touzi and the monk",
+              "zh": "僧問投子：「一切聲是佛聲，是否？」投子云：「是。」僧云：「和尚莫㞘沸碗鳴聲。」投子便打。又問：「麁言及細語，皆歸第一義，是否？」投子云：「是。」僧云：「喚和尚作一頭驢，得麼？」投子便打。",
+              "pinyin": "Sēng wèn Tóuzǐ：「 Yīqiè shēng shì fóshēng， shì fǒu？」 Tóuzǐ yún：「 Shì。」 Sēng yún：「 Héshàng mò fèi wǎn míng shēng。」 Tóuzǐ biàn dǎ。 Yòu wèn：「 Cūyán jí xìyǔ， jiē guī dìyī yì， shì fǒu？」 Tóuzǐ yún：「 Shì。」 Sēng yún：「 Huàn héshàng zuò yītóu lǘ， dé me？」 Tóuzǐ biàn dǎ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Touzi, 'Every sound is the Buddha's voice — is that so?' Touzi said, 'It is so.' The monk said, 'Then Master, don't boil the bowl to make a farting sound.' Touzi struck him. Again he asked, 'Coarse talk and fine phrases alike return to the ultimate meaning — is that so?' Touzi said, 'It is so.' The monk said, 'May I call the Master a donkey?' Touzi struck him.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問投子。一切聲是佛聲是否投子云。是僧云。和尚莫㞘沸碗鳴聲投子便打又問。麁言及細語皆歸第一義。是否投子云。是僧云。喚和尚作一頭驢得麼投子便打㞘。投子朴實頭。得逸群之辯。凡有致問。開口便見膽。不費餘力。便坐斷他舌頭。可謂運籌帷幄之中。決勝千里之外。這僧將聲色佛法見解。貼在他額頭上。逢人便問。投子作家。來風深辨。這僧知投子實頭。合下做箇圈繢子。教投子入來。所以有後語。投子却使陷虎之機。釣他後語出來。這僧接他答處道。和尚莫㞘沸碗鳴聲。果然一釣便上。若是別人。則不奈這僧何。投子具眼。隨後便打。咬猪狗底手脚。須還作家始得。左轉也隨他阿轆轆地。右轉也隨他阿轆轆地。這僧既是做箇圈繢子。要來捋虎鬚。殊不知投子。更在他圈繢頭上。投子便打。這僧可惜許。有頭無尾。當時等他拈棒。便與掀倒禪床。直饒投子全機。也須倒退三千里。又問。麁言及細語皆歸第一義是否。投子亦云是。一似前頭語無異。僧云。喚和尚作一頭驢得麼。投子又打。這僧雖然作窠窟。也不妨奇特。若是曲彔木床上老漢。頂門無眼。也難折挫他。投子有轉身處。這僧既做箇道理。要攙他行市。到了依舊不奈投子老漢何。不見巖頭道。若論戰也。箇箇立在轉處。投子放去太遲。收來太急。這僧當時。若解轉身吐氣。豈不作得箇口似血盆底漢。衲僧家一不做二不休。這僧既不能返擲。却被投子穿了鼻孔。頌云。",
+          "verse_zh": "投子投子機輪無阻放一得二同彼同此可憐無限弄潮人畢竟還落潮中死忽然活百川倒流閙𣽅𣽅𣽅",
+          "verse_en": "Touzi, Touzi — his wheel of devices knows no rest: / release one and win two, same here, same there. / Pitiful, countless the surf-riders — / in the end they all die within the tide. / Suddenly alive! A hundred streams flow backward — roaring, roaring, roaring."
+        },
+        {
+          "case_num": 80,
+          "title_zh": "趙州急水打毬",
+          "title_pinyin": "Zhàozhōu Jíshuǐ Dǎqiú",
+          "title_en": "Zhaozhou: 'A Ball on Rushing Water'",
+          "dialogue": [
+            {
+              "speaker": "趙州與投子 / Zhaozhou and Touzi",
+              "zh": "僧問趙州：「初生孩子，還具六識也無？」趙州云：「急水上打毬子。」僧復問投子：「急水上打毬子，意旨如何？」子云：「念念不停流。」",
+              "pinyin": "Sēng wèn Zhaozhōu：「 Chū shēng háizǐ， hái jù liùshí yěwú？」 Zhaozhōu yún：「 Jíshuǐ shàng dǎ qiúzǐ。」 Sēng fù wèn Tóuzǐ：「 Jíshuǐ shàng dǎ qiúzǐ yìzhǐ rúhé？」 Zǐ yún：「 Niànniàn bù tíngliú。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Zhaozhou, 'A newborn child — does it possess the six consciousnesses?' Zhaozhou said, 'Striking a ball on rushing water.' The monk then asked Touzi, 'What does striking a ball on rushing water mean?' Touzi said, 'Thought after thought, never stopping the flow.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問趙州。初生孩子。還具六識也無趙州云。急水上打毬子僧復問投子。急水上打毬子。意旨如何子云。念念不停流。此六識。教家立為正本。山河大地。日月星辰。因其所以生。來為先鋒。去為殿後。古人道。三界唯心。萬法唯識。若證佛地。以八識。轉為四智。教家謂之改名不改體。根塵識是三。前塵元不會分別。勝義根能發生識。識能顯色分別。即是第六意識。第七識末那識。能去執持世間一切影事。令人煩惱。不得自由自在。皆是第七識。到第八識。亦謂之阿賴耶識。亦謂之含藏識。含藏一切善惡種子。這僧知教意。故將來問趙州道。初生孩子。還具六識也無。初生孩兒。雖具六識眼能見耳能聞。然未曾分別六塵。好惡長短。是非得失。他恁麼時總不知。學道之人要復如嬰孩。榮辱功名。逆情順境。都動他不得。眼見色與盲等。耳聞聲與聾等。如癡似兀。其心不動。如須彌山。這箇是衲僧家。真實得力處。古人道。衲被蒙頭萬事休。此時山僧都不會。若能如此。方有少分相應。雖然如此。爭奈一點也瞞他不得。山依舊是山。水依舊是水。無造作。無緣慮。如日月運於太虛未嘗暫止。亦不道我有許多名相。如天普蓋。似地普擎。為無心故。所以長養萬物。亦不道我有許多功行。天地為無心故。所以長久。若有心則有限齊。得道之人亦復如是。於無功用中施功用。一切違情順境。皆以慈心攝受。到這裏。古人尚自呵責道。了了了時無可了。玄玄玄處直須呵。又道。事事通兮物物明。達者聞之暗裏驚。又云。入聖超凡不作聲。臥龍長怖碧潭清。人生若得長如此。大地那能留一名。然雖恁麼。更須跳出窠窟始得。豈不見。教中道。第八不動地菩薩。以無功用智。於一微塵中。轉大法輪。於一切時中。行住坐臥。不拘得失。任運流入薩婆若海。衲僧家。到這裏。亦不可執著。但隨時自在。遇茶喫茶遇飯喫飯。這箇向上事著箇定字也不得。著箇不定字也不得。石室善道和尚示眾云。汝不見小兒出胎時。何曾道我會看教。當恁麼時。亦不知有佛性義。無佛性義。及至長大。便學種種知解出來。便道我能我解。不知是客塵煩惱。十六觀行中。嬰兒行為最。哆哆啝啝時。喻學道之人離分別取捨心。故讚歎嬰兒。可況喻取之。若謂嬰兒是道。今時人錯會。南泉云。我十八上。解作活計。趙州道。我十八上解破家散宅。又道。我在南方二十年。除粥飯二時。是雜用心處。曹山問僧。菩薩定中。聞香象渡河。歷歷地。出什麼經。僧云。涅槃經。山云。定前聞定後聞。僧云。和尚流也。山云。灘下接取。又楞嚴經云。湛入合湛入識邊際。又楞伽經云。相生執礙。想生妄想。流注生則逐妄流轉。若到無功用地。猶在流注相中。須是出得第三流注生相。方始快活自在。所以溈山問仰山云。寂子如何。仰山云。和尚問他見解。問他行解。若問他行解。某甲不知。若是見解。如一瓶水注一鉼水。若得如此。皆可以為一方之師。趙州云。急水上打毬子。早是轉轆轆地。更向急水上打時。眨眼便過。譬如楞嚴經云。如急流水。望為恬靜。古人云。譬如駛流水。水流無定止。各各不相知。諸法亦如是。趙州答處。意渾類此。其僧又問投子。急水上打毬子。意旨如何。子云。念念不停流。自然與他問處恰好。古人行履綿密。答得只似一箇。更不消計較。爾纔問他。早知爾落處了也。孩子六識。雖然無功用。爭奈念念不停。如密水流。投子恁麼答。可謂深辨來風。雪竇頌云　駛。",
+          "verse_zh": "六識無功伸一問作家曾共辨來端茫茫急水打毬子落處不停誰解看",
+          "verse_en": "The six consciousnesses, without work, stretch out one question; / masters once sorted it to the very end. / Boundless, the rushing water drives the ball: / where it lands it never pauses — who can catch a glimpse?"
+        },
+        {
+          "case_num": 81,
+          "title_zh": "藥山看箭",
+          "title_pinyin": "Yàoshān Kàn Jiàn",
+          "title_en": "Yaoshan's 'Watch the Arrow'",
+          "pointer_zh": "垂示云。東家杓柄長。西家杓柄短。且道用於何處。若也來處明。雨打不著柸不著。試舉看。",
+          "pointer_en": "Pointer: The eastern house's ladle-handle is long, the western house's ladle-handle is short. Tell me: where do you put them to use? If the place of arrival is bright, rain will not strike and the cup will not stick. Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "藥山與僧 / Yaoshan and the monk",
+              "zh": "僧問藥山：「平田淺草，麈鹿成群，如何射得麈中麈？」山云：「看箭！」僧放身便倒。山云：「侍者拕出這死漢。」僧便走。山云：「弄泥團漢，有什麼限？」雪竇拈云：「三步雖活，五步須死。」",
+              "pinyin": "Sēng wèn Yàoshān：「 Píngtián qiǎncǎo， zhǔlù chéng qún， rúhé shè dé zhǔ zhōng zhǔ？」 Shān yún：「 Kàn jiàn！」 Sēng fàngshēn biàn dǎo。 Shān yún：「 Shìzhě tuō chū zhè sǐhàn。」 Sēng biàn zǒu。 Shān yún：「 Nòng nítuán hàn， yǒu shénme xiàn？」 Xuědòu niān yún：「 Sān bù suī huó， wǔ bù xū sǐ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Yaoshan, 'On a plain of shallow grass, herds of musk deer run together — how do you shoot the one musk among the musk?' Yaoshan said, 'Watch the arrow!' The monk threw himself down on the spot. Yaoshan said, 'Attendant, drag this dead fellow out.' The monk ran off. Yaoshan said, 'A fellow playing with clay-balls — what limit is there to him?' Xuedou adds: 'For three steps he was alive — at the fifth step he must die.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問藥山。平田淺草麈鹿成群。如何射得麈中麈山云。看箭僧放身便倒山云。侍者拕出這死漢僧便走山云。弄泥團漢有什麼限雪竇拈云。三步雖活五步須死　麈　瞪　呿。這公案。洞下謂之借事問。亦謂之辨主問。用明當機。鹿與麈尋常易射。唯有麈中麈。是鹿中之王。最是難射。此麈鹿常於崖石上利其角。如鋒鋩頴利。以身護惜群鹿。虎亦不能近傍。這僧亦似惺惺。引來問藥山。用明第一機。山云。看箭。作家宗師。不妨奇特。如擊石火。似閃電光。豈不見。三平初參石鞏。鞏才見來。便作彎弓勢云。看箭。三平撥開胸云。此是殺人箭活人箭。鞏彈弓弦三下。三平便禮拜。鞏云。三十年。一張弓兩隻箭。今日只射得半箇聖人。便拗折弓箭。三平後舉似大顛。顛云。既是活人箭。為什麼向弓弦上辨。三平無語。顛云。三十年後。要人舉此話。也難得。法燈有頌云。古有石鞏師。架弓矢而坐。如是三十年。知音無一箇。三平中的來。父子相投和。子細返思量。元伊是射垛。石鞏作略。與藥山一般。三平頂門具眼。向一句下便中的。一似藥山道看箭。其僧便作麈放身倒。這僧也似作家。只是有頭無尾。既做圈繢要陷藥山。爭奈藥山是作家。一向逼將去。山云。侍者拕出這死漢。如展陣向前相似。其僧便走也好。是則是。爭奈不脫灑。粘脚粘手。所以藥山云。弄泥團漢有什麼限。藥山當時。若無後語。千古之下遭人檢點。山云。看箭。這僧便倒。且道。是會是不會。若道是會。藥山因什麼。却恁麼道。弄泥團漢。這箇最惡。正似僧問德山。學人仗鏌鎁劍。擬取師頭時如何。山引頸近前云。㘞。僧云。師頭落也。德山低頭歸方丈。又巖頭問僧。什麼處來。僧云。西京來。巖頭云。黃巢過後。曾收得劍麼。僧云。收得。巖頭引頸。近前云。㘞。僧云。師頭落也。巖頭呵呵大笑。這般公案。都是陷虎之機。正類此。恰是藥山不管他。只為識得破。只管逼將去。雪竇云。這僧三步雖活。五步須死。這僧雖甚解看箭。便放身倒。山云。侍者拕出這死漢。僧便走。雪竇道。只恐三步外不活。當時若跳出五步外。天下人便不奈他何。作家相見。須是賓主始終互換。無有間斷。方有自由自在分。這僧當時既不能始終。所以遭雪竇檢點。後面亦自用他語。頌云。",
+          "verse_zh": "麈中麈君看取下一箭走三步五步若活成群趁虎正眼從來付獵人雪竇高聲云。看箭",
+          "verse_en": "The musk among the musk — look closely: / next arrow, run three steps; at five steps, return to life. / As the herd closes on the tiger, / the true eye has always belonged to the hunter. / Xuedou shouts out loud: 'Watch the arrow!'"
+        },
+        {
+          "case_num": 82,
+          "title_zh": "大龍堅固法身",
+          "title_pinyin": "Dàlóng Jiāngù Fǎshēn",
+          "title_en": "Dalong: Mountains Flower, Torrents Blue",
+          "pointer_zh": "垂示云。竿頭絲線具眼方知。格外之機作家方辨。且道作麼生是竿頭絲線格外之機。試舉看。",
+          "pointer_en": "Pointer: The thread on the rod's tip is known only to the seeing eye; the device beyond the patterns is discerned only by the adept. Tell me: what is the thread on the rod's tip, the device beyond the patterns? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "大龍與僧 / Dalong and the monk",
+              "zh": "僧問大龍：「色身敗壞，如何是堅固法身？」龍云：「山花開似錦，㵎水湛如藍。」",
+              "pinyin": "Sēng wèn Dàlóng：「 Sèshēn bàihuài， rúhé shì jiāngù fǎshēn？」 Lóng yún：「 Shānhuā kāi sì jǐn， jiàn shuǐ zhàn rú lán。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Dalong, 'This body of form decays — what is the firm Dharma-body?' Dalong said, 'Mountain flowers bloom like brocade; torrent waters run deep and blue.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問大龍。色身敗壞。如何是堅固法身龍云。山花開似錦。㵎水湛如藍。此事若向言語上覓。一如掉棒打月。且得沒交涉。古人分明道。欲得親切。莫將問來問。何故問在答處。答在問處。這僧擔一檐莽鹵。換一檐鶻突。致箇問端。敗缺不少。若不是大龍。爭得蓋天蓋地。他恁麼問。大龍恁麼答。一合相。更不移易一絲毫頭。一似見兔放鷹。看孔著楔。三乘十二分教。還有這箇時節麼。也不妨奇特。只是言語無味。杜塞人口。是故道。一片白雲橫谷口。幾多歸鳥夜迷巢。有者道。只是信口答將去。若恁麼會。盡是滅胡種族漢。殊不知。古人一機一境。敲枷打鎖。一句一言。渾金璞玉。若是衲僧眼腦。有時把住。有時放行。照用同時。人境俱奪。雙放雙收。臨時通變。若無大用大機。爭解恁麼籠天罩地。大似明鏡當臺。胡來胡現漢來漢現。此公案與花藥欄話一般。然意却不同。這僧問處不明。大龍答處恰好。不見僧問雲門。樹凋葉落時如何。門云。體露金風。此謂之箭鋒相拄。這僧問大龍。色身敗壞。如何是堅固法身。大龍云。山花開似錦。㵎水湛如藍。一如君向西秦我之東魯。他既恁麼行。我却不恁麼行。與他雲門一倍相返。那箇恁麼行却易見。這箇却不恁麼行却難見。大龍不妨三寸甚密。雪竇頌云。",
+          "verse_zh": "問曾不知答還不會月冷風高古巖寒檜堪笑路逢達道人不將語默對手把白玉鞭驪珠盡擊碎不擊碎增瑕纇國有憲章三千條罪",
+          "verse_en": "Asked, he never knew; answering, he still didn't get it — / moon cold, wind high, on the ancient crag the winter cypress. / Laughable: meeting a man of the Way on the road, / he never answered with speech or silence. / Hands holding the white-jade whip, / the black dragon's pearl utterly smashed. / Not smashed — flaws only increase: / the kingdom's charter — three thousand counts of guilt."
+        },
+        {
+          "case_num": 83,
+          "title_zh": "雲門露柱相交",
+          "title_pinyin": "Yúnmén Lùzhù Xiāngjiāo",
+          "title_en": "Yunmen: South Mountain Clouds, North Mountain Rain",
+          "dialogue": [
+            {
+              "speaker": "雲門 / Yunmen",
+              "zh": "雲門示眾云：「古佛與露柱相交，是第幾機？」自代云：「南山起雲，北山下雨。」",
+              "pinyin": "Yúnmén shìzhòng yún：「 Gǔfó yǔ lùzhù xiāngjiāo， shì dì jǐ jī？」 Zìdài yún：「 Nánshān qǐ yún， běishān xià yǔ。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yunmen addressed the assembly: 'The ancient buddha and the exposed pillar intertwine — which device is this?' He answered for them: 'Clouds rise on South Mountain; rain falls on North Mountain.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。雲門示眾云。古佛與露柱相交。是第幾機自代云南山起雲北山下雨。雲門大師。出八十餘員善知識。遷化後七十餘年。開塔觀之。儼然如故。他見地明白。機境迅速。大凡垂語別語代語。直下孤峻。只這公案。如擊石火。似閃電光。直是神出鬼沒。慶藏主云。一大藏教還有這般說話麼。如今人多向情解上作活計。道佛是三界導師四生慈父。既是古佛。為什麼却與露柱相交。若恁麼會。卒摸索不著。有者喚作無中唱出。殊不知宗師家說話。絕意識絕情量。絕生死絕法塵。入正位更不存一法。爾纔作道理計較。便纏脚纏手。且道他古人意作麼生。但只使心境一如。好惡是非。撼動他不得。便說有也得無也得。有機也得無機也得。到這裏拍拍是令。五祖先師道。大小雲門元來膽小。若是山僧。只向他道第八機。他道。古佛與露柱相交。是第幾機。一時間且向目前包裹。僧問。未審意旨如何。門云。一條絛三十文買。他有定乾坤底眼。既無人會。後來自代云。南山起雲北山下雨。且與後學通箇入路。所以雪竇只拈他定乾坤處教人見。若纔犯計較露箇鋒鋩。則當面蹉過。只要原他雲門宗旨。明他峻機。所以頌出云。",
+          "verse_zh": "南山雲北山雨四七二三面相覩新羅國裏曾上堂大唐國裏未打鼓苦中樂樂中苦誰道黃金如糞土",
+          "verse_en": "Clouds on South Mountain, rain on North Mountain — / four-seven and two-three, face to face. / In Silla they once mounted the hall; / in Great Tang they never beat the drum. / Joy within sorrow, sorrow within joy — / who said yellow gold is like dung and earth?"
+        },
+        {
+          "case_num": 84,
+          "title_zh": "維摩默然",
+          "title_pinyin": "Wéimó Mòrán",
+          "title_en": "Vimalakirti's Silence",
+          "pointer_zh": "垂示云。道是是無可是。言非非無可非。是非已去。得失兩忘。淨裸裸赤灑灑。且道。面前背後是箇什麼。或有箇衲僧出來道。面前是佛殿三門。背後是寢堂方丈。且道。此人還具眼也無。若辨得此人。許爾親見古人來。",
+          "pointer_en": "Pointer: Say 'is' — and even 'is' has nothing there; say 'is not' — and even 'is not' admits no 'is not'. When yes and no have departed, gain and loss are both forgotten — stark naked, utterly bare. Tell me: what is before you and behind you? Suppose a monk comes out and says, 'Before me the Buddha Hall and mountain gate; behind me the sleeping quarters and abbot's room.' Tell me: does this person truly have eyes? If you can discern him, you will have met the ancients face to face.",
+          "dialogue": [
+            {
+              "speaker": "維摩詰與文殊師利 / Vimalakirti and Manjushri",
+              "zh": "維摩詰問文殊師利：「何等是菩薩入不二法門？」文殊曰：「如我意者，於一切法無言無說，無示無識，離諸問答，是為入不二法門。」於是文殊師利問維摩詰：「我等各自說已，仁者當說，何等是菩薩入不二法門？」雪竇云：「維摩道什麼？」復云：「勘破了也。」",
+              "pinyin": "Wéimójié wèn Wénshūshīlì：「 Héděng shì púsà rù bù'èr fǎmén？」 Wénshū yuē：「 Rú wǒ yì zhě， yú yīqiè fǎ wúyán wúshuō， wúshì wúshí， lí zhū wèndá， shì wéi rù bù'èr fǎmén。」 Yúshì Wénshūshīlì wèn Wéimójié：「 Wǒ děng gè zì shuō yǐ， rénzhě dāng shuō， héděng shì púsà rù bù'èr fǎmén？」 Xuědòu yún：「 Wéimó dào shénme？」 Fù yún：「 Kān pò le yě。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Vimalakirti asked Manjushri, 'What is the bodhisattva's entering the gate of not-two?' Manjushri said, 'As I see it: in all things, no words and no speech, no showing and no knowing, apart from all question and answer — that is entering the gate of not-two.' Then Manjushri asked Vimalakirti, 'We have each spoken — now, worthy one, you must say: what is the bodhisattva's entering the gate of not-two?' Xuedou says: 'And what did Vimala say?' and again: 'Seen through — utterly seen through!'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。維摩詰問文殊師利何等是菩薩入不二法門文殊曰。如我意者於一切法無言無說無示無識離諸問答是為入不二法門於是文殊師利問維摩詰。我等各自說已。仁者當說。何等是菩薩入不二法門雪竇云。維摩道什麼復云。勘破了也。維摩詰令諸大菩薩各說不二法門。時三十二菩薩。皆以二見有為無為真俗二諦。合為一見。為不二法門。後問文殊。文殊云。如我意者。於一切法。無言無說。無示無識。離諸問答。是為入不二法門。蓋為三十二人以言遣言。文殊以無言遣言。一時掃蕩總不要。是為入不二法門。殊不知靈龜曳尾。拂迹成痕。又如掃󰆠掃塵相似。塵雖去。󰆠迹猶存。末後依前除蹤跡。於是文殊却問維摩詰云。我等各自說已。仁者當自說。何等是菩薩入不二法門。維摩詰默然。若是活漢。終不去死水裏浸却。若作恁麼見解。似狂狗逐塊。雪竇亦不說良久。亦不說默然據坐。只去急急處云。維摩道什麼。只如雪竇恁麼道。還見維摩麼。夢也未夢見在。維摩乃過去古佛。亦有眷屬。助佛宣化。具不可思議辯才。有不可思議境界。有不可思議神通妙用。於方丈室中。容三萬二千獅子寶座。與八萬大眾。亦不寬狹。且道是什麼道理。喚作神通妙用得麼。且莫錯會。若是不二法門。雖同得同證方乃相共證知。獨有文殊。可與酬對。雖然恁麼。還免得雪竇檢責也無。雪竇恁麼道。也要與這二人相見云。維摩道什麼。又云。勘破了也。爾且道是什麼處。是勘破處。只這些子。不拘得失。不落是非。如萬仞懸崖。向上捨得性命。跳得過去。許爾親見維摩。如捨不得。大似群羊觸藩。雪竇故然是捨得性命底人。所以頌出云。",
+          "verse_zh": "咄這維摩老悲生空懊惱臥疾毘耶離全身太枯槁七佛祖師來一室且頻掃請問不二門當時便靠倒不靠倒金毛獅子無處討",
+          "verse_en": "Out! That old Vimala — sorrow-born, empty distress. / Lying ill in Vaishali, his whole body thinned away, / seven buddhas and patriarchs came — his one room swept again and again. / Asked to speak the not-two gate — at that moment he toppled. / Not toppled: the golden-haired lion — nowhere to be found."
+        },
+        {
+          "case_num": 85,
+          "title_zh": "桐峯老虎",
+          "title_pinyin": "Tóngfēng Lǎohǔ",
+          "title_en": "The Tiger of Paulownia Peak",
+          "pointer_zh": "垂示云。把定世界不漏纖毫。盡大地人亡鋒結舌。是衲僧正令。頂門放光。照破四天下。是衲僧金剛眼睛。點鐵成金。點金成鐵。忽擒忽縱。是衲僧拄杖子。坐斷天下人舌頭。直得無出氣處。倒退三千里。是衲僧氣宇。且道總不恁麼時。畢竟是箇什麼人。試舉看。",
+          "pointer_en": "Pointer: Holding the world fast without leaking a hair — monks of the whole earth losing their edge and biting their tongues: that is the monk's right decree. Light shining from the crown, illuminating all lands: that is the monk's diamond eye. Touching iron and making gold, touching gold and making iron, suddenly seizing, suddenly releasing: that is the monk's staff. Cutting off the tongues of everyone under heaven so they draw no breath — driven back three thousand miles: that is the monk's mettle. Tell me: when none of these apply — what kind of person is it? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "桐峯庵主與僧 / The hermit of Paulownia Peak and the monk",
+              "zh": "僧到桐峯庵主處便問：「這裏忽逢大蟲時，又作麼生？」庵主便作虎聲。僧便作怕勢。庵主呵呵大笑。僧云：「這老賊！」庵主云：「爭奈老僧何？」僧休去。雪竇云：「是則是，兩箇惡賊，只解掩耳偷鈴。」",
+              "pinyin": "Sēng dào Tóngfēng Ānzhǔ chù biàn wèn：「 Zhèlǐ hū féng dàchóng shí， yòu zuòmòsheng？」 Ānzhǔ biàn zuò hǔ shēng。 Sēng biàn zuò pà shì。 Ānzhǔ hēhē dàxiào。 Sēng yún：「 Zhè lǎozéi！」 Ānzhǔ yún：「 Zhēngnài lǎosēng hé？」 Sēng xiū qù。 Xuědòu yún：「 Shì zé shì， liǎng ge èzéi， zhǐ jiě yǎn'ěr tōu líng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk came to the hermit of Paulownia Peak and said, 'If you suddenly met a tiger here, what would you do?' The hermit made a tiger's roar. The monk made a gesture of fear. The hermit laughed out loud. The monk said, 'You old thief!' The hermit said, 'So what can you do with this old monk?' The monk gave up. Xuedou comments: 'True enough — but two vicious thieves: both just covered their ears to steal a bell.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧到桐峯庵主處便問。這裏忽逢大蟲時。又作麼生庵主便作虎聲僧便作怕勢庵主呵呵大笑僧云。這老賊庵主云。爭奈老僧何僧休去雪竇云。是則是兩箇惡賊。只解掩耳偷鈴。大雄宗派下。出四庵主。大梅白雲。虎溪桐峯。看他兩人恁麼眼親手辨。且道誵訛在什麼處。古人一機一境。一言一句。雖然出在臨時。若是眼目周正。自然活鱍鱍地。雪竇拈教人識邪正辨得失。雖然如此。在他達人分上。雖處得失。却無得失。若以得失見他古人。則沒交涉。如今人須是各各窮到無得失處。然後以得失辨人。若一向去揀擇言句處用心。又到幾時得了去。不見雲門大師道。行脚漢莫只空遊州獵縣。只欲得提搦閑言語。待老和尚口動。便問禪問道。向上向下。如何若何。大卷抄將去。𡎺向肚皮裏卜度。到處火爐邊。三箇五箇聚頭舉口。喃喃地便道。這箇是公才語。這箇是就身打出語。這箇是事上道底語。這箇是體裏語。體爾屋裏老爺老娘。噇却飯了。只管說夢。便道我會佛法了也。將知恁麼行脚。驢年得休歇去。古人暫時間拈弄。豈有勝負得失是非等見。桐峯見臨濟。其時在深山卓庵。這僧到彼中遂問。這裏忽逢大蟲時又作麼生。峯便作虎聲。也好就事便行。這僧也會將錯就錯。便作怕勢。庵主呵呵大笑。僧云。這老賊。峯云。爭奈老僧何。是則是二俱不了。千古之下遭人點檢。所以雪竇道。是則是兩箇惡賊。只解掩耳偷鈴。他二人雖皆是賊。當機却不用。所以掩耳偷鈴。此二老如排百萬軍陣。却只鬪掃󰆠。若論此事。須是殺人不眨眼底手脚。若一向縱而不擒。一向殺而不活。不免遭人怪笑。雖然如是。他古人亦無許多事。看他兩箇恁麼。總是見機而作。五祖道。神通遊戲三昧。慧炬三昧。莊嚴王三昧。自是後人脚跟不點地。只去點檢古人便道。有得有失。有底道。分明是庵主落節。且得沒交涉。雪竇道。他二人相見皆有放過處。其僧道。這裏忽逢大蟲時又作麼生。峯便作虎聲。此便是放過處。乃至道。爭奈老僧何。此亦是放過處。著著落在第二機。雪竇道。要用便用。如今人聞恁麼道。便道當時好與行令。且莫盲枷瞎棒。只如德山入門便棒。臨濟入門便喝。且道古人意如何。雪竇後面。便只如此頌出。且道畢竟作麼生免得掩耳偷鈴去。頌云。",
+          "verse_zh": "見之不取思之千里好箇斑斑爪牙未備君不見。大雄山下忽相逢落落聲光皆振地大丈夫見也無收虎尾兮捋虎鬚",
+          "verse_en": "Seeing it, do not seize it — think a thousand miles. / Fine spots and stripes — claws and fangs not yet complete. / Have you not seen: below Great Hero Mountain, a sudden encounter — / voice and light both shake the ground. / O great man! Do you see it too? / Take the tiger's tail and stroke its whiskers."
+        },
+        {
+          "case_num": 86,
+          "title_zh": "雲門光明",
+          "title_pinyin": "Yúnmén Guāngmíng",
+          "title_en": "Yunmen: 'Every One Has Light'",
+          "pointer_zh": "垂示云。把定世界不漏絲毫。截斷眾流不存涓滴。開口便錯擬議即差。且道作麼生是透關底眼。試道看。",
+          "pointer_en": "Pointer: Holding the world fast without leaking a thread; cutting the streams of the multitude without keeping a drop. Open your mouth and you are wrong already; to gaze deliberating is to miss at once. Tell me: what is the eye that pierces through the barrier? Try speaking!",
+          "dialogue": [
+            {
+              "speaker": "雲門 / Yunmen",
+              "zh": "雲門垂語云：「人人盡有光明在，看時不見暗昏昏，作麼生是諸人光明？」自代云：「厨庫三門。」又云：「好事不如無。」",
+              "pinyin": "Yúnmén chuíyǔ yún：「 Rénrén jìn yǒu guāngmíng zài， kàn shí bù jiàn ànhūnhūn， zuòmòsheng shì zhūrén guāngmíng？」 Zìdài yún：「 Chúkù sānmén。」 Yòu yún：「 Hǎoshì bùrú wú。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yunmen let fall this saying: 'Every person has a light within them, but when you look for it, you see only dim darkness — what is that light of yours?' He answered for them: 'The kitchen, the storerooms, the mountain gate.' And again: 'Good things are not as good as nothing.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。雲門垂語云。人人盡有光明在看時不見暗昏昏作麼生是諸人光明自代云。厨庫三門又云。好事不如無。雲門室中垂語接人。爾等諸人脚跟下。各各有一段光明。輝騰今古逈絕見知。雖然光明。恰到問著又不會。豈不是暗昏昏地。二十年垂示。都無人會他意。香林後來請代語。門云。厨庫三門。又云。好事不如無。尋常代語只一句。為什麼這裏却兩句。前頭一句為爾略開一線路教爾見。若是箇漢。聊聞舉著剔起便行。他怕人滯在此。又云。好事不如無。依前與爾掃却。如今人纔聞舉著光明。便去瞠眼云。那裏是厨庫。那裏是三門。且得沒交涉。所以道。識取鉤頭意。莫認定盤星。此事不在眼上。亦不在境上。須是絕知見忘得失。淨裸裸赤灑灑。各各當人分上究取始得。雲門云。日裏來往日裏辨人。忽然半夜無日月燈光。曾到處則故是。未曾到處取一件物。還取得麼。參同契云。當明中有暗。勿以暗相覩。當暗中有明。勿以明相遇。若坐斷明暗。且道是箇什麼。所以道。心花發明。照十方剎。盤山云。光非照境。境亦非存。光境俱忘。復是何物。又云。即此見聞非見聞。無餘聲色可呈君。箇中若了全無事。體用何妨分不分。但會取末後一句了。却去前頭游戲。畢竟不在裏頭作活計。古人道。以無住本。立一切法。不得去這裏弄光影弄精魂。又不得作無事會。古人道。寧可起有見如須彌山。不可起無見如芥子許。二乘人多偏墜此見。雪竇頌云。",
+          "verse_zh": "自照列孤明為君通一線花謝樹無影看時誰不見見不見倒騎牛兮入佛殿",
+          "verse_en": "Self-illumined, ranked in solitary brightness — / for you I pierce one thread of the Way. / Flowers fall, trees cast no shadow; / looking, who does not see? Not seeing, see: / riding the ox backward, he enters the Buddha Hall."
+        },
+        {
+          "case_num": 87,
+          "title_zh": "雲門盡大地是藥",
+          "title_pinyin": "Yúnmén Jìn Dàdì Shì Yào",
+          "title_en": "Yunmen: 'All Earth Is Medicine — Which Is Yourself?'",
+          "pointer_zh": "垂示云。明眼漢沒窠臼。有時孤峯頂上草漫漫。有時鬧市裏頭赤灑灑。忽若忿怒那吒。現三頭六臂。忽若日面月面。放普攝慈光。於一塵現一切身。為隨類人。和泥合水。忽若撥著向上竅。佛眼也覻不著。設使千聖出頭來。也須倒退三千里。還有同得同證者麼。試舉看。",
+          "pointer_en": "Pointer: A clear-eyed man keeps no burrow. Sometimes atop the lone peak the grass sprawls wild; sometimes deep in the market he is stark naked. Suddenly, furious Nata shows three heads and six arms; suddenly, sun-face and moon-face release a light that gathers all beings. In one mote he manifests every body, matching every kind of creature, joining mud and water. Suddenly turning the upper bolt — even the Buddha-eye cannot catch a glimpse. Were a thousand saints to emerge, they would be thrown back three thousand miles. Is there anyone to share the gain and the proof? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "雲門 / Yunmen",
+              "zh": "雲門示眾云：「藥病相治，盡大地是藥，那箇是自己？」",
+              "pinyin": "Yúnmén shìzhòng yún：「 Yàobìng xiāng zhì， jìn dàdì shì yào， nǎ ge shì zìjǐ？」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yunmen addressed the assembly: 'When medicine and illness fit each other, the whole earth is medicine — but which of it is yourself?'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。雲門示眾云。藥病相治盡大地是藥那箇是自己治。雲門道。藥病相治。盡大地是藥那箇是自己。諸人還有出身處麼。二六時中。管取壁立千仞。德山棒如雨點。臨濟喝似雷奔。則且致。釋迦自釋迦。彌勒自彌勒。未知落處者。往往喚作藥病相投會去。世尊四十九年。三百餘會。應機設教。皆是應病與藥。如將蜜果換苦葫蘆相似。既淘汝諸人業根。令灑灑落落。盡大地是藥。爾向什麼處插嘴。若插得嘴。許爾有轉身吐氣處。便親見雲門。爾若回顧躊躇。管取插嘴不得。雲門在爾脚跟底。藥病相治。也只是尋常語論。爾若著有。與爾說無。爾若著無。與爾說有。爾若著不有不無。與爾去糞掃堆上。現丈六金身。頭出頭沒。只如今盡大地森羅萬象乃至自己。一時是藥。當恁麼時。却喚那箇是自己。爾一向喚作藥。彌勒佛下生。也未夢見雲門在。畢竟如何。識取鉤頭意。莫認定盤星。文殊一日。令善財去採藥云。不是藥者採將來。善財遍採。無不是藥。却來白云。無不是藥者。文殊云。是藥者採將來。善財乃拈一枝草。度與文殊。文殊提起示眾云。此藥亦能殺人。亦能活人。此藥病相治話。最難看。雲門室中尋常用接人。金鵝長老。一日訪雪竇。他是箇作家。乃臨濟下尊宿。與雪竇論此藥病相治話。一夜至天光。方能盡善。到這裏。學解思量計較。總使不著。雪竇後有頌送他道。藥病相治見最難。萬重關鎖太無端。金鵝道者來相訪。學海波瀾一夜乾。雪竇後面頌得最有工夫。他意亦在賓亦在主。自可見也。頌云。",
+          "verse_zh": "盡大地是藥古今何太錯閉門不造車通途自寥廓錯錯鼻孔遼天亦穿却",
+          "verse_en": "The whole earth is medicine — ancients and moderns, how wrong! / Shut the gate, don't build the cart — the open road stretches vast. / Wrong! Wrong! Even the nose-bridle, vast as heaven, is pierced through."
+        },
+        {
+          "case_num": 88,
+          "title_zh": "玄沙三種病人",
+          "title_pinyin": "Xuánshā Sānzhǒng Bìngrén",
+          "title_en": "Xuansha: Receiving Three Kinds of Patients",
+          "pointer_zh": "垂示云。門庭施設。且恁麼。破二作三。入理深談。也須是七穿八穴。當機敲點。擊碎金鎖玄關。據令而行。直得掃蹤滅跡。且道誵訛在什麼處。具頂門眼者。請試舉看。",
+          "pointer_en": "Pointer: The gate-yard's arrangements, let them be thus; breaking two into three and entering profound talk — that too requires piercing seven and eight holes. Knock and tap at the moment, shatter the golden lock of mystery's gate, act by decree, sweep away track and trace. Tell me: where is the subtle point? Those with the eye on their crown — raise it!",
+          "dialogue": [
+            {
+              "speaker": "玄沙、雲門與僧 / Xuansha, Yunmen, and the monk",
+              "zh": "玄沙示眾云：「諸方老宿，盡道接物利生。忽遇三種病人來，作麼生接？患盲者，拈鎚竪拂，他又不見；患聾者，語言三昧，他又不聞；患啞者，教伊說，又說不得。且作麼生接？若接此人不得，佛法無靈驗。」僧請益雲門，門云：「汝禮拜著。」僧拜起，門以拄杖挃，僧退後。門云：「汝不是患盲。」復云：「近前。」僧近前，門云：「汝不是患聾。」門乃云：「還會麼？」僧云：「不會。」門云：「汝不是患啞。」其僧於此有省。",
+              "pinyin": "Xuánshā shìzhòng yún：「 Zhūfāng lǎosù， jìn dào jiēwù lìshēng。 Hū yù sānzhǒng bìngrén lái， zuòmòsheng jiē？ Huàn máng zhě， niān chuí shù fú， tā yòu bù jiàn； huàn lóng zhě， yǔyán sānmèi， tā yòu bù wén； huàn yǎ zhě， jiào yī shuō， yòu shuō bùdé。 Qiě zuòmòsheng jiē？ Ruò jiē cǐ rén bùdé， fófǎ wú língyàn。」 Sēng qǐngyì Yúnmén， mén yún：「 Rǔ lǐbài zhuó。」 Sēng bài qǐ， mén yǐ zhǔzhàng zhì， sēng tuì hòu。 Mén yún：「 Rǔ bù shì huàn máng。」 Fù yún：「 Jìn qián。」 Sēng jìn qián， mén yún：「 Rǔ bù shì huàn lóng。」 Mén nǎi yún：「 Hái huì me？」 Sēng yún：「 Bù huì。」 Mén yún：「 Rǔ bù shì huàn yǎ。」 Qí sēng yú cǐ yǒu xǐng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Xuansha addressed the assembly: 'The venerable ones everywhere speak of welcoming beings and benefiting life. Suppose three kinds of patients arrive — how will you receive them? For one suffering blindness: hold up the hammer, raise the whisk — but he cannot see. For one suffering deafness: speak in your samadhi of words — but he cannot hear. For one suffering muteness: tell him to speak — but he cannot speak. How will you receive them? If you cannot receive these people, the Buddha's teaching has no true power.' A monk asked Yunmen about this. Yunmen said, 'You — bow.' As the monk arose from bowing, Yunmen jabbed at him with the staff; the monk stepped back. Yunmen said, 'You are not blind.' Again he said, 'Come closer.' The monk came closer. Yunmen said, 'You are not deaf.' Then he asked, 'Do you understand?' The monk said, 'No.' Yunmen said, 'You are not mute.' At this, the monk had insight.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。玄沙示眾云。諸方老宿。盡道接物利生忽遇三種病人來。作麼生接患盲者。拈鎚竪拂。他又不見患聾者。語言三昧。他又不聞患啞者教伊說。又說不得且作麼生接。若接此人不得。佛法無靈驗僧請益雲門雲門云。汝禮拜著僧禮拜起雲門以拄杖挃。僧退後。門云。汝不是患盲復喚近前來。僧近前門云。汝不是患聾門乃云。還會麼僧云。不會門云。汝不是患啞僧於此有省　瞪　呿　挃。玄沙參到絕情塵意想。淨裸裸赤灑灑地處。方解恁麼道。是時諸方。列剎相望。尋常示眾道。諸方老宿。盡道接物利生。忽遇三種病人來時。作麼生接。患盲者。拈鎚竪拂他又不見。患聾者。語言三昧他又不聞。患啞者。教他說又說不得。且作麼生接。若接此人不得。佛法無靈驗。如今人若作盲聾瘖啞會。卒摸索不著。所以道。莫向句中死却。須是會他玄沙意始得。玄沙常以此語接人。有僧久在玄沙處。一日上堂。僧問和尚云。三種病人話。還許學人說道理也無。玄沙云許。僧便珍重下去。沙云。不是不是。這僧會得他玄沙意。後來法眼云。我聞地藏和尚舉這僧語。方會三種病人話。若道這僧不會。法眼為什麼却恁麼道。若道他會。玄沙為什麼。却道不是不是。一日地藏道。某甲聞。和尚有三種病人話是否。沙云是。藏云。珪琛現有眼耳鼻舌。和尚作麼生接。玄沙便休去。若會得玄沙意。豈在言句上。他會底自然殊別。後有僧舉似雲門。門便會他意云。汝禮拜著。僧禮拜起。門以拄杖挃。這僧退後。門云。汝不是患盲。復喚近前來。僧近前。門云。汝不是患聾。乃云會麼僧云。不會。門云。汝不是患啞。其僧於此有省。當時若是箇漢。等他道禮拜著。便與掀倒禪床。豈見有許多葛藤。且道雲門與玄沙會處。是同是別。他兩人會處都只一般。看他古人出來。作千萬種方便。意在鉤頭上。多少苦口。只令諸人各各明此一段事。五祖老師云。一人說得却不會。一人却會說不得。二人若來參。如何辨得他。若辨這兩人不得。管取為人解粘去縛不得在。若辨得。纔見入門。我便著草鞋向爾肚裏走幾遭了也。猶自不省。討什麼碗出去。且莫作盲聾瘖啞會好。若恁麼計較。所以道。眼見色如盲等。耳聞聲如聾等。又道。滿眼不視色。滿耳不聞聲。文殊常觸目。觀音塞耳根。到這裏眼見如盲相似。耳聞如聾相似。方能與玄沙意不爭多。諸人還識盲聾瘖啞底漢子落處麼。看取雪竇頌云。",
+          "verse_zh": "盲聾瘖啞杳絕機宜天上天下堪笑堪悲離婁不辨正色師曠豈識玄絲爭如獨坐虛窓下葉落花開自有時。",
+          "verse_en": "Blind, deaf, mute — utterly beyond devices: / in heaven and among men, laughable and pitiful. / Lilou cannot tell apart true colors; / Shi Kuang could never hear the subtlest thread. / Better to sit alone beneath the empty window — / leaves fall, flowers bloom, each in its own time."
+        },
+        {
+          "case_num": 89,
+          "title_zh": "道吾通身手眼",
+          "title_pinyin": "Dàowú Tōngshēn Shǒuyǎn",
+          "title_en": "Daowu: 'The Whole Body Is Hands and Eyes'",
+          "pointer_zh": "垂示云。通身是眼見不到。通身是耳聞不及。通身是口說不著。通身是心鑒不出。通身即且止。忽若無眼作麼生見。無耳作麼生聞。無口作麼生說。無心作麼生鑒。若向箇裏撥轉得一線道。便與古佛同參。參則且止。且道參箇什麼人。",
+          "pointer_en": "Pointer: Even with eyes over your whole body you cannot see it; ears over your whole body cannot hear it; a mouth over your whole body cannot speak it; a mind over your whole body cannot mirror it. Let the 'whole body' rest a moment. Suppose no eyes — how would you see? No ears — how would you hear? No mouth — how would you speak? No mind — how would you mirror it? If you can turn out one thread in this place, you have taken counsel with ancient buddhas. Counsel aside — tell me: what kind of person do you take counsel with?",
+          "dialogue": [
+            {
+              "speaker": "雲巖與道吾 / Yunyan and Daowu",
+              "zh": "雲巖問道吾：「大悲菩薩，用許多手眼作什麼？」吾云：「如人夜半，背手摸枕子。」巖云：「我會也。」吾云：「汝作麼生會？」巖云：「遍身是手眼。」吾云：「道即太殺道，只道得八成。」巖云：「師兄作麼生？」吾云：「通身是手眼。」",
+              "pinyin": "Yúnyán wèn Dàowú：「 Dàbēi púsà， yòng xǔduō shǒu yǎn zuò shénme？」 Wú yún：「 Rú rén yèbàn， bèishǒu mō zhěnzǐ。」 Yán yún：「 Wǒ huì yě。」 Wú yún：「 Rǔ zuòmòsheng huì？」 Yán yún：「 Biànshēn shì shǒuyǎn。」 Wú yún：「 Dào jí tàishā dào， zhǐ dào dé bāchéng。」 Yán yún：「 Shīxiōng zuòmòsheng？」 Wú yún：「 Tōngshēn shì shǒuyǎn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Yunyan asked Daowu, 'The bodhisattva of great compassion — what does she use so many hands and eyes for?' Daowu said, 'Like someone at midnight, reaching a hand behind to feel for the pillow.' Yunyan said, 'I understand.' Daowu said, 'How do you understand?' Yunyan said, 'Everywhere on the body are hands and eyes.' Daowu said, 'Well said, forcefully said — but you only got eighty percent of it.' Yunyan said, 'And how about you, elder brother?' Daowu said, 'The whole body is hands and eyes.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。雲巖問道吾。大悲菩薩。用許多手眼作什麼。吾云。如人夜半背手摸枕子巖云。我會也吾云。汝作麼生會巖云。遍身是手眼吾云。道即太殺道。只道得八成巖云。師兄作麼生吾云。通身是手眼。雲巖與道吾同參藥山。四十年脇不著席。藥山出曹洞一宗。有三人法道盛行。雲巖下洞山。道吾下石霜船子下夾山。大悲菩薩有八萬四千母陀羅臂。大悲有許多手眼。諸人還有也無。百丈云。一切語言文字。俱皆宛轉歸于自己。雲巖常隨道吾咨參決擇。一日問他道。大悲菩薩用許多手眼作什麼。當初好與他劈脊便棒。免見後有許多葛藤。道吾慈悲不能如此。却與他說道理。意要教他便會。却道如人夜半背手摸枕子。當深夜無燈光時。將手摸枕子。且道眼在什麼處。他便道我會也。吾云汝作麼生會。巖云遍身是手眼。吾云。道即太殺道。只道得八成。巖云。師兄又作麼生。吾云。通身是手眼。且道遍身是底是。通身是底是。雖似爛泥却脫灑。如今人多去作情解道。遍身底不是。通身底是。只管咬他古人言句。於古人言下死了。殊不知。古人意不在言句上。此皆是事不獲已而用之。如今下注脚。立格則道。若透得此公案。便作罷參會。以手摸渾身。摸燈籠露柱。盡作通身話會。若恁麼會。壞他古人不少。所以道。他參活句不參死句。須是絕情塵意想。淨裸裸赤灑灑地。方可見得大悲話。不見曹山問僧。應物現形如水中月時如何。僧云。如驢覰井。山云。道即殺道只道得八成。僧云。和尚又作麼生。山云。如井覷驢。便同此意也。爾若去語上見。總出道吾雲巖圈繢不得。雪竇作家。更不向句下死。直向頭上行。頌云。",
+          "verse_zh": "遍身是通身是拈來猶較十萬里展翅鵬騰六合雲搏風鼓蕩四溟水是何埃壒兮忽生那箇毫釐兮未止君不見網珠垂範影重重棒頭手眼從何起咄壒",
+          "verse_en": "'Every-where-on-the-body' and 'the whole body' — / picked apart, a hundred thousand miles apart. / Wings spread, the Peng soars into the clouds of the six directions, / riding wind, beating the waters of the four seas. / What dust could ever rise there? / Which speck has not yet stopped? / Have you not seen: the net's pearls hang in layered reflections — / from what do staff-tip, hands, and eyes arise? Out!"
+        },
+        {
+          "case_num": 90,
+          "title_zh": "智門蚌含明月",
+          "title_pinyin": "Zhìmén Bàng Hán Míngyuè",
+          "title_en": "Zhimên: The Mussel Holds the Bright Moon",
+          "pointer_zh": "垂示云。聲前一句千聖不傳。面前一絲長時無間。淨裸裸赤灑灑。頭鬔鬆耳卓朔。且道作麼生。試舉看。",
+          "pointer_en": "Pointer: The one phrase before sound — a thousand saints never transmit; the one thread before your face — through long ages never interrupted. Stark naked, utterly bare — hair ruffled, ears perked. Tell me: what of it? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "智門與僧 / Zhimên and the monk",
+              "zh": "僧問智門：「如何是般若體？」門云：「蚌含明月。」僧云：「如何是般若用？」門云：「兔子懷胎。」",
+              "pinyin": "Sēng wèn Zhìmén：「 Rúhé shì bōrě tǐ？」 Mén yún：「 Bàng hán míngyuè。」 Sēng yún：「 Rúhé shì bōrě yòng？」 Mén yún：「 Tùzǐ huáitāi。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Zhimên, 'What is the substance of prajna?' Zhimên said, 'A mussel holding the bright moon.' The monk said, 'And what is the working of prajna?' Zhimên said, 'A rabbit with child.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問智門。如何是般若體門云。蚌含明月僧云。如何是般若用門云。兔子懷胎。智門道。蚌含明月兔子。懷胎。都用中秋意。雖然如此。古人意却不在蚌兔上。他是雲門會下尊宿。一句語須具三句。所謂函蓋乾坤句。截斷眾流句。隨波逐浪句。亦不消安排。自然恰好。便去嶮處。答這僧話。略露些子鋒鋩。不妨奇特。雖然恁麼。他古人終不去弄光影。只與爾指些路頭教人見。這僧問。如何是般若體。智門云。蚌含明月。漢江出蚌。蚌中有明珠。到中秋月出。蚌於水面浮。開口含月光。感而產珠。合浦珠是也。若中秋有月則珠多。無月則珠少。如何是般若用。門云。兔子懷胎。此意亦無異。兔屬陰。中秋月生。開口吞其光。便乃懷胎。口中產兒。亦是有月則多。無月則少。他古人答處。無許多事。他只借其意。而答般若光也。雖然恁麼。他意不在言句上。自是後人。去言句上作活計。不見盤山道。心月孤圓光吞萬象。光非照境境亦非存。光境俱亡復是何物。如今人但瞠眼喚作光。只去情上生解。空裏釘橛。古人道。汝等諸人。六根門頭晝夜放大光明。照破山河大地。不只止眼根放光。鼻舌身意亦皆放光也。到這裏直須打疊六根下無一星事。淨裸裸赤灑灑地。方見此話落處。雪竇正恁麼頌出。",
+          "verse_zh": "一片虛凝絕謂情人天從此見空生蚌含玄兔深深意曾與禪家作戰爭",
+          "verse_en": "One flash of empty stillness, feeling utterly gone — / among humans and heavens, from this you see the life of emptiness. / The mussel holding the moon's pearl, deep meaning: / it has always waged this war with the house of Chan."
+        },
+        {
+          "case_num": 91,
+          "title_zh": "鹽官犀牛扇子",
+          "title_pinyin": "Yánguān Xīniú Shànzi",
+          "title_en": "Yanguan's Rhinoceros Fan",
+          "pointer_zh": "垂示云。超情離見。去縛解粘。提起向上宗乘。扶竪正法眼藏。也須十方齊應八面玲瓏。直到恁麼田地。且道還有同得同證同死同生底麼。試舉看。",
+          "pointer_en": "Pointer: Passing beyond feeling and view, shedding bonds and freeing from glue, raising the vehicle of the summit and upholding the treasury of the true Dharma eye — even then, the ten directions must answer in unison and all eight faces be utterly clear-cut. Arriving straight at such a field: is there anyone to share the gain, the proof, the dying and the living? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "鹽官與侍者、投子石霜 / Yanguan, the attendant, Touzi, and Shishuang",
+              "zh": "鹽官一日喚侍者：「與我將犀牛扇子來。」侍者云：「扇子破也。」官云：「扇子既破，還我犀牛兒來。」侍者無對。投子云：「不辭將出，恐頭角不全。」雪竇拈云：「我要不全底頭角。」石霜云：「若還和尚即無也。」雪竇拈云：「犀牛兒猶在。」",
+              "pinyin": "Yánguān yīrì huàn shìzhě：「 Yǔ wǒ jiāng xīniú shànzi lái。」 Shìzhě yún：「 Shànzi pò yě。」 Guān yún：「 Shànzi jì pò， hái wǒ xīniú'ér lái。」 Shìzhě wúduì。 Tóuzǐ yún：「 Bùcí jiāng chū， kǒng tóujiǎo bù quán。」 Xuědòu niān yún：「 Wǒ yào bù quán dǐ tóujiǎo。」 Shíshuāng yún：「 Ruò hái héshàng jí wú yě。」 Xuědòu niān yún：「 Xīniú'ér yóu zài。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day Yanguan called to his attendant, 'Bring me my rhinoceros fan.' The attendant said, 'The fan is broken.' Yanguan said, 'If the fan is broken, give me back the rhinoceros.' The attendant had no reply. Touzi comments: 'I'd gladly bring it out — I only fear the creature's horn is incomplete.' Xuedou adds: 'It is the incomplete horn I want.' Shishuang says, 'If I give it back to you, Master, there will be nothing left.' Xuedou adds: 'The rhinoceros still endures.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。鹽官一日喚侍者。與我將犀牛扇子來侍者云。扇子破也官云。扇子既破。還我犀牛兒來侍者無對投子云。不辭將出。恐頭角不全雪竇拈云。我要不全底頭角石霜云。若還和尚即無也雪竇拈云。犀牛兒猶在資福畫一圓相。於中書一牛字雪竇拈云。適來為什麼不將出保福云。和尚年尊。別請人好雪竇拈云。可惜勞而無功。鹽官一日喚侍者。與我將犀牛扇子來。此事雖不在言句上。且要驗人平生意氣作略。又須得如此藉言而顯。於臘月三十日著得力。作得主。萬境摐然。覩之不動。可謂無功之功。無力之力。鹽官廼齊安禪師。古時以犀牛角為扇。時鹽官豈不知犀牛扇子破。故問侍者。侍者云。扇子破也。看他古人。十二時中常在裏許撞著磕著。鹽官云。扇子既破。還我犀牛兒來。且道他要犀牛兒作什麼。也只要驗人知得落處也無。投子云。不辭將出。恐頭角不全。雪竇云。我要不全底頭角。亦向句下便投機。石霜云。若還和尚即無也。雪竇云。犀牛兒猶在。資福畫一圓相。於中書一牛字。為他承嗣仰山。平生愛以境致接人明此事。雪竇云。適來為什麼不將出。又穿他鼻孔了也。保福云。和尚年尊。別請人好。此語道得穩當。前三則語却易見。此一句語有遠意。雪竇亦打。破了也。山僧舊日在慶藏主處理會。道。和尚年尊老耄。得頭忘尾。適來索扇子。如今索犀牛兒。難為執侍。故云。別請人好。雪竇云。可惜勞而無功。此皆是下語格式。古人見徹此事。各各雖不同。道得出來。百發百中。須有出身之路。句句不失血脈。如今人問著。只管作道理計較。所以十二時中。要人咬嚼教滴水滴凍。求箇證悟處。看他雪竇頌一串云。摐。",
+          "verse_zh": "犀牛扇子用多時問著元來總不知無限清風與頭角盡同雲雨去難追。",
+          "verse_en": "The rhinoceros fan, used for so long — / asked about it, they never knew at all. / Measureless the clear wind and the horned head together — / gone with clouds and rain, hard to pursue."
+        },
+        {
+          "case_num": 92,
+          "title_zh": "世尊陞座文殊白槌",
+          "title_pinyin": "Shìzūn Shēngzuò",
+          "title_en": "The World-Honored One Ascends the Seat",
+          "pointer_zh": "垂示云。動絃別曲。千載難逢。見兔放鷹。一時取俊。總一切語言為一句。攝大千沙界為一塵。同死同生。七穿八穴。還有證據者麼。試舉看。",
+          "pointer_en": "Pointer: Move the string and a different tune comes out — in a thousand years, hard to meet. Loose the hawk on sighting the hare and take the prize at once. To gather every word into one phrase, to gather a billion worlds into one mote, sharing death and life through seven and eight piercings — is there anyone with proof? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "世尊與文殊 / The World-Honored One and Manjushri",
+              "zh": "世尊一日陞座，文殊白槌云：「諦觀法王法，法王法如是。」世尊便下座。",
+              "pinyin": "Shìzūn yīrì shēngzuò， Wénshū bái chuí yún：「 Dì guān fǎwáng fǎ， fǎwáng fǎ rúshì。」 Shìzūn biàn xiàzuò。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day the World-Honored One ascended the seat. Manjushri struck the gavel and said, 'Contemplate earnestly the Dharma of the Dharma King — the Dharma of the Dharma King is just so.' The World-Honored One immediately stepped down from the seat.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。世尊一日陞座文殊白槌云。諦觀法王法。法王法如是世尊便下座。世尊未拈花已前。早有這箇消息。始從鹿野苑。終至拔提河。幾曾用著金剛王寶劍。當時眾中。若有衲僧氣息底漢。綽得去。免得他末後拈花。一場狼藉。世尊良久間。被文殊一拶。便下座。那時也有這箇消息。釋迦掩室。淨名杜口。皆似此這箇。則已說了也。如肅宗問忠國師。造無縫塔話。又如外道問佛。不問有言。不問無言之語。看他向上人行履。幾曾入鬼窟裏作活計。有者道。意在默然處。有者道。在良久處。有言明無言底事。無言明有言底事。永嘉道。默時說說時默。總恁麼會。三生六十劫。也未夢見在。爾若便直下承當得去。更不見有凡有聖。是法平等無有高下。日日與三世諸佛。把手共行。後面看雪竇自然見得頌出。",
+          "verse_zh": "列聖叢中作者知法王法令不如斯會中若有仙陀客何必文殊下一槌。",
+          "verse_en": "Among the ranks of the saints, the adept knows: / the Law of the Dharma King is not like this at all. / Were there one Xiantuo guest in the assembly, / why would Manjushri need to use the first gavel?"
+        },
+        {
+          "case_num": 93,
+          "title_zh": "大光作舞",
+          "title_pinyin": "Dàguāng Zuòwǔ",
+          "title_en": "Daguang Dances",
+          "dialogue": [
+            {
+              "speaker": "大光與僧 / Daguang and the monk",
+              "zh": "僧問大光：「長慶道，因齋慶讚，意旨如何？」大光作舞。僧禮拜。光云：「見箇什麼，便禮拜？」僧作舞。光云：「這野狐精！」",
+              "pinyin": "Sēng wèn Dàguāng：「 Chángqìng dào， yīn zhāi qìngzàn， yìzhǐ rúhé？」 Dàguāng zuòwǔ。 Sēng lǐbài。 Guāng yún：「 Jiàn ge shénme， biàn lǐbài？」 Sēng zuòwǔ。 Guāng yún：「 Zhè yěhújīng！」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Daguang, 'Changqing said, &lsquo;Following the meal, in praise and joy&rsquo; — what did he mean?' Daguang performed a dance. The monk bowed. Daguang said, 'What did you see, that made you bow?' The monk performed a dance. Daguang said, 'You fox-spirit!'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問大光。長慶道。因齋慶讚。意旨如何大光作舞僧禮拜光云。見箇什麼。便禮拜僧作舞光云。這野狐精。西天四七。唐土二三。只傳這箇些子。諸人還知落處麼。若知免得此過。若不知。依舊只是野狐精。有者道。是裂轉他鼻孔來瞞人。若真箇恁麼。成何道理。大光善能為人。他句中有出身之路。大凡宗師。須與人抽釘拔楔。去粘解縛。方謂之善知識。大光作舞。這僧禮拜。末後僧却作舞。大光云。這野狐精。不是轉這僧。畢竟不知的當。爾只管作舞。遞相恁麼。到幾時得休歇去。大光道野狐精。此語截斷金牛。不妨奇特。所以道。他參活句。不參死句。雪竇只愛他道這野狐精。所以頌出。旦道這野狐精。與藏頭白海頭黑。是同是別。這漆桶。又道。好師僧。且道。是同是別。還知麼觸處逢渠。雪竇頌云。",
+          "verse_zh": "前箭猶輕後箭深誰云黃葉是黃金曹溪波浪如相似無限平人被陸沈",
+          "verse_en": "The first arrow still light, the second arrow deep — / who says yellow leaves are yellow gold? / Caoqi's waves run just alike: / numberless ordinary folk sink beneath."
+        },
+        {
+          "case_num": 94,
+          "title_zh": "楞嚴不見吾不見",
+          "title_pinyin": "Léngyán Bùjiàn",
+          "title_en": "The Shurangama on Not-Seeing",
+          "pointer_zh": "垂示云。聲前一句。千聖不傳。面前一絲。長時無間。淨裸裸赤灑灑。露地白牛。眼卓朔耳卓朔。金毛獅子。則且置。且道。作麼生是露地白牛。",
+          "pointer_en": "Pointer: The one phrase before sound — a thousand saints never transmit; the one thread before your face — through long ages never interrupted. Stark naked, utterly bare — the white ox on open ground, eyes alert, ears perked. Let the golden-haired lion rest a moment. Tell me: what is the white ox on open ground?",
+          "dialogue": [
+            {
+              "speaker": "楞嚴經引文 / From the Shurangama Sutra",
+              "zh": "《楞嚴經》云：「吾不見時，何不見吾不見之處？若見不見，自然非彼不見之相。若不見吾不見之地，自然非物，云何非汝？」",
+              "pinyin": "《Léngyán jīng》yún：「 Wú bù jiàn shí， hébù jiàn wú bù jiàn zhī chù？ Ruò jiàn bù jiàn， zìrán fēi bǐ bù jiàn zhī xiàng。 Ruò bù jiàn wú bù jiàn zhī dì， zìrán fēi wù， yún hé fēi rǔ？」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The Shurangama Sutra says: 'When I do not see, why do you not see the place of my not-seeing? If you see that not-seeing, naturally it is no longer the mark of that not-seeing. If you do not see the ground of my not-seeing, then naturally it is no thing — and how is it not you?'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。楞嚴經云。吾不見時。何不見吾不見之處若見不見。自然非彼不見之相若不見吾不見之地自然非物云何非汝。楞嚴經云。吾不見時。何不見吾不見之處。若見不見。自然非彼不見之相。若不見吾不見之地。自然非物。云何非汝。雪竇到此。引經文不盡。全引則可見。經云。若見是物。則汝亦可見吾之見。若同見者。名為見吾。吾不見時。何不見吾不見之處。若見不見。自然非彼不見之相。若不見吾不見之地。自然非物。云何非汝。辭多不錄。阿難意道。世界燈籠露柱。皆可有名。亦要世尊指出此妙精元明。喚作什麼物。教我見佛意。世尊云。我見香臺。阿難云。我亦見香臺。即是佛見。世尊云。我見香臺則可知。我若不見香臺時。爾作麼生見。阿難云。我不見香臺時。即是見佛。佛云。我云不見。自是我知。汝云不見。自是汝知。他人不見處。爾如何得知。古人云。到這裏。只可自知。與人說不得。只如世尊道。吾不見時。何不見吾不見之處。若見不見。自然非彼不見之相。若不見吾不見之地。自然非物。云何非汝。若道認見為有物。未能拂迹。吾不見時。如羚羊掛角。聲響蹤跡。氣息都絕。爾向什麼處摸索。經意初縱破。後奪破。雪竇出教眼頌。亦不頌物。亦不頌見與不見。直只頌見佛也。",
+          "verse_zh": "全象全牛瞖不殊從來作者共名模如今要見黃頭老剎剎塵塵在半途",
+          "verse_en": "Whole elephant, whole ox — no difference from old; / from the first, adepts shared one pattern. / Now, if you would see the yellow-headed old man — / in kshetra after kshetra, dust after dust, it is on the road halfway."
+        },
+        {
+          "case_num": 95,
+          "title_zh": "長慶如來語",
+          "title_pinyin": "Chángqìng Rúlái Yǔ",
+          "title_en": "Changqing and Baofu on the Tathagata's Speech",
+          "pointer_zh": "垂示云。有佛處不得住。住著頭角生。無佛處急走過。不走過。草深一丈。直饒淨裸裸赤灑灑。事外無機機外無事。未免守株待兔。且道總不恁麼。作麼生行履。試舉看。",
+          "pointer_en": "Pointer: Where buddha is, do not stay — stay, and horns spring from your head. Where buddha is not, hurry past — do not hurry past, and the weeds grow ten feet deep. Even with stark nakedness, utterly bare — no device outside the matter, nothing outside the device — you still end up guarding the stump waiting for the hare. Tell me: with none of these applying, how do you conduct yourself? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "長慶與保福 / Changqing and Baofu",
+              "zh": "長慶有時云：「寧說阿羅漢有三毒，不說如來有二種語。不道如來無語，只是無二種語。」保福云：「作麼生是如來語？」慶云：「聾人爭得聞？」保福云：「情知爾向第二頭道。」慶云：「作麼生是如來語？」保福云：「喫茶去。」",
+              "pinyin": "Chángqìng yǒushí yún：「 Nìng shuō āluóhàn yǒu sāndú， bù shuō Rúlái yǒu èr zhǒng yǔ。 Bù dào Rúlái wú yǔ， zhǐshì wú èr zhǒng yǔ。」 Bǎofú yún：「 Zuòmòsheng shì Rúlái yǔ？」 Qìng yún：「 Lóng rén zhēngdé wén？」 Bǎofú yún：「 Qíngzhī ěr xiàng dì'èr tóu dào。」 Qìng yún：「 Zuòmòsheng shì Rúlái yǔ？」 Bǎofú yún：「 Chī chá qù。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Changqing once said, 'I would rather say an arhat has the three poisons than say the Tathagata has two kinds of speech. Not that the Tathagata does not speak — only that there are not two kinds of speech.' Baofu asked, 'What then is the Tathagata's speech?' Changqing said, 'How could a deaf man ever hear?' Baofu said, 'I knew you would speak from the second head.' Changqing asked again, 'What is the Tathagata's speech?' Baofu said, 'Go have a cup of tea.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。長慶有時云。寧說阿羅漢有三毒不說如來有二種語不道如來無語只是無二種語保福云。作麼生是如來語慶云。聾人爭得聞保福云。情知爾向第二頭道慶云。作麼生是如來語保福云。喫茶去。長慶保福在雪峯會下。常互相舉覺商量。一日平常如此說話云。寧說阿羅漢有三毒。不說如來有二種語。梵語阿羅漢。此云殺賊。以功能彰名。能斷九九八十一品煩惱。諸漏已盡。梵行已立。此是無學阿羅漢位。三毒即是貪嗔癡。根本煩惱。八十一品。尚自斷盡。何況三毒。長慶道。寧說阿羅漢有三毒。不說如來有二種語。大意要顯如來無不實語。法華經云。唯此一事實。餘二則非真。又云。唯有一乘法。無二亦無三。世尊三百餘會。觀機逗教。應病與藥。萬種千般說法。畢竟無二種語。他意到這裏。諸人作麼生見得。佛以一音演說法。則不無長慶要且未夢見如來語在。何故大似人說食終不能飽。保福見他平地上說教遂問。作麼生是如來語。慶云。聾人爭得聞。這漢知他幾時。在鬼窟裏作活計來也。保福云。情知爾向第二頭道。果中其言。却問師兄作麼生是如來語。福云。喫茶去。鎗頭倒被別人奪却了也。大小長慶。失錢遭罪。且問諸人。如來語還有幾箇。須知恁麼見得。方見這兩箇漢敗缺。子細檢點將來。盡合喫棒。放一線道與他理會。有底云。保福道得是。長慶道得不是。只管隨語生解。便道有得有失。殊不知。古人如擊石火。似閃電光。如今人不去他古人轉處看。只管去句下走。便道長慶當時不便用。所以落第二頭。保福云。喫茶去。便是第一頭。若只恁麼看。到彌勒下生。也不見古人意。若是作家。終不作這般見解。跳出這窠窟。向上自有一條路。爾若道聾人爭得聞有什麼不是處。保福云喫茶去。有什麼是處。轉沒交涉。是故道。他參活句。不參死句。這因緣與遍身是通身是因緣一般。無爾計較是非處。須是爾脚跟下。淨裸裸地。方見古人相見處。五祖老師云。如馬前相撲相似。須是眼辨手親。這箇公案。若以正眼觀之。俱無得失處。辨箇得失。無親疎處。分箇親疎。長慶也須禮拜保福始得。何故這箇些子。巧處用得好。如電轉星飛相似。保福不妨牙上生牙。爪上生爪。頌云。",
+          "verse_zh": "頭兮第一第二臥龍不鑒止水無處有月波澄有處無風浪起稜禪客稜禪客三月禹門遭點額",
+          "verse_en": "Heads — first and second too: / the sleeping dragon never takes stock of still water. / Where nothing is, moon and waves clear; / where something is, wind and waves rise. / Master Leng of Zen, Master Leng of Zen — / in the third month at Yu Gate he was marked on the brow."
+        },
+        {
+          "case_num": 96,
+          "title_zh": "趙州三轉語",
+          "title_pinyin": "Zhàozhōu Sān Zhuǎnyǔ",
+          "title_en": "Zhaozhou's Three Turning Phrases",
+          "dialogue": [
+            {
+              "speaker": "趙州 / Zhaozhou",
+              "zh": "趙州示眾三轉語。（泥佛不渡水，金佛不渡爐，木佛不渡火 — 見趙州錄；三轉語之末「真佛屋裏坐」即在評唱所引。）",
+              "pinyin": "Zhàozhōu shìzhòng sān zhuǎnyǔ。（Nífó bù dù shuǐ， jīnfó bù dù lú， mùfó bù dù huǒ — jiàn Zhàozhōu lù；sān zhuǎnyǔ zhī mò「 Zhēnfó wū lǐ zuò」 jí zài píngchàng suǒ yǐn。）",
+              "translations": {
+                "ai_literal": {
+                  "text": "Zhaozhou addressed the assembly with three turning phrases. (The clay buddha cannot cross water, the golden buddha cannot cross the furnace, the wooden buddha cannot cross fire — as recorded in the Zhaozhou Record; the closing line 'the true buddha sits within the hall' is cited in the pre-verse commentary.)",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。趙州示眾三轉語。趙州示此三轉語了。末後却云。真佛屋裏坐。這一句忒殺郎當。他古人出一隻眼。垂手接人。略借此語。通箇消息。要為人。爾若一向正令全提。法堂前草深一丈。雪竇嫌他末後一句漏逗。所以削去。只頌三句。泥佛若渡水。則爛却了也。金佛若渡鑪中。則鎔却了也。木佛若渡火。便燒却了也。有什麼難會。雪竇一百則頌古。計較葛藤。唯此三頌直下有衲僧氣息。只是這頌也不妨難會。爾若透得此三頌。便許爾罷參。",
+          "verse_zh": "泥佛不渡水神光照天地立雪如未休何人不雕偽",
+          "verse_en": "The clay buddha cannot cross water; / its spirit-light shines on heaven and earth. / Standing in the snow, unfinished — / who among them is not carved from falsehood?"
+        },
+        {
+          "case_num": 97,
+          "title_zh": "金剛經先世罪業",
+          "title_pinyin": "Jīngāngjīng Xiānshì Zuìyè",
+          "title_en": "The Diamond Sutra on Past Karma",
+          "pointer_zh": "垂示云。拈一放一。未是作家。舉一明三。猶乖宗旨。直得天地陡變四方絕唱。雷奔電馳雲行雨驟。傾湫倒嶽甕瀉盆傾。也未提得一半在。還有解轉天關能移地軸底麼。試舉看。",
+          "pointer_en": "Pointer: To take up one and release one is not yet mastery; to raise one and illumine three still strays from the tradition's meaning. Though heaven and earth fold suddenly and all four quarters cease their song, thunder runs, lightning races, clouds walk and rain rushes, pools drain and peaks topple, jars pour out and basins overturn — you still have not grasped even half. Is there anyone who can revolve heaven's hinges and shift the axis of the earth? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "金剛經引文 / From the Diamond Sutra",
+              "zh": "《金剛經》云：「若為人輕賤，是人先世罪業，應墮惡道；以今世人輕賤故，先世罪業，則為消滅。」",
+              "pinyin": "《Jīngāng jīng》yún：「 Ruò wèi rén qīngjiàn， shì rén xiānshì zuìyè， yīng duò èdào； yǐ jīnshì rén qīngjiàn gù， xiānshì zuìyè， zé wéi xiāomiè。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The Diamond Sutra says: 'If one is held in contempt by others, that person's past-life evil karma, which should have borne a fall into evil ways, is through this contempt of the present world utterly extinguished.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。金剛經云。若為人輕賤是人先世罪業應墮惡道以今世人輕賤故先世罪業則為消滅。金剛經云。若為人輕賤。是人先世罪業應墮惡道。以今世人輕賤故。先世罪業則為消滅。只據平常講究。乃經中常論。雪竇拈來頌這意。欲打破教家鬼窟裏活計。昭明太子科此一分。為能淨業障。教中大意說此經靈驗。如此之人先世造地獄業。為善力強未受。以今世人輕賤故。先世罪業則為消滅。此經故能消無量劫來罪業。轉重成輕轉輕不受。復得佛果菩提。據教家。轉此二十餘張經。便喚作持經。有什麼交涉。有底道。經自有靈驗。若恁麼。爾試將一卷放在閑處看。他有感應也無。法眼云。證佛地者。名持此經。經中云。一切諸佛。及諸佛阿耨多羅三藐三菩提法。皆從此經出。且道喚什麼作此經。莫是黃卷赤軸底是麼。且莫錯認定盤星。金剛諭於法體堅固。故物不能壞。利用故。能摧一切物。擬山則山摧。擬海則海竭。就諭彰名。其法亦然。此般若有三種。一實相般若。二觀照般若。三文字般若。實相般若者即是真智。乃諸人脚跟下。一段大事。輝騰今古。逈絕知見。淨裸裸赤灑灑者是。觀照般若者即是真境。二六時中。放光動地。聞聲見色者是。文字般若者即能詮文字。即如今說者聽者。且道是般若不是般若。古人道。人人有一卷經。又道。手不執經卷。常轉如是經。若據此經靈驗。何止轉重令輕轉輕不受。設使敵聖功能未為奇特。不見龐居士聽講金剛經。問座主曰。俗人敢有小問。不知如何。主云。有疑請問。士云。無我相無人相。既無我人相。教阿誰講阿誰聽。座主無對。却云。某甲依文解義。不知此意。居士乃有頌云。無我亦無人。作麼有疎親。勸君休歷座。爭似直求真。金剛般若性外絕一纖塵。我聞并信受總是假稱名。此頌最好。分明一時說了也。圭峯科四句偈云。凡所有相皆是虛妄若見諸相非相即見如來。此四句偈義。全同證佛地者名持此經。又道。若以色見我。以音聲求我。是人行邪道。不能見如來。此亦是四句偈。但中間取其義全者。僧問晦堂。如何是四句偈。晦堂云。話墮也不知。雪竇於此經上指出。若有人持此經者。即是諸人本地風光本來面目。若據祖令當行。本地風光本來面目。亦斬為三段。三世諸佛十二分教不消一揑。到這裏設使有萬種功能。亦不能管得。如今人只管轉經。都不知是箇什麼道理。只管道。我一日轉得多少。只認黃卷赤軸巡行數墨。殊不知全從自己本心上起。這箇唯是轉處些子。大珠和尚云。向空屋裏堆數函經看。他放光麼。只以自家一念發底心是功德。何故。萬法皆出於自心。一念是靈。既靈即通。既通即變。古人道。青青翠竹盡是真如。欝欝黃花無非般若。若見得徹去。即是真如。忽未見得。且道作麼生喚作真如。華嚴經云。若人欲了知三世一切佛。應觀法界性一切唯心造。爾若識得去。逢境遇緣。為主為宗。若未能明得。且伏聽處分。雪竇出眼頌大概。要明經靈驗也。頌云。",
+          "verse_zh": "明珠在掌有功者賞胡漢不來全無技倆伎倆既無波旬失途瞿曇瞿曇識我也無",
+          "verse_en": "The bright pearl in the palm — merit receives its reward; / when Tartars and Han decline to come, there is no trickery left. / With no trickery, Mara's minions lose their way. / Gautama, Gautama — do you know me or not?"
+        },
+        {
+          "case_num": 98,
+          "title_zh": "天平兩錯",
+          "title_pinyin": "Tiānpíng Liǎng Cuò",
+          "title_en": "Tianping's Two Wrongs",
+          "pointer_zh": "垂示云。一夏嘮嘮打葛藤。幾乎絆倒五湖僧。金剛寶劍當頭截。始覺從來百不能。且道作麼生是金剛寶劍。眨上眉毛。試請露鋒鋩看。",
+          "pointer_en": "Pointer: All summer I babbled through the tangled vines and nearly tripped every monk from the five lakes. The diamond sword swung at my head — and I first knew I'd never been able to do anything at all. Tell me: what is the diamond sword? Raise your brows and bare its edge — show us!",
+          "dialogue": [
+            {
+              "speaker": "天平和尚與西院 / Master Tianping and Xiyuan",
+              "zh": "天平和尚行脚時參西院，常云：「莫道會佛法，覓箇舉話人也無。」一日西院遙見，召云：「從漪。」平舉頭。西院云：「錯！」平行三兩步。西院又云：「錯！」平近前。西院云：「適來這兩錯，是西院錯，是上座錯？」平云：「從漪錯。」院云：「錯！」平休去。西院留度夏。",
+              "pinyin": "Tiānpíng héshàng xíngjiǎo shí cān Xīyuàn， cháng yún：「 Mò dào huì fófǎ， mì ge jǔhuà rén yě wú。」 Yīrì Xīyuàn yáo jiàn， zhào yún：「 Cóngyī。」 Píng jǔtóu。 Xīyuàn yún：「 Cuò！」 Píng xíng sānliǎng bù。 Xīyuàn yòu yún：「 Cuò！」 Píng jìn qián。 Xīyuàn yún：「 Shìlái zhè liǎng cuò， shì Xīyuàn cuò， shì shàngzuò cuò？」 Píng yún：「 Cóngyī cuò。」 Yuàn yún：「 Cuò！」 Píng xiū qù。 Xīyuàn liú dù xià。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "While wandering, Master Tianping visited Xiyuan, always saying, 'Say not that you know the Buddha's teaching — you cannot even find a man who can state the topic.' One day Xiyuan, seeing him from afar, called out, 'Congyi.' Tianping lifted his head. Xiyuan said, 'Wrong!' Tianping took three or four steps. Xiyuan said again, 'Wrong!' Tianping came closer. Xiyuan said, 'These two wrongs just now — was the wrong Xiyuan's, or was it Your Eminence's?' Tianping said, 'Congyi's wrong.' Xiyuan said, 'Wrong!' Tianping gave it up — but stayed with Xiyuan the whole summer.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。天平和尚行脚時參西院。常云。莫道會佛法。覓箇舉話人也無一日西院遙見召云。從漪平舉頭西院云。錯平行三兩步西院又云。錯平近前西院云。適來這兩錯。是西院錯。是西院錯。是上座錯平云。從漪錯西院云。錯平休去西院云。且在這裏過夏。待共上座商量這兩錯平當時便行後住院謂眾云我當初行脚時。被業風吹。到思明長老處。連下兩錯。更留我過夏。待共我商量。我不道恁麼時錯。我發足向南方去時。早知道錯了也漪。思明先參大覺。後承嗣前寶壽。一日問。踏破化城來時如何。壽云。利劍不斬死漢。明云。斬壽便打。思明十回道斬。壽十回打云。這漢著甚死急。將箇死屍。抵他痛棒。遂喝出。其時有一僧。問寶壽云。適來問話底僧。甚有道理。和尚方便接他。寶壽亦打趕出這僧。且道寶壽亦趕這僧。唯當道他說是說非。且別有道理。意作麼生。後來俱承嗣寶壽。思明一日出見南院。院問云。甚處來。明云。許州來。院云。將得什麼來。明云。將得箇江西剃刀。獻與和尚。院云。既從許州來。因甚却有江西剃刀阿剌剌。天平曾參進山主來。為他到諸方。參得些蘿蔔頭禪。在肚皮裏。到處便輕開大口道。我會禪會道。常云。莫道會佛法。覓箇舉話人也無。屎臭氣薰人。只管放輕薄。且如諸佛未出世。祖師未西來。未有問答。未有公案已前。還有禪道麼。古人事不獲已。對機垂示。後人喚作公案。因世尊拈花。迦葉微笑。後來阿難問迦葉。世尊傳金襴外別傳何法。迦葉云。阿難。阿難應諾。迦葉云。倒却門前剎竿著。只如未拈花阿難未問已前。甚處得公案來。只管被諸方冬瓜印子印定了便道。我會佛法奇特。莫教人知。天平正如此。被西院叫來連下兩錯。直得周慞惶怖分疎不下。前不搆村後不迭店。有者道。說箇西來意。早錯了也。殊不知西院這兩錯落處。諸人且道。落在什麼處。所以道。他參活句不參死句。天平舉頭。已是落二落三了也。西院云。錯。他却不薦得當陽用處。只道我肚皮裏有禪。莫管他。又行三兩步。西院又云。錯。却依舊黑漫漫地。天平近前。西院云。適來兩錯。是西院錯。是上座錯。天平云。從漪錯。且喜沒交涉。已是第七第八頭了也。西院云。且在這裏度夏。待共上座商量這兩錯。天平當時便行。似則也似。是則未是。也不道他不是。只是趕不上。雖然如是。却有些子衲僧氣息。天平後住院謂眾云。我當初行脚時。被業風吹到思明和尚處。連下兩錯。更留我度夏。待共我商量。我不道恁麼時錯。我發足向南方去時。早知道錯了也。這漢也殺道。只是落第七第八頭。料掉沒交涉。如今人聞他道。發足向南方去時。早知道錯了也。便去卜度道。未行脚時。自無許多佛法禪道。及至行脚。被諸方熱瞞。不可未行脚時。喚地作天。喚山作水。幸無一星事。若總恁麼作流俗見解。何不買一片帽戴大家過時。有什麼用處。佛法不是這箇道理。若論此事。豈有許多般葛藤。爾若道我會他不會。擔一檐禪。遶天下走。被明眼人勘破。一點也使不著。雪竇正如此頌出。",
+          "verse_zh": "禪家流愛輕薄滿肚參來用不著堪悲堪笑天平老却謂當初悔行脚錯錯西院清風頓銷鑠",
+          "verse_en": "The house of Chan loves to take things lightly — / full-bellied groping, never any use. / Pitiful and laughable, old Tianping: / 'All my wandering was in vain,' he now repents. / Wrong! Wrong! Xiyuan's clear wind — / it melts and dissolves at once."
+        },
+        {
+          "case_num": 99,
+          "title_zh": "忠國師十身調御",
+          "title_pinyin": "Zhōng Guóshī Shíshēn Tiáoyù",
+          "title_en": "National Teacher Zhong: 'Walk Right Atop Vairochana's Crown'",
+          "pointer_zh": "垂示云。龍吟霧起虎嘯風生。出世宗猷金玉相振。通方作略箭鋒相拄。遍界不藏遠近齊彰。古今明辨。且道是什麼人境界。試舉看。",
+          "pointer_en": "Pointer: When dragons sing, mists rise; when tigers howl, winds are born. The tradition guide of all ages rings like jade and gold; the open strategist's arrows meet tip to tip. In the whole realm nothing hides — near and far shine together, ancient and modern stand illumined. Tell me: whose realm is this? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "肅宗帝與忠國師 / Emperor Suzong and National Teacher Zhong",
+              "zh": "肅宗帝問忠國師：「如何是十身調御？」國師云：「檀越踏毘盧頂上行。」帝云：「寡人不會。」國師云：「莫認自己清淨法身。」",
+              "pinyin": "Sùzōng dì wèn Zhōng guóshī：「 Rúhé shì shíshēn tiáoyù？」 Guóshī yún：「 Tányuè tà Pílú dǐng shàng xíng。」 Dì yún：「 Guǎrén bù huì。」 Guóshī yún：「 Mò rèn zìjǐ qīngjìng fǎshēn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Emperor Suzong asked National Teacher Zhong, 'What is the ten-bodied guide of beings?' The teacher said, 'O donor, tread right upon the crown of Vairochana's head.' The emperor said, 'I do not understand.' The teacher said, 'Do not mistake your own pure Dharma body for yourself.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。肅宗帝問忠問師。如何是十身調御國師云。檀越踏毘盧頂上行帝云。寡人不會國師云。莫認自己清淨法身。肅宗皇帝。在東宮時。已參忠國師。後來即位。敬之愈篤。出入迎送躬自捧車輦。一日致箇問端來。問國師云。如何是十身調御。師云。檀越踏毘盧頂上行。國師平生。一條脊梁骨硬如生鐵。及至帝王面前。如爛泥相似。雖然答得廉纖。却有箇好處。他道。爾要會得。檀越須是向毘盧頂澗上行始得。他却不薦。更道。寡人不會。國師後面。忒殺郎當落草。更注頭上底一句云。莫錯認自己清淨法身。所謂人人具足。箇箇圓成。看他一放一收。八面受敵。不見道。善為師者。應機設教。看風使帆。若只僻守一隅。豈能回互。看他黃檗老善能接人。遇著臨濟。三回便痛施六十棒。臨濟當下便會去。及至為裴相國。葛藤忒殺。此豈不是善為人師。忠國師善巧方便。接肅宗帝。蓋為他有八面受敵底手段。十身調御者。即是十種他受用身。法報化三身。即法身也。何故報化非真佛。亦非說法者。據法身。則一片虛凝。靈明寂照。太原孚上座。在揚州光孝寺。講涅槃經。有游方僧。即夾山典座。在寺阻雪。因往聽講。講至三因佛性三德法身。廣談法身妙理。典座忽然失笑。孚乃目顧。講罷令請禪者問云。某素智狹劣。依文解義。適來講次。見上人失笑。某必有所短乏處。請上人說。典座云。座主不問。即不敢說。座主既問。則不可不言。某實是笑座主不識法身。孚云。如此解說。何處不是。典座云。請座主更說一遍。孚曰。法身之理。猶若太虛。竪窮三際。橫亘十方。彌綸八極。包括二儀。隨緣赴感。靡不周遍。典座曰。不道座主說不是。只識得法身量邊事。實未識法身在。孚曰。既然如是。禪者當為我說。典座曰。若如是。座主暫輟講旬日。於靜室中端然靜慮。收心攝念。善惡諸緣一時放却。自窮究看。孚一依所言。從初夜至五更。聞鼓角鳴。忽然契悟。便去叩禪者門。典座曰。阿誰。孚曰某甲。典座咄曰。教汝傳持大教。代佛說法。夜半為什麼。醉酒臥街。孚曰。自來講經。將生身父母鼻孔扭揑。從今日已後。更不敢如是。看他奇特漢。豈只去認箇昭昭靈靈。落在驢前馬後。須是打破業識。無一絲毫頭可得。猶只得一半在。古人道。不起纖毫修學心。無相光中常自在。但識常寂滅底。莫認聲色。但識靈知。莫認妄想。所以道。假使鐵輪頂上旋。定慧圓明終不失。達磨問二祖。汝立雪斷臂。當為何事。祖曰。某甲心未安。乞師安心。磨云。將心來。與汝安。祖曰。覓心了不可得。磨曰。與汝安心竟。二祖忽然領悟。且道。正當恁麼時。法身在什麼處。長沙云。學道之人不識真。只為從前認識神。無量劫來生死本。癡人喚作本來人。如今人只認得箇昭昭靈靈。便瞠眼努目弄精魂。有什麼交涉。只如他道莫認自己清淨法身。且如自己法身。爾也未夢見在。更說什麼莫認。教家以清淨法身為極則。為什麼却不教人認。不見道。認著依前還不是咄。好便與棒。會得此意者。始會他道莫認自己清淨法身。雪竇嫌他老婆心切。爭奈爛泥裏有刺。豈不見洞山和尚接人有三路。所謂玄路鳥道展手。初機學道。且向此三路行履。僧問師。尋常教學人行鳥道。未審如何是鳥道。洞山云。不逢一人。僧云。如何行。山云。直須足下無私去。僧云。只如行鳥道。莫便是本來面目否。山云。闍黎因什麼顛倒。僧云。什麼處是學人顛倒處。山云。若不顛倒。為什麼認奴作郎。僧云。如何是本來面目。山云。不行鳥道。須是見倒這般田地。方有少分相應。直下打疊教削迹吞聲。猶是衲僧門下。沙彌童行見解在。更須回首塵勞。繁興大用始得。雪竇頌云。",
+          "verse_zh": "一國之師亦強名南陽獨許振嘉聲大唐扶得真天子曾踏毘盧頂上行鐵鎚擊碎黃金骨天地之間更何物三千剎海夜沈沈不知誰入蒼龍窟",
+          "verse_en": "A state's teacher — a strong name at best: / at Nanyang alone he raised the splendid voice. / Great Tang's hand upheld the true Son of Heaven — / he once trod right upon Vairochana's crown. / An iron hammer shatters golden bones — / between heaven and earth, what remains? / Three thousand kshetras of night sink deep — / who knows who entered the black dragon's cavern?"
+        },
+        {
+          "case_num": 100,
+          "title_zh": "巴陵吹毛劍",
+          "title_pinyin": "Bālíng Chuīmáo Jiàn",
+          "title_en": "Baling: 'The Coral Branches Hold Up the Moon'",
+          "pointer_zh": "垂示云。收因結果。盡始盡終。對面無私。元不曾說。忽有箇出來道一夏請益為什麼不曾說。待爾悟來向爾道。且道為復是當面諱却。為復別有長處。試舉看。",
+          "pointer_en": "Pointer: Gathering the cause, gathering the fruit — from the very beginning to the very end, face to face without reserve: it has simply never been spoken. Suppose someone comes out and says, 'All summer I begged instruction — why was it never spoken?' Wait until you awaken, and I will tell you. Tell me: is it because it was concealed to your face, or is there some other virtue in it? Watch as I raise the case.",
+          "dialogue": [
+            {
+              "speaker": "巴陵與僧 / Baling and the monk",
+              "zh": "僧問巴陵：「如何是吹毛劍？」陵云：「珊瑚枝枝撐著月。」",
+              "pinyin": "Sēng wèn Bālíng：「 Rúhé shì chuīmáo jiàn？」 Líng yún：「 Shānhú zhī zhī chēng zháo yuè。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked Baling, 'What is the hair-splitting sword?' Baling said, 'Coral branches, every one, holding up the moon.'",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "。僧問巴陵。如何是吹毛劍。陵云。珊瑚枝枝撐著月。巴陵不動干戈。四海五湖多少人舌頭落地。雲門接人正如此。他是雲門的子。亦各具箇作略。是故道。我愛韶陽新定機。一生與人抽釘拔楔。這箇話正恁麼地也。於一句中。自然具三句。函蓋乾坤句。截斷眾流句。隨波逐浪句。答得也不妨奇特。浮山遠錄公云。未透底人參句不如參意。透得底人。參意不如參句。雲門下有三尊宿。答吹毛劍俱云了。唯是巴陵答得過於了字。此乃得句也。且道。了字與珊瑚枝枝撐著月。是同是別。前來道。三句可辨。一鏃遼空。要會這話。須是絕情塵意想。淨盡方見他道珊瑚枝枝撐著有。若更作道理。轉見摸索不著。此語是禪月懷友人詩曰。厚似鐵圍山上鐵。薄似雙成仙體纈。蜀機鳳雛動蹶蹩。珊瑚枝枝撐著月。王凱家中藏難掘。顏回飢漢愁天雪。古檜筆直雷不折。雪衣石女蟠桃缺。佩入龍宮步遲遲。繡簾銀簟何參差。即不知驪龍失珠。知不知。巴陵於句中。取一句答吹毛劍。則是快。劍刃上吹毛試之。其毛自斷。乃利劍謂之吹毛也。巴陵只就他問處。便答這僧話。頭落也不知。頌云。",
+          "verse_zh": "要平不平大巧若拙或指或掌倚天照雪大冶兮磨礱不下良工兮拂拭未歇",
+          "verse_en": "To level the levelless — great skill seems clumsy; / now pointing, now rising — leaning on heaven, lighting on snow. / The great forge never stops its tempering; / the fine craftsman never rests his wiping."
         }
       ],
-      "coverage_note": "14/100 cases — cases 1–10 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08; 著語 inline notes normalized out of 本則; post-verse 評唱 rendering and human sign-off pending); cases 12, 14, 21, 43 remain excerpt seeds.",
-      "zh_chars": 7412
+      "coverage_note": "100/100 cases — the Biyanlu is COMPLETE: all 100 cases carry pointer (where canon present), main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, completed 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–100 building on the 2026-08-08 1–14 seed run) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; T cases with no 垂示 recorded (6/14/18/26/28/30/34/36/42/44/48/52/58/64/67/71/72/78/80/83/93/96 = 22 cases); variants 韻陽/韶陽 (14), 韓獹 (43, 通作盧), 頗 (63) recorded; case 20 joins its two 頌; cases 22/60 keep printed closing shouts; cases 81–100 頌評唱, plus all post-verse 評唱 renderings, and human sign-off remain pending).",
+      "zh_chars": 75658
     },
     "platform_sutra": {
       "id": "platform_sutra",

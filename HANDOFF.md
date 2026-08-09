@@ -12,7 +12,7 @@
 The TranslateChan project has been fully established with:
 1. **Grand Vision & Architectural Blueprint** ([`vision.md`](./vision.md)): Canonical scope spanning CBETA / Taishō Tripiṭaka Volumes 47, 48, and 51.
 2. **Project Roadmap & Milestone Execution Plan** ([`ROADMAP.md`](./ROADMAP.md)): Phased milestones from foundational corpus to living knowledge graph (statuses measured, not aspirational).
-3. **Core Canonical Corpus Seeds** (`data/corpus/`): 36 excerpt-scale canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties (authentic anchor passages; completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
+3. **Core Canonical Corpus** (`data/corpus/`): 36 canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties — **Wumenguan and the Biyanlu are the first two fully collated complete texts** (48/48 and 100/100 cases ✅, 2026-08-08/09); the remaining 34 files are excerpt-scale seeds (completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
 4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 34 master profiles (30 researched seeds plus 4 clearly labeled frontier scaffolds) with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan; **school affiliation normalized 2026-08-09** into the validator-enforced `school_key` vocabulary in `data/lineage/school_vocabulary.json`, which now drives the filter UI and graph colors).
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
 6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 ✅ verified registers on the Case-1 (Mu) row** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
@@ -22,29 +22,28 @@ The TranslateChan project has been fully established with:
 
 ---
 
-## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe64a-translatechan`)
+## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe731-translatechan`)
 
 ### Public Pages scope
 
 The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return).
 
-### What this session delivered (PR #9, all gates green; full report: [`AUDIT_RESPONSE_2026-08-09.md`](./AUDIT_RESPONSE_2026-08-09.md))
+### What this session delivered (all gates green; full report: [`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md))
 
-Independent full-project audit found no P0/P1/P2 defects. Shipped improvements:
+Independent full-project audit again found no P0/P1/P2 defects; all ten catalogued findings (N1–N10) shipped same-session, **and the Biyanlu corpus-completion campaign reached 100/100 cases**:
 
-1. **Semantic document outline (a11y B2):** every public view title is a real `h1` and every card/unit title is a real `h2`; visuals unchanged via heading reset; smoke `4m6`.
-2. **Data-derived lineage graph colors (A2):** each school in `data/lineage/school_vocabulary.json` now carries a curated `color`; the hardcoded palette was removed; validator/schema/smoke `4m2b` enforce it.
-3. **Historical link repair (A1):** corrected three stale `./AUDIT.md` links in dated session reports.
-4. **Dark-theme FOUC guard (B1):** external CSP-clean `theme-init.js` applies persisted `data-theme` before first paint; build/docs/smoke covered.
-5. **Explicit translation records (A4):** converted all 736 legacy bare-string corpus translations to `{text,status}` objects via `scripts/migrate_translations.py`; validator/schema/smoke `4m7` reject regression.
-6. **a11y/SEO/copy polish (B3/B5/B6):** decorative emoji are `aria-hidden`; hero corpus/translator counts are data-derived; added `theme-color`, canonical URL, Open Graph/Twitter metadata, `robots.txt`, and `sitemap.xml`.
-7. **Script loading/perf (B4):** `app_data.js` and `app.js` now use `defer` while preserving order.
-8. **Tooling clarity (C3):** renamed `ingest_cbeta.py` to `segment_classical.py` and kept a deprecated compatibility wrapper; docs updated.
-9. **Schema/validator hardening (C2):** strict additional-property rules for translation records, quotation sources, matrix translators, lineage edges, lineage sources, and controlled-vocabulary entries.
+1. **Accessibility batch (N1/N2/N3/N6):** `motionBehavior()` reduced-motion scroll gate; dossier panel became a focus-managed non-modal dialog (Escape/✕ close + focus restore); glossary popover revealed on focus with `role="tooltip"`; search input is `type="search"` with an accessible name inside a `role="search"` landmark.
+2. **Search UX batch (N4/N5):** search result cards disclose which field matched (register/pinyin/title) via `renderSearchMatchNote`; pinyin search is diacritic-folded (NFD + combining-mark strip), so `zhaozhou` finds `Zhàozhōu`.
+3. **P4 polish (N7/N8/N10):** lineage graph re-layout debounced on resize; popovers are capped, scrollable, interactive, and flip via measured `positionFloatingPopover`; citation text legibility raised 0.62 → 0.72 rem.
+4. **Housekeeping (N9/N10):** previous session's dated reports moved from repo root into `sessions/` per the §5 convention; AUDIT.md §4 index rows updated; README repo tree refreshed; `theme-init.js` mirror sync (~799 → ~873 KB → now ~1.36 MB bundle).
+5. **Biyanlu corpus campaign — COMPLETE 100/100 ✅:** cases 11/13/15–100 collated from `cbeta-org/xml-p5` TEI (T48n2003) with CBETA Online spot-checks (垂示/本則/評唱/頌 sliced by verse groups; 著語 inline notes stripped; `<g ref>` glyphs resolved via charDecl). **Provenance integrity repair:** pre-existing seeds 12/14/21 were fabricated or collection-confused (case 14 carried Wumenguan/Nanquan-cat content, case 21 carried Wumenguan-21 乾屎橛) — all replaced with canonical text and disclosed in locator records; truncated 1–3 verses completed to canon. 22 canonically pointerless cases recorded; variants 韻陽/韶陽 (14), 韓獹 (43), 頗 (63) documented. Post-verse 頌評唱 rendering + human collation sign-off are explicitly tracked as pending in the file's `coverage_note`.
+6. **Gong'an index:** `biyan_11` added; `biyan_21` corrected (Wumenguan contamination removed) → **24 entries** with all Biyanlu locators collated.
+7. **Metrics truthfulness:** the validator's `complete_documents` metric was hardcoded to Wumenguan alone; it is now derived generically from manifest `unit_targets` (Wumenguan 48/48 + Biyanlu 100/100 → **34 excerpt seeds**), and the stale "14 ingested cases" copy in the Lexicon scope note was generalized.
+8. **Ops notes:** GitHub token auth lapsed mid-session (~17:20 UTC) and recovered; the CF-1 CI workflow-path fix was attempted, confirmed blocked by the token's missing `workflows` scope (owner action below), and reverted locally.
 
 ### Source, translation, and lineage disclosure
 
-- Every public Reader document/case shows a canonical source location plus hover/focus/touch details and a validator-derived coverage disclosure (e.g. `48/48 cases`, `14/100 cases`, `Excerpt seed (N units)`).
+- Every public Reader document/case shows a canonical source location plus hover/focus/touch details and a validator-derived coverage disclosure (e.g. `48/48 cases`, `100/100 cases`, `Excerpt seed (N units)`).
 - Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **135 / 140** verified quotation records have a recorded reference; the remaining **5** are explicitly pending.
 - AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation.
 - The lineage graphic reads from the verification registry and the data-derived school palette; **30** in-set links and **4** frontiers remain source-status aware.
@@ -53,7 +52,7 @@ Independent full-project audit found no P0/P1/P2 defects. Shipped improvements:
 
 ```bash
 python3 -m py_compile scripts/*.py
-python3 scripts/validate_data.py          # corpus=36 | slots=874 | verified=138 | matrix=21 | locators=64/64
+python3 scripts/validate_data.py          # corpus=36 | slots=949 | verified=138 | matrix=21 | locators=150/150
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium
@@ -67,7 +66,7 @@ All commands pass. Root and `/docs` assets/data are synchronized.
 
 ### Owner follow-up: CI workflow path list
 
-The session token lacks GitHub App `workflows` permission, so `.github/workflows/quality.yml` was not modified. Extend the generated-artifact gate path list to include:
+The session token lacks GitHub App `workflows` permission, so `.github/workflows/quality.yml` was not modified — **re-confirmed 2026-08-09 (session `019fe731`): the one-line fix was committed and rejected by GitHub on push (`refusing to allow a GitHub App to create or update workflow ... without workflows permission`) and reverted.** Extend the generated-artifact gate path list to include:
 
 ```text
 docs/theme-init.js
@@ -75,13 +74,11 @@ docs/robots.txt
 docs/sitemap.xml
 ```
 
-Local gates and smoke tests already enforce these files.
+Local gates and smoke tests already enforce these files. (Alternatively, grant the sessions GitHub App token the `workflows` scope so agent sessions can maintain CI themselves.)
 
 ### GitHub Actions quality gate
 
-`.github/workflows/quality.yml` is checked in and runs on pushes to `main` and `arena/**`, plus pull requests targeting `main`. It validates Python syntax, source data/metrics, deterministic generated artifacts, the `/docs` mirror, and the dependency-free reader smoke suite. It does **not** deploy Pages; Pages remains native branch publishing from `main` `/docs`.
-
-Owner follow-up (2026-08-09): the session token could not update workflow YAML, so `.github/workflows/quality.yml`'s generated-artifact `git diff --exit-code` path list should be extended to include `docs/theme-init.js`, `docs/robots.txt`, and `docs/sitemap.xml`. Local gates already enforce these via `diff -q`; the smoke test also requires their presence.
+`.github/workflows/quality.yml` is checked in and runs on pushes to `main` and `arena/**`, plus pull requests targeting `main`. It validates Python syntax, source data/metrics, deterministic generated artifacts, the `/docs` mirror, and the dependency-free reader smoke suite. It does **not** deploy Pages; Pages remains native branch publishing from `main` `/docs`. (The remaining workflow-path-list gap is the single owner action described just above.)
 
 ### Repository administration — require the Quality check on `main` (owner action, ~2 minutes)
 
@@ -105,11 +102,13 @@ The same commands the workflow runs are the local release checklist above, so th
 
 ### Merge readiness
 
-Current branch: `arena/019fe5d5-translatechan`. Before merging, confirm the local quality gate above and the green **Quality** check; after merge, GitHub Pages republishes `main` → `/docs` automatically (~60 s).
+Current branch: `arena/019fe731-translatechan` (each session works on its own `arena/<session>-translatechan`). This session's PR to `main` was opened and merged by the session per the handoff instruction; before merge, the local quality gate above was green and the **Quality** check passed. After merge, GitHub Pages republishes `main` → `/docs` automatically (~60 s).
 
 ---
 
 ## 📍 Historical Session Deltas (compact)
+
+**PR #9 is merged into `main` (session `arena/019fe64a-translatechan`, 2026-08-09); compact map** (full detail in [`sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md)): independent audit → no P0/P1/P2; semantic heading outline (B2); data-derived lineage graph colors from `school_vocabulary.json` (A2); dark-theme FOUC guard `theme-init.js` (B1); 736 bare-string → `{text,status}` translation records (A4); aria-hidden emoji, data-derived hero counts, OG/Twitter/robots/sitemap/canonical SEO pass (B3/B5/B6); deferred scripts (B4); `segment_classical.py` rename (C3); schema/validator strictness wave (C2).
 
 **PR #7 is merged into `main` (session `arena/019fe30b-translatechan`, 2026-08-08); compact map** (full detail in [`sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`](./sessions/SESSION_AUDIT_2026-08-08_019fe30b.md) + `sessions/AUDIT_archive_2026-08-08.md` §11): full-project audit (no P0/P1, prior remediations verified holding); a11y/CSP hardening (delegated `data-*` handlers replacing all inline `onclick`, full ARIA tabs, restrictive CSP meta); deterministic per-text coverage metrics (`project_metrics.json → corpus.per_text` for all 36 texts); optional Playwright real-browser suite (12 tests, desktop + mobile, graceful skip); **Biyanlu 4–10 pilot** (first 10 cases complete, zh collated byte-exact from CBETA TEI T48n2003; index 18 → 23); reader 📊 coverage disclosures (excerpts can no longer be mistaken for complete texts) + UX pass.
 
@@ -227,7 +226,7 @@ translatechan/
 │   ├── glossary/
 │   │   └── chan_terms.json             # 31 Classical Chan & Buddhist lexicon terms
 │   └── gongan/
-│       ├── gongan_index.json           # 23 Gong'an cross-references index entries
+│       ├── gongan_index.json           # 24 Gong'an cross-references index entries
 │       └── theme_vocabulary.json       # Controlled 7-group theme taxonomy (drives index filter chips)
 └── scripts/
     ├── build_data_bundle.py            # Bundles data/ and synchronizes /docs

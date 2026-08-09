@@ -1,17 +1,18 @@
 {
   "canonical_locator_coverage": {
     "case_level_documents": 3,
-    "case_locators": 64,
-    "declared_cases": 64,
+    "case_locators": 150,
+    "declared_cases": 150,
     "document_level_seed_documents": 33,
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 23314,
+    "all_corpus_cjk_characters": 92450,
     "complete_documents": [
+      "biyanlu_cases",
       "wumenguan"
     ],
-    "content_cjk_characters": 20017,
+    "content_cjk_characters": 88263,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -22,7 +23,7 @@
       "stanzas": 4
     },
     "documents": 36,
-    "excerpt_seed_documents": 35,
+    "excerpt_seed_documents": 34,
     "per_text": {
       "baizhang_guanglu": {
         "all_cjk_chars": 333,
@@ -49,18 +50,18 @@
         }
       },
       "biyanlu_cases": {
-        "all_cjk_chars": 7619,
+        "all_cjk_chars": 76755,
         "cbeta_id": "T2003",
-        "content_zh_chars": 7412,
-        "coverage": "14/100 cases",
-        "coverage_note": "14/100 cases — cases 1–10 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08; 著語 inline notes normalized out of 本則; post-verse 評唱 rendering and human sign-off pending); cases 12, 14, 21, 43 remain excerpt seeds.",
-        "declared_zh_chars": 7412,
+        "content_zh_chars": 75658,
+        "coverage": "100/100 cases",
+        "coverage_note": "100/100 cases — the Biyanlu is COMPLETE: all 100 cases carry pointer (where canon present), main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, completed 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–100 building on the 2026-08-08 1–14 seed run) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; T cases with no 垂示 recorded (6/14/18/26/28/30/34/36/42/44/48/52/58/64/67/71/72/78/80/83/93/96 = 22 cases); variants 韻陽/韶陽 (14), 韓獹 (43, 通作盧), 頗 (63) recorded; case 20 joins its two 頌; cases 22/60 keep printed closing shouts; cases 81–100 頌評唱, plus all post-verse 評唱 renderings, and human sign-off remain pending).",
+        "declared_zh_chars": 75658,
         "shapes": [
           "cases"
         ],
         "title": "Blue Cliff Record (碧巖錄)",
         "unit_counts": {
-          "cases": 14
+          "cases": 100
         }
       },
       "bodhidharma_erru": {
@@ -497,6 +498,7 @@
   },
   "measurement_method": {
     "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
+    "complete_documents": "Documents whose every manifest-declared unit target is met by present units (e.g. Wumenguan 48/48, Biyanlu 100/100).",
     "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
     "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, declared coverage_note/zh_chars, and (when the shared manifest declares unit_targets) a machine-checkable 'N/M units' coverage string.",
     "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
@@ -508,10 +510,10 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 874,
+    "corpus_slots": 949,
     "corpus_statuses": {
-      "ai_draft": 44,
-      "reconstruction_unverified": 692,
+      "ai_draft": 132,
+      "reconstruction_unverified": 679,
       "verified_quotation": 138
     },
     "matrix_entries": 21,

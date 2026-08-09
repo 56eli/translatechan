@@ -827,6 +827,32 @@ def unit_counts(document: Any) -> dict[str, int]:
     }
 
 
+def complete_document_keys(corpus: dict[str, Any], manifest: Any) -> list[str]:
+    """Documents whose every manifest-declared unit target is met by the units
+    actually present (e.g. Wumenguan 48/48, Biyanlu 100/100). Documents without
+    declared targets are never counted complete; previously this list was
+    hardcoded to Wumenguan alone, which drifted the moment the Biyanlu
+    completion campaign landed (2026-08-09)."""
+    items = manifest.get("items") if is_record(manifest) else None
+    targets_by_key = {
+        item.get("key"): item.get("unit_targets")
+        for item in items or []
+        if isinstance(item, dict) and is_record(item.get("unit_targets"))
+    }
+    complete = []
+    for key, document in corpus.items():
+        targets = targets_by_key.get(key)
+        if not targets:
+            continue
+        counts = unit_counts(document)
+        if all(
+            isinstance(target, int) and target > 0 and counts.get(unit_name, 0) >= target
+            for unit_name, target in targets.items()
+        ):
+            complete.append(key)
+    return complete
+
+
 def coverage_from_targets(counts: dict[str, int], targets: Any) -> str | None:
     """Render '7/100 cases, 4/10 chapters' style coverage from manifest targets."""
     if not is_record(targets):
@@ -894,13 +920,14 @@ def compute_metrics(
     for document in corpus.values():
         for shape in content_shapes(document):
             shapes[shape] += 1
-    complete_documents = [key for key, doc in corpus.items() if key == "wumenguan" and is_record(doc) and len(doc.get("cases", [])) == 48]
+    complete_documents = complete_document_keys(corpus, corpus_manifest)
     return {
         "schema_version": "1.0",
         "measurement_method": {
             "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
             "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
             "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status.",
+            "complete_documents": "Documents whose every manifest-declared unit target is met by present units (e.g. Wumenguan 48/48, Biyanlu 100/100).",
             "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, declared coverage_note/zh_chars, and (when the shared manifest declares unit_targets) a machine-checkable 'N/M units' coverage string."
         },
         "corpus": {

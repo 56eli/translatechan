@@ -1,28 +1,12 @@
-# 📋 Session Response — 2026-08-09 · session `019fe64a`
+# Live Session Summary — 2026-08-09, session `arena/019fe731-translatechan`
 
-**One-sentence summary:** A full independent audit found the project healthy with no P0/P1/P2 defects, then shipped eight P3/P4 improvements—semantic headings, data-derived lineage colors, fixed historical links, dark-theme FOUC prevention, explicit translation records for all 736 legacy strings, aria-hidden decorative icons, data-derived hero counts, SEO/crawler metadata, deferred app scripts, and the segmenter rename—with every quality gate green and all changes pushed.
+> Working summary only (overwritten per session per AUDIT.md §5); not canonical documentation.
 
-## Completed
+## Status: ✅ Session closed — Biyanlu COMPLETE 100/100, audit N1–N10 shipped, docs/handoff refreshed, PR to `main` opened & merged; GitHub auth outage recovered
 
-- **Full audit:** re-ran all gates, reviewed docs/data/code/CSS/schema/CI, and wrote `AUDIT_RESPONSE_2026-08-09.md`.
-- **B2:** semantic heading outline (`h1`/`h2`) across all public views and card titles; smoke `4m6`.
-- **A1:** fixed 3 broken historical `AUDIT.md` links in dated session reports.
-- **A2:** graph colors now come from `school_vocabulary.json.color`; validator, schema, and smoke `4m2b` enforce it.
-- **B1:** added CSP-clean `theme-init.js` to prevent dark-theme flash; copied to docs and smoke-guarded.
-- **A4:** migrated 736 bare-string corpus translations to explicit `{text,status}` records; validator/schema reject legacy strings; smoke `4m7`.
-- **B3/B5/B6:** decorative emoji are `aria-hidden`, hero counts are data-derived, and `theme-color`, Open Graph/Twitter metadata, canonical URL, `robots.txt`, and `sitemap.xml` were added.
-- **B4:** `app_data.js` and `app.js` now use `defer` while preserving order; smoke guards it.
-- **C3:** renamed `ingest_cbeta.py` to `segment_classical.py` and kept a deprecated compatibility wrapper; updated README/HANDOFF/ROADMAP.
-
-## Gates
-
-- `python3 -m py_compile scripts/*.py` ✅
-- `python3 scripts/validate_data.py` ✅ — corpus=36, slots=874, verified=138, matrix=21, locators=64/64
-- `python3 scripts/build_data_bundle.py` ✅ — 873,042-byte bundle; docs synced
-- `node scripts/smoke_test.mjs` ✅
-- `node --check scripts/browser_test.mjs` ✅
-- Root/docs data/asset mirrors and crawler files synchronized ✅
-
-## Note
-
-The session token could not update `.github/workflows/quality.yml` due GitHub App workflow permissions; `HANDOFF.md` records the owner follow-up to add `docs/theme-init.js`, `docs/robots.txt`, and `docs/sitemap.xml` to CI's generated-artifact path list.
+- Gates green on the final tree: `validate_data.py` (`corpus=36 | slots=949 | verified=138 | matrix=21 | locators=150/150`), `build_data_bundle.py`, `smoke_test.mjs` (36 texts, 0 crashes); root↔docs mirrors byte-identical.
+- Archived report: **`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`** — independent audit (no P0/P1/P2; N1–N10 all shipped) + 5 campaign addenda + §6 close-out.
+- **✅ Biyanlu: 100/100 COMPLETE (second fully-collated text, sibling of Wumenguan)** — cases 11/13/15–100 collated from cbeta-org/xml-p5 TEI + CBETA Online; integrity repairs: cases 14/21 replaced (mis-seeded/Wumenguan-confused + fabricated verses), case-12 verse replaced, cases 1–3 verses completed to canon, case 43 gained 垂示 + 評唱; 22 canonical no-垂示 cases recorded; post-verse 頌評唱 + human sign-off tracked pending in `coverage_note`; gong'an `biyan_11` added, `biyan_21` corrected; locators 150/150, CJK 88,263/92,450.
+- Close-out fixes: validator `complete_documents` generalized from hardcoded Wumenguan to manifest `unit_targets` (34 excerpt seeds); HANDOFF rewritten for this session (PR #9 → historical deltas); ROADMAP Phase-2 Biyanlu item checked; README/AUDIT/index.html scope-note de-staled; bundle ~1.36 MB.
+- Ops: GitHub auth lapsed ~17:20 UTC and recovered; local commit objects were lost to a sandbox snapshot reset (files survived) — session delta re-committed and pushed. CF-1 CI workflow-path fix remains **owner action** (token lacks `workflows` scope).
+- Open next: Linji yulu completion pilot · CF-2 `switchViewRaw` scroll-restore · post-verse 頌評唱 ingestion + human collation sign-off · 5 pending verified references · 33 document-level locator migrations · owner items (branch protection on Quality check, editorial sign-off, C1/C4).

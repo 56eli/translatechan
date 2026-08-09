@@ -17,7 +17,7 @@ This document outlines the detailed engineering, data science, translation, and 
 ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────┤
 │  • Public reader│  • 48/48        │  • 4 Matrix     │  • Primary text │  • Middle      │
 │    + matrix +   │    Wumenguan    │    entries       │    aggregation   │    Chinese     │
-│    lineage +    │  • 14/100       │  • 31/150+      │  • Book/edition │  • DDB / SAT   │
+│    lineage +    │  • 100/100 ✅   │  • 31/150+      │  • Book/edition │  • DDB / SAT   │
 │    index +      │    Biyanlu      │    Chan terms    │    verification  │  • Multi-ling  │
 │    lexicon      │  • 36 manifests │  • Status/rights │  • Hover/focus  │    / lineage   │
 │  • Smoke test   │    + locators   │    disclosure    │    citations     │    verification│
@@ -57,7 +57,7 @@ This document outlines the detailed engineering, data science, translation, and 
   4. *Zhaozhou Yulu* (趙州語錄 / recorded-saying extracts)
   5. *Xinxin Ming* (信心銘 / opening stanzas)
   6. *Baojing Sanmei* (寶鏡三昧 / opening stanzas)
-  7. *Biyanlu* (碧巖錄 / Blue Cliff Record, T2003 — 14/100 cases; cases 1–10 complete)
+  7. *Biyanlu* (碧巖錄 / Blue Cliff Record, T2003 — **100/100 cases; COMPLETE ✅**)
   8. *Platform Sutra* (六祖壇經 / T2007 — 4/10 chapters)
   9. *+28 further yulu, treatises & poems* (Mazu, Nanquan, Dongshan + Five Ranks, Yunmen, Fayan, Guiyang, Dahui, Hongzhi, Shitou, Hanshan, Sengzhao, monastic codes, Dunhuang texts…)
 
@@ -68,7 +68,7 @@ This document outlines the detailed engineering, data science, translation, and 
 - [x] **Data Contract & Release Guardrails**:
   - Heterogeneous JSON shapes for cases, sections, dialogues, stanzas, chapters, five ranks, and sample records are supported by the renderer and described in [`schemas/translatechan-data.schema.json`](./schemas/translatechan-data.schema.json).
   - `scripts/validate_data.py` enforces semantic invariants, shared corpus-manifest integrity, translation provenance, rights-manifest coverage, case-level locator coverage, and deterministic metrics; `.github/workflows/quality.yml` runs Python compilation, data validation, deterministic artifact checks, deploy-mirror verification, and reader smoke coverage on pushes and pull requests.
-  - `data/canonical_locators.json` covers every document and all 57 current case units. Linji (4 sections) and Xinxin Ming (7 stanzas) now have reviewed CBETA line-head locator pilots, visibly labeled as collated-with-normalization pending human sign-off; the remaining 33 non-case seed documents retain honest document-level status. `data/editorial/traceability_queue.json` enforces one migration-review record per seed (3 in review, 30 awaiting a unit locator).
+  - `data/canonical_locators.json` covers every document and all 150 current case units (48 Wumenguan + 100 Biyanlu + 2 Congronglu seed cases). Linji (4 sections) and Xinxin Ming (7 stanzas) now have reviewed CBETA line-head locator pilots, visibly labeled as collated-with-normalization pending human sign-off; the remaining 33 non-case seed documents retain honest document-level status. `data/editorial/traceability_queue.json` enforces one migration-review record per seed (3 in review, 30 awaiting a unit locator).
   - `data/lineage/lineage_verification.json` aggregates all 30 in-set graph links and 4 unprofiled frontiers with source-record status; `data/lineage/profile_review_queue.json` tracks all 34 profiles (1 in review, 29 awaiting exact locators, 4 frontier-source tasks). The public chart never renders a link as source-verified until exact locators are reviewed.
 - [x] **Ingestion Tooling (seed level)**:
   - `scripts/segment_classical.py` — offline punctuation-based Classical Chinese sentence segmenter (manual input; no live CBETA fetching yet). `scripts/ingest_cbeta.py` remains as a deprecated compatibility wrapper.
@@ -80,7 +80,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - `scripts/align_translations.py` — sentence-level translation alignment (not yet written).
 - [ ] **Full-Text Ingestion Targets**:
   - [x] Wumenguan (**48 / 48 cases** — completed 2026-08-08; every case carries the verified Senzaki & Reps 1934 public-domain register)
-  - [~] Biyanlu (**14 / 100 cases** — cases 1–10 complete with pointer, 本則, pre-verse 評唱 and 頌; post-verse 評唱 rendering pending)
+  - [x] Biyanlu (**100 / 100 cases — COMPLETE ✅ 2026-08-09** — every case carries pointer (垂示, where canonically present: absent in 22 recorded cases), 本則, pre-verse 評唱 and 頌, zh collated from CBETA TEI T48n2003 via `cbeta-org/xml-p5`; integrity-repaired mis-seeded cases 14/21, completed truncated 1–3 verses and fabricated case-12 verse to canon; variants 韻陽/韶陽 (14), 韓獹 (43), 頗 (63) recorded; **post-verse 頌評唱/commentary rendering and human collation sign-off remain pending** — tracked in the file's `coverage_note`)
   - [ ] Congronglu / Book of Serenity (All 100 Cases)
   - [ ] Jingde Chuandenglu (Complete 30 Fascicles, ~1,700 masters)
   - [ ] Baizhang Qinggui & Chanyuan Qinggui (Monastic codes)
