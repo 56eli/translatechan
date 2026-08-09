@@ -52,7 +52,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Text Seeds** (36 files; authentic anchor passages, excerpt-scale — completion is Phase 2; canon IDs audited against CBETA 2026-08-08):
   1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — **48/48 cases COMPLETE** + preface + epilogue, 2026-08-08)
-  2. *Linji Yulu* (臨濟語錄 / The Record of Linji, T1985 — 4 core sermons)
+  2. *Linji Yulu* (臨濟語錄 / The Record of Linji, T1985 — completion pilot landed 2026-08-09: 67 sections across prefaces, Ascending the Hall, 示眾 and 勘辨 divisions, collated from CBETA P5 XML)
   3. *Huangbo Chuanxin Fayao* (黃檗傳心法要 / T2012A — opening sections)
   4. *Zhaozhou Yulu* (趙州語錄 / recorded-saying extracts)
   5. *Xinxin Ming* (信心銘 / opening stanzas)
@@ -81,6 +81,7 @@ This document outlines the detailed engineering, data science, translation, and 
 - [ ] **Full-Text Ingestion Targets**:
   - [x] Wumenguan (**48 / 48 cases** — completed 2026-08-08; every case carries the verified Senzaki & Reps 1934 public-domain register)
   - [x] Biyanlu (**100 / 100 cases — COMPLETE ✅ 2026-08-09** — every case carries pointer (垂示, where canonically present: absent in 22 recorded cases), 本則, pre-verse 評唱 and 頌, zh collated from CBETA TEI T48n2003 via `cbeta-org/xml-p5`; integrity-repaired mis-seeded cases 14/21, completed truncated 1–3 verses and fabricated case-12 verse to canon; variants 韻陽/韶陽 (14), 韓獹 (43), 頗 (63) recorded; **post-verse 頌評唱/commentary rendering and human collation sign-off remain pending** — tracked in the file's `coverage_note`)
+  - [~] Linji Yulu (**completion pilot: 67 sections** — prefaces, Ascending the Hall, 示眾 and 勘辨 divisions collated from CBETA P5 XML, 2026-08-09; remaining divisions and full 勘辨 verification pending)
   - [ ] Congronglu / Book of Serenity (All 100 Cases)
   - [ ] Jingde Chuandenglu (Complete 30 Fascicles, ~1,700 masters)
   - [ ] Baizhang Qinggui & Chanyuan Qinggui (Monastic codes)

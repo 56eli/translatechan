@@ -35,7 +35,7 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 1. **Accessibility batch (N1/N2/N3/N6):** `motionBehavior()` reduced-motion scroll gate; dossier panel became a focus-managed non-modal dialog (Escape/✕ close + focus restore); glossary popover revealed on focus with `role="tooltip"`; search input is `type="search"` with an accessible name inside a `role="search"` landmark.
 2. **Search UX batch (N4/N5):** search result cards disclose which field matched (register/pinyin/title) via `renderSearchMatchNote`; pinyin search is diacritic-folded (NFD + combining-mark strip), so `zhaozhou` finds `Zhàozhōu`.
 3. **P4 polish (N7/N8/N10):** lineage graph re-layout debounced on resize; popovers are capped, scrollable, interactive, and flip via measured `positionFloatingPopover`; citation text legibility raised 0.62 → 0.72 rem.
-4. **Housekeeping (N9/N10):** previous session's dated reports moved from repo root into `sessions/` per the §5 convention; AUDIT.md §4 index rows updated; README repo tree refreshed; `theme-init.js` mirror sync (~799 → ~873 KB → now ~1.36 MB bundle).
+4. **Housekeeping (N9/N10):** previous session's dated reports moved from repo root into `sessions/` per the §5 convention; AUDIT.md §4 index rows updated; README repo tree refreshed; `theme-init.js` mirror sync (~799 → ~873 KB → now ~1.69 MB bundle with the Biyanlu completion + Linji pilot).
 5. **Biyanlu corpus campaign — COMPLETE 100/100 ✅:** cases 11/13/15–100 collated from `cbeta-org/xml-p5` TEI (T48n2003) with CBETA Online spot-checks (垂示/本則/評唱/頌 sliced by verse groups; 著語 inline notes stripped; `<g ref>` glyphs resolved via charDecl). **Provenance integrity repair:** pre-existing seeds 12/14/21 were fabricated or collection-confused (case 14 carried Wumenguan/Nanquan-cat content, case 21 carried Wumenguan-21 乾屎橛) — all replaced with canonical text and disclosed in locator records; truncated 1–3 verses completed to canon. 22 canonically pointerless cases recorded; variants 韻陽/韶陽 (14), 韓獹 (43), 頗 (63) documented. Post-verse 頌評唱 rendering + human collation sign-off are explicitly tracked as pending in the file's `coverage_note`.
 6. **Gong'an index:** `biyan_11` added; `biyan_21` corrected (Wumenguan contamination removed) → **24 entries** with all Biyanlu locators collated.
 7. **Metrics truthfulness:** the validator's `complete_documents` metric was hardcoded to Wumenguan alone; it is now derived generically from manifest `unit_targets` (Wumenguan 48/48 + Biyanlu 100/100 → **34 excerpt seeds**), and the stale "14 ingested cases" copy in the Lexicon scope note was generalized.
@@ -52,7 +52,7 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 
 ```bash
 python3 -m py_compile scripts/*.py
-python3 scripts/validate_data.py          # corpus=36 | slots=949 | verified=138 | matrix=21 | locators=150/150
+python3 scripts/validate_data.py          # corpus=36 | slots=1023 | verified=138 | matrix=21 | locators=150/150
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium

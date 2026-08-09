@@ -2177,8 +2177,8 @@ window.TRANSLATECHAN_DATA = {
     {
       "id": "matrix_linji_1",
       "source_ref": "Linji Yulu Sermon 1 (T1985)",
-      "sentence_zh": "赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！",
-      "sentence_pinyin": "Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!",
+      "sentence_zh": "赤肉團上有一無位真人，常從汝等諸人面門出入，未證據者看看。",
+      "sentence_pinyin": "Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng rǔ děng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!",
       "translators": [
         {
           "translator": "Red Pine (Bill Porter)",
@@ -3416,34 +3416,34 @@ window.TRANSLATECHAN_DATA = {
             "canonical_locator": "T47n1985_p0496c10–p0496c14",
             "status": "collated_with_normalization",
             "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
-            "review_date": "2026-08-08",
+            "review_date": "2026-08-09",
             "note": "CBETA line-head range identifies the 無位真人 encounter. The project excerpt uses its own segmentation and normalized punctuation; character-level collation and editor sign-off remain required before source_checked_excerpt status.",
             "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
             "source_revision": "CBETA Online reports last updated 2025-09-01",
             "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
-            "collation_note": "All three rendered dialogue units align with T47n1985_p0496c10–p0496c14 after punctuation/segmentation normalization. Recorded textual differences include project 「師示眾云」 for CBETA 「上堂云」, 「諸人」 for 「汝等諸人」, and modern glyph 「託」 for CBETA 「托」. No substantive phrase was added."
+            "collation_note": "All three rendered dialogue units align with T47n1985_p0496c10–p0496c14 after punctuation/segmentation normalization. Recorded textual differences include project 「師示眾云」 for CBETA 「上堂云」, 「諸人」 for 「汝等諸人」, and modern glyph 「託」 for CBETA 「托」. No substantive phrase was added. 2026-08-09 completion pass: unit zh re-aligned verbatim to the CBETA canonical readings (上堂云 for the earlier 師示眾云; 汝等諸人 for 諸人; 其僧擬議，師托開，云 for the earlier segmentation; 乾屎橛？ for 乾屎橛！); pinyin regenerated. The published translations were retained because they render precisely these canonical readings."
           },
           "sections.four_shouts": {
             "canonical_locator": "T47n1985_p0504a26–p0504a29",
             "status": "collated_with_normalization",
             "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
-            "review_date": "2026-08-08",
+            "review_date": "2026-08-09",
             "note": "CBETA paragraph pT47p0504a2601 contains the four-shouts encounter. The project excerpt uses normalized wording and segmentation; character-level collation and editor sign-off remain required.",
             "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
             "source_revision": "CBETA Online reports last updated 2025-09-01",
             "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
-            "collation_note": "The two rendered units align with T47n1985_p0504a26–p0504a29 after segmentation and normalization. The project changes CBETA 「踞地金毛師子」 to 「金毛師子蹲地」; preserve that as a normalized/reordered rendering rather than treating it as a diplomatic transcription."
+            "collation_note": "The two rendered units align with T47n1985_p0504a26–p0504a29 after segmentation and normalization. The project changes CBETA 「踞地金毛師子」 to 「金毛師子蹲地」; preserve that as a normalized/reordered rendering rather than treating it as a diplomatic transcription. 2026-08-09 completion pass: unit zh re-aligned verbatim to the CBETA canonical readings (踞地金毛師子 restored in canonical order for the earlier reordered 金毛師子蹲地; serial punctuation 、; 僧擬議，師便喝。 for the earlier 僧擬議。師便喝。); pinyin regenerated. Published translations retained as they render these same meanings."
           },
           "sections.four_host_guest": {
             "canonical_locator": "T47n1985_p0501a02–p0501a15",
             "status": "collated_with_normalization",
             "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501a",
-            "review_date": "2026-08-08",
-            "note": "CBETA discussion of the four host/guest configurations spans these line heads. The project excerpt is a selective normalized segment; character-level collation and editor sign-off remain required.",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph pT47p0501a02–p0501a15 contains the fourfold guest/host teaching; with the 2026-08-09 completion pass the section covers the whole canonical paragraph from pT47p0500c27. The published translation units and the added head unit are normalized for punctuation/segmentation; character-level collation of the whole paragraph is recorded and editor sign-off remains pending.",
             "source_edition": "CBETA Online, 2026.R1 (T47n1985)",
             "source_revision": "CBETA Online reports last updated 2025-09-01",
             "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
-            "collation_note": "The former selective/non-Taishō wording was replaced on 2026-08-08 with the faithful T47n1985_p0501a02–p0501a15 excerpt. Punctuation and segmentation are normalized; the English register reconstructions were revised to match this longer source passage. Human editor sign-off remains required."
+            "collation_note": "The former selective/non-Taishō wording was replaced on 2026-08-08 with the faithful T47n1985_p0501a02–p0501a15 excerpt. Punctuation and segmentation are normalized; the English register reconstructions were revised to match this longer source passage. Human editor sign-off remains required. 2026-08-09 completion pass: unit zh re-aligned verbatim to the CBETA canonical readings (、 for 。 in the serial list; 學人被奪抵死不放 for 抵死不肯放; 即云『咄哉』 for 知識即云; 『』 for 「」), and the paragraph’s preceding teaching (大丈夫漢…無喜亦無憂) added as a first unit with a project AI draft so the section now covers the whole canonical paragraph pT47p0500c27–p0501a15. Published translations retained as they render these same meanings."
           },
           "sections.blind_donkey": {
             "canonical_locator": "T47n1985_p0506c03–p0506c07",
@@ -3455,6 +3455,699 @@ window.TRANSLATECHAN_DATA = {
             "source_revision": "CBETA Online reports last updated 2025-09-01",
             "review_method": "Passage-to-line-head comparison against CBETA Online and CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
             "collation_note": "The first dialogue was revised on 2026-08-08 to the T47n1985 據坐/爭敢 reading, and the final clause to 「端然示寂」. Punctuation and segmentation are normalized; human editor sign-off remains required."
+          },
+          "sections.preface_conglun": {
+            "canonical_locator": "T47n1985_p0495a05–p0495a22",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0495a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0495a05–p0495a22).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.preface_guotianxi": {
+            "canonical_locator": "T47n1985_p0495a27–p0495c06",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0495b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0495a27–p0495c06).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.preface_wufeng": {
+            "canonical_locator": "T47n1985_p0495c11–p0496a15",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0495c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0495c11–p0496a15).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.verse_preface": {
+            "canonical_locator": "T47n1985_p0496a23–p0496b08",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496a23–p0496b08).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shangtang_01": {
+            "canonical_locator": "T47n1985_p0496b14–p0496c03",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496b14–p0496c03).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shangtang_02": {
+            "canonical_locator": "T47n1985_p0496c04–p0496c09",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496c04–p0496c09).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shangtang_04": {
+            "canonical_locator": "T47n1985_p0496c15–p0496c22",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496c15–p0496c22).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shangtang_05": {
+            "canonical_locator": "T47n1985_p0496c23–p0497a01",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0496c23–p0497a01).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shangtang_06": {
+            "canonical_locator": "T47n1985_p0497a02–p0497a08",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a02–p0497a08).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shangtang_07": {
+            "canonical_locator": "T47n1985_p0497a09–p0497a11",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a09–p0497a11).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shangtang_08": {
+            "canonical_locator": "T47n1985_p0497a12–p0497a14",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a12–p0497a14).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shangtang_09": {
+            "canonical_locator": "T47n1985_p0497a15–p0497a21",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a15–p0497a21).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_01": {
+            "canonical_locator": "T47n1985_p0497a22–p0497c25",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a22–p0497c25).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_02": {
+            "canonical_locator": "T47n1985_p0497c26–p0498a15",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497c26–p0498a15).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_03": {
+            "canonical_locator": "T47n1985_p0498a16–p0498b01",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498a16–p0498b01).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_04": {
+            "canonical_locator": "T47n1985_p0498b02–p0498b24",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498b02–p0498b24).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_05": {
+            "canonical_locator": "T47n1985_p0498b25–p0498c17",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498b25–p0498c17).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_06": {
+            "canonical_locator": "T47n1985_p0498c18–p0499a03",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498c18–p0499a03).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_07": {
+            "canonical_locator": "T47n1985_p0499a04–p0499a27",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499a04–p0499a27).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_08": {
+            "canonical_locator": "T47n1985_p0499a28–p0499c13",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499a28–p0499c13).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_09": {
+            "canonical_locator": "T47n1985_p0499c14–p0500a02",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499c14–p0500a02).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_10": {
+            "canonical_locator": "T47n1985_p0500a02–p0500a12",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a02–p0500a12).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_11": {
+            "canonical_locator": "T47n1985_p0500a12–p0500a26",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a12–p0500a26).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_12": {
+            "canonical_locator": "T47n1985_p0500a26–p0500b21",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a26–p0500b21).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_13": {
+            "canonical_locator": "T47n1985_p0500b21–p0500c06",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500b21–p0500c06).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_14": {
+            "canonical_locator": "T47n1985_p0500c06–p0500c27",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500c06–p0500c27).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_16": {
+            "canonical_locator": "T47n1985_p0501a15–p0501b08",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501a15–p0501b08).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_17": {
+            "canonical_locator": "T47n1985_p0501b08–p0501b14",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501b08–p0501b14).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_18": {
+            "canonical_locator": "T47n1985_p0501b14–p0501b19",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501b14–p0501b19).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_19": {
+            "canonical_locator": "T47n1985_p0501b19–p0501b29",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501b19–p0501b29).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_20": {
+            "canonical_locator": "T47n1985_p0501b29–p0501c25",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501b29–p0501c25).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_21": {
+            "canonical_locator": "T47n1985_p0501c25–p0501c27",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501c25–p0501c27).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_22": {
+            "canonical_locator": "T47n1985_p0501c28–p0502a07",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0501c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0501c28–p0502a07).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_23": {
+            "canonical_locator": "T47n1985_p0502a08–p0502a27",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502a08–p0502a27).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_24": {
+            "canonical_locator": "T47n1985_p0502a28–p0502b13",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502a28–p0502b13).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_25": {
+            "canonical_locator": "T47n1985_p0502b14–p0502c03",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502b14–p0502c03).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_26": {
+            "canonical_locator": "T47n1985_p0502c03–p0502c10",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502c03–p0502c10).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_27": {
+            "canonical_locator": "T47n1985_p0502c10–p0502c22",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502c10–p0502c22).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_28": {
+            "canonical_locator": "T47n1985_p0502c22–p0502c27",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502c22–p0502c27).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_29": {
+            "canonical_locator": "T47n1985_p0502c27–p0503a05",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0502c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0502c27–p0503a05).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_30": {
+            "canonical_locator": "T47n1985_p0503a05–p0503a15",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503a05–p0503a15).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_01": {
+            "canonical_locator": "T47n1985_p0503a17–p0503a28",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503a17–p0503a28).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_02": {
+            "canonical_locator": "T47n1985_p0503a29–p0503b02",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503a29–p0503b02).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_03": {
+            "canonical_locator": "T47n1985_p0503b03–p0503b09",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b03–p0503b09).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_04": {
+            "canonical_locator": "T47n1985_p0503b10–p0503b16",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b10–p0503b16).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_05": {
+            "canonical_locator": "T47n1985_p0503b17–p0503b19",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b17–p0503b19).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_06": {
+            "canonical_locator": "T47n1985_p0503b20–p0503b24",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b20–p0503b24).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_07": {
+            "canonical_locator": "T47n1985_p0503b25–p0503c02",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503b25–p0503c02).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_08": {
+            "canonical_locator": "T47n1985_p0503c03–p0503c05",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503c03–p0503c05).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_09": {
+            "canonical_locator": "T47n1985_p0503c06–p0503c18",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503c06–p0503c18).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_10": {
+            "canonical_locator": "T47n1985_p0503c19–p0503c25",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503c19–p0503c25).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_11": {
+            "canonical_locator": "T47n1985_p0503c26–p0504a02",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0503c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0503c26–p0504a02).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_12": {
+            "canonical_locator": "T47n1985_p0504a03–p0504a04",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a03–p0504a04).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_13": {
+            "canonical_locator": "T47n1985_p0504a05–p0504a07",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a05–p0504a07).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_14": {
+            "canonical_locator": "T47n1985_p0504a08–p0504a09",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a08–p0504a09).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_15": {
+            "canonical_locator": "T47n1985_p0504a10–p0504a14",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a10–p0504a14).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_16": {
+            "canonical_locator": "T47n1985_p0504a15–p0504a18",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a15–p0504a18).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_17": {
+            "canonical_locator": "T47n1985_p0504a19–p0504a21",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a19–p0504a21).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_18": {
+            "canonical_locator": "T47n1985_p0504a22–p0504a25",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504a22–p0504a25).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_20": {
+            "canonical_locator": "T47n1985_p0504b01–p0504b02",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504b01–p0504b02).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_21": {
+            "canonical_locator": "T47n1985_p0504b03–p0504b10",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504b03–p0504b10).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_22": {
+            "canonical_locator": "T47n1985_p0504b11–p0504b17",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504b11–p0504b17).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.kanbian_23": {
+            "canonical_locator": "T47n1985_p0504b18–p0504b26",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0504b18–p0504b26).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
           }
         }
       },
@@ -3858,12 +4551,12 @@ window.TRANSLATECHAN_DATA = {
       "documents": 36
     },
     "corpus": {
-      "all_corpus_cjk_characters": 92450,
+      "all_corpus_cjk_characters": 106160,
       "complete_documents": [
         "biyanlu_cases",
         "wumenguan"
       ],
-      "content_cjk_characters": 88263,
+      "content_cjk_characters": 101198,
       "content_shapes": {
         "cases": 3,
         "chapters": 1,
@@ -4111,15 +4804,16 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "linji_yulu": {
-          "all_cjk_chars": 534,
+          "all_cjk_chars": 14244,
           "cbeta_id": "T1985",
-          "content_zh_chars": 432,
+          "content_zh_chars": 13367,
+          "declared_zh_chars": 13367,
           "shapes": [
             "sections"
           ],
           "title": "Record of Linji (臨濟語錄)",
           "unit_counts": {
-            "sections": 4
+            "sections": 67
           }
         },
         "mazu_yulu": {
@@ -4361,9 +5055,9 @@ window.TRANSLATECHAN_DATA = {
     },
     "schema_version": "1.0",
     "translations": {
-      "corpus_slots": 949,
+      "corpus_slots": 1023,
       "corpus_statuses": {
-        "ai_draft": 132,
+        "ai_draft": 206,
         "reconstruction_unverified": 679,
         "verified_quotation": 138
       },
@@ -7991,15 +8685,239 @@ window.TRANSLATECHAN_DATA = {
       "genre": "Discourse Record & Dynamic Encounters (語錄與棒喝)",
       "sections": [
         {
-          "section_id": "sermon_1",
-          "title_zh": "上堂法要：無位真人",
-          "title_pinyin": "Shàngtáng Fǎyào: Wúwèi Zhēnrén",
-          "title_en": "Sermon: The True Person of No Rank",
+          "section_id": "preface_conglun",
+          "title_zh": "序一 · 林泉老人從倫序",
+          "title_pinyin": "Xù Yī · Línquán Lǎorén Cónglún Xù",
+          "title_en": "Preface I — Elder Linquan Conglun (1296)",
+          "dialogue": [
+            {
+              "speaker": "Linquan Conglun / 林泉從倫",
+              "zh": "曹溪派列，淘涌而流注無窮；南嶽岐分，巍峨而聯綿不盡。雲仍曼衍，枝葉滋榮，非止蔭覆人天，抑亦光揚祖道。無說之說，須知意不在言；無聞之聞，果信言非有意。此皆理極無喻之道，緒餘影響者也。故臨濟祖師以正法眼明涅槃心，興大智大慈、運大機大用，棒頭喝下勦絕凡情，電掣星馳卒難搆副，豈容擬議？那許追思！非唯鷄過新羅，欲使鳳趨霄漢，不留朕跡，透脫玄關，令三界迷徒歸一真實際，天下英流莫不仰瞻，為一宗之祖，理當然也。今總統雪堂禪師乃臨濟十八代孫，河北江南遍尋是錄，偶至餘杭得獲是本，如貧得寶、似暗得燈，踊躍歡呼，不勝感激，遂捨長財，繡梓流通，俵施諸剎，此一端奇事，寔千載難逢。咦！擲地金聲聞四海，定知珠玉價難酬。元貞二年歲次丁未，大都報恩禪寺住持嗣祖，林泉老人從倫盥手焚香謹序。",
+              "pinyin": "Cáoxī pài liè， táo yǒng ér liú zhù wú qióng； Nányuè qí fēn， wēi é ér lián mián bù jǐn。 Yún réng màn yǎn， zhī yè zī róng， fēi zhǐ yīn fù rén tiān， yì yì guāng yáng zǔ dào。 Wú shuō zhī shuō， xū zhī yì bù zài yán； Wú wén zhī wén， guǒ xìn yán fēi yǒu yì。 Cǐ jiē lǐ jí wú yù zhī dào， xù yú yǐng xiǎng zhě yě。 Gù Línjì Zǔshī yǐ zhèng fǎ yǎn míng Nièpán xīn， xìng dà zhì Dàcí、 yùn dà jī dà yòng， bàng tóu hè xià chāo jué fán qíng， diàn chè xīng chí zú nán gòu fù， qǐ róng nǐ yì？ Nà xǔ zhuī sī！ Fēi wéi jī guò Xīnluó， yù shǐ fèng qū xiāo hàn， bù liú zhèn jī， tòu tuō xuán guān， lìng sān jiè mí tú guī yī zhēn shí jì， tiān xià yīng liú mò bù yǎng zhān， wèi yī zōng zhī zǔ， lǐ dāng rán yě。 Jīn zǒng tǒng Xuětáng chán shī nǎi Línjì shí bā dài sūn， Héběi jiāng nán biàn xún shì lù， ǒu zhì Yúháng dé huò shì běn， rú pín dé bǎo、 shì àn dé dēng， yǒng yuè huān hū， bù shèng gǎn jī， suì shě zhǎng cái， xiù zǐ liú tōng， biào shī zhū shā， cǐ yī duān qí shì， shí qiān zài nán féng。 Yí！ Zhì dì jīn shēng wén sì hǎi， dìng zhī zhū yù jià nán chóu。 Yuán zhēn èr nián suì cì dīng wèi， Dàdū Bàoēn Chánsì zhù chí sì zǔ， Línquán Lǎorén Cónglún guàn shǒu fén xiāng jǐn xù。",
+              "translations": {
+                "ai_literal": {
+                  "text": "The courses of the Caoxi branch flow on, surging and pouring without end; the Nanyue line branches off, towering and unbroken. Clouds of descendants spread abroad, branches and leaves flourish — shading not only humans and gods, but glorifying the ancestral way as well. A speaking without speaking: know that the point is not in the words; a hearing without hearing: truly the words carry no intent. These belong to the sphere where all comparison ends, to the mere echoes and reflections of the path. Thus our ancestral master Linji, with the true Dharma eye illuminating the nirvana-mind, roused great wisdom and great compassion and wielded the great function of the great capacity. Under blow and shout he mowed down worldly feeling; in lightning-flash and shooting-star fashion he was hard to match — how could deliberation reach him, how could afterthought pursue him! Not only did the cock cross into Silla; he wished the phoenix to hasten to the Milky Way, leaving no track, breaking clean through the dark gate, leading the deluded of the three realms back to the one true reality. The outstanding under heaven all look up to him: that he is the patriarch of an entire house is only right. Now the presiding master Xuetang, eighteenth-generation descendant of Linji, searched all over Hebei and Jiangnan for this record, and coming by chance to Yuhang obtained this copy — like a pauper stumbling on treasure, like getting a lamp in the dark; he danced and cried out, overcome with gratitude, then gave up a long-held fortune to have it carved into blocks for circulation and distributed to the monasteries. This one stroke of rare wonder — truly a thing hardly met with in a thousand years. Eh! Struck to the ground, the golden sound is heard to the four seas; be certain that pearl and jade defy all price. Written with washed hands and burning incense by the Elder of Linquan, Conglun, abbot of Bao'en Chan Monastery in the great capital and heir of the patriarchs, in the dingwei year, the second of the Yuanzhen era (1296).",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "preface_guotianxi",
+          "title_zh": "序二 · 北山居士郭天錫序",
+          "title_pinyin": "Xù Èr · Běishān Jūshì Guō Tiānxī Xù",
+          "title_en": "Preface II — Layman Guo Tianxi of Beishan (1298)",
+          "dialogue": [
+            {
+              "speaker": "Guo Tianxi / 郭天錫",
+              "zh": "薄伽梵「正法眼藏涅槃妙心」付摩訶迦葉，是為第一祖。逮二十八祖菩提達磨提十方三世諸佛密印而來震旦，是時中國始知佛法有教外別傳、不立文字、直指人心、見性成佛。厥後優鉢羅花於時出現，芬芳馥郁，一華五葉，香風匝地、寶色照天，各放無量光明，輝映大千世界。",
+              "pinyin": "Bóqiéfàn「 Zhèng fǎ yǎn cáng Nièpán miào xīn」 fù Móhējiāyè， shì wèi dì yī zǔ。 Dǎi èr shí bā zǔ Pútídámó tí shí fāng sān shì zhū fú mì yìn ér lái Zhèndàn， shì shí zhōng guó shǐ zhī fó fǎ yǒu jiào wài bié chuán、 bù lì wén zì、 zhí zhǐ rén xīn、 jiàn xìng chéng fú。 Jué hòu Yōubōluó huā yú shí chū xiàn， fēn fāng fù yù， yī huá wǔ yè， xiāng fēng zā dì、 bǎo sè zhào tiān， gè fàng wú liàng guāng míng， huī yìng dà qiān shì jiè。",
+              "translations": {
+                "ai_literal": {
+                  "text": "The Bhagavan entrusted 'the treasury of the true Dharma eye, the wondrous mind of nirvana' to Mahakasyapa, who became the first patriarch. When the twenty-eighth patriarch Bodhidharma came bearing the secret seal of all the buddhas of the ten directions and three ages to this land, China first knew that the Buddha-dharma has a special transmission outside the teachings — not founded on words and letters, pointing directly at the human mind, seeing its nature and becoming Buddha. Thereafter the udumbara flower appeared in its time, fragrant and rich — one flower with five petals, its scented wind covering the earth, its jeweled radiance lighting the sky, each petal sending immeasurable light streaming through the great thousandfold world.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Guo Tianxi / 郭天錫",
+              "zh": "其中一大苾芻，為一大事因緣依棲黃蘗山中，三度參請，三度被打，後向高安灘頭大愚老師處始全印證。平生用金剛王寶劍，逢凡殺凡、逢聖殺聖，風行草偃，號令八方，如雪色象王；如金毛師子踞地哮吼，狐狸、野干心破腦裂，百獸見之，無不股慄；如驚濤嶮崖，壁立萬仞，使途中之人其行次且不敢舉足下足，惟恐喪身失命，雖老子鉗槌者，見之無不汗下。",
+              "pinyin": "Qí zhōng yī dà bì chú， wèi yī dà shì yīn yuán yī qī Huángbò shān zhōng， sān dù cān qǐng， sān dù bèi dǎ， hòu xiàng Gāoān Tāntóu Dàyú lǎo shī chù shǐ quán yìn zhèng。 Píng shēng yòng jīn gāng wáng bǎo jiàn， féng fán shā fán、 féng shèng shā shèng， fēng xíng cǎo yǎn， hào lìng bā fāng， rú xuě sè xiàng wáng； Rú jīn máo shī zi jù dì xiāo hǒu， hú lí、 yě gàn xīn pò nǎo liè， bǎi shòu jiàn zhī， wú bù gǔ lì； Rú jīng tāo xiǎn yá， bì lì wàn rèn， shǐ tú zhōng zhī rén qí xíng cì qiě bù gǎn jǔ zú xià zú， wéi kǒng sàng shēn shī mìng， suī lǎo zi qián chuí zhě， jiàn zhī wú bù hàn xià。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Among them one great bhiksu, for the cause of the one great matter, took shelter in the mountains of Huangbo. Three times he asked for instruction and three times he was struck; later, at the head of the Gao'an rapids, with the old teacher Dayu he at last received the entire seal. All his life he wielded the Vajra King's jewel sword: meeting the worldly he killed the worldly, meeting the saintly he killed the saintly — as wind moves, the grasses bend; his commands reached the eight directions. He was like a snow-white king of elephants; like a golden-haired lion crouched on the ground roaring — foxes and wild dogs, their hearts split and brains cracked; no beast that saw him failed to tremble at the thighs. He was like a perilous cliff towering over raging waves, a sheer wall ten thousand fathoms high, so that travelers on the road faltered, not daring to set foot down, fearing only for their lives. Even those hammered between Laozi's tongs could not but break into sweat at the sight.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Guo Tianxi / 郭天錫",
+              "zh": "若夫三玄三要奪境奪人，金章玉句如風檣陣馬、如迅雷奔霆，凌轢波濤，穿穴嶮固，破碎陣敵，天回地轉，七縱八橫，幾於截斷眾流，四海學徒莫不望風披靡。故門庭峻峭，孤硬難入，蓋妙用功夫不在文字、不離文字，盡大地作一隻眼者乃能識之，末後將正法眼藏却向瞎驢邊滅却。",
+              "pinyin": "Ruò fú sān xuán sān yào duó jìng duó rén， jīn zhāng yù jù rú fēng qiáng zhèn mǎ、 rú xùn léi bēn tíng， líng lì bō tāo， chuān xué xiǎn gù， pò suì zhèn dí， tiān huí dì zhuǎn， qī zòng bā héng， jǐ yú jié duàn zhòng liú， sì hǎi xué tú mò bù wàng fēng pī mǐ。 Gù mén tíng jùn qiào， gū yìng nán rù， gài miào yòng gōng fu bù zài wén zì、 bù lí wén zì， jǐn dà dì zuò yī zhī yǎn zhě nǎi néng shí zhī， mò hòu jiāng zhèng fǎ yǎn cáng què xiàng xiā lǘ biān miè què。",
+              "translations": {
+                "ai_literal": {
+                  "text": "As for his three mysteries and three essentials, his wresting away of objects and persons, his golden passages and jade phrases — like masts in the wind and horses in formation, like sudden thunder and racing lightning — they overran the waves, bored through the steepest strongholds, smashed the arrayed enemy, turned heaven and earth about, giving and taking seven and eight times over, all but damming the streams mid-flow; students of the four seas all fell back before his wind. So his gate stood steep, solitary and hard to enter, for his marvelous work was neither in words nor apart from words; only one who can turn the whole great earth into a single eye can recognize it. In the end he took the treasury of the true Dharma eye and let it die out on that blind donkey.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Guo Tianxi / 郭天錫",
+              "zh": "師之出處具載《傳燈》等錄，茲不復贅。自興化獎公而下，子孫雲仍最為蕃衍盛大，多大根器人，冠映河嶽，騰耀古今，在在處處法席叢林，化俗談真，重規疊矩，出廣長舌相為人開堂演法——如慈明圓公、琅瑘覺公，皆大法王人天師也。",
+              "pinyin": "Shī zhī chū chù jù zài《 Chuándēng》 děng lù， zī bù fù zhuì。 Zì Xīnghuà Jiǎngōng ér xià， zi sūn yún réng zuì wèi fān yǎn shèng dà， duō dà gēn qì rén， guān yìng hé yuè， téng yào gǔ jīn， zài zài chù chù fǎ xí cóng lín， huà sú tán zhēn， zhòng guī dié jǔ， chū guǎng zhǎng shé xiāng wèi rén kāi táng yǎn fǎ—— rú Címíng Yuán gōng、 Lángyé Jué gōng， jiē dà fǎ wáng rén tiān shī yě。",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master's comings and goings are recorded fully in the Transmission of the Lamp and other records; I will not repeat them here. From Xinghua Cunjiang downwards his descendants spread like clouds, most flourishing and grand, many of them persons of great capacity, crowning river and peak, shining through past and present. Everywhere, on the Dharma seats of the monasteries, they taught the worldly and proclaimed the true, rule upon rule, displaying the broad and long tongue as they opened halls and expounded the Dharma for others — such as Ciming Yuan and Langya Jue, all great Dharma kings, teachers of humans and gods.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Guo Tianxi / 郭天錫",
+              "zh": "今雪堂大禪師，臨濟十八代嫡孫、琅瑘第十世的派，王臣尊禮，緇素嚮慕，是亦僧中之龍象爾。不忘祖師恩德，每恨臨濟一言一句、一棒一喝、參承諮決、升堂入室語錄未大發明，刻梓流行，用廣禪林觀聽，仍求北山居士郭天錫為作序引。",
+              "pinyin": "Jīn Xuětáng dà chán shī， Línjì shí bā dài dí sūn、 Lángyé dì shí shì de pài， wáng chén zūn lǐ， zī sù xiàng mù， shì yì sēng zhōng zhī lóng xiàng ěr。 Bù wàng Zǔshī ēn dé， měi hèn Línjì yī yán yī jù、 yī bàng yī hè、 cān chéng zī jué、 shēng táng rù shì yǔ lù wèi dà fā míng， kè zǐ liú xíng， yòng guǎng chán lín guān tīng， réng qiú Běishān Jūshì Guō Tiānxī wèi zuò xù yǐn。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Now the great Chan master Xuetang is an eighteenth-generation descendant in Linji's direct line, the tenth of Langya's orthodox branch. Lords and ministers honor him; black-robed and white look up to him — he too is a veritable dragon-elephant among monks. Not forgetting the patriarch's kindness, he always regretted that Linji's every word and phrase, every blow and shout, the records of questioning and deciding, of ascending the hall and entering the room, had not been brought broadly to light; so he had them carved and circulated to widen what the groves of Chan see and hear, and asked me, the layman Guo Tianxi of Beishan, to write this preface.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Guo Tianxi / 郭天錫",
+              "zh": "嗚呼！雪堂老師行從上祖師難能之事，慎終追遠，知恩報恩則不無，將五百年風顛老漢吐下唾團，重新拈出供養。今代衲僧還肯咀嚼麼？合浦還珠固為奇特，冷灰爆豆亦自不妨。",
+              "pinyin": "Wū hū！ Xuětáng lǎo shī xíng cóng shàng Zǔshī nán néng zhī shì， shèn zhōng zhuī yuǎn， zhī ēn Bàoēn zé bù wú， jiāng wǔ bǎi nián fēng diān lǎohàn tǔ xià tuò tuán， chóng xīn niān chū gōng yǎng。 Jīn dài nà sēng hái kěn jǔ jué me？ Hé pǔ hái zhū gù wèi qí tè， lěng huī bào dòu yì zì bù fáng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Ah! Teacher Xuetang performs what even the patriarchs of old found hard to do. Careful of the end and mindful of the distant source, knowing kindness and repaying it — these he cannot but do. The gobs of spit once coughed up by that mad old man of five hundred years ago, he picks out afresh and offers in veneration. Will the patch-robed monks of our own age deign to chew on them? For the Hepu pearl to come back is surely a wonder, yet a dried bean bursting in cold ashes does no harm either.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Guo Tianxi / 郭天錫",
+              "zh": "大德二年八月，前監察御史郭天錫焚香九拜書。",
+              "pinyin": "Dà dé èr nián bā yuè， qián jiān chá yù shǐ Guō Tiānxī fén xiāng jiǔ bài shū。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Written in the eighth month of the second year of the Dade era (1298) by the former Censor-in-chief Guo Tianxi, who bowed nine times with burning incense.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "preface_wufeng",
+          "title_zh": "序三 · 五峯普秀序",
+          "title_pinyin": "Xù Sān · Wǔfēng Pǔxiù Xù",
+          "title_en": "Preface III — Wufeng Puxiu of Kaitai",
+          "dialogue": [
+            {
+              "speaker": "Wufeng Puxiu / 五峯普秀",
+              "zh": "竊以黃蘗山高，便敢當頭捋虎；滹陀岸遠，亦能順水操舟。既露惡毒爪牙，仍顯慈悲手段，欄腮一掌，免煩著齒粘唇，劈肋三拳，可謂傾心吐膽。三玄在手，七事隨身，觸之則石裂崖崩、擬之則雷轟電掣。門庭孤峻，閫奧宏深，只可望崖，不可趣向。",
+              "pinyin": "Qiè yǐ Huángbò shān gāo， biàn gǎn dāng tóu luō hǔ； Hū tuó àn yuǎn， yì néng shùn shuǐ cāo zhōu。 Jì lù è dú zhǎo yá， réng xiǎn cí bēi shǒu duàn， lán sāi yī zhǎng， miǎn fán zhù chǐ zhān chún， pī lē sān quán， kě wèi qīng xīn tǔ dǎn。 Sān xuán zài shǒu， qī shì suí shēn， chù zhī zé shí liè yá bēng、 nǐ zhī zé léi hōng diàn chè。 Mén tíng gū jùn， kǔn ào hóng shēn， zhǐ kě wàng yá， bù kě qù xiàng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "I consider that the mountain of Huangbo is high — yet he dared to stroke the tiger head-on; the banks of the Hutuo are far — yet he could row his boat with the current. Having bared fiercely poisonous claw and fang, he still revealed the hand of compassion: one slap across the cheek spared you the trouble of teeth stuck to lips; three punches in the ribs — one might say he poured out his heart and spilled his gall. The three mysteries in his grip, the seven necessities at his side — touch him and rocks split and cliffs collapse; deliberate on him and thunder roars and lightning flashes. His gate is solitary and steep, its innermost chamber vast and deep: you may gaze up at the escarpment, but there is no setting out toward it.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Wufeng Puxiu / 五峯普秀",
+              "zh": "茲者總統雪堂和尚，憫巴歌唱而和寡，嗟雪曲彈而應稀，語錄闕文，叢林罕見，遂旁求釋子而再起斯文，欲鏤板以廣流通，俾參玄而得受用，弘揚祖道，垂裕後昆。棒頭喝下須明石火電光，正案傍提要顧眉毛鼻孔，其他機緣備載前錄，不勞再舉。",
+              "pinyin": "Zī zhě zǒng tǒng Xuětáng Héshàng， mǐn bā gē chàng ér hé guǎ， jiē xuě qū dàn ér yīng xī， yǔ lù què wén， cóng lín hǎn jiàn， suì páng qiú shì zi ér zài qǐ sī wén， yù lòu bǎn yǐ guǎng liú tōng， bǐ cān xuán ér dé shòu yòng， hóng yáng zǔ dào， chuí yù hòu kūn。 Bàng tóu hè xià xū míng shí huǒ diàn guāng， zhèng àn bàng tí yào gù méi máo bí kǒng， qí tā jī yuán bèi zài qián lù， bù láo zài jǔ。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Now the presiding master Xuetang pitied the song of Ba for having so few to join its harmony, and sighed that the Snow melody was played before so few who could answer; the recorded sayings survived incomplete and were rarely seen in the monastic groves. So he sought out his disciples to raise up this literature once more, wishing to cut blocks for its wide circulation, that those who study the mystery may receive and use it — glorifying the ancestral way and leaving a rich legacy to those who come after. Under the blows and shouts one must discern the flint-spark and the lightning-flash; within the straight case and the side thrust, one must watch over the eyebrows and the nose. All the other encounters are fully recorded in the earlier record and need not be cited again.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Wufeng Puxiu / 五峯普秀",
+              "zh": "噫！臨濟祖師六傳而至汾陽大宗師，汾陽下傑出六大尊者——曰慈明圓、曰琅瑘覺。圓傳陽岐會，會傳白雲端，端傳五祖演，演傳佛果勤佛鑑、天目齊。佛果傳虎丘隆、大慧杲，虎丘隆傳應菴華，華傳密菴傑，傑傳松源岳，岳傳無德通，通傳虛舟度，度傳徑山虎巖伏。天目齊傳汝州和，和傳竹林寶，寶傳竹林安，安傳竹林海，海傳慶壽璋。白澗一歸雲宣，宣傳平山亮，白澗一傳冲虛昉、懶牧歸。慶壽璋傳海雲大宗師竹林彛，彛傳龍華惠。海雲傳可菴朗、龍宮玉、頤菴儇，可菴傳太傅劉文貞公、慶壽滿，龍宮玉傳大名海、頤菴傳慶壽安。",
+              "pinyin": "Yī！ Línjì Zǔshī liù chuán ér zhì Fényáng dà zōng shī， Fényáng xià jié chū liù dà zūn zhě—— yuē Címíng Yuán、 yuē Lángyé Jué。 Yuán chuán Yángqí Huì， huì chuán Báiyún Duān， duān chuán Wǔzǔ Yǎn， yǎn chuán Fóguǒ Qín Fójiàn、 Tiānmù Qí。 Fóguǒ chuán Hǔqiū Lóng、 Dàhuì Gǎo， Hǔqiū Lóng chuán Yìngān Huá， huá chuán Mìān Jié， jié chuán Sōngyuán Yuè， yuè chuán Wúdé Tōng， tōng chuán Xūzhōu Dù， dù chuán Jìngshān Hǔyán Fú。 Tiānmù Qí chuán Rǔzhōu Hé， hé chuán Zhúlín Bǎo， bǎo chuán Zhúlín Ān， ān chuán Zhúlín Hǎi， hǎi chuán Qìngshòu Zhāng。 Báijiàn Yī Guīyún Xuān， xuān chuán Píngshān Liàng， Báijiàn Yī chuán Chōngxū Fǎng、 Lǎnmù Guī。 Qìngshòu Zhāng chuán Hǎiyún dà zōng shī Zhúlín Yí， yí chuán Lónghuá Huì。 Hǎiyún chuán Kěān Lǎng、 Lónggōng Yù、 Yíān Xuān， Kěān chuán Tàifù Liú Wénzhēn Gōng、 Qìngshòu Mǎn， Lónggōng Yù chuán Dàmíng Hǎi、 Yíān chuán Qìngshòu Ān。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Ah! From the patriarch Linji, six generations descend to the great master Fenyang; under Fenyang six great venerables stood out, among them Ciming Yuan and Langya Jue. Yuan transmitted to Yangqi Hui; Hui to Baiyun Duan; Duan to Wuzu Yan; Yan to Foguo Qin, Fojian, and Tianmu Qi. Foguo transmitted to Huqiu Long and Dahui Gao; Huqiu Long to Ying'an Hua; Hua to Mi'an Jie; Jie to Songyuan Yue; Yue to Wude Tong; Tong to Xuzhou Du; Du to Jingshan Huyan Fu. Tianmu Qi transmitted to Ruzhou He; He to Zhulin Bao; Bao to Zhulin An; An to Zhulin Hai; Hai to Qingshou Zhang. Baijian Yi transmitted to Guiyun Xuan; Xuan to Pingshan Liang; Baijian Yi also transmitted to Chongxu Fang and Lanmu Gui. Qingshou Zhang transmitted to the great master Haiyun and Zhulin Yi; Yi to Longhua Hui. Haiyun transmitted to Ke'an Lang, Longgong Yu, and Yi'an Xuan; Ke'an transmitted to Grand Tutor Duke Liu Wenzhen and Qingshou Man; Longgong Yu transmitted to Daming Hai; Yi'an transmitted to Qingshou An.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Wufeng Puxiu / 五峯普秀",
+              "zh": "琅瑘覺傳泐潭月，月傳毘陵真，真傳白水白，白傳天寧黨，黨傳慈照純，純傳鄭州寶，寶傳竹林藏、慶壽亨、少林鑑。慶壽亨傳東平汴、大原昭，少林鑑傳法王通，通傳安閑覺，覺傳南京智、西菴贇，南京智傳壽峯湛，西菴贇傳雪堂仁——雪堂乃臨濟十八世孫也。莫不門庭孤峻，機辯縱橫，俱是克家子孫，燈燈續焰直至如今，可謂源清流長，此之謂也。",
+              "pinyin": "Lángyé Jué chuán Lètán Yuè， yuè chuán Pílíng Zhēn， zhēn chuán Báishuǐ Bái， bái chuán Tiānníng Dǎng， dǎng chuán Cízhào Chún， chún chuán Zhèngzhōu Bǎo， bǎo chuán Zhúlín Zàng、 Qìngshòu Hēng、 Shàolín Jiàn。 Qìngshòu Hēng chuán Dōngpíng Biàn、 Dàyuán Zhāo， Shàolín Jiàn chuán Fǎwáng Tōng， tōng chuán Ānxián Jué， jué chuán Nánjīng Zhì、 Xīān Yūn， Nánjīng Zhì chuán Shòufēng Zhàn， Xīān Yūn chuán Xuětáng Rén—— Xuětáng nǎi Línjì shí bā shì sūn yě。 Mò bù mén tíng gū jùn， jī biàn zòng héng， jù shì kè jiā zi sūn， dēng dēng xù yàn zhí zhì rú jīn， kě wèi yuán qīng liú zhǎng， cǐ zhī wèi yě。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Langya Jue transmitted to Letan Yue; Yue to Biling Zhen; Zhen to Baishui Bai; Bai to Tianning Dang; Dang to Cizhao Chun; Chun to Zhengzhou Bao; Bao to Zhulin Zang, Qingshou Heng, and Shaolin Jian. Qingshou Heng transmitted to Dongping Bian and Taiyuan Zhao; Shaolin Jian to Fawang Tong; Tong to Anxian Jue; Jue to Nanjing Zhi and Xi'an Yun; Nanjing Zhi to Shoufeng Zhan; Xi'an Yun to Xuetang Ren — Xuetang being Linji's eighteenth-generation descendant. Every one of them kept a gate solitary and steep, his capacity and eloquence ranging free — all were true sons able to shoulder the household, lamp kindling lamp in unbroken flame down to the present. Truly, 'when the source is clear the stream runs long' — this is what it means.",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Wufeng Puxiu / 五峯普秀",
+              "zh": "雪堂禪師乃吾三世祖，囑予為序，率爾書之，腦後見腮、頂門具眼者大發一笑，開泰退堂襲祖第二十世孫五峯普秀齋沐焚香拜書。",
+              "pinyin": "Xuětáng chán shī nǎi wú sān shì zǔ， zhǔ yǔ wèi xù， lǜ ěr shū zhī， nǎo hòu jiàn sāi、 dǐng mén jù yǎn zhě dà fā yī xiào， Kāitài tuì táng xí zǔ dì èr shí shì sūn Wǔfēng Pǔxiù zhāi mù fén xiāng bài shū。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Chan master Xuetang is my patriarch of three generations back; he charged me with writing this preface, and I have set it down offhand. May one who can see the cheeks from behind the skull, whose eye is on the very crown, break into a great laugh. Respectfully written after fasting, bathing, and burning incense by the patriarch's twentieth-generation heir, Wufeng Puxiu, retired at Kaitai.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "verse_preface",
+          "title_zh": "序四 · 鎮州臨濟慧照禪師語錄序（偈）",
+          "title_pinyin": "Xù Sì · Zhènzhōu Línjì Huìzhào Chánshī Yǔlù Xù (Jì)",
+          "title_en": "Preface IV — Verse Preface to the Record (1120)",
+          "dialogue": [
+            {
+              "speaker": "The verse preface / 序偈",
+              "zh": "黃檗山頭曾遭痛棒，大愚肋下方解築拳。饒舌老婆、尿床鬼子，這風顛漢再捋虎鬚。巖谷栽松，後人標榜，钁頭斸地，幾被活埋。肯箇後生，驀口自摑，辭焚机案，坐斷舌頭。不是河南，便歸河北，院臨古渡，運濟往來。把定要津，壁立萬仞，奪人奪境，陶鑄仙陀。三要三玄，鈐鎚衲子，常在家舍，不離途中。無位真人，面門出入，兩堂齊喝，賓主歷然。照用同時，本無前後，菱花對像，虛谷傳聲。妙應無方，不留朕跡，拂衣南邁，戾止大名。興化師承，東堂迎侍，銅瓶鐵鉢，掩室杜詞，松老雲閑，曠然自適。面壁未幾，密付將終，正法誰傳？瞎驢邊滅。圓覺老演，今為流通，點撿將來，故無差舛，唯餘一喝，尚要商量，具眼禪流，冀無賺舉。宣和庚子中秋日謹序。",
+              "pinyin": "Huángbò shān tóu céng zāo tòng bàng， Dàyú lē xià fāng jiě zhù quán。 Ráo shé lǎo pó、 niào chuáng guǐ zi， zhè fēng diān hàn zài luō hǔ xū。 Yán gǔ zāi sōng， hòu rén biāo bǎng， jué tóu zhǔ dì， jǐ bèi huó mái。 Kěn gè hòu shēng， mò kǒu zì guó， cí fén jī àn， zuò duàn shé tóu。 Bú shì Hénán， biàn guī Héběi， yuàn lín gǔ dù， yùn jì wǎng lái。 Bǎ dìng yào jīn， bì lì wàn rèn， duó rén duó jìng， táo zhù xiān tuó。 Sān yào sān xuán， qián chuí nà zi， cháng zài jiā shě， bù lí tú zhōng。 Wú wèi zhēn rén， miàn mén chū rù， liǎng táng qí hè， bīn zhǔ lì rán。 Zhào yòng tóng shí， běn wú qián hòu， líng huā duì xiàng， xū gǔ chuán shēng。 Miào yīng wú fāng， bù liú zhèn jī， fú yī nán mài， lì zhǐ Dàmíng。 Xīnghuà shī chéng， dōng táng yíng shì， tóng píng tiě bō， yǎn shì dù cí， sōng lǎo yún xián， kuàng rán zì shì。 Miàn bì wèi jǐ， mì fù jiāng zhōng， zhèng fǎ shuí chuán？ Xiā lǘ biān miè。 Yuánjué lǎo yǎn， jīn wèi liú tōng， diǎn jiǎn jiāng lái， gù wú chà chuǎn， wéi yú yī hè， shàng yào shāng liáng， jù yǎn chán liú， jì wú zhuàn jǔ。 Xuān hé gēng zi zhōng qiū rì jǐn xù。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Atop Huangbo's mountain he once took the bitter blows; beneath Dayu's ribs he first learned to answer back with fists. That garrulous old grandma, that bed-wetting little imp — this madman stroked the tiger's whiskers once more. Planting pines in the craggy vale, a signpost for those to come; three times the mattock struck the ground — all but buried alive. That promising young man who slapped himself full on the mouth, who refused the burning of the arm-rest and desk and cut off the tongues of the world. If not to Henan, then home to Hebei — his cloister by the ancient ford, ferrying travelers to and fro. Holding fast the crucial crossing, a sheer wall ten thousand fathoms high; wresting away persons, wresting away objects, smelting and casting Sakyas. The three essentials and three mysteries, tongs and hammer for patch-robed monks; ever dwelling in the home, never leaving the road. The true man of no rank goes in and out through the gates of the face; two halls shouting in unison — guest and host stand forth in clear relief. Illumination and function simultaneous, from the first no before and after — a water-chestnut mirror before an image, an empty valley echoing sound. Wondrous response without method, leaving neither track nor trace; shaking out his robe he journeyed south and alighted at Daming. His Dharma-succession at Xinghua, attended in the eastern hall; copper pitcher and iron bowl, closing his door against words — pines grown old, clouds at ease, serenely self-content. Not long had he faced the wall when the secret transmission neared its end: to whom would the true Dharma pass? It died out on the blind donkey. Old Yan of Yuanjue now puts it into circulation; checked and collated, it was found without error. Only one shout remains that still calls for discussion — may the Dharma-eyed stream of Chan not raise it in vain. Respectfully prefaced on the mid-autumn day of the gengzi year of the Xuanhe era (1120).",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shangtang_01",
+          "title_zh": "上堂一 · 王常侍請升座",
+          "title_pinyin": "Shàngtáng Yī · Wáng Chángshì Qǐng Shēngzuò",
+          "title_en": "Ascending the Hall 1 — At Prefect Commissioner Wang’s Request",
           "dialogue": [
             {
               "speaker": "Linji / 臨濟",
-              "zh": "師示眾云：「赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！」",
-              "pinyin": "Shī shì zhòng yún: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!'",
+              "zh": "府主王常侍與諸官請師升座，師上堂，云：「山僧今日事不獲已，曲順人情方登此座。若約祖宗門下稱揚大事，直是開口不得，無爾措足處。山僧此日以常侍堅請，那隱綱宗，還有作家戰將直下展陣開旗麼？對眾證據看。」僧問：「如何是佛法大意？」師便喝，僧禮拜。師云：「這箇師僧却堪持論。」問師：「唱誰家曲？宗風嗣阿誰？」師云：「我在黃蘗處，三度發問，三度被打。」僧擬議，師便喝，隨後打，云：「不可向虛空裏釘橛去也。」有座主問：「三乘十二分教豈不是明佛性？」師云：「荒草不曾鋤。」主云：「佛豈賺人也？」師云：「佛在什麼處？」主無語。師云：「對常侍前擬瞞老僧，速退速退，妨他別人諸問。」復云：「此日法筵為一大事故，更有問話者麼？速致問來，爾纔開口，早勿交涉也。何以如此？不見釋尊云：『法離文字，不屬因、不在緣故。』為爾信不及，所以今日葛藤恐滯常侍與諸官員，昧他佛性，不如且退。」喝一喝，云：「少信根人終無了日。久立珍重。」",
+              "pinyin": "Fǔ zhǔ Wáng Chángshì yǔ zhū guān qǐng shī shēng zuò， shī shàng táng， yún：「 Shān sēng jīn rì shì bù huò yǐ， qū shùn rén qíng fāng dēng cǐ zuò。 Ruò yuē zǔ zōng mén xià chēng yáng dà shì， zhí shì kāi kǒu bù dé， wú ěr cuò zú chù。 Shān sēng cǐ rì yǐ cháng shì jiān qǐng， nà yǐn gāng zōng， hái yǒu zuò jiā zhàn jiāng zhí xià zhǎn zhèn kāi qí me？ Duì zhòng zhèng jù kàn。」 Sēng wèn：「 Rú hé shì fó fǎ dà yì？」 Shī biàn hè， sēng lǐ bài。 Shī yún：「 Zhè gè shī sēng què kān chí lùn。」 Wèn shī：「 Chàng shuí jiā qū？ Zōng fēng sì ā shuí？」 Shī yún：「 Wǒ zài Huángbò chù， sān dù fā wèn， sān dù bèi dǎ。」 Sēng nǐ yì， shī biàn hè， suí hòu dǎ， yún：「 Bù kě xiàng xū kōng lǐ dīng jué qù yě。」 Yǒu Zuòzhǔ wèn：「 Sān chéng shí èr fēn jiào qǐ bú shì míng fó xìng？」 Shī yún：「 Huāng cǎo bù céng chú。」 Zhǔ yún：「 Fú qǐ zhuàn rén yě？」 Shī yún：「 Fú zài shén me chù？」 Zhǔ wú yǔ。 Shī yún：「 Duì cháng shì qián nǐ mán lǎo sēng， sù tuì sù tuì， fáng tā bié rén zhū wèn。」 Fù yún：「 Cǐ rì fǎ yán wèi yī dà shì gù， gèng yǒu wèn huà zhě me？ Sù zhì wèn lái， ěr cái kāi kǒu， zǎo wù jiāo shè yě。 Hé yǐ rú cǐ？ Bù jiàn shì zūn yún：『 Fǎ lí wén zì， bù shǔ yīn、 bù zài yuán gù。』 Wèi ěr xìn bù jí， suǒ yǐ jīn rì gé téng kǒng zhì cháng shì yǔ zhū guān yuán， mèi tā fó xìng， bù rú qiě tuì。」 Hè yī hè， yún：「 Shǎo xìn gēn rén zhōng wú le rì。 Jiǔ lì zhēn zhòng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The prefect, Surveillance Commissioner Wang, together with the other officials, requested that the master take the seat. Ascending the hall, the master said: \"Today I could not help myself and, bending to people's wishes, have mounted this seat. Strictly speaking, in our ancestors' house, to praise the great matter one simply must not open one's mouth — there is no place for you to set your feet. Today, because of the Commissioner's earnest request, how could I conceal the guiding line? Are there any seasoned warriors here who can straightway spread their ranks and raise their flags? Let them come forward for the assembly to test.\" A monk asked: \"What is the great meaning of the Buddha-dharma?\" The master gave a shout; the monk bowed. The master said: \"This monk could hold a debate.\" The monk asked the master: \"Whose tune do you sing? To whose teaching style do you succeed?\" The master said: \"When I was with Huangbo, three times I asked, and three times I was struck.\" The monk hesitated; the master gave a shout, then struck him, saying: \"One cannot go driving stakes into empty space.\" A certain sutra lecturer asked: \"Do not the three vehicles and the twelve divisions of the teaching all elucidate the Buddha-nature?\" The master said: \"That weed patch has never yet been hoed.\" The lecturer said: \"Surely the Buddha would not deceive people?\" The master said: \"And where is the Buddha?\" The lecturer was speechless. The master said: \"Trying to deceive me right in front of the Commissioner — be off with you, quickly; you are keeping others from their questions.\" He added: \"This day's Dharma feast is for the one great matter. Is there anyone further with a question? Bring it out at once. The moment you open your mouth all connection is already lost. Why is this so? Have you not heard Sakyamuni's words: 'The Dharma is apart from words and letters; it belongs to no cause and dwells in no condition.' Because your faith does not reach, I spin out all these vines today — and I fear I am hindering the Commissioner and all you officials, and clouding your Buddha-nature; better that I withdraw.\" He gave another shout and said: \"People whose root of faith is shallow will never see an end to this. You have stood long. Take care.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shangtang_02",
+          "title_zh": "上堂二 · 麻谷曳座問正眼",
+          "title_pinyin": "Shàngtáng Èr · Mágǔ Yèzuò Wèn Zhèngyǎn",
+          "title_en": "Ascending the Hall 2 — Magu Drags Linji from the Seat (Which Is the True Eye?)",
+          "dialogue": [
+            {
+              "speaker": "Linji and Magu / 臨濟與麻谷",
+              "zh": "師因一日到河府，府主王常侍請師升座。時麻谷出問：「大悲千手眼，那箇是正眼？」師云：「大悲千手眼，那箇是正眼？速道速道。」麻谷拽師下座，麻谷却坐，師近前，云：「不審。」麻谷擬議，師亦拽麻谷下座，師却坐，麻谷便出去，師便下座。",
+              "pinyin": "Shī yīn yī rì dào Héfǔ， fǔ zhǔ Wáng Chángshì qǐng shī shēng zuò。 Shí Mágǔ chū wèn：「 Dà bēi qiān shǒu yǎn， nà gè shì zhèng yǎn？」 Shī yún：「 Dà bēi qiān shǒu yǎn， nà gè shì zhèng yǎn？ Sù dào sù dào。」 Mágǔ zhuāi shī xià zuò， Mágǔ què zuò， shī jìn qián， yún：「 Bù shěn。」 Mágǔ nǐ yì， shī yì zhuāi Mágǔ xià zuò， shī què zuò， Mágǔ biàn chū qù， shī biàn xià zuò。",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day the master went to the prefecture of He, where the prefect Commissioner Wang asked him to take the seat. At that, Magu came forward and asked: \"The Great Compassionate One has a thousand hands and a thousand eyes — which is the true eye?\" The master said: \"The Great Compassionate One has a thousand hands and a thousand eyes — which is the true eye? Speak quickly, speak quickly!\" Magu dragged the master down from the seat and sat in it himself. The master stepped close and said: \"I don't understand.\" As Magu hesitated, the master likewise dragged Magu down and took his own seat again. Magu then walked out, and the master stepped down from the seat.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "sermon_1",
+          "title_zh": "上堂三 · 赤肉團上無位真人",
+          "title_pinyin": "Shàngtáng Sān · Chìròutuán shàng Wúwèi Zhēnrén",
+          "title_en": "Ascending the Hall 3 — The True Person of No Rank",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "上堂云：「赤肉團上有一無位真人，常從汝等諸人面門出入，未證據者看看。」",
+              "pinyin": "Shàng táng yún：「 Chì ròu tuán shàng yǒu yī wú wèi zhēn rén， cháng cóng rǔ děng zhū rén miàn mén chū rù， wèi zhèng jù zhě kàn kàn。」",
               "translations": {
                 "red_pine": {
                   "text": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
@@ -8029,7 +8947,7 @@ window.TRANSLATECHAN_DATA = {
             {
               "speaker": "Monk / 僧",
               "zh": "時有僧出問：「如何是無位真人？」",
-              "pinyin": "Shí yǒu sēng chū wèn: 'Rúhé shì wú wèi zhēn rén?'",
+              "pinyin": "Shí yǒu sēng chū wèn：「 Rú hé shì wú wèi zhēn rén？」",
               "translations": {
                 "red_pine": {
                   "text": "Then a monk came forward and asked: 'What is the True Person without rank?'",
@@ -8058,8 +8976,8 @@ window.TRANSLATECHAN_DATA = {
             },
             {
               "speaker": "Linji / 臨濟",
-              "zh": "師下禪床，把住云：「道！道！」僧擬議。師託開云：「無位真人是什麼乾屎橛！」便歸方丈。",
-              "pinyin": "Shī xià chánchuáng, bǎzhù yún: 'Dào! Dào!' Sēng nǐyì. Shī tuōkāi yún: 'Wú wèi zhēn rén shì shénme gān shǐ jué!' Biàn guī fāngzhàng.",
+              "zh": "師下禪床把住，云：「道道。」其僧擬議，師托開，云：「無位真人是什麼乾屎橛？」便歸方丈。",
+              "pinyin": "Shī xià chán chuáng bǎ zhù， yún：「 Dào dào。」 Qí sēng nǐ yì， shī tuō kāi， yún：「 Wú wèi zhēn rén shì shén me gān shǐ jué？」 Biàn guī fāng zhàng。",
               "translations": {
                 "red_pine": {
                   "text": "The Master got down from the meditation bench, seized the monk, and shouted: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person without rank—what a dried shit-stick!' and returned to his abbot's room.",
@@ -8089,15 +9007,1060 @@ window.TRANSLATECHAN_DATA = {
           ]
         },
         {
-          "section_id": "four_shouts",
-          "title_zh": "臨濟四喝：金剛王寶劍",
-          "title_pinyin": "Línjì Sìhè: Jīngāng Wáng Bǎojiàn",
-          "title_en": "The Four Shouts of Linji",
+          "section_id": "shangtang_04",
+          "title_zh": "上堂四 · 兩堂首座同時下喝",
+          "title_pinyin": "Shàngtáng Sì · Liǎngtáng Shǒuzuò Tóngshí Xiàhè",
+          "title_en": "Ascending the Hall 4 — The Two Head Seats Shout in Unison",
           "dialogue": [
             {
               "speaker": "Linji / 臨濟",
-              "zh": "師問僧：「有時一喝如金剛王寶劍，有時一喝如金毛師子蹲地，有時一喝如探竿影草，有時一喝不作一喝用。汝作麼生會？」",
-              "pinyin": "Shī wèn sēng: 'Yǒu shí yī hè rú jīngāng wáng bǎojiàn, yǒu shí yī hè rú jīnmáo shīzǐ dūndì, yǒu shí yī hè rú tàngān yǐngcǎo, yǒu shí yī hè bù zuò yī hè yòng. Rǔ zuò me shēng huì?'",
+              "zh": "上堂，有僧出禮拜，師便喝。僧云：「老和尚莫探頭好。」師云：「爾道落在什麼處？」僧便喝。又有僧問：「如何是佛法大意？」師便喝，僧禮拜，師云：「爾道好喝也無？」僧云：「草賊大敗。」師云：「過在什麼處？」僧云：「再犯不容。」師便喝。是日，兩堂首座相見，同時下喝。僧問師：「還有賓主也無？」師云：「賓主歷然。」師云：「大眾要會臨濟賓主句，問取堂中二首座。」便下座。",
+              "pinyin": "Shàng táng， yǒu sēng chū lǐ bài， shī biàn hè。 Sēng yún：「 Lǎo Héshàng mò tàn tóu hǎo。」 Shī yún：「 Ěr dào luò zài shén me chù？」 Sēng biàn hè。 Yòu yǒu sēng wèn：「 Rú hé shì fó fǎ dà yì？」 Shī biàn hè， sēng lǐ bài， shī yún：「 Ěr dào hǎo hè yě wú？」 Sēng yún：「 Cǎo zéi dà bài。」 Shī yún：「 Guò zài shén me chù？」 Sēng yún：「 Zài fàn bù róng。」 Shī biàn hè。 Shì rì， liǎng táng Shǒuzuò xiāng jiàn， tóng shí xià hè。 Sēng wèn shī：「 Hái yǒu bīn zhǔ yě wú？」 Shī yún：「 Bīn zhǔ lì rán。」 Shī yún：「 Dà zhòng yào huì Línjì bīn zhǔ jù， wèn qǔ táng zhōng èr Shǒuzuò。」 Biàn xià zuò。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Ascending the hall: a monk came forward and bowed; the master at once gave a shout. The monk said: \"Venerable, you'd best not go probing.\" The master said: \"Tell me, where does that land?\" The monk gave a shout. Another monk asked: \"What is the great meaning of the Buddha-dharma?\" The master gave a shout; the monk bowed. The master said: \"Tell me, was that shout good or not?\" The monk said: \"The grass-thief is utterly routed.\" The master said: \"And where does the fault lie?\" The monk said: \"A second offense is not tolerated.\" The master gave a shout. That day the head seats of the two halls met and shouted at the very same moment. A monk asked the master: \"Was there any guest and host in that?\" The master said: \"Guest and host stood perfectly clear.\" The master said: \"Assembly! If you would understand Linji's phrases of guest and host, go ask the two head seats of this hall.\" He then descended from the seat.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shangtang_05",
+          "title_zh": "上堂五 · 竪拂與黃蘗賜杖",
+          "title_pinyin": "Shàngtáng Wǔ · Shùfú yǔ Huángbò Cìzhàng",
+          "title_en": "Ascending the Hall 5 — The Raised Whisk and Huangbo’s Gift of the Staff",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "上堂，僧問：「如何是佛法大意？」師竪起拂子，僧便喝，師便打。又，僧問：「如何是佛法大意？」師亦竪起拂子，僧便喝，師亦喝。僧擬議，師便打。師乃云：「大眾！夫為法者，不避喪身失命。我二十年在黃蘗先師處三度問佛法的的大意，三度蒙他賜杖，如蒿枝拂著相似。如今更思得一頓棒喫，誰人為我行得？」時有僧出眾云：「某甲行得。」師拈棒與他，其僧擬接，師便打。",
+              "pinyin": "Shàng táng， sēng wèn：「 Rú hé shì fó fǎ dà yì？」 Shī shù qǐ fú zi， sēng biàn hè， shī biàn dǎ。 Yòu， sēng wèn：「 Rú hé shì fó fǎ dà yì？」 Shī yì shù qǐ fú zi， sēng biàn hè， shī yì hè。 Sēng nǐ yì， shī biàn dǎ。 Shī nǎi yún：「 Dà zhòng！ Fū wèi fǎ zhě， bù bì sàng shēn shī mìng。 Wǒ èr shí nián zài Huángbò xiān shī chù sān dù wèn fó fǎ de de dà yì， sān dù méng tā cì zhàng， rú hāo zhī fú zhù xiāng shì。 Rú jīn gèng sī dé yī dùn bàng chī， shuí rén wèi wǒ xíng dé？」 Shí yǒu sēng chū zhòng yún：「 Mǒu jiǎ xíng dé。」 Shī niān bàng yǔ tā， qí sēng nǐ jiē， shī biàn dǎ。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Ascending the hall: a monk asked, \"What is the great meaning of the Buddha-dharma?\" The master raised his whisk; the monk gave a shout, and the master struck him. Again a monk asked, \"What is the great meaning of the Buddha-dharma?\" Again the master raised his whisk; the monk shouted, and the master also shouted. As the monk hesitated, the master struck him. Thereupon the master said: \"Assembly! Those who work for the Dharma do not flinch from losing body and life. For twenty years at my late teacher Huangbo's, three times I asked him what the truly essential great meaning of the Buddha-dharma is, and three times I received the gift of his staff — it felt like being brushed with a mugwort switch. Even now I keep thinking of getting one whole helping of the staff again. Who is there to administer it to me?\" Just then a monk came out of the assembly saying: \"I can do it.\" The master held out the staff to him; as the monk made to take it, the master struck him.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shangtang_06",
+          "title_zh": "上堂六 · 劍刃上事",
+          "title_pinyin": "Shàngtáng Liù · Jiànrèn shàng Shì",
+          "title_en": "Ascending the Hall 6 — The Matter on the Sword’s Edge",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "上堂，僧問：「如何是劍刃上事？」師云：「禍事，禍事。」僧擬議，師便打。問：「秖如石室行者，踏碓忘却移脚，向什麼處去？」師云：「沒溺深泉。」師乃云：「但有來者不虧欠伊，總識伊來處。若與麼來，恰似失却；不與麼來，無繩自縛。一切時中莫亂斟酌，會與不會都來是錯。分明與麼道，一任天下人貶剝。久立珍重。」",
+              "pinyin": "Shàng táng， sēng wèn：「 Rú hé shì jiàn rèn shàng shì？」 Shī yún：「 Huò shì， huò shì。」 Sēng nǐ yì， shī biàn dǎ。 Wèn：「 Zhǐ rú shí shì xíng zhě， tà duì wàng què yí jiǎo， xiàng shén me chù qù？」 Shī yún：「 Méi nì shēn quán。」 Shī nǎi yún：「 Dàn yǒu lái zhě bù kuī qiàn yī， zǒng shí yī lái chù。 Ruò yǔ me lái， qià sì shī què； Bù yǔ me lái， wú shéng zì fù。 Yī qiè shí zhōng mò luàn zhēn zhuó， huì yǔ bù huì dōu lái shì cuò。 Fēn míng yǔ me dào， yī rèn tiān xià rén biǎn bō。 Jiǔ lì zhēn zhòng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Ascending the hall: a monk asked, \"What is the matter on the sword's edge?\" The master said: \"A dreadful thing, a dreadful thing.\" As the monk hesitated, the master struck him. He asked further: \"What about the postulant of the Stone Hut who, treading the pestle, forgot to lift his foot — where did he go?\" The master said: \"Sunk and drowned in a deep spring.\" Then the master said: \"Whoever comes is never shortchanged by me; I always recognize where he comes from. If he comes that way, it is almost as if he had lost it; if he does not come that way, he binds himself without a rope. At all times do not weigh and consider wildly: understanding and not understanding are both wrong. Having spoken this plainly, I leave all under heaven free to deprecate and peel it apart. You have stood long. Take care.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shangtang_07",
+          "title_zh": "上堂七 · 孤峯頂與十字街頭",
+          "title_pinyin": "Shàngtáng Qī · Gūfēng yǔ Shízìjiētóu",
+          "title_en": "Ascending the Hall 7 — On a Solitary Peak and at the Crossroads",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "上堂，云：「一人在孤峯頂上，無出身之路；一人在十字街頭，亦無向背。那箇在前？那箇在後？不作維摩詰、不作傅大士。珍重。」",
+              "pinyin": "Shàng táng， yún：「 Yī rén zài gū fēng dǐng shàng， wú chū shēn zhī lù； Yī rén zài shí zì jiē tóu， yì wú xiàng bèi。 Nà gè zài qián？ Nà gè zài hòu？ Bù zuò Wéimójí、 bù zuò Fù Dàshì。 Zhēn zhòng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Ascending the hall, the master said: \"There is a man atop a solitary peak with no way by which to get out; there is a man at the crossing of the thoroughfares with no front or back. Which is ahead, and which behind? Be neither Vimalakirti nor Great Layman Fu. Take care.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shangtang_08",
+          "title_zh": "上堂八 · 途中不離家舍",
+          "title_pinyin": "Shàngtáng Bā · Túzhōng Bùlí Jiāshě",
+          "title_en": "Ascending the Hall 8 — On the Road without Leaving Home",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "上堂，云：「有一人論劫在途中不離家舍、有一人離家舍不在途中，那箇合受人天供養？」便下座。",
+              "pinyin": "Shàng táng， yún：「 Yǒu yī rén lùn jié zài tú zhōng bù lí jiā shě、 yǒu yī rén lí jiā shě bù zài tú zhōng， nà gè hé shòu rén tiān gōng yǎng？」 Biàn xià zuò。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Ascending the hall, the master said: \"There is a man who for kalpas on end is on the road yet never leaves his home; there is a man who has left home yet is not on the road. Which of them deserves the offerings of humans and gods?\" He descended from the seat.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shangtang_09",
+          "title_zh": "上堂九 · 三句三玄三要",
+          "title_pinyin": "Shàngtáng Jiǔ · Sānjù Sānxuán Sānyào",
+          "title_en": "Ascending the Hall 9 — The Three Statements, Three Mysteries and Three Essentials",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "上堂，僧問：「如何是第一句？」師云：「三要印開朱點側，未容擬議主賓分。」問：「如何是第二句？」師云：「妙解豈容無著問，漚和爭負截流機。」問：「如何是第三句？」師云：「看取棚頭弄傀儡，抽牽都來裏有人。」師又云：「一句語須具三玄門，一玄門須具三要，有權、有用。汝等諸人作麼生會？」下座。",
+              "pinyin": "Shàng táng， sēng wèn：「 Rú hé shì dì yī jù？」 Shī yún：「 Sān yào yìn kāi zhū diǎn cè， wèi róng nǐ yì zhǔ bīn fēn。」 Wèn：「 Rú hé shì dì èr jù？」 Shī yún：「 Miào jiě qǐ róng wú zhù wèn， ōu hé zhēng fù jié liú jī。」 Wèn：「 Rú hé shì dì sān jù？」 Shī yún：「 Kàn qǔ péng tóu nòng guī lěi， chōu qiān dōu lái lǐ yǒu rén。」 Shī yòu yún：「 Yī jù yǔ xū jù sān xuán mén， yī xuán mén xū jù sān yào， yǒu quán、 yǒu yòng。 Rǔ děng zhū rén zuò me shēng huì？」 Xià zuò。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Ascending the hall: a monk asked, \"What is the first statement?\" The master said: \"When the seal of the three essentials is pressed open, the vermilion point stands apart to the side — deliberation is not admitted, and yet host and guest are already distinguished.\" He asked: \"What is the second statement?\" The master said: \"How could wondrous discernment brook questioning about the unattached? How could bubbles resting together withstand the power that cuts the stream?\" He asked: \"What is the third statement?\" The master said: \"Watch the puppets performing at the stage-top: the pulling of the strings is done entirely by someone inside.\" The master went on: \"Each statement must comprise the three mysterious gates, and each mysterious gate must comprise the three essentials. There is expedience and there is function. All of you — how do you understand this?\" He descended from the seat.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_01",
+          "title_zh": "示衆一 · 四料簡與聽法底人",
+          "title_pinyin": "Shìzhòng Yī · Sìliàojiǎn yǔ Tīngfǎ Dǐ Rén",
+          "title_en": "Instructing the Assembly 1 — The Four Arrangements; The One Listening to the Dharma",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "師晚參示眾云：「有時奪人不奪境、有時奪境不奪人、有時人境俱奪、有時人境俱不奪。」時有僧問：「如何是奪人不奪境？」師云：「煦日發生鋪地錦，瓔孩垂髮白如絲。」僧云：「如何是奪境不奪人？」師云：「王令已行天下遍，將軍塞外絕烟塵。」僧云：「如何是人境兩俱奪？」師云：「并汾絕信，獨處一方。」僧云：「如何是人境俱不奪？」師云：「王登寶殿，野老謳歌。」師乃云：「今時學佛法者，且要求真正見解。若得真正見解，生死不染、去住自由，不要求殊勝，殊勝自至。道流！秖如自古先德，皆有出人底路。如山僧指示人處，秖要爾不受人惑，要用便用，更莫遲疑。如今學者不得，病在甚處？病在不自信處。爾若自信不及，即便忙忙地徇一切境轉，被他萬境回換，不得自由。爾若能歇得念念馳求心，便與祖佛不別。爾欲得識祖佛麼？秖爾面前聽法底。是學人信不及，便向外馳求。設求得者，皆是文字勝相，終不得他活祖意。莫錯諸禪德，此時不遇，萬劫千生輪回三界，徇好境掇去，驢牛肚裏生。道流！約山僧見處，與釋迦不別。今日多般用處，欠少什麼？六道神光未曾間歇，若能如是見得，秖是一生無事人。大德！三界無安，猶如火宅，此不是爾久停住處。無常殺鬼一剎那間，不揀貴、賤、老、少。爾要與祖佛不別，但莫外求。爾一念心上清淨光，是爾屋裏法身佛；爾一念心上無分別光，是爾屋裏報身佛；爾一念心上無差別光，是爾屋裏化身佛。此三種身是爾即今目前聽法底人，秖為不向外馳求，有此功用。據經論家取三種身為極則，約山僧見處不然，此三種身是名言、亦是三種依。古人云：『身依義立，土據體論。』法性身、法性土，明知是光影。大德！爾且識取弄光影底人是諸佛之本源，一切處是道流歸舍處。是爾四大色身不解說法聽法、脾胃肝膽不解說法聽法、虛空不解說法聽法，是什麼解說法聽法？是爾目前歷歷底、勿一箇形段孤明，是這箇解說法聽法。若如是見得，便與祖佛不別。但一切時中更莫間斷，觸目皆是，秖為情生智隔想變體殊，所以輪回三界受種種苦。若約山僧見處，無不甚深、無不解脫。道流！心法無形，通貫十方，在眼曰見、在耳曰聞、在鼻嗅香、在口談論、在手執捉、在足運奔。本是一精明，分為六和合。一心既無，隨處解脫。山僧與麼說，意在什麼處？秖為道流一切馳求，心不能歇，上他古人閑機境。道流取山僧見處，坐斷報化佛頭，十地滿心猶如客作兒，等妙二覺擔枷鎖漢，羅漢、辟支猶如廁穢，菩提、涅槃如繫驢橛。何以如此？秖為道流不達三祇劫空，所以有此障礙。若是真正道人，終不如是，但能隨緣消舊業，任運著衣裳，要行即行、要坐即坐，無一念心希求佛果。緣何如此？古人云：『若欲作業求佛，佛是生死大兆。』大德！時光可惜，秖擬傍家波波地學禪、學道，認名、認句，求佛、求祖、求善知識，意度莫錯。道流！爾秖有一箇父母，更求何物？爾自返照看。古人云：『演若達多失却頭，求心歇處即無事。』大德！且要平常莫作模樣，有一般不識好惡禿奴，便即見神、見鬼，指東劃西，好晴、好雨。如是之流盡須抵債，向閻老前吞熱鐵丸有日。好人家男女被這一般野狐精魅所著，便即揑怪瞎屢生！索飯錢有日在。」",
+              "pinyin": "Shī wǎn cān shì zhòng yún：「 Yǒu shí duó rén bù duó jìng、 yǒu shí duó jìng bù duó rén、 yǒu shí rén jìng jù duó、 yǒu shí rén jìng jù bù duó。」 Shí yǒu sēng wèn：「 Rú hé shì duó rén bù duó jìng？」 Shī yún：「 Xù rì fā shēng pù dì jǐn， yīng hái chuí fà bái rú sī。」 Sēng yún：「 Rú hé shì duó jìng bù duó rén？」 Shī yún：「 Wáng lìng yǐ xíng tiān xià biàn， jiāng jūn sài wài jué yān chén。」 Sēng yún：「 Rú hé shì rén jìng liǎng jù duó？」 Shī yún：「 Bìng fén jué xìn， dú chù yī fāng。」 Sēng yún：「 Rú hé shì rén jìng jù bù duó？」 Shī yún：「 Wáng dēng bǎo diàn， yě lǎo ōu gē。」 Shī nǎi yún：「 Jīn shí xué fó fǎ zhě， qiě yāo qiú zhēn zhèng jiàn jiě。 Ruò dé zhēn zhèng jiàn jiě， shēng sǐ bù rǎn、 qù zhù zì yóu， bú yào qiú shū shèng， shū shèng zì zhì。 Dào liú！ Zhǐ rú zì gǔ xiān dé， jiē yǒu chū rén dǐ lù。 Rú shān sēng zhǐ shì rén chù， zhǐ yào ěr bù shòu rén huò， yào yòng biàn yòng， gèng mò chí yí。 Rú jīn xué zhě bù dé， bìng zài shèn chù？ Bìng zài bù zì xìn chù。 Ěr ruò zì xìn bù jí， jí biàn máng máng dì xùn yī qiè jìng zhuǎn， bèi tā wàn jìng huí huàn， bù dé zì yóu。 Ěr ruò néng xiē dé niàn niàn chí qiú xīn， biàn yǔ zǔ fú bù bié。 Ěr yù dé shí zǔ fú me？ Zhǐ ěr miàn qián tīng fǎ dǐ。 Shì xué rén xìn bù jí， biàn xiàng wài chí qiú。 Shè qiú dé zhě， jiē shì wén zì shèng xiāng， zhōng bù dé tā huó zǔ yì。 Mò cuò zhū chán dé， cǐ shí bù yù， wàn jié qiān shēng lún huí sān jiè， xùn hǎo jìng duō qù， lǘ niú dǔ lǐ shēng。 Dào liú！ Yuē shān sēng jiàn chù， yǔ Shìjiā bù bié。 Jīn rì duō bān yòng chù， qiàn shǎo shén me？ Liù dào shén guāng wèi céng jiān xiē， ruò néng rú shì jiàn dé， zhǐ shì yī shēng wú shì rén。 Dà dé！ Sān jiè wú ān， yóu rú huǒ zhái， cǐ bú shì ěr jiǔ tíng zhù chù。 Wú cháng shā guǐ yī shā nà jiān， bù jiǎn guì、 jiàn、 lǎo、 shǎo。 Ěr yào yǔ zǔ fú bù bié， dàn mò wài qiú。 Ěr yī niàn xīn shàng qīng jìng guāng， shì ěr wū lǐ fǎ shēn fú； Ěr yī niàn xīn shàng wú fēn bié guāng， shì ěr wū lǐ bào shēn fú； Ěr yī niàn xīn shàng wú chà bié guāng， shì ěr wū lǐ huà shēn fú。 Cǐ sān zhǒng shēn shì ěr jí jīn mù qián tīng fǎ dǐ rén， zhǐ wèi bù xiàng wài chí qiú， yǒu cǐ gōng yòng。 Jù jīng lùn jiā qǔ sān zhǒng shēn wèi jí zé， yuē shān sēng jiàn chù bù rán， cǐ sān zhǒng shēn shì míng yán、 yì shì sān zhǒng yī。 Gǔ rén yún：『 Shēn yī yì lì， tǔ jù tǐ lùn。』 Fǎ xìng shēn、 fǎ xìng tǔ， míng zhī shì guāng yǐng。 Dà dé！ Ěr qiě shí qǔ nòng guāng yǐng dǐ rén shì zhū fú zhī běn yuán， yī qiè chù shì dào liú guī shě chù。 Shì ěr sì dà sè shēn bù jiě shuō fǎ tīng fǎ、 pí wèi gān dǎn bù jiě shuō fǎ tīng fǎ、 xū kōng bù jiě shuō fǎ tīng fǎ， shì shén me jiě shuō fǎ tīng fǎ？ Shì ěr mù qián lì lì dǐ、 wù yī gè xíng duàn gū míng， shì zhè gè jiě shuō fǎ tīng fǎ。 Ruò rú shì jiàn dé， biàn yǔ zǔ fú bù bié。 Dàn yī qiè shí zhōng gèng mò jiān duàn， chù mù jiē shì， zhǐ wèi qíng shēng zhì gé xiǎng biàn tǐ shū， suǒ yǐ lún huí sān jiè shòu zhǒng zhǒng kǔ。 Ruò yuē shān sēng jiàn chù， wú bù shèn shēn、 wú bù jiě tuō。 Dào liú！ Xīn fǎ wú xíng， tōng guàn shí fāng， zài yǎn yuē jiàn、 zài ěr yuē wén、 zài bí xiù xiāng、 zài kǒu tán lùn、 zài shǒu zhí zhuō、 zài zú yùn bēn。 Běn shì yī jīng míng， fēn wèi liù hé hé。 Yī xīn jì wú， suí chù jiě tuō。 Shān sēng yǔ me shuō， yì zài shén me chù？ Zhǐ wèi dào liú yī qiè chí qiú， xīn bù néng xiē， shàng tā gǔ rén xián jī jìng。 Dào liú qǔ shān sēng jiàn chù， zuò duàn bào huà fú tóu， shí dì mǎn xīn yóu rú kè zuò ér， děng miào èr jué dān jiā suǒ hàn， Luóhàn、 Bìzhī yóu rú cè huì， Pútí、 Nièpán rú xì lǘ jué。 Hé yǐ rú cǐ？ Zhǐ wèi dào liú bù dá sān qí jié kōng， suǒ yǐ yǒu cǐ zhàng ài。 Ruò shì zhēn zhèng dào rén， zhōng bù rú shì， dàn néng suí yuán xiāo jiù yè， rèn yùn zhù yī shang， yào xíng jí xíng、 yào zuò jí zuò， wú yī niàn xīn xī qiú Fóguǒ。 Yuán hé rú cǐ？ Gǔ rén yún：『 Ruò yù zuò yè qiú fú， fú shì shēng sǐ dà zhào。』 Dà dé！ Shí guāng kě xī， zhǐ nǐ bàng jiā bō bō dì xué chán、 xué dào， rèn míng、 rèn jù， qiú fú、 qiú zǔ、 qiú shàn zhī shí， yì dù mò cuò。 Dào liú！ Ěr zhǐ yǒu yī gè fù mǔ， gèng qiú hé wù？ Ěr zì fǎn zhào kàn。 Gǔ rén yún：『 Yǎn ruò dá duō shī què tóu， qiú xīn xiē chù jí wú shì。』 Dà dé！ Qiě yào píng cháng mò zuò mó yàng， yǒu yì bān bù shí hǎo è tū nú， biàn jí jiàn shén、 jiàn guǐ， zhǐ dōng huà xī， hǎo qíng、 hǎo yǔ。 Rú shì zhī liú jǐn xū dǐ zhài， xiàng Yánlǎo qián tūn rè tiě wán yǒu rì。 Hǎo rén jiā nán nǚ bèi zhè yì bān yě hú jīng mèi suǒ zhù， biàn jí niē guài xiā lǚ shēng！ Suǒ fàn qián yǒu rì zài。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "At the evening gathering the master instructed the assembly: \"Sometimes I take away man, not the surroundings; sometimes I take away the surroundings, not man; sometimes I take away both man and surroundings; sometimes I take away neither man nor surroundings.\" At that a monk asked: \"What is taking away man but not the surroundings?\" The master said: \"The warm sun unfolds, spreading the earth with brocade; the baby's drooping hair is white as silk.\" The monk asked: \"What is taking away the surroundings but not man?\" The master said: \"The king's command has gone out through all under heaven; in the passes beyond the wall the general's smoke and dust are stilled.\" The monk asked: \"What is taking away both man and surroundings?\" The master said: \"Bing and Fen cut off from news, alone in a region apart.\" The monk asked: \"What is taking away neither man nor surroundings?\" The master said: \"The king ascends the jeweled hall; the old rustics sing their songs.\" Thereupon the master said: \"Students of the Buddha-dharma today must seek the true view. With the true view gained, birth and death no longer stain you; going and staying are free. Do not seek the spectacular — the spectacular comes of itself. Followers of the Way! The venerable elders of old all had their ways of bringing people out. What I point out to people is simply this: do not be confused by others; when you need to use it, use it, and never hesitate. Students today cannot do it — where does their sickness lie? It lies in not trusting themselves. If your trust falls short, you rush about in pursuit of every circumstance, whirled around by the ten thousand circumstances without freedom. If you can stop the seeking that chases from thought to thought, you are no different from the patriarch-buddhas. Do you want to know the patriarch-buddhas? It is just this one before you listening to the Dharma. Students cannot trust this and so chase outward. What they chase and get is all fine marks of words and phrases; they never win the living intent of the patriarchs. Make no mistake, venerable Chan worthies: if you let this moment pass, for ten thousand kalpas and a thousand lives you circle the three realms, dragged off chasing after the pleasant, born in the bellies of donkeys and cows. Followers of the Way! From where I see it, I am no different from Sakyamuni. What is missing in all your varied functionings today? The spiritual light of the six courses has never ceased. If you can see in this way, you are simply a person of no affairs all your life. Virtuous ones! The three realms have no peace, like a house on fire; this is no place for you to linger. The impermanence-imps of death strike in a flash, choosing neither noble nor base, old nor young. If you would be no different from the patriarch-buddhas, just seek nothing outside. The pure light of one thought of your mind is the Dharma-body Buddha in your own house; the undiscriminating light of one thought of your mind is the Reward-body Buddha in your house; the undifferentiating light of one thought of your mind is the Transformation-body Buddha in your house. These three bodies are the person listening to the Dharma right before you now; only because he does not chase outward does he have this function. The sutra-and-sastra masters take the three bodies as the ultimate measure; from where I see it, that is not so. These three bodies are names and phrases, and also three dependencies. The ancients said: 'Bodies are set up according to meanings; lands are discussed on the basis of substance.' The Dharma-nature body and the Dharma-nature land — know them plainly to be shadow-play. Virtuous one! Recognize the one who plays with those shadow-lights: he is the source of all buddhas; every place is the refuge of the follower of the Way. Your four-element physical body cannot expound or hear the Dharma; your spleen, stomach, liver, and gall cannot expound or hear the Dharma; empty space cannot expound or hear the Dharma. What is it, then, that can expound and hear the Dharma? It is this, vivid and clear before you now, a solitary brightness without a single shape or defining part. If you see in this way, you are no different from the patriarch-buddhas. Only, at all times let there be no interruption — whatever meets the eye is it. Yet because feeling arises, knowledge is blocked; because thought shifts, the substance changes — so you circle the three realms and suffer every pain. From where I see it, nothing is not profound, nothing is not liberation. Followers of the Way! The mind-dharma has no form, yet it threads the ten directions: in the eye it is called seeing; in the ear, hearing; in the nose, smelling; in the mouth, speaking; in the hands, grasping; in the feet, running. Originally one clear essence, it divides into the six-fold harmony. When the one mind is gone, every place is liberation. Why do I speak this way? Only because you followers of the Way chase all the time and your minds cannot stop, treading upon the idle phrases set down by the ancients. Take my measure: cut off at a stroke the heads of the Reward and Transformation buddhas. The fulfilled mind of the tenth stage is like a hired hand; equal and marvelous awakening are men in cangues; arhats and pratyekabuddhas are like privy filth; bodhi and nirvana are posts for tethering donkeys. Why so? Because you followers of the Way have not yet reached the emptiness of three asamkhya kalpas, you have such hindrances. A genuine person of the Way is never like this: he only accords with conditions, wearing them out — old karma; he dons his clothes as the movement takes him; when he wants to walk he walks, when he wants to sit he sits; not one thought longs for buddhahood. Why? The ancients said: 'If you would act and seek Buddha, Buddha is the great omen of birth and death.' Virtuous ones! Time is precious, yet you plan to learn Chan and learn the Way around at others' houses, rushing about; you recognize names, recognize phrases; you seek Buddha, seek patriarchs, seek good knowing friends — get your intentions right. Followers of the Way! You have but one father and mother — what more do you seek? Turn back and look for yourselves. The ancients said: 'Yajnadatta lost his head; when the seeking mind comes to rest there is nothing at all to do.' Virtuous ones! Be ordinary, put on no airs. There is a kind of bald slave who cannot tell good from bad and then sees spirits, sees ghosts, points east and marks west, loves a clear sky, loves the rain. All such will have their debts to repay, swallowing hot iron balls before King Yama on some day to come. When good sons and daughters of decent families get possessed by this breed of wild-fox demon, they babble nonsense — blind fools! The day will come when they owe the rice-bill.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_02",
+          "title_zh": "示衆二 · 無事是貴人",
+          "title_pinyin": "Shìzhòng Èr · Wúshì shì Guìrén",
+          "title_en": "Instructing the Assembly 2 — The Person of No Affairs Is the Noble One",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "師示眾云：「道流！切要求取真正見解，向天下橫行，免被這一般精魅惑亂。無事是貴人，但莫造作，秖是平常。爾擬向外傍家求過覓脚手，錯了也。秖擬求佛，佛是名句。爾還識馳求底麼？三世十方佛祖出來也秖為求法，如今參學道流也秖為求法。得法始了，未得依前輪回五道。云何是法？法者是心法，心法無形，通貫十方，目前現用；人信不及，便乃認名認句，向文字中求意度佛法，天地懸殊。道流！山僧說法，說什麼法？說心地法，便能入凡、入聖，入淨、入穢，入真、入俗。要且不是爾真俗凡聖能與一切真俗凡聖安著名字，真俗凡聖與此人安著名字不得。道流！把得便用，更不著名字，號之為玄旨。山僧說法與天下人別，秖如有箇文殊、普賢出來，目前各現一身問法，纔道咨和尚，我早辨了也。老僧穩坐，更有道流來相見時，我盡辨了也。何以如此？秖為我見處別，外不取凡聖、內不住根本，見徹更不疑謬。」",
+              "pinyin": "Shī shì zhòng yún：「 Dào liú！ Qiè yào qiú qǔ zhēn zhèng jiàn jiě， xiàng tiān xià héng xíng， miǎn bèi zhè yì bān jīng mèi huò luàn。 Wú shì shì guì rén， dàn mò zào zuò， zhǐ shì píng cháng。 Ěr nǐ xiàng wài bàng jiā qiú guò mì jiǎo shǒu， cuò le yě。 Zhǐ nǐ qiú fú， fú shì míng jù。 Ěr hái shí chí qiú dǐ me？ Sān shì shí fāng fó zǔ chū lái yě zhǐ wèi qiú fǎ， rú jīn cān xué dào liú yě zhǐ wèi qiú fǎ。 Dé fǎ shǐ le， wèi dé yī qián lún huí wǔ dào。 Yún hé shì fǎ？ Fǎ zhě shì xīn fǎ， xīn fǎ wú xíng， tōng guàn shí fāng， mù qián xiàn yòng； Rén xìn bù jí， biàn nǎi rèn míng rèn jù， xiàng wén zì zhōng qiú yì dù fó fǎ， tiān dì xuán shū。 Dào liú！ Shān sēng shuō fǎ， shuō shén me fǎ？ Shuō xīn dì fǎ， biàn néng rù fán、 rù shèng， rù jìng、 rù huì， rù zhēn、 rù sú。 Yào qiě bú shì ěr zhēn sú fán shèng néng yǔ yī qiè zhēn sú fán shèng ān zhù míng zì， zhēn sú fán shèng yǔ cǐ rén ān zhù míng zì bù dé。 Dào liú！ Bǎ dé biàn yòng， gèng bù zhù míng zì， hào zhī wèi xuán zhǐ。 Shān sēng shuō fǎ yǔ tiān xià rén bié， zhǐ rú yǒu gè Wénshū、 Pǔxián chū lái， mù qián gè xiàn yī shēn wèn fǎ， cái dào zī Héshàng， wǒ zǎo biàn le yě。 Lǎo sēng wěn zuò， gèng yǒu dào liú lái xiāng jiàn shí， wǒ jǐn biàn le yě。 Hé yǐ rú cǐ？ Zhǐ wèi wǒ jiàn chù bié， wài bù qǔ fán shèng、 nèi bú zhù gēn běn， jiàn chè gèng bù yí miù。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master instructed the assembly: \"Followers of the Way! Resolve to gain the true view, and then walk unhindered across the land, free of the confusion of that pack of demons and sprites. The person of no affairs is the noble one — just do not fabricate, just be ordinary. When you intend to seek hands and feet around at others' houses, you have already gone wrong. If you seek Buddha — Buddha is a name and a phrase. Do you know the one doing the seeking? The buddhas and patriarchs of the three ages and ten directions came forth only to seek the Dharma; you students of the Way today also practice only to seek the Dharma. Gain the Dharma and all is finished; before you gain it, you circle as before through the five courses. What is the Dharma? It is the mind-dharma. The mind-dharma is without form, threading the ten directions, at work right before your eyes. People cannot trust this, so they recognize names and phrases, seeking in words and texts the intention of the Buddha-dharma — as far apart as heaven and earth. Followers of the Way! What Dharma do I expound? I expound the Dharma of the mind-ground, by which one can enter the worldly and the saintly, the pure and the tainted, the true and the conventional. And yet it is not your true, conventional, worldly, or saintly that can set a name upon this one; the true, the conventional, the worldly, and the saintly can set no name on this one. Followers of the Way! Grasp it and use it, and never set a name on it: that is called the dark purport. My Dharma is unlike any under heaven. Should a Manjusri or a Samantabhadra come out and each appear in a body before you to ask about the Dharma — the moment they begin their greeting, I have discerned them long since. I sit firm and settled; should any follower of the Way come to meet me, I have discerned them all, clear through. Why is that? Because my view is unlike: outwardly I grasp neither worldly nor saintly; inwardly I do not abide in the fundamental. Seeing clear through, I neither doubt nor err any more.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_03",
+          "title_zh": "示衆三 · 佛法無用功處",
+          "title_pinyin": "Shìzhòng Sān · Fófǎ Wú Yònggōng Chù",
+          "title_en": "Instructing the Assembly 3 — The Buddha-Dharma Has No Place for Toil",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "師示眾云：「道流！佛法無用功處，秖是平常無事——屙屎、送尿、著衣、喫飯、困來即臥……。愚人笑我，智乃知焉。古人云：『向外作工夫，總是癡頑漢。』爾且隨處作主，立處皆真，境來回換不得，縱有從來習氣、五無間業，自為解脫大海。今時學者總不識法，猶如觸鼻羊逢著物安在口裏，奴郎不辨、賓主不分，如是之流邪心入道，鬧處即入不得，名為真出家人，正是真俗家人。夫出家者，須辨得平常真正見解——辨佛、辨魔，辨真、辨偽，辨凡、辨聖……。若如是辨得，名真出家。若魔、佛不辨，正是出一家入一家，喚作造業眾生，未得名為真出家。秖如今有一箇佛魔同體不分，如水乳合鵝王喫乳。如明眼道流，魔、佛俱打。爾若愛聖憎凡，生死海裏浮沈。」",
+              "pinyin": "Shī shì zhòng yún：「 Dào liú！ Fó fǎ wú yòng gōng chù， zhǐ shì píng cháng wú shì—— ē shǐ、 sòng niào、 zhù yī、 chī fàn、 kùn lái jí wò……。 Yú rén xiào wǒ， zhì nǎi zhī yān。 Gǔ rén yún：『 Xiàng wài zuò gōng fu， zǒng shì chī wán hàn。』 Ěr qiě suí chù zuò zhǔ， lì chù jiē zhēn， jìng lái huí huàn bù dé， zòng yǒu cóng lái xí qì、 wǔ wú jiān yè， zì wèi jiě tuō dà hǎi。 Jīn shí xué zhě zǒng bù shí fǎ， yóu rú chù bí yáng féng zhù wù ān zài kǒu lǐ， nú láng bù biàn、 bīn zhǔ bù fēn， rú shì zhī liú xié xīn rù dào， nào chù jí rù bù dé， míng wèi zhēn chū jiā rén， zhèng shì zhēn sú jiā rén。 Fū chū jiā zhě， xū biàn dé píng cháng zhēn zhèng jiàn jiě—— biàn fú、 biàn mó， biàn zhēn、 biàn wěi， biàn fán、 biàn shèng……。 Ruò rú shì biàn dé， míng zhēn chū jiā。 Ruò mó、 fú bù biàn， zhèng shì chū yī jiā rù yī jiā， huàn zuò zào yè zhòng shēng， wèi dé míng wèi zhēn chū jiā。 Zhǐ rú jīn yǒu yī gè fú mó tóng tǐ bù fēn， rú shuǐ rǔ hé é wáng chī rǔ。 Rú míng yǎn dào liú， mó、 fú jù dǎ。 Ěr ruò ài shèng zēng fán， shēng sǐ hǎi lǐ fú shěn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master instructed the assembly: \"Followers of the Way! The Buddha-dharma has no place where effort applies; it is only the ordinary mind with nothing to do — moving the bowels, passing water, donning clothes, eating rice, and lying down when tired. Fools laugh at me; the wise understand. The ancients said: 'Those who do their work outward are all dull and obstinate fellows.' Just be master wherever you are; then every station you hold is true, and circumstances cannot turn you about. Even if old habits and the five uninterrupted karma-deeds remain from of old, they become of themselves a great sea of liberation. Students today do not know the Dharma — like sheep touching their noses to things and keeping whatever they find in their mouths. They cannot tell slave from master, guest from host; such folk enter the Way with perverse minds, and where there is turmoil they must not enter at all. Named as true home-leavers, they are in truth mere home-dwellers. A home-leaver must discern the ordinary, true view — discerning Buddha, discerning Mara, discerning true from false, worldly from saintly. If you can discern thus, that is called a true home-leaver. If you cannot tell Mara from Buddha, you have merely left one household to enter another — what is called a karma-making being, not yet worthy of the name of home-leaver. Right before you now there is this one in whom Buddha and Mara are one body inseparable, like water and milk blended: the goose-king drinks the milk alone. The clear-eyed follower of the Way strikes Mara and Buddha alike. If you love the saintly and hate the worldly, you bob and sink in the sea of birth and death.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_04",
+          "title_zh": "示衆四 · 佛魔染淨",
+          "title_pinyin": "Shìzhòng Sì · Fó Mó Rǎn Jìng",
+          "title_en": "Instructing the Assembly 4 — Buddha and Mara, Tainted and Pure",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是佛？魔？」師云：「爾一念心疑處是魔；爾若達得萬法無生，心如幻化，更無一塵、一法，處處清淨是佛。然佛與魔是染、淨二境，約山僧見處，無佛、無眾生，無古、無今，得者便得，不歷時節，無修、無證，無得、無失，一切時中更無別法。設有一法過此者，我說如夢、如化。山僧所說皆是。道流！即今目前孤明歷歷地聽者，此人處處不滯，通貫十方，三界自在，入一切境差別不能回換，一剎那間透入法界，逢佛說佛、逢祖說祖、逢羅漢說羅漢、逢餓鬼說餓鬼，向一切處游履國土教化眾生未曾離一念，隨處清淨，光透十方，萬法一如。道流！大丈夫兒今日方知本來無事，秖為爾信不及，念念馳求，捨頭覓頭，自不能歇。如圓頓菩薩入法界現身，向淨土中厭凡忻聖，如此之流取捨，未忘染淨心在。如禪宗見解，又且不然，直是現今更無時節。山僧說處皆是一期藥病相治，總無實法。若如是見得，是真出家，日消萬兩黃金。道流！莫取次被諸方老師印破面門道，我解禪、解道，辯似懸河，皆是造地獄業。若是真正學道人，不求世間過，切急要求真正見解。若達真正見，解圓明方始了畢。」",
+              "pinyin": "Wèn：「 Rú hé shì fú？ Mó？」 Shī yún：「 Ěr yī niàn xīn yí chù shì mó； Ěr ruò dá dé wàn fǎ wú shēng， xīn rú huàn huà， gèng wú yī chén、 yī fǎ， chù chù qīng jìng shì fú。 Rán fú yǔ mó shì rǎn、 jìng èr jìng， yuē shān sēng jiàn chù， wú fú、 wú zhòng shēng， wú gǔ、 wú jīn， dé zhě biàn dé， bù lì shí jié， wú xiū、 wú zhèng， wú dé、 wú shī， yī qiè shí zhōng gèng wú bié fǎ。 Shè yǒu yī fǎ guò cǐ zhě， wǒ shuō rú mèng、 rú huà。 Shān sēng suǒ shuō jiē shì。 Dào liú！ Jí jīn mù qián gū míng lì lì dì tīng zhě， cǐ rén chù chù bù zhì， tōng guàn shí fāng， sān jiè zì zài， rù yī qiè jìng chà bié bù néng huí huàn， yī shā nà jiān tòu rù fǎ jiè， féng fú shuō fú、 féng zǔ shuō zǔ、 féng Luóhàn shuō Luóhàn、 féng è guǐ shuō è guǐ， xiàng yī qiè chù yóu lǚ guó tǔ jiào huà zhòng shēng wèi céng lí yī niàn， suí chù qīng jìng， guāng tòu shí fāng， wàn fǎ yī rú。 Dào liú！ Dà zhàng fū ér jīn rì fāng zhī běn lái wú shì， zhǐ wèi ěr xìn bù jí， niàn niàn chí qiú， shě tóu mì tóu， zì bù néng xiē。 Rú yuán dùn pú sà rù fǎ jiè xiàn shēn， xiàng jìng tǔ zhōng yàn fán xīn shèng， rú cǐ zhī liú qǔ shě， wèi wàng rǎn jìng xīn zài。 Rú chán zōng jiàn jiě， yòu qiě bù rán， zhí shì xiàn jīn gèng wú shí jié。 Shān sēng shuō chù jiē shì yī qī yào bìng xiāng zhì， zǒng wú shí fǎ。 Ruò rú shì jiàn dé， shì zhēn chū jiā， rì xiāo wàn liǎng huáng jīn。 Dào liú！ Mò qǔ cì bèi zhū fāng lǎo shī yìn pò miàn mén dào， wǒ jiě chán、 jiě dào， biàn shì xuán hé， jiē shì zào dì yù yè。 Ruò shì zhēn zhèng xué dào rén， bù qiú shì jiān guò， qiè jí yào qiú zhēn zhèng jiàn jiě。 Ruò dá zhēn zhèng jiàn， jiě yuán míng fāng shǐ le bì。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What is Buddha? What is Mara?\" The master said: \"Where one thought of your mind doubts, that is Mara. If you penetrate that the ten thousand dharmas are unborn, that the mind is like a phantom transformation without one mote of dust, without one dharma, pure everywhere — that is Buddha. Yet Buddha and Mara are the two fields of taint and purity. From where I see it, there is no Buddha and no beings, no ancient and no modern. Gotten, it is gotten at once, without passing through intervals of time — no cultivation, no realization, no gain, no loss. At all times there is no other dharma; if there were any dharma beyond this, I would call it dreamlike, a phantom. What I have said is all there is. Followers of the Way! This solitary brightness listening right before you now, vivid and clear — this one stalls nowhere, threads the ten directions, moves at ease through the three realms, enters every field of difference without being turned about. In a single instant it penetrates the Dharma realm: meeting buddhas it speaks of buddhas, meeting patriarchs of patriarchs, meeting arhats of arhats, meeting hungry ghosts of hungry ghosts. Traveling all the lands and teaching beings, it has never departed from a single thought — pure wherever it goes, its light piercing the ten directions, the ten thousand dharmas one suchness. Followers of the Way! Great people: know today that fundamentally there is nothing to do. Only because your faith falls short do you chase thought after thought, casting aside your head to hunt for your head, unable to stop yourselves. It is like the sudden-enlightenment bodhisattvas who enter the Dharma realm and manifest bodies, loathing the worldly and delighting in the saintly in their pure lands: that taking and rejecting has not yet forgotten the mind of taint and purity. Our Chan school's view is not like that: it is simply right now, with no further intervals. What I state is always a medicine fitted to the sickness of the moment — never a fixed dharma. If you see in this way, you are a true home-leaver, consuming ten thousand ounces of gold a day. Followers of the Way! Do not thoughtlessly let some teacher anywhere stamp your face and set you saying you understand Chan, understand the Way, eloquence pouring like a hanging torrent — all of that is hell-making karma. Genuine students of the Way do not chase after the world's faults; first and urgently they seek the true view. When you attain the true view, rounded and bright, only then is all complete.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_05",
+          "title_zh": "示衆五 · 如何是真正見解",
+          "title_pinyin": "Shìzhòng Wǔ · Rúhé shì Zhēnzhèng Jiànjiě",
+          "title_en": "Instructing the Assembly 5 — What Is the True View?",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是真正見解？」師云：「爾但一切入凡、入聖，入染、入淨，入諸佛國土、入彌勒樓閣、入毘盧遮那法界，處處皆現國土成、住、壞、空，佛出于世，轉大法輪，却入涅槃，不見有去來相貌，求其生死了不可得，便入無生法界，處處游履國土，入華藏世界。盡見諸法空相，皆無實法，唯有聽法無依道人，是諸佛之母，所以佛從無依生。若悟無依，佛亦無得。若如是見得者，是真正見解。學人不了，為執名句，被他凡聖名礙，所以障其道眼不得分明。秖如十二分教皆是表顯之說，學者不會，便向表顯名句上生解，皆是依倚落在因果，未免三界生死。爾若欲得生死去住脫著自由，即今識取聽法底人：無形、無相、無根、無本、無住處。活撥撥地，應是萬種施設，用處秖是無處，所以覓著轉遠、求之轉乖，號之為祕密。道流！爾莫認著箇夢幻伴子，遲晚中間便歸無常。爾向此世界中覓箇什麼物作解脫，覓取一口飯喫補毳過時，且要訪尋知識，莫因循逐樂。光陰可惜，念念無常，麁則被地、水、火、風，細則被生、住、異、滅四相所逼。道流！今時且要識取四種無相境，免被境擺撲。」",
+              "pinyin": "Wèn：「 Rú hé shì zhēn zhèng jiàn jiě？」 Shī yún：「 Ěr dàn yī qiè rù fán、 rù shèng， rù rǎn、 rù jìng， rù zhū fú guó tǔ、 rù Mílè lóu gé、 rù Pílúzhēnà fǎ jiè， chù chù jiē xiàn guó tǔ chéng、 zhù、 huài、 kōng， fú chū yú shì， zhuǎn dà fǎ lún， què rù Nièpán， bù jiàn yǒu qù lái xiāng mào， qiú qí shēng sǐ le bù kě dé， biàn rù wú shēng fǎ jiè， chù chù yóu lǚ guó tǔ， rù Huázàng shì jiè。 Jǐn jiàn zhū fǎ kōng xiāng， jiē wú shí fǎ， wéi yǒu tīng fǎ wú yī dào rén， shì zhū fú zhī mǔ， suǒ yǐ fú cóng wú yī shēng。 Ruò wù wú yī， fú yì wú dé。 Ruò rú shì jiàn dé zhě， shì zhēn zhèng jiàn jiě。 Xué rén bù liǎo， wèi zhí míng jù， bèi tā fán shèng míng ài， suǒ yǐ zhàng qí dào yǎn bù dé fēn míng。 Zhǐ rú shí èr fēn jiào jiē shì biǎo xiǎn zhī shuō， xué zhě bù huì， biàn xiàng biǎo xiǎn míng jù shàng shēng jiě， jiē shì yī yǐ luò zài yīn guǒ， wèi miǎn sān jiè shēng sǐ。 Ěr ruò yù dé shēng sǐ qù zhù tuō zhù zì yóu， jí jīn shí qǔ tīng fǎ dǐ rén： Wú xíng、 wú xiāng、 wú gēn、 wú běn、 wú zhù chù。 Huó bō bō dì， yīng shì wàn zhǒng shī shè， yòng chù zhǐ shì wú chù， suǒ yǐ mì zhù zhuǎn yuǎn、 qiú zhī zhuǎn guāi， hào zhī wèi mì mì。 Dào liú！ Ěr mò rèn zhù gè mèng huàn bàn zi， chí wǎn zhōng jiān biàn guī wú cháng。 Ěr xiàng cǐ shì jiè zhōng mì gè shén me wù zuò jiě tuō， mì qǔ yī kǒu fàn chī bǔ cuì guò shí， qiě yào fǎng xún zhī shí， mò yīn xún zhú lè。 Guāng yīn kě xī， niàn niàn wú cháng， cū zé bèi dì、 shuǐ、 huǒ、 fēng， xì zé bèi shēng、 zhù、 yì、 miè sì xiāng suǒ bī。 Dào liú！ Jīn shí qiě yào shí qǔ sì zhǒng wú xiāng jìng， miǎn bèi jìng bǎi pū。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What is the true view?\" The master said: \"Simply enter into everything — enter the worldly, enter the saintly, enter the tainted, enter the pure, enter the buddha-lands, enter Maitreya's tower, enter Vairocana's Dharma realm. Everywhere lands appear: forming, abiding, decaying, and emptying; the Buddha appears in the world, turns the great wheel of the Dharma, and enters nirvana — yet no mark of coming or going is to be seen. Seek his birth and death and it cannot be found, and so you enter the unborn Dharma realm, traveling everywhere through its lands, entering the Flower Garland world. Seeing fully that all dharmas are empty marks, that there is no real dharma at all, there is only the unattached person of the Way listening to the Dharma, the mother of all buddhas: buddhas are born of the unattached. If you awake to the unattached, buddha too is unobtainable. To see in this way is the true view. Students do not understand, because they cling to names and phrases and are blocked by the names worldly and saintly, so the eye of their way is clouded and cannot see clearly. The twelve divisions of the teaching are all expression-and-display talk; students, not understanding, form concepts over those displayed phrases — all of it dependent leaning, falling into cause and effect, never escaping birth and death in the three realms. If you would shed birth, death, going, and staying and have them come off freely, recognize right now the one who listens to the Dharma: formless, markless, rootless, groundless, with no place of abode — alive and bounding, furnishing ten thousand responses whose working is just no-place-at-all. So it is that seeking it you stray farther; pursuing it you miss it more; it is called the hidden and secret. Followers of the Way! Do not take this dream-phantom companion for real: sooner or later it returns to impermanence. In this world, what thing do you seek to make your liberation? Go find a mouthful of rice to eat, patch your robe and pass the time honorably — but be sure to visit good knowing friends. Do not idle along chasing after ease. Time is precious; thought upon thought is impermanent: coarsely, you are pressed by earth, water, fire, and wind; finely, you are harried by arising, abiding, changing, and extinction — the four marks. Followers of the Way! For now you must recognize the four formless fields, so the fields cannot knock you about.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_06",
+          "title_zh": "示衆六 · 四種無相境",
+          "title_pinyin": "Shìzhòng Liù · Sìzhǒng Wúxiàng Jìng",
+          "title_en": "Instructing the Assembly 6 — The Four Formless Fields",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是四種無相境？」師云：「爾一念心疑，被地來礙；爾一念心愛，被水來溺；爾一念心嗔，被火來燒；爾一念心喜，被風來飄。若能如是辨得，不被境轉，處處用境，東涌西沒、南涌北沒、中涌邊沒、邊涌中沒，履水如地、履地如水。緣何如此？為達四大如夢如幻故。道流！爾秖今聽法者，不是爾四大能用。爾四大若能如是見得，便乃去住自由。約山僧見處，勿嫌底法。爾若愛聖，聖者聖之名，有一般學人向五臺山裏求文殊，早錯了也，五臺山無文殊。爾欲識文殊麼？秖爾目前用處，始終不異，處處不疑，此箇是活文殊。爾一念心無差別光，處處總是真普賢。儞一念心自能解縛，隨處解脫，此是觀音。三昧法互為主伴，出則一時出，一即三、三即一，如是解得，始好看教。」",
+              "pinyin": "Wèn：「 Rú hé shì sì zhǒng wú xiāng jìng？」 Shī yún：「 Ěr yī niàn xīn yí， bèi dì lái ài； Ěr yī niàn xīn ài， bèi shuǐ lái nì； Ěr yī niàn xīn chēn， bèi huǒ lái shāo； Ěr yī niàn xīn xǐ， bèi fēng lái piāo。 Ruò néng rú shì biàn dé， bù bèi jìng zhuǎn， chù chù yòng jìng， dōng yǒng xī méi、 nán yǒng běi méi、 zhōng yǒng biān méi、 biān yǒng zhōng méi， lǚ shuǐ rú dì、 lǚ dì rú shuǐ。 Yuán hé rú cǐ？ Wèi dá sì dà rú mèng rú huàn gù。 Dào liú！ Ěr zhǐ jīn tīng fǎ zhě， bú shì ěr sì dà néng yòng。 Ěr sì dà ruò néng rú shì jiàn dé， biàn nǎi qù zhù zì yóu。 Yuē shān sēng jiàn chù， wù xián dǐ fǎ。 Ěr ruò ài shèng， shèng zhě shèng zhī míng， yǒu yì bān xué rén xiàng wǔ tái shān lǐ qiú Wénshū， zǎo cuò le yě， wǔ tái shān wú Wénshū。 Ěr yù shí Wénshū me？ Zhǐ ěr mù qián yòng chù， shǐ zhōng bù yì， chù chù bù yí， cǐ gè shì huó Wénshū。 Ěr yī niàn xīn wú chà bié guāng， chù chù zǒng shì zhēn Pǔxián。 Nǐ yī niàn xīn zì néng jiě fù， suí chù jiě tuō， cǐ shì Guānyīn。 Sān mèi fǎ hù wèi zhǔ bàn， chū zé yī shí chū， yī jí sān、 sān jí yī， rú shì jiě dé， shǐ hǎo kàn jiào。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What are the four formless fields?\" The master said: \"If one thought of your mind doubts, you are obstructed by earth; if one thought of your mind loves, you are drowned by water; if one thought of your mind rages, you are burned by fire; if one thought of your mind rejoices, you are blown about by wind. If you can so discern, you are not turned about by the fields, and everywhere you can make use of them: welling up in the east and sinking in the west, welling south and sinking north, rising in the middle and vanishing at the borders, rising at the borders and vanishing in the middle — walking on water as on earth, walking on earth as on water. Why? Because you have penetrated that the four great elements are dreamlike phantoms. Followers of the Way! What listens to the Dharma right now is not your four elements; it is what can make use of your four elements. If you can see in this way, going and staying are free. From where I see it, there is nothing to object to. If you love the saintly — the saintly is only the name 'saintly.' There is a kind of student who goes off into Mount Wutai seeking Manjusri — wrong from the very start: there is no Manjusri on Mount Wutai. Do you want to know Manjusri? It is what is at work before you now, from first to last never otherwise, never doubting anywhere — this is the living Manjusri. The undifferentiating light of one thought of your mind is everywhere and always the true Samantabhadra. When one thought of your mind can loose bonds of itself, every place is liberation: this is Avalokitesvara. The samadhi-dharmas trade places as host and companion; when they come forth they come forth together — one is three, three are one. Only when you understand thus can you rightly read the teachings.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_07",
+          "title_zh": "示衆七 · 且要自信莫向外覓",
+          "title_pinyin": "Shìzhòng Qī · Qiě Yào Zìxìn Mò Xiàngwài Mì",
+          "title_en": "Instructing the Assembly 7 — Trust Yourself, Seek Nothing Outside",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "師示眾云：「如今學道人且要自信，莫向外覓，總上他閑塵境，都不辨邪正。秖如有祖、有佛，皆是教迹中事。有人拈起一句子語，或隱顯中出，便即疑生，照天、照地，傍家尋問，也大忙然。大丈夫兒莫秖麼論主、論賊，論是、論非，論色、論財，論說閑話過日。山僧此間不論僧俗，但有來者盡識得伊，任伊向甚處出來，但有聲名文句，皆是夢幻。却見乘境底人是諸佛之玄旨，佛境不能自稱我是佛境，還是這箇無依道人乘境出來。若有人出來問我求佛，我即應清淨境出；有人問我菩薩，我即應慈悲境出；有人問我菩提，我即應淨妙境出；有人問我涅槃，我即應寂靜境出。境即萬般差別，人即不別，所以應物現形，如水中月。道流！爾若欲得如法，直須是大丈夫兒始得。若萎萎隨隨地，則不得也。夫如㽄嗄之器不堪貯醍醐。如大器者，直要不受人惑，隨處作主，立處皆真，但有來者皆不得受。爾一念疑即魔入心，如菩薩疑時，生死魔得便。但能息念，更莫外求，物來則照。爾但信現今用底，一箇事也無。爾一念心生三界，隨緣被境分為六塵。儞如今應用處欠少什麼？一剎那間便入淨、入穢，入彌勒樓閣、入三眼國土，處處遊履，唯見空名。」",
+              "pinyin": "Shī shì zhòng yún：「 Rú jīn xué dào rén qiě yào zì xìn， mò xiàng wài mì， zǒng shàng tā xián chén jìng， dōu bù biàn xié zhèng。 Zhǐ rú yǒu zǔ、 yǒu fú， jiē shì jiào jì zhōng shì。 Yǒu rén niān qǐ yī jù zi yǔ， huò yǐn xiǎn zhōng chū， biàn jí yí shēng， zhào tiān、 zhào dì， bàng jiā xún wèn， yě dà máng rán。 Dà zhàng fū ér mò zhǐ me lùn zhǔ、 lùn zéi， lùn shì、 lùn fēi， lùn sè、 lùn cái， lùn shuō xián huà guò rì。 Shān sēng cǐ jiān bù lùn sēng sú， dàn yǒu lái zhě jǐn shí dé yī， rèn yī xiàng shèn chù chū lái， dàn yǒu shēng míng wén jù， jiē shì mèng huàn。 Què jiàn chéng jìng dǐ rén shì zhū fú zhī xuán zhǐ， fú jìng bù néng zì chēng wǒ shì fú jìng， hái shì zhè gè wú yī dào rén chéng jìng chū lái。 Ruò yǒu rén chū lái wèn wǒ qiú fú， wǒ jí yīng qīng jìng jìng chū； Yǒu rén wèn wǒ pú sà， wǒ jí yīng cí bēi jìng chū； Yǒu rén wèn wǒ Pútí， wǒ jí yīng jìng miào jìng chū； Yǒu rén wèn wǒ Nièpán， wǒ jí yīng jì jìng jìng chū。 Jìng jí wàn bān chà bié， rén jí bù bié， suǒ yǐ yīng wù xiàn xíng， rú shuǐ zhōng yuè。 Dào liú！ Ěr ruò yù dé rú fǎ， zhí xū shì dà zhàng fū ér shǐ dé。 Ruò wēi wēi suí suí dì， zé bù dé yě。 Fū rú sī á zhī qì bù kān zhù tí hú。 Rú dà qì zhě， zhí yào bù shòu rén huò， suí chù zuò zhǔ， lì chù jiē zhēn， dàn yǒu lái zhě jiē bù dé shòu。 Ěr yī niàn yí jí mó rù xīn， rú pú sà yí shí， shēng sǐ mó dé biàn。 Dàn néng xī niàn， gèng mò wài qiú， wù lái zé zhào。 Ěr dàn xìn xiàn jīn yòng dǐ， yī gè shì yě wú。 Ěr yī niàn xīn shēng sān jiè， suí yuán bèi jìng fēn wèi liù chén。 Nǐ rú jīn yīng yòng chù qiàn shǎo shén me？ Yī shā nà jiān biàn rù jìng、 rù huì， rù Mílè lóu gé、 rù sān yǎn guó tǔ， chù chù yóu lǚ， wéi jiàn kōng míng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master instructed the assembly: \"Students of the Way today must trust themselves and seek nothing outside. They keep clambering onto others' idle dust-fields and cannot tell the true from the crooked. That there are patriarchs and buddhas is all a matter of the traces of the teaching. Someone holds up a phrase, or appears amid hiddenness and disclosure — and at once doubts arise: they shine on heaven, shine on earth, run to the neighbors to ask, all in a great commotion. Great people: do not spend your days debating host against thief, right against wrong, form against wealth, passing the time in idle chatter. Here I recognize anyone who comes, monk or lay; whatever place they come out from, their fine names and phrases are all dreams and phantoms. What I see is the one riding the fields — the dark purport of the buddhas. The buddha-field cannot proclaim itself 'I am the buddha-field'; it is still this unattached person of the Way who comes riding out upon the fields. If someone comes out and asks me to find Buddha, I answer emerging from the field of purity; if one asks about bodhisattvas, I answer emerging from the field of compassion; if one asks about bodhi, I answer emerging from the field of purity and wonder; if one asks about nirvana, I answer emerging from the field of stillness. Fields differ ten-thousandfold; the person never differs. So it is that response to things takes form, like the moon in water. Followers of the Way! If you would be in accord with the Dharma, you simply must be great people. If you are limp and compliant, it will not do. A cracked and leaky vessel is unfit to hold ghee. Those of great capacity simply will not be confused by others: masters wherever they stand, true wherever they hold their ground — whatever comes, none of it can be accepted. When one thought of yours doubts, Mara enters the mind; when even a bodhisattva doubts, the Mara of birth and death finds its opening. Just stop the thoughts, seek nothing more outward: when a thing comes, illuminate it. Trust what is working right now — nothing at all is lacking. When one thought of yours arises, the three realms follow in its train, and the fields are split into the six dusts. Is anything lacking in your functioning today? In a single instant you enter purity and taint, Maitreya's tower, the three-eyed lands, roaming everywhere — seeing only empty names.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_08",
+          "title_zh": "示衆八 · 三眼國土與平常心是道",
+          "title_pinyin": "Shìzhòng Bā · Sānyǎn Guótǔ yǔ Píngchángxīn shì Dào",
+          "title_en": "Instructing the Assembly 8 — The Three-Eyed Lands; The Ordinary Mind Is the Way",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是三眼國土？」師云：「我共儞入淨妙國土中，著清淨衣，說法身佛；又入無差別國土中，著無差別衣，說報身佛；又入解脫國土中，著光明衣，說化身佛。此三眼國土皆是依變，約經論家取法身為根本，報、化二身為用。山僧見處，法身即不解說法。所以，古人云：『身依義立，土據體論。』法性身、法性土，明知是建立之法依通國土，空拳黃葉用誑小兒，蒺藜夌刺枯骨上覓什麼汁？心外無法，內亦不可得，求什麼物？爾諸方言：『道有修、有證。』莫錯，設有修得者，皆是生死業。爾言六度萬行齊修，我見皆是造業。求佛、求法，即是造地獄業；求菩薩亦是造業；看經、看教亦是造業。佛與祖師是無事人，所以有漏有為、無漏無為，為清淨業。有一般瞎禿子飽喫飯了，便坐禪觀行，把捉念漏不令放起，厭喧求靜，是外道法。祖師云：『爾若住心看靜，舉心外照、攝心內澄、凝心入定，如是之流皆是造作。』是爾如今與麼聽法底人作麼生擬修他、證他、莊嚴他？渠且不是修底物、不是莊嚴得底物。若教他莊嚴，一切物即莊嚴得，爾且莫錯。道流！爾取這一般老師口裏語為是真道，是善知識不思議。『我是凡夫心，不敢測度他老宿。』瞎屢生！爾一生秖作這箇見解，辜負這一雙眼，冷噤噤地如凍凌上驢駒相似。『我不敢毀善知識，怕生口業。』道流！夫大善知識始敢毀佛毀祖、是非天下、排斥三藏教、罵辱諸小兒、向逆順中覓人，所以我於十二年中求一箇業性，如芥子許不可得。若似新婦子禪師，便即怕趁出院，不與飯喫、不安不樂。自古先輩到處人不信，被遞出始知是貴。若到處人盡肯，堪作什麼？所以師子一吼，野干腦裂。道流！諸方說有道可修、有法可證。爾說證何法？修何道？爾今用處欠少什麼物？修補何處？後生小阿師不會，便即信這般野狐精魅，許他說事繫縛人，言道理行相應、護惜三業始得成佛，如此說者如春細雨。古人云：『路逢達道人，第一莫向道。』所以言：若人修道道不行，萬般邪境競頭生，智劍出來無一物，明頭未顯暗頭明。所以，古人云：『平常心是道。』大德！覓什麼物？現今目前聽法無依道人歷歷地分明，未曾欠少。爾若欲得與祖佛不別，但如是見，不用疑誤。爾心心不異，名之活祖。心若有異，則性相別；心不異故，即性相不別。」",
+              "pinyin": "Wèn：「 Rú hé shì sān yǎn guó tǔ？」 Shī yún：「 Wǒ gòng nǐ rù jìng miào guó tǔ zhōng， zhù qīng jìng yī， shuō fǎ shēn fú； Yòu rù wú chà bié guó tǔ zhōng， zhù wú chà bié yī， shuō bào shēn fú； Yòu rù jiě tuō guó tǔ zhōng， zhù guāng míng yī， shuō huà shēn fú。 Cǐ sān yǎn guó tǔ jiē shì yī biàn， yuē jīng lùn jiā qǔ fǎ shēn wèi gēn běn， bào、 huà èr shēn wèi yòng。 Shān sēng jiàn chù， fǎ shēn jí bù jiě shuō fǎ。 Suǒ yǐ， gǔ rén yún：『 Shēn yī yì lì， tǔ jù tǐ lùn。』 Fǎ xìng shēn、 fǎ xìng tǔ， míng zhī shì jiàn lì zhī fǎ yī tōng guó tǔ， kōng quán huáng yè yòng kuáng xiǎo ér， jí lí líng cì kū gǔ shàng mì shén me zhī？ Xīn wài wú fǎ， nèi yì bù kě dé， qiú shén me wù？ Ěr zhū fāng yán：『 Dào yǒu xiū、 yǒu zhèng。』 Mò cuò， shè yǒu xiū dé zhě， jiē shì shēng sǐ yè。 Ěr yán liù dù wàn xíng qí xiū， wǒ jiàn jiē shì zào yè。 Qiú fú、 qiú fǎ， jí shì zào dì yù yè； Qiú pú sà yì shì zào yè； Kàn jīng、 kàn jiào yì shì zào yè。 Fú yǔ Zǔshī shì wú shì rén， suǒ yǐ yǒu lòu yǒu wèi、 wú lòu wú wèi， wèi qīng jìng yè。 Yǒu yì bān xiā tū zi bǎo chī fàn le， biàn zuò chán guān xíng， bǎ zhuō niàn lòu bù lìng fàng qǐ， yàn xuān qiú jìng， shì wài dào fǎ。 Zǔshī yún：『 Ěr ruò zhù xīn kàn jìng， jǔ xīn wài zhào、 shè xīn nèi chéng、 níng xīn rù dìng， rú shì zhī liú jiē shì zào zuò。』 Shì ěr rú jīn yǔ me tīng fǎ dǐ rén zuò me shēng nǐ xiū tā、 zhèng tā、 zhuāng yán tā？ Qú qiě bú shì xiū dǐ wù、 bú shì zhuāng yán dé dǐ wù。 Ruò jiào tā zhuāng yán， yī qiè wù jí zhuāng yán dé， ěr qiě mò cuò。 Dào liú！ Ěr qǔ zhè yì bān lǎo shī kǒu lǐ yǔ wèi shì zhēn dào， shì shàn zhī shí bù sī yì。『 Wǒ shì fán fū xīn， bù gǎn cè dù tā lǎo sù。』 Xiā lǚ shēng！ Ěr yī shēng zhǐ zuò zhè gè jiàn jiě， gū fù zhè yī shuāng yǎn， lěng jìn jìn dì rú dòng líng shàng lǘ jū xiāng sì。『 Wǒ bù gǎn huǐ shàn zhī shí， pà shēng kǒu yè。』 Dào liú！ Fū dà shàn zhī shí shǐ gǎn huǐ fú huǐ zǔ、 shì fēi tiān xià、 pái chì sān zàng jiào、 mà rǔ zhū xiǎo ér、 xiàng nì shùn zhōng mì rén， suǒ yǐ wǒ yú shí èr nián zhōng qiú yī gè yè xìng， rú jiè zǐ xǔ bù kě dé。 Ruò shì xīn fù zi chán shī， biàn jí pà chèn chū yuàn， bù yǔ fàn chī、 bù ān bù lè。 Zì gǔ xiān bèi dào chù rén bù xìn， bèi dì chū shǐ zhī shì guì。 Ruò dào chù rén jǐn kěn， kān zuò shén me？ Suǒ yǐ shī zi yī hǒu， yě gàn nǎo liè。 Dào liú！ Zhū fāng shuō yǒu dào kě xiū、 yǒu fǎ kě zhèng。 Ěr shuō zhèng hé fǎ？ Xiū hé dào？ Ěr jīn yòng chù qiàn shǎo shén me wù？ Xiū bǔ hé chù？ Hòu shēng xiǎo ā shī bù huì， biàn jí xìn zhè bān yě hú jīng mèi， xǔ tā shuō shì xì fù rén， yán dào lǐ xíng xiāng yīng、 hù xī sān yè shǐ dé chéng fú， rú cǐ shuō zhě rú chūn xì yǔ。 Gǔ rén yún：『 Lù féng dá dào rén， dì yī mò xiàng dào。』 Suǒ yǐ yán： Ruò rén xiū dào dào bù xíng， wàn bān xié jìng jìng tóu shēng， zhì jiàn chū lái wú yī wù， míng tóu wèi xiǎn àn tóu míng。 Suǒ yǐ， gǔ rén yún：『 Píng cháng xīn shì dào。』 Dà dé！ Mì shén me wù？ Xiàn jīn mù qián tīng fǎ wú yī dào rén lì lì dì fēn míng， wèi céng qiàn shǎo。 Ěr ruò yù dé yǔ zǔ fú bù bié， dàn rú shì jiàn， bù yòng yí wù。 Ěr xīn xīn bù yì， míng zhī huó zǔ。 Xīn ruò yǒu yì， zé xìng xiāng bié； Xīn bù yì gù， jí xìng xiāng bù bié。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What are the three-eyed lands?\" The master said: \"You and I go together into the pure and wondrous land: wearing the robe of purity, we expound the Dharma-body Buddha; then into the undifferentiating land: wearing the undifferentiating robe, we expound the Reward-body Buddha; then into the liberation land: wearing the robe of radiance, we expound the Transformation-body Buddha. These three-eyed lands are all dependent transformations. The sutra-and-sastra masters take the Dharma body as the root and the Reward and Transformation bodies as the function. From where I see it, the Dharma body cannot expound the Dharma at all. That is why the ancients said: 'Bodies are set up according to meanings; lands are discussed on the basis of substance.' The Dharma-nature body and the Dharma-nature land are plainly established fabrications, gates dependent on understanding — an empty fist and yellow leaves, used to deceive small children. On dried bones and caltrop spikes, what juice do you hope to suck? Outside the mind there is no dharma, and within, nothing to gain: what is there to seek? You everywhere say: 'The Way has practice and realization.' Make no mistake: whatever can be gained by practice is all birth-and-death karma. You say the six paramitas and ten thousand practices should be cultivated together — I see all of that as karma-making. To seek Buddha and the Dharma is to make hell-karma; to seek bodhisattvahood is karma-making too; reading the sutras and studying the teachings is karma-making too. Buddhas and patriarchs are people of no affairs, so the tainted-and-conditioned and the untainted-and-unconditioned are both pure doings. There is a kind of blind baldpate who stuffs himself with rice and then sits down to Chan contemplation, clutching at the leak of thought so it does not rise, hating noise and seeking quiet — that is an outsider's way. The patriarchs said: 'If you fix your mind on gazing at quietness, rouse your mind to shine outward, gather your mind in clear stillness within, freeze your mind in deep absorption — all such doings are fabrications.' Tell me: how do you propose to practice, to realize, to adorn this one who is listening to the Dharma right now? He is not a thing to be made, not a thing that takes adornment. If he could be adorned, then all things could adorn him — make no mistake about it. Followers of the Way! You take what drips from those old teachers' mouths for the true Way, for good knowing friends past conceiving: 'My mind is a common mortal's; I dare not fathom those old worthies.' Blind fools! All your lives you hold such views and betray the pair of eyes in your head — freezing and shuddering like a donkey foal on the ice. 'I dare not slander a good knowing friend — afraid of the karma of the mouth.' Followers of the Way! A genuinely great good knowing friend is precisely one who dares to slander buddhas and patriarchs, to judge all under heaven, to denounce the three baskets of the teaching, to scold and revile little children, to seek the person amid the favorable and the adverse. That is why for twelve years I sought a karma-nature big as a mustard seed and could not find it. Those new-bride Chan masters fear only being chased out of the cloister, denied their rice, made restless and joyless. The elders of old were disbelieved wherever they went; only when driven out was their worth known. If everyone everywhere approves of you, what are you good for? So it is that the lion roars once and the wild dogs' brains split open. Followers of the Way! Everywhere they say there is a Way to practice, a Dharma to realize. Tell me: what Dharma will you realize? What Way will you practice? What is lacking in your functioning right now? What would practitioners go mending? The young teachers of later generations cannot see this; believing this breed of wild-fox sprites, they let them bind people up with talk, saying: 'Only when principle and practice correspond and the three karmas are guarded and cherished can one become Buddha.' Those who talk like this are the soft drizzling rain of spring. The ancients said: 'Meeting a person of the Way on the road, above all do not hail them with the Way.' As the saying goes: if a person practices the Way, the Way does not proceed; ten thousand crooked fields race to arise; when the sword of wisdom comes out, there is not a single thing; before the bright end has appeared, the dark end is already bright. And that is why the ancients said: 'The ordinary mind is the Way.' Virtuous one! What do you seek? The person of the Way listening to the Dharma before you now, vivid and clear, has never lacked anything. If you would be no different from the patriarch-buddhas, simply see it so — no more doubting and erring. When thought does not differ from thought, that is called the living patriarch. If thoughts differ, nature and marks divide; because thoughts do not differ, nature and marks stay undivided.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_09",
+          "title_zh": "示衆九 · 心心不異",
+          "title_pinyin": "Shìzhòng Jiǔ · Xīnxīn Bùyì",
+          "title_en": "Instructing the Assembly 9 — When Thought Does Not Differ from Thought",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是心心不異處？」師云：「爾擬問早異了也，性相各分，道流莫錯。世、出世諸法，皆無自性、亦無生性，但有空名，名字亦空。爾秖麼認他閑名為實，大錯了也。設有，皆是依變之境。有箇菩提依、涅槃依、解脫依、三身依、境智依、菩薩依、佛依。爾向依變國土中覓什麼物？乃至三乘十二分教，皆是拭不淨故紙。佛是幻化身，祖是老比丘，爾還是娘生已否？爾若求佛，即被佛魔攝；爾若求祖，即被祖魔縛；爾若有求皆苦，不如無事。有一般禿比丘向學人道：『佛是究竟，於三大阿僧祇劫修行果滿方始成道。』道流！爾若道佛是究竟，緣什麼八十年後向拘尸羅城雙林樹間側臥而死去？佛今何在？明知與我生死不別。爾言三十二相、八十種好是佛，轉輪聖王應是如來，明知是幻化。古人云：『如來舉身相，為順世間情，恐人生斷見，權且立虛名。』假言三十二、八十也，空聲有身非覺體，無相乃真形。",
+              "pinyin": "Wèn：「 Rú hé shì xīn xīn bù yì chù？」 Shī yún：「 Ěr nǐ wèn zǎo yì le yě， xìng xiāng gè fēn， dào liú mò cuò。 Shì、 chū shì zhū fǎ， jiē wú zì xìng、 yì wú shēng xìng， dàn yǒu kòng míng， míng zì yì kōng。 Ěr zhǐ me rèn tā xián míng wèi shí， dà cuò le yě。 Shè yǒu， jiē shì yī biàn zhī jìng。 Yǒu gè Pútí yī、 Nièpán yī、 jiě tuō yī、 sān shēn yī、 jìng zhì yī、 pú sà yī、 fú yī。 Ěr xiàng yī biàn guó tǔ zhōng mì shén me wù？ Nǎi zhì sān chéng shí èr fēn jiào， jiē shì shì bù jìng gù zhǐ。 Fú shì huàn huà shēn， zǔ shì lǎo bǐ qiū， ěr hái shì niáng shēng yǐ fǒu？ Ěr ruò qiú fú， jí bèi fú mó shè； Ěr ruò qiú zǔ， jí bèi zǔ mó fù； Ěr ruò yǒu qiú jiē kǔ， bù rú wú shì。 Yǒu yì bān tū bǐ qiū xiàng xué rén dào：『 Fú shì jiū jìng， yú sān dà ā sēng qí jié xiū xíng guǒ mǎn fāng shǐ chéng dào。』 Dào liú！ Ěr ruò dào fú shì jiū jìng， yuán shén me bā shí nián hòu xiàng Jūshīluó chéng shuāng lín shù jiān cè wò ér sǐ qù？ Fú jīn hé zài？ Míng zhī yǔ wǒ shēng sǐ bù bié。 Ěr yán sān shí èr xiāng、 bā shí zhǒng hǎo shì fú， zhuǎn lún shèng wáng yīng shì rú lái， míng zhī shì huàn huà。 Gǔ rén yún：『 Rú lái jǔ shēn xiāng， wèi shùn shì jiān qíng， kǒng rén shēng duàn jiàn， quán qiě lì xū míng。』 Jiǎ yán sān shí èr、 bā shí yě， kōng shēng yǒu shēn fēi jué tǐ， wú xiāng nǎi zhēn xíng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What is it for thought not to differ from thought?\" The master said: \"The moment you intend to ask, it has already differed; nature and marks are split apart. Followers of the Way, make no mistake. The dharmas of the world and beyond the world all have no self-nature and no nature of arising; they have only empty names — and the names too are empty. To go on taking those idle names as real is a great mistake. Whatever there is belongs to the fields of dependent transformation: there is a bodhi-dependence, a nirvana-dependence, a liberation-dependence, a three-bodies-dependence, a field-and-knowledge-dependence, a bodhisattva-dependence, a buddha-dependence. What are you seeking amid those lands of dependent transformation? Even the three vehicles and twelve divisions of the teaching are old paper for wiping off the unclean. Buddha is a phantom transformation body; patriarchs are old bhiksus. Were you born of your mother or not? If you seek Buddha, you are taken in by the Buddha-Mara; if you seek patriarchs, you are bound by the patriarch-Mara. Wherever there is seeking, there is only suffering. Better to have nothing to do. There is a kind of bald bhiksu who tells students: 'Buddha is the ultimate, attained only when, through three great asamkhya kalpas of practice, the fruit ripens and the Way is fulfilled.' Followers of the Way! If you say Buddha is the ultimate, why did he lie down on his side and die between the twin trees in the city of Kusinagara? Where is Buddha now? Know clearly: he is no different from me in birth and death. You say the thirty-two marks and eighty excellences are Buddha — then the wheel-turning sage king should be the Tathagata. Know plainly: these are phantom transformations. The ancients said: 'The Tathagata displayed his bodily marks in accord with worldly sentiment; fearing people would form an annihilationist view, he provisionally set up empty names' — provisionally speaking of thirty-two and eighty. Empty sounds and possessed bodies are not the substance of awakening; the formless is the true form.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_10",
+          "title_zh": "示衆十 · 佛六通不被六塵惑",
+          "title_pinyin": "Shìzhòng Shí · Fó Liùtōng Bù Bèi Liùchén Huò",
+          "title_en": "Instructing the Assembly 10 — The Buddha’s Six Powers, Unseduced by the Six Dusts",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「爾道佛有六通是不可思議。一切諸天、神仙、阿修羅、大力鬼亦有神通，應是佛否？道流莫錯，秖如阿修羅與天帝釋戰，戰敗領八萬四千眷屬入藕絲孔中藏。莫是聖否？如山僧所舉，皆是業通、依通。夫如佛六通者不然，入色界不被色惑、入聲界不被聲惑、入香界不被香惑、入味界不被味惑、入觸界不被觸惑、入法界不被法惑，所以達六種色、聲、香、味、觸、法皆是空相，不能繫縛。此無依道人，雖是五蘊漏質，便是地行神通。",
+              "pinyin": "「 Ěr dào fú yǒu liù tōng shì bù kě sī yì。 Yī qiè zhū tiān、 shén xiān、 Āxiūluó、 dà lì guǐ yì yǒu shén tōng， yīng shì fú fǒu？ Dào liú mò cuò， zhǐ rú Āxiūluó yǔ Tiāndìshì zhàn， zhàn bài lǐng bā wàn sì qiān juàn shǔ rù ǒu sī kǒng zhōng cáng。 Mò shì shèng fǒu？ Rú shān sēng suǒ jǔ， jiē shì yè tōng、 yī tōng。 Fū rú fú liù tōng zhě bù rán， rù sè jiè bù bèi sè huò、 rù shēng jiè bù bèi shēng huò、 rù xiāng jiè bù bèi xiāng huò、 rù wèi jiè bù bèi wèi huò、 rù chù jiè bù bèi chù huò、 rù fǎ jiè bù bèi fǎ huò， suǒ yǐ dá liù zhǒng sè、 shēng、 xiāng、 wèi、 chù、 fǎ jiē shì kōng xiāng， bù néng xì fù。 Cǐ wú yī dào rén， suī shì wǔ yùn lòu zhì， biàn shì dì xíng shén tōng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"You say Buddha's six superpowers are inconceivable. But all the gods of heaven, the spirits, the asuras, and the mighty ghosts also have superpowers — should they count as Buddha? Followers of the Way, make no mistake. When an asura fought Indra, king of the gods, and lost, he led his eighty-four thousand followers to hide inside a lotus-thread pore — is that sagehood? All such as I have cited are karma-won or dependence-won powers. Buddha's six superpowers are not so: entering the realm of form he is not seduced by form; entering the realms of sound, fragrance, taste, touch, and dharmas, he is seduced by none of them. Thus, having penetrated that the six dusts — form, sound, fragrance, taste, touch, dharmas — are all empty marks, nothing can bind him. This unattached person of the Way, though he be the leaking stuff of the five skandhas, is straightaway the earth-walking superpower.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_11",
+          "title_zh": "示衆十一 · 真佛無形真法無相",
+          "title_pinyin": "Shìzhòng Shíyī · Zhēnfó Wúxíng Zhēnfǎ Wúxiàng",
+          "title_en": "Instructing the Assembly 11 — The True Buddha Has No Form, the True Dharma No Marks",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！真佛無形、真法無相，爾秖麼幻化上頭作模作樣，設求得者，皆是野狐精魅，並不是真佛，是外道見解。夫如真學道人，並不取佛、不取菩薩、羅漢、不取三界殊勝，逈無獨脫不與物拘，乾坤倒覆我更不疑，十方諸佛現前無一念心喜，三塗地獄頓現無一念心怖。緣何如此？我見諸法空相，變即有、不變即無，三界唯心、萬法唯識，所以夢幻空花何勞把捉？唯有道流目前現今聽法底人，入火不燒、入水不溺、入三塗地獄如遊園觀、入餓鬼畜生而不受報。緣何如此？無嫌底法。爾若愛聖憎凡，生死海裏沈浮。煩惱由心故有，無心煩惱何拘？不勞分別取相，自然得道須臾。爾擬傍家波波地學得，於三祇劫中終歸生死，不如無事向叢林中床角頭交脚坐。",
+              "pinyin": "「 Dào liú！ Zhēn fú wú xíng、 zhēn fǎ wú xiāng， ěr zhǐ me huàn huà shàng tóu zuò mó zuò yàng， shè qiú dé zhě， jiē shì yě hú jīng mèi， bìng bú shì zhēn fú， shì wài dào jiàn jiě。 Fū rú zhēn xué dào rén， bìng bù qǔ fú、 bù qǔ pú sà、 Luóhàn、 bù qǔ sān jiè shū shèng， jiǒng wú dú tuō bù yǔ wù jū， qián kūn dào fù wǒ gèng bù yí， shí fāng zhū fú xiàn qián wú yī niàn xīn xǐ， sān tú dì yù dùn xiàn wú yī niàn xīn bù。 Yuán hé rú cǐ？ Wǒ jiàn zhū fǎ kōng xiāng， biàn jí yǒu、 bù biàn jí wú， sān jiè wéi xīn、 wàn fǎ wéi shí， suǒ yǐ mèng huàn kōng huā hé láo bǎ zhuō？ Wéi yǒu dào liú mù qián xiàn jīn tīng fǎ dǐ rén， rù huǒ bù shāo、 rù shuǐ bù nì、 rù sān tú dì yù rú yóu yuán guān、 rù è guǐ chù sheng ér bù shòu bào。 Yuán hé rú cǐ？ Wú xián dǐ fǎ。 Ěr ruò ài shèng zēng fán， shēng sǐ hǎi lǐ shěn fú。 Fán nǎo yóu xīn gù yǒu， wú xīn fán nǎo hé jū？ Bù láo fēn bié qǔ xiāng， zì rán dé dào xū yú。 Ěr nǐ bàng jiā bō bō dì xué dé， yú sān qí jié zhōng zhōng guī shēng sǐ， bù rú wú shì xiàng cóng lín zhōng chuáng jiǎo tóu jiāo jiǎo zuò。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! The true Buddha has no form; the true Dharma has no marks. You go on making shapes and putting on airs atop phantom transformations; whatever you may seek and get is wild-fox essence and sprite, not the true Buddha — an outsider's view. Genuine students of the Way take hold neither of Buddha nor of bodhisattvas or arhats, nor of any splendor within the three realms — detached and alone, utterly free, bound by nothing. If heaven and earth turned upside down, I would not doubt; if the buddhas of the ten directions appeared before me, not one thought of delight would stir; if the three evil paths gaped before me at once, not one thought of fear. Why is this? I see that all dharmas are empty marks: transformed they exist, untransformed they do not; the three realms are mind only, the ten thousand dharmas are consciousness only. What point, then, in grabbing at dreams, phantoms, flowers in the sky? There is only this follower of the Way listening to the Dharma right now before you who enters fire without being burned, enters water without drowning, enters the three evil paths as if strolling in a park, enters the states of hungry ghost and animal without repayment. Why? Because nothing is objected to. If you love the saintly and hate the worldly, you sink and float in the sea of birth and death. Afflictions exist by way of mind; when there is no mind, what binds the afflictions? Do not strain to discriminate and seize marks — the Way comes of itself in a trice. If you plan to pick it up hurrying around at others' houses, you will end up in birth and death for three asamkhya kalpas. Better to be without affairs, sitting cross-legged in the corner of a monastic bed.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_12",
+          "title_zh": "示衆十二 · 主客機鋒與體究練磨",
+          "title_pinyin": "Shìzhòng Shíèr · Zhǔkè Jīfēng yǔ Tǐjiū Liànmó",
+          "title_en": "Instructing the Assembly 12 — Thrust and Parry of Host and Guest; Tempered by Examining",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！如諸方有學人來，主客相見了，便有一句子語：『辨前頭善知識被學人拈出箇機權語路，向善知識口角頭攛過，看爾識不識。爾若識得是境，把得便拋向坑子裏。』學人便即尋常，然後便索善知識語，依前奪之。學人云：『上智哉，是大善知識。』即云：『爾大不識好惡。』如善知識把出箇境塊子，向學人面前弄，前人辨得下下作主，不受境惑。善知識便即現半身，學人便喝。善知識又入一切差別語路中擺撲，學人云：『不識好惡老禿奴。』善知識歎曰：『真正道流。』如諸方善知識不辨邪正，學人來問菩提涅槃三身境智，瞎老師便與他解說，被他學人罵著，便把棒打他，言：『無禮度。』自是爾善知識無眼，不得嗔他。有一般不識好惡禿奴，即指東劃西——好晴、好雨、好燈籠露柱——爾看眉毛有幾莖，這箇具機緣學人不會，便即心狂。如是之流總是野狐精、魅、魍、魎，被他好學人嗌嗌微笑，言瞎老禿奴惑亂他天下人。「道流！出家兒且要學道，秖如山僧往日曾向毘尼中留心，亦曾於經論尋討。後方知是濟世藥表顯之說，遂乃一時拋却，即訪道參禪。後遇大善知識，方乃道眼分明，始識得天下。老和尚知其邪正，不是娘生下便會，還是體究練磨一朝自省。",
+              "pinyin": "「 Dào liú！ Rú zhū fāng yǒu xué rén lái， zhǔ kè xiāng jiàn le， biàn yǒu yī jù zi yǔ：『 Biàn qián tóu shàn zhī shí bèi xué rén niān chū gè jī quán yǔ lù， xiàng shàn zhī shí kǒu jiǎo tóu cuān guò， kàn ěr shí bù shí。 Ěr ruò shí dé shì jìng， bǎ dé biàn pāo xiàng kēng zi lǐ。』 Xué rén biàn jí xún cháng， rán hòu biàn suǒ shàn zhī shí yǔ， yī qián duó zhī。 Xué rén yún：『 Shàng zhì zāi， shì dà shàn zhī shí。』 Jí yún：『 Ěr dà bù shí hǎo è。』 Rú shàn zhī shí bǎ chū gè jìng kuài zi， xiàng xué rén miàn qián nòng， qián rén biàn dé xià xià zuò zhǔ， bù shòu jìng huò。 Shàn zhī shí biàn jí xiàn bàn shēn， xué rén biàn hè。 Shàn zhī shí yòu rù yī qiè chà bié yǔ lù zhōng bǎi pū， xué rén yún：『 Bù shí hǎo è lǎo tū nú。』 Shàn zhī shí tàn yuē：『 Zhēn zhèng dào liú。』 Rú zhū fāng shàn zhī shí bù biàn xié zhèng， xué rén lái wèn Pútí Nièpán sān shēn jìng zhì， xiā lǎo shī biàn yǔ tā jiě shuō， bèi tā xué rén mà zhù， biàn bǎ bàng dǎ tā， yán：『 Wú lǐ dù。』 Zì shì ěr shàn zhī shí wú yǎn， bù dé chēn tā。 Yǒu yì bān bù shí hǎo è tū nú， jí zhǐ dōng huà xī—— hǎo qíng、 hǎo yǔ、 hǎo dēng lóng lù zhù—— ěr kàn méi máo yǒu jǐ jīng， zhè gè jù jī yuán xué rén bù huì， biàn jí xīn kuáng。 Rú shì zhī liú zǒng shì yě hú jīng、 mèi、 wǎng、 liǎng， bèi tā hǎo xué rén ài ài wēi xiào， yán xiā lǎo tū nú huò luàn tā tiān xià rén。「 Dào liú！ Chū jiā ér qiě yào xué dào， zhǐ rú shān sēng wǎng rì céng xiàng Píní zhōng liú xīn， yì céng yú jīng lùn xún tǎo。 Hòu fāng zhī shì jì shì yào biǎo xiǎn zhī shuō， suì nǎi yī shí pāo què， jí fǎng dào cān chán。 Hòu yù dà shàn zhī shí， fāng nǎi dào yǎn fēn míng， shǐ shí dé tiān xià。 Lǎo Héshàng zhī qí xié zhèng， bú shì niáng shēng xià biàn huì， hái shì tǐ jiū liàn mó yī zhāo zì xǐng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! Wherever students come to a teacher's place, once host and guest have met there is this one phrase to test with: 'Discern the one before you: the student brings out a phrase full of craft and cunning and thrusts it at the good knowing friend's mouth, to see whether you recognize it or not. If you recognize it as an object, catch it and hurl it into the pit.' The student then acts familiar and asks the good knowing friend for a word, and as before he is robbed of it. The student says: 'Superb wisdom — a truly great good knowing friend!' Whereupon the friend says: 'You truly cannot tell good from bad.' Or the good knowing friend brings out a lump of object and dangles it before the student; the man discerns it and takes charge at every move, undeceived by the object. The good knowing friend then reveals half his body — the student gives a shout. The friend goes on tumbling about in every manner of differential phrase-path; the student says: 'You old baldpate who cannot tell good from bad!' The good knowing friend sighs in admiration: 'A genuine follower of the Way!' When teachers everywhere cannot tell the true from the crooked, students come asking about bodhi, nirvana, the three bodies, fields-and-knowledge — the blind teacher expounds it all for them; then the students revile him, and he takes his stick and beats them for being rude. It is you, teacher, who have no eye — do not be wrathful with them. There is a kind of bald slave who cannot tell good from bad and points east and marks west — a lovely clear sky! lovely rain! lovely lamps and pillars! — 'just count the hairs on your eyebrows.' Students of genuine capacity for the encounter do not understand and their minds go wild. All such folk are wild-fox spirits, sprites, fiends, and goblins; a proper student laughs at them with a pointed smile and says: 'You blind old baldpates, confounding and misleading everyone under heaven!' Followers of the Way! Home-leavers must study the Way. In olden days even I once gave my mind to the vinaya and inquired amid the sutras and sastras; only later did I know them for world-healing remedies, expression-and-display talk, and cast them aside in one stroke, then went visiting teachers to practice Chan. Later still I met a great good knowing friend; only then was my way-eye made clear, so I could discern all the old monks under heaven and tell the true from the crooked. It is not that I understood from my mother's womb — it took ingrained effort, inquiry, and polish, until one morning I looked into myself.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_13",
+          "title_zh": "示衆十三 · 逢著便殺",
+          "title_pinyin": "Shìzhòng Shísān · Féngzhuó Biàn Shā",
+          "title_en": "Instructing the Assembly 13 — Whatever You Meet, Kill It",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！爾欲得如法見解，但莫受人惑，向裏向外逢著便殺——逢佛殺佛、逢祖殺祖、逢羅漢殺羅漢、逢父母殺父母、逢親眷殺親眷——始得解脫。不與物拘，透脫自在，如諸方學道流未有不依物出來底。山僧向此間從頭打、手上出來手上打、口裏出來口裏打、眼裏出來眼裏打，未有一箇獨脫出來底，皆是上他古人閑機境。山僧無一法與人，秖是治病解縛。爾諸方道流試不依物出來，我要共爾商量。十年五歲並無一人，皆是依草、附葉、竹木、精靈、野狐精魅，向一切糞塊上亂咬瞎漢，枉消他十方信施，道我是出家兒，作如是見解，向爾道：『無佛、無法、無修、無證，秖與麼傍家擬求什麼物？』瞎漢頭上安頭，是爾欠少什麼。",
+              "pinyin": "「 Dào liú！ Ěr yù dé rú fǎ jiàn jiě， dàn mò shòu rén huò， xiàng lǐ xiàng wài féng zhù biàn shā—— féng fú shā fú、 féng zǔ shā zǔ、 féng Luóhàn shā Luóhàn、 féng fù mǔ shā fù mǔ、 féng qīn juàn shā qīn juàn—— shǐ dé jiě tuō。 Bù yǔ wù jū， tòu tuō zì zài， rú zhū fāng xué dào liú wèi yǒu bù yī wù chū lái dǐ。 Shān sēng xiàng cǐ jiān cóng tóu dǎ、 shǒu shàng chū lái shǒu shàng dǎ、 kǒu lǐ chū lái kǒu lǐ dǎ、 yǎn lǐ chū lái yǎn lǐ dǎ， wèi yǒu yī gè dú tuō chū lái dǐ， jiē shì shàng tā gǔ rén xián jī jìng。 Shān sēng wú yī fǎ yǔ rén， zhǐ shì zhì bìng jiě fù。 Ěr zhū fāng dào liú shì bù yī wù chū lái， wǒ yào gòng ěr shāng liáng。 Shí nián wǔ suì bìng wú yī rén， jiē shì yī cǎo、 fù yè、 zhú mù、 jīng líng、 yě hú jīng mèi， xiàng yī qiè fèn kuài shàng luàn yǎo xiā hàn， wǎng xiāo tā shí fāng xìn shī， dào wǒ shì chū jiā ér， zuò rú shì jiàn jiě， xiàng ěr dào：『 Wú fú、 wú fǎ、 wú xiū、 wú zhèng， zhǐ yǔ me bàng jiā nǐ qiú shén me wù？』 Xiā hàn tóu shàng ān tóu， shì ěr qiàn shǎo shén me。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! If you want a view in accord with the Dharma, just refuse to be confused by others. Inwardly and outwardly, whatever you meet, kill it — meeting Buddha, kill the Buddha; meeting a patriarch, kill the patriarch; meeting an arhat, kill the arhat; meeting father and mother, kill father and mother; meeting kin, kill the kin — only then do you gain liberation, bound by nothing, passing clean through and free. Students of the Way everywhere all come forth riding on something. From the start I strike them here: come out on the hand, strike on the hand; come out through the mouth, strike through the mouth; come out through the eye, strike through the eye. Not a single one comes out solitary and free — they all tread upon the idle phrases laid down by the ancients. I have not one dharma to give people; I merely cure the disease and loose the bonds. Followers of the Way everywhere, try coming out independent of things: I would confer with you. In ten years — five years — not one has come. They are all spirits clinging to grasses, leaves, bamboos, and trees, wild-fox sprites, blind fellows snapping madly at every lump of dung, vainly consuming the faithful alms of the ten directions and calling themselves home-leavers — with views like that! Let me tell you: no Buddha, no Dharma, no cultivation, no realization. With that said, what are you running about at others' houses to seek? Blind man, do not set a head on top of your head — what is it you lack?'\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_14",
+          "title_zh": "示衆十四 · 歇心菩提樹",
+          "title_pinyin": "Shìzhòng Shísì · Xiēxīn Pútíshù",
+          "title_en": "Instructing the Assembly 14 — When Thought Rests: The Bodhi Tree",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！是爾目前用底與祖佛不別，秖麼不信，便向外求。莫錯，向外無法、內亦不可得。爾取山僧口裏語，不如休歇無事去。已起者莫續、未起者不要放起，便勝爾十年行脚。約山僧見處無如許多般，秖是平常著衣、喫飯、無事過時。爾諸方來者皆是有心求佛、求法、求解脫、求出離三界。癡人！爾要出三界，什麼處去？佛祖是賞繫底名句。爾欲識三界麼？不離爾今聽法底心地。爾一念心貪是欲界、爾一念心瞋是色界、爾一念心癡是無色界，是爾屋裏家具子。三界不自道：『我是三界。』還是，道流！目前靈靈地照燭萬般酌度世界底人與三界安名。大德！四大色身是無常，乃至脾、胃、肝、膽、髮、毛、爪、齒，唯見諸法空相。爾一念心歇得處，喚作菩提樹；爾一念心不能歇得處，喚作無明樹。無明無住處、無明無始終，爾若念念心歇不得，便上他無明樹，便入六道、四生、披毛、戴角；爾若歇得，便是清淨身界。爾一念不生，便是上菩提樹，三界神通變化意生化身，法喜禪悅身光自照，思衣羅綺千重、思食百味具足，更無橫病。菩提無住處，是故無得者。",
+              "pinyin": "「 Dào liú！ Shì ěr mù qián yòng dǐ yǔ zǔ fú bù bié， zhǐ me bù xìn， biàn xiàng wài qiú。 Mò cuò， xiàng wài wú fǎ、 nèi yì bù kě dé。 Ěr qǔ shān sēng kǒu lǐ yǔ， bù rú xiū xiē wú shì qù。 Yǐ qǐ zhě mò xù、 wèi qǐ zhě bú yào fàng qǐ， biàn shèng ěr shí nián xíng jiǎo。 Yuē shān sēng jiàn chù wú rú xǔ duō bān， zhǐ shì píng cháng zhù yī、 chī fàn、 wú shì guò shí。 Ěr zhū fāng lái zhě jiē shì yǒu xīn qiú fú、 qiú fǎ、 qiú jiě tuō、 qiú chū lí sān jiè。 Chī rén！ Ěr yào chū sān jiè， shén me chù qù？ Fó zǔ shì shǎng xì dǐ míng jù。 Ěr yù shí sān jiè me？ Bù lí ěr jīn tīng fǎ dǐ xīn dì。 Ěr yī niàn xīn tān shì yù jiè、 ěr yī niàn xīn chēn shì sè jiè、 ěr yī niàn xīn chī shì wú sè jiè， shì ěr wū lǐ jiā jù zi。 Sān jiè bù zì dào：『 Wǒ shì sān jiè。』 Hái shì， dào liú！ Mù qián líng líng dì zhào zhú wàn bān zhuó dù shì jiè dǐ rén yǔ sān jiè ān míng。 Dà dé！ Sì dà sè shēn shì wú cháng， nǎi zhì pí、 wèi、 gān、 dǎn、 fà、 máo、 zhǎo、 chǐ， wéi jiàn zhū fǎ kōng xiāng。 Ěr yī niàn xīn xiē dé chù， huàn zuò Pútí shù； Ěr yī niàn xīn bù néng xiē dé chù， huàn zuò wú míng shù。 Wú míng wú zhù chù、 wú míng wú shǐ zhōng， ěr ruò niàn niàn xīn xiē bù dé， biàn shàng tā wú míng shù， biàn rù liù dào、 sì shēng、 pī máo、 dài jiǎo； Ěr ruò xiē dé， biàn shì qīng jìng shēn jiè。 Ěr yī niàn bù shēng， biàn shì shàng Pútí shù， sān jiè shén tōng biàn huà yì shēng huà shēn， fǎ xǐ chán yuè shēn guāng zì zhào， sī yī luó qǐ qiān zhòng、 sī shí bǎi wèi jù zú， gèng wú héng bìng。 Pútí wú zhù chù， shì gù wú dé zhě。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! What is functioning before you now is no different from the patriarch-buddhas — yet you cannot trust this and seek outward. Make no mistake: outside there is no dharma, and inside there is nothing to gain. Better than taking the words from my mouth — rest and have nothing to do. Do not continue what has arisen; do not rouse what has not yet arisen: that surpasses ten years of pilgrimage. From where I see it there is no such variety: it is only the ordinary — donning clothes, eating rice, passing the time without affairs. People come from everywhere with mind — seeking Buddha, seeking Dharma, seeking liberation, seeking escape from the three realms. Fools! If you want to leave the three realms, where will you go? 'Buddha' and 'patriarch' are names and phrases for prizing and binding. Do you want to know the three realms? They lie nowhere apart from the mind-ground listening to the Dharma right now: one thought of craving in your mind is the realm of desire; one thought of anger in your mind is the realm of form; one thought of delusion in your mind is the realm of formlessness — these are the furnishings of your own house. The three realms do not of themselves proclaim, 'We are the three realms'; it is still this person of the Way, radiant now, illumining all kinds and judging the world, who fixes names on the three realms. Virtuous ones! This physical body of the four elements is impermanent — spleen, stomach, liver, and gall, hair, nails, and teeth — you see only that all dharmas are empty marks. Where one thought of yours can stop is called the bodhi tree; where one thought cannot stop is called the tree of unknowing. Unknowing has no dwelling place; unknowing has neither beginning nor end. If thought after thought cannot stop, you climb the tree of unknowing and enter the six realms and four births, wearing fur and bearing horns. If you can stop, that is the pure body-field. Not one thought arising, you climb the bodhi tree: by the supernormal transformations of the three realms you are born by will — a body of Dharma-joy and Chan-bliss whose light shines of itself; thinking of robes, a thousand folds of silk; thinking of food, a hundred flavors complete; and no untimely illness. Bodhi has no place of abode; therefore nothing at all is obtained.\"\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "four_host_guest",
+          "title_zh": "示衆十五 · 大丈夫漢與四賓主",
+          "title_pinyin": "Shìzhòng Shíwǔ · Dàzhàngfūhàn yǔ Sìbīnzhǔ",
+          "title_en": "Instructing the Assembly 15 — A Valiant One; The Fourfold Guest and Host",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "道流！大丈夫漢更疑箇什麼？目前用處更是阿誰把得便用，莫著名字，號為玄旨，與麼見得勿嫌底法。古人云：『心隨萬境轉，轉處實能幽，隨流認得性，無喜亦無憂。』",
+              "pinyin": "Dào liú！ Dà zhàng fū hàn gèng yí gè shén me？ Mù qián yòng chù gèng shì ā shuí bǎ dé biàn yòng， mò zhù míng zì， hào wèi xuán zhǐ， yǔ me jiàn dé wù xián dǐ fǎ。 Gǔ rén yún：『 Xīn suí wàn jìng zhuǎn， zhuǎn chù shí néng yōu， suí liú rèn dé xìng， wú xǐ yì wú yōu。』",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! Valiant ones, what is there still to doubt? What is working before you now — who else do you suppose can take hold of it and use it? Put no name on it: that is called the dark purport. See it like this, and there is no dharma to object to. The ancients said: 'When the mind turns with the ten thousand circumstances, the turning place is truly profound; following the current you recognize your nature — no joy, and no sorrow either.'\"",
+                  "status": "ai_draft"
+                }
+              }
+            },
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "道流！如禪宗見解死活循然，參學之人大須子細，如主客相見便有言論往來，或應物現形、或全體作用、或把機權喜怒、或現半身、或乘師子、或乘象王。如有真正學人便喝，先拈出一箇膠盆子。善知識不辨是境，便上他境上作模作樣。學人便喝，前人不肯放。此是膏肓之病不堪醫，喚作客看主。或是善知識不拈出物，隨學人問處即奪。學人被奪抵死不放，此是主看客。或有學人應一箇清淨境出善知識前，善知識辨得是境，把得拋向坑裏。學人言：『大好善知識。』即云：『咄哉，不識好惡。』學人便禮拜，此喚作主看主。或有學人披枷帶鎖出善知識前，善知識更與安一重枷鎖，學人歡喜。彼此不辨，呼為客看客。",
+              "pinyin": "Dào liú！ Rú chán zōng jiàn jiě sǐ huó xún rán， cān xué zhī rén dà xū zi xì， rú zhǔ kè xiāng jiàn biàn yǒu yán lùn wǎng lái， huò yīng wù xiàn xíng、 huò quán tǐ zuò yòng、 huò bǎ jī quán xǐ nù、 huò xiàn bàn shēn、 huò chéng shī zi、 huò chéng xiàng wáng。 Rú yǒu zhēn zhèng xué rén biàn hè， xiān niān chū yī gè jiāo pén zi。 Shàn zhī shí bù biàn shì jìng， biàn shàng tā jìng shàng zuò mó zuò yàng。 Xué rén biàn hè， qián rén bù kěn fàng。 Cǐ shì gāo huāng zhī bìng bù kān yī， huàn zuò kè kàn zhǔ。 Huò shì shàn zhī shí bù niān chū wù， suí xué rén wèn chù jí duó。 Xué rén bèi duó dǐ sǐ bù fàng， cǐ shì zhǔ kàn kè。 Huò yǒu xué rén yīng yī gè qīng jìng jìng chū shàn zhī shí qián， shàn zhī shí biàn dé shì jìng， bǎ dé pāo xiàng kēng lǐ。 Xué rén yán：『 Dà hǎo shàn zhī shí。』 Jí yún：『 Duō zāi， bù shí hǎo è。』 Xué rén biàn lǐ bài， cǐ huàn zuò zhǔ kàn zhǔ。 Huò yǒu xué rén pī jiā dài suǒ chū shàn zhī shí qián， shàn zhī shí gèng yǔ ān yī zhòng jiā suǒ， xué rén huān xǐ。 Bǐ cǐ bù biàn， hū wèi kè kàn kè。",
+              "translations": {
+                "red_pine": {
+                  "text": "Among Chan students, encounters can take many forms: meeting as host and guest, responding to circumstances, or taking up the whole activity. When a student traps a teacher in a situation and the teacher cannot discern it, this is called guest seeing host. When a teacher takes away what the student asks for and the student will not release it, this is called host seeing guest. When both recognize and discard a pure situation, this is host seeing host; when both fail to discern and add another shackle, this is guest seeing guest.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Students of the Way must be very careful in the living exchange of host and guest. The text distinguishes the guest who tests a teacher, the host who takes away a student’s attachment, the mutual discernment of host and host, and the mutual confusion of guest and guest.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Students of the Way must be very careful. In encounters there may be words and responses, manifestations and complete functioning. If a student presents a situation and the teacher cannot discern it, that is guest seeing host; if the teacher takes the student’s question and the student clings to it, that is host seeing guest. Clear discernment is host seeing host; mutual confusion is guest seeing guest.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_16",
+          "title_zh": "示衆十六 · 辨魔揀異三種根器",
+          "title_pinyin": "Shìzhòng Shíliù · Biànmó Jiǎnyì Sānzhǒng Gēnqì",
+          "title_en": "Instructing the Assembly 16 — Discerning Demons; Judging Three Grades of Capacity",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「大德！山僧如是所舉，皆是辨魔揀異，知其邪正。道流！寔情大難，佛法幽玄，解得可可地。山僧竟日與他說破，學者總不在意，千遍萬遍脚底踏過，黑沒焌地，無一箇形段，歷歷孤明。學人信不及，便向名句上生解，年登半百，秖管傍家負死屍行，檐却檐子天下走，索草鞋錢有日在。「大德！山僧說向外無法。學人不會，便即向裏作解，便即倚壁坐，舌拄上齶，湛然不動，取此為是祖門佛法也。大錯，是爾若取不動清淨境為是，爾即認他無明為郎主。古人云：『湛湛黑暗深坑寔可怖畏。』此之是也。爾若認他動者是，一切草木皆解動，應可是道也。所以，動者是風大、不動者是地大，動與不動俱無自性。爾若向動處捉他，他向不動處立；爾若向不動處捉他，他向動處立。譬如潛泉魚鼓波而自躍。大德！動與不動是二種境，還是無依，道人用動、用不動。如諸方學人來，山僧此間作三種根器斷：如中下根器來，我便奪其境，而不除其法；或中上根器來，我便境法俱奪；如上上根器來，我便境法人俱不奪；如有出格見解人來，山僧此間便全體作用不歷根器。",
+              "pinyin": "「 Dà dé！ Shān sēng rú shì suǒ jǔ， jiē shì biàn mó jiǎn yì， zhī qí xié zhèng。 Dào liú！ Shí qíng dà nán， fó fǎ yōu xuán， jiě dé kě kě dì。 Shān sēng jìng rì yǔ tā shuō pò， xué zhě zǒng bù zài yì， qiān biàn wàn biàn jiǎo dǐ tà guò， hēi méi qū dì， wú yī gè xíng duàn， lì lì gū míng。 Xué rén xìn bù jí， biàn xiàng míng jù shàng shēng jiě， nián dēng bàn bǎi， zhǐ guǎn bàng jiā fù sǐ shī xíng， yán què yán zi tiān xià zǒu， suǒ cǎo xié qián yǒu rì zài。「 Dà dé！ Shān sēng shuō xiàng wài wú fǎ。 Xué rén bù huì， biàn jí xiàng lǐ zuò jiě， biàn jí yǐ bì zuò， shé zhǔ shàng è， zhàn rán bù dòng， qǔ cǐ wèi shì zǔ mén fó fǎ yě。 Dà cuò， shì ěr ruò qǔ bù dòng qīng jìng jìng wèi shì， ěr jí rèn tā wú míng wèi láng zhǔ。 Gǔ rén yún：『 Zhàn zhàn hēi àn shēn kēng shí kě bù wèi。』 Cǐ zhī shì yě。 Ěr ruò rèn tā dòng zhě shì， yī qiè cǎo mù jiē jiě dòng， yīng kě shì dào yě。 Suǒ yǐ， dòng zhě shì fēng dà、 bù dòng zhě shì dì dà， dòng yǔ bù dòng jù wú zì xìng。 Ěr ruò xiàng dòng chù zhuō tā， tā xiàng bù dòng chù lì； Ěr ruò xiàng bù dòng chù zhuō tā， tā xiàng dòng chù lì。 Pì rú qián quán yú gǔ bō ér zì yuè。 Dà dé！ Dòng yǔ bù dòng shì èr zhǒng jìng， hái shì wú yī， dào rén yòng dòng、 yòng bù dòng。 Rú zhū fāng xué rén lái， shān sēng cǐ jiān zuò sān zhǒng gēn qì duàn： Rú zhōng xià gēn qì lái， wǒ biàn duó qí jìng， ér bù chú qí fǎ； Huò zhōng shàng gēn qì lái， wǒ biàn jìng fǎ jù duó； Rú shàng shàng gēn qì lái， wǒ biàn jìng fǎ rén jù bù duó； Rú yǒu chū gé jiàn jiě rén lái， shān sēng cǐ jiān biàn quán tǐ zuò yòng bù lì gēn qì。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Virtuous ones! All that I have set forth is for discerning demons and picking out the crooked, for knowing the true from the false. Followers of the Way! The real thing is hard indeed; the Buddha-dharma is dark and deep, yet what is understood fits together neatly. All day long I spell it out for you, and students pay it no mind — a thousand times, ten thousand times you tread it underfoot: black as pitch, without a single shape or feature, vividly solitary-bright. Students' faith does not reach it, so they form concepts over names and phrases — well past fifty, still lugging a corpse around at others' houses, shouldering a pole-basket all over the land; the day will come when they owe the straw-sandal money. Virtuous ones! I say there is no dharma outside. Students do not understand and at once form concepts pointing inward: they lean against a wall and sit, tongue pressed to the roof of the mouth, motionless and crystal-still, taking this to be the buddha-dharma of the patriarchal gates. Greatly wrong! If you take a motionless pure field for the truth, you recognize your own unknowing as lord and master. The ancients said: 'Deep, deep dark, a black pit — truly a thing to dread.' This is the case. If you recognize movement as the truth — all grasses and trees understand movement; should they count as the Way? Movement is the wind element, stillness the earth element; both movement and stillness have no self-nature. If you grasp it in movement, it stands in stillness; if you grasp it in stillness, it stands in movement — like the fish of a hidden spring leaping of itself amid the waves. Virtuous ones! Movement and stillness are two objects; it is still the unattached person of the Way who uses movement and uses stillness. When students come from anywhere, I judge them here as three grades of capacity: if they come of middling-to-lower capacity, I take away their object without removing their dharma; if middling-to-higher, I take away both object and dharma; if of the highest, I take away neither object nor dharma nor person; if one comes with an out-of-the-ordinary view and understanding, I act with the whole body, reckoning no grade at all.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_17",
+          "title_zh": "示衆十七 · 石火電光擬心即差",
+          "title_pinyin": "Shìzhòng Shíqī · Shíhuǒ Diànguāng Nǐxīn Jí Chā",
+          "title_en": "Instructing the Assembly 17 — Flint and Lightning: To Frame a Thought Is to Miss",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「大德！到這裏學人著力處不通風，石火電光即過了也。學人若眼定動，即沒交涉，擬心即差，動念即乖。有人解者，不離目前。大德！爾檐鉢囊屎檐子，傍家走求佛求法，即今與麼馳求底，爾還識渠麼？活撥撥地，秖是勿根株，擁不聚、撥不散，求著即轉遠、不求還在目前。靈音屬耳，若人不信，徒勞百年。",
+              "pinyin": "「 Dà dé！ Dào zhè lǐ xué rén zhù lì chù bù tōng fēng， shí huǒ diàn guāng jí guò le yě。 Xué rén ruò yǎn dìng dòng， jí méi jiāo shè， nǐ xīn jí chà， dòng niàn jí guāi。 Yǒu rén jiě zhě， bù lí mù qián。 Dà dé！ Ěr yán bō náng shǐ yán zi， bàng jiā zǒu qiú fú qiú fǎ， jí jīn yǔ me chí qiú dǐ， ěr hái shí qú me？ Huó bō bō dì， zhǐ shì wù gēn zhū， yōng bù jù、 bō bù sàn， qiú zhù jí zhuǎn yuǎn、 bù qiú hái zài mù qián。 Líng yīn shǔ ěr， ruò rén bù xìn， tú láo bǎi nián。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Virtuous ones! At this point where students exert themselves there is no crack of air: flint-spark and lightning-flash have already passed by. If a student's eye hesitates or shifts, there is no connection; to frame a thought is to miss it; to move a thought is to be off it. The one who can does not leave the present. Virtuous ones! You shoulder your bowl-bag and dung-basket, going to others' houses seeking Buddha and Dharma — this one racing about and seeking right now, do you know him? Alive and bounding, he is simply without any rootstock: gather him and he does not bunch, part him and he does not scatter; seek him and he strays farther, do not seek and he is right before you. His subtle sound fills the ear — if a person cannot trust this, a hundred years toil in vain.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_18",
+          "title_zh": "示衆十八 · 剎那遍入唯有空名",
+          "title_pinyin": "Shìzhòng Shíbā · Chànà Biànrù Wéiyǒu Kōngmíng",
+          "title_en": "Instructing the Assembly 18 — In an Instant, Entering All Lands: Only Empty Names",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！一剎那間便入華藏世界、入毘盧遮那國土、入解脫國土、入神通國土、入清淨國土、入法界、入穢入淨、入凡入聖、入餓鬼畜生，處處討覓尋皆，不見有生、有死，唯有空名。幻化空花不勞把捉，得失是非一時放却。",
+              "pinyin": "「 Dào liú！ Yī shā nà jiān biàn rù Huázàng shì jiè、 rù Pílúzhēnà guó tǔ、 rù jiě tuō guó tǔ、 rù shén tōng guó tǔ、 rù qīng jìng guó tǔ、 rù fǎ jiè、 rù huì rù jìng、 rù fán rù shèng、 rù è guǐ chù sheng， chù chù tǎo mì xún jiē， bù jiàn yǒu shēng、 yǒu sǐ， wéi yǒu kòng míng。 Huàn huà kōng huā bù láo bǎ zhuō， dé shī shì fēi yī shí fàng què。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! In a single instant you enter the Flower Garland world, enter Vairocana's lands, enter the liberation lands, enter the supernormal-power lands, enter the pure lands, enter the Dharma realm, enter taint and purity, the worldly and the saintly, and the states of hungry ghosts and animals — everywhere you may hunt and seek, you see neither birth nor death, only empty names. Phantom flowers in the empty sky ask no grasping; gain and loss, right and wrong — let them all go at once.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_19",
+          "title_zh": "示衆十九 · 諸宗匠用處",
+          "title_pinyin": "Shìzhòng Shíjiǔ · Zhū Zōngjiàng Yòngchù",
+          "title_en": "Instructing the Assembly 19 — The Functioning of the Old House Masters",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！山僧佛法的的相承，從麻谷和尚、丹霞和尚、道一和尚、廬山拽石頭和尚，一路行遍天下，無人信得，盡皆起謗。如道一和尚用處純一無雜，學人三百、五百盡皆不見他意。如廬山和尚自在真正順逆用處，學人不測涯際，悉皆忙然。如丹霞和尚翫珠隱顯，學人來者皆悉被罵。如麻谷用處苦如黃蘗，近皆不得。如石鞏用處向箭頭上覓人，來者皆懼。如山僧今日用處真正成壞，翫弄神變，入一切境，隨處無事，境不能換。",
+              "pinyin": "「 Dào liú！ Shān sēng fó fǎ de de xiāng chéng， cóng Mágǔ Héshàng、 Dānxiá Héshàng、 Dàoyī Héshàng、 Lúshān zhuāi shí tóu Héshàng， yī lù xíng biàn tiān xià， wú rén xìn dé， jǐn jiē qǐ bàng。 Rú Dàoyī Héshàng yòng chù chún yī wú zá， xué rén sān bǎi、 wǔ bǎi jǐn jiē bù jiàn tā yì。 Rú Lúshān Héshàng zì zài zhēn zhèng shùn nì yòng chù， xué rén bù cè yá jì， xī jiē máng rán。 Rú Dānxiá Héshàng wán zhū yǐn xiǎn， xué rén lái zhě jiē xī bèi mà。 Rú Mágǔ yòng chù kǔ rú Huángbò， jìn jiē bù dé。 Rú Shígǒng yòng chù xiàng jiàn tóu shàng mì rén， lái zhě jiē jù。 Rú shān sēng jīn rì yòng chù zhēn zhèng chéng huài， wán nòng shén biàn， rù yī qiè jìng， suí chù wú shì， jìng bù néng huàn。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! My Buddha-dharma has been handed down in true succession: from master Magu, master Danxia, master Daoyi (Mazu), and the master who hauled stones on Mount Lu — one road running all over the land. Nobody trusted it, and all of them met with slander. Daoyi's functioning was pure and single without mixture; students by the three hundreds and five hundreds could not see his meaning. Lushan's functioning, genuine in the favorable and adverse alike — students could not plumb its shores and were all at a loss. Danxia played with his pearl, hiding and revealing it; all who came to him met with scolding. Magu's functioning was bitter as Huangbo's — none could approach. Shigong's functioning sought the man right on the arrowhead — all who came were afraid. My own functioning today creates genuineness and destroys it, playing with spiritual transformations, entering every field, at rest wherever I go — the fields cannot turn me about.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_20",
+          "title_zh": "示衆二十 · 莫認衣",
+          "title_pinyin": "Shìzhòng Èrshí · Mò Rèn Yī",
+          "title_en": "Instructing the Assembly 20 — Do Not Mistake the Robe for the Wearer",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「但有來求者，我即便出看渠，渠不識我，我便著數般衣，學人生解一向入我言句：『苦哉，瞎禿子無眼人把我著底衣認青、黃、赤、白，我脫却入清淨境中。』學人一見便生忻欲。我又脫却，學人失心，忙然狂走，言：『我無衣。』我即向渠道：『爾識我著衣底人否？』忽爾回頭，認我了也。『大德！爾莫認衣，衣不能動，人能著衣，有箇清淨衣、有箇無生衣、菩提衣、涅槃衣、有祖衣、有佛衣。大德！但有聲名文句，皆悉是衣變，從臍輪氣海中鼓激、牙齒敲磕成其句義，明知是幻化。大德！外發聲語業、內表心所法，以思有念，皆悉是衣。爾秖麼認他著底衣為寔解，縱經塵劫秖是衣通，三界循還輪回生死；不如無事，相逢不相識、共語不知名。今時學人不得，蓋為認名字為解，大策子上抄死老漢語，三重五重複子裹，不教人見，道是玄旨，以為保重。大錯，瞎屢生！爾向枯骨上覓什麼汁？有一般不識好惡，向教中取意度商量成於句義，如把屎塊子向口裏含了吐過與別人。猶如俗人打傳口令相似，一生虛過也。道我出家，被他問著佛法，便即杜口無詞，眼似漆突、口如楄檐，如此之類逢彌勒出世，移置他方世界寄地獄受苦。大德！爾波波地往諸方覓什麼物？踏爾脚板闊，無佛可求、無道可成、無法可得。外求有相佛，與汝不相似，欲識汝本心，非合亦非離。』",
+              "pinyin": "「 Dàn yǒu lái qiú zhě， wǒ jí biàn chū kàn qú， qú bù shí wǒ， wǒ biàn zhù shù bān yī， xué rén shēng jiě yí xiàng rù wǒ yán jù：『 Kǔ zāi， xiā tū zi wú yǎn rén bǎ wǒ zhù dǐ yī rèn qīng、 huáng、 chì、 bái， wǒ tuō què rù qīng jìng jìng zhōng。』 Xué rén yī jiàn biàn shēng xīn yù。 Wǒ yòu tuō què， xué rén shī xīn， máng rán kuáng zǒu， yán：『 Wǒ wú yī。』 Wǒ jí xiàng qú dào：『 Ěr shí wǒ zhù yī dǐ rén fǒu？』 Hū ěr huí tóu， rèn wǒ le yě。『 Dà dé！ Ěr mò rèn yī， yī bù néng dòng， rén néng zhù yī， yǒu gè qīng jìng yī、 yǒu gè wú shēng yī、 Pútí yī、 Nièpán yī、 yǒu zǔ yī、 yǒu fú yī。 Dà dé！ Dàn yǒu shēng míng wén jù， jiē xī shì yī biàn， cóng qí lún qì hǎi zhōng gǔ jī、 yá chǐ qiāo kē chéng qí jù yì， míng zhī shì huàn huà。 Dà dé！ Wài fā shēng yǔ yè、 nèi biǎo xīn suǒ fǎ， yǐ sī yǒu niàn， jiē xī shì yī。 Ěr zhǐ me rèn tā zhù dǐ yī wèi shí jiě， zòng jīng chén jié zhǐ shì yī tōng， sān jiè xún hái lún huí shēng sǐ； Bù rú wú shì， xiāng féng bù xiāng shí、 gòng yǔ bù zhī míng。 Jīn shí xué rén bù dé， gài wèi rèn míng zì wèi jiě， dà cè zi shàng chāo sǐ lǎohàn yǔ， sān chóng wǔ zhòng fù zi guǒ， bù jiào rén jiàn， dào shì xuán zhǐ， yǐ wèi bǎo zhòng。 Dà cuò， xiā lǚ shēng！ Ěr xiàng kū gǔ shàng mì shén me zhī？ Yǒu yì bān bù shí hǎo è， xiàng jiào zhōng qǔ yì dù shāng liáng chéng yú jù yì， rú bǎ shǐ kuài zi xiàng kǒu lǐ hán le tǔ guò yǔ bié rén。 Yóu rú sú rén dǎ chuán kǒu lìng xiāng sì， yī shēng xū guò yě。 Dào wǒ chū jiā， bèi tā wèn zhù fó fǎ， biàn jí dù kǒu wú cí， yǎn shì qī tū、 kǒu rú pián yán， rú cǐ zhī lèi féng Mílè chū shì， yí zhì tā fāng shì jiè jì dì yù shòu kǔ。 Dà dé！ Ěr bō bō dì wǎng zhū fāng mì shén me wù？ Tà ěr jiǎo bǎn kuò， wú fú kě qiú、 wú dào kě chéng、 wú fǎ kě dé。 Wài qiú yǒu xiāng fú， yǔ rǔ bù xiāng sì， yù shí rǔ běn xīn， fēi hé yì fēi lí。』",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Whenever people come seeking, I go out at once to look at them; they do not recognize me, so I put on several sorts of robe. Students fall into concepts and forever enter my phrases: 'Alas! Those blind baldpates, those eyeless people — the robe I am wearing they name blue, yellow, red, or white! I strip it off and enter the field of purity' — and the moment students see that, delight and craving arise. I strip that off too; the students lose heart and rush wildly about, saying that I have no robe. Then I say to them: 'Do you recognize me, the one who wears all the robes?' And suddenly they turn their heads and recognize me. Virtuous ones! Do not recognize the robe — the robe cannot move; the person wears the robe. There is a robe of purity, a robe of the unborn, a bodhi robe, a nirvana robe, a patriarch robe, a buddha robe. Virtuous ones! Whatever fine names and phrases there are, they are all changes of robe: drummed out from the ocean of breath at the navel wheel, knocked and tapped with the teeth into the meaning of phrases — know them plainly to be phantom transformations. Virtuous ones! Verbal action voiced outside, mind-dharmas manifested within — thought having thought — all of these are robes. If you take the robe being worn for real understanding, then even through kalpas innumerable as dust it is only robe-wisdom, and you circle the three realms in the rounds of birth and death. Better to have nothing to do: to meet without recognizing, to talk without knowing names. Students today fail entirely because they take names and words for understanding, copying a dead old man's phrases into great ledgers, wrapping them in three and five layers so no one sees, calling this the dark purport and guarding it as treasure. Greatly wrong, blind fools! What juice do you hope to suck from dried bones? A kind that cannot tell good from bad takes from the teachings, thinks, weighs, and deliberates, concocting the meaning of phrases — as if they held a lump of dung in the mouth and spat it out for others, like the worldly game of passing the password: a whole life spent in vain. Calling myself a home-leaver — questioned about the Buddha-dharma, such folk are struck dumb, eyes like lacquered stumps, mouths like carrying poles. The likes of them, when Maitreya appears in the world, will be shifted to a neighboring world-realm and lodged in hell to suffer. Virtuous ones! Why race about everywhere? You will wear your feet wide. No Buddha can be sought, no Way attained, no Dharma obtained. Seeking outside for a marked Buddha — he bears no likeness to you. If you would know your own fundamental mind — it is neither joining nor parting.'\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_21",
+          "title_zh": "示衆二十一 · 三法混融",
+          "title_pinyin": "Shìzhòng Èrshíyī · Sānfǎ Húnróng",
+          "title_en": "Instructing the Assembly 21 — The Three Dharmas Melted into One",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！真佛無形、真道無體、真法無相，三法混融和合一處，辨既不得，喚作忙忙業識眾生。」",
+              "pinyin": "「 Dào liú！ Zhēn fú wú xíng、 zhēn dào wú tǐ、 zhēn fǎ wú xiāng， sān fǎ hùn róng hé hé yī chù， biàn jì bù dé， huàn zuò máng máng yè shí zhòng shēng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! The true Buddha has no form; the true Way has no substance; the true Dharma has no marks. The three dharmas melt and blend into one place. Since that still cannot be discerned, they are called the milling, busy beings of karma and consciousness.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_22",
+          "title_zh": "示衆二十二 · 真佛真法真道",
+          "title_pinyin": "Shìzhòng Èrshíèr · Zhēnfó Zhēnfǎ Zhēndào",
+          "title_en": "Instructing the Assembly 22 — True Buddha, True Dharma, True Way",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是真佛？真法？真道？乞垂開示。」師云：「佛者，心清淨是；法者，心光明是；道者，處處無礙淨光是。三即一，皆是空名，而無寔有，如真正學道人念念心不間斷。自達磨大師從西土來，秖是覓箇不受人惑底人。後遇二祖，一言便了，始知從前虛用功夫。山僧今日見處與祖佛不別，若第一句中得，與祖佛為師；若第二句中得，與人天為師；若第三句中得，自救不了。」",
+              "pinyin": "Wèn：「 Rú hé shì zhēn fú？ Zhēn fǎ？ Zhēn dào？ Qǐ chuí kāi shì。」 Shī yún：「 Fú zhě， xīn qīng jìng shì； Fǎ zhě， xīn guāng míng shì； Dào zhě， chù chù wú ài jìng guāng shì。 Sān jí yī， jiē shì kōng míng， ér wú shí yǒu， rú zhēn zhèng xué dào rén niàn niàn xīn bù jiān duàn。 Zì Dámó dà shī cóng xī tǔ lái， zhǐ shì mì gè bù shòu rén huò dǐ rén。 Hòu yù èr zǔ， yī yán biàn liǎo， shǐ zhī cóng qián xū yòng gōng fu。 Shān sēng jīn rì jiàn chù yǔ zǔ fú bù bié， ruò dì yī jù zhōng dé， yǔ zǔ fú wèi shī； Ruò dì èr jù zhōng dé， yǔ rén tiān wèi shī； Ruò dì sān jù zhōng dé， zì jiù bù liǎo。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What is true Buddha, true Dharma, true Way? I beg your instructing revelation.\" The master said: \"Buddha is purity of mind; Dharma is the mind's radiance; the Way is the unhindered pure light everywhere. The three are one — all are empty names and have no real existence, as a genuine student of the Way whose thought never flags. From the day the great master Bodhidharma came from the western lands, he sought only a person undeceived by others. Later he met the second patriarch; at a single word all was finished, and he knew his earlier effort had been spent in vain. My own view today is no different from the patriarch-buddhas: if you get it in the first statement, you act as teacher to patriarch-buddhas; if you get it in the second statement, you act as teacher to humans and gods; if you get it in the third statement, you cannot even save yourself.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_23",
+          "title_zh": "示衆二十三 · 西來意",
+          "title_pinyin": "Shìzhòng Èrshísān · Xīlái Yì",
+          "title_en": "Instructing the Assembly 23 — The Meaning of the Patriarch’s Coming from the West",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是西來意？」師云：「若有意，自救不了。」云：「既無意，云何二祖得法？」師云：「得者是不得。」云：「既若不得，云何是不得底意？」師云：「為爾向一切處馳求，心不能歇。所以，祖師言：『咄哉，丈夫！將頭覓頭。』儞言下便自回光返照，更不別求。知身心與祖佛不別，當下無事，方名得法。大德！山僧今時事不獲已，話度說出許多不才淨。爾且莫錯，據我見處，寔無許多般道理，要用便用、不用便休。秖如諸方說六度萬行以為佛法，我道是莊嚴門、佛事門，非是佛法，乃至持齋、持戒，擎油不㴸，道眼不明，盡須抵債，索飯錢有日在。何故如此？入道不通理，復身還信施。長者八十一，其樹不生耳，乃至孤峯獨宿，一食卯齋，長坐不臥，六時行道皆是造業底人，乃至頭、目、髓、腦、國城、妻子、象、馬、七珍盡皆捨施，如是等見皆是苦身心故，還招苦果，不如無事純一無雜。乃至十地滿心菩薩皆求此道流蹤跡了不可得，所以諸天歡喜，地神捧足，十方諸佛無不稱歎。緣何如此？為今聽法道人用處無蹤跡。」",
+              "pinyin": "Wèn：「 Rú hé shì xī lái yì？」 Shī yún：「 Ruò yǒu yì， zì jiù bù liǎo。」 Yún：「 Jì wú yì， yún hé èr zǔ dé fǎ？」 Shī yún：「 Dé zhě shì bù dé。」 Yún：「 Jì ruò bù dé， yún hé shì bù dé dǐ yì？」 Shī yún：「 Wèi ěr xiàng yī qiè chù chí qiú， xīn bù néng xiē。 Suǒ yǐ， Zǔshī yán：『 Duō zāi， zhàng fū！ Jiāng tóu mì tóu。』 Nǐ yán xià biàn zì huí guāng fǎn zhào， gèng bù bié qiú。 Zhī shēn xīn yǔ zǔ fú bù bié， dāng xià wú shì， fāng míng dé fǎ。 Dà dé！ Shān sēng jīn shí shì bù huò yǐ， huà dù shuō chū xǔ duō bù cái jìng。 Ěr qiě mò cuò， jù wǒ jiàn chù， shí wú xǔ duō bān dào lǐ， yào yòng biàn yòng、 bù yòng biàn xiū。 Zhǐ rú zhū fāng shuō liù dù wàn xíng yǐ wèi fó fǎ， wǒ dào shì zhuāng yán mén、 fó shì mén， fēi shì fó fǎ， nǎi zhì chí zhāi、 chí jiè， qíng yóu bù shǎn， dào yǎn bù míng， jǐn xū dǐ zhài， suǒ fàn qián yǒu rì zài。 Hé gù rú cǐ？ Rù dào bù tōng lǐ， fù shēn hái xìn shī。 Zhǎng zhě bā shí yī， qí shù bù shēng ěr， nǎi zhì gū fēng dú sù， yī shí mǎo zhāi， zhǎng zuò bù wò， liù shí háng dào jiē shì zào yè dǐ rén， nǎi zhì tóu、 mù、 suǐ、 nǎo、 guó chéng、 qī zǐ、 xiàng、 mǎ、 qī zhēn jǐn jiē shě shī， rú shì děng jiàn jiē shì kǔ shēn xīn gù， hái zhāo kǔ guǒ， bù rú wú shì chún yī wú zá。 Nǎi zhì shí dì mǎn xīn pú sà jiē qiú cǐ dào liú zōng jī le bù kě dé， suǒ yǐ zhū tiān huān xǐ， dì shén pěng zú， shí fāng zhū fú wú bù chēng tàn。 Yuán hé rú cǐ？ Wèi jīn tīng fǎ dào rén yòng chù wú zōng jī。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What is the meaning of the patriarch's coming from the west?\" The master said: \"If it had a meaning, you could not even save yourself.\" It was said: \"If there is no meaning, how did the second patriarch gain the Dharma?\" The master said: \"To gain is to not-gain.\" It was said: \"If it is not gained, what is the meaning of not gaining?\" The master said: \"It is because you chase about everywhere, and your mind cannot stop. That is why the patriarch said: 'Ah! Great man — you take your own head and go hunting for a head.' The moment those words land, you turn your light back of itself and shine it within, seeking nothing further. Knowing your mind-and-body is no different from the patriarch-buddhas, and that right now there is nothing to do — that is called gaining the Dharma. Virtuous ones! I cannot help myself these days and talk it out in many clumsy and impure ways. Make no mistake: from where I see it, there really are not so many principles — use it when you need it, let it go when you do not. People everywhere speak of the six paramitas and ten thousand practices as the Buddha-dharma; I say these are the gates of adornment, the gates of the Buddha's work — not the Buddha-dharma itself. Even keeping fasts and holding precepts, carrying oil without spilling a drop — if the way-eye is not clear, all must repay the debt; the day will come when they owe the rice-bill. Why? Because after entering the Way without piercing the principle, you return the donors' alms with your own person. An elder of eighty-one: his tree will not sprout fungus-ears. Even lodging alone on a solitary peak, taking one meal before the hour of the hare, sitting long without lying down, treading the path six times a day — all are people making karma. Even giving up head, eyes, marrow, and brains, kingdoms and cities, wife and children, elephants, horses, and the seven treasures — all such views torment body and mind and call down bitter fruit in return. Better to have nothing to do, pure and single without mixture. Even tenth-stage bodhisattvas with fulfilled minds all seek the traces of this follower of the Way and cannot find them — so the gods rejoice, the earth spirits cup his feet, and the buddhas of the ten directions all give praise. Why? Because the person of the Way listening to the Dharma now leaves no trace in his functioning.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_24",
+          "title_zh": "示衆二十四 · 大通智勝佛",
+          "title_pinyin": "Shìzhòng Èrshísì · Dàtōng Zhìshèng Fó",
+          "title_en": "Instructing the Assembly 24 — Great Universal-Wisdom Victorious Buddha",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「大通智勝佛十劫坐道場，佛法不現前，不得成佛道。未審此意如何？乞師指示。」師云：「大通者，是自己，於處處達其萬法無性、無相，名為大通。智勝者，於一切處不疑、不得一法，名為智勝。佛者，心清淨，光明透徹法界，得名為佛。十劫坐道場者，十波羅密是。佛法不現前者，佛本不生、法本不滅，云何更有現前？不得成佛道者，佛不應更作佛。古人云：『佛常在世間，而不染世間法。』道流！爾欲得作佛，莫隨萬物。心生種種法生、心滅種種法滅，一心不生，萬法無咎。世與出世，無佛、無法，亦不現前、亦不曾失。設有者，皆是名言章句，接引小兒施設藥病，表顯名句。且名句不自名句，還是爾目前昭昭靈靈鑒覺聞知照燭底，安一切名句。大德！造五無間業方得解脫。」",
+              "pinyin": "Wèn：「 Dàtōng Zhìshèng Fó shí jié zuò dào chǎng， fó fǎ bù xiàn qián， bù dé chéng fú dào。 Wèi shěn cǐ yì rú hé？ Qǐ shī zhǐ shì。」 Shī yún：「 Dà tōng zhě， shì zì jǐ， yú chù chù dá qí wàn fǎ wú xìng、 wú xiāng， míng wèi dà tōng。 Zhì shèng zhě， yú yī qiè chù bù yí、 bù dé yī fǎ， míng wèi zhì shèng。 Fú zhě， xīn qīng jìng， guāng míng tòu chè fǎ jiè， dé míng wèi fú。 Shí jié zuò dào chǎng zhě， shí bō luó mì shì。 Fó fǎ bù xiàn qián zhě， fú běn bù shēng、 fǎ běn bù miè， yún hé gèng yǒu xiàn qián？ Bù dé chéng fú dào zhě， fú bù yīng gèng zuò fú。 Gǔ rén yún：『 Fú cháng zài shì jiān， ér bù rǎn shì jiān fǎ。』 Dào liú！ Ěr yù dé zuò fú， mò suí wàn wù。 Xīn shēng zhǒng zhǒng fǎ shēng、 xīn miè zhǒng zhǒng fǎ miè， yī xīn bù shēng， wàn fǎ wú jiù。 Shì yǔ chū shì， wú fú、 wú fǎ， yì bù xiàn qián、 yì bù céng shī。 Shè yǒu zhě， jiē shì míng yán zhāng jù， jiē yǐn xiǎo ér shī shè yào bìng， biǎo xiǎn míng jù。 Qiě míng jù bù zì míng jù， hái shì ěr mù qián zhāo zhāo líng líng jiàn jué wén zhī zhào zhú dǐ， ān yī qiè míng jù。 Dà dé！ Zào wǔ wú jiān yè fāng dé jiě tuō。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"Great Universal-Wisdom Victorious Buddha sat in the seat of the Way for ten kalpas, yet the Buddha-dharma did not appear to him and he could not fulfill the buddha-way. What does this mean? I beg your instruction.\" The master said: \"'Great Universal' is oneself: everywhere you penetrate that the ten thousand dharmas have no self-nature and no marks — that is called Great Universal. 'Wisdom Victorious': nowhere doubting, not gaining a single dharma anywhere — that is called Wisdom Victorious. 'Buddha': purity of mind, its radiance piercing through the Dharma realm — that gets the name Buddha. 'Sitting in the seat of the Way for ten kalpas': that is the ten paramitas. 'The Buddha-dharma did not appear to him': Buddha is fundamentally unborn, the Dharma fundamentally unperishing — how could there be a further appearing? 'Could not fulfill the buddha-way': a Buddha should not further make himself Buddha. The ancients said: 'Buddha is ever in the world, yet untainted by worldly dharmas.' Followers of the Way! If you would become Buddha, do not follow the ten thousand things. When mind arises, all kinds of dharmas arise; when mind perishes, all kinds of dharmas perish. When the one mind does not arise, the ten thousand dharmas have no fault. In the world and beyond the world there is no Buddha and no Dharma, nothing that appears, nothing ever lost. Whatever there is, is all names and phrases — gates set up to lead little children, displays of medicine for sickness, markers of expressive words. Yet names and phrases are not names and phrases of themselves: it is this, bright and alert before you now, perceiving and hearing and knowing and illumining, that affixes all names and phrases. Virtuous ones! Make the five uninterrupted karma-deeds — only then will you be liberated.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_25",
+          "title_zh": "示衆二十五 · 五無間業",
+          "title_pinyin": "Shìzhòng Èrshíwǔ · Wǔ Wújiànyè",
+          "title_en": "Instructing the Assembly 25 — The Five Uninterrupted Karma-Deeds",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是五無間業？」師云：「殺父、害母、出佛身血、破和合僧、焚燒經像等，此是五無間業。」云：「如何是父？」師云：「無明是父，爾一念心求起滅處不得，如響應空，隨處無事，名為殺父。」云：「如何是母？」師云：「貪愛為母，爾一念心入欲界中求其貪愛，唯見諸法空相，處處無著，名為害母。」云：「如何是出佛身血？」師云：「爾向清淨法界中無一念心生解，便處處黑暗，是出佛身血。」云：「如何是破和合僧？」師云：「爾一念心正達煩惱結使，如空無所依，是破和合僧。」云：「如何是焚燒經像？」師云：「見因緣空、心空、法空，一念決定斷，逈然無事，便是焚燒經像。大德！若如是達得，免被他凡聖名礙。爾一念心秖向空拳指上生寔解，根境法中虛揑怪，自輕而退屈，言：『我是凡夫，他是聖人。』禿屢生！有甚死急？披他師子皮，却作野干鳴。大丈夫漢不作丈夫氣息，自家屋裏物不肯信，秖麼向外覓，上他古人閑名句，倚陰博陽，不能特達，逢境便緣、逢塵便執，觸處惑起，自無准定。",
+              "pinyin": "Wèn：「 Rú hé shì wǔ wú jiān yè？」 Shī yún：「 Shā fù、 hài mǔ、 chū fú shēn xuè、 pò hé hé sēng、 fén shāo jīng xiàng děng， cǐ shì wǔ wú jiān yè。」 Yún：「 Rú hé shì fù？」 Shī yún：「 Wú míng shì fù， ěr yī niàn xīn qiú qǐ miè chù bù dé， rú xiǎng yīng kōng， suí chù wú shì， míng wèi shā fù。」 Yún：「 Rú hé shì mǔ？」 Shī yún：「 Tān ài wèi mǔ， ěr yī niàn xīn rù yù jiè zhōng qiú qí tān ài， wéi jiàn zhū fǎ kōng xiāng， chù chù wú zhù， míng wèi hài mǔ。」 Yún：「 Rú hé shì chū fú shēn xuè？」 Shī yún：「 Ěr xiàng qīng jìng fǎ jiè zhōng wú yī niàn xīn shēng jiě， biàn chù chù hēi àn， shì chū fú shēn xuè。」 Yún：「 Rú hé shì pò hé hé sēng？」 Shī yún：「 Ěr yī niàn xīn zhèng dá fán nǎo jié shǐ， rú kōng wú suǒ yī， shì pò hé hé sēng。」 Yún：「 Rú hé shì fén shāo jīng xiàng？」 Shī yún：「 Jiàn yīn yuán kōng、 xīn kōng、 fǎ kōng， yī niàn jué dìng duàn， jiǒng rán wú shì， biàn shì fén shāo jīng xiàng。 Dà dé！ Ruò rú shì dá dé， miǎn bèi tā fán shèng míng ài。 Ěr yī niàn xīn zhǐ xiàng kōng quán zhǐ shàng shēng shí jiě， gēn jìng fǎ zhōng xū niē guài， zì qīng ér tuì qū， yán：『 Wǒ shì fán fū， tā shì shèng rén。』 Tū lǚ shēng！ Yǒu shèn sǐ jí？ Pī tā shī zi pí， què zuò yě gàn míng。 Dà zhàng fū hàn bù zuò zhàng fū qì xī， zì jiā wū lǐ wù bù kěn xìn， zhǐ me xiàng wài mì， shàng tā gǔ rén xián míng jù， yǐ yīn bó yáng， bù néng tè dá， féng jìng biàn yuán、 féng chén biàn zhí， chù chù huò qǐ， zì wú zhǔn dìng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What are the five uninterrupted karma-deeds?\" The master said: \"Killing your father, harming your mother, drawing blood from the Buddha's body, breaking the harmony of the sangha, and burning the scriptures and images — those are the five uninterrupted karma-deeds.\" It was said: \"What is 'father'?\" The master said: \"Unknowing is the father. When with one thought of mind you seek the place of arising and ceasing and cannot find it, like an echo in empty space, every place at rest — that is called killing the father.\" It was said: \"What is 'mother'?\" The master said: \"Craving is the mother. When with one thought of mind you enter the realm of desire and seek its craving, seeing only the empty marks of all dharmas, attached nowhere — that is called harming the mother.\" It was said: \"What is 'drawing blood from the Buddha's body'?\" The master said: \"When you conceive not one thought of understanding amid the pure Dharma realm, and every place is dark — that is drawing blood from the Buddha's body.\" It was said: \"What is 'breaking the harmony of the sangha'?\" The master said: \"When with one thought of mind you rightly penetrate the knotting, driving afflictions as empty, resting on nothing — that is breaking the harmony of the sangha.\" It was said: \"What is 'burning the scriptures and images'?\" The master said: \"Seeing causes and conditions as empty, mind as empty, dharmas as empty, cutting through decisively in a single thought, far flung with nothing to do — that is burning the scriptures and images. Virtuous ones! If you penetrate thus, you escape the blockage of the names 'worldly' and 'saintly.' Yet one thought of yours still keeps forming solid concepts over the pointing finger of the empty fist, conjuring phantoms amid the dharma of roots and fields. Belittling yourselves, you shrink back, saying: 'I am a common mortal; he is a sage.' Bald fools! What is the deadly hurry? Wearing the lion's skin, you make the wild dog's howl. A great man does not take up a great man's bearing — refusing to trust the things in his own house, he seeks them outward like this, clambering upon the ancients' idle names and phrases, leaning on shadows and borrowing daylight, never piercing through directly. Meeting a field he chases it; meeting dust he grasps it; wherever he touches, confusion rises — with nothing settled of his own.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_26",
+          "title_zh": "示衆二十六 · 文殊仗劍鴦掘持刀",
+          "title_pinyin": "Shìzhòng Èrshíliù · Wénshū Zhàngjiàn Yāngjué Chídāo",
+          "title_en": "Instructing the Assembly 26 — Manjusri Raised the Sword, Angulimalla the Knife",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！莫取山僧說處。何故？說無憑據。一期間圖畫虛空，如彩畫像等喻。道流！莫將佛為究竟，我見猶如廁孔。菩薩、羅漢盡是枷鎖、縛人底物。所以，文殊仗劍殺於瞿曇、鴦掘持刀害於釋氏。道流！無佛可得，乃至三乘、五性、圓頓教迹皆是一期藥病相治，並無實法。設有，皆是相似，表顯路布，文字差排，且如是說。",
+              "pinyin": "「 Dào liú！ Mò qǔ shān sēng shuō chù。 Hé gù？ Shuō wú píng jù。 Yī qī jiān tú huà xū kōng， rú cǎi huà xiàng děng yù。 Dào liú！ Mò jiāng fú wèi jiū jìng， wǒ jiàn yóu rú cè kǒng。 Pú sà、 Luóhàn jǐn shì jiā suǒ、 fù rén dǐ wù。 Suǒ yǐ， Wénshū zhàng jiàn shā yú Qútán、 Yāngjué chí dāo hài yú shì shì。 Dào liú！ Wú fú kě dé， nǎi zhì sān chéng、 wǔ xìng、 yuán dùn jiào jì jiē shì yī qī yào bìng xiāng zhì， bìng wú shí fǎ。 Shè yǒu， jiē shì xiāng sì， biǎo xiǎn lù bù， wén zì chà pái， qiě rú shì shuō。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! Do not take what I say. Why? Teaching has nothing on which to stand: for a season it paints in the empty sky, like colored drawn portraits and suchlike similes. Followers of the Way! Do not take Buddha to be the ultimate — I see him as a privy hole. Bodhisattvas and arhats are all cangues and shackles, things for binding people. That is why Manjusri raised his sword and killed Gautama, and Angulimalla took his knife and harmed the Sakyas. Followers of the Way! No Buddha can be gained. Even the three vehicles, the five natures, and the sudden-and-rounded teaching-traces are all medicine fitted to sickness for the time being — none of them a real dharma. Whatever there is, is all mere resemblance, display-road-notices passed along, apportioned in letters — for now, speak of them just so.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_27",
+          "title_zh": "示衆二十七 · 不如無事底阿師",
+          "title_pinyin": "Shìzhòng Èrshíqī · Bùrú Wúshì Dǐ Āshī",
+          "title_en": "Instructing the Assembly 27 — No Match for a Master with Nothing to Do",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！有一般禿子便向裏許著功，擬求出世之法，錯了也。若人求佛，是人失佛；若人求道，是人失道；若人求祖，是人失祖。大德莫錯，我且不取爾解經論、我亦不取爾國王大臣、我亦不取爾辯似懸河、我亦不取爾聰明智慧，唯要爾真正見解。「道流！設解得百本經論，不如一箇無事底阿師。爾解得——即輕蔑他人、勝負修羅、人我無明、長地獄業，如善星比丘解十二分教，生身陷地獄，大地不容。不如無事休歇去，飢來喫飯、睡來合眼，愚人笑我、智乃知焉。道流！莫向文字中求，心動疲勞，吸冷氣無益，不如一念緣起無生，超出三乘權學菩薩。",
+              "pinyin": "「 Dào liú！ Yǒu yì bān tū zi biàn xiàng lǐ xǔ zhù gōng， nǐ qiú chū shì zhī fǎ， cuò le yě。 Ruò rén qiú fú， shì rén shī fú； Ruò rén qiú dào， shì rén shī dào； Ruò rén qiú zǔ， shì rén shī zǔ。 Dà dé mò cuò， wǒ qiě bù qǔ ěr jiě jīng lùn、 wǒ yì bù qǔ ěr guó wáng dà chén、 wǒ yì bù qǔ ěr biàn shì xuán hé、 wǒ yì bù qǔ ěr cōng míng zhì huì， wéi yào ěr zhēn zhèng jiàn jiě。「 Dào liú！ Shè jiě dé bǎi běn jīng lùn， bù rú yī gè wú shì dǐ ā shī。 Ěr jiě dé—— jí qīng miè tā rén、 shèng fù xiū luó、 rén wǒ wú míng、 zhǎng dì yù yè， rú Shànxīng bǐ qiū jiě shí èr fēn jiào， shēng shēn xiàn dì yù， dà dì bù róng。 Bù rú wú shì xiū xiē qù， jī lái chī fàn、 shuì lái hé yǎn， yú rén xiào wǒ、 zhì nǎi zhī yān。 Dào liú！ Mò xiàng wén zì zhōng qiú， xīn dòng pí láo， xī lěng qì wú yì， bù rú yī niàn yuán qǐ wú shēng， chāo chū sān chéng quán xué pú sà。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! A certain kind of baldpate applies his effort down in there, intending to seek a transcendent dharma — mistaken. If a person seeks Buddha, that person loses Buddha; if a person seeks the Way, that person loses the Way; if a person seeks the patriarchs, that person loses the patriarchs. Virtuous ones, make no mistake. I accept neither your mastery of sutras and sastras, nor your being kings and great ministers, nor the hanging torrent of your eloquence, nor your cleverness and knowledge — I want only your true view. Followers of the Way! Suppose you could master a hundred volumes of sutras and sastras — that is no match for one master who has nothing to do. The one who understands looks down on others, contends like an asura over victory and defeat, breeds the unknowing of self and other, fattens his hell-karma — like the bhiksu Virtuous-Star, who understood the twelve divisions of the teaching and fell into hell alive: the great earth could not hold him. Better to rest and have nothing to do: hungry, eat; sleepy, close your eyes. Fools laugh at me; the wise understand. Followers of the Way! Do not seek within letters, wearing your mind and body out, sucking cold air without benefit. Better one thought in which dependent origination is unborn — that surpasses the bodhisattvas at the provisional study of the three vehicles.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_28",
+          "title_zh": "示衆二十八 · 莫因循過日",
+          "title_pinyin": "Shìzhòng Èrshíbā · Mò Yīnxún Guòrì",
+          "title_en": "Instructing the Assembly 28 — Do Not Drift Your Days Away",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「大德！莫因循過日。山僧往日未有見處時，黑漫漫地，光陰不可空過，腹熱心忙，奔波訪道，後還得力，始到今日共道流如是話度。勸諸道流莫為衣食，看世界易過，善知識難遇，如優曇花時一現耳。",
+              "pinyin": "「 Dà dé！ Mò yīn xún guò rì。 Shān sēng wǎng rì wèi yǒu jiàn chù shí， hēi màn màn dì， guāng yīn bù kě kōng guò， fù rè xīn máng， bēn bō fǎng dào， hòu hái dé lì， shǐ dào jīn rì gòng dào liú rú shì huà dù。 Quàn zhū dào liú mò wèi yī shí， kàn shì jiè yì guò， shàn zhī shí nán yù， rú Yōután huā shí yī xiàn ěr。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Virtuous ones! Do not pass your days in drifting. In olden days, when I had not yet gained insight, all was black murk — time may not be spent in vain; belly afire and mind racing, I hurried about visiting teachers. Later still I made the effort and reached today, talking it over with you followers of the Way like this. I counsel you: do not do it for food and clothing. Watch how easily the world goes by; a good knowing friend is hard to meet — like the udumbara flower, appearing once in an age.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_29",
+          "title_zh": "示衆二十九 · 龍象蹴踏非驢所堪",
+          "title_pinyin": "Shìzhòng Èrshíjiǔ · Lóngxiàng Cùtà Fēi Lǘ Suǒkān",
+          "title_en": "Instructing the Assembly 29 — A Dragon-Elephant’s Trample: Not for Donkeys to Bear",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「儞諸方聞道有箇臨濟老漢出來，便擬問難，教語不得，被山僧全體作用。學人空開得眼，口總動不得，懵然不知以何答我。我向伊道：『龍象蹴踏，非驢所堪。』爾諸處秖指胸點肋，道我解禪、解道，三箇兩箇到這裏不奈何。咄哉，爾將這箇身心到處簸兩片皮誑謼閭閻，喫鐵棒有日在，非出家兒，盡向阿修羅界攝。",
+              "pinyin": "「 Nǐ zhū fāng wén dào yǒu gè Línjì lǎohàn chū lái， biàn nǐ wèn nán， jiào yǔ bù dé， bèi shān sēng quán tǐ zuò yòng。 Xué rén kōng kāi dé yǎn， kǒu zǒng dòng bù dé， měng rán bù zhī yǐ hé dá wǒ。 Wǒ xiàng yī dào：『 Lóng xiàng cù tà， fēi lǘ suǒ kān。』 Ěr zhū chù zhǐ zhǐ xiōng diǎn lē， dào wǒ jiě chán、 jiě dào， sān gè liǎng gè dào zhè lǐ bù nài hé。 Duō zāi， ěr jiāng zhè gè shēn xīn dào chù bǒ liǎng piàn pí kuáng hū lǘ yán， chī tiě bàng yǒu rì zài， fēi chū jiā ér， jǐn xiàng Āxiūluó jiè shè。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"You everywhere have heard that this old fellow Linji has come out, and you plan to pose him a hard question to put him at a loss for words — but you are met by my whole-body function. Students open their eyes in vain, their mouths utterly unable to move, dazed, at a loss how to answer me. I say to them: 'A dragon-elephant's trample is not for donkeys to bear.' Everywhere you slap your breast and tap your ribs, saying you understand Chan, understand the Way — two or three of you come in here and are helpless. Ah! You take this body-and-mind around everywhere flapping your two lips, deceiving the village folk — the day will come when you eat the iron staff. Not home-leavers at all: every one of you gets herded into the asura realm.\"\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_30",
+          "title_zh": "示衆三十 · 說似一物則不中",
+          "title_pinyin": "Shìzhòng Sānshí · Shuōsì Yīwù Zé Bùzhòng",
+          "title_en": "Instructing the Assembly 30 — “Likened to One Single Thing, It Misses”",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「夫如至理之道，非諍論而求激揚，鏗鏘以摧外道，至於佛祖相承更無別意。設有言教，落在化儀三乘、五性、人天因果，如圓頓之教，又且不然，童子善財皆不求過。大德！莫錯用心，如大海不停死屍，秖麼擔却擬天下走，自起見障以礙於心。日上無雲，麗天普照，眼中無翳、空裏無花。道流！爾欲得如法，但莫生疑，展則彌綸法界，收則絲髮不立，歷歷孤明未曾欠少。眼不見、耳不聞，喚作什麼物？古人云：『說似一物則不中。』爾但自家看，更有什麼。說亦無盡，各自著力。珍重。」",
+              "pinyin": "「 Fū rú zhì lǐ zhī dào， fēi zhèng lùn ér qiú jī yáng， kēng qiāng yǐ cuī wài dào， zhì yú fó zǔ xiāng chéng gèng wú bié yì。 Shè yǒu yán jiào， luò zài huà yí sān chéng、 wǔ xìng、 rén tiān yīn guǒ， rú yuán dùn zhī jiào， yòu qiě bù rán， tóng zi Shàncái jiē bù qiú guò。 Dà dé！ Mò cuò yòng xīn， rú dà hǎi bù tíng sǐ shī， zhǐ me dān què nǐ tiān xià zǒu， zì qǐ jiàn zhàng yǐ ài yú xīn。 Rì shàng wú yún， lì tiān pǔ zhào， yǎn zhōng wú yì、 kōng lǐ wú huā。 Dào liú！ Ěr yù dé rú fǎ， dàn mò shēng yí， zhǎn zé mí lún fǎ jiè， shōu zé sī fà bù lì， lì lì gū míng wèi céng qiàn shǎo。 Yǎn bù jiàn、 ěr bù wén， huàn zuò shén me wù？ Gǔ rén yún：『 Shuō shì yī wù zé bù zhōng。』 Ěr dàn zì jiā kàn， gèng yǒu shén me。 Shuō yì wú jǐn， gè zì zhù lì。 Zhēn zhòng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"The way of the utmost truth is not sought in ringing, resonant debate to crush outsiders; what the buddhas and patriarchs have handed down has no further meaning. If there were verbal teachings, they would fall within the instructional three vehicles, five natures, and the cause-and-effect of humans and gods; as for the sudden and rounded teaching, it is not so — even the boy Sudhana seeks none of these. Virtuous ones! Do not put your minds to mistaken use. The great sea does not keep a corpse afloat on it — so do not shoulder that burden and set off marching under heaven; you raise views of your own and obstruct your minds with them. When no clouds veil the sun, it shines beautifully across the sky; when no film veils the eye, there are no flowers in the air. Followers of the Way! If you want to be in accord with the Dharma, just doubt no more: spread out, it blankets the Dharma realm; drawn in, not a single hair is left standing — vivid, solitary-bright, it has never lacked anything. Eyes cannot see it, ears cannot hear it — what do you call that thing? The ancients said: 'Likened to one single thing, it already misses.' Just look into it yourselves — what more is there? Words can never end it; each of you must strive. Take care.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_01",
+          "title_zh": "勘辨一 · 飯頭二石五",
+          "title_pinyin": "Kānbiàn Yī · Fàntóu Èrshíwǔ",
+          "title_en": "Testing 1 — The Rice Server’s Two and a Half Piculs",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "黃蘗因入厨次，問飯頭：「作什麼？」飯頭云：「揀眾僧米。」黃蘗云：「一日喫多少？」飯頭云：「二石五。」黃蘗云：「莫太多麼？」飯頭云：「猶恐少在。」黃蘗便打。飯頭却舉似師，師云：「我為汝勘這老漢。」纔到侍立次，黃蘗舉前話，師云：「飯頭不會，請和尚代一轉語。」師便問：「莫太多麼？」黃蘗云：「何不道來日更喫一頓？」師云：「說什麼來日？即今便喫。」道了便掌。黃蘗云：「這風顛漢又來這裏捋虎鬚。」師便喝出去。後溈山問仰山：「此二尊宿意作麼生？」仰山云：「和尚作麼生？」溈山云：「養子方知父慈。」仰山云：「不然。」溈山云：「子又作麼生？」仰山云：「大似勾賊破家。」",
+              "pinyin": "Huángbò yīn rù chú cì， wèn Fàntóu：「 Zuò shén me？」 Fàntóu yún：「 Jiǎn zhòng sēng mǐ。」 Huángbò yún：「 Yī rì chī duō shǎo？」 Fàntóu yún：「 Èr shí wǔ。」 Huángbò yún：「 Mò tài duō me？」 Fàntóu yún：「 Yóu kǒng shǎo zài。」 Huángbò biàn dǎ。 Fàntóu què jǔ shì shī， shī yún：「 Wǒ wèi rǔ kān zhè lǎohàn。」 Cái dào shì lì cì， Huángbò jǔ qián huà， shī yún：「 Fàntóu bù huì， qǐng Héshàng dài yī zhuǎn yǔ。」 Shī biàn wèn：「 Mò tài duō me？」 Huángbò yún：「 Hé bù dào lái rì gèng chī yī dùn？」 Shī yún：「 Shuō shén me lái rì？ Jí jīn biàn chī。」 Dào le biàn zhǎng。 Huángbò yún：「 Zhè fēng diān hàn yòu lái zhè lǐ luō hǔ xū。」 Shī biàn hè chū qù。 Hòu Wéishān wèn Yǎngshān：「 Cǐ èr zūn sù yì zuò me shēng？」 Yǎngshān yún：「 Héshàng zuò me shēng？」 Wéishān yún：「 Yǎng zi fāng zhī fù cí。」 Yǎngshān yún：「 Bù rán。」 Wéishān yún：「 Zi yòu zuò me shēng？」 Yǎngshān yún：「 Dà shì gōu zéi pò jiā。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Once, when Huangbo went into the kitchen, he asked the rice server: \"What are you doing?\" The rice server said: \"Sorting the monks' rice.\" Huangbo said: \"How much do they eat in a day?\" The rice server said: \"Two and a half piculs.\" Huangbo said: \"Isn't that too much?\" The rice server said: \"I'm afraid it's not yet enough.\" Huangbo struck him. Later the rice server reported this to the master, who said: \"I'll test that old fellow for you.\" Scarcely had the master come to attend on Huangbo when Huangbo brought the story up. The master said: \"The rice server didn't understand — please give him a turn of words yourself.\" Huangbo said: \"Why don't you say: tomorrow you'll have another meal?\" The master said: \"What 'tomorrow'? Eat right now!\" Saying so, he slapped him. Huangbo said: \"This madman has come here to stroke the tiger's whiskers again.\" The master gave a shout and walked out. Later Weishan asked Yangshan: \"What did those two venerables intend?\" Yangshan said: \"What is your view, master?\" Weishan said: \"Only when you raise a child do you know a father's kindness.\" Yangshan said: \"Not so.\" Weishan said: \"And what do you say?\" Yangshan said: \"Much like luring a thief to ruin the house.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_02",
+          "title_zh": "勘辨二 · 便打三僧",
+          "title_pinyin": "Kānbiàn Èr · Biàn Dǎ Sānsēng",
+          "title_en": "Testing 2 — Three Monks, Three Blows",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "師問僧：「什麼處來？」僧便喝，師便揖坐。僧擬議，師便打。師見僧來便竪起拂子，僧禮拜，師便打。又見僧來，亦竪起拂子，僧不顧，師亦打。",
+              "pinyin": "Shī wèn sēng：「 Shén me chù lái？」 Sēng biàn hè， shī biàn yī zuò。 Sēng nǐ yì， shī biàn dǎ。 Shī jiàn sēng lái biàn shù qǐ fú zi， sēng lǐ bài， shī biàn dǎ。 Yòu jiàn sēng lái， yì shù qǐ fú zi， sēng bù gù， shī yì dǎ。",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master asked a monk: \"Where do you come from?\" The monk gave a shout; the master greeted him and sat down. As the monk deliberated, the master struck him. Seeing a monk come, the master raised his whisk; the monk bowed, and the master struck him. Seeing another monk come, he again raised his whisk; the monk paid no heed, and the master likewise struck him.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_03",
+          "title_zh": "勘辨三 · 普化踏倒飯床",
+          "title_pinyin": "Kānbiàn Sān · Pǔhuà Tàdǎo Fànchuáng",
+          "title_en": "Testing 3 — Puhua Kicks Over the Table",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "師一日同普化赴施主家齋次。師問：「毛吞巨海、芥納須彌，為是神通妙用？本體如然？」普化踏倒飯床。師云：「太麁生。」普化云：「這裏是什麼所在，說麁、說細？」師來日又同普化赴齋。問：「今日供養何似昨日？」普化依前踏倒飯床。師云：「得即得，太麁生。」普化云：「瞎漢！佛法說什麼麁細？」師乃吐舌。",
+              "pinyin": "Shī yī rì tóng Pǔhuà fù shī zhǔ jiā zhāi cì。 Shī wèn：「 Máo tūn jù hǎi、 jiè nà xū mí， wèi shì shén tōng miào yòng？ Běn tǐ rú rán？」 Pǔhuà tà dào fàn chuáng。 Shī yún：「 Tài cū shēng。」 Pǔhuà yún：「 Zhè lǐ shì shén me suǒ zài， shuō cū、 shuō xì？」 Shī lái rì yòu tóng Pǔhuà fù zhāi。 Wèn：「 Jīn rì gōng yǎng hé shì zuó rì？」 Pǔhuà yī qián tà dào fàn chuáng。 Shī yún：「 Dé jí dé， tài cū shēng。」 Pǔhuà yún：「 Xiā hàn！ Fó fǎ shuō shén me cū xì？」 Shī nǎi tǔ shé。",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day the master went with Puhua to a meal at a donor's house. The master asked: \"A hair swallows the giant sea, a mustard seed holds Sumeru — is that the miracle-working function of spirit, or is its own substance just so?\" Puhua kicked over the low table. The master said: \"Too rough!\" Puhua said: \"What kind of place is this to be talking of rough or fine?\" The following day the master again went to a meal with Puhua and asked: \"How does today's offering compare with yesterday's?\" Puhua kicked over the low table as before. The master said: \"Granted — but too rough!\" Puhua said: \"Blind man! What has the Buddha-dharma to say of rough or fine?\" Thereupon the master stuck out his tongue.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_04",
+          "title_zh": "勘辨四 · 臨濟小廝兒具一隻眼",
+          "title_pinyin": "Kānbiàn Sì · Línjì Xiǎosīr Jù Yī Zhīyǎn",
+          "title_en": "Testing 4 — “Little Squirt Linji Has an Eye”",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "師一日與河陽木塔長老同在僧堂地爐內坐，因說：「普化每日在街市掣風掣顛，知他是凡？是聖？」言猶未了，普化入來。師便問：「汝是凡？是聖？」普化云：「汝且道我是凡？是聖？」師便喝。普化以手指云：「河陽新婦子、木塔老婆禪、臨濟小廝兒，却具一隻眼。」師云：「這賊。」普化云：「賊賊。」便出去。",
+              "pinyin": "Shī yī rì yǔ Héyáng Mùtǎ zhǎng lǎo tóng zài sēng táng dì lú nèi zuò， yīn shuō：「 Pǔhuà měi rì zài jiē shì chè fēng chè diān， zhī tā shì fán？ Shì shèng？」 Yán yóu wèi liǎo， Pǔhuà rù lái。 Shī biàn wèn：「 Rǔ shì fán？ Shì shèng？」 Pǔhuà yún：「 Rǔ qiě dào wǒ shì fán？ Shì shèng？」 Shī biàn hè。 Pǔhuà yǐ shǒu zhǐ yún：「 Héyáng xīn fù zi、 Mùtǎ lǎo pó chán、 Línjì xiǎo sī ér， què jù yī zhī yǎn。」 Shī yún：「 Zhè zéi。」 Pǔhuà yún：「 Zéi zéi。」 Biàn chū qù。",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day the master was sitting with Elder Muta of Heyang by the heating pit in the monks' hall and remarked: \"Every day Puhua carries on like a madman in the streets and markets — who can tell whether he is worldly or saintly?\" Scarcely had he spoken when Puhua came in. The master asked: \"Are you worldly or saintly?\" Puhua said: \"You tell me whether I am worldly or saintly.\" The master gave a shout. Puhua pointed his finger and said: \"The little bride of Heyang, Muta's old-woman Chan, that little squirt Linji — yet they each have an eye.\" The master said: \"The thief!\" Puhua said: \"Thief, thief!\" and walked out.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_05",
+          "title_zh": "勘辨五 · 喫生菜作驢鳴",
+          "title_pinyin": "Kānbiàn Wǔ · Chī Shēngcài Zuò Lǘmíng",
+          "title_en": "Testing 5 — Raw Greens and Braying like a Donkey",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "一日普化在僧堂前喫生菜。師見云：「大似一頭驢。」普化便作驢鳴。師云：「這賊。」普化云：「賊賊。」便出去。",
+              "pinyin": "Yī rì Pǔhuà zài sēng táng qián chī shēng cài。 Shī jiàn yún：「 Dà shì yī tóu lǘ。」 Pǔhuà biàn zuò lǘ míng。 Shī yún：「 Zhè zéi。」 Pǔhuà yún：「 Zéi zéi。」 Biàn chū qù。",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day Puhua was eating raw lettuce in front of the monks' hall. Seeing him, the master said: \"Much like a donkey.\" Puhua at once brayed like a donkey. The master said: \"The thief!\" Puhua said: \"Thief, thief!\" and walked out.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_06",
+          "title_zh": "勘辨六 · 明頭來明頭打",
+          "title_pinyin": "Kānbiàn Liù · Míngtóulái Míngtóu Dǎ",
+          "title_en": "Testing 6 — “Come in the Light and I Strike in the Light”",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "因普化常於街市搖鈴云：「明頭來明頭打、暗頭來暗頭打，四方八面來旋風打，虛空來連架打。」師令侍者去，纔見如是道，便把住云：「總不與麼來時如何？」普化托開，云：「來日大悲院裏有齋。」侍者回舉似師。師云：「我從來疑著這漢。」",
+              "pinyin": "Yīn Pǔhuà cháng yú jiē shì yáo líng yún：「 Míng tóu lái míng tóu dǎ、 àn tóu lái àn tóu dǎ， sì fāng bā miàn lái xuán fēng dǎ， xū kōng lái lián jià dǎ。」 Shī lìng Shìzhě qù， cái jiàn rú shì dào， biàn bǎ zhù yún：「 Zǒng bù yǔ me lái shí rú hé？」 Pǔhuà tuō kāi， yún：「 Lái rì Dàbēiyuàn lǐ yǒu zhāi。」 Shìzhě huí jǔ shì shī。 Shī yún：「 Wǒ cóng lái yí zhù zhè hàn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Since Puhua used to ring a bell in the streets and markets, saying: \"Come in the light and I strike in the light; come in the dark and I strike in the dark; come from the four quarters and eight directions and I strike like a whirlwind; come out of empty space and I go on flailing\" — the master sent an attendant, who, the moment he saw him say this, grabbed him and asked: \"And when none of that comes at all — what then?\" Puhua pushed him aside, saying: \"Tomorrow there is a meal at the Great Compassion Cloister.\" The attendant returned and repeated this to the master, who said: \"All along I have suspected that fellow.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_07",
+          "title_zh": "勘辨七 · 賊賊與南泉官馬相踏",
+          "title_pinyin": "Kānbiàn Qī · Zéizéi yǔ Nánquán Guānmǎ Xiāngtà",
+          "title_en": "Testing 7 — “Thief, Thief!” and Nanquan’s “Official Horses Kicking”",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "有一老宿參師，未曾人事便問：「禮拜即是？不禮拜即是？」師便喝，老宿便禮拜。師云：「好箇草賊。」老宿云：「賊賊。」便出去。師云：「莫道無事好。」首座侍立次，師云：「還有過也無？」首座云：「有。」師云：「賓家有過？主家有過？」首座云：「二俱有過。」師云：「過在什麼處？」首座便出去。師云：「莫道無事好。」後有僧舉似南泉。南泉云：「官馬相踏。」",
+              "pinyin": "Yǒu yī lǎo sù cān shī， wèi céng rén shì biàn wèn：「 Lǐ bài jí shì？ Bù lǐ bài jí shì？」 Shī biàn hè， lǎo sù biàn lǐ bài。 Shī yún：「 Hǎo gè cǎo zéi。」 Lǎo sù yún：「 Zéi zéi。」 Biàn chū qù。 Shī yún：「 Mò dào wú shì hǎo。」 Shǒuzuò shì lì cì， shī yún：「 Hái yǒu guò yě wú？」 Shǒuzuò yún：「 Yǒu。」 Shī yún：「 Bīn jiā yǒu guò？ Zhǔ jiā yǒu guò？」 Shǒuzuò yún：「 Èr jù yǒu guò。」 Shī yún：「 Guò zài shén me chù？」 Shǒuzuò biàn chū qù。 Shī yún：「 Mò dào wú shì hǎo。」 Hòu yǒu sēng jǔ shì Nánquán。 Nánquán yún：「 Guān mǎ xiāng tà。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "An old worthy came to visit the master and, before even paying his respects, asked: \"Is bowing right, or is not bowing right?\" The master gave a shout; the old worthy bowed forthwith. The master said: \"What a fine grass-thief.\" The old worthy said: \"Thief, thief!\" and walked out. The master said: \"Do not think nothing happened.\" As the head seat stood by attending, the master said: \"Was there any fault or not?\" The head seat said: \"There was.\" The master said: \"Was the fault with the guest or with the host?\" The head seat said: \"Both were at fault.\" The master said: \"And where does the fault lie?\" The head seat forthwith walked out. The master said: \"Do not think nothing happened.\" Later a monk told of this to Nanquan, who said: \"Official horses kicking one another.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_08",
+          "title_zh": "勘辨八 · 露柱是凡是聖",
+          "title_pinyin": "Kānbiàn Bā · Lùzhù shì Fán shì Shèng",
+          "title_en": "Testing 8 — The Exposed Pillar: Worldly or Saintly?",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "師因入軍營赴齋，門首見員僚，師指露柱問：「是凡？是聖？」員僚無語。師打露柱，云：「直饒道得，也秖是箇木橛。」便入去。",
+              "pinyin": "Shī yīn rù jūn yíng fù zhāi， mén shǒu jiàn yuán liáo， shī zhǐ lù zhù wèn：「 Shì fán？ Shì shèng？」 Yuán liáo wú yǔ。 Shī dǎ lù zhù， yún：「 Zhí ráo dào dé， yě zhǐ shì gè mù jué。」 Biàn rù qù。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Once, going into an army camp for a meal and seeing some staff officers at the gate, the master pointed at the exposed pillar and asked: \"Worldly or saintly?\" The officers had no reply. The master struck the pillar and said: \"Even if you could answer, it would still be a wooden stake,\" and went in.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_09",
+          "title_zh": "勘辨九 · 糶米與百法座主",
+          "title_pinyin": "Kānbiàn Jiǔ · Tiàomǐ yǔ Bǎifǎ Zuòzhǔ",
+          "title_en": "Testing 9 — Selling the Yellow Rice; Teaching via the Hundred-Dharma Lecturer",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "師問院主：「什麼處來？」主云：「州中糶黃米去來。」師云：「糶得盡麼？」主云：「糶得盡。」師以杖面前畫一畫，云：「還糶得這箇麼？」主便喝，師便打。典座至，師舉前語。典座云：「院主不會和尚意。」師云：「爾作麼生？」典座便禮拜，師亦打。有座主來相看次，師問座主：「講何經論？」主云：「某甲荒虛粗習《百法論》。」師云：「有一人於三乘十二分教明得、有一人於三乘十二分教明不得，是同？是別？」主云：「明得即同，明不得即別。」樂普為侍者，在師後立，云：「座主這裏是什麼所在？說同？說別？」師回首問侍者：「汝又作麼生？」侍者便喝。師送座主，回來遂問侍者：「適來是汝喝老僧？」侍者云：「是。」師便打。",
+              "pinyin": "Shī wèn Yuànzhǔ：「 Shén me chù lái？」 Zhǔ yún：「 Zhōu zhōng tiào huáng mǐ qù lái。」 Shī yún：「 Tiào dé jǐn me？」 Zhǔ yún：「 Tiào dé jǐn。」 Shī yǐ zhàng miàn qián huà yī huà， yún：「 Hái tiào dé zhè gè me？」 Zhǔ biàn hè， shī biàn dǎ。 Diǎnzuò zhì， shī jǔ qián yǔ。 Diǎnzuò yún：「 Yuànzhǔ bù huì Héshàng yì。」 Shī yún：「 Ěr zuò me shēng？」 Diǎnzuò biàn lǐ bài， shī yì dǎ。 Yǒu Zuòzhǔ lái xiāng kàn cì， shī wèn Zuòzhǔ：「 Jiǎng hé jīng lùn？」 Zhǔ yún：「 Mǒu jiǎ huāng xū cū xí《 Bǎifǎ Lùn》。」 Shī yún：「 Yǒu yī rén yú sān chéng shí èr fēn jiào míng dé、 yǒu yī rén yú sān chéng shí èr fēn jiào míng bù dé， shì tóng？ Shì bié？」 Zhǔ yún：「 Míng dé jí tóng， míng bù dé jí bié。」 Lèpǔ wèi Shìzhě， zài shī hòu lì， yún：「 Zuòzhǔ zhè lǐ shì shén me suǒ zài？ Shuō tóng？ Shuō bié？」 Shī huí shǒu wèn Shìzhě：「 Rǔ yòu zuò me shēng？」 Shìzhě biàn hè。 Shī sòng Zuòzhǔ， huí lái suì wèn Shìzhě：「 Shì lái shì rǔ hè lǎo sēng？」 Shìzhě yún：「 Shì。」 Shī biàn dǎ。",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master asked the prior: \"Where have you been?\" The prior said: \"Selling the yellow rice in the prefecture, and back.\" The master said: \"Did you sell all of it?\" The prior said: \"All of it.\" With his staff the master drew a stroke on the ground in front of him and said: \"Could you sell this as well?\" The prior gave a shout; the master struck him. The cook came, and the master told him of the exchange. The cook said: \"The prior didn't understand your meaning.\" The master said: \"And what do you do about it?\" The cook forthwith bowed; the master likewise struck him. Then a lecturer came to call, and the master asked him: \"What sutras and treatises do you lecture on?\" The lecturer said: \"Poorly grounded as I am, I have roughly studied the Treatise on the Hundred Dharmas.\" The master said: \"Suppose one man has mastered the three vehicles and twelve divisions of the teaching and one man has not — same or different?\" The lecturer said: \"Having mastered it is the same; not having mastered it is different.\" Lepu, who was serving as attendant standing behind the master, said: \"Lecturer! What kind of place is this to be talking of same or different?\" The master turned and asked the attendant: \"And what do you do about it?\" The attendant gave a shout. When the master came back from seeing the lecturer out, he asked the attendant: \"Was that you who shouted at me a moment ago?\" The attendant said: \"It was.\" The master struck him.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_10",
+          "title_zh": "勘辨十 · 道得也三十棒",
+          "title_pinyin": "Kānbiàn Shí · Dàodé Yě Sānshí Bàng",
+          "title_en": "Testing 10 — “Thirty Blows Whether You Can Say It or Not”",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "師聞第二代德山垂示云：「道得也三十棒，道不得也三十棒。」師令樂普去問：「道得為什麼也三十棒？待伊打汝，接住棒送一送，看他作麼生？」普到彼如教而問，德山便打，普接住送一送，德山便歸方丈。普回舉似師，師云：「我從來疑著這漢，雖然如是，汝還見德山麼？」普擬議，師便打。",
+              "pinyin": "Shī wén dì èr dài Déshān chuí shì yún：「 Dào dé yě sān shí bàng， dào bù dé yě sān shí bàng。」 Shī lìng Lèpǔ qù wèn：「 Dào dé wèi shén me yě sān shí bàng？ Dài yī dǎ rǔ， jiē zhù bàng sòng yī sòng， kàn tā zuò me shēng？」 Pǔ dào bǐ rú jiào ér wèn， Déshān biàn dǎ， pǔ jiē zhù sòng yī sòng， Déshān biàn guī fāng zhàng。 Pǔ huí jǔ shì shī， shī yún：「 Wǒ cóng lái yí zhù zhè hàn， suī rán rú shì， rǔ hái jiàn Déshān me？」 Pǔ nǐ yì， shī biàn dǎ。",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master heard that the second-generation Deshan had instructed: \"Whether you can say it or not — thirty blows.\" The master sent Lepu to ask: \"Why is it thirty blows even when you can say it? When he hits you, catch the staff and push it back at him — see what he does.\" Lepu went there and asked exactly as instructed; Deshan struck him. Lepu caught the staff and pushed it back at him, and Deshan returned to the abbot's room. Lepu came back and reported to the master, who said: \"All along I have suspected that fellow. Even so — did you see Deshan at all?\" As Lepu deliberated, the master struck him.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_11",
+          "title_zh": "勘辨十一 · 成佛作祖去",
+          "title_pinyin": "Kānbiàn Shíyī · Chéngfó Zuòzǔ Qù",
+          "title_en": "Testing 11 — “I Train Them All to Become Buddhas and Patriarchs”",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "王常侍一日訪師，同師於僧堂前看，乃問：「這一堂僧還看經麼？」師云：「不看經。」侍云：「還學禪麼？」師云：「不學禪。」侍云：「經又不看、禪又不學，畢竟作箇什麼？」師云：「總教伊成佛作祖去。」侍云：「金屑雖貴，落眼成翳，又作麼生？」師云：「將為爾是箇俗漢。」",
+              "pinyin": "Wáng Chángshì yī rì fǎng shī， tóng shī yú sēng táng qián kàn， nǎi wèn：「 Zhè yī táng sēng hái kàn jīng me？」 Shī yún：「 Bù kàn jīng。」 Shì yún：「 Hái xué chán me？」 Shī yún：「 Bù xué chán。」 Shì yún：「 Jīng yòu bù kàn、 chán yòu bù xué， bì jìng zuò gè shén me？」 Shī yún：「 Zǒng jiào yī chéng fú zuò zǔ qù。」 Shì yún：「 Jīn xiè suī guì， luò yǎn chéng yì， yòu zuò me shēng？」 Shī yún：「 Jiāng wèi ěr shì gè sú hàn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day Commissioner Wang came to see the master and stood with him before the monks' hall, whereupon he asked: \"Do the monks of this hall read the sutras?\" The master said: \"They do not read sutras.\" The Commissioner said: \"Do they study Chan?\" The master said: \"They do not study Chan.\" The Commissioner said: \"Sutras so unread and Chan so unstudied — what in the end do they do?\" The master said: \"I train them all to become buddhas and patriarchs.\" The Commissioner said: \"Gold dust is precious, yet fallen in the eye it becomes a film — what then?\" The master said: \"And I thought you were a homespun fellow!\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_12",
+          "title_zh": "勘辨十二 · 露地白牛",
+          "title_pinyin": "Kānbiàn Shíèr · Lùdì Báiniú",
+          "title_en": "Testing 12 — The White Ox on the Open Ground",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "師問杏山：「如何是露地白牛？」山云：「吽吽。」師云：「啞那。」山云：「長老作麼生？」師云：「這畜生。」",
+              "pinyin": "Shī wèn Xìngshān：「 Rú hé shì lù dì bái niú？」 Shān yún：「 Hōng hōng。」 Shī yún：「 Yǎ nà。」 Shān yún：「 Zhǎng lǎo zuò me shēng？」 Shī yún：「 Zhè chù sheng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master asked Xingshan: \"What is the white ox on the open ground?\" Xingshan said: \"Om — om!\" The master said: \"Gone dumb, have you?\" Xingshan said: \"And what does the venerable do?\" The master said: \"The beast!\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_13",
+          "title_zh": "勘辨十三 · 行棒行喝阿那箇親",
+          "title_pinyin": "Kānbiàn Shísān · Xíngbàng Xínghè Ānǎgè Qīn",
+          "title_en": "Testing 13 — Staff or Shout: Which Is Closer?",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "師問樂普云：「從上來，一人行棒、一人行喝，阿那箇親？」普云：「總不親。」師云：「親處作麼生？」普便喝，師乃打。",
+              "pinyin": "Shī wèn Lèpǔ yún：「 Cóng shàng lái， yī rén xíng bàng、 yī rén xíng hè， ā nà gè qīn？」 Pǔ yún：「 Zǒng bù qīn。」 Shī yún：「 Qīn chù zuò me shēng？」 Pǔ biàn hè， shī nǎi dǎ。",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master asked Lepu: \"From of old, one master wielded the staff and one wielded the shout — which comes closest?\" Lepu said: \"Neither is close.\" The master said: \"And what is close?\" Lepu at once gave a shout; whereupon the master struck him.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_14",
+          "title_zh": "勘辨十四 · 渾崙擘不開",
+          "title_pinyin": "Kānbiàn Shísì · Húnlún Bòbùkāi",
+          "title_en": "Testing 14 — All of a Piece, Impossible to Crack Open",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "師見僧來，展開兩手，僧無語，師云：「會麼？」云：「不會。」師云：「渾崙擘不開，與爾兩文錢。」",
+              "pinyin": "Shī jiàn sēng lái， zhǎn kāi liǎng shǒu， sēng wú yǔ， shī yún：「 Huì me？」 Yún：「 Bù huì。」 Shī yún：「 Hún lún bāi bù kāi， yǔ ěr liǎng wén qián。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Seeing a monk come, the master spread both his hands wide; the monk was speechless. The master said: \"Do you understand?\" He replied: \"I do not.\" The master said: \"All of a piece, it cannot be cracked open — here are two cash for you.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_15",
+          "title_zh": "勘辨十五 · 大覺不審",
+          "title_pinyin": "Kānbiàn Shíwǔ · Dàjué Bùshěn",
+          "title_en": "Testing 15 — Dajue’s “I Don’t Understand”",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "大覺到參，師舉起拂子，大覺敷坐具。師擲下拂子，大覺收坐具入僧堂。眾僧云：「這僧莫是和尚親故？不禮拜，又不喫棒。」師聞，令喚覺，覺出，師云：「大眾道汝未參長老。」覺云：「不審。」便自歸眾。",
+              "pinyin": "Dàjué dào cān， shī jǔ qǐ fú zi， Dàjué fū zuò jù。 Shī zhì xià fú zi， Dàjué shōu zuò jù rù sēng táng。 Zhòng sēng yún：「 Zhè sēng mò shì Héshàng qīn gù？ Bù lǐ bài， yòu bù chī bàng。」 Shī wén， lìng huàn jué， jué chū， shī yún：「 Dà zhòng dào rǔ wèi cān zhǎng lǎo。」 Jué yún：「 Bù shěn。」 Biàn zì guī zhòng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "When Dajue came to call, the master raised his whisk: Dajue spread out his sitting mat. The master threw down the whisk: Dajue gathered up the mat and went into the monks' hall. The monks said: \"That monk must be kin or an old friend of the master — he neither bowed nor took a beating.\" Hearing of this, the master had Dajue summoned. When Dajue came out, the master said: \"The assembly says that you have not called on the abbot.\" Dajue said: \"I don't understand,\" and went back into the assembly on his own.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_16",
+          "title_zh": "勘辨十六 · 趙州遇洗脚",
+          "title_pinyin": "Kānbiàn Shíliù · Zhàozhōu Yù Xǐjiǎo",
+          "title_en": "Testing 16 — Zhaozhou Catches Linji Washing His Feet",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "趙州行脚時參師，遇師洗脚次，州便問：「如何是祖師西來意？」師云：「恰值老僧洗脚。」州近前作聽勢，師云：「更要第二杓惡水潑在。」州便下去。",
+              "pinyin": "Zhàozhōu xíng jiǎo shí cān shī， yù shī xǐ jiǎo cì， zhōu biàn wèn：「 Rú hé shì Zǔshī xī lái yì？」 Shī yún：「 Qià zhí lǎo sēng xǐ jiǎo。」 Zhōu jìn qián zuò tīng shì， shī yún：「 Gèng yào dì èr biāo è shuǐ pō zài。」 Zhōu biàn xià qù。",
+              "translations": {
+                "ai_literal": {
+                  "text": "When Zhaozhou was on pilgrimage he called on the master and caught him washing his feet. Zhaozhou forthwith asked: \"What is the meaning of the patriarch's coming from the west?\" The master said: \"You've caught me washing my feet.\" Zhaozhou stepped up close and cocked an ear as if to listen. The master said: \"What — you want a second ladle of dirty water poured on you.\" Zhaozhou went straight out.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_17",
+          "title_zh": "勘辨十七 · 定上座一掌大悟",
+          "title_pinyin": "Kānbiàn Shíqī · Dìng Shàngzuò Yīzhǎng Dàwù",
+          "title_en": "Testing 17 — Instructor Ding: One Slap, Great Awakening",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "有定上座到參，問：「如何是佛法大意？」師下繩床，擒住與一掌便托開，定佇立。傍僧云：「定上座何不禮拜？」定方禮拜，忽然大悟。",
+              "pinyin": "Yǒu Dìng Shàngzuò dào cān， wèn：「 Rú hé shì fó fǎ dà yì？」 Shī xià shéng chuáng， qín zhù yǔ yī zhǎng biàn tuō kāi， dìng zhù lì。 Bàng sēng yún：「 Dìng Shàngzuò hé bù lǐ bài？」 Dìng fāng lǐ bài， hū rán dà wù。",
+              "translations": {
+                "ai_literal": {
+                  "text": "A certain Instructor Ding came to call and asked: \"What is the great meaning of the Buddha-dharma?\" Coming down from the rope bench, the master seized him, gave him one slap, and pushed him off. Ding stood stock-still. A monk beside him said: \"Instructor Ding, why not bow?\" As Ding began to bow, he was suddenly and greatly awakened.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_18",
+          "title_zh": "勘辨十八 · 十二面觀音",
+          "title_pinyin": "Kānbiàn Shíbā · Shíèr Miàn Guānyīn",
+          "title_en": "Testing 18 — The Twelve-Faced Guanyin",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "麻谷到參，敷坐具，問：「十二面觀音，阿那面正？」師下繩床，一手收坐具，一手搊麻谷，云：「十二面觀音，向什麼處去也？」麻谷轉身擬坐繩床，師拈拄杖打，麻谷接却，相捉入方丈。",
+              "pinyin": "Mágǔ dào cān， fū zuò jù， wèn：「 Shí èr miàn Guānyīn， ā nà miàn zhèng？」 Shī xià shéng chuáng， yī shǒu shōu zuò jù， yī shǒu chōu Mágǔ， yún：「 Shí èr miàn Guānyīn， xiàng shén me chù qù yě？」 Mágǔ zhuǎn shēn nǐ zuò shéng chuáng， shī niān zhǔ zhàng dǎ， Mágǔ jiē què， xiāng zhuō rù fāng zhàng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "When Magu came to call, he spread out his sitting mat and asked: \"Of the twelve-faced Guanyin, which face is the true one?\" Coming down from the rope bench, the master gathered the mat up with one hand and clutched Magu with the other, saying: \"The twelve-faced Guanyin — where has it gone?\" Magu wheeled around and made to sit on the bench; the master took up his staff to strike. Magu caught the staff, and grappling together they went into the abbot's room.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "four_shouts",
+          "title_zh": "勘辨十九 · 臨濟四喝",
+          "title_pinyin": "Kānbiàn Shíjiǔ · Línjì Sìhè",
+          "title_en": "Testing 19 — The Four Shouts of Linji",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "師問僧：「有時一喝如金剛王寶劍、有時一喝如踞地金毛師子、有時一喝如探竿影草、有時一喝不作一喝用，汝作麼生會？」",
+              "pinyin": "Shī wèn sēng：「 Yǒu shí yī hè rú jīn gāng wáng bǎo jiàn、 yǒu shí yī hè rú jù dì jīn máo shī zi、 yǒu shí yī hè rú tàn gān yǐng cǎo、 yǒu shí yī hè bù zuò yī hè yòng， rǔ zuò me shēng huì？」",
               "translations": {
                 "red_pine": {
                   "text": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the sacred king; sometimes a shout is like the golden-haired lion crouching on the earth; sometimes a shout is like a probe pole and grass shadow; sometimes a shout does not function as a shout. How do you understand this?'",
@@ -8126,8 +10089,8 @@ window.TRANSLATECHAN_DATA = {
             },
             {
               "speaker": "Monk / 僧",
-              "zh": "僧擬議。師便喝。",
-              "pinyin": "Sēng nǐyì. Shī biàn hè.",
+              "zh": "僧擬議，師便喝。",
+              "pinyin": "Sēng nǐ yì， shī biàn hè。",
               "translations": {
                 "red_pine": {
                   "text": "The monk hesitated to reply. The Master immediately gave a resounding shout!",
@@ -8146,27 +10109,76 @@ window.TRANSLATECHAN_DATA = {
           ]
         },
         {
-          "section_id": "four_host_guest",
-          "title_zh": "臨濟四主賓：主看客，客看主",
-          "title_pinyin": "Línjì Sì Zhǔbīn: Zhǔ Kàn Kè, Kè Kàn Zhǔ",
-          "title_en": "The Four Host and Guest Dynamics",
+          "section_id": "kanbian_20",
+          "title_zh": "勘辨二十 · 善來惡來",
+          "title_pinyin": "Kānbiàn Èrshí · Shànlái Èlái",
+          "title_en": "Testing 20 — “Come Well or Come Ill”",
           "dialogue": [
             {
-              "speaker": "Linji / 臨濟",
-              "zh": "道流！如禪宗見解死活循然，參學之人大須子細，如主客相見便有言論往來，或應物現形，或全體作用，或把機權喜怒，或現半身，或乘師子，或乘象王。如有真正學人便喝，先拈出一箇膠盆子。善知識不辨是境，便上他境上作模作樣。學人便喝，前人不肯放，此是膏肓之病不堪醫，喚作客看主。或是善知識不拈出物，隨學人問處即奪，學人被奪抵死不肯放，此是主看客。或有學人應一箇清淨境出善知識前，善知識辨得是境，把得拋向坑裏。學人言：「大好善知識。」知識即云：「咄哉，不識好惡。」學人便禮拜，此喚作主看主。或有學人披枷帶鎖出善知識前，善知識更與安一重枷鎖，學人歡喜，彼此不辨，呼為客看客。",
-              "pinyin": "Dàoliú! Rú Chánzōng jiànjiě sǐhuó xúnrán, cānxué zhī rén dà xū zǐxì, rú zhǔkè xiāngjiàn biàn yǒu yánlùn wǎnglái, huò yìngwù xiànxíng, huò quántǐ zuòyòng, huò bǎ jīquán xǐnù, huò xiàn bànshēn, huò chéng shīzi, huò chéng xiàngwáng. Rú yǒu zhēnzhèng xuérén biàn hè, xiān niān chū yī gè jiāopénzi. Shànzhīshì bù biàn shì jìng, biàn shàng tā jìng shàng zuò mó zuò yàng. Xuérén biàn hè, qiánrén bù kěn fàng, cǐ shì gāohuāng zhī bìng bù kān yī, huàn zuò kè kàn zhǔ. Huò shì shànzhīshì bù niān chū wù, suí xuérén wèn chù jí duó, xuérén bèi duó dǐ sǐ bù kěn fàng, cǐ shì zhǔ kàn kè. Huò yǒu xuérén yìng yī gè qīngjìng jìng chū shànzhīshì qián, shànzhīshì biàn dé shì jìng, bǎ dé pāo xiàng kēng lǐ. Xuérén yán: Dà hǎo shànzhīshì. Zhīshì jí yún: Duō zāi, bù shí hǎo è. Xuérén biàn lǐbài, cǐ huàn zuò zhǔ kàn zhǔ. Huò yǒu xuérén pī jiā dài suǒ chū shànzhīshì qián, shànzhīshì gèng yǔ ān yī chóng jiāsuǒ, xuérén huānxǐ, bǐcǐ bù biàn, hū wéi kè kàn kè.",
+              "speaker": "Record / 錄",
+              "zh": "師問一尼：「善來？惡來？」尼便喝，師拈棒，云：「更道，更道。」尼又喝，師便打。",
+              "pinyin": "Shī wèn yī ní：「 Shàn lái？ È lái？」 Ní biàn hè， shī niān bàng， yún：「 Gèng dào， gèng dào。」 Ní yòu hè， shī biàn dǎ。",
               "translations": {
-                "red_pine": {
-                  "text": "Among Chan students, encounters can take many forms: meeting as host and guest, responding to circumstances, or taking up the whole activity. When a student traps a teacher in a situation and the teacher cannot discern it, this is called guest seeing host. When a teacher takes away what the student asks for and the student will not release it, this is called host seeing guest. When both recognize and discard a pure situation, this is host seeing host; when both fail to discern and add another shackle, this is guest seeing guest.",
-                  "status": "reconstruction_unverified"
-                },
-                "sasaki": {
-                  "text": "Students of the Way must be very careful in the living exchange of host and guest. The text distinguishes the guest who tests a teacher, the host who takes away a student’s attachment, the mutual discernment of host and host, and the mutual confusion of guest and guest.",
-                  "status": "reconstruction_unverified"
-                },
-                "cleary": {
-                  "text": "Students of the Way must be very careful. In encounters there may be words and responses, manifestations and complete functioning. If a student presents a situation and the teacher cannot discern it, that is guest seeing host; if the teacher takes the student’s question and the student clings to it, that is host seeing guest. Clear discernment is host seeing host; mutual confusion is guest seeing guest.",
-                  "status": "reconstruction_unverified"
+                "ai_literal": {
+                  "text": "The master asked a nun: \"Come well or come ill?\" The nun gave a shout; the master took up his staff and said: \"Speak on, speak on!\" The nun shouted again, and the master struck her.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_21",
+          "title_zh": "勘辨二十一 · 要且無祖師意",
+          "title_pinyin": "Kānbiàn Èrshíyī · Yàoqiě Wú Zǔshī Yì",
+          "title_en": "Testing 21 — Longya: “And Yet There Is No Patriarch’s Meaning”",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "龍牙問：「如何是祖師西來意？」師云：「與我過禪板來。」牙便過禪板與師，師接得便打。牙云：「打即任打，要且無祖師意。」牙後到翠微問：「如何是祖師西來意？」微云：「與我過蒲團來。」牙便過蒲團與翠微，翠微接得便打。牙云：「打即任打，要且無祖師意。」牙住院，後有僧入室請益，云：「和尚行脚時參二尊宿因緣，還肯他也無？」牙云：「肯即深肯，要且無祖師意。」",
+              "pinyin": "Lóngyá wèn：「 Rú hé shì Zǔshī xī lái yì？」 Shī yún：「 Yǔ wǒ guò chán bǎn lái。」 Yá biàn guò chán bǎn yǔ shī， shī jiē dé biàn dǎ。 Yá yún：「 Dǎ jí rèn dǎ， yào qiě wú Zǔshī yì。」 Yá hòu dào cuì wēi wèn：「 Rú hé shì Zǔshī xī lái yì？」 Wēi yún：「 Yǔ wǒ guò pú tuán lái。」 Yá biàn guò pú tuán yǔ cuì wēi， cuì wēi jiē dé biàn dǎ。 Yá yún：「 Dǎ jí rèn dǎ， yào qiě wú Zǔshī yì。」 Yá zhù yuàn， hòu yǒu sēng rù shì qǐng yì， yún：「 Héshàng xíng jiǎo shí cān èr zūn sù yīn yuán， hái kěn tā yě wú？」 Yá yún：「 Kěn jí shēn kěn， yào qiě wú Zǔshī yì。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "Longya asked: \"What is the meaning of the patriarch's coming from the west?\" The master said: \"Pass me the sitting board.\" Longya passed the sitting board to the master, who took it and struck him with it. Longya said: \"Strike me as you will, but there is still no patriarch's meaning!\" Later Longya went to Cuiwei and asked: \"What is the meaning of the patriarch's coming from the west?\" Cuiwei said: \"Pass me the cushion.\" Longya passed the cushion to Cuiwei, who took it and struck him with it. Longya said: \"Strike me as you will, but there is still no patriarch's meaning!\" When Longya later held his own abbacy, a monk came into his room for instruction, saying: \"When you were on pilgrimage you called on those two venerable elders — do you, after all, endorse them?\" Longya said: \"I endorse them deeply — yet still there is no patriarch's meaning.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_22",
+          "title_zh": "勘辨二十二 · 黃蘗遣師到徑山",
+          "title_pinyin": "Kānbiàn Èrshíèr · Huángbò Qiǎn Shī Dào Jìngshān",
+          "title_en": "Testing 22 — Sent by Huangbo to Master Jingshan",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "徑山有五百眾，少人參請，黃蘗令師到徑山，乃謂師曰：「汝到彼作麼生？」師云：「某甲到彼自有方便。」師到徑山，裝腰上法堂見徑山。徑山方舉頭，師便喝。徑山擬開口，師拂袖便行。尋有僧問徑山：「這僧適來有什麼言句便喝和尚？」徑山云：「這僧從黃蘗會裏來，爾要知麼？且問取他。」徑山五百眾太半分散。",
+              "pinyin": "Jìngshān yǒu wǔ bǎi zhòng， shǎo rén cān qǐng， Huángbò lìng shī dào Jìngshān， nǎi wèi shī yuē：「 Rǔ dào bǐ zuò me shēng？」 Shī yún：「 Mǒu jiǎ dào bǐ zì yǒu fāng biàn。」 Shī dào Jìngshān， zhuāng yāo shàng fǎ táng jiàn Jìngshān。 Jìngshān fāng jǔ tóu， shī biàn hè。 Jìngshān nǐ kāi kǒu， shī fú xiù biàn xíng。 Xún yǒu sēng wèn Jìngshān：「 Zhè sēng shì lái yǒu shén me yán jù biàn hè Héshàng？」 Jìngshān yún：「 Zhè sēng cóng Huángbò huì lǐ lái， ěr yào zhī me？ Qiě wèn qǔ tā。」 Jìngshān wǔ bǎi zhòng tài bàn fēn sàn。",
+              "translations": {
+                "ai_literal": {
+                  "text": "Jingshan had five hundred monks, but few came to call, so Huangbo sent the master there and said to him: \"What will you do when you arrive?\" The master said: \"Once I am there I have my own device.\" Reaching Jingshan, he hitched up his robe and went up to the Dharma hall to see him. Just as Jingshan was lifting his head, the master gave a shout. Just as Jingshan was about to open his mouth, the master shook out his sleeves and walked on out. Presently a monk asked Jingshan: \"What did that monk say just now, that he should shout at you?\" Jingshan said: \"That monk comes from Huangbo's assembly. If you want to know, go ask him yourself.\" More than half of Jingshan's five hundred monks scattered.",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "kanbian_23",
+          "title_zh": "勘辨二十三 · 普化遷化空中鈴響",
+          "title_pinyin": "Kānbiàn Èrshísān · Pǔhuà Qiānhuà Kōngzhōng Língxiǎng",
+          "title_en": "Testing 23 — Puhua’s Passing; A Bell Fading in the Sky",
+          "dialogue": [
+            {
+              "speaker": "Record / 錄",
+              "zh": "普化一日於街市中就人乞直裰，人皆與之，普化俱不要。師令院主買棺一具，普化歸來，師云：「我與汝做得箇直裰了也。」普化便自擔去，繞街市叫云：「臨濟與我做直裰了也，我往東門遷化去。」市人競隨看之。普化云：「我今日未，來日往南門遷化去。」如是三日，人皆不信，至第四日無人隨看，獨出城外，自入棺內，倩路行人釘之，即時傳布，市人競往開棺，乃見全身脫去，秖聞空中鈴響隱隱而去。",
+              "pinyin": "Pǔhuà yī rì yú jiē shì zhōng jiù rén qǐ zhí duō， rén jiē yǔ zhī， Pǔhuà jù bú yào。 Shī lìng Yuànzhǔ mǎi guān yī jù， Pǔhuà guī lái， shī yún：「 Wǒ yǔ rǔ zuò dé gè zhí duō le yě。」 Pǔhuà biàn zì dān qù， rào jiē shì jiào yún：「 Línjì yǔ wǒ zuò zhí duō le yě， wǒ wǎng dōng mén qiān huà qù。」 Shì rén jìng suí kàn zhī。 Pǔhuà yún：「 Wǒ jīn rì wèi， lái rì wǎng nán mén qiān huà qù。」 Rú shì sān rì， rén jiē bù xìn， zhì dì sì rì wú rén suí kàn， dú chū chéng wài， zì rù guān nèi， qiàn lù xíng rén dīng zhī， jí shí chuán bù， shì rén jìng wǎng kāi guān， nǎi jiàn quán shēn tuō qù， zhǐ wén kōng zhōng líng xiǎng yǐn yǐn ér qù。",
+              "translations": {
+                "ai_literal": {
+                  "text": "One day Puhua was in the streets and markets begging people for a robe; everyone offered him one, but he would take none of them. The master had the prior buy a coffin, and when Puhua returned, the master said: \"I have had your robe made for you.\" At once Puhua took the coffin onto his shoulders and went around the market crying: \"Linji has made me a robe! I am off to the East Gate to pass away,\" and the townsfolk vied to follow and watch. Puhua said: \"Not today — tomorrow I am off to the South Gate to pass away.\" So it went for three days, and nobody believed him any longer. On the fourth day no one followed; he left the city alone, got into the coffin himself, and asked a passing traveler to nail it shut. The news spread at once; the townsfolk raced to pry the coffin open — and found the whole body gone, hearing only a bell's faint ringing fading away into the empty sky.",
+                  "status": "ai_draft"
                 }
               }
             }
@@ -8240,7 +10252,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "zh_chars": 13367
     },
     "huangbo_chuanxin": {
       "id": "huangbo_chuanxin",

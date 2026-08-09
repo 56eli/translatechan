@@ -265,9 +265,17 @@ for (const [key, fn] of Object.entries(corpusClicks)) {
 console.log(`RENDERER: ${Object.keys(corpusClicks).length} corpus texts exercised, ${failures} crashes`);
 
 // 1b. The Linji locator pilot must expose its reviewed unit anchor, not only T1985.
+// The complete-text ingestion (2026-08-09) makes the section list long: the reader
+// lazy-renders it in chunks, so keep loading more until the anchor section appears.
 try {
   corpusClicks.linji_yulu();
-  const linjiHtml = ids['reader-content-target']._innerHTML;
+  let linjiHtml = ids['reader-content-target']._innerHTML;
+  let guard = 0;
+  while (!linjiHtml.includes('Section source: T47n1985_p0504a26–p0504a29') && guard < 12) {
+    window.TranslateChan.loadMoreCases();
+    linjiHtml = ids['reader-content-target']._innerHTML;
+    guard++;
+  }
   const linjiAnchor = window.TRANSLATECHAN_DATA.canonical_locators.documents.linji_yulu.unit_locators['sections.four_shouts'];
   if (!linjiHtml.includes('Section source: T47n1985_p0504a26–p0504a29') ||
       linjiAnchor?.status !== 'collated_with_normalization') {
