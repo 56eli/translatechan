@@ -23,7 +23,7 @@ a11y/ARIA behavior, filter derivations, and escaping.
 Current measured facts (validator-generated; the prose numbers below are
 guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
 
-- Corpus: **36 documents**; Wumenguan **48/48 cases** complete; Biyanlu **100/100 cases ✅ complete**; **35 excerpt seeds**; **88,263 content CJK / 92,450 all-string CJK**.
+- Corpus: **36 documents**; Wumenguan **48/48 cases** complete; Biyanlu **100/100 cases** (**complete ✅**); **35 excerpt seeds**; **88,263 content CJK / 92,450 all-string CJK**.
 - Translations: **949 corpus slots**; **138 verified quotations**; **21 matrix registers**; verified-reference coverage **135 recorded / 5 pending**.
 - Locators: **150/150 case-level**; **33 document-level seeds** pending unit locators.
 - Lineage: **34 masters** (30 seed + 4 frontier scaffolds), **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**, source-status aware.
