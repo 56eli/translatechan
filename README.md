@@ -119,8 +119,9 @@ translatechan/
 │   │   ├── school_vocabulary.json   # Controlled school_key/display/color vocabulary (validator-enforced)
 │   │   ├── lineage_verification.json  # 30 internal-edge + 4 frontier source-status records
 │   │   └── profile_review_queue.json  # Enforced exact-locator review queue (34 profiles)
-│   ├── translations/       # Comparative data, provenance, and rights controls
+│   ├── translations/       # Comparative data, provenance, rights & Robo profiles
 │   │   ├── comparative_matrix.json
+│   │   ├── translator_profiles.json  # Evidence-grounded Robo-translator personalities (13 in-corpus-verified; 7 documented-external)
 │   │   ├── provenance.json
 │   │   └── rights_manifest.json
 │   ├── glossary/           # Classical Chan & Buddhist lexicon (31 terms)

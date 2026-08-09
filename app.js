@@ -1527,9 +1527,9 @@
     red_pine: 'Robo Red Pine',
     cleary: 'Robo T-Cleary',
     sasaki: 'Robo Ruth',
-    suzuki: 'Robo D.T. Suzuki',
+    suzuki: 'Robozuki',
     blyth: 'Robo Blyth',
-    blofeld: 'Robo Blofeld',
+    blofeld: 'Roblofeld',
     heine: 'Robo Heine',
     yampolsky: 'Robo Yampolsky',
     senzaki_reps: 'Robo Senzaki & Reps',
@@ -1558,12 +1558,18 @@
     return ROBO_TRANSLATOR_NAMES[key] || ('Robo ' + (REAL_TRANSLATOR_NAMES[key] || humanizeKey(key)));
   }
   // Matrix translator names are free-form strings in the data; Robo-ify anything
-  // that is NOT a verified quotation (verified keeps its real attribution).
+  // that is NOT a verified quotation (verified keeps its real attribution). A few
+  // names blend into a single Robo coinage (Robozuki, Roblofeld) for the cast.
+  const ROBO_BLEND = { suzuki: 'Robozuki', blofeld: 'Roblofeld' };
   function roboifyTranslatorName(name, status) {
     const real = stringValue(name);
     if (!real) return real;
     if (status === 'verified_quotation') return real;
-    if (/^robo\s/i.test(real)) return real; // already branded
+    if (/^robo/i.test(real)) return real; // already branded
+    const lower = real.toLowerCase();
+    for (const tail in ROBO_BLEND) {
+      if (lower.endsWith(tail)) return ROBO_BLEND[tail];
+    }
     return 'Robo ' + real;
   }
 
