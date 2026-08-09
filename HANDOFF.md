@@ -22,47 +22,60 @@ The TranslateChan project has been fully established with:
 
 ---
 
-## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe5d5-translatechan`)
+## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe64a-translatechan`)
 
 ### Public Pages scope
 
 The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return).
 
-### What this session delivered (7 commits, all gates green; report: [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md), durable log in `sessions/AUDIT_archive_2026-08-08.md` §12)
+### What this session delivered (PR #9, all gates green; full report: [`AUDIT_RESPONSE_2026-08-09.md`](./AUDIT_RESPONSE_2026-08-09.md))
 
-1. **Full-project audit + doc-drift fixes** (`d248efe`): no P0/P1; CJK counts re-synced to validator metrics (13,268/16,457 → 20,017/23,314); duplicate tree entry, stale bundle-size comment, stale matrix subtitle (named an absent translator, omitted two present ones), HANDOFF tree counts, missing `aria-label` on the lineage school filter — all corrected.
-2. **Controlled school vocabulary + data-derived filters** (`92c4cf0`): 22 free-text school variants → 12 validator-enforced `school_key` groups (`data/lineage/school_vocabulary.json`); lineage filter options + graph palette now derived from data; **bug found & fixed**: the Lexicon "Category" dropdown had no change listener (inert UI since introduction) — now wired; smoke 4m2/4m3.
-3. **Doc-truthfulness gate** (`d322df4`): `validate_data.py` enforces that README/HANDOFF/index.html quote live deterministic metrics — prose drift exits 1 with the failing rule named; `--skip-docs` while editing; negative-tested; CI enforces with no workflow change.
-4. **Renderer escaping consistency** (`d4630ba`): ~60 interpolation sites across reader/lineage/gong'an/lexicon/dossier now uniformly `escHtml()`; poison-fixture regression (smoke 4y) efficacy-verified.
-5. **Session-artifact convention + AUDIT.md slimming** (`16fb043`): dated reports + archive live in `sessions/`; AUDIT.md = slim current-state summary; 13 links repaired.
-6. **Gong'an theme taxonomy** (`3a23d8b`): 23 one-off themes → 7 curated validator-enforced groups (`data/gongan/theme_vocabulary.json`) driving the index chips; smoke 4m4.
-7. **Second-pass deep audit + A1–A5 remediation** (`498c319`): independent re-verification (gates, gate-efficacy injection test, live serve, numbering, links); fixed the drifted "6 → **7** corpus texts" verified-slot claim (README/ROADMAP) and the HANDOFF matrix "2 rows" phrasing (2 verified registers on the single Case-1 row); **doc gate extended 13 → 25 rules** (AUDIT.md §1 numbers now guarded + new `verified_corpus_texts` metric — each rule negative-tested); `arena_agent_pipeline` helper now emits validator-shaped entries (`status` field); stale "AUDIT.md §11/§12" pointers fixed; Lexicon occurrence **scope note** added (smoke 4m5).
+Independent full-project audit found no P0/P1/P2 defects. Shipped improvements:
+
+1. **Semantic document outline (a11y B2):** every public view title is a real `h1` and every card/unit title is a real `h2`; visuals unchanged via heading reset; smoke `4m6`.
+2. **Data-derived lineage graph colors (A2):** each school in `data/lineage/school_vocabulary.json` now carries a curated `color`; the hardcoded palette was removed; validator/schema/smoke `4m2b` enforce it.
+3. **Historical link repair (A1):** corrected three stale `./AUDIT.md` links in dated session reports.
+4. **Dark-theme FOUC guard (B1):** external CSP-clean `theme-init.js` applies persisted `data-theme` before first paint; build/docs/smoke covered.
+5. **Explicit translation records (A4):** converted all 736 legacy bare-string corpus translations to `{text,status}` objects via `scripts/migrate_translations.py`; validator/schema/smoke `4m7` reject regression.
+6. **a11y/SEO/copy polish (B3/B5/B6):** decorative emoji are `aria-hidden`; hero corpus/translator counts are data-derived; added `theme-color`, canonical URL, Open Graph/Twitter metadata, `robots.txt`, and `sitemap.xml`.
+7. **Script loading/perf (B4):** `app_data.js` and `app.js` now use `defer` while preserving order.
+8. **Tooling clarity (C3):** renamed `ingest_cbeta.py` to `segment_classical.py` and kept a deprecated compatibility wrapper; docs updated.
+9. **Schema/validator hardening (C2):** strict additional-property rules for translation records, quotation sources, matrix translators, lineage edges, lineage sources, and controlled-vocabulary entries.
 
 ### Source, translation, and lineage disclosure
 
-- Every public Reader document/case shows a canonical source location plus hover/focus/touch details, **and now a validator-derived coverage disclosure** (e.g. `48/48 cases`, `14/100 cases`, `Excerpt seed (N units)`).
+- Every public Reader document/case shows a canonical source location plus hover/focus/touch details and a validator-derived coverage disclosure (e.g. `48/48 cases`, `14/100 cases`, `Excerpt seed (N units)`).
 - Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **135 / 140** verified quotation records have a recorded reference; the remaining **5** are explicitly pending.
-- AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation; the new Biyanlu renderings are `ai_literal` project drafts.
-- The lineage graphic reads from the verification registry: **30** in-set links and **4** frontiers are source-status aware; traditional links remain pending until exact locators are reviewed.
+- AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation.
+- The lineage graphic reads from the verification registry and the data-derived school palette; **30** in-set links and **4** frontiers remain source-status aware.
 
 ### Quality gate run before handoff
 
 ```bash
 python3 -m py_compile scripts/*.py
 python3 scripts/validate_data.py          # corpus=36 | slots=874 | verified=138 | matrix=21 | locators=64/64
-                                          # (+ doc-truthfulness gate (25 rules): README/HANDOFF/ROADMAP/
-                                          #  AUDIT §1/index.html must quote live metrics — archive §12 P2-A
-                                          #  + session audit §6; --skip-docs to bypass)
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium
 diff -rq data docs/data
-diff -q theme-init.js docs/theme-init.js   # FOUC guard, added 2026-08-09
+diff -q theme-init.js docs/theme-init.js  # FOUC guard
 diff -q robots.txt docs/robots.txt
 diff -q sitemap.xml docs/sitemap.xml
 ```
 
 All commands pass. Root and `/docs` assets/data are synchronized.
+
+### Owner follow-up: CI workflow path list
+
+The session token lacks GitHub App `workflows` permission, so `.github/workflows/quality.yml` was not modified. Extend the generated-artifact gate path list to include:
+
+```text
+docs/theme-init.js
+docs/robots.txt
+docs/sitemap.xml
+```
+
+Local gates and smoke tests already enforce these files.
 
 ### GitHub Actions quality gate
 
