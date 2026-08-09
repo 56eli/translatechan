@@ -30,7 +30,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and Biyanlu's excerpt has grown to **14/100 cases with cases 1–10 complete** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **20,017 source-content CJK characters** (or 23,314 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `14/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu cases 1–10 are now complete (14/100).
+> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and Biyanlu's excerpt has grown to **15/100 cases with cases 1–11 complete** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **21,336 source-content CJK characters** (or 24,641 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `15/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu cases 1–11 are now complete (15/100).
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -40,7 +40,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 | **Sayings of Zhaozhou** | 趙州真際禪師語錄 | **T1987** (Vol. 47) | Zhaozhou Congshen (趙州從諗) | Signature dialogues (狗子, 洗鉢盂…) |
 | **Inscription on Faith in Mind** | 信心銘 | **T2010** (Vol. 48) | Third Patriarch Jianzhi Sengcan | Opening stanzas |
 | **Jewel Mirror Samadhi** | 寶鏡三昧歌 | **T1986** (Vol. 47) | Dongshan Liangjie (洞山良价) | Opening stanzas |
-| **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | 14 / 100 cases (1–10 complete) |
+| **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | 15 / 100 cases (1–11 complete) |
 | **The Platform Sutra** | 六祖大師法寶壇經 | **T2007** (Vol. 48) | Sixth Patriarch Huineng / Fahai | 4 / 10 chapters (incl. 菩提本無樹 verse) |
 | **(+ 28 further yulu, treatises & poems)** | — | T/X canon | Mazu, Dongshan, Yunmen, Fayan, Guiyang, Dahui, Hanshan… | Excerpt seeds — see `data/corpus/` |
 
@@ -52,7 +52,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - Sentence-by-sentence Classical Chinese with standard Pinyin romanization and English translations across all 36 corpus texts.
 - Switchable reading modes: **Bilingual**, **Multi-Translators Side-by-Side**, or **Classical Chinese Only**.
 - Hover, focus, or tap key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
-- Visible canonical source locations for every reader document/case, plus a **validator-derived coverage disclosure** (`48/48 cases`, `14/100 cases`, or `Excerpt seed (N units)` with a full coverage note) so excerpts are never mistaken for complete texts; reviewed unit-level source disclosures for the Linji (4 sections) and Xinxin Ming (7 stanzas) pilots; hover/focus/touch popups state locator granularity, collation status, and pending human review honestly.
+- Visible canonical source locations for every reader document/case, plus a **validator-derived coverage disclosure** (`48/48 cases`, `15/100 cases`, or `Excerpt seed (N units)` with a full coverage note) so excerpts are never mistaken for complete texts; reviewed unit-level source disclosures for the Linji (4 sections) and Xinxin Ming (7 stanzas) pilots; hover/focus/touch popups state locator granularity, collation status, and pending human review honestly.
 - Client-side search across **all 36 corpus texts and all schema shapes** (case lists, sermons, dialogues, stanzas, chapters), with match counts, `<mark>` highlighting, and jump-to-anchor actions.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix

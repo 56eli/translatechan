@@ -82,10 +82,9 @@ Both files were archived with session-dated names (`sessions/AUDIT_RESPONSE_2026
 
 ## 3. Recommended order (all batches independently shippable, gates all green after each)
 
-1. **Housekeeping batch (~30 min, zero risk):** N9 (session files → `sessions/` + §4 index row), N10 (stale comment + README tree), CF-1 attempt (one-line CI path fix — best-effort per token permission).
-2. **A11y depth batch (~1 h):** N1 (reduced-motion helper + guard), N3 (focus shows term popover + role/aria-describedby), N2 (dossier dialog semantics/Escape/focus), N6 (search label). Smoke tests can assert each (the suite already static-guards HTML patterns).
-3. **Search UX batch (~1–2 h):** N5 (diacritic-fold in `normalizeForSearch` + regression test), N4 (matched-field snippet + "matched in translations" label).
-4. **P4 sweep (opportunistic):** N7 resize re-layout, N8 popover max-height, 0.62 rem citation legibility.
+1. ~~**Housekeeping batch**~~ ✅ done · 2. ~~**A11y depth batch**~~ ✅ done · 3. ~~**Search UX batch**~~ ✅ done · 4. ~~**P4 sweep**~~ ✅ done (all sessions same day).
+
+**Addendum — Content Phase 2 pilot (2026-08-09, session `019fe731`):** Biyanlu case **11** (黃檗酒糟 / "Huangbo's Wine-Lees Guzzlers") ingested after the cases 4–10 pattern: pointer + main case + full pre-verse 評唱 + 頌, collated from CBETA Online T48n2003 juan 2 (垂示 p.0151b08–b11, 本則 p.0151b12–b17, 評唱 p.0151b18–p.0152a29, 頌 p.0152b01–b04; 著語 normalized out; post-verse 評唱 p.0152b05–c13 noted as not yet ingested in the locator record). Corpus now **15/100 cases** (locators **65/65**, slots **875**, CJK **21,336/24,641**); AI-only drafts honestly badged (`ai_draft`); every doc surface (README/HANDOFF/ROADMAP/AUDIT §1) and both smoke coverage assertions moved by the doc gate. Natural next step of the campaign: case 13 (following the sequence; case 12 already present as a seed) or upgrading seeds 12/14/21/43 to the complete shape, then the Linji pilot.
 
 ---
 
