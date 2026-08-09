@@ -1961,67 +1961,79 @@ window.TRANSLATECHAN_DATA = {
     ]
   },
   "lineage_school_vocab": {
-    "policy_note": "Controlled vocabulary for lineage school affiliation. Every master in data/lineage/masters.json must carry a school_key from this list and a school display string exactly matching the display defined here (enforced by validate_data.py). The lineage filter UI and graph colors are derived from this vocabulary, not from hardcoded lists. Display nuances specific to one master (e.g. East Mountain Teaching, Southern School origin) belong in that master's title/summary, not in the school field.",
+    "policy_note": "Controlled vocabulary for lineage school affiliation. Every master in data/lineage/masters.json must carry a school_key from this list, a school display string exactly matching the display defined here, and (for graph rendering) the curated color hex defined here (all enforced by validate_data.py). The lineage filter UI AND graph colors/palette are derived from this vocabulary, not from hardcoded lists in app.js. Display nuances specific to one master (e.g. East Mountain Teaching, Southern School origin) belong in that master's title/summary, not in the school field.",
     "schools": [
       {
         "key": "indian_patriarchs",
         "display": "Indian Patriarchal Tradition",
-        "note": "Pre-Bodhidharma Indian transmission line."
+        "note": "Pre-Bodhidharma Indian transmission line.",
+        "color": "#8a6d3b"
       },
       {
         "key": "foundational_patriarchs",
         "display": "Foundational Patriarch (達摩至六祖)",
-        "note": "The Six Patriarchs of the early Chan tradition (Bodhidharma → Huineng)."
+        "note": "The Six Patriarchs of the early Chan tradition (Bodhidharma → Huineng).",
+        "color": "#b38238"
       },
       {
         "key": "tang_branch_roots",
         "display": "Tang Branch Root Patriarch (分支初祖)",
-        "note": "The two great Tang branch roots after Huineng: the Nanyue and Qingyuan lines."
+        "note": "The two great Tang branch roots after Huineng: the Nanyue and Qingyuan lines.",
+        "color": "#c29d59"
       },
       {
         "key": "hongzhou",
         "display": "Hongzhou School (洪州宗)",
-        "note": "Nanyue branch: Mazu Daoyi's Hongzhou line and its offshoots (incl. Zhaozhou)."
+        "note": "Nanyue branch: Mazu Daoyi's Hongzhou line and its offshoots (incl. Zhaozhou).",
+        "color": "#b85d19"
       },
       {
         "key": "shitou_hunan",
         "display": "Shitou / Hunan Lineage (石頭法脈)",
-        "note": "Qingyuan branch: Shitou Xiqian's line through the Hunan masters (pre-house)."
+        "note": "Qingyuan branch: Shitou Xiqian's line through the Hunan masters (pre-house).",
+        "color": "#4d9377"
       },
       {
         "key": "linji",
         "display": "Linji School (臨濟宗)",
-        "note": "Linji house proper and its direct lineage ancestor (Huangbo)."
+        "note": "Linji house proper and its direct lineage ancestor (Huangbo).",
+        "color": "#b53335"
       },
       {
         "key": "linji_yangqi",
         "display": "Linji / Yangqi Branch (楊岐派)",
-        "note": "The Yangqi branch of the Linji house (Yuanwu, Dahui line; Wumen)."
+        "note": "The Yangqi branch of the Linji house (Yuanwu, Dahui line; Wumen).",
+        "color": "#c94a4c"
       },
       {
         "key": "caodong",
         "display": "Caodong School (曹洞宗)",
-        "note": "Caodong house (Dongshan–Caoshan line)."
+        "note": "Caodong house (Dongshan–Caoshan line).",
+        "color": "#3a6b56"
       },
       {
         "key": "yunmen",
         "display": "Yunmen School (雲門宗)",
-        "note": "Yunmen house."
+        "note": "Yunmen house.",
+        "color": "#2c5d79"
       },
       {
         "key": "guiyang",
         "display": "Guiyang School (溈仰宗)",
-        "note": "Guiyang house."
+        "note": "Guiyang house.",
+        "color": "#7d4a88"
       },
       {
         "key": "fayan",
         "display": "Fayan School (法眼宗)",
-        "note": "Fayan house and its lineage ancestors (Luohan Guichen)."
+        "note": "Fayan house and its lineage ancestors (Luohan Guichen).",
+        "color": "#2d7d74"
       },
       {
         "key": "chan_transmission",
         "display": "Chan transmission tradition",
-        "note": "Traditional/scaffold profiles without house attribution; records pending review."
+        "note": "Traditional/scaffold profiles without house attribution; records pending review.",
+        "color": "#756b64"
       }
     ]
   },

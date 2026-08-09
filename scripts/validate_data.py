@@ -349,6 +349,13 @@ def load_controlled_vocabulary(path: Path, issues: Issues, field: str) -> dict[s
         if entry["key"] in vocab:
             issues.error(entry_path, f"duplicate key '{entry['key']}'")
         vocab[entry["key"]] = entry["display"]
+        # School vocabulary also carries the curated graph color; enforce a
+        # 3/6-digit hex so the lineage graph can derive its palette from data
+        # instead of a hardcoded map (audit A2, 2026-08-09).
+        if field == "schools":
+            color = entry.get("color")
+            if not isinstance(color, str) or not re.fullmatch(r"#[0-9a-fA-F]{6}", color):
+                issues.error(entry_path, "each school requires a 'color' string as a 6-digit hex (e.g. '#b53335') used by the lineage graph")
     return vocab
 
 

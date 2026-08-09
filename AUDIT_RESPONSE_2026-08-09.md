@@ -48,28 +48,20 @@ drift, generated-artifact sync).
 
 ### A. Documentation / consistency
 
-**A1 — Broken historical links in two dated session reports (P4, trivial)**
+**A1 — Broken historical links in two dated session reports (P4, trivial)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
 `sessions/SESSION_AUDIT_2026-08-08.md` and `sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`
-contain `./AUDIT.md` links that 404 from inside `sessions/` (should be
-`../AUDIT.md`). The files are explicitly marked historical ("links in dated
-reports are historical"), so this is cosmetic, but a 2-character fix removes 3
-broken-link checker hits. The first line of each file already uses the correct
-`../AUDIT.md`, so these are just stragglers.
+contained `./AUDIT.md` links that 404 from inside `sessions/`. Corrected to
+`../AUDIT.md`; internal markdown-link check now reports zero broken links.
 
-**A2 — "Graph colors derived from data" claim is half-true (P3, consistency)**
-`HANDOFF.md` (lines 16, 34, 202, 228) and `school_vocabulary.json`'s policy note
-say the lineage filter UI **and graph colors** are derived from the controlled
-vocabulary. In reality:
-- Filter options/labels ARE data-derived ✅
-- Graph colors are a **hardcoded `schoolColors` map in `app.js`** (lines 1645–1658)
-  — `school_vocabulary.json` has no `color` field.
-
-This is a latent drift risk: adding a 13th school (or renaming a key) silently
-falls back to the default gold node color with no validator error. Two clean
-options: (a) add an optional `"color"` to each school in `school_vocabulary.json`,
-bundle it, and have the graph read it (making the claim literally true), or
-(b) soften the docs to "filter UI is data-derived; graph palette is curated in
-`app.js`". Option (a) is the better engineering answer and is ~15 lines of work.
+**A2 — "Graph colors derived from data" claim is half-true (P3, consistency)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
+Added a curated `color` hex to every school in
+`data/lineage/school_vocabulary.json`; the validator now requires a 6-digit hex
+per school (negative-tested: missing color → exit 1), the schema declares the
+field, `app.js` derives the graph palette via `schoolColorMap()` (hardcoded map
+removed), and smoke test `4m2b` guards both the absence of a hardcoded palette
+and the presence of per-school colors in the bundle. The "graph colors are
+derived from this vocabulary" claim in `HANDOFF.md` and the policy note is now
+literally true.
 
 **A3 — Matrix subtitle is hand-maintained and already fragile (P3)**
 `index.html` line 142 hardcodes the translator list:

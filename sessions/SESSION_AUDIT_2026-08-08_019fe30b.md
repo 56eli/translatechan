@@ -3,7 +3,7 @@
 > 🗂️ **Moved 2026-08-09** (session-artifact convention): this dated report now lives in `sessions/`; the current-state summary + index is repo-root [`AUDIT.md`](../AUDIT.md). Links in dated reports are historical.
 
 
-> **Temporary response file** — created for review of this session's full-project audit. Durable log entry should be folded into [`AUDIT.md`](./AUDIT.md) §11 when the owner accepts it. Delete this file after review (it is not part of the project's canonical docs).
+> **Temporary response file** — created for review of this session's full-project audit. Durable log entry should be folded into [`AUDIT.md`](../AUDIT.md) §11 when the owner accepts it. Delete this file after review (it is not part of the project's canonical docs).
 >
 > **Audited snapshot:** commit `243fe3f` (single squashed commit on `main` = merge of PR #6) — the same tree the live GitHub Pages site serves (`main` → `/docs`).
 >

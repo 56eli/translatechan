@@ -9,6 +9,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // Public Pages scope deliberately excludes browser drafting, agent branding, and
 // a header GitHub link; keep that composition from regressing during app work.
 const publicHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
+const appSrc = readFileSync(join(ROOT, 'app.js'), 'utf8');
 for (const forbidden of ['data-view="studio"', 'data-view="agents"', 'id="view-studio"', 'id="view-agents"', 'https://github.com/56eli/translatechan']) {
   if (publicHtml.includes(forbidden)) throw new Error(`public Pages scope regression: ${forbidden}`);
 }
@@ -382,6 +383,16 @@ if (!lineageFilteredCards.includes('臨濟義玄') || lineageFilteredCards.inclu
 if (!ids['lineage-svg-graph']._innerHTML.includes('stroke="#b53335"')) {
   failures++; console.log('❌ lineage graph is not using the school_key color palette');
 }
+// 4m2b. The graph palette must be data-derived from school_vocabulary.json's
+// per-school `color` (audit A2): app.js must not carry a hardcoded school color
+// map, and every bundled school must expose a hex color.
+if (/indian_patriarchs:\s*'#/.test(appSrc) || /const schoolColors\s*=\s*\{/.test(appSrc)) {
+  failures++; console.log('❌ lineage graph still uses a hardcoded school color map instead of the vocabulary');
+}
+const bundledSchools = (window.TRANSLATECHAN_DATA.lineage_school_vocab || {}).schools || [];
+if (!bundledSchools.length || !bundledSchools.every(s => /^#[0-9a-fA-F]{6}$/.test(s.color))) {
+  failures++; console.log('❌ bundled school vocabulary is missing per-school hex colors');
+}
 (ids['lineage-school-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
 // 4m3. Lexicon category filter is data-derived and actually wired (state +
 // listener existed only after the 2026-08-09 vocabulary pass).
@@ -473,7 +484,6 @@ await fireSearch('');
 // 4u. CSP/a11y hardening: no inline event-handler attributes may exist in
 // index.html or app.js source (a strict Content-Security-Policy is enforced
 // via the meta tag, so script-src 'self' must be satisfiable).
-const appSrc = readFileSync(join(ROOT, 'app.js'), 'utf8');
 for (const [label, src] of [['index.html', publicHtml], ['app.js', appSrc]]) {
   for (const attr of ['onclick="', 'onload="', 'onerror="', 'onchange="', 'oninput="', 'onmouseover="', 'onmouseout="', 'onkeydown="', 'onfocus="', 'onblur="']) {
     if (src.includes(attr)) { failures++; console.log(`❌ ${label} still contains inline handler attribute '${attr}'`); }

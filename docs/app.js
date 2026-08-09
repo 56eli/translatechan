@@ -1575,6 +1575,18 @@
     return ordered;
   }
 
+  // School graph colors are generated from the bundled controlled vocabulary
+  // (data/lineage/school_vocabulary.json → each school's curated `color`),
+  // not hardcoded here — adding/renaming a school cannot silently fall back to
+  // a default color (validator requires a 6-digit hex per school; audit A2).
+  function schoolColorMap() {
+    const out = {};
+    const vocab = state.data.lineage_school_vocab && Array.isArray(state.data.lineage_school_vocab.schools)
+      ? state.data.lineage_school_vocab.schools : [];
+    vocab.forEach(v => { if (v && v.key && v.color) out[v.key] = v.color; });
+    return out;
+  }
+
   // Filter options are generated from the bundled vocabulary, not hardcoded in
   // index.html: new schools added to the data appear automatically, and stale
   // options can never linger after data changes.
@@ -1641,22 +1653,10 @@
     const BOTTOM_PAD = 74;
     svg.innerHTML = '';
 
-    // School colors are keyed by the controlled school_key vocabulary
-    // (previously keyed by free-text school strings — most lookups fell back).
-    const schoolColors = {
-      indian_patriarchs: '#8a6d3b',
-      foundational_patriarchs: '#b38238',
-      tang_branch_roots: '#c29d59',
-      hongzhou: '#b85d19',
-      shitou_hunan: '#4d9377',
-      linji: '#b53335',
-      linji_yangqi: '#c94a4c',
-      caodong: '#3a6b56',
-      yunmen: '#2c5d79',
-      guiyang: '#7d4a88',
-      fayan: '#2d7d74',
-      chan_transmission: '#756b64'
-    };
+    // School colors are derived from the controlled vocabulary (schoolColorMap),
+    // which reads each school's curated hex from the bundled data — no hardcoded
+    // palette here (validator guarantees every school has a color).
+    const schoolColors = schoolColorMap();
 
     // Calculate node coordinates based on lineage generation
     const genGroups = {};
@@ -1713,7 +1713,9 @@
     let nodesHtml = '<g class="graph-nodes">';
     Object.keys(nodeCoords).forEach(id => {
       const { x, y, master } = nodeCoords[id];
-      const color = schoolColors[master.school_key] || '#b38238';
+    // Every master.school_key is guaranteed to carry a color by the validator;
+    // the fallback only covers a malformed/old cached bundle.
+    const color = schoolColors[master.school_key] || '#b38238';
 
       const shortName = stringValue(master.name_en).split(' ').pop().slice(0, 14);
       nodesHtml += `
