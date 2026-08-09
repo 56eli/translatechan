@@ -2147,8 +2147,17 @@
   // normalized to ONE canonical side (first listed) so 洗鉢盂去/洗缽盂去, 師云/師曰
   // etc. cross-match; variantRegex() still marks either spelling in the raw text.
   const SEARCH_VARIANTS = { '鉢': '缽', '曰': '云', '臺': '台', '裏': '里', '無': '无' };
+  // Diacritic folding (search UX N5, 2026-08-09, session 019fe731): corpus
+  // pinyin is tone-marked (Zhàozhōu, fóxìng), but realistic queries are typed
+  // toneless (zhaozhou, foxing). NFD + combining-mark strip makes both sides
+  // comparable; CJK characters have no decomposable marks and are unaffected.
+  const COMBINING_MARKS = /[\u0300-\u036f]/g;
   function normalizeForSearch(s) {
-    return String(s || '').toLowerCase().split('').map(ch => SEARCH_VARIANTS[ch] || ch).join('');
+    return String(s || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(COMBINING_MARKS, '')
+      .split('').map(ch => SEARCH_VARIANTS[ch] || ch).join('');
   }
   function escHtml(s) {
     return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -2164,30 +2173,48 @@
     const units = [];
     const asBlob = (...parts) => normalizeForSearch(parts.filter(Boolean).join(' '));
     const blobWithTranslations = (tr) => tr ? Object.values(tr).map(v => (v && typeof v === 'object' ? v.text : v)).filter(Boolean).join(' ') : '';
+    // Human-readable per-register English fields, carried next to the blob so a
+    // result card can disclose WHAT matched (register + text) when the classical
+    // Chinese itself did not (search UX N4, 2026-08-09, session 019fe731).
+    const registerPairs = (tr) => tr ? Object.entries(tr)
+      .map(([k, v]) => ({ name: formatTranslatorName(k), text: stringValue(v && typeof v === 'object' ? v.text : v) }))
+      .filter(p => p.text) : [];
+    const namedPair = (name, text) => (text ? [{ name, text: stringValue(text) }] : []);
     const fromDialogue = (items, label, jump) => (items || []).forEach(d => {
       units.push({
         label, jump,
         zh: d.zh || '', pinyin: d.pinyin || '',
+        en: registerPairs(d.translations),
         blob: asBlob(label, d.speaker, d.zh, d.pinyin, blobWithTranslations(d.translations))
       });
     });
 
     if (doc.preface && doc.preface.zh) {
       units.push({ label: '序言 / Preface', jump: null, zh: doc.preface.zh, pinyin: doc.preface.pinyin || '',
+        en: [
+          ...namedPair(formatTranslatorName('red_pine'), doc.preface.en_red_pine),
+          ...namedPair(formatTranslatorName('cleary'), doc.preface.en_cleary),
+          ...namedPair(formatTranslatorName('sasaki'), doc.preface.en_sasaki)
+        ],
         blob: asBlob('preface', doc.preface.zh, doc.preface.pinyin, doc.preface.en_red_pine, doc.preface.en_cleary, doc.preface.en_sasaki) });
     }
     if (doc.epilogue && doc.epilogue.zh) {
       units.push({ label: '後序 / Epilogue', jump: null, zh: doc.epilogue.zh, pinyin: doc.epilogue.pinyin || '',
+        en: [
+          ...namedPair(formatTranslatorName('red_pine'), doc.epilogue.en_red_pine),
+          ...namedPair(formatTranslatorName('cleary'), doc.epilogue.en_cleary),
+          ...namedPair(formatTranslatorName('sasaki'), doc.epilogue.en_sasaki)
+        ],
         blob: asBlob('epilogue', doc.epilogue.zh, doc.epilogue.pinyin, doc.epilogue.en_red_pine, doc.epilogue.en_cleary, doc.epilogue.en_sasaki) });
     }
     (doc.cases || []).forEach(c => {
       const label = `第${c.case_num}則 ${c.title_zh || ''} / ${c.title_en || ''}`;
       fromDialogue(c.dialogue, label, { kind: 'case', num: c.case_num });
-      if (c.pointer_zh) units.push({ label: label + ' · pointer', jump: { kind: 'case', num: c.case_num }, zh: c.pointer_zh, pinyin: c.pointer_pinyin || '', blob: asBlob(label, c.pointer_zh, c.pointer_pinyin, c.pointer_en) });
-      if (c.commentary_zh) units.push({ label: label + ' · commentary', jump: { kind: 'case', num: c.case_num }, zh: c.commentary_zh, pinyin: c.commentary_pinyin || '', blob: asBlob(label, c.commentary_zh, c.commentary_pinyin, c.commentary_en) });
-      if (c.verse_zh) units.push({ label: label + ' · verse', jump: { kind: 'case', num: c.case_num }, zh: c.verse_zh, pinyin: c.verse_pinyin || '', blob: asBlob(label, c.verse_zh, c.verse_pinyin, c.verse_en) });
+      if (c.pointer_zh) units.push({ label: label + ' · pointer', jump: { kind: 'case', num: c.case_num }, zh: c.pointer_zh, pinyin: c.pointer_pinyin || '', en: namedPair('Pointer (project draft)', c.pointer_en), blob: asBlob(label, c.pointer_zh, c.pointer_pinyin, c.pointer_en) });
+      if (c.commentary_zh) units.push({ label: label + ' · commentary', jump: { kind: 'case', num: c.case_num }, zh: c.commentary_zh, pinyin: c.commentary_pinyin || '', en: namedPair('Commentary (project draft)', c.commentary_en), blob: asBlob(label, c.commentary_zh, c.commentary_pinyin, c.commentary_en) });
+      if (c.verse_zh) units.push({ label: label + ' · verse', jump: { kind: 'case', num: c.case_num }, zh: c.verse_zh, pinyin: c.verse_pinyin || '', en: namedPair('Verse (project draft)', c.verse_en), blob: asBlob(label, c.verse_zh, c.verse_pinyin, c.verse_en) });
       // explicit title unit so title-only queries surface the case
-      units.push({ label, jump: { kind: 'case', num: c.case_num }, zh: c.title_zh || '', pinyin: c.title_pinyin || '', blob: asBlob(label) });
+      units.push({ label, jump: { kind: 'case', num: c.case_num }, zh: c.title_zh || '', pinyin: c.title_pinyin || '', en: [], blob: asBlob(label) });
     });
     (doc.sections || []).forEach(sec => {
       const label = `${sec.title_zh || ''} / ${sec.title_en || ''}`;
@@ -2199,16 +2226,19 @@
     });
     (doc.stanzas || []).forEach(st => {
       units.push({ label: `Stanza ${st.stanza_num}`, jump: null, zh: st.zh || '', pinyin: st.pinyin || '',
+        en: registerPairs(st.translations),
         blob: asBlob(`stanza ${st.stanza_num}`, st.zh, st.pinyin, blobWithTranslations(st.translations)) });
     });
     (doc.chapters || []).forEach(ch => {
       const label = `${ch.title_zh || ''} / ${ch.title_en || ''}`;
       fromDialogue(ch.dialogue, label, null);
       (ch.verses || []).forEach(v => units.push({ label, jump: null, zh: v.zh || '', pinyin: v.pinyin || '',
+        en: registerPairs(v.translations),
         blob: asBlob(label, v.author, v.zh, v.pinyin, blobWithTranslations(v.translations)) }));
     });
     (doc.five_ranks || []).forEach(r => {
       units.push({ label: `Five Ranks · ${r.name_zh || ''}`, jump: null, zh: r.verse_zh || '', pinyin: r.verse_pinyin || '',
+        en: [...registerPairs(r.translations), ...namedPair('Caoshan commentary (project draft)', r.commentary_en)],
         blob: asBlob(r.name_zh, r.name_en, r.verse_zh, r.verse_pinyin, r.commentary_zh, r.commentary_en, blobWithTranslations(r.translations)) });
     });
     (doc.sample_records || []).forEach(rec => {
@@ -2243,6 +2273,35 @@
       if (match[0] === '') re.lastIndex++;
     }
     return html + escHtml(snip.slice(cursor));
+  }
+
+  // Window a matched non-Chinese field (translation, pinyin) for display. When
+  // the query literally occurs there, makeSnippet marks it; toneless queries
+  // that only match after diacritic folding get an unmarked window instead of
+  // a misleading highlight (search UX N4/N5, 2026-08-09, session 019fe731).
+  function makeFieldSnippet(raw, q) {
+    const text = stringValue(raw);
+    const re = variantRegex(q);
+    if (re && re.test(text)) return makeSnippet(text, q);
+    const idx = normalizeForSearch(text).indexOf(normalizeForSearch(q));
+    const center = idx === -1 ? 0 : idx;
+    const start = Math.max(0, center - 30);
+    const end = Math.min(text.length, center + 50);
+    return escHtml((start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : ''));
+  }
+
+  // Disclose which field satisfied the query when the classical Chinese did
+  // not: first matching translation register, else pinyin, else the title.
+  function renderSearchMatchNote(u, q, qLower) {
+    if (u.zh && normalizeForSearch(u.zh).includes(qLower)) return '';
+    const enHit = (u.en || []).find(p => normalizeForSearch(p.text).includes(qLower));
+    if (enHit) {
+      return `<div class="search-match-note">⚖️ Matched in translations — <strong>${escHtml(enHit.name)}</strong>: “${makeFieldSnippet(enHit.text, q)}”</div>`;
+    }
+    if (u.pinyin && normalizeForSearch(u.pinyin).includes(qLower)) {
+      return `<div class="search-match-note">🔤 Matched in pinyin: ${makeFieldSnippet(u.pinyin, q)}</div>`;
+    }
+    return `<div class="search-match-note">🏷️ Matched in the unit title or speaker label</div>`;
   }
 
   // D1: searchable units are expensive to extract (traversal + string building),
@@ -2302,7 +2361,8 @@
         bodyHtml += `
           <div class="case-card" style="margin-bottom: 0.75rem;">
             <div class="case-header"><h2 class="case-num-title" style="font-size:0.95rem;">${escHtml(u.label)}</h2></div>
-            <div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
+            ${u.zh ? `<div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>` : ''}
+            ${renderSearchMatchNote(u, q, qLower)}
             <div style="margin-top: 0.4rem;">${action}</div>
           </div>`;
       });

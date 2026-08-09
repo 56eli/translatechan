@@ -88,6 +88,17 @@ if (!publicHtml.includes('<div class="search-box" role="search">')) {
   throw new Error('search box must carry the search landmark role');
 }
 
+// N5: toneless pinyin queries (foxing, zhaozhou) must resolve against the
+// tone-marked corpus pinyin via Unicode diacritic folding.
+if (!appSrc.includes(".normalize('NFD')") || !appSrc.includes('\\u0300-\\u036f')) {
+  throw new Error('normalizeForSearch must fold diacritics (NFD + combining-mark strip)');
+}
+// N4: result cards must disclose which field matched (translations/pinyin/
+// title) when the classical Chinese itself did not contain the query.
+if (!appSrc.includes('Matched in translations')) {
+  throw new Error('search result cards must disclose translation-field matches');
+}
+
 const store = {};
 globalThis.localStorage = {
   getItem: k => (k in store ? store[k] : null),
@@ -289,6 +300,24 @@ for (const [q, label] of schemaQueries) {
     if (html.includes('No matches found')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
   } catch (e) { failures++; console.log(`❌ full-schema search crash "${q}": ${e.message}`); }
 }
+
+// 4b2. N4/N5 field disclosure (2026-08-09 session 019fe731): a translation-text
+// query names the matching register on the card, and a toneless pinyin query
+// resolves against tone-marked pinyin with the pinyin field disclosed.
+try {
+  await fireSearch('Buddha-nature');
+  const html = ids['reader-content-target']._innerHTML;
+  if (html.includes('No matches found')) { failures++; console.log('❌ N4: "Buddha-nature" search found nothing'); }
+  if (!html.includes('Matched in translations')) { failures++; console.log('❌ N4: translation match not disclosed on the result card'); }
+} catch (e) { failures++; console.log(`❌ N4 behavioral check crash: ${e.message}`); }
+try {
+  // 'foxing' exists ONLY as tone-marked 佛性 pinyin (fóxìng) — zero plain-ASCII
+  // occurrences in the corpus — so this can only match via diacritic folding.
+  await fireSearch('foxing');
+  const html = ids['reader-content-target']._innerHTML;
+  if (html.includes('No matches found')) { failures++; console.log('❌ N5: toneless pinyin query "foxing" found nothing'); }
+  if (!html.includes('Matched in pinyin')) { failures++; console.log('❌ N4/N5: pinyin match note missing from the result card'); }
+} catch (e) { failures++; console.log(`❌ N5 behavioral check crash: ${e.message}`); }
 
 // 4c. No nested/duplicated term highlights from the annotator
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();

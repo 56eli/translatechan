@@ -830,6 +830,24 @@ mark {
   border-radius: 2px;
 }
 
+/* Search UX N4 (2026-08-09): when a result matched a translation, the pinyin,
+   or the title rather than the Chinese, the card discloses that field with a
+   windowed snippet so the user sees what actually hit. */
+.search-match-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  border-left: 3px solid var(--accent-blue);
+  padding: 0.35rem 0.6rem;
+  margin-bottom: 0.65rem;
+  background: var(--accent-blue-light);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  line-height: 1.5;
+}
+
+.search-match-note strong {
+  color: var(--accent-blue);
+}
+
 .tooltip-term-title {
   font-weight: 700;
   font-size: 0.95rem;
