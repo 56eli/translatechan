@@ -30,7 +30,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and Biyanlu's excerpt has grown to **14/100 cases with cases 1–10 complete** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **13,268 source-content CJK characters** (or 16,457 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `14/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`AUDIT.md §10`](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu cases 1–10 are now complete (14/100).
+> **Honest status**: 35 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and Biyanlu's excerpt has grown to **14/100 cases with cases 1–10 complete** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **20,017 source-content CJK characters** (or 23,314 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `14/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`AUDIT.md §10`](./AUDIT.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu cases 1–10 are now complete (14/100).
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -125,8 +125,7 @@ translatechan/
     ├── ingest_cbeta.py        # Offline Classical Chinese sentence segmenter (manual input)
     ├── validate_data.py       # Schema/semantic/rights/locator validator + metrics generator
     ├── smoke_test.mjs         # Dependency-free renderer regression test (CI gate)
-    ├── browser_test.mjs       # Optional Playwright real-browser suite (desktop + mobile; not in CI)
-    └── ingest_cbeta.py        # Offline Classical Chinese segmenter (manual input)
+    └── browser_test.mjs       # Optional Playwright real-browser suite (desktop + mobile; not in CI)
 ```
 
 > **Note on deployment automation**: GitHub Pages is served directly from the `main` branch `/docs` folder (native branch publishing). The checked-in GitHub Actions **Quality** workflow verifies Python syntax, source data/metrics, deterministic generated artifacts, deploy synchronization, and the reader smoke test on pushes and pull requests; it does not deploy Pages.

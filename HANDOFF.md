@@ -196,12 +196,14 @@ translatechan/
 │   ├── glossary/
 │   │   └── chan_terms.json             # 31 Classical Chan & Buddhist lexicon terms
 │   └── gongan/
-│       └── gongan_index.json           # 18 Gong'an cross-references index entries
+│       └── gongan_index.json           # 23 Gong'an cross-references index entries
 └── scripts/
     ├── build_data_bundle.py            # Bundles data/ and synchronizes /docs
+    ├── arena_agent_pipeline.py         # Prompt templates & entry harness for sandboxed agent work
     ├── ingest_cbeta.py                 # Offline Classical Chinese segmenter (manual input)
     ├── validate_data.py                # Semantic/rights/locator validator + metrics generator
-    └── smoke_test.mjs                  # Dependency-free renderer regression test
+    ├── smoke_test.mjs                  # Dependency-free renderer regression test
+    └── browser_test.mjs                # Optional Playwright real-browser suite (not in CI)
 ```
 
 ---
