@@ -1,6 +1,12 @@
 /**
- * TranslateChan - Interactive Classical Chan Translation & Preservation Platform
+ * Fake Chan Factory - Interactive Classical Chan Translation Playground
  * Zero-backend client-side application for GitHub Pages.
+ *
+ * NOTE on naming: the user-facing brand is "Fake Chan Factory", but the
+ * internal JS API namespace (window.TranslateChan), the persisted localStorage
+ * keys (translatechan_*), and the data global (TRANSLATECHAN_DATA) keep the
+ * original "translatechan" identifiers so returning users keep their prefs and
+ * the test suite keeps working. Only visible text was rebranded.
  */
 
 (function() {
@@ -119,7 +125,7 @@
       if (name && !/\bAI\b/i.test(name)) translators.add(name);
     }));
     if (translatorChip) {
-      translatorChip.textContent = `⚖️ ${translators.size} Translators Aligned`;
+      translatorChip.textContent = `🤖 ${translators.size} Robo-Translators`;
     }
   }
 
@@ -1321,21 +1327,21 @@
   function translationStatusMeta(status) {
     if (status === 'verified_quotation') {
       return {
-        label: '✅ Verified quotation',
-        title: 'Checked against a specific edition; source details are shown below.',
+        label: '✅ Real text (verified)',
+        title: 'Genuine public-domain (or verified) quotation — checked against a specific edition; source details are shown below.',
         className: 'is-verified'
       };
     }
     if (status === 'ai_draft') {
       return {
-        label: '🤖 AI draft',
-        title: 'Explicitly AI-generated project draft.',
+        label: '🤖 Robo draft',
+        title: 'AI-generated project draft — not a translation by the named master.',
         className: 'is-ai'
       };
     }
     return {
-      label: '⚠️ AI register reconstruction',
-      title: 'Written for TranslateChan using broad style characteristics associated with this translator. It was not copied from, checked against, or attributable as wording in that translator’s book; do not cite it as their translation.',
+      label: '🤖 Robo channeling',
+      title: 'AI text written in this translator\u2019s broad register \u2014 not copied from, checked against, or attributable as wording in that translator\u2019s book. Do not cite it as their translation.',
       className: 'is-reconstruction'
     };
   }
@@ -1376,7 +1382,7 @@
   }
 
   function renderTranslationSource(entry, translatorName, originalContext = {}) {
-    const translator = stringValue(translatorName) || formatTranslatorName(entry.key);
+    const translator = stringValue(translatorName) || formatTranslatorName(entry.key, entry.status);
     const originalRows = renderOriginalSourceRows(originalContext);
     if (entry.status === 'verified_quotation') {
       if (!isRecord(entry.source)) {
@@ -1416,22 +1422,16 @@
     }
 
     const isAi = entry.status === 'ai_draft';
-    const disclosure = isAi
-      ? 'AI draft — no external book quotation'
-      : 'Project register reconstruction — not a published book quotation';
+    const short = isAi ? 'Robo draft' : 'Robo channeling';
     const detail = {
-      title: 'Translation disclosure',
+      title: 'Robo rendering disclosure',
       rows: [
-        ['Translator / label', translator],
-        ['Status', isAi ? 'AI draft' : 'Register reconstruction'],
-        ['Book / edition', 'Not applicable — this displayed text is not a verified quotation'],
-        ['Page / section', 'Not applicable — citation prohibited for this project draft'],
-        ['Disclosure', disclosure],
-        ['Citation rule', isAi ? 'Do not cite as an external translation.' : 'Do not cite as a translation by the named scholar.'],
+        ['What this is', isAi ? 'AI draft \u2014 not a real translation.' : 'AI text in this translator\u2019s register \u2014 not their actual words.'],
+        ['Citation rule', 'Do not cite as the named translator\u2019s work.'],
         ...originalRows
       ]
     };
-    return `<div class="translation-source source-disclosure">${isAi ? '🤖' : '⚠️'} <strong>${escHtml(translator)}</strong> — ${escHtml(disclosure)} ${renderCitationTrigger(detail, 'ⓘ Disclosure')}</div>`;
+    return `<div class="translation-source source-disclosure">\u{1F916} <strong>${escHtml(translator)}</strong> \u2014 ${escHtml(short)} ${renderCitationTrigger(detail, '\u2139 Disclosure')}</div>`;
   }
 
   function renderProjectDraftDisclosure(label = 'Project AI draft', originalContext = {}) {
@@ -1444,14 +1444,15 @@
       <div class="translation-grid">
         ${entries.map(item => {
           const entry = normalizeTranslationEntry(item.key, item.text);
+          const name = formatTranslatorName(item.key, entry.status);
           return `
             <div class="translation-col">
               <div class="translator-tag">
-                <span>${escHtml(item.name || formatTranslatorName(item.key))}</span>
+                <span>${escHtml(name)}</span>
                 ${renderTranslationStatus(entry)}
               </div>
               <div class="translation-text">${escHtml(entry.text)}</div>
-              ${renderTranslationSource(entry, item.name || formatTranslatorName(item.key), originalContext)}
+              ${renderTranslationSource(entry, name, originalContext)}
             </div>`;
         }).join('')}
       </div>`;
@@ -1476,47 +1477,94 @@
       <div class="translation-grid">
         ${displayKeys.map(k => {
           const entry = normalizeTranslationEntry(k, translations[k]);
+          const name = formatTranslatorName(k, entry.status);
           return `
           <div class="translation-col">
             <div class="translator-tag">
-              <span>${escHtml(formatTranslatorName(k))}</span>
+              <span>${escHtml(name)}</span>
               ${renderTranslationStatus(entry)}
             </div>
             <div class="translation-text">${escHtml(entry.text)}</div>
-            ${renderTranslationSource(entry, formatTranslatorName(k), originalContext)}
+            ${renderTranslationSource(entry, name, originalContext)}
           </div>`;
         }).join('')}
       </div>
     `;
   }
 
-  function formatTranslatorName(key) {
-    const map = {
-      red_pine: 'Red Pine (Bill Porter)',
-      cleary: 'Thomas Cleary',
-      sasaki: 'Ruth Fuller Sasaki',
-      suzuki: 'D.T. Suzuki',
-      blyth: 'R.H. Blyth',
-      blofeld: 'John Blofeld',
-      heine: 'Steven Heine',
-      yampolsky: 'Philip Yampolsky',
-      senzaki_reps: 'Senzaki & Reps (1934)',
-      snyder: 'Gary Snyder',
-      adamek: 'Wendi L. Adamek',
-      liebenthal: 'Walter Liebenthal',
-      clarke: 'Richard B. Clarke',
-      watson: 'Burton Watson',
-      hoffman: 'Yoel Hoffman',
-      ferguson: 'Andy Ferguson',
-      shimomisse: 'Eiichi Shimomissé',
-      aitken: 'Robert Aitken',
-      shibayama: 'Zenkei Shibayama',
-      sekida: 'Katsuki Sekida',
-      yamada: 'Kōun Yamada',
-      ai_literal: 'AI Draft (Literal)',
-      ai_poetic: 'AI Draft (Poetic Zen)'
-    };
-    return map[key] || key.replace('_', ' ').toUpperCase();
+  // Translator display names. The user-facing brand is "Fake Chan Factory": the
+  // joke is that every AI reconstruction is a *Robo* version of a famous
+  // translator, while genuine verified quotations keep the real name (because
+  // they ARE real). The underlying data keys are unchanged — only the display
+  // layer is rebranded. `status` decides Robo-vs-real; callers that lack a
+  // status default to the Robo rendering (the common case for this corpus).
+  const REAL_TRANSLATOR_NAMES = {
+    red_pine: 'Red Pine (Bill Porter)',
+    cleary: 'Thomas Cleary',
+    sasaki: 'Ruth Fuller Sasaki',
+    suzuki: 'D.T. Suzuki',
+    blyth: 'R.H. Blyth',
+    blofeld: 'John Blofeld',
+    heine: 'Steven Heine',
+    yampolsky: 'Philip Yampolsky',
+    senzaki_reps: 'Senzaki & Reps (1934)',
+    snyder: 'Gary Snyder',
+    adamek: 'Wendi L. Adamek',
+    liebenthal: 'Walter Liebenthal',
+    clarke: 'Richard B. Clarke',
+    watson: 'Burton Watson',
+    hoffman: 'Yoel Hoffman',
+    ferguson: 'Andy Ferguson',
+    shimomisse: 'Eiichi Shimomissé',
+    aitken: 'Robert Aitken',
+    shibayama: 'Zenkei Shibayama',
+    sekida: 'Katsuki Sekida',
+    yamada: 'Kōun Yamada',
+    ai_literal: 'AI Draft (Literal)',
+    ai_poetic: 'AI Draft (Poetic Zen)'
+  };
+  const ROBO_TRANSLATOR_NAMES = {
+    red_pine: 'Robo Red Pine',
+    cleary: 'Robo T-Cleary',
+    sasaki: 'Robo Ruth',
+    suzuki: 'Robo D.T. Suzuki',
+    blyth: 'Robo Blyth',
+    blofeld: 'Robo Blofeld',
+    heine: 'Robo Heine',
+    yampolsky: 'Robo Yampolsky',
+    senzaki_reps: 'Robo Senzaki & Reps',
+    snyder: 'Robo Snyder',
+    adamek: 'Robo Adamek',
+    liebenthal: 'Robo Liebenthal',
+    clarke: 'Robo Clarke',
+    watson: 'Robo Watson',
+    hoffman: 'Robo Hoffman',
+    ferguson: 'Robo Ferguson',
+    shimomisse: 'Robo Shimomissé',
+    aitken: 'Robo Aitken',
+    shibayama: 'Robo Shibayama',
+    sekida: 'Robo Sekida',
+    yamada: 'Robo Yamada',
+    ai_literal: 'Robo-Literal',
+    ai_poetic: 'Robo-Poetic'
+  };
+  function humanizeKey(key) {
+    return String(key || '').replace('_', ' ').toUpperCase();
+  }
+  function formatTranslatorName(key, status) {
+    if (status === 'verified_quotation') {
+      return REAL_TRANSLATOR_NAMES[key] || humanizeKey(key);
+    }
+    return ROBO_TRANSLATOR_NAMES[key] || ('Robo ' + (REAL_TRANSLATOR_NAMES[key] || humanizeKey(key)));
+  }
+  // Matrix translator names are free-form strings in the data; Robo-ify anything
+  // that is NOT a verified quotation (verified keeps its real attribution).
+  function roboifyTranslatorName(name, status) {
+    const real = stringValue(name);
+    if (!real) return real;
+    if (status === 'verified_quotation') return real;
+    if (/^robo\s/i.test(real)) return real; // already branded
+    return 'Robo ' + real;
   }
 
   // Render Comparison Matrix. Unlike the early matrix seed, every visible
@@ -1549,15 +1597,16 @@
             }, {
               isAI: /\bAI\b/i.test(stringValue(t.translator))
             });
+            const displayTranslator = roboifyTranslatorName(t.translator, entry.status);
             return `
             <div class="matrix-col">
               <div>
-                <div class="matrix-author">${escHtml(t.translator)}</div>
+                <div class="matrix-author">${escHtml(displayTranslator)}</div>
                 <div class="matrix-work">${escHtml(t.work)}${t.style ? ` (${escHtml(t.style)})` : ''}</div>
                 <div class="matrix-text">“${escHtml(entry.text)}”</div>
               </div>
               ${renderTranslationStatus(entry)}
-              ${renderTranslationSource(entry, t.translator, { zh: item.sentence_zh, locator })}
+              ${renderTranslationSource(entry, displayTranslator, { zh: item.sentence_zh, locator })}
               <div class="matrix-note">💡 ${escHtml(t.notes)}</div>
             </div>
             `;
@@ -2216,7 +2265,10 @@
     // result card can disclose WHAT matched (register + text) when the classical
     // Chinese itself did not (search UX N4, 2026-08-09, session 019fe731).
     const registerPairs = (tr) => tr ? Object.entries(tr)
-      .map(([k, v]) => ({ name: formatTranslatorName(k), text: stringValue(v && typeof v === 'object' ? v.text : v) }))
+      .map(([k, v]) => {
+        const entry = normalizeTranslationEntry(k, v);
+        return { name: formatTranslatorName(k, entry.status), text: entry.text };
+      })
       .filter(p => p.text) : [];
     const namedPair = (name, text) => (text ? [{ name, text: stringValue(text) }] : []);
     const fromDialogue = (items, label, jump) => (items || []).forEach(d => {
