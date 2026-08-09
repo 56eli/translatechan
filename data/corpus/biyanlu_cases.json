@@ -612,6 +612,148 @@
       "verse_en": "'Facing the One' — utter, solitary pinnacle, / a holeless iron hammer driving in another wedge. / Under the Jambu tree, laughing ho-ho — / last night the black dragon's horn snapped off. / Apart! Apart! The old man of Yunyang won one stud."
     },
     {
+      "case_num": 15,
+      "title_zh": "雲門倒一說",
+      "title_pinyin": "Yúnmén Dào Yī Shuō",
+      "title_en": "Yunmen's 'Reversed Teaching'",
+      "pointer_zh": "垂示云。殺人刀活人劍。乃上古之風規。是今時之樞要。且道。如今那箇是。殺人刀活人劍。試舉看。",
+      "pointer_en": "Pointer: The sword that kills, the sword that brings to life — these are the working pivots of antiquity and of this very hour. Tell me: right now, which is the killing sword and which the life-giving sword? Watch as I raise the case.",
+      "dialogue": [
+        {
+          "speaker": "雲門與僧 / Yunmen and the monk",
+          "zh": "僧問雲門：「不是目前機，亦非目前事時如何？」雲門云：「倒一說。」",
+          "pinyin": "Sēng wèn Yúnmén：「 Bù shì mùqián jī， yì fēi mùqián shì， shí rúhé？」 Yúnmén yún：「 Dào yī shuō。」",
+          "translations": {
+            "ai_literal": {
+              "text": "A monk asked Yunmen, 'When it is not the matter of the moment, nor the affair of the moment—what then?' Yunmen said, 'A reversed teaching.'",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "這僧不妨是箇作家。解恁麼問。頭邊謂之請益。此是呈解問。亦謂之藏鋒問。若不是雲門。也不奈他何。雲門有這般手脚。他既將問來。不得已而應之。何故作家宗師。如明鏡臨臺。胡來胡現漢來漢現。古人道。欲得親切。莫將問來問。何故。問在答處。答在問處。從上諸聖。何曾有一法與人。那裏有禪道與爾來。爾若不造地獄業。自然不招地獄果。爾若不造天堂因。自然不受天堂果。一切業緣。皆是自作自受。古人分明向爾道。若論此事。不在言句上。若在言句上。三乘十二分教。豈是無言句。更何用祖師西來。前頭道對一說。這裏却道倒一說。只爭一字。為什麼却有千差萬別。且道。聱訛在什麼處。所以道。法隨法行。法幢隨處建立。不是目前機。亦非目前事時如何。只消當頭一點。若是具眼漢。一點也謾他不得問處既聱訛。答處須得恁麼。其實雲門騎賊馬趕賊。有者錯會道。本是主家話。却是賓家道。所以雲門云倒一說。有什麼死急。這僧問得好。不是目前機。亦非目前事時如何。雲門何不答他別語言。却只向他道倒一說。雲門一時打破他底。到這裏道倒一說。也是好肉上剜瘡。何故。言迹之興白雲萬里。異途之所由生也。設使一時無言無句露柱燈籠。何曾有言句。還會麼。若不會到這裏也須是轉動始知落處。",
+      "verse_zh": "倒一說分一節同死同生為君訣八萬四千非鳳毛三十三人入虎穴別別擾擾怱怱水裏月",
+      "verse_en": "A reversed teaching, apportioned part by part; / dying the same death, living the same life, take my word. / Eighty-four thousand — none a phoenix-feather heir; / thirty-three entered the tiger's den. / Apart, apart! Flurried, frantic — the moon in the water."
+    },
+    {
+      "case_num": 16,
+      "title_zh": "鏡清啐啄",
+      "title_pinyin": "Jìngqīng Cuìzhuó",
+      "title_en": "Jingqing: The Chick and the Hen, Pecking in Tandem",
+      "pointer_zh": "垂示云。道無橫徑。立者孤危。法非見聞。言思逈絕。若能透過荊棘林。解開佛祖縛。得箇穩密田地。諸天捧花無路。外道潛窺無門。終日行而未甞行。終日說而未甞說。便可以自由自在。展啐啄之機。用殺活之劍。直饒恁麼更須知有建化門中一手擡一手搦。猶較些子。若是本分事上。且得沒交涉。作麼生是本分事。試舉看。",
+      "pointer_en": "Pointer: The way has no side paths; to stand is to be alone and perilous. The teaching is beyond seeing and hearing; thought and words are a world apart. If you can pierce the thicket of thorns and undo the bonds of buddha and patriarch, you win a firm, secret ground — where devas find no road to offer flowers and maras find no crack to peer through. Then you may walk all day without walking, speak all day without speaking, freely at ease, wielding the chick-peck and the hen-peck, the sword of death and the sword of life. Even so, you must still know there is one hand raised and one pressed down in the gate of instruction — that comes somewhat closer. On the fundamental matter, it does not touch at all. What is the fundamental matter? Watch as I raise the case.",
+      "dialogue": [
+        {
+          "speaker": "鏡清與僧 / Jingqing and the monk",
+          "zh": "僧問鏡清：「學人啐，請師啄。」清云：「還得活也無？」僧云：「若不活，遭人怪笑。」清云：「也是草裏漢。」",
+          "pinyin": "Sēng wèn Jìngqīng：「 Xuérén cuì， qǐng shī zhuó。」 Qīng yún：「 Hái dé huó yě wú？」 Sēng yún：「 Ruò bù huó， zāo rén guàixiào。」 Qīng yún：「 Yě shì cǎolǐ hàn。」",
+          "translations": {
+            "ai_literal": {
+              "text": "A monk said to Jingqing, 'The student pecks from within — pray, Master, peck from without.' Jingqing said, 'Can you come out alive?' The monk said, 'If I do not come out alive, people will laugh at me.' Jingqing said, 'Then you too are a man of the weeds.'",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "鏡清承嗣雪峯。與本仁玄沙疎山太原孚輩同時。初見雪峯。得旨後。常以啐啄之機。開示後學。善能應機說法。示眾云。大凡行脚人。須具啐啄同時眼。有啐啄同時用。方稱衲僧。如母欲啄。而子不得不啐。子欲啐。而母不得不啄。有僧便出問。母啄子啐。於和尚分上。成得箇什麼邊事。清云。好箇消息。僧云。子啐母啄。於學人分上。成得箇什麼邊事。清云。露箇面目。所以鏡清門下。有啐啄之機。這僧亦是他門下客。會他家裏事。所以如此問。學人啐請師啄。此問洞下謂之借事明機。那裏如此。子啐而母啄。自然恰好同時。鏡清也好。可謂拳踢相應。心眼相照。便答道。還得活也無。其僧也好。亦知機變。一句下有賓有主。有照有用。有殺有活。僧云。若不活遭人怪笑。清云。也是草裏漢。一等是入泥入水。鏡清不妨惡脚手。這僧既會恁麼問。為什麼却道。也是草裏漢。所以作家眼目。須是恁麼。如擊石火似閃電光。構得構不得。未免喪身失命。若恁麼。便見鏡清道草裏漢。所以南院示眾云。諸方只具啐啄同時眼。不具啐啄同時用。有僧出問。如何是啐啄同時用。南院云。作家不啐啄。啐啄同時失。僧云。猶是學人疑處。南院云。作麼生是爾疑處。僧云。失。南院便打。其僧不肯。院便趕出。僧後到雲門會裏舉前話。有一僧云。南院棒折那。其僧豁然有省。且道意在什麼處。其僧却回見南院。院適已遷化。却見風穴。纔禮拜。穴云。莫是當時問先師啐啄同時底僧麼。僧云。是。穴云。爾當時作麼生會。僧云。某甲當初時。如燈影裏行相似。穴云。爾會也。且道是箇什麼道理。這僧都來只道某甲當初時。如燈影裏行相似。因甚麼風穴便向他道爾會也。後來翠巖拈云。南院雖然運籌帷幄。爭柰土曠人稀。知音者少。風穴拈云。南院當時。待他開口。劈脊便打。看他作麼生。若見此公案。便見這僧與鏡清相見處。諸人作麼生。免得他道草裏漢。所以雪竇愛他道草裏漢。便頌出。",
+      "verse_zh": "古佛有家風對揚遭貶剝子母不相知是誰同啐啄啄覺猶在殼重遭撲天下衲僧徒名邈",
+      "verse_en": "The ancient buddhas had a house style — / face-to-face reply, yet met with disgrace. / Mother and child knew nothing of each other — / so who joined in the pecking? / 'Peck!' 'Awake!' — still inside the shell; / struck once more — monks of the world pursue faint names in vain."
+    },
+    {
+      "case_num": 17,
+      "title_zh": "香林西來意",
+      "title_pinyin": "Xiānglín Xīlái Yì",
+      "title_en": "Xianglin: 'Long Sitting Makes Toil'",
+      "pointer_zh": "垂示云。斬釘截鐵。始可為本分宗師。避箭隈刀。焉能為通方作者。針劄不入處。則且置。白浪滔天時如何。試舉看。",
+      "pointer_en": "Pointer: Only one who cuts nails and severs iron can serve as a true master of our lineage; one who dodges arrows and edges around blades can never be a master of the open way. Let us set aside for now the place where not even a needle can enter: when the white waves tower to the sky — what then? Watch as I raise the case.",
+      "dialogue": [
+        {
+          "speaker": "香林與僧 / Xianglin and the monk",
+          "zh": "僧問香林：「如何是祖師西來意？」林云：「坐久成勞。」",
+          "pinyin": "Sēng wèn Xiānglín：「 Rúhé shì zǔshī xīlái yì？」 Lín yún：「 Zuò jiǔ chéng láo。」",
+          "translations": {
+            "ai_literal": {
+              "text": "A monk asked Xianglin, 'What is the meaning of the Patriarch's coming from the West?' Xianglin said, 'Long sitting makes toil.'",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "香林道。坐久成勞。還會麼。若會得。百草頭上。罷却干戈。若也不會。伏聽處分。古人行脚。結交擇友。為同行道伴。撥草瞻風。是時雲門旺化廣南。香林得得出蜀。與鵝湖鏡清同時。先參湖南報慈。後方至雲門會下。作侍者十八年。在雲門處。親得親聞。他悟時雖晚。不妨是大根器。居雲門左右十八年。雲門常只喚遠侍者。纔應喏。門云是什麼。香林當時。也下語呈見解弄精魂。終不相契。一日忽云。我會也。門云。何不向上道將來。又住三年。雲門室中。垂大機辯。多半為他遠侍者。隨處入作。雲門凡有一言一句。都收在遠侍者處。香林後歸蜀。初住導江水晶宮。後住青城香林。智門祚和尚。本浙人。盛聞香林道化。特來入蜀參禮。祚乃雪竇師也。雲門雖接人無數。當代道行者。只香林一派最盛。歸川住院四十年。八十歲方遷化。嘗云。我四十年。方打成一片。凡示眾云。大凡行脚。參尋知識。要帶眼行。須分緇素。看淺深始得。先須立志。而釋迦老子。在因地時。發一言一念。皆是立志。後來僧問。如何是室內一盞燈。林云。三人證龜成鼈。又問。如何是衲衣下事。林云。臘月火燒山。古來答祖師意甚多。唯香林此一則坐斷天下人舌頭。無爾計較作道理處。僧問。如何是祖師西來意。林云。坐久成勞。可謂言無味句無味。無味之談。塞斷人口。無爾出氣處。要見便見。若不見切忌作解會。香林曾遇作家來。所以有雲門手段。有三句體調。人多錯會道。祖師西來。九年面壁。豈不是坐久成勞。有什麼巴鼻。不見他古人得大自在處。他是脚踏實地。無許多佛法知見道理。臨時應用。所謂法隨法行。法幢隨處建立。雪竇因風吹火。傍指出一箇半箇。",
+      "verse_zh": "一箇兩箇千萬箇脫却籠頭卸角馱左轉右轉隨後來紫胡要打劉鐵磨",
+      "verse_en": "One or two, ten thousand of them — / shed the cage, drop the pack-saddle. / Turning left, turning right, coming on behind — / Zihu is about to strike Lau T'ieh-mo."
+    },
+    {
+      "case_num": 18,
+      "title_zh": "肅宗無縫塔",
+      "title_pinyin": "Sùzōng Wúfèngtǎ",
+      "title_en": "Emperor Suzong and the Seamless Tower",
+      "dialogue": [
+        {
+          "speaker": "肅宗與忠國師、耽源 / Suzong, National Teacher Zhong, and Danyuan",
+          "zh": "肅宗皇帝問忠國師：「百年後所須何物？」國師云：「與老僧作箇無縫塔。」帝曰：「請師塔樣。」國師良久云：「會麼？」帝云：「不會。」國師云：「吾有付法弟子耽源，却諳此事，請詔問之。」國師遷化後，帝詔耽源問：「此意如何？」源云：「湘之南，潭之北，中有黃金充一國。無影樹下合同船，瑠璃殿上無知識。」",
+          "pinyin": "Sùzōng huángdì wèn Zhōng guóshī：「 Bǎinián hòu suǒxū héwù？」 Guóshī yún：「 Yǔ lǎosēng zuò ge wúfèngtǎ。」 Dì yuē：「 Qǐng shī tǎyàng。」 Guóshī liángjiǔ yún：「 Huì me？」 Dì yún：「 Bù huì。」 Guóshī yún：「 Wú yǒu fùfǎ dìzǐ Dānyuán， què ān cǐshì， qǐng zhào wèn zhī。」 Guóshī qiānhuà hòu， dì zhào Dānyuán wèn：「 Cǐyì rúhé？」 Yuán yún：「 xiāng zhī nán， tán zhī běi， zhōng yǒu huángjīn chōng yīguó。 Wúyǐngshù xià hétóngchuán， liúlí diàn shàng wú zhīshí。」",
+          "translations": {
+            "ai_literal": {
+              "text": "Emperor Suzong asked National Teacher Zhong, 'What will you need a hundred years from now?' The teacher said, 'Build this old monk a seamless tower.' The emperor said, 'Show me the design of the tower.' The teacher paused a long while, then said, 'Do you understand?' The emperor said, 'No.' The teacher said, 'I have a Dharma-heir disciple, Danyuan, who knows this matter well — summon him and ask.' After the teacher passed away, the emperor had Danyuan summoned and asked, 'What was his meaning?' Danyuan said: 'South of the Xiang, north of the Tan — at its heart gold fills a whole kingdom. Beneath the shadowless tree, one shared boat; in the hall of lapis lazuli, no knowing mind.'",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "肅宗代宗。皆玄宗之子孫。為太子時。常愛參禪。為國有巨盜。玄宗遂幸蜀。唐本都長安。為安祿山僣據。後都洛陽。肅宗攝政。是時忠國師。在鄧州白崖山住庵。今香嚴道場是也。四十餘年不下山。道行聞于帝里。上元二年勅中使。詔入內。待以師禮。甚敬重之。甞與帝演無上道。師退朝。帝自攀車而送之。朝臣皆有慍色。欲奏其不便。國師具他心通。而先見聖奏曰。我在天帝釋前。見粟散天子。如閃電光相似。帝愈加敬重。及代宗臨御。復延止光宅寺。十有六載。隨機說法。至大曆十年。遷化。山南府青銼山和尚。昔與國師同行。國師甞奏帝令詔他。三詔不起。常罵國師耽名愛利。戀著人間。國師於他父于三朝中。為國師。他家父子。一時參禪。據傳燈錄所考。此乃是代宗設問。若是問國師如何是十身調御。此却是肅宗問也。國師緣終。將入涅槃。乃辭代宗。代宗問曰。國師百年後。所須何物。也只是平常一箇問端。這老漢無風起浪。却道與老僧造箇無縫塔。且道白日青天如此作什麼。做箇塔便了。為什麼却道。做箇無縫塔。代宗也不妨作家。與爾一拶道。請師塔樣。國師良久云。會麼。奇怪這些子。最是難參。大小大國師。被他一拶。直得口似匾檐。然雖如此。若不是這老漢。幾乎弄倒了。多少人道。國師不言處。便是塔樣。若恁麼會。遶磨一宗掃地而盡。若謂良久便是。啞子也合會禪。豈不見外道問佛。不問有言不問無言世尊良久。外道禮拜。贊嘆曰。世尊大慈大悲。開我迷雲。令我得入。及外道去後。阿難問佛。外道有何所證。而言得入。世尊云。如世良馬。見鞭影而行。人多向良久處會。有什麼巴鼻。五祖先師拈云。前面是珍珠瑪瑙。後面是瑪瑙珍珠。左邊是觀音勢至。右邊是文殊普賢。中間有箇旛子。被風吹著。道胡盧胡盧。國師云。會麼。帝曰。不會。却較些子。且道這箇不會。與武帝不識。是同是別。雖然似則似。是則未是。國師云。吾有付法弟子耽源。却諳此事。請詔問之。雪竇拈云。獨掌不浪鳴。代宗不會則且置。耽源還會麼。只消道箇請師塔樣。盡大地人不柰何。五祖先師拈云。爾是一國之師。為箇什麼不道却推與弟子。國師遷化後。帝詔耽源問此意如何。源便來為國師。胡言漢語說道理。自然會他國師說話。只消一頌湘之南潭之北。中有黃金充一國。無影樹下合同船。瑠璃殿上無知識。耽源名應真。在國師處作侍者。後住吉州耽源寺。時仰山來參耽源。源言重性惡不可犯。住不得。仰山先去參性空禪師。有僧問性空。如何是祖師西來意。空云。如人在千尺井中。不假寸繩出得此人。即答汝西來意。僧云。近日湖南暢和尚。亦為人東語西話。空乃喚沙彌拽出這死屍著山後舉問耽源。如何出得井中人。耽源曰。咄。癡漢。誰在井中。仰山不契。後問溈山。山乃呼慧寂。山應諾。溈云。出了也。仰山因此大悟。云。我在耽源處得體。溈山處得用。也只是這一箇頌子。引人邪解不少。人多錯會道。相是相見。譚是譚論。中間有箇無縫塔。所以道。中有黃金充一國。帝與國師對答。便是無影樹下合同船。帝不會。遂道瑠璃殿上無知識。又有底道。相是相州之南。潭是潭州之北。中有黃金充一國。頌官家眨眼顧視云。這箇是無縫塔。若恁麼會。不出情見。只如雪竇下四轉語。又作麼生會。今人殊不知古人意。且道。湘之南。潭之北。爾作麼生會。中有黃金充一國。爾作麼生會。無影樹下合同船。爾作麼生會。瑠璃殿上無知識。爾作麼生會。若恁麼見得。不妨慶快平生。湘之南潭之北。雪竇道。獨掌不浪鳴。不得已與爾說。中有黃金充一國。雪竇道。山形拄杖子。古人道。識得拄杖子。一生參學事畢。無影樹下合同船。雪竇道。海晏河清。一時豁開戶牖。八面玲瓏。瑠璃殿上無知識。雪竇道。拈了也。一時與爾說了也。不妨難見。見得也好。只是有些子錯認處。隨語生解。至末後道拈了也。却較些子。雪竇分明一時下語了。後面單頌箇無縫塔子。",
+      "verse_zh": "無縫塔見還難澄潭不許蒼龍蟠層落落影團團千古萬古與人看",
+      "verse_en": "The seamless tower — to see it is still hard; / the clear pond lets no grey dragon coil. / Tier upon tier, shadow rings round — / for a thousand ages, ten thousand ages, it stands for all to see."
+    },
+    {
+      "case_num": 19,
+      "title_zh": "俱胝一指",
+      "title_pinyin": "Jùzhī Yīzhǐ",
+      "title_en": "Juzhi's One Finger",
+      "pointer_zh": "垂示云。一塵舉大地收。一花開世界起。只如塵未舉花未開時。如何著眼。所以道。如斬一綟絲。一斬一切斬。如染一綟絲。一染一切染。只如今便將葛藤截斷。運出自己家珍。高低普應。前後無差。各各現成。儻或未然。看取下文。",
+      "pointer_en": "Pointer: Raise one mote of dust and the whole earth is gathered; one flower opens and a world springs into being. But before the mote is raised, before the flower opens — how will you focus your eye? Thus it is said: cut one strand of silk and every strand is cut; dye one strand and every strand is dyed. Right now, cut through the tangled vines once and for all and bring forth the treasure of your own house — high and low, all-answering, before and after without gap, each ready-made. If you cannot yet, watch what follows.",
+      "dialogue": [
+        {
+          "speaker": "俱胝和尚 / Master Juzhi",
+          "zh": "俱胝和尚，凡有所問，只竪一指。",
+          "pinyin": "Jùzhī héshàng， fán yǒu suǒ wèn， zhǐ shù yī zhǐ。",
+          "translations": {
+            "ai_literal": {
+              "text": "Whenever Master Juzhi was asked anything, he simply raised one finger.",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "若向指頭上會。則辜負俱胝。若不向指頭上會。則生鐵鑄就相似。會也恁麼去。不會也恁麼去。高也恁麼去。低也恁麼去。是也恁麼去。非也恁麼去。所以道。一塵纔起大地全收。一花欲開世界便起。一毛頭獅子。百億毛頭現。圓明道。寒則普天普地寒。熱則普天普地熱。山河大地。下徹黃泉。萬象森羅。上通霄漢。且道。是什麼物得恁麼奇怪。若也識得。不消一揑。若識不得。礙塞殺人。俱胝和尚。乃婺州金華人。初住庵時。有一尼名實際。到庵直入。更不下笠。持錫遶禪床三匝云。道得即下笠。如是三問。俱胝無對。尼便去。俱胝曰。天勢稍晚。且留一宿。尼曰道得即宿。胝又無對。尼便行。胝嘆曰。我雖處丈夫之形。而無丈夫之氣。遂發憤要明此事。擬棄庵往諸方參請。打疊行脚。其夜山神告曰。不須離此。來日有肉身菩薩。來為和尚說法。不須去。果是次日。天龍和尚到庵。胝乃迎禮。具陳前事。天龍只竪一指而示之。俱胝忽然大悟。是他當時鄭重專注。所以桶底易脫。後來凡有所問。只竪一指。長慶道。美食不中飽人喫。玄沙道。我當時若見。拗折指頭。玄覺云。玄沙恁麼道。意作麼生。雲居錫云。只如玄沙恁麼道。是肯伊。是不肯伊。若肯伊。何言拗折指頭。若不肯伊。俱胝過在什麼處。先曹山云。俱胝承當處莽鹵。只認得一機一境。一等是拍手撫掌。見他西園奇怪。玄覺又云。且道俱胝還悟也未。為什麼承當處莽鹵。若是不悟。又道平生。只用一指頭禪不盡。且道曹山意在什麼處。當時俱胝實然不會。及乎到他悟後凡有所問。只竪一指。因什麼。千人萬人。羅籠不住。撲他不破。爾若用作指頭會。決定不見古人意。這般禪易參。只是難會。如今人纔問著。也竪指竪拳。只是弄精魂。也須是徹骨徹髓。見透始得。俱胝庵中有一童子。於外被人詰曰。和尚尋常以何法示人。童子竪起指頭。歸而舉似師。俱胝以刀斷其指。童子叫喚走出。俱胝召一聲。童子回首。俱胝却竪起指頭。童子豁然領解。且道見箇什麼道理。及至遷化。謂眾曰。吾得天龍一指頭禪。平生用不盡。要會麼。竪起指頭便脫去後來明招獨眼龍問國泰深師叔云。古人道。俱胝只念三行呪。便得名超一切人。作麼生與他拈却三行呪。深亦竪起一指頭。招云。不因今日。爭識得這瓜州客。且道。意作麼生。祕魔平生。只用一杈。打地和尚凡有所問。只打地一下。後被人藏却他棒。却問如何是佛。他只張口。亦是一生用不盡。無業云。祖師觀此土有大乘根器。唯單傳心印。指示迷塗。得之者不揀愚之與智。凡之與聖且多虛不如少實。大丈夫漢。即今直下休歇去。頓息萬緣去。超生死流。逈出常格。縱有眷屬莊嚴。不求自得。無業一生凡有所問。只道莫妄想。所以道。一處透。千處萬處一時透。一機明。千機萬機一時明。如今人總不恁麼。只管恣意情解。不會他古人省要處。他豈不是無機關轉換處。為什麼只用一指頭。須知俱胝到這裏。有深密為人處。要會得省力麼。還他圓明道寒則普天普地寒。熱則普天普地熱。山河大地。通上孤危。萬象森羅。徹下嶮峻什麼處得一指頭禪來。",
+      "verse_zh": "對揚深愛老俱胝宇宙空來更有誰曾向滄溟下浮木夜濤相共接盲龜",
+      "verse_en": "Facing him, Xuedou deeply loves old Juzhi — / the universe emptied, who else remains? / Once he lowered driftwood into the dark sea; / in the night surge, together, he lifted the blind turtle."
+    },
+    {
+      "case_num": 20,
+      "title_zh": "龍牙西來意",
+      "title_pinyin": "Lóngyá Xīlái Yì",
+      "title_en": "Longya and the Patriarch's Meaning",
+      "pointer_zh": "垂示云。堆山積嶽。撞牆磕壁。佇思停機。一場苦屈。或有箇漢出來掀翻大海。踢倒須彌。喝散白雲。打破虛空。直下向一機一境。坐斷天下人舌頭。無爾近傍處。且道從上來。是什麼人曾恁麼。試舉看。",
+      "pointer_en": "Pointer: Pile up mountains, heap up peaks, run your head against walls — all thought stops, one session of bitter grievance. But suppose someone comes along who overturns the great sea, kicks Mount Sumeru down, scatters the white clouds with a shout and shatters the empty sky — directly, with one device and one circumstance, cutting off the tongues of everyone under heaven with no one able to draw near. Tell me: since ancient times, who has ever been like this? Watch as I raise the case.",
+      "dialogue": [
+        {
+          "speaker": "龍牙與翠微臨濟 / Longya, Cuiwei, and Linji",
+          "zh": "龍牙問翠微：「如何是祖師西來意？」微云：「與我過禪板來。」牙過禪板與翠微，微接得便打。牙云：「打即任打，要且無祖師西來意。」牙又問臨濟：「如何是祖師西來意？」濟云：「與我過蒲團來。」牙取蒲團過與臨濟，濟接得便打。牙云：「打即任打，要且無祖師西來意。」",
+          "pinyin": "Lóngyá wèn Cuìwēi：「 Rúhé shì zǔshī xīlái yì？」 Wēi yún：「 Yǔ wǒ guò chánbǎn lái。」 Yá guò chánbǎn yǔ Cuìwēi， wēi jiēdé biàn dǎ。 Yá yún：「 Dǎ jí rèn dǎ， yàoqiě wú zǔshī xīlái yì。」 Yá yòu wèn Línjì：「 Rúhé shì zǔshī xīlái yì？」 Jì yún：「 Yǔ wǒ guò pútuán lái。」 Yá qǔ pútuán guò yǔ Línjì， jì jiēdé biàn dǎ。 Yá yún：「 Dǎ jí rèn dǎ， yàoqiě wú zǔshī xīlái yì。」",
+          "translations": {
+            "ai_literal": {
+              "text": "Longya asked Cuiwei, 'What is the meaning of the Patriarch's coming from the West?' Cuiwei said, 'Hand me my meditation board.' Longya passed the board to Cuiwei, who took it and struck him at once. Longya said, 'Strike me as you please — but still, there is no meaning in the Patriarch's coming from the West.' Longya then asked Linji, 'What is the meaning of the Patriarch's coming from the West?' Linji said, 'Bring me my cushion.' Longya fetched the cushion for Linji, who took it and struck him at once. Longya said, 'Strike me as you please — but still, there is no meaning in the Patriarch's coming from the West.'",
+              "status": "ai_draft"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "翠巖芝和尚云。當時如是。今時衲子。皮下還有血麼。溈山喆云。翠微臨濟。可謂本分宗師。龍牙一等是撥草瞻風。不妨與後人作龜鑑。住院後有僧問。和尚當時還肯二尊宿麼。牙云。肯即肯。只是無祖師西來意。龍牙瞻前顧後。應病與藥。大溈則不然。待伊問和尚當時還肯二尊宿麼。明不明。劈脊便打。非惟扶竪翠微臨濟。亦不辜負來問。石門聰云。龍牙無人拶著。猶可。被箇衲子挨著。失却一隻眼。雪竇云。臨濟翠微。只解把住不解放開。我當時如作龍牙。待伊索蒲團禪板。拈起劈面便擲。五祖戒云。和尚得恁麼面長。或云。祖師土宿臨頭。黃龍新云。龍牙驅耕夫之牛。奪飢人之食。既明則明矣。因什麼却無祖師西來意。會麼。棒頭有眼明如日。要識真金火裏看。大凡激揚要妙。提唱宗乘。向第一機下明得。可以坐斷天下人舌頭。儻或躊躇落在第二。這二老漢。雖然打風打雨。驚天動地。要且不曾打著箇明眼漢。古人參禪多少辛苦。立大丈夫志氣。經歷山川。參見尊宿。龍牙先參翠微臨濟。後參德山。遂問學人仗鏌鎁劍。擬取師頭時如何。德山引頸云。㘞。牙云。師頭落也。山微笑便休去。次到洞山。洞山問。近離甚處。牙云。德山來。洞山云。德山有何言句。牙遂舉前話。洞山云。他道什麼。牙云。他無語。洞山云。莫道無語。且試將德山落底頭呈似老僧看。牙於此有省。遂焚香遙望德山禮拜懺悔。德山聞云。洞山老漢不識好惡。這漢死來多少時。救得有什麼用處。從他擔老僧頭遶天下走。龍牙根性聰敏。擔一肚皮禪。行脚。直向長安翠微。便問。如何是祖師西來意。微云。與我過禪板來。牙取禪板與微。微接得便打。牙云。打即任打。要且無祖師西來意。又問臨濟。如何是祖師西來意。濟云。與我過蒲團來。牙取蒲團與臨濟。濟接得便打。牙云。打即任打。要且無祖師西來意。他致箇問端。不妨要見他曲彔木床上老漢。亦要明自己一段大事。可謂言不虛設。機不亂發。出在做工夫處。不見五洩參石頭。先自約曰。若一言相契。即住。不然即去。石頭據座。洩拂袖而出。石頭知是法器。即垂開示。洩不領其旨。告辭而出至門。石頭呼之云。闍黎。洩回顧。石頭云。從生至死。只是這箇。回頭轉腦。更莫別求。洩於言下大悟。又麻谷持錫到章敬。遶禪床三匝。振錫一下。卓然而立。敬云。是是。又到南泉。依前遶床振錫而立。南泉云。不是不是。此是風力所轉。終成敗壞。谷云。章敬道是。和尚為什麼道不是。南泉云。章敬即是。是汝不是。古人也不妨要提持透脫此一件事。如今人纔問著。全無些子用工夫處。今日也只是恁麼。明日也只是恁麼。爾若只恁麼盡未來際。也未有了日。須是抖擻精神。始得有少分相應。爾看龍牙發一問道。如何是祖師西來意。翠微云。與我過禪板來。牙過與微。微接得便打。牙當時取禪板時。豈不知翠微要打他。也不得便道他不會。為什麼却過禪板與他。且道當機承當得時。合作麼生。他不向活水處用。自去死水裏作活計。一向作主宰。便道打即任打。要且無祖師西來意。又走去河北參臨濟。依前恁麼問。濟云。與我過蒲團來。牙過與濟。濟接得便打。牙云。打即任打。要且無祖師西來意。且道二尊宿。又不同法嗣。為什麼答處相似。用處一般。須知古人。一言一句。不亂施為。他後來住院。有僧問云。和尚當時見二尊宿。是肯他不肯他。牙云。肯則肯。要且無祖師西來意。爛泥裏有刺。放過與人。已落第二。這老漢把得定。只做得洞下尊宿。若是德山臨濟門下。須知別有生涯。若是山僧則不然。只向他道。肯即未肯。要且無祖師西來意。不見僧問大梅。如何是祖師西來意。梅云。西來無意。鹽官聞云。一箇棺材。兩箇死漢。玄沙聞云。鹽官是作家。雪竇道。三箇也有。只如這僧問祖師西來意。却向他道西來無意。爾若恁麼會。墮在無事界裏。所以道。須參活句。莫參死句。活句下薦得。永劫不忘。死句下薦得。自救不了。龍牙恁麼道。不妨盡善。古人道相續也大難。他古人一言一句。不亂施為。前後相照。有權有實。有照有用。賓主歷然。互換縱橫。若要辨其親切。龍牙雖不昧宗乘。爭柰落在第二頭。當時二尊宿。索禪板蒲團。牙不可不知他意。是他要用他胸襟裏事。雖然如是。不妨用得太峻。龍牙恁麼問。二老恁麼答。為什麼却無祖師西來意。到這裏須知別有箇奇特處。雪竇拈出令人看。",
+      "verse_zh": "龍牙山裏龍無眼死水何曾振古風禪板蒲團不能用只應分付與盧公盧公付了亦何憑坐倚休將繼祖燈堪對暮雲歸未合遠山無限碧層層",
+      "verse_en": "Longya — a dragon of the mountains, yet blind; / dead water — how could it rouse the ancient wind? / Board and cushion he could not use: / better hand them over to Lord Lu. / Lord Lu, once paid — what warrant remains? / Sit and lean, but do not pass the patriarchs' lamp. / Fit to face the evening clouds gathering yet unjoined — / the far mountains: endless folds of blue."
+    },
+    {
       "case_num": 21,
       "title_zh": "智門蓮花",
       "title_pinyin": "Zhìmén Liánhuā",
@@ -687,6 +829,6 @@
       "commentary_zh": "黃龍新和尚拈云。洞山袖頭打領腋下剜襟。爭柰這僧不甘。如今有箇出來問黃龍。且道如何支遣。良久云。安禪不必須山水。滅却心頭火自涼。諸人且道。洞山圈繢落在什麼處。若明辨得。始知洞山下五位回互正偏接人。不妨奇特。到這向上境界。方能如此。不消安排。自然恰好。所以道。正中偏。三更初夜月明前。莫怪相逢不相識。隱隱猶懷舊日嫌。偏中正失。曉老婆逢古鏡。分明覿面更無真。休更迷頭還認影。正中來。無中有路出塵埃。但能不觸當今諱。也勝前朝斷舌才。偏中至。兩刃交鋒不須避。好手還同火裏蓮。宛然自有衝天氣。兼中到。不落有無誰敢和。人人盡欲出常流。折合還歸炭裏坐。浮山遠錄公。以此公案。為五位之格。若會得一則。餘者自然易會。巖頭道。如水上葫蘆子相似。捺著便轉。殊不消絲毫氣力。曾有僧問洞山。文殊普賢來參時如何。山云。趕向水牯牛群裏去。僧云。和尚入地獄如箭。山云。全得他力。洞山道。何不向無寒暑處去。此是偏中正。僧云。如何是無寒暑處。山云。寒時寒殺闍黎。熱時熱殺闍黎。此是正中偏。雖正却偏雖偏。却圓曹洞錄中。備載子細。若是臨濟下。無許多事。這般公案直下便會。有者道。大好無寒暑。有什麼巴鼻。古人道。若向劍刃上走則快。若向情識上見則遲。不見僧問翠微。如何是祖師西來意。微云。待無人來。向爾道。遂入園中行。僧云。此間無人。請和尚道。微指竹云。這一竿竹得恁麼長。那一竿竹得恁麼短其僧忽然大悟。又曹山問僧。恁麼熱。向什麼處迴避。僧云。鑊湯爐炭裏迴避。山云。鑊湯爐炭裏如何迴避。僧云。眾苦不能到。看他家裏人。自然會他家裏人說話。雪竇用他家裏事頌出。"
     }
   ],
-  "coverage_note": "16/100 cases — cases 1–14, 21 and 43 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, extended 2026-08-09 session-019fe731: cases 11/13/21 collated, 1–3/12 verses completed to canon, case 14 replaced with the canonical 雲門『對一說』 and case 21 with the canonical 智門蓮花 after seed re-verification; T-印刷 variant 韻陽/韶陽 (case 14) and 韓獹 (case 43, glossed 通作盧) recorded; 著語 inline notes and glyph/footnote variants normalized out; post-verse 評唱 rendering and human sign-off pending).",
-  "zh_chars": 13321
+  "coverage_note": "22/100 cases — cases 1–21 and 43 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, extended 2026-08-09 session-019fe731: cases 11/13/15–21 collated, 1–3/12 verses completed to canon, case 14 replaced with the canonical 雲門『對一說』, case 21 with the canonical 智門蓮花 after seed re-verification; T-印刷 variant 韻陽/韶陽 (case 14) and 韓獹 (case 43, glossed 通作盧) recorded; case 20 carries its two canonical 頌 (頌古 + 別頌) as one joined verse; 著語 and CBETA glyph/footnote variants normalized out; post-verse 評唱 rendering and human sign-off pending).",
+  "zh_chars": 19482
 }

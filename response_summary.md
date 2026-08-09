@@ -16,7 +16,7 @@
   (mis-seeded 乾屎橛 content), case 12 fabricated verse replaced, cases 1–3
   truncated verses completed to canon, case 43 gained 垂示 + 評唱 (verse →
   printed 韓獹). Gong'an `biyan_11` added, `biyan_21` corrected. Corpus:
-  **16/100 (1–14, 21, 43 complete)**, slots=865, locators=66/66 — gates green.
+  **22/100 (1–21, 43 complete — juan 2 cases 11–20 all ingested)**, slots=871, locators=72/72 — gates green.
 - Full cbeta-org/xml-p5 TEI pulled via `gh` (`/tmp/t48n2003.xml`) — ready for
   the next sequential batch (cases 15–20 in juan 2/3).
 - Confirmed blocked: CF-1 CI gate paths — token lacks `workflows` scope (owner action).

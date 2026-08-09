@@ -116,6 +116,48 @@
           "source_edition": "CBETA TEI T48n2003 (accessed via CBETA Online reader, 2026-08-09)",
           "collation_note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried the Wumenguan-case-14 (Nanquan's cat) story and a non-canonical verse under this slot — with the canonical Biyanlu case 14 (雲門『對一說』) collated against CBETA Online T48n2003 (本則 p.0154c02–c03, pre-verse 評唱 p.0154c04–c20, 頌 p.0154c21–c26; T prints 韻陽 in the 頌 where the 頌評唱 quotes 韶陽, recorded as printed; 著語 normalized out; no 垂示 exists for this case in T); post-verse 評唱 not yet ingested; human sign-off pending."
         },
+        "15": {
+          "canonical_locator": "T2003 case 15 · T48n2003 p.0155a18–p.0156a12",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0155a18–a20, 本則 p.0155a21–a23, pre-verse 評唱 p.0155a24–p.0155b20, 頌 p.0155b21–b25; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0155a18–a20, 本則 p.0155a21–a23, pre-verse 評唱 p.0155a24–p.0155b20, 頌 p.0155b21–b25; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "16": {
+          "canonical_locator": "T2003 case 16 · T48n2003 p.0156a13–p.0157a15",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0156a13–a20, 本則 p.0156a21–a24, pre-verse 評唱 p.0156a25–p.0156c04, 頌 p.0156c05–c09; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0156a13–a20, 本則 p.0156a21–a24, pre-verse 評唱 p.0156a25–p.0156c04, 頌 p.0156c05–c09; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "17": {
+          "canonical_locator": "T2003 case 17 · T48n2003 p.0157a16–p.0157c17",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0157a16–a18, 本則 p.0157a19–a20, pre-verse 評唱 p.0157a21–p.0157c04, 頌 p.0157c05–c07; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0157a16–a18, 本則 p.0157a19–a20, pre-verse 評唱 p.0157a21–p.0157c04, 頌 p.0157c05–c07; 著語 (Yuanwu interlinear) notes and CBETA glyph/footnote variants normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "18": {
+          "canonical_locator": "T2003 case 18 · T48n2003 p.0157c18–p.0159a10",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 本則 p.0157c18–c24 (no 垂示 exists for this case in T), with Xuedou 著語云 glosses and Yuanwu inline notes normalized out; pre-verse 評唱 p.0157c25–p.0159a04, 頌 p.0159a05–a08; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 本則 p.0157c18–c24 (no 垂示 exists for this case in T), with Xuedou 著語云 glosses and Yuanwu inline notes normalized out; pre-verse 評唱 p.0157c25–p.0159a04, 頌 p.0159a05–a08; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "19": {
+          "canonical_locator": "T2003 case 19 · T48n2003 p.0159a11–p.0160a14",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0159a11–a15, 本則 p.0159a16, pre-verse 評唱 p.0159a17–p.0160a02, 頌 p.0160a03–a04; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0159a11–a15, 本則 p.0159a16, pre-verse 評唱 p.0159a17–p.0160a02, 頌 p.0160a03–a04; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
+        "20": {
+          "canonical_locator": "T2003 case 20 · T48n2003 p.0160a15–p.0161c17",
+          "status": "collated_with_normalization",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0160a15–a19, 本則 p.0160a20–a26, pre-verse 評唱 p.0160a27–p.0161b09, 頌古 p.0161b10–b13 with 別頌 p.0161b26–b29 joined after it; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "note": "Chinese collated from cbeta-org/xml-p5 T48n2003 on 2026-08-09 (session 019fe731); 垂示 p.0160a15–a19, 本則 p.0160a20–a26, pre-verse 評唱 p.0160a27–p.0161b09, 頌古 p.0161b10–b13 with 別頌 p.0161b26–b29 joined after it; post-verse 評唱 not yet ingested; human sign-off pending."
+        },
         "21": {
           "canonical_locator": "T2003 case 21 · T48n2003 p.0161c19–p.0162b27",
           "status": "collated_with_normalization",
