@@ -22,9 +22,18 @@
           "zh": "師示眾云：「本分真人，廓徹靈通。不立階梯，直指心源。若能於行住坐臥處，直下承當，更無纖毫障礙，何假外求？」",
           "pinyin": "Shī shì zhòng yún: 'Běnfèn zhēnrén, kuòchè língtōng. Bù lì jiētī, zhí zhǐ xīnyuán. Ruò néng yú xíng zhù zuò wò chù, zhíxià chéngdāng, gèng wú xiānháo zhàng'ài, hé jiǎ wài qiú?'",
           "translations": {
-            "cleary": "The Master said to the assembly: 'The fundamental true person is vast, clear, and spiritually open. Not establishing steps or stages, pointing directly to the source of mind. If you can take it up directly in the midst of walking, standing, sitting, and lying down, without the slightest obstruction, why borrow from outside to seek it?'",
-            "red_pine": "The Master instructed the assembly: 'The fundamental true person is boundless and luminous. Without establishing gradual ladders, it points directly to the root of mind. If you can embrace it directly in daily walking, standing, sitting, and resting, with not a speck of hindrance, what need is there to search outside?'",
-            "sasaki": "Master Engo said: 'The fundamental True Person is unobstructed and bright. Pointing straight to the heart of mind, if you accept it in every step, all boundaries dissolve.'"
+            "cleary": {
+              "text": "The Master said to the assembly: 'The fundamental true person is vast, clear, and spiritually open. Not establishing steps or stages, pointing directly to the source of mind. If you can take it up directly in the midst of walking, standing, sitting, and lying down, without the slightest obstruction, why borrow from outside to seek it?'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "The Master instructed the assembly: 'The fundamental true person is boundless and luminous. Without establishing gradual ladders, it points directly to the root of mind. If you can embrace it directly in daily walking, standing, sitting, and resting, with not a speck of hindrance, what need is there to search outside?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Master Engo said: 'The fundamental True Person is unobstructed and bright. Pointing straight to the heart of mind, if you accept it in every step, all boundaries dissolve.'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
@@ -40,9 +49,18 @@
           "zh": "「宗門綱要，如擊塗毒之鼓，聞者皆死。死卻妄想情量，然後蘇省過來，方得大休歇、大安樂。此是大解脫人之受用處也。」",
           "pinyin": "'Zōngmén gāngyào, rú jī túdú zhī gǔ, wénzhě jiē sǐ. Sǐ què wàngxiǎng qíngliàng, ránhòu sūxǐng guòlái, fāng dé dà xiūxiē, dà ānlè. Cǐ shì dà jiětuō rén zhī shòuyòng chù yě.'",
           "translations": {
-            "cleary": "The essential guideline of our school is like striking a drum smeared with poison: all who hear it die. Once false thought and emotional calculations die, you awaken and revive, obtaining great rest and great peace. This is the realm of experience for people of great liberation.",
-            "red_pine": "The core teaching of our school is like beating the poison-coated drum: everyone who hears it dies. Die completely to deluded thoughts and emotional calculations, and then revive into wakefulness to attain great rest and great bliss. This is the living sphere of the truly liberated person.",
-            "sasaki": "The Dharma drum is smeared with poison: hearing it, all delusions die. Dying to conceptual calculation, one revives into boundless freedom."
+            "cleary": {
+              "text": "The essential guideline of our school is like striking a drum smeared with poison: all who hear it die. Once false thought and emotional calculations die, you awaken and revive, obtaining great rest and great peace. This is the realm of experience for people of great liberation.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "The core teaching of our school is like beating the poison-coated drum: everyone who hears it dies. Die completely to deluded thoughts and emotional calculations, and then revive into wakefulness to attain great rest and great bliss. This is the living sphere of the truly liberated person.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The Dharma drum is smeared with poison: hearing it, all delusions die. Dying to conceptual calculation, one revives into boundless freedom.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]

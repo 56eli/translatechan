@@ -1,24 +1,28 @@
-# 📋 Session Response — 2026-08-09 · Turn 2: deep audit + A1–A5 remediation ✅ SHIPPED
+# 📋 Session Response — 2026-08-09 · session `019fe64a`
 
-> **Tasks:** deep independent audit (structure → code → data → docs) → numbered issue review → approved repair pass (user chose "fix all five").
-> **One-sentence summary:** ✅ Independent audit (all prior gates re-verified, doc-gate negative-tested, live-served) found **5 new issues** — a stale "6→7 corpus texts" verification claim the doc gate missed, an unguarded AUDIT.md current-verdict section, a pipeline helper emitting validator-rejected entries (missing `status`), stale § cross-references, and an undscoped Lexicon occurrence display — **all five fixed** with the doc-truthfulness gate extended 13→25 rules (incl. new `verified_corpus_texts` metric), every new rule negative-tested, all gates green. Durable detail: `sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md` §6.
+**One-sentence summary:** A full independent audit found the project healthy with no P0/P1/P2 defects, then shipped eight P3/P4 improvements—semantic headings, data-derived lineage colors, fixed historical links, dark-theme FOUC prevention, explicit translation records for all 736 legacy strings, aria-hidden decorative icons, data-derived hero counts, SEO/crawler metadata, deferred app scripts, and the segmenter rename—with every quality gate green and all changes pushed.
 
----
+## Completed
 
-## What shipped in this turn
+- **Full audit:** re-ran all gates, reviewed docs/data/code/CSS/schema/CI, and wrote `AUDIT_RESPONSE_2026-08-09.md`.
+- **B2:** semantic heading outline (`h1`/`h2`) across all public views and card titles; smoke `4m6`.
+- **A1:** fixed 3 broken historical `AUDIT.md` links in dated session reports.
+- **A2:** graph colors now come from `school_vocabulary.json.color`; validator, schema, and smoke `4m2b` enforce it.
+- **B1:** added CSP-clean `theme-init.js` to prevent dark-theme flash; copied to docs and smoke-guarded.
+- **A4:** migrated 736 bare-string corpus translations to explicit `{text,status}` records; validator/schema reject legacy strings; smoke `4m7`.
+- **B3/B5/B6:** decorative emoji are `aria-hidden`, hero counts are data-derived, and `theme-color`, Open Graph/Twitter metadata, canonical URL, `robots.txt`, and `sitemap.xml` were added.
+- **B4:** `app_data.js` and `app.js` now use `defer` while preserving order; smoke guards it.
+- **C3:** renamed `ingest_cbeta.py` to `segment_classical.py` and kept a deprecated compatibility wrapper; updated README/HANDOFF/ROADMAP.
 
-| Fix | Detail |
-|---|---|
-| **A1 — verification tally drift (P3)** | README + ROADMAP: "138 verified quotation slots across **6** corpus texts" → **7** (computed: wumenguan 119, linji 6, zhaozhou 5, huangbo×2, xinxin 2, platform 2); HANDOFF: matrix "2 verified rows" → **2 verified registers on the single Case-1 row** |
-| **A2 — gate blind spot (P3)** | `validate_doc_truthfulness` 13 → **25 rules**: new `verified_corpus_texts` metric (in `project_metrics.json`); README campaign + ROADMAP milestone spread rules; 11 AUDIT.md §1 rules (doc/CJK/slot/verified/matrix/locator/master/school-vocab/edge/frontier/glossary/gong'an counts + coverage strings); AUDIT prose reshaped to gate form; AUDIT §1 scope sentence updated |
-| **A3 — tooling contract (P4)** | `arena_agent_pipeline.create_translation_entry` now emits **validator-shaped entries** (default `reconstruction_unverified`; `ai_draft` for Arena drafts; `verified_quotation`+`source` passthrough documented); self-tested against the validator's field contract |
-| **A4 — stale pointers (P4)** | Validator docstring + response_summary § refs "AUDIT.md §11/§12" → `sessions/AUDIT_archive_2026-08-08.md` §11/§12; stray `</details>` removed via rewrite |
-| **A5 — lexicon scope (P4)** | Lexicon header gains a scope-note chip: occurrence tags cite the *canonical work* locus, which may lie outside excerpted units; smoke **4m5** guards it |
+## Gates
 
-**Efficacy:** every new gate rule negative-tested individually (drift → exit 1 naming the rule; restore → exit 0). **Gates:** py_compile ✅ · validate ✅ · write-metrics ✅ · build ✅ (798,825 B; root↔docs byte-identical) · smoke ✅ · mirror diff silent ✅ · browser_test syntax ✅ · committed & pushed.
+- `python3 -m py_compile scripts/*.py` ✅
+- `python3 scripts/validate_data.py` ✅ — corpus=36, slots=874, verified=138, matrix=21, locators=64/64
+- `python3 scripts/build_data_bundle.py` ✅ — 873,042-byte bundle; docs synced
+- `node scripts/smoke_test.mjs` ✅
+- `node --check scripts/browser_test.mjs` ✅
+- Root/docs data/asset mirrors and crawler files synchronized ✅
 
-## Audit sweep — also checked and cleared
-Manifest badge vs full cbeta_id pattern (intentional), favicon 404 (inline SVG), preface translations in chinese_only (CSS-covered), pinyin blank lines (none), Wumenguan 1–48 numbering, matrix registers = subtitle (9), 5 pending verified refs (known/disclosed), broken markdown links (none), lineage dates/frontiers/school displays, `.pyc` untracked, preview-host serving on port 8090 (live).
+## Note
 
-## Standing (unchanged, carried)
-Owner: require Quality check in `main` branch protection (A1-ops, ~2 min). Editorial: 5 pending verified refs (clarke×2, hoffman×2, blyth×1), 33 document-level locators, rights sign-off. Content Phase 2 (Biyanlu/Linji collation). Formal screen-reader pass; mobile perf measurement. — Live preview still running on port 8090.
+The session token could not update `.github/workflows/quality.yml` due GitHub App workflow permissions; `HANDOFF.md` records the owner follow-up to add `docs/theme-init.js`, `docs/robots.txt`, and `docs/sitemap.xml` to CI's generated-artifact path list.

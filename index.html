@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf8f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121214" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://56eli.github.io/translatechan/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TranslateChan">
+  <meta property="og:title" content="TranslateChan | Classical Chinese Chan/Zen Corpus & Translation Matrix">
+  <meta property="og:description" content="An open, contemplative digital corpus, lineage knowledge graph, comparative translation matrix, and lexicon for Classical Chinese Chan literature (CBETA / Taishō 47, 48, 51).">
+  <meta property="og:url" content="https://56eli.github.io/translatechan/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="TranslateChan | Classical Chinese Chan/Zen Corpus & Translation Matrix">
+  <meta name="twitter:description" content="A serene, open digital corpus, lineage graph, comparative translation matrix, and Chan lexicon.">
   <title>TranslateChan | Classical Chinese Chan/Zen Translation & Preservation Matrix</title>
   <meta name="description" content="A serene, open, and contemplative digital corpus, lineage knowledge graph, comparative translation matrix, and lexicon for Chinese Chan Masters of Old (CBETA / Taishō 47, 48, 51).">
+  <!-- Apply the persisted theme before first paint to avoid a light-mode flash
+       for returning dark-mode users (FOUC guard). External file keeps the
+       strict CSP (script-src 'self') satisfiable without inline scripts. -->
+  <script src="theme-init.js"></script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🪷%3C/text%3E%3C/svg%3E">
   <!-- Restrictive CSP: no inline scripts/event-handler attributes (all app
        interactivity is delegated in app.js); Google Fonts stylesheet + font
@@ -15,7 +30,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <!-- D4: parse the ~790KB data bundle as early as possible -->
+  <!-- D4: parse the ~873KB data bundle as early as possible. A modulepreload is
+       not appropriate (app_data.js is a classic global script), so preload as
+       script; the matching defer <script> below reuses this download and keeps
+       execution ordered after HTML parsing. -->
   <link rel="preload" href="app_data.js" as="script">
 </head>
 <body>
@@ -25,7 +43,7 @@
   <header>
     <div class="nav-container">
       <a href="#/reader" class="brand">
-        <span class="brand-icon">🪷</span>
+        <span class="brand-icon" aria-hidden="true">🪷</span>
         <div>
           <div class="brand-title">
             <span>TranslateChan</span>
@@ -39,27 +57,27 @@
       <ul class="nav-tabs" role="tablist" aria-label="Main navigation">
         <li role="none">
           <button class="nav-tab-btn active" data-view="reader" role="tab" id="tab-reader" aria-controls="view-reader" aria-selected="true" tabindex="0">
-            <span>📖</span> <span>Bilingual Reader</span>
+            <span aria-hidden="true">📖</span> <span>Bilingual Reader</span>
           </button>
         </li>
         <li role="none">
           <button class="nav-tab-btn" data-view="matrix" role="tab" id="tab-matrix" aria-controls="view-matrix" aria-selected="false" tabindex="-1">
-            <span>⚖️</span> <span>Comparative Matrix</span>
+            <span aria-hidden="true">⚖️</span> <span>Comparative Matrix</span>
           </button>
         </li>
         <li role="none">
           <button class="nav-tab-btn" data-view="lineage" role="tab" id="tab-lineage" aria-controls="view-lineage" aria-selected="false" tabindex="-1">
-            <span>🌳</span> <span>Lineage Tree</span>
+            <span aria-hidden="true">🌳</span> <span>Lineage Tree</span>
           </button>
         </li>
         <li role="none">
           <button class="nav-tab-btn" data-view="gongan" role="tab" id="tab-gongan" aria-controls="view-gongan" aria-selected="false" tabindex="-1">
-            <span>🗂️</span> <span>Gong'an Index</span>
+            <span aria-hidden="true">🗂️</span> <span>Gong'an Index</span>
           </button>
         </li>
         <li role="none">
           <button class="nav-tab-btn" data-view="lexicon" role="tab" id="tab-lexicon" aria-controls="view-lexicon" aria-selected="false" tabindex="-1">
-            <span>📚</span> <span>Chan Lexicon</span>
+            <span aria-hidden="true">📚</span> <span>Chan Lexicon</span>
           </button>
         </li>
       </ul>
@@ -67,10 +85,10 @@
       <!-- Controls & Search -->
       <div class="nav-controls">
         <div class="search-box">
-          <span class="search-icon">🔍</span>
+          <span class="search-icon" aria-hidden="true">🔍</span>
           <input type="text" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off">
         </div>
-        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme">🌙</button>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme"><span aria-hidden="true">🌙</span></button>
       </div>
     </div>
   </header>
@@ -85,9 +103,9 @@
         </div>
       </div>
       <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <span class="meta-chip">📜 36 Canonical Works</span>
-        <span class="meta-chip">⚖️ 8+ Translators Aligned</span>
-        <span class="meta-chip">🌐 Zero-Backend Static</span>
+        <span class="meta-chip" id="hero-corpus-count" aria-hidden="true">📜 36 Canonical Works</span>
+        <span class="meta-chip" id="hero-translator-count" aria-hidden="true">⚖️ 8+ Translators Aligned</span>
+        <span class="meta-chip" aria-hidden="true">🌐 Zero-Backend Static</span>
       </div>
     </div>
 
@@ -138,8 +156,8 @@
     <!-- View 2: Comparative Matrix -->
     <section id="view-matrix" class="view-section" role="tabpanel" aria-labelledby="tab-matrix">
       <div class="text-header">
-        <div class="text-title-zh">多譯本對照矩陣 / Comparative Matrix</div>
-        <div class="text-title-en">Sentence-by-sentence side-by-side comparison across Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Yampolsky, Senzaki &amp; Reps, and AI Synthesis</div>
+        <h1 class="text-title-zh">多譯本對照矩陣 / Comparative Matrix</h1>
+        <p class="text-title-en">Sentence-by-sentence side-by-side comparison across historical and contemporary translators and AI synthesis</p>
       </div>
       <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="These are AI-crafted renderings in each scholar's documented register — not verbatim published text. Classical Chinese source is authentic canonical language.">
         ℹ️ <strong>Sourcing note:</strong> a <em>register reconstruction</em> is newly written TranslateChan text using broad style characteristics associated with a scholar; it is not copied from, checked against, or attributable as wording in that scholar's book. Every translation disclosure includes its aligned original Chinese and canonical-source status. See <code>data/translations/provenance.json</code> and sessions/AUDIT_archive_2026-08-08.md §3.4; do not cite reconstructions as published translations.
@@ -151,8 +169,8 @@
     <section id="view-lineage" class="view-section" role="tabpanel" aria-labelledby="tab-lineage">
       <div class="text-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <div class="text-title-zh">禪宗宗派法脈傳承譜 / Lineage Knowledge Graph</div>
-          <div class="text-title-en">Interactive Transmission Network & Genealogical Matrix from Bodhidharma to the Five Houses</div>
+          <h1 class="text-title-zh">禪宗宗派法脈傳承譜 / Lineage Knowledge Graph</h1>
+          <p class="text-title-en">Interactive Transmission Network & Genealogical Matrix from Bodhidharma to the Five Houses</p>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
           <div style="display: flex; gap: 0.25rem; background: var(--bg-card); padding: 0.2rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
@@ -191,7 +209,7 @@
       <div id="master-dossier-panel" style="display: none; background: var(--accent-gold-light); border: 2px solid var(--accent-gold); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; animation: sereneFade 0.3s ease;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
           <div>
-            <div id="dossier-name-zh" class="master-name-zh" style="font-size: 1.75rem; color: var(--accent-gold);"></div>
+            <h2 id="dossier-name-zh" class="master-name-zh" style="font-size: 1.75rem; color: var(--accent-gold);"></h2>
             <div id="dossier-name-en" style="font-size: 1.1rem; color: var(--text-primary);"></div>
           </div>
           <button id="dossier-close-btn" class="btn-pill" style="color: var(--accent-red); font-weight: 700;">✕ Close</button>
@@ -206,8 +224,8 @@
     <!-- View 4: Gong'an Cross-Reference Index -->
     <section id="view-gongan" class="view-section" role="tabpanel" aria-labelledby="tab-gongan">
       <div class="text-header">
-        <div class="text-title-zh">歷代宗門公案總目 / Gong'an & Koan Master Index</div>
-        <div class="text-title-en">Canonical encounter cases cross-indexed across Wumenguan, Biyanlu, Congronglu, and Chuandenglu</div>
+        <h1 class="text-title-zh">歷代宗門公案總目 / Gong'an & Koan Master Index</h1>
+        <p class="text-title-en">Canonical encounter cases cross-indexed across Wumenguan, Biyanlu, Congronglu, and Chuandenglu</p>
       </div>
       <div id="gongan-content-target" class="matrix-container"></div>
     </section>
@@ -216,8 +234,8 @@
     <section id="view-lexicon" class="view-section" role="tabpanel" aria-labelledby="tab-lexicon">
       <div class="text-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <div class="text-title-zh">禪宗名相與術語典籍 / Classical Chan Lexicon</div>
-          <div class="text-title-en">Foundational terminology, technical Sanskrit roots, and philosophical definitions</div>
+          <h1 class="text-title-zh">禪宗名相與術語典籍 / Classical Chan Lexicon</h1>
+          <p class="text-title-en">Foundational terminology, technical Sanskrit roots, and philosophical definitions</p>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <label for="lexicon-cat-filter" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Category:</label>
@@ -256,8 +274,11 @@
     </div>
   </footer>
 
-  <!-- Corpus Data Bundle & Application Scripts -->
-  <script src="app_data.js"></script>
-  <script src="app.js"></script>
+  <!-- Corpus Data Bundle & Application Scripts.
+       defer starts both downloads immediately while HTML parsing continues;
+       app_data.js executes first and app.js second, immediately before
+       DOMContentLoaded, preserving the global-data initialization order. -->
+  <script defer src="app_data.js"></script>
+  <script defer src="app.js"></script>
 </body>
 </html>

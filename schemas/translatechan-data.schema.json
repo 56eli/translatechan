@@ -25,9 +25,14 @@
         "source_id": {
           "type": "string",
           "pattern": "^[a-z0-9][a-z0-9-]*$"
-        }
+        },
+        "page": { "type": "string" },
+        "note": { "type": "string" },
+        "gloss": { "type": "string" },
+        "verified_by": { "type": "string" },
+        "verified_date": { "type": "string" }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "translationRecord": {
       "type": "object",
@@ -59,14 +64,9 @@
           }
         }
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     },
-    "translationValue": {
-      "oneOf": [
-        { "$ref": "#/$defs/nonEmptyString" },
-        { "$ref": "#/$defs/translationRecord" }
-      ]
-    },
+    "translationValue": { "$ref": "#/$defs/translationRecord" },
     "translationMap": {
       "type": "object",
       "minProperties": 1,
@@ -174,6 +174,25 @@
         "frontiers": { "type": "array" }
       },
       "additionalProperties": true
+    },
+    "lineageSchool": {
+      "type": "object",
+      "required": ["key", "display", "color"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_]*$"
+        },
+        "display": { "$ref": "#/$defs/nonEmptyString" },
+        "color": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$",
+          "description": "Curated hex color used by the lineage graph (data-derived palette)."
+        },
+        "note": { "type": "string" }
+      },
+
+      "additionalProperties": false
     }
   }
 }

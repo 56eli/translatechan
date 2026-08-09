@@ -93,6 +93,25 @@
     lexiconTarget: document.getElementById('lexicon-content-target'),
   };
 
+  // Keep the hero's hand-authored "36 works / 8+ translators" chips truthful
+  // without adding those counts to the doc-gate: derive them from live data.
+  function updateHeroCounts() {
+    const corpusChip = document.getElementById('hero-corpus-count');
+    if (corpusChip && state.data.corpus) {
+      corpusChip.textContent = `📜 ${Object.keys(state.data.corpus).length} Canonical Works`;
+    }
+    const translatorChip = document.getElementById('hero-translator-count');
+    const rows = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : [];
+    const translators = new Set();
+    rows.forEach(row => (row.translators || []).forEach(t => {
+      const name = stringValue(t && t.translator);
+      if (name && !/\bAI\b/i.test(name)) translators.add(name);
+    }));
+    if (translatorChip) {
+      translatorChip.textContent = `⚖️ ${translators.size} Translators Aligned`;
+    }
+  }
+
   // Corpus selection has a single persistence path so sidebar, mobile picker,
   // deep links, and search jumps all restore the same reading context.
   function setCurrentCorpusKey(key) {
@@ -111,6 +130,7 @@
 
     applyTheme(state.theme);
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
+    updateHeroCounts();
     populateLineageSchoolFilter();
     populateLexiconCategoryFilter();
     setupEventListeners();
@@ -342,7 +362,7 @@
     document.documentElement.setAttribute('data-theme', theme);
     storageSet('translatechan_theme', theme);
     if (elements.themeToggle) {
-      elements.themeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+      elements.themeToggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">☀️</span>' : '<span aria-hidden="true">🌙</span>';
     }
   }
 
@@ -860,8 +880,8 @@
 
     let html = `
       <div class="text-header">
-        <div class="text-title-zh">${escHtml(doc.title_zh)}</div>
-        <div class="text-title-en">${escHtml(doc.title_en)} (${escHtml(doc.title_pinyin)})</div>
+        <h1 class="text-title-zh">${escHtml(doc.title_zh)}</h1>
+        <p class="text-title-en">${escHtml(doc.title_en)} (${escHtml(doc.title_pinyin)})</p>
         <div class="text-meta-chips">
           <span class="meta-chip">📜 Canon: ${escHtml(doc.cbeta_id || 'Taisho')}${(/T\d{4}/.test(doc.cbeta_id || '') && doc.taisho_vol) ? ` (Vol. ${escHtml(doc.taisho_vol)})` : ''}</span>
           <span class="meta-chip">✍️ Master/Author: ${escHtml(doc.author_zh || '')}</span>
@@ -879,7 +899,7 @@
       html += `
         <div class="case-card" style="border-left: 4px solid var(--accent-gold);">
           <div class="case-header">
-            <span class="case-num-title">序言 / Preface</span>
+            <h2 class="case-num-title">序言 / Preface</h2>
           </div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.preface.zh)}</div>
           <div class="pinyin-line">${escHtml(doc.preface.pinyin)}</div>
@@ -897,7 +917,7 @@
       html += `
         <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
           <div class="case-header">
-            <span class="case-num-title">後序與結頌 / Wumen's Epilogue & Gatha</span>
+            <h2 class="case-num-title">後序與結頌 / Wumen's Epilogue & Gatha</h2>
           </div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
           <div class="pinyin-line">${escHtml(doc.epilogue.pinyin)}</div>
@@ -951,7 +971,7 @@
     if (doc.five_ranks && doc.five_ranks.length > 0) {
       html += `
         <div class="case-card" style="border-left: 4px solid var(--accent-green); margin-bottom: 1.5rem;">
-          <div class="case-num-title" style="margin-bottom: 0.5rem; color: var(--accent-green);">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</div>
+          <h2 class="case-num-title" style="margin-bottom: 0.5rem; color: var(--accent-green);">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</h2>
           <div style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">${escHtml(doc.overview || '')}</div>
         </div>
       `;
@@ -960,7 +980,7 @@
         html += `
           <div class="case-card">
             <div class="case-header">
-              <span class="case-num-title">第 ${escHtml(r.rank_num)} 位：${escHtml(r.name_zh)} (${escHtml(r.name_en)})</span>
+              <h2 class="case-num-title">第 ${escHtml(r.rank_num)} 位：${escHtml(r.name_zh)} (${escHtml(r.name_en)})</h2>
               <span class="case-speaker">${escHtml(r.symbol)}</span>
             </div>
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
@@ -981,7 +1001,7 @@
     if (doc.overview && !doc.five_ranks) {
       html += `
         <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
-          <div class="case-num-title" style="margin-bottom: 0.5rem;">📚 Canonical Architecture & Scope</div>
+          <h2 class="case-num-title" style="margin-bottom: 0.5rem;">📚 Canonical Architecture & Scope</h2>
           <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${escHtml(doc.overview)}</div>
           ${doc.fascicle_structure ? `
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem;">
@@ -1011,7 +1031,7 @@
         html += `
           <div class="case-card">
             <div class="case-header">
-              <span class="case-num-title">卷 ${escHtml(rec.fascicle)} 傳燈本則：${escHtml(rec.title_zh)}</span>
+              <h2 class="case-num-title">卷 ${escHtml(rec.fascicle)} 傳燈本則：${escHtml(rec.title_zh)}</h2>
               <span class="case-speaker">${escHtml(rec.title_en)}</span>
             </div>
             ${diaHtml}
@@ -1061,7 +1081,7 @@
     return `
       <div class="case-card ${collapsed ? 'collapsed' : ''}" id="case-${caseItem.case_num}">
         <div class="case-header">
-          <span class="case-num-title">第 ${escHtml(caseItem.case_num)} 則：${escHtml(caseItem.title_zh)}</span>
+          <h2 class="case-num-title">第 ${escHtml(caseItem.case_num)} 則：${escHtml(caseItem.title_zh)}</h2>
           <span style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
             <span class="case-speaker">${escHtml(caseItem.title_en)}</span>
             ${renderCaseSourceDisclosure(caseItem.case_num)}
@@ -1123,7 +1143,7 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <span class="case-num-title">${escHtml(sec.title_zh)}</span>
+          <h2 class="case-num-title">${escHtml(sec.title_zh)}</h2>
           <span class="case-speaker">${escHtml(sec.title_en)}</span>
           ${renderSourceLocationDisclosure(sectionLocator, 'Section source', 'case-source-location')}
         </div>
@@ -1145,7 +1165,7 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <span class="case-num-title">${escHtml(dia.title_zh)}</span>
+          <h2 class="case-num-title">${escHtml(dia.title_zh)}</h2>
           <span class="case-speaker">${escHtml(dia.title_en)}</span>
         </div>
         ${dialoguesHtml}
@@ -1158,7 +1178,7 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <span class="case-num-title">第 ${escHtml(st.stanza_num)} 節 / Stanza ${escHtml(st.stanza_num)}</span>
+          <h2 class="case-num-title">第 ${escHtml(st.stanza_num)} 節 / Stanza ${escHtml(st.stanza_num)}</h2>
           ${renderSourceLocationDisclosure(stanzaLocator, 'Stanza source', 'case-source-location')}
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
@@ -1194,7 +1214,7 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <span class="case-num-title">${escHtml(ch.title_zh)}</span>
+          <h2 class="case-num-title">${escHtml(ch.title_zh)}</h2>
           <span class="case-speaker">${escHtml(ch.title_en)}</span>
         </div>
         ${contentHtml}
@@ -1437,7 +1457,7 @@
       return `
       <div class="matrix-card">
         <div class="matrix-header">
-          <div class="matrix-ref">📌 ${escHtml(item.source_ref)}</div>
+          <h2 class="matrix-ref">📌 ${escHtml(item.source_ref)}</h2>
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(item.sentence_zh)}</div>
         <div class="pinyin-line">${escHtml(item.sentence_pinyin)}</div>
@@ -1575,6 +1595,18 @@
     return ordered;
   }
 
+  // School graph colors are generated from the bundled controlled vocabulary
+  // (data/lineage/school_vocabulary.json → each school's curated `color`),
+  // not hardcoded here — adding/renaming a school cannot silently fall back to
+  // a default color (validator requires a 6-digit hex per school; audit A2).
+  function schoolColorMap() {
+    const out = {};
+    const vocab = state.data.lineage_school_vocab && Array.isArray(state.data.lineage_school_vocab.schools)
+      ? state.data.lineage_school_vocab.schools : [];
+    vocab.forEach(v => { if (v && v.key && v.color) out[v.key] = v.color; });
+    return out;
+  }
+
   // Filter options are generated from the bundled vocabulary, not hardcoded in
   // index.html: new schools added to the data appear automatically, and stale
   // options can never linger after data changes.
@@ -1605,7 +1637,7 @@
         <div>
           <div class="master-header">
             <div>
-              <div class="master-name-zh">${escHtml(m.name_zh)}</div>
+              <h2 class="master-name-zh">${escHtml(m.name_zh)}</h2>
               <div class="master-name-en">${escHtml(m.name_en)} (${escHtml(m.name_pinyin)})</div>
             </div>
             <span class="corpus-badge" style="font-weight: 600;">Gen ${escHtml(m.lineage_depth)}</span>
@@ -1641,22 +1673,10 @@
     const BOTTOM_PAD = 74;
     svg.innerHTML = '';
 
-    // School colors are keyed by the controlled school_key vocabulary
-    // (previously keyed by free-text school strings — most lookups fell back).
-    const schoolColors = {
-      indian_patriarchs: '#8a6d3b',
-      foundational_patriarchs: '#b38238',
-      tang_branch_roots: '#c29d59',
-      hongzhou: '#b85d19',
-      shitou_hunan: '#4d9377',
-      linji: '#b53335',
-      linji_yangqi: '#c94a4c',
-      caodong: '#3a6b56',
-      yunmen: '#2c5d79',
-      guiyang: '#7d4a88',
-      fayan: '#2d7d74',
-      chan_transmission: '#756b64'
-    };
+    // School colors are derived from the controlled vocabulary (schoolColorMap),
+    // which reads each school's curated hex from the bundled data — no hardcoded
+    // palette here (validator guarantees every school has a color).
+    const schoolColors = schoolColorMap();
 
     // Calculate node coordinates based on lineage generation
     const genGroups = {};
@@ -1713,7 +1733,9 @@
     let nodesHtml = '<g class="graph-nodes">';
     Object.keys(nodeCoords).forEach(id => {
       const { x, y, master } = nodeCoords[id];
-      const color = schoolColors[master.school_key] || '#b38238';
+    // Every master.school_key is guaranteed to carry a color by the validator;
+    // the fallback only covers a malformed/old cached bundle.
+    const color = schoolColors[master.school_key] || '#b38238';
 
       const shortName = stringValue(master.name_en).split(' ').pop().slice(0, 14);
       nodesHtml += `
@@ -1999,7 +2021,7 @@
     elements.gonganTarget.innerHTML = filterBar + list.map(g => `
       <div class="case-card" style="margin-bottom: 1.25rem;">
         <div class="case-header">
-          <span class="case-num-title">${escHtml(g.title_zh)}</span>
+          <h2 class="case-num-title">${escHtml(g.title_zh)}</h2>
           <span class="case-speaker">${escHtml(g.title_en)}</span>
         </div>
         <div style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-bottom: 0.4rem;">
@@ -2063,7 +2085,7 @@
 
     elements.lexiconTarget.innerHTML = list.map(item => `
       <div class="term-card">
-        <div class="term-card-zh">${escHtml(item.term)}</div>
+        <h2 class="term-card-zh">${escHtml(item.term)}</h2>
         <div class="term-card-literal">${escHtml(item.literal)} (${escHtml(item.pinyin)})</div>
         <div class="term-card-sanskrit">Sanskrit: ${escHtml(item.sanskrit || '—')} | 🏷️ ${escHtml(item.category)}</div>
         <div class="term-card-def">${escHtml(item.definition)}</div>
@@ -2233,7 +2255,7 @@
           : `<button class="btn-pill active" data-open-doc="${escHtml(corpKey)}">View in Reader</button>`;
         bodyHtml += `
           <div class="case-card" style="margin-bottom: 0.75rem;">
-            <div class="case-header"><span class="case-num-title" style="font-size:0.95rem;">${escHtml(u.label)}</span></div>
+            <div class="case-header"><h2 class="case-num-title" style="font-size:0.95rem;">${escHtml(u.label)}</h2></div>
             <div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>
             <div style="margin-top: 0.4rem;">${action}</div>
           </div>`;
@@ -2249,7 +2271,7 @@
     const resultNotice = hiddenTotal > 0
       ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">Showing ${displayedHits} of ${totalHits} matching units; narrow your query for more focused results.</div>`
       : '';
-    const headerHtml = `<div class="text-header"><div class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</div><div class="text-title-en">${totalHits} matching unit(s) across ${matchedDocuments.length} text(s)</div>${resultNotice}</div>`;
+    const headerHtml = `<div class="text-header"><h1 class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</h1><p class="text-title-en">${totalHits} matching unit(s) across ${matchedDocuments.length} text(s)</p>${resultNotice}</div>`;
 
     elements.readerContent.innerHTML = totalHits === 0
       ? headerHtml + `<div class="case-card"><p>No matches found for "${escHtml(q)}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`

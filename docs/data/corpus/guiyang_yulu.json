@@ -22,9 +22,18 @@
           "zh": "百丈將選大溈山住持，乃設問試眾。置淨瓶於地問曰：「不得喚作淨瓶，汝喚作甚麼？」",
           "pinyin": "Bǎizhàng jiāng xuǎn Dàguīshān zhùchí, nǎi shè wèn shì zhòng. Zhì jìngpíng yú dì wèn yuē: 'Bùdé huàn zuò jìngpíng, rǔ huàn zuò shénme?'",
           "translations": {
-            "red_pine": "Master Baizhang wished to choose the abbot for Mount Da-gui, so he posed a question to test the assembly. Placing a water pitcher on the ground, he asked: 'You cannot call this a water pitcher; what do you call it?'",
-            "cleary": "Baizhang was about to choose an abbot for Mount Gui, so he posed a question to test the crowd. He set a water pitcher on the ground and asked, 'You cannot call this a water pitcher; what do you call it?'",
-            "sasaki": "Hyakujō wished to appoint an abbot for Mount Dai-i, and set a question to the assembly. Placing a water pitcher on the floor, he asked: 'Not calling this a water pitcher, what do you call it?'"
+            "red_pine": {
+              "text": "Master Baizhang wished to choose the abbot for Mount Da-gui, so he posed a question to test the assembly. Placing a water pitcher on the ground, he asked: 'You cannot call this a water pitcher; what do you call it?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Baizhang was about to choose an abbot for Mount Gui, so he posed a question to test the crowd. He set a water pitcher on the ground and asked, 'You cannot call this a water pitcher; what do you call it?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Hyakujō wished to appoint an abbot for Mount Dai-i, and set a question to the assembly. Placing a water pitcher on the floor, he asked: 'Not calling this a water pitcher, what do you call it?'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -32,9 +41,18 @@
           "zh": "首座曰：「不可喚作木𣐎也。」",
           "pinyin": "Shǒuzuò yuē: 'Bùkě huàn zuò mù tū yě.'",
           "translations": {
-            "red_pine": "The Head Monk said: 'It cannot be called a wooden stub.'",
-            "cleary": "The Head Monk said, 'It cannot be called a wooden block.'",
-            "sasaki": "The Head Monk said: 'You cannot call it a piece of wood.'"
+            "red_pine": {
+              "text": "The Head Monk said: 'It cannot be called a wooden stub.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Head Monk said, 'It cannot be called a wooden block.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The Head Monk said: 'You cannot call it a piece of wood.'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -42,9 +60,18 @@
           "zh": "師乃踢倒淨瓶，便出去。百丈笑曰：「首座輸卻山子也。」遂命師開山。",
           "pinyin": "Shī nǎi tī dǎo jìngpíng, biàn chū qù. Bǎizhàng xiào yuē: 'Shǒuzuò shū què shānzǐ yě.' Suì mìng shī kāishān.",
           "translations": {
-            "red_pine": "Guishan walked forward, kicked over the water pitcher, and walked out. Baizhang laughed and said: 'The Head Monk has lost the mountain to this one!' And appointed Guishan to open the monastery.",
-            "cleary": "Guishan kicked over the pitcher and went out. Baizhang laughed and said, 'The Head Monk has lost the mountain!' And sent Guishan to open the mountain.",
-            "sasaki": "Guishan came forward, kicked over the water pitcher, and walked out. Hyakujō laughed: 'The Head Monk has lost the mountain!' And appointed Guishan as founder."
+            "red_pine": {
+              "text": "Guishan walked forward, kicked over the water pitcher, and walked out. Baizhang laughed and said: 'The Head Monk has lost the mountain to this one!' And appointed Guishan to open the monastery.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Guishan kicked over the pitcher and went out. Baizhang laughed and said, 'The Head Monk has lost the mountain!' And sent Guishan to open the mountain.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Guishan came forward, kicked over the water pitcher, and walked out. Hyakujō laughed: 'The Head Monk has lost the mountain!' And appointed Guishan as founder.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
@@ -60,9 +87,18 @@
           "zh": "仰山受溈山印可，以圓相傳心。於地上畫一圓相「○」，師曰：「諸佛密意，不落言詮。這箇圓相，從何處起，向何處滅？」",
           "pinyin": "Yǎngshān shòu Guīshān yìnkě, yǐ yuánxiàng chuánxīn. Yú dìshàng huà yī yuánxiàng '○', shī yuē: 'Zhūfó mìyì, bù luò yánquán. Zhègè yuánxiàng, cóng hé chù qǐ, xiàng hé chù miè?'",
           "translations": {
-            "red_pine": "Yangshan received the seal of transmission from Guishan and used circular figures to transmit the mind seal. Drawing a circle '○' on the earth, he asked: 'The secret intention of all Buddhas does not fall into speech. Where does this circular figure arise from, and where does it vanish?'",
-            "cleary": "Yangshan received Guishan's seal and transmitted the mind via circular figures. Drawing a circle '○' on the ground, he said, 'The esoteric meaning of Buddhas is not caught in words. Where does this circle arise, where does it cease?'",
-            "sasaki": "Yangshan drew a circle '○' on the ground with his staff and said: 'The Buddhas' seal is beyond words. Where does this circle begin, and where does it end?'"
+            "red_pine": {
+              "text": "Yangshan received the seal of transmission from Guishan and used circular figures to transmit the mind seal. Drawing a circle '○' on the earth, he asked: 'The secret intention of all Buddhas does not fall into speech. Where does this circular figure arise from, and where does it vanish?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Yangshan received Guishan's seal and transmitted the mind via circular figures. Drawing a circle '○' on the ground, he said, 'The esoteric meaning of Buddhas is not caught in words. Where does this circle arise, where does it cease?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yangshan drew a circle '○' on the ground with his staff and said: 'The Buddhas' seal is beyond words. Where does this circle begin, and where does it end?'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -70,9 +106,18 @@
           "zh": "溈山見之，於圓相中畫一「十」字「⊕」。仰山於旁添作「⊙」。師資相照，妙入微契。",
           "pinyin": "Guīshān jiàn zhī, yú yuánxiàng zhōng huà yī 'shí' zì '⊕'. Yǎngshān yú páng tiān zuò '⊙'. Shīzī xiāngzhào, miào rù wēiqì.",
           "translations": {
-            "red_pine": "Seeing it, Guishan drew a cross within the circle '⊕'. Yangshan then placed a dot at the center '⊙'. Master and disciple illuminated each other in perfect subtle harmony.",
-            "cleary": "Guishan drew a cross within the circle '⊕'. Yangshan added a dot '⊙'. Teacher and pupil reflected each other, harmonizing in subtle attunement.",
-            "sasaki": "Guishan drew a cross in the circle '⊕'. Yangshan added a central dot '⊙'. Master and disciple were perfectly attuned without a word."
+            "red_pine": {
+              "text": "Seeing it, Guishan drew a cross within the circle '⊕'. Yangshan then placed a dot at the center '⊙'. Master and disciple illuminated each other in perfect subtle harmony.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Guishan drew a cross within the circle '⊕'. Yangshan added a dot '⊙'. Teacher and pupil reflected each other, harmonizing in subtle attunement.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Guishan drew a cross in the circle '⊕'. Yangshan added a central dot '⊙'. Master and disciple were perfectly attuned without a word.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
@@ -88,9 +133,18 @@
           "zh": "夫出家者，捨俗入道，發足超方。心形異俗，紹隆聖種。時光易過，日月如梭。幻化之軀，旦暮難保。若不精修，虛生浪死。",
           "pinyin": "Fú chūjiā zhě, shě sú rù dào, fā zú chāo fāng. Xīn xíng yì sú, shào lóng shèng zhǒng. Shíguāng yì guò, rìyuè rú suō. Huànhuà zhī qū, dànmù nán bǎo. Ruò bù jīng xiū, xū shēng làng sǐ.",
           "translations": {
-            "red_pine": "Those who leave home renounce worldly life to enter the Way, stepping beyond ordinary limits. Their heart and bodily form differ from the common world, continuing the sacred lineage. Time passes swiftly like a weaver's shuttle; this illusory body cannot be guaranteed from morning to dusk. If you do not practice diligently, you live in vain and die a wasted death.",
-            "cleary": "Those who renounce worldly life leave the mundane to enter the Way, transcending ordinary realms. In heart and form they differ from the world, perpetuating the sacred lineage. Time passes easily, sun and moon fly like shuttles. This illusory body is fragile from dawn to dusk. If you do not cultivate rigorously, you live in vain and die foolishly.",
-            "sasaki": "One who leaves household life enters the Way to transcend worldly bonds. Time flies like a weaver's shuttle; this phantom body is fleeting. Strive with all your might, lest your life be spent in vain."
+            "red_pine": {
+              "text": "Those who leave home renounce worldly life to enter the Way, stepping beyond ordinary limits. Their heart and bodily form differ from the common world, continuing the sacred lineage. Time passes swiftly like a weaver's shuttle; this illusory body cannot be guaranteed from morning to dusk. If you do not practice diligently, you live in vain and die a wasted death.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Those who renounce worldly life leave the mundane to enter the Way, transcending ordinary realms. In heart and form they differ from the world, perpetuating the sacred lineage. Time passes easily, sun and moon fly like shuttles. This illusory body is fragile from dawn to dusk. If you do not cultivate rigorously, you live in vain and die foolishly.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "One who leaves household life enters the Way to transcend worldly bonds. Time flies like a weaver's shuttle; this phantom body is fleeting. Strive with all your might, lest your life be spent in vain.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]

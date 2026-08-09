@@ -24,9 +24,18 @@
           "zh": "世尊一日陞座。大眾才集，文殊白槌云：「諦觀法王法，法王法如是。」世尊便下座。",
           "pinyin": "Shìzūn yī rì shēngzuò. Dàzhòng cái jí, Wénshū bái chuí yún: 'Dì guān fǎwáng fǎ, fǎwáng fǎ rúshì.' Shìzūn biàn xiàzuò.",
           "translations": {
-            "cleary": "One day the World-Honored One ascended the seat. As the crowd gathered, Manjushri struck the gavel and said, 'Clearly observe the Dharma of the King of Dharma; the Dharma of the King of Dharma is thus!' The World-Honored One then got down from the seat.",
-            "red_pine": "One day the World-Honored One ascended the teaching seat. As the assembly gathered, Manjushri struck the gavel and announced: 'Clearly observe the Dharma of the Dharma King; the Dharma of the Dharma King is thus!' The World-Honored One immediately stepped down from the seat.",
-            "sasaki": "One day the World-Honored One ascended the platform. Manjushri struck the gavel: 'Carefully behold the Law of the King of the Law; the Law of the King of the Law is thus!' The Buddha descended from his seat."
+            "cleary": {
+              "text": "One day the World-Honored One ascended the seat. As the crowd gathered, Manjushri struck the gavel and said, 'Clearly observe the Dharma of the King of Dharma; the Dharma of the King of Dharma is thus!' The World-Honored One then got down from the seat.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "One day the World-Honored One ascended the teaching seat. As the assembly gathered, Manjushri struck the gavel and announced: 'Clearly observe the Dharma of the Dharma King; the Dharma of the Dharma King is thus!' The World-Honored One immediately stepped down from the seat.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "One day the World-Honored One ascended the platform. Manjushri struck the gavel: 'Carefully behold the Law of the King of the Law; the Law of the King of the Law is thus!' The Buddha descended from his seat.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],
@@ -50,9 +59,18 @@
           "zh": "南泉因兩堂爭貓，提起云：「道得即救，道不得即斬卻。」眾無對，泉斬之。趙州晚歸，泉舉示。州脫草鞋安頭上出。泉曰：「子若在，恰救得貓兒。」",
           "pinyin": "Nánquán yīn liǎngtáng zhēng māo, tíqǐ yún: 'Dào dé jí jiù, dào bù dé jí zhǎn què.' Zhòng wú duì, Quán zhǎn zhī. Zhàozhōu wǎn guī, Quán jǔ shì. Zhōu tuō cǎoxié ān tóu shàng chū. Quán yuē: 'Zǐ ruò zài, qià jiù dé māo'er.'",
           "translations": {
-            "cleary": "Because the two halls were disputing over a cat, Nanquan held it up and said, 'If you can speak, you save it; if not, I'll cut it.' The crowd had no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, put them on his head, and went out. Nanquan said, 'Had you been here, you'd have saved the cat.'",
-            "red_pine": "Because the Eastern and Western halls fought over a cat, Nanquan lifted it up: 'If you can speak, you save it; if not, I will cut it in two.' The monks made no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, placed them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
-            "sasaki": "Nansen held up the cat: 'Speak and save it; if not, I cut it.' The monks were silent; Nansen cut it in two. Jōshū put his straw sandals on his head and walked out. Nansen said: 'Had you been here, you would have saved it.'"
+            "cleary": {
+              "text": "Because the two halls were disputing over a cat, Nanquan held it up and said, 'If you can speak, you save it; if not, I'll cut it.' The crowd had no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, put them on his head, and went out. Nanquan said, 'Had you been here, you'd have saved the cat.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Because the Eastern and Western halls fought over a cat, Nanquan lifted it up: 'If you can speak, you save it; if not, I will cut it in two.' The monks made no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, placed them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Nansen held up the cat: 'Speak and save it; if not, I cut it.' The monks were silent; Nansen cut it in two. Jōshū put his straw sandals on his head and walked out. Nansen said: 'Had you been here, you would have saved it.'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],

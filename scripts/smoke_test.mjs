@@ -1,7 +1,7 @@
 // Minimal DOM stub smoke test for TranslateChan app.js
 // TranslateChan smoke test — exercises renderReader for every corpus text, all modes, search, namespace.
 // Run: node scripts/smoke_test.mjs   (no dependencies)
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -9,8 +9,53 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // Public Pages scope deliberately excludes browser drafting, agent branding, and
 // a header GitHub link; keep that composition from regressing during app work.
 const publicHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
+const appSrc = readFileSync(join(ROOT, 'app.js'), 'utf8');
+const themeInitSrc = readFileSync(join(ROOT, 'theme-init.js'), 'utf8');
 for (const forbidden of ['data-view="studio"', 'data-view="agents"', 'id="view-studio"', 'id="view-agents"', 'https://github.com/56eli/translatechan']) {
   if (publicHtml.includes(forbidden)) throw new Error(`public Pages scope regression: ${forbidden}`);
+}
+// B1 (a11y/perceived-performance): the persisted theme must be applied before
+// first paint by an external head script (theme-init.js), referenced before the
+// stylesheet, so returning dark-mode users don't see a light-mode flash.
+if (!publicHtml.includes('<script src="theme-init.js"></script>')) {
+  throw new Error('theme-init.js is not referenced from index.html');
+}
+if (publicHtml.indexOf('<script src="theme-init.js"></script>') > publicHtml.indexOf('<link rel="stylesheet" href="app.css">')) {
+  throw new Error('theme-init.js must load before app.css to prevent a theme flash');
+}
+if (!/localStorage[^]*translatechan_theme[^]*setAttribute\(['"]data-theme['"]/.test(themeInitSrc)) {
+  throw new Error('theme-init.js must read translatechan_theme and set data-theme before paint');
+}
+// B5: public share/SEO metadata and crawler files.
+for (const requiredMeta of [
+  'name="theme-color"',
+  'property="og:title"',
+  'property="og:description"',
+  'name="twitter:card"',
+  'rel="canonical" href="https://56eli.github.io/translatechan/"'
+]) {
+  if (!publicHtml.includes(requiredMeta)) throw new Error(`missing public metadata: ${requiredMeta}`);
+}
+for (const requiredFile of ['robots.txt', 'sitemap.xml']) {
+  if (!existsSync(join(ROOT, requiredFile)) || !existsSync(join(ROOT, 'docs', requiredFile))) {
+    throw new Error(`missing generated ${requiredFile} at root and docs/`);
+  }
+}
+// B3/B6: decorative nav emoji are hidden, and the hero chip count is data-derived.
+for (const iconSpan of publicHtml.match(/<span[^>]*>[\u{1F300}-\u{1FAFF}️⃣][^<]*<\/span>/gu) || []) {
+  if (iconSpan.includes('<span>Bilingual') || iconSpan.includes('<span>Comparative')) continue;
+  if (!iconSpan.includes('aria-hidden="true"')) throw new Error(`decorative emoji span is not aria-hidden: ${iconSpan}`);
+}
+if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.includes('translators.size')) {
+  throw new Error('hero translator/corpus counts are not derived from data');
+}
+// B4: app_data/app.js should use defer so parsing is not blocked while the
+// ~873 KB bundle downloads; order remains app_data.js then app.js.
+if (!publicHtml.includes('<script defer src="app_data.js"></script>')) {
+  throw new Error('app_data.js is not deferred');
+}
+if (publicHtml.indexOf('<script defer src="app_data.js"></script>') >= publicHtml.indexOf('<script defer src="app.js"></script>')) {
+  throw new Error('deferred scripts must preserve app_data.js before app.js order');
 }
 
 const store = {};
@@ -382,6 +427,16 @@ if (!lineageFilteredCards.includes('臨濟義玄') || lineageFilteredCards.inclu
 if (!ids['lineage-svg-graph']._innerHTML.includes('stroke="#b53335"')) {
   failures++; console.log('❌ lineage graph is not using the school_key color palette');
 }
+// 4m2b. The graph palette must be data-derived from school_vocabulary.json's
+// per-school `color` (audit A2): app.js must not carry a hardcoded school color
+// map, and every bundled school must expose a hex color.
+if (/indian_patriarchs:\s*'#/.test(appSrc) || /const schoolColors\s*=\s*\{/.test(appSrc)) {
+  failures++; console.log('❌ lineage graph still uses a hardcoded school color map instead of the vocabulary');
+}
+const bundledSchools = (window.TRANSLATECHAN_DATA.lineage_school_vocab || {}).schools || [];
+if (!bundledSchools.length || !bundledSchools.every(s => /^#[0-9a-fA-F]{6}$/.test(s.color))) {
+  failures++; console.log('❌ bundled school vocabulary is missing per-school hex colors');
+}
 (ids['lineage-school-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
 // 4m3. Lexicon category filter is data-derived and actually wired (state +
 // listener existed only after the 2026-08-09 vocabulary pass).
@@ -416,6 +471,44 @@ chipClick('all');
 // Lexicon header must keep disclosing that scoping.
 if (!publicHtml.includes('occurrence tags cite each term') || !publicHtml.includes('canonical work')) {
   failures++; console.log('❌ lexicon occurrence scope note missing');
+}
+// 4m6. Semantic document outline (a11y audit 2026-08-09): each public view's
+// title is a real heading element, not a styled <div>, so screen-reader users
+// get "next heading" navigation. The reader document title is an <h1> and every
+// case/section/matrix/master/lexicon card title is an <h2>.
+const outlineReaderHtml = ids['reader-content-target']._innerHTML;
+if (!/<h1 class="text-title-zh">/.test(outlineReaderHtml)) { failures++; console.log('❌ reader document title is not an <h1>'); }
+if ((outlineReaderHtml.match(/<h2 class="case-num-title">/g) || []).length < 48) {
+  failures++; console.log('❌ reader case/unit titles are not <h2> headings');
+}
+for (const [view, id] of [['matrix', 'matrix-content-target'], ['gongan', 'gongan-content-target'], ['lexicon', 'lexicon-content-target'], ['lineage', 'lineage-content-target']]) {
+  const html = ids[id]._innerHTML;
+  if (!/<h2 class="/.test(html)) { failures++; console.log(`❌ ${view} cards have no <h2> headings`); }
+}
+// The four non-reader view titles live as <h1 class="text-title-zh"> in index.html
+// (matrix, lineage, gongan, lexicon); the dossier heading also uses that class.
+const staticH1Count = (publicHtml.match(/<h1 class="text-title-zh">/g) || []).length;
+if (staticH1Count < 4) { failures++; console.log('❌ non-reader view titles are not <h1> in index.html'); }
+// 4m7. Corpus translations are explicit record objects, not legacy bare
+// strings (audit A4): every slot must carry text/status.
+let legacyStringSlots = 0;
+let corpusSlots = 0;
+(function walkTranslationRecords(value) {
+  if (Array.isArray(value)) return value.forEach(walkTranslationRecords);
+  if (value && typeof value === 'object') {
+    if (value.translations && typeof value.translations === 'object') {
+      Object.values(value.translations).forEach(slot => {
+        corpusSlots++;
+        if (typeof slot === 'string') legacyStringSlots++;
+      });
+    }
+    Object.values(value).forEach(walkTranslationRecords);
+  }
+})(window.TRANSLATECHAN_DATA.corpus);
+if (legacyStringSlots !== 0) failures++;
+if (corpusSlots < 874) failures++;
+if (legacyStringSlots !== 0 || corpusSlots < 874) {
+  console.log(`❌ corpus translation record migration incomplete: ${legacyStringSlots} legacy string(s), ${corpusSlots} slots`);
 }
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
@@ -456,7 +549,6 @@ await fireSearch('');
 // 4u. CSP/a11y hardening: no inline event-handler attributes may exist in
 // index.html or app.js source (a strict Content-Security-Policy is enforced
 // via the meta tag, so script-src 'self' must be satisfiable).
-const appSrc = readFileSync(join(ROOT, 'app.js'), 'utf8');
 for (const [label, src] of [['index.html', publicHtml], ['app.js', appSrc]]) {
   for (const attr of ['onclick="', 'onload="', 'onerror="', 'onchange="', 'oninput="', 'onmouseover="', 'onmouseout="', 'onkeydown="', 'onfocus="', 'onblur="']) {
     if (src.includes(attr)) { failures++; console.log(`❌ ${label} still contains inline handler attribute '${attr}'`); }

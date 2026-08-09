@@ -150,6 +150,9 @@ def validate_source(source: Any, path: str, issues: Issues) -> str | None:
         issues.error(path, "verified quotation requires a source object")
         return None
     require_fields(source, ("work", "edition", "reference", "verification", "source_id"), path, issues)
+    extra_fields = set(source) - {"work", "edition", "reference", "verification", "source_id", "page", "note", "gloss", "verified_by", "verified_date"}
+    if extra_fields:
+        issues.error(path, f"has unknown source field(s): {sorted(extra_fields)}")
     source_id = source.get("source_id")
     if nonempty_string(source_id) and not SOURCE_ID_RE.fullmatch(source_id):
         issues.error(path, "source_id must use lowercase letters, digits, and hyphens")
@@ -174,11 +177,14 @@ def validate_translation_map(
         entry_path = f"{path}.{register}"
         stats["corpus_slots"] += 1
         if nonempty_string(value):
-            status = "ai_draft" if str(register).startswith("ai_") else "reconstruction_unverified"
-            stats[status] += 1
+            # Legacy bare strings were supported while the corpus was seeded.
+            # The 2026-08-09 migration converted every slot to an object with
+            # explicit text/status; reject new plain strings so status remains
+            # self-describing data rather than a key-naming convention.
+            issues.error(entry_path, "legacy string translation; use { text, status } (run scripts/migrate_translations.py)")
             continue
         if not is_record(value):
-            issues.error(entry_path, "must be a non-empty string or translation object")
+            issues.error(entry_path, "must be a translation object { text, status }")
             continue
         if not nonempty_string(value.get("text")):
             issues.error(entry_path, "translation object requires non-empty 'text'")
@@ -186,6 +192,9 @@ def validate_translation_map(
         if status not in VALID_TRANSLATION_STATUSES:
             issues.error(entry_path, f"has invalid or missing status {status!r}")
             continue
+        extra_fields = set(value) - {"text", "status", "source"}
+        if extra_fields:
+            issues.error(entry_path, f"has unknown translation field(s): {sorted(extra_fields)}; allowed keys are text, status, source")
         stats[status] += 1
         if status == "verified_quotation":
             source = value.get("source")
@@ -320,6 +329,9 @@ def validate_matrix(
             if status not in VALID_TRANSLATION_STATUSES:
                 issues.error(entry_path, f"has invalid status {status!r}")
                 continue
+            extra_fields = set(entry) - {"translator", "work", "style", "text", "notes", "status", "source"}
+            if extra_fields:
+                issues.error(entry_path, f"has unknown matrix translator field(s): {sorted(extra_fields)}")
             stats[f"matrix_{status}"] += 1
             stats["matrix_entries"] += 1
             if status == "verified_quotation":
@@ -349,6 +361,18 @@ def load_controlled_vocabulary(path: Path, issues: Issues, field: str) -> dict[s
         if entry["key"] in vocab:
             issues.error(entry_path, f"duplicate key '{entry['key']}'")
         vocab[entry["key"]] = entry["display"]
+        # School vocabulary also carries the curated graph color; enforce a
+        # 3/6-digit hex so the lineage graph can derive its palette from data
+        # instead of a hardcoded map (audit A2, 2026-08-09).
+
+        allowed = {"key", "display", "color", "note"} if field == "schools" else {"key", "display", "note"}
+        extra_fields = set(entry) - allowed
+        if extra_fields:
+            issues.error(entry_path, f"has unknown {field[:-1]} field(s): {sorted(extra_fields)}")
+        if field == "schools":
+            color = entry.get("color")
+            if not isinstance(color, str) or not re.fullmatch(r"#[0-9a-fA-F]{6}", color):
+                issues.error(entry_path, "each school requires a 'color' string as a 6-digit hex (e.g. '#b53335') used by the lineage graph")
     return vocab
 
 
@@ -440,13 +464,17 @@ def validate_lineage_verification(lineage: Any, registry: Any, issues: Issues) -
         for index, source in enumerate(sources):
             source_path = f"{path}.sources[{index}]"
             require_fields(source, ("source_id", "title", "canonical_id", "reference", "source_type"), source_path, issues)
-            if is_record(source) and nonempty_string(source.get("source_id")):
-                source_id = source["source_id"]
-                if not SOURCE_ID_RE.fullmatch(source_id):
-                    issues.error(source_path, "source_id must use lowercase letters, digits, and hyphens")
-                if source_id in source_ids:
-                    issues.error(source_path, f"duplicate source_id '{source_id}'")
-                source_ids.add(source_id)
+            if is_record(source):
+                extra_fields = set(source) - {"source_id", "title", "canonical_id", "reference", "source_type"}
+                if extra_fields:
+                    issues.error(source_path, f"has unknown lineage source field(s): {sorted(extra_fields)}")
+                if nonempty_string(source.get("source_id")):
+                    source_id = source["source_id"]
+                    if not SOURCE_ID_RE.fullmatch(source_id):
+                        issues.error(source_path, "source_id must use lowercase letters, digits, and hyphens")
+                    if source_id in source_ids:
+                        issues.error(source_path, f"duplicate source_id '{source_id}'")
+                    source_ids.add(source_id)
 
     edges = registry.get("edges")
     actual_edges: set[tuple[str, str]] = set()
@@ -459,6 +487,9 @@ def validate_lineage_verification(lineage: Any, registry: Any, issues: Issues) -
             require_fields(edge, ("teacher", "disciple", "status", "source_id", "reference", "note"), edge_path, issues)
             if not is_record(edge):
                 continue
+            extra_fields = set(edge) - {"teacher", "disciple", "status", "source_id", "reference", "note"}
+            if extra_fields:
+                issues.error(edge_path, f"has unknown lineage edge field(s): {sorted(extra_fields)}")
             pair = (str(edge.get("teacher") or ""), str(edge.get("disciple") or ""))
             if pair in actual_edges:
                 issues.error(edge_path, f"duplicate edge {pair[0]} → {pair[1]}")

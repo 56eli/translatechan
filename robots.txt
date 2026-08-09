@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://56eli.github.io/translatechan/sitemap.xml

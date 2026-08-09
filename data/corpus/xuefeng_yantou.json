@@ -22,9 +22,18 @@
           "zh": "師與巖頭行腳至湖南，阻雪於鰲山。師每日兀兀端坐，巖頭每日只是大睡。師喚巖頭曰：「師兄！且起來！這箇時節，何暇瞌睡？」巖頭喝曰：「睡！睡！每日坐處，正如村裏土地堂中泥塑神一般，他時後日惑亂人家男女！」",
           "pinyin": "Shī yǔ Yántóu xíngjiǎo zhì Húnán, zǔ xuě yú Áoshān. Shī měi rì wùwù duānzuò, Yántóu měi rì zhǐshì dà shuì. Shī huàn Yántóu yuē: 'Shīxiōng! Qiě qǐlái! Zhègè shíjié, héxiá kēshuì?' Yántóu hè yuē: 'Shuì! Shuì! Měi rì zuò chù, zhèng rú cūnlǐ tǔdì táng zhōng nísù shén yībān, tāshí hòurì huòluàn rénjiā nánnǚ!'",
           "translations": {
-            "red_pine": "The Master traveled on pilgrimage with Yantou to Hunan, snowbound at Mount Ao. The Master sat upright in meditation every day, while Yantou spent every day sleeping. The Master called to Yantou: 'Elder Brother! Get up! In times like these, how can you doze!' Yantou shouted: 'Sleep! Sleep! Sitting every day like a clay idol in a village earth-god shrine—in the future you will only bewilder young men and women!'",
-            "cleary": "The Master was traveling with Yantou and got snowbound at Mount Ao. The Master sat meditating all day; Yantou slept all day. The Master shouted, 'Brother, get up! In such circumstances why do you sleep?' Yantou yelled, 'Sleep! Sitting all day like a clay spirit in a village shrine, later on you will fool people!'",
-            "sasaki": "Xuefeng and Yantou were snowbound on Mount Ao. Xuefeng sat in zazen all day; Yantou just slept. Xuefeng said: 'Brother, wake up!' Yantou shouted: 'Sleep! Sitting like a clay idol in a village shrine, you will only mislead people!'"
+            "red_pine": {
+              "text": "The Master traveled on pilgrimage with Yantou to Hunan, snowbound at Mount Ao. The Master sat upright in meditation every day, while Yantou spent every day sleeping. The Master called to Yantou: 'Elder Brother! Get up! In times like these, how can you doze!' Yantou shouted: 'Sleep! Sleep! Sitting every day like a clay idol in a village earth-god shrine—in the future you will only bewilder young men and women!'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Master was traveling with Yantou and got snowbound at Mount Ao. The Master sat meditating all day; Yantou slept all day. The Master shouted, 'Brother, get up! In such circumstances why do you sleep?' Yantou yelled, 'Sleep! Sitting all day like a clay spirit in a village shrine, later on you will fool people!'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Xuefeng and Yantou were snowbound on Mount Ao. Xuefeng sat in zazen all day; Yantou just slept. Xuefeng said: 'Brother, wake up!' Yantou shouted: 'Sleep! Sitting like a clay idol in a village shrine, you will only mislead people!'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -32,9 +41,18 @@
           "zh": "師撫胸曰：「我這裏未穩在，不敢自瞞。」",
           "pinyin": "Shī fǔ xiōng yuē: 'Wǒ zhèlǐ wèi wěn zài, bù gǎn zì mán.'",
           "translations": {
-            "red_pine": "The Master struck his chest and said: 'In here I am not yet at peace; I dare not deceive myself.'",
-            "cleary": "The Master rubbed his chest: 'In here I am not yet settled; I dare not fool myself.'",
-            "sasaki": "Xuefeng beat his chest: 'My heart is not yet at peace; I cannot deceive myself.'"
+            "red_pine": {
+              "text": "The Master struck his chest and said: 'In here I am not yet at peace; I dare not deceive myself.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Master rubbed his chest: 'In here I am not yet settled; I dare not fool myself.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Xuefeng beat his chest: 'My heart is not yet at peace; I cannot deceive myself.'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -42,9 +60,18 @@
           "zh": "巖頭曰：「汝若欲播揚大教，一一從自己胸襟中流出，將來與我蓋天蓋地去！」師於言下大悟，躍起禮拜，叫曰：「今日始是鰲山成道！」",
           "pinyin": "Yántóu yuē: 'Rǔ ruò yù bōyáng dàjiào, yīyī cóng zìjǐ xiōngjīn zhōng liúchū, jiānglái yǔ wǒ gài tiān gài dì qù!' Shī yú yán xià dà wù, yuè qǐ lǐbài, jiào yuē: 'Jīnrì shǐ shì Áoshān chéngdào!'",
           "translations": {
-            "red_pine": "Yantou said: 'If you wish to spread the great teaching, let every single expression flow out from your own bosom, to cover heaven and cover earth for me in the future!' At these words the Master attained great awakening, leaped up, bowed, and shouted: 'Today on Mount Ao, I have truly attained the Tao!'",
-            "cleary": "Yantou said, 'If you want to propagate the great teaching, let each word flow from your own bosom to cover heaven and earth.' The Master had great awakening, jumped up, and shouted, 'Today on Mount Ao I have attained the Way!'",
-            "sasaki": "Yantou said: 'If you wish to spread the great teaching, let every word flow out from your own breast to cover heaven and earth!' Xuefeng was deeply enlightened and shouted: 'Today on Mount Ao I have attained the Tao!'"
+            "red_pine": {
+              "text": "Yantou said: 'If you wish to spread the great teaching, let every single expression flow out from your own bosom, to cover heaven and cover earth for me in the future!' At these words the Master attained great awakening, leaped up, bowed, and shouted: 'Today on Mount Ao, I have truly attained the Tao!'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Yantou said, 'If you want to propagate the great teaching, let each word flow from your own bosom to cover heaven and earth.' The Master had great awakening, jumped up, and shouted, 'Today on Mount Ao I have attained the Way!'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yantou said: 'If you wish to spread the great teaching, let every word flow out from your own breast to cover heaven and earth!' Xuefeng was deeply enlightened and shouted: 'Today on Mount Ao I have attained the Tao!'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
@@ -60,9 +87,18 @@
           "zh": "師示眾云：「盡大地撮來，如粟米粒大。拋向面前，漆黑窠裏。打鼓普請看！」",
           "pinyin": "Shī shì zhòng yún: 'Jìn dàdì cuō lái, rú sùmǐlì dà. Pāo xiàng miànqián, qīhēi kē lǐ. Dǎgǔ pǔqǐng kàn!'",
           "translations": {
-            "red_pine": "The Master instructed the assembly: 'The entire great earth, picked up in your fingertips, is no larger than a grain of rice. Cast before your face, it is inside a pitch-black lacquer tub. Beat the drum to invite everyone to come look!'",
-            "cleary": "The Master said to the group: 'The whole great earth picked up is as big as a grain of rice. Thrown down before you, it is in a black tub. Beat the drum and invite all to look.'",
-            "sasaki": "Master Seppō said to the assembly: 'The whole great earth, picked up in your fingers, is no bigger than a grain of millet. Thrown before your eyes, it is pitch black. Beat the drum and call all to look!'"
+            "red_pine": {
+              "text": "The Master instructed the assembly: 'The entire great earth, picked up in your fingertips, is no larger than a grain of rice. Cast before your face, it is inside a pitch-black lacquer tub. Beat the drum to invite everyone to come look!'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Master said to the group: 'The whole great earth picked up is as big as a grain of rice. Thrown down before you, it is in a black tub. Beat the drum and invite all to look.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Master Seppō said to the assembly: 'The whole great earth, picked up in your fingers, is no bigger than a grain of millet. Thrown before your eyes, it is pitch black. Beat the drum and call all to look!'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
