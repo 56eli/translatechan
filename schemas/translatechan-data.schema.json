@@ -59,7 +59,7 @@
           }
         }
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "translationValue": { "$ref": "#/$defs/translationRecord" },
     "translationMap": {

@@ -189,6 +189,9 @@ def validate_translation_map(
         if status not in VALID_TRANSLATION_STATUSES:
             issues.error(entry_path, f"has invalid or missing status {status!r}")
             continue
+        extra_fields = set(value) - {"text", "status", "source"}
+        if extra_fields:
+            issues.error(entry_path, f"has unknown translation field(s): {sorted(extra_fields)}; allowed keys are text, status, source")
         stats[status] += 1
         if status == "verified_quotation":
             source = value.get("source")

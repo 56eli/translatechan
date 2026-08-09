@@ -46,27 +46,28 @@ deterministically.
 - Move `escHtml` first because many modules need it.
 - Keep `window.TranslateChan` public helpers stable for deep links.
 
-## C2 — JSON Schema strictness
+## C2 — JSON Schema strictness — partial progress shipped 2026-08-09
 
-**Current state:** The schema is permissive (`additionalProperties: true`) because
-`validate_data.py` carries most cross-file semantic checks. That is reasonable,
-but typos in optional fields can currently pass unnoticed.
+**Completed:**
 
-**Recommended incremental path:**
+- `translationValue` now points only at `translationRecord`; legacy bare strings
+  are no longer schema-valid.
+- `translationRecord.additionalProperties` is now `false`, so corpus translation
+  records only allow `text`, `status`, and `source`.
+- `validate_data.py` mirrors this strictness by rejecting unknown corpus
+  translation fields.
 
-1. After the A4 migration has settled, tighten `translationRecord` and
-   `corpusDocument` to forbid unknown properties.
+**Still recommended:**
+
+1. Tighten a small, stable object next (for example `quotationSource` after
+   confirming every source field in use).
 2. Add explicit schemas for corpus shape fields (`cases`, `sections`,
    `dialogues`, `stanzas`, `chapters`, `five_ranks`, `sample_records`).
-3. Do **not** tighten everything at once; corpus shapes are intentionally
-   heterogeneous and the Python validator handles them better than JSON Schema.
-4. Add a CI/schema-validation step only if the repository adopts a
-   dependency-free validator or a pinned Python package; avoid adding a Node
-   package just for schema validation.
-
-Best immediate target: the `translationRecord` object now has a stable shape and
-no legacy string union, so it is the safest first `additionalProperties: false`
-candidate after checking real records for optional metadata.
+3. Do **not** tighten heterogeneous corpus documents all at once; the Python
+   validator remains the better place for cross-shape semantics.
+4. A formal JSON Schema evaluator is not currently added (the runtime has no
+   `jsonschema` package and the project avoids extra dependencies); the Python
+   validator enforces the same invariants.
 
 ## C3 — `ingest_cbeta.py` naming — ✅ shipped 2026-08-09
 
