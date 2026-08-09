@@ -49,6 +49,14 @@ for (const iconSpan of publicHtml.match(/<span[^>]*>[\u{1F300}-\u{1FAFF}️⃣][
 if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.includes('translators.size')) {
   throw new Error('hero translator/corpus counts are not derived from data');
 }
+// B4: app_data/app.js should use defer so parsing is not blocked while the
+// ~873 KB bundle downloads; order remains app_data.js then app.js.
+if (!publicHtml.includes('<script defer src="app_data.js"></script>')) {
+  throw new Error('app_data.js is not deferred');
+}
+if (publicHtml.indexOf('<script defer src="app_data.js"></script>') >= publicHtml.indexOf('<script defer src="app.js"></script>')) {
+  throw new Error('deferred scripts must preserve app_data.js before app.js order');
+}
 
 const store = {};
 globalThis.localStorage = {

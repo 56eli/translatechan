@@ -112,8 +112,8 @@ probably the highest-value accessibility improvement remaining.
 **B3 — Decorative emoji are announced by screen readers (P4, a11y)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
 Decorative emoji spans in the brand, navigation tabs, search box, theme toggle, and hero chips now carry `aria-hidden="true"`; visible text labels remain intact. The theme toggle's JS-generated sun/moon glyph also renders inside an `aria-hidden` span. A smoke test guards that static decorative emoji spans in `index.html` are hidden from assistive technology.
 
-**B4 — `app_data.js` preload is redundant with the end-of-body `<script>` (P4, perf)**
-`index.html` has `<link rel="preload" as="script" href="app_data.js">` and later loads the same file with a normal `<script src>`. Browsers reuse the preload for a matching plain script request in modern engines, so this is mostly fine, but `defer` on both scripts would let them download in parallel with HTML parsing and execute in order after parse — a measurable first-paint win given the 873 KB bundle. Today both scripts are synchronous at the end of body, which is already decent; `defer` is a strict improvement and removes any ambiguity about preload reuse.
+**B4 — `app_data.js` preload/script loading (P4, perf)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
+The app data and application scripts now use `defer`, so browsers can start fetching the 873 KB bundle while parsing HTML instead of blocking at the end of body. The existing preload is retained for the classic global script, and order remains `app_data.js` before `app.js`; the app's DOM-ready path already supports deferred execution. A smoke test guards both the defer attributes and script order.
 
 **B5 — No `theme-color`, Open Graph/Twitter cards, or sitemap/robots (P4, polish)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
 Added light/dark `theme-color` meta tags, canonical URL, Open Graph title/description/url, Twitter card metadata, and root-level `robots.txt` and `sitemap.xml`. The build now copies both crawler files into `docs/`, and the smoke test checks that the metadata and generated crawler files exist.

@@ -30,7 +30,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <!-- D4: parse the ~790KB data bundle as early as possible -->
+  <!-- D4: parse the ~873KB data bundle as early as possible. A modulepreload is
+       not appropriate (app_data.js is a classic global script), so preload as
+       script; the matching defer <script> below reuses this download and keeps
+       execution ordered after HTML parsing. -->
   <link rel="preload" href="app_data.js" as="script">
 </head>
 <body>
@@ -271,8 +274,11 @@
     </div>
   </footer>
 
-  <!-- Corpus Data Bundle & Application Scripts -->
-  <script src="app_data.js"></script>
-  <script src="app.js"></script>
+  <!-- Corpus Data Bundle & Application Scripts.
+       defer starts both downloads immediately while HTML parsing continues;
+       app_data.js executes first and app.js second, immediately before
+       DOMContentLoaded, preserving the global-data initialization order. -->
+  <script defer src="app_data.js"></script>
+  <script defer src="app.js"></script>
 </body>
 </html>
