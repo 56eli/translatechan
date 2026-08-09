@@ -422,7 +422,7 @@ if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case pre
 if (!wmHtml.includes('Source location: T2005') || !wmHtml.includes('Case source: T2005, case 1') || !wmHtml.includes('citation-trigger')) {
   failures++; console.log('❌ reader source-location disclosure missing');
 }
-if (!wmHtml.includes('Page / section:') || !wmHtml.includes('Project register reconstruction — not a published book quotation') || !wmHtml.includes('AI draft — no external book quotation')) {
+if (!wmHtml.includes('Page / section:') || !wmHtml.includes('Robo channeling') || !wmHtml.includes('Robo draft')) {
   failures++; console.log('❌ reader translation/AI disclosure missing');
 }
 const citationId = (wmHtml.match(/data-citation-id="([^"]+)"/) || [])[1];
@@ -613,7 +613,7 @@ const matrixStatusCount = (matrixHtml.match(/class="translation-status/g) || [])
 if (matrixStatusCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixStatusCount} provenance badges (expected ${matrixEntries.length})`); }
 const matrixSourceCount = (matrixHtml.match(/class="translation-source/g) || []).length;
 if (matrixSourceCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixSourceCount} disclosure lines (expected ${matrixEntries.length})`); }
-if (!matrixHtml.includes('Source location:') || !matrixHtml.includes('Page / section:') || !matrixHtml.includes('AI draft — no external book quotation') || !matrixHtml.includes('citation-trigger')) {
+if (!matrixHtml.includes('Source location:') || !matrixHtml.includes('Page / section:') || !matrixHtml.includes('Robo') || !matrixHtml.includes('citation-trigger')) {
   failures++; console.log('❌ matrix citation/disclosure rendering missing');
 }
 // 4r. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)

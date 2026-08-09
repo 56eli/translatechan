@@ -442,6 +442,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "bodhidharma",
       "name_zh": "菩提達摩",
       "name_pinyin": "Pútídámó",
+      "name_romaji": "Bodaidaruma (Daruma)",
       "name_en": "Bodhidharma",
       "title": "First Patriarch of Chinese Chan (初祖)",
       "dates": "d. ~532 CE",
@@ -482,6 +483,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "huike",
       "name_zh": "二祖慧可",
       "name_pinyin": "Dazu Huìkě",
+      "name_romaji": "Eka",
       "name_en": "Dazu Huike",
       "title": "Second Patriarch of Chinese Chan (二祖)",
       "dates": "487–593 CE",
@@ -513,6 +515,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "sengcan",
       "name_zh": "三祖僧璨",
       "name_pinyin": "Jianzhi Sēngcàn",
+      "name_romaji": "Sōsan",
       "name_en": "Jianzhi Sengcan",
       "title": "Third Patriarch of Chinese Chan (三祖)",
       "dates": "d. 606 CE",
@@ -546,6 +549,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "daoxin",
       "name_zh": "四祖道信",
       "name_pinyin": "Dayi Dàoxìn",
+      "name_romaji": "Dōshin",
       "name_en": "Dayi Daoxin",
       "title": "Fourth Patriarch of Chinese Chan (四祖)",
       "dates": "580–651 CE",
@@ -578,6 +582,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "hongren",
       "name_zh": "五祖弘忍",
       "name_pinyin": "Daman Hóngrěn",
+      "name_romaji": "Gunin",
       "name_en": "Daman Hongren",
       "title": "Fifth Patriarch of Chinese Chan (五祖)",
       "dates": "601–674 CE",
@@ -611,6 +616,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "huineng",
       "name_zh": "六祖慧能",
       "name_pinyin": "Dajian Huìnéng",
+      "name_romaji": "Enō",
       "name_en": "Dajian Huineng",
       "title": "Sixth Patriarch of Chinese Chan (六祖)",
       "dates": "638–713 CE",
@@ -650,6 +656,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "mazu_daoyi",
       "name_zh": "馬祖道一",
       "name_pinyin": "Mǎzǔ Dàoyī",
+      "name_romaji": "Baso Dōitsu",
       "name_en": "Mazu Daoyi",
       "title": "Great Master Jiangxi Mazu (馬大師)",
       "dates": "709–788 CE",
@@ -690,6 +697,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "shitou_xiqian",
       "name_zh": "石頭希遷",
       "name_pinyin": "Shítóu Xīqiān",
+      "name_romaji": "Sekitō Kisen",
       "name_en": "Shitou Xiqian",
       "title": "Master Shitou (石頭大師)",
       "dates": "700–790 CE",
@@ -726,6 +734,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "baizhang_huaihai",
       "name_zh": "百丈懷海",
       "name_pinyin": "Bǎizhàng Huáihǎi",
+      "name_romaji": "Hyakujō Ekai",
       "name_en": "Baizhang Huaihai",
       "title": "Master Baizhang",
       "dates": "720–814 CE",
@@ -762,6 +771,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "huangbo_xiyun",
       "name_zh": "黃檗希運",
       "name_pinyin": "Huángbò Xīyùn",
+      "name_romaji": "Ōbaku Kiun",
       "name_en": "Huangbo Xiyun",
       "title": "Master Huangbo (斷際禪師)",
       "dates": "d. 850 CE",
@@ -802,6 +812,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "linji_yixuan",
       "name_zh": "臨濟義玄",
       "name_pinyin": "Línjì Yìxuán",
+      "name_romaji": "Rinzai Gigen",
       "name_en": "Linji Yixuan",
       "title": "Founder of the Linji (Rinzai) School (臨濟宗祖)",
       "dates": "d. 866 CE",
@@ -844,6 +855,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "zhaozhou_congshen",
       "name_zh": "趙州從諗",
       "name_pinyin": "Zhàozhōu Cóngshěn",
+      "name_romaji": "Jōshū Jūshin",
       "name_en": "Zhaozhou Congshen",
       "title": "Master Zhaozhou (趙州古佛)",
       "dates": "778–897 CE (Lived 120 years)",
@@ -882,6 +894,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "dongshan_liangjie",
       "name_zh": "洞山良价",
       "name_pinyin": "Dòngshān Liángjiè",
+      "name_romaji": "Tōzan Ryōkai",
       "name_en": "Dongshan Liangjie",
       "title": "Co-founder of Caodong (Soto) School (曹洞宗祖)",
       "dates": "807–869 CE",
@@ -923,6 +936,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "yunmen_wenyan",
       "name_zh": "雲門文偃",
       "name_pinyin": "Yúnmén Wényǎn",
+      "name_romaji": "Unmon Fugan",
       "name_en": "Yunmen Wenyan",
       "title": "Founder of the Yunmen School (雲門宗祖)",
       "dates": "864–949 CE",
@@ -961,6 +975,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "guishan_lingyou",
       "name_zh": "溈山靈祐",
       "name_pinyin": "Guīshān Língyòu",
+      "name_romaji": "Isan Reiyū",
       "name_en": "Guishan Lingyou",
       "title": "Co-founder of the Guiyang School (溈仰宗祖)",
       "dates": "771–853 CE",
@@ -996,6 +1011,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "fayan_wenyi",
       "name_zh": "法眼文益",
       "name_pinyin": "Fǎyǎn Wényì",
+      "name_romaji": "Hōgen Bun’eki",
       "name_en": "Fayan Wenyi",
       "title": "Founder of the Fayan School (法眼宗祖)",
       "dates": "885–958 CE",
@@ -1030,6 +1046,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "yuanwu_keqin",
       "name_zh": "圓悟克勤",
       "name_pinyin": "Yuánwù Kèqín",
+      "name_romaji": "Engo Kokugon",
       "name_en": "Yuanwu Keqin",
       "title": "Master Yuanwu (Foguo Chanshi)",
       "dates": "1063–1135 CE",
@@ -1070,6 +1087,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "wumen_huikai",
       "name_zh": "無門慧開",
       "name_pinyin": "Wúmén Huìkāi",
+      "name_romaji": "Mumon Ekai",
       "name_en": "Wumen Huikai",
       "title": "Master Wumen (Gateless Barrier)",
       "dates": "1183–1260 CE",
@@ -1107,6 +1125,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "nanyue_huairang",
       "name_zh": "南嶽懷讓",
       "name_pinyin": "Nányuè Huáiràng",
+      "name_romaji": "Nangaku Ejō",
       "name_en": "Nanyue Huairang",
       "title": "Great Master of Nanyue (南嶽懷讓禪師)",
       "dates": "677–744 CE",
@@ -1139,6 +1158,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "qingyuan_xingsi",
       "name_zh": "青原行思",
       "name_pinyin": "Qīngyuán Xíngsī",
+      "name_romaji": "Seigen Gyōshi",
       "name_en": "Qingyuan Xingsi",
       "title": "Chan Master Qingyuan (青原行思禪師)",
       "dates": "660–740 CE",
@@ -1171,6 +1191,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "nanquan_puyuan",
       "name_zh": "南泉普願",
       "name_pinyin": "Nánquán Pǔyuàn",
+      "name_romaji": "Nansen Fugan",
       "name_en": "Nanquan Puyuan",
       "title": "Great Master Nanquan (南泉普願禪師)",
       "dates": "748–835 CE",
@@ -1204,6 +1225,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "yaoshan_weiyan",
       "name_zh": "藥山惟儼",
       "name_pinyin": "Yàoshān Wéiyǎn",
+      "name_romaji": "Yakusan Igen",
       "name_en": "Yaoshan Weiyan",
       "title": "Great Master Yaoshan (藥山惟儼禪師)",
       "dates": "745–828 CE",
@@ -1237,6 +1259,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "yunyan_tansheng",
       "name_zh": "雲巖曇晟",
       "name_pinyin": "Yúnyán Tánshèng",
+      "name_romaji": "Ungan Donjō",
       "name_en": "Yunyan Tansheng",
       "title": "Chan Master Yunyan (雲巖曇晟禪師)",
       "dates": "782–841 CE",
@@ -1269,6 +1292,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "deshan_xuanjian",
       "name_zh": "德山宣鑑",
       "name_pinyin": "Déshān Xuānjiàn",
+      "name_romaji": "Tokusan Senkan",
       "name_en": "Deshan Xuanjian",
       "title": "Great Master Deshan (德山宣鑑禪師)",
       "dates": "782–865 CE",
@@ -1303,6 +1327,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "xuefeng_yicun",
       "name_zh": "雪峰義存",
       "name_pinyin": "Xuěfēng Yìcún",
+      "name_romaji": "Seppō Gison",
       "name_en": "Xuefeng Yicun",
       "title": "Chan Master Xuefeng (雪峰義存禪師 / 真覺禪師)",
       "dates": "822–908 CE",
@@ -1339,6 +1364,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "xuansha_shibei",
       "name_zh": "玄沙師備",
       "name_pinyin": "Xuánshā Shībèi",
+      "name_romaji": "Gensha Shibi",
       "name_en": "Xuansha Shibei",
       "title": "Great Master Xuansha (玄沙宗一禪師)",
       "dates": "835–908 CE",
@@ -1374,6 +1400,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "luohan_guichen",
       "name_zh": "羅漢桂琛",
       "name_pinyin": "Luóhàn Guìchēn",
+      "name_romaji": "Rakan Kishin",
       "name_en": "Luohan Guichen",
       "title": "Chan Master Luohan (漳州羅漢桂琛禪師)",
       "dates": "867–928 CE",
@@ -1406,6 +1433,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "baiyun_shouduan",
       "name_zh": "白雲守端",
       "name_pinyin": "Báiyún Shǒuduān",
+      "name_romaji": "Hakuun Shudan",
       "name_en": "Baiyun Shouduan",
       "title": "Chan Master Baiyun (舒州白雲守端禪師)",
       "dates": "1025–1072 CE",
@@ -1439,6 +1467,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "wuzu_fayan",
       "name_zh": "五祖法演",
       "name_pinyin": "Wǔzǔ Fǎyǎn",
+      "name_romaji": "Goso Hōen",
       "name_en": "Wuzu Fayan",
       "title": "Chan Master Wuzu Fayan (蘄州五祖法演禪師)",
       "dates": "1024–1104 CE",
@@ -1474,6 +1503,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "yuelin_shiguan",
       "name_zh": "月林師觀",
       "name_pinyin": "Yuèlín Shīguān",
+      "name_romaji": "Getrin Shikan",
       "name_en": "Yuelin Shiguan",
       "title": "Chan Master Yuelin (月林師觀禪師)",
       "dates": "1143–1217 CE",
@@ -1508,6 +1538,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "prajnatara",
       "name_zh": "般若多羅",
       "name_pinyin": "Bōrě Duōluó",
+      "name_romaji": "Hannyatara",
       "name_en": "Prajñātāra",
       "alternative_names": [
         "Prajna Tara",
@@ -1540,6 +1571,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "longtan_chongxin",
       "name_zh": "龍潭崇信",
       "name_pinyin": "Lóngtán Chóngxìn",
+      "name_romaji": "Ryūtan Sōshin",
       "name_en": "Longtan Chongxin",
       "alternative_names": [
         "Lung-tan Ch’ung-hsin",
@@ -1572,6 +1604,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "yangqi_fanghui",
       "name_zh": "楊岐方會",
       "name_pinyin": "Yángqí Fānghuì",
+      "name_romaji": "Yōgi Hōe",
       "name_en": "Yangqi Fanghui",
       "alternative_names": [
         "Yang-ch’i Fang-hui",
@@ -1604,6 +1637,7 @@ window.TRANSLATECHAN_DATA = {
       "id": "dahong_zuzheng",
       "name_zh": "大洪老衲祖證",
       "name_pinyin": "Dàhóng Lǎonà Zǔzhèng",
+      "name_romaji": "Daikō Sosei",
       "name_en": "Dahong Laoniu Zuzheng",
       "alternative_names": [
         "大洪祖證",
@@ -2255,6 +2289,382 @@ window.TRANSLATECHAN_DATA = {
       ]
     }
   ],
+  "translator_profiles": {
+    "schema_version": "1.0",
+    "methodology": {
+      "policy": "Every Robo-translator personality is built on REAL translation evidence, never on vague 'general characteristics'. Two evidence tiers are recorded explicitly per profile so a reader can see exactly what a Robo voice is grounded in.",
+      "tiers": {
+        "in_corpus_verified": "Profile features were extracted from this translator's VERIFIED quotation slots already present in this corpus (real public-domain or edition-checked text, each carrying a source record in data/translations/rights_manifest.json). The evidence sample slots are listed under evidence_pointers.",
+        "documented_external": "No in-corpus verified sample exists for this translator yet. The profile records widely-documented stylistic characteristics OF their published work (features about the work, not reproduced protected text). Marked evidence_pending until a verified sample is added; treat the Robo as a documented-style pastiche, not a corpus-grounded one."
+      },
+      "honesty_rule": "A Robo rendering always carries status reconstruction_unverified or ai_draft and the 'not the translator's actual words / do not cite' disclosure regardless of tier. The tier only states what the channeling is grounded in.",
+      "rendering_of_wu_legend": "How each translator is documented to render 無 in the Mu (Zhaozhou's dog) encounter — the single most diagnostic register marker."
+    },
+    "profiles": [
+      {
+        "register_key": "senzaki_reps",
+        "translator": "Nyogen Senzaki & Paul Reps",
+        "robo_name": "Senzaki & Reps (1934)",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 83,
+        "evidence_pointers": [
+          "data/corpus/wumenguan.json — 83 verified slots, every case (The Gateless Gate / 1934 Senzaki & Reps, U.S. public domain via non-renewal)"
+        ],
+        "rendering_of_wu": "Mu. (calm, period-terminated; the word left untranslated as a teaching device)",
+        "naming": "Joshu (no diacritic); appositive context added, e.g. 'Joshu, a Chinese Zen master'",
+        "observed_features": [
+          "Plain mid-20th-century American English; sparse and direct.",
+          "'Buddha-nature' with no article ('Has a dog Buddha-nature or not?').",
+          "Adds brief clarifying apposition ('a Chinese Zen master') — pedagogical narrator voice.",
+          "Calm punctuation: 'Mu.' with a period, not an exclamation."
+        ],
+        "personality": "The gentle elder who tells the old stories plainly, trusting the silence. Verified (real public-domain text)."
+      },
+      {
+        "register_key": "yamada",
+        "translator": "Kōun Yamada",
+        "robo_name": "Robo Yamada",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 24,
+        "evidence_pointers": [
+          "data/corpus/wumenguan.json — 24 verified slots (Gateless Gate / Yamada)"
+        ],
+        "rendering_of_wu": "Mu! (exclamatory)",
+        "naming": "Jôshû (circumflex romaji); 'the monk' / 'Jôshû'",
+        "observed_features": [
+          "Adds narrative color and tone: 'The monk asked Jôshû in all earnestness, ...'.",
+          "'Buddha nature' with no hyphen.",
+          "Sanbōkyōdai practical-meditation framing underneath a literal surface."
+        ],
+        "personality": "The patient sesshin guide who shades the scene so the mu lands in your hara."
+      },
+      {
+        "register_key": "aitken",
+        "translator": "Robert Aitken",
+        "robo_name": "Robo Aitken",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 6,
+        "evidence_pointers": [
+          "data/corpus/wumenguan.json — verified slots (Aitken, Gateless Gate)"
+        ],
+        "rendering_of_wu": "Mu. (period)",
+        "naming": "Chao-chou (Wade-Giles); 'the dog' with definite article",
+        "observed_features": [
+          "Wade-Giles romanization (Chao-chou).",
+          "'the dog Buddha nature' — definite article, lower-case, unhyphenated.",
+          "Plain, ethical, ecologically warm American Zen voice."
+        ],
+        "personality": "The socially-engaged roshi who keeps the koal clean and the conscience awake."
+      },
+      {
+        "register_key": "sekida",
+        "translator": "Katsuki Sekida",
+        "robo_name": "Robo Sekida",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 2,
+        "evidence_pointers": [
+          "data/corpus/wumenguan.json — 2 verified slots (Sekida, Gateless Gate)"
+        ],
+        "rendering_of_wu": "Mu. (period)",
+        "naming": "Jōshū (macron); 'the Buddha Nature' (article + caps)",
+        "observed_features": [
+          "Caps and articles key terms: 'the Buddha Nature'.",
+          "Macron romaji (Jōshū).",
+          "Technical, breath-and-hara practitioner's precision."
+        ],
+        "personality": "The laboratory technician of samadhi, measuring out the syllables."
+      },
+      {
+        "register_key": "blyth",
+        "translator": "R.H. Blyth",
+        "robo_name": "Robo Blyth",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 2,
+        "evidence_pointers": [
+          "data/corpus/wumenguan.json — Case 1 verified slots (Zen and Zen Classics v.4 / Mumonkan, Hokuseido 1966)"
+        ],
+        "rendering_of_wu": "Mu! (punchy, exclamatory)",
+        "naming": "Joshu (no diacritic); 'the Buddha-nature' (article + hyphen)",
+        "observed_features": [
+          "Narrative ease: 'A monk once asked Joshu, ...'.",
+          "Short, musical, haiku-paced clauses.",
+          "Draws the encounter toward poetry, humor, and Western literary resonance."
+        ],
+        "personality": "The haiku master who hears a bark and writes a universe. (Case 1 here is his real text.)"
+      },
+      {
+        "register_key": "sasaki",
+        "translator": "Ruth Fuller Sasaki",
+        "robo_name": "Robo Ruth",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 3,
+        "evidence_pointers": [
+          "data/corpus/linji_yulu.json — 3 verified slots (The Record of Linji, tr. Sasaki / ed. Kirchner, U Hawaii Press 2009)"
+        ],
+        "rendering_of_wu": "Mu (untranslated technical term)",
+        "naming": "Jōshū (macron); 'the Master' (capitalized) for the teacher",
+        "observed_features": [
+          "Capitalizes 'the Master' for the teacher.",
+          "Vivid literal bodily language: 'lump of red flesh', 'dried piece of shit'.",
+          "Em-dash asides and exclamatory pushes: 'look, look!', 'Speak, speak!'.",
+          "Famously renders 無位真人 as 'the true man without rank'."
+        ],
+        "personality": "The exacting Rinzai scholar who keeps the technical terms raw and the body vivid."
+      },
+      {
+        "register_key": "blofeld",
+        "translator": "John Blofeld",
+        "robo_name": "Roblofeld",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 4,
+        "evidence_pointers": [
+          "data/corpus/huangbo_wanling.json & huangbo_chuanxin.json — 4 verified slots (The Zen Teaching of Huang Po, Blofeld, Rider 1958 / Grove Press)"
+        ],
+        "rendering_of_wu": "None! (negative/emptiness, exclamatory)",
+        "naming": "'the Master'; capitalized abstract nouns",
+        "observed_features": [
+          "Capitalizes abstract nouns: 'Mind', 'One Mind', 'Buddha', 'Dharma'.",
+          "Parenthetical glosses: 'Dharma (Law)'.",
+          "Archaic formal British turn: 'It is that which you see before you—begin to reason about it and you at once fall into error.'",
+          "Emphasis on negation and emptiness: 'nothing but', 'neither...nor', 'unborn and indestructible'."
+        ],
+        "personality": "The Edwardian occultist-scholar who bows to the Void in gilded sentences."
+      },
+      {
+        "register_key": "clarke",
+        "translator": "Richard B. Clarke",
+        "robo_name": "Robo Clarke",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 2,
+        "evidence_pointers": [
+          "data/corpus/xinxin_ming.json — 2 verified slots (Verses on the Faith Mind, Clarke)"
+        ],
+        "rendering_of_wu": "(n/a in verified sample; poem register)",
+        "naming": "'the Great Way'",
+        "observed_features": [
+          "Poetic, aphoristic lineation: 'The Great Way is not difficult for those who have no preferences.'",
+          "Balanced antitheses (love/hate, like/dislike)."
+        ],
+        "personality": "The verse-carpenter who sands each antithesis until it gleams."
+      },
+      {
+        "register_key": "ferguson",
+        "translator": "Andy Ferguson",
+        "robo_name": "Robo Ferguson",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 2,
+        "evidence_pointers": [
+          "data/corpus/linji_yulu.json — 2 verified slots (Zen's Chinese Heritage, Ferguson)"
+        ],
+        "rendering_of_wu": "(n/a in verified sample)",
+        "naming": "'Linji'; biographical-narrative frame",
+        "observed_features": [
+          "Biographical storytelling frame: 'When Linji was about to die he sat upright and said, ...'.",
+          "Renders 正法眼藏 as 'Treasury of the True Dharma Eye'."
+        ],
+        "personality": "The indexer-historian who narrates the deathbed scene like a chronicle."
+      },
+      {
+        "register_key": "hoffman",
+        "translator": "Yoel Hoffman",
+        "robo_name": "Robo Hoffman",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 5,
+        "evidence_pointers": [
+          "data/corpus/yunmen_yulu.json — 5 verified slots (Hoffman compile/translation work)"
+        ],
+        "rendering_of_wu": "(n/a in verified sample)",
+        "naming": "Direct quotation framing",
+        "observed_features": [
+          "Compact encounter framing: 'A monk asked, \"What does it mean, 'Our founder came from the west'?\"'.",
+          "Anthologist's clean, restrained presentation."
+        ],
+        "personality": "The anthologist who lets the masters talk and steps out of the way."
+      },
+      {
+        "register_key": "shimomisse",
+        "translator": "Eiichi Shimomissé",
+        "robo_name": "Robo Shimomissé",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 2,
+        "evidence_pointers": [
+          "data/corpus/wumenguan.json — 2 verified slots (Shimomissé, Gateless Gate)"
+        ],
+        "rendering_of_wu": "Mu (nothing)! (glosses Mu inline)",
+        "naming": "Joshu (no diacritic); 'the dog', 'the Buddha nature' (article + caps, no hyphen)",
+        "observed_features": [
+          "Inline-glosses the technical term: 'Mu (nothing)!'.",
+          "Definite articles and capped 'Buddha nature'.",
+          "Teacherly, explicating tone."
+        ],
+        "personality": "The classroom sensei who parenthesizes the punchline so no one is lost."
+      },
+      {
+        "register_key": "watson",
+        "translator": "Burton Watson",
+        "robo_name": "Robo Watson",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 1,
+        "evidence_pointers": [
+          "data/corpus/linji_yulu.json — 1 verified slot (Watson, Linji)"
+        ],
+        "rendering_of_wu": "(n/a in verified sample)",
+        "naming": "'The Master'; 'a monk'",
+        "observed_features": [
+          "Literary, fluent academic narrative: 'The Master said to a monk, ...'.",
+          "Rendered 棒喝 as 'the precious sword of the Diamond King' register — vivid yet polished."
+        ],
+        "personality": "The man of letters who makes the shout sound like fine prose."
+      },
+      {
+        "register_key": "yampolsky",
+        "translator": "Philip Yampolsky",
+        "robo_name": "Robo Yampolsky",
+        "evidence_source": "in_corpus_verified",
+        "verified_sample_count": 2,
+        "evidence_pointers": [
+          "data/corpus/platform_sutra.json — 2 verified slots (The Platform Sutra, Yampolsky, Columbia UP)"
+        ],
+        "rendering_of_wu": "(n/a in verified sample)",
+        "naming": "Caps inherited Buddhist terms: 'Bodhi'",
+        "observed_features": [
+          "Academic, precise, lightly annotated register.",
+          "'The body is the Bodhi tree, the mind is like a clear mirror.' — clean, exact, citable."
+        ],
+        "personality": "The Columbia don who footnotes the enlightenment."
+      },
+      {
+        "register_key": "red_pine",
+        "translator": "Red Pine (Bill Porter)",
+        "robo_name": "Robo Red Pine",
+        "evidence_source": "documented_external",
+        "evidence_pending": "No in-corpus verified sample yet. Profile records widely-documented features of his The Gateless Gate (Counterpoint 2000s) style; add a verified sample to promote this profile to in_corpus_verified.",
+        "rendering_of_wu": "No. (plain English; he famously renders 無 as 'No')",
+        "naming": "Pinyin (Zhaozhou); minimal honorifics",
+        "observed_features": [
+          "Deliberately plain, conversational American English.",
+          "Pinyin romanization throughout; few Japanese terms.",
+          "Light, readable, unpretentious — often the most accessible version."
+        ],
+        "personality": "The wanderer-poet who translates the way he talks: no fuss, just the road.",
+        "sample_search": {
+          "date": "2026-08-09",
+          "outcome": "No reliable, verbatim, edition-verifiable online source found for this translator’s rendering of a corpus-aligned passage. Major works are modern and copyrighted (Red Pine, The Gateless Gate / Cleary, No Barrier: Unlocking the Zen Koan, 1993). Remains documented_external until a print-edition-verified sample is contributed. Promotion to in_corpus_verified requires the owner to supply the exact text from a print edition (then a copyrighted_or_rights_uncertain / needs_rights_review rights record is added, as for the 11 other modern translators already in the manifest)."
+        }
+      },
+      {
+        "register_key": "cleary",
+        "translator": "Thomas Cleary",
+        "robo_name": "Robo T-Cleary",
+        "evidence_source": "documented_external",
+        "evidence_pending": "No in-corpus verified sample yet. Profile records widely-documented features of his No Barrier / Unlocking the Zen Gate style; add a verified sample to promote.",
+        "rendering_of_wu": "No. (philosophical, categorical)",
+        "naming": "'Master Zhaozhou'; 'the Buddha-nature'",
+        "observed_features": [
+          "Scholarly, precise, philosophically clean.",
+          "Tends to definite articles and exact terms: 'the Buddha-nature'.",
+          "Often pairs translation with explanatory apparatus in the wider work."
+        ],
+        "personality": "The systematic scholar who files each particle in its philosophical drawer.",
+        "sample_search": {
+          "date": "2026-08-09",
+          "outcome": "No reliable, verbatim, edition-verifiable online source found for this translator’s rendering of a corpus-aligned passage. Major works are modern and copyrighted (Red Pine, The Gateless Gate / Cleary, No Barrier: Unlocking the Zen Koan, 1993). Remains documented_external until a print-edition-verified sample is contributed. Promotion to in_corpus_verified requires the owner to supply the exact text from a print edition (then a copyrighted_or_rights_uncertain / needs_rights_review rights record is added, as for the 11 other modern translators already in the manifest)."
+        }
+      },
+      {
+        "register_key": "suzuki",
+        "translator": "D.T. Suzuki",
+        "robo_name": "Robozuki",
+        "evidence_source": "in_corpus_verified",
+        "rendering_of_wu": "Mu. (he did much to canonize 'Mu' in English)",
+        "naming": "Wade-Giles (Chao-chou); 'the Master'",
+        "observed_features": [
+          "Caps the key term: 'The Perfect Way knows no difficulties ...'.",
+          "Abstracts the verb: 'refuses to make preferences' for 唯嫌揀擇.",
+          "Semicolon-heavy, lineated, slightly archaic early-20th-century academic English.",
+          "Rendered from the Japanese title Shinjin-no-mei; reads the Chinese via the Sino-Japanese tradition."
+        ],
+        "personality": "The ambassador-professor who lectures the West into the koan, sentence by sentence.",
+        "verified_sample_count": 5,
+        "evidence_pointers": [
+          "data/corpus/xinxin_ming.json — stanza 1 (Manual of Zen Buddhism, 1935, IV.2 'Believing in Mind')",
+          "data/corpus/bodhidharma_erru.json — Twofold Entrance opening (1935, IV.1)",
+          "data/corpus/zhengdao_ge.json — stanza 1 (1935, IV.4 'Song of Enlightenment')",
+          "data/corpus/huangbo_chuanxin.json — One Mind opening (1935, IV.6 'Huang-po's Sermon')",
+          "data/corpus/biyanlu_cases.json — case 88 / Gensha three invalids (1935, IV.7, literal Case LXXXVIII)"
+        ]
+      },
+      {
+        "register_key": "heine",
+        "translator": "Steven Heine",
+        "robo_name": "Robo Heine",
+        "evidence_source": "documented_external",
+        "evidence_pending": "No in-corpus verified sample yet. Profile records widely-documented features of his critical-hermeneutic style (e.g. Like Cats and Dogs); add a verified sample to promote.",
+        "rendering_of_wu": "Wu. (critical, contextual)",
+        "naming": "Pinyin; heavy contextualization",
+        "observed_features": [
+          "Critical-hermeneutic, academic; foregrounds textual variants and context.",
+          "Likely to note the parallel 有/'Yes' recension of the dog case."
+        ],
+        "personality": "The textual detective who won't let you read one version in peace."
+      },
+      {
+        "register_key": "liebenthal",
+        "translator": "Walter Liebenthal",
+        "robo_name": "Robo Liebenthal",
+        "evidence_source": "documented_external",
+        "evidence_pending": "No in-corpus verified sample yet. Profile records widely-documented features of his scholarly Chao-lun style; add a verified sample to promote.",
+        "rendering_of_wu": "(n/a)",
+        "naming": "Academic, sinological",
+        "observed_features": [
+          "Dense sinological translation with philosophical commentary.",
+          "Scholarly, exacting, European-academic register."
+        ],
+        "personality": "The sinologist who treats every character as a philological event."
+      },
+      {
+        "register_key": "snyder",
+        "translator": "Gary Snyder",
+        "robo_name": "Robo Snyder",
+        "evidence_source": "documented_external",
+        "evidence_pending": "No in-corpus verified sample yet. Profile records widely-documented features of Snyder's poet-ecologist Chan/Buddhist voice; add a verified sample to promote.",
+        "rendering_of_wu": "(n/a)",
+        "naming": "Plain, place-rooted",
+        "observed_features": [
+          "Poet's ear; plain, muscular, nature-rooted diction.",
+          "Worker-practitioner cadence."
+        ],
+        "personality": "The poet-ranger who splits the koan like firewood."
+      },
+      {
+        "register_key": "adamek",
+        "translator": "Wendi L. Adamek",
+        "robo_name": "Robo Adamek",
+        "evidence_source": "documented_external",
+        "evidence_pending": "No in-corpus verified sample yet. Profile records widely-documented features of her scholarly transmission-records work; add a verified sample to promote.",
+        "rendering_of_wu": "(n/a)",
+        "naming": "Academic, source-critical",
+        "observed_features": [
+          "Source-critical academic register; attentive to manuscript and institutional context."
+        ],
+        "personality": "The archivist who reads the transmission record against the grain."
+      },
+      {
+        "register_key": "ai_literal",
+        "translator": "(no human translator — the literal machine)",
+        "robo_name": "Robo-Literal",
+        "evidence_source": "not_applicable",
+        "evidence_pending": "This is the project's own conspicuously word-for-word literal renderer, included as a control/reference against the translator-channelled Robos. It is intentionally wooden.",
+        "rendering_of_wu": "Wú [not-have]. (glossed literally)",
+        "naming": "Bare transliteration with bracketed glosses",
+        "observed_features": [
+          "Word-by-word, bracketed glosses, minimal English smoothing.",
+          "Exists to make the distance between source and interpretation visible."
+        ],
+        "personality": "The literal machine. It does not charm; it exposes the grammar."
+      }
+    ]
+  },
   "translations_provenance": {
     "policy_version": "2.2",
     "policy_date": "2026-08-08",
@@ -2555,6 +2965,14 @@ window.TRANSLATECHAN_DATA = {
         "review_status": "needs_rights_review",
         "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
         "rights_note": "Columbia University Press edition cited in source metadata."
+      },
+      {
+        "source_id": "suzuki-mzb-1935",
+        "translator": "D.T. Suzuki",
+        "rights_status": "public_domain_claimed_us",
+        "review_status": "jurisdiction_review_required",
+        "redistribution_policy": "Use the cited 1935 text with source attribution; confirm public-domain status in each distribution jurisdiction.",
+        "rights_note": "Manual of Zen Buddhism (1935) is recorded as U.S. public domain via non-renewal (hosted by sacred-texts.com and Golden Elixir Press as PD). That claim is jurisdiction-specific."
       }
     ]
   },
@@ -4551,7 +4969,7 @@ window.TRANSLATECHAN_DATA = {
       "documents": 36
     },
     "corpus": {
-      "all_corpus_cjk_characters": 106160,
+      "all_corpus_cjk_characters": 106172,
       "complete_documents": [
         "biyanlu_cases",
         "wumenguan"
@@ -4594,7 +5012,7 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "biyanlu_cases": {
-          "all_cjk_chars": 76755,
+          "all_cjk_chars": 76761,
           "cbeta_id": "T2003",
           "content_zh_chars": 75658,
           "coverage": "100/100 cases",
@@ -4609,7 +5027,7 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "bodhidharma_erru": {
-          "all_cjk_chars": 456,
+          "all_cjk_chars": 460,
           "cbeta_id": "T2009",
           "content_zh_chars": 386,
           "shapes": [
@@ -4768,7 +5186,7 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "huangbo_chuanxin": {
-          "all_cjk_chars": 143,
+          "all_cjk_chars": 145,
           "cbeta_id": "T2012A",
           "content_zh_chars": 102,
           "shapes": [
@@ -5049,17 +5467,17 @@ window.TRANSLATECHAN_DATA = {
       "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
     },
     "rights_coverage": {
-      "distinct_verified_sources": 13,
-      "manifest_sources": 13,
-      "verified_source_records": 140
+      "distinct_verified_sources": 14,
+      "manifest_sources": 14,
+      "verified_source_records": 145
     },
     "schema_version": "1.0",
     "translations": {
-      "corpus_slots": 1023,
+      "corpus_slots": 1024,
       "corpus_statuses": {
         "ai_draft": 206,
-        "reconstruction_unverified": 679,
-        "verified_quotation": 138
+        "reconstruction_unverified": 675,
+        "verified_quotation": 143
       },
       "matrix_entries": 21,
       "matrix_statuses": {
@@ -5067,10 +5485,10 @@ window.TRANSLATECHAN_DATA = {
         "reconstruction_unverified": 18,
         "verified_quotation": 2
       },
-      "verified_corpus_texts": 7,
+      "verified_corpus_texts": 10,
       "verified_reference_coverage": {
         "pending": 5,
-        "recorded": 135
+        "recorded": 140
       }
     }
   },
@@ -5736,19 +6154,19 @@ window.TRANSLATECHAN_DATA = {
               "pinyin": "Zhàozhōu héshang yīn sēng wèn: 'Gǒuzi hái yǒu fóxìng yě wú?'",
               "translations": {
                 "red_pine": {
-                  "text": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?'",
+                  "text": "A monk asked Zhaozhou, ‘Does a dog have Buddha-nature or not?’",
                   "status": "reconstruction_unverified"
                 },
                 "cleary": {
-                  "text": "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?'",
+                  "text": "A monk asked Master Zhaozhou, ‘Does a dog have the Buddha-nature?’",
                   "status": "reconstruction_unverified"
                 },
                 "sasaki": {
-                  "text": "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?'",
+                  "text": "A monk asked the Master Jōshū, ‘Does even a dog have the Buddha-nature or not?’",
                   "status": "reconstruction_unverified"
                 },
                 "suzuki": {
-                  "text": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
+                  "text": "A monk asked the Master Chao-chou, ‘Has a dog the Buddha-nature, or has it not?’",
                   "status": "reconstruction_unverified"
                 },
                 "blyth": {
@@ -5764,11 +6182,11 @@ window.TRANSLATECHAN_DATA = {
                   }
                 },
                 "blofeld": {
-                  "text": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
+                  "text": "A monk enquired of the Master Chao-chou, saying, ‘Has a dog the Buddha-nature, or has it not?’",
                   "status": "reconstruction_unverified"
                 },
                 "ai_literal": {
-                  "text": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
+                  "text": "Zhaozhou-monk, because [a] monk asked: ‘Dog, also have Buddha-nature, or not?’",
                   "status": "ai_draft"
                 },
                 "senzaki_reps": {
@@ -5834,19 +6252,19 @@ window.TRANSLATECHAN_DATA = {
               "pinyin": "Zhōu yún: 'Wú.'",
               "translations": {
                 "red_pine": {
-                  "text": "Zhaozhou said: 'Wu!'",
+                  "text": "Zhaozhou said, ‘No.’",
                   "status": "reconstruction_unverified"
                 },
                 "cleary": {
-                  "text": "Zhaozhou said, 'No.'",
+                  "text": "Zhaozhou said, ‘No.’",
                   "status": "reconstruction_unverified"
                 },
                 "sasaki": {
-                  "text": "Jōshū said: 'Mu!'",
+                  "text": "Jōshū said, ‘Mu!’",
                   "status": "reconstruction_unverified"
                 },
                 "suzuki": {
-                  "text": "Chao-chou replied: 'Wu!'",
+                  "text": "To which the Master replied, ‘Mu.’",
                   "status": "reconstruction_unverified"
                 },
                 "blyth": {
@@ -5863,11 +6281,11 @@ window.TRANSLATECHAN_DATA = {
                   }
                 },
                 "blofeld": {
-                  "text": "The Master replied: 'None!'",
+                  "text": "The Master made answer, ‘None!’",
                   "status": "reconstruction_unverified"
                 },
                 "ai_literal": {
-                  "text": "Zhou said: 'Not.'",
+                  "text": "Zhou said: ‘Wú [not-have].’",
                   "status": "ai_draft"
                 },
                 "senzaki_reps": {
@@ -10295,8 +10713,16 @@ window.TRANSLATECHAN_DATA = {
                   "status": "reconstruction_unverified"
                 },
                 "suzuki": {
-                  "text": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
-                  "status": "reconstruction_unverified"
+                  "text": "Buddhas and sentient beings both grow out of One Mind, and there is no other reality than this Mind. It has been in existence since the beginningless past; it knows neither birth nor death; it is neither blue nor yellow; it has neither shape nor form; it is beyond the category of being and non-being; it is not to be measured by age, old or new; it is neither long nor short; it is neither large nor small; for it transcends all limits, words, traces, and opposites. It must be taken just as it is in itself; when an attempt is made on our part to grasp it in our thoughts, it eludes. It is like space whose boundaries are altogether beyond measurement; no concepts are applicable here.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Manual of Zen Buddhism",
+                    "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.6 'Huang-po's Sermon, from Treatise on the Essentials of the Transmission of Mind (Denshin Hoyo)'",
+                    "reference": "Section IV.6, opening (One Mind / 一心)",
+                    "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; opening wording matches verbatim.",
+                    "source_id": "suzuki-mzb-1935",
+                    "page": "IV.6, opening"
+                  }
                 },
                 "ai_literal": {
                   "text": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs.",
@@ -10602,11 +11028,19 @@ window.TRANSLATECHAN_DATA = {
               "status": "reconstruction_unverified"
             },
             "suzuki": {
-              "text": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
-              "status": "reconstruction_unverified"
+              "text": "The Perfect Way knows no difficulties except that it refuses to make preferences; only when freed from hate and love, it reveals itself fully and without disguise.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Manual of Zen Buddhism",
+                "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.2 'On Believing in Mind (Shinjin-no-mei)'",
+                "reference": "Section IV.2, stanza 1",
+                "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; stanza-1 wording matches verbatim.",
+                "source_id": "suzuki-mzb-1935",
+                "page": "IV.2, stanza 1"
+              }
             },
             "blyth": {
-              "text": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
+              "text": "The Perfect Way is not hard — it only hates picking and choosing. Free of love and hate, it stands clear and undisguised.",
               "status": "reconstruction_unverified"
             },
             "sasaki": {
@@ -13326,6 +13760,18 @@ window.TRANSLATECHAN_DATA = {
                 "ai_literal": {
                   "text": "Xuansha addressed the assembly: 'The venerable ones everywhere speak of welcoming beings and benefiting life. Suppose three kinds of patients arrive — how will you receive them? For one suffering blindness: hold up the hammer, raise the whisk — but he cannot see. For one suffering deafness: speak in your samadhi of words — but he cannot hear. For one suffering muteness: tell him to speak — but he cannot speak. How will you receive them? If you cannot receive these people, the Buddha's teaching has no true power.' A monk asked Yunmen about this. Yunmen said, 'You — bow.' As the monk arose from bowing, Yunmen jabbed at him with the staff; the monk stepped back. Yunmen said, 'You are not blind.' Again he said, 'Come closer.' The monk came closer. Yunmen said, 'You are not deaf.' Then he asked, 'Do you understand?' The monk said, 'No.' Yunmen said, 'You are not mute.' At this, the monk had insight.",
                   "status": "ai_draft"
+                },
+                "suzuki": {
+                  "text": "It is asserted by all the worthy masters of the present time that they are working for the benefit of all beings. This being the case, what will you do if there suddenly appear before you three kinds of invalids? Those who are blind fail to see you even when you hold up a mallet or a hossu. Those who are deaf fail to hear you even when you talk volubly enough. Those who are dumb fail to speak out, whatever understanding they may have inwardly. What treatment are you going to accord to such people? If you do not know how to go on with them, Buddhism must be said to be lacking in miraculous works.",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Manual of Zen Buddhism",
+                    "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.7 'Gensha on the Three Invalids' (a literal translation of Case LXXXVIII of the Pi-yen Chi / Biyanlu)",
+                    "reference": "Section IV.7, Illustrative Case (= Biyanlu Case 88, 玄沙三種病人)",
+                    "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; Suzuki labels it a literal translation of Pi-yen Chi Case LXXXVIII; main-case sermon wording matches verbatim (Yengo's bracketed interjections omitted).",
+                    "source_id": "suzuki-mzb-1935",
+                    "page": "IV.7, Illustrative Case"
+                  }
                 }
               }
             }
@@ -15390,8 +15836,16 @@ window.TRANSLATECHAN_DATA = {
               "status": "reconstruction_unverified"
             },
             "suzuki": {
-              "text": "Have you not seen him who has ceased learning and is at ease with life, who neither expels delusion nor seeks reality? The true nature of ignorance is the Buddha-nature; the empty illusory body is the Dharma body.",
-              "status": "reconstruction_unverified"
+              "text": "Knowest thou that leisurely philosopher who has gone beyond learning and is not exerting himself in anything? He neither endeavours to avoid idle thoughts nor seeks after the truth; for he knows that ignorance in reality is the Buddha-nature, and that this empty visionary body is no less than the Dharma-body.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Manual of Zen Buddhism",
+                "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.4 'Yoka Daishi's Song of Enlightenment' (Cheng-tao Ke / Zhengdao Ge)",
+                "reference": "Section IV.4, stanza 1",
+                "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; stanza-1 wording matches verbatim (Suzuki's bracketed glosses folded into the sentence).",
+                "source_id": "suzuki-mzb-1935",
+                "page": "IV.4, stanza 1"
+              }
             },
             "sasaki": {
               "text": "Do you not see the person of the Way who has finished learning, free of contrivance and at ease, who neither casts out delusion nor seeks the true? The real nature of ignorance is Buddha-nature; this illusory body is the Dharma-body.",
@@ -15529,8 +15983,16 @@ window.TRANSLATECHAN_DATA = {
                   "status": "reconstruction_unverified"
                 },
                 "suzuki": {
-                  "text": "There are many ways to enter the Path, but briefly speaking they are of two sorts only: the Entrance by Reason and the Entrance by Conduct.",
-                  "status": "reconstruction_unverified"
+                  "text": "There are many ways to enter the Path, but briefly speaking they are of two sorts only. The one is \"Entrance by Reason\" and the other \"Entrance by Conduct\".",
+                  "status": "verified_quotation",
+                  "source": {
+                    "work": "Manual of Zen Buddhism",
+                    "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.1 'Bodhidharma on the Twofold Entrance to the Tao' (from The Transmission of the Lamp, XXX)",
+                    "reference": "Section IV.1, opening (理入 / 行入)",
+                    "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; wording matches verbatim (one scan capitalization typo normalized).",
+                    "source_id": "suzuki-mzb-1935",
+                    "page": "IV.1, opening"
+                  }
                 },
                 "sasaki": {
                   "text": "Many are the ways to enter the Tao, but in essence they are of two kinds: Entrance by Principle and Entrance by Practice.",

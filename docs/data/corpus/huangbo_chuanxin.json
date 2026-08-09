@@ -38,8 +38,16 @@
               "status": "reconstruction_unverified"
             },
             "suzuki": {
-              "text": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
-              "status": "reconstruction_unverified"
+              "text": "Buddhas and sentient beings both grow out of One Mind, and there is no other reality than this Mind. It has been in existence since the beginningless past; it knows neither birth nor death; it is neither blue nor yellow; it has neither shape nor form; it is beyond the category of being and non-being; it is not to be measured by age, old or new; it is neither long nor short; it is neither large nor small; for it transcends all limits, words, traces, and opposites. It must be taken just as it is in itself; when an attempt is made on our part to grasp it in our thoughts, it eludes. It is like space whose boundaries are altogether beyond measurement; no concepts are applicable here.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Manual of Zen Buddhism",
+                "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.6 'Huang-po's Sermon, from Treatise on the Essentials of the Transmission of Mind (Denshin Hoyo)'",
+                "reference": "Section IV.6, opening (One Mind / 一心)",
+                "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; opening wording matches verbatim.",
+                "source_id": "suzuki-mzb-1935",
+                "page": "IV.6, opening"
+              }
             },
             "ai_literal": {
               "text": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs.",

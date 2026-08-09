@@ -1,6 +1,12 @@
 /**
- * TranslateChan - Interactive Classical Chan Translation & Preservation Platform
+ * Fake Chan Factory - Interactive Classical Chan Translation Playground
  * Zero-backend client-side application for GitHub Pages.
+ *
+ * NOTE on naming: the user-facing brand is "Fake Chan Factory", but the
+ * internal JS API namespace (window.TranslateChan), the persisted localStorage
+ * keys (translatechan_*), and the data global (TRANSLATECHAN_DATA) keep the
+ * original "translatechan" identifiers so returning users keep their prefs and
+ * the test suite keeps working. Only visible text was rebranded.
  */
 
 (function() {
@@ -72,6 +78,7 @@
       catch (e) { return {}; }
     })(),
     theme: storageGet('translatechan_theme') || 'light',
+    nameMode: (() => { const v = storageGet('translatechan_name_mode'); return v === 'romaji' ? 'romaji' : 'pinyin'; })(),
     searchQuery: '',
     selectedMasterSchool: 'all',
     lineageSort: 'generation',
@@ -119,7 +126,7 @@
       if (name && !/\bAI\b/i.test(name)) translators.add(name);
     }));
     if (translatorChip) {
-      translatorChip.textContent = `⚖️ ${translators.size} Translators Aligned`;
+      translatorChip.textContent = `🤖 ${translators.size} Robo-Translators`;
     }
   }
 
@@ -140,6 +147,7 @@
     if (m && m[2]) setCurrentCorpusKey(m[2]);
 
     applyTheme(state.theme);
+    syncSettingsUI();
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
     updateHeroCounts();
     populateLineageSchoolFilter();
@@ -240,6 +248,84 @@
     }
     showTermPopover(termSpan);
     if (termPopoverEl) termPopoverEl._anchor = termSpan;
+  }
+
+  // ---- Robo-name real-fakeness popover (hover/focus/tap a Robo name) ----
+  let roboPopoverEl = null;
+  function getRoboPopover() {
+    if (!roboPopoverEl) {
+      roboPopoverEl = document.createElement('div');
+      roboPopoverEl.id = 'robo-popover';
+      roboPopoverEl.className = 'robo-popover';
+      roboPopoverEl.setAttribute('role', 'tooltip');
+      roboPopoverEl.style.display = 'none';
+      roboPopoverEl.addEventListener('mouseleave', () => { hideRoboPopover(); });
+      document.body.appendChild(roboPopoverEl);
+    }
+    return roboPopoverEl;
+  }
+  function showRoboPopover(span) {
+    if (!span || typeof span.getBoundingClientRect !== 'function') return;
+    const key = span.getAttribute('data-robo-key');
+    const p = key ? profileForKey(key) : null;
+    const meta = p ? fakenessFromProfile(p) : null;
+    const pop = getRoboPopover();
+    if (meta) {
+      const hour = meta.pending ? ' \u23f3' : '';
+      pop.innerHTML =
+        `<div class="tooltip-term-title">${escHtml(p.robo_name)} <span class="robo-score">\u{1F916} ${escHtml(meta.label)}${hour}</span></div>` +
+        `<div class="robo-tier-row">Real-fakeness: tier ${meta.tier}/5 · ${meta.pending ? 'evidence pending' : 'evidence-backed'}</div>` +
+        `<div class="tooltip-row">${escHtml(meta.blurb)}</div>` +
+        (meta.wu ? `<div class="tooltip-row"><strong>Renders 無:</strong> ${escHtml(meta.wu)}</div>` : '') +
+        (meta.personality ? `<div class="tooltip-row" style="margin-top:.35rem;font-style:italic;color:var(--text-secondary)">${escHtml(meta.personality)}</div>` : '');
+    } else {
+      pop.innerHTML = `<div class="tooltip-term-title">Robo channeling</div><div class="tooltip-row">AI text in a translator\u2019s register — not their actual words. Profile pending.</div>`;
+    }
+    pop.style.display = 'block';
+    positionFloatingPopover(pop, span, 300);
+    pop._anchor = span;
+  }
+  function hideRoboPopover() {
+    if (roboPopoverEl) roboPopoverEl.style.display = 'none';
+  }
+  function toggleRoboPopover(span) {
+    if (roboPopoverEl && roboPopoverEl.style.display === 'block' && roboPopoverEl._anchor === span) {
+      hideRoboPopover();
+      return;
+    }
+    showRoboPopover(span);
+  }
+  function setupRoboNameListeners() {
+    document.addEventListener('mouseover', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      if (span) showRoboPopover(span);
+    });
+    document.addEventListener('mouseout', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      const intoPop = e.relatedTarget && typeof e.relatedTarget.closest === 'function' && e.relatedTarget.closest('#robo-popover');
+      if (span && !span.contains(e.relatedTarget) && !intoPop) hideRoboPopover();
+    });
+    document.addEventListener('focusin', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      if (span && typeof span.matches === 'function' && span.matches(':focus-visible')) showRoboPopover(span);
+    });
+    document.addEventListener('focusout', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      if (span && !span.contains(e.relatedTarget)) hideRoboPopover();
+    });
+    document.addEventListener('click', (e) => {
+      const span = e.target && e.target.closest ? e.target.closest('.robo-name') : null;
+      if (span) { e.preventDefault(); toggleRoboPopover(span); return; }
+      const insidePop = e.target && typeof e.target.closest === 'function' && e.target.closest('#robo-popover');
+      if (!insidePop) hideRoboPopover();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { hideRoboPopover(); return; }
+      if ((e.key === 'Enter' || e.key === ' ') && e.target && e.target.closest && e.target.closest('.robo-name')) {
+        e.preventDefault();
+        toggleRoboPopover(e.target.closest('.robo-name'));
+      }
+    });
   }
 
   // ---- Shared citation/disclosure popover (source + translation provenance) ----
@@ -388,11 +474,45 @@
   // Event Listeners
   function setupEventListeners() {
     setupCitationPopoverListeners();
+    setupRoboNameListeners();
     if (elements.themeToggle) {
       elements.themeToggle.addEventListener('click', () => {
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
       });
     }
+
+    // Display settings menu (gear) — romanization preference, persisted.
+    const settingsBtn = document.getElementById('settings-btn');
+    const settingsPanel = document.getElementById('settings-panel');
+    let settingsOpen = false;
+    if (settingsBtn && settingsPanel) {
+      const applyOpen = (open) => {
+        settingsOpen = open;
+        if (open) settingsPanel.removeAttribute('hidden'); else settingsPanel.setAttribute('hidden', '');
+        settingsBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      settingsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        applyOpen(!settingsOpen);
+      });
+      document.addEventListener('click', (e) => {
+        if (!settingsOpen) return;
+        if (!settingsPanel.contains(e.target) && e.target !== settingsBtn && !settingsBtn.contains(e.target)) applyOpen(false);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && settingsOpen) applyOpen(false);
+      });
+    }
+    document.querySelectorAll('.settings-opt[data-name-mode]').forEach(opt => {
+      opt.addEventListener('click', () => {
+        const mode = opt.getAttribute('data-name-mode');
+        if (mode !== 'pinyin' && mode !== 'romaji') return;
+        state.nameMode = mode;
+        storageSet('translatechan_name_mode', mode);
+        syncSettingsUI();
+        renderLineage();
+      });
+    });
 
     elements.navTabs.forEach(tab => {
       tab.addEventListener('click', () => {
@@ -594,7 +714,8 @@
       if (e.key !== 'Escape') return;
       // Let an open tooltip absorb the first Escape press before the dossier closes.
       if ((citationPopoverEl && citationPopoverEl.style.display === 'block') ||
-          (termPopoverEl && termPopoverEl.style.display === 'block')) return;
+          (termPopoverEl && termPopoverEl.style.display === 'block') ||
+          (roboPopoverEl && roboPopoverEl.style.display === 'block')) return;
       closeDossierPanel();
     });
 
@@ -1321,21 +1442,21 @@
   function translationStatusMeta(status) {
     if (status === 'verified_quotation') {
       return {
-        label: '✅ Verified quotation',
-        title: 'Checked against a specific edition; source details are shown below.',
+        label: '✅ Real text (verified)',
+        title: 'Genuine public-domain (or verified) quotation — checked against a specific edition; source details are shown below.',
         className: 'is-verified'
       };
     }
     if (status === 'ai_draft') {
       return {
-        label: '🤖 AI draft',
-        title: 'Explicitly AI-generated project draft.',
+        label: '🤖 Robo draft',
+        title: 'AI-generated project draft — not a translation by the named master.',
         className: 'is-ai'
       };
     }
     return {
-      label: '⚠️ AI register reconstruction',
-      title: 'Written for TranslateChan using broad style characteristics associated with this translator. It was not copied from, checked against, or attributable as wording in that translator’s book; do not cite it as their translation.',
+      label: '🤖 Robo channeling',
+      title: 'AI text written in this translator\u2019s broad register \u2014 not copied from, checked against, or attributable as wording in that translator\u2019s book. Do not cite it as their translation.',
       className: 'is-reconstruction'
     };
   }
@@ -1376,7 +1497,7 @@
   }
 
   function renderTranslationSource(entry, translatorName, originalContext = {}) {
-    const translator = stringValue(translatorName) || formatTranslatorName(entry.key);
+    const translator = stringValue(translatorName) || formatTranslatorName(entry.key, entry.status);
     const originalRows = renderOriginalSourceRows(originalContext);
     if (entry.status === 'verified_quotation') {
       if (!isRecord(entry.source)) {
@@ -1416,22 +1537,16 @@
     }
 
     const isAi = entry.status === 'ai_draft';
-    const disclosure = isAi
-      ? 'AI draft — no external book quotation'
-      : 'Project register reconstruction — not a published book quotation';
+    const short = isAi ? 'Robo draft' : 'Robo channeling';
     const detail = {
-      title: 'Translation disclosure',
+      title: 'Robo rendering disclosure',
       rows: [
-        ['Translator / label', translator],
-        ['Status', isAi ? 'AI draft' : 'Register reconstruction'],
-        ['Book / edition', 'Not applicable — this displayed text is not a verified quotation'],
-        ['Page / section', 'Not applicable — citation prohibited for this project draft'],
-        ['Disclosure', disclosure],
-        ['Citation rule', isAi ? 'Do not cite as an external translation.' : 'Do not cite as a translation by the named scholar.'],
+        ['What this is', isAi ? 'AI draft \u2014 not a real translation.' : 'AI text in this translator\u2019s register \u2014 not their actual words.'],
+        ['Citation rule', 'Do not cite as the named translator\u2019s work.'],
         ...originalRows
       ]
     };
-    return `<div class="translation-source source-disclosure">${isAi ? '🤖' : '⚠️'} <strong>${escHtml(translator)}</strong> — ${escHtml(disclosure)} ${renderCitationTrigger(detail, 'ⓘ Disclosure')}</div>`;
+    return `<div class="translation-source source-disclosure">\u{1F916} <strong>${escHtml(translator)}</strong> \u2014 ${escHtml(short)} ${renderCitationTrigger(detail, '\u2139 Disclosure')}</div>`;
   }
 
   function renderProjectDraftDisclosure(label = 'Project AI draft', originalContext = {}) {
@@ -1444,14 +1559,15 @@
       <div class="translation-grid">
         ${entries.map(item => {
           const entry = normalizeTranslationEntry(item.key, item.text);
+          const name = formatTranslatorName(item.key, entry.status);
           return `
             <div class="translation-col">
               <div class="translator-tag">
-                <span>${escHtml(item.name || formatTranslatorName(item.key))}</span>
+                <span>${roboNameSpan(item.key, entry.status, name)}</span>
                 ${renderTranslationStatus(entry)}
               </div>
               <div class="translation-text">${escHtml(entry.text)}</div>
-              ${renderTranslationSource(entry, item.name || formatTranslatorName(item.key), originalContext)}
+              ${renderTranslationSource(entry, name, originalContext)}
             </div>`;
         }).join('')}
       </div>`;
@@ -1476,47 +1592,165 @@
       <div class="translation-grid">
         ${displayKeys.map(k => {
           const entry = normalizeTranslationEntry(k, translations[k]);
+          const name = formatTranslatorName(k, entry.status);
           return `
           <div class="translation-col">
             <div class="translator-tag">
-              <span>${escHtml(formatTranslatorName(k))}</span>
+              <span>${roboNameSpan(k, entry.status, name)}</span>
               ${renderTranslationStatus(entry)}
             </div>
             <div class="translation-text">${escHtml(entry.text)}</div>
-            ${renderTranslationSource(entry, formatTranslatorName(k), originalContext)}
+            ${renderTranslationSource(entry, name, originalContext)}
           </div>`;
         }).join('')}
       </div>
     `;
   }
 
-  function formatTranslatorName(key) {
-    const map = {
-      red_pine: 'Red Pine (Bill Porter)',
-      cleary: 'Thomas Cleary',
-      sasaki: 'Ruth Fuller Sasaki',
-      suzuki: 'D.T. Suzuki',
-      blyth: 'R.H. Blyth',
-      blofeld: 'John Blofeld',
-      heine: 'Steven Heine',
-      yampolsky: 'Philip Yampolsky',
-      senzaki_reps: 'Senzaki & Reps (1934)',
-      snyder: 'Gary Snyder',
-      adamek: 'Wendi L. Adamek',
-      liebenthal: 'Walter Liebenthal',
-      clarke: 'Richard B. Clarke',
-      watson: 'Burton Watson',
-      hoffman: 'Yoel Hoffman',
-      ferguson: 'Andy Ferguson',
-      shimomisse: 'Eiichi Shimomissé',
-      aitken: 'Robert Aitken',
-      shibayama: 'Zenkei Shibayama',
-      sekida: 'Katsuki Sekida',
-      yamada: 'Kōun Yamada',
-      ai_literal: 'AI Draft (Literal)',
-      ai_poetic: 'AI Draft (Poetic Zen)'
-    };
-    return map[key] || key.replace('_', ' ').toUpperCase();
+  // Translator display names. The user-facing brand is "Fake Chan Factory": the
+  // joke is that every AI reconstruction is a *Robo* version of a famous
+  // translator, while genuine verified quotations keep the real name (because
+  // they ARE real). The underlying data keys are unchanged — only the display
+  // layer is rebranded. `status` decides Robo-vs-real; callers that lack a
+  // status default to the Robo rendering (the common case for this corpus).
+  const REAL_TRANSLATOR_NAMES = {
+    red_pine: 'Red Pine (Bill Porter)',
+    cleary: 'Thomas Cleary',
+    sasaki: 'Ruth Fuller Sasaki',
+    suzuki: 'D.T. Suzuki',
+    blyth: 'R.H. Blyth',
+    blofeld: 'John Blofeld',
+    heine: 'Steven Heine',
+    yampolsky: 'Philip Yampolsky',
+    senzaki_reps: 'Senzaki & Reps (1934)',
+    snyder: 'Gary Snyder',
+    adamek: 'Wendi L. Adamek',
+    liebenthal: 'Walter Liebenthal',
+    clarke: 'Richard B. Clarke',
+    watson: 'Burton Watson',
+    hoffman: 'Yoel Hoffman',
+    ferguson: 'Andy Ferguson',
+    shimomisse: 'Eiichi Shimomissé',
+    aitken: 'Robert Aitken',
+    shibayama: 'Zenkei Shibayama',
+    sekida: 'Katsuki Sekida',
+    yamada: 'Kōun Yamada',
+    ai_literal: 'AI Draft (Literal)',
+    ai_poetic: 'AI Draft (Poetic Zen)'
+  };
+  const ROBO_TRANSLATOR_NAMES = {
+    red_pine: 'Robo Red Pine',
+    cleary: 'Robo T-Cleary',
+    sasaki: 'Robo Ruth',
+    suzuki: 'Robozuki',
+    blyth: 'Robo Blyth',
+    blofeld: 'Roblofeld',
+    heine: 'Robo Heine',
+    yampolsky: 'Robo Yampolsky',
+    senzaki_reps: 'Robo Senzaki & Reps',
+    snyder: 'Robo Snyder',
+    adamek: 'Robo Adamek',
+    liebenthal: 'Robo Liebenthal',
+    clarke: 'Robo Clarke',
+    watson: 'Robo Watson',
+    hoffman: 'Robo Hoffman',
+    ferguson: 'Robo Ferguson',
+    shimomisse: 'Robo Shimomissé',
+    aitken: 'Robo Aitken',
+    shibayama: 'Robo Shibayama',
+    sekida: 'Robo Sekida',
+    yamada: 'Robo Yamada',
+    ai_literal: 'Robo-Literal',
+    ai_poetic: 'Robo-Poetic'
+  };
+  function humanizeKey(key) {
+    return String(key || '').replace('_', ' ').toUpperCase();
+  }
+  function formatTranslatorName(key, status) {
+    if (status === 'verified_quotation') {
+      return REAL_TRANSLATOR_NAMES[key] || humanizeKey(key);
+    }
+    return ROBO_TRANSLATOR_NAMES[key] || ('Robo ' + (REAL_TRANSLATOR_NAMES[key] || humanizeKey(key)));
+  }
+  // Matrix translator names are free-form strings in the data; Robo-ify anything
+  // that is NOT a verified quotation (verified keeps its real attribution). A few
+  // names blend into a single Robo coinage (Robozuki, Roblofeld) for the cast.
+  const ROBO_BLEND = { suzuki: 'Robozuki', blofeld: 'Roblofeld' };
+  function roboifyTranslatorName(name, status) {
+    const real = stringValue(name);
+    if (!real) return real;
+    if (status === 'verified_quotation') return real;
+    if (/^robo/i.test(real)) return real; // already branded
+    const lower = real.toLowerCase();
+    for (const tail in ROBO_BLEND) {
+      if (lower.endsWith(tail)) return ROBO_BLEND[tail];
+    }
+    return 'Robo ' + real;
+  }
+
+  // ---- Real-fakeness score (Fake Chan Factory) ----
+  // Hover/focus/tap a Robo name to see how *confidently* its voice is faked.
+  // The scale is deliberately upside-down: MORE evidence (verified samples in the
+  // corpus) => a better imitation => "truly fake"; LESS evidence => just "fake",
+  // flagged ⏳ (we're faking it but can't prove we faked it well). Verified (real)
+  // names are the honest opposite: not fake at all.
+  function profileList() {
+    const tp = state.data.translator_profiles;
+    if (Array.isArray(tp)) return tp;            // future-proof: direct array
+    if (tp && Array.isArray(tp.profiles)) return tp.profiles;  // current bundled shape
+    return [];
+  }
+  function profileForKey(key) {
+    const list = profileList();
+    return list.find(p => p && p.register_key === key) || null;
+  }
+  function _normName(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+  function profileForName(name) {
+    const list = profileList();
+    const norm = _normName(name);
+    let hit = list.find(p => p && _normName(p.translator) === norm);
+    if (hit) return hit;
+    const last = String(name || '').split(/\s+/).filter(Boolean).pop();
+    if (last) {
+      const ln = _normName(last);
+      hit = list.find(p => p && _normName(p.translator).includes(ln));
+      if (hit) return hit;
+    }
+    return null;
+  }
+  function fakenessFromProfile(p) {
+    if (!p) return null;
+    const n = Number(p.verified_sample_count) || 0;
+    const src = p.evidence_source;
+    const wu = stringValue(p.rendering_of_wu);
+    const personality = stringValue(p.personality);
+    if (src === 'not_applicable') {
+      return { tier: 0, label: 'the literal machine', blurb: 'Not a translator imitation at all — the project\u2019s deliberately wooden word-for-word control.', wu, personality, pending: false };
+    }
+    if (src === 'documented_external' || n === 0) {
+      return { tier: 1, label: 'fake', blurb: 'We\u2019re faking it, but the corpus has no verified sample for this translator yet — so we can\u2019t prove we faked the voice well.', wu, personality, pending: true };
+    }
+    if (n <= 2) return { tier: 2, label: 'fairly fake', blurb: `Grounded in ${n} verified sample(s) already in the corpus — a tentative imitation.`, wu, personality, pending: false };
+    if (n <= 5) return { tier: 3, label: 'very fake', blurb: `Grounded in ${n} verified samples — a confident imitation.`, wu, personality, pending: false };
+    if (n <= 23) return { tier: 4, label: 'truly fake', blurb: `Excellent imitation: ${n} verified samples anchor the voice.`, wu, personality, pending: false };
+    return { tier: 5, label: 'certifiably fake', blurb: `Supremely fake: ${n} verified samples — the voice is richly documented.`, wu, personality, pending: false };
+  }
+  function roboNameSpanFromProfile(p, status, displayName, key) {
+    const name = stringValue(displayName);
+    if (status === 'verified_quotation') {
+      return `<span class="real-name" title="✅ Real text (verified) — genuine quotation, not a Robo.">${escHtml(name)}</span>`;
+    }
+    const meta = p ? fakenessFromProfile(p) : null;
+    const hourglass = meta && meta.pending ? ' \u23f3' : '';
+    const titleTxt = meta ? `\u{1F916} ${meta.label}${hourglass} — hover/focus for the real-fakeness score` : 'Robo channeling — not the translator\u2019s actual words';
+    return `<span class="robo-name" data-robo-key="${escHtml(key || '')}" tabindex="0" role="button" aria-label="${escHtml(name)} — real-fakeness score" title="${escHtml(titleTxt)}">${escHtml(name)}</span>`;
+  }
+  function roboNameSpan(key, status, displayName) {
+    return roboNameSpanFromProfile(profileForKey(key), status, displayName || formatTranslatorName(key, status), key);
+  }
+  function roboNameSpanByName(name, status) {
+    const p = profileForName(name);
+    return roboNameSpanFromProfile(p, status, roboifyTranslatorName(name, status), p ? p.register_key : '');
   }
 
   // Render Comparison Matrix. Unlike the early matrix seed, every visible
@@ -1549,15 +1783,16 @@
             }, {
               isAI: /\bAI\b/i.test(stringValue(t.translator))
             });
+            const displayTranslator = roboifyTranslatorName(t.translator, entry.status);
             return `
             <div class="matrix-col">
               <div>
-                <div class="matrix-author">${escHtml(t.translator)}</div>
+                <div class="matrix-author">${roboNameSpanByName(t.translator, entry.status)}</div>
                 <div class="matrix-work">${escHtml(t.work)}${t.style ? ` (${escHtml(t.style)})` : ''}</div>
                 <div class="matrix-text">“${escHtml(entry.text)}”</div>
               </div>
               ${renderTranslationStatus(entry)}
-              ${renderTranslationSource(entry, t.translator, { zh: item.sentence_zh, locator })}
+              ${renderTranslationSource(entry, displayTranslator, { zh: item.sentence_zh, locator })}
               <div class="matrix-note">💡 ${escHtml(t.notes)}</div>
             </div>
             `;
@@ -1640,8 +1875,28 @@
 
   function lineageTeacherDetail(master) {
     const teacher = (state.data.lineage || []).find(m => m && m.id === master.teacher);
-    if (teacher) return `<button class="btn-pill teacher-link" data-master-teacher="${escHtml(teacher.id)}">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(teacher.name_en)}</button>`;
+    if (teacher) return `<button class="btn-pill teacher-link" data-master-teacher="${escHtml(teacher.id)}">Teacher: ${escHtml(teacher.name_zh)} / ${escHtml(masterDisplayName(teacher))}</button>`;
     return `<span>Teacher frontier: ${escHtml(master.teacher || 'not recorded')} — profile/source record pending</span>`;
+  }
+
+  // Display-settings: master-name romanization (Pinyin ↔ Japanese Rōmaji).
+  // Pinyin is the scholarly default; Rōmaji honors the Japanese Zen lineage
+  // reading (Rinzai, Jōshū, Ōbaku…). Falls back to the pinyin name_en if a
+  // master has no romaji form recorded.
+  function masterDisplayName(master) {
+    if (!isRecord(master)) return '';
+    if (state.nameMode === 'romaji') {
+      const r = stringValue(master.name_romaji);
+      if (r) return r;
+    }
+    return stringValue(master.name_en);
+  }
+  function syncSettingsUI() {
+    document.querySelectorAll('.settings-opt[data-name-mode]').forEach(o => {
+      const on = o.getAttribute('data-name-mode') === state.nameMode;
+      o.classList.toggle('active', on);
+      o.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
   }
 
   // Render Lineage Explorer
@@ -1715,7 +1970,7 @@
           <div class="master-header">
             <div>
               <h2 class="master-name-zh">${escHtml(m.name_zh)}</h2>
-              <div class="master-name-en">${escHtml(m.name_en)} (${escHtml(m.name_pinyin)})</div>
+              <div class="master-name-en">${escHtml(masterDisplayName(m))} <span style="color:var(--text-muted)">(${escHtml(m.name_pinyin)})</span></div>
             </div>
             <span class="corpus-badge" style="font-weight: 600;">Gen ${escHtml(m.lineage_depth)}</span>
           </div>
@@ -1814,7 +2069,7 @@
     // the fallback only covers a malformed/old cached bundle.
     const color = schoolColors[master.school_key] || '#b38238';
 
-      const shortName = stringValue(master.name_en).split(' ').pop().slice(0, 14);
+      const shortName = stringValue(masterDisplayName(master)).split(' ').pop().slice(0, 14);
       nodesHtml += `
         <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" data-master-node="${escHtml(master.id)}">
           <circle class="graph-node-halo" r="30" fill="${color}" fill-opacity="0.09"></circle>
@@ -1979,7 +2234,7 @@
     const content = document.getElementById('dossier-content');
 
     if (nameZh) nameZh.textContent = `${master.name_zh} (${master.title})`;
-    if (nameEn) nameEn.textContent = `${master.name_en} • Pinyin: ${master.name_pinyin} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
+    if (nameEn) nameEn.textContent = `${masterDisplayName(master)} • Pinyin: ${master.name_pinyin}${master.name_romaji ? ' • Rōmaji: ' + master.name_romaji : ''} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
     if (content) {
       const masterCitation = {
         title: 'Master profile source disclosure',
@@ -2216,7 +2471,10 @@
     // result card can disclose WHAT matched (register + text) when the classical
     // Chinese itself did not (search UX N4, 2026-08-09, session 019fe731).
     const registerPairs = (tr) => tr ? Object.entries(tr)
-      .map(([k, v]) => ({ name: formatTranslatorName(k), text: stringValue(v && typeof v === 'object' ? v.text : v) }))
+      .map(([k, v]) => {
+        const entry = normalizeTranslationEntry(k, v);
+        return { name: formatTranslatorName(k, entry.status), text: entry.text };
+      })
       .filter(p => p.text) : [];
     const namedPair = (name, text) => (text ? [{ name, text: stringValue(text) }] : []);
     const fromDialogue = (items, label, jump) => (items || []).forEach(d => {

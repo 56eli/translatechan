@@ -24,11 +24,19 @@
           "status": "reconstruction_unverified"
         },
         "suzuki": {
-          "text": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
-          "status": "reconstruction_unverified"
+          "text": "The Perfect Way knows no difficulties except that it refuses to make preferences; only when freed from hate and love, it reveals itself fully and without disguise.",
+          "status": "verified_quotation",
+          "source": {
+            "work": "Manual of Zen Buddhism",
+            "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.2 'On Believing in Mind (Shinjin-no-mei)'",
+            "reference": "Section IV.2, stanza 1",
+            "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; stanza-1 wording matches verbatim.",
+            "source_id": "suzuki-mzb-1935",
+            "page": "IV.2, stanza 1"
+          }
         },
         "blyth": {
-          "text": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
+          "text": "The Perfect Way is not hard — it only hates picking and choosing. Free of love and hate, it stands clear and undisguised.",
           "status": "reconstruction_unverified"
         },
         "sasaki": {

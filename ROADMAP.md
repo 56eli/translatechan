@@ -1,6 +1,6 @@
-# 🗺️ TranslateChan Roadmap & Milestone Execution Plan
+# 🗺️ Fake Chan Factory Roadmap & Milestone Execution Plan
 
-This document outlines the detailed engineering, data science, translation, and UI/UX roadmap for **TranslateChan** (`translatechan`). It tracks the active development phases, milestones, technical deliverables, and future iterations.
+This document outlines the detailed engineering, data science, translation, and UI/UX roadmap for **Fake Chan Factory** (`translatechan`). It tracks the active development phases, milestones, technical deliverables, and future iterations.
 
 ---
 
@@ -8,7 +8,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                               TranslateChan Milestone Roadmap                          │
+│                               Fake Chan Factory Milestone Roadmap                          │
 ├─────────────────┬─────────────────┬─────────────────┬─────────────────┬────────────────┤
 │  Phase 1        │  Phase 2        │  Phase 3        │  Phase 4        │  Phase 5 & 6   │
 │  Foundation &   │  Canon Ingestion│  Comparative    │  Source          │  Living Canon, │
@@ -27,7 +27,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 > Statuses above are **measured** (see [`sessions/AUDIT_archive_2026-08-08.md`](./sessions/AUDIT_archive_2026-08-08.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
-> **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **138 verified corpus quotation slots across 7 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
+> **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **143 verified corpus quotation slots across 10 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
 
 ---
 

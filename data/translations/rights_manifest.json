@@ -105,6 +105,14 @@
       "review_status": "needs_rights_review",
       "redistribution_policy": "Short, attributed comparative quotations only; do not redistribute as a substitute for the edition.",
       "rights_note": "Columbia University Press edition cited in source metadata."
+    },
+    {
+      "source_id": "suzuki-mzb-1935",
+      "translator": "D.T. Suzuki",
+      "rights_status": "public_domain_claimed_us",
+      "review_status": "jurisdiction_review_required",
+      "redistribution_policy": "Use the cited 1935 text with source attribution; confirm public-domain status in each distribution jurisdiction.",
+      "rights_note": "Manual of Zen Buddhism (1935) is recorded as U.S. public domain via non-renewal (hosted by sacred-texts.com and Golden Elixir Press as PD). That claim is jurisdiction-specific."
     }
   ]
 }

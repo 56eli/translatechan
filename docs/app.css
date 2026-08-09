@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TranslateChan: Zen Minimalist & Serene Aesthetic
+   Fake Chan Factory: Zen Minimalist & Serene Aesthetic
    Designed for deep contemplative reading on mobile, tablet, and desktop.
    ========================================================================== */
 
@@ -270,6 +270,85 @@ header {
 .theme-toggle:hover {
   border-color: var(--border-focus);
   background: var(--bg-hover);
+}
+
+/* Display settings menu (gear) */
+.settings-menu {
+  position: relative;
+}
+
+.settings-panel {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 120;
+  min-width: 230px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 0.85rem 0.95rem;
+  font-size: 0.82rem;
+}
+
+.settings-panel[hidden] {
+  display: none;
+}
+
+.settings-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.settings-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-secondary);
+}
+
+.settings-options {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.settings-opt {
+  flex: 1;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.settings-opt small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+.settings-opt:hover {
+  border-color: var(--border-focus);
+  color: var(--text-primary);
+}
+
+.settings-opt.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+}
+
+.settings-opt.active small {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* Main Container & Zen Welcome Banner */
@@ -745,6 +824,59 @@ main {
 
 .citation-row strong {
   color: var(--text-primary);
+}
+
+/* --- Robo-name real-fakeness affordance (Fake Chan Factory) ---
+   Hover/focus/tap a Robo name to see its real-fakeness score popover. */
+.robo-name {
+  cursor: help;
+  border-bottom: 2px dotted var(--accent-blue);
+  color: var(--accent-blue);
+  border-radius: 3px;
+}
+
+.robo-name:hover,
+.robo-name:focus-visible {
+  background-color: var(--accent-blue-light);
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.real-name {
+  border-bottom: 2px solid var(--accent-green);
+}
+
+.robo-popover {
+  position: fixed;
+  z-index: 310;
+  width: 300px;
+  max-width: calc(100vw - 16px);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.825rem;
+  font-family: var(--font-sans);
+  line-height: 1.45;
+  max-height: min(60vh, 22rem);
+  overflow-y: auto;
+  pointer-events: auto;
+}
+
+.robo-popover .robo-score {
+  font-size: 0.78rem;
+  color: var(--accent-blue);
+  font-weight: 700;
+}
+
+.robo-popover .robo-tier-row {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0.15rem 0 0.4rem;
 }
 
 .matrix-col > .translation-status {
@@ -1325,7 +1457,7 @@ footer {
   header, .zen-hero-banner, .sidebar-panel, .reader-toolbar,
   .mobile-corpus-picker, .mobile-action-bar, .case-jump-strip,
   .case-toggle, .case-nav-footer, .term-popover, footer,
-  #term-popover, #citation-popover, .graph-controls {
+  #term-popover, #citation-popover, #robo-popover, .graph-controls {
     display: none !important;
   }
 

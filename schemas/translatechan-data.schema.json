@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/56eli/translatechan/blob/main/schemas/translatechan-data.schema.json",
-  "title": "TranslateChan source-data contract",
+  "title": "Fake Chan Factory source-data contract",
   "description": "Formal companion to scripts/validate_data.py. The validator enforces cross-file and heterogeneous-schema rules that JSON Schema cannot conveniently express alone.",
   "$defs": {
     "nonEmptyString": {

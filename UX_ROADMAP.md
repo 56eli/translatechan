@@ -1,4 +1,4 @@
-# 🧘 TranslateChan — UX/UI Improvement Roadmap
+# 🧘 Fake Chan Factory — UX/UI Improvement Roadmap
 
 > **Purpose**: get the GitHub Pages app to *perfect functionality without overloading the screen* — desktop and mobile.
 > **Author**: session `arena/019fe1b5-translatechan`, 2026-08-08 · **Scope**: `index.html`, `app.css`, `app.js` (zero-backend SPA).

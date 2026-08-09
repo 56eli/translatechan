@@ -1,13 +1,27 @@
-# Live Session Summary — 2026-08-09, session `arena/019fe731-translatechan`
+# Live Session Summary — 2026-08-09, session `arena/019fe8a2-translatechan`
 
 > Working summary only (overwritten per session per AUDIT.md §5); not canonical documentation.
 
-## Status: ✅ Session closed — Biyanlu COMPLETE 100/100 + Linji pilot (67 sections), audit N1–N10 shipped, docs/handoff refreshed, synced & PR to `main` opened & merged; GitHub auth outage recovered (no work lost)
+## Status: ✅ Audit + "Fake Chan Factory" rebrand + Robo profiles + real-fakeness score + settings menu + Suzuki-1935 PD ingestion (first batch)
 
-- Gates green on the final tree: `validate_data.py` (`corpus=36 | slots=1023 | verified=138 | matrix=21 | locators=150/150`), `build_data_bundle.py`, `smoke_test.mjs` (36 texts, 0 crashes); root↔docs mirrors byte-identical.
-- Archived report: **`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`** — independent audit (no P0/P1/P2; N1–N10 all shipped: a11y, search UX, P4, housekeeping) + 5 campaign addenda + §6 close-out.
-- **✅ Biyanlu: 100/100 COMPLETE (second fully-collated text, sibling of Wumenguan)** — cases 11/13/15–100 collated from cbeta-org/xml-p5 TEI + CBETA Online; integrity repairs: cases 14/21 replaced (mis-seeded/Wumenguan-confused + fabricated verses), case-12 verse replaced, cases 1–3 verses completed to canon, case 43 gained 垂示 + 評唱; 22 canonical no-垂示 cases + 22/60 printed closing shouts recorded; post-verse 頌評唱 + human sign-off tracked pending in `coverage_note`; gong'an `biyan_11` added, `biyan_21` corrected.
-- **✅ Linji yulu (T1985) completion pilot A–D** (landed on the remote branch after the auth outage; merged in the close-out): prefaces + Ascending the Hall + 示眾 + 勘辨 divisions collated from CBETA P5 XML — **67 sections**, 13,367 zh chars; corpus totals now slots **1023**, CJK **101,198/106,160**.
-- Close-out fixes: validator `complete_documents` generalized from hardcoded Wumenguan to manifest `unit_targets` (34 excerpt seeds); HANDOFF rewritten for this session (PR #9 → historical deltas); ROADMAP Phase-2 Biyanlu item checked; README/AUDIT/index.html scope-note de-staled; bundle re-generated (~1.69 MB).
-- Ops: GitHub auth lapsed ~17:20 UTC and recovered; a sandbox snapshot reset then lost the local commit objects (all files survived) — branch reconciled by merging the remote tip (which contained the pushed Linji pilot) into the re-committed session delta. CF-1 CI workflow-path fix remains **owner action** (token lacks `workflows` scope).
-- Open next: Linji completion beyond the pilot (行腳/記錄 divisions + full 勘辨 verification) · CF-2 `switchViewRaw` scroll-restore · post-verse 頌評唱 ingestion + human collation sign-off · 5 pending verified references · 33 document-level locator migrations · owner items (branch protection on Quality check, editorial sign-off, C1/C4).
+All gates green on the final tree: `validate_data.py`
+(`corpus=36 | slots=1023 | verified=139 | matrix=21 | locators=150/150`),
+`smoke_test.mjs` (36 texts, 0 crashes), root↔docs byte-identical.
+
+### Deliverables this session (all committed + pushed to `arena/019fe8a2-translatechan`)
+1. **Independent full audit** → `sessions/AUDIT_RESPONSE_2026-08-09_019fe8a2.md` (no P0/P1/P2; inconsistencies + improvement potential).
+2. **"Fake Chan Factory" makeover** — page rebrand (假禪工廠, 🤖), Robo-translator names for AI reconstructions (verified keeps real names), disclosure popovers slimmed (7→2 rows); repo docs rebranded to match; all guarded number snippets preserved.
+3. **Evidence-grounded Robo profiles** → `data/translations/translator_profiles.json` (21 profiles; 13 in_corpus_verified, 7 documented_external, 1 literal-machine). Cast renames: Robozuki, Roblofeld.
+4. **Real-fakeness score** — hover/focus/tap any Robo name for an evidence-backed tier (fake ⏳ → fairly → very → truly → certifiably fake; verified rows show a green "real" affordance). Profiles bundled; dedicated popover.
+5. **Display settings menu** — ⚙️ gear in the header with a persisted Pinyin ↔ Rōmaji master-name preference (Zhaozhou↔Jōshū, etc.); `name_romaji` added to all 34 masters; applied across lineage cards/graph/dossier/teacher links.
+6. **Suzuki 1935 PD ingestion (batch 1)** — added the `suzuki-mzb-1935` rights entry; promoted the Xinxin Ming stanza-1 Suzuki slot to **verified** with his real 1935 text (caught + fixed a mis-attribution: Suzuki's wording had been sitting as a Blyth reconstruction); promoted the Suzuki profile to `in_corpus_verified` → Robozuki drops the hourglass. Doc numbers refreshed (verified 138→139, recorded 135→136).
+
+### Integrity notes
+- Internal identifiers unchanged for continuity: `translatechan` repo/URL, `window.TranslateChan` API, `translatechan_*` storage keys, `TRANSLATECHAN_DATA` global.
+- The 6 verified-quotation rows in Wumenguan Case 1 (and all other verified text) remain real public-domain text, untouched. Verified = real; Robo = fake (badged + disclosed).
+
+### Open next
+- **Suzuki PD ingestion, batches 2+**: 5 more aligned passages in the 1935 Manual remain — Bodhidharma's *Twofold Entrance* (bodhidharma_erru), Platform Sutra verses (platform_sutra), Yoka's *Song of Enlightenment* (zhengdao_ge), Huangbo's sermon (huangbo_chuanxin), Gensha's *Three Invalids* (biyanlu). Each becomes a verified Suzuki slot and strengthens the Robozuki evidence base.
+- **Evidence-pending Robos**: Red Pine (204 recon slots) and Cleary (221) still have no in-corpus verified sample (modern copyrighted works) — stay "fake ⏳" unless a cited sample is added.
+- **Settings axis 2**: name FORM (epithet "Huangbo" vs personal "Xiyun") and/or romanizing the translator Robo names.
+- **Roll the evidence-backed Robo voices** across Wumenguan Cases 2–48; **inline fakeness badge** (not just hover); audit quick-wins (stale comments, bundle compaction, renderDialogueBlock dedup, inline-style extraction).

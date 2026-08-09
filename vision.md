@@ -1,6 +1,8 @@
-# 🪷 TranslateChan: Vision & Architectural Blueprint
+# 🤖 Fake Chan Factory: Vision & Architectural Blueprint
 
 > **Document type**: *aspirational architecture with a current public-scope note*. For **measured current status**, see [`AUDIT.md`](./AUDIT.md); for phase tracking, see [`ROADMAP.md`](./ROADMAP.md); for operational flow, see [`HANDOFF.md`](./HANDOFF.md). The public Pages interface is deliberately limited to Reader, Matrix, Lineage, Gong'an Index, and Lexicon; it does not expose browser drafting, Arena-agent branding, or a header GitHub link.
+
+> 🤖 **Brand note (2026-08-09).** The public app is branded **Fake Chan Factory**: the English renderings are *Robo channelings* — AI text written in a famous translator's register, clearly badged and not citable as that translator's work. Genuine public-domain/verified quotations are badged **✅ Real text (verified)** and keep their real attribution. This document describes the *architecture and scholarly infrastructure* (canonical sources, lineage graph, locators, provenance) that the Factory runs on — that infrastructure is real whether a given rendering is Robo or verified.
 
 > *"A special transmission outside the scriptures,  
 > Not founded upon words and letters;  
@@ -12,11 +14,11 @@
 
 ## 1. Executive Summary & Mission
 
-**TranslateChan** (`translatechan`) is a dedicated scholarly, comparative, and computational repository and platform designed to locate, source, digitize, categorize, compare, and translate the complete classical corpus of Chinese Chan (Zen) Masters of old (*唐宋諸祖語錄與傳燈公案文獻*).
+**Fake Chan Factory** (`translatechan`) is a dedicated comparative and computational repository and platform designed to locate, source, digitize, categorize, compare, and generate *Robo* renderings of the complete classical corpus of Chinese Chan (Zen) Masters of old (*唐宋諸祖語錄與傳燈公案文獻*). The Classical Chinese sources are canonical and real; the English renderings are openly AI-generated "fakes" in each translator's register (clearly badged), except where a genuine verified quotation is held.
 
 Centuries of profound dialogues, encounter dialogues (*機緣問答*), recorded sayings (*語錄*), transmission of the lamp records (*傳燈錄*), monastic rules of purity (*清規*), and classic gong'an/koan collections (*公案*) form one of the richest spiritual and philosophical traditions in human history. Yet much of this vast literature remains untranslated, scattered across disparate volumes of the Taishō Tripiṭaka (*大正新脩大藏經*) and CBETA (*中華電子佛典協會*), or locked in isolated translations that often diverge radically in terminology, interpretation, and nuance.
 
-### The Core Objectives of TranslateChan:
+### The Core Objectives of Fake Chan Factory:
 1. **Exhaustive Canonical Ingestion**: Systematically index and ingest the classical Chinese Chan literature preserved in CBETA / Taishō (principally Volumes 47, 48, and 51, alongside the *Zokuzōkyō* / 卍續藏經), establishing authoritative, verified Classical Chinese source texts with modern punctuation and paragraph segmentation.
 2. **Comprehensive Lineage & Genre Taxonomy**: Build a multi-dimensional knowledge graph that links masters, disciples, monasteries, eras, genres, and gong'an cross-references from the legendary First Patriarch Bodhidharma (*達摩*) through the Six Patriarchs, the "Five Houses and Seven Schools" (*五家七宗*), and the Song/Yuan transmission zen masters.
 3. **Multi-Translator Comparative Analysis**: Provide a sentence-aligned, side-by-side comparative matrix contrasting historical translations (e.g., Red Pine / Bill Porter, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, John Blofeld, R.H. Blyth, Steven Heine, Christoph Anderl) against one another and the original source.
@@ -27,11 +29,11 @@ Centuries of profound dialogues, encounter dialogues (*機緣問答*), recorded 
 
 ## 2. Corpus Scope & Canonical Taxonomy
 
-The TranslateChan corpus is systematically structured around the standard historical Chinese Buddhist canons, cross-referenced with CBETA identifiers and historical lineage records.
+The Fake Chan Factory corpus is systematically structured around the standard historical Chinese Buddhist canons, cross-referenced with CBETA identifiers and historical lineage records.
 
 ```
                                   ┌──────────────────────────────────────────────┐
-                                  │           TranslateChan Master Corpus        │
+                                  │           Fake Chan Factory Master Corpus        │
                                   └──────────────────────┬───────────────────────┘
                                                          │
          ┌───────────────────────┬───────────────────────┼───────────────────────┬───────────────────────┐
@@ -62,7 +64,7 @@ The TranslateChan corpus is systematically structured around the standard histor
 
 ## 3. The Lineage Knowledge Graph
 
-TranslateChan models the Chan tradition not merely as static text files, but as a dynamic **Lineage Knowledge Graph** connecting masters, dharma heirs, geographical temples, historical eras, and classic dialogue partners.
+Fake Chan Factory models the Chan tradition not merely as static text files, but as a dynamic **Lineage Knowledge Graph** connecting masters, dharma heirs, geographical temples, historical eras, and classic dialogue partners.
 
 ```
                             [Bodhidharma 菩提達摩] (d. ~532)
@@ -132,9 +134,9 @@ TranslateChan models the Chan tradition not merely as static text files, but as 
 
 ## 4. The Multi-Translator Comparative Architecture
 
-One of the central innovations of TranslateChan is its **Multi-Translator Sentence-Aligned Comparative Matrix**.
+One of the central innovations of Fake Chan Factory is its **Multi-Translator Sentence-Aligned Comparative Matrix**.
 
-A single Gong'an or Yulu passage often carries multiple distinct translations in English, each reflecting a different translator's philosophical stance, poetic register, or understanding of classical Buddhist idioms.
+A single Gong'an or Yulu passage often carries multiple distinct translations in English, each reflecting a different translator's philosophical stance, poetic register, or understanding of classical Buddhist idioms. In the live **Fake Chan Factory** app these comparative registers are presented as **🤖 Robo** channelings (AI text in the scholar's style, *not* their published words); only a genuinely verified quotation keeps the real name and the **✅ Real text (verified)** badge. The table below illustrates the *comparative concept*.
 
 ### Comparative Matrix Example: Wumenguan Case 1 (Zhaozhou's Dog / 趙州狗子)
 
@@ -157,7 +159,7 @@ A single Gong'an or Yulu passage often carries multiple distinct translations in
 
 ## 5. Editorial Verification & AI Disclosure Workflow
 
-TranslateChan treats AI assistance as an **editorial provenance category**, not a public persona or autonomous authority. The public site does not expose an Arena-agent view. Any project-generated wording must remain visibly categorized as `AI draft` or `register reconstruction`, while source text and verified quotations receive their own structured records.
+Fake Chan Factory treats AI assistance as an **editorial provenance category**, not a public persona or autonomous authority. The public site does not expose an Arena-agent view. Any project-generated wording must remain visibly categorized as `AI draft` or `register reconstruction`, while source text and verified quotations receive their own structured records.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
@@ -187,11 +189,11 @@ TranslateChan treats AI assistance as an **editorial provenance category**, not 
 
 ## 6. Technical Architecture (Zero-Backend GitHub Pages)
 
-The TranslateChan web application is architected to run **100% client-side on GitHub Pages** with zero backend server dependencies, ensuring maximum longevity, speed, offline accessibility, and portability.
+The Fake Chan Factory web application is architected to run **100% client-side on GitHub Pages** with zero backend server dependencies, ensuring maximum longevity, speed, offline accessibility, and portability.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                               TranslateChan Client-Side Web App                        │
+│                               Fake Chan Factory Client-Side Web App                        │
 │                                  (Hosted on GitHub Pages)                              │
 ├────────────────────────────────────────────────────────────────────────────────────────┤
 │  ┌──────────────────────┐  ┌──────────────────────┐  ┌──────────────────────────────┐  │
@@ -281,4 +283,4 @@ Translating Classical Chinese Chan literature requires balancing three essential
 
 ---
 
-*TranslateChan is open-source, non-sectarian, and dedicated to the perpetual preservation and illumination of the wisdom of the ancient Chan masters.*
+*Fake Chan Factory is open-source, non-sectarian, and dedicated to the perpetual preservation and illumination of the wisdom of the ancient Chan masters.*

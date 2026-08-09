@@ -2370,6 +2370,18 @@
             "ai_literal": {
               "text": "Xuansha addressed the assembly: 'The venerable ones everywhere speak of welcoming beings and benefiting life. Suppose three kinds of patients arrive — how will you receive them? For one suffering blindness: hold up the hammer, raise the whisk — but he cannot see. For one suffering deafness: speak in your samadhi of words — but he cannot hear. For one suffering muteness: tell him to speak — but he cannot speak. How will you receive them? If you cannot receive these people, the Buddha's teaching has no true power.' A monk asked Yunmen about this. Yunmen said, 'You — bow.' As the monk arose from bowing, Yunmen jabbed at him with the staff; the monk stepped back. Yunmen said, 'You are not blind.' Again he said, 'Come closer.' The monk came closer. Yunmen said, 'You are not deaf.' Then he asked, 'Do you understand?' The monk said, 'No.' Yunmen said, 'You are not mute.' At this, the monk had insight.",
               "status": "ai_draft"
+            },
+            "suzuki": {
+              "text": "It is asserted by all the worthy masters of the present time that they are working for the benefit of all beings. This being the case, what will you do if there suddenly appear before you three kinds of invalids? Those who are blind fail to see you even when you hold up a mallet or a hossu. Those who are deaf fail to hear you even when you talk volubly enough. Those who are dumb fail to speak out, whatever understanding they may have inwardly. What treatment are you going to accord to such people? If you do not know how to go on with them, Buddhism must be said to be lacking in miraculous works.",
+              "status": "verified_quotation",
+              "source": {
+                "work": "Manual of Zen Buddhism",
+                "edition": "D.T. Suzuki, The Eastern Buddhist Society (Kyoto), 1935 — Section IV.7 'Gensha on the Three Invalids' (a literal translation of Case LXXXVIII of the Pi-yen Chi / Biyanlu)",
+                "reference": "Section IV.7, Illustrative Case (= Biyanlu Case 88, 玄沙三種病人)",
+                "verification": "Public-domain text transcribed from sacred-texts.com (scan 2000) and the Golden Elixir Press 2015 PD reprint; Suzuki labels it a literal translation of Pi-yen Chi Case LXXXVIII; main-case sermon wording matches verbatim (Yengo's bracketed interjections omitted).",
+                "source_id": "suzuki-mzb-1935",
+                "page": "IV.7, Illustrative Case"
+              }
             }
           }
         }
