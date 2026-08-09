@@ -146,8 +146,9 @@ cd translatechan
 # 2. After modifying source data, regenerate and verify deterministic metrics
 python3 scripts/validate_data.py --write-metrics
 python3 scripts/validate_data.py
-#    (also enforces doc truthfulness: README/HANDOFF/index.html must quote live
-#     metrics — pass --skip-docs only while intentionally editing the prose)
+#    (also enforces doc truthfulness: README/HANDOFF/ROADMAP.md/AUDIT.md §1/
+#     index.html must quote live metrics — pass --skip-docs only while
+#     intentionally editing the prose)
 
 # 3. Rebuild the bundle (also syncs root assets and docs/)
 python3 scripts/build_data_bundle.py
