@@ -1,33 +1,41 @@
-# Robo Registers Pilot — Wumenguan Case 1 (Mu) · for review
+# Robo Registers — methodology + Wumenguan Case 1 (Mu) pilot · for review
 
-> Review excerpt for the "flesh out Robo registers" pilot. The 6 **reconstruction
-> registers** below were rewritten to channel each translator's documented voice.
-> The **6 verified** translations (Blyth, Senzaki & Reps, Shimomissé, Sekida,
-> Yamada, Aitken) are real public-domain text — **untouched**. Committed at `2d1b6dc`;
+> **Methodology update (per owner direction).** Robo personalities are now built
+> on **REAL translation evidence**, not general characteristics — see
+> [`data/translations/translator_profiles.json`](../data/translations/translator_profiles.json)
+> (21 profiles). Two tiers: **13 `in_corpus_verified`** (features extracted from
+> the translator's own verified slots in this corpus) and **7
+> `documented_external`** (honestly flagged evidence-pending — no in-corpus
+> verified sample yet). Cast renames: **Robo D.T. Suzuki → Robozuki**, **Robo
+> Blofeld → Roblofeld**.
+>
+> Committed across `2d1b6dc` (Case 1 voices) → `0292e2b` (profiles + renames);
 > live in the preview.
 
 ## Source (canonical, unchanged)
 > 趙州和尚因僧問：「狗子還有佛性也無？」  → 州云：「無。」
 
-## The 6 Robo channelings (re-written this pilot)
+## The 6 Robo channelings in Case 1 (evidence tier in brackets)
 
-| Robo | Voice target | The question | "Mu" |
+| Robo | Evidence tier | The question | "Mu" |
 |---|---|---|---|
-| **Robo Red Pine** | plain-spoken, pinyin, no fuss, "No" | A monk asked Zhaozhou, 'Does a dog have Buddha-nature or not?' | Zhaozhou said, 'No.' |
-| **Robo T-Cleary** | scholarly, precise, "the Buddha-nature" | A monk asked Master Zhaozhou, 'Does a dog have the Buddha-nature?' | Zhaozhou said, 'No.' |
-| **Robo Ruth** (Sasaki) | Rinzai academic, Jōshū romaji, untranslated "Mu" | A monk asked the Master Jōshū, 'Does even a dog have the Buddha-nature or not?' | Jōshū said, 'Mu!' |
-| **Robo D.T. Suzuki** | early-20th-c. earnest, Wade-Giles, "the Master" | A monk asked the Master Chao-chou, 'Has a dog the Buddha-nature, or has it not?' | To which the Master replied, 'Mu.' |
-| **Robo Blofeld** | British formal, slightly ornate, "None!" | A monk enquired of the Master Chao-chou, saying, 'Has a dog the Buddha-nature, or has it not?' | The Master made answer, 'None!' |
-| **Robo-Literal** | conspicuously word-for-word, wooden | Zhaozhou-monk, because [a] monk asked: 'Dog, also have Buddha-nature, or not?' | Zhou said: 'Wú [not-have].' |
+| **Robo Red Pine** | documented_external ⏳ | A monk asked Zhaozhou, 'Does a dog have Buddha-nature or not?' | Zhaozhou said, 'No.' |
+| **Robo T-Cleary** | documented_external ⏳ | A monk asked Master Zhaozhou, 'Does a dog have the Buddha-nature?' | Zhaozhou said, 'No.' |
+| **Robo Ruth** (Sasaki) | ✅ in_corpus_verified | A monk asked the Master Jōshū, 'Does even a dog have the Buddha-nature or not?' | Jōshū said, 'Mu!' |
+| **Robozuki** (Suzuki) | documented_external ⏳ | A monk asked the Master Chao-chou, 'Has a dog the Buddha-nature, or has it not?' | To which the Master replied, 'Mu.' |
+| **Roblofeld** (Blofeld) | ✅ in_corpus_verified | A monk enquired of the Master Chao-chou, saying, 'Has a dog the Buddha-nature, or has it not?' | The Master made answer, 'None!' |
+| **Robo-Literal** | not_applicable (control) | Zhaozhou-monk, because [a] monk asked: 'Dog, also have Buddha-nature, or not?' | Zhou said: 'Wú [not-have].' |
 
-## Honesty guardrails (unchanged)
-- All six carry status `reconstruction_unverified` / `ai_draft` → they badge as **🤖 Robo channeling** / **🤖 Robo draft** in the UI, with the "not their actual words / do not cite" disclosure.
-- The verified rows still badge **✅ Real text (verified)** and keep full book/edition/page citations.
+✅ = Robo voice grounded in that translator's verified samples in this corpus.
+⏳ = no in-corpus verified sample yet; profile is documented-external / evidence-pending.
 
-## If you approve the voice
-Natural rollout targets (each ~1–2 translator-lines per case, verified rows always skipped):
-1. Wumenguan Cases 2–48 (47 cases) — the highest-value, most-read text.
-2. Biyanlu 100/100 cases (larger; recon registers only).
-3. The comparative Matrix rows (4 rows × ~5 recon registers each) — high visibility.
+## The 6 verified rows (real public-domain text — untouched)
+Blyth · Senzaki & Reps (1934) · Shimomissé · Sekida · Yamada · Aitken — all badged ✅ Real text (verified).
 
-Tell me which voice tweaks to dial up/down (e.g. "Robo Blofeld too archaic", "Robo-Literal too weird", "add a Robo Blyth-witty register"), and whether to roll out to Wumenguan next.
+## Open methodological decision (owner)
+The 3 highest-volume Robos — **Red Pine (204 slots), Cleary (221), Robozuki (41)** — are `documented_external` because the corpus has **no verified sample** for them. To make them evidence-backed, the honest path is to add a verified public-domain (or properly-cited) sample per translator and promote their profiles. Options:
+1. Keep them as documented-external Robos (current) — clearly badged and disclosed.
+2. Acquire one verified sample each (rights-checked) and promote to in_corpus_verified.
+3. Dial them back / re-badge as "documented-style" until evidence lands.
+
+Tell me which, and whether to wire the profiles into the UI (a "why this Robo reads this way" popover citing the evidence) and/or roll the in_corpus_verified voices out across Wumenguan.
