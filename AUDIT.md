@@ -35,7 +35,11 @@ guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
 1. **A1 — Repository ops (owner, ~2 min):** require the Quality workflow check *"Validate data, generated artifacts, and reader"* in branch protection/rulesets for `main` so a PR cannot merge without the green gate. Still unverified/unactioned by the owner.
 2. **A2 — Scholarly release gate (editorial):** resolve the **5 pending verified-source references**; migrate the **33 document-level locators** to unit/page-line anchors via `data/editorial/traceability_queue.json`; human sign-off per rights-manifest record before expanding quotation reuse. The validator enforces structure, not collation/copyright — keep it that explicit.
 3. **Content Phase 2:** continue the CBETA-collated completion campaign (ROADMAP.md); Biyanlu 11–100 and Linji are the natural next pilots; every new text runs the established locator/provenance/metrics workflow.
-4. **Editorial candidates (small):** ~~gong'an theme taxonomy~~ ✅ delivered 2026-08-09 (`data/gongan/theme_vocabulary.json`, 7 groups, validator-enforced); `switchViewRaw` scroll-restore on back/forward.
+4. **Editorial candidates (small):** ~~gong'an theme taxonomy~~ ✅ delivered 2026-08-09; ~~semantic heading outline (a11y B2)~~ ✅ delivered 2026-08-09 (session `019fe64a`); `switchViewRaw` scroll-restore on back/forward.
+
+### Independent audit 2026-08-09 (session `019fe64a`)
+
+Full report: [`AUDIT_RESPONSE_2026-08-09.md`](./AUDIT_RESPONSE_2026-08-09.md). Verdict: healthy, no P0/P1/P2; all gates green. Findings catalogued as P3/P4. **B2 (semantic heading outline) shipped** in commit `0069953` — every view title is a real `<h1>` and every card/unit title a real `<h2>`, visual design unchanged (heading UA reset), smoke test `4m6` guards the outline; the matrix subtitle was also hardened from a hand-maintained translator list to a stable phrase. Remaining prioritized items: A2 (data-derive graph colors), B1 (dark-theme FOUC), A1/A3/B6 (doc/copy consistency), B3 (aria-hidden decorative emoji), C4 (lint in CI), B5 (meta/OG/robots), A4 (migrate bare-string translations to explicit status objects).
 
 ## 3. Quality gates (must pass before every push)
 
