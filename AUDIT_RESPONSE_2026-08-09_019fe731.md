@@ -73,7 +73,7 @@ Both files were archived with session-dated names (`sessions/AUDIT_RESPONSE_2026
 
 | ID | Item | Owner/Blocker |
 |---|---|---|
-| CF-1 | **CI artifact gate misses `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`** (workflow line 48 path list). Files can drift root→docs without CI failing. HANDOFF documents this as an owner follow-up because the previous session token lacked `workflows` permission — **this session should attempt the one-line fix and push; if GitHub rejects it, it stays an owner action.** | token permission (test) |
+| CF-1 | **CI artifact gate misses `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`** (workflow line 48 path list). Files can drift root→docs without CI failing. **Attempted 2026-08-09 (session `019fe731`): the one-line fix was committed and pushed, but GitHub rejected it — this session's token also lacks the `workflows` permission; the workflow file was reverted and local gates (HANDOFF checklist + smoke existence checks) continue to cover these mirrors. Owner must apply the path addition (or grant the sessions token `workflows` scope).** | owner / token permission (confirmed blocked) |
 | CF-2 | `switchViewRaw` scroll-restore on back/forward (AUDIT.md §2 editorial candidate) | editorial |
 | CF-3 | A1 ops: require the Quality check in `main` branch protection (~2 min, owner-only) | owner |
 | CF-4 | A2 editorial: 5 pending verified-source references; 33 doc-level locator migrations; rights sign-off | editorial |

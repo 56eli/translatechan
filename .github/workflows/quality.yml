@@ -45,7 +45,7 @@ jobs:
 
       - name: Require generated artifacts and deploy mirror to be committed
         run: |
-          git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/theme-init.js docs/robots.txt docs/sitemap.xml docs/data data/project_metrics.json
+          git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/data data/project_metrics.json
 
       - name: Run dependency-free reader smoke test
         run: node scripts/smoke_test.mjs

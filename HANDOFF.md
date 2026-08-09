@@ -67,7 +67,7 @@ All commands pass. Root and `/docs` assets/data are synchronized.
 
 ### Owner follow-up: CI workflow path list
 
-The session token lacks GitHub App `workflows` permission, so `.github/workflows/quality.yml` was not modified. Extend the generated-artifact gate path list to include:
+The session token lacks GitHub App `workflows` permission, so `.github/workflows/quality.yml` was not modified — **re-confirmed 2026-08-09 (session `019fe731`): the one-line fix was committed and rejected by GitHub on push (`refusing to allow a GitHub App to create or update workflow ... without workflows permission`) and reverted.** Extend the generated-artifact gate path list to include:
 
 ```text
 docs/theme-init.js
@@ -75,7 +75,7 @@ docs/robots.txt
 docs/sitemap.xml
 ```
 
-Local gates and smoke tests already enforce these files.
+Local gates and smoke tests already enforce these files. (Alternatively, grant the sessions GitHub App token the `workflows` scope so agent sessions can maintain CI themselves.)
 
 ### GitHub Actions quality gate
 

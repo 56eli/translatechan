@@ -2,7 +2,7 @@
 
 > Working summary only (overwritten per session per AUDIT.md §5); not canonical documentation.
 
-## Status: a11y + search-UX + P4 batches shipped, awaiting direction
+## Status: a11y + search-UX + P4 + housekeeping batches shipped, awaiting direction
 
 - Gates green after each batch: `validate_data.py`
   (`corpus=36 | slots=874 | verified=138 | matrix=21 | locators=64/64`),
@@ -15,9 +15,12 @@
   disclose the matched field (register / pinyin / title + windowed snippet) ·
   N5 diacritic-folded pinyin search · N7 debounced lineage resize re-layout ·
   N8 capped/scrollable/interactive popovers w/ measured flip ·
-  N10 citation legibility floor 0.62 → 0.72 rem.
-- Open: N9 session index + root temp-file housekeeping · N10 remainder
-  (stale ~799 KB comment / README tree) · CF-1 CI gate paths (token-permission
-  test) · CF-2 switchViewRaw scroll-restore · owner/program items (branch
-  protection, editorial locator migration, C1/C2/C4, Phase 2 content).
+  N10 citation legibility 0.72 rem + theme-init comment + README tree ·
+  N9 session-file archival + AUDIT.md §4 rows for 019fe64a/019fe731.
+- Confirmed blocked: CF-1 CI gate path fix — token lacks `workflows`
+  permission (GitHub rejected the push 2026-08-09; fix documented in HANDOFF
+  as owner action; local gates cover the mirrors meanwhile).
+- Open (owner/editorial/program): branch protection on main ·
+  editorial locator migration (33 docs + 5 pending references) ·
+  CF-2 switchViewRaw scroll-restore · C1/C2/C4 structural · Phase 2 content.
 - Next: user to pick (housekeeping / content Phase 2 / audit-follow-up batch).
