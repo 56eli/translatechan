@@ -174,11 +174,14 @@ def validate_translation_map(
         entry_path = f"{path}.{register}"
         stats["corpus_slots"] += 1
         if nonempty_string(value):
-            status = "ai_draft" if str(register).startswith("ai_") else "reconstruction_unverified"
-            stats[status] += 1
+            # Legacy bare strings were supported while the corpus was seeded.
+            # The 2026-08-09 migration converted every slot to an object with
+            # explicit text/status; reject new plain strings so status remains
+            # self-describing data rather than a key-naming convention.
+            issues.error(entry_path, "legacy string translation; use { text, status } (run scripts/migrate_translations.py)")
             continue
         if not is_record(value):
-            issues.error(entry_path, "must be a non-empty string or translation object")
+            issues.error(entry_path, "must be a translation object { text, status }")
             continue
         if not nonempty_string(value.get("text")):
             issues.error(entry_path, "translation object requires non-empty 'text'")

@@ -4407,10 +4407,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "趙州和尚因僧問：「狗子還有佛性也無？」",
               "pinyin": "Zhàozhōu héshang yīn sēng wèn: 'Gǒuzi hái yǒu fóxìng yě wú?'",
               "translations": {
-                "red_pine": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?'",
-                "cleary": "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?'",
-                "sasaki": "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?'",
-                "suzuki": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
+                "red_pine": {
+                  "text": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked Master Zhaozhou, 'Does a dog have Buddha-nature?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked Master Jōshū: 'Does even a dog have Buddha-nature, or not?'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "A monk asked Chao-chou: 'Has a dog Buddha-nature?'",
+                  "status": "reconstruction_unverified"
+                },
                 "blyth": {
                   "text": "A monk once asked Joshu, \"Has a dog the Buddha-nature?\"",
                   "status": "verified_quotation",
@@ -4423,8 +4435,14 @@ window.TRANSLATECHAN_DATA = {
                     "reference": "Canonical case 1; aligned dialogue unit 1"
                   }
                 },
-                "blofeld": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
-                "ai_literal": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
+                "blofeld": {
+                  "text": "A monk asked Zhaozhou: 'Has a dog Buddha-nature or not?'",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "A monk asked the monk Zhaozhou: 'Does a dog still have Buddha-nature or not?'",
+                  "status": "ai_draft"
+                },
                 "senzaki_reps": {
                   "text": "A monk asked Joshu, a Chinese Zen master: \"Has a dog Buddha-nature or not?\"",
                   "status": "verified_quotation",
@@ -4487,10 +4505,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "州云：「無。」",
               "pinyin": "Zhōu yún: 'Wú.'",
               "translations": {
-                "red_pine": "Zhaozhou said: 'Wu!'",
-                "cleary": "Zhaozhou said, 'No.'",
-                "sasaki": "Jōshū said: 'Mu!'",
-                "suzuki": "Chao-chou replied: 'Wu!'",
+                "red_pine": {
+                  "text": "Zhaozhou said: 'Wu!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Zhaozhou said, 'No.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Jōshū said: 'Mu!'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Chao-chou replied: 'Wu!'",
+                  "status": "reconstruction_unverified"
+                },
                 "blyth": {
                   "text": "Joshu answered, \"Mu!\"",
                   "status": "verified_quotation",
@@ -4504,8 +4534,14 @@ window.TRANSLATECHAN_DATA = {
                     "reference": "Canonical case 1; aligned dialogue unit 2"
                   }
                 },
-                "blofeld": "The Master replied: 'None!'",
-                "ai_literal": "Zhou said: 'Not.'",
+                "blofeld": {
+                  "text": "The Master replied: 'None!'",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "Zhou said: 'Not.'",
+                  "status": "ai_draft"
+                },
                 "senzaki_reps": {
                   "text": "Joshu answered: \"Mu.\"",
                   "status": "verified_quotation",
@@ -4583,9 +4619,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "百丈和尚凡參次，有一老人常隨眾聽法。眾人退，老人亦退。忽一日不退，師遂問：「面前立者復是何人？」",
               "pinyin": "Bǎizhàng héshang fán cān cì, yǒu yī lǎorén cháng suí zhòng tīng fǎ. Zhòngrén tuì, lǎorén yì tuì. Hū yī rì bù tuì, shī suì wèn: 'Miàn qián lì zhě fù shì hé rén?'",
               "translations": {
-                "red_pine": "Whenever Master Baizhang gave a talk, an old man would listen along with the assembly. When the assembly left, the old man also left. One day he did not leave.",
-                "cleary": "Whenever Master Baizhang held sermons, an old man would always follow the assembly to listen to the Dharma. When the monks withdrew, the old man also withdrew. One day he did not withdraw.",
-                "sasaki": "Whenever Master Hyakujō gave a sermon, an old man used to listen along with the assembly. When the assembly left, he left too. One day he remained behind.",
+                "red_pine": {
+                  "text": "Whenever Master Baizhang gave a talk, an old man would listen along with the assembly. When the assembly left, the old man also left. One day he did not leave.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Whenever Master Baizhang held sermons, an old man would always follow the assembly to listen to the Dharma. When the monks withdrew, the old man also withdrew. One day he did not withdraw.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Whenever Master Hyakujō gave a sermon, an old man used to listen along with the assembly. When the assembly left, he left too. One day he remained behind.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Once when Hyakujo delivered some Zen lectures an old man attended them, unseen by the monks. At the end of each talk when the monks left so did he. But one day he remained after they had gone, and Hyakujo asked him: \"Who are you?\"",
                   "status": "verified_quotation",
@@ -4626,9 +4671,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "老人曰：「某非人也。於過去迦葉佛時，曾住此山。因學人問：『大修行底人還落因果也無？』某對云：『不落因果。』五百生墮野狐身。今請和尚代一轉語，貴脫野狐。」",
               "pinyin": "Lǎorén yuē: 'Mǒu fēi rén yě. Yú guòqù Jiāyè fó shí, céng zhù cǐ shān. Yīn xuérén wèn: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú?' Mǒu duì yún: 'Bù luò yīnguǒ.' Wǔbǎi shēng duò yěhú shēn. Jīn qǐng héshang dài yī zhuǎnyǔ, guì tuō yěhú.'",
               "translations": {
-                "red_pine": "The old man said: 'I am not a human. In the era of the past Kashyapa Buddha, I lived on this mountain. A student asked: Does a person of great practice still fall into causality? I replied: Does not fall into causality. For 500 lives I was reborn as a wild fox. Now I beg the master for a turning word.'",
-                "cleary": "The old man said, 'I am not a human being. In the time of the past Kashyapa Buddha, I lived on this mountain. A student asked me: Does an adept of great cultivation still fall into cause and effect? I answered: Does not fall into cause and effect. Because of this I have fallen into five hundred lives as a wild fox.'",
-                "sasaki": "The old man said: 'I am not a human being. In the age of Kāśyapa Buddha, I was head monk on this mountain. A monk asked: Does a great practitioner fall under cause and effect? I said: Does not fall. For 500 births I have been a fox.'",
+                "red_pine": {
+                  "text": "The old man said: 'I am not a human. In the era of the past Kashyapa Buddha, I lived on this mountain. A student asked: Does a person of great practice still fall into causality? I replied: Does not fall into causality. For 500 lives I was reborn as a wild fox. Now I beg the master for a turning word.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The old man said, 'I am not a human being. In the time of the past Kashyapa Buddha, I lived on this mountain. A student asked me: Does an adept of great cultivation still fall into cause and effect? I answered: Does not fall into cause and effect. Because of this I have fallen into five hundred lives as a wild fox.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The old man said: 'I am not a human being. In the age of Kāśyapa Buddha, I was head monk on this mountain. A monk asked: Does a great practitioner fall under cause and effect? I said: Does not fall. For 500 births I have been a fox.'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "The old man replied: \"I am not a human being, but I was a human being when the Kashapa Buddha preached in this world. I was a Zen master and lived on this mountain. At that time one of my students asked me whether or not the enlightened man is subject to the law of causation. I answered him: 'The enlightened man is not subject to the law of causation.' For this answer evidencing a clinging to absoluteness I became a fox for five hundred rebirths, and I am still a fox. Will you save me from this condition with your Zen words and let me get out of a fox's body? Now may I ask you: Is the enlightened man subject to the law of causation?\"",
                   "status": "verified_quotation",
@@ -4669,9 +4723,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「汝問。」老人曰：「大修行底人還落因果也無？」師曰：「不昧因果。」老人於言下大悟。",
               "pinyin": "Shī yuē: 'Rǔ wèn.' Lǎorén yuē: 'Dà xiūxíng dǐ rén hái luò yīnguǒ yě wú?' Shī yuē: 'Bù mèi yīnguǒ.' Lǎorén yú yán xià dà wù.",
               "translations": {
-                "red_pine": "Baizhang said: 'Ask.' The old man asked: 'Does a person of great practice still fall into causality?' The Master said: 'Is not blind to causality.' At these words the old man had great awakening.",
-                "cleary": "The Master said, 'Ask.' The old man asked: 'Does a person of great cultivation still fall into cause and effect?' The Master said: 'Is not blind to cause and effect.' The old man was instantly enlightened at these words.",
-                "sasaki": "Hyakujō said: 'Ask me.' The old man asked: 'Does a great practitioner fall into cause and effect?' Hyakujō said: 'Not blind to cause and effect.' At these words the old man attained great awakening.",
+                "red_pine": {
+                  "text": "Baizhang said: 'Ask.' The old man asked: 'Does a person of great practice still fall into causality?' The Master said: 'Is not blind to causality.' At these words the old man had great awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said, 'Ask.' The old man asked: 'Does a person of great cultivation still fall into cause and effect?' The Master said: 'Is not blind to cause and effect.' The old man was instantly enlightened at these words.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Hyakujō said: 'Ask me.' The old man asked: 'Does a great practitioner fall into cause and effect?' Hyakujō said: 'Not blind to cause and effect.' At these words the old man attained great awakening.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Hyakujo said: \"The enlightened man is one with the law of causation.\" At the words of Hyakujo the old man was enlightened.",
                   "status": "verified_quotation",
@@ -4716,9 +4779,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "俱胝和尚，凡有詰問，唯舉一指。後有童子，因外人問：『和尚說何法要？』童子亦豎指示之。",
               "pinyin": "Jùzhī héshang, fán yǒu jiéwèn, wéi jǔ yī zhǐ. Hòu yǒu tóngzǐ, yīn wàirén wèn: 'Héshang shuō hé fǎ yào?' Tóngzǐ yì shù zhǐ shì zhī.",
               "translations": {
-                "red_pine": "Whenever Master Juzhi was asked a question, he only raised a finger. Later an attendant boy was asked by visitors: 'What Dharma does the Master teach?' The boy also held up a finger.",
-                "cleary": "Whenever Master Juzhi was questioned, he would simply raise one finger. Later, an attendant boy was asked by an outsider: 'What Dharma does the Master teach?' The boy also held up a finger.",
-                "sasaki": "Whenever Master Gutei was asked a question, he simply held up one finger. Later a boy attendant was asked by visitors: 'What Dharma does your master teach?' The boy too raised a finger.",
+                "red_pine": {
+                  "text": "Whenever Master Juzhi was asked a question, he only raised a finger. Later an attendant boy was asked by visitors: 'What Dharma does the Master teach?' The boy also held up a finger.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Whenever Master Juzhi was questioned, he would simply raise one finger. Later, an attendant boy was asked by an outsider: 'What Dharma does the Master teach?' The boy also held up a finger.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Whenever Master Gutei was asked a question, he simply held up one finger. Later a boy attendant was asked by visitors: 'What Dharma does your master teach?' The boy too raised a finger.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Gutei raised his finger whenever he was asked a question about Zen. A boy attendant began to imitate him in this way. When anyone asked the boy what his master had preached about, the boy would raise his finger.",
                   "status": "verified_quotation",
@@ -4759,9 +4831,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "胝聞，遂以刃潛剪其指。童子負痛號哭而去，胝復召之。童子迴首，胝卻豎起指。童子忽然領悟。",
               "pinyin": "Zhī wén, suì yǐ rèn qián jiǎn qí zhǐ. Tóngzǐ fù tòng háokū ér qù, Zhī fù zhào zhī. Tóngzǐ huí shǒu, Zhī què shù qǐ zhǐ. Tóngzǐ hūrán lǐngwù.",
               "translations": {
-                "red_pine": "Juzhi heard of it, concealed a knife, and cut off the boy's finger. Crying out in agony, the boy ran off. Juzhi called out to him. As the boy turned his head, Juzhi raised his finger. The boy instantly woke up.",
-                "cleary": "Hearing of this, Juzhi secretly concealed a blade and sliced off the boy's finger. Screaming in pain, the boy ran out. Juzhi called out to him. As the boy turned his head, Juzhi raised his finger. The boy suddenly awakened.",
-                "sasaki": "Gutei heard of it, concealed a knife in his sleeve, and severed the boy's finger. Screaming, the boy ran out. Gutei shouted after him. The boy turned back; Gutei raised his finger. The boy instantly woke up.",
+                "red_pine": {
+                  "text": "Juzhi heard of it, concealed a knife, and cut off the boy's finger. Crying out in agony, the boy ran off. Juzhi called out to him. As the boy turned his head, Juzhi raised his finger. The boy instantly woke up.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Hearing of this, Juzhi secretly concealed a blade and sliced off the boy's finger. Screaming in pain, the boy ran out. Juzhi called out to him. As the boy turned his head, Juzhi raised his finger. The boy suddenly awakened.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Gutei heard of it, concealed a knife in his sleeve, and severed the boy's finger. Screaming, the boy ran out. Gutei shouted after him. The boy turned back; Gutei raised his finger. The boy instantly woke up.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Gutei heard about the boy's mischief. He seized him and cut off his finger. The boy cried and ran away. Gutei called and stopped him. When the boy turned his head to Gutei, Gutei raised up his own finger. In that instant the boy was enlightened.",
                   "status": "verified_quotation",
@@ -4806,10 +4887,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "或庵曰：「西天鬍子，因甚麼卻無鬚？」",
               "pinyin": "Huò'ān yuē: 'Xītiān húzi, yīn shénme què wú xū?'",
               "translations": {
-                "red_pine": "Huoan asked: 'Why does the western barbarian (Bodhidharma) have no beard?'",
-                "cleary": "Huoan said, 'Why does the Western barbarian have no beard?'",
-                "sasaki": "Wakuan said: 'Why has the Western Barbarian no beard?'",
-                "blyth": "Wakuan said, 'Why hasn't the barbarian from the West a beard?'",
+                "red_pine": {
+                  "text": "Huoan asked: 'Why does the western barbarian (Bodhidharma) have no beard?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Huoan said, 'Why does the Western barbarian have no beard?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Wakuan said: 'Why has the Western Barbarian no beard?'",
+                  "status": "reconstruction_unverified"
+                },
+                "blyth": {
+                  "text": "Wakuan said, 'Why hasn't the barbarian from the West a beard?'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Wakuan complained when he saw a picture of bearded Bodhidharma: \"Why hasn't that fellow a beard?\"",
                   "status": "verified_quotation",
@@ -4865,9 +4958,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "香嚴和尚云：「如人上樹，口銜樹枝，腳不踏枝，手不攀條。忽有人問：『如何是祖師西來意？』若不對，即違他所問；若對，又喪身失命。正恁麼時，作麼生對？」",
               "pinyin": "Xiāngyán héshang yún: 'Rú rén shàng shù, kǒu xián shùzhī, jiǎo bù tà zhī, shǒu bù pān tiáo. Hū yǒu rén wèn: 'Rúhé shì zǔshī xī lái yì?' Ruò bù duì, jí wéi tā suǒ wèn; ruò duì, yòu sàng shēn shī mìng. Zhèng rèn me shí, zuò me shēng duì?'",
               "translations": {
-                "red_pine": "Master Xiangyan said: 'It is like a man hanging from a high tree by his teeth, hands holding no branch, feet resting on no limb. Someone asks him: What is the meaning of the Patriarch coming from the west? If he does not answer, he ignores the questioner; if he answers, he loses his life. At that very moment, how would you reply?'",
-                "cleary": "Master Xiangyan said, 'It is like a person up a tree, biting a branch, feet not treading a branch, hands not grasping a twig. If someone asks about the meaning of the ancestral teacher coming from the west, if he does not answer, he ignores the question; if he does answer, he loses his life. At just such a time, how do you answer?'",
-                "sasaki": "Master Kyōgen said: 'A man hangs by his teeth from a tree branch, hands with no hold, feet with no footing. Someone under the tree asks: What is the meaning of Bodhidharma's coming from the West? If he does not answer, he fails; if he answers, he falls to his death. In such a plight, how would you respond?'",
+                "red_pine": {
+                  "text": "Master Xiangyan said: 'It is like a man hanging from a high tree by his teeth, hands holding no branch, feet resting on no limb. Someone asks him: What is the meaning of the Patriarch coming from the west? If he does not answer, he ignores the questioner; if he answers, he loses his life. At that very moment, how would you reply?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Master Xiangyan said, 'It is like a person up a tree, biting a branch, feet not treading a branch, hands not grasping a twig. If someone asks about the meaning of the ancestral teacher coming from the west, if he does not answer, he ignores the question; if he does answer, he loses his life. At just such a time, how do you answer?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Kyōgen said: 'A man hangs by his teeth from a tree branch, hands with no hold, feet with no footing. Someone under the tree asks: What is the meaning of Bodhidharma's coming from the West? If he does not answer, he fails; if he answers, he falls to his death. In such a plight, how would you respond?'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Kyogen said: \"Zen is like a man hanging in a tree by his teeth over a precipice. His hands grasp no branch, his feet rest on no limb, and under the tree another person asks him: 'Why did Bodhidharma come to China from India?' If the man in the tree does not answer, he fails; and if he does answer, he falls and loses his life. Now what shall he do?\"",
                   "status": "verified_quotation",
@@ -4912,9 +5014,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "世尊在靈山會上，拈花示眾。是時大眾皆罔措，唯迦葉破顏微笑。",
               "pinyin": "Shìzūn zài Língshān huì shàng, niānhuā shì zhòng. Shì shí dàzhòng jiē wǎngcuò, wéi Jiāyè pòyán wéixiào.",
               "translations": {
-                "red_pine": "When the World-Honored One was on Vulture Peak, he held up a flower before the assembly. At that time the entire assembly remained silent; only Mahakasyapa broke into a smile.",
-                "cleary": "When the World-Honored One was on Vulture Peak, he held up a flower and showed it to the crowd. At that time everyone was silent; only Mahakasyapa broke into a subtle smile.",
-                "sasaki": "When the World-Honored One was at Vulture Peak, he plucked a flower and held it before the assembly. The whole assembly remained motionless; only Kāśyapa broke into a faint smile.",
+                "red_pine": {
+                  "text": "When the World-Honored One was on Vulture Peak, he held up a flower before the assembly. At that time the entire assembly remained silent; only Mahakasyapa broke into a smile.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "When the World-Honored One was on Vulture Peak, he held up a flower and showed it to the crowd. At that time everyone was silent; only Mahakasyapa broke into a subtle smile.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When the World-Honored One was at Vulture Peak, he plucked a flower and held it before the assembly. The whole assembly remained motionless; only Kāśyapa broke into a faint smile.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "When Buddha was in Grdhrakuta mountain he turned a flower in his fingers and held it before his listeners. Every one was silent. Only Maha-Kashapa smiled at this revelation, although he tried to control the lines of his face.",
                   "status": "verified_quotation",
@@ -4944,9 +5055,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "世尊云：「吾有正法眼藏，涅槃妙心，實相無相，微妙法門，不立文字，教外別傳，付囑摩訶迦葉。」",
               "pinyin": "Shìzūn yún: 'Wú yǒu zhèng fǎ yǎn zàng, nièpán miào xīn, shíxiāng wúxiàng, wēimiào fǎmén, bù lì wénzì, jiào wài bié chuán, fùzhǔ Mókējiāyè.'",
               "translations": {
-                "red_pine": "The World-Honored One said: 'I possess the treasury of the true Dharma eye, the wondrous mind of Nirvana, the formless true form, the subtle Dharma gate, not established upon words and letters, a special transmission outside the scriptures. I entrust it to Mahakasyapa.'",
-                "cleary": "The World-Honored One said, 'I have the treasury of the eye of true teaching, the subtle mind of nirvana, the true form without form, the subtle dharma gate, not founded on words and letters, a special transmission outside the doctrine. I entrust this to Mahakasyapa.'",
-                "sasaki": "The World-Honored One said: 'I have the Eye Treasury of the True Law, the Serene Mind of Nirvana, the Real Form without form, the Ineffable Dharma Gate, not founded on words, a special transmission outside the teachings. This I entrust to Mahākāśyapa.'",
+                "red_pine": {
+                  "text": "The World-Honored One said: 'I possess the treasury of the true Dharma eye, the wondrous mind of Nirvana, the formless true form, the subtle Dharma gate, not established upon words and letters, a special transmission outside the scriptures. I entrust it to Mahakasyapa.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The World-Honored One said, 'I have the treasury of the eye of true teaching, the subtle mind of nirvana, the true form without form, the subtle dharma gate, not founded on words and letters, a special transmission outside the doctrine. I entrust this to Mahakasyapa.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The World-Honored One said: 'I have the Eye Treasury of the True Law, the Serene Mind of Nirvana, the Real Form without form, the Ineffable Dharma Gate, not founded on words, a special transmission outside the teachings. This I entrust to Mahākāśyapa.'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Buddha said: \"I have the eye of the true teaching, the heart of Nirvana, the true aspect of non-form, and the ineffable stride of Dharma. It is not expressed by words, but especially transmitted beyond teaching. This teaching I have given to Maha-Kashapa.\"",
                   "status": "verified_quotation",
@@ -4991,9 +5111,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "趙州因僧問：「學人乍入叢林，乞師指示。」",
               "pinyin": "Zhàozhōu yīn sēng wèn: 'Xuérén zhà rù cónglín, qǐ shī zhǐshì.'",
               "translations": {
-                "red_pine": "A monk asked Zhaozhou: 'I have just entered the monastery, please instruct me.'",
-                "cleary": "A monk asked Zhaozhou, 'I have newly entered the monastery; please give me instructions.'",
-                "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
+                "red_pine": {
+                  "text": "A monk asked Zhaozhou: 'I have just entered the monastery, please instruct me.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked Zhaozhou, 'I have newly entered the monastery; please give me instructions.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "A monk told Joshu: \"I have just entered the monastery. Please teach me.\"",
                   "status": "verified_quotation",
@@ -5023,9 +5152,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "州云：「喫粥了也未？」僧云：「喫粥了也。」州云：「洗缽盂去。」其僧有省。",
               "pinyin": "Zhōu yún: 'Chī zhōu le yě wèi?' Sēng yún: 'Chī zhōu le yě.' Zhōu yún: 'Xǐ bōyú qù.' Qí sēng yǒu xǐng.",
               "translations": {
-                "red_pine": "Zhaozhou asked: 'Have you eaten your porridge yet?' The monk said: 'I have.' Zhaozhou said: 'Then go wash your bowl.' The monk had an awakening.",
-                "cleary": "Zhaozhou said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten.' Zhaozhou said, 'Go wash your bowl.' That monk had an awakening.",
-                "sasaki": "Jōshū asked: 'Have you eaten your breakfast porridge?' The monk said: 'I have.' Jōshū said: 'Then wash your bowls.' That monk was awakened.",
+                "red_pine": {
+                  "text": "Zhaozhou asked: 'Have you eaten your porridge yet?' The monk said: 'I have.' Zhaozhou said: 'Then go wash your bowl.' The monk had an awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Zhaozhou said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten.' Zhaozhou said, 'Go wash your bowl.' That monk had an awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Jōshū asked: 'Have you eaten your breakfast porridge?' The monk said: 'I have.' Jōshū said: 'Then wash your bowls.' That monk was awakened.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Joshu asked: \"Have you eaten your rice porridge?\" The monk replied: \"I have eaten.\" Joshu said: \"Then you had better wash your bowl.\" At that moment the monk was enlightened.",
                   "status": "verified_quotation",
@@ -5613,10 +5751,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "趙州問南泉：「如何是道？」",
               "pinyin": "Zhàozhōu wèn Nánquán: 'Rúhé shì dào?'",
               "translations": {
-                "red_pine": "Zhaozhou asked Nanquan: 'What is the Way?'",
-                "cleary": "Zhaozhou asked Nanquan, 'What is the Way?'",
-                "sasaki": "Jōshū asked Nansen: 'What is the Way?'",
-                "suzuki": "Chao-chou asked Nan-ch'uan: 'What is the Tao?'",
+                "red_pine": {
+                  "text": "Zhaozhou asked Nanquan: 'What is the Way?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Zhaozhou asked Nanquan, 'What is the Way?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Jōshū asked Nansen: 'What is the Way?'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Chao-chou asked Nan-ch'uan: 'What is the Tao?'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Joshu asked Nansen: \"What is the path?\"",
                   "status": "verified_quotation",
@@ -5646,10 +5796,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "泉云：「平常心是道。」",
               "pinyin": "Quán yún: 'Píngcháng xīn shì dào.'",
               "translations": {
-                "red_pine": "Nanquan said: 'Ordinary mind is the Way.'",
-                "cleary": "Nanquan said, 'Ordinary mind is the Way.'",
-                "sasaki": "Nansen said: 'Ordinary mind is the Way.'",
-                "suzuki": "Nan-ch'uan said: 'Everyday mind is the Way.'",
+                "red_pine": {
+                  "text": "Nanquan said: 'Ordinary mind is the Way.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Nanquan said, 'Ordinary mind is the Way.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Nansen said: 'Ordinary mind is the Way.'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Nan-ch'uan said: 'Everyday mind is the Way.'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Nansen said: \"Everyday life is the path.\"",
                   "status": "verified_quotation",
@@ -5679,9 +5841,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "州云：「還可趣向也無？」泉云：「擬向即乖。」",
               "pinyin": "Zhōu yún: 'Hái kě qùxiàng yě wú?' Quán yún: 'Nǐ xiàng jí guāi.'",
               "translations": {
-                "red_pine": "Zhaozhou said: 'Can one direct oneself toward it?' Nanquan said: 'To intend toward it is to go astray.'",
-                "cleary": "Zhaozhou asked, 'Can one direct oneself toward it?' Nanquan said, 'To intend toward it is to deviate from it.'",
-                "sasaki": "Jōshū said: 'Should one direct oneself toward it?' Nansen replied: 'If you try to direct yourself toward it, you go astray.'",
+                "red_pine": {
+                  "text": "Zhaozhou said: 'Can one direct oneself toward it?' Nanquan said: 'To intend toward it is to go astray.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Zhaozhou asked, 'Can one direct oneself toward it?' Nanquan said, 'To intend toward it is to deviate from it.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Jōshū said: 'Should one direct oneself toward it?' Nansen replied: 'If you try to direct yourself toward it, you go astray.'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Joshu asked: \"Can it be studied?\" Nansen said: \"If you try to study, you will be far away from it.\"",
                   "status": "verified_quotation",
@@ -5711,9 +5882,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "泉云：「道不屬知，不屬不知。知是妄覺，不知是無記。若真達不疑之道，如太虛廓然豁達，豈可強是非也？」州於言下頓悟。",
               "pinyin": "Quán yún: 'Dào bù shǔ zhī, bù shǔ bù zhī. Zhī shì wàng jué, bù zhī shì wú jì. Ruò zhēn dá bù yí zhī dào, rú tài xū kuò rán huò dá, qǐ kě qiǎng shì fēi yě?' Zhōu yú yán xià dùn wù.",
               "translations": {
-                "red_pine": "Nanquan said: 'The Way does not belong to knowing, nor does it belong to not-knowing. Knowing is delusion; not-knowing is blankness. If you truly reach the doubt-free Way, it is vast and boundless as open space. How can you force right and wrong into it?' At these words Zhaozhou had sudden awakening.",
-                "cleary": "Nanquan said: 'The Way does not belong to knowing, nor does it belong to not-knowing. Knowing is false awareness; not-knowing is blank indifference. If you truly reach the doubt-free Way, it is like vast space, wide open and boundless. How could you force right and wrong into it?' At these words, Zhaozhou attained sudden awakening.",
-                "sasaki": "Nansen said: 'The Way does not belong to knowing or not knowing. Knowing is delusion; not knowing is mere ignorance. When you reach the true Way beyond doubt, it is vast and boundless as the great empty sky. How can there be right and wrong?' Jōshū was immediately enlightened.",
+                "red_pine": {
+                  "text": "Nanquan said: 'The Way does not belong to knowing, nor does it belong to not-knowing. Knowing is delusion; not-knowing is blankness. If you truly reach the doubt-free Way, it is vast and boundless as open space. How can you force right and wrong into it?' At these words Zhaozhou had sudden awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Nanquan said: 'The Way does not belong to knowing, nor does it belong to not-knowing. Knowing is false awareness; not-knowing is blank indifference. If you truly reach the doubt-free Way, it is like vast space, wide open and boundless. How could you force right and wrong into it?' At these words, Zhaozhou attained sudden awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Nansen said: 'The Way does not belong to knowing or not knowing. Knowing is delusion; not knowing is mere ignorance. When you reach the true Way beyond doubt, it is vast and boundless as the great empty sky. How can there be right and wrong?' Jōshū was immediately enlightened.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Nansen said: \"The path does not belong to the perception world, neither does it belong to the nonperception world. Cognition is a delusion and noncognition is senseless. If you want to reach the true path beyond doubt, place yourself in the same freedom as sky. You name it neither good nor not-good.\" At these words Joshu was enlightened.",
                   "status": "verified_quotation",
@@ -5893,9 +6073,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "六祖因明上座趁逐及大庾嶺。祖見明走來，遂擲衣缽於石上云：「此衣表信，可力爭耶？任汝將去。」明遂舉之，如山不動，踟躕悚慄。",
               "pinyin": "Liùzǔ yīn Míng shàngzuò chènzhú jí Dàyǔ Lǐng. Zǔ jiàn Míng zǒu lái, suì zhì yībō yú shí shàng yún: 'Cǐ yī biǎo xìn, kě lì zhēng yé? Rèn rǔ jiāng qù.' Míng suì jǔ zhī, rú shān bù dòng, chíchú sǒnglì.",
               "translations": {
-                "red_pine": "Senior Monk Ming pursued the Sixth Patriarch to Dayu Ridge. Seeing Ming approaching, the Patriarch placed the robe and bowl upon a rock and said: 'This robe represents faith; can it be seized by force? Take it if you can.' Ming tried to lift it, but it was unmovable as a mountain. Trembling with fear, he faltered.",
-                "cleary": "The Sixth Patriarch was pursued by Senior Monk Ming as far as the Dayu Ridge. The Patriarch saw Ming coming, threw the robe and bowl on a rock, and said, 'This robe symbolizes faith; can it be fought over by force? You may take it.' Ming tried to pick it up, but it was immovable as a mountain.",
-                "sasaki": "Senior monk Myō pursued the Sixth Patriarch to Mount Daiyu. The Patriarch threw the robe and bowl on a stone, saying: 'This robe symbolizes faith. Can it be contested by force? Take it!' Myō tried to lift it, but it was unshakeable like a mountain.",
+                "red_pine": {
+                  "text": "Senior Monk Ming pursued the Sixth Patriarch to Dayu Ridge. Seeing Ming approaching, the Patriarch placed the robe and bowl upon a rock and said: 'This robe represents faith; can it be seized by force? Take it if you can.' Ming tried to lift it, but it was unmovable as a mountain. Trembling with fear, he faltered.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Sixth Patriarch was pursued by Senior Monk Ming as far as the Dayu Ridge. The Patriarch saw Ming coming, threw the robe and bowl on a rock, and said, 'This robe symbolizes faith; can it be fought over by force? You may take it.' Ming tried to pick it up, but it was immovable as a mountain.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Senior monk Myō pursued the Sixth Patriarch to Mount Daiyu. The Patriarch threw the robe and bowl on a stone, saying: 'This robe symbolizes faith. Can it be contested by force? Take it!' Myō tried to lift it, but it was unshakeable like a mountain.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "When he became emancipated the sixth patriarch received from the fifth patriarch the bowl and robe given from the Buddha to his successors, generation after generation. A monk named E-myo out of envy pursued the patriarch to take this great treasure away from him. The sixth patriarch placed the bowl and robe on a stone in the road and told E-myo: \"These objects just symbolize the faith. There is no use fighting over them. If you desire to take them, take them now.\" When E-myo went to move the bowl and robe they were as heavy as mountains. He could not budge them.",
                   "status": "verified_quotation",
@@ -5925,9 +6114,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "明云：「我來求法，非為衣也。願行者開示。」",
               "pinyin": "Míng yún: 'Wǒ lái qiú fǎ, fēi wèi yī yě. Yuàn xíngzhě kāishì.'",
               "translations": {
-                "red_pine": "Ming said: 'I came for the Dharma, not for the robe. I pray that the practitioner will instruct me.'",
-                "cleary": "Ming said, 'I have come for the Dharma, not for the robe. Please instruct me, practitioner.'",
-                "sasaki": "Myō said: 'I have come seeking the Dharma, not for the robe. I beg you, instruct me!'",
+                "red_pine": {
+                  "text": "Ming said: 'I came for the Dharma, not for the robe. I pray that the practitioner will instruct me.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Ming said, 'I have come for the Dharma, not for the robe. Please instruct me, practitioner.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Myō said: 'I have come seeking the Dharma, not for the robe. I beg you, instruct me!'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Trembling for shame he said: \"I came wanting the teaching, not the material treasures. Please teach me.\"",
                   "status": "verified_quotation",
@@ -5957,9 +6155,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "祖云：「不思善，不思惡，正與麼時，那個是明上座本來面目？」明當下大悟，遍體汗流。",
               "pinyin": "Zǔ yún: 'Bù sī shàn, bù sī è, zhèng yǔ me shí, nǎ ge shì Míng shàngzuò běnlái miànmù?' Míng dāngxià dà wù, biàn tǐ hàn liú.",
               "translations": {
-                "red_pine": "The Patriarch said: 'Do not think of good; do not think of evil. At this very moment, what is Senior Monk Ming's original face?' Ming was instantly awakened, sweat pouring from his entire body.",
-                "cleary": "The Patriarch said, 'Without thinking of good or evil, at this very moment, what is your original face?' Ming immediately had great enlightenment; sweat streamed from his whole body.",
-                "sasaki": "The Patriarch said: 'Think neither of good nor of evil. At this very instant, what is your Original Face?' In that moment Myō was enlightened, drenching his whole body in sweat.",
+                "red_pine": {
+                  "text": "The Patriarch said: 'Do not think of good; do not think of evil. At this very moment, what is Senior Monk Ming's original face?' Ming was instantly awakened, sweat pouring from his entire body.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Patriarch said, 'Without thinking of good or evil, at this very moment, what is your original face?' Ming immediately had great enlightenment; sweat streamed from his whole body.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Patriarch said: 'Think neither of good nor of evil. At this very instant, what is your Original Face?' In that moment Myō was enlightened, drenching his whole body in sweat.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "The sixth patriarch said: \"When you do not think good and when you do not think not-good, what is your true self?\" At these words E-myo was illumined. Perspiration broke out all over his body.",
                   "status": "verified_quotation",
@@ -6223,9 +6430,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "六祖因風颭剎幡，有二僧對論。一云幡動，一云風動。往復酬答，曾未契理。",
               "pinyin": "Liùzǔ yīn fēng zhǎn chà fān, yǒu èr sēng duì lùn. Yī yún fān dòng, yī yún fēng dòng. Wǎngfù chóudá, céng wèi qì lǐ.",
               "translations": {
-                "red_pine": "The wind was flapping a temple banner, and two monks were debating. One said the banner was moving; the other said the wind was moving. They argued back and forth without reaching the truth.",
-                "cleary": "The wind was blowing a temple banner; two monks were arguing about it. One said the banner was moving, one said the wind was moving. They went back and forth, not reaching the principle.",
-                "sasaki": "The wind was blowing the temple flag, and two monks were arguing. One said: 'The flag moves.' The other said: 'The wind moves.' They argued incessantly.",
+                "red_pine": {
+                  "text": "The wind was flapping a temple banner, and two monks were debating. One said the banner was moving; the other said the wind was moving. They argued back and forth without reaching the truth.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The wind was blowing a temple banner; two monks were arguing about it. One said the banner was moving, one said the wind was moving. They went back and forth, not reaching the principle.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The wind was blowing the temple flag, and two monks were arguing. One said: 'The flag moves.' The other said: 'The wind moves.' They argued incessantly.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Two monks were arguing about a flag. One said: \"The flag is moving.\" The other said: \"The wind is moving.\"",
                   "status": "verified_quotation",
@@ -6255,9 +6471,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "祖云：「不是風動，不是幡動，仁者心動。」二僧竦然。",
               "pinyin": "Zǔ yún: 'Bù shì fēng dòng, bù shì fān dòng, rénzhě xīn dòng.' Èr sēng sǒngrán.",
               "translations": {
-                "red_pine": "The Patriarch said: 'It is not the wind that is moving; it is not the banner that is moving. Good friends, it is your own mind that is moving.' The two monks were struck with awe.",
-                "cleary": "The Patriarch said, 'It is not the wind moving; it is not the banner moving. Kind sirs, it is your minds moving.' The two monks were awestruck.",
-                "sasaki": "The Patriarch said: 'Neither wind nor flag moves; it is your minds that move.' The two monks stood in awe.",
+                "red_pine": {
+                  "text": "The Patriarch said: 'It is not the wind that is moving; it is not the banner that is moving. Good friends, it is your own mind that is moving.' The two monks were struck with awe.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Patriarch said, 'It is not the wind moving; it is not the banner moving. Kind sirs, it is your minds moving.' The two monks were awestruck.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Patriarch said: 'Neither wind nor flag moves; it is your minds that move.' The two monks stood in awe.",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "The sixth patriarch happened to be passing by. He told them: \"Not the wind, not the flag; mind is moving.\"",
                   "status": "verified_quotation",
@@ -6569,10 +6794,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "趙州因僧問：「如何是祖師西來意？」",
               "pinyin": "Zhàozhōu yīn sēng wèn: 'Rúhé shì zǔshī xī lái yì?'",
               "translations": {
-                "red_pine": "A monk asked Zhaozhou: 'What is the meaning of the Patriarch coming from the west?'",
-                "cleary": "A monk asked Zhaozhou, 'What is the meaning of the ancestral teacher coming from the west?'",
-                "heine": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
-                "sasaki": "A monk asked Jōshū: 'What is the meaning of Bodhidharma's coming from the West?'",
+                "red_pine": {
+                  "text": "A monk asked Zhaozhou: 'What is the meaning of the Patriarch coming from the west?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked Zhaozhou, 'What is the meaning of the ancestral teacher coming from the west?'",
+                  "status": "reconstruction_unverified"
+                },
+                "heine": {
+                  "text": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked Jōshū: 'What is the meaning of Bodhidharma's coming from the West?'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "A monk asked Joshu why Bodhidharma came to China.",
                   "status": "verified_quotation",
@@ -6602,10 +6839,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "州云：「庭前柏樹子。」",
               "pinyin": "Zhōu yún: 'Tíng qián bǎi shù zǐ.'",
               "translations": {
-                "red_pine": "Zhaozhou said: 'The cypress tree in the courtyard.'",
-                "cleary": "Zhaozhou said, 'The cypress tree in the courtyard.'",
-                "heine": "Zhaozhou said, 'The cypress tree in front of the hall.'",
-                "sasaki": "Jōshū said: 'The oak tree in the front courtyard.'",
+                "red_pine": {
+                  "text": "Zhaozhou said: 'The cypress tree in the courtyard.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Zhaozhou said, 'The cypress tree in the courtyard.'",
+                  "status": "reconstruction_unverified"
+                },
+                "heine": {
+                  "text": "Zhaozhou said, 'The cypress tree in front of the hall.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Jōshū said: 'The oak tree in the front courtyard.'",
+                  "status": "reconstruction_unverified"
+                },
                 "senzaki_reps": {
                   "text": "Joshu said: \"An oak tree in the garden.\"",
                   "status": "verified_quotation",
@@ -7118,7 +7367,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「赤肉團上有一無位真人，常從諸人面門出入。未證據者看看！」",
               "pinyin": "Shī shì zhòng yún: 'Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!'",
               "translations": {
-                "red_pine": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
+                "red_pine": {
+                  "text": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
+                  "status": "reconstruction_unverified"
+                },
                 "sasaki": {
                   "text": "The Master, taking the high seat in the hall, said, \"On your lump of red flesh is a true man without rank who is always going in and out of the face of every one of you. Those who have not yet confirmed this, look, look!\"",
                   "status": "verified_quotation",
@@ -7130,8 +7382,14 @@ window.TRANSLATECHAN_DATA = {
                     "reference": "p. 5 (Recorded Sayings / Discourses)"
                   }
                 },
-                "cleary": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
-                "suzuki": "The Master said: 'In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!'"
+                "cleary": {
+                  "text": "The Master addressed the assembly: 'On this lump of red flesh is a true human of no status, constantly entering and exiting through the gates of your face. Those who have not experienced this, look! Look!'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "The Master said: 'In this lump of red meat there is a True Man of No Title, always entering and leaving through your senses. Look at him, you who have not yet seen him!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -7139,7 +7397,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "時有僧出問：「如何是無位真人？」",
               "pinyin": "Shí yǒu sēng chū wèn: 'Rúhé shì wú wèi zhēn rén?'",
               "translations": {
-                "red_pine": "Then a monk came forward and asked: 'What is the True Person without rank?'",
+                "red_pine": {
+                  "text": "Then a monk came forward and asked: 'What is the True Person without rank?'",
+                  "status": "reconstruction_unverified"
+                },
                 "sasaki": {
                   "text": "Then a monk came forward and asked, \"What about the true man without rank?\"",
                   "status": "verified_quotation",
@@ -7151,8 +7412,14 @@ window.TRANSLATECHAN_DATA = {
                     "reference": "p. 5 (Recorded Sayings / Discourses)"
                   }
                 },
-                "cleary": "Then a monk came forward and asked, 'What is the true human of no status?'",
-                "suzuki": "A monk stepped out and asked: 'What kind of person is the True Man of No Title?'"
+                "cleary": {
+                  "text": "Then a monk came forward and asked, 'What is the true human of no status?'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "A monk stepped out and asked: 'What kind of person is the True Man of No Title?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -7160,7 +7427,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師下禪床，把住云：「道！道！」僧擬議。師託開云：「無位真人是什麼乾屎橛！」便歸方丈。",
               "pinyin": "Shī xià chánchuáng, bǎzhù yún: 'Dào! Dào!' Sēng nǐyì. Shī tuōkāi yún: 'Wú wèi zhēn rén shì shénme gān shǐ jué!' Biàn guī fāngzhàng.",
               "translations": {
-                "red_pine": "The Master got down from the meditation bench, seized the monk, and shouted: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person without rank—what a dried shit-stick!' and returned to his abbot's room.",
+                "red_pine": {
+                  "text": "The Master got down from the meditation bench, seized the monk, and shouted: 'Speak! Speak!' The monk hesitated. The Master pushed him away, saying: 'The True Person without rank—what a dried shit-stick!' and returned to his abbot's room.",
+                  "status": "reconstruction_unverified"
+                },
                 "sasaki": {
                   "text": "The master got down from his seat, seized the monk, and cried, \"Speak, speak!\" The monk faltered. Shoving him away, the master said, \"The true man without rank—what kind of dried piece of shit is he!\" Then he returned to his quarters.",
                   "status": "verified_quotation",
@@ -7172,8 +7442,14 @@ window.TRANSLATECHAN_DATA = {
                     "reference": "p. 5 (Recorded Sayings / Discourses)"
                   }
                 },
-                "cleary": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
-                "suzuki": "The Master descended from his chair, seized the monk by the throat, and cried: 'Speak! Speak!' The monk faltered. Pushing him away, the Master shouted: 'What a worthless dried dirt scraper is your True Man of No Rank!' and returned to his abbot room."
+                "cleary": {
+                  "text": "The Master got down from the meditation seat, grabbed the monk, and said, 'Speak! Speak!' The monk hesitated. The Master shoved him away and said, 'What kind of dry shit-scraper is the true human of no status!' and went back to his room.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "The Master descended from his chair, seized the monk by the throat, and cried: 'Speak! Speak!' The monk faltered. Pushing him away, the Master shouted: 'What a worthless dried dirt scraper is your True Man of No Rank!' and returned to his abbot room.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -7189,9 +7465,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師問僧：「有時一喝如金剛王寶劍，有時一喝如金毛師子蹲地，有時一喝如探竿影草，有時一喝不作一喝用。汝作麼生會？」",
               "pinyin": "Shī wèn sēng: 'Yǒu shí yī hè rú jīngāng wáng bǎojiàn, yǒu shí yī hè rú jīnmáo shīzǐ dūndì, yǒu shí yī hè rú tàngān yǐngcǎo, yǒu shí yī hè bù zuò yī hè yòng. Rǔ zuò me shēng huì?'",
               "translations": {
-                "red_pine": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the sacred king; sometimes a shout is like the golden-haired lion crouching on the earth; sometimes a shout is like a probe pole and grass shadow; sometimes a shout does not function as a shout. How do you understand this?'",
-                "sasaki": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the vajra king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a sounding pole and feather shadow; sometimes a shout does not function as a shout. How do you understand this?'",
-                "cleary": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'",
+                "red_pine": {
+                  "text": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the sacred king; sometimes a shout is like the golden-haired lion crouching on the earth; sometimes a shout is like a probe pole and grass shadow; sometimes a shout does not function as a shout. How do you understand this?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Master asked a monk: 'Sometimes a shout is like the diamond sword of the vajra king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a sounding pole and feather shadow; sometimes a shout does not function as a shout. How do you understand this?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master asked a monk: 'Sometimes a shout is like the jeweled sword of a diamond king; sometimes a shout is like a golden-haired lion crouching on the ground; sometimes a shout is like a probe pole and grass shadow; sometimes a shout is not used as a shout. How do you understand?'",
+                  "status": "reconstruction_unverified"
+                },
                 "watson": {
                   "text": "The Master said to a monk, \"At times my shout is like the precious sword of the Diamond King. At times my shout is like a golden-haired lion crouching on the ground. At times my shout is like the search pole and the shadow grass. At times my shout doesn't work like a shout at all. Do you understand?\" The monk started to answer, whereupon the Master gave a shout.",
                   "status": "verified_quotation",
@@ -7210,9 +7495,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧擬議。師便喝。",
               "pinyin": "Sēng nǐyì. Shī biàn hè.",
               "translations": {
-                "red_pine": "The monk hesitated to reply. The Master immediately gave a resounding shout!",
-                "sasaki": "The monk hesitated. The Master gave a shout!",
-                "cleary": "The monk deliberated. The Master gave a shout."
+                "red_pine": {
+                  "text": "The monk hesitated to reply. The Master immediately gave a resounding shout!",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The monk hesitated. The Master gave a shout!",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The monk deliberated. The Master gave a shout.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -7228,9 +7522,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "道流！如禪宗見解死活循然，參學之人大須子細，如主客相見便有言論往來，或應物現形，或全體作用，或把機權喜怒，或現半身，或乘師子，或乘象王。如有真正學人便喝，先拈出一箇膠盆子。善知識不辨是境，便上他境上作模作樣。學人便喝，前人不肯放，此是膏肓之病不堪醫，喚作客看主。或是善知識不拈出物，隨學人問處即奪，學人被奪抵死不肯放，此是主看客。或有學人應一箇清淨境出善知識前，善知識辨得是境，把得拋向坑裏。學人言：「大好善知識。」知識即云：「咄哉，不識好惡。」學人便禮拜，此喚作主看主。或有學人披枷帶鎖出善知識前，善知識更與安一重枷鎖，學人歡喜，彼此不辨，呼為客看客。",
               "pinyin": "Dàoliú! Rú Chánzōng jiànjiě sǐhuó xúnrán, cānxué zhī rén dà xū zǐxì, rú zhǔkè xiāngjiàn biàn yǒu yánlùn wǎnglái, huò yìngwù xiànxíng, huò quántǐ zuòyòng, huò bǎ jīquán xǐnù, huò xiàn bànshēn, huò chéng shīzi, huò chéng xiàngwáng. Rú yǒu zhēnzhèng xuérén biàn hè, xiān niān chū yī gè jiāopénzi. Shànzhīshì bù biàn shì jìng, biàn shàng tā jìng shàng zuò mó zuò yàng. Xuérén biàn hè, qiánrén bù kěn fàng, cǐ shì gāohuāng zhī bìng bù kān yī, huàn zuò kè kàn zhǔ. Huò shì shànzhīshì bù niān chū wù, suí xuérén wèn chù jí duó, xuérén bèi duó dǐ sǐ bù kěn fàng, cǐ shì zhǔ kàn kè. Huò yǒu xuérén yìng yī gè qīngjìng jìng chū shànzhīshì qián, shànzhīshì biàn dé shì jìng, bǎ dé pāo xiàng kēng lǐ. Xuérén yán: Dà hǎo shànzhīshì. Zhīshì jí yún: Duō zāi, bù shí hǎo è. Xuérén biàn lǐbài, cǐ huàn zuò zhǔ kàn zhǔ. Huò yǒu xuérén pī jiā dài suǒ chū shànzhīshì qián, shànzhīshì gèng yǔ ān yī chóng jiāsuǒ, xuérén huānxǐ, bǐcǐ bù biàn, hū wéi kè kàn kè.",
               "translations": {
-                "red_pine": "Among Chan students, encounters can take many forms: meeting as host and guest, responding to circumstances, or taking up the whole activity. When a student traps a teacher in a situation and the teacher cannot discern it, this is called guest seeing host. When a teacher takes away what the student asks for and the student will not release it, this is called host seeing guest. When both recognize and discard a pure situation, this is host seeing host; when both fail to discern and add another shackle, this is guest seeing guest.",
-                "sasaki": "Students of the Way must be very careful in the living exchange of host and guest. The text distinguishes the guest who tests a teacher, the host who takes away a student’s attachment, the mutual discernment of host and host, and the mutual confusion of guest and guest.",
-                "cleary": "Students of the Way must be very careful. In encounters there may be words and responses, manifestations and complete functioning. If a student presents a situation and the teacher cannot discern it, that is guest seeing host; if the teacher takes the student’s question and the student clings to it, that is host seeing guest. Clear discernment is host seeing host; mutual confusion is guest seeing guest."
+                "red_pine": {
+                  "text": "Among Chan students, encounters can take many forms: meeting as host and guest, responding to circumstances, or taking up the whole activity. When a student traps a teacher in a situation and the teacher cannot discern it, this is called guest seeing host. When a teacher takes away what the student asks for and the student will not release it, this is called host seeing guest. When both recognize and discard a pure situation, this is host seeing host; when both fail to discern and add another shackle, this is guest seeing guest.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Students of the Way must be very careful in the living exchange of host and guest. The text distinguishes the guest who tests a teacher, the host who takes away a student’s attachment, the mutual discernment of host and host, and the mutual confusion of guest and guest.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Students of the Way must be very careful. In encounters there may be words and responses, manifestations and complete functioning. If a student presents a situation and the teacher cannot discern it, that is guest seeing host; if the teacher takes the student’s question and the student clings to it, that is host seeing guest. Clear discernment is host seeing host; mutual confusion is guest seeing guest.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -7246,9 +7549,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師臨遷化時據坐云：「吾滅後不得滅却吾正法眼藏。」三聖出云：「爭敢滅却和尚正法眼藏？」",
               "pinyin": "Shī lín qiānhuà shí jù zuò yún: Wú miè hòu bùdé miè què wú zhèng fǎyǎn zàng. Sānshèng chū yún: Zhēng gǎn miè què héshang zhèng fǎyǎn zàng?",
               "translations": {
-                "red_pine": "When the Master was about to pass away, he entrusted Sansheng: 'After I pass, you must not extinguish my treasury of the true Dharma eye.' Sansheng said: 'How could I dare extinguish the Master's treasury of the true Dharma eye!'",
-                "sasaki": "When the Master was about to enter nirvana, he instructed Sansheng: 'After my death, do not destroy my Eye Treasury of the True Law.' Sansheng said: 'How could I dare destroy your Eye Treasury of the True Law!'",
-                "cleary": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'",
+                "red_pine": {
+                  "text": "When the Master was about to pass away, he entrusted Sansheng: 'After I pass, you must not extinguish my treasury of the true Dharma eye.' Sansheng said: 'How could I dare extinguish the Master's treasury of the true Dharma eye!'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When the Master was about to enter nirvana, he instructed Sansheng: 'After my death, do not destroy my Eye Treasury of the True Law.' Sansheng said: 'How could I dare destroy your Eye Treasury of the True Law!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "When the Master was about to pass away, he instructed Sansheng, 'After I am gone, do not destroy my treasury of the eye of true teaching.' Sansheng said, 'How could I dare destroy the Master's treasury of the eye of true teaching?'",
+                  "status": "reconstruction_unverified"
+                },
                 "ferguson": {
                   "text": "When Linji was about to die he sat upright and said, \"After I'm gone, my Treasury of the True Dharma Eye cannot be destroyed.\" Linji's disciple, Sansheng, said, \"How can we dare destroy the master's Treasury of the True Dharma Eye?\"",
                   "status": "verified_quotation",
@@ -7267,9 +7579,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師云：「已後有人問爾，向他道甚麼？」三聖便喝。師云：「誰知吾正法眼藏向這瞎驢邊滅却。」言訖端然示寂。",
               "pinyin": "Shī yún: Yǐhòu yǒu rén wèn ěr, xiàng tā dào shénme? Sānshèng biàn hè. Shī yún: Shuí zhī wú zhèng fǎyǎn zàng xiàng zhè xiālǘ biān mièquè. Yán qì duānrán shìjì.",
               "translations": {
-                "red_pine": "The Master said: 'If someone asks you in the future, what will you say to them?' Sansheng immediately gave a thunderous shout! The Master smiled and said: 'Who would have known that my treasury of the true Dharma eye would be extinguished by this blind donkey!' Saying this, he sat upright and passed away.",
-                "sasaki": "The Master asked: 'If someone asks you in the future, what will you say?' Sansheng shouted! The Master said: 'Who would have thought that my Eye Treasury of the True Law would be destroyed by this blind donkey!' Having said this, the Master sat upright and passed away.",
-                "cleary": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on.",
+                "red_pine": {
+                  "text": "The Master said: 'If someone asks you in the future, what will you say to them?' Sansheng immediately gave a thunderous shout! The Master smiled and said: 'Who would have known that my treasury of the true Dharma eye would be extinguished by this blind donkey!' Saying this, he sat upright and passed away.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Master asked: 'If someone asks you in the future, what will you say?' Sansheng shouted! The Master said: 'Who would have thought that my Eye Treasury of the True Law would be destroyed by this blind donkey!' Having said this, the Master sat upright and passed away.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said, 'If someone asks you later on, what will you say?' Sansheng gave a shout. The Master said, 'Who knew that my treasury of the eye of true teaching would be wiped out by this blind donkey!' Having spoken, he sat upright and passed on.",
+                  "status": "reconstruction_unverified"
+                },
                 "ferguson": {
                   "text": "Linji said, \"In the future if someone asks about my teaching, what will you say to them?\" Sansheng shouted. Linji said, \"Who would have thought that my Treasury of the True Dharma Eye would be destroyed by this blind ass!\" Upon saying these words Linji passed away, sitting upright.",
                   "status": "verified_quotation",
@@ -7322,9 +7643,18 @@ window.TRANSLATECHAN_DATA = {
                     "reference": "teaching 1"
                   }
                 },
-                "cleary": "The Master said to Pei Xiu: All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes; it is not blue or yellow, has no form or characteristics, belongs neither to existence nor nonexistence, cannot be reckoned as new or old, is neither long nor short, neither large nor small, transcending all limits, words, traces, and polarities.",
-                "suzuki": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
-                "ai_literal": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs."
+                "cleary": {
+                  "text": "The Master said to Pei Xiu: All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes; it is not blue or yellow, has no form or characteristics, belongs neither to existence nor nonexistence, cannot be reckoned as new or old, is neither long nor short, neither large nor small, transcending all limits, words, traces, and polarities.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs.",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7343,8 +7673,14 @@ window.TRANSLATECHAN_DATA = {
                     "reference": "§1"
                   }
                 },
-                "cleary": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
-                "ai_literal": "Its immediate embodiment is it; stirring a thought is instantly deviating. Like empty space, without edges or borders, not measurable. Only this One Mind is Buddha; Buddha and sentient beings have no other difference."
+                "cleary": {
+                  "text": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "Its immediate embodiment is it; stirring a thought is instantly deviating. Like empty space, without edges or borders, not measurable. Only this One Mind is Buddha; Buddha and sentient beings have no other difference.",
+                  "status": "ai_draft"
+                }
               }
             }
           ]
@@ -7374,10 +7710,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問：「如何是祖師西來意？」",
               "pinyin": "Sēng wèn: 'Rúhé shì zǔshī xī lái yì?'",
               "translations": {
-                "cleary": "A monk asked, 'What is the intention of the ancestral teacher coming from the west?'",
-                "heine": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
-                "sasaki": "A monk asked: 'What is the meaning of Bodhidharma's coming from the West?'",
-                "ai_literal": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'",
+                "cleary": {
+                  "text": "A monk asked, 'What is the intention of the ancestral teacher coming from the west?'",
+                  "status": "reconstruction_unverified"
+                },
+                "heine": {
+                  "text": "A monk asked, 'What is the meaning of the Patriarch coming from the west?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked: 'What is the meaning of Bodhidharma's coming from the West?'",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "A monk asked: 'What is the ancestral teacher's coming-from-the-west meaning?'",
+                  "status": "ai_draft"
+                },
                 "hoffman": {
                   "text": "A monk asked, \"What does it mean, 'Our founder came from the west'?\"",
                   "status": "verified_quotation",
@@ -7396,10 +7744,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「庭前柏樹子。」",
               "pinyin": "Shī yuē: 'Tíng qián bǎi shù zǐ.'",
               "translations": {
-                "cleary": "The Master said, 'The cypress tree in the courtyard.'",
-                "heine": "The Master said, 'The cypress tree in front of the hall.'",
-                "sasaki": "The Master said: 'The oak tree in the front garden.'",
-                "ai_literal": "The Master said: 'The courtyard-front cypress tree.'",
+                "cleary": {
+                  "text": "The Master said, 'The cypress tree in the courtyard.'",
+                  "status": "reconstruction_unverified"
+                },
+                "heine": {
+                  "text": "The Master said, 'The cypress tree in front of the hall.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Master said: 'The oak tree in the front garden.'",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "The Master said: 'The courtyard-front cypress tree.'",
+                  "status": "ai_draft"
+                },
                 "hoffman": {
                   "text": "Jōshū said, \"The oak tree in the front yard.\"",
                   "status": "verified_quotation",
@@ -7418,9 +7778,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧云：「和尚莫將境示人。」師曰：「我不將境示人。」僧云：「如何是祖師西來意？」師曰：「庭前柏樹子。」",
               "pinyin": "Sēng yún: 'Héshang mò jiāng jìng shì rén.' Shī yuē: 'Wǒ bù jiāng jìng shì rén.' Sēng yún: 'Rúhé shì zǔshī xī lái yì?' Shī yuē: 'Tíng qián bǎi shù zǐ.'",
               "translations": {
-                "cleary": "The monk said, 'Master, do not point to objective circumstances to instruct people.' The Master said, 'I am not pointing to objective circumstances.' The monk said, 'What is the intention of the ancestral teacher coming from the west?' The Master said, 'The cypress tree in the courtyard.'",
-                "heine": "The monk said, 'Master, do not use external objects to show people.' The Master said, 'I am not using external objects.' The monk repeated, 'What is the Patriarch's meaning?' The Master replied: 'The cypress tree in the garden.'",
-                "ai_literal": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'",
+                "cleary": {
+                  "text": "The monk said, 'Master, do not point to objective circumstances to instruct people.' The Master said, 'I am not pointing to objective circumstances.' The monk said, 'What is the intention of the ancestral teacher coming from the west?' The Master said, 'The cypress tree in the courtyard.'",
+                  "status": "reconstruction_unverified"
+                },
+                "heine": {
+                  "text": "The monk said, 'Master, do not use external objects to show people.' The Master said, 'I am not using external objects.' The monk repeated, 'What is the Patriarch's meaning?' The Master replied: 'The cypress tree in the garden.'",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "Monk said: 'Master, do not take the objective environment to show people.' Master said: 'I do not take the environment to show people.' Monk said: 'What is the Patriarch's meaning?' Master said: 'The courtyard-front cypress tree.'",
+                  "status": "ai_draft"
+                },
                 "hoffman": {
                   "text": "The monk said, \"Please do not show the people the object.\" Jōshū said, \"I will not.\" The monk repeated his question: \"What does it mean, 'Our founder came from the west'?\" Jōshū said, \"The oak tree in the front yard.\"",
                   "status": "verified_quotation",
@@ -7447,10 +7816,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問：「學人乍入叢林，乞師指示。」",
               "pinyin": "Sēng wèn: 'Xuérén zhà rù cónglín, qǐ shī zhǐshì.'",
               "translations": {
-                "cleary": "A monk said, 'I have just newly entered the monastery; please give me instructions.'",
-                "sasaki": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
-                "suzuki": "A newly arrived monk asked Chao-chou: 'I am a new beginner; please show me the Way.'",
-                "ai_literal": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'",
+                "cleary": {
+                  "text": "A monk said, 'I have just newly entered the monastery; please give me instructions.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk said to Jōshū: 'I have just entered the monastery. Please Master, instruct me.'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "A newly arrived monk asked Chao-chou: 'I am a new beginner; please show me the Way.'",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "Monk asked: 'This student has just entered the monastic grove; I beg the master for instruction.'",
+                  "status": "ai_draft"
+                },
                 "hoffman": {
                   "text": "A novice once said to the master, \"I am only newly admitted into this monastery, and I beseech Your Reverence to teach and guide me.\"",
                   "status": "verified_quotation",
@@ -7469,10 +7850,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「喫粥了也未？」僧曰：「喫粥了也。」師曰：「洗缽盂去。」其僧因此大悟。",
               "pinyin": "Shī yuē: 'Chī zhōu le yě wèi?' Sēng yuē: 'Chī zhōu le yě.' Shī yuē: 'Xǐ bōyú qù.' Qí sēng yīn cǐ dà wù.",
               "translations": {
-                "cleary": "The Master said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten it.' The Master said, 'Go wash your bowl.' At this the monk had a great realization.",
-                "sasaki": "Jōshū said: 'Have you eaten your breakfast porridge?' The monk replied: 'I have.' Jōshū said: 'Then wash your bowls.' At these words the monk attained great awakening.",
-                "suzuki": "Chao-chou asked: 'Have you had your breakfast?' 'Yes, Master, I have.' 'Then wash your bowls!' That monk was enlightened.",
-                "ai_literal": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening.",
+                "cleary": {
+                  "text": "The Master said, 'Have you eaten your rice gruel yet?' The monk said, 'I have eaten it.' The Master said, 'Go wash your bowl.' At this the monk had a great realization.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Jōshū said: 'Have you eaten your breakfast porridge?' The monk replied: 'I have.' Jōshū said: 'Then wash your bowls.' At these words the monk attained great awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Chao-chou asked: 'Have you had your breakfast?' 'Yes, Master, I have.' 'Then wash your bowls!' That monk was enlightened.",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "Master said: 'Have you eaten porridge or not yet?' Monk said: 'I have eaten porridge.' Master said: 'Go wash your alms bowl.' That monk because of this had great awakening.",
+                  "status": "ai_draft"
+                },
                 "hoffman": {
                   "text": "The master asked, \"Have you taken your breakfast?\" \"Yes, master, I have.\" \"Go wash your bowl,\" said the master. At these words, the novice experienced an instantaneous enlightenment.",
                   "status": "verified_quotation",
@@ -7499,9 +7892,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問：「久嚮趙州石橋，到來只見略彴子。」",
               "pinyin": "Sēng wèn: 'Jiǔ xiàng Zhàozhōu shíqiáo, dào lái zhǐ jiàn lüèzhuózi.'",
               "translations": {
-                "cleary": "A monk asked, 'For a long time I have heard of the stone bridge of Zhaozhou, but having arrived here, I only see a simple plank bridge.'",
-                "sasaki": "A monk asked: 'For long I have heard of the famous Stone Bridge of Jōshū, but coming here I see only a simple stepping-stone plank.'",
-                "ai_literal": "Monk asked: 'For long I admired the Zhaozhou stone bridge, but upon arriving I only see a narrow log plank.'"
+                "cleary": {
+                  "text": "A monk asked, 'For a long time I have heard of the stone bridge of Zhaozhou, but having arrived here, I only see a simple plank bridge.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked: 'For long I have heard of the famous Stone Bridge of Jōshū, but coming here I see only a simple stepping-stone plank.'",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "Monk asked: 'For long I admired the Zhaozhou stone bridge, but upon arriving I only see a narrow log plank.'",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7509,9 +7911,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「汝只見略彴子，不見石橋。」僧曰：「如何是石橋？」師曰：「度驢度馬。」",
               "pinyin": "Shī yuē: 'Rǔ zhǐ jiàn lüèzhuózi, bù jiàn shíqiáo.' Sēng yuē: 'Rúhé shì shíqiáo?' Shī yuē: 'Dù lǘ dù mǎ.'",
               "translations": {
-                "cleary": "The Master said, 'You only see the plank bridge; you do not see the stone bridge.' The monk asked, 'What is the stone bridge?' The Master said, 'It ferries donkeys, it ferries horses.'",
-                "sasaki": "Jōshū said: 'You only see the simple plank, you don't see the stone bridge.' The monk said: 'What is the stone bridge?' Jōshū said: 'It lets donkeys cross, it lets horses cross.'",
-                "ai_literal": "Master said: 'You only see the simple plank, not seeing the stone bridge.' Monk said: 'What is the stone bridge?' Master said: 'Carries donkeys, carries horses.'"
+                "cleary": {
+                  "text": "The Master said, 'You only see the plank bridge; you do not see the stone bridge.' The monk asked, 'What is the stone bridge?' The Master said, 'It ferries donkeys, it ferries horses.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Jōshū said: 'You only see the simple plank, you don't see the stone bridge.' The monk said: 'What is the stone bridge?' Jōshū said: 'It lets donkeys cross, it lets horses cross.'",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "Master said: 'You only see the simple plank, not seeing the stone bridge.' Monk said: 'What is the stone bridge?' Master said: 'Carries donkeys, carries horses.'",
+                  "status": "ai_draft"
+                }
               }
             }
           ]
@@ -7535,12 +7946,30 @@ window.TRANSLATECHAN_DATA = {
           "zh": "至道無難，唯嫌揀擇。但莫憎愛，洞然明白。",
           "pinyin": "Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.",
           "translations": {
-            "red_pine": "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
-            "cleary": "The Great Way is not difficult, it only avoids picking and choosing. Just do not love or hate, and it is clearly evident.",
-            "suzuki": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
-            "blyth": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
-            "sasaki": "The supreme Way is not difficult, only dislike choosing. Just have neither hatred nor love, and all will be lucid and clear.",
-            "ai_literal": "The ultimate Way is without difficulty, only detesting picking and choosing. Simply do not hate or love, and it is penetratively clear.",
+            "red_pine": {
+              "text": "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Great Way is not difficult, it only avoids picking and choosing. Just do not love or hate, and it is clearly evident.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "The Great Way is not difficult, for those who have no preferences. When love and hate are both absent, everything becomes clear and undisguised.",
+              "status": "reconstruction_unverified"
+            },
+            "blyth": {
+              "text": "The Perfect Way knows no difficulties, except that it refuses to make preferences. Only when freed from hate and love, it reveals itself fully and without disguise.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The supreme Way is not difficult, only dislike choosing. Just have neither hatred nor love, and all will be lucid and clear.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "The ultimate Way is without difficulty, only detesting picking and choosing. Simply do not hate or love, and it is penetratively clear.",
+              "status": "ai_draft"
+            },
             "clarke": {
               "text": "The Great Way is not difficult for those who have no preferences. When love and hate are both absent everything becomes clear and undisguised.",
               "status": "verified_quotation",
@@ -7559,12 +7988,30 @@ window.TRANSLATECHAN_DATA = {
           "zh": "毫釐有差，天地懸隔。欲得現前，莫存順逆。",
           "pinyin": "Háo lí yǒu chā, tiān dì xuán gé. Yù dé xiàn qián, mò cún shùn nì.",
           "translations": {
-            "red_pine": "A hair's breadth off, heaven and earth are set apart. If you want it to appear, don't hold on to for or against.",
-            "cleary": "A hair's breadth difference is as the distance between heaven and earth. If you want it to appear before you, do not keep conformity and aversion.",
-            "suzuki": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth, then hold no opinions for or against anything.",
-            "blyth": "To set up what you like against what you dislike is the disease of the mind. A hair's breadth divergence separates heaven and earth.",
-            "sasaki": "An error by a hair's breadth separates heaven and earth. If you wish it to manifest, keep no clinging to pleasant or unpleasant.",
-            "ai_literal": "A millimeter's deviation separates heaven and earth. If wishing it to manifest, maintain neither agreeable nor contrary.",
+            "red_pine": {
+              "text": "A hair's breadth off, heaven and earth are set apart. If you want it to appear, don't hold on to for or against.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "A hair's breadth difference is as the distance between heaven and earth. If you want it to appear before you, do not keep conformity and aversion.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth, then hold no opinions for or against anything.",
+              "status": "reconstruction_unverified"
+            },
+            "blyth": {
+              "text": "To set up what you like against what you dislike is the disease of the mind. A hair's breadth divergence separates heaven and earth.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "An error by a hair's breadth separates heaven and earth. If you wish it to manifest, keep no clinging to pleasant or unpleasant.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "A millimeter's deviation separates heaven and earth. If wishing it to manifest, maintain neither agreeable nor contrary.",
+              "status": "ai_draft"
+            },
             "clarke": {
               "text": "Make the smallest distinction, however, and heaven and earth are set infinitely apart. If you wish to see the truth then hold no opinions for or against anything.",
               "status": "verified_quotation",
@@ -7583,11 +8030,26 @@ window.TRANSLATECHAN_DATA = {
           "zh": "違順相爭，是為心病。不識玄旨，徒勞念靜。",
           "pinyin": "Wéi shùn xiāngzhēng, shì wéi xīnbìng. Bù shí xuán zhǐ, túláo niàn jìng.",
           "translations": {
-            "red_pine": "The battle between for and against is the mind's disease. Not harboring emotional bias, all is naturally smooth and level.",
-            "cleary": "The struggle between opposition and agreement is the disease of the mind. When you do not generate clinging feelings, it is fundamentally level and smooth.",
-            "suzuki": "To set up what you like against what you dislike is the disease of the mind. When the deep meaning of things is not understood, the mind's essential peace is disturbed.",
-            "sasaki": "The conflict between agreeable and disagreeable is the sickness of the mind. Without lingering emotional attachment, everything is inherently open and level.",
-            "ai_literal": "Disagreement and agreement contending with each other is the mind's disease. Not generating lingering attachments, it is originally smooth and level."
+            "red_pine": {
+              "text": "The battle between for and against is the mind's disease. Not harboring emotional bias, all is naturally smooth and level.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The struggle between opposition and agreement is the disease of the mind. When you do not generate clinging feelings, it is fundamentally level and smooth.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "To set up what you like against what you dislike is the disease of the mind. When the deep meaning of things is not understood, the mind's essential peace is disturbed.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The conflict between agreeable and disagreeable is the sickness of the mind. Without lingering emotional attachment, everything is inherently open and level.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "Disagreement and agreement contending with each other is the mind's disease. Not generating lingering attachments, it is originally smooth and level.",
+              "status": "ai_draft"
+            }
           },
           "zh_correction": "Second couplet corrected to canonical T2010 reading (previous text 不生留情，本來平坦 was a non-canonical paraphrase). 2026-08-08."
         },
@@ -7596,11 +8058,26 @@ window.TRANSLATECHAN_DATA = {
           "zh": "圓同太虛，無欠無餘。良由取捨，所以不如。",
           "pinyin": "Yuán tóng tài xū, wú qiàn wú yú. Liáng yóu qǔ shě, suǒ yǐ bù rú.",
           "translations": {
-            "red_pine": "Perfect as the great void, lacking nothing, with nothing extra. Truly because we choose and reject, we are not in accord with Suchness.",
-            "cleary": "Round like great space, without lack, without excess. Truly because of taking and rejecting, you are therefore not in suchness.",
-            "suzuki": "The Way is perfect like vast space where nothing is lacking and nothing is in excess. Indeed, it is due to our choosing to accept or reject that we do not see the true nature of things.",
-            "sasaki": "Completely round like great empty space, lacking nothing, with nothing extra. Simply because of grasping and rejecting, one fails to be in accord with Suchness.",
-            "ai_literal": "Round identical to the great void, without deficit and without surplus. Truly because of grasping and abandoning, one is therefore not as it is."
+            "red_pine": {
+              "text": "Perfect as the great void, lacking nothing, with nothing extra. Truly because we choose and reject, we are not in accord with Suchness.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Round like great space, without lack, without excess. Truly because of taking and rejecting, you are therefore not in suchness.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "The Way is perfect like vast space where nothing is lacking and nothing is in excess. Indeed, it is due to our choosing to accept or reject that we do not see the true nature of things.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Completely round like great empty space, lacking nothing, with nothing extra. Simply because of grasping and rejecting, one fails to be in accord with Suchness.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "Round identical to the great void, without deficit and without surplus. Truly because of grasping and abandoning, one is therefore not as it is.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -7608,11 +8085,26 @@ window.TRANSLATECHAN_DATA = {
           "zh": "莫逐有緣，勿住空忍。一種平懷，泯然自盡。",
           "pinyin": "Mò zhú yǒu yuán, wù zhù kōng rěn. Yī zhǒng píng huái, mǐn rán zì jìn.",
           "translations": {
-            "red_pine": "Don't pursue conditions of existence, don't dwell in empty patience. In unified equanimity, confusion vanishes by itself.",
-            "cleary": "Do not pursue conditioned existence, do not dwell in forbearance of emptiness. With a unified, even heart, all distinctions dissolve by themselves.",
-            "suzuki": "Live neither in the entanglements of outer things, nor in inner feelings of emptiness. Be serene in the oneness of things and all erroneous dualisms will vanish of themselves.",
-            "sasaki": "Do not chase after external conditions, do not abide in passive emptiness. Resting in uniform equanimity, dualistic confusion naturally extinguishes itself.",
-            "ai_literal": "Do not chase existing conditions, do not dwell in empty forbearance. With a single level bosom, distinctions quietly dissolve away."
+            "red_pine": {
+              "text": "Don't pursue conditions of existence, don't dwell in empty patience. In unified equanimity, confusion vanishes by itself.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Do not pursue conditioned existence, do not dwell in forbearance of emptiness. With a unified, even heart, all distinctions dissolve by themselves.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Live neither in the entanglements of outer things, nor in inner feelings of emptiness. Be serene in the oneness of things and all erroneous dualisms will vanish of themselves.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Do not chase after external conditions, do not abide in passive emptiness. Resting in uniform equanimity, dualistic confusion naturally extinguishes itself.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "Do not chase existing conditions, do not dwell in empty forbearance. With a single level bosom, distinctions quietly dissolve away.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -7620,11 +8112,26 @@ window.TRANSLATECHAN_DATA = {
           "zh": "宗非促延，一念萬年。無在不在，十方目前。",
           "pinyin": "Zōng fēi cù yán, yī niàn wàn nián. Wú zài bù zài, shí fāng mù qián.",
           "translations": {
-            "red_pine": "The fundamental truth is not short or long: a single thought is ten thousand years. Not bound to presence or absence, the ten directions are before your eyes.",
-            "cleary": "The source is neither hurried nor extended: a single thought is ten thousand years. Not bound to presence or absence, the ten directions are right before your eyes.",
-            "suzuki": "One thought lasts for ten thousand years. What is here is nowhere else, what is not here is everywhere; the ten directions are right before your eyes.",
-            "sasaki": "The fundamental truth is beyond short or long: one instant is ten thousand years. Neither existing nor non-existing, the ten directions are right in front of your eyes.",
-            "ai_literal": "The core truth is neither brief nor prolonged, one thought is ten thousand years. Neither being nor non-being, the ten directions stand right before the eyes."
+            "red_pine": {
+              "text": "The fundamental truth is not short or long: a single thought is ten thousand years. Not bound to presence or absence, the ten directions are before your eyes.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The source is neither hurried nor extended: a single thought is ten thousand years. Not bound to presence or absence, the ten directions are right before your eyes.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "One thought lasts for ten thousand years. What is here is nowhere else, what is not here is everywhere; the ten directions are right before your eyes.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The fundamental truth is beyond short or long: one instant is ten thousand years. Neither existing nor non-existing, the ten directions are right in front of your eyes.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "The core truth is neither brief nor prolonged, one thought is ten thousand years. Neither being nor non-being, the ten directions stand right before the eyes.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -7632,11 +8139,26 @@ window.TRANSLATECHAN_DATA = {
           "zh": "信心不二，不二信心。言語道斷，非去來今。",
           "pinyin": "Xìnxīn bù èr, bù èr xìnxīn. Yányǔ dào duàn, fēi qù lái jīn.",
           "translations": {
-            "red_pine": "Trust in Mind is not two; not two is Trust in Mind. The path of words is cut off: it is not of past, future, or now.",
-            "cleary": "Faith in mind is non-dual; non-dual is faith in mind. The path of words and language is cut off: it is not of the past, future, or present.",
-            "suzuki": "Trust in Mind is not dual; non-dual is Trust in Mind. Words! Words! The Way is beyond language, for in it there is no yesterday, no tomorrow, no today.",
-            "sasaki": "Faith and Mind are not two; non-dual is the faithful Mind. The way of speech is cut off: it belongs neither to past, future, nor now.",
-            "ai_literal": "Faith in Mind is non-dual; non-dual is Faith in Mind. The path of speech is severed: not past, future, or present."
+            "red_pine": {
+              "text": "Trust in Mind is not two; not two is Trust in Mind. The path of words is cut off: it is not of past, future, or now.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Faith in mind is non-dual; non-dual is faith in mind. The path of words and language is cut off: it is not of the past, future, or present.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Trust in Mind is not dual; non-dual is Trust in Mind. Words! Words! The Way is beyond language, for in it there is no yesterday, no tomorrow, no today.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Faith and Mind are not two; non-dual is the faithful Mind. The way of speech is cut off: it belongs neither to past, future, nor now.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "Faith in Mind is non-dual; non-dual is Faith in Mind. The path of speech is severed: not past, future, or present.",
+              "status": "ai_draft"
+            }
           }
         }
       ]
@@ -7658,10 +8180,22 @@ window.TRANSLATECHAN_DATA = {
           "zh": "如是之法，佛祖密付。汝今得之，宜善保護。",
           "pinyin": "Rú shì zhī fǎ, fó zǔ mì fù. Rǔ jīn dé zhī, yí shàn bǎohù.",
           "translations": {
-            "cleary": "The Dharma of Thusness is intimately transmitted by Buddhas and Patriarchs. Now that you have obtained it, you should preserve it well.",
-            "sasaki": "The Dharma of Thusness was intimately transmitted by the Buddhas and Ancestors. Now that you have received it, preserve it well.",
-            "suzuki": "The Dharma of Suchness is intimately communicated by Buddhas and Patriarchs; now that you have it, guard it well.",
-            "ai_literal": "Such a dharma as this, Buddhas and Ancestors secretly entrusted. You now having obtained it, ought to skillfully protect it."
+            "cleary": {
+              "text": "The Dharma of Thusness is intimately transmitted by Buddhas and Patriarchs. Now that you have obtained it, you should preserve it well.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The Dharma of Thusness was intimately transmitted by the Buddhas and Ancestors. Now that you have received it, preserve it well.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "The Dharma of Suchness is intimately communicated by Buddhas and Patriarchs; now that you have it, guard it well.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "Such a dharma as this, Buddhas and Ancestors secretly entrusted. You now having obtained it, ought to skillfully protect it.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -7669,10 +8203,22 @@ window.TRANSLATECHAN_DATA = {
           "zh": "銀碗盛雪，明月藏鷺。類之弗齊，混則知處。",
           "pinyin": "Yín wǎn chéng xuě, míng yuè cáng lù. Lèi zhī fú qí, hùn zé zhī chù.",
           "translations": {
-            "cleary": "A silver bowl filled with snow; a bright moon concealing a white heron. Classified, they are not the same; blended, their distinct places are known.",
-            "sasaki": "A silver bowl filled with snow; the bright moon hiding a heron. Resembling each other they are not the same; blended, their distinctive place is known.",
-            "suzuki": "A silver bowl filled with snow, a bright moon concealing a white heron. When you classify them they are not the same; when you blend them you know where each is.",
-            "ai_literal": "A silver bowl holding snow; the bright moon hiding a heron. Categorizing them they are not uniform; mixed together, their location is recognized."
+            "cleary": {
+              "text": "A silver bowl filled with snow; a bright moon concealing a white heron. Classified, they are not the same; blended, their distinct places are known.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "A silver bowl filled with snow; the bright moon hiding a heron. Resembling each other they are not the same; blended, their distinctive place is known.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "A silver bowl filled with snow, a bright moon concealing a white heron. When you classify them they are not the same; when you blend them you know where each is.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "A silver bowl holding snow; the bright moon hiding a heron. Categorizing them they are not uniform; mixed together, their location is recognized.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -7680,9 +8226,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "意不在言，來機便赴。動成窠臼，差落顧佇。",
           "pinyin": "Yì bù zài yán, lái jī biàn fù. Dòng chéng kējiù, chā luò gùzhù.",
           "translations": {
-            "cleary": "The meaning is not in words, yet it responds to the arriving impulse. Move and you form a trap; miss and you fall into hesitation.",
-            "sasaki": "The intention is not in words, yet it meets the coming moment. A move creates a rut; a slip falls into hesitating reflection.",
-            "ai_literal": "The meaning lies not in words, meeting the incoming opportunity immediately. Moving creates a rut; erring drops into hesitant gazing."
+            "cleary": {
+              "text": "The meaning is not in words, yet it responds to the arriving impulse. Move and you form a trap; miss and you fall into hesitation.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The intention is not in words, yet it meets the coming moment. A move creates a rut; a slip falls into hesitating reflection.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "The meaning lies not in words, meeting the incoming opportunity immediately. Moving creates a rut; erring drops into hesitant gazing.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -7690,10 +8245,22 @@ window.TRANSLATECHAN_DATA = {
           "zh": "背觸共忌，如大火聚。但形文彩，即屬染污。",
           "pinyin": "Bèi chù gòng jì, rú dà huǒ jù. Dàn xíng wéncǎi, jí shǔ rǎnwū.",
           "translations": {
-            "cleary": "Turning away and touching are both taboos, like a great mass of fire. To merely portray it with literary embellishment is already defilement.",
-            "sasaki": "Turning away and touching are both to be avoided, like a great fireball. Just to portray it in literary form is already to fall into defilement.",
-            "suzuki": "To turn away and to touch are both wrong, for it is like a great fire. If you only express it with ornate language, you fall into defilement.",
-            "ai_literal": "Turning away and making contact are both avoided, like a great fire heap. Merely shaping literary colors already belongs to defilement."
+            "cleary": {
+              "text": "Turning away and touching are both taboos, like a great mass of fire. To merely portray it with literary embellishment is already defilement.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Turning away and touching are both to be avoided, like a great fireball. Just to portray it in literary form is already to fall into defilement.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "To turn away and to touch are both wrong, for it is like a great fire. If you only express it with ornate language, you fall into defilement.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "Turning away and making contact are both avoided, like a great fire heap. Merely shaping literary colors already belongs to defilement.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -7701,9 +8268,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "夜半正明，天曉不露。為物作則，用拔諸苦。",
           "pinyin": "Yèbàn zhèng míng, tiān xiǎo bù lù. Wèi wù zuò zé, yòng bá zhū kǔ.",
           "translations": {
-            "cleary": "At midnight it is truly bright; at daybreak it does not appear. It acts as a standard for all beings, working to pull out all suffering.",
-            "sasaki": "At midnight it is truly luminous; at dawn it does not show itself. Acting as a guide for all beings, its function uproots all suffering.",
-            "ai_literal": "At midnight it is directly clear; at dawn's light it is not exposed. Acting as a standard for things, employed to pluck out all sufferings."
+            "cleary": {
+              "text": "At midnight it is truly bright; at daybreak it does not appear. It acts as a standard for all beings, working to pull out all suffering.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "At midnight it is truly luminous; at dawn it does not show itself. Acting as a guide for all beings, its function uproots all suffering.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "At midnight it is directly clear; at dawn's light it is not exposed. Acting as a standard for things, employed to pluck out all sufferings.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -7711,10 +8287,22 @@ window.TRANSLATECHAN_DATA = {
           "zh": "雖非有為，不是無語。如面臨鏡，容色相覷。汝不是渠，渠正是汝。",
           "pinyin": "Suī fēi yǒu wéi, bù shì wú yǔ. Rú miàn lín jìng, róng sè xiāng qù. Rǔ bù shì qú, qú zhèng shì rǔ.",
           "translations": {
-            "cleary": "Although it is not conditioned activity, it is not without words. Like facing a mirror where form and reflection gaze at each other: You are not it, but it is truly you.",
-            "sasaki": "Although it is not fabricated, it is not wordless. Like facing a mirror: form and reflection behold each other. You are not it, but it is truly you.",
-            "suzuki": "Though it is not unconditioned, it is not without words. It is like facing a mirror: form and reflection behold each other. You are not He, but He is you.",
-            "ai_literal": "Though not conditioned action, it is not wordless. Like a face before a mirror, forms and colors looking at each other: You are not Him; He is truly you."
+            "cleary": {
+              "text": "Although it is not conditioned activity, it is not without words. Like facing a mirror where form and reflection gaze at each other: You are not it, but it is truly you.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Although it is not fabricated, it is not wordless. Like facing a mirror: form and reflection behold each other. You are not it, but it is truly you.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Though it is not unconditioned, it is not without words. It is like facing a mirror: form and reflection behold each other. You are not He, but He is you.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "Though not conditioned action, it is not wordless. Like a face before a mirror, forms and colors looking at each other: You are not Him; He is truly you.",
+              "status": "ai_draft"
+            }
           }
         }
       ]
@@ -7744,10 +8332,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "梁武帝問達磨大師：「如何是聖諦第一義？」",
               "pinyin": "Liáng Wǔdì wèn Dámó dàshī: 'Rúhé shì shèngdì dìyī yì?'",
               "translations": {
-                "red_pine": "Emperor Wu of Liang asked Great Master Bodhidharma: 'What is the highest meaning of the noble truth?'",
-                "cleary": "Emperor Wu of Liang asked Great Master Bodhidharma, 'What is the highest meaning of the holy truths?'",
-                "sasaki": "Emperor Wu of Liang asked Bodhidharma: 'What is the primal meaning of the sacred truth?'",
-                "suzuki": "Emperor Wu asked Bodhidharma: 'What is the first principle of the holy teaching?'"
+                "red_pine": {
+                  "text": "Emperor Wu of Liang asked Great Master Bodhidharma: 'What is the highest meaning of the noble truth?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Emperor Wu of Liang asked Great Master Bodhidharma, 'What is the highest meaning of the holy truths?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Emperor Wu of Liang asked Bodhidharma: 'What is the primal meaning of the sacred truth?'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Emperor Wu asked Bodhidharma: 'What is the first principle of the holy teaching?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -7755,10 +8355,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "磨云：「廓然無聖。」",
               "pinyin": "Mó yún: 'Kuòrán wú shèng.'",
               "translations": {
-                "red_pine": "Bodhidharma said: 'Vast emptiness, nothing holy.'",
-                "cleary": "Bodhidharma said, 'Vast emptiness, nothing holy.'",
-                "sasaki": "Bodhidharma said: 'Vast emptiness, nothing sacred.'",
-                "suzuki": "Bodhidharma replied: 'Vast emptiness and not a trace of holiness.'"
+                "red_pine": {
+                  "text": "Bodhidharma said: 'Vast emptiness, nothing holy.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Bodhidharma said, 'Vast emptiness, nothing holy.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Bodhidharma said: 'Vast emptiness, nothing sacred.'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Bodhidharma replied: 'Vast emptiness and not a trace of holiness.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -7766,9 +8378,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "帝曰：「對朕者誰？」磨云：「不識。」帝不契。達磨遂潛渡江至魏。",
               "pinyin": "Dì yuē: 'Duì zhèn zhě shuí?' Mó yún: 'Bù shí.' Dì bù qì. Dámó suì qián dù jiāng zhì Wèi.",
               "translations": {
-                "red_pine": "The Emperor said: 'Who faces me?' Bodhidharma said: 'I don't know.' The Emperor did not understand. Bodhidharma secretly crossed the Yangzi River and went north to Wei.",
-                "cleary": "The Emperor said, 'Who is facing me?' Bodhidharma said, 'I do not know.' The Emperor did not understand. Bodhidharma subsequently crossed the Yangzi River secretly and went north to Wei.",
-                "sasaki": "The Emperor asked: 'Who is this confronting me?' Bodhidharma answered: 'Do not know.' The Emperor failed to grasp. Bodhidharma crossed the river into Wei."
+                "red_pine": {
+                  "text": "The Emperor said: 'Who faces me?' Bodhidharma said: 'I don't know.' The Emperor did not understand. Bodhidharma secretly crossed the Yangzi River and went north to Wei.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Emperor said, 'Who is facing me?' Bodhidharma said, 'I do not know.' The Emperor did not understand. Bodhidharma subsequently crossed the Yangzi River secretly and went north to Wei.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Emperor asked: 'Who is this confronting me?' Bodhidharma answered: 'Do not know.' The Emperor failed to grasp. Bodhidharma crossed the river into Wei.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ],
@@ -7788,9 +8409,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "趙州示眾云：「至道無難，唯嫌揀擇。纔有語言，是揀擇，是明白。老僧不在明白裏，是汝還護惜也無？」",
               "pinyin": "Zhàozhōu shì zhòng yún: 'Zhì dào wú nán, wéi xián jiǎnzé. Cái yǒu yǔyán, shì jiǎnzé, shì míngbái. Lǎosēng bù zài míngbái lǐ, shì rǔ hái hùxī yě wú?'",
               "translations": {
-                "red_pine": "Zhaozhou instructed the assembly: 'The Great Way is not difficult, it only detests picking and choosing. The moment there are words, that is picking and choosing, that is clarity. This old monk is not inside clarity; do you cherish this or not?'",
-                "cleary": "Zhaozhou addressed the assembly: 'The Great Way is not difficult; it only avoids picking and choosing. As soon as there are words, this is picking and choosing, this is clarity. This old monk is not within clarity; do you still cherish it or not?'",
-                "sasaki": "Jōshū instructed the group: 'The Supreme Way is not difficult, it only dislikes selection. The moment you speak, that is selection, that is clarity. I do not dwell in clarity; do you cherish this or not?'"
+                "red_pine": {
+                  "text": "Zhaozhou instructed the assembly: 'The Great Way is not difficult, it only detests picking and choosing. The moment there are words, that is picking and choosing, that is clarity. This old monk is not inside clarity; do you cherish this or not?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Zhaozhou addressed the assembly: 'The Great Way is not difficult; it only avoids picking and choosing. As soon as there are words, this is picking and choosing, this is clarity. This old monk is not within clarity; do you still cherish it or not?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Jōshū instructed the group: 'The Supreme Way is not difficult, it only dislikes selection. The moment you speak, that is selection, that is clarity. I do not dwell in clarity; do you cherish this or not?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -7798,9 +8428,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "時有僧問：「和尚既不在明白裏，護惜箇甚麼？」師云：「我亦不知。」僧云：「和尚既不知，為甚麼卻道不在明白裏？」師云：「問事即得，禮拜了退。」",
               "pinyin": "Shí yǒu sēng wèn: 'Héshang jì bù zài míngbái lǐ, hùxī gè shénme?' Shī yún: 'Wǒ yì bù zhī.' Sēng yún: 'Héshang jì bù zhī, wèi shénme què dào bù zài míngbái lǐ?' Shī yún: 'Wèn shì jí dé, lǐbài le tuì.'",
               "translations": {
-                "red_pine": "A monk asked: 'Since you are not in clarity, what do you cherish?' The Master said: 'I don't know either.' The monk said: 'If you don't know, why do you say you are not in clarity?' The Master said: 'Asking is enough; now make your prostration and retire.'",
-                "cleary": "A monk asked, 'Since you are not within clarity, what do you cherish?' The Master said, 'I don't know either.' The monk said, 'Since you don't know, why do you say you are not within clarity?' The Master said, 'It's enough to ask the question; make your bows and retire.'",
-                "sasaki": "A monk asked: 'If you don't dwell in clarity, what do you cherish?' Jōshū said: 'I don't know.' The monk said: 'If you don't know, why do you say you don't dwell in clarity?' Jōshū said: 'Enough questions; bow and leave.'"
+                "red_pine": {
+                  "text": "A monk asked: 'Since you are not in clarity, what do you cherish?' The Master said: 'I don't know either.' The monk said: 'If you don't know, why do you say you are not in clarity?' The Master said: 'Asking is enough; now make your prostration and retire.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked, 'Since you are not within clarity, what do you cherish?' The Master said, 'I don't know either.' The monk said, 'Since you don't know, why do you say you are not within clarity?' The Master said, 'It's enough to ask the question; make your bows and retire.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked: 'If you don't dwell in clarity, what do you cherish?' Jōshū said: 'I don't know.' The monk said: 'If you don't know, why do you say you don't dwell in clarity?' Jōshū said: 'Enough questions; bow and leave.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ],
@@ -7820,9 +8459,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "馬祖大師不安。院主問：「和尚近日尊位如何？」",
               "pinyin": "Mǎzǔ dàshī bù'ān. Yuànzhǔ wèn: 'Héshang jìnrì zūnwèi rúhé?'",
               "translations": {
-                "red_pine": "Great Master Mazu was unwell. The director asked: 'How has the Master's venerable health been lately?'",
-                "cleary": "Great Master Mazu was unwell. The monastery administrator asked, 'How is the Master's health these days?'",
-                "sasaki": "Master Baso was unwell. The temple administrator asked: 'How is the Master's venerable condition in recent days?'"
+                "red_pine": {
+                  "text": "Great Master Mazu was unwell. The director asked: 'How has the Master's venerable health been lately?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Great Master Mazu was unwell. The monastery administrator asked, 'How is the Master's health these days?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Baso was unwell. The temple administrator asked: 'How is the Master's venerable condition in recent days?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -7830,10 +8478,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "大師云：「日面佛，月面佛。」",
               "pinyin": "Dàshī yún: 'Rì miàn fó, yuè miàn fó.'",
               "translations": {
-                "red_pine": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha.'",
-                "cleary": "The Great Master said, 'Sun-Face Buddha, Moon-Face Buddha.'",
-                "sasaki": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha!'",
-                "suzuki": "Mazu said: 'Sun-faced Buddha, Moon-faced Buddha.'"
+                "red_pine": {
+                  "text": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Great Master said, 'Sun-Face Buddha, Moon-Face Buddha.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha!'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Mazu said: 'Sun-faced Buddha, Moon-faced Buddha.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ],
@@ -7854,7 +8514,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "德山到溈山，挾複子於法堂上，從東過西，從西過東，顧視云：「無！無！」便出。",
               "pinyin": "Dèshān dào Wéishān， xié fù zi yú fǎ táng shàng， cóng dōng guò xī， cóng xī guò dōng， gù shì yún：「 Wú！ Wú！」 Biàn chū。",
               "translations": {
-                "ai_literal": "Deshan came to Guishan and, carrying his bundle, walked across the Dharma hall from east to west and from west to east. He looked around, said, 'No! No!'—and left."
+                "ai_literal": {
+                  "text": "Deshan came to Guishan and, carrying his bundle, walked across the Dharma hall from east to west and from west to east. He looked around, said, 'No! No!'—and left.",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7862,7 +8525,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "雪竇著語云：「勘破了也。」",
               "pinyin": "Xuědòu zhù yǔ yún：「 Kān pò le yě。」",
               "translations": {
-                "ai_literal": "Xuedou commented, 'He saw through it.'"
+                "ai_literal": {
+                  "text": "Xuedou commented, 'He saw through it.'",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7870,7 +8536,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "德山至門首，却云：「也不得草草。」便具威儀，再入相見。",
               "pinyin": "Dèshān zhì mén shǒu， què yún：「 Yě bù dé cǎo cǎo。」 Biàn jù wēi yí， zài rù xiāng jiàn。",
               "translations": {
-                "ai_literal": "At the gate Deshan turned back and said, 'I must not take this lightly.' He composed his appearance and entered again for an interview."
+                "ai_literal": {
+                  "text": "At the gate Deshan turned back and said, 'I must not take this lightly.' He composed his appearance and entered again for an interview.",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7878,7 +8547,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "溈山坐次，德山提起坐具云：「和尚！」溈山擬取拂子，德山便喝，拂袖而出。",
               "pinyin": "Wéishān zuò cì， Dèshān tí qǐ zuò jù yún：「 Hé shàng！」 Wéishān nǐ qǔ fú zi， Dèshān biàn hē， fú xiù ér chū。",
               "translations": {
-                "ai_literal": "Guishan was seated. Deshan raised his sitting cloth and said, 'Master!' Guishan reached for his whisk. Deshan gave a shout and left, shaking his sleeves."
+                "ai_literal": {
+                  "text": "Guishan was seated. Deshan raised his sitting cloth and said, 'Master!' Guishan reached for his whisk. Deshan gave a shout and left, shaking his sleeves.",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7886,7 +8558,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "雪竇著語云：「勘破了也。」",
               "pinyin": "Xuědòu zhù yǔ yún：「 Kān pò le yě。」",
               "translations": {
-                "ai_literal": "Xuedou commented, 'He saw through it.'"
+                "ai_literal": {
+                  "text": "Xuedou commented, 'He saw through it.'",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7894,7 +8569,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "德山背却法堂，著草鞋便行。",
               "pinyin": "Dèshān bèi què fǎ táng， zhù cǎo xié biàn xíng。",
               "translations": {
-                "ai_literal": "Deshan turned his back on the Dharma hall, put on his straw sandals, and left."
+                "ai_literal": {
+                  "text": "Deshan turned his back on the Dharma hall, put on his straw sandals, and left.",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7902,7 +8580,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "溈山至晚問首座：「適來新到在什麼處？」首座云：「當時背却法堂，著草鞋出去也。」",
               "pinyin": "Wéishān zhì wǎn wèn Shǒuzuò：「 Shì lái xīn dào zài shén me chù？」 Shǒuzuò yún：「 Dāng shí bèi què fǎ táng， zhù cǎo xié chū qù yě。」",
               "translations": {
-                "ai_literal": "In the evening Guishan asked the head monk, 'Where is the newcomer who came today?' The head monk said, 'He turned his back on the Dharma hall, put on his straw sandals, and went out.'"
+                "ai_literal": {
+                  "text": "In the evening Guishan asked the head monk, 'Where is the newcomer who came today?' The head monk said, 'He turned his back on the Dharma hall, put on his straw sandals, and went out.'",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7910,7 +8591,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "溈山云：「此子已後，向孤峯頂上，盤結草庵，呵佛罵祖去在。」",
               "pinyin": "Wéishān yún：「 Cǐ zi yǐ hòu， xiàng gū fēng dǐng shàng， pán jié cǎo ān， hē fó mà zǔ qù zài。」",
               "translations": {
-                "ai_literal": "Guishan said, 'This fellow will one day sit in a grass hut on a solitary peak, reviling the Buddhas and scolding the patriarchs.'"
+                "ai_literal": {
+                  "text": "Guishan said, 'This fellow will one day sit in a grass hut on a solitary peak, reviling the Buddhas and scolding the patriarchs.'",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -7918,7 +8602,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "雪竇著語云：「雪上加霜。」",
               "pinyin": "Xuědòu zhù yǔ yún：「 Xuě shàng jiā shuāng。」",
               "translations": {
-                "ai_literal": "Xuedou commented, 'Frost on top of snow.'"
+                "ai_literal": {
+                  "text": "Xuedou commented, 'Frost on top of snow.'",
+                  "status": "ai_draft"
+                }
               }
             }
           ],
@@ -7940,7 +8627,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "雪峯示眾云：「盡大地撮來如粟米粒大，拋向面前，漆桶不會，打鼓普請看。」",
               "pinyin": "Xuěfēng shì zhòng yún：「 Jǐn dà dì cuō lái rú sù mǐ lì dà， pāo xiàng miàn qián， qī tǒng bù huì， dǎ gǔ pǔ qǐng kàn。」",
               "translations": {
-                "ai_literal": "Xuefeng said to the assembly, 'Gather up the whole earth into a grain of millet and toss it before your faces—a lacquer bucket would not understand. Beat the drum and invite everyone to look.'"
+                "ai_literal": {
+                  "text": "Xuefeng said to the assembly, 'Gather up the whole earth into a grain of millet and toss it before your faces—a lacquer bucket would not understand. Beat the drum and invite everyone to look.'",
+                  "status": "ai_draft"
+                }
               }
             }
           ],
@@ -7960,7 +8650,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "雲門垂語云：「十五日已前不問汝，十五日已後道將一句來。」自代云：「日日是好日。」",
               "pinyin": "Yúnmén chuí yǔ yún：「 Shí wǔ rì yǐ qián bù wèn rǔ， shí wǔ rì yǐ hòu dào jiāng yī jù lái。」 Zì dài yún：「 Rì rì shì hǎo rì。」",
               "translations": {
-                "ai_literal": "Yunmen addressed the assembly, saying, 'I do not ask you about before the fifteenth day; bring me a phrase about after the fifteenth day.' Then he answered for them: 'Every day is a good day.'"
+                "ai_literal": {
+                  "text": "Yunmen addressed the assembly, saying, 'I do not ask you about before the fifteenth day; bring me a phrase about after the fifteenth day.' Then he answered for them: 'Every day is a good day.'",
+                  "status": "ai_draft"
+                }
               }
             }
           ],
@@ -7982,7 +8675,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問法眼：「慧超咨和尚，如何是佛？」法眼云：「汝是慧超。」",
               "pinyin": "Sēng wèn Fǎyǎn：「 Huìchāo zī hé shàng， rú hé shì fó？」 Fǎyǎn yún：「 Rǔ shì Huìchāo。」",
               "translations": {
-                "ai_literal": "A monk asked Fayan, 'Huichao asks the master: what is Buddha?' Fayan said, 'You are Huichao.'"
+                "ai_literal": {
+                  "text": "A monk asked Fayan, 'Huichao asks the master: what is Buddha?' Fayan said, 'You are Huichao.'",
+                  "status": "ai_draft"
+                }
               }
             }
           ],
@@ -8003,7 +8699,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "翠嵒夏末示眾云：「一夏以來，為兄弟說話，看翠嵒眉毛在麼？」",
               "pinyin": "Cuìyán xià mò shì zhòng yún：「 Yī xià yǐ lái， wèi xiōng dì shuō huà， kàn Cuìyán méi máo zài me？」",
               "translations": {
-                "ai_literal": "At the end of the summer retreat, Cuiyan said to the assembly, 'All summer long I have been talking for you brothers—look, are Cuiyan's eyebrows still there?'"
+                "ai_literal": {
+                  "text": "At the end of the summer retreat, Cuiyan said to the assembly, 'All summer long I have been talking for you brothers—look, are Cuiyan's eyebrows still there?'",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -8011,7 +8710,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "保福云：「作賊人心虛。」",
               "pinyin": "Bǎofú yún：「 Zuò zéi rén xīn xū。」",
               "translations": {
-                "ai_literal": "Baofu said, 'A thief's heart is fearful.'"
+                "ai_literal": {
+                  "text": "Baofu said, 'A thief's heart is fearful.'",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -8019,7 +8721,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "長慶云：「生也。」",
               "pinyin": "Chángqìng yún：「 Shēng yě。」",
               "translations": {
-                "ai_literal": "Changqing said, 'They have grown.'"
+                "ai_literal": {
+                  "text": "Changqing said, 'They have grown.'",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -8027,7 +8732,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "雲門云：「關。」",
               "pinyin": "Yúnmén yún：「 Guān。」",
               "translations": {
-                "ai_literal": "Yunmen said, 'Barrier!'"
+                "ai_literal": {
+                  "text": "Yunmen said, 'Barrier!'",
+                  "status": "ai_draft"
+                }
               }
             }
           ],
@@ -8049,7 +8757,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問趙州：「如何是趙州？」州云：「東門、西門、南門、北門。」",
               "pinyin": "Sēng wèn Zhàozhōu：「 Rú hé shì Zhàozhōu？」 Zhōu yún：「 Dōng mén、 xī mén、 nán mén、 běi mén。」",
               "translations": {
-                "ai_literal": "A monk asked Zhaozhou, 'What is Zhaozhou?' Zhaozhou said, 'East gate, west gate, south gate, north gate.'"
+                "ai_literal": {
+                  "text": "A monk asked Zhaozhou, 'What is Zhaozhou?' Zhaozhou said, 'East gate, west gate, south gate, north gate.'",
+                  "status": "ai_draft"
+                }
               }
             }
           ],
@@ -8070,7 +8781,10 @@ window.TRANSLATECHAN_DATA = {
               "zh": "睦州問僧：「近離甚處？」僧便喝。州云：「老僧被汝一喝。」僧又喝。州云：「三喝四喝後作麼生？」僧無語。州便打云：「這掠虛頭漢。」",
               "pinyin": "Mùzhōu wèn sēng：「 Jìn lí shèn chù？」 Sēng biàn hē。 Zhōu yún：「 Lǎo sēng bèi rǔ yī hē。」 Sēng yòu hē。 Zhōu yún：「 Sān hē sì hē hòu zuò me shēng？」 Sēng wú yǔ。 Zhōu biàn dǎ yún：「 Zhè lüè xū tóu hàn。」",
               "translations": {
-                "ai_literal": "Muzhou asked a monk, 'Where have you just come from?' The monk shouted. Muzhou said, 'The old monk has been shouted at by you.' The monk shouted again. Muzhou said, 'After three shouts and four shouts—what then?' The monk was speechless. Muzhou struck him and said, 'You hollow-headed fellow!'"
+                "ai_literal": {
+                  "text": "Muzhou asked a monk, 'Where have you just come from?' The monk shouted. Muzhou said, 'The old monk has been shouted at by you.' The monk shouted again. Muzhou said, 'After three shouts and four shouts—what then?' The monk was speechless. Muzhou struck him and said, 'You hollow-headed fellow!'",
+                  "status": "ai_draft"
+                }
               }
             }
           ],
@@ -8091,9 +8805,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問洞山：「如何是佛？」",
               "pinyin": "Sēng wèn Dòngshān: 'Rúhé shì fó?'",
               "translations": {
-                "red_pine": "A monk asked Dongshan: 'What is Buddha?'",
-                "cleary": "A monk asked Dongshan, 'What is Buddha?'",
-                "sasaki": "A monk asked Tōzan: 'What is the Buddha?'"
+                "red_pine": {
+                  "text": "A monk asked Dongshan: 'What is Buddha?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked Dongshan, 'What is Buddha?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked Tōzan: 'What is the Buddha?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8101,10 +8824,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "洞山云：「麻三斤。」",
               "pinyin": "Dòngshān yún: 'Má sān jīn.'",
               "translations": {
-                "red_pine": "Dongshan said: 'Three pounds of flax.'",
-                "cleary": "Dongshan said, 'Three pounds of flax.'",
-                "sasaki": "Tōzan said: 'Three pounds of hemp.'",
-                "suzuki": "Dongshan answered: 'Three pounds of flax.'"
+                "red_pine": {
+                  "text": "Dongshan said: 'Three pounds of flax.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Dongshan said, 'Three pounds of flax.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Tōzan said: 'Three pounds of hemp.'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Dongshan answered: 'Three pounds of flax.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ],
@@ -8124,9 +8859,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "南泉因東西兩堂爭貓兒。泉見，遂提起云：「道得即救，道不得即斬卻。」",
               "pinyin": "Nánquán yīn dōng xī liǎng táng zhēng māo'er. Quán jiàn, suì tíqǐ yún: 'Dào dé jí jiù, dào bù dé jí zhǎn què.'",
               "translations": {
-                "red_pine": "The monks of the Eastern and Western halls were arguing over a cat. Seeing this, Nanquan held up the cat and said: 'If any of you can speak a word, you save it; if not, I will cut it in two.'",
-                "cleary": "Nanquan, because the Eastern and Western halls were fighting over a cat, held it up and said, 'If you can speak, you save it; if not, I will cut it in two.'",
-                "sasaki": "The Eastern and Western halls were arguing over a cat. Nansen held it up, saying: 'If you can speak, I will spare it; if not, I will cut it in two.'"
+                "red_pine": {
+                  "text": "The monks of the Eastern and Western halls were arguing over a cat. Seeing this, Nanquan held up the cat and said: 'If any of you can speak a word, you save it; if not, I will cut it in two.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Nanquan, because the Eastern and Western halls were fighting over a cat, held it up and said, 'If you can speak, you save it; if not, I will cut it in two.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Eastern and Western halls were arguing over a cat. Nansen held it up, saying: 'If you can speak, I will spare it; if not, I will cut it in two.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8134,9 +8878,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "眾無對。泉遂斬之。晚，趙州外歸，泉舉前話示之。州遂脫草鞋安頭上出。泉云：「子若在，恰救得貓兒。」",
               "pinyin": "Zhòng wú duì. Quán suì zhǎn zhī. Wǎn, Zhàozhōu wài guī, Quán jǔ qián huà shì zhī. Zhōu suì tuō cǎoxié ān tóu shàng chū. Quán yún: 'Zǐ ruò zài, qià jiù dé māo'er.'",
               "translations": {
-                "red_pine": "The assembly had no answer. Nanquan slashed the cat in two. In the evening Zhaozhou returned; Nanquan told him what had happened. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
-                "cleary": "The crowd had no reply. Nanquan then cut it in two. In the evening Zhaozhou returned from outside; Nanquan told him the story. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said, 'If you had been here, you would have saved the cat.'",
-                "sasaki": "The monks made no answer. Nansen cut the cat in two. That evening Jōshū returned. Nansen told him. Jōshū took off his straw sandals, placed them on his head, and walked out. Nansen said: 'Had you been here, you would have saved the cat.'"
+                "red_pine": {
+                  "text": "The assembly had no answer. Nanquan slashed the cat in two. In the evening Zhaozhou returned; Nanquan told him what had happened. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The crowd had no reply. Nanquan then cut it in two. In the evening Zhaozhou returned from outside; Nanquan told him the story. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said, 'If you had been here, you would have saved the cat.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The monks made no answer. Nansen cut the cat in two. That evening Jōshū returned. Nansen told him. Jōshū took off his straw sandals, placed them on his head, and walked out. Nansen said: 'Had you been here, you would have saved the cat.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ],
@@ -8156,9 +8909,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問雲門：「如何是佛？」",
               "pinyin": "Sēng wèn Yúnmén: 'Rúhé shì fó?'",
               "translations": {
-                "red_pine": "A monk asked Yunmen: 'What is Buddha?'",
-                "cleary": "A monk asked Yunmen, 'What is Buddha?'",
-                "sasaki": "A monk asked Ummon: 'What is the Buddha?'"
+                "red_pine": {
+                  "text": "A monk asked Yunmen: 'What is Buddha?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked Yunmen, 'What is Buddha?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked Ummon: 'What is the Buddha?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8166,10 +8928,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "門云：「乾屎橛。」",
               "pinyin": "Mén yún: 'Gān shǐ jué.'",
               "translations": {
-                "red_pine": "Yunmen said: 'A dried shit-stick.'",
-                "cleary": "Yunmen said, 'A dried dung scraper.'",
-                "sasaki": "Ummon said: 'A dried shit-stick.'",
-                "suzuki": "Yunmen replied: 'A dried piece of excrement.'"
+                "red_pine": {
+                  "text": "Yunmen said: 'A dried shit-stick.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Yunmen said, 'A dried dung scraper.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Ummon said: 'A dried shit-stick.'",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Yunmen replied: 'A dried piece of excrement.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ],
@@ -8189,9 +8963,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問洞山：「寒暑到來，如何迴避？」",
               "pinyin": "Sēng wèn Dòngshān: 'Hán shǔ dào lái, rúhé huíbì?'",
               "translations": {
-                "red_pine": "A monk asked Dongshan: 'When cold and heat arrive, how do we avoid them?'",
-                "cleary": "A monk asked Dongshan, 'When cold and heat come, how can we avoid them?'",
-                "sasaki": "A monk asked Tōzan: 'When cold and heat come, how can we avoid them?'"
+                "red_pine": {
+                  "text": "A monk asked Dongshan: 'When cold and heat arrive, how do we avoid them?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked Dongshan, 'When cold and heat come, how can we avoid them?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked Tōzan: 'When cold and heat come, how can we avoid them?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8199,9 +8982,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "山云：「何不向無寒暑處去？」僧云：「如何是無寒暑處？」山云：「寒時寒殺闍黎，熱時熱殺闍黎。」",
               "pinyin": "Shān yún: 'Hé bù xiàng wú hán shǔ chù qù?' Sēng yún: 'Rúhé shì wú hán shǔ chù?' Shān yún: 'Hán shí hán shā shélí, rè shí rè shā shélí.'",
               "translations": {
-                "red_pine": "Dongshan said: 'Why not go to the place where there is no cold or heat?' The monk asked: 'What is the place where there is no cold or heat?' Dongshan said: 'When it is cold, the cold kills you; when it is hot, the heat kills you.'",
-                "cleary": "Dongshan said, 'Why don't you go where there is no cold or heat?' The monk said, 'What is the place where there is no cold or heat?' Dongshan said, 'When cold, the cold kills you; when hot, the heat kills you.'",
-                "sasaki": "Tōzan said: 'Why not go where there is neither cold nor heat?' The monk asked: 'Where is that place?' Tōzan said: 'When cold, let cold kill you; when hot, let heat kill you.'"
+                "red_pine": {
+                  "text": "Dongshan said: 'Why not go to the place where there is no cold or heat?' The monk asked: 'What is the place where there is no cold or heat?' Dongshan said: 'When it is cold, the cold kills you; when it is hot, the heat kills you.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Dongshan said, 'Why don't you go where there is no cold or heat?' The monk said, 'What is the place where there is no cold or heat?' Dongshan said, 'When cold, the cold kills you; when hot, the heat kills you.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Tōzan said: 'Why not go where there is neither cold nor heat?' The monk asked: 'Where is that place?' Tōzan said: 'When cold, let cold kill you; when hot, let heat kill you.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ],
@@ -8236,9 +9028,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "身是菩提樹，心如明鏡臺。時時勤拂拭，勿使惹塵埃。",
               "pinyin": "Shēn shì pútí shù, xīn rú míngjìng tái. Shíshí qín fúshì, wù shǐ rě chén'āi.",
               "translations": {
-                "red_pine": "The body is a Bodhi tree, the mind is a mirror bright. Carefully we wipe them hour by hour, and let no dust alight.",
-                "cleary": "The body is the bodhi tree, the mind is like a clear mirror stand. Constantly wipe and polish it diligently, do not let dust gather on it.",
-                "suzuki": "The body is the Bodhi tree, the mind is like a clear mirror stand. At all times diligently wipe it, and let no dust alight.",
+                "red_pine": {
+                  "text": "The body is a Bodhi tree, the mind is a mirror bright. Carefully we wipe them hour by hour, and let no dust alight.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The body is the bodhi tree, the mind is like a clear mirror stand. Constantly wipe and polish it diligently, do not let dust gather on it.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "The body is the Bodhi tree, the mind is like a clear mirror stand. At all times diligently wipe it, and let no dust alight.",
+                  "status": "reconstruction_unverified"
+                },
                 "yampolsky": {
                   "text": "The body is the Bodhi tree, the mind is like a clear mirror. At all times we must strive to polish it, and must not let the dust collect.",
                   "status": "verified_quotation",
@@ -8258,10 +9059,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "菩提本無樹，明鏡亦非臺。本來無一物，何處惹塵埃。",
               "pinyin": "Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén'āi.",
               "translations": {
-                "red_pine": "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
-                "cleary": "Bodhi fundamentally has no tree, nor is the clear mirror a stand. Originally there is not a single thing; where could dust gather?",
-                "suzuki": "Bodhi originally has no tree in it, nor has the mind-mirror any stand in it; originally there is not a single thing: Where can any dust gather?",
-                "yampolsky": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?"
+                "red_pine": {
+                  "text": "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Bodhi fundamentally has no tree, nor is the clear mirror a stand. Originally there is not a single thing; where could dust gather?",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Bodhi originally has no tree in it, nor has the mind-mirror any stand in it; originally there is not a single thing: Where can any dust gather?",
+                  "status": "reconstruction_unverified"
+                },
+                "yampolsky": {
+                  "text": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8296,9 +9109,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "善知識！心量廣大，猶如虛空，亦無圓方大小，亦非青黃赤白，亦無上下長短，亦無瞋無喜，無是無非，無善無惡，無有頭尾。一切世界山河大地，悉皆包含於中。",
               "pinyin": "Shànzhīshi! Xīnliàng guǎngdà, yóu rú xūkōng, yì wú yuán fāng dà xiǎo, yì fēi qīng huáng chì bái, yì wú shàng xià cháng duǎn, yì wú chēn wú xǐ, wú shì wú fēi, wú shàn wú è, wú yǒu tóu wěi. Yīqiè shìjiè shānhé dàdì, xī jiē bāohán yú zhōng.",
               "translations": {
-                "red_pine": "Good friends, the capacity of the mind is vast, like open space. It is neither round nor square, large nor small; it is not green, yellow, red, or white; it has no above or below, long or short; it is free from anger and joy, right and wrong, good and evil, beginning and end. All worlds, mountains, rivers, and the great earth are all contained within it.",
-                "cleary": "Good friends! The capacity of the mind is vast, like empty space. It has no round or square shape, no large or small size; it is not blue, yellow, red, or white; it has no above or below, long or short; it has no anger or joy, right or wrong, good or evil, beginning or end. All worlds, mountains, rivers, and the great earth are contained within it.",
-                "yampolsky": "Good friends, the capacity of the mind is vast, like the great void. It is neither round nor square, neither large nor small. Mountains, rivers, and the great earth are all contained inside the space of mind."
+                "red_pine": {
+                  "text": "Good friends, the capacity of the mind is vast, like open space. It is neither round nor square, large nor small; it is not green, yellow, red, or white; it has no above or below, long or short; it is free from anger and joy, right and wrong, good and evil, beginning and end. All worlds, mountains, rivers, and the great earth are all contained within it.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Good friends! The capacity of the mind is vast, like empty space. It has no round or square shape, no large or small size; it is not blue, yellow, red, or white; it has no above or below, long or short; it has no anger or joy, right or wrong, good or evil, beginning or end. All worlds, mountains, rivers, and the great earth are contained within it.",
+                  "status": "reconstruction_unverified"
+                },
+                "yampolsky": {
+                  "text": "Good friends, the capacity of the mind is vast, like the great void. It is neither round nor square, neither large nor small. Mountains, rivers, and the great earth are all contained inside the space of mind.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8306,9 +9128,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "世人性淨，猶如清天；慧如日，智如月。智光常明，於外著境，妄念浮雲蓋覆自性，不能明朗。若遇善知識開示，自性大光明，朗照萬法。",
               "pinyin": "Shìrén xìng jìng, yóu rú qīng tiān; huì rú rì, zhì rú yuè. Zhìguāng cháng míng, yú wài zhuó jìng, wàngniàn fúyún gàifù zìxìng, bùnéng mínglǎng. Ruò yù shànzhīshi kāishì, zìxìng dà guāngmíng, lǎng zhào wànfǎ.",
               "translations": {
-                "red_pine": "The nature of people of the world is inherently pure, like the clear sky; wisdom is like the sun, knowledge is like the moon. The light of wisdom is ever radiant; but when attached to outer conditions, floating clouds of deluded thoughts obscure one's own nature. When guided by a good friend, the great radiance of original nature shines through, illuminating the ten thousand dharmas.",
-                "cleary": "Human nature is pure, like the clear sky; wisdom is like the sun, understanding like the moon. The light of wisdom is always shining; but externally attached to objects, clouds of delusion cover self-nature so it cannot be clear.",
-                "yampolsky": "The nature of people is pure, like the blue sky. Wisdom is like the sun. When floating clouds of false thinking clear away, self-nature shines brilliantly."
+                "red_pine": {
+                  "text": "The nature of people of the world is inherently pure, like the clear sky; wisdom is like the sun, knowledge is like the moon. The light of wisdom is ever radiant; but when attached to outer conditions, floating clouds of deluded thoughts obscure one's own nature. When guided by a good friend, the great radiance of original nature shines through, illuminating the ten thousand dharmas.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Human nature is pure, like the clear sky; wisdom is like the sun, understanding like the moon. The light of wisdom is always shining; but externally attached to objects, clouds of delusion cover self-nature so it cannot be clear.",
+                  "status": "reconstruction_unverified"
+                },
+                "yampolsky": {
+                  "text": "The nature of people is pure, like the blue sky. Wisdom is like the sun. When floating clouds of false thinking clear away, self-nature shines brilliantly.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8324,10 +9155,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「善知識！我此法門，以定慧為本。大眾勿迷，言定慧別。定慧一體，不是二。定是慧體，慧是定用。即慧之時定在慧，即定之時慧在定。」",
               "pinyin": "Shī shì zhòng yún: 'Shànzhīshi! Wǒ cǐ fǎmén, yǐ dìng huì wéi běn. Dàzhòng wù mí, yán dìng huì bié. Dìng huì yītǐ, bù shì èr. Dìng shì huì tǐ, huì shì dìng yòng. Jí huì zhī shí dìng zài huì, jí dìng zhī shí huì zài dìng.'",
               "translations": {
-                "red_pine": "The Master told the assembly: 'Good friends, in this dharma door of mine, meditation (samadhi) and wisdom (prajna) are fundamental. Do not mistakenly think they are separate. Meditation and wisdom are one essence, not two. Meditation is the body of wisdom, wisdom is the function of meditation.'",
-                "cleary": "The Master addressed the assembly: 'Good friends! This teaching of mine takes meditation (samadhi) and wisdom (prajna) as its foundation. Do not be confused and claim meditation and wisdom are different. Meditation and wisdom are one body, not two. Meditation is the substance of wisdom; wisdom is the function of meditation.'",
-                "yampolsky": "Good friends, my teaching takes samadhi and prajna as its basis. Do not say under any circumstances that samadhi and prajna are different. Samadhi and prajna are one essence, not two. Samadhi is the substance of prajna, prajna is the function of samadhi.",
-                "suzuki": "Good friends, in my system of Dharma, Dhyana and Prajna are of one essence. Dhyana is the body of Prajna, Prajna is the function of Dhyana."
+                "red_pine": {
+                  "text": "The Master told the assembly: 'Good friends, in this dharma door of mine, meditation (samadhi) and wisdom (prajna) are fundamental. Do not mistakenly think they are separate. Meditation and wisdom are one essence, not two. Meditation is the body of wisdom, wisdom is the function of meditation.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master addressed the assembly: 'Good friends! This teaching of mine takes meditation (samadhi) and wisdom (prajna) as its foundation. Do not be confused and claim meditation and wisdom are different. Meditation and wisdom are one body, not two. Meditation is the substance of wisdom; wisdom is the function of meditation.'",
+                  "status": "reconstruction_unverified"
+                },
+                "yampolsky": {
+                  "text": "Good friends, my teaching takes samadhi and prajna as its basis. Do not say under any circumstances that samadhi and prajna are different. Samadhi and prajna are one essence, not two. Samadhi is the substance of prajna, prajna is the function of samadhi.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Good friends, in my system of Dharma, Dhyana and Prajna are of one essence. Dhyana is the body of Prajna, Prajna is the function of Dhyana.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8343,10 +9186,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "此門坐禪，元不著心，亦不著淨，亦不是不動。外於一切善惡境界，心念不起，名為「坐」；內見自性不動，名為「禪」。何名「禪定」？外離相為禪，內不亂為定。",
               "pinyin": "Cǐ mén zuòchán, yuán bù zhuó xīn, yì bù zhuó jìng, yì bù shì bù dòng. Wài yú yīqiè shàn'è jìngjiè, xīnniàn bù qǐ, míng wéi 'zuò'; nèi jiàn zìxìng bù dòng, míng wéi 'chán'. Hé míng 'chándìng'? Wài lí xiàng wéi chán, nèi bù luàn wéi dìng.",
               "translations": {
-                "red_pine": "In this teaching of sitting meditation, we fundamentally do not attach to mind, nor do we attach to purity, nor are we speaking of physical immobility. Outwardly, among all realms of good and evil, not giving rise to thoughts is called 'Sitting' (坐); inwardly, seeing that your own self-nature is unmoving is called 'Meditation' (禪). What is called 'Samadhi and Dhyana' (禪定)? Outwardly free from forms is Chan; inwardly undisturbed is Ding.",
-                "cleary": "Sitting meditation in this door fundamentally does not attach to mind, does not attach to purity, nor is it immobility. Outwardly, in all situations of good and evil, for thoughts not to arise is called 'sitting'; inwardly, seeing the immobility of self-nature is called 'meditation.' What is called concentration and absorption? Outward detachment from forms is meditation; inward absence of confusion is concentration.",
-                "yampolsky": "In this practice of sitting meditation, we do not attach to mind, nor do we attach to purity. Outwardly not to give rise to thoughts in any situation is 'sitting'; inwardly to see one's own nature is 'meditation.' To be free from forms outside is Chan; to be unconfused within is Samadhi.",
-                "suzuki": "In our tradition of Dhyana, sitting does not mean clinging to the mind, nor clinging to quietude. Outwardly to be detached from all objects is 'Sitting'; inwardly to see into one's Nature is 'Dhyana.'"
+                "red_pine": {
+                  "text": "In this teaching of sitting meditation, we fundamentally do not attach to mind, nor do we attach to purity, nor are we speaking of physical immobility. Outwardly, among all realms of good and evil, not giving rise to thoughts is called 'Sitting' (坐); inwardly, seeing that your own self-nature is unmoving is called 'Meditation' (禪). What is called 'Samadhi and Dhyana' (禪定)? Outwardly free from forms is Chan; inwardly undisturbed is Ding.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Sitting meditation in this door fundamentally does not attach to mind, does not attach to purity, nor is it immobility. Outwardly, in all situations of good and evil, for thoughts not to arise is called 'sitting'; inwardly, seeing the immobility of self-nature is called 'meditation.' What is called concentration and absorption? Outward detachment from forms is meditation; inward absence of confusion is concentration.",
+                  "status": "reconstruction_unverified"
+                },
+                "yampolsky": {
+                  "text": "In this practice of sitting meditation, we do not attach to mind, nor do we attach to purity. Outwardly not to give rise to thoughts in any situation is 'sitting'; inwardly to see one's own nature is 'meditation.' To be free from forms outside is Chan; to be unconfused within is Samadhi.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "In our tradition of Dhyana, sitting does not mean clinging to the mind, nor clinging to quietude. Outwardly to be detached from all objects is 'Sitting'; inwardly to see into one's Nature is 'Dhyana.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8506,9 +9361,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "開元中，有沙門道一，住傳法院，常日坐禪。師知是法器，往問曰：「大德坐禪圖甚麼？」",
               "pinyin": "Kāiyuán zhōng, yǒu shāmén Dàoyī, zhù Chuánfǎ Yuàn, cháng rì zuòchán. Shī zhī shì fǎqì, wǎng wèn yuē: 'Dàdé zuòchán tú shénme?'",
               "translations": {
-                "red_pine": "During the Kaiyuan era, the monk Daoyi was residing at Chuanfa Monastery, sitting in meditation all day long. Master Nanyue Huairang knew he was a vessel of the Dharma, went to him and asked: 'Venerable, what are you aiming at by sitting in meditation?'",
-                "cleary": "During the Kaiyuan era, monk Daoyi was staying at Chuanfa temple, constantly sitting in meditation. The Master knew he was a vessel of Dharma, went and asked, 'Great Worthy, what are you aiming for by sitting in meditation?'",
-                "sasaki": "In the Kaiyuan era, monk Daoyi dwelt in the Chuanfa Temple and sat in meditation all day. Master Huairang, recognizing him as a vessel of the Law, went and asked: 'Venerable monk, what are you aiming at in sitting in meditation?'"
+                "red_pine": {
+                  "text": "During the Kaiyuan era, the monk Daoyi was residing at Chuanfa Monastery, sitting in meditation all day long. Master Nanyue Huairang knew he was a vessel of the Dharma, went to him and asked: 'Venerable, what are you aiming at by sitting in meditation?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "During the Kaiyuan era, monk Daoyi was staying at Chuanfa temple, constantly sitting in meditation. The Master knew he was a vessel of Dharma, went and asked, 'Great Worthy, what are you aiming for by sitting in meditation?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "In the Kaiyuan era, monk Daoyi dwelt in the Chuanfa Temple and sat in meditation all day. Master Huairang, recognizing him as a vessel of the Law, went and asked: 'Venerable monk, what are you aiming at in sitting in meditation?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8516,9 +9380,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "一曰：「圖作佛。」",
               "pinyin": "Yī yuē: 'Tú zuò fó.'",
               "translations": {
-                "red_pine": "Daoyi said: 'I am aiming to become a Buddha.'",
-                "cleary": "Daoyi said, 'I aim to become a Buddha.'",
-                "sasaki": "Daoyi replied: 'I am aiming to become a Buddha.'"
+                "red_pine": {
+                  "text": "Daoyi said: 'I am aiming to become a Buddha.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Daoyi said, 'I aim to become a Buddha.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Daoyi replied: 'I am aiming to become a Buddha.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8526,9 +9399,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師乃取一磚，於彼庵前石上磨。一曰：「磨磚作麼？」師曰：「磨作鏡。」一曰：「磨磚豈得成鏡耶？」師曰：「坐禪豈得作佛耶？」",
               "pinyin": "Shī nǎi qǔ yī zhuān, yú bǐ ān qián shí shàng mó. Yī yuē: 'Mó zhuān zuò me?' Shī yuē: 'Mó zuò jìng.' Yī yuē: 'Mó zhuān qǐ dé chéng jìng yé?' Shī yuē: 'Zuòchán qǐ dé zuò fó yé?'",
               "translations": {
-                "red_pine": "The Master then picked up a brick and ground it upon a rock in front of the hermitage. Daoyi asked: 'What are you doing grinding a brick?' The Master said: 'I am grinding it to make a mirror.' Daoyi said: 'How can grinding a brick ever make a mirror?' The Master replied: 'How can sitting in meditation make a Buddha?'",
-                "cleary": "The Master then took a brick and polished it on a stone before the hermitage. Daoyi said, 'What are you doing grinding a brick?' The Master said, 'Grinding it to make a mirror.' Daoyi said, 'How can you make a mirror by grinding a brick?' The Master said, 'How can you become a Buddha by sitting in meditation?'",
-                "sasaki": "Huairang picked up a tile brick and began rubbing it on a stone. Daoyi asked: 'What are you doing grinding a brick?' Huairang said: 'I am grinding it to make a mirror.' Daoyi said: 'How can grinding a brick make a mirror?' Huairang said: 'How can sitting in meditation make you a Buddha?'"
+                "red_pine": {
+                  "text": "The Master then picked up a brick and ground it upon a rock in front of the hermitage. Daoyi asked: 'What are you doing grinding a brick?' The Master said: 'I am grinding it to make a mirror.' Daoyi said: 'How can grinding a brick ever make a mirror?' The Master replied: 'How can sitting in meditation make a Buddha?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master then took a brick and polished it on a stone before the hermitage. Daoyi said, 'What are you doing grinding a brick?' The Master said, 'Grinding it to make a mirror.' Daoyi said, 'How can you make a mirror by grinding a brick?' The Master said, 'How can you become a Buddha by sitting in meditation?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Huairang picked up a tile brick and began rubbing it on a stone. Daoyi asked: 'What are you doing grinding a brick?' Huairang said: 'I am grinding it to make a mirror.' Daoyi said: 'How can grinding a brick make a mirror?' Huairang said: 'How can sitting in meditation make you a Buddha?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8536,9 +9418,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "一曰：「如何即是？」師曰：「如人駕車，車若不行，打車即是？打牛即是？」一無對。",
               "pinyin": "Yī yuē: 'Rúhé jí shì?' Shī yuē: 'Rú rén jià chē, chē ruò bù xíng, dǎ chē jí shì? Dǎ niú jí shì?' Yī wú duì.",
               "translations": {
-                "red_pine": "Daoyi asked: 'What should one do then?' The Master said: 'It is like driving a cart. If the cart does not move, do you strike the cart or do you strike the ox?' Daoyi had no answer.",
-                "cleary": "Daoyi said, 'What is the right way?' The Master said, 'It is like someone driving a cart: if the cart does not go, is it right to hit the cart, or is it right to hit the ox?' Daoyi had no reply.",
-                "sasaki": "Daoyi asked: 'What then is right?' Huairang said: 'It is like driving a cart: if the cart stops, do you whip the cart, or do you whip the ox?' Daoyi was silent."
+                "red_pine": {
+                  "text": "Daoyi asked: 'What should one do then?' The Master said: 'It is like driving a cart. If the cart does not move, do you strike the cart or do you strike the ox?' Daoyi had no answer.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Daoyi said, 'What is the right way?' The Master said, 'It is like someone driving a cart: if the cart does not go, is it right to hit the cart, or is it right to hit the ox?' Daoyi had no reply.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Daoyi asked: 'What then is right?' Huairang said: 'It is like driving a cart: if the cart stops, do you whip the cart, or do you whip the ox?' Daoyi was silent.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8559,9 +9450,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "龐居士問馬祖：「不與萬法為侶者，是甚麼人？」",
               "pinyin": "Páng jūshì wèn Mǎzǔ: 'Bù yǔ wànfǎ wéi lǚ zhě, shì shénme rén?'",
               "translations": {
-                "red_pine": "Layman Pang asked Master Mazu: 'Who is the one who is not a companion to the myriad dharmas?'",
-                "cleary": "Layman Pang asked Mazu, 'Who is the one who does not keep company with the myriad things?'",
-                "sasaki": "Layman Pang asked Baso: 'Who is he that is not companion to the ten thousand things?'"
+                "red_pine": {
+                  "text": "Layman Pang asked Master Mazu: 'Who is the one who is not a companion to the myriad dharmas?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Layman Pang asked Mazu, 'Who is the one who does not keep company with the myriad things?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Layman Pang asked Baso: 'Who is he that is not companion to the ten thousand things?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8569,9 +9469,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "祖曰：「待汝一口吸盡西江水，即向汝道。」士於言下大悟。",
               "pinyin": "Zǔ yuē: 'Dài rǔ yī kǒu xī jìn Xījiāng shuǐ, jí xiàng rǔ dào.' Shì yú yán xià dà wù.",
               "translations": {
-                "red_pine": "Mazu said: 'When you swallow the West River in a single gulp, I will tell you.' At these words the Layman attained great awakening.",
-                "cleary": "Mazu said, 'When you drink up the water of the West River in a single gulp, I will tell you.' The Layman had great awakening at these words.",
-                "sasaki": "Baso said: 'When you swallow up all the waters of the West River in one gulp, I will tell you.' At this Pang attained great awakening."
+                "red_pine": {
+                  "text": "Mazu said: 'When you swallow the West River in a single gulp, I will tell you.' At these words the Layman attained great awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Mazu said, 'When you drink up the water of the West River in a single gulp, I will tell you.' The Layman had great awakening at these words.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Baso said: 'When you swallow up all the waters of the West River in one gulp, I will tell you.' At this Pang attained great awakening.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8602,9 +9511,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師每日隨眾作務。主事者憫師年邁，潛收作具。師遂不食。眾問其故，師曰：「一日不作，一日不食。」自此叢林普請之風大興。",
               "pinyin": "Shī měi rì suí zhòng zuòwù. Zhǔshì zhě mǐn shī nián mài, qián shōu zuòjù. Shī suì bù shí. Zhòng wèn qí gù, shī yuē: 'Yī rì bù zuò, yī rì bù shí.' Zì cǐ cónglín pǔqǐng zhī fēng dà xīng.",
               "translations": {
-                "red_pine": "Every day the Master followed the assembly to do manual labor. The monastery administrator, taking pity on the Master's advanced age, secretly hid his working tools. The Master then refused to eat. When the monks asked the reason, the Master said: 'A day without work is a day without food.' From then on the tradition of universal communal labor flourished throughout all monasteries.",
-                "cleary": "Every day the Master followed the assembly in working. The administrator pitied his advanced age and secretly hid his tools. The Master thereupon did not eat. The assembly asked the reason; the Master said, 'A day without work is a day without food.' From this the custom of communal work flourished.",
-                "sasaki": "The Master worked daily with the community. The monks, pitying his old age, hid his farming tools. The Master refused to take food. When asked why, he replied: 'A day without work is a day without food.'"
+                "red_pine": {
+                  "text": "Every day the Master followed the assembly to do manual labor. The monastery administrator, taking pity on the Master's advanced age, secretly hid his working tools. The Master then refused to eat. When the monks asked the reason, the Master said: 'A day without work is a day without food.' From then on the tradition of universal communal labor flourished throughout all monasteries.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Every day the Master followed the assembly in working. The administrator pitied his advanced age and secretly hid his tools. The Master thereupon did not eat. The assembly asked the reason; the Master said, 'A day without work is a day without food.' From this the custom of communal work flourished.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Master worked daily with the community. The monks, pitying his old age, hid his farming tools. The Master refused to take food. When asked why, he replied: 'A day without work is a day without food.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8612,9 +9530,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "普請之法，上自住持，下逮行者，普出人力，無有後先。古德云：『大眾作務，住持宜先。』此宗門勞動不離禪定之極則也。",
               "pinyin": "Pǔqǐng zhī fǎ, shàng zì zhùchí, xià dài xíngzhě, pǔ chū rénlì, wú yǒu hòuxiān. Gǔdé yún: 'Dàzhòng zuòwù, zhùchí yí xiān.' Cǐ zōngmén láodòng bù lí chándìng zhī jízé yě.",
               "translations": {
-                "red_pine": "The rule of communal labor: from the Abbot at the top down to postulants, all contribute their labor with none holding back. The ancients said: 'When the assembly works, the Abbot should take the lead.' This is the supreme standard of the ancestral school that physical labor is not separate from meditation.",
-                "cleary": "The method of communal work: from the abbot above down to novices below, everyone puts forth effort without delay. The ancients said, 'When the crowd works, the abbot should be first.' This is the ultimate principle of the school: labor is not separate from meditation.",
-                "sasaki": "In communal work, from the abbot to the postulant, all join together. The ancient masters taught: 'When the community works, the abbot leads.' Labor and Chan meditation are non-dual."
+                "red_pine": {
+                  "text": "The rule of communal labor: from the Abbot at the top down to postulants, all contribute their labor with none holding back. The ancients said: 'When the assembly works, the Abbot should take the lead.' This is the supreme standard of the ancestral school that physical labor is not separate from meditation.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The method of communal work: from the abbot above down to novices below, everyone puts forth effort without delay. The ancients said, 'When the crowd works, the abbot should be first.' This is the ultimate principle of the school: labor is not separate from meditation.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "In communal work, from the abbot to the postulant, all join together. The ancient masters taught: 'When the community works, the abbot leads.' Labor and Chan meditation are non-dual.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8630,9 +9557,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "叢林設東西兩序。西序主行法：首座居首，秉教弘宗；西堂次之；維那統理僧規，調和清眾。東序主世務：監院總領庫務，副寺、直歲共司田產，典座親掌飲食。",
               "pinyin": "Cónglín shè dōng xī liǎngxù. Xīxù zhǔ xíngfǎ: shǒuzuò jū shǒu, bǐng jiào hóng zōng; xītáng cì zhī; wéinà tǒnglǐ sēngguī, tiáohé qīngzhòng. Dōngxù zhǔ shìwù: jiānyuàn zǒnglǐ kùwù, fùsì, zhísuì gòng sī tiánchǎn, diǎnzuò qīn zhǎng yǐnshí.",
               "translations": {
-                "red_pine": "The monastery establishes Eastern and Western ranks. The Western rank directs spiritual practice: the Head Monk (Shouzuo) is foremost, upholding the teaching; the Ino (Weina) oversees monastic discipline and harmonizes the assembly. The Eastern rank manages temporal affairs: the Administrator (Jianyuan) directs finances, the Work Director (Zhisui) oversees lands, and the Chief Cook (Tenzo/Dianzuo) personally manages all food and sustenance.",
-                "cleary": "The monastery sets up the East and West orders. The West order directs spiritual teaching: the Chief Monk is first, holding the teaching; the Precentor governs monastic rules and harmonizes the community. The East order oversees practical affairs: the Director manages funds, the Work Master oversees land, the Cook handles meals.",
-                "sasaki": "The two orders of the monastery: The Western order governs the Dharma, led by the Head Monk and Ino; the Eastern order manages material duties, led by the Administrator and Tenzo."
+                "red_pine": {
+                  "text": "The monastery establishes Eastern and Western ranks. The Western rank directs spiritual practice: the Head Monk (Shouzuo) is foremost, upholding the teaching; the Ino (Weina) oversees monastic discipline and harmonizes the assembly. The Eastern rank manages temporal affairs: the Administrator (Jianyuan) directs finances, the Work Director (Zhisui) oversees lands, and the Chief Cook (Tenzo/Dianzuo) personally manages all food and sustenance.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The monastery sets up the East and West orders. The West order directs spiritual teaching: the Chief Monk is first, holding the teaching; the Precentor governs monastic rules and harmonizes the community. The East order oversees practical affairs: the Director manages funds, the Work Master oversees land, the Cook handles meals.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The two orders of the monastery: The Western order governs the Dharma, led by the Head Monk and Ino; the Eastern order manages material duties, led by the Administrator and Tenzo.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8648,9 +9584,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "夫學般若菩薩，先當起大悲心，發弘誓願，精修三昧，誓度眾生，不求獨解。放捨諸緣，休息萬事。身心一如，動靜無間。調和氣息，端直其身。",
               "pinyin": "Fú xué bōrě púsà, xiān dāng qǐ dàbēi xīn, fā hóngshì yuàn, jīng xiū sānmèi, shì dù zhòngshēng, bù qiú dú jiě. Fàngshě zhū yuán, xiūxī wànshì. Shēnxīn yīrú, dòngjìng wújiàn. Tiáohé qìxī, duānzhí qí shēn.",
               "translations": {
-                "red_pine": "The bodhisattva studying prajna should first arouse great compassion, make vast vows, diligently cultivate samadhi, and vow to liberate all beings without seeking liberation for oneself alone. Cast away all conditions and put all affairs to rest. Body and mind are as one; movement and stillness are without gap. Harmonize breath and keep the torso straight.",
-                "cleary": "The bodhisattva studying transcendent wisdom should first produce great compassion, generate broad vows, cultivate samadhi, and vow to liberate beings. Release all entanglements and rest from all matters. Body and mind are as one; movement and stillness are seamless.",
-                "sasaki": "One who practices wisdom must first arouse great compassion and broad vows. Let go of all worldly entanglements. Body and mind become one; activity and stillness are uninterrupted."
+                "red_pine": {
+                  "text": "The bodhisattva studying prajna should first arouse great compassion, make vast vows, diligently cultivate samadhi, and vow to liberate all beings without seeking liberation for oneself alone. Cast away all conditions and put all affairs to rest. Body and mind are as one; movement and stillness are without gap. Harmonize breath and keep the torso straight.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The bodhisattva studying transcendent wisdom should first produce great compassion, generate broad vows, cultivate samadhi, and vow to liberate beings. Release all entanglements and rest from all matters. Body and mind are as one; movement and stillness are seamless.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "One who practices wisdom must first arouse great compassion and broad vows. Let go of all worldly entanglements. Body and mind become one; activity and stillness are uninterrupted.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8658,9 +9603,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "不思善，不思惡，無念無想，莫計莫度。兀兀而坐，如太山嶽。心若馳散，攝之令返。久久純熟，自然契會。",
               "pinyin": "Bù sī shàn, bù sī è, wú niàn wú xiǎng, mò jì mò dù. Wùwù ér zuò, rú tài shānyuè. Xīn ruò chí sàn, shè zhī lìng fǎn. Jiǔjiǔ chúnshú, zìrán qìhuì.",
               "translations": {
-                "red_pine": "Think neither of good nor of evil; let there be no conceptual thoughts or calculations. Sit immovable like a mighty mountain peak. If the mind scatters, gently collect it and bring it back. Practicing thus over time, you will naturally accord with the truth.",
-                "cleary": "Do not think of good or evil, have no conceptualization or calculation. Sit steadfastly like a great mountain. If the mind wanders, gather it and bring it back. In time, you naturally harmonize.",
-                "sasaki": "Think neither of good nor evil; engage in no deliberations. Sit firm as a mountain peak. If thoughts wander, bring them back. With time, realization arrives naturally."
+                "red_pine": {
+                  "text": "Think neither of good nor of evil; let there be no conceptual thoughts or calculations. Sit immovable like a mighty mountain peak. If the mind scatters, gently collect it and bring it back. Practicing thus over time, you will naturally accord with the truth.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Do not think of good or evil, have no conceptualization or calculation. Sit steadfastly like a great mountain. If the mind wanders, gather it and bring it back. In time, you naturally harmonize.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Think neither of good nor evil; engage in no deliberations. Sit firm as a mountain peak. If thoughts wander, bring them back. With time, realization arrives naturally.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8689,9 +9643,18 @@ window.TRANSLATECHAN_DATA = {
           "verse_zh": "三更初夜月明前，莫怪相逢不相識。隱隱猶懷昔日嫌。",
           "verse_pinyin": "Sān gēng chū yè yuè míng qián, mò guài xiāngféng bù xiāngshí. Yǐnyǐn yóu huái xīrì xián.",
           "translations": {
-            "red_pine": "In the third watch of the night before the moon shines, do not be surprised if they meet and do not recognize each other. Still dimly harboring the resentment of former days.",
-            "cleary": "In the third watch of the night, before the moon appears, do not wonder when they meet without recognizing each other. Still faintly harboring the hidden aversion of former days.",
-            "sasaki": "In the third watch of the night, before the moon appears, no wonder that meeting they do not recognize each other. Still concealed within is a lingering trace of past alienation."
+            "red_pine": {
+              "text": "In the third watch of the night before the moon shines, do not be surprised if they meet and do not recognize each other. Still dimly harboring the resentment of former days.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "In the third watch of the night, before the moon appears, do not wonder when they meet without recognizing each other. Still faintly harboring the hidden aversion of former days.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "In the third watch of the night, before the moon appears, no wonder that meeting they do not recognize each other. Still concealed within is a lingering trace of past alienation.",
+              "status": "reconstruction_unverified"
+            }
           },
           "commentary_zh": "曹山曰：『正位即是空界，本來無物；偏位即是色界，有萬象形。正中偏者，捨理就事也。』",
           "commentary_en": "Caoshan explains: The Real is the realm of Emptiness, where fundamentally not a single thing exists. The Apparent is the realm of Form, filled with myriad phenomena. The Apparent within the Real means leaving the principle to enter affairs."
@@ -8705,9 +9668,18 @@ window.TRANSLATECHAN_DATA = {
           "verse_zh": "白頭宮女卸殘妝，醒來不辨菱花面。平生笑傲幾人知？",
           "verse_pinyin": "Bái tóu gōngnǚ xiè cán zhuāng, xǐng lái bù biàn línghuā miàn. Píngshēng xiào'ào jǐ rén zhī?",
           "translations": {
-            "red_pine": "An old white-haired court lady removes her faded makeup; awakening, she cannot distinguish her face in the water-chestnut mirror. In all her life, who has known her joyful pride?",
-            "cleary": "An old crone having overslept encounters an ancient mirror; distinctly seeing the face, there is no other. Do not lose your head and chase your reflection.",
-            "sasaki": "A white-haired palace lady removes her faded ornaments; awakening, she looks into the ancient mirror. How many people understand her lifetime of transcendent laughter?"
+            "red_pine": {
+              "text": "An old white-haired court lady removes her faded makeup; awakening, she cannot distinguish her face in the water-chestnut mirror. In all her life, who has known her joyful pride?",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "An old crone having overslept encounters an ancient mirror; distinctly seeing the face, there is no other. Do not lose your head and chase your reflection.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "A white-haired palace lady removes her faded ornaments; awakening, she looks into the ancient mirror. How many people understand her lifetime of transcendent laughter?",
+              "status": "reconstruction_unverified"
+            }
           },
           "commentary_zh": "曹山曰：『偏中正者，捨事入理也。萬象森羅之中，睹露真空法界。』",
           "commentary_en": "Caoshan explains: The Real within the Apparent means leaving worldly affairs to enter the principle. In the very midst of the myriad bustling phenomena, one perceives the radiant, empty Dharma-realm."
@@ -8721,9 +9693,18 @@ window.TRANSLATECHAN_DATA = {
           "verse_zh": "無中有路出塵埃，但能不觸當今諱。也勝前朝斷舌才。",
           "verse_pinyin": "Wú zhōng yǒu lù chū chén'āi, dàn néng bù chù dāngjīn huì. Yě shèng qiáncháo duàn shé cái.",
           "translations": {
-            "red_pine": "Within non-being there is a path leading out of the dust; if you can avoid violating the present Emperor's taboo name, you surpass the eloquent talents of past dynasties.",
-            "cleary": "Within nothingness is a path leading out of the dust; simply be able not to touch the reigning taboo, and you surpass the eloquent wits who cut off tongues.",
-            "sasaki": "From within nothingness a path leads out of the dust; if you only avoid violating the present taboo, you surpass the great orators of ancient courts."
+            "red_pine": {
+              "text": "Within non-being there is a path leading out of the dust; if you can avoid violating the present Emperor's taboo name, you surpass the eloquent talents of past dynasties.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Within nothingness is a path leading out of the dust; simply be able not to touch the reigning taboo, and you surpass the eloquent wits who cut off tongues.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "From within nothingness a path leads out of the dust; if you only avoid violating the present taboo, you surpass the great orators of ancient courts.",
+              "status": "reconstruction_unverified"
+            }
           },
           "commentary_zh": "曹山曰：『正中來者，不墮有無，從真如本體流出大用，化物無方也。』",
           "commentary_en": "Caoshan explains: Coming from within the Real means not falling into existence or non-existence, allowing great functioning to flow naturally from the substance of Suchness to liberate beings without fixed methods."
@@ -8737,9 +9718,18 @@ window.TRANSLATECHAN_DATA = {
           "verse_zh": "兩刃相交不須避，好手猶如火裏蓮。宛然自有沖天志。",
           "verse_pinyin": "Liǎng rèn xiāng jiāo bù xū bì, hǎo shǒu yóu rú huǒ lǐ lián. Wǎnrán zì yǒu chōng tiān zhì.",
           "translations": {
-            "red_pine": "When two crossed sword blades meet, there is no need to retreat; a master swordsman is like a lotus blooming in the midst of fire. Effortlessly possessing an aspiration that pierces heaven.",
-            "cleary": "Two crossed sword blades, neither need evade; a skillful adept is like a lotus in fire. Plainly having of itself an ambition piercing the sky.",
-            "sasaki": "When two sharp blades cross, there is no need to avoid them; the skillful master is like a lotus blooming in blazing fire. Naturally soaring straight into the heavens."
+            "red_pine": {
+              "text": "When two crossed sword blades meet, there is no need to retreat; a master swordsman is like a lotus blooming in the midst of fire. Effortlessly possessing an aspiration that pierces heaven.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Two crossed sword blades, neither need evade; a skillful adept is like a lotus in fire. Plainly having of itself an ambition piercing the sky.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When two sharp blades cross, there is no need to avoid them; the skillful master is like a lotus blooming in blazing fire. Naturally soaring straight into the heavens.",
+              "status": "reconstruction_unverified"
+            }
           },
           "commentary_zh": "曹山曰：『兼中至者，理體事相，交互圓融，如兩鏡相照，重重無盡。』",
           "commentary_en": "Caoshan explains: Arriving at Both means principle and phenomena are completely interfused without obstruction, like two mirrors facing each other in infinite luminous reflection."
@@ -8753,9 +9743,18 @@ window.TRANSLATECHAN_DATA = {
           "verse_zh": "不落有無誰敢和？人人盡欲出常流。折合還歸炭裏坐。",
           "verse_pinyin": "Bù luò yǒu wú shuí gǎn hè? Rénrén jìn yù chū cháng liú. Zhéhé hái guī tàn lǐ zuò.",
           "translations": {
-            "red_pine": "Not falling into being or non-being, who dares harmonize with it? Everyone wishes to escape the common flow, yet in the end they return to sit in the charcoal ashes.",
-            "cleary": "Not falling into existence or nonexistence, who dares harmonize? Everyone wants to leave the ordinary current, yet in the end they return to sit in the charcoal.",
-            "sasaki": "Not falling into being or non-being, who can match it? All people seek to transcend the common stream, but in the end they return to sit in the ashes."
+            "red_pine": {
+              "text": "Not falling into being or non-being, who dares harmonize with it? Everyone wishes to escape the common flow, yet in the end they return to sit in the charcoal ashes.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Not falling into existence or nonexistence, who dares harmonize? Everyone wants to leave the ordinary current, yet in the end they return to sit in the charcoal.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Not falling into being or non-being, who can match it? All people seek to transcend the common stream, but in the end they return to sit in the ashes.",
+              "status": "reconstruction_unverified"
+            }
           },
           "commentary_zh": "曹山曰：『兼中到者，大用現前，不存軌則，灰頭土面，入廛垂手，隨緣度生。』",
           "commentary_en": "Caoshan explains: Attainment in Unity means the great function manifests with zero traces or rigid rules; with ash on the head and dirt on the face, entering the marketplace with open hands to liberate beings according to conditions."
@@ -8773,9 +9772,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師辭雲巖行腳。雲巖曰：「甚處去？」師曰：「雖離和尚，未卜所止。」雲巖曰：「莫湖南去？」師曰：「無。」曰：「歸鄉去？」師曰：「無。」巖曰：「早晚卻回。」師曰：「待和尚有住處即來。」師涉水睹影，大悟前旨，作偈曰：",
               "pinyin": "Shī cí Yúnyán xíngjiǎo. Yúnyán yuē: 'Shèn chù qù?' Shī yuē: 'Suī lí héshang, wèi bǔ suǒ zhǐ.' Yúnyán yuē: 'Mò Húnán qù?' Shī yuē: 'Wú.' Yuē: 'Guī xiāng qù?' Shī yuē: 'Wú.' Yán yuē: 'Zǎowǎn què huí.' Shī yuē: 'Dài héshang yǒu zhùchù jí lái.' Shī shèshuǐ dǔyǐng, dà wù qián zhǐ, zuò jì yuē:",
               "translations": {
-                "red_pine": "The Master took leave of Master Yunyan on pilgrimage. Yunyan asked: 'Where are you going?' The Master said: 'Though I leave you, I have no fixed destination.' Yunyan said: 'Are you going to Hunan?' 'No.' 'Returning to your hometown?' 'No.' Yunyan said: 'Return sooner or later.' The Master said: 'When you have a fixed dwelling, I will return.' As the Master waded across a river, he saw his reflection in the water, deeply awakened to the fundamental teaching, and composed a verse:",
-                "cleary": "Dongshan took leave of Yunyan. Yunyan said, 'Where are you going?' 'Though I leave the Master, I don't know where I'll stop.' 'Are you going to Hunan?' 'No.' 'Going home?' 'No.' 'Return early or late.' 'When the Master has a fixed abode, I will come.' Wading a river, Dongshan saw his reflection, had great enlightenment, and composed a verse:",
-                "sasaki": "Dongshan left Yunyan on pilgrimage. Wading across a stream, he saw his reflection in the water and attained great awakening, uttering this famous verse:"
+                "red_pine": {
+                  "text": "The Master took leave of Master Yunyan on pilgrimage. Yunyan asked: 'Where are you going?' The Master said: 'Though I leave you, I have no fixed destination.' Yunyan said: 'Are you going to Hunan?' 'No.' 'Returning to your hometown?' 'No.' Yunyan said: 'Return sooner or later.' The Master said: 'When you have a fixed dwelling, I will return.' As the Master waded across a river, he saw his reflection in the water, deeply awakened to the fundamental teaching, and composed a verse:",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Dongshan took leave of Yunyan. Yunyan said, 'Where are you going?' 'Though I leave the Master, I don't know where I'll stop.' 'Are you going to Hunan?' 'No.' 'Going home?' 'No.' 'Return early or late.' 'When the Master has a fixed abode, I will come.' Wading a river, Dongshan saw his reflection, had great enlightenment, and composed a verse:",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Dongshan left Yunyan on pilgrimage. Wading across a stream, he saw his reflection in the water and attained great awakening, uttering this famous verse:",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8783,9 +9791,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "切忌從他覓，迢迢與我踈。我今獨自往，處處得逢渠。渠今正是我，我今不是渠。應須恁麼會，方得契如如。",
               "pinyin": "Qiējì cóng tā mì, tiáotiáo yǔ wǒ shū. Wǒ jīn dúzì wǎng, chùchù dé féng qú. Qú jīn zhèng shì wǒ, wǒ jīn bùshì qú. Yīng xū rèn me huì, fāng dé qì rúrú.",
               "translations": {
-                "red_pine": "Avoid seeking after it through another, or you will become estranged from yourself. Now I go on alone, yet everywhere I meet Him. He is now truly me, but I am not Him. You must understand in this way to harmonize with Suchness.",
-                "cleary": "Do not seek from another, or you will be alienated from yourself. Now I go on alone, yet everywhere I meet Him. He is now me, I am not Him. You must understand in this way to merge with Suchness.",
-                "sasaki": "Never seek after it from another, or it will be alienated from you. Now I go on alone, yet everywhere I meet Him. He is now truly me, but I am not Him. Only by understanding thus can you accord with Suchness."
+                "red_pine": {
+                  "text": "Avoid seeking after it through another, or you will become estranged from yourself. Now I go on alone, yet everywhere I meet Him. He is now truly me, but I am not Him. You must understand in this way to harmonize with Suchness.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Do not seek from another, or you will be alienated from yourself. Now I go on alone, yet everywhere I meet Him. He is now me, I am not Him. You must understand in this way to merge with Suchness.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Never seek after it from another, or it will be alienated from you. Now I go on alone, yet everywhere I meet Him. He is now truly me, but I am not Him. Only by understanding thus can you accord with Suchness.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8801,9 +9818,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師問雲巖：「無情說法，甚麼人得聞？」",
               "pinyin": "Shī wèn Yúnyán: 'Wúqíng shuōfǎ, shénme rén dé wén?'",
               "translations": {
-                "red_pine": "Dongshan asked Master Yunyan: 'When non-sentient beings preach the Dharma, who can hear it?'",
-                "cleary": "Dongshan asked Yunyan, 'When inanimate objects expound the Dharma, who can hear it?'",
-                "sasaki": "Dongshan asked Yunyan: 'When insentient beings preach the Law, who hears it?'"
+                "red_pine": {
+                  "text": "Dongshan asked Master Yunyan: 'When non-sentient beings preach the Dharma, who can hear it?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Dongshan asked Yunyan, 'When inanimate objects expound the Dharma, who can hear it?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Dongshan asked Yunyan: 'When insentient beings preach the Law, who hears it?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8811,9 +9837,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "巖曰：「無情得聞。」師曰：「和尚還聞否？」巖曰：「我若聞，汝即不聞吾說法也。」",
               "pinyin": "Yán yuē: 'Wúqíng dé wén.' Shī yuē: 'Héshang hái wén fǒu?' Yán yuē: 'Wǒ ruò wén, rǔ jí bù wén wú shuōfǎ yě.'",
               "translations": {
-                "red_pine": "Yunyan said: 'Non-sentient beings hear it.' Dongshan asked: 'Do you hear it, Master?' Yunyan said: 'If I heard it, you would not be hearing me preach the Dharma.'",
-                "cleary": "Yunyan said, 'The inanimate can hear it.' Dongshan said, 'Do you hear it, Master?' Yunyan said, 'If I heard it, you would not hear me teaching.'",
-                "sasaki": "Yunyan said: 'Insentient beings hear it.' Dongshan said: 'Do you hear it?' Yunyan replied: 'If I heard it, you would not hear me preaching.'"
+                "red_pine": {
+                  "text": "Yunyan said: 'Non-sentient beings hear it.' Dongshan asked: 'Do you hear it, Master?' Yunyan said: 'If I heard it, you would not be hearing me preach the Dharma.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Yunyan said, 'The inanimate can hear it.' Dongshan said, 'Do you hear it, Master?' Yunyan said, 'If I heard it, you would not hear me teaching.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Yunyan said: 'Insentient beings hear it.' Dongshan said: 'Do you hear it?' Yunyan replied: 'If I heard it, you would not hear me preaching.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8821,9 +9856,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師乃作偈曰：「也大奇，也大奇！無情說法不思議。若將耳聽終難會，眼處聞聲方得知。」",
               "pinyin": "Shī nǎi zuò jì yuē: 'Yě dà qí, yě dà qí! Wúqíng shuōfǎ bùsīyì. Ruò jiāng ěr tīng zhōng nán huì, yǎn chù wén shēng fāng dé zhī.'",
               "translations": {
-                "red_pine": "Dongshan then composed a verse: 'How marvelous! How wondrous! Non-sentient beings preaching the Dharma is inconceivable. If you try to hear it with your ears you will never understand; when you hear sound through your eyes, only then do you know!'",
-                "cleary": "Dongshan composed a verse: 'How extraordinary! How extraordinary! Inanimate beings expounding the Dharma is inconceivable. If you listen with your ears you will never understand; hearing voices with your eyes, then you know.'",
-                "sasaki": "Dongshan composed a verse: 'How extraordinary! Inconceivable is the insentient preaching the Law! If you try to hear with your ears, you will never get it; hearing sounds through your eyes, you understand at last!'"
+                "red_pine": {
+                  "text": "Dongshan then composed a verse: 'How marvelous! How wondrous! Non-sentient beings preaching the Dharma is inconceivable. If you try to hear it with your ears you will never understand; when you hear sound through your eyes, only then do you know!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Dongshan composed a verse: 'How extraordinary! How extraordinary! Inanimate beings expounding the Dharma is inconceivable. If you listen with your ears you will never understand; hearing voices with your eyes, then you know.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Dongshan composed a verse: 'How extraordinary! Inconceivable is the insentient preaching the Law! If you try to hear with your ears, you will never get it; hearing sounds through your eyes, you understand at last!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8854,9 +9898,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「函蓋乾坤，目機銖兩，截斷眾流，隨波逐浪。作麼生商量？」眾無對。",
               "pinyin": "Shī shì zhòng yún: 'Hán gài qián kūn, mù jī zhū liǎng, jié duàn zhòng liú, suí bō zhú làng. Zuò me shēng shāng liang?' Zhòng wú duì.",
               "translations": {
-                "red_pine": "The Master instructed the assembly: 'Enclosing heaven and earth like box and lid; weighing every subtle grain at a single glance; cutting off the flow of all streams; following the waves and pursuing the ripples. How do you deliberate upon this?' The assembly had no answer.",
-                "cleary": "The Master addressed the group: 'Covering heaven and earth, discerning the impulse to the ounce, cutting off all streams, going along with the ripples. How do you assess this?' The crowd had no reply.",
-                "sasaki": "Master Ummon instructed the assembly: 'Enclosing heaven and earth; discerning the pivot to the smallest ounce; cutting off all streams; following the waves. What is your understanding?' The monks were silent."
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'Enclosing heaven and earth like box and lid; weighing every subtle grain at a single glance; cutting off the flow of all streams; following the waves and pursuing the ripples. How do you deliberate upon this?' The assembly had no answer.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master addressed the group: 'Covering heaven and earth, discerning the impulse to the ounce, cutting off all streams, going along with the ripples. How do you assess this?' The crowd had no reply.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Ummon instructed the assembly: 'Enclosing heaven and earth; discerning the pivot to the smallest ounce; cutting off all streams; following the waves. What is your understanding?' The monks were silent.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8872,9 +9925,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「十五日已前不問汝，十五日已後道將一句來。」大眾無對。師自代云：「日日是好日。」",
               "pinyin": "Shī shì zhòng yún: 'Shíwǔ rì yǐqián bù wèn rǔ, shíwǔ rì yǐhòu dào jiāng yī jù lái.' Dàzhòng wú duì. Shī zì dài yún: 'Rì rì shì hǎo rì.'",
               "translations": {
-                "red_pine": "The Master instructed the assembly: 'I do not ask you about before the fifteenth day; after the fifteenth day, say a single sentence!' The assembly had no answer. The Master spoke for them: 'Every day is a good day.'",
-                "cleary": "The Master addressed the assembly, 'I don't ask you about before the fifteenth day; bring me a word about after the fifteenth day.' The assembly had no reply. The Master answered for them, 'Every day is a good day.'",
-                "sasaki": "Ummon said: 'I don't ask you about the days before the full moon; tell me a word about after the full moon.' The monks made no reply. Ummon said: 'Every day is a good day.'"
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'I do not ask you about before the fifteenth day; after the fifteenth day, say a single sentence!' The assembly had no answer. The Master spoke for them: 'Every day is a good day.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master addressed the assembly, 'I don't ask you about before the fifteenth day; bring me a word about after the fifteenth day.' The assembly had no reply. The Master answered for them, 'Every day is a good day.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Ummon said: 'I don't ask you about the days before the full moon; tell me a word about after the full moon.' The monks made no reply. Ummon said: 'Every day is a good day.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8890,9 +9952,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問：「如何是正法眼藏？」師云：「普。」",
               "pinyin": "Sēng wèn: 'Rúhé shì zhèng fǎ yǎn zàng?' Shī yún: 'Pǔ.'",
               "translations": {
-                "red_pine": "A monk asked: 'What is the treasury of the true Dharma eye?' The Master said: 'Universal!'",
-                "cleary": "A monk asked, 'What is the eye treasury of the true teaching?' The Master said, 'Universal.'",
-                "sasaki": "A monk asked: 'What is the Eye Treasury of the True Law?' Ummon said: 'Universal!'"
+                "red_pine": {
+                  "text": "A monk asked: 'What is the treasury of the true Dharma eye?' The Master said: 'Universal!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked, 'What is the eye treasury of the true teaching?' The Master said, 'Universal.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked: 'What is the Eye Treasury of the True Law?' Ummon said: 'Universal!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8900,9 +9971,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "問：「如何是雲門一劍？」師云：「祖。」",
               "pinyin": "Wèn: 'Rúhé shì Yúnmén yī jiàn?' Shī yún: 'Zǔ.'",
               "translations": {
-                "red_pine": "Asked: 'What is the single sword of Yunmen?' The Master said: 'Ancestor!'",
-                "cleary": "Asked, 'What is the single sword of Yunmen?' The Master said, 'Ancestor.'",
-                "sasaki": "Asked: 'What is the sword of Ummon?' Ummon said: 'Patriarch!'"
+                "red_pine": {
+                  "text": "Asked: 'What is the single sword of Yunmen?' The Master said: 'Ancestor!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Asked, 'What is the single sword of Yunmen?' The Master said, 'Ancestor.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Asked: 'What is the sword of Ummon?' Ummon said: 'Patriarch!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8910,9 +9990,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "問：「乾峰一路，趣向如何？」師云：「關。」",
               "pinyin": "Wèn: 'Qiānfēng yī lù, qùxiàng rúhé?' Shī yún: 'Guān.'",
               "translations": {
-                "red_pine": "Asked: 'What is the destination of Qianfeng's single road?' The Master said: 'Barrier!'",
-                "cleary": "Asked, 'What is the orientation of the single path of Qianfeng?' The Master said, 'Barrier.'",
-                "sasaki": "Asked: 'Where does the single road of Kempō lead?' Ummon said: 'Barrier!'"
+                "red_pine": {
+                  "text": "Asked: 'What is the destination of Qianfeng's single road?' The Master said: 'Barrier!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Asked, 'What is the orientation of the single path of Qianfeng?' The Master said, 'Barrier.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Asked: 'Where does the single road of Kempō lead?' Ummon said: 'Barrier!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8928,9 +10017,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾引志公云：「乾坤之內，宇宙之間，中有一寶，秘在形山。拈燈籠向佛殿裏，將三門來燈籠上。」",
               "pinyin": "Shī shì zhòng yǐn Zhìgōng yún: 'Qiánkūn zhīnèi, yǔzhòu zhījiān, zhōng yǒu yī bǎo, mì zài xíng shān. Niān dēnglóng xiàng fódiàn lǐ, jiāng sānmén lái dēnglóng shàng.'",
               "translations": {
-                "red_pine": "The Master cited Master Baozhi to the assembly: 'Inside heaven and earth, within the universe, there is a single jewel, hidden in the mountain of bodily form. Pick up the lantern and bring it into the Buddha hall; take the mountain gate and put it on top of the lantern!'",
-                "cleary": "The Master cited Master Baozhi: 'Within heaven and earth, in the cosmos, there is a treasure hidden in the mountain of form. Bring the lantern into the Buddha hall; put the mountain gate on top of the lantern.'",
-                "sasaki": "Ummon cited Master Hōshi: 'Within the cosmos there is a jewel hidden in the body. Take the lantern into the Buddha hall; set the temple gate on top of the lantern!'"
+                "red_pine": {
+                  "text": "The Master cited Master Baozhi to the assembly: 'Inside heaven and earth, within the universe, there is a single jewel, hidden in the mountain of bodily form. Pick up the lantern and bring it into the Buddha hall; take the mountain gate and put it on top of the lantern!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master cited Master Baozhi: 'Within heaven and earth, in the cosmos, there is a treasure hidden in the mountain of form. Bring the lantern into the Buddha hall; put the mountain gate on top of the lantern.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Ummon cited Master Hōshi: 'Within the cosmos there is a jewel hidden in the body. Take the lantern into the Buddha hall; set the temple gate on top of the lantern!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8961,9 +10059,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師因遊方，值雨阻雪，過地藏院。地藏問：「長老甚處去？」師云：「行腳去。」地藏云：「作麼生是行腳事？」師云：「不知。」",
               "pinyin": "Shī yīn yóufāng, zhí yǔ zǔ xuě, guò Dìzàng Yuàn. Dìzàng wèn: 'Zhǎnglǎo shèn chù qù?' Shī yún: 'Xíngjiǎo qù.' Dìzàng yún: 'Zuò me shēng shì xíngjiǎo shì?' Shī yún: 'Bù zhī.'",
               "translations": {
-                "red_pine": "During his travels, Master Fayan was delayed by snow and rain and stayed at Dizang Monastery. Master Dizang asked: 'Where are you going, Elder?' Fayan said: 'Traveling on pilgrimage.' Dizang said: 'What is the purpose of traveling on pilgrimage?' Fayan said: 'I do not know.'",
-                "cleary": "The Master was traveling on pilgrimage, delayed by rain and snow, and stayed at Dizang temple. Dizang asked, 'Where are you going, Elder?' Fayan said, 'On pilgrimage.' Dizang said, 'What is the business of pilgrimage?' Fayan said, 'I do not know.'",
-                "sasaki": "Master Hōgen was on pilgrimage and detained by snow at Dizang's temple. Dizang asked: 'Where are you going?' Hōgen said: 'On pilgrimage.' Dizang asked: 'What is the purpose of pilgrimage?' Hōgen replied: 'I do not know.'"
+                "red_pine": {
+                  "text": "During his travels, Master Fayan was delayed by snow and rain and stayed at Dizang Monastery. Master Dizang asked: 'Where are you going, Elder?' Fayan said: 'Traveling on pilgrimage.' Dizang said: 'What is the purpose of traveling on pilgrimage?' Fayan said: 'I do not know.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master was traveling on pilgrimage, delayed by rain and snow, and stayed at Dizang temple. Dizang asked, 'Where are you going, Elder?' Fayan said, 'On pilgrimage.' Dizang said, 'What is the business of pilgrimage?' Fayan said, 'I do not know.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Hōgen was on pilgrimage and detained by snow at Dizang's temple. Dizang asked: 'Where are you going?' Hōgen said: 'On pilgrimage.' Dizang asked: 'What is the purpose of pilgrimage?' Hōgen replied: 'I do not know.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8971,9 +10078,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "地藏云：「不知最親切。」師於言下大悟。",
               "pinyin": "Dìzàng yún: 'Bù zhī zuì qīnqiè.' Shī yú yán xià dà wù.",
               "translations": {
-                "red_pine": "Dizang said: 'Not knowing is most intimate.' At these words Master Fayan attained great awakening.",
-                "cleary": "Dizang said, 'Not knowing is most intimate.' Fayan had great enlightenment at these words.",
-                "sasaki": "Dizang said: 'Not knowing is most intimate.' At this Hōgen was completely enlightened."
+                "red_pine": {
+                  "text": "Dizang said: 'Not knowing is most intimate.' At these words Master Fayan attained great awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Dizang said, 'Not knowing is most intimate.' Fayan had great enlightenment at these words.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Dizang said: 'Not knowing is most intimate.' At this Hōgen was completely enlightened.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -8989,9 +10105,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師指庭前片石問僧：「佛教說三界唯心，萬法唯識。且道：這塊石在心內，在心外？」",
               "pinyin": "Shī zhǐ tíng qián piàn shí wèn sēng: 'Fójiào shuō sānjiè wéixīn, wànfǎ wéishí. Qiě dào: zhè kuài shí zài xīn nèi, zài xīn wài?'",
               "translations": {
-                "red_pine": "The Master pointed to a boulder in the courtyard and asked a monk: 'The Buddhist teachings say that the three realms are Mind only, and the myriad dharmas are Consciousness only. Tell me: is this stone inside your mind or outside your mind?'",
-                "cleary": "The Master pointed to a stone in the courtyard and asked a monk, 'Buddhism says the three realms are mind only, myriad dharmas are consciousness only. Tell me: is this stone inside your mind or outside your mind?'",
-                "sasaki": "Hōgen pointed to a stone in the garden and asked a monk: 'Scriptures say the three worlds are Mind alone. Is this stone inside or outside your mind?'"
+                "red_pine": {
+                  "text": "The Master pointed to a boulder in the courtyard and asked a monk: 'The Buddhist teachings say that the three realms are Mind only, and the myriad dharmas are Consciousness only. Tell me: is this stone inside your mind or outside your mind?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master pointed to a stone in the courtyard and asked a monk, 'Buddhism says the three realms are mind only, myriad dharmas are consciousness only. Tell me: is this stone inside your mind or outside your mind?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Hōgen pointed to a stone in the garden and asked a monk: 'Scriptures say the three worlds are Mind alone. Is this stone inside or outside your mind?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -8999,9 +10124,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧曰：「在心內。」",
               "pinyin": "Sēng yuē: 'Zài xīn nèi.'",
               "translations": {
-                "red_pine": "The monk said: 'Inside my mind.'",
-                "cleary": "The monk said, 'Inside the mind.'",
-                "sasaki": "The monk said: 'Inside my mind.'"
+                "red_pine": {
+                  "text": "The monk said: 'Inside my mind.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The monk said, 'Inside the mind.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The monk said: 'Inside my mind.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9009,9 +10143,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「行腳人空肚腹，著甚麼死急，安一塊石頭在心頭？」僧無對。",
               "pinyin": "Shī yuē: 'Xíngjiǎo rén kōng dùfù, zhuó shénme sǐ jí, ān yī kuài shítou zài xīn tóu?' Sēng wú duì.",
               "translations": {
-                "red_pine": "The Master said: 'A wandering monk traveling on an empty stomach—what urgent misery makes you carry such a heavy rock inside your mind?' The monk had no answer.",
-                "cleary": "The Master said, 'A traveling monk on an empty stomach—why carry such a heavy rock around inside your mind?' The monk had no reply.",
-                "sasaki": "Hōgen said: 'A traveling monk on an empty belly—what madness causes you to carry a boulder around inside your mind?' The monk was speechless."
+                "red_pine": {
+                  "text": "The Master said: 'A wandering monk traveling on an empty stomach—what urgent misery makes you carry such a heavy rock inside your mind?' The monk had no answer.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said, 'A traveling monk on an empty stomach—why carry such a heavy rock around inside your mind?' The monk had no reply.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Hōgen said: 'A traveling monk on an empty belly—what madness causes you to carry a boulder around inside your mind?' The monk was speechless.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9027,9 +10170,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "第一、自己根腳未明，妄指他人非；第二、護己宗門，輕蔑餘派；第三、好立言句，馳逐文字；第四、不辨機宜，妄行棒喝；第五、理事相違，墮在偏枯。學道之人，直須息妄歸真，理事圓融。",
               "pinyin": "Dì-yī, zìjǐ gēnjiǎo wèi míng, wàng zhǐ tārén fēi; Dì-èr, hù jǐ zōngmén, qīngmiè yúpài; Dì-sān, hào lì yánjù, chízhuú wénzì; Dì-sì, bù biàn jīyí, wàng xíng bànghè; Dì-wǔ, lǐshì xiāngwéi, duò zài piānkū. Xuédào zhī rén, zhí xū xī wàng guī zhēn, lǐshì yuánróng.",
               "translations": {
-                "red_pine": "First: Failing to clarify one's own fundamental foundation, yet rashly criticizing others; Second: Fiercely defending one's own sect while disparaging other lineages; Third: Delighting in creating witty slogans while chasing after words and letters; Fourth: Failing to discern the student's capacity and thoughtlessly deploying staff strikes and shouts; Fifth: Confusing principle and phenomena, falling into one-sided deficiency. Practitioners of the Way must quiet delusion, return to truth, and harmonize principle and phenomena in complete unity.",
-                "cleary": "First, not being clear on one's own ground, yet pointing out others' faults; Second, defending one's own sect and scorning others; Third, loving to establish phrases and chasing words; Fourth, not understanding timing and indiscriminately shouting; Fifth, letting principle and phenomena clash. Seekers of the Way must stop delusion and harmonize principle and phenomena.",
-                "sasaki": "The Ten Rules of the Chan School: Clarify one's own awakening; avoid sectarian rivalry; do not cling to words; discern the moment before striking or shouting; and harmonize principle with worldly reality."
+                "red_pine": {
+                  "text": "First: Failing to clarify one's own fundamental foundation, yet rashly criticizing others; Second: Fiercely defending one's own sect while disparaging other lineages; Third: Delighting in creating witty slogans while chasing after words and letters; Fourth: Failing to discern the student's capacity and thoughtlessly deploying staff strikes and shouts; Fifth: Confusing principle and phenomena, falling into one-sided deficiency. Practitioners of the Way must quiet delusion, return to truth, and harmonize principle and phenomena in complete unity.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "First, not being clear on one's own ground, yet pointing out others' faults; Second, defending one's own sect and scorning others; Third, loving to establish phrases and chasing words; Fourth, not understanding timing and indiscriminately shouting; Fifth, letting principle and phenomena clash. Seekers of the Way must stop delusion and harmonize principle and phenomena.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Ten Rules of the Chan School: Clarify one's own awakening; avoid sectarian rivalry; do not cling to words; discern the moment before striking or shouting; and harmonize principle with worldly reality.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9061,9 +10213,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "百丈將選大溈山住持，乃設問試眾。置淨瓶於地問曰：「不得喚作淨瓶，汝喚作甚麼？」",
               "pinyin": "Bǎizhàng jiāng xuǎn Dàguīshān zhùchí, nǎi shè wèn shì zhòng. Zhì jìngpíng yú dì wèn yuē: 'Bùdé huàn zuò jìngpíng, rǔ huàn zuò shénme?'",
               "translations": {
-                "red_pine": "Master Baizhang wished to choose the abbot for Mount Da-gui, so he posed a question to test the assembly. Placing a water pitcher on the ground, he asked: 'You cannot call this a water pitcher; what do you call it?'",
-                "cleary": "Baizhang was about to choose an abbot for Mount Gui, so he posed a question to test the crowd. He set a water pitcher on the ground and asked, 'You cannot call this a water pitcher; what do you call it?'",
-                "sasaki": "Hyakujō wished to appoint an abbot for Mount Dai-i, and set a question to the assembly. Placing a water pitcher on the floor, he asked: 'Not calling this a water pitcher, what do you call it?'"
+                "red_pine": {
+                  "text": "Master Baizhang wished to choose the abbot for Mount Da-gui, so he posed a question to test the assembly. Placing a water pitcher on the ground, he asked: 'You cannot call this a water pitcher; what do you call it?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Baizhang was about to choose an abbot for Mount Gui, so he posed a question to test the crowd. He set a water pitcher on the ground and asked, 'You cannot call this a water pitcher; what do you call it?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Hyakujō wished to appoint an abbot for Mount Dai-i, and set a question to the assembly. Placing a water pitcher on the floor, he asked: 'Not calling this a water pitcher, what do you call it?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9071,9 +10232,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "首座曰：「不可喚作木𣐎也。」",
               "pinyin": "Shǒuzuò yuē: 'Bùkě huàn zuò mù tū yě.'",
               "translations": {
-                "red_pine": "The Head Monk said: 'It cannot be called a wooden stub.'",
-                "cleary": "The Head Monk said, 'It cannot be called a wooden block.'",
-                "sasaki": "The Head Monk said: 'You cannot call it a piece of wood.'"
+                "red_pine": {
+                  "text": "The Head Monk said: 'It cannot be called a wooden stub.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Head Monk said, 'It cannot be called a wooden block.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Head Monk said: 'You cannot call it a piece of wood.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9081,9 +10251,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師乃踢倒淨瓶，便出去。百丈笑曰：「首座輸卻山子也。」遂命師開山。",
               "pinyin": "Shī nǎi tī dǎo jìngpíng, biàn chū qù. Bǎizhàng xiào yuē: 'Shǒuzuò shū què shānzǐ yě.' Suì mìng shī kāishān.",
               "translations": {
-                "red_pine": "Guishan walked forward, kicked over the water pitcher, and walked out. Baizhang laughed and said: 'The Head Monk has lost the mountain to this one!' And appointed Guishan to open the monastery.",
-                "cleary": "Guishan kicked over the pitcher and went out. Baizhang laughed and said, 'The Head Monk has lost the mountain!' And sent Guishan to open the mountain.",
-                "sasaki": "Guishan came forward, kicked over the water pitcher, and walked out. Hyakujō laughed: 'The Head Monk has lost the mountain!' And appointed Guishan as founder."
+                "red_pine": {
+                  "text": "Guishan walked forward, kicked over the water pitcher, and walked out. Baizhang laughed and said: 'The Head Monk has lost the mountain to this one!' And appointed Guishan to open the monastery.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Guishan kicked over the pitcher and went out. Baizhang laughed and said, 'The Head Monk has lost the mountain!' And sent Guishan to open the mountain.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Guishan came forward, kicked over the water pitcher, and walked out. Hyakujō laughed: 'The Head Monk has lost the mountain!' And appointed Guishan as founder.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9099,9 +10278,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "仰山受溈山印可，以圓相傳心。於地上畫一圓相「○」，師曰：「諸佛密意，不落言詮。這箇圓相，從何處起，向何處滅？」",
               "pinyin": "Yǎngshān shòu Guīshān yìnkě, yǐ yuánxiàng chuánxīn. Yú dìshàng huà yī yuánxiàng '○', shī yuē: 'Zhūfó mìyì, bù luò yánquán. Zhègè yuánxiàng, cóng hé chù qǐ, xiàng hé chù miè?'",
               "translations": {
-                "red_pine": "Yangshan received the seal of transmission from Guishan and used circular figures to transmit the mind seal. Drawing a circle '○' on the earth, he asked: 'The secret intention of all Buddhas does not fall into speech. Where does this circular figure arise from, and where does it vanish?'",
-                "cleary": "Yangshan received Guishan's seal and transmitted the mind via circular figures. Drawing a circle '○' on the ground, he said, 'The esoteric meaning of Buddhas is not caught in words. Where does this circle arise, where does it cease?'",
-                "sasaki": "Yangshan drew a circle '○' on the ground with his staff and said: 'The Buddhas' seal is beyond words. Where does this circle begin, and where does it end?'"
+                "red_pine": {
+                  "text": "Yangshan received the seal of transmission from Guishan and used circular figures to transmit the mind seal. Drawing a circle '○' on the earth, he asked: 'The secret intention of all Buddhas does not fall into speech. Where does this circular figure arise from, and where does it vanish?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Yangshan received Guishan's seal and transmitted the mind via circular figures. Drawing a circle '○' on the ground, he said, 'The esoteric meaning of Buddhas is not caught in words. Where does this circle arise, where does it cease?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Yangshan drew a circle '○' on the ground with his staff and said: 'The Buddhas' seal is beyond words. Where does this circle begin, and where does it end?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9109,9 +10297,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "溈山見之，於圓相中畫一「十」字「⊕」。仰山於旁添作「⊙」。師資相照，妙入微契。",
               "pinyin": "Guīshān jiàn zhī, yú yuánxiàng zhōng huà yī 'shí' zì '⊕'. Yǎngshān yú páng tiān zuò '⊙'. Shīzī xiāngzhào, miào rù wēiqì.",
               "translations": {
-                "red_pine": "Seeing it, Guishan drew a cross within the circle '⊕'. Yangshan then placed a dot at the center '⊙'. Master and disciple illuminated each other in perfect subtle harmony.",
-                "cleary": "Guishan drew a cross within the circle '⊕'. Yangshan added a dot '⊙'. Teacher and pupil reflected each other, harmonizing in subtle attunement.",
-                "sasaki": "Guishan drew a cross in the circle '⊕'. Yangshan added a central dot '⊙'. Master and disciple were perfectly attuned without a word."
+                "red_pine": {
+                  "text": "Seeing it, Guishan drew a cross within the circle '⊕'. Yangshan then placed a dot at the center '⊙'. Master and disciple illuminated each other in perfect subtle harmony.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Guishan drew a cross within the circle '⊕'. Yangshan added a dot '⊙'. Teacher and pupil reflected each other, harmonizing in subtle attunement.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Guishan drew a cross in the circle '⊕'. Yangshan added a central dot '⊙'. Master and disciple were perfectly attuned without a word.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9127,9 +10324,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "夫出家者，捨俗入道，發足超方。心形異俗，紹隆聖種。時光易過，日月如梭。幻化之軀，旦暮難保。若不精修，虛生浪死。",
               "pinyin": "Fú chūjiā zhě, shě sú rù dào, fā zú chāo fāng. Xīn xíng yì sú, shào lóng shèng zhǒng. Shíguāng yì guò, rìyuè rú suō. Huànhuà zhī qū, dànmù nán bǎo. Ruò bù jīng xiū, xū shēng làng sǐ.",
               "translations": {
-                "red_pine": "Those who leave home renounce worldly life to enter the Way, stepping beyond ordinary limits. Their heart and bodily form differ from the common world, continuing the sacred lineage. Time passes swiftly like a weaver's shuttle; this illusory body cannot be guaranteed from morning to dusk. If you do not practice diligently, you live in vain and die a wasted death.",
-                "cleary": "Those who renounce worldly life leave the mundane to enter the Way, transcending ordinary realms. In heart and form they differ from the world, perpetuating the sacred lineage. Time passes easily, sun and moon fly like shuttles. This illusory body is fragile from dawn to dusk. If you do not cultivate rigorously, you live in vain and die foolishly.",
-                "sasaki": "One who leaves household life enters the Way to transcend worldly bonds. Time flies like a weaver's shuttle; this phantom body is fleeting. Strive with all your might, lest your life be spent in vain."
+                "red_pine": {
+                  "text": "Those who leave home renounce worldly life to enter the Way, stepping beyond ordinary limits. Their heart and bodily form differ from the common world, continuing the sacred lineage. Time passes swiftly like a weaver's shuttle; this illusory body cannot be guaranteed from morning to dusk. If you do not practice diligently, you live in vain and die a wasted death.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Those who renounce worldly life leave the mundane to enter the Way, transcending ordinary realms. In heart and form they differ from the world, perpetuating the sacred lineage. Time passes easily, sun and moon fly like shuttles. This illusory body is fragile from dawn to dusk. If you do not cultivate rigorously, you live in vain and die foolishly.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "One who leaves household life enters the Way to transcend worldly bonds. Time flies like a weaver's shuttle; this phantom body is fleeting. Strive with all your might, lest your life be spent in vain.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9160,9 +10366,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "默默忘言，昭昭現前。鑑時廓爾，體處靈然。靈然獨照，照中還妙。露月星河，雪覆夜沼。水天一色，纖塵無表。",
               "pinyin": "Mòmò wàng yán, zhāozhāo xiànqián. Jiàn shí kuò'ěr, tǐ chù língrán. Língrán dú zhào, zhào zhōng hái miào. Lù yuè xīnghé, xuě fù yè zhǎo. Shuǐ tiān yīsè, xiānchén wú biǎo.",
               "translations": {
-                "red_pine": "Silently and serenely one forgets all words; clearly and vividly that appears before you. When you gaze into it, it is vast and boundless; where you embody it, it is alive and wondrous. Living awareness shines alone, and within the illumination is subtle marvel. The dew, the moon, the river of stars; snow covering the nighttime pond. Water and sky merge in single color; not a speck of dust shows itself.",
-                "cleary": "Silently and steadily one forgets all words; clearly and vividly it appears before you. When you see it, it is vast; where you embody it, it is luminous. Luminous and solitary, in its illumination it is subtle. Dew, moon, Milky Way; snow blanketing the night pond. Water and sky are one color; not a speck of dust appears.",
-                "sasaki": "In silence words are forgotten; radiant and clear it appears before you. Contemplated, it is boundless; embodied, it is wondrously alive. In solitary illumination, subtle wonder shines. Dew, moon, and river of stars; snow covers the silent pond."
+                "red_pine": {
+                  "text": "Silently and serenely one forgets all words; clearly and vividly that appears before you. When you gaze into it, it is vast and boundless; where you embody it, it is alive and wondrous. Living awareness shines alone, and within the illumination is subtle marvel. The dew, the moon, the river of stars; snow covering the nighttime pond. Water and sky merge in single color; not a speck of dust shows itself.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Silently and steadily one forgets all words; clearly and vividly it appears before you. When you see it, it is vast; where you embody it, it is luminous. Luminous and solitary, in its illumination it is subtle. Dew, moon, Milky Way; snow blanketing the night pond. Water and sky are one color; not a speck of dust appears.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "In silence words are forgotten; radiant and clear it appears before you. Contemplated, it is boundless; embodied, it is wondrously alive. In solitary illumination, subtle wonder shines. Dew, moon, and river of stars; snow covers the silent pond.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9170,9 +10385,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "妙存默處，功見照中。清白傳家，深根不動。正當恁麼時，只這箇是。",
               "pinyin": "Miào cún mò chù, gōng jiàn zhào zhōng. Qīngbái chuánjiā, shēn gēn bù dòng. Zhèng dāng rèn me shí, zhǐ zhè gè shì.",
               "translations": {
-                "red_pine": "Wonder resides in the place of silence; function is revealed within illumination. The pristine heritage is passed down; deep roots remain immovable. At this very moment, this very thing is it.",
-                "cleary": "Subtlety rests in silence; mastery appears in illumination. The pure white legacy is transmitted; deep roots are unmoved. Right at such a time, only this is it.",
-                "sasaki": "Wonder resides in silence; power manifests in illumination. Transmitting the pure white lineage, deep roots remain unshaken. At this very instant, this is it."
+                "red_pine": {
+                  "text": "Wonder resides in the place of silence; function is revealed within illumination. The pristine heritage is passed down; deep roots remain immovable. At this very moment, this very thing is it.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Subtlety rests in silence; mastery appears in illumination. The pure white legacy is transmitted; deep roots are unmoved. Right at such a time, only this is it.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Wonder resides in silence; power manifests in illumination. Transmitting the pure white lineage, deep roots remain unshaken. At this very instant, this is it.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9188,9 +10412,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問趙州：「狗子還有佛性也無？」州云：「無。」此一字便是箇破生死底大刀斧。十二時中，行住坐臥，茶飯酬酢，但單提這箇「無」字。",
               "pinyin": "Sēng wèn Zhàozhōu: 'Gǒuzi hái yǒu fóxìng yě wú?' Zhōu yún: 'Wú.' Cǐ yī zì biàn shì gè pò shēngsǐ dǐ dà dāofǔ. Shí'èr shí zhōng, xíng zhù zuò wò, cháfàn chóucuò, dàn dān tí zhègè 'Wú' zì.",
               "translations": {
-                "red_pine": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?' Zhaozhou said: 'Wu.' This single word is a great broadaxe that shatters birth and death. Throughout the twelve periods of the day, whether walking, standing, sitting, or lying down, drinking tea, eating meals, or greeting guests, simply hold up this single word 'Wu.'",
-                "cleary": "A monk asked Zhaozhou, 'Does a dog have Buddha-nature?' Zhaozhou said, 'No.' This single word is a great axe shattering birth and death. Throughout the day, walking, standing, sitting, lying down, eating, simply bring up this single word 'No.'",
-                "sasaki": "A monk asked Jōshū: 'Does a dog have Buddha-nature?' Jōshū said: 'Mu.' This one syllable is the great sword that cuts through birth and death. At all times, walking, standing, sitting, or reclining, solely hold up this 'Mu.'"
+                "red_pine": {
+                  "text": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?' Zhaozhou said: 'Wu.' This single word is a great broadaxe that shatters birth and death. Throughout the twelve periods of the day, whether walking, standing, sitting, or lying down, drinking tea, eating meals, or greeting guests, simply hold up this single word 'Wu.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked Zhaozhou, 'Does a dog have Buddha-nature?' Zhaozhou said, 'No.' This single word is a great axe shattering birth and death. Throughout the day, walking, standing, sitting, lying down, eating, simply bring up this single word 'No.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked Jōshū: 'Does a dog have Buddha-nature?' Jōshū said: 'Mu.' This one syllable is the great sword that cuts through birth and death. At all times, walking, standing, sitting, or reclining, solely hold up this 'Mu.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9198,9 +10431,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "不得作有無會，不得作道理會，不得向意根下卜度。情識路絕，思量不行，忽然如桶底脫落，打破漆桶，方知本來無事。",
               "pinyin": "Bùdé zuò yǒu wú huì, bùdé zuò dàolǐ huì, bùdé xiàng yìgēn xià bǔduò. Qíngshí lù jué, sīliang bù xíng, hūrán rú tǒng dǐ tuōluò, dǎpò qītǒng, fāng zhī běnlái wú shì.",
               "translations": {
-                "red_pine": "Do not understand it as existence or non-existence; do not understand it as a philosophical principle; do not calculate it under the faculty of intellect. When the path of emotional consciousness is severed and conceptual thinking ceases, suddenly like the bottom falling out of a bucket or smashing a black lacquer tub, you will know that fundamentally there is nothing amiss.",
-                "cleary": "Do not take it as being or nonbeing, do not take it as reason, do not reckon it intellectually. When feelings and thoughts are cut off and deliberation does not work, suddenly like the bottom falling out of a bucket, you break the tub of black lacquer and realize fundamentally there is nothing to do.",
-                "sasaki": "Do not take it as 'has' or 'has not'; do not treat it as intellectual theory. When conceptual thinking is exhausted, suddenly the bottom of the bucket drops out, and you realize that originally there has never been anything at all."
+                "red_pine": {
+                  "text": "Do not understand it as existence or non-existence; do not understand it as a philosophical principle; do not calculate it under the faculty of intellect. When the path of emotional consciousness is severed and conceptual thinking ceases, suddenly like the bottom falling out of a bucket or smashing a black lacquer tub, you will know that fundamentally there is nothing amiss.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Do not take it as being or nonbeing, do not take it as reason, do not reckon it intellectually. When feelings and thoughts are cut off and deliberation does not work, suddenly like the bottom falling out of a bucket, you break the tub of black lacquer and realize fundamentally there is nothing to do.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Do not take it as 'has' or 'has not'; do not treat it as intellectual theory. When conceptual thinking is exhausted, suddenly the bottom of the bucket drops out, and you realize that originally there has never been anything at all.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9216,9 +10458,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "示陸內翰云：「日用隨緣，即是道場。不須別尋靜室，向枯木死灰處討佛法。官事佛事，本是一體。遇事逢緣，但看箇『無』字。日久歲深，觸著磕著，忽然契悟，方知朝廷之中，即是少室峰前！」",
               "pinyin": "Shì Lù Nèihàn yún: 'Rìyòng suíyuán, jí shì dàochǎng. Bùxū bié xún jìngshì, xiàng kūmù sǐhuī chù tǎo fófǎ. Guānshì fóshì, běn shì yītǐ. Yùshì féngyuán, dàn kàn gè 'Wú' zì. Rì jiǔ suì shēn, chù zháo kē zháo, hūrán qìwù, fāng zhī cháotíng zhīzhōng, jí shì Shǎoshì Fēng qián!'",
               "translations": {
-                "cleary": "The Master instructed Vice Minister Lu: 'Daily life according with conditions is itself the place of enlightenment. There is no need to search for a quiet room elsewhere to beg for Buddha-dharma in dry wood and dead ashes. Government business and Buddha business are fundamentally one body. When meeting affairs and encountering conditions, simply look at the word 'Wu.' With time and depth, bumping into things, you will suddenly awaken and realize that right in the midst of the imperial court is Shaolin before Bodhidharma!'",
-                "red_pine": "Letter to Minister Lu: 'Daily life in the world is itself the bodhimanda. You don't need to find a quiet hermitage to look for Zen in dead embers. Secular duties and spiritual realization are one single fabric. When busy with affairs, just maintain the word 'Wu.' One day bumping against something, you will suddenly realize that the government office is right in front of Bodhidharma's cave!'",
-                "sasaki": "To Minister Lu: 'Daily duties are the dojo. Do not flee into quiet rooms to seek the Dharma in dead ashes. Worldly affairs and Chan are one essence. Hold up 'Mu' in the midst of daily activity; suddenly the court is none other than Shaolin!'"
+                "cleary": {
+                  "text": "The Master instructed Vice Minister Lu: 'Daily life according with conditions is itself the place of enlightenment. There is no need to search for a quiet room elsewhere to beg for Buddha-dharma in dry wood and dead ashes. Government business and Buddha business are fundamentally one body. When meeting affairs and encountering conditions, simply look at the word 'Wu.' With time and depth, bumping into things, you will suddenly awaken and realize that right in the midst of the imperial court is Shaolin before Bodhidharma!'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Letter to Minister Lu: 'Daily life in the world is itself the bodhimanda. You don't need to find a quiet hermitage to look for Zen in dead embers. Secular duties and spiritual realization are one single fabric. When busy with affairs, just maintain the word 'Wu.' One day bumping against something, you will suddenly realize that the government office is right in front of Bodhidharma's cave!'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "To Minister Lu: 'Daily duties are the dojo. Do not flee into quiet rooms to seek the Dharma in dead ashes. Worldly affairs and Chan are one essence. Hold up 'Mu' in the midst of daily activity; suddenly the court is none other than Shaolin!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9234,9 +10485,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "千疑萬疑，只是一疑。話頭上疑破，則千生萬劫疑一時破。大疑大悟，小疑小悟，不疑不悟。",
               "pinyin": "Qiān yí wàn yí, zhǐ shì yī yí. Huàtóu shàng yí pò, zé qiān shēng wàn jié yí yī shí pò. Dàyí dàwù, xiǎoyí xiǎowù, bù yí bù wù.",
               "translations": {
-                "red_pine": "A thousand doubts and ten thousand doubts are simply one single doubt. When the doubt upon the huatou is shattered, the doubts of a thousand lifetimes and ten thousand aeons are shattered in a single instant. Great doubt yields great awakening; small doubt yields small awakening; no doubt yields no awakening.",
-                "cleary": "A thousand doubts and ten thousand doubts are just one doubt. Shatter doubt upon the keyword, and doubts of thousands of lives are shattered at once. Great doubt, great enlightenment; small doubt, small enlightenment; no doubt, no enlightenment.",
-                "sasaki": "A thousand doubts are but one doubt. When the doubt on the huatou breaks, the doubts of countless kalpas shatter at once. Great doubt brings great awakening; small doubt brings small awakening; no doubt brings no awakening."
+                "red_pine": {
+                  "text": "A thousand doubts and ten thousand doubts are simply one single doubt. When the doubt upon the huatou is shattered, the doubts of a thousand lifetimes and ten thousand aeons are shattered in a single instant. Great doubt yields great awakening; small doubt yields small awakening; no doubt yields no awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A thousand doubts and ten thousand doubts are just one doubt. Shatter doubt upon the keyword, and doubts of thousands of lives are shattered at once. Great doubt, great enlightenment; small doubt, small enlightenment; no doubt, no enlightenment.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A thousand doubts are but one doubt. When the doubt on the huatou breaks, the doubts of countless kalpas shatter at once. Great doubt brings great awakening; small doubt brings small awakening; no doubt brings no awakening.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9268,9 +10528,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "竺土大仙心，東西密相付。人根有利鈍，道無南北祖。",
               "pinyin": "Zhútǔ dàxiān xīn, dōng xī mì xiāng fù. Rén gēn yǒu lì dùn, dào wú nán běi zǔ.",
               "translations": {
-                "red_pine": "The mind of the Great Sage of India was intimately transmitted east and west. Human faculties may be sharp or dull, but in the Way there is no northern or southern ancestor.",
-                "cleary": "The mind of the great sage of India was intimately conveyed east and west. Human faculties are sharp or dull, but the Way has no northern or southern ancestors.",
-                "sasaki": "The mind of the Great Sage of India was intimately transmitted from West to East. People may be sharp or dull, but in the Way there is no Northern or Southern Patriarch."
+                "red_pine": {
+                  "text": "The mind of the Great Sage of India was intimately transmitted east and west. Human faculties may be sharp or dull, but in the Way there is no northern or southern ancestor.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The mind of the great sage of India was intimately conveyed east and west. Human faculties are sharp or dull, but the Way has no northern or southern ancestors.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The mind of the Great Sage of India was intimately transmitted from West to East. People may be sharp or dull, but in the Way there is no Northern or Southern Patriarch.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9278,9 +10547,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "靈源明皎潔，枝派暗流注。執事元是迷，契理亦非悟。",
               "pinyin": "Língyuán míng jiǎojié, zhīpài àn liúzhù. Zhíshì yuán shì mí, qì lǐ yì fēi wù.",
               "translations": {
-                "red_pine": "The spiritual source shines clear and bright; the branching streams flow through the dark. Grasping at things is fundamentally delusion; merging with the principle is not yet awakening.",
-                "cleary": "The spiritual source is bright and clear; the branching streams flow in the dark. Grasping at things is confusion; merging with the principle is not yet enlightenment.",
-                "sasaki": "The spiritual source is clear and pure; the branching streams flow secretly in the dark. Grasping at phenomena is delusion; merging with the principle is not yet awakening."
+                "red_pine": {
+                  "text": "The spiritual source shines clear and bright; the branching streams flow through the dark. Grasping at things is fundamentally delusion; merging with the principle is not yet awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The spiritual source is bright and clear; the branching streams flow in the dark. Grasping at things is confusion; merging with the principle is not yet enlightenment.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The spiritual source is clear and pure; the branching streams flow secretly in the dark. Grasping at phenomena is delusion; merging with the principle is not yet awakening.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9288,9 +10566,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "門門一切境，迴互不迴互。迴而更相涉，不爾依位住。",
               "pinyin": "Ménmén yīqiè jìng, huíhù bù huíhù. Huí ér gèng xiāngshè, bù'ěr yī wèi zhù.",
               "translations": {
-                "red_pine": "Each and every sense gate and realm interact and do not interact. Interacting, they become mutually involved; otherwise, each abides in its own natural place.",
-                "cleary": "All sense faculties and objects interact and do not interact. Interacting, they are mutually involved; otherwise, they stay in their own places.",
-                "sasaki": "All senses and their objects interact and yet do not interact. Interacting, they merge with each other; otherwise, each stands in its own place."
+                "red_pine": {
+                  "text": "Each and every sense gate and realm interact and do not interact. Interacting, they become mutually involved; otherwise, each abides in its own natural place.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "All sense faculties and objects interact and do not interact. Interacting, they are mutually involved; otherwise, they stay in their own places.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "All senses and their objects interact and yet do not interact. Interacting, they merge with each other; otherwise, each stands in its own place.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9298,9 +10585,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "色本殊質象，聲元異樂苦。暗合上中言，明明清濁句。",
               "pinyin": "Sè běn shū zhìxiàng, shēng yuán yì lè kǔ. Àn hé shàng zhōng yán, míngmíng qīngzhuó jù.",
               "translations": {
-                "red_pine": "Forms fundamentally differ in quality and appearance; sounds naturally distinguish joy and sorrow. The dark merges fine and coarse words; the light clarifies pure and turbid expressions.",
-                "cleary": "Forms fundamentally differ in substance and shape; sounds originally differ in pleasant and unpleasant. The dark unites high and low words; the light makes clear pure and muddy phrases.",
-                "sasaki": "Form inherently differs in substance; sound inherently separates pleasure and pain. In the dark, refined and common expressions merge; in the light, pure and muddy phrases stand distinct."
+                "red_pine": {
+                  "text": "Forms fundamentally differ in quality and appearance; sounds naturally distinguish joy and sorrow. The dark merges fine and coarse words; the light clarifies pure and turbid expressions.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Forms fundamentally differ in substance and shape; sounds originally differ in pleasant and unpleasant. The dark unites high and low words; the light makes clear pure and muddy phrases.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Form inherently differs in substance; sound inherently separates pleasure and pain. In the dark, refined and common expressions merge; in the light, pure and muddy phrases stand distinct.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9308,9 +10604,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "四大性自復，如子得其母。火熱風動搖，水濕地堅固。",
               "pinyin": "Sì dà xìng zì fù, rú zǐ dé qí mǔ. Huǒ rè fēng dòngyáo, shuǐ shī dì jiāngù.",
               "translations": {
-                "red_pine": "The four great elements return to their own nature, like a child finding its mother. Fire is hot, wind moves, water is wet, earth is solid.",
-                "cleary": "The four great elements return to their nature, as a child finds its mother. Fire heats, wind moves, water wets, earth is solid.",
-                "sasaki": "The four elements return to their nature, like a child running to its mother. Fire is hot, wind moves, water is wet, and earth is solid."
+                "red_pine": {
+                  "text": "The four great elements return to their own nature, like a child finding its mother. Fire is hot, wind moves, water is wet, earth is solid.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The four great elements return to their nature, as a child finds its mother. Fire heats, wind moves, water wets, earth is solid.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The four elements return to their nature, like a child running to its mother. Fire is hot, wind moves, water is wet, and earth is solid.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9318,9 +10623,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "眼色耳音聲，鼻香舌鹹酢。然依一一法，依根葉分布。本末須歸宗，尊卑用其語。",
               "pinyin": "Yǎn sè ěr yīnshēng, bí xiāng shé xián cù. Rán yī yīyī fǎ, yī gēn yè fēnbù. Běnmò xū guī zōng, zūnbēi yòng qí yǔ.",
               "translations": {
-                "red_pine": "Eyes see form, ears hear sound, nose smells fragrance, tongue tastes salt and sour. Yet according to each and every dharma, leaves spread from the single root. Branch and root must return to the source; noble and humble each have their words.",
-                "cleary": "Eyes and forms, ears and sounds, nose and fragrances, tongue and tastes. According to each dharma, leaves spread from the root. Root and branch must return to the source; noble and base use their appropriate terms.",
-                "sasaki": "Eyes perceive forms, ears hear sounds, nose smells scents, tongue tastes sour and sweet. For each dharma, leaves branch out from the root. Root and branch must return to the source; words are applied to high and low."
+                "red_pine": {
+                  "text": "Eyes see form, ears hear sound, nose smells fragrance, tongue tastes salt and sour. Yet according to each and every dharma, leaves spread from the single root. Branch and root must return to the source; noble and humble each have their words.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Eyes and forms, ears and sounds, nose and fragrances, tongue and tastes. According to each dharma, leaves spread from the root. Root and branch must return to the source; noble and base use their appropriate terms.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Eyes perceive forms, ears hear sounds, nose smells scents, tongue tastes sour and sweet. For each dharma, leaves branch out from the root. Root and branch must return to the source; words are applied to high and low.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9328,9 +10642,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "當明中有暗，勿以暗相睹。當暗中有明，勿以明相睹。明暗各相對，比如前後步。",
               "pinyin": "Dāng míng zhōng yǒu àn, wù yǐ àn xiāng dǔ. Dāng àn zhōng yǒu míng, wù yǐ míng xiāng dǔ. Míng'àn gè xiāngduì, bǐrú qiánhòu bù.",
               "translations": {
-                "red_pine": "Right in the light there is darkness, but do not look at it as darkness. Right in the darkness there is light, but do not look at it as light. Light and darkness face each other, like the forward and backward steps of walking.",
-                "cleary": "In light there is darkness, do not see it as darkness. In darkness there is light, do not see it as light. Light and dark are relative to each other, like forward and backward steps in walking.",
-                "sasaki": "Within light there is darkness, but do not see it only as darkness. Within darkness there is light, but do not see it only as light. Light and darkness stand relative to each other, like forward and backward steps in walking."
+                "red_pine": {
+                  "text": "Right in the light there is darkness, but do not look at it as darkness. Right in the darkness there is light, but do not look at it as light. Light and darkness face each other, like the forward and backward steps of walking.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "In light there is darkness, do not see it as darkness. In darkness there is light, do not see it as light. Light and dark are relative to each other, like forward and backward steps in walking.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Within light there is darkness, but do not see it only as darkness. Within darkness there is light, but do not see it only as light. Light and darkness stand relative to each other, like forward and backward steps in walking.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9338,9 +10661,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "萬物各有功，當言用及處。事存函蓋合，理應箭鋒拄。",
               "pinyin": "Wànwù gè yǒu gōng, dāng yán yòng jí chù. Shì cún hán gài hé, lǐ yīng jiàn fēng zhǔ.",
               "translations": {
-                "red_pine": "All things have their own function, spoken of according to use and place. Phenomena exist like box and lid fitting; the principle responds like two arrowheads meeting in mid-air.",
-                "cleary": "All things have their function, depending on their use and place. Phenomena exist as box and lid join; the principle responds as arrow points meet.",
-                "sasaki": "All things have their function, according with their use and station. Phenomena fit together like box and lid; the principle accords like arrow points meeting head on."
+                "red_pine": {
+                  "text": "All things have their own function, spoken of according to use and place. Phenomena exist like box and lid fitting; the principle responds like two arrowheads meeting in mid-air.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "All things have their function, depending on their use and place. Phenomena exist as box and lid join; the principle responds as arrow points meet.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "All things have their function, according with their use and station. Phenomena fit together like box and lid; the principle accords like arrow points meeting head on.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9348,9 +10680,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "承言須會宗，勿自立規矩。觸目不會道，運足焉知路？",
               "pinyin": "Chéng yán xū huì zōng, wù zì lì guījǔ. Chùmù bù huì dào, yùn zú yān zhī lù?",
               "translations": {
-                "red_pine": "Hearing the words you must grasp the source; do not set up rigid rules of your own. If you do not understand the Way right before your eyes, how will you know the path as you move your feet?",
-                "cleary": "Receiving words, understand the source; do not set up standards of your own. If you do not understand the Way before your eyes, how can you know the road as you walk?",
-                "sasaki": "Hearing the words, you must realize the source; do not set up rules of your own. If you do not comprehend the Way before your eyes, how will you know the road as you walk?"
+                "red_pine": {
+                  "text": "Hearing the words you must grasp the source; do not set up rigid rules of your own. If you do not understand the Way right before your eyes, how will you know the path as you move your feet?",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Receiving words, understand the source; do not set up standards of your own. If you do not understand the Way before your eyes, how can you know the road as you walk?",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Hearing the words, you must realize the source; do not set up rules of your own. If you do not comprehend the Way before your eyes, how will you know the road as you walk?",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9358,9 +10699,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "進步非近遠，迷隔山川固。謹白參玄人，光陰莫虛度。",
               "pinyin": "Jìnbù fēi jìn yuǎn, mí gé shānchuān gù. Jǐnbái cān xuán rén, guāngyīn mò xū dù.",
               "translations": {
-                "red_pine": "Advancing is not a matter of near or far; delusion creates barriers of mountains and rivers. I respectfully caution those who study the mystery: do not waste your lifetime in vain!",
-                "cleary": "Progress is not a matter of near or far; delusion creates obstacles of mountains and rivers. Respectfully I tell those who study the mystery: do not waste time in vain.",
-                "sasaki": "Progress is not a matter of far or near; delusion separates you by mountain ranges. Respectfully I declare to practitioners of the mystery: do not let time slip away in vain!"
+                "red_pine": {
+                  "text": "Advancing is not a matter of near or far; delusion creates barriers of mountains and rivers. I respectfully caution those who study the mystery: do not waste your lifetime in vain!",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Progress is not a matter of near or far; delusion creates obstacles of mountains and rivers. Respectfully I tell those who study the mystery: do not waste time in vain.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Progress is not a matter of far or near; delusion separates you by mountain ranges. Respectfully I declare to practitioners of the mystery: do not let time slip away in vain!",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9376,9 +10726,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "吾結草庵無箇事，飽食休餐睡摩意。草庵雖小含法界，方丈老僧處太虛。雖無珍寶周身物，滿目青山不可量。",
               "pinyin": "Wú jié cǎo'ān wú gè shì, bǎoshí xiū cān shuì mó yì. Cǎo'ān suī xiǎo hán fǎjiè, fāngzhàng lǎosēng chù tài xū. Suī wú zhēnbǎo zhōushēn wù, mǎnmù qīngshān bùkě liàng.",
               "translations": {
-                "red_pine": "I built a grass hut where there is nothing of value; after eating my meal, I enjoy a peaceful nap. Though the grass hut is small, it embraces the universe; in ten feet square, an old monk rests in boundless space. Though there are no jewels or riches, the green mountains filling the eyes are immeasurable.",
-                "cleary": "I built a grass hut where there are no affairs; after eating I rest peacefully. The grass hut is small yet contains the universe; in ten feet square the old monk rests in open space. Though there are no jewels, the green mountains before my eyes are beyond measure.",
-                "sasaki": "I built a grass hut with no affairs; after eating I enjoy a quiet nap. Though the hut is small, it holds the cosmos; in a tiny room an old monk abides in the vast void."
+                "red_pine": {
+                  "text": "I built a grass hut where there is nothing of value; after eating my meal, I enjoy a peaceful nap. Though the grass hut is small, it embraces the universe; in ten feet square, an old monk rests in boundless space. Though there are no jewels or riches, the green mountains filling the eyes are immeasurable.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "I built a grass hut where there are no affairs; after eating I rest peacefully. The grass hut is small yet contains the universe; in ten feet square the old monk rests in open space. Though there are no jewels, the green mountains before my eyes are beyond measure.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "I built a grass hut with no affairs; after eating I enjoy a quiet nap. Though the hut is small, it holds the cosmos; in a tiny room an old monk abides in the vast void.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9404,10 +10763,22 @@ window.TRANSLATECHAN_DATA = {
           "zh": "君不見：絕學無為閒道人，不除妄想不求真。無明實性即佛性，幻化空身即法身。",
           "pinyin": "Jūn bù jiàn: Juéxué wúwéi xián dàorén, bù chú wàngxiǎng bù qiú zhēn. Wúmíng shíxìng jí fóxìng, huànhuà kōng shēn jí fǎshēn.",
           "translations": {
-            "red_pine": "Have you not seen the person of the Way who has ceased study and is at ease in non-doing? They do not banish delusion, nor do they seek the truth. The real nature of ignorance is itself the Buddha-nature; this empty illusory phantom body is itself the Dharma body.",
-            "cleary": "Have you not seen the person of the Way at leisure, beyond learning and non-doing, who neither eliminates delusion nor seeks reality? The real nature of ignorance is the Buddha nature; the empty phantom body is the body of reality.",
-            "suzuki": "Have you not seen him who has ceased learning and is at ease with life, who neither expels delusion nor seeks reality? The true nature of ignorance is the Buddha-nature; the empty illusory body is the Dharma body.",
-            "sasaki": "Do you not see the person of the Way who has finished learning, free of contrivance and at ease, who neither casts out delusion nor seeks the true? The real nature of ignorance is Buddha-nature; this illusory body is the Dharma-body."
+            "red_pine": {
+              "text": "Have you not seen the person of the Way who has ceased study and is at ease in non-doing? They do not banish delusion, nor do they seek the truth. The real nature of ignorance is itself the Buddha-nature; this empty illusory phantom body is itself the Dharma body.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Have you not seen the person of the Way at leisure, beyond learning and non-doing, who neither eliminates delusion nor seeks reality? The real nature of ignorance is the Buddha nature; the empty phantom body is the body of reality.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Have you not seen him who has ceased learning and is at ease with life, who neither expels delusion nor seeks reality? The true nature of ignorance is the Buddha-nature; the empty illusory body is the Dharma body.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Do you not see the person of the Way who has finished learning, free of contrivance and at ease, who neither casts out delusion nor seeks the true? The real nature of ignorance is Buddha-nature; this illusory body is the Dharma-body.",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -9415,9 +10786,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "法身覺了無一物，本源自性天真佛。五陰浮雲空去來，三毒水泡虛出沒。",
           "pinyin": "Fǎshēn juéliǎo wú yī wù, běnyuán zìxìng tiānzhēn fó. Wǔyīn fúyún kōng qù lái, sāndú shuǐpào xū chūmò.",
           "translations": {
-            "red_pine": "When the Dharma body is awakened, not a single thing exists; the original self-nature is the pristine Buddha of Heaven. The five aggregates are floating clouds drifting in the void; the three poisons are transient bubbles surfacing and vanishing in water.",
-            "cleary": "When the body of reality is realized, there is not a single thing; the primal self-nature is the natural real Buddha. The five clusters are floating clouds empty of coming and going; the three poisons are foam bubbles rising and vanishing in vain.",
-            "suzuki": "When the Dharma-body is realized, not a single thing exists; the original self-nature is the natural, innocent Buddha. The five skandhas are like floating clouds passing in the sky; the three poisons are like water bubbles rising and sinking."
+            "red_pine": {
+              "text": "When the Dharma body is awakened, not a single thing exists; the original self-nature is the pristine Buddha of Heaven. The five aggregates are floating clouds drifting in the void; the three poisons are transient bubbles surfacing and vanishing in water.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "When the body of reality is realized, there is not a single thing; the primal self-nature is the natural real Buddha. The five clusters are floating clouds empty of coming and going; the three poisons are foam bubbles rising and vanishing in vain.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "When the Dharma-body is realized, not a single thing exists; the original self-nature is the natural, innocent Buddha. The five skandhas are like floating clouds passing in the sky; the three poisons are like water bubbles rising and sinking.",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -9425,9 +10805,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "證實相，無人法，剎那滅卻阿鼻業。若將妄語誑眾生，自招拔舌塵沙劫。",
           "pinyin": "Zhèng shíxiāng, wú rén fǎ, chànà miè què ābí yè. Ruò jiāng wàngyǔ kuáng zhòngshēng, zì zhāo báshé chénshā jié.",
           "translations": {
-            "red_pine": "Realizing the true mark of reality, there is neither person nor dharma: in a single split instant the karma of the Avici hell is dissolved away. If I use false words to deceive sentient beings, may I suffer tongue-pulling hell for dust-mote aeons!",
-            "cleary": "Realizing reality, there is no person and no thing: in an instant the karma of worst hells is wiped away. If I lie to deceive people, may my tongue be pulled out for aeons as many as grains of sand.",
-            "suzuki": "When reality is realized, there are neither persons nor dharmas; in a single moment the karma of the deepest hell is wiped away. If I am speaking falsehood to deceive beings, may my tongue be torn out for countless kalpas!"
+            "red_pine": {
+              "text": "Realizing the true mark of reality, there is neither person nor dharma: in a single split instant the karma of the Avici hell is dissolved away. If I use false words to deceive sentient beings, may I suffer tongue-pulling hell for dust-mote aeons!",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Realizing reality, there is no person and no thing: in an instant the karma of worst hells is wiped away. If I lie to deceive people, may my tongue be pulled out for aeons as many as grains of sand.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "When reality is realized, there are neither persons nor dharmas; in a single moment the karma of the deepest hell is wiped away. If I am speaking falsehood to deceive beings, may my tongue be torn out for countless kalpas!",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -9435,9 +10824,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "頓覺了，如來禪，六度萬行體中圓。夢裏明明有六趣，覺後空空無大千。",
           "pinyin": "Dùn jué liǎo, rúlái chán, liù dù wàn xíng tǐ zhōng yuán. Mèng lǐ míngmíng yǒu liù qù, jué hòu kōngkōng wú dàqiān.",
           "translations": {
-            "red_pine": "Suddenly awakened to the Tathagata's Chan, the six perfections and ten thousand practices are completely fulfilled in its essence. In a dream, the six realms of existence clearly appear; once awakened, the great universe is completely empty!",
-            "cleary": "Suddenly awakening to the Zen of the Realized One, the six perfections and myriad practices are complete in its substance. In a dream, clearly there are six states of existence; after awakening, the entire cosmos is totally empty.",
-            "suzuki": "Suddenly awakening to the Tathagata Dhyana, the six paramitas and myriad practices are fulfilled in its body. In a dream there are clearly six paths of existence; after awakening there is not even a universe!"
+            "red_pine": {
+              "text": "Suddenly awakened to the Tathagata's Chan, the six perfections and ten thousand practices are completely fulfilled in its essence. In a dream, the six realms of existence clearly appear; once awakened, the great universe is completely empty!",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Suddenly awakening to the Zen of the Realized One, the six perfections and myriad practices are complete in its substance. In a dream, clearly there are six states of existence; after awakening, the entire cosmos is totally empty.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Suddenly awakening to the Tathagata Dhyana, the six paramitas and myriad practices are fulfilled in its body. In a dream there are clearly six paths of existence; after awakening there is not even a universe!",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -9445,9 +10843,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "師子吼，無畏說，百獸聞之皆腦裂。香象奔波失卻威，天龍寂聽生欣悅。",
           "pinyin": "Shīzǐ hǒu, wúwèi shuō, bǎishòu wén zhī jiē nǎoliè. Xiāngxiàng bēnbō shī què wēi, tiānlóng jì tīng shēng xīnyuè.",
           "translations": {
-            "red_pine": "The lion's roar, the fearless proclamation! When all the beasts hear it, their brains split open; the mighty scent-elephants run wildly, losing their dignity, while heavenly dragons listen quietly with boundless joy.",
-            "cleary": "The lion's roar is fearless speech: all beasts hearing it have their brains split. Fragrant elephants flee in panic, losing their dignity; heavenly dragons listen quietly, rejoicing.",
-            "suzuki": "The lion's roar is the fearless preaching: when the beasts hear it, their skulls split open; the scented elephants flee losing all majesty, while the heavenly dragons listen in deep silence and joy."
+            "red_pine": {
+              "text": "The lion's roar, the fearless proclamation! When all the beasts hear it, their brains split open; the mighty scent-elephants run wildly, losing their dignity, while heavenly dragons listen quietly with boundless joy.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The lion's roar is fearless speech: all beasts hearing it have their brains split. Fragrant elephants flee in panic, losing their dignity; heavenly dragons listen quietly, rejoicing.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "The lion's roar is the fearless preaching: when the beasts hear it, their skulls split open; the scented elephants flee losing all majesty, while the heavenly dragons listen in deep silence and joy.",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -9455,9 +10862,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "摩尼珠，人不識，如來藏裏親收得。六般神用空不空，一顆圓光色非色。",
           "pinyin": "Móní zhū, rén bù shí, rúláizàng lǐ qīn shōudé. Liù bān shényòng kōng bù kōng, yī kē yuánguāng sè fēi sè.",
           "translations": {
-            "red_pine": "The wish-fulfilling Mani jewel: people do not recognize it, yet it is intimately stored in the treasury of the Tathagata. Its sixfold wondrous functions are empty and not empty; this single spherical radiance is form and yet not form.",
-            "cleary": "The wish-fulfilling jewel, which people do not recognize, is intimately obtained in the womb of realization. Its six spiritual functions are empty yet not empty; its single orb of light is form yet not form.",
-            "suzuki": "The Mani jewel: nobody recognizes it, though it is personally found inside the Tathagatagarbha. Its six spiritual functions are empty and yet not empty; its one spherical light is color and yet not color."
+            "red_pine": {
+              "text": "The wish-fulfilling Mani jewel: people do not recognize it, yet it is intimately stored in the treasury of the Tathagata. Its sixfold wondrous functions are empty and not empty; this single spherical radiance is form and yet not form.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The wish-fulfilling jewel, which people do not recognize, is intimately obtained in the womb of realization. Its six spiritual functions are empty yet not empty; its single orb of light is form yet not form.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "The Mani jewel: nobody recognizes it, though it is personally found inside the Tathagatagarbha. Its six spiritual functions are empty and yet not empty; its one spherical light is color and yet not color.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
@@ -9486,10 +10902,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "夫入道多途，要而言之，不出二種：一是理入，二是行入。",
               "pinyin": "Fú rù dào duō tú, yào ér yán zhī, bù chū èr zhǒng: yī shì lǐrù, èr shì xíngrù.",
               "translations": {
-                "red_pine": "Many roads lead to the Way, but basically there are only two: reason and practice.",
-                "cleary": "There are many avenues of entry to the Way, but essentially they do not go beyond two kinds: one is entry by principle, the second is entry by practice.",
-                "suzuki": "There are many ways to enter the Path, but briefly speaking they are of two sorts only: the Entrance by Reason and the Entrance by Conduct.",
-                "sasaki": "Many are the ways to enter the Tao, but in essence they are of two kinds: Entrance by Principle and Entrance by Practice."
+                "red_pine": {
+                  "text": "Many roads lead to the Way, but basically there are only two: reason and practice.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "There are many avenues of entry to the Way, but essentially they do not go beyond two kinds: one is entry by principle, the second is entry by practice.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "There are many ways to enter the Path, but briefly speaking they are of two sorts only: the Entrance by Reason and the Entrance by Conduct.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Many are the ways to enter the Tao, but in essence they are of two kinds: Entrance by Principle and Entrance by Practice.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9497,10 +10925,22 @@ window.TRANSLATECHAN_DATA = {
               "zh": "理入者，謂藉教悟宗，深信含生同一真性，但為客塵妄想所覆，不能顯了。若也捨妄歸真，凝住壁觀，無自無他，凡聖等一，堅住不移，更不隨於言教，此即與理冥符，無有分別，寂然無為，名之理入。",
               "pinyin": "Lǐrù zhě, wèi jiè jiào wù zōng, shēnxìn hánshēng tóngyī zhēnxìng, dàn wèi kèchén wàngxiǎng suǒ fù, bùnéng xiǎnliǎo. Ruò yě shě wàng guī zhēn, níngzhù bìguān, wú zì wú tā, fán shèng děng yī, jiānzhù bù yí, gèng bù suí yú yánjiào, cǐ jí yǔ lǐ míng fú, wú yǒu fēnbié, jìrán wúwéi, míng zhī lǐrù.",
               "translations": {
-                "red_pine": "To enter by reason means to realize the essence through instruction and to believe deeply that all living beings share the same true nature, which isn't apparent because it's shrouded by sensation and delusion. Those who turn from delusion to reality, who meditate on walls, the absence of self and other, the oneness of mortal and sage, and who remain unmoved even by scriptures are in complete and unspoken agreement with reason. Without discrimination, still and unmoving, this is called entry by reason.",
-                "cleary": "Entry by principle means realizing the source through teaching, deeply believing that sentient beings share the same true nature, which is obscured by adventitious dust and false thought. If you abandon delusion and return to reality, remaining firmly in wall-gazing, without self or other, ordinary and holy are equal and one. Unmoving, no longer following scriptures, this silently accords with principle: free of discrimination, quiet and unconditioned, it is called entry by principle.",
-                "suzuki": "By Entrance by Reason we mean the realization of the spirit of Buddhism by the aid of the scriptural teachings. We then come to have a deep faith in the True Nature which is one and the same in all sentient beings. If we abandon the false and return to the real, gazing at walls, where self and other are not two, we abide unmoved, silently attuned to Suchness.",
-                "sasaki": "Entrance by Principle means to grasp the fundamental truth through the teachings, firmly believing that all living beings possess the same True Nature. Resting in wall-gazing, there is neither self nor other; sage and commoner are equal and one."
+                "red_pine": {
+                  "text": "To enter by reason means to realize the essence through instruction and to believe deeply that all living beings share the same true nature, which isn't apparent because it's shrouded by sensation and delusion. Those who turn from delusion to reality, who meditate on walls, the absence of self and other, the oneness of mortal and sage, and who remain unmoved even by scriptures are in complete and unspoken agreement with reason. Without discrimination, still and unmoving, this is called entry by reason.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Entry by principle means realizing the source through teaching, deeply believing that sentient beings share the same true nature, which is obscured by adventitious dust and false thought. If you abandon delusion and return to reality, remaining firmly in wall-gazing, without self or other, ordinary and holy are equal and one. Unmoving, no longer following scriptures, this silently accords with principle: free of discrimination, quiet and unconditioned, it is called entry by principle.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "By Entrance by Reason we mean the realization of the spirit of Buddhism by the aid of the scriptural teachings. We then come to have a deep faith in the True Nature which is one and the same in all sentient beings. If we abandon the false and return to the real, gazing at walls, where self and other are not two, we abide unmoved, silently attuned to Suchness.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Entrance by Principle means to grasp the fundamental truth through the teachings, firmly believing that all living beings possess the same True Nature. Resting in wall-gazing, there is neither self nor other; sage and commoner are equal and one.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9516,9 +10956,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "一、報冤行：修道行人，若受苦時，當自念言：我往昔無數劫中，棄本從末，流浪諸有，多起冤憎，違害無限。今雖無犯，是我宿殃，惡業果熟，非天非人所能見與。甘心忍受，都無冤訴。經云：逢苦不憂。何以故？識達故。此心生時，與理相應，體冤進道，故說報冤行。",
               "pinyin": "Yī, bàoyuān xíng: Xiūdào xíngrén, ruò shòu kǔ shí, dāng zì niàn yán: Wǒ wǎngxī wúshù jié zhōng, qì běn cóng mò, liúlàng zhū yǒu, duō qǐ yuān zēng, wéihài wúxiàn. Jīn suī wú fàn, shì wǒ sùyāng, èyè guǒ shú, fēi tiān fēi rén suǒ néng jiàn yǔ. Gānxīn rěnshòu, dōu wú yuān sù. Jīng yún: Féng kǔ bù yōu. Héyǐ gù? Shí dá gù. Cǐ xīn shēng shí, yǔ lǐ xiāngyìng, tǐ yuān jìn dào, gù shuō bàoyuān xíng.",
               "translations": {
-                "red_pine": "First: Requiting Injustice. When those who search for the Way encounter suffering, they should think: In past kalpas I pursued the trivial instead of the essential, drifting through all states of existence, creating endless ill will. Though I commit no offense now, this is the fruition of past karma, not inflicted by gods or men. I willingly accept it without complaint. The sutras say: 'When you meet with suffering, do not be distressed.' Why? Because you understand. When this attitude arises, it accords with reason; using hardship to advance along the Way, this is called requiting injustice.",
-                "cleary": "First, the practice of requiting grievance. When practitioners of the Way encounter suffering, they should reflect: In countless past ages I abandoned the root to follow the branches, producing boundless hostility. Though I do no wrong now, this is the ripening of past karma. I accept it willingly without complaint. This is called the practice of requiting grievance.",
-                "suzuki": "First, how to requite hatred. When the practitioner of the Path encounters suffering, he should think: In past ages I wandered through existence, giving rise to much anger and resentment. This suffering is the ripening of past deeds. I bear it cheerfully without grudge."
+                "red_pine": {
+                  "text": "First: Requiting Injustice. When those who search for the Way encounter suffering, they should think: In past kalpas I pursued the trivial instead of the essential, drifting through all states of existence, creating endless ill will. Though I commit no offense now, this is the fruition of past karma, not inflicted by gods or men. I willingly accept it without complaint. The sutras say: 'When you meet with suffering, do not be distressed.' Why? Because you understand. When this attitude arises, it accords with reason; using hardship to advance along the Way, this is called requiting injustice.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "First, the practice of requiting grievance. When practitioners of the Way encounter suffering, they should reflect: In countless past ages I abandoned the root to follow the branches, producing boundless hostility. Though I do no wrong now, this is the ripening of past karma. I accept it willingly without complaint. This is called the practice of requiting grievance.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "First, how to requite hatred. When the practitioner of the Path encounters suffering, he should think: In past ages I wandered through existence, giving rise to much anger and resentment. This suffering is the ripening of past deeds. I bear it cheerfully without grudge.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9526,9 +10975,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "二、隨緣行：眾生無我，並緣業所轉。苦樂齊受，都從緣生。若得勝報榮譽等事，是我過去宿因所感，今方得之。緣盡還無，何喜之有？得失從緣，心無增減，喜風不動，冥順於道，是故說隨緣行。",
               "pinyin": "Èr, suíyuán xíng: Zhòngshēng wú wǒ, bìng yuán yè suǒ zhuǎn. Kǔlè qí shòu, dōu cóng yuán shēng. Ruò dé shèngbào róngyù děng shì, shì wǒ guòqù sùyīn suǒ gǎn, jīn fāng dé zhī. Yuán jìn hái wú, hé xǐ zhī yǒu? Déshī cóng yuán, xīn wú zēngjiǎn, xǐ fēng bù dòng, míng shùn yú dào, shìgù shuō suíyuán xíng.",
               "translations": {
-                "red_pine": "Second: Adapting to Conditions. Sentient beings have no self; they are governed by karma. Pain and pleasure arise together from conditions. If I obtain praise, success, and prosperity, it is the result of past causes; when conditions exhaust, it vanishes. Why rejoice? Gain and loss follow conditions, while the mind neither increases nor decreases. Unmoved by the winds of delight, silently according with the Way, this is called adapting to conditions.",
-                "cleary": "Second, the practice of following conditions. Sentient beings have no self; they are driven by karma. Pain and pleasure are born of conditions. If I gain honor and success, it was caused by past actions; when conditions end, it returns to nothing. Why be glad? Gain and loss follow conditions; the mind does not increase or decrease. Unmoved by winds of joy, silently in accord with the Way, this is called following conditions.",
-                "suzuki": "Second, to be obedient to conditions. There is no self in any sentient being; we are moved by conditions and karma. Pleasure and pain are born of conditions. If I attain honor, it was earned in past lives; when conditions cease, it ends. Unmoved by gain or loss, this is called accordance with conditions."
+                "red_pine": {
+                  "text": "Second: Adapting to Conditions. Sentient beings have no self; they are governed by karma. Pain and pleasure arise together from conditions. If I obtain praise, success, and prosperity, it is the result of past causes; when conditions exhaust, it vanishes. Why rejoice? Gain and loss follow conditions, while the mind neither increases nor decreases. Unmoved by the winds of delight, silently according with the Way, this is called adapting to conditions.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Second, the practice of following conditions. Sentient beings have no self; they are driven by karma. Pain and pleasure are born of conditions. If I gain honor and success, it was caused by past actions; when conditions end, it returns to nothing. Why be glad? Gain and loss follow conditions; the mind does not increase or decrease. Unmoved by winds of joy, silently in accord with the Way, this is called following conditions.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Second, to be obedient to conditions. There is no self in any sentient being; we are moved by conditions and karma. Pleasure and pain are born of conditions. If I attain honor, it was earned in past lives; when conditions cease, it ends. Unmoved by gain or loss, this is called accordance with conditions.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9544,9 +11002,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "三、無所求行：世人長迷，處處貪著，名之為求。智者悟真，理將俗反。安心無為，形隨運轉。萬有斯空，無所願樂。經云：有求皆苦，無求即樂。判知無求，真為道行，故言無所求行。",
               "pinyin": "Sān, wúsuǒqiú xíng: Shìrén cháng mí, chùchù tānzhuó, míng zhī wéi qiú. Zhìzhě wù zhēn, lǐ jiāng sú fǎn. Ānxīn wúwéi, xíng suí yùnzhuǎn. Wànyǒu sī kōng, wú suǒ yuàn lè. Jīng yún: Yǒu qiú jiē kǔ, wú qiú jí lè. Pàn zhī wú qiú, zhēn wéi dào xíng, gù yán wúsuǒqiú xíng.",
               "translations": {
-                "red_pine": "Third: Seeking Nothing. People of the world are perpetually deluded, everywhere attached to things; this is called seeking. The wise awaken to reality and choose the reverse of worldly ways. They pacify their minds in non-doing, letting their physical forms move with the seasons. The myriad things are empty, with nothing to desire or seek. The sutras say: 'To seek is suffering; to seek nothing is joy.' Knowing that non-seeking is the true practice of the Way, this is called seeking nothing.",
-                "cleary": "Third, the practice of seeking nothing. People are long deluded, greedy and attached everywhere; this is called seeking. The wise awaken to truth, their principles opposite to the mundane. They settle the mind in non-contrivance, while bodily forms follow fortune's turns. All existence is empty, with nothing to wish for. The sutras say, 'To seek is all suffering; seeking nothing is bliss.' Knowing non-seeking is true practice, this is called the practice of seeking nothing.",
-                "suzuki": "Third, to seek nothing. Worldly people are always lost in delusion, grasping at everything; this is called seeking. The wise awaken to truth and reverse worldly ways. Settling the mind in non-doing, they recognize all existence as empty. The sutra says: 'Seeking is suffering; non-seeking is peace.'"
+                "red_pine": {
+                  "text": "Third: Seeking Nothing. People of the world are perpetually deluded, everywhere attached to things; this is called seeking. The wise awaken to reality and choose the reverse of worldly ways. They pacify their minds in non-doing, letting their physical forms move with the seasons. The myriad things are empty, with nothing to desire or seek. The sutras say: 'To seek is suffering; to seek nothing is joy.' Knowing that non-seeking is the true practice of the Way, this is called seeking nothing.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Third, the practice of seeking nothing. People are long deluded, greedy and attached everywhere; this is called seeking. The wise awaken to truth, their principles opposite to the mundane. They settle the mind in non-contrivance, while bodily forms follow fortune's turns. All existence is empty, with nothing to wish for. The sutras say, 'To seek is all suffering; seeking nothing is bliss.' Knowing non-seeking is true practice, this is called the practice of seeking nothing.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Third, to seek nothing. Worldly people are always lost in delusion, grasping at everything; this is called seeking. The wise awaken to truth and reverse worldly ways. Settling the mind in non-doing, they recognize all existence as empty. The sutra says: 'Seeking is suffering; non-seeking is peace.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9554,9 +11021,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "四、稱法行：性淨之理，目之為法。此理眾相斯空，無染無著，無此無彼。經云：法無眾生，離眾生垢故；法無有我，離我垢故。智者若能信解此理，應當稱法而行。",
               "pinyin": "Sì, chèngfǎ xíng: Xìng jìng zhī lǐ, mù zhī wéi fǎ. Cǐ lǐ zhòngxiàng sī kōng, wú rǎn wú zhuó, wú cǐ wú bǐ. Jīng yún: Fǎ wú zhòngshēng, lí zhòngshēng gòu gù; fǎ wú yǒu wǒ, lí wǒ gòu gù. Zhìzhě ruò néng xìnjiě cǐ lǐ, yīngdāng chèngfǎ ér xíng.",
               "translations": {
-                "red_pine": "Fourth: Practicing the Dharma. The fundamental truth of pure nature is named Dharma. In this truth, all forms are empty: there is no defilement, no attachment, no this or that. The sutras say: 'In the Dharma there are no sentient beings, because it is free from the stain of sentient beings; in the Dharma there is no self, because it is free from the stain of self.' If the wise can understand this truth, they should practice in accordance with the Dharma.",
-                "cleary": "Fourth, the practice of accordance with Dharma. The principle of purity of nature is called Dharma. In this principle, all forms are empty: without defilement and without attachment, without this and without that. The sutra says, 'In Dharma there are no sentient beings, because it is free from the defilement of beings; in Dharma there is no self, because it is free from the defilement of self.' When the wise believe and understand this principle, they should practice in accordance with Dharma.",
-                "suzuki": "Fourth, to be in accord with the Dharma. The principle of pure nature is called the Dharma. In this principle all forms are empty, free from attachment and duality. The sutra says: 'In the Dharma there is no self and no other.' When the wise comprehend this, they act in accord with the Dharma."
+                "red_pine": {
+                  "text": "Fourth: Practicing the Dharma. The fundamental truth of pure nature is named Dharma. In this truth, all forms are empty: there is no defilement, no attachment, no this or that. The sutras say: 'In the Dharma there are no sentient beings, because it is free from the stain of sentient beings; in the Dharma there is no self, because it is free from the stain of self.' If the wise can understand this truth, they should practice in accordance with the Dharma.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Fourth, the practice of accordance with Dharma. The principle of purity of nature is called Dharma. In this principle, all forms are empty: without defilement and without attachment, without this and without that. The sutra says, 'In Dharma there are no sentient beings, because it is free from the defilement of beings; in Dharma there is no self, because it is free from the defilement of self.' When the wise believe and understand this principle, they should practice in accordance with Dharma.",
+                  "status": "reconstruction_unverified"
+                },
+                "suzuki": {
+                  "text": "Fourth, to be in accord with the Dharma. The principle of pure nature is called the Dharma. In this principle all forms are empty, free from attachment and duality. The sutra says: 'In the Dharma there is no self and no other.' When the wise comprehend this, they act in accord with the Dharma.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9586,9 +11062,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "問曰：夫欲入道者，當知本源。何者為心？何者為安心？",
               "pinyin": "Wèn yuē: Fú yù rù dào zhě, dāng zhī běnyuán. Hézhě wéi xīn? Hézhě wéi ānxīn?",
               "translations": {
-                "red_pine": "Question: One who wishes to enter the Way must understand the primordial source. What is the mind? And what is pacifying the mind?",
-                "cleary": "Question: Those who wish to enter the Way should know the fundamental source. What is mind? What is pacifying mind?",
-                "sasaki": "Question: He who desires to enter the Tao must know the primal root. What is mind? What is pacification of mind?"
+                "red_pine": {
+                  "text": "Question: One who wishes to enter the Way must understand the primordial source. What is the mind? And what is pacifying the mind?",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Question: Those who wish to enter the Way should know the fundamental source. What is mind? What is pacifying mind?",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Question: He who desires to enter the Tao must know the primal root. What is mind? What is pacification of mind?",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9596,9 +11081,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "答曰：汝不應立心，亦不應求安心。無心可立，無安可求，是名安心。",
               "pinyin": "Dá yuē: Rǔ bù yīng lì xīn, yì bù yīng qiú ānxīn. Wú xīn kě lì, wú ān kě qiú, shì míng ānxīn.",
               "translations": {
-                "red_pine": "Answer: You should not establish a mind, nor should you seek to pacify it. When there is no mind to establish and no pacification to seek: this is named pacifying the mind.",
-                "cleary": "Answer: You should not set up a mind, nor should you seek to pacify mind. Having no mind to set up, and no pacification to seek, is called pacifying mind.",
-                "sasaki": "Answer: You must not posit a mind, nor must you seek to pacify it. No mind to establish, no peace to seek: this is called peace of mind."
+                "red_pine": {
+                  "text": "Answer: You should not establish a mind, nor should you seek to pacify it. When there is no mind to establish and no pacification to seek: this is named pacifying the mind.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Answer: You should not set up a mind, nor should you seek to pacify mind. Having no mind to set up, and no pacification to seek, is called pacifying mind.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Answer: You must not posit a mind, nor must you seek to pacify it. No mind to establish, no peace to seek: this is called peace of mind.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9614,9 +11108,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "問曰：若無心者，阿誰能見？阿誰能知？",
               "pinyin": "Wèn yuē: Ruò wú xīn zhě, ā shuí néng jiàn? Ā shuí néng zhī?",
               "translations": {
-                "red_pine": "Question: If there is no mind, who is it that can see? Who is it that can know?",
-                "cleary": "Question: If there is no mind, who can see? Who can know?",
-                "sasaki": "Question: If there is no mind, who is it that sees? Who is it that knows?"
+                "red_pine": {
+                  "text": "Question: If there is no mind, who is it that can see? Who is it that can know?",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Question: If there is no mind, who can see? Who can know?",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Question: If there is no mind, who is it that sees? Who is it that knows?",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9624,9 +11127,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "答曰：見無所見，是為真見；知無所知，是為真知。見非眼根，知非心量。空寂體中，任運洞照。",
               "pinyin": "Dá yuē: Jiàn wú suǒ jiàn, shì wéi zhēn jiàn; zhī wú suǒ zhī, shì wéi zhēn zhī. Jiàn fēi yǎngēn, zhī fēi xīnliàng. Kōngjì tǐ zhōng, rènyùn dòngzhào.",
               "translations": {
-                "red_pine": "Answer: Seeing without any object seen is true seeing; knowing without any object known is true knowing. Seeing does not belong to the eye organ; knowing does not belong to intellectual calculation. In the substance of empty stillness, spontaneous illumination functions unobstructed.",
-                "cleary": "Answer: Seeing without seeing anything is true seeing; knowing without knowing anything is true knowing. Seeing is not of the eye faculty; knowing is not of mental calculation. Within the substance of empty stillness, illumination operates spontaneously.",
-                "sasaki": "Answer: To see without seeing an object is true seeing; to know without knowing an object is true knowing. In the silent void of nature, radiant illumination functions freely."
+                "red_pine": {
+                  "text": "Answer: Seeing without any object seen is true seeing; knowing without any object known is true knowing. Seeing does not belong to the eye organ; knowing does not belong to intellectual calculation. In the substance of empty stillness, spontaneous illumination functions unobstructed.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Answer: Seeing without seeing anything is true seeing; knowing without knowing anything is true knowing. Seeing is not of the eye faculty; knowing is not of mental calculation. Within the substance of empty stillness, illumination operates spontaneously.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Answer: To see without seeing an object is true seeing; to know without knowing an object is true knowing. In the silent void of nature, radiant illumination functions freely.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9642,9 +11154,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師初住幽棲寺北岩，百鳥銜花獻供。及四祖道信往訪，為說心地法要，悟得本來無物。自此百鳥不復來獻花。蓋以前有跡可尋，悟後神鬼莫測矣。",
               "pinyin": "Shī chū zhù Yōuqī Sì běiyán, bǎiniǎo xiánhuā xiàngòng. Jí Sìzǔ Dàoxìn wǎng fǎng, wèi shuō xīndì fǎyào, wù dé běnlái wú wù. Zì cǐ bǎiniǎo bù fù lái xiànhuā. Gài yǐqián yǒu jī kě xún, wù hòu shénguǐ mò cè yǐ.",
               "translations": {
-                "red_pine": "When Master Farong first dwelt at the northern cliff of Youqi Temple, hundreds of wild birds carried flowers in their beaks to make offerings. When the Fourth Patriarch Daoxin visited and transmitted the Mind Dharma, Farong realized that fundamentally not a single thing exists. From that moment on, the birds no longer brought flowers—because before his awakening there was still a trace to be found; after awakening, even spirits and ghosts could not fathom him.",
-                "cleary": "When the Master first lived on the northern cliff, wild birds brought flowers in their beaks. When the Fourth Patriarch Daoxin visited and preached the essence of Mind, he realized that originally not a thing exists. Thereafter the birds no longer brought flowers: before, he had traces; after, even spirits could not detect him.",
-                "sasaki": "Before meeting Daoxin, birds brought flowers to Farong's cave because of his pious aura. After awakening to the Great Emptiness, the birds appeared no more, for he left no trace in heaven or earth."
+                "red_pine": {
+                  "text": "When Master Farong first dwelt at the northern cliff of Youqi Temple, hundreds of wild birds carried flowers in their beaks to make offerings. When the Fourth Patriarch Daoxin visited and transmitted the Mind Dharma, Farong realized that fundamentally not a single thing exists. From that moment on, the birds no longer brought flowers—because before his awakening there was still a trace to be found; after awakening, even spirits and ghosts could not fathom him.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "When the Master first lived on the northern cliff, wild birds brought flowers in their beaks. When the Fourth Patriarch Daoxin visited and preached the essence of Mind, he realized that originally not a thing exists. Thereafter the birds no longer brought flowers: before, he had traces; after, even spirits could not detect him.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Before meeting Daoxin, birds brought flowers to Farong's cave because of his pious aura. After awakening to the Great Emptiness, the birds appeared no more, for he left no trace in heaven or earth.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9676,9 +11197,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "大師每對四眾說法云：「無憶是戒，無念是定，莫妄是慧。此三句語，即是總持門。不念過去是無憶，不攀未來是無念，當下不生顛倒是莫妄。」",
               "pinyin": "Dàshī měi duì sìzhòng shuōfǎ yún: 'Wúyì shì jiè, wúniàn shì dìng, mòwàng shì huì. Cǐ sān jù yǔ, jí shì zǒngchí mén. Bù niàn guòqù shì wúyì, bù pān wèilái shì wúniàn, dāngxià bù shēng diāndǎo shì mòwàng.'",
               "translations": {
-                "red_pine": "The Master always instructed the fourfold assembly: 'No recollection is morality (śīla); no thought is meditation (samādhi); no delusion is wisdom (prajñā). These three phrases are the universal gate of dharani. Not thinking of the past is no recollection; not grasping at the future is no thought; not giving rise to confusion in the present moment is no delusion.'",
-                "adamek": "The Master always taught the four assemblies, saying: 'No recollection is discipline, no thought is meditation, and not being false is wisdom. These three phrases are the gate of universal retention. Not recollecting the past is no recollection; not anticipating the future is no thought; not being inverted in the present is not being false.'",
-                "cleary": "The Great Master constantly spoke to the assembly: 'No recollection is ethics, no thought is concentration, no falsehood is wisdom. These three statements are the door of total retention. Not dwelling on the past is no recollection; not seeking the future is no thought; not creating delusion in the present is no falsehood.'"
+                "red_pine": {
+                  "text": "The Master always instructed the fourfold assembly: 'No recollection is morality (śīla); no thought is meditation (samādhi); no delusion is wisdom (prajñā). These three phrases are the universal gate of dharani. Not thinking of the past is no recollection; not grasping at the future is no thought; not giving rise to confusion in the present moment is no delusion.'",
+                  "status": "reconstruction_unverified"
+                },
+                "adamek": {
+                  "text": "The Master always taught the four assemblies, saying: 'No recollection is discipline, no thought is meditation, and not being false is wisdom. These three phrases are the gate of universal retention. Not recollecting the past is no recollection; not anticipating the future is no thought; not being inverted in the present is not being false.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Great Master constantly spoke to the assembly: 'No recollection is ethics, no thought is concentration, no falsehood is wisdom. These three statements are the door of total retention. Not dwelling on the past is no recollection; not seeking the future is no thought; not creating delusion in the present is no falsehood.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9694,9 +11224,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "則天皇后遣內侍薛簡，召韶州曹溪六祖慧能。祖稱疾不起，進呈達摩木棉傳法袈裟。則天供養於宮中，後以袈裟賜資州智詵禪師，智詵密付無相，無相傳無住。信衣歸蜀，法寶相承。",
               "pinyin": "Zétiān Huánghòu qiǎn nèishì Xuē Jiǎn, zhào Sháozhōu Cáoxī Liùzǔ Huìnéng. Zǔ chēng jí bù qǐ, jìnchéng Dámó mùmián chuánfǎ jiāshā. Zétiān gōngyǎng yú gōng zhōng, hòu yǐ jiāshā cì Zīzhōu Zhìshēn chánshī, Zhìshēn mì fù Wúxiāng, Wúxiāng chuán Wúzhù. Xìnyī guī Shǔ, fǎbǎo xiāngchéng.",
               "translations": {
-                "red_pine": "Empress Wu Zetian dispatched court envoy Xue Jian to summon Sixth Patriarch Huineng from Caoxi. The Patriarch pleaded illness and sent Bodhidharma's cotton transmission robe to the palace. Empress Wu revered it in the imperial quarters and later granted the robe to Master Zhishen of Zizhou, who secretly transmitted it to Wuxiang, and Wuxiang to Wuzhu. Thus the robe of faith arrived in Sichuan, perpetuating the Dharma jewel.",
-                "adamek": "Empress Wu dispatched the eunuch Xue Jian to summon Sixth Patriarch Huineng. The Patriarch declined, offering Bodhidharma's robe. Empress Wu later bestowed the robe upon Master Zhishen, who transmitted it to Wuxiang, who transmitted it to Wuzhu. Thus the Dharma jewel was passed down through generations in Shu.",
-                "cleary": "Empress Wu sent an envoy to invite Sixth Patriarch Huineng. The Patriarch sent Bodhidharma's robe of transmission. Empress Wu presented the robe to Chan Master Zhishen, which was passed to Wuxiang and Wuzhu in Sichuan as the sacred inheritance."
+                "red_pine": {
+                  "text": "Empress Wu Zetian dispatched court envoy Xue Jian to summon Sixth Patriarch Huineng from Caoxi. The Patriarch pleaded illness and sent Bodhidharma's cotton transmission robe to the palace. Empress Wu revered it in the imperial quarters and later granted the robe to Master Zhishen of Zizhou, who secretly transmitted it to Wuxiang, and Wuxiang to Wuzhu. Thus the robe of faith arrived in Sichuan, perpetuating the Dharma jewel.",
+                  "status": "reconstruction_unverified"
+                },
+                "adamek": {
+                  "text": "Empress Wu dispatched the eunuch Xue Jian to summon Sixth Patriarch Huineng. The Patriarch declined, offering Bodhidharma's robe. Empress Wu later bestowed the robe upon Master Zhishen, who transmitted it to Wuxiang, who transmitted it to Wuzhu. Thus the Dharma jewel was passed down through generations in Shu.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Empress Wu sent an envoy to invite Sixth Patriarch Huineng. The Patriarch sent Bodhidharma's robe of transmission. Empress Wu presented the robe to Chan Master Zhishen, which was passed to Wuxiang and Wuzhu in Sichuan as the sacred inheritance.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9712,9 +11251,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「息念即是見佛，起念即是沉淪。不於外求，不起妄照。常住法界，廓落無邊。此即第一義諦，佛佛密付，祖祖相傳。」",
               "pinyin": "Shī shì zhòng yún: 'Xīniàn jí shì jiàn fó, qǐniàn jí shì chénlún. Bù yú wài qiú, bù qǐ wàng zhào. Cháng zhù fǎjiè, kuòluò wúbiān. Cǐ jí dìyī yìdì, fófó mì fù, zǔzǔ xiāngchuán.'",
               "translations": {
-                "red_pine": "The Master instructed the assembly: 'Ceasing thought is seeing the Buddha; stirring thought is sinking into samsara. Do not seek externally; do not give rise to false illumination. Dwell constantly in the Dharma-realm, vast and boundless. This is the supreme ultimate truth, secretly entrusted by all Buddhas and passed from ancestor to ancestor.'",
-                "adamek": "The Master addressed the assembly: 'Ceasing thought is seeing the Buddha; giving rise to thought is sinking into delusion. Seek nothing outside; do not generate artificial illumination. Abiding in the boundless Dharma-realm is the highest truth transmitted by all Buddhas.'",
-                "cleary": "The Master said to the crowd: 'Resting thought is seeing the Buddha; giving rise to thought is sinking. Dwell in the boundless realm of reality; this is the highest truth transmitted by all ancestral teachers.'"
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'Ceasing thought is seeing the Buddha; stirring thought is sinking into samsara. Do not seek externally; do not give rise to false illumination. Dwell constantly in the Dharma-realm, vast and boundless. This is the supreme ultimate truth, secretly entrusted by all Buddhas and passed from ancestor to ancestor.'",
+                  "status": "reconstruction_unverified"
+                },
+                "adamek": {
+                  "text": "The Master addressed the assembly: 'Ceasing thought is seeing the Buddha; giving rise to thought is sinking into delusion. Seek nothing outside; do not generate artificial illumination. Abiding in the boundless Dharma-realm is the highest truth transmitted by all Buddhas.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said to the crowd: 'Resting thought is seeing the Buddha; giving rise to thought is sinking. Dwell in the boundless realm of reality; this is the highest truth transmitted by all ancestral teachers.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9744,9 +11292,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師初參馬祖。祖問：「從何處來？」師曰：「越州大雲寺來。」祖曰：「來此擬須何事？」師曰：「來求佛法。」祖曰：「我這裏一物也無，求甚麼佛法？自家寶藏不顧，拋家散走，作甚麼！」",
               "pinyin": "Shī chū cān Mǎzǔ. Zǔ wèn: 'Cóng hé chù lái?' Shī yuē: 'Yuèzhōu Dàyún Sì lái.' Zǔ yuē: 'Lái cǐ nǐ xū hé shì?' Shī yuē: 'Lái qiú fófǎ.' Zǔ yuē: 'Wǒ zhèlǐ yī wù yě wú, qiú shènme fófǎ? Zìjiā bǎozàng bù gù, pāojiā sànzǒu, zuò shénme!'",
               "translations": {
-                "blofeld": "When the Master first came to Mazu, Mazu asked: 'Where do you come from?' 'From Dayun Monastery in Yuezhou.' 'What do you intend to seek coming here?' 'I have come seeking the Buddha-dharma.' Mazu said: 'I have not a single thing here; what Buddha-dharma are you seeking? You neglect your own treasure at home and go wandering around outside—what for!'",
-                "red_pine": "When Master Huihai first visited Mazu, Mazu asked: 'Where have you come from?' 'From Dayun Temple.' 'What are you planning to do coming here?' 'I have come seeking the Buddha Dharma.' Mazu said: 'I have not a single thing here; what Buddha Dharma do you seek? Ignoring your own treasure house at home, abandoning your home and running about—what are you doing!'",
-                "cleary": "Huihai visited Mazu. Mazu asked, 'Where do you come from?' 'From Dayun temple.' 'What are you seeking here?' 'Seeking the Buddha Dharma.' Mazu said, 'I have not a single thing here; what Buddha Dharma are you seeking? Neglecting your own treasure at home and wandering around outside—what are you doing?'"
+                "blofeld": {
+                  "text": "When the Master first came to Mazu, Mazu asked: 'Where do you come from?' 'From Dayun Monastery in Yuezhou.' 'What do you intend to seek coming here?' 'I have come seeking the Buddha-dharma.' Mazu said: 'I have not a single thing here; what Buddha-dharma are you seeking? You neglect your own treasure at home and go wandering around outside—what for!'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When Master Huihai first visited Mazu, Mazu asked: 'Where have you come from?' 'From Dayun Temple.' 'What are you planning to do coming here?' 'I have come seeking the Buddha Dharma.' Mazu said: 'I have not a single thing here; what Buddha Dharma do you seek? Ignoring your own treasure house at home, abandoning your home and running about—what are you doing!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Huihai visited Mazu. Mazu asked, 'Where do you come from?' 'From Dayun temple.' 'What are you seeking here?' 'Seeking the Buddha Dharma.' Mazu said, 'I have not a single thing here; what Buddha Dharma are you seeking? Neglecting your own treasure at home and wandering around outside—what are you doing?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9754,9 +11311,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師遂問：「阿那個是慧海自家寶藏？」祖曰：「即今問我者，是汝寶藏。一切具足，更無欠少，使用自在，何假向外求覓！」師於言下自識本心，踴躍禮謝。",
               "pinyin": "Shī suì wèn: 'Ā nǎ ge shì Huìhǎi zìjiā bǎozàng?' Zǔ yuē: 'Jí jīn wèn wǒ zhě, shì rǔ bǎozàng. Yīqiè jùzú, gèng wú qiàn shǎo, shǐyòng zìzài, hé jiǎ xiàng wài qiúmì!' Shī yú yán xià zì shí běn xīn, yǒngyuè lǐxiè.",
               "translations": {
-                "blofeld": "Huihai then bowed and asked: 'Which one is Huihai's own treasure house?' Mazu said: 'That which is right now asking me is your own treasure house! It contains everything completely without lack, free to use at will. Why should you seek outside!' At these words Huihai recognized his original mind and bowed in overflowing joy.",
-                "red_pine": "Huihai asked: 'Which one is Huihai's own treasure house?' Mazu said: 'That which is asking me right this moment is your own treasure house! It possesses everything completely with nothing lacking, perfectly free to use. Why borrow from outside to seek it!' At these words Huihai realized his fundamental mind and bowed in ecstasy.",
-                "cleary": "Huihai asked, 'Which is Huihai's own treasure?' Mazu said, 'That which is asking me right now is your treasure. Everything is complete, lacking nothing, freely used. Why seek outside?' At these words Huihai recognized his original mind."
+                "blofeld": {
+                  "text": "Huihai then bowed and asked: 'Which one is Huihai's own treasure house?' Mazu said: 'That which is right now asking me is your own treasure house! It contains everything completely without lack, free to use at will. Why should you seek outside!' At these words Huihai recognized his original mind and bowed in overflowing joy.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Huihai asked: 'Which one is Huihai's own treasure house?' Mazu said: 'That which is asking me right this moment is your own treasure house! It possesses everything completely with nothing lacking, perfectly free to use. Why borrow from outside to seek it!' At these words Huihai realized his fundamental mind and bowed in ecstasy.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Huihai asked, 'Which is Huihai's own treasure?' Mazu said, 'That which is asking me right now is your treasure. Everything is complete, lacking nothing, freely used. Why seek outside?' At these words Huihai recognized his original mind.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9772,9 +11338,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "問曰：「法性無形，從何而見？」師曰：「即今能見者，便是法性。」",
               "pinyin": "Wèn yuē: 'Fǎxìng wúxíng, cóng hé ér jiàn?' Shī yuē: 'Jí jīn néng jiàn zhě, biàn shì fǎxìng.'",
               "translations": {
-                "blofeld": "Question: Since the Dharma-nature has no form, through what is it seen? The Master said: That which is right now able to see is itself the Dharma-nature.",
-                "red_pine": "Question: Since the Dharma-nature is formless, where is it seen? Master said: That which is capable of seeing right now is itself the Dharma-nature.",
-                "cleary": "Question: Dharma-nature has no form; through what is it seen? Master said: That which is able to see right now is the Dharma-nature."
+                "blofeld": {
+                  "text": "Question: Since the Dharma-nature has no form, through what is it seen? The Master said: That which is right now able to see is itself the Dharma-nature.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Question: Since the Dharma-nature is formless, where is it seen? Master said: That which is capable of seeing right now is itself the Dharma-nature.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Question: Dharma-nature has no form; through what is it seen? Master said: That which is able to see right now is the Dharma-nature.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9782,9 +11357,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "曰：「盲人無眼，盲人還見否？」師曰：「盲人見暗。」曰：「見暗豈得名為見？」師曰：「盲人見暗，明眼人見明。明暗有異，其見不殊。見性元無生滅也。」",
               "pinyin": "Yuē: 'Mángrén wú yǎn, mángrén hái jiàn fǒu?' Shī yuē: 'Mángrén jiàn àn.' Yuē: 'Jiàn àn qǐ dé míng wéi jiàn?' Shī yuē: 'Mángrén jiàn àn, míngyǎn rén jiàn míng. Míng'àn yǒu yì, qí jiàn bù shū. Jiànxìng yuán wú shēngmiè yě.'",
               "translations": {
-                "blofeld": "Question: Blind people have no eyes; do blind people still see? The Master said: Blind people see darkness. Question: How can seeing darkness be called seeing? The Master said: The blind see darkness; those with eyes see light. Light and dark are different, but the nature of seeing is not different. The seeing-nature has never been subject to birth or destruction.",
-                "red_pine": "Question: Blind people have no vision; do blind people still see? Master said: The blind see darkness. 'How can seeing darkness be called seeing?' Master said: The blind see dark; the sighted see light. Light and dark differ, but the seeing is non-dual. The seeing-nature is unborn and undying.",
-                "cleary": "Question: The blind have no eyes; do they see? Master said: The blind see darkness. 'Can seeing darkness be called seeing?' Master said: Sighted people see light; blind people see darkness. Light and darkness differ, but the seeing nature is not different."
+                "blofeld": {
+                  "text": "Question: Blind people have no eyes; do blind people still see? The Master said: Blind people see darkness. Question: How can seeing darkness be called seeing? The Master said: The blind see darkness; those with eyes see light. Light and dark are different, but the nature of seeing is not different. The seeing-nature has never been subject to birth or destruction.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Question: Blind people have no vision; do blind people still see? Master said: The blind see darkness. 'How can seeing darkness be called seeing?' Master said: The blind see dark; the sighted see light. Light and dark differ, but the seeing is non-dual. The seeing-nature is unborn and undying.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Question: The blind have no eyes; do they see? Master said: The blind see darkness. 'Can seeing darkness be called seeing?' Master said: Sighted people see light; blind people see darkness. Light and darkness differ, but the seeing nature is not different.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9800,9 +11384,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "有源律師問：「和尚修道，還用功否？」師曰：「用功。」曰：「如何用功？」師曰：「飢來喫飯，困來即眠。」",
               "pinyin": "Yǒu Yuán lǜshī wèn: 'Héshang xiūdào, hái yònggōng fǒu?' Shī yuē: 'Yònggōng.' Yuē: 'Rúhé yònggōng?' Shī yuē: 'Jī lái chīfàn, kùn lái jí mián.'",
               "translations": {
-                "blofeld": "Vinaya Master Yuan asked: 'Do you make effort when practicing the Way, Master?' Master Huihai said: 'I make effort.' 'How do you make effort?' The Master said: 'When hungry, I eat; when tired, I sleep.'",
-                "red_pine": "Vinaya Master Yuan asked: 'Does the Master apply effort when cultivating the Way?' Master said: 'I apply effort.' 'How do you apply effort?' Master said: 'When hungry, I eat; when exhausted, I sleep.'",
-                "cleary": "Vinaya Master Yuan asked, 'Do you apply effort in practicing the Way?' The Master said, 'I apply effort.' 'How do you apply effort?' 'When hungry I eat, when tired I sleep.'"
+                "blofeld": {
+                  "text": "Vinaya Master Yuan asked: 'Do you make effort when practicing the Way, Master?' Master Huihai said: 'I make effort.' 'How do you make effort?' The Master said: 'When hungry, I eat; when tired, I sleep.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Vinaya Master Yuan asked: 'Does the Master apply effort when cultivating the Way?' Master said: 'I apply effort.' 'How do you apply effort?' Master said: 'When hungry, I eat; when exhausted, I sleep.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Vinaya Master Yuan asked, 'Do you apply effort in practicing the Way?' The Master said, 'I apply effort.' 'How do you apply effort?' 'When hungry I eat, when tired I sleep.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9810,9 +11403,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "曰：「一切人總如是，同師用功否？」師曰：「不同。他第一箇喫飯時須索百般，睡時情慮萬種。所以不同也。」源律師杜口。",
               "pinyin": "Yuē: 'Yīqiè rén zǒng rú shì, tóng shī yònggōng fǒu?' Shī yuē: 'Bù tóng. Tā dì-yī gè chīfàn shí xū suǒ bǎi bān, shuì shí qínglǜ wàn zhǒng. Suǒyǐ bù tóng yě.' Yuán lǜshī dù kǒu.",
               "translations": {
-                "blofeld": "Yuan said: 'Everyone does this; is their effort the same as yours?' The Master said: 'Not the same. When they eat, they do not merely eat but crave a hundred things; when they sleep, they do not merely sleep but calculate a myriad worries. Therefore it is not the same.' Vinaya Master Yuan was speechless.",
-                "red_pine": "Yuan said: 'All people do this; is their effort identical to yours?' The Master said: 'Not identical. When they eat, they demand a hundred things; when they sleep, they churn through ten thousand worries. That is why it is not the same.' Vinaya Master Yuan had no reply.",
-                "cleary": "Yuan said, 'Everyone does that; is their effort the same as yours?' The Master said, 'Not the same. When they eat they crave a hundred things; when they sleep they worry about ten thousand things. Therefore it is not the same.' The Vinaya Master was silent."
+                "blofeld": {
+                  "text": "Yuan said: 'Everyone does this; is their effort the same as yours?' The Master said: 'Not the same. When they eat, they do not merely eat but crave a hundred things; when they sleep, they do not merely sleep but calculate a myriad worries. Therefore it is not the same.' Vinaya Master Yuan was speechless.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Yuan said: 'All people do this; is their effort identical to yours?' The Master said: 'Not identical. When they eat, they demand a hundred things; when they sleep, they churn through ten thousand worries. That is why it is not the same.' Vinaya Master Yuan had no reply.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Yuan said, 'Everyone does that; is their effort the same as yours?' The Master said, 'Not the same. When they eat they crave a hundred things; when they sleep they worry about ten thousand things. Therefore it is not the same.' The Vinaya Master was silent.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9843,9 +11445,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「初透初關，不著世間染法；次透中關，不滯出世淨法；後透極頂，亦不居無滯無礙之處。此即百丈三句也。」",
               "pinyin": "Shī shì zhòng yún: 'Chū tòu chū guān, bù zhuó shìjiān rǎnfǎ; cì tòu zhōng guān, bù zhì chūshì jìngfǎ; hòu tòu jídǐng, yì bù jū wú zhì wú ài zhī chù. Cǐ jí Bǎizhàng sānjù yě.'",
               "translations": {
-                "red_pine": "The Master instructed the assembly: 'First, pass through the first barrier, not attached to worldly defilements; second, pass through the middle barrier, not lingering in transcendent purity; finally, pass beyond the highest summit, not dwelling even in the place of non-obstruction. These are the Three Propositions of Baizhang.'",
-                "cleary": "The Master said to the group: 'First, pass the initial barrier: do not attach to worldly things; next, pass the middle barrier: do not linger in pure detachment; finally, pass the ultimate barrier: do not dwell even in the place of unobstructed freedom. This is called the three phrases of Baizhang.'",
-                "sasaki": "Hyakujō instructed the monks: 'First, transcend worldly defilements; second, transcend holy detachment; third, leave no trace of freedom itself. These are my three propositions.'"
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'First, pass through the first barrier, not attached to worldly defilements; second, pass through the middle barrier, not lingering in transcendent purity; finally, pass beyond the highest summit, not dwelling even in the place of non-obstruction. These are the Three Propositions of Baizhang.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said to the group: 'First, pass the initial barrier: do not attach to worldly things; next, pass the middle barrier: do not linger in pure detachment; finally, pass the ultimate barrier: do not dwell even in the place of unobstructed freedom. This is called the three phrases of Baizhang.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Hyakujō instructed the monks: 'First, transcend worldly defilements; second, transcend holy detachment; third, leave no trace of freedom itself. These are my three propositions.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9853,9 +11464,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "「若但了初句，是為凡夫脫縛；若了中句，是為二乘聖人；若圓通三句，不住凡聖，方名佛祖大用現前。」",
               "pinyin": "'Ruò dàn liǎo chū jù, shì wéi fánfū tuō fù; ruò liǎo zhōng jù, shì wéi èrchéng shèngrén; ruò yuántōng sān jù, bù zhù fán shèng, fāng míng fózǔ dàyòng xiànqián.'",
               "translations": {
-                "red_pine": "If you only comprehend the first phrase, you liberate mortals from bondage; if you comprehend the second phrase, you are a Hinayana practitioner; if you penetrate all three phrases seamlessly, dwelling neither in mortal nor holy, only then does the great functioning of the Buddhas and Patriarchs manifest before you.",
-                "cleary": "If you understand the first phrase, you are freed from bonds; if you understand the middle phrase, you are an ascetic; if you penetrate all three phrases, not abiding in mortal or holy, only then does the great action of Buddhas manifest.",
-                "sasaki": "If you master the first phrase, you free the mind from bonds; if you master the second, you attain purity; if you fulfill all three, resting neither in common nor holy, the living Dharma functions freely."
+                "red_pine": {
+                  "text": "If you only comprehend the first phrase, you liberate mortals from bondage; if you comprehend the second phrase, you are a Hinayana practitioner; if you penetrate all three phrases seamlessly, dwelling neither in mortal nor holy, only then does the great functioning of the Buddhas and Patriarchs manifest before you.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "If you understand the first phrase, you are freed from bonds; if you understand the middle phrase, you are an ascetic; if you penetrate all three phrases, not abiding in mortal or holy, only then does the great action of Buddhas manifest.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "If you master the first phrase, you free the mind from bonds; if you master the second, you attain purity; if you fulfill all three, resting neither in common nor holy, the living Dharma functions freely.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9871,9 +11491,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師隨馬祖行次，見野鴨子飛過。祖曰：「是甚麼？」師曰：「野鴨子。」祖曰：「甚處去也？」師曰：「飛過去也。」",
               "pinyin": "Shī suí Mǎzǔ xíng cì, jiàn yěyāzi fēiguò. Zǔ yuē: 'Shì shénme?' Shī yuē: 'Yěyāzi.' Zǔ yuē: 'Shèn chù qù yě?' Shī yuē: 'Fēi guòqù yě.'",
               "translations": {
-                "red_pine": "The Master was walking alongside Master Mazu when a flock of wild ducks flew past overhead. Mazu asked: 'What is that?' The Master said: 'Wild ducks.' Mazu asked: 'Where have they gone?' The Master said: 'They have flown away.'",
-                "cleary": "The Master was walking with Mazu and saw wild ducks flying past. Mazu said, 'What is that?' The Master said, 'Wild ducks.' Mazu said, 'Where are they going?' The Master said, 'They've flown away.'",
-                "sasaki": "Hyakujō was accompanying Baso on a walk when they saw a flock of wild ducks fly by. Baso said: 'What is that?' Hyakujō said: 'Wild ducks.' Baso asked: 'Where are they going?' Hyakujō said: 'They have flown away.'"
+                "red_pine": {
+                  "text": "The Master was walking alongside Master Mazu when a flock of wild ducks flew past overhead. Mazu asked: 'What is that?' The Master said: 'Wild ducks.' Mazu asked: 'Where have they gone?' The Master said: 'They have flown away.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master was walking with Mazu and saw wild ducks flying past. Mazu said, 'What is that?' The Master said, 'Wild ducks.' Mazu said, 'Where are they going?' The Master said, 'They've flown away.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Hyakujō was accompanying Baso on a walk when they saw a flock of wild ducks fly by. Baso said: 'What is that?' Hyakujō said: 'Wild ducks.' Baso asked: 'Where are they going?' Hyakujō said: 'They have flown away.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9881,9 +11510,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "祖遂把師鼻頭猛捏，師負痛失聲。祖曰：「又道飛過去也！」師於言下大悟。",
               "pinyin": "Zǔ suì bǎ shī bítou měng niē, shī fù tòng shī shēng. Zǔ yuē: 'Yòu dào fēi guòqù yě!' Shī yú yán xià dà wù.",
               "translations": {
-                "red_pine": "Mazu thereupon seized the Master's nose and gave it a violent twist. The Master cried out in pain. Mazu said: 'And you said they have flown away!' At these words the Master attained great awakening.",
-                "cleary": "Mazu then twisted the Master's nose violently. The Master cried out in pain. Mazu said, 'And yet you say they've flown away!' At these words the Master had great awakening.",
-                "sasaki": "Baso grabbed Hyakujō's nose and twisted it hard. Hyakujō cried out in pain. Baso said: 'When have they ever flown away!' At these words Hyakujō was deeply enlightened."
+                "red_pine": {
+                  "text": "Mazu thereupon seized the Master's nose and gave it a violent twist. The Master cried out in pain. Mazu said: 'And you said they have flown away!' At these words the Master attained great awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Mazu then twisted the Master's nose violently. The Master cried out in pain. Mazu said, 'And yet you say they've flown away!' At these words the Master had great awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Baso grabbed Hyakujō's nose and twisted it hard. Hyakujō cried out in pain. Baso said: 'When have they ever flown away!' At these words Hyakujō was deeply enlightened.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9899,9 +11537,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "次日，馬祖陞座，眾才集，師即出卷卻席。祖便下座歸方丈。師隨後入。祖曰：「我適來未曾說話，汝因何便卷席？」",
               "pinyin": "Cì rì, Mǎzǔ shēngzuò, zhòng cái jí, shī jí chū juǎn què xí. Zǔ biàn xiàzuò guī fāngzhàng. Shī suíhòu rù. Zǔ yuē: 'Wǒ shìlái wèi céng shuōhuà, rǔ yīnhé biàn juǎnxí?'",
               "translations": {
-                "red_pine": "The next day, as Mazu ascended the teaching hall and the assembly gathered, the Master walked forward and rolled up the sitting mat. Mazu immediately descended from the seat and returned to his abbot's room. The Master followed him inside. Mazu asked: 'I had not yet said a single word just now; why did you roll up the mat?'",
-                "cleary": "The next day Mazu took the high seat. As soon as the crowd gathered, the Master came forward and rolled up the mat. Mazu got down from the seat and went back to his room. The Master followed. Mazu said, 'I had not yet spoken; why did you roll up the mat?'",
-                "sasaki": "Next day, as Baso took his seat and the monks gathered, Hyakujō stepped out and rolled up the mat. Baso left the platform and returned to his room. Hyakujō followed him. Baso asked: 'I had not yet spoken; why did you roll up the mat?'"
+                "red_pine": {
+                  "text": "The next day, as Mazu ascended the teaching hall and the assembly gathered, the Master walked forward and rolled up the sitting mat. Mazu immediately descended from the seat and returned to his abbot's room. The Master followed him inside. Mazu asked: 'I had not yet said a single word just now; why did you roll up the mat?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The next day Mazu took the high seat. As soon as the crowd gathered, the Master came forward and rolled up the mat. Mazu got down from the seat and went back to his room. The Master followed. Mazu said, 'I had not yet spoken; why did you roll up the mat?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Next day, as Baso took his seat and the monks gathered, Hyakujō stepped out and rolled up the mat. Baso left the platform and returned to his room. Hyakujō followed him. Baso asked: 'I had not yet spoken; why did you roll up the mat?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9909,9 +11556,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「昨日被和尚捏得鼻頭痛。」祖曰：「汝昨日向甚處留心？」師曰：「今日鼻頭又不痛也。」祖曰：「汝深明昨日事。」",
               "pinyin": "Shī yuē: 'Zuórì bèi héshang niē dé bítou tòng.' Zǔ yuē: 'Rǔ zuórì xiàng shèn chù liúxīn?' Shī yuē: 'Jīnrì bítou yòu bù tòng yě.' Zǔ yuē: 'Rǔ shēn míng zuórì shì.'",
               "translations": {
-                "red_pine": "The Master said: 'Yesterday my nose was twisted painfully by the Master.' Mazu said: 'Where did your mind rest yesterday?' The Master said: 'Today my nose doesn't hurt at all.' Mazu said: 'You deeply understand yesterday's affair.'",
-                "cleary": "The Master said, 'Yesterday my nose hurt when twisted by the Master.' Mazu said, 'Where did you pay attention yesterday?' The Master said, 'Today the nose doesn't hurt.' Mazu said, 'You understand yesterday's business thoroughly.'",
-                "sasaki": "Hyakujō said: 'Yesterday my nose hurt when you twisted it.' Baso said: 'Where was your mind yesterday?' Hyakujō said: 'Today my nose doesn't hurt at all.' Baso said: 'You understand yesterday's affair deeply.'"
+                "red_pine": {
+                  "text": "The Master said: 'Yesterday my nose was twisted painfully by the Master.' Mazu said: 'Where did your mind rest yesterday?' The Master said: 'Today my nose doesn't hurt at all.' Mazu said: 'You deeply understand yesterday's affair.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said, 'Yesterday my nose hurt when twisted by the Master.' Mazu said, 'Where did you pay attention yesterday?' The Master said, 'Today the nose doesn't hurt.' Mazu said, 'You understand yesterday's business thoroughly.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Hyakujō said: 'Yesterday my nose hurt when you twisted it.' Baso said: 'Where was your mind yesterday?' Hyakujō said: 'Today my nose doesn't hurt at all.' Baso said: 'You understand yesterday's affair deeply.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9942,9 +11598,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「參禪只有二種病：第一是騎在驢上覓驢；第二是騎在驢上不肯下驢。汝道：如何是騎驢覓驢？自己是佛，卻向外馳求，此是騎驢覓驢也。」",
               "pinyin": "Shī shì zhòng yún: 'Cānchán zhǐ yǒu èr zhǒng bìng: dì-yī shì qí zài lǘ shàng mì lǘ; dì-èr shì qí zài lǘ shàng bù kěn xià lǘ. Rǔ dào: rúhé shì qí lǘ mì lǘ? Zìjǐ shì fó, què xiàng wài chíqiú, cǐ shì qí lǘ mì lǘ yě.'",
               "translations": {
-                "cleary": "The Master said to the assembly: 'In Zen practice there are only two sicknesses: one is riding a donkey to search for a donkey; the other is being unwilling to dismount after riding the donkey. Tell me: what is riding a donkey to search for a donkey? You yourself are the Buddha, yet you run outside seeking—this is riding a donkey to search for a donkey.'",
-                "red_pine": "The Master instructed the assembly: 'There are only two kinds of sickness in Zen: the first is riding a donkey to look for a donkey; the second is refusing to get off the donkey once you're on it. What is riding a donkey to look for a donkey? You yourself are the Buddha, yet you race outside to find it.'",
-                "sasaki": "Master Foyan said: 'In Zen there are but two sicknesses: riding a donkey in search of a donkey, and refusing to dismount once riding it. When you yourself are Buddha and yet seek outside, you are riding a donkey to look for a donkey.'"
+                "cleary": {
+                  "text": "The Master said to the assembly: 'In Zen practice there are only two sicknesses: one is riding a donkey to search for a donkey; the other is being unwilling to dismount after riding the donkey. Tell me: what is riding a donkey to search for a donkey? You yourself are the Buddha, yet you run outside seeking—this is riding a donkey to search for a donkey.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'There are only two kinds of sickness in Zen: the first is riding a donkey to look for a donkey; the second is refusing to get off the donkey once you're on it. What is riding a donkey to look for a donkey? You yourself are the Buddha, yet you race outside to find it.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Foyan said: 'In Zen there are but two sicknesses: riding a donkey in search of a donkey, and refusing to dismount once riding it. When you yourself are Buddha and yet seek outside, you are riding a donkey to look for a donkey.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -9952,9 +11617,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "「既知是驢，不肯下驢者，得箇清淨，便執著清淨，不能通達物我無礙，此是第二種大病也。須知下驢之時，天地廓然，無驢可騎，亦無驢可下。」",
               "pinyin": "'Jì zhī shì lǘ, bù kěn xià lǘ zhě, dé gè qīngjìng, biàn zhízhuó qīngjìng, bùnéng tōngdá wù wǒ wú'ài, cǐ shì dì-èr zhǒng dà bìng yě. Xū zhī xià lǘ zhī shí, tiāndì kuòrán, wú lǘ kě qí, yì wú lǘ kě xià.'",
               "translations": {
-                "cleary": "Having recognized the donkey, being unwilling to dismount means: you attain a state of purity and cling to that purity, unable to realize the unobstructed harmony of self and world. This is the second great sickness. You must know that when you dismount, heaven and earth are vast and open: there is no donkey to ride, and no donkey to get off.",
-                "red_pine": "Once you know you're on the donkey, refusing to get off means you find a state of quiet purity and become attached to it, unable to move freely between self and things. When you get off the donkey, the cosmos is boundless: there is no donkey to ride and no donkey to dismount.",
-                "sasaki": "Refusing to dismount means attaining stillness and clinging to stillness. When you truly dismount, heaven and earth are vast and clear: there is no donkey to ride and none to get off."
+                "cleary": {
+                  "text": "Having recognized the donkey, being unwilling to dismount means: you attain a state of purity and cling to that purity, unable to realize the unobstructed harmony of self and world. This is the second great sickness. You must know that when you dismount, heaven and earth are vast and open: there is no donkey to ride, and no donkey to get off.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Once you know you're on the donkey, refusing to get off means you find a state of quiet purity and become attached to it, unable to move freely between self and things. When you get off the donkey, the cosmos is boundless: there is no donkey to ride and no donkey to dismount.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Refusing to dismount means attaining stillness and clinging to stillness. When you truly dismount, heaven and earth are vast and clear: there is no donkey to ride and none to get off.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9970,9 +11644,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「靈光獨耀，迴脫根塵。體露真常，不拘文字。心性無染，本自圓成。但離妄緣，即如如佛。汝等諸人，當體即是，更待何時？」",
               "pinyin": "Shī shì zhòng yún: 'Língguāng dú yào, huítuō gēnchén. Tǐ lù zhēncháng, bù jū wénzì. Xīnxìng wúrǎn, běn zì yuánchéng. Dàn lí wàngyuán, jí rúrú fó. Rǔděng zhū rén, dāng tǐ jí shì, gèng dài hé shí?'",
               "translations": {
-                "cleary": "The Master said: 'Spiritual light shines alone, transcending sense organs and objects. The body of reality is openly revealed, unbound by words and letters. The nature of mind has no defilement; it is inherently complete of itself. Just detach from false conditioning, and you are the Buddha of Thusness. You people are that very embodiment right now; what time are you waiting for?'",
-                "red_pine": "The Master instructed the assembly: 'Spiritual light shines solitary, free from sense organs and objects. The body reveals the eternal truth, beyond written letters. The heart-mind nature is undefiled, naturally round and complete. Simply let go of delusive attachments, and you are the Buddha of Suchness. You are it in your very embodiment right now; what else do you wait for?'",
-                "sasaki": "Master Foyan said: 'The spiritual light shines solitary, transcending senses and forms. The true nature is undefiled, complete from the beginning. Release false conditions, and you are the Buddha of Suchness.'"
+                "cleary": {
+                  "text": "The Master said: 'Spiritual light shines alone, transcending sense organs and objects. The body of reality is openly revealed, unbound by words and letters. The nature of mind has no defilement; it is inherently complete of itself. Just detach from false conditioning, and you are the Buddha of Thusness. You people are that very embodiment right now; what time are you waiting for?'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'Spiritual light shines solitary, free from sense organs and objects. The body reveals the eternal truth, beyond written letters. The heart-mind nature is undefiled, naturally round and complete. Simply let go of delusive attachments, and you are the Buddha of Suchness. You are it in your very embodiment right now; what else do you wait for?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Foyan said: 'The spiritual light shines solitary, transcending senses and forms. The true nature is undefiled, complete from the beginning. Release false conditions, and you are the Buddha of Suchness.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -9988,9 +11671,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「夜來窗外雨聲滴瀝，打在芭蕉竹林之上。汝等以耳聽之，但名雨聲；若以心會之，是阿誰聲？山河大地，草木叢林，皆在心體之內。既在心內，雨聲豈在心外？」",
               "pinyin": "Shī shì zhòng yún: 'Yè lái chuāngwài yǔshēng dīlì, dǎ zài bājiāo zhúlín zhīshàng. Rǔděng yǐ ěr tīng zhī, dàn míng yǔshēng; ruò yǐ xīn huì zhī, shì ā shuí shēng? Shānhé dàdì, cǎomù cónglín, jiē zài xīntǐ zhīnèi. Jì zài xīn nèi, yǔshēng qǐ zài xīn wài?'",
               "translations": {
-                "cleary": "The Master said to the assembly: 'In the night, the sound of rain dripped outside the window, falling upon the plantains and bamboo. If you listen with your ears, it is merely the sound of rain; if you understand it with your mind, whose sound is it? Mountains, rivers, the great earth, grass and trees are all inside the substance of mind. Since they are inside the mind, how could the sound of rain be outside the mind?'",
-                "red_pine": "The Master told the assembly: 'Last night rain dripped outside the window, tapping on the bamboo grove. If you listen with your ears, it's just the sound of rain; if you meet it with your heart-mind, whose voice is it? Mountains, rivers, and the great earth are all inside the mind's substance. Being within the mind, how could the sound of rain be outside?'",
-                "sasaki": "Master Foyan said: 'At night rain falls upon the bamboo. Hearing it with ears, you call it rain; meeting it with mind, who is speaking? The great earth is within mind; how could rain be outside?'"
+                "cleary": {
+                  "text": "The Master said to the assembly: 'In the night, the sound of rain dripped outside the window, falling upon the plantains and bamboo. If you listen with your ears, it is merely the sound of rain; if you understand it with your mind, whose sound is it? Mountains, rivers, the great earth, grass and trees are all inside the substance of mind. Since they are inside the mind, how could the sound of rain be outside the mind?'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The Master told the assembly: 'Last night rain dripped outside the window, tapping on the bamboo grove. If you listen with your ears, it's just the sound of rain; if you meet it with your heart-mind, whose voice is it? Mountains, rivers, and the great earth are all inside the mind's substance. Being within the mind, how could the sound of rain be outside?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Foyan said: 'At night rain falls upon the bamboo. Hearing it with ears, you call it rain; meeting it with mind, who is speaking? The great earth is within mind; how could rain be outside?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10006,9 +11698,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師云：「大凡參禪，省力處便是得力處。何謂省力？放下萬緣，不起造作。如人在大海之中，四望無際，卻大呼口渴！啟口皆是水，運足皆是路。不假修持，當下圓成。」",
               "pinyin": "Shī yún: 'Dàfán cānchán, shěnglì chù biànshì délì chù. Hé wèi shěnglì? Fàngxià wànyuán, bù qǐ zàozuò. Rú rén zài dàhǎi zhīzhōng, sìwàng wújì, què dà hū kǒukě! Qǐ kǒu jiē shì shuǐ, yùn zú jiē shì lù. Bù jiǎ xiūchí, dāngxià yuánchéng.'",
               "translations": {
-                "cleary": "The Master said: 'In Zen practice generally, where you save energy is where you gain strength. What is saving energy? Let go of all entanglements, do not give rise to contrivance. You are like someone in the middle of the great ocean, looking out at the boundless expanse, yet loudly shouting that you are thirsty! Open your mouth, and it is all water; move your feet, and it is all the Way. Without relying on artificial effort, right now all is completely fulfilled.'",
-                "red_pine": "The Master said: 'In Chan, saving effort is gaining strength. What is saving effort? Laying down all conditions and avoiding fabrication. It is like being in the middle of the ocean, surrounded by water on all sides, yet screaming you are thirsty! Open your mouth, it's all water; walk your feet, it's all the path. It requires no contrivance; in the immediate present it is perfectly complete.'",
-                "sasaki": "Master Foyan said: 'Where you save energy, you gain realization. You are like someone in the ocean shouting that you are thirsty. Open your mouth and it is all water; step forward and it is all the Way.'"
+                "cleary": {
+                  "text": "The Master said: 'In Zen practice generally, where you save energy is where you gain strength. What is saving energy? Let go of all entanglements, do not give rise to contrivance. You are like someone in the middle of the great ocean, looking out at the boundless expanse, yet loudly shouting that you are thirsty! Open your mouth, and it is all water; move your feet, and it is all the Way. Without relying on artificial effort, right now all is completely fulfilled.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The Master said: 'In Chan, saving effort is gaining strength. What is saving effort? Laying down all conditions and avoiding fabrication. It is like being in the middle of the ocean, surrounded by water on all sides, yet screaming you are thirsty! Open your mouth, it's all water; walk your feet, it's all the path. It requires no contrivance; in the immediate present it is perfectly complete.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Foyan said: 'Where you save energy, you gain realization. You are like someone in the ocean shouting that you are thirsty. Open your mouth and it is all water; step forward and it is all the Way.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10024,9 +11725,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "端身正坐，如如不動。莫隨妄緣，莫住枯寂。靈明自照，了了常知。不假修為，當體現成。百千法門，只在眼前。",
               "pinyin": "Duān shēn zhèng zuò, rúrú bù dòng. Mò suí wàng yuán, mò zhù kūjì. Língmíng zì zhào, liǎoliǎo cháng zhī. Bù jiǎ xiūwéi, dāng tǐ xiànchéng. Bǎi qiān fǎmén, zhǐ zài yǎnqián.",
               "translations": {
-                "cleary": "Sit upright, motionless in suchness. Do not follow deceptive conditions, do not dwell in dead silence. Luminous awareness shines of itself, clear and constantly knowing. Requiring no artificial cultivation, its very substance is already present. Hundreds of thousands of Dharma gates are right before your eyes.",
-                "red_pine": "Sit upright and erect, unmoving in suchness. Do not follow deluded conditions, do not dwell in sterile quietude. Luminous clarity shines of itself, radiant and always aware. Without borrowing contrivance, reality is complete as it is. Ten thousand Dharma gates are right before your eyes.",
-                "sasaki": "Sit straight, unmoved in Suchness. Neither chase after thoughts nor abide in dead quiet. Wondrous awareness shines of itself, ever clear. Without contrivance, all is complete right before you."
+                "cleary": {
+                  "text": "Sit upright, motionless in suchness. Do not follow deceptive conditions, do not dwell in dead silence. Luminous awareness shines of itself, clear and constantly knowing. Requiring no artificial cultivation, its very substance is already present. Hundreds of thousands of Dharma gates are right before your eyes.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Sit upright and erect, unmoving in suchness. Do not follow deluded conditions, do not dwell in sterile quietude. Luminous clarity shines of itself, radiant and always aware. Without borrowing contrivance, reality is complete as it is. Ten thousand Dharma gates are right before your eyes.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Sit straight, unmoved in Suchness. Neither chase after thoughts nor abide in dead quiet. Wondrous awareness shines of itself, ever clear. Without contrivance, all is complete right before you.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10057,9 +11767,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "越州乾峰和尚因僧問：「十方薄伽梵，一路涅槃門。未審路頭在甚麼處？」乾峰拈起拄杖，畫一畫云：「在者裏。」",
               "pinyin": "Yuèzhōu Qiānfēng héshang yīn sēng wèn: 'Shífāng pójīafàn, yī lù nièpán mén. Wèi shěn lùtóu zài shènme chù?' Qiānfēng niān qǐ zhǔzhàng, huà yī huà yún: 'Zài zhèlǐ.'",
               "translations": {
-                "cleary": "A monk asked Master Qianfeng, 'The World-Honored Ones of the ten directions have a single road to the gate of Nirvana. Where does that road begin?' Qianfeng took his staff, drew a line in the air, and said, 'Right here.'",
-                "red_pine": "A monk asked Master Qianfeng: 'The Bhagavans of the ten directions have one single road to the gate of Nirvana. Where is the road's beginning?' Qianfeng raised his staff, drew a line, and said: 'Right here.'",
-                "sasaki": "A monk asked Qianfeng: 'All Buddhas of the ten directions have but one road to Nirvana. Where does this road start?' Qianfeng drew a line with his staff: 'Here!'"
+                "cleary": {
+                  "text": "A monk asked Master Qianfeng, 'The World-Honored Ones of the ten directions have a single road to the gate of Nirvana. Where does that road begin?' Qianfeng took his staff, drew a line in the air, and said, 'Right here.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "A monk asked Master Qianfeng: 'The Bhagavans of the ten directions have one single road to the gate of Nirvana. Where is the road's beginning?' Qianfeng raised his staff, drew a line, and said: 'Right here.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked Qianfeng: 'All Buddhas of the ten directions have but one road to Nirvana. Where does this road start?' Qianfeng drew a line with his staff: 'Here!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10067,9 +11786,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧後請益雲門。門拈起扇子云：「扇子𨁝跳，上三十三天，築著帝釋鼻孔；東海鯉魚打一棒，雨似盆傾。」",
               "pinyin": "Sēng hòu qǐngyì Yúnmén. Mén niān qǐ shànzi yún: 'Shànzi tiàotiào, shàng sānshísāntiān, zhùzháo Dìshì bíkǒng; dōnghǎi lǐyú dǎ yī bàng, yǔ sì pén qīng.'",
               "translations": {
-                "cleary": "The monk later asked Yunmen for instruction on this. Yunmen held up his fan and said, 'This fan leaps up into the thirty-third heaven and hits the nostril of Indra; the carp of the Eastern Sea strikes a blow, and rain pours down like a tilted basin!'",
-                "red_pine": "The monk later asked Yunmen. Yunmen held up a fan and said: 'This fan jumps up to the thirty-third heaven and pokes Indra in the nostril; the carp of the Eastern Sea gets hit once with a staff, and rain pours down in buckets!'",
-                "sasaki": "The monk asked Yunmen. Ummon held up a fan: 'This fan leaps into the highest heaven, punching the god Indra in the nose; the carp of the Eastern Sea is struck, and the rains pour down!'"
+                "cleary": {
+                  "text": "The monk later asked Yunmen for instruction on this. Yunmen held up his fan and said, 'This fan leaps up into the thirty-third heaven and hits the nostril of Indra; the carp of the Eastern Sea strikes a blow, and rain pours down like a tilted basin!'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The monk later asked Yunmen. Yunmen held up a fan and said: 'This fan jumps up to the thirty-third heaven and pokes Indra in the nostril; the carp of the Eastern Sea gets hit once with a staff, and rain pours down in buckets!'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The monk asked Yunmen. Ummon held up a fan: 'This fan leaps into the highest heaven, punching the god Indra in the nose; the carp of the Eastern Sea is struck, and the rains pour down!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10085,9 +11813,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "大慧示眾云：「江西主馬祖，湖南主石頭。往來憧憧，不見二大士者，為之無知也。石頭路滑，馬駒踏殺天下人。二大老同出一源，互為賓主，正眼洞照。」",
               "pinyin": "Dàhuì shì zhòng yún: 'Jiāngxī zhǔ Mǎzǔ, Húnán zhǔ Shítóu. Wǎnglái chōngchōng, bù jiàn èr dàshì zhě, wéi zhī wúzhī yě. Shítóu lù huá, mǎjū tà shā tiānxià rén. Èr dàlǎo tóng chū yī yuán, hù wéi bīnzhǔ, zhèngyǎn dòngzhào.'",
               "translations": {
-                "cleary": "Dahui said to the assembly: 'Jiangxi was led by Mazu, Hunan was led by Shitou. Those who traveled back and forth constantly without seeing these two great masters were considered ignorant. The road of Shitou is slippery; the colt of Mazu trampled everyone under heaven to death! The two great elders came from the same single source, acting as host and guest to each other, with the true eye illuminating completely.'",
-                "red_pine": "Dahui instructed the crowd: 'Mazu ruled in Jiangxi; Shitou ruled in Hunan. Those who went back and forth without having met these two great masters were thought fools. The path on Shitou is slippery; the young stallion Mazu trampled everyone on earth. The two elders sprang from the same source, reflecting each other as host and guest.'",
-                "sasaki": "Dahui said: 'In Jiangxi stood Baso; in Hunan stood Sekitō. The road of Sekitō is slippery, while Baso's colt trampled all under heaven. Both elders flowed from the One Source.'"
+                "cleary": {
+                  "text": "Dahui said to the assembly: 'Jiangxi was led by Mazu, Hunan was led by Shitou. Those who traveled back and forth constantly without seeing these two great masters were considered ignorant. The road of Shitou is slippery; the colt of Mazu trampled everyone under heaven to death! The two great elders came from the same single source, acting as host and guest to each other, with the true eye illuminating completely.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Dahui instructed the crowd: 'Mazu ruled in Jiangxi; Shitou ruled in Hunan. Those who went back and forth without having met these two great masters were thought fools. The path on Shitou is slippery; the young stallion Mazu trampled everyone on earth. The two elders sprang from the same source, reflecting each other as host and guest.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Dahui said: 'In Jiangxi stood Baso; in Hunan stood Sekitō. The road of Sekitō is slippery, while Baso's colt trampled all under heaven. Both elders flowed from the One Source.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10103,9 +11840,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "正法眼藏，非名相，非修證，非文字。如大火聚，近之則燎卻面門；如鐵酸餡，咬著則崩卻牙齒。無可取，無可捨，是名如來妙心。",
               "pinyin": "Zhèng fǎyǎn zàng, fēi míngxiàng, fēi xiūzhèng, fēi wénzì. Rú dà huǒ jù, jìn zhī zé liáo què miànmén; rú tiě suānxiàn, yǎo zháo zé bēng què yáchǐ. Wú kě qǔ, wú kě shě, shì míng rúlái miào xīn.",
               "translations": {
-                "cleary": "The treasury of the eye of true teaching is not names or forms, not cultivation or attainment, not words and letters. It is like a great fire mass: approach it and your face is scorched; it is like an iron dumpling: bite into it and your teeth are shattered. Nothing to grasp, nothing to abandon: this is named the wondrous mind of the Realized One.",
-                "red_pine": "The treasury of the true Dharma eye is not names or concepts, not cultivation or realization, not words and letters. It is like a roaring mass of fire: come near and your face is scorched; like an iron dumpling: bite down and your teeth break. Nothing to take, nothing to throw away: this is called the wondrous mind of the Tathagata.",
-                "sasaki": "The Eye Treasury of the True Law is beyond words, beyond practice and attainment. Like a blazing fireball, to touch it is to be consumed; like an iron ball, it cannot be bitten into. Beyond grasping and rejecting, it is the mind of Suchness."
+                "cleary": {
+                  "text": "The treasury of the eye of true teaching is not names or forms, not cultivation or attainment, not words and letters. It is like a great fire mass: approach it and your face is scorched; it is like an iron dumpling: bite into it and your teeth are shattered. Nothing to grasp, nothing to abandon: this is named the wondrous mind of the Realized One.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The treasury of the true Dharma eye is not names or concepts, not cultivation or realization, not words and letters. It is like a roaring mass of fire: come near and your face is scorched; like an iron dumpling: bite down and your teeth break. Nothing to take, nothing to throw away: this is called the wondrous mind of the Tathagata.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Eye Treasury of the True Law is beyond words, beyond practice and attainment. Like a blazing fireball, to touch it is to be consumed; like an iron ball, it cannot be bitten into. Beyond grasping and rejecting, it is the mind of Suchness.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10136,9 +11882,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "示眾云：「道不用修，但莫污染。何為污染？但有生死心，造作趣向，皆是污染。若欲直會其道，平常心是道。何謂平常心？無造作，無是非，無取捨，無斷常，無凡無聖。」",
               "pinyin": "Shì zhòng yún: 'Dào bùyòng xiū, dàn mò wūrǎn. Hé wéi wūrǎn? Dàn yǒu shēngsǐ xīn, zàozuò qùxiàng, jiē shì wūrǎn. Ruò yù zhí huì qí dào, píngcháng xīn shì dào. Hé wèi píngcháng xīn? Wú zàozuò, wú shì fēi, wú qǔ shě, wú duàn cháng, wú fán wú shèng.'",
               "translations": {
-                "red_pine": "The Master told the assembly: 'The Way requires no cultivation; simply do not defile it. What is defilement? As long as you have thoughts of birth and death, calculating actions and directions, all of this is defilement. If you wish to comprehend the Way directly: Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.'",
-                "cleary": "The Master addressed the crowd: 'The Way needs no cultivation, just do not defile it. What is defilement? When you have a mind of birth and death, creating orientations, all is defilement. If you want to comprehend the Way directly, ordinary mind is the Way. What is ordinary mind? Free from fabrication, right and wrong, grasping and rejecting, nihilism and eternalism, mortal and holy.'",
-                "sasaki": "Master Baso said: 'The Tao needs no cultivation; just do not defile it. What is defilement? To have a mind of birth and death, striving toward something—this is defilement. Ordinary mind is the Way. What is ordinary mind? It has no contrivance, no right or wrong, no grasping or abandoning, no commoner or sage.'"
+                "red_pine": {
+                  "text": "The Master told the assembly: 'The Way requires no cultivation; simply do not defile it. What is defilement? As long as you have thoughts of birth and death, calculating actions and directions, all of this is defilement. If you wish to comprehend the Way directly: Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master addressed the crowd: 'The Way needs no cultivation, just do not defile it. What is defilement? When you have a mind of birth and death, creating orientations, all is defilement. If you want to comprehend the Way directly, ordinary mind is the Way. What is ordinary mind? Free from fabrication, right and wrong, grasping and rejecting, nihilism and eternalism, mortal and holy.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Baso said: 'The Tao needs no cultivation; just do not defile it. What is defilement? To have a mind of birth and death, striving toward something—this is defilement. Ordinary mind is the Way. What is ordinary mind? It has no contrivance, no right or wrong, no grasping or abandoning, no commoner or sage.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10146,9 +11901,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "「經云：『非凡夫行，非聖賢行，是菩薩行。』只如今行住坐臥，應機接物，盡是道。道即是法界，乃至河沙妙用，不出法界。」",
               "pinyin": "'Jīng yún: Fēi fánfū xíng, fēi shèngxián xíng, shì púsà xíng. Zhǐ rújīn xíng zhù zuò wò, yīngjī jiēwù, jìn shì dào. Dào jí shì fǎjiè, nǎizhì héshā miàoyòng, bù chū fǎjiè.'",
               "translations": {
-                "red_pine": "The sutra says: 'Neither the conduct of ordinary mortals nor the conduct of sages is the conduct of the Bodhisattva.' Right now, walking, standing, sitting, lying down, responding to situations and meeting things—all of this is the Way. The Way is simply the Dharma-realm; even wondrous functions as numerous as sands of the Ganges do not step outside the Dharma-realm.",
-                "cleary": "The scripture says, 'Neither the conduct of mortals nor sages is the conduct of bodhisattvas.' Just walking, standing, sitting, lying down right now, responding to conditions—all is the Way. The Way is the realm of reality; wondrous functions countless as Ganges sands do not leave the realm of reality.",
-                "sasaki": "Right now, your walking, standing, sitting, and resting, responding to circumstances—all are the Way. The Way is the Dharma-realm itself."
+                "red_pine": {
+                  "text": "The sutra says: 'Neither the conduct of ordinary mortals nor the conduct of sages is the conduct of the Bodhisattva.' Right now, walking, standing, sitting, lying down, responding to situations and meeting things—all of this is the Way. The Way is simply the Dharma-realm; even wondrous functions as numerous as sands of the Ganges do not step outside the Dharma-realm.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The scripture says, 'Neither the conduct of mortals nor sages is the conduct of bodhisattvas.' Just walking, standing, sitting, lying down right now, responding to conditions—all is the Way. The Way is the realm of reality; wondrous functions countless as Ganges sands do not leave the realm of reality.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Right now, your walking, standing, sitting, and resting, responding to circumstances—all are the Way. The Way is the Dharma-realm itself.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10164,9 +11928,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "大梅法常初參馬祖，問：「如何是佛？」祖曰：「即心即佛。」大梅於言下大悟，遂往大梅山隱居。",
               "pinyin": "Dàméi Fǎcháng chū cān Mǎzǔ, wèn: 'Rúhé shì fó?' Zǔ yuē: 'Jí xīn jí fó.' Dàméi yú yán xià dà wù, suì wǎng Dàméi Shān yǐnjū.",
               "translations": {
-                "red_pine": "When Damei Fachang first visited Mazu, he asked: 'What is Buddha?' Mazu said: 'This very mind is Buddha.' Damei was enlightened at these words and went to dwell in seclusion on Mount Damei.",
-                "cleary": "Damei asked Mazu, 'What is the Buddha?' Mazu said, 'This mind is Buddha.' Damei had great enlightenment at these words and went to live in seclusion on Mount Damei.",
-                "sasaki": "Damei asked Baso: 'What is Buddha?' Baso replied: 'This very mind is Buddha.' Damei was deeply awakened at these words and went into mountain solitude."
+                "red_pine": {
+                  "text": "When Damei Fachang first visited Mazu, he asked: 'What is Buddha?' Mazu said: 'This very mind is Buddha.' Damei was enlightened at these words and went to dwell in seclusion on Mount Damei.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Damei asked Mazu, 'What is the Buddha?' Mazu said, 'This mind is Buddha.' Damei had great enlightenment at these words and went to live in seclusion on Mount Damei.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Damei asked Baso: 'What is Buddha?' Baso replied: 'This very mind is Buddha.' Damei was deeply awakened at these words and went into mountain solitude.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10174,9 +11947,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問馬祖：「和尚為甚麼說即心即佛？」祖曰：「為止小兒啼。」僧曰：「啼止時如何？」祖曰：「非心非佛。」",
               "pinyin": "Sēng wèn Mǎzǔ: 'Héshang wèishénme shuō jí xīn jí fó?' Zǔ yuē: 'Wèi zhǐ xiǎo'ér tí.' Sēng yuē: 'Tí zhǐ shí rúhé?' Zǔ yuē: 'Fēi xīn fēi fó.'",
               "translations": {
-                "red_pine": "A monk asked Mazu: 'Why do you teach that this very mind is Buddha?' Mazu said: 'To stop the crying of small babies.' The monk asked: 'When the crying stops, what then?' Mazu said: 'Neither mind nor Buddha.'",
-                "cleary": "A monk asked Mazu, 'Why do you say this mind is Buddha?' Mazu said, 'To stop babies crying.' 'When the crying stops, what then?' 'Not mind, not Buddha.'",
-                "sasaki": "A monk asked Baso: 'Why do you say this mind is Buddha?' Baso said: 'To stop a crying child.' 'When the child stops crying?' Baso said: 'Neither mind nor Buddha.'"
+                "red_pine": {
+                  "text": "A monk asked Mazu: 'Why do you teach that this very mind is Buddha?' Mazu said: 'To stop the crying of small babies.' The monk asked: 'When the crying stops, what then?' Mazu said: 'Neither mind nor Buddha.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked Mazu, 'Why do you say this mind is Buddha?' Mazu said, 'To stop babies crying.' 'When the crying stops, what then?' 'Not mind, not Buddha.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked Baso: 'Why do you say this mind is Buddha?' Baso said: 'To stop a crying child.' 'When the child stops crying?' Baso said: 'Neither mind nor Buddha.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10184,9 +11966,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧曰：「除此二種人來，如何指示？」祖曰：「向他道不是物。」僧曰：「忽遇其中人來時如何？」祖曰：「且教他體會大道。」",
               "pinyin": "Sēng yuē: 'Chú cǐ èrzhǒng rén lái, rúhé zhǐshì?' Zǔ yuē: 'Xiàng tā dào bù shì wù.' Sēng yuē: 'Hū yù qízhōng rén lái shí rúhé?' Zǔ yuē: 'Qiě jiào tā tǐhuì dàdào.'",
               "translations": {
-                "red_pine": "The monk said: 'If someone other than these two comes, how do you instruct them?' Mazu said: 'I tell them: It is not a thing.' 'What if someone in the midst of it comes?' Mazu said: 'I let them experience the Great Way.'",
-                "cleary": "The monk asked, 'If someone besides these two comes, how do you instruct them?' Mazu said, 'I tell them it is not a thing.' 'What if someone already within it comes?' Mazu said, 'I let them experience the Great Way directly.'",
-                "sasaki": "The monk asked: 'If someone comes who is neither of these?' Baso said: 'I tell him it is not a thing.'"
+                "red_pine": {
+                  "text": "The monk said: 'If someone other than these two comes, how do you instruct them?' Mazu said: 'I tell them: It is not a thing.' 'What if someone in the midst of it comes?' Mazu said: 'I let them experience the Great Way.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The monk asked, 'If someone besides these two comes, how do you instruct them?' Mazu said, 'I tell them it is not a thing.' 'What if someone already within it comes?' Mazu said, 'I let them experience the Great Way directly.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The monk asked: 'If someone comes who is neither of these?' Baso said: 'I tell him it is not a thing.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10217,9 +12008,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師遷化前，僧問：「和尚百年後，向甚處去？」",
               "pinyin": "Shī qiānhuà qián, sēng wèn: 'Héshang bǎinián hòu, xiàng shèn chù qù?'",
               "translations": {
-                "red_pine": "Before the Master passed away, a monk asked: 'After you pass on, Master, where will you go?'",
-                "cleary": "Before the Master's passing, a monk asked, 'After a hundred years, where will the Master go?'",
-                "sasaki": "Before Nansen passed away, a monk asked: 'After your death, Master, where will you go?'"
+                "red_pine": {
+                  "text": "Before the Master passed away, a monk asked: 'After you pass on, Master, where will you go?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Before the Master's passing, a monk asked, 'After a hundred years, where will the Master go?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Before Nansen passed away, a monk asked: 'After your death, Master, where will you go?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10227,9 +12027,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「山下作一頭水牯牛去。」僧曰：「學人隨和尚去得否？」師曰：「汝若隨我，銜取一莖草來。」",
               "pinyin": "Shī yuē: 'Shānxià zuò yī tóu shuǐgǔniú qù.' Sēng yuē: 'Xuérén suí héshang qù dé fǒu?' Shī yuē: 'Rǔ ruò suí wǒ, xián qǔ yī jīng cǎo lái.'",
               "translations": {
-                "red_pine": "The Master said: 'I will go down to the foot of the mountain and become a water buffalo.' The monk said: 'May I follow you there, Master?' The Master said: 'If you wish to follow me, you must bring a blade of grass in your mouth!'",
-                "cleary": "The Master said, 'I will go to the foot of the mountain and become a water buffalo.' The monk said, 'May I follow the Master?' The Master said, 'If you follow me, bring a blade of grass in your mouth.'",
-                "sasaki": "Nansen said: 'I will go down the mountain and be a water buffalo.' The monk said: 'May I follow you?' Nansen said: 'If you follow me, you must come with a mouthful of grass!'"
+                "red_pine": {
+                  "text": "The Master said: 'I will go down to the foot of the mountain and become a water buffalo.' The monk said: 'May I follow you there, Master?' The Master said: 'If you wish to follow me, you must bring a blade of grass in your mouth!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said, 'I will go to the foot of the mountain and become a water buffalo.' The monk said, 'May I follow the Master?' The Master said, 'If you follow me, bring a blade of grass in your mouth.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Nansen said: 'I will go down the mountain and be a water buffalo.' The monk said: 'May I follow you?' Nansen said: 'If you follow me, you must come with a mouthful of grass!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10245,9 +12054,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "僧問：「古人生生世世，說心說佛。和尚今日說何法？」",
               "pinyin": "Sēng wèn: 'Gǔrén shēngshēng shìshì, shuō xīn shuō fó. Héshang jīnrì shuō hé fǎ?'",
               "translations": {
-                "red_pine": "A monk asked: 'Generation after generation the ancients spoke of Mind and spoke of Buddha. What Dharma do you teach today, Master?'",
-                "cleary": "A monk asked, 'The ancients for generations spoke of mind and Buddha. What teaching does the Master preach today?'",
-                "sasaki": "A monk asked: 'Ancient masters always preached mind and preached Buddha. What do you teach today?'"
+                "red_pine": {
+                  "text": "A monk asked: 'Generation after generation the ancients spoke of Mind and spoke of Buddha. What Dharma do you teach today, Master?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "A monk asked, 'The ancients for generations spoke of mind and Buddha. What teaching does the Master preach today?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked: 'Ancient masters always preached mind and preached Buddha. What do you teach today?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10255,9 +12073,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「不是心，不是佛，不是物。」僧曰：「向甚處歸著？」師曰：「任汝穿耳，任汝踏毛。」",
               "pinyin": "Shī yuē: 'Bù shì xīn, bù shì fó, bù shì wù.' Sēng yuē: 'Xiàng shèn chù guīzhuó?' Shī yuē: 'Rèn rǔ chuān'ěr, rèn rǔ tàmáo.'",
               "translations": {
-                "red_pine": "The Master said: 'It is not mind, it is not Buddha, it is not a thing.' The monk said: 'Where does one rest then?' The Master said: 'Pierce your ears as you please, trample your fur as you wish!'",
-                "cleary": "The Master said, 'Not mind, not Buddha, not a thing.' The monk said, 'Where does it belong?' The Master said, 'Let your ears be pierced, let your hair be trodden.'",
-                "sasaki": "Nansen said: 'Not mind, not Buddha, not a thing.' The monk said: 'Where does one settle?' Nansen said: 'Pierce your ears and tread on your fur!'"
+                "red_pine": {
+                  "text": "The Master said: 'It is not mind, it is not Buddha, it is not a thing.' The monk said: 'Where does one rest then?' The Master said: 'Pierce your ears as you please, trample your fur as you wish!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said, 'Not mind, not Buddha, not a thing.' The monk said, 'Where does it belong?' The Master said, 'Let your ears be pierced, let your hair be trodden.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Nansen said: 'Not mind, not Buddha, not a thing.' The monk said: 'Where does one settle?' Nansen said: 'Pierce your ears and tread on your fur!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10273,9 +12100,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "陸亘大夫問南泉：「肇法師道：『天地與我同根，萬物與我一體。』也甚奇怪。」",
               "pinyin": "Lù Gèn dàfū wèn Nánquán: 'Zhào fǎshī dào: 'Tiāndì yǔ wǒ tóng gēn, wànwù yǔ wǒ yītǐ.' Yě shèn qīguài.'",
               "translations": {
-                "red_pine": "Governor Lu Gen asked Nanquan: 'Master Sengzhao said: Heaven and earth share the same root with me; the myriad things are one body with me. Isn't this truly extraordinary?'",
-                "cleary": "Governor Lu Gen asked Nanquan, 'Master Sengzhao said, Heaven and earth share the same root with me, the myriad things are of one body with me. Isn't this most extraordinary?'",
-                "sasaki": "Governor Riko said to Nansen: 'Master Jō said: Heaven and earth share the same root as myself; all things are one with me. Isn't this wondrous?'"
+                "red_pine": {
+                  "text": "Governor Lu Gen asked Nanquan: 'Master Sengzhao said: Heaven and earth share the same root with me; the myriad things are one body with me. Isn't this truly extraordinary?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Governor Lu Gen asked Nanquan, 'Master Sengzhao said, Heaven and earth share the same root with me, the myriad things are of one body with me. Isn't this most extraordinary?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Governor Riko said to Nansen: 'Master Jō said: Heaven and earth share the same root as myself; all things are one with me. Isn't this wondrous?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10283,9 +12119,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "南泉指庭前牡丹花曰：「大夫！時人見此一株花，如夢相似。」大夫罔措。",
               "pinyin": "Nánquán zhǐ tíng qián mǔdān huā yuē: 'Dàfū! Shí rén jiàn cǐ yī zhū huā, rú mèng xiàngsì.' Dàfū wǎngcuò.",
               "translations": {
-                "red_pine": "Nanquan pointed to a blooming peony in the courtyard and said: 'Governor! People of the world look at this single flower as if in a dream!' The Governor was at a loss.",
-                "cleary": "Nanquan pointed to a peony in the garden: 'Governor, people today see this flower as if in a dream.' The Governor was nonplussed.",
-                "sasaki": "Nansen pointed to a peony flower in the garden: 'Governor, people of this world look at this flower as if in a dream.' Riko was speechless."
+                "red_pine": {
+                  "text": "Nanquan pointed to a blooming peony in the courtyard and said: 'Governor! People of the world look at this single flower as if in a dream!' The Governor was at a loss.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Nanquan pointed to a peony in the garden: 'Governor, people today see this flower as if in a dream.' The Governor was nonplussed.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Nansen pointed to a peony flower in the garden: 'Governor, people of this world look at this flower as if in a dream.' Riko was speechless.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10317,9 +12162,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師初講金剛經，著青龍疏鈔，自負無比。聞南方禪道大振，乃擔疏鈔南下。路上見一婆子賣點心，遂歇擔買餅。",
               "pinyin": "Shī chū jiǎng Jīngāng Jīng, zhù Qīnglóng Shūchāo, zìfù wóbǐ. Wén nánfāng chándào dà zhèn, nǎi dān shūchāo nán xià. Lùshàng jiàn yī pózi mài diǎnxīn, suì xiē dān mǎi bǐng.",
               "translations": {
-                "red_pine": "The Master initially lectured on the Diamond Sutra, authoring the Qinglong Commentary with supreme self-confidence. Hearing that the Chan tradition flourished in the south, he loaded his commentaries on a shoulder-pole and headed south. On the road he saw an old woman selling refreshments (dianxin / literally 'pointing to the mind') and set down his burden to purchase some cakes.",
-                "cleary": "The Master initially lectured on the Diamond Sutra and wrote extensive commentaries. Hearing that Chan flourished in the south, he set out with his notes. On the road he met an old woman selling tea cakes and stopped to buy some.",
-                "sasaki": "Tokusan had written vast commentaries on the Diamond Sutra. Hearing of Southern Zen, he carried his books south. On the road he stopped at an old woman's tea stall for refreshment."
+                "red_pine": {
+                  "text": "The Master initially lectured on the Diamond Sutra, authoring the Qinglong Commentary with supreme self-confidence. Hearing that the Chan tradition flourished in the south, he loaded his commentaries on a shoulder-pole and headed south. On the road he saw an old woman selling refreshments (dianxin / literally 'pointing to the mind') and set down his burden to purchase some cakes.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master initially lectured on the Diamond Sutra and wrote extensive commentaries. Hearing that Chan flourished in the south, he set out with his notes. On the road he met an old woman selling tea cakes and stopped to buy some.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Tokusan had written vast commentaries on the Diamond Sutra. Hearing of Southern Zen, he carried his books south. On the road he stopped at an old woman's tea stall for refreshment.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10327,9 +12181,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "婆問：「車上挑得是甚麼文字？」師曰：「金剛經疏鈔。」婆曰：「我有一問，若答得，施與點心；若答不得，且請他去。」",
               "pinyin": "Pó wèn: 'Chē shàng tiāo dé shì shènme wénzì?' Shī yuē: 'Jīngāng Jīng Shūchāo.' Pó yuē: 'Wǒ yǒu yī wèn, ruò dá dé, shīyǔ diǎnxīn; ruò dá bù dé, qiě qǐng tā qù.'",
               "translations": {
-                "red_pine": "The old woman asked: 'What writings are you carrying on your cart?' The Master said: 'Commentaries on the Diamond Sutra.' The woman said: 'I have one question. If you can answer it, I will give you the refreshments for free; if you cannot, please go elsewhere.'",
-                "cleary": "The woman asked, 'What books are you carrying?' He said, 'Commentaries on the Diamond Sutra.' She said, 'I have a question: if you can answer, I give you cakes; if not, go away.'",
-                "sasaki": "The old woman asked: 'What are those books?' Tokusan said: 'Commentaries on the Diamond Sutra.' She said: 'If you can answer my question, the cakes are free; if not, begone.'"
+                "red_pine": {
+                  "text": "The old woman asked: 'What writings are you carrying on your cart?' The Master said: 'Commentaries on the Diamond Sutra.' The woman said: 'I have one question. If you can answer it, I will give you the refreshments for free; if you cannot, please go elsewhere.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The woman asked, 'What books are you carrying?' He said, 'Commentaries on the Diamond Sutra.' She said, 'I have a question: if you can answer, I give you cakes; if not, go away.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The old woman asked: 'What are those books?' Tokusan said: 'Commentaries on the Diamond Sutra.' She said: 'If you can answer my question, the cakes are free; if not, begone.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10337,9 +12200,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "婆曰：「金剛經道：『過去心不可得，現在心不可得，未來心不可得。』未審長老點那箇心？」師無對。",
               "pinyin": "Pó yuē: 'Jīngāng Jīng dào: Guòqù xīn bùkě dé, xiànzài xīn bùkě dé, wèilái xīn bùkě dé. Wèi shěn zhǎnglǎo diǎn nǎ ge xīn?' Shī wú duì.",
               "translations": {
-                "red_pine": "The old woman asked: 'The Diamond Sutra says: Past mind cannot be grasped, present mind cannot be grasped, future mind cannot be grasped. Which mind does the Elder wish to refresh with these cakes?' The Master had no reply.",
-                "cleary": "The woman said, 'The Diamond Sutra says past mind cannot be grasped, present mind cannot be grasped, future mind cannot be grasped. Which mind does the Elder intend to refresh?' The Master was speechless.",
-                "sasaki": "The old woman asked: 'The Diamond Sutra says past mind is ungraspable, present mind is ungraspable, future mind is ungraspable. Which mind do you wish to refresh with your cakes?' Tokusan was struck dumb."
+                "red_pine": {
+                  "text": "The old woman asked: 'The Diamond Sutra says: Past mind cannot be grasped, present mind cannot be grasped, future mind cannot be grasped. Which mind does the Elder wish to refresh with these cakes?' The Master had no reply.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The woman said, 'The Diamond Sutra says past mind cannot be grasped, present mind cannot be grasped, future mind cannot be grasped. Which mind does the Elder intend to refresh?' The Master was speechless.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The old woman asked: 'The Diamond Sutra says past mind is ungraspable, present mind is ungraspable, future mind is ungraspable. Which mind do you wish to refresh with your cakes?' Tokusan was struck dumb.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10355,9 +12227,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師至龍潭，夜深侍立。龍潭曰：「更深何不下去？」師遂出，復回曰：「外面黑。」龍潭點紙燭度與師。師擬接，龍潭復吹滅。師於此大悟，便禮拜。",
               "pinyin": "Shī zhì Lóngtán, yè shēn shì lì. Lóngtán yuē: 'Gèng shēn hé bù xià qù?' Shī suì chū, fù huí yuē: 'Wàimiàn hēi.' Lóngtán diǎn zhǐzhú dù yǔ shī. Shī nǐ jiē, Lóngtán fù chuī miè. Shī yú cǐ dà wù, biàn lǐbài.",
               "translations": {
-                "red_pine": "The Master arrived at Longtan and stood attendant late into the night. Longtan said: 'The night is deep; why not retire?' The Master stepped outside, then turned back and said: 'It is dark outside.' Longtan lit a paper candle and handed it to the Master. Just as the Master was about to take it, Longtan blew it out! At this, the Master attained great awakening and bowed.",
-                "cleary": "The Master stood with Longtan late into the night. Longtan said, 'It is late; why not go down?' The Master went out and said, 'It's dark outside.' Longtan lit a paper candle and handed it to him. As the Master reached for it, Longtan blew it out. The Master had great awakening and bowed.",
-                "sasaki": "Late at night, Tokusan was with Master Ryūtan. Ryūtan said: 'It is late; why don't you retire?' Tokusan stepped out and said: 'It is pitch dark outside.' Ryūtan lit a paper candle and handed it to him. As Tokusan reached out, Ryūtan blew it out! Tokusan was instantly enlightened."
+                "red_pine": {
+                  "text": "The Master arrived at Longtan and stood attendant late into the night. Longtan said: 'The night is deep; why not retire?' The Master stepped outside, then turned back and said: 'It is dark outside.' Longtan lit a paper candle and handed it to the Master. Just as the Master was about to take it, Longtan blew it out! At this, the Master attained great awakening and bowed.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master stood with Longtan late into the night. Longtan said, 'It is late; why not go down?' The Master went out and said, 'It's dark outside.' Longtan lit a paper candle and handed it to him. As the Master reached for it, Longtan blew it out. The Master had great awakening and bowed.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Late at night, Tokusan was with Master Ryūtan. Ryūtan said: 'It is late; why don't you retire?' Tokusan stepped out and said: 'It is pitch dark outside.' Ryūtan lit a paper candle and handed it to him. As Tokusan reached out, Ryūtan blew it out! Tokusan was instantly enlightened.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10365,9 +12246,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "次日，師提疏鈔於法堂前，舉火炬曰：「窮諸玄辯，若一毫置於太虛；竭世樞機，似一滴投於巨壑。」遂焚之。",
               "pinyin": "Cì rì, shī tí shūchāo yú fǎtáng qián, jǔ huǒjù yuē: 'Qióng zhū xuánbiàn, ruò yī háo zhì yú tài xū; jié shì shūjī, sì yī dī tóu yú jù hè.' Suì fén zhī.",
               "translations": {
-                "red_pine": "The next morning, the Master brought his commentaries in front of the Dharma Hall, lifted a torch, and declared: 'Even if you exhaust all subtle doctrines, it is like placing a single hair in the great void; even if you exhaust all worldly intellect, it is like dropping a single drop of water into a fathomless canyon.' And he burned them all to ashes.",
-                "cleary": "Next day the Master brought his commentaries before the hall, raised a torch, and said, 'Even if you exhaust all subtle words, it is like a hair in the void; even if you exhaust all worldly cleverness, it is like a drop in a giant abyss.' Then he burned them.",
-                "sasaki": "Next morning Tokusan took his commentaries before the hall, held up a torch, and said: 'Even if you master all subtle teachings, it is like a hair in the vast sky; even if you master all worldly knowledge, it is like a drop in the ocean.' He then burned them all."
+                "red_pine": {
+                  "text": "The next morning, the Master brought his commentaries in front of the Dharma Hall, lifted a torch, and declared: 'Even if you exhaust all subtle doctrines, it is like placing a single hair in the great void; even if you exhaust all worldly intellect, it is like dropping a single drop of water into a fathomless canyon.' And he burned them all to ashes.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Next day the Master brought his commentaries before the hall, raised a torch, and said, 'Even if you exhaust all subtle words, it is like a hair in the void; even if you exhaust all worldly cleverness, it is like a drop in a giant abyss.' Then he burned them.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Next morning Tokusan took his commentaries before the hall, held up a torch, and said: 'Even if you master all subtle teachings, it is like a hair in the vast sky; even if you master all worldly knowledge, it is like a drop in the ocean.' He then burned them all.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10383,9 +12273,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「問即有過，不問猶乖。道得也三十棒，道不得也三十棒。汝等速道！速道！」",
               "pinyin": "Shī shì zhòng yún: 'Wèn jí yǒu guò, bù wèn yóu guāi. Dào dé yě sānshí bàng, dào bù dé yě sānshí bàng. Rǔděng sù dào! Sù dào!'",
               "translations": {
-                "red_pine": "The Master instructed the assembly: 'If you ask, you commit an error; if you do not ask, you deviate from the truth. If you can speak, thirty blows; if you cannot speak, thirty blows! Speak quickly! Speak quickly!'",
-                "cleary": "The Master said to the crowd: 'To question is an error; not to question is a mistake. If you can speak, thirty blows; if you cannot speak, thirty blows. Speak quickly! Speak quickly!'",
-                "sasaki": "Tokusan said to the monks: 'To ask is a fault; not to ask is an error. Speak, and thirty blows; do not speak, and thirty blows! Speak at once! Speak at once!'"
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'If you ask, you commit an error; if you do not ask, you deviate from the truth. If you can speak, thirty blows; if you cannot speak, thirty blows! Speak quickly! Speak quickly!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said to the crowd: 'To question is an error; not to question is a mistake. If you can speak, thirty blows; if you cannot speak, thirty blows. Speak quickly! Speak quickly!'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Tokusan said to the monks: 'To ask is a fault; not to ask is an error. Speak, and thirty blows; do not speak, and thirty blows! Speak at once! Speak at once!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10417,9 +12316,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師與巖頭行腳至湖南，阻雪於鰲山。師每日兀兀端坐，巖頭每日只是大睡。師喚巖頭曰：「師兄！且起來！這箇時節，何暇瞌睡？」巖頭喝曰：「睡！睡！每日坐處，正如村裏土地堂中泥塑神一般，他時後日惑亂人家男女！」",
               "pinyin": "Shī yǔ Yántóu xíngjiǎo zhì Húnán, zǔ xuě yú Áoshān. Shī měi rì wùwù duānzuò, Yántóu měi rì zhǐshì dà shuì. Shī huàn Yántóu yuē: 'Shīxiōng! Qiě qǐlái! Zhègè shíjié, héxiá kēshuì?' Yántóu hè yuē: 'Shuì! Shuì! Měi rì zuò chù, zhèng rú cūnlǐ tǔdì táng zhōng nísù shén yībān, tāshí hòurì huòluàn rénjiā nánnǚ!'",
               "translations": {
-                "red_pine": "The Master traveled on pilgrimage with Yantou to Hunan, snowbound at Mount Ao. The Master sat upright in meditation every day, while Yantou spent every day sleeping. The Master called to Yantou: 'Elder Brother! Get up! In times like these, how can you doze!' Yantou shouted: 'Sleep! Sleep! Sitting every day like a clay idol in a village earth-god shrine—in the future you will only bewilder young men and women!'",
-                "cleary": "The Master was traveling with Yantou and got snowbound at Mount Ao. The Master sat meditating all day; Yantou slept all day. The Master shouted, 'Brother, get up! In such circumstances why do you sleep?' Yantou yelled, 'Sleep! Sitting all day like a clay spirit in a village shrine, later on you will fool people!'",
-                "sasaki": "Xuefeng and Yantou were snowbound on Mount Ao. Xuefeng sat in zazen all day; Yantou just slept. Xuefeng said: 'Brother, wake up!' Yantou shouted: 'Sleep! Sitting like a clay idol in a village shrine, you will only mislead people!'"
+                "red_pine": {
+                  "text": "The Master traveled on pilgrimage with Yantou to Hunan, snowbound at Mount Ao. The Master sat upright in meditation every day, while Yantou spent every day sleeping. The Master called to Yantou: 'Elder Brother! Get up! In times like these, how can you doze!' Yantou shouted: 'Sleep! Sleep! Sitting every day like a clay idol in a village earth-god shrine—in the future you will only bewilder young men and women!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master was traveling with Yantou and got snowbound at Mount Ao. The Master sat meditating all day; Yantou slept all day. The Master shouted, 'Brother, get up! In such circumstances why do you sleep?' Yantou yelled, 'Sleep! Sitting all day like a clay spirit in a village shrine, later on you will fool people!'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Xuefeng and Yantou were snowbound on Mount Ao. Xuefeng sat in zazen all day; Yantou just slept. Xuefeng said: 'Brother, wake up!' Yantou shouted: 'Sleep! Sitting like a clay idol in a village shrine, you will only mislead people!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10427,9 +12335,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師撫胸曰：「我這裏未穩在，不敢自瞞。」",
               "pinyin": "Shī fǔ xiōng yuē: 'Wǒ zhèlǐ wèi wěn zài, bù gǎn zì mán.'",
               "translations": {
-                "red_pine": "The Master struck his chest and said: 'In here I am not yet at peace; I dare not deceive myself.'",
-                "cleary": "The Master rubbed his chest: 'In here I am not yet settled; I dare not fool myself.'",
-                "sasaki": "Xuefeng beat his chest: 'My heart is not yet at peace; I cannot deceive myself.'"
+                "red_pine": {
+                  "text": "The Master struck his chest and said: 'In here I am not yet at peace; I dare not deceive myself.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master rubbed his chest: 'In here I am not yet settled; I dare not fool myself.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Xuefeng beat his chest: 'My heart is not yet at peace; I cannot deceive myself.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10437,9 +12354,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "巖頭曰：「汝若欲播揚大教，一一從自己胸襟中流出，將來與我蓋天蓋地去！」師於言下大悟，躍起禮拜，叫曰：「今日始是鰲山成道！」",
               "pinyin": "Yántóu yuē: 'Rǔ ruò yù bōyáng dàjiào, yīyī cóng zìjǐ xiōngjīn zhōng liúchū, jiānglái yǔ wǒ gài tiān gài dì qù!' Shī yú yán xià dà wù, yuè qǐ lǐbài, jiào yuē: 'Jīnrì shǐ shì Áoshān chéngdào!'",
               "translations": {
-                "red_pine": "Yantou said: 'If you wish to spread the great teaching, let every single expression flow out from your own bosom, to cover heaven and cover earth for me in the future!' At these words the Master attained great awakening, leaped up, bowed, and shouted: 'Today on Mount Ao, I have truly attained the Tao!'",
-                "cleary": "Yantou said, 'If you want to propagate the great teaching, let each word flow from your own bosom to cover heaven and earth.' The Master had great awakening, jumped up, and shouted, 'Today on Mount Ao I have attained the Way!'",
-                "sasaki": "Yantou said: 'If you wish to spread the great teaching, let every word flow out from your own breast to cover heaven and earth!' Xuefeng was deeply enlightened and shouted: 'Today on Mount Ao I have attained the Tao!'"
+                "red_pine": {
+                  "text": "Yantou said: 'If you wish to spread the great teaching, let every single expression flow out from your own bosom, to cover heaven and cover earth for me in the future!' At these words the Master attained great awakening, leaped up, bowed, and shouted: 'Today on Mount Ao, I have truly attained the Tao!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Yantou said, 'If you want to propagate the great teaching, let each word flow from your own bosom to cover heaven and earth.' The Master had great awakening, jumped up, and shouted, 'Today on Mount Ao I have attained the Way!'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Yantou said: 'If you wish to spread the great teaching, let every word flow out from your own breast to cover heaven and earth!' Xuefeng was deeply enlightened and shouted: 'Today on Mount Ao I have attained the Tao!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10455,9 +12381,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「盡大地撮來，如粟米粒大。拋向面前，漆黑窠裏。打鼓普請看！」",
               "pinyin": "Shī shì zhòng yún: 'Jìn dàdì cuō lái, rú sùmǐlì dà. Pāo xiàng miànqián, qīhēi kē lǐ. Dǎgǔ pǔqǐng kàn!'",
               "translations": {
-                "red_pine": "The Master instructed the assembly: 'The entire great earth, picked up in your fingertips, is no larger than a grain of rice. Cast before your face, it is inside a pitch-black lacquer tub. Beat the drum to invite everyone to come look!'",
-                "cleary": "The Master said to the group: 'The whole great earth picked up is as big as a grain of rice. Thrown down before you, it is in a black tub. Beat the drum and invite all to look.'",
-                "sasaki": "Master Seppō said to the assembly: 'The whole great earth, picked up in your fingers, is no bigger than a grain of millet. Thrown before your eyes, it is pitch black. Beat the drum and call all to look!'"
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'The entire great earth, picked up in your fingertips, is no larger than a grain of rice. Cast before your face, it is inside a pitch-black lacquer tub. Beat the drum to invite everyone to come look!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said to the group: 'The whole great earth picked up is as big as a grain of rice. Thrown down before you, it is in a black tub. Beat the drum and invite all to look.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Seppō said to the assembly: 'The whole great earth, picked up in your fingers, is no bigger than a grain of millet. Thrown before your eyes, it is pitch black. Beat the drum and call all to look!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10491,9 +12426,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "世尊一日陞座。大眾才集，文殊白槌云：「諦觀法王法，法王法如是。」世尊便下座。",
               "pinyin": "Shìzūn yī rì shēngzuò. Dàzhòng cái jí, Wénshū bái chuí yún: 'Dì guān fǎwáng fǎ, fǎwáng fǎ rúshì.' Shìzūn biàn xiàzuò.",
               "translations": {
-                "cleary": "One day the World-Honored One ascended the seat. As the crowd gathered, Manjushri struck the gavel and said, 'Clearly observe the Dharma of the King of Dharma; the Dharma of the King of Dharma is thus!' The World-Honored One then got down from the seat.",
-                "red_pine": "One day the World-Honored One ascended the teaching seat. As the assembly gathered, Manjushri struck the gavel and announced: 'Clearly observe the Dharma of the Dharma King; the Dharma of the Dharma King is thus!' The World-Honored One immediately stepped down from the seat.",
-                "sasaki": "One day the World-Honored One ascended the platform. Manjushri struck the gavel: 'Carefully behold the Law of the King of the Law; the Law of the King of the Law is thus!' The Buddha descended from his seat."
+                "cleary": {
+                  "text": "One day the World-Honored One ascended the seat. As the crowd gathered, Manjushri struck the gavel and said, 'Clearly observe the Dharma of the King of Dharma; the Dharma of the King of Dharma is thus!' The World-Honored One then got down from the seat.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "One day the World-Honored One ascended the teaching seat. As the assembly gathered, Manjushri struck the gavel and announced: 'Clearly observe the Dharma of the Dharma King; the Dharma of the Dharma King is thus!' The World-Honored One immediately stepped down from the seat.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "One day the World-Honored One ascended the platform. Manjushri struck the gavel: 'Carefully behold the Law of the King of the Law; the Law of the King of the Law is thus!' The Buddha descended from his seat.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ],
@@ -10517,9 +12461,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "南泉因兩堂爭貓，提起云：「道得即救，道不得即斬卻。」眾無對，泉斬之。趙州晚歸，泉舉示。州脫草鞋安頭上出。泉曰：「子若在，恰救得貓兒。」",
               "pinyin": "Nánquán yīn liǎngtáng zhēng māo, tíqǐ yún: 'Dào dé jí jiù, dào bù dé jí zhǎn què.' Zhòng wú duì, Quán zhǎn zhī. Zhàozhōu wǎn guī, Quán jǔ shì. Zhōu tuō cǎoxié ān tóu shàng chū. Quán yuē: 'Zǐ ruò zài, qià jiù dé māo'er.'",
               "translations": {
-                "cleary": "Because the two halls were disputing over a cat, Nanquan held it up and said, 'If you can speak, you save it; if not, I'll cut it.' The crowd had no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, put them on his head, and went out. Nanquan said, 'Had you been here, you'd have saved the cat.'",
-                "red_pine": "Because the Eastern and Western halls fought over a cat, Nanquan lifted it up: 'If you can speak, you save it; if not, I will cut it in two.' The monks made no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, placed them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
-                "sasaki": "Nansen held up the cat: 'Speak and save it; if not, I cut it.' The monks were silent; Nansen cut it in two. Jōshū put his straw sandals on his head and walked out. Nansen said: 'Had you been here, you would have saved it.'"
+                "cleary": {
+                  "text": "Because the two halls were disputing over a cat, Nanquan held it up and said, 'If you can speak, you save it; if not, I'll cut it.' The crowd had no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, put them on his head, and went out. Nanquan said, 'Had you been here, you'd have saved the cat.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Because the Eastern and Western halls fought over a cat, Nanquan lifted it up: 'If you can speak, you save it; if not, I will cut it in two.' The monks made no reply; Nanquan cut it. Zhaozhou returned in the evening; Nanquan told him. Zhaozhou took off his straw sandals, placed them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Nansen held up the cat: 'Speak and save it; if not, I cut it.' The monks were silent; Nansen cut it in two. Jōshū put his straw sandals on his head and walked out. Nansen said: 'Had you been here, you would have saved it.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ],
@@ -10555,9 +12508,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "夫宗門之設，達摩西來，單傳心印。六祖以降，南嶽、青原分派。南嶽出百丈、黃檗、臨濟、溈仰；青原出石頭、藥山、洞山、雲門、法眼。派分五家，流注七宗，同歸一極。",
               "pinyin": "Fú zōngmén zhī shè, Dámó xī lái, dān chuán xīnyìn. Liùzǔ yǐjiàng, Nányuè, Qīngyuán fēnpài. Nányuè chū Bǎizhàng, Huángbò, Línjì, Guīyǎng; Qīngyuán chū Shítóu, Yàoshān, Dòngshān, Yúnmén, Fǎyǎn. Pài fēn wǔjiā, liúzhù qīzōng, tóng guī yī jí.",
               "translations": {
-                "red_pine": "In the establishment of the ancestral school, Bodhidharma came from the west to transmit solely the mind seal. From the Sixth Patriarch onward, the lineage divided into Nanyue and Qingyuan. Nanyue yielded Baizhang, Huangbo, Linji, and Guiyang; Qingyuan yielded Shitou, Yaoshan, Dongshan (Caodong), Yunmen, and Fayan. Divided into Five Houses and flowing into Seven Schools, they all return to the single supreme source.",
-                "cleary": "In the establishment of the Chan school, Bodhidharma came from the west, transmitting only the mind seal. After the Sixth Patriarch, it divided into Nanyue and Qingyuan. Nanyue produced Baizhang, Huangbo, Linji, and Guiyang; Qingyuan produced Shitou, Dongshan, Yunmen, and Fayan. Divided into five houses, flowing into seven branches, they return to the one truth.",
-                "sasaki": "Bodhidharma came from the West to transmit the Mind Seal directly. From the Sixth Patriarch the stream branched into Nanyue and Qingyuan, yielding the Five Houses of Linji, Caodong, Yunmen, Guiyang, and Fayan, all converging in the One Mind."
+                "red_pine": {
+                  "text": "In the establishment of the ancestral school, Bodhidharma came from the west to transmit solely the mind seal. From the Sixth Patriarch onward, the lineage divided into Nanyue and Qingyuan. Nanyue yielded Baizhang, Huangbo, Linji, and Guiyang; Qingyuan yielded Shitou, Yaoshan, Dongshan (Caodong), Yunmen, and Fayan. Divided into Five Houses and flowing into Seven Schools, they all return to the single supreme source.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "In the establishment of the Chan school, Bodhidharma came from the west, transmitting only the mind seal. After the Sixth Patriarch, it divided into Nanyue and Qingyuan. Nanyue produced Baizhang, Huangbo, Linji, and Guiyang; Qingyuan produced Shitou, Dongshan, Yunmen, and Fayan. Divided into five houses, flowing into seven branches, they return to the one truth.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Bodhidharma came from the West to transmit the Mind Seal directly. From the Sixth Patriarch the stream branched into Nanyue and Qingyuan, yielding the Five Houses of Linji, Caodong, Yunmen, Guiyang, and Fayan, all converging in the One Mind.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10573,9 +12535,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "五祖一日至碓坊，見六祖腰石舂米，問曰：「米熟也未？」六祖曰：「米熟久矣，猶欠篩在。」祖以杖擊碓三下而去。",
               "pinyin": "Wǔzǔ yī rì zhì duìfáng, jiàn Liùzǔ yāo shí chōng mǐ, wèn yuē: 'Mǐ shú yě wèi?' Liùzǔ yuē: 'Mǐ shú jiǔ yǐ, yóu qiàn shāi zài.' Zǔ yǐ zhàng jī duì sān xià ér qù.",
               "translations": {
-                "red_pine": "One day the Fifth Patriarch visited the rice-threshing shed. Seeing Huineng treading the pestle with a heavy stone tied to his waist, he asked: 'Is the rice ready yet?' Huineng said: 'The rice has long been ready; it only lacks the final sieving.' The Patriarch struck the pestle three times with his staff and left.",
-                "cleary": "The Fifth Patriarch came to the threshing shed and saw Huineng with a stone tied to his waist pounding rice. He said, 'Is the rice ready?' Huineng said, 'The rice has been ready long since; it just lacks the sieve.' The Patriarch tapped the mortar three times with his staff and left.",
-                "sasaki": "The Fifth Patriarch visited the threshing shed, seeing Huineng pounding rice with a rock on his waist. 'Is the rice ready?' Huineng replied: 'The rice has long been ready; it only waits to be sieved.' The Master struck the mortar three times with his staff."
+                "red_pine": {
+                  "text": "One day the Fifth Patriarch visited the rice-threshing shed. Seeing Huineng treading the pestle with a heavy stone tied to his waist, he asked: 'Is the rice ready yet?' Huineng said: 'The rice has long been ready; it only lacks the final sieving.' The Patriarch struck the pestle three times with his staff and left.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Fifth Patriarch came to the threshing shed and saw Huineng with a stone tied to his waist pounding rice. He said, 'Is the rice ready?' Huineng said, 'The rice has been ready long since; it just lacks the sieve.' The Patriarch tapped the mortar three times with his staff and left.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Fifth Patriarch visited the threshing shed, seeing Huineng pounding rice with a rock on his waist. 'Is the rice ready?' Huineng replied: 'The rice has long been ready; it only waits to be sieved.' The Master struck the mortar three times with his staff.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10583,9 +12554,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "六祖知祖意，遂於三更入室。五祖以袈裟遮圍，為說金剛經。至「應無所住而生其心」，六祖大悟，言：「何期自性本自清淨！何期自性本不生滅！何期自性能生萬法！」五祖遂傳衣缽。",
               "pinyin": "Liùzǔ zhī zǔ yì, suì yú sāngēng rùshì. Wǔzǔ yǐ jiāshā zhēwéi, wèi shuō Jīngāng Jīng. Zhì 'yìng wú suǒ zhù ér shēng qí xīn', Liùzǔ dà wù, yán: 'Hé qī zìxìng běn zì qīngjìng! Hé qī zìxìng běn bù shēngmiè! Hé qī zìxìng néng shēng wànfǎ!' Wǔzǔ suì chuán yībō.",
               "translations": {
-                "red_pine": "The Sixth Patriarch understood the Master's meaning and entered the abbot's room at the third watch of the night. The Fifth Patriarch shielded him with his robe and expounded the Diamond Sutra. When he reached 'Arouse the mind without dwelling on anything,' Huineng had great enlightenment and declared: 'Who could have expected that self-nature is fundamentally pure of itself! Who could have expected that self-nature is unborn and indestructible! Who could have expected that self-nature can generate the ten thousand dharmas!' The Fifth Patriarch then transmitted the robe and bowl.",
-                "cleary": "Huineng understood and entered the room at the third watch. The Patriarch covered him with his robe and expounded the Diamond Sutra. At the line 'Arouse the mind without abiding anywhere,' Huineng had great awakening: 'Who would have thought that self-nature is inherently pure! Who would have thought that self-nature generates all things!' The Patriarch transmitted the robe and bowl.",
-                "sasaki": "At the third watch Huineng entered. The Fifth Patriarch expounded the Diamond Sutra: 'Produce a mind that abides nowhere.' At this Huineng was completely enlightened: 'How wondrous that original nature is inherently pure and gives birth to all things!' The robe and bowl were transmitted."
+                "red_pine": {
+                  "text": "The Sixth Patriarch understood the Master's meaning and entered the abbot's room at the third watch of the night. The Fifth Patriarch shielded him with his robe and expounded the Diamond Sutra. When he reached 'Arouse the mind without dwelling on anything,' Huineng had great enlightenment and declared: 'Who could have expected that self-nature is fundamentally pure of itself! Who could have expected that self-nature is unborn and indestructible! Who could have expected that self-nature can generate the ten thousand dharmas!' The Fifth Patriarch then transmitted the robe and bowl.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Huineng understood and entered the room at the third watch. The Patriarch covered him with his robe and expounded the Diamond Sutra. At the line 'Arouse the mind without abiding anywhere,' Huineng had great awakening: 'Who would have thought that self-nature is inherently pure! Who would have thought that self-nature generates all things!' The Patriarch transmitted the robe and bowl.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "At the third watch Huineng entered. The Fifth Patriarch expounded the Diamond Sutra: 'Produce a mind that abides nowhere.' At this Huineng was completely enlightened: 'How wondrous that original nature is inherently pure and gives birth to all things!' The robe and bowl were transmitted.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10617,9 +12597,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "夫生死交謝，寒暑迭遷。有為之法，念念不住。旋嵐偃嶽而常靜，江河競注而不流，野馬飄鼓而不動，日月歷天而不周。復何怪哉？",
               "pinyin": "Fú shēngsǐ jiāoxiè, hánshǔ diéqiān. Yǒuwéi zhī fǎ, niànniàn bù zhù. Xuánlán yǎn yuè ér cháng jìng, jiānghé jìngzhù ér bù liú, yěmǎ piāogǔ ér bù dòng, rìyuè lì tiān ér bù zhōu. Fù hé guài zāi?",
               "translations": {
-                "red_pine": "Birth and death alternate, cold and heat replace one another. Conditioned phenomena do not abide for a single thought. Whirlwinds that flatten mountains are forever calm; rushing rivers that race to the sea do not flow; shimmering mirages do not move; sun and moon circling the sky do not revolve. What is so strange about this?",
-                "cleary": "Birth and death alternate, cold and heat succeed each other. Conditioned things do not stay for an instant. Fierce gales that uproot mountains are perpetually calm; rushing rivers racing along do not flow; floating dust blown by wind does not move; sun and moon crossing the heavens do not revolve. Why wonder at this?",
-                "liebenthal": "Whirlwinds that level mountains are eternally calm; rivers rushing to the ocean do not move; blowing dust is motionless; sun and moon circling the heavens do not change place."
+                "red_pine": {
+                  "text": "Birth and death alternate, cold and heat replace one another. Conditioned phenomena do not abide for a single thought. Whirlwinds that flatten mountains are forever calm; rushing rivers that race to the sea do not flow; shimmering mirages do not move; sun and moon circling the sky do not revolve. What is so strange about this?",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Birth and death alternate, cold and heat succeed each other. Conditioned things do not stay for an instant. Fierce gales that uproot mountains are perpetually calm; rushing rivers racing along do not flow; floating dust blown by wind does not move; sun and moon crossing the heavens do not revolve. Why wonder at this?",
+                  "status": "reconstruction_unverified"
+                },
+                "liebenthal": {
+                  "text": "Whirlwinds that level mountains are eternally calm; rivers rushing to the ocean do not move; blowing dust is motionless; sun and moon circling the heavens do not change place.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10627,9 +12616,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "往物在於往，不來至現在；今物在於今，不去至過去。求向物於向，於向未嘗無；求向物於今，於今未嘗有。是故動靜未始異，古今常如一。",
               "pinyin": "Wǎng wù zài yú wǎng, bù lái zhì xiànzài; jīn wù zài yú jīn, bù qù zhì guòqù. Qiú xiàng wù yú xiàng, yú xiàng wèicháng wú; qiú xiàng wù yú jīn, yú jīn wèicháng yǒu. Shìgù dòngjìng wèishǐ yì, gǔjīn cháng rúyī.",
               "translations": {
-                "red_pine": "Past things abide in the past and do not travel to the present; present things abide in the present and do not travel to the past. If you look for past things in the past, in the past they were never absent; if you look for past things in the present, in the present they never exist. Therefore motion and stillness have never been different; past and present are forever as one.",
-                "cleary": "Past things remain in the past, not coming to the present; present things remain in the present, not going to the past. Seeking past things in the past, they are never absent; seeking past things in the present, they never exist. Thus motion and stillness are not different; antiquity and today are ever as one.",
-                "liebenthal": "Things of the past remain in the past; they do not come to the present. Things of the present remain in the present; they do not depart to the past. Therefore motion and rest are fundamentally identical."
+                "red_pine": {
+                  "text": "Past things abide in the past and do not travel to the present; present things abide in the present and do not travel to the past. If you look for past things in the past, in the past they were never absent; if you look for past things in the present, in the present they never exist. Therefore motion and stillness have never been different; past and present are forever as one.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Past things remain in the past, not coming to the present; present things remain in the present, not going to the past. Seeking past things in the past, they are never absent; seeking past things in the present, they never exist. Thus motion and stillness are not different; antiquity and today are ever as one.",
+                  "status": "reconstruction_unverified"
+                },
+                "liebenthal": {
+                  "text": "Things of the past remain in the past; they do not come to the present. Things of the present remain in the present; they do not depart to the past. Therefore motion and rest are fundamentally identical.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10645,9 +12643,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "夫萬物非真，故名為幻。幻非真有，故不可言有；幻非都無，故不可言無。非有非無，諸法實相。欲言其有，象非真象；欲言其無，萬象宛然。",
               "pinyin": "Fú wànwù fēi zhēn, gù míng wéi huàn. Huàn fēi zhēn yǒu, gù bùkě yán yǒu; huàn fēi dōu wú, gù bùkě yán wú. Fēi yǒu fēi wú, zhūfǎ shíxiāng. Yù yán qí yǒu, xiàng fēi zhēn xiàng; yù yán qí wú, wànxiàng wǎnrán.",
               "translations": {
-                "red_pine": "The myriad things are not truly real, and so are named illusions. Illusions are not truly existing, so they cannot be called 'being'; illusions are not totally non-existent, so they cannot be called 'non-being.' Neither being nor non-being is the true mark of all dharmas. If you wish to call them existing, their forms are not real forms; if you wish to call them non-existing, the ten thousand forms are plainly manifest.",
-                "cleary": "The myriad things are not real, so they are called illusory. Illusions are not real existence, so one cannot say they are; illusions are not total nothingness, so one cannot say they are not. Neither existence nor nonexistence is the true state of phenomena.",
-                "liebenthal": "All things are unreal, therefore they are like phantoms. Phantoms are not truly existing, nor are they totally non-existent. Neither being nor non-being: this is the true reality of all things."
+                "red_pine": {
+                  "text": "The myriad things are not truly real, and so are named illusions. Illusions are not truly existing, so they cannot be called 'being'; illusions are not totally non-existent, so they cannot be called 'non-being.' Neither being nor non-being is the true mark of all dharmas. If you wish to call them existing, their forms are not real forms; if you wish to call them non-existing, the ten thousand forms are plainly manifest.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The myriad things are not real, so they are called illusory. Illusions are not real existence, so one cannot say they are; illusions are not total nothingness, so one cannot say they are not. Neither existence nor nonexistence is the true state of phenomena.",
+                  "status": "reconstruction_unverified"
+                },
+                "liebenthal": {
+                  "text": "All things are unreal, therefore they are like phantoms. Phantoms are not truly existing, nor are they totally non-existent. Neither being nor non-being: this is the true reality of all things.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10663,9 +12670,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "天地與我同根，萬物與我一體。涅槃之妙，湛若靈海。含吐十方，包育萬彙。無得無失，寂然常存。",
               "pinyin": "Tiāndì yǔ wǒ tónggēn, wànwù yǔ wǒ yītǐ. Nièpán zhī miào, zhàn ruò línghǎi. Hán tǔ shífāng, bāoyù wànhuì. Wú dé wú shī, jìrán cháng cún.",
               "translations": {
-                "red_pine": "Heaven and earth share the same root with me; the myriad things are of one body with me. The marvel of Nirvana is clear and profound like a spiritual sea, embracing and breathing forth the ten directions, nurturing all living varieties. Without gain and without loss, quietly and eternally present.",
-                "cleary": "Heaven and earth share the same root with me, myriad things are of one body with me. The marvel of Nirvana is deep as a spiritual sea, containing the ten directions, nurturing all beings.",
-                "liebenthal": "Heaven and earth have the same origin as myself; all things form one body with me. Nirvana is serene and inexhaustible like the ocean."
+                "red_pine": {
+                  "text": "Heaven and earth share the same root with me; the myriad things are of one body with me. The marvel of Nirvana is clear and profound like a spiritual sea, embracing and breathing forth the ten directions, nurturing all living varieties. Without gain and without loss, quietly and eternally present.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Heaven and earth share the same root with me, myriad things are of one body with me. The marvel of Nirvana is deep as a spiritual sea, containing the ten directions, nurturing all beings.",
+                  "status": "reconstruction_unverified"
+                },
+                "liebenthal": {
+                  "text": "Heaven and earth have the same origin as myself; all things form one body with me. Nirvana is serene and inexhaustible like the ocean.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10689,9 +12705,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "吾心似秋月，碧潭清皎潔。無物堪比倫，教我如何說？",
           "pinyin": "Wú xīn sì qiū yuè, bì tán qīng jiǎojié. Wú wù kān bǐ lún, jiào wǒ rúhé shuō?",
           "translations": {
-            "red_pine": "My mind is like the autumn moon, shining pure in the emerald pool. Nothing can compare with it; teach me: how can I explain it?",
-            "cleary": "My mind is like the autumn moon, clean and clear in the green pool. Nothing can compare with it; how can you have me speak of it?",
-            "snyder": "My heart is like the autumn moon / perfectly relatively bright in the green pool / nothing can compare with it / tell me, how shall I explain it?"
+            "red_pine": {
+              "text": "My mind is like the autumn moon, shining pure in the emerald pool. Nothing can compare with it; teach me: how can I explain it?",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "My mind is like the autumn moon, clean and clear in the green pool. Nothing can compare with it; how can you have me speak of it?",
+              "status": "reconstruction_unverified"
+            },
+            "snyder": {
+              "text": "My heart is like the autumn moon / perfectly relatively bright in the green pool / nothing can compare with it / tell me, how shall I explain it?",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -10699,9 +12724,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "杳杳寒山道，落落冷澗濱。啾啾常有鳥，寂寂更無人。淅淅風吹面，紛紛雪積身。朝朝不見日，歲歲不知春。",
           "pinyin": "Yǎoyǎo hánshān dào, luòluò lěngjiàn bīn. Jiūjiū cháng yǒu niǎo, jìjì gèng wú rén. Xīxī fēng chuī miàn, fēnfēn xuě jī shēn. Zhāozhāo bù jiàn rì, suìsuì bù zhī chūn.",
           "translations": {
-            "red_pine": "Faint is the path to Cold Mountain; deep are the banks of the chilly stream. Birds chirp continuously; in vast silence there are no people. Whistling winds blow against my face; swirling snow accumulates upon my body. Day after day I see no sun; year after year I know no spring.",
-            "cleary": "Remote is the path to Cold Mountain; steep are the chilly riverbanks. Chirping birds are always there; quiet and still, there are no people. Whistling winds blow on my face; drifting snow falls on my body. Dawn after dawn I see no sun; year after year I know no spring.",
-            "snyder": "Clambering up the Cold Mountain path / The Cold Mountain trail goes on and on / The long gorge choked with stones and boulders / The wide creek, the mist-blurred grass / The moss is slippery, though there's been no rain / The pine sings, but there's no wind / Who can leap the world's ties / And sit with me among the white clouds?"
+            "red_pine": {
+              "text": "Faint is the path to Cold Mountain; deep are the banks of the chilly stream. Birds chirp continuously; in vast silence there are no people. Whistling winds blow against my face; swirling snow accumulates upon my body. Day after day I see no sun; year after year I know no spring.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Remote is the path to Cold Mountain; steep are the chilly riverbanks. Chirping birds are always there; quiet and still, there are no people. Whistling winds blow on my face; drifting snow falls on my body. Dawn after dawn I see no sun; year after year I know no spring.",
+              "status": "reconstruction_unverified"
+            },
+            "snyder": {
+              "text": "Clambering up the Cold Mountain path / The Cold Mountain trail goes on and on / The long gorge choked with stones and boulders / The wide creek, the mist-blurred grass / The moss is slippery, though there's been no rain / The pine sings, but there's no wind / Who can leap the world's ties / And sit with me among the white clouds?",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -10709,9 +12743,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "高高峰頂上，四望極無邊。獨坐無人知，孤月照寒泉。泉中且無月，月是在青天。吟此一曲歌，歌中不是禪。",
           "pinyin": "Gāogāo fēngdǐng shàng, sìwàng jí wúbiān. Dú zuò wú rén zhī, gū yuè zhào hán quán. Quán zhōng qiě wú yuè, yuè shì zài qīngtiān. Yín cǐ yī qǔ gē, gē zhōng bùshì chán.",
           "translations": {
-            "red_pine": "High, high atop the peak of the mountain, looking out in four directions without bound. Sitting alone, nobody knows; the solitary moon shines upon the cold spring. In the spring there is no moon; the moon is in the blue sky. Singing this single tune of song: within the song is not Zen!",
-            "cleary": "High on the mountain peak, looking in four directions without bounds. Sitting alone without anyone knowing, the solitary moon illuminates the cold spring. In the spring there is no moon; the moon is in the blue sky. Singing this single melody: in the song is not Zen.",
-            "snyder": "High on the peak of the mountain / Looking in all directions without bounds / Sitting alone with no one knowing / The solitary moon reflects on the cold spring / Yet there is no moon in the water / The moon is in the clear blue sky / Chanting this single verse: / In the song there is no Zen!"
+            "red_pine": {
+              "text": "High, high atop the peak of the mountain, looking out in four directions without bound. Sitting alone, nobody knows; the solitary moon shines upon the cold spring. In the spring there is no moon; the moon is in the blue sky. Singing this single tune of song: within the song is not Zen!",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "High on the mountain peak, looking in four directions without bounds. Sitting alone without anyone knowing, the solitary moon illuminates the cold spring. In the spring there is no moon; the moon is in the blue sky. Singing this single melody: in the song is not Zen.",
+              "status": "reconstruction_unverified"
+            },
+            "snyder": {
+              "text": "High on the peak of the mountain / Looking in all directions without bounds / Sitting alone with no one knowing / The solitary moon reflects on the cold spring / Yet there is no moon in the water / The moon is in the clear blue sky / Chanting this single verse: / In the song there is no Zen!",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -10719,9 +12762,18 @@ window.TRANSLATECHAN_DATA = {
           "zh": "登陟寒山道，寒山路不窮。長溪石磊磊，短澗草濛濛。苔滑非關雨，松鳴不假風。誰能超世累，共坐白雲中？",
           "pinyin": "Dēngzhì hánshān dào, hánshān lù bù qióng. Cháng xī shí lěilěi, duǎn jiàn cǎo méngméng. Tái huá fēi guān yǔ, sōng míng bù jiǎ fēng. Shuí néng chāo shì lèi, gòng zuò bái yún zhōng?",
           "translations": {
-            "red_pine": "Climbing the path to Cold Mountain, the Cold Mountain road is endless. Long streams strewn with boulders; short gorges misted with grass. The moss is slippery without rain; the pines sing without wind. Who can transcend the worldly burden and come sit with me in the white clouds?",
-            "cleary": "Climbing the path of Cold Mountain, the Cold Mountain trail never ends. The long brook is piled with rocks; the short gully is thick with grass. The moss is slippery without rain; the pine roars without wind. Who can transcend worldly entanglements and sit together in the white clouds?",
-            "snyder": "Climbing the Cold Mountain road / The Cold Mountain road has no end / The long creeks are piled with stones / The deep ravines are choked with grass / The moss is slippery though it hasn't rained / The pines sing with no wind / Who can leave the world's dust / To sit with me in the white clouds?"
+            "red_pine": {
+              "text": "Climbing the path to Cold Mountain, the Cold Mountain road is endless. Long streams strewn with boulders; short gorges misted with grass. The moss is slippery without rain; the pines sing without wind. Who can transcend the worldly burden and come sit with me in the white clouds?",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Climbing the path of Cold Mountain, the Cold Mountain trail never ends. The long brook is piled with rocks; the short gully is thick with grass. The moss is slippery without rain; the pine roars without wind. Who can transcend worldly entanglements and sit together in the white clouds?",
+              "status": "reconstruction_unverified"
+            },
+            "snyder": {
+              "text": "Climbing the Cold Mountain road / The Cold Mountain road has no end / The long creeks are piled with stones / The deep ravines are choked with grass / The moss is slippery though it hasn't rained / The pines sing with no wind / Who can leave the world's dust / To sit with me in the white clouds?",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],
@@ -10751,9 +12803,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "相國裴休一日請師至府，指壁上畫像問曰：「真容在此，長老在甚麼處？」師應聲召曰：「裴休！」休應曰：「諾！」",
               "pinyin": "Xiàngguó Péi Xiū yī rì qǐng shī zhì fǔ, zhǐ bì shàng huàxiàng wèn yuē: 'Zhēnróng zài cǐ, zhǎnglǎo zài shènme chù?' Shī yìngshēng zhào yuē: 'Péi Xiū!' Xiū yìng yuē: 'Nuò!'",
               "translations": {
-                "blofeld": "One day Prime Minister Pei Xiu invited the Master to the government hall, pointed to a portrait of a monk on the wall, and asked: 'The portrait is here, but where is the Master?' The Master immediately called out: 'Pei Xiu!' The Prime Minister answered: 'Yes!'",
-                "red_pine": "Prime Minister Pei Xiu invited the Master to his quarters. Pointing to a monk's portrait on the wall, he asked: 'The likeness is right here, but where is the Master?' The Master immediately called out: 'Pei Xiu!' Pei Xiu replied: 'Yes, Master!'",
-                "cleary": "Prime Minister Pei Xiu invited the Master to his office, pointed to a painting of a high monk on the wall, and asked, 'The true likeness is here; where is the elder?' The Master called out, 'Pei Xiu!' Xiu answered, 'Yes!'"
+                "blofeld": {
+                  "text": "One day Prime Minister Pei Xiu invited the Master to the government hall, pointed to a portrait of a monk on the wall, and asked: 'The portrait is here, but where is the Master?' The Master immediately called out: 'Pei Xiu!' The Prime Minister answered: 'Yes!'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Prime Minister Pei Xiu invited the Master to his quarters. Pointing to a monk's portrait on the wall, he asked: 'The likeness is right here, but where is the Master?' The Master immediately called out: 'Pei Xiu!' Pei Xiu replied: 'Yes, Master!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Prime Minister Pei Xiu invited the Master to his office, pointed to a painting of a high monk on the wall, and asked, 'The true likeness is here; where is the elder?' The Master called out, 'Pei Xiu!' Xiu answered, 'Yes!'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10761,9 +12822,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「在甚麼處？」休於言下大悟，如獲寶珠，便禮拜謝師。",
               "pinyin": "Shī yuē: 'Zài shènme chù?' Xiū yú yán xià dà wù, rú huò bǎozhū, biàn lǐbài xiè shī.",
               "translations": {
-                "blofeld": "The Master said: 'Where is he?' At these words the Prime Minister was greatly awakened, as if finding a priceless gem, and bowed in deep gratitude to the Master.",
-                "red_pine": "The Master said: 'Where are you?' At these words Pei Xiu attained great awakening, as if finding a hidden jewel, and bowed in veneration.",
-                "cleary": "The Master said, 'Where are you?' Pei Xiu had great enlightenment at these words, as if obtaining a jewel, and bowed in gratitude."
+                "blofeld": {
+                  "text": "The Master said: 'Where is he?' At these words the Prime Minister was greatly awakened, as if finding a priceless gem, and bowed in deep gratitude to the Master.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The Master said: 'Where are you?' At these words Pei Xiu attained great awakening, as if finding a hidden jewel, and bowed in veneration.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said, 'Where are you?' Pei Xiu had great enlightenment at these words, as if obtaining a jewel, and bowed in gratitude.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10779,9 +12849,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「汝等諸人，盡是噇酒糟漢！恁麼行腳，何處有今日？還知大唐國內無禪師麼？」",
               "pinyin": "Shī shì zhòng yún: 'Rǔděng zhū rén, jìn shì chuáng jiǔzāo hàn! Rèn me xíngjiǎo, hé chù yǒu jīnrì? Hái zhī Dàtáng guónèi wú chánshī me?'",
               "translations": {
-                "blofeld": "The Master instructed the assembly: 'All of you people are eaters of wine dregs! If you go on wandering like this, where will you find today? Do you know that in all of Great Tang China there is not a single Chan teacher?'",
-                "red_pine": "The Master addressed the assembly: 'You people are all guzzlers of dregs! Wandering about on pilgrimage like this, where will you ever find the present moment? Do you know that in all the great empire of Tang there are no Chan teachers?'",
-                "cleary": "The Master said to the assembly, 'You people are all eaters of dregs! If you go traveling like this, where will you find today? Do you know there are no Zen teachers in the whole Tang empire?'"
+                "blofeld": {
+                  "text": "The Master instructed the assembly: 'All of you people are eaters of wine dregs! If you go on wandering like this, where will you find today? Do you know that in all of Great Tang China there is not a single Chan teacher?'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The Master addressed the assembly: 'You people are all guzzlers of dregs! Wandering about on pilgrimage like this, where will you ever find the present moment? Do you know that in all the great empire of Tang there are no Chan teachers?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said to the assembly, 'You people are all eaters of dregs! If you go traveling like this, where will you find today? Do you know there are no Zen teachers in the whole Tang empire?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10789,9 +12868,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "時有僧出問：「只如諸方聚眾接人，又作麼生？」師曰：「不道無禪，祇是無師。」",
               "pinyin": "Shí yǒu sēng chū wèn: 'Zhǐ rú zhūfāng jùzhòng jiērén, yòu zuò me shēng?' Shī yuē: 'Bù dào wú chán, zhǐ shì wú shī.'",
               "translations": {
-                "blofeld": "Then a monk came forward and asked: 'What about those in all quarters who gather followers and instruct disciples?' The Master said: 'I do not say there is no Chan; I only say there are no teachers!'",
-                "red_pine": "A monk stepped out and asked: 'What about those everywhere who lead assemblies and instruct people?' The Master said: 'I don't say there is no Chan; only that there are no teachers.'",
-                "cleary": "Then a monk came forward and asked, 'What about those everywhere who gather groups and lead people?' The Master said, 'I don't say there is no Zen, just that there are no teachers.'"
+                "blofeld": {
+                  "text": "Then a monk came forward and asked: 'What about those in all quarters who gather followers and instruct disciples?' The Master said: 'I do not say there is no Chan; I only say there are no teachers!'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "A monk stepped out and asked: 'What about those everywhere who lead assemblies and instruct people?' The Master said: 'I don't say there is no Chan; only that there are no teachers.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Then a monk came forward and asked, 'What about those everywhere who gather groups and lead people?' The Master said, 'I don't say there is no Zen, just that there are no teachers.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10807,9 +12895,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "虛空不可度量，心體亦不可度量。若能了達無心，則十方虛空盡是自心。起心動念，即乖法體；休歇無求，當下菩提。",
               "pinyin": "Xūkōng bùkě dùliàng, xīntǐ yì bùkě dùliàng. Ruò néng liǎodá wúxīn, zé shífāng xūkōng jìn shì zì xīn. Qǐxīn dòngniàn, jí guāi fǎtǐ; xiūxiē wúqiú, dāngxià pútí.",
               "translations": {
-                "blofeld": "The void cannot be measured, and the substance of Mind cannot be measured. If you can comprehend No-Mind, then the ten directions of open space are all your own mind. Stirring a thought or moving a concept deviates from the body of reality; resting in non-seeking is instant Bodhi.",
-                "red_pine": "The void cannot be measured, nor can the substance of mind be measured. If you realize No-Mind, the void in all ten directions is your own mind. Stirring thoughts deviates from reality; resting in non-seeking is immediate Bodhi.",
-                "cleary": "Space cannot be measured, and the body of mind cannot be measured. If you realize no-mind, the space of the ten directions is all your own mind. Arousing thoughts is deviation; resting without seeking is Bodhi right now."
+                "blofeld": {
+                  "text": "The void cannot be measured, and the substance of Mind cannot be measured. If you can comprehend No-Mind, then the ten directions of open space are all your own mind. Stirring a thought or moving a concept deviates from the body of reality; resting in non-seeking is instant Bodhi.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The void cannot be measured, nor can the substance of mind be measured. If you realize No-Mind, the void in all ten directions is your own mind. Stirring thoughts deviates from reality; resting in non-seeking is immediate Bodhi.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Space cannot be measured, and the body of mind cannot be measured. If you realize no-mind, the space of the ten directions is all your own mind. Arousing thoughts is deviation; resting without seeking is Bodhi right now.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10836,8 +12933,14 @@ window.TRANSLATECHAN_DATA = {
                     "reference": "Q&A no. 21"
                   }
                 },
-                "cleary": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
-                "ai_literal": "Xiu asked: 'How do all Buddhas practice great compassion and preach dharma for sentient beings?'"
+                "cleary": {
+                  "text": "Pei Xiu asked, 'How do the Buddhas exercise great compassion and preach the teaching for sentient beings?'",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "Xiu asked: 'How do all Buddhas practice great compassion and preach dharma for sentient beings?'",
+                  "status": "ai_draft"
+                }
               }
             },
             {
@@ -10856,8 +12959,14 @@ window.TRANSLATECHAN_DATA = {
                     "reference": "Q&A no. 21"
                   }
                 },
-                "cleary": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
-                "ai_literal": "Master said: 'Buddhas' compassion is conditionless compassion. Not seeing any Buddha to attain, not seeing any sentient beings to liberate. No speaking and no showing, no hearing and no acquiring: this is named great compassion.'"
+                "cleary": {
+                  "text": "The Master said: The compassion of the Buddhas is compassion without condition. They see no Buddha that can be attained, and see no sentient beings that can be saved. No preaching and no demonstrating, no listening and no attaining—this is named great compassion.",
+                  "status": "reconstruction_unverified"
+                },
+                "ai_literal": {
+                  "text": "Master said: 'Buddhas' compassion is conditionless compassion. Not seeing any Buddha to attain, not seeing any sentient beings to liberate. No speaking and no showing, no hearing and no acquiring: this is named great compassion.'",
+                  "status": "ai_draft"
+                }
               }
             }
           ],
@@ -10888,9 +12997,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師欲遍歷諸方，挑包出山。才行數武，磕傷腳指，流血痛甚。師豁然大悟，曰：「是身非有，痛從何來？」遂回雪峰。",
               "pinyin": "Shī yù biànlì zhūfāng, tiāobāo chūshān. Cái xíng shù wǔ, kē shāng jiǎozhǐ, liúxuè tòng shèn. Shī huòrán dà wù, yuē: 'Shì shēn fēi yǒu, tòng cóng hé lái?' Suì huí Xuěfēng.",
               "translations": {
-                "red_pine": "The Master wished to travel on pilgrimage throughout China and packed his bundle to leave the mountain. Having walked only a few paces, he stubbed his toe against a rock, bleeding profusely in searing pain. The Master had great awakening and exclaimed: 'This body is fundamentally non-existent; where does this pain come from?' He immediately turned around and returned to Xuefeng.",
-                "cleary": "The Master was about to go on pilgrimage to various quarters. Carrying his pack, he set out. Walking a few steps, he stubbed his toe; bleeding and in pain, he had great enlightenment: 'This body is not real; where does pain come from?' He then went back to Xuefeng.",
-                "sasaki": "Xuansha packed his bundle to visit teachers in the north. Stepping out, he stubbed his toe on a boulder. In severe pain and bleeding, he suddenly woke up: 'This body is void; where does pain arise?' He turned straight back."
+                "red_pine": {
+                  "text": "The Master wished to travel on pilgrimage throughout China and packed his bundle to leave the mountain. Having walked only a few paces, he stubbed his toe against a rock, bleeding profusely in searing pain. The Master had great awakening and exclaimed: 'This body is fundamentally non-existent; where does this pain come from?' He immediately turned around and returned to Xuefeng.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master was about to go on pilgrimage to various quarters. Carrying his pack, he set out. Walking a few steps, he stubbed his toe; bleeding and in pain, he had great enlightenment: 'This body is not real; where does pain come from?' He then went back to Xuefeng.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Xuansha packed his bundle to visit teachers in the north. Stepping out, he stubbed his toe on a boulder. In severe pain and bleeding, he suddenly woke up: 'This body is void; where does pain arise?' He turned straight back.",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10898,9 +13016,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "雪峰見師回，問曰：「備頭陀何不遍參去？」師曰：「達摩不來東土，二祖不往西天。」雪峰大喜，印可之。",
               "pinyin": "Xuěfēng jiàn shī huí, wèn yuē: 'Bèi tóutuó hé bù biàncān qù?' Shī yuē: 'Dámó bù lái dōngtǔ, Èrzǔ bù wǎng xītiān.' Xuěfēng dà xǐ, yìnkě zhī.",
               "translations": {
-                "red_pine": "Xuefeng saw him return and asked: 'Ascetic Bei, why haven't you gone on pilgrimage?' The Master said: 'Bodhidharma did not come to China; the Second Patriarch did not go to India!' Xuefeng was overjoyed and granted him the seal of transmission.",
-                "cleary": "Xuefeng saw him return and said, 'Ascetic Bei, why didn't you go on pilgrimage?' The Master said, 'Bodhidharma did not come to the East; the Second Patriarch did not go to the West.' Xuefeng was delighted and gave his seal.",
-                "sasaki": "Xuefeng asked: 'Ascetic Bei, why don't you go on pilgrimage?' Xuansha replied: 'Bodhidharma never came to China; the Second Patriarch never went to India!' Xuefeng deeply approved."
+                "red_pine": {
+                  "text": "Xuefeng saw him return and asked: 'Ascetic Bei, why haven't you gone on pilgrimage?' The Master said: 'Bodhidharma did not come to China; the Second Patriarch did not go to India!' Xuefeng was overjoyed and granted him the seal of transmission.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Xuefeng saw him return and said, 'Ascetic Bei, why didn't you go on pilgrimage?' The Master said, 'Bodhidharma did not come to the East; the Second Patriarch did not go to the West.' Xuefeng was delighted and gave his seal.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Xuefeng asked: 'Ascetic Bei, why don't you go on pilgrimage?' Xuansha replied: 'Bodhidharma never came to China; the Second Patriarch never went to India!' Xuefeng deeply approved.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10916,9 +13043,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「盡十方世界是一顆明珠。」有僧問：「和尚道盡十方世界是一顆明珠，學人如何得會？」",
               "pinyin": "Shī shì zhòng yún: 'Jìn shífāng shìjiè shì yī kē míngzhū.' Yǒu sēng wèn: 'Héshang dào jìn shífāng shìjiè shì yī kē míngzhū, xuérén rúhé dé huì?'",
               "translations": {
-                "red_pine": "The Master instructed the assembly: 'The entire universe in all ten directions is a single bright pearl.' A monk asked: 'The Master says the entire universe in all ten directions is a single bright pearl; how can a student comprehend this?'",
-                "cleary": "The Master said to the crowd, 'The universe in the ten directions is a single bright pearl.' A monk asked, 'The Master says the universe in the ten directions is a single bright pearl; how can I understand this?'",
-                "sasaki": "Master Gensa told the monks: 'The whole universe in the ten directions is one bright pearl.' A monk asked: 'How can I understand that the universe is one bright pearl?'"
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'The entire universe in all ten directions is a single bright pearl.' A monk asked: 'The Master says the entire universe in all ten directions is a single bright pearl; how can a student comprehend this?'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said to the crowd, 'The universe in the ten directions is a single bright pearl.' A monk asked, 'The Master says the universe in the ten directions is a single bright pearl; how can I understand this?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Gensa told the monks: 'The whole universe in the ten directions is one bright pearl.' A monk asked: 'How can I understand that the universe is one bright pearl?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -10926,9 +13062,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師曰：「盡十方世界是一顆明珠，用會作麼？」僧於言下有省。",
               "pinyin": "Shī yuē: 'Jìn shífāng shìjiè shì yī kē míngzhū, yòng huì zuò me?' Sēng yú yán xià yǒu xǐng.",
               "translations": {
-                "red_pine": "The Master said: 'The entire universe in all ten directions is a single bright pearl; what is the use of comprehending it!' The monk had an awakening at these words.",
-                "cleary": "The Master said, 'The universe in the ten directions is a single bright pearl; what use is understanding?' The monk had an awakening.",
-                "sasaki": "Gensa said: 'The whole universe is one bright pearl; what need is there to understand it!' The monk was enlightened."
+                "red_pine": {
+                  "text": "The Master said: 'The entire universe in all ten directions is a single bright pearl; what is the use of comprehending it!' The monk had an awakening at these words.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master said, 'The universe in the ten directions is a single bright pearl; what use is understanding?' The monk had an awakening.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Gensa said: 'The whole universe is one bright pearl; what need is there to understand it!' The monk was enlightened.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10944,9 +13089,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「諸方善知識，皆言接引利生。忽遇盲聾啞三種人來，作麼生接引？拈槌豎拂，他眼又不見；口說玄言，他耳又不聞；教他開口，他口又不能語。作麼生為人？若接他不得，佛法無靈驗！」",
               "pinyin": "Shī shì zhòng yún: 'Zhūfāng shànzhīshi, jiē yán jiēyǐn lìshēng. Hū yù máng lóng yǎ sān zhǒng rén lái, zuò me shēng jiēyǐn? Niān chuí shù fú, tā yǎn yòu bù jiàn; kǒu shuō xuányán, tā ěr yòu bù wén; jiào tā kāikǒu, tā kǒu yòu bùnéng yǔ. Zuò me shēng wèi rén? Ruò jiē tā bùdé, fófǎ wú língyàn!'",
               "translations": {
-                "red_pine": "The Master addressed the assembly: 'Teachers in all quarters claim they guide and benefit sentient beings. If they suddenly encounter a blind person, a deaf person, and a mute person, how will they guide them? If you pick up a mallet or raise a fly-whisk, their eyes cannot see; if you speak subtle words, their ears cannot hear; if you tell them to speak, their mouth cannot talk. How will you help them? If you cannot guide them, the Buddha Dharma has no efficacy!'",
-                "cleary": "The Master addressed the assembly: 'Masters in all quarters say they guide people. If three kinds of disabled seekers come—the blind, deaf, and mute—how do you guide them? If you hold up a whisk, the blind cannot see; if you speak, the deaf cannot hear; if you question them, the mute cannot speak. How do you help them? If you cannot, the Buddha Dharma is powerless!'",
-                "sasaki": "Xuansha said: 'All masters claim to save beings. If a blind, deaf, and mute person arrives, how do you save them? Whisk is unseen, words unheard, and speech impossible. How do you guide them?'"
+                "red_pine": {
+                  "text": "The Master addressed the assembly: 'Teachers in all quarters claim they guide and benefit sentient beings. If they suddenly encounter a blind person, a deaf person, and a mute person, how will they guide them? If you pick up a mallet or raise a fly-whisk, their eyes cannot see; if you speak subtle words, their ears cannot hear; if you tell them to speak, their mouth cannot talk. How will you help them? If you cannot guide them, the Buddha Dharma has no efficacy!'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Master addressed the assembly: 'Masters in all quarters say they guide people. If three kinds of disabled seekers come—the blind, deaf, and mute—how do you guide them? If you hold up a whisk, the blind cannot see; if you speak, the deaf cannot hear; if you question them, the mute cannot speak. How do you help them? If you cannot, the Buddha Dharma is powerless!'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Xuansha said: 'All masters claim to save beings. If a blind, deaf, and mute person arrives, how do you save them? Whisk is unseen, words unheard, and speech impossible. How do you guide them?'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10977,9 +13131,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "祖幼孤貧，採薪鬻市。一日負薪至市，見一客誦經。祖忽聞「應無所住而生其心」，言下大悟。遂問客：「誦何經？」客曰：「金剛般若波羅蜜經，五祖弘忍大師於黃梅所授也。」祖遂辭母，直指黃梅。",
               "pinyin": "Zǔ yòu gūpín, cǎixīn yù shì. Yī rì fùxīn zhì shì, jiàn yī kè sòng jīng. Zǔ hū wén 'yìng wú suǒ zhù ér shēng qí xīn', yán xià dà wù. Suì wèn kè: 'Sòng hé jīng?' Kè yuē: 'Jīngāng Bōrě Bōluómì Jīng, Wǔzǔ Hóngrěn dàshī yú Huángméi suǒ shòu yě.' Zǔ suì cí mǔ, zhí zhǐ Huángméi.",
               "translations": {
-                "red_pine": "The Patriarch was fatherless and poor in his youth, gathering firewood to sell in the market. One day as he brought firewood to the market, he saw a traveler chanting a scripture. The Patriarch suddenly heard the words: 'Arouse the mind without dwelling on anything,' and was instantly awakened. He asked the traveler: 'What scripture are you chanting?' The traveler said: 'The Diamond Prajnaparamita Sutra, taught by the Fifth Patriarch Hongren at Yellow Plum Mountain.' The Patriarch immediately took leave of his mother and headed straight for Huangmei.",
-                "cleary": "Huineng was poor in his youth, selling firewood in the city. One day carrying wood to market, he heard someone reciting scripture. Hearing 'Arouse the mind without abiding anywhere,' he had great enlightenment. Asking the traveler what it was, the traveler said it was the Diamond Sutra taught by Fifth Patriarch Hongren. Huineng then went to Huangmei.",
-                "yampolsky": "Huineng sold firewood in the market. Hearing a customer recite the Diamond Sutra at the phrase 'Produce a mind that abides nowhere,' his mind opened to awakening. Learning of Fifth Patriarch Hongren at Huangmei, he set out for the North."
+                "red_pine": {
+                  "text": "The Patriarch was fatherless and poor in his youth, gathering firewood to sell in the market. One day as he brought firewood to the market, he saw a traveler chanting a scripture. The Patriarch suddenly heard the words: 'Arouse the mind without dwelling on anything,' and was instantly awakened. He asked the traveler: 'What scripture are you chanting?' The traveler said: 'The Diamond Prajnaparamita Sutra, taught by the Fifth Patriarch Hongren at Yellow Plum Mountain.' The Patriarch immediately took leave of his mother and headed straight for Huangmei.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Huineng was poor in his youth, selling firewood in the city. One day carrying wood to market, he heard someone reciting scripture. Hearing 'Arouse the mind without abiding anywhere,' he had great enlightenment. Asking the traveler what it was, the traveler said it was the Diamond Sutra taught by Fifth Patriarch Hongren. Huineng then went to Huangmei.",
+                  "status": "reconstruction_unverified"
+                },
+                "yampolsky": {
+                  "text": "Huineng sold firewood in the market. Hearing a customer recite the Diamond Sutra at the phrase 'Produce a mind that abides nowhere,' his mind opened to awakening. Learning of Fifth Patriarch Hongren at Huangmei, he set out for the North.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -10995,9 +13158,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "五祖見祖，問曰：「汝自何來？」祖曰：「嶺南新州百姓。」祖曰：「汝來求何事？」六祖曰：「唯求作佛，不求餘物。」",
               "pinyin": "Wǔzǔ jiàn zǔ, wèn yuē: 'Rǔ zì hé lái?' Zǔ yuē: 'Lǐngnán Xīnzhōu bǎixìng.' Zǔ yuē: 'Rǔ lái qiú hé shì?' Liùzǔ yuē: 'Wéi qiú zuò fó, bù qiú yú wù.'",
               "translations": {
-                "red_pine": "The Fifth Patriarch saw him and asked: 'Where have you come from?' Huineng said: 'A commoner from Xinzhou in Lingnan.' Hongren asked: 'What do you seek coming here?' Huineng said: 'I seek only to become a Buddha; I seek nothing else.'",
-                "cleary": "The Fifth Patriarch asked, 'Where do you come from?' 'A commoner from Lingnan.' 'What are you seeking?' Huineng said, 'I seek only to become a Buddha, nothing else.'",
-                "yampolsky": "Hongren asked: 'Where are you from?' Huineng replied: 'I am a peasant from Lingnan.' Hongren asked: 'What do you seek?' 'I seek only to attain Buddhahood.'"
+                "red_pine": {
+                  "text": "The Fifth Patriarch saw him and asked: 'Where have you come from?' Huineng said: 'A commoner from Xinzhou in Lingnan.' Hongren asked: 'What do you seek coming here?' Huineng said: 'I seek only to become a Buddha; I seek nothing else.'",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "The Fifth Patriarch asked, 'Where do you come from?' 'A commoner from Lingnan.' 'What are you seeking?' Huineng said, 'I seek only to become a Buddha, nothing else.'",
+                  "status": "reconstruction_unverified"
+                },
+                "yampolsky": {
+                  "text": "Hongren asked: 'Where are you from?' Huineng replied: 'I am a peasant from Lingnan.' Hongren asked: 'What do you seek?' 'I seek only to attain Buddhahood.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             },
             {
@@ -11005,9 +13177,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "五祖曰：「汝是嶺南獦獠，若為堪得作佛？」六祖曰：「人雖有南北，佛性本無南北。獦獠身與和尚身不同，佛性有何差別？」五祖知其異人，叱令隨眾作務。",
               "pinyin": "Wǔzǔ yuē: 'Rǔ shì Lǐngnán géliáo, ruò wéi kān dé zuò fó?' Liùzǔ yuē: 'Rén suī yǒu nánběi, fóxìng běn wú nánběi. Géliáo shēn yǔ héshang shēn bùtóng, fóxìng yǒu hé chābié?' Wǔzǔ zhī qí yìrén, chì lìng suí zhòng zuòwù.",
               "translations": {
-                "red_pine": "The Fifth Patriarch said: 'You are a barbarian from Lingnan; how could you possibly become a Buddha?' Huineng said: 'People may have south and north, but in the Buddha-nature what south or north is there? The physical body of a barbarian differs from the Master's venerable body, but what difference is there in our Buddha-nature?' The Fifth Patriarch knew he was an extraordinary person, and ordered him to work with the community.",
-                "cleary": "Hongren said, 'You are a barbarian from the south; how can you become a Buddha?' Huineng said, 'People have north and south, but Buddha-nature has no north and south. A barbarian body differs from the Master's body, but what difference is there in Buddha-nature?' The Patriarch knew he was exceptional and sent him to work with the monks.",
-                "yampolsky": "Hongren said: 'You are a southern barbarian, how can you be a Buddha?' Huineng said: 'Although people have south and north, the Buddha-nature has no south and north.' Hongren recognized his brilliance and sent him to the granary."
+                "red_pine": {
+                  "text": "The Fifth Patriarch said: 'You are a barbarian from Lingnan; how could you possibly become a Buddha?' Huineng said: 'People may have south and north, but in the Buddha-nature what south or north is there? The physical body of a barbarian differs from the Master's venerable body, but what difference is there in our Buddha-nature?' The Fifth Patriarch knew he was an extraordinary person, and ordered him to work with the community.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "Hongren said, 'You are a barbarian from the south; how can you become a Buddha?' Huineng said, 'People have north and south, but Buddha-nature has no north and south. A barbarian body differs from the Master's body, but what difference is there in Buddha-nature?' The Patriarch knew he was exceptional and sent him to work with the monks.",
+                  "status": "reconstruction_unverified"
+                },
+                "yampolsky": {
+                  "text": "Hongren said: 'You are a southern barbarian, how can you be a Buddha?' Huineng said: 'Although people have south and north, the Buddha-nature has no south and north.' Hongren recognized his brilliance and sent him to the granary.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -11023,9 +13204,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "六祖得衣缽後，南下避難，隱於四會、懷集獵人隊中十五載。每於獵人守網之際，隨宜放生。每至飯時，以菜寄煮肉鍋。人問其故，祖曰：「但喫肉邊菜。」迨至時至機熟，乃出廣州法性寺，開演頓教法門。",
               "pinyin": "Liùzǔ dé yībō hòu, nán xià bìnàn, yǐn yú Sìhuì, Huáijí lièrén duì zhōng shíwǔ zǎi. Měi yú lièrén shǒu wǎng zhī jì, suíyí fàngshēng. Měi zhì fàn shí, yǐ cài jì zhǔ ròuguō. Rén wèn qí gù, zǔ yuē: 'Dàn chī ròubiān cài.' Dài zhì shí zhì jī shú, nǎi chū Guǎngzhōu Fǎxìng Sì, kāiyǎn dùnjiào fǎmén.",
               "translations": {
-                "red_pine": "After receiving the robe and bowl, the Sixth Patriarch fled south to avoid persecution, hiding among a band of hunters in Sihui and Huaiji for fifteen years. Whenever the hunters put him on watch over their nets, he released trapped animals whenever possible. At mealtimes, he placed wild greens to cook beside the meat. When asked why, the Patriarch said: 'I only eat the vegetables beside the meat.' When the time ripened, he stepped forth at Faxing Temple in Guangzhou to unfold the Sudden Teaching of Southern Chan.",
-                "cleary": "After receiving the robe, Huineng fled south and concealed himself among hunters for fifteen years. When guarding nets, he let animals go. At meals, he cooked greens alongside meat, saying 'I only eat vegetables cooked with meat.' When the time came, he appeared at Faxing temple in Guangzhou to reveal the Dharma.",
-                "yampolsky": "Huineng lived with hunters for fifteen years in Sihui. He cooked herbs beside the meat, eating only the greens. When the time was right, he traveled to Faxing Temple in Guangzhou to turn the wheel of the Law."
+                "red_pine": {
+                  "text": "After receiving the robe and bowl, the Sixth Patriarch fled south to avoid persecution, hiding among a band of hunters in Sihui and Huaiji for fifteen years. Whenever the hunters put him on watch over their nets, he released trapped animals whenever possible. At mealtimes, he placed wild greens to cook beside the meat. When asked why, the Patriarch said: 'I only eat the vegetables beside the meat.' When the time ripened, he stepped forth at Faxing Temple in Guangzhou to unfold the Sudden Teaching of Southern Chan.",
+                  "status": "reconstruction_unverified"
+                },
+                "cleary": {
+                  "text": "After receiving the robe, Huineng fled south and concealed himself among hunters for fifteen years. When guarding nets, he let animals go. At meals, he cooked greens alongside meat, saying 'I only eat vegetables cooked with meat.' When the time came, he appeared at Faxing temple in Guangzhou to reveal the Dharma.",
+                  "status": "reconstruction_unverified"
+                },
+                "yampolsky": {
+                  "text": "Huineng lived with hunters for fifteen years in Sihui. He cooked herbs beside the meat, eating only the greens. When the time was right, he traveled to Faxing Temple in Guangzhou to turn the wheel of the Law.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -11057,9 +13247,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "師示眾云：「本分真人，廓徹靈通。不立階梯，直指心源。若能於行住坐臥處，直下承當，更無纖毫障礙，何假外求？」",
               "pinyin": "Shī shì zhòng yún: 'Běnfèn zhēnrén, kuòchè língtōng. Bù lì jiētī, zhí zhǐ xīnyuán. Ruò néng yú xíng zhù zuò wò chù, zhíxià chéngdāng, gèng wú xiānháo zhàng'ài, hé jiǎ wài qiú?'",
               "translations": {
-                "cleary": "The Master said to the assembly: 'The fundamental true person is vast, clear, and spiritually open. Not establishing steps or stages, pointing directly to the source of mind. If you can take it up directly in the midst of walking, standing, sitting, and lying down, without the slightest obstruction, why borrow from outside to seek it?'",
-                "red_pine": "The Master instructed the assembly: 'The fundamental true person is boundless and luminous. Without establishing gradual ladders, it points directly to the root of mind. If you can embrace it directly in daily walking, standing, sitting, and resting, with not a speck of hindrance, what need is there to search outside?'",
-                "sasaki": "Master Engo said: 'The fundamental True Person is unobstructed and bright. Pointing straight to the heart of mind, if you accept it in every step, all boundaries dissolve.'"
+                "cleary": {
+                  "text": "The Master said to the assembly: 'The fundamental true person is vast, clear, and spiritually open. Not establishing steps or stages, pointing directly to the source of mind. If you can take it up directly in the midst of walking, standing, sitting, and lying down, without the slightest obstruction, why borrow from outside to seek it?'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The Master instructed the assembly: 'The fundamental true person is boundless and luminous. Without establishing gradual ladders, it points directly to the root of mind. If you can embrace it directly in daily walking, standing, sitting, and resting, with not a speck of hindrance, what need is there to search outside?'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Engo said: 'The fundamental True Person is unobstructed and bright. Pointing straight to the heart of mind, if you accept it in every step, all boundaries dissolve.'",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]
@@ -11075,9 +13274,18 @@ window.TRANSLATECHAN_DATA = {
               "zh": "「宗門綱要，如擊塗毒之鼓，聞者皆死。死卻妄想情量，然後蘇省過來，方得大休歇、大安樂。此是大解脫人之受用處也。」",
               "pinyin": "'Zōngmén gāngyào, rú jī túdú zhī gǔ, wénzhě jiē sǐ. Sǐ què wàngxiǎng qíngliàng, ránhòu sūxǐng guòlái, fāng dé dà xiūxiē, dà ānlè. Cǐ shì dà jiětuō rén zhī shòuyòng chù yě.'",
               "translations": {
-                "cleary": "The essential guideline of our school is like striking a drum smeared with poison: all who hear it die. Once false thought and emotional calculations die, you awaken and revive, obtaining great rest and great peace. This is the realm of experience for people of great liberation.",
-                "red_pine": "The core teaching of our school is like beating the poison-coated drum: everyone who hears it dies. Die completely to deluded thoughts and emotional calculations, and then revive into wakefulness to attain great rest and great bliss. This is the living sphere of the truly liberated person.",
-                "sasaki": "The Dharma drum is smeared with poison: hearing it, all delusions die. Dying to conceptual calculation, one revives into boundless freedom."
+                "cleary": {
+                  "text": "The essential guideline of our school is like striking a drum smeared with poison: all who hear it die. Once false thought and emotional calculations die, you awaken and revive, obtaining great rest and great peace. This is the realm of experience for people of great liberation.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "The core teaching of our school is like beating the poison-coated drum: everyone who hears it dies. Die completely to deluded thoughts and emotional calculations, and then revive into wakefulness to attain great rest and great bliss. This is the living sphere of the truly liberated person.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "The Dharma drum is smeared with poison: hearing it, all delusions die. Dying to conceptual calculation, one revives into boundless freedom.",
+                  "status": "reconstruction_unverified"
+                }
               }
             }
           ]

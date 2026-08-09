@@ -75,16 +75,18 @@ generating the subtitle from the bundled unique-translator set at runtime, or
 shortening it to a stable phrase ("side-by-side comparison across historical and
 contemporary translators and AI synthesis") and dropping the proper-noun list.
 
-**A4 — 736 corpus translation slots are still bare strings (P3, known/debt)**
-Validator metrics: `reconstruction_unverified=692, ai_draft=44, verified=138`,
-but the raw on-disk count is **736 bare-string translation values** (the
-validator/front-end *infer* `reconstruction_unverified` or `ai_draft` from the
-`ai_` key prefix). This works, but it means the disclosure status is implicit in
-a key-naming convention rather than explicit data. Over time, migrating these to
-`{ "text": ..., "status": "reconstruction_unverified" }` objects would make the
-contract self-describing and let the schema's `if/then` do more work. Not urgent
-— the inferred status is correct everywhere today — but it's the single largest
-data-hygiene item.
+**A4 — 736 corpus translation slots are still bare strings (P3, known/debt)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
+All **736 legacy bare-string corpus translations** were migrated with
+`scripts/migrate_translations.py` to explicit objects:
+`{"text": ..., "status": "reconstruction_unverified"}` for ordinary registers
+and `{"text": ..., "status": "ai_draft"}` for `ai_*` registers. The validator
+now rejects new bare strings with a named rule and migration hint, the JSON
+schema requires a translation record rather than accepting strings, metrics are
+unchanged (`692 reconstruction_unverified`, `44 ai_draft`, `138 verified`), and
+smoke test `4m7` asserts that the bundle contains zero legacy string slots.
+This makes disclosure status self-describing data instead of a key-naming
+convention. The bundle grew from 799,242 to 873,042 bytes because each slot now
+carries its status in the serialized client data.
 
 ### B. Front-end / UX
 

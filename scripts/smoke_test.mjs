@@ -458,6 +458,27 @@ for (const [view, id] of [['matrix', 'matrix-content-target'], ['gongan', 'gonga
 // (matrix, lineage, gongan, lexicon); the dossier heading also uses that class.
 const staticH1Count = (publicHtml.match(/<h1 class="text-title-zh">/g) || []).length;
 if (staticH1Count < 4) { failures++; console.log('❌ non-reader view titles are not <h1> in index.html'); }
+// 4m7. Corpus translations are explicit record objects, not legacy bare
+// strings (audit A4): every slot must carry text/status.
+let legacyStringSlots = 0;
+let corpusSlots = 0;
+(function walkTranslationRecords(value) {
+  if (Array.isArray(value)) return value.forEach(walkTranslationRecords);
+  if (value && typeof value === 'object') {
+    if (value.translations && typeof value.translations === 'object') {
+      Object.values(value.translations).forEach(slot => {
+        corpusSlots++;
+        if (typeof slot === 'string') legacyStringSlots++;
+      });
+    }
+    Object.values(value).forEach(walkTranslationRecords);
+  }
+})(window.TRANSLATECHAN_DATA.corpus);
+if (legacyStringSlots !== 0) failures++;
+if (corpusSlots < 874) failures++;
+if (legacyStringSlots !== 0 || corpusSlots < 874) {
+  console.log(`❌ corpus translation record migration incomplete: ${legacyStringSlots} legacy string(s), ${corpusSlots} slots`);
+}
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
 const malformedMatrixEntries = matrixEntries.filter(t => !t.status ||

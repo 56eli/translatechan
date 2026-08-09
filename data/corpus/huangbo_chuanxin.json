@@ -33,9 +33,18 @@
                 "reference": "teaching 1"
               }
             },
-            "cleary": "The Master said to Pei Xiu: All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes; it is not blue or yellow, has no form or characteristics, belongs neither to existence nor nonexistence, cannot be reckoned as new or old, is neither long nor short, neither large nor small, transcending all limits, words, traces, and polarities.",
-            "suzuki": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
-            "ai_literal": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs."
+            "cleary": {
+              "text": "The Master said to Pei Xiu: All Buddhas and all sentient beings are only One Mind, with no other reality. This mind from beginningless time has never been born and never perishes; it is not blue or yellow, has no form or characteristics, belongs neither to existence nor nonexistence, cannot be reckoned as new or old, is neither long nor short, neither large nor small, transcending all limits, words, traces, and polarities.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "All Buddhas and all sentient beings are nothing but the One Mind; there is no other Dharma. This Mind from beginningless past has never been produced, has never ceased to be.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "The Master said to Xiu: All Buddhas and all sentient beings are only One Mind, with no separate dharmas. This mind from beginningless time has not been born, has not perished, is not blue, not yellow, without form and without signs.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -54,8 +63,14 @@
                 "reference": "§1"
               }
             },
-            "cleary": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
-            "ai_literal": "Its immediate embodiment is it; stirring a thought is instantly deviating. Like empty space, without edges or borders, not measurable. Only this One Mind is Buddha; Buddha and sentient beings have no other difference."
+            "cleary": {
+              "text": "Its very substance is it; to stir a thought is immediately to deviate. It is like open space, having no boundaries, immeasurable. This One Mind alone is Buddha; between Buddha and sentient beings there is no difference whatsoever.",
+              "status": "reconstruction_unverified"
+            },
+            "ai_literal": {
+              "text": "Its immediate embodiment is it; stirring a thought is instantly deviating. Like empty space, without edges or borders, not measurable. Only this One Mind is Buddha; Buddha and sentient beings have no other difference.",
+              "status": "ai_draft"
+            }
           }
         }
       ]

@@ -61,12 +61,7 @@
       ],
       "additionalProperties": true
     },
-    "translationValue": {
-      "oneOf": [
-        { "$ref": "#/$defs/nonEmptyString" },
-        { "$ref": "#/$defs/translationRecord" }
-      ]
-    },
+    "translationValue": { "$ref": "#/$defs/translationRecord" },
     "translationMap": {
       "type": "object",
       "minProperties": 1,

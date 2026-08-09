@@ -22,9 +22,18 @@
           "zh": "夫生死交謝，寒暑迭遷。有為之法，念念不住。旋嵐偃嶽而常靜，江河競注而不流，野馬飄鼓而不動，日月歷天而不周。復何怪哉？",
           "pinyin": "Fú shēngsǐ jiāoxiè, hánshǔ diéqiān. Yǒuwéi zhī fǎ, niànniàn bù zhù. Xuánlán yǎn yuè ér cháng jìng, jiānghé jìngzhù ér bù liú, yěmǎ piāogǔ ér bù dòng, rìyuè lì tiān ér bù zhōu. Fù hé guài zāi?",
           "translations": {
-            "red_pine": "Birth and death alternate, cold and heat replace one another. Conditioned phenomena do not abide for a single thought. Whirlwinds that flatten mountains are forever calm; rushing rivers that race to the sea do not flow; shimmering mirages do not move; sun and moon circling the sky do not revolve. What is so strange about this?",
-            "cleary": "Birth and death alternate, cold and heat succeed each other. Conditioned things do not stay for an instant. Fierce gales that uproot mountains are perpetually calm; rushing rivers racing along do not flow; floating dust blown by wind does not move; sun and moon crossing the heavens do not revolve. Why wonder at this?",
-            "liebenthal": "Whirlwinds that level mountains are eternally calm; rivers rushing to the ocean do not move; blowing dust is motionless; sun and moon circling the heavens do not change place."
+            "red_pine": {
+              "text": "Birth and death alternate, cold and heat replace one another. Conditioned phenomena do not abide for a single thought. Whirlwinds that flatten mountains are forever calm; rushing rivers that race to the sea do not flow; shimmering mirages do not move; sun and moon circling the sky do not revolve. What is so strange about this?",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Birth and death alternate, cold and heat succeed each other. Conditioned things do not stay for an instant. Fierce gales that uproot mountains are perpetually calm; rushing rivers racing along do not flow; floating dust blown by wind does not move; sun and moon crossing the heavens do not revolve. Why wonder at this?",
+              "status": "reconstruction_unverified"
+            },
+            "liebenthal": {
+              "text": "Whirlwinds that level mountains are eternally calm; rivers rushing to the ocean do not move; blowing dust is motionless; sun and moon circling the heavens do not change place.",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -32,9 +41,18 @@
           "zh": "往物在於往，不來至現在；今物在於今，不去至過去。求向物於向，於向未嘗無；求向物於今，於今未嘗有。是故動靜未始異，古今常如一。",
           "pinyin": "Wǎng wù zài yú wǎng, bù lái zhì xiànzài; jīn wù zài yú jīn, bù qù zhì guòqù. Qiú xiàng wù yú xiàng, yú xiàng wèicháng wú; qiú xiàng wù yú jīn, yú jīn wèicháng yǒu. Shìgù dòngjìng wèishǐ yì, gǔjīn cháng rúyī.",
           "translations": {
-            "red_pine": "Past things abide in the past and do not travel to the present; present things abide in the present and do not travel to the past. If you look for past things in the past, in the past they were never absent; if you look for past things in the present, in the present they never exist. Therefore motion and stillness have never been different; past and present are forever as one.",
-            "cleary": "Past things remain in the past, not coming to the present; present things remain in the present, not going to the past. Seeking past things in the past, they are never absent; seeking past things in the present, they never exist. Thus motion and stillness are not different; antiquity and today are ever as one.",
-            "liebenthal": "Things of the past remain in the past; they do not come to the present. Things of the present remain in the present; they do not depart to the past. Therefore motion and rest are fundamentally identical."
+            "red_pine": {
+              "text": "Past things abide in the past and do not travel to the present; present things abide in the present and do not travel to the past. If you look for past things in the past, in the past they were never absent; if you look for past things in the present, in the present they never exist. Therefore motion and stillness have never been different; past and present are forever as one.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Past things remain in the past, not coming to the present; present things remain in the present, not going to the past. Seeking past things in the past, they are never absent; seeking past things in the present, they never exist. Thus motion and stillness are not different; antiquity and today are ever as one.",
+              "status": "reconstruction_unverified"
+            },
+            "liebenthal": {
+              "text": "Things of the past remain in the past; they do not come to the present. Things of the present remain in the present; they do not depart to the past. Therefore motion and rest are fundamentally identical.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
@@ -50,9 +68,18 @@
           "zh": "夫萬物非真，故名為幻。幻非真有，故不可言有；幻非都無，故不可言無。非有非無，諸法實相。欲言其有，象非真象；欲言其無，萬象宛然。",
           "pinyin": "Fú wànwù fēi zhēn, gù míng wéi huàn. Huàn fēi zhēn yǒu, gù bùkě yán yǒu; huàn fēi dōu wú, gù bùkě yán wú. Fēi yǒu fēi wú, zhūfǎ shíxiāng. Yù yán qí yǒu, xiàng fēi zhēn xiàng; yù yán qí wú, wànxiàng wǎnrán.",
           "translations": {
-            "red_pine": "The myriad things are not truly real, and so are named illusions. Illusions are not truly existing, so they cannot be called 'being'; illusions are not totally non-existent, so they cannot be called 'non-being.' Neither being nor non-being is the true mark of all dharmas. If you wish to call them existing, their forms are not real forms; if you wish to call them non-existing, the ten thousand forms are plainly manifest.",
-            "cleary": "The myriad things are not real, so they are called illusory. Illusions are not real existence, so one cannot say they are; illusions are not total nothingness, so one cannot say they are not. Neither existence nor nonexistence is the true state of phenomena.",
-            "liebenthal": "All things are unreal, therefore they are like phantoms. Phantoms are not truly existing, nor are they totally non-existent. Neither being nor non-being: this is the true reality of all things."
+            "red_pine": {
+              "text": "The myriad things are not truly real, and so are named illusions. Illusions are not truly existing, so they cannot be called 'being'; illusions are not totally non-existent, so they cannot be called 'non-being.' Neither being nor non-being is the true mark of all dharmas. If you wish to call them existing, their forms are not real forms; if you wish to call them non-existing, the ten thousand forms are plainly manifest.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The myriad things are not real, so they are called illusory. Illusions are not real existence, so one cannot say they are; illusions are not total nothingness, so one cannot say they are not. Neither existence nor nonexistence is the true state of phenomena.",
+              "status": "reconstruction_unverified"
+            },
+            "liebenthal": {
+              "text": "All things are unreal, therefore they are like phantoms. Phantoms are not truly existing, nor are they totally non-existent. Neither being nor non-being: this is the true reality of all things.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
@@ -68,9 +95,18 @@
           "zh": "天地與我同根，萬物與我一體。涅槃之妙，湛若靈海。含吐十方，包育萬彙。無得無失，寂然常存。",
           "pinyin": "Tiāndì yǔ wǒ tónggēn, wànwù yǔ wǒ yītǐ. Nièpán zhī miào, zhàn ruò línghǎi. Hán tǔ shífāng, bāoyù wànhuì. Wú dé wú shī, jìrán cháng cún.",
           "translations": {
-            "red_pine": "Heaven and earth share the same root with me; the myriad things are of one body with me. The marvel of Nirvana is clear and profound like a spiritual sea, embracing and breathing forth the ten directions, nurturing all living varieties. Without gain and without loss, quietly and eternally present.",
-            "cleary": "Heaven and earth share the same root with me, myriad things are of one body with me. The marvel of Nirvana is deep as a spiritual sea, containing the ten directions, nurturing all beings.",
-            "liebenthal": "Heaven and earth have the same origin as myself; all things form one body with me. Nirvana is serene and inexhaustible like the ocean."
+            "red_pine": {
+              "text": "Heaven and earth share the same root with me; the myriad things are of one body with me. The marvel of Nirvana is clear and profound like a spiritual sea, embracing and breathing forth the ten directions, nurturing all living varieties. Without gain and without loss, quietly and eternally present.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Heaven and earth share the same root with me, myriad things are of one body with me. The marvel of Nirvana is deep as a spiritual sea, containing the ten directions, nurturing all beings.",
+              "status": "reconstruction_unverified"
+            },
+            "liebenthal": {
+              "text": "Heaven and earth have the same origin as myself; all things form one body with me. Nirvana is serene and inexhaustible like the ocean.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]

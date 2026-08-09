@@ -22,9 +22,18 @@
           "zh": "師初講金剛經，著青龍疏鈔，自負無比。聞南方禪道大振，乃擔疏鈔南下。路上見一婆子賣點心，遂歇擔買餅。",
           "pinyin": "Shī chū jiǎng Jīngāng Jīng, zhù Qīnglóng Shūchāo, zìfù wóbǐ. Wén nánfāng chándào dà zhèn, nǎi dān shūchāo nán xià. Lùshàng jiàn yī pózi mài diǎnxīn, suì xiē dān mǎi bǐng.",
           "translations": {
-            "red_pine": "The Master initially lectured on the Diamond Sutra, authoring the Qinglong Commentary with supreme self-confidence. Hearing that the Chan tradition flourished in the south, he loaded his commentaries on a shoulder-pole and headed south. On the road he saw an old woman selling refreshments (dianxin / literally 'pointing to the mind') and set down his burden to purchase some cakes.",
-            "cleary": "The Master initially lectured on the Diamond Sutra and wrote extensive commentaries. Hearing that Chan flourished in the south, he set out with his notes. On the road he met an old woman selling tea cakes and stopped to buy some.",
-            "sasaki": "Tokusan had written vast commentaries on the Diamond Sutra. Hearing of Southern Zen, he carried his books south. On the road he stopped at an old woman's tea stall for refreshment."
+            "red_pine": {
+              "text": "The Master initially lectured on the Diamond Sutra, authoring the Qinglong Commentary with supreme self-confidence. Hearing that the Chan tradition flourished in the south, he loaded his commentaries on a shoulder-pole and headed south. On the road he saw an old woman selling refreshments (dianxin / literally 'pointing to the mind') and set down his burden to purchase some cakes.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Master initially lectured on the Diamond Sutra and wrote extensive commentaries. Hearing that Chan flourished in the south, he set out with his notes. On the road he met an old woman selling tea cakes and stopped to buy some.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Tokusan had written vast commentaries on the Diamond Sutra. Hearing of Southern Zen, he carried his books south. On the road he stopped at an old woman's tea stall for refreshment.",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -32,9 +41,18 @@
           "zh": "婆問：「車上挑得是甚麼文字？」師曰：「金剛經疏鈔。」婆曰：「我有一問，若答得，施與點心；若答不得，且請他去。」",
           "pinyin": "Pó wèn: 'Chē shàng tiāo dé shì shènme wénzì?' Shī yuē: 'Jīngāng Jīng Shūchāo.' Pó yuē: 'Wǒ yǒu yī wèn, ruò dá dé, shīyǔ diǎnxīn; ruò dá bù dé, qiě qǐng tā qù.'",
           "translations": {
-            "red_pine": "The old woman asked: 'What writings are you carrying on your cart?' The Master said: 'Commentaries on the Diamond Sutra.' The woman said: 'I have one question. If you can answer it, I will give you the refreshments for free; if you cannot, please go elsewhere.'",
-            "cleary": "The woman asked, 'What books are you carrying?' He said, 'Commentaries on the Diamond Sutra.' She said, 'I have a question: if you can answer, I give you cakes; if not, go away.'",
-            "sasaki": "The old woman asked: 'What are those books?' Tokusan said: 'Commentaries on the Diamond Sutra.' She said: 'If you can answer my question, the cakes are free; if not, begone.'"
+            "red_pine": {
+              "text": "The old woman asked: 'What writings are you carrying on your cart?' The Master said: 'Commentaries on the Diamond Sutra.' The woman said: 'I have one question. If you can answer it, I will give you the refreshments for free; if you cannot, please go elsewhere.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The woman asked, 'What books are you carrying?' He said, 'Commentaries on the Diamond Sutra.' She said, 'I have a question: if you can answer, I give you cakes; if not, go away.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The old woman asked: 'What are those books?' Tokusan said: 'Commentaries on the Diamond Sutra.' She said: 'If you can answer my question, the cakes are free; if not, begone.'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -42,9 +60,18 @@
           "zh": "婆曰：「金剛經道：『過去心不可得，現在心不可得，未來心不可得。』未審長老點那箇心？」師無對。",
           "pinyin": "Pó yuē: 'Jīngāng Jīng dào: Guòqù xīn bùkě dé, xiànzài xīn bùkě dé, wèilái xīn bùkě dé. Wèi shěn zhǎnglǎo diǎn nǎ ge xīn?' Shī wú duì.",
           "translations": {
-            "red_pine": "The old woman asked: 'The Diamond Sutra says: Past mind cannot be grasped, present mind cannot be grasped, future mind cannot be grasped. Which mind does the Elder wish to refresh with these cakes?' The Master had no reply.",
-            "cleary": "The woman said, 'The Diamond Sutra says past mind cannot be grasped, present mind cannot be grasped, future mind cannot be grasped. Which mind does the Elder intend to refresh?' The Master was speechless.",
-            "sasaki": "The old woman asked: 'The Diamond Sutra says past mind is ungraspable, present mind is ungraspable, future mind is ungraspable. Which mind do you wish to refresh with your cakes?' Tokusan was struck dumb."
+            "red_pine": {
+              "text": "The old woman asked: 'The Diamond Sutra says: Past mind cannot be grasped, present mind cannot be grasped, future mind cannot be grasped. Which mind does the Elder wish to refresh with these cakes?' The Master had no reply.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The woman said, 'The Diamond Sutra says past mind cannot be grasped, present mind cannot be grasped, future mind cannot be grasped. Which mind does the Elder intend to refresh?' The Master was speechless.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The old woman asked: 'The Diamond Sutra says past mind is ungraspable, present mind is ungraspable, future mind is ungraspable. Which mind do you wish to refresh with your cakes?' Tokusan was struck dumb.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
@@ -60,9 +87,18 @@
           "zh": "師至龍潭，夜深侍立。龍潭曰：「更深何不下去？」師遂出，復回曰：「外面黑。」龍潭點紙燭度與師。師擬接，龍潭復吹滅。師於此大悟，便禮拜。",
           "pinyin": "Shī zhì Lóngtán, yè shēn shì lì. Lóngtán yuē: 'Gèng shēn hé bù xià qù?' Shī suì chū, fù huí yuē: 'Wàimiàn hēi.' Lóngtán diǎn zhǐzhú dù yǔ shī. Shī nǐ jiē, Lóngtán fù chuī miè. Shī yú cǐ dà wù, biàn lǐbài.",
           "translations": {
-            "red_pine": "The Master arrived at Longtan and stood attendant late into the night. Longtan said: 'The night is deep; why not retire?' The Master stepped outside, then turned back and said: 'It is dark outside.' Longtan lit a paper candle and handed it to the Master. Just as the Master was about to take it, Longtan blew it out! At this, the Master attained great awakening and bowed.",
-            "cleary": "The Master stood with Longtan late into the night. Longtan said, 'It is late; why not go down?' The Master went out and said, 'It's dark outside.' Longtan lit a paper candle and handed it to him. As the Master reached for it, Longtan blew it out. The Master had great awakening and bowed.",
-            "sasaki": "Late at night, Tokusan was with Master Ryūtan. Ryūtan said: 'It is late; why don't you retire?' Tokusan stepped out and said: 'It is pitch dark outside.' Ryūtan lit a paper candle and handed it to him. As Tokusan reached out, Ryūtan blew it out! Tokusan was instantly enlightened."
+            "red_pine": {
+              "text": "The Master arrived at Longtan and stood attendant late into the night. Longtan said: 'The night is deep; why not retire?' The Master stepped outside, then turned back and said: 'It is dark outside.' Longtan lit a paper candle and handed it to the Master. Just as the Master was about to take it, Longtan blew it out! At this, the Master attained great awakening and bowed.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Master stood with Longtan late into the night. Longtan said, 'It is late; why not go down?' The Master went out and said, 'It's dark outside.' Longtan lit a paper candle and handed it to him. As the Master reached for it, Longtan blew it out. The Master had great awakening and bowed.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Late at night, Tokusan was with Master Ryūtan. Ryūtan said: 'It is late; why don't you retire?' Tokusan stepped out and said: 'It is pitch dark outside.' Ryūtan lit a paper candle and handed it to him. As Tokusan reached out, Ryūtan blew it out! Tokusan was instantly enlightened.",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -70,9 +106,18 @@
           "zh": "次日，師提疏鈔於法堂前，舉火炬曰：「窮諸玄辯，若一毫置於太虛；竭世樞機，似一滴投於巨壑。」遂焚之。",
           "pinyin": "Cì rì, shī tí shūchāo yú fǎtáng qián, jǔ huǒjù yuē: 'Qióng zhū xuánbiàn, ruò yī háo zhì yú tài xū; jié shì shūjī, sì yī dī tóu yú jù hè.' Suì fén zhī.",
           "translations": {
-            "red_pine": "The next morning, the Master brought his commentaries in front of the Dharma Hall, lifted a torch, and declared: 'Even if you exhaust all subtle doctrines, it is like placing a single hair in the great void; even if you exhaust all worldly intellect, it is like dropping a single drop of water into a fathomless canyon.' And he burned them all to ashes.",
-            "cleary": "Next day the Master brought his commentaries before the hall, raised a torch, and said, 'Even if you exhaust all subtle words, it is like a hair in the void; even if you exhaust all worldly cleverness, it is like a drop in a giant abyss.' Then he burned them.",
-            "sasaki": "Next morning Tokusan took his commentaries before the hall, held up a torch, and said: 'Even if you master all subtle teachings, it is like a hair in the vast sky; even if you master all worldly knowledge, it is like a drop in the ocean.' He then burned them all."
+            "red_pine": {
+              "text": "The next morning, the Master brought his commentaries in front of the Dharma Hall, lifted a torch, and declared: 'Even if you exhaust all subtle doctrines, it is like placing a single hair in the great void; even if you exhaust all worldly intellect, it is like dropping a single drop of water into a fathomless canyon.' And he burned them all to ashes.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Next day the Master brought his commentaries before the hall, raised a torch, and said, 'Even if you exhaust all subtle words, it is like a hair in the void; even if you exhaust all worldly cleverness, it is like a drop in a giant abyss.' Then he burned them.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Next morning Tokusan took his commentaries before the hall, held up a torch, and said: 'Even if you master all subtle teachings, it is like a hair in the vast sky; even if you master all worldly knowledge, it is like a drop in the ocean.' He then burned them all.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]
@@ -88,9 +133,18 @@
           "zh": "師示眾云：「問即有過，不問猶乖。道得也三十棒，道不得也三十棒。汝等速道！速道！」",
           "pinyin": "Shī shì zhòng yún: 'Wèn jí yǒu guò, bù wèn yóu guāi. Dào dé yě sānshí bàng, dào bù dé yě sānshí bàng. Rǔděng sù dào! Sù dào!'",
           "translations": {
-            "red_pine": "The Master instructed the assembly: 'If you ask, you commit an error; if you do not ask, you deviate from the truth. If you can speak, thirty blows; if you cannot speak, thirty blows! Speak quickly! Speak quickly!'",
-            "cleary": "The Master said to the crowd: 'To question is an error; not to question is a mistake. If you can speak, thirty blows; if you cannot speak, thirty blows. Speak quickly! Speak quickly!'",
-            "sasaki": "Tokusan said to the monks: 'To ask is a fault; not to ask is an error. Speak, and thirty blows; do not speak, and thirty blows! Speak at once! Speak at once!'"
+            "red_pine": {
+              "text": "The Master instructed the assembly: 'If you ask, you commit an error; if you do not ask, you deviate from the truth. If you can speak, thirty blows; if you cannot speak, thirty blows! Speak quickly! Speak quickly!'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Master said to the crowd: 'To question is an error; not to question is a mistake. If you can speak, thirty blows; if you cannot speak, thirty blows. Speak quickly! Speak quickly!'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Tokusan said to the monks: 'To ask is a fault; not to ask is an error. Speak, and thirty blows; do not speak, and thirty blows! Speak at once! Speak at once!'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ]

@@ -23,10 +23,22 @@
           "zh": "梁武帝問達磨大師：「如何是聖諦第一義？」",
           "pinyin": "Liáng Wǔdì wèn Dámó dàshī: 'Rúhé shì shèngdì dìyī yì?'",
           "translations": {
-            "red_pine": "Emperor Wu of Liang asked Great Master Bodhidharma: 'What is the highest meaning of the noble truth?'",
-            "cleary": "Emperor Wu of Liang asked Great Master Bodhidharma, 'What is the highest meaning of the holy truths?'",
-            "sasaki": "Emperor Wu of Liang asked Bodhidharma: 'What is the primal meaning of the sacred truth?'",
-            "suzuki": "Emperor Wu asked Bodhidharma: 'What is the first principle of the holy teaching?'"
+            "red_pine": {
+              "text": "Emperor Wu of Liang asked Great Master Bodhidharma: 'What is the highest meaning of the noble truth?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Emperor Wu of Liang asked Great Master Bodhidharma, 'What is the highest meaning of the holy truths?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Emperor Wu of Liang asked Bodhidharma: 'What is the primal meaning of the sacred truth?'",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Emperor Wu asked Bodhidharma: 'What is the first principle of the holy teaching?'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -34,10 +46,22 @@
           "zh": "磨云：「廓然無聖。」",
           "pinyin": "Mó yún: 'Kuòrán wú shèng.'",
           "translations": {
-            "red_pine": "Bodhidharma said: 'Vast emptiness, nothing holy.'",
-            "cleary": "Bodhidharma said, 'Vast emptiness, nothing holy.'",
-            "sasaki": "Bodhidharma said: 'Vast emptiness, nothing sacred.'",
-            "suzuki": "Bodhidharma replied: 'Vast emptiness and not a trace of holiness.'"
+            "red_pine": {
+              "text": "Bodhidharma said: 'Vast emptiness, nothing holy.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Bodhidharma said, 'Vast emptiness, nothing holy.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Bodhidharma said: 'Vast emptiness, nothing sacred.'",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Bodhidharma replied: 'Vast emptiness and not a trace of holiness.'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -45,9 +69,18 @@
           "zh": "帝曰：「對朕者誰？」磨云：「不識。」帝不契。達磨遂潛渡江至魏。",
           "pinyin": "Dì yuē: 'Duì zhèn zhě shuí?' Mó yún: 'Bù shí.' Dì bù qì. Dámó suì qián dù jiāng zhì Wèi.",
           "translations": {
-            "red_pine": "The Emperor said: 'Who faces me?' Bodhidharma said: 'I don't know.' The Emperor did not understand. Bodhidharma secretly crossed the Yangzi River and went north to Wei.",
-            "cleary": "The Emperor said, 'Who is facing me?' Bodhidharma said, 'I do not know.' The Emperor did not understand. Bodhidharma subsequently crossed the Yangzi River secretly and went north to Wei.",
-            "sasaki": "The Emperor asked: 'Who is this confronting me?' Bodhidharma answered: 'Do not know.' The Emperor failed to grasp. Bodhidharma crossed the river into Wei."
+            "red_pine": {
+              "text": "The Emperor said: 'Who faces me?' Bodhidharma said: 'I don't know.' The Emperor did not understand. Bodhidharma secretly crossed the Yangzi River and went north to Wei.",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Emperor said, 'Who is facing me?' Bodhidharma said, 'I do not know.' The Emperor did not understand. Bodhidharma subsequently crossed the Yangzi River secretly and went north to Wei.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The Emperor asked: 'Who is this confronting me?' Bodhidharma answered: 'Do not know.' The Emperor failed to grasp. Bodhidharma crossed the river into Wei.",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],
@@ -67,9 +100,18 @@
           "zh": "趙州示眾云：「至道無難，唯嫌揀擇。纔有語言，是揀擇，是明白。老僧不在明白裏，是汝還護惜也無？」",
           "pinyin": "Zhàozhōu shì zhòng yún: 'Zhì dào wú nán, wéi xián jiǎnzé. Cái yǒu yǔyán, shì jiǎnzé, shì míngbái. Lǎosēng bù zài míngbái lǐ, shì rǔ hái hùxī yě wú?'",
           "translations": {
-            "red_pine": "Zhaozhou instructed the assembly: 'The Great Way is not difficult, it only detests picking and choosing. The moment there are words, that is picking and choosing, that is clarity. This old monk is not inside clarity; do you cherish this or not?'",
-            "cleary": "Zhaozhou addressed the assembly: 'The Great Way is not difficult; it only avoids picking and choosing. As soon as there are words, this is picking and choosing, this is clarity. This old monk is not within clarity; do you still cherish it or not?'",
-            "sasaki": "Jōshū instructed the group: 'The Supreme Way is not difficult, it only dislikes selection. The moment you speak, that is selection, that is clarity. I do not dwell in clarity; do you cherish this or not?'"
+            "red_pine": {
+              "text": "Zhaozhou instructed the assembly: 'The Great Way is not difficult, it only detests picking and choosing. The moment there are words, that is picking and choosing, that is clarity. This old monk is not inside clarity; do you cherish this or not?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Zhaozhou addressed the assembly: 'The Great Way is not difficult; it only avoids picking and choosing. As soon as there are words, this is picking and choosing, this is clarity. This old monk is not within clarity; do you still cherish it or not?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Jōshū instructed the group: 'The Supreme Way is not difficult, it only dislikes selection. The moment you speak, that is selection, that is clarity. I do not dwell in clarity; do you cherish this or not?'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -77,9 +119,18 @@
           "zh": "時有僧問：「和尚既不在明白裏，護惜箇甚麼？」師云：「我亦不知。」僧云：「和尚既不知，為甚麼卻道不在明白裏？」師云：「問事即得，禮拜了退。」",
           "pinyin": "Shí yǒu sēng wèn: 'Héshang jì bù zài míngbái lǐ, hùxī gè shénme?' Shī yún: 'Wǒ yì bù zhī.' Sēng yún: 'Héshang jì bù zhī, wèi shénme què dào bù zài míngbái lǐ?' Shī yún: 'Wèn shì jí dé, lǐbài le tuì.'",
           "translations": {
-            "red_pine": "A monk asked: 'Since you are not in clarity, what do you cherish?' The Master said: 'I don't know either.' The monk said: 'If you don't know, why do you say you are not in clarity?' The Master said: 'Asking is enough; now make your prostration and retire.'",
-            "cleary": "A monk asked, 'Since you are not within clarity, what do you cherish?' The Master said, 'I don't know either.' The monk said, 'Since you don't know, why do you say you are not within clarity?' The Master said, 'It's enough to ask the question; make your bows and retire.'",
-            "sasaki": "A monk asked: 'If you don't dwell in clarity, what do you cherish?' Jōshū said: 'I don't know.' The monk said: 'If you don't know, why do you say you don't dwell in clarity?' Jōshū said: 'Enough questions; bow and leave.'"
+            "red_pine": {
+              "text": "A monk asked: 'Since you are not in clarity, what do you cherish?' The Master said: 'I don't know either.' The monk said: 'If you don't know, why do you say you are not in clarity?' The Master said: 'Asking is enough; now make your prostration and retire.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "A monk asked, 'Since you are not within clarity, what do you cherish?' The Master said, 'I don't know either.' The monk said, 'Since you don't know, why do you say you are not within clarity?' The Master said, 'It's enough to ask the question; make your bows and retire.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "A monk asked: 'If you don't dwell in clarity, what do you cherish?' Jōshū said: 'I don't know.' The monk said: 'If you don't know, why do you say you don't dwell in clarity?' Jōshū said: 'Enough questions; bow and leave.'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],
@@ -99,9 +150,18 @@
           "zh": "馬祖大師不安。院主問：「和尚近日尊位如何？」",
           "pinyin": "Mǎzǔ dàshī bù'ān. Yuànzhǔ wèn: 'Héshang jìnrì zūnwèi rúhé?'",
           "translations": {
-            "red_pine": "Great Master Mazu was unwell. The director asked: 'How has the Master's venerable health been lately?'",
-            "cleary": "Great Master Mazu was unwell. The monastery administrator asked, 'How is the Master's health these days?'",
-            "sasaki": "Master Baso was unwell. The temple administrator asked: 'How is the Master's venerable condition in recent days?'"
+            "red_pine": {
+              "text": "Great Master Mazu was unwell. The director asked: 'How has the Master's venerable health been lately?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Great Master Mazu was unwell. The monastery administrator asked, 'How is the Master's health these days?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Master Baso was unwell. The temple administrator asked: 'How is the Master's venerable condition in recent days?'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -109,10 +169,22 @@
           "zh": "大師云：「日面佛，月面佛。」",
           "pinyin": "Dàshī yún: 'Rì miàn fó, yuè miàn fó.'",
           "translations": {
-            "red_pine": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha.'",
-            "cleary": "The Great Master said, 'Sun-Face Buddha, Moon-Face Buddha.'",
-            "sasaki": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha!'",
-            "suzuki": "Mazu said: 'Sun-faced Buddha, Moon-faced Buddha.'"
+            "red_pine": {
+              "text": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The Great Master said, 'Sun-Face Buddha, Moon-Face Buddha.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The Master said: 'Sun-Face Buddha, Moon-Face Buddha!'",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Mazu said: 'Sun-faced Buddha, Moon-faced Buddha.'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],
@@ -133,7 +205,10 @@
           "zh": "德山到溈山，挾複子於法堂上，從東過西，從西過東，顧視云：「無！無！」便出。",
           "pinyin": "Dèshān dào Wéishān， xié fù zi yú fǎ táng shàng， cóng dōng guò xī， cóng xī guò dōng， gù shì yún：「 Wú！ Wú！」 Biàn chū。",
           "translations": {
-            "ai_literal": "Deshan came to Guishan and, carrying his bundle, walked across the Dharma hall from east to west and from west to east. He looked around, said, 'No! No!'—and left."
+            "ai_literal": {
+              "text": "Deshan came to Guishan and, carrying his bundle, walked across the Dharma hall from east to west and from west to east. He looked around, said, 'No! No!'—and left.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -141,7 +216,10 @@
           "zh": "雪竇著語云：「勘破了也。」",
           "pinyin": "Xuědòu zhù yǔ yún：「 Kān pò le yě。」",
           "translations": {
-            "ai_literal": "Xuedou commented, 'He saw through it.'"
+            "ai_literal": {
+              "text": "Xuedou commented, 'He saw through it.'",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -149,7 +227,10 @@
           "zh": "德山至門首，却云：「也不得草草。」便具威儀，再入相見。",
           "pinyin": "Dèshān zhì mén shǒu， què yún：「 Yě bù dé cǎo cǎo。」 Biàn jù wēi yí， zài rù xiāng jiàn。",
           "translations": {
-            "ai_literal": "At the gate Deshan turned back and said, 'I must not take this lightly.' He composed his appearance and entered again for an interview."
+            "ai_literal": {
+              "text": "At the gate Deshan turned back and said, 'I must not take this lightly.' He composed his appearance and entered again for an interview.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -157,7 +238,10 @@
           "zh": "溈山坐次，德山提起坐具云：「和尚！」溈山擬取拂子，德山便喝，拂袖而出。",
           "pinyin": "Wéishān zuò cì， Dèshān tí qǐ zuò jù yún：「 Hé shàng！」 Wéishān nǐ qǔ fú zi， Dèshān biàn hē， fú xiù ér chū。",
           "translations": {
-            "ai_literal": "Guishan was seated. Deshan raised his sitting cloth and said, 'Master!' Guishan reached for his whisk. Deshan gave a shout and left, shaking his sleeves."
+            "ai_literal": {
+              "text": "Guishan was seated. Deshan raised his sitting cloth and said, 'Master!' Guishan reached for his whisk. Deshan gave a shout and left, shaking his sleeves.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -165,7 +249,10 @@
           "zh": "雪竇著語云：「勘破了也。」",
           "pinyin": "Xuědòu zhù yǔ yún：「 Kān pò le yě。」",
           "translations": {
-            "ai_literal": "Xuedou commented, 'He saw through it.'"
+            "ai_literal": {
+              "text": "Xuedou commented, 'He saw through it.'",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -173,7 +260,10 @@
           "zh": "德山背却法堂，著草鞋便行。",
           "pinyin": "Dèshān bèi què fǎ táng， zhù cǎo xié biàn xíng。",
           "translations": {
-            "ai_literal": "Deshan turned his back on the Dharma hall, put on his straw sandals, and left."
+            "ai_literal": {
+              "text": "Deshan turned his back on the Dharma hall, put on his straw sandals, and left.",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -181,7 +271,10 @@
           "zh": "溈山至晚問首座：「適來新到在什麼處？」首座云：「當時背却法堂，著草鞋出去也。」",
           "pinyin": "Wéishān zhì wǎn wèn Shǒuzuò：「 Shì lái xīn dào zài shén me chù？」 Shǒuzuò yún：「 Dāng shí bèi què fǎ táng， zhù cǎo xié chū qù yě。」",
           "translations": {
-            "ai_literal": "In the evening Guishan asked the head monk, 'Where is the newcomer who came today?' The head monk said, 'He turned his back on the Dharma hall, put on his straw sandals, and went out.'"
+            "ai_literal": {
+              "text": "In the evening Guishan asked the head monk, 'Where is the newcomer who came today?' The head monk said, 'He turned his back on the Dharma hall, put on his straw sandals, and went out.'",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -189,7 +282,10 @@
           "zh": "溈山云：「此子已後，向孤峯頂上，盤結草庵，呵佛罵祖去在。」",
           "pinyin": "Wéishān yún：「 Cǐ zi yǐ hòu， xiàng gū fēng dǐng shàng， pán jié cǎo ān， hē fó mà zǔ qù zài。」",
           "translations": {
-            "ai_literal": "Guishan said, 'This fellow will one day sit in a grass hut on a solitary peak, reviling the Buddhas and scolding the patriarchs.'"
+            "ai_literal": {
+              "text": "Guishan said, 'This fellow will one day sit in a grass hut on a solitary peak, reviling the Buddhas and scolding the patriarchs.'",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -197,7 +293,10 @@
           "zh": "雪竇著語云：「雪上加霜。」",
           "pinyin": "Xuědòu zhù yǔ yún：「 Xuě shàng jiā shuāng。」",
           "translations": {
-            "ai_literal": "Xuedou commented, 'Frost on top of snow.'"
+            "ai_literal": {
+              "text": "Xuedou commented, 'Frost on top of snow.'",
+              "status": "ai_draft"
+            }
           }
         }
       ],
@@ -219,7 +318,10 @@
           "zh": "雪峯示眾云：「盡大地撮來如粟米粒大，拋向面前，漆桶不會，打鼓普請看。」",
           "pinyin": "Xuěfēng shì zhòng yún：「 Jǐn dà dì cuō lái rú sù mǐ lì dà， pāo xiàng miàn qián， qī tǒng bù huì， dǎ gǔ pǔ qǐng kàn。」",
           "translations": {
-            "ai_literal": "Xuefeng said to the assembly, 'Gather up the whole earth into a grain of millet and toss it before your faces—a lacquer bucket would not understand. Beat the drum and invite everyone to look.'"
+            "ai_literal": {
+              "text": "Xuefeng said to the assembly, 'Gather up the whole earth into a grain of millet and toss it before your faces—a lacquer bucket would not understand. Beat the drum and invite everyone to look.'",
+              "status": "ai_draft"
+            }
           }
         }
       ],
@@ -239,7 +341,10 @@
           "zh": "雲門垂語云：「十五日已前不問汝，十五日已後道將一句來。」自代云：「日日是好日。」",
           "pinyin": "Yúnmén chuí yǔ yún：「 Shí wǔ rì yǐ qián bù wèn rǔ， shí wǔ rì yǐ hòu dào jiāng yī jù lái。」 Zì dài yún：「 Rì rì shì hǎo rì。」",
           "translations": {
-            "ai_literal": "Yunmen addressed the assembly, saying, 'I do not ask you about before the fifteenth day; bring me a phrase about after the fifteenth day.' Then he answered for them: 'Every day is a good day.'"
+            "ai_literal": {
+              "text": "Yunmen addressed the assembly, saying, 'I do not ask you about before the fifteenth day; bring me a phrase about after the fifteenth day.' Then he answered for them: 'Every day is a good day.'",
+              "status": "ai_draft"
+            }
           }
         }
       ],
@@ -261,7 +366,10 @@
           "zh": "僧問法眼：「慧超咨和尚，如何是佛？」法眼云：「汝是慧超。」",
           "pinyin": "Sēng wèn Fǎyǎn：「 Huìchāo zī hé shàng， rú hé shì fó？」 Fǎyǎn yún：「 Rǔ shì Huìchāo。」",
           "translations": {
-            "ai_literal": "A monk asked Fayan, 'Huichao asks the master: what is Buddha?' Fayan said, 'You are Huichao.'"
+            "ai_literal": {
+              "text": "A monk asked Fayan, 'Huichao asks the master: what is Buddha?' Fayan said, 'You are Huichao.'",
+              "status": "ai_draft"
+            }
           }
         }
       ],
@@ -282,7 +390,10 @@
           "zh": "翠嵒夏末示眾云：「一夏以來，為兄弟說話，看翠嵒眉毛在麼？」",
           "pinyin": "Cuìyán xià mò shì zhòng yún：「 Yī xià yǐ lái， wèi xiōng dì shuō huà， kàn Cuìyán méi máo zài me？」",
           "translations": {
-            "ai_literal": "At the end of the summer retreat, Cuiyan said to the assembly, 'All summer long I have been talking for you brothers—look, are Cuiyan's eyebrows still there?'"
+            "ai_literal": {
+              "text": "At the end of the summer retreat, Cuiyan said to the assembly, 'All summer long I have been talking for you brothers—look, are Cuiyan's eyebrows still there?'",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -290,7 +401,10 @@
           "zh": "保福云：「作賊人心虛。」",
           "pinyin": "Bǎofú yún：「 Zuò zéi rén xīn xū。」",
           "translations": {
-            "ai_literal": "Baofu said, 'A thief's heart is fearful.'"
+            "ai_literal": {
+              "text": "Baofu said, 'A thief's heart is fearful.'",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -298,7 +412,10 @@
           "zh": "長慶云：「生也。」",
           "pinyin": "Chángqìng yún：「 Shēng yě。」",
           "translations": {
-            "ai_literal": "Changqing said, 'They have grown.'"
+            "ai_literal": {
+              "text": "Changqing said, 'They have grown.'",
+              "status": "ai_draft"
+            }
           }
         },
         {
@@ -306,7 +423,10 @@
           "zh": "雲門云：「關。」",
           "pinyin": "Yúnmén yún：「 Guān。」",
           "translations": {
-            "ai_literal": "Yunmen said, 'Barrier!'"
+            "ai_literal": {
+              "text": "Yunmen said, 'Barrier!'",
+              "status": "ai_draft"
+            }
           }
         }
       ],
@@ -328,7 +448,10 @@
           "zh": "僧問趙州：「如何是趙州？」州云：「東門、西門、南門、北門。」",
           "pinyin": "Sēng wèn Zhàozhōu：「 Rú hé shì Zhàozhōu？」 Zhōu yún：「 Dōng mén、 xī mén、 nán mén、 běi mén。」",
           "translations": {
-            "ai_literal": "A monk asked Zhaozhou, 'What is Zhaozhou?' Zhaozhou said, 'East gate, west gate, south gate, north gate.'"
+            "ai_literal": {
+              "text": "A monk asked Zhaozhou, 'What is Zhaozhou?' Zhaozhou said, 'East gate, west gate, south gate, north gate.'",
+              "status": "ai_draft"
+            }
           }
         }
       ],
@@ -349,7 +472,10 @@
           "zh": "睦州問僧：「近離甚處？」僧便喝。州云：「老僧被汝一喝。」僧又喝。州云：「三喝四喝後作麼生？」僧無語。州便打云：「這掠虛頭漢。」",
           "pinyin": "Mùzhōu wèn sēng：「 Jìn lí shèn chù？」 Sēng biàn hē。 Zhōu yún：「 Lǎo sēng bèi rǔ yī hē。」 Sēng yòu hē。 Zhōu yún：「 Sān hē sì hē hòu zuò me shēng？」 Sēng wú yǔ。 Zhōu biàn dǎ yún：「 Zhè lüè xū tóu hàn。」",
           "translations": {
-            "ai_literal": "Muzhou asked a monk, 'Where have you just come from?' The monk shouted. Muzhou said, 'The old monk has been shouted at by you.' The monk shouted again. Muzhou said, 'After three shouts and four shouts—what then?' The monk was speechless. Muzhou struck him and said, 'You hollow-headed fellow!'"
+            "ai_literal": {
+              "text": "Muzhou asked a monk, 'Where have you just come from?' The monk shouted. Muzhou said, 'The old monk has been shouted at by you.' The monk shouted again. Muzhou said, 'After three shouts and four shouts—what then?' The monk was speechless. Muzhou struck him and said, 'You hollow-headed fellow!'",
+              "status": "ai_draft"
+            }
           }
         }
       ],
@@ -370,9 +496,18 @@
           "zh": "僧問洞山：「如何是佛？」",
           "pinyin": "Sēng wèn Dòngshān: 'Rúhé shì fó?'",
           "translations": {
-            "red_pine": "A monk asked Dongshan: 'What is Buddha?'",
-            "cleary": "A monk asked Dongshan, 'What is Buddha?'",
-            "sasaki": "A monk asked Tōzan: 'What is the Buddha?'"
+            "red_pine": {
+              "text": "A monk asked Dongshan: 'What is Buddha?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "A monk asked Dongshan, 'What is Buddha?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "A monk asked Tōzan: 'What is the Buddha?'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -380,10 +515,22 @@
           "zh": "洞山云：「麻三斤。」",
           "pinyin": "Dòngshān yún: 'Má sān jīn.'",
           "translations": {
-            "red_pine": "Dongshan said: 'Three pounds of flax.'",
-            "cleary": "Dongshan said, 'Three pounds of flax.'",
-            "sasaki": "Tōzan said: 'Three pounds of hemp.'",
-            "suzuki": "Dongshan answered: 'Three pounds of flax.'"
+            "red_pine": {
+              "text": "Dongshan said: 'Three pounds of flax.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Dongshan said, 'Three pounds of flax.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Tōzan said: 'Three pounds of hemp.'",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Dongshan answered: 'Three pounds of flax.'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],
@@ -403,9 +550,18 @@
           "zh": "南泉因東西兩堂爭貓兒。泉見，遂提起云：「道得即救，道不得即斬卻。」",
           "pinyin": "Nánquán yīn dōng xī liǎng táng zhēng māo'er. Quán jiàn, suì tíqǐ yún: 'Dào dé jí jiù, dào bù dé jí zhǎn què.'",
           "translations": {
-            "red_pine": "The monks of the Eastern and Western halls were arguing over a cat. Seeing this, Nanquan held up the cat and said: 'If any of you can speak a word, you save it; if not, I will cut it in two.'",
-            "cleary": "Nanquan, because the Eastern and Western halls were fighting over a cat, held it up and said, 'If you can speak, you save it; if not, I will cut it in two.'",
-            "sasaki": "The Eastern and Western halls were arguing over a cat. Nansen held it up, saying: 'If you can speak, I will spare it; if not, I will cut it in two.'"
+            "red_pine": {
+              "text": "The monks of the Eastern and Western halls were arguing over a cat. Seeing this, Nanquan held up the cat and said: 'If any of you can speak a word, you save it; if not, I will cut it in two.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Nanquan, because the Eastern and Western halls were fighting over a cat, held it up and said, 'If you can speak, you save it; if not, I will cut it in two.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The Eastern and Western halls were arguing over a cat. Nansen held it up, saying: 'If you can speak, I will spare it; if not, I will cut it in two.'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -413,9 +569,18 @@
           "zh": "眾無對。泉遂斬之。晚，趙州外歸，泉舉前話示之。州遂脫草鞋安頭上出。泉云：「子若在，恰救得貓兒。」",
           "pinyin": "Zhòng wú duì. Quán suì zhǎn zhī. Wǎn, Zhàozhōu wài guī, Quán jǔ qián huà shì zhī. Zhōu suì tuō cǎoxié ān tóu shàng chū. Quán yún: 'Zǐ ruò zài, qià jiù dé māo'er.'",
           "translations": {
-            "red_pine": "The assembly had no answer. Nanquan slashed the cat in two. In the evening Zhaozhou returned; Nanquan told him what had happened. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
-            "cleary": "The crowd had no reply. Nanquan then cut it in two. In the evening Zhaozhou returned from outside; Nanquan told him the story. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said, 'If you had been here, you would have saved the cat.'",
-            "sasaki": "The monks made no answer. Nansen cut the cat in two. That evening Jōshū returned. Nansen told him. Jōshū took off his straw sandals, placed them on his head, and walked out. Nansen said: 'Had you been here, you would have saved the cat.'"
+            "red_pine": {
+              "text": "The assembly had no answer. Nanquan slashed the cat in two. In the evening Zhaozhou returned; Nanquan told him what had happened. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said: 'Had you been here, you would have saved the cat.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "The crowd had no reply. Nanquan then cut it in two. In the evening Zhaozhou returned from outside; Nanquan told him the story. Zhaozhou took off his straw sandals, put them on his head, and walked out. Nanquan said, 'If you had been here, you would have saved the cat.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "The monks made no answer. Nansen cut the cat in two. That evening Jōshū returned. Nansen told him. Jōshū took off his straw sandals, placed them on his head, and walked out. Nansen said: 'Had you been here, you would have saved the cat.'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],
@@ -435,9 +600,18 @@
           "zh": "僧問雲門：「如何是佛？」",
           "pinyin": "Sēng wèn Yúnmén: 'Rúhé shì fó?'",
           "translations": {
-            "red_pine": "A monk asked Yunmen: 'What is Buddha?'",
-            "cleary": "A monk asked Yunmen, 'What is Buddha?'",
-            "sasaki": "A monk asked Ummon: 'What is the Buddha?'"
+            "red_pine": {
+              "text": "A monk asked Yunmen: 'What is Buddha?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "A monk asked Yunmen, 'What is Buddha?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "A monk asked Ummon: 'What is the Buddha?'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -445,10 +619,22 @@
           "zh": "門云：「乾屎橛。」",
           "pinyin": "Mén yún: 'Gān shǐ jué.'",
           "translations": {
-            "red_pine": "Yunmen said: 'A dried shit-stick.'",
-            "cleary": "Yunmen said, 'A dried dung scraper.'",
-            "sasaki": "Ummon said: 'A dried shit-stick.'",
-            "suzuki": "Yunmen replied: 'A dried piece of excrement.'"
+            "red_pine": {
+              "text": "Yunmen said: 'A dried shit-stick.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Yunmen said, 'A dried dung scraper.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Ummon said: 'A dried shit-stick.'",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Yunmen replied: 'A dried piece of excrement.'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],
@@ -468,9 +654,18 @@
           "zh": "僧問洞山：「寒暑到來，如何迴避？」",
           "pinyin": "Sēng wèn Dòngshān: 'Hán shǔ dào lái, rúhé huíbì?'",
           "translations": {
-            "red_pine": "A monk asked Dongshan: 'When cold and heat arrive, how do we avoid them?'",
-            "cleary": "A monk asked Dongshan, 'When cold and heat come, how can we avoid them?'",
-            "sasaki": "A monk asked Tōzan: 'When cold and heat come, how can we avoid them?'"
+            "red_pine": {
+              "text": "A monk asked Dongshan: 'When cold and heat arrive, how do we avoid them?'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "A monk asked Dongshan, 'When cold and heat come, how can we avoid them?'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "A monk asked Tōzan: 'When cold and heat come, how can we avoid them?'",
+              "status": "reconstruction_unverified"
+            }
           }
         },
         {
@@ -478,9 +673,18 @@
           "zh": "山云：「何不向無寒暑處去？」僧云：「如何是無寒暑處？」山云：「寒時寒殺闍黎，熱時熱殺闍黎。」",
           "pinyin": "Shān yún: 'Hé bù xiàng wú hán shǔ chù qù?' Sēng yún: 'Rúhé shì wú hán shǔ chù?' Shān yún: 'Hán shí hán shā shélí, rè shí rè shā shélí.'",
           "translations": {
-            "red_pine": "Dongshan said: 'Why not go to the place where there is no cold or heat?' The monk asked: 'What is the place where there is no cold or heat?' Dongshan said: 'When it is cold, the cold kills you; when it is hot, the heat kills you.'",
-            "cleary": "Dongshan said, 'Why don't you go where there is no cold or heat?' The monk said, 'What is the place where there is no cold or heat?' Dongshan said, 'When cold, the cold kills you; when hot, the heat kills you.'",
-            "sasaki": "Tōzan said: 'Why not go where there is neither cold nor heat?' The monk asked: 'Where is that place?' Tōzan said: 'When cold, let cold kill you; when hot, let heat kill you.'"
+            "red_pine": {
+              "text": "Dongshan said: 'Why not go to the place where there is no cold or heat?' The monk asked: 'What is the place where there is no cold or heat?' Dongshan said: 'When it is cold, the cold kills you; when it is hot, the heat kills you.'",
+              "status": "reconstruction_unverified"
+            },
+            "cleary": {
+              "text": "Dongshan said, 'Why don't you go where there is no cold or heat?' The monk said, 'What is the place where there is no cold or heat?' Dongshan said, 'When cold, the cold kills you; when hot, the heat kills you.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Tōzan said: 'Why not go where there is neither cold nor heat?' The monk asked: 'Where is that place?' Tōzan said: 'When cold, let cold kill you; when hot, let heat kill you.'",
+              "status": "reconstruction_unverified"
+            }
           }
         }
       ],
