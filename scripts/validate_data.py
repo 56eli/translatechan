@@ -150,6 +150,9 @@ def validate_source(source: Any, path: str, issues: Issues) -> str | None:
         issues.error(path, "verified quotation requires a source object")
         return None
     require_fields(source, ("work", "edition", "reference", "verification", "source_id"), path, issues)
+    extra_fields = set(source) - {"work", "edition", "reference", "verification", "source_id", "page", "note", "gloss", "verified_by", "verified_date"}
+    if extra_fields:
+        issues.error(path, f"has unknown source field(s): {sorted(extra_fields)}")
     source_id = source.get("source_id")
     if nonempty_string(source_id) and not SOURCE_ID_RE.fullmatch(source_id):
         issues.error(path, "source_id must use lowercase letters, digits, and hyphens")

@@ -59,8 +59,10 @@ deterministically.
 
 **Still recommended:**
 
-1. Tighten a small, stable object next (for example `quotationSource` after
-   confirming every source field in use).
+1. ~~Tighten a small, stable object next (`quotationSource`)~~ ✅ shipped 2026-08-09:
+   allowed source fields are now declared, extra fields are rejected by the
+   schema and validator, and optional fields in use (`page`, `note`, `gloss`,
+   `verified_by`, `verified_date`) are explicitly modeled.
 2. Add explicit schemas for corpus shape fields (`cases`, `sections`,
    `dialogues`, `stanzas`, `chapters`, `five_ranks`, `sample_records`).
 3. Do **not** tighten heterogeneous corpus documents all at once; the Python
