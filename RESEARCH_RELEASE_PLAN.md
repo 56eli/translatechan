@@ -1,4 +1,4 @@
-# TranslateChan Research-Release Plan
+# Fake Chan Factory Research-Release Plan
 
 > **Purpose:** turn a healthy static reader into a trustworthy, maintainable research corpus without treating generated text, online mirrors, or incomplete locators as scholarly completion.
 >

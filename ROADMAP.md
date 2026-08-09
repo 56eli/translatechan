@@ -1,6 +1,6 @@
-# 🗺️ TranslateChan Roadmap & Milestone Execution Plan
+# 🗺️ Fake Chan Factory Roadmap & Milestone Execution Plan
 
-This document outlines the detailed engineering, data science, translation, and UI/UX roadmap for **TranslateChan** (`translatechan`). It tracks the active development phases, milestones, technical deliverables, and future iterations.
+This document outlines the detailed engineering, data science, translation, and UI/UX roadmap for **Fake Chan Factory** (`translatechan`). It tracks the active development phases, milestones, technical deliverables, and future iterations.
 
 ---
 
@@ -8,7 +8,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                               TranslateChan Milestone Roadmap                          │
+│                               Fake Chan Factory Milestone Roadmap                          │
 ├─────────────────┬─────────────────┬─────────────────┬─────────────────┬────────────────┤
 │  Phase 1        │  Phase 2        │  Phase 3        │  Phase 4        │  Phase 5 & 6   │
 │  Foundation &   │  Canon Ingestion│  Comparative    │  Source          │  Living Canon, │

@@ -1,4 +1,4 @@
-# 🤝 TranslateChan: Project Handoff, Pull Request & Deployment Guide
+# 🤝 Fake Chan Factory: Project Handoff, Pull Request & Deployment Guide
 
 > **Repository**: `56eli/translatechan`
 > **Working branch convention**: agent sessions work on `arena/<session>-translatechan`; completed branches/PRs are historical, not instructions for the next session.
@@ -9,7 +9,7 @@
 
 ## 📋 Executive Summary of Deliverables
 
-The TranslateChan project has been fully established with:
+The Fake Chan Factory project has been fully established with:
 1. **Grand Vision & Architectural Blueprint** ([`vision.md`](./vision.md)): Canonical scope spanning CBETA / Taishō Tripiṭaka Volumes 47, 48, and 51.
 2. **Project Roadmap & Milestone Execution Plan** ([`ROADMAP.md`](./ROADMAP.md)): Phased milestones from foundational corpus to living knowledge graph (statuses measured, not aspirational).
 3. **Core Canonical Corpus** (`data/corpus/`): 36 canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties — **Wumenguan and the Biyanlu are the first two fully collated complete texts** (48/48 and 100/100 cases ✅, 2026-08-08/09); the remaining 34 files are excerpt-scale seeds (completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
@@ -262,4 +262,4 @@ When new canonical texts or translations are added by editorial contributors:
 
 ---
 
-*TranslateChan is completely open-source, non-sectarian, and ready for long-term preservation and translation of ancient Chinese Chan literature.*
+*Fake Chan Factory is completely open-source, non-sectarian, and ready for long-term preservation and translation of ancient Chinese Chan literature.*
