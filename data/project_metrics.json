@@ -1,17 +1,17 @@
 {
   "canonical_locator_coverage": {
     "case_level_documents": 3,
-    "case_locators": 65,
-    "declared_cases": 65,
+    "case_locators": 66,
+    "declared_cases": 66,
     "document_level_seed_documents": 33,
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 24641,
+    "all_corpus_cjk_characters": 27933,
     "complete_documents": [
       "wumenguan"
     ],
-    "content_cjk_characters": 21336,
+    "content_cjk_characters": 24613,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -49,18 +49,18 @@
         }
       },
       "biyanlu_cases": {
-        "all_cjk_chars": 8946,
+        "all_cjk_chars": 12238,
         "cbeta_id": "T2003",
-        "content_zh_chars": 8731,
-        "coverage": "15/100 cases",
-        "coverage_note": "15/100 cases — cases 1–11 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08; 著語 inline notes normalized out of 本則; post-verse 評唱 rendering and human sign-off pending); cases 12, 14, 21, 43 remain excerpt seeds.",
-        "declared_zh_chars": 8731,
+        "content_zh_chars": 12008,
+        "coverage": "16/100 cases",
+        "coverage_note": "16/100 cases — cases 1–14 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, with 2026-08-09 session-019fe731 additions: cases 11/13 collated, 1–3/12 verses completed to canon, case 14 replaced with the canonical 雲門『對一說』; 著語 inline notes normalized out of 本則 and 頌; post-verse 評唱 rendering and human sign-off pending); cases 21, 43 are excerpt seeds pending re-verification against canon.",
+        "declared_zh_chars": 12008,
         "shapes": [
           "cases"
         ],
         "title": "Blue Cliff Record (碧巖錄)",
         "unit_counts": {
-          "cases": 15
+          "cases": 16
         }
       },
       "bodhidharma_erru": {
@@ -508,10 +508,10 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 875,
+    "corpus_slots": 871,
     "corpus_statuses": {
-      "ai_draft": 45,
-      "reconstruction_unverified": 692,
+      "ai_draft": 47,
+      "reconstruction_unverified": 686,
       "verified_quotation": 138
     },
     "matrix_entries": 21,

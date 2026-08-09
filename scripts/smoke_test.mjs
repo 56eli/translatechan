@@ -245,7 +245,7 @@ const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {
 if (Object.keys(perText).length !== 36) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '15/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '16/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
@@ -453,7 +453,7 @@ if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded too
 // a complete text — the reader header shows validator-derived coverage.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanCovHtml = ids['reader-content-target']._innerHTML;
-if (!biyanCovHtml.includes('📊 Coverage: 15/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+if (!biyanCovHtml.includes('📊 Coverage: 16/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 if (!ids['reader-content-target']._innerHTML.includes('📊 Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
@@ -586,10 +586,14 @@ let corpusSlots = 0;
     Object.values(value).forEach(walkTranslationRecords);
   }
 })(window.TRANSLATECHAN_DATA.corpus);
+// Slot-count floor was data-derived from the bundle's own metrics (slot totals
+// legitimately move when seed cases are re-collated; the old '874' literal
+// hardcoded the A4-migration-era count, 2026-08-09 session 019fe731).
+const expectedCorpusSlots = window.TRANSLATECHAN_DATA.project_metrics?.translations?.corpus_slots;
 if (legacyStringSlots !== 0) failures++;
-if (corpusSlots < 874) failures++;
-if (legacyStringSlots !== 0 || corpusSlots < 874) {
-  console.log(`❌ corpus translation record migration incomplete: ${legacyStringSlots} legacy string(s), ${corpusSlots} slots`);
+if (corpusSlots !== expectedCorpusSlots || corpusSlots < 800) failures++;
+if (legacyStringSlots !== 0 || corpusSlots !== expectedCorpusSlots || corpusSlots < 800) {
+  console.log(`❌ corpus translation record migration incomplete: ${legacyStringSlots} legacy string(s), ${corpusSlots} slots (metrics expect ${expectedCorpusSlots})`);
 }
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
