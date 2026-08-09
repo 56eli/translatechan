@@ -264,16 +264,16 @@
     "collection": "Biyanlu (碧巖錄)",
     "case_no": 21,
     "cbeta_id": "T2003",
-    "title_zh": "雲門乾屎橛 (碧巖錄第二十一則)",
-    "title_en": "Yunmen's Dried Shit-Stick",
-    "protagonist": "yunmen_wenyan",
-    "theme": "Shattering All Sanctimonious Conceits",
-    "theme_group": "what_is_buddha",
+    "title_zh": "智門蓮花 (碧巖錄第二十一則)",
+    "title_en": "Zhimên's Lotus: Before and After the Water",
+    "protagonist": "zhimen_kuan",
+    "theme": "Beyond Before-and-After: One Lotus, No Track",
+    "theme_group": "beyond_duality",
     "cross_refs": [
-      "Yunmen Yulu",
-      "Wumenguan Case 21"
+      "Xianglin Chengyuan (香林澄遠) — Zhimên's own realization",
+      "Wumenguan Case 21 (雲門乾屎橛; the earlier seed confused the two cases)"
     ],
-    "summary": "Asked 'What is Buddha?', Yunmen responds directly with 'A dried shit-stick.'"
+    "summary": "Asked how the lotus is before it leaves the water, Zhimên says 'A lotus'; asked about after, he says 'Lotus leaves' — dissolving before-and-after in one exchange."
   },
   {
     "id": "biyan_43",

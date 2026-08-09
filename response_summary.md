@@ -10,11 +10,15 @@
   behavioral N4/N5 checks + 15/100 coverage assertions); root↔docs mirrors byte-identical.
 - Full audit report: **`AUDIT_RESPONSE_2026-08-09_019fe731.md`** — no P0/P1/P2;
   N1–N8 + N9 + N10 all shipped same-session (a11y, search UX, P4, housekeeping).
-- **Content Phase 2 so far: Biyanlu cases 11 + 13 ingested; integrity repair
-  of seeds** — case 14 replaced (was mis-seeded Wumenguan-cat content), case
-  12 fabricated verse replaced, cases 1–3 truncated verses completed; all
-  collated from CBETA Online T48n2003; gong'an `biyan_11` added; corpus now
-  **16/100 (1–14 complete)**, slots=871, locators=66/66 — gates green.
+- **Content Phase 2: Biyanlu file now canon-complete for all ingested cases**
+  — cases 11 + 13 + 21 newly collated from CBETA T48n2003; integrity repairs:
+  case 14 replaced (mis-seeded Wumenguan-cat content), case 21 replaced
+  (mis-seeded 乾屎橛 content), case 12 fabricated verse replaced, cases 1–3
+  truncated verses completed to canon, case 43 gained 垂示 + 評唱 (verse →
+  printed 韓獹). Gong'an `biyan_11` added, `biyan_21` corrected. Corpus:
+  **16/100 (1–14, 21, 43 complete)**, slots=865, locators=66/66 — gates green.
+- Full cbeta-org/xml-p5 TEI pulled via `gh` (`/tmp/t48n2003.xml`) — ready for
+  the next sequential batch (cases 15–20 in juan 2/3).
 - Confirmed blocked: CF-1 CI gate paths — token lacks `workflows` scope (owner action).
 - Open: gong'an-index entry for case 11 (optional follow-up) · case 13 or
   seed→complete upgrades (12/14/21/43) · Linji pilot · CF-2 switchViewRaw

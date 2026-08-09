@@ -118,13 +118,17 @@
         },
         "21": {
           "canonical_locator": "T2003 case 21 · T48n2003 p.0161c19–p.0162b27",
-          "status": "case_level_anchor",
-          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+          "status": "collated_with_normalization",
+          "note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried Wumenguan-case-21 (雲門乾屎橛) material and a fabricated verse — with the canonical Biyanlu case 21 (智門蓮花) collated from cbeta-org/xml-p5 T48n2003 (垂示 p.0161c19–c21, 本則 p.0161c21–c24, pre-verse 評唱 p.0161c25–p.0162a17, 頌 p.0162a24–a26); 著語 and CBETA glyph/footnote variants normalized; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "2026-08-09 (session 019fe731): replaced the mis-seeded case content — the original seed carried Wumenguan-case-21 (雲門乾屎橛) material and a fabricated verse — with the canonical Biyanlu case 21 (智門蓮花) collated from cbeta-org/xml-p5 T48n2003 (垂示 p.0161c19–c21, 本則 p.0161c21–c24, pre-verse 評唱 p.0161c25–p.0162a17, 頌 p.0162a24–a26); 著語 and CBETA glyph/footnote variants normalized; post-verse 評唱 not yet ingested; human sign-off pending."
         },
         "43": {
           "canonical_locator": "T2003 case 43 · T48n2003 p.0180a13–p.0180c21",
-          "status": "case_level_anchor",
-          "note": "CBETA line range recorded 2026-08-08; existing excerpt text collation pending."
+          "status": "collated_with_normalization",
+          "note": "2026-08-09 (session 019fe731): seed dialogue verified verbatim against cbeta-org/xml-p5 T48n2003; 垂示 (p.0180a13–a16) and pre-verse 評唱 (p.0180a21–p.0180b24) newly collated; verse corrected to the printed 韓獹 (glossed 通作盧 in T's inline note) plus the T's one-character closing 獹。; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending.",
+          "source_edition": "CBETA TEI T48n2003 (cbeta-org/xml-p5, accessed 2026-08-09)",
+          "collation_note": "2026-08-09 (session 019fe731): seed dialogue verified verbatim against cbeta-org/xml-p5 T48n2003; 垂示 (p.0180a13–a16) and pre-verse 評唱 (p.0180a21–p.0180b24) newly collated; verse corrected to the printed 韓獹 (glossed 通作盧 in T's inline note) plus the T's one-character closing 獹。; 著語 normalized out; post-verse 評唱 not yet ingested; human sign-off pending."
         }
       },
       "granularity": "case",

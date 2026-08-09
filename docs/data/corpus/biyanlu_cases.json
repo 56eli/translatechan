@@ -613,65 +613,35 @@
     },
     {
       "case_num": 21,
-      "title_zh": "雲門乾屎橛",
-      "title_pinyin": "Yúnmén Gān Shǐ Jué",
-      "title_en": "Yunmen's Dried Shit-Stick",
-      "pointer_zh": "垂示云：拈一放一，未是奇特。直得函蓋相稱，把斷要津，始得作家。",
-      "pointer_en": "Pointer: Taking up one and releasing one is not yet extraordinary. When box and lid fit seamlessly, guarding the essential pass, then you are an authentic master.",
+      "title_zh": "智門蓮花",
+      "title_pinyin": "Zhìmén Liánhuā",
+      "title_en": "Zhimên's Lotus",
+      "pointer_zh": "垂示云。建法幢立宗旨。錦上鋪花。脫籠頭卸角馱。太平時節或若辨得格外句。舉一明三。其或未然。依舊伏聽處分。",
+      "pointer_en": "Pointer: To raise the dharma banner and establish the teaching is to lay brocade over flowers. To shed the cage and drop the burden is to live in a time of peace. Yet if you can discern the phrase beyond the patterns, you raise one and illumine three. If not, still you must listen for the verdict. Watch as I raise the case.",
       "dialogue": [
         {
-          "speaker": "Monk / 僧",
-          "zh": "僧問雲門：「如何是佛？」",
-          "pinyin": "Sēng wèn Yúnmén: 'Rúhé shì fó?'",
+          "speaker": "智門與僧 / Zhimên and the monk",
+          "zh": "僧問智門：「蓮花未出水時如何？」智門云：「蓮花。」僧云：「出水後如何？」門云：「荷葉。」",
+          "pinyin": "Sēng wèn Zhìmén：「 Liánhuā wèi chū shuǐ shí rúhé？」 Zhìmén yún：「 Liánhuā。」 Sēng yún：「 Chū shuǐ hòu rúhé？」 Mén yún：「 Héyè。」",
           "translations": {
-            "red_pine": {
-              "text": "A monk asked Yunmen: 'What is Buddha?'",
-              "status": "reconstruction_unverified"
-            },
-            "cleary": {
-              "text": "A monk asked Yunmen, 'What is Buddha?'",
-              "status": "reconstruction_unverified"
-            },
-            "sasaki": {
-              "text": "A monk asked Ummon: 'What is the Buddha?'",
-              "status": "reconstruction_unverified"
-            }
-          }
-        },
-        {
-          "speaker": "Yunmen / 雲門",
-          "zh": "門云：「乾屎橛。」",
-          "pinyin": "Mén yún: 'Gān shǐ jué.'",
-          "translations": {
-            "red_pine": {
-              "text": "Yunmen said: 'A dried shit-stick.'",
-              "status": "reconstruction_unverified"
-            },
-            "cleary": {
-              "text": "Yunmen said, 'A dried dung scraper.'",
-              "status": "reconstruction_unverified"
-            },
-            "sasaki": {
-              "text": "Ummon said: 'A dried shit-stick.'",
-              "status": "reconstruction_unverified"
-            },
-            "suzuki": {
-              "text": "Yunmen replied: 'A dried piece of excrement.'",
-              "status": "reconstruction_unverified"
+            "ai_literal": {
+              "text": "A monk asked Zhimên, 'How is the lotus before it has left the water?' Zhimên said, 'A lotus.' The monk asked, 'And after it has left the water?' The master said, 'Lotus leaves.'",
+              "status": "ai_draft"
             }
           }
         }
       ],
-      "verse_zh": "雲門一箭落雙鵰，大地乾坤沒處逃。萬里神光照耀處，靈鋒截斷赤肉膏。",
-      "verse_en": "Yunmen's single arrow brings down a pair of vultures; / Heaven and earth have nowhere to escape! / Where ten thousand leagues of wondrous light illuminate, / The razor blade slices straight through red flesh and bone!"
+      "commentary_zh": "智門若是應機接物。猶較些子。若是截斷眾流。千里萬里。且道這蓮花。出水與未出水。是一是二。若恁麼見得。許爾有箇入處。雖然如是。若道是一。顢頇佛性儱侗真如。若道是二。心境未忘落在解路上走有什麼歇期。且道古人意作麼生。其實無許多事。所以投子道爾但莫著名言數句。若了諸事自然不著即無許多位次不同。爾攝一切法。一切法攝爾不得。本無得失夢幻如許多名目不可強與他安立名字。誑諕爾諸人得麼。爾諸人問故所以有言。爾若不問。教我向爾道什麼即得。一切事。皆是爾將得來。都不干我事。古人道。欲識佛性義當觀時節因緣。不見雲門舉僧問靈雲云。佛未出世時如何。雲竪起拂子。僧云。出世後如何。雲亦竪起拂子。雲門云。前頭打著。後頭打不著。又云不說出與不出。何處有伊問時節也。古人一問一答。應時應節無許多事。爾若尋言逐句。了無交涉。爾若能言中透得言。意中透得意。機中透得機。放令閑閑地。方見智門答話處。問佛未出世時如何。牛頭未見四祖時如何。斑石內混沌未分時如何。父母未生時如何。雲門道。從古至今。只是一段事。無是無非。無得無失。無生與未生。古人到這裏。放一綫道有出有入。若是未了底人。扶籬摸壁。依草附木。或教他放下。又打入莽莽蕩蕩荒然處去。若是得底人。二六時中。不依倚一物。雖不依倚一物。若露一機一境。作麼生摸索他。這僧問道。蓮花未出水時如何。智門云。蓮花。便只攔問一答。不妨奇特。諸方皆謂之顛倒語。那裏如此。不見嵒頭道。常貴未開口已前。猶較些子。古人露機處。已是漏逗了也。如今學者。不省古人意。只管去。理論出水與未出水。有什麼交涉。不見僧問智門。如何是般若體。門云。蚌含明月。僧云如何是般若用。門云。兔子懷胎。看他如此對答。天下人討他語脈不得。或有人問夾山道。蓮花未出水時如何。只對他道。露柱燈籠。且道與蓮花是同是別。出水後如何。對他道。杖頭挑日月。脚下太泥深。爾且道是不是。且莫錯認定盤星。雪竇忒殺慈悲。打破人情解。所以頌出。",
+      "verse_zh": "蓮花荷葉報君知出水何如未出時江北江南問王老一狐疑了一狐疑",
+      "verse_en": "Lotus flowers, lotus leaves — I tell you plainly: / what differs between surfaced and unsurfaced? / North of the river, south of the river, go ask old Wang — / doubt on doubt, like a fox crossing thin ice, listening for the crack."
     },
     {
       "case_num": 43,
       "title_zh": "洞山無寒暑",
       "title_pinyin": "Dòngshān Wú Hán Shǔ",
       "title_en": "Dongshan's Cold and Heat",
-      "pointer_zh": "垂示云：放行則瓦礫生光，把住則真金失色。",
-      "pointer_en": "Pointer: Let go, and tile and gravel shine with light; hold fast, and pure gold loses its luster.",
+      "pointer_zh": "垂示云。定乾坤句。萬世共遵。擒虎兕機。千聖莫辨。直下更無纖翳。全機隨處齊彰。要明向上鉗鎚。須是作家爐韛。且道從上來還有恁麼家風也無。試舉看。",
+      "pointer_en": "Pointer: The phrase that settles heaven and earth is honored for ten thousand generations; the move that captures tigers and rhinos evades even a thousand sages. Right here, not a speck obscures — the whole capacity shines in every circumstance. To learn the fire-tongs of the summit, you must be a master of the forge. Tell me: since ancient times, has such a house style ever existed? Watch as I raise the case.",
       "dialogue": [
         {
           "speaker": "Monk / 僧",
@@ -712,10 +682,11 @@
           }
         }
       ],
-      "verse_zh": "垂手還同萬仞崖，正偏何必在安排。琉璃古殿照明月，忍俊韓盧空上階。",
-      "verse_en": "Reaching down his hand is like standing atop a ten-thousand fathom cliff; / Why must Real and Apparent be contrived? / The ancient lapis palace reflects the bright moon; / The sly hound Han Lu rushes up the steps in vain!"
+      "verse_zh": "垂手還同萬仞崖正偏何必在安排琉璃古殿照明月忍俊韓獹空上階獹",
+      "verse_en": "Lowering his hand — like a ten-thousand-fathom cliff; / the true and the partial — why arrange them at all? / Moonlight fills the ancient lapis-lazuli hall; / unable to help it, Han's greyhound bounds up the steps in vain — the greyhound!",
+      "commentary_zh": "黃龍新和尚拈云。洞山袖頭打領腋下剜襟。爭柰這僧不甘。如今有箇出來問黃龍。且道如何支遣。良久云。安禪不必須山水。滅却心頭火自涼。諸人且道。洞山圈繢落在什麼處。若明辨得。始知洞山下五位回互正偏接人。不妨奇特。到這向上境界。方能如此。不消安排。自然恰好。所以道。正中偏。三更初夜月明前。莫怪相逢不相識。隱隱猶懷舊日嫌。偏中正失。曉老婆逢古鏡。分明覿面更無真。休更迷頭還認影。正中來。無中有路出塵埃。但能不觸當今諱。也勝前朝斷舌才。偏中至。兩刃交鋒不須避。好手還同火裏蓮。宛然自有衝天氣。兼中到。不落有無誰敢和。人人盡欲出常流。折合還歸炭裏坐。浮山遠錄公。以此公案。為五位之格。若會得一則。餘者自然易會。巖頭道。如水上葫蘆子相似。捺著便轉。殊不消絲毫氣力。曾有僧問洞山。文殊普賢來參時如何。山云。趕向水牯牛群裏去。僧云。和尚入地獄如箭。山云。全得他力。洞山道。何不向無寒暑處去。此是偏中正。僧云。如何是無寒暑處。山云。寒時寒殺闍黎。熱時熱殺闍黎。此是正中偏。雖正却偏雖偏。却圓曹洞錄中。備載子細。若是臨濟下。無許多事。這般公案直下便會。有者道。大好無寒暑。有什麼巴鼻。古人道。若向劍刃上走則快。若向情識上見則遲。不見僧問翠微。如何是祖師西來意。微云。待無人來。向爾道。遂入園中行。僧云。此間無人。請和尚道。微指竹云。這一竿竹得恁麼長。那一竿竹得恁麼短其僧忽然大悟。又曹山問僧。恁麼熱。向什麼處迴避。僧云。鑊湯爐炭裏迴避。山云。鑊湯爐炭裏如何迴避。僧云。眾苦不能到。看他家裏人。自然會他家裏人說話。雪竇用他家裏事頌出。"
     }
   ],
-  "coverage_note": "16/100 cases — cases 1–14 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, with 2026-08-09 session-019fe731 additions: cases 11/13 collated, 1–3/12 verses completed to canon, case 14 replaced with the canonical 雲門『對一說』; 著語 inline notes normalized out of 本則 and 頌; post-verse 評唱 rendering and human sign-off pending); cases 21, 43 are excerpt seeds pending re-verification against canon.",
-  "zh_chars": 12008
+  "coverage_note": "16/100 cases — cases 1–14, 21 and 43 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, extended 2026-08-09 session-019fe731: cases 11/13/21 collated, 1–3/12 verses completed to canon, case 14 replaced with the canonical 雲門『對一說』 and case 21 with the canonical 智門蓮花 after seed re-verification; T-印刷 variant 韻陽/韶陽 (case 14) and 韓獹 (case 43, glossed 通作盧) recorded; 著語 inline notes and glyph/footnote variants normalized out; post-verse 評唱 rendering and human sign-off pending).",
+  "zh_chars": 13321
 }
