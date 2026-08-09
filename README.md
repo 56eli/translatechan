@@ -124,7 +124,7 @@ translatechan/
 └── scripts/
     ├── build_data_bundle.py   # Compiles data/ into app_data.js + syncs /docs (deterministic)
     ├── arena_agent_pipeline.py# Prompt templates & entry harness for sandboxed agent work
-    ├── ingest_cbeta.py        # Offline Classical Chinese sentence segmenter (manual input)
+    ├── segment_classical.py   # Offline Classical Chinese sentence segmenter (manual input)
     ├── validate_data.py       # Schema/semantic/rights/locator validator + metrics generator
     ├── smoke_test.mjs         # Dependency-free renderer regression test (CI gate)
     └── browser_test.mjs       # Optional Playwright real-browser suite (desktop + mobile; not in CI)

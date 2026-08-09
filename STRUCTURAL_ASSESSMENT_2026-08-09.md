@@ -68,22 +68,13 @@ Best immediate target: the `translationRecord` object now has a stable shape and
 no legacy string union, so it is the safest first `additionalProperties: false`
 candidate after checking real records for optional metadata.
 
-## C3 — `ingest_cbeta.py` naming
+## C3 — `ingest_cbeta.py` naming — ✅ shipped 2026-08-09
 
-**Current state:** The filename overpromises. It is a local Classical Chinese
-segmentation helper, not a CBETA ingestion pipeline. The docstring already says
-this, but the name remains misleading.
-
-**Recommendation:** Rename in a small, isolated PR:
-
-- New name: `scripts/segment_classical.py`
-- Keep a tiny compatibility wrapper `scripts/ingest_cbeta.py` that prints a
-  deprecation notice and imports/calls the new implementation, or simply update
-  references if none exist outside docs.
-- Update README/HANDOFF references if any.
-
-Alternatively, if Phase 2 will build real CBETA TEI ingestion soon, keep the
-name but expand it into the actual pipeline rather than renaming twice.
+Renamed the local punctuation/dialogue segmenter to
+`scripts/segment_classical.py`. `scripts/ingest_cbeta.py` remains as a
+deprecated compatibility wrapper that prints a warning and delegates to the new
+script; README/HANDOFF/ROADMAP references were updated. Dated session reports
+keep the historical filename intentionally.
 
 ## Suggested order
 

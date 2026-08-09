@@ -71,7 +71,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - `data/canonical_locators.json` covers every document and all 57 current case units. Linji (4 sections) and Xinxin Ming (7 stanzas) now have reviewed CBETA line-head locator pilots, visibly labeled as collated-with-normalization pending human sign-off; the remaining 33 non-case seed documents retain honest document-level status. `data/editorial/traceability_queue.json` enforces one migration-review record per seed (3 in review, 30 awaiting a unit locator).
   - `data/lineage/lineage_verification.json` aggregates all 30 in-set graph links and 4 unprofiled frontiers with source-record status; `data/lineage/profile_review_queue.json` tracks all 34 profiles (1 in review, 29 awaiting exact locators, 4 frontier-source tasks). The public chart never renders a link as source-verified until exact locators are reviewed.
 - [x] **Ingestion Tooling (seed level)**:
-  - `scripts/ingest_cbeta.py` — offline punctuation-based Classical Chinese sentence segmenter (manual input; no live CBETA fetching yet).
+  - `scripts/segment_classical.py` — offline punctuation-based Classical Chinese sentence segmenter (manual input; no live CBETA fetching yet). `scripts/ingest_cbeta.py` remains as a deprecated compatibility wrapper.
   - `scripts/validate_data.py` — dependency-free schema/semantic/rights/locator validation + metrics generation.
   - `scripts/build_data_bundle.py` — manifest-driven bundle compiler + `/docs` sync.
   - `scripts/smoke_test.mjs` — regression test exercising every corpus text through the renderer.
@@ -181,7 +181,7 @@ translatechan/
 │   ├── glossary/           # chan_terms.json (31 terms)
 │   └── gongan/             # gongan_index.json (23 cases)
 └── scripts/                # Ingestion, validation & parsing tools
-    ├── ingest_cbeta.py        # Offline segmenter (manual input)
+    ├── segment_classical.py # Offline segmenter (manual input)
     ├── validate_data.py       # Semantic/rights/locator validator + metrics generator
     ├── build_data_bundle.py   # Manifest-driven deterministic bundle + /docs sync
     ├── arena_agent_pipeline.py# Agent prompt templates & entry harness

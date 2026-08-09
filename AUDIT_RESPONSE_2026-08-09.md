@@ -141,11 +141,12 @@ or unknown properties. Consider tightening a few high-traffic objects
 (`corpusDocument`, `translationRecord`) to `additionalProperties: false` once the
 A4 string→object migration is done, so the schema starts earning its keep.
 
-**C3 — `ingest_cbeta.py` is misnamed vs. its behavior (P4)**
-Despite the name, the docstring says it does **not** fetch CBETA, generate
-pinyin, or map canonical IDs — it's a local sentence segmenter. Either rename it
-to `segment_classical.py` (and keep a shim) or extend it to actually ingest CBETA
-TEI in Phase 2. The current name sets an expectation the file doesn't meet.
+**C3 — `ingest_cbeta.py` is misnamed vs. its behavior (P4)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
+The segmenter is now `scripts/segment_classical.py`, accurately describing its
+offline punctuation/dialogue segmentation behavior. `scripts/ingest_cbeta.py`
+remains as a deprecated compatibility wrapper that prints a warning and delegates
+to the new script; README, HANDOFF, and ROADMAP references were updated. The
+dated session reports intentionally retain the historical filename.
 
 **C4 — No `pyflakes`/lint in CI (P4)**
 There's no Python static analysis in the quality workflow (pyflakes isn't even

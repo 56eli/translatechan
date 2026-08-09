@@ -18,7 +18,7 @@ The TranslateChan project has been fully established with:
 6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 ✅ verified registers on the Case-1 (Mu) row** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
 7. **Interactive Zero-Backend Public Reader** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative reader/matrix/lineage/index/lexicon interface with dark/light mode, search, and an SVG lineage network graph. Translation Studio, Arena AI Agents, and the header GitHub link are intentionally absent from the public Pages UI. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`sessions/AUDIT_archive_2026-08-08.md` §8](./sessions/AUDIT_archive_2026-08-08.md); `node scripts/smoke_test.mjs` must pass before every push.)*
 8. **Synchronized GitHub Pages Bundle** (`docs/`): Fully compiled, zero-dependency static bundle; Pages publishing already active from `main /docs`.
-9. **Editorial Data Tooling** (`scripts/`): `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `ingest_cbeta.py` offline segmenter, and `smoke_test.mjs` renderer regression test. The checked-in GitHub Actions **Quality** workflow runs the same validation, deterministic-build, generated-artifact, and reader-smoke gate on pushes and pull requests; native GitHub Pages publishing remains separate.
+9. **Editorial Data Tooling** (`scripts/`): `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `segment_classical.py` offline segmenter (with deprecated `ingest_cbeta.py` compatibility wrapper), and `smoke_test.mjs` renderer regression test. The checked-in GitHub Actions **Quality** workflow runs the same validation, deterministic-build, generated-artifact, and reader-smoke gate on pushes and pull requests; native GitHub Pages publishing remains separate.
 
 ---
 
@@ -219,7 +219,7 @@ translatechan/
 └── scripts/
     ├── build_data_bundle.py            # Bundles data/ and synchronizes /docs
     ├── arena_agent_pipeline.py         # Prompt templates & entry harness for sandboxed agent work
-    ├── ingest_cbeta.py                 # Offline Classical Chinese segmenter (manual input)
+    ├── segment_classical.py            # Offline Classical Chinese segmenter (manual input)
     ├── validate_data.py                # Semantic/rights/locator validator + metrics generator
     ├── smoke_test.mjs                  # Dependency-free renderer regression test
     └── browser_test.mjs                # Optional Playwright real-browser suite (not in CI)
