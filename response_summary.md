@@ -22,3 +22,13 @@ Manifest badge vs full cbeta_id pattern (intentional), favicon 404 (inline SVG),
 
 ## Standing (unchanged, carried)
 Owner: require Quality check in `main` branch protection (A1-ops, ~2 min). Editorial: 5 pending verified refs (clarke×2, hoffman×2, blyth×1), 33 document-level locators, rights sign-off. Content Phase 2 (Biyanlu/Linji collation). Formal screen-reader pass; mobile perf measurement. — Live preview still running on port 8090.
+
+---
+
+## Turn 3 — documentation/handoff refresh + PR #8 merged ✅
+
+- HANDOFF.md rewritten for this session (7-commit delivered list, gate comment now cites the 25-rule doc gate, merge-readiness branch = `arena/019fe5d5-translatechan`, duplicated republish sentence tidied); PR #7 (019fe30b) preserved as a compact historical delta. README dev-workflow comment now lists the full doc-gate scope (README/HANDOFF/ROADMAP.md/AUDIT.md §1/index.html).
+- Gates green; committed `d343c94`, pushed; **PR #8 opened → Quality check pass (12 s) → merged into `main` as `6f2782a`** (merge commit, explicit user request).
+- Post-merge verified: main Quality run ✅ success; **Pages build & deployment ✅ completed**; live `https://56eli.github.io/translatechan/` serves the merged build (verified via fetch — corrected matrix subtitle, 36-work hero, coverage disclosures, badges all present).
+
+**One-sentence summary (turn 3):** all documentation/handoff is current for session 019fe5d5 and the full audit+remediation batch is now live on `main` and on the public Pages site.
