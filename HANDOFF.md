@@ -15,20 +15,35 @@ The TranslateChan project has been fully established with:
 3. **Core Canonical Corpus** (`data/corpus/`): 36 canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties — **Wumenguan and the Biyanlu are the first two fully collated complete texts** (48/48 and 100/100 cases ✅, 2026-08-08/09); the remaining 34 files are excerpt-scale seeds (completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
 4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 34 master profiles (30 researched seeds plus 4 clearly labeled frontier scaffolds) with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan; **school affiliation normalized 2026-08-09** into the validator-enforced `school_key` vocabulary in `data/lineage/school_vocabulary.json`, which now drives the filter UI and graph colors).
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
-6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 ✅ verified registers on the Case-1 (Mu) row** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
+6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, and Philip Yampolsky — **2 ✅ verified registers on the Case-1 (Mu) row** (Senzaki & Reps PD; Blyth per Hokuseido 1966). (Steven Heine register exemplars currently exist only in corpus texts, not in any matrix entry.) Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
 7. **Interactive Zero-Backend Public Reader** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative reader/matrix/lineage/index/lexicon interface with dark/light mode, search, and an SVG lineage network graph. Translation Studio, Arena AI Agents, and the header GitHub link are intentionally absent from the public Pages UI. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`sessions/AUDIT_archive_2026-08-08.md` §8](./sessions/AUDIT_archive_2026-08-08.md); `node scripts/smoke_test.mjs` must pass before every push.)*
 8. **Synchronized GitHub Pages Bundle** (`docs/`): Fully compiled, zero-dependency static bundle; Pages publishing already active from `main /docs`.
 9. **Editorial Data Tooling** (`scripts/`): `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `segment_classical.py` offline segmenter (with deprecated `ingest_cbeta.py` compatibility wrapper), and `smoke_test.mjs` renderer regression test. The checked-in GitHub Actions **Quality** workflow runs the same validation, deterministic-build, generated-artifact, and reader-smoke gate on pushes and pull requests; native GitHub Pages publishing remains separate.
 
 ---
 
-## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe731-translatechan`)
+## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe838-translatechan`)
 
 ### Public Pages scope
 
 The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return).
 
-### What this session delivered (all gates green; full report: [`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md))
+### What this session delivered (all gates green; full report: [`sessions/AUDIT_RESPONSE_2026-08-09_019fe838.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe838.md))
+
+Independent full-project audit again found **no P0/P1/P2 defects**; all eight catalogued findings (M1–M8) were documentation-consistency or process class and shipped same-session:
+
+1. **Doc-drift repairs (M1/M5):** stale numbers corrected where the doc gate couldn't see them — ROADMAP tech tree gong'an `23 → 24 cases`; RESEARCH_RELEASE_PLAN baseline refreshed to 2026-08-09 (Biyanlu `14/100 → 100/100 ✅ complete`, `57 → 150` stored case-units with case-level locators, Linji 67-section pilot reflected, Phase-3 reframed as the completed campaign whose contract now governs Linji/Congronglu).
+2. **Canon-reference corrections in `vision.md` (M3):** Taishō Vol. 47/48 split fixed (`T1957–T1990` / `T1991–T2025`), Linji T1985 moved to Vol. 47, Caoshan Benji Yulu `T1987 → T1987B` (matches scholarly citation and no longer collides with corpus `zhaozhou=T1987`), "Xuanling" → Xuansha (X1445, per the 2026-08-08 canon audit), and the Phase-2 Wumenguan/Biyanlu coverage checkbox marked complete.
+3. **Truth-in-copy polish (M2/M4/M6):** HANDOFF matrix roster no longer names Steven Heine (his registers exist only in corpus texts, not matrix entries); `index.html` dropped the stale "~873KB" bundle comment (now 1,685,556 B) and the gong'an header now accurately says cases are *indexed from the Wumenguan and Biyanlu, cross-referenced into* the Congronglu/Chuandenglu (entries come only from the first two collections today).
+4. **Doc-truthfulness gate extended (M7):** the recurring drift class is now structurally prevented — `validate_data.py` gained four negative-tested rules covering ROADMAP's tree count and RESEARCH_RELEASE_PLAN's baseline numbers (stored case-units, excerpt seeds, Biyanlu coverage). Reverting any of those values fails validation with a named rule.
+5. **Ops probe (M8):** the known CI generated-artifact path-list gap (`docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`) was re-tested with a single-line commit — GitHub still rejects workflow changes from the session token (`without workflows permission`), so the fix was reverted and remains **owner action** (see the dedicated section below; granting the token the `workflows` scope would let sessions maintain CI).
+
+**Previous session (`019fe731`, compact):** independent audit N1–N10 shipped (a11y, search UX, P4 polish, housekeeping); **Biyanlu corpus campaign COMPLETE 100/100 ✅** with provenance-integrity repairs; **Linji yulu (T1985) completion pilot A–D** (67 sections, 13,367 zh chars; slots 949→1023); validator `complete_documents` generalized to manifest targets; GitHub auth outage recovered with no work lost. Full report: [`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md).
+
+<details>
+<summary>Historical detail from session 019fe731 (superseded by the archive)</summary>
+
+### What session 019fe731 delivered (archived detail; full report: [`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md))
 
 Independent full-project audit again found no P0/P1/P2 defects; all ten catalogued findings (N1–N10) shipped same-session, **and the Biyanlu corpus-completion campaign reached 100/100 cases**:
 
@@ -40,6 +55,8 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 6. **Gong'an index:** `biyan_11` added; `biyan_21` corrected (Wumenguan contamination removed) → **24 entries** with all Biyanlu locators collated.
 7. **Metrics truthfulness:** the validator's `complete_documents` metric was hardcoded to Wumenguan alone; it is now derived generically from manifest `unit_targets` (Wumenguan 48/48 + Biyanlu 100/100 → **34 excerpt seeds**), and the stale "14 ingested cases" copy in the Lexicon scope note was generalized.
 8. **Ops notes:** GitHub token auth lapsed mid-session (~17:20 UTC) and recovered; the CF-1 CI workflow-path fix was attempted, confirmed blocked by the token's missing `workflows` scope (owner action below), and reverted locally.
+
+</details>
 
 ### Source, translation, and lineage disclosure
 
@@ -66,7 +83,7 @@ All commands pass. Root and `/docs` assets/data are synchronized.
 
 ### Owner follow-up: CI workflow path list
 
-The session token lacks GitHub App `workflows` permission, so `.github/workflows/quality.yml` was not modified — **re-confirmed 2026-08-09 (session `019fe731`): the one-line fix was committed and rejected by GitHub on push (`refusing to allow a GitHub App to create or update workflow ... without workflows permission`) and reverted.** Extend the generated-artifact gate path list to include:
+The session token lacks GitHub App `workflows` permission, so `.github/workflows/quality.yml` was not modified — **re-confirmed 2026-08-09 (session `019fe731`) and probed again 2026-08-09 (session `019fe838`): the one-line fix was committed and rejected by GitHub on push (`refusing to allow a GitHub App to create or update workflow ... without workflows permission`) and reverted both times.** Extend the generated-artifact gate path list to include:
 
 ```text
 docs/theme-init.js
@@ -102,7 +119,7 @@ The same commands the workflow runs are the local release checklist above, so th
 
 ### Merge readiness
 
-Current branch: `arena/019fe731-translatechan` (each session works on its own `arena/<session>-translatechan`). This session's PR to `main` was opened and merged by the session per the handoff instruction; before merge, the local quality gate above was green and the **Quality** check passed. After merge, GitHub Pages republishes `main` → `/docs` automatically (~60 s).
+Current branch: `arena/019fe838-translatechan` (each session works on its own `arena/<session>-translatechan`). Session 019fe731's PR to `main` was opened and merged by that session per the handoff instruction; before merge, the local quality gate above was green and the **Quality** check passed. After merge, GitHub Pages republishes `main` → `/docs` automatically (~60 s). This session likewise opens its PR from its own branch once the local gate is green.
 
 ---
 

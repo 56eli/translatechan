@@ -30,10 +30,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <!-- D4: parse the ~873KB data bundle as early as possible. A modulepreload is
-       not appropriate (app_data.js is a classic global script), so preload as
-       script; the matching defer <script> below reuses this download and keeps
-       execution ordered after HTML parsing. -->
+  <!-- D4: parse the large generated data bundle as early as possible. A
+       modulepreload is not appropriate (app_data.js is a classic global
+       script), so preload as script; the matching defer <script> below reuses
+       this download and keeps execution ordered after HTML parsing. (Bundle
+       size is tracked in AUDIT.md §1; don't hardcode it here.) -->
   <link rel="preload" href="app_data.js" as="script">
 </head>
 <body>
@@ -226,7 +227,7 @@
     <section id="view-gongan" class="view-section" role="tabpanel" aria-labelledby="tab-gongan">
       <div class="text-header">
         <h1 class="text-title-zh">歷代宗門公案總目 / Gong'an & Koan Master Index</h1>
-        <p class="text-title-en">Canonical encounter cases cross-indexed across Wumenguan, Biyanlu, Congronglu, and Chuandenglu</p>
+        <p class="text-title-en">Canonical encounter cases indexed from the Wumenguan and Biyanlu, cross-referenced into the Congronglu, Chuandenglu, and related transmission records</p>
       </div>
       <div id="gongan-content-target" class="matrix-container"></div>
     </section>

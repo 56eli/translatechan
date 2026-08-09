@@ -1031,7 +1031,17 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
         ("AUDIT.md", f"**{len(school_vocab)} controlled `school_key` groups**", "current-verdict school vocabulary size"),
         ("AUDIT.md", f"**{lineage_registry.get('internal_edges', 0)} edge records + {lineage_registry.get('frontiers', 0)} frontiers**", "current-verdict lineage registry"),
         ("AUDIT.md", f"Glossary: **{len(glossary)} terms**; Gong'an index: **{len(gongan)} entries**", "current-verdict glossary/gong'an counts"),
+        # AUDIT 2026-08-09 (session 019fe838, M7): two more living docs were
+        # found quoting stale counts the validator already computes — the
+        # ROADMAP tech tree ("23 cases" after the index grew to 24) and the
+        # RESEARCH plan baseline ("57 stored case units" after the Biyanlu
+        # campaign reached 150). Guard them like README/HANDOFF.
+        ("ROADMAP.md", f"gongan_index.json ({len(gongan)} cases)", "gong'an count in tech-stack tree"),
+        ("RESEARCH_RELEASE_PLAN.md", f"all {locators.get('case_locators', 0)} stored case units", "stored case-unit locator coverage"),
+        ("RESEARCH_RELEASE_PLAN.md", f"({corpus['excerpt_seed_documents']} excerpt seeds per validator metrics", "excerpt-seed count in current baseline"),
     ]
+    if biyanlu.get("coverage"):
+        checks.append(("RESEARCH_RELEASE_PLAN.md", f"the *Biyanlu* (**{biyanlu['coverage']}**", "Biyanlu coverage in current baseline"))
     if biyanlu.get("coverage"):
         checks.append(("README.md", biyanlu["coverage"], "Biyanlu coverage string in honest status"))
         checks.append(("AUDIT.md", f"Biyanlu **{biyanlu['coverage']}**", "current-verdict Biyanlu coverage"))

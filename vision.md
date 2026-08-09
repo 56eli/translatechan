@@ -52,8 +52,8 @@ The TranslateChan corpus is systematically structured around the standard histor
 
 | CBETA / Taishō Canon | Category | Key Classical Works Included | Focus & Structure |
 | :--- | :--- | :--- | :--- |
-| **Taishō Vol. 48 (T1985–T2025)** | **Discourse & Gong'an (諸宗部五)** | *Wumenguan* (無門關 T2005), *Biyanlu* (碧巖錄 T2003), *Congronglu* (從容錄 T2004), *Linji Yulu* (臨濟語錄 T1985), *Platform Sutra* (六祖壇經 T2007/T2008), *Huangbo Chuanxin Fayao* (傳心法要 T2012A) | Foundational recorded sayings, classic encounter dialogues, case pointers (*垂示*), main cases (*本則*), verses (*頌*), and commentary (*評唱*). |
-| **Taishō Vol. 47 (T1957–T1984)** | **Sectarian & Recorded Sayings (諸宗部四)** | *Zhaozhou Yulu* (趙州語錄), *Dongshan Liangjie Yulu* (洞山良价語錄 T1986), *Caoshan Benji Yulu* (曹山本寂語錄 T1987), *Yunmen Yulu* (雲門語錄 T1988), *Xuanling Yulu* (玄沙語錄) | Detailed monastics discourse records, sermons (*上堂*), evening instructions (*晚參*), and question-and-answer encounters. |
+| **Taishō Vol. 48 (T1991–T2025)** | **Discourse & Gong'an (諸宗部五)** | *Wumenguan* (無門關 T2005), *Biyanlu* (碧巖錄 T2003), *Congronglu* (從容錄 T2004), *Platform Sutra* (六祖壇經 T2007/T2008), *Huangbo Chuanxin Fayao* (傳心法要 T2012A) | Foundational recorded sayings, classic encounter dialogues, case pointers (*垂示*), main cases (*本則*), verses (*頌*), and commentary (*評唱*). |
+| **Taishō Vol. 47 (T1957–T1990)** | **Sectarian & Recorded Sayings (諸宗部四)** | *Linji Yulu* (臨濟語錄 T1985), *Zhaozhou Yulu* (趙州語錄 T1987), *Dongshan Liangjie Yulu* (洞山良价語錄 T1986), *Caoshan Benji Yulu* (曹山本寂語錄 T1987B), *Yunmen Yulu* (雲門語錄 T1988), *Xuansha Yulu* (玄沙語錄, X1445) | Detailed monastics discourse records, sermons (*上堂*), evening instructions (*晚參*), and question-and-answer encounters. |
 | **Taishō Vol. 51 (T2075–T2089)** | **Histories & Transmission Records (史傳部三)** | *Jingde Chuandenglu* (景德傳燈錄 T2076, 30 fascicles), *Tiansheng Guangdenglu* (天聖廣燈錄), *Wudeng Huiyuan* (五燈會元, X1565) | The complete genealogy of Chan transmission from the Seven Buddhas of Antiquity and Indian Patriarchs through the Chinese lineage generations. |
 | **Taishō Vol. 48 (T2021–T2025)** | **Monastic Codes & Rules of Purity (清規部)** | *Baizhang Qinggui* (敕修百丈清規 T2025), *Chanyuan Qinggui* (禪苑清規, X1245) | Chan monastic guidelines, daily life routines, communal work (*普請* / "A day without work is a day without food"), ritual protocols. |
 | **Early Tang & Dunhuang Manuscripts** | **Early Lineage Texts (敦煌文獻)** | *Erru Sixing Lun* (二入四行論 / Bodhidharma's Two Entrances and Four Practices), *Juezhu Lun* (絕觀論 / Niutou Farong), *Lidai Fabao Ji* (歷代法寶記) | Proto-Chan texts, earliest direct records predating Song-dynasty editorial redactions. |
@@ -243,7 +243,7 @@ The TranslateChan web application is architected to run **100% client-side on Gi
 ### Phase 2: Ingestion Pipeline & CBETA Automation
 - [ ] Implement automated Python/Node scrapers for CBETA XML/P5 format to extract Chan volumes (Taishō 47, 48, 51; Zokuzōkyō).
 - [ ] Automatic punctuation normalization, stanza detection, and dialogue speaker attribution.
-- [ ] Expand canonical text coverage to all 48 cases of *Wumenguan*, all 100 cases of *Biyanlu*, and all 100 cases of *Congronglu* (從容錄).
+- [x] Expand canonical text coverage to all 48 cases of *Wumenguan* (✅ 48/48, 2026-08-08) and all 100 cases of *Biyanlu* (✅ 100/100, 2026-08-09); all 100 cases of *Congronglu* (從容錄) remain open.
 - [ ] Ingest *Jingde Chuandenglu* (景德傳燈錄) 30 fascicles with automated master-index cross-linking.
 
 ### Phase 3: Advanced Comparative Matrix & Scholarly Notes

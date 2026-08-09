@@ -16,13 +16,13 @@ A text or translation is only presented at the strongest available status. “Co
 | Source-verified lineage edge | Named chart/record, edition and exact locator, editorial note on historiographical status; otherwise retain the visible traditional/pending state |
 | Public release | Quality workflow green, generated assets committed, browser/a11y smoke pass, and no unresolved P1 scholarly-disclosure defect |
 
-## Current baseline (2026-08-08)
+## Current baseline (2026-08-09, session `019fe838`)
 
-- **Platform:** native GitHub Pages from `main` → `/docs`; the checked-in **Quality** workflow passes on the session branch.
-- **Corpus:** 36 structured documents. *Wumenguan* is the only complete work (48/48 cases plus preface/epilogue); **Biyanlu cases 1–10 are complete (14/100 total)** under the pilot contract (pointer, main case, pre-verse 評唱, verse; CBETA TEI line locators; labeled AI-draft renderings; post-verse 評唱 English pending); the remaining 34 documents are honest excerpt seeds. Per-text coverage is emitted deterministically in `project_metrics.json → corpus.per_text` and displayed in the Reader header.
-- **Traceability:** all 57 stored case units have case-level locators. The Linji pilot (4 sections, T1985) and Xinxin Ming pilot (7 stanzas, T2010) have CBETA line-head anchors marked `collated_with_normalization`, not source-checked: human editorial sign-off remains required. The remaining 33 non-case seed documents retain document-level `legacy_document_seed` records; the enforced migration queue is not evidence of collation. Huangbo material was separated by witness: the One Mind seed is T2012A, while the unconditioned-compassion Q&A now belongs to the T2012B Wanling seed and still needs unit-level collation.
+- **Platform:** native GitHub Pages from `main` → `/docs`; the checked-in **Quality** workflow passes on session branches (owner still to require it in branch protection).
+- **Corpus:** 36 structured documents. *Wumenguan* (48/48 cases plus preface/epilogue) and the *Biyanlu* (**100/100 cases** — pointer 垂示 where canonically present, 本則, pre-verse 評唱, 頌; collated from CBETA TEI T48n2003; post-verse 頌評唱 rendering and human collation sign-off still pending) are the two complete works; the *Linji Yulu* completion pilot (67 sections across prefaces, Ascending the Hall, 示眾 and 勘辨 divisions, CBETA P5 XML) is underway; the remaining corpus (34 excerpt seeds per validator metrics, including Linji) stays honestly excerpt-scaled. Per-text coverage is emitted deterministically in `project_metrics.json → corpus.per_text` and displayed in the Reader header.
+- **Traceability:** all 150 stored case units (48 Wumenguan + 100 Biyanlu + 2 Congronglu seed cases) have case-level locators. The Linji pilot (4 sections, T1985) and Xinxin Ming pilot (7 stanzas, T2010) have CBETA line-head anchors marked `collated_with_normalization`, not source-checked: human editorial sign-off remains required. The remaining 33 non-case seed documents retain document-level `legacy_document_seed` records; the enforced migration queue is not evidence of collation. Huangbo material was separated by witness: the One Mind seed is T2012A, while the unconditioned-compassion Q&A now belongs to the T2012B Wanling seed and still needs unit-level collation.
 - **Translation disclosure:** 138 verified corpus quotation records and 2 verified Matrix records resolve to 13 rights-manifest source records; 5 verified records still need exact page/section references; human rights review remains pending.
-- **Lineage:** 30 internal edges are visibly traditional/pending (including four newly navigable frontier-profile links); none should be upgraded without exact source locators. `data/lineage/profile_review_queue.json` now tracks all 34 profiles for source-locator review without upgrading their evidence status.
+- **Lineage:** 30 internal edges are visibly traditional/pending (including four newly navigable frontier-profile links); none should be upgraded without exact source locators. `data/lineage/profile_review_queue.json` tracks all 34 profiles for source-locator review without upgrading their evidence status.
 
 ## Delivery sequence
 
@@ -53,9 +53,9 @@ A text or translation is only presented at the strongest available status. “Co
 
 **Exit evidence:** every visible modern quotation has a documented editorial decision and a source/reference suitable for its displayed status.
 
-### 3 — Biyanlu as the next content pilot
+### 3 — Biyanlu completion campaign (✅ complete; contract now applies to the next texts)
 
-*Biyanlu* is the next expansion target because it exercises pointers, commentary, verse, case navigation, comparative reading, and Gong’an cross-references.
+*Biyanlu* was chosen as the expansion pilot because it exercises pointers, commentary, verse, case navigation, comparative reading, and Gong’an cross-references. The same per-case contract now governs the next targets — **Linji Yulu completion** (pilot landed 2026-08-09) and **Congronglu 100/100**:
 
 For each new case:
 
@@ -68,7 +68,9 @@ For each new case:
 
 **Pilot exit evidence:** the first 10 Biyanlu cases are complete against the selected edition, with unit locators and no unlabelled translations. Reassess data model, loading performance, and editorial throughput before scaling to 100 cases.
 
-> ✅ **Pilot milestone (2026-08-08):** cases 1–10 complete (14/100) with CBETA TEI line locators, validator-checked coverage metadata, and regression coverage — the contract held end-to-end. Post-verse 評唱 English and human sign-off on the `collated_with_normalization` anchors remain; cases 11–100 are next.
+> ✅ **Pilot milestone (2026-08-08):** cases 1–10 complete (14/100) with CBETA TEI line locators, validator-checked coverage metadata, and regression coverage — the contract held end-to-end.
+>
+> ✅ **Campaign milestone (2026-08-09):** **Biyanlu COMPLETE at 100/100 cases** — cases 11/13/15–100 collated from `cbeta-org/xml-p5` TEI + CBETA Online; integrity repairs replaced mis-seeded cases 14/21 and a fabricated case-12 verse, completed truncated cases 1–3 verses, and gave case 43 its 垂示 + 評唱 (all disclosed in locator records); 22 canonical no-垂示 cases recorded. **Still pending per this plan's release standard:** post-verse 頌評唱 English rendering (tracked in the file's `coverage_note`), and human collation sign-off (the `collated_with_normalization` status never upgrades itself).
 
 ### 4 — Reader and research UX hardening
 

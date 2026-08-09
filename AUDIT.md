@@ -10,15 +10,22 @@
 
 ---
 
-## 1. Current verdict (2026-08-09, session `arena/019fe731-translatechan`)
+## 1. Current verdict (2026-08-09, session `arena/019fe838-translatechan`)
 
 **Healthy — no P0/P1 known.** All quality gates pass on `main` (PR #7) and on
 every session change since; the app renders all 36 corpus documents, the
 validator enforces the data contract (schema companion + semantics + rights +
 locators + deterministic metrics + controlled school vocabulary + doc
-truthfulness across README/HANDOFF/ROADMAP/index.html **and the §1 numbers of
-this file**), and the dependency-free smoke suite covers rendering, search,
-a11y/ARIA behavior, filter derivations, and escaping.
+truthfulness across README/HANDOFF/ROADMAP/index.html/RESEARCH_RELEASE_PLAN.md
+**and the §1 numbers of this file**), and the dependency-free smoke suite
+covers rendering, search, a11y/ARIA behavior, filter derivations, and escaping.
+
+**Re-audited 2026-08-09 (session `019fe838`)**: no P0/P1/P2 found; 8 new
+findings M1–M8 (doc-consistency + process class) all shipped same-session —
+full report: [`sessions/AUDIT_RESPONSE_2026-08-09_019fe838.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe838.md).
+Root cause of the recurring drift: the ROADMAP tech tree and the
+RESEARCH_RELEASE_PLAN baseline lived outside the doc gate; both are now
+guarded (validator gained 4 negative-tested rules).
 
 Current measured facts (validator-generated; the prose numbers below are
 guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
@@ -35,7 +42,8 @@ guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
 1. **A1 — Repository ops (owner, ~2 min):** require the Quality workflow check *"Validate data, generated artifacts, and reader"* in branch protection/rulesets for `main` so a PR cannot merge without the green gate. Still unverified/unactioned by the owner.
 2. **A2 — Scholarly release gate (editorial):** resolve the **5 pending verified-source references**; migrate the **33 document-level locators** to unit/page-line anchors via `data/editorial/traceability_queue.json`; human sign-off per rights-manifest record before expanding quotation reuse. The validator enforces structure, not collation/copyright — keep it that explicit.
 3. **Content Phase 2:** continue the CBETA-collated completion campaign (ROADMAP.md). **Biyanlu is now complete (100/100, 2026-08-09)** and the **Linji yulu completion pilot has landed (67 sections: prefaces, Ascending the Hall, 示眾, 勘辨 divisions, same session)** — continuation beyond the pilot (remaining Linji divisions, then Congronglu 100/100) is the natural next target; every new text runs the established locator/provenance/metrics workflow.
-4. **Editorial candidates (small):** ~~gong'an theme taxonomy~~ ✅ delivered 2026-08-09; ~~semantic heading outline (a11y B2)~~ ✅ delivered 2026-08-09 (session `019fe64a`); `switchViewRaw` scroll-restore on back/forward.
+4. **Editorial candidates (small):** ~~gong'an theme taxonomy~~ ✅ delivered 2026-08-09; ~~semantic heading outline (a11y B2)~~ ✅ delivered 2026-08-09 (session `019fe64a`); `switchViewRaw` scroll-restore on back/forward (CF-2); search jump anchors for section-shaped texts (Linji 67-section pilot; audit 2026-08-09 `019fe838` §4.2); a Biyanlu Case-1 matrix row from existing verified registers (`019fe838` §4.1); Biyanlu post-verse 頌評唱 rendering + human collation sign-off.
+5. **Ops (owner, token-blocked):** CI generated-artifact gate path list (`docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`) — session `019fe838` re-probed 2026-08-09: still rejected without `workflows` scope; fix reverted, documented in HANDOFF.
 
 ### Independent audit 2026-08-09 (session `019fe64a`)
 
@@ -62,6 +70,7 @@ diff -rq data docs/data                   # byte-identical data mirror
 | 2026-08-08 | `019fe30b` | [`sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`](./sessions/SESSION_AUDIT_2026-08-08_019fe30b.md) + archive §11 | a11y/CSP hardening; per-text metrics; Playwright suite; Biyanlu 4–10 (14/100); coverage disclosures |
 | 2026-08-09 | `019fe5d5` | [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md) | Full audit; doc-truthfulness gate (P2-A); controlled school vocabulary + data-derived filters (P2-B, incl. dead-lexicon-filter bug fix); renderer escaping consistency + poison regression (P2-C); sessions convention + AUDIT.md slimming (P2-D); gong'an 7-group theme taxonomy. **Turn 2**: independent second-pass audit → A1–A5 remediation: verified-text spread 6→**7** (README/ROADMAP) + matrix "2 rows"→2 registers (HANDOFF); doc gate extended to 25 rules incl. **AUDIT.md §1 numbers** + new `verified_corpus_texts` metric; pipeline helper emits validator-shaped entries (status field); stale § pointers fixed; Lexicon occurrence **scope note** (smoke 4m5) |
 | 2026-08-09 | `019fe64a` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md) + [`sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md`](./sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md) | Full audit, no P0/P1/P2 (PR #9); semantic heading outline (B2); data-derived graph colors (A2); dark-theme FOUC guard `theme-init.js` (B1); 736 bare-string → `{text,status}` records (A4); aria-hidden emoji, data-derived hero counts, OG/Twitter/robots/sitemap/canonical, deferred scripts; `segment_classical.py` rename; schema/validator strictness wave. Files archived from repo root per §5 (N9 fix, session `019fe731`) |
+| 2026-08-09 | `019fe838` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe838.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe838.md) | Independent full audit; M1–M8 found (no P0/P1/P2), all in-session items shipped: ROADMAP/RESEARCH-plan doc drift repaired (stale gong'an 23→24, Biyanlu 14/100→100/100, 57→150 case units), vision.md canon-table CBETA corrections (Vol 47/48 split, Caoshan T1987B, Xuansha), HANDOFF matrix-roster Heine fix, size-agnostic bundle comment, honest gong'an subtitle; **doc gate extended to ROADMAP + RESEARCH_RELEASE_PLAN (4 negative-tested rules)**; CI path-gap probe re-confirmed token-blocked (owner action stands); CF-2 + search unit-anchors + Biyanlu matrix row catalogued as next candidates |
 | 2026-08-09 | `019fe731` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md) | Independent full audit; N1–N10 found (no P0/P1/P2), all shipped same-session: `motionBehavior()` reduced-motion scroll gate; dossier as focus-managed non-modal dialog (Escape/✕ + focus restore); focus-revealed glossary popover + `role="tooltip"`; search landmark + accessible name; search cards disclose matched field (register/pinyin/title); diacritic-folded pinyin search; debounced lineage resize re-layout; capped/scrollable/interactive popovers w/ measured flip; citation legibility 0.72 rem; session-file archival (N9); README tree + stale comments (N10). **Content Phase 2: Biyanlu cases 11 + 13** collated from CBETA T48n2003; **provenance integrity repair** — mis-seeded case 14 replaced with canonical 雲門『對一說』, fabricated case-12 verse and truncated cases 1–3 verses completed to canon, locator records disclose every replacement; gong'an `biyan_11` added and `biyan_21` corrected (now **16/100**, cases 1–14, 21, 43 complete, all Biyanlu locators collated); case 21 also found mis-seeded (→ canonical 智門蓮花), case 43 completed (垂示 + 評唱); **campaign completed: cases 15–100 ingested** (**Biyanlu 100/100 ✅**, locators **150/150**, CJK 88,263/92,450; 22 canonical no-垂示 cases recorded; 頌評唱/post-verse commentary + human sign-off tracked pending); GitHub auth lapsed mid-session (~17:20 UTC) and recovered — session delta re-committed after a sandbox snapshot reset and pushed; validator `complete_documents` metric generalized from hardcoded Wumenguan to manifest-target derivation (34 excerpt seeds); HANDOFF/ROADMAP/README refreshed at close; PR to `main` opened & merged by the session; CF-1 CI gate fix attempted, confirmed token-blocked, documented; **Linji yulu (T1985) completion pilot A–D** (merged from the branch tip pushed after auth recovery): prefaces + Ascending the Hall + 示眾 division + 勘辨 division collated from CBETA P5 XML — **67 sections**, 13,367 zh chars, slots 949→**1023**, CJK 101,198/106,160 |
 
 ## 5. Session artifact convention (est. 2026-08-09)
