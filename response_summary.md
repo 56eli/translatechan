@@ -1,8 +1,8 @@
 # 📋 Session Response — 2026-08-09 (branch `arena/019fe5d5-translatechan`)
 
-> **Tasks so far:** full project audit → P2-B (school vocabulary) → **P2-A (docs-truthfulness guard)**.
+> **Tasks so far:** full project audit → P2-B (school vocabulary) → P2-A (docs-truthfulness guard) → **P2-C (escaping consistency)**.
 >
-> **One-sentence summary:** ✅ P2-A shipped — `validate_data.py` now fails the build when README/HANDOFF/index.html quote stale numbers (13 live-metric rules, drift-negative-tested, CI-enforced with zero workflow changes), ending the recurring doc-drift class; session total: audit + 6 doc fixes + school vocabulary/filters + lexicon-listener bug fix. Full detail: **`SESSION_AUDIT_2026-08-09_019fe5d5.md`**.
+> **One-sentence summary:** ✅ P2-C shipped — all ~60 previously-raw interpolation sites across reader/lineage/gong'an/lexicon/dossier now escape consistently, guarded by a poison-fixture smoke check (efficacy-verified); session total: audit + 6 doc fixes + school vocabulary/filters + lexicon-listener fix + doc-truthfulness gate + escaping pass. Full detail: **`SESSION_AUDIT_2026-08-09_019fe5d5.md`**.
 
 ---
 
@@ -17,9 +17,26 @@
 | Regression coverage | Smoke checks 4m2/4m3: derived options, exact Linji-group filtering, school_key palette, lexicon restrict/reset |
 | Docs | README/HANDOFF trees + editorial workflow mention the vocabulary; AUDIT.md §12 durable log; session audit updated |
 
-**Gates:** `validate_data.py` ✅ · `build_data_bundle.py` ✅ (795 KB, root↔docs synced) · `smoke_test.mjs` ✅ · committed & pushed.
+**Gates (every turn):** py_compile ✅ · validate ✅ · build (root↔docs synced) ✅ · smoke ✅ · committed & pushed.
+</details>
 
-## P2-A delivery summary (this turn)
+## P2-C delivery summary (this turn)
+
+| Item | Detail |
+|---|---|
+| Escaping pass | ~60 raw `${}` sites → `escHtml()` across reader (headers, speaker/pinyin lines, titles, sample records, five ranks, overview), lineage cards, gong'an cards **+ `data-gongan-filter` attribute**, lexicon cards, master dossier (quotes + summary) |
+| Regression guard | Smoke **4y**: poison fixture (`<img src=x onerror=…>` in master name / gong'an theme / glossary term / case title) must render escaped in all 4 views; **efficacy-tested** by reverting one escape → check fails → restore passes |
+| Notes | Matrix/search/disclosures were already escaped; behavioral identity preserved (accents/pinyin render identically) |
+
+## Remaining backlog (your call)
+
+1. **P2-D** — session-artifact convention + AUDIT.md slimming *(S)*
+2. Gong'an theme taxonomy (23 free-text themes → curated set) *(M, editorial)*
+3. Content Phase 2 — next corpus text pilot (Biyanlu 11–20 or Linji) *(M–L)*
+4. A1/A2 standing ops+editorial (branch protection; reference/rights sign-off)
+5. *(Earlier summaries for P1/P2-A/P2-B remain in this file below)*
+
+<details><summary>P2-A delivery summary (previous turn)</summary>
 
 | Deliverable | Detail |
 |---|---|

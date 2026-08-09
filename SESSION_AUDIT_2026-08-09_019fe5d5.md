@@ -19,7 +19,7 @@ What this audit did find is a *pattern*: **prose documentation and hard-coded UI
 | Data integrity tooling | Validator + metrics + locator registry remain the strongest part of the project | A− |
 | Documentation truthfulness | **Resolved this session**: validator now enforces a 13-rule doc-truthfulness gate (README/HANDOFF/index.html must quote live metrics); all current drift fixed | A− |
 | Data consistency | **Resolved this session**: 22 school variants → 12 validator-enforced `school_key` groups; school & lexicon-category filters now data-derived; gong'an themes remain per-entry free text | B+ |
-| Renderer escaping hygiene | Matrix escapes rigorously; lineage/gong'an/lexicon/dossier interpolate raw (trusted data, latent inconsistency) | B |
+| Renderer escaping hygiene | **Resolved this session**: ~60 sites escaped consistently across reader/lineage/gong'an/lexicon/dossier; poison-fixture regression (smoke 4y) efficacy-verified | A− |
 | Test automation | Dependency-free smoke suite + optional Playwright; no prose-doc or vocabulary checks | B+ |
 | Content breadth | Unchanged: 1/36 complete (Wumenguan), Biyanlu 14/100; excerpt seeds elsewhere | C |
 
@@ -65,11 +65,11 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 
 **Delivered 2026-08-09:** `data/lineage/school_vocabulary.json` defines **12 canonical school_key groups** (Indian Patriarchs, Six Patriarchs, Tang branch roots, Hongzhou, Shitou/Hunan, Linji, Linji/Yangqi, Caodong, Yunmen, Guiyang, Fayan, transmission tradition); all 34 masters carry `school_key` + the canonical `school` display — `validate_data.py` errors on an unknown key or a mismatched display string. The lineage filter options and graph palette are now **derived from the vocabulary/data**, and the lexicon category filter is likewise data-derived. **Bug found while wiring:** the Lexicon "Category" dropdown had no change listener at all (inert UI since introduction) — now wired, with `<label for>` association. Smoke checks 4m2/4m3 guard the derived options, exact Linji group filtering, the school_key palette, and lexicon restrict/reset. *Remaining candidate: gong'an `theme` is still per-entry free text (23 entries → 23 themes); a curated taxonomy is future editorial work.*
 
-### P2-C — Renderer HTML-escaping is inconsistent across views
+### P2-C — Renderer HTML-escaping is inconsistent across views ✅ **DELIVERED THIS SESSION**
 
-`renderMatrix` escapes every interpolated field; `renderLineage`, `renderGonganIndex`, `renderLexicon`, and the master dossier interpolate raw (`m.summary`, `g.summary`, `item.definition`, `data-gongan-filter="${t}"`, …). Data today is trusted/committed, so this is **not an active XSS**, but it is latent injection surface (e.g. an `&`/quote in a theme attribute) and inconsistent with the project's own defense-disclosure discipline.
+`renderMatrix` escaped every interpolated field; `renderReader` (headers, case/section/dialogue/stanza/chapter/five-ranks/sample-record fields incl. pinyin/accented speaker lines), `renderLineage`, `renderGonganIndex` (incl. the `data-gongan-filter` attribute), `renderLexicon`, and the master dossier interpolated raw (`m.summary`, `g.summary`, `item.definition`, …). Data today is trusted/committed, so this was **not an active XSS**, but it was latent injection surface (e.g. an `&`/quote in a theme attribute) and inconsistent with the project's own disclosure discipline.
 
-**Recommendation:** one mechanical pass escaping all interpolated data fields (and attribute values via a helper); add a smoke assertion with a poison fixture or a lint-style grep to prevent regressions.
+**Delivered 2026-08-09:** ~60 interpolation sites across the reader, lineage cards, gong'an index + filter chips, lexicon cards, and dossier now consistently apply `escHtml()` (attributes included); text content already assigned via `textContent`/citation rows stays as-is. **Regression guard (smoke 4y):** a poison fixture (`<img src=x onerror=…>` injected into a master name, a gong'an theme, a glossary term, and a case title) must render **escaped** in all four views — efficacy-verified by temporarily reverting one escape and watching the check fail, then restoring.
 
 ### P2-D — Session artifacts accumulate at repo root
 
@@ -106,6 +106,6 @@ Gates re-run after fixes: validator ✅, build ✅ (root↔docs re-synced), smok
 
 1. ~~**P2-A docs guard** (`validate_data.py --check-docs` + CI line) — kills the recurring drift class.~~ ✅ delivered this session.
 2. ~~**P2-B school vocabulary normalization + data-derived lineage filter options.**~~ ✅ delivered this session.
-3. **P2-C escaping consistency pass.** *(S)*
+3. ~~**P2-C escaping consistency pass.**~~ ✅ delivered this session.
 4. **P2-D sessions-folder convention + AUDIT.md slimming.** *(S)*
 5. **Content**: next Phase-2 text pilot (e.g. Biyanlu 11–20 or Linji expansion), continuing the established CBETA-collated workflow. *(M–L)*

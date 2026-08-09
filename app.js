@@ -854,19 +854,19 @@
     const caseStrip = (Array.isArray(doc.cases) && doc.cases.length >= 10)
       ? `<div class="case-jump-strip" id="case-jump-strip" aria-label="Case index">
            <span class="case-strip-label">📑 則 / Case</span>
-           ${doc.cases.map(c => `<button class="case-chip" data-jump-case="${c.case_num}" title="第${c.case_num}則 ${c.title_zh || ''}">${c.case_num}</button>`).join('')}
+           ${doc.cases.map(c => `<button class="case-chip" data-jump-case="${escHtml(c.case_num)}" title="第${escHtml(c.case_num)}則 ${escHtml(c.title_zh || '')}">${escHtml(c.case_num)}</button>`).join('')}
          </div>`
       : '';
 
     let html = `
       <div class="text-header">
-        <div class="text-title-zh">${doc.title_zh}</div>
-        <div class="text-title-en">${doc.title_en} (${doc.title_pinyin})</div>
+        <div class="text-title-zh">${escHtml(doc.title_zh)}</div>
+        <div class="text-title-en">${escHtml(doc.title_en)} (${escHtml(doc.title_pinyin)})</div>
         <div class="text-meta-chips">
-          <span class="meta-chip">📜 Canon: ${doc.cbeta_id || 'Taisho'}${(/T\d{4}/.test(doc.cbeta_id || '') && doc.taisho_vol) ? ` (Vol. ${doc.taisho_vol})` : ''}</span>
-          <span class="meta-chip">✍️ Master/Author: ${doc.author_zh || ''}</span>
-          <span class="meta-chip">⏳ Era: ${doc.era || ''}</span>
-          <span class="meta-chip">🏷️ Genre: ${doc.genre || ''}</span>
+          <span class="meta-chip">📜 Canon: ${escHtml(doc.cbeta_id || 'Taisho')}${(/T\d{4}/.test(doc.cbeta_id || '') && doc.taisho_vol) ? ` (Vol. ${escHtml(doc.taisho_vol)})` : ''}</span>
+          <span class="meta-chip">✍️ Master/Author: ${escHtml(doc.author_zh || '')}</span>
+          <span class="meta-chip">⏳ Era: ${escHtml(doc.era || '')}</span>
+          <span class="meta-chip">🏷️ Genre: ${escHtml(doc.genre || '')}</span>
         </div>
         ${renderDocumentSourceDisclosure(doc, state.currentCorpusKey)}
         ${renderCoverageDisclosure(state.currentCorpusKey)}
@@ -882,7 +882,7 @@
             <span class="case-num-title">序言 / Preface</span>
           </div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.preface.zh)}</div>
-          <div class="pinyin-line">${doc.preface.pinyin}</div>
+          <div class="pinyin-line">${escHtml(doc.preface.pinyin)}</div>
           ${renderFlatTranslationColumns([
             { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.preface.en_red_pine || doc.preface.en_cleary || '' },
             { key: 'cleary', name: 'Thomas Cleary', text: doc.preface.en_cleary || '' },
@@ -900,7 +900,7 @@
             <span class="case-num-title">後序與結頌 / Wumen's Epilogue & Gatha</span>
           </div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
-          <div class="pinyin-line">${doc.epilogue.pinyin}</div>
+          <div class="pinyin-line">${escHtml(doc.epilogue.pinyin)}</div>
           ${renderFlatTranslationColumns([
             { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.epilogue.en_red_pine || '' },
             { key: 'cleary', name: 'Thomas Cleary', text: doc.epilogue.en_cleary || '' },
@@ -952,7 +952,7 @@
       html += `
         <div class="case-card" style="border-left: 4px solid var(--accent-green); margin-bottom: 1.5rem;">
           <div class="case-num-title" style="margin-bottom: 0.5rem; color: var(--accent-green);">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</div>
-          <div style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">${doc.overview || ''}</div>
+          <div style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">${escHtml(doc.overview || '')}</div>
         </div>
       `;
 
@@ -960,11 +960,11 @@
         html += `
           <div class="case-card">
             <div class="case-header">
-              <span class="case-num-title">第 ${r.rank_num} 位：${r.name_zh} (${r.name_en})</span>
-              <span class="case-speaker">${r.symbol}</span>
+              <span class="case-num-title">第 ${escHtml(r.rank_num)} 位：${escHtml(r.name_zh)} (${escHtml(r.name_en)})</span>
+              <span class="case-speaker">${escHtml(r.symbol)}</span>
             </div>
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
-            <div class="pinyin-line">${r.verse_pinyin}</div>
+            <div class="pinyin-line">${escHtml(r.verse_pinyin)}</div>
             ${renderTranslationColumns(r.translations, r.verse_zh)}
             <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--accent-green);">
               <div class="commentary-label" style="color: var(--accent-green);">曹山註解 / Caoshan Commentary</div>
@@ -982,12 +982,12 @@
       html += `
         <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
           <div class="case-num-title" style="margin-bottom: 0.5rem;">📚 Canonical Architecture & Scope</div>
-          <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${doc.overview}</div>
+          <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${escHtml(doc.overview)}</div>
           ${doc.fascicle_structure ? `
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem;">
               ${doc.fascicle_structure.map(f => `
                 <div style="background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 4px; border: 1px solid var(--border-color); font-size: 0.78rem;">
-                  <strong>卷 ${f.fascicle}:</strong> ${f.scope}
+                  <strong>卷 ${escHtml(f.fascicle)}:</strong> ${escHtml(f.scope)}
                 </div>
               `).join('')}
             </div>
@@ -1001,9 +1001,9 @@
       doc.sample_records.forEach(rec => {
         let diaHtml = rec.dialogue.map(d => `
           <div style="margin-bottom: 1.25rem;">
-            <div class="case-speaker">${d.speaker}</div>
+            <div class="case-speaker">${escHtml(d.speaker)}</div>
             <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
-            <div class="pinyin-line">${d.pinyin}</div>
+            <div class="pinyin-line">${escHtml(d.pinyin)}</div>
             ${renderTranslationColumns(d.translations, d.zh)}
           </div>
         `).join('');
@@ -1011,8 +1011,8 @@
         html += `
           <div class="case-card">
             <div class="case-header">
-              <span class="case-num-title">卷 ${rec.fascicle} 傳燈本則：${rec.title_zh}</span>
-              <span class="case-speaker">${rec.title_en}</span>
+              <span class="case-num-title">卷 ${escHtml(rec.fascicle)} 傳燈本則：${escHtml(rec.title_zh)}</span>
+              <span class="case-speaker">${escHtml(rec.title_en)}</span>
             </div>
             ${diaHtml}
           </div>
@@ -1035,9 +1035,9 @@
     if (caseItem.dialogue) {
       dialoguesHtml = caseItem.dialogue.map(d => `
         <div style="margin-bottom: 1.25rem;">
-          <div class="case-speaker">${d.speaker}</div>
+          <div class="case-speaker">${escHtml(d.speaker)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
-          <div class="pinyin-line">${d.pinyin}</div>
+          <div class="pinyin-line">${escHtml(d.pinyin)}</div>
           ${renderTranslationColumns(d.translations, d.zh)}
         </div>
       `).join('');
@@ -1061,11 +1061,11 @@
     return `
       <div class="case-card ${collapsed ? 'collapsed' : ''}" id="case-${caseItem.case_num}">
         <div class="case-header">
-          <span class="case-num-title">第 ${caseItem.case_num} 則：${caseItem.title_zh}</span>
+          <span class="case-num-title">第 ${escHtml(caseItem.case_num)} 則：${escHtml(caseItem.title_zh)}</span>
           <span style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
-            <span class="case-speaker">${caseItem.title_en}</span>
+            <span class="case-speaker">${escHtml(caseItem.title_en)}</span>
             ${renderCaseSourceDisclosure(caseItem.case_num)}
-            <button class="case-toggle" data-case-toggle="${caseItem.case_num}" aria-expanded="${collapsed ? 'false' : 'true'}" aria-label="${collapsed ? 'Expand' : 'Collapse'} case ${caseItem.case_num}" title="${collapsed ? 'Expand' : 'Collapse'} case">${collapsed ? '＋' : '−'}</button>
+            <button class="case-toggle" data-case-toggle="${escHtml(caseItem.case_num)}" aria-expanded="${collapsed ? 'false' : 'true'}" aria-label="${collapsed ? 'Expand' : 'Collapse'} case ${escHtml(caseItem.case_num)}" title="${collapsed ? 'Expand' : 'Collapse'} case">${collapsed ? '＋' : '−'}</button>
           </span>
         </div>
         <div class="case-body">
@@ -1081,7 +1081,7 @@
           <div class="commentary-block">
             <div class="commentary-label">無門評唱 / Commentary</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
-            <div class="pinyin-line" style="border:none; padding:0;">${caseItem.commentary_pinyin || ''}</div>
+            <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.commentary_pinyin || '')}</div>
             ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: caseItem.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
@@ -1089,7 +1089,7 @@
           <div class="verse-block">
             <div class="commentary-label" style="color: var(--accent-green);">頌曰 / Verse</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
-            <div class="pinyin-line" style="border:none; padding:0;">${caseItem.verse_pinyin || ''}</div>
+            <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.verse_pinyin || '')}</div>
             ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
@@ -1103,9 +1103,9 @@
     const sectionLocator = unitLocatorForKey(state.currentCorpusKey, `sections.${sec.section_id}`);
     let dialoguesHtml = (sec.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
-        <div class="case-speaker">${d.speaker}</div>
+        <div class="case-speaker">${escHtml(d.speaker)}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
-        <div class="pinyin-line">${d.pinyin}</div>
+        <div class="pinyin-line">${escHtml(d.pinyin)}</div>
         ${renderTranslationColumns(d.translations, d.zh, sectionLocator)}
       </div>
     `).join('');
@@ -1113,9 +1113,9 @@
     // Sections may embed verse stanzas instead of dialogue (e.g. Shitou Sandokai / Grass Hut Song)
     let stanzasHtml = (sec.stanzas || []).map(st => `
       <div style="margin-bottom: 1.25rem;">
-        <div class="case-speaker">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</div>
+        <div class="case-speaker">第 ${escHtml(st.stanza_num)} 節 / Stanza ${escHtml(st.stanza_num)}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
-        <div class="pinyin-line">${st.pinyin}</div>
+        <div class="pinyin-line">${escHtml(st.pinyin)}</div>
         ${renderTranslationColumns(st.translations, st.zh, sectionLocator)}
       </div>
     `).join('');
@@ -1123,8 +1123,8 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <span class="case-num-title">${sec.title_zh}</span>
-          <span class="case-speaker">${sec.title_en}</span>
+          <span class="case-num-title">${escHtml(sec.title_zh)}</span>
+          <span class="case-speaker">${escHtml(sec.title_en)}</span>
           ${renderSourceLocationDisclosure(sectionLocator, 'Section source', 'case-source-location')}
         </div>
         ${dialoguesHtml}${stanzasHtml}
@@ -1135,9 +1135,9 @@
   function renderDialogueItem(dia) {
     let dialoguesHtml = (dia.dialogue || []).map(d => `
       <div style="margin-bottom: 1.25rem;">
-        <div class="case-speaker">${d.speaker}</div>
+        <div class="case-speaker">${escHtml(d.speaker)}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
-        <div class="pinyin-line">${d.pinyin}</div>
+        <div class="pinyin-line">${escHtml(d.pinyin)}</div>
         ${renderTranslationColumns(d.translations, d.zh)}
       </div>
     `).join('');
@@ -1145,8 +1145,8 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <span class="case-num-title">${dia.title_zh}</span>
-          <span class="case-speaker">${dia.title_en}</span>
+          <span class="case-num-title">${escHtml(dia.title_zh)}</span>
+          <span class="case-speaker">${escHtml(dia.title_en)}</span>
         </div>
         ${dialoguesHtml}
       </div>
@@ -1158,11 +1158,11 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <span class="case-num-title">第 ${st.stanza_num} 節 / Stanza ${st.stanza_num}</span>
+          <span class="case-num-title">第 ${escHtml(st.stanza_num)} 節 / Stanza ${escHtml(st.stanza_num)}</span>
           ${renderSourceLocationDisclosure(stanzaLocator, 'Stanza source', 'case-source-location')}
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
-        <div class="pinyin-line">${st.pinyin}</div>
+        <div class="pinyin-line">${escHtml(st.pinyin)}</div>
         ${renderTranslationColumns(st.translations, st.zh, stanzaLocator)}
       </div>
     `;
@@ -1173,19 +1173,19 @@
     if (ch.verses) {
       contentHtml = ch.verses.map(v => `
         <div style="margin-bottom: 1.25rem;">
-          <div class="case-speaker">${v.author}</div>
+          <div class="case-speaker">${escHtml(v.author)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(v.zh)}</div>
-          <div class="pinyin-line">${v.pinyin}</div>
+          <div class="pinyin-line">${escHtml(v.pinyin)}</div>
           ${renderTranslationColumns(v.translations, v.zh)}
-          ${v.recension_note ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${v.recension_note}</div>` : ''}
+          ${v.recension_note ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${escHtml(v.recension_note)}</div>` : ''}
         </div>
       `).join('');
     } else if (ch.dialogue) {
       contentHtml = ch.dialogue.map(d => `
         <div style="margin-bottom: 1.25rem;">
-          <div class="case-speaker">${d.speaker}</div>
+          <div class="case-speaker">${escHtml(d.speaker)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
-          <div class="pinyin-line">${d.pinyin}</div>
+          <div class="pinyin-line">${escHtml(d.pinyin)}</div>
           ${renderTranslationColumns(d.translations, d.zh)}
         </div>
       `).join('');
@@ -1194,8 +1194,8 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <span class="case-num-title">${ch.title_zh}</span>
-          <span class="case-speaker">${ch.title_en}</span>
+          <span class="case-num-title">${escHtml(ch.title_zh)}</span>
+          <span class="case-speaker">${escHtml(ch.title_en)}</span>
         </div>
         ${contentHtml}
       </div>
@@ -1605,26 +1605,26 @@
         <div>
           <div class="master-header">
             <div>
-              <div class="master-name-zh">${m.name_zh}</div>
-              <div class="master-name-en">${m.name_en} (${m.name_pinyin})</div>
+              <div class="master-name-zh">${escHtml(m.name_zh)}</div>
+              <div class="master-name-en">${escHtml(m.name_en)} (${escHtml(m.name_pinyin)})</div>
             </div>
-            <span class="corpus-badge" style="font-weight: 600;">Gen ${m.lineage_depth}</span>
+            <span class="corpus-badge" style="font-weight: 600;">Gen ${escHtml(m.lineage_depth)}</span>
           </div>
-          <div class="master-title">👑 ${m.title}</div>
+          <div class="master-title">👑 ${escHtml(m.title)}</div>
           <div class="master-meta">
-            <span>⏳ Dates: ${m.dates} (${m.era})</span>
-            <span>🏛️ Lineage: ${m.school}</span>
-            <span>📍 Temple: ${m.location}</span>
-            <span>📜 Canonical Ref: ${m.cbeta_id}</span>
+            <span>⏳ Dates: ${escHtml(m.dates)} (${escHtml(m.era)})</span>
+            <span>🏛️ Lineage: ${escHtml(m.school)}</span>
+            <span>📍 Temple: ${escHtml(m.location)}</span>
+            <span>📜 Canonical Ref: ${escHtml(m.cbeta_id)}</span>
             <span>👤 ${lineageTeacherDetail(m)}</span>
           </div>
           <div class="master-quote">
-            "${m.key_quote_zh}"
-            <div class="master-quote-en">"${m.key_quote_en}"</div>
+            "${escHtml(m.key_quote_zh)}"
+            <div class="master-quote-en">"${escHtml(m.key_quote_en)}"</div>
           </div>
         </div>
         <div style="font-size: 0.8rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
-          ${m.summary}
+          ${escHtml(m.summary)}
         </div>
       </div>
     `).join('');
@@ -1875,8 +1875,8 @@
           <strong>📜 Canonical record:</strong> ${escHtml(master.cbeta_id)} ${renderCitationTrigger(masterCitation, 'ⓘ Profile source')}
         </div>
         <div class="master-quote" style="background: var(--bg-card); margin-bottom: 0.75rem;">
-          "${master.key_quote_zh}"
-          <div class="master-quote-en">"${master.key_quote_en}"</div>
+          "${escHtml(master.key_quote_zh)}"
+          <div class="master-quote-en">"${escHtml(master.key_quote_en)}"</div>
         </div>
         <div style="margin-bottom: 0.5rem;"><strong>👤 Teacher:</strong> ${lineageTeacherDetail(master)}</div>
         <div style="margin-bottom: 0.5rem;">
@@ -1886,7 +1886,7 @@
         <div style="margin-bottom: 0.5rem;"><strong>🧾 Evidence status:</strong> ${escHtml(master.profile_evidence?.status || 'not recorded')} — ${escHtml(master.profile_evidence?.note || 'No evidence note recorded.')}</div>
         <div style="margin-bottom: 0.5rem;"><strong>🔗 Cross-referenced project works:</strong> ${renderMasterWorkLinks(master)}</div>
         <div>
-          <strong>📖 Historical & Philosophical Significance:</strong> ${master.summary}
+          <strong>📖 Historical & Philosophical Significance:</strong> ${escHtml(master.summary)}
         </div>
       `;
     }
@@ -1963,24 +1963,24 @@
       <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.25rem; align-items:center;">
         <span style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.6px;">Filter:</span>
         <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all">All</button>
-        ${themes.map(t => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === t ? 'active' : ''}" data-gongan-filter="${t}">${t}</button>`).join('')}
+        ${themes.map(t => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === t ? 'active' : ''}" data-gongan-filter="${escHtml(t)}">${escHtml(t)}</button>`).join('')}
       </div>`;
 
     elements.gonganTarget.innerHTML = filterBar + list.map(g => `
       <div class="case-card" style="margin-bottom: 1.25rem;">
         <div class="case-header">
-          <span class="case-num-title">${g.title_zh}</span>
-          <span class="case-speaker">${g.title_en}</span>
+          <span class="case-num-title">${escHtml(g.title_zh)}</span>
+          <span class="case-speaker">${escHtml(g.title_en)}</span>
         </div>
         <div style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-bottom: 0.4rem;">
-          📚 Collection: ${g.collection} | Canon ID: ${g.cbeta_id}
+          📚 Collection: ${escHtml(g.collection)} | Canon ID: ${escHtml(g.cbeta_id)}
         </div>
         <div style="font-size: 0.92rem; color: var(--text-primary); margin-bottom: 0.6rem;">
-          ${g.summary}
+          ${escHtml(g.summary)}
         </div>
         <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-          <span class="meta-chip">🎯 Theme: ${g.theme}</span>
-          ${g.cross_refs ? g.cross_refs.map(cr => `<span class="meta-chip">🔗 ${cr}</span>`).join('') : ''}
+          <span class="meta-chip">🎯 Theme: ${escHtml(g.theme)}</span>
+          ${g.cross_refs ? g.cross_refs.map(cr => `<span class="meta-chip">🔗 ${escHtml(cr)}</span>`).join('') : ''}
         </div>
       </div>
     `).join('');
@@ -2032,12 +2032,12 @@
 
     elements.lexiconTarget.innerHTML = list.map(item => `
       <div class="term-card">
-        <div class="term-card-zh">${item.term}</div>
-        <div class="term-card-literal">${item.literal} (${item.pinyin})</div>
-        <div class="term-card-sanskrit">Sanskrit: ${item.sanskrit || '—'} | 🏷️ ${item.category}</div>
-        <div class="term-card-def">${item.definition}</div>
+        <div class="term-card-zh">${escHtml(item.term)}</div>
+        <div class="term-card-literal">${escHtml(item.literal)} (${escHtml(item.pinyin)})</div>
+        <div class="term-card-sanskrit">Sanskrit: ${escHtml(item.sanskrit || '—')} | 🏷️ ${escHtml(item.category)}</div>
+        <div class="term-card-def">${escHtml(item.definition)}</div>
         <div class="term-card-occurrences">
-          ${item.occurrences.map(occ => `<span class="term-occ-tag">📖 ${occ}</span>`).join('')}
+          ${item.occurrences.map(occ => `<span class="term-occ-tag">📖 ${escHtml(occ)}</span>`).join('')}
         </div>
       </div>
     `).join('');

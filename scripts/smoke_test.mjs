@@ -500,6 +500,41 @@ document.activeElement = navTabStubs[4]; // lexicon
 (documentHandlers['navtabs_keydown'] || []).forEach(fn => fn({ key: 'End', preventDefault() {} }));
 if (!navTabStubs[4]._clicked) { failures++; console.log('❌ End did not activate the last nav tab'); }
 
+// 4y. Escaping consistency (P2-C): poisoned data fields must render as escaped
+// text in EVERY view — reader titles, lineage cards, gongan chips, lexicon cards.
+// One raw interpolation in any of these was previously an injection path.
+const POISON = '<img src=x onerror=window.__poison=1>POISON';
+const poisonMaster = window.TRANSLATECHAN_DATA.lineage[0];
+const poisonGongan = window.TRANSLATECHAN_DATA.gongan_index[0];
+const poisonTerm = window.TRANSLATECHAN_DATA.glossary[0];
+const poisonCase = window.TRANSLATECHAN_DATA.corpus.wumenguan.cases[0];
+const saved = { name_zh: poisonMaster.name_zh, theme: poisonGongan.theme, term: poisonTerm.term, title: poisonCase.title_zh };
+poisonMaster.name_zh = POISON + saved.name_zh;
+poisonGongan.theme = POISON + saved.theme;
+poisonTerm.term = POISON + saved.term;
+poisonCase.title_zh = POISON + saved.title;
+// Re-render every affected view through the same handlers a user would trigger.
+(ids['lineage-school-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
+(ids['gongan-content-target']._handlers.click || []).forEach(fn => fn({
+  target: { closest: (sel) => (sel === '.gongan-filter-chip' ? { getAttribute: () => 'all' } : null) }
+}));
+(ids['lexicon-cat-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
+window.TranslateChan.openDoc('wumenguan');
+const poisonTargets = {
+  reader: ids['reader-content-target']._innerHTML,
+  lineage: ids['lineage-content-target']._innerHTML,
+  gongan: ids['gongan-content-target']._innerHTML,
+  lexicon: ids['lexicon-content-target']._innerHTML
+};
+for (const [view, html] of Object.entries(poisonTargets)) {
+  if (html.includes('<img src=x onerror')) { failures++; console.log(`❌ ${view} view renders unescaped data (injection path)`); }
+  if (!html.includes('&lt;img src=x onerror')) { failures++; console.log(`❌ ${view} view did not render the poisoned field as escaped text`); }
+}
+// restore clean data so subsequent sections see unmodified fixtures
+poisonMaster.name_zh = saved.name_zh;
+poisonGongan.theme = saved.theme;
+poisonTerm.term = saved.term;
+poisonCase.title_zh = saved.title;
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const readerHtml = ids['reader-content-target']._innerHTML;
