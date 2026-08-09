@@ -368,6 +368,55 @@ if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.lo
 // 4m. Gong'an filter chips remain available in the public reading scope.
 const gonganHtml = ids['gongan-content-target']._innerHTML;
 if (!gonganHtml.includes('gongan-filter-chip')) { failures++; console.log('❌ gongan filter chips missing'); }
+// 4m2. Lineage school filter is generated from the controlled vocabulary
+// (validator-enforced school_key groups), not hardcoded options.
+const schoolFilterHtml = ids['lineage-school-filter']._innerHTML;
+if (!schoolFilterHtml.includes('value="linji_yangqi"') || !schoolFilterHtml.includes('Foundational Patriarch') || schoolFilterHtml.includes('value="Linji"')) {
+  failures++; console.log('❌ lineage school filter is not generated from the controlled school vocabulary');
+}
+(ids['lineage-school-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'linji' } }));
+const lineageFilteredCards = ids['lineage-content-target']._innerHTML;
+if (!lineageFilteredCards.includes('臨濟義玄') || lineageFilteredCards.includes('洞山良价') || lineageFilteredCards.includes('馬祖道一')) {
+  failures++; console.log('❌ lineage school filter did not select exactly the Linji group');
+}
+if (!ids['lineage-svg-graph']._innerHTML.includes('stroke="#b53335"')) {
+  failures++; console.log('❌ lineage graph is not using the school_key color palette');
+}
+(ids['lineage-school-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
+// 4m3. Lexicon category filter is data-derived and actually wired (state +
+// listener existed only after the 2026-08-09 vocabulary pass).
+const lexiconFilterHtml = ids['lexicon-cat-filter']._innerHTML;
+if (!lexiconFilterHtml.includes('value="Ontology"') || !lexiconFilterHtml.includes('Ontology &amp; Buddha-Nature')) {
+  failures++; console.log('❌ lexicon category filter is not generated from glossary data');
+}
+(ids['lexicon-cat-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'Ontology' } }));
+const lexiconFiltered = ids['lexicon-content-target']._innerHTML;
+if (!lexiconFiltered.includes('本來面目') || lexiconFiltered.includes('祖師西來意')) {
+  failures++; console.log('❌ lexicon category filter did not restrict to Ontology terms');
+}
+(ids['lexicon-cat-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
+// 4m4. Gong'an theme chips are generated from the controlled theme taxonomy
+// (validator-enforced theme_group keys), grouping cases instead of 23 one-off labels.
+const gonganChipsHtml = ids['gongan-content-target']._innerHTML;
+if (!gonganChipsHtml.includes('data-gongan-filter="everyday_way"') || !gonganChipsHtml.includes('data-gongan-filter="what_is_buddha"')) {
+  failures++; console.log('❌ gongan theme chips are not generated from the controlled theme taxonomy');
+}
+if (!gonganChipsHtml.includes('🏷️ The Everyday Way')) { failures++; console.log('❌ gongan cards do not show the theme group tag'); }
+const chipClick = (key) => (ids['gongan-content-target']._handlers.click || []).forEach(fn => fn({
+  target: { closest: (sel) => (sel === '.gongan-filter-chip' ? { getAttribute: () => key } : null) }
+}));
+chipClick('everyday_way');
+const gonganFilteredHtml = ids['gongan-content-target']._innerHTML;
+if (!gonganFilteredHtml.includes('趙州洗缽') || gonganFilteredHtml.includes('趙州狗子')) {
+  failures++; console.log('❌ gongan theme-group chip did not restrict the index to the Everyday Way group');
+}
+chipClick('all');
+// 4m5. Lexicon occurrence scope note (audit A5): occurrence tags cite canonical
+// loci (chapter/fascicle/case) which may lie outside the excerpted units — the
+// Lexicon header must keep disclosing that scoping.
+if (!publicHtml.includes('occurrence tags cite each term') || !publicHtml.includes('canonical work')) {
+  failures++; console.log('❌ lexicon occurrence scope note missing');
+}
 // 4n. Matrix provenance is explicit for every translator, with citations for verified rows.
 const matrixEntries = window.TRANSLATECHAN_DATA.translations_matrix.flatMap(row => row.translators || []);
 const malformedMatrixEntries = matrixEntries.filter(t => !t.status ||
@@ -473,6 +522,41 @@ document.activeElement = navTabStubs[4]; // lexicon
 (documentHandlers['navtabs_keydown'] || []).forEach(fn => fn({ key: 'End', preventDefault() {} }));
 if (!navTabStubs[4]._clicked) { failures++; console.log('❌ End did not activate the last nav tab'); }
 
+// 4y. Escaping consistency (P2-C): poisoned data fields must render as escaped
+// text in EVERY view — reader titles, lineage cards, gongan chips, lexicon cards.
+// One raw interpolation in any of these was previously an injection path.
+const POISON = '<img src=x onerror=window.__poison=1>POISON';
+const poisonMaster = window.TRANSLATECHAN_DATA.lineage[0];
+const poisonGongan = window.TRANSLATECHAN_DATA.gongan_index[0];
+const poisonTerm = window.TRANSLATECHAN_DATA.glossary[0];
+const poisonCase = window.TRANSLATECHAN_DATA.corpus.wumenguan.cases[0];
+const saved = { name_zh: poisonMaster.name_zh, theme: poisonGongan.theme, term: poisonTerm.term, title: poisonCase.title_zh };
+poisonMaster.name_zh = POISON + saved.name_zh;
+poisonGongan.theme = POISON + saved.theme;
+poisonTerm.term = POISON + saved.term;
+poisonCase.title_zh = POISON + saved.title;
+// Re-render every affected view through the same handlers a user would trigger.
+(ids['lineage-school-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
+(ids['gongan-content-target']._handlers.click || []).forEach(fn => fn({
+  target: { closest: (sel) => (sel === '.gongan-filter-chip' ? { getAttribute: () => 'all' } : null) }
+}));
+(ids['lexicon-cat-filter']._handlers.change || []).forEach(fn => fn({ target: { value: 'all' } }));
+window.TranslateChan.openDoc('wumenguan');
+const poisonTargets = {
+  reader: ids['reader-content-target']._innerHTML,
+  lineage: ids['lineage-content-target']._innerHTML,
+  gongan: ids['gongan-content-target']._innerHTML,
+  lexicon: ids['lexicon-content-target']._innerHTML
+};
+for (const [view, html] of Object.entries(poisonTargets)) {
+  if (html.includes('<img src=x onerror')) { failures++; console.log(`❌ ${view} view renders unescaped data (injection path)`); }
+  if (!html.includes('&lt;img src=x onerror')) { failures++; console.log(`❌ ${view} view did not render the poisoned field as escaped text`); }
+}
+// restore clean data so subsequent sections see unmodified fixtures
+poisonMaster.name_zh = saved.name_zh;
+poisonGongan.theme = saved.theme;
+poisonTerm.term = saved.term;
+poisonCase.title_zh = saved.title;
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const readerHtml = ids['reader-content-target']._innerHTML;

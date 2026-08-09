@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <!-- D4: parse the 600KB data bundle as early as possible -->
+  <!-- D4: parse the ~790KB data bundle as early as possible -->
   <link rel="preload" href="app_data.js" as="script">
 </head>
 <body>
@@ -139,10 +139,10 @@
     <section id="view-matrix" class="view-section" role="tabpanel" aria-labelledby="tab-matrix">
       <div class="text-header">
         <div class="text-title-zh">多譯本對照矩陣 / Comparative Matrix</div>
-        <div class="text-title-en">Sentence-by-sentence side-by-side comparison across Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Heine, and AI Synthesis</div>
+        <div class="text-title-en">Sentence-by-sentence side-by-side comparison across Red Pine, Cleary, Sasaki, Suzuki, Blyth, Blofeld, Yampolsky, Senzaki &amp; Reps, and AI Synthesis</div>
       </div>
       <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="These are AI-crafted renderings in each scholar's documented register — not verbatim published text. Classical Chinese source is authentic canonical language.">
-        ℹ️ <strong>Sourcing note:</strong> a <em>register reconstruction</em> is newly written TranslateChan text using broad style characteristics associated with a scholar; it is not copied from, checked against, or attributable as wording in that scholar's book. Every translation disclosure includes its aligned original Chinese and canonical-source status. See <code>data/translations/provenance.json</code> and AUDIT.md §3.4; do not cite reconstructions as published translations.
+        ℹ️ <strong>Sourcing note:</strong> a <em>register reconstruction</em> is newly written TranslateChan text using broad style characteristics associated with a scholar; it is not copied from, checked against, or attributable as wording in that scholar's book. Every translation disclosure includes its aligned original Chinese and canonical-source status. See <code>data/translations/provenance.json</code> and sessions/AUDIT_archive_2026-08-08.md §3.4; do not cite reconstructions as published translations.
       </div>
       <div id="matrix-content-target" class="matrix-container"></div>
     </section>
@@ -165,15 +165,10 @@
             <option value="name">Name order</option>
             <option value="school">School order</option>
           </select>
-          <select id="lineage-school-filter" class="search-input" style="width: auto; padding: 0.35rem 0.75rem;">
-            <option value="all">All Lineages & Patriarchs</option>
-            <option value="Foundational Patriarch">Foundational Patriarchs (達摩至六祖)</option>
-            <option value="Linji">Linji School (臨濟宗)</option>
-            <option value="Caodong">Caodong School (曹洞宗)</option>
-            <option value="Yunmen">Yunmen School (雲門宗)</option>
-            <option value="Guiyang">Guiyang School (溈仰宗)</option>
-            <option value="Fayan">Fayan School (法眼宗)</option>
-          </select>
+          <!-- Options are generated from the bundled school vocabulary (app.js
+               populateLineageSchoolFilter); mastery of drift is impossible: data
+               changes appear here automatically. -->
+          <select id="lineage-school-filter" class="search-input" aria-label="Filter masters by lineage school" style="width: auto; padding: 0.35rem 0.75rem;"></select>
         </div>
       </div>
 
@@ -225,17 +220,14 @@
           <div class="text-title-en">Foundational terminology, technical Sanskrit roots, and philosophical definitions</div>
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <label style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Category:</label>
-          <select id="lexicon-cat-filter" class="search-input" style="width: auto; padding: 0.35rem 0.75rem;">
-            <option value="all">All Categories</option>
-            <option value="Ontology">Ontology & Buddha-Nature</option>
-            <option value="Encounter">Encounter Dialogue</option>
-            <option value="Gong'an Barrier">Gong'an Barriers</option>
-            <option value="Pedagogical">Pedagogical Devices</option>
-            <option value="Linji Dialectics">Linji Dialectics</option>
-            <option value="Caodong Meditation">Caodong Meditation</option>
-          </select>
+          <label for="lexicon-cat-filter" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Category:</label>
+          <!-- Options are generated from the glossary data (app.js
+               populateLexiconCategoryFilter), never hardcoded. -->
+          <select id="lexicon-cat-filter" class="search-input" style="width: auto; padding: 0.35rem 0.75rem;"></select>
         </div>
+      </div>
+      <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="Occurrence tags cite the term's locus in the canonical work (chapter, fascicle, or case). That locus may lie outside the units currently excerpted into this corpus — e.g. a Biyanlu case-reference beyond the 14 ingested cases.">
+        📖 <strong>Scope note:</strong> occurrence tags cite each term's locus in the <em>canonical work</em> (chapter, fascicle, or case); a cited locus may lie outside the units currently excerpted into this corpus.
       </div>
       <div id="lexicon-content-target" class="lexicon-grid"></div>
     </section>

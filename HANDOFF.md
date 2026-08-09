@@ -13,30 +13,30 @@ The TranslateChan project has been fully established with:
 1. **Grand Vision & Architectural Blueprint** ([`vision.md`](./vision.md)): Canonical scope spanning CBETA / Taishō Tripiṭaka Volumes 47, 48, and 51.
 2. **Project Roadmap & Milestone Execution Plan** ([`ROADMAP.md`](./ROADMAP.md)): Phased milestones from foundational corpus to living knowledge graph (statuses measured, not aspirational).
 3. **Core Canonical Corpus Seeds** (`data/corpus/`): 36 excerpt-scale canonical works and foundational treatises across Tang, Five Dynasties, Song, and Yuan dynasties (authentic anchor passages; completion tracked in [`ROADMAP.md` Phase 2](./ROADMAP.md)).
-4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 34 master profiles (30 researched seeds plus 4 clearly labeled frontier scaffolds) with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan).
+4. **Master Lineage Knowledge Graph** (`data/lineage/masters.json`): 34 master profiles (30 researched seeds plus 4 clearly labeled frontier scaffolds) with genealogies, dates, temples, and signature quotes from Bodhidharma and the Six Patriarchs through the Five Houses of Chan (expanded 2026-08-08: Nanyue Huairang, Qingyuan Xingsi, Nanquan, Yaoshan, Yunyan, Deshan, Xuefeng, Xuansha, Luohan Guichen, Baiyun Shouduan, Wuzu Fayan, Yuelin Shiguan; **school affiliation normalized 2026-08-09** into the validator-enforced `school_key` vocabulary in `data/lineage/school_vocabulary.json`, which now drives the filter UI and graph colors).
 5. **Classical Chan Lexicon** (`data/glossary/chan_terms.json`): 31 technical terms (growing toward 150+), Sanskrit roots, and philosophical definitions with real-time hover lookup.
-6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 rows carry ✅ verified quotations** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
-7. **Interactive Zero-Backend Public Reader** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative reader/matrix/lineage/index/lexicon interface with dark/light mode, search, and an SVG lineage network graph. Translation Studio, Arena AI Agents, and the header GitHub link are intentionally absent from the public Pages UI. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`AUDIT.md` §8](./AUDIT.md); `node scripts/smoke_test.mjs` must pass before every push.)*
+6. **Multi-Translator Comparative Matrix** (`data/translations/comparative_matrix.json`): 4 exemplar sentence-aligned entries in the registers of Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, and Philip Yampolsky — **2 ✅ verified registers on the Case-1 (Mu) row** (Senzaki & Reps PD; Blyth per Hokuseido 1966). Reader and Matrix display the same provenance status; verified rows resolve through source records and `rights_manifest.json` (policy v2.2).
+7. **Interactive Zero-Backend Public Reader** (`index.html`, `app.css`, `app.js`, `app_data.js`): Responsive, contemplative reader/matrix/lineage/index/lexicon interface with dark/light mode, search, and an SVG lineage network graph. Translation Studio, Arena AI Agents, and the header GitHub link are intentionally absent from the public Pages UI. *(Fatal parse bug shipped in PR #1 was repaired 2026-08-08 — see [`sessions/AUDIT_archive_2026-08-08.md` §8](./sessions/AUDIT_archive_2026-08-08.md); `node scripts/smoke_test.mjs` must pass before every push.)*
 8. **Synchronized GitHub Pages Bundle** (`docs/`): Fully compiled, zero-dependency static bundle; Pages publishing already active from `main /docs`.
 9. **Editorial Data Tooling** (`scripts/`): `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `ingest_cbeta.py` offline segmenter, and `smoke_test.mjs` renderer regression test. The checked-in GitHub Actions **Quality** workflow runs the same validation, deterministic-build, generated-artifact, and reader-smoke gate on pushes and pull requests; native GitHub Pages publishing remains separate.
 
 ---
 
-## ✅ Current Session Handoff — 2026-08-08 (session `arena/019fe30b-translatechan`)
+## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe5d5-translatechan`)
 
 ### Public Pages scope
 
 The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return).
 
-### What this session delivered (7 commits, all gates green)
+### What this session delivered (7 commits, all gates green; report: [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md), durable log in `sessions/AUDIT_archive_2026-08-08.md` §12)
 
-1. **Full-project audit** (`SESSION_AUDIT_2026-08-08_019fe30b.md`, durable log in `AUDIT.md` §11): no P0/P1; every prior remediation verified holding; documentation-drift fixes (CJK counts in README/AUDIT, HANDOFF branch line, Huangbo verified-slot split).
-2. **a11y/CSP hardening (F3)**: all inline `onclick` handlers replaced by a document-level delegated handler over `data-*` attributes; glossary terms open on Enter/Space; complete ARIA tabs (tablist/tab/tabpanel, roving tabindex, arrow/Home/End); restrictive CSP meta (`script-src 'self'`); smoke checks 4u–4x.
-3. **Deterministic per-text coverage metrics (F4)**: `validate_data.py --write-metrics` now emits `project_metrics.json → corpus.per_text` for all 36 texts (zh counts, shapes, unit counts, `N/M units` coverage strings); validator-enforced `zh_chars`/`coverage_note`/manifest `unit_targets` rules — which immediately caught a stale `zh_chars` in wumenguan (5,876 → 5,528).
-4. **Optional Playwright real-browser suite (F10)**: `scripts/browser_test.mjs` (12 tests, desktop + mobile, self-spawning server, graceful skip without Chromium); `package.json`/lockfile added; not part of CI.
-5. **Release-ops (F7/F9)**: script docstrings narrowed to actual behavior; HANDOFF "Repository administration" checklist for requiring the Quality check on `main` (owner-only ~2-minute action).
-6. **Phase-2 content pilot: Biyanlu cases 4–10** — first 10 cases complete (pointer, 本則, pre-verse 評唱, 頌), zh collated byte-exact from CBETA TEI T48n2003 (sparse-cloned from `cbeta-org/xml-p5`), all 14 case locators now carry CBETA line ranges, new renderings are labeled AI drafts, gongan index 18 → 23 entries, `coverage_note`/`zh_chars` added.
-7. **User-perspective UX pass**: new `📊 Coverage` disclosure in every reader header (excerpts can no longer be mistaken for complete texts), hero chip "Zero-Backend Offline" → "Zero-Backend Static", inline SVG favicon.
+1. **Full-project audit + doc-drift fixes** (`d248efe`): no P0/P1; CJK counts re-synced to validator metrics (13,268/16,457 → 20,017/23,314); duplicate tree entry, stale bundle-size comment, stale matrix subtitle (named an absent translator, omitted two present ones), HANDOFF tree counts, missing `aria-label` on the lineage school filter — all corrected.
+2. **Controlled school vocabulary + data-derived filters** (`92c4cf0`): 22 free-text school variants → 12 validator-enforced `school_key` groups (`data/lineage/school_vocabulary.json`); lineage filter options + graph palette now derived from data; **bug found & fixed**: the Lexicon "Category" dropdown had no change listener (inert UI since introduction) — now wired; smoke 4m2/4m3.
+3. **Doc-truthfulness gate** (`d322df4`): `validate_data.py` enforces that README/HANDOFF/index.html quote live deterministic metrics — prose drift exits 1 with the failing rule named; `--skip-docs` while editing; negative-tested; CI enforces with no workflow change.
+4. **Renderer escaping consistency** (`d4630ba`): ~60 interpolation sites across reader/lineage/gong'an/lexicon/dossier now uniformly `escHtml()`; poison-fixture regression (smoke 4y) efficacy-verified.
+5. **Session-artifact convention + AUDIT.md slimming** (`16fb043`): dated reports + archive live in `sessions/`; AUDIT.md = slim current-state summary; 13 links repaired.
+6. **Gong'an theme taxonomy** (`3a23d8b`): 23 one-off themes → 7 curated validator-enforced groups (`data/gongan/theme_vocabulary.json`) driving the index chips; smoke 4m4.
+7. **Second-pass deep audit + A1–A5 remediation** (`498c319`): independent re-verification (gates, gate-efficacy injection test, live serve, numbering, links); fixed the drifted "6 → **7** corpus texts" verified-slot claim (README/ROADMAP) and the HANDOFF matrix "2 rows" phrasing (2 verified registers on the single Case-1 row); **doc gate extended 13 → 25 rules** (AUDIT.md §1 numbers now guarded + new `verified_corpus_texts` metric — each rule negative-tested); `arena_agent_pipeline` helper now emits validator-shaped entries (`status` field); stale "AUDIT.md §11/§12" pointers fixed; Lexicon occurrence **scope note** added (smoke 4m5).
 
 ### Source, translation, and lineage disclosure
 
@@ -50,6 +50,9 @@ The published interface remains deliberately limited to **Bilingual Reader, Comp
 ```bash
 python3 -m py_compile scripts/*.py
 python3 scripts/validate_data.py          # corpus=36 | slots=874 | verified=138 | matrix=21 | locators=64/64
+                                          # (+ doc-truthfulness gate (25 rules): README/HANDOFF/ROADMAP/
+                                          #  AUDIT §1/index.html must quote live metrics — archive §12 P2-A
+                                          #  + session audit §6; --skip-docs to bypass)
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium
@@ -75,17 +78,26 @@ The Quality workflow is the merge gate; **requiring** it is a one-time admin ste
 
 The same commands the workflow runs are the local release checklist above, so the required check should always be green for conforming PRs.
 
+### Session artifacts convention (est. 2026-08-09, audit P2-D)
+
+- **Dated session reports and the audit history archive live in [`sessions/`](./sessions/)** — write `sessions/SESSION_AUDIT_<date>[_<session>].md` per session; never rewrite them afterwards.
+- **Repo-root `AUDIT.md` stays slim**: current verdict, standing recommendations, gates, and the session index — append your session row there, don't absorb the whole report.
+- **`response_summary.md` at root is the live session working summary** (overwritten by each session, not canonical docs).
+- Guarded by design: the validator's doc-truthfulness gate checks README/HANDOFF/index.html numbers; it intentionally does **not** check session logs (dated records).
+
 ### Merge readiness
 
-Current branch: `arena/019fe30b-translatechan`. Before merging, confirm the local quality gate above and the required **Quality** check; after merge, Pages republishes `main` → `/docs` automatically. GitHub Pages will republish `main` → `/docs` automatically.
+Current branch: `arena/019fe5d5-translatechan`. Before merging, confirm the local quality gate above and the green **Quality** check; after merge, GitHub Pages republishes `main` → `/docs` automatically (~60 s).
 
 ---
 
-## 📍 Historical Session Delta Through PR #3 (2026-08-08)
+## 📍 Historical Session Deltas (compact)
 
-**PR #3 is merged into `main`; this is its historical one-sentence map** (full detail in [`AUDIT.md` §9](./AUDIT.md)):
+**PR #7 is merged into `main` (session `arena/019fe30b-translatechan`, 2026-08-08); compact map** (full detail in [`sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`](./sessions/SESSION_AUDIT_2026-08-08_019fe30b.md) + `sessions/AUDIT_archive_2026-08-08.md` §11): full-project audit (no P0/P1, prior remediations verified holding); a11y/CSP hardening (delegated `data-*` handlers replacing all inline `onclick`, full ARIA tabs, restrictive CSP meta); deterministic per-text coverage metrics (`project_metrics.json → corpus.per_text` for all 36 texts); optional Playwright real-browser suite (12 tests, desktop + mobile, graceful skip); **Biyanlu 4–10 pilot** (first 10 cases complete, zh collated byte-exact from CBETA TEI T48n2003; index 18 → 23); reader 📊 coverage disclosures (excerpts can no longer be mistaken for complete texts) + UX pass.
 
-1. **`8ea6c46`** Second-pass full audit → no P0; all PR#2 remediations verified holding; 10 new findings B1–B10 ([`AUDIT.md` §9.2](./AUDIT.md); readable report `SESSION_AUDIT_2026-08-08.md`).
+**PR #3 is merged into `main`; this is its historical one-sentence map** (full detail in [`sessions/AUDIT_archive_2026-08-08.md` §9](./sessions/AUDIT_archive_2026-08-08.md)):
+
+1. **`8ea6c46`** Second-pass full audit → no P0; all PR#2 remediations verified holding; 10 new findings B1–B10 ([`sessions/AUDIT_archive_2026-08-08.md` §9.2](./sessions/AUDIT_archive_2026-08-08.md); readable report [`sessions/SESSION_AUDIT_2026-08-08.md`](./sessions/SESSION_AUDIT_2026-08-08.md)).
 2. **`f074b7e`** **B1–B10 remediation + CBETA canon-reference pass**: `docs/data` mirror restored; stale UI branch string; volume-chip truth; search escaping + variant normalization (鉢/缽, 曰/云, 臺/台, 裏/里, 無/无); localStorage guard; dead `stacked` mode dropped; `docs/scripts` removed; **lineage 18 → 30 masters** (four documented frontier teacher references remain outside the seed set); **canon IDs corrected vs CBETA for 10 corpus files + 5 master profiles** (foyan T1995→X1315, mazu/baizhang→四家語錄 X1321/X1323, xuansha→X1445, dazhu→X1223, caoxi→X1598, dahui_shobogenzo T2002→X1309, xuefeng T1983→X1333, fayan→X1226, dahui_hongzhi T2001 dropped, taisho_vol truth).
 3. **`e299187`** **Wumenguan completed 48/48** — the corpus's first complete canonical text: all 48 cases + preface + epilogue (zh per CBETA T2005 宗紹編), **+40 verified Senzaki & Reps 1934 PD slots → the historical 119-slot tally at that milestone**; CBETA numbering correction (case 37 IS 庭前柏樹); coverage metadata; `provenance.json` v2.0.
 4. **`11ad640`** UX/UI improvement roadmap ([`UX_ROADMAP.md`](./UX_ROADMAP.md)) — 10 measured pain points, phases A–D, mobile + desktop, zero-backend contract.
@@ -124,7 +136,7 @@ On every merge into `main`, the site re-publishes automatically within ~60 secon
 
 ## 📂 Repository Layout & File Manifest
 
-> Corpus file descriptions below name the **canonical work and its scope**; current file contents are excerpt-scale seeds (see [`AUDIT.md` §3](./AUDIT.md) for measured coverage).
+> Corpus file descriptions below name the **canonical work and its scope**; current file contents are excerpt-scale seeds (see [`sessions/AUDIT_archive_2026-08-08.md` §3](./sessions/AUDIT_archive_2026-08-08.md) for measured coverage).
 
 ```
 translatechan/
@@ -187,6 +199,7 @@ translatechan/
 │   │   └── traceability_queue.json     # 33 document-level seed locator reviews
 │   ├── lineage/
 │   │   ├── masters.json                # 34 profiles (incl. 4 frontier scaffolds)
+│   │   ├── school_vocabulary.json      # Controlled school vocabulary (filter UI + graph colors)
 │   │   ├── lineage_verification.json  # 30 edge records + 4 disclosed frontiers
 │   │   └── profile_review_queue.json  # 34 exact-locator profile reviews
 │   ├── translations/
@@ -196,12 +209,15 @@ translatechan/
 │   ├── glossary/
 │   │   └── chan_terms.json             # 31 Classical Chan & Buddhist lexicon terms
 │   └── gongan/
-│       └── gongan_index.json           # 18 Gong'an cross-references index entries
+│       ├── gongan_index.json           # 23 Gong'an cross-references index entries
+│       └── theme_vocabulary.json       # Controlled 7-group theme taxonomy (drives index filter chips)
 └── scripts/
     ├── build_data_bundle.py            # Bundles data/ and synchronizes /docs
+    ├── arena_agent_pipeline.py         # Prompt templates & entry harness for sandboxed agent work
     ├── ingest_cbeta.py                 # Offline Classical Chinese segmenter (manual input)
     ├── validate_data.py                # Semantic/rights/locator validator + metrics generator
-    └── smoke_test.mjs                  # Dependency-free renderer regression test
+    ├── smoke_test.mjs                  # Dependency-free renderer regression test
+    └── browser_test.mjs                # Optional Playwright real-browser suite (not in CI)
 ```
 
 ---
@@ -209,7 +225,7 @@ translatechan/
 ## 🛠️ Ongoing Editorial Maintenance Workflow
 
 When new canonical texts or translations are added by editorial contributors:
-1. Save the structured JSON file in `data/corpus/<name>.json`, add its display/order entry to `data/corpus_manifest.json`, and add a canonical locator record in `data/canonical_locators.json`. Verified modern quotations also require `source.source_id` plus `source.reference`, resolving to `data/translations/rights_manifest.json`. New lineage links require a source/status record in `data/lineage/lineage_verification.json`.
+1. Save the structured JSON file in `data/corpus/<name>.json`, add its display/order entry to `data/corpus_manifest.json`, and add a canonical locator record in `data/canonical_locators.json`. Verified modern quotations also require `source.source_id` plus `source.reference`, resolving to `data/translations/rights_manifest.json`. New lineage links require a source/status record in `data/lineage/lineage_verification.json`. Every master profile carries a `school_key` from `data/lineage/school_vocabulary.json` plus the matching canonical `school` display string — extend the vocabulary file first if a genuinely new group appears (the lineage filter UI and graph colors derive from it automatically). Gong'an index entries likewise carry a `theme_group` from `data/gongan/theme_vocabulary.json` (7 curated theme families drive the index chips); the per-entry `theme` string stays the rich, case-specific descriptor.
 2. Regenerate and validate deterministic metrics:
    ```bash
    python3 scripts/validate_data.py --write-metrics

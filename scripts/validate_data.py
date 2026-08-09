@@ -11,7 +11,9 @@ combines a published schema with semantic checks:
 * translation/provenance records are structurally valid;
 * verified quotations link to the rights manifest;
 * canonical locator registry covers every document and every case-based unit;
-* generated project_metrics.json matches the live data.
+* generated project_metrics.json matches the live data;
+* live prose docs (README.md, HANDOFF.md, index.html) quote the same deterministic
+  numbers — the "doc truthfulness" gate (skip with --skip-docs if editing docs).
 
 Run normally in CI to verify committed metrics, or pass --write-metrics after a
 legitimate data change to regenerate data/project_metrics.json deterministically.
@@ -35,6 +37,8 @@ CORPUS_MANIFEST_PATH = DATA_DIR / "corpus_manifest.json"
 LOCATORS_PATH = DATA_DIR / "canonical_locators.json"
 RIGHTS_PATH = DATA_DIR / "translations" / "rights_manifest.json"
 LINEAGE_VERIFICATION_PATH = DATA_DIR / "lineage" / "lineage_verification.json"
+LINEAGE_SCHOOL_VOCAB_PATH = DATA_DIR / "lineage" / "school_vocabulary.json"
+GONGAN_THEME_VOCAB_PATH = DATA_DIR / "gongan" / "theme_vocabulary.json"
 LINEAGE_PROFILE_QUEUE_PATH = DATA_DIR / "lineage" / "profile_review_queue.json"
 TRACEABILITY_QUEUE_PATH = DATA_DIR / "editorial" / "traceability_queue.json"
 PROVENANCE_PATH = DATA_DIR / "translations" / "provenance.json"
@@ -326,17 +330,41 @@ def validate_matrix(
                 stats["verified_reference_pending" if is_record(source) and "pending" in str(source.get("reference") or "").lower() else "verified_reference_recorded"] += 1
 
 
+def load_controlled_vocabulary(path: Path, issues: Issues, field: str) -> dict[str, str]:
+    """Controlled vocabulary loader: key -> canonical display string.
+
+    Used for the lineage-school vocabulary (field 'schools') and the gong'an
+    theme taxonomy (field 'themes'); both enforce key/display membership here.
+    """
+    raw = load_json(path, issues)
+    if not is_record(raw) or not isinstance(raw.get(field), list) or not raw[field]:
+        issues.error(rel(path), f"requires a non-empty {field} list")
+        return {}
+    vocab: dict[str, str] = {}
+    for index, entry in enumerate(raw[field]):
+        entry_path = f"{rel(path)}.{field}[{index}]"
+        if not is_record(entry) or not nonempty_string(entry.get("key")) or not nonempty_string(entry.get("display")):
+            issues.error(entry_path, "each entry requires non-empty key and display strings")
+            continue
+        if entry["key"] in vocab:
+            issues.error(entry_path, f"duplicate key '{entry['key']}'")
+        vocab[entry["key"]] = entry["display"]
+    return vocab
+
+
 def validate_auxiliary_data(
     glossary: Any,
     lineage: Any,
     gongan: Any,
     provenance: Any,
     issues: Issues,
+    school_vocab: dict[str, str] | None = None,
+    theme_vocab: dict[str, str] | None = None,
 ) -> None:
     for label, records, fields in (
         ("data/glossary/chan_terms.json", glossary, ("id", "term", "pinyin", "literal", "definition", "category")),
-        ("data/lineage/masters.json", lineage, ("id", "name_zh", "name_en", "school", "teacher", "profile_status")),
-        ("data/gongan/gongan_index.json", gongan, ("id", "title_zh", "title_en", "collection", "theme")),
+        ("data/lineage/masters.json", lineage, ("id", "name_zh", "name_en", "school", "school_key", "teacher", "profile_status")),
+        ("data/gongan/gongan_index.json", gongan, ("id", "title_zh", "title_en", "collection", "theme", "theme_group")),
     ):
         if not isinstance(records, list) or not records:
             issues.error(label, "must be a non-empty list")
@@ -362,6 +390,16 @@ def validate_auxiliary_data(
                     issues.error(record_path, "linked_corpus_keys must be a list of non-empty corpus keys")
                 if not is_record(evidence) or not nonempty_string(evidence.get("status")) or not nonempty_string(evidence.get("note")):
                     issues.error(record_path, "profile_evidence requires non-empty status and note")
+                if school_vocab:
+                    school_key = record.get("school_key")
+                    if school_key not in school_vocab:
+                        issues.error(record_path, f"school_key '{school_key}' is not in the controlled vocabulary (data/lineage/school_vocabulary.json)")
+                    elif record.get("school") != school_vocab[school_key]:
+                        issues.error(record_path, f"school must be the canonical display for key '{school_key}': {school_vocab[school_key]!r}")
+            if label == "data/gongan/gongan_index.json" and theme_vocab:
+                theme_group = record.get("theme_group")
+                if theme_group not in theme_vocab:
+                    issues.error(record_path, f"theme_group '{theme_group}' is not in the gong'an theme taxonomy (data/gongan/theme_vocabulary.json)")
 
     if not is_record(provenance):
         issues.error(rel(PROVENANCE_PATH), "must be an object")
@@ -845,6 +883,7 @@ def compute_metrics(
         },
         "translations": {
             "corpus_slots": stats.get("corpus_slots", 0),
+            "verified_corpus_texts": stats.get("verified_corpus_texts", 0),
             "corpus_statuses": {
                 status: stats.get(status, 0) for status in sorted(VALID_TRANSLATION_STATUSES)
             },
@@ -868,6 +907,91 @@ def canonical_json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
 
 
+def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: Any, gongan: Any, school_vocab: dict[str, str], issues: Issues) -> None:
+    """Guard the curated live docs against quoting stale deterministic numbers.
+
+    Prose cannot be schema-validated, but every repeated drift incident (see
+    sessions/AUDIT_archive_2026-08-08.md §11 F1, §12) came from docs echoing
+    numbers the validator already computes.  Each rule below is (file, exact
+    snippet, description): the snippet is built from live values, and the
+    document must contain it — an absent snippet means the prose drifted (or
+    was reworded: update the rule).  Dated session logs (sessions/*.md) are
+    intentionally not checked; AUDIT.md's *current-verdict* section IS guarded
+    because, per the §5 convention, it republishes live numbers rather than
+    being a dated log (added after the 2026-08-09 audit found the "6 corpus
+    texts" claim had drifted to 7 uncovered).
+    """
+    corpus = metrics["corpus"]
+    translations = metrics["translations"]
+    locators = metrics["canonical_locator_coverage"]
+    lineage_registry = metrics.get("lineage_verification", {})
+    ref_cov = translations.get("verified_reference_coverage", {})
+    recorded = ref_cov.get("recorded", 0)
+    pending = ref_cov.get("pending", 0)
+    biyanlu = corpus.get("per_text", {}).get("biyanlu_cases", {})
+    wumenguan = corpus.get("per_text", {}).get("wumenguan", {})
+    verified_slots = translations["corpus_statuses"]["verified_quotation"]
+    verified_texts = translations.get("verified_corpus_texts", 0)
+    matrix_verified = translations.get("matrix_statuses", {}).get("verified_quotation", 0)
+    checks = [
+        ("README.md", f"**{corpus['content_cjk_characters']:,} source-content CJK characters** "
+                      f"(or {corpus['all_corpus_cjk_characters']:,} across every corpus JSON string",
+         "honest-status CJK counts"),
+        ("README.md", f"manifest ({corpus['documents']} keys)", "manifest key count in repo tree"),
+        ("README.md", "48 / 48 cases ✅ complete", "Wumenguan coverage in corpus table"),
+        ("README.md", f"currently **{len(lineage)} master profiles**", "master profile count in lineage feature"),
+        ("README.md", f"— **{len(gongan)} indexed cases** at present", "gong'an count in index feature"),
+        ("README.md", f"**{len(glossary)} terms** today", "glossary count in lexicon feature"),
+        ("HANDOFF.md", f"corpus={corpus['documents']} | slots={translations['corpus_slots']} | "
+                       f"verified={translations['corpus_statuses']['verified_quotation']} | "
+                       f"matrix={translations['matrix_entries']} | "
+                       f"locators={locators.get('case_locators', 0)}/{locators.get('declared_cases', 0)}",
+         "quality-gate summary numbers"),
+        ("HANDOFF.md", f"**{recorded} / {recorded + pending}**", "verified-reference coverage split"),
+        ("HANDOFF.md", f"the remaining **{pending}**", "verified-reference pending count"),
+        ("HANDOFF.md", f"# {len(glossary)} Classical Chan & Buddhist lexicon terms", "glossary count in repo tree"),
+        ("HANDOFF.md", f"# {len(gongan)} Gong'an cross-references index entries", "gong'an count in repo tree"),
+        ("index.html", f"📜 {corpus['documents']} Canonical Works", "hero corpus chip"),
+        # AUDIT 2026-08-09 turn-2: the verified-slot tallies must name the true
+        # corpus-text spread (drifted 6 → 7 texts before this rule existed).
+        ("README.md", f"**{verified_slots} verified quotation slots across {verified_texts} corpus texts + {matrix_verified} verified comparative-matrix entries**",
+         "verified-slot corpus-text spread (campaign bullet)"),
+        ("ROADMAP.md", f"**{verified_slots} verified corpus quotation slots across {verified_texts} texts + {matrix_verified} verified Matrix entries**",
+         "verified-slot corpus-text spread (milestone note)"),
+        # AUDIT.md §1 "Current verdict" republishes live numbers per the §5
+        # convention — guard them like README/HANDOFF (previously unguarded).
+        ("AUDIT.md", f"Corpus: **{corpus['documents']} documents**", "current-verdict corpus document count"),
+        ("AUDIT.md", f"**{corpus['excerpt_seed_documents']} excerpt seeds**", "current-verdict excerpt-seed count"),
+        ("AUDIT.md", f"**{corpus['content_cjk_characters']:,} content CJK / {corpus['all_corpus_cjk_characters']:,} all-string CJK**",
+         "current-verdict CJK counts"),
+        ("AUDIT.md", f"Translations: **{translations['corpus_slots']} corpus slots**; **{verified_slots} verified quotations**; **{translations['matrix_entries']} matrix registers**",
+         "current-verdict translation tallies"),
+        ("AUDIT.md", f"verified-reference coverage **{recorded} recorded / {pending} pending**", "current-verdict reference coverage"),
+        ("AUDIT.md", f"Locators: **{locators.get('case_locators', 0)}/{locators.get('declared_cases', 0)} case-level**; **{locators.get('document_level_seed_documents', 0)} document-level seeds**",
+         "current-verdict locator coverage"),
+        ("AUDIT.md", f"Lineage: **{len(lineage)} masters**", "current-verdict master count"),
+        ("AUDIT.md", f"**{len(school_vocab)} controlled `school_key` groups**", "current-verdict school vocabulary size"),
+        ("AUDIT.md", f"**{lineage_registry.get('internal_edges', 0)} edge records + {lineage_registry.get('frontiers', 0)} frontiers**", "current-verdict lineage registry"),
+        ("AUDIT.md", f"Glossary: **{len(glossary)} terms**; Gong'an index: **{len(gongan)} entries**", "current-verdict glossary/gong'an counts"),
+    ]
+    if biyanlu.get("coverage"):
+        checks.append(("README.md", biyanlu["coverage"], "Biyanlu coverage string in honest status"))
+        checks.append(("AUDIT.md", f"Biyanlu **{biyanlu['coverage']}**", "current-verdict Biyanlu coverage"))
+    if wumenguan.get("coverage"):
+        checks.append(("AUDIT.md", f"Wumenguan **{wumenguan['coverage']}** complete", "current-verdict Wumenguan coverage"))
+    for filename, snippet, description in checks:
+        path = ROOT / filename
+        if not path.exists():
+            issues.error(filename, f"doc truthfulness check cannot run — file missing ({description})")
+            continue
+        if snippet not in path.read_text(encoding="utf-8"):
+            issues.error(
+                filename,
+                f"doc truthfulness: {description} drifted — expected snippet not found: {snippet!r} "
+                f"(update the document, or the check rule in validate_data.py if the prose changed intentionally)",
+            )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -876,6 +1000,11 @@ def main() -> int:
         help="write the deterministic data/project_metrics.json file instead of failing when it is stale",
     )
     parser.add_argument("--quiet", action="store_true", help="only print errors/warnings")
+    parser.add_argument(
+        "--skip-docs",
+        action="store_true",
+        help="skip documentation-truthfulness checks (README/HANDOFF/index.html must quote live metrics)",
+    )
     args = parser.parse_args()
 
     issues = Issues()
@@ -895,7 +1024,12 @@ def main() -> int:
     stats: Counter[str] = Counter()
     verified_source_ids: list[str] = []
     for key, document in corpus.items():
+        before = len(verified_source_ids)
         validate_corpus_document(key, document, issues, stats, verified_source_ids)
+        if len(verified_source_ids) > before:
+            # Distinct corpus texts carrying at least one verified quotation —
+            # quoted in README/ROADMAP prose and guarded by the doc gate.
+            stats["verified_corpus_texts"] += 1
 
     matrix = load_json(MATRIX_PATH, issues)
     validate_matrix(matrix, issues, stats, verified_source_ids)
@@ -903,7 +1037,9 @@ def main() -> int:
     lineage = load_json(DATA_DIR / "lineage" / "masters.json", issues)
     gongan = load_json(DATA_DIR / "gongan" / "gongan_index.json", issues)
     provenance = load_json(PROVENANCE_PATH, issues)
-    validate_auxiliary_data(glossary, lineage, gongan, provenance, issues)
+    school_vocab = load_controlled_vocabulary(LINEAGE_SCHOOL_VOCAB_PATH, issues, "schools")
+    theme_vocab = load_controlled_vocabulary(GONGAN_THEME_VOCAB_PATH, issues, "themes")
+    validate_auxiliary_data(glossary, lineage, gongan, provenance, issues, school_vocab, theme_vocab)
 
     corpus_manifest = load_json(CORPUS_MANIFEST_PATH, issues)
     locator_registry = load_json(LOCATORS_PATH, issues)
@@ -919,6 +1055,8 @@ def main() -> int:
     manifest_metrics = validate_manifest_sync(corpus, corpus_manifest, issues)
 
     metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, profile_queue_metrics, manifest_metrics, corpus_manifest)
+    if not args.skip_docs:
+        validate_doc_truthfulness(metrics, glossary, lineage, gongan, school_vocab, issues)
     expected_metrics = canonical_json(metrics)
     if args.write_metrics:
         METRICS_PATH.write_text(expected_metrics, encoding="utf-8")

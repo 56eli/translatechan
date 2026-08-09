@@ -1,0 +1,12 @@
+{
+  "policy_note": "Controlled thematic taxonomy for the Gong'an index. Every entry in data/gongan/gongan_index.json must carry a theme_group key from this list (enforced by validate_data.py). The per-entry `theme` string remains the rich, case-specific descriptor and is still displayed on cards; the index filter chips are generated from these groups (with counts), so chips group cases meaningfully instead of listing 23 one-off labels. Extend this file first when a genuinely new thematic family appears.",
+  "themes": [
+    { "key": "buddha_nature", "display": "Buddha-Nature & Original Mind (佛性本心)", "note": "The ground of awakening: dog's Buddha-nature, face before good/evil, flag and wind as mind-only." },
+    { "key": "beyond_duality", "display": "Beyond Dualistic Discrimination (絕待不二)", "note": "Cases that cut off the dualistic intellect: vast emptiness, 'the Way is not difficult', the cat cut in two, neither cold nor heat." },
+    { "key": "what_is_buddha", "display": "The Ultimate Question: What is Buddha? (如何是佛)", "note": "Cases circling the defining question of the tradition: three pounds of hemp, dried dung, the cypress tree, the living master's four gates." },
+    { "key": "direct_pointing", "display": "Direct Pointing at the Person (直指汝是)", "note": "Cases where the master points at the questioner or the concrete particular: one finger, 'You are Huichao', 'seen through!', the whole earth as a grain of millet." },
+    { "key": "everyday_way", "display": "The Everyday Way (平常是道)", "note": "Awakening in ordinary activity and circumstances: washing the bowl, ordinary mind, sun-faced/moon-faced Buddha, every day is a good day." },
+    { "key": "transmission_causality", "display": "Transmission & Causality (傳法因果)", "note": "Dharma order and lineage: the flower sermon that founded wordless transmission, and the wild fox's five hundred lives on cause and effect." },
+    { "key": "existential_barrier", "display": "The Existential Barrier (生死難關)", "note": "The life-and-death urgency where words fail: Xiangyan up a tree." }
+  ]
+}

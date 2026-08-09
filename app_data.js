@@ -446,7 +446,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "First Patriarch of Chinese Chan (初祖)",
       "dates": "d. ~532 CE",
       "era": "Northern & Southern Dynasties (Northern Wei / Liang)",
-      "school": "Foundational Patriarch",
+      "school": "Foundational Patriarch (達摩至六祖)",
+      "school_key": "foundational_patriarchs",
       "location": "Shaolin Monastery, Songshan, Henan",
       "lineage_depth": 1,
       "teacher": "prajnatara",
@@ -485,7 +486,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Second Patriarch of Chinese Chan (二祖)",
       "dates": "487–593 CE",
       "era": "Northern Wei / Sui Dynasty",
-      "school": "Foundational Patriarch",
+      "school": "Foundational Patriarch (達摩至六祖)",
+      "school_key": "foundational_patriarchs",
       "location": "Songshan / Youzhou",
       "lineage_depth": 2,
       "teacher": "bodhidharma",
@@ -515,7 +517,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Third Patriarch of Chinese Chan (三祖)",
       "dates": "d. 606 CE",
       "era": "Sui Dynasty",
-      "school": "Foundational Patriarch",
+      "school": "Foundational Patriarch (達摩至六祖)",
+      "school_key": "foundational_patriarchs",
       "location": "Mount Wan-kung, Anhui",
       "lineage_depth": 3,
       "teacher": "huike",
@@ -547,7 +550,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Fourth Patriarch of Chinese Chan (四祖)",
       "dates": "580–651 CE",
       "era": "Tang Dynasty",
-      "school": "Foundational Patriarch / East Mountain Teaching",
+      "school": "Foundational Patriarch (達摩至六祖)",
+      "school_key": "foundational_patriarchs",
       "location": "Mount Shuangfeng (Twin Peaks), Hubei",
       "lineage_depth": 4,
       "teacher": "sengcan",
@@ -578,7 +582,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Fifth Patriarch of Chinese Chan (五祖)",
       "dates": "601–674 CE",
       "era": "Tang Dynasty",
-      "school": "East Mountain Teaching (東山法門)",
+      "school": "Foundational Patriarch (達摩至六祖)",
+      "school_key": "foundational_patriarchs",
       "location": "Mount Huangmei (Yellow Plum Mountain), Hubei",
       "lineage_depth": 5,
       "teacher": "daoxin",
@@ -610,7 +615,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Sixth Patriarch of Chinese Chan (六祖)",
       "dates": "638–713 CE",
       "era": "Tang Dynasty",
-      "school": "Southern School (南宗頓教 / Source of all Five Houses)",
+      "school": "Foundational Patriarch (達摩至六祖)",
+      "school_key": "foundational_patriarchs",
       "location": "Baolin Monastery, Caoxi, Guangdong",
       "lineage_depth": 6,
       "teacher": "hongren",
@@ -648,7 +654,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Great Master Jiangxi Mazu (馬大師)",
       "dates": "709–788 CE",
       "era": "High Tang Dynasty",
-      "school": "Hongzhou School (洪州宗 / Linji ancestor)",
+      "school": "Hongzhou School (洪州宗)",
+      "school_key": "hongzhou",
       "location": "Kaiyuan Monastery, Jiangxi",
       "lineage_depth": 8,
       "teacher": "nanyue_huairang",
@@ -687,7 +694,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Master Shitou (石頭大師)",
       "dates": "700–790 CE",
       "era": "High Tang Dynasty",
-      "school": "Hunan Lineage (Caodong & Yunmen ancestor)",
+      "school": "Shitou / Hunan Lineage (石頭法脈)",
+      "school_key": "shitou_hunan",
       "location": "Nantai Temple, Mount Heng, Hunan",
       "lineage_depth": 8,
       "teacher": "qingyuan_xingsi",
@@ -722,7 +730,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Master Baizhang",
       "dates": "720–814 CE",
       "era": "Tang Dynasty",
-      "school": "Hongzhou School",
+      "school": "Hongzhou School (洪州宗)",
+      "school_key": "hongzhou",
       "location": "Mount Baizhang, Fengxin, Jiangxi",
       "lineage_depth": 9,
       "teacher": "mazu_daoyi",
@@ -757,7 +766,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Master Huangbo (斷際禪師)",
       "dates": "d. 850 CE",
       "era": "Late Tang Dynasty",
-      "school": "Linji Lineage Ancestor",
+      "school": "Linji School (臨濟宗)",
+      "school_key": "linji",
       "location": "Mount Huangbo, Jiangxi",
       "lineage_depth": 10,
       "teacher": "baizhang_huaihai",
@@ -797,6 +807,7 @@ window.TRANSLATECHAN_DATA = {
       "dates": "d. 866 CE",
       "era": "Late Tang Dynasty",
       "school": "Linji School (臨濟宗)",
+      "school_key": "linji",
       "location": "Linji Monastery, Zhenzhou, Hebei",
       "lineage_depth": 11,
       "teacher": "huangbo_xiyun",
@@ -837,7 +848,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Master Zhaozhou (趙州古佛)",
       "dates": "778–897 CE (Lived 120 years)",
       "era": "Tang Dynasty",
-      "school": "Hongzhou / Nanquan Lineage",
+      "school": "Hongzhou School (洪州宗)",
+      "school_key": "hongzhou",
       "location": "Guanyin Temple, Zhaozhou, Hebei",
       "lineage_depth": 10,
       "teacher": "nanquan_puyuan",
@@ -875,6 +887,7 @@ window.TRANSLATECHAN_DATA = {
       "dates": "807–869 CE",
       "era": "Late Tang Dynasty",
       "school": "Caodong School (曹洞宗)",
+      "school_key": "caodong",
       "location": "Mount Dong, Xinzhou, Jiangxi",
       "lineage_depth": 11,
       "teacher": "yunyan_tansheng",
@@ -915,6 +928,7 @@ window.TRANSLATECHAN_DATA = {
       "dates": "864–949 CE",
       "era": "Five Dynasties & Ten Kingdoms",
       "school": "Yunmen School (雲門宗)",
+      "school_key": "yunmen",
       "location": "Guangtai Temple, Mount Yunmen, Guangdong",
       "lineage_depth": 12,
       "teacher": "xuefeng_yicun",
@@ -952,6 +966,7 @@ window.TRANSLATECHAN_DATA = {
       "dates": "771–853 CE",
       "era": "Tang Dynasty",
       "school": "Guiyang School (溈仰宗)",
+      "school_key": "guiyang",
       "location": "Mount Gui, Tanzhou, Hunan",
       "lineage_depth": 10,
       "teacher": "baizhang_huaihai",
@@ -986,6 +1001,7 @@ window.TRANSLATECHAN_DATA = {
       "dates": "885–958 CE",
       "era": "Five Dynasties",
       "school": "Fayan School (法眼宗)",
+      "school_key": "fayan",
       "location": "Qingliang Monastery, Jinling (Nanjing)",
       "lineage_depth": 14,
       "teacher": "luohan_guichen",
@@ -1018,7 +1034,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Master Yuanwu (Foguo Chanshi)",
       "dates": "1063–1135 CE",
       "era": "Song Dynasty",
-      "school": "Linji / Yangqi Branch",
+      "school": "Linji / Yangqi Branch (楊岐派)",
+      "school_key": "linji_yangqi",
       "location": "Mount Jia, Hunan / Chengdu",
       "lineage_depth": 15,
       "teacher": "wuzu_fayan",
@@ -1057,7 +1074,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Master Wumen (Gateless Barrier)",
       "dates": "1183–1260 CE",
       "era": "Southern Song Dynasty",
-      "school": "Linji / Yangqi Branch",
+      "school": "Linji / Yangqi Branch (楊岐派)",
+      "school_key": "linji_yangqi",
       "location": "Bao'en Monastery, Suzhou / Hangzhou",
       "lineage_depth": 18,
       "teacher": "yuelin_shiguan",
@@ -1093,7 +1111,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Great Master of Nanyue (南嶽懷讓禪師)",
       "dates": "677–744 CE",
       "era": "Tang Dynasty",
-      "school": "Foundational Patriarch",
+      "school": "Tang Branch Root Patriarch (分支初祖)",
+      "school_key": "tang_branch_roots",
       "location": "Bore Monastery, Mount Heng (南嶽般若寺), Hunan",
       "lineage_depth": 7,
       "teacher": "huineng",
@@ -1124,7 +1143,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Chan Master Qingyuan (青原行思禪師)",
       "dates": "660–740 CE",
       "era": "Tang Dynasty",
-      "school": "Foundational Patriarch",
+      "school": "Tang Branch Root Patriarch (分支初祖)",
+      "school_key": "tang_branch_roots",
       "location": "Jingju Monastery, Mount Qingyuan (青原山), Jizhou, Jiangxi",
       "lineage_depth": 7,
       "teacher": "huineng",
@@ -1155,7 +1175,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Great Master Nanquan (南泉普願禪師)",
       "dates": "748–835 CE",
       "era": "Tang Dynasty",
-      "school": "Hongzhou School",
+      "school": "Hongzhou School (洪州宗)",
+      "school_key": "hongzhou",
       "location": "Nanquan Mountain, Chizhou (南泉山), Anhui",
       "lineage_depth": 9,
       "teacher": "mazu_daoyi",
@@ -1187,7 +1208,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Great Master Yaoshan (藥山惟儼禪師)",
       "dates": "745–828 CE",
       "era": "Tang Dynasty",
-      "school": "Hunan Lineage",
+      "school": "Shitou / Hunan Lineage (石頭法脈)",
+      "school_key": "shitou_hunan",
       "location": "Yaoshan, Tanzhou (藥山), Hunan",
       "lineage_depth": 9,
       "teacher": "shitou_xiqian",
@@ -1219,7 +1241,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Chan Master Yunyan (雲巖曇晟禪師)",
       "dates": "782–841 CE",
       "era": "Tang Dynasty",
-      "school": "Caodong School",
+      "school": "Caodong School (曹洞宗)",
+      "school_key": "caodong",
       "location": "Yunyan Mountain, Tanzhou (雲巖山), Hunan",
       "lineage_depth": 10,
       "teacher": "yaoshan_weiyan",
@@ -1250,7 +1273,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Great Master Deshan (德山宣鑑禪師)",
       "dates": "782–865 CE",
       "era": "Tang Dynasty",
-      "school": "Hunan Lineage",
+      "school": "Shitou / Hunan Lineage (石頭法脈)",
+      "school_key": "shitou_hunan",
       "location": "Deshan, Dingzhou (德山), Hunan",
       "lineage_depth": 10,
       "teacher": "longtan_chongxin",
@@ -1283,7 +1307,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Chan Master Xuefeng (雪峰義存禪師 / 真覺禪師)",
       "dates": "822–908 CE",
       "era": "Tang Dynasty",
-      "school": "Hunan Lineage",
+      "school": "Shitou / Hunan Lineage (石頭法脈)",
+      "school_key": "shitou_hunan",
       "location": "Xuefeng Mountain, Fuzhou (雪峰山), Fujian",
       "lineage_depth": 11,
       "teacher": "deshan_xuanjian",
@@ -1318,7 +1343,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Great Master Xuansha (玄沙宗一禪師)",
       "dates": "835–908 CE",
       "era": "Tang Dynasty",
-      "school": "Hunan Lineage",
+      "school": "Shitou / Hunan Lineage (石頭法脈)",
+      "school_key": "shitou_hunan",
       "location": "Xuansha Mountain, Fuzhou (玄沙山), Fujian",
       "lineage_depth": 12,
       "teacher": "xuefeng_yicun",
@@ -1352,7 +1378,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Chan Master Luohan (漳州羅漢桂琛禪師)",
       "dates": "867–928 CE",
       "era": "Five Dynasties",
-      "school": "Fayan School",
+      "school": "Fayan School (法眼宗)",
+      "school_key": "fayan",
       "location": "Luohan Yuan, Zhangzhou (漳州羅漢院), Fujian",
       "lineage_depth": 13,
       "teacher": "xuansha_shibei",
@@ -1383,7 +1410,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Chan Master Baiyun (舒州白雲守端禪師)",
       "dates": "1025–1072 CE",
       "era": "Northern Song Dynasty",
-      "school": "Linji / Yangqi Branch",
+      "school": "Linji / Yangqi Branch (楊岐派)",
+      "school_key": "linji_yangqi",
       "location": "Baiyun Mountain, Shuzhou (白雲山海會寺), Anhui",
       "lineage_depth": 13,
       "teacher": "yangqi_fanghui",
@@ -1415,7 +1443,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Chan Master Wuzu Fayan (蘄州五祖法演禪師)",
       "dates": "1024–1104 CE",
       "era": "Northern Song Dynasty",
-      "school": "Linji / Yangqi Branch",
+      "school": "Linji / Yangqi Branch (楊岐派)",
+      "school_key": "linji_yangqi",
       "location": "Wuzu Mountain (東山), Qizhou (五祖山), Hubei",
       "lineage_depth": 14,
       "teacher": "baiyun_shouduan",
@@ -1449,7 +1478,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Chan Master Yuelin (月林師觀禪師)",
       "dates": "1143–1217 CE",
       "era": "Southern Song Dynasty",
-      "school": "Linji / Yangqi Branch",
+      "school": "Linji / Yangqi Branch (楊岐派)",
+      "school_key": "linji_yangqi",
       "location": "Wanshou Monastery, Pingjiang Fu (平江府萬壽寺), Suzhou",
       "lineage_depth": 17,
       "teacher": "dahong_zuzheng",
@@ -1487,6 +1517,7 @@ window.TRANSLATECHAN_DATA = {
       "dates": "dates unverified",
       "era": "Indian patriarchal tradition",
       "school": "Indian Patriarchal Tradition",
+      "school_key": "indian_patriarchs",
       "location": "location unverified",
       "lineage_depth": 0,
       "teacher": "Indian patriarchal tradition — teacher/source not yet recorded",
@@ -1517,7 +1548,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Traditional teacher of Deshan (profile scaffold)",
       "dates": "dates unverified",
       "era": "Tang tradition",
-      "school": "Chan transmission tradition",
+      "school": "Shitou / Hunan Lineage (石頭法脈)",
+      "school_key": "shitou_hunan",
       "location": "location unverified",
       "lineage_depth": 9,
       "teacher": "Teacher/source not yet recorded",
@@ -1548,7 +1580,8 @@ window.TRANSLATECHAN_DATA = {
       "title": "Yangqi lineage master (profile scaffold)",
       "dates": "dates unverified",
       "era": "Song tradition",
-      "school": "Linji / Yangqi tradition",
+      "school": "Linji / Yangqi Branch (楊岐派)",
+      "school_key": "linji_yangqi",
       "location": "location unverified",
       "lineage_depth": 11,
       "teacher": "Teacher/source not yet recorded",
@@ -1580,6 +1613,7 @@ window.TRANSLATECHAN_DATA = {
       "dates": "dates unverified",
       "era": "Song tradition",
       "school": "Chan transmission tradition",
+      "school_key": "chan_transmission",
       "location": "location unverified",
       "lineage_depth": 12,
       "teacher": "Teacher/source not yet recorded",
@@ -1923,6 +1957,71 @@ window.TRANSLATECHAN_DATA = {
         "status": "frontier_unprofiled",
         "source_id": "frontier-master-record",
         "reference": "Teacher profile and exact source locator pending."
+      }
+    ]
+  },
+  "lineage_school_vocab": {
+    "policy_note": "Controlled vocabulary for lineage school affiliation. Every master in data/lineage/masters.json must carry a school_key from this list and a school display string exactly matching the display defined here (enforced by validate_data.py). The lineage filter UI and graph colors are derived from this vocabulary, not from hardcoded lists. Display nuances specific to one master (e.g. East Mountain Teaching, Southern School origin) belong in that master's title/summary, not in the school field.",
+    "schools": [
+      {
+        "key": "indian_patriarchs",
+        "display": "Indian Patriarchal Tradition",
+        "note": "Pre-Bodhidharma Indian transmission line."
+      },
+      {
+        "key": "foundational_patriarchs",
+        "display": "Foundational Patriarch (達摩至六祖)",
+        "note": "The Six Patriarchs of the early Chan tradition (Bodhidharma → Huineng)."
+      },
+      {
+        "key": "tang_branch_roots",
+        "display": "Tang Branch Root Patriarch (分支初祖)",
+        "note": "The two great Tang branch roots after Huineng: the Nanyue and Qingyuan lines."
+      },
+      {
+        "key": "hongzhou",
+        "display": "Hongzhou School (洪州宗)",
+        "note": "Nanyue branch: Mazu Daoyi's Hongzhou line and its offshoots (incl. Zhaozhou)."
+      },
+      {
+        "key": "shitou_hunan",
+        "display": "Shitou / Hunan Lineage (石頭法脈)",
+        "note": "Qingyuan branch: Shitou Xiqian's line through the Hunan masters (pre-house)."
+      },
+      {
+        "key": "linji",
+        "display": "Linji School (臨濟宗)",
+        "note": "Linji house proper and its direct lineage ancestor (Huangbo)."
+      },
+      {
+        "key": "linji_yangqi",
+        "display": "Linji / Yangqi Branch (楊岐派)",
+        "note": "The Yangqi branch of the Linji house (Yuanwu, Dahui line; Wumen)."
+      },
+      {
+        "key": "caodong",
+        "display": "Caodong School (曹洞宗)",
+        "note": "Caodong house (Dongshan–Caoshan line)."
+      },
+      {
+        "key": "yunmen",
+        "display": "Yunmen School (雲門宗)",
+        "note": "Yunmen house."
+      },
+      {
+        "key": "guiyang",
+        "display": "Guiyang School (溈仰宗)",
+        "note": "Guiyang house."
+      },
+      {
+        "key": "fayan",
+        "display": "Fayan School (法眼宗)",
+        "note": "Fayan house and its lineage ancestors (Luohan Guichen)."
+      },
+      {
+        "key": "chan_transmission",
+        "display": "Chan transmission tradition",
+        "note": "Traditional/scaffold profiles without house attribution; records pending review."
       }
     ]
   },
@@ -3644,6 +3743,7 @@ window.TRANSLATECHAN_DATA = {
         "reconstruction_unverified": 18,
         "verified_quotation": 2
       },
+      "verified_corpus_texts": 7,
       "verified_reference_coverage": {
         "pending": 5,
         "recorded": 135
@@ -3660,6 +3760,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Zhaozhou's Dog (Mu / Wu)",
       "protagonist": "zhaozhou_congshen",
       "theme": "Buddha-Nature / Cutting Off Deliberation",
+      "theme_group": "buddha_nature",
       "cross_refs": [
         "Congronglu Case 18",
         "Zhaozhou Yulu",
@@ -3676,6 +3777,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Baizhang's Wild Fox",
       "protagonist": "baizhang_huaihai",
       "theme": "Karma & Causality (不落 / 不昧)",
+      "theme_group": "transmission_causality",
       "cross_refs": [
         "Baizhang Yulu",
         "Biyanlu Case 17",
@@ -3692,6 +3794,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Juzhi's One Finger",
       "protagonist": "juzhi",
       "theme": "Direct Pointing / Cutting Conceptual Mimicry",
+      "theme_group": "direct_pointing",
       "cross_refs": [
         "Biyanlu Case 19",
         "Chuandenglu Vol. 11"
@@ -3707,6 +3810,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Bodhidharma Has No Beard",
       "protagonist": "huoan_shiti",
       "theme": "Direct Realization Beyond Dual Perception",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Wudeng Huiyuan Vol. 19",
         "Zongmen Tongyao Ji"
@@ -3722,6 +3826,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Xiangyan's Man Up a Tree",
       "protagonist": "xiangyan_zhixian",
       "theme": "Existential Urgency / Ineffable Speech",
+      "theme_group": "existential_barrier",
       "cross_refs": [
         "Guishan Yulu",
         "Chuandenglu Vol. 11"
@@ -3737,6 +3842,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "The Buddha Holds Up a Flower",
       "protagonist": "shakyamuni_and_mahakasyapa",
       "theme": "Origin of Chan Transmission",
+      "theme_group": "transmission_causality",
       "cross_refs": [
         "Lianbiao Shizi Xu",
         "Zongmen Tongyao Ji"
@@ -3752,6 +3858,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Zhaozhou's Wash Your Bowl",
       "protagonist": "zhaozhou_congshen",
       "theme": "Ordinary Activity as Awakening",
+      "theme_group": "everyday_way",
       "cross_refs": [
         "Zhaozhou Yulu",
         "Biyanlu Case 47"
@@ -3767,6 +3874,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Ordinary Mind is the Way",
       "protagonist": "nanquan_puyuan",
       "theme": "Immediacy / Non-Seeking",
+      "theme_group": "everyday_way",
       "cross_refs": [
         "Mazu Yulu",
         "Zhaozhou Yulu",
@@ -3783,6 +3891,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Huineng's Original Face",
       "protagonist": "huineng",
       "theme": "Original Nature Beyond Morality",
+      "theme_group": "buddha_nature",
       "cross_refs": [
         "Platform Sutra Chapter 1",
         "Chuandenglu Vol. 5"
@@ -3798,6 +3907,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Not the Wind, Not the Flag",
       "protagonist": "huineng",
       "theme": "Mind-Only Non-Duality",
+      "theme_group": "buddha_nature",
       "cross_refs": [
         "Platform Sutra Chapter 1",
         "Zongjinglu"
@@ -3813,6 +3923,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "The Cypress Tree in the Courtyard",
       "protagonist": "zhaozhou_congshen",
       "theme": "Patriarch's Meaning / Direct Reality",
+      "theme_group": "what_is_buddha",
       "cross_refs": [
         "Zhaozhou Yulu",
         "Biyanlu Case 47",
@@ -3829,6 +3940,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Emperor Wu Asks Bodhidharma: Vast Emptiness",
       "protagonist": "bodhidharma",
       "theme": "Emptiness / Transcending Imperial Merit",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Chuandenglu Vol. 3",
         "Lidai Fabao Ji"
@@ -3844,6 +3956,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Zhaozhou's Ultimate Path is Not Difficult",
       "protagonist": "zhaozhou_congshen",
       "theme": "Beyond Clarity and Discrimination",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Xinxin Ming",
         "Zhaozhou Yulu"
@@ -3859,6 +3972,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Master Mazu is Unwell: Sun-Face Moon-Face",
       "protagonist": "mazu_daoyi",
       "theme": "Equanimity in Sickness and Health",
+      "theme_group": "everyday_way",
       "cross_refs": [
         "Mazu Yulu",
         "Jingde Chuandenglu Vol. 6"
@@ -3874,6 +3988,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Dongshan's Three Pounds of Flax",
       "protagonist": "dongshan_shouchu",
       "theme": "Concrete Reality / What is Buddha",
+      "theme_group": "what_is_buddha",
       "cross_refs": [
         "Dongshan Yulu",
         "Wumenguan Case 18"
@@ -3889,6 +4004,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Nanquan Cuts the Cat in Two",
       "protagonist": "nanquan_puyuan",
       "theme": "Cutting Duality / Straw Sandals on Head",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Wumenguan Case 14",
         "Congronglu Case 9"
@@ -3904,6 +4020,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Yunmen's Dried Shit-Stick",
       "protagonist": "yunmen_wenyan",
       "theme": "Shattering All Sanctimonious Conceits",
+      "theme_group": "what_is_buddha",
       "cross_refs": [
         "Yunmen Yulu",
         "Wumenguan Case 21"
@@ -3919,6 +4036,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Dongshan's Cold and Heat",
       "protagonist": "dongshan_liangjie",
       "theme": "Transcendence within Conditioned Reality",
+      "theme_group": "beyond_duality",
       "cross_refs": [
         "Dongshan Yulu",
         "Congronglu Case 43"
@@ -3934,6 +4052,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Deshan Visits Guishan: \"He Saw Through It\"",
       "protagonist": "deshan_xuanjian",
       "theme": "Direct Encounter / Seeing Through",
+      "theme_group": "direct_pointing",
       "cross_refs": [
         "Chuandenglu Deshan record",
         "Zhaozhou Yulu"
@@ -3949,6 +4068,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Xuefeng: The Whole Earth as a Grain of Millet",
       "protagonist": "xuefeng_yicun",
       "theme": "The Whole Earth / One Grain of Millet",
+      "theme_group": "direct_pointing",
       "cross_refs": [
         "Yunmen Yulu"
       ],
@@ -3963,6 +4083,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Yunmen: Every Day Is a Good Day",
       "protagonist": "yunmen_wenyan",
       "theme": "Everyday Mind / Each Day Is a Good Day",
+      "theme_group": "everyday_way",
       "cross_refs": [
         "Yunmen Yulu"
       ],
@@ -3977,6 +4098,7 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Fayan Answers Huichao: \"You Are Huichao\"",
       "protagonist": "fayan_wenyi",
       "theme": "You Are It / Direct Pointing",
+      "theme_group": "direct_pointing",
       "cross_refs": [],
       "summary": "A monk asks Fayan what Buddha is; Fayan replies \"You are Huichao,\" the paradigm of Fayan-school direct pointing."
     },
@@ -3989,12 +4111,53 @@ window.TRANSLATECHAN_DATA = {
       "title_en": "Zhaozhou's Four Gates",
       "protagonist": "zhaozhou_congshen",
       "theme": "The Living Master / Four Gates",
+      "theme_group": "what_is_buddha",
       "cross_refs": [
         "Zhaozhou Yulu"
       ],
       "summary": "Asked what Zhaozhou is, Zhaozhou answers with the four gates of the city — the master is not a concept but a living place."
     }
   ],
+  "gongan_theme_vocab": {
+    "policy_note": "Controlled thematic taxonomy for the Gong'an index. Every entry in data/gongan/gongan_index.json must carry a theme_group key from this list (enforced by validate_data.py). The per-entry `theme` string remains the rich, case-specific descriptor and is still displayed on cards; the index filter chips are generated from these groups (with counts), so chips group cases meaningfully instead of listing 23 one-off labels. Extend this file first when a genuinely new thematic family appears.",
+    "themes": [
+      {
+        "key": "buddha_nature",
+        "display": "Buddha-Nature & Original Mind (佛性本心)",
+        "note": "The ground of awakening: dog's Buddha-nature, face before good/evil, flag and wind as mind-only."
+      },
+      {
+        "key": "beyond_duality",
+        "display": "Beyond Dualistic Discrimination (絕待不二)",
+        "note": "Cases that cut off the dualistic intellect: vast emptiness, 'the Way is not difficult', the cat cut in two, neither cold nor heat."
+      },
+      {
+        "key": "what_is_buddha",
+        "display": "The Ultimate Question: What is Buddha? (如何是佛)",
+        "note": "Cases circling the defining question of the tradition: three pounds of hemp, dried dung, the cypress tree, the living master's four gates."
+      },
+      {
+        "key": "direct_pointing",
+        "display": "Direct Pointing at the Person (直指汝是)",
+        "note": "Cases where the master points at the questioner or the concrete particular: one finger, 'You are Huichao', 'seen through!', the whole earth as a grain of millet."
+      },
+      {
+        "key": "everyday_way",
+        "display": "The Everyday Way (平常是道)",
+        "note": "Awakening in ordinary activity and circumstances: washing the bowl, ordinary mind, sun-faced/moon-faced Buddha, every day is a good day."
+      },
+      {
+        "key": "transmission_causality",
+        "display": "Transmission & Causality (傳法因果)",
+        "note": "Dharma order and lineage: the flower sermon that founded wordless transmission, and the wild fox's five hundred lives on cause and effect."
+      },
+      {
+        "key": "existential_barrier",
+        "display": "The Existential Barrier (生死難關)",
+        "note": "The life-and-death urgency where words fail: Xiangyan up a tree."
+      }
+    ]
+  },
   "corpus_manifest": {
     "schema_version": "1.0",
     "description": "Single source of truth for corpus ordering and reader-navigation labels. Each key must map to data/corpus/<key>.json.",
