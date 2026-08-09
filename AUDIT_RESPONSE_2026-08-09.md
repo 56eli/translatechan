@@ -88,17 +88,14 @@ data-hygiene item.
 
 ### B. Front-end / UX
 
-**B1 — Dark-theme flash of unstyled content (FOUC) on reload (P3)**
-`index.html` ships `<html data-theme="light">`; the persisted theme is only
-applied inside `app.js` `init()` (after the ~799 KB bundle parses). A returning
-dark-mode user sees a bright white page for up to a few hundred ms before the
-theme flips. Standard fix is a tiny inline `<script>` in `<head>` (before
-stylesheets) that reads `localStorage.translatechan_theme` and sets
-`data-theme` synchronously. The CSP currently forbids inline scripts
-(`script-src 'self'`), so this would require either a hash-based CSP exception
-for that one script or a `theme-init.js` loaded with `defer`/early in `<head>`.
-Given the CSP is a stated security feature, an external `theme-init.js` is the
-cleaner route (~5 lines).
+**B1 — Dark-theme flash of unstyled content (FOUC) on reload (P3)** — ✅ FIXED 2026-08-09 (session `019fe64a`)
+Added an external `theme-init.js` loaded synchronously in `<head>` *before*
+`app.css`; it reads `translatechan_theme` from `localStorage` and sets
+`data-theme` before first paint. Kept external (not inline) to preserve the
+strict CSP (`script-src 'self'`) without a hash/nonce. The build copies it to
+`docs/`, the CI generated-artifact gate covers it, and the smoke test asserts it
+is referenced, loads before the stylesheet, and performs the theme read/apply.
+Returning dark-mode users no longer see a light-mode flash.
 
 **B2 — No real document outline: view titles are `<div>`, not headings (P3, a11y)**
 There are **zero `<h1>`–`<h6>` elements** in `index.html`; every section title is

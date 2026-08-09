@@ -10,8 +10,21 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // a header GitHub link; keep that composition from regressing during app work.
 const publicHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
 const appSrc = readFileSync(join(ROOT, 'app.js'), 'utf8');
+const themeInitSrc = readFileSync(join(ROOT, 'theme-init.js'), 'utf8');
 for (const forbidden of ['data-view="studio"', 'data-view="agents"', 'id="view-studio"', 'id="view-agents"', 'https://github.com/56eli/translatechan']) {
   if (publicHtml.includes(forbidden)) throw new Error(`public Pages scope regression: ${forbidden}`);
+}
+// B1 (a11y/perceived-performance): the persisted theme must be applied before
+// first paint by an external head script (theme-init.js), referenced before the
+// stylesheet, so returning dark-mode users don't see a light-mode flash.
+if (!publicHtml.includes('<script src="theme-init.js"></script>')) {
+  throw new Error('theme-init.js is not referenced from index.html');
+}
+if (publicHtml.indexOf('<script src="theme-init.js"></script>') > publicHtml.indexOf('<link rel="stylesheet" href="app.css">')) {
+  throw new Error('theme-init.js must load before app.css to prevent a theme flash');
+}
+if (!/localStorage[^]*translatechan_theme[^]*setAttribute\(['"]data-theme['"]/.test(themeInitSrc)) {
+  throw new Error('theme-init.js must read translatechan_theme and set data-theme before paint');
 }
 
 const store = {};
