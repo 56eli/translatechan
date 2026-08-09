@@ -3587,6 +3587,160 @@ window.TRANSLATECHAN_DATA = {
             "source_revision": "CBETA Online reports last updated 2025-09-01",
             "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
             "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_01": {
+            "canonical_locator": "T47n1985_p0497a22–p0497c25",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a22–p0497c25).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_02": {
+            "canonical_locator": "T47n1985_p0497c26–p0498a15",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497c26–p0498a15).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_03": {
+            "canonical_locator": "T47n1985_p0498a16–p0498b01",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498a16–p0498b01).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_04": {
+            "canonical_locator": "T47n1985_p0498b02–p0498b24",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498b02–p0498b24).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_05": {
+            "canonical_locator": "T47n1985_p0498b25–p0498c17",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498b25–p0498c17).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_06": {
+            "canonical_locator": "T47n1985_p0498c18–p0499a03",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498c18–p0499a03).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_07": {
+            "canonical_locator": "T47n1985_p0499a04–p0499a27",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499a04–p0499a27).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_08": {
+            "canonical_locator": "T47n1985_p0499a28–p0499c13",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499a28–p0499c13).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_09": {
+            "canonical_locator": "T47n1985_p0499c14–p0500a02",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499c14–p0500a02).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_10": {
+            "canonical_locator": "T47n1985_p0500a02–p0500a12",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a02–p0500a12).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_11": {
+            "canonical_locator": "T47n1985_p0500a12–p0500a26",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a12–p0500a26).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_12": {
+            "canonical_locator": "T47n1985_p0500a26–p0500b21",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a26–p0500b21).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_13": {
+            "canonical_locator": "T47n1985_p0500b21–p0500c06",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500b",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500b21–p0500c06).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+          },
+          "sections.shizhong_14": {
+            "canonical_locator": "T47n1985_p0500c06–p0500c27",
+            "status": "collated_with_normalization",
+            "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500c",
+            "review_date": "2026-08-09",
+            "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500c06–p0500c27).",
+            "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+            "source_revision": "CBETA Online reports last updated 2025-09-01",
+            "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+            "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
           }
         }
       },
@@ -3990,11 +4144,11 @@ window.TRANSLATECHAN_DATA = {
       "documents": 36
     },
     "corpus": {
-      "all_corpus_cjk_characters": 95299,
+      "all_corpus_cjk_characters": 100864,
       "complete_documents": [
         "wumenguan"
       ],
-      "content_cjk_characters": 90927,
+      "content_cjk_characters": 96327,
       "content_shapes": {
         "cases": 3,
         "chapters": 1,
@@ -4242,15 +4396,16 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "linji_yulu": {
-          "all_cjk_chars": 3383,
+          "all_cjk_chars": 8948,
           "cbeta_id": "T1985",
-          "content_zh_chars": 3096,
+          "content_zh_chars": 8496,
+          "declared_zh_chars": 8496,
           "shapes": [
             "sections"
           ],
           "title": "Record of Linji (臨濟語錄)",
           "unit_counts": {
-            "sections": 16
+            "sections": 30
           }
         },
         "mazu_yulu": {
@@ -4491,9 +4646,9 @@ window.TRANSLATECHAN_DATA = {
     },
     "schema_version": "1.0",
     "translations": {
-      "corpus_slots": 971,
+      "corpus_slots": 985,
       "corpus_statuses": {
-        "ai_draft": 154,
+        "ai_draft": 168,
         "reconstruction_unverified": 679,
         "verified_quotation": 138
       },
@@ -8557,6 +8712,272 @@ window.TRANSLATECHAN_DATA = {
           ]
         },
         {
+          "section_id": "shizhong_01",
+          "title_zh": "示衆一 · 四料簡與聽法底人",
+          "title_pinyin": "Shìzhòng Yī · Sìliàojiǎn yǔ Tīngfǎ Dǐ Rén",
+          "title_en": "Instructing the Assembly 1 — The Four Arrangements; The One Listening to the Dharma",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "師晚參示眾云：「有時奪人不奪境、有時奪境不奪人、有時人境俱奪、有時人境俱不奪。」時有僧問：「如何是奪人不奪境？」師云：「煦日發生鋪地錦，瓔孩垂髮白如絲。」僧云：「如何是奪境不奪人？」師云：「王令已行天下遍，將軍塞外絕烟塵。」僧云：「如何是人境兩俱奪？」師云：「并汾絕信，獨處一方。」僧云：「如何是人境俱不奪？」師云：「王登寶殿，野老謳歌。」師乃云：「今時學佛法者，且要求真正見解。若得真正見解，生死不染、去住自由，不要求殊勝，殊勝自至。道流！秖如自古先德，皆有出人底路。如山僧指示人處，秖要爾不受人惑，要用便用，更莫遲疑。如今學者不得，病在甚處？病在不自信處。爾若自信不及，即便忙忙地徇一切境轉，被他萬境回換，不得自由。爾若能歇得念念馳求心，便與祖佛不別。爾欲得識祖佛麼？秖爾面前聽法底。是學人信不及，便向外馳求。設求得者，皆是文字勝相，終不得他活祖意。莫錯諸禪德，此時不遇，萬劫千生輪回三界，徇好境掇去，驢牛肚裏生。道流！約山僧見處，與釋迦不別。今日多般用處，欠少什麼？六道神光未曾間歇，若能如是見得，秖是一生無事人。大德！三界無安，猶如火宅，此不是爾久停住處。無常殺鬼一剎那間，不揀貴、賤、老、少。爾要與祖佛不別，但莫外求。爾一念心上清淨光，是爾屋裏法身佛；爾一念心上無分別光，是爾屋裏報身佛；爾一念心上無差別光，是爾屋裏化身佛。此三種身是爾即今目前聽法底人，秖為不向外馳求，有此功用。據經論家取三種身為極則，約山僧見處不然，此三種身是名言、亦是三種依。古人云：『身依義立，土據體論。』法性身、法性土，明知是光影。大德！爾且識取弄光影底人是諸佛之本源，一切處是道流歸舍處。是爾四大色身不解說法聽法、脾胃肝膽不解說法聽法、虛空不解說法聽法，是什麼解說法聽法？是爾目前歷歷底、勿一箇形段孤明，是這箇解說法聽法。若如是見得，便與祖佛不別。但一切時中更莫間斷，觸目皆是，秖為情生智隔想變體殊，所以輪回三界受種種苦。若約山僧見處，無不甚深、無不解脫。道流！心法無形，通貫十方，在眼曰見、在耳曰聞、在鼻嗅香、在口談論、在手執捉、在足運奔。本是一精明，分為六和合。一心既無，隨處解脫。山僧與麼說，意在什麼處？秖為道流一切馳求，心不能歇，上他古人閑機境。道流取山僧見處，坐斷報化佛頭，十地滿心猶如客作兒，等妙二覺擔枷鎖漢，羅漢、辟支猶如廁穢，菩提、涅槃如繫驢橛。何以如此？秖為道流不達三祇劫空，所以有此障礙。若是真正道人，終不如是，但能隨緣消舊業，任運著衣裳，要行即行、要坐即坐，無一念心希求佛果。緣何如此？古人云：『若欲作業求佛，佛是生死大兆。』大德！時光可惜，秖擬傍家波波地學禪、學道，認名、認句，求佛、求祖、求善知識，意度莫錯。道流！爾秖有一箇父母，更求何物？爾自返照看。古人云：『演若達多失却頭，求心歇處即無事。』大德！且要平常莫作模樣，有一般不識好惡禿奴，便即見神、見鬼，指東劃西，好晴、好雨。如是之流盡須抵債，向閻老前吞熱鐵丸有日。好人家男女被這一般野狐精魅所著，便即揑怪瞎屢生！索飯錢有日在。」",
+              "pinyin": "Shī wǎn cān shì zhòng yún：「 Yǒu shí duó rén bù duó jìng、 yǒu shí duó jìng bù duó rén、 yǒu shí rén jìng jù duó、 yǒu shí rén jìng jù bù duó。」 Shí yǒu sēng wèn：「 Rú hé shì duó rén bù duó jìng？」 Shī yún：「 Xù rì fā shēng pù dì jǐn， yīng hái chuí fà bái rú sī。」 Sēng yún：「 Rú hé shì duó jìng bù duó rén？」 Shī yún：「 Wáng lìng yǐ xíng tiān xià biàn， jiāng jūn sài wài jué yān chén。」 Sēng yún：「 Rú hé shì rén jìng liǎng jù duó？」 Shī yún：「 Bìng fén jué xìn， dú chù yī fāng。」 Sēng yún：「 Rú hé shì rén jìng jù bù duó？」 Shī yún：「 Wáng dēng bǎo diàn， yě lǎo ōu gē。」 Shī nǎi yún：「 Jīn shí xué fó fǎ zhě， qiě yāo qiú zhēn zhèng jiàn jiě。 Ruò dé zhēn zhèng jiàn jiě， shēng sǐ bù rǎn、 qù zhù zì yóu， bú yào qiú shū shèng， shū shèng zì zhì。 Dào liú！ Zhǐ rú zì gǔ xiān dé， jiē yǒu chū rén dǐ lù。 Rú shān sēng zhǐ shì rén chù， zhǐ yào ěr bù shòu rén huò， yào yòng biàn yòng， gèng mò chí yí。 Rú jīn xué zhě bù dé， bìng zài shèn chù？ Bìng zài bù zì xìn chù。 Ěr ruò zì xìn bù jí， jí biàn máng máng dì xùn yī qiè jìng zhuǎn， bèi tā wàn jìng huí huàn， bù dé zì yóu。 Ěr ruò néng xiē dé niàn niàn chí qiú xīn， biàn yǔ zǔ fú bù bié。 Ěr yù dé shí zǔ fú me？ Zhǐ ěr miàn qián tīng fǎ dǐ。 Shì xué rén xìn bù jí， biàn xiàng wài chí qiú。 Shè qiú dé zhě， jiē shì wén zì shèng xiāng， zhōng bù dé tā huó zǔ yì。 Mò cuò zhū chán dé， cǐ shí bù yù， wàn jié qiān shēng lún huí sān jiè， xùn hǎo jìng duō qù， lǘ niú dǔ lǐ shēng。 Dào liú！ Yuē shān sēng jiàn chù， yǔ Shìjiā bù bié。 Jīn rì duō bān yòng chù， qiàn shǎo shén me？ Liù dào shén guāng wèi céng jiān xiē， ruò néng rú shì jiàn dé， zhǐ shì yī shēng wú shì rén。 Dà dé！ Sān jiè wú ān， yóu rú huǒ zhái， cǐ bú shì ěr jiǔ tíng zhù chù。 Wú cháng shā guǐ yī shā nà jiān， bù jiǎn guì、 jiàn、 lǎo、 shǎo。 Ěr yào yǔ zǔ fú bù bié， dàn mò wài qiú。 Ěr yī niàn xīn shàng qīng jìng guāng， shì ěr wū lǐ fǎ shēn fú； Ěr yī niàn xīn shàng wú fēn bié guāng， shì ěr wū lǐ bào shēn fú； Ěr yī niàn xīn shàng wú chà bié guāng， shì ěr wū lǐ huà shēn fú。 Cǐ sān zhǒng shēn shì ěr jí jīn mù qián tīng fǎ dǐ rén， zhǐ wèi bù xiàng wài chí qiú， yǒu cǐ gōng yòng。 Jù jīng lùn jiā qǔ sān zhǒng shēn wèi jí zé， yuē shān sēng jiàn chù bù rán， cǐ sān zhǒng shēn shì míng yán、 yì shì sān zhǒng yī。 Gǔ rén yún：『 Shēn yī yì lì， tǔ jù tǐ lùn。』 Fǎ xìng shēn、 fǎ xìng tǔ， míng zhī shì guāng yǐng。 Dà dé！ Ěr qiě shí qǔ nòng guāng yǐng dǐ rén shì zhū fú zhī běn yuán， yī qiè chù shì dào liú guī shě chù。 Shì ěr sì dà sè shēn bù jiě shuō fǎ tīng fǎ、 pí wèi gān dǎn bù jiě shuō fǎ tīng fǎ、 xū kōng bù jiě shuō fǎ tīng fǎ， shì shén me jiě shuō fǎ tīng fǎ？ Shì ěr mù qián lì lì dǐ、 wù yī gè xíng duàn gū míng， shì zhè gè jiě shuō fǎ tīng fǎ。 Ruò rú shì jiàn dé， biàn yǔ zǔ fú bù bié。 Dàn yī qiè shí zhōng gèng mò jiān duàn， chù mù jiē shì， zhǐ wèi qíng shēng zhì gé xiǎng biàn tǐ shū， suǒ yǐ lún huí sān jiè shòu zhǒng zhǒng kǔ。 Ruò yuē shān sēng jiàn chù， wú bù shèn shēn、 wú bù jiě tuō。 Dào liú！ Xīn fǎ wú xíng， tōng guàn shí fāng， zài yǎn yuē jiàn、 zài ěr yuē wén、 zài bí xiù xiāng、 zài kǒu tán lùn、 zài shǒu zhí zhuō、 zài zú yùn bēn。 Běn shì yī jīng míng， fēn wèi liù hé hé。 Yī xīn jì wú， suí chù jiě tuō。 Shān sēng yǔ me shuō， yì zài shén me chù？ Zhǐ wèi dào liú yī qiè chí qiú， xīn bù néng xiē， shàng tā gǔ rén xián jī jìng。 Dào liú qǔ shān sēng jiàn chù， zuò duàn bào huà fú tóu， shí dì mǎn xīn yóu rú kè zuò ér， děng miào èr jué dān jiā suǒ hàn， Luóhàn、 Bìzhī yóu rú cè huì， Pútí、 Nièpán rú xì lǘ jué。 Hé yǐ rú cǐ？ Zhǐ wèi dào liú bù dá sān qí jié kōng， suǒ yǐ yǒu cǐ zhàng ài。 Ruò shì zhēn zhèng dào rén， zhōng bù rú shì， dàn néng suí yuán xiāo jiù yè， rèn yùn zhù yī shang， yào xíng jí xíng、 yào zuò jí zuò， wú yī niàn xīn xī qiú Fóguǒ。 Yuán hé rú cǐ？ Gǔ rén yún：『 Ruò yù zuò yè qiú fú， fú shì shēng sǐ dà zhào。』 Dà dé！ Shí guāng kě xī， zhǐ nǐ bàng jiā bō bō dì xué chán、 xué dào， rèn míng、 rèn jù， qiú fú、 qiú zǔ、 qiú shàn zhī shí， yì dù mò cuò。 Dào liú！ Ěr zhǐ yǒu yī gè fù mǔ， gèng qiú hé wù？ Ěr zì fǎn zhào kàn。 Gǔ rén yún：『 Yǎn ruò dá duō shī què tóu， qiú xīn xiē chù jí wú shì。』 Dà dé！ Qiě yào píng cháng mò zuò mó yàng， yǒu yì bān bù shí hǎo è tū nú， biàn jí jiàn shén、 jiàn guǐ， zhǐ dōng huà xī， hǎo qíng、 hǎo yǔ。 Rú shì zhī liú jǐn xū dǐ zhài， xiàng Yánlǎo qián tūn rè tiě wán yǒu rì。 Hǎo rén jiā nán nǚ bèi zhè yì bān yě hú jīng mèi suǒ zhù， biàn jí niē guài xiā lǚ shēng！ Suǒ fàn qián yǒu rì zài。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "At the evening gathering the master instructed the assembly: \"Sometimes I take away man, not the surroundings; sometimes I take away the surroundings, not man; sometimes I take away both man and surroundings; sometimes I take away neither man nor surroundings.\" At that a monk asked: \"What is taking away man but not the surroundings?\" The master said: \"The warm sun unfolds, spreading the earth with brocade; the baby's drooping hair is white as silk.\" The monk asked: \"What is taking away the surroundings but not man?\" The master said: \"The king's command has gone out through all under heaven; in the passes beyond the wall the general's smoke and dust are stilled.\" The monk asked: \"What is taking away both man and surroundings?\" The master said: \"Bing and Fen cut off from news, alone in a region apart.\" The monk asked: \"What is taking away neither man nor surroundings?\" The master said: \"The king ascends the jeweled hall; the old rustics sing their songs.\" Thereupon the master said: \"Students of the Buddha-dharma today must seek the true view. With the true view gained, birth and death no longer stain you; going and staying are free. Do not seek the spectacular — the spectacular comes of itself. Followers of the Way! The venerable elders of old all had their ways of bringing people out. What I point out to people is simply this: do not be confused by others; when you need to use it, use it, and never hesitate. Students today cannot do it — where does their sickness lie? It lies in not trusting themselves. If your trust falls short, you rush about in pursuit of every circumstance, whirled around by the ten thousand circumstances without freedom. If you can stop the seeking that chases from thought to thought, you are no different from the patriarch-buddhas. Do you want to know the patriarch-buddhas? It is just this one before you listening to the Dharma. Students cannot trust this and so chase outward. What they chase and get is all fine marks of words and phrases; they never win the living intent of the patriarchs. Make no mistake, venerable Chan worthies: if you let this moment pass, for ten thousand kalpas and a thousand lives you circle the three realms, dragged off chasing after the pleasant, born in the bellies of donkeys and cows. Followers of the Way! From where I see it, I am no different from Sakyamuni. What is missing in all your varied functionings today? The spiritual light of the six courses has never ceased. If you can see in this way, you are simply a person of no affairs all your life. Virtuous ones! The three realms have no peace, like a house on fire; this is no place for you to linger. The impermanence-imps of death strike in a flash, choosing neither noble nor base, old nor young. If you would be no different from the patriarch-buddhas, just seek nothing outside. The pure light of one thought of your mind is the Dharma-body Buddha in your own house; the undiscriminating light of one thought of your mind is the Reward-body Buddha in your house; the undifferentiating light of one thought of your mind is the Transformation-body Buddha in your house. These three bodies are the person listening to the Dharma right before you now; only because he does not chase outward does he have this function. The sutra-and-sastra masters take the three bodies as the ultimate measure; from where I see it, that is not so. These three bodies are names and phrases, and also three dependencies. The ancients said: 'Bodies are set up according to meanings; lands are discussed on the basis of substance.' The Dharma-nature body and the Dharma-nature land — know them plainly to be shadow-play. Virtuous one! Recognize the one who plays with those shadow-lights: he is the source of all buddhas; every place is the refuge of the follower of the Way. Your four-element physical body cannot expound or hear the Dharma; your spleen, stomach, liver, and gall cannot expound or hear the Dharma; empty space cannot expound or hear the Dharma. What is it, then, that can expound and hear the Dharma? It is this, vivid and clear before you now, a solitary brightness without a single shape or defining part. If you see in this way, you are no different from the patriarch-buddhas. Only, at all times let there be no interruption — whatever meets the eye is it. Yet because feeling arises, knowledge is blocked; because thought shifts, the substance changes — so you circle the three realms and suffer every pain. From where I see it, nothing is not profound, nothing is not liberation. Followers of the Way! The mind-dharma has no form, yet it threads the ten directions: in the eye it is called seeing; in the ear, hearing; in the nose, smelling; in the mouth, speaking; in the hands, grasping; in the feet, running. Originally one clear essence, it divides into the six-fold harmony. When the one mind is gone, every place is liberation. Why do I speak this way? Only because you followers of the Way chase all the time and your minds cannot stop, treading upon the idle phrases set down by the ancients. Take my measure: cut off at a stroke the heads of the Reward and Transformation buddhas. The fulfilled mind of the tenth stage is like a hired hand; equal and marvelous awakening are men in cangues; arhats and pratyekabuddhas are like privy filth; bodhi and nirvana are posts for tethering donkeys. Why so? Because you followers of the Way have not yet reached the emptiness of three asamkhya kalpas, you have such hindrances. A genuine person of the Way is never like this: he only accords with conditions, wearing them out — old karma; he dons his clothes as the movement takes him; when he wants to walk he walks, when he wants to sit he sits; not one thought longs for buddhahood. Why? The ancients said: 'If you would act and seek Buddha, Buddha is the great omen of birth and death.' Virtuous ones! Time is precious, yet you plan to learn Chan and learn the Way around at others' houses, rushing about; you recognize names, recognize phrases; you seek Buddha, seek patriarchs, seek good knowing friends — get your intentions right. Followers of the Way! You have but one father and mother — what more do you seek? Turn back and look for yourselves. The ancients said: 'Yajnadatta lost his head; when the seeking mind comes to rest there is nothing at all to do.' Virtuous ones! Be ordinary, put on no airs. There is a kind of bald slave who cannot tell good from bad and then sees spirits, sees ghosts, points east and marks west, loves a clear sky, loves the rain. All such will have their debts to repay, swallowing hot iron balls before King Yama on some day to come. When good sons and daughters of decent families get possessed by this breed of wild-fox demon, they babble nonsense — blind fools! The day will come when they owe the rice-bill.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_02",
+          "title_zh": "示衆二 · 無事是貴人",
+          "title_pinyin": "Shìzhòng Èr · Wúshì shì Guìrén",
+          "title_en": "Instructing the Assembly 2 — The Person of No Affairs Is the Noble One",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "師示眾云：「道流！切要求取真正見解，向天下橫行，免被這一般精魅惑亂。無事是貴人，但莫造作，秖是平常。爾擬向外傍家求過覓脚手，錯了也。秖擬求佛，佛是名句。爾還識馳求底麼？三世十方佛祖出來也秖為求法，如今參學道流也秖為求法。得法始了，未得依前輪回五道。云何是法？法者是心法，心法無形，通貫十方，目前現用；人信不及，便乃認名認句，向文字中求意度佛法，天地懸殊。道流！山僧說法，說什麼法？說心地法，便能入凡、入聖，入淨、入穢，入真、入俗。要且不是爾真俗凡聖能與一切真俗凡聖安著名字，真俗凡聖與此人安著名字不得。道流！把得便用，更不著名字，號之為玄旨。山僧說法與天下人別，秖如有箇文殊、普賢出來，目前各現一身問法，纔道咨和尚，我早辨了也。老僧穩坐，更有道流來相見時，我盡辨了也。何以如此？秖為我見處別，外不取凡聖、內不住根本，見徹更不疑謬。」",
+              "pinyin": "Shī shì zhòng yún：「 Dào liú！ Qiè yào qiú qǔ zhēn zhèng jiàn jiě， xiàng tiān xià héng xíng， miǎn bèi zhè yì bān jīng mèi huò luàn。 Wú shì shì guì rén， dàn mò zào zuò， zhǐ shì píng cháng。 Ěr nǐ xiàng wài bàng jiā qiú guò mì jiǎo shǒu， cuò le yě。 Zhǐ nǐ qiú fú， fú shì míng jù。 Ěr hái shí chí qiú dǐ me？ Sān shì shí fāng fó zǔ chū lái yě zhǐ wèi qiú fǎ， rú jīn cān xué dào liú yě zhǐ wèi qiú fǎ。 Dé fǎ shǐ le， wèi dé yī qián lún huí wǔ dào。 Yún hé shì fǎ？ Fǎ zhě shì xīn fǎ， xīn fǎ wú xíng， tōng guàn shí fāng， mù qián xiàn yòng； Rén xìn bù jí， biàn nǎi rèn míng rèn jù， xiàng wén zì zhōng qiú yì dù fó fǎ， tiān dì xuán shū。 Dào liú！ Shān sēng shuō fǎ， shuō shén me fǎ？ Shuō xīn dì fǎ， biàn néng rù fán、 rù shèng， rù jìng、 rù huì， rù zhēn、 rù sú。 Yào qiě bú shì ěr zhēn sú fán shèng néng yǔ yī qiè zhēn sú fán shèng ān zhù míng zì， zhēn sú fán shèng yǔ cǐ rén ān zhù míng zì bù dé。 Dào liú！ Bǎ dé biàn yòng， gèng bù zhù míng zì， hào zhī wèi xuán zhǐ。 Shān sēng shuō fǎ yǔ tiān xià rén bié， zhǐ rú yǒu gè Wénshū、 Pǔxián chū lái， mù qián gè xiàn yī shēn wèn fǎ， cái dào zī Héshàng， wǒ zǎo biàn le yě。 Lǎo sēng wěn zuò， gèng yǒu dào liú lái xiāng jiàn shí， wǒ jǐn biàn le yě。 Hé yǐ rú cǐ？ Zhǐ wèi wǒ jiàn chù bié， wài bù qǔ fán shèng、 nèi bú zhù gēn běn， jiàn chè gèng bù yí miù。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master instructed the assembly: \"Followers of the Way! Resolve to gain the true view, and then walk unhindered across the land, free of the confusion of that pack of demons and sprites. The person of no affairs is the noble one — just do not fabricate, just be ordinary. When you intend to seek hands and feet around at others' houses, you have already gone wrong. If you seek Buddha — Buddha is a name and a phrase. Do you know the one doing the seeking? The buddhas and patriarchs of the three ages and ten directions came forth only to seek the Dharma; you students of the Way today also practice only to seek the Dharma. Gain the Dharma and all is finished; before you gain it, you circle as before through the five courses. What is the Dharma? It is the mind-dharma. The mind-dharma is without form, threading the ten directions, at work right before your eyes. People cannot trust this, so they recognize names and phrases, seeking in words and texts the intention of the Buddha-dharma — as far apart as heaven and earth. Followers of the Way! What Dharma do I expound? I expound the Dharma of the mind-ground, by which one can enter the worldly and the saintly, the pure and the tainted, the true and the conventional. And yet it is not your true, conventional, worldly, or saintly that can set a name upon this one; the true, the conventional, the worldly, and the saintly can set no name on this one. Followers of the Way! Grasp it and use it, and never set a name on it: that is called the dark purport. My Dharma is unlike any under heaven. Should a Manjusri or a Samantabhadra come out and each appear in a body before you to ask about the Dharma — the moment they begin their greeting, I have discerned them long since. I sit firm and settled; should any follower of the Way come to meet me, I have discerned them all, clear through. Why is that? Because my view is unlike: outwardly I grasp neither worldly nor saintly; inwardly I do not abide in the fundamental. Seeing clear through, I neither doubt nor err any more.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_03",
+          "title_zh": "示衆三 · 佛法無用功處",
+          "title_pinyin": "Shìzhòng Sān · Fófǎ Wú Yònggōng Chù",
+          "title_en": "Instructing the Assembly 3 — The Buddha-Dharma Has No Place for Toil",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "師示眾云：「道流！佛法無用功處，秖是平常無事——屙屎、送尿、著衣、喫飯、困來即臥……。愚人笑我，智乃知焉。古人云：『向外作工夫，總是癡頑漢。』爾且隨處作主，立處皆真，境來回換不得，縱有從來習氣、五無間業，自為解脫大海。今時學者總不識法，猶如觸鼻羊逢著物安在口裏，奴郎不辨、賓主不分，如是之流邪心入道，鬧處即入不得，名為真出家人，正是真俗家人。夫出家者，須辨得平常真正見解——辨佛、辨魔，辨真、辨偽，辨凡、辨聖……。若如是辨得，名真出家。若魔、佛不辨，正是出一家入一家，喚作造業眾生，未得名為真出家。秖如今有一箇佛魔同體不分，如水乳合鵝王喫乳。如明眼道流，魔、佛俱打。爾若愛聖憎凡，生死海裏浮沈。」",
+              "pinyin": "Shī shì zhòng yún：「 Dào liú！ Fó fǎ wú yòng gōng chù， zhǐ shì píng cháng wú shì—— ē shǐ、 sòng niào、 zhù yī、 chī fàn、 kùn lái jí wò……。 Yú rén xiào wǒ， zhì nǎi zhī yān。 Gǔ rén yún：『 Xiàng wài zuò gōng fu， zǒng shì chī wán hàn。』 Ěr qiě suí chù zuò zhǔ， lì chù jiē zhēn， jìng lái huí huàn bù dé， zòng yǒu cóng lái xí qì、 wǔ wú jiān yè， zì wèi jiě tuō dà hǎi。 Jīn shí xué zhě zǒng bù shí fǎ， yóu rú chù bí yáng féng zhù wù ān zài kǒu lǐ， nú láng bù biàn、 bīn zhǔ bù fēn， rú shì zhī liú xié xīn rù dào， nào chù jí rù bù dé， míng wèi zhēn chū jiā rén， zhèng shì zhēn sú jiā rén。 Fū chū jiā zhě， xū biàn dé píng cháng zhēn zhèng jiàn jiě—— biàn fú、 biàn mó， biàn zhēn、 biàn wěi， biàn fán、 biàn shèng……。 Ruò rú shì biàn dé， míng zhēn chū jiā。 Ruò mó、 fú bù biàn， zhèng shì chū yī jiā rù yī jiā， huàn zuò zào yè zhòng shēng， wèi dé míng wèi zhēn chū jiā。 Zhǐ rú jīn yǒu yī gè fú mó tóng tǐ bù fēn， rú shuǐ rǔ hé é wáng chī rǔ。 Rú míng yǎn dào liú， mó、 fú jù dǎ。 Ěr ruò ài shèng zēng fán， shēng sǐ hǎi lǐ fú shěn。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master instructed the assembly: \"Followers of the Way! The Buddha-dharma has no place where effort applies; it is only the ordinary mind with nothing to do — moving the bowels, passing water, donning clothes, eating rice, and lying down when tired. Fools laugh at me; the wise understand. The ancients said: 'Those who do their work outward are all dull and obstinate fellows.' Just be master wherever you are; then every station you hold is true, and circumstances cannot turn you about. Even if old habits and the five uninterrupted karma-deeds remain from of old, they become of themselves a great sea of liberation. Students today do not know the Dharma — like sheep touching their noses to things and keeping whatever they find in their mouths. They cannot tell slave from master, guest from host; such folk enter the Way with perverse minds, and where there is turmoil they must not enter at all. Named as true home-leavers, they are in truth mere home-dwellers. A home-leaver must discern the ordinary, true view — discerning Buddha, discerning Mara, discerning true from false, worldly from saintly. If you can discern thus, that is called a true home-leaver. If you cannot tell Mara from Buddha, you have merely left one household to enter another — what is called a karma-making being, not yet worthy of the name of home-leaver. Right before you now there is this one in whom Buddha and Mara are one body inseparable, like water and milk blended: the goose-king drinks the milk alone. The clear-eyed follower of the Way strikes Mara and Buddha alike. If you love the saintly and hate the worldly, you bob and sink in the sea of birth and death.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_04",
+          "title_zh": "示衆四 · 佛魔染淨",
+          "title_pinyin": "Shìzhòng Sì · Fó Mó Rǎn Jìng",
+          "title_en": "Instructing the Assembly 4 — Buddha and Mara, Tainted and Pure",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是佛？魔？」師云：「爾一念心疑處是魔；爾若達得萬法無生，心如幻化，更無一塵、一法，處處清淨是佛。然佛與魔是染、淨二境，約山僧見處，無佛、無眾生，無古、無今，得者便得，不歷時節，無修、無證，無得、無失，一切時中更無別法。設有一法過此者，我說如夢、如化。山僧所說皆是。道流！即今目前孤明歷歷地聽者，此人處處不滯，通貫十方，三界自在，入一切境差別不能回換，一剎那間透入法界，逢佛說佛、逢祖說祖、逢羅漢說羅漢、逢餓鬼說餓鬼，向一切處游履國土教化眾生未曾離一念，隨處清淨，光透十方，萬法一如。道流！大丈夫兒今日方知本來無事，秖為爾信不及，念念馳求，捨頭覓頭，自不能歇。如圓頓菩薩入法界現身，向淨土中厭凡忻聖，如此之流取捨，未忘染淨心在。如禪宗見解，又且不然，直是現今更無時節。山僧說處皆是一期藥病相治，總無實法。若如是見得，是真出家，日消萬兩黃金。道流！莫取次被諸方老師印破面門道，我解禪、解道，辯似懸河，皆是造地獄業。若是真正學道人，不求世間過，切急要求真正見解。若達真正見，解圓明方始了畢。」",
+              "pinyin": "Wèn：「 Rú hé shì fú？ Mó？」 Shī yún：「 Ěr yī niàn xīn yí chù shì mó； Ěr ruò dá dé wàn fǎ wú shēng， xīn rú huàn huà， gèng wú yī chén、 yī fǎ， chù chù qīng jìng shì fú。 Rán fú yǔ mó shì rǎn、 jìng èr jìng， yuē shān sēng jiàn chù， wú fú、 wú zhòng shēng， wú gǔ、 wú jīn， dé zhě biàn dé， bù lì shí jié， wú xiū、 wú zhèng， wú dé、 wú shī， yī qiè shí zhōng gèng wú bié fǎ。 Shè yǒu yī fǎ guò cǐ zhě， wǒ shuō rú mèng、 rú huà。 Shān sēng suǒ shuō jiē shì。 Dào liú！ Jí jīn mù qián gū míng lì lì dì tīng zhě， cǐ rén chù chù bù zhì， tōng guàn shí fāng， sān jiè zì zài， rù yī qiè jìng chà bié bù néng huí huàn， yī shā nà jiān tòu rù fǎ jiè， féng fú shuō fú、 féng zǔ shuō zǔ、 féng Luóhàn shuō Luóhàn、 féng è guǐ shuō è guǐ， xiàng yī qiè chù yóu lǚ guó tǔ jiào huà zhòng shēng wèi céng lí yī niàn， suí chù qīng jìng， guāng tòu shí fāng， wàn fǎ yī rú。 Dào liú！ Dà zhàng fū ér jīn rì fāng zhī běn lái wú shì， zhǐ wèi ěr xìn bù jí， niàn niàn chí qiú， shě tóu mì tóu， zì bù néng xiē。 Rú yuán dùn pú sà rù fǎ jiè xiàn shēn， xiàng jìng tǔ zhōng yàn fán xīn shèng， rú cǐ zhī liú qǔ shě， wèi wàng rǎn jìng xīn zài。 Rú chán zōng jiàn jiě， yòu qiě bù rán， zhí shì xiàn jīn gèng wú shí jié。 Shān sēng shuō chù jiē shì yī qī yào bìng xiāng zhì， zǒng wú shí fǎ。 Ruò rú shì jiàn dé， shì zhēn chū jiā， rì xiāo wàn liǎng huáng jīn。 Dào liú！ Mò qǔ cì bèi zhū fāng lǎo shī yìn pò miàn mén dào， wǒ jiě chán、 jiě dào， biàn shì xuán hé， jiē shì zào dì yù yè。 Ruò shì zhēn zhèng xué dào rén， bù qiú shì jiān guò， qiè jí yào qiú zhēn zhèng jiàn jiě。 Ruò dá zhēn zhèng jiàn， jiě yuán míng fāng shǐ le bì。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What is Buddha? What is Mara?\" The master said: \"Where one thought of your mind doubts, that is Mara. If you penetrate that the ten thousand dharmas are unborn, that the mind is like a phantom transformation without one mote of dust, without one dharma, pure everywhere — that is Buddha. Yet Buddha and Mara are the two fields of taint and purity. From where I see it, there is no Buddha and no beings, no ancient and no modern. Gotten, it is gotten at once, without passing through intervals of time — no cultivation, no realization, no gain, no loss. At all times there is no other dharma; if there were any dharma beyond this, I would call it dreamlike, a phantom. What I have said is all there is. Followers of the Way! This solitary brightness listening right before you now, vivid and clear — this one stalls nowhere, threads the ten directions, moves at ease through the three realms, enters every field of difference without being turned about. In a single instant it penetrates the Dharma realm: meeting buddhas it speaks of buddhas, meeting patriarchs of patriarchs, meeting arhats of arhats, meeting hungry ghosts of hungry ghosts. Traveling all the lands and teaching beings, it has never departed from a single thought — pure wherever it goes, its light piercing the ten directions, the ten thousand dharmas one suchness. Followers of the Way! Great people: know today that fundamentally there is nothing to do. Only because your faith falls short do you chase thought after thought, casting aside your head to hunt for your head, unable to stop yourselves. It is like the sudden-enlightenment bodhisattvas who enter the Dharma realm and manifest bodies, loathing the worldly and delighting in the saintly in their pure lands: that taking and rejecting has not yet forgotten the mind of taint and purity. Our Chan school's view is not like that: it is simply right now, with no further intervals. What I state is always a medicine fitted to the sickness of the moment — never a fixed dharma. If you see in this way, you are a true home-leaver, consuming ten thousand ounces of gold a day. Followers of the Way! Do not thoughtlessly let some teacher anywhere stamp your face and set you saying you understand Chan, understand the Way, eloquence pouring like a hanging torrent — all of that is hell-making karma. Genuine students of the Way do not chase after the world's faults; first and urgently they seek the true view. When you attain the true view, rounded and bright, only then is all complete.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_05",
+          "title_zh": "示衆五 · 如何是真正見解",
+          "title_pinyin": "Shìzhòng Wǔ · Rúhé shì Zhēnzhèng Jiànjiě",
+          "title_en": "Instructing the Assembly 5 — What Is the True View?",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是真正見解？」師云：「爾但一切入凡、入聖，入染、入淨，入諸佛國土、入彌勒樓閣、入毘盧遮那法界，處處皆現國土成、住、壞、空，佛出于世，轉大法輪，却入涅槃，不見有去來相貌，求其生死了不可得，便入無生法界，處處游履國土，入華藏世界。盡見諸法空相，皆無實法，唯有聽法無依道人，是諸佛之母，所以佛從無依生。若悟無依，佛亦無得。若如是見得者，是真正見解。學人不了，為執名句，被他凡聖名礙，所以障其道眼不得分明。秖如十二分教皆是表顯之說，學者不會，便向表顯名句上生解，皆是依倚落在因果，未免三界生死。爾若欲得生死去住脫著自由，即今識取聽法底人：無形、無相、無根、無本、無住處。活撥撥地，應是萬種施設，用處秖是無處，所以覓著轉遠、求之轉乖，號之為祕密。道流！爾莫認著箇夢幻伴子，遲晚中間便歸無常。爾向此世界中覓箇什麼物作解脫，覓取一口飯喫補毳過時，且要訪尋知識，莫因循逐樂。光陰可惜，念念無常，麁則被地、水、火、風，細則被生、住、異、滅四相所逼。道流！今時且要識取四種無相境，免被境擺撲。」",
+              "pinyin": "Wèn：「 Rú hé shì zhēn zhèng jiàn jiě？」 Shī yún：「 Ěr dàn yī qiè rù fán、 rù shèng， rù rǎn、 rù jìng， rù zhū fú guó tǔ、 rù Mílè lóu gé、 rù Pílúzhēnà fǎ jiè， chù chù jiē xiàn guó tǔ chéng、 zhù、 huài、 kōng， fú chū yú shì， zhuǎn dà fǎ lún， què rù Nièpán， bù jiàn yǒu qù lái xiāng mào， qiú qí shēng sǐ le bù kě dé， biàn rù wú shēng fǎ jiè， chù chù yóu lǚ guó tǔ， rù Huázàng shì jiè。 Jǐn jiàn zhū fǎ kōng xiāng， jiē wú shí fǎ， wéi yǒu tīng fǎ wú yī dào rén， shì zhū fú zhī mǔ， suǒ yǐ fú cóng wú yī shēng。 Ruò wù wú yī， fú yì wú dé。 Ruò rú shì jiàn dé zhě， shì zhēn zhèng jiàn jiě。 Xué rén bù liǎo， wèi zhí míng jù， bèi tā fán shèng míng ài， suǒ yǐ zhàng qí dào yǎn bù dé fēn míng。 Zhǐ rú shí èr fēn jiào jiē shì biǎo xiǎn zhī shuō， xué zhě bù huì， biàn xiàng biǎo xiǎn míng jù shàng shēng jiě， jiē shì yī yǐ luò zài yīn guǒ， wèi miǎn sān jiè shēng sǐ。 Ěr ruò yù dé shēng sǐ qù zhù tuō zhù zì yóu， jí jīn shí qǔ tīng fǎ dǐ rén： Wú xíng、 wú xiāng、 wú gēn、 wú běn、 wú zhù chù。 Huó bō bō dì， yīng shì wàn zhǒng shī shè， yòng chù zhǐ shì wú chù， suǒ yǐ mì zhù zhuǎn yuǎn、 qiú zhī zhuǎn guāi， hào zhī wèi mì mì。 Dào liú！ Ěr mò rèn zhù gè mèng huàn bàn zi， chí wǎn zhōng jiān biàn guī wú cháng。 Ěr xiàng cǐ shì jiè zhōng mì gè shén me wù zuò jiě tuō， mì qǔ yī kǒu fàn chī bǔ cuì guò shí， qiě yào fǎng xún zhī shí， mò yīn xún zhú lè。 Guāng yīn kě xī， niàn niàn wú cháng， cū zé bèi dì、 shuǐ、 huǒ、 fēng， xì zé bèi shēng、 zhù、 yì、 miè sì xiāng suǒ bī。 Dào liú！ Jīn shí qiě yào shí qǔ sì zhǒng wú xiāng jìng， miǎn bèi jìng bǎi pū。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What is the true view?\" The master said: \"Simply enter into everything — enter the worldly, enter the saintly, enter the tainted, enter the pure, enter the buddha-lands, enter Maitreya's tower, enter Vairocana's Dharma realm. Everywhere lands appear: forming, abiding, decaying, and emptying; the Buddha appears in the world, turns the great wheel of the Dharma, and enters nirvana — yet no mark of coming or going is to be seen. Seek his birth and death and it cannot be found, and so you enter the unborn Dharma realm, traveling everywhere through its lands, entering the Flower Garland world. Seeing fully that all dharmas are empty marks, that there is no real dharma at all, there is only the unattached person of the Way listening to the Dharma, the mother of all buddhas: buddhas are born of the unattached. If you awake to the unattached, buddha too is unobtainable. To see in this way is the true view. Students do not understand, because they cling to names and phrases and are blocked by the names worldly and saintly, so the eye of their way is clouded and cannot see clearly. The twelve divisions of the teaching are all expression-and-display talk; students, not understanding, form concepts over those displayed phrases — all of it dependent leaning, falling into cause and effect, never escaping birth and death in the three realms. If you would shed birth, death, going, and staying and have them come off freely, recognize right now the one who listens to the Dharma: formless, markless, rootless, groundless, with no place of abode — alive and bounding, furnishing ten thousand responses whose working is just no-place-at-all. So it is that seeking it you stray farther; pursuing it you miss it more; it is called the hidden and secret. Followers of the Way! Do not take this dream-phantom companion for real: sooner or later it returns to impermanence. In this world, what thing do you seek to make your liberation? Go find a mouthful of rice to eat, patch your robe and pass the time honorably — but be sure to visit good knowing friends. Do not idle along chasing after ease. Time is precious; thought upon thought is impermanent: coarsely, you are pressed by earth, water, fire, and wind; finely, you are harried by arising, abiding, changing, and extinction — the four marks. Followers of the Way! For now you must recognize the four formless fields, so the fields cannot knock you about.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_06",
+          "title_zh": "示衆六 · 四種無相境",
+          "title_pinyin": "Shìzhòng Liù · Sìzhǒng Wúxiàng Jìng",
+          "title_en": "Instructing the Assembly 6 — The Four Formless Fields",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是四種無相境？」師云：「爾一念心疑，被地來礙；爾一念心愛，被水來溺；爾一念心嗔，被火來燒；爾一念心喜，被風來飄。若能如是辨得，不被境轉，處處用境，東涌西沒、南涌北沒、中涌邊沒、邊涌中沒，履水如地、履地如水。緣何如此？為達四大如夢如幻故。道流！爾秖今聽法者，不是爾四大能用。爾四大若能如是見得，便乃去住自由。約山僧見處，勿嫌底法。爾若愛聖，聖者聖之名，有一般學人向五臺山裏求文殊，早錯了也，五臺山無文殊。爾欲識文殊麼？秖爾目前用處，始終不異，處處不疑，此箇是活文殊。爾一念心無差別光，處處總是真普賢。儞一念心自能解縛，隨處解脫，此是觀音。三昧法互為主伴，出則一時出，一即三、三即一，如是解得，始好看教。」",
+              "pinyin": "Wèn：「 Rú hé shì sì zhǒng wú xiāng jìng？」 Shī yún：「 Ěr yī niàn xīn yí， bèi dì lái ài； Ěr yī niàn xīn ài， bèi shuǐ lái nì； Ěr yī niàn xīn chēn， bèi huǒ lái shāo； Ěr yī niàn xīn xǐ， bèi fēng lái piāo。 Ruò néng rú shì biàn dé， bù bèi jìng zhuǎn， chù chù yòng jìng， dōng yǒng xī méi、 nán yǒng běi méi、 zhōng yǒng biān méi、 biān yǒng zhōng méi， lǚ shuǐ rú dì、 lǚ dì rú shuǐ。 Yuán hé rú cǐ？ Wèi dá sì dà rú mèng rú huàn gù。 Dào liú！ Ěr zhǐ jīn tīng fǎ zhě， bú shì ěr sì dà néng yòng。 Ěr sì dà ruò néng rú shì jiàn dé， biàn nǎi qù zhù zì yóu。 Yuē shān sēng jiàn chù， wù xián dǐ fǎ。 Ěr ruò ài shèng， shèng zhě shèng zhī míng， yǒu yì bān xué rén xiàng wǔ tái shān lǐ qiú Wénshū， zǎo cuò le yě， wǔ tái shān wú Wénshū。 Ěr yù shí Wénshū me？ Zhǐ ěr mù qián yòng chù， shǐ zhōng bù yì， chù chù bù yí， cǐ gè shì huó Wénshū。 Ěr yī niàn xīn wú chà bié guāng， chù chù zǒng shì zhēn Pǔxián。 Nǐ yī niàn xīn zì néng jiě fù， suí chù jiě tuō， cǐ shì Guānyīn。 Sān mèi fǎ hù wèi zhǔ bàn， chū zé yī shí chū， yī jí sān、 sān jí yī， rú shì jiě dé， shǐ hǎo kàn jiào。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What are the four formless fields?\" The master said: \"If one thought of your mind doubts, you are obstructed by earth; if one thought of your mind loves, you are drowned by water; if one thought of your mind rages, you are burned by fire; if one thought of your mind rejoices, you are blown about by wind. If you can so discern, you are not turned about by the fields, and everywhere you can make use of them: welling up in the east and sinking in the west, welling south and sinking north, rising in the middle and vanishing at the borders, rising at the borders and vanishing in the middle — walking on water as on earth, walking on earth as on water. Why? Because you have penetrated that the four great elements are dreamlike phantoms. Followers of the Way! What listens to the Dharma right now is not your four elements; it is what can make use of your four elements. If you can see in this way, going and staying are free. From where I see it, there is nothing to object to. If you love the saintly — the saintly is only the name 'saintly.' There is a kind of student who goes off into Mount Wutai seeking Manjusri — wrong from the very start: there is no Manjusri on Mount Wutai. Do you want to know Manjusri? It is what is at work before you now, from first to last never otherwise, never doubting anywhere — this is the living Manjusri. The undifferentiating light of one thought of your mind is everywhere and always the true Samantabhadra. When one thought of your mind can loose bonds of itself, every place is liberation: this is Avalokitesvara. The samadhi-dharmas trade places as host and companion; when they come forth they come forth together — one is three, three are one. Only when you understand thus can you rightly read the teachings.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_07",
+          "title_zh": "示衆七 · 且要自信莫向外覓",
+          "title_pinyin": "Shìzhòng Qī · Qiě Yào Zìxìn Mò Xiàngwài Mì",
+          "title_en": "Instructing the Assembly 7 — Trust Yourself, Seek Nothing Outside",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "師示眾云：「如今學道人且要自信，莫向外覓，總上他閑塵境，都不辨邪正。秖如有祖、有佛，皆是教迹中事。有人拈起一句子語，或隱顯中出，便即疑生，照天、照地，傍家尋問，也大忙然。大丈夫兒莫秖麼論主、論賊，論是、論非，論色、論財，論說閑話過日。山僧此間不論僧俗，但有來者盡識得伊，任伊向甚處出來，但有聲名文句，皆是夢幻。却見乘境底人是諸佛之玄旨，佛境不能自稱我是佛境，還是這箇無依道人乘境出來。若有人出來問我求佛，我即應清淨境出；有人問我菩薩，我即應慈悲境出；有人問我菩提，我即應淨妙境出；有人問我涅槃，我即應寂靜境出。境即萬般差別，人即不別，所以應物現形，如水中月。道流！爾若欲得如法，直須是大丈夫兒始得。若萎萎隨隨地，則不得也。夫如㽄嗄之器不堪貯醍醐。如大器者，直要不受人惑，隨處作主，立處皆真，但有來者皆不得受。爾一念疑即魔入心，如菩薩疑時，生死魔得便。但能息念，更莫外求，物來則照。爾但信現今用底，一箇事也無。爾一念心生三界，隨緣被境分為六塵。儞如今應用處欠少什麼？一剎那間便入淨、入穢，入彌勒樓閣、入三眼國土，處處遊履，唯見空名。」",
+              "pinyin": "Shī shì zhòng yún：「 Rú jīn xué dào rén qiě yào zì xìn， mò xiàng wài mì， zǒng shàng tā xián chén jìng， dōu bù biàn xié zhèng。 Zhǐ rú yǒu zǔ、 yǒu fú， jiē shì jiào jì zhōng shì。 Yǒu rén niān qǐ yī jù zi yǔ， huò yǐn xiǎn zhōng chū， biàn jí yí shēng， zhào tiān、 zhào dì， bàng jiā xún wèn， yě dà máng rán。 Dà zhàng fū ér mò zhǐ me lùn zhǔ、 lùn zéi， lùn shì、 lùn fēi， lùn sè、 lùn cái， lùn shuō xián huà guò rì。 Shān sēng cǐ jiān bù lùn sēng sú， dàn yǒu lái zhě jǐn shí dé yī， rèn yī xiàng shèn chù chū lái， dàn yǒu shēng míng wén jù， jiē shì mèng huàn。 Què jiàn chéng jìng dǐ rén shì zhū fú zhī xuán zhǐ， fú jìng bù néng zì chēng wǒ shì fú jìng， hái shì zhè gè wú yī dào rén chéng jìng chū lái。 Ruò yǒu rén chū lái wèn wǒ qiú fú， wǒ jí yīng qīng jìng jìng chū； Yǒu rén wèn wǒ pú sà， wǒ jí yīng cí bēi jìng chū； Yǒu rén wèn wǒ Pútí， wǒ jí yīng jìng miào jìng chū； Yǒu rén wèn wǒ Nièpán， wǒ jí yīng jì jìng jìng chū。 Jìng jí wàn bān chà bié， rén jí bù bié， suǒ yǐ yīng wù xiàn xíng， rú shuǐ zhōng yuè。 Dào liú！ Ěr ruò yù dé rú fǎ， zhí xū shì dà zhàng fū ér shǐ dé。 Ruò wēi wēi suí suí dì， zé bù dé yě。 Fū rú sī á zhī qì bù kān zhù tí hú。 Rú dà qì zhě， zhí yào bù shòu rén huò， suí chù zuò zhǔ， lì chù jiē zhēn， dàn yǒu lái zhě jiē bù dé shòu。 Ěr yī niàn yí jí mó rù xīn， rú pú sà yí shí， shēng sǐ mó dé biàn。 Dàn néng xī niàn， gèng mò wài qiú， wù lái zé zhào。 Ěr dàn xìn xiàn jīn yòng dǐ， yī gè shì yě wú。 Ěr yī niàn xīn shēng sān jiè， suí yuán bèi jìng fēn wèi liù chén。 Nǐ rú jīn yīng yòng chù qiàn shǎo shén me？ Yī shā nà jiān biàn rù jìng、 rù huì， rù Mílè lóu gé、 rù sān yǎn guó tǔ， chù chù yóu lǚ， wéi jiàn kōng míng。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "The master instructed the assembly: \"Students of the Way today must trust themselves and seek nothing outside. They keep clambering onto others' idle dust-fields and cannot tell the true from the crooked. That there are patriarchs and buddhas is all a matter of the traces of the teaching. Someone holds up a phrase, or appears amid hiddenness and disclosure — and at once doubts arise: they shine on heaven, shine on earth, run to the neighbors to ask, all in a great commotion. Great people: do not spend your days debating host against thief, right against wrong, form against wealth, passing the time in idle chatter. Here I recognize anyone who comes, monk or lay; whatever place they come out from, their fine names and phrases are all dreams and phantoms. What I see is the one riding the fields — the dark purport of the buddhas. The buddha-field cannot proclaim itself 'I am the buddha-field'; it is still this unattached person of the Way who comes riding out upon the fields. If someone comes out and asks me to find Buddha, I answer emerging from the field of purity; if one asks about bodhisattvas, I answer emerging from the field of compassion; if one asks about bodhi, I answer emerging from the field of purity and wonder; if one asks about nirvana, I answer emerging from the field of stillness. Fields differ ten-thousandfold; the person never differs. So it is that response to things takes form, like the moon in water. Followers of the Way! If you would be in accord with the Dharma, you simply must be great people. If you are limp and compliant, it will not do. A cracked and leaky vessel is unfit to hold ghee. Those of great capacity simply will not be confused by others: masters wherever they stand, true wherever they hold their ground — whatever comes, none of it can be accepted. When one thought of yours doubts, Mara enters the mind; when even a bodhisattva doubts, the Mara of birth and death finds its opening. Just stop the thoughts, seek nothing more outward: when a thing comes, illuminate it. Trust what is working right now — nothing at all is lacking. When one thought of yours arises, the three realms follow in its train, and the fields are split into the six dusts. Is anything lacking in your functioning today? In a single instant you enter purity and taint, Maitreya's tower, the three-eyed lands, roaming everywhere — seeing only empty names.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_08",
+          "title_zh": "示衆八 · 三眼國土與平常心是道",
+          "title_pinyin": "Shìzhòng Bā · Sānyǎn Guótǔ yǔ Píngchángxīn shì Dào",
+          "title_en": "Instructing the Assembly 8 — The Three-Eyed Lands; The Ordinary Mind Is the Way",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是三眼國土？」師云：「我共儞入淨妙國土中，著清淨衣，說法身佛；又入無差別國土中，著無差別衣，說報身佛；又入解脫國土中，著光明衣，說化身佛。此三眼國土皆是依變，約經論家取法身為根本，報、化二身為用。山僧見處，法身即不解說法。所以，古人云：『身依義立，土據體論。』法性身、法性土，明知是建立之法依通國土，空拳黃葉用誑小兒，蒺藜夌刺枯骨上覓什麼汁？心外無法，內亦不可得，求什麼物？爾諸方言：『道有修、有證。』莫錯，設有修得者，皆是生死業。爾言六度萬行齊修，我見皆是造業。求佛、求法，即是造地獄業；求菩薩亦是造業；看經、看教亦是造業。佛與祖師是無事人，所以有漏有為、無漏無為，為清淨業。有一般瞎禿子飽喫飯了，便坐禪觀行，把捉念漏不令放起，厭喧求靜，是外道法。祖師云：『爾若住心看靜，舉心外照、攝心內澄、凝心入定，如是之流皆是造作。』是爾如今與麼聽法底人作麼生擬修他、證他、莊嚴他？渠且不是修底物、不是莊嚴得底物。若教他莊嚴，一切物即莊嚴得，爾且莫錯。道流！爾取這一般老師口裏語為是真道，是善知識不思議。『我是凡夫心，不敢測度他老宿。』瞎屢生！爾一生秖作這箇見解，辜負這一雙眼，冷噤噤地如凍凌上驢駒相似。『我不敢毀善知識，怕生口業。』道流！夫大善知識始敢毀佛毀祖、是非天下、排斥三藏教、罵辱諸小兒、向逆順中覓人，所以我於十二年中求一箇業性，如芥子許不可得。若似新婦子禪師，便即怕趁出院，不與飯喫、不安不樂。自古先輩到處人不信，被遞出始知是貴。若到處人盡肯，堪作什麼？所以師子一吼，野干腦裂。道流！諸方說有道可修、有法可證。爾說證何法？修何道？爾今用處欠少什麼物？修補何處？後生小阿師不會，便即信這般野狐精魅，許他說事繫縛人，言道理行相應、護惜三業始得成佛，如此說者如春細雨。古人云：『路逢達道人，第一莫向道。』所以言：若人修道道不行，萬般邪境競頭生，智劍出來無一物，明頭未顯暗頭明。所以，古人云：『平常心是道。』大德！覓什麼物？現今目前聽法無依道人歷歷地分明，未曾欠少。爾若欲得與祖佛不別，但如是見，不用疑誤。爾心心不異，名之活祖。心若有異，則性相別；心不異故，即性相不別。」",
+              "pinyin": "Wèn：「 Rú hé shì sān yǎn guó tǔ？」 Shī yún：「 Wǒ gòng nǐ rù jìng miào guó tǔ zhōng， zhù qīng jìng yī， shuō fǎ shēn fú； Yòu rù wú chà bié guó tǔ zhōng， zhù wú chà bié yī， shuō bào shēn fú； Yòu rù jiě tuō guó tǔ zhōng， zhù guāng míng yī， shuō huà shēn fú。 Cǐ sān yǎn guó tǔ jiē shì yī biàn， yuē jīng lùn jiā qǔ fǎ shēn wèi gēn běn， bào、 huà èr shēn wèi yòng。 Shān sēng jiàn chù， fǎ shēn jí bù jiě shuō fǎ。 Suǒ yǐ， gǔ rén yún：『 Shēn yī yì lì， tǔ jù tǐ lùn。』 Fǎ xìng shēn、 fǎ xìng tǔ， míng zhī shì jiàn lì zhī fǎ yī tōng guó tǔ， kōng quán huáng yè yòng kuáng xiǎo ér， jí lí líng cì kū gǔ shàng mì shén me zhī？ Xīn wài wú fǎ， nèi yì bù kě dé， qiú shén me wù？ Ěr zhū fāng yán：『 Dào yǒu xiū、 yǒu zhèng。』 Mò cuò， shè yǒu xiū dé zhě， jiē shì shēng sǐ yè。 Ěr yán liù dù wàn xíng qí xiū， wǒ jiàn jiē shì zào yè。 Qiú fú、 qiú fǎ， jí shì zào dì yù yè； Qiú pú sà yì shì zào yè； Kàn jīng、 kàn jiào yì shì zào yè。 Fú yǔ Zǔshī shì wú shì rén， suǒ yǐ yǒu lòu yǒu wèi、 wú lòu wú wèi， wèi qīng jìng yè。 Yǒu yì bān xiā tū zi bǎo chī fàn le， biàn zuò chán guān xíng， bǎ zhuō niàn lòu bù lìng fàng qǐ， yàn xuān qiú jìng， shì wài dào fǎ。 Zǔshī yún：『 Ěr ruò zhù xīn kàn jìng， jǔ xīn wài zhào、 shè xīn nèi chéng、 níng xīn rù dìng， rú shì zhī liú jiē shì zào zuò。』 Shì ěr rú jīn yǔ me tīng fǎ dǐ rén zuò me shēng nǐ xiū tā、 zhèng tā、 zhuāng yán tā？ Qú qiě bú shì xiū dǐ wù、 bú shì zhuāng yán dé dǐ wù。 Ruò jiào tā zhuāng yán， yī qiè wù jí zhuāng yán dé， ěr qiě mò cuò。 Dào liú！ Ěr qǔ zhè yì bān lǎo shī kǒu lǐ yǔ wèi shì zhēn dào， shì shàn zhī shí bù sī yì。『 Wǒ shì fán fū xīn， bù gǎn cè dù tā lǎo sù。』 Xiā lǚ shēng！ Ěr yī shēng zhǐ zuò zhè gè jiàn jiě， gū fù zhè yī shuāng yǎn， lěng jìn jìn dì rú dòng líng shàng lǘ jū xiāng sì。『 Wǒ bù gǎn huǐ shàn zhī shí， pà shēng kǒu yè。』 Dào liú！ Fū dà shàn zhī shí shǐ gǎn huǐ fú huǐ zǔ、 shì fēi tiān xià、 pái chì sān zàng jiào、 mà rǔ zhū xiǎo ér、 xiàng nì shùn zhōng mì rén， suǒ yǐ wǒ yú shí èr nián zhōng qiú yī gè yè xìng， rú jiè zǐ xǔ bù kě dé。 Ruò shì xīn fù zi chán shī， biàn jí pà chèn chū yuàn， bù yǔ fàn chī、 bù ān bù lè。 Zì gǔ xiān bèi dào chù rén bù xìn， bèi dì chū shǐ zhī shì guì。 Ruò dào chù rén jǐn kěn， kān zuò shén me？ Suǒ yǐ shī zi yī hǒu， yě gàn nǎo liè。 Dào liú！ Zhū fāng shuō yǒu dào kě xiū、 yǒu fǎ kě zhèng。 Ěr shuō zhèng hé fǎ？ Xiū hé dào？ Ěr jīn yòng chù qiàn shǎo shén me wù？ Xiū bǔ hé chù？ Hòu shēng xiǎo ā shī bù huì， biàn jí xìn zhè bān yě hú jīng mèi， xǔ tā shuō shì xì fù rén， yán dào lǐ xíng xiāng yīng、 hù xī sān yè shǐ dé chéng fú， rú cǐ shuō zhě rú chūn xì yǔ。 Gǔ rén yún：『 Lù féng dá dào rén， dì yī mò xiàng dào。』 Suǒ yǐ yán： Ruò rén xiū dào dào bù xíng， wàn bān xié jìng jìng tóu shēng， zhì jiàn chū lái wú yī wù， míng tóu wèi xiǎn àn tóu míng。 Suǒ yǐ， gǔ rén yún：『 Píng cháng xīn shì dào。』 Dà dé！ Mì shén me wù？ Xiàn jīn mù qián tīng fǎ wú yī dào rén lì lì dì fēn míng， wèi céng qiàn shǎo。 Ěr ruò yù dé yǔ zǔ fú bù bié， dàn rú shì jiàn， bù yòng yí wù。 Ěr xīn xīn bù yì， míng zhī huó zǔ。 Xīn ruò yǒu yì， zé xìng xiāng bié； Xīn bù yì gù， jí xìng xiāng bù bié。」",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What are the three-eyed lands?\" The master said: \"You and I go together into the pure and wondrous land: wearing the robe of purity, we expound the Dharma-body Buddha; then into the undifferentiating land: wearing the undifferentiating robe, we expound the Reward-body Buddha; then into the liberation land: wearing the robe of radiance, we expound the Transformation-body Buddha. These three-eyed lands are all dependent transformations. The sutra-and-sastra masters take the Dharma body as the root and the Reward and Transformation bodies as the function. From where I see it, the Dharma body cannot expound the Dharma at all. That is why the ancients said: 'Bodies are set up according to meanings; lands are discussed on the basis of substance.' The Dharma-nature body and the Dharma-nature land are plainly established fabrications, gates dependent on understanding — an empty fist and yellow leaves, used to deceive small children. On dried bones and caltrop spikes, what juice do you hope to suck? Outside the mind there is no dharma, and within, nothing to gain: what is there to seek? You everywhere say: 'The Way has practice and realization.' Make no mistake: whatever can be gained by practice is all birth-and-death karma. You say the six paramitas and ten thousand practices should be cultivated together — I see all of that as karma-making. To seek Buddha and the Dharma is to make hell-karma; to seek bodhisattvahood is karma-making too; reading the sutras and studying the teachings is karma-making too. Buddhas and patriarchs are people of no affairs, so the tainted-and-conditioned and the untainted-and-unconditioned are both pure doings. There is a kind of blind baldpate who stuffs himself with rice and then sits down to Chan contemplation, clutching at the leak of thought so it does not rise, hating noise and seeking quiet — that is an outsider's way. The patriarchs said: 'If you fix your mind on gazing at quietness, rouse your mind to shine outward, gather your mind in clear stillness within, freeze your mind in deep absorption — all such doings are fabrications.' Tell me: how do you propose to practice, to realize, to adorn this one who is listening to the Dharma right now? He is not a thing to be made, not a thing that takes adornment. If he could be adorned, then all things could adorn him — make no mistake about it. Followers of the Way! You take what drips from those old teachers' mouths for the true Way, for good knowing friends past conceiving: 'My mind is a common mortal's; I dare not fathom those old worthies.' Blind fools! All your lives you hold such views and betray the pair of eyes in your head — freezing and shuddering like a donkey foal on the ice. 'I dare not slander a good knowing friend — afraid of the karma of the mouth.' Followers of the Way! A genuinely great good knowing friend is precisely one who dares to slander buddhas and patriarchs, to judge all under heaven, to denounce the three baskets of the teaching, to scold and revile little children, to seek the person amid the favorable and the adverse. That is why for twelve years I sought a karma-nature big as a mustard seed and could not find it. Those new-bride Chan masters fear only being chased out of the cloister, denied their rice, made restless and joyless. The elders of old were disbelieved wherever they went; only when driven out was their worth known. If everyone everywhere approves of you, what are you good for? So it is that the lion roars once and the wild dogs' brains split open. Followers of the Way! Everywhere they say there is a Way to practice, a Dharma to realize. Tell me: what Dharma will you realize? What Way will you practice? What is lacking in your functioning right now? What would practitioners go mending? The young teachers of later generations cannot see this; believing this breed of wild-fox sprites, they let them bind people up with talk, saying: 'Only when principle and practice correspond and the three karmas are guarded and cherished can one become Buddha.' Those who talk like this are the soft drizzling rain of spring. The ancients said: 'Meeting a person of the Way on the road, above all do not hail them with the Way.' As the saying goes: if a person practices the Way, the Way does not proceed; ten thousand crooked fields race to arise; when the sword of wisdom comes out, there is not a single thing; before the bright end has appeared, the dark end is already bright. And that is why the ancients said: 'The ordinary mind is the Way.' Virtuous one! What do you seek? The person of the Way listening to the Dharma before you now, vivid and clear, has never lacked anything. If you would be no different from the patriarch-buddhas, simply see it so — no more doubting and erring. When thought does not differ from thought, that is called the living patriarch. If thoughts differ, nature and marks divide; because thoughts do not differ, nature and marks stay undivided.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_09",
+          "title_zh": "示衆九 · 心心不異",
+          "title_pinyin": "Shìzhòng Jiǔ · Xīnxīn Bùyì",
+          "title_en": "Instructing the Assembly 9 — When Thought Does Not Differ from Thought",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "問：「如何是心心不異處？」師云：「爾擬問早異了也，性相各分，道流莫錯。世、出世諸法，皆無自性、亦無生性，但有空名，名字亦空。爾秖麼認他閑名為實，大錯了也。設有，皆是依變之境。有箇菩提依、涅槃依、解脫依、三身依、境智依、菩薩依、佛依。爾向依變國土中覓什麼物？乃至三乘十二分教，皆是拭不淨故紙。佛是幻化身，祖是老比丘，爾還是娘生已否？爾若求佛，即被佛魔攝；爾若求祖，即被祖魔縛；爾若有求皆苦，不如無事。有一般禿比丘向學人道：『佛是究竟，於三大阿僧祇劫修行果滿方始成道。』道流！爾若道佛是究竟，緣什麼八十年後向拘尸羅城雙林樹間側臥而死去？佛今何在？明知與我生死不別。爾言三十二相、八十種好是佛，轉輪聖王應是如來，明知是幻化。古人云：『如來舉身相，為順世間情，恐人生斷見，權且立虛名。』假言三十二、八十也，空聲有身非覺體，無相乃真形。",
+              "pinyin": "Wèn：「 Rú hé shì xīn xīn bù yì chù？」 Shī yún：「 Ěr nǐ wèn zǎo yì le yě， xìng xiāng gè fēn， dào liú mò cuò。 Shì、 chū shì zhū fǎ， jiē wú zì xìng、 yì wú shēng xìng， dàn yǒu kòng míng， míng zì yì kōng。 Ěr zhǐ me rèn tā xián míng wèi shí， dà cuò le yě。 Shè yǒu， jiē shì yī biàn zhī jìng。 Yǒu gè Pútí yī、 Nièpán yī、 jiě tuō yī、 sān shēn yī、 jìng zhì yī、 pú sà yī、 fú yī。 Ěr xiàng yī biàn guó tǔ zhōng mì shén me wù？ Nǎi zhì sān chéng shí èr fēn jiào， jiē shì shì bù jìng gù zhǐ。 Fú shì huàn huà shēn， zǔ shì lǎo bǐ qiū， ěr hái shì niáng shēng yǐ fǒu？ Ěr ruò qiú fú， jí bèi fú mó shè； Ěr ruò qiú zǔ， jí bèi zǔ mó fù； Ěr ruò yǒu qiú jiē kǔ， bù rú wú shì。 Yǒu yì bān tū bǐ qiū xiàng xué rén dào：『 Fú shì jiū jìng， yú sān dà ā sēng qí jié xiū xíng guǒ mǎn fāng shǐ chéng dào。』 Dào liú！ Ěr ruò dào fú shì jiū jìng， yuán shén me bā shí nián hòu xiàng Jūshīluó chéng shuāng lín shù jiān cè wò ér sǐ qù？ Fú jīn hé zài？ Míng zhī yǔ wǒ shēng sǐ bù bié。 Ěr yán sān shí èr xiāng、 bā shí zhǒng hǎo shì fú， zhuǎn lún shèng wáng yīng shì rú lái， míng zhī shì huàn huà。 Gǔ rén yún：『 Rú lái jǔ shēn xiāng， wèi shùn shì jiān qíng， kǒng rén shēng duàn jiàn， quán qiě lì xū míng。』 Jiǎ yán sān shí èr、 bā shí yě， kōng shēng yǒu shēn fēi jué tǐ， wú xiāng nǎi zhēn xíng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "A monk asked: \"What is it for thought not to differ from thought?\" The master said: \"The moment you intend to ask, it has already differed; nature and marks are split apart. Followers of the Way, make no mistake. The dharmas of the world and beyond the world all have no self-nature and no nature of arising; they have only empty names — and the names too are empty. To go on taking those idle names as real is a great mistake. Whatever there is belongs to the fields of dependent transformation: there is a bodhi-dependence, a nirvana-dependence, a liberation-dependence, a three-bodies-dependence, a field-and-knowledge-dependence, a bodhisattva-dependence, a buddha-dependence. What are you seeking amid those lands of dependent transformation? Even the three vehicles and twelve divisions of the teaching are old paper for wiping off the unclean. Buddha is a phantom transformation body; patriarchs are old bhiksus. Were you born of your mother or not? If you seek Buddha, you are taken in by the Buddha-Mara; if you seek patriarchs, you are bound by the patriarch-Mara. Wherever there is seeking, there is only suffering. Better to have nothing to do. There is a kind of bald bhiksu who tells students: 'Buddha is the ultimate, attained only when, through three great asamkhya kalpas of practice, the fruit ripens and the Way is fulfilled.' Followers of the Way! If you say Buddha is the ultimate, why did he lie down on his side and die between the twin trees in the city of Kusinagara? Where is Buddha now? Know clearly: he is no different from me in birth and death. You say the thirty-two marks and eighty excellences are Buddha — then the wheel-turning sage king should be the Tathagata. Know plainly: these are phantom transformations. The ancients said: 'The Tathagata displayed his bodily marks in accord with worldly sentiment; fearing people would form an annihilationist view, he provisionally set up empty names' — provisionally speaking of thirty-two and eighty. Empty sounds and possessed bodies are not the substance of awakening; the formless is the true form.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_10",
+          "title_zh": "示衆十 · 佛六通不被六塵惑",
+          "title_pinyin": "Shìzhòng Shí · Fó Liùtōng Bù Bèi Liùchén Huò",
+          "title_en": "Instructing the Assembly 10 — The Buddha’s Six Powers, Unseduced by the Six Dusts",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「爾道佛有六通是不可思議。一切諸天、神仙、阿修羅、大力鬼亦有神通，應是佛否？道流莫錯，秖如阿修羅與天帝釋戰，戰敗領八萬四千眷屬入藕絲孔中藏。莫是聖否？如山僧所舉，皆是業通、依通。夫如佛六通者不然，入色界不被色惑、入聲界不被聲惑、入香界不被香惑、入味界不被味惑、入觸界不被觸惑、入法界不被法惑，所以達六種色、聲、香、味、觸、法皆是空相，不能繫縛。此無依道人，雖是五蘊漏質，便是地行神通。",
+              "pinyin": "「 Ěr dào fú yǒu liù tōng shì bù kě sī yì。 Yī qiè zhū tiān、 shén xiān、 Āxiūluó、 dà lì guǐ yì yǒu shén tōng， yīng shì fú fǒu？ Dào liú mò cuò， zhǐ rú Āxiūluó yǔ Tiāndìshì zhàn， zhàn bài lǐng bā wàn sì qiān juàn shǔ rù ǒu sī kǒng zhōng cáng。 Mò shì shèng fǒu？ Rú shān sēng suǒ jǔ， jiē shì yè tōng、 yī tōng。 Fū rú fú liù tōng zhě bù rán， rù sè jiè bù bèi sè huò、 rù shēng jiè bù bèi shēng huò、 rù xiāng jiè bù bèi xiāng huò、 rù wèi jiè bù bèi wèi huò、 rù chù jiè bù bèi chù huò、 rù fǎ jiè bù bèi fǎ huò， suǒ yǐ dá liù zhǒng sè、 shēng、 xiāng、 wèi、 chù、 fǎ jiē shì kōng xiāng， bù néng xì fù。 Cǐ wú yī dào rén， suī shì wǔ yùn lòu zhì， biàn shì dì xíng shén tōng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"You say Buddha's six superpowers are inconceivable. But all the gods of heaven, the spirits, the asuras, and the mighty ghosts also have superpowers — should they count as Buddha? Followers of the Way, make no mistake. When an asura fought Indra, king of the gods, and lost, he led his eighty-four thousand followers to hide inside a lotus-thread pore — is that sagehood? All such as I have cited are karma-won or dependence-won powers. Buddha's six superpowers are not so: entering the realm of form he is not seduced by form; entering the realms of sound, fragrance, taste, touch, and dharmas, he is seduced by none of them. Thus, having penetrated that the six dusts — form, sound, fragrance, taste, touch, dharmas — are all empty marks, nothing can bind him. This unattached person of the Way, though he be the leaking stuff of the five skandhas, is straightaway the earth-walking superpower.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_11",
+          "title_zh": "示衆十一 · 真佛無形真法無相",
+          "title_pinyin": "Shìzhòng Shíyī · Zhēnfó Wúxíng Zhēnfǎ Wúxiàng",
+          "title_en": "Instructing the Assembly 11 — The True Buddha Has No Form, the True Dharma No Marks",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！真佛無形、真法無相，爾秖麼幻化上頭作模作樣，設求得者，皆是野狐精魅，並不是真佛，是外道見解。夫如真學道人，並不取佛、不取菩薩、羅漢、不取三界殊勝，逈無獨脫不與物拘，乾坤倒覆我更不疑，十方諸佛現前無一念心喜，三塗地獄頓現無一念心怖。緣何如此？我見諸法空相，變即有、不變即無，三界唯心、萬法唯識，所以夢幻空花何勞把捉？唯有道流目前現今聽法底人，入火不燒、入水不溺、入三塗地獄如遊園觀、入餓鬼畜生而不受報。緣何如此？無嫌底法。爾若愛聖憎凡，生死海裏沈浮。煩惱由心故有，無心煩惱何拘？不勞分別取相，自然得道須臾。爾擬傍家波波地學得，於三祇劫中終歸生死，不如無事向叢林中床角頭交脚坐。",
+              "pinyin": "「 Dào liú！ Zhēn fú wú xíng、 zhēn fǎ wú xiāng， ěr zhǐ me huàn huà shàng tóu zuò mó zuò yàng， shè qiú dé zhě， jiē shì yě hú jīng mèi， bìng bú shì zhēn fú， shì wài dào jiàn jiě。 Fū rú zhēn xué dào rén， bìng bù qǔ fú、 bù qǔ pú sà、 Luóhàn、 bù qǔ sān jiè shū shèng， jiǒng wú dú tuō bù yǔ wù jū， qián kūn dào fù wǒ gèng bù yí， shí fāng zhū fú xiàn qián wú yī niàn xīn xǐ， sān tú dì yù dùn xiàn wú yī niàn xīn bù。 Yuán hé rú cǐ？ Wǒ jiàn zhū fǎ kōng xiāng， biàn jí yǒu、 bù biàn jí wú， sān jiè wéi xīn、 wàn fǎ wéi shí， suǒ yǐ mèng huàn kōng huā hé láo bǎ zhuō？ Wéi yǒu dào liú mù qián xiàn jīn tīng fǎ dǐ rén， rù huǒ bù shāo、 rù shuǐ bù nì、 rù sān tú dì yù rú yóu yuán guān、 rù è guǐ chù sheng ér bù shòu bào。 Yuán hé rú cǐ？ Wú xián dǐ fǎ。 Ěr ruò ài shèng zēng fán， shēng sǐ hǎi lǐ shěn fú。 Fán nǎo yóu xīn gù yǒu， wú xīn fán nǎo hé jū？ Bù láo fēn bié qǔ xiāng， zì rán dé dào xū yú。 Ěr nǐ bàng jiā bō bō dì xué dé， yú sān qí jié zhōng zhōng guī shēng sǐ， bù rú wú shì xiàng cóng lín zhōng chuáng jiǎo tóu jiāo jiǎo zuò。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! The true Buddha has no form; the true Dharma has no marks. You go on making shapes and putting on airs atop phantom transformations; whatever you may seek and get is wild-fox essence and sprite, not the true Buddha — an outsider's view. Genuine students of the Way take hold neither of Buddha nor of bodhisattvas or arhats, nor of any splendor within the three realms — detached and alone, utterly free, bound by nothing. If heaven and earth turned upside down, I would not doubt; if the buddhas of the ten directions appeared before me, not one thought of delight would stir; if the three evil paths gaped before me at once, not one thought of fear. Why is this? I see that all dharmas are empty marks: transformed they exist, untransformed they do not; the three realms are mind only, the ten thousand dharmas are consciousness only. What point, then, in grabbing at dreams, phantoms, flowers in the sky? There is only this follower of the Way listening to the Dharma right now before you who enters fire without being burned, enters water without drowning, enters the three evil paths as if strolling in a park, enters the states of hungry ghost and animal without repayment. Why? Because nothing is objected to. If you love the saintly and hate the worldly, you sink and float in the sea of birth and death. Afflictions exist by way of mind; when there is no mind, what binds the afflictions? Do not strain to discriminate and seize marks — the Way comes of itself in a trice. If you plan to pick it up hurrying around at others' houses, you will end up in birth and death for three asamkhya kalpas. Better to be without affairs, sitting cross-legged in the corner of a monastic bed.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_12",
+          "title_zh": "示衆十二 · 主客機鋒與體究練磨",
+          "title_pinyin": "Shìzhòng Shíèr · Zhǔkè Jīfēng yǔ Tǐjiū Liànmó",
+          "title_en": "Instructing the Assembly 12 — Thrust and Parry of Host and Guest; Tempered by Examining",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！如諸方有學人來，主客相見了，便有一句子語：『辨前頭善知識被學人拈出箇機權語路，向善知識口角頭攛過，看爾識不識。爾若識得是境，把得便拋向坑子裏。』學人便即尋常，然後便索善知識語，依前奪之。學人云：『上智哉，是大善知識。』即云：『爾大不識好惡。』如善知識把出箇境塊子，向學人面前弄，前人辨得下下作主，不受境惑。善知識便即現半身，學人便喝。善知識又入一切差別語路中擺撲，學人云：『不識好惡老禿奴。』善知識歎曰：『真正道流。』如諸方善知識不辨邪正，學人來問菩提涅槃三身境智，瞎老師便與他解說，被他學人罵著，便把棒打他，言：『無禮度。』自是爾善知識無眼，不得嗔他。有一般不識好惡禿奴，即指東劃西——好晴、好雨、好燈籠露柱——爾看眉毛有幾莖，這箇具機緣學人不會，便即心狂。如是之流總是野狐精、魅、魍、魎，被他好學人嗌嗌微笑，言瞎老禿奴惑亂他天下人。「道流！出家兒且要學道，秖如山僧往日曾向毘尼中留心，亦曾於經論尋討。後方知是濟世藥表顯之說，遂乃一時拋却，即訪道參禪。後遇大善知識，方乃道眼分明，始識得天下。老和尚知其邪正，不是娘生下便會，還是體究練磨一朝自省。",
+              "pinyin": "「 Dào liú！ Rú zhū fāng yǒu xué rén lái， zhǔ kè xiāng jiàn le， biàn yǒu yī jù zi yǔ：『 Biàn qián tóu shàn zhī shí bèi xué rén niān chū gè jī quán yǔ lù， xiàng shàn zhī shí kǒu jiǎo tóu cuān guò， kàn ěr shí bù shí。 Ěr ruò shí dé shì jìng， bǎ dé biàn pāo xiàng kēng zi lǐ。』 Xué rén biàn jí xún cháng， rán hòu biàn suǒ shàn zhī shí yǔ， yī qián duó zhī。 Xué rén yún：『 Shàng zhì zāi， shì dà shàn zhī shí。』 Jí yún：『 Ěr dà bù shí hǎo è。』 Rú shàn zhī shí bǎ chū gè jìng kuài zi， xiàng xué rén miàn qián nòng， qián rén biàn dé xià xià zuò zhǔ， bù shòu jìng huò。 Shàn zhī shí biàn jí xiàn bàn shēn， xué rén biàn hè。 Shàn zhī shí yòu rù yī qiè chà bié yǔ lù zhōng bǎi pū， xué rén yún：『 Bù shí hǎo è lǎo tū nú。』 Shàn zhī shí tàn yuē：『 Zhēn zhèng dào liú。』 Rú zhū fāng shàn zhī shí bù biàn xié zhèng， xué rén lái wèn Pútí Nièpán sān shēn jìng zhì， xiā lǎo shī biàn yǔ tā jiě shuō， bèi tā xué rén mà zhù， biàn bǎ bàng dǎ tā， yán：『 Wú lǐ dù。』 Zì shì ěr shàn zhī shí wú yǎn， bù dé chēn tā。 Yǒu yì bān bù shí hǎo è tū nú， jí zhǐ dōng huà xī—— hǎo qíng、 hǎo yǔ、 hǎo dēng lóng lù zhù—— ěr kàn méi máo yǒu jǐ jīng， zhè gè jù jī yuán xué rén bù huì， biàn jí xīn kuáng。 Rú shì zhī liú zǒng shì yě hú jīng、 mèi、 wǎng、 liǎng， bèi tā hǎo xué rén ài ài wēi xiào， yán xiā lǎo tū nú huò luàn tā tiān xià rén。「 Dào liú！ Chū jiā ér qiě yào xué dào， zhǐ rú shān sēng wǎng rì céng xiàng Píní zhōng liú xīn， yì céng yú jīng lùn xún tǎo。 Hòu fāng zhī shì jì shì yào biǎo xiǎn zhī shuō， suì nǎi yī shí pāo què， jí fǎng dào cān chán。 Hòu yù dà shàn zhī shí， fāng nǎi dào yǎn fēn míng， shǐ shí dé tiān xià。 Lǎo Héshàng zhī qí xié zhèng， bú shì niáng shēng xià biàn huì， hái shì tǐ jiū liàn mó yī zhāo zì xǐng。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! Wherever students come to a teacher's place, once host and guest have met there is this one phrase to test with: 'Discern the one before you: the student brings out a phrase full of craft and cunning and thrusts it at the good knowing friend's mouth, to see whether you recognize it or not. If you recognize it as an object, catch it and hurl it into the pit.' The student then acts familiar and asks the good knowing friend for a word, and as before he is robbed of it. The student says: 'Superb wisdom — a truly great good knowing friend!' Whereupon the friend says: 'You truly cannot tell good from bad.' Or the good knowing friend brings out a lump of object and dangles it before the student; the man discerns it and takes charge at every move, undeceived by the object. The good knowing friend then reveals half his body — the student gives a shout. The friend goes on tumbling about in every manner of differential phrase-path; the student says: 'You old baldpate who cannot tell good from bad!' The good knowing friend sighs in admiration: 'A genuine follower of the Way!' When teachers everywhere cannot tell the true from the crooked, students come asking about bodhi, nirvana, the three bodies, fields-and-knowledge — the blind teacher expounds it all for them; then the students revile him, and he takes his stick and beats them for being rude. It is you, teacher, who have no eye — do not be wrathful with them. There is a kind of bald slave who cannot tell good from bad and points east and marks west — a lovely clear sky! lovely rain! lovely lamps and pillars! — 'just count the hairs on your eyebrows.' Students of genuine capacity for the encounter do not understand and their minds go wild. All such folk are wild-fox spirits, sprites, fiends, and goblins; a proper student laughs at them with a pointed smile and says: 'You blind old baldpates, confounding and misleading everyone under heaven!' Followers of the Way! Home-leavers must study the Way. In olden days even I once gave my mind to the vinaya and inquired amid the sutras and sastras; only later did I know them for world-healing remedies, expression-and-display talk, and cast them aside in one stroke, then went visiting teachers to practice Chan. Later still I met a great good knowing friend; only then was my way-eye made clear, so I could discern all the old monks under heaven and tell the true from the crooked. It is not that I understood from my mother's womb — it took ingrained effort, inquiry, and polish, until one morning I looked into myself.\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_13",
+          "title_zh": "示衆十三 · 逢著便殺",
+          "title_pinyin": "Shìzhòng Shísān · Féngzhuó Biàn Shā",
+          "title_en": "Instructing the Assembly 13 — Whatever You Meet, Kill It",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！爾欲得如法見解，但莫受人惑，向裏向外逢著便殺——逢佛殺佛、逢祖殺祖、逢羅漢殺羅漢、逢父母殺父母、逢親眷殺親眷——始得解脫。不與物拘，透脫自在，如諸方學道流未有不依物出來底。山僧向此間從頭打、手上出來手上打、口裏出來口裏打、眼裏出來眼裏打，未有一箇獨脫出來底，皆是上他古人閑機境。山僧無一法與人，秖是治病解縛。爾諸方道流試不依物出來，我要共爾商量。十年五歲並無一人，皆是依草、附葉、竹木、精靈、野狐精魅，向一切糞塊上亂咬瞎漢，枉消他十方信施，道我是出家兒，作如是見解，向爾道：『無佛、無法、無修、無證，秖與麼傍家擬求什麼物？』瞎漢頭上安頭，是爾欠少什麼。",
+              "pinyin": "「 Dào liú！ Ěr yù dé rú fǎ jiàn jiě， dàn mò shòu rén huò， xiàng lǐ xiàng wài féng zhù biàn shā—— féng fú shā fú、 féng zǔ shā zǔ、 féng Luóhàn shā Luóhàn、 féng fù mǔ shā fù mǔ、 féng qīn juàn shā qīn juàn—— shǐ dé jiě tuō。 Bù yǔ wù jū， tòu tuō zì zài， rú zhū fāng xué dào liú wèi yǒu bù yī wù chū lái dǐ。 Shān sēng xiàng cǐ jiān cóng tóu dǎ、 shǒu shàng chū lái shǒu shàng dǎ、 kǒu lǐ chū lái kǒu lǐ dǎ、 yǎn lǐ chū lái yǎn lǐ dǎ， wèi yǒu yī gè dú tuō chū lái dǐ， jiē shì shàng tā gǔ rén xián jī jìng。 Shān sēng wú yī fǎ yǔ rén， zhǐ shì zhì bìng jiě fù。 Ěr zhū fāng dào liú shì bù yī wù chū lái， wǒ yào gòng ěr shāng liáng。 Shí nián wǔ suì bìng wú yī rén， jiē shì yī cǎo、 fù yè、 zhú mù、 jīng líng、 yě hú jīng mèi， xiàng yī qiè fèn kuài shàng luàn yǎo xiā hàn， wǎng xiāo tā shí fāng xìn shī， dào wǒ shì chū jiā ér， zuò rú shì jiàn jiě， xiàng ěr dào：『 Wú fú、 wú fǎ、 wú xiū、 wú zhèng， zhǐ yǔ me bàng jiā nǐ qiú shén me wù？』 Xiā hàn tóu shàng ān tóu， shì ěr qiàn shǎo shén me。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! If you want a view in accord with the Dharma, just refuse to be confused by others. Inwardly and outwardly, whatever you meet, kill it — meeting Buddha, kill the Buddha; meeting a patriarch, kill the patriarch; meeting an arhat, kill the arhat; meeting father and mother, kill father and mother; meeting kin, kill the kin — only then do you gain liberation, bound by nothing, passing clean through and free. Students of the Way everywhere all come forth riding on something. From the start I strike them here: come out on the hand, strike on the hand; come out through the mouth, strike through the mouth; come out through the eye, strike through the eye. Not a single one comes out solitary and free — they all tread upon the idle phrases laid down by the ancients. I have not one dharma to give people; I merely cure the disease and loose the bonds. Followers of the Way everywhere, try coming out independent of things: I would confer with you. In ten years — five years — not one has come. They are all spirits clinging to grasses, leaves, bamboos, and trees, wild-fox sprites, blind fellows snapping madly at every lump of dung, vainly consuming the faithful alms of the ten directions and calling themselves home-leavers — with views like that! Let me tell you: no Buddha, no Dharma, no cultivation, no realization. With that said, what are you running about at others' houses to seek? Blind man, do not set a head on top of your head — what is it you lack?'\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "shizhong_14",
+          "title_zh": "示衆十四 · 歇心菩提樹",
+          "title_pinyin": "Shìzhòng Shísì · Xiēxīn Pútíshù",
+          "title_en": "Instructing the Assembly 14 — When Thought Rests: The Bodhi Tree",
+          "dialogue": [
+            {
+              "speaker": "Linji / 臨濟",
+              "zh": "「道流！是爾目前用底與祖佛不別，秖麼不信，便向外求。莫錯，向外無法、內亦不可得。爾取山僧口裏語，不如休歇無事去。已起者莫續、未起者不要放起，便勝爾十年行脚。約山僧見處無如許多般，秖是平常著衣、喫飯、無事過時。爾諸方來者皆是有心求佛、求法、求解脫、求出離三界。癡人！爾要出三界，什麼處去？佛祖是賞繫底名句。爾欲識三界麼？不離爾今聽法底心地。爾一念心貪是欲界、爾一念心瞋是色界、爾一念心癡是無色界，是爾屋裏家具子。三界不自道：『我是三界。』還是，道流！目前靈靈地照燭萬般酌度世界底人與三界安名。大德！四大色身是無常，乃至脾、胃、肝、膽、髮、毛、爪、齒，唯見諸法空相。爾一念心歇得處，喚作菩提樹；爾一念心不能歇得處，喚作無明樹。無明無住處、無明無始終，爾若念念心歇不得，便上他無明樹，便入六道、四生、披毛、戴角；爾若歇得，便是清淨身界。爾一念不生，便是上菩提樹，三界神通變化意生化身，法喜禪悅身光自照，思衣羅綺千重、思食百味具足，更無橫病。菩提無住處，是故無得者。",
+              "pinyin": "「 Dào liú！ Shì ěr mù qián yòng dǐ yǔ zǔ fú bù bié， zhǐ me bù xìn， biàn xiàng wài qiú。 Mò cuò， xiàng wài wú fǎ、 nèi yì bù kě dé。 Ěr qǔ shān sēng kǒu lǐ yǔ， bù rú xiū xiē wú shì qù。 Yǐ qǐ zhě mò xù、 wèi qǐ zhě bú yào fàng qǐ， biàn shèng ěr shí nián xíng jiǎo。 Yuē shān sēng jiàn chù wú rú xǔ duō bān， zhǐ shì píng cháng zhù yī、 chī fàn、 wú shì guò shí。 Ěr zhū fāng lái zhě jiē shì yǒu xīn qiú fú、 qiú fǎ、 qiú jiě tuō、 qiú chū lí sān jiè。 Chī rén！ Ěr yào chū sān jiè， shén me chù qù？ Fó zǔ shì shǎng xì dǐ míng jù。 Ěr yù shí sān jiè me？ Bù lí ěr jīn tīng fǎ dǐ xīn dì。 Ěr yī niàn xīn tān shì yù jiè、 ěr yī niàn xīn chēn shì sè jiè、 ěr yī niàn xīn chī shì wú sè jiè， shì ěr wū lǐ jiā jù zi。 Sān jiè bù zì dào：『 Wǒ shì sān jiè。』 Hái shì， dào liú！ Mù qián líng líng dì zhào zhú wàn bān zhuó dù shì jiè dǐ rén yǔ sān jiè ān míng。 Dà dé！ Sì dà sè shēn shì wú cháng， nǎi zhì pí、 wèi、 gān、 dǎn、 fà、 máo、 zhǎo、 chǐ， wéi jiàn zhū fǎ kōng xiāng。 Ěr yī niàn xīn xiē dé chù， huàn zuò Pútí shù； Ěr yī niàn xīn bù néng xiē dé chù， huàn zuò wú míng shù。 Wú míng wú zhù chù、 wú míng wú shǐ zhōng， ěr ruò niàn niàn xīn xiē bù dé， biàn shàng tā wú míng shù， biàn rù liù dào、 sì shēng、 pī máo、 dài jiǎo； Ěr ruò xiē dé， biàn shì qīng jìng shēn jiè。 Ěr yī niàn bù shēng， biàn shì shàng Pútí shù， sān jiè shén tōng biàn huà yì shēng huà shēn， fǎ xǐ chán yuè shēn guāng zì zhào， sī yī luó qǐ qiān zhòng、 sī shí bǎi wèi jù zú， gèng wú héng bìng。 Pútí wú zhù chù， shì gù wú dé zhě。",
+              "translations": {
+                "ai_literal": {
+                  "text": "\"Followers of the Way! What is functioning before you now is no different from the patriarch-buddhas — yet you cannot trust this and seek outward. Make no mistake: outside there is no dharma, and inside there is nothing to gain. Better than taking the words from my mouth — rest and have nothing to do. Do not continue what has arisen; do not rouse what has not yet arisen: that surpasses ten years of pilgrimage. From where I see it there is no such variety: it is only the ordinary — donning clothes, eating rice, passing the time without affairs. People come from everywhere with mind — seeking Buddha, seeking Dharma, seeking liberation, seeking escape from the three realms. Fools! If you want to leave the three realms, where will you go? 'Buddha' and 'patriarch' are names and phrases for prizing and binding. Do you want to know the three realms? They lie nowhere apart from the mind-ground listening to the Dharma right now: one thought of craving in your mind is the realm of desire; one thought of anger in your mind is the realm of form; one thought of delusion in your mind is the realm of formlessness — these are the furnishings of your own house. The three realms do not of themselves proclaim, 'We are the three realms'; it is still this person of the Way, radiant now, illumining all kinds and judging the world, who fixes names on the three realms. Virtuous ones! This physical body of the four elements is impermanent — spleen, stomach, liver, and gall, hair, nails, and teeth — you see only that all dharmas are empty marks. Where one thought of yours can stop is called the bodhi tree; where one thought cannot stop is called the tree of unknowing. Unknowing has no dwelling place; unknowing has neither beginning nor end. If thought after thought cannot stop, you climb the tree of unknowing and enter the six realms and four births, wearing fur and bearing horns. If you can stop, that is the pure body-field. Not one thought arising, you climb the bodhi tree: by the supernormal transformations of the three realms you are born by will — a body of Dharma-joy and Chan-bliss whose light shines of itself; thinking of robes, a thousand folds of silk; thinking of food, a hundred flavors complete; and no untimely illness. Bodhi has no place of abode; therefore nothing at all is obtained.\"\"",
+                  "status": "ai_draft"
+                }
+              }
+            }
+          ]
+        },
+        {
           "section_id": "four_host_guest",
           "title_zh": "臨濟四主賓：主看客，客看主",
           "title_pinyin": "Línjì Sì Zhǔbīn: Zhǔ Kàn Kè, Kè Kàn Zhǔ",
@@ -8708,7 +9129,8 @@ window.TRANSLATECHAN_DATA = {
             }
           ]
         }
-      ]
+      ],
+      "zh_chars": 8496
     },
     "huangbo_chuanxin": {
       "id": "huangbo_chuanxin",

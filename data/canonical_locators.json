@@ -1027,6 +1027,160 @@
           "source_revision": "CBETA Online reports last updated 2025-09-01",
           "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
           "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_01": {
+          "canonical_locator": "T47n1985_p0497a22–p0497c25",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497a22–p0497c25).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_02": {
+          "canonical_locator": "T47n1985_p0497c26–p0498a15",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0497c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0497c26–p0498a15).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_03": {
+          "canonical_locator": "T47n1985_p0498a16–p0498b01",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498a16–p0498b01).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_04": {
+          "canonical_locator": "T47n1985_p0498b02–p0498b24",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498b02–p0498b24).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_05": {
+          "canonical_locator": "T47n1985_p0498b25–p0498c17",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498b25–p0498c17).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_06": {
+          "canonical_locator": "T47n1985_p0498c18–p0499a03",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0498c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0498c18–p0499a03).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_07": {
+          "canonical_locator": "T47n1985_p0499a04–p0499a27",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499a04–p0499a27).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_08": {
+          "canonical_locator": "T47n1985_p0499a28–p0499c13",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499a28–p0499c13).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_09": {
+          "canonical_locator": "T47n1985_p0499c14–p0500a02",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0499c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0499c14–p0500a02).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_10": {
+          "canonical_locator": "T47n1985_p0500a02–p0500a12",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a02–p0500a12).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_11": {
+          "canonical_locator": "T47n1985_p0500a12–p0500a26",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a12–p0500a26).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_12": {
+          "canonical_locator": "T47n1985_p0500a26–p0500b21",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500a",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500a26–p0500b21).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_13": {
+          "canonical_locator": "T47n1985_p0500b21–p0500c06",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500b",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500b21–p0500c06).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.shizhong_14": {
+          "canonical_locator": "T47n1985_p0500c06–p0500c27",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0500c",
+          "review_date": "2026-08-09",
+          "note": "CBETA paragraph span identifies this unit of the complete-text ingestion (T47n1985_p0500c06–p0500c27).",
+          "source_edition": "CBETA XML P5 via cbeta-org/xml-p5 (T47n1985)",
+          "source_revision": "CBETA Online reports last updated 2025-09-01",
+          "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
         }
       }
     },
