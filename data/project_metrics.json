@@ -1,17 +1,17 @@
 {
   "canonical_locator_coverage": {
     "case_level_documents": 3,
-    "case_locators": 110,
-    "declared_cases": 110,
+    "case_locators": 120,
+    "declared_cases": 120,
     "document_level_seed_documents": 33,
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 64365,
+    "all_corpus_cjk_characters": 70858,
     "complete_documents": [
       "wumenguan"
     ],
-    "content_cjk_characters": 60597,
+    "content_cjk_characters": 66983,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -49,18 +49,18 @@
         }
       },
       "biyanlu_cases": {
-        "all_cjk_chars": 48670,
+        "all_cjk_chars": 55163,
         "cbeta_id": "T2003",
-        "content_zh_chars": 47992,
-        "coverage": "60/100 cases",
-        "coverage_note": "60/100 cases — cases 1–60 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, extended 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–60) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; no-垂示 cases recorded (6/14/18/26/28/30/34/36/42/44/48/52/58); variants 韻陽/韶陽 (14) and 韓獹 (43, 通作盧) recorded; case 20 joins its two 頌; cases 22/60 keep printed closing shouts; 著語 and glyph/footnote variants normalized out; post-verse 評唱 rendering and human sign-off pending).",
-        "declared_zh_chars": 47992,
+        "content_zh_chars": 54378,
+        "coverage": "70/100 cases",
+        "coverage_note": "70/100 cases — cases 1–70 complete with pointer, main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, extended 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–70) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; no-垂示 cases recorded (6/14/18/26/28/30/34/36/42/44/48/52/58/64/67); variants 韻陽/韶陽 (14), 韓獹 (43, 通作盧) and 頗 (63) recorded; case 20 joins its two 頌; cases 22/60 keep printed closing shouts; 著語 and glyph/footnote variants normalized out; post-verse 評唱 rendering and human sign-off pending).",
+        "declared_zh_chars": 54378,
         "shapes": [
           "cases"
         ],
         "title": "Blue Cliff Record (碧巖錄)",
         "unit_counts": {
-          "cases": 60
+          "cases": 70
         }
       },
       "bodhidharma_erru": {
@@ -508,9 +508,9 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 909,
+    "corpus_slots": 919,
     "corpus_statuses": {
-      "ai_draft": 92,
+      "ai_draft": 102,
       "reconstruction_unverified": 679,
       "verified_quotation": 138
     },
