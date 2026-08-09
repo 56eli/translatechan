@@ -104,3 +104,11 @@ Both files were archived with session-dated names (`sessions/AUDIT_RESPONSE_2026
 - Hero counts are data-derived at runtime (static HTML fallback is gated against the live count).
 - CSP (`script-src 'self'`), storage hardening, smoke coverage of all 36 texts/modes/search.
 - Git state clean; single-commit shallow history is the environment's checkout, not a project issue.
+
+---
+
+## 5. Session status & GitHub outage note
+
+- **Corpus campaign delivered autonomously through 50/100 (half of the Biyanlu)**: all cases 1–50 canon-complete (垂示/本則/評唱/頌), 100/100 case locators, 899 slots, CJK 53,664/57,335; no-垂示 cases across the file (6/14/18/26/28/30/34/36/42/44/48) documented in locator records.
+- ⚠️ **GitHub access lapsed at ~17:20 UTC** (`gh auth status`: "token in GH_TOKEN is no longer valid"; pushes rejected). All work is **committed locally** on `arena/019fe731-translatechan` (4 unpushed commits: juan-4 batch, 41–42 batch, summary, juan-5 batch) and the sandbox auto-saves files. **Reconnect GitHub in Arena and push to sync.**
+- Gates (validator, build, smoke, mirrors) pass on the local tree for every batch.
