@@ -1,46 +1,52 @@
-# Live Session Summary — 2026-08-10, session `arena/019fea62-translatechan`
+# Live Session Summary — 2026-08-10, session `arena/019feaf5-translatechan`
 
-> Working summary only (overwritten per session per AUDIT.md §5); not canonical documentation.
-> Full historical audit report archived at [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md).
+> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Working scratchpad per AUDIT.md §5. Full audit in `FULL_AUDIT_2026-08-10_019feaf5.md` + `sessions/`.
 
-## Status: ✅ Classical Chan Content Waves 1, 2, 3, & 4 (4 Complete Texts + 30 Congronglu Cases + 15 Zhaozhou + 10 Huangbo + 10 Yunmen + 8 Mazu + 8 Dongshan + 8 Fayan + 74 Linji Sections) + Full Audit + UI/ARIA Polish + Robolation Rebrand
+## Status: ✅ Full Senior-Dev + Web-Designer Audit — No P0/P1/P2
 
-All quality gates pass on the final tree: `validate_data.py` (`corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178`), `smoke_test.mjs` (36 texts exercised, 0 crashes, 27 test sections including `4z`), `py_compile scripts/*.py`, and root↔`/docs` byte-identical mirror.
+All quality gates green on baseline `062a1fb` (main after PR #13):
 
-### Deliverables & Remediations This Session (committed + pushed to `arena/019fea62-translatechan`)
-1. **Classical Chan Ingestion Waves 1, 2, 3, & 4 (`scripts/ingest_content_wave.py`, `scripts/ingest_linji_and_platform_sutra.py`, `scripts/ingest_autonomous_wave3.py`, `scripts/ingest_autonomous_wave4.py`)**:
-   - **Complete Sengcan's *Xinxin Ming* (`T2010`)**: Expanded from 7 stanzas to all **37 four-clause stanzas (144 lines / 584 CJK characters)**, making it the project's **3rd 100% Complete Text** (with D.T. Suzuki's 1935 verified public-domain translation across all 37 stanzas).
-   - **Complete *The Platform Sutra* (`T2007`)**: Ingested Chapters 3, 6, 7, 8, 9, 10, bringing *The Platform Sutra* to **10 / 10 chapters complete** (the project's **4th 100% Complete Text**).
-   - **Record of Linji / *Linji Yulu* (`T1985`)**: Complete the **行錄 (Record of Conduct / Pilgrimage & Transmission)** division (sections 68–74), expanding *Linji Yulu* to **74 canonical sections** across all four divisions (`序`, `上堂`, `示眾`, `勘辨`, `行錄`).
-   - **Book of Serenity / Congronglu (`T2004`)**: Expanded from 2 cases to **30 foundational cases** (Cases 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 27, 28, 29, 30), adding case-level locators to `canonical_locators.json`.
-   - **Record of Zhaozhou (`T1987`)**: Expanded from 3 dialogues to **15 signature encounter dialogues** (*The Great Death*, *Four Gates*, *Put It Down*, *Where Buddha Is Not*, *Zhaozhou's Dog*, *The Great Way*, *Three Buddhas*, *Good Thing*, *Baby's Senses*, *Bright Moon*, etc.).
-   - **Huangbo Transmission of Mind (`T2012A`)**: Expanded from 1 section to **10 canonical sermons** (*Mind is Buddha*, *The Void*, *Instant Awakening*, *Refusing to Seek Outside*, *Mind Like the Sun*, *Eliminating Conceptual Thought*, *Sentient Beings*, *No Attainment*, *Outside Scriptures*).
-   - **Record of Yunmen (`T1988`)**: Expanded from 4 to **10 signature encounter dialogues and sermons** (*Every Day is a Good Day*, *Medicine and Disease*, *Staff Turns into a Dragon*, *Within the Universe One Treasure*, *Dried Dung Scraper*, *Treasure in Form*).
-   - **Record of Dongshan (`T1986 / X1321`)**: Expanded from 2 to **8 canonical encounter dialogues** (*Where Cold and Heat Cannot Reach*, *He is Now Me*, *Three Pounds of Flax*, *The Bird Path*, *Insentient Preaching*, *Five Ranks*).
-   - **Record of Fayan (`T1985 / X1321`)**: Expanded from 3 to **8 canonical sermons and dialogues** (*Three Worlds are Only Mind*, *Drop of Water from Caoyuan*, *Sound and Form*, *West Coming*, *Pointing to the Blinds*).
-   - **Record of Mazu (`T1986 / X1321`)**: Expanded from 2 sections to **8 canonical sermons and dialogues** (*Ordinary Mind is the Way*, *Mind is Buddha*, *Neither Mind nor Buddha*, *Polishing a Brick*, *Damei's Plum*).
-2. **Full Independent Project Audit** → Documented in [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md) and linked in [`AUDIT.md`](./AUDIT.md). Confirmed zero P0/P1/P2 defects across data, validation, runtime, accessibility, and documentation truthfulness.
-3. **SPA History Scroll Restoration (`app.js`)** — Shipped the final remaining editorial candidate from `AUDIT.md`:
-   - Updated `switchViewRaw(viewName, scroll = true)` with an optional boolean parameter.
-   - Recorded per-view scroll position in `state.viewScroll[oldView] = window.scrollY` when leaving any view.
-   - When navigating Back/Forward via browser history (`applyHash`), `switchViewRaw(view, false)` restores the previously saved scroll position for that view instead of forcing a reset to `top: 0`.
-   - Added regression test **`4z. switchViewRaw scroll-restore on back/forward`** to `scripts/smoke_test.mjs`.
-4. **External View-Routing Hardening (`app.js`)** — Enhanced `window.TranslateChan.openCase` and `window.TranslateChan.openDoc` to check `if (state.currentView !== 'reader') switchViewRaw('reader', false);`. Invoking a case or document jump from a non-Reader view (`matrix`, `gongan`, `lineage`, `lexicon`) now reliably activates the Reader DOM view.
-5. **WCAG ARIA Accessibility Polish (`index.html`)** — Added explicit accessible names to interactive controls lacking them (`#lexicon-cat-filter` and `#dossier-close-btn`).
-6. **Display-Layer Rebrand & Terminology Polish (`app.js`, `index.html`, `README.md`, `vision.md`, `data/`)**:
-   - Simplified translator naming from `Red Pine (Bill Porter)` to `Red Pine`.
-   - Removed the trailing `ⓘ Disclosure` button from after Robo translator attribution lines to reduce visual clutter.
-   - Replaced all occurrences of `channeling` across code, docs, and profiles with **Robolation** / **robolating** (0 occurrences of `channeling` remain).
-7. **Documentation & Quality Gate Sync** — Synchronized `AUDIT.md`, `README.md`, `HANDOFF.md`, and `ROADMAP.md` with the new metrics (`corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178`, `106,615 source-content CJK characters`, `32 excerpt seeds`, `4 complete texts`). Re-bundled `app_data.js` and synced `/docs` mirror.
+```
+python3 -m py_compile scripts/*.py      → ✅ 11 files
+python3 scripts/validate_data.py       → ✅ corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183 (6 warnings: 4 frontier + 2 compendia)
+python3 scripts/build_data_bundle.py   → ✅ 1,676,108 B compact JSON; root & /docs synced
+node scripts/smoke_test.mjs            → ✅ 36 texts, 0 crashes, 50+ sections (U1/U2/U3/U8 + 4ff..4kk)
+diff -rq data docs/data                → ✅ silent
+```
 
-### Verified Project Metrics & Scope
-- `corpus`: 36 documents (**4 complete texts**: `wumenguan` 48/48 complete, `biyanlu_cases` 100/100 complete, `xinxin_ming` 37/37 complete, `platform_sutra` 10/10 complete; `linji_yulu` 74 sections; `congronglu_cases` 30 cases; `zhaozhou_yulu` 15 dialogues; `huangbo_chuanxin` 10 sections; `yunmen_yulu` 10 sections; `mazu_yulu` 8 sections; `dongshan_yulu` 8 dialogues; `fayan_yulu` 8 sections; 32 excerpt seeds); **106,615 content CJK / 112,408 all-string CJK**.
-- `translations`: 1,342 corpus slots; 177 verified quotations; 21 matrix registers.
-- `locators`: 178/178 case-level locators; 33 document-level seeds.
-- `lineage`: 34 masters (30 seed + 4 frontier); 12 controlled `school_key` groups; 30 edge records + 4 frontiers.
-- `lexicon` & `gongan`: 31 glossary terms; 24 Gong'an index entries across 7 controlled theme groups.
+## What was audited
 
-### Next Directions
-- **Content Phase 2 (Congronglu & Further Sayings):** Continue expanding Congronglu from 30 cases toward all 100 cases, or continue ingesting recorded sayings of Zhaozhou, Huangbo, Yunmen, Dongshan, and Linji.
-- **Editorial Traceability:** Migrate the 33 document-level seed locators to unit/page-line anchors via `data/editorial/traceability_queue.json`, and resolve the 3 pending verified-source references.
-- **Owner Operations:** Enable GitHub branch protection rulesets on `main` requiring the green `Quality` workflow check.
+Deep review of: architecture (zero-backend SPA, validator-as-spec, controlled vocabularies), code hygiene (escHtml, CSP self, fail-soft storage, delegated events), data contract (36 corpus, 4 complete texts, 1352 slots, 177 verified, rights manifest, locator registry 183/183, lineage 30 edges + 4 frontiers), build/CI (quality.yml missing 3 files in diff list + branch protection not enforced — both tracked as blocked_manual_workflow_edit), UX/UI (Zen minimalist, L1 layout pass: dismissable hero, 260px sidebar, completion marks ✓/N/M, sticky toolbar, corpus filter, breadcrumb, dossier card system, case-strip U1 titles ≥900px, segmented load-more U2, lexicon filter U3, keyboard nav U8, mobile bottom bar), a11y (ARIA tabs, roving tabindex, dossier dialog focus management, popovers role=tooltip capped scrollable, skip-link, reduced-motion gate, text-muted contrast), security (CSP self, no PII, XSS guarded), performance (deferred scripts, preload, searchUnitCache once-per-session, lazy 12-chunk rendering, compact JSON -15.5% 1,956,032→1,676,108 B, gz est ~400KB, first-paint ~600KB opportunity remains), SEO (OG/Twitter/canonical/robots/sitemap, missing og:image), docs (25+ doc-truthfulness rules, sessions/ append-only, response_summary ephemeral).
+
+## Inconsistencies found (all P3, no P0/P1/P2)
+
+1. CI diff missing `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml` (owner action Edit 1)
+2. Branch protection not requiring Quality check (owner action Edit 2)
+3. OG description verb "channels" vs brand "robolates" drift
+4. Hero chips `aria-hidden=true` hides informative counts from AT
+5. Mobile bottom bar touch target <44px, missing `env(safe-area-inset-bottom)`
+6. Reader toolbar z=20 vs case-jump strip z=40 → toolbar hides behind strip when both sticky
+7. Lineage graph width lower bound 720 → overflow on 375px
+8. Search placeholder ellipsis `...` vs `…` inconsistent
+9. Footer quote inline `opacity:0.7` should be class
+10. 6 masters empty `linked_corpus_keys` (4 frontier OK + 2 historical compendia)
+11. Gong'an cross_refs free-text not validated
+12. `translator_profiles.json` `evidence_source` enum not in JSON schema
+13. Hard-coded `#2d6a4f` complete mark vs token
+14. `response_summary.md` committed (ephemeral)
+15. `docs/audits/` vs `sessions/` dual audit locations
+16. `meta.version` hardcoded 1.1.0
+
+## Tiered recommendations
+
+Tier-1 (30 min, ship today): fix OG verb, remove aria-hidden from hero chips, mobile bar 44px + safe-area, add aria-pressed to gongan chips, standardize … ellipsis, footer quote class.
+Tier-2 (1 session): D2 toolbar/strip z-index fix, D8 graph width 360, U10 og-image.svg 1200×630, breadcrumb to Matrix/Lineage/Gongan/Lexicon, keyboard hint.
+Tier-3 (1-2 sessions): bundle split — core (4 complete + vocab) + per-corpus JSON lazy fetch → first-paint 600-800 KB; optional minify app.js/css; report gz size.
+Tier-4 (ongoing content): populate remaining alternative_names/linked_corpus_keys, validate gongan cross_refs, add evidence_source enum, expand dongshan/zhaozhou/congronglu 35→50/100.
+Tier-5 (future): ES-module split app.js 2978 lines, validate_data split, meta.version from git SHA.
+
+## One-sentence summary
+
+No P0/P1/P2 defects; project architecturally excellent with mature Zen design system and honest Robo provenance; next steps are Tier-1 a11y/OG/mobile fixes (~30 min) then optional performance bundle-split RFC and OG image polish.
+
+Full report: `FULL_AUDIT_2026-08-10_019feaf5.md` (15 sections, 500+ lines).
