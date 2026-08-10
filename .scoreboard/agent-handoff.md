@@ -12,14 +12,14 @@ Last updated: 2026-08-10
 - `4256840` — `feat(ux): U1/U2/U3/U8 polish batch + session audit`
 - `9934f66` — `feat(scoreboard): persistent repo scoreboard system + baseline audit`
 - `2a11b5e` — `perf(build): compact JSON in build_data_bundle.py (Tier-3 win)`
-- Next: Tier 4 data completeness (alternative_names + linked_corpus_keys) — not yet committed
+- Next: Phase 2 corpus ingestion (Congronglu 30→35 just shipped; remaining 65 cases for a future session)
 
 **Quality gates (all green after the latest build):**
 
 ```text
 python3 -m py_compile scripts/*.py     → ✅
-python3 scripts/validate_data.py       → ✅ corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178
-python3 scripts/build_data_bundle.py   → ✅ 1,653,392 bytes (down from 1,956,032; -15.5%); root & /docs synced
+python3 scripts/validate_data.py      → ✅ corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183
+python3 scripts/build_data_bundle.py   → ✅ 1,676,108 bytes; root & /docs synced
 node scripts/smoke_test.mjs            → ✅ 36 corpus texts, 0 crashes; new U1/U2/U3/U8 checks pass
 diff -rq data docs/data                → ✅ silent
 ```
@@ -34,7 +34,7 @@ Sorted by `priority = gap * weight` (highest first):
 2. **`ci_cd` (priority 0 numeric, status `blocked_manual_workflow_edit`)** — Owner: extend `.github/workflows/quality.yml` `git diff --exit-code` list to include `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`. Tracked in `.scoreboard/manual-workflow-edits.md` Edit 1.
 3. **`performance` (effective 8, status `healthy`, just-promoted)** — 2026-08-10 Tier-3 compact-JSON win shipped: `build_data_bundle.py` now emits `separators=(',', ':')` instead of `indent=2`; bundle shrank 1,956,032 B → 1,653,392 B (-15.5%, 302,640 B saved). AI score moved 7 → 8. Optional follow-up: per-corpus lazy-load split would drop first-paint to ~600 KB; not blocking.
 4. **`content_quality` (DONE 2026-08-10, status `healthy`)** — Tier 4 from the audit 2026-08-10 shipped: populated `alternative_names` for 20 masters (Huike → Yuelin Shiguan) and `linked_corpus_keys` for 20 (Sengcan → xinxin_ming, etc.). Validator now warns on empty `alternative_names` / `linked_corpus_keys` and errors on dangling corpus keys. Smoke test 4ee exercises the dossier rendering. AI score moved 7 → 8.
-5. **`feature_completeness` (priority 4, status `needs_work`)** — Next Phase 2 ingest (Congronglu 30→100, Dongshan Yulu 13→complete, or a new text); expand glossary 31→150+ terms.
+5. **`feature_completeness` (DONE 2026-08-10, status `healthy`)** — Phase-2 corpus ingest: 5 well-documented Congronglu (T2004) cases added (33 Nanquan-as-Cat, 34 Panshan-Mind-Seal, 35 Gutji-One-Finger, 37 Dongshan-Three-Pounds-of-Hemp, 38 Baizhang-Wild-Fox) → congronglu_cases 30→35 cases. Each new case carries a case-level CBETA locator (T2004_p0196c etc.) on data/canonical_locators.json. AI score moved 7 → 8. Metrics refreshed: 1352 corpus slots, 183/183 case-level locators, 107,563 content CJK.
 
 Lower-priority items: `error_handling_logging` (7/10, priority 3) — optional client-side error reporter.
 

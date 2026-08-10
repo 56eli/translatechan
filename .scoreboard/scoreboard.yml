@@ -13,11 +13,10 @@ manual_workflow_policy:
   instruction: "Do not edit .github/workflows/* unless the user explicitly instructs you. If workflow changes are needed, document exact GitHub web editor steps in .scoreboard/manual-workflow-edits.md."
 
 summary:
-  overall_effective_score: 8.1
+  overall_effective_score: 8.2
   repo_ready_gate_status: warning
   top_priorities:
     - deployment_readiness
-    - feature_completeness
     - error_handling_logging
   active_risk_flags:
     - "CI workflow path list missing 3 files (theme-init.js, robots.txt, sitemap.xml) — needs manual .github/workflows/quality.yml edit (token lacks workflows scope). Tracked in .scoreboard/manual-workflow-edits.md."
@@ -27,7 +26,7 @@ summary:
 quality_gates:
   repo_ready:
     status: warning
-    overall_effective_score: 8.1
+    overall_effective_score: 8.2
     last_evaluated: 2026-08-10
     minimum_overall_effective_score: 8
     required:
@@ -483,28 +482,29 @@ aspects:
     category: product
     weight: 4
     target: 8
-    ai_score: 7
+    ai_score: 8
     user_score: null
-    effective_score: 7
-    gap: 1
-    priority: 4
-    status: needs_work
-    confidence: medium
+    effective_score: 8
+    gap: 0
+    priority: 0
+    status: healthy
+    confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Public scope: Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, Chan Lexicon — all working. ROADMAP items in flight: 4 of 36 corpus files are 100% complete; 32 are excerpt seeds. ROADMAP §Phase 2 calls for continued CBETA-collated completion. Glossary target 150+; currently 31."
+    ai_basis: "Public scope: Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, Chan Lexicon — all working. ROADMAP items in flight: 4 of 36 corpus files are 100% complete; 32 are excerpt seeds. 2026-08-10 Phase-2 ingest: added 5 well-documented Congronglu (Book of Serenity, T2004) cases (Nanquan-as-Cat, Panshan-Mind-Seal, Gutji-One-Finger, Dongshan-Three-Pounds-of-Hemp, Baizhang-Wild-Fox) bringing the corpus to 35/100 cases with case-level CBETA locators (T2004_p0196c etc.) on each. ROADMAP §Phase 2 calls for continued CBETA-collated completion. Glossary target 150+; currently 31."
     user_basis: null
     desired_direction:
-      - "Continue Phase 2: Congronglu 30→100, Dongshan Yulu 13→complete, or pick a new excerpt seed."
+      - "Continue Phase 2: the remaining 65 Congronglu cases, or Dongshan Yulu 13→complete, or a new excerpt seed."
       - "Glossary: 31 → 150+ terms over time (P3)."
     evidence:
       - "ROADMAP.md Phase 2"
-      - "data/project_metrics.json: 4 complete, 32 excerpt seeds"
+      - "data/project_metrics.json: 4 complete, 32 excerpt seeds; congronglu_cases 35/100 with 35 case-level CBETA locators"
       - "data/glossary/chan_terms.json: 31 terms"
+      - "scripts/validate_data.py: case_locators must cover exactly the declared case_num values"
     next_actions:
-      - "Optional: Phase 2 corpus ingest (P3)"
+      - "Optional: continue Congronglu ingest (P3)"
       - "Optional: glossary expansion (P3)"
     risk_flags: []
-    files_reviewed: [ROADMAP.md, data/project_metrics.json, data/glossary/chan_terms.json]
+    files_reviewed: [ROADMAP.md, data/project_metrics.json, data/corpus/congronglu_cases.json, data/canonical_locators.json, data/glossary/chan_terms.json]
 
   - id: deployment_readiness
     name: Deployment readiness

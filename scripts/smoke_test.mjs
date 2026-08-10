@@ -247,7 +247,7 @@ const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {
 if (Object.keys(perText).length !== 36) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '30/100 cases'], ['platform_sutra', '10/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '35/100 cases'], ['platform_sutra', '10/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
@@ -800,17 +800,17 @@ if (!wmStripHtml.includes('class="case-chip-num">1</span>') || !wmStripHtml.incl
 // 4bb. U2 (audit 2026-08-10, session 019feabb): 12/24/all segmented control
 // sits beside the primary load-more button. The buttons carry data-load-target
 // attributes that the delegated click handler routes through loadMoreCases(target).
-// Use congronglu_cases (30 cases) to avoid the wumenguan already-loaded state
-// from the earlier 4g regression block.
+// Use congronglu_cases (35 cases as of 2026-08-10) to avoid the wumenguan
+// already-loaded state from the earlier 4g regression block.
 corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
 const congrongStripHtml = ids['reader-content-target']._innerHTML;
-if (!congrongStripHtml.includes('data-load-target="24"') || !congrongStripHtml.includes('data-load-target="30"')) {
+if (!congrongStripHtml.includes('data-load-target="24"') || !congrongStripHtml.includes('data-load-target="35"')) {
   failures++; console.log('❌ U2: case load-more segmented control missing');
 }
-const segBtn = { getAttribute: n => n === 'data-load-target' ? '30' : null,
+const segBtn = { getAttribute: n => n === 'data-load-target' ? '35' : null,
   closest: sel => sel === '[data-load-target]' ? segBtn : null };
 (documentHandlers.click || []).forEach(fn => fn({ target: segBtn, preventDefault() {} }));
-if (!window.TranslateChan.loadMoreCases || (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length !== 30) {
+if (!window.TranslateChan.loadMoreCases || (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length !== 35) {
   failures++; console.log('❌ U2: data-load-target click did not expand to all cases');
 }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();

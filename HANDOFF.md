@@ -41,7 +41,7 @@ The published interface remains deliberately limited to **Bilingual Reader, Comp
    - **Record of Dongshan (`T1986 / X1321`)**: Expanded from 2 to **8 canonical encounter dialogues**.
    - **Record of Fayan (`T1985 / X1321`)**: Expanded from 3 to **8 canonical sermons and dialogues**.
    - **Record of Mazu (`T1986 / X1321`)**: Expanded from 2 sections to **8 canonical sermons and dialogues**.
-   - Verified project metrics: `corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178`, `106,615 source-content CJK characters`, `4 complete texts`, `32 excerpt seeds`.
+   - Verified project metrics: `corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183`, `107,563 source-content CJK characters`, `4 complete texts`, `32 excerpt seeds`.
 2. **SPA History Scroll Restoration (`app.js`)**:
    - Shipped the final remaining editorial candidate from `AUDIT.md` by recording per-view scroll position (`state.viewScroll[oldView] = window.scrollY`) and restoring it on browser Back/Forward navigation (`applyHash` / `switchViewRaw(view, false)`). Guarded by regression test `4z`.
 3. **External View-Routing Hardening (`app.js`)**:
@@ -85,7 +85,7 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 
 ```bash
 python3 -m py_compile scripts/*.py
-python3 scripts/validate_data.py          # corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178
+python3 scripts/validate_data.py          # corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium

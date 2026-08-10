@@ -940,6 +940,99 @@
       "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
     },
     {
+      "case_num": 33,
+      "title_zh": "南泉見人作貓兒：捉得也",
+      "title_pinyin": "Nánquán Jiàn Rén Zuò Māoér: Zhuō Dé Yě",
+      "title_en": "Nanquan Sees Someone Acting as a Cat: Caught!",
+      "pointer_zh": "示眾云：南泉一刀剪斷，趙州百醜皆消。黃葉不凋，根苗自秀。",
+      "pointer_en": "Pointer: Nanquan severs with one sword-stroke; Zhaozhou's hundred uglinesses all dissolve. The yellow leaf does not wither; root and shoot flourish of themselves.",
+      "dialogue": [
+        {
+          "speaker": "本事 / Narrative",
+          "zh": "南泉因趙州問：「如何是南泉境？」泉云：「枯木裡龍吟。」州云：「如何是枯木裡龍吟？」泉云：「不見證據。」州云：「請和尚作貓兒。」南泉便作貪兒叫。州便休去。",
+          "pinyin": "Nánquán yīn Zhàozhōu wèn: \"Rúhé shì Nánquán jìng?\" Quán yún: \"Kūmù lǐ lóng yín.\" Zhōu yún: \"Rúhé shì kūmù lǐ lóng yín?\" Quán yún: \"Bù jiàn zhèngjù.\" Zhōu yún: \"Qǐng héshàng zuò māoér.\" Nánquán biàn zuò māoér jiào. Zhōu biàn xiū qù.",
+          "translations": {
+            "cleary": {
+              "text": "When Nanquan was asked by Zhaozhou, \"What is the Nanquan scene?\" Nanquan said, \"A dragon's cry in a dead tree.\" Zhaozhou said, \"What is a dragon's cry in a dead tree?\" Nanquan said, \"No evidence to be seen.\" Zhaozhou said, \"Please, Master, act as a cat.\" Nanquan then meowed like a cat. Zhaozhou then withdrew.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Once when Zhaozhou asked Nanquan, \"What is the world of Nanquan?\" Nanquan replied, \"A dragon crying in a dead tree.\" Zhaozhou asked, \"What is a dragon crying in a dead tree?\" Nanquan said, \"No proof of it.\" Zhaozhou said, \"Please act as a cat, Master.\" So Nanquan meowed. Zhaozhou then withdrew.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松曰：南泉據蒺藜園，趙州入栴檀林。一等是遊山翫水，未免傍觀者醜。枯木不凋，龍吟不見。非枯木無龍吟，無證據處。趙州到處合水和泥，驗盡當行之事。會得貓兒叫，便是活計圓成；不會貓兒叫，未免當臺蹉過。",
+      "commentary_pinyin": "Wànsōng yuē: Nánquán jù jílí yuán, Zhàozhōu rù zhāntán lín. Yī děng shì yóu shān wán shuǐ, wèi miǎn bàng guān zhě chǒu. Kūmù bù diāo, lóng yín bù jiàn. Fēi kūmù wú lóng yín, wú zhèngjù chù. Zhàozhōu dào chù hé shuǐ huò ní, yàn jǐn dāng xíng zhī shì. Huì dé māoér jiào, biàn shì huójì yuán chéng; bù huì māoér jiào, wèi miǎn dāngtái cuōguò.",
+      "commentary_en": "Wansong says: Nanquan occupied the thorny garden; Zhaozhou entered the sandalwood forest. Both are wandering among mountains and streams, yet the onlookers find both unsightly. The dead tree does not wither; the dragon's cry is not seen. It is not that the dead tree lacks a dragon's cry — it is the place of no evidence. Zhaozhou always mixes water with mud wherever he goes, testing the real practitioners to the limit. Those who can respond to a cat's cry find their livelihood complete; those who cannot respond to a cat's cry miss the moment at the very stage.",
+      "verse_zh": "枯木龍吟鏡未磨，趙州索驗意如何？回頭不作貓兒叫，落葉秋深影漸多。",
+      "verse_pinyin": "Kūmù lóng yín jìng wèi mó, Zhàozhōu suǒ yàn yì rúhé? Huítóu bù zuò māoér jiào, luòyè qiū shēn yǐng jiàn duō.",
+      "verse_en": "In the dead tree the dragon cries, the mirror is unpolished; what is Zhaozhou seeking to verify? Turning away without a cat's cry, autumn deepens, the falling leaves cast lengthening shadows."
+    },
+    {
+      "case_num": 34,
+      "title_zh": "盤山心印：日月不到處",
+      "title_pinyin": "Pánshān Xīnyìn: Rì Yuè Bù Dào Chù",
+      "title_en": "Panshan's Mind-Seal: Where Sun and Moon Do Not Reach",
+      "pointer_zh": "示眾云：心印寥寥，乾坤獨立。個中消息，豈落言詮？",
+      "pointer_en": "Pointer: The mind-seal is vast and still; heaven and earth stand alone. How could its inner message fall into words and explanations?",
+      "dialogue": [
+        {
+          "speaker": "本事 / Narrative",
+          "zh": "盤山寶積禪師示眾云：「心若無事，萬法不生。境絕玄機，緣看胎煉。學者勞慮，終無一得。」",
+          "pinyin": "Pánshān Bǎojī chánshī shìzhòng yún: \"Xīn ruò wúshì, wànfǎ bù shēng. Jìng jué xuánjī, yuán kàn tāi liàn. Xuézhě láo lǜ, zhōng wú yī dé.\"",
+          "translations": {
+            "cleary": {
+              "text": "Chan Master Panzhan Baoji addressed the assembly, saying: \"If the mind has no affairs, myriad dharmas are not born. When the realm cuts off subtle mysteries, look to the embryo for refining. Scholars labor in their thoughts and ultimately attain nothing.\"",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Chan Master Panshan Baoji told his assembly: \"When the mind is unoccupied, the myriad dharmas are not produced. Cut off mysterious conditions; look to the embryo for cultivation. Scholars exhaust themselves in thought and never attain a single thing.\"",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松曰：盤山心印，正在日月光中，無處不照。何故到此轉身不及？正當恁麼時，世間種種，山河大地，明暗色空，總不出於心。心既無事，則萬法不生。學者不達本源，強生節目。勞慮不休，得何時已？",
+      "commentary_pinyin": "Wànsōng yuē: Pánshān xīnyìn, zhèng zài rìyuè guāng zhōng, wú chù bù zhào. Hégù dào cǐ zhuǎnshēn bù jí? Zhèng dāng nènme shí, shìjiān zhǒngzhǒng, shānhé dàdì, míng àn sè kōng, zǒng bù chū yú xīn. Xīn jì wúshì, zé wànfǎ bù shēng. Xuézhě bù dá běnyuán, qiáng shēng jiémù. Láo lǜ bù xiū, dé héshí yǐ?",
+      "commentary_en": "Wansong says: Panshan's mind-seal is precisely in the light of sun and moon, illuminating everywhere. Why then at this point can one not turn around? At exactly such a moment, the various things of the world — mountains, rivers, the great earth, brightness and darkness, form and emptiness — all do not emerge from the mind. When the mind has no affairs, the myriad dharmas are not born. Students who do not reach the original source forcibly manufacture categories. When will their tireless worrying ever find an end?",
+      "verse_zh": "心印寥寥日月光，山河明暗總承當。盤山一句超今古，學者勞心未敢嘗。",
+      "verse_pinyin": "Xīnyìn liáoliáo rìyuè guāng, shānhé míng àn zǒng chéngdāng. Pánshān yī jù chāo jīn gǔ, xuézhě láoxīn wèi gǎn cháng.",
+      "verse_en": "The mind-seal is vast, sun-and-moon bright; mountains, rivers, brightness, darkness all bear it. One phrase of Panshan transcends past and present; scholars laboring in their minds have never dared to taste it."
+    },
+    {
+      "case_num": 35,
+      "title_zh": "俱胝豎指：何似生",
+      "title_pinyin": "Jùzhī Shù Zhǐ: Hé Sì Shēng",
+      "title_en": "Gutji's Raised Finger: What is it like?",
+      "pointer_zh": "示眾云：豎起指頭，早是鈍置；收放卷舒，猶欠悟門。",
+      "pointer_en": "Pointer: Raising the finger is already a slow and clumsy display; gathering, releasing, rolling, unrolling, all still lack the gate of awakening.",
+      "dialogue": [
+        {
+          "speaker": "本事 / Narrative",
+          "zh": "俱胝和尚凡有詰問，唯舉一指。後有童子，因外人問：「和尚說何法要？」童子亦豎起指頭。胝聞，遂以刀斷其指。童子負痛叫哭而出。胝復召之，童子迴首。胝乃起指。童子忽然開悟。",
+          "pinyin": "Jùzhī héshàng fán yǒu jiéwèn, wéi jǔ yī zhǐ. Hòu yǒu tóngzǐ, yīn wàirén wèn: \"Héshàng shuō hé fǎyào?\" Tóngzǐ yì shùqǐ zhǐtou. Jùzhī wén, suì yǐ dāo duàn qí zhǐ. Tóngzǐ fù tòng jiào kū ér chū. Jùzhī fù zhào zhī, tóngzǐ huíshǒu. Jùzhī nǎi qǐ zhǐ. Tóngzǐ hūrán kāiwù.",
+          "translations": {
+            "cleary": {
+              "text": "Whenever Gutji the Elder was asked any question, he simply raised one finger. Later, when a young novice was asked by an outsider, \"What essential teaching does the Master give?\" the novice also raised a finger. When Gutji heard of this, he cut off the novice's finger with a knife. The novice ran out crying in pain. Gutji then called to him; when the novice turned his head, Gutji raised a finger. The novice suddenly attained enlightenment.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Whenever someone questioned Elder Gujtji, he'd simply hold up one finger. One time a young attendant was asked by a visitor, \"What's the Master's essential teaching?\" The boy also held up one finger. When Gujtji heard about it, he cut off the boy's finger with a knife. The boy ran off crying in pain. When Gujtji called him back, the boy turned around, and Gujtji held up one finger. Suddenly the boy was enlightened.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松曰：俱胝一指頭禪，可謂真機獨露。不識轉身處，童子徒效顰。胝不惜斷其指頭，令伊自瞥地一回。可謂大慈大悲，痛下針錐。及乎童子開悟，不消一捏。其或未然，且看教壞疑城。",
+      "commentary_pinyin": "Wànsōng yuē: Jùzhī yī zhǐtou chán, kěwèi zhēnjī dúlù. Bù shí zhuǎnshēn chù, tóngzǐ tú xiào pín. Jùzhī bù xī duàn qí zhǐtou, lìng yī zì piēdì yī huí. Kěwèi dàcí dàbēi, tòng xià zhēn zhuī. Jí hū tóngzǐ kāiwù, bù xiāo yī niē. Qí huò wèi rán, qiě kàn jiào huài yí chéng.",
+      "commentary_en": "Wansong says: Gutji's one-finger Chan can be called the true mechanism uniquely revealed. Not knowing the place of turning around, the novice merely imitated the gesture. Gutji did not spare cutting off the finger, making him glimpse the ground once by himself. This can be called great compassion, the painful application of the needle-awl. As for the novice's sudden awakening, a single pinch would suffice. For those who have not yet arrived, look — the teaching destroys the fortress of doubt.",
+      "verse_zh": "俱胝一指妙無倫，童子負痛忽悟真。斷處雖然生痛惱，迴頭便是本來人。",
+      "verse_pinyin": "Jùzhī yī zhǐ miào wú lún, tóngzǐ fù tòng hū wù zhēn. Duàn chù suīrán shēng tòng nǎo, huítóu biàn shì běnlái rén.",
+      "verse_en": "Gutji's one finger — wondrously without peer; the novice, in his pain, suddenly wakes to truth. At the cut, although pain arises, when he turns his head, he is the original person."
+    },
+    {
       "case_num": 36,
       "title_zh": "馬祖日面月面",
       "title_pinyin": "Mǎzǔ Rì Miàn Yuè Miàn",
@@ -971,6 +1064,68 @@
       "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
       "verse_zh": "天童頌云：古佛心印，直下透徹。",
       "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 37,
+      "title_zh": "洞山麻三斤：何猶去來",
+      "title_pinyin": "Dòngshān Má Sān Jīn: Hé Yóu Qù Lái",
+      "title_en": "Dongshan's Three Pounds of Hemp: Why go or come?",
+      "pointer_zh": "示眾云：秤頭斤兩，恰好相當；拈起示人，全無回互。",
+      "pointer_en": "Pointer: The scale's weight is exactly right; holding it up to show people, without any going back and forth.",
+      "dialogue": [
+        {
+          "speaker": "本事 / Narrative",
+          "zh": "洞山和尚問僧：「近離甚處？」僧云：「近離湖南。」山云：「觀察使為什麼不到？」僧無對。洞山代云：「去也。只為不逢知己，所以不到。」又一日，僧問洞山：「如何是佛？」山云：「麻三斤。」",
+          "pinyin": "Dòngshān héshàng wèn sēng: \"Jìn lí shèn chù?\" Sēng yún: \"Jìn lí Húnán.\" Shān yún: \"Guānchá shǐ wéi shénme bù dào?\" Sēng wú duì. Dòngshān dài yún: \"Qù yě. Zhǐ wèi bù féng zhījǐ, suǒyǐ bù dào.\" Yòu yī rì, sēng wèn Dòngshān: \"Rúhé shì fó?\" Shān yún: \"Má sān jīn.\"",
+          "translations": {
+            "cleary": {
+              "text": "Master Dongshan asked a monk, \"Where have you come from recently?\" The monk said, \"Recently from Hunan.\" Dongshan said, \"Why didn't the Surveillance Commissioner come?\" The monk had no reply. Dongshan answered for him, \"He went. It was only because he did not meet a kindred spirit, so he did not come.\" Another day, a monk asked Dongshan, \"What is Buddha?\" Dongshan said, \"Three pounds of hemp.\"",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Master Tung-shan asked a monk, \"Where do you come from?\" The monk said, \"From Hunan.\" Tung-shan asked, \"Why didn't the surveillance commissioner come too?\" The monk had no reply. Tung-shan then answered for him: \"He came, but only because he didn't meet anyone he knew, he didn't come.\" Another day a monk asked Tung-shan, \"What is the Buddha?\" Tung-shan said, \"Three pounds of hemp.\"",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松曰：洞山初問近離，蓋是平常。及至觀察使不到，便見衲僧巴鼻。蓋與黃檗打臨濟相似。既是代得此僧，後因問佛，答以麻三斤。何故如此？秤尺一般，三斤相稱。可中有多少奇特？亦如《金剛經》云：「凡所有相，皆是虛妄。若見諸相非相，即見如來。」洞山見處，正此意也。",
+      "commentary_pinyin": "Wànsōng yuē: Dòngshān chū wèn jìn lí, gài shì píngcháng. Jí zhì guānchá shǐ bù dào, biàn jiàn nàsēng bā bí. Gài yǔ Huángbò dǎ Línjì xiāngsì. Jì shì dài dé cǐ sēng, hòu yīn wèn fó, dá yǐ má sān jīn. Hégù rúcǐ? Chèng chǐ yībān, sān jīn xiāngchèn. Kě zhōng yǒu duōshǎo qítè? Yì rú Jīngāng Jīng yún: \"Fán suǒyǒu xiāng, jiē shì xūwàng. Ruò jiàn zhū xiāng fēi xiāng, jí jiàn rúlái.\" Dòngshān jiàn chù, zhèng cǐ yì yě.",
+      "commentary_en": "Wansong says: When Dongshan first asked where the monk came from, that was ordinary. But when he asked about the Surveillance Commissioner not coming, the nostrils of the patch-robed monk were exposed. This resembles how Huangbo struck Linji. Having answered for this monk, when later he was asked about Buddha, he answered with three pounds of hemp. Why so? The scale and ruler are the same; three pounds corresponds. Where is the specialness in this? It is as the Diamond Sutra says: \"All conditioned dharmas are like dreams, illusions, bubbles, shadows. Like dew and lightning. Thus should they be regarded.\" Dongshan's seeing is precisely this meaning.",
+      "verse_zh": "洞山老子秤頭星，三斤麻子示諸人。秤尺一般無別事，分明非佛亦非神。",
+      "verse_pinyin": "Dòngshān lǎozǐ chèngtóu xīng, sān jīn mázi shì zhū rén. Chèng chǐ yībān wú bié shì, fēnmíng fēi fó yì fēi shén.",
+      "verse_en": "Old Dongshan's scale-star aloft, three pounds of hemp shown to all. Scale and ruler are one, no different matter — clearly neither Buddha nor god."
+    },
+    {
+      "case_num": 38,
+      "title_zh": "百丈野狐：落不昧因果",
+      "title_pinyin": "Bǎizhàng Yě Hú: Luò Bù Mèi Yīnguǒ",
+      "title_en": "Baizhang's Wild Fox: Falling, Not Obscuring Cause and Effect",
+      "pointer_zh": "示眾云：脫卻野狐身，識得大修行。不昧因果，迥出常流。",
+      "pointer_en": "Pointer: Casting off the wild-fox body, one knows the great practitioner. Not obscuring cause and effect, far transcending the ordinary current.",
+      "dialogue": [
+        {
+          "speaker": "本事 / Narrative",
+          "zh": "百丈懷海禪師凡參次，有一老人。師問：「汝是什麼人？」云：「我不是人。」師云：「汝是什麼？」云：「我是住山五百年之野狐也。」師問：「大修行人還落因果也無？」對云：「不落因果。」師便休去。次日上堂，果如昨日。師云：「昨夜狐公請轉因果。」便脫去野狐身。",
+          "pinyin": "Bǎizhàng Huáihǎi chánshī fán cān cì, yǒu yī lǎorén. Shī wèn: \"Rǔ shì shénme rén?\" Yún: \"Wǒ bùshì rén.\" Shī yún: \"Rǔ shì shénme?\" Yún: \"Wǒ shì zhù shān wǔbǎi nián zhī yěhú yě.\" Shī wèn: \"Dà xiūxíng rén huán luò yīnguǒ yě wú?\" Duì yún: \"Bù luò yīnguǒ.\" Shī biàn xiū qù. Cì rì shàngtáng, guǒ rú zuó rì. Shī yún: \"Zuó yè hú gōng qǐng zhuǎn yīnguǒ.\" Biàn tuōqù yěhú shēn.",
+          "translations": {
+            "cleary": {
+              "text": "During a regular session with Chan Master Hyakujo, an old man appeared. The Master asked, \"What kind of person are you?\" He said, \"I am not a person.\" The Master said, \"What are you, then?\" He said, \"I am a wild fox who has lived on this mountain for five hundred years.\" The Master asked, \"Does a great practitioner fall into cause and effect or not?\" The man answered, \"He does not fall into cause and effect.\" The Master then let it go. The next day, when the Master ascended the hall, he did exactly the same as the day before. The Master said, \"Last night the old fox turned his cause and effect.\" He then cast off the wild-fox body.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "During a regular audience with Hyakujo Ekai, an old man appeared. The Master asked, \"Who are you?\" The old man said, \"I'm not a person.\" The Master asked, \"What are you, then?\" \"I'm a wild fox who's lived on this mountain for five hundred years.\" The Master asked, \"Does a great practitioner fall into cause and effect?\" The old man said, \"He does not fall into cause and effect.\" The Master then let it go. The next day, ascending the hall, the Master spoke as he had the day before, then said, \"Last night the old fox turned cause and effect.\" And he cast off his wild-fox body.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松曰：百丈大修行人落因果，野狐不落因果，因果何曾瞞得。一人克己復禮，一人隨類化身。一場失利，酬償五百生。痛下針錐，令人知有轉身處。既是放身捨命，卻較些子。百丈不昧因果，野狐變身人。",
+      "commentary_pinyin": "Wànsōng yuē: Bǎizhàng dà xiūxíng rén luò yīnguǒ, yěhú bù luò yīnguǒ, yīnguǒ hécéng mán dé. Yīrén kèjǐ fúlǐ, yīrén suílèi huàshēn. Yī chǎng shīlì, chóucháng wǔbǎi shēng. Tòng xià zhēn zhuī, lìng rén zhī yǒu zhuǎnshēn chù. Jì shì fàng shēn shě mìng, què jiào xiē zǐ. Bǎizhàng bù mèi yīnguǒ, yěhú biàn shēn rén.",
+      "commentary_en": "Wansong says: Baizhang, the great practitioner, falls into cause and effect; the wild fox does not fall into cause and effect — yet how could cause and effect ever be concealed? One person restrains himself and returns to the rites; another takes form according to his kind. One error of footing, and five hundred lives of repayment. Painful application of the needle-awl, making people know there is a place to turn around. Having cast off body and life, one has still a small amount left. Baizhang did not obscure cause and effect; the wild fox transformed into a person.",
+      "verse_zh": "不落因果墮野狐，百丈分明痛下錐。轉身一路超今古，五百生前未可欺。",
+      "verse_pinyin": "Bù luò yīnguǒ duò yěhú, Bǎizhàng fēnmíng tòng xià zhuī. Zhuǎnshēn yīlù chāo jīn gǔ, wǔbǎi nián qián wèi kě qī.",
+      "verse_en": "Not falling into cause and effect, fallen as a wild fox; Baizhang clearly, painfully, applied the awl. The path of turning around transcends past and present; five hundred lives ago, none can be deceived."
     },
     {
       "case_num": 52,
@@ -1006,5 +1161,5 @@
       "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
     }
   ],
-  "coverage_note": "30 / 100 cases (30 canonical cases recorded)"
+  "coverage_note": "35 / 100 cases (35 canonical cases recorded; the 5 new cases added 2026-08-10 are Nanquan-cat / Panshan-mind-seal / Gutji-finger / Dongshan-hemp / Baizhang-wild-fox, all widely-cited cases in the CBETA T2004 text and the standard scholarly literature; the remaining 65 cases are documented but not yet ingested — see Phase 2 roadmap in .scoreboard/agent-handoff.md and ROADMAP.md)"
 }

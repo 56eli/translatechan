@@ -23,9 +23,9 @@ a11y/ARIA behavior, filter derivations, and escaping.
 Current measured facts (validator-generated; the prose numbers below are
 guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
 
-- Corpus: **36 documents**; Wumenguan **48/48 cases** complete; Biyanlu **100/100 cases** (**complete ✅** — both counted by the manifest-target completeness metric now, no longer hardcoded); **32 excerpt seeds**; **106,615 content CJK / 112,408 all-string CJK**.
-- Translations: **1342 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**.
-- Locators: **178/178 case-level**; **33 document-level seeds** pending unit locators.
+- Corpus: **36 documents**; Wumenguan **48/48 cases** complete; Biyanlu **100/100 cases** (**complete ✅** — both counted by the manifest-target completeness metric now, no longer hardcoded); **32 excerpt seeds**; **107,563 content CJK / 113,410 all-string CJK**.
+- Translations: **1352 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**.
+- Locators: **183/183 case-level**; **33 document-level seeds** pending unit locators.
 - Lineage: **34 masters** (30 seed + 4 frontier scaffolds), **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**, source-status aware.
 - Glossary: **31 terms**; Gong'an index: **24 entries** (7 validator-enforced theme groups).
 - Bundle: deterministic zero-backend static build (current size reported by `data/project_metrics.json` and the validator's quality-gate summary line; grew with the Biyanlu 100/100 completion + Linji pilot); root and `/docs` byte-identical by CI gate.

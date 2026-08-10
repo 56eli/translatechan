@@ -23,8 +23,7 @@ Agent sessions are sandboxed and may expire after a PR merge. **Durable context 
 | # | Aspect | Effective | Gap | Weight | Priority | Status |
 |---|---|---:|---:|---:|---:|---|
 | 1 | deployment_readiness | 7 | 1 | 4 | 4 | blocked_manual_workflow_edit |
-| 2 | feature_completeness | 7 | 1 | 4 | 4 | needs_work |
-| 3 | error_handling_logging | 7 | 1 | 3 | 3 | needs_work |
+| 2 | error_handling_logging | 7 | 1 | 3 | 3 | needs_work |
 
 ## Scoreboard table
 
@@ -47,7 +46,7 @@ Agent sessions are sandboxed and may expire after a PR merge. **Durable context 
 | UX / usability | 4 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | — |
 | Accessibility | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: aria-live announcements (P3) |
 | Content quality | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: next Phase 2 ingest (P3) |
-| Feature completeness | 4 | 8 | 7 | — | 7 | 1 | 4 | needs_work | medium | Continue Phase 2 corpus ingest (Congronglu/Dongshan/etc.); expand glossary 31→150+ |
+| Feature completeness | 4 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: continue Congronglu ingest (P3) |
 | Deployment readiness | 4 | 8 | 7 | — | 7 | 1 | 4 | blocked_manual_workflow_edit | high | Owner: enable branch protection requiring Quality check (see manual-workflow-edits.md Edit 2) |
 | Agent readiness | 5 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | — |
 | Task hygiene | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | — |
