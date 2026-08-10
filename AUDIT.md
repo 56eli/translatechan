@@ -1,6 +1,6 @@
 # 🔍 Fake Chan Factory — Current Audit & Session Index
 
-> **Current evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
+> **Current evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
 > **Convention:** this file contains only the current verdict, blockers, checks, and session index. Dated reports are historical snapshots and may contain metrics or conclusions superseded here.
 
 ## 1. Current verdict — 2026-08-10, session `019febb1`
@@ -54,7 +54,8 @@ A passing validator/smoke run currently establishes structural consistency and n
 
 | Date | Session | Report | Historical outcome |
 |---|---|---|---|
-| 2026-08-10 | `019febb1` | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md), [`sessions/FUNCTIONAL_HOTFIX_2026-08-10.md`](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md), [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md), [`sessions/DESIGN_PHASE_AB_2026-08-10.md`](./sessions/DESIGN_PHASE_AB_2026-08-10.md) | **Current:** audit, containment, functional hotfix, design plan, and owner-approved shell/Reader implementation |
+| 2026-08-10 | `019fec5c` | [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) | **Current:** Full Senior Dev & Web Designer audit identifying secondary-room design gap, 84 inline styles, and strict-mode storage TypeError risk |
+| 2026-08-10 | `019febb1` | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md), [`sessions/FUNCTIONAL_HOTFIX_2026-08-10.md`](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md), [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md), [`sessions/DESIGN_PHASE_AB_2026-08-10.md`](./sessions/DESIGN_PHASE_AB_2026-08-10.md) | Prior audit, containment, functional hotfix, design plan, and owner-approved shell/Reader implementation |
 | 2026-08-10 | `019feaf5` | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md), [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md), [`AUDIT_UPDATE_2026-08-10_hero.md`](./AUDIT_UPDATE_2026-08-10_hero.md) | Website vision, hero/OG/footer changes; prior 8.2 verdict now superseded |
 | 2026-08-10 | `019feabb` | [`sessions/SESSION_AUDIT_2026-08-10_019feabb.md`](./sessions/SESSION_AUDIT_2026-08-10_019feabb.md), [`docs/audits/2026-08-10-baseline.md`](./docs/audits/2026-08-10-baseline.md) | Scoreboard baseline, layout work, Congronglu expansion; prior verdict superseded |
 | 2026-08-10 | `019fea62` | [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md) | Routing/scroll/a11y fixes |

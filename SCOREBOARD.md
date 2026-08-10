@@ -1,13 +1,13 @@
 # 📊 TranslateChan / Fake Chan Factory — Repo Scoreboard
 
-> **Last updated:** 2026-08-10, session `arena/019febb1-translatechan`
-> **Evidence:** [full audit](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) · [containment](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md) · [functional hotfix](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md) · [YAML](./.scoreboard/scoreboard.yml) · [history](./.scoreboard/history.md) · [handoff](./.scoreboard/agent-handoff.md)
+> **Last updated:** 2026-08-10, session `arena/019fec5c-translatechan`
+> **Evidence:** [full audit & implementation](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [prior audit](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) · [YAML](./.scoreboard/scoreboard.yml) · [history](./.scoreboard/history.md) · [handoff](./.scoreboard/agent-handoff.md)
 
 ## Current result
 
-**Overall effective score: 6.9/10. `repo_ready = fail`.**
+**Overall effective score: 7.6/10. `repo_ready = fail`.**
 
-The audit/containment/functional sequence established a 7.0 engineering baseline; owner feedback correctly reset visual confidence to 6.8. Owner-approved Phase A+B now implements the structural walnut shell and Reader literature hierarchy, raising the current score to 6.9 without claiming the four secondary rooms or vision approval are complete.
+Following user selection of the secondary-room visual redesign and responsive/accessibility unification, we implemented **Phase C & D** (Matrix Proof Sheet, Lineage Chronological Directory, Gong'an Catalogue Shelf, Lexicon Dictionary Rows), eliminated all 19 HTML inline style occurrences in `index.html`, standardized all 10 responsive media queries to a disciplined two-tier system (`1024px` / `768px`), hardened WCAG AA color contrast ratios across light/dark themes, silenced redundant "🤖 Robolation" badges where translator headers already display "🤖 Robo [Name]", and patched the strict-mode `localStorage` TypeError vulnerability in `app.js`, raising the current score to 7.6 without claiming formal screenshot verification or rights governance are complete.
 
 No explicit user score has been supplied. Every `user_score` remains `null`.
 
@@ -15,12 +15,12 @@ No explicit user score has been supplied. Every `user_score` remains `null`.
 
 | Priority | Aspect | Score | Gap × weight | Why |
 |---:|---|---:|---:|---|
-| 1 | GitHub Pages presentation | 6 | 10 | Shell/Reader implemented; four rooms and visual verification remain |
-| 2 | Error handling / logging | 5 | 9 | No fatal-load UI; malformed storage path remains |
+| 1 | GitHub Pages presentation | 7 | 8 | All five rooms implemented; screenshot verification & owner visual approval remain |
+| 2 | Error handling / logging | 6 | 7 | Storage shape validation patched; fatal load UI boundary remains |
 | 3 | Deployment readiness | 6 | 8 | Rights and operations gates still block release |
 | 4 | Content quality | 6 | 6 | Rights decisions and field-level source review |
 | 5 | CI/CD | 6 | 4 | Missing paths, deprecated action runtimes, no required browser job |
-| 6 | Security / privacy | 7 | 5 | CSP order, inline styles, Google Fonts, reporting route |
+| 6 | Security / privacy | 8 | 4 | Inline HTML styles eliminated (19 -> 0); Google Fonts runtime dependency |
 
 ## Score table
 

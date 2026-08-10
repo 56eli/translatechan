@@ -26,13 +26,13 @@
   /* Ink & Tea Typography */
   --text-primary: #2c2523;
   --text-secondary: #6e645e;
-  --text-muted: #756b64; /* darkened for WCAG AA contrast (was #9c9189 ≈ 2.8:1) */
+  --text-muted: #665c56; /* darkened for WCAG AA contrast (was #9c9189 ≈ 2.8:1) */
   --text-chinese: #1f1a18;
 
   /* Zen Natural Accents */
-  --accent-gold: #9e7232;
+  --accent-gold: #8b622b;
   --accent-gold-light: #f7f2e7;
-  --accent-gold-hover: #825d27;
+  --accent-gold-hover: #724e1e;
   --accent-green: #3d6e58;
   --accent-green-light: #eef5f1;
   --accent-blue: #325d79;
@@ -347,7 +347,7 @@ h2.term-card-zh {
 .settings-opt.active { background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold-hover); }
 .settings-opt.active small { color: currentColor; opacity: 0.8; }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .shell-frame { padding: 0.5rem 0.75rem 0; }
   .shell-primary { align-items: center; gap: 0.6rem; }
   .brand-title-en { display: none; }
@@ -398,7 +398,7 @@ body:not([data-current-view="reader"]) #about-toggle {
 .zen-quote-sub { font-size: 0.75rem; color: var(--text-secondary); max-width: 760px; line-height: 1.45; }
 .zen-quote-sub strong { color: var(--text-primary); font-weight: 700; }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .zen-hero-banner { align-items: flex-start; padding-top: 0.55rem; }
   .hero-meta { flex-direction: column; align-items: flex-end; gap: 0.15rem; }
   .zen-quote-sub { max-width: 30rem; }
@@ -510,7 +510,7 @@ body:not([data-current-view="reader"]) #about-toggle {
 .corpus-status-mark.is-complete { color: var(--accent-green); background: transparent; border: 0; }
 [data-theme="dark"] .corpus-status-mark.is-complete { color: #8bc9ad; background: transparent; border: 0; }
 
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .reader-layout { grid-template-columns: minmax(0, 1fr); }
   .sidebar-panel { display: none; }
 }
@@ -526,7 +526,7 @@ body:not([data-current-view="reader"]) #about-toggle {
   min-height: 600px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .content-panel {
     padding: 1.25rem;
   }
@@ -749,6 +749,10 @@ body:not([data-current-view="reader"]) #about-toggle {
   color: var(--accent-blue);
 }
 
+.translation-status.is-silent-robo {
+  display: none !important;
+}
+
 .translation-source {
   font-size: 0.72rem; /* raised from 0.62rem (~10px) — citation metadata must stay legible (N10, 2026-08-09) */
   color: var(--text-muted);
@@ -967,7 +971,7 @@ body:not([data-current-view="reader"]) #about-toggle {
 #reader-content-target .commentary-block,
 #reader-content-target .verse-block { background: transparent; border-radius: 0; box-shadow: none; }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .document-title-row { align-items: flex-start; }
   .document-status { font-size: 0.58rem; }
   .document-details dl { left: 0; right: auto; }
@@ -1514,12 +1518,12 @@ mark {
 }
 
 /* Unified shelf/chooser breakpoint */
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .mobile-corpus-picker { display: block; max-width: 900px; margin: 0 auto 0.75rem; }
 }
 
 /* Reader-only phone controls */
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   body[data-current-view="reader"] .mobile-action-bar { display: flex; }
   body[data-current-view="reader"] { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
   body:not([data-current-view="reader"]) { padding-bottom: 0; }
@@ -1697,7 +1701,7 @@ mark {
   border: 1px solid var(--border-color);
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .graph-toolbar {
     align-items: flex-start;
   }
@@ -1889,3 +1893,385 @@ textarea:focus-visible,
 .reader-toolbar .reader-mode-btn { width: auto; text-align: center; }
 .reader-toolbar .reader-mode-btn.active,
 .reader-toolbar .reader-mode-btn[aria-pressed="true"] { background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold-hover); font-weight: 700; }
+
+/* ==========================================================================
+   Phases C & D: Visual System Consolidation & Secondary Rooms (019fec5c)
+   ========================================================================== */
+
+/* Remove hover lifts from reading/catalogue cards across rooms */
+.matrix-card:hover,
+.master-card:hover,
+.term-card:hover,
+.case-card:hover {
+  transform: none;
+}
+
+/* Error Boundary UI (Scoreboard P2 resiliency fix) */
+.error-boundary-card {
+  max-width: 640px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-left: 4px solid var(--accent-red);
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+.error-boundary-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--accent-red);
+  margin-bottom: 0.75rem;
+}
+.error-boundary-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+.error-boundary-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Utility classes replacing inline style occurrences */
+.lineage-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.lineage-graph-frame {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+}
+.lineage-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.lineage-svg-graph {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 640px;
+}
+.lexicon-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.lexicon-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.room-filter-rail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.text-sm-muted {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+.dossier-ledger-item {
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+.dossier-ledger-label {
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-right: 0.35rem;
+}
+.commentary-card {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent-blue);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+.pinyin-line-bare {
+  border: none;
+  padding: 0;
+}
+
+/* Phase D: Matrix Room — Proof Sheet Layout */
+.matrix-proof-sheet {
+  border-bottom: 2px solid var(--border-color);
+  padding: 2.25rem 0;
+  margin-bottom: 1.5rem;
+}
+.matrix-source-band {
+  margin-bottom: 1.5rem;
+}
+.matrix-ref-clean {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+.matrix-sentence-zh {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  line-height: 1.85;
+  color: var(--text-chinese);
+  margin-bottom: 0.35rem;
+}
+.matrix-sentence-pinyin {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+.matrix-registers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+.matrix-register-col {
+  border-right: 1px solid var(--border-color);
+  padding-right: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.matrix-register-col:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+.matrix-reg-header {
+  margin-bottom: 0.75rem;
+}
+.matrix-reg-text {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  flex-grow: 1;
+  margin-bottom: 0.85rem;
+}
+.matrix-reg-note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  border-top: 1px dashed var(--border-color);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Phase D: Gong'an Room — Catalogue Rows */
+.gongan-catalogue-row {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 0;
+}
+.gongan-catalogue-row:last-child {
+  border-bottom: none;
+}
+.catalogue-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.catalogue-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.catalogue-title-zh {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-chinese);
+}
+.catalogue-title-en {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.catalogue-summary {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+.catalogue-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.catalogue-tag-item {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+/* Phase D: Lexicon Room — Dictionary Definition Rows */
+.lexicon-definition-row {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.75rem 0;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.lexicon-headword-col {
+  display: flex;
+  flex-direction: column;
+}
+.lexicon-headword-zh {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+.lexicon-headword-literal {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+.lexicon-headword-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.lexicon-def-col {
+  display: flex;
+  flex-direction: column;
+}
+.lexicon-def-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+}
+.lexicon-occurrences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.lexicon-occ-tag {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.2rem 0.5rem;
+  color: var(--text-secondary);
+}
+
+/* Phase D: Lineage Room — Chronological Directory Rows */
+.master-directory-row {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1.5rem 0;
+  display: grid;
+  grid-template-columns: 80px 1fr 320px;
+  gap: 1.5rem;
+  align-items: start;
+}
+.master-dir-gen {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.master-dir-main {
+  display: flex;
+  flex-direction: column;
+}
+.master-dir-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-chinese);
+  margin-bottom: 0.25rem;
+}
+.master-dir-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin-bottom: 0.4rem;
+}
+.master-dir-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+.master-dir-quote {
+  border-left: 2px solid var(--wood-800);
+  padding-left: 1rem;
+  font-family: var(--font-serif);
+}
+.master-dir-quote-zh {
+  font-size: 1rem;
+  color: var(--text-chinese);
+  margin-bottom: 0.25rem;
+}
+.master-dir-quote-en {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .master-directory-row {
+    grid-template-columns: 60px 1fr;
+  }
+  .master-dir-quote {
+    grid-column: 2;
+    margin-top: 0.75rem;
+  }
+}
+@media (max-width: 768px) {
+  .lexicon-definition-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .matrix-register-col {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding-right: 0;
+    padding-bottom: 1.25rem;
+  }
+  .matrix-register-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .master-directory-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}

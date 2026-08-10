@@ -20,6 +20,14 @@
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the Five Houses and Seven Schools.
 5. **Deploy a Zero-Backend Static GitHub Pages Web App** for bilingual reading, comparative translation, lineage study, Gong'an indexing, and lexicon lookup.
 
+## 🏛️ Walnut Chan Hall Design & Architecture Upgrades (2026-08-10)
+
+The public SPA implements a restrained **Chinese Chan hall in dark walnut** visual grammar across all five rooms (`#view-reader`, `#view-matrix`, `#view-lineage`, `#view-gongan`, `#view-lexicon`):
+- **Phase A+B (Shell & Reader):** Walnut two-row navigation lintel, initial-only gate, grouped 2/2/31 literature shelf, progressive document provenance ledger, ruled reading sheets, and reader-scoped mobile controls.
+- **Phase C+D (Secondary Rooms & Visual Consolidation):** Matrix Proof Sheet (`.matrix-proof-sheet`) with full-width source sentence bands and equal-column comparative registers; Lineage Chronological Directory (`.master-directory-row`); Gong'an Catalogue Shelf (`.gongan-catalogue-row`); and Lexicon Dictionary Rows (`.lexicon-definition-row`) without generic SaaS card styling or decorative emoji overload.
+- **Responsive & Accessibility Unification:** Standardized CSS media queries to a disciplined two-tier responsive architecture (`1024px` tablet/shelf collapse and `768px` mobile stack), hardened WCAG AA active token contrast ratios across light and dark themes, and eliminated all inline styles from `index.html`.
+- **UI Cleanliness & Resiliency:** Silenced redundant `🤖 Robolation` status badges (`.is-silent-robo`) where translator headers already display `🤖 Robo [Name]`, while preserving `✅ Edition-verified quotation` badges for genuine published editions. Patched strict-mode `localStorage` TypeError parsing and added a top-level `.error-boundary-card` for bundle load failures.
+
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
 Every visible translation register carries a **✅ Edition-verified quotation**, **🤖 Robolation**, or **🤖 Robo draft** badge. Every citation also exposes the recorded source and rights status. Edition verification establishes wording, not permission or public-domain status; all rights records still require their documented human review. A Robolation is project text using broad style characteristics associated with a scholar, **not** copied from or attributable as wording in that scholar's work, and is not citable as their translation. The campaign delivered:

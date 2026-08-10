@@ -149,46 +149,46 @@
         <h1 class="text-title-zh">多譯本對照矩陣 / Comparative Matrix</h1>
         <p class="text-title-en">Sentence-by-sentence side-by-side comparison across historical and contemporary translators and AI synthesis</p>
       </div>
-      <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="Robo renderings are AI text written in a translator's broad register — not their actual published words. Edition-verified quotations disclose source and separate rights status.">
-        🤖 <strong>Heads up:</strong> most translations here are <em>Robolations</em> — AI written in a scholar's register, not their real book. A ✅ means wording was checked against a recorded edition; it does not by itself mean public domain or approved reuse. Don't cite a Robo rendering as the translator's work.
+      <div class="meta-chip meta-chip-bare text-sm-muted" title="Robo renderings are AI text written in a translator's broad register — not their actual published words. Edition-verified quotations disclose source and separate rights status.">
+        <strong>Heads up:</strong> most translations here are <em>Robolations</em> — AI written in a scholar's register, not their real book. A ✅ means wording was checked against a recorded edition; it does not by itself mean public domain or approved reuse. Don't cite a Robo rendering as the translator's work.
       </div>
       <div id="matrix-content-target" class="matrix-container"></div>
     </section>
 
     <!-- View 3: Lineage Tree Explorer -->
     <section id="view-lineage" class="view-section" role="tabpanel" aria-labelledby="tab-lineage">
-      <div class="text-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+      <div class="text-header lineage-toolbar">
         <div>
           <h1 class="text-title-zh">禪宗宗派法脈傳承譜 / Lineage Knowledge Graph</h1>
           <p class="text-title-en">Interactive Transmission Network & Genealogical Matrix from Bodhidharma to the Five Houses</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-          <div style="display: flex; gap: 0.25rem; background: var(--bg-card); padding: 0.2rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
-            <button id="lineage-mode-graph-btn" class="btn-pill active" style="font-size: 0.75rem;">🌐 Visual Network</button>
-            <button id="lineage-mode-cards-btn" class="btn-pill" style="font-size: 0.75rem;">🗃️ Master Cards</button>
+        <div class="lineage-filter-row">
+          <div class="lineage-filter-row">
+            <button id="lineage-mode-graph-btn" class="btn-pill active">Visual Network</button>
+            <button id="lineage-mode-cards-btn" class="btn-pill">Master Directory</button>
           </div>
-          <select id="lineage-sort-filter" class="search-input" aria-label="Sort lineage display" style="width: auto; padding: 0.35rem 0.75rem;">
+          <select id="lineage-sort-filter" class="search-input" aria-label="Sort lineage display">
             <option value="generation">Tree order</option>
             <option value="chronology">Chronological order</option>
             <option value="name">Name order</option>
             <option value="school">School order</option>
           </select>
-          <select id="lineage-school-filter" class="search-input" aria-label="Filter masters by lineage school" style="width: auto; padding: 0.35rem 0.75rem;"></select>
+          <select id="lineage-school-filter" class="search-input" aria-label="Filter masters by lineage school"></select>
         </div>
       </div>
 
       <div id="lineage-verification-summary" class="lineage-verification-summary" aria-live="polite"></div>
 
-      <div id="lineage-graph-container" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; min-height: 480px;">
+      <div id="lineage-graph-container" class="lineage-graph-frame">
         <div class="graph-toolbar">
           <div class="graph-controls">
-            <button id="lineage-reset-btn" class="btn-pill" style="font-size: 0.72rem;">⟲ Reset View</button>
+            <button id="lineage-reset-btn" class="btn-pill">⟲ Reset View</button>
           </div>
           <div class="graph-hint">
             Traditional links are dashed until exact chart/record locators are reviewed · click a node or link for details
           </div>
         </div>
-        <svg id="lineage-svg-graph" width="100%" height="720" style="display: block;"></svg>
+        <svg id="lineage-svg-graph" class="lineage-svg-graph"></svg>
       </div>
 
       <div id="master-dossier-panel" role="dialog" aria-labelledby="dossier-name-zh" tabindex="-1" class="dossier-panel" hidden>
@@ -202,7 +202,7 @@
         <div id="dossier-content" class="dossier-content"></div>
       </div>
 
-      <div id="lineage-content-target" class="lineage-grid" style="display: none;"></div>
+      <div id="lineage-content-target" class="lineage-grid" hidden></div>
     </section>
 
     <!-- View 4: Gong'an Cross-Reference Index -->
@@ -216,22 +216,22 @@
 
     <!-- View 5: Classical Chan Lexicon -->
     <section id="view-lexicon" class="view-section" role="tabpanel" aria-labelledby="tab-lexicon">
-      <div class="text-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+      <div class="text-header lexicon-toolbar">
         <div>
           <h1 class="text-title-zh">禪宗名相與術語典籍 / Classical Chan Lexicon</h1>
           <p class="text-title-en">Foundational terminology, technical Sanskrit roots, and philosophical definitions</p>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <label for="lexicon-cat-filter" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Category:</label>
-          <select id="lexicon-cat-filter" class="search-input" style="width: auto; padding: 0.35rem 0.75rem;" aria-label="Filter lexicon by category"></select>
+        <div class="lexicon-filter-group">
+          <label for="lexicon-cat-filter">Category:</label>
+          <select id="lexicon-cat-filter" class="search-input" aria-label="Filter lexicon by category"></select>
         </div>
       </div>
-      <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="Occurrence tags cite the term's locus in the canonical work (chapter, fascicle, or case). That locus may lie outside the units currently excerpted into this corpus.">
-        📖 <strong>Scope note:</strong> occurrence tags cite each term's locus in the <em>canonical work</em>; a cited locus may sit outside the units currently excerpted (each Reader text carries a 📊 coverage disclosure).
+      <div class="meta-chip meta-chip-bare text-sm-muted" title="Occurrence tags cite the term's locus in the canonical work (chapter, fascicle, or case). That locus may lie outside the units currently excerpted into this corpus.">
+        <strong>Scope note:</strong> occurrence tags cite each term's locus in the <em>canonical work</em>; a cited locus may sit outside the units currently excerpted (each Reader text carries a coverage disclosure).
       </div>
-      <div class="lexicon-filter-row" style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem;">
-        <div class="search-box" role="search" style="flex:1; min-width:14rem;">
-          <span class="search-icon" aria-hidden="true">🔍</span>
+      <div class="lexicon-filter-row">
+        <div class="search-box lexicon-search-box" role="search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
           <input type="search" id="lexicon-query" class="search-input" placeholder="Filter terms (term / pinyin / definition)…" autocomplete="off" aria-label="Filter lexicon terms by term, pinyin, or definition">
         </div>
       </div>
