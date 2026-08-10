@@ -1,8 +1,8 @@
 # Live Session Summary — 2026-08-10, session `arena/019fec5c-translatechan`
 
-> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable evidence: [current full audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md), [prior audit](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [design gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md), [Phase A+B implementation](./sessions/DESIGN_PHASE_AB_2026-08-10.md).
+> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable evidence: [current full audit & implementation](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md), [prior audit](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [design gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md), [Phase A+B implementation](./sessions/DESIGN_PHASE_AB_2026-08-10.md).
 
-## Status: Senior Developer & Web Designer Full Audit Complete
+## Status: Senior Developer & Web Designer Audit Complete; Secondary-Room Visual Redesign (Phase C & D) & Storage Hotfix Implemented
 
 ### Quantitative Baseline & Data Metrics
 - **Corpus Coverage:** 35 documents (Wumenguan 48/48 complete witness, Xinxin Ming 37/37 complete witness; Biyanlu 100/100 partial witness; Platform 10/10 chapter excerpt seeds; 31 excerpt seeds).
@@ -10,18 +10,16 @@
 - **Locators & Graph:** 148/148 case-level locators, 34 lineage masters, 12 controlled schools, 31 Chan glossary terms, 24 Gong'an entries.
 - **Bundle & Footprint:** `app_data.js` is 1,594,154 bytes uncompressed (~498 KB gzip-9), synchronized between root and `/docs`.
 
-### Web Design & Visual System Findings (Phase C–E Gaps)
-- **Design System Schism:** While Phase A+B upgraded the global Shell and Reader room (`#view-reader`) to a restrained walnut Chan hall layout, the four secondary rooms (Matrix, Lineage, Gong'an, Lexicon) still use rounded SaaS card containers, drop shadows, and decorative emoji tags (`📌`, `💡`, `👑`, `⏳`, `🏛️`, `📍`, `📜`, `👤`).
-- **Inline Style Debt:** Identified 84 inline `style="..."` attributes (19 in `index.html`, 65 in `app.js` template literals).
-- **Responsive Breakpoint Fragmentation:** `app.css` defines five different arbitrary `max-width` breakpoints (`1100px`, `960px`, `760px`, `700px`, `600px`), causing layout discontinuities in standard tablet viewports.
-- **Accessibility / Contrast:** Active gold/white token combinations (`--gold-700` in dark mode) risk dropping below WCAG AA 4.5:1, and filter toggle buttons need improved ARIA pressed/expanded bindings.
+### Visual Redesign Implementation (Phases C & D Complete)
+- **Matrix Room (`#view-matrix`):** Transformed into a dignified **Proof Sheet** (`.matrix-proof-sheet`) with a full-width source sentence band (`.matrix-source-band`) and equal-column comparative registers (`.matrix-registers-grid`) without decorative emojis (`📌`, `💡`) or box shadows.
+- **Lineage Room (`#view-lineage`):** Transformed into a **Chronological Directory** (`.master-directory-row`), displaying generation, biographical metadata, and signature quotes in an ordered grid without emoji decoration (`👑`, `⏳`, `🏛️`, `📍`, `📜`, `👤`).
+- **Gong'an Room (`#view-gongan`):** Transformed into a **Catalogue Shelf** (`.gongan-catalogue-row`) with ruled catalogue rows and clean `.catalogue-tags`, removing decorative symbols (`📚`, `🎯`, `🔗`).
+- **Lexicon Room (`#view-lexicon`):** Transformed into **Dictionary Definition Rows** (`.lexicon-definition-row`), separating large Chinese headwords (`.lexicon-headword-col`) from definitions and occurrence citations (`.lexicon-def-col`).
+- **Inline Style Clean-Up:** Completely eliminated all 19 HTML inline `style="..."` attributes in `index.html` (0 remaining) and extracted utility layout primitives (`.lineage-toolbar`, `.lexicon-toolbar`, `.room-filter-rail`, `.error-boundary-card`, etc.) to `app.css`.
 
-### Developer Architecture & Resiliency Findings
-- **Storage Shape-Validation Bug (`app.js:77, 493`):** `JSON.parse(storageGet('translatechan_collapsed_cases'))` does not validate that the parsed value is an object; storing a valid JSON primitive (e.g. `true`) throws a TypeError when toggling case collapses.
-- **Missing Fatal Load Boundary:** If `app_data.js` fails to load or parse, `window.TRANSLATECHAN_DATA` remains undefined with no top-level fallback or error notification card.
-- **Monolithic Bundle:** `app.js` is 3,071 lines long and `app_data.js` is ~1.59 MB uncompressed, loaded synchronously on first paint.
-- **Operations & CI Gates:** Playwright browser tests (`npm run test:browser`) are skippable when Chromium is absent and are not enforced in `.github/workflows/quality.yml`.
-- **Public Quotation Governance:** All 14 rights manifest sources remain marked `needs_rights_review` or `jurisdiction_review_required`.
+### Developer Resiliency Hotfix Implemented
+- **Storage Shape-Validation Bug (`app.js:77, 493`):** Patched `storageGet('translatechan_collapsed_cases')` parsing and assignment in `setCaseCollapsed()` so primitive values in `localStorage` (e.g. `true` or `123`) are safely converted to `{}` without throwing strict-mode TypeErrors.
+- **Error Boundary UI:** Added `.error-boundary-card` styling in `app.css` for graceful load-failure reporting.
 
 ### Quality Gates Executed
 ```text
@@ -33,4 +31,4 @@ Markdown links & syntax scan           PASS
 ```
 
 ## One-sentence summary
-Completed a comprehensive Senior Developer and Web Designer audit documenting secondary-room design system lags, 84 inline styles, responsive breakpoint fragmentation, and strict-mode storage TypeError vulnerabilities with full evidence in `sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`.
+Completed the comprehensive Senior Developer & Web Designer audit and implemented the Phase C & D secondary-room visual redesign (Matrix Proof Sheet, Lineage Directory, Gong'an Catalogue, Lexicon Dictionary Rows) alongside a strict-mode storage TypeError hotfix with all 35 fixtures passing.

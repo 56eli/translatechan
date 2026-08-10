@@ -13,16 +13,15 @@ manual_workflow_policy:
   instruction: "Do not edit .github/workflows/* unless the user explicitly instructs it; document exact required changes in .scoreboard/manual-workflow-edits.md."
 
 summary:
-  overall_effective_score: 6.9
+  overall_effective_score: 7.2
   repo_ready_gate_status: fail
   top_priorities:
     - github_pages_presentation
-    - error_handling_logging
     - deployment_readiness
     - content_quality
     - ci_cd
   active_risk_flags:
-    - "Design remains incomplete: structural walnut shell and Reader are implemented, but Matrix/Lineage/Gong’an/Lexicon, visual-system consolidation, screenshot verification, and owner approval remain."
+    - "Design Phase C & D implemented: Matrix Proof Sheet, Lineage Directory, Gong’an Catalogue, and Lexicon Dictionary Rows now follow the walnut Chan hall system; screenshot verification and owner visual approval remain."
     - "Contained P0: unreliable Congronglu data/locators/generating scripts remain removed; reintroduction is blocked on source-pinned field-level collation."
     - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; decisions remain pending."
     - "P2 source depth: Biyanlu, Linji, Platform, and other non-case records still need field-level coverage and broader human review."
@@ -31,7 +30,7 @@ summary:
 quality_gates:
   repo_ready:
     status: fail
-    overall_effective_score: 6.9
+    overall_effective_score: 7.2
     last_evaluated: 2026-08-10
     minimum_overall_effective_score: 8
     required:

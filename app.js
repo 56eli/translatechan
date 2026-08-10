@@ -74,8 +74,10 @@
       return (v >= 1.0 && v <= 2.2) ? v : 1.35;
     })(),
     collapsedCases: (() => {
-      try { return JSON.parse(storageGet('translatechan_collapsed_cases') || '{}') || {}; }
-      catch (e) { return {}; }
+      try {
+        const val = JSON.parse(storageGet('translatechan_collapsed_cases') || '{}');
+        return (val && typeof val === 'object' && !Array.isArray(val)) ? val : {};
+      } catch (e) { return {}; }
     })(),
     theme: storageGet('translatechan_theme') || 'light',
     nameMode: (() => { const v = storageGet('translatechan_name_mode'); return v === 'romaji' ? 'romaji' : 'pinyin'; })(),
@@ -489,8 +491,11 @@
   }
   function setCaseCollapsed(num, collapsed) {
     const key = caseCollapsedKey();
+    if (!state.collapsedCases || typeof state.collapsedCases !== 'object' || Array.isArray(state.collapsedCases)) {
+      state.collapsedCases = {};
+    }
     let m = state.collapsedCases[key];
-    if (!m || typeof m !== 'object') m = {};
+    if (!m || typeof m !== 'object' || Array.isArray(m)) m = {};
     m[num] = !!collapsed;
     state.collapsedCases[key] = m;
     storageSet('translatechan_collapsed_cases', JSON.stringify(state.collapsedCases));
@@ -2033,14 +2038,14 @@
       const locator = matrixLocatorForReference(item.source_ref);
       const sourceDisclosure = renderSourceLocationDisclosure(locator, 'Source location', 'matrix-source-location');
       return `
-      <div class="matrix-card">
-        <div class="matrix-header">
-          <h2 class="matrix-ref">📌 ${escHtml(item.source_ref)}</h2>
+      <div class="matrix-proof-sheet">
+        <div class="matrix-source-band">
+          <h2 class="matrix-ref-clean">${escHtml(item.source_ref)}</h2>
+          <div class="matrix-sentence-zh" lang="zh">${annotateClassicalChinese(item.sentence_zh)}</div>
+          <div class="matrix-sentence-pinyin">${escHtml(item.sentence_pinyin)}</div>
+          ${sourceDisclosure}
         </div>
-        <div class="classical-zh" lang="zh">${annotateClassicalChinese(item.sentence_zh)}</div>
-        <div class="pinyin-line">${escHtml(item.sentence_pinyin)}</div>
-        ${sourceDisclosure}
-        <div class="matrix-grid">
+        <div class="matrix-registers-grid">
           ${translators.map(rawTranslator => {
             const t = isRecord(rawTranslator) ? rawTranslator : {};
             const entry = normalizeTranslationEntry(t.translator, {
@@ -2052,15 +2057,19 @@
             });
             const displayTranslator = roboifyTranslatorName(t.translator, entry.status);
             return `
-            <div class="matrix-col">
+            <div class="matrix-register-col">
               <div>
-                <div class="matrix-author">${roboNameSpanByName(t.translator, entry.status)}</div>
-                <div class="matrix-work">${escHtml(t.work)}${t.style ? ` (${escHtml(t.style)})` : ''}</div>
-                <div class="matrix-text">“${escHtml(entry.text)}”</div>
+                <div class="matrix-reg-header">
+                  <div class="matrix-author">${roboNameSpanByName(t.translator, entry.status)}</div>
+                  <div class="matrix-work">${escHtml(t.work)}${t.style ? ` (${escHtml(t.style)})` : ''}</div>
+                </div>
+                <div class="matrix-reg-text">“${escHtml(entry.text)}”</div>
               </div>
-              ${renderTranslationStatus(entry)}
-              ${renderTranslationSource(entry, displayTranslator, { zh: item.sentence_zh, locator })}
-              <div class="matrix-note">💡 ${escHtml(t.notes)}</div>
+              <div>
+                ${renderTranslationStatus(entry)}
+                ${renderTranslationSource(entry, displayTranslator, { zh: item.sentence_zh, locator })}
+                ${t.notes ? `<div class="matrix-reg-note">${escHtml(t.notes)}</div>` : ''}
+              </div>
             </div>
             `;
           }).join('')}
@@ -2232,30 +2241,23 @@
     renderVisualLineageGraph(masters);
 
     elements.lineageTarget.innerHTML = masters.map(m => `
-      <div class="master-card" data-master-card="${escHtml(m.id)}" role="button" tabindex="0" aria-label="Open dossier for ${escHtml(m.name_en)}" style="cursor: pointer;">
-        <div>
-          <div class="master-header">
-            <div>
-              <h2 class="master-name-zh">${escHtml(m.name_zh)}</h2>
-              <div class="master-name-en">${escHtml(masterDisplayName(m))} <span style="color:var(--text-muted)">(${escHtml(m.name_pinyin)})</span></div>
-            </div>
-            <span class="corpus-badge" style="font-weight: 600;">Gen ${escHtml(m.lineage_depth)}</span>
+      <div class="master-directory-row" data-master-card="${escHtml(m.id)}" role="button" tabindex="0" aria-label="Open dossier for ${escHtml(m.name_en)}">
+        <div class="master-dir-gen">Gen ${escHtml(m.lineage_depth)}</div>
+        <div class="master-dir-main">
+          <h2 class="master-dir-name">${escHtml(m.name_zh)} <span class="text-sm-muted">(${escHtml(masterDisplayName(m))} · ${escHtml(m.name_pinyin)})</span></h2>
+          <div class="master-dir-title">${escHtml(m.title)}</div>
+          <div class="master-dir-meta">
+            <span>Dates: ${escHtml(m.dates)} (${escHtml(m.era)})</span>
+            <span>Lineage: ${escHtml(m.school)}</span>
+            <span>Temple: ${escHtml(m.location)}</span>
+            <span>Ref: ${escHtml(m.cbeta_id)}</span>
+            <span>Teacher: ${lineageTeacherDetail(m)}</span>
           </div>
-          <div class="master-title">👑 ${escHtml(m.title)}</div>
-          <div class="master-meta">
-            <span>⏳ Dates: ${escHtml(m.dates)} (${escHtml(m.era)})</span>
-            <span>🏛️ Lineage: ${escHtml(m.school)}</span>
-            <span>📍 Temple: ${escHtml(m.location)}</span>
-            <span>📜 Canonical Ref: ${escHtml(m.cbeta_id)}</span>
-            <span>👤 ${lineageTeacherDetail(m)}</span>
-          </div>
-          <div class="master-quote">
-            "${escHtml(m.key_quote_zh)}"
-            <div class="master-quote-en">"${escHtml(m.key_quote_en)}"</div>
-          </div>
+          <div class="text-sm-muted">${escHtml(m.summary)}</div>
         </div>
-        <div style="font-size: 0.8rem; color: var(--text-secondary); border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
-          ${escHtml(m.summary)}
+        <div class="master-dir-quote">
+          <div class="master-dir-quote-zh">“${escHtml(m.key_quote_zh)}”</div>
+          <div class="master-dir-quote-en">“${escHtml(m.key_quote_en)}”</div>
         </div>
       </div>
     `).join('');
@@ -2520,23 +2522,23 @@
       };
       content.innerHTML = `
         <div style="margin-top: 0.5rem; margin-bottom: 0.75rem;">
-          <strong>🏛️ School / Lineage:</strong> ${escHtml(master.school)} &nbsp;|&nbsp;
-          <strong>📍 Primary Monastery:</strong> ${escHtml(master.location)} &nbsp;|&nbsp;
-          <strong>📜 Canonical record:</strong> ${escHtml(master.cbeta_id)} ${renderCitationTrigger(masterCitation, 'ⓘ Profile source')}
+          <span class="dossier-ledger-label">School / Lineage:</span> ${escHtml(master.school)} &nbsp;|&nbsp;
+          <span class="dossier-ledger-label">Primary Monastery:</span> ${escHtml(master.location)} &nbsp;|&nbsp;
+          <span class="dossier-ledger-label">Canonical record:</span> ${escHtml(master.cbeta_id)} ${renderCitationTrigger(masterCitation, 'ⓘ Profile source')}
         </div>
-        <div class="master-quote" style="background: var(--bg-card); margin-bottom: 0.75rem;">
-          "${escHtml(master.key_quote_zh)}"
-          <div class="master-quote-en">"${escHtml(master.key_quote_en)}"</div>
+        <div class="master-quote">
+          “${escHtml(master.key_quote_zh)}”
+          <div class="master-quote-en">“${escHtml(master.key_quote_en)}”</div>
         </div>
-        <div style="margin-bottom: 0.5rem;"><strong>👤 Teacher:</strong> ${lineageTeacherDetail(master)}</div>
-        <div style="margin-bottom: 0.5rem;">
-          <strong>📚 Primary Classical Texts & Records:</strong> ${master.texts ? master.texts.map(escHtml).join(', ') : 'Transmission records pending'}
+        <div class="dossier-ledger-item"><span class="dossier-ledger-label">Teacher:</span> ${lineageTeacherDetail(master)}</div>
+        <div class="dossier-ledger-item">
+          <span class="dossier-ledger-label">Primary Classical Texts & Records:</span> ${master.texts ? master.texts.map(escHtml).join(', ') : 'Transmission records pending'}
         </div>
-        <div style="margin-bottom: 0.5rem;"><strong>🔎 Names & record state:</strong> ${escHtml((master.alternative_names || []).join(' · ') || 'Alternative names not yet reviewed')} · ${escHtml(master.profile_status || 'Seed profile — exact biographical/source locator pending')}</div>
-        <div style="margin-bottom: 0.5rem;"><strong>🧾 Evidence status:</strong> ${escHtml(master.profile_evidence?.status || 'not recorded')} — ${escHtml(master.profile_evidence?.note || 'No evidence note recorded.')}</div>
-        <div style="margin-bottom: 0.5rem;"><strong>🔗 Cross-referenced project works:</strong> ${renderMasterWorkLinks(master)}</div>
-        <div>
-          <strong>📖 Historical & Philosophical Significance:</strong> ${escHtml(master.summary)}
+        <div class="dossier-ledger-item"><span class="dossier-ledger-label">Names & record state:</span> ${escHtml((master.alternative_names || []).join(' · ') || 'Alternative names not yet reviewed')} · ${escHtml(master.profile_status || 'Seed profile — exact biographical/source locator pending')}</div>
+        <div class="dossier-ledger-item"><span class="dossier-ledger-label">Evidence status:</span> ${escHtml(master.profile_evidence?.status || 'not recorded')} — ${escHtml(master.profile_evidence?.note || 'No evidence note recorded.')}</div>
+        <div class="dossier-ledger-item"><span class="dossier-ledger-label">Cross-referenced project works:</span> ${renderMasterWorkLinks(master)}</div>
+        <div class="dossier-ledger-item">
+          <span class="dossier-ledger-label">Historical & Philosophical Significance:</span> ${escHtml(master.summary)}
         </div>
       `;
     }
@@ -2625,28 +2627,24 @@
 
     const groups = gonganThemeGroups();
     const filterBar = `
-      <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.25rem; align-items:center;">
-        <span style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.6px;">Theme groups:</span>
+      <div class="room-filter-rail">
+        <span class="dossier-ledger-label">Theme groups:</span>
         <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all" aria-pressed="${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'true' : 'false'}">All · ${state.data.gongan_index.length}</button>
         ${groups.map(g => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === g.key ? 'active' : ''}" data-gongan-filter="${escHtml(g.key)}" aria-pressed="${state.gonganThemeFilter === g.key ? 'true' : 'false'}">${escHtml(g.display)} · ${g.count}</button>`).join('')}
       </div>`;
 
     elements.gonganTarget.innerHTML = filterBar + list.map(g => `
-      <div class="case-card" style="margin-bottom: 1.25rem;">
-        <div class="case-header">
-          <h2 class="case-num-title">${escHtml(g.title_zh)}</h2>
-          <span class="case-speaker">${escHtml(g.title_en)}</span>
+      <div class="gongan-catalogue-row">
+        <div class="catalogue-meta">${escHtml(g.collection)} · Canon ID: ${escHtml(g.cbeta_id)} · ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</div>
+        <div class="catalogue-title-row">
+          <h2 class="catalogue-title-zh">${escHtml(g.title_zh)}</h2>
+          <span class="catalogue-title-en">${escHtml(g.title_en)}</span>
         </div>
-        <div style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600; margin-bottom: 0.4rem;">
-          📚 Collection: ${escHtml(g.collection)} | Canon ID: ${escHtml(g.cbeta_id)}
-        </div>
-        <div style="font-size: 0.92rem; color: var(--text-primary); margin-bottom: 0.6rem;">
-          ${escHtml(g.summary)}
-        </div>
-        <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;">
-          <span class="meta-chip">🏷️ ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</span>
-          <span class="meta-chip">🎯 Theme: ${escHtml(g.theme)}</span>
-          ${g.cross_refs ? g.cross_refs.map(cr => `<span class="meta-chip">🔗 ${escHtml(cr)}</span>`).join('') : ''}
+        <div class="catalogue-summary">${escHtml(g.summary)}</div>
+        <div class="catalogue-tags">
+          <span class="catalogue-tag-item">🏷️ ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</span>
+          <span class="catalogue-tag-item">Theme: ${escHtml(g.theme)}</span>
+          ${g.cross_refs ? g.cross_refs.map(cr => `<span class="catalogue-tag-item">${escHtml(cr)}</span>`).join('') : ''}
         </div>
       </div>
     `).join('');
@@ -2721,13 +2719,17 @@
       : '';
 
     elements.lexiconTarget.innerHTML = summary + noMatchHint + list.map(item => `
-      <div class="term-card">
-        <h2 class="term-card-zh">${escHtml(item.term)}</h2>
-        <div class="term-card-literal">${escHtml(item.literal)} (${escHtml(item.pinyin)})</div>
-        <div class="term-card-sanskrit">Sanskrit: ${escHtml(item.sanskrit || '—')} | 🏷️ ${escHtml(item.category)}</div>
-        <div class="term-card-def">${escHtml(item.definition)}</div>
-        <div class="term-card-occurrences">
-          ${item.occurrences.map(occ => `<span class="term-occ-tag">📖 ${escHtml(occ)}</span>`).join('')}
+      <div class="lexicon-definition-row">
+        <div class="lexicon-headword-col">
+          <h2 class="lexicon-headword-zh">${escHtml(item.term)}</h2>
+          <div class="lexicon-headword-literal">${escHtml(item.literal)} · ${escHtml(item.pinyin)}</div>
+          <div class="lexicon-headword-meta">Sanskrit: ${escHtml(item.sanskrit || '—')} · Category: ${escHtml(item.category)}</div>
+        </div>
+        <div class="lexicon-def-col">
+          <div class="lexicon-def-text">${escHtml(item.definition)}</div>
+          <div class="lexicon-occurrences">
+            ${item.occurrences.map(occ => `<span class="lexicon-occ-tag">${escHtml(occ)}</span>`).join('')}
+          </div>
         </div>
       </div>
     `).join('');

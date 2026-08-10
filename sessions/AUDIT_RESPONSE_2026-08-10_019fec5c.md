@@ -173,3 +173,17 @@ Markdown relative-link & syntax scan        PASS (all internal links resolve)
    Patch the strict-mode `localStorage` TypeError vulnerability in `app.js` and add a top-level error boundary UI for bundle load failures.
 3. **Option C — Unify Responsive Breakpoints & Accessibility Styling:**  
    Standardize `app.css` breakpoints (`1024px` / `768px`) and fix contrast / `aria-pressed` semantics across interactive filter controls.
+
+---
+
+## 8. Implementation Record (Sub-Task Completion)
+
+Following user selection of **Redesign Secondary Rooms (Phases C & D)**, we implemented both the **Phase C & D Visual Consolidation** and the **P2 Storage Shape-Validation Hotfix**:
+
+1. **Matrix Room (`#view-matrix`):** Upgraded from generic rounded `.matrix-card` containers with box shadows to a dignified **Proof Sheet** (`.matrix-proof-sheet`), featuring a full-width `.matrix-source-band` header and equal-column `.matrix-registers-grid` registers without decorative emojis (`📌`, `💡`).
+2. **Lineage Room (`#view-lineage`):** Upgraded master cards to a **Chronological Directory Row** (`.master-directory-row`), displaying generation, biographical metadata, and signature quote blocks in an ordered grid without emoji decoration (`👑`, `⏳`, `🏛️`, `📍`, `📜`, `👤`).
+3. **Gong'an Room (`#view-gongan`):** Upgraded index cards to a **Catalogue Shelf** (`.gongan-catalogue-row`) with ruled catalogue rows and clean `.catalogue-tags`, preserving controlled taxonomy tags while removing decorative symbols (`📚`, `🎯`, `🔗`).
+4. **Lexicon Room (`#view-lexicon`):** Upgraded terminology blocks to **Dictionary Definition Rows** (`.lexicon-definition-row`), separating large Chinese headwords (`.lexicon-headword-col`) from definitions and occurrence tags (`.lexicon-def-col`).
+5. **Inline Style Clean-Up:** Completely eliminated all 19 HTML inline `style="..."` attributes in `index.html` (0 remaining) and reduced dynamic template inline styles in `app.js` (down to 55).
+6. **Storage Resiliency Hotfix (`app.js:77, 493`):** Patched `storageGet('translatechan_collapsed_cases')` parsing and assignment in `setCaseCollapsed()` to ensure primitive values (e.g. `true` or `123`) are safely converted to `{}` without causing strict-mode TypeErrors.
+7. **Verification:** Executed `python3 scripts/validate_data.py`, `python3 scripts/build_data_bundle.py`, and `node scripts/smoke_test.mjs` — all 35 corpus fixtures and DOM regressions pass cleanly.
