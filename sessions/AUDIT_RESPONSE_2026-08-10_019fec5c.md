@@ -187,3 +187,17 @@ Following user selection of **Redesign Secondary Rooms (Phases C & D)**, we impl
 5. **Inline Style Clean-Up:** Completely eliminated all 19 HTML inline `style="..."` attributes in `index.html` (0 remaining) and reduced dynamic template inline styles in `app.js` (down to 55).
 6. **Storage Resiliency Hotfix (`app.js:77, 493`):** Patched `storageGet('translatechan_collapsed_cases')` parsing and assignment in `setCaseCollapsed()` to ensure primitive values (e.g. `true` or `123`) are safely converted to `{}` without causing strict-mode TypeErrors.
 7. **Verification:** Executed `python3 scripts/validate_data.py`, `python3 scripts/build_data_bundle.py`, and `node scripts/smoke_test.mjs` — all 35 corpus fixtures and DOM regressions pass cleanly.
+
+---
+
+## 9. Implementation Record: Responsive Breakpoint Unification & WCAG AA Contrast
+
+Following user selection of **Unify Responsive Breakpoints & A11y**, we standardized the responsive CSS architecture and hardened active color contrast across both themes:
+
+1. **Two-Tier Responsive Breakpoint Architecture (`1024px / 768px`):** Replaced all 10 occurrences of five arbitrary `max-width` media queries (`1100px`, `960px`, `760px`, `700px`, `600px`) in `app.css` with a disciplined two-tier responsive system:
+   - **`max-width: 1024px` (Tablet & Split-Desktop):** Controls literature-shelf collapse (`.sidebar-panel`), mobile corpus picker display, responsive lineage graph hints, and directory table column wrapping.
+   - **`max-width: 768px` (Mobile & Phone):** Controls shell-header padding, hero banner wrapping, reader mobile action bar visibility (`.mobile-action-bar`), document toolbar wrapping, and single-column dictionary definition rows.
+2. **WCAG AA Active Token Contrast Hardening:**
+   - In light mode (`:root`): Darkened `--accent-gold` to `#8b622b` (from `#9e7232`), `--accent-gold-hover` to `#724e1e` (from `#825d27`), and `--text-muted` to `#665c56` (from `#756b64`), guaranteeing >= 4.5:1 contrast for small text and controls.
+   - In dark mode (`[data-theme="dark"]`): Verified that `--accent-gold-hover` (`#dfb56c`) and `--accent-gold` (`#c89f55`) maintain 7.9:1 contrast against dark paper backgrounds and button active states.
+3. **Verification:** Automated regression check `node scripts/smoke_test.mjs` executed cleanly across all 35 canonical texts and 44 DOM assertions.

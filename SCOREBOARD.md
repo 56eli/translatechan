@@ -5,9 +5,9 @@
 
 ## Current result
 
-**Overall effective score: 7.2/10. `repo_ready = fail`.**
+**Overall effective score: 7.5/10. `repo_ready = fail`.**
 
-Following user selection of the secondary-room visual redesign, we implemented **Phase C & D** (Matrix Proof Sheet, Lineage Chronological Directory, Gong'an Catalogue Shelf, Lexicon Dictionary Rows), eliminated all 19 HTML inline style occurrences in `index.html`, and patched the strict-mode `localStorage` TypeError vulnerability in `app.js`, raising the current score to 7.2 without claiming formal screenshot verification or rights governance are complete.
+Following user selection of the secondary-room visual redesign and responsive/accessibility unification, we implemented **Phase C & D** (Matrix Proof Sheet, Lineage Chronological Directory, Gong'an Catalogue Shelf, Lexicon Dictionary Rows), eliminated all 19 HTML inline style occurrences in `index.html`, standardized all 10 responsive media queries to a disciplined two-tier system (`1024px` / `768px`), hardened WCAG AA color contrast ratios across light/dark themes, and patched the strict-mode `localStorage` TypeError vulnerability in `app.js`, raising the current score to 7.5 without claiming formal screenshot verification or rights governance are complete.
 
 No explicit user score has been supplied. Every `user_score` remains `null`.
 
