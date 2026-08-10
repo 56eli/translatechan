@@ -230,16 +230,20 @@
       </div>
 
       <!-- Master Dossier Modal / Inspector Drawer (non-modal dialog: focus moves
-           in on open, Escape closes and restores focus — see app.js N2 a11y) -->
-      <div id="master-dossier-panel" role="dialog" aria-labelledby="dossier-name-zh" tabindex="-1" style="display: none; background: var(--accent-gold-light); border: 2px solid var(--accent-gold); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; animation: sereneFade 0.3s ease;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+           in on open, Escape closes and restores focus — see app.js N2 a11y)
+           L1 (audit 2026-08-10, session 019feabb): the inline style
+           (gold border + serif h2) was inconsistent with the other
+           cards. Moved to .dossier-panel class so it shares the
+           project's card system, and added a subtle accent stripe. -->
+      <div id="master-dossier-panel" role="dialog" aria-labelledby="dossier-name-zh" tabindex="-1" class="dossier-panel" hidden>
+        <div class="dossier-header">
           <div>
-            <h2 id="dossier-name-zh" class="master-name-zh" style="font-size: 1.75rem; color: var(--accent-gold);"></h2>
-            <div id="dossier-name-en" style="font-size: 1.1rem; color: var(--text-primary);"></div>
+            <h2 id="dossier-name-zh" class="master-name-zh dossier-name-zh"></h2>
+            <div id="dossier-name-en" class="dossier-name-en"></div>
           </div>
-          <button id="dossier-close-btn" class="btn-pill" style="color: var(--accent-red); font-weight: 700;" aria-label="Close dossier">✕ Close</button>
+          <button id="dossier-close-btn" class="btn-pill dossier-close-btn" aria-label="Close dossier">✕ Close</button>
         </div>
-        <div id="dossier-content" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-primary);"></div>
+        <div id="dossier-content" class="dossier-content"></div>
       </div>
 
       <!-- Lineage Cards Grid -->
