@@ -374,18 +374,9 @@ main {
   overflow: hidden;
 }
 
-.zen-hero-banner::before {
-  content: "禪";
-  position: absolute;
-  right: 1.5rem;
-  bottom: -1rem;
-  font-family: var(--font-kai);
-  font-size: 8rem;
-  color: var(--text-primary);
-  opacity: 0.03;
-  pointer-events: none;
-  line-height: 1;
-}
+/* L1 (audit 2026-08-10, session 019feabb): the giant 禪 watermark was
+   making the banner feel heavy and competing with the quote for
+   attention. Removed; the chip strip on the right is enough. */
 
 .zen-quote-main {
   font-family: var(--font-kai);
@@ -400,6 +391,32 @@ main {
   color: var(--text-secondary);
   font-style: italic;
   max-width: 780px;
+}
+
+/* L1: dismissable hero banner — the user can hide the about-bloock
+   for this session; the choice is remembered via localStorage. */
+.zen-hero-banner[hidden] { display: none !important; }
+.hero-dismiss-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.hero-dismiss-btn:hover {
+  background: var(--bg-hover);
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
 }
 
 /* Views Management */
@@ -420,9 +437,21 @@ main {
 /* Reader Layout & Mobile Adaptability */
 .reader-layout {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 1.75rem;
+  /* L1 (audit 2026-08-10, session 019feabb): the 300px sidebar was eating
+     too much of the content area on 1366px laptops (only 1066px left
+     for the reader). Narrowed to 260px and reduced the gap; the
+     mobile break stays at 960px. */
+  grid-template-columns: 260px 1fr;
+  gap: 1.5rem;
   align-items: start;
+}
+
+@media (max-width: 1100px) {
+  /* L1: at slightly larger screens, the sidebar still squeezes the
+     reader. Drop to a single column earlier. */
+  .reader-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 960px) {
@@ -498,6 +527,43 @@ main {
   border-radius: 4px;
   border: 1px solid var(--border-color);
   color: var(--text-muted);
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): corpus sidebar completion
+   mark. Complete texts (Wumenguan, Biyanlu, Platform Sutra, Xinxin
+   Ming) get a green ✓; excerpts show "N/M" so scholars see at a
+   glance which texts are full. */
+.corpus-btn-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.corpus-btn-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+.corpus-status-mark {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+.corpus-status-mark.is-complete {
+  color: #2d6a4f;
+  background: #d8f3dc;
+  border-color: #95d5b2;
+}
+[data-theme="dark"] .corpus-status-mark.is-complete {
+  color: #95d5b2;
+  background: rgba(149, 213, 178, 0.15);
+  border-color: rgba(149, 213, 178, 0.4);
 }
 
 /* Content Panel & Reading Surface */
@@ -1292,6 +1358,46 @@ footer {
   color: var(--accent-gold);
   margin-bottom: 0.65rem;
   letter-spacing: 0.08em;
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): proper footer nav + meta
+   so the page feels like a finished product, not just a single page
+   app with a sign-off quote. */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0.65rem;
+  font-size: 0.9rem;
+}
+.footer-nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.footer-nav a:hover {
+  color: var(--accent-gold);
+  background: var(--bg-hover);
+}
+.footer-sep {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+.footer-meta {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+.footer-fineprint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0.5rem auto 0;
+  line-height: 1.5;
 }
 
 /* ==========================================================================

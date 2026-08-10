@@ -38,6 +38,8 @@ Sorted by `priority = gap * weight` (highest first):
 
 Lower-priority items: `error_handling_logging` (7/10, priority 3) — optional client-side error reporter.
 
+6. **L1 layout pass (DONE 2026-08-10):** the user reported "the github page isn't very good layout wise." Shipped: (a) hero banner is now dismissable per session with a re-show 'ⓘ' button in the header; (b) giant 禪 watermark on the hero removed; (c) reader sidebar narrowed 300px → 260px with the single-column break moved 960px → 1100px; (d) corpus sidebar shows per-text completion mark (green ✓ for complete, 'N/M' for excerpts); (e) proper footer with nav links + meta + fineprint. Smoke tests 4ff + 4gg guard the new behaviors.
+
 ## User scores currently known
 
 None recorded. All `user_score` fields are `null`. No explicit user scores have been given in this session or in any prior session (sessions are sandboxed, so this is the complete record from `.scoreboard/history.md`).

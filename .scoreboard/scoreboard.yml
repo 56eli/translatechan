@@ -386,18 +386,18 @@ aspects:
     status: healthy
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Live at https://56eli.github.io/translatechan/. Pages publishing from main /docs, native branch publishing, HTTPS enforced. Full SEO metadata: og:title, og:description, og:url, og:site_name, og:type, twitter:card, twitter:title, twitter:description, theme-color (light + dark), canonical URL. robots.txt and sitemap.xml mirrored into /docs. SVG favicon inlined as data-URI. Hero counts data-derived. ARIA-hidden decorative emoji. Skip-link to #main-content. Theme-init.js pre-paint FOUC guard."
+    ai_basis: "Live at https://56eli.github.io/translatechan/. Pages publishing from main /docs, native branch publishing, HTTPS enforced. Full SEO metadata: og:title, og:description, og:url, og:site_name, og:type, twitter:card, twitter:title, twitter:description, theme-color (light + dark), canonical URL. robots.txt and sitemap.xml mirrored into /docs. SVG favicon inlined as data-URI. Hero counts data-derived. ARIA-hidden decorative emoji. Skip-link to #main-content. Theme-init.js pre-paint FOUC guard. 2026-08-10 L1 layout pass: (a) hero banner is now dismissable per session with a re-show 'ⓘ' button in the header; (b) giant 禪 watermark on the hero removed (was visually heavy and competed with the quote for attention); (c) reader sidebar narrowed 300px → 260px with the single-column break moved from 960px → 1100px so the content area is no longer squeezed on 1366px laptops; (d) corpus sidebar now shows a per-text completion mark (green ✓ for complete, 'N/M' for excerpts) so scholars see at a glance which texts are full; (e) proper footer with nav links + meta + fineprint (was just a single quote)."
     user_basis: null
     desired_direction:
-      - "Optional: og:image / twitter:image (1200×630 SVG of the brand) for richer link previews (P3, audit 2026-08-10 §U10)."
+      - "Optional: og:image / twitter:image (1200×630 SVG of the brand) for richer link previews (still P3)."
     evidence:
       - "index.html: og:* / twitter:* / canonical / theme-color"
       - "docs/robots.txt, docs/sitemap.xml"
       - "theme-init.js: pre-paint dark-mode FOUC guard (smoke-guarded)"
-    next_actions:
-      - "Optional: og:image (P3)"
+      - "scripts/smoke_test.mjs: 4ff (corpus completion mark) + 4gg (dismissable hero banner)"
+    next_actions: []
     risk_flags: []
-    files_reviewed: [index.html, theme-init.js, robots.txt, sitemap.xml, docs/]
+    files_reviewed: [index.html, app.js, app.css, theme-init.js, robots.txt, sitemap.xml, docs/]
 
   - id: ux_usability
     name: UX / usability

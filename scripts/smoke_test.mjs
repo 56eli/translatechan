@@ -500,6 +500,47 @@ try {
   }
 } catch (e) { failures++; console.log(`❌ lineage source disclosure crashed: ${e.message}`); }
 
+// 4ff. L1 (audit 2026-08-10, session 019feabb): the corpus sidebar shows
+// a per-text completion mark (e.g. "48/48" for complete Wumenguan,
+// "35/100" for the now-35 Congronglu). Spot-check both forms.
+try {
+  corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+  // re-render the corpus sidebar list
+  const corpusListHtml = ids['corpus-selector-list']._innerHTML;
+  if (!corpusListHtml.includes('is-complete')) {
+    failures++; console.log('❌ 4ff: corpus sidebar should show the is-complete mark on Wumenguan; list was: ' + corpusListHtml.substring(0, 200));
+  }
+  // The Congronglu excerpt should show 35/100 (or 35/100 cases).
+  if (!corpusListHtml.includes('35/100')) {
+    failures++; console.log('❌ 4ff: corpus sidebar should show 35/100 for Congronglu');
+  }
+} catch (e) { failures++; console.log(`❌ 4ff sidebar spot-check crashed: ${e.message}`); }
+
+// 4gg. L1: the hero banner is dismissable; the about-toggle button in the
+// header becomes visible after dismissal.
+try {
+  const banner = ids['zen-hero-banner'];
+  const dismissBtn = ids['hero-dismiss-btn'];
+  if (banner && dismissBtn) {
+    // Banner should be visible initially (storage mock returns null for unknown key).
+    if (banner.hidden === true) {
+      failures++; console.log('❌ 4gg: hero banner should be visible on first visit');
+    }
+    // Click the dismiss button; banner.hidden becomes true (DOM property, not attribute).
+    (dismissBtn._handlers.click || []).forEach(fn => fn());
+    if (banner.hidden !== true) {
+      failures++; console.log('❌ 4gg: hero banner should hide after dismiss; banner.hidden = ' + banner.hidden);
+    }
+    // The about-toggle button should now be visible (no longer hidden).
+    const aboutBtn = ids['about-toggle'];
+    if (aboutBtn && aboutBtn.hidden === true) {
+      failures++; console.log('❌ 4gg: about-toggle should be visible after dismiss');
+    }
+  } else {
+    failures++; console.log('❌ 4gg: hero banner / dismiss button not found');
+  }
+} catch (e) { failures++; console.log(`❌ 4gg dismiss spot-check crashed: ${e.message}`); }
+
 // 4ee. Tier-4 (audit 2026-08-10, session 019feabb): the lineage dossier
 // should show real linked-corpus keys for masters that have them (the
 // 2026-08-10 pass populated alternative_names for 20 masters and

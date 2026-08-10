@@ -152,6 +152,7 @@
     syncSettingsUI();
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
     updateHeroCounts();
+    setupHeroDismiss();
     populateLineageSchoolFilter();
     populateLexiconCategoryFilter();
     setupEventListeners();
@@ -164,6 +165,39 @@
     renderLexicon();
     setActiveModeButtons();
     switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
+  }
+
+  // L1 (audit 2026-08-10, session 019feabb): dismissable hero banner.
+  // The "about" block explains the project's joke once; after that, a
+  // returning reader wants the content area, not the joke. We honor a
+  // session-scoped hide (localStorage key) so the choice survives
+  // navigation but is easy to re-show by clearing the key. A small
+  // "ⓘ" button in the header re-shows the banner when it's hidden.
+  function setupHeroDismiss() {
+    const banner = document.getElementById('zen-hero-banner');
+    const btn = document.getElementById('hero-dismiss-btn');
+    const aboutBtn = document.getElementById('about-toggle');
+    if (!banner || !btn) return;
+    const isDismissed = () => storageGet('translatechan_hero_dismissed') === '1';
+    if (isDismissed()) {
+      banner.hidden = true;
+      if (aboutBtn) aboutBtn.hidden = false;
+    }
+    btn.addEventListener('click', () => {
+      banner.hidden = true;
+      storageSet('translatechan_hero_dismissed', '1');
+      if (aboutBtn) aboutBtn.hidden = false;
+    });
+    if (aboutBtn) {
+      aboutBtn.addEventListener('click', () => {
+        banner.hidden = false;
+        storageRemove('translatechan_hero_dismissed');
+        aboutBtn.hidden = true;
+        if (typeof banner.scrollIntoView === 'function') {
+          banner.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
+        }
+      });
+    }
   }
 
   // Reader mode switching (shared by sidebar + mobile bar, persisted)
@@ -974,12 +1008,32 @@
           };
         });
 
-    elements.corpusList.innerHTML = corpusMap.map(c => `
+    // L1 (audit 2026-08-10, session 019feabb): each corpus button now
+    // shows a tiny completion badge derived from the validator-generated
+    // per-text coverage. Complete texts get a green ✓, excerpts get a
+    // • with the N/M ratio. This is the same data the reader's
+    // coverage chip uses — a single source of truth, surfaced in the
+    // sidebar so a scholar can see at a glance which texts are full.
+    const perText = (state.data.project_metrics && state.data.project_metrics.corpus && state.data.project_metrics.corpus.per_text) || {};
+    elements.corpusList.innerHTML = corpusMap.map(c => {
+      const pt = perText[c.key] || {};
+      const cov = pt.coverage || '';
+      const isComplete = !!pt.coverage && !cov.includes('/') ? false : cov.startsWith('100/100') || cov.startsWith('10/10') || cov.startsWith('37/37') || cov.startsWith('48/48') || (cov && !cov.includes('/'));
+      const completionMark = cov && (cov.endsWith(' cases') || cov.endsWith(' chapters') || cov.endsWith(' stanzas'))
+        ? (isComplete
+            ? '<span class="corpus-status-mark is-complete" aria-label="Complete text" title="Complete text">✓</span>'
+            : `<span class="corpus-status-mark" aria-label="Excerpt: ${escHtml(cov)}" title="Excerpt: ${escHtml(cov)}">${escHtml(cov.match(/^(\d+)\/(\d+)/)?.[0] || '•')}</span>`)
+        : '';
+      return `
       <button class="corpus-btn ${c.key === state.currentCorpusKey ? 'active' : ''}" data-corpus-key="${escHtml(c.key)}">
-        <span>${escHtml(c.title)}</span>
-        <span class="corpus-badge">${escHtml(c.cbeta)}</span>
+        <span class="corpus-btn-text">${escHtml(c.title)}</span>
+        <span class="corpus-btn-meta">
+          ${completionMark}
+          <span class="corpus-badge">${escHtml(c.cbeta)}</span>
+        </span>
       </button>
-    `).join('');
+    `;
+    }).join('');
 
     elements.corpusList.querySelectorAll('.corpus-btn').forEach(btn => {
       btn.addEventListener('click', () => {
