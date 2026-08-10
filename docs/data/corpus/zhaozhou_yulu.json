@@ -372,7 +372,203 @@
           }
         }
       ]
+    },
+    {
+      "dialogue_id": "real_way",
+      "title_zh": "至道無難",
+      "title_pinyin": "Zhì Dào Wú Nán",
+      "title_en": "The Great Way is Not Hard",
+      "speaker": "Zhaozhou / 趙州",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "師上堂云：「『至道無難，唯嫌揀擇。』纔有語言，是揀擇、是明白。老僧不在明白裏，是汝還護惜也無？」時有僧問：「既不在明白裏，護惜箇甚麼？」師云：「我亦不知。」",
+          "pinyin": "Shī shàngtáng yún: ''Zhì dào wú nán, wéi xián jiǎnzé.' ... Shī yún: 'Wǒ yì bù zhī.'",
+          "translations": {
+            "cleary": {
+              "text": "The Master ascended the seat and said, \"'The Great Way is not difficult, it only avoids picking and choosing.' As soon as words are spoken, there is picking and choosing, there is clarity. This old monk does not abide in clarity; do you still cherish it or not?\" A monk asked, \"Since you do not abide in clarity, what is there to cherish?\" The Master said, \"I don't know either.\"",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Quoting the Xinxin Ming that the Way is not hard save for picking and choosing, Zhaozhou said he did not abide in clarity and asked what was left to cherish.",
+              "status": "reconstruction_unverified"
+            },
+            "hoffman": {
+              "text": "Quoting the Xinxin Ming that the Way is not hard save for picking and choosing, Zhaozhou said he did not abide in clarity and asked what was left to cherish.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "three_buddhas",
+      "title_zh": "泥佛木佛金佛",
+      "title_pinyin": "Ní Fó Mù Fó Jīn Fó",
+      "title_en": "Clay Buddha, Wood Buddha, Metal Buddha",
+      "speaker": "Zhaozhou / 趙州",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "師示眾云：「泥佛不度水，金佛不度爐，木佛不度火；真佛內裏坐。」",
+          "pinyin": "Shī shì zhòng yún: 'Ní fó bù dù shuǐ, jīn fó bù dù lú, mù fó bù dù huǒ; zhēn fó nèilǐ zuò.'",
+          "translations": {
+            "cleary": {
+              "text": "The Master addressed the assembly: 'A clay Buddha cannot cross water; a metal Buddha cannot cross a furnace; a wood Buddha cannot cross fire. The True Buddha sits inside.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Zhaozhou taught that clay, metal, and wood Buddhas perish in water, furnace, and fire; only the true inner Buddha endures.",
+              "status": "reconstruction_unverified"
+            },
+            "hoffman": {
+              "text": "Zhaozhou taught that clay, metal, and wood Buddhas perish in water, furnace, and fire; only the true inner Buddha endures.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "good_thing",
+      "title_zh": "好事不如無",
+      "title_pinyin": "Hǎo Shì Bù Rú Wú",
+      "title_en": "A Good Thing is Not as Good as Nothing",
+      "speaker": "Zhaozhou / 趙州",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "僧問：「如何是祖師西來意？」師云：「庭前柏樹子。」僧云：「不會。」師云：「好事不如無。」",
+          "pinyin": "Sēng wèn: 'Rúhé shì zǔshī xī lái yì?' ... Shī yún: 'Hǎo shì bù rú wú.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'What is the meaning of the Patriarch coming from the West?' The Master said, 'The cypress tree in the courtyard.' The monk said, 'I don't understand.' The Master said, 'A good thing is not as good as nothing at all.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When a monk failed to grasp the cypress tree in the courtyard, Zhaozhou said that even a good thing is not as good as nothing.",
+              "status": "reconstruction_unverified"
+            },
+            "hoffman": {
+              "text": "When a monk failed to grasp the cypress tree in the courtyard, Zhaozhou said that even a good thing is not as good as nothing.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "baby_senses",
+      "title_zh": "嬰兒六識",
+      "title_pinyin": "Yīng'ér Liù Shì",
+      "title_en": "A Newborn Baby's Six Senses",
+      "speaker": "Zhaozhou / 趙州",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "僧問：「初生嬰兒，還有六識也無？」師云：「急水上打毬子。」",
+          "pinyin": "Sēng wèn: 'Chū shēng yīng'ér, hái yǒu liù shì yě wú?' Shī yún: 'Jí shuǐ shàng dǎ qiú zǐ.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'Does a newborn baby have the six senses or not?' The Master said, 'Like throwing a ball onto a rushing torrent.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Asked if a newborn baby possesses the six sense consciousnesses, Zhaozhou compared it to tossing a ball onto rapids.",
+              "status": "reconstruction_unverified"
+            },
+            "hoffman": {
+              "text": "Asked if a newborn baby possesses the six sense consciousnesses, Zhaozhou compared it to tossing a ball onto rapids.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "bright_moon",
+      "title_zh": "青天白月",
+      "title_pinyin": "Qīng Tiān Bái Yuè",
+      "title_en": "The Bright Moon in the Blue Sky",
+      "speaker": "Zhaozhou / 趙州",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "僧問：「如何是道？」師云：「牆外底。」僧云：「不問這箇道。」師云：「你問箇甚麼道？」僧云：「大道。」師云：「大道透長安。」",
+          "pinyin": "Sēng wèn: 'Rúhé shì dào?' Shī yún: 'Qiáng wài dǐ.' Sēng yún: 'Bù wèn zhè gè dào.' Shī yún: 'Nǐ wèn gè shénme dào?' Sēng yún: 'Dà dào.' Shī yún: 'Dà dào tòu Cháng'ān.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'What is the Way?' The Master said, 'The road outside the garden wall.' The monk said, 'I am not asking about that road.' The Master asked, 'What Way are you asking about?' The monk said, 'The Great Way.' The Master said, 'The Great Way leads straight to the capital Chang'an.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When a monk rejected Zhaozhou's road outside the garden wall to ask for the Great Way of Buddhism, Zhaozhou replied that the Great Way leads straight to the capital.",
+              "status": "reconstruction_unverified"
+            },
+            "hoffman": {
+              "text": "When a monk rejected Zhaozhou's road outside the garden wall to ask for the Great Way of Buddhism, Zhaozhou replied that the Great Way leads straight to the capital.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "wash_bowl_extra",
+      "title_zh": "洗缽盂去深化",
+      "title_pinyin": "Xǐ Bōyú Qù Shēnhuà",
+      "title_en": "Wash Your Bowl (Full Encounter)",
+      "speaker": "Zhaozhou / 趙州",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "僧問：「某甲乍入叢林，乞師指示。」師云：「喫粥了也未？」僧云：「喫粥了也。」師云：「洗缽盂去。」其僧忽然有省。",
+          "pinyin": "Sēng wèn: 'Mǒu jiǎ zhà rù cónglín, qǐ shī zhǐshì.' Shī yún: 'Chī zhōu le yě wèi?' Sēng yún: 'Chī zhōu le yě.' Shī yún: 'Xǐ bōyú qù.' Qí sēng hūrán yǒu shěng.",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'I have just entered the monastery; please give me instruction, Master.' The Master said, 'Have you eaten your porridge?' The monk said, 'I have eaten my porridge.' The Master said, 'Go wash your bowl.' At that moment the monk had an awakening.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Told to go wash his bowl after finishing his morning porridge, a newly arrived monk suddenly awoke.",
+              "status": "reconstruction_unverified"
+            },
+            "hoffman": {
+              "text": "Told to go wash his bowl after finishing his morning porridge, a newly arrived monk suddenly awoke.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "four_gates_extra",
+      "title_zh": "趙州關",
+      "title_pinyin": "Zhàozhōu Guān",
+      "title_en": "The Gate of Zhaozhou",
+      "speaker": "Zhaozhou / 趙州",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "僧問：「如何是趙州關？」師云：「石橋是。」",
+          "pinyin": "Sēng wèn: 'Rúhé shì Zhàozhōu guān?' Shī yún: 'Shí qiáo shì.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'What is the Barrier Gate of Zhaozhou?' The Master said, 'The Stone Bridge.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Asked for the Barrier of Zhaozhou, Zhaozhou pointed to his Stone Bridge.",
+              "status": "reconstruction_unverified"
+            },
+            "hoffman": {
+              "text": "Asked for the Barrier of Zhaozhou, Zhaozhou pointed to his Stone Bridge.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
     }
   ],
-  "coverage_note": "8 signature encounter dialogues excerpted from T1987"
+  "coverage_note": "15 signature encounter dialogues excerpted from T1987"
 }

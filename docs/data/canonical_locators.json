@@ -756,6 +756,30 @@
           "canonical_locator": "T2004, case 2",
           "status": "case_level_anchor"
         },
+        "3": {
+          "canonical_locator": "T2004, case 3",
+          "status": "case_level_anchor"
+        },
+        "4": {
+          "canonical_locator": "T2004, case 4",
+          "status": "case_level_anchor"
+        },
+        "5": {
+          "canonical_locator": "T2004, case 5",
+          "status": "case_level_anchor"
+        },
+        "6": {
+          "canonical_locator": "T2004, case 6",
+          "status": "case_level_anchor"
+        },
+        "7": {
+          "canonical_locator": "T2004, case 7",
+          "status": "case_level_anchor"
+        },
+        "8": {
+          "canonical_locator": "T2004, case 8",
+          "status": "case_level_anchor"
+        },
         "9": {
           "canonical_locator": "T2004, case 9",
           "status": "case_level_anchor"
@@ -764,8 +788,28 @@
           "canonical_locator": "T2004, case 10",
           "status": "case_level_anchor"
         },
+        "11": {
+          "canonical_locator": "T2004, case 11",
+          "status": "case_level_anchor"
+        },
+        "13": {
+          "canonical_locator": "T2004, case 13",
+          "status": "case_level_anchor"
+        },
         "14": {
           "canonical_locator": "T2004, case 14",
+          "status": "case_level_anchor"
+        },
+        "15": {
+          "canonical_locator": "T2004, case 15",
+          "status": "case_level_anchor"
+        },
+        "16": {
+          "canonical_locator": "T2004, case 16",
+          "status": "case_level_anchor"
+        },
+        "17": {
+          "canonical_locator": "T2004, case 17",
           "status": "case_level_anchor"
         },
         "20": {

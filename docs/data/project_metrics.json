@@ -1,20 +1,20 @@
 {
   "canonical_locator_coverage": {
     "case_level_documents": 3,
-    "case_locators": 157,
-    "declared_cases": 157,
+    "case_locators": 168,
+    "declared_cases": 168,
     "document_level_seed_documents": 33,
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 108985,
+    "all_corpus_cjk_characters": 110932,
     "complete_documents": [
       "biyanlu_cases",
       "platform_sutra",
       "wumenguan",
       "xinxin_ming"
     ],
-    "content_cjk_characters": 103682,
+    "content_cjk_characters": 105389,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -103,17 +103,17 @@
         }
       },
       "congronglu_cases": {
-        "all_cjk_chars": 1018,
+        "all_cjk_chars": 2282,
         "cbeta_id": "T2004",
-        "content_zh_chars": 902,
-        "coverage": "9/100 cases",
-        "coverage_note": "9 / 100 cases (9 canonical cases recorded)",
+        "content_zh_chars": 2051,
+        "coverage": "20/100 cases",
+        "coverage_note": "20 / 100 cases (20 canonical cases recorded)",
         "shapes": [
           "cases"
         ],
         "title": "Book of Serenity (從容庵錄)",
         "unit_counts": {
-          "cases": 9
+          "cases": 20
         }
       },
       "dahui_hongzhi": {
@@ -227,16 +227,16 @@
         }
       },
       "huangbo_chuanxin": {
-        "all_cjk_chars": 355,
+        "all_cjk_chars": 565,
         "cbeta_id": "T2012A",
-        "content_zh_chars": 283,
-        "coverage_note": "5 foundational sermons and dialogues from T2012A",
+        "content_zh_chars": 452,
+        "coverage_note": "10 foundational sermons and dialogues from T2012A",
         "shapes": [
           "sections"
         ],
         "title": "Transmission of Mind (黃檗法要)",
         "unit_counts": {
-          "sections": 5
+          "sections": 10
         }
       },
       "huangbo_wanling": {
@@ -278,15 +278,16 @@
         }
       },
       "mazu_yulu": {
-        "all_cjk_chars": 333,
+        "all_cjk_chars": 530,
         "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
-        "content_zh_chars": 210,
+        "content_zh_chars": 383,
+        "coverage_note": "6 foundational sermons and dialogues from T1986 / X1321",
         "shapes": [
           "sections"
         ],
         "title": "Mazu Daoyi Yulu (江西馬祖語錄)",
         "unit_counts": {
-          "sections": 2
+          "sections": 6
         }
       },
       "nanquan_yulu": {
@@ -453,16 +454,16 @@
         }
       },
       "zhaozhou_yulu": {
-        "all_cjk_chars": 364,
+        "all_cjk_chars": 640,
         "cbeta_id": "T1987",
-        "content_zh_chars": 284,
-        "coverage_note": "8 signature encounter dialogues excerpted from T1987",
+        "content_zh_chars": 500,
+        "coverage_note": "15 signature encounter dialogues excerpted from T1987",
         "shapes": [
           "dialogues"
         ],
         "title": "Sayings of Zhaozhou (趙州語錄)",
         "unit_counts": {
-          "dialogues": 8
+          "dialogues": 15
         }
       },
       "zhengdao_ge": {
@@ -520,10 +521,10 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 1183,
+    "corpus_slots": 1261,
     "corpus_statuses": {
       "ai_draft": 199,
-      "reconstruction_unverified": 807,
+      "reconstruction_unverified": 885,
       "verified_quotation": 177
     },
     "matrix_entries": 21,

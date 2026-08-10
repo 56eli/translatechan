@@ -12,44 +12,26 @@
   "sections": [
     {
       "section_id": "ordinary_mind",
-      "title_zh": "平常心是道：道不用修，但莫污染",
-      "title_pinyin": "Píngcháng Xīn Shì Dào: Dào Bùyòng Xiū, Dàn Mò Wūrǎn",
-      "title_en": "Ordinary Mind is the Way: The Way Requires No Cultivation, Only No Defilement",
+      "title_zh": "平常心是道",
+      "title_pinyin": "Píngcháng Xīn Shì Dào",
+      "title_en": "Ordinary Mind is the Way",
+      "speaker": "Mazu / 馬祖",
       "dialogue": [
         {
           "speaker": "Mazu / 馬祖",
-          "zh": "示眾云：「道不用修，但莫污染。何為污染？但有生死心，造作趣向，皆是污染。若欲直會其道，平常心是道。何謂平常心？無造作，無是非，無取捨，無斷常，無凡無聖。」",
-          "pinyin": "Shì zhòng yún: 'Dào bùyòng xiū, dàn mò wūrǎn. Hé wéi wūrǎn? Dàn yǒu shēngsǐ xīn, zàozuò qùxiàng, jiē shì wūrǎn. Ruò yù zhí huì qí dào, píngcháng xīn shì dào. Hé wèi píngcháng xīn? Wú zàozuò, wú shì fēi, wú qǔ shě, wú duàn cháng, wú fán wú shèng.'",
+          "zh": "師示眾云：「道不用修，但莫污染。如何是污染？但有生死心，造作趨向，皆是污染。若欲直會其道，平常心是道。何謂平常心？無造作、無是非、無取捨、無斷常、無凡無聖。」",
+          "pinyin": "Shī shì zhòng yún: 'Dào bù yòng xiū, dàn mò wūrǎn... wú fán wú shèng.'",
           "translations": {
-            "red_pine": {
-              "text": "The Master told the assembly: 'The Way requires no cultivation; simply do not defile it. What is defilement? As long as you have thoughts of birth and death, calculating actions and directions, all of this is defilement. If you wish to comprehend the Way directly: Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.'",
-              "status": "reconstruction_unverified"
-            },
             "cleary": {
-              "text": "The Master addressed the crowd: 'The Way needs no cultivation, just do not defile it. What is defilement? When you have a mind of birth and death, creating orientations, all is defilement. If you want to comprehend the Way directly, ordinary mind is the Way. What is ordinary mind? Free from fabrication, right and wrong, grasping and rejecting, nihilism and eternalism, mortal and holy.'",
+              "text": "The Master addressed the assembly: 'The Way needs no practice; just do not defile it. What is defilement? Whenever there is a mind subject to birth and death, making contrivances and directing toward a goal—that is all defilement. If you want to understand the Way directly, Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.'",
               "status": "reconstruction_unverified"
             },
-            "sasaki": {
-              "text": "Master Baso said: 'The Tao needs no cultivation; just do not defile it. What is defilement? To have a mind of birth and death, striving toward something—this is defilement. Ordinary mind is the Way. What is ordinary mind? It has no contrivance, no right or wrong, no grasping or abandoning, no commoner or sage.'",
-              "status": "reconstruction_unverified"
-            }
-          }
-        },
-        {
-          "speaker": "Mazu / 馬祖",
-          "zh": "「經云：『非凡夫行，非聖賢行，是菩薩行。』只如今行住坐臥，應機接物，盡是道。道即是法界，乃至河沙妙用，不出法界。」",
-          "pinyin": "'Jīng yún: Fēi fánfū xíng, fēi shèngxián xíng, shì púsà xíng. Zhǐ rújīn xíng zhù zuò wò, yīngjī jiēwù, jìn shì dào. Dào jí shì fǎjiè, nǎizhì héshā miàoyòng, bù chū fǎjiè.'",
-          "translations": {
             "red_pine": {
-              "text": "The sutra says: 'Neither the conduct of ordinary mortals nor the conduct of sages is the conduct of the Bodhisattva.' Right now, walking, standing, sitting, lying down, responding to situations and meeting things—all of this is the Way. The Way is simply the Dharma-realm; even wondrous functions as numerous as sands of the Ganges do not step outside the Dharma-realm.",
+              "text": "Mazu taught that the Way requires no contrivance; Ordinary Mind—free from preference, grasping, and holiness—is the Way.",
               "status": "reconstruction_unverified"
             },
-            "cleary": {
-              "text": "The scripture says, 'Neither the conduct of mortals nor sages is the conduct of bodhisattvas.' Just walking, standing, sitting, lying down right now, responding to conditions—all is the Way. The Way is the realm of reality; wondrous functions countless as Ganges sands do not leave the realm of reality.",
-              "status": "reconstruction_unverified"
-            },
-            "sasaki": {
-              "text": "Right now, your walking, standing, sitting, and resting, responding to circumstances—all are the Way. The Way is the Dharma-realm itself.",
+            "suzuki": {
+              "text": "The Master addressed the assembly: 'The Way needs no practice; just do not defile it. What is defilement? Whenever there is a mind subject to birth and death, making contrivances and directing toward a goal—that is all defilement. If you want to understand the Way directly, Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.'",
               "status": "reconstruction_unverified"
             }
           }
@@ -120,7 +102,120 @@
           }
         }
       ]
+    },
+    {
+      "section_id": "mind_buddha",
+      "title_zh": "即心即佛",
+      "title_pinyin": "Jí Xīn Jí Fó",
+      "title_en": "Mind is Buddha",
+      "speaker": "Mazu / 馬祖",
+      "dialogue": [
+        {
+          "speaker": "Mazu / 馬祖",
+          "zh": "示眾云：「汝等諸人，各信自心是佛；此心即是佛心。」",
+          "pinyin": "Shì zhòng yún: 'Rǔ děng zhū rén, gè xìn zì xīn shì Fó; cǐ xīn jí shì Fó xīn.'",
+          "translations": {
+            "cleary": {
+              "text": "The Master addressed the assembly: 'All of you must believe that your own mind is Buddha; this very mind is the Buddha Mind.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Mazu instructed every monk to believe that his own mind is the Buddha Mind.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "The Master addressed the assembly: 'All of you must believe that your own mind is Buddha; this very mind is the Buddha Mind.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "neither_mind_buddha",
+      "title_zh": "非心非佛",
+      "title_pinyin": "Fēi Xīn Fēi Fó",
+      "title_en": "Neither Mind nor Buddha",
+      "speaker": "Mazu / 馬祖",
+      "dialogue": [
+        {
+          "speaker": "Mazu / 馬祖",
+          "zh": "僧問：「和尚為什麼說即心即佛？」師云：「為止小兒啼。」僧云：「啼止時如何？」師云：「非心非佛。」",
+          "pinyin": "Sēng wèn: 'Héshang wèishénme shuō jí xīn jí Fó?' Shī yún: 'Wèi zhǐ xiǎo'ér tí.' Sēng yún: 'Tí zhǐ shí rúhé?' Shī yún: 'Fēi xīn fēi Fó.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'Why does the Master say that Mind is Buddha?' Mazu said, 'To stop a crying child.' The monk asked, 'When the weeping stops, what then?' Mazu said, 'Neither Mind nor Buddha.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Mazu explained that calling mind Buddha is a remedy for crying infants; once calm, the truth is neither mind nor Buddha.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "A monk asked, 'Why does the Master say that Mind is Buddha?' Mazu said, 'To stop a crying child.' The monk asked, 'When the weeping stops, what then?' Mazu said, 'Neither Mind nor Buddha.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "polishing_brick",
+      "title_zh": "磨磚作鏡",
+      "title_pinyin": "Mó Zhuān Zuò Jìng",
+      "title_en": "Polishing a Brick to Make a Mirror",
+      "speaker": "Mazu / 馬祖",
+      "dialogue": [
+        {
+          "speaker": "Mazu / 馬祖",
+          "zh": "馬祖在南嶽傳法院常坐禪。南嶽懷讓禪師問：「大德坐禪，圖箇甚麼？」馬云：「圖作佛。」懷讓乃取一磚於彼庵前石上磨。馬云：「磨磚作甚麼？」懷讓云：「磨作鏡。」馬云：「磨磚豈得成鏡？」懷讓云：「磨磚既不成鏡，坐禪豈得成佛？」",
+          "pinyin": "Mǎzǔ zài Nányuè Chuánfǎyuàn cháng zuòchán... Huáiràng yún: 'Mó zhuān jì bù chéng jìng, zuòchán qǐ dé chéng Fó?'",
+          "translations": {
+            "cleary": {
+              "text": "When Mazu was studying at Nanyue, he constantly sat in meditation. Master Huairang asked him, 'Great Worthy, what is your aim in sitting in meditation?' Mazu said, 'My aim is to become a Buddha.' Huairang then took a brick and began polishing it on a rock in front of Mazu's hut. Mazu asked, 'Why are you polishing that brick?' Huairang said, 'To make a mirror.' Mazu asked, 'How can polishing a brick make a mirror?' Huairang said, 'If polishing a brick cannot make a mirror, how can sitting in meditation make a Buddha?'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When Mazu sat in meditation seeking Buddhahood, his teacher Huairang polished a brick to show that mechanical sitting cannot manufacture a Buddha.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "When Mazu was studying at Nanyue, he constantly sat in meditation. Master Huairang asked him, 'Great Worthy, what is your aim in sitting in meditation?' Mazu said, 'My aim is to become a Buddha.' Huairang then took a brick and began polishing it on a rock in front of Mazu's hut. Mazu asked, 'Why are you polishing that brick?' Huairang said, 'To make a mirror.' Mazu asked, 'How can polishing a brick make a mirror?' Huairang said, 'If polishing a brick cannot make a mirror, how can sitting in meditation make a Buddha?'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "damei_plum",
+      "title_zh": "梅子熟也",
+      "title_pinyin": "Méizǐ Shú Yě",
+      "title_en": "The Great Plum is Ripe",
+      "speaker": "Mazu / 馬祖",
+      "dialogue": [
+        {
+          "speaker": "Mazu / 馬祖",
+          "zh": "大梅法常參馬祖，問：「如何是佛？」祖云：「即心是佛。」大梅即住大梅山。馬祖後使僧去問大梅：「和尚近日道：非心非佛。」大梅云：「這老漢惑亂人未有了日！任他非心非佛，我只管即心即佛。」僧回舉似馬祖。祖云：「大眾！梅子熟也！」",
+          "pinyin": "Dàméi Fǎcháng cān Mǎzǔ... Zǔ yún: 'Dàzhòng! Méizǐ shú yě!'",
+          "translations": {
+            "cleary": {
+              "text": "Damei asked Mazu, 'What is Buddha?' Mazu said, 'Mind is Buddha.' Damei went to live on Mount Damei. Later Mazu sent a monk to test him, saying Mazu now taught 'Neither mind nor Buddha.' Damei said, 'That old man never stops confusing people! Let him say Neither mind nor Buddha; I stick to Mind is Buddha.' When the monk reported this, Mazu proclaimed, 'The plum is ripe!'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Testing his disciple Damei with 'Neither mind nor Buddha,' Mazu celebrated Damei's unshakable confidence in 'Mind is Buddha' by announcing the plum was ripe.",
+              "status": "reconstruction_unverified"
+            },
+            "suzuki": {
+              "text": "Damei asked Mazu, 'What is Buddha?' Mazu said, 'Mind is Buddha.' Damei went to live on Mount Damei. Later Mazu sent a monk to test him, saying Mazu now taught 'Neither mind nor Buddha.' Damei said, 'That old man never stops confusing people! Let him say Neither mind nor Buddha; I stick to Mind is Buddha.' When the monk reported this, Mazu proclaimed, 'The plum is ripe!'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'X1304 / T1985' wrong — X1304 is 林泉老人評唱丹霞淳禪師頌古虗堂集; T1985 is strictly the Record of Linji. Mazu's record is 四家語錄卷一 (X69n1321, 卍續藏第69冊); also 馬祖大寂行狀 in X1315."
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1304 / T1985' wrong — X1304 is 林泉老人評唱丹霞淳禪師頌古虗堂集; T1985 is strictly the Record of Linji. Mazu's record is 四家語錄卷一 (X69n1321, 卍續藏第69冊); also 馬祖大寂行狀 in X1315.",
+  "coverage_note": "6 foundational sermons and dialogues from T1986 / X1321"
 }
