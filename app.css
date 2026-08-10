@@ -374,18 +374,9 @@ main {
   overflow: hidden;
 }
 
-.zen-hero-banner::before {
-  content: "禪";
-  position: absolute;
-  right: 1.5rem;
-  bottom: -1rem;
-  font-family: var(--font-kai);
-  font-size: 8rem;
-  color: var(--text-primary);
-  opacity: 0.03;
-  pointer-events: none;
-  line-height: 1;
-}
+/* L1 (audit 2026-08-10, session 019feabb): the giant 禪 watermark was
+   making the banner feel heavy and competing with the quote for
+   attention. Removed; the chip strip on the right is enough. */
 
 .zen-quote-main {
   font-family: var(--font-kai);
@@ -400,6 +391,32 @@ main {
   color: var(--text-secondary);
   font-style: italic;
   max-width: 780px;
+}
+
+/* L1: dismissable hero banner — the user can hide the about-bloock
+   for this session; the choice is remembered via localStorage. */
+.zen-hero-banner[hidden] { display: none !important; }
+.hero-dismiss-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.hero-dismiss-btn:hover {
+  background: var(--bg-hover);
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
 }
 
 /* Views Management */
@@ -420,9 +437,21 @@ main {
 /* Reader Layout & Mobile Adaptability */
 .reader-layout {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 1.75rem;
+  /* L1 (audit 2026-08-10, session 019feabb): the 300px sidebar was eating
+     too much of the content area on 1366px laptops (only 1066px left
+     for the reader). Narrowed to 260px and reduced the gap; the
+     mobile break stays at 960px. */
+  grid-template-columns: 260px 1fr;
+  gap: 1.5rem;
   align-items: start;
+}
+
+@media (max-width: 1100px) {
+  /* L1: at slightly larger screens, the sidebar still squeezes the
+     reader. Drop to a single column earlier. */
+  .reader-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 960px) {
@@ -500,6 +529,43 @@ main {
   color: var(--text-muted);
 }
 
+/* L1 (audit 2026-08-10, session 019feabb): corpus sidebar completion
+   mark. Complete texts (Wumenguan, Biyanlu, Platform Sutra, Xinxin
+   Ming) get a green ✓; excerpts show "N/M" so scholars see at a
+   glance which texts are full. */
+.corpus-btn-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.corpus-btn-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+.corpus-status-mark {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+.corpus-status-mark.is-complete {
+  color: #2d6a4f;
+  background: #d8f3dc;
+  border-color: #95d5b2;
+}
+[data-theme="dark"] .corpus-status-mark.is-complete {
+  color: #95d5b2;
+  background: rgba(149, 213, 178, 0.15);
+  border-color: rgba(149, 213, 178, 0.4);
+}
+
 /* Content Panel & Reading Surface */
 .content-panel {
   background: var(--bg-card);
@@ -568,6 +634,16 @@ main {
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-color);
   margin-bottom: 1.75rem;
+  /* L1 (audit 2026-08-10, session 019feabb): make the reader toolbar
+     sticky inside the content panel so the font-size + mode + print
+     controls stay visible while scrolling the corpus. The position
+     is "sticky" within the content-panel's scrolling context, so it
+     doesn't fight the global header. */
+  position: sticky;
+  top: 0.25rem;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .toolbar-group {
@@ -1169,6 +1245,29 @@ mark {
   gap: 1.35rem;
 }
 
+/* U3 (audit 2026-08-10, session 019feabb): lexicon filter row + summary +
+   no-match hint. Mirrors the global-search box and the reader's source-
+   location callout style for visual consistency. */
+.lexicon-filter-row {
+  align-items: center;
+}
+.lexicon-summary {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+}
+.lexicon-no-match {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-blue);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  grid-column: 1 / -1;
+}
+
 .term-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -1271,6 +1370,46 @@ footer {
   letter-spacing: 0.08em;
 }
 
+/* L1 (audit 2026-08-10, session 019feabb): proper footer nav + meta
+   so the page feels like a finished product, not just a single page
+   app with a sign-off quote. */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0.65rem;
+  font-size: 0.9rem;
+}
+.footer-nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.footer-nav a:hover {
+  color: var(--accent-gold);
+  background: var(--bg-hover);
+}
+.footer-sep {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+.footer-meta {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+.footer-fineprint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0.5rem auto 0;
+  line-height: 1.5;
+}
+
 /* ==========================================================================
    Calm Reader & Mobile-First (Phase A + B, 2026-08-08 — see UX_ROADMAP.md)
    ========================================================================== */
@@ -1310,6 +1449,25 @@ footer {
   color: var(--text-secondary);
   cursor: pointer;
   transition: var(--transition);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  line-height: 1.15;
+}
+
+.case-chip-num {
+  font-weight: 700;
+}
+
+.case-chip-title {
+  display: none; /* hidden on narrow screens; revealed on wide viewports */
+  font-size: 0.68rem;
+  max-width: 7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.85;
 }
 
 .case-chip:hover {
@@ -1318,7 +1476,48 @@ footer {
   background: var(--accent-gold-light);
 }
 
+/* U1 (audit 2026-08-10, session 019feabb): on viewports ≥ 900px the case
+   strip has enough horizontal room to show the case title under each
+   number, doubling the strip as a topical table-of-contents. */
+@media (min-width: 900px) {
+  .case-chip-title {
+    display: inline;
+  }
+  .case-chip {
+    min-width: 4.5rem;
+    padding: 0.25rem 0.55rem;
+  }
+}
+
+/* U2 (audit 2026-08-10, session 019feabb): 12/24/all segmented control
+   sitting beside the primary load-more button. The control collapses
+   to a single line on narrow viewports. */
+.case-load-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.5rem 0;
+}
+.case-load-more-segmented {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.case-load-more-segmented .btn-pill {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+}
+@media (min-width: 600px) {
+  .case-load-more {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 /* --- Collapsible case cards --- */
+
 .case-toggle {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
@@ -1684,4 +1883,153 @@ textarea:focus-visible,
   background: var(--accent-gold);
   border-color: var(--accent-gold);
   color: #ffffff;
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): corpus sidebar search
+   filter — a tiny "🔍" + input above the 36-button list. Sits
+   inside the sidebar so it's always visible while scrolling. */
+.corpus-filter {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+.corpus-filter .search-icon {
+  position: absolute;
+  left: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.corpus-filter .search-input {
+  width: 100%;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.5rem 0.35rem 1.6rem;
+}
+.corpus-filter-empty {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.25rem;
+  border-left: 2px solid var(--accent-blue);
+  background: var(--bg-card);
+  border-radius: 4px;
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): reader breadcrumb — a
+   small "📚 Reader › T2005 Wumenguan" trail above the title. Helps
+   the user keep track of where they are. */
+.reader-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+.reader-breadcrumb a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  transition: var(--transition);
+}
+.reader-breadcrumb a:hover {
+  background: var(--bg-hover);
+}
+.breadcrumb-sep {
+  opacity: 0.5;
+}
+.breadcrumb-current {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): the master dossier panel
+   used to be styled with inline attributes (gold border, light
+   background, serif h2). The result felt visually heavy and
+   inconsistent with the other cards. Moved to a proper class so
+   it shares the card system — same background + border + radius
+   as a case card, with a subtle gold accent stripe on the left
+   to mark it as a "you're looking at a specific master" state. */
+.dossier-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-gold);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  animation: sereneFade 0.3s ease;
+}
+.dossier-panel[hidden] { display: none !important; }
+.dossier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
+}
+.dossier-name-zh {
+  font-size: 1.75rem;
+  color: var(--accent-gold);
+  margin-bottom: 0.2rem;
+}
+.dossier-name-en {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+.dossier-close-btn {
+  color: var(--accent-red);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.dossier-content {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): the case card had a lot
+   of inline `style="border-left: 4px solid var(--accent-gold); ..."`
+   attributes in the JS. Moved to classes so the JS is cleaner
+   and the styling is centralized. */
+.case-card.is-preface,
+.case-card.is-epilogue {
+  border-left: 4px solid var(--accent-gold);
+}
+.case-card.is-five-ranks {
+  border-left: 4px solid var(--accent-green);
+}
+.case-card.is-overview {
+  border-left: 4px solid var(--accent-gold);
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): the reading-mode button
+   section in the corpus sidebar was using the corpus-btn class,
+   which made the row treatment (justify-content: space-between)
+   apply to single-label buttons. Added explicit .reader-mode-btn
+   styles for a clean stacked-pill layout. */
+.reader-mode-section {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+.reader-mode-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.reader-mode-btn {
+  width: 100%;
+  text-align: center;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+}
+.reader-mode-btn.active {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+  font-weight: 600;
 }

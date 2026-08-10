@@ -41,7 +41,7 @@ The published interface remains deliberately limited to **Bilingual Reader, Comp
    - **Record of Dongshan (`T1986 / X1321`)**: Expanded from 2 to **8 canonical encounter dialogues**.
    - **Record of Fayan (`T1985 / X1321`)**: Expanded from 3 to **8 canonical sermons and dialogues**.
    - **Record of Mazu (`T1986 / X1321`)**: Expanded from 2 sections to **8 canonical sermons and dialogues**.
-   - Verified project metrics: `corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178`, `106,615 source-content CJK characters`, `4 complete texts`, `32 excerpt seeds`.
+   - Verified project metrics: `corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183`, `107,563 source-content CJK characters`, `4 complete texts`, `32 excerpt seeds`.
 2. **SPA History Scroll Restoration (`app.js`)**:
    - Shipped the final remaining editorial candidate from `AUDIT.md` by recording per-view scroll position (`state.viewScroll[oldView] = window.scrollY`) and restoring it on browser Back/Forward navigation (`applyHash` / `switchViewRaw(view, false)`). Guarded by regression test `4z`.
 3. **External View-Routing Hardening (`app.js`)**:
@@ -54,6 +54,83 @@ The published interface remains deliberately limited to **Bilingual Reader, Comp
    - Replaced all occurrences of `channeling` across code, docs, and profiles with **Robolation** / **robolating** (0 occurrences of `channeling` remain).
 
 ---
+
+---
+
+## ✅ Current Session Handoff — 2026-08-10 (session `arena/019feabb-translatechan`)
+
+### Public Pages scope
+
+The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return).
+
+### What this session delivered (all gates green; full report: [`AUDIT_2026-08-10_session.md`](./AUDIT_2026-08-10_session.md) + [`sessions/SESSION_AUDIT_2026-08-10_019feabb.md`](./sessions/SESSION_AUDIT_2026-08-10_019feabb.md))
+
+**A. Full-project senior-dev + designer audit** (no P0/P1/P2 defects found):
+- All 22 scoreboard aspects audited with AI scores, evidence, and confidence; `user_score: null` for all (no explicit user scores received).
+- Overall effective score: **8.2 / 10** (weighted average over 83 total weight). Quality gate `repo_ready` is **`warning`** (numeric thresholds pass; `ci_cd` and `deployment_readiness` carry `blocked_manual_workflow_edit` risk flags).
+- 19 aspects `healthy`, 1 `needs_work` (`error_handling_logging`), 2 `blocked_manual_workflow_edit` (`ci_cd`, `deployment_readiness`).
+
+**B. Persistent scoreboard system** ([`SCOREBOARD.md`](./SCOREBOARD.md) + [`AGENTS.md`](./AGENTS.md) + `.scoreboard/`):
+- New files: `SCOREBOARD.md` (human-readable summary), `AGENTS.md` (agent protocol with scoreboard section), `.scoreboard/scoreboard.yml` (canonical YAML — 22 aspects), `.scoreboard/rubric.md` (scoring spec), `.scoreboard/history.md` (change log), `.scoreboard/agent-handoff.md` (durable handoff to next agent), `.scoreboard/manual-workflow-edits.md` (exact patches for owner-only CI changes), `docs/audits/2026-08-10-baseline.md` (this audit's full log), `.github/pull_request_template.md` (PR template with scoreboard section).
+- Arena/sandbox policy: durable context lives in repo files (chat memory is not durable). Each session updates `.scoreboard/agent-handoff.md` before finishing. Manual workflow edits are documented in `.scoreboard/manual-workflow-edits.md`; agent tokens lack the `workflows` scope and cannot edit `.github/workflows/*`.
+
+**C. U1/U2/U3/U5/U8 UX polish batch (smoke-guarded by 4aa–4dd):**
+- **U1**: case-strip chips now show the case number + case title_zh inline on viewports ≥ 900px (the strip doubles as a topical table-of-contents).
+- **U2**: 12/24/all segmented control sits beside the primary load-more button; `loadMoreCases(target)` jumps directly to a target unit count.
+- **U3**: free-text filter on the Lexicon (diacritic + variant tolerant via `normalizeForSearch`); renders a live "N of 31 terms" summary and a "no match" hint.
+- **U5**: `prefers-reduced-motion: reduce` already gates all animations (the global `@media` rule disables `animation` + `transition` site-wide).
+- **U8**: keyboard case navigation in the reader — `ArrowLeft` / `ArrowRight` jump to the previous / next case; `[` / `]` jump to first / last; skipped when an input/select has focus or any popover is open. Hint surfaced via the nav footer's `title=` attribute.
+
+**D. Tier-3 perf win:**
+- `scripts/build_data_bundle.py` now emits compact JSON (`separators=(',', ':')` instead of `indent=2`). The bundle shrank **1,956,032 B → 1,653,392 B (-15.5%, 302,640 B saved)** with no schema change.
+
+**E. Tier-4 data completeness:**
+- Populated `alternative_names` for 20 masters (Huike → Yuelin Shiguan) and `linked_corpus_keys` for 20 (Sengcan → xinxin_ming, Daoxin → chuandenglu + dazhu_huihai, etc.).
+- Validator now warns on empty `alternative_names` / `linked_corpus_keys` and errors on dangling corpus keys; smoke test `4ee` exercises the dossier rendering. 6 masters still have empty `linked_corpus_keys` (4 frontier scaffolds + 2 historical masters whose primary text is in compendia).
+
+**F. Phase-2 corpus ingest:**
+- Added 5 well-documented Congronglu (T2004) cases (Nanquan-as-Cat, Panshan-Mind-Seal, Gutji-One-Finger, Dongshan-Three-Pounds-of-Hemp, Baizhang-Wild-Fox) → congronglu_cases 30 → 35.
+- Each new case carries a case-level CBETA locator (T2004_p0196c etc.) on `data/canonical_locators.json`.
+- Doc truthfulness snippets updated in README.md, HANDOFF.md, AUDIT.md (metrics refresh: 1352 corpus slots, 183/183 case-level locators, 107,563 content CJK).
+
+**G. L1 layout pass (4 rounds, user feedback "isn't very good layout wise"):**
+- **Round 1**: dismissable hero banner (per-session localStorage) with a re-show "ⓘ" button; giant 禪 watermark removed; reader sidebar 300px → 260px with the single-column break moved 960px → 1100px; corpus sidebar shows a per-text completion mark (green ✓ for complete, "N/M" for excerpts); proper footer with nav links + meta + fineprint.
+- **Round 2**: sticky reader toolbar (position: sticky inside the content panel with backdrop-blur); corpus sidebar search filter (diacritic-tolerant, debounced 150ms); reader breadcrumb "📚 Reader › T2005 Wumenguan" above the title.
+- **Round 3**: dossier panel now uses the project's card system (var(--bg-card) background + 4px gold left accent stripe) instead of inline-styled gold-bordered look.
+- **Round 4**: reading-mode button section in the corpus sidebar moved to `.reader-mode-btn` (proper stacked-pill layout); 5+ inline `style="border-left: ..."` attributes on case cards moved to `.case-card.is-preface / .is-epilogue / .is-overview / .is-five-ranks` classes.
+- Smoke tests `4ff` (corpus completion mark) + `4gg` (dismissable hero) + `4hh` (corpus search filter) + `4ii` (reader breadcrumb) + `4jj` (sticky toolbar CSS) + `4kk` (dossier panel class + accent stripe) guard the new behaviors.
+
+**H. Doc drift fixes (audit 2026-08-10 §3.2):**
+- Removed stale `~873KB` / `~1.69 MB` / `~1.87 MB` literals from `index.html`, `HANDOFF.md`, `AUDIT.md`, `scripts/smoke_test.mjs` (bundle size is data-driven and reported by the validator's quality-gate summary line).
+
+### Quality gate run before handoff
+
+```bash
+python3 -m py_compile scripts/*.py
+python3 scripts/validate_data.py          # corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183 (with 6 known warnings for 4 frontier scaffolds + 2 historical compendia masters with empty linked_corpus_keys)
+python3 scripts/build_data_bundle.py
+node scripts/smoke_test.mjs               # 50+ check sections including new U1/U2/U3/U8 + 4ff/4gg/4hh/4ii/4jj/4kk
+diff -rq data docs/data
+diff -q theme-init.js docs/theme-init.js
+diff -q robots.txt docs/robots.txt
+diff -q sitemap.xml docs/sitemap.xml
+```
+
+All commands pass. Root and `/docs` assets/data are synchronized.
+
+### Owner follow-up (still pending)
+
+The session token lacks GitHub App `workflows` permission, so `.github/workflows/quality.yml` was not modified. **Two owner-only follow-ups** (the doc-truthfulness gate already covers them locally; the same edits are documented in `.scoreboard/manual-workflow-edits.md`):
+
+1. Extend the generated-artifact gate path list in `.github/workflows/quality.yml` to include:
+   ```text
+   docs/theme-init.js
+   docs/robots.txt
+   docs/sitemap.xml
+   ```
+2. Enable branch protection on `main` requiring the Quality check (Settings → Branches → main → Require status checks → "Validate data, generated artifacts, and reader").
+
+After both land, the `repo_ready` quality gate should move from `warning` → `pass` (the `ci_cd` and `deployment_readiness` aspects will drop `blocked_manual_workflow_edit`).
 
 ## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe731-translatechan`)
 
@@ -68,7 +145,7 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 1. **Accessibility batch (N1/N2/N3/N6):** `motionBehavior()` reduced-motion scroll gate; dossier panel became a focus-managed non-modal dialog (Escape/✕ close + focus restore); glossary popover revealed on focus with `role="tooltip"`; search input is `type="search"` with an accessible name inside a `role="search"` landmark.
 2. **Search UX batch (N4/N5):** search result cards disclose which field matched (register/pinyin/title) via `renderSearchMatchNote`; pinyin search is diacritic-folded (NFD + combining-mark strip), so `zhaozhou` finds `Zhàozhōu`.
 3. **P4 polish (N7/N8/N10):** lineage graph re-layout debounced on resize; popovers are capped, scrollable, interactive, and flip via measured `positionFloatingPopover`; citation text legibility raised 0.62 → 0.72 rem.
-4. **Housekeeping (N9/N10):** previous session's dated reports moved from repo root into `sessions/` per the §5 convention; AUDIT.md §4 index rows updated; README repo tree refreshed; `theme-init.js` mirror sync (~799 → ~873 KB → now ~1.69 MB bundle with the Biyanlu completion + Linji pilot).
+4. **Housekeeping (N9/N10):** previous session's dated reports moved from repo root into `sessions/` per the §5 convention; AUDIT.md §4 index rows updated; README repo tree refreshed; `theme-init.js` mirror sync (bundle size is data-driven; current value lives in `data/project_metrics.json` and is reported by the validator's quality-gate summary).
 5. **Biyanlu corpus campaign — COMPLETE 100/100 ✅:** cases 11/13/15–100 collated from `cbeta-org/xml-p5` TEI (T48n2003) with CBETA Online spot-checks (垂示/本則/評唱/頌 sliced by verse groups; 著語 inline notes stripped; `<g ref>` glyphs resolved via charDecl). **Provenance integrity repair:** pre-existing seeds 12/14/21 were fabricated or collection-confused (case 14 carried Wumenguan/Nanquan-cat content, case 21 carried Wumenguan-21 乾屎橛) — all replaced with canonical text and disclosed in locator records; truncated 1–3 verses completed to canon. 22 canonically pointerless cases recorded; variants 韻陽/韶陽 (14), 韓獹 (43), 頗 (63) documented. Post-verse 頌評唱 rendering + human collation sign-off are explicitly tracked as pending in the file's `coverage_note`.
 6. **Gong'an index:** `biyan_11` added; `biyan_21` corrected (Wumenguan contamination removed) → **24 entries** with all Biyanlu locators collated.
 7. **Metrics truthfulness:** the validator's `complete_documents` metric was hardcoded to Wumenguan alone; it is now derived generically from manifest `unit_targets` (Wumenguan 48/48 + Biyanlu 100/100 → **34 excerpt seeds**), and the stale "14 ingested cases" copy in the Lexicon scope note was generalized.
@@ -85,7 +162,7 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 
 ```bash
 python3 -m py_compile scripts/*.py
-python3 scripts/validate_data.py          # corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178
+python3 scripts/validate_data.py          # corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium

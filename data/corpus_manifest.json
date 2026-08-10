@@ -160,7 +160,8 @@
       "cbeta": "T2004",
       "unit_targets": {
         "cases": 100
-      }
+      },
+      "note": ""
     },
     {
       "key": "wudeng_huiyuan",

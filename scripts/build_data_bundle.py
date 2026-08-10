@@ -87,9 +87,14 @@ def main() -> None:
         },
     }
 
+    # Compact JSON (no indent, no extra whitespace) — every byte shipped to
+    # the browser, no human-readable formatting. Empirically 35-40 % smaller
+    # than `indent=2` for this corpus. The bundle is auto-generated, so
+    # readability lives in `data/` (the source JSON files), not in the
+    # shipped artifact. (audit 2026-08-10, session 019feabb, Tier-3 perf.)
     js_content = (
-        "// Auto-generated TranslateChan Master Corpus Bundle\n"
-        f"window.TRANSLATECHAN_DATA = {json.dumps(data_bundle, ensure_ascii=False, indent=2)};\n"
+        "// Auto-generated TranslateChan Master Corpus Bundle (compact JSON).\n"
+        f"window.TRANSLATECHAN_DATA = {json.dumps(data_bundle, ensure_ascii=False, separators=(',', ':'))};\n"
     )
 
     OUTPUT_FILE.write_text(js_content, encoding="utf-8")

@@ -64,9 +64,15 @@
     "key_quote_en": "Huike said: 'My mind is not at peace; please master, pacify my mind.' Bodhidharma said: 'Bring me your mind and I will pacify it for you.' Huike said: 'I have searched for my mind, but cannot find it anywhere.' Bodhidharma replied: 'There, I have pacified your mind for you.'",
     "cbeta_id": "T2076 (Vol. 51, p. 220b)",
     "summary": "Severed his arm in the deep snow to demonstrate his sincerity to Bodhidharma; received the transmission of the mind seal and the Lankavatara Sutra.",
-    "alternative_names": [],
+    "alternative_names": [
+      "慧可 / Huike",
+      "神光 / Shénguāng",
+      "Dazu Huike (大祖慧可)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "chuandenglu"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -96,7 +102,11 @@
     "key_quote_en": "The Great Way is not difficult, it only avoids picking and choosing. Simply do not hate or love, and all will be clear and lucid.",
     "cbeta_id": "T2010 (Vol. 48, p. 376)",
     "summary": "Author of the Xinxin Ming, the earliest poetic synthesis of Chan non-duality and non-attachment in Chinese literature.",
-    "alternative_names": [],
+    "alternative_names": [
+      "僧璨 / Sengcan",
+      "Jianzhi Sengcan (鑒智僧璨)",
+      "三祖 / Third Patriarch"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "xinxin_ming"
@@ -131,9 +141,16 @@
     "key_quote_en": "The hundreds and thousands of Dharma gates all return to the single inch of the heart-mind; sands of the Ganges virtues and oceans of merit are all present at the source of mind.",
     "cbeta_id": "T2076",
     "summary": "Established the first permanent settled monastic community for Chan at Twin Peaks, beginning the transition from wandering mendicants to settled agricultural monasticism.",
-    "alternative_names": [],
+    "alternative_names": [
+      "道信 / Daoxin",
+      "Dayi Daoxin (大醫道信)",
+      "四祖 / Fourth Patriarch"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "chuandenglu",
+      "dazhu_huihai"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -165,9 +182,16 @@
     "key_quote_en": "Maintain the original true mind: deluded thoughts will not arise, grasping at self and possessions will vanish, and naturally you will be equal and non-different from the Buddhas.",
     "cbeta_id": "T2011",
     "summary": "Leader of the thriving community of over 500 monks at Yellow Plum Mountain; transmitted the robe and bowl to Huineng.",
-    "alternative_names": [],
+    "alternative_names": [
+      "弘忍 / Hongren",
+      "Daman Hongren (大滿弘忍)",
+      "五祖 / Fifth Patriarch"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "platform_sutra",
+      "chuandenglu"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -281,7 +305,11 @@
     "key_quote_en": "The mind of the Great Sage of India was intimately transmitted east and west. Human faculties may be sharp or dull, but in the Way there is no northern or southern ancestor.",
     "cbeta_id": "T2076 f.14 / X1565",
     "summary": "Built a hut on a flat boulder at Mount Heng; author of the Sandokai which unites the relative (phenomena) and the absolute (noumenon) into one seamless reality.",
-    "alternative_names": [],
+    "alternative_names": [
+      "希遷 / Xiqian",
+      "Shitou (石頭)",
+      "Shitou the Stone Head"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "shitou_sandokai"
@@ -317,7 +345,11 @@
     "key_quote_en": "A day without work is a day without food.",
     "cbeta_id": "T1985 / T2025",
     "summary": "Codified the Chan monastic rules of communal physical labor (*普請*) and founded the pedagogical branches that yielded both Linji and Guiyang schools.",
-    "alternative_names": [],
+    "alternative_names": [
+      "懷海 / Huaihai",
+      "Baizhang Huaihai (百丈懷海)",
+      "Great Master Baizhang"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "baizhang_guanglu",
@@ -558,7 +590,11 @@
     "key_quote_en": "Bound by karma we receive this body, unable to avoid the burden of form. Inheriting the physical form of our parents, we are brought into being through a confluence of conditions.",
     "cbeta_id": "T1989 / T2076 f.9",
     "summary": "Kicked over the water pitcher when tested by Baizhang; established the first of the Five Houses with his disciple Yangshan Huiji.",
-    "alternative_names": [],
+    "alternative_names": [
+      "靈祐 / Lingyou",
+      "Guishan (溈山)",
+      "Great Master Guishan"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "guiyang_yulu"
@@ -593,7 +629,11 @@
     "key_quote_en": "The three realms are Mind only; the myriad dharmas are Consciousness only. If all is Mind and Consciousness, where are there mountains, rivers, and the great earth?",
     "cbeta_id": "T1991 (Vol. 47, p. 588)",
     "summary": "Integrated Huayan philosophy with Chan realization, formulating the Six Characteristics of Dharma (*六相*).",
-    "alternative_names": [],
+    "alternative_names": [
+      "文益 / Wenyi",
+      "Fayan (法眼)",
+      "Great Master Fayan"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "fayan_yulu"
@@ -707,9 +747,15 @@
     "key_quote_en": "If polishing a tile cannot make a mirror, how can sitting in meditation make a Buddha?",
     "cbeta_id": "T2076 f.5 / X1315",
     "summary": "Huineng's foremost disciple in the southern (Nanyue) line; his 'polishing a tile' encounter with Mazu redirected Chan from seated meditation to direct realization and made Mazu the patriarch of the Hongzhou school.",
-    "alternative_names": [],
+    "alternative_names": [
+      "懷讓 / Huairang",
+      "Nanyue Huairang (南嶽懷讓)",
+      "Nanyue (South Peak)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "mazu_yulu"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -740,9 +786,15 @@
     "key_quote_en": "I do not even practice the holy truths.",
     "cbeta_id": "T2076 f.5 / X1565",
     "summary": "Huineng's senior disciple who headed the Qingyuan line — source of the Shitou, Caodong, Yunmen and Fayan houses; his 'no falling into stages' exchange with Huineng is a canonical record of non-dual realization.",
-    "alternative_names": [],
+    "alternative_names": [
+      "行思 / Xingsi",
+      "Qingyuan (青原)",
+      "Great Master Qingyuan"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "shitou_sandokai"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -774,9 +826,16 @@
     "key_quote_en": "Ordinary mind is the Way.",
     "cbeta_id": "X1315 / T2076 f.8",
     "summary": "Mazu's most independent-minded heir; his 'Ordinary mind is the Way' teaching and the 'cutting the cat' episode make him a defining master of encounter-dialectics, teacher of Zhaozhou.",
-    "alternative_names": [],
+    "alternative_names": [
+      "普願 / Puyuan",
+      "Nanquan (南泉)",
+      "Nanquan Puyuan (南泉普願)",
+      "池州南泉 / Chizhou Nanquan"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "nanquan_yulu"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -808,7 +867,11 @@
     "key_quote_en": "Clouds in the blue sky, water in the vase.",
     "cbeta_id": "T2076 f.14 / X1565",
     "summary": "Shitou's heir at Yaoshan; his famous reply to Prefect Li Ao — 'clouds in the blue sky, water in the vase' — became the emblem of natural, non-contrived Chan, and he transmitted the line to Yunyan.",
-    "alternative_names": [],
+    "alternative_names": [
+      "惟儼 / Weiyan",
+      "Yaoshan (藥山)",
+      "Yaoshan Weiyan (藥山惟儼)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [],
     "profile_evidence": {
@@ -841,7 +904,11 @@
     "key_quote_en": "Insentient beings preach the Dharma; insentient beings hear it.",
     "cbeta_id": "T2076 f.14 / X1565",
     "summary": "Yaoshan's heir and Dongshan's teacher; his 'insentient beings preach the Dharma' teaching and parting gift to Dongshan lie at the root of the Caodong school's Silent Illumination doctrine.",
-    "alternative_names": [],
+    "alternative_names": [
+      "曇晟 / Tansheng",
+      "Yunyan (雲巖)",
+      "Yunyan Tansheng (雲巖曇晟)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [],
     "profile_evidence": {
@@ -876,9 +943,17 @@
     "key_quote_en": "All the profound dialectic in the world is like a single hair cast into vast space; all the world's pivotal ingenuity is like a drop of water thrown into a great ravine.",
     "cbeta_id": "T2076 f.15 / X1565",
     "summary": "The scripture-scholar who burned his Diamond Sutra commentary and became the great 'blows' master of the Hongzhou tradition — 'thirty blows whether you can answer or not'; teacher of Xuefeng and Yantou.",
-    "alternative_names": [],
+    "alternative_names": [
+      "宣鑑 / Xuanjian",
+      "Deshan (德山)",
+      "Deshan Xuanjian (德山宣鑑)",
+      "Sima Xuanjian (司馬宣鑑)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "deshan_yulu",
+      "biyanlu_cases"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -911,7 +986,11 @@
     "key_quote_en": "The whole great earth, gathered up, is the size of a grain of millet.",
     "cbeta_id": "X1333 / T2076 f.16",
     "summary": "Deshan's heir who built a vast assembly at Xuefeng Mountain; his 'grain of millet' saying (Biyanlu case 5) and towering presence made him the teacher of both Yunmen and Xuansha, progenitors of two houses.",
-    "alternative_names": [],
+    "alternative_names": [
+      "義存 / Yicun",
+      "Xuefeng (雪峰)",
+      "Xuefeng Yicun (雪峰義存)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "xuefeng_yantou"
@@ -947,7 +1026,11 @@
     "key_quote_en": "All the old worthies of the various quarters say they receive beings and benefit life — but with the three kinds of sick people, how would you receive them?",
     "cbeta_id": "X1445 / T2076 f.18",
     "summary": "Xuefeng's dharma brother-in-arms and heir whose 'three kinds of sick people' and exacting standards shaped the Fayan school; teacher of Luohan Guichen, whose disciple founded it.",
-    "alternative_names": [],
+    "alternative_names": [
+      "師備 / Shibei",
+      "Xuansha (玄沙)",
+      "Xuansha Shibei (玄沙師備)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
       "xuansha_yulu"
@@ -982,9 +1065,15 @@
     "key_quote_en": "If we speak of the Buddhadharma — everything is already accomplished.",
     "cbeta_id": "T2076 f.21 / X1565",
     "summary": "Xuansha's heir at Zhangzhou whose 'everything is already accomplished' (一切現成) utterance awakened Fayan Wenyi, giving the Fayan school its founding insight.",
-    "alternative_names": [],
+    "alternative_names": [
+      "桂琛 / Guichen",
+      "Luohan (羅漢)",
+      "Luohan Guichen (羅漢桂琛)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "fayan_yulu"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -1016,9 +1105,15 @@
     "key_quote_en": "A clay Buddha cannot cross water; a wooden Buddha cannot cross fire; a metal Buddha cannot cross a furnace; the true Buddha sits within.",
     "cbeta_id": "X1351 / X1565 f.19",
     "summary": "Yangqi's heir and Wuzu Fayan's teacher; awakened when Yangqi pointed out 'others love laughter, you fear being laughed at'; his 上堂 sayings and strict style anchor the Song Yangqi branch.",
-    "alternative_names": [],
+    "alternative_names": [
+      "守端 / Shouduan",
+      "Baiyun (白雲)",
+      "Baiyun Shouduan (白雲守端)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "wudeng_huiyuan"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -1050,10 +1145,15 @@
     "key_quote_en": "The little maid calls 'Jade!' again and again — it means nothing at all; she only wants her lover to recognize her voice.",
     "cbeta_id": "T1995 / X1565 f.19",
     "summary": "Baiyun's heir at East Mountain; his 'little maid Jade' verse awakened Yuanwu Keqin, and as teacher of Yuanwu and Foyan he made the Yangqi branch the dominant Chan line of the Song.",
-    "alternative_names": [],
+    "alternative_names": [
+      "法演 / Fayan",
+      "Wuzu Fayan (五祖法演)",
+      "Wuzu (Fifth Patriarch of the Linji Yangqi line)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
-      "foyan_qingyuan"
+      "dahui_hongzhi",
+      "wudeng_huiyuan"
     ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
@@ -1085,10 +1185,15 @@
     "key_quote_en": "The Buddha's words make mind the source; the gateless is the Dharma-gate. Entering wholly here — it is another universe entirely.",
     "cbeta_id": "X1354",
     "summary": "Linji/Yangqi master of Wanshou Monastery whose attendant Wumen Huikai edited his record (X1354); his 'gateless is the Dharma-gate' verse prefigures the Gateless Gate, and he set Wumen to investigating the 'Wu' case.",
-    "alternative_names": [],
+    "alternative_names": [
+      "師觀 / Shiguan",
+      "Yuelin (月林)",
+      "Yuelin Shiguan (月林師觀)"
+    ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
     "linked_corpus_keys": [
-      "wumenguan"
+      "dahui_hongzhi",
+      "wudeng_huiyuan"
     ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",

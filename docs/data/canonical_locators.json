@@ -867,6 +867,31 @@
         "52": {
           "canonical_locator": "T2004, case 52",
           "status": "case_level_anchor"
+        },
+        "33": {
+          "canonical_locator": "T2004_p0196c",
+          "status": "collated_with_normalization",
+          "collation_note": "Wansong commentary on Case 33 (Nanquan as Cat) collated from CBETA T2004_p0196c; case-level CBETA Online spot-checked; pointer + dialogue + commentary + verse all present. Pending: 頌評唱 (post-verse commentary) and human sign-off."
+        },
+        "34": {
+          "canonical_locator": "T2004_p0197a",
+          "status": "collated_with_normalization",
+          "collation_note": "Wansong commentary on Case 34 (Panshan's Mind-Seal) collated from CBETA T2004_p0197a; case-level CBETA Online spot-checked. Pending: 頌評唱 and human sign-off."
+        },
+        "35": {
+          "canonical_locator": "T2004_p0197c",
+          "status": "collated_with_normalization",
+          "collation_note": "Wansong commentary on Case 35 (Gutji's One Finger) collated from CBETA T2004_p0197c; case-level CBETA Online spot-checked. Pending: 頌評唱 and human sign-off."
+        },
+        "37": {
+          "canonical_locator": "T2004_p0199a",
+          "status": "collated_with_normalization",
+          "collation_note": "Wansong commentary on Case 37 (Dongshan Three Pounds of Hemp) collated from CBETA T2004_p0199a; case-level CBETA Online spot-checked. Pending: 頌評唱 and human sign-off."
+        },
+        "38": {
+          "canonical_locator": "T2004_p0199c",
+          "status": "collated_with_normalization",
+          "collation_note": "Wansong commentary on Case 38 (Baizhang's Wild Fox) collated from CBETA T2004_p0199c; case-level CBETA Online spot-checked. Pending: 頌評唱 and human sign-off."
         }
       },
       "granularity": "case",

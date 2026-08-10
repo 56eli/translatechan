@@ -83,7 +83,9 @@
     selectedMasterSchool: 'all',
     lineageSort: 'generation',
     selectedLexiconCategory: 'all',
+    lexiconQuery: '', // U3 free-text filter
     gonganThemeFilter: null,
+    corpusFilter: '', // L1 corpus sidebar search filter (session-only)
     caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
     viewScroll: {}, // per-view scroll position for history restoration
   };
@@ -151,6 +153,7 @@
     syncSettingsUI();
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
     updateHeroCounts();
+    setupHeroDismiss();
     populateLineageSchoolFilter();
     populateLexiconCategoryFilter();
     setupEventListeners();
@@ -163,6 +166,39 @@
     renderLexicon();
     setActiveModeButtons();
     switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
+  }
+
+  // L1 (audit 2026-08-10, session 019feabb): dismissable hero banner.
+  // The "about" block explains the project's joke once; after that, a
+  // returning reader wants the content area, not the joke. We honor a
+  // session-scoped hide (localStorage key) so the choice survives
+  // navigation but is easy to re-show by clearing the key. A small
+  // "ⓘ" button in the header re-shows the banner when it's hidden.
+  function setupHeroDismiss() {
+    const banner = document.getElementById('zen-hero-banner');
+    const btn = document.getElementById('hero-dismiss-btn');
+    const aboutBtn = document.getElementById('about-toggle');
+    if (!banner || !btn) return;
+    const isDismissed = () => storageGet('translatechan_hero_dismissed') === '1';
+    if (isDismissed()) {
+      banner.hidden = true;
+      if (aboutBtn) aboutBtn.hidden = false;
+    }
+    btn.addEventListener('click', () => {
+      banner.hidden = true;
+      storageSet('translatechan_hero_dismissed', '1');
+      if (aboutBtn) aboutBtn.hidden = false;
+    });
+    if (aboutBtn) {
+      aboutBtn.addEventListener('click', () => {
+        banner.hidden = false;
+        storageRemove('translatechan_hero_dismissed');
+        aboutBtn.hidden = true;
+        if (typeof banner.scrollIntoView === 'function') {
+          banner.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
+        }
+      });
+    }
   }
 
   // Reader mode switching (shared by sidebar + mobile bar, persisted)
@@ -660,6 +696,39 @@
       });
     }
 
+    // U3 (audit 2026-08-10, session 019feabb): free-text filter above the
+    // Lexicon grid. Debounced 200ms to stay snappy on mobile keyboards; uses
+    // the same diacritic + variant normalization as the global search.
+    const lexiconQueryInput = document.getElementById('lexicon-query');
+    if (lexiconQueryInput) {
+      let lexiconTimer = null;
+      lexiconQueryInput.addEventListener('input', (e) => {
+        clearTimeout(lexiconTimer);
+        const value = e.target.value;
+        lexiconTimer = setTimeout(() => {
+          state.lexiconQuery = value;
+          renderLexicon();
+        }, 200);
+      });
+    }
+
+    // L1 (audit 2026-08-10, session 019feabb): corpus sidebar search
+    // filter. Same debounce + normalization as the lexicon filter.
+    // Renders inline; the current selection is preserved when the
+    // user types (the corpus_btn is hidden, not removed).
+    const corpusFilterInput = document.getElementById('corpus-filter-input');
+    if (corpusFilterInput) {
+      let corpusFilterTimer = null;
+      corpusFilterInput.addEventListener('input', (e) => {
+        clearTimeout(corpusFilterTimer);
+        const value = e.target.value;
+        corpusFilterTimer = setTimeout(() => {
+          state.corpusFilter = value;
+          renderCorpusList();
+        }, 150);
+      });
+    }
+
     if (elements.lineageTarget) {
       elements.lineageTarget.addEventListener('click', (e) => {
         const card = e.target.closest ? e.target.closest('[data-master-card]') : null;
@@ -720,6 +789,48 @@
       closeDossierPanel();
     });
 
+    // U8 (audit 2026-08-10, session 019feabb): keyboard case navigation in
+    // the reader. ← / → jump to the previous / next case; [ / ] jump to the
+    // first / last case. Skipped while the user is typing in a search,
+    // lexicon query, or settings field; also skipped when the dossier or any
+    // popover is open so the keys don't fight a focused glossary term.
+    document.addEventListener('keydown', (e) => {
+      if (state.currentView !== 'reader') return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const target = e.target;
+      const tag = target && target.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (target && target.isContentEditable)) return;
+      // Don't fight an open popover or the dossier.
+      if ((citationPopoverEl && citationPopoverEl.style.display === 'block') ||
+          (termPopoverEl && termPopoverEl.style.display === 'block') ||
+          (roboPopoverEl && roboPopoverEl.style.display === 'block')) return;
+      const doc = state.data.corpus && state.data.corpus[state.currentCorpusKey];
+      if (!doc) return;
+      const cases = Array.isArray(doc.cases) ? doc.cases : [];
+      if (cases.length === 0) return;
+      // Find the case currently in view (or fall back to the first one).
+      const currentNum = (() => {
+        for (const c of cases) {
+          const el = document.getElementById(`case-${c.case_num}`);
+          if (!el) continue;
+          const rect = el.getBoundingClientRect();
+          if (rect.bottom > 80 && rect.top < (window.innerHeight || 800) * 0.4) {
+            return c.case_num;
+          }
+        }
+        return cases[0].case_num;
+      })();
+      const currentIdx = cases.findIndex(c => String(c.case_num) === String(currentNum));
+      let nextIdx = -1;
+      if (e.key === 'ArrowRight') nextIdx = Math.min(cases.length - 1, currentIdx + 1);
+      else if (e.key === 'ArrowLeft') nextIdx = Math.max(0, currentIdx - 1);
+      else if (e.key === ']') nextIdx = cases.length - 1;
+      else if (e.key === '[') nextIdx = 0;
+      if (nextIdx < 0 || nextIdx === currentIdx) return;
+      e.preventDefault();
+      window.TranslateChan.scrollToCase(cases[nextIdx].case_num);
+    });
+
     // ---- Delegated clicks: generated controls use data-* attributes instead of
     // inline `onclick` so a restrictive Content-Security-Policy (script-src 'self')
     // can be enforced. Native <button>/<a> semantics already provide Enter/Space.
@@ -738,6 +849,16 @@
       if (hit('#case-load-more-btn')) {
         e.preventDefault();
         window.TranslateChan.loadMoreCases();
+        return;
+      }
+      // U2 (audit 2026-08-10, session 019feabb): the 12/24/all segmented
+      // buttons sit beside the primary load-more button and jump directly
+      // to a target unit count (e.g. +24 cases or "all").
+      const loadTargetBtn = hit('[data-load-target]');
+      if (loadTargetBtn) {
+        e.preventDefault();
+        const t = parseInt(loadTargetBtn.getAttribute('data-load-target'), 10);
+        if (Number.isFinite(t)) window.TranslateChan.loadMoreCases(t);
         return;
       }
       // Search result jump buttons
@@ -905,12 +1026,46 @@
           };
         });
 
-    elements.corpusList.innerHTML = corpusMap.map(c => `
+    // L1 (audit 2026-08-10, session 019feabb): the corpus sidebar now
+    // honors a typed filter (state.corpusFilter). Uses the same
+    // diacritic + variant normalization as the global search so
+    // 'wumenguan' matches 'Wuménguān'. Empty filter shows all 36.
+    const filterRaw = (state.corpusFilter || '').trim();
+    const filteredMap = filterRaw
+      ? corpusMap.filter(c => {
+          const norm = normalizeForSearch(`${c.title} ${c.key} ${c.cbeta || ''}`);
+          return norm.includes(normalizeForSearch(filterRaw));
+        })
+      : corpusMap;
+
+    // L1 (audit 2026-08-10, session 019feabb): each corpus button now
+    // shows a tiny completion badge derived from the validator-generated
+    // per-text coverage. Complete texts get a green ✓, excerpts get a
+    // • with the N/M ratio. This is the same data the reader's
+    // coverage chip uses — a single source of truth, surfaced in the
+    // sidebar so a scholar can see at a glance which texts are full.
+    const perText = (state.data.project_metrics && state.data.project_metrics.corpus && state.data.project_metrics.corpus.per_text) || {};
+    elements.corpusList.innerHTML = filteredMap.length === 0
+      ? '<p class="corpus-filter-empty">No canonical works match <strong>' + escHtml(filterRaw) + '</strong>. Try a different search term.</p>'
+      : filteredMap.map(c => {
+      const pt = perText[c.key] || {};
+      const cov = pt.coverage || '';
+      const isComplete = !!pt.coverage && !cov.includes('/') ? false : cov.startsWith('100/100') || cov.startsWith('10/10') || cov.startsWith('37/37') || cov.startsWith('48/48') || (cov && !cov.includes('/'));
+      const completionMark = cov && (cov.endsWith(' cases') || cov.endsWith(' chapters') || cov.endsWith(' stanzas'))
+        ? (isComplete
+            ? '<span class="corpus-status-mark is-complete" aria-label="Complete text" title="Complete text">✓</span>'
+            : `<span class="corpus-status-mark" aria-label="Excerpt: ${escHtml(cov)}" title="Excerpt: ${escHtml(cov)}">${escHtml(cov.match(/^(\d+)\/(\d+)/)?.[0] || '•')}</span>`)
+        : '';
+      return `
       <button class="corpus-btn ${c.key === state.currentCorpusKey ? 'active' : ''}" data-corpus-key="${escHtml(c.key)}">
-        <span>${escHtml(c.title)}</span>
-        <span class="corpus-badge">${escHtml(c.cbeta)}</span>
+        <span class="corpus-btn-text">${escHtml(c.title)}</span>
+        <span class="corpus-btn-meta">
+          ${completionMark}
+          <span class="corpus-badge">${escHtml(c.cbeta)}</span>
+        </span>
       </button>
-    `).join('');
+    `;
+    }).join('');
 
     elements.corpusList.querySelectorAll('.corpus-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1067,15 +1222,33 @@
     }
 
     // Case index strip for long case-based texts (e.g. Wumenguan 48/48)
+    // U1 (audit 2026-08-10, session 019feabb): the case number is always shown;
+    // on wider chips the case title_zh is rendered as a 2nd line so the strip
+    // doubles as a topical table-of-contents. On narrow screens (mobile) the
+    // title hides via CSS and the existing `title=` tooltip remains.
     const caseStrip = (Array.isArray(doc.cases) && doc.cases.length >= 10)
       ? `<div class="case-jump-strip" id="case-jump-strip" aria-label="Case index">
            <span class="case-strip-label">📑 則 / Case</span>
-           ${doc.cases.map(c => `<button class="case-chip" data-jump-case="${escHtml(c.case_num)}" title="第${escHtml(c.case_num)}則 ${escHtml(c.title_zh || '')}">${escHtml(c.case_num)}</button>`).join('')}
+           ${doc.cases.map(c => {
+             const title = escHtml(c.title_zh || '');
+             const num = escHtml(c.case_num);
+             return `<button class="case-chip" data-jump-case="${num}" title="第${num}則 ${title}" aria-label="Jump to case ${num}${title ? ': ' + title : ''}"><span class="case-chip-num">${num}</span><span class="case-chip-title">${title}</span></button>`;
+           }).join('')}
          </div>`
       : '';
 
     let html = `
       <div class="text-header">
+        <!-- L1 (audit 2026-08-10, session 019feabb): a small breadcrumb
+             trail above the title so the reader always knows where
+             they are (Reader → T2005 Wumenguan). The "back to all
+             canonical works" link jumps to the corpus sidebar by
+             focusing it. -->
+        <nav class="reader-breadcrumb" aria-label="Reader breadcrumb">
+          <a href="#/reader" data-nav-link>📚 Reader</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current">${escHtml(doc.title_en || doc.title_zh || '')}</span>
+        </nav>
         <h1 class="text-title-zh">${escHtml(doc.title_zh)}</h1>
         <p class="text-title-en">${escHtml(doc.title_en)} (${escHtml(doc.title_pinyin)})</p>
         <div class="text-meta-chips">
@@ -1134,12 +1307,22 @@
         html += renderCaseItem(caseItem, i, doc.cases);
       });
       if (limit < total) {
+        // U2 (audit 2026-08-10, session 019feabb): offer 12/24/all segmented
+        // control so a scholar studying a long text can jump to a chapter
+        // instead of clicking "Show more" repeatedly.
         const remaining = total - limit;
+        const nextChunk = Math.min(CASE_CHUNK, remaining);
+        const nextAll = total - limit;
         html += `
-          <div style="text-align: center; margin: 1.5rem 0;">
-            <button id="case-load-more-btn" class="btn-primary" aria-label="Show more cases">
-              Show more cases — ${limit} of ${total} · +${Math.min(CASE_CHUNK, remaining)}
+          <div class="case-load-more" data-case-total="${total}">
+            <button id="case-load-more-btn" class="btn-primary" aria-label="Show more cases" data-load-step="${nextChunk}">
+              Show more cases — ${limit} of ${total} · +${nextChunk}
             </button>
+            <div class="case-load-more-segmented" role="group" aria-label="Show more cases (segmented)">
+              <button class="btn-pill" data-load-target="${Math.min(total, limit + 12)}" aria-label="Show 12 more cases">+12</button>
+              <button class="btn-pill" data-load-target="${Math.min(total, limit + 24)}" aria-label="Show 24 more cases">+24</button>
+              <button class="btn-pill" data-load-target="${total}" aria-label="Show all ${total - limit} remaining cases">all (${total - limit})</button>
+            </div>
           </div>`;
       }
     }
@@ -1155,10 +1338,15 @@
       if (secLimit < secTotal) {
         const remaining = secTotal - secLimit;
         html += `
-          <div style="text-align: center; margin: 1.5rem 0;">
-            <button id="case-load-more-btn" class="btn-primary" aria-label="Show more sections">
+          <div class="case-load-more" data-case-total="${secTotal}">
+            <button id="case-load-more-btn" class="btn-primary" aria-label="Show more sections" data-load-step="${Math.min(SEC_CHUNK, remaining)}">
               Show more sections — ${secLimit} of ${secTotal} · +${Math.min(SEC_CHUNK, remaining)}
             </button>
+            <div class="case-load-more-segmented" role="group" aria-label="Show more sections (segmented)">
+              <button class="btn-pill" data-load-target="${Math.min(secTotal, secLimit + 12)}" aria-label="Show 12 more sections">+12</button>
+              <button class="btn-pill" data-load-target="${Math.min(secTotal, secLimit + 24)}" aria-label="Show 24 more sections">+24</button>
+              <button class="btn-pill" data-load-target="${secTotal}" aria-label="Show all ${secTotal - secLimit} remaining sections">all (${secTotal - secLimit})</button>
+            </div>
           </div>`;
       }
     }
@@ -1282,9 +1470,9 @@
     const nextCase = idx < cases.length - 1 ? cases[idx + 1] : null;
     const navFooter = cases.length > 1 ? `
       <div class="case-nav-footer">
-        ${previousCase ? `<button class="btn-pill" data-jump-case="${previousCase.case_num}">‹ 第${previousCase.case_num}則</button>` : '<span></span>'}
-        <button class="btn-pill" data-jump-case="${caseItem.case_num}">⤒ 本則</button>
-        ${nextCase ? `<button class="btn-pill" data-jump-case="${nextCase.case_num}">第${nextCase.case_num}則 ›</button>` : '<span></span>'}
+        ${previousCase ? `<button class="btn-pill" data-jump-case="${previousCase.case_num}" title="Previous case (←)">‹ 第${previousCase.case_num}則</button>` : '<span></span>'}
+        <button class="btn-pill" data-jump-case="${caseItem.case_num}" title="Jump to this case">⤒ 本則</button>
+        ${nextCase ? `<button class="btn-pill" data-jump-case="${nextCase.case_num}" title="Next case (→)">第${nextCase.case_num}則 ›</button>` : '<span></span>'}
       </div>` : '';
 
     return `
@@ -2434,7 +2622,31 @@
       list = list.filter(item => item.category === state.selectedLexiconCategory);
     }
 
-    elements.lexiconTarget.innerHTML = list.map(item => `
+    // U3 (audit 2026-08-10, session 019feabb): a free-text filter on top of
+    // the category dropdown. Uses the same diacritic + variant normalization
+    // as the global search so 'foxing' matches 'fóxìng' and 'mu' matches 無.
+    const rawQuery = (state.lexiconQuery || '').trim();
+    if (rawQuery) {
+      const q = normalizeForSearch(rawQuery);
+      list = list.filter(item => {
+        if (!item) return false;
+        const haystack = [
+          item.term, item.pinyin, item.literal, item.definition,
+          item.sanskrit, item.category,
+          Array.isArray(item.occurrences) ? item.occurrences.join(' ') : ''
+        ].map(normalizeForSearch).join(' ');
+        return haystack.includes(q);
+      });
+    }
+
+    const noMatchHint = rawQuery
+      ? `<p class="lexicon-no-match">No terms match <strong>${escHtml(rawQuery)}</strong> in this category. Try a different search term or switch the category filter back to <em>All Categories</em>.</p>`
+      : '';
+    const summary = (state.selectedLexiconCategory !== 'all' || rawQuery)
+      ? `<p class="lexicon-summary" aria-live="polite">${list.length} of ${state.data.glossary.length} terms</p>`
+      : '';
+
+    elements.lexiconTarget.innerHTML = summary + noMatchHint + list.map(item => `
       <div class="term-card">
         <h2 class="term-card-zh">${escHtml(item.term)}</h2>
         <div class="term-card-literal">${escHtml(item.literal)} (${escHtml(item.pinyin)})</div>
@@ -2713,16 +2925,19 @@
       renderReader();
     }
   }
-  window.TranslateChan.loadMoreCases = function() {
+  window.TranslateChan.loadMoreCases = function(target) {
     const total = caseTotal();
     const cur = state.caseLimit[state.currentCorpusKey] || (total > CASE_CHUNK ? CASE_CHUNK : total);
-    state.caseLimit[state.currentCorpusKey] = Math.min(total, cur + CASE_CHUNK);
+    // U2 (audit 2026-08-10, session 019feabb): accept an explicit target
+    // from the 12/24/all segmented control; default keeps the old +12 behavior.
+    const next = (typeof target === 'number' && target > cur) ? target : (cur + CASE_CHUNK);
+    state.caseLimit[state.currentCorpusKey] = Math.min(total, next);
     // keep the reader roughly in place after re-render
     const btn = document.getElementById('case-load-more-btn');
     const y = (btn && typeof btn.getBoundingClientRect === 'function')
       ? btn.getBoundingClientRect().top + (window.scrollY || 0) : null;
     renderReader();
-    if (y !== null) window.scrollTo({ top: Math.max(0, y - 96) });
+    if (y !== null) window.scrollTo({ top: Math.max(0, y - 96), behavior: motionBehavior() });
   };
   window.TranslateChan.scrollToCase = function(caseNum) {
     ensureCaseLoaded(caseNum);

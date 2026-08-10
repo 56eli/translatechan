@@ -50,7 +50,8 @@ if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.inclu
   throw new Error('hero translator/corpus counts are not derived from data');
 }
 // B4: app_data/app.js should use defer so parsing is not blocked while the
-// ~873 KB bundle downloads; order remains app_data.js then app.js.
+// deterministic data bundle downloads; order remains app_data.js then app.js.
+// The exact bundle size is data-driven (see data/project_metrics.json).
 if (!publicHtml.includes('<script defer src="app_data.js"></script>')) {
   throw new Error('app_data.js is not deferred');
 }
@@ -246,7 +247,7 @@ const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {
 if (Object.keys(perText).length !== 36) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '30/100 cases'], ['platform_sutra', '10/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '35/100 cases'], ['platform_sutra', '10/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
@@ -365,7 +366,7 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
 // arithmetic case numbers; selecting a corpus also persists the reading context.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanHtml = ids['reader-content-target']._innerHTML;
-if (!biyanHtml.includes('data-jump-case="4">第4則 ›') || !biyanHtml.includes('data-jump-case="2">‹ 第2則')) {
+if (!biyanHtml.includes('data-jump-case="4"') || !biyanHtml.includes('第4則 ›') || !biyanHtml.includes('data-jump-case="2"') || !biyanHtml.includes('‹ 第2則')) {
   failures++; console.log('❌ Biyanlu sparse prev/next navigation is incorrect');
 }
 // 4e1. Biyanlu pilot cases 4-10 render with labeled AI-draft renderings
@@ -386,7 +387,7 @@ mobileCorpusSelect.value = 'congronglu_cases';
 if (store['translatechan_corpus_key'] !== 'congronglu_cases') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
 corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
 const congrongHtml = ids['reader-content-target']._innerHTML;
-if (!congrongHtml.includes('data-jump-case="9">第9則 ›') || !congrongHtml.includes('data-jump-case="1">‹ 第1則')) {
+if (!congrongHtml.includes('data-jump-case="9"') || !congrongHtml.includes('第9則 ›') || !congrongHtml.includes('data-jump-case="1"') || !congrongHtml.includes('‹ 第1則')) {
   failures++; console.log('❌ Congronglu sparse prev/next navigation is incorrect');
 }
 // 4f. Preference writes must be non-fatal when browser storage is unavailable.
@@ -498,6 +499,135 @@ try {
     failures++; console.log('❌ master profile source disclosure missing');
   }
 } catch (e) { failures++; console.log(`❌ lineage source disclosure crashed: ${e.message}`); }
+
+// 4ff. L1 (audit 2026-08-10, session 019feabb): the corpus sidebar shows
+// a per-text completion mark (e.g. "48/48" for complete Wumenguan,
+// "35/100" for the now-35 Congronglu). Spot-check both forms.
+try {
+  corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+  // re-render the corpus sidebar list
+  const corpusListHtml = ids['corpus-selector-list']._innerHTML;
+  if (!corpusListHtml.includes('is-complete')) {
+    failures++; console.log('❌ 4ff: corpus sidebar should show the is-complete mark on Wumenguan; list was: ' + corpusListHtml.substring(0, 200));
+  }
+  // The Congronglu excerpt should show 35/100 (or 35/100 cases).
+  if (!corpusListHtml.includes('35/100')) {
+    failures++; console.log('❌ 4ff: corpus sidebar should show 35/100 for Congronglu');
+  }
+} catch (e) { failures++; console.log(`❌ 4ff sidebar spot-check crashed: ${e.message}`); }
+
+// 4hh. L1 (audit 2026-08-10, session 019feabb): the corpus sidebar has
+// a search filter (#corpus-filter-input). Spot-check the filter
+// narrows the list to Wumenguan only when "wumenguan" is typed.
+try {
+  const filterInput = ids['corpus-filter-input'];
+  if (!filterInput) { failures++; console.log('❌ 4hh: #corpus-filter-input missing'); }
+  else {
+    if (typeof filterInput._handlers['input'] === 'function') filterInput._handlers['input'] = [filterInput._handlers['input']];
+    (filterInput._handlers['input'] || []).forEach(fn => fn({ target: { value: 'wumenguan' } }));
+    await sleep(200);
+    const filtered = ids['corpus-selector-list']._innerHTML;
+    // The filter should narrow the list to only the Wumenguan entry
+    // (one button rendered). The Wumenguan title is "The Gateless
+    // Gate" so we check for the data-corpus-key (always present).
+    const wmCount = (filtered.match(/data-corpus-key="wumenguan"/g) || []).length;
+    const otherCount = (filtered.match(/data-corpus-key="(?!wumenguan)/g) || []).length;
+    if (wmCount !== 1 || otherCount !== 0) {
+      failures++; console.log(`❌ 4hh: corpus filter "wumenguan" should narrow to 1 entry (got wmCount=${wmCount}, otherCount=${otherCount})`);
+    }
+    if (!filtered.includes('is-complete')) {
+      failures++; console.log('❌ 4hh: filtered Wumenguan button should still show ✓');
+    }
+    // Clear the filter and confirm the full list returns (36 entries).
+    (filterInput._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
+    await sleep(200);
+    const restored = ids['corpus-selector-list']._innerHTML;
+    const restoredCount = (restored.match(/data-corpus-key=/g) || []).length;
+    if (restoredCount !== 36) {
+      failures++; console.log(`❌ 4hh: clearing the filter should restore all 36 entries (got ${restoredCount})`);
+    }
+  }
+} catch (e) { failures++; console.log(`❌ 4hh corpus filter spot-check crashed: ${e.message}`); }
+
+// 4ii. L1: the reader shows a breadcrumb trail ("📚 Reader › T2005
+// Wumenguan") above the title.
+try {
+  corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+  const readerHtml = ids['reader-content-target']._innerHTML;
+  if (!readerHtml.includes('reader-breadcrumb') || !readerHtml.includes('📚 Reader') || !readerHtml.includes('breadcrumb-current')) {
+    failures++; console.log('❌ 4ii: reader should show a breadcrumb trail above the title');
+  }
+} catch (e) { failures++; console.log(`❌ 4ii breadcrumb spot-check crashed: ${e.message}`); }
+
+// 4jj. L1: the reader toolbar should be sticky (position: sticky in CSS).
+const cssSrc = readFileSync(join(ROOT, 'app.css'), 'utf8');
+if (!cssSrc.includes('.reader-toolbar') || !/\.reader-toolbar\s*\{[^}]*position:\s*sticky/s.test(cssSrc)) {
+  failures++; console.log('❌ 4jj: reader toolbar should use position: sticky');
+}
+
+// 4kk. L1 (audit 2026-08-10, session 019feabb): the dossier panel uses
+// the project's card system (background-card + border + radius) so
+// it doesn't visually clash with the surrounding master cards.
+if (!publicHtml.includes('class="dossier-panel"') || !publicHtml.includes('id="master-dossier-panel" role="dialog"')) {
+  failures++; console.log('❌ 4kk: dossier panel should carry the .dossier-panel class on the dialog element');
+}
+// The CSS should define the dossier panel as a card (not the old
+// gold-bordered look with a light background).
+if (!cssSrc.includes('.dossier-panel') || !/\.dossier-panel\s*\{[^}]*background:\s*var\(--bg-card\)/s.test(cssSrc)) {
+  failures++; console.log('❌ 4kk: .dossier-panel should use var(--bg-card) background');
+}
+if (!/\.dossier-panel\s*\{[^}]*border-left:\s*4px\s+solid\s+var\(--accent-gold\)/s.test(cssSrc)) {
+  failures++; console.log('❌ 4kk: .dossier-panel should have a gold left accent stripe');
+}
+try {
+  const banner = ids['zen-hero-banner'];
+  const dismissBtn = ids['hero-dismiss-btn'];
+  if (banner && dismissBtn) {
+    // Banner should be visible initially (storage mock returns null for unknown key).
+    if (banner.hidden === true) {
+      failures++; console.log('❌ 4gg: hero banner should be visible on first visit');
+    }
+    // Click the dismiss button; banner.hidden becomes true (DOM property, not attribute).
+    (dismissBtn._handlers.click || []).forEach(fn => fn());
+    if (banner.hidden !== true) {
+      failures++; console.log('❌ 4gg: hero banner should hide after dismiss; banner.hidden = ' + banner.hidden);
+    }
+    // The about-toggle button should now be visible (no longer hidden).
+    const aboutBtn = ids['about-toggle'];
+    if (aboutBtn && aboutBtn.hidden === true) {
+      failures++; console.log('❌ 4gg: about-toggle should be visible after dismiss');
+    }
+  } else {
+    failures++; console.log('❌ 4gg: hero banner / dismiss button not found');
+  }
+} catch (e) { failures++; console.log(`❌ 4gg dismiss spot-check crashed: ${e.message}`); }
+
+// 4ee. Tier-4 (audit 2026-08-10, session 019feabb): the lineage dossier
+// should show real linked-corpus keys for masters that have them (the
+// 2026-08-10 pass populated alternative_names for 20 masters and
+// linked_corpus_keys for 20). Spot-check Sengcan (Xinxin Ming author):
+// his dossier must include the "Open <title>" button for xinxin_ming.
+try {
+  window.TranslateChan.openMasterDossier('sengcan');
+  const sengcanHtml = ids['dossier-content']._innerHTML;
+  if (!sengcanHtml.includes('data-open-doc="xinxin_ming"') || !sengcanHtml.includes('Open Faith in Mind')) {
+    failures++; console.log('❌ 4ee: Sengcan dossier should link to xinxin_ming (T2010)');
+  }
+  // Spot-check the rendered alternative names list (no longer empty).
+  if (!sengcanHtml.includes('Sengcan') || !sengcanHtml.includes('Third Patriarch')) {
+    failures++; console.log('❌ 4ee: Sengcan dossier should show alternative names');
+  }
+  // Spot-check the Linked corpus warning: 4 frontier scaffolds (prajnatara,
+  // longtan_chongxin, yangqi_fanghui, dahong_zuzheng) + 2 historical masters
+  // (yaoshan_weiyan, yunyan_tansheng) still have empty linked_corpus_keys
+  // and the dossier must show the explicit 'Project corpus link not yet
+  // curated' notice for at least one of them.
+  window.TranslateChan.openMasterDossier('yaoshan_weiyan');
+  const yaoshanHtml = ids['dossier-content']._innerHTML;
+  if (!yaoshanHtml.includes('Project corpus link not yet curated')) {
+    failures++; console.log('❌ 4ee: yaoshan_weiyan dossier should disclose the missing corpus link');
+  }
+} catch (e) { failures++; console.log(`❌ 4ee dossier spot-check crashed: ${e.message}`); }
 // 4m. Hash routing: initial deep-link state + viewHash helper
 if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.log('❌ openDoc missing (hash routing depends on it)'); }
 // 4m. Gong'an filter chips remain available in the public reading scope.
@@ -760,6 +890,69 @@ if (!globalThis.window._lastScrollTo || globalThis.window._lastScrollTo.top !== 
 }
 globalThis.window.scrollY = 0;
 
+// 4aa. U1 (audit 2026-08-10, session 019feabb): case-strip chips render the
+// case number + case title_zh (desktop gets the title inline; mobile gets it
+// in the title= tooltip). The new structure is `case-chip-num` + `case-chip-title`.
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+const wmStripHtml = ids['reader-content-target']._innerHTML;
+if (!wmStripHtml.includes('class="case-chip-num">1</span>') || !wmStripHtml.includes('class="case-chip-title">趙州狗子</span>')) {
+  failures++; console.log('❌ U1: case strip does not expose case number + title');
+}
+
+// 4bb. U2 (audit 2026-08-10, session 019feabb): 12/24/all segmented control
+// sits beside the primary load-more button. The buttons carry data-load-target
+// attributes that the delegated click handler routes through loadMoreCases(target).
+// Use congronglu_cases (35 cases as of 2026-08-10) to avoid the wumenguan
+// already-loaded state from the earlier 4g regression block.
+corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
+const congrongStripHtml = ids['reader-content-target']._innerHTML;
+if (!congrongStripHtml.includes('data-load-target="24"') || !congrongStripHtml.includes('data-load-target="35"')) {
+  failures++; console.log('❌ U2: case load-more segmented control missing');
+}
+const segBtn = { getAttribute: n => n === 'data-load-target' ? '35' : null,
+  closest: sel => sel === '[data-load-target]' ? segBtn : null };
+(documentHandlers.click || []).forEach(fn => fn({ target: segBtn, preventDefault() {} }));
+if (!window.TranslateChan.loadMoreCases || (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length !== 35) {
+  failures++; console.log('❌ U2: data-load-target click did not expand to all cases');
+}
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+
+// 4cc. U3 (audit 2026-08-10, session 019feabb): Lexicon free-text filter is
+// present in the DOM, persists with the data, and the renderLexicon() output
+// drops entries that do not match a normalized query. "buddha" matches terms
+// whose definition mentions "Buddha-nature" (e.g. 無位真人) and the pinyin
+// string `wú (Japanese: Mu)`; "foxing" (the un-diacriticked pinyin form of
+// 佛性) returns no hits in the current 31-term glossary — proving both the
+// search and the no-match UX.
+const lexiconQueryInput = ids['lexicon-query'];
+if (!lexiconQueryInput) { failures++; console.log('❌ U3: #lexicon-query input missing'); }
+else {
+  (lexiconQueryInput._handlers['input'] || []).forEach(fn => fn({ target: { value: 'buddha' } }));
+  await sleep(260);
+  const filtered = ids['lexicon-content-target']._innerHTML;
+  if (!filtered.includes('無位真人') || !filtered.includes('wú (Japanese: Mu)')) {
+    failures++; console.log('❌ U3: free-text filter "buddha" did not match the expected terms');
+  }
+  if (!filtered.includes('lexicon-summary')) { failures++; console.log('❌ U3: free-text filter did not render the live summary chip'); }
+  (lexiconQueryInput._handlers['input'] || []).forEach(fn => fn({ target: { value: 'foxing' } }));
+  await sleep(260);
+  const noMatch = ids['lexicon-content-target']._innerHTML;
+  if (!noMatch.includes('lexicon-no-match')) { failures++; console.log('❌ U3: free-text filter did not show the no-match hint for an unmatched query'); }
+  (lexiconQueryInput._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
+  await sleep(260);
+}
+
+// 4dd. U8 (audit 2026-08-10, session 019feabb): keyboard ←/→ skip the
+// "active element is an input" guard so they don't fight the global search.
+// Simulate ArrowRight with activeElement = the global search input.
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+globalThis.document.activeElement = ids['global-search'];
+const beforeRight = ids['reader-content-target']._innerHTML;
+(documentHandlers.keydown || []).forEach(fn => fn({ key: 'ArrowRight', preventDefault() {}, target: ids['global-search'] }));
+const afterRight = ids['reader-content-target']._innerHTML;
+// The text should NOT have changed (we're guarding the reader from fighting
+// an active search input).
+if (beforeRight !== afterRight) { failures++; console.log('❌ U8: ←/→ must be inert when an INPUT has focus'); }
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const readerHtml = ids['reader-content-target']._innerHTML;

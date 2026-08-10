@@ -1,20 +1,20 @@
 {
   "canonical_locator_coverage": {
     "case_level_documents": 3,
-    "case_locators": 178,
-    "declared_cases": 178,
+    "case_locators": 183,
+    "declared_cases": 183,
     "document_level_seed_documents": 33,
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 112408,
+    "all_corpus_cjk_characters": 113410,
     "complete_documents": [
       "biyanlu_cases",
       "platform_sutra",
       "wumenguan",
       "xinxin_ming"
     ],
-    "content_cjk_characters": 106615,
+    "content_cjk_characters": 107563,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -103,17 +103,17 @@
         }
       },
       "congronglu_cases": {
-        "all_cjk_chars": 3223,
+        "all_cjk_chars": 4225,
         "cbeta_id": "T2004",
-        "content_zh_chars": 2892,
-        "coverage": "30/100 cases",
-        "coverage_note": "30 / 100 cases (30 canonical cases recorded)",
+        "content_zh_chars": 3840,
+        "coverage": "35/100 cases",
+        "coverage_note": "35 / 100 cases (35 canonical cases recorded; the 5 new cases added 2026-08-10 are Nanquan-cat / Panshan-mind-seal / Gutji-finger / Dongshan-hemp / Baizhang-wild-fox, all widely-cited cases in the CBETA T2004 text and the standard scholarly literature; the remaining 65 cases are documented but not yet ingested — see Phase 2 roadmap in .scoreboard/agent-handoff.md and ROADMAP.md)",
         "shapes": [
           "cases"
         ],
         "title": "Book of Serenity (從容庵錄)",
         "unit_counts": {
-          "cases": 30
+          "cases": 35
         }
       },
       "dahui_hongzhi": {
@@ -524,10 +524,10 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 1342,
+    "corpus_slots": 1352,
     "corpus_statuses": {
       "ai_draft": 199,
-      "reconstruction_unverified": 966,
+      "reconstruction_unverified": 976,
       "verified_quotation": 177
     },
     "matrix_entries": 21,

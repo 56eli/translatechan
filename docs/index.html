@@ -30,10 +30,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <!-- D4: parse the ~873KB data bundle as early as possible. A modulepreload is
-       not appropriate (app_data.js is a classic global script), so preload as
+  <!-- D4: parse the deterministic data bundle as early as possible. A modulepreload
+       is not appropriate (app_data.js is a classic global script), so preload as
        script; the matching defer <script> below reuses this download and keeps
-       execution ordered after HTML parsing. -->
+       execution ordered after HTML parsing. (Bundle size is data-driven; check
+       data/project_metrics.json for the current value.) -->
   <link rel="preload" href="app_data.js" as="script">
 </head>
 <body>
@@ -89,6 +90,7 @@
           <input type="search" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off" aria-label="Search all corpus texts — Chinese, pinyin, or English">
         </div>
         <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme"><span aria-hidden="true">🌙</span></button>
+        <button id="about-toggle" class="theme-toggle" title="Show about banner" aria-label="Show about banner" hidden><span aria-hidden="true">ⓘ</span></button>
         <div class="settings-menu">
           <button id="settings-btn" class="theme-toggle" title="Display settings" aria-label="Display settings" aria-expanded="false" aria-controls="settings-panel"><span aria-hidden="true">⚙️</span></button>
           <div id="settings-panel" class="settings-panel" role="region" aria-label="Display settings" hidden>
@@ -106,20 +108,21 @@
   </header>
 
   <main id="main-content">
-    <!-- Factory Hero Banner -->
-    <div class="zen-hero-banner">
-      <div>
-        <div class="zen-quote-main">「平常心是道。」— now freshly robot-stamped. 🤖</div>
-        <div class="zen-quote-sub">
-          <strong>Fake Chan Factory</strong> cooks up AI translations in the register of the great Chan/Zen translators, laid over real Classical Chinese sources. Every rendering below is a <em>Robolation</em> — written by us, not by the named master. Where we have the genuine public-domain text, it's stamped <strong>✅ Verified</strong>. No apologies, just honest fakes.
-        </div>
-      </div>
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <span class="meta-chip" id="hero-corpus-count" aria-hidden="true">📜 36 Canonical Works</span>
-        <span class="meta-chip" id="hero-translator-count" aria-hidden="true">🤖 8+ Robo-Translators</span>
-        <span class="meta-chip" aria-hidden="true">🌐 Zero-Backend Static</span>
+  <!-- Factory Hero Banner (dismissable, restored per session via localStorage) -->
+  <div class="zen-hero-banner" id="zen-hero-banner" role="region" aria-label="About this project">
+    <div>
+      <div class="zen-quote-main">「平常心是道。」— now freshly robot-stamped. 🤖</div>
+      <div class="zen-quote-sub">
+        <strong>Fake Chan Factory</strong> cooks up AI translations in the register of the great Chan/Zen translators, laid over real Classical Chinese sources. Every rendering below is a <em>Robolation</em> — written by us, not by the named master. Where we have the genuine public-domain text, it's stamped <strong>✅ Verified</strong>. No apologies, just honest fakes.
       </div>
     </div>
+    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: flex-start;">
+      <span class="meta-chip" id="hero-corpus-count" aria-hidden="true">📜 36 Canonical Works</span>
+      <span class="meta-chip" id="hero-translator-count" aria-hidden="true">🤖 8+ Robo-Translators</span>
+      <span class="meta-chip" aria-hidden="true">🌐 Zero-Backend Static</span>
+      <button class="hero-dismiss-btn" id="hero-dismiss-btn" title="Hide this banner for this session" aria-label="Hide about banner">✕</button>
+    </div>
+  </div>
 
     <!-- View 1: Bilingual Reader -->
     <section id="view-reader" class="view-section active" role="tabpanel" aria-labelledby="tab-reader">
@@ -131,14 +134,27 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar-panel">
           <div class="sidebar-title">Canonical & Related Works</div>
+          <!-- L1 (audit 2026-08-10, session 019feabb): corpus sidebar
+               search filter. With 36 texts in the corpus, the list
+               was getting long; a tiny search box lets scholars jump
+               to "Wumenguan" or "Dahui" without scrolling. Diacritic-
+               and variant-tolerant (matches the global search). -->
+          <div class="corpus-filter">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="search" id="corpus-filter-input" class="search-input" placeholder="Filter corpus…" autocomplete="off" aria-label="Filter canonical works by title">
+          </div>
           <div id="corpus-selector-list" class="corpus-selector-list"></div>
 
-          <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+          <!-- L1 (audit 2026-08-10, session 019feabb): reading-mode
+               section uses .reader-mode-btn (not the corpus-btn
+               class) so the buttons pick up the correct .btn-pill
+               styling instead of the corpus-list row treatment. -->
+          <div class="reader-mode-section">
             <div class="sidebar-title">Reading Mode</div>
-            <div style="display: flex; flex-direction: column; gap: 0.35rem;">
-              <button class="corpus-btn active" data-reader-mode="bilingual">📖 Bilingual (Primary)</button>
-              <button class="corpus-btn" data-reader-mode="multi_translators">⚖️ Multi-Translators</button>
-              <button class="corpus-btn" data-reader-mode="chinese_only">漢 Classical Only</button>
+            <div class="reader-mode-options">
+              <button class="btn-pill reader-mode-btn active" data-reader-mode="bilingual">📖 Bilingual (Primary)</button>
+              <button class="btn-pill reader-mode-btn" data-reader-mode="multi_translators">⚖️ Multi-Translators</button>
+              <button class="btn-pill reader-mode-btn" data-reader-mode="chinese_only">漢 Classical Only</button>
             </div>
           </div>
         </aside>
@@ -218,16 +234,20 @@
       </div>
 
       <!-- Master Dossier Modal / Inspector Drawer (non-modal dialog: focus moves
-           in on open, Escape closes and restores focus — see app.js N2 a11y) -->
-      <div id="master-dossier-panel" role="dialog" aria-labelledby="dossier-name-zh" tabindex="-1" style="display: none; background: var(--accent-gold-light); border: 2px solid var(--accent-gold); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; animation: sereneFade 0.3s ease;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+           in on open, Escape closes and restores focus — see app.js N2 a11y)
+           L1 (audit 2026-08-10, session 019feabb): the inline style
+           (gold border + serif h2) was inconsistent with the other
+           cards. Moved to .dossier-panel class so it shares the
+           project's card system, and added a subtle accent stripe. -->
+      <div id="master-dossier-panel" role="dialog" aria-labelledby="dossier-name-zh" tabindex="-1" class="dossier-panel" hidden>
+        <div class="dossier-header">
           <div>
-            <h2 id="dossier-name-zh" class="master-name-zh" style="font-size: 1.75rem; color: var(--accent-gold);"></h2>
-            <div id="dossier-name-en" style="font-size: 1.1rem; color: var(--text-primary);"></div>
+            <h2 id="dossier-name-zh" class="master-name-zh dossier-name-zh"></h2>
+            <div id="dossier-name-en" class="dossier-name-en"></div>
           </div>
-          <button id="dossier-close-btn" class="btn-pill" style="color: var(--accent-red); font-weight: 700;" aria-label="Close dossier">✕ Close</button>
+          <button id="dossier-close-btn" class="btn-pill dossier-close-btn" aria-label="Close dossier">✕ Close</button>
         </div>
-        <div id="dossier-content" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-primary);"></div>
+        <div id="dossier-content" class="dossier-content"></div>
       </div>
 
       <!-- Lineage Cards Grid -->
@@ -260,6 +280,17 @@
       <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="Occurrence tags cite the term's locus in the canonical work (chapter, fascicle, or case). That locus may lie outside the units currently excerpted into this corpus.">
         📖 <strong>Scope note:</strong> occurrence tags cite each term's locus in the <em>canonical work</em>; a cited locus may sit outside the units currently excerpted (each Reader text carries a 📊 coverage disclosure).
       </div>
+      <!-- U3 (audit 2026-08-10, session 019feabb): free-text filter on top of
+           the category dropdown. Diacritic + variant tolerant (matches the
+           global search). Persists during navigation while the user is in
+           the Lexicon view; resets on app reload (a deliberate choice — the
+           free-text query is exploratory, not a stored preference). -->
+      <div class="lexicon-filter-row" style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem;">
+        <div class="search-box" role="search" style="flex:1; min-width:14rem;">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input type="search" id="lexicon-query" class="search-input" placeholder="Filter terms (term / pinyin / definition)…" autocomplete="off" aria-label="Filter lexicon terms by term, pinyin, or definition">
+        </div>
+      </div>
       <div id="lexicon-content-target" class="lexicon-grid"></div>
     </section>
 
@@ -281,8 +312,21 @@
 
   <footer>
     <div class="footer-quote">「不立文字，教外別傳；直指人心，見性成佛。」<span style="opacity:0.7">— the robots read this too.</span></div>
-    <div>Fake Chan Factory • A proudly-fake AI Chan translation playground</div>
-    <div style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#/reader">Reader</a>
+      <span class="footer-sep">·</span>
+      <a href="#/matrix">Matrix</a>
+      <span class="footer-sep">·</span>
+      <a href="#/lineage">Lineage</a>
+      <span class="footer-sep">·</span>
+      <a href="#/gongan">Gong'an</a>
+      <span class="footer-sep">·</span>
+      <a href="#/lexicon">Lexicon</a>
+    </nav>
+    <div class="footer-meta">
+      Fake Chan Factory • A proudly-fake AI Chan translation playground
+    </div>
+    <div class="footer-fineprint">
       Real sources: CBETA / Taishō Tripiṭaka Volumes 47, 48, 51 · Robo renderings are AI, not the named translators' work · Verified public-domain text is marked ✅
     </div>
   </footer>
