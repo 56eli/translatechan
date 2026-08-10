@@ -3,9 +3,9 @@
 > **Repository:** `56eli/translatechan`
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
-> **Latest audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
-> **Latest design:** [gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B implementation](./sessions/DESIGN_PHASE_AB_2026-08-10.md)
-> **Current gate:** `repo_ready = fail` (6.9/10; shell/Reader implemented, four rooms/visual verification remain)
+> **Latest audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
+> **Latest design:** [gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B implementation](./sessions/DESIGN_PHASE_AB_2026-08-10.md) · [Phase C+D implementation](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md)
+> **Current gate:** `repo_ready = fail` (7.6/10; all five rooms implemented in walnut Chan hall layout, responsive breakpoints unified to 1024px/768px, storage hotfix applied; screenshot verification remains)
 
 ## 1. Start here
 

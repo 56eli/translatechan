@@ -1,20 +1,19 @@
 # Agent Handoff
 
-> **Last updated:** 2026-08-10, session `arena/019febb1-translatechan`
-> **Current fixed branch:** `arena/019febb1-translatechan` — do not switch or push elsewhere.
-> **Baseline:** `3ef77320d28cc2a627723d8ad709f9a13ba83c29` (`main`, merged PR #14).
+> **Last updated:** 2026-08-10, session `arena/019fec5c-translatechan`
+> **Current fixed branch:** `arena/019fec5c-translatechan` — do not switch or push elsewhere.
+> **Baseline:** `7877dd93a07c1dad9dcf667494cd589f9d9cfc56` (`main`, merged PR #16).
 
 ## Current state
 
-This session completed three steps:
+This session completed:
 
-1. [full audit](../sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md);
-2. [user-selected Congronglu containment](../sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md);
-3. [user-selected P1 public-behavior hotfix](../sessions/FUNCTIONAL_HOTFIX_2026-08-10.md);
-4. [owner-directed web vision gap analysis and redesign plan](../sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md);
-5. [owner-approved structural walnut shell + Reader Phase A+B](../sessions/DESIGN_PHASE_AB_2026-08-10.md).
+1. [Senior Developer & Web Designer Full Audit](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md);
+2. [Phase C+D secondary-room visual consolidation](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) (Matrix Proof Sheet, Lineage Directory, Gong'an Catalogue Shelf, Lexicon Dictionary Rows);
+3. [Responsive breakpoint unification & WCAG AA contrast hardening](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) (`1024px` tablet / `768px` mobile);
+4. [Robo badge silencing & strict-mode storage TypeError hotfix](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md).
 
-Current weighted score: **6.9/10** after Phase A+B implementation, pending visual approval. `repo_ready = fail` because four-room design completion, rights, and operations gates remain. All `user_score` fields remain `null`.
+Current weighted score: **7.6/10** after Phase C+D implementation and responsive unification, pending visual approval. `repo_ready = fail` because formal screenshot verification, rights, and CI browser test gates remain. All `user_score` fields remain `null`.
 
 ## Completed containment
 
