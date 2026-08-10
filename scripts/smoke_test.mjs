@@ -564,6 +564,21 @@ const cssSrc = readFileSync(join(ROOT, 'app.css'), 'utf8');
 if (!cssSrc.includes('.reader-toolbar') || !/\.reader-toolbar\s*\{[^}]*position:\s*sticky/s.test(cssSrc)) {
   failures++; console.log('❌ 4jj: reader toolbar should use position: sticky');
 }
+
+// 4kk. L1 (audit 2026-08-10, session 019feabb): the dossier panel uses
+// the project's card system (background-card + border + radius) so
+// it doesn't visually clash with the surrounding master cards.
+if (!publicHtml.includes('class="dossier-panel"') || !publicHtml.includes('id="master-dossier-panel" role="dialog"')) {
+  failures++; console.log('❌ 4kk: dossier panel should carry the .dossier-panel class on the dialog element');
+}
+// The CSS should define the dossier panel as a card (not the old
+// gold-bordered look with a light background).
+if (!cssSrc.includes('.dossier-panel') || !/\.dossier-panel\s*\{[^}]*background:\s*var\(--bg-card\)/s.test(cssSrc)) {
+  failures++; console.log('❌ 4kk: .dossier-panel should use var(--bg-card) background');
+}
+if (!/\.dossier-panel\s*\{[^}]*border-left:\s*4px\s+solid\s+var\(--accent-gold\)/s.test(cssSrc)) {
+  failures++; console.log('❌ 4kk: .dossier-panel should have a gold left accent stripe');
+}
 try {
   const banner = ids['zen-hero-banner'];
   const dismissBtn = ids['hero-dismiss-btn'];
