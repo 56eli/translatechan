@@ -50,6 +50,10 @@ After rejecting the prior false completion claim, the owner approved production 
 - `repo_ready` remains **fail** on the visual redesign, rights, source depth, responsive/accessibility, error-state, and operations blockers.
 - All user scores remain `null`.
 
+### Merge status
+
+Owner requested final documentation/handoff, then PR creation and merge to review the real Pages deployment. Final local/CI checks must be green before merge; confirm Pages after merge.
+
 ## One-sentence summary
 
-The structural walnut shell and literature-first Reader are now implemented; four secondary rooms, visual-system consolidation, screenshots/accessibility evidence, and owner approval remain.
+The structural walnut shell and literature-first Reader are implemented and documented for merge, while four secondary rooms and evidence-based visual approval remain.

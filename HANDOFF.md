@@ -4,6 +4,7 @@
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
 > **Latest audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
+> **Latest design:** [gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B implementation](./sessions/DESIGN_PHASE_AB_2026-08-10.md)
 > **Current gate:** `repo_ready = fail` (6.9/10; shell/Reader implemented, four rooms/visual verification remain)
 
 ## 1. Start here
@@ -198,3 +199,31 @@ Never append a full session narrative to this file. Link the dated report instea
 ## 10. Current session
 
 Session `arena/019febb1-translatechan` completed the audit, containment, public-behavior fixes, design plan, and owner-approved shell/Reader Phase A+B. Next: visual-system consolidation and the four secondary rooms, then screenshot/accessibility evidence and owner approval.
+
+## 11. PR / merge handoff
+
+The owner requested documentation/handoff completion followed by PR merge so the redesign can be reviewed on the real GitHub Pages deployment.
+
+PR scope:
+
+1. deep repo/design audit and durable 22-aspect scoreboard reset;
+2. full Congronglu containment backed by authoritative T48n2004 heading evidence;
+3. honest completion/edition-verification semantics and updated metrics;
+4. dossier/chapter/epilogue/print/collection-label functional repairs;
+5. withdrawn false visual-completion claim and detailed redesign plan;
+6. owner-approved structural walnut shell + literature-first Reader Phase A+B;
+7. smoke/Playwright regressions and synchronized `/docs` artifacts.
+
+Merge readiness checks:
+
+```text
+python3 -m py_compile scripts/*.py          PASS
+python3 scripts/validate_data.py            PASS (6 known lineage-link warnings)
+python3 scripts/build_data_bundle.py        PASS
+node scripts/smoke_test.mjs                 PASS (35 corpus fixtures)
+diff -rq data docs/data                     PASS
+npm run test:browser                        SKIP locally: Chromium unavailable
+GitHub Quality                              must be green on final docs commit and PR
+```
+
+After merge, confirm the Pages deployment run for `main`, then review the real site before authorizing design Phase C/D. Do not call the vision fulfilled until Phase E screenshots/accessibility evidence and explicit owner approval.

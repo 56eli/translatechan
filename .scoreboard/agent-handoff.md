@@ -58,6 +58,10 @@ bundle=1,594,154 bytes raw | approximately 498 KB gzip-9
 4. Complete field-level source validation and human quotation-rights decisions.
 5. Apply owner-approved operations changes and re-audit; re-ingest Congronglu only under its containment gate.
 
+## Merge instruction
+
+The owner explicitly requested: update all documentation and handoff, then open and merge the PR so the real GitHub Pages deployment can be reviewed. Before merge, require the final branch/PR Quality checks to be green. After merge, confirm Pages deployment on `main`; next agent should wait for owner visual feedback before starting Phase C/D.
+
 ## Stable contracts
 
 - Public brand: Fake Chan Factory; internal `translatechan_*`, `window.TranslateChan`, and `TRANSLATECHAN_DATA` remain.

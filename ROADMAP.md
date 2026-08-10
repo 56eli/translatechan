@@ -17,8 +17,8 @@ This document outlines the detailed engineering, data science, translation, and 
 ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────┤
 │  • Public reader│  • 48/48        │  • 4 Matrix     │  • Primary text │  • Middle      │
 │    + matrix +   │    Wumenguan    │    entries       │    aggregation   │    Chinese     │
-│    lineage +    │  • 100/100 ✅   │  • 31/150+      │  • Book/edition │  • DDB / SAT   │
-│    index +      │    Biyanlu      │    Chan terms    │    verification  │  • Multi-ling  │
+│    lineage +    │  • 100/100 rec.│  • 31/150+      │  • Book/edition │  • DDB / SAT   │
+│    index +      │    Biyanlu part.│    Chan terms    │    verification  │  • Multi-ling  │
 │    lexicon      │  • 35 manifests │  • Status/rights │  • Hover/focus  │    / lineage   │
 │  • Smoke test   │    + locators   │    disclosure    │    citations     │    verification│
 │  [STATUS: 100%] │  [STATUS: ~30%] │  [STATUS: ~20%] │  [STATUS: ~40%] │  [Planned]     │
@@ -28,6 +28,8 @@ This document outlines the detailed engineering, data science, translation, and 
 > Statuses above are **measured** (see [`sessions/AUDIT_archive_2026-08-08.md`](./sessions/AUDIT_archive_2026-08-08.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
 > **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **177 verified corpus quotation slots across 10 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
+
+> **Website-design status (2026-08-10):** the prior hero-only completion claim was withdrawn after owner feedback. Structural walnut shell + Reader Phase A+B is implemented; Phases C–E and explicit owner visual approval remain.
 
 ---
 
@@ -41,14 +43,14 @@ This document outlines the detailed engineering, data science, translation, and 
   - `data/gongan/`: Master index of classic Gong'an / Koan collections with cross-references.
   - `src/` or `app/`: Production-ready, client-side web application designed for instant GitHub Pages deployment.
 - [x] **Interactive Web Application (GitHub Pages)**:
-  - Responsive, Zen-minimalist interface with Dark and Light mode themes.
+  - Structural dark-walnut shell, Chinese room navigation, and literature-first Reader with light/dark themes (design Phase A+B; owner visual approval pending).
   - Reading font-size controls (`A+` / `A-`) for mobile, tablet, and desktop.
   - Side-by-side bilingual reading view (Classical Chinese with pinyin & English).
   - Multi-Translator Comparison matrix with explicit scholar, verified-quotation, reconstruction, and AI-draft disclosure.
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
   - Instant client-side search across **all 35 active texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3)).
-  - **UX/UI improvement roadmap implemented (Phases A–D, 2026-08-08)** — calm reader (case strip, collapsible cards, shared tap/focus popover, persisted preferences, debounced search), mobile-first navigation (corpus picker, bottom action bar, single-column translations), deep polish (print/PDF, hash routing, lineage pan/zoom, WCAG-AA a11y), performance (cached search index, lazy case rendering). See [`UX_ROADMAP.md`](./UX_ROADMAP.md).
+  - **Functional UX phases A–D implemented (2026-08-08), design rework active (2026-08-10):** shell + Reader Phase A+B now shipped; visual-system consolidation, Matrix/Lineage/Gong’an/Lexicon redesign, screenshot/accessibility evidence, and owner approval remain. See [`UX_ROADMAP.md`](./UX_ROADMAP.md) and [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Corpus** (35 active files after the 2026-08-10 Congronglu quarantine; editorial completion status is explicit in the manifest):
   1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — **48/48 cases COMPLETE** + preface + epilogue, 2026-08-08)
