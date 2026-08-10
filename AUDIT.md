@@ -28,7 +28,7 @@ guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
 - Locators: **178/178 case-level**; **33 document-level seeds** pending unit locators.
 - Lineage: **34 masters** (30 seed + 4 frontier scaffolds), **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**, source-status aware.
 - Glossary: **31 terms**; Gong'an index: **24 entries** (7 validator-enforced theme groups).
-- Bundle: ~1.69 MB zero-backend static build (grew with the Biyanlu 100/100 completion + Linji pilot); root and `/docs` byte-identical by CI gate.
+- Bundle: deterministic zero-backend static build (current size reported by `data/project_metrics.json` and the validator's quality-gate summary line; grew with the Biyanlu 100/100 completion + Linji pilot); root and `/docs` byte-identical by CI gate.
 
 ## 2. Standing recommendations (priority order)
 

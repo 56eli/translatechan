@@ -30,10 +30,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <!-- D4: parse the ~873KB data bundle as early as possible. A modulepreload is
-       not appropriate (app_data.js is a classic global script), so preload as
+  <!-- D4: parse the deterministic data bundle as early as possible. A modulepreload
+       is not appropriate (app_data.js is a classic global script), so preload as
        script; the matching defer <script> below reuses this download and keeps
-       execution ordered after HTML parsing. -->
+       execution ordered after HTML parsing. (Bundle size is data-driven; check
+       data/project_metrics.json for the current value.) -->
   <link rel="preload" href="app_data.js" as="script">
 </head>
 <body>
