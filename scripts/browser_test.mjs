@@ -158,6 +158,25 @@ async function main() {
     ok(await panel.isHidden(), 'dossier hidden after close');
   });
 
+  // 3b. Lineage graph/directory controls synchronize visible, semantic, and
+  // pressed state. This regresses the Phase-D bug where inline display changed
+  // but the directory retained its hidden attribute.
+  await testAsync('lineage-display-modes', async () => {
+    await page.goto(base + '#/lineage', { waitUntil: 'load' });
+    const graph = page.locator('#lineage-graph-container');
+    const directory = page.locator('#lineage-content-target');
+    ok(await graph.isVisible(), 'graph mode initially visible');
+    ok(await directory.isHidden(), 'directory initially hidden');
+    await page.click('#lineage-mode-cards-btn');
+    ok(await directory.isVisible(), 'directory visible after mode activation');
+    ok((await directory.getAttribute('hidden')) === null, 'directory hidden attribute removed');
+    ok((await page.locator('#lineage-mode-cards-btn').getAttribute('aria-pressed')) === 'true', 'directory mode pressed');
+    ok(await graph.isHidden(), 'graph hidden in directory mode');
+    await page.click('#lineage-mode-graph-btn');
+    ok(await graph.isVisible(), 'graph visible after restoring graph mode');
+    ok(await directory.isHidden(), 'directory hidden after restoring graph mode');
+  });
+
   // 4. Platform direct-field chapters render source excerpts, not empty cards.
   await testAsync('platform-direct-chapters', async () => {
     await page.goto(base + '#/reader/platform_sutra', { waitUntil: 'load' });
@@ -290,6 +309,10 @@ async function main() {
     ok(await mobilePage.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), 'no mobile page overflow');
     await mobilePage.locator('[data-view="matrix"]').click();
     ok(await mobilePage.locator('.mobile-action-bar').isHidden(), 'Reader controls hidden outside Reader');
+    await mobilePage.locator('[data-view="lineage"]').click();
+    await mobilePage.click('#lineage-mode-cards-btn');
+    ok(await mobilePage.locator('#lineage-content-target').isVisible(), 'mobile Lineage directory visible');
+    ok(await mobilePage.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), 'no mobile Lineage directory overflow');
   });
 
   // 11. Print/PDF expands all lazy units and keeps end matter last.
@@ -319,7 +342,22 @@ async function main() {
     await page.emulateMedia({ media: 'screen' });
   });
 
-  // 12. CSP + runtime cleanliness: no violations, no uncaught exceptions.
+  // 12. Missing data bundle renders an actionable, focusable recovery surface
+  // instead of leaving the Reader on a permanent loading placeholder.
+  await testAsync('fatal-bundle-recovery', async () => {
+    const fatalPage = await desktop.newPage();
+    await fatalPage.route('**/app_data.js', route => route.abort('failed'));
+    await fatalPage.goto(base, { waitUntil: 'load' });
+    const panel = fatalPage.locator('#app-fatal-error');
+    ok(await panel.isVisible(), 'fatal recovery panel visible');
+    ok((await panel.getAttribute('role')) === 'alert', 'fatal recovery announced as alert');
+    ok(await fatalPage.locator('#app-reload-btn').isVisible(), 'reload action visible');
+    ok(await fatalPage.evaluate(() => document.activeElement?.id === 'app-fatal-error'), 'fatal recovery receives focus');
+    ok((await fatalPage.locator('#reader-content-target').count()) === 0, 'broken reader surface replaced');
+    await fatalPage.close();
+  });
+
+  // 13. CSP + runtime cleanliness: no violations, no uncaught exceptions.
   await testAsync('csp-clean', async () => {
     await page.goto(base, { waitUntil: 'load' });
     await page.waitForTimeout(400);

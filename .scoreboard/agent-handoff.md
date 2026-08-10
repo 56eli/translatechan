@@ -3,23 +3,33 @@
 > **Last updated:** 2026-08-10, session `arena/019fecb1-translatechan`
 > **Current fixed branch:** `arena/019fecb1-translatechan` — do not switch or push elsewhere.
 > **Baseline:** `27ca2243ed9d9bc012c2b41119e6f160cffe9694` (`main`, merged PR #17).
-> **Evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md`](../sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md)
+> **Evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md`](../sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md) · [`sessions/RELEASE_BLOCKERS_2026-08-10_019fecb1.md`](../sessions/RELEASE_BLOCKERS_2026-08-10_019fecb1.md)
 
 ## Current state
 
-A full senior engineering/web-design audit is complete. Current weighted score is **6.6/10** (`551/83`); `repo_ready = fail`. All `user_score` fields remain `null`.
+The full senior engineering/web-design audit and the user-selected release-blocker follow-up are complete. Current weighted score is **7.0/10** (`582/83`); `repo_ready = fail`. All `user_score` fields remain `null`.
 
-This session changed documentation only: it reconciled the unsupported 7.6 summary, stale branch/design claims, README release wording, roadmap counts, current audit/handoff, and scoreboard arithmetic. Application code, data, generated assets, and workflow YAML remain unchanged.
+## Completed this session
 
-## Highest-priority findings
+- Reconciled unsupported 7.6 score arithmetic, stale branch/design claims, release wording, current audit/handoff, and plans.
+- Fixed Lineage graph/directory mode with one semantic `hidden` / `.active` / `aria-pressed` state path.
+- Added explicit button/group/target semantics and reset phone quote placement to one column.
+- Added required-bundle validation and top-level initialization recovery.
+- Added a focusable `role="alert"` fatal panel with safe explanatory copy, reload, and diagnostic.
+- Smoke behavior-tests both modes and executes missing-bundle recovery in an isolated VM.
+- Playwright covers computed mode visibility/attributes, mobile directory overflow, and aborted-bundle recovery.
 
-1. **Lineage directory is hidden:** `#lineage-content-target` retains its semantic `hidden` attribute; the mode handler sets only `style.display='grid'`. The dossier code correctly removes `hidden`, which demonstrates the required pattern.
-2. **Non-case validation is weak:** JSON Schema has no root application and is not executed. Direct negative fixtures with `sections:[42]` and a heading-only chapter passed with zero errors.
-3. **Browser evidence is optional:** Playwright exits 0 on missing Chromium, is absent from CI, and currently could not install. There are no current screenshots, dark/tablet coverage, axe, or owner approval.
-4. **Rights/references are open:** all 14 rights records need human review; 3 verified quotations have pending references.
-5. **Fatal state is CSS-only:** `.error-boundary-card` is never rendered by the application.
-6. **Accessibility/responsive gaps:** pinyin and Lineage mode state, stale case-toggle labels, tooltip relationships, radio arrows, search announcements, and mobile Lineage quote-grid behavior.
-7. **Operations:** four mirrored paths absent from CI diff; action majors emit Node 20 deprecation warnings; branch protection is unverified.
+Source corpus data and workflow YAML remain unchanged.
+
+## Highest-priority remaining findings
+
+1. **Non-case validation:** JSON Schema has no root application and is not executed; `sections:[42]` and a heading-only chapter pass with zero errors.
+2. **Browser evidence:** Playwright exits 0 on missing Chromium, is absent from CI, and currently could not install; screenshots, dark/tablet, axe, and owner approval remain.
+3. **Rights/references:** all 14 rights records need human review; 3 verified quotations have pending references.
+4. **Security/privacy:** CSP follows the synchronous theme script, allows inline styles, runtime fonts are external, and no security policy exists.
+5. **Accessibility:** pinyin/collapse state, tooltip relationships, radio arrows, search announcements, and formal screen-reader evidence remain.
+6. **Operations:** four mirrored paths are absent from CI diff; actions emit Node 20 deprecation warnings; branch protection is unverified.
+7. **Editorial depth:** 33 document-level locator migrations, Biyanlu/Linji field review, 30 lineage edges, and 34 profile reviews remain.
 
 ## Current measured state
 
@@ -34,35 +44,36 @@ bundle=1,594,154 bytes raw | 497,606 gzip-9
 
 ## Recommended next sequence
 
-1. Fix Lineage directory hidden state, pressed/selected semantics, and phone grid; add real-browser coverage.
-2. Implement fatal bundle/init recovery and tests.
-3. Add strict per-shape non-case validation and checked-in negative fixtures.
-4. Add non-skippable browser/axe/overflow/screenshots; obtain explicit owner visual approval.
-5. Complete rights/reference and field-level source review.
-6. Apply owner-approved operations edits.
-7. Remove remaining 49 inline styles/dead CSS, then measure lazy room/data loading.
+1. Add strict per-shape non-case validation and checked-in negative fixtures.
+2. Add non-skippable browser/axe/overflow/screenshots; obtain explicit owner visual approval.
+3. Complete rights/reference and field-level source review.
+4. Harden CSP/fonts/security guidance and remaining interaction semantics.
+5. Apply owner-approved operations edits.
+6. Remove remaining inline styles/dead CSS, then measure lazy room/data loading.
 
-## Quality evidence from this audit
+## Quality evidence
 
 ```text
 compile / validator / build / JS syntax / smoke / mirrors   PASS
+isolated missing-bundle recovery                            PASS
+semantic Lineage mode regression                            PASS
 npm audit                                                    PASS; 0 vulnerabilities
 Markdown links / duplicate IDs / XML                         PASS
-focused ESLint                                               0 errors; 3 warnings
+focused ESLint                                               PASS; 0 errors / 0 warnings after fixes
 focused Stylelint                                            1 duplicate declaration
-HTML validator                                               35 findings
-Playwright                                                   SKIP with exit 0
+HTML validator                                               35 findings before fixes
+Playwright runtime                                           SKIP; no Chromium
 Chromium installation                                        FAIL; ECONNRESET
 GitHub main Quality + Pages                                  PASS at 27ca224
 ```
 
 ## Manual workflow/admin work
 
-Do not edit `.github/workflows/*` without explicit user instruction. Exact edits are in [`manual-workflow-edits.md`](./manual-workflow-edits.md): add all mirror paths, update deprecated action majors after review, and have an administrator verify/require Quality. A future non-skippable browser/a11y job also requires approval.
+Do not edit `.github/workflows/*` without explicit user instruction. Exact edits are in [`manual-workflow-edits.md`](./manual-workflow-edits.md): add all mirror paths, review/update deprecated action majors, and have an administrator verify/require Quality. A future non-skippable browser/a11y job also requires approval.
 
 ## Stable contracts
 
-- Public brand: Fake Chan Factory; internal `translatechan_*`, `window.TranslateChan`, and `TRANSLATECHAN_DATA` remain.
+- Public brand: Fake Chan Factory; internal identifiers remain `translatechan_*`.
 - Public views: Reader, Matrix, Lineage, Gong'an, Lexicon only.
 - No generated canonical-looking Chinese.
 - N/N representation never establishes completion.

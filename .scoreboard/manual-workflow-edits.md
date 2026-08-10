@@ -75,4 +75,4 @@ diff -rq data docs/data
 git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/theme-init.js docs/robots.txt docs/sitemap.xml docs/og-image.svg docs/data data/project_metrics.json
 ```
 
-These checks do not clear the Lineage hidden-state defect, non-case validation gap, pending rights/references, fatal state, or browser/accessibility evidence blockers; re-evaluate `repo_ready` only after those are remediated and tested.
+These checks do not clear the non-case validation gap, pending rights/references, security/privacy work, or mandatory browser/accessibility evidence blockers; the Lineage hidden-state and fatal recovery defects were fixed separately in session `019fecb1`.

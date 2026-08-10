@@ -4,6 +4,7 @@
 import { readFileSync, existsSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import { runInNewContext } from 'vm';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 // Public Pages scope deliberately excludes browser drafting, agent branding, and
@@ -138,6 +139,67 @@ for (const popSel of ['.citation-popover {', '.term-popover {']) {
 // N10: citation metadata legibility floor — no sub-11px source text.
 if (appCss.includes('font-size: 0.62rem')) {
   throw new Error('.translation-source fell below the 0.72rem legibility floor');
+}
+
+// Release-blocker recovery: execute app.js in an isolated dependency-free
+// context with no TRANSLATECHAN_DATA global. The app must render and focus an
+// actionable fatal panel, and its reload action must call location.reload().
+{
+  const fatalNodes = new Map();
+  const fatalDocument = {
+    readyState: 'complete',
+    activeElement: null,
+    body: { dataset: {} },
+    documentElement: { style: { setProperty() {} }, setAttribute() {} },
+    getElementById(id) {
+      if (!fatalNodes.has(id)) {
+        const node = {
+          id,
+          _innerHTML: '',
+          _handlers: {},
+          dataset: {},
+          style: {},
+          classList: { add() {}, remove() {} },
+          set innerHTML(value) { this._innerHTML = String(value); },
+          get innerHTML() { return this._innerHTML; },
+          addEventListener(event, handler) { (this._handlers[event] ||= []).push(handler); },
+          setAttribute() {}, getAttribute() { return null; }, removeAttribute() {},
+          focus() { fatalDocument.activeElement = this; }
+        };
+        fatalNodes.set(id, node);
+      }
+      return fatalNodes.get(id);
+    },
+    querySelectorAll() { return []; },
+    querySelector() { return null; },
+    addEventListener() {},
+    createElement() { return this.getElementById(`created-${fatalNodes.size}`); }
+  };
+  const fatalLocation = { hash: '', reloadCalled: false, reload() { this.reloadCalled = true; } };
+  const fatalWindow = {
+    document: fatalDocument,
+    location: fatalLocation,
+    localStorage: { getItem() { return null; }, setItem() {}, removeItem() {} },
+    console: { error() {} }
+  };
+  fatalWindow.window = fatalWindow;
+  runInNewContext(appSrc, {
+    window: fatalWindow,
+    document: fatalDocument,
+    location: fatalLocation,
+    console: fatalWindow.console,
+    setTimeout,
+    clearTimeout
+  });
+  const fatalMain = fatalNodes.get('main-content');
+  if (!fatalMain?._innerHTML.includes('id="app-fatal-error"') || !fatalMain._innerHTML.includes('id="app-reload-btn"')) {
+    throw new Error('missing data bundle did not render the fatal recovery surface');
+  }
+  if (fatalDocument.body.dataset.currentView !== 'error' || fatalDocument.activeElement?.id !== 'app-fatal-error') {
+    throw new Error('fatal recovery did not hide Reader-only controls and receive focus');
+  }
+  (fatalNodes.get('app-reload-btn')?._handlers.click || [])[0]?.();
+  if (!fatalLocation.reloadCalled) throw new Error('fatal recovery reload action is not wired');
 }
 
 const store = {};
@@ -287,6 +349,37 @@ console.log('DATA loaded. corpus keys:', Object.keys(window.TRANSLATECHAN_DATA.c
 
 eval(readFileSync(join(ROOT, 'app.js'), 'utf8'));
 console.log('APP executed + init() completed without crash');
+
+// Release blocker regression: Lineage display modes must toggle semantic
+// `hidden` state as well as their pressed state. Inline display alone cannot
+// make an element with the hidden attribute visible in real browsers.
+const graphModeBtn = ids['lineage-mode-graph-btn'];
+const cardsModeBtn = ids['lineage-mode-cards-btn'];
+const graphModeTarget = ids['lineage-graph-container'];
+const cardsModeTarget = ids['lineage-content-target'];
+if (graphModeTarget.hidden === true || cardsModeTarget.hidden !== true ||
+    graphModeBtn.getAttribute('aria-pressed') !== 'true' || cardsModeBtn.getAttribute('aria-pressed') !== 'false') {
+  throw new Error('Lineage must initialize with the graph visible and directory semantically hidden');
+}
+(cardsModeBtn._handlers.click || [])[0]?.();
+if (graphModeTarget.hidden !== true || cardsModeTarget.hidden === true ||
+    graphModeBtn.getAttribute('aria-pressed') !== 'false' || cardsModeBtn.getAttribute('aria-pressed') !== 'true') {
+  throw new Error('Master Directory mode must clear target hidden state and synchronize aria-pressed');
+}
+(graphModeBtn._handlers.click || [])[0]?.();
+if (graphModeTarget.hidden === true || cardsModeTarget.hidden !== true) {
+  throw new Error('Visual Network mode must restore semantic hidden state');
+}
+
+// Fatal-bundle recovery is browser-exercised too; keep a dependency-free
+// structural guard so removing its data validation or recovery surface fails CI.
+for (const fatalToken of ['function hasUsableAppData(data)', 'function renderFatalAppError(error)', 'id="app-fatal-error"', 'id="app-reload-btn"']) {
+  if (!appSrc.includes(fatalToken)) throw new Error(`fatal app recovery missing: ${fatalToken}`);
+}
+const phoneMedia = appCss.slice(appCss.lastIndexOf('@media (max-width: 768px)'));
+if (!phoneMedia.includes('.master-dir-quote') || !phoneMedia.includes('grid-column: auto')) {
+  throw new Error('phone Lineage directory must reset the tablet grid-column placement');
+}
 
 // 1. Exercise renderReader for every corpus key via corpus button clicks
 let failures = 0;

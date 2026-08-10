@@ -1,7 +1,7 @@
 # 🏯 Fake Chan Factory — Website Vision (Final — Chinese Chan Hall, Minimal)
 
 > **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10, updated after owner feedback (Chinese Chan focus, minimal, no gimmicks).
-> **Status:** Accepted direction, partially verified. Phase A+B delivers the structural walnut shell and Reader hierarchy; Phase C+D layouts cover Matrix, Lineage, Gong’an, and Lexicon. The current audit found the Lineage directory mode still semantically hidden, and Phase E screenshots/accessibility evidence plus explicit owner approval remain.
+> **Status:** Accepted direction, partially verified. Phase A+B delivers the structural walnut shell and Reader hierarchy; Phase C+D layouts cover Matrix, Lineage, Gong’an, and Lexicon. The audited Lineage directory hidden-state/mobile-grid defect is repaired with regressions; Phase E real-browser screenshots/accessibility evidence plus explicit owner approval remain.
 > **Implementation authority:** [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B record](./sessions/DESIGN_PHASE_AB_2026-08-10.md) · [Phase C+D record](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [current audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md).
 > **Related:** `vision.md` = scholarly/architectural blueprint. This doc = public-facing experience blueprint.
 > **Feedback incorporated:** Audience = me and friends introduced to niche Chan content mixed with my humor. First 30s = Chan hall/literature/Zen feeling with robo joke theme. After that = all serious literature composition, readability, transparent flow, no choppiness, no overflow, no distraction, no gimmicks, sophisticated but minimal. Lean into wood dark walnut, drop vermillion keep ✓, humor disappears except Robo names. No Japanese aesthetics — Chinese temple wood + Chinese calligraphy. No footer, no conveyor, no CTA (deferred per feedback).
@@ -104,7 +104,7 @@ Keep cards, no ruler line gimmick. Only ensure translation cols equal, status ba
 
 ### 4.4 Lineage — transmission hall (M)
 
-Current SVG vertically layers generations with pan/zoom and status-aware links, and Phase D adds a chronological directory layout. The directory mode currently retains its `hidden` attribute when selected, so repair and responsive verification are still required before this room meets the vision.
+Current SVG vertically layers generations with pan/zoom and status-aware links, and Phase D adds a chronological directory layout. Directory selection now synchronizes semantic hidden/pressed state and resets the phone grid; real-browser visual verification remains part of Phase E.
 
 ### 4.5 Gong'an & Lexicon — shelves
 
@@ -162,10 +162,10 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 - Secondary-room metadata is quieter, though legacy emoji/card CSS remains.
 - Max-width thresholds are standardized at 1024px and 768px, and primary active/muted token pairs meet audited WCAG AA contrast.
 
-### Phase D — four secondary rooms (layouts implemented; Lineage defect open)
+### Phase D — four secondary rooms (implemented; browser evidence pending)
 
 - Matrix proof sheet implemented.
-- Lineage transmission chart/directory implemented in markup and CSS, but directory selection must clear `hidden`.
+- Lineage transmission chart/directory implemented; semantic mode state and phone grid are regression-covered.
 - Gong’an catalogue rows implemented.
 - Lexicon dictionary rows implemented.
 

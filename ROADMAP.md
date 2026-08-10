@@ -29,7 +29,7 @@ This document outlines the detailed engineering, data science, translation, and 
 >
 > **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **177 verified corpus quotation slots across 10 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
 
-> **Website-design status (2026-08-10):** walnut shell/Reader Phase A+B and secondary-room layouts Phase C+D are implemented, but Phase E screenshot/accessibility evidence and explicit owner approval remain. The current full audit also found that Lineage directory mode retains `hidden`; visual implementation is therefore not yet a verified functional completion claim.
+> **Website-design status (2026-08-10):** walnut shell/Reader Phase A+B and secondary-room layouts Phase C+D are implemented. The audited Lineage directory hidden-state/mobile-grid defect is repaired with smoke/Playwright regressions; Phase E real-browser screenshot/accessibility evidence and explicit owner approval remain.
 
 ---
 
@@ -50,7 +50,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
   - Instant client-side search across **all 35 active texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3)).
-  - **Functional UX phases A–D implemented (2026-08-08), design rework active (2026-08-10):** shell/Reader Phase A+B and Matrix/Lineage/Gong’an/Lexicon Phase C+D layouts are present. Repair the Lineage directory hidden-state defect, then complete Phase E screenshot/accessibility evidence and owner approval. See [`UX_ROADMAP.md`](./UX_ROADMAP.md), [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md), and the [current full audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md).
+  - **Functional UX phases A–D implemented (2026-08-08), design rework active (2026-08-10):** shell/Reader Phase A+B and Matrix/Lineage/Gong’an/Lexicon Phase C+D layouts are present. The Lineage directory semantic/mobile fix is complete; Phase E screenshot/accessibility evidence and owner approval remain. See [`UX_ROADMAP.md`](./UX_ROADMAP.md), the [current full audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md), and [release-blocker fix record](./sessions/RELEASE_BLOCKERS_2026-08-10_019fecb1.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Corpus** (35 active files after the 2026-08-10 Congronglu quarantine; editorial completion status is explicit in the manifest):
   1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — **48/48 cases COMPLETE** + preface + epilogue, 2026-08-08)

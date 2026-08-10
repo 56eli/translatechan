@@ -4,21 +4,22 @@
 > **Branch:** `arena/019fecb1-translatechan`
 > **Baseline:** `27ca2243ed9d9bc012c2b41119e6f160cffe9694` (`main`)
 > **Scope:** repository architecture, frontend implementation, responsive design, UX, accessibility, security/privacy, data integrity, editorial governance, tests, CI/CD, deployment, documentation, and maintainability.
-> **Change policy:** audit and documentation reconciliation only; application code, source data, generated bundle, and workflow YAML were not changed.
+> **Follow-up:** after this audit, the user selected “Fix release blockers”; the Lineage directory and fatal bundle/init boundary were repaired and regression-covered in [`RELEASE_BLOCKERS_2026-08-10_019fecb1.md`](./RELEASE_BLOCKERS_2026-08-10_019fecb1.md). Source data and workflow YAML were not changed.
 
 ## 1. Executive verdict
 
-**Not release-ready: `repo_ready = fail`; audited weighted score is 6.6/10 after this session’s documentation repair.**
+**Current post-fix verdict: `repo_ready = fail`; weighted score is 7.0/10.** The original audit baseline was 6.6/10; two selected release blockers are now resolved.
 
 Fake Chan Factory has a distinctive, coherent purpose and an unusually honest provenance model. Its zero-backend architecture is appropriate for GitHub Pages, the deterministic data/build pipeline is strong, the public five-room scope is disciplined, and the dependency-free smoke suite exercises substantial behavior. The active Congronglu integrity incident is properly contained.
 
-The repository is nevertheless below its own release standard for five evidence-backed reasons:
+The repository remains below its own release standard for four evidence-backed reasons:
 
-1. **The advertised Lineage “Master Directory” mode is functionally hidden.** `#lineage-content-target` ships with the semantic `hidden` attribute; its mode handler only assigns `style.display = 'grid'`. The code immediately below demonstrates awareness that inline display cannot override `[hidden]`, but that correct remove/restore behavior was applied only to the dossier panel.
-2. **Human rights/editorial decisions remain open for all 14 quotation sources.** Three records labeled `verified_quotation` still contain pending references. The UI separates edition verification from rights, but prior README language overstated one register as “guaranteed-citable” while its rights record still requires jurisdiction review.
-3. **Validation has a material blind spot.** The JSON Schema has definitions but no top-level application schema and is not executed. The Python validator strictly checks cases, but accepts invalid non-case units: both `sections: [42]` and a heading-only chapter with no renderable source body produced zero validation errors in direct negative fixtures.
-4. **Real-browser evidence is optional and success-skippable.** The Playwright script exits 0 when Chromium is unavailable; CI does not run it; the current sandbox could not download Chromium. CSS geometry, dark mode, secondary-room behavior, accessibility, and screenshots therefore have no current automated release evidence.
-5. **Editorial, accessibility, and operations gates remain incomplete.** Thirty-three non-case documents remain in the unit-locator migration queue, all 30 internal lineage edges remain traditional/pending, accessibility state relationships are incomplete, the fatal bundle state has styling but no implementation, CI omits mirrored paths, and branch protection could not be verified.
+1. **Human rights/editorial decisions remain open for all 14 quotation sources.** Three records labeled `verified_quotation` still contain pending references. The UI separates edition verification from rights, but prior README language overstated one register as “guaranteed-citable” while its rights record still requires jurisdiction review.
+2. **Validation has a material blind spot.** The JSON Schema has definitions but no top-level application schema and is not executed. The Python validator strictly checks cases, but accepts invalid non-case units: both `sections: [42]` and a heading-only chapter with no renderable source body produced zero validation errors in direct negative fixtures.
+3. **Real-browser evidence is optional and success-skippable.** The Playwright script exits 0 when Chromium is unavailable; CI does not run it; the current sandbox could not download Chromium. CSS geometry, dark mode, accessibility, and screenshots therefore have no current automated release evidence.
+4. **Editorial, accessibility, security, and operations gates remain incomplete.** Thirty-three non-case documents remain in the unit-locator migration queue, all 30 internal lineage edges remain traditional/pending, several accessibility relationships are incomplete, CI omits mirrored paths, CSP/font hardening remains, and branch protection could not be verified.
+
+**Resolved after audit:** the Lineage mode now synchronizes semantic hidden/pressed state and its phone grid, while missing/malformed data now renders a focusable reload boundary; both paths have dependency-free and Playwright regressions.
 
 ### Score summary
 
@@ -26,13 +27,13 @@ The repository is nevertheless below its own release standard for five evidence-
 |---|---:|---|
 | Product purpose/scope | 9 | Distinct, narrow, and honest |
 | Frontend architecture | 7 | Appropriate static design; coupled implementation |
-| Code hygiene / maintainability | 6 / 6 | Usable, but monolithic and carrying dead/inline presentation debt |
+| Code hygiene / maintainability | 7 / 6 | Selected defect fixed; monolithic/inline/dead-style debt remains |
 | Validation | 6 | Strong semantic core; schema and non-case gaps are material |
-| Tests / CI | 6 / 6 | Valuable smoke coverage; no mandatory browser/a11y/layout gate |
+| Tests / CI | 7 / 6 | Added behavioral regressions; no mandatory browser/a11y/layout gate |
 | Security/privacy | 7 | Strong escaping/minimal data collection; CSP/font caveats |
 | Performance | 7 | Acceptable today; heavy monolithic first load |
-| Web presentation / UX / accessibility | 6 / 6 / 6 | Good visual direction, but unverified and with a broken room mode |
-| Content / feature completeness | 6 / 6 | Honest containment; extensive editorial work remains |
+| Web presentation / UX / accessibility | 7 / 7 / 7 | Selected mode fixed; current browser/owner evidence remains absent |
+| Content / feature completeness | 6 / 7 | Honest containment; feature mode fixed; editorial work remains |
 | Deployment readiness | 6 | Live and green is not equivalent to release-ready |
 | Agent/task/audit readiness | 8 / 7 / 8 | Reconciled this session; historical sprawl remains |
 
@@ -90,7 +91,7 @@ The live Pages HTML and assets were also fetched successfully through the page r
 
 ## 3. Severity-ranked findings
 
-### P1-1 — Lineage Master Directory cannot reliably become visible
+### P1-1 — Lineage Master Directory cannot reliably become visible — RESOLVED POST-AUDIT
 
 **Evidence:**
 
@@ -101,7 +102,7 @@ The live Pages HTML and assets were also fetched successfully through the page r
 
 **Impact:** a primary control in one of five public rooms can announce a selected mode while rendering no directory. This also invalidates prior Phase D “all rooms implemented” claims.
 
-**Exit criteria:** use one mode-state function that synchronizes `hidden`, CSS class, `aria-pressed`/selected state, and focus; add browser coverage for both directions; verify the directory at desktop, tablet, and mobile widths.
+**Resolution:** one mode-state function now synchronizes `hidden`, CSS class, and `aria-pressed`; smoke activates both directions; Playwright checks computed visibility/attributes and phone overflow. Real Chromium execution remains part of the broader evidence blocker.
 
 ### P1-2 — Rights governance and public-domain copy remain below release standard
 
@@ -160,11 +161,11 @@ The live Pages HTML and assets were also fetched successfully through the page r
 
 **Remaining debt:** multiple historical root audits remain outside `sessions/`; the doc gate should be generated from metrics where possible and should test current-state status claims, not merely the presence of one correct snippet.
 
-### P2-1 — Fatal initialization has presentation CSS but no behavior
+### P2-1 — Fatal initialization has presentation CSS but no behavior — RESOLVED POST-AUDIT
 
-`.error-boundary-card` and companion styles exist, but no JS or HTML code creates one. If `app_data.js` is absent or malformed, the shell remains and the Reader can show “Corpus document loading...”, while the other rooms remain blank. There is no actionable explanation, reload control, offline hint, diagnostic code, or top-level `init()` boundary.
+At audit time, `.error-boundary-card` and companion styles existed, but no JS or HTML code created one. Missing or malformed `app_data.js` left a loading Reader and blank secondary rooms.
 
-**Improve by:** validating `window.TRANSLATECHAN_DATA` before initialization; rendering a static, focusable recovery panel; catching top-level render failures; preserving a console diagnostic without exposing sensitive data; testing missing/malformed bundle behavior.
+**Resolution:** the app now validates the required bundle contract before setup, catches initialization failures, renders/focuses a `role="alert"` recovery panel, logs a concise diagnostic, and wires reload. An isolated VM smoke test executes the missing-bundle path; Playwright aborts `app_data.js` and checks the computed recovery UI.
 
 ### P2-2 — Accessibility state and interaction semantics are incomplete
 
@@ -181,11 +182,11 @@ Confirmed gaps:
 
 Strengths include semantic headings, a skip link, ARIA tabs with roving focus, dossier focus return, visible focus rules, reduced-motion handling, Chinese `lang` attributes, and contrast-safe primary tokens.
 
-### P2-3 — Mobile Lineage directory has an implicit-column overflow risk
+### P2-3 — Mobile Lineage directory has an implicit-column overflow risk — RESOLVED POST-AUDIT
 
 At `max-width:1024px`, `.master-dir-quote` receives `grid-column:2`. At `max-width:768px`, the parent becomes a one-column grid, but the quote’s `grid-column` is not reset. Once the hidden-mode bug is fixed, CSS Grid can create an implicit second column on phones.
 
-**Improve by:** reset `grid-column:auto` at the phone breakpoint and add a no-horizontal-overflow assertion specifically for every secondary room.
+**Resolution:** the phone breakpoint now resets `grid-column:auto` and Playwright asserts no horizontal overflow with the mobile directory visible.
 
 ### P2-4 — CSP and privacy are good in intent but not fully hardened
 
@@ -351,38 +352,38 @@ A green Pages deployment proves that static files were published; it does not cl
 | Aspect | Weight | Target | AI / Effective | Status | Main evidence |
 |---|---:|---:|---:|---|---|
 | Project purpose / scope | 4 | 8 | 9 | healthy | clear differentiated premise and five-room contract |
-| README / onboarding | 4 | 7 | 7 | healthy | corrected current quickstart/status; historical depth remains |
-| Repo organization | 3 | 8 | 7 | needs_work | strong data/scripts/docs split; generated and audit duplication |
-| Code hygiene | 4 | 8 | 6 | needs_work | hidden-mode bug, 49 inline styles, dead CSS, lint warnings |
+| README / onboarding | 4 | 7 | 7 | healthy | corrected current quickstart/status |
+| Repo organization | 3 | 8 | 7 | needs_work | strong split; generated and audit duplication |
+| Code hygiene | 4 | 8 | 7 | needs_work | mode/fatal/unused warnings fixed; inline/dead CSS/style-validation debt remains |
 | Architecture | 4 | 8 | 7 | needs_work | appropriate deterministic static pipeline; global monolith |
 | Maintainability | 4 | 8 | 6 | needs_work | coupled large files and heterogeneous render branches |
 | Type safety / validation | 3 | 8 | 6 | needs_work | strong semantics; inert schema and non-case blind spot |
-| Error handling / logging | 3 | 8 | 5 | needs_work | fail-soft storage, but no fatal boundary or diagnostics |
+| Error handling / logging | 3 | 8 | 7 | needs_work | fatal recovery and storage resilience; broader diagnostics remain minimal |
 | Dependency hygiene | 3 | 8 | 8 | healthy | no runtime package; zero audit findings; external fonts |
-| Tests | 5 | 7 | 6 | needs_work | broad smoke; browser skip and no visual/a11y gate |
+| Tests | 5 | 7 | 7 | needs_work | behavioral regressions added; browser still success-skippable/not CI |
 | CI/CD | 4 | 7 | 6 | blocked_manual_workflow_edit | omitted paths, old actions, limited jobs |
 | Security / privacy | 5 | 8 | 7 | needs_work | escaping/no backend strong; CSP order/unsafe-inline/fonts |
 | Performance | 3 | 8 | 7 | needs_work | compact/lazy cases; 554 KB gzip and eager hidden views |
-| GitHub Pages presentation | 5 | 8 | 6 | needs_work | strong direction; broken directory and no approved visuals |
-| UX / usability | 4 | 8 | 6 | needs_work | good Reader/search; dead mode and responsive evidence gaps |
-| Accessibility | 3 | 8 | 6 | needs_work | strong foundation; incomplete states/tooltips/no formal pass |
+| GitHub Pages presentation | 5 | 8 | 7 | needs_work | directory fixed; no current approved browser visuals |
+| UX / usability | 4 | 8 | 7 | needs_work | Reader/search and both Lineage modes; broader evidence gaps |
+| Accessibility | 3 | 8 | 7 | needs_work | mode/fatal semantics fixed; other state/tooltips/no formal pass |
 | Content quality | 3 | 8 | 6 | needs_work | P0 contained; rights/source review incomplete |
-| Feature completeness | 4 | 8 | 6 | needs_work | five views exist; one primary mode broken; content is seeded |
-| Deployment readiness | 4 | 8 | 6 | needs_work | live/green but release gates unresolved |
+| Feature completeness | 4 | 8 | 7 | needs_work | five views and repaired primary mode; content remains seeded |
+| Deployment readiness | 4 | 8 | 6 | needs_work | live/green but rights/validation/CI/security gates unresolved |
 | Agent readiness | 5 | 8 | 8 | healthy | refreshed audit, scoreboard, handoff, and workflow notes |
 | Task hygiene | 3 | 8 | 7 | needs_work | current docs reconciled; historical root sprawl remains |
-| Auditability | 3 | 8 | 8 | healthy | extensive evidence and corrected arithmetic; browser gap explicit |
+| Auditability | 3 | 8 | 8 | healthy | behavioral evidence and corrected arithmetic; browser gap explicit |
 
-**Weighted total:** `551 / 83 = 6.638...`, rounded to **6.6/10**.
-**Required gate failures:** tests 6 < 7, CI/CD 6 < 7, security/privacy 7 < 8, overall 6.6 < 8. Agent readiness 8 and README 7 meet their thresholds.
+**Weighted total:** `582 / 83 = 7.012...`, rounded to **7.0/10**.
+**Required gate failures:** CI/CD 6 < 7, security/privacy 7 < 8, and overall 7.0 < 8. Tests 7, agent readiness 8, and README 7 meet their thresholds.
 **Gate:** `repo_ready = fail`.
 
 ## 9. Recommended implementation order
 
 ### Release lane — do these first
 
-1. **Repair Lineage mode switching** and mobile directory grid; add real-browser regression coverage.
-2. **Implement fatal bundle/init recovery** and malformed-bundle tests.
+1. ~~**Repair Lineage mode switching** and mobile directory grid; add regressions.~~ **Completed post-audit** (real Chromium execution remains under the broader evidence task).
+2. ~~**Implement fatal bundle/init recovery** and malformed-bundle tests.~~ **Completed post-audit.**
 3. **Add strict non-case validators plus negative fixtures**; either execute a meaningful JSON Schema or narrow/remove the schema claim.
 4. **Create a non-skippable browser/a11y/overflow CI path** and collect current light/dark responsive screenshots.
 5. **Complete the 3 pending quotation references and all 14 rights decisions.**
@@ -419,7 +420,7 @@ Updated current-state documentation to remove contradictory score/design/branch 
 - `.scoreboard/history.md`
 - `response_summary.md`
 
-Historical dated reports remain unchanged by design. Application/data/workflow remediation was intentionally left for user-directed follow-up.
+Historical dated reports remain unchanged by design. After the user selected the release-blocker follow-up, application/test/docs mirrors were updated for Lineage mode and fatal recovery; source data and workflow YAML remain unchanged.
 
 ## 11. Audit limitations
 
@@ -431,4 +432,4 @@ Historical dated reports remain unchanged by design. Application/data/workflow r
 
 ## One-sentence summary
 
-Completed a full engineering, design, data, accessibility, security, testing, deployment, and documentation audit, reconciled current project records to an evidence-based 6.6/10 fail gate, and identified the hidden Lineage directory, non-case validation gap, rights backlog, and success-skippable browser testing as the highest-priority blockers.
+Completed the full audit and documentation reconciliation, then repaired the selected Lineage/fatal-state release blockers with regressions, raising the evidence-based gate from 6.6 to 7.0/10 while validation, rights, browser/CI, security, and editorial work remain.

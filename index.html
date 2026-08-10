@@ -163,9 +163,9 @@
           <p class="text-title-en">Interactive Transmission Network & Genealogical Matrix from Bodhidharma to the Five Houses</p>
         </div>
         <div class="lineage-filter-row">
-          <div class="lineage-filter-row">
-            <button id="lineage-mode-graph-btn" class="btn-pill active">Visual Network</button>
-            <button id="lineage-mode-cards-btn" class="btn-pill">Master Directory</button>
+          <div class="lineage-filter-row" role="group" aria-label="Lineage display mode">
+            <button type="button" id="lineage-mode-graph-btn" class="btn-pill active" aria-pressed="true" aria-controls="lineage-graph-container">Visual Network</button>
+            <button type="button" id="lineage-mode-cards-btn" class="btn-pill" aria-pressed="false" aria-controls="lineage-content-target">Master Directory</button>
           </div>
           <select id="lineage-sort-filter" class="search-input" aria-label="Sort lineage display">
             <option value="generation">Tree order</option>

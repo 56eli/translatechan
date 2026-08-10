@@ -158,8 +158,52 @@
     }
   }
 
+  // The data bundle is a required static application asset. Validate its
+  // public top-level contract before wiring controls so a missing, truncated,
+  // or stale bundle produces an actionable recovery screen instead of blank
+  // secondary rooms and a permanent "loading" placeholder.
+  function hasUsableAppData(data) {
+    if (!isRecord(data) || !isRecord(data.corpus) || Object.keys(data.corpus).length === 0) return false;
+    if (!isRecord(data.corpus_manifest) || !Array.isArray(data.corpus_manifest.items)) return false;
+    if (!isRecord(data.project_metrics) || !isRecord(data.canonical_locators)) return false;
+    if (!Array.isArray(data.glossary) || !Array.isArray(data.lineage) ||
+        !Array.isArray(data.translations_matrix) || !Array.isArray(data.gongan_index)) return false;
+    return data.corpus_manifest.items.length > 0 &&
+      data.corpus_manifest.items.every(item => isRecord(item) && typeof item.key === 'string' && isRecord(data.corpus[item.key]));
+  }
+
+  function renderFatalAppError(error) {
+    if (window.console && typeof window.console.error === 'function') {
+      window.console.error('[Fake Chan Factory] initialization failed', error || 'Required data bundle is unavailable.');
+    }
+    if (document.body && document.body.dataset) document.body.dataset.currentView = 'error';
+    const main = document.getElementById('main-content');
+    if (!main) return;
+    main.innerHTML = `
+      <section id="app-fatal-error" class="error-boundary-card" role="alert" aria-labelledby="app-fatal-title" tabindex="-1">
+        <h1 id="app-fatal-title" class="error-boundary-title">The reading room could not open</h1>
+        <p class="error-boundary-text">The required corpus bundle is missing or malformed. Your saved display preferences are safe. Check the connection, then reload the page.</p>
+        <div class="error-boundary-actions">
+          <button type="button" id="app-reload-btn" class="btn-primary">Reload the reader</button>
+        </div>
+      </section>`;
+    const reload = document.getElementById('app-reload-btn');
+    if (reload) {
+      reload.addEventListener('click', () => {
+        if (window.location && typeof window.location.reload === 'function') window.location.reload();
+      });
+    }
+    const panel = document.getElementById('app-fatal-error');
+    if (panel && typeof panel.focus === 'function') panel.focus();
+  }
+
   // Initialize
   function init() {
+    if (!hasUsableAppData(state.data)) {
+      renderFatalAppError(new Error('Required app_data.js contract is unavailable.'));
+      return;
+    }
+    try {
     // Initial URL state (#/view/corpus) — deep links & refresh restore position
     const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
     if (m && VALID_VIEWS.includes(m[1])) state.currentView = m[1];
@@ -183,6 +227,9 @@
     renderLexicon();
     setActiveModeButtons();
     switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
+    } catch (error) {
+      renderFatalAppError(error);
+    }
   }
 
   // L1 (audit 2026-08-10, session 019feabb): dismissable hero banner.
@@ -761,26 +808,35 @@
       });
     }
 
-    // Mode switcher between Visual Network and Cards
+    // Mode switcher between Visual Network and Master Directory. `hidden` is
+    // the semantic source of truth: setting inline display cannot override a
+    // hidden element in conforming browsers. Keep visual and ARIA state in one
+    // path so pointer and assistive-technology users receive the same mode.
     const graphBtn = document.getElementById('lineage-mode-graph-btn');
     const cardsBtn = document.getElementById('lineage-mode-cards-btn');
     const graphContainer = document.getElementById('lineage-graph-container');
     const cardsContainer = document.getElementById('lineage-content-target');
 
-    if (graphBtn && cardsBtn && graphContainer && cardsContainer) {
-      graphBtn.addEventListener('click', () => {
+    const setLineageMode = (mode) => {
+      if (!graphBtn || !cardsBtn || !graphContainer || !cardsContainer) return;
+      const showCards = mode === 'cards';
+      if (showCards) {
+        graphBtn.classList.remove('active');
+        cardsBtn.classList.add('active');
+      } else {
         graphBtn.classList.add('active');
         cardsBtn.classList.remove('active');
-        graphContainer.style.display = 'block';
-        cardsContainer.style.display = 'none';
-      });
+      }
+      graphBtn.setAttribute('aria-pressed', showCards ? 'false' : 'true');
+      cardsBtn.setAttribute('aria-pressed', showCards ? 'true' : 'false');
+      graphContainer.hidden = showCards;
+      cardsContainer.hidden = !showCards;
+    };
 
-      cardsBtn.addEventListener('click', () => {
-        cardsBtn.classList.add('active');
-        graphBtn.classList.remove('active');
-        graphContainer.style.display = 'none';
-        cardsContainer.style.display = 'grid';
-      });
+    if (graphBtn && cardsBtn && graphContainer && cardsContainer) {
+      graphBtn.addEventListener('click', () => setLineageMode('graph'));
+      cardsBtn.addEventListener('click', () => setLineageMode('cards'));
+      setLineageMode('graph');
     }
 
     const lineageResetBtn = document.getElementById('lineage-reset-btn');
@@ -1358,7 +1414,6 @@
         // instead of clicking "Show more" repeatedly.
         const remaining = total - limit;
         const nextChunk = Math.min(CASE_CHUNK, remaining);
-        const nextAll = total - limit;
         html += `
           <div class="case-load-more" data-case-total="${total}">
             <button id="case-load-more-btn" class="btn-primary" aria-label="Show more cases" data-load-step="${nextChunk}">
@@ -1813,14 +1868,6 @@
 
     const isAi = entry.status === 'ai_draft';
     const short = isAi ? 'Robo draft' : 'Robolation';
-    const detail = {
-      title: 'Robo rendering disclosure',
-      rows: [
-        ['What this is', isAi ? 'AI draft \u2014 not a real translation.' : 'AI text in this translator\u2019s register \u2014 not their actual words.'],
-        ['Citation rule', 'Do not cite as the named translator\u2019s work.'],
-        ...originalRows
-      ]
-    };
     return `<div class="translation-source source-disclosure">\u{1F916} <strong>${escHtml(translator)}</strong> \u2014 ${escHtml(short)}</div>`;
   }
 
@@ -2762,7 +2809,7 @@
     const escaped = [...String(q)].map(ch => SEARCH_VARIANTS[ch] ? `[${ch}${SEARCH_VARIANTS[ch]}]` : ch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('');
     try { return new RegExp(escaped, 'gi'); } catch (e) { return null; }
   }
-  function extractSearchableUnits(doc, corpKey) {
+  function extractSearchableUnits(doc) {
     // Returns [{label, jump, zh, pinyin, blob}] covering cases (including pointers,
     // commentary and verses), sections, dialogues, stanzas, chapters, five_ranks,
     // sample_records, and preface/epilogue.
@@ -2910,7 +2957,7 @@
     if (searchUnitsCache) return searchUnitsCache;
     searchUnitsCache = {};
     Object.keys(state.data.corpus || {}).forEach(corpKey => {
-      searchUnitsCache[corpKey] = extractSearchableUnits(state.data.corpus[corpKey], corpKey);
+      searchUnitsCache[corpKey] = extractSearchableUnits(state.data.corpus[corpKey]);
     });
     return searchUnitsCache;
   }

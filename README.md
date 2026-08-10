@@ -22,11 +22,11 @@
 
 ## 🏛️ Walnut Chan Hall Design & Architecture Upgrades (2026-08-10)
 
-The public SPA applies a restrained **Chinese Chan hall in dark walnut** visual grammar across all five rooms (`#view-reader`, `#view-matrix`, `#view-lineage`, `#view-gongan`, `#view-lexicon`). The layouts below are implemented, but current browser/screenshot approval remains pending and the latest audit found that Lineage directory mode does not clear its semantic `hidden` state:
+The public SPA applies a restrained **Chinese Chan hall in dark walnut** visual grammar across all five rooms (`#view-reader`, `#view-matrix`, `#view-lineage`, `#view-gongan`, `#view-lexicon`). The layouts below are implemented; current real-browser screenshots/owner approval remain pending, while the audited Lineage directory hidden-state defect is now repaired and regression-covered:
 - **Phase A+B (Shell & Reader):** Walnut two-row navigation lintel, initial-only gate, grouped 2/2/31 literature shelf, progressive document provenance ledger, ruled reading sheets, and reader-scoped mobile controls.
 - **Phase C+D (Secondary Rooms & Visual Consolidation):** Matrix Proof Sheet (`.matrix-proof-sheet`) with full-width source sentence bands and equal-column comparative registers; Lineage Chronological Directory (`.master-directory-row`); Gong'an Catalogue Shelf (`.gongan-catalogue-row`); and Lexicon Dictionary Rows (`.lexicon-definition-row`) without generic SaaS card styling or decorative emoji overload.
 - **Responsive & Accessibility Unification:** Standardized responsive `max-width` thresholds to `1024px` (tablet/shelf collapse) and `768px` (mobile stack), hardened primary active/muted token contrast across light and dark themes, and eliminated all inline styles from `index.html`.
-- **UI Cleanliness & Resiliency:** Silenced redundant `🤖 Robolation` status badges (`.is-silent-robo`) where translator headers already display `🤖 Robo [Name]`, while preserving `✅ Edition-verified quotation` badges for genuine published editions. Patched strict-mode `localStorage` primitive handling. Fatal bundle recovery remains open: `.error-boundary-card` is styled, but no initialization boundary renders it yet.
+- **UI Cleanliness & Resiliency:** Silenced redundant `🤖 Robolation` status badges (`.is-silent-robo`) where translator headers already display `🤖 Robo [Name]`, while preserving `✅ Edition-verified quotation` badges for genuine published editions. Patched strict-mode `localStorage` primitive handling and added a validated, focusable, reloadable fatal boundary for missing/malformed corpus bundles.
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
@@ -207,7 +207,7 @@ python3 -m http.server 8080
 - 🧘 **UX/UI Improvement Roadmap (mobile + desktop, anti-overload)**: [`UX_ROADMAP.md`](./UX_ROADMAP.md)
 - 🏯 **Accepted Web Vision**: [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md)
 - 🧱 **Web Redesign Records**: [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B](./sessions/DESIGN_PHASE_AB_2026-08-10.md) · [Phase C+D](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md)
-- 🔍 **Current Technical Audit & Remediation Log**: [`AUDIT.md`](./AUDIT.md) · [full 2026-08-10 audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md)
+- 🔍 **Current Technical Audit & Remediation Log**: [`AUDIT.md`](./AUDIT.md) · [full 2026-08-10 audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md) · [selected release-blocker fixes](./sessions/RELEASE_BLOCKERS_2026-08-10_019fecb1.md)
 - 🤝 **Pull Request & Deployment Handoff Guide**: [`HANDOFF.md`](./HANDOFF.md)
 - 🎯 **Evidence-First Research Release Plan**: [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md)
 

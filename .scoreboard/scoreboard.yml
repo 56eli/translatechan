@@ -13,16 +13,16 @@ manual_workflow_policy:
   instruction: "Do not edit .github/workflows/* unless the user explicitly instructs it; document exact required changes in .scoreboard/manual-workflow-edits.md."
 
 summary:
-  overall_effective_score: 6.6
+  overall_effective_score: 7.0
   repo_ready_gate_status: fail
   top_priorities:
-    - github_pages_presentation
-    - error_handling_logging
-    - code_hygiene
     - maintainability
     - deployment_readiness
+    - type_safety_validation
+    - content_quality
+    - security_privacy
   active_risk_flags:
-    - "P1 functional: Lineage Master Directory retains its hidden attribute when selected."
+    - "Resolved functional follow-up: Lineage modes and fatal bundle recovery are regression-covered."
     - "P1 validation: JSON Schema is inert and malformed/empty non-case units can pass validation."
     - "P1 rights: all 14 rights records await human review and 3 verified references remain pending."
     - "P1 evidence: browser tests are success-skippable, absent from CI, and current screenshots/a11y evidence are unavailable."
@@ -31,7 +31,7 @@ summary:
 quality_gates:
   repo_ready:
     status: fail
-    overall_effective_score: 6.6
+    overall_effective_score: 7.0
     last_evaluated: 2026-08-10
     minimum_overall_effective_score: 8
     required:
@@ -41,9 +41,9 @@ quality_gates:
       ci_cd: 7
       agent_readiness: 8
     notes:
-      - "Required aspects fail: security_privacy 7, tests 6, and ci_cd 6; README 7 and agent_readiness 8 pass."
-      - "Overall effective score 6.6 is below the 8.0 gate."
-      - "Functional, validation, rights, browser/accessibility, and operations risks independently block release."
+      - "Required aspects fail: security_privacy 7 and ci_cd 6; tests 7, README 7, and agent_readiness 8 pass."
+      - "Overall effective score 7.0 is below the 8.0 gate."
+      - "Validation, rights, browser/accessibility, security, and operations risks independently block release."
       - "All user_score fields remain null; no user score was inferred."
 
 aspects:
@@ -115,20 +115,20 @@ aspects:
     category: engineering
     weight: 4
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 8
+    effective_score: 7
+    gap: 1
+    priority: 4
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Escaping/event delegation are strong, but Lineage mode mishandles hidden state, 49 template inline styles remain, legacy room CSS is dead, and focused lint found one CSS duplicate plus three unused JS values."
+    ai_basis: "Escaping/event delegation are strong; the Lineage semantic-mode/fatal-state defects and three focused ESLint warnings are fixed. Forty-nine template inline styles, dead legacy room CSS, and one duplicate CSS declaration remain."
     user_basis: null
-    desired_direction: ["Fix Lineage mode through one state function; remove inline/dead presentation code; add static checks."]
-    evidence: ["index.html lineage-content-target", "app.js mode handler and dossier hidden handling", "focused ESLint/Stylelint output"]
-    next_actions: ["Fix Lineage mode through one state function; remove inline/dead presentation code; add static checks."]
-    risk_flags: ["Master Directory control can leave its target semantically hidden."]
+    desired_direction: ["Remove inline/dead presentation code and add static checks."]
+    evidence: ["semantic Lineage mode implementation", "fatal recovery boundary", "focused ESLint now clean"]
+    next_actions: ["Remove inline/dead presentation code and add static checks."]
+    risk_flags: []
     files_reviewed: ["app.js", "app.css", "index.html"]
 
   - id: architecture
@@ -199,21 +199,21 @@ aspects:
     category: engineering
     weight: 3
     target: 8
-    ai_score: 5
+    ai_score: 7
     user_score: null
-    effective_score: 5
-    gap: 3
-    priority: 9
+    effective_score: 7
+    gap: 1
+    priority: 3
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Storage access and collapsed-case primitives fail soft, but missing/malformed data has no top-level recovery UI or diagnostic boundary; error-boundary classes are CSS-only."
+    ai_basis: "Storage fails soft; required app data is validated; initialization errors render a focusable reload boundary and concise diagnostic; isolated smoke and Playwright paths cover missing bundles."
     user_basis: null
-    desired_direction: ["Validate the bundle before init; render a focusable reload/recovery panel; add malformed/missing-bundle tests."]
-    evidence: ["app.js init/renderReader", "app.css error-boundary-card", "README correction"]
-    next_actions: ["Validate the bundle before init; render a focusable reload/recovery panel; add malformed/missing-bundle tests."]
-    risk_flags: ["A failed data bundle leaves a shell/loading placeholder or blank secondary rooms without diagnosis."]
-    files_reviewed: ["app.js", "app.css", "theme-init.js"]
+    desired_direction: ["Add finer-grained diagnostics only where actionable and preserve recovery coverage."]
+    evidence: ["app.js hasUsableAppData/renderFatalAppError", "isolated VM smoke test", "Playwright fatal-bundle-recovery"]
+    next_actions: ["Add finer-grained diagnostics only where actionable and preserve recovery coverage."]
+    risk_flags: []
+    files_reviewed: ["app.js", "app.css", "scripts/smoke_test.mjs", "scripts/browser_test.mjs"]
 
   - id: dependency_hygiene
     name: Dependency hygiene
@@ -241,19 +241,19 @@ aspects:
     category: engineering
     weight: 5
     target: 7
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 1
-    priority: 5
+    effective_score: 7
+    gap: 0
+    priority: 0
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "The broad dependency-free smoke suite is useful, but it tests stubs/strings and missed semantic visibility; Playwright exits zero on unavailable Chromium and lacks dark/tablet/axe/screenshot coverage."
+    ai_basis: "Smoke now behavior-tests both Lineage modes and executes missing-bundle recovery in an isolated VM; Playwright covers computed mode/fatal/mobile behavior but still exits zero on unavailable Chromium and lacks dark/tablet/axe/screenshots."
     user_basis: null
-    desired_direction: ["Create a non-skippable browser command; cover every room, mode, theme, target width, a11y, overflow, and fatal state."]
-    evidence: ["smoke pass 35 fixtures", "browser script skip output", "Lineage mode not activated by either suite"]
-    next_actions: ["Create a non-skippable browser command; cover every room, mode, theme, target width, a11y, overflow, and fatal state."]
+    desired_direction: ["Create a non-skippable browser command; add every-room, theme, tablet, axe, and screenshot coverage."]
+    evidence: ["smoke pass 35 fixtures plus VM/mode regressions", "Playwright mode/mobile/fatal paths", "browser skip output"]
+    next_actions: ["Create a non-skippable browser command; add every-room, theme, tablet, axe, and screenshot coverage."]
     risk_flags: ["Required tooling can interpret a browser SKIP as success."]
     files_reviewed: ["scripts/smoke_test.mjs", "scripts/browser_test.mjs"]
 
@@ -325,19 +325,19 @@ aspects:
     category: presentation
     weight: 5
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 10
+    effective_score: 7
+    gap: 1
+    priority: 5
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "The walnut/rice-paper direction and secondary layouts are distinctive, but Master Directory is hidden, responsive/dark screenshots and owner approval are absent, SVG social sharing is fragile, and repository presentation metadata is empty."
+    ai_basis: "The walnut/rice-paper direction is distinctive and both Lineage modes now work semantically; responsive/dark screenshots and owner approval are absent, SVG social sharing is fragile, and repository presentation metadata is empty."
     user_basis: null
-    desired_direction: ["Fix Lineage mode, complete responsive/a11y screenshots in both themes, obtain owner approval, and provide a PNG social card/repo metadata."]
-    evidence: ["index.html/app.css design system", "Lineage hidden-state analysis", "GitHub repo metadata API", "no current screenshot evidence"]
-    next_actions: ["Fix Lineage mode, complete responsive/a11y screenshots in both themes, obtain owner approval, and provide a PNG social card/repo metadata."]
+    desired_direction: ["Complete responsive/a11y screenshots in both themes, obtain owner approval, and provide a PNG social card/repo metadata."]
+    evidence: ["design system", "Lineage semantic mode regressions", "GitHub repo metadata API", "no current screenshot evidence"]
+    next_actions: ["Complete responsive/a11y screenshots in both themes, obtain owner approval, and provide a PNG social card/repo metadata."]
     risk_flags: ["Do not declare the web vision fulfilled without computed browser evidence and explicit owner approval."]
     files_reviewed: ["index.html", "app.css", "app.js", "og-image.svg"]
 
@@ -346,20 +346,20 @@ aspects:
     category: presentation
     weight: 4
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 8
+    effective_score: 7
+    gap: 1
+    priority: 4
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Reader/search/navigation are capable and literature-first, but an advertised Lineage mode is nonfunctional, fatal load is unexplained, and secondary-room/mobile geometry lacks current evidence."
+    ai_basis: "Reader/search/navigation and both Lineage modes are capable; missing/malformed data has actionable recovery and phone directory placement is fixed, while full multi-width/browser evidence remains absent."
     user_basis: null
-    desired_direction: ["Repair the dead mode; test all rooms at 390/768/1024/desktop and add clear fatal recovery."]
-    evidence: ["Reader controls/search code", "Lineage mode handler", "browser-suite coverage gaps"]
-    next_actions: ["Repair the dead mode; test all rooms at 390/768/1024/desktop and add clear fatal recovery."]
-    risk_flags: ["Mobile Lineage quote grid can create an implicit second column after visibility is fixed."]
+    desired_direction: ["Test all rooms at 390/768/1024/desktop in both themes and finish remaining interaction semantics."]
+    evidence: ["Reader/search code", "Lineage mode regressions", "fatal recovery regression"]
+    next_actions: ["Test all rooms at 390/768/1024/desktop in both themes and finish remaining interaction semantics."]
+    risk_flags: []
     files_reviewed: ["index.html", "app.js", "app.css", "scripts/browser_test.mjs"]
 
   - id: accessibility
@@ -367,19 +367,19 @@ aspects:
     category: presentation
     weight: 3
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 6
+    effective_score: 7
+    gap: 1
+    priority: 3
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Tabs, skip link, focus styles, reduced motion, headings, dossier focus, and core contrast are good; pinyin/mode/collapse states, tooltip relationships, radio arrows, search announcements, and formal screen-reader/axe evidence remain incomplete."
+    ai_basis: "Tabs, skip link, focus styles, reduced motion, headings, dossier focus, contrast, Lineage mode state, and fatal-alert focus are good; pinyin/collapse states, tooltip relationships, radio arrows, search announcements, and screen-reader/axe evidence remain."
     user_basis: null
-    desired_direction: ["Synchronize all toggle labels/states, use native/complete patterns, add stable live regions and axe/keyboard/screen-reader release checks."]
-    evidence: ["ARIA/static review", "contrast calculations", "no axe/screen-reader run"]
-    next_actions: ["Synchronize all toggle labels/states, use native/complete patterns, add stable live regions and axe/keyboard/screen-reader release checks."]
+    desired_direction: ["Synchronize remaining toggle labels/states, complete tooltip/radio/live-region patterns, and add axe/screen-reader release checks."]
+    evidence: ["ARIA/static review", "Lineage mode/fatal focus regressions", "contrast calculations"]
+    next_actions: ["Synchronize remaining toggle labels/states, complete tooltip/radio/live-region patterns, and add axe/screen-reader release checks."]
     risk_flags: []
     files_reviewed: ["index.html", "app.js", "app.css"]
 
@@ -409,19 +409,19 @@ aspects:
     category: product
     weight: 4
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 8
+    effective_score: 7
+    gap: 1
+    priority: 4
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "All five intended views and substantial workflows exist, but Lineage directory mode is hidden, source/editorial depth is partial, and unit permalinks/mandatory visual evidence remain."
+    ai_basis: "All five intended views and both Lineage modes work through audited code paths; source/editorial depth, unit permalinks, and mandatory visual evidence remain."
     user_basis: null
-    desired_direction: ["Finish and verify current workflows before corpus or feature expansion."]
-    evidence: ["index.html five views", "app.js public workflows", "current Lineage defect", "ROADMAP.md"]
-    next_actions: ["Finish and verify current workflows before corpus or feature expansion."]
+    desired_direction: ["Verify current workflows in mandatory browsers before corpus or feature expansion."]
+    evidence: ["index.html five views", "Lineage mode regressions", "fatal recovery", "ROADMAP.md"]
+    next_actions: ["Verify current workflows in mandatory browsers before corpus or feature expansion."]
     risk_flags: []
     files_reviewed: ["index.html", "app.js", "ROADMAP.md"]
 

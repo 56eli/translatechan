@@ -4,8 +4,8 @@
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
 > **Current fixed branch:** `arena/019fecb1-translatechan`
-> **Current audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md)
-> **Current gate:** `repo_ready = fail` (6.6/10)
+> **Current audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md) · [release-blocker fixes](./sessions/RELEASE_BLOCKERS_2026-08-10_019fecb1.md)
+> **Current gate:** `repo_ready = fail` (7.0/10)
 
 ## 1. Start here
 
@@ -58,15 +58,16 @@ Only Wumenguan and Xinxin Ming are `complete_selected_witness`. Biyanlu and Linj
 
 ## 4. Current release blockers
 
-1. **Lineage directory:** `#lineage-content-target` ships with `hidden`; its mode handler changes only inline display. Remove/restore semantic hidden state and add real-browser coverage.
-2. **Rights/references:** complete 14 human rights decisions and resolve or downgrade 3 pending verified references.
-3. **Non-case validation:** JSON Schema is inert and non-case unit records are shallowly checked; malformed/empty units can pass.
-4. **Browser/a11y evidence:** Playwright exits zero on skip and is not in CI; current screenshots, dark/tablet coverage, axe, and owner approval are absent.
-5. **Accessibility/responsive:** pinyin/Lineage mode states, tooltip relationships, radio behavior, stale collapse labels, search announcements, and mobile Lineage grid need work.
-6. **Fatal state:** `.error-boundary-card` exists only in CSS; no runtime initialization boundary renders it.
-7. **Operations:** four mirror paths are absent from CI diff; action majors emit Node 20 deprecation warnings; required branch protection is unverified.
-8. **Editorial depth:** 33 document-level locator migrations, Biyanlu/Linji field review, 30 lineage edges, and 34 profile reviews remain.
-9. **Contained P0:** do not reintroduce Congronglu without authoritative T48n2004 TEI, field-level provenance, negative fixtures, and human review.
+1. **Rights/references:** complete 14 human rights decisions and resolve or downgrade 3 pending verified references.
+2. **Non-case validation:** JSON Schema is inert and non-case unit records are shallowly checked; malformed/empty units can pass.
+3. **Browser/a11y evidence:** Playwright exits zero on skip and is not in CI; current screenshots, dark/tablet coverage, axe, and owner approval are absent.
+4. **Accessibility:** pinyin/collapse states, tooltip relationships, radio behavior, search announcements, and screen-reader evidence need work.
+5. **Security/privacy:** CSP order, inline-style allowance, runtime fonts, and vulnerability-reporting guidance remain.
+6. **Operations:** four mirror paths are absent from CI diff; action majors emit Node 20 deprecation warnings; required branch protection is unverified.
+7. **Editorial depth:** 33 document-level locator migrations, Biyanlu/Linji field review, 30 lineage edges, and 34 profile reviews remain.
+8. **Contained P0:** do not reintroduce Congronglu without authoritative T48n2004 TEI, field-level provenance, negative fixtures, and human review.
+
+Completed in this session: Lineage graph/directory mode now synchronizes semantic/ARIA state with a phone-grid regression, and missing/malformed bundles render a focusable reload boundary with an isolated smoke test and Playwright path.
 
 ## 5. Quality commands
 
@@ -157,13 +158,12 @@ Workflow changes require explicit user approval. Exact required edits are in [`.
 
 ## 10. Recommended next sequence
 
-1. Fix Lineage directory hidden state, mode semantics, and phone grid; browser-test it.
-2. Implement fatal bundle recovery.
-3. Add strict per-shape non-case validation and negative fixtures.
-4. Add non-skippable browser/a11y/overflow evidence and obtain owner visual approval.
-5. Complete rights/reference decisions and source review.
-6. Apply owner-approved operations changes.
-7. Clean remaining inline styles/dead CSS, then measure lazy room/data loading.
+1. Add strict per-shape non-case validation and negative fixtures.
+2. Add non-skippable browser/a11y/overflow evidence and obtain owner visual approval.
+3. Complete rights/reference decisions and source review.
+4. Harden CSP/fonts/security guidance and remaining interaction semantics.
+5. Apply owner-approved operations changes.
+6. Clean remaining inline styles/dead CSS, then measure lazy room/data loading.
 
 ## 11. Stable contracts
 

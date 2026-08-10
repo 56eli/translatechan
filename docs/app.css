@@ -2274,4 +2274,8 @@ textarea:focus-visible,
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
+  .master-dir-quote {
+    grid-column: auto;
+    margin-top: 0;
+  }
 }

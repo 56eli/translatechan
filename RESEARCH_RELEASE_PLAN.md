@@ -18,7 +18,7 @@ A text or translation is only presented at the strongest available status. “Co
 
 ## Current baseline (2026-08-10 containment state)
 
-- **Platform:** native GitHub Pages from `main /docs`; Quality passes, but `repo_ready` remains fail on the Lineage directory defect, rights/source review, non-case validation, mandatory browser/accessibility evidence, and operations gates.
+- **Platform:** native GitHub Pages from `main /docs`; Quality passes and the audited Lineage/fatal-state defects are repaired, but `repo_ready` remains fail on rights/source review, non-case validation, mandatory browser/accessibility evidence, security hardening, and operations gates.
 - **Corpus:** 35 active documents. Wumenguan and Xinxin Ming are explicitly `complete_selected_witness`; Biyanlu has 100/100 case records but is `partial_selected_witness`; Platform Sutra is a 10-heading excerpt set, not complete. Congronglu is quarantined and absent from the public bundle after generated source-looking placeholders and incorrect case-number/page claims were confirmed against authoritative T48n2004 headings.
 - **Traceability:** 148 active case records have case locators (48 Wumenguan + 100 Biyanlu); 33 non-case documents remain document-level with limited Linji/Xinxin unit pilots. A case-number anchor is not proof that every nested source field was collated.
 - **Translation disclosure:** 177 corpus quotation slots and 2 Matrix slots are edition-verified; 176/179 have recorded references. All 14 rights-manifest sources still require their documented rights/jurisdiction review. Verification does not itself grant reuse rights or establish public-domain status.

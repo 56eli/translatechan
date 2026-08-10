@@ -1,33 +1,18 @@
 # Live Session Summary — 2026-08-10, session `arena/019fecb1-translatechan`
 
-> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable evidence: [current full audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md), [current audit index](./AUDIT.md), and [scoreboard](./SCOREBOARD.md).
+> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable evidence: [current full audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md), [release-blocker fixes](./sessions/RELEASE_BLOCKERS_2026-08-10_019fecb1.md), [audit index](./AUDIT.md), and [scoreboard](./SCOREBOARD.md).
 
-## Status: full senior engineering and web-design audit complete
+## Status: full audit complete; selected release blockers fixed
 
-- **Verdict:** 6.6/10; `repo_ready = fail`; all user scores remain `null`.
-- **Scope:** architecture, frontend, design system, responsive UX, accessibility, security/privacy, performance, data/editorial integrity, tests, CI/CD, deployment, documentation, and GitHub presentation.
-- **Highest blocker:** Lineage “Master Directory” retains `hidden`; mode selection changes display only.
-- **Validation blocker:** JSON Schema is inert and malformed/empty non-case unit fixtures pass validation.
-- **Evidence blocker:** Playwright is success-skippable and absent from CI; Chromium could not be installed, so current screenshots/axe/owner approval remain absent.
-- **Editorial blocker:** all 14 rights records need review; 3 verified references are pending; 33 locator migrations and all 30 internal lineage-edge reviews remain.
-- **Resilience blocker:** fatal-boundary CSS exists, but no runtime boundary renders it.
-- **Documentation repair:** reconciled score arithmetic, current branch/design status, README release wording/corruption, roadmap counts, audit, handoffs, vision status, and planning docs without changing historical session records.
-- **Application/data/workflow scope:** intentionally unchanged pending user direction.
-
-## Verified checks
-
-```text
-compile / validator / build / JS syntax / smoke / mirrors   PASS
-npm audit                                                    PASS; 0 vulnerabilities
-Markdown links / duplicate IDs / XML                         PASS
-focused ESLint                                               0 errors; 3 warnings
-focused Stylelint                                            1 duplicate declaration
-HTML validator                                               35 findings
-Playwright                                                   SKIP with exit 0
-Chromium installation                                        FAIL; ECONNRESET
-GitHub main Quality + Pages                                  PASS at 27ca224
-```
+- **Verdict:** improved from audit baseline 6.6 to 7.0/10; `repo_ready = fail`; all user scores remain `null`.
+- **Lineage:** graph/directory mode now synchronizes semantic `hidden`, visual state, `aria-pressed`, and target relationships through one function.
+- **Mobile:** directory quote placement resets to one column; Playwright checks visible-directory overflow.
+- **Fatal recovery:** required bundle contract is validated before setup; initialization errors render/focus a `role="alert"` panel with safe copy, reload, and diagnostic.
+- **Smoke coverage:** both Lineage directions are behavior-tested; missing-bundle recovery executes in an isolated VM and verifies focus/error state/reload.
+- **Browser path:** Playwright now checks computed mode behavior, mobile directory overflow, and aborted-bundle recovery, but runtime execution remains unavailable/skippable until Chromium and CI are addressed.
+- **Remaining blockers:** non-case validation, 14 rights decisions/3 references, mandatory browser/axe/screenshots/owner approval, CSP/fonts/security guidance, operations, and editorial depth.
+- **Documentation:** audit, implementation record, scoreboard, handoffs, README, plans, vision, and current summary are synchronized.
 
 ## One-sentence summary
 
-Completed the full repository audit, repaired contradictory current documentation and score arithmetic, and recorded an evidence-based 6.6/10 fail verdict led by the hidden Lineage directory, non-case validation gap, pending rights work, and non-mandatory browser evidence.
+Completed the full audit, then repaired the selected Lineage and fatal-state release blockers with semantic, mobile, isolated-smoke, and Playwright regressions, raising the evidence-based score to 7.0/10.
