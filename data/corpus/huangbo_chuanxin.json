@@ -82,6 +82,255 @@
           }
         }
       ]
+    },
+    {
+      "section_id": "mind_is_buddha",
+      "title_zh": "即心是佛，佛即是心",
+      "title_pinyin": "Jí Xīn Shì Fó, Fó Jí Shì Xīn",
+      "title_en": "Mind is Buddha, Buddha is Mind",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "諸佛與一切眾生，唯是一心，更無別法。此心無始已來，不曾生不曾滅，不青不黃，無形無相。……即心是佛，佛即是心；心佛不異，心佛是一。",
+          "pinyin": "Zhū Fó yǔ yīqiè zhòngshēng, wéi shì yī xīn, gèng wú bié fǎ. Cǐ xīn wú shǐ yǐ lái, bù céng shēng bù céng miè, bù qīng bù huáng, wú xíng wú xiàng. ... Jí xīn shì Fó, Fó jí shì xīn; xīn Fó bù yì, xīn Fó shì yī.",
+          "translations": {
+            "cleary": {
+              "text": "All Buddhas and all sentient beings are nothing but the One Mind, beside which nothing exists. This Mind, from beginningless time, has never arisen and never ceased, is neither blue nor yellow, has neither form nor appearance... The Mind is Buddha, and Buddha is the Mind; Mind and Buddha are not different, Mind and Buddha are one.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "All Buddhas and living beings are just one Mind, with nothing else beside it. Since beginningless time this Mind has never been born and never died, is neither green nor yellow, has neither shape nor form... Mind is Buddha, Buddha is Mind; there is no difference between them.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "All Buddhas and all sentient beings are nothing but the One Mind, beside which nothing exists. This Mind, from beginningless time, has never arisen and never ceased, is neither blue nor yellow, has neither form nor appearance... The Mind is Buddha, and Buddha is the Mind; Mind and Buddha are not different, Mind and Buddha are one.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "void_mind",
+      "title_zh": "虛空無相",
+      "title_pinyin": "Xū Kōng Wú Xiàng",
+      "title_en": "The Void and Unconditioned Mind",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "此心即是虛空，無貌無相。若作作佛解、作法解、作僧解，皆是不認本心。但能忘情，都無所得，即是真佛法。",
+          "pinyin": "Cǐ xīn jí shì xū kōng, wú mào wú xiàng. Ruò zuò zuò Fó jiě, zuò fǎ jiě, zuò sēng jiě, jiē shì bù rèn běn xīn. Dàn néng wàng qíng, dōu wú suǒ dé, jí shì zhēn Fó fǎ.",
+          "translations": {
+            "cleary": {
+              "text": "This Mind is identical with the Void, having neither form nor appearance. If you conceptualize it as Buddha, Dharma, or Sangha, you fail to recognize the original Mind. Only when you forget all emotional attachments and attain nothing whatsoever do you realize the true Buddha Dharma.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "This Mind is emptiness itself, having neither features nor form. To conceive of it as Buddha, Dharma, or Sangha is to miss your original mind. Just let go of attachments until nothing remains to be gained; that is true Dharma.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "This Mind is identical with the Void, having neither form nor appearance. If you conceptualize it as Buddha, Dharma, or Sangha, you fail to recognize the original Mind. Only when you forget all emotional attachments and attain nothing whatsoever do you realize the true Buddha Dharma.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "instant_awakening",
+      "title_zh": "頓悟與漸修",
+      "title_pinyin": "Dùn Wù Yǔ Jiàn Xiū",
+      "title_en": "Instantaneous Awakening vs. Gradual Seeking",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "學道人若欲得成佛，一切佛法總不用學，唯學無求無著。無求即心不生，無著即心不滅；不生不滅，即是佛也。",
+          "pinyin": "Xué dào rén ruò yù dé chéng Fó, yīqiè Fó fǎ zǒng bù yòng xué, wéi xué wú qiú wú zhuó. Wú qiú jí xīn bù shēng, wú zhuó jí xīn bù miè; bù shēng bù miè, jí shì Fó yě.",
+          "translations": {
+            "cleary": {
+              "text": "If practitioners of the Way wish to become Buddhas, they need not study any Buddhist doctrines at all; they only need to learn non-seeking and non-attachment. Where there is no seeking, mind does not arise; where there is no attachment, mind does not perish. Not arising and not perishing—this itself is Buddha.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "If you want to attain Buddhahood, you don't need to study any doctrines; just learn how not to seek and not to cling. When you stop seeking, mind does not arise; when you stop clinging, mind does not pass away. This birthless, deathless mind is Buddha.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "If practitioners of the Way wish to become Buddhas, they need not study any Buddhist doctrines at all; they only need to learn non-seeking and non-attachment. Where there is no seeking, mind does not arise; where there is no attachment, mind does not perish. Not arising and not perishing—this itself is Buddha.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "no_seeking_outside",
+      "title_zh": "不向外求",
+      "title_pinyin": "Bù Xiàng Wài Qiú",
+      "title_en": "Refusing to Seek Outside",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "凡夫取境，道人取心。心境雙忘，乃是真法。忘境猶易，忘心至難；人不敢忘心，恐落空無撈摸處。不知空本無空，唯一真法界耳。",
+          "pinyin": "Fánfū qǔ jìng, dàorén qǔ xīn. Xīn jìng shuāng wàng, nǎi shì zhēn fǎ. Wàng jìng yóu yì, wàng xīn zhì nán; rén bù gǎn wàng xīn, kǒng luò kōng wú lāo mō chù. Bù zhī kōng běn wú kōng, wéi yī zhēn fǎjiè ěr.",
+          "translations": {
+            "cleary": {
+              "text": "Ordinary people grasp at external objects; seekers grasp at the mind. To forget both mind and objects is the true Dharma. Forgetting objects is relatively easy; forgetting mind is extremely difficult. People dare not forget mind, fearing they will fall into emptiness with nothing to hold onto. They do not realize that emptiness itself has no emptiness, being solely the One True Dharma Realm.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Ordinary people cling to external things, while seekers cling to mind. To drop both mind and objects is true Dharma. Dropping objects is easy, but dropping mind is hard; people are afraid to empty their minds lest they fall into the void with nowhere to land. They don't realize that the void itself is not void, but only the one true Dharma realm.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "Ordinary people grasp at external objects; seekers grasp at the mind. To forget both mind and objects is the true Dharma. Forgetting objects is relatively easy; forgetting mind is extremely difficult. People dare not forget mind, fearing they will fall into emptiness with nothing to hold onto. They do not realize that emptiness itself has no emptiness, being solely the One True Dharma Realm.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "mind_sun",
+      "title_zh": "心如日輪",
+      "title_pinyin": "Xīn Rú Rì Lún",
+      "title_en": "Mind is Like the Sun",
+      "speaker": "Huangbo / 黃檗",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "本源清淨佛，人皆有之。常住無明煩惱中，體自莫不光明，如日處空，照臨十方，不增不減。",
+          "pinyin": "Běnyuán qīngjìng Fó, rén jiē yǒu zhī. Chángzhù wúmíng fánnǎo zhōng, tǐ zì mòbù guāngmíng, rú rì chǔ kōng, zhàolín shífāng, bù zēng bù jiǎn.",
+          "translations": {
+            "cleary": {
+              "text": "The pure Buddha of the original source is inherent in every human being. Even when abiding in ignorance and defilement, its substance is never other than bright and radiant, like the sun standing in open space, illuminating the ten directions without increasing or decreasing.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Our original pure Buddha-nature shines like the sun in space, undiminished by ignorance or sorrow.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "The pure Buddha of the original source is inherent in every human being. Even when abiding in ignorance and defilement, its substance is never other than bright and radiant, like the sun standing in open space, illuminating the ten directions without increasing or decreasing.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "no_conceptual",
+      "title_zh": "息念忘情",
+      "title_pinyin": "Xī Niàn Wàng Qíng",
+      "title_en": "Eliminating Conceptual Thought",
+      "speaker": "Huangbo / 黃檗",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "凡人多為境礙心，事礙理。常欲逃境以安心，屏事以存理；不知乃是心礙境，理礙事。但令心空境自空，但令理寂事自寂，勿倒用心也。",
+          "pinyin": "Fán rén duō wèi jìng ài xīn, shì ài lǐ... Wù dǎo yòng xīn yě.",
+          "translations": {
+            "cleary": {
+              "text": "People are often obstructed by external environments in their minds, and by phenomena in their understanding. They constantly try to escape environments to quiet their minds, and dismiss phenomena to preserve principles; they do not realize that it is the mind that obstructs the environment, and principle that obstructs phenomena. Just let the mind become empty and environments will empty by themselves; let principles be still and phenomena will be still by themselves. Do not employ your mind upside down.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Huangbo taught that rather than running from external things to find peace, emptying the mind naturally dissolves all external obstructions.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "People are often obstructed by external environments in their minds, and by phenomena in their understanding. They constantly try to escape environments to quiet their minds, and dismiss phenomena to preserve principles; they do not realize that it is the mind that obstructs the environment, and principle that obstructs phenomena. Just let the mind become empty and environments will empty by themselves; let principles be still and phenomena will be still by themselves. Do not employ your mind upside down.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "sentient_buddha",
+      "title_zh": "眾生自性佛",
+      "title_pinyin": "Zhòngshēng Zìxìng Fó",
+      "title_en": "The Inherent Buddha of Sentient Beings",
+      "speaker": "Huangbo / 黃檗",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "問：「眾生自從無始已來，長在無明海中，如何得度？」師云：「佛不度眾生；汝自認本心，即得度也。」",
+          "pinyin": "Wèn: 'Zhòngshēng zìcóng wúshǐ yǐlái, cháng zài wúmíng hǎi zhōng, rúhé dé dù?' Shī yún: 'Fó bù dù zhòngshēng; rǔ zì rèn běn xīn, jí dé dù yě.'",
+          "translations": {
+            "cleary": {
+              "text": "Someone asked, 'Since beginningless time sentient beings have been submerged in the sea of ignorance; how can they be delivered?' The Master said, 'Buddha does not deliver sentient beings; if you recognize your original mind for yourself, you are delivered.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Asked how sentient beings can be saved from ignorance, Huangbo replied that Buddha saves no one; recognizing one's original mind is liberation.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "Someone asked, 'Since beginningless time sentient beings have been submerged in the sea of ignorance; how can they be delivered?' The Master said, 'Buddha does not deliver sentient beings; if you recognize your original mind for yourself, you are delivered.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "no_attainment",
+      "title_zh": "無所得法",
+      "title_pinyin": "Wú Suǒ Dé Fǎ",
+      "title_en": "No Dharmas to Attain",
+      "speaker": "Huangbo / 黃檗",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "問：「如何是究竟法？」師云：「無一法可得，方名究竟。若是求一物可得，皆是謗佛。」",
+          "pinyin": "Wèn: 'Rúhé shì jiūjìng fǎ?' Shī yún: 'Wú yī fǎ kě dé, fāng míng jiūjìng. Ruò shì qiú yī wù kě dé, jiē shì bàng Fó.'",
+          "translations": {
+            "cleary": {
+              "text": "Someone asked, 'What is the ultimate Dharma?' The Master said, 'To have not a single dharma to attain is called the ultimate. If you seek any thing to attain, it is slander of the Buddha.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Huangbo declared that true attainment is attaining nothing at all; seeking external spiritual gain slanders the Buddha.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "Someone asked, 'What is the ultimate Dharma?' The Master said, 'To have not a single dharma to attain is called the ultimate. If you seek any thing to attain, it is slander of the Buddha.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "outside_scripture",
+      "title_zh": "教外別傳",
+      "title_pinyin": "Jiào Wài Bié Chuán",
+      "title_en": "Direct Transmission Outside the Scriptures",
+      "speaker": "Huangbo / 黃檗",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "達摩西來，唯傳一心。不立文字，直指人心，見性成佛。",
+          "pinyin": "Dámó xī lái, wéi chuán yī xīn. Bù lì wénzì, zhí zhǐ rén xīn, jiàn xìng chéng Fó.",
+          "translations": {
+            "cleary": {
+              "text": "When Bodhidharma came from the West, he transmitted only the One Mind. Without establishing words and letters, he pointed directly to the human mind, that one might see one's nature and attain Buddhahood.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Bodhidharma brought only the transmission of One Mind, pointing directly to human nature beyond scriptures.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "When Bodhidharma came from the West, he transmitted only the One Mind. Without establishing words and letters, he pointed directly to the human mind, that one might see one's nature and attain Buddhahood.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "coverage_note": "10 foundational sermons and dialogues from T2012A"
 }

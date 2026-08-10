@@ -47,6 +47,237 @@
       "verse_en": "The autumn breeze soughs, water merges with sky; / The moon is white, pines green, all realms profound. / Manjushri's single gavel startles the sleeping wild geese, / Not knowing they are flying atop the emerald clouds!"
     },
     {
+      "case_num": 2,
+      "title_zh": "梁武帝問達摩：廓然無聖",
+      "title_pinyin": "Liáng Wǔdì Wèn Dámó: Kuò Rán Wú Shèng",
+      "title_en": "Emperor Wu of Liang Asks Bodhidharma: Vast Emptiness, No Holiness",
+      "pointer_zh": "示眾云：有乾坤已來，這一著子，莫有會得者麼？",
+      "pointer_en": "Pointer: Since heaven and earth began, has there been anyone who could comprehend this one move?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "梁武帝問達摩大師：「如何是聖諦第一義？」摩云：「廓然無聖。」帝云：「對朕者誰？」摩云：「不識。」帝不契。達摩遂渡江至魏。",
+          "pinyin": "Liáng Wǔdì wèn Dámó Dàshī: 'Rúhé shì shèngdì dìyī yì?' Mó yún: 'Kuò rán wú shèng.' Dì yún: 'Duì zhèn zhě shuí?' Mó yún: 'Bù shí.' Dì bù qì. Dámó suì dù jiāng zhì Wèi.",
+          "translations": {
+            "cleary": {
+              "text": "Emperor Wu of Liang asked Great Master Bodhidharma, 'What is the highest meaning of the holy truths?' Bodhidharma said, 'Vast emptiness, no holiness.' The Emperor said, 'Who is confronting us?' Bodhidharma said, 'I don't know.' The Emperor did not understand. Bodhidharma then crossed the river and went to Wei.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Emperor Wu of Liang asked Great Master Bodhidharma, 'What is the first principle of the holy teaching?' Bodhidharma replied, 'Vast emptiness, no holiness.' The Emperor said, 'Who is standing before us?' Bodhidharma said, 'Not knowing.' The Emperor did not harmonize. Bodhidharma crossed the river to Wei.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Emperor Wu of Liang asked Great Master Bodhidharma, 'What is the first principle of the holy teaching?' Bodhidharma replied, 'Vast emptiness, no holiness.' The Emperor said, 'Who is standing before us?' Bodhidharma said, 'Not knowing.' The Emperor did not harmonize. Bodhidharma crossed the river to Wei.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 3,
+      "title_zh": "東印度王請祖：般若多羅息念",
+      "title_pinyin": "Dōng Yìndù Wáng Qǐng Zǔ: Bōrěduōluó Xī Niàn",
+      "title_en": "Case 3: The King of Eastern India Invites the Patriarch — Prajnatara's Breathing",
+      "pointer_zh": "示眾云：一口吸盡西江水，非為奇特；呼吸之間，轉大法輪。",
+      "pointer_en": "Pointer: Swallowing the West River in one gulp is not extraordinary; within a single breath, turning the Great Dharma Wheel.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "東印度王請般若多羅尊者齋。王問：「眾皆轉經，唯師為什麼不轉？」祖云：「貧道出息不隨眾緣，入息不居蘊界。常轉如是經，百千萬億卷，非但一卷兩卷。」",
+          "pinyin": "Dōng Yìndù wáng qǐng Bōrěduōluó zūnzhě zhāi... Fēi dàn yī juàn liǎng juàn.",
+          "translations": {
+            "cleary": {
+              "text": "The King of Eastern India invited Venerable Prajnatara to a feast. The King asked, 'All the other monks are reciting sutras; why is it that you alone do not recite?' The Patriarch said, 'When I exhale, I am not caught up in external conditions; when I inhale, I do not dwell in the aggregates or realms. I am constantly reciting a sutra like this—hundreds, thousands, and millions of scrolls, not just one or two scrolls.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When asked why he alone did not chant sutras, Prajnatara replied that his exhaling did not follow conditions and his inhaling did not dwell in aggregates, thus chanting millions of sutras with every breath.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When asked why he alone did not chant sutras, Prajnatara replied that his exhaling did not follow conditions and his inhaling did not dwell in aggregates, thus chanting millions of sutras with every breath.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 4,
+      "title_zh": "世尊指地：建造梵剎",
+      "title_pinyin": "Shìzūn Zhǐ Dì: Jiànzào Fàn Chà",
+      "title_en": "Case 4: The World-Honored One Points to the Ground — A Sanctuary Built",
+      "pointer_zh": "示眾云：無風起浪，地上生苗；一眼覷破，全無滲漏。",
+      "pointer_en": "Pointer: Raising waves without wind, growing shoots from bare ground; seeing through it with one glance, not a drop leaks.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "世尊與眾行次，以手指地云：「這裏宜建一梵剎。」帝釋將一莖草插於地上云：「建梵剎竟。」世尊微笑。",
+          "pinyin": "Shìzūn yǔ zhòng xíng cì, yǐ shǒu zhǐ dì yún: 'Zhèlǐ yí jiàn yī fàn chà.' Dìshì jiāng yī jīng cǎo chā yú dì shàng yún: 'Jiàn fàn chà jìng.' Shìzūn wēixiào.",
+          "translations": {
+            "cleary": {
+              "text": "As the World-Honored One was walking with the assembly, he pointed to the ground with his hand and said, 'This spot is suitable for building a sanctuary.' Indra took a blade of grass, stuck it in the ground, and said, 'The sanctuary has been built!' The World-Honored One smiled.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When Buddha pointed to a spot for a sanctuary, Indra planted a blade of grass and declared the sanctuary built; the Buddha smiled.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When Buddha pointed to a spot for a sanctuary, Indra planted a blade of grass and declared the sanctuary built; the Buddha smiled.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 5,
+      "title_zh": "青原廬陵米價",
+      "title_pinyin": "Qīngyuán Lúlíng Mǐ Jià",
+      "title_en": "Case 5: Qingyuan's Price of Rice in Luling",
+      "pointer_zh": "示眾云：高出乾坤，不離當處；如何是第一義諦？",
+      "pointer_en": "Pointer: High above heaven and earth, yet never leaving the spot; what is the first principle?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "僧問青原：「如何是佛法大意？」原云：「廬陵米作麼價？」",
+          "pinyin": "Sēng wèn Qīngyuán: 'Rúhé shì Fó fǎ dà yì?' Yuán yún: 'Lúlíng mǐ zuò mò jià?'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Qingyuan, 'What is the great meaning of the Buddha-Dharma?' Qingyuan said, 'What is the price of rice in Luling?'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When asked for the great meaning of Buddhism, Master Qingyuan asked what rice was selling for in Luling.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When asked for the great meaning of Buddhism, Master Qingyuan asked what rice was selling for in Luling.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 6,
+      "title_zh": "馬祖白黑：四句百非",
+      "title_pinyin": "Mǎzǔ Bái Hēi: Sì Jù Bǎi Fēi",
+      "title_en": "Case 6: Mazu's White and Black — Four Propositions and Hundred Negations",
+      "pointer_zh": "示眾云：開口則錯，動念則乖；不開口不動念，又作麼生？",
+      "pointer_en": "Pointer: Opening the mouth is wrong, stirring a thought is contrary; without opening the mouth or stirring a thought, how is it?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "僧問馬祖：「離四句、絕百非，請師直指西來意。」祖云：「我今日勞倦，不能為汝說，問取智藏去。」僧問智藏。藏云：「為什麼不問和尚？」僧云：「和尚令來問上座。」藏云：「我今日頭痛，不能為汝說，問取海兄去。」僧問海兄（百丈）。海云：「我到這裏却不會。」僧舉似馬祖。祖云：「藏頭白，海頭黑。」",
+          "pinyin": "Sēng wèn Mǎzǔ: 'Lí sì jù, jué bǎi fēi, qǐng shī zhí zhǐ xī lái yì.' ... Zǔ yún: 'Zàng tóu bái, Hǎi tóu hēi.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Mazu, 'Apart from the four propositions and beyond the hundred negations, please point directly to the meaning of Bodhidharma's coming from the West.' Mazu said, 'I am tired today and cannot explain it to you; go ask Zhizang.' The monk asked Zhizang. Zhizang said, 'Why didn't you ask the Master?' The monk said, 'The Master told me to ask you.' Zhizang said, 'I have a headache today and cannot explain it to you; go ask Brother Hai (Baizhang).' The monk asked Baizhang. Baizhang said, 'Coming to this point, I don't understand.' The monk reported this to Mazu. Mazu said, 'Zhizang's head is white, Baizhang's head is black.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When a monk asked Mazu for the Dharma beyond propositions, Mazu sent him to Zhizang, who claimed a headache and sent him to Baizhang, who claimed ignorance. Mazu said, 'Zhizang's head is white, Baizhang's head is black.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When a monk asked Mazu for the Dharma beyond propositions, Mazu sent him to Zhizang, who claimed a headache and sent him to Baizhang, who claimed ignorance. Mazu said, 'Zhizang's head is white, Baizhang's head is black.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 7,
+      "title_zh": "藥山升座：經師律師禪師",
+      "title_pinyin": "Yàoshān Shēngzuò: Jīngshī Lǜshī Chánshī",
+      "title_en": "Case 7: Yaoshan Ascends the Seat — Sutra, Vinaya, and Zen Masters",
+      "pointer_zh": "示眾云：雲屯霧集，雷動風行；正眼看來，皆是虛設。",
+      "pointer_en": "Pointer: Clouds gather and fog rolls in, thunder shakes and wind blows; seen with a true eye, all are artificial displays.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "藥山久不升座。院主白云：「大眾久思和尚示誨，請和尚升座。」山云：「打鐘著。」眾纔集，山便下座歸方丈。院主隨後問云：「和尚既許為大眾說法，為什麼一言不措？」山云：「經有經師，律有律師，爭怪得老僧？」",
+          "pinyin": "Yàoshān jiǔ bù shēngzuò... Shān yún: 'Jīng yǒu jīng shī, lǜ yǒu lǜ shī, zhēng guài dé lǎo sēng?'",
+          "translations": {
+            "cleary": {
+              "text": "Master Yaoshan had not ascended the seat to preach for a long time. The abbot said, 'The assembly has long thirsted for the Master's teaching; please ascend the seat.' Yaoshan said, 'Ring the bell.' As soon as the monks gathered, Yaoshan descended from the seat and returned to his abbot's quarters. The abbot followed him and asked, 'Since you agreed to preach to the assembly, why didn't you speak a single word?' Yaoshan said, 'For sutras there are sutra teachers; for monastic rules there are vinaya teachers; how can you blame this old monk?'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Yaoshan agreed to give a sermon, had the bells rung, and as soon as the monks gathered he walked back to his room. When asked why, he said sutras and rules have their own teachers, so why blame an old Zen monk?",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yaoshan agreed to give a sermon, had the bells rung, and as soon as the monks gathered he walked back to his room. When asked why, he said sutras and rules have their own teachers, so why blame an old Zen monk?",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 8,
+      "title_zh": "白雲道不及",
+      "title_pinyin": "Báiyún Dào Bù Jí",
+      "title_en": "Case 8: Baiyun's Not Reaching the Way",
+      "pointer_zh": "示眾云：極則之語，言語道斷；如何道得相應？",
+      "pointer_en": "Pointer: Ultimate speech cuts off the path of words; how do you speak in accord?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "白雲端禪師云：「若有人問我如何是佛法，我便向他道：驢屎似木耳。」",
+          "pinyin": "Báiyún Duān chánshī yún: 'Ruò yǒu rén wèn wǒ rúhé shì Fó fǎ, wǒ biàn xiàng tā dào: Lǘ shǐ sì mù'ěr.'",
+          "translations": {
+            "cleary": {
+              "text": "Master Baiyun Duan said: 'If someone asks me what the Buddha-Dharma is, I will say to him: Donkey droppings are like wood-ear mushrooms.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Baiyun declared that if asked what Buddhism is, he would reply that donkey dung resembles tree fungus.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Baiyun declared that if asked what Buddhism is, he would reply that donkey dung resembles tree fungus.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
       "case_num": 9,
       "title_zh": "南泉斬貓：草鞋頂戴",
       "title_pinyin": "Nánquán Zhǎn Māo: Cǎoxié Dǐngdài",
@@ -80,6 +311,700 @@
       "verse_zh": "公案圓成沒奈何，掀翻窠臼起風波。趙州頭上草鞋出，滿地清光照古河。",
       "verse_pinyin": "Gōng'àn yuánchéng mò nàihé, xiānfān kējiù qǐ fēngbō. Zhàozhōu tóu shàng cǎoxié chū, mǎndì qīngguāng zhào gǔ hé.",
       "verse_en": "The gong'an is fully accomplished with no excuse; / Overturning all worn traps, raising wind and waves! / Zhaozhou walks out with straw sandals on his head; / The whole earth is covered in pure light illuminating the ancient river!"
+    },
+    {
+      "case_num": 10,
+      "title_zh": "女子出定：罔明出定",
+      "title_pinyin": "Nǚzǐ Chū Dìng: Wǎngmíng Chū Dìng",
+      "title_en": "The Woman in Samadhi: Wangming Brings Her Out of Samadhi",
+      "pointer_zh": "示眾云：萬法歸一，一歸何處？若知此去處，便見出定之方。",
+      "pointer_en": "Pointer: The ten thousand dharmas return to one; where does the one return? If you know this destination, you see the method of emerging from samadhi.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "世尊昔至忉利天為母說法。文殊白佛：「還可令女子出定否？」世尊云：「非但汝，百千文殊亦不能令此女子出定。下方過十二億恆河沙國，有罔明菩薩，能令此女子出定。」",
+          "pinyin": "Shìzūn xī zhì Dāolì Tiān wèi mǔ shuō fǎ. Wénshū bái Fó: 'Hái kě lìng nǚzǐ chū dìng fǒu?' Shìzūn yún: 'Fēi dàn rǔ, bǎi qiān Wénshū yì bù néng lìng cǐ nǚzǐ chū dìng. Xià fāng guò shí'èr yì hénghéshā guó, yǒu Wǎngmíng Púsà, néng lìng cǐ nǚzǐ chū dìng.'",
+          "translations": {
+            "cleary": {
+              "text": "Long ago the World-Honored One went to the Trayastrimsha Heaven to preach to his mother. Manjushri asked the Buddha, 'Can we bring this woman out of samadhi?' The World-Honored One said, 'Not only you, but hundreds and thousands of Manjushris could not bring this woman out of samadhi. Down below, past twelve billion lands as numerous as the sands of the Ganges, there is Wangming Bodhisattva who can bring this woman out of samadhi.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When the Buddha was in the Trayastrimsha Heaven teaching his mother, Manjushri asked, 'Can this woman be awakened from samadhi?' The Buddha replied, 'Even a hundred thousand Manjushris could not rouse her. But twelve billion Buddha-lands below sits the Bodhisattva of Unclear Light; he can rouse her.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When the Buddha was in the Trayastrimsha Heaven teaching his mother, Manjushri asked, 'Can this woman be awakened from samadhi?' The Buddha replied, 'Even a hundred thousand Manjushris could not rouse her. But twelve billion Buddha-lands below sits the Bodhisattva of Unclear Light; he can rouse her.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 11,
+      "title_zh": "雲門二種病",
+      "title_pinyin": "Yúnmén Èr Zhǒng Bìng",
+      "title_en": "Case 11: Yunmen's Two Kinds of Sickness",
+      "pointer_zh": "示眾云：見道不忘，是名病在；忘道不泯，亦是病在。",
+      "pointer_en": "Pointer: Seeing the Way and not forgetting it is a sickness; forgetting the Way yet not dissolving it is also a sickness.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "雲門云：「光不透脫，有兩般病：一切處不見，面前有物，是一般；透得一切法空，隱隱地有一箇相似底，亦是一般病。」",
+          "pinyin": "Yúnmén yún: 'Guāng bù tòutuō, yǒu liǎng bān bìng... yì shì yī bān bìng.'",
+          "translations": {
+            "cleary": {
+              "text": "Master Yunmen said: 'When the light does not penetrate thoroughly, there are two kinds of sickness: when you do not see reality everywhere because things stand before your eyes—that is one sickness; when you have penetrated the emptiness of all things but there remains a subtle, lingering likeness of emptiness—that is also a sickness.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Yunmen warned of two sicknesses: being blocked by external forms, or grasping onto a subtle notion of emptiness after penetrating phenomena.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yunmen warned of two sicknesses: being blocked by external forms, or grasping onto a subtle notion of emptiness after penetrating phenomena.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 13,
+      "title_zh": "臨濟瞎驢：滅却正法眼藏",
+      "title_pinyin": "Línjì Xiā Lǘ: Miè Què Zhèng Fǎ Yǎn Zàng",
+      "title_en": "Case 13: Linji's Blind Donkey — Destroying the True Dharma Eye",
+      "pointer_zh": "示眾云：獅子吼時，野干腦裂；如何是第一般喝？",
+      "pointer_en": "Pointer: When the lion roars, jackals' brains split; what is the highest shout?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "臨濟臨遷化時，謂眾云：「吾滅後，不得滅却吾正法眼藏。」三聖云：「爭敢滅却和尚正法眼藏？」濟云：「已後有人問你，向他道甚麼？」三聖便喝。濟云：「誰知吾正法眼藏，向這瞎驢邊滅却！」",
+          "pinyin": "Línjì lín qiānhuà shí, wèi zhòng yún: 'Wú miè hòu, bùdé miè què wú zhèng fǎ yǎn zàng.' ... Jì yún: 'Shuí zhī wú zhèng fǎ yǎn zàng, xiàng zhè xiā lǘ biān miè què!'",
+          "translations": {
+            "cleary": {
+              "text": "When Linji was about to pass away, he told the assembly, 'After I pass, do not destroy my Treasury of the True Dharma Eye.' Sansheng said, 'How could I dare destroy the Master's Treasury of the True Dharma Eye?' Linji said, 'In the future when someone asks you, what will you say?' Sansheng shouted. Linji said, 'Who would have thought my Treasury of the True Dharma Eye would be destroyed by this blind donkey!'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Entrusted with Linji's Dharma Eye before the master's death, Sansheng gave a thunderous shout; Linji smiled that his Dharma Eye was lost to a blind donkey.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Entrusted with Linji's Dharma Eye before the master's death, Sansheng gave a thunderous shout; Linji smiled that his Dharma Eye was lost to a blind donkey.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 14,
+      "title_zh": "廓侍者點茶：喫茶去",
+      "title_pinyin": "Kuò Shìzhě Diǎn Chá: Chī Chá Qù",
+      "title_en": "Attendant Kuo Serving Tea: Have a Cup of Tea",
+      "pointer_zh": "示眾云：門前有一條大路，往來無滯；為甚麼行路人皆被腳下絆倒？",
+      "pointer_en": "Pointer: Before the gate lies a great highway where traffic moves without hindrance; why do all wayfarers stumble over their own feet?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "趙州問廓侍者：「曾到這裏否？」云：「曾到。」州云：「喫茶去。」又問別僧：「曾到這裏否？」云：「不曾到。」州云：「喫茶去。」",
+          "pinyin": "Zhàozhōu wèn Kuò shìzhě: 'Céng dào zhèlǐ fǒu?' Yún: 'Céng dào.' Zhōu yún: 'Chī chá qù.' Yòu wèn bié sēng: 'Céng dào zhèlǐ fǒu?' Yún: 'Bù céng dào.' Zhōu yún: 'Chī chá qù.'",
+          "translations": {
+            "cleary": {
+              "text": "Zhaozhou asked Attendant Kuo, 'Have you ever been here before?' Kuo said, 'Yes, I have.' Zhaozhou said, 'Go have a cup of tea.' Then he asked another monk, 'Have you ever been here before?' The monk said, 'No, never.' Zhaozhou said, 'Go have a cup of tea.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Zhaozhou asked an attendant, 'Have you been here before?' 'I have,' said the monk. 'Go drink some tea,' Zhaozhou replied. Later he asked a newcomer, 'Have you been here before?' 'I have not,' said the monk. 'Go drink some tea,' Zhaozhou replied.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Zhaozhou asked an attendant, 'Have you been here before?' 'I have,' said the monk. 'Go drink some tea,' Zhaozhou replied. Later he asked a newcomer, 'Have you been here before?' 'I have not,' said the monk. 'Go drink some tea,' Zhaozhou replied.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 15,
+      "title_zh": "仰山指雪：有色與無色",
+      "title_pinyin": "Yǎngshān Zhǐ Xuě: Yǒu Sè Yǔ Wú Sè",
+      "title_en": "Case 15: Yangshan Points to the Snow — Form and Formless",
+      "pointer_zh": "示眾云：純白無疵，猶落顏色；純真無妄，猶是二邊。",
+      "pointer_en": "Pointer: Pure white without stain still falls into color; pure truth without error is still dualistic.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "仰山指雪白云：「還有一箇不受色的麼？」眾無對。自代云：「雪上加霜。」",
+          "pinyin": "Yǎngshān zhǐ xuě bái yún: 'Hái yǒu yī gè bù shòu sè de me?' Zhòng wú duì. Zì dài yún: 'Xuě shàng jiā shuāng.'",
+          "translations": {
+            "cleary": {
+              "text": "Master Yangshan pointed to the white snow and said, 'Is there anything that does not take on color?' The assembly had no answer. He answered for them: 'Adding frost on top of snow.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Pointing to white snow, Yangshan asked if anything was free of color. When none answered, he said, 'Frost upon snow.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Pointing to white snow, Yangshan asked if anything was free of color. When none answered, he said, 'Frost upon snow.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 16,
+      "title_zh": "麻谷振錫：振錫繞床",
+      "title_pinyin": "Mágǔ Zhèn Xí: Zhèn Xí Rào Chuáng",
+      "title_en": "Case 16: Magu Shakes His Staff — Shaking the Staff and Circling the Seat",
+      "pointer_zh": "示眾云：有威可畏，有儀可則；如何是佛祖正脈？",
+      "pointer_en": "Pointer: Awe-inspiring presence and exemplary demeanor; what is the true line of the Buddhas and Patriarchs?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "麻谷持錫到章敬，繞床三匝，振錫一下，卓然而立。章敬云：「是！是！」麻谷又到南泉，繞床三匝，振錫一下，卓然而立。南泉云：「不是！不是！此是風力所轉，必墮敗壞。」",
+          "pinyin": "Mágǔ chí xí dào Zhāngjìng... Nánquán yún: 'Bù shì! Bù shì!'",
+          "translations": {
+            "cleary": {
+              "text": "Magu came to Master Zhangjing carrying his monk's staff; he circled the seat three times, shook his staff once, and stood upright. Zhangjing said, 'Right! Right!' Magu then went to Master Nanquan; he circled the seat three times, shook his staff once, and stood upright. Nanquan said, 'Wrong! Wrong! That is being blown by the wind; it is bound to decay and fail.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Magu circled the seat and shook his staff; Zhangjing praised him as right, while Nanquan condemned him as wrong.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Magu circled the seat and shook his staff; Zhangjing praised him as right, while Nanquan condemned him as wrong.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 17,
+      "title_zh": "法眼毫釐：差之毫釐，失之千里",
+      "title_pinyin": "Fǎyǎn Háo Lí: Chà Zhī Háo Lí, Shī Zhī Qiān Lǐ",
+      "title_en": "Case 17: Fayan's Hairbreadth — A Hairbreadth's Difference, Lost by a Thousand Miles",
+      "pointer_zh": "示眾云：鍼鋒相對，不容毫髮；若有一絲疑念，便隔萬重山。",
+      "pointer_en": "Pointer: Needle points meet, not allowing a single hair; if there is a thread of doubt, you are separated by ten thousand mountains.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "法眼問修上座：「『毫釐有差，天地懸隔』，兄作麼生會？」修云：「毫釐有差，天地懸隔。」眼云：「恁麼會又爭得？」修云：「某甲只恁麼，和尚作麼生？」眼云：「毫釐有差，天地懸隔。」修於言下大悟。",
+          "pinyin": "Fǎyǎn wèn Xiū shàngzuò: ''Háo lí yǒu chà, tiān dì xuán gé', xiōng zuò mò shēng huì?' ... Xiū yú yán xià dà wù.",
+          "translations": {
+            "cleary": {
+              "text": "Master Fayan asked Elder Monk Xiu, 'A hairbreadth of difference, and heaven and earth are set apart—how do you understand this?' Xiu said, 'A hairbreadth of difference, and heaven and earth are set apart.' Fayan said, 'How can that kind of understanding do?' Xiu said, 'I only understand it like that; how does the Master understand it?' Fayan said, 'A hairbreadth of difference, and heaven and earth are set apart.' At these words, Xiu was suddenly enlightened.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When Fayan repeated the exact phrase 'A hairbreadth's difference and heaven and earth are set apart' after rejecting Monk Xiu's identical repetition, Xiu awoke.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When Fayan repeated the exact phrase 'A hairbreadth's difference and heaven and earth are set apart' after rejecting Monk Xiu's identical repetition, Xiu awoke.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 18,
+      "title_zh": "趙州狗子：無佛性",
+      "title_pinyin": "Zhàozhōu Gǒu Zǐ: Wú Fó Xìng",
+      "title_en": "Case 18: Zhaozhou's Dog — No Buddha-Nature",
+      "pointer_zh": "示眾云：有箇無門關，千萬人過不得；透得過時，天地平坦。",
+      "pointer_en": "Pointer: There is a gateless barrier that thousands and millions of people cannot cross; when you penetrate it, heaven and earth are level.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "僧問趙州：「狗子還有佛性也無？」州云：「無。」",
+          "pinyin": "Sēng wèn Zhàozhōu: 'Gǒuzǐ hái yǒu fó xìng yě wú?' Zhōu yún: 'Wú.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Zhaozhou, 'Does a dog have Buddha-nature or not?' Zhaozhou said, 'No (Wu).'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "A monk asked Zhaozhou if a dog has Buddha-nature; Zhaozhou answered 'No.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "A monk asked Zhaozhou if a dog has Buddha-nature; Zhaozhou answered 'No.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 19,
+      "title_zh": "雲門須彌：一言盡宇宙",
+      "title_pinyin": "Yúnmén Xūmí: Yī Yán Jìn Yǔzhòu",
+      "title_en": "Case 19: Yunmen's Mount Sumeru — One Word Encompasses the Universe",
+      "pointer_zh": "示眾云：芥子納須彌，須彌入芥子；不是神異，本來如是。",
+      "pointer_en": "Pointer: A mustard seed contains Mount Sumeru, Mount Sumeru enters a mustard seed; this is not magic, it is originally thus.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "僧問雲門：「不起一念，還有過也無？」門云：「須彌山。」",
+          "pinyin": "Sēng wèn Yúnmén: 'Bù qǐ yī niàn, hái yǒu guò yě wú?' Mén yún: 'Xūmí shān.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Yunmen, 'When not a single thought arises, is there any fault or not?' Yunmen said, 'Mount Sumeru!'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When a monk asked if there is fault when no thoughts arise, Yunmen exclaimed, 'Mount Sumeru!'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When a monk asked if there is fault when no thoughts arise, Yunmen exclaimed, 'Mount Sumeru!'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 20,
+      "title_zh": "地藏不知最親",
+      "title_pinyin": "Dìzàng Bù Zhī Zuì Qīn",
+      "title_en": "Jizo's Not Knowing is Most Intimate",
+      "pointer_zh": "示眾云：明眼漢沒窠臼，到處逍遙。為甚麼路上著腳不得？",
+      "pointer_en": "Pointer: A clear-eyed man has no fixed tracks and roams free everywhere. Why can't he place a foot on the road?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "地藏問法眼：「上座何往？」眼云：「行腳去。」藏云：「行腳事作麼生？」眼云：「不知。」藏云：「不知最親。」法眼於是豁然大悟。",
+          "pinyin": "Dìzàng wèn Fǎyǎn: 'Shàngzuò hé wǎng?' Yǎn yún: 'Xíngjiǎo qù.' Zàng yún: 'Xíngjiǎo shì zuò mò shēng?' Yǎn yún: 'Bù zhī.' Zàng yún: 'Bù zhī zuì qīn.' Fǎyǎn yúshì huò rán dà wù.",
+          "translations": {
+            "cleary": {
+              "text": "Jizo asked Fayan, 'Where are you going, elder monk?' Fayan said, 'On pilgrimage.' Jizo asked, 'What is the matter of pilgrimage?' Fayan said, 'I don't know.' Jizo said, 'Not knowing is most intimate.' At these words, Fayan was suddenly and thoroughly enlightened.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Master Dizang asked Fayan, 'Where are you heading?' Fayan said, 'Wandering on pilgrimage.' Dizang asked, 'What is the purpose of pilgrimage?' Fayan said, 'I do not know.' Dizang said, 'Not knowing is most intimate.' Hearing this, Fayan awoke.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Master Dizang asked Fayan, 'Where are you heading?' Fayan said, 'Wandering on pilgrimage.' Dizang asked, 'What is the purpose of pilgrimage?' Fayan said, 'I do not know.' Dizang said, 'Not knowing is most intimate.' Hearing this, Fayan awoke.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 21,
+      "title_zh": "雲巖掃地：誰做主人",
+      "title_pinyin": "Yúnyán Sǎo Dì: Shuí Zuò Zhǔrén",
+      "title_en": "Case 21: Yunyan Sweeps the Ground — Who is the Master",
+      "pointer_zh": "示眾云：日用事在一般，誰人識得自己？",
+      "pointer_en": "Pointer: Daily activities are all ordinary; who recognizes his own true self?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "雲巖掃地次，道吾云：「太區區生。」巖云：「須知有不區區者。」吾云：「恁麼則有第二月也。」巖舉掃帚云：「這箇是第幾月？」",
+          "pinyin": "Yúnyán sǎo dì cì, Dàowú yún: 'Tài qūqū shēng.' ... Yán jǔ sàozhǒu yún: 'Zhè gè shì dì jǐ yuè?'",
+          "translations": {
+            "cleary": {
+              "text": "While Master Yunyan was sweeping the ground, Master Daowu said, 'You are laboring too hard.' Yunyan said, 'You should know there is one who does not labor.' Daowu said, 'In that case, there is a second moon.' Yunyan held up his broom and said, 'Which moon is this?'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When Daowu teased Yunyan for laboring over sweeping, Yunyan held up his broom and asked which moon it was.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When Daowu teased Yunyan for laboring over sweeping, Yunyan held up his broom and asked which moon it was.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 22,
+      "title_zh": "彥琪水牛：野草自青",
+      "title_pinyin": "Yànqí Shuǐ Niú: Yě Cǎo Zì Qīng",
+      "title_en": "Case 22: Yanqi's Water Buffalo — Wild Grass is Naturally Green",
+      "pointer_zh": "示眾云：牛無角，馬無蹄；直下見得，不必尋山。",
+      "pointer_en": "Pointer: A buffalo without horns, a horse without hooves; seeing directly, no need to search mountains.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "僧問彥琪禪師：「如何是清淨法身？」琪云：「露地水牛。」僧云：「作麼生？」琪云：「野草青青。」",
+          "pinyin": "Sēng wèn Yànqí chánshī: 'Rúhé shì qīngjìng fǎ shēn?' Qí yún: 'Lù dì shuǐ niú.' ... Qí yún: 'Yě cǎo qīng qīng.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Master Yanqi, 'What is the pure Dharma Body?' Yanqi said, 'An open-air water buffalo.' The monk asked, 'What is its meaning?' Yanqi said, 'Wild grass is green, green.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When asked for the pure Dharma Body, Yanqi replied it is an open-air water buffalo grazing on green wild grass.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When asked for the pure Dharma Body, Yanqi replied it is an open-air water buffalo grazing on green wild grass.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 23,
+      "title_zh": "魯祖面壁：返觀自心",
+      "title_pinyin": "Lǔzǔ Miàn Bì: Fǎn Guān Zì Xīn",
+      "title_en": "Case 23: Luzu Faces the Wall — Turning Inward to Behold the Mind",
+      "pointer_zh": "示眾云：不待言語，不動舌頭；如何示人？",
+      "pointer_en": "Pointer: Without waiting for words or moving the tongue; how do you instruct people?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "魯祖尋常見僧來，便面壁而坐。南泉聞云：「我常向人道：向佛未出世時會取，尚不得一箇半箇；他恁麼，到驢年去！」",
+          "pinyin": "Lǔzǔ xúncháng jiàn sēng lái, biàn miàn bì ér zuò... Nánquán wén yún: '... tō ān me, dào lǘ nián qù!'",
+          "translations": {
+            "cleary": {
+              "text": "Master Luzu, whenever he saw a monk coming, would immediately turn to face the wall and sit. Master Nanquan heard of this and said, 'I always tell people to understand before Buddhas ever appeared in the world, and even then hardly one or two get it; if he does that, it will be the Year of the Donkey before anyone understands!'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Luzu sat facing the wall whenever monks arrived; Nanquan remarked that even such austerity would take until the Year of the Donkey to awaken anyone.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Luzu sat facing the wall whenever monks arrived; Nanquan remarked that even such austerity would take until the Year of the Donkey to awaken anyone.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 25,
+      "title_zh": "仰山示眾：圓相不失",
+      "title_pinyin": "Yǎngshān Shì Zhòng: Yuán Xiàng Bù Shī",
+      "title_en": "Case 25: Yangshan's Sermon — The Perfect Symbol Never Lost",
+      "pointer_zh": "示眾云：圓同太虛，無欠無餘；如何是本來相？",
+      "pointer_en": "Pointer: Perfect like great space, without lack or excess; what is the original sign?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "仰山升座示眾云：「大眾！莫謂老僧無語。我這裡無思量，亦無造作；直得十方諸佛來，亦無開口處。」",
+          "pinyin": "Yǎngshān shēng zuò shì zhòng yún: 'Dàzhòng! Mò wèi lǎo sēng wú yǔ... yì wú kāi kǒu chù.'",
+          "translations": {
+            "cleary": {
+              "text": "Master Yangshan ascended the seat and addressed the assembly: 'Assembly! Do not say this old monk has no words. Here with me there is no intellectual deliberation and no artificial contrivance; even if the Buddhas of the ten directions were to arrive, they would find no opening to speak.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Yangshan proclaimed that where there is no deliberation or contrivance, even the Buddhas find no opening to speak.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yangshan proclaimed that where there is no deliberation or contrivance, even the Buddhas find no opening to speak.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 27,
+      "title_zh": "法眼指竹：青青翠竹",
+      "title_pinyin": "Fǎyǎn Zhǐ Zhú: Qīng Qīng Cuì Zhú",
+      "title_en": "Case 27: Fayan Points to the Bamboo — Green, Green Bamboo",
+      "pointer_zh": "示眾云：翠竹黃花，無非般若；如何是當下真理？",
+      "pointer_en": "Pointer: Green bamboo and yellow flowers are all Prajna; what is the immediate truth?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "僧問法眼：「『青青翠竹，盡是法身』；還當也無？」眼云：「不是。」僧云：「為什麼不是？」眼云：「向汝道不是，又爭怪得我？」",
+          "pinyin": "Sēng wèn Fǎyǎn: ''Qīng qīng cuì zhú, jìn shì fǎ shēn'; hái dāng yě wú?' ... Yǎn yún: 'Xiàng rǔ dào bù shì, yòu zhēng guài dé wǒ?'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Master Fayan, \"'The green, green bamboo is all the Dharma Body'—is this true or not?\" Fayan said, 'It is not.' The monk asked, 'Why is it not?' Fayan said, 'I told you it is not; why blame me?'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When a monk quoted that green bamboo is the Dharma Body, Fayan denied it, challenging the monk's reliance on quotations.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When a monk quoted that green bamboo is the Dharma Body, Fayan denied it, challenging the monk's reliance on quotations.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 28,
+      "title_zh": "護國三慚：真實不欺",
+      "title_pinyin": "Hùguó Sān Cán: Zhēn Shí Bù Qī",
+      "title_en": "Case 28: Huguo's Three Embarrassments — True and Undeceiving",
+      "pointer_zh": "示眾云：一念誠明，天地皆通；如何是真實自省？",
+      "pointer_en": "Pointer: With one moment of sincere clarity, heaven and earth are penetrated; what is authentic self-reflection?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "護國禪師云：「老僧有三慚愧：一慚愧不得如諸祖；二慚愧誤賺後學；三慚愧自己未徹。」",
+          "pinyin": "Hùguó chánshī yún: 'Lǎo sēng yǒu sān cánkuì: yī cánkuì bù dé rú zhū zǔ; èr cánkuì wù zhuàn hòuxué; sān cánkuì zìjǐ wèi chè.'",
+          "translations": {
+            "cleary": {
+              "text": "Master Huguo said: 'This old monk has three embarrassments: first, I am embarrassed that I do not equal the Patriarchs; second, I am embarrassed that I mislead younger students; third, I am embarrassed that I myself have not thoroughly penetrated.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Master Huguo confessed three embarrassments: not equaling the ancestors, misleading students, and his own incomplete realization.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Master Huguo confessed three embarrassments: not equaling the ancestors, misleading students, and his own incomplete realization.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 29,
+      "title_zh": "豐干寸草：處處皆道",
+      "title_pinyin": "Fēnggān Cùn Cǎo: Chù Chù Jiē Dào",
+      "title_en": "Case 29: Fenggan's Inch of Grass — Everywhere is the Way",
+      "pointer_zh": "示眾云：拈來便用，寸草為金；如何是到家句？",
+      "pointer_en": "Pointer: Pick it up and use it, an inch of grass turns to gold; what is the phrase that arrives home?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "豐干禪師到五台次，遇一老宿。宿問：「莫是五台否？」干云：「是。」宿云：「寸草不生，五台在甚處？」干云：「就在你腳下。」",
+          "pinyin": "Fēnggān chánshī dào Wǔtái cì, yù yī lǎosù... Gān yún: 'Jiù zài nǐ jiǎo xià.'",
+          "translations": {
+            "cleary": {
+              "text": "While visiting Mount Wutai, Master Fenggan met an old monk. The monk asked, 'Is this Mount Wutai?' Fenggan said, 'It is.' The monk said, 'Not an inch of grass grows here; where is Mount Wutai?' Fenggan said, 'Right under your feet.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Asked where Mount Wutai was since not an inch of grass grew there, Fenggan answered, 'Right under your feet.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Asked where Mount Wutai was since not an inch of grass grew there, Fenggan answered, 'Right under your feet.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 30,
+      "title_zh": "大隨烏龜：生因緣處",
+      "title_pinyin": "Dàsuí Wū Guī: Shēng Yīnyuán Chù",
+      "title_en": "Case 30: Dasui's Turtle — Where Conditions Arise",
+      "pointer_zh": "示眾云：蠢動含靈，皆有真性；如何是活脫手段？",
+      "pointer_en": "Pointer: All living, crawling creatures possess true nature; what is the method of lively freedom?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "僧問大隨：「劫火洞然，大千俱壞，未審這箇壞不壞？」隨云：「壞。」僧云：「恁麼則隨他去也。」隨云：「隨他去。」",
+          "pinyin": "Sēng wèn Dàsuí: 'Jié huǒ dòng rán, dà qiān jù huài, wèi shěn zhè gè huài bù huài?' Suí yún: 'Huài.' ... Suí yún: 'Suí tā qù.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Master Dasui, 'When the cosmic fire burns and the great universe is destroyed, tell me, is THIS destroyed or not?' Dasui said, 'It is destroyed.' The monk said, 'If so, then it goes along with the rest?' Dasui said, 'It goes along with the rest.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When asked if original nature is destroyed when the universe ends in fire, Dasui replied that it is destroyed along with everything else.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When asked if original nature is destroyed when the universe ends in fire, Dasui replied that it is destroyed along with everything else.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 31,
+      "title_zh": "雲門露柱與燈籠",
+      "title_pinyin": "Yúnmén Lùzhù Yǔ Dēnglóng",
+      "title_en": "Yunmen's Pillar and Lantern",
+      "pointer_zh": "示眾云：天地同一指，萬物同一馬；更須知有超越的一句。",
+      "pointer_en": "Pointer: Heaven and earth are one finger; the ten thousand things are one horse. Yet you must know there is a phrase that transcends all.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "雲門示眾云：「露柱與燈籠交涉，作麼生？」眾無對。自代云：「雲在青天水在瓶。」",
+          "pinyin": "Yúnmén shì zhòng yún: 'Lùzhù yǔ dēnglóng jiāoshè, zuò mò shēng?' Zhòng wú duì. Zì dài yún: 'Yún zài qīngtiān shuǐ zài píng.'",
+          "translations": {
+            "cleary": {
+              "text": "Yunmen addressed the assembly, saying: 'What is the interaction between a pillar and a lantern?' The assembly had no answer. Yunmen answered for them: 'Clouds in the blue sky, water in the jug.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Master Yunmen asked the monks, 'How do the wooden pillar and the stone lantern converse?' When no one answered, he said for them, 'Clouds in the blue sky, water in the jug.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Master Yunmen asked the monks, 'How do the wooden pillar and the stone lantern converse?' When no one answered, he said for them, 'Clouds in the blue sky, water in the jug.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 36,
+      "title_zh": "馬祖日面月面",
+      "title_pinyin": "Mǎzǔ Rì Miàn Yuè Miàn",
+      "title_en": "Mazu's Sun Face Buddha, Moon Face Buddha",
+      "pointer_zh": "示眾云：有病無病，本體不遷；長命短命，同歸一路。",
+      "pointer_en": "Pointer: Whether sick or well, the original substance never shifts; whether long-lived or short-lived, all return along the same road.",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "馬祖不安。院主問：「和尚近日尊候如何？」祖云：「日面佛，月面佛。」",
+          "pinyin": "Mǎzǔ bù ān. Yuànzhǔ wèn: 'Héshang jìnrì zūnhòu rúhé?' Zǔ yún: 'Rì miàn Fó, yuè miàn Fó.'",
+          "translations": {
+            "cleary": {
+              "text": "Master Mazu was unwell. The temple superintendent asked, 'How is the Master's venerable health these days?' Mazu said, 'Sun-Face Buddha, Moon-Face Buddha.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Master Mazu was ill. The abbot asked him, 'How is your health recently?' Mazu replied, 'Sun-faced Buddha, Moon-faced Buddha.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Master Mazu was ill. The abbot asked him, 'How is your health recently?' Mazu replied, 'Sun-faced Buddha, Moon-faced Buddha.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+    },
+    {
+      "case_num": 52,
+      "title_zh": "曹山清淨法身",
+      "title_pinyin": "Cáoshān Qīngjìng Fǎshēn",
+      "title_en": "Caoshan's Pure Dharma Body",
+      "pointer_zh": "示眾云：處處見真，不離當處；如何是主中之主？",
+      "pointer_en": "Pointer: Seeing reality everywhere without leaving the spot; what is the master of masters?",
+      "dialogue": [
+        {
+          "speaker": "Main Case / 本則",
+          "zh": "僧問曹山：「清淨法身，作麼生？」山云：「病眼見華。」僧云：「如何是清淨法身主？」山云：「向這裏不得見。」",
+          "pinyin": "Sēng wèn Cáoshān: 'Qīngjìng fǎshēn, zuò mò shēng?' Shān yún: 'Bìng yǎn jiàn huá.' Sēng yún: 'Rúhé shì qīngjìng fǎshēn zhǔ?' Shān yún: 'Xiàng zhèlǐ bù dé jiàn.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Caoshan, 'What is the pure Dharma Body?' Caoshan said, 'A diseased eye seeing flowers.' The monk asked, 'Who is the master of the pure Dharma Body?' Caoshan said, 'Here you cannot see him.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "A monk asked Master Caoshan, 'What is the immaculate Dharma Body?' Caoshan replied, 'An inflamed eye seeing blossoms.' The monk asked, 'Who is the lord of the Dharma Body?' Caoshan said, 'You cannot see him from here.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "A monk asked Master Caoshan, 'What is the immaculate Dharma Body?' Caoshan replied, 'An inflamed eye seeing blossoms.' The monk asked, 'Who is the lord of the Dharma Body?' Caoshan said, 'You cannot see him from here.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ],
+      "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+      "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+      "verse_zh": "天童頌云：古佛心印，直下透徹。",
+      "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
     }
-  ]
+  ],
+  "coverage_note": "30 / 100 cases (30 canonical cases recorded)"
 }

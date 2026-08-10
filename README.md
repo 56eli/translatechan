@@ -1,6 +1,6 @@
 # 🤖 Fake Chan Factory (`translatechan`)
 
-> **A proudly-fake AI translation factory channeling the great Chan/Zen translators — over real Classical Chinese sources.**
+> **A proudly-fake AI translation factory robolating the great Chan/Zen translators — over real Classical Chinese sources.**
 > *"A special transmission outside the scriptures, not founded upon words and letters; pointing directly to the human mind, seeing into one's nature and attaining Buddhahood."*
 
 > ⚠️ **What this actually is.** The public app (and this repo's headlining brand) is **Fake Chan Factory**: most English renderings are **🤖 Robo** versions — AI text written in a famous translator's *register*, **not** their real words and not citable as their work. The serious substance underneath is real and preserved: the **Classical Chinese sources are canonical CBETA / Taishō text**, the **lineage graph, locators, and provenance records are genuine**, and where we hold the actual public-domain translation it is stamped **✅ Real text (verified)**. (Internal identifiers — the `translatechan` repo/package name, the `window.TranslateChan` JS API, `translatechan_*` storage keys — are unchanged for continuity.)
@@ -20,9 +20,9 @@
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
-Every visible translation register in the Reader and Comparative Matrix carries a **✅ Real text (verified)**, **🤖 Robo channeling**, or **🤖 Robo draft** badge. Every translation disclosure also quotes its aligned original Chinese and shows the canonical source locator/status. A verified item exposes its recorded edition and verification details; a Robo channeling is newly written project text using broad style characteristics associated with a scholar, **not** copied from, checked against, or attributable as wording in that scholar's work, and is *not* citable. The verification campaign delivered:
+Every visible translation register in the Reader and Comparative Matrix carries a **✅ Real text (verified)**, **🤖 Robolation**, or **🤖 Robo draft** badge. Every translation disclosure also quotes its aligned original Chinese and shows the canonical source locator/status. A verified item exposes its recorded edition and verification details; a Robolation is newly written project text using broad style characteristics associated with a scholar, **not** copied from, checked against, or attributable as wording in that scholar's work, and is *not* citable. The verification campaign delivered:
 
-- **143 verified quotation slots across 10 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
+- **177 verified quotation slots across 10 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
 - **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
 - All checks and honest negatives logged in [`sessions/AUDIT_archive_2026-08-08.md` §8](./sessions/AUDIT_archive_2026-08-08.md).
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the "Five Houses and Seven Schools" (*五家七宗*: Linji, Caodong, Yunmen, Guiyang, Fayan).
@@ -32,7 +32,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: 34 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and the Biyanlu is **COMPLETE at 100/100 cases** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **101,198 source-content CJK characters** (or 106,172 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `100/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu is complete (100/100).
+> **Honest status**: 34 of the 36 corpus files in `data/corpus/` are **excerpt-scale seeds** — Wumenguan is the first **complete text** (48/48 cases), and the Biyanlu is **COMPLETE at 100/100 cases** (pointer, 本則, pre-verse 評唱, 頌). The generated metrics report **106,615 source-content CJK characters** (or 112,408 across every corpus JSON string, including metadata) — not complete texts. Per-text coverage facts (zh-character counts, unit counts, and machine-checkable coverage strings like `100/100 cases`) are emitted deterministically into `data/project_metrics.json → corpus.per_text` by `scripts/validate_data.py --write-metrics`; the validator also verifies any per-file `zh_chars`/`coverage_note` metadata it finds. Historical context is tracked in [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3); Phase 2 (see [`ROADMAP.md`](./ROADMAP.md)) drives completion, Wumenguan is complete and Biyanlu is complete (100/100).
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -61,7 +61,7 @@ Every visible translation register in the Reader and Comparative Matrix carries 
 - Segment-level side-by-side comparison across major 20th and 21st-century renderings (4 exemplar entries today).
 - Each displayed translation discloses translator, status, book/edition, page-or-section reference state, verification, and rights identifier through visible lines plus hover/focus/touch citation popups.
 - Critical notes examine why renderings differ (e.g., *Mu* vs. *No* vs. *None* vs. *Emptiness*).
-- 🤖 **Robo note**: translator-attributed renderings are *Robo channelings* — AI text in each scholar's register — unless individually verified against print editions (then they're ✅ Real text). They are visibly marked and never presented as book quotations.
+- 🤖 **Robo note**: translator-attributed renderings are *Robolations* — AI text in each scholar's register — unless individually verified against print editions (then they're ✅ Real text). They are visibly marked and never presented as book quotations.
 
 ### 3. 🌳 Lineage Knowledge Graph Explorer
 - Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **34 master profiles** (30 researched seed profiles + 4 explicitly marked frontier scaffolds), with an SVG network graph and clickable dossiers.

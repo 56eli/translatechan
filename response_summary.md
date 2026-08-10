@@ -1,27 +1,46 @@
-# Live Session Summary — 2026-08-09, session `arena/019fe8a2-translatechan`
+# Live Session Summary — 2026-08-10, session `arena/019fea62-translatechan`
 
 > Working summary only (overwritten per session per AUDIT.md §5); not canonical documentation.
+> Full historical audit report archived at [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md).
 
-## Status: ✅ Audit + "Fake Chan Factory" rebrand + Robo profiles + real-fakeness score + settings menu + Suzuki-1935 PD ingestion (first batch)
+## Status: ✅ Classical Chan Content Waves 1, 2, 3, & 4 (4 Complete Texts + 30 Congronglu Cases + 15 Zhaozhou + 10 Huangbo + 10 Yunmen + 8 Mazu + 8 Dongshan + 8 Fayan + 74 Linji Sections) + Full Audit + UI/ARIA Polish + Robolation Rebrand
 
-All gates green on the final tree: `validate_data.py`
-(`corpus=36 | slots=1023 | verified=139 | matrix=21 | locators=150/150`),
-`smoke_test.mjs` (36 texts, 0 crashes), root↔docs byte-identical.
+All quality gates pass on the final tree: `validate_data.py` (`corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178`), `smoke_test.mjs` (36 texts exercised, 0 crashes, 27 test sections including `4z`), `py_compile scripts/*.py`, and root↔`/docs` byte-identical mirror.
 
-### Deliverables this session (all committed + pushed to `arena/019fe8a2-translatechan`)
-1. **Independent full audit** → `sessions/AUDIT_RESPONSE_2026-08-09_019fe8a2.md` (no P0/P1/P2; inconsistencies + improvement potential).
-2. **"Fake Chan Factory" makeover** — page rebrand (假禪工廠, 🤖), Robo-translator names for AI reconstructions (verified keeps real names), disclosure popovers slimmed (7→2 rows); repo docs rebranded to match; all guarded number snippets preserved.
-3. **Evidence-grounded Robo profiles** → `data/translations/translator_profiles.json` (21 profiles; 13 in_corpus_verified, 7 documented_external, 1 literal-machine). Cast renames: Robozuki, Roblofeld.
-4. **Real-fakeness score** — hover/focus/tap any Robo name for an evidence-backed tier (fake ⏳ → fairly → very → truly → certifiably fake; verified rows show a green "real" affordance). Profiles bundled; dedicated popover.
-5. **Display settings menu** — ⚙️ gear in the header with a persisted Pinyin ↔ Rōmaji master-name preference (Zhaozhou↔Jōshū, etc.); `name_romaji` added to all 34 masters; applied across lineage cards/graph/dossier/teacher links.
-6. **Suzuki 1935 PD ingestion (batch 1)** — added the `suzuki-mzb-1935` rights entry; promoted the Xinxin Ming stanza-1 Suzuki slot to **verified** with his real 1935 text (caught + fixed a mis-attribution: Suzuki's wording had been sitting as a Blyth reconstruction); promoted the Suzuki profile to `in_corpus_verified` → Robozuki drops the hourglass. Doc numbers refreshed (verified 138→139, recorded 135→136).
+### Deliverables & Remediations This Session (committed + pushed to `arena/019fea62-translatechan`)
+1. **Classical Chan Ingestion Waves 1, 2, 3, & 4 (`scripts/ingest_content_wave.py`, `scripts/ingest_linji_and_platform_sutra.py`, `scripts/ingest_autonomous_wave3.py`, `scripts/ingest_autonomous_wave4.py`)**:
+   - **Complete Sengcan's *Xinxin Ming* (`T2010`)**: Expanded from 7 stanzas to all **37 four-clause stanzas (144 lines / 584 CJK characters)**, making it the project's **3rd 100% Complete Text** (with D.T. Suzuki's 1935 verified public-domain translation across all 37 stanzas).
+   - **Complete *The Platform Sutra* (`T2007`)**: Ingested Chapters 3, 6, 7, 8, 9, 10, bringing *The Platform Sutra* to **10 / 10 chapters complete** (the project's **4th 100% Complete Text**).
+   - **Record of Linji / *Linji Yulu* (`T1985`)**: Complete the **行錄 (Record of Conduct / Pilgrimage & Transmission)** division (sections 68–74), expanding *Linji Yulu* to **74 canonical sections** across all four divisions (`序`, `上堂`, `示眾`, `勘辨`, `行錄`).
+   - **Book of Serenity / Congronglu (`T2004`)**: Expanded from 2 cases to **30 foundational cases** (Cases 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 27, 28, 29, 30), adding case-level locators to `canonical_locators.json`.
+   - **Record of Zhaozhou (`T1987`)**: Expanded from 3 dialogues to **15 signature encounter dialogues** (*The Great Death*, *Four Gates*, *Put It Down*, *Where Buddha Is Not*, *Zhaozhou's Dog*, *The Great Way*, *Three Buddhas*, *Good Thing*, *Baby's Senses*, *Bright Moon*, etc.).
+   - **Huangbo Transmission of Mind (`T2012A`)**: Expanded from 1 section to **10 canonical sermons** (*Mind is Buddha*, *The Void*, *Instant Awakening*, *Refusing to Seek Outside*, *Mind Like the Sun*, *Eliminating Conceptual Thought*, *Sentient Beings*, *No Attainment*, *Outside Scriptures*).
+   - **Record of Yunmen (`T1988`)**: Expanded from 4 to **10 signature encounter dialogues and sermons** (*Every Day is a Good Day*, *Medicine and Disease*, *Staff Turns into a Dragon*, *Within the Universe One Treasure*, *Dried Dung Scraper*, *Treasure in Form*).
+   - **Record of Dongshan (`T1986 / X1321`)**: Expanded from 2 to **8 canonical encounter dialogues** (*Where Cold and Heat Cannot Reach*, *He is Now Me*, *Three Pounds of Flax*, *The Bird Path*, *Insentient Preaching*, *Five Ranks*).
+   - **Record of Fayan (`T1985 / X1321`)**: Expanded from 3 to **8 canonical sermons and dialogues** (*Three Worlds are Only Mind*, *Drop of Water from Caoyuan*, *Sound and Form*, *West Coming*, *Pointing to the Blinds*).
+   - **Record of Mazu (`T1986 / X1321`)**: Expanded from 2 sections to **8 canonical sermons and dialogues** (*Ordinary Mind is the Way*, *Mind is Buddha*, *Neither Mind nor Buddha*, *Polishing a Brick*, *Damei's Plum*).
+2. **Full Independent Project Audit** → Documented in [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md) and linked in [`AUDIT.md`](./AUDIT.md). Confirmed zero P0/P1/P2 defects across data, validation, runtime, accessibility, and documentation truthfulness.
+3. **SPA History Scroll Restoration (`app.js`)** — Shipped the final remaining editorial candidate from `AUDIT.md`:
+   - Updated `switchViewRaw(viewName, scroll = true)` with an optional boolean parameter.
+   - Recorded per-view scroll position in `state.viewScroll[oldView] = window.scrollY` when leaving any view.
+   - When navigating Back/Forward via browser history (`applyHash`), `switchViewRaw(view, false)` restores the previously saved scroll position for that view instead of forcing a reset to `top: 0`.
+   - Added regression test **`4z. switchViewRaw scroll-restore on back/forward`** to `scripts/smoke_test.mjs`.
+4. **External View-Routing Hardening (`app.js`)** — Enhanced `window.TranslateChan.openCase` and `window.TranslateChan.openDoc` to check `if (state.currentView !== 'reader') switchViewRaw('reader', false);`. Invoking a case or document jump from a non-Reader view (`matrix`, `gongan`, `lineage`, `lexicon`) now reliably activates the Reader DOM view.
+5. **WCAG ARIA Accessibility Polish (`index.html`)** — Added explicit accessible names to interactive controls lacking them (`#lexicon-cat-filter` and `#dossier-close-btn`).
+6. **Display-Layer Rebrand & Terminology Polish (`app.js`, `index.html`, `README.md`, `vision.md`, `data/`)**:
+   - Simplified translator naming from `Red Pine (Bill Porter)` to `Red Pine`.
+   - Removed the trailing `ⓘ Disclosure` button from after Robo translator attribution lines to reduce visual clutter.
+   - Replaced all occurrences of `channeling` across code, docs, and profiles with **Robolation** / **robolating** (0 occurrences of `channeling` remain).
+7. **Documentation & Quality Gate Sync** — Synchronized `AUDIT.md`, `README.md`, `HANDOFF.md`, and `ROADMAP.md` with the new metrics (`corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178`, `106,615 source-content CJK characters`, `32 excerpt seeds`, `4 complete texts`). Re-bundled `app_data.js` and synced `/docs` mirror.
 
-### Integrity notes
-- Internal identifiers unchanged for continuity: `translatechan` repo/URL, `window.TranslateChan` API, `translatechan_*` storage keys, `TRANSLATECHAN_DATA` global.
-- The 6 verified-quotation rows in Wumenguan Case 1 (and all other verified text) remain real public-domain text, untouched. Verified = real; Robo = fake (badged + disclosed).
+### Verified Project Metrics & Scope
+- `corpus`: 36 documents (**4 complete texts**: `wumenguan` 48/48 complete, `biyanlu_cases` 100/100 complete, `xinxin_ming` 37/37 complete, `platform_sutra` 10/10 complete; `linji_yulu` 74 sections; `congronglu_cases` 30 cases; `zhaozhou_yulu` 15 dialogues; `huangbo_chuanxin` 10 sections; `yunmen_yulu` 10 sections; `mazu_yulu` 8 sections; `dongshan_yulu` 8 dialogues; `fayan_yulu` 8 sections; 32 excerpt seeds); **106,615 content CJK / 112,408 all-string CJK**.
+- `translations`: 1,342 corpus slots; 177 verified quotations; 21 matrix registers.
+- `locators`: 178/178 case-level locators; 33 document-level seeds.
+- `lineage`: 34 masters (30 seed + 4 frontier); 12 controlled `school_key` groups; 30 edge records + 4 frontiers.
+- `lexicon` & `gongan`: 31 glossary terms; 24 Gong'an index entries across 7 controlled theme groups.
 
-### Open next
-- **Suzuki PD ingestion, batches 2+**: 5 more aligned passages in the 1935 Manual remain — Bodhidharma's *Twofold Entrance* (bodhidharma_erru), Platform Sutra verses (platform_sutra), Yoka's *Song of Enlightenment* (zhengdao_ge), Huangbo's sermon (huangbo_chuanxin), Gensha's *Three Invalids* (biyanlu). Each becomes a verified Suzuki slot and strengthens the Robozuki evidence base.
-- **Evidence-pending Robos**: Red Pine (204 recon slots) and Cleary (221) still have no in-corpus verified sample (modern copyrighted works) — stay "fake ⏳" unless a cited sample is added.
-- **Settings axis 2**: name FORM (epithet "Huangbo" vs personal "Xiyun") and/or romanizing the translator Robo names.
-- **Roll the evidence-backed Robo voices** across Wumenguan Cases 2–48; **inline fakeness badge** (not just hover); audit quick-wins (stale comments, bundle compaction, renderDialogueBlock dedup, inline-style extraction).
+### Next Directions
+- **Content Phase 2 (Congronglu & Further Sayings):** Continue expanding Congronglu from 30 cases toward all 100 cases, or continue ingesting recorded sayings of Zhaozhou, Huangbo, Yunmen, Dongshan, and Linji.
+- **Editorial Traceability:** Migrate the 33 document-level seed locators to unit/page-line anchors via `data/editorial/traceability_queue.json`, and resolve the 3 pending verified-source references.
+- **Owner Operations:** Enable GitHub branch protection rulesets on `main` requiring the green `Quality` workflow check.

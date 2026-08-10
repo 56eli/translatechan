@@ -173,9 +173,10 @@ const createdElements = [];
 const documentHandlers = {};
 let tabStubs = null;
 globalThis.window = globalThis;
+globalThis.window._handlers = {};
 globalThis.location = { hash: '', href: 'http://localhost/index.html', protocol: 'http:', host: 'localhost' };
-globalThis.addEventListener = () => {};
-globalThis.scrollTo = () => {};
+globalThis.addEventListener = (ev, fn) => { (globalThis.window._handlers[ev] ||= []).push(fn); };
+globalThis.scrollTo = (opts) => { globalThis.window._lastScrollTo = opts; };
 globalThis.print = () => {};
 
 const makeTabStub = (view) => {
@@ -245,7 +246,7 @@ const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {
 if (Object.keys(perText).length !== 36) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '2/100 cases'], ['platform_sutra', '4/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '30/100 cases'], ['platform_sutra', '10/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
@@ -422,7 +423,7 @@ if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case pre
 if (!wmHtml.includes('Source location: T2005') || !wmHtml.includes('Case source: T2005, case 1') || !wmHtml.includes('citation-trigger')) {
   failures++; console.log('❌ reader source-location disclosure missing');
 }
-if (!wmHtml.includes('Page / section:') || !wmHtml.includes('Robo channeling') || !wmHtml.includes('Robo draft')) {
+if (!wmHtml.includes('Page / section:') || !wmHtml.includes('Robolation') || !wmHtml.includes('Robo draft')) {
   failures++; console.log('❌ reader translation/AI disclosure missing');
 }
 const citationId = (wmHtml.match(/data-citation-id="([^"]+)"/) || [])[1];
@@ -742,6 +743,23 @@ poisonMaster.name_zh = saved.name_zh;
 poisonGongan.theme = saved.theme;
 poisonTerm.term = saved.term;
 poisonCase.title_zh = saved.title;
+
+// 4z. switchViewRaw scroll-restore on back/forward (audit 2026-08-09 / standing recommendation):
+// switching view saves previous scrollY; calling switchViewRaw(view, false) restores it.
+globalThis.window.scrollY = 480;
+navTabStubs[1].click(); // matrix
+if (!globalThis.window._lastScrollTo || globalThis.window._lastScrollTo.top !== 0) {
+  failures++; console.log('❌ active view switch did not scroll to top 0');
+}
+// simulate browser back navigation via hashchange (scroll=false)
+globalThis.location.hash = '#/reader/wumenguan';
+(globalThis.window._handlers['hashchange'] || []).forEach(fn => fn());
+await new Promise(r => setTimeout(r, 15));
+if (!globalThis.window._lastScrollTo || globalThis.window._lastScrollTo.top !== 480) {
+  failures++; console.log(`❌ back navigation did not restore previous scroll position (got ${globalThis.window._lastScrollTo ? globalThis.window._lastScrollTo.top : 'null'})`);
+}
+globalThis.window.scrollY = 0;
+
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const readerHtml = ids['reader-content-target']._innerHTML;

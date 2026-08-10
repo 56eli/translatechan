@@ -22,6 +22,39 @@ The Fake Chan Factory project has been fully established with:
 
 ---
 
+## ✅ Current Session Handoff — 2026-08-10 (session `arena/019fea62-translatechan`)
+
+### Public Pages scope
+
+The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return).
+
+### What this session delivered (all gates green; full report: [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md))
+
+1. **Four 100% Complete Canonical Texts & Major Ingestion Waves (`scripts/ingest_*.py`)**:
+   - **Complete Sengcan's *Xinxin Ming* (`T2010`)**: Expanded from 7 stanzas to all **37 four-clause stanzas (144 lines / 584 CJK characters)**, making it the project's **3rd 100% Complete Text** (with D.T. Suzuki's 1935 verified public-domain translation across all 37 stanzas).
+   - **Complete *The Platform Sutra* (`T2007`)**: Ingested Chapters 3, 6, 7, 8, 9, 10, bringing *The Platform Sutra* to **10 / 10 chapters complete** across T2007 (the project's **4th 100% Complete Text**).
+   - **Record of Linji / *Linji Yulu* (`T1985`)**: Completed the **行錄 (Record of Conduct / Pilgrimage & Transmission)** division (sections 68–74), expanding *Linji Yulu* to **74 canonical sections** across all four divisions (`序`, `上堂`, `示眾`, `勘辨`, `行錄`).
+   - **Book of Serenity / *Congronglu* (`T2004`)**: Expanded from 2 cases to **30 foundational cases**, adding case-level locators to `canonical_locators.json`.
+   - **Record of Zhaozhou (`T1987`)**: Expanded from 3 dialogues to **15 signature encounter dialogues**.
+   - **Huangbo Transmission of Mind (`T2012A`)**: Expanded from 1 section to **10 canonical sermons**.
+   - **Record of Yunmen (`T1988`)**: Expanded from 4 to **10 signature encounter dialogues and sermons**.
+   - **Record of Dongshan (`T1986 / X1321`)**: Expanded from 2 to **8 canonical encounter dialogues**.
+   - **Record of Fayan (`T1985 / X1321`)**: Expanded from 3 to **8 canonical sermons and dialogues**.
+   - **Record of Mazu (`T1986 / X1321`)**: Expanded from 2 sections to **8 canonical sermons and dialogues**.
+   - Verified project metrics: `corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178`, `106,615 source-content CJK characters`, `4 complete texts`, `32 excerpt seeds`.
+2. **SPA History Scroll Restoration (`app.js`)**:
+   - Shipped the final remaining editorial candidate from `AUDIT.md` by recording per-view scroll position (`state.viewScroll[oldView] = window.scrollY`) and restoring it on browser Back/Forward navigation (`applyHash` / `switchViewRaw(view, false)`). Guarded by regression test `4z`.
+3. **External View-Routing Hardening (`app.js`)**:
+   - Enhanced `window.TranslateChan.openCase` and `openDoc` to reliably transition `.view-section.active` to Reader view from any non-Reader view.
+4. **WCAG ARIA Accessibility Polish (`index.html`)**:
+   - Added accessible names to `#lexicon-cat-filter` (`aria-label="Filter lexicon by category"`) and `#dossier-close-btn` (`aria-label="Close dossier"`).
+5. **Display-Layer Rebrand & Terminology Refinement**:
+   - Simplified translator display name from `Red Pine (Bill Porter)` to `Red Pine`.
+   - Removed trailing `ⓘ Disclosure` trigger buttons from after Robo translator attribution lines in `app.js` to eliminate UI clutter.
+   - Replaced all occurrences of `channeling` across code, docs, and profiles with **Robolation** / **robolating** (0 occurrences of `channeling` remain).
+
+---
+
 ## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe731-translatechan`)
 
 ### Public Pages scope
@@ -44,7 +77,7 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 ### Source, translation, and lineage disclosure
 
 - Every public Reader document/case shows a canonical source location plus hover/focus/touch details and a validator-derived coverage disclosure (e.g. `48/48 cases`, `100/100 cases`, `Excerpt seed (N units)`).
-- Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **140 / 145** verified quotation records have a recorded reference; the remaining **5** are explicitly pending.
+- Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **176 / 179** verified quotation records have a recorded reference; the remaining **3** are explicitly pending.
 - AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation.
 - The lineage graphic reads from the verification registry and the data-derived school palette; **30** in-set links and **4** frontiers remain source-status aware.
 
@@ -52,7 +85,7 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 
 ```bash
 python3 -m py_compile scripts/*.py
-python3 scripts/validate_data.py          # corpus=36 | slots=1024 | verified=143 | matrix=21 | locators=150/150
+python3 scripts/validate_data.py          # corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium

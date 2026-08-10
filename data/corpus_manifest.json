@@ -28,7 +28,10 @@
     {
       "key": "xinxin_ming",
       "title": "Faith in Mind (信心銘)",
-      "cbeta": "T2010"
+      "cbeta": "T2010",
+      "unit_targets": {
+        "stanzas": 37
+      }
     },
     {
       "key": "baojing_sanmei",

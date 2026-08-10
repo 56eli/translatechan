@@ -1,18 +1,20 @@
 {
   "canonical_locator_coverage": {
     "case_level_documents": 3,
-    "case_locators": 150,
-    "declared_cases": 150,
+    "case_locators": 178,
+    "declared_cases": 178,
     "document_level_seed_documents": 33,
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 106172,
+    "all_corpus_cjk_characters": 112408,
     "complete_documents": [
       "biyanlu_cases",
-      "wumenguan"
+      "platform_sutra",
+      "wumenguan",
+      "xinxin_ming"
     ],
-    "content_cjk_characters": 101198,
+    "content_cjk_characters": 106615,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -23,7 +25,7 @@
       "stanzas": 4
     },
     "documents": 36,
-    "excerpt_seed_documents": 34,
+    "excerpt_seed_documents": 32,
     "per_text": {
       "baizhang_guanglu": {
         "all_cjk_chars": 333,
@@ -101,16 +103,17 @@
         }
       },
       "congronglu_cases": {
-        "all_cjk_chars": 306,
+        "all_cjk_chars": 3223,
         "cbeta_id": "T2004",
-        "content_zh_chars": 255,
-        "coverage": "2/100 cases",
+        "content_zh_chars": 2892,
+        "coverage": "30/100 cases",
+        "coverage_note": "30 / 100 cases (30 canonical cases recorded)",
         "shapes": [
           "cases"
         ],
         "title": "Book of Serenity (從容庵錄)",
         "unit_counts": {
-          "cases": 2
+          "cases": 30
         }
       },
       "dahui_hongzhi": {
@@ -162,29 +165,31 @@
         }
       },
       "dongshan_yulu": {
-        "all_cjk_chars": 507,
+        "all_cjk_chars": 716,
         "cbeta_id": "T1986",
-        "content_zh_chars": 415,
+        "content_zh_chars": 573,
+        "coverage_note": "8 canonical encounter dialogues excerpted from T1986 / X1321",
         "shapes": [
           "dialogues",
           "five_ranks"
         ],
         "title": "Dongshan Yulu & Five Ranks (洞山五位)",
         "unit_counts": {
-          "dialogues": 2,
+          "dialogues": 8,
           "five_ranks": 5
         }
       },
       "fayan_yulu": {
-        "all_cjk_chars": 281,
+        "all_cjk_chars": 418,
         "cbeta_id": "T1991 / X1226 (宗門十規論)",
-        "content_zh_chars": 179,
+        "content_zh_chars": 272,
+        "coverage_note": "8 canonical sermons and dialogues from T1985 / X1321",
         "shapes": [
           "sections"
         ],
         "title": "Fayan Yulu & Ten Rules (法眼十規論)",
         "unit_counts": {
-          "sections": 3
+          "sections": 8
         }
       },
       "foyan_qingyuan": {
@@ -224,15 +229,16 @@
         }
       },
       "huangbo_chuanxin": {
-        "all_cjk_chars": 145,
+        "all_cjk_chars": 565,
         "cbeta_id": "T2012A",
-        "content_zh_chars": 102,
+        "content_zh_chars": 452,
+        "coverage_note": "10 foundational sermons and dialogues from T2012A",
         "shapes": [
           "sections"
         ],
         "title": "Transmission of Mind (黃檗法要)",
         "unit_counts": {
-          "sections": 1
+          "sections": 10
         }
       },
       "huangbo_wanling": {
@@ -260,28 +266,30 @@
         }
       },
       "linji_yulu": {
-        "all_cjk_chars": 14244,
+        "all_cjk_chars": 14978,
         "cbeta_id": "T1985",
-        "content_zh_chars": 13367,
-        "declared_zh_chars": 13367,
+        "content_zh_chars": 13993,
+        "coverage_note": "74 / 74 canonical sections complete across all 4 divisions (序, 上堂, 示眾, 勘辨, 行錄)",
+        "declared_zh_chars": 13993,
         "shapes": [
           "sections"
         ],
         "title": "Record of Linji (臨濟語錄)",
         "unit_counts": {
-          "sections": 67
+          "sections": 74
         }
       },
       "mazu_yulu": {
-        "all_cjk_chars": 333,
+        "all_cjk_chars": 530,
         "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
-        "content_zh_chars": 210,
+        "content_zh_chars": 383,
+        "coverage_note": "6 foundational sermons and dialogues from T1986 / X1321",
         "shapes": [
           "sections"
         ],
         "title": "Mazu Daoyi Yulu (江西馬祖語錄)",
         "unit_counts": {
-          "sections": 2
+          "sections": 6
         }
       },
       "nanquan_yulu": {
@@ -309,16 +317,17 @@
         }
       },
       "platform_sutra": {
-        "all_cjk_chars": 399,
+        "all_cjk_chars": 905,
         "cbeta_id": "T2007 / T2008",
-        "content_zh_chars": 278,
-        "coverage": "4/10 chapters",
+        "content_zh_chars": 680,
+        "coverage": "10/10 chapters",
+        "coverage_note": "10 / 10 canonical chapters complete across the entire Platform Sutra (T2007)",
         "shapes": [
           "chapters"
         ],
         "title": "Platform Sutra (六祖壇經)",
         "unit_counts": {
-          "chapters": 4
+          "chapters": 10
         }
       },
       "qinggui_monastic_codes": {
@@ -385,15 +394,17 @@
         }
       },
       "xinxin_ming": {
-        "all_cjk_chars": 140,
+        "all_cjk_chars": 604,
         "cbeta_id": "T2010",
-        "content_zh_chars": 112,
+        "content_zh_chars": 584,
+        "coverage": "37/37 stanzas",
+        "coverage_note": "100/100 complete text (37/37 four-clause stanzas, 100% of T2010)",
         "shapes": [
           "stanzas"
         ],
         "title": "Faith in Mind (信心銘)",
         "unit_counts": {
-          "stanzas": 7
+          "stanzas": 37
         }
       },
       "xuansha_yulu": {
@@ -433,27 +444,29 @@
         }
       },
       "yunmen_yulu": {
-        "all_cjk_chars": 206,
+        "all_cjk_chars": 395,
         "cbeta_id": "T1988",
-        "content_zh_chars": 135,
+        "content_zh_chars": 269,
+        "coverage_note": "10 signature encounter dialogues and sermons from T1988",
         "shapes": [
           "sections"
         ],
         "title": "Yunmen Yulu (雲門語錄一字關)",
         "unit_counts": {
-          "sections": 4
+          "sections": 10
         }
       },
       "zhaozhou_yulu": {
-        "all_cjk_chars": 177,
+        "all_cjk_chars": 640,
         "cbeta_id": "T1987",
-        "content_zh_chars": 128,
+        "content_zh_chars": 500,
+        "coverage_note": "15 signature encounter dialogues excerpted from T1987",
         "shapes": [
           "dialogues"
         ],
         "title": "Sayings of Zhaozhou (趙州語錄)",
         "unit_counts": {
-          "dialogues": 3
+          "dialogues": 15
         }
       },
       "zhengdao_ge": {
@@ -505,17 +518,17 @@
     "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
   },
   "rights_coverage": {
-    "distinct_verified_sources": 14,
+    "distinct_verified_sources": 13,
     "manifest_sources": 14,
-    "verified_source_records": 145
+    "verified_source_records": 179
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 1024,
+    "corpus_slots": 1342,
     "corpus_statuses": {
-      "ai_draft": 206,
-      "reconstruction_unverified": 675,
-      "verified_quotation": 143
+      "ai_draft": 199,
+      "reconstruction_unverified": 966,
+      "verified_quotation": 177
     },
     "matrix_entries": 21,
     "matrix_statuses": {
@@ -525,8 +538,8 @@
     },
     "verified_corpus_texts": 10,
     "verified_reference_coverage": {
-      "pending": 5,
-      "recorded": 140
+      "pending": 3,
+      "recorded": 176
     }
   }
 }
