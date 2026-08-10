@@ -384,6 +384,7 @@ def validate_auxiliary_data(
     issues: Issues,
     school_vocab: dict[str, str] | None = None,
     theme_vocab: dict[str, str] | None = None,
+    corpus_keys: set[str] | None = None,
 ) -> None:
     for label, records, fields in (
         ("data/glossary/chan_terms.json", glossary, ("id", "term", "pinyin", "literal", "definition", "category")),
@@ -410,8 +411,24 @@ def validate_auxiliary_data(
                 evidence = record.get("profile_evidence")
                 if not isinstance(aliases, list) or not all(nonempty_string(alias) for alias in aliases):
                     issues.error(record_path, "alternative_names must be a list of non-empty strings")
+                elif not aliases:
+                    # Soft warning (audit 2026-08-10, Tier-4 content completeness):
+                    # front-end dossier renders an "alternative names not yet
+                    # reviewed" notice when this is empty, so an empty list
+                    # is a known state, but the data is incomplete. Warn
+                    # loudly so future ingests know to fill it.
+                    issues.warning(record_path, "alternative_names is empty — dossier will show 'Alternative names not yet reviewed'")
                 if not isinstance(links, list) or not all(nonempty_string(key) for key in links):
                     issues.error(record_path, "linked_corpus_keys must be a list of non-empty corpus keys")
+                elif not links:
+                    issues.warning(record_path, "linked_corpus_keys is empty — dossier 'Cross-referenced project works' will show 'Project corpus link not yet curated'")
+                else:
+                    # Tier-4 (audit 2026-08-10): verify every linked corpus
+                    # key actually exists. Prevents dangling-link regressions
+                    # if a corpus file is renamed or removed.
+                    for key in links:
+                        if not isinstance(key, str) or (corpus_keys is not None and key not in corpus_keys):
+                            issues.error(record_path, f"linked_corpus_key {key!r} is not a known corpus document")
                 if not is_record(evidence) or not nonempty_string(evidence.get("status")) or not nonempty_string(evidence.get("note")):
                     issues.error(record_path, "profile_evidence requires non-empty status and note")
                 if school_vocab:
@@ -1097,7 +1114,7 @@ def main() -> int:
     provenance = load_json(PROVENANCE_PATH, issues)
     school_vocab = load_controlled_vocabulary(LINEAGE_SCHOOL_VOCAB_PATH, issues, "schools")
     theme_vocab = load_controlled_vocabulary(GONGAN_THEME_VOCAB_PATH, issues, "themes")
-    validate_auxiliary_data(glossary, lineage, gongan, provenance, issues, school_vocab, theme_vocab)
+    validate_auxiliary_data(glossary, lineage, gongan, provenance, issues, school_vocab, theme_vocab, corpus_keys=set(corpus.keys()))
 
     corpus_manifest = load_json(CORPUS_MANIFEST_PATH, issues)
     locator_registry = load_json(LOCATORS_PATH, issues)

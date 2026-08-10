@@ -499,6 +499,33 @@ try {
     failures++; console.log('❌ master profile source disclosure missing');
   }
 } catch (e) { failures++; console.log(`❌ lineage source disclosure crashed: ${e.message}`); }
+
+// 4ee. Tier-4 (audit 2026-08-10, session 019feabb): the lineage dossier
+// should show real linked-corpus keys for masters that have them (the
+// 2026-08-10 pass populated alternative_names for 20 masters and
+// linked_corpus_keys for 20). Spot-check Sengcan (Xinxin Ming author):
+// his dossier must include the "Open <title>" button for xinxin_ming.
+try {
+  window.TranslateChan.openMasterDossier('sengcan');
+  const sengcanHtml = ids['dossier-content']._innerHTML;
+  if (!sengcanHtml.includes('data-open-doc="xinxin_ming"') || !sengcanHtml.includes('Open Faith in Mind')) {
+    failures++; console.log('❌ 4ee: Sengcan dossier should link to xinxin_ming (T2010)');
+  }
+  // Spot-check the rendered alternative names list (no longer empty).
+  if (!sengcanHtml.includes('Sengcan') || !sengcanHtml.includes('Third Patriarch')) {
+    failures++; console.log('❌ 4ee: Sengcan dossier should show alternative names');
+  }
+  // Spot-check the Linked corpus warning: 4 frontier scaffolds (prajnatara,
+  // longtan_chongxin, yangqi_fanghui, dahong_zuzheng) + 2 historical masters
+  // (yaoshan_weiyan, yunyan_tansheng) still have empty linked_corpus_keys
+  // and the dossier must show the explicit 'Project corpus link not yet
+  // curated' notice for at least one of them.
+  window.TranslateChan.openMasterDossier('yaoshan_weiyan');
+  const yaoshanHtml = ids['dossier-content']._innerHTML;
+  if (!yaoshanHtml.includes('Project corpus link not yet curated')) {
+    failures++; console.log('❌ 4ee: yaoshan_weiyan dossier should disclose the missing corpus link');
+  }
+} catch (e) { failures++; console.log(`❌ 4ee dossier spot-check crashed: ${e.message}`); }
 // 4m. Hash routing: initial deep-link state + viewHash helper
 if (typeof window.TranslateChan.openDoc !== 'function') { failures++; console.log('❌ openDoc missing (hash routing depends on it)'); }
 // 4m. Gong'an filter chips remain available in the public reading scope.

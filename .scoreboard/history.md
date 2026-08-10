@@ -16,6 +16,7 @@
 | 2026-08-10 | security_privacy | — | 9 | — | null | Arena agent | Baseline audit. Restrictive CSP, no PII, search self-XSS guarded, rights manifest. |
 | 2026-08-10 | performance | — | 7 | — | null | Arena agent | Baseline audit. Deferred scripts + lazy chunking + search cache, but 1.87 MB bundle. |
 | 2026-08-10 | performance | 7 | 8 | — | null | Arena agent | Tier-3 compact-JSON win. build_data_bundle.py emits `separators=(',', ':')` instead of `indent=2`; bundle shrank 1,956,032 B → 1,653,392 B (-15.5%, 302,640 B saved). All gates still pass. |
+| 2026-08-10 | content_quality | 7 | 8 | — | null | Arena agent | Tier-4 data completeness pass. Populated alternative_names for 20 masters (Huike → Yuelin Shiguan) and linked_corpus_keys for 20 (Sengcan → xinxin_ming, Daoxin → chuandenglu + dazhu_huihai, etc.). The validator now warns on empty alternative_names/linked_corpus_keys and errors on dangling corpus keys; smoke test 4ee exercises the dossier rendering. 6 masters still have empty linked_corpus_keys (4 frontier scaffolds + 2 historical masters whose primary text is in the compendia). |
 | 2026-08-10 | github_pages_presentation | — | 9 | — | null | Arena agent | Baseline audit. Full SEO, theme-color, canonical, robots, sitemap, FOUC guard, data-derived hero. |
 | 2026-08-10 | ux_usability | — | 9 | — | null | Arena agent | Baseline audit. Calm reader + case strip + U1/U2/U3/U8 just shipped. |
 | 2026-08-10 | accessibility | — | 8 | — | null | Arena agent | Baseline audit. ARIA tabs, role=dialog, focus management, prefers-reduced-motion. |

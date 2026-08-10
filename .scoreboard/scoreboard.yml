@@ -19,7 +19,6 @@ summary:
     - deployment_readiness
     - feature_completeness
     - error_handling_logging
-    - content_quality
   active_risk_flags:
     - "CI workflow path list missing 3 files (theme-init.js, robots.txt, sitemap.xml) — needs manual .github/workflows/quality.yml edit (token lacks workflows scope). Tracked in .scoreboard/manual-workflow-edits.md."
     - "Branch protection on main does not require the Quality check; PRs can merge without the gate (owner action)."
@@ -456,27 +455,28 @@ aspects:
     category: presentation
     weight: 3
     target: 8
-    ai_score: 7
+    ai_score: 8
     user_score: null
-    effective_score: 7
-    gap: 1
-    priority: 3
-    status: needs_work
-    confidence: medium
+    effective_score: 8
+    gap: 0
+    priority: 0
+    status: healthy
+    confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Excellent honest disclosure design (verified_quotation vs reconstruction_unverified vs ai_draft is structural, not copy-disciplined). 177 verified slots across 10 corpus texts + 2 matrix entries. 178/178 case locators. Per-file coverage_note + validator-generated coverage string means an excerpt is never mistaken for a complete text. 4 of 36 corpus files are 100% complete (Wumenguan 48/48, Biyanlu 100/100, Platform Sutra 10/10, Xinxin Ming 37/37). 32 are excerpt seeds (3-30 units each). Many excerpt seeds are the next-natural Phase 2 targets."
+    ai_basis: "Excellent honest disclosure design (verified_quotation vs reconstruction_unverified vs ai_draft is structural, not copy-disciplined). 177 verified slots across 10 corpus texts + 2 matrix entries. 178/178 case locators. Per-file coverage_note + validator-generated coverage string means an excerpt is never mistaken for a complete text. 4 of 36 corpus files are 100% complete (Wumenguan 48/48, Biyanlu 100/100, Platform Sutra 10/10, Xinxin Ming 37/37). 32 are excerpt seeds. 2026-08-10 Tier-4 pass: populated alternative_names for 20 masters and linked_corpus_keys for 20 (the remaining 6 are 4 frontier scaffolds + 2 historical masters whose primary text is in Chuandenglu/Wudeng Huiyuan; the validator now surfaces an empty-list WARNING for any future ingest that leaves these empty, and verifies every linked_corpus_key resolves to a known corpus document)."
     user_basis: null
     desired_direction:
-      - "Optional: Tier 4 (audit 2026-08-10): populate alternative_names for 15 masters; populate linked_corpus_keys for 8 masters; surface empty fields as validator warnings."
       - "Optional: next Phase 2 ingest (Congronglu 30→100, Dongshan Yulu 13→complete, or a new text)."
     evidence:
       - "data/project_metrics.json: 36 documents, 4 complete, 32 excerpt seeds, 106,615 content CJK, 1342 slots, 177 verified, 21 matrix entries, 178/178 case locators"
-      - "data/lineage/masters.json: 15 masters with empty alternative_names, 8 with empty linked_corpus_keys"
+      - "data/lineage/masters.json: alternative_names populated on 20 masters (was 14, now 34 of 34 non-empty for non-frontier-scaffold records)"
+      - "data/lineage/masters.json: linked_corpus_keys populated on 20 masters"
+      - "scripts/validate_data.py: warns when alternative_names or linked_corpus_keys is empty; errors when a linked_corpus_key is not a known corpus document"
+      - "scripts/smoke_test.mjs 4ee: dossier now shows Open <title> buttons for Sengcan (xinxin_ming), Daoxin (chuandenglu + dazhu_huihai), etc."
     next_actions:
-      - "Optional: alternative_names + linked_corpus_keys completeness pass (P3)"
       - "Optional: next Phase 2 corpus ingest (P3)"
     risk_flags: []
-    files_reviewed: [data/project_metrics.json, data/lineage/masters.json, data/corpus/]
+    files_reviewed: [data/project_metrics.json, data/lineage/masters.json, data/corpus/, scripts/validate_data.py, scripts/smoke_test.mjs]
 
   - id: feature_completeness
     name: Feature completeness

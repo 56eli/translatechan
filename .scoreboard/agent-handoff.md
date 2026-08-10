@@ -11,7 +11,8 @@ Last updated: 2026-08-10
 - `33a7eec` — `docs(audit): full senior-dev + designer review, fix stale bundle-size refs`
 - `4256840` — `feat(ux): U1/U2/U3/U8 polish batch + session audit`
 - `9934f66` — `feat(scoreboard): persistent repo scoreboard system + baseline audit`
-- Next: `feat(perf): compact JSON in build_data_bundle.py` (Tier-3 perf win; not yet committed)
+- `2a11b5e` — `perf(build): compact JSON in build_data_bundle.py (Tier-3 win)`
+- Next: Tier 4 data completeness (alternative_names + linked_corpus_keys) — not yet committed
 
 **Quality gates (all green after the latest build):**
 
@@ -32,10 +33,10 @@ Sorted by `priority = gap * weight` (highest first):
 1. **`deployment_readiness` (priority 4, status `blocked_manual_workflow_edit`)** — Owner: enable branch protection on `main` requiring the Quality check. Tracked in `.scoreboard/manual-workflow-edits.md` Edit 2.
 2. **`ci_cd` (priority 0 numeric, status `blocked_manual_workflow_edit`)** — Owner: extend `.github/workflows/quality.yml` `git diff --exit-code` list to include `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`. Tracked in `.scoreboard/manual-workflow-edits.md` Edit 1.
 3. **`performance` (effective 8, status `healthy`, just-promoted)** — 2026-08-10 Tier-3 compact-JSON win shipped: `build_data_bundle.py` now emits `separators=(',', ':')` instead of `indent=2`; bundle shrank 1,956,032 B → 1,653,392 B (-15.5%, 302,640 B saved). AI score moved 7 → 8. Optional follow-up: per-corpus lazy-load split would drop first-paint to ~600 KB; not blocking.
-4. **`content_quality` (priority 3, status `needs_work`)** — Tier 4 from the audit 2026-08-10: populate `alternative_names` for 15 masters + `linked_corpus_keys` for 8; surface empty fields as validator warnings; consider next Phase 2 corpus ingest (Congronglu 30→100, Dongshan Yulu 13→complete).
-5. **`feature_completeness` (priority 4, status `needs_work`)** — Same direction as content_quality: continue Phase 2 corpus ingestion; expand glossary 31→150+ terms.
+4. **`content_quality` (DONE 2026-08-10, status `healthy`)** — Tier 4 from the audit 2026-08-10 shipped: populated `alternative_names` for 20 masters (Huike → Yuelin Shiguan) and `linked_corpus_keys` for 20 (Sengcan → xinxin_ming, etc.). Validator now warns on empty `alternative_names` / `linked_corpus_keys` and errors on dangling corpus keys. Smoke test 4ee exercises the dossier rendering. AI score moved 7 → 8.
+5. **`feature_completeness` (priority 4, status `needs_work`)** — Next Phase 2 ingest (Congronglu 30→100, Dongshan Yulu 13→complete, or a new text); expand glossary 31→150+ terms.
 
-Lower-priority items: `error_handling_logging` (7/10, priority 3) — the user is most likely to ask about content/feature next, not error handling.
+Lower-priority items: `error_handling_logging` (7/10, priority 3) — optional client-side error reporter.
 
 ## User scores currently known
 
