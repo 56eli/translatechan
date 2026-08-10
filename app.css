@@ -1990,3 +1990,46 @@ textarea:focus-visible,
   line-height: 1.6;
   color: var(--text-primary);
 }
+
+/* L1 (audit 2026-08-10, session 019feabb): the case card had a lot
+   of inline `style="border-left: 4px solid var(--accent-gold); ..."`
+   attributes in the JS. Moved to classes so the JS is cleaner
+   and the styling is centralized. */
+.case-card.is-preface,
+.case-card.is-epilogue {
+  border-left: 4px solid var(--accent-gold);
+}
+.case-card.is-five-ranks {
+  border-left: 4px solid var(--accent-green);
+}
+.case-card.is-overview {
+  border-left: 4px solid var(--accent-gold);
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): the reading-mode button
+   section in the corpus sidebar was using the corpus-btn class,
+   which made the row treatment (justify-content: space-between)
+   apply to single-label buttons. Added explicit .reader-mode-btn
+   styles for a clean stacked-pill layout. */
+.reader-mode-section {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+.reader-mode-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.reader-mode-btn {
+  width: 100%;
+  text-align: center;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.85rem;
+}
+.reader-mode-btn.active {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #ffffff;
+  font-weight: 600;
+}

@@ -145,12 +145,16 @@
           </div>
           <div id="corpus-selector-list" class="corpus-selector-list"></div>
 
-          <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+          <!-- L1 (audit 2026-08-10, session 019feabb): reading-mode
+               section uses .reader-mode-btn (not the corpus-btn
+               class) so the buttons pick up the correct .btn-pill
+               styling instead of the corpus-list row treatment. -->
+          <div class="reader-mode-section">
             <div class="sidebar-title">Reading Mode</div>
-            <div style="display: flex; flex-direction: column; gap: 0.35rem;">
-              <button class="corpus-btn active" data-reader-mode="bilingual">📖 Bilingual (Primary)</button>
-              <button class="corpus-btn" data-reader-mode="multi_translators">⚖️ Multi-Translators</button>
-              <button class="corpus-btn" data-reader-mode="chinese_only">漢 Classical Only</button>
+            <div class="reader-mode-options">
+              <button class="btn-pill reader-mode-btn active" data-reader-mode="bilingual">📖 Bilingual (Primary)</button>
+              <button class="btn-pill reader-mode-btn" data-reader-mode="multi_translators">⚖️ Multi-Translators</button>
+              <button class="btn-pill reader-mode-btn" data-reader-mode="chinese_only">漢 Classical Only</button>
             </div>
           </div>
         </aside>
