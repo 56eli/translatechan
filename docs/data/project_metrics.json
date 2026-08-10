@@ -1,22 +1,25 @@
 {
   "canonical_locator_coverage": {
-    "case_level_documents": 3,
-    "case_locators": 183,
-    "declared_cases": 183,
+    "case_level_documents": 2,
+    "case_locators": 148,
+    "declared_cases": 148,
     "document_level_seed_documents": 33,
-    "documents": 36
+    "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 113410,
+    "all_corpus_cjk_characters": 109185,
     "complete_documents": [
-      "biyanlu_cases",
-      "platform_sutra",
       "wumenguan",
       "xinxin_ming"
     ],
-    "content_cjk_characters": 107563,
+    "completion_statuses": {
+      "complete_selected_witness": 2,
+      "excerpt_seed": 31,
+      "partial_selected_witness": 2
+    },
+    "content_cjk_characters": 103723,
     "content_shapes": {
-      "cases": 3,
+      "cases": 2,
       "chapters": 1,
       "dialogues": 2,
       "five_ranks": 1,
@@ -24,13 +27,16 @@
       "sections": 25,
       "stanzas": 4
     },
-    "documents": 36,
-    "excerpt_seed_documents": 32,
+    "documents": 35,
+    "excerpt_seed_documents": 31,
+    "incomplete_documents": 33,
     "per_text": {
       "baizhang_guanglu": {
         "all_cjk_chars": 333,
         "cbeta_id": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 224,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -42,7 +48,9 @@
       "baojing_sanmei": {
         "all_cjk_chars": 124,
         "cbeta_id": "T1986",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 104,
+        "is_complete": false,
         "shapes": [
           "stanzas"
         ],
@@ -54,10 +62,12 @@
       "biyanlu_cases": {
         "all_cjk_chars": 76761,
         "cbeta_id": "T2003",
+        "completion_status": "partial_selected_witness",
         "content_zh_chars": 75658,
         "coverage": "100/100 cases",
-        "coverage_note": "100/100 cases — the Biyanlu is COMPLETE: all 100 cases carry pointer (where canon present), main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, completed 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–100 building on the 2026-08-08 1–14 seed run) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; T cases with no 垂示 recorded (6/14/18/26/28/30/34/36/42/44/48/52/58/64/67/71/72/78/80/83/93/96 = 22 cases); variants 韻陽/韶陽 (14), 韓獹 (43, 通作盧), 頗 (63) recorded; case 20 joins its two 頌; cases 22/60 keep printed closing shouts; cases 81–100 頌評唱, plus all post-verse 評唱 renderings, and human sign-off remain pending).",
+        "coverage_note": "100/100 case records represented — partial selected witness: all 100 cases carry pointer (where canon present), main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, completed 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–100 building on the 2026-08-08 1–14 seed run) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; T cases with no 垂示 recorded (6/14/18/26/28/30/34/36/42/44/48/52/58/64/67/71/72/78/80/83/93/96 = 22 cases); variants 韻陽/韶陽 (14), 韓獹 (43, 通作盧), 頗 (63) recorded; case 20 joins its two 頌; cases 22/60 keep printed closing shouts; cases 81–100 頌評唱, plus all post-verse 評唱 renderings, and human sign-off remain pending).",
         "declared_zh_chars": 75658,
+        "is_complete": false,
         "shapes": [
           "cases"
         ],
@@ -69,7 +79,9 @@
       "bodhidharma_erru": {
         "all_cjk_chars": 460,
         "cbeta_id": "T2009",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 386,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -81,7 +93,9 @@
       "caoxi_zhuan": {
         "all_cjk_chars": 327,
         "cbeta_id": "X1598 (曹溪大師別傳) / P.3018",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 237,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -93,7 +107,9 @@
       "chuandenglu": {
         "all_cjk_chars": 193,
         "cbeta_id": "T2076",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 142,
+        "is_complete": false,
         "shapes": [
           "sample_records"
         ],
@@ -102,24 +118,12 @@
           "sample_records": 2
         }
       },
-      "congronglu_cases": {
-        "all_cjk_chars": 4225,
-        "cbeta_id": "T2004",
-        "content_zh_chars": 3840,
-        "coverage": "35/100 cases",
-        "coverage_note": "35 / 100 cases (35 canonical cases recorded; the 5 new cases added 2026-08-10 are Nanquan-cat / Panshan-mind-seal / Gutji-finger / Dongshan-hemp / Baizhang-wild-fox, all widely-cited cases in the CBETA T2004 text and the standard scholarly literature; the remaining 65 cases are documented but not yet ingested — see Phase 2 roadmap in .scoreboard/agent-handoff.md and ROADMAP.md)",
-        "shapes": [
-          "cases"
-        ],
-        "title": "Book of Serenity (從容庵錄)",
-        "unit_counts": {
-          "cases": 35
-        }
-      },
       "dahui_hongzhi": {
         "all_cjk_chars": 383,
         "cbeta_id": "T1998A (大慧普覺禪師語錄)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 260,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -131,7 +135,9 @@
       "dahui_shobogenzo": {
         "all_cjk_chars": 295,
         "cbeta_id": "X1309 (大慧普覺禪師正法眼藏)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 180,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -143,7 +149,9 @@
       "dazhu_huihai": {
         "all_cjk_chars": 373,
         "cbeta_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 260,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -155,7 +163,9 @@
       "deshan_yulu": {
         "all_cjk_chars": 333,
         "cbeta_id": "embedded: T2076 f.15 / X1565 f.7",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 236,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -167,8 +177,10 @@
       "dongshan_yulu": {
         "all_cjk_chars": 716,
         "cbeta_id": "T1986",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 573,
         "coverage_note": "8 canonical encounter dialogues excerpted from T1986 / X1321",
+        "is_complete": false,
         "shapes": [
           "dialogues",
           "five_ranks"
@@ -182,8 +194,10 @@
       "fayan_yulu": {
         "all_cjk_chars": 418,
         "cbeta_id": "T1991 / X1226 (宗門十規論)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 272,
         "coverage_note": "8 canonical sermons and dialogues from T1985 / X1321",
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -195,7 +209,9 @@
       "foyan_qingyuan": {
         "all_cjk_chars": 455,
         "cbeta_id": "X1315 (古尊宿語錄·佛眼語錄)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 320,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -207,7 +223,9 @@
       "guiyang_yulu": {
         "all_cjk_chars": 261,
         "cbeta_id": "T1989 / T1990",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 177,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -219,7 +237,9 @@
       "hanshan_poems": {
         "all_cjk_chars": 167,
         "cbeta_id": "SBCK / Zoku lineage (not in Taishō)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 140,
+        "is_complete": false,
         "shapes": [
           "stanzas"
         ],
@@ -231,8 +251,10 @@
       "huangbo_chuanxin": {
         "all_cjk_chars": 565,
         "cbeta_id": "T2012A",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 452,
         "coverage_note": "10 foundational sermons and dialogues from T2012A",
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -244,7 +266,9 @@
       "huangbo_wanling": {
         "all_cjk_chars": 311,
         "cbeta_id": "T2012B",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 214,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -256,7 +280,9 @@
       "lidai_fabao_ji": {
         "all_cjk_chars": 237,
         "cbeta_id": "T2075 / P.2125",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 169,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -268,9 +294,11 @@
       "linji_yulu": {
         "all_cjk_chars": 14978,
         "cbeta_id": "T1985",
+        "completion_status": "partial_selected_witness",
         "content_zh_chars": 13993,
         "coverage_note": "74 / 74 canonical sections complete across all 4 divisions (序, 上堂, 示眾, 勘辨, 行錄)",
         "declared_zh_chars": 13993,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -282,8 +310,10 @@
       "mazu_yulu": {
         "all_cjk_chars": 530,
         "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 383,
         "coverage_note": "6 foundational sermons and dialogues from T1986 / X1321",
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -295,7 +325,9 @@
       "nanquan_yulu": {
         "all_cjk_chars": 257,
         "cbeta_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 148,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -307,7 +339,9 @@
       "niutou_juezhu": {
         "all_cjk_chars": 214,
         "cbeta_id": "Dunhuang P.2885 / S.5619",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 149,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -319,9 +353,11 @@
       "platform_sutra": {
         "all_cjk_chars": 905,
         "cbeta_id": "T2007 / T2008",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 680,
         "coverage": "10/10 chapters",
-        "coverage_note": "10 / 10 canonical chapters complete across the entire Platform Sutra (T2007)",
+        "coverage_note": "10/10 chapter headings represented by selected excerpts (680 content CJK); this is not the complete T2007 text.",
+        "is_complete": false,
         "shapes": [
           "chapters"
         ],
@@ -333,7 +369,9 @@
       "qinggui_monastic_codes": {
         "all_cjk_chars": 315,
         "cbeta_id": "T2025 / X1245",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 239,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -345,7 +383,9 @@
       "sengzhao_zhaolun": {
         "all_cjk_chars": 263,
         "cbeta_id": "T1858",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 188,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -357,7 +397,9 @@
       "shitou_sandokai": {
         "all_cjk_chars": 303,
         "cbeta_id": "embedded: T2076 f.30 / X1565 f.14",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 262,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -369,7 +411,9 @@
       "wudeng_huiyuan": {
         "all_cjk_chars": 235,
         "cbeta_id": "X1565 (五燈會元)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 166,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -381,10 +425,12 @@
       "wumenguan": {
         "all_cjk_chars": 5895,
         "cbeta_id": "T2005",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 5528,
         "coverage": "48/48 cases",
         "coverage_note": "Complete — all 48 cases + preface + epilogue (completed 2026-08-08; T2005 宗紹編, 48則)",
         "declared_zh_chars": 5528,
+        "is_complete": true,
         "shapes": [
           "cases"
         ],
@@ -396,9 +442,11 @@
       "xinxin_ming": {
         "all_cjk_chars": 604,
         "cbeta_id": "T2010",
+        "completion_status": "complete_selected_witness",
         "content_zh_chars": 584,
         "coverage": "37/37 stanzas",
         "coverage_note": "100/100 complete text (37/37 four-clause stanzas, 100% of T2010)",
+        "is_complete": true,
         "shapes": [
           "stanzas"
         ],
@@ -410,7 +458,9 @@
       "xuansha_yulu": {
         "all_cjk_chars": 334,
         "cbeta_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 206,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -422,7 +472,9 @@
       "xuefeng_yantou": {
         "all_cjk_chars": 268,
         "cbeta_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 170,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -434,7 +486,9 @@
       "yuanwu_letters": {
         "all_cjk_chars": 149,
         "cbeta_id": "X1357 / T1997",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 87,
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -446,8 +500,10 @@
       "yunmen_yulu": {
         "all_cjk_chars": 395,
         "cbeta_id": "T1988",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 269,
         "coverage_note": "10 signature encounter dialogues and sermons from T1988",
+        "is_complete": false,
         "shapes": [
           "sections"
         ],
@@ -459,8 +515,10 @@
       "zhaozhou_yulu": {
         "all_cjk_chars": 640,
         "cbeta_id": "T1987",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 500,
         "coverage_note": "15 signature encounter dialogues excerpted from T1987",
+        "is_complete": false,
         "shapes": [
           "dialogues"
         ],
@@ -472,7 +530,9 @@
       "zhengdao_ge": {
         "all_cjk_chars": 188,
         "cbeta_id": "T2014",
+        "completion_status": "excerpt_seed",
         "content_zh_chars": 167,
+        "is_complete": false,
         "shapes": [
           "stanzas"
         ],
@@ -507,14 +567,14 @@
     }
   },
   "manifest_integrity": {
-    "corpus_files": 36,
-    "shared_manifest_items": 36
+    "corpus_files": 35,
+    "shared_manifest_items": 35
   },
   "measurement_method": {
     "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
-    "complete_documents": "Documents whose every manifest-declared unit target is met by present units (e.g. Wumenguan 48/48, Biyanlu 100/100).",
+    "complete_documents": "Documents explicitly marked complete_selected_witness whose manifest unit targets are all met; unit counts alone never establish completion.",
     "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
-    "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, declared coverage_note/zh_chars, and (when the shared manifest declares unit_targets) a machine-checkable 'N/M units' coverage string.",
+    "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, editorial completion status, declared coverage_note/zh_chars, and (when declared) an N/M representation string.",
     "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
   },
   "rights_coverage": {
@@ -524,10 +584,10 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 1352,
+    "corpus_slots": 1252,
     "corpus_statuses": {
       "ai_draft": 199,
-      "reconstruction_unverified": 976,
+      "reconstruction_unverified": 876,
       "verified_quotation": 177
     },
     "matrix_entries": 21,

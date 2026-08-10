@@ -6,27 +6,32 @@ meta:
   agent_model: arena_sandboxed_agent
   effective_score_policy: user_score_overrides_ai_score
   context_policy: repo_files_are_durable_memory
-  arena_context: "Agent sessions are sandboxed and may expire after PR merge; durable context must live in repo files."
+  arena_context: "Agent sessions may expire; current evidence and handoff must live in repository files."
 
 manual_workflow_policy:
   may_edit_github_workflows: false
-  instruction: "Do not edit .github/workflows/* unless the user explicitly instructs you. If workflow changes are needed, document exact GitHub web editor steps in .scoreboard/manual-workflow-edits.md."
+  instruction: "Do not edit .github/workflows/* unless the user explicitly instructs it; document exact required changes in .scoreboard/manual-workflow-edits.md."
 
 summary:
-  overall_effective_score: 8.2
-  repo_ready_gate_status: warning
+  overall_effective_score: 6.9
+  repo_ready_gate_status: fail
   top_priorities:
-    - deployment_readiness
+    - github_pages_presentation
     - error_handling_logging
+    - deployment_readiness
+    - content_quality
+    - ci_cd
   active_risk_flags:
-    - "CI workflow path list missing 3 files (theme-init.js, robots.txt, sitemap.xml) — needs manual .github/workflows/quality.yml edit (token lacks workflows scope). Tracked in .scoreboard/manual-workflow-edits.md."
-    - "Branch protection on main does not require the Quality check; PRs can merge without the gate (owner action)."
-    - "Robo renderings (reconstruction_unverified) form 72% of all translation slots (966/1342) — by design, but worth re-stating for any new contributor or auditor."
+    - "Design remains incomplete: structural walnut shell and Reader are implemented, but Matrix/Lineage/Gong’an/Lexicon, visual-system consolidation, screenshot verification, and owner approval remain."
+    - "Contained P0: unreliable Congronglu data/locators/generating scripts remain removed; reintroduction is blocked on source-pinned field-level collation."
+    - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; decisions remain pending."
+    - "P2 source depth: Biyanlu, Linji, Platform, and other non-case records still need field-level coverage and broader human review."
+    - "Responsive/accessibility and CI/branch-protection tasks remain."
 
 quality_gates:
   repo_ready:
-    status: warning
-    overall_effective_score: 8.2
+    status: fail
+    overall_effective_score: 6.9
     last_evaluated: 2026-08-10
     minimum_overall_effective_score: 8
     required:
@@ -36,11 +41,10 @@ quality_gates:
       ci_cd: 7
       agent_readiness: 8
     notes:
-      - "Quality gates use effective_score."
-      - "User overrides may satisfy a numeric gate, but risk_flags must remain visible."
-      - "If a gate is satisfied only because of user_score while ai_score is low, mark the relevant aspect as accepted_debt or risk_accepted."
-      - "If required aspects have active risk_flags, mention them in SCOREBOARD.md even when the gate numerically passes."
-      - "All required-aspect thresholds (security_privacy 8, tests 7, readme_onboarding 7, ci_cd 7, agent_readiness 8) pass; gate is 'warning' (not 'pass') because ci_cd has an active blocked_manual_workflow_edit risk."
+      - "Required aspects currently fail: security_privacy 7, ci_cd 6, and agent_readiness 7; tests and readme_onboarding now meet 7."
+      - "Overall effective score 6.9 is below the 8.0 gate."
+      - "The P0 and audited public-behavior P1s are fixed; unresolved rights decisions still block release readiness."
+      - "All user_score fields remain null; no user score was inferred."
 
 aspects:
   - id: project_purpose_scope
@@ -56,123 +60,166 @@ aspects:
     status: healthy
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Scope is sharply defined: a static GitHub Pages SPA that publishes a bilingual reader of 36 canonical Chan / Zen texts (CBETA / Taishō 47, 48, 51), a comparative matrix, a lineage graph, a gong'an index, and a Chan lexicon. Honest disclosure is structural (Robo vs verified). The 'Fake Chan Factory' brand makes the joke explicit."
+    ai_basis: "The real-Chinese/proudly-fake-English research-reader premise and five-view public scope are clear and differentiated."
     user_basis: null
     desired_direction: []
-    evidence:
-      - "README.md §Overview and Quickstart"
-      - "HANDOFF.md §Executive Summary of Deliverables"
-      - "AUDIT.md §1 current verdict (36 documents, 4 complete, 32 excerpt seeds)"
+    evidence: ["README.md overview", "AGENTS.md public scope", "index.html navigation"]
     next_actions: []
     risk_flags: []
-    files_reviewed: [README.md, HANDOFF.md, AUDIT.md, vision.md, ROADMAP.md]
+    files_reviewed: [README.md, AGENTS.md, index.html, vision.md]
 
   - id: readme_onboarding
     name: README / onboarding
     category: documentation
     weight: 4
     target: 7
-    ai_score: 8
+    ai_score: 7
     user_score: null
-    effective_score: 8
+    effective_score: 7
     gap: 0
     priority: 0
     status: healthy
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Comprehensive README with Overview, Features, Local Development steps, and link to live GitHub Pages. Quickstart is reproducible (clone → validate → build → smoke). 5 top-level docs (README, HANDOFF, ROADMAP, UX_ROADMAP, AUDIT, RESEARCH_RELEASE_PLAN, vision) each have a clear role. Doc-truthfulness gate guards 25+ live numbers."
+    ai_basis: "Quickstart is usable and the containment pass reconciled active counts, explicit completion states, Platform/Biyanlu wording, verification semantics, and repository structure. Historical reports remain intentionally dated."
     user_basis: null
-    desired_direction:
-      - "Trim the 'Repository Structure' tree so the internal ingest scripts (ingest_autonomous_wave3/4, etc.) are not listed or are clearly annotated as one-shot campaign artifacts (Tier-1 polish, audit 2026-08-10). Optional."
-    evidence:
-      - "README.md (217 lines, 18 KB) — quickstart, local dev, deploy, license"
-      - "HANDOFF.md (299 lines, 30 KB) — executive summary + session handoff"
-      - "AUDIT.md (78 lines, 15 KB) — current verdict + session index"
-      - "scripts/validate_data.py: validate_doc_truthfulness() guards 25+ doc-snippet rules"
-    next_actions:
-      - "Optional: README repo-tree trim (P3)"
+    desired_direction: ["Generate coverage tables from metrics and separate historical milestones from current truth."]
+    evidence: ["README.md lines 30-46", "data/project_metrics.json", "sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md §3"]
+    next_actions: ["Keep generated current-state counts/statuses synchronized; complete rights decisions."]
     risk_flags: []
-    files_reviewed: [README.md, HANDOFF.md, AUDIT.md, ROADMAP.md, UX_ROADMAP.md, RESEARCH_RELEASE_PLAN.md]
+    files_reviewed: [README.md, data/project_metrics.json, RESEARCH_RELEASE_PLAN.md]
 
   - id: repo_organization
     name: Repo organization
     category: repo
     weight: 3
     target: 8
-    ai_score: 8
+    ai_score: 7
     user_score: null
-    effective_score: 8
-    gap: 0
-    priority: 0
-    status: healthy
+    effective_score: 7
+    gap: 1
+    priority: 3
+    status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Top-level layout is clean: index.html / app.css / app.js / app_data.js at root, /docs mirror for GitHub Pages, data/ (corpus, lineage, translations, glossary, gongan, editorial, project_metrics.json, corpus_manifest.json, canonical_locators.json), scripts/ (build/validate/segment/migrate/smoke/browser/arena), schemas/ (JSON Schema companion), sessions/ (dated audit logs). Root and /docs are byte-identical by gate."
+    ai_basis: "Core data/scripts/docs separation is sensible; four unsafe mutable ingestion snapshots were deleted and the live handoff is current. Historical audit files remain spread across root, sessions, and docs."
     user_basis: null
-    desired_direction:
-      - "scripts/ contains 5 'ingest_*' internal scripts (autonomous_wave3/4, content_wave, linji_and_platform_sutra, deprecated ingest_cbeta.py). Consider moving to scripts/internal/ or marking as one-shot (P3, audit 2026-08-10)."
-    evidence:
-      - "diff -rq data docs/data → silent (data mirror is byte-identical by CI gate)"
-      - "Repository layout documented in README.md and HANDOFF.md"
-    next_actions:
-      - "Optional: scripts/internal/ split (P3)"
+    desired_direction: ["Keep one current audit/handoff path and archive one-shot campaign scripts explicitly."]
+    evidence: ["git ls-files", "docs/audits", "sessions", "scripts/ingest_*.py"]
+    next_actions: ["Consolidate remaining historical root audits when safe."]
     risk_flags: []
-    files_reviewed: [README.md, HANDOFF.md, scripts/]
+    files_reviewed: [README.md, HANDOFF.md, sessions/, docs/audits/, scripts/]
 
   - id: code_hygiene
     name: Code hygiene
     category: engineering
     weight: 4
     target: 8
-    ai_score: 8
+    ai_score: 7
     user_score: null
-    effective_score: 8
-    gap: 0
-    priority: 0
-    status: healthy
+    effective_score: 7
+    gap: 1
+    priority: 4
+    status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Single IIFE in app.js with clear section banners. DOM/render/state are separated. Storage is fail-soft (try/catch around every localStorage call). No console.* left in app.js. 65 addEventListener calls all delegated. Consistent escaping (escHtml) used everywhere. No inline event handlers (CSP clean)."
+    ai_basis: "Escaping/event delegation are strong; dossier visibility, direct chapters, epilogue order, complete print, and collection labels are fixed with regressions. Inline-style debt, stale comments, and unvalidated storage remain."
     user_basis: null
-    desired_direction: []
-    evidence:
-      - "app.js 2882 lines, well-sectioned (init / state / view switcher / search / popovers / renderers)"
-      - "scripts/smoke_test.mjs 4u guards no inline onclick/onmouseover/etc."
-      - "scripts/smoke_test.mjs 4f guards fail-soft storage"
-    next_actions: []
+    desired_direction: ["Correct behavior first, then remove dead detail objects and inline presentation from templates."]
+    evidence: ["app.js openDossierPanel", "renderChapterItem", "renderReader", "renderTranslationSource"]
+    next_actions: ["Harden malformed storage/fatal-load behavior and continue reducing inline template styles."]
     risk_flags: []
-    files_reviewed: [app.js, app.css, index.html, scripts/smoke_test.mjs]
+    files_reviewed: [app.js, app.css, index.html]
 
   - id: architecture
     name: Architecture
     category: engineering
     weight: 4
     target: 8
-    ai_score: 8
+    ai_score: 7
     user_score: null
-    effective_score: 8
-    gap: 0
-    priority: 0
-    status: healthy
+    effective_score: 7
+    gap: 1
+    priority: 4
+    status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Clean zero-backend SPA, single source of truth (state.data from TRANSLATECHAN_DATA), deterministic bundle build, mirror-checked deploy, structured controlled vocabularies (school_key, theme_group, glossary category) drive both UI and validator. Data contract is the validator (validate_data.py), not the schema alone."
+    ai_basis: "The deterministic zero-backend pipeline is strong, but count-only completion and case-only source validation are inadequate for a research corpus."
     user_basis: null
-    desired_direction:
-      - "C1 (deferred, 2026-08-09): ES-module split of app.js (2882 lines) into app/views/ + app/lib/. Worth doing when a non-trivial view feature starts; not urgent."
-    evidence:
-      - "Single TRANSLATECHAN_DATA bundle; no build step at runtime; no runtime dependencies"
-      - "CONTENT_COLLECTIONS, school_vocabulary.json, theme_vocabulary.json are controlled vocabularies; the validator and the UI both consume them"
-      - "Deferred C1 module split documented in sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md"
-    next_actions: []
-    risk_flags: []
-    files_reviewed: [app.js, scripts/build_data_bundle.py, scripts/validate_data.py, schemas/translatechan-data.schema.json]
+    desired_direction: ["Model unit representation, source-field completeness, witness completion, and human review separately."]
+    evidence: ["scripts/build_data_bundle.py", "scripts/validate_data.py complete_document_keys", "data/corpus_manifest.json"]
+    next_actions: ["Redesign coverage/provenance model before further ingestion."]
+    risk_flags: ["Current architecture can certify excerpt containers as complete works."]
+    files_reviewed: [scripts/build_data_bundle.py, scripts/validate_data.py, data/corpus_manifest.json]
 
   - id: maintainability
     name: Maintainability
     category: engineering
     weight: 4
     target: 8
+    ai_score: 7
+    user_score: null
+    effective_score: 7
+    gap: 1
+    priority: 4
+    status: needs_work
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "Large files remain coupled, but the functional hotfix added outcome-focused smoke and Playwright coverage for the five broken public paths."
+    user_basis: null
+    desired_direction: ["Add behavior-first tests, then split views/validator concerns when correctness is stable."]
+    evidence: ["app.js 2978 lines", "app.css 2025 lines", "scripts/validate_data.py 1169 lines", "scripts/smoke_test.mjs 964 lines"]
+    next_actions: ["Modularize after remaining P1 remediation."]
+    risk_flags: []
+    files_reviewed: [app.js, app.css, scripts/validate_data.py, scripts/smoke_test.mjs]
+
+  - id: type_safety_validation
+    name: Type safety / validation
+    category: engineering
+    weight: 3
+    target: 8
+    ai_score: 7
+    user_score: null
+    effective_score: 7
+    gap: 1
+    priority: 3
+    status: needs_work
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "Python validation now requires explicit completion status, prevents N/N arithmetic from certifying a complete work, and rejects repeated case-source placeholders. JSON Schema is still not executed and non-case field completeness remains weakly checked."
+    user_basis: null
+    desired_direction: ["Execute applicable schemas and add strict per-shape validators plus negative fixtures."]
+    evidence: ["scripts/validate_data.py lines 1086-1089", "schemas/translatechan-data.schema.json", "renderChapterItem mismatch"]
+    next_actions: ["Add generic non-case unit validation and field-level provenance; execute JSON Schema or narrow its claim."]
+    risk_flags: ["Green validation still permits empty-rendering direct chapter shapes; repeated case placeholders are now blocked."]
+    files_reviewed: [scripts/validate_data.py, schemas/translatechan-data.schema.json, data/corpus/]
+
+  - id: error_handling_logging
+    name: Error handling / logging
+    category: engineering
+    weight: 3
+    target: 8
+    ai_score: 5
+    user_score: null
+    effective_score: 5
+    gap: 3
+    priority: 9
+    status: needs_work
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "Storage API exceptions are caught, but failed data loading has no visible fatal state and parsed collapsed-case storage is not shape-validated."
+    user_basis: null
+    desired_direction: ["Show a recoverable fatal-load panel and validate every persisted value before use."]
+    evidence: ["app.js state initialization", "storageGet/Set helpers", "init"]
+    next_actions: ["Add failure UI and malformed-storage regression tests."]
+    risk_flags: ["A missing/malformed data bundle can leave a blank app without diagnosis."]
+    files_reviewed: [app.js, theme-init.js, scripts/smoke_test.mjs]
+
+  - id: dependency_hygiene
+    name: Dependency hygiene
+    category: engineering
+    weight: 3
+    target: 8
     ai_score: 8
     user_score: null
     effective_score: 8
@@ -181,43 +228,79 @@ aspects:
     status: healthy
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Shared popover infrastructure (citation/term/robo popovers) is reused. Per-corpus caseLimit supports lazy chunking. searchUnitsCache builds the searchable index once per session. The smoke test (770+ lines) covers 44+ distinct checks including escaping, navigation, and behavior. AGENTS.md is missing — scoreboard adds it."
+    ai_basis: "There are no runtime JS packages and npm audit reports zero vulnerabilities; Google Fonts remains a browser-time third-party dependency."
     user_basis: null
-    desired_direction: []
-    evidence:
-      - "scripts/smoke_test.mjs covers 44+ checks across rendering, search, popovers, escaping, navigation, a11y, CI"
-      - "data-driven filter UI (lineage school, gong'an theme, lexicon category) prevents UI drift from data"
-    next_actions: []
+    desired_direction: ["Optionally self-host fonts or use system stacks."]
+    evidence: ["package.json", "package-lock.json", "npm audit", "index.html Google Fonts links"]
+    next_actions: ["Self-host fonts if privacy/resilience is a priority."]
     risk_flags: []
-    files_reviewed: [app.js, scripts/smoke_test.mjs, data/]
+    files_reviewed: [package.json, package-lock.json, index.html]
 
-  - id: type_safety_validation
-    name: Type safety / validation
+  - id: tests
+    name: Tests
     category: engineering
-    weight: 3
-    target: 8
-    ai_score: 9
+    weight: 5
+    target: 7
+    ai_score: 7
     user_score: null
-    effective_score: 9
+    effective_score: 7
     gap: 0
     priority: 0
-    status: healthy
+    status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "JSON Schema companion (schemas/translatechan-data.schema.json) + Python validator (scripts/validate_data.py) enforce the data contract. translationRecord, quotationSource, matrixTranslator, lineageVerificationEdge reject additional properties. Controlled vocabularies are loaded + enforced. Validator is the spec, not the schema alone."
+    ai_basis: "Smoke now behavior-tests the five functional fixes and Playwright covers computed visibility, direct chapters, order, labels, and lazy print expansion. Browser execution still exits zero when Chromium is unavailable."
     user_basis: null
-    desired_direction:
-      - "Remaining C2 strictness: tighten corpus core metadata in the JSON Schema (deferred, 2026-08-09)"
-    evidence:
-      - "schemas/translatechan-data.schema.json: translationRecord.additionalProperties = false, quotationSource.additionalProperties = false, lineageSchool.additionalProperties = false"
-      - "scripts/validate_data.py: validate_translation_map() rejects bare strings, validates status enum, mirrors schema strictness"
-      - "scripts/validate_data.py: load_controlled_vocabulary() enforces school_key ↔ display + 6-digit hex"
-    next_actions: []
-    risk_flags: []
-    files_reviewed: [schemas/translatechan-data.schema.json, scripts/validate_data.py]
+    desired_direction: ["Make browser behavior, content semantics, print completeness, responsive geometry, and accessibility first-class gates."]
+    evidence: ["node scripts/smoke_test.mjs pass", "npm run test:browser skip", "scripts/browser_test.mjs corrected title/count assertions"]
+    next_actions: ["Make browser execution non-skippable in a future owner-approved CI job; add responsive/a11y coverage."]
+    risk_flags: ["Required environments can still report a successful browser-script exit when Chromium is absent."]
+    files_reviewed: [scripts/smoke_test.mjs, scripts/browser_test.mjs]
 
-  - id: error_handling_logging
-    name: Error handling / logging
+  - id: ci_cd
+    name: CI/CD
+    category: operations
+    weight: 4
+    target: 7
+    ai_score: 6
+    user_score: null
+    effective_score: 6
+    gap: 1
+    priority: 4
+    status: blocked_manual_workflow_edit
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "Quality and Pages runs are green, but generated-asset coverage omits four mirrored files, CI lacks required browser/lint/link/accessibility checks, and the current action majors emit a Node 20 runtime-deprecation warning."
+    user_basis: null
+    desired_direction: ["Apply the documented workflow path edit, then add non-skippable browser and static-quality jobs with user approval."]
+    evidence: [".github/workflows/quality.yml", "gh run list", "scripts/build_data_bundle.py copied assets"]
+    next_actions: ["Owner/manual: update quality.yml paths; verify required status check on main."]
+    risk_flags: ["CI diff list omits docs/theme-init.js, robots.txt, sitemap.xml, and og-image.svg.", "Current GitHub Action majors target deprecated Node 20 runtimes and require an owner-reviewed major update."]
+    files_reviewed: [.github/workflows/quality.yml, scripts/build_data_bundle.py]
+
+  - id: security_privacy
+    name: Security / privacy
+    category: risk
+    weight: 5
+    target: 8
+    ai_score: 7
+    user_score: null
+    effective_score: 7
+    gap: 1
+    priority: 5
+    status: needs_work
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "Escaping and no-inline-handler discipline are strong; CSP is declared after a synchronous script, allows inline styles, and Google Fonts creates third-party requests."
+    user_basis: null
+    desired_direction: ["Move CSP before scripts or to headers, reduce inline styles, self-host fonts, and add SECURITY.md."]
+    evidence: ["index.html head order/CSP", "app.js escaping", "npm audit zero vulnerabilities"]
+    next_actions: ["Correct CSP order and document vulnerability reporting."]
+    risk_flags: []
+    files_reviewed: [index.html, app.js, app.css, LICENSE]
+
+  - id: performance
+    name: Performance
     category: engineering
     weight: 3
     target: 8
@@ -229,286 +312,38 @@ aspects:
     status: needs_work
     confidence: medium
     last_audited: 2026-08-10
-    ai_basis: "App is fail-soft (storageGet/Set wrap in try/catch; themeInit storage fallback documented; layout measures null rects). No console.* in app.js (smoke-guarded 4f). However, no structured logging — the only observability is the smoke test's stdout. No error reporting to the user beyond silently degrading."
+    ai_basis: "Compact JSON and lazy units help, but first-load local assets are about 576 KB gzip before fonts and all hidden views render during init."
     user_basis: null
-    desired_direction:
-      - "Optional: add a single, opt-in client-side error reporter (no PII, no network) so the user sees when something broke — P3."
-    evidence:
-      - "app.js: storageGet/Set/Remove are try/catch-wrapped"
-      - "app.js: motionBehavior reduces to 'auto' under prefers-reduced-motion; scrollTo accepts null btn"
-      - "scripts/smoke_test.mjs 4f: blocks storage and confirms preference writes do not crash"
-    next_actions:
-      - "Optional: a non-breaking error reporter (P3)"
+    desired_direction: ["Measure in-browser first, then lazy-load documents and render views on activation."]
+    evidence: ["gzip measurements", "app.js init renders five views", "post-containment app_data.js 1,594,154 raw bytes / 497,606 gzip-9"]
+    next_actions: ["Add performance budget after correctness work."]
     risk_flags: []
-    files_reviewed: [app.js, theme-init.js, scripts/smoke_test.mjs]
-
-  - id: dependency_hygiene
-    name: Dependency hygiene
-    category: engineering
-    weight: 3
-    target: 8
-    ai_score: 9
-    user_score: null
-    effective_score: 9
-    gap: 0
-    priority: 0
-    status: healthy
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Zero runtime dependencies. The only declared devDependency is Playwright (^1.62.1) for browser_test.mjs, which is optional and skips gracefully when Chromium is missing. package.json is private. No transitive dependencies in the runtime bundle (3 hand-written JS files, all local). Google Fonts loaded from googleapis.com — read-only, no API key, no PII."
-    user_basis: null
-    desired_direction: []
-    evidence:
-      - "package.json: only devDependency is playwright; npm install is opt-in"
-      - "app_data.js, app.js, app.css, theme-init.js — all self-hosted, no CDN runtime imports"
-    next_actions: []
-    risk_flags: []
-    files_reviewed: [package.json, package-lock.json, app.js, index.html]
-
-  - id: tests
-    name: Tests
-    category: quality
-    weight: 5
-    target: 7
-    ai_score: 8
-    user_score: null
-    effective_score: 8
-    gap: 0
-    priority: 0
-    status: healthy
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "770+ line smoke test (scripts/smoke_test.mjs) is dependency-free, runs in pure Node, covers 44+ checks: full corpus rendering, every reader mode, all 7 search schemas, pinyin + variant + diacritic folding, escaping consistency (poisoned data), ARIA tabs, dossier dialog, all popovers, reduced-motion, layout derivations, mobile corpus picker, lazy case rendering, storage failure modes, hash routing, search self-XSS guards, CSP enforcement. Optional Playwright real-browser suite (12 tests, desktop + mobile)."
-    user_basis: null
-    desired_direction:
-      - "Optional: convert the validator's --write-metrics + the smoke test into a single 'ci' script (P3)."
-    evidence:
-      - "scripts/smoke_test.mjs 770+ lines, 44+ check sections"
-      - "scripts/browser_test.mjs Playwright suite (skips when Chromium missing)"
-      - "scripts/validate_data.py: 30+ structural rules"
-    next_actions:
-      - "Optional: combine validate + build + smoke into one 'ci' wrapper (P3)"
-    risk_flags: []
-    files_reviewed: [scripts/smoke_test.mjs, scripts/browser_test.mjs, scripts/validate_data.py]
-
-  - id: ci_cd
-    name: CI/CD
-    category: operations
-    weight: 4
-    target: 7
-    ai_score: 7
-    user_score: null
-    effective_score: 7
-    gap: 0
-    priority: 0
-    status: blocked_manual_workflow_edit
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "GitHub Actions Quality workflow exists at .github/workflows/quality.yml and runs on push to main, push to arena/**, and PRs targeting main. Steps: checkout, Python syntax, validate data, build bundle, require generated artifacts (with a git diff exit-code gate), Node smoke test. Pages publishes from main /docs natively. However, the git diff --exit-code list is missing 3 files (docs/theme-init.js, docs/robots.txt, docs/sitemap.xml). Branch protection on main does not require the Quality check (PRs can merge without it). These are owner actions (token lacks workflows scope); tracked in .scoreboard/manual-workflow-edits.md."
-    user_basis: null
-    desired_direction:
-      - "Owner: extend .github/workflows/quality.yml git diff --exit-code list to include docs/theme-init.js, docs/robots.txt, docs/sitemap.xml (1-line patch, documented in manual-workflow-edits.md)."
-      - "Owner: enable branch protection requiring the Quality check (Settings → Branches → main)."
-    evidence:
-      - ".github/workflows/quality.yml: validate-build-smoke job with 5 steps"
-      - "scripts/smoke_test.mjs already enforces theme-init.js / robots.txt / sitemap.xml at the test layer"
-      - "HANDOFF.md 'Owner follow-up: CI workflow path list' documents the one-line patch"
-      - "HANDOFF.md 'Repository administration — require the Quality check on main' documents branch protection steps"
-    next_actions:
-      - "Owner: edit .github/workflows/quality.yml git diff --exit-code line (documented in .scoreboard/manual-workflow-edits.md Edit 1)"
-      - "Owner: enable branch protection on main (documented in .scoreboard/manual-workflow-edits.md Edit 2)"
-    risk_flags:
-      - "CI workflow path list missing 3 files; risk is low because smoke test already enforces them, but a future refactor could rotate the files without CI noticing."
-      - "Branch protection on main does not require the Quality check; PRs can merge without the gate."
-    files_reviewed: [.github/workflows/quality.yml, scripts/smoke_test.mjs, HANDOFF.md]
-
-  - id: security_privacy
-    name: Security / privacy
-    category: risk
-    weight: 5
-    target: 8
-    ai_score: 9
-    user_score: null
-    effective_score: 9
-    gap: 0
-    priority: 0
-    status: healthy
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Restrictive CSP (script-src 'self'; no inline scripts; no eval; object-src 'none'; base-uri 'none'; form-action 'none') enforced via meta tag. All event handling is delegated via data-* attributes; smoke test 4u enforces no inline onclick/onmouseover/etc. No PII collection. Verified-quotation rights manifest is the editorial control record; PD / copyrighted statuses are explicit. No external API calls. SVG favicon is inlined. No secrets in repo (no .env, no API keys). Search query is HTML-escaped (self-XSS guard, smoke 4t)."
-    user_basis: null
-    desired_direction: []
-    evidence:
-      - "index.html: meta Content-Security-Policy"
-      - "scripts/smoke_test.mjs 4u, 4t: CSP + search query escaping"
-      - "data/translations/rights_manifest.json: 14 sources, status types documented"
-      - "app.js: all addEventListener; no inline handlers; escHtml() called 70+ times"
-    next_actions: []
-    risk_flags: []
-    files_reviewed: [index.html, app.js, scripts/smoke_test.mjs, data/translations/rights_manifest.json]
-
-  - id: performance
-    name: Performance
-    category: quality
-    weight: 3
-    target: 8
-    ai_score: 8
-    user_score: null
-    effective_score: 8
-    gap: 0
-    priority: 0
-    status: healthy
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Deferred scripts (app_data.js + app.js), preloaded, downloaded in parallel with HTML parsing. searchUnitsCache builds the searchable index once per session. Lazy case rendering (CASE_CHUNK = 12, 12 → 24 → all). getSearchUnitsIndex() is debounced. Reduced-motion gated via motionBehavior(). 2026-08-10 Tier-3 win: build_data_bundle.py now emits compact JSON (separators=(',', ':') instead of indent=2), shrinking the shipped bundle from 1,956,032 B → 1,653,392 B (15.5% / 302,640 B saved) with no schema change. The next bigger lever — splitting per-corpus JSON out of the core bundle for lazy load — would still drop first-paint further (~600 KB target) but is no longer blocking."
-    user_basis: null
-    desired_direction:
-      - "Optional: split app_data.js into a 'core 4 complete texts' bundle + 32 per-corpus JSON files lazy-loaded on demand. Estimated first-paint drop: 1.65 MB → ~600 KB. Larger change, worth a design conversation."
-    evidence:
-      - "ls -l app_data.js: 1,653,392 B (down from 1,956,032 B; -15.5%)"
-      - "scripts/build_data_bundle.py: json.dumps(separators=(',', ':'))"
-      - "app.js: motionBehavior() + lazy caseLimit + searchUnitsCache"
-    next_actions:
-      - "Optional: per-corpus lazy-load split (P3, ~M)"
-    risk_flags: []
-    files_reviewed: [app.js, app_data.js, scripts/build_data_bundle.py, index.html]
+    files_reviewed: [app_data.js, app.js, scripts/build_data_bundle.py]
 
   - id: github_pages_presentation
     name: GitHub Pages presentation
     category: presentation
     weight: 5
     target: 8
-    ai_score: 9
+    ai_score: 6
     user_score: null
-    effective_score: 9
-    gap: 0
-    priority: 0
-    status: healthy
+    effective_score: 6
+    gap: 2
+    priority: 10
+    status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Live at https://56eli.github.io/translatechan/. Pages publishing from main /docs, native branch publishing, HTTPS enforced. Full SEO metadata: og:title, og:description, og:url, og:site_name, og:type, twitter:card, twitter:title, twitter:description, theme-color (light + dark), canonical URL. robots.txt and sitemap.xml mirrored into /docs. SVG favicon inlined as data-URI. Hero counts data-derived. ARIA-hidden decorative emoji. Skip-link to #main-content. Theme-init.js pre-paint FOUC guard. 2026-08-10 L1 layout pass: (a) hero banner is now dismissable per session with a re-show 'ⓘ' button in the header; (b) giant 禪 watermark on the hero removed (was visually heavy and competed with the quote for attention); (c) reader sidebar narrowed 300px → 260px with the single-column break moved from 960px → 1100px so the content area is no longer squeezed on 1366px laptops; (d) corpus sidebar now shows a per-text completion mark (green ✓ for complete, 'N/M' for excerpts) so scholars see at a glance which texts are full; (e) proper footer with nav links + meta + fineprint (was just a single quote); (f) sticky reader toolbar (position: sticky inside the content panel) so font/mode/print controls stay visible while scrolling; (g) corpus sidebar search filter (diacritic-tolerant, debounced 150ms) so users can jump to 'wumenguan' or 'dahui' without scrolling 36 entries; (h) reader breadcrumb '📚 Reader › T2005 Wumenguan' above the title for clear wayfinding."
+    ai_basis: "Phase A+B implements a structural walnut shell, Chinese room navigation, initial-only gate, grouped corpus shelf, first-fold Reader text, ruled reading sheets, and Reader-only mobile controls. Secondary rooms, inline-style/emoji consolidation, screenshots, and owner approval remain."
     user_basis: null
-    desired_direction:
-      - "Optional: og:image / twitter:image (1200×630 SVG of the brand) for richer link previews (still P3)."
-    evidence:
-      - "index.html: og:* / twitter:* / canonical / theme-color"
-      - "docs/robots.txt, docs/sitemap.xml"
-      - "theme-init.js: pre-paint dark-mode FOUC guard (smoke-guarded)"
-      - "scripts/smoke_test.mjs: 4ff (corpus completion mark) + 4gg (dismissable hero banner)"
-    next_actions: []
-    risk_flags: []
-    files_reviewed: [index.html, app.js, app.css, theme-init.js, robots.txt, sitemap.xml, docs/]
+    desired_direction: ["Preserve the approved minimal direction while fixing visible correctness, hierarchy, and sharing metadata."]
+    evidence: ["index.html", "app.css", "og-image.svg", "openDossierPanel hidden-state analysis"]
+    next_actions: ["Continue Phases C–E in the design gap plan: consolidate visual system, redesign four secondary rooms, then screenshot/accessibility verification and owner approval."]
+    risk_flags: ["Do not declare the website vision fulfilled without current desktop/mobile screenshots and explicit owner approval."]
+    files_reviewed: [index.html, app.css, app.js, og-image.svg]
 
   - id: ux_usability
     name: UX / usability
     category: presentation
-    weight: 4
-    target: 8
-    ai_score: 9
-    user_score: null
-    effective_score: 9
-    gap: 0
-    priority: 0
-    status: healthy
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Calm reader (case strip, collapsible cards, lazy chunking, mobile bottom bar). Coverage & disclosure popovers carry book/edition/page/rights status. Settings menu (Pinyin↔Rōmaji) is minimal and discoverable. Source-aware lineage graph (dashed links for traditional claims). Reduced-motion honored. Search has variant + diacritic folding + matched-field disclosure. Just-shipped U1 (case-strip titles), U2 (12/24/all segmented), U3 (free-text Lexicon filter), U8 (keyboard ←/→). All UX_ROADMAP phases A–D shipped."
-    user_basis: null
-    desired_direction:
-      - "Optional: keyboard reader navigation for sections (currently only cases), print-specific stylesheet polish, master dossier tabs (P3)."
-    evidence:
-      - "UX_ROADMAP.md: phases A–D all marked implemented"
-      - "sessions/SESSION_AUDIT_2026-08-10_019feabb.md: U1/U2/U3/U8 + smoke 4aa-4dd"
-    next_actions:
-      - "Optional: further keyboard nav for sections / dialogue rows (P3)"
-    risk_flags: []
-    files_reviewed: [UX_ROADMAP.md, sessions/SESSION_AUDIT_2026-08-10_019feabb.md, app.js]
-
-  - id: accessibility
-    name: Accessibility
-    category: presentation
-    weight: 3
-    target: 8
-    ai_score: 8
-    user_score: null
-    effective_score: 8
-    gap: 0
-    priority: 0
-    status: healthy
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Skip-link to #main-content. role=tablist with roving tabindex + Arrow/Home/End activation. role=dialog on the master dossier, focus moves in on open, Escape closes, focus restores. role=tooltip on all 3 popovers. role=search on the search box. aria-label on every icon-only button. :focus-visible reveals the glossary popover. lang=zh on every Chinese block. aria-hidden=true on every decorative emoji. prefers-reduced-motion: reduce already gates all animations and transitions. Citation text legibility raised 0.62 → 0.72 rem."
-    user_basis: null
-    desired_direction:
-      - "Optional: announce the dossier open via aria-live=polite; expose Pinyin↔Rōmaji switch as a live region (P3)."
-    evidence:
-      - "scripts/smoke_test.mjs 4m6 (semantic heading outline), 4x (ARIA tabs), 4w (keyboard glossary activation), 4dossier (N2)"
-      - "app.css 1754-1763: prefers-reduced-motion: reduce disables all animation/transition"
-    next_actions:
-      - "Optional: aria-live announcements (P3)"
-    risk_flags: []
-    files_reviewed: [index.html, app.js, app.css, scripts/smoke_test.mjs]
-
-  - id: content_quality
-    name: Content quality
-    category: presentation
-    weight: 3
-    target: 8
-    ai_score: 8
-    user_score: null
-    effective_score: 8
-    gap: 0
-    priority: 0
-    status: healthy
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Excellent honest disclosure design (verified_quotation vs reconstruction_unverified vs ai_draft is structural, not copy-disciplined). 177 verified slots across 10 corpus texts + 2 matrix entries. 178/178 case locators. Per-file coverage_note + validator-generated coverage string means an excerpt is never mistaken for a complete text. 4 of 36 corpus files are 100% complete (Wumenguan 48/48, Biyanlu 100/100, Platform Sutra 10/10, Xinxin Ming 37/37). 32 are excerpt seeds. 2026-08-10 Tier-4 pass: populated alternative_names for 20 masters and linked_corpus_keys for 20 (the remaining 6 are 4 frontier scaffolds + 2 historical masters whose primary text is in Chuandenglu/Wudeng Huiyuan; the validator now surfaces an empty-list WARNING for any future ingest that leaves these empty, and verifies every linked_corpus_key resolves to a known corpus document)."
-    user_basis: null
-    desired_direction:
-      - "Optional: next Phase 2 ingest (Congronglu 30→100, Dongshan Yulu 13→complete, or a new text)."
-    evidence:
-      - "data/project_metrics.json: 36 documents, 4 complete, 32 excerpt seeds, 106,615 content CJK, 1342 slots, 177 verified, 21 matrix entries, 178/178 case locators"
-      - "data/lineage/masters.json: alternative_names populated on 20 masters (was 14, now 34 of 34 non-empty for non-frontier-scaffold records)"
-      - "data/lineage/masters.json: linked_corpus_keys populated on 20 masters"
-      - "scripts/validate_data.py: warns when alternative_names or linked_corpus_keys is empty; errors when a linked_corpus_key is not a known corpus document"
-      - "scripts/smoke_test.mjs 4ee: dossier now shows Open <title> buttons for Sengcan (xinxin_ming), Daoxin (chuandenglu + dazhu_huihai), etc."
-    next_actions:
-      - "Optional: next Phase 2 corpus ingest (P3)"
-    risk_flags: []
-    files_reviewed: [data/project_metrics.json, data/lineage/masters.json, data/corpus/, scripts/validate_data.py, scripts/smoke_test.mjs]
-
-  - id: feature_completeness
-    name: Feature completeness
-    category: product
-    weight: 4
-    target: 8
-    ai_score: 8
-    user_score: null
-    effective_score: 8
-    gap: 0
-    priority: 0
-    status: healthy
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Public scope: Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, Chan Lexicon — all working. ROADMAP items in flight: 4 of 36 corpus files are 100% complete; 32 are excerpt seeds. 2026-08-10 Phase-2 ingest: added 5 well-documented Congronglu (Book of Serenity, T2004) cases (Nanquan-as-Cat, Panshan-Mind-Seal, Gutji-One-Finger, Dongshan-Three-Pounds-of-Hemp, Baizhang-Wild-Fox) bringing the corpus to 35/100 cases with case-level CBETA locators (T2004_p0196c etc.) on each. ROADMAP §Phase 2 calls for continued CBETA-collated completion. Glossary target 150+; currently 31."
-    user_basis: null
-    desired_direction:
-      - "Continue Phase 2: the remaining 65 Congronglu cases, or Dongshan Yulu 13→complete, or a new excerpt seed."
-      - "Glossary: 31 → 150+ terms over time (P3)."
-    evidence:
-      - "ROADMAP.md Phase 2"
-      - "data/project_metrics.json: 4 complete, 32 excerpt seeds; congronglu_cases 35/100 with 35 case-level CBETA locators"
-      - "data/glossary/chan_terms.json: 31 terms"
-      - "scripts/validate_data.py: case_locators must cover exactly the declared case_num values"
-    next_actions:
-      - "Optional: continue Congronglu ingest (P3)"
-      - "Optional: glossary expansion (P3)"
-    risk_flags: []
-    files_reviewed: [ROADMAP.md, data/project_metrics.json, data/corpus/congronglu_cases.json, data/canonical_locators.json, data/glossary/chan_terms.json]
-
-  - id: deployment_readiness
-    name: Deployment readiness
-    category: operations
     weight: 4
     target: 8
     ai_score: 7
@@ -516,55 +351,148 @@ aspects:
     effective_score: 7
     gap: 1
     priority: 4
-    status: blocked_manual_workflow_edit
+    status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "GitHub Pages is already live at https://56eli.github.io/translatechan/, publishing from main /docs, native branch publishing, HTTPS enforced. No deploy workflow needed (Pages is native). However, the Quality check is not required by branch protection — PRs can merge without the gate, which means a bad bundle could land. Documented as owner action. (Note: app_data.js, app.js, app.css, theme-init.js, robots.txt, sitemap.xml are all mirrored into /docs by build_data_bundle.py and verified by the git diff --exit-code gate.)"
+    ai_basis: "Phase A+B exposes Case 1 in the first-fold target, collapses front matter, groups the 2/2/31 shelf, unifies the 1100 breakpoint, measures sticky shell height, flattens Reader cards, and scopes mobile controls. Secondary-room density remains."
     user_basis: null
-    desired_direction:
-      - "Owner: enable branch protection on main requiring the Quality check (Settings → Branches → main → Require status checks → 'Validate data, generated artifacts, and reader')."
-    evidence:
-      - ".github/workflows/quality.yml exists; Pages publishes from main /docs natively (no deploy step needed)"
-      - "HANDOFF.md 'Repository administration — require the Quality check on main'"
-      - "docs/ contents mirrored byte-identically from root (build_data_bundle.py)"
-    next_actions:
-      - "Owner: enable branch protection on main (documented in .scoreboard/manual-workflow-edits.md Edit 2)"
-    risk_flags:
-      - "Quality workflow is not enforced by branch protection; PRs can merge without the gate."
-    files_reviewed: [.github/workflows/quality.yml, HANDOFF.md, scripts/build_data_bundle.py]
+    desired_direction: ["Fix the audited behavior and responsive geometry before new visual features."]
+    evidence: ["renderReader ordering", "readerPrintBtn", "responsive CSS at 1100/960", "mobile-action-bar CSS"]
+    next_actions: ["Run a focused desktop/tablet/mobile behavior pass."]
+    risk_flags: []
+    files_reviewed: [index.html, app.js, app.css, scripts/browser_test.mjs]
+
+  - id: accessibility
+    name: Accessibility
+    category: presentation
+    weight: 3
+    target: 8
+    ai_score: 7
+    user_score: null
+    effective_score: 7
+    gap: 1
+    priority: 3
+    status: needs_work
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "Reader modes and Gong’an filters expose aria-pressed; walnut nav/active states avoid white-on-gold contrast; mobile controls are view-scoped; dossier/heading semantics remain good. Tooltip/radio/search relationships and full contrast/screen-reader review remain."
+    user_basis: null
+    desired_direction: ["Adopt contrast-safe tokens and complete native/ARIA semantics, then run screen-reader and automated checks."]
+    evidence: ["WCAG contrast calculations", "setActiveModeButtons", "renderGonganIndex", "tooltip creation"]
+    next_actions: ["Add axe-style and keyboard/screen-reader release checks."]
+    risk_flags: []
+    files_reviewed: [index.html, app.js, app.css]
+
+  - id: content_quality
+    name: Content quality
+    category: presentation
+    weight: 3
+    target: 8
+    ai_score: 6
+    user_score: null
+    effective_score: 6
+    gap: 2
+    priority: 6
+    status: needs_work
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "The P0 is contained: all unreliable Congronglu data, locator claims, and generating scripts were removed after authoritative headings disproved the purportedly collated records. Completion and edition-verification wording are corrected; Biyanlu field review and quotation rights decisions remain."
+    user_basis: null
+    desired_direction: ["Contain uncollated source text and establish field-level provenance before any expansion."]
+    evidence: ["data/corpus/congronglu_cases.json repeated strings", "scripts/ingest_* placeholders", "platform_sutra 680 content CJK"]
+    next_actions: ["Keep Congronglu quarantined; complete Biyanlu field review and human quotation-rights decisions."]
+    risk_flags: ["Congronglu reintroduction would be unsafe without source-pinned TEI and field-level review.", "All modern quotation rights decisions remain unresolved."]
+    files_reviewed: [data/corpus/congronglu_cases.json, data/corpus/platform_sutra.json, data/canonical_locators.json, data/translations/rights_manifest.json]
+
+  - id: feature_completeness
+    name: Feature completeness
+    category: product
+    weight: 4
+    target: 8
+    ai_score: 7
+    user_score: null
+    effective_score: 7
+    gap: 1
+    priority: 4
+    status: needs_work
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "All five intended views work through the audited dossier, chapter, end-matter, print, and labeling paths. Unit permalinks and deeper source/rights completion remain."
+    user_basis: null
+    desired_direction: ["Finish and verify existing public workflows before corpus or feature expansion."]
+    evidence: ["index.html five views", "app.js dossier/chapter/print paths", "ROADMAP.md"]
+    next_actions: ["Complete current features, then resume glossary/corpus growth."]
+    risk_flags: []
+    files_reviewed: [index.html, app.js, ROADMAP.md]
+
+  - id: deployment_readiness
+    name: Deployment readiness
+    category: operations
+    weight: 4
+    target: 8
+    ai_score: 6
+    user_score: null
+    effective_score: 6
+    gap: 2
+    priority: 8
+    status: needs_work
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "Pages is built from main/docs with HTTPS and green automation; P0 content and the audited public-behavior P1s are fixed. Unresolved rights decisions and operations gates still block release readiness."
+    user_basis: null
+    desired_direction: ["Treat the public site as needing containment/hotfix before promotion."]
+    evidence: ["GitHub Pages API", "gh run list", "active audit risk flags"]
+    next_actions: ["Complete rights decisions, responsive/a11y hardening, and owner operations gates before release re-evaluation."]
+    risk_flags: ["Green deployment currently serves content and behavior that fail the project's own release standard."]
+    files_reviewed: [docs/, .github/workflows/quality.yml, RESEARCH_RELEASE_PLAN.md]
 
   - id: agent_readiness
     name: Agent readiness
     category: operations
     weight: 5
     target: 8
-    ai_score: 8
+    ai_score: 7
     user_score: null
-    effective_score: 8
-    gap: 0
-    priority: 0
-    status: healthy
+    effective_score: 7
+    gap: 1
+    priority: 5
+    status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Arena/sandboxed agent sessions may expire after PR merge, so durable project context must live in repo files. The repo has: HANDOFF.md (executive summary + session handoff), AUDIT.md (current verdict + session index), sessions/ (dated audit logs), vision.md / ROADMAP.md / UX_ROADMAP.md / RESEARCH_RELEASE_PLAN.md. The scoreboard system (this file) is the explicit durable-memory layer. scripts/arena_agent_pipeline.py documents prompt templates. Each session commits to its own arena/<session>-translatechan branch. Branch convention: agent sessions work on arena/<session>-translatechan; completed branches/PRs are historical, not instructions for the next session."
+    ai_basis: "AGENTS.md, scoreboard, live handoff, current audit, containment record, and operational guide are synchronized to this fixed branch and current blockers. Some broader historical/current documentation structure remains verbose."
     user_basis: null
-    desired_direction:
-      - "Scoreboard + AGENTS.md + manual-workflow-edits.md added in this session (2026-08-10)."
-    evidence:
-      - "HANDOFF.md: 30 KB executive summary + session handoff"
-      - "AUDIT.md: 15 KB current verdict + session index"
-      - "sessions/: dated audit logs (append-only)"
-      - "scripts/arena_agent_pipeline.py: prompt templates + entry harness"
-      - "session branch convention: arena/<session>-translatechan"
-    next_actions: []
+    desired_direction: ["Keep the concise handoff session-neutral except for the current branch and active blockers."]
+    evidence: [".scoreboard/agent-handoff.md pre-audit state", "response_summary.md pre-audit state", "HANDOFF.md"]
+    next_actions: ["Continue using the refreshed handoff; consolidate remaining historical root audits when safe."]
     risk_flags: []
-    files_reviewed: [HANDOFF.md, AUDIT.md, sessions/, scripts/arena_agent_pipeline.py, .scoreboard/]
+    files_reviewed: [AGENTS.md, HANDOFF.md, .scoreboard/agent-handoff.md, response_summary.md]
 
   - id: task_hygiene
     name: Task hygiene
     category: operations
     weight: 3
     target: 8
+    ai_score: 7
+    user_score: null
+    effective_score: 7
+    gap: 1
+    priority: 3
+    status: needs_work
+    confidence: high
+    last_audited: 2026-08-10
+    ai_basis: "Live summary and handoff are current, broken links were fixed, obsolete ingestion scripts were removed, and a dated containment record preserves the decision. Multiple historical root audits still add noise."
+    user_basis: null
+    desired_direction: ["Keep one live summary, one current audit index, and immutable dated session reports."]
+    evidence: ["root audit files", "sessions", "response_summary.md", "Markdown link scan"]
+    next_actions: ["Perform documentation consolidation after blocker remediation."]
+    risk_flags: []
+    files_reviewed: [AUDIT.md, AUDIT_*.md, FULL_AUDIT_2026-08-10_019feaf5.md, response_summary.md, sessions/]
+
+  - id: auditability
+    name: Auditability
+    category: operations
+    weight: 3
+    target: 8
     ai_score: 8
     user_score: null
     effective_score: 8
@@ -573,37 +501,10 @@ aspects:
     status: healthy
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Tasks are documented as dated session reports in sessions/ (audit P2-D convention). AUDIT.md §4 session index links every prior report. response_summary.md is the live working scratchpad (overwritten per session). No TODO/FIXME/XXX markers in app.js, app.css, index.html, or the public scripts. Working branch is arena/<session>-translatechan, never main."
+    ai_basis: "Audit, authoritative containment, explicit completion status, and outcome-focused smoke/Playwright regressions now cover the five functional defects. Browser CI and broader field-level editorial evidence remain."
     user_basis: null
-    desired_direction: []
-    evidence:
-      - "grep TODO/FIXME in app.js app.css index.html scripts/*.py scripts/*.mjs: 0 hits in public surface (only hits are in scripts/arena_agent_pipeline.py PROMPT_TEMPLATES dict which is a constant name, not a TODO)"
-      - "sessions/ contains 10 dated reports"
-    next_actions: []
-    risk_flags: []
-    files_reviewed: [AUDIT.md, sessions/, app.js, scripts/]
-
-  - id: auditability
-    name: Auditability
-    category: operations
-    weight: 3
-    target: 8
-    ai_score: 9
-    user_score: null
-    effective_score: 9
-    gap: 0
-    priority: 0
-    status: healthy
-    confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "This scoreboard (with the per-aspect evidence/next_actions/files_reviewed structure) is the explicit auditability layer. scripts/validate_data.py is a published 1152-line Python validator that mirrors JSON Schema strictness. The smoke test (770+ lines) is a regression suite, not just a test — it covers 44+ distinct behavioral checks. Each session writes a dated audit log to sessions/. Doc-truthfulness gate guards 25+ live numbers across README/HANDOFF/AUDIT/ROADMAP/index.html."
-    user_basis: null
-    desired_direction: []
-    evidence:
-      - "scripts/validate_data.py: 1152 lines, 30+ structural rules"
-      - "scripts/smoke_test.mjs: 770+ lines, 44+ checks"
-      - "sessions/: dated audit logs"
-      - "validate_doc_truthfulness(): 25+ doc-snippet rules"
-    next_actions: []
-    risk_flags: []
-    files_reviewed: [scripts/validate_data.py, scripts/smoke_test.mjs, sessions/, .scoreboard/]
+    desired_direction: ["Add negative semantic fixtures and keep current conclusions separate from historical reports."]
+    evidence: ["validate_doc_truthfulness", "prior 8.2 scoreboard", "contained P0 and remaining P1 findings"]
+    next_actions: ["Re-audit after remediation with required browser and editorial evidence."]
+    risk_flags: ["Passing audit gates currently do not establish content truth or visible correctness."]
+    files_reviewed: [scripts/validate_data.py, scripts/smoke_test.mjs, SCOREBOARD.md, sessions/]

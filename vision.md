@@ -2,12 +2,12 @@
 
 > **Document type**: *aspirational architecture with a current public-scope note*. For **measured current status**, see [`AUDIT.md`](./AUDIT.md); for phase tracking, see [`ROADMAP.md`](./ROADMAP.md); for operational flow, see [`HANDOFF.md`](./HANDOFF.md). The public Pages interface is deliberately limited to Reader, Matrix, Lineage, Gong'an Index, and Lexicon; it does not expose browser drafting, Arena-agent branding, or a header GitHub link.
 
-> 🤖 **Brand note (2026-08-09).** The public app is branded **Fake Chan Factory**: the English renderings are *Robolations* — AI text written in a famous translator's register, clearly badged and not citable as that translator's work. Genuine public-domain/verified quotations are badged **✅ Real text (verified)** and keep their real attribution. This document describes the *architecture and scholarly infrastructure* (canonical sources, lineage graph, locators, provenance) that the Factory runs on — that infrastructure is real whether a given rendering is Robo or verified.
+> 🤖 **Brand note (2026-08-09).** The public app is branded **Fake Chan Factory**: the English renderings are *Robolations* — AI text written in a famous translator's register, clearly badged and not citable as that translator's work. Edition-verified quotations are badged **✅ Edition-verified quotation** and keep their real attribution; rights/public-domain status remains separate. This document describes the *architecture and scholarly infrastructure* (canonical sources, lineage graph, locators, provenance) that the Factory runs on — that infrastructure is real whether a given rendering is Robo or verified.
 
-> *"A special transmission outside the scriptures,  
-> Not founded upon words and letters;  
-> Pointing directly to the human mind,  
-> Seeing into one's nature and attaining Buddhahood."*  
+> *"A special transmission outside the scriptures,
+> Not founded upon words and letters;
+> Pointing directly to the human mind,
+> Seeing into one's nature and attaining Buddhahood."*
 > — Bodhidharma (attributed)
 
 ---
@@ -136,7 +136,7 @@ Fake Chan Factory models the Chan tradition not merely as static text files, but
 
 One of the central innovations of Fake Chan Factory is its **Multi-Translator Sentence-Aligned Comparative Matrix**.
 
-A single Gong'an or Yulu passage often carries multiple distinct translations in English, each reflecting a different translator's philosophical stance, poetic register, or understanding of classical Buddhist idioms. In the live **Fake Chan Factory** app these comparative registers are presented as **🤖 Robolations** (AI text in the scholar's style, *not* their published words); only a genuinely verified quotation keeps the real name and the **✅ Real text (verified)** badge. The table below illustrates the *comparative concept*.
+A single Gong'an or Yulu passage often carries multiple distinct translations in English, each reflecting a different translator's philosophical stance, poetic register, or understanding of classical Buddhist idioms. In the live **Fake Chan Factory** app these comparative registers are presented as **🤖 Robolations** (AI text in the scholar's style, *not* their published words); only a genuinely verified quotation keeps the real name and the **✅ Edition-verified quotation** badge. The table below illustrates the *comparative concept*.
 
 ### Comparative Matrix Example: Wumenguan Case 1 (Zhaozhou's Dog / 趙州狗子)
 
@@ -274,11 +274,11 @@ The Fake Chan Factory web application is architected to run **100% client-side o
 
 Translating Classical Chinese Chan literature requires balancing three essential dimensions:
 
-1. **Philological Rigor (*信 / Faithfulness*)**:  
+1. **Philological Rigor (*信 / Faithfulness*)**:
    Respecting the unique Tang and Song vernacular Chinese (*唐宋白話/俗語*) idioms, colloquial particles (如 *底*, *甚麼*, *這箇*, *阿誰*, *沒交涉*), and technical monastic expressions without obscuring them behind generic Western theological language.
-2. **Contextual Directness (*達 / Expressiveness*)**:  
+2. **Contextual Directness (*達 / Expressiveness*)**:
    Preserving the abrupt, unmediated thrust of encounter dialogues (*機鋒*). Chan dialogues are not abstract philosophical treaties—they are lived existential encounters, shouting (*喝*), silence (*良久*), holding up a fly-whisk (*豎起拂子*), and direct pointing (*直指*).
-3. **Transparent Comparison (*雅與照 / Comparative Clarity*)**:  
+3. **Transparent Comparison (*雅與照 / Comparative Clarity*)**:
    No single translation is absolute. By laying historical translations side-by-side with original characters, readers and practitioners can perceive the multi-faceted nature of the Dharma without being trapped in any single translator's preconceptions.
 
 ---

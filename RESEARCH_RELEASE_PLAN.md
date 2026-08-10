@@ -16,13 +16,13 @@ A text or translation is only presented at the strongest available status. “Co
 | Source-verified lineage edge | Named chart/record, edition and exact locator, editorial note on historiographical status; otherwise retain the visible traditional/pending state |
 | Public release | Quality workflow green, generated assets committed, browser/a11y smoke pass, and no unresolved P1 scholarly-disclosure defect |
 
-## Current baseline (2026-08-08)
+## Current baseline (2026-08-10 containment state)
 
-- **Platform:** native GitHub Pages from `main` → `/docs`; the checked-in **Quality** workflow passes on the session branch.
-- **Corpus:** 36 structured documents. *Wumenguan* is the only complete work (48/48 cases plus preface/epilogue); **Biyanlu cases 1–10 are complete (14/100 total)** under the pilot contract (pointer, main case, pre-verse 評唱, verse; CBETA TEI line locators; labeled AI-draft renderings; post-verse 評唱 English pending); the remaining 34 documents are honest excerpt seeds. Per-text coverage is emitted deterministically in `project_metrics.json → corpus.per_text` and displayed in the Reader header.
-- **Traceability:** all 57 stored case units have case-level locators. The Linji pilot (4 sections, T1985) and Xinxin Ming pilot (7 stanzas, T2010) have CBETA line-head anchors marked `collated_with_normalization`, not source-checked: human editorial sign-off remains required. The remaining 33 non-case seed documents retain document-level `legacy_document_seed` records; the enforced migration queue is not evidence of collation. Huangbo material was separated by witness: the One Mind seed is T2012A, while the unconditioned-compassion Q&A now belongs to the T2012B Wanling seed and still needs unit-level collation.
-- **Translation disclosure:** 138 verified corpus quotation records and 2 verified Matrix records resolve to 13 rights-manifest source records; 5 verified records still need exact page/section references; human rights review remains pending.
-- **Lineage:** 30 internal edges are visibly traditional/pending (including four newly navigable frontier-profile links); none should be upgraded without exact source locators. `data/lineage/profile_review_queue.json` now tracks all 34 profiles for source-locator review without upgrading their evidence status.
+- **Platform:** native GitHub Pages from `main /docs`; Quality passes, but `repo_ready` remains fail until the audit's P1 functional/rights blockers are resolved.
+- **Corpus:** 35 active documents. Wumenguan and Xinxin Ming are explicitly `complete_selected_witness`; Biyanlu has 100/100 case records but is `partial_selected_witness`; Platform Sutra is a 10-heading excerpt set, not complete. Congronglu is quarantined and absent from the public bundle after generated source-looking placeholders and incorrect case-number/page claims were confirmed against authoritative T48n2004 headings.
+- **Traceability:** 148 active case records have case locators (48 Wumenguan + 100 Biyanlu); 33 non-case documents remain document-level with limited Linji/Xinxin unit pilots. A case-number anchor is not proof that every nested source field was collated.
+- **Translation disclosure:** 177 corpus quotation slots and 2 Matrix slots are edition-verified; 176/179 have recorded references. All 14 rights-manifest sources still require their documented rights/jurisdiction review. Verification does not itself grant reuse rights or establish public-domain status.
+- **Lineage:** 30 internal edges remain traditional/pending and four frontier tasks remain; no edge should be upgraded without exact source locators.
 
 ## Delivery sequence
 
@@ -55,7 +55,7 @@ A text or translation is only presented at the strongest available status. “Co
 
 ### 3 — Biyanlu as the next content pilot
 
-*Biyanlu* is the next expansion target because it exercises pointers, commentary, verse, case navigation, comparative reading, and Gong’an cross-references.
+Biyanlu now has 100 represented case records but still needs its missing source fields and human sign-off. Congronglu must restart from authoritative T48n2004 TEI; none of the quarantined generated records may be copied back.
 
 For each new case:
 
@@ -81,8 +81,8 @@ For each new case:
 
 ### 5 — Scale only after the pilot proves the contract
 
-- Complete the remaining Biyanlu cases in editorial batches.
-- Expand Congronglu and other texts only with the same locator/rights/provenance gates.
+- Complete Biyanlu's missing source fields and human review in editorial batches.
+- Re-ingest Congronglu from authoritative TEI only after field-level provenance and anti-placeholder gates exist; expand other texts under the same contract.
 - Grow the glossary and Gong’an index from collated units, rather than through disconnected bulk additions.
 - Publish periodic data-quality metrics and an editorial changelog.
 

@@ -7,7 +7,7 @@
 
 ## 1. Full-Project Audit
 
-The standalone audit report lives at [`AUDIT_2026-08-10_session.md`](./AUDIT_2026-08-10_session.md) and the session README summary at the same path. Highlights:
+The standalone audit report lives at [`AUDIT_2026-08-10_session.md`](../AUDIT_2026-08-10_session.md) and the session README summary at the same path. Highlights:
 
 - **No P0/P1/P2 defects**; the project is in excellent architectural health.
 - **Top 5 follow-ups (P3):** stale `~873KB` / `~1.69 MB` literals in `index.html`/`HANDOFF.md`/`AUDIT.md`/`smoke_test.mjs` (fixed here), CI workflow path list missing `theme-init.js`/`robots.txt`/`sitemap.xml` (owner action needed — token lacks `workflows` scope), bundle size (1.87 MB; could lazy-load per-corpus JSON), empty `alternative_names` for 15 masters, empty `linked_corpus_keys` for 8 masters.

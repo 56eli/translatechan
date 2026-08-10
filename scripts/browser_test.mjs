@@ -121,14 +121,18 @@ async function main() {
     p.on('pageerror', (err) => pageErrors.push(String(err)));
   }
 
-  // 1. Initial load — reader visible, all 36 corpus buttons, 5 nav tabs.
+  // 1. Initial load — reader visible, all active corpus buttons, 5 nav tabs.
   await testAsync('initial-load', async () => {
     await page.goto(base, { waitUntil: 'load' });
-    ok((await page.title()).includes('TranslateChan'), 'page title');
-    ok((await page.locator('.nav-tab-btn').count()) === 5, '5 nav tabs');
-    ok((await page.locator('.corpus-btn').count()) === 36, '36 corpus buttons');
+    ok((await page.title()).includes('Fake Chan Factory'), 'page title');
+    ok((await page.locator('.nav-tab-btn').count()) === 5, '5 room tabs');
+    ok((await page.locator('.corpus-btn').count()) === 35, '35 corpus rows');
+    for (const room of ['閱藏堂', '對勘', '傳法堂', '公案架', '詞林']) ok((await page.locator('#site-shell').textContent()).includes(room), `${room} room label`);
     ok(await page.locator('#view-reader.active').count() === 1, 'reader view active by default');
     ok((await page.locator('.case-card').count()) > 0, 'reader renders content');
+    ok((await page.locator('[data-completion-group="complete_selected_witness"] .corpus-btn').count()) === 2, '2 complete witnesses');
+    ok((await page.locator('[data-completion-group="partial_selected_witness"] .corpus-btn').count()) === 2, '2 partial witnesses');
+    ok((await page.locator('[data-completion-group="excerpt_seed"] .corpus-btn').count()) === 31, '31 excerpt seeds');
   });
 
   // 2. Hash deep links restore view + corpus.
@@ -141,16 +145,61 @@ async function main() {
     ok(body.includes('Stanza source: T48n2010'), 'xinxin_ming stanza locator rendered from deep link');
   });
 
-  // 3. Wumenguan lazy rendering: 12 cards → load-more → 48; strip has 48 chips.
+  // 3. Lineage node opens a visible, focused dossier and Close hides it.
+  await testAsync('lineage-dossier-visibility', async () => {
+    await page.goto(base + '#/lineage', { waitUntil: 'load' });
+    await page.waitForSelector('.graph-node');
+    await page.locator('.graph-node').first().click();
+    const panel = page.locator('#master-dossier-panel');
+    ok(await panel.isVisible(), 'dossier visible after node activation');
+    ok((await panel.getAttribute('hidden')) === null, 'dossier hidden attribute removed');
+    ok(await page.evaluate(() => document.activeElement?.id === 'master-dossier-panel'), 'focus moved into dossier');
+    await page.click('#dossier-close-btn');
+    ok(await panel.isHidden(), 'dossier hidden after close');
+  });
+
+  // 4. Platform direct-field chapters render source excerpts, not empty cards.
+  await testAsync('platform-direct-chapters', async () => {
+    await page.goto(base + '#/reader/platform_sutra', { waitUntil: 'load' });
+    const expected = { 3: '武帝造寺度僧', 6: '自心歸依自性', 7: '說似一物即不中', 8: '法無頓漸', 9: '道由心悟', 10: '三十六對' };
+    for (const [chapter, excerpt] of Object.entries(expected)) {
+      const card = page.locator(`[data-chapter-num="${chapter}"]`);
+      ok(await card.count() === 1, `chapter ${chapter} card present`);
+      ok((await card.textContent()).includes(excerpt), `chapter ${chapter} source excerpt rendered`);
+    }
+  });
+
+  // 5. Case-collection labels name the actual commentator and verse author.
+  await testAsync('collection-labels', async () => {
+    await page.goto(base + '#/reader/biyanlu_cases', { waitUntil: 'load' });
+    const readerText = await page.locator('#reader-content-target').textContent();
+    ok(readerText.includes('Yuanwu Commentary'), 'Biyanlu names Yuanwu commentary');
+    ok(readerText.includes('Xuedou Verse'), 'Biyanlu names Xuedou verse');
+    ok(!readerText.includes('Wumen Commentary'), 'Biyanlu does not use Wumen label');
+  });
+
+  // 6. Wumenguan lazy rendering: 12 cards → load-more → 48; strip has 48 chips.
   await testAsync('lazy-cases', async () => {
     await page.goto(base + '#/reader/wumenguan', { waitUntil: 'load' });
-    await page.waitForSelector('.case-card');
-    ok((await page.locator('.case-card').count()) === 12, 'first render shows 12 case cards');
-    ok((await page.locator('.case-chip').count()) === 48, 'case strip has 48 chips');
+    await page.waitForSelector('.case-card[id^="case-"]');
+    ok((await page.locator('.case-card[id^="case-"]').count()) === 12, 'first render shows 12 case cards');
+    ok((await page.locator('.case-chip').count()) === 48, 'case rail has 48 chips');
+    ok(!(await page.locator('details.front-matter').evaluate(el => el.open)), 'front matter collapsed by default');
+    const caseOneBox = await page.locator('#case-1').boundingBox();
+    ok(caseOneBox && caseOneBox.top < 900 && caseOneBox.bottom > 0, 'Case 1 reaches the first desktop viewport');
+    ok(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), 'no desktop page overflow');
+    const initialReaderText = await page.locator('#reader-content-target').textContent();
+    ok(initialReaderText.includes('Wumen Commentary') && initialReaderText.includes('Wumen Verse'), 'Wumenguan labels name Wumen');
+    ok(await page.evaluate(() => {
+      const reader = document.querySelector('#reader-content-target');
+      const lastCase = document.querySelector('#case-12');
+      const epilogue = [...reader.querySelectorAll('h2')].find(el => el.textContent.includes("Wumen's Epilogue"));
+      return !!lastCase && !!epilogue && Boolean(lastCase.compareDocumentPosition(epilogue) & Node.DOCUMENT_POSITION_FOLLOWING);
+    }), 'epilogue follows rendered cases');
     for (const expected of [24, 36, 48]) {
       await page.click('#case-load-more-btn');
       await page.waitForFunction(
-        (n) => document.querySelectorAll('.case-card').length === n,
+        (n) => document.querySelectorAll('.case-card[id^="case-"]').length === n,
         expected
       );
     }
@@ -238,12 +287,32 @@ async function main() {
     await mobilePage.selectOption('#corpus-mobile-select', 'xinxin_ming');
     await mobilePage.waitForFunction(() => document.body.textContent.includes('Stanza source: T48n2010'));
     ok(await mobilePage.locator('#corpus-mobile-select option[value="xinxin_ming"]').count() === 1, 'picker contains corpus options');
+    ok(await mobilePage.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), 'no mobile page overflow');
+    await mobilePage.locator('[data-view="matrix"]').click();
+    ok(await mobilePage.locator('.mobile-action-bar').isHidden(), 'Reader controls hidden outside Reader');
   });
 
-  // 11. Print stylesheet: header hidden, case content retained in print media.
+  // 11. Print/PDF expands all lazy units and keeps end matter last.
   await testAsync('print', async () => {
     await page.goto(base + '#/reader/wumenguan', { waitUntil: 'load' });
-    await page.waitForSelector('.case-card');
+    await page.waitForSelector('.case-card[id^="case-"]');
+    ok((await page.locator('.case-card[id^="case-"]').count()) === 12, 'print starts from lazy 12-case DOM');
+    await page.evaluate(() => {
+      window.__printSnapshot = null;
+      window.print = () => {
+        const cases = [...document.querySelectorAll('.case-card[id^="case-"]')];
+        const epilogue = [...document.querySelectorAll('#reader-content-target h2')].find(el => el.textContent.includes("Wumen's Epilogue"));
+        window.__printSnapshot = {
+          cases: cases.length,
+          epilogueAfterLast: Boolean(epilogue && cases.at(-1)?.compareDocumentPosition(epilogue) & Node.DOCUMENT_POSITION_FOLLOWING)
+        };
+      };
+    });
+    await page.click('#reader-print-btn');
+    await page.waitForFunction(() => window.__printSnapshot?.cases === 48);
+    const snapshot = await page.evaluate(() => window.__printSnapshot);
+    ok(snapshot.cases === 48, 'Print/PDF receives all 48 cases');
+    ok(snapshot.epilogueAfterLast, 'epilogue follows Case 48 in print DOM');
     await page.emulateMedia({ media: 'print' });
     ok((await page.evaluate(() => getComputedStyle(document.querySelector('header')).display)) === 'none', 'header hidden in print');
     ok((await page.evaluate(() => getComputedStyle(document.querySelector('.case-card')).display)) !== 'none', 'case cards remain visible in print');

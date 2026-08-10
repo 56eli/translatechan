@@ -1,93 +1,99 @@
 # 📊 TranslateChan / Fake Chan Factory — Repo Scoreboard
 
-> **Last updated:** 2026-08-10
-> **Status legend:** [rubric](./.scoreboard/rubric.md) · [YAML](./.scoreboard/scoreboard.yml) · [history](./.scoreboard/history.md) · [agent-handoff](./.scoreboard/agent-handoff.md) · [manual-workflow-edits](./.scoreboard/manual-workflow-edits.md) · [latest audit](./docs/audits/2026-08-10-baseline.md)
+> **Last updated:** 2026-08-10, session `arena/019febb1-translatechan`
+> **Evidence:** [full audit](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) · [containment](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md) · [functional hotfix](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md) · [YAML](./.scoreboard/scoreboard.yml) · [history](./.scoreboard/history.md) · [handoff](./.scoreboard/agent-handoff.md)
 
-## Scoring policy
+## Current result
 
-This scoreboard separates two questions:
+**Overall effective score: 6.9/10. `repo_ready = fail`.**
 
-- **AI: how healthy is this aspect on the evidence?** → `ai_score`
-- **User: how satisfied or de-prioritized is the user for this aspect?** → `user_score`
+The audit/containment/functional sequence established a 7.0 engineering baseline; owner feedback correctly reset visual confidence to 6.8. Owner-approved Phase A+B now implements the structural walnut shell and Reader literature hierarchy, raising the current score to 6.9 without claiming the four secondary rooms or vision approval are complete.
 
-`effective_score = user_score if present, otherwise ai_score`. AI scores diagnose; user scores decide planning priority. They are never averaged. User scores must be set by explicit user instruction only — PR approval, merge, or silence is **not** a `user_score`.
+No explicit user score has been supplied. Every `user_score` remains `null`.
 
-Full rules: [`.scoreboard/rubric.md`](./.scoreboard/rubric.md).
+## Highest priorities
 
-## 🏟️ Arena/sandbox note
+| Priority | Aspect | Score | Gap × weight | Why |
+|---:|---|---:|---:|---|
+| 1 | GitHub Pages presentation | 6 | 10 | Shell/Reader implemented; four rooms and visual verification remain |
+| 2 | Error handling / logging | 5 | 9 | No fatal-load UI; malformed storage path remains |
+| 3 | Deployment readiness | 6 | 8 | Rights and operations gates still block release |
+| 4 | Content quality | 6 | 6 | Rights decisions and field-level source review |
+| 5 | CI/CD | 6 | 4 | Missing paths, deprecated action runtimes, no required browser job |
+| 6 | Security / privacy | 7 | 5 | CSP order, inline styles, Google Fonts, reporting route |
 
-Agent sessions are sandboxed and may expire after a PR merge. **Durable context must live in repo files.** Future agents must read this scoreboard + `.scoreboard/agent-handoff.md` first; chat memory is not durable.
+## Score table
 
-## Top priorities (sorted by `gap × weight`, descending)
+| Aspect | Weight | Target | AI | User | Effective | Status |
+|---|---:|---:|---:|---:|---:|---|
+| Project purpose / scope | 4 | 8 | 9 | — | 9 | healthy |
+| README / onboarding | 4 | 7 | 7 | — | 7 | healthy |
+| Repo organization | 3 | 8 | 7 | — | 7 | needs_work |
+| Code hygiene | 4 | 8 | 7 | — | 7 | needs_work |
+| Architecture | 4 | 8 | 7 | — | 7 | needs_work |
+| Maintainability | 4 | 8 | 7 | — | 7 | needs_work |
+| Type safety / validation | 3 | 8 | 7 | — | 7 | needs_work |
+| Error handling / logging | 3 | 8 | 5 | — | 5 | needs_work |
+| Dependency hygiene | 3 | 8 | 8 | — | 8 | healthy |
+| Tests | 5 | 7 | 7 | — | 7 | needs_work (browser can skip) |
+| CI/CD | 4 | 7 | 6 | — | 6 | blocked_manual_workflow_edit |
+| Security / privacy | 5 | 8 | 7 | — | 7 | needs_work |
+| Performance | 3 | 8 | 7 | — | 7 | needs_work |
+| GitHub Pages presentation | 5 | 8 | 6 | — | 6 | needs_work |
+| UX / usability | 4 | 8 | 7 | — | 7 | needs_work |
+| Accessibility | 3 | 8 | 7 | — | 7 | needs_work |
+| Content quality | 3 | 8 | 6 | — | 6 | needs_work |
+| Feature completeness | 4 | 8 | 7 | — | 7 | needs_work |
+| Deployment readiness | 4 | 8 | 6 | — | 6 | needs_work |
+| Agent readiness | 5 | 8 | 7 | — | 7 | needs_work |
+| Task hygiene | 3 | 8 | 7 | — | 7 | needs_work |
+| Auditability | 3 | 8 | 8 | — | 8 | healthy |
 
-| # | Aspect | Effective | Gap | Weight | Priority | Status |
-|---|---|---:|---:|---:|---:|---|
-| 1 | deployment_readiness | 7 | 1 | 4 | 4 | blocked_manual_workflow_edit |
-| 2 | error_handling_logging | 7 | 1 | 3 | 3 | needs_work |
+## Completed this session
 
-## Scoreboard table
+### Content containment
 
-| Aspect | Weight | Target | AI | User | Effective | Gap | Priority | Status | Confidence | Next Action |
-|---|---:|---:|---:|---:|---:|---:|---:|---|---|---|
-| Project purpose / scope | 4 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | — |
-| README / onboarding | 4 | 7 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: trim internal ingest scripts from repo tree (P3) |
-| Repo organization | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: scripts/internal/ split (P3) |
-| Code hygiene | 4 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | — |
-| Architecture | 4 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | — |
-| Maintainability | 4 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | — |
-| Type safety / validation | 3 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | — |
-| Error handling / logging | 3 | 8 | 7 | — | 7 | 1 | 3 | needs_work | medium | Optional: client-side error reporter (P3) |
-| Dependency hygiene | 3 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | — |
-| Tests | 5 | 7 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: combine validate + build + smoke into one 'ci' script (P3) |
-| CI/CD | 4 | 7 | 7 | — | 7 | 0 | 0 | blocked_manual_workflow_edit | high | Owner: extend .github/workflows/quality.yml git diff --exit-code list (see manual-workflow-edits.md Edit 1) |
-| Security / privacy | 5 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | — |
-| Performance | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: per-corpus lazy-load split (~M) |
-| GitHub Pages presentation | 5 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | Optional: og:image (P3) |
-| UX / usability | 4 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | — |
-| Accessibility | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: aria-live announcements (P3) |
-| Content quality | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: next Phase 2 ingest (P3) |
-| Feature completeness | 4 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: continue Congronglu ingest (P3) |
-| Deployment readiness | 4 | 8 | 7 | — | 7 | 1 | 4 | blocked_manual_workflow_edit | high | Owner: enable branch protection requiring Quality check (see manual-workflow-edits.md Edit 2) |
-| Agent readiness | 5 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | — |
-| Task hygiene | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | — |
-| Auditability | 3 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | — |
+- Removed all unreliable Congronglu data, locators, deployment copies, and generating scripts.
+- Authoritative T48n2004 headings disproved even the five purportedly collated records.
+- Added explicit completion status, anti-placeholder validation, corrected counts/claims, and edition-verification/rights separation.
 
-## AI / user disagreement
+### Public-behavior hotfix
 
-None yet — no `user_score` has been provided. If the user provides a `user_score` later, both perspectives are preserved here, the disagreement status (`user_unhappy` or `accepted_debt`) is set in the YAML, and risk flags are kept visible regardless.
+- Dossier now removes/restores semantic `hidden` and is visible/focus-managed.
+- All six direct-field Platform chapters render source text and source disclosure.
+- Wumenguan epilogue follows case units.
+- Print/PDF renders all lazy cases/sections before print; Wumenguan exports 48 cases followed by epilogue.
+- Wumenguan and Biyanlu labels name their actual commentator/verse author.
+- Smoke and Playwright cover every repaired path.
 
-## Critical risk flags
+### Design Phase A+B
 
-These remain visible even if the user accepts them:
+- Structural dark-walnut two-row shell and Chinese room navigation.
+- Initial-only compact gate; measured shell-height sticky geometry.
+- Truthful 2/2/31 corpus shelf and unified responsive breakpoint.
+- Progressive document ledger, collapsed front matter, first-fold Case 1 target.
+- Ruled, constrained Reader sheets and single-row case rail.
+- Reader-only/start-aligned mobile controls; safer active contrast and aria-pressed state.
+- Live preview is available, but four secondary rooms and explicit owner visual approval remain.
 
-- **CI workflow path list missing 3 files** (`docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`). Workflow change documented in [`.scoreboard/manual-workflow-edits.md` Edit 1](./.scoreboard/manual-workflow-edits.md). Low practical risk because the smoke test enforces them, but a future refactor could rotate them without CI noticing.
-- **Branch protection on `main` does not require the Quality check.** PRs can currently merge without the gate. Owner action documented in [`.scoreboard/manual-workflow-edits.md` Edit 2](./.scoreboard/manual-workflow-edits.md).
-- **Bundle size 1.65 MB** (down from 1.87 MB on 2026-08-10 after the compact-JSON Tier-3 win; 302,640 bytes / 15.5% smaller; no longer a risk flag since the easy win shipped — the optional per-corpus lazy-load split is now an explicit P3 follow-up on the `performance` aspect).
-- **Robo renderings form 72% of all translation slots** (966 reconstruction_unverified + 199 ai_draft + 177 verified = 1342). By design — this is what "Fake Chan Factory" *is* — but worth re-stating for any new contributor or auditor.
+## Active release blockers
 
-## Aspects needing user review
+1. **Design completion:** shell and Reader are implemented; Matrix, Lineage, Gong’an, Lexicon, visual-system consolidation, screenshot verification, and explicit owner approval remain.
+2. **Rights governance:** all 14 rights-manifest sources still require their documented human rights/jurisdiction decision.
+3. **Source depth:** Biyanlu, Linji, Platform, and other non-case records need field-level coverage and broader human review.
+4. **Responsive/accessibility:** sticky geometry, mobile Reader controls on other views, contrast, and ARIA state relationships remain.
+5. **Error handling:** missing bundle/fatal state and malformed persisted-state hardening remain.
+6. **Operations:** generated deploy paths and action majors need owner-approved workflow edits; branch protection needs administrator verification; browser execution is not required in CI.
 
-All 22 aspects need a `user_score` (currently `null`). The most useful place to start:
+## Required gate failures
 
-- `ci_cd` and `deployment_readiness` (both `blocked_manual_workflow_edit`) — even a thumbs-up here would help triage whether the owner considers the missing workflow edit urgent.
-- `content_quality` and `feature_completeness` (both `needs_work`, priority 3 and 4) — would the user prefer more Phase 2 ingest, or more polish on the data completeness (`alternative_names`, `linked_corpus_keys`)?
-- `performance` (priority 3) — would the user accept the 1.87 MB bundle as is, or do they want the lazy-load split?
+The gate requires security/privacy ≥8, tests ≥7, README ≥7, CI/CD ≥7, agent readiness ≥8, and overall ≥8. Tests and README now meet 7. Current failures are security 7, CI 6, agent readiness 7, and overall 6.9. Unresolved rights decisions independently block release readiness.
 
-## Quality gate status
+## Recommended next order
 
-`repo_ready` = **warning**.
-
-- All required-aspect numeric thresholds pass (security_privacy 8 ≥ 8, tests 8 ≥ 7, readme_onboarding 8 ≥ 7, ci_cd 7 ≥ 7, agent_readiness 8 ≥ 8).
-- Gate is `warning` (not `pass`) because `ci_cd` and `deployment_readiness` are `blocked_manual_workflow_edit` — the numeric threshold is met, but the underlying risk flags are visible.
-- After the two manual workflow edits land, the gate should move from `warning` → `pass`.
-
-## Files
-
-- Canonical machine-readable source: [`.scoreboard/scoreboard.yml`](./.scoreboard/scoreboard.yml)
-- Scoring rubric: [`.scoreboard/rubric.md`](./.scoreboard/rubric.md)
-- Change history: [`.scoreboard/history.md`](./.scoreboard/history.md)
-- Agent-to-agent handoff: [`.scoreboard/agent-handoff.md`](./.scoreboard/agent-handoff.md)
-- Manual GitHub workflow edits required: [`.scoreboard/manual-workflow-edits.md`](./.scoreboard/manual-workflow-edits.md)
-- Latest audit log: [`docs/audits/2026-08-10-baseline.md`](./docs/audits/2026-08-10-baseline.md)
-- Agent protocol section: [`AGENTS.md`](./AGENTS.md)
-- PR template: [`.github/pull_request_template.md`](./.github/pull_request_template.md)
+1. Continue Phase C: remove most inline styles/generated emoji and standardize contrast-safe visual primitives.
+2. Execute Phase D: Matrix proof sheet, Lineage transmission hall, Gong’an catalogue, Lexicon dictionary.
+3. Execute Phase E: current light/dark mobile/desktop screenshots, accessibility verification, and explicit owner approval.
+4. Complete field-level source validation and quotation rights decisions.
+5. Apply owner-approved CI/action/branch-protection changes and make browser tests non-skippable in CI.
+6. Re-audit release readiness; re-ingest Congronglu only under the containment gate.

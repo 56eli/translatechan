@@ -111,7 +111,7 @@ The smoke test guards this scope — do not add them.
 ## Data contract
 
 The schema lives in `schemas/translatechan-data.schema.json`; the
-authoritative runtime check is `scripts/validate_data.py` (1152 lines).
+authoritative runtime check is `scripts/validate_data.py` (line count changes as rules evolve).
 The validator is the spec, not the schema alone — it enforces:
 
 - Status enum: `verified_quotation` / `reconstruction_unverified` / `ai_draft`
@@ -119,6 +119,8 @@ The validator is the spec, not the schema alone — it enforces:
 - Controlled `school_key` ↔ display + 6-digit hex color (lineage)
 - Controlled `theme_group` ↔ display (gong'an)
 - Per-file `zh_chars` ↔ computed content CJK count
+- Explicit editorial `completion_status`; N/N unit representation alone never means complete
+- Anti-placeholder rejection for repeated case-specific Chinese source fields
 - Manifest / corpus / locators / queue agreement
 - `data/project_metrics.json` ↔ live data
 - Doc truthfulness (25+ rules across `README.md`, `HANDOFF.md`, `AUDIT.md`, `ROADMAP.md`, `index.html`)

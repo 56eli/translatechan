@@ -6,9 +6,9 @@ truth for both the bundle and the reader navigation.  Run
 scripts/validate_data.py before this command when editing source data; CI enforces
 that the generated metrics and deploy artifacts are committed.
 
-Synchronization contract (verified by `diff -rq data docs/data` after each run):
-  app assets (index.html, app.css, app.js, app_data.js) are copied byte-for-byte,
-  and the data/ directory tree is mirrored into docs/data/.
+Synchronization contract (verified after each run): root app assets, theme/crawler/
+share assets, generated app_data.js, and the active data/ tree are mirrored
+byte-for-byte into docs/.
 """
 
 from __future__ import annotations

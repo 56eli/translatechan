@@ -1,74 +1,78 @@
-# Manual Workflow Edits
+# Manual Workflow / GitHub Administration Edits
 
-GitHub Actions workflow edits may need to be performed manually in the GitHub web editor.
+> **Last audited:** 2026-08-10, session `arena/019febb1-translatechan`
 
 ## Policy
 
-Agents must not edit `.github/workflows/*` unless explicitly instructed by the user. The session token's GitHub App does not have the `workflows` scope (confirmed 2026-08-08 and 2026-08-09 in HANDOFF.md), and even if it did, the policy is to ask before touching CI configuration.
+Agents must not edit `.github/workflows/*` unless the user explicitly requests it. Record exact changes here so an owner with the necessary GitHub permissions can apply and verify them.
 
-If a workflow change is needed, this file should hold the **exact** manual edit (file path, reason, paste-this content, validation steps).
-
-## Needed Manual Edits
-
-### Edit 1 — Extend CI generated-artifact path list
+## Edit 1 — Cover every mirrored deploy asset in Quality
 
 **File:** `.github/workflows/quality.yml`
+**Reason:** `scripts/build_data_bundle.py` mirrors four files that the current `git diff --exit-code` list omits:
 
-**Reason:** The Quality workflow's `git diff --exit-code` gate currently checks `app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/data data/project_metrics.json`. It is missing three files that the build script (`scripts/build_data_bundle.py`) also mirrors into `/docs`:
+- `docs/theme-init.js`
+- `docs/robots.txt`
+- `docs/sitemap.xml`
+- `docs/og-image.svg`
 
-- `docs/theme-init.js` (FOUC guard, smoke-guarded)
-- `docs/robots.txt` (crawler policy, smoke-guarded)
-- `docs/sitemap.xml` (sitemap, smoke-guarded)
-
-The local smoke test already enforces all three, so the practical risk today is low, but a future refactor that rotates those files would not fail the CI gate.
-
-**Paste this replacement for the existing step** (replace the line starting `run: | git diff --exit-code -- ...`):
+Replace the existing generated-artifact command with:
 
 ```yaml
       - name: Require generated artifacts and deploy mirror to be committed
         run: |
-          git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/theme-init.js docs/robots.txt docs/sitemap.xml docs/data data/project_metrics.json
+          git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/theme-init.js docs/robots.txt docs/sitemap.xml docs/og-image.svg docs/data data/project_metrics.json
 ```
 
-**After editing:**
+Then rerun Quality on an `arena/**` push and confirm the job **Validate data, generated artifacts, and reader** passes.
 
-- Commit through GitHub web editor (or local checkout + push if you have workflows scope).
-- Re-run the Quality workflow on the next push to confirm it still passes.
-- Ask an agent to re-audit the `ci_cd` aspect; expect the `blocked_manual_workflow_edit` status to drop back to `healthy` (or `warning` if `deployment_readiness` still requires Edit 2).
+> This only closes mirror-path coverage. The full audit also recommends future owner-approved CI jobs for a non-skippable browser suite, HTML/JS/link checks, and accessibility checks after the underlying tests are corrected.
 
-### Edit 2 — Require the Quality check on main (branch protection)
+## Edit 2 — Update GitHub Action majors off deprecated Node 20 runtimes
 
-**File:** `Settings → Branches → main → Branch protection rules` (GitHub web UI, not a workflow file)
+The final audit-branch Quality run succeeded but GitHub annotated that these action versions target deprecated Node 20 and are only running because the runner forces Node 24:
 
-**Reason:** The Quality workflow is the merge gate, but branch protection on `main` does not currently require it. A PR could be merged without the gate passing. This is a one-time admin step that no agent token can perform.
-
-**Steps:**
-
-1. Confirm the workflow has run at least once — any push/PR run appears under *Actions → Quality* (job name: **Validate data, generated artifacts, and reader**).
-2. Open **Settings → Branches → Add branch protection rule** (or edit the existing rule) for branch `main`:
-   - ☑ **Require status checks to pass before merging**
-   - In the search box pick **Validate data, generated artifacts, and reader** (the job name above), then confirm it is listed.
-   - Recommended extras: ☑ **Require a pull request before merging** (with at least 1 approving review), and leave **Do not allow bypassing the above settings** checked.
-3. Save. Do **not** add any Pages/deploy workflow — native branch publishing from `main` → `/docs` republishes automatically on merge.
-
-**After editing:**
-
-- Open a test PR to confirm the required-check gate blocks merges without the green Quality run.
-- Ask an agent to re-audit the `deployment_readiness` and `ci_cd` aspects; both should drop `blocked_manual_workflow_edit` (and the `repo_ready` quality gate should move from `warning` → `pass`).
-
-### Edit 3 (optional) — Add og:image / twitter:image meta tags
-
-Not a workflow edit, but listed here for completeness: if you want richer link previews, generate `docs/og-image.svg` (1200×630) and add to `index.html` `<head>`:
-
-```html
-<meta property="og:image" content="https://56eli.github.io/translatechan/og-image.svg">
-<meta name="twitter:image" content="https://56eli.github.io/translatechan/og-image.svg">
+```yaml
+uses: actions/checkout@v4
+uses: actions/setup-python@v5
+uses: actions/setup-node@v4
 ```
 
-This is a content edit, not a workflow edit, and is therefore in the agent's normal authority. Listed here only because audit 2026-08-10 flagged it as a P3 polish item.
+GitHub API reported the current releases on 2026-08-10 as checkout `v7.0.1`, setup-python `v7.0.0`, and setup-node `v7.0.0`. After reviewing each major's migration notes, replace the workflow references with:
 
-## Validation Steps After Any Edit
+```yaml
+uses: actions/checkout@v7
+uses: actions/setup-python@v7
+uses: actions/setup-node@v7
+```
 
-- The local release checklist (`python3 scripts/validate_data.py && python3 scripts/build_data_bundle.py && node scripts/smoke_test.mjs && diff -rq data docs/data`) should still pass.
-- The Quality workflow on the next push to `arena/**` or `main` should still succeed.
-- If you changed `quality.yml`, re-check that the new file path is mirrored in `docs/` after `python3 scripts/build_data_bundle.py`.
+Rerun Quality and confirm checkout, Python 3.12, Node 22, validation, build, artifact diff, and smoke steps all pass without the runtime-deprecation annotation.
+
+## Edit 3 — Verify and require Quality on `main`
+
+**Location:** GitHub repository Settings → Branches or Rules → `main`.
+
+The audit integration received HTTP 403 when reading classic branch protection, while the rulesets endpoint returned no visible rules. Therefore, do not repeat the old documentation’s unqualified claim that protection is definitely disabled; have an administrator verify it directly.
+
+If Quality is not required:
+
+1. Require a pull request before merging.
+2. Require status checks to pass.
+3. Select **Validate data, generated artifacts, and reader**.
+4. Prefer at least one approving review and disallow bypass unless there is a documented emergency process.
+5. Open a small test PR and confirm merge is blocked until Quality succeeds.
+
+No Pages deployment workflow is needed: GitHub Pages currently publishes natively from `main /docs`, and the Pages API reports `built` with HTTPS enforced.
+
+## Validation after either edit
+
+```bash
+python3 -m py_compile scripts/*.py
+python3 scripts/validate_data.py
+python3 scripts/build_data_bundle.py
+node scripts/smoke_test.mjs
+diff -rq data docs/data
+git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/theme-init.js docs/robots.txt docs/sitemap.xml docs/og-image.svg docs/data data/project_metrics.json
+```
+
+These checks do not clear the remaining P1 rights and functional blockers; re-evaluate `repo_ready` only after those are remediated and tested.

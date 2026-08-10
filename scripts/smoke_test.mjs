@@ -46,8 +46,18 @@ for (const iconSpan of publicHtml.match(/<span[^>]*>[\u{1F300}-\u{1FAFF}️⃣][
   if (iconSpan.includes('<span>Bilingual') || iconSpan.includes('<span>Comparative')) continue;
   if (!iconSpan.includes('aria-hidden="true"')) throw new Error(`decorative emoji span is not aria-hidden: ${iconSpan}`);
 }
-if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.includes('translators.size')) {
-  throw new Error('hero translator/corpus counts are not derived from data');
+if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.includes('matrixRegisters')) {
+  throw new Error('hero work/register counts are not derived from data');
+}
+for (const shellToken of ['id="site-shell"', 'class="nav-tabs room-nav"', '閱藏堂', '對勘', '傳法堂', '公案架', '詞林']) {
+  if (!publicHtml.includes(shellToken)) throw new Error(`walnut room shell missing: ${shellToken}`);
+}
+if (!appSrc.includes('setupShellMetrics()') || !appSrc.includes("document.body.dataset.currentView = viewName")) {
+  throw new Error('shell height/current-view state is not synchronized by the app');
+}
+if (!appSrc.includes('✅ Edition-verified quotation') ||
+    /verified public-domain text|Verified public-domain text/.test(publicHtml)) {
+  throw new Error('edition verification must remain distinct from rights/public-domain status');
 }
 // B4: app_data/app.js should use defer so parsing is not blocked while the
 // deterministic data bundle downloads; order remains app_data.js then app.js.
@@ -74,6 +84,14 @@ if (!publicHtml.includes('id="master-dossier-panel" role="dialog"')) {
 if (!appSrc.includes('function closeDossierPanel(') || !appSrc.includes("if (e.key !== 'Escape') return;")) {
   throw new Error('dossier dialog needs the Escape close path with focus restore');
 }
+if (!appSrc.includes('panel.hidden = false') || !appSrc.includes("panel.removeAttribute('hidden')") ||
+    !appSrc.includes('panel.hidden = true')) {
+  throw new Error('dossier open/close must toggle the semantic hidden state');
+}
+if (!appSrc.includes('function printFullReader()') ||
+    !appSrc.includes('state.caseLimit[state.currentCorpusKey] = total')) {
+  throw new Error('Print/PDF must render every lazy case/section before window.print');
+}
 // N3: keyboard focus reveals glossary definitions; both popovers are tooltips.
 if (!appSrc.includes("matches(':focus-visible')")) {
   throw new Error('term popover must open on keyboard focus, not only on Enter/Space');
@@ -85,7 +103,7 @@ if ((appSrc.match(/setAttribute\('role', 'tooltip'\)/g) || []).length < 2) {
 if (!/<input[^>]*type="search"[^>]*id="global-search"[^>]*aria-label="[^"]+"/.test(publicHtml)) {
   throw new Error('global search input must be type="search" with an aria-label');
 }
-if (!publicHtml.includes('<div class="search-box" role="search">')) {
+if (!/<div class="[^"]*search-box[^"]*" role="search">/.test(publicHtml)) {
   throw new Error('search box must carry the search landmark role');
 }
 
@@ -149,6 +167,7 @@ class StubElement {
   addEventListener(ev, fn) { (this._handlers[ev] ||= []).push(fn); }
   setAttribute(name, value) { this._attrs[name] = String(value); }
   getAttribute(name) { return this._attrs[name] || null; }
+  removeAttribute(name) { delete this._attrs[name]; }
   scrollIntoView() {}
   click() {}
   getBoundingClientRect() { return { top: 0, left: 0, right: 900, bottom: 0, width: 900, height: 0 }; }
@@ -178,7 +197,9 @@ globalThis.window._handlers = {};
 globalThis.location = { hash: '', href: 'http://localhost/index.html', protocol: 'http:', host: 'localhost' };
 globalThis.addEventListener = (ev, fn) => { (globalThis.window._handlers[ev] ||= []).push(fn); };
 globalThis.scrollTo = (opts) => { globalThis.window._lastScrollTo = opts; };
-globalThis.print = () => {};
+globalThis.print = () => {
+  globalThis.window._printedReaderHtml = ids['reader-content-target']?._innerHTML || '';
+};
 
 const makeTabStub = (view) => {
   const el = {
@@ -217,9 +238,11 @@ globalThis.document = {
       if (modeHandlers.length === 0) {
         for (const mode of ['bilingual', 'chinese_only', 'multi_translators']) {
           modeHandlers.push({
-            getAttribute: () => mode,
+            _attrs: {},
+            getAttribute: (name) => name === 'data-reader-mode' ? mode : null,
+            setAttribute(name, value) { this._attrs[name] = String(value); },
             classList: { add() {}, remove() {} },
-            addEventListener: (ev, fn) => { modeHandlers.find(h => h.getAttribute() === mode)._click = fn; }
+            addEventListener: (ev, fn) => { modeHandlers.find(h => h.getAttribute('data-reader-mode') === mode)._click = fn; }
           });
         }
       }
@@ -234,21 +257,28 @@ globalThis.document = {
 // Load data bundle + app
 eval(readFileSync(join(ROOT, 'app_data.js'), 'utf8'));
 if (!window.TRANSLATECHAN_DATA) throw new Error('app_data.js did not populate TRANSLATECHAN_DATA');
-if (!Array.isArray(window.TRANSLATECHAN_DATA.corpus_manifest?.items) || window.TRANSLATECHAN_DATA.corpus_manifest.items.length !== 36) {
-  throw new Error('app_data.js is missing the shared 36-item corpus manifest');
+if (!Array.isArray(window.TRANSLATECHAN_DATA.corpus_manifest?.items) || window.TRANSLATECHAN_DATA.corpus_manifest.items.length !== 35) {
+  throw new Error('app_data.js is missing the shared 35-item corpus manifest');
 }
-if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 36 ||
-    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 36) {
+if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 35 ||
+    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 35) {
   throw new Error('app_data.js is missing validated metrics or canonical locator coverage');
 }
-// F4: per-text coverage metrics (zh counts, unit counts, N/M coverage strings)
-// must exist for every corpus key and agree with the README's headline claims.
+// F4: per-text coverage metrics (zh counts, unit counts, representation strings,
+// and explicit editorial completion states) must exist for every corpus key.
 const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {};
-if (Object.keys(perText).length !== 36) {
+if (Object.keys(perText).length !== 35) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '35/100 cases'], ['platform_sutra', '10/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['platform_sutra', '10/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
+}
+if (perText.wumenguan?.is_complete !== true || perText.xinxin_ming?.is_complete !== true ||
+    perText.biyanlu_cases?.is_complete !== false || perText.platform_sutra?.is_complete !== false) {
+  throw new Error('editorial completion status must distinguish complete witnesses from represented unit counts');
+}
+if ('congronglu_cases' in perText || window.TRANSLATECHAN_DATA.corpus?.congronglu_cases) {
+  throw new Error('quarantined Congronglu source placeholders must not be present in the public bundle');
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
   throw new Error('per_text wumenguan declared zh_chars is not metrics-consistent');
@@ -293,9 +323,24 @@ try {
   }
 } catch (e) { failures++; console.log(`❌ Xinxin Ming locator pilot crash: ${e.message}`); }
 
+// 1d. Platform Sutra supports verses, dialogue arrays, and direct chapter fields.
+// Six direct-field chapters previously rendered as empty heading-only cards.
+try {
+  corpusClicks.platform_sutra();
+  const platformHtml = ids['reader-content-target']._innerHTML;
+  for (const [chapter, excerpt] of [[3, '武帝造寺度僧'], [6, '自心歸依自性'], [7, '說似一物即不中'], [8, '法無頓漸'], [9, '道由心悟'], [10, '三十六對']]) {
+    if (!platformHtml.includes(`data-chapter-num="${chapter}"`) || !platformHtml.includes(excerpt)) {
+      failures++; console.log(`❌ Platform direct chapter ${chapter} did not render its source excerpt`);
+    }
+  }
+  if ((platformHtml.match(/Chapter source:/g) || []).length !== 10) {
+    failures++; console.log('❌ Platform chapter source disclosure missing from one or more chapters');
+  }
+} catch (e) { failures++; console.log(`❌ Platform chapter-shape check crashed: ${e.message}`); }
+
 // 2. Exercise each reader mode
 for (const h of modeHandlers) {
-  try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute()} crash: ${e.message}`); }
+  try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute('data-reader-mode')} crash: ${e.message}`); }
 }
 
 // 3. Exercise global search with several queries (search is debounced ~200ms — await it)
@@ -357,6 +402,14 @@ const annotatedHtml = ids['reader-content-target']._innerHTML;
 if (annotatedHtml.includes('term-highlight"><span class="term-highlight') || annotatedHtml.split('term-highlight').length > 200) {
   failures++; console.log('❌ tooltip double-annotation regression');
 }
+if (!annotatedHtml.includes('無門評唱 / Wumen Commentary') || !annotatedHtml.includes('無門頌 / Wumen Verse')) {
+  failures++; console.log('❌ Wumenguan commentary/verse labels missing');
+}
+const epiloguePos = annotatedHtml.indexOf("Wumen's Epilogue & Gatha");
+const lastInitialCasePos = annotatedHtml.lastIndexOf('id="case-12"');
+if (epiloguePos < 0 || lastInitialCasePos < 0 || epiloguePos < lastInitialCasePos) {
+  failures++; console.log('❌ Wumenguan epilogue must render after the case units');
+}
 // 4d. Mode attribute is set on the reader container
 if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset.mode === undefined) {
   // stub stores dataset via plain property; app sets dataset.mode — check direct assignment happened
@@ -380,16 +433,15 @@ if (!biyanHtml.includes('日日是好日') || !biyanHtml.includes('Yunmen')) {
 if (!biyanHtml.includes('翠嵒眉毛') || !biyanHtml.includes('Barrier')) {
   failures++; console.log('❌ Biyanlu case 8 (Cuiyan) content missing');
 }
+if (!biyanHtml.includes('圜悟評唱 / Yuanwu Commentary') || !biyanHtml.includes('雪竇頌 / Xuedou Verse') || biyanHtml.includes('無門評唱')) {
+  failures++; console.log('❌ Biyanlu commentary/verse labels are not collection-specific');
+}
 if (store['translatechan_corpus_key'] !== 'biyanlu_cases') { failures++; console.log('❌ corpus selection was not persisted'); }
 const mobileCorpusSelect = ids['corpus-mobile-select'];
-mobileCorpusSelect.value = 'congronglu_cases';
+mobileCorpusSelect.value = 'xinxin_ming';
 (mobileCorpusSelect._handlers.change || []).forEach(fn => fn({ target: mobileCorpusSelect }));
-if (store['translatechan_corpus_key'] !== 'congronglu_cases') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
-corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
-const congrongHtml = ids['reader-content-target']._innerHTML;
-if (!congrongHtml.includes('data-jump-case="9"') || !congrongHtml.includes('第9則 ›') || !congrongHtml.includes('data-jump-case="1"') || !congrongHtml.includes('‹ 第1則')) {
-  failures++; console.log('❌ Congronglu sparse prev/next navigation is incorrect');
-}
+if (store['translatechan_corpus_key'] !== 'xinxin_ming') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
+if (corpusClicks['congronglu_cases']) { failures++; console.log('❌ quarantined Congronglu still appears in corpus navigation'); }
 // 4f. Preference writes must be non-fatal when browser storage is unavailable.
 const originalStorageSet = localStorage.setItem;
 localStorage.setItem = () => { throw new Error('storage blocked'); };
@@ -463,9 +515,9 @@ if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded too
 // a complete text — the reader header shows validator-derived coverage.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanCovHtml = ids['reader-content-target']._innerHTML;
-if (!biyanCovHtml.includes('📊 Coverage: 100/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+if (!biyanCovHtml.includes('Coverage: 100/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
-if (!ids['reader-content-target']._innerHTML.includes('📊 Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
+if (!ids['reader-content-target']._innerHTML.includes('Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
 const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
 if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }
@@ -500,19 +552,24 @@ try {
   }
 } catch (e) { failures++; console.log(`❌ lineage source disclosure crashed: ${e.message}`); }
 
-// 4ff. L1 (audit 2026-08-10, session 019feabb): the corpus sidebar shows
-// a per-text completion mark (e.g. "48/48" for complete Wumenguan,
-// "35/100" for the now-35 Congronglu). Spot-check both forms.
+// 4ff. Completion marks come from explicit editorial status, not N/N arithmetic.
+// Wumenguan/Xinxin are complete selected witnesses; Biyanlu and Platform can
+// show representation ratios but must not receive a complete checkmark.
 try {
   corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
-  // re-render the corpus sidebar list
   const corpusListHtml = ids['corpus-selector-list']._innerHTML;
-  if (!corpusListHtml.includes('is-complete')) {
-    failures++; console.log('❌ 4ff: corpus sidebar should show the is-complete mark on Wumenguan; list was: ' + corpusListHtml.substring(0, 200));
+  if (!corpusListHtml.includes('Complete selected witness')) {
+    failures++; console.log('❌ 4ff: sidebar should expose complete-selected-witness marks');
   }
-  // The Congronglu excerpt should show 35/100 (or 35/100 cases).
-  if (!corpusListHtml.includes('35/100')) {
-    failures++; console.log('❌ 4ff: corpus sidebar should show 35/100 for Congronglu');
+  for (const [group, label, count] of [['complete_selected_witness', 'Complete witnesses', 2], ['partial_selected_witness', 'Partial witnesses', 2], ['excerpt_seed', 'Excerpt seeds', 31]]) {
+    const pattern = new RegExp(`data-completion-group="${group}"[\\s\\S]*?${label}[\\s\\S]*?<span>${count}<\\/span>`);
+    if (!pattern.test(corpusListHtml)) failures++, console.log(`❌ 4ff: missing ${label} (${count}) shelf group`);
+  }
+  if (!corpusListHtml.includes('100/100') || !corpusListHtml.includes('10/10')) {
+    failures++; console.log('❌ 4ff: partial/excerpt representation ratios should remain visible');
+  }
+  if (corpusListHtml.includes('congronglu_cases') || corpusListHtml.includes('35/100')) {
+    failures++; console.log('❌ 4ff: quarantined Congronglu must not appear in the sidebar');
   }
 } catch (e) { failures++; console.log(`❌ 4ff sidebar spot-check crashed: ${e.message}`); }
 
@@ -538,31 +595,42 @@ try {
     if (!filtered.includes('is-complete')) {
       failures++; console.log('❌ 4hh: filtered Wumenguan button should still show ✓');
     }
-    // Clear the filter and confirm the full list returns (36 entries).
+    // Clear the filter and confirm the full active manifest returns.
     (filterInput._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
     await sleep(200);
     const restored = ids['corpus-selector-list']._innerHTML;
     const restoredCount = (restored.match(/data-corpus-key=/g) || []).length;
-    if (restoredCount !== 36) {
-      failures++; console.log(`❌ 4hh: clearing the filter should restore all 36 entries (got ${restoredCount})`);
+    if (restoredCount !== 35) {
+      failures++; console.log(`❌ 4hh: clearing the filter should restore all 35 entries (got ${restoredCount})`);
     }
   }
 } catch (e) { failures++; console.log(`❌ 4hh corpus filter spot-check crashed: ${e.message}`); }
 
-// 4ii. L1: the reader shows a breadcrumb trail ("📚 Reader › T2005
-// Wumenguan") above the title.
+// 4ii. Reader heading uses a quiet Reader / T2005 breadcrumb and progressive details.
 try {
   corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
   const readerHtml = ids['reader-content-target']._innerHTML;
-  if (!readerHtml.includes('reader-breadcrumb') || !readerHtml.includes('📚 Reader') || !readerHtml.includes('breadcrumb-current')) {
-    failures++; console.log('❌ 4ii: reader should show a breadcrumb trail above the title');
+  if (!readerHtml.includes('reader-breadcrumb') || !readerHtml.includes('>Reader</a>') || !readerHtml.includes('>T2005</span>') || !readerHtml.includes('document-details')) {
+    failures++; console.log('❌ 4ii: literary document heading/breadcrumb is incomplete');
   }
-} catch (e) { failures++; console.log(`❌ 4ii breadcrumb spot-check crashed: ${e.message}`); }
+  if (!readerHtml.includes('<details class="front-matter">') || readerHtml.includes('<details class="front-matter" open')) {
+    failures++; console.log('❌ 4ii: front matter should be present and collapsed by default');
+  }
+} catch (e) { failures++; console.log(`❌ 4ii document-heading check crashed: ${e.message}`); }
 
-// 4jj. L1: the reader toolbar should be sticky (position: sticky in CSS).
+// 4jj. Reader rail is sticky below the measured walnut shell; case rail is not sticky.
 const cssSrc = readFileSync(join(ROOT, 'app.css'), 'utf8');
-if (!cssSrc.includes('.reader-toolbar') || !/\.reader-toolbar\s*\{[^}]*position:\s*sticky/s.test(cssSrc)) {
-  failures++; console.log('❌ 4jj: reader toolbar should use position: sticky');
+if (!/\.reader-toolbar\s*\{[^}]*position:\s*sticky[^}]*top:\s*calc\(var\(--shell-height\)/s.test(cssSrc)) {
+  failures++; console.log('❌ 4jj: reader toolbar should stick below --shell-height');
+}
+if (!/\.case-jump-strip\s*\{[^}]*position:\s*static/s.test(cssSrc)) {
+  failures++; console.log('❌ 4jj: case index should be a static single-row rail');
+}
+if (!cssSrc.includes('body[data-current-view="reader"] .mobile-action-bar') || !/\.mobile-action-bar\s*\{[^}]*justify-content:\s*flex-start/s.test(cssSrc)) {
+  failures++; console.log('❌ 4jj: mobile controls must be Reader-only and start-aligned');
+}
+if (!appSrc.includes("setAttribute('aria-pressed', on ? 'true' : 'false')")) {
+  failures++; console.log('❌ 4jj: reader mode controls must expose aria-pressed');
 }
 
 // 4kk. L1 (audit 2026-08-10, session 019feabb): the dossier panel uses
@@ -609,6 +677,10 @@ try {
 // his dossier must include the "Open <title>" button for xinxin_ming.
 try {
   window.TranslateChan.openMasterDossier('sengcan');
+  const dossierPanel = ids['master-dossier-panel'];
+  if (dossierPanel.hidden !== false) {
+    failures++; console.log('❌ 4ee: opening a dossier must remove its hidden state');
+  }
   const sengcanHtml = ids['dossier-content']._innerHTML;
   if (!sengcanHtml.includes('data-open-doc="xinxin_ming"') || !sengcanHtml.includes('Open Faith in Mind')) {
     failures++; console.log('❌ 4ee: Sengcan dossier should link to xinxin_ming (T2010)');
@@ -617,11 +689,13 @@ try {
   if (!sengcanHtml.includes('Sengcan') || !sengcanHtml.includes('Third Patriarch')) {
     failures++; console.log('❌ 4ee: Sengcan dossier should show alternative names');
   }
+  (ids['dossier-close-btn']._handlers.click || []).forEach(fn => fn());
+  if (dossierPanel.hidden !== true) {
+    failures++; console.log('❌ 4ee: closing a dossier must restore its hidden state');
+  }
   // Spot-check the Linked corpus warning: 4 frontier scaffolds (prajnatara,
   // longtan_chongxin, yangqi_fanghui, dahong_zuzheng) + 2 historical masters
-  // (yaoshan_weiyan, yunyan_tansheng) still have empty linked_corpus_keys
-  // and the dossier must show the explicit 'Project corpus link not yet
-  // curated' notice for at least one of them.
+  // (yaoshan_weiyan, yunyan_tansheng) still have empty linked_corpus_keys.
   window.TranslateChan.openMasterDossier('yaoshan_weiyan');
   const yaoshanHtml = ids['dossier-content']._innerHTML;
   if (!yaoshanHtml.includes('Project corpus link not yet curated')) {
@@ -890,32 +964,37 @@ if (!globalThis.window._lastScrollTo || globalThis.window._lastScrollTo.top !== 
 }
 globalThis.window.scrollY = 0;
 
-// 4aa. U1 (audit 2026-08-10, session 019feabb): case-strip chips render the
-// case number + case title_zh (desktop gets the title inline; mobile gets it
-// in the title= tooltip). The new structure is `case-chip-num` + `case-chip-title`.
+// 4aa. Case-rail chips keep number + title in markup/title for accessible
+// labeling while CSS displays a compact, single-row number rail.
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const wmStripHtml = ids['reader-content-target']._innerHTML;
 if (!wmStripHtml.includes('class="case-chip-num">1</span>') || !wmStripHtml.includes('class="case-chip-title">趙州狗子</span>')) {
   failures++; console.log('❌ U1: case strip does not expose case number + title');
 }
 
-// 4bb. U2 (audit 2026-08-10, session 019feabb): 12/24/all segmented control
-// sits beside the primary load-more button. The buttons carry data-load-target
-// attributes that the delegated click handler routes through loadMoreCases(target).
-// Use congronglu_cases (35 cases as of 2026-08-10) to avoid the wumenguan
-// already-loaded state from the earlier 4g regression block.
-corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
-const congrongStripHtml = ids['reader-content-target']._innerHTML;
-if (!congrongStripHtml.includes('data-load-target="24"') || !congrongStripHtml.includes('data-load-target="35"')) {
+// 4bb. U2: the 12/24/all segmented control expands a fresh long collection.
+// Use Biyanlu (100 represented case records); Congronglu is quarantined.
+corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
+const biyanSegmentedHtml = ids['reader-content-target']._innerHTML;
+if (!biyanSegmentedHtml.includes('data-load-target="24"') || !biyanSegmentedHtml.includes('data-load-target="100"')) {
   failures++; console.log('❌ U2: case load-more segmented control missing');
 }
-const segBtn = { getAttribute: n => n === 'data-load-target' ? '35' : null,
+const segBtn = { getAttribute: n => n === 'data-load-target' ? '100' : null,
   closest: sel => sel === '[data-load-target]' ? segBtn : null };
 (documentHandlers.click || []).forEach(fn => fn({ target: segBtn, preventDefault() {} }));
-if (!window.TranslateChan.loadMoreCases || (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length !== 35) {
+if (!window.TranslateChan.loadMoreCases || (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length !== 100) {
   failures++; console.log('❌ U2: data-load-target click did not expand to all cases');
 }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+// Print/PDF receives the full 48-case DOM with end matter last.
+globalThis.window._printedReaderHtml = '';
+(ids['reader-print-btn']._handlers.click || []).forEach(fn => fn());
+await sleep(20);
+const printedHtml = globalThis.window._printedReaderHtml;
+if ((printedHtml.match(/id="case-\d+"/g) || []).length !== 48 ||
+    printedHtml.indexOf('id="case-48"') > printedHtml.indexOf("Wumen's Epilogue & Gatha")) {
+  failures++; console.log('❌ Print/PDF did not receive all 48 cases followed by the epilogue');
+}
 
 // 4cc. U3 (audit 2026-08-10, session 019feabb): Lexicon free-text filter is
 // present in the DOM, persists with the data, and the renderLexicon() output

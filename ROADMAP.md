@@ -17,9 +17,9 @@ This document outlines the detailed engineering, data science, translation, and 
 ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────┤
 │  • Public reader│  • 48/48        │  • 4 Matrix     │  • Primary text │  • Middle      │
 │    + matrix +   │    Wumenguan    │    entries       │    aggregation   │    Chinese     │
-│    lineage +    │  • 100/100 ✅   │  • 31/150+      │  • Book/edition │  • DDB / SAT   │
-│    index +      │    Biyanlu      │    Chan terms    │    verification  │  • Multi-ling  │
-│    lexicon      │  • 36 manifests │  • Status/rights │  • Hover/focus  │    / lineage   │
+│    lineage +    │  • 100/100 rec.│  • 31/150+      │  • Book/edition │  • DDB / SAT   │
+│    index +      │    Biyanlu part.│    Chan terms    │    verification  │  • Multi-ling  │
+│    lexicon      │  • 35 manifests │  • Status/rights │  • Hover/focus  │    / lineage   │
 │  • Smoke test   │    + locators   │    disclosure    │    citations     │    verification│
 │  [STATUS: 100%] │  [STATUS: ~30%] │  [STATUS: ~20%] │  [STATUS: ~40%] │  [Planned]     │
 └─────────────────┴─────────────────┴─────────────────┴─────────────────┴────────────────┘
@@ -28,6 +28,8 @@ This document outlines the detailed engineering, data science, translation, and 
 > Statuses above are **measured** (see [`sessions/AUDIT_archive_2026-08-08.md`](./sessions/AUDIT_archive_2026-08-08.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
 > **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **177 verified corpus quotation slots across 10 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
+
+> **Website-design status (2026-08-10):** the prior hero-only completion claim was withdrawn after owner feedback. Structural walnut shell + Reader Phase A+B is implemented; Phases C–E and explicit owner visual approval remain.
 
 ---
 
@@ -41,25 +43,25 @@ This document outlines the detailed engineering, data science, translation, and 
   - `data/gongan/`: Master index of classic Gong'an / Koan collections with cross-references.
   - `src/` or `app/`: Production-ready, client-side web application designed for instant GitHub Pages deployment.
 - [x] **Interactive Web Application (GitHub Pages)**:
-  - Responsive, Zen-minimalist interface with Dark and Light mode themes.
+  - Structural dark-walnut shell, Chinese room navigation, and literature-first Reader with light/dark themes (design Phase A+B; owner visual approval pending).
   - Reading font-size controls (`A+` / `A-`) for mobile, tablet, and desktop.
   - Side-by-side bilingual reading view (Classical Chinese with pinyin & English).
   - Multi-Translator Comparison matrix with explicit scholar, verified-quotation, reconstruction, and AI-draft disclosure.
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
-  - Instant client-side search across **all 36 texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3)).
-  - **UX/UI improvement roadmap implemented (Phases A–D, 2026-08-08)** — calm reader (case strip, collapsible cards, shared tap/focus popover, persisted preferences, debounced search), mobile-first navigation (corpus picker, bottom action bar, single-column translations), deep polish (print/PDF, hash routing, lineage pan/zoom, WCAG-AA a11y), performance (cached search index, lazy case rendering). See [`UX_ROADMAP.md`](./UX_ROADMAP.md).
+  - Instant client-side search across **all 35 active texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3)).
+  - **Functional UX phases A–D implemented (2026-08-08), design rework active (2026-08-10):** shell + Reader Phase A+B now shipped; visual-system consolidation, Matrix/Lineage/Gong’an/Lexicon redesign, screenshot/accessibility evidence, and owner approval remain. See [`UX_ROADMAP.md`](./UX_ROADMAP.md) and [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
-- [x] **Core Foundational Text Seeds** (36 files; authentic anchor passages, excerpt-scale — completion is Phase 2; canon IDs audited against CBETA 2026-08-08):
+- [x] **Core Foundational Corpus** (35 active files after the 2026-08-10 Congronglu quarantine; editorial completion status is explicit in the manifest):
   1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — **48/48 cases COMPLETE** + preface + epilogue, 2026-08-08)
-  2. *Linji Yulu* (臨濟語錄 / The Record of Linji, T1985 — completion pilot landed 2026-08-09: 67 sections across prefaces, Ascending the Hall, 示眾 and 勘辨 divisions, collated from CBETA P5 XML)
+  2. *Linji Yulu* (臨濟語錄 / T1985 — 74 recorded sections; partial selected witness)
   3. *Huangbo Chuanxin Fayao* (黃檗傳心法要 / T2012A — opening sections)
   4. *Zhaozhou Yulu* (趙州語錄 / recorded-saying extracts)
-  5. *Xinxin Ming* (信心銘 / opening stanzas)
+  5. *Xinxin Ming* (信心銘 / T2010 — 37/37 stanzas, complete selected witness)
   6. *Baojing Sanmei* (寶鏡三昧 / opening stanzas)
-  7. *Biyanlu* (碧巖錄 / Blue Cliff Record, T2003 — **100/100 cases; COMPLETE ✅**)
-  8. *Platform Sutra* (六祖壇經 / T2007 — 4/10 chapters)
-  9. *+28 further yulu, treatises & poems* (Mazu, Nanquan, Dongshan + Five Ranks, Yunmen, Fayan, Guiyang, Dahui, Hongzhi, Shitou, Hanshan, Sengzhao, monastic codes, Dunhuang texts…)
+  7. *Biyanlu* (碧巖錄 / T2003 — **100/100 case records represented; partial selected witness**)
+  8. *Platform Sutra* (六祖壇經 / T2007 — 10/10 chapter headings represented by selected excerpts; not complete)
+  9. *+27 further yulu, treatises & poems* (Mazu, Nanquan, Dongshan + Five Ranks, Yunmen, Fayan, Guiyang, Dahui, Hongzhi, Shitou, Hanshan, Sengzhao, monastic codes, Dunhuang texts…)
 
 ---
 
@@ -68,7 +70,7 @@ This document outlines the detailed engineering, data science, translation, and 
 - [x] **Data Contract & Release Guardrails**:
   - Heterogeneous JSON shapes for cases, sections, dialogues, stanzas, chapters, five ranks, and sample records are supported by the renderer and described in [`schemas/translatechan-data.schema.json`](./schemas/translatechan-data.schema.json).
   - `scripts/validate_data.py` enforces semantic invariants, shared corpus-manifest integrity, translation provenance, rights-manifest coverage, case-level locator coverage, and deterministic metrics; `.github/workflows/quality.yml` runs Python compilation, data validation, deterministic artifact checks, deploy-mirror verification, and reader smoke coverage on pushes and pull requests.
-  - `data/canonical_locators.json` covers every document and all 150 current case units (48 Wumenguan + 100 Biyanlu + 2 Congronglu seed cases). Linji (4 sections) and Xinxin Ming (7 stanzas) now have reviewed CBETA line-head locator pilots, visibly labeled as collated-with-normalization pending human sign-off; the remaining 33 non-case seed documents retain honest document-level status. `data/editorial/traceability_queue.json` enforces one migration-review record per seed (3 in review, 30 awaiting a unit locator).
+  - `data/canonical_locators.json` covers all 35 active documents and 148 case records (48 Wumenguan + 100 Biyanlu). Thirty-three non-case documents remain at document granularity; Linji and Xinxin include limited unit-locator pilots. The quarantined Congronglu locator claims were removed after authoritative T48n2004 headings disproved their case numbering/page claims. `data/editorial/traceability_queue.json` tracks the 33 document-level migrations.
   - `data/lineage/lineage_verification.json` aggregates all 30 in-set graph links and 4 unprofiled frontiers with source-record status; `data/lineage/profile_review_queue.json` tracks all 34 profiles (1 in review, 29 awaiting exact locators, 4 frontier-source tasks). The public chart never renders a link as source-verified until exact locators are reviewed.
 - [x] **Ingestion Tooling (seed level)**:
   - `scripts/segment_classical.py` — offline punctuation-based Classical Chinese sentence segmenter (manual input; no live CBETA fetching yet). `scripts/ingest_cbeta.py` remains as a deprecated compatibility wrapper.
@@ -80,9 +82,9 @@ This document outlines the detailed engineering, data science, translation, and 
   - `scripts/align_translations.py` — sentence-level translation alignment (not yet written).
 - [ ] **Full-Text Ingestion Targets**:
   - [x] Wumenguan (**48 / 48 cases** — completed 2026-08-08; every case carries the verified Senzaki & Reps 1934 public-domain register)
-  - [x] Biyanlu (**100 / 100 cases — COMPLETE ✅ 2026-08-09** — every case carries pointer (垂示, where canonically present: absent in 22 recorded cases), 本則, pre-verse 評唱 and 頌, zh collated from CBETA TEI T48n2003 via `cbeta-org/xml-p5`; integrity-repaired mis-seeded cases 14/21, completed truncated 1–3 verses and fabricated case-12 verse to canon; variants 韻陽/韶陽 (14), 韓獹 (43), 頗 (63) recorded; **post-verse 頌評唱/commentary rendering and human collation sign-off remain pending** — tracked in the file's `coverage_note`)
-  - [~] Linji Yulu (**completion pilot: 67 sections** — prefaces, Ascending the Hall, 示眾 and 勘辨 divisions collated from CBETA P5 XML, 2026-08-09; remaining divisions and full 勘辨 verification pending)
-  - [ ] Congronglu / Book of Serenity (All 100 Cases)
+  - [~] Biyanlu (**100 / 100 case records represented; partial selected witness** — post-verse commentary and human collation sign-off remain pending; N/N representation is not full-work completion)
+  - [~] Linji Yulu (**74 recorded sections** — selected-witness completeness and full unit-level verification remain pending)
+  - [!] Congronglu / Book of Serenity — **quarantined 2026-08-10** after generated source-looking placeholders and wrong case-number/page claims were found; reintroduce only from authoritative T48n2004 TEI with field-level collation tests
   - [ ] Jingde Chuandenglu (Complete 30 Fascicles, ~1,700 masters)
   - [ ] Baizhang Qinggui & Chanyuan Qinggui (Monastic codes)
   - [ ] Zhaozhou Yulu (Complete 500+ Dialogues)
@@ -175,7 +177,7 @@ translatechan/
 │   ├── corpus_manifest.json    # Shared reader/bundle ordering manifest
 │   ├── canonical_locators.json # Document/case source-locator registry
 │   ├── project_metrics.json    # Deterministic generated project counts
-│   ├── corpus/                 # 36 structured canonical-text files (JSON, excerpt-scale → growing)
+│   ├── corpus/                 # 35 active structured source files (complete/partial/excerpt)
 │   ├── editorial/               # traceability_queue.json (33 source-locator reviews)
 │   ├── lineage/                # masters.json + verification + profile_review_queue (30 links / 4 frontiers)
 │   ├── translations/           # matrix, provenance, and rights manifest

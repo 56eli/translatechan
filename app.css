@@ -13,7 +13,15 @@
   --bg-accent: #ede4d3;
   --border-color: #e6decb;
   --border-subtle: #eee7d8;
-  --border-focus: #b38238;
+  --border-focus: #80591f;
+
+  /* Structural timber — shell/lintels, never decorative texture */
+  --wood-950: #211814;
+  --wood-900: #2c211c;
+  --wood-800: #3a2a22;
+  --wood-text: #f3ead9;
+  --wood-muted: #cdbda7;
+  --shell-height: 7.25rem;
 
   /* Ink & Tea Typography */
   --text-primary: #2c2523;
@@ -110,114 +118,62 @@ h2.term-card-zh {
   line-height: inherit;
 }
 
-/* Header & Navigation */
-header {
-  background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);
+/* Site shell — dark walnut is architecture, not decoration */
+.site-shell {
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--wood-950);
+  color: var(--wood-text);
+  border-bottom: 3px solid #80591f;
+  box-shadow: 0 3px 12px rgba(32, 23, 18, 0.18);
 }
 
-.nav-container {
+.shell-frame {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0.85rem 1.5rem;
+  padding: 0.6rem 1.5rem 0;
+}
+
+.shell-primary {
+  min-height: 3.2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 1rem;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  min-width: max-content;
   text-decoration: none;
-  color: var(--text-primary);
-}
-
-.brand-icon {
-  font-size: 1.85rem;
-  color: var(--accent-gold);
-  line-height: 1;
-}
-
-.brand-title {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  color: var(--wood-text);
 }
 
 .brand-title-chinese {
   font-family: var(--font-kai);
-  font-size: 1.15rem;
-  color: var(--accent-gold);
-  font-weight: normal;
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
 }
 
-.brand-sub {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  letter-spacing: 0.5px;
+.brand-title-en {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wood-muted);
 }
 
-/* Nav Tabs with Horizontal Scrolling on Mobile */
-.nav-tabs {
-  display: flex;
-  gap: 0.35rem;
-  list-style: none;
-  background: var(--bg-primary);
-  padding: 0.3rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.nav-tabs::-webkit-scrollbar {
-  display: none;
-}
-
-.nav-tab-btn {
-  background: transparent;
-  border: none;
-  padding: 0.55rem 0.95rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  white-space: nowrap;
-  transition: var(--transition);
-}
-
-.nav-tab-btn:hover {
-  color: var(--text-primary);
-  background-color: var(--bg-hover);
-}
-
-.nav-tab-btn.active {
-  background-color: var(--bg-card);
-  color: var(--accent-gold);
-  box-shadow: var(--shadow-sm);
-}
-
-/* Global Controls */
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  min-width: 0;
 }
 
 .search-box {
@@ -225,130 +181,183 @@ header {
   min-width: 220px;
 }
 
+.shell-search {
+  width: clamp(180px, 25vw, 330px);
+}
+
 .search-input {
   width: 100%;
-  padding: 0.5rem 0.85rem 0.5rem 2.2rem;
-  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem 0.5rem 2rem;
+  font-size: 0.85rem;
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
+  border-radius: 4px;
   color: var(--text-primary);
   outline: none;
-  transition: var(--transition);
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.shell-search .search-input {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--wood-text);
+}
+
+.shell-search .search-input::placeholder {
+  color: var(--wood-muted);
 }
 
 .search-input:focus {
-  border-color: var(--accent-gold);
+  border-color: #c9a66b;
   background: var(--bg-card);
-  box-shadow: 0 0 0 3px rgba(158, 114, 50, 0.12);
+  box-shadow: 0 0 0 2px rgba(201, 166, 107, 0.2);
+}
+
+.shell-search .search-input:focus {
+  background: var(--wood-800);
+  color: var(--wood-text);
 }
 
 .search-icon {
   position: absolute;
-  left: 0.75rem;
+  left: 0.65rem;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted);
   pointer-events: none;
 }
 
+.shell-search .search-icon {
+  color: var(--wood-muted);
+}
+
 .theme-toggle {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--wood-text);
+  min-width: 38px;
+  height: 36px;
+  padding: 0 0.45rem;
+  border-radius: 4px;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition);
+  transition: background-color 0.18s ease, border-color 0.18s ease;
   text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 700;
 }
 
 .theme-toggle:hover {
-  border-color: var(--border-focus);
-  background: var(--bg-hover);
+  border-color: #c9a66b;
+  background: var(--wood-800);
 }
 
-/* Display settings menu (gear) */
+.room-nav {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border: 0;
+  background: transparent;
+}
+
+.room-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.room-nav li {
+  flex: 0 0 auto;
+}
+
+.nav-tab-btn {
+  position: relative;
+  min-height: 2.6rem;
+  padding: 0.35rem 1rem 0.45rem;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--wood-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  white-space: nowrap;
+  transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.nav-tab-btn:hover {
+  color: var(--wood-text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-tab-btn.active,
+.nav-tab-btn[aria-selected="true"] {
+  color: #fff7e8;
+  border-bottom-color: #c9a66b;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+}
+
+.room-name-zh {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.room-name-en {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Display settings popover returns to the paper material */
 .settings-menu {
   position: relative;
 }
 
 .settings-panel {
   position: absolute;
-  top: calc(100% + 0.4rem);
+  top: calc(100% + 0.45rem);
   right: 0;
   z-index: 120;
   min-width: 230px;
   background: var(--bg-card);
+  color: var(--text-primary);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
+  border-radius: 6px;
   box-shadow: var(--shadow-lg);
   padding: 0.85rem 0.95rem;
   font-size: 0.82rem;
 }
 
-.settings-panel[hidden] {
-  display: none;
-}
+.settings-panel[hidden] { display: none; }
+.settings-row { display: flex; flex-direction: column; gap: 0.4rem; }
+.settings-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); }
+.settings-options { display: flex; gap: 0.35rem; }
+.settings-opt { flex: 1; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 0.45rem 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); cursor: pointer; text-align: center; }
+.settings-opt small { display: block; font-weight: 400; font-size: 0.68rem; color: var(--text-muted); margin-top: 0.1rem; }
+.settings-opt:hover { border-color: var(--border-focus); color: var(--text-primary); }
+.settings-opt.active { background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold-hover); }
+.settings-opt.active small { color: currentColor; opacity: 0.8; }
 
-.settings-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.settings-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  color: var(--text-secondary);
-}
-
-.settings-options {
-  display: flex;
-  gap: 0.35rem;
-}
-
-.settings-opt {
-  flex: 1;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 0.45rem 0.5rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  cursor: pointer;
-  text-align: center;
-  transition: var(--transition);
-}
-
-.settings-opt small {
-  display: block;
-  font-weight: 400;
-  font-size: 0.68rem;
-  color: var(--text-muted);
-  margin-top: 0.1rem;
-}
-
-.settings-opt:hover {
-  border-color: var(--border-focus);
-  color: var(--text-primary);
-}
-
-.settings-opt.active {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: #ffffff;
-}
-
-.settings-opt.active small {
-  color: rgba(255, 255, 255, 0.85);
+@media (max-width: 760px) {
+  .shell-frame { padding: 0.5rem 0.75rem 0; }
+  .shell-primary { align-items: center; gap: 0.6rem; }
+  .brand-title-en { display: none; }
+  .brand-title-chinese { font-size: 1.35rem; }
+  .nav-controls { flex: 1; }
+  .shell-search { width: auto; min-width: 0; flex: 1; }
+  .theme-toggle { min-width: 34px; height: 34px; }
+  .nav-tab-btn { padding-inline: 0.7rem; }
+  .room-name-zh { font-size: 0.84rem; }
+  .room-name-en { font-size: 0.65rem; }
 }
 
 /* Main Container & Zen Welcome Banner */
@@ -359,80 +368,40 @@ main {
 }
 
 .zen-hero-banner {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-bottom: 4px solid var(--text-primary); /* dark walnut lean — Chinese Chan hall timber */
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 2rem;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--wood-900);
+  border-radius: 0;
+  padding: 0.8rem 0.25rem 0.9rem;
+  margin-bottom: 1.15rem;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  align-items: flex-end;
   gap: 1rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   position: relative;
-  overflow: hidden;
 }
 
-/* Chinese Chan hall hero — minimal, wood-lean, joke once */
-.hero-main {
-  flex: 1;
-  min-width: 16rem;
-}
-.hero-brand-row {
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.45rem;
-}
-.hero-zh {
-  font-family: var(--font-kai);
-  font-size: clamp(1.9rem, 4vw, 2.4rem);
-  font-weight: 900;
-  color: var(--text-primary);
-  letter-spacing: 0.06em;
-  line-height: 1.1;
-}
-.hero-en {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-.hero-icon {
-  font-size: 1.1rem;
-  line-height: 1;
-}
-.hero-meta {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  align-items: center;
-  flex-shrink: 0;
+body:not([data-current-view="reader"]) .zen-hero-banner,
+body:not([data-current-view="reader"]) #about-toggle {
+  display: none;
 }
 
-.zen-quote-main {
-  font-family: var(--font-kai);
-  font-size: 1.2rem;
-  color: var(--text-primary);
-  margin-bottom: 0.3rem;
-  letter-spacing: 0.04em;
-  font-weight: 700;
-}
+.hero-main { flex: 1; min-width: 0; }
+.hero-brand-row { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.2rem; }
+.hero-zh { font-family: var(--font-kai); font-size: clamp(1.65rem, 3vw, 2.15rem); font-weight: 900; color: var(--text-primary); letter-spacing: 0.1em; line-height: 1.05; }
+.hero-icon { font-size: 0.95rem; line-height: 1; }
+.hero-meta { display: flex; gap: 0.8rem; flex-wrap: wrap; align-items: center; justify-content: flex-end; flex-shrink: 0; }
+.hero-meta .meta-chip { padding: 0; border: 0; background: transparent; border-radius: 0; font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); }
+.zen-quote-main { font-family: var(--font-kai); font-size: 1rem; color: var(--text-primary); margin-bottom: 0.1rem; letter-spacing: 0.03em; font-weight: 600; }
+.zen-quote-sub { font-size: 0.75rem; color: var(--text-secondary); max-width: 760px; line-height: 1.45; }
+.zen-quote-sub strong { color: var(--text-primary); font-weight: 700; }
 
-.zen-quote-sub {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  max-width: 760px;
-  line-height: 1.55;
-}
-.zen-quote-sub strong {
-  color: var(--text-primary);
-  font-weight: 700;
+@media (max-width: 700px) {
+  .zen-hero-banner { align-items: flex-start; padding-top: 0.55rem; }
+  .hero-meta { flex-direction: column; align-items: flex-end; gap: 0.15rem; }
+  .zen-quote-sub { max-width: 30rem; }
 }
 
 /* L1: dismissable hero banner — the user can hide the about-bloock
@@ -476,145 +445,84 @@ main {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Reader Layout & Mobile Adaptability */
+/* Reader layout — typographic shelf beside a paper reading sheet */
 .reader-layout {
   display: grid;
-  /* L1 (audit 2026-08-10, session 019feabb): the 300px sidebar was eating
-     too much of the content area on 1366px laptops (only 1066px left
-     for the reader). Narrowed to 260px and reduced the gap; the
-     mobile break stays at 960px. */
-  grid-template-columns: 260px 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 1.4rem;
   align-items: start;
 }
 
-@media (max-width: 1100px) {
-  /* L1: at slightly larger screens, the sidebar still squeezes the
-     reader. Drop to a single column earlier. */
-  .reader-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 960px) {
-  .reader-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
 .sidebar-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
-  box-shadow: var(--shadow-sm);
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--border-color);
+  border-radius: 0;
+  padding: 0 0.9rem 0 0;
+  box-shadow: none;
   position: sticky;
-  top: 5rem;
-  max-height: calc(100vh - 6.5rem);
+  top: calc(var(--shell-height) + 0.75rem);
+  max-height: calc(100vh - var(--shell-height) - 1.5rem);
   overflow-y: auto;
   scrollbar-width: thin;
 }
 
 .sidebar-title {
-  font-size: 0.8rem;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--text-secondary);
-  margin-bottom: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
 }
 
-.corpus-selector-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
+.corpus-selector-list { display: flex; flex-direction: column; gap: 0.9rem; }
+.corpus-group { display: block; }
+.corpus-group-title { display: flex; justify-content: space-between; align-items: center; margin: 0 0 0.3rem; padding-bottom: 0.2rem; border-bottom: 1px solid var(--border-color); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.corpus-group-list { display: flex; flex-direction: column; gap: 0; }
 
 .corpus-btn {
-  text-align: left;
-  background: var(--bg-card-subtle);
-  border: 1px solid var(--border-subtle);
-  padding: 0.65rem 0.85rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.875rem;
-  font-family: var(--font-sans);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: var(--transition);
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  gap: 0.5rem;
+  padding: 0.42rem 0.25rem 0.42rem 0.55rem;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-radius: 0;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
 }
 
-.corpus-btn:hover {
-  background: var(--bg-hover);
-  border-color: var(--border-focus);
-}
+.corpus-btn:hover { background: var(--bg-hover); border-left-color: var(--border-color); }
+.corpus-btn.active { background: var(--accent-gold-light); border-left-color: var(--accent-gold); color: var(--text-primary); font-weight: 600; }
+.corpus-btn-text { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.corpus-title-en { font-size: 0.76rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.corpus-title-zh { margin-top: 0.08rem; font-family: var(--font-serif); font-size: 0.7rem; color: var(--text-secondary); }
+.corpus-btn-meta { display: inline-flex; align-items: center; gap: 0.25rem; flex-shrink: 0; }
+.corpus-badge { font-family: var(--font-mono); font-size: 0.59rem; padding: 0; border: 0; background: transparent; color: var(--text-muted); }
+.corpus-status-mark { font-family: var(--font-mono); font-size: 0.58rem; font-weight: 700; color: var(--text-muted); background: transparent; padding: 0; border: 0; border-radius: 0; white-space: nowrap; }
+.corpus-status-mark.is-complete { color: var(--accent-green); background: transparent; border: 0; }
+[data-theme="dark"] .corpus-status-mark.is-complete { color: #8bc9ad; background: transparent; border: 0; }
 
-.corpus-btn.active {
-  background: var(--accent-gold-light);
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
-  font-weight: 600;
-}
-
-.corpus-badge {
-  font-size: 0.7rem;
-  background: var(--bg-card);
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
-  color: var(--text-muted);
-}
-
-/* L1 (audit 2026-08-10, session 019feabb): corpus sidebar completion
-   mark. Complete texts (Wumenguan, Biyanlu, Platform Sutra, Xinxin
-   Ming) get a green ✓; excerpts show "N/M" so scholars see at a
-   glance which texts are full. */
-.corpus-btn-text {
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.corpus-btn-meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  flex-shrink: 0;
-}
-.corpus-status-mark {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  background: var(--bg-card);
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
-  white-space: nowrap;
-}
-.corpus-status-mark.is-complete {
-  color: #2d6a4f;
-  background: #d8f3dc;
-  border-color: #95d5b2;
-}
-[data-theme="dark"] .corpus-status-mark.is-complete {
-  color: #95d5b2;
-  background: rgba(149, 213, 178, 0.15);
-  border-color: rgba(149, 213, 178, 0.4);
+@media (max-width: 1100px) {
+  .reader-layout { grid-template-columns: minmax(0, 1fr); }
+  .sidebar-panel { display: none; }
 }
 
 /* Content Panel & Reading Surface */
 .content-panel {
+  min-width: 0;
   background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
+  border: 0;
+  border-radius: 0;
+  padding: 0 1.25rem 2rem;
+  box-shadow: none;
   min-height: 600px;
 }
 
@@ -670,22 +578,19 @@ main {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  background: var(--bg-primary);
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-color);
-  margin-bottom: 1.75rem;
-  /* L1 (audit 2026-08-10, session 019feabb): make the reader toolbar
-     sticky inside the content panel so the font-size + mode + print
-     controls stay visible while scrolling the corpus. The position
-     is "sticky" within the content-panel's scrolling context, so it
-     doesn't fight the global header. */
+  gap: 0.55rem 1rem;
+  background: var(--bg-card);
+  background: color-mix(in srgb, var(--bg-card) 94%, transparent);
+  padding: 0.5rem 0;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 0.9rem;
   position: sticky;
-  top: 0.25rem;
-  z-index: 50; /* > case-jump-strip 40 — no choppiness */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  top: calc(var(--shell-height) + 0.35rem);
+  z-index: 60;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .toolbar-group {
@@ -702,14 +607,14 @@ main {
 }
 
 .btn-pill {
-  background: var(--bg-card);
+  background: transparent;
   border: 1px solid var(--border-color);
-  padding: 0.35rem 0.85rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 0.32rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
   cursor: pointer;
   color: var(--text-secondary);
-  transition: var(--transition);
+  transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
 }
 
 .btn-pill:hover {
@@ -717,10 +622,12 @@ main {
   color: var(--text-primary);
 }
 
-.btn-pill.active {
-  background: var(--accent-gold);
+.btn-pill.active,
+.btn-pill[aria-pressed="true"] {
+  background: var(--accent-gold-light);
   border-color: var(--accent-gold);
-  color: #ffffff;
+  color: var(--accent-gold-hover);
+  font-weight: 700;
 }
 
 /* Case & Sentence Cards */
@@ -999,6 +906,73 @@ main {
 
 .matrix-col > .translation-status {
   margin-top: 0.45rem;
+}
+
+/* Reader as literature — ruled sheets, constrained measure, progressive metadata */
+#reader-content-target > .document-heading,
+#reader-content-target > .case-jump-strip,
+#reader-content-target > .front-matter,
+#reader-content-target > .case-card,
+#reader-content-target > .case-load-more {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#reader-content-target .document-heading {
+  margin-bottom: 0.35rem;
+  padding: 0.35rem 0 0.7rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.document-title-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
+.document-status { flex: none; padding: 0.2rem 0; border-bottom: 2px solid var(--accent-gold); font-family: var(--font-mono); font-size: 0.64rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
+.document-ledger { display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.75rem; margin-top: 0.45rem; font-size: 0.7rem; }
+.document-ledger .source-location { margin: 0; padding: 0; border: 0; background: transparent; font-size: 0.68rem; }
+.document-details { position: relative; }
+.document-details > summary,
+.front-matter > summary { color: var(--text-secondary); cursor: pointer; font-size: 0.72rem; font-weight: 650; list-style: none; }
+.document-details > summary::-webkit-details-marker,
+.front-matter > summary::-webkit-details-marker { display: none; }
+.document-details > summary::before,
+.front-matter > summary::before { content: '＋'; display: inline-block; width: 1rem; color: var(--accent-gold); }
+.document-details[open] > summary::before,
+.front-matter[open] > summary::before { content: '−'; }
+.document-details dl { position: absolute; right: 0; top: calc(100% + 0.35rem); z-index: 70; min-width: min(30rem, 80vw); padding: 0.75rem; background: var(--bg-card); border: 1px solid var(--border-color); box-shadow: var(--shadow-md); }
+.document-details dl > div { display: grid; grid-template-columns: 5rem 1fr; gap: 0.5rem; padding: 0.18rem 0; }
+.document-details dt { color: var(--text-muted); font-weight: 600; }
+.document-details dd { margin: 0; color: var(--text-primary); }
+
+.front-matter { margin-top: 0.2rem; margin-bottom: 0.5rem; padding: 0.45rem 0; border-bottom: 1px solid var(--border-subtle); }
+.front-matter-content { padding: 1rem 0 0.5rem; }
+
+#reader-content-target .case-card {
+  margin-bottom: 0;
+  padding: 1.65rem 0 1.9rem;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+}
+#reader-content-target .case-card:hover { border-color: var(--border-subtle); box-shadow: none; }
+#reader-content-target .case-header { border-bottom: 0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; }
+#reader-content-target .case-num-title { color: var(--text-primary); }
+#reader-content-target .case-speaker { text-transform: none; letter-spacing: 0.03em; }
+#reader-content-target .translation-grid { gap: 0; border-top: 1px solid var(--border-subtle); }
+#reader-content-target .translation-col { padding: 0.9rem 1rem 0.35rem 0; background: transparent; border: 0; border-right: 1px solid var(--border-subtle); border-radius: 0; box-shadow: none; }
+#reader-content-target .translation-col + .translation-col { padding-left: 1rem; }
+#reader-content-target .translation-col:last-child { border-right: 0; }
+#reader-content-target .commentary-block,
+#reader-content-target .verse-block { background: transparent; border-radius: 0; box-shadow: none; }
+
+@media (max-width: 700px) {
+  .document-title-row { align-items: flex-start; }
+  .document-status { font-size: 0.58rem; }
+  .document-details dl { left: 0; right: auto; }
+  #reader-content-target .translation-col,
+  #reader-content-target .translation-col + .translation-col { padding-left: 0; padding-right: 0; border-right: 0; border-bottom: 1px solid var(--border-subtle); }
 }
 
 /* Commentary & Verse Blocks */
@@ -1399,80 +1373,26 @@ mark {
    Calm Reader & Mobile-First (Phase A + B, 2026-08-08 — see UX_ROADMAP.md)
    ========================================================================== */
 
-/* --- Case index strip (long case-based texts) --- */
+/* Case index rail — one quiet horizontal line, never a sticky wall */
 .case-jump-strip {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 0.3rem;
-  position: sticky;
-  top: 4.4rem;
-  z-index: 40;
-  background: var(--bg-primary);
-  padding: 0.5rem 0 0.65rem;
+  gap: 0.25rem;
+  position: static;
+  max-width: 900px;
+  margin: 0 auto 0.55rem;
+  padding: 0.35rem 0 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
   border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 1.25rem;
 }
-
-.case-strip-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-  color: var(--text-secondary);
-  margin-right: 0.3rem;
-  white-space: nowrap;
-}
-
-.case-chip {
-  min-width: 2rem;
-  padding: 0.2rem 0.45rem;
-  font-size: 0.75rem;
-  border-radius: 6px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: var(--transition);
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.1rem;
-  line-height: 1.15;
-}
-
-.case-chip-num {
-  font-weight: 700;
-}
-
-.case-chip-title {
-  display: none; /* hidden on narrow screens; revealed on wide viewports */
-  font-size: 0.68rem;
-  max-width: 7rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  opacity: 0.85;
-}
-
-.case-chip:hover {
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
-  background: var(--accent-gold-light);
-}
-
-/* U1 (audit 2026-08-10, session 019feabb): on viewports ≥ 900px the case
-   strip has enough horizontal room to show the case title under each
-   number, doubling the strip as a topical table-of-contents. */
-@media (min-width: 900px) {
-  .case-chip-title {
-    display: inline;
-  }
-  .case-chip {
-    min-width: 4.5rem;
-    padding: 0.25rem 0.55rem;
-  }
-}
+.case-strip-label { position: sticky; left: 0; z-index: 1; flex: none; padding-right: 0.45rem; background: var(--bg-card); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); white-space: nowrap; }
+.case-chip { flex: none; min-width: 1.8rem; padding: 0.18rem 0.35rem; font-family: var(--font-mono); font-size: 0.68rem; border-radius: 3px; background: transparent; border: 1px solid transparent; color: var(--text-secondary); cursor: pointer; display: inline-flex; justify-content: center; align-items: center; line-height: 1.2; }
+.case-chip-num { font-weight: 700; }
+.case-chip-title { display: none; }
+.case-chip:hover,
+.case-chip:focus-visible { border-color: var(--accent-gold); color: var(--accent-gold-hover); background: var(--accent-gold-light); }
 
 /* U2 (audit 2026-08-10, session 019feabb): 12/24/all segmented control
    sitting beside the primary load-more button. The control collapses
@@ -1547,6 +1467,7 @@ mark {
   display: none;
   margin-bottom: 1rem;
 }
+.mobile-corpus-picker .search-input { padding: 0.55rem 0.7rem; background: var(--bg-card); }
 
 /* --- Mobile bottom action bar — min 44px touch target + safe-area --- */
 .mobile-action-bar {
@@ -1557,7 +1478,7 @@ mark {
   bottom: 0;
   z-index: 90;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.4rem;
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -1580,10 +1501,11 @@ mark {
   flex: none;
 }
 
-.mobile-mode-btn.active {
-  background: var(--accent-gold);
+.mobile-mode-btn.active,
+.mobile-mode-btn[aria-pressed="true"] {
+  background: var(--accent-gold-light);
   border-color: var(--accent-gold);
-  color: #ffffff;
+  color: var(--accent-gold-hover);
 }
 
 /* Pinyin toggle (persisted; desktop default on) */
@@ -1591,50 +1513,20 @@ mark {
   display: none;
 }
 
-/* --- Mobile-first overrides --- */
-@media (max-width: 960px) {
-  .mobile-corpus-picker {
-    display: block;
-  }
+/* Unified shelf/chooser breakpoint */
+@media (max-width: 1100px) {
+  .mobile-corpus-picker { display: block; max-width: 900px; margin: 0 auto 0.75rem; }
+}
 
-  .sidebar-panel {
-    display: none;
-  }
-
-  .mobile-action-bar {
-    display: flex;
-  }
-
-  body {
-    padding-bottom: 68px;
-  }
-
-  .case-jump-strip {
-    position: static;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .case-jump-strip::-webkit-scrollbar {
-    display: none;
-  }
-
-  .case-strip-label {
-    position: sticky;
-    left: 0;
-    background: var(--bg-primary);
-    padding-right: 0.5rem;
-  }
-
-  /* Calm reading: one translation column on narrow screens */
-  .translation-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .reader-toolbar .toolbar-group:first-child {
-    display: none; /* static status chips are chrome noise on mobile */
-  }
+/* Reader-only phone controls */
+@media (max-width: 760px) {
+  body[data-current-view="reader"] .mobile-action-bar { display: flex; }
+  body[data-current-view="reader"] { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+  body:not([data-current-view="reader"]) { padding-bottom: 0; }
+  .reader-toolbar .reader-mode-options { display: none; }
+  .translation-grid { grid-template-columns: 1fr; }
+  .case-jump-strip { scrollbar-width: none; }
+  .case-jump-strip::-webkit-scrollbar { display: none; }
 }
 
 /* ==========================================================================
@@ -1849,12 +1741,7 @@ textarea:focus-visible,
   outline-offset: 2px;
 }
 
-/* Nav tabs: tab semantics (role set in HTML; aria-selected synced by JS) */
-.nav-tab-btn[aria-selected="true"] {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: #ffffff;
-}
+/* Nav tab selected state is defined in the walnut shell section above. */
 
 /* Reduced motion: respect user preference */
 @media (prefers-reduced-motion: reduce) {
@@ -1869,14 +1756,15 @@ textarea:focus-visible,
 }
 
 /* Gong'an filter chips */
-.gongan-filter-chip.active {
-  background: var(--accent-gold);
+.gongan-filter-chip.active,
+.gongan-filter-chip[aria-pressed="true"] {
+  background: var(--accent-gold-light);
   border-color: var(--accent-gold);
-  color: #ffffff;
+  color: var(--accent-gold-hover);
 }
 
 /* L1 (audit 2026-08-10, session 019feabb): corpus sidebar search
-   filter — a tiny "🔍" + input above the 36-button list. Sits
+   filter — a tiny "🔍" + input above the active manifest list. Sits
    inside the sidebar so it's always visible while scrolling. */
 .corpus-filter {
   position: relative;
@@ -1996,30 +1884,8 @@ textarea:focus-visible,
   border-left: 4px solid var(--accent-gold);
 }
 
-/* L1 (audit 2026-08-10, session 019feabb): the reading-mode button
-   section in the corpus sidebar was using the corpus-btn class,
-   which made the row treatment (justify-content: space-between)
-   apply to single-label buttons. Added explicit .reader-mode-btn
-   styles for a clean stacked-pill layout. */
-.reader-mode-section {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
-}
-.reader-mode-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-.reader-mode-btn {
-  width: 100%;
-  text-align: center;
-  padding: 0.45rem 0.85rem;
-  font-size: 0.85rem;
-}
-.reader-mode-btn.active {
-  background-color: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: #ffffff;
-  font-weight: 600;
-}
+/* Reader mode controls live in the compact document rail. */
+.reader-toolbar .reader-mode-options { display: flex; flex-direction: row; gap: 0.3rem; }
+.reader-toolbar .reader-mode-btn { width: auto; text-align: center; }
+.reader-toolbar .reader-mode-btn.active,
+.reader-toolbar .reader-mode-btn[aria-pressed="true"] { background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold-hover); font-weight: 700; }
