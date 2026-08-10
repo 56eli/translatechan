@@ -1,74 +1,70 @@
-# 🔍 Fake Chan Factory — Audit & Session Log (Current State)
+# 🔍 Fake Chan Factory — Current Audit & Session Index
 
-> **What this file is**: the project's *current-state* audit summary, standing
-> recommendations, and quality gates. **Dated, full-length session reports live
-> in [`sessions/`](./sessions/)** — nothing is deleted; history is linked, not
-> duplicated. This convention (audit 2026-08-09, P2-D) exists because this file
-> had grown into an ~90 KB append-only log mixing durable verdicts with session
-> process. When adding a session report, link it in the index below and update
-> only the "Current" sections if the verdict changed.
+> **Current evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
+> **Convention:** this file contains only the current verdict, blockers, checks, and session index. Dated reports are historical snapshots and may contain metrics or conclusions superseded here.
 
----
+## 1. Current verdict — 2026-08-10, session `019febb1`
 
-## 1. Current verdict (2026-08-10, session `arena/019feaf5-translatechan`)
+**Not release-ready: one P0, four P1 groups, `repo_ready = fail`, weighted score 5.8/10.**
 
-**Healthy — no P0/P1 known.** All quality gates pass on `main` (commit `062a1fb` PR #13 merged) and on this session; the app renders all 36 corpus documents, the validator enforces the data contract (schema companion + semantics + rights + locators + deterministic metrics + controlled school vocabulary + doc truthfulness across README/HANDOFF/ROADMAP/index.html **and the §1 numbers of this file**), and the dependency-free smoke suite covers rendering, search, a11y/ARIA behavior, filter derivations, and escaping.
+The deterministic static pipeline is sound, but prior “no P0/P1/P2” conclusions missed content-trust and visible-behavior defects. Most urgently, 28/35 published Congronglu cases repeat identical generic Chinese commentary/verse inserted by old ingestion scripts without placeholder disclosure. Additional blockers include false full-text completion, unresolved quotation-rights decisions, an always-hidden Lineage dossier, six empty Platform chapter bodies, incomplete print exports, and stale current documentation.
 
-Current measured facts (validator-generated; the prose numbers below are guarded by the doc-truthfulness gate where they appear in README/HANDOFF):
+Current generated measurements (these are counts, **not proof of scholarly completion**):
 
-- Corpus: **36 documents**; Wumenguan **48/48 cases** complete; Biyanlu **100/100 cases** (**complete ✅**), Xinxin Ming **37/37 stanzas** complete, Platform Sutra **10/10 chapters** complete (4 complete texts); **32 excerpt seeds**; **107,563 content CJK / 113,410 all-string CJK**.
-- Translations: **1352 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**.
-- Locators: **183/183 case-level**; **33 document-level seeds** pending unit locators.
-- Lineage: **34 masters** (30 seed + 4 frontier scaffolds), **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**, source-status aware.
-- Glossary: **31 terms**; Gong'an index: **24 entries** (7 validator-enforced theme groups).
-- Bundle: deterministic zero-backend static build (1,676,108 bytes compact JSON + 2.9K og-image.svg, 2026-08-10: compact JSON -15.5% win); root and `/docs` byte-identical by CI gate. Hero redesigned to Chinese Chan hall gate (dark walnut 4px, 假禪工廠 kai 900, practical joke once), footer removed for minimal literature-first, OG image 1200×630 added.
+- Corpus: **36 documents**; Wumenguan **48/48 cases** complete under its selected case/preface/epilogue contract; Biyanlu **100/100 cases** represented under its current field contract; metrics currently label Xinxin Ming 37/37 and Platform Sutra 10/10 as complete, but the latest audit rejects count-only completion for Platform; **32 excerpt seeds**; **107,563 content CJK / 113,410 all-string CJK**.
+- Translations: **1352 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**. “Verified” means edition/wording checked, not automatically rights-approved or public-domain.
+- Locators: **183/183 case-level**; **33 document-level seeds**. A case-number anchor does not prove every nested source field was collated.
+- Lineage: **34 masters**; **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**; all edges remain traditional/pending.
+- Glossary: **31 terms**; Gong'an index: **24 entries**.
+- Bundle: 1,676,108 raw bytes; about 522 KB at gzip level 9. Root and `/docs` are synchronized.
 
-Phase V1 website vision shipped: audience = you + friends niche Chan + humor, first 30s Chan hall/literature/Zen with Robo joke theme, after that serious minimal transparent flow, no choppiness, no gimmicks, humor only in Robo names, lean wood dark walnut, no Japanese aesthetics, no footer, no conveyor, no CTA — see WEB_VISION_2026-08-10.md final.
+## 2. Active blockers
 
-## 2. Standing recommendations (priority order)
+1. **P0 — Congronglu source integrity:** quarantine every non-collated source field/case; add field-level provenance and placeholder rejection.
+2. **P1 — completion truth:** relabel Platform as chapter excerpts represented; separate unit-count, source-field, witness, and human-review coverage.
+3. **P1 — public quotation governance:** all 14 rights sources are still review/jurisdiction-pending; separate edition verification from rights/public-domain status.
+4. **P1 — broken public behavior:** remove dossier `hidden`, support direct chapter fields, move epilogue, and print all units.
+5. **P2 — test credibility:** add failing regressions for all above; current smoke passes and optional browser test is stale/skippable.
+6. **P2 — responsive/accessibility:** fix sticky/header offsets, 1100/960 breakpoint mismatch, cross-view mobile Reader bar, contrast, pressed/radio/tooltip semantics.
+7. **P2 — documentation:** reconcile README, HANDOFF, ROADMAP, RESEARCH_RELEASE_PLAN, OG artwork, and broken links after editorial decisions.
 
-1. **A1 — Repository ops (owner, ~2 min):** require the Quality workflow check *"Validate data, generated artifacts, and reader"* in branch protection/rulesets for `main` so a PR cannot merge without the green gate. Still unverified/unactioned by the owner.
-2. **A2 — Scholarly release gate (editorial):** resolve the **5 pending verified-source references**; migrate the **33 document-level locators** to unit/page-line anchors via `data/editorial/traceability_queue.json`; human sign-off per rights-manifest record before expanding quotation reuse. The validator enforces structure, not collation/copyright — keep it that explicit.
-3. **Content Phase 2:** continue the CBETA-collated completion campaign (ROADMAP.md). **Biyanlu is now complete (100/100, 2026-08-09)** and the **Linji yulu completion pilot has landed (67 sections: prefaces, Ascending the Hall, 示眾, 勘辨 divisions, same session)** — continuation beyond the pilot (remaining Linji divisions, then Congronglu 100/100) is the natural next target; every new text runs the established locator/provenance/metrics workflow.
-4. **Editorial candidates (small):** ~~gong'an theme taxonomy~~ ✅ delivered 2026-08-09; ~~semantic heading outline (a11y B2)~~ ✅ delivered 2026-08-09 (session `019fe64a`); ~~`switchViewRaw` scroll-restore on back/forward~~ ✅ delivered 2026-08-10 (session `019fea62`).
+Detailed evidence and phased exit criteria: [full audit §§3–7](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md#3-severity-ranked-findings).
 
-### Independent audit 2026-08-10 (session `019fea62`)
+## 3. Checks run
 
-Full report: [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md). Verdict: healthy, no P0/P1/P2; all gates green. Shipped the final remaining editorial candidate (**`switchViewRaw` scroll-restore on back/forward**), recording per-view scroll position and restoring it when navigating back/forward via browser history (guarded by smoke test `4z`). Added missing ARIA labels to `#lexicon-cat-filter` (`aria-label="Filter lexicon by category"`) and `#dossier-close-btn` (`aria-label="Close dossier"`) in `index.html`. Hardened global view-switching in `window.TranslateChan.openCase` and `openDoc` so invoking them from non-Reader views reliably displays the target Reader content. Replaced `Red Pine (Bill Porter)` with `Red Pine`, removed trailing `ℹ Disclosure` trigger buttons from Robo attribution copy, and replaced all occurrences of `channeling` across the app and docs with `Robolation` and `robolating`. All 25+ doc-truthfulness checks and regression gates pass.
-
-### Independent audit 2026-08-09 (session `019fe64a`)
-
-Full report: [`sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md) (archived 2026-08-09 per the §5 sessions convention). Verdict: healthy, no P0/P1/P2; all gates green. Findings catalogued as P3/P4. **B2 (semantic heading outline) shipped** in commit `0069953` — every view title is a real `<h1>` and every card/unit title a real `<h2>`, visual design unchanged (heading UA reset), smoke test `4m6` guards the outline; the matrix subtitle was also hardened from a hand-maintained translator list to a stable phrase. **A2 (data-derived graph colors) shipped** in the following commit — `school_vocabulary.json` now carries a per-school curated `color`, the validator requires a 6-digit hex (negative-tested), the schema declares it, `app.js` derives the graph palette from data (hardcoded map removed), and smoke `4m2b` guards it. **A1 (3 broken historical links)** fixed in the same pass; internal markdown-link check is now clean. **B1 (dark-theme FOUC)** also shipped: external `theme-init.js` applies the persisted `data-theme` before first paint (loaded before `app.css`, CSP-clean, build/CI/smoke-guarded). **A4 (bare-string translation migration)** also shipped: `scripts/migrate_translations.py` converted all 736 legacy string translations into explicit `{text,status}` records; the validator/schema now reject new bare strings, metrics are unchanged, and smoke `4m7` guards the contract (bundle grew ~74 KB because statuses are now serialized). **B3/B5/B6 (a11y/SEO/copy polish)** shipped in the final pass: decorative emoji are `aria-hidden`, the hero counts are data-derived, and `theme-color`, Open Graph/Twitter metadata, canonical URL, `robots.txt`, and `sitemap.xml` were added. **B4 (script loading/perf)** also shipped: `app_data.js` and `app.js` now use `defer` so the 873 KB bundle can download during HTML parsing while preserving execution order; smoke guards the attributes/order. **C3 (segmenter rename)** shipped: `ingest_cbeta.py` is now `segment_classical.py` with a deprecated compatibility wrapper and updated docs. **C2 (incremental schema strictness)** progressed safely: `translationRecord`, `quotationSource`, `matrixTranslator`, lineage edges, and lineage verification sources now reject additional properties; legacy corpus strings are rejected; and the Python validator mirrors those constraints. Remaining prioritized items: C4 (lint in CI; workflow YAML requires owner/token permission), C1 (opportunistic module split), continued C2 strictness for stable corpus shape objects.
-
-## 3. Quality gates (must pass before every push)
-
-```bash
-python3 -m py_compile scripts/*.py
-python3 scripts/validate_data.py          # data contract + metrics + doc truthfulness (+ school vocabulary)
-python3 scripts/build_data_bundle.py      # deterministic bundle; root + docs/ synced
-node scripts/smoke_test.mjs               # dependency-free renderer regression suite
-node --check scripts/browser_test.mjs     # optional Playwright suite (skips without Chromium)
-diff -rq data docs/data                   # byte-identical data mirror
+```text
+python3 -m py_compile scripts/*.py          PASS
+python3 scripts/validate_data.py            PASS with 6 lineage warnings
+python3 scripts/build_data_bundle.py        PASS; root/docs synced
+node scripts/smoke_test.mjs                 PASS; 36 fixtures, 0 crashes
+diff -rq data docs/data                     PASS
+npm audit --package-lock-only               PASS; 0 vulnerabilities
+npm run test:browser                        SKIP; Chromium unavailable
+Chromium install                            FAIL; sandbox network ECONNRESET
+Markdown relative-link scan                 PASS after 2 documentation fixes
+GitHub Quality + Pages at main 3ef7732       PASS
 ```
 
-## 4. Session archive index
+A passing validator/smoke run currently establishes structural consistency and no stub-render crash; it does **not** clear the blockers above.
 
-| Date | Session | Report | Key outcomes |
+## 4. Session reports
+
+| Date | Session | Report | Historical outcome |
 |---|---|---|---|
-| 2026-08-08 (pre-PRs) | repair campaign | [`sessions/AUDIT_archive_2026-08-08.md`](./sessions/AUDIT_archive_2026-08-08.md) §0–§8 | P0 fatal parse bug found & fixed; 6 runtime crashes; search/tooltip/provenance repairs; remediation log |
-| 2026-08-08 | `019fe1b5` | [`sessions/SESSION_AUDIT_2026-08-08.md`](./sessions/SESSION_AUDIT_2026-08-08.md) + archive §9 | Second-pass audit B1–B10 fixed; CBETA canon-reference corrections; Wumenguan completed 48/48 |
-| 2026-08-08 | `019fe2e0` | archive §10 | Independent post-PR#3 audit; locator/rights/editorial program started |
-| 2026-08-08 | `019fe30b` | [`sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`](./sessions/SESSION_AUDIT_2026-08-08_019fe30b.md) + archive §11 | a11y/CSP hardening; per-text metrics; Playwright suite; Biyanlu 4–10 (14/100); coverage disclosures |
-| 2026-08-09 | `019fe5d5` | [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md) | Full audit; doc-truthfulness gate (P2-A); controlled school vocabulary + data-derived filters (P2-B, incl. dead-lexicon-filter bug fix); renderer escaping consistency + poison regression (P2-C); sessions convention + AUDIT.md slimming (P2-D); gong'an 7-group theme taxonomy. **Turn 2**: independent second-pass audit → A1–A5 remediation: verified-text spread 6→**7** (README/ROADMAP) + matrix "2 rows"→2 registers (HANDOFF); doc gate extended to 25 rules incl. **AUDIT.md §1 numbers** + new `verified_corpus_texts` metric; pipeline helper emits validator-shaped entries (status field); stale § pointers fixed; Lexicon occurrence **scope note** (smoke 4m5) |
-| 2026-08-09 | `019fe64a` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md) + [`sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md`](./sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md) | Full audit, no P0/P1/P2 (PR #9); semantic heading outline (B2); data-derived graph colors (A2); dark-theme FOUC guard `theme-init.js` (B1); 736 bare-string → `{text,status}` records (A4); aria-hidden emoji, data-derived hero counts, OG/Twitter/robots/sitemap/canonical, deferred scripts; `segment_classical.py` rename; schema/validator strictness wave. Files archived from repo root per §5 (N9 fix, session `019fe731`) |
-| 2026-08-09 | `019fe731` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md) | Independent full audit; N1–N10 found (no P0/P1/P2), all shipped same-session: `motionBehavior()` reduced-motion scroll gate; dossier as focus-managed non-modal dialog (Escape/✕ + focus restore); focus-revealed glossary popover + `role="tooltip"`; search landmark + accessible name; search cards disclose matched field (register/pinyin/title); diacritic-folded pinyin search; debounced lineage resize re-layout; capped/scrollable/interactive popovers w/ measured flip; citation legibility 0.72 rem; session-file archival (N9); README tree + stale comments (N10). **Content Phase 2: Biyanlu cases 11 + 13** collated from CBETA T48n2003; **provenance integrity repair** — mis-seeded case 14 replaced with canonical 雲門『對一說』, fabricated case-12 verse and truncated cases 1–3 verses completed to canon, locator records disclose every replacement; gong'an `biyan_11` added and `biyan_21` corrected (now **16/100**, cases 1–14, 21, 43 complete, all Biyanlu locators collated); case 21 also found mis-seeded (→ canonical 智門蓮花), case 43 completed (垂示 + 評唱); **campaign completed: cases 15–100 ingested** (**Biyanlu 100/100 ✅**, locators **150/150**, CJK 88,263/92,450; 22 canonical no-垂示 cases recorded; 頌評唱/post-verse commentary + human sign-off tracked pending); GitHub auth lapsed mid-session (~17:20 UTC) and recovered — session delta re-committed after a sandbox snapshot reset and pushed; validator `complete_documents` metric generalized from hardcoded Wumenguan to manifest-target derivation (34 excerpt seeds); HANDOFF/ROADMAP/README refreshed at close; PR to `main` opened & merged by the session; CF-1 CI gate fix attempted, confirmed token-blocked, documented; **Linji yulu (T1985) completion pilot A–D** (merged from the branch tip pushed after auth recovery): prefaces + Ascending the Hall + 示眾 division + 勘辨 division collated from CBETA P5 XML — **67 sections**, 13,367 zh chars, slots 949→**1023**, CJK 101,198/106,160 |
-| 2026-08-09 | `019fe8a2` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe8a2.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe8a2.md) + [`sessions/ROBO_REGISTERS_PILOT_Case1.md`](./sessions/ROBO_REGISTERS_PILOT_Case1.md) | Independent full audit (no P0/P1/P2; 3 stale "~873 KB" comments + prioritized improvement potential catalogued). **Display-layer "Fake Chan Factory" makeover** per owner direction: page + repo docs rebranded (假禪工廠, 🤖); AI reconstructions/drafts → **Robo** translator names (Robo Red Pine, Robo T-Cleary, Robo Ruth, Robozuki, Roblofeld); verified quotations keep real names (✅); disclosure popovers slimmed. **Evidence-grounded Robo profiles** (`data/translations/translator_profiles.json`, 21 profiles; 13 in_corpus_verified / 7 documented_external). **Real-fakeness score** on hover over any Robo name (fake ⏳ → fairly → very → truly → certifiably fake; profiles bundled; popover). **Settings menu**: ⚙️ persisted Pinyin↔Rōmaji master-name preference (`name_romaji` added to all 34 masters; applied across lineage/graph/dossier). **Suzuki 1935 PD ingestion**: D.T. Suzuki's *Manual of Zen Buddhism* (US PD) added as verified across 5 corpus texts (Xinxin Ming, Bodhidharma, Zhengdao Ge, Huangbo, Biyanlu/Gensha), promoting Robozuki to "very fake" (caught + fixed a Suzuki-text-mis-attributed-as-Blyth reconstruction along the way). Red Pine + Cleary sample-hunt found no edition-verifiable source → stay "fake ⏳" (documented). Totals now `corpus=36 · slots=1024 · verified=143 · matrix=21 · locators=150/150`. Internal `window.TranslateChan` API / `translatechan_*` keys / Pages URL kept for continuity. All gates green throughout. |
-| 2026-08-10 | `019fea62` | [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md) | Full architectural audit (no P0/P1/P2); shipped remaining editorial candidate (`switchViewRaw` scroll-restore on back/forward, guarded by smoke test `4z`); added missing `aria-label` to Lexicon category filter and Dossier close button; fixed `openCase`/`openDoc` view transition from non-Reader views. All 25+ doc-truthfulness checks and regression gates pass. |
-| 2026-08-10 | `019feabb` | [`sessions/SESSION_AUDIT_2026-08-10_019feabb.md`](./sessions/SESSION_AUDIT_2026-08-10_019feabb.md) + [`FULL_AUDIT_2026-08-10_019feaf5.md` initial](./FULL_AUDIT_2026-08-10_019feaf5.md) | Senior-dev + designer full audit (no P0/P1/P2); persistent scoreboard system baseline + L1 layout pass (dismissable hero, 260px sidebar, completion marks ✓/N/M, proper footer nav, sticky toolbar, corpus filter, breadcrumb, dossier card system). Phase-2 Congronglu 30→35 cases (5 well-documented, locators T2004_p0196c etc). Tier-3 perf win compact JSON 1,956,032→1,653,392 B (-15.5%). Tier-4 data completeness alternative_names + linked_corpus_keys for 20 masters. Overall 8.2/10, repo_ready warning due to 2 manual workflow edits (ci_cd + deployment_readiness). All gates green 36 texts 0 crashes. |
-| 2026-08-10 | `019feaf5` | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md) + [`WEB_VISION_2026-08-10.md` final](./WEB_VISION_2026-08-10.md) + [`AUDIT_UPDATE_2026-08-10_hero.md`](./AUDIT_UPDATE_2026-08-10_hero.md) | Website vision for GitHub Pages appeal: Chinese Chan hall in dark walnut, practical joke once (Robo monks), then serious minimal transparent flow, no choppiness, no gimmicks, humor only in Robo names, no Japanese aesthetics, lean wood, drop vermillion keep ✓, no footer, no conveyor, no CTA. Phase V1 hero redesigned — big 假禪工廠 kai 900, walnut 4px beam, counts accessible (inner aria-hidden), OG image 1200×630 SVG 2.9K with rice paper + seal + robot, meta og:image + twitter large image, placeholder … standardized, mobile bar 44px + safe-area, toolbar z 20→50 vs strip 40. 6 of 16 P3 nits fixed. All gates green corpus=36 slots=1352 verified=177 matrix=21 locators=183/183, bundle 1,676,108 B. Vision finalized after owner feedback loop. |
+| 2026-08-10 | `019febb1` | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) | **Current:** deep re-audit; P0/P1 findings; 5.8/10; remediation plan |
+| 2026-08-10 | `019feaf5` | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md), [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md), [`AUDIT_UPDATE_2026-08-10_hero.md`](./AUDIT_UPDATE_2026-08-10_hero.md) | Website vision, hero/OG/footer changes; prior 8.2 verdict now superseded |
+| 2026-08-10 | `019feabb` | [`sessions/SESSION_AUDIT_2026-08-10_019feabb.md`](./sessions/SESSION_AUDIT_2026-08-10_019feabb.md), [`docs/audits/2026-08-10-baseline.md`](./docs/audits/2026-08-10-baseline.md) | Scoreboard baseline, layout work, Congronglu expansion; prior verdict superseded |
+| 2026-08-10 | `019fea62` | [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md) | Routing/scroll/a11y fixes |
+| 2026-08-09 | `019fe8a2` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe8a2.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe8a2.md), [`sessions/ROBO_REGISTERS_PILOT_Case1.md`](./sessions/ROBO_REGISTERS_PILOT_Case1.md) | Robo rebrand/profiles/settings and quotation campaign |
+| 2026-08-09 | `019fe731` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md) | A11y/search fixes, Biyanlu/Linji campaign |
+| 2026-08-09 | `019fe64a` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md), [`sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md`](./sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md) | Schema/provenance/SEO and structure work |
+| 2026-08-09 | `019fe5d5` | [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md) | Vocabulary/doc-gate/escaping work |
+| 2026-08-08 | `019fe30b` | [`sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`](./sessions/SESSION_AUDIT_2026-08-08_019fe30b.md) | CSP/a11y/metrics/browser suite and early Biyanlu pilot |
+| 2026-08-08 | earlier | [`sessions/SESSION_AUDIT_2026-08-08.md`](./sessions/SESSION_AUDIT_2026-08-08.md), [`sessions/AUDIT_archive_2026-08-08.md`](./sessions/AUDIT_archive_2026-08-08.md) | Initial repair and audit history |
 
-## 5. Session artifact convention (est. 2026-08-09)
+## 5. Maintenance rule
 
-- **`sessions/`** holds dated session reports (`SESSION_AUDIT_<date>[_<session>].md`) and the historical audit archive. Nothing here is rewritten after the session ends.
-- **`AUDIT.md`** (this file) stays slim: current verdict, standing items, gates, index.
-- **`response_summary.md`** at repo root is the *live* working summary for the current session — agents overwrite it; it is not canonical documentation.
+- Update §§1–3 only when current evidence changes.
+- Add one concise row per completed session.
+- Keep detailed process in a dated `sessions/` report, not in this file or HANDOFF.
+- Never infer user scores; see [`SCOREBOARD.md`](./SCOREBOARD.md).

@@ -2,20 +2,42 @@
 
 > OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable findings are in [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md).
 
-## Status: Full repo audit in progress
+## Status: Full audit complete; remediation not started
 
-Initial engineering, data/editorial, rights, test, CI/deployment, security, performance, UX, accessibility, SEO, documentation, and repository-operations review is complete enough for a safeguard checkpoint. The pushed audit draft records material findings missed by the prior 8.2/10 audit, including false full-text completeness, unresolved public quotation-rights decisions, epilogue ordering, incomplete print exports, responsive/sticky layout defects, contrast failures, non-executed JSON Schema, a stale browser test, and broad documentation contradictions.
+A repository-wide senior engineering and web-design audit reviewed architecture, code, source data, editorial integrity, rights, tests, CI/Pages, security/privacy, performance, responsive UX, accessibility, SEO, documentation, and repository operations.
 
-## Checks at checkpoint
+### Result
 
-- Python compile: pass.
-- Data validator: pass with six known lineage warnings.
-- Deterministic build + root/docs mirror: pass; bundle 1,676,108 bytes.
-- Dependency-free smoke: pass; 36 fixtures, zero crashes.
-- npm audit: zero vulnerabilities.
-- Playwright: skipped because Chromium download failed with network resets; static review found a stale title assertion that would fail if the suite ran.
-- GitHub: Quality and Pages builds are green at main `3ef7732`; Pages is configured from `main /docs` with HTTPS.
+- Revised weighted score: **5.8/10** (prior 8.2 verdict superseded).
+- `repo_ready`: **fail**.
+- One P0: 28/35 Congronglu cases repeat undisclosed canonical-looking commentary/verse placeholders from old ingestion scripts.
+- P1 groups: false Platform completion + six empty chapter bodies; always-hidden Lineage dossier; unresolved rights decisions/Verified semantics; unsafe stale current handoff/docs.
+- Major P2s: epilogue before cases, partial Print/PDF, wrong collection commentary label, responsive/sticky/mobile-bar issues, contrast/state semantics, non-executed JSON Schema, stale/skippable browser suite, and doc-truthfulness contradictions.
+- No app/data fixes were made because this task was an audit; the report provides a containment-first five-phase remediation plan.
+
+### Checks
+
+```text
+Python compile                         PASS
+Data validator                        PASS with 6 lineage warnings
+Build + root/docs sync                PASS; 1,676,108 bytes
+Dependency-free smoke                 PASS; 36 fixtures, 0 crashes
+npm audit                             PASS; 0 vulnerabilities
+Playwright                            SKIP; Chromium unavailable
+Chromium download                     FAIL; network ECONNRESET
+Markdown relative-link scan           PASS after 2 documentation fixes
+GitHub Quality + Pages at main        PASS
+```
+
+### Durable docs refreshed
+
+- Full report: `sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`
+- Current audit/index: `AUDIT.md`
+- Human and machine scoreboards: `SCOREBOARD.md`, `.scoreboard/scoreboard.yml`
+- Agent handoff: `.scoreboard/agent-handoff.md`
+- Manual GitHub actions: `.scoreboard/manual-workflow-edits.md`
+- Score history: `.scoreboard/history.md`
 
 ## One-sentence summary
 
-The pipeline is strong, but the audit has confirmed several material content-trust and product-quality gaps that existing green gates and prior scores do not detect.
+The static pipeline is strong, but the project is not release-ready until its undisclosed Congronglu placeholders, false completion/rights semantics, broken dossier/chapter/print paths, and the gates that missed them are corrected.
