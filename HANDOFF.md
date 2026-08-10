@@ -20,6 +20,56 @@ The Fake Chan Factory project has been fully established with:
 8. **Synchronized GitHub Pages Bundle** (`docs/`): Fully compiled, zero-dependency static bundle; Pages publishing already active from `main /docs`.
 9. **Editorial Data Tooling** (`scripts/`): `validate_data.py` schema/semantic/rights/locator validator with deterministic metrics, `build_data_bundle.py` manifest-driven bundler, `segment_classical.py` offline segmenter (with deprecated `ingest_cbeta.py` compatibility wrapper), and `smoke_test.mjs` renderer regression test. The checked-in GitHub Actions **Quality** workflow runs the same validation, deterministic-build, generated-artifact, and reader-smoke gate on pushes and pull requests; native GitHub Pages publishing remains separate.
 
+
+## ✅ Current Session Handoff — 2026-08-10 (session `arena/019feaf5-translatechan`)
+
+### Public Pages scope
+
+The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return). Footer removed per owner feedback for minimal literature-first aesthetic — real sources note lives in hero + docs.
+
+### What this session delivered (all gates green; full reports: `FULL_AUDIT_2026-08-10_019feaf5.md`, `WEB_VISION_2026-08-10.md` final, `AUDIT_UPDATE_2026-08-10_hero.md`)
+
+**A. Full senior-dev + web-designer audit** (no P0/P1/P2, 16 P3 nits):
+- Initial `FULL_AUDIT_2026-08-10_019feaf5.md` (500+ lines, 15 sections): architecture S-tier zero-backend SPA, validator-as-spec, controlled vocabularies, shared popover infra, fail-soft storage, hash routing + scroll restoration, culturally competent search (NFD + variant normalization), zero runtime deps, CSP self, XSS guarded. Design system: rice paper #faf8f5, dark walnut #2c2523 ink, gold #9e7232, green #3d6e58, blue #325d79, Noto Serif SC + Kai + Inter. Layout L1 pass (hero dismissable, 260px sidebar, completion marks ✓/N/M, sticky toolbar, corpus filter, breadcrumb, dossier card). Mobile bottom bar, case-strip U1 titles ≥900px, segmented load-more U2, lexicon filter U3, keyboard nav U8. Performance: deferred scripts, searchUnitCache once-per-session, lazy 12-chunk, compact JSON -15.5% 1,956,032→1,676,108 B, gz est ~400KB. Remaining bundle split opportunity ~600KB first-paint. Overall 8.2/10, repo_ready warning (ci_cd + deployment_readiness blocked_manual_workflow_edit). All gates green.
+
+**B. Website vision for GitHub Pages appeal** (`WEB_VISION_2026-08-10.md` RFC then final):
+- Owner feedback loop 5 rounds via ask_user: premise factory floor → dojo → Chinese Chan hall; audience you+friends niche Chan + humor; first 30s Chan hall/literature/Zen feeling with robo joke theme, after that all serious literature composition, readability, transparent flow, no choppiness, no overflow, no distraction, no gimmicks, sophisticated minimal; lean wood dark walnut, drop vermillion keep checkmark ✓, humor disappears except Robo names; no Japanese aesthetics Chinese temple wood + calligraphy; remove footer, defer conveyor animation, defer hero CTA.
+- Final one-sentence vision: *Fake Chan Factory should feel like a Chinese Chan hall in dark walnut — first 30 seconds Chan literature/Zen feeling with Robo monks as practical joke, then all serious literature composition, sophisticated minimal reading with transparent flow, no choppiness, no overflow, no distraction, no gimmicks, humor only in Robo Translator names.*
+
+**C. Phase V1 hero implementation — Chinese Chan hall gate (commit b0aeb4d):**
+- `index.html`: hero redesigned `.zen-hero-banner` 1.25rem 1.5rem padding, background var(--bg-card), border 1px border-color + bottom 4px solid var(--text-primary) walnut timber, shadow-sm. New markup: `.hero-brand-row` with `.hero-zh` 假禪工廠 clamp(1.9rem,4vw,2.4rem) kai 900 dark walnut, `.hero-en` FAKE CHAN FACTORY 0.78rem 700 0.18em uppercase secondary, `.hero-icon` 🤖 practical joke once. Quote main `「平常心是道。」— Robo monks at work, practical joke.` Sub: real CBETA sources, Robo marked 🤖, verified ✅, serious after joke. Meta chips accessible: emoji inside inner `<span aria-hidden="true">` so counts readable + smoke decorative emoji check passes. Footer `<footer>` removed entirely per owner request for minimal literature-first. OG meta: `og:description` channels→robolates, added `og:image` + `twitter:image` = `/og-image.svg`, `twitter:card` summary→summary_large_image. Search placeholder `...`→`…` standardized.
+- `app.css`: hero brand row styles, `.hero-zh/.hero-en/.hero-icon/.hero-main/.hero-meta`, `.zen-quote-main` 1.2rem 700 primary (not gold), sub 0.88rem secondary. Footer CSS block stripped (replaced comment). Mobile bottom bar min-height 44px + `env(safe-area-inset-bottom)` + `.btn-pill` min-height 36px (WCAG 44px touch target). Reader toolbar z 20→50 (> case strip 40) fix choppiness where toolbar hid behind strip. Print media still hides footer (dead code now harmless).
+- `og-image.svg` 1200×630 2.9K: rice paper #faf8f5, walnut top/bottom beams 14px/12px, subtle noise circles 4% opacity, central 假禪工廠 128px 900 + seal square 禪 gold, EN small caps, tagline Kai italic practical joke + second line verified/Robo note, counts mono, bottom colophon mono + robot. Self-hosted, CSP `img-src self data` allows. `scripts/build_data_bundle.py` now copies 7 assets (added og-image.svg to list) to `docs/`.
+- `scripts/validate_data.py`: hero chip doc-truthfulness check relaxed from `📜 {docs} Canonical Works` to `{docs} Canonical Works` (no emoji) to allow accessible inner span markup, still guards live count.
+
+**D. Quality gates after V1:**
+
+```bash
+python3 scripts/validate_data.py          # corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183 (6 warnings frontier)
+python3 scripts/build_data_bundle.py      # 1,676,108 B + og-image.svg 2.9K synced to docs/
+node scripts/smoke_test.mjs               # 36 texts 0 crashes (fixed decorative emoji inner span)
+diff -rq data docs/data                   # silent
+```
+
+All green. 6 of 16 P3 nits from full audit fixed (OG verb, hero a11y inner span, ellipsis, mobile bar 44px+safe-area, toolbar z, footer removal). Remaining: CI diff missing 3 files + branch protection (owner actions), lineage graph width 720→360 overflow, 6 masters empty linked_corpus_keys etc.
+
+**E. Audit update + vision finalization:**
+
+- `AUDIT_UPDATE_2026-08-10_hero.md` (107 lines): details hero redesign, footer removal, OG image, Tier-1 fixes, updated inconsistency table 6/16 fixed.
+- `WEB_VISION_2026-08-10.md` rewritten to final direction (117 insertions, 177 deletions): Chinese Chan hall, dark walnut, no Japanese, no footer/conveyor/CTA, humor only Robo, anti-goals updated per yes yes yes feedback, implementation phases marked V1 done.
+- `AUDIT.md` §1 current verdict updated to session `arena/019feaf5-translatechan`, 4 complete texts listed, bundle 1,676,108 B + 2.9K og-image, Phase V1 vision note. Session index table patched with rows for `019feabb` (full audit + scoreboard + L1 layout + Congronglu 35) and `019feaf5` (website vision + hero + footer removal + OG image).
+- `response_summary.md` overwritten each session per convention (ephemeral).
+
+### Owner follow-up (still pending, same as before)
+
+1. `.github/workflows/quality.yml` `git diff --exit-code` list missing `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`, `docs/og-image.svg` (new) — add to list. Documented in `.scoreboard/manual-workflow-edits.md` Edit 1.
+2. Branch protection on `main` requiring Quality check (Settings → Branches → main → Require status checks → Validate data, generated artifacts, and reader). Edit 2.
+
+After both, repo_ready gate warning→pass.
+
+---
+
+
 ---
 
 ## ✅ Current Session Handoff — 2026-08-10 (session `arena/019fea62-translatechan`)
