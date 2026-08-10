@@ -1,254 +1,194 @@
-# 🏭 Fake Chan Factory — Website Vision (GitHub Pages Appeal Pass)
+# 🏯 Fake Chan Factory — Website Vision (Final — Chinese Chan Hall, Minimal)
 
-> **Purpose:** This is NOT another feature list. It's a vision for making the GitHub Pages site *want-to-stay* appealing, so every function we add has a home. Written in response to "we just add functions that aren't needed while the website itself doesn't become more appealing" (2026-08-10).  
-> **Status:** RFC — read, react, then we implement in small slices. No heavy JS, no backend, keeps CSP `script-src 'self'`, keeps zero-deps.
-> **Related:** `vision.md` is the scholarly/architectural blueprint. This doc is the *public-facing experience* blueprint.
-
----
-
-## 0. One-line premise
-
-**Fake Chan Factory should feel like walking into a small, sunlit Kyoto workshop where robots in ink-stained aprons are robolating woodblock prints of old Chan dialogues — not like opening a database.**
-
-Today it feels like a very good reader app. That's correct but not delightful. The reader *works*; the factory *doesn't feel* like a factory. The joke ("proudly fake") is told once in a banner and then disappears. A first-time visitor should *get the joke in 2 seconds* and *want to pull a print off the line* — open a case, compare Robos, trace a master.
+> **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10, updated after owner feedback (Chinese Chan focus, minimal, no gimmicks).  
+> **Status:** Final direction — Chinese Chan hall, dark walnut, literature-first, Robo joke as practical joke once.  
+> **Related:** `vision.md` = scholarly/architectural blueprint. This doc = public-facing experience blueprint.  
+> **Feedback incorporated:** Audience = me and friends introduced to niche Chan content mixed with my humor. First 30s = Chan hall/literature/Zen feeling with robo joke theme. After that = all serious literature composition, readability, transparent flow, no choppiness, no overflow, no distraction, no gimmicks, sophisticated but minimal. Lean into wood dark walnut, drop vermillion keep ✓, humor disappears except Robo names. No Japanese aesthetics — Chinese temple wood + Chinese calligraphy. No footer, no conveyor, no CTA (deferred per feedback).
 
 ---
 
-## 1. Audience & first 30 seconds
+## 0. One-line premise (final)
 
-**Who lands here?**
-- Zen-curious dev / designer (GitHub discovery) — wants a vibe, shares screenshot.
-- Scholar / translator — wants source fidelity + citation, tolerates Robo if honest.
-- Practitioner / reader — wants calm reading, not overload.
+**Fake Chan Factory should feel like entering a Chinese Chan hall in dark walnut — first 30 seconds you get the practical joke (Robo monks at work), then it's all serious, sophisticated minimal reading with transparent flow, no choppiness, no gimmicks; humor lives only in the Robo names.**
 
-**First 30 seconds should be:**
-
-1. **Brand snap (2s):** « 假禪工廠 — Fake Chan Factory — robots robolating the masters » — big type, Chinese seal, robot emoji as worker not gimmick.
-2. **Scale snap (5s):** 36 works, 4 complete, 1.6 MB woodblocks ready — feels tangible, not number soup.
-3. **Invitation (10-30s):** One perfect case on the conveyor: Zhaozhou's Dog — zh + pinyin + 2 Robo side-by-side, big, generous, you can tap a term.
-4. **Curiosity hooks:** nearby chips → "See all 48 Wumenguan cases", "Compare 21 Robo voices", "Trace Bodhidharma → Mazu → Linji", "Look up 無".
-
-Today first paint = hero banner text + sidebar 36 buttons + full Wumenguan case 1. That's *work*. We want first paint = factory floor + one inviting print.
+Previous draft said Kyoto workshop + factory conveyor — replaced per feedback: Chinese Chan, not Japanese dojo/tatami/torii.
 
 ---
 
-## 2. Brand pillars (design system)
+## 1. Audience & first 30 seconds (final)
 
-### 2.1 Four materials
+**Audience:** You and friends you introduce into niche Chan content mixed with your humor. Not generic Zen-curious dev — personal, friends-first, literature with honesty.
 
-We already have rice paper — make it a world:
+**First 30 seconds:**
+1. **Chan hall gate (2s):** 假禪工廠 in big Kai 900 dark walnut (#1f1a18 / #2c2523), FAKE CHAN FACTORY small caps tracked, 🤖 as practical joke monk once.
+2. **Literature snap (5s):** 36 canonical works from CBETA, real Classical Chinese sources, Robo renderings marked 🤖 Robo, verified marked ✅ — honest scale.
+3. **Invitation (10-30s):** Directly below hero, first case (Wumenguan) appears big, generous, zh + pinyin + 2 Robo side-by-side, tappable glossary — no extra CTA buttons needed (deferred per feedback). You are already in reading hall.
 
-- **Wood:** dark walnut `#2c2523` for header/ink, not just text. Grain via subtle noise — not image, via CSS `background-image: radial-gradient` noise pattern <1KB.
-- **Rice paper:** `--bg-primary #faf8f5` stays, but add layered paper: `--bg-card #ffffff` + `--bg-card-subtle #fcfbfa` + shadow is print lifted off table.
-- **Ink:** Chinese ink bleed — glossary highlight shouldn't be just dotted underline, should feel like seal stamp: `border-bottom: 2px solid var(--accent-gold)` becomes slightly irregular? Keep simple: use `box-shadow: inset 0 -0.35em 0 rgba(158,114,50,0.18)` for marker highlight, like brushed ink.
-- **Vermillion seal:** New accent — `#c2452d` (seal red) for **Verified** badges only. Currently verified is green; green says "go", but seal red says "authentic stamp". Use green for lineage verified, red for textual verified. Factory stamp color.
+**What we removed vs draft:** No conveyor belt animation (you said defer, no gimmicks), no CTA buttons "Open Wumenguan" / "See Blueprint" (you said you don't know what hero CTA means, defer), no factory press floor metaphor that felt Japanese/industrial. Now hall gate + reading hall immediately.
 
-### 2.2 Typography scale — from calm to confident
-
-Current titles are 2rem zh + 1.15rem en — pleasant but small. Factory should shout a little:
-
-- **Display:** `.display-2` for hero: `clamp(2.4rem, 6vw, 4rem)` Noto Serif SC 900 weight, letter-spacing `-0.02em`, line-height 0.95.
-- **Section zh:** 2rem is right — but give it breathing: `margin-bottom 0.8em`, decorative rule above (thin gold line 32px).
-- **Chinese reading:** `--zh-font-size 1.35rem` is comfortable, but add `font-variant-east-asian: ruby`? Keep Kai for classical — good.
-- **En translation:** 0.95rem fine, but reduce contrast slightly — secondary, not competing with zh.
-- **Mono for CJK count/meta:** use `--font-mono` for numbers (48/48, 37/37) → engineering meets woodblock.
-
-### 2.3 Motion — ink, not bounce
-
-- All existing motion uses `cubic-bezier(0.16,1,0.3,1)` — keep.
-- Add two micro-motions only:
-  1. **Seal stamp:** when opening a case or hovering verified badge, small scale 0.9→1 + slight rotation -2deg→0deg 200ms, like stamp pressed.
-  2. **Conveyor:** case chips in jump strip slide in with slight stagger 30ms each on first load — feels like line moving.
-- Respect `prefers-reduced-motion` → instantly `animation:none`.
-
-### 2.4 Voice — keep humor, make it physical
-
-Current banner: "「平常心是道。」— now freshly robot-stamped. 🤖" — perfect. Keep humor in UI microcopy:
-- Empty corpus filter: "No works match 'zennn' — robots searched the shelves twice."
-- Load-more: "Pull 12 more prints off the line" vs "Show more cases".
-- Search zero: "No match — try a plant name, a shout, or 無".
-- But keep provenance truth cold — humor never touches citation badges.
+Today first paint after V1 implementation: hero 1.25rem padding, 4px walnut bottom beam, dark walnut lean, short, dismissable, counts accessible. Feels calm, not work.
 
 ---
 
-## 3. Site map & hierarchy — same 5 tabs, different story
+## 2. Brand pillars (final — wood lean)
 
-We keep 5 tabs — Reader, Matrix, Lineage, Gong'an, Lexicon — that's public scope, smoke-guarded. We *reframe* them as factory stations:
+### 2.1 Four materials — final palette
 
-- **Reader = The Press Floor** — where prints are made, you read side-by-side.
-- **Matrix = The Proof Table** — lay translations side-by-side like printer's proofs, compare ink bleed.
-- **Lineage = The Blueprint** — machine blueprint of transmission, pan/zoom blueprint table.
-- **Gong'an = The Case Rack** — wooden rack of koan slips, grouped by theme.
-- **Lexicon = The Type Drawer** — letterpress drawer of terms.
+- **Dark walnut wood** `#2c2523` for header border, text-primary, bottom beam, ink. Lean into this — Chinese temple hall timber, not light rice paper only. Header already `bg-secondary #f4efe6` with `border-bottom 1px #e6decb`, plus hero `border-bottom 4px #2c2523` gives timber beam.
+- **Rice paper** `--bg-primary #faf8f5`, `--bg-card #ffffff`, `--bg-card-subtle #fcfbfa` — layered paper, shadow = print lifted off table. Keep.
+- **Ink** `#1f1a18` for zh reading, not pure black — contemplative.
+- **Gold accent** `#9e7232` for interactive (hover, focus, case-num-title) — not vermillion. You said drop vermillion, keep checkmark ✓ for verified. So verified badge stays green `#3d6e58`, not red. Lineage verified also green. Seal red removed from vision.
 
-This framing can be subtle: add small sublabel under each view title in muted text, e.g. "Bilingual Reader — Press Floor / 印刷臺". Not renames, just poetry.
+### 2.2 Typography — calm to confident, Chinese
 
----
+- **Display zh:** `clamp(1.9rem,4vw,2.4rem)` Noto Serif SC 900, 0.06em tracking — hall sign.
+- **Small caps EN:** 0.78rem 700 0.18em uppercase secondary — not shouting.
+- **Zen quote:** Kai 1.2rem 700 primary, not gold — serious after joke.
+- **Reading zh:** `--zh-font-size 1.35rem` Kai + Serif SC, line-height 2.0 — keep, proven readable.
+- **En translation:** 0.95rem secondary — not competing with zh.
+- **Mono:** `ui-monospace` for counts 48/48, 37/37 — engineering meets woodblock.
 
-## 4. Concrete redesign slices (no new functions needed)
+### 2.3 Motion — ink, not bounce, minimal
 
-### 4.1 Hero — from banner to factory gate (S)
+- Keep `cubic-bezier(0.16,1,0.3,1)` existing.
+- **No conveyor stagger** — you said no gimmicks, deferred. Only micro-motions that aid reading: none. Maybe seal stamp on verified hover (`scale 0.9→1`) but even that could be gimmick — defer unless needed. Respect `prefers-reduced-motion` already `animation:none`.
 
-**Today:** card with quote + 3 meta chips + dismiss X. Text-heavy, hidden via aria-hidden (bad), giant 禪 watermark removed already.
+### 2.4 Voice — humor only in Robo names
 
-**Vision:**
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ 假  [seal: 廠]   FAKE CHAN FACTORY  🤖                     │
-│ 禪工廠   Robots robolating the Chan masters                 │
-│                                                             │
-│ 「平常心是道。」 now freshly robot-stamped.                │
-│ 36 woodblocks · 4 complete scrolls · 21 Robo hands          │
-│                                                             │
-│ [Open Wumenguan 48/48 →] [Peek at Lineage Blueprint →]     │
-│                                                             │
-│ ──────── conveyor belt animation (SVG, CSS-only) ───────── │
-│  [Dog] → [Fox] → [Finger] → [Beardless] → … tiny prints   │
-└─────────────────────────────────────────────────────────────┘
-```
-
-Implementation:
-
-- Replace `.zen-hero-banner` background with layered paper + subtle wood edge at bottom (4px dark border).
-- Display title: big Chinese 假禪工廠 (kai 900, 2.8rem) + English FAKE CHAN FACTORY small caps 0.9rem tracked.
-- Remove meta chips grid, instead one line: `📜 36 woodblocks · ✅ 4 complete · 🤖 21 Robo hands` (same data, more story).
-- Two CTA buttons: primary "Open the Gateless Gate (48/48) →" (scrolls to first case), secondary ghost "See the blueprint".
-- Conveyor: purely decorative, CSS horizontal scroll of tiny case numbers with `aria-hidden=true`, infinite CSS animation (respect reduced-motion).
-- Dismiss still exists but less needed because hero is now 40% shorter, not heavy.
-
-### 4.2 Reader — from list to scroll (S/M)
-
-**Today:** sidebar 260px list + content panel + sticky toolbar + case chips. Works, but feels like IDE file tree.
-
-**Vision:**
-
-- Sidebar: not just names, but status story. Keep search filter, but add grouping: "Complete Scrolls" (4) with gold left stripe, "Excerpt Seeds" (32) muted. Already have ✓ / N/M — make Complete group sticky top.
-- Reader header: breadcrumb `📚 Reader › T2005 Wumenguan` is good, keep. Add seal stamp for complete: red seal "完 / Complete" next to title when coverage 100%.
-- Case card: currently card-subtle + border + hover. Vision: case card like print with inked edge: `border: 1px solid var(--border-color)` + `box-shadow: 0 2px 0 rgba(0,0,0,0.04)` + on hover slightly lifted `transform: translateY(-1px)` + stronger shadow. Keep.
-- Translation columns: currently equal grid. Make first column slightly wider if bilingual mode? Not needed. But add label "Robo press" small above grid when status reconstruction?
-- Glossary highlight: change from dotted underline to brushed highlight described above.
-- Empty state (search zero): illustration? Keep text, but humor.
-
-### 4.3 Matrix — from cards to proof sheet (S)
-
-**Today:** matrix cards with classical zh + pinyin + source location + grid of translator cols.
-
-**Vision:** proof sheet on long table. Background slightly darker than reader (`var(--bg-primary)` vs `var(--bg-card)`) already is. Add subtle ruler line at top of matrix card, like proof sheet margin. No function change.
-
-### 4.4 Lineage — blueprint table (M)
-
-**Today:** SVG network + verification summary chip + graph controls.
-
-**Vision:**
-
-- Container background becomes blueprint blue-white: light blue grid `background-image: linear-gradient(var(--border-subtle) 1px, transparent 1px), linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px)` 20px grid, very subtle.
-- Generation labels G1, G2 in mono, small.
-- Nodes: keep halo, but add slight blueprint crosshair on hover.
-- Dossier panel: currently card with gold left stripe, good — keep as blueprint callout.
-
-### 4.5 Gong'an & Lexicon — drawers (S)
-
-**Today:** filter chips, cards.
-
-**Vision:** cards feel like index slips. Add slight rotation on hover 0.5deg? Might be too playful. Keep calm, but add typographic detail: theme icon via emoji? Already 🏷️, okay.
-
-### 4.6 Footer — factory colophon (S)
-
-**Today:** quote, nav, meta, fineprint. Proper nav now exists — good.
-
-**Vision:** colophon like woodblock print colophon: left side wood maker mark, right side edition note. Keep current but add tiny factory mark: "Printed by 🤖 in Fake Chan Factory, 2026 — CBETA sources T47/48/51". Add link to GitHub repo? Smoke guards header GitHub link but footer GitHub link might be okay? Current smoke guards against header link, not footer. Check; if okay, add discreet GitHub link in fineprint.
-
-### 4.7 Global — texture & image
-
-- No images today except emoji. Keep zero-image philosophy, but add one SVG: `og-image.svg` 1200×630 for link previews. Design: rice paper background, big 假 in gold, FAKE CHAN FACTORY in small caps black, robot arm stamping seal "🤖" bottom-right, subtitle "Robo-translators robolating the Chan masters — proudly fake, honestly sourced".
-- Also add favicon refinement: keep 🪷 data URI, but consider hand-drawn seal SVG for better cross-OS.
+- **Hero only:** "「平常心是道。」— Robo monks at work, practical joke." — joke lives here once.
+- **After hero:** serious literature — no "robots searched shelves twice" microcopy, no "pull prints off line". Keep empty states plain: "No canonical works match xyz." Previous vision had playful empty states — removed per your "humor disappears from serious reading except Robo Translator mention".
+- **Robo names stay:** `Robo Red Pine`, `Robo T-Cleary`, `Robozuki`, `Roblofeld` — practical joke continues only in matrix/reader translator tags + hover real-fakeness score. Provenance badges stay cold factual.
 
 ---
 
-## 5. What NOT to do (anti-goals)
+## 3. Site map — same 5 tabs, Chan hall framing (approved)
 
-- **No framework, no backend, no external JS** — stays static.
-- **No heavy illustrations / photos** — keep <10KB decorative SVGs, CSS patterns only.
-- **No carousels, no popups, no onboarding tour** — calm by default.
-- **No gamification** — factory metaphor stays visual, not points.
-- **No removing provenance honesty** — seals help, but badges stay cold factual.
-- **No adding new tabs** — 5 tabs is scope, guards it.
-- **No changing content shapes** — 36 corpus files, validator stays king.
+You approved agree_sitemap — reframing as Chan hall rooms, not factory press.
 
----
+- **Reader = Chan Hall / 閱藏堂** — where you read side-by-side (primary)
+- **Matrix = Comparative Study / 對勘** — compare Robo vs verified proofs
+- **Lineage = Transmission Hall / 傳法堂** — Bodhidharma → Five Houses
+- **Gong'an = Koan Shelf / 公案架** — 24 cases by theme group
+- **Lexicon = Glossary Grove / 詞林** — 31 terms
 
-## 6. Implementation plan — appealing first, then functions
-
-### Phase V1 — Hero + brand snap (30 min, ships now)
-
-1. Fix OG description "channels" → "robolates" (Tier-1 drift).
-2. New hero markup:
-   - display title 假禪工廠 + seal
-   - one-line scale: woodblocks · complete · Robo hands (data-derived counts)
-   - 2 CTAs (Open Wumenguan, See Blueprint) + conveyor decorative div `aria-hidden`
-   - Keep dismiss logic, but hero shorter, no shadow heavy.
-3. CSS:
-   - `.zen-hero-banner` → `background: var(--bg-card)` + bottom border 4px walnut + `padding: 1.25rem 1.5rem`
-   - `.display-zh` class for big Chinese
-   - conveyor: flex row, gap 0.3rem, overflow hidden, animation translateX -20% loop 30s linear
-   - remove `aria-hidden=true` from hero chips OR add SR-only counts
-4. Generate `docs/og-image.svg` + meta `og:image` + `twitter:image`.
-5. Footer: remove inline style `opacity:0.7` → class.
-
-Gates: `validate_data.py`, `build_data_bundle.py`, `smoke_test.mjs`, `diff -rq data docs/data`.
-
-### Phase V2 — Reader polish: grouping + seal + highlight (1 session)
-
-1. Sidebar grouping: complete vs excerpt, sticky header for complete group.
-2. Reader header seal "完" when 100% coverage — small red seal CSS: square 28px, border 2px red, text 完, rotated -8deg.
-3. Glossary highlight: `box-shadow: inset 0 -0.6em 0 rgba(158,114,50,0.16)` instead of dotted underline, keep border-bottom for fallback.
-4. Case card hover lift: `transform: translateY(-1px)` + `shadow-md`.
-5. Mobile bar: min-height 44px + `safe-area-inset-bottom`.
-
-### Phase V3 — Matrix proof sheet + lineage blueprint (1 session)
-
-1. Matrix card ruler line, slightly darker table background.
-2. Lineage graph container blueprint grid background, generation mono.
-3. Dossier blueprint callout shadow.
-
-### Phase V4 — Motion & colophon (half session)
-
-1. Seal stamp animation on verified badge hover (scale/rotation).
-2. Case chip stagger on first load.
-3. Reduced-motion respect for both.
-
-Each phase: build + smoke + push, PR to main.
+We keep tab labels English (Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, Chan Lexicon) for public scope smoke-guarded, but add Chinese sublabels / 閱藏堂 etc in view headers muted. No Japanese: not Zendo, not Dojo.
 
 ---
 
-## 7. Metrics for "more appealing"
+## 4. Concrete redesign slices — final, no gimmicks
 
-How to know vision worked without analytics (zero backend, no tracking)?
+### 4.1 Hero — Chan hall gate (S) ✅ SHIPPED commit b0aeb4d
 
-- **Qualitative:** Screenshot shareability — does hero make you want to screenshot? Does reader case look calm enough to read 2 minutes?
-- **Quantitative proxy:** Time to first meaningful print: measure DOMContentLoaded → first case zh visible (should be <1.5s on 4G).
-- **Accessibility:** Lighthouse a11y ≥95 already, but check color contrast for new seal red — must pass 4.5:1 for text if used as badge text.
-- **Bundle:** Keep raw <2 MB, gz <500 KB.
-- **No regression:** smoke 50+ checks still green.
+**Implementation this pass:**
+- HTML: `.hero-brand-row` with `.hero-zh` 假禪工廠 + `.hero-en` FAKE CHAN FACTORY + `.hero-icon` 🤖 (practical joke once). Quote main `「平常心是道。」— Robo monks at work, practical joke.` Sub: CBETA real sources, Robo marked 🤖, verified ✅, serious after joke.
+- CSS: `border-bottom: 4px solid var(--text-primary)` walnut beam, padding 1.25rem 1.5rem, flex space-between, shadow-sm. New classes `.hero-main`, `.hero-brand-row`, `.hero-zh`, `.hero-en`, `.hero-icon`, `.hero-meta`.
+- A11y: meta chips no longer `aria-hidden=true`; emoji inside inner `<span aria-hidden="true">` so counts accessible + smoke decorative emoji check passes.
+- Removed: conveyor belt CSS animation (deferred), CTA buttons (deferred per feedback you didn't know what hero CTA means), giant 禪 watermark (already removed L1).
+
+### 4.2 Reader — scroll, no choppiness (S) — NEXT
+
+**Today:** sidebar 260px list + content panel + sticky toolbar (z 50 now > strip 40 after fix) + case chips sticky 4.4rem + collapsible cards.
+
+**Vision final, no gimmicks:**
+- Sidebar grouping: Complete Scrolls (4: wumenguan 48/48, biyanlu 100/100, xinxin_ming 37/37, platform_sutra 10/10) with gold left stripe sticky top, Excerpt Seeds (32) muted below. Already have ✓ / N/M marks, grouping makes hall shelf clear.
+- Reader header breadcrumb `📚 Reader › T2005 Wumenguan` keep — helps orientation, no gimmick.
+- Case card: keep `background var(--bg-card-subtle) border 1px border-color radius-md`, hover `border-color border-focus shadow-sm` — subtle lift okay, not gimmick. Remove dotted glossary underline? Keep `box-shadow inset 0 -0.35em rgba(158,114,50,0.18)` brushed highlight is minimal, not gimmick — evaluate.
+- Mobile bottom bar already fixed 44px min + env(safe-area-inset-bottom) in this pass.
+
+### 4.3 Matrix — proof sheet minimal (S)
+
+Keep cards, no ruler line gimmick. Only ensure translation cols equal, status badge checkmark for verified (you approved keep checkmark, drop vermillion). Already: verified green, Robo blue.
+
+### 4.4 Lineage — transmission hall (M)
+
+Current SVG vertically layered generations, pan/zoom, halo nodes, gold pending links. Vision final: no blueprint blue grid gimmick — keep rice paper card bg. Maybe lower bound width 720 → 360 for mobile overflow (P3 from full audit). Dossier panel already card system with gold left stripe — good, not gimmick.
+
+### 4.5 Gong'an & Lexicon — shelves
+
+Filter chips grouped by theme_group (7 groups) — keep, not gimmick. Cards minimal.
+
+### 4.6 Footer — REMOVED per feedback
+
+You said remove footer, haven't seen conveyor, defer CTA. Footer element `<footer>` removed from `index.html` + CSS block stripped from `app.css`. Site now ends after content + mobile bar — literature-first, minimal. Real sources note lives in hero sub + docs (not footer). If later you want minimal colophon, we can add 1-line fineprint at bottom of main, but for now removed.
+
+### 4.7 OG image — 1200×630 (S) ✅ SHIPPED
+
+Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/12px, subtle noise circles 4% opacity, central 假禪工廠 128px 900 + seal square 禪 gold, EN small caps, tagline Kai italic practical joke + second line verified/Robo note, counts mono, bottom colophon mono + robot. Hosted at `/og-image.svg`, referenced via `og:image` + `twitter:image` `summary_large_image`. Build copies to `docs/og-image.svg` via `build_data_bundle.py` (added to copy list).
 
 ---
 
-## 8. Open questions for owner
+## 5. What NOT to do (final anti-goals — you approved)
 
-- Should footer include discreet GitHub repo link? Current smoke guards header link, not footer. Clarify if footer GitHub is okay.
-- Is vermillion seal red acceptable for verified badge (instead of green)? Green is conventional "verified", red is culturally "seal of authenticity". Could use red seal square + green text? Propose: verified badge = red seal border + green check.
-- Conveyor decorative animation: is infinite CSS animation acceptable given "calm by default"? Could be paused by default, play on hover.
-- Hero CTA "Open the Gateless Gate" — should pick 1 of 4 complete texts randomly or always Wumenguan (most iconic)?
-- OG image: SVG is crisp, but Twitter/X may rasterize better with PNG. Provide both SVG source + exported PNG 1200×630?
+- ✅ No framework, no backend, no external JS — static
+- ✅ No heavy illustrations/photos — <10KB decorative SVGs only (og-image 2.9KB)
+- ✅ No carousels, popups, onboarding tour — calm by default
+- ✅ No gamification
+- ✅ No removing provenance honesty — checkmark ✓ for verified stays, Robo badges stay
+- ✅ No adding new tabs — 5 tabs scope smoke-guarded
+- ✅ No changing content shapes — validator stays king
+- ✅ **No Japanese aesthetics — lean Chinese temple wood, Chinese calligraphy, not zen-minimal Japanese (tatami, torii, etc)** — you approved yes yes yes
+- ✅ **No humor in reading flow except Robo names** — hero joke once, then serious literature, sophisticated minimal
+- ✅ **No footer** — removed per feedback
+- ✅ **No conveyor animation** — deferred, no gimmicks
+- ✅ **No hero CTA buttons** — deferred per feedback you didn't know what CTA means
 
 ---
 
-## 9. One-sentence vision
+## 6. Implementation plan — final order (V1 done)
 
-**Fake Chan Factory should feel like a small, sunlit press room — rice paper, walnut, ink, vermillion seals, robot aprons — where each case is a print you want to pull off the line, not a database entry you have to parse; the factory's honesty about being fake is the charm that makes you stay.**
+### Phase V1 ✅ DONE commit b0aeb4d (2026-08-10)
+
+1. OG desc channels→robolates, add og:image + twitter:image summary_large_image
+2. Hero redesign Chinese Chan hall gate — dark walnut 4px bottom, big Kai, joke once, counts accessible, no conveyor, no CTA, shorter
+3. Footer removal
+4. Tier-1 a11y/perf: hero chips inner aria-hidden, ellipsis … standardized, mobile bar 44px + safe-area, toolbar z 20→50
+5. Build: copy og-image.svg to docs/, validator relaxed hero chip check
+6. Gates: validate_data ✅ corpus=36 verified=177 locators=183/183, build_data_bundle ✅ 1,676,108 B, smoke ✅ 36 texts 0 crashes
+
+### Phase V2 Reader Polish (next, 1 session, no gimmicks) — optional
+
+- Sidebar grouping Complete (4) vs Excerpt (32) sticky header for complete group
+- Case card hover lift subtle (if not gimmick) + glossary brushed highlight evaluation
+- Lineage graph width lower bound 720→360 (mobile overflow fix)
+- Reader header seal ✓ checkmark for complete (small, not red seal)
+- No conveyor, no CTA, no footer re-add unless you want minimal 1-line colophon
+
+### Phase V3 Matrix + Lineage minimal (optional)
+
+- Matrix card subtle ruler removal (keep minimal)
+- Lineage container blueprint grid removal (keep rice paper, per no gimmick)
+- Dossier stays card + gold left stripe — good
+
+### Phase V4 Motion — deferred (you said no gimmicks)
+
+- No seal stamp animation unless requested — respect minimal
 
 ---
 
-> Written 2026-08-10, session `arena/019feaf5-translatechan`, after full senior-dev+designer audit. References: `app.css` tokens, `index.html` hero, `app.js` rendering, scoreboard overall 8.2/10, 16 P3 nits, no P0/P1/P2. No functions added today — only vision. Next step: implement Phase V1 hero + OG image if owner approves.
+## 7. Metrics for "more appealing" (final)
 
+- Qualitative: screenshot shareability — hero with big 假禪工廠 + walnut beam wants screenshot? Yes, minimal Chinese hall.
+- Quantitative: Time to first meaningful print <1.5s on 4G — deferred scripts + preload app_data.js helps.
+- A11y: Lighthouse a11y ≥95 — hero chips accessible now, skip-link present, ARIA tabs roving, dossier dialog focus-managed.
+- Bundle: raw 1,676,108 B + og-image.svg 2.9K, gz est ~400KB — keep <2MB.
+- No regression: smoke 50+ checks green including new 4gg hero dismissable + 4ff/4gg/4hh/4ii/4jj/4kk L1 guard + 4ee dossier.
+
+---
+
+## 8. Open questions — resolved per feedback
+
+- Footer GitHub link? You said remove footer entirely — resolved, footer removed, no GitHub link anywhere (header GitHub link already smoke-guarded forbidden).
+- Vermillion seal for verified? You said drop vermillion keep checkmark ✓ — resolved, verified stays green check, no red.
+- Conveyor animation? You said defer, haven't seen, no gimmicks — resolved, removed from vision, not implemented.
+- Hero CTA? You said don't know what hero CTA means defer — resolved, CTA buttons removed from V1, no CTA.
+- OG image SVG vs PNG? SVG 2.9K shipped, Twitter may rasterize loosely but works; PNG fallback could be added later if preview fails.
+
+---
+
+## 9. One-sentence vision (final — you approved: Good one-sentence vision)
+
+**Fake Chan Factory should feel like a Chinese Chan hall in dark walnut — first 30 seconds Chan literature/Zen feeling with Robo monks as practical joke, then all serious literature composition, sophisticated minimal reading with transparent flow, no choppiness, no overflow, no distraction, no gimmicks, humor only in Robo Translator names.**
+
+---
+
+> Final vision rewritten 2026-08-10, session `arena/019feaf5-translatechan`, after owner feedback loop (dojo → Chinese Chan, wood lean dark walnut, no Japanese, no footer, no conveyor, no CTA, humor only Robo). Phase V1 hero shipped b0aeb4d, audit update 8bfbe81. No new functions added in V1, only appeal. Next: Reader V2 grouping if you want.
