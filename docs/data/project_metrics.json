@@ -1,20 +1,20 @@
 {
   "canonical_locator_coverage": {
     "case_level_documents": 3,
-    "case_locators": 168,
-    "declared_cases": 168,
+    "case_locators": 178,
+    "declared_cases": 178,
     "document_level_seed_documents": 33,
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110932,
+    "all_corpus_cjk_characters": 112408,
     "complete_documents": [
       "biyanlu_cases",
       "platform_sutra",
       "wumenguan",
       "xinxin_ming"
     ],
-    "content_cjk_characters": 105389,
+    "content_cjk_characters": 106615,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -103,17 +103,17 @@
         }
       },
       "congronglu_cases": {
-        "all_cjk_chars": 2282,
+        "all_cjk_chars": 3223,
         "cbeta_id": "T2004",
-        "content_zh_chars": 2051,
-        "coverage": "20/100 cases",
-        "coverage_note": "20 / 100 cases (20 canonical cases recorded)",
+        "content_zh_chars": 2892,
+        "coverage": "30/100 cases",
+        "coverage_note": "30 / 100 cases (30 canonical cases recorded)",
         "shapes": [
           "cases"
         ],
         "title": "Book of Serenity (從容庵錄)",
         "unit_counts": {
-          "cases": 20
+          "cases": 30
         }
       },
       "dahui_hongzhi": {
@@ -165,29 +165,31 @@
         }
       },
       "dongshan_yulu": {
-        "all_cjk_chars": 507,
+        "all_cjk_chars": 716,
         "cbeta_id": "T1986",
-        "content_zh_chars": 415,
+        "content_zh_chars": 573,
+        "coverage_note": "8 canonical encounter dialogues excerpted from T1986 / X1321",
         "shapes": [
           "dialogues",
           "five_ranks"
         ],
         "title": "Dongshan Yulu & Five Ranks (洞山五位)",
         "unit_counts": {
-          "dialogues": 2,
+          "dialogues": 8,
           "five_ranks": 5
         }
       },
       "fayan_yulu": {
-        "all_cjk_chars": 281,
+        "all_cjk_chars": 418,
         "cbeta_id": "T1991 / X1226 (宗門十規論)",
-        "content_zh_chars": 179,
+        "content_zh_chars": 272,
+        "coverage_note": "8 canonical sermons and dialogues from T1985 / X1321",
         "shapes": [
           "sections"
         ],
         "title": "Fayan Yulu & Ten Rules (法眼十規論)",
         "unit_counts": {
-          "sections": 3
+          "sections": 8
         }
       },
       "foyan_qingyuan": {
@@ -442,15 +444,16 @@
         }
       },
       "yunmen_yulu": {
-        "all_cjk_chars": 206,
+        "all_cjk_chars": 395,
         "cbeta_id": "T1988",
-        "content_zh_chars": 135,
+        "content_zh_chars": 269,
+        "coverage_note": "10 signature encounter dialogues and sermons from T1988",
         "shapes": [
           "sections"
         ],
         "title": "Yunmen Yulu (雲門語錄一字關)",
         "unit_counts": {
-          "sections": 4
+          "sections": 10
         }
       },
       "zhaozhou_yulu": {
@@ -521,10 +524,10 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 1261,
+    "corpus_slots": 1342,
     "corpus_statuses": {
       "ai_draft": 199,
-      "reconstruction_unverified": 885,
+      "reconstruction_unverified": 966,
       "verified_quotation": 177
     },
     "matrix_entries": 21,

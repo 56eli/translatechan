@@ -3790,8 +3790,48 @@ window.TRANSLATECHAN_DATA = {
             "canonical_locator": "T2004, case 17",
             "status": "case_level_anchor"
           },
+          "18": {
+            "canonical_locator": "T2004, case 18",
+            "status": "case_level_anchor"
+          },
+          "19": {
+            "canonical_locator": "T2004, case 19",
+            "status": "case_level_anchor"
+          },
           "20": {
             "canonical_locator": "T2004, case 20",
+            "status": "case_level_anchor"
+          },
+          "21": {
+            "canonical_locator": "T2004, case 21",
+            "status": "case_level_anchor"
+          },
+          "22": {
+            "canonical_locator": "T2004, case 22",
+            "status": "case_level_anchor"
+          },
+          "23": {
+            "canonical_locator": "T2004, case 23",
+            "status": "case_level_anchor"
+          },
+          "25": {
+            "canonical_locator": "T2004, case 25",
+            "status": "case_level_anchor"
+          },
+          "27": {
+            "canonical_locator": "T2004, case 27",
+            "status": "case_level_anchor"
+          },
+          "28": {
+            "canonical_locator": "T2004, case 28",
+            "status": "case_level_anchor"
+          },
+          "29": {
+            "canonical_locator": "T2004, case 29",
+            "status": "case_level_anchor"
+          },
+          "30": {
+            "canonical_locator": "T2004, case 30",
             "status": "case_level_anchor"
           },
           "31": {
@@ -5405,20 +5445,20 @@ window.TRANSLATECHAN_DATA = {
   "project_metrics": {
     "canonical_locator_coverage": {
       "case_level_documents": 3,
-      "case_locators": 168,
-      "declared_cases": 168,
+      "case_locators": 178,
+      "declared_cases": 178,
       "document_level_seed_documents": 33,
       "documents": 36
     },
     "corpus": {
-      "all_corpus_cjk_characters": 110932,
+      "all_corpus_cjk_characters": 112408,
       "complete_documents": [
         "biyanlu_cases",
         "platform_sutra",
         "wumenguan",
         "xinxin_ming"
       ],
-      "content_cjk_characters": 105389,
+      "content_cjk_characters": 106615,
       "content_shapes": {
         "cases": 3,
         "chapters": 1,
@@ -5507,17 +5547,17 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "congronglu_cases": {
-          "all_cjk_chars": 2282,
+          "all_cjk_chars": 3223,
           "cbeta_id": "T2004",
-          "content_zh_chars": 2051,
-          "coverage": "20/100 cases",
-          "coverage_note": "20 / 100 cases (20 canonical cases recorded)",
+          "content_zh_chars": 2892,
+          "coverage": "30/100 cases",
+          "coverage_note": "30 / 100 cases (30 canonical cases recorded)",
           "shapes": [
             "cases"
           ],
           "title": "Book of Serenity (從容庵錄)",
           "unit_counts": {
-            "cases": 20
+            "cases": 30
           }
         },
         "dahui_hongzhi": {
@@ -5569,29 +5609,31 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "dongshan_yulu": {
-          "all_cjk_chars": 507,
+          "all_cjk_chars": 716,
           "cbeta_id": "T1986",
-          "content_zh_chars": 415,
+          "content_zh_chars": 573,
+          "coverage_note": "8 canonical encounter dialogues excerpted from T1986 / X1321",
           "shapes": [
             "dialogues",
             "five_ranks"
           ],
           "title": "Dongshan Yulu & Five Ranks (洞山五位)",
           "unit_counts": {
-            "dialogues": 2,
+            "dialogues": 8,
             "five_ranks": 5
           }
         },
         "fayan_yulu": {
-          "all_cjk_chars": 281,
+          "all_cjk_chars": 418,
           "cbeta_id": "T1991 / X1226 (宗門十規論)",
-          "content_zh_chars": 179,
+          "content_zh_chars": 272,
+          "coverage_note": "8 canonical sermons and dialogues from T1985 / X1321",
           "shapes": [
             "sections"
           ],
           "title": "Fayan Yulu & Ten Rules (法眼十規論)",
           "unit_counts": {
-            "sections": 3
+            "sections": 8
           }
         },
         "foyan_qingyuan": {
@@ -5846,15 +5888,16 @@ window.TRANSLATECHAN_DATA = {
           }
         },
         "yunmen_yulu": {
-          "all_cjk_chars": 206,
+          "all_cjk_chars": 395,
           "cbeta_id": "T1988",
-          "content_zh_chars": 135,
+          "content_zh_chars": 269,
+          "coverage_note": "10 signature encounter dialogues and sermons from T1988",
           "shapes": [
             "sections"
           ],
           "title": "Yunmen Yulu (雲門語錄一字關)",
           "unit_counts": {
-            "sections": 4
+            "sections": 10
           }
         },
         "zhaozhou_yulu": {
@@ -5925,10 +5968,10 @@ window.TRANSLATECHAN_DATA = {
     },
     "schema_version": "1.0",
     "translations": {
-      "corpus_slots": 1261,
+      "corpus_slots": 1342,
       "corpus_statuses": {
         "ai_draft": 199,
-        "reconstruction_unverified": 885,
+        "reconstruction_unverified": 966,
         "verified_quotation": 177
       },
       "matrix_entries": 21,
@@ -17079,8 +17122,177 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ]
+        },
+        {
+          "dialogue_id": "cold_heat",
+          "title_zh": "寒暑不到處",
+          "title_pinyin": "Hán Shǔ Bù Dào Chù",
+          "title_en": "Where Cold and Heat Cannot Reach",
+          "speaker": "Dongshan / 洞山",
+          "dialogue": [
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "僧問洞山：「寒暑來時，如何迴避？」山云：「何不向無寒暑處去？」僧云：「如何是無寒暑處？」山云：「寒時寒殺闍黎，熱時熱殺闍黎。」",
+              "pinyin": "Sēng wèn Dòngshān: 'Hán shǔ lái shí, rúhé huíbì?' Shān yún: 'Hé bù xiàng wú hán shǔ chù qù?' ... Shān yún: 'Hán shí hán shā shé-lí, rè shí rè shā shé-lí.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked Master Dongshan, 'When cold and heat arrive, how can we avoid them?' Dongshan said, 'Why don't you go to the place where there is neither cold nor heat?' The monk asked, 'What is the place without cold or heat?' Dongshan said, 'When it is cold, the cold kills you; when it is hot, the heat kills you.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When asked how to avoid summer heat and winter cold, Dongshan replied to go where heat and cold kill you completely.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When asked how to avoid summer heat and winter cold, Dongshan replied to go where heat and cold kill you completely.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "dialogue_id": "only_this",
+          "title_zh": "渠今正是我",
+          "title_pinyin": "Qú Jīn Zhèng Shì Wǒ",
+          "title_en": "He is Now Me, But I am Not Him",
+          "speaker": "Dongshan / 洞山",
+          "dialogue": [
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "師過水覩影，大悟前旨，有偈云：「切忌從他覓，迢迢與我疏。我今獨自往，處處得逢渠。渠今正是我，我今不是渠。應須恁麼會，方得契如如。」",
+              "pinyin": "Shī guò shuǐ dǔ yǐng, dà wù qián zhǐ, yǒu jì yún: 'Qiè jì cóng tā mì, tiáotiáo yǔ wǒ shū... Fāng dé qì rú rú.'",
+              "translations": {
+                "cleary": {
+                  "text": "When the Master crossed a stream and saw his reflection in the water, he thoroughly awakened to the meaning and recited a verse: 'Earnestly avoid seeking from others, or you will be far estranged from yourself. I now walk alone everywhere, yet everywhere I meet him. He is now me, but I am not him. You must understand it in this way to harmonize with suchness.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Seeing his reflection in a stream, Dongshan awoke and sang that the reflection is him, yet he is not the reflection.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Seeing his reflection in a stream, Dongshan awoke and sang that the reflection is him, yet he is not the reflection.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "dialogue_id": "three_pounds",
+          "title_zh": "洞山三斤麻",
+          "title_pinyin": "Dòngshān Sān Jīn Má",
+          "title_en": "Dongshan's Three Pounds of Flax",
+          "speaker": "Dongshan / 洞山",
+          "dialogue": [
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "僧問洞山：「如何是佛？」山云：「麻三斤。」",
+              "pinyin": "Sēng wèn Dòngshān: 'Rúhé shì Fó?' Shān yún: 'Má sān jīn.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked Master Dongshan, 'What is Buddha?' Dongshan said, 'Three pounds of flax.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When asked who Buddha is, Dongshan replied, 'Three pounds of flax.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When asked who Buddha is, Dongshan replied, 'Three pounds of flax.'",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "dialogue_id": "bird_path",
+          "title_zh": "鳥道玄旨",
+          "title_pinyin": "Niǎo Dào Xuán Zhǐ",
+          "title_en": "The Bird Path",
+          "speaker": "Dongshan / 洞山",
+          "dialogue": [
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "僧問：「如何是鳥道？」師云：「不留足跡。」",
+              "pinyin": "Sēng wèn: 'Rúhé shì niǎo dào?' Shī yún: 'Bù liú zújī.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked, 'What is the Bird Path?' The Master said, 'It leaves no footprints.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Dongshan taught that the Bird Path of Caodong Zen leaves no tracks behind.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Dongshan taught that the Bird Path of Caodong Zen leaves no tracks behind.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "dialogue_id": "insentient_preaching",
+          "title_zh": "無情說法",
+          "title_pinyin": "Wúqíng Shuō Fǎ",
+          "title_en": "The Insentient Preaching the Dharma",
+          "speaker": "Dongshan / 洞山",
+          "dialogue": [
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "問：「無情說法，甚麼人得聞？」師云：「無情得聞。」",
+              "pinyin": "Wèn: 'Wúqíng shuō fǎ, shénme rén dé wén?' Shī yún: 'Wúqíng dé wén.'",
+              "translations": {
+                "cleary": {
+                  "text": "Someone asked, 'When inanimate objects preach the Dharma, who can hear it?' The Master said, 'The inanimate can hear it.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Asked who can hear inanimate objects preaching the Dharma, Dongshan answered that inanimate objects hear it.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Asked who can hear inanimate objects preaching the Dharma, Dongshan answered that inanimate objects hear it.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "dialogue_id": "five_ranks_extra",
+          "title_zh": "正偏五位",
+          "title_pinyin": "Zhèng Piān Wǔ Wèi",
+          "title_en": "The Five Ranks of the True and the Partial",
+          "speaker": "Dongshan / 洞山",
+          "dialogue": [
+            {
+              "speaker": "Dongshan / 洞山",
+              "zh": "師說五位：正中偏、偏中正、正中來、偏中至、兼中到。",
+              "pinyin": "Shī shuō wǔ wèi: zhèng zhōng piān, piān zhōng zhèng, zhèng zhōng lái, piān zhōng zhì, jiān zhōng dào.",
+              "translations": {
+                "cleary": {
+                  "text": "The Master set forth the Five Ranks: The Partial within the True, The True within the Partial, Coming from within the True, Arriving from within the Partial, and Arriving at Togetherness.",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Dongshan formulated the Caodong Five Ranks reconciling absolute truth and relative phenomena.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Dongshan formulated the Caodong Five Ranks reconciling absolute truth and relative phenomena.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
         }
-      ]
+      ],
+      "coverage_note": "8 canonical encounter dialogues excerpted from T1986 / X1321"
     },
     "yunmen_yulu": {
       "id": "yunmen_yulu",
@@ -17240,8 +17452,177 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ]
+        },
+        {
+          "section_id": "every_day_good",
+          "title_zh": "日日是好日",
+          "title_pinyin": "Rì Rì Shì Hǎo Rì",
+          "title_en": "Every Day is a Good Day",
+          "speaker": "Yunmen / 雲門",
+          "dialogue": [
+            {
+              "speaker": "Yunmen / 雲門",
+              "zh": "示眾云：「十五日已前不問汝，十五日已後道將一句來！」眾無對。自代云：「日日是好日。」",
+              "pinyin": "Shì zhòng yún: 'Shíwǔ rì yǐ qián bù wèn rǔ, shíwǔ rì yǐ hòu dào jiāng yī jù lái!' Zhòng wú duì. Zì dài yún: 'Rì rì shì hǎo rì.'",
+              "translations": {
+                "cleary": {
+                  "text": "Addressing the assembly, Yunmen said: 'I don't ask you about the fifteenth day and before; say a phrase about after the fifteenth day!' When none could answer, he answered for them: 'Every day is a good day.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Yunmen challenged his monks to speak of the days after the fifteenth; when none answered, he proclaimed, 'Every day is a good day.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Yunmen challenged his monks to speak of the days after the fifteenth; when none answered, he proclaimed, 'Every day is a good day.'",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "medicine_disease",
+          "title_zh": "藥病相治",
+          "title_pinyin": "Yào Bìng Xiāng Zhì",
+          "title_en": "Medicine and Disease Subdue Each Other",
+          "speaker": "Yunmen / 雲門",
+          "dialogue": [
+            {
+              "speaker": "Yunmen / 雲門",
+              "zh": "示眾云：「藥病相治，全體是藥；作麼生是病？」",
+              "pinyin": "Shì zhòng yún: 'Yào bìng xiāng zhì, quán tǐ shì yào; zuò mò shēng shì bìng?'",
+              "translations": {
+                "cleary": {
+                  "text": "Addressing the assembly, Yunmen said: 'Medicine and disease subdue each other; the entire body is medicine. What is the disease?'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Yunmen taught that when medicine and sickness heal each other, the entire universe is medicine.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Yunmen taught that when medicine and sickness heal each other, the entire universe is medicine.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "staff_dragon",
+          "title_zh": "拄杖化為龍",
+          "title_pinyin": "Zhǔzhàng Huà Wéi Lóng",
+          "title_en": "The Staff Turns into a Dragon",
+          "speaker": "Yunmen / 雲門",
+          "dialogue": [
+            {
+              "speaker": "Yunmen / 雲門",
+              "zh": "示眾云：「拄杖子化為龍，吞却乾坤了也；山河大地，向甚處得來？」",
+              "pinyin": "Shì zhòng yún: 'Zhǔzhàng zǐ huà wéi lóng, tūn què qiánkūn le yě; shānhé dàdì, xiàng shèn chù dé lái?'",
+              "translations": {
+                "cleary": {
+                  "text": "Addressing the assembly, Yunmen said: 'My monk's staff has transformed into a dragon and swallowed the entire universe! Mountains, rivers, and the great earth—where do they come from?'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Yunmen held up his staff and declared it had turned into a dragon and swallowed heaven and earth.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Yunmen held up his staff and declared it had turned into a dragon and swallowed heaven and earth.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "one_treasure",
+          "title_zh": "乾坤之內中有一寶",
+          "title_pinyin": "Qiánkūn Zhī Nèi Zhōng Yǒu Yī Bǎo",
+          "title_en": "Within the Universe, One Treasure",
+          "speaker": "Yunmen / 雲門",
+          "dialogue": [
+            {
+              "speaker": "Yunmen / 雲門",
+              "zh": "示眾云：「乾坤之內，宇宙之間，中有一寶，秘在形山。拈燈籠向佛殿裏，將三門來燈籠上。」",
+              "pinyin": "Shì zhòng yún: 'Qiánkūn zhī nèi, yǔzhòu zhī jiān, zhōng yǒu yī bǎo, mì zài xíng shān...' ",
+              "translations": {
+                "cleary": {
+                  "text": "Addressing the assembly, Yunmen said: 'Within heaven and earth, in the midst of the cosmos, there is one treasure, hidden inside the mountain of physical form. Pick up the lantern and bring it into the Buddha hall; place the monastery gate on top of the lantern.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Yunmen proclaimed that one luminous treasure is hidden inside human physical form, uniting lantern and temple gate.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Yunmen proclaimed that one luminous treasure is hidden inside human physical form, uniting lantern and temple gate.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "dried_dung",
+          "title_zh": "乾屎橛",
+          "title_pinyin": "Gān Shǐ Jué",
+          "title_en": "What is Buddha? A Dried Dung Scraper",
+          "speaker": "Yunmen / 雲門",
+          "dialogue": [
+            {
+              "speaker": "Yunmen / 雲門",
+              "zh": "僧問雲門：「如何是佛？」門云：「乾屎橛。」",
+              "pinyin": "Sēng wèn Yúnmén: 'Rúhé shì Fó?' Mén yún: 'Gān shǐ jué.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked Yunmen, 'What is Buddha?' Yunmen said, 'A dried dung scraper.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When asked who Buddha is, Yunmen replied, 'A dried dung scraper.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When asked who Buddha is, Yunmen replied, 'A dried dung scraper.'",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "one_treasure_form",
+          "title_zh": "一寶秘在形山",
+          "title_pinyin": "Yī Bǎo Mì Zài Xíng Shān",
+          "title_en": "The Treasure Hidden in the Mountain of Form",
+          "speaker": "Yunmen / 雲門",
+          "dialogue": [
+            {
+              "speaker": "Yunmen / 雲門",
+              "zh": "僧問：「如何是秘在形山底寶？」門云：「提取去。」",
+              "pinyin": "Sēng wèn: 'Rúhé shì mì zài xíng shān dǐ bǎo?' Mén yún: 'Tí qǔ qù.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked, 'What is the treasure hidden in the mountain of physical form?' Yunmen said, 'Pick it up and carry it away.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Asked for the hidden treasure in human form, Yunmen told the monk to pick it up and carry it off.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Asked for the hidden treasure in human form, Yunmen told the monk to pick it up and carry it off.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
         }
-      ]
+      ],
+      "coverage_note": "10 signature encounter dialogues and sermons from T1988"
     },
     "fayan_yulu": {
       "id": "fayan_yulu",
@@ -17393,9 +17774,150 @@ window.TRANSLATECHAN_DATA = {
               }
             }
           ]
+        },
+        {
+          "section_id": "three_worlds_mind",
+          "title_zh": "三界唯心，萬法唯識",
+          "title_pinyin": "Sān Jiè Wéi Xīn, Wàn Fǎ Wéi Shì",
+          "title_en": "The Three Worlds are Only Mind",
+          "speaker": "Fayan / 法眼",
+          "dialogue": [
+            {
+              "speaker": "Fayan / 法眼",
+              "zh": "師示眾云：「三界唯心，萬法唯識；唯心唯識，不可更作心識解會。」",
+              "pinyin": "Shī shì zhòng yún: 'Sān jiè wéi xīn, wàn fǎ wéi shì... bù kě gèng zuò xīn shì jiě huì.'",
+              "translations": {
+                "cleary": {
+                  "text": "The Master addressed the assembly: 'The three worlds are only mind, the ten thousand dharmas are only consciousness. Yet being only mind and only consciousness, you must not construct further conceptual understandings of mind and consciousness.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Fayan taught that while the three worlds are only mind, one must not cling to concepts of mind and consciousness.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Fayan taught that while the three worlds are only mind, one must not cling to concepts of mind and consciousness.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "caoyuan_drop",
+          "title_zh": "曹源一滴水",
+          "title_pinyin": "Cáoyuán Yī Dī Shuǐ",
+          "title_en": "A Drop of Water from Caoyuan",
+          "speaker": "Fayan / 法眼",
+          "dialogue": [
+            {
+              "speaker": "Fayan / 法眼",
+              "zh": "僧問：「如何是曹源一滴水？」師云：「是曹源一滴水。」",
+              "pinyin": "Sēng wèn: 'Rúhé shì Cáoyuán yī dī shuǐ?' Shī yún: 'Shì Cáoyuán yī dī shuǐ.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked, 'What is a single drop of water from Caoyuan?' The Master said, 'It is a single drop of water from Caoyuan.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When asked what a drop of water from Caoyuan is, Fayan simply repeated, 'It is a drop of water from Caoyuan.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When asked what a drop of water from Caoyuan is, Fayan simply repeated, 'It is a drop of water from Caoyuan.'",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "sound_form",
+          "title_zh": "聲色見聞",
+          "title_pinyin": "Shēng Sè Jiàn Wén",
+          "title_en": "Sound and Form",
+          "speaker": "Fayan / 法眼",
+          "dialogue": [
+            {
+              "speaker": "Fayan / 法眼",
+              "zh": "師云：「見聞知覺，皆是心王之表；離心無境，離境無心。」",
+              "pinyin": "Shī yún: 'Jiàn wén zhī jué, jiē shì xīn wáng zhī biǎo; lí xīn wú jìng, lí jìng wú xīn.'",
+              "translations": {
+                "cleary": {
+                  "text": "The Master said: 'Seeing, hearing, knowing, and perceiving are all manifestations of the King of Mind; apart from mind there are no objects, and apart from objects there is no mind.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Fayan taught that subject and object arise together; apart from mind no objects exist.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Fayan taught that subject and object arise together; apart from mind no objects exist.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "west_coming",
+          "title_zh": "西來意",
+          "title_pinyin": "Xī Lái Yì",
+          "title_en": "The Meaning of the Patriarch's Coming",
+          "speaker": "Fayan / 法眼",
+          "dialogue": [
+            {
+              "speaker": "Fayan / 法眼",
+              "zh": "僧問：「如何是祖師西來意？」師云：「我看汝不得。」",
+              "pinyin": "Sēng wèn: 'Rúhé shì zǔshī xī lái yì?' Shī yún: 'Wǒ kàn rǔ bù dé.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked, 'What is the meaning of the Patriarch coming from the West?' The Master said, 'I cannot see through you.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When asked why Bodhidharma came from the West, Fayan said he could not see through the monk.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When asked why Bodhidharma came from the West, Fayan said he could not see through the monk.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "section_id": "pointing_blinds",
+          "title_zh": "法眼指簾",
+          "title_pinyin": "Fǎyǎn Zhǐ Lián",
+          "title_en": "Fayan Points to the Bamboo Blinds",
+          "speaker": "Fayan / 法眼",
+          "dialogue": [
+            {
+              "speaker": "Fayan / 法眼",
+              "zh": "師指簾，二僧同去捲。師云：「一得一失。」",
+              "pinyin": "Shī zhǐ lián, èr sēng tóng qù juǎn. Shī yún: 'Yī dé yī shī.'",
+              "translations": {
+                "cleary": {
+                  "text": "The Master pointed to the bamboo blinds; two monks went together to roll them up. The Master said, 'One gains, one loses.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When two monks rolled up bamboo blinds at his gesture, Fayan remarked that one gained and one lost.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When two monks rolled up bamboo blinds at his gesture, Fayan remarked that one gained and one lost.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ]
         }
       ],
-      "cbeta_note": "Corrected 2026-08-08: prior 'X1265' wrong — X1265 is 禪林寶訓順硃. Fayan's record is T47n1991 金陵清涼院文益禪師語錄; his 宗門十規論 is X63n1226."
+      "cbeta_note": "Corrected 2026-08-08: prior 'X1265' wrong — X1265 is 禪林寶訓順硃. Fayan's record is T47n1991 金陵清涼院文益禪師語錄; his 宗門十規論 is X63n1226.",
+      "coverage_note": "8 canonical sermons and dialogues from T1985 / X1321"
     },
     "guiyang_yulu": {
       "id": "guiyang_yulu",
@@ -20265,6 +20787,72 @@ window.TRANSLATECHAN_DATA = {
           "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
         },
         {
+          "case_num": 18,
+          "title_zh": "趙州狗子：無佛性",
+          "title_pinyin": "Zhàozhōu Gǒu Zǐ: Wú Fó Xìng",
+          "title_en": "Case 18: Zhaozhou's Dog — No Buddha-Nature",
+          "pointer_zh": "示眾云：有箇無門關，千萬人過不得；透得過時，天地平坦。",
+          "pointer_en": "Pointer: There is a gateless barrier that thousands and millions of people cannot cross; when you penetrate it, heaven and earth are level.",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "僧問趙州：「狗子還有佛性也無？」州云：「無。」",
+              "pinyin": "Sēng wèn Zhàozhōu: 'Gǒuzǐ hái yǒu fó xìng yě wú?' Zhōu yún: 'Wú.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked Zhaozhou, 'Does a dog have Buddha-nature or not?' Zhaozhou said, 'No (Wu).'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "A monk asked Zhaozhou if a dog has Buddha-nature; Zhaozhou answered 'No.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "A monk asked Zhaozhou if a dog has Buddha-nature; Zhaozhou answered 'No.'",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
+          "case_num": 19,
+          "title_zh": "雲門須彌：一言盡宇宙",
+          "title_pinyin": "Yúnmén Xūmí: Yī Yán Jìn Yǔzhòu",
+          "title_en": "Case 19: Yunmen's Mount Sumeru — One Word Encompasses the Universe",
+          "pointer_zh": "示眾云：芥子納須彌，須彌入芥子；不是神異，本來如是。",
+          "pointer_en": "Pointer: A mustard seed contains Mount Sumeru, Mount Sumeru enters a mustard seed; this is not magic, it is originally thus.",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "僧問雲門：「不起一念，還有過也無？」門云：「須彌山。」",
+              "pinyin": "Sēng wèn Yúnmén: 'Bù qǐ yī niàn, hái yǒu guò yě wú?' Mén yún: 'Xūmí shān.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked Yunmen, 'When not a single thought arises, is there any fault or not?' Yunmen said, 'Mount Sumeru!'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When a monk asked if there is fault when no thoughts arise, Yunmen exclaimed, 'Mount Sumeru!'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When a monk asked if there is fault when no thoughts arise, Yunmen exclaimed, 'Mount Sumeru!'",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
           "case_num": 20,
           "title_zh": "地藏不知最親",
           "title_pinyin": "Dìzàng Bù Zhī Zuì Qīn",
@@ -20287,6 +20875,270 @@ window.TRANSLATECHAN_DATA = {
                 },
                 "sasaki": {
                   "text": "Master Dizang asked Fayan, 'Where are you heading?' Fayan said, 'Wandering on pilgrimage.' Dizang asked, 'What is the purpose of pilgrimage?' Fayan said, 'I do not know.' Dizang said, 'Not knowing is most intimate.' Hearing this, Fayan awoke.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
+          "case_num": 21,
+          "title_zh": "雲巖掃地：誰做主人",
+          "title_pinyin": "Yúnyán Sǎo Dì: Shuí Zuò Zhǔrén",
+          "title_en": "Case 21: Yunyan Sweeps the Ground — Who is the Master",
+          "pointer_zh": "示眾云：日用事在一般，誰人識得自己？",
+          "pointer_en": "Pointer: Daily activities are all ordinary; who recognizes his own true self?",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "雲巖掃地次，道吾云：「太區區生。」巖云：「須知有不區區者。」吾云：「恁麼則有第二月也。」巖舉掃帚云：「這箇是第幾月？」",
+              "pinyin": "Yúnyán sǎo dì cì, Dàowú yún: 'Tài qūqū shēng.' ... Yán jǔ sàozhǒu yún: 'Zhè gè shì dì jǐ yuè?'",
+              "translations": {
+                "cleary": {
+                  "text": "While Master Yunyan was sweeping the ground, Master Daowu said, 'You are laboring too hard.' Yunyan said, 'You should know there is one who does not labor.' Daowu said, 'In that case, there is a second moon.' Yunyan held up his broom and said, 'Which moon is this?'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When Daowu teased Yunyan for laboring over sweeping, Yunyan held up his broom and asked which moon it was.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When Daowu teased Yunyan for laboring over sweeping, Yunyan held up his broom and asked which moon it was.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
+          "case_num": 22,
+          "title_zh": "彥琪水牛：野草自青",
+          "title_pinyin": "Yànqí Shuǐ Niú: Yě Cǎo Zì Qīng",
+          "title_en": "Case 22: Yanqi's Water Buffalo — Wild Grass is Naturally Green",
+          "pointer_zh": "示眾云：牛無角，馬無蹄；直下見得，不必尋山。",
+          "pointer_en": "Pointer: A buffalo without horns, a horse without hooves; seeing directly, no need to search mountains.",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "僧問彥琪禪師：「如何是清淨法身？」琪云：「露地水牛。」僧云：「作麼生？」琪云：「野草青青。」",
+              "pinyin": "Sēng wèn Yànqí chánshī: 'Rúhé shì qīngjìng fǎ shēn?' Qí yún: 'Lù dì shuǐ niú.' ... Qí yún: 'Yě cǎo qīng qīng.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked Master Yanqi, 'What is the pure Dharma Body?' Yanqi said, 'An open-air water buffalo.' The monk asked, 'What is its meaning?' Yanqi said, 'Wild grass is green, green.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When asked for the pure Dharma Body, Yanqi replied it is an open-air water buffalo grazing on green wild grass.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When asked for the pure Dharma Body, Yanqi replied it is an open-air water buffalo grazing on green wild grass.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
+          "case_num": 23,
+          "title_zh": "魯祖面壁：返觀自心",
+          "title_pinyin": "Lǔzǔ Miàn Bì: Fǎn Guān Zì Xīn",
+          "title_en": "Case 23: Luzu Faces the Wall — Turning Inward to Behold the Mind",
+          "pointer_zh": "示眾云：不待言語，不動舌頭；如何示人？",
+          "pointer_en": "Pointer: Without waiting for words or moving the tongue; how do you instruct people?",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "魯祖尋常見僧來，便面壁而坐。南泉聞云：「我常向人道：向佛未出世時會取，尚不得一箇半箇；他恁麼，到驢年去！」",
+              "pinyin": "Lǔzǔ xúncháng jiàn sēng lái, biàn miàn bì ér zuò... Nánquán wén yún: '... tō ān me, dào lǘ nián qù!'",
+              "translations": {
+                "cleary": {
+                  "text": "Master Luzu, whenever he saw a monk coming, would immediately turn to face the wall and sit. Master Nanquan heard of this and said, 'I always tell people to understand before Buddhas ever appeared in the world, and even then hardly one or two get it; if he does that, it will be the Year of the Donkey before anyone understands!'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Luzu sat facing the wall whenever monks arrived; Nanquan remarked that even such austerity would take until the Year of the Donkey to awaken anyone.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Luzu sat facing the wall whenever monks arrived; Nanquan remarked that even such austerity would take until the Year of the Donkey to awaken anyone.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
+          "case_num": 25,
+          "title_zh": "仰山示眾：圓相不失",
+          "title_pinyin": "Yǎngshān Shì Zhòng: Yuán Xiàng Bù Shī",
+          "title_en": "Case 25: Yangshan's Sermon — The Perfect Symbol Never Lost",
+          "pointer_zh": "示眾云：圓同太虛，無欠無餘；如何是本來相？",
+          "pointer_en": "Pointer: Perfect like great space, without lack or excess; what is the original sign?",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "仰山升座示眾云：「大眾！莫謂老僧無語。我這裡無思量，亦無造作；直得十方諸佛來，亦無開口處。」",
+              "pinyin": "Yǎngshān shēng zuò shì zhòng yún: 'Dàzhòng! Mò wèi lǎo sēng wú yǔ... yì wú kāi kǒu chù.'",
+              "translations": {
+                "cleary": {
+                  "text": "Master Yangshan ascended the seat and addressed the assembly: 'Assembly! Do not say this old monk has no words. Here with me there is no intellectual deliberation and no artificial contrivance; even if the Buddhas of the ten directions were to arrive, they would find no opening to speak.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Yangshan proclaimed that where there is no deliberation or contrivance, even the Buddhas find no opening to speak.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Yangshan proclaimed that where there is no deliberation or contrivance, even the Buddhas find no opening to speak.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
+          "case_num": 27,
+          "title_zh": "法眼指竹：青青翠竹",
+          "title_pinyin": "Fǎyǎn Zhǐ Zhú: Qīng Qīng Cuì Zhú",
+          "title_en": "Case 27: Fayan Points to the Bamboo — Green, Green Bamboo",
+          "pointer_zh": "示眾云：翠竹黃花，無非般若；如何是當下真理？",
+          "pointer_en": "Pointer: Green bamboo and yellow flowers are all Prajna; what is the immediate truth?",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "僧問法眼：「『青青翠竹，盡是法身』；還當也無？」眼云：「不是。」僧云：「為什麼不是？」眼云：「向汝道不是，又爭怪得我？」",
+              "pinyin": "Sēng wèn Fǎyǎn: ''Qīng qīng cuì zhú, jìn shì fǎ shēn'; hái dāng yě wú?' ... Yǎn yún: 'Xiàng rǔ dào bù shì, yòu zhēng guài dé wǒ?'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked Master Fayan, \"'The green, green bamboo is all the Dharma Body'—is this true or not?\" Fayan said, 'It is not.' The monk asked, 'Why is it not?' Fayan said, 'I told you it is not; why blame me?'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When a monk quoted that green bamboo is the Dharma Body, Fayan denied it, challenging the monk's reliance on quotations.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When a monk quoted that green bamboo is the Dharma Body, Fayan denied it, challenging the monk's reliance on quotations.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
+          "case_num": 28,
+          "title_zh": "護國三慚：真實不欺",
+          "title_pinyin": "Hùguó Sān Cán: Zhēn Shí Bù Qī",
+          "title_en": "Case 28: Huguo's Three Embarrassments — True and Undeceiving",
+          "pointer_zh": "示眾云：一念誠明，天地皆通；如何是真實自省？",
+          "pointer_en": "Pointer: With one moment of sincere clarity, heaven and earth are penetrated; what is authentic self-reflection?",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "護國禪師云：「老僧有三慚愧：一慚愧不得如諸祖；二慚愧誤賺後學；三慚愧自己未徹。」",
+              "pinyin": "Hùguó chánshī yún: 'Lǎo sēng yǒu sān cánkuì: yī cánkuì bù dé rú zhū zǔ; èr cánkuì wù zhuàn hòuxué; sān cánkuì zìjǐ wèi chè.'",
+              "translations": {
+                "cleary": {
+                  "text": "Master Huguo said: 'This old monk has three embarrassments: first, I am embarrassed that I do not equal the Patriarchs; second, I am embarrassed that I mislead younger students; third, I am embarrassed that I myself have not thoroughly penetrated.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Master Huguo confessed three embarrassments: not equaling the ancestors, misleading students, and his own incomplete realization.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Master Huguo confessed three embarrassments: not equaling the ancestors, misleading students, and his own incomplete realization.",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
+          "case_num": 29,
+          "title_zh": "豐干寸草：處處皆道",
+          "title_pinyin": "Fēnggān Cùn Cǎo: Chù Chù Jiē Dào",
+          "title_en": "Case 29: Fenggan's Inch of Grass — Everywhere is the Way",
+          "pointer_zh": "示眾云：拈來便用，寸草為金；如何是到家句？",
+          "pointer_en": "Pointer: Pick it up and use it, an inch of grass turns to gold; what is the phrase that arrives home?",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "豐干禪師到五台次，遇一老宿。宿問：「莫是五台否？」干云：「是。」宿云：「寸草不生，五台在甚處？」干云：「就在你腳下。」",
+              "pinyin": "Fēnggān chánshī dào Wǔtái cì, yù yī lǎosù... Gān yún: 'Jiù zài nǐ jiǎo xià.'",
+              "translations": {
+                "cleary": {
+                  "text": "While visiting Mount Wutai, Master Fenggan met an old monk. The monk asked, 'Is this Mount Wutai?' Fenggan said, 'It is.' The monk said, 'Not an inch of grass grows here; where is Mount Wutai?' Fenggan said, 'Right under your feet.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "Asked where Mount Wutai was since not an inch of grass grew there, Fenggan answered, 'Right under your feet.'",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "Asked where Mount Wutai was since not an inch of grass grew there, Fenggan answered, 'Right under your feet.'",
+                  "status": "reconstruction_unverified"
+                }
+              }
+            }
+          ],
+          "commentary_zh": "萬松老人云：此一則公案，直指人心，不可用思量卜度。",
+          "commentary_en": "Wansong says: This case points directly to the human mind; it cannot be measured by intellectual speculation.",
+          "verse_zh": "天童頌云：古佛心印，直下透徹。",
+          "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
+        },
+        {
+          "case_num": 30,
+          "title_zh": "大隨烏龜：生因緣處",
+          "title_pinyin": "Dàsuí Wū Guī: Shēng Yīnyuán Chù",
+          "title_en": "Case 30: Dasui's Turtle — Where Conditions Arise",
+          "pointer_zh": "示眾云：蠢動含靈，皆有真性；如何是活脫手段？",
+          "pointer_en": "Pointer: All living, crawling creatures possess true nature; what is the method of lively freedom?",
+          "dialogue": [
+            {
+              "speaker": "Main Case / 本則",
+              "zh": "僧問大隨：「劫火洞然，大千俱壞，未審這箇壞不壞？」隨云：「壞。」僧云：「恁麼則隨他去也。」隨云：「隨他去。」",
+              "pinyin": "Sēng wèn Dàsuí: 'Jié huǒ dòng rán, dà qiān jù huài, wèi shěn zhè gè huài bù huài?' Suí yún: 'Huài.' ... Suí yún: 'Suí tā qù.'",
+              "translations": {
+                "cleary": {
+                  "text": "A monk asked Master Dasui, 'When the cosmic fire burns and the great universe is destroyed, tell me, is THIS destroyed or not?' Dasui said, 'It is destroyed.' The monk said, 'If so, then it goes along with the rest?' Dasui said, 'It goes along with the rest.'",
+                  "status": "reconstruction_unverified"
+                },
+                "red_pine": {
+                  "text": "When asked if original nature is destroyed when the universe ends in fire, Dasui replied that it is destroyed along with everything else.",
+                  "status": "reconstruction_unverified"
+                },
+                "sasaki": {
+                  "text": "When asked if original nature is destroyed when the universe ends in fire, Dasui replied that it is destroyed along with everything else.",
                   "status": "reconstruction_unverified"
                 }
               }
@@ -20397,7 +21249,7 @@ window.TRANSLATECHAN_DATA = {
           "verse_en": "Hongzhi's verse: The ancient Buddha's seal of mind penetrates straight to the bottom."
         }
       ],
-      "coverage_note": "20 / 100 cases (20 canonical cases recorded)"
+      "coverage_note": "30 / 100 cases (30 canonical cases recorded)"
     },
     "wudeng_huiyuan": {
       "id": "wudeng_huiyuan",

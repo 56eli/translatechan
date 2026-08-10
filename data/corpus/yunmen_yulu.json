@@ -156,6 +156,175 @@
           }
         }
       ]
+    },
+    {
+      "section_id": "every_day_good",
+      "title_zh": "日日是好日",
+      "title_pinyin": "Rì Rì Shì Hǎo Rì",
+      "title_en": "Every Day is a Good Day",
+      "speaker": "Yunmen / 雲門",
+      "dialogue": [
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "示眾云：「十五日已前不問汝，十五日已後道將一句來！」眾無對。自代云：「日日是好日。」",
+          "pinyin": "Shì zhòng yún: 'Shíwǔ rì yǐ qián bù wèn rǔ, shíwǔ rì yǐ hòu dào jiāng yī jù lái!' Zhòng wú duì. Zì dài yún: 'Rì rì shì hǎo rì.'",
+          "translations": {
+            "cleary": {
+              "text": "Addressing the assembly, Yunmen said: 'I don't ask you about the fifteenth day and before; say a phrase about after the fifteenth day!' When none could answer, he answered for them: 'Every day is a good day.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Yunmen challenged his monks to speak of the days after the fifteenth; when none answered, he proclaimed, 'Every day is a good day.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yunmen challenged his monks to speak of the days after the fifteenth; when none answered, he proclaimed, 'Every day is a good day.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "medicine_disease",
+      "title_zh": "藥病相治",
+      "title_pinyin": "Yào Bìng Xiāng Zhì",
+      "title_en": "Medicine and Disease Subdue Each Other",
+      "speaker": "Yunmen / 雲門",
+      "dialogue": [
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "示眾云：「藥病相治，全體是藥；作麼生是病？」",
+          "pinyin": "Shì zhòng yún: 'Yào bìng xiāng zhì, quán tǐ shì yào; zuò mò shēng shì bìng?'",
+          "translations": {
+            "cleary": {
+              "text": "Addressing the assembly, Yunmen said: 'Medicine and disease subdue each other; the entire body is medicine. What is the disease?'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Yunmen taught that when medicine and sickness heal each other, the entire universe is medicine.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yunmen taught that when medicine and sickness heal each other, the entire universe is medicine.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "staff_dragon",
+      "title_zh": "拄杖化為龍",
+      "title_pinyin": "Zhǔzhàng Huà Wéi Lóng",
+      "title_en": "The Staff Turns into a Dragon",
+      "speaker": "Yunmen / 雲門",
+      "dialogue": [
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "示眾云：「拄杖子化為龍，吞却乾坤了也；山河大地，向甚處得來？」",
+          "pinyin": "Shì zhòng yún: 'Zhǔzhàng zǐ huà wéi lóng, tūn què qiánkūn le yě; shānhé dàdì, xiàng shèn chù dé lái?'",
+          "translations": {
+            "cleary": {
+              "text": "Addressing the assembly, Yunmen said: 'My monk's staff has transformed into a dragon and swallowed the entire universe! Mountains, rivers, and the great earth—where do they come from?'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Yunmen held up his staff and declared it had turned into a dragon and swallowed heaven and earth.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yunmen held up his staff and declared it had turned into a dragon and swallowed heaven and earth.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "one_treasure",
+      "title_zh": "乾坤之內中有一寶",
+      "title_pinyin": "Qiánkūn Zhī Nèi Zhōng Yǒu Yī Bǎo",
+      "title_en": "Within the Universe, One Treasure",
+      "speaker": "Yunmen / 雲門",
+      "dialogue": [
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "示眾云：「乾坤之內，宇宙之間，中有一寶，秘在形山。拈燈籠向佛殿裏，將三門來燈籠上。」",
+          "pinyin": "Shì zhòng yún: 'Qiánkūn zhī nèi, yǔzhòu zhī jiān, zhōng yǒu yī bǎo, mì zài xíng shān...' ",
+          "translations": {
+            "cleary": {
+              "text": "Addressing the assembly, Yunmen said: 'Within heaven and earth, in the midst of the cosmos, there is one treasure, hidden inside the mountain of physical form. Pick up the lantern and bring it into the Buddha hall; place the monastery gate on top of the lantern.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Yunmen proclaimed that one luminous treasure is hidden inside human physical form, uniting lantern and temple gate.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Yunmen proclaimed that one luminous treasure is hidden inside human physical form, uniting lantern and temple gate.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "dried_dung",
+      "title_zh": "乾屎橛",
+      "title_pinyin": "Gān Shǐ Jué",
+      "title_en": "What is Buddha? A Dried Dung Scraper",
+      "speaker": "Yunmen / 雲門",
+      "dialogue": [
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "僧問雲門：「如何是佛？」門云：「乾屎橛。」",
+          "pinyin": "Sēng wèn Yúnmén: 'Rúhé shì Fó?' Mén yún: 'Gān shǐ jué.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Yunmen, 'What is Buddha?' Yunmen said, 'A dried dung scraper.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When asked who Buddha is, Yunmen replied, 'A dried dung scraper.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When asked who Buddha is, Yunmen replied, 'A dried dung scraper.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "one_treasure_form",
+      "title_zh": "一寶秘在形山",
+      "title_pinyin": "Yī Bǎo Mì Zài Xíng Shān",
+      "title_en": "The Treasure Hidden in the Mountain of Form",
+      "speaker": "Yunmen / 雲門",
+      "dialogue": [
+        {
+          "speaker": "Yunmen / 雲門",
+          "zh": "僧問：「如何是秘在形山底寶？」門云：「提取去。」",
+          "pinyin": "Sēng wèn: 'Rúhé shì mì zài xíng shān dǐ bǎo?' Mén yún: 'Tí qǔ qù.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'What is the treasure hidden in the mountain of physical form?' Yunmen said, 'Pick it up and carry it away.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Asked for the hidden treasure in human form, Yunmen told the monk to pick it up and carry it off.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Asked for the hidden treasure in human form, Yunmen told the monk to pick it up and carry it off.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "coverage_note": "10 signature encounter dialogues and sermons from T1988"
 }

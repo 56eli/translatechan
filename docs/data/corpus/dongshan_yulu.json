@@ -248,6 +248,175 @@
           }
         }
       ]
+    },
+    {
+      "dialogue_id": "cold_heat",
+      "title_zh": "寒暑不到處",
+      "title_pinyin": "Hán Shǔ Bù Dào Chù",
+      "title_en": "Where Cold and Heat Cannot Reach",
+      "speaker": "Dongshan / 洞山",
+      "dialogue": [
+        {
+          "speaker": "Dongshan / 洞山",
+          "zh": "僧問洞山：「寒暑來時，如何迴避？」山云：「何不向無寒暑處去？」僧云：「如何是無寒暑處？」山云：「寒時寒殺闍黎，熱時熱殺闍黎。」",
+          "pinyin": "Sēng wèn Dòngshān: 'Hán shǔ lái shí, rúhé huíbì?' Shān yún: 'Hé bù xiàng wú hán shǔ chù qù?' ... Shān yún: 'Hán shí hán shā shé-lí, rè shí rè shā shé-lí.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Master Dongshan, 'When cold and heat arrive, how can we avoid them?' Dongshan said, 'Why don't you go to the place where there is neither cold nor heat?' The monk asked, 'What is the place without cold or heat?' Dongshan said, 'When it is cold, the cold kills you; when it is hot, the heat kills you.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When asked how to avoid summer heat and winter cold, Dongshan replied to go where heat and cold kill you completely.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When asked how to avoid summer heat and winter cold, Dongshan replied to go where heat and cold kill you completely.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "only_this",
+      "title_zh": "渠今正是我",
+      "title_pinyin": "Qú Jīn Zhèng Shì Wǒ",
+      "title_en": "He is Now Me, But I am Not Him",
+      "speaker": "Dongshan / 洞山",
+      "dialogue": [
+        {
+          "speaker": "Dongshan / 洞山",
+          "zh": "師過水覩影，大悟前旨，有偈云：「切忌從他覓，迢迢與我疏。我今獨自往，處處得逢渠。渠今正是我，我今不是渠。應須恁麼會，方得契如如。」",
+          "pinyin": "Shī guò shuǐ dǔ yǐng, dà wù qián zhǐ, yǒu jì yún: 'Qiè jì cóng tā mì, tiáotiáo yǔ wǒ shū... Fāng dé qì rú rú.'",
+          "translations": {
+            "cleary": {
+              "text": "When the Master crossed a stream and saw his reflection in the water, he thoroughly awakened to the meaning and recited a verse: 'Earnestly avoid seeking from others, or you will be far estranged from yourself. I now walk alone everywhere, yet everywhere I meet him. He is now me, but I am not him. You must understand it in this way to harmonize with suchness.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Seeing his reflection in a stream, Dongshan awoke and sang that the reflection is him, yet he is not the reflection.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Seeing his reflection in a stream, Dongshan awoke and sang that the reflection is him, yet he is not the reflection.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "three_pounds",
+      "title_zh": "洞山三斤麻",
+      "title_pinyin": "Dòngshān Sān Jīn Má",
+      "title_en": "Dongshan's Three Pounds of Flax",
+      "speaker": "Dongshan / 洞山",
+      "dialogue": [
+        {
+          "speaker": "Dongshan / 洞山",
+          "zh": "僧問洞山：「如何是佛？」山云：「麻三斤。」",
+          "pinyin": "Sēng wèn Dòngshān: 'Rúhé shì Fó?' Shān yún: 'Má sān jīn.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked Master Dongshan, 'What is Buddha?' Dongshan said, 'Three pounds of flax.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "When asked who Buddha is, Dongshan replied, 'Three pounds of flax.'",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "When asked who Buddha is, Dongshan replied, 'Three pounds of flax.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "bird_path",
+      "title_zh": "鳥道玄旨",
+      "title_pinyin": "Niǎo Dào Xuán Zhǐ",
+      "title_en": "The Bird Path",
+      "speaker": "Dongshan / 洞山",
+      "dialogue": [
+        {
+          "speaker": "Dongshan / 洞山",
+          "zh": "僧問：「如何是鳥道？」師云：「不留足跡。」",
+          "pinyin": "Sēng wèn: 'Rúhé shì niǎo dào?' Shī yún: 'Bù liú zújī.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'What is the Bird Path?' The Master said, 'It leaves no footprints.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Dongshan taught that the Bird Path of Caodong Zen leaves no tracks behind.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Dongshan taught that the Bird Path of Caodong Zen leaves no tracks behind.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "insentient_preaching",
+      "title_zh": "無情說法",
+      "title_pinyin": "Wúqíng Shuō Fǎ",
+      "title_en": "The Insentient Preaching the Dharma",
+      "speaker": "Dongshan / 洞山",
+      "dialogue": [
+        {
+          "speaker": "Dongshan / 洞山",
+          "zh": "問：「無情說法，甚麼人得聞？」師云：「無情得聞。」",
+          "pinyin": "Wèn: 'Wúqíng shuō fǎ, shénme rén dé wén?' Shī yún: 'Wúqíng dé wén.'",
+          "translations": {
+            "cleary": {
+              "text": "Someone asked, 'When inanimate objects preach the Dharma, who can hear it?' The Master said, 'The inanimate can hear it.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Asked who can hear inanimate objects preaching the Dharma, Dongshan answered that inanimate objects hear it.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Asked who can hear inanimate objects preaching the Dharma, Dongshan answered that inanimate objects hear it.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "five_ranks_extra",
+      "title_zh": "正偏五位",
+      "title_pinyin": "Zhèng Piān Wǔ Wèi",
+      "title_en": "The Five Ranks of the True and the Partial",
+      "speaker": "Dongshan / 洞山",
+      "dialogue": [
+        {
+          "speaker": "Dongshan / 洞山",
+          "zh": "師說五位：正中偏、偏中正、正中來、偏中至、兼中到。",
+          "pinyin": "Shī shuō wǔ wèi: zhèng zhōng piān, piān zhōng zhèng, zhèng zhōng lái, piān zhōng zhì, jiān zhōng dào.",
+          "translations": {
+            "cleary": {
+              "text": "The Master set forth the Five Ranks: The Partial within the True, The True within the Partial, Coming from within the True, Arriving from within the Partial, and Arriving at Togetherness.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Dongshan formulated the Caodong Five Ranks reconciling absolute truth and relative phenomena.",
+              "status": "reconstruction_unverified"
+            },
+            "sasaki": {
+              "text": "Dongshan formulated the Caodong Five Ranks reconciling absolute truth and relative phenomena.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "coverage_note": "8 canonical encounter dialogues excerpted from T1986 / X1321"
 }
