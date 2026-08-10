@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Fake Chan Factory — Robo monks robolating Chan masters">
+  <!-- Background: rice paper -->
+  <rect width="1200" height="630" fill="#faf8f5"/>
+  <!-- Subtle paper texture via radial gradients (CSS noise would be image, keep simple) -->
+  <g opacity="0.04">
+    <circle cx="200" cy="120" r="300" fill="#2c2523"/>
+    <circle cx="1000" cy="500" r="280" fill="#9e7232"/>
+  </g>
+  <!-- Dark walnut top beam (Chinese Chan hall timber) -->
+  <rect x="0" y="0" width="1200" height="14" fill="#2c2523"/>
+  <!-- Dark walnut bottom beam -->
+  <rect x="0" y="618" width="1200" height="12" fill="#2c2523"/>
+  <!-- Side thin gold rule -->
+  <rect x="0" y="14" width="1200" height="1" fill="#e6decb"/>
+  <rect x="0" y="617" width="1200" height="1" fill="#e6decb"/>
+
+  <!-- Central hall content -->
+  <g text-anchor="middle">
+    <!-- Chinese hall name — big kai -->
+    <text x="600" y="235" font-family="'Noto Serif SC','Songti SC',serif" font-size="128" font-weight="900" letter-spacing="0.06em" fill="#1f1a18">假禪工廠</text>
+    <!-- Seal square -->
+    <g transform="translate(890, 145)">
+      <rect x="0" y="0" width="56" height="56" fill="none" stroke="#9e7232" stroke-width="2.5"/>
+      <text x="28" y="38" text-anchor="middle" font-family="'Noto Serif SC',serif" font-size="32" font-weight="700" fill="#9e7232">禪</text>
+    </g>
+    <!-- English small caps -->
+    <text x="600" y="285" font-family="-apple-system,Inter,Helvetica,Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="0.22em" fill="#6e645e">FAKE CHAN FACTORY</text>
+    <!-- Divider gold -->
+    <rect x="540" y="312" width="120" height="2" fill="#9e7232" opacity="0.7"/>
+    <!-- Tagline — practical joke, then serious -->
+    <text x="600" y="360" font-family="'Kaiti SC','STKaiti',serif" font-size="26" font-style="italic" fill="#2c2523">「平常心是道。」— Robo monks at work, practical joke.</text>
+    <text x="600" y="395" font-family="Inter,Helvetica,Arial,sans-serif" font-size="20" fill="#6e645e">Real CBETA sources · Robo renderings marked 🤖 · Verified marked ✅</text>
+    <!-- Meta counts — accessible, not aria-hidden -->
+    <text x="600" y="455" font-family="ui-monospace,Menlo,monospace" font-size="18" letter-spacing="0.04em" fill="#756b64">📜 36 canonical works · ✅ 4 complete scrolls · 🤖 21 Robo-translators · zero-backend static</text>
+  </g>
+
+  <!-- Bottom tiny colophon -->
+  <text x="36" y="600" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#9c9189" letter-spacing="0.06em">CBETA / Taishō 47·48·51 · Chinese Chan · Sophisticated minimal · Humor only in Robo names</text>
+
+  <!-- Robot monk small, not gimmicky — bottom right -->
+  <text x="1164" y="600" font-family="serif" font-size="22" text-anchor="end" fill="#2c2523">🤖</text>
+</svg>

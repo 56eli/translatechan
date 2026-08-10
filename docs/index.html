@@ -9,11 +9,13 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Fake Chan Factory">
   <meta property="og:title" content="Fake Chan Factory | Robo-Translator Chan/Zen Matrix">
-  <meta property="og:description" content="A playful, proudly-fake AI translation factory that channels the great Chan/Zen translators' registers over real Classical Chinese sources (CBETA / Taishō 47, 48, 51). Robo renderings are clearly marked; genuine public-domain text is verified.">
+  <meta property="og:description" content="A playful, proudly-fake AI translation factory that robolates the great Chan/Zen translators' registers over real Classical Chinese sources (CBETA / Taishō 47, 48, 51). Robo renderings are clearly marked; genuine public-domain text is verified.">
   <meta property="og:url" content="https://56eli.github.io/translatechan/">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://56eli.github.io/translatechan/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fake Chan Factory | Robo-Translator Chan/Zen Matrix">
-  <meta name="twitter:description" content="A proudly-fake AI Chan translation factory. Robo-translators channel the masters' registers; real public-domain text is verified.">
+  <meta name="twitter:description" content="A proudly-fake AI Chan translation factory. Robo-translators robolate the masters' registers; real public-domain text is verified.">
+  <meta name="twitter:image" content="https://56eli.github.io/translatechan/og-image.svg">
   <title>Fake Chan Factory | Robo-Translator Chan/Zen Translation Matrix</title>
   <meta name="description" content="Fake Chan Factory: a proudly-fake AI translation factory robolating the great Chan/Zen translators' registers over real Classical Chinese sources (CBETA / Taishō 47, 48, 51). Robo renderings are clearly marked; genuine public-domain text is verified.">
   <!-- Apply the persisted theme before first paint to avoid a light-mode flash
@@ -87,7 +89,7 @@
       <div class="nav-controls">
         <div class="search-box" role="search">
           <span class="search-icon" aria-hidden="true">🔍</span>
-          <input type="search" id="global-search" class="search-input" placeholder="Search Chinese / English..." autocomplete="off" aria-label="Search all corpus texts — Chinese, pinyin, or English">
+          <input type="search" id="global-search" class="search-input" placeholder="Search Chinese / English…" autocomplete="off" aria-label="Search all corpus texts — Chinese, pinyin, or English">
         </div>
         <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme"><span aria-hidden="true">🌙</span></button>
         <button id="about-toggle" class="theme-toggle" title="Show about banner" aria-label="Show about banner" hidden><span aria-hidden="true">ⓘ</span></button>
@@ -108,18 +110,22 @@
   </header>
 
   <main id="main-content">
-  <!-- Factory Hero Banner (dismissable, restored per session via localStorage) -->
+  <!-- Chan Hall Hero Banner — Chinese Chan hall, dark walnut lean, practical joke once, no gimmicks after -->
   <div class="zen-hero-banner" id="zen-hero-banner" role="region" aria-label="About this project">
-    <div>
-      <div class="zen-quote-main">「平常心是道。」— now freshly robot-stamped. 🤖</div>
+    <div class="hero-main">
+      <div class="hero-brand-row">
+        <span class="hero-zh">假禪工廠</span>
+        <span class="hero-en">FAKE CHAN FACTORY</span>
+        <span class="hero-icon" aria-hidden="true">🤖</span>
+      </div>
+      <div class="zen-quote-main">「平常心是道。」— Robo monks at work, practical joke.</div>
       <div class="zen-quote-sub">
-        <strong>Fake Chan Factory</strong> cooks up AI translations in the register of the great Chan/Zen translators, laid over real Classical Chinese sources. Every rendering below is a <em>Robolation</em> — written by us, not by the named master. Where we have the genuine public-domain text, it's stamped <strong>✅ Verified</strong>. No apologies, just honest fakes.
+        For friends who want Chan literature with honesty: real Classical Chinese from CBETA (Taishō 47, 48, 51), Robo renderings in translators' registers marked <strong>🤖 Robo</strong>, verified public-domain text marked <strong>✅ Verified</strong>. After this joke, serious reading — sophisticated, minimal, transparent flow.
       </div>
     </div>
-    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: flex-start;">
-      <span class="meta-chip" id="hero-corpus-count" aria-hidden="true">📜 36 Canonical Works</span>
-      <span class="meta-chip" id="hero-translator-count" aria-hidden="true">🤖 8+ Robo-Translators</span>
-      <span class="meta-chip" aria-hidden="true">🌐 Zero-Backend Static</span>
+    <div class="hero-meta">
+      <span class="meta-chip" id="hero-corpus-count"><span aria-hidden="true">📜</span> 36 Canonical Works</span>
+      <span class="meta-chip" id="hero-translator-count"><span aria-hidden="true">🤖</span> 21 Robo-Translators</span>
       <button class="hero-dismiss-btn" id="hero-dismiss-btn" title="Hide this banner for this session" aria-label="Hide about banner">✕</button>
     </div>
   </div>
@@ -134,21 +140,13 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar-panel">
           <div class="sidebar-title">Canonical & Related Works</div>
-          <!-- L1 (audit 2026-08-10, session 019feabb): corpus sidebar
-               search filter. With 36 texts in the corpus, the list
-               was getting long; a tiny search box lets scholars jump
-               to "Wumenguan" or "Dahui" without scrolling. Diacritic-
-               and variant-tolerant (matches the global search). -->
+          <!-- Corpus sidebar search filter — diacritic- and variant-tolerant -->
           <div class="corpus-filter">
             <span class="search-icon" aria-hidden="true">🔍</span>
             <input type="search" id="corpus-filter-input" class="search-input" placeholder="Filter corpus…" autocomplete="off" aria-label="Filter canonical works by title">
           </div>
           <div id="corpus-selector-list" class="corpus-selector-list"></div>
 
-          <!-- L1 (audit 2026-08-10, session 019feabb): reading-mode
-               section uses .reader-mode-btn (not the corpus-btn
-               class) so the buttons pick up the correct .btn-pill
-               styling instead of the corpus-list row treatment. -->
           <div class="reader-mode-section">
             <div class="sidebar-title">Reading Mode</div>
             <div class="reader-mode-options">
@@ -211,16 +209,12 @@
             <option value="name">Name order</option>
             <option value="school">School order</option>
           </select>
-          <!-- Options are generated from the bundled school vocabulary (app.js
-               populateLineageSchoolFilter); mastery of drift is impossible: data
-               changes appear here automatically. -->
           <select id="lineage-school-filter" class="search-input" aria-label="Filter masters by lineage school" style="width: auto; padding: 0.35rem 0.75rem;"></select>
         </div>
       </div>
 
       <div id="lineage-verification-summary" class="lineage-verification-summary" aria-live="polite"></div>
 
-      <!-- Interactive SVG lineage chart: vertically layered for readable generations. -->
       <div id="lineage-graph-container" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; min-height: 480px;">
         <div class="graph-toolbar">
           <div class="graph-controls">
@@ -233,12 +227,6 @@
         <svg id="lineage-svg-graph" width="100%" height="720" style="display: block;"></svg>
       </div>
 
-      <!-- Master Dossier Modal / Inspector Drawer (non-modal dialog: focus moves
-           in on open, Escape closes and restores focus — see app.js N2 a11y)
-           L1 (audit 2026-08-10, session 019feabb): the inline style
-           (gold border + serif h2) was inconsistent with the other
-           cards. Moved to .dossier-panel class so it shares the
-           project's card system, and added a subtle accent stripe. -->
       <div id="master-dossier-panel" role="dialog" aria-labelledby="dossier-name-zh" tabindex="-1" class="dossier-panel" hidden>
         <div class="dossier-header">
           <div>
@@ -250,7 +238,6 @@
         <div id="dossier-content" class="dossier-content"></div>
       </div>
 
-      <!-- Lineage Cards Grid -->
       <div id="lineage-content-target" class="lineage-grid" style="display: none;"></div>
     </section>
 
@@ -272,19 +259,12 @@
         </div>
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <label for="lexicon-cat-filter" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Category:</label>
-          <!-- Options are generated from the glossary data (app.js
-               populateLexiconCategoryFilter), never hardcoded. -->
           <select id="lexicon-cat-filter" class="search-input" style="width: auto; padding: 0.35rem 0.75rem;" aria-label="Filter lexicon by category"></select>
         </div>
       </div>
       <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="Occurrence tags cite the term's locus in the canonical work (chapter, fascicle, or case). That locus may lie outside the units currently excerpted into this corpus.">
         📖 <strong>Scope note:</strong> occurrence tags cite each term's locus in the <em>canonical work</em>; a cited locus may sit outside the units currently excerpted (each Reader text carries a 📊 coverage disclosure).
       </div>
-      <!-- U3 (audit 2026-08-10, session 019feabb): free-text filter on top of
-           the category dropdown. Diacritic + variant tolerant (matches the
-           global search). Persists during navigation while the user is in
-           the Lexicon view; resets on app reload (a deliberate choice — the
-           free-text query is exploratory, not a stored preference). -->
       <div class="lexicon-filter-row" style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem;">
         <div class="search-box" role="search" style="flex:1; min-width:14rem;">
           <span class="search-icon" aria-hidden="true">🔍</span>
@@ -310,31 +290,9 @@
     <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">⬆</button>
   </div>
 
-  <footer>
-    <div class="footer-quote">「不立文字，教外別傳；直指人心，見性成佛。」<span style="opacity:0.7">— the robots read this too.</span></div>
-    <nav class="footer-nav" aria-label="Footer">
-      <a href="#/reader">Reader</a>
-      <span class="footer-sep">·</span>
-      <a href="#/matrix">Matrix</a>
-      <span class="footer-sep">·</span>
-      <a href="#/lineage">Lineage</a>
-      <span class="footer-sep">·</span>
-      <a href="#/gongan">Gong'an</a>
-      <span class="footer-sep">·</span>
-      <a href="#/lexicon">Lexicon</a>
-    </nav>
-    <div class="footer-meta">
-      Fake Chan Factory • A proudly-fake AI Chan translation playground
-    </div>
-    <div class="footer-fineprint">
-      Real sources: CBETA / Taishō Tripiṭaka Volumes 47, 48, 51 · Robo renderings are AI, not the named translators' work · Verified public-domain text is marked ✅
-    </div>
-  </footer>
+  <!-- Footer removed per 2026-08-10 vision feedback: site is now literature-first, minimal, no footer gimmick — real sources note lives in hero + docs -->
 
-  <!-- Corpus Data Bundle & Application Scripts.
-       defer starts both downloads immediately while HTML parsing continues;
-       app_data.js executes first and app.js second, immediately before
-       DOMContentLoaded, preserving the global-data initialization order. -->
+  <!-- Corpus Data Bundle & Application Scripts -->
   <script defer src="app_data.js"></script>
   <script defer src="app.js"></script>
 </body>

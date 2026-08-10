@@ -101,7 +101,7 @@ def main() -> None:
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
     DOCS_OUTPUT_FILE.write_text(js_content, encoding="utf-8")
 
-    for item in ("index.html", "app.css", "app.js", "theme-init.js", "robots.txt", "sitemap.xml"):
+    for item in ("index.html", "app.css", "app.js", "theme-init.js", "robots.txt", "sitemap.xml", "og-image.svg"):
         src_path = BASE_DIR / item
         if src_path.exists():
             shutil.copy2(src_path, DOCS_DIR / item)

@@ -1026,7 +1026,7 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
         ("HANDOFF.md", f"the remaining **{pending}**", "verified-reference pending count"),
         ("HANDOFF.md", f"# {len(glossary)} Classical Chan & Buddhist lexicon terms", "glossary count in repo tree"),
         ("HANDOFF.md", f"# {len(gongan)} Gong'an cross-references index entries", "gong'an count in repo tree"),
-        ("index.html", f"📜 {corpus['documents']} Canonical Works", "hero corpus chip"),
+        ("index.html", f"{corpus['documents']} Canonical Works", "hero corpus chip"),
         # AUDIT 2026-08-09 turn-2: the verified-slot tallies must name the true
         # corpus-text spread (drifted 6 → 7 texts before this rule existed).
         ("README.md", f"**{verified_slots} verified quotation slots across {verified_texts} corpus texts + {matrix_verified} verified comparative-matrix entries**",
