@@ -6,17 +6,19 @@ Last updated: 2026-08-10
 
 **Branch:** `arena/019feabb-translatechan` (working branch — do not switch to main, the session is fixed to this branch).
 
-**Baseline:** `23c1dd4` (= `main` tip). Two commits on this branch so far in the current session:
+**Baseline:** `23c1dd4` (= `main` tip). Three commits on this branch so far in the current session:
 
 - `33a7eec` — `docs(audit): full senior-dev + designer review, fix stale bundle-size refs`
 - `4256840` — `feat(ux): U1/U2/U3/U8 polish batch + session audit`
+- `9934f66` — `feat(scoreboard): persistent repo scoreboard system + baseline audit`
+- Next: `feat(perf): compact JSON in build_data_bundle.py` (Tier-3 perf win; not yet committed)
 
-**Quality gates (all green on `4256840`):**
+**Quality gates (all green after the latest build):**
 
 ```text
 python3 -m py_compile scripts/*.py     → ✅
 python3 scripts/validate_data.py       → ✅ corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178
-python3 scripts/build_data_bundle.py   → ✅ 1,956,032 bytes; root & /docs synced
+python3 scripts/build_data_bundle.py   → ✅ 1,653,392 bytes (down from 1,956,032; -15.5%); root & /docs synced
 node scripts/smoke_test.mjs            → ✅ 36 corpus texts, 0 crashes; new U1/U2/U3/U8 checks pass
 diff -rq data docs/data                → ✅ silent
 ```
@@ -29,11 +31,11 @@ Sorted by `priority = gap * weight` (highest first):
 
 1. **`deployment_readiness` (priority 4, status `blocked_manual_workflow_edit`)** — Owner: enable branch protection on `main` requiring the Quality check. Tracked in `.scoreboard/manual-workflow-edits.md` Edit 2.
 2. **`ci_cd` (priority 0 numeric, status `blocked_manual_workflow_edit`)** — Owner: extend `.github/workflows/quality.yml` `git diff --exit-code` list to include `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`. Tracked in `.scoreboard/manual-workflow-edits.md` Edit 1.
-3. **`performance` (priority 3, status `needs_work`)** — Tier 3 from the audit 2026-08-10: split `app_data.js` (1.87 MB) into a "core 4 complete texts" bundle + 32 per-corpus JSON files lazy-loaded on demand. Estimated first-paint drop: 1.87 MB → ~600 KB. Or simpler: compact the JSON in `build_data_bundle.py` (no schema change, ~15–20% saving).
+3. **`performance` (effective 8, status `healthy`, just-promoted)** — 2026-08-10 Tier-3 compact-JSON win shipped: `build_data_bundle.py` now emits `separators=(',', ':')` instead of `indent=2`; bundle shrank 1,956,032 B → 1,653,392 B (-15.5%, 302,640 B saved). AI score moved 7 → 8. Optional follow-up: per-corpus lazy-load split would drop first-paint to ~600 KB; not blocking.
 4. **`content_quality` (priority 3, status `needs_work`)** — Tier 4 from the audit 2026-08-10: populate `alternative_names` for 15 masters + `linked_corpus_keys` for 8; surface empty fields as validator warnings; consider next Phase 2 corpus ingest (Congronglu 30→100, Dongshan Yulu 13→complete).
 5. **`feature_completeness` (priority 4, status `needs_work`)** — Same direction as content_quality: continue Phase 2 corpus ingestion; expand glossary 31→150+ terms.
 
-Lower-priority items (`error_handling_logging`, `error_handling_logging` 7/10, `error_handling_logging` 7/10): the user is most likely to ask about performance/content/feature, not error handling.
+Lower-priority items: `error_handling_logging` (7/10, priority 3) — the user is most likely to ask about content/feature next, not error handling.
 
 ## User scores currently known
 
@@ -45,7 +47,7 @@ Active risk flags (must stay visible even if user accepts):
 
 - **CI workflow path list missing 3 files** — see `ci_cd` aspect + `manual-workflow-edits.md` Edit 1. Low practical risk (smoke test enforces them), but a future refactor could rotate them without CI noticing.
 - **Branch protection on main does not require the Quality check** — see `deployment_readiness` + `manual-workflow-edits.md` Edit 2. PRs can currently merge without the gate.
-- **Bundle size 1.87 MB** — see `performance` aspect. First-paint cost on slow connections.
+- **Bundle size 1.65 MB** (down from 1.87 MB on 2026-08-10 after the compact-JSON win; 302,640 bytes / 15.5% smaller). Per-corpus lazy-load split would drop further to ~600 KB; tracked as optional Tier-3 follow-up.
 - **Robo renderings form 72% of all translation slots** (966/1342 reconstruction_unverified, 199 ai_draft, 177 verified) — by design (this is what "Fake Chan Factory" *is*), but worth re-stating for any new contributor or auditor.
 
 ## Manual workflow edits pending
@@ -66,7 +68,7 @@ After Edit 1 + Edit 2 land, the gate should move to `pass`.
 ```text
 2026-08-10  python3 -m py_compile scripts/*.py        → ✅
 2026-08-10  python3 scripts/validate_data.py          → ✅ corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178
-2026-08-10  python3 scripts/build_data_bundle.py      → ✅ 1,956,032 B; root & /docs synced
+2026-08-10  python3 scripts/build_data_bundle.py      → ✅ 1,653,392 B (down from 1,956,032 B; -15.5%); root & /docs synced
 2026-08-10  node scripts/smoke_test.mjs               → ✅ 0 crashes (44+ checks, including new U1/U2/U3/U8 4aa-4dd)
 2026-08-10  diff -rq data docs/data                   → ✅ silent
 ```

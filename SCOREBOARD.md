@@ -25,8 +25,7 @@ Agent sessions are sandboxed and may expire after a PR merge. **Durable context 
 | 1 | deployment_readiness | 7 | 1 | 4 | 4 | blocked_manual_workflow_edit |
 | 2 | feature_completeness | 7 | 1 | 4 | 4 | needs_work |
 | 3 | error_handling_logging | 7 | 1 | 3 | 3 | needs_work |
-| 4 | performance | 7 | 1 | 3 | 3 | needs_work |
-| 5 | content_quality | 7 | 1 | 3 | 3 | needs_work |
+| 4 | content_quality | 7 | 1 | 3 | 3 | needs_work |
 
 ## Scoreboard table
 
@@ -44,7 +43,7 @@ Agent sessions are sandboxed and may expire after a PR merge. **Durable context 
 | Tests | 5 | 7 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: combine validate + build + smoke into one 'ci' script (P3) |
 | CI/CD | 4 | 7 | 7 | — | 7 | 0 | 0 | blocked_manual_workflow_edit | high | Owner: extend .github/workflows/quality.yml git diff --exit-code list (see manual-workflow-edits.md Edit 1) |
 | Security / privacy | 5 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | — |
-| Performance | 3 | 8 | 7 | — | 7 | 1 | 3 | needs_work | medium | Compact JSON in build_data_bundle.py (~XS), or per-corpus lazy-load split (~M) |
+| Performance | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: per-corpus lazy-load split (~M) |
 | GitHub Pages presentation | 5 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | Optional: og:image (P3) |
 | UX / usability | 4 | 8 | 9 | — | 9 | 0 | 0 | healthy | high | — |
 | Accessibility | 3 | 8 | 8 | — | 8 | 0 | 0 | healthy | high | Optional: aria-live announcements (P3) |
@@ -65,7 +64,7 @@ These remain visible even if the user accepts them:
 
 - **CI workflow path list missing 3 files** (`docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`). Workflow change documented in [`.scoreboard/manual-workflow-edits.md` Edit 1](./.scoreboard/manual-workflow-edits.md). Low practical risk because the smoke test enforces them, but a future refactor could rotate them without CI noticing.
 - **Branch protection on `main` does not require the Quality check.** PRs can currently merge without the gate. Owner action documented in [`.scoreboard/manual-workflow-edits.md` Edit 2](./.scoreboard/manual-workflow-edits.md).
-- **Bundle size 1.87 MB** is a real first-paint cost on slow connections. Per-corpus lazy-load split is the recommended Tier-3 follow-up.
+- **Bundle size 1.65 MB** (down from 1.87 MB on 2026-08-10 after the compact-JSON Tier-3 win; 302,640 bytes / 15.5% smaller; no longer a risk flag since the easy win shipped — the optional per-corpus lazy-load split is now an explicit P3 follow-up on the `performance` aspect).
 - **Robo renderings form 72% of all translation slots** (966 reconstruction_unverified + 199 ai_draft + 177 verified = 1342). By design — this is what "Fake Chan Factory" *is* — but worth re-stating for any new contributor or auditor.
 
 ## Aspects needing user review

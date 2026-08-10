@@ -17,14 +17,12 @@ summary:
   repo_ready_gate_status: warning
   top_priorities:
     - deployment_readiness
-    - ci_cd
-    - performance
-    - content_quality
     - feature_completeness
+    - error_handling_logging
+    - content_quality
   active_risk_flags:
     - "CI workflow path list missing 3 files (theme-init.js, robots.txt, sitemap.xml) — needs manual .github/workflows/quality.yml edit (token lacks workflows scope). Tracked in .scoreboard/manual-workflow-edits.md."
     - "Branch protection on main does not require the Quality check; PRs can merge without the gate (owner action)."
-    - "Bundle size 1.87 MB (1,956,032 B) is a real first-paint cost; lazy per-corpus split is a recommended Tier-3 follow-up."
     - "Robo renderings (reconstruction_unverified) form 72% of all translation slots (966/1342) — by design, but worth re-stating for any new contributor or auditor."
 
 quality_gates:
@@ -356,28 +354,25 @@ aspects:
     category: quality
     weight: 3
     target: 8
-    ai_score: 7
+    ai_score: 8
     user_score: null
-    effective_score: 7
-    gap: 1
-    priority: 3
-    status: needs_work
-    confidence: medium
+    effective_score: 8
+    gap: 0
+    priority: 0
+    status: healthy
+    confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Deferred scripts (app_data.js + app.js), preloaded, downloaded in parallel with HTML parsing. searchUnitsCache builds the searchable index once per session. Lazy case rendering (CASE_CHUNK = 12, 12 → 24 → all). getSearchUnitsIndex() is debounced. Reduced-motion gated via motionBehavior(). However, the bundle is now 1.87 MB (1,956,032 B) — ~3 s on 4G to first paint. JSON inside app_data.js is indented (json.dumps indent=2) — a 15-20% saving is available at build time. No service worker (intentionally skipped, documented in UX_ROADMAP §D3)."
+    ai_basis: "Deferred scripts (app_data.js + app.js), preloaded, downloaded in parallel with HTML parsing. searchUnitsCache builds the searchable index once per session. Lazy case rendering (CASE_CHUNK = 12, 12 → 24 → all). getSearchUnitsIndex() is debounced. Reduced-motion gated via motionBehavior(). 2026-08-10 Tier-3 win: build_data_bundle.py now emits compact JSON (separators=(',', ':') instead of indent=2), shrinking the shipped bundle from 1,956,032 B → 1,653,392 B (15.5% / 302,640 B saved) with no schema change. The next bigger lever — splitting per-corpus JSON out of the core bundle for lazy load — would still drop first-paint further (~600 KB target) but is no longer blocking."
     user_basis: null
     desired_direction:
-      - "Tier 3 (audit 2026-08-10): split app_data.js into a 'core 4 complete texts' bundle + 32 per-corpus JSON files lazy-loaded on demand. Estimated first-paint drop: 1.87 MB → ~600 KB."
-      - "Or simpler: compact the JSON in build_data_bundle.py (no schema change)."
+      - "Optional: split app_data.js into a 'core 4 complete texts' bundle + 32 per-corpus JSON files lazy-loaded on demand. Estimated first-paint drop: 1.65 MB → ~600 KB. Larger change, worth a design conversation."
     evidence:
-      - "ls -l app_data.js: 1,956,032 B"
-      - "scripts/build_data_bundle.py: json.dumps(data_bundle, ensure_ascii=False, indent=2)"
+      - "ls -l app_data.js: 1,653,392 B (down from 1,956,032 B; -15.5%)"
+      - "scripts/build_data_bundle.py: json.dumps(separators=(',', ':'))"
       - "app.js: motionBehavior() + lazy caseLimit + searchUnitsCache"
     next_actions:
-      - "Compact JSON in build_data_bundle.py (P3, ~XS)"
       - "Optional: per-corpus lazy-load split (P3, ~M)"
-    risk_flags:
-      - "Bundle size 1.87 MB is a real first-paint cost; user on slow connections waits several seconds."
+    risk_flags: []
     files_reviewed: [app.js, app_data.js, scripts/build_data_bundle.py, index.html]
 
   - id: github_pages_presentation

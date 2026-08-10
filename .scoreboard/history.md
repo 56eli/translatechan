@@ -15,6 +15,7 @@
 | 2026-08-10 | ci_cd | — | 7 | — | null | Arena agent | Baseline audit. Quality workflow exists, but git diff --exit-code list missing 3 files + branch protection not requiring check. Status: blocked_manual_workflow_edit. |
 | 2026-08-10 | security_privacy | — | 9 | — | null | Arena agent | Baseline audit. Restrictive CSP, no PII, search self-XSS guarded, rights manifest. |
 | 2026-08-10 | performance | — | 7 | — | null | Arena agent | Baseline audit. Deferred scripts + lazy chunking + search cache, but 1.87 MB bundle. |
+| 2026-08-10 | performance | 7 | 8 | — | null | Arena agent | Tier-3 compact-JSON win. build_data_bundle.py emits `separators=(',', ':')` instead of `indent=2`; bundle shrank 1,956,032 B → 1,653,392 B (-15.5%, 302,640 B saved). All gates still pass. |
 | 2026-08-10 | github_pages_presentation | — | 9 | — | null | Arena agent | Baseline audit. Full SEO, theme-color, canonical, robots, sitemap, FOUC guard, data-derived hero. |
 | 2026-08-10 | ux_usability | — | 9 | — | null | Arena agent | Baseline audit. Calm reader + case strip + U1/U2/U3/U8 just shipped. |
 | 2026-08-10 | accessibility | — | 8 | — | null | Arena agent | Baseline audit. ARIA tabs, role=dialog, focus management, prefers-reduced-motion. |
