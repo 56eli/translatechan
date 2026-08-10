@@ -1,30 +1,39 @@
 # Agent Handoff
 
-Last updated: 2026-08-10
+Last updated: 2026-08-10 (session `arena/019feabb-translatechan`, ready-to-merge)
 
 ## Current repo state
 
 **Branch:** `arena/019feabb-translatechan` (working branch — do not switch to main, the session is fixed to this branch).
 
-**Baseline:** `23c1dd4` (= `main` tip). Three commits on this branch so far in the current session:
+**Status: ready to merge.** The user has asked to "update all documentation, prepare for handoff, then push for PR merge." All 12 commits on this branch are pushed; all quality gates pass; HANDOFF.md has a fresh §"Current Session Handoff" section for this session; SCOREBOARD.md, AGENTS.md, and `.scoreboard/agent-handoff.md` (this file) are all in sync.
 
-- `33a7eec` — `docs(audit): full senior-dev + designer review, fix stale bundle-size refs`
-- `4256840` — `feat(ux): U1/U2/U3/U8 polish batch + session audit`
-- `9934f66` — `feat(scoreboard): persistent repo scoreboard system + baseline audit`
+**Baseline:** `23c1dd4` (= `main` tip). 12 commits on this branch so far in the current session (newest first):
+
+- `85a3bba` — `feat(presentation): L1 sidebar reading-mode buttons + case-card class consolidation`
+- `8cc1e16` — `docs(scoreboard): log L1 layout round 3 (dossier panel)`
+- `20c6d7f` — `test: smoke test 4kk guards the dossier panel class + accent stripe`
+- `fdfa30a` — `feat(presentation): L1 dossier panel — consistent card styling`
+- `3e16f4b` — `feat(presentation): L1 layout round 2 — sticky toolbar, corpus search filter, reader breadcrumb`
+- `9b15598` — `feat(presentation): L1 layout pass — dismissable hero, narrower sidebar, corpus completion marks`
+- `ef83542` — `feat(corpus): Phase-2 Congronglu 30 → 35 cases (5 well-documented)`
+- `089169c` — `feat(data): Tier-4 alternative_names + linked_corpus_keys completeness`
 - `2a11b5e` — `perf(build): compact JSON in build_data_bundle.py (Tier-3 win)`
-- Next: Phase 2 corpus ingestion (Congronglu 30→35 just shipped; remaining 65 cases for a future session)
+- `9934f66` — `feat(scoreboard): persistent repo scoreboard system + baseline audit`
+- `4256840` — `feat(ux): U1/U2/U3/U8 polish batch + session audit`
+- `33a7eec` — `docs(audit): full senior-dev + designer review, fix stale bundle-size refs`
 
-**Quality gates (all green after the latest build):**
+**Quality gates (all green on `85a3bba`):**
 
 ```text
 python3 -m py_compile scripts/*.py     → ✅
-python3 scripts/validate_data.py      → ✅ corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183
+python3 scripts/validate_data.py      → ✅ corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183 (with 6 known warnings for 4 frontier scaffolds + 2 historical compendia masters with empty linked_corpus_keys — documented, not blocking)
 python3 scripts/build_data_bundle.py   → ✅ 1,676,108 bytes; root & /docs synced
-node scripts/smoke_test.mjs            → ✅ 36 corpus texts, 0 crashes; new U1/U2/U3/U8 checks pass
+node scripts/smoke_test.mjs            → ✅ 36 corpus texts, 0 crashes; 50+ check sections including new U1/U2/U3/U8 + 4ff/4gg/4hh/4ii/4jj/4kk
 diff -rq data docs/data                → ✅ silent
 ```
 
-**Scoreboard state:** All 22 aspects audited with AI scores, `user_score: null` for all (no explicit user scores received). Quality gate `repo_ready` is `warning` (numeric thresholds pass; `ci_cd` and `deployment_readiness` are `blocked_manual_workflow_edit`).
+**Scoreboard state:** All 22 aspects audited with AI scores, `user_score: null` for all (no explicit user scores received). Overall effective 8.2/10. Quality gate `repo_ready` is `warning` (numeric thresholds pass; `ci_cd` and `deployment_readiness` are `blocked_manual_workflow_edit` pending two owner-only CI edits).
 
 ## Top priorities for next agent
 
@@ -70,9 +79,9 @@ After Edit 1 + Edit 2 land, the gate should move to `pass`.
 
 ```text
 2026-08-10  python3 -m py_compile scripts/*.py        → ✅
-2026-08-10  python3 scripts/validate_data.py          → ✅ corpus=36 | slots=1342 | verified=177 | matrix=21 | locators=178/178
-2026-08-10  python3 scripts/build_data_bundle.py      → ✅ 1,653,392 B (down from 1,956,032 B; -15.5%); root & /docs synced
-2026-08-10  node scripts/smoke_test.mjs               → ✅ 0 crashes (44+ checks, including new U1/U2/U3/U8 4aa-4dd)
+2026-08-10  python3 scripts/validate_data.py          → ✅ corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183 (6 known warnings for 4 frontier scaffolds + 2 historical compendia masters with empty linked_corpus_keys)
+2026-08-10  python3 scripts/build_data_bundle.py      → ✅ 1,676,108 B; root & /docs synced
+2026-08-10  node scripts/smoke_test.mjs               → ✅ 0 crashes (50+ check sections, including new U1/U2/U3/U8 4aa–4dd + 4ff/4gg/4hh/4ii/4jj/4kk)
 2026-08-10  diff -rq data docs/data                   → ✅ silent
 ```
 
@@ -82,7 +91,7 @@ Optional Playwright suite (`npm run test:browser`) was not run in this session (
 
 - **`.github/workflows/quality.yml`** — not edited; agent token lacks `workflows` scope. Required edit documented in `.scoreboard/manual-workflow-edits.md` Edit 1.
 - **Branch protection on `main`** — owner-only setting in GitHub web UI. Required action documented in `.scoreboard/manual-workflow-edits.md` Edit 2.
-- **`data/corpus/manifest.json` and the 36 corpus files** — no data changes this session; the audit was content-shape-preserving.
+- **`data/corpus/congronglu_cases.json` cases 36, 39–100** — the 65 remaining Congronglu cases are documented in the literature but not yet ingested. This is a candidate for a future Phase-2 session; the audit (2026-08-10) recommended continuing with Dongshan Yulu 13 → complete as the next natural target.
 - **`docs/` contents** — only `app.css`, `app.js`, `index.html`, `app_data.js` were regenerated by `build_data_bundle.py`; the rest of `docs/` is identical to root.
 
 ## Notes for next sandboxed session
@@ -108,3 +117,5 @@ Optional Playwright suite (`npm run test:browser`) was not run in this session (
 7. **Public Pages scope** (intentionally narrow): Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, Chan Lexicon. No Translation Studio, no Arena AI Agents, no header GitHub link. The smoke test guards this — don't add them.
 
 8. **Tone:** the project is humor-forward and self-aware ("Robolation", "fakeness score"). Continue that voice. Do not strip the joke.
+
+9. **PR-merge readiness:** the user has explicitly asked for documentation updates + handoff + PR merge. The next agent should open a PR from `arena/019feabb-translatechan` → `main` with the PR description template included in `HANDOFF.md` §"Current Session Handoff" (or, if the user is doing the merge, hand off the branch as-is).

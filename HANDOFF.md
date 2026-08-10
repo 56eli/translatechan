@@ -55,6 +55,83 @@ The published interface remains deliberately limited to **Bilingual Reader, Comp
 
 ---
 
+---
+
+## ✅ Current Session Handoff — 2026-08-10 (session `arena/019feabb-translatechan`)
+
+### Public Pages scope
+
+The published interface remains deliberately limited to **Bilingual Reader, Comparative Matrix, Lineage Tree, Gong'an Index, and Chan Lexicon** (no Translation Studio, agent branding, or header GitHub link; the smoke test guards against their return).
+
+### What this session delivered (all gates green; full report: [`AUDIT_2026-08-10_session.md`](./AUDIT_2026-08-10_session.md) + [`sessions/SESSION_AUDIT_2026-08-10_019feabb.md`](./sessions/SESSION_AUDIT_2026-08-10_019feabb.md))
+
+**A. Full-project senior-dev + designer audit** (no P0/P1/P2 defects found):
+- All 22 scoreboard aspects audited with AI scores, evidence, and confidence; `user_score: null` for all (no explicit user scores received).
+- Overall effective score: **8.2 / 10** (weighted average over 83 total weight). Quality gate `repo_ready` is **`warning`** (numeric thresholds pass; `ci_cd` and `deployment_readiness` carry `blocked_manual_workflow_edit` risk flags).
+- 19 aspects `healthy`, 1 `needs_work` (`error_handling_logging`), 2 `blocked_manual_workflow_edit` (`ci_cd`, `deployment_readiness`).
+
+**B. Persistent scoreboard system** ([`SCOREBOARD.md`](./SCOREBOARD.md) + [`AGENTS.md`](./AGENTS.md) + `.scoreboard/`):
+- New files: `SCOREBOARD.md` (human-readable summary), `AGENTS.md` (agent protocol with scoreboard section), `.scoreboard/scoreboard.yml` (canonical YAML — 22 aspects), `.scoreboard/rubric.md` (scoring spec), `.scoreboard/history.md` (change log), `.scoreboard/agent-handoff.md` (durable handoff to next agent), `.scoreboard/manual-workflow-edits.md` (exact patches for owner-only CI changes), `docs/audits/2026-08-10-baseline.md` (this audit's full log), `.github/pull_request_template.md` (PR template with scoreboard section).
+- Arena/sandbox policy: durable context lives in repo files (chat memory is not durable). Each session updates `.scoreboard/agent-handoff.md` before finishing. Manual workflow edits are documented in `.scoreboard/manual-workflow-edits.md`; agent tokens lack the `workflows` scope and cannot edit `.github/workflows/*`.
+
+**C. U1/U2/U3/U5/U8 UX polish batch (smoke-guarded by 4aa–4dd):**
+- **U1**: case-strip chips now show the case number + case title_zh inline on viewports ≥ 900px (the strip doubles as a topical table-of-contents).
+- **U2**: 12/24/all segmented control sits beside the primary load-more button; `loadMoreCases(target)` jumps directly to a target unit count.
+- **U3**: free-text filter on the Lexicon (diacritic + variant tolerant via `normalizeForSearch`); renders a live "N of 31 terms" summary and a "no match" hint.
+- **U5**: `prefers-reduced-motion: reduce` already gates all animations (the global `@media` rule disables `animation` + `transition` site-wide).
+- **U8**: keyboard case navigation in the reader — `ArrowLeft` / `ArrowRight` jump to the previous / next case; `[` / `]` jump to first / last; skipped when an input/select has focus or any popover is open. Hint surfaced via the nav footer's `title=` attribute.
+
+**D. Tier-3 perf win:**
+- `scripts/build_data_bundle.py` now emits compact JSON (`separators=(',', ':')` instead of `indent=2`). The bundle shrank **1,956,032 B → 1,653,392 B (-15.5%, 302,640 B saved)** with no schema change.
+
+**E. Tier-4 data completeness:**
+- Populated `alternative_names` for 20 masters (Huike → Yuelin Shiguan) and `linked_corpus_keys` for 20 (Sengcan → xinxin_ming, Daoxin → chuandenglu + dazhu_huihai, etc.).
+- Validator now warns on empty `alternative_names` / `linked_corpus_keys` and errors on dangling corpus keys; smoke test `4ee` exercises the dossier rendering. 6 masters still have empty `linked_corpus_keys` (4 frontier scaffolds + 2 historical masters whose primary text is in compendia).
+
+**F. Phase-2 corpus ingest:**
+- Added 5 well-documented Congronglu (T2004) cases (Nanquan-as-Cat, Panshan-Mind-Seal, Gutji-One-Finger, Dongshan-Three-Pounds-of-Hemp, Baizhang-Wild-Fox) → congronglu_cases 30 → 35.
+- Each new case carries a case-level CBETA locator (T2004_p0196c etc.) on `data/canonical_locators.json`.
+- Doc truthfulness snippets updated in README.md, HANDOFF.md, AUDIT.md (metrics refresh: 1352 corpus slots, 183/183 case-level locators, 107,563 content CJK).
+
+**G. L1 layout pass (4 rounds, user feedback "isn't very good layout wise"):**
+- **Round 1**: dismissable hero banner (per-session localStorage) with a re-show "ⓘ" button; giant 禪 watermark removed; reader sidebar 300px → 260px with the single-column break moved 960px → 1100px; corpus sidebar shows a per-text completion mark (green ✓ for complete, "N/M" for excerpts); proper footer with nav links + meta + fineprint.
+- **Round 2**: sticky reader toolbar (position: sticky inside the content panel with backdrop-blur); corpus sidebar search filter (diacritic-tolerant, debounced 150ms); reader breadcrumb "📚 Reader › T2005 Wumenguan" above the title.
+- **Round 3**: dossier panel now uses the project's card system (var(--bg-card) background + 4px gold left accent stripe) instead of inline-styled gold-bordered look.
+- **Round 4**: reading-mode button section in the corpus sidebar moved to `.reader-mode-btn` (proper stacked-pill layout); 5+ inline `style="border-left: ..."` attributes on case cards moved to `.case-card.is-preface / .is-epilogue / .is-overview / .is-five-ranks` classes.
+- Smoke tests `4ff` (corpus completion mark) + `4gg` (dismissable hero) + `4hh` (corpus search filter) + `4ii` (reader breadcrumb) + `4jj` (sticky toolbar CSS) + `4kk` (dossier panel class + accent stripe) guard the new behaviors.
+
+**H. Doc drift fixes (audit 2026-08-10 §3.2):**
+- Removed stale `~873KB` / `~1.69 MB` / `~1.87 MB` literals from `index.html`, `HANDOFF.md`, `AUDIT.md`, `scripts/smoke_test.mjs` (bundle size is data-driven and reported by the validator's quality-gate summary line).
+
+### Quality gate run before handoff
+
+```bash
+python3 -m py_compile scripts/*.py
+python3 scripts/validate_data.py          # corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183 (with 6 known warnings for 4 frontier scaffolds + 2 historical compendia masters with empty linked_corpus_keys)
+python3 scripts/build_data_bundle.py
+node scripts/smoke_test.mjs               # 50+ check sections including new U1/U2/U3/U8 + 4ff/4gg/4hh/4ii/4jj/4kk
+diff -rq data docs/data
+diff -q theme-init.js docs/theme-init.js
+diff -q robots.txt docs/robots.txt
+diff -q sitemap.xml docs/sitemap.xml
+```
+
+All commands pass. Root and `/docs` assets/data are synchronized.
+
+### Owner follow-up (still pending)
+
+The session token lacks GitHub App `workflows` permission, so `.github/workflows/quality.yml` was not modified. **Two owner-only follow-ups** (the doc-truthfulness gate already covers them locally; the same edits are documented in `.scoreboard/manual-workflow-edits.md`):
+
+1. Extend the generated-artifact gate path list in `.github/workflows/quality.yml` to include:
+   ```text
+   docs/theme-init.js
+   docs/robots.txt
+   docs/sitemap.xml
+   ```
+2. Enable branch protection on `main` requiring the Quality check (Settings → Branches → main → Require status checks → "Validate data, generated artifacts, and reader").
+
+After both land, the `repo_ready` quality gate should move from `warning` → `pass` (the `ci_cd` and `deployment_readiness` aspects will drop `blocked_manual_workflow_edit`).
+
 ## ✅ Current Session Handoff — 2026-08-09 (session `arena/019fe731-translatechan`)
 
 ### Public Pages scope
