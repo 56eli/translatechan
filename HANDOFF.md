@@ -202,28 +202,13 @@ Session `arena/019febb1-translatechan` completed the audit, containment, public-
 
 ## 11. PR / merge handoff
 
-The owner requested documentation/handoff completion followed by PR merge so the redesign can be reviewed on the real GitHub Pages deployment.
+PR [#15](https://github.com/56eli/translatechan/pull/15) — **“fix: restore content trust and redesign the walnut Reader”** — merged into `main` on 2026-08-10 as `26feff0dbc4286da0c7a1e4c46ff341288b9d0f3`.
 
-PR scope:
+Post-merge status:
 
-1. deep repo/design audit and durable 22-aspect scoreboard reset;
-2. full Congronglu containment backed by authoritative T48n2004 heading evidence;
-3. honest completion/edition-verification semantics and updated metrics;
-4. dossier/chapter/epilogue/print/collection-label functional repairs;
-5. withdrawn false visual-completion claim and detailed redesign plan;
-6. owner-approved structural walnut shell + literature-first Reader Phase A+B;
-7. smoke/Playwright regressions and synchronized `/docs` artifacts.
+- main Quality: success;
+- GitHub Pages build/deploy: success;
+- live URL: `https://56eli.github.io/translatechan/`;
+- current live content confirmed with 35 active works and the new gate/Reader output.
 
-Merge readiness checks:
-
-```text
-python3 -m py_compile scripts/*.py          PASS
-python3 scripts/validate_data.py            PASS (6 known lineage-link warnings)
-python3 scripts/build_data_bundle.py        PASS
-node scripts/smoke_test.mjs                 PASS (35 corpus fixtures)
-diff -rq data docs/data                     PASS
-npm run test:browser                        SKIP locally: Chromium unavailable
-GitHub Quality                              must be green on final docs commit and PR
-```
-
-After merge, confirm the Pages deployment run for `main`, then review the real site before authorizing design Phase C/D. Do not call the vision fulfilled until Phase E screenshots/accessibility evidence and explicit owner approval.
+The owner requested merge specifically so the real Pages deployment can be reviewed. The next agent must wait for that visual feedback before starting design Phase C/D. The vision remains partially implemented; do not declare completion without Phase E evidence and explicit owner approval.

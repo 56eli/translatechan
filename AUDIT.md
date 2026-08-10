@@ -17,6 +17,7 @@ Current generated measurements:
 - Lineage: **34 masters**; **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**; all edges remain traditional/pending.
 - Glossary: **31 terms**; Gong'an index: **24 entries**.
 - Bundle: 1,594,154 raw bytes; about 498 KB at gzip level 9. Root and `/docs` are synchronized.
+- Deployment: PR #15 merged as `26feff0`; main Quality and Pages deployment succeeded; live visual owner review pending.
 
 ## 2. Active blockers
 

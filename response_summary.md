@@ -52,7 +52,7 @@ After rejecting the prior false completion claim, the owner approved production 
 
 ### Merge status
 
-Owner requested final documentation/handoff, then PR creation and merge to review the real Pages deployment. Final local/CI checks must be green before merge; confirm Pages after merge.
+PR #15 merged into `main` as `26feff0`; main Quality and GitHub Pages deployment both succeeded. The real site is live for owner visual review. No user score or visual approval is inferred from merge.
 
 ## One-sentence summary
 
