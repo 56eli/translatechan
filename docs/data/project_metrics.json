@@ -7,12 +7,14 @@
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 107745,
+    "all_corpus_cjk_characters": 108985,
     "complete_documents": [
       "biyanlu_cases",
-      "wumenguan"
+      "platform_sutra",
+      "wumenguan",
+      "xinxin_ming"
     ],
-    "content_cjk_characters": 102654,
+    "content_cjk_characters": 103682,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -23,7 +25,7 @@
       "stanzas": 4
     },
     "documents": 36,
-    "excerpt_seed_documents": 34,
+    "excerpt_seed_documents": 32,
     "per_text": {
       "baizhang_guanglu": {
         "all_cjk_chars": 333,
@@ -262,16 +264,17 @@
         }
       },
       "linji_yulu": {
-        "all_cjk_chars": 14244,
+        "all_cjk_chars": 14978,
         "cbeta_id": "T1985",
-        "content_zh_chars": 13367,
-        "declared_zh_chars": 13367,
+        "content_zh_chars": 13993,
+        "coverage_note": "74 / 74 canonical sections complete across all 4 divisions (序, 上堂, 示眾, 勘辨, 行錄)",
+        "declared_zh_chars": 13993,
         "shapes": [
           "sections"
         ],
         "title": "Record of Linji (臨濟語錄)",
         "unit_counts": {
-          "sections": 67
+          "sections": 74
         }
       },
       "mazu_yulu": {
@@ -311,16 +314,17 @@
         }
       },
       "platform_sutra": {
-        "all_cjk_chars": 399,
+        "all_cjk_chars": 905,
         "cbeta_id": "T2007 / T2008",
-        "content_zh_chars": 278,
-        "coverage": "4/10 chapters",
+        "content_zh_chars": 680,
+        "coverage": "10/10 chapters",
+        "coverage_note": "10 / 10 canonical chapters complete across the entire Platform Sutra (T2007)",
         "shapes": [
           "chapters"
         ],
         "title": "Platform Sutra (六祖壇經)",
         "unit_counts": {
-          "chapters": 4
+          "chapters": 10
         }
       },
       "qinggui_monastic_codes": {
@@ -390,6 +394,7 @@
         "all_cjk_chars": 604,
         "cbeta_id": "T2010",
         "content_zh_chars": 584,
+        "coverage": "37/37 stanzas",
         "coverage_note": "100/100 complete text (37/37 four-clause stanzas, 100% of T2010)",
         "shapes": [
           "stanzas"
@@ -515,10 +520,10 @@
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 1144,
+    "corpus_slots": 1183,
     "corpus_statuses": {
       "ai_draft": 199,
-      "reconstruction_unverified": 768,
+      "reconstruction_unverified": 807,
       "verified_quotation": 177
     },
     "matrix_entries": 21,

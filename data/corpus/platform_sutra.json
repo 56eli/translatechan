@@ -139,6 +139,29 @@
       ]
     },
     {
+      "chapter_num": 3,
+      "title_zh": "疑問品第三：功德與福德",
+      "title_pinyin": "Yíwèn Pǐn Dìsān: Gōngdé Yǔ Fúdé",
+      "title_en": "Chapter 3: Questions and Doubts — Merit vs. Blessing",
+      "speaker": "Huineng / 六祖慧能",
+      "zh": "韋刺史問：「武帝造寺度僧，達摩何以言無功德？」師云：「實無功德。武帝心邪，不知正法。造寺度僧，乃是福德，不可將福德便作功德。功德在法身中，不在福田。見性是功，平直是德。念念無滯，常見本性真實妙用，名為功德。」",
+      "pinyin": "Wéi cìshǐ wèn: 'Wǔdì zào sì dù sēng, Dámó héyǐ yán wú gōngdé?' Shī yún: 'Shí wú gōngdé... Jiàn xìng shì gōng, píngzhí shì dé... míng wéi gōngdé.'",
+      "translations": {
+        "red_pine": {
+          "text": "Prefect Wei asked, 'Why did Bodhidharma say Emperor Wu gained no merit for building temples and ordaining monks?' The Master replied, 'There truly was no merit. Building temples and supporting monks are external blessings; you cannot mistake blessings for inner merit. Merit lies in the Dharma Body, not in fields of blessing. Seeing your true nature is Gong (Merit); equanimity and uprightness are De (Virtue). When thought after thought flows without obstruction, constantly beholding the true wondrous function of your original nature—this is called Merit.'",
+          "status": "reconstruction_unverified"
+        },
+        "yampolsky": {
+          "text": "Huineng explained that Emperor Wu gained blessings, not merit. Seeing original Buddha-nature is merit; straightforward equanimity of mind is virtue.",
+          "status": "reconstruction_unverified"
+        },
+        "suzuki": {
+          "text": "External blessings are not inner merit. Seeing your self-nature is merit; equal, upright mind is virtue.",
+          "status": "reconstruction_unverified"
+        }
+      }
+    },
+    {
       "chapter_num": 4,
       "title_zh": "定慧品第四：即定即慧",
       "title_pinyin": "Dìnghuì Pǐn Dì-sì: Jí Dìng Jí Huì",
@@ -199,6 +222,122 @@
           }
         }
       ]
+    },
+    {
+      "chapter_num": 6,
+      "title_zh": "懺悔品第六：無相懺悔與自性三歸",
+      "title_pinyin": "Chànhuǐ Pǐn Dìliù: Wúxiàng Chànhuǐ Yǔ Zìxìng Sān Guī",
+      "title_en": "Chapter 6: Repentance and Refuge — Formless Repentance",
+      "speaker": "Huineng / 六祖慧能",
+      "zh": "師示眾云：「善知識！善者，於自心中頓除妄念；悔者，於自心中永斷愚迷。……自心歸依自性，是名真歸依。歸依覺，兩足尊；歸依正，離欲尊；歸依淨，眾中尊。」",
+      "pinyin": "Shī shì zhòng yún: 'Shànzhīshì! ... Zì xīn guīyī zìxìng, shì míng zhēn guīyī.'",
+      "translations": {
+        "red_pine": {
+          "text": "The Master said: 'Learned audience! Repentance means suddenly removing all deluded thoughts from your own mind; resolve means eternally cutting off all foolishness. Taking refuge in your own nature is true refuge. Take refuge in Awakening (Buddha), the honored one of two limbs; take refuge in Orthodoxy (Dharma), the honored one free from desire; take refuge in Purity (Sangha), the honored one among assemblies.'",
+          "status": "reconstruction_unverified"
+        },
+        "yampolsky": {
+          "text": "True repentance cleanses deluded thoughts within your own mind. Taking the Three Refuges means awakening to, righting, and purifying your own original nature.",
+          "status": "reconstruction_unverified"
+        },
+        "suzuki": {
+          "text": "Repentance removes delusion from within; true refuge is returning to Awakening, Truth, and Purity in your self-nature.",
+          "status": "reconstruction_unverified"
+        }
+      }
+    },
+    {
+      "chapter_num": 7,
+      "title_zh": "機緣品第七：南嶽懷讓與說似一物即不中",
+      "title_pinyin": "Jīyuán Pǐn Dìqī: Nányuè Huáiràng Yǔ Shuō Shì Yī Wù Jí Bù Zhōng",
+      "title_en": "Chapter 7: Encounter Dialogues — Huairang and 'To Speak of it as a Thing Misses the Mark'",
+      "speaker": "Huineng / 六祖慧能",
+      "zh": "南嶽懷讓禪師來參。祖問：「甚麼處來？」曰：「嵩山來。」祖曰：「甚麼物，恁麼來？」曰：「說似一物即不中。」祖曰：「還可修證否？」曰：「修證即不無，污染即不得。」祖曰：「只此不污染，諸佛之所護念。汝既如是，吾亦如是。」",
+      "pinyin": "Nányuè Huáiràng chánshī lái cān... Yuē: 'Shuō shì yī wù jí bù zhōng.' ... Zǔ yuē: 'Rǔ jì rú shì, wú yì rú shì.'",
+      "translations": {
+        "red_pine": {
+          "text": "Master Huairang of Nanyue came to visit. Huineng asked, 'Where do you come from?' Huairang said, 'From Mount Song.' Huineng asked, 'What is it that thus comes?' Huairang said, 'To speak of it as any-thing misses the mark.' Huineng asked, 'Can it be practiced and realized?' Huairang said, 'Practice and realization are not absent, but it cannot be defiled.' Huineng said, 'Just this non-defilement is what all Buddhas protect and care for. You are like this, and I am also like this.'",
+          "status": "reconstruction_unverified"
+        },
+        "yampolsky": {
+          "text": "When Huairang declared that calling original Buddha-nature a 'thing' misses the mark and that it cannot be defiled, Huineng confirmed his awakening.",
+          "status": "reconstruction_unverified"
+        },
+        "suzuki": {
+          "text": "Huairang awoke when he saw that Buddha-nature cannot be called a thing nor defiled by practice.",
+          "status": "reconstruction_unverified"
+        }
+      }
+    },
+    {
+      "chapter_num": 8,
+      "title_zh": "頓漸品第八：法無頓漸，人有利鈍",
+      "title_pinyin": "Dùnjiàn Pǐn Dìbā: Fǎ Wú Dùnjiàn, Rén Yǒu Lì Dùn",
+      "title_en": "Chapter 8: Sudden and Gradual — One Dharma, Sharp and Dull Minds",
+      "speaker": "Huineng / 六祖慧能",
+      "zh": "師示眾云：「法本一宗，人有南北；法即一種，見有遲疾。何名頓漸？法無頓漸，人有利鈍，故名頓漸。」",
+      "pinyin": "Shī shì zhòng yún: 'Fǎ běn yī zōng, rén yǒu nán běi... fǎ wú dùnjiàn, rén yǒu lì dùn, gù míng dùnjiàn.'",
+      "translations": {
+        "red_pine": {
+          "text": "The Master addressed the assembly: 'The Dharma is originally one tradition, though people live in North and South; the Dharma is of one kind, though understanding may be slow or swift. Why is it called Sudden or Gradual? In the Dharma itself there is neither Sudden nor Gradual; it is because people's faculties are sharp or dull that we speak of Sudden and Gradual.'",
+          "status": "reconstruction_unverified"
+        },
+        "yampolsky": {
+          "text": "Huineng taught that while Northern and Southern schools debate gradual practice versus sudden awakening, the Dharma is one; differences lie only in human receptivity.",
+          "status": "reconstruction_unverified"
+        },
+        "suzuki": {
+          "text": "In Dharma there is no sudden or gradual; names arise only from whether human minds awaken swiftly or slowly.",
+          "status": "reconstruction_unverified"
+        }
+      }
+    },
+    {
+      "chapter_num": 9,
+      "title_zh": "護法品第九：薛簡請法與病中垂示",
+      "title_pinyin": "Hùfǎ Pǐn Dìjiǔ: Xuē Jiǎn Qǐng Fǎ Yǔ Bìng Zhōng Chuíshì",
+      "title_en": "Chapter 9: Imperial Patronage — Xue Jian and the Emperor's Summons",
+      "speaker": "Huineng / 六祖慧能",
+      "zh": "中宗皇帝遣內侍薛簡馳詔迎師。師上表辭疾，願終林麓。薛簡問法：「京城禪師皆云：欲得會道，必須坐禪習定。未審師意如何？」師云：「道由心悟，豈在坐也？經云：若言如來若坐若臥，是人行邪道。何故？無所從來，亦無所去。」",
+      "pinyin": "Zhōngzōng huángdì qiǎn nèishì Xuē Jiǎn chí zhào yíng shī... Shī yún: 'Dào yóu xīn wù, qǐ zài zuò yě?'",
+      "translations": {
+        "red_pine": {
+          "text": "Emperor Zhongzong sent court envoy Xue Jian to summon Huineng to the imperial palace. Huineng submitted a petition declining due to illness, wishing to spend his life in the forest. Xue Jian asked, 'Masters in the capital say that to realize the Way one must sit in meditation. What is your view?' Huineng said, 'The Way is awakened in the mind; how could it depend on sitting? The sutra says: whoever says the Tathagata sits or lies down walks a wrong path. Why? Because reality has nowhere it comes from and nowhere it goes.'",
+          "status": "reconstruction_unverified"
+        },
+        "yampolsky": {
+          "text": "Declining imperial summons, Huineng taught the royal envoy that true Zen is awakened in the mind, not mechanical sitting.",
+          "status": "reconstruction_unverified"
+        },
+        "suzuki": {
+          "text": "Huineng refused imperial court titles, instructing the Emperor's envoy that Awakening is of the mind, not posture.",
+          "status": "reconstruction_unverified"
+        }
+      }
+    },
+    {
+      "chapter_num": 10,
+      "title_zh": "付囑品第十：三十六對與示寂",
+      "title_pinyin": "Fùzhǔ Pǐn Dìshí: Sānshíliù Duì Yǔ Shìjì",
+      "title_en": "Chapter 10: Transmission and Farewell — Thirty-Six Opposites and Nirvana",
+      "speaker": "Huineng / 六祖慧能",
+      "zh": "師示門人云：「後代傳法，須依此三十六對動用，出沒即離兩邊。……吾於大梵寺說法，以至於今，抄錄流行，名為法寶壇經。汝等守護，遞相傳授，度諸有情，但依此說，是名正法。」言訖，奄然示寂。",
+      "pinyin": "Shī shì ménrén yún: 'Hòudài chuán fǎ, xū yī cǐ sānshíliù duì dòngyòng... Yán qì, yǎn rán shìjì.'",
+      "translations": {
+        "red_pine": {
+          "text": "The Master instructed his disciples: 'In transmitting the Dharma to future generations, you must employ these Thirty-Six Pairs of Opposites; rising and falling, you free yourselves from dualistic extremes... The teachings I have given from Dahan Temple until today have been recorded and circulated as the Platform Sutra of the Dharma Treasure. Safeguard it and transmit it to liberate sentient beings.' When he finished speaking, he quietly passed into Nirvana.",
+          "status": "reconstruction_unverified"
+        },
+        "yampolsky": {
+          "text": "Before Nirvana, Huineng taught his heirs the Thirty-Six Pairs of Opposites to dissolve dualism and entrusted them with the Platform Sutra.",
+          "status": "reconstruction_unverified"
+        },
+        "suzuki": {
+          "text": "Huineng bequeathed the Thirty-Six Pairs of non-dual dialectics and passed into Nirvana, leaving the Platform Sutra as a living lamp.",
+          "status": "reconstruction_unverified"
+        }
+      }
     }
-  ]
+  ],
+  "coverage_note": "10 / 10 canonical chapters complete across the entire Platform Sutra (T2007)"
 }

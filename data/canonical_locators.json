@@ -1616,6 +1616,76 @@
           "source_revision": "CBETA Online reports last updated 2025-09-01",
           "review_method": "TEI paragraph extraction against CBETA XML P5 with documented normalization; this is an editorial audit record, not a human scholarly sign-off.",
           "collation_note": "One dialogue unit per canonical paragraph; zh text verbatim from cbeta-org/xml-p5 T47n1985 P5 TEI (2026-08-09 extraction): CBETA inline <note>/<app> apparatus resolved with the lemma kept — no textual variant reported for this span; <g> glyph references resolved via charDecl; line anchors removed; punctuation as printed. Human character-level sign-off still pending."
+        },
+        "sections.xinglu_01": {
+          "canonical_locator": "T47n1985_p0504a–p0506c (xinglu_01)",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-10",
+          "source_edition": "CBETA XML P5 / CBETA Online, T47n1985",
+          "source_revision": "CBETA XML P5 header revision 1.6; current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Record of Conduct (行錄) section collated from CBETA XML P5."
+        },
+        "sections.xinglu_02": {
+          "canonical_locator": "T47n1985_p0504a–p0506c (xinglu_02)",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-10",
+          "source_edition": "CBETA XML P5 / CBETA Online, T47n1985",
+          "source_revision": "CBETA XML P5 header revision 1.6; current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Record of Conduct (行錄) section collated from CBETA XML P5."
+        },
+        "sections.xinglu_03": {
+          "canonical_locator": "T47n1985_p0504a–p0506c (xinglu_03)",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-10",
+          "source_edition": "CBETA XML P5 / CBETA Online, T47n1985",
+          "source_revision": "CBETA XML P5 header revision 1.6; current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Record of Conduct (行錄) section collated from CBETA XML P5."
+        },
+        "sections.xinglu_04": {
+          "canonical_locator": "T47n1985_p0504a–p0506c (xinglu_04)",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-10",
+          "source_edition": "CBETA XML P5 / CBETA Online, T47n1985",
+          "source_revision": "CBETA XML P5 header revision 1.6; current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Record of Conduct (行錄) section collated from CBETA XML P5."
+        },
+        "sections.xinglu_05": {
+          "canonical_locator": "T47n1985_p0504a–p0506c (xinglu_05)",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-10",
+          "source_edition": "CBETA XML P5 / CBETA Online, T47n1985",
+          "source_revision": "CBETA XML P5 header revision 1.6; current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Record of Conduct (行錄) section collated from CBETA XML P5."
+        },
+        "sections.xinglu_06": {
+          "canonical_locator": "T47n1985_p0504a–p0506c (xinglu_06)",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-10",
+          "source_edition": "CBETA XML P5 / CBETA Online, T47n1985",
+          "source_revision": "CBETA XML P5 header revision 1.6; current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Record of Conduct (行錄) section collated from CBETA XML P5."
+        },
+        "sections.xinglu_07": {
+          "canonical_locator": "T47n1985_p0504a–p0506c (xinglu_07)",
+          "status": "collated_with_normalization",
+          "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0504a",
+          "review_date": "2026-08-10",
+          "source_edition": "CBETA XML P5 / CBETA Online, T47n1985",
+          "source_revision": "CBETA XML P5 header revision 1.6; current online revision requires human editorial confirmation",
+          "review_method": "Passage-to-line-head comparison against CBETA XML P5; this is an editorial audit record, not a human scholarly sign-off.",
+          "collation_note": "Record of Conduct (行錄) section collated from CBETA XML P5."
         }
       }
     },

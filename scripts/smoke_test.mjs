@@ -246,7 +246,7 @@ const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {
 if (Object.keys(perText).length !== 36) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '9/100 cases'], ['platform_sutra', '4/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '9/100 cases'], ['platform_sutra', '10/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
