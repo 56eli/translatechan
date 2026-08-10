@@ -18,7 +18,7 @@ A text or translation is only presented at the strongest available status. “Co
 
 ## Current baseline (2026-08-10 containment state)
 
-- **Platform:** native GitHub Pages from `main /docs`; Quality passes, but `repo_ready` remains fail until the audit's P1 functional/rights blockers are resolved.
+- **Platform:** native GitHub Pages from `main /docs`; Quality passes, but `repo_ready` remains fail on the Lineage directory defect, rights/source review, non-case validation, mandatory browser/accessibility evidence, and operations gates.
 - **Corpus:** 35 active documents. Wumenguan and Xinxin Ming are explicitly `complete_selected_witness`; Biyanlu has 100/100 case records but is `partial_selected_witness`; Platform Sutra is a 10-heading excerpt set, not complete. Congronglu is quarantined and absent from the public bundle after generated source-looking placeholders and incorrect case-number/page claims were confirmed against authoritative T48n2004 headings.
 - **Traceability:** 148 active case records have case locators (48 Wumenguan + 100 Biyanlu); 33 non-case documents remain document-level with limited Linji/Xinxin unit pilots. A case-number anchor is not proof that every nested source field was collated.
 - **Translation disclosure:** 177 corpus quotation slots and 2 Matrix slots are edition-verified; 176/179 have recorded references. All 14 rights-manifest sources still require their documented rights/jurisdiction review. Verification does not itself grant reuse rights or establish public-domain status.
@@ -39,14 +39,14 @@ A text or translation is only presented at the strongest available status. “Co
 
 1. Establish a per-unit editorial worksheet format: source edition/URL or TEI revision, locator, collation date, reviewer, variant note, and confidence/status. The Linji and Xinxin pilots are the reference implementation; their `collated_with_normalization` status is explicitly below human source-checked sign-off.
 2. Migrate the 33 `legacy_document_seed` locators one text at a time. Start with texts already used in the Matrix and Gong’an Index.
-3. Replace the 5 `Page/section locator pending` verified-quotation references with actual stable references or downgrade the item from verified status.
+3. Replace the 3 pending verified-quotation references with actual stable references or downgrade the items from verified status.
 4. Add exact source locators for lineage edges; preserve disputed/traditional distinctions rather than forcing a single genealogy.
 
 **Exit evidence:** no public displayed corpus unit relies only on a document-level seed locator; every verified quotation has a non-pending citation; every lineage edge has an explicit evidence status.
 
 ### 2 — Rights and quotation review (parallel to Phase 1)
 
-1. Review each of the 13 modern-translation source records by jurisdiction, edition, quotation length, and intended public reuse.
+1. Review all 14 translation-source rights records by jurisdiction, edition, quotation length, and intended public reuse.
 2. Record a human editorial decision in `rights_manifest.json`; do not mistake online availability for a license.
 3. Prefer public-domain/openly licensed translations for complete comparative registers; use short attributed excerpts for copyrighted works only when approved.
 4. Keep AI/reconstruction labels explicit and never backfill a scholar’s name onto generated text.

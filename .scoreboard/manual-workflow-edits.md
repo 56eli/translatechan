@@ -1,6 +1,6 @@
 # Manual Workflow / GitHub Administration Edits
 
-> **Last audited:** 2026-08-10, session `arena/019febb1-translatechan`
+> **Last audited:** 2026-08-10, session `arena/019fecb1-translatechan`
 
 ## Policy
 
@@ -26,7 +26,7 @@ Replace the existing generated-artifact command with:
 
 Then rerun Quality on an `arena/**` push and confirm the job **Validate data, generated artifacts, and reader** passes.
 
-> This only closes mirror-path coverage. The full audit also recommends future owner-approved CI jobs for a non-skippable browser suite, HTML/JS/link checks, and accessibility checks after the underlying tests are corrected.
+> This only closes mirror-path coverage. The current full audit also recommends future owner-approved CI jobs for a non-skippable browser suite, HTML/JS/CSS/link checks, and accessibility checks after the Lineage mode and underlying tests are corrected. Do not add the existing success-skippable `npm run test:browser` directly as a required gate; create a command that fails when Chromium is unavailable.
 
 ## Edit 2 — Update GitHub Action majors off deprecated Node 20 runtimes
 
@@ -75,4 +75,4 @@ diff -rq data docs/data
 git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/theme-init.js docs/robots.txt docs/sitemap.xml docs/og-image.svg docs/data data/project_metrics.json
 ```
 
-These checks do not clear the remaining P1 rights and functional blockers; re-evaluate `repo_ready` only after those are remediated and tested.
+These checks do not clear the Lineage hidden-state defect, non-case validation gap, pending rights/references, fatal state, or browser/accessibility evidence blockers; re-evaluate `repo_ready` only after those are remediated and tested.

@@ -1,8 +1,8 @@
 # 🏯 Fake Chan Factory — Website Vision (Final — Chinese Chan Hall, Minimal)
 
 > **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10, updated after owner feedback (Chinese Chan focus, minimal, no gimmicks).
-> **Status:** Accepted direction, partially implemented. Phase A+B now delivers the structural walnut shell and Reader literature hierarchy; four secondary rooms, visual-system consolidation, screenshot verification, and owner approval remain.
-> **Implementation authority:** [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B record](./sessions/DESIGN_PHASE_AB_2026-08-10.md).
+> **Status:** Accepted direction, partially verified. Phase A+B delivers the structural walnut shell and Reader hierarchy; Phase C+D layouts cover Matrix, Lineage, Gong’an, and Lexicon. The current audit found the Lineage directory mode still semantically hidden, and Phase E screenshots/accessibility evidence plus explicit owner approval remain.
+> **Implementation authority:** [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B record](./sessions/DESIGN_PHASE_AB_2026-08-10.md) · [Phase C+D record](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [current audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md).
 > **Related:** `vision.md` = scholarly/architectural blueprint. This doc = public-facing experience blueprint.
 > **Feedback incorporated:** Audience = me and friends introduced to niche Chan content mixed with my humor. First 30s = Chan hall/literature/Zen feeling with robo joke theme. After that = all serious literature composition, readability, transparent flow, no choppiness, no overflow, no distraction, no gimmicks, sophisticated but minimal. Lean into wood dark walnut, drop vermillion keep ✓, humor disappears except Robo names. No Japanese aesthetics — Chinese temple wood + Chinese calligraphy. No footer, no conveyor, no CTA (deferred per feedback).
 
@@ -104,7 +104,7 @@ Keep cards, no ruler line gimmick. Only ensure translation cols equal, status ba
 
 ### 4.4 Lineage — transmission hall (M)
 
-Current SVG vertically layers generations with pan/zoom and status-aware links; its minimum width is now 360px. Phase D still needs to turn the whole room into a responsive transmission chart/directory rather than a generic control/card composition.
+Current SVG vertically layers generations with pan/zoom and status-aware links, and Phase D adds a chronological directory layout. The directory mode currently retains its `hidden` attribute when selected, so repair and responsive verification are still required before this room meets the vision.
 
 ### 4.5 Gong'an & Lexicon — shelves
 
@@ -156,18 +156,18 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 - Ruled Reader, static case rail, Reader-only mobile controls.
 - Responsive/ARIA/contrast improvements included in the pass.
 
-### Phase C — visual-system consolidation (next)
+### Phase C — visual-system consolidation (implemented, cleanup remains)
 
-- Replace most remaining inline styles with named components.
-- Reduce generated decorative emoji by at least 70%.
-- Standardize contrast-safe buttons, filters, notices, source/status treatments, radii, and shadows.
+- Named components now cover the shell and secondary-room layouts; 49 dynamic Reader/template inline styles remain.
+- Secondary-room metadata is quieter, though legacy emoji/card CSS remains.
+- Max-width thresholds are standardized at 1024px and 768px, and primary active/muted token pairs meet audited WCAG AA contrast.
 
-### Phase D — four secondary rooms
+### Phase D — four secondary rooms (layouts implemented; Lineage defect open)
 
-- Matrix proof sheet.
-- Lineage transmission chart/directory.
-- Gong’an catalogue rows.
-- Lexicon dictionary rows.
+- Matrix proof sheet implemented.
+- Lineage transmission chart/directory implemented in markup and CSS, but directory selection must clear `hidden`.
+- Gong’an catalogue rows implemented.
+- Lexicon dictionary rows implemented.
 
 ### Phase E — evidence and approval
 

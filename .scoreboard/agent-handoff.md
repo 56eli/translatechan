@@ -1,35 +1,25 @@
 # Agent Handoff
 
-> **Last updated:** 2026-08-10, session `arena/019fec5c-translatechan`
-> **Current fixed branch:** `arena/019fec5c-translatechan` — do not switch or push elsewhere.
-> **Baseline:** `7877dd93a07c1dad9dcf667494cd589f9d9cfc56` (`main`, merged PR #16).
+> **Last updated:** 2026-08-10, session `arena/019fecb1-translatechan`
+> **Current fixed branch:** `arena/019fecb1-translatechan` — do not switch or push elsewhere.
+> **Baseline:** `27ca2243ed9d9bc012c2b41119e6f160cffe9694` (`main`, merged PR #17).
+> **Evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md`](../sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md)
 
 ## Current state
 
-This session completed:
+A full senior engineering/web-design audit is complete. Current weighted score is **6.6/10** (`551/83`); `repo_ready = fail`. All `user_score` fields remain `null`.
 
-1. [Senior Developer & Web Designer Full Audit](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md);
-2. [Phase C+D secondary-room visual consolidation](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) (Matrix Proof Sheet, Lineage Directory, Gong'an Catalogue Shelf, Lexicon Dictionary Rows);
-3. [Responsive breakpoint unification & WCAG AA contrast hardening](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) (`1024px` tablet / `768px` mobile);
-4. [Robo badge silencing & strict-mode storage TypeError hotfix](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md).
+This session changed documentation only: it reconciled the unsupported 7.6 summary, stale branch/design claims, README release wording, roadmap counts, current audit/handoff, and scoreboard arithmetic. Application code, data, generated assets, and workflow YAML remain unchanged.
 
-Current weighted score: **7.6/10** after Phase C+D implementation and responsive unification, pending visual approval. `repo_ready = fail` because formal screenshot verification, rights, and CI browser test gates remain. All `user_score` fields remain `null`.
+## Highest-priority findings
 
-## Completed containment
-
-- Removed all unreliable Congronglu source data, locator claims, deploy copies, and four generating scripts.
-- Authoritative CBETA T48n2004 headings disproved even the five purportedly collated records.
-- Added explicit editorial completion status; only Wumenguan/Xinxin are complete selected witnesses, Biyanlu/Linji are partial, and 31 documents are excerpt seeds.
-- Added anti-placeholder validation, active-bundle absence tests, honest count/completion copy, and edition-verification/rights separation.
-
-## Completed public-behavior fixes
-
-- Lineage dossier removes/restores semantic `hidden`, becomes visible/focused, and closes correctly.
-- Six direct-field Platform chapters now render source text, translations, and chapter source disclosure.
-- Wumenguan epilogue follows all rendered cases.
-- Print/PDF expands all lazy cases/sections before invoking print; smoke/Playwright require 48 Wumenguan cases followed by epilogue.
-- Wumenguan labels Wumen; Biyanlu labels Yuanwu and Xuedou.
-- Smoke and Playwright regressions cover all five paths.
+1. **Lineage directory is hidden:** `#lineage-content-target` retains its semantic `hidden` attribute; the mode handler sets only `style.display='grid'`. The dossier code correctly removes `hidden`, which demonstrates the required pattern.
+2. **Non-case validation is weak:** JSON Schema has no root application and is not executed. Direct negative fixtures with `sections:[42]` and a heading-only chapter passed with zero errors.
+3. **Browser evidence is optional:** Playwright exits 0 on missing Chromium, is absent from CI, and currently could not install. There are no current screenshots, dark/tablet coverage, axe, or owner approval.
+4. **Rights/references are open:** all 14 rights records need human review; 3 verified quotations have pending references.
+5. **Fatal state is CSS-only:** `.error-boundary-card` is never rendered by the application.
+6. **Accessibility/responsive gaps:** pinyin and Lineage mode state, stale case-toggle labels, tooltip relationships, radio arrows, search announcements, and mobile Lineage quote-grid behavior.
+7. **Operations:** four mirrored paths absent from CI diff; action majors emit Node 20 deprecation warnings; branch protection is unverified.
 
 ## Current measured state
 
@@ -37,39 +27,46 @@ Current weighted score: **7.6/10** after Phase C+D implementation and responsive
 corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
 content CJK=103,723 | all-string CJK=109,185
 complete=2 | partial=2 | excerpt seeds=31
-bundle=1,594,154 bytes raw | approximately 498 KB gzip-9
+rights sources=14 pending | verified refs=176 recorded / 3 pending
+lineage=34 profiles | 30 pending edges | 4 frontiers
+bundle=1,594,154 bytes raw | 497,606 gzip-9
 ```
-
-## Remaining blockers
-
-1. **Design completion:** structural walnut shell and Reader are implemented; visual-system consolidation, Matrix/Lineage/Gong’an/Lexicon redesign, screenshot evidence, and explicit owner approval remain.
-2. **Rights governance:** all 14 rights sources remain review/jurisdiction-pending.
-3. **Field-level source depth:** Biyanlu, Linji, Platform, and other non-case records need broader per-field provenance/review.
-4. **Responsive/accessibility:** sticky/header geometry, 1100/960 breakpoint mismatch, mobile Reader controls on other views, contrast, and ARIA state relationships.
-5. **Error handling:** no visible fatal-load state; malformed persisted state is not fully shape-validated.
-6. **Operations:** four mirrored paths absent from CI diff; action majors target deprecated Node 20 runtimes; branch protection unreadable (403); browser suite still exits zero when Chromium is absent and is not required in CI.
 
 ## Recommended next sequence
 
-1. Continue Phase C visual-system consolidation (inline styles, emoji, controls, contrast).
-2. Execute Phase D four-room redesign.
-3. Execute Phase E screenshot/accessibility verification and obtain explicit owner approval.
-4. Complete field-level source validation and human quotation-rights decisions.
-5. Apply owner-approved operations changes and re-audit; re-ingest Congronglu only under its containment gate.
+1. Fix Lineage directory hidden state, pressed/selected semantics, and phone grid; add real-browser coverage.
+2. Implement fatal bundle/init recovery and tests.
+3. Add strict per-shape non-case validation and checked-in negative fixtures.
+4. Add non-skippable browser/axe/overflow/screenshots; obtain explicit owner visual approval.
+5. Complete rights/reference and field-level source review.
+6. Apply owner-approved operations edits.
+7. Remove remaining 49 inline styles/dead CSS, then measure lazy room/data loading.
 
-## Merge status
+## Quality evidence from this audit
 
-PR [#15](https://github.com/56eli/translatechan/pull/15) merged into `main` as `26feff0dbc4286da0c7a1e4c46ff341288b9d0f3`. Main Quality and Pages deployment both succeeded. The real site is live for owner review at `https://56eli.github.io/translatechan/`.
+```text
+compile / validator / build / JS syntax / smoke / mirrors   PASS
+npm audit                                                    PASS; 0 vulnerabilities
+Markdown links / duplicate IDs / XML                         PASS
+focused ESLint                                               0 errors; 3 warnings
+focused Stylelint                                            1 duplicate declaration
+HTML validator                                               35 findings
+Playwright                                                   SKIP with exit 0
+Chromium installation                                        FAIL; ECONNRESET
+GitHub main Quality + Pages                                  PASS at 27ca224
+```
 
-Next agent: wait for owner visual feedback before Phase C/D. Do not infer approval from merge or silence, and do not set a user score without an explicit numeric instruction.
+## Manual workflow/admin work
+
+Do not edit `.github/workflows/*` without explicit user instruction. Exact edits are in [`manual-workflow-edits.md`](./manual-workflow-edits.md): add all mirror paths, update deprecated action majors after review, and have an administrator verify/require Quality. A future non-skippable browser/a11y job also requires approval.
 
 ## Stable contracts
 
 - Public brand: Fake Chan Factory; internal `translatechan_*`, `window.TranslateChan`, and `TRANSLATECHAN_DATA` remain.
-- Public views: Reader, Matrix, Lineage, Gong’an, Lexicon only.
-- Deployment: native GitHub Pages from `main /docs`, HTTPS.
-- No source-looking Chinese may be generated or restored from quarantined history.
-- N/N unit representation never establishes completion without explicit editorial status.
+- Public views: Reader, Matrix, Lineage, Gong'an, Lexicon only.
+- No generated canonical-looking Chinese.
+- N/N representation never establishes completion.
 - Edition verification and rights approval are separate.
-- Workflow changes require explicit user approval; exact edits are in `.scoreboard/manual-workflow-edits.md`.
-- Before every push: compile, validate, build, smoke, and compare root/docs mirrors.
+- Congronglu stays quarantined without authoritative TEI/per-field review.
+- Do not infer approval or user scores from merge/silence.
+- Before every code/data push: compile, validate, build, smoke, and compare mirrors.

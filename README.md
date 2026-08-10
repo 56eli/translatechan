@@ -22,18 +22,18 @@
 
 ## 🏛️ Walnut Chan Hall Design & Architecture Upgrades (2026-08-10)
 
-The public SPA implements a restrained **Chinese Chan hall in dark walnut** visual grammar across all five rooms (`#view-reader`, `#view-matrix`, `#view-lineage`, `#view-gongan`, `#view-lexicon`):
+The public SPA applies a restrained **Chinese Chan hall in dark walnut** visual grammar across all five rooms (`#view-reader`, `#view-matrix`, `#view-lineage`, `#view-gongan`, `#view-lexicon`). The layouts below are implemented, but current browser/screenshot approval remains pending and the latest audit found that Lineage directory mode does not clear its semantic `hidden` state:
 - **Phase A+B (Shell & Reader):** Walnut two-row navigation lintel, initial-only gate, grouped 2/2/31 literature shelf, progressive document provenance ledger, ruled reading sheets, and reader-scoped mobile controls.
 - **Phase C+D (Secondary Rooms & Visual Consolidation):** Matrix Proof Sheet (`.matrix-proof-sheet`) with full-width source sentence bands and equal-column comparative registers; Lineage Chronological Directory (`.master-directory-row`); Gong'an Catalogue Shelf (`.gongan-catalogue-row`); and Lexicon Dictionary Rows (`.lexicon-definition-row`) without generic SaaS card styling or decorative emoji overload.
-- **Responsive & Accessibility Unification:** Standardized CSS media queries to a disciplined two-tier responsive architecture (`1024px` tablet/shelf collapse and `768px` mobile stack), hardened WCAG AA active token contrast ratios across light and dark themes, and eliminated all inline styles from `index.html`.
-- **UI Cleanliness & Resiliency:** Silenced redundant `🤖 Robolation` status badges (`.is-silent-robo`) where translator headers already display `🤖 Robo [Name]`, while preserving `✅ Edition-verified quotation` badges for genuine published editions. Patched strict-mode `localStorage` TypeError parsing and added a top-level `.error-boundary-card` for bundle load failures.
+- **Responsive & Accessibility Unification:** Standardized responsive `max-width` thresholds to `1024px` (tablet/shelf collapse) and `768px` (mobile stack), hardened primary active/muted token contrast across light and dark themes, and eliminated all inline styles from `index.html`.
+- **UI Cleanliness & Resiliency:** Silenced redundant `🤖 Robolation` status badges (`.is-silent-robo`) where translator headers already display `🤖 Robo [Name]`, while preserving `✅ Edition-verified quotation` badges for genuine published editions. Patched strict-mode `localStorage` primitive handling. Fatal bundle recovery remains open: `.error-boundary-card` is styled, but no initialization boundary renders it yet.
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
 Every visible translation register carries a **✅ Edition-verified quotation**, **🤖 Robolation**, or **🤖 Robo draft** badge. Every citation also exposes the recorded source and rights status. Edition verification establishes wording, not permission or public-domain status; all rights records still require their documented human review. A Robolation is project text using broad style characteristics associated with a scholar, **not** copied from or attributable as wording in that scholar's work, and is not citable as their translation. The campaign delivered:
 
-- **177 verified quotation slots across 10 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
-- **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
+- **177 verified quotation slots across 10 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying wording checked against the recorded 1934 Senzaki & Reps edition). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
+- **Wumenguan carries a complete Senzaki/Reps register**: every case has wording collated to the recorded 1934 *Gateless Gate* edition. The rights manifest records a U.S. public-domain claim via non-renewal, but that claim still requires jurisdiction review; edition completeness is not a universal reuse grant. Six ✅ editions stand side by side on Case 1 (Mu).
 - All checks and honest negatives logged in [`sessions/AUDIT_archive_2026-08-08.md` §8](./sessions/AUDIT_archive_2026-08-08.md).
 
 ---
@@ -192,7 +192,6 @@ python3 -m http.server 8080
 👉 Live at `https://56eli.github.io/translatechan/`
 
 **Publishing flow for new work** (agent sessions commit to branches such as `arena/<session>-translatechan`):
-1. On the session branch, run `python3 scripts/validate_data.py`, `python3 scripts/build_data_bundle.py` (syncs root + `/docs`), and `node scripts/mit to branches such as `arena/<session>-translatechan`):
 1. On the session branch, run `python3 scripts/validate_data.py`, `python3 scripts/build_data_bundle.py` (syncs root + `/docs`), and `node scripts/smoke_test.mjs`.
 2. Commit generated metrics/bundle artifacts with the source change, push the branch, and open a pull request into `main`.
 3. On merge, GitHub Pages re-publishes automatically within ~60 seconds.
@@ -207,8 +206,8 @@ python3 -m http.server 8080
 - 🗺️ **Roadmap & Milestone Execution Plan**: [`ROADMAP.md`](./ROADMAP.md)
 - 🧘 **UX/UI Improvement Roadmap (mobile + desktop, anti-overload)**: [`UX_ROADMAP.md`](./UX_ROADMAP.md)
 - 🏯 **Accepted Web Vision**: [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md)
-- 🧱 **Current Vision Gap & Redesign Plan**: [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B](./sessions/DESIGN_PHASE_AB_2026-08-10.md)
-- 🔍 **Technical Audit & Remediation Log**: [`AUDIT.md`](./AUDIT.md)
+- 🧱 **Web Redesign Records**: [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B](./sessions/DESIGN_PHASE_AB_2026-08-10.md) · [Phase C+D](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md)
+- 🔍 **Current Technical Audit & Remediation Log**: [`AUDIT.md`](./AUDIT.md) · [full 2026-08-10 audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md)
 - 🤝 **Pull Request & Deployment Handoff Guide**: [`HANDOFF.md`](./HANDOFF.md)
 - 🎯 **Evidence-First Research Release Plan**: [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md)
 

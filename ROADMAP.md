@@ -29,7 +29,7 @@ This document outlines the detailed engineering, data science, translation, and 
 >
 > **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **177 verified corpus quotation slots across 10 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
 
-> **Website-design status (2026-08-10):** the prior hero-only completion claim was withdrawn after owner feedback. Structural walnut shell + Reader Phase A+B is implemented; Phases C–E and explicit owner visual approval remain.
+> **Website-design status (2026-08-10):** walnut shell/Reader Phase A+B and secondary-room layouts Phase C+D are implemented, but Phase E screenshot/accessibility evidence and explicit owner approval remain. The current full audit also found that Lineage directory mode retains `hidden`; visual implementation is therefore not yet a verified functional completion claim.
 
 ---
 
@@ -50,7 +50,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
   - Instant client-side search across **all 35 active texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3)).
-  - **Functional UX phases A–D implemented (2026-08-08), design rework active (2026-08-10):** shell + Reader Phase A+B now shipped; visual-system consolidation, Matrix/Lineage/Gong’an/Lexicon redesign, screenshot/accessibility evidence, and owner approval remain. See [`UX_ROADMAP.md`](./UX_ROADMAP.md) and [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md).
+  - **Functional UX phases A–D implemented (2026-08-08), design rework active (2026-08-10):** shell/Reader Phase A+B and Matrix/Lineage/Gong’an/Lexicon Phase C+D layouts are present. Repair the Lineage directory hidden-state defect, then complete Phase E screenshot/accessibility evidence and owner approval. See [`UX_ROADMAP.md`](./UX_ROADMAP.md), [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md), and the [current full audit](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Corpus** (35 active files after the 2026-08-10 Congronglu quarantine; editorial completion status is explicit in the manifest):
   1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — **48/48 cases COMPLETE** + preface + epilogue, 2026-08-08)
@@ -81,7 +81,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Real CBETA source fetching/normalization (Kanripo API or CBETA TEI download).
   - `scripts/align_translations.py` — sentence-level translation alignment (not yet written).
 - [ ] **Full-Text Ingestion Targets**:
-  - [x] Wumenguan (**48 / 48 cases** — completed 2026-08-08; every case carries the verified Senzaki & Reps 1934 public-domain register)
+  - [x] Wumenguan (**48 / 48 cases** — completed 2026-08-08; every case carries wording checked against the recorded Senzaki & Reps 1934 edition; rights remain jurisdiction-qualified)
   - [~] Biyanlu (**100 / 100 case records represented; partial selected witness** — post-verse commentary and human collation sign-off remain pending; N/N representation is not full-work completion)
   - [~] Linji Yulu (**74 recorded sections** — selected-witness completeness and full unit-level verification remain pending)
   - [!] Congronglu / Book of Serenity — **quarantined 2026-08-10** after generated source-looking placeholders and wrong case-number/page claims were found; reintroduce only from authoritative T48n2004 TEI with field-level collation tests
@@ -126,7 +126,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Verify published translations against the named **book/edition**, translator, and page or stable section reference. A web mirror may assist wording comparison but never substitutes for bibliographic provenance or rights review.
 - [~] **Content disclosure contract**:
   - ✅ The public Reader and Matrix now render canonical source locations plus hover/focus/touch citation popups. Until a page/line or TEI locator exists, they show an honest `Locator pending`/document-level status rather than implying unit-level collation.
-  - ✅ Every displayed translation now renders translator, status, book/edition, page/section reference state, verification status, and citation/rights identifier. Current metrics record 135 recorded case/page/section references and 5 honest `Page/section locator pending` records; replacing those pending values is a blocking editorial task, not a silent omission.
+  - ✅ Every displayed translation now renders translator/status disclosure and, for verified quotations, book/edition, reference state, verification, and citation/rights identifiers. Current metrics record **176 references and 3 explicit pending references** across 179 verified corpus/Matrix records; replacing or downgrading those pending values is a blocking editorial task, not a silent omission.
   - ✅ Every AI-produced or AI-reconstructed item is visibly marked **AI draft** or **register reconstruction**; it never appears as a verified quotation or a scholar’s verbatim translation.
   - ✅ Citation/source badges are available by hover, keyboard focus, and touch popup in Reader and Matrix; future public surfaces must use the same component.
 - [ ] **Editorial review queue**:
@@ -182,7 +182,7 @@ translatechan/
 │   ├── lineage/                # masters.json + verification + profile_review_queue (30 links / 4 frontiers)
 │   ├── translations/           # matrix, provenance, and rights manifest
 │   ├── glossary/           # chan_terms.json (31 terms)
-│   └── gongan/             # gongan_index.json (23 cases)
+│   └── gongan/             # gongan_index.json (24 cases)
 └── scripts/                # Ingestion, validation & parsing tools
     ├── segment_classical.py # Offline segmenter (manual input)
     ├── validate_data.py       # Semantic/rights/locator validator + metrics generator

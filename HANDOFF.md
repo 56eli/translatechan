@@ -1,11 +1,11 @@
-# 🤝 Fake Chan Factory — Project Handoff
+# Fake Chan Factory — Project Handoff
 
 > **Repository:** `56eli/translatechan`
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
-> **Latest audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
-> **Latest design:** [gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B implementation](./sessions/DESIGN_PHASE_AB_2026-08-10.md) · [Phase C+D implementation](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md)
-> **Current gate:** `repo_ready = fail` (7.6/10; all five rooms implemented in walnut Chan hall layout, responsive breakpoints unified to 1024px/768px, storage hotfix applied; screenshot verification remains)
+> **Current fixed branch:** `arena/019fecb1-translatechan`
+> **Current audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fecb1.md)
+> **Current gate:** `repo_ready = fail` (6.6/10)
 
 ## 1. Start here
 
@@ -16,21 +16,19 @@
 5. Work only on the Arena-fixed `arena/<session>-translatechan` branch.
 6. Never infer or change a `user_score`.
 
-Historical session outcomes live under [`sessions/`](./sessions/) and in Git history. They are evidence, not current instructions.
+Historical session files are evidence, not current instructions.
 
 ## 2. Product and architecture
 
-**Fake Chan Factory** is a zero-backend static reader for Classical Chinese Chan literature. Its public views are intentionally limited to:
+**Fake Chan Factory** is a zero-backend static reader for Classical Chinese Chan literature. Its intentionally narrow public views are:
 
 - Bilingual Reader;
 - Comparative Matrix;
 - Lineage Tree;
-- Gong’an Index;
+- Gong'an Index;
 - Chan Lexicon.
 
-Internal identifiers remain `translatechan_*`, `window.TranslateChan`, and `TRANSLATECHAN_DATA` for continuity.
-
-Build flow:
+Internal identifiers remain `translatechan_*`, `window.TranslateChan`, and `TRANSLATECHAN_DATA`.
 
 ```text
 data/*.json
@@ -42,51 +40,33 @@ data/*.json
   → GitHub Pages publishes main/docs
 ```
 
-The browser has no runtime JavaScript package dependency. `playwright` is an optional development dependency for the real-browser suite. Google Fonts remains a browser-time third-party dependency.
+There is no browser runtime package dependency. Playwright is an optional development dependency; Google Fonts is a browser-time third-party dependency.
 
 ## 3. Current measured snapshot
 
 ```text
 corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
 content CJK=103,723 | all-string CJK=109,185
+complete=2 | partial=2 | excerpt seeds=31
 lineage=34 masters | glossary=31 terms | gong'an=24 entries
-bundle=1,594,154 raw bytes | approximately 498 KB gzip-9
+bundle=1,594,154 raw bytes | 497,606 gzip-9
 ```
 
-Verified citation reference coverage is **176 / 179**; the remaining **3** reference fields are explicitly pending. This does not mean rights review is complete: every rights-manifest source is still `needs_rights_review` or `jurisdiction_review_required`.
+Verified citation reference coverage is **176 / 179**; the remaining **3** are pending. Every one of the 14 rights-manifest sources still requires human rights/jurisdiction review. Edition verification is not a reuse license.
 
-Completion now requires explicit `complete_selected_witness` status plus satisfied unit targets. Only Wumenguan and Xinxin Ming qualify. Biyanlu and Linji remain `partial_selected_witness`; Platform remains an excerpt seed despite 10/10 represented chapter headings.
+Only Wumenguan and Xinxin Ming are `complete_selected_witness`. Biyanlu and Linji are partial; Platform is an excerpt seed despite 10/10 represented headings.
 
-## 4. Release blockers
+## 4. Current release blockers
 
-### Contained P0 — Congronglu source integrity
-
-The entire Congronglu seed, its locator claims, and four obsolete ingestion snapshots were removed from the active tree. Follow-up comparison with authoritative CBETA `T/T48/T48n2004.xml` showed that even the five records previously labeled collated had wrong case headings and page claims. See [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md). Do not reintroduce it without source-pinned TEI ingestion and field-level collation tests.
-
-### Remaining P1/P2 blockers
-
-- Design: Phase A+B shell/Reader is implemented; continue visual-system consolidation and the Matrix/Lineage/Gong’an/Lexicon redesign, then screenshot-based owner approval.
-- Rights: all 14 sources remain pending; UI wording is corrected, but human decisions are not complete.
-- Field-level source coverage and human review remain incomplete beyond the new document-level completion statuses.
-- Responsive/accessibility, error-state, and operations work remains.
-
-### Fixed public behavior
-
-- Lineage dossier toggles semantic hidden state and receives focus.
-- Six direct Platform chapter shapes render source text and disclosure.
-- Wumenguan epilogue follows cases; Print/PDF expands all lazy units.
-- Wumenguan/Biyanlu labels name their commentator and verse author.
-- Smoke and Playwright regressions cover each path.
-
-### Next correctness layer
-
-- Responsive 1100/960 breakpoint mismatch and sticky toolbar/header overlap.
-- Mobile Reader controls appear on every view.
-- Active color contrast and ARIA pressed/radio/tooltip relationships need correction.
-- JSON Schema is present but not executed; non-case source shapes are weakly validated.
-- Browser title/count expectations are corrected, but the suite still exits zero when Chromium is unavailable.
-
-See the full audit for evidence and exit criteria.
+1. **Lineage directory:** `#lineage-content-target` ships with `hidden`; its mode handler changes only inline display. Remove/restore semantic hidden state and add real-browser coverage.
+2. **Rights/references:** complete 14 human rights decisions and resolve or downgrade 3 pending verified references.
+3. **Non-case validation:** JSON Schema is inert and non-case unit records are shallowly checked; malformed/empty units can pass.
+4. **Browser/a11y evidence:** Playwright exits zero on skip and is not in CI; current screenshots, dark/tablet coverage, axe, and owner approval are absent.
+5. **Accessibility/responsive:** pinyin/Lineage mode states, tooltip relationships, radio behavior, stale collapse labels, search announcements, and mobile Lineage grid need work.
+6. **Fatal state:** `.error-boundary-card` exists only in CSS; no runtime initialization boundary renders it.
+7. **Operations:** four mirror paths are absent from CI diff; action majors emit Node 20 deprecation warnings; required branch protection is unverified.
+8. **Editorial depth:** 33 document-level locator migrations, Biyanlu/Linji field review, 30 lineage edges, and 34 profile reviews remain.
+9. **Contained P0:** do not reintroduce Congronglu without authoritative T48n2004 TEI, field-level provenance, negative fixtures, and human review.
 
 ## 5. Quality commands
 
@@ -100,15 +80,7 @@ node scripts/smoke_test.mjs
 diff -rq data docs/data
 ```
 
-If data legitimately changed:
-
-```bash
-python3 scripts/validate_data.py --write-metrics
-python3 scripts/validate_data.py
-python3 scripts/build_data_bundle.py
-node scripts/smoke_test.mjs
-diff -rq data docs/data
-```
+If data legitimately changed, run `python3 scripts/validate_data.py --write-metrics` before the normal validator.
 
 Optional real browser:
 
@@ -118,29 +90,22 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-**Important:** today, the browser suite prints SKIP and exits 0 when Chromium is unavailable. A skipped run is not release evidence. The dependency-free smoke test proves structural rendering/no-crash behavior, not visual correctness or content truth.
+A browser-script exit 0 is not release evidence if output says **SKIPPED**.
 
 ## 6. Safe content workflow
 
-For any canonical source addition:
+For canonical source additions:
 
 1. Name the selected edition/recension and stable locator.
-2. Import from an authoritative source; do not write canonical-looking Chinese from memory or an AI prompt.
-3. Store field-level provenance/collation status for pointer, case, commentary, verse, chapter, or stanza.
+2. Import from an authoritative source; never generate canonical-looking Chinese from memory or AI.
+3. Store field-level provenance/collation status.
 4. Add exact unit locators for every public source field.
-5. Keep pinyin and English generation status distinct from canonical Chinese status.
+5. Keep pinyin/English generation separate from canonical-Chinese status.
 6. Add negative validator fixtures before increasing completion claims.
 7. Regenerate metrics/bundle/mirror and run all checks.
 8. Obtain human editorial review before claiming source-checked or complete.
 
-The four obsolete autonomous/content-wave ingestion snapshots were deleted during containment; Git history preserves them for forensics. Replace them with source-pinned tooling rather than restoring or replaying them.
-
-For a verified modern quotation:
-
-1. Record exact translator, work, edition, stable reference, wording verification, and `source_id`.
-2. Resolve `source_id` in `data/translations/rights_manifest.json`.
-3. Obtain and record an editorial rights decision; online availability is not a license.
-4. Label the public status “edition-verified quotation,” not “public domain,” unless the rights record independently supports that claim for the distribution jurisdiction.
+For verified modern quotations, record translator/work/edition/reference/wording verification/source ID, resolve that ID in the rights manifest, and obtain a human rights decision. Online availability is not a license.
 
 ## 7. Repository map
 
@@ -149,66 +114,63 @@ index.html / app.css / app.js / theme-init.js
 app_data.js                         # generated browser data bundle
 data/
   corpus/                           # 35 active source documents
-  corpus_manifest.json             # reader order + count targets
-  canonical_locators.json          # document/case locator registry
-  project_metrics.json             # generated deterministic metrics
-  editorial/                       # traceability queue
+  corpus_manifest.json
+  canonical_locators.json
+  project_metrics.json
+  editorial/                       # source review queues
   glossary/                        # 31 Classical Chan & Buddhist lexicon terms
   gongan/                          # 24 Gong'an cross-references index entries
-  lineage/                         # masters, vocabulary, verification, review queue
+  lineage/                         # profiles, vocabulary, verification, queue
   translations/                    # matrix, profiles, provenance, rights
 schemas/translatechan-data.schema.json
 scripts/
-  validate_data.py                 # authoritative semantic validator
-  build_data_bundle.py             # bundle + docs mirror
-  smoke_test.mjs                   # dependency-free structural regression
-  browser_test.mjs                 # optional real-browser suite
-  segment_classical.py             # offline segmentation helper
-  migrate_translations.py          # historical idempotent shape migration
-sessions/                           # dated audit/session evidence
-docs/                              # GitHub Pages mirror
-.scoreboard/                        # current machine score, history, handoff, manual edits
+  validate_data.py
+  build_data_bundle.py
+  smoke_test.mjs
+  browser_test.mjs
+  segment_classical.py
+  migrate_translations.py
+sessions/                           # dated evidence
+docs/                               # GitHub Pages mirror
+.scoreboard/                        # current score, history, handoff, workflow notes
 ```
 
 ## 8. Deployment and GitHub administration
 
-GitHub Pages currently reports `built`, source `main /docs`, HTTPS enforced. Quality and Pages runs passed at audited main commit `3ef7732`.
+GitHub Pages reports `built`, source `main /docs`, HTTPS enforced. Baseline main Quality and Pages runs passed at `27ca224`.
 
-Workflow edits require explicit user approval under project policy. The current generated-artifact diff list omits:
+Workflow changes require explicit user approval. Exact required edits are in [`.scoreboard/manual-workflow-edits.md`](./.scoreboard/manual-workflow-edits.md):
 
-```text
-docs/theme-init.js
-docs/robots.txt
-docs/sitemap.xml
-docs/og-image.svg
-```
-
-Exact replacement YAML is in [`.scoreboard/manual-workflow-edits.md`](./.scoreboard/manual-workflow-edits.md). The final branch run also warned that `actions/checkout@v4`, `setup-python@v5`, and `setup-node@v4` target deprecated Node 20 action runtimes; the manual file records a reviewed-major update task. It also asks an administrator to verify/enable required Quality checks on `main`; this audit’s integration received 403 when reading classic protection state, so protection status is not independently confirmed.
+- cover `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`, and `docs/og-image.svg` in generated-diff checks;
+- review/update deprecated Node 20 action majors;
+- have an administrator verify/require Quality on `main`;
+- later add a non-skippable browser/accessibility path.
 
 ## 9. Documentation rule
 
-- [`AUDIT.md`](./AUDIT.md): current verdict, blockers, checks, session index only.
-- [`SCOREBOARD.md`](./SCOREBOARD.md) and `.scoreboard/scoreboard.yml`: current scores and planning evidence.
+- `AUDIT.md`: current verdict, blockers, checks, session index.
+- `SCOREBOARD.md` and `.scoreboard/scoreboard.yml`: current scores/planning.
 - `.scoreboard/agent-handoff.md`: current branch/session handoff.
 - `response_summary.md`: disposable session summary, overwritten each session.
 - `sessions/*.md`: dated immutable evidence.
-- README/ROADMAP/RESEARCH_RELEASE_PLAN: public/project plans; update current-state claims together after metrics/editorial status changes.
+- README/ROADMAP/RESEARCH_RELEASE_PLAN: public/project plans; update current-state claims together.
 
-Never append a full session narrative to this file. Link the dated report instead.
+## 10. Recommended next sequence
 
-## 10. Current session
+1. Fix Lineage directory hidden state, mode semantics, and phone grid; browser-test it.
+2. Implement fatal bundle recovery.
+3. Add strict per-shape non-case validation and negative fixtures.
+4. Add non-skippable browser/a11y/overflow evidence and obtain owner visual approval.
+5. Complete rights/reference decisions and source review.
+6. Apply owner-approved operations changes.
+7. Clean remaining inline styles/dead CSS, then measure lazy room/data loading.
 
-Session `arena/019febb1-translatechan` completed the audit, containment, public-behavior fixes, design plan, and owner-approved shell/Reader Phase A+B. Next: visual-system consolidation and the four secondary rooms, then screenshot/accessibility evidence and owner approval.
+## 11. Stable contracts
 
-## 11. PR / merge handoff
-
-PR [#15](https://github.com/56eli/translatechan/pull/15) — **“fix: restore content trust and redesign the walnut Reader”** — merged into `main` on 2026-08-10 as `26feff0dbc4286da0c7a1e4c46ff341288b9d0f3`.
-
-Post-merge status:
-
-- main Quality: success;
-- GitHub Pages build/deploy: success;
-- live URL: `https://56eli.github.io/translatechan/`;
-- current live content confirmed with 35 active works and the new gate/Reader output.
-
-The owner requested merge specifically so the real Pages deployment can be reviewed. The next agent must wait for that visual feedback before starting design Phase C/D. The vision remains partially implemented; do not declare completion without Phase E evidence and explicit owner approval.
+- Public brand: Fake Chan Factory; internal identifiers remain `translatechan_*`.
+- Public views: Reader, Matrix, Lineage, Gong'an, Lexicon only.
+- No generated canonical-looking Chinese.
+- N/N representation never establishes completion.
+- Edition verification and rights approval are separate.
+- No workflow edits without explicit user approval.
+- No user-score changes without explicit numeric user instruction.
