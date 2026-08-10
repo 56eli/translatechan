@@ -5,7 +5,7 @@
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
 > **Latest audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
 > **Latest design:** [gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B implementation](./sessions/DESIGN_PHASE_AB_2026-08-10.md) · [Phase C+D implementation](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md)
-> **Current gate:** `repo_ready = fail` (7.6/10; all five rooms implemented in walnut Chan hall layout, responsive breakpoints unified to 1024px/768px, storage hotfix applied; screenshot verification remains)
+> **Current gate:** `repo_ready = fail` (7.6/10; PR #17 merged into main with all five rooms in walnut Chan hall layout, responsive breakpoints unified to 1024px/768px, storage hotfix applied; screenshot verification remains)
 
 ## 1. Start here
 
