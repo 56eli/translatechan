@@ -11,9 +11,10 @@ This session completed three steps:
 1. [full audit](../sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md);
 2. [user-selected Congronglu containment](../sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md);
 3. [user-selected P1 public-behavior hotfix](../sessions/FUNCTIONAL_HOTFIX_2026-08-10.md);
-4. [owner-directed web vision gap analysis and redesign plan](../sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md).
+4. [owner-directed web vision gap analysis and redesign plan](../sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md);
+5. [owner-approved structural walnut shell + Reader Phase A+B](../sessions/DESIGN_PHASE_AB_2026-08-10.md).
 
-Current weighted score: **6.8/10** after owner-directed design re-audit. `repo_ready = fail` because rights and operations gates remain. All `user_score` fields remain `null`.
+Current weighted score: **6.9/10** after Phase A+B implementation, pending visual approval. `repo_ready = fail` because four-room design completion, rights, and operations gates remain. All `user_score` fields remain `null`.
 
 ## Completed containment
 
@@ -42,7 +43,7 @@ bundle=1,594,154 bytes raw | approximately 498 KB gzip-9
 
 ## Remaining blockers
 
-1. **Design vision:** the site remains a generic rounded-card/emoji dashboard around one themed hero. Execute [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](../sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) and require screenshot-based owner approval.
+1. **Design completion:** structural walnut shell and Reader are implemented; visual-system consolidation, Matrix/Lineage/Gong’an/Lexicon redesign, screenshot evidence, and explicit owner approval remain.
 2. **Rights governance:** all 14 rights sources remain review/jurisdiction-pending.
 3. **Field-level source depth:** Biyanlu, Linji, Platform, and other non-case records need broader per-field provenance/review.
 4. **Responsive/accessibility:** sticky/header geometry, 1100/960 breakpoint mismatch, mobile Reader controls on other views, contrast, and ARIA state relationships.
@@ -51,9 +52,9 @@ bundle=1,594,154 bytes raw | approximately 498 KB gzip-9
 
 ## Recommended next sequence
 
-1. Execute the design gap plan: walnut shell/first fold, Reader literature hierarchy, visual-system consolidation, then all four secondary rooms.
-2. Require current light/dark mobile/desktop screenshots and explicit owner approval before declaring visual completion.
-3. Build responsive/accessibility and error-state hardening into that redesign.
+1. Continue Phase C visual-system consolidation (inline styles, emoji, controls, contrast).
+2. Execute Phase D four-room redesign.
+3. Execute Phase E screenshot/accessibility verification and obtain explicit owner approval.
 4. Complete field-level source validation and human quotation-rights decisions.
 5. Apply owner-approved operations changes and re-audit; re-ingest Congronglu only under its containment gate.
 

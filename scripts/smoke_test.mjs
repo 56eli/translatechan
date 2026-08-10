@@ -49,6 +49,12 @@ for (const iconSpan of publicHtml.match(/<span[^>]*>[\u{1F300}-\u{1FAFF}️⃣][
 if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.includes('matrixRegisters')) {
   throw new Error('hero work/register counts are not derived from data');
 }
+for (const shellToken of ['id="site-shell"', 'class="nav-tabs room-nav"', '閱藏堂', '對勘', '傳法堂', '公案架', '詞林']) {
+  if (!publicHtml.includes(shellToken)) throw new Error(`walnut room shell missing: ${shellToken}`);
+}
+if (!appSrc.includes('setupShellMetrics()') || !appSrc.includes("document.body.dataset.currentView = viewName")) {
+  throw new Error('shell height/current-view state is not synchronized by the app');
+}
 if (!appSrc.includes('✅ Edition-verified quotation') ||
     /verified public-domain text|Verified public-domain text/.test(publicHtml)) {
   throw new Error('edition verification must remain distinct from rights/public-domain status');
@@ -97,7 +103,7 @@ if ((appSrc.match(/setAttribute\('role', 'tooltip'\)/g) || []).length < 2) {
 if (!/<input[^>]*type="search"[^>]*id="global-search"[^>]*aria-label="[^"]+"/.test(publicHtml)) {
   throw new Error('global search input must be type="search" with an aria-label');
 }
-if (!publicHtml.includes('<div class="search-box" role="search">')) {
+if (!/<div class="[^"]*search-box[^"]*" role="search">/.test(publicHtml)) {
   throw new Error('search box must carry the search landmark role');
 }
 
@@ -232,9 +238,11 @@ globalThis.document = {
       if (modeHandlers.length === 0) {
         for (const mode of ['bilingual', 'chinese_only', 'multi_translators']) {
           modeHandlers.push({
-            getAttribute: () => mode,
+            _attrs: {},
+            getAttribute: (name) => name === 'data-reader-mode' ? mode : null,
+            setAttribute(name, value) { this._attrs[name] = String(value); },
             classList: { add() {}, remove() {} },
-            addEventListener: (ev, fn) => { modeHandlers.find(h => h.getAttribute() === mode)._click = fn; }
+            addEventListener: (ev, fn) => { modeHandlers.find(h => h.getAttribute('data-reader-mode') === mode)._click = fn; }
           });
         }
       }
@@ -332,7 +340,7 @@ try {
 
 // 2. Exercise each reader mode
 for (const h of modeHandlers) {
-  try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute()} crash: ${e.message}`); }
+  try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute('data-reader-mode')} crash: ${e.message}`); }
 }
 
 // 3. Exercise global search with several queries (search is debounced ~200ms — await it)
@@ -507,9 +515,9 @@ if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded too
 // a complete text — the reader header shows validator-derived coverage.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanCovHtml = ids['reader-content-target']._innerHTML;
-if (!biyanCovHtml.includes('📊 Coverage: 100/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+if (!biyanCovHtml.includes('Coverage: 100/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
-if (!ids['reader-content-target']._innerHTML.includes('📊 Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
+if (!ids['reader-content-target']._innerHTML.includes('Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
 const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
 if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }
@@ -553,6 +561,10 @@ try {
   if (!corpusListHtml.includes('Complete selected witness')) {
     failures++; console.log('❌ 4ff: sidebar should expose complete-selected-witness marks');
   }
+  for (const [group, label, count] of [['complete_selected_witness', 'Complete witnesses', 2], ['partial_selected_witness', 'Partial witnesses', 2], ['excerpt_seed', 'Excerpt seeds', 31]]) {
+    const pattern = new RegExp(`data-completion-group="${group}"[\\s\\S]*?${label}[\\s\\S]*?<span>${count}<\\/span>`);
+    if (!pattern.test(corpusListHtml)) failures++, console.log(`❌ 4ff: missing ${label} (${count}) shelf group`);
+  }
   if (!corpusListHtml.includes('100/100') || !corpusListHtml.includes('10/10')) {
     failures++; console.log('❌ 4ff: partial/excerpt representation ratios should remain visible');
   }
@@ -594,20 +606,31 @@ try {
   }
 } catch (e) { failures++; console.log(`❌ 4hh corpus filter spot-check crashed: ${e.message}`); }
 
-// 4ii. L1: the reader shows a breadcrumb trail ("📚 Reader › T2005
-// Wumenguan") above the title.
+// 4ii. Reader heading uses a quiet Reader / T2005 breadcrumb and progressive details.
 try {
   corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
   const readerHtml = ids['reader-content-target']._innerHTML;
-  if (!readerHtml.includes('reader-breadcrumb') || !readerHtml.includes('📚 Reader') || !readerHtml.includes('breadcrumb-current')) {
-    failures++; console.log('❌ 4ii: reader should show a breadcrumb trail above the title');
+  if (!readerHtml.includes('reader-breadcrumb') || !readerHtml.includes('>Reader</a>') || !readerHtml.includes('>T2005</span>') || !readerHtml.includes('document-details')) {
+    failures++; console.log('❌ 4ii: literary document heading/breadcrumb is incomplete');
   }
-} catch (e) { failures++; console.log(`❌ 4ii breadcrumb spot-check crashed: ${e.message}`); }
+  if (!readerHtml.includes('<details class="front-matter">') || readerHtml.includes('<details class="front-matter" open')) {
+    failures++; console.log('❌ 4ii: front matter should be present and collapsed by default');
+  }
+} catch (e) { failures++; console.log(`❌ 4ii document-heading check crashed: ${e.message}`); }
 
-// 4jj. L1: the reader toolbar should be sticky (position: sticky in CSS).
+// 4jj. Reader rail is sticky below the measured walnut shell; case rail is not sticky.
 const cssSrc = readFileSync(join(ROOT, 'app.css'), 'utf8');
-if (!cssSrc.includes('.reader-toolbar') || !/\.reader-toolbar\s*\{[^}]*position:\s*sticky/s.test(cssSrc)) {
-  failures++; console.log('❌ 4jj: reader toolbar should use position: sticky');
+if (!/\.reader-toolbar\s*\{[^}]*position:\s*sticky[^}]*top:\s*calc\(var\(--shell-height\)/s.test(cssSrc)) {
+  failures++; console.log('❌ 4jj: reader toolbar should stick below --shell-height');
+}
+if (!/\.case-jump-strip\s*\{[^}]*position:\s*static/s.test(cssSrc)) {
+  failures++; console.log('❌ 4jj: case index should be a static single-row rail');
+}
+if (!cssSrc.includes('body[data-current-view="reader"] .mobile-action-bar') || !/\.mobile-action-bar\s*\{[^}]*justify-content:\s*flex-start/s.test(cssSrc)) {
+  failures++; console.log('❌ 4jj: mobile controls must be Reader-only and start-aligned');
+}
+if (!appSrc.includes("setAttribute('aria-pressed', on ? 'true' : 'false')")) {
+  failures++; console.log('❌ 4jj: reader mode controls must expose aria-pressed');
 }
 
 // 4kk. L1 (audit 2026-08-10, session 019feabb): the dossier panel uses
@@ -941,9 +964,8 @@ if (!globalThis.window._lastScrollTo || globalThis.window._lastScrollTo.top !== 
 }
 globalThis.window.scrollY = 0;
 
-// 4aa. U1 (audit 2026-08-10, session 019feabb): case-strip chips render the
-// case number + case title_zh (desktop gets the title inline; mobile gets it
-// in the title= tooltip). The new structure is `case-chip-num` + `case-chip-title`.
+// 4aa. Case-rail chips keep number + title in markup/title for accessible
+// labeling while CSS displays a compact, single-row number rail.
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const wmStripHtml = ids['reader-content-target']._innerHTML;
 if (!wmStripHtml.includes('class="case-chip-num">1</span>') || !wmStripHtml.includes('class="case-chip-title">趙州狗子</span>')) {

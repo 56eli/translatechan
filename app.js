@@ -139,6 +139,23 @@
     return true;
   }
 
+  function setupShellMetrics() {
+    const shell = document.getElementById('site-shell');
+    if (!shell) return;
+    const update = () => {
+      const height = Math.ceil(shell.getBoundingClientRect?.().height || shell.offsetHeight || 0);
+      if (height > 0) document.documentElement.style.setProperty('--shell-height', `${height}px`);
+    };
+    update();
+    if (typeof ResizeObserver === 'function') {
+      const observer = new ResizeObserver(update);
+      observer.observe(shell);
+      shell._resizeObserver = observer;
+    } else {
+      window.addEventListener('resize', update);
+    }
+  }
+
   // Initialize
   function init() {
     // Initial URL state (#/view/corpus) — deep links & refresh restore position
@@ -148,6 +165,7 @@
 
     applyTheme(state.theme);
     syncSettingsUI();
+    setupShellMetrics();
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
     updateHeroCounts();
     setupHeroDismiss();
@@ -211,6 +229,7 @@
     document.querySelectorAll('[data-reader-mode]').forEach(b => {
       const on = b.getAttribute('data-reader-mode') === state.readerMode;
       if (on) b.classList.add('active'); else b.classList.remove('active');
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
   }
 
@@ -501,7 +520,7 @@
     document.documentElement.setAttribute('data-theme', theme);
     storageSet('translatechan_theme', theme);
     if (elements.themeToggle) {
-      elements.themeToggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">☀️</span>' : '<span aria-hidden="true">🌙</span>';
+      elements.themeToggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">☀</span>' : '<span aria-hidden="true">☾</span>';
     }
   }
 
@@ -930,6 +949,7 @@
       state.viewScroll[oldView] = window.scrollY || 0;
     }
     state.currentView = viewName;
+    if (document.body && document.body.dataset) document.body.dataset.currentView = viewName;
     elements.navTabs.forEach(tab => {
       const on = tab.getAttribute('data-view') === viewName;
       if (on) tab.classList.add('active'); else tab.classList.remove('active');
@@ -1035,34 +1055,41 @@
         })
       : corpusMap;
 
-    // L1 (audit 2026-08-10, session 019feabb): each corpus button now
-    // shows a tiny completion badge derived from the validator-generated
-    // per-text coverage. Complete texts get a green ✓, excerpts get a
-    // • with the N/M ratio. This is the same data the reader's
-    // coverage chip uses — a single source of truth, surfaced in the
-    // sidebar so a scholar can see at a glance which texts are full.
     const perText = (state.data.project_metrics && state.data.project_metrics.corpus && state.data.project_metrics.corpus.per_text) || {};
-    elements.corpusList.innerHTML = filteredMap.length === 0
-      ? '<p class="corpus-filter-empty">No canonical works match <strong>' + escHtml(filterRaw) + '</strong>. Try a different search term.</p>'
-      : filteredMap.map(c => {
+    const groupOrder = [
+      { key: 'complete_selected_witness', label: 'Complete witnesses' },
+      { key: 'partial_selected_witness', label: 'Partial witnesses' },
+      { key: 'excerpt_seed', label: 'Excerpt seeds' }
+    ];
+    const titleParts = (title) => {
+      const match = stringValue(title).match(/^(.*?)\s*\(([^()]*)\)\s*$/);
+      return match ? { en: match[1], zh: match[2] } : { en: stringValue(title), zh: '' };
+    };
+    const renderCorpusRow = (c) => {
       const pt = perText[c.key] || {};
-      const cov = pt.coverage || '';
-      const isComplete = pt.is_complete === true && pt.completion_status === 'complete_selected_witness';
-      const completionMark = cov && (cov.endsWith(' cases') || cov.endsWith(' chapters') || cov.endsWith(' stanzas'))
-        ? (isComplete
-            ? '<span class="corpus-status-mark is-complete" aria-label="Complete selected witness" title="Complete selected witness">✓</span>'
-            : `<span class="corpus-status-mark" aria-label="Incomplete: ${escHtml(cov)} represented" title="Incomplete source coverage: ${escHtml(cov)} represented">${escHtml(cov.match(/^(\d+)\/(\d+)/)?.[0] || '•')}</span>`)
-        : '';
-      return `
-      <button class="corpus-btn ${c.key === state.currentCorpusKey ? 'active' : ''}" data-corpus-key="${escHtml(c.key)}">
-        <span class="corpus-btn-text">${escHtml(c.title)}</span>
-        <span class="corpus-btn-meta">
-          ${completionMark}
-          <span class="corpus-badge">${escHtml(c.cbeta)}</span>
-        </span>
-      </button>
-    `;
-    }).join('');
+      const cov = stringValue(pt.coverage);
+      const parts = titleParts(c.title);
+      const complete = pt.completion_status === 'complete_selected_witness';
+      const coverageMark = complete
+        ? '<span class="corpus-status-mark is-complete" aria-label="Complete selected witness" title="Complete selected witness">✓</span>'
+        : (cov ? `<span class="corpus-status-mark" aria-label="${escHtml(cov)} represented">${escHtml(cov.match(/^(\d+)\/(\d+)/)?.[0] || '•')}</span>` : '');
+      return `<button class="corpus-btn ${c.key === state.currentCorpusKey ? 'active' : ''}" data-corpus-key="${escHtml(c.key)}">
+        <span class="corpus-btn-text"><span class="corpus-title-en">${escHtml(parts.en)}</span>${parts.zh ? `<span class="corpus-title-zh" lang="zh">${escHtml(parts.zh)}</span>` : ''}</span>
+        <span class="corpus-btn-meta">${coverageMark}<span class="corpus-badge">${escHtml(c.cbeta)}</span></span>
+      </button>`;
+    };
+    if (filteredMap.length === 0) {
+      elements.corpusList.innerHTML = '<p class="corpus-filter-empty">No works match <strong>' + escHtml(filterRaw) + '</strong>.</p>';
+    } else {
+      elements.corpusList.innerHTML = groupOrder.map(group => {
+        const items = filteredMap.filter(item => (perText[item.key]?.completion_status || 'excerpt_seed') === group.key);
+        if (!items.length) return '';
+        return `<section class="corpus-group" data-completion-group="${group.key}">
+          <h3 class="corpus-group-title"><span>${group.label}</span><span>${items.length}</span></h3>
+          <div class="corpus-group-list">${items.map(renderCorpusRow).join('')}</div>
+        </section>`;
+      }).join('');
+    }
 
     elements.corpusList.querySelectorAll('.corpus-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -1127,7 +1154,7 @@
         ['Source note', stringValue(entry.source_note) || 'No additional locator note recorded.']
       ]
     };
-    return `<div class="source-location ${className}"><span>📍 ${escHtml(label)}: ${escHtml(location)}</span>${renderCitationTrigger(detail, 'ⓘ Source')}</div>`;
+    return `<div class="source-location ${className}"><span>${escHtml(label)}: ${escHtml(location)}</span>${renderCitationTrigger(detail, 'Details')}</div>`;
   }
 
   function renderDocumentSourceDisclosure(doc, corpusKey) {
@@ -1177,7 +1204,7 @@
         ['Measured by', 'data/project_metrics.json → corpus.per_text (validator-generated)']
       ]
     };
-    return `<div class="source-location coverage-disclosure"><span>📊 Coverage: ${escHtml(coverage)}</span>${renderCitationTrigger(detail, 'ⓘ Coverage')}</div>`;
+    return `<div class="source-location coverage-disclosure"><span>Coverage: ${escHtml(coverage)}</span>${renderCitationTrigger(detail, 'Details')}</div>`;
   }
 
   function renderCaseSourceDisclosure(caseNum) {
@@ -1228,14 +1255,11 @@
       return;
     }
 
-    // Case index strip for long case-based texts (e.g. Wumenguan 48/48)
-    // U1 (audit 2026-08-10, session 019feabb): the case number is always shown;
-    // on wider chips the case title_zh is rendered as a 2nd line so the strip
-    // doubles as a topical table-of-contents. On narrow screens (mobile) the
-    // title hides via CSS and the existing `title=` tooltip remains.
+    // Long case collections use one horizontal rail; titles stay available to
+    // focus/hover without turning 48–100 chips into a multi-row sticky wall.
     const caseStrip = (Array.isArray(doc.cases) && doc.cases.length >= 10)
       ? `<div class="case-jump-strip" id="case-jump-strip" aria-label="Case index">
-           <span class="case-strip-label">📑 則 / Case</span>
+           <span class="case-strip-label">則 / Case</span>
            ${doc.cases.map(c => {
              const title = escHtml(c.title_zh || '');
              const num = escHtml(c.case_num);
@@ -1244,47 +1268,59 @@
          </div>`
       : '';
 
+    const docMetric = state.data.project_metrics?.corpus?.per_text?.[state.currentCorpusKey] || {};
+    const statusLabels = {
+      complete_selected_witness: 'Complete witness',
+      partial_selected_witness: 'Partial witness',
+      excerpt_seed: 'Excerpt seed'
+    };
+    const editorialStatus = statusLabels[docMetric.completion_status] || 'Editorial status pending';
     let html = `
-      <div class="text-header">
-        <!-- L1 (audit 2026-08-10, session 019feabb): a small breadcrumb
-             trail above the title so the reader always knows where
-             they are (Reader → T2005 Wumenguan). The "back to all
-             canonical works" link jumps to the corpus sidebar by
-             focusing it. -->
+      <header class="text-header document-heading">
         <nav class="reader-breadcrumb" aria-label="Reader breadcrumb">
-          <a href="#/reader" data-nav-link>📚 Reader</a>
-          <span class="breadcrumb-sep">›</span>
-          <span class="breadcrumb-current">${escHtml(doc.title_en || doc.title_zh || '')}</span>
+          <a href="#/reader" data-nav-link>Reader</a>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">${escHtml(doc.cbeta_id || '')}</span>
         </nav>
-        <h1 class="text-title-zh">${escHtml(doc.title_zh)}</h1>
-        <p class="text-title-en">${escHtml(doc.title_en)} (${escHtml(doc.title_pinyin)})</p>
-        <div class="text-meta-chips">
-          <span class="meta-chip">📜 Canon: ${escHtml(doc.cbeta_id || 'Taisho')}${(/T\d{4}/.test(doc.cbeta_id || '') && doc.taisho_vol) ? ` (Vol. ${escHtml(doc.taisho_vol)})` : ''}</span>
-          <span class="meta-chip">✍️ Master/Author: ${escHtml(doc.author_zh || '')}</span>
-          <span class="meta-chip">⏳ Era: ${escHtml(doc.era || '')}</span>
-          <span class="meta-chip">🏷️ Genre: ${escHtml(doc.genre || '')}</span>
+        <div class="document-title-row">
+          <div>
+            <h1 class="text-title-zh">${escHtml(doc.title_zh)}</h1>
+            <p class="text-title-en">${escHtml(doc.title_en)} · ${escHtml(doc.title_pinyin)}</p>
+          </div>
+          <span class="document-status">${escHtml(editorialStatus)}</span>
         </div>
-        ${renderDocumentSourceDisclosure(doc, state.currentCorpusKey)}
-        ${renderCoverageDisclosure(state.currentCorpusKey)}
-      </div>
+        <div class="document-ledger">
+          ${renderDocumentSourceDisclosure(doc, state.currentCorpusKey)}
+          ${renderCoverageDisclosure(state.currentCorpusKey)}
+          <details class="document-details">
+            <summary>Edition details</summary>
+            <dl>
+              <div><dt>Canon</dt><dd>${escHtml(doc.cbeta_id || 'Not recorded')}${(/T\d{4}/.test(doc.cbeta_id || '') && doc.taisho_vol) ? ` · Vol. ${escHtml(doc.taisho_vol)}` : ''}</dd></div>
+              <div><dt>Author</dt><dd>${escHtml(doc.author_zh || '')}</dd></div>
+              <div><dt>Era</dt><dd>${escHtml(doc.era || '')}</dd></div>
+              <div><dt>Genre</dt><dd>${escHtml(doc.genre || '')}</dd></div>
+            </dl>
+          </details>
+        </div>
+      </header>
       ${caseStrip}
     `;
 
-    // Render Preface if exists
+    // Front matter remains intact but no longer blocks the first case on entry.
     if (doc.preface) {
       html += `
-        <div class="case-card" style="border-left: 4px solid var(--accent-gold);">
-          <div class="case-header">
-            <h2 class="case-num-title">序言 / Preface</h2>
+        <details class="front-matter">
+          <summary><span lang="zh">序</span> / Front matter</summary>
+          <div class="front-matter-content">
+            <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.preface.zh)}</div>
+            <div class="pinyin-line">${escHtml(doc.preface.pinyin)}</div>
+            ${renderFlatTranslationColumns([
+              { key: 'red_pine', name: 'Red Pine', text: doc.preface.en_red_pine || doc.preface.en_cleary || '' },
+              { key: 'cleary', name: 'Thomas Cleary', text: doc.preface.en_cleary || '' },
+              { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.preface.en_sasaki || '' }
+            ], { zh: doc.preface.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
           </div>
-          <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.preface.zh)}</div>
-          <div class="pinyin-line">${escHtml(doc.preface.pinyin)}</div>
-          ${renderFlatTranslationColumns([
-            { key: 'red_pine', name: 'Red Pine', text: doc.preface.en_red_pine || doc.preface.en_cleary || '' },
-            { key: 'cleary', name: 'Thomas Cleary', text: doc.preface.en_cleary || '' },
-            { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.preface.en_sasaki || '' }
-          ], { zh: doc.preface.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
-        </div>
+        </details>
       `;
     }
 
@@ -2230,7 +2266,7 @@
     const svg = document.getElementById('lineage-svg-graph');
     if (!svg) return;
 
-    const width = Math.max(720, svg.clientWidth || 900);
+    const width = Math.max(360, svg.clientWidth || 900);
     const ROW_GAP = 88;
     const TOP_PAD = 78;
     const BOTTOM_PAD = 74;
@@ -2591,8 +2627,8 @@
     const filterBar = `
       <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.25rem; align-items:center;">
         <span style="font-size:0.75rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.6px;">Theme groups:</span>
-        <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all">All · ${state.data.gongan_index.length}</button>
-        ${groups.map(g => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === g.key ? 'active' : ''}" data-gongan-filter="${escHtml(g.key)}">${escHtml(g.display)} · ${g.count}</button>`).join('')}
+        <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all" aria-pressed="${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'true' : 'false'}">All · ${state.data.gongan_index.length}</button>
+        ${groups.map(g => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === g.key ? 'active' : ''}" data-gongan-filter="${escHtml(g.key)}" aria-pressed="${state.gonganThemeFilter === g.key ? 'true' : 'false'}">${escHtml(g.display)} · ${g.count}</button>`).join('')}
       </div>`;
 
     elements.gonganTarget.innerHTML = filterBar + list.map(g => `
@@ -2963,6 +2999,7 @@
       state.caseLimit[state.currentCorpusKey] = total;
     }
     renderReader();
+    elements.readerContent?.querySelectorAll?.('details.front-matter, details.document-details').forEach(detail => { detail.open = true; });
     setTimeout(() => {
       window.scrollTo({ top: scrollY, behavior: 'auto' });
       try { window.print(); } catch (e) { /* printing unavailable */ }

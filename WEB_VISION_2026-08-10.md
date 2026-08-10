@@ -1,8 +1,8 @@
 # 🏯 Fake Chan Factory — Website Vision (Final — Chinese Chan Hall, Minimal)
 
 > **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10, updated after owner feedback (Chinese Chan focus, minimal, no gimmicks).
-> **Status:** Accepted direction, **not yet fulfilled**. The earlier Phase V1 shipped a masthead/metadata slice only; it did not redesign the shell, first fold, Reader hierarchy, responsive composition, or four secondary rooms.
-> **Current gap plan:** [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) is the implementation authority for fulfilling this vision.
+> **Status:** Accepted direction, partially implemented. Phase A+B now delivers the structural walnut shell and Reader literature hierarchy; four secondary rooms, visual-system consolidation, screenshot verification, and owner approval remain.
+> **Implementation authority:** [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B record](./sessions/DESIGN_PHASE_AB_2026-08-10.md).
 > **Related:** `vision.md` = scholarly/architectural blueprint. This doc = public-facing experience blueprint.
 > **Feedback incorporated:** Audience = me and friends introduced to niche Chan content mixed with my humor. First 30s = Chan hall/literature/Zen feeling with robo joke theme. After that = all serious literature composition, readability, transparent flow, no choppiness, no overflow, no distraction, no gimmicks, sophisticated but minimal. Lean into wood dark walnut, drop vermillion keep ✓, humor disappears except Robo names. No Japanese aesthetics — Chinese temple wood + Chinese calligraphy. No footer, no conveyor, no CTA (deferred per feedback).
 
@@ -86,15 +86,17 @@ We keep tab labels English (Bilingual Reader, Comparative Matrix, Lineage Tree, 
 - A11y: meta chips no longer `aria-hidden=true`; emoji inside inner `<span aria-hidden="true">` so counts accessible + smoke decorative emoji check passes.
 - Removed: conveyor belt CSS animation (deferred), CTA buttons (deferred per feedback you didn't know what hero CTA means), giant 禪 watermark (already removed L1).
 
-### 4.2 Reader — scroll, no choppiness (S) — NEXT
+### 4.2 Reader — Phase A+B implemented, visual approval pending
 
-**Today:** sidebar 260px list + content panel + sticky toolbar (z 50 now > strip 40 after fix) + case chips sticky 4.4rem + collapsible cards.
+- Structural walnut shell with Chinese room navigation.
+- Truthful grouped shelf: complete 2, partial 2, excerpts 31.
+- Measured `--shell-height` sticky rail; unified 1100px shelf/chooser breakpoint.
+- Progressive document ledger and collapsed front matter expose Case 1 in the first-fold target.
+- Static single-row case rail replaces the sticky title wall.
+- Ruled/shadowless Reader units and paper translation columns replace nested Reader cards.
+- Reader-only/start-aligned mobile action bar with safe-area padding.
 
-**Vision final, no gimmicks:**
-- Sidebar grouping must follow editorial truth: Complete selected witnesses (2: Wumenguan, Xinxin Ming), Partial witnesses (2: Biyanlu, Linji), Excerpt seeds (31). Use compact typographic shelf rows, not more cards.
-- Reader header breadcrumb `📚 Reader › T2005 Wumenguan` keep — helps orientation, no gimmick.
-- Case card: keep `background var(--bg-card-subtle) border 1px border-color radius-md`, hover `border-color border-focus shadow-sm` — subtle lift okay, not gimmick. Remove dotted glossary underline? Keep `box-shadow inset 0 -0.35em rgba(158,114,50,0.18)` brushed highlight is minimal, not gimmick — evaluate.
-- Mobile bottom bar already fixed 44px min + env(safe-area-inset-bottom) in this pass.
+See [`sessions/DESIGN_PHASE_AB_2026-08-10.md`](./sessions/DESIGN_PHASE_AB_2026-08-10.md). Do not call this visually complete until current screenshots/live preview receive owner approval.
 
 ### 4.3 Matrix — proof sheet minimal (S)
 
@@ -102,7 +104,7 @@ Keep cards, no ruler line gimmick. Only ensure translation cols equal, status ba
 
 ### 4.4 Lineage — transmission hall (M)
 
-Current SVG vertically layered generations, pan/zoom, halo nodes, gold pending links. Vision final: no blueprint blue grid gimmick — keep rice paper card bg. Maybe lower bound width 720 → 360 for mobile overflow (P3 from full audit). Dossier panel already card system with gold left stripe — good, not gimmick.
+Current SVG vertically layers generations with pan/zoom and status-aware links; its minimum width is now 360px. Phase D still needs to turn the whole room into a responsive transmission chart/directory rather than a generic control/card composition.
 
 ### 4.5 Gong'an & Lexicon — shelves
 
@@ -146,19 +148,33 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 5. Build: copy og-image.svg to docs/, validator relaxed hero chip check
 6. Gates: post-containment gates: corpus=35 verified=177 locators=148/148; build/smoke remain required
 
-### Earlier V2 Reader-polish list — superseded by the gap plan
+### Phase A+B ✅ implemented, pending owner visual approval
 
-- Sidebar grouping Complete (4) vs Excerpt (32) sticky header for complete group
-- Case card hover lift subtle (if not gimmick) + glossary brushed highlight evaluation
-- Lineage graph width lower bound 720→360 (mobile overflow fix)
-- Reader header seal ✓ checkmark for complete (small, not red seal)
-- No conveyor, no CTA, no footer re-add unless you want minimal 1-line colophon
+- Structural walnut shell + Chinese room nav.
+- Initial-only compact gate and first-fold Reader source target.
+- 2/2/31 typographic shelf, progressive ledger, collapsed front matter.
+- Ruled Reader, static case rail, Reader-only mobile controls.
+- Responsive/ARIA/contrast improvements included in the pass.
 
-### Earlier V3 list — superseded by the gap plan
+### Phase C — visual-system consolidation (next)
 
-- Matrix card subtle ruler removal (keep minimal)
-- Lineage container blueprint grid removal (keep rice paper, per no gimmick)
-- Dossier stays card + gold left stripe — good
+- Replace most remaining inline styles with named components.
+- Reduce generated decorative emoji by at least 70%.
+- Standardize contrast-safe buttons, filters, notices, source/status treatments, radii, and shadows.
+
+### Phase D — four secondary rooms
+
+- Matrix proof sheet.
+- Lineage transmission chart/directory.
+- Gong’an catalogue rows.
+- Lexicon dictionary rows.
+
+### Phase E — evidence and approval
+
+- Current light/dark screenshots at mobile/tablet/desktop widths.
+- Non-skippable overflow/sticky/visual checks when CI workflow changes are approved.
+- Keyboard/screen-reader/contrast review.
+- Explicit owner approval before the vision is declared fulfilled.
 
 ### Motion remains deferred
 

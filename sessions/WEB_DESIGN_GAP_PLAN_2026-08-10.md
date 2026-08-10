@@ -2,7 +2,7 @@
 
 > **Session:** `arena/019febb1-translatechan`
 > **Direction from owner:** the page does not come close to the approved “Chinese Chan hall in dark walnut; practical joke once, then serious literature” vision. Investigate what must change; full planning freedom granted.
-> **Scope of this step:** design/implementation investigation and plan, not a cosmetic patch.
+> **Implementation update:** owner approved production shell + Reader, structural walnut, and collapsed front matter. Phase A+B is implemented in [`DESIGN_PHASE_AB_2026-08-10.md`](./DESIGN_PHASE_AB_2026-08-10.md), pending live visual approval. Phases C–E remain.
 
 ## 1. Verdict
 

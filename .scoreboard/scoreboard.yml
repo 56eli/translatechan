@@ -13,16 +13,16 @@ manual_workflow_policy:
   instruction: "Do not edit .github/workflows/* unless the user explicitly instructs it; document exact required changes in .scoreboard/manual-workflow-edits.md."
 
 summary:
-  overall_effective_score: 6.8
+  overall_effective_score: 6.9
   repo_ready_gate_status: fail
   top_priorities:
     - github_pages_presentation
     - error_handling_logging
-    - ux_usability
     - deployment_readiness
-    - accessibility
+    - content_quality
+    - ci_cd
   active_risk_flags:
-    - "Design gap: the page has a hero accent but remains a rounded-card/emoji dashboard; the accepted Chinese Chan hall/literature-first vision is not fulfilled."
+    - "Design remains incomplete: structural walnut shell and Reader are implemented, but Matrix/Lineage/Gong’an/Lexicon, visual-system consolidation, screenshot verification, and owner approval remain."
     - "Contained P0: unreliable Congronglu data/locators/generating scripts remain removed; reintroduction is blocked on source-pinned field-level collation."
     - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; decisions remain pending."
     - "P2 source depth: Biyanlu, Linji, Platform, and other non-case records still need field-level coverage and broader human review."
@@ -31,7 +31,7 @@ summary:
 quality_gates:
   repo_ready:
     status: fail
-    overall_effective_score: 6.8
+    overall_effective_score: 6.9
     last_evaluated: 2026-08-10
     minimum_overall_effective_score: 8
     required:
@@ -42,7 +42,7 @@ quality_gates:
       agent_readiness: 8
     notes:
       - "Required aspects currently fail: security_privacy 7, ci_cd 6, and agent_readiness 7; tests and readme_onboarding now meet 7."
-      - "Overall effective score 6.8 is below the 8.0 gate."
+      - "Overall effective score 6.9 is below the 8.0 gate."
       - "The P0 and audited public-behavior P1s are fixed; unresolved rights decisions still block release readiness."
       - "All user_score fields remain null; no user score was inferred."
 
@@ -325,19 +325,19 @@ aspects:
     category: presentation
     weight: 5
     target: 8
-    ai_score: 5
+    ai_score: 6
     user_score: null
-    effective_score: 5
-    gap: 3
-    priority: 15
+    effective_score: 6
+    gap: 2
+    priority: 10
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Correctness and disclosure are improved, but explicit owner feedback and a design-system audit show the page does not fulfill the accepted Chinese Chan hall/literature-first vision. It remains dominated by emoji tabs, pills, rounded cards, chips, inline styles, and stacked chrome."
+    ai_basis: "Phase A+B implements a structural walnut shell, Chinese room navigation, initial-only gate, grouped corpus shelf, first-fold Reader text, ruled reading sheets, and Reader-only mobile controls. Secondary rooms, inline-style/emoji consolidation, screenshots, and owner approval remain."
     user_basis: null
     desired_direction: ["Preserve the approved minimal direction while fixing visible correctness, hierarchy, and sharing metadata."]
     evidence: ["index.html", "app.css", "og-image.svg", "openDossierPanel hidden-state analysis"]
-    next_actions: ["Execute sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md from shell/first-fold composition through all five rooms; require screenshot-based owner approval."]
+    next_actions: ["Continue Phases C–E in the design gap plan: consolidate visual system, redesign four secondary rooms, then screenshot/accessibility verification and owner approval."]
     risk_flags: ["Do not declare the website vision fulfilled without current desktop/mobile screenshots and explicit owner approval."]
     files_reviewed: [index.html, app.css, app.js, og-image.svg]
 
@@ -346,15 +346,15 @@ aspects:
     category: presentation
     weight: 4
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 8
+    effective_score: 7
+    gap: 1
+    priority: 4
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Functional reading paths are fixed, but the first case is buried behind shell/hero/toolbar/metadata/case rail/front matter; the 961–1100 layout, sticky stacks, mobile controls, and dashboard density contradict transparent literary flow."
+    ai_basis: "Phase A+B exposes Case 1 in the first-fold target, collapses front matter, groups the 2/2/31 shelf, unifies the 1100 breakpoint, measures sticky shell height, flattens Reader cards, and scopes mobile controls. Secondary-room density remains."
     user_basis: null
     desired_direction: ["Fix the audited behavior and responsive geometry before new visual features."]
     evidence: ["renderReader ordering", "readerPrintBtn", "responsive CSS at 1100/960", "mobile-action-bar CSS"]
@@ -367,15 +367,15 @@ aspects:
     category: presentation
     weight: 3
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 6
+    effective_score: 7
+    gap: 1
+    priority: 3
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Semantic headings, skip link, reduced motion, tabs, and dossier hidden/focus semantics are good. Contrast and pressed/tooltip/radio/search relationships remain incomplete."
+    ai_basis: "Reader modes and Gong’an filters expose aria-pressed; walnut nav/active states avoid white-on-gold contrast; mobile controls are view-scoped; dossier/heading semantics remain good. Tooltip/radio/search relationships and full contrast/screen-reader review remain."
     user_basis: null
     desired_direction: ["Adopt contrast-safe tokens and complete native/ARIA semantics, then run screen-reader and automated checks."]
     evidence: ["WCAG contrast calculations", "setActiveModeButtons", "renderGonganIndex", "tooltip creation"]

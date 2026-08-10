@@ -1,8 +1,8 @@
 # Live Session Summary — 2026-08-10, session `arena/019febb1-translatechan`
 
-> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable evidence: [audit](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [containment](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md), [functional hotfix](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md), [design gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md).
+> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable evidence: [audit](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [containment](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md), [functional hotfix](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md), [design gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md), [Phase A+B implementation](./sessions/DESIGN_PHASE_AB_2026-08-10.md).
 
-## Status: Audit + containment + functional hotfix + owner-directed design plan complete
+## Status: Audit + containment + functional fixes + design plan + shell/Reader Phase A+B complete
 
 ### Content trust
 
@@ -40,16 +40,16 @@ Playwright                              SKIP; Chromium unavailable
 Markdown links + diff whitespace       PASS
 ```
 
-### Design conclusion
+### Design implementation
 
-The owner correctly rejected the prior “website now feels like a Chinese Chan hall” completion sentence. The implementation has one themed hero over a generic emoji/pill/rounded-card dashboard; the new plan specifies a walnut shell, first-fold source visibility, Reader literature hierarchy, restrained visual system, all five room compositions, and screenshot-based owner approval.
+After rejecting the prior false completion claim, the owner approved production shell + Reader together, structural walnut, and collapsed front matter. Phase A+B now ships the walnut two-row shell, Chinese room nav, initial-only gate, measured sticky offsets, grouped 2/2/31 shelf, progressive document ledger, first-fold Case 1 target, ruled Reader sheets, static case rail, and Reader-only mobile controls. A live preview is running for owner review; four secondary rooms and formal screenshot verification remain.
 
 ### Current score/gate
 
-- Score progression: unsupported 8.2 → deep-audit 5.8 → containment 6.5 → functional hotfix 7.0 → design re-audit **6.8/10**.
+- Score progression: unsupported 8.2 → deep-audit 5.8 → containment 6.5 → functional hotfix 7.0 → design re-audit 6.8 → Phase A+B **6.9/10**.
 - `repo_ready` remains **fail** on the visual redesign, rights, source depth, responsive/accessibility, error-state, and operations blockers.
 - All user scores remain `null`.
 
 ## One-sentence summary
 
-Content integrity and audited behavior are fixed, but the accepted Chinese Chan hall vision requires a full shell/hierarchy/five-room redesign with screenshot-based owner approval.
+The structural walnut shell and literature-first Reader are now implemented; four secondary rooms, visual-system consolidation, screenshots/accessibility evidence, and owner approval remain.

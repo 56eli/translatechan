@@ -5,7 +5,7 @@
 > **Audit commit:** see branch history for `arena/019febb1-translatechan`
 > **Scope:** architecture, code, corpus/editorial integrity, rights, tests, CI/deployment, security/privacy, performance, responsive UX, visual system, accessibility, SEO, documentation, and repository operations.
 > **Audit outcome:** one P0, four P1 groups, multiple P2/P3 findings; initial evidence-based score **5.8/10** and `repo_ready = fail`.
-> **Post-audit update:** content containment and P1 functional work shipped with regressions. The owner then explicitly rejected the prior website-vision completion claim; a design re-audit found the generic dashboard composition remains. Current score: **6.8/10**. See [`CONTAINMENT_2026-08-10_CONGRONGLU.md`](./CONTAINMENT_2026-08-10_CONGRONGLU.md), [`FUNCTIONAL_HOTFIX_2026-08-10.md`](./FUNCTIONAL_HOTFIX_2026-08-10.md), and [`WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./WEB_DESIGN_GAP_PLAN_2026-08-10.md).
+> **Post-audit update:** containment and functional work shipped; owner feedback rejected the prior visual-completion claim; a gap plan followed. Owner-approved Phase A+B now implements the structural walnut shell and Reader literature hierarchy. Current score: **6.9/10**, pending four-room redesign and visual approval. See [`CONTAINMENT_2026-08-10_CONGRONGLU.md`](./CONTAINMENT_2026-08-10_CONGRONGLU.md), [`FUNCTIONAL_HOTFIX_2026-08-10.md`](./FUNCTIONAL_HOTFIX_2026-08-10.md), [`WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./WEB_DESIGN_GAP_PLAN_2026-08-10.md), and [`DESIGN_PHASE_AB_2026-08-10.md`](./DESIGN_PHASE_AB_2026-08-10.md).
 
 ## 1. Executive verdict
 

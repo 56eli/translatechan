@@ -199,7 +199,7 @@ python3 -m http.server 8080
 - 🗺️ **Roadmap & Milestone Execution Plan**: [`ROADMAP.md`](./ROADMAP.md)
 - 🧘 **UX/UI Improvement Roadmap (mobile + desktop, anti-overload)**: [`UX_ROADMAP.md`](./UX_ROADMAP.md)
 - 🏯 **Accepted Web Vision**: [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md)
-- 🧱 **Current Vision Gap & Redesign Plan**: [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md)
+- 🧱 **Current Vision Gap & Redesign Plan**: [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B](./sessions/DESIGN_PHASE_AB_2026-08-10.md)
 - 🔍 **Technical Audit & Remediation Log**: [`AUDIT.md`](./AUDIT.md)
 - 🤝 **Pull Request & Deployment Handoff Guide**: [`HANDOFF.md`](./HANDOFF.md)
 - 🎯 **Evidence-First Research Release Plan**: [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md)

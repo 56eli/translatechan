@@ -5,9 +5,9 @@
 
 ## 1. Current verdict — 2026-08-10, session `019febb1`
 
-**Not release-ready: P0 content and audited P1 public behavior are fixed; rights/operations blockers remain; current score is 6.8/10 and `repo_ready = fail`.**
+**Not release-ready: content/public behavior is fixed and shell/Reader Phase A+B is implemented; four-room visual completion, rights, and operations blockers remain; current score is 6.9/10 and `repo_ready = fail`.**
 
-The user-selected containment pass removed the entire unreliable Congronglu seed, its locator claims, and the obsolete scripts that generated it. Authoritative CBETA T48n2004 headings showed that even the five records previously labeled collated had wrong case numbers and page claims. Completion now requires explicit editorial status instead of N/N arithmetic. The functional follow-up then fixed the hidden Lineage dossier, six direct Platform chapter bodies, Wumenguan epilogue order, full lazy-unit Print/PDF, and collection labels with regression coverage. Owner feedback then rejected the visual-completion claim; the site remains a generic dashboard around one themed hero. Remaining blockers are the shell/five-room redesign, rights decisions, field-level source depth, responsive/accessibility, error handling, and operations.
+The user-selected containment pass removed the entire unreliable Congronglu seed, its locator claims, and the obsolete scripts that generated it. Authoritative CBETA T48n2004 headings showed that even the five records previously labeled collated had wrong case numbers and page claims. Completion now requires explicit editorial status instead of N/N arithmetic. The functional follow-up then fixed the hidden Lineage dossier, six direct Platform chapter bodies, Wumenguan epilogue order, full lazy-unit Print/PDF, and collection labels with regression coverage. Owner feedback then rejected the visual-completion claim. Owner-approved Phase A+B now implements the walnut shell and Reader literature hierarchy; visual-system consolidation, four secondary rooms, screenshots, and owner approval remain alongside rights/source/error/operations work.
 
 Current generated measurements:
 
@@ -22,7 +22,7 @@ Current generated measurements:
 
 1. **Contained P0 — Congronglu:** active data/locators/scripts removed; anti-placeholder validation added; reintroduction requires source-pinned T48n2004 TEI and field-level review.
 2. **Fixed P1 — public behavior:** dossier, direct chapters, epilogue order, full Print/PDF, and collection labels are corrected and regression-tested.
-3. **P1 — design vision:** execute the shell/first-fold/Reader/five-room redesign in [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md); require current screenshots and owner approval.
+3. **P1 — design completion:** shell/Reader Phase A+B is implemented; continue Phases C–E in [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) and [`sessions/DESIGN_PHASE_AB_2026-08-10.md`](./sessions/DESIGN_PHASE_AB_2026-08-10.md).
 4. **P1 — public quotation governance:** all 14 rights sources are still review/jurisdiction-pending; edition verification is separate from rights/public-domain status.
 5. **P2 — source modeling:** extend explicit completion status into field-level coverage/human review, especially Biyanlu and Platform.
 6. **P2 — test operations:** real-browser regressions now cover the fixed behavior, but execution remains skippable when Chromium is absent and is not in CI.
@@ -53,7 +53,7 @@ A passing validator/smoke run currently establishes structural consistency and n
 
 | Date | Session | Report | Historical outcome |
 |---|---|---|---|
-| 2026-08-10 | `019febb1` | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md), [`sessions/FUNCTIONAL_HOTFIX_2026-08-10.md`](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md), [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) | **Current:** deep audit, containment, functional hotfix, and owner-directed design gap plan |
+| 2026-08-10 | `019febb1` | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md), [`sessions/FUNCTIONAL_HOTFIX_2026-08-10.md`](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md), [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md), [`sessions/DESIGN_PHASE_AB_2026-08-10.md`](./sessions/DESIGN_PHASE_AB_2026-08-10.md) | **Current:** audit, containment, functional hotfix, design plan, and owner-approved shell/Reader implementation |
 | 2026-08-10 | `019feaf5` | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md), [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md), [`AUDIT_UPDATE_2026-08-10_hero.md`](./AUDIT_UPDATE_2026-08-10_hero.md) | Website vision, hero/OG/footer changes; prior 8.2 verdict now superseded |
 | 2026-08-10 | `019feabb` | [`sessions/SESSION_AUDIT_2026-08-10_019feabb.md`](./sessions/SESSION_AUDIT_2026-08-10_019feabb.md), [`docs/audits/2026-08-10-baseline.md`](./docs/audits/2026-08-10-baseline.md) | Scoreboard baseline, layout work, Congronglu expansion; prior verdict superseded |
 | 2026-08-10 | `019fea62` | [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md) | Routing/scroll/a11y fixes |

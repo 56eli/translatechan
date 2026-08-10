@@ -125,10 +125,14 @@ async function main() {
   await testAsync('initial-load', async () => {
     await page.goto(base, { waitUntil: 'load' });
     ok((await page.title()).includes('Fake Chan Factory'), 'page title');
-    ok((await page.locator('.nav-tab-btn').count()) === 5, '5 nav tabs');
-    ok((await page.locator('.corpus-btn').count()) === 35, '35 corpus buttons');
+    ok((await page.locator('.nav-tab-btn').count()) === 5, '5 room tabs');
+    ok((await page.locator('.corpus-btn').count()) === 35, '35 corpus rows');
+    for (const room of ['閱藏堂', '對勘', '傳法堂', '公案架', '詞林']) ok((await page.locator('#site-shell').textContent()).includes(room), `${room} room label`);
     ok(await page.locator('#view-reader.active').count() === 1, 'reader view active by default');
     ok((await page.locator('.case-card').count()) > 0, 'reader renders content');
+    ok((await page.locator('[data-completion-group="complete_selected_witness"] .corpus-btn').count()) === 2, '2 complete witnesses');
+    ok((await page.locator('[data-completion-group="partial_selected_witness"] .corpus-btn').count()) === 2, '2 partial witnesses');
+    ok((await page.locator('[data-completion-group="excerpt_seed"] .corpus-btn').count()) === 31, '31 excerpt seeds');
   });
 
   // 2. Hash deep links restore view + corpus.
@@ -179,7 +183,11 @@ async function main() {
     await page.goto(base + '#/reader/wumenguan', { waitUntil: 'load' });
     await page.waitForSelector('.case-card[id^="case-"]');
     ok((await page.locator('.case-card[id^="case-"]').count()) === 12, 'first render shows 12 case cards');
-    ok((await page.locator('.case-chip').count()) === 48, 'case strip has 48 chips');
+    ok((await page.locator('.case-chip').count()) === 48, 'case rail has 48 chips');
+    ok(!(await page.locator('details.front-matter').evaluate(el => el.open)), 'front matter collapsed by default');
+    const caseOneBox = await page.locator('#case-1').boundingBox();
+    ok(caseOneBox && caseOneBox.top < 900 && caseOneBox.bottom > 0, 'Case 1 reaches the first desktop viewport');
+    ok(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), 'no desktop page overflow');
     const initialReaderText = await page.locator('#reader-content-target').textContent();
     ok(initialReaderText.includes('Wumen Commentary') && initialReaderText.includes('Wumen Verse'), 'Wumenguan labels name Wumen');
     ok(await page.evaluate(() => {
@@ -279,6 +287,9 @@ async function main() {
     await mobilePage.selectOption('#corpus-mobile-select', 'xinxin_ming');
     await mobilePage.waitForFunction(() => document.body.textContent.includes('Stanza source: T48n2010'));
     ok(await mobilePage.locator('#corpus-mobile-select option[value="xinxin_ming"]').count() === 1, 'picker contains corpus options');
+    ok(await mobilePage.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), 'no mobile page overflow');
+    await mobilePage.locator('[data-view="matrix"]').click();
+    ok(await mobilePage.locator('.mobile-action-bar').isHidden(), 'Reader controls hidden outside Reader');
   });
 
   // 11. Print/PDF expands all lazy units and keeps end matter last.

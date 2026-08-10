@@ -39,73 +39,47 @@
        data/project_metrics.json for the current value.) -->
   <link rel="preload" href="app_data.js" as="script">
 </head>
-<body>
+<body data-current-view="reader">
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- Main Navigation Header -->
-  <header>
-    <div class="nav-container">
-      <a href="#/reader" class="brand">
-        <span class="brand-icon" aria-hidden="true">🤖</span>
-        <div>
-          <div class="brand-title">
-            <span>Fake Chan Factory</span>
-            <span class="brand-title-chinese">假禪工廠</span>
+  <header id="site-shell" class="site-shell">
+    <div class="shell-frame">
+      <div class="shell-primary">
+        <a href="#/reader" class="brand" aria-label="Fake Chan Factory — Reader">
+          <span class="brand-title-chinese">假禪工廠</span>
+          <span class="brand-title-en">Fake Chan Factory</span>
+        </a>
+
+        <div class="nav-controls">
+          <div class="search-box shell-search" role="search">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input type="search" id="global-search" class="search-input" placeholder="Search Chinese or English…" autocomplete="off" aria-label="Search all corpus texts — Chinese, pinyin, or English">
           </div>
-          <div class="brand-sub">Robo-Translators Robolating the Chan Masters</div>
-        </div>
-      </a>
-
-      <!-- Navigation Tabs -->
-      <ul class="nav-tabs" role="tablist" aria-label="Main navigation">
-        <li role="none">
-          <button class="nav-tab-btn active" data-view="reader" role="tab" id="tab-reader" aria-controls="view-reader" aria-selected="true" tabindex="0">
-            <span aria-hidden="true">📖</span> <span>Bilingual Reader</span>
-          </button>
-        </li>
-        <li role="none">
-          <button class="nav-tab-btn" data-view="matrix" role="tab" id="tab-matrix" aria-controls="view-matrix" aria-selected="false" tabindex="-1">
-            <span aria-hidden="true">⚖️</span> <span>Comparative Matrix</span>
-          </button>
-        </li>
-        <li role="none">
-          <button class="nav-tab-btn" data-view="lineage" role="tab" id="tab-lineage" aria-controls="view-lineage" aria-selected="false" tabindex="-1">
-            <span aria-hidden="true">🌳</span> <span>Lineage Tree</span>
-          </button>
-        </li>
-        <li role="none">
-          <button class="nav-tab-btn" data-view="gongan" role="tab" id="tab-gongan" aria-controls="view-gongan" aria-selected="false" tabindex="-1">
-            <span aria-hidden="true">🗂️</span> <span>Gong'an Index</span>
-          </button>
-        </li>
-        <li role="none">
-          <button class="nav-tab-btn" data-view="lexicon" role="tab" id="tab-lexicon" aria-controls="view-lexicon" aria-selected="false" tabindex="-1">
-            <span aria-hidden="true">📚</span> <span>Chan Lexicon</span>
-          </button>
-        </li>
-      </ul>
-
-      <!-- Controls & Search -->
-      <div class="nav-controls">
-        <div class="search-box" role="search">
-          <span class="search-icon" aria-hidden="true">🔍</span>
-          <input type="search" id="global-search" class="search-input" placeholder="Search Chinese / English…" autocomplete="off" aria-label="Search all corpus texts — Chinese, pinyin, or English">
-        </div>
-        <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle light or dark theme"><span aria-hidden="true">🌙</span></button>
-        <button id="about-toggle" class="theme-toggle" title="Show about banner" aria-label="Show about banner" hidden><span aria-hidden="true">ⓘ</span></button>
-        <div class="settings-menu">
-          <button id="settings-btn" class="theme-toggle" title="Display settings" aria-label="Display settings" aria-expanded="false" aria-controls="settings-panel"><span aria-hidden="true">⚙️</span></button>
-          <div id="settings-panel" class="settings-panel" role="region" aria-label="Display settings" hidden>
-            <div class="settings-row">
-              <span class="settings-label">Master names</span>
-              <div class="settings-options" role="radiogroup" aria-label="Master name romanization">
-                <button type="button" class="settings-opt active" data-name-mode="pinyin" role="radio" aria-checked="true">Pinyin <small>Zhaozhou</small></button>
-                <button type="button" class="settings-opt" data-name-mode="romaji" role="radio" aria-checked="false">Rōmaji <small>Jōshū</small></button>
+          <button id="theme-toggle" class="theme-toggle" title="Toggle light or dark theme" aria-label="Toggle light or dark theme"><span aria-hidden="true">☾</span></button>
+          <button id="about-toggle" class="theme-toggle" title="Show project introduction" aria-label="Show project introduction" hidden><span aria-hidden="true">ⓘ</span></button>
+          <div class="settings-menu">
+            <button id="settings-btn" class="theme-toggle" title="Display settings" aria-label="Display settings" aria-expanded="false" aria-controls="settings-panel"><span aria-hidden="true">Aa</span></button>
+            <div id="settings-panel" class="settings-panel" role="region" aria-label="Display settings" hidden>
+              <div class="settings-row">
+                <span class="settings-label">Master names</span>
+                <div class="settings-options" role="radiogroup" aria-label="Master name romanization">
+                  <button type="button" class="settings-opt active" data-name-mode="pinyin" role="radio" aria-checked="true">Pinyin <small>Zhaozhou</small></button>
+                  <button type="button" class="settings-opt" data-name-mode="romaji" role="radio" aria-checked="false">Rōmaji <small>Jōshū</small></button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <ul class="nav-tabs room-nav" role="tablist" aria-label="Main rooms">
+        <li role="none"><button class="nav-tab-btn active" data-view="reader" role="tab" id="tab-reader" aria-controls="view-reader" aria-selected="true" tabindex="0"><span class="room-name-zh">閱藏堂</span><span class="room-name-en">Reader</span></button></li>
+        <li role="none"><button class="nav-tab-btn" data-view="matrix" role="tab" id="tab-matrix" aria-controls="view-matrix" aria-selected="false" tabindex="-1"><span class="room-name-zh">對勘</span><span class="room-name-en">Matrix</span></button></li>
+        <li role="none"><button class="nav-tab-btn" data-view="lineage" role="tab" id="tab-lineage" aria-controls="view-lineage" aria-selected="false" tabindex="-1"><span class="room-name-zh">傳法堂</span><span class="room-name-en">Lineage</span></button></li>
+        <li role="none"><button class="nav-tab-btn" data-view="gongan" role="tab" id="tab-gongan" aria-controls="view-gongan" aria-selected="false" tabindex="-1"><span class="room-name-zh">公案架</span><span class="room-name-en">Gong'an</span></button></li>
+        <li role="none"><button class="nav-tab-btn" data-view="lexicon" role="tab" id="tab-lexicon" aria-controls="view-lexicon" aria-selected="false" tabindex="-1"><span class="room-name-zh">詞林</span><span class="room-name-en">Lexicon</span></button></li>
+      </ul>
     </div>
   </header>
 
@@ -115,13 +89,10 @@
     <div class="hero-main">
       <div class="hero-brand-row">
         <span class="hero-zh">假禪工廠</span>
-        <span class="hero-en">FAKE CHAN FACTORY</span>
         <span class="hero-icon" aria-hidden="true">🤖</span>
       </div>
-      <div class="zen-quote-main">「平常心是道。」— Robo monks at work, practical joke.</div>
-      <div class="zen-quote-sub">
-        For friends who want Chan literature with honesty: source-tracked Classical Chinese from named CBETA witnesses, Robo renderings marked <strong>🤖 Robo</strong>, and recorded-edition wording marked <strong>✅ Edition-verified</strong> with separate rights status. After this joke, serious reading — sophisticated, minimal, transparent flow.
-      </div>
+      <div class="zen-quote-main">「平常心是道。」— the Robo monks' practical joke.</div>
+      <div class="zen-quote-sub">Source-tracked Chinese · Robo wording disclosed · Edition verification and rights kept separate.</div>
     </div>
     <div class="hero-meta">
       <span class="meta-chip" id="hero-corpus-count"><span aria-hidden="true">📜</span> 35 Canonical Works</span>
@@ -139,7 +110,7 @@
       <div class="reader-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar-panel">
-          <div class="sidebar-title">Canonical & Related Works</div>
+          <div class="sidebar-title">Works / 經錄</div>
           <!-- Corpus sidebar search filter — diacritic- and variant-tolerant -->
           <div class="corpus-filter">
             <span class="search-icon" aria-hidden="true">🔍</span>
@@ -147,29 +118,22 @@
           </div>
           <div id="corpus-selector-list" class="corpus-selector-list"></div>
 
-          <div class="reader-mode-section">
-            <div class="sidebar-title">Reading Mode</div>
-            <div class="reader-mode-options">
-              <button class="btn-pill reader-mode-btn active" data-reader-mode="bilingual">📖 Bilingual (Primary)</button>
-              <button class="btn-pill reader-mode-btn" data-reader-mode="multi_translators">⚖️ Multi-Translators</button>
-              <button class="btn-pill reader-mode-btn" data-reader-mode="chinese_only">漢 Classical Only</button>
-            </div>
-          </div>
         </aside>
 
         <!-- Main Content Area -->
         <div class="content-panel">
-          <div class="reader-toolbar">
-            <div class="toolbar-group">
-              <span class="toolbar-label">Active View:</span>
-              <span class="meta-chip">Side-by-Side Sentence Alignment</span>
-              <span class="meta-chip">Hover Lexicon Enabled</span>
+          <div class="reader-toolbar" aria-label="Reader controls">
+            <div class="toolbar-group reader-mode-options" role="group" aria-label="Reading mode">
+              <span class="toolbar-label">Reading</span>
+              <button class="btn-pill reader-mode-btn active" data-reader-mode="bilingual" aria-pressed="true">Bilingual</button>
+              <button class="btn-pill reader-mode-btn" data-reader-mode="multi_translators" aria-pressed="false">All registers</button>
+              <button class="btn-pill reader-mode-btn" data-reader-mode="chinese_only" aria-pressed="false">漢文 only</button>
             </div>
             <div class="toolbar-group">
-              <span class="toolbar-label">Typography:</span>
-              <button id="font-size-dec-btn" class="btn-pill" title="Decrease Chinese font size" aria-label="Decrease Chinese font size">A-</button>
+              <span class="toolbar-label">Type</span>
+              <button id="font-size-dec-btn" class="btn-pill" title="Decrease Chinese font size" aria-label="Decrease Chinese font size">A−</button>
               <button id="font-size-inc-btn" class="btn-pill" title="Increase Chinese font size" aria-label="Increase Chinese font size">A+</button>
-              <button id="reader-print-btn" class="btn-pill" title="Print or save as PDF" aria-label="Print or save as PDF">🖨 Print</button>
+              <button id="reader-print-btn" class="btn-pill" title="Print or save as PDF" aria-label="Print or save as PDF">Print</button>
             </div>
           </div>
 
@@ -281,13 +245,13 @@
     <button id="mobile-font-dec-btn" class="btn-pill" aria-label="Decrease Chinese font size">A−</button>
     <button id="mobile-font-inc-btn" class="btn-pill" aria-label="Increase Chinese font size">A+</button>
     <span class="mobile-bar-divider"></span>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode">📖 雙語</button>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode">⚖️ 多譯</button>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode">漢</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode" aria-pressed="true">雙語</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode" aria-pressed="false">多譯</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode" aria-pressed="false">漢</button>
     <span class="mobile-bar-divider"></span>
     <button id="mobile-pinyin-btn" class="btn-pill active" aria-label="Toggle pinyin display" title="Show/hide pinyin">拼</button>
-    <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">📑</button>
-    <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">⬆</button>
+    <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">則</button>
+    <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">↑</button>
   </div>
 
   <!-- Footer removed per 2026-08-10 vision feedback: site is now literature-first, minimal, no footer gimmick — real sources note lives in hero + docs -->
