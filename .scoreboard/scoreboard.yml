@@ -271,12 +271,12 @@ aspects:
     status: blocked_manual_workflow_edit
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Quality and Pages runs are green, but generated-asset coverage omits four mirrored files and CI lacks required browser, lint, link, and accessibility checks."
+    ai_basis: "Quality and Pages runs are green, but generated-asset coverage omits four mirrored files, CI lacks required browser/lint/link/accessibility checks, and the current action majors emit a Node 20 runtime-deprecation warning."
     user_basis: null
     desired_direction: ["Apply the documented workflow path edit, then add non-skippable browser and static-quality jobs with user approval."]
     evidence: [".github/workflows/quality.yml", "gh run list", "scripts/build_data_bundle.py copied assets"]
     next_actions: ["Owner/manual: update quality.yml paths; verify required status check on main."]
-    risk_flags: ["CI diff list omits docs/theme-init.js, robots.txt, sitemap.xml, and og-image.svg."]
+    risk_flags: ["CI diff list omits docs/theme-init.js, robots.txt, sitemap.xml, and og-image.svg.", "Current GitHub Action majors target deprecated Node 20 runtimes and require an owner-reviewed major update."]
     files_reviewed: [.github/workflows/quality.yml, scripts/build_data_bundle.py]
 
   - id: security_privacy

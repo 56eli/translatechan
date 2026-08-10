@@ -180,7 +180,7 @@ docs/sitemap.xml
 docs/og-image.svg
 ```
 
-Exact replacement YAML is in [`.scoreboard/manual-workflow-edits.md`](./.scoreboard/manual-workflow-edits.md). That file also asks an administrator to verify/enable required Quality checks on `main`; this audit’s integration received 403 when reading classic protection state, so protection status is not independently confirmed.
+Exact replacement YAML is in [`.scoreboard/manual-workflow-edits.md`](./.scoreboard/manual-workflow-edits.md). The final branch run also warned that `actions/checkout@v4`, `setup-python@v5`, and `setup-node@v4` target deprecated Node 20 action runtimes; the manual file records a reviewed-major update task. It also asks an administrator to verify/enable required Quality checks on `main`; this audit’s integration received 403 when reading classic protection state, so protection status is not independently confirmed.
 
 ## 9. Documentation rule
 

@@ -170,6 +170,7 @@ The Python validator remains valuable, but it deeply checks only case shape. It 
 - Browser test expects the title to contain `TranslateChan`; current title contains `Fake Chan Factory`, so it would fail if Chromium ran.
 - Browser unavailability prints SKIP and exits 0, which is unsuitable for a required release gate.
 - No browser CI job exists.
+- The final branch Quality run passed but emitted GitHub's Node 20 action-runtime deprecation warning: `actions/checkout@v4`, `actions/setup-node@v4`, and `actions/setup-python@v5` are being forced onto Node 24. GitHub API showed current releases `checkout@v7.0.1`, `setup-node@v7.0.0`, and `setup-python@v7.0.0`; update majors as an owner-approved workflow edit before the compatibility fallback is removed.
 - Smoke tests assert implementation strings such as `position:sticky` and “10/10 chapters” rather than correct computed behavior or content semantics; some checks codify current bugs.
 - No tests cover dossier visibility, epilogue order, direct chapter shape output, full print output, 1024 px responsive behavior, horizontal overflow, contrast, bad localStorage shapes, repeated canonical placeholders, or negative completeness fixtures.
 - No JS/HTML/CSS lint, link checker, or accessibility checker runs in CI.

@@ -43,6 +43,7 @@ npm run test:browser                        SKIP; Chromium unavailable
 Chromium install                            FAIL; sandbox network ECONNRESET
 Markdown relative-link scan                 PASS after 2 documentation fixes
 GitHub Quality + Pages at main 3ef7732       PASS
+Audit branch Quality                          PASS; action-runtime deprecation warning
 ```
 
 A passing validator/smoke run currently establishes structural consistency and no stub-render crash; it does **not** clear the blockers above.

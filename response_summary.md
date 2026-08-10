@@ -27,6 +27,7 @@ Playwright                            SKIP; Chromium unavailable
 Chromium download                     FAIL; network ECONNRESET
 Markdown relative-link scan           PASS after 2 documentation fixes
 GitHub Quality + Pages at main        PASS
+Audit branch Quality run              PASS; Node 20 action-runtime deprecation warning
 ```
 
 ### Durable docs refreshed

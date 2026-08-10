@@ -28,7 +28,27 @@ Then rerun Quality on an `arena/**` push and confirm the job **Validate data, ge
 
 > This only closes mirror-path coverage. The full audit also recommends future owner-approved CI jobs for a non-skippable browser suite, HTML/JS/link checks, and accessibility checks after the underlying tests are corrected.
 
-## Edit 2 — Verify and require Quality on `main`
+## Edit 2 — Update GitHub Action majors off deprecated Node 20 runtimes
+
+The final audit-branch Quality run succeeded but GitHub annotated that these action versions target deprecated Node 20 and are only running because the runner forces Node 24:
+
+```yaml
+uses: actions/checkout@v4
+uses: actions/setup-python@v5
+uses: actions/setup-node@v4
+```
+
+GitHub API reported the current releases on 2026-08-10 as checkout `v7.0.1`, setup-python `v7.0.0`, and setup-node `v7.0.0`. After reviewing each major's migration notes, replace the workflow references with:
+
+```yaml
+uses: actions/checkout@v7
+uses: actions/setup-python@v7
+uses: actions/setup-node@v7
+```
+
+Rerun Quality and confirm checkout, Python 3.12, Node 22, validation, build, artifact diff, and smoke steps all pass without the runtime-deprecation annotation.
+
+## Edit 3 — Verify and require Quality on `main`
 
 **Location:** GitHub repository Settings → Branches or Rules → `main`.
 

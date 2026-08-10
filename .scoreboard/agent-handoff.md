@@ -58,6 +58,7 @@ Browser/live-site limitations and legal/editorial scope are documented in audit 
 Repository policy forbids editing `.github/workflows/*` without explicit user instruction. `.scoreboard/manual-workflow-edits.md` now records:
 
 - add `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`, and `docs/og-image.svg` to the generated-artifact diff list;
+- update `actions/checkout`, `actions/setup-python`, and `actions/setup-node` from their Node-20-based majors to reviewed current majors (the final run emitted a deprecation annotation);
 - have an administrator verify/enable required Quality status checks on `main` (the integration returned 403 when this audit tried to read protection state).
 
 ## Stable project contracts
