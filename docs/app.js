@@ -604,7 +604,7 @@
     }
 
     const readerPrintBtn = document.getElementById('reader-print-btn');
-    if (readerPrintBtn) readerPrintBtn.addEventListener('click', () => { try { window.print(); } catch (e) { /* ignore */ } });
+    if (readerPrintBtn) readerPrintBtn.addEventListener('click', printFullReader);
 
     // Mobile bottom-bar: case index, scroll to top, pinyin toggle
     const mobileCasesBtn = document.getElementById('mobile-cases-btn');
@@ -1288,23 +1288,21 @@
       `;
     }
 
-    // Render Epilogue if exists
-    if (doc.epilogue) {
-      html += `
-        <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
-          <div class="case-header">
-            <h2 class="case-num-title">後序與結頌 / Wumen's Epilogue & Gatha</h2>
-          </div>
-          <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
-          <div class="pinyin-line">${escHtml(doc.epilogue.pinyin)}</div>
-          ${renderFlatTranslationColumns([
-            { key: 'red_pine', name: 'Red Pine', text: doc.epilogue.en_red_pine || '' },
-            { key: 'cleary', name: 'Thomas Cleary', text: doc.epilogue.en_cleary || '' },
-            { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.epilogue.en_sasaki || '' }
-          ], { zh: doc.epilogue.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
+    // Build the epilogue now but append it only after the document's units.
+    // It previously appeared between the preface and Case 1.
+    const epilogueHtml = doc.epilogue ? `
+      <div class="case-card is-epilogue" style="margin-bottom: 1.5rem;">
+        <div class="case-header">
+          <h2 class="case-num-title">後序與結頌 / Wumen's Epilogue & Gatha</h2>
         </div>
-      `;
-    }
+        <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
+        <div class="pinyin-line">${escHtml(doc.epilogue.pinyin)}</div>
+        ${renderFlatTranslationColumns([
+          { key: 'red_pine', name: 'Red Pine', text: doc.epilogue.en_red_pine || '' },
+          { key: 'cleary', name: 'Thomas Cleary', text: doc.epilogue.en_cleary || '' },
+          { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.epilogue.en_sasaki || '' }
+        ], { zh: doc.epilogue.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
+      </div>` : '';
 
     if (doc.cases && doc.cases.length > 0) {
       const total = doc.cases.length;
@@ -1451,10 +1449,23 @@
       });
     }
 
+    // End matter belongs after all rendered source units.
+    html += epilogueHtml;
     elements.readerContent.innerHTML = html;
   }
 
+  function caseTextLabels(corpusKey) {
+    if (corpusKey === 'wumenguan') {
+      return { commentary: '無門評唱 / Wumen Commentary', verse: '無門頌 / Wumen Verse' };
+    }
+    if (corpusKey === 'biyanlu_cases') {
+      return { commentary: '圜悟評唱 / Yuanwu Commentary', verse: '雪竇頌 / Xuedou Verse' };
+    }
+    return { commentary: '評唱 / Commentary', verse: '頌曰 / Verse' };
+  }
+
   function renderCaseItem(caseItem, idx, allCases) {
+    const textLabels = caseTextLabels(state.currentCorpusKey);
     let dialoguesHtml = '';
     if (caseItem.dialogue) {
       dialoguesHtml = caseItem.dialogue.map(d => `
@@ -1503,7 +1514,7 @@
         ${dialoguesHtml}
         ${caseItem.commentary_zh ? `
           <div class="commentary-block">
-            <div class="commentary-label">無門評唱 / Commentary</div>
+            <div class="commentary-label">${textLabels.commentary}</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.commentary_pinyin || '')}</div>
             ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: caseItem.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
@@ -1511,7 +1522,7 @@
         ` : ''}
         ${caseItem.verse_zh ? `
           <div class="verse-block">
-            <div class="commentary-label" style="color: var(--accent-green);">頌曰 / Verse</div>
+            <div class="commentary-label" style="color: var(--accent-green);">${textLabels.verse}</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.verse_pinyin || '')}</div>
             ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
@@ -1593,35 +1604,49 @@
   }
 
   function renderChapterItem(ch) {
-    let contentHtml = '';
-    if (ch.verses) {
-      contentHtml = ch.verses.map(v => `
+    const chapterLocator = unitLocatorForKey(state.currentCorpusKey, `chapters.${ch.chapter_num}`);
+    const contentBlocks = [];
+    if (Array.isArray(ch.verses)) {
+      contentBlocks.push(ch.verses.map(v => `
         <div style="margin-bottom: 1.25rem;">
           <div class="case-speaker">${escHtml(v.author)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(v.zh)}</div>
           <div class="pinyin-line">${escHtml(v.pinyin)}</div>
-          ${renderTranslationColumns(v.translations, v.zh)}
+          ${renderTranslationColumns(v.translations, v.zh, chapterLocator)}
           ${v.recension_note ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${escHtml(v.recension_note)}</div>` : ''}
         </div>
-      `).join('');
-    } else if (ch.dialogue) {
-      contentHtml = ch.dialogue.map(d => `
+      `).join(''));
+    }
+    if (Array.isArray(ch.dialogue)) {
+      contentBlocks.push(ch.dialogue.map(d => `
         <div style="margin-bottom: 1.25rem;">
           <div class="case-speaker">${escHtml(d.speaker)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${escHtml(d.pinyin)}</div>
-          ${renderTranslationColumns(d.translations, d.zh)}
+          ${renderTranslationColumns(d.translations, d.zh, chapterLocator)}
         </div>
-      `).join('');
+      `).join(''));
+    }
+    // Several Platform Sutra chapter excerpts use direct chapter-level fields
+    // rather than nested `dialogue`/`verses`; these were previously empty cards.
+    if (stringValue(ch.zh)) {
+      contentBlocks.push(`
+        <div style="margin-bottom: 1.25rem;">
+          ${ch.speaker ? `<div class="case-speaker">${escHtml(ch.speaker)}</div>` : ''}
+          <div class="classical-zh" lang="zh">${annotateClassicalChinese(ch.zh)}</div>
+          <div class="pinyin-line">${escHtml(ch.pinyin)}</div>
+          ${renderTranslationColumns(ch.translations, ch.zh, chapterLocator)}
+        </div>`);
     }
 
     return `
-      <div class="case-card">
+      <div class="case-card" data-chapter-num="${escHtml(ch.chapter_num)}">
         <div class="case-header">
           <h2 class="case-num-title">${escHtml(ch.title_zh)}</h2>
           <span class="case-speaker">${escHtml(ch.title_en)}</span>
+          ${renderSourceLocationDisclosure(chapterLocator, 'Chapter source', 'case-source-location')}
         </div>
-        ${contentHtml}
+        ${contentBlocks.join('')}
       </div>
     `;
   }
@@ -2411,6 +2436,10 @@
     const panel = getDossierPanel();
     if (!panel) return;
     panel._invoker = (typeof document.activeElement !== 'undefined') ? document.activeElement : null;
+    // The HTML ships with `hidden`; remove the semantic state as well as setting
+    // display. An inline display value alone cannot override [hidden] CSS.
+    panel.hidden = false;
+    panel.removeAttribute('hidden');
     panel.style.display = 'block';
     if (typeof panel.scrollIntoView === 'function') panel.scrollIntoView({ behavior: motionBehavior() });
     if (typeof panel.focus === 'function') {
@@ -2419,7 +2448,9 @@
   }
   function closeDossierPanel() {
     const panel = getDossierPanel();
-    if (!panel || panel.style.display === 'none') return;
+    if (!panel || panel.hidden === true) return;
+    panel.hidden = true;
+    panel.setAttribute('hidden', '');
     panel.style.display = 'none';
     const invoker = panel._invoker || null;
     panel._invoker = null;
@@ -2919,6 +2950,23 @@
     const d = state.data.corpus && state.data.corpus[state.currentCorpusKey];
     if (d && Array.isArray(d.cases) && d.cases.length) return d.cases.length;
     return d && Array.isArray(d.sections) ? d.sections.length : 0;
+  }
+  function printFullReader() {
+    const total = caseTotal();
+    const scrollY = window.scrollY || 0;
+    state.searchQuery = '';
+    if (elements.globalSearch) elements.globalSearch.value = '';
+    if (total > 0) {
+      // Printing CSS can expand collapsed nodes, but it cannot print lazy units
+      // absent from the DOM. Keep the fully rendered document after printing;
+      // the user explicitly requested the complete export and may keep reading.
+      state.caseLimit[state.currentCorpusKey] = total;
+    }
+    renderReader();
+    setTimeout(() => {
+      window.scrollTo({ top: scrollY, behavior: 'auto' });
+      try { window.print(); } catch (e) { /* printing unavailable */ }
+    }, 0);
   }
   function ensureCaseLoaded(caseNum) {
     const doc = state.data.corpus && state.data.corpus[state.currentCorpusKey];

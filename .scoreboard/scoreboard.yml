@@ -13,25 +13,25 @@ manual_workflow_policy:
   instruction: "Do not edit .github/workflows/* unless the user explicitly instructs it; document exact required changes in .scoreboard/manual-workflow-edits.md."
 
 summary:
-  overall_effective_score: 6.5
+  overall_effective_score: 7.0
   repo_ready_gate_status: fail
   top_priorities:
-    - deployment_readiness
-    - ux_usability
     - error_handling_logging
+    - deployment_readiness
     - accessibility
-    - code_hygiene
+    - content_quality
+    - ci_cd
   active_risk_flags:
-    - "Contained P0: the entire unreliable Congronglu seed, locator claims, and four generating scripts were removed; authoritative T48n2004 headings disproved even the five purportedly collated records. Reintroduction is blocked on source-pinned field-level collation."
-    - "P1 functionality: six direct-field Platform chapters render empty; the lineage dossier keeps its hidden attribute; print exports only lazy-loaded units; Wumenguan epilogue renders before its cases."
-    - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; UI wording now separates edition verification from rights status, but decisions remain pending."
-    - "CI generated-artifact path list omits docs/theme-init.js, docs/robots.txt, docs/sitemap.xml, and docs/og-image.svg; manual workflow edit required."
-    - "Branch-protection state could not be independently verified because the GitHub integration returned 403; administrator verification remains required."
+    - "Contained P0: unreliable Congronglu data/locators/generating scripts remain removed; reintroduction is blocked on source-pinned field-level collation."
+    - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; edition-verification wording is corrected, but decisions remain pending."
+    - "P2 source depth: Biyanlu, Linji, Platform, and other non-case records still need field-level coverage and broader human review."
+    - "P2 responsive/accessibility: sticky geometry, mobile cross-view Reader controls, contrast, and ARIA state relationships remain."
+    - "CI generated-artifact paths/action majors and branch-protection verification still require owner action."
 
 quality_gates:
   repo_ready:
     status: fail
-    overall_effective_score: 6.5
+    overall_effective_score: 7.0
     last_evaluated: 2026-08-10
     minimum_overall_effective_score: 8
     required:
@@ -41,9 +41,9 @@ quality_gates:
       ci_cd: 7
       agent_readiness: 8
     notes:
-      - "Required aspects currently fail: security_privacy 7, tests 6, ci_cd 6, agent_readiness 7; readme_onboarding now meets its threshold at 7."
-      - "Overall effective score 6.5 is below the 8.0 gate."
-      - "The P0 is contained, but active P1 functional and rights risk flags independently block release readiness."
+      - "Required aspects currently fail: security_privacy 7, ci_cd 6, and agent_readiness 7; tests and readme_onboarding now meet 7."
+      - "Overall effective score 7.0 is below the 8.0 gate."
+      - "The P0 and audited public-behavior P1s are fixed; unresolved rights decisions still block release readiness."
       - "All user_score fields remain null; no user score was inferred."
 
 aspects:
@@ -115,19 +115,19 @@ aspects:
     category: engineering
     weight: 4
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 8
+    effective_score: 7
+    gap: 1
+    priority: 4
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Escaping and event delegation are strong, but the renderer contains hidden-state, empty-shape, ordering, inline-style, stale-comment, and unvalidated-storage defects."
+    ai_basis: "Escaping/event delegation are strong; dossier visibility, direct chapters, epilogue order, complete print, and collection labels are fixed with regressions. Inline-style debt, stale comments, and unvalidated storage remain."
     user_basis: null
     desired_direction: ["Correct behavior first, then remove dead detail objects and inline presentation from templates."]
     evidence: ["app.js openDossierPanel", "renderChapterItem", "renderReader", "renderTranslationSource"]
-    next_actions: ["Fix P1/P2 renderer defects with regression tests."]
+    next_actions: ["Harden malformed storage/fatal-load behavior and continue reducing inline template styles."]
     risk_flags: []
     files_reviewed: [app.js, app.css, index.html]
 
@@ -157,15 +157,15 @@ aspects:
     category: engineering
     weight: 4
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 8
+    effective_score: 7
+    gap: 1
+    priority: 4
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Large single files remain navigable, but behavior is coupled to template strings and tests often assert implementation text rather than outcomes."
+    ai_basis: "Large files remain coupled, but the functional hotfix added outcome-focused smoke and Playwright coverage for the five broken public paths."
     user_basis: null
     desired_direction: ["Add behavior-first tests, then split views/validator concerns when correctness is stable."]
     evidence: ["app.js 2978 lines", "app.css 2025 lines", "scripts/validate_data.py 1169 lines", "scripts/smoke_test.mjs 964 lines"]
@@ -241,20 +241,20 @@ aspects:
     category: engineering
     weight: 5
     target: 7
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 1
-    priority: 5
+    effective_score: 7
+    gap: 0
+    priority: 0
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Containment/completion regressions and the browser title assertion were corrected, but remaining P1 public defects still pass the stub harness and the optional browser suite exits zero when skipped."
+    ai_basis: "Smoke now behavior-tests the five functional fixes and Playwright covers computed visibility, direct chapters, order, labels, and lazy print expansion. Browser execution still exits zero when Chromium is unavailable."
     user_basis: null
     desired_direction: ["Make browser behavior, content semantics, print completeness, responsive geometry, and accessibility first-class gates."]
     evidence: ["node scripts/smoke_test.mjs pass", "npm run test:browser skip", "scripts/browser_test.mjs corrected title/count assertions"]
-    next_actions: ["Add real-browser regressions for each remaining P1 public behavior before fixing it."]
-    risk_flags: ["Passing tests currently create false release confidence."]
+    next_actions: ["Make browser execution non-skippable in a future owner-approved CI job; add responsive/a11y coverage."]
+    risk_flags: ["Required environments can still report a successful browser-script exit when Chromium is absent."]
     files_reviewed: [scripts/smoke_test.mjs, scripts/browser_test.mjs]
 
   - id: ci_cd
@@ -325,20 +325,20 @@ aspects:
     category: presentation
     weight: 5
     target: 8
-    ai_score: 7
+    ai_score: 8
     user_score: null
-    effective_score: 7
-    gap: 1
-    priority: 5
-    status: needs_work
+    effective_score: 8
+    gap: 0
+    priority: 0
+    status: healthy
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Visual tokens and Chinese hall direction are coherent; counts, completion claims, and verification copy are corrected. The dossier remains invisible and social metadata still lacks a raster fallback/dimensions."
+    ai_basis: "Counts/completion/verification copy are honest, the dossier is visible/focus-managed, formerly empty chapters render, end matter/print/labels are correct. Raster social fallback remains optional polish."
     user_basis: null
     desired_direction: ["Preserve the approved minimal direction while fixing visible correctness, hierarchy, and sharing metadata."]
     evidence: ["index.html", "app.css", "og-image.svg", "openDossierPanel hidden-state analysis"]
-    next_actions: ["Functional hotfix before additional visual polish."]
-    risk_flags: ["Lineage details remain visually inaccessible until hidden-state behavior is fixed."]
+    next_actions: ["Optional raster OG fallback and remaining responsive/accessibility polish."]
+    risk_flags: []
     files_reviewed: [index.html, app.css, app.js, og-image.svg]
 
   - id: ux_usability
@@ -346,15 +346,15 @@ aspects:
     category: presentation
     weight: 4
     target: 8
-    ai_score: 5
+    ai_score: 7
     user_score: null
-    effective_score: 5
-    gap: 3
-    priority: 12
+    effective_score: 7
+    gap: 1
+    priority: 4
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Reader/search primitives are useful, but epilogue order, partial print, hidden dossier, empty chapter cards, sticky overlap, breakpoint mismatch, and global mobile controls materially impair use."
+    ai_basis: "Dossier, chapter bodies, epilogue order, full print, and collection labels are fixed. Sticky/header geometry, breakpoint mismatch, global mobile controls, and unit permalinks remain."
     user_basis: null
     desired_direction: ["Fix the audited behavior and responsive geometry before new visual features."]
     evidence: ["renderReader ordering", "readerPrintBtn", "responsive CSS at 1100/960", "mobile-action-bar CSS"]
@@ -367,15 +367,15 @@ aspects:
     category: presentation
     weight: 3
     target: 8
-    ai_score: 5
+    ai_score: 6
     user_score: null
-    effective_score: 5
-    gap: 3
-    priority: 9
+    effective_score: 6
+    gap: 2
+    priority: 6
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Semantic headings, skip link, reduced motion, and tabs are good foundations, but measured contrast fails and state/tooltip/radio/search relationships are incomplete."
+    ai_basis: "Semantic headings, skip link, reduced motion, tabs, and dossier hidden/focus semantics are good. Contrast and pressed/tooltip/radio/search relationships remain incomplete."
     user_basis: null
     desired_direction: ["Adopt contrast-safe tokens and complete native/ARIA semantics, then run screen-reader and automated checks."]
     evidence: ["WCAG contrast calculations", "setActiveModeButtons", "renderGonganIndex", "tooltip creation"]
@@ -409,15 +409,15 @@ aspects:
     category: product
     weight: 4
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 8
+    effective_score: 7
+    gap: 1
+    priority: 4
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "All five intended views exist, but Lineage details, six Platform chapter bodies, complete printing, and unit permalinks are absent or broken."
+    ai_basis: "All five intended views work through the audited dossier, chapter, end-matter, print, and labeling paths. Unit permalinks and deeper source/rights completion remain."
     user_basis: null
     desired_direction: ["Finish and verify existing public workflows before corpus or feature expansion."]
     evidence: ["index.html five views", "app.js dossier/chapter/print paths", "ROADMAP.md"]
@@ -430,19 +430,19 @@ aspects:
     category: operations
     weight: 4
     target: 8
-    ai_score: 5
+    ai_score: 6
     user_score: null
-    effective_score: 5
-    gap: 3
-    priority: 12
+    effective_score: 6
+    gap: 2
+    priority: 8
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Pages is built from main/docs with HTTPS and green automation. The P0 content is removed, but unresolved rights decisions and core P1 behavior still block a trustworthy release."
+    ai_basis: "Pages is built from main/docs with HTTPS and green automation; P0 content and the audited public-behavior P1s are fixed. Unresolved rights decisions and operations gates still block release readiness."
     user_basis: null
     desired_direction: ["Treat the public site as needing containment/hotfix before promotion."]
     evidence: ["GitHub Pages API", "gh run list", "active audit risk flags"]
-    next_actions: ["Fix remaining P1 behavior/rights, then re-evaluate branch protection and release gate."]
+    next_actions: ["Complete rights decisions, responsive/a11y hardening, and owner operations gates before release re-evaluation."]
     risk_flags: ["Green deployment currently serves content and behavior that fail the project's own release standard."]
     files_reviewed: [docs/, .github/workflows/quality.yml, RESEARCH_RELEASE_PLAN.md]
 
@@ -493,15 +493,15 @@ aspects:
     category: operations
     weight: 3
     target: 8
-    ai_score: 7
+    ai_score: 8
     user_score: null
-    effective_score: 7
-    gap: 1
-    priority: 3
-    status: needs_work
+    effective_score: 8
+    gap: 0
+    priority: 0
+    status: healthy
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "The audit found the P0, authoritative-source follow-up expanded containment, explicit completion status was added, and anti-placeholder/absence regressions now preserve the decision. Broader truthfulness remains snippet-based and visible P1 behavior still lacks browser gates."
+    ai_basis: "Audit, authoritative containment, explicit completion status, and outcome-focused smoke/Playwright regressions now cover the five functional defects. Browser CI and broader field-level editorial evidence remain."
     user_basis: null
     desired_direction: ["Add negative semantic fixtures and keep current conclusions separate from historical reports."]
     evidence: ["validate_doc_truthfulness", "prior 8.2 scoreboard", "contained P0 and remaining P1 findings"]

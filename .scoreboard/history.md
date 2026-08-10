@@ -61,3 +61,12 @@
 | 2026-08-10 | agent_readiness | 4 | 7 | null | null | Arena agent 019febb1 containment | Current handoff, audit, containment evidence, metrics, and next task are synchronized to the fixed branch. |
 | 2026-08-10 | task_hygiene | 5 | 7 | null | null | Arena agent 019febb1 containment | Obsolete scripts removed; decisions captured in a dated report; live summary/handoff refreshed. |
 | 2026-08-10 | auditability | 6 | 7 | null | null | Arena agent 019febb1 containment | Authoritative XML heading/hash evidence and validator regressions now preserve containment and completion semantics. |
+| 2026-08-10 | code_hygiene | 6 | 7 | null | null | Arena agent 019febb1 functional | Fixed semantic hidden state, direct chapter shape, epilogue order, full print, and collection labels. |
+| 2026-08-10 | maintainability | 6 | 7 | null | null | Arena agent 019febb1 functional | Added shared case-label helper and outcome-focused smoke/Playwright regressions for five public paths. |
+| 2026-08-10 | tests | 6 | 7 | null | null | Arena agent 019febb1 functional | Smoke covers dossier state, six chapter bodies, order, labels, and print DOM; Playwright covers computed real-browser behavior. |
+| 2026-08-10 | github_pages_presentation | 7 | 8 | null | null | Arena agent 019febb1 functional | Lineage dossier and Platform content visible; print/order/labels corrected; public claims already contained. |
+| 2026-08-10 | ux_usability | 5 | 7 | null | null | Arena agent 019febb1 functional | Corrected five material reading paths; responsive sticky/mobile issues remain. |
+| 2026-08-10 | accessibility | 5 | 6 | null | null | Arena agent 019febb1 functional | Dossier now toggles semantic hidden state, receives focus, and restores hidden state; contrast/ARIA gaps remain. |
+| 2026-08-10 | feature_completeness | 6 | 7 | null | null | Arena agent 019febb1 functional | Existing five-view scope now works through audited dossier, chapter, end-matter, print, and labeling paths. |
+| 2026-08-10 | deployment_readiness | 5 | 6 | null | null | Arena agent 019febb1 functional | P0 and audited public-behavior P1s fixed; rights and operations gates still block release. |
+| 2026-08-10 | auditability | 7 | 8 | null | null | Arena agent 019febb1 functional | Every functional finding has smoke and/or Playwright regression evidence. |

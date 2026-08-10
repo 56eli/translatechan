@@ -6,67 +6,62 @@
 
 ## Current state
 
-The session completed a full audit and the user-selected P0 containment.
+This session completed three steps:
 
-- Full audit: [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](../sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
-- Containment evidence: [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](../sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md)
-- Post-containment weighted score: **6.5/10**.
-- `repo_ready`: **fail** because P1 rights/functional blockers remain.
-- User scores: all `null`; never infer or change them.
+1. [full audit](../sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md);
+2. [user-selected Congronglu containment](../sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md);
+3. [user-selected P1 public-behavior hotfix](../sessions/FUNCTIONAL_HOTFIX_2026-08-10.md).
 
-## Containment completed
+Current weighted score: **7.0/10**. `repo_ready = fail` because rights and operations gates remain. All `user_score` fields remain `null`.
 
-1. Removed the entire Congronglu seed from active corpus, manifest, locator registry, bundle, navigation, metrics, and deployment mirror.
-2. Authoritative `cbeta-org/xml-p5/T/T48/T48n2004.xml` headings disproved the five records previously labeled collated:
-   - 33 三聖金鱗, not 南泉見人作貓兒;
-   - 34 風穴一塵, not 盤山心印;
-   - 35 洛浦伏膺, not 俱胝豎指;
-   - 37 溈山業識, not 洞山麻三斤;
-   - 38 臨濟真人, not 百丈野狐.
-3. Deleted four obsolete mutable ingestion snapshots; Git history preserves them.
-4. Added manifest `completion_status` and validator enforcement:
-   - Wumenguan, Xinxin Ming: `complete_selected_witness`;
-   - Biyanlu, Linji: `partial_selected_witness`;
-   - 31 others: `excerpt_seed`.
-5. Added anti-placeholder validation for repeated case-specific source fields.
-6. Added smoke assertions that Congronglu is absent and N/N representation does not imply completion.
-7. Corrected active counts, completion claims, OG copy, and ✅ semantics. A checkmark means edition-verified wording; rights status remains separate.
+## Completed containment
+
+- Removed all unreliable Congronglu source data, locator claims, deploy copies, and four generating scripts.
+- Authoritative CBETA T48n2004 headings disproved even the five purportedly collated records.
+- Added explicit editorial completion status; only Wumenguan/Xinxin are complete selected witnesses, Biyanlu/Linji are partial, and 31 documents are excerpt seeds.
+- Added anti-placeholder validation, active-bundle absence tests, honest count/completion copy, and edition-verification/rights separation.
+
+## Completed public-behavior fixes
+
+- Lineage dossier removes/restores semantic `hidden`, becomes visible/focused, and closes correctly.
+- Six direct-field Platform chapters now render source text, translations, and chapter source disclosure.
+- Wumenguan epilogue follows all rendered cases.
+- Print/PDF expands all lazy cases/sections before invoking print; smoke/Playwright require 48 Wumenguan cases followed by epilogue.
+- Wumenguan labels Wumen; Biyanlu labels Yuanwu and Xuedou.
+- Smoke and Playwright regressions cover all five paths.
 
 ## Current measured state
 
 ```text
 corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
 content CJK=103,723 | all-string CJK=109,185
-complete selected witnesses=2 | partial selected witnesses=2 | excerpt seeds=31
+complete=2 | partial=2 | excerpt seeds=31
+bundle=1,594,154 bytes raw | approximately 498 KB gzip-9
 ```
 
-Generated bundle size must be read from the latest build output after the final sync.
+## Remaining blockers
 
-## Active blockers, in order
+1. **Rights governance:** all 14 rights sources remain review/jurisdiction-pending.
+2. **Field-level source depth:** Biyanlu, Linji, Platform, and other non-case records need broader per-field provenance/review.
+3. **Responsive/accessibility:** sticky/header geometry, 1100/960 breakpoint mismatch, mobile Reader controls on other views, contrast, and ARIA state relationships.
+4. **Error handling:** no visible fatal-load state; malformed persisted state is not fully shape-validated.
+5. **Operations:** four mirrored paths absent from CI diff; action majors target deprecated Node 20 runtimes; branch protection unreadable (403); browser suite still exits zero when Chromium is absent and is not required in CI.
 
-1. **P1 public behavior:** Lineage dossier retains `hidden`; six direct-field Platform chapters render empty; print exports only lazy-loaded units; Wumenguan epilogue renders before cases; Biyanlu commentary is mislabeled as Wumen commentary.
-2. **P1 rights:** all 14 rights sources remain review/jurisdiction-pending. Public wording is corrected, but human decisions remain.
-3. **P2 source modeling:** document completion status is now honest, but field-level coverage and human review remain necessary for Biyanlu/Linji/Platform.
-4. **P2 tests:** browser title/count expectations are fixed, but Chromium execution remains skippable and the remaining visible defects lack real-browser regressions.
-5. **P2 responsive/accessibility:** sticky/header offsets, 1100/960 breakpoint mismatch, cross-view mobile Reader bar, contrast, and ARIA state relationships.
-6. **Operations:** four generated deploy paths are omitted from CI diff; action majors emit Node 20 runtime deprecation; branch protection could not be read (403).
+## Recommended next sequence
 
-## Required next sequence
-
-1. Fix dossier visibility, direct chapter rendering, epilogue order, complete Print/PDF, and collection-specific labels.
-2. Add real-browser regressions for each.
-3. Complete rights decisions and field-level source review.
-4. Finish responsive/accessibility pass.
-5. Apply owner-approved workflow/action/branch-protection edits.
-6. Reintroduce Congronglu only under the containment report's source-pinned TEI gate.
+1. Responsive/accessibility and error-state hardening.
+2. Field-level source validation and human quotation-rights decisions.
+3. Owner-approved workflow/action/branch-protection changes; non-skippable browser CI.
+4. Re-audit release readiness.
+5. Re-ingest Congronglu only under the source-pinned containment gate.
 
 ## Stable contracts
 
-- Public brand is Fake Chan Factory; internal `translatechan_*`, `window.TranslateChan`, and `TRANSLATECHAN_DATA` names remain.
+- Public brand: Fake Chan Factory; internal `translatechan_*`, `window.TranslateChan`, and `TRANSLATECHAN_DATA` remain.
 - Public views: Reader, Matrix, Lineage, Gong’an, Lexicon only.
 - Deployment: native GitHub Pages from `main /docs`, HTTPS.
-- No source-looking Chinese may be generated or copied from quarantined history.
-- Unit counts measure representation; only explicit editorial status can establish selected-witness completion.
+- No source-looking Chinese may be generated or restored from quarantined history.
+- N/N unit representation never establishes completion without explicit editorial status.
 - Edition verification and rights approval are separate.
-- Before every push: compile, validate, build, smoke, and compare `data` with `docs/data`.
 - Workflow changes require explicit user approval; exact edits are in `.scoreboard/manual-workflow-edits.md`.
+- Before every push: compile, validate, build, smoke, and compare root/docs mirrors.

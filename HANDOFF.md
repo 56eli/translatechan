@@ -4,7 +4,7 @@
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
 > **Latest audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
-> **Current gate:** `repo_ready = fail` (6.5/10; P0 contained, active P1 blockers)
+> **Current gate:** `repo_ready = fail` (7.0/10; content/public behavior fixed, rights/operations remain)
 
 ## 1. Start here
 
@@ -62,18 +62,22 @@ Completion now requires explicit `complete_selected_witness` status plus satisfi
 
 The entire Congronglu seed, its locator claims, and four obsolete ingestion snapshots were removed from the active tree. Follow-up comparison with authoritative CBETA `T/T48/T48n2004.xml` showed that even the five records previously labeled collated had wrong case headings and page claims. See [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md). Do not reintroduce it without source-pinned TEI ingestion and field-level collation tests.
 
-### P1 — scholarly, rights, and functional
+### Remaining P1/P2 blockers
 
-- Platform Sutra: completion is now honestly labeled as excerpt representation, but six direct-field chapters still render empty.
-- Lineage dossier: `hidden` is never removed, so populated detail remains invisible.
 - Rights: all 14 sources remain pending; UI wording is corrected, but human decisions are not complete.
 - Field-level source coverage and human review remain incomplete beyond the new document-level completion statuses.
+- Responsive/accessibility, error-state, and operations work remains.
 
-### P2 — next correctness layer
+### Fixed public behavior
 
-- Wumenguan epilogue renders before cases.
-- Print/PDF exports only lazy-loaded units.
-- Biyanlu commentary is mislabeled as Wumen commentary.
+- Lineage dossier toggles semantic hidden state and receives focus.
+- Six direct Platform chapter shapes render source text and disclosure.
+- Wumenguan epilogue follows cases; Print/PDF expands all lazy units.
+- Wumenguan/Biyanlu labels name their commentator and verse author.
+- Smoke and Playwright regressions cover each path.
+
+### Next correctness layer
+
 - Responsive 1100/960 breakpoint mismatch and sticky toolbar/header overlap.
 - Mobile Reader controls appear on every view.
 - Active color contrast and ARIA pressed/radio/tooltip relationships need correction.
@@ -192,4 +196,4 @@ Never append a full session narrative to this file. Link the dated report instea
 
 ## 10. Current session
 
-Session `arena/019febb1-translatechan` completed the full audit and user-selected Phase 0 containment. The next recommended task is the P1 functional hotfix: Lineage dossier visibility, direct Platform chapter rendering, epilogue order, complete Print/PDF, and collection-specific labels.
+Session `arena/019febb1-translatechan` completed the full audit, user-selected Phase 0 containment, and user-selected P1 public-behavior hotfix. The next recommended task is responsive/accessibility and error-state hardening, followed by field-level source and rights review.

@@ -78,6 +78,14 @@ if (!publicHtml.includes('id="master-dossier-panel" role="dialog"')) {
 if (!appSrc.includes('function closeDossierPanel(') || !appSrc.includes("if (e.key !== 'Escape') return;")) {
   throw new Error('dossier dialog needs the Escape close path with focus restore');
 }
+if (!appSrc.includes('panel.hidden = false') || !appSrc.includes("panel.removeAttribute('hidden')") ||
+    !appSrc.includes('panel.hidden = true')) {
+  throw new Error('dossier open/close must toggle the semantic hidden state');
+}
+if (!appSrc.includes('function printFullReader()') ||
+    !appSrc.includes('state.caseLimit[state.currentCorpusKey] = total')) {
+  throw new Error('Print/PDF must render every lazy case/section before window.print');
+}
 // N3: keyboard focus reveals glossary definitions; both popovers are tooltips.
 if (!appSrc.includes("matches(':focus-visible')")) {
   throw new Error('term popover must open on keyboard focus, not only on Enter/Space');
@@ -153,6 +161,7 @@ class StubElement {
   addEventListener(ev, fn) { (this._handlers[ev] ||= []).push(fn); }
   setAttribute(name, value) { this._attrs[name] = String(value); }
   getAttribute(name) { return this._attrs[name] || null; }
+  removeAttribute(name) { delete this._attrs[name]; }
   scrollIntoView() {}
   click() {}
   getBoundingClientRect() { return { top: 0, left: 0, right: 900, bottom: 0, width: 900, height: 0 }; }
@@ -182,7 +191,9 @@ globalThis.window._handlers = {};
 globalThis.location = { hash: '', href: 'http://localhost/index.html', protocol: 'http:', host: 'localhost' };
 globalThis.addEventListener = (ev, fn) => { (globalThis.window._handlers[ev] ||= []).push(fn); };
 globalThis.scrollTo = (opts) => { globalThis.window._lastScrollTo = opts; };
-globalThis.print = () => {};
+globalThis.print = () => {
+  globalThis.window._printedReaderHtml = ids['reader-content-target']?._innerHTML || '';
+};
 
 const makeTabStub = (view) => {
   const el = {
@@ -304,6 +315,21 @@ try {
   }
 } catch (e) { failures++; console.log(`❌ Xinxin Ming locator pilot crash: ${e.message}`); }
 
+// 1d. Platform Sutra supports verses, dialogue arrays, and direct chapter fields.
+// Six direct-field chapters previously rendered as empty heading-only cards.
+try {
+  corpusClicks.platform_sutra();
+  const platformHtml = ids['reader-content-target']._innerHTML;
+  for (const [chapter, excerpt] of [[3, '武帝造寺度僧'], [6, '自心歸依自性'], [7, '說似一物即不中'], [8, '法無頓漸'], [9, '道由心悟'], [10, '三十六對']]) {
+    if (!platformHtml.includes(`data-chapter-num="${chapter}"`) || !platformHtml.includes(excerpt)) {
+      failures++; console.log(`❌ Platform direct chapter ${chapter} did not render its source excerpt`);
+    }
+  }
+  if ((platformHtml.match(/Chapter source:/g) || []).length !== 10) {
+    failures++; console.log('❌ Platform chapter source disclosure missing from one or more chapters');
+  }
+} catch (e) { failures++; console.log(`❌ Platform chapter-shape check crashed: ${e.message}`); }
+
 // 2. Exercise each reader mode
 for (const h of modeHandlers) {
   try { h._click && h._click(); } catch (e) { failures++; console.log(`  ❌ reader mode ${h.getAttribute()} crash: ${e.message}`); }
@@ -368,6 +394,14 @@ const annotatedHtml = ids['reader-content-target']._innerHTML;
 if (annotatedHtml.includes('term-highlight"><span class="term-highlight') || annotatedHtml.split('term-highlight').length > 200) {
   failures++; console.log('❌ tooltip double-annotation regression');
 }
+if (!annotatedHtml.includes('無門評唱 / Wumen Commentary') || !annotatedHtml.includes('無門頌 / Wumen Verse')) {
+  failures++; console.log('❌ Wumenguan commentary/verse labels missing');
+}
+const epiloguePos = annotatedHtml.indexOf("Wumen's Epilogue & Gatha");
+const lastInitialCasePos = annotatedHtml.lastIndexOf('id="case-12"');
+if (epiloguePos < 0 || lastInitialCasePos < 0 || epiloguePos < lastInitialCasePos) {
+  failures++; console.log('❌ Wumenguan epilogue must render after the case units');
+}
 // 4d. Mode attribute is set on the reader container
 if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset.mode === undefined) {
   // stub stores dataset via plain property; app sets dataset.mode — check direct assignment happened
@@ -390,6 +424,9 @@ if (!biyanHtml.includes('日日是好日') || !biyanHtml.includes('Yunmen')) {
 }
 if (!biyanHtml.includes('翠嵒眉毛') || !biyanHtml.includes('Barrier')) {
   failures++; console.log('❌ Biyanlu case 8 (Cuiyan) content missing');
+}
+if (!biyanHtml.includes('圜悟評唱 / Yuanwu Commentary') || !biyanHtml.includes('雪竇頌 / Xuedou Verse') || biyanHtml.includes('無門評唱')) {
+  failures++; console.log('❌ Biyanlu commentary/verse labels are not collection-specific');
 }
 if (store['translatechan_corpus_key'] !== 'biyanlu_cases') { failures++; console.log('❌ corpus selection was not persisted'); }
 const mobileCorpusSelect = ids['corpus-mobile-select'];
@@ -617,6 +654,10 @@ try {
 // his dossier must include the "Open <title>" button for xinxin_ming.
 try {
   window.TranslateChan.openMasterDossier('sengcan');
+  const dossierPanel = ids['master-dossier-panel'];
+  if (dossierPanel.hidden !== false) {
+    failures++; console.log('❌ 4ee: opening a dossier must remove its hidden state');
+  }
   const sengcanHtml = ids['dossier-content']._innerHTML;
   if (!sengcanHtml.includes('data-open-doc="xinxin_ming"') || !sengcanHtml.includes('Open Faith in Mind')) {
     failures++; console.log('❌ 4ee: Sengcan dossier should link to xinxin_ming (T2010)');
@@ -625,11 +666,13 @@ try {
   if (!sengcanHtml.includes('Sengcan') || !sengcanHtml.includes('Third Patriarch')) {
     failures++; console.log('❌ 4ee: Sengcan dossier should show alternative names');
   }
+  (ids['dossier-close-btn']._handlers.click || []).forEach(fn => fn());
+  if (dossierPanel.hidden !== true) {
+    failures++; console.log('❌ 4ee: closing a dossier must restore its hidden state');
+  }
   // Spot-check the Linked corpus warning: 4 frontier scaffolds (prajnatara,
   // longtan_chongxin, yangqi_fanghui, dahong_zuzheng) + 2 historical masters
-  // (yaoshan_weiyan, yunyan_tansheng) still have empty linked_corpus_keys
-  // and the dossier must show the explicit 'Project corpus link not yet
-  // curated' notice for at least one of them.
+  // (yaoshan_weiyan, yunyan_tansheng) still have empty linked_corpus_keys.
   window.TranslateChan.openMasterDossier('yaoshan_weiyan');
   const yaoshanHtml = ids['dossier-content']._innerHTML;
   if (!yaoshanHtml.includes('Project corpus link not yet curated')) {
@@ -921,6 +964,15 @@ if (!window.TranslateChan.loadMoreCases || (ids['reader-content-target']._innerH
   failures++; console.log('❌ U2: data-load-target click did not expand to all cases');
 }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+// Print/PDF receives the full 48-case DOM with end matter last.
+globalThis.window._printedReaderHtml = '';
+(ids['reader-print-btn']._handlers.click || []).forEach(fn => fn());
+await sleep(20);
+const printedHtml = globalThis.window._printedReaderHtml;
+if ((printedHtml.match(/id="case-\d+"/g) || []).length !== 48 ||
+    printedHtml.indexOf('id="case-48"') > printedHtml.indexOf("Wumen's Epilogue & Gatha")) {
+  failures++; console.log('❌ Print/PDF did not receive all 48 cases followed by the epilogue');
+}
 
 // 4cc. U3 (audit 2026-08-10, session 019feabb): Lexicon free-text filter is
 // present in the DOM, persists with the data, and the renderLexicon() output
