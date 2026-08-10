@@ -237,6 +237,142 @@
           }
         }
       ]
+    },
+    {
+      "dialogue_id": "great_death",
+      "title_zh": "大死底人",
+      "title_pinyin": "Dà Sǐ Dǐ Rén",
+      "title_en": "The Great Death",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "僧問：「大死底人卻活時如何？」師云：「不許夜行，投明須到。」",
+          "pinyin": "Sēng wèn: 'Dà sǐ dǐ rén què huó shí rúhé?' Shī yún: 'Bù xǔ yè xíng, tóu míng xū dào.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'When a person of the Great Death comes back to life, what then?' The Master said, 'I do not allow traveling by night; you must arrive by daylight.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "A monk asked, 'When one who has thoroughly died returns to life, what is that like?' Zhaozhou replied, 'Night travel is forbidden; you must arrive in broad daylight.'",
+              "status": "reconstruction_unverified"
+            },
+            "blyth": {
+              "text": "A monk asked, 'When one who has thoroughly died returns to life, what is that like?' Zhaozhou replied, 'Night travel is forbidden; you must arrive in broad daylight.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "four_gates",
+      "title_zh": "趙州四門",
+      "title_pinyin": "Zhàozhōu Sì Mén",
+      "title_en": "The Four Gates of Zhaozhou",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "僧問：「如何是趙州？」師云：「東門、西門、南門、北門。」",
+          "pinyin": "Sēng wèn: 'Rúhé shì Zhàozhōu?' Shī yún: 'Dōng mén, xī mén, nán mén, běi mén.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'What is Zhaozhou?' The Master said, 'East gate, West gate, South gate, North gate.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "A monk asked, 'What is Zhaozhou?' Zhaozhou replied, 'East gate, west gate, south gate, north gate.'",
+              "status": "reconstruction_unverified"
+            },
+            "blyth": {
+              "text": "A monk asked, 'What is Zhaozhou?' Zhaozhou replied, 'East gate, west gate, south gate, north gate.'",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "put_it_down",
+      "title_zh": "放下著",
+      "title_pinyin": "Fàng Xià Zhuó",
+      "title_en": "Put It Down",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "嚴陽尊者問：「一物不將來時如何？」師云：「放下著。」尊者云：「既是一物不將來，放下箇甚麼？」師云：「放不下，擔取去。」",
+          "pinyin": "Yányáng zūnzhě wèn: 'Yī wù bù jiāng lái shí rúhé?' Shī yún: 'Fàng xià zhuó.' Zūnzhě yún: 'Jì shì yī wù bù jiāng lái, fàng xià gè shénme?' Shī yún: 'Fàng bù xià, dān qǔ qù.'",
+          "translations": {
+            "cleary": {
+              "text": "Venerable Yanyang asked, 'When I bring nothing at all with me, what then?' The Master said, 'Put it down.' Yanyang said, 'Since I bring nothing at all with me, what should I put down?' The Master said, 'If you cannot put it down, pick it up and carry it away.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Venerable Yanyang asked, 'What if I come carrying nothing at all?' Zhaozhou said, 'Drop it.' 'If I carry nothing, what can I drop?' asked Yanyang. 'If you can't drop it, carry it off,' said Zhaozhou.",
+              "status": "reconstruction_unverified"
+            },
+            "blyth": {
+              "text": "Venerable Yanyang asked, 'What if I come carrying nothing at all?' Zhaozhou said, 'Drop it.' 'If I carry nothing, what can I drop?' asked Yanyang. 'If you can't drop it, carry it off,' said Zhaozhou.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "seeing_buddha",
+      "title_zh": "見佛不喜聞",
+      "title_pinyin": "Jiàn Fó Bù Xǐ Wén",
+      "title_en": "Where Buddha Is Not",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "僧問：「如何是佛？」師云：「殿裏底。」僧云：「殿裏底是泥塑木彫。」師云：「是。」僧云：「如何是佛？」師云：「殿裏底。」",
+          "pinyin": "Sēng wèn: 'Rúhé shì Fó?' Shī yún: 'Diàn lǐ dǐ.' Sēng yún: 'Diàn lǐ dǐ shì ní sù mù diāo.' Shī yún: 'Shì.' Sēng yún: 'Rúhé shì Fó?' Shī yún: 'Diàn lǐ dǐ.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'What is Buddha?' The Master said, 'The one in the main hall.' The monk said, 'The one in the main hall is made of clay and wood.' The Master said, 'Yes, it is.' The monk asked, 'What is Buddha?' The Master said, 'The one in the main hall.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "A monk asked Zhaozhou, 'Who is Buddha?' Zhaozhou said, 'The one sitting in the shrine.' 'That is a statue of mud and wood,' said the monk. 'Yes it is,' replied Zhaozhou. 'Who is Buddha?' asked the monk. 'The one sitting in the shrine,' replied Zhaozhou.",
+              "status": "reconstruction_unverified"
+            },
+            "blyth": {
+              "text": "A monk asked Zhaozhou, 'Who is Buddha?' Zhaozhou said, 'The one sitting in the shrine.' 'That is a statue of mud and wood,' said the monk. 'Yes it is,' replied Zhaozhou. 'Who is Buddha?' asked the monk. 'The one sitting in the shrine,' replied Zhaozhou.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "dialogue_id": "zhaozhou_dog",
+      "title_zh": "狗子無佛性",
+      "title_pinyin": "Gǒu Zǐ Wú Fó Xìng",
+      "title_en": "Zhaozhou's Dog and Buddha-Nature",
+      "dialogue": [
+        {
+          "speaker": "Monk & Zhaozhou / 問答",
+          "zh": "僧問：「狗子還有佛性也無？」師云：「無。」僧云：「上至諸佛，下至螻蟻，皆有佛性；狗子為什麼卻無？」師云：「為伊有業識在。」",
+          "pinyin": "Sēng wèn: 'Gǒuzǐ hái yǒu fóxìng yě wú?' Shī yún: 'Wú.' Sēng yún: 'Shàng zhì zhū fó, xià zhì lóuyǐ, jiē yǒu fóxìng; gǒuzǐ wèishénme què wú?' Shī yún: 'Wèi yī yǒu yèshí zài.'",
+          "translations": {
+            "cleary": {
+              "text": "A monk asked, 'Does a dog have Buddha-nature or not?' The Master said, 'No (Wu).' The monk said, 'From all the Buddhas above down to crawling insects, all have Buddha-nature; why does a dog not have it?' The Master said, 'Because it still has karmic consciousness.'",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "A monk asked Zhaozhou, 'Does a dog have Buddha-nature?' 'No,' said Zhaozhou. 'All beings from Buddhas down to ants have Buddha-nature; why doesn't a dog?' asked the monk. 'Because it is trapped in karmic consciousness,' replied Zhaozhou.",
+              "status": "reconstruction_unverified"
+            },
+            "blyth": {
+              "text": "A monk asked Zhaozhou, 'Does a dog have Buddha-nature?' 'No,' said Zhaozhou. 'All beings from Buddhas down to ants have Buddha-nature; why doesn't a dog?' asked the monk. 'Because it is trapped in karmic consciousness,' replied Zhaozhou.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "coverage_note": "8 signature encounter dialogues excerpted from T1987"
 }

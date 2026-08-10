@@ -1,18 +1,18 @@
 {
   "canonical_locator_coverage": {
     "case_level_documents": 3,
-    "case_locators": 150,
-    "declared_cases": 150,
+    "case_locators": 157,
+    "declared_cases": 157,
     "document_level_seed_documents": 33,
     "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 106172,
+    "all_corpus_cjk_characters": 107745,
     "complete_documents": [
       "biyanlu_cases",
       "wumenguan"
     ],
-    "content_cjk_characters": 101198,
+    "content_cjk_characters": 102654,
     "content_shapes": {
       "cases": 3,
       "chapters": 1,
@@ -101,16 +101,17 @@
         }
       },
       "congronglu_cases": {
-        "all_cjk_chars": 306,
+        "all_cjk_chars": 1018,
         "cbeta_id": "T2004",
-        "content_zh_chars": 255,
-        "coverage": "2/100 cases",
+        "content_zh_chars": 902,
+        "coverage": "9/100 cases",
+        "coverage_note": "9 / 100 cases (9 canonical cases recorded)",
         "shapes": [
           "cases"
         ],
         "title": "Book of Serenity (從容庵錄)",
         "unit_counts": {
-          "cases": 2
+          "cases": 9
         }
       },
       "dahui_hongzhi": {
@@ -224,15 +225,16 @@
         }
       },
       "huangbo_chuanxin": {
-        "all_cjk_chars": 145,
+        "all_cjk_chars": 355,
         "cbeta_id": "T2012A",
-        "content_zh_chars": 102,
+        "content_zh_chars": 283,
+        "coverage_note": "5 foundational sermons and dialogues from T2012A",
         "shapes": [
           "sections"
         ],
         "title": "Transmission of Mind (黃檗法要)",
         "unit_counts": {
-          "sections": 1
+          "sections": 5
         }
       },
       "huangbo_wanling": {
@@ -385,15 +387,16 @@
         }
       },
       "xinxin_ming": {
-        "all_cjk_chars": 140,
+        "all_cjk_chars": 604,
         "cbeta_id": "T2010",
-        "content_zh_chars": 112,
+        "content_zh_chars": 584,
+        "coverage_note": "100/100 complete text (37/37 four-clause stanzas, 100% of T2010)",
         "shapes": [
           "stanzas"
         ],
         "title": "Faith in Mind (信心銘)",
         "unit_counts": {
-          "stanzas": 7
+          "stanzas": 37
         }
       },
       "xuansha_yulu": {
@@ -445,15 +448,16 @@
         }
       },
       "zhaozhou_yulu": {
-        "all_cjk_chars": 177,
+        "all_cjk_chars": 364,
         "cbeta_id": "T1987",
-        "content_zh_chars": 128,
+        "content_zh_chars": 284,
+        "coverage_note": "8 signature encounter dialogues excerpted from T1987",
         "shapes": [
           "dialogues"
         ],
         "title": "Sayings of Zhaozhou (趙州語錄)",
         "unit_counts": {
-          "dialogues": 3
+          "dialogues": 8
         }
       },
       "zhengdao_ge": {
@@ -505,17 +509,17 @@
     "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
   },
   "rights_coverage": {
-    "distinct_verified_sources": 14,
+    "distinct_verified_sources": 13,
     "manifest_sources": 14,
-    "verified_source_records": 145
+    "verified_source_records": 179
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 1024,
+    "corpus_slots": 1144,
     "corpus_statuses": {
-      "ai_draft": 206,
-      "reconstruction_unverified": 675,
-      "verified_quotation": 143
+      "ai_draft": 199,
+      "reconstruction_unverified": 768,
+      "verified_quotation": 177
     },
     "matrix_entries": 21,
     "matrix_statuses": {
@@ -525,8 +529,8 @@
     },
     "verified_corpus_texts": 10,
     "verified_reference_coverage": {
-      "pending": 5,
-      "recorded": 140
+      "pending": 3,
+      "recorded": 176
     }
   }
 }

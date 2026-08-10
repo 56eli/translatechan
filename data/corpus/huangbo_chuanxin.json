@@ -82,6 +82,115 @@
           }
         }
       ]
+    },
+    {
+      "section_id": "mind_is_buddha",
+      "title_zh": "即心是佛，佛即是心",
+      "title_pinyin": "Jí Xīn Shì Fó, Fó Jí Shì Xīn",
+      "title_en": "Mind is Buddha, Buddha is Mind",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "諸佛與一切眾生，唯是一心，更無別法。此心無始已來，不曾生不曾滅，不青不黃，無形無相。……即心是佛，佛即是心；心佛不異，心佛是一。",
+          "pinyin": "Zhū Fó yǔ yīqiè zhòngshēng, wéi shì yī xīn, gèng wú bié fǎ. Cǐ xīn wú shǐ yǐ lái, bù céng shēng bù céng miè, bù qīng bù huáng, wú xíng wú xiàng. ... Jí xīn shì Fó, Fó jí shì xīn; xīn Fó bù yì, xīn Fó shì yī.",
+          "translations": {
+            "cleary": {
+              "text": "All Buddhas and all sentient beings are nothing but the One Mind, beside which nothing exists. This Mind, from beginningless time, has never arisen and never ceased, is neither blue nor yellow, has neither form nor appearance... The Mind is Buddha, and Buddha is the Mind; Mind and Buddha are not different, Mind and Buddha are one.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "All Buddhas and living beings are just one Mind, with nothing else beside it. Since beginningless time this Mind has never been born and never died, is neither green nor yellow, has neither shape nor form... Mind is Buddha, Buddha is Mind; there is no difference between them.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "All Buddhas and all sentient beings are nothing but the One Mind, beside which nothing exists. This Mind, from beginningless time, has never arisen and never ceased, is neither blue nor yellow, has neither form nor appearance... The Mind is Buddha, and Buddha is the Mind; Mind and Buddha are not different, Mind and Buddha are one.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "void_mind",
+      "title_zh": "虛空無相",
+      "title_pinyin": "Xū Kōng Wú Xiàng",
+      "title_en": "The Void and Unconditioned Mind",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "此心即是虛空，無貌無相。若作作佛解、作法解、作僧解，皆是不認本心。但能忘情，都無所得，即是真佛法。",
+          "pinyin": "Cǐ xīn jí shì xū kōng, wú mào wú xiàng. Ruò zuò zuò Fó jiě, zuò fǎ jiě, zuò sēng jiě, jiē shì bù rèn běn xīn. Dàn néng wàng qíng, dōu wú suǒ dé, jí shì zhēn Fó fǎ.",
+          "translations": {
+            "cleary": {
+              "text": "This Mind is identical with the Void, having neither form nor appearance. If you conceptualize it as Buddha, Dharma, or Sangha, you fail to recognize the original Mind. Only when you forget all emotional attachments and attain nothing whatsoever do you realize the true Buddha Dharma.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "This Mind is emptiness itself, having neither features nor form. To conceive of it as Buddha, Dharma, or Sangha is to miss your original mind. Just let go of attachments until nothing remains to be gained; that is true Dharma.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "This Mind is identical with the Void, having neither form nor appearance. If you conceptualize it as Buddha, Dharma, or Sangha, you fail to recognize the original Mind. Only when you forget all emotional attachments and attain nothing whatsoever do you realize the true Buddha Dharma.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "instant_awakening",
+      "title_zh": "頓悟與漸修",
+      "title_pinyin": "Dùn Wù Yǔ Jiàn Xiū",
+      "title_en": "Instantaneous Awakening vs. Gradual Seeking",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "學道人若欲得成佛，一切佛法總不用學，唯學無求無著。無求即心不生，無著即心不滅；不生不滅，即是佛也。",
+          "pinyin": "Xué dào rén ruò yù dé chéng Fó, yīqiè Fó fǎ zǒng bù yòng xué, wéi xué wú qiú wú zhuó. Wú qiú jí xīn bù shēng, wú zhuó jí xīn bù miè; bù shēng bù miè, jí shì Fó yě.",
+          "translations": {
+            "cleary": {
+              "text": "If practitioners of the Way wish to become Buddhas, they need not study any Buddhist doctrines at all; they only need to learn non-seeking and non-attachment. Where there is no seeking, mind does not arise; where there is no attachment, mind does not perish. Not arising and not perishing—this itself is Buddha.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "If you want to attain Buddhahood, you don't need to study any doctrines; just learn how not to seek and not to cling. When you stop seeking, mind does not arise; when you stop clinging, mind does not pass away. This birthless, deathless mind is Buddha.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "If practitioners of the Way wish to become Buddhas, they need not study any Buddhist doctrines at all; they only need to learn non-seeking and non-attachment. Where there is no seeking, mind does not arise; where there is no attachment, mind does not perish. Not arising and not perishing—this itself is Buddha.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "no_seeking_outside",
+      "title_zh": "不向外求",
+      "title_pinyin": "Bù Xiàng Wài Qiú",
+      "title_en": "Refusing to Seek Outside",
+      "dialogue": [
+        {
+          "speaker": "Huangbo / 黃檗",
+          "zh": "凡夫取境，道人取心。心境雙忘，乃是真法。忘境猶易，忘心至難；人不敢忘心，恐落空無撈摸處。不知空本無空，唯一真法界耳。",
+          "pinyin": "Fánfū qǔ jìng, dàorén qǔ xīn. Xīn jìng shuāng wàng, nǎi shì zhēn fǎ. Wàng jìng yóu yì, wàng xīn zhì nán; rén bù gǎn wàng xīn, kǒng luò kōng wú lāo mō chù. Bù zhī kōng běn wú kōng, wéi yī zhēn fǎjiè ěr.",
+          "translations": {
+            "cleary": {
+              "text": "Ordinary people grasp at external objects; seekers grasp at the mind. To forget both mind and objects is the true Dharma. Forgetting objects is relatively easy; forgetting mind is extremely difficult. People dare not forget mind, fearing they will fall into emptiness with nothing to hold onto. They do not realize that emptiness itself has no emptiness, being solely the One True Dharma Realm.",
+              "status": "reconstruction_unverified"
+            },
+            "red_pine": {
+              "text": "Ordinary people cling to external things, while seekers cling to mind. To drop both mind and objects is true Dharma. Dropping objects is easy, but dropping mind is hard; people are afraid to empty their minds lest they fall into the void with nowhere to land. They don't realize that the void itself is not void, but only the one true Dharma realm.",
+              "status": "reconstruction_unverified"
+            },
+            "blofeld": {
+              "text": "Ordinary people grasp at external objects; seekers grasp at the mind. To forget both mind and objects is the true Dharma. Forgetting objects is relatively easy; forgetting mind is extremely difficult. People dare not forget mind, fearing they will fall into emptiness with nothing to hold onto. They do not realize that emptiness itself has no emptiness, being solely the One True Dharma Realm.",
+              "status": "reconstruction_unverified"
+            }
+          }
+        }
+      ]
     }
-  ]
+  ],
+  "coverage_note": "5 foundational sermons and dialogues from T2012A"
 }

@@ -44,7 +44,7 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 ### Source, translation, and lineage disclosure
 
 - Every public Reader document/case shows a canonical source location plus hover/focus/touch details and a validator-derived coverage disclosure (e.g. `48/48 cases`, `100/100 cases`, `Excerpt seed (N units)`).
-- Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **140 / 145** verified quotation records have a recorded reference; the remaining **5** are explicitly pending.
+- Every displayed translation exposes its translator/label, status, book/edition, page-or-section state, verification, and rights record. **176 / 179** verified quotation records have a recorded reference; the remaining **3** are explicitly pending.
 - AI/project text is visibly disclosed as **AI draft** or **Project register reconstruction**, never as a named scholar's book quotation.
 - The lineage graphic reads from the verification registry and the data-derived school palette; **30** in-set links and **4** frontiers remain source-status aware.
 
@@ -52,7 +52,7 @@ Independent full-project audit again found no P0/P1/P2 defects; all ten catalogu
 
 ```bash
 python3 -m py_compile scripts/*.py
-python3 scripts/validate_data.py          # corpus=36 | slots=1024 | verified=143 | matrix=21 | locators=150/150
+python3 scripts/validate_data.py          # corpus=36 | slots=1144 | verified=177 | matrix=21 | locators=157/157
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 node --check scripts/browser_test.mjs     # optional Playwright suite; skips without Chromium
