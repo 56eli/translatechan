@@ -366,7 +366,7 @@ if (ids['reader-content-target'].dataset && ids['reader-content-target'].dataset
 // arithmetic case numbers; selecting a corpus also persists the reading context.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanHtml = ids['reader-content-target']._innerHTML;
-if (!biyanHtml.includes('data-jump-case="4">第4則 ›') || !biyanHtml.includes('data-jump-case="2">‹ 第2則')) {
+if (!biyanHtml.includes('data-jump-case="4"') || !biyanHtml.includes('第4則 ›') || !biyanHtml.includes('data-jump-case="2"') || !biyanHtml.includes('‹ 第2則')) {
   failures++; console.log('❌ Biyanlu sparse prev/next navigation is incorrect');
 }
 // 4e1. Biyanlu pilot cases 4-10 render with labeled AI-draft renderings
@@ -387,7 +387,7 @@ mobileCorpusSelect.value = 'congronglu_cases';
 if (store['translatechan_corpus_key'] !== 'congronglu_cases') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
 corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
 const congrongHtml = ids['reader-content-target']._innerHTML;
-if (!congrongHtml.includes('data-jump-case="9">第9則 ›') || !congrongHtml.includes('data-jump-case="1">‹ 第1則')) {
+if (!congrongHtml.includes('data-jump-case="9"') || !congrongHtml.includes('第9則 ›') || !congrongHtml.includes('data-jump-case="1"') || !congrongHtml.includes('‹ 第1則')) {
   failures++; console.log('❌ Congronglu sparse prev/next navigation is incorrect');
 }
 // 4f. Preference writes must be non-fatal when browser storage is unavailable.
@@ -761,6 +761,69 @@ if (!globalThis.window._lastScrollTo || globalThis.window._lastScrollTo.top !== 
 }
 globalThis.window.scrollY = 0;
 
+// 4aa. U1 (audit 2026-08-10, session 019feabb): case-strip chips render the
+// case number + case title_zh (desktop gets the title inline; mobile gets it
+// in the title= tooltip). The new structure is `case-chip-num` + `case-chip-title`.
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+const wmStripHtml = ids['reader-content-target']._innerHTML;
+if (!wmStripHtml.includes('class="case-chip-num">1</span>') || !wmStripHtml.includes('class="case-chip-title">趙州狗子</span>')) {
+  failures++; console.log('❌ U1: case strip does not expose case number + title');
+}
+
+// 4bb. U2 (audit 2026-08-10, session 019feabb): 12/24/all segmented control
+// sits beside the primary load-more button. The buttons carry data-load-target
+// attributes that the delegated click handler routes through loadMoreCases(target).
+// Use congronglu_cases (30 cases) to avoid the wumenguan already-loaded state
+// from the earlier 4g regression block.
+corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
+const congrongStripHtml = ids['reader-content-target']._innerHTML;
+if (!congrongStripHtml.includes('data-load-target="24"') || !congrongStripHtml.includes('data-load-target="30"')) {
+  failures++; console.log('❌ U2: case load-more segmented control missing');
+}
+const segBtn = { getAttribute: n => n === 'data-load-target' ? '30' : null,
+  closest: sel => sel === '[data-load-target]' ? segBtn : null };
+(documentHandlers.click || []).forEach(fn => fn({ target: segBtn, preventDefault() {} }));
+if (!window.TranslateChan.loadMoreCases || (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length !== 30) {
+  failures++; console.log('❌ U2: data-load-target click did not expand to all cases');
+}
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+
+// 4cc. U3 (audit 2026-08-10, session 019feabb): Lexicon free-text filter is
+// present in the DOM, persists with the data, and the renderLexicon() output
+// drops entries that do not match a normalized query. "buddha" matches terms
+// whose definition mentions "Buddha-nature" (e.g. 無位真人) and the pinyin
+// string `wú (Japanese: Mu)`; "foxing" (the un-diacriticked pinyin form of
+// 佛性) returns no hits in the current 31-term glossary — proving both the
+// search and the no-match UX.
+const lexiconQueryInput = ids['lexicon-query'];
+if (!lexiconQueryInput) { failures++; console.log('❌ U3: #lexicon-query input missing'); }
+else {
+  (lexiconQueryInput._handlers['input'] || []).forEach(fn => fn({ target: { value: 'buddha' } }));
+  await sleep(260);
+  const filtered = ids['lexicon-content-target']._innerHTML;
+  if (!filtered.includes('無位真人') || !filtered.includes('wú (Japanese: Mu)')) {
+    failures++; console.log('❌ U3: free-text filter "buddha" did not match the expected terms');
+  }
+  if (!filtered.includes('lexicon-summary')) { failures++; console.log('❌ U3: free-text filter did not render the live summary chip'); }
+  (lexiconQueryInput._handlers['input'] || []).forEach(fn => fn({ target: { value: 'foxing' } }));
+  await sleep(260);
+  const noMatch = ids['lexicon-content-target']._innerHTML;
+  if (!noMatch.includes('lexicon-no-match')) { failures++; console.log('❌ U3: free-text filter did not show the no-match hint for an unmatched query'); }
+  (lexiconQueryInput._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
+  await sleep(260);
+}
+
+// 4dd. U8 (audit 2026-08-10, session 019feabb): keyboard ←/→ skip the
+// "active element is an input" guard so they don't fight the global search.
+// Simulate ArrowRight with activeElement = the global search input.
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+globalThis.document.activeElement = ids['global-search'];
+const beforeRight = ids['reader-content-target']._innerHTML;
+(documentHandlers.keydown || []).forEach(fn => fn({ key: 'ArrowRight', preventDefault() {}, target: ids['global-search'] }));
+const afterRight = ids['reader-content-target']._innerHTML;
+// The text should NOT have changed (we're guarding the reader from fighting
+// an active search input).
+if (beforeRight !== afterRight) { failures++; console.log('❌ U8: ←/→ must be inert when an INPUT has focus'); }
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const readerHtml = ids['reader-content-target']._innerHTML;

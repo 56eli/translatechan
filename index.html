@@ -261,6 +261,17 @@
       <div class="meta-chip" style="display: inline-block; margin-bottom: 1rem; border-color: var(--accent-blue); color: var(--text-secondary); font-size: 0.78rem;" title="Occurrence tags cite the term's locus in the canonical work (chapter, fascicle, or case). That locus may lie outside the units currently excerpted into this corpus.">
         📖 <strong>Scope note:</strong> occurrence tags cite each term's locus in the <em>canonical work</em>; a cited locus may sit outside the units currently excerpted (each Reader text carries a 📊 coverage disclosure).
       </div>
+      <!-- U3 (audit 2026-08-10, session 019feabb): free-text filter on top of
+           the category dropdown. Diacritic + variant tolerant (matches the
+           global search). Persists during navigation while the user is in
+           the Lexicon view; resets on app reload (a deliberate choice — the
+           free-text query is exploratory, not a stored preference). -->
+      <div class="lexicon-filter-row" style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap; margin-bottom:1rem;">
+        <div class="search-box" role="search" style="flex:1; min-width:14rem;">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input type="search" id="lexicon-query" class="search-input" placeholder="Filter terms (term / pinyin / definition)…" autocomplete="off" aria-label="Filter lexicon terms by term, pinyin, or definition">
+        </div>
+      </div>
       <div id="lexicon-content-target" class="lexicon-grid"></div>
     </section>
 

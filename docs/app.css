@@ -1169,6 +1169,29 @@ mark {
   gap: 1.35rem;
 }
 
+/* U3 (audit 2026-08-10, session 019feabb): lexicon filter row + summary +
+   no-match hint. Mirrors the global-search box and the reader's source-
+   location callout style for visual consistency. */
+.lexicon-filter-row {
+  align-items: center;
+}
+.lexicon-summary {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+}
+.lexicon-no-match {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-blue);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  grid-column: 1 / -1;
+}
+
 .term-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -1310,6 +1333,25 @@ footer {
   color: var(--text-secondary);
   cursor: pointer;
   transition: var(--transition);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  line-height: 1.15;
+}
+
+.case-chip-num {
+  font-weight: 700;
+}
+
+.case-chip-title {
+  display: none; /* hidden on narrow screens; revealed on wide viewports */
+  font-size: 0.68rem;
+  max-width: 7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.85;
 }
 
 .case-chip:hover {
@@ -1318,7 +1360,48 @@ footer {
   background: var(--accent-gold-light);
 }
 
+/* U1 (audit 2026-08-10, session 019feabb): on viewports ≥ 900px the case
+   strip has enough horizontal room to show the case title under each
+   number, doubling the strip as a topical table-of-contents. */
+@media (min-width: 900px) {
+  .case-chip-title {
+    display: inline;
+  }
+  .case-chip {
+    min-width: 4.5rem;
+    padding: 0.25rem 0.55rem;
+  }
+}
+
+/* U2 (audit 2026-08-10, session 019feabb): 12/24/all segmented control
+   sitting beside the primary load-more button. The control collapses
+   to a single line on narrow viewports. */
+.case-load-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.5rem 0;
+}
+.case-load-more-segmented {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.case-load-more-segmented .btn-pill {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+}
+@media (min-width: 600px) {
+  .case-load-more {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 /* --- Collapsible case cards --- */
+
 .case-toggle {
   background: var(--bg-primary);
   border: 1px solid var(--border-color);
