@@ -57,7 +57,7 @@ During our deep-dive architectural audit, we examined the five primary layers of
 - **Remediation:**
   1. Simplified translator naming from `Red Pine (Bill Porter)` to `Red Pine` across `app.js`, `data/translations/comparative_matrix.json`, and `data/translations/translator_profiles.json`.
   2. Removed the trailing `ⓘ Disclosure` trigger button from Robo translator attribution lines in `app.js`.
-  3. Replaced every mention of `"channeling"` / `"channelings"` across `app.js`, `index.html`, `README.md`, `vision.md`, and data profiles with `"style emulation"` / `"style emulations"` (guarded by updated smoke test `4n`/`4z`).
+  3. Replaced every mention of `"channeling"` / `"channelings"` across `app.js`, `index.html`, `README.md`, `vision.md`, and data profiles with `"Robolation"` / `"robolating"` (guarded by updated smoke test `4n`/`4z`).
 
 ---
 

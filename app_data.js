@@ -2297,7 +2297,7 @@ window.TRANSLATECHAN_DATA = {
         "in_corpus_verified": "Profile features were extracted from this translator's VERIFIED quotation slots already present in this corpus (real public-domain or edition-checked text, each carrying a source record in data/translations/rights_manifest.json). The evidence sample slots are listed under evidence_pointers.",
         "documented_external": "No in-corpus verified sample exists for this translator yet. The profile records widely-documented stylistic characteristics OF their published work (features about the work, not reproduced protected text). Marked evidence_pending until a verified sample is added; treat the Robo as a documented-style pastiche, not a corpus-grounded one."
       },
-      "honesty_rule": "A Robo rendering always carries status reconstruction_unverified or ai_draft and the 'not the translator's actual words / do not cite' disclosure regardless of tier. The tier only states what the style emulation is grounded in.",
+      "honesty_rule": "A Robo rendering always carries status reconstruction_unverified or ai_draft and the 'not the translator's actual words / do not cite' disclosure regardless of tier. The tier only states what the Robolation is grounded in.",
       "rendering_of_wu_legend": "How each translator is documented to render 無 in the Mu (Zhaozhou's dog) encounter — the single most diagnostic register marker."
     },
     "profiles": [

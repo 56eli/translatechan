@@ -21,7 +21,7 @@ All quality gates pass on the final tree: `validate_data.py` (`corpus=36 | slots
 5. **Display-Layer Rebrand & Copy Refinement (`app.js`, `index.html`, `README.md`, `vision.md`, `data/`)** — Refined display copy per feedback:
    - Replaced `Red Pine (Bill Porter)` with `Red Pine` across translator lists and matrix records.
    - Removed the trailing `ⓘ Disclosure` button from after Robo translator attribution lines to reduce visual clutter.
-   - Replaced all occurrences of `channeling` across code, docs, and profiles with `style emulation` (0 occurrences of `channeling` remain).
+   - Replaced all occurrences of `channeling` across code, docs, and profiles with `Robolation` / `robolating` (0 occurrences of `channeling` remain).
 6. **Documentation & Quality Gate Sync** — Synchronized `AUDIT.md` (date, current verdict, standing recommendations, session index) while preserving all 25+ guarded number strings verified by `validate_data.py`. Re-bundled `app_data.js` and synced `/docs` mirror.
 
 ### Verified Project Metrics & Scope

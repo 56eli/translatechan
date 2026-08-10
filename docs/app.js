@@ -280,7 +280,7 @@
         (meta.wu ? `<div class="tooltip-row"><strong>Renders 無:</strong> ${escHtml(meta.wu)}</div>` : '') +
         (meta.personality ? `<div class="tooltip-row" style="margin-top:.35rem;font-style:italic;color:var(--text-secondary)">${escHtml(meta.personality)}</div>` : '');
     } else {
-      pop.innerHTML = `<div class="tooltip-term-title">Robo style emulation</div><div class="tooltip-row">AI text in a translator\u2019s register — not their actual words. Profile pending.</div>`;
+      pop.innerHTML = `<div class="tooltip-term-title">Robolation</div><div class="tooltip-row">AI text in a translator\u2019s register — not their actual words. Profile pending.</div>`;
     }
     pop.style.display = 'block';
     positionFloatingPopover(pop, span, 300);
@@ -1466,7 +1466,7 @@
       };
     }
     return {
-      label: '🤖 Robo style emulation',
+      label: '🤖 Robolation',
       title: 'AI text written in this translator\u2019s broad register \u2014 not copied from, checked against, or attributable as wording in that translator\u2019s book. Do not cite it as their translation.',
       className: 'is-reconstruction'
     };
@@ -1548,7 +1548,7 @@
     }
 
     const isAi = entry.status === 'ai_draft';
-    const short = isAi ? 'Robo draft' : 'Robo style emulation';
+    const short = isAi ? 'Robo draft' : 'Robolation';
     const detail = {
       title: 'Robo rendering disclosure',
       rows: [
@@ -1753,7 +1753,7 @@
     }
     const meta = p ? fakenessFromProfile(p) : null;
     const hourglass = meta && meta.pending ? ' \u23f3' : '';
-    const titleTxt = meta ? `\u{1F916} ${meta.label}${hourglass} — hover/focus for the real-fakeness score` : 'Robo style emulation — not the translator\u2019s actual words';
+    const titleTxt = meta ? `\u{1F916} ${meta.label}${hourglass} — hover/focus for the real-fakeness score` : 'Robolation — not the translator\u2019s actual words';
     return `<span class="robo-name" data-robo-key="${escHtml(key || '')}" tabindex="0" role="button" aria-label="${escHtml(name)} — real-fakeness score" title="${escHtml(titleTxt)}">${escHtml(name)}</span>`;
   }
   function roboNameSpan(key, status, displayName) {
