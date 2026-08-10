@@ -58,9 +58,11 @@ bundle=1,594,154 bytes raw | approximately 498 KB gzip-9
 4. Complete field-level source validation and human quotation-rights decisions.
 5. Apply owner-approved operations changes and re-audit; re-ingest Congronglu only under its containment gate.
 
-## Merge instruction
+## Merge status
 
-The owner explicitly requested: update all documentation and handoff, then open and merge the PR so the real GitHub Pages deployment can be reviewed. Before merge, require the final branch/PR Quality checks to be green. After merge, confirm Pages deployment on `main`; next agent should wait for owner visual feedback before starting Phase C/D.
+PR [#15](https://github.com/56eli/translatechan/pull/15) merged into `main` as `26feff0dbc4286da0c7a1e4c46ff341288b9d0f3`. Main Quality and Pages deployment both succeeded. The real site is live for owner review at `https://56eli.github.io/translatechan/`.
+
+Next agent: wait for owner visual feedback before Phase C/D. Do not infer approval from merge or silence, and do not set a user score without an explicit numeric instruction.
 
 ## Stable contracts
 
