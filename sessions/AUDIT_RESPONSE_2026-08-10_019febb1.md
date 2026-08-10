@@ -4,7 +4,8 @@
 > **Baseline:** `3ef77320d28cc2a627723d8ad709f9a13ba83c29` (`main`, PR #14)
 > **Audit commit:** see branch history for `arena/019febb1-translatechan`
 > **Scope:** architecture, code, corpus/editorial integrity, rights, tests, CI/deployment, security/privacy, performance, responsive UX, visual system, accessibility, SEO, documentation, and repository operations.
-> **Outcome:** one P0, four P1 groups, multiple P2/P3 findings; revised evidence-based score **5.8/10** and `repo_ready = fail`.
+> **Audit outcome:** one P0, four P1 groups, multiple P2/P3 findings; initial evidence-based score **5.8/10** and `repo_ready = fail`.
+> **Post-audit update:** the user selected P0 containment. The whole Congronglu seed was removed after authoritative T48n2004 headings also disproved the five purportedly collated records; explicit completion status and verification/rights wording were added. Post-containment score: **6.5/10**; P1 blockers remain. See [`CONTAINMENT_2026-08-10_CONGRONGLU.md`](./CONTAINMENT_2026-08-10_CONGRONGLU.md).
 
 ## 1. Executive verdict
 

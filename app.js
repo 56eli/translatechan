@@ -114,8 +114,8 @@
     lexiconTarget: document.getElementById('lexicon-content-target'),
   };
 
-  // Keep the hero's hand-authored "36 works / 8+ translators" chips truthful
-  // without adding those counts to the doc-gate: derive them from live data.
+  // Keep the hero's hand-authored work/register chips truthful by deriving them
+  // from the live bundle rather than repeating counts in presentation code.
   function updateHeroCounts() {
     const corpusChip = document.getElementById('hero-corpus-count');
     if (corpusChip && state.data.corpus) {
@@ -123,13 +123,10 @@
     }
     const translatorChip = document.getElementById('hero-translator-count');
     const rows = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : [];
-    const translators = new Set();
-    rows.forEach(row => (row.translators || []).forEach(t => {
-      const name = stringValue(t && t.translator);
-      if (name && !/\bAI\b/i.test(name)) translators.add(name);
-    }));
+    const matrixRegisters = state.data.project_metrics?.translations?.matrix_entries
+      || rows.reduce((total, row) => total + (Array.isArray(row?.translators) ? row.translators.length : 0), 0);
     if (translatorChip) {
-      translatorChip.textContent = `🤖 ${translators.size} Robo-Translators`;
+      translatorChip.textContent = `🤖 ${matrixRegisters} Matrix Registers`;
     }
   }
 
@@ -1029,7 +1026,7 @@
     // L1 (audit 2026-08-10, session 019feabb): the corpus sidebar now
     // honors a typed filter (state.corpusFilter). Uses the same
     // diacritic + variant normalization as the global search so
-    // 'wumenguan' matches 'Wuménguān'. Empty filter shows all 36.
+    // 'wumenguan' matches 'Wuménguān'. Empty filter shows the full manifest.
     const filterRaw = (state.corpusFilter || '').trim();
     const filteredMap = filterRaw
       ? corpusMap.filter(c => {
@@ -1050,11 +1047,11 @@
       : filteredMap.map(c => {
       const pt = perText[c.key] || {};
       const cov = pt.coverage || '';
-      const isComplete = !!pt.coverage && !cov.includes('/') ? false : cov.startsWith('100/100') || cov.startsWith('10/10') || cov.startsWith('37/37') || cov.startsWith('48/48') || (cov && !cov.includes('/'));
+      const isComplete = pt.is_complete === true && pt.completion_status === 'complete_selected_witness';
       const completionMark = cov && (cov.endsWith(' cases') || cov.endsWith(' chapters') || cov.endsWith(' stanzas'))
         ? (isComplete
-            ? '<span class="corpus-status-mark is-complete" aria-label="Complete text" title="Complete text">✓</span>'
-            : `<span class="corpus-status-mark" aria-label="Excerpt: ${escHtml(cov)}" title="Excerpt: ${escHtml(cov)}">${escHtml(cov.match(/^(\d+)\/(\d+)/)?.[0] || '•')}</span>`)
+            ? '<span class="corpus-status-mark is-complete" aria-label="Complete selected witness" title="Complete selected witness">✓</span>'
+            : `<span class="corpus-status-mark" aria-label="Incomplete: ${escHtml(cov)} represented" title="Incomplete source coverage: ${escHtml(cov)} represented">${escHtml(cov.match(/^(\d+)\/(\d+)/)?.[0] || '•')}</span>`)
         : '';
       return `
       <button class="corpus-btn ${c.key === state.currentCorpusKey ? 'active' : ''}" data-corpus-key="${escHtml(c.key)}">
@@ -1159,15 +1156,25 @@
       chapters: 'chapters', five_ranks: 'five ranks', sample_records: 'sample records'
     };
     const unitSummary = Object.entries(unitCounts).map(([k, v]) => `${v} ${UNIT_LABELS[k] || k}`).join(' · ');
-    const coverage = perText && stringValue(perText.coverage)
-      ? perText.coverage
+    const completionStatus = perText && stringValue(perText.completion_status) || 'excerpt_seed';
+    const represented = perText && stringValue(perText.coverage);
+    const coverage = represented
+      ? (completionStatus === 'complete_selected_witness'
+          ? `${represented} · Complete selected witness`
+          : `${represented} represented · Incomplete source coverage`)
       : (unitSummary ? `Excerpt seed (${unitSummary})` : 'Excerpt seed');
+    const statusLabels = {
+      complete_selected_witness: 'Complete selected witness',
+      partial_selected_witness: 'Partial selected witness',
+      excerpt_seed: 'Excerpt seed'
+    };
     const detail = {
       title: 'Coverage disclosure',
       rows: [
         ['Coverage', coverage],
+        ['Editorial status', statusLabels[completionStatus] || completionStatus],
         ['Note', coverageNote || 'Excerpt-scale seed: the full canonical text is not yet ingested (Phase 2).'],
-        ['Measured by', 'data/project_metrics.json → corpus.per_text (validator-generated, 2026-08-08)']
+        ['Measured by', 'data/project_metrics.json → corpus.per_text (validator-generated)']
       ]
     };
     return `<div class="source-location coverage-disclosure"><span>📊 Coverage: ${escHtml(coverage)}</span>${renderCitationTrigger(detail, 'ⓘ Coverage')}</div>`;
@@ -1641,8 +1648,8 @@
   function translationStatusMeta(status) {
     if (status === 'verified_quotation') {
       return {
-        label: '✅ Real text (verified)',
-        title: 'Genuine public-domain (or verified) quotation — checked against a specific edition; source details are shown below.',
+        label: '✅ Edition-verified quotation',
+        title: 'Wording checked against a recorded edition. Rights status is separate and shown in the citation details; verification does not by itself mean public domain or approved reuse.',
         className: 'is-verified'
       };
     }
@@ -1937,7 +1944,7 @@
   function roboNameSpanFromProfile(p, status, displayName, key) {
     const name = stringValue(displayName);
     if (status === 'verified_quotation') {
-      return `<span class="real-name" title="✅ Real text (verified) — genuine quotation, not a Robo.">${escHtml(name)}</span>`;
+      return `<span class="real-name" title="✅ Edition-verified quotation — genuine recorded wording, not a Robo; see citation for rights status.">${escHtml(name)}</span>`;
     }
     const meta = p ? fakenessFromProfile(p) : null;
     const hourglass = meta && meta.pending ? ' \u23f3' : '';
@@ -2899,8 +2906,9 @@
       : '';
     const headerHtml = `<div class="text-header"><h1 class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</h1><p class="text-title-en">${totalHits} matching unit(s) across ${matchedDocuments.length} text(s)</p>${resultNotice}</div>`;
 
+    const corpusCount = Object.keys(state.data.corpus).length;
     elements.readerContent.innerHTML = totalHits === 0
-      ? headerHtml + `<div class="case-card"><p>No matches found for "${escHtml(q)}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all 36 texts.</p></div>`
+      ? headerHtml + `<div class="case-card"><p>No matches found for "${escHtml(q)}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all ${corpusCount} texts.</p></div>`
       : headerHtml + bodyHtml;
   }
 

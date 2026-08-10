@@ -121,12 +121,12 @@ async function main() {
     p.on('pageerror', (err) => pageErrors.push(String(err)));
   }
 
-  // 1. Initial load — reader visible, all 36 corpus buttons, 5 nav tabs.
+  // 1. Initial load — reader visible, all active corpus buttons, 5 nav tabs.
   await testAsync('initial-load', async () => {
     await page.goto(base, { waitUntil: 'load' });
-    ok((await page.title()).includes('TranslateChan'), 'page title');
+    ok((await page.title()).includes('Fake Chan Factory'), 'page title');
     ok((await page.locator('.nav-tab-btn').count()) === 5, '5 nav tabs');
-    ok((await page.locator('.corpus-btn').count()) === 36, '36 corpus buttons');
+    ok((await page.locator('.corpus-btn').count()) === 35, '35 corpus buttons');
     ok(await page.locator('#view-reader.active').count() === 1, 'reader view active by default');
     ok((await page.locator('.case-card').count()) > 0, 'reader renders content');
   });

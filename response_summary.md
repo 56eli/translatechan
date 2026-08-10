@@ -1,44 +1,47 @@
 # Live Session Summary — 2026-08-10, session `arena/019febb1-translatechan`
 
-> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable findings are in [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md).
+> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable evidence: [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) and [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md).
 
-## Status: Full audit complete; remediation not started
+## Status: Full audit complete; user-selected P0 containment implemented
 
-A repository-wide senior engineering and web-design audit reviewed architecture, code, source data, editorial integrity, rights, tests, CI/Pages, security/privacy, performance, responsive UX, accessibility, SEO, documentation, and repository operations.
+### Containment
 
-### Result
+- Removed the whole Congronglu seed, locator claims, and four obsolete scripts from active/deployed data.
+- Authoritative CBETA T48n2004 XML headings disproved even the five records previously labeled collated; the containment report records headings, line heads, source URL, and SHA-256.
+- Added explicit completion status to all manifest documents; only Wumenguan and Xinxin Ming are complete selected witnesses.
+- Added anti-placeholder validation and bundle/navigation absence regressions.
+- Corrected active counts, Platform/Biyanlu/Linji completion language, hero/OG claims, and edition-verification versus rights wording.
 
-- Revised weighted score: **5.8/10** (prior 8.2 verdict superseded).
-- `repo_ready`: **fail**.
-- One P0: 28/35 Congronglu cases repeat undisclosed canonical-looking commentary/verse placeholders from old ingestion scripts.
-- P1 groups: false Platform completion + six empty chapter bodies; always-hidden Lineage dossier; unresolved rights decisions/Verified semantics; unsafe stale current handoff/docs.
-- Major P2s: epilogue before cases, partial Print/PDF, wrong collection commentary label, responsive/sticky/mobile-bar issues, contrast/state semantics, non-executed JSON Schema, stale/skippable browser suite, and doc-truthfulness contradictions.
-- No app/data fixes were made because this task was an audit; the report provides a containment-first five-phase remediation plan.
-
-### Checks
+### Current metrics
 
 ```text
-Python compile                         PASS
-Data validator                        PASS with 6 lineage warnings
-Build + root/docs sync                PASS; 1,676,108 bytes
-Dependency-free smoke                 PASS; 36 fixtures, 0 crashes
-npm audit                             PASS; 0 vulnerabilities
-Playwright                            SKIP; Chromium unavailable
-Chromium download                     FAIL; network ECONNRESET
-Markdown relative-link scan           PASS after 2 documentation fixes
-GitHub Quality + Pages at main        PASS
-Audit branch Quality run              PASS; Node 20 action-runtime deprecation warning
+corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
+content CJK=103,723 | all-string CJK=109,185
+complete=2 | partial=2 | excerpt seeds=31
 ```
 
-### Durable docs refreshed
+### Current score/gate
 
-- Full report: `sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`
-- Current audit/index: `AUDIT.md`
-- Human and machine scoreboards: `SCOREBOARD.md`, `.scoreboard/scoreboard.yml`
-- Agent handoff: `.scoreboard/agent-handoff.md`
-- Manual GitHub actions: `.scoreboard/manual-workflow-edits.md`
-- Score history: `.scoreboard/history.md`
+- Weighted score improved from audit 5.8 to post-containment **6.5/10**.
+- `repo_ready` remains **fail** because P1 rights and functional defects remain.
+- All user scores remain `null`.
+
+### Quality gates
+
+```text
+Python compile + JS syntax             PASS
+Data validator                         PASS; corpus=35, slots=1252, locators=148/148
+Anti-placeholder negative fixture      PASS
+Build + root/docs mirrors              PASS; bundle=1,594,154 bytes
+Dependency-free smoke                  PASS; 35 fixtures, 0 crashes
+Playwright                              SKIP; Chromium unavailable
+Markdown links + diff whitespace       PASS
+```
+
+### Next recommended task
+
+Fix Lineage dossier visibility, six direct Platform chapter bodies, Wumenguan epilogue order, full Print/PDF, and collection-specific commentary labels, with real-browser regressions.
 
 ## One-sentence summary
 
-The static pipeline is strong, but the project is not release-ready until its undisclosed Congronglu placeholders, false completion/rights semantics, broken dossier/chapter/print paths, and the gates that missed them are corrected.
+The unreliable Congronglu corpus is fully quarantined and completion/verification claims are now honest, while P1 functional and rights work remains before release readiness.

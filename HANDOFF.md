@@ -4,7 +4,7 @@
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
 > **Latest audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
-> **Current gate:** `repo_ready = fail` (5.8/10; active P0/P1 blockers)
+> **Current gate:** `repo_ready = fail` (6.5/10; P0 contained, active P1 blockers)
 
 ## 1. Start here
 
@@ -46,41 +46,39 @@ The browser has no runtime JavaScript package dependency. `playwright` is an opt
 ## 3. Current measured snapshot
 
 ```text
-corpus=36 | slots=1352 | verified=177 | matrix=21 | locators=183/183
-content CJK=107,563 | all-string CJK=113,410
+corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
+content CJK=103,723 | all-string CJK=109,185
 lineage=34 masters | glossary=31 terms | gong'an=24 entries
-bundle=1,676,108 raw bytes | approximately 522 KB gzip-9
+bundle=1,594,154 raw bytes | approximately 498 KB gzip-9
 ```
 
 Verified citation reference coverage is **176 / 179**; the remaining **3** reference fields are explicitly pending. This does not mean rights review is complete: every rights-manifest source is still `needs_rights_review` or `jurisdiction_review_required`.
 
-The validator-generated “complete documents” count must not be treated as settled scholarly truth. It currently uses top-level unit counts. The latest audit rejects the Platform Sutra’s complete-text label and requires Biyanlu case-index coverage to be distinguished from selected-witness/full-field completion.
+Completion now requires explicit `complete_selected_witness` status plus satisfied unit targets. Only Wumenguan and Xinxin Ming qualify. Biyanlu and Linji remain `partial_selected_witness`; Platform remains an excerpt seed despite 10/10 represented chapter headings.
 
 ## 4. Release blockers
 
-### P0 — Congronglu source integrity
+### Contained P0 — Congronglu source integrity
 
-`data/corpus/congronglu_cases.json` contains 28 cases with identical generic Chinese commentary and verse (plus repeated English), originating in old `scripts/ingest_*` snapshots. They are not marked as placeholders but are presented as canonical source text. Only five cases have page-level `collated_with_normalization` records; two additional custom seeds remain case-number anchored.
-
-Do not expand or promote Congronglu until non-collated records are quarantined and field-level source provenance exists.
+The entire Congronglu seed, its locator claims, and four obsolete ingestion snapshots were removed from the active tree. Follow-up comparison with authoritative CBETA `T/T48/T48n2004.xml` showed that even the five records previously labeled collated had wrong case headings and page claims. See [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md). Do not reintroduce it without source-pinned TEI ingestion and field-level collation tests.
 
 ### P1 — scholarly, rights, and functional
 
-- Platform Sutra: 680 content CJK in excerpt-sized chapter records, yet labeled complete; six direct-field chapters render empty.
+- Platform Sutra: completion is now honestly labeled as excerpt representation, but six direct-field chapters still render empty.
 - Lineage dossier: `hidden` is never removed, so populated detail remains invisible.
-- Rights: all 14 sources remain pending; UI wording conflates edition verification with public-domain/rights approval.
-- Public/current documentation had contradictory completion and count claims; the live scoreboard/audit/handoff were refreshed in session `019febb1`, but README/ROADMAP/RESEARCH_RELEASE_PLAN still need a dedicated truth pass after editorial decisions.
+- Rights: all 14 sources remain pending; UI wording is corrected, but human decisions are not complete.
+- Field-level source coverage and human review remain incomplete beyond the new document-level completion statuses.
 
 ### P2 — next correctness layer
 
 - Wumenguan epilogue renders before cases.
 - Print/PDF exports only lazy-loaded units.
-- Biyanlu/Congronglu commentary is mislabeled as Wumen commentary.
+- Biyanlu commentary is mislabeled as Wumen commentary.
 - Responsive 1100/960 breakpoint mismatch and sticky toolbar/header overlap.
 - Mobile Reader controls appear on every view.
 - Active color contrast and ARIA pressed/radio/tooltip relationships need correction.
 - JSON Schema is present but not executed; non-case source shapes are weakly validated.
-- Browser suite has a stale title assertion and exits zero when skipped.
+- Browser title/count expectations are corrected, but the suite still exits zero when Chromium is unavailable.
 
 See the full audit for evidence and exit criteria.
 
@@ -129,7 +127,7 @@ For any canonical source addition:
 7. Regenerate metrics/bundle/mirror and run all checks.
 8. Obtain human editorial review before claiming source-checked or complete.
 
-Do **not** run `scripts/ingest_autonomous_wave3.py`, `ingest_autonomous_wave4.py`, `ingest_content_wave.py`, or `ingest_linji_and_platform_sutra.py` as production migrations. They are historical mutable snapshots and can restore stale/generated content. Archive or replace them with source-driven tooling.
+The four obsolete autonomous/content-wave ingestion snapshots were deleted during containment; Git history preserves them for forensics. Replace them with source-pinned tooling rather than restoring or replaying them.
 
 For a verified modern quotation:
 
@@ -144,7 +142,7 @@ For a verified modern quotation:
 index.html / app.css / app.js / theme-init.js
 app_data.js                         # generated browser data bundle
 data/
-  corpus/                           # 36 structured source documents
+  corpus/                           # 35 active source documents
   corpus_manifest.json             # reader order + count targets
   canonical_locators.json          # document/case locator registry
   project_metrics.json             # generated deterministic metrics
@@ -161,7 +159,6 @@ scripts/
   browser_test.mjs                 # optional real-browser suite
   segment_classical.py             # offline segmentation helper
   migrate_translations.py          # historical idempotent shape migration
-  ingest_*.py                      # historical campaign snapshots; do not run
 sessions/                           # dated audit/session evidence
 docs/                              # GitHub Pages mirror
 .scoreboard/                        # current machine score, history, handoff, manual edits
@@ -193,6 +190,6 @@ Exact replacement YAML is in [`.scoreboard/manual-workflow-edits.md`](./.scorebo
 
 Never append a full session narrative to this file. Link the dated report instead.
 
-## 10. Current audit-only session
+## 10. Current session
 
-Session `arena/019febb1-translatechan` performed the full review, refreshed audit/scoreboard/handoff documentation, and made no app or corpus remediation. The recommended next task is Phase 0 containment from the audit, followed by functional hotfixes and regression tests.
+Session `arena/019febb1-translatechan` completed the full audit and user-selected Phase 0 containment. The next recommended task is the P1 functional hotfix: Lineage dossier visibility, direct Platform chapter rendering, epilogue order, complete Print/PDF, and collection-specific labels.

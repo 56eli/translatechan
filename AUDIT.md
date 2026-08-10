@@ -5,28 +5,27 @@
 
 ## 1. Current verdict — 2026-08-10, session `019febb1`
 
-**Not release-ready: one P0, four P1 groups, `repo_ready = fail`, weighted score 5.8/10.**
+**Not release-ready: the P0 is contained, P1 functional/rights blockers remain, post-containment score is 6.5/10, and `repo_ready = fail`.**
 
-The deterministic static pipeline is sound, but prior “no P0/P1/P2” conclusions missed content-trust and visible-behavior defects. Most urgently, 28/35 published Congronglu cases repeat identical generic Chinese commentary/verse inserted by old ingestion scripts without placeholder disclosure. Additional blockers include false full-text completion, unresolved quotation-rights decisions, an always-hidden Lineage dossier, six empty Platform chapter bodies, incomplete print exports, and stale current documentation.
+The user-selected containment pass removed the entire unreliable Congronglu seed, its locator claims, and the obsolete scripts that generated it. Authoritative CBETA T48n2004 headings showed that even the five records previously labeled collated had wrong case numbers and page claims. Completion now requires explicit editorial status instead of N/N arithmetic. Remaining blockers include unresolved quotation-rights decisions, an always-hidden Lineage dossier, six empty Platform chapter bodies, incomplete print exports, and responsive/accessibility defects.
 
-Current generated measurements (these are counts, **not proof of scholarly completion**):
+Current generated measurements:
 
-- Corpus: **36 documents**; Wumenguan **48/48 cases** complete under its selected case/preface/epilogue contract; Biyanlu **100/100 cases** represented under its current field contract; metrics currently label Xinxin Ming 37/37 and Platform Sutra 10/10 as complete, but the latest audit rejects count-only completion for Platform; **32 excerpt seeds**; **107,563 content CJK / 113,410 all-string CJK**.
-- Translations: **1352 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**. “Verified” means edition/wording checked, not automatically rights-approved or public-domain.
-- Locators: **183/183 case-level**; **33 document-level seeds**. A case-number anchor does not prove every nested source field was collated.
+- Corpus: **35 documents**; Wumenguan **48/48 cases** complete selected witness and Xinxin Ming 37/37 complete selected witness; Biyanlu **100/100 cases** are represented but explicitly partial; Platform 10/10 headings are excerpt representation, not completion; **31 excerpt seeds** and two partial witnesses; **103,723 content CJK / 109,185 all-string CJK**.
+- Translations: **1252 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**. “Verified” now means edition/wording checked; rights approval/public-domain status remains separate.
+- Locators: **148/148 case-level**; **33 document-level seeds**. A case-number anchor does not prove every nested source field was collated.
 - Lineage: **34 masters**; **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**; all edges remain traditional/pending.
 - Glossary: **31 terms**; Gong'an index: **24 entries**.
-- Bundle: 1,676,108 raw bytes; about 522 KB at gzip level 9. Root and `/docs` are synchronized.
+- Bundle: 1,594,154 raw bytes; about 498 KB at gzip level 9. Root and `/docs` are synchronized.
 
 ## 2. Active blockers
 
-1. **P0 — Congronglu source integrity:** quarantine every non-collated source field/case; add field-level provenance and placeholder rejection.
-2. **P1 — completion truth:** relabel Platform as chapter excerpts represented; separate unit-count, source-field, witness, and human-review coverage.
-3. **P1 — public quotation governance:** all 14 rights sources are still review/jurisdiction-pending; separate edition verification from rights/public-domain status.
-4. **P1 — broken public behavior:** remove dossier `hidden`, support direct chapter fields, move epilogue, and print all units.
-5. **P2 — test credibility:** add failing regressions for all above; current smoke passes and optional browser test is stale/skippable.
+1. **Contained P0 — Congronglu:** active data/locators/scripts removed; anti-placeholder validation added; reintroduction requires source-pinned T48n2004 TEI and field-level review.
+2. **P1 — public quotation governance:** all 14 rights sources are still review/jurisdiction-pending; edition verification is now worded separately from rights/public-domain status.
+3. **P1 — broken public behavior:** remove dossier `hidden`, support direct chapter fields, move epilogue, and print all units.
+4. **P2 — source modeling:** extend explicit completion status into field-level coverage/human review, especially Biyanlu and Platform.
+5. **P2 — test credibility:** add real-browser regressions for visible behavior; the title assertion is fixed, but browser execution remains skippable when Chromium is absent.
 6. **P2 — responsive/accessibility:** fix sticky/header offsets, 1100/960 breakpoint mismatch, cross-view mobile Reader bar, contrast, pressed/radio/tooltip semantics.
-7. **P2 — documentation:** reconcile README, HANDOFF, ROADMAP, RESEARCH_RELEASE_PLAN, OG artwork, and broken links after editorial decisions.
 
 Detailed evidence and phased exit criteria: [full audit §§3–7](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md#3-severity-ranked-findings).
 
@@ -35,8 +34,9 @@ Detailed evidence and phased exit criteria: [full audit §§3–7](./sessions/AU
 ```text
 python3 -m py_compile scripts/*.py          PASS
 python3 scripts/validate_data.py            PASS with 6 lineage warnings
-python3 scripts/build_data_bundle.py        PASS; root/docs synced
-node scripts/smoke_test.mjs                 PASS; 36 fixtures, 0 crashes
+python3 scripts/build_data_bundle.py        PASS; 1,594,154 bytes; root/docs synced
+node scripts/smoke_test.mjs                 PASS; 35 fixtures, 0 crashes
+anti-placeholder negative fixture           PASS
 diff -rq data docs/data                     PASS
 npm audit --package-lock-only               PASS; 0 vulnerabilities
 npm run test:browser                        SKIP; Chromium unavailable
@@ -52,7 +52,7 @@ A passing validator/smoke run currently establishes structural consistency and n
 
 | Date | Session | Report | Historical outcome |
 |---|---|---|---|
-| 2026-08-10 | `019febb1` | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) | **Current:** deep re-audit; P0/P1 findings; 5.8/10; remediation plan |
+| 2026-08-10 | `019febb1` | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md) | **Current:** deep audit followed by user-selected Congronglu containment, explicit completion status, verification-copy correction |
 | 2026-08-10 | `019feaf5` | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md), [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md), [`AUDIT_UPDATE_2026-08-10_hero.md`](./AUDIT_UPDATE_2026-08-10_hero.md) | Website vision, hero/OG/footer changes; prior 8.2 verdict now superseded |
 | 2026-08-10 | `019feabb` | [`sessions/SESSION_AUDIT_2026-08-10_019feabb.md`](./sessions/SESSION_AUDIT_2026-08-10_019feabb.md), [`docs/audits/2026-08-10-baseline.md`](./docs/audits/2026-08-10-baseline.md) | Scoreboard baseline, layout work, Congronglu expansion; prior verdict superseded |
 | 2026-08-10 | `019fea62` | [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md) | Routing/scroll/a11y fixes |

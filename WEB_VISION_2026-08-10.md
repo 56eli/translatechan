@@ -1,8 +1,8 @@
 # 🏯 Fake Chan Factory — Website Vision (Final — Chinese Chan Hall, Minimal)
 
-> **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10, updated after owner feedback (Chinese Chan focus, minimal, no gimmicks).  
-> **Status:** Final direction — Chinese Chan hall, dark walnut, literature-first, Robo joke as practical joke once.  
-> **Related:** `vision.md` = scholarly/architectural blueprint. This doc = public-facing experience blueprint.  
+> **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10, updated after owner feedback (Chinese Chan focus, minimal, no gimmicks).
+> **Status:** Final direction — Chinese Chan hall, dark walnut, literature-first, Robo joke as practical joke once.
+> **Related:** `vision.md` = scholarly/architectural blueprint. This doc = public-facing experience blueprint.
 > **Feedback incorporated:** Audience = me and friends introduced to niche Chan content mixed with my humor. First 30s = Chan hall/literature/Zen feeling with robo joke theme. After that = all serious literature composition, readability, transparent flow, no choppiness, no overflow, no distraction, no gimmicks, sophisticated but minimal. Lean into wood dark walnut, drop vermillion keep ✓, humor disappears except Robo names. No Japanese aesthetics — Chinese temple wood + Chinese calligraphy. No footer, no conveyor, no CTA (deferred per feedback).
 
 ---
@@ -21,7 +21,7 @@ Previous draft said Kyoto workshop + factory conveyor — replaced per feedback:
 
 **First 30 seconds:**
 1. **Chan hall gate (2s):** 假禪工廠 in big Kai 900 dark walnut (#1f1a18 / #2c2523), FAKE CHAN FACTORY small caps tracked, 🤖 as practical joke monk once.
-2. **Literature snap (5s):** 36 canonical works from CBETA, real Classical Chinese sources, Robo renderings marked 🤖 Robo, verified marked ✅ — honest scale.
+2. **Literature snap (5s):** 35 active corpus works tied to CBETA witnesses and explicit completion status, Robo renderings marked 🤖, edition-verified quotations marked ✅ with separate rights status.
 3. **Invitation (10-30s):** Directly below hero, first case (Wumenguan) appears big, generous, zh + pinyin + 2 Robo side-by-side, tappable glossary — no extra CTA buttons needed (deferred per feedback). You are already in reading hall.
 
 **What we removed vs draft:** No conveyor belt animation (you said defer, no gimmicks), no CTA buttons "Open Wumenguan" / "See Blueprint" (you said you don't know what hero CTA means, defer), no factory press floor metaphor that felt Japanese/industrial. Now hall gate + reading hall immediately.
@@ -143,7 +143,7 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 3. Footer removal
 4. Tier-1 a11y/perf: hero chips inner aria-hidden, ellipsis … standardized, mobile bar 44px + safe-area, toolbar z 20→50
 5. Build: copy og-image.svg to docs/, validator relaxed hero chip check
-6. Gates: validate_data ✅ corpus=36 verified=177 locators=183/183, build_data_bundle ✅ 1,676,108 B, smoke ✅ 36 texts 0 crashes
+6. Gates: post-containment gates: corpus=35 verified=177 locators=148/148; build/smoke remain required
 
 ### Phase V2 Reader Polish (next, 1 session, no gimmicks) — optional
 
@@ -170,7 +170,7 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 - Qualitative: screenshot shareability — hero with big 假禪工廠 + walnut beam wants screenshot? Yes, minimal Chinese hall.
 - Quantitative: Time to first meaningful print <1.5s on 4G — deferred scripts + preload app_data.js helps.
 - A11y: Lighthouse a11y ≥95 — hero chips accessible now, skip-link present, ARIA tabs roving, dossier dialog focus-managed.
-- Bundle: raw 1,676,108 B + og-image.svg 2.9K, gz est ~400KB — keep <2MB.
+- Bundle budget: keep raw data bundle <2MB. Post-containment bundle is 1,594,154 B (~498 KB gzip-9) plus the 2.9K OG image.
 - No regression: smoke 50+ checks green including new 4gg hero dismissable + 4ff/4gg/4hh/4ii/4jj/4kk L1 guard + 4ee dossier.
 
 ---

@@ -51,3 +51,13 @@
 | 2026-08-10 | agent_readiness | 8 | 4 | null | null | Arena agent 019febb1 | Durable handoff pointed to an old branch/baseline and stale ready-to-merge instructions. |
 | 2026-08-10 | task_hygiene | 8 | 5 | null | null | Arena agent 019febb1 | Stale duplicated current-state docs, obsolete scripts, and two broken historical links. |
 | 2026-08-10 | auditability | 9 | 6 | null | null | Arena agent 019febb1 | Rich evidence exists, but truthfulness/smoke gates and prior audit missed public P0/P1 defects. |
+| 2026-08-10 | readme_onboarding | 5 | 7 | null | null | Arena agent 019febb1 containment | Active counts, completion states, verification semantics, corpus table/tree, and quarantine status reconciled. |
+| 2026-08-10 | repo_organization | 6 | 7 | null | null | Arena agent 019febb1 containment | Deleted four unsafe mutable ingestion snapshots; Git history and a dated containment record preserve forensics. |
+| 2026-08-10 | type_safety_validation | 6 | 7 | null | null | Arena agent 019febb1 containment | Explicit completion_status now gates complete witnesses; repeated case-source placeholders fail validation. |
+| 2026-08-10 | tests | 5 | 6 | null | null | Arena agent 019febb1 containment | Added Congronglu-absence and completion-status regressions; fixed stale browser title/count expectations. |
+| 2026-08-10 | github_pages_presentation | 6 | 7 | null | null | Arena agent 019febb1 containment | Corrected work/completion counts, OG claims, and edition-verification versus rights copy. |
+| 2026-08-10 | content_quality | 3 | 6 | null | null | Arena agent 019febb1 containment | Removed all Congronglu source/locator records after authoritative T48n2004 disproved even five purportedly collated entries; P0 contained. |
+| 2026-08-10 | deployment_readiness | 4 | 5 | null | null | Arena agent 019febb1 containment | P0 data removed from deploy bundle; unresolved rights and P1 public behavior still block readiness. |
+| 2026-08-10 | agent_readiness | 4 | 7 | null | null | Arena agent 019febb1 containment | Current handoff, audit, containment evidence, metrics, and next task are synchronized to the fixed branch. |
+| 2026-08-10 | task_hygiene | 5 | 7 | null | null | Arena agent 019febb1 containment | Obsolete scripts removed; decisions captured in a dated report; live summary/handoff refreshed. |
+| 2026-08-10 | auditability | 6 | 7 | null | null | Arena agent 019febb1 containment | Authoritative XML heading/hash evidence and validator regressions now preserve containment and completion semantics. |

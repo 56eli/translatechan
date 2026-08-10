@@ -8,22 +8,26 @@
       "cbeta": "T2005",
       "unit_targets": {
         "cases": 48
-      }
+      },
+      "completion_status": "complete_selected_witness"
     },
     {
       "key": "linji_yulu",
       "title": "Record of Linji (臨濟語錄)",
-      "cbeta": "T1985"
+      "cbeta": "T1985",
+      "completion_status": "partial_selected_witness"
     },
     {
       "key": "huangbo_chuanxin",
       "title": "Transmission of Mind (黃檗法要)",
-      "cbeta": "T2012A"
+      "cbeta": "T2012A",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "zhaozhou_yulu",
       "title": "Sayings of Zhaozhou (趙州語錄)",
-      "cbeta": "T1987"
+      "cbeta": "T1987",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "xinxin_ming",
@@ -31,12 +35,14 @@
       "cbeta": "T2010",
       "unit_targets": {
         "stanzas": 37
-      }
+      },
+      "completion_status": "complete_selected_witness"
     },
     {
       "key": "baojing_sanmei",
       "title": "Jewel Mirror Samadhi (寶鏡三昧)",
-      "cbeta": "T1986"
+      "cbeta": "T1986",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "biyanlu_cases",
@@ -44,7 +50,8 @@
       "cbeta": "T2003",
       "unit_targets": {
         "cases": 100
-      }
+      },
+      "completion_status": "partial_selected_witness"
     },
     {
       "key": "platform_sutra",
@@ -52,151 +59,170 @@
       "cbeta": "T2007",
       "unit_targets": {
         "chapters": 10
-      }
+      },
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "chuandenglu",
       "title": "Transmission of Lamp (景德傳燈錄)",
-      "cbeta": "T2076"
+      "cbeta": "T2076",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "qinggui_monastic_codes",
       "title": "Rules of Purity (百丈禪苑清規)",
-      "cbeta": "T2025"
+      "cbeta": "T2025",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "dongshan_yulu",
       "title": "Dongshan Yulu & Five Ranks (洞山五位)",
-      "cbeta": "T1986"
+      "cbeta": "T1986",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "yunmen_yulu",
       "title": "Yunmen Yulu (雲門語錄一字關)",
-      "cbeta": "T1988"
+      "cbeta": "T1988",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "fayan_yulu",
       "title": "Fayan Yulu & Ten Rules (法眼十規論)",
-      "cbeta": "T1991"
+      "cbeta": "T1991",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "guiyang_yulu",
       "title": "Guiyang Yulu & Circles (溈仰九十六圓相)",
-      "cbeta": "T1989"
+      "cbeta": "T1989",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "dahui_hongzhi",
       "title": "Dahui & Hongzhi (看話書問與默照銘)",
-      "cbeta": "T1998A"
+      "cbeta": "T1998A",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "shitou_sandokai",
       "title": "Shitou Sandokai & Grass Hut (參同契與草庵歌)",
-      "cbeta": "T2076 f.30"
+      "cbeta": "T2076 f.30",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "zhengdao_ge",
       "title": "Yongjia Zhengdao Ge (永嘉證道歌)",
-      "cbeta": "T2014"
+      "cbeta": "T2014",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "bodhidharma_erru",
       "title": "Bodhidharma Erru Sixing (二入四行論)",
-      "cbeta": "T2009"
+      "cbeta": "T2009",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "niutou_juezhu",
       "title": "Niutou Farong Juezhu Lun (絕觀論)",
-      "cbeta": "P.2885"
+      "cbeta": "P.2885",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "lidai_fabao_ji",
       "title": "Lidai Fabao Ji (歷代法寶記)",
-      "cbeta": "T2075"
+      "cbeta": "T2075",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "dazhu_huihai",
       "title": "Dazhu Huihai Dunwu Yaomen (頓悟入道要門)",
-      "cbeta": "X1223"
+      "cbeta": "X1223",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "baizhang_guanglu",
       "title": "Baizhang Guanglu (百丈廣錄三句)",
-      "cbeta": "X1323"
+      "cbeta": "X1323",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "foyan_qingyuan",
       "title": "Foyan Qingyuan Instant Zen (佛眼坐禪銘)",
-      "cbeta": "X1315"
+      "cbeta": "X1315",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "dahui_shobogenzo",
       "title": "Dahui Shobogenzo (大慧正法眼藏)",
-      "cbeta": "X1309"
+      "cbeta": "X1309",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "mazu_yulu",
       "title": "Mazu Daoyi Yulu (江西馬祖語錄)",
-      "cbeta": "X1321"
+      "cbeta": "X1321",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "nanquan_yulu",
       "title": "Nanquan Puyuan Yulu (南泉普願語錄)",
-      "cbeta": "X1315"
+      "cbeta": "X1315",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "deshan_yulu",
       "title": "Deshan Xuanjian Yulu (德山宣鑑語錄)",
-      "cbeta": "T2076/X1565"
+      "cbeta": "T2076/X1565",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "xuefeng_yantou",
       "title": "Xuefeng & Yantou Yulu (雪峰巖頭語錄)",
-      "cbeta": "X1333"
-    },
-    {
-      "key": "congronglu_cases",
-      "title": "Book of Serenity (從容庵錄)",
-      "cbeta": "T2004",
-      "unit_targets": {
-        "cases": 100
-      },
-      "note": ""
+      "cbeta": "X1333",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "wudeng_huiyuan",
       "title": "Compendium of Five Lamps (五燈會元)",
-      "cbeta": "X1565"
+      "cbeta": "X1565",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "sengzhao_zhaolun",
       "title": "Sengzhao Zhao Lun (僧肇肇論)",
-      "cbeta": "T1858"
+      "cbeta": "T1858",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "hanshan_poems",
       "title": "Hanshan Cold Mountain Poems (寒山詩集)",
-      "cbeta": "SBCK/Zoku"
+      "cbeta": "SBCK/Zoku",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "huangbo_wanling",
       "title": "Huangbo Wanling Lu (黃檗宛陵錄)",
-      "cbeta": "T2012B"
+      "cbeta": "T2012B",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "xuansha_yulu",
       "title": "Xuansha Shibei Yulu (玄沙宗一語錄)",
-      "cbeta": "X1445"
+      "cbeta": "X1445",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "caoxi_zhuan",
       "title": "Caoxi Dashi Biezhuan (曹溪大師別傳)",
-      "cbeta": "X1598"
+      "cbeta": "X1598",
+      "completion_status": "excerpt_seed"
     },
     {
       "key": "yuanwu_letters",
       "title": "Yuanwu Zen Letters (圓悟克勤心要)",
-      "cbeta": "X1357"
+      "cbeta": "X1357",
+      "completion_status": "excerpt_seed"
     }
   ]
 }

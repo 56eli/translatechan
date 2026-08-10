@@ -75,4 +75,4 @@ diff -rq data docs/data
 git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/theme-init.js docs/robots.txt docs/sitemap.xml docs/og-image.svg docs/data data/project_metrics.json
 ```
 
-These checks do not clear the audit’s P0/P1 content and functional blockers; re-evaluate `repo_ready` only after those are remediated and tested.
+These checks do not clear the remaining P1 rights and functional blockers; re-evaluate `repo_ready` only after those are remediated and tested.

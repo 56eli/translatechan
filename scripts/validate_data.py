@@ -70,6 +70,11 @@ VALID_LINEAGE_FRONTIER_STATUSES = {"frontier_unprofiled"}
 VALID_TRACEABILITY_QUEUE_STATUSES = {"needs_unit_locator", "in_review", "blocked_source", "complete"}
 VALID_TRACEABILITY_PRIORITIES = {"high", "normal"}
 VALID_PROFILE_REVIEW_STATUSES = {"needs_exact_locator", "frontier_source_needed", "in_review", "complete"}
+VALID_COMPLETION_STATUSES = {
+    "complete_selected_witness",
+    "partial_selected_witness",
+    "excerpt_seed",
+}
 SOURCE_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 REQUIRED_DOCUMENT_FIELDS = {
     "title_zh",
@@ -229,6 +234,7 @@ def validate_case_shape(cases: Any, path: str, issues: Issues) -> None:
         issues.error(path, "cases must be a non-empty list")
         return
     seen: set[str] = set()
+    source_field_occurrences: dict[tuple[str, str], list[str]] = {}
     for index, case in enumerate(cases):
         case_path = f"{path}[{index}]"
         if not is_record(case):
@@ -247,6 +253,22 @@ def validate_case_shape(cases: Any, path: str, issues: Issues) -> None:
                 issues.error(case_path, f"case requires non-empty '{field}'")
         if "dialogue" in case and not isinstance(case["dialogue"], list):
             issues.error(case_path, "dialogue must be a list when present")
+        # Exact repetition of a substantial case-specific source field across
+        # three or more cases is a release blocker, not normal textual reuse.
+        # This catches the 2026-08-10 Congronglu incident where one generic
+        # project-authored commentary and verse were attributed to 28 cases.
+        for field in ("pointer_zh", "commentary_zh", "verse_zh"):
+            value = case.get(field)
+            if isinstance(value, str) and len(value.strip()) >= 12:
+                source_field_occurrences.setdefault((field, value.strip()), []).append(str(number))
+
+    for (field, value), case_numbers in source_field_occurrences.items():
+        if len(case_numbers) >= 3:
+            issues.error(
+                path,
+                f"identical {field} appears in {len(case_numbers)} cases "
+                f"({', '.join(case_numbers)}): {value[:60]!r}; quarantine or mark generated placeholders outside canonical source fields",
+            )
 
 
 def validate_corpus_document(
@@ -595,13 +617,19 @@ def validate_manifest_sync(corpus: dict[str, Any], manifest: Any, issues: Issues
     manifest_keys: set[str] = set()
     for index, item in enumerate(manifest["items"]):
         item_path = f"{path}.items[{index}]"
-        require_fields(item, ("key", "title", "cbeta"), item_path, issues)
+        require_fields(item, ("key", "title", "cbeta", "completion_status"), item_path, issues)
         if not is_record(item) or not nonempty_string(item.get("key")):
             continue
         key = item["key"]
         if key in manifest_keys:
             issues.error(item_path, f"duplicate corpus key '{key}'")
         manifest_keys.add(key)
+        completion_status = item.get("completion_status")
+        if completion_status not in VALID_COMPLETION_STATUSES:
+            issues.error(
+                item_path,
+                f"completion_status must be one of {sorted(VALID_COMPLETION_STATUSES)}, got {completion_status!r}",
+            )
 
         # Optional canonical unit targets (e.g. {"cases": 100} for Biyanlu) make
         # per-text coverage claims ("7/100 cases") verifiable against live data.
@@ -845,21 +873,28 @@ def unit_counts(document: Any) -> dict[str, int]:
 
 
 def complete_document_keys(corpus: dict[str, Any], manifest: Any) -> list[str]:
-    """Documents whose every manifest-declared unit target is met by the units
-    actually present (e.g. Wumenguan 48/48, Biyanlu 100/100). Documents without
-    declared targets are never counted complete; previously this list was
-    hardcoded to Wumenguan alone, which drifted the moment the Biyanlu
-    completion campaign landed (2026-08-09)."""
+    """Return documents explicitly approved as complete selected witnesses.
+
+    Unit targets measure representation (for example, 100/100 case containers);
+    they do not prove that every canonical field is present or reviewed. A work
+    is counted complete only when the manifest's editorial completion_status is
+    complete_selected_witness *and* all declared unit targets are met. This
+    prevents excerpt containers such as the 680-CJK Platform Sutra seed, or a
+    partial-field 100-case Biyanlu set, from becoming "complete" by arithmetic.
+    """
     items = manifest.get("items") if is_record(manifest) else None
-    targets_by_key = {
-        item.get("key"): item.get("unit_targets")
+    items_by_key = {
+        item.get("key"): item
         for item in items or []
-        if isinstance(item, dict) and is_record(item.get("unit_targets"))
+        if isinstance(item, dict) and nonempty_string(item.get("key"))
     }
     complete = []
     for key, document in corpus.items():
-        targets = targets_by_key.get(key)
-        if not targets:
+        item = items_by_key.get(key, {})
+        if item.get("completion_status") != "complete_selected_witness":
+            continue
+        targets = item.get("unit_targets")
+        if not is_record(targets) or not targets:
             continue
         counts = unit_counts(document)
         if all(
@@ -897,6 +932,7 @@ def per_text_metrics(corpus: dict[str, Any], manifest: Any) -> dict[str, Any]:
         document = corpus[key]
         item = manifest_by_key.get(key, {})
         counts = unit_counts(document)
+        completion_status = str(item.get("completion_status") or "excerpt_seed")
         entry: dict[str, Any] = {
             "title": str(item.get("title") or document.get("title_en") or key),
             "cbeta_id": str(document.get("cbeta_id") or ""),
@@ -904,6 +940,8 @@ def per_text_metrics(corpus: dict[str, Any], manifest: Any) -> dict[str, Any]:
             "all_cjk_chars": all_cjk_count(document),
             "shapes": content_shapes(document),
             "unit_counts": counts,
+            "completion_status": completion_status,
+            "is_complete": completion_status == "complete_selected_witness",
         }
         coverage_note = document.get("coverage_note")
         if isinstance(coverage_note, str) and coverage_note:
@@ -938,19 +976,28 @@ def compute_metrics(
         for shape in content_shapes(document):
             shapes[shape] += 1
     complete_documents = complete_document_keys(corpus, corpus_manifest)
+    manifest_items = corpus_manifest.get("items", []) if is_record(corpus_manifest) else []
+    completion_statuses = Counter(
+        item.get("completion_status")
+        for item in manifest_items
+        if is_record(item) and item.get("completion_status") in VALID_COMPLETION_STATUSES
+    )
     return {
         "schema_version": "1.0",
         "measurement_method": {
             "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
             "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
             "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status.",
-            "complete_documents": "Documents whose every manifest-declared unit target is met by present units (e.g. Wumenguan 48/48, Biyanlu 100/100).",
-            "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, declared coverage_note/zh_chars, and (when the shared manifest declares unit_targets) a machine-checkable 'N/M units' coverage string."
+            "complete_documents": "Documents explicitly marked complete_selected_witness whose manifest unit targets are all met; unit counts alone never establish completion.",
+            "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, editorial completion status, declared coverage_note/zh_chars, and (when declared) an N/M representation string."
         },
         "corpus": {
             "documents": len(corpus),
             "complete_documents": complete_documents,
-            "excerpt_seed_documents": len(corpus) - len(complete_documents),
+            "incomplete_documents": len(corpus) - len(complete_documents),
+            "excerpt_seed_documents": completion_statuses.get("excerpt_seed", 0),
+            "completion_statuses": dict(sorted(completion_statuses.items())),
+
             "content_cjk_characters": sum(content_cjk_count(doc) for doc in corpus.values()),
             "all_corpus_cjk_characters": sum(all_cjk_count(doc) for doc in corpus.values()),
             "content_shapes": dict(sorted(shapes.items())),

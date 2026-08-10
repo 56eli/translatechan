@@ -46,8 +46,12 @@ for (const iconSpan of publicHtml.match(/<span[^>]*>[\u{1F300}-\u{1FAFF}️⃣][
   if (iconSpan.includes('<span>Bilingual') || iconSpan.includes('<span>Comparative')) continue;
   if (!iconSpan.includes('aria-hidden="true"')) throw new Error(`decorative emoji span is not aria-hidden: ${iconSpan}`);
 }
-if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.includes('translators.size')) {
-  throw new Error('hero translator/corpus counts are not derived from data');
+if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.includes('matrixRegisters')) {
+  throw new Error('hero work/register counts are not derived from data');
+}
+if (!appSrc.includes('✅ Edition-verified quotation') ||
+    /verified public-domain text|Verified public-domain text/.test(publicHtml)) {
+  throw new Error('edition verification must remain distinct from rights/public-domain status');
 }
 // B4: app_data/app.js should use defer so parsing is not blocked while the
 // deterministic data bundle downloads; order remains app_data.js then app.js.
@@ -234,21 +238,28 @@ globalThis.document = {
 // Load data bundle + app
 eval(readFileSync(join(ROOT, 'app_data.js'), 'utf8'));
 if (!window.TRANSLATECHAN_DATA) throw new Error('app_data.js did not populate TRANSLATECHAN_DATA');
-if (!Array.isArray(window.TRANSLATECHAN_DATA.corpus_manifest?.items) || window.TRANSLATECHAN_DATA.corpus_manifest.items.length !== 36) {
-  throw new Error('app_data.js is missing the shared 36-item corpus manifest');
+if (!Array.isArray(window.TRANSLATECHAN_DATA.corpus_manifest?.items) || window.TRANSLATECHAN_DATA.corpus_manifest.items.length !== 35) {
+  throw new Error('app_data.js is missing the shared 35-item corpus manifest');
 }
-if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 36 ||
-    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 36) {
+if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 35 ||
+    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 35) {
   throw new Error('app_data.js is missing validated metrics or canonical locator coverage');
 }
-// F4: per-text coverage metrics (zh counts, unit counts, N/M coverage strings)
-// must exist for every corpus key and agree with the README's headline claims.
+// F4: per-text coverage metrics (zh counts, unit counts, representation strings,
+// and explicit editorial completion states) must exist for every corpus key.
 const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {};
-if (Object.keys(perText).length !== 36) {
+if (Object.keys(perText).length !== 35) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu_cases', '35/100 cases'], ['platform_sutra', '10/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['platform_sutra', '10/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
+}
+if (perText.wumenguan?.is_complete !== true || perText.xinxin_ming?.is_complete !== true ||
+    perText.biyanlu_cases?.is_complete !== false || perText.platform_sutra?.is_complete !== false) {
+  throw new Error('editorial completion status must distinguish complete witnesses from represented unit counts');
+}
+if ('congronglu_cases' in perText || window.TRANSLATECHAN_DATA.corpus?.congronglu_cases) {
+  throw new Error('quarantined Congronglu source placeholders must not be present in the public bundle');
 }
 if (perText.wumenguan?.declared_zh_chars !== perText.wumenguan?.content_zh_chars) {
   throw new Error('per_text wumenguan declared zh_chars is not metrics-consistent');
@@ -382,14 +393,10 @@ if (!biyanHtml.includes('翠嵒眉毛') || !biyanHtml.includes('Barrier')) {
 }
 if (store['translatechan_corpus_key'] !== 'biyanlu_cases') { failures++; console.log('❌ corpus selection was not persisted'); }
 const mobileCorpusSelect = ids['corpus-mobile-select'];
-mobileCorpusSelect.value = 'congronglu_cases';
+mobileCorpusSelect.value = 'xinxin_ming';
 (mobileCorpusSelect._handlers.change || []).forEach(fn => fn({ target: mobileCorpusSelect }));
-if (store['translatechan_corpus_key'] !== 'congronglu_cases') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
-corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
-const congrongHtml = ids['reader-content-target']._innerHTML;
-if (!congrongHtml.includes('data-jump-case="9"') || !congrongHtml.includes('第9則 ›') || !congrongHtml.includes('data-jump-case="1"') || !congrongHtml.includes('‹ 第1則')) {
-  failures++; console.log('❌ Congronglu sparse prev/next navigation is incorrect');
-}
+if (store['translatechan_corpus_key'] !== 'xinxin_ming') { failures++; console.log('❌ mobile corpus selection was not persisted'); }
+if (corpusClicks['congronglu_cases']) { failures++; console.log('❌ quarantined Congronglu still appears in corpus navigation'); }
 // 4f. Preference writes must be non-fatal when browser storage is unavailable.
 const originalStorageSet = localStorage.setItem;
 localStorage.setItem = () => { throw new Error('storage blocked'); };
@@ -500,19 +507,20 @@ try {
   }
 } catch (e) { failures++; console.log(`❌ lineage source disclosure crashed: ${e.message}`); }
 
-// 4ff. L1 (audit 2026-08-10, session 019feabb): the corpus sidebar shows
-// a per-text completion mark (e.g. "48/48" for complete Wumenguan,
-// "35/100" for the now-35 Congronglu). Spot-check both forms.
+// 4ff. Completion marks come from explicit editorial status, not N/N arithmetic.
+// Wumenguan/Xinxin are complete selected witnesses; Biyanlu and Platform can
+// show representation ratios but must not receive a complete checkmark.
 try {
   corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
-  // re-render the corpus sidebar list
   const corpusListHtml = ids['corpus-selector-list']._innerHTML;
-  if (!corpusListHtml.includes('is-complete')) {
-    failures++; console.log('❌ 4ff: corpus sidebar should show the is-complete mark on Wumenguan; list was: ' + corpusListHtml.substring(0, 200));
+  if (!corpusListHtml.includes('Complete selected witness')) {
+    failures++; console.log('❌ 4ff: sidebar should expose complete-selected-witness marks');
   }
-  // The Congronglu excerpt should show 35/100 (or 35/100 cases).
-  if (!corpusListHtml.includes('35/100')) {
-    failures++; console.log('❌ 4ff: corpus sidebar should show 35/100 for Congronglu');
+  if (!corpusListHtml.includes('100/100') || !corpusListHtml.includes('10/10')) {
+    failures++; console.log('❌ 4ff: partial/excerpt representation ratios should remain visible');
+  }
+  if (corpusListHtml.includes('congronglu_cases') || corpusListHtml.includes('35/100')) {
+    failures++; console.log('❌ 4ff: quarantined Congronglu must not appear in the sidebar');
   }
 } catch (e) { failures++; console.log(`❌ 4ff sidebar spot-check crashed: ${e.message}`); }
 
@@ -538,13 +546,13 @@ try {
     if (!filtered.includes('is-complete')) {
       failures++; console.log('❌ 4hh: filtered Wumenguan button should still show ✓');
     }
-    // Clear the filter and confirm the full list returns (36 entries).
+    // Clear the filter and confirm the full active manifest returns.
     (filterInput._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
     await sleep(200);
     const restored = ids['corpus-selector-list']._innerHTML;
     const restoredCount = (restored.match(/data-corpus-key=/g) || []).length;
-    if (restoredCount !== 36) {
-      failures++; console.log(`❌ 4hh: clearing the filter should restore all 36 entries (got ${restoredCount})`);
+    if (restoredCount !== 35) {
+      failures++; console.log(`❌ 4hh: clearing the filter should restore all 35 entries (got ${restoredCount})`);
     }
   }
 } catch (e) { failures++; console.log(`❌ 4hh corpus filter spot-check crashed: ${e.message}`); }
@@ -899,20 +907,17 @@ if (!wmStripHtml.includes('class="case-chip-num">1</span>') || !wmStripHtml.incl
   failures++; console.log('❌ U1: case strip does not expose case number + title');
 }
 
-// 4bb. U2 (audit 2026-08-10, session 019feabb): 12/24/all segmented control
-// sits beside the primary load-more button. The buttons carry data-load-target
-// attributes that the delegated click handler routes through loadMoreCases(target).
-// Use congronglu_cases (35 cases as of 2026-08-10) to avoid the wumenguan
-// already-loaded state from the earlier 4g regression block.
-corpusClicks['congronglu_cases'] && corpusClicks['congronglu_cases']();
-const congrongStripHtml = ids['reader-content-target']._innerHTML;
-if (!congrongStripHtml.includes('data-load-target="24"') || !congrongStripHtml.includes('data-load-target="35"')) {
+// 4bb. U2: the 12/24/all segmented control expands a fresh long collection.
+// Use Biyanlu (100 represented case records); Congronglu is quarantined.
+corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
+const biyanSegmentedHtml = ids['reader-content-target']._innerHTML;
+if (!biyanSegmentedHtml.includes('data-load-target="24"') || !biyanSegmentedHtml.includes('data-load-target="100"')) {
   failures++; console.log('❌ U2: case load-more segmented control missing');
 }
-const segBtn = { getAttribute: n => n === 'data-load-target' ? '35' : null,
+const segBtn = { getAttribute: n => n === 'data-load-target' ? '100' : null,
   closest: sel => sel === '[data-load-target]' ? segBtn : null };
 (documentHandlers.click || []).forEach(fn => fn({ target: segBtn, preventDefault() {} }));
-if (!window.TranslateChan.loadMoreCases || (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length !== 35) {
+if (!window.TranslateChan.loadMoreCases || (ids['reader-content-target']._innerHTML.match(/id="case-\d+"/g) || []).length !== 100) {
   failures++; console.log('❌ U2: data-load-target click did not expand to all cases');
 }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();

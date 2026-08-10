@@ -1876,7 +1876,7 @@ textarea:focus-visible,
 }
 
 /* L1 (audit 2026-08-10, session 019feabb): corpus sidebar search
-   filter — a tiny "🔍" + input above the 36-button list. Sits
+   filter — a tiny "🔍" + input above the active manifest list. Sits
    inside the sidebar so it's always visible while scrolling. */
 .corpus-filter {
   position: relative;

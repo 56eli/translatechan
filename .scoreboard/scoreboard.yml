@@ -13,26 +13,25 @@ manual_workflow_policy:
   instruction: "Do not edit .github/workflows/* unless the user explicitly instructs it; document exact required changes in .scoreboard/manual-workflow-edits.md."
 
 summary:
-  overall_effective_score: 5.8
+  overall_effective_score: 6.5
   repo_ready_gate_status: fail
   top_priorities:
-    - content_quality
     - deployment_readiness
-    - agent_readiness
     - ux_usability
-    - tests
+    - error_handling_logging
+    - accessibility
+    - code_hygiene
   active_risk_flags:
-    - "P0 content integrity: 28 of 35 public Congronglu cases repeat the same project-authored-looking Chinese commentary and verse without placeholder disclosure; only five cases have page-level collated_with_normalization records."
-    - "P1 scholarly disclosure: Platform Sutra is called a complete 10/10 text from 680 content CJK and excerpt-sized chapter records; six direct-field chapters render empty."
-    - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; public copy conflates edition verification with public-domain status."
-    - "P1 functionality: the lineage dossier keeps its hidden attribute, while print exports only lazy-loaded units and the Wumenguan epilogue renders before its cases."
+    - "Contained P0: the entire unreliable Congronglu seed, locator claims, and four generating scripts were removed; authoritative T48n2004 headings disproved even the five purportedly collated records. Reintroduction is blocked on source-pinned field-level collation."
+    - "P1 functionality: six direct-field Platform chapters render empty; the lineage dossier keeps its hidden attribute; print exports only lazy-loaded units; Wumenguan epilogue renders before its cases."
+    - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; UI wording now separates edition verification from rights status, but decisions remain pending."
     - "CI generated-artifact path list omits docs/theme-init.js, docs/robots.txt, docs/sitemap.xml, and docs/og-image.svg; manual workflow edit required."
     - "Branch-protection state could not be independently verified because the GitHub integration returned 403; administrator verification remains required."
 
 quality_gates:
   repo_ready:
     status: fail
-    overall_effective_score: 5.8
+    overall_effective_score: 6.5
     last_evaluated: 2026-08-10
     minimum_overall_effective_score: 8
     required:
@@ -42,9 +41,9 @@ quality_gates:
       ci_cd: 7
       agent_readiness: 8
     notes:
-      - "Required aspects currently fail: security_privacy 7, tests 5, readme_onboarding 5, ci_cd 6, agent_readiness 4."
-      - "Overall effective score 5.8 is below the 8.0 gate."
-      - "Active P0/P1 content, rights, and functional risk flags independently block release readiness."
+      - "Required aspects currently fail: security_privacy 7, tests 6, ci_cd 6, agent_readiness 7; readme_onboarding now meets its threshold at 7."
+      - "Overall effective score 6.5 is below the 8.0 gate."
+      - "The P0 is contained, but active P1 functional and rights risk flags independently block release readiness."
       - "All user_score fields remain null; no user score was inferred."
 
 aspects:
@@ -74,20 +73,20 @@ aspects:
     category: documentation
     weight: 4
     target: 7
-    ai_score: 5
+    ai_score: 7
     user_score: null
-    effective_score: 5
-    gap: 2
-    priority: 8
-    status: needs_work
+    effective_score: 7
+    gap: 0
+    priority: 0
+    status: healthy
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Quickstart is usable, but current-state claims contradict metrics: 34 versus 32 seeds, Xinxin opening-only versus complete, and Platform 4/10 versus complete."
+    ai_basis: "Quickstart is usable and the containment pass reconciled active counts, explicit completion states, Platform/Biyanlu wording, verification semantics, and repository structure. Historical reports remain intentionally dated."
     user_basis: null
     desired_direction: ["Generate coverage tables from metrics and separate historical milestones from current truth."]
     evidence: ["README.md lines 30-46", "data/project_metrics.json", "sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md §3"]
-    next_actions: ["Correct current coverage and rights wording after editorial decisions."]
-    risk_flags: ["README currently overstates or contradicts corpus completeness."]
+    next_actions: ["Keep generated current-state counts/statuses synchronized; complete rights decisions."]
+    risk_flags: []
     files_reviewed: [README.md, data/project_metrics.json, RESEARCH_RELEASE_PLAN.md]
 
   - id: repo_organization
@@ -95,20 +94,20 @@ aspects:
     category: repo
     weight: 3
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 6
+    effective_score: 7
+    gap: 1
+    priority: 3
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Core data/scripts/docs separation is sensible, but current and historical audit files are spread across root, sessions, and docs; mutable one-shot ingestion snapshots sit beside production tools."
+    ai_basis: "Core data/scripts/docs separation is sensible; four unsafe mutable ingestion snapshots were deleted and the live handoff is current. Historical audit files remain spread across root, sessions, and docs."
     user_basis: null
     desired_direction: ["Keep one current audit/handoff path and archive one-shot campaign scripts explicitly."]
     evidence: ["git ls-files", "docs/audits", "sessions", "scripts/ingest_*.py"]
-    next_actions: ["Consolidate current documentation and move unsafe campaign scripts to an archive."]
-    risk_flags: ["Running stale ingestion snapshots can overwrite reviewed data with placeholders."]
+    next_actions: ["Consolidate remaining historical root audits when safe."]
+    risk_flags: []
     files_reviewed: [README.md, HANDOFF.md, sessions/, docs/audits/, scripts/]
 
   - id: code_hygiene
@@ -170,7 +169,7 @@ aspects:
     user_basis: null
     desired_direction: ["Add behavior-first tests, then split views/validator concerns when correctness is stable."]
     evidence: ["app.js 2978 lines", "app.css 2025 lines", "scripts/validate_data.py 1169 lines", "scripts/smoke_test.mjs 964 lines"]
-    next_actions: ["Modularize after P0/P1 remediation."]
+    next_actions: ["Modularize after remaining P1 remediation."]
     risk_flags: []
     files_reviewed: [app.js, app.css, scripts/validate_data.py, scripts/smoke_test.mjs]
 
@@ -179,20 +178,20 @@ aspects:
     category: engineering
     weight: 3
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 6
+    effective_score: 7
+    gap: 1
+    priority: 3
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Python cross-file validation is valuable, but JSON Schema is not executed and non-case unit structures/source completeness are weakly checked."
+    ai_basis: "Python validation now requires explicit completion status, prevents N/N arithmetic from certifying a complete work, and rejects repeated case-source placeholders. JSON Schema is still not executed and non-case field completeness remains weakly checked."
     user_basis: null
     desired_direction: ["Execute applicable schemas and add strict per-shape validators plus negative fixtures."]
     evidence: ["scripts/validate_data.py lines 1086-1089", "schemas/translatechan-data.schema.json", "renderChapterItem mismatch"]
-    next_actions: ["Add generic unit validation, field provenance, and duplicate-placeholder rejection."]
-    risk_flags: ["Green validation currently permits empty-rendering chapters and repeated source placeholders."]
+    next_actions: ["Add generic non-case unit validation and field-level provenance; execute JSON Schema or narrow its claim."]
+    risk_flags: ["Green validation still permits empty-rendering direct chapter shapes; repeated case placeholders are now blocked."]
     files_reviewed: [scripts/validate_data.py, schemas/translatechan-data.schema.json, data/corpus/]
 
   - id: error_handling_logging
@@ -242,19 +241,19 @@ aspects:
     category: engineering
     weight: 5
     target: 7
-    ai_score: 5
+    ai_score: 6
     user_score: null
-    effective_score: 5
-    gap: 2
-    priority: 10
+    effective_score: 6
+    gap: 1
+    priority: 5
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "The smoke harness is broad, but critical public defects pass; the optional browser suite has a stale title assertion and exits zero when skipped."
+    ai_basis: "Containment/completion regressions and the browser title assertion were corrected, but remaining P1 public defects still pass the stub harness and the optional browser suite exits zero when skipped."
     user_basis: null
     desired_direction: ["Make browser behavior, content semantics, print completeness, responsive geometry, and accessibility first-class gates."]
-    evidence: ["node scripts/smoke_test.mjs pass", "npm run test:browser skip", "scripts/browser_test.mjs title assertion"]
-    next_actions: ["Add failing regressions for every P0/P1 finding before fixes."]
+    evidence: ["node scripts/smoke_test.mjs pass", "npm run test:browser skip", "scripts/browser_test.mjs corrected title/count assertions"]
+    next_actions: ["Add real-browser regressions for each remaining P1 public behavior before fixing it."]
     risk_flags: ["Passing tests currently create false release confidence."]
     files_reviewed: [scripts/smoke_test.mjs, scripts/browser_test.mjs]
 
@@ -316,7 +315,7 @@ aspects:
     ai_basis: "Compact JSON and lazy units help, but first-load local assets are about 576 KB gzip before fonts and all hidden views render during init."
     user_basis: null
     desired_direction: ["Measure in-browser first, then lazy-load documents and render views on activation."]
-    evidence: ["gzip measurements", "app.js init renders five views", "app_data.js 1,676,108 raw bytes"]
+    evidence: ["gzip measurements", "app.js init renders five views", "post-containment app_data.js 1,594,154 raw bytes / 497,606 gzip-9"]
     next_actions: ["Add performance budget after correctness work."]
     risk_flags: []
     files_reviewed: [app_data.js, app.js, scripts/build_data_bundle.py]
@@ -326,20 +325,20 @@ aspects:
     category: presentation
     weight: 5
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 10
+    effective_score: 7
+    gap: 1
+    priority: 5
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Visual tokens and Chinese hall direction are coherent, but the dossier is invisible, completeness/count copy is wrong, and SVG social metadata is incomplete."
+    ai_basis: "Visual tokens and Chinese hall direction are coherent; counts, completion claims, and verification copy are corrected. The dossier remains invisible and social metadata still lacks a raster fallback/dimensions."
     user_basis: null
     desired_direction: ["Preserve the approved minimal direction while fixing visible correctness, hierarchy, and sharing metadata."]
     evidence: ["index.html", "app.css", "og-image.svg", "openDossierPanel hidden-state analysis"]
     next_actions: ["Functional hotfix before additional visual polish."]
-    risk_flags: ["Public presentation currently displays false scholarly status."]
+    risk_flags: ["Lineage details remain visually inaccessible until hidden-state behavior is fixed."]
     files_reviewed: [index.html, app.css, app.js, og-image.svg]
 
   - id: ux_usability
@@ -389,20 +388,20 @@ aspects:
     category: presentation
     weight: 3
     target: 8
-    ai_score: 3
+    ai_score: 6
     user_score: null
-    effective_score: 3
-    gap: 5
-    priority: 15
+    effective_score: 6
+    gap: 2
+    priority: 6
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "P0: 28 Congronglu records repeat generic source-looking commentary/verse from ingestion scripts without placeholder status. Platform and Biyanlu completion language also exceeds demonstrated coverage."
+    ai_basis: "The P0 is contained: all unreliable Congronglu data, locator claims, and generating scripts were removed after authoritative headings disproved the purportedly collated records. Completion and edition-verification wording are corrected; Biyanlu field review and quotation rights decisions remain."
     user_basis: null
     desired_direction: ["Contain uncollated source text and establish field-level provenance before any expansion."]
     evidence: ["data/corpus/congronglu_cases.json repeated strings", "scripts/ingest_* placeholders", "platform_sutra 680 content CJK"]
-    next_actions: ["Quarantine non-collated Congronglu records; relabel completion; obtain human editorial review."]
-    risk_flags: ["Public Classical Chinese includes undisclosed repeated placeholders attributed to historical commentators.", "All modern quotation rights decisions remain unresolved."]
+    next_actions: ["Keep Congronglu quarantined; complete Biyanlu field review and human quotation-rights decisions."]
+    risk_flags: ["Congronglu reintroduction would be unsafe without source-pinned TEI and field-level review.", "All modern quotation rights decisions remain unresolved."]
     files_reviewed: [data/corpus/congronglu_cases.json, data/corpus/platform_sutra.json, data/canonical_locators.json, data/translations/rights_manifest.json]
 
   - id: feature_completeness
@@ -431,19 +430,19 @@ aspects:
     category: operations
     weight: 4
     target: 8
-    ai_score: 4
+    ai_score: 5
     user_score: null
-    effective_score: 4
-    gap: 4
-    priority: 16
+    effective_score: 5
+    gap: 3
+    priority: 12
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Pages is built from main/docs with HTTPS and green automation, but P0/P1 content, rights, and core-function defects block a trustworthy release."
+    ai_basis: "Pages is built from main/docs with HTTPS and green automation. The P0 content is removed, but unresolved rights decisions and core P1 behavior still block a trustworthy release."
     user_basis: null
     desired_direction: ["Treat the public site as needing containment/hotfix before promotion."]
     evidence: ["GitHub Pages API", "gh run list", "active audit risk flags"]
-    next_actions: ["Contain P0, fix P1, then re-evaluate branch protection and release gate."]
+    next_actions: ["Fix remaining P1 behavior/rights, then re-evaluate branch protection and release gate."]
     risk_flags: ["Green deployment currently serves content and behavior that fail the project's own release standard."]
     files_reviewed: [docs/, .github/workflows/quality.yml, RESEARCH_RELEASE_PLAN.md]
 
@@ -452,20 +451,20 @@ aspects:
     category: operations
     weight: 5
     target: 8
-    ai_score: 4
+    ai_score: 7
     user_score: null
-    effective_score: 4
-    gap: 4
-    priority: 20
+    effective_score: 7
+    gap: 1
+    priority: 5
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "AGENTS.md is useful, but the durable handoff named an old fixed branch, old baseline/commits, and stale merge instructions; current docs also contradicted one another."
+    ai_basis: "AGENTS.md, scoreboard, live handoff, current audit, containment record, and operational guide are synchronized to this fixed branch and current blockers. Some broader historical/current documentation structure remains verbose."
     user_basis: null
     desired_direction: ["Keep the concise handoff session-neutral except for the current branch and active blockers."]
     evidence: [".scoreboard/agent-handoff.md pre-audit state", "response_summary.md pre-audit state", "HANDOFF.md"]
-    next_actions: ["Use the refreshed handoff and consolidate current-state docs."]
-    risk_flags: ["Stale handoff can direct a future agent to the wrong branch/state."]
+    next_actions: ["Continue using the refreshed handoff; consolidate remaining historical root audits when safe."]
+    risk_flags: []
     files_reviewed: [AGENTS.md, HANDOFF.md, .scoreboard/agent-handoff.md, response_summary.md]
 
   - id: task_hygiene
@@ -473,15 +472,15 @@ aspects:
     category: operations
     weight: 3
     target: 8
-    ai_score: 5
+    ai_score: 7
     user_score: null
-    effective_score: 5
-    gap: 3
-    priority: 9
+    effective_score: 7
+    gap: 1
+    priority: 3
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Session reports preserve history, but multiple root audits, stale live summaries, obsolete scripts, and broken links make current work difficult to distinguish from history."
+    ai_basis: "Live summary and handoff are current, broken links were fixed, obsolete ingestion scripts were removed, and a dated containment record preserves the decision. Multiple historical root audits still add noise."
     user_basis: null
     desired_direction: ["Keep one live summary, one current audit index, and immutable dated session reports."]
     evidence: ["root audit files", "sessions", "response_summary.md", "Markdown link scan"]
@@ -494,18 +493,18 @@ aspects:
     category: operations
     weight: 3
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 6
+    effective_score: 7
+    gap: 1
+    priority: 3
     status: needs_work
     confidence: high
     last_audited: 2026-08-10
-    ai_basis: "Metrics, logs, and validators provide strong raw evidence, but the truthfulness gate checks snippet presence rather than contradictions and prior audits missed visible P0/P1 defects."
+    ai_basis: "The audit found the P0, authoritative-source follow-up expanded containment, explicit completion status was added, and anti-placeholder/absence regressions now preserve the decision. Broader truthfulness remains snippet-based and visible P1 behavior still lacks browser gates."
     user_basis: null
     desired_direction: ["Add negative semantic fixtures and keep current conclusions separate from historical reports."]
-    evidence: ["validate_doc_truthfulness", "prior 8.2 scoreboard", "current P0/P1 findings"]
+    evidence: ["validate_doc_truthfulness", "prior 8.2 scoreboard", "contained P0 and remaining P1 findings"]
     next_actions: ["Re-audit after remediation with required browser and editorial evidence."]
     risk_flags: ["Passing audit gates currently do not establish content truth or visible correctness."]
     files_reviewed: [scripts/validate_data.py, scripts/smoke_test.mjs, SCOREBOARD.md, sessions/]
