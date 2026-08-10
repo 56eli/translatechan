@@ -173,9 +173,10 @@ const createdElements = [];
 const documentHandlers = {};
 let tabStubs = null;
 globalThis.window = globalThis;
+globalThis.window._handlers = {};
 globalThis.location = { hash: '', href: 'http://localhost/index.html', protocol: 'http:', host: 'localhost' };
-globalThis.addEventListener = () => {};
-globalThis.scrollTo = () => {};
+globalThis.addEventListener = (ev, fn) => { (globalThis.window._handlers[ev] ||= []).push(fn); };
+globalThis.scrollTo = (opts) => { globalThis.window._lastScrollTo = opts; };
 globalThis.print = () => {};
 
 const makeTabStub = (view) => {
@@ -742,6 +743,23 @@ poisonMaster.name_zh = saved.name_zh;
 poisonGongan.theme = saved.theme;
 poisonTerm.term = saved.term;
 poisonCase.title_zh = saved.title;
+
+// 4z. switchViewRaw scroll-restore on back/forward (audit 2026-08-09 / standing recommendation):
+// switching view saves previous scrollY; calling switchViewRaw(view, false) restores it.
+globalThis.window.scrollY = 480;
+navTabStubs[1].click(); // matrix
+if (!globalThis.window._lastScrollTo || globalThis.window._lastScrollTo.top !== 0) {
+  failures++; console.log('❌ active view switch did not scroll to top 0');
+}
+// simulate browser back navigation via hashchange (scroll=false)
+globalThis.location.hash = '#/reader/wumenguan';
+(globalThis.window._handlers['hashchange'] || []).forEach(fn => fn());
+await new Promise(r => setTimeout(r, 15));
+if (!globalThis.window._lastScrollTo || globalThis.window._lastScrollTo.top !== 480) {
+  failures++; console.log(`❌ back navigation did not restore previous scroll position (got ${globalThis.window._lastScrollTo ? globalThis.window._lastScrollTo.top : 'null'})`);
+}
+globalThis.window.scrollY = 0;
+
 // 5. Content sanity: reset reader to wumenguan, then assert key content present
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const readerHtml = ids['reader-content-target']._innerHTML;

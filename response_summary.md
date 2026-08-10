@@ -1,27 +1,33 @@
-# Live Session Summary — 2026-08-09, session `arena/019fe8a2-translatechan`
+# Live Session Summary — 2026-08-10, session `arena/019fea62-translatechan`
 
 > Working summary only (overwritten per session per AUDIT.md §5); not canonical documentation.
+> Full historical audit report archived at [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md).
 
-## Status: ✅ Audit + "Fake Chan Factory" rebrand + Robo profiles + real-fakeness score + settings menu + Suzuki-1935 PD ingestion (first batch)
+## Status: ✅ Comprehensive Architectural Audit + Shipped `switchViewRaw` Scroll Restoration + Accessibility ARIA Fixes + View Routing Hardening
 
-All gates green on the final tree: `validate_data.py`
-(`corpus=36 | slots=1023 | verified=139 | matrix=21 | locators=150/150`),
-`smoke_test.mjs` (36 texts, 0 crashes), root↔docs byte-identical.
+All quality gates pass on the final tree: `validate_data.py` (`corpus=36 | slots=1024 | verified=143 | matrix=21 | locators=150/150`), `smoke_test.mjs` (36 texts exercised, 0 crashes, 27 test sections including `4z`), `py_compile scripts/*.py`, and root↔`/docs` byte-identical mirror.
 
-### Deliverables this session (all committed + pushed to `arena/019fe8a2-translatechan`)
-1. **Independent full audit** → `sessions/AUDIT_RESPONSE_2026-08-09_019fe8a2.md` (no P0/P1/P2; inconsistencies + improvement potential).
-2. **"Fake Chan Factory" makeover** — page rebrand (假禪工廠, 🤖), Robo-translator names for AI reconstructions (verified keeps real names), disclosure popovers slimmed (7→2 rows); repo docs rebranded to match; all guarded number snippets preserved.
-3. **Evidence-grounded Robo profiles** → `data/translations/translator_profiles.json` (21 profiles; 13 in_corpus_verified, 7 documented_external, 1 literal-machine). Cast renames: Robozuki, Roblofeld.
-4. **Real-fakeness score** — hover/focus/tap any Robo name for an evidence-backed tier (fake ⏳ → fairly → very → truly → certifiably fake; verified rows show a green "real" affordance). Profiles bundled; dedicated popover.
-5. **Display settings menu** — ⚙️ gear in the header with a persisted Pinyin ↔ Rōmaji master-name preference (Zhaozhou↔Jōshū, etc.); `name_romaji` added to all 34 masters; applied across lineage cards/graph/dossier/teacher links.
-6. **Suzuki 1935 PD ingestion (batch 1)** — added the `suzuki-mzb-1935` rights entry; promoted the Xinxin Ming stanza-1 Suzuki slot to **verified** with his real 1935 text (caught + fixed a mis-attribution: Suzuki's wording had been sitting as a Blyth reconstruction); promoted the Suzuki profile to `in_corpus_verified` → Robozuki drops the hourglass. Doc numbers refreshed (verified 138→139, recorded 135→136).
+### Deliverables & Remediations This Session (committed + pushed to `arena/019fea62-translatechan`)
+1. **Full Independent Project Audit** → Documented in [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md) and linked in [`AUDIT.md`](./AUDIT.md). Confirmed zero P0/P1/P2 defects across data, validation, runtime, accessibility, and documentation truthfulness.
+2. **SPA History Scroll Restoration (`app.js`)** — Shipped the final remaining editorial candidate from `AUDIT.md`:
+   - Updated `switchViewRaw(viewName, scroll = true)` with an optional boolean parameter.
+   - Recorded per-view scroll position in `state.viewScroll[oldView] = window.scrollY` when leaving any view.
+   - When navigating Back/Forward via browser history (`applyHash`), `switchViewRaw(view, false)` restores the previously saved scroll position for that view instead of forcing a reset to `top: 0`.
+   - Added regression test **`4z. switchViewRaw scroll-restore on back/forward`** to `scripts/smoke_test.mjs`.
+3. **External View-Routing Hardening (`app.js`)** — Enhanced `window.TranslateChan.openCase` and `window.TranslateChan.openDoc` to check `if (state.currentView !== 'reader') switchViewRaw('reader', false);`. Invoking a case or document jump from a non-Reader view (`matrix`, `gongan`, `lineage`, `lexicon`) now reliably activates the Reader DOM view.
+4. **WCAG ARIA Accessibility Polish (`index.html`)** — Added explicit accessible names to interactive controls lacking them:
+   - Added `aria-label="Filter lexicon by category"` to `#lexicon-cat-filter`.
+   - Added `aria-label="Close dossier"` to `#dossier-close-btn`.
+5. **Documentation & Quality Gate Sync** — Synchronized `AUDIT.md` (date, current verdict, standing recommendations, session index) while preserving all 25+ guarded number strings verified by `validate_data.py`. Re-bundled `app_data.js` and synced `/docs` mirror.
 
-### Integrity notes
-- Internal identifiers unchanged for continuity: `translatechan` repo/URL, `window.TranslateChan` API, `translatechan_*` storage keys, `TRANSLATECHAN_DATA` global.
-- The 6 verified-quotation rows in Wumenguan Case 1 (and all other verified text) remain real public-domain text, untouched. Verified = real; Robo = fake (badged + disclosed).
+### Verified Project Metrics & Scope
+- `corpus`: 36 documents (`wumenguan` 48/48 complete; `biyanlu_cases` 100/100 complete; `linji_yulu` 67-section pilot; 34 excerpt seeds); 101,198 content CJK / 106,172 all-string CJK.
+- `translations`: 1,024 corpus slots; 143 verified quotations; 21 matrix registers.
+- `locators`: 150/150 case-level locators; 33 document-level seeds.
+- `lineage`: 34 masters (30 seed + 4 frontier); 12 controlled `school_key` groups; 30 edge records + 4 frontiers.
+- `lexicon` & `gongan`: 31 glossary terms; 24 Gong'an index entries across 7 controlled theme groups.
 
-### Open next
-- **Suzuki PD ingestion, batches 2+**: 5 more aligned passages in the 1935 Manual remain — Bodhidharma's *Twofold Entrance* (bodhidharma_erru), Platform Sutra verses (platform_sutra), Yoka's *Song of Enlightenment* (zhengdao_ge), Huangbo's sermon (huangbo_chuanxin), Gensha's *Three Invalids* (biyanlu). Each becomes a verified Suzuki slot and strengthens the Robozuki evidence base.
-- **Evidence-pending Robos**: Red Pine (204 recon slots) and Cleary (221) still have no in-corpus verified sample (modern copyrighted works) — stay "fake ⏳" unless a cited sample is added.
-- **Settings axis 2**: name FORM (epithet "Huangbo" vs personal "Xiyun") and/or romanizing the translator Robo names.
-- **Roll the evidence-backed Robo voices** across Wumenguan Cases 2–48; **inline fakeness badge** (not just hover); audit quick-wins (stale comments, bundle compaction, renderDialogueBlock dedup, inline-style extraction).
+### Next Directions
+- **Content Phase 2 (Linji Yulu & Congronglu):** Continue CBETA collation beyond the 67-section Linji Yulu pilot to complete its remaining divisions, or begin the 100-case Congronglu ingestion.
+- **Editorial Traceability:** Migrate the 33 document-level seed locators to unit/page-line anchors via `data/editorial/traceability_queue.json`, and resolve the 5 pending verified-source references.
+- **Owner Operations:** Enable GitHub branch protection rulesets on `main` requiring the green `Quality` workflow check.

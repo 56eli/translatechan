@@ -85,6 +85,7 @@
     selectedLexiconCategory: 'all',
     gonganThemeFilter: null,
     caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
+    viewScroll: {}, // per-view scroll position for history restoration
   };
 
   // DOM Elements
@@ -161,7 +162,7 @@
     renderGonganIndex();
     renderLexicon();
     setActiveModeButtons();
-    switchViewRaw(state.currentView); // sync nav/section classes with the initial hash
+    switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
   }
 
   // Reader mode switching (shared by sidebar + mobile bar, persisted)
@@ -797,14 +798,19 @@
     return `#/${view}${(view === 'reader' && corpusKey) ? '/' + corpusKey : ''}`;
   }
   function switchView(viewName) {
-    switchViewRaw(viewName);
+    switchViewRaw(viewName, true);
     const target = viewHash(viewName, state.currentCorpusKey);
     if (location.hash !== target) {
       try { location.hash = target; } catch (e) { /* file:// edge cases */ }
     }
   }
-  function switchViewRaw(viewName) {
+  function switchViewRaw(viewName, scroll = true) {
     if (!VALID_VIEWS.includes(viewName)) return;
+    const oldView = state.currentView;
+    if (oldView && oldView !== viewName) {
+      state.viewScroll = state.viewScroll || {};
+      state.viewScroll[oldView] = window.scrollY || 0;
+    }
     state.currentView = viewName;
     elements.navTabs.forEach(tab => {
       const on = tab.getAttribute('data-view') === viewName;
@@ -821,14 +827,19 @@
         section.classList.remove('active');
       }
     });
-    window.scrollTo({ top: 0, behavior: motionBehavior() });
+    if (scroll) {
+      window.scrollTo({ top: 0, behavior: motionBehavior() });
+    } else if (state.viewScroll && typeof state.viewScroll[viewName] === 'number') {
+      const targetY = state.viewScroll[viewName];
+      setTimeout(() => window.scrollTo({ top: targetY, behavior: motionBehavior() }), 0);
+    }
   }
 
   // Apply the URL hash to app state (view + reader corpus); no re-render loop.
   function applyHash() {
     const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
     const view = m && VALID_VIEWS.includes(m[1]) ? m[1] : 'reader';
-    if (view !== state.currentView) switchViewRaw(view);
+    if (view !== state.currentView) switchViewRaw(view, false);
     if (view === 'reader') {
       const key = m && m[2] ? m[2] : state.currentCorpusKey;
       if (state.data.corpus && state.data.corpus[key] && key !== state.currentCorpusKey) {
@@ -2723,6 +2734,7 @@
   };
   window.TranslateChan.openCase = function(corpusKey, caseNum) {
     if (!setCurrentCorpusKey(corpusKey)) return;
+    if (state.currentView !== 'reader') switchViewRaw('reader', false);
     state.searchQuery = '';
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();
@@ -2733,6 +2745,7 @@
   };
   window.TranslateChan.openDoc = function(corpusKey) {
     if (!setCurrentCorpusKey(corpusKey)) return;
+    if (state.currentView !== 'reader') switchViewRaw('reader', false);
     state.searchQuery = '';
     if (elements.globalSearch) elements.globalSearch.value = '';
     renderCorpusList();
