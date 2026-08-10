@@ -5,9 +5,9 @@
 
 ## Current result
 
-**Overall effective score: 7.0/10. `repo_ready = fail`.**
+**Overall effective score: 6.8/10. `repo_ready = fail`.**
 
-The audit reset an unsupported 8.2 score to 5.8. User-selected Congronglu containment raised the evidence-based score to 6.5. The subsequent P1 functional hotfix repaired Lineage dossier visibility, six empty Platform chapter bodies, Wumenguan epilogue order, complete Print/PDF, and collection-specific commentary labels with smoke and Playwright regressions, raising the score to 7.0.
+The audit reset an unsupported 8.2 score to 5.8; containment and functional fixes raised engineering health to 7.0. The owner then explicitly rejected the prior visual-completion claim. A fresh design-gap audit found that the site still uses generic dashboard composition despite the Chinese Chan hall vision, lowering the current evidence-based score to 6.8.
 
 No explicit user score has been supplied. Every `user_score` remains `null`.
 
@@ -15,12 +15,12 @@ No explicit user score has been supplied. Every `user_score` remains `null`.
 
 | Priority | Aspect | Score | Gap × weight | Why |
 |---:|---|---:|---:|---|
-| 1 | Error handling / logging | 5 | 9 | No fatal-load UI; malformed storage path remains |
-| 2 | Deployment readiness | 6 | 8 | Rights and operations gates still block release |
-| 3 | Accessibility | 6 | 6 | Contrast and ARIA state/tooltip/radio semantics |
-| 4 | Content quality | 6 | 6 | Rights decisions and field-level source review |
-| 5 | CI/CD | 6 | 4 | Missing paths, deprecated action runtimes, no required browser job |
-| 6 | Security / privacy | 7 | 5 | CSP order, inline styles, Google Fonts, reporting route |
+| 1 | GitHub Pages presentation | 5 | 15 | Accepted Chinese Chan hall/literature-first vision is not implemented |
+| 2 | Error handling / logging | 5 | 9 | No fatal-load UI; malformed storage path remains |
+| 3 | UX / usability | 6 | 8 | First source text and literary flow remain buried under dashboard chrome |
+| 4 | Deployment readiness | 6 | 8 | Rights and operations gates still block release |
+| 5 | Accessibility | 6 | 6 | Contrast and ARIA state/tooltip/radio semantics |
+| 6 | Content quality | 6 | 6 | Rights decisions and field-level source review |
 
 ## Score table
 
@@ -39,8 +39,8 @@ No explicit user score has been supplied. Every `user_score` remains `null`.
 | CI/CD | 4 | 7 | 6 | — | 6 | blocked_manual_workflow_edit |
 | Security / privacy | 5 | 8 | 7 | — | 7 | needs_work |
 | Performance | 3 | 8 | 7 | — | 7 | needs_work |
-| GitHub Pages presentation | 5 | 8 | 8 | — | 8 | healthy |
-| UX / usability | 4 | 8 | 7 | — | 7 | needs_work |
+| GitHub Pages presentation | 5 | 8 | 5 | — | 5 | needs_work |
+| UX / usability | 4 | 8 | 6 | — | 6 | needs_work |
 | Accessibility | 3 | 8 | 6 | — | 6 | needs_work |
 | Content quality | 3 | 8 | 6 | — | 6 | needs_work |
 | Feature completeness | 4 | 8 | 7 | — | 7 | needs_work |
@@ -68,20 +68,22 @@ No explicit user score has been supplied. Every `user_score` remains `null`.
 
 ## Active release blockers
 
-1. **Rights governance:** all 14 rights-manifest sources still require their documented human rights/jurisdiction decision.
-2. **Source depth:** Biyanlu, Linji, Platform, and other non-case records need field-level coverage and broader human review.
-3. **Responsive/accessibility:** sticky geometry, mobile Reader controls on other views, contrast, and ARIA state relationships remain.
-4. **Error handling:** missing bundle/fatal state and malformed persisted-state hardening remain.
-5. **Operations:** generated deploy paths and action majors need owner-approved workflow edits; branch protection needs administrator verification; browser execution is not required in CI.
+1. **Design vision:** current page is still a crowded rounded-card/emoji dashboard; execute the linked shell/first-fold/five-room redesign and require screenshot-based owner approval.
+2. **Rights governance:** all 14 rights-manifest sources still require their documented human rights/jurisdiction decision.
+3. **Source depth:** Biyanlu, Linji, Platform, and other non-case records need field-level coverage and broader human review.
+4. **Responsive/accessibility:** sticky geometry, mobile Reader controls on other views, contrast, and ARIA state relationships remain.
+5. **Error handling:** missing bundle/fatal state and malformed persisted-state hardening remain.
+6. **Operations:** generated deploy paths and action majors need owner-approved workflow edits; branch protection needs administrator verification; browser execution is not required in CI.
 
 ## Required gate failures
 
-The gate requires security/privacy ≥8, tests ≥7, README ≥7, CI/CD ≥7, agent readiness ≥8, and overall ≥8. Tests and README now meet 7. Current failures are security 7, CI 6, agent readiness 7, and overall 7.0. Unresolved rights decisions independently block release readiness.
+The gate requires security/privacy ≥8, tests ≥7, README ≥7, CI/CD ≥7, agent readiness ≥8, and overall ≥8. Tests and README now meet 7. Current failures are security 7, CI 6, agent readiness 7, and overall 6.8. Unresolved rights decisions independently block release readiness.
 
 ## Recommended next order
 
-1. Finish responsive/accessibility and error-state hardening.
-2. Complete field-level source validation and quotation rights decisions.
-3. Apply owner-approved CI/action/branch-protection changes and make browser tests non-skippable in CI.
-4. Re-audit release readiness.
-5. Re-ingest Congronglu only under the source-pinned containment gate.
+1. Execute `sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`: shell/first fold, Reader literature hierarchy, visual-system consolidation, then four secondary rooms.
+2. Require current light/dark mobile/desktop screenshots and explicit owner approval before declaring the vision fulfilled.
+3. Complete responsive/accessibility and error-state hardening as part of the redesign.
+4. Complete field-level source validation and quotation rights decisions.
+5. Apply owner-approved CI/action/branch-protection changes and make browser tests non-skippable in CI.
+6. Re-audit release readiness; re-ingest Congronglu only under the containment gate.

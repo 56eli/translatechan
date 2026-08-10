@@ -1,7 +1,8 @@
 # 🏯 Fake Chan Factory — Website Vision (Final — Chinese Chan Hall, Minimal)
 
 > **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10, updated after owner feedback (Chinese Chan focus, minimal, no gimmicks).
-> **Status:** Final direction — Chinese Chan hall, dark walnut, literature-first, Robo joke as practical joke once.
+> **Status:** Accepted direction, **not yet fulfilled**. The earlier Phase V1 shipped a masthead/metadata slice only; it did not redesign the shell, first fold, Reader hierarchy, responsive composition, or four secondary rooms.
+> **Current gap plan:** [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) is the implementation authority for fulfilling this vision.
 > **Related:** `vision.md` = scholarly/architectural blueprint. This doc = public-facing experience blueprint.
 > **Feedback incorporated:** Audience = me and friends introduced to niche Chan content mixed with my humor. First 30s = Chan hall/literature/Zen feeling with robo joke theme. After that = all serious literature composition, readability, transparent flow, no choppiness, no overflow, no distraction, no gimmicks, sophisticated but minimal. Lean into wood dark walnut, drop vermillion keep ✓, humor disappears except Robo names. No Japanese aesthetics — Chinese temple wood + Chinese calligraphy. No footer, no conveyor, no CTA (deferred per feedback).
 
@@ -26,7 +27,7 @@ Previous draft said Kyoto workshop + factory conveyor — replaced per feedback:
 
 **What we removed vs draft:** No conveyor belt animation (you said defer, no gimmicks), no CTA buttons "Open Wumenguan" / "See Blueprint" (you said you don't know what hero CTA means, defer), no factory press floor metaphor that felt Japanese/industrial. Now hall gate + reading hall immediately.
 
-Today first paint after V1 implementation: hero 1.25rem padding, 4px walnut bottom beam, dark walnut lean, short, dismissable, counts accessible. Feels calm, not work.
+Current implementation note: the hero has the intended title/palette ingredients, but the first source case is still separated from it by application chrome, metadata, case navigation, and front matter. Calmness/appeal has not been validated by screenshots or owner approval.
 
 ---
 
@@ -77,7 +78,7 @@ We keep tab labels English (Bilingual Reader, Comparative Matrix, Lineage Tree, 
 
 ## 4. Concrete redesign slices — final, no gimmicks
 
-### 4.1 Hero — Chan hall gate (S) ✅ SHIPPED commit b0aeb4d
+### 4.1 Hero — Chan hall gate ingredients shipped; experience incomplete
 
 **Implementation this pass:**
 - HTML: `.hero-brand-row` with `.hero-zh` 假禪工廠 + `.hero-en` FAKE CHAN FACTORY + `.hero-icon` 🤖 (practical joke once). Quote main `「平常心是道。」— Robo monks at work, practical joke.` Sub: CBETA real sources, Robo marked 🤖, verified ✅, serious after joke.
@@ -90,7 +91,7 @@ We keep tab labels English (Bilingual Reader, Comparative Matrix, Lineage Tree, 
 **Today:** sidebar 260px list + content panel + sticky toolbar (z 50 now > strip 40 after fix) + case chips sticky 4.4rem + collapsible cards.
 
 **Vision final, no gimmicks:**
-- Sidebar grouping: Complete Scrolls (4: wumenguan 48/48, biyanlu 100/100, xinxin_ming 37/37, platform_sutra 10/10) with gold left stripe sticky top, Excerpt Seeds (32) muted below. Already have ✓ / N/M marks, grouping makes hall shelf clear.
+- Sidebar grouping must follow editorial truth: Complete selected witnesses (2: Wumenguan, Xinxin Ming), Partial witnesses (2: Biyanlu, Linji), Excerpt seeds (31). Use compact typographic shelf rows, not more cards.
 - Reader header breadcrumb `📚 Reader › T2005 Wumenguan` keep — helps orientation, no gimmick.
 - Case card: keep `background var(--bg-card-subtle) border 1px border-color radius-md`, hover `border-color border-focus shadow-sm` — subtle lift okay, not gimmick. Remove dotted glossary underline? Keep `box-shadow inset 0 -0.35em rgba(158,114,50,0.18)` brushed highlight is minimal, not gimmick — evaluate.
 - Mobile bottom bar already fixed 44px min + env(safe-area-inset-bottom) in this pass.
@@ -136,7 +137,7 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 
 ## 6. Implementation plan — final order (V1 done)
 
-### Phase V1 ✅ DONE commit b0aeb4d (2026-08-10)
+### Phase V1 masthead slice ✅ shipped (not vision completion)
 
 1. OG desc channels→robolates, add og:image + twitter:image summary_large_image
 2. Hero redesign Chinese Chan hall gate — dark walnut 4px bottom, big Kai, joke once, counts accessible, no conveyor, no CTA, shorter
@@ -145,7 +146,7 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 5. Build: copy og-image.svg to docs/, validator relaxed hero chip check
 6. Gates: post-containment gates: corpus=35 verified=177 locators=148/148; build/smoke remain required
 
-### Phase V2 Reader Polish (next, 1 session, no gimmicks) — optional
+### Earlier V2 Reader-polish list — superseded by the gap plan
 
 - Sidebar grouping Complete (4) vs Excerpt (32) sticky header for complete group
 - Case card hover lift subtle (if not gimmick) + glossary brushed highlight evaluation
@@ -153,13 +154,13 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 - Reader header seal ✓ checkmark for complete (small, not red seal)
 - No conveyor, no CTA, no footer re-add unless you want minimal 1-line colophon
 
-### Phase V3 Matrix + Lineage minimal (optional)
+### Earlier V3 list — superseded by the gap plan
 
 - Matrix card subtle ruler removal (keep minimal)
 - Lineage container blueprint grid removal (keep rice paper, per no gimmick)
 - Dossier stays card + gold left stripe — good
 
-### Phase V4 Motion — deferred (you said no gimmicks)
+### Motion remains deferred
 
 - No seal stamp animation unless requested — respect minimal
 
@@ -167,11 +168,11 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 
 ## 7. Metrics for "more appealing" (final)
 
-- Qualitative: screenshot shareability — hero with big 假禪工廠 + walnut beam wants screenshot? Yes, minimal Chinese hall.
-- Quantitative: Time to first meaningful print <1.5s on 4G — deferred scripts + preload app_data.js helps.
-- A11y: Lighthouse a11y ≥95 — hero chips accessible now, skip-link present, ARIA tabs roving, dossier dialog focus-managed.
+- Qualitative target: owner approves current light/dark desktop/mobile screenshots; no self-reported “feels like” completion.
+- Quantitative target: first source Chinese is visible in the first Reader viewport; loading/performance is measured in a browser, not inferred from `defer`.
+- Accessibility target: automated contrast/Lighthouse plus keyboard and screen-reader review pass; current contrast/ARIA gaps remain.
 - Bundle budget: keep raw data bundle <2MB. Post-containment bundle is 1,594,154 B (~498 KB gzip-9) plus the 2.9K OG image.
-- No regression: smoke 50+ checks green including new 4gg hero dismissable + 4ff/4gg/4hh/4ii/4jj/4kk L1 guard + 4ee dossier.
+- No-regression target: Playwright screenshot/overflow/sticky checks run non-skippably in CI when workflow changes are approved.
 
 ---
 
@@ -191,4 +192,4 @@ Created `og-image.svg` 2.9KB: rice paper #faf8f5, walnut top/bottom beams 14px/1
 
 ---
 
-> Final vision rewritten 2026-08-10, session `arena/019feaf5-translatechan`, after owner feedback loop (dojo → Chinese Chan, wood lean dark walnut, no Japanese, no footer, no conveyor, no CTA, humor only Robo). Phase V1 hero shipped b0aeb4d, audit update 8bfbe81. No new functions added in V1, only appeal. Next: Reader V2 grouping if you want.
+> Direction established in session `019feaf5`; implementation status corrected in session `019febb1` after explicit owner feedback that the live page does not fulfill it. Use the linked gap plan and screenshot-based owner approval before declaring completion.

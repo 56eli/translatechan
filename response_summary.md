@@ -1,8 +1,8 @@
 # Live Session Summary — 2026-08-10, session `arena/019febb1-translatechan`
 
-> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable evidence: [audit](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [containment](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md), [functional hotfix](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md).
+> OVERWRITTEN EACH SESSION — DO NOT TRUST AS CANONICAL. Durable evidence: [audit](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [containment](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md), [functional hotfix](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md), [design gap plan](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md).
 
-## Status: Audit + content containment + P1 public-behavior hotfix complete
+## Status: Audit + containment + functional hotfix + owner-directed design plan complete
 
 ### Content trust
 
@@ -40,12 +40,16 @@ Playwright                              SKIP; Chromium unavailable
 Markdown links + diff whitespace       PASS
 ```
 
+### Design conclusion
+
+The owner correctly rejected the prior “website now feels like a Chinese Chan hall” completion sentence. The implementation has one themed hero over a generic emoji/pill/rounded-card dashboard; the new plan specifies a walnut shell, first-fold source visibility, Reader literature hierarchy, restrained visual system, all five room compositions, and screenshot-based owner approval.
+
 ### Current score/gate
 
-- Score progression: prior unsupported 8.2 → deep-audit 5.8 → containment 6.5 → functional hotfix **7.0/10**.
-- `repo_ready` remains **fail** on rights, source-depth, responsive/accessibility, error-state, and operations blockers.
+- Score progression: unsupported 8.2 → deep-audit 5.8 → containment 6.5 → functional hotfix 7.0 → design re-audit **6.8/10**.
+- `repo_ready` remains **fail** on the visual redesign, rights, source depth, responsive/accessibility, error-state, and operations blockers.
 - All user scores remain `null`.
 
 ## One-sentence summary
 
-Content integrity is contained and all five audited public-behavior defects are fixed with regressions, leaving rights, source-depth, responsive/accessibility, error-state, and operations work before release.
+Content integrity and audited behavior are fixed, but the accepted Chinese Chan hall vision requires a full shell/hierarchy/five-room redesign with screenshot-based owner approval.

@@ -70,3 +70,5 @@
 | 2026-08-10 | feature_completeness | 6 | 7 | null | null | Arena agent 019febb1 functional | Existing five-view scope now works through audited dossier, chapter, end-matter, print, and labeling paths. |
 | 2026-08-10 | deployment_readiness | 5 | 6 | null | null | Arena agent 019febb1 functional | P0 and audited public-behavior P1s fixed; rights and operations gates still block release. |
 | 2026-08-10 | auditability | 7 | 8 | null | null | Arena agent 019febb1 functional | Every functional finding has smoke and/or Playwright regression evidence. |
+| 2026-08-10 | github_pages_presentation | 8 | 5 | null | null | Arena agent 019febb1 design gap | Owner explicitly rejected the prior completion claim; code audit found only a hero accent over a generic emoji/pill/rounded-card dashboard, with no fulfilled hall shell or five-room composition. |
+| 2026-08-10 | ux_usability | 7 | 6 | null | null | Arena agent 019febb1 design gap | First source text is buried behind stacked chrome/front matter; breakpoint, sticky, mobile-control, and information-density gaps contradict transparent literary flow. |

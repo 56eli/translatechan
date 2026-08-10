@@ -10,9 +10,10 @@ This session completed three steps:
 
 1. [full audit](../sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md);
 2. [user-selected Congronglu containment](../sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md);
-3. [user-selected P1 public-behavior hotfix](../sessions/FUNCTIONAL_HOTFIX_2026-08-10.md).
+3. [user-selected P1 public-behavior hotfix](../sessions/FUNCTIONAL_HOTFIX_2026-08-10.md);
+4. [owner-directed web vision gap analysis and redesign plan](../sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md).
 
-Current weighted score: **7.0/10**. `repo_ready = fail` because rights and operations gates remain. All `user_score` fields remain `null`.
+Current weighted score: **6.8/10** after owner-directed design re-audit. `repo_ready = fail` because rights and operations gates remain. All `user_score` fields remain `null`.
 
 ## Completed containment
 
@@ -41,19 +42,20 @@ bundle=1,594,154 bytes raw | approximately 498 KB gzip-9
 
 ## Remaining blockers
 
-1. **Rights governance:** all 14 rights sources remain review/jurisdiction-pending.
-2. **Field-level source depth:** Biyanlu, Linji, Platform, and other non-case records need broader per-field provenance/review.
-3. **Responsive/accessibility:** sticky/header geometry, 1100/960 breakpoint mismatch, mobile Reader controls on other views, contrast, and ARIA state relationships.
-4. **Error handling:** no visible fatal-load state; malformed persisted state is not fully shape-validated.
-5. **Operations:** four mirrored paths absent from CI diff; action majors target deprecated Node 20 runtimes; branch protection unreadable (403); browser suite still exits zero when Chromium is absent and is not required in CI.
+1. **Design vision:** the site remains a generic rounded-card/emoji dashboard around one themed hero. Execute [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](../sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) and require screenshot-based owner approval.
+2. **Rights governance:** all 14 rights sources remain review/jurisdiction-pending.
+3. **Field-level source depth:** Biyanlu, Linji, Platform, and other non-case records need broader per-field provenance/review.
+4. **Responsive/accessibility:** sticky/header geometry, 1100/960 breakpoint mismatch, mobile Reader controls on other views, contrast, and ARIA state relationships.
+5. **Error handling:** no visible fatal-load state; malformed persisted state is not fully shape-validated.
+6. **Operations:** four mirrored paths absent from CI diff; action majors target deprecated Node 20 runtimes; branch protection unreadable (403); browser suite still exits zero when Chromium is absent and is not required in CI.
 
 ## Recommended next sequence
 
-1. Responsive/accessibility and error-state hardening.
-2. Field-level source validation and human quotation-rights decisions.
-3. Owner-approved workflow/action/branch-protection changes; non-skippable browser CI.
-4. Re-audit release readiness.
-5. Re-ingest Congronglu only under the source-pinned containment gate.
+1. Execute the design gap plan: walnut shell/first fold, Reader literature hierarchy, visual-system consolidation, then all four secondary rooms.
+2. Require current light/dark mobile/desktop screenshots and explicit owner approval before declaring visual completion.
+3. Build responsive/accessibility and error-state hardening into that redesign.
+4. Complete field-level source validation and human quotation-rights decisions.
+5. Apply owner-approved operations changes and re-audit; re-ingest Congronglu only under its containment gate.
 
 ## Stable contracts
 

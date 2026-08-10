@@ -4,7 +4,7 @@
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
 > **Latest audit:** [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
-> **Current gate:** `repo_ready = fail` (7.0/10; content/public behavior fixed, rights/operations remain)
+> **Current gate:** `repo_ready = fail` (6.8/10; content/public behavior fixed, accepted visual vision still unfulfilled)
 
 ## 1. Start here
 
@@ -64,6 +64,7 @@ The entire Congronglu seed, its locator claims, and four obsolete ingestion snap
 
 ### Remaining P1/P2 blockers
 
+- Design: execute [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md); the current page remains a generic dashboard around one themed hero.
 - Rights: all 14 sources remain pending; UI wording is corrected, but human decisions are not complete.
 - Field-level source coverage and human review remain incomplete beyond the new document-level completion statuses.
 - Responsive/accessibility, error-state, and operations work remains.
@@ -196,4 +197,4 @@ Never append a full session narrative to this file. Link the dated report instea
 
 ## 10. Current session
 
-Session `arena/019febb1-translatechan` completed the full audit, user-selected Phase 0 containment, and user-selected P1 public-behavior hotfix. The next recommended task is responsive/accessibility and error-state hardening, followed by field-level source and rights review.
+Session `arena/019febb1-translatechan` completed the full audit, containment, public-behavior hotfix, and owner-directed design gap plan. Next: execute the redesign from shell/first fold through all five rooms, with responsive/accessibility built in and screenshot-based owner approval.
