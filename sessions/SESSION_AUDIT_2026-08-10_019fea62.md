@@ -52,6 +52,13 @@ During our deep-dive architectural audit, we examined the five primary layers of
   2. The Dossier close button (`#dossier-close-btn`).
 - **Remediation:** Added `aria-label="Filter lexicon by category"` to `#lexicon-cat-filter` and `aria-label="Close dossier"` to `#dossier-close-btn` in `index.html`.
 
+### D. Display-Layer Rebrand & Terminology Refinement (`app.js`, `index.html`, `data/`) — *Shipped*
+- **Evidence / Finding:** User feedback indicated that `Red Pine (Bill Porter)` bracketed naming was redundant, `"Disclosure"` trigger buttons appearing after every single translator note added UI clutter, and all occurrences of `"channeling"` were undesirable in user-facing copy.
+- **Remediation:**
+  1. Simplified translator naming from `Red Pine (Bill Porter)` to `Red Pine` across `app.js`, `data/translations/comparative_matrix.json`, and `data/translations/translator_profiles.json`.
+  2. Removed the trailing `ⓘ Disclosure` trigger button from Robo translator attribution lines in `app.js`.
+  3. Replaced every mention of `"channeling"` / `"channelings"` across `app.js`, `index.html`, `README.md`, `vision.md`, and data profiles with `"style emulation"` / `"style emulations"` (guarded by updated smoke test `4n`/`4z`).
+
 ---
 
 ## 3. Standing Recommendations & Next Phase Directions

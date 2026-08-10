@@ -3,7 +3,7 @@
 > Working summary only (overwritten per session per AUDIT.md §5); not canonical documentation.
 > Full historical audit report archived at [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md).
 
-## Status: ✅ Comprehensive Architectural Audit + Shipped `switchViewRaw` Scroll Restoration + Accessibility ARIA Fixes + View Routing Hardening
+## Status: ✅ Comprehensive Architectural Audit + Shipped `switchViewRaw` Scroll Restoration + Accessibility ARIA Fixes + View Routing Hardening + Display-Layer Copy Polish
 
 All quality gates pass on the final tree: `validate_data.py` (`corpus=36 | slots=1024 | verified=143 | matrix=21 | locators=150/150`), `smoke_test.mjs` (36 texts exercised, 0 crashes, 27 test sections including `4z`), `py_compile scripts/*.py`, and root↔`/docs` byte-identical mirror.
 
@@ -18,7 +18,11 @@ All quality gates pass on the final tree: `validate_data.py` (`corpus=36 | slots
 4. **WCAG ARIA Accessibility Polish (`index.html`)** — Added explicit accessible names to interactive controls lacking them:
    - Added `aria-label="Filter lexicon by category"` to `#lexicon-cat-filter`.
    - Added `aria-label="Close dossier"` to `#dossier-close-btn`.
-5. **Documentation & Quality Gate Sync** — Synchronized `AUDIT.md` (date, current verdict, standing recommendations, session index) while preserving all 25+ guarded number strings verified by `validate_data.py`. Re-bundled `app_data.js` and synced `/docs` mirror.
+5. **Display-Layer Rebrand & Copy Refinement (`app.js`, `index.html`, `README.md`, `vision.md`, `data/`)** — Refined display copy per feedback:
+   - Replaced `Red Pine (Bill Porter)` with `Red Pine` across translator lists and matrix records.
+   - Removed the trailing `ⓘ Disclosure` button from after Robo translator attribution lines to reduce visual clutter.
+   - Replaced all occurrences of `channeling` across code, docs, and profiles with `style emulation` (0 occurrences of `channeling` remain).
+6. **Documentation & Quality Gate Sync** — Synchronized `AUDIT.md` (date, current verdict, standing recommendations, session index) while preserving all 25+ guarded number strings verified by `validate_data.py`. Re-bundled `app_data.js` and synced `/docs` mirror.
 
 ### Verified Project Metrics & Scope
 - `corpus`: 36 documents (`wumenguan` 48/48 complete; `biyanlu_cases` 100/100 complete; `linji_yulu` 67-section pilot; 34 excerpt seeds); 101,198 content CJK / 106,172 all-string CJK.

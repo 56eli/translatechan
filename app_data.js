@@ -2087,7 +2087,7 @@ window.TRANSLATECHAN_DATA = {
           "status": "reconstruction_unverified"
         },
         {
-          "translator": "Red Pine (Bill Porter)",
+          "translator": "Red Pine",
           "work": "The Zen Works & Translations",
           "style": "Hermit Hermeneutic & Vernacular Precision",
           "text": "Does a dog have Buddha-nature or not? Zhaozhou said: 'Wu!'",
@@ -2167,7 +2167,7 @@ window.TRANSLATECHAN_DATA = {
       "sentence_pinyin": "Zhì dào wú nán, wéi xián jiǎnzé. Dàn mò zēng ài, dòng rán míng bái.",
       "translators": [
         {
-          "translator": "Red Pine (Bill Porter)",
+          "translator": "Red Pine",
           "work": "The Zen Teaching of Bodhidharma & Early Masters",
           "style": "Lyrical & Idiomatic Fidelity",
           "text": "The Great Way is not hard, it only detests picking and choosing. Simply without hate or love, it opens wide and clear.",
@@ -2215,7 +2215,7 @@ window.TRANSLATECHAN_DATA = {
       "sentence_pinyin": "Chì ròu tuán shàng yǒu yī wú wèi zhēn rén, cháng cóng rǔ děng zhū rén miàn mén chū rù. Wèi zhèng jù zhě kàn kàn!",
       "translators": [
         {
-          "translator": "Red Pine (Bill Porter)",
+          "translator": "Red Pine",
           "work": "The Zen Teaching of the Ancestors",
           "style": "Direct Vernacular",
           "text": "On this lump of red flesh is a True Person without rank, constantly going in and out through the gates of your face. You who haven't witnessed it: look, look!",
@@ -2255,7 +2255,7 @@ window.TRANSLATECHAN_DATA = {
       "sentence_pinyin": "Pútí běn wú shù, míngjìng yì fēi tái. Běnlái wú yī wù, héchù rě chén'āi.",
       "translators": [
         {
-          "translator": "Red Pine (Bill Porter)",
+          "translator": "Red Pine",
           "work": "The Platform Sutra: The Zen Teaching of Hui-neng (2006)",
           "style": "Philological Poet & Folk Cadence",
           "text": "Bodhi originally has no tree, the mirror has no stand. From the beginning not a thing exists; where could dust ever alight?",
@@ -2297,7 +2297,7 @@ window.TRANSLATECHAN_DATA = {
         "in_corpus_verified": "Profile features were extracted from this translator's VERIFIED quotation slots already present in this corpus (real public-domain or edition-checked text, each carrying a source record in data/translations/rights_manifest.json). The evidence sample slots are listed under evidence_pointers.",
         "documented_external": "No in-corpus verified sample exists for this translator yet. The profile records widely-documented stylistic characteristics OF their published work (features about the work, not reproduced protected text). Marked evidence_pending until a verified sample is added; treat the Robo as a documented-style pastiche, not a corpus-grounded one."
       },
-      "honesty_rule": "A Robo rendering always carries status reconstruction_unverified or ai_draft and the 'not the translator's actual words / do not cite' disclosure regardless of tier. The tier only states what the channeling is grounded in.",
+      "honesty_rule": "A Robo rendering always carries status reconstruction_unverified or ai_draft and the 'not the translator's actual words / do not cite' disclosure regardless of tier. The tier only states what the style emulation is grounded in.",
       "rendering_of_wu_legend": "How each translator is documented to render 無 in the Mu (Zhaozhou's dog) encounter — the single most diagnostic register marker."
     },
     "profiles": [
@@ -2535,7 +2535,7 @@ window.TRANSLATECHAN_DATA = {
       },
       {
         "register_key": "red_pine",
-        "translator": "Red Pine (Bill Porter)",
+        "translator": "Red Pine",
         "robo_name": "Robo Red Pine",
         "evidence_source": "documented_external",
         "evidence_pending": "No in-corpus verified sample yet. Profile records widely-documented features of his The Gateless Gate (Counterpoint 2000s) style; add a verified sample to promote this profile to in_corpus_verified.",

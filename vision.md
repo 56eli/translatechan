@@ -2,7 +2,7 @@
 
 > **Document type**: *aspirational architecture with a current public-scope note*. For **measured current status**, see [`AUDIT.md`](./AUDIT.md); for phase tracking, see [`ROADMAP.md`](./ROADMAP.md); for operational flow, see [`HANDOFF.md`](./HANDOFF.md). The public Pages interface is deliberately limited to Reader, Matrix, Lineage, Gong'an Index, and Lexicon; it does not expose browser drafting, Arena-agent branding, or a header GitHub link.
 
-> 🤖 **Brand note (2026-08-09).** The public app is branded **Fake Chan Factory**: the English renderings are *Robo channelings* — AI text written in a famous translator's register, clearly badged and not citable as that translator's work. Genuine public-domain/verified quotations are badged **✅ Real text (verified)** and keep their real attribution. This document describes the *architecture and scholarly infrastructure* (canonical sources, lineage graph, locators, provenance) that the Factory runs on — that infrastructure is real whether a given rendering is Robo or verified.
+> 🤖 **Brand note (2026-08-09).** The public app is branded **Fake Chan Factory**: the English renderings are *Robo style emulations* — AI text written in a famous translator's register, clearly badged and not citable as that translator's work. Genuine public-domain/verified quotations are badged **✅ Real text (verified)** and keep their real attribution. This document describes the *architecture and scholarly infrastructure* (canonical sources, lineage graph, locators, provenance) that the Factory runs on — that infrastructure is real whether a given rendering is Robo or verified.
 
 > *"A special transmission outside the scriptures,  
 > Not founded upon words and letters;  
@@ -136,7 +136,7 @@ Fake Chan Factory models the Chan tradition not merely as static text files, but
 
 One of the central innovations of Fake Chan Factory is its **Multi-Translator Sentence-Aligned Comparative Matrix**.
 
-A single Gong'an or Yulu passage often carries multiple distinct translations in English, each reflecting a different translator's philosophical stance, poetic register, or understanding of classical Buddhist idioms. In the live **Fake Chan Factory** app these comparative registers are presented as **🤖 Robo** channelings (AI text in the scholar's style, *not* their published words); only a genuinely verified quotation keeps the real name and the **✅ Real text (verified)** badge. The table below illustrates the *comparative concept*.
+A single Gong'an or Yulu passage often carries multiple distinct translations in English, each reflecting a different translator's philosophical stance, poetic register, or understanding of classical Buddhist idioms. In the live **Fake Chan Factory** app these comparative registers are presented as **🤖 Robo** style emulations (AI text in the scholar's style, *not* their published words); only a genuinely verified quotation keeps the real name and the **✅ Real text (verified)** badge. The table below illustrates the *comparative concept*.
 
 ### Comparative Matrix Example: Wumenguan Case 1 (Zhaozhou's Dog / 趙州狗子)
 

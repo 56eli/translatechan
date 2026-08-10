@@ -280,7 +280,7 @@
         (meta.wu ? `<div class="tooltip-row"><strong>Renders 無:</strong> ${escHtml(meta.wu)}</div>` : '') +
         (meta.personality ? `<div class="tooltip-row" style="margin-top:.35rem;font-style:italic;color:var(--text-secondary)">${escHtml(meta.personality)}</div>` : '');
     } else {
-      pop.innerHTML = `<div class="tooltip-term-title">Robo channeling</div><div class="tooltip-row">AI text in a translator\u2019s register — not their actual words. Profile pending.</div>`;
+      pop.innerHTML = `<div class="tooltip-term-title">Robo style emulation</div><div class="tooltip-row">AI text in a translator\u2019s register — not their actual words. Profile pending.</div>`;
     }
     pop.style.display = 'block';
     positionFloatingPopover(pop, span, 300);
@@ -1100,7 +1100,7 @@
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.preface.zh)}</div>
           <div class="pinyin-line">${escHtml(doc.preface.pinyin)}</div>
           ${renderFlatTranslationColumns([
-            { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.preface.en_red_pine || doc.preface.en_cleary || '' },
+            { key: 'red_pine', name: 'Red Pine', text: doc.preface.en_red_pine || doc.preface.en_cleary || '' },
             { key: 'cleary', name: 'Thomas Cleary', text: doc.preface.en_cleary || '' },
             { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.preface.en_sasaki || '' }
           ], { zh: doc.preface.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
@@ -1118,7 +1118,7 @@
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
           <div class="pinyin-line">${escHtml(doc.epilogue.pinyin)}</div>
           ${renderFlatTranslationColumns([
-            { key: 'red_pine', name: 'Red Pine (Bill Porter)', text: doc.epilogue.en_red_pine || '' },
+            { key: 'red_pine', name: 'Red Pine', text: doc.epilogue.en_red_pine || '' },
             { key: 'cleary', name: 'Thomas Cleary', text: doc.epilogue.en_cleary || '' },
             { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.epilogue.en_sasaki || '' }
           ], { zh: doc.epilogue.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
@@ -1466,7 +1466,7 @@
       };
     }
     return {
-      label: '🤖 Robo channeling',
+      label: '🤖 Robo style emulation',
       title: 'AI text written in this translator\u2019s broad register \u2014 not copied from, checked against, or attributable as wording in that translator\u2019s book. Do not cite it as their translation.',
       className: 'is-reconstruction'
     };
@@ -1548,7 +1548,7 @@
     }
 
     const isAi = entry.status === 'ai_draft';
-    const short = isAi ? 'Robo draft' : 'Robo channeling';
+    const short = isAi ? 'Robo draft' : 'Robo style emulation';
     const detail = {
       title: 'Robo rendering disclosure',
       rows: [
@@ -1557,7 +1557,7 @@
         ...originalRows
       ]
     };
-    return `<div class="translation-source source-disclosure">\u{1F916} <strong>${escHtml(translator)}</strong> \u2014 ${escHtml(short)} ${renderCitationTrigger(detail, '\u2139 Disclosure')}</div>`;
+    return `<div class="translation-source source-disclosure">\u{1F916} <strong>${escHtml(translator)}</strong> \u2014 ${escHtml(short)}</div>`;
   }
 
   function renderProjectDraftDisclosure(label = 'Project AI draft', originalContext = {}) {
@@ -1625,7 +1625,7 @@
   // layer is rebranded. `status` decides Robo-vs-real; callers that lack a
   // status default to the Robo rendering (the common case for this corpus).
   const REAL_TRANSLATOR_NAMES = {
-    red_pine: 'Red Pine (Bill Porter)',
+    red_pine: 'Red Pine',
     cleary: 'Thomas Cleary',
     sasaki: 'Ruth Fuller Sasaki',
     suzuki: 'D.T. Suzuki',
@@ -1753,7 +1753,7 @@
     }
     const meta = p ? fakenessFromProfile(p) : null;
     const hourglass = meta && meta.pending ? ' \u23f3' : '';
-    const titleTxt = meta ? `\u{1F916} ${meta.label}${hourglass} — hover/focus for the real-fakeness score` : 'Robo channeling — not the translator\u2019s actual words';
+    const titleTxt = meta ? `\u{1F916} ${meta.label}${hourglass} — hover/focus for the real-fakeness score` : 'Robo style emulation — not the translator\u2019s actual words';
     return `<span class="robo-name" data-robo-key="${escHtml(key || '')}" tabindex="0" role="button" aria-label="${escHtml(name)} — real-fakeness score" title="${escHtml(titleTxt)}">${escHtml(name)}</span>`;
   }
   function roboNameSpan(key, status, displayName) {

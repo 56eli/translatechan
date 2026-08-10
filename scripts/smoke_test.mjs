@@ -423,7 +423,7 @@ if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case pre
 if (!wmHtml.includes('Source location: T2005') || !wmHtml.includes('Case source: T2005, case 1') || !wmHtml.includes('citation-trigger')) {
   failures++; console.log('❌ reader source-location disclosure missing');
 }
-if (!wmHtml.includes('Page / section:') || !wmHtml.includes('Robo channeling') || !wmHtml.includes('Robo draft')) {
+if (!wmHtml.includes('Page / section:') || !wmHtml.includes('Robo style emulation') || !wmHtml.includes('Robo draft')) {
   failures++; console.log('❌ reader translation/AI disclosure missing');
 }
 const citationId = (wmHtml.match(/data-citation-id="([^"]+)"/) || [])[1];
