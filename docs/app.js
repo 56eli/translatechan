@@ -1735,6 +1735,9 @@
 
   function renderTranslationStatus(entry) {
     const meta = translationStatusMeta(entry.status);
+    if (entry.status !== 'verified_quotation') {
+      return `<span class="translation-status ${meta.className} is-silent-robo" title="${escHtml(meta.title)}" hidden></span>`;
+    }
     return `<span class="translation-status ${meta.className}" title="${escHtml(meta.title)}">${meta.label}</span>`;
   }
 

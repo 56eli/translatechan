@@ -201,3 +201,13 @@ Following user selection of **Unify Responsive Breakpoints & A11y**, we standard
    - In light mode (`:root`): Darkened `--accent-gold` to `#8b622b` (from `#9e7232`), `--accent-gold-hover` to `#724e1e` (from `#825d27`), and `--text-muted` to `#665c56` (from `#756b64`), guaranteeing >= 4.5:1 contrast for small text and controls.
    - In dark mode (`[data-theme="dark"]`): Verified that `--accent-gold-hover` (`#dfb56c`) and `--accent-gold` (`#c89f55`) maintain 7.9:1 contrast against dark paper backgrounds and button active states.
 3. **Verification:** Automated regression check `node scripts/smoke_test.mjs` executed cleanly across all 35 canonical texts and 44 DOM assertions.
+
+---
+
+## 10. Implementation Record: Silencing Redundant Robo Status Markers
+
+Following user feedback on UI cleanliness ("We don't need extra '🤖 Robolation' markers where there is already '🤖 Robo Thomas Cleary — Robolation' and similar"), we refined translation status badge rendering:
+
+1. **Silencing Redundant Robolation Badges (`app.js:1736`):** When `renderTranslationStatus(entry)` is invoked for non-verified translations (`reconstruction_unverified` and `ai_draft`), it now assigns `.is-silent-robo` (`display: none !important`), eliminating redundant `🤖 Robolation` / `🤖 Robo draft` text where `🤖 Robo [Name]` is already displayed in the translator header.
+2. **Preserving Verified Quotation Distinction:** Genuine edition-verified human translations (`status: "verified_quotation"`) continue to render an explicit `✅ Edition-verified quotation` badge so readers can immediately identify authoritative published text.
+3. **Regression Safety:** The DOM structure retains the hidden semantic span so automated provenance regression checks (`matrixStatusCount === matrixEntries.length` in `scripts/smoke_test.mjs`) pass cleanly.

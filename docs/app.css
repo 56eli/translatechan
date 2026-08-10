@@ -749,6 +749,10 @@ body:not([data-current-view="reader"]) #about-toggle {
   color: var(--accent-blue);
 }
 
+.translation-status.is-silent-robo {
+  display: none !important;
+}
+
 .translation-source {
   font-size: 0.72rem; /* raised from 0.62rem (~10px) — citation metadata must stay legible (N10, 2026-08-09) */
   color: var(--text-muted);
