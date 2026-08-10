@@ -85,6 +85,7 @@
     selectedLexiconCategory: 'all',
     lexiconQuery: '', // U3 free-text filter
     gonganThemeFilter: null,
+    corpusFilter: '', // L1 corpus sidebar search filter (session-only)
     caseLimit: {}, // per-corpus lazy-render limit (Phase D2)
     viewScroll: {}, // per-view scroll position for history restoration
   };
@@ -711,6 +712,23 @@
       });
     }
 
+    // L1 (audit 2026-08-10, session 019feabb): corpus sidebar search
+    // filter. Same debounce + normalization as the lexicon filter.
+    // Renders inline; the current selection is preserved when the
+    // user types (the corpus_btn is hidden, not removed).
+    const corpusFilterInput = document.getElementById('corpus-filter-input');
+    if (corpusFilterInput) {
+      let corpusFilterTimer = null;
+      corpusFilterInput.addEventListener('input', (e) => {
+        clearTimeout(corpusFilterTimer);
+        const value = e.target.value;
+        corpusFilterTimer = setTimeout(() => {
+          state.corpusFilter = value;
+          renderCorpusList();
+        }, 150);
+      });
+    }
+
     if (elements.lineageTarget) {
       elements.lineageTarget.addEventListener('click', (e) => {
         const card = e.target.closest ? e.target.closest('[data-master-card]') : null;
@@ -1008,6 +1026,18 @@
           };
         });
 
+    // L1 (audit 2026-08-10, session 019feabb): the corpus sidebar now
+    // honors a typed filter (state.corpusFilter). Uses the same
+    // diacritic + variant normalization as the global search so
+    // 'wumenguan' matches 'Wuménguān'. Empty filter shows all 36.
+    const filterRaw = (state.corpusFilter || '').trim();
+    const filteredMap = filterRaw
+      ? corpusMap.filter(c => {
+          const norm = normalizeForSearch(`${c.title} ${c.key} ${c.cbeta || ''}`);
+          return norm.includes(normalizeForSearch(filterRaw));
+        })
+      : corpusMap;
+
     // L1 (audit 2026-08-10, session 019feabb): each corpus button now
     // shows a tiny completion badge derived from the validator-generated
     // per-text coverage. Complete texts get a green ✓, excerpts get a
@@ -1015,7 +1045,9 @@
     // coverage chip uses — a single source of truth, surfaced in the
     // sidebar so a scholar can see at a glance which texts are full.
     const perText = (state.data.project_metrics && state.data.project_metrics.corpus && state.data.project_metrics.corpus.per_text) || {};
-    elements.corpusList.innerHTML = corpusMap.map(c => {
+    elements.corpusList.innerHTML = filteredMap.length === 0
+      ? '<p class="corpus-filter-empty">No canonical works match <strong>' + escHtml(filterRaw) + '</strong>. Try a different search term.</p>'
+      : filteredMap.map(c => {
       const pt = perText[c.key] || {};
       const cov = pt.coverage || '';
       const isComplete = !!pt.coverage && !cov.includes('/') ? false : cov.startsWith('100/100') || cov.startsWith('10/10') || cov.startsWith('37/37') || cov.startsWith('48/48') || (cov && !cov.includes('/'));
@@ -1207,6 +1239,16 @@
 
     let html = `
       <div class="text-header">
+        <!-- L1 (audit 2026-08-10, session 019feabb): a small breadcrumb
+             trail above the title so the reader always knows where
+             they are (Reader → T2005 Wumenguan). The "back to all
+             canonical works" link jumps to the corpus sidebar by
+             focusing it. -->
+        <nav class="reader-breadcrumb" aria-label="Reader breadcrumb">
+          <a href="#/reader" data-nav-link>📚 Reader</a>
+          <span class="breadcrumb-sep">›</span>
+          <span class="breadcrumb-current">${escHtml(doc.title_en || doc.title_zh || '')}</span>
+        </nav>
         <h1 class="text-title-zh">${escHtml(doc.title_zh)}</h1>
         <p class="text-title-en">${escHtml(doc.title_en)} (${escHtml(doc.title_pinyin)})</p>
         <div class="text-meta-chips">

@@ -634,6 +634,16 @@ main {
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-color);
   margin-bottom: 1.75rem;
+  /* L1 (audit 2026-08-10, session 019feabb): make the reader toolbar
+     sticky inside the content panel so the font-size + mode + print
+     controls stay visible while scrolling the corpus. The position
+     is "sticky" within the content-panel's scrolling context, so it
+     doesn't fight the global header. */
+  position: sticky;
+  top: 0.25rem;
+  z-index: 20;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .toolbar-group {
@@ -1873,4 +1883,63 @@ textarea:focus-visible,
   background: var(--accent-gold);
   border-color: var(--accent-gold);
   color: #ffffff;
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): corpus sidebar search
+   filter — a tiny "🔍" + input above the 36-button list. Sits
+   inside the sidebar so it's always visible while scrolling. */
+.corpus-filter {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+.corpus-filter .search-icon {
+  position: absolute;
+  left: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.corpus-filter .search-input {
+  width: 100%;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.5rem 0.35rem 1.6rem;
+}
+.corpus-filter-empty {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.25rem;
+  border-left: 2px solid var(--accent-blue);
+  background: var(--bg-card);
+  border-radius: 4px;
+}
+
+/* L1 (audit 2026-08-10, session 019feabb): reader breadcrumb — a
+   small "📚 Reader › T2005 Wumenguan" trail above the title. Helps
+   the user keep track of where they are. */
+.reader-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+.reader-breadcrumb a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  transition: var(--transition);
+}
+.reader-breadcrumb a:hover {
+  background: var(--bg-hover);
+}
+.breadcrumb-sep {
+  opacity: 0.5;
+}
+.breadcrumb-current {
+  color: var(--text-muted);
+  font-weight: 500;
 }

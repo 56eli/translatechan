@@ -134,6 +134,15 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar-panel">
           <div class="sidebar-title">Canonical & Related Works</div>
+          <!-- L1 (audit 2026-08-10, session 019feabb): corpus sidebar
+               search filter. With 36 texts in the corpus, the list
+               was getting long; a tiny search box lets scholars jump
+               to "Wumenguan" or "Dahui" without scrolling. Diacritic-
+               and variant-tolerant (matches the global search). -->
+          <div class="corpus-filter">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="search" id="corpus-filter-input" class="search-input" placeholder="Filter corpus…" autocomplete="off" aria-label="Filter canonical works by title">
+          </div>
           <div id="corpus-selector-list" class="corpus-selector-list"></div>
 
           <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">

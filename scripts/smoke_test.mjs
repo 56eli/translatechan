@@ -516,8 +516,54 @@ try {
   }
 } catch (e) { failures++; console.log(`❌ 4ff sidebar spot-check crashed: ${e.message}`); }
 
-// 4gg. L1: the hero banner is dismissable; the about-toggle button in the
-// header becomes visible after dismissal.
+// 4hh. L1 (audit 2026-08-10, session 019feabb): the corpus sidebar has
+// a search filter (#corpus-filter-input). Spot-check the filter
+// narrows the list to Wumenguan only when "wumenguan" is typed.
+try {
+  const filterInput = ids['corpus-filter-input'];
+  if (!filterInput) { failures++; console.log('❌ 4hh: #corpus-filter-input missing'); }
+  else {
+    if (typeof filterInput._handlers['input'] === 'function') filterInput._handlers['input'] = [filterInput._handlers['input']];
+    (filterInput._handlers['input'] || []).forEach(fn => fn({ target: { value: 'wumenguan' } }));
+    await sleep(200);
+    const filtered = ids['corpus-selector-list']._innerHTML;
+    // The filter should narrow the list to only the Wumenguan entry
+    // (one button rendered). The Wumenguan title is "The Gateless
+    // Gate" so we check for the data-corpus-key (always present).
+    const wmCount = (filtered.match(/data-corpus-key="wumenguan"/g) || []).length;
+    const otherCount = (filtered.match(/data-corpus-key="(?!wumenguan)/g) || []).length;
+    if (wmCount !== 1 || otherCount !== 0) {
+      failures++; console.log(`❌ 4hh: corpus filter "wumenguan" should narrow to 1 entry (got wmCount=${wmCount}, otherCount=${otherCount})`);
+    }
+    if (!filtered.includes('is-complete')) {
+      failures++; console.log('❌ 4hh: filtered Wumenguan button should still show ✓');
+    }
+    // Clear the filter and confirm the full list returns (36 entries).
+    (filterInput._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
+    await sleep(200);
+    const restored = ids['corpus-selector-list']._innerHTML;
+    const restoredCount = (restored.match(/data-corpus-key=/g) || []).length;
+    if (restoredCount !== 36) {
+      failures++; console.log(`❌ 4hh: clearing the filter should restore all 36 entries (got ${restoredCount})`);
+    }
+  }
+} catch (e) { failures++; console.log(`❌ 4hh corpus filter spot-check crashed: ${e.message}`); }
+
+// 4ii. L1: the reader shows a breadcrumb trail ("📚 Reader › T2005
+// Wumenguan") above the title.
+try {
+  corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+  const readerHtml = ids['reader-content-target']._innerHTML;
+  if (!readerHtml.includes('reader-breadcrumb') || !readerHtml.includes('📚 Reader') || !readerHtml.includes('breadcrumb-current')) {
+    failures++; console.log('❌ 4ii: reader should show a breadcrumb trail above the title');
+  }
+} catch (e) { failures++; console.log(`❌ 4ii breadcrumb spot-check crashed: ${e.message}`); }
+
+// 4jj. L1: the reader toolbar should be sticky (position: sticky in CSS).
+const cssSrc = readFileSync(join(ROOT, 'app.css'), 'utf8');
+if (!cssSrc.includes('.reader-toolbar') || !/\.reader-toolbar\s*\{[^}]*position:\s*sticky/s.test(cssSrc)) {
+  failures++; console.log('❌ 4jj: reader toolbar should use position: sticky');
+}
 try {
   const banner = ids['zen-hero-banner'];
   const dismissBtn = ids['hero-dismiss-btn'];
