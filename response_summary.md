@@ -7,6 +7,7 @@
 - Rebuilt the Pages identity around a bold English-first walnut editorial/factory composition.
 - Made shell navigation, room headings, Reader document/unit headings, lineage, Gong'an, lexicon, and mobile controls English-first while retaining source Chinese in the Reader.
 - Added a matching Open Graph image and `FC` monogram.
+- Applied the follow-up copy edit: the old Chinese Robo-joke intro was already removed by the redesign, and the Matrix “Heads up” paragraph is now removed as requested.
 - Added recoverable missing/malformed bundle UI with reload/reset actions.
 - Moved CSP before every script and extended smoke regressions.
 - Corrected stale scoreboard arithmetic and synchronized the canonical audit, scoreboard, README, and handoffs.

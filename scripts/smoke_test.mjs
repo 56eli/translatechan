@@ -58,6 +58,9 @@ for (const shellToken of ['id="site-shell"', 'class="nav-tabs room-nav"', '閱�
 for (const identityToken of ['The old texts are real.', 'The translators are not.', 'data-room-index="01"', '<span>Comparative Matrix</span>']) {
   if (!publicHtml.includes(identityToken)) throw new Error(`English-first visual direction missing: ${identityToken}`);
 }
+for (const removedCopy of ["「平常心是道。」— the Robo monks' practical joke.", '<strong>Heads up:</strong> most translations here are']) {
+  if (publicHtml.includes(removedCopy)) throw new Error(`owner-removed explanatory copy returned: ${removedCopy}`);
+}
 if (!appSrc.includes('setupShellMetrics()') || !appSrc.includes("document.body.dataset.currentView = viewName")) {
   throw new Error('shell height/current-view state is not synchronized by the app');
 }
