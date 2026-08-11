@@ -4,12 +4,12 @@
 
 Audited the repo, implemented your chosen Chan-hall immersion (popup hero deleted, reading re-composed as a bound sheet), and — after building a working headless-Chromium rig inside the sandbox — screenshot-reviewed all five rooms in light/dark + mobile and shipped seven evidence-driven fixes.
 
-## Screenshots (this is how you see it without merging)
+## Screenshots (committed to the repo so you can view them)
 
-Real browser screenshots live in `.arena/screenshots/` (workspace scratch, gitignored):
-`desktop-light-reader.png` · `desktop-light-reader-scrolled.png` · `desktop-dark-reader.png` · `mobile-light-reader.png` · `mobile-dark-reader.png` · `desktop-light-matrix.png` · `desktop-dark-matrix.png` · `desktop-light-lineage.png` · `desktop-light-gongan.png` · `desktop-light-lexicon.png`.
-
-Chromium was assembled in-sandbox from `@sparticuz/chromium` (downloaded via the npm registry, since Playwright CDNs are blocked) + npm-hosted CJK fonts. Full recipe in `sessions/AUDIT_RESPONSE_2026-08-11_019ff0c0.md`.
+Ten real-browser screenshots now live at
+[`sessions/screenshots/2026-08-11-hall-immersion/`](./sessions/screenshots/2026-08-11-hall-immersion/README.md)
+(browse on GitHub: branch `arena/019ff0c0-translatechan` → sessions → screenshots).
+01–03 reader (day/night/scrolled), 04–05 matrix, 06 lineage, 07 gong'an, 08 lexicon, 09–10 mobile light/dark.
 
 ## What the hall is now
 
@@ -21,6 +21,6 @@ Chromium was assembled in-sandbox from `@sparticuz/chromium` (downloaded via the
 
 ## Gates
 
-validate / build / smoke / mirror diff / tag-balance parse — all PASS; branch CI green at `d08a8f5`. Commits: `1359398` … `d08a8f5`.
+validate / build / smoke / mirror diff / tag-balance parse — all PASS; branch CI green at `d3088b1`. Commits: `1359398` … `d3088b1` + this evidence commit.
 
 Full evidence: `sessions/AUDIT_RESPONSE_2026-08-11_019ff0c0.md`.
