@@ -189,3 +189,7 @@ No custom Pages deployment workflow is needed.
 - `sessions/*.md`: dated immutable evidence.
 
 Never append a full session narrative here; link the dated report.
+
+## 12. Current pull request
+
+PR [#18](https://github.com/56eli/translatechan/pull/18) targets `main` from `arena/019ff089-translatechan`. Both implementation and audit push Quality runs passed; merge is intentionally left to owner review.

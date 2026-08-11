@@ -2,7 +2,7 @@
 
 > **Last updated:** 2026-08-11 · **Session:** `arena/019ff089-translatechan`
 > **Fixed branch:** `arena/019ff089-translatechan` — do not switch or push elsewhere.
-> **Baseline:** `27ca224` (`main`, merged PR #17) · **Latest pushed implementation:** `d2e9887`
+> **Baseline:** `27ca224` (`main`, merged PR #17) · **Latest audit commit:** `d6b37f1` · **PR:** [#18](https://github.com/56eli/translatechan/pull/18)
 
 ## Current state
 

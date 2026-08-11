@@ -10,7 +10,8 @@
 - Added recoverable missing/malformed bundle UI with reload/reset actions.
 - Moved CSP before every script and extended smoke regressions.
 - Corrected stale scoreboard arithmetic and synchronized the canonical audit, scoreboard, README, and handoffs.
-- Pushed the implementation checkpoint as `d2e9887`; branch Quality passed.
+- Pushed implementation `d2e9887` and audit/handoff `d6b37f1`; both branch Quality runs passed.
+- Opened pull request [#18](https://github.com/56eli/translatechan/pull/18) into `main`.
 
 ## Current gate
 
