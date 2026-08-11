@@ -1490,11 +1490,13 @@ mark {
   font-style: italic;
 }
 
-/* Lexicon Cards */
+/* Lexicon — one dictionary column on the sheet; rows span the full measure.
+   (The previous auto-fill card grid squeezed definition rows into ~90px
+   columns — caught in the first real-browser screenshot pass.) */
 .lexicon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 /* U3 (audit 2026-08-10, session 019feabb): lexicon filter row + summary +
@@ -2249,6 +2251,11 @@ textarea:focus-visible,
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+.lineage-filter-row .search-input {
+  width: auto;
+  min-width: 11rem;
+  max-width: 17rem;
 }
 .lineage-svg-graph {
   display: block;
