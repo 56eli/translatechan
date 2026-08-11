@@ -1,6 +1,7 @@
 # Manual Workflow / GitHub Administration Edits
 
-> **Last audited:** 2026-08-10, session `arena/019febb1-translatechan`
+> **Last audited:** 2026-08-11, session `arena/019ff089-translatechan`
+> **2026-08-11 status:** all three owner-controlled edits remain applicable; no workflow file was changed in this session.
 
 ## Policy
 

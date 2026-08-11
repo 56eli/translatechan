@@ -1,35 +1,16 @@
 # Agent Handoff
 
-> **Last updated:** 2026-08-10, session `arena/019fec5c-translatechan`
-> **Current fixed branch:** `arena/019fec5c-translatechan` — do not switch or push elsewhere.
-> **Baseline:** `7877dd93a07c1dad9dcf667494cd589f9d9cfc56` (`main`, merged PR #16).
+> **Last updated:** 2026-08-11 · **Session:** `arena/019ff089-translatechan`
+> **Fixed branch:** `arena/019ff089-translatechan` — do not switch or push elsewhere.
+> **Baseline:** `27ca224` (`main`, merged PR #17) · **Latest pushed implementation:** `d2e9887`
 
 ## Current state
 
-This session completed:
+The owner said the GitHub Pages design was **too plain/generic** and focused **too heavily on Chinese characters**, then selected **preserve the walnut-hall direction**. This session implemented a bolder English-first walnut/factory identity across the shell, hero, room headings, Reader hierarchy, secondary rooms, mobile controls, and Open Graph image.
 
-1. [Senior Developer & Web Designer Full Audit](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md);
-2. [Phase C+D secondary-room visual consolidation](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) (Matrix Proof Sheet, Lineage Directory, Gong'an Catalogue Shelf, Lexicon Dictionary Rows);
-3. [Responsive breakpoint unification & WCAG AA contrast hardening](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) (`1024px` tablet / `768px` mobile);
-4. [Robo badge silencing & strict-mode storage TypeError hotfix](../sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md).
+The session also added visible recovery for missing/malformed data and top-level initialization failures, moved CSP before every script, extended smoke coverage, completed a full repository audit, and corrected scoreboard arithmetic.
 
-Current weighted score: **7.6/10** after Phase C+D implementation and responsive unification, pending visual approval. `repo_ready = fail` because formal screenshot verification, rights, and CI browser test gates remain. All `user_score` fields remain `null`.
-
-## Completed containment
-
-- Removed all unreliable Congronglu source data, locator claims, deploy copies, and four generating scripts.
-- Authoritative CBETA T48n2004 headings disproved even the five purportedly collated records.
-- Added explicit editorial completion status; only Wumenguan/Xinxin are complete selected witnesses, Biyanlu/Linji are partial, and 31 documents are excerpt seeds.
-- Added anti-placeholder validation, active-bundle absence tests, honest count/completion copy, and edition-verification/rights separation.
-
-## Completed public-behavior fixes
-
-- Lineage dossier removes/restores semantic `hidden`, becomes visible/focused, and closes correctly.
-- Six direct-field Platform chapters now render source text, translations, and chapter source disclosure.
-- Wumenguan epilogue follows all rendered cases.
-- Print/PDF expands all lazy cases/sections before invoking print; smoke/Playwright require 48 Wumenguan cases followed by epilogue.
-- Wumenguan labels Wumen; Biyanlu labels Yuanwu and Xuedou.
-- Smoke and Playwright regressions cover all five paths.
+Current weighted score: **7.2/10**; `repo_ready = fail`. All `user_score` fields remain `null`; the owner supplied qualitative, not numeric, feedback.
 
 ## Current measured state
 
@@ -37,39 +18,59 @@ Current weighted score: **7.6/10** after Phase C+D implementation and responsive
 corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
 content CJK=103,723 | all-string CJK=109,185
 complete=2 | partial=2 | excerpt seeds=31
-bundle=1,594,154 bytes raw | approximately 498 KB gzip-9
+lineage=34/30 edges | glossary=31 | gong'an=24
+bundle=1,594,154 bytes raw | 497,352 gzip-9
+local first-load estimate≈556 KB gzip before fonts
 ```
+
+## Verification
+
+```text
+compile                         PASS
+semantic validator             PASS; 6 lineage warnings
+build + root/docs sync         PASS
+smoke (35 renderers)           PASS
+npm audit                      PASS; 0 vulnerabilities
+HTML / Markdown link scan      PASS
+branch Quality                 PASS; run 31486895570
+Playwright                     SKIP; Chromium unavailable
+```
+
+Browser download failed with network `ECONNRESET`; apt package sources were also unreachable. Do not describe this session as screenshot-verified.
 
 ## Remaining blockers
 
-1. **Design completion:** structural walnut shell and Reader are implemented; visual-system consolidation, Matrix/Lineage/Gong’an/Lexicon redesign, screenshot evidence, and explicit owner approval remain.
-2. **Rights governance:** all 14 rights sources remain review/jurisdiction-pending.
-3. **Field-level source depth:** Biyanlu, Linji, Platform, and other non-case records need broader per-field provenance/review.
-4. **Responsive/accessibility:** sticky/header geometry, 1100/960 breakpoint mismatch, mobile Reader controls on other views, contrast, and ARIA state relationships.
-5. **Error handling:** no visible fatal-load state; malformed persisted state is not fully shape-validated.
-6. **Operations:** four mirrored paths absent from CI diff; action majors target deprecated Node 20 runtimes; branch protection unreadable (403); browser suite still exits zero when Chromium is absent and is not required in CI.
+1. Owner approval of current desktop/mobile light/dark browser output.
+2. All 14 rights-manifest sources require human or jurisdiction review.
+3. Biyanlu, Linji, Platform, and excerpt seeds need deeper field-level source review.
+4. Browser execution remains skippable and is not required in CI.
+5. CI omits four mirrored paths; branch protection is unconfirmed.
+6. Full bundle and all hidden rooms initialize up front.
+7. Forty-eight generated inline styles keep CSP `unsafe-inline` necessary.
+8. Six lineage profiles lack linked corpus keys; 30 edges await exact locators.
 
 ## Recommended next sequence
 
-1. Continue Phase C visual-system consolidation (inline styles, emoji, controls, contrast).
-2. Execute Phase D four-room redesign.
-3. Execute Phase E screenshot/accessibility verification and obtain explicit owner approval.
-4. Complete field-level source validation and human quotation-rights decisions.
-5. Apply owner-approved operations changes and re-audit; re-ingest Congronglu only under its containment gate.
-
-## Merge status
-
-PR [#15](https://github.com/56eli/translatechan/pull/15) merged into `main` as `26feff0dbc4286da0c7a1e4c46ff341288b9d0f3`. Main Quality and Pages deployment both succeeded. The real site is live for owner review at `https://56eli.github.io/translatechan/`.
-
-Next agent: wait for owner visual feedback before Phase C/D. Do not infer approval from merge or silence, and do not set a user score without an explicit numeric instruction.
+1. Ask the owner to review the live preview and choose the next visual adjustment.
+2. Iterate only from that explicit feedback; do not infer approval.
+3. Continue human rights/source review as a separate content tranche.
+4. Apply workflow/browser/a11y changes only with explicit owner approval.
+5. Measure browser performance before lazy-rendering rooms or splitting the bundle.
 
 ## Stable contracts
 
 - Public brand: Fake Chan Factory; internal `translatechan_*`, `window.TranslateChan`, and `TRANSLATECHAN_DATA` remain.
-- Public views: Reader, Matrix, Lineage, Gong’an, Lexicon only.
+- Public views: Reader, Matrix, Lineage, Gong'an, Lexicon only.
 - Deployment: native GitHub Pages from `main /docs`, HTTPS.
 - No source-looking Chinese may be generated or restored from quarantined history.
 - N/N unit representation never establishes completion without explicit editorial status.
 - Edition verification and rights approval are separate.
-- Workflow changes require explicit user approval; exact edits are in `.scoreboard/manual-workflow-edits.md`.
-- Before every push: compile, validate, build, smoke, and compare root/docs mirrors.
+- Workflow changes require explicit user approval; exact edits remain in `.scoreboard/manual-workflow-edits.md`.
+- Before each push: compile, validate, build, smoke, and compare root/docs mirrors.
+
+## Canonical evidence
+
+- [`../sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](../sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md)
+- [`../AUDIT.md`](../AUDIT.md)
+- [`../SCOREBOARD.md`](../SCOREBOARD.md)
+- [`../HANDOFF.md`](../HANDOFF.md)

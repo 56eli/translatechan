@@ -1,74 +1,94 @@
-# 🔍 Fake Chan Factory — Current Audit & Session Index
+# 🔍 Fake Chan Factory — Current Audit
 
-> **Current evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
-> **Convention:** this file contains only the current verdict, blockers, checks, and session index. Dated reports are historical snapshots and may contain metrics or conclusions superseded here.
+> **Current evidence:** [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md)
+> **Prior evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
+> **Convention:** this file is the current verdict and index; dated reports are immutable snapshots and may contain superseded metrics or conclusions.
 
-## 1. Current verdict — 2026-08-10, session `019febb1`
+## 1. Current verdict — 2026-08-11
 
-**Not release-ready: content/public behavior is fixed and shell/Reader Phase A+B is implemented; four-room visual completion, rights, and operations blockers remain; current score is 6.9/10 and `repo_ready = fail`.**
+**Not release-ready: audited score 7.2/10 and `repo_ready = fail`.**
 
-The user-selected containment pass removed the entire unreliable Congronglu seed, its locator claims, and the obsolete scripts that generated it. Authoritative CBETA T48n2004 headings showed that even the five records previously labeled collated had wrong case numbers and page claims. Completion now requires explicit editorial status instead of N/N arithmetic. The functional follow-up then fixed the hidden Lineage dossier, six direct Platform chapter bodies, Wumenguan epilogue order, full lazy-unit Print/PDF, and collection labels with regression coverage. Owner feedback then rejected the visual-completion claim. Owner-approved Phase A+B now implements the walnut shell and Reader literature hierarchy; visual-system consolidation, four secondary rooms, screenshots, and owner approval remain alongside rights/source/error/operations work.
+The owner reported that the prior Pages design was too plain/generic and over-emphasized Chinese characters, while selecting preservation of the walnut-hall direction. The current branch implements a bolder English-first factory/editorial identity, keeps source Chinese in the Reader, adds recoverable startup failure UI, and corrects CSP ordering. The result still needs real-browser screenshot review and explicit owner approval.
 
 Current generated measurements:
 
-- Corpus: **35 documents**; Wumenguan **48/48 cases** complete selected witness and Xinxin Ming 37/37 complete selected witness; Biyanlu **100/100 cases** are represented but explicitly partial; Platform 10/10 headings are excerpt representation, not completion; **31 excerpt seeds** and two partial witnesses; **103,723 content CJK / 109,185 all-string CJK**.
-- Translations: **1252 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**. “Verified” now means edition/wording checked; rights approval/public-domain status remains separate.
-- Locators: **148/148 case-level**; **33 document-level seeds**. A case-number anchor does not prove every nested source field was collated.
-- Lineage: **34 masters**; **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**; all edges remain traditional/pending.
+- Corpus: **35 documents**; Wumenguan **48/48 cases** complete and Xinxin Ming 37/37 complete are the **2 complete selected witnesses**; Biyanlu **100/100 cases** represented and Linji remain partial; **31 excerpt seeds**.
+- Source volume: **103,723 content CJK / 109,185 all-string CJK**.
+- Translations: **1252 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**.
+- Locators: **148/148 case-level**; **33 document-level seeds**; case anchors do not prove every nested field was collated.
+- Lineage: **34 masters**; **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**; all 30 edges remain traditional/pending.
 - Glossary: **31 terms**; Gong'an index: **24 entries**.
-- Bundle: 1,594,154 raw bytes; about 498 KB at gzip level 9. Root and `/docs` are synchronized.
-- Deployment: PR #15 merged as `26feff0`; main Quality and Pages deployment succeeded; live visual owner review pending.
+- Bundle: **1,594,154 raw bytes / 497,352 gzip-9**; first-load local assets total about **556 KB gzip before fonts**.
+- Rights: **12 sources need rights review; 2 need jurisdiction review**.
+- Deployment: native GitHub Pages from `main /docs`, HTTPS enforced; branch Quality for `d2e9887` passed.
 
-## 2. Active blockers
+## 2. Implemented this session
 
-1. **Contained P0 — Congronglu:** active data/locators/scripts removed; anti-placeholder validation added; reintroduction requires source-pinned T48n2004 TEI and field-level review.
-2. **Fixed P1 — public behavior:** dossier, direct chapters, epilogue order, full Print/PDF, and collection labels are corrected and regression-tested.
-3. **P1 — design completion:** shell/Reader Phase A+B is implemented; continue Phases C–E in [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) and [`sessions/DESIGN_PHASE_AB_2026-08-10.md`](./sessions/DESIGN_PHASE_AB_2026-08-10.md).
-4. **P1 — public quotation governance:** all 14 rights sources are still review/jurisdiction-pending; edition verification is separate from rights/public-domain status.
-5. **P2 — source modeling:** extend explicit completion status into field-level coverage/human review, especially Biyanlu and Platform.
-6. **P2 — test operations:** real-browser regressions now cover the fixed behavior, but execution remains skippable when Chromium is absent and is not in CI.
-7. **P2 — responsive/accessibility:** fix sticky/header offsets, 1100/960 breakpoint mismatch, cross-view mobile Reader bar, contrast, pressed/radio/tooltip semantics.
+1. **English-first visual hierarchy:** brand, navigation, hero, room headings, Reader headings, cases/sections/chapters, lineage, Gong'an, lexicon, and mobile controls now lead with English while retaining smaller source-language labels where useful.
+2. **Distinctive walnut identity:** asymmetric dark-walnut hero, `FC` monogram, edition numbering, proof-stamp motif, structural grain, editorial typography, and a matching Open Graph image.
+3. **Balanced reading typography:** source Chinese default reduced from 1.35rem to 1.2rem; English translation text increased to 1rem.
+4. **Resilience:** bundle-shape validation, visible `role="alert"` recovery panel, reload/reset actions, and top-level initialization recovery.
+5. **Security:** CSP moved before `theme-init.js`; self-only script policy retained.
+6. **Regression coverage:** smoke guards for CSP order, English-first identity/headings, recovery UI, and updated Gong'an/epilogue markup.
+7. **Documentation hygiene:** one broken historical relative link fixed; canonical audit, scoreboard, handoffs, and disposable response summary synchronized.
 
-Detailed evidence and phased exit criteria: [full audit §§3–7](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md#3-severity-ranked-findings).
+## 3. Active blockers
 
-## 3. Checks run
+### P1 — release blockers
+
+1. **Owner visual approval:** current desktop/mobile light/dark browser output has not been approved.
+2. **Quotation rights:** all 14 manifest sources remain human/jurisdiction-review pending.
+3. **Source depth:** non-case field review remains incomplete, especially Biyanlu, Linji, Platform, and excerpt seeds.
+
+### P2 — engineering and operations
+
+4. **Browser evidence:** Playwright exits successfully when Chromium is unavailable; browser execution is not required in CI.
+5. **CI coverage:** four mirrored deploy assets are omitted from the generated-artifact diff; browser/a11y/link/performance checks are not required.
+6. **Performance:** the complete data global and all hidden views initialize up front.
+7. **CSP/style debt:** 48 JS-generated inline styles still require `style-src 'unsafe-inline'`.
+8. **Validation depth:** JSON Schema is not executed and non-case field-level validation remains weaker than case validation.
+
+### P3 — polish
+
+9. Repository description, homepage, and topics are empty; GitHub license detection returns `NOASSERTION`.
+10. Google Fonts is a third-party runtime request; no `SECURITY.md` exists.
+11. SVG social cards have uneven platform support; a PNG fallback would be safer.
+12. Six lineage profiles lack linked corpus keys and all 30 edges await exact locators.
+
+## 4. Verification
 
 ```text
-python3 -m py_compile scripts/*.py          PASS
-python3 scripts/validate_data.py            PASS with 6 lineage warnings
-python3 scripts/build_data_bundle.py        PASS; 1,594,154 bytes; root/docs synced
-node scripts/smoke_test.mjs                 PASS; 35 fixtures, 0 crashes
-anti-placeholder negative fixture           PASS
-diff -rq data docs/data                     PASS
-npm audit --package-lock-only               PASS; 0 vulnerabilities
-npm run test:browser                        SKIP; Chromium unavailable
-Chromium install                            FAIL; sandbox network ECONNRESET
-Markdown relative-link scan                 PASS after 2 documentation fixes
-GitHub Quality + Pages at main 3ef7732       PASS
-Audit branch Quality                          PASS; action-runtime deprecation warning
+python3 -m py_compile scripts/*.py      PASS
+python3 scripts/validate_data.py        PASS; 6 documented lineage warnings
+python3 scripts/build_data_bundle.py    PASS; root/docs synchronized
+node scripts/smoke_test.mjs             PASS; 35 renderers, 0 crashes
+npm audit --package-lock-only           PASS; 0 vulnerabilities
+diff -rq data docs/data                 PASS
+git diff --check                        PASS
+HTML parser / Markdown link scan        PASS
+GitHub branch Quality                   PASS (run 31486895570)
+npm run test:browser                    SKIP; Chromium unavailable
 ```
 
-A passing validator/smoke run currently establishes structural consistency and no stub-render crash; it does **not** clear the blockers above.
+Chromium download failed with network `ECONNRESET`; apt installation also could not reach package sources. A skipped browser run is not visual or accessibility evidence.
 
-## 4. Session reports
+## 5. Current score
 
-| Date | Session | Report | Historical outcome |
-|---|---|---|---|
-| 2026-08-10 | `019fec5c` | [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) | **Current:** Full Senior Dev & Web Designer audit identifying secondary-room design gap, 84 inline styles, and strict-mode storage TypeError risk |
-| 2026-08-10 | `019febb1` | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md), [`sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md`](./sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md), [`sessions/FUNCTIONAL_HOTFIX_2026-08-10.md`](./sessions/FUNCTIONAL_HOTFIX_2026-08-10.md), [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md), [`sessions/DESIGN_PHASE_AB_2026-08-10.md`](./sessions/DESIGN_PHASE_AB_2026-08-10.md) | Prior audit, containment, functional hotfix, design plan, and owner-approved shell/Reader implementation |
-| 2026-08-10 | `019feaf5` | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md), [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md), [`AUDIT_UPDATE_2026-08-10_hero.md`](./AUDIT_UPDATE_2026-08-10_hero.md) | Website vision, hero/OG/footer changes; prior 8.2 verdict now superseded |
-| 2026-08-10 | `019feabb` | [`sessions/SESSION_AUDIT_2026-08-10_019feabb.md`](./sessions/SESSION_AUDIT_2026-08-10_019feabb.md), [`docs/audits/2026-08-10-baseline.md`](./docs/audits/2026-08-10-baseline.md) | Scoreboard baseline, layout work, Congronglu expansion; prior verdict superseded |
-| 2026-08-10 | `019fea62` | [`sessions/SESSION_AUDIT_2026-08-10_019fea62.md`](./sessions/SESSION_AUDIT_2026-08-10_019fea62.md) | Routing/scroll/a11y fixes |
-| 2026-08-09 | `019fe8a2` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe8a2.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe8a2.md), [`sessions/ROBO_REGISTERS_PILOT_Case1.md`](./sessions/ROBO_REGISTERS_PILOT_Case1.md) | Robo rebrand/profiles/settings and quotation campaign |
-| 2026-08-09 | `019fe731` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe731.md) | A11y/search fixes, Biyanlu/Linji campaign |
-| 2026-08-09 | `019fe64a` | [`sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md`](./sessions/AUDIT_RESPONSE_2026-08-09_019fe64a.md), [`sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md`](./sessions/STRUCTURAL_ASSESSMENT_2026-08-09_019fe64a.md) | Schema/provenance/SEO and structure work |
-| 2026-08-09 | `019fe5d5` | [`sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md`](./sessions/SESSION_AUDIT_2026-08-09_019fe5d5.md) | Vocabulary/doc-gate/escaping work |
-| 2026-08-08 | `019fe30b` | [`sessions/SESSION_AUDIT_2026-08-08_019fe30b.md`](./sessions/SESSION_AUDIT_2026-08-08_019fe30b.md) | CSP/a11y/metrics/browser suite and early Biyanlu pilot |
-| 2026-08-08 | earlier | [`sessions/SESSION_AUDIT_2026-08-08.md`](./sessions/SESSION_AUDIT_2026-08-08.md), [`sessions/AUDIT_archive_2026-08-08.md`](./sessions/AUDIT_archive_2026-08-08.md) | Initial repair and audit history |
+The weighted score is **7.2/10**. The prior 7.6 summary was inconsistent with its aspect table, which calculated to 6.9; the current [scoreboard](./SCOREBOARD.md) corrects the arithmetic and records only evidenced improvements. All `user_score` values remain `null` because the owner supplied qualitative direction, not a numeric score.
 
-## 5. Maintenance rule
+## 6. Report index
 
-- Update §§1–3 only when current evidence changes.
-- Add one concise row per completed session.
-- Keep detailed process in a dated `sessions/` report, not in this file or HANDOFF.
-- Never infer user scores; see [`SCOREBOARD.md`](./SCOREBOARD.md).
+| Date | Report | Scope |
+|---|---|---|
+| 2026-08-11 | [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md) | **Current full audit**, owner feedback, English-first walnut redesign, resilience/security fixes |
+| 2026-08-10 | [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) | Secondary-room redesign, storage hotfix, responsive/contrast pass |
+| 2026-08-10 | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) | Containment, behavior fixes, initial walnut shell and Reader |
+| 2026-08-10 | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md) | Earlier architecture/design audit; conclusions superseded where they conflict |
+| 2026-08-08–10 | [`sessions/`](./sessions/) | Historical audit and implementation evidence |
+
+## 7. Maintenance rule
+
+- Update §§1–5 only when current evidence changes.
+- Add one report-index row per completed audit session.
+- Keep detailed process in dated `sessions/` reports.
+- Never infer a numeric owner score from feedback, merge, or silence.
