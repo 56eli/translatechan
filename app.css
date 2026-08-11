@@ -453,8 +453,7 @@ main {
   position: relative;
   background-color: var(--paper);
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 5.5rem),
-    linear-gradient(90deg, transparent 0, transparent calc(50% - 0.5px), var(--paper-fiber) 50%, transparent calc(50% + 0.5px));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 5.5rem);
   border: 1px solid var(--paper-edge);
   border-radius: 2px;
   box-shadow:
@@ -1140,16 +1139,17 @@ main {
   border-top: 1px solid var(--border-subtle);
 }
 #reader-content-target .case-card::after {
-  content: '◆';
+  /* Font-independent lozenge: a rotated square beats a glyph that many
+     headless/minimal font environments cannot render. */
+  content: '';
   position: absolute;
   top: 1.28rem;
   left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0 0.7rem;
-  background: var(--paper);
-  color: var(--accent-gold);
-  font-size: 0.5rem;
-  line-height: 1;
+  width: 0.42rem;
+  height: 0.42rem;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border: 2px solid var(--paper);
+  background: var(--accent-gold);
 }
 #reader-content-target .case-card:hover { border-color: transparent; box-shadow: none; }
 #reader-content-target .case-card:first-of-type::before { display: none; }
@@ -1168,6 +1168,8 @@ main {
   .document-title-row { align-items: flex-start; }
   .document-status { font-size: 0.58rem; }
   .document-details dl { left: 0; right: auto; }
+  /* The work title must not eat the whole first fold on phones */
+  #reader-content-target .document-heading .text-title-zh { font-size: clamp(1.55rem, 7.4vw, 2.2rem); }
   #reader-content-target .translation-col,
   #reader-content-target .translation-col + .translation-col { padding-left: 0; padding-right: 0; border-right: 0; border-bottom: 1px solid var(--border-subtle); }
 }
@@ -1620,6 +1622,9 @@ mark {
   overflow-x: auto;
   scrollbar-width: thin;
   border-bottom: 1px solid var(--border-subtle);
+  /* The rail fades instead of cutting off mid-token */
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 3rem), transparent 100%);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 3rem), transparent 100%);
 }
 .case-strip-label { position: sticky; left: 0; z-index: 1; flex: none; padding-right: 0.45rem; background: var(--paper); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); white-space: nowrap; }
 /* Case index tokens: a folio table-of-contents rail, hairline-separated */

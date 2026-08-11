@@ -516,7 +516,12 @@
     document.documentElement.setAttribute('data-theme', theme);
     storageSet('translatechan_theme', theme);
     if (elements.themeToggle) {
-      elements.themeToggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">☀</span>' : '<span aria-hidden="true">☾</span>';
+      // Inline SVG icons (no glyph-font dependence): moon in light mode, sun in dark.
+      const moon = elements.themeToggle.querySelector('.icon-moon');
+      const sun = elements.themeToggle.querySelector('.icon-sun');
+      if (moon) moon.hidden = theme === 'dark';
+      if (sun) sun.hidden = theme !== 'dark';
+      elements.themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
     }
   }
 
@@ -1529,7 +1534,7 @@
     const navFooter = cases.length > 1 ? `
       <div class="case-nav-footer">
         ${previousCase ? `<button class="btn-pill" data-jump-case="${previousCase.case_num}" title="Previous case (←)">‹ 第${previousCase.case_num}則</button>` : '<span></span>'}
-        <button class="btn-pill" data-jump-case="${caseItem.case_num}" title="Jump to this case">⤒ 本則</button>
+        <button class="btn-pill" data-jump-case="${caseItem.case_num}" title="Jump to this case">§ This case</button>
         ${nextCase ? `<button class="btn-pill" data-jump-case="${nextCase.case_num}" title="Next case (→)">第${nextCase.case_num}則 ›</button>` : '<span></span>'}
       </div>` : '';
 
