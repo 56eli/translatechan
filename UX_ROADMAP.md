@@ -1,6 +1,6 @@
 # 🧘 Fake Chan Factory — UX/UI Improvement Roadmap
 
-> **Status (2026-08-11): historical functional roadmap.** The functional items below are snapshots. Phases A–D and the walnut room layouts are implemented; owner feedback then moved the current visual direction to an English-first factory/editorial interpretation. See [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md). Current screenshots, accessibility evidence, and owner approval remain.
+> **Status (2026-08-11): historical functional roadmap.** The functional items below are snapshots. Phases A–D, the walnut room layouts, the English-first factory/editorial interpretation, and progressive copy cleanup are implemented. The owner requested PR #18 merge; screenshots and accessibility evidence remain unavailable. See [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md).
 >
 > **Purpose**: get the GitHub Pages app to *perfect functionality without overloading the screen* — desktop and mobile.
 > **Author**: session `arena/019fe1b5-translatechan`, 2026-08-08 · **Scope**: `index.html`, `app.css`, `app.js` (zero-backend SPA).

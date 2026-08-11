@@ -1,6 +1,6 @@
 # Full Senior-Developer & Web-Design Audit — 2026-08-11
 
-> **Session:** `arena/019ff089-translatechan` · **Baseline:** `27ca224` (`main`, merged PR #17) · **Audited change:** `d2e9887`
+> **Session:** `arena/019ff089-translatechan` · **Baseline:** `27ca224` (`main`, merged PR #17) · **Audited changes:** `d2e9887..e6e24bf`
 > **Scope:** product fit, information architecture, visual system, responsive UX, accessibility, application architecture, code quality, data integrity, security/privacy, performance, tests, CI/CD, Pages deployment, SEO, repository hygiene, and documentation.
 > **Owner feedback collected:** the Pages site felt **too plain and generic** and placed **too much visual emphasis on Chinese characters**; the owner selected **preserve the current walnut-hall direction** rather than replacing it.
 
@@ -8,7 +8,7 @@
 
 **The repository is structurally sound and unusually honest about translation provenance, but it is not release-ready under its own gate: audited score 7.2/10, `repo_ready = fail`.**
 
-No new P0 defect was found. The prior Congronglu P0 remains contained. This pass fixed the most visible design mismatch by turning the restrained-but-generic walnut layout into an English-first editorial/factory identity while keeping source Chinese available where it belongs: the Reader. It also closed the missing-bundle blank-screen failure and corrected CSP ordering.
+No new P0 defect was found. The prior Congronglu P0 remains contained. This pass fixed the most visible design mismatch by turning the restrained-but-generic walnut layout into an English-first editorial/factory identity while keeping source Chinese available where it belongs: the Reader. It also removed repetitive visible copy through progressive disclosure, closed the missing-bundle blank-screen failure, and corrected CSP ordering. The owner explicitly requested PR #18 merge after the iterations.
 
 The remaining release blockers are not cosmetic:
 
@@ -16,7 +16,7 @@ The remaining release blockers are not cosmetic:
 2. real-browser execution is skippable and could not run in this environment;
 3. CI still omits mirrored assets and has no required browser/accessibility job;
 4. source-field review remains incomplete beyond the two complete selected witnesses;
-5. the new visual direction still needs owner review in a real browser.
+5. the owner requested merge, but post-merge desktop/mobile light/dark verification remains unavailable in this environment.
 
 ## 2. Measured state
 
@@ -60,11 +60,12 @@ The prior implementation followed the walnut-hall specification literally but no
 - Reduced default source-Chinese scale from 1.35rem to 1.2rem and increased English translation text to 1rem; source Chinese remains present and semantically marked with `lang="zh"`.
 - Replaced glyph-only mobile controls with compact English labels (`Bi`, `All`, `Zh`, `Py`, `#`).
 - Rebuilt the Open Graph image around the same English-first identity.
+- Removed redundant hero/Matrix explanations and repeated Robo footers; compacted Lineage/Lexicon help, citations, coverage, and search copy while keeping provenance available on demand.
 - Preserved the five-room scope, dark walnut shell, source honesty, rice-paper palette, zero-backend architecture, and serious reading flow.
 
 ### Current design assessment
 
-The implementation now has a distinct product idea and a clearer hierarchy. It no longer asks decorative Chinese to carry the identity by itself. The source language remains central in reading content, where it is meaningful rather than ornamental. The score is capped at 7/10 until desktop/mobile light/dark screenshots and owner approval exist.
+The implementation now has a distinct product idea, clearer hierarchy, and quieter reading surface. It no longer asks decorative Chinese or repeated disclosure prose to carry the identity. The source language and provenance remain available where meaningful. The owner explicitly requested merge; the score remains capped at 7/10 until desktop/mobile light/dark browser evidence exists.
 
 ## 4. UX and accessibility
 
@@ -179,7 +180,7 @@ Do not modularize solely to reduce source-file line counts; prioritize transfer 
 - 35-document dependency-free renderer smoke
 - npm audit
 - HTML parser and Markdown relative-link scan
-- branch Quality workflow (`d2e9887`)
+- branch and PR Quality workflows through `e6e24bf`
 
 ### Gaps
 
@@ -213,11 +214,11 @@ No workflow file was edited because repository policy requires explicit owner ap
 ### P1 — release blockers
 
 1. Complete human quotation-rights and jurisdiction decisions.
-2. Obtain explicit owner visual approval of the new desktop/mobile light/dark result.
-3. Continue field-level source review for Biyanlu, Platform, Linji, and excerpt seeds.
+2. Continue field-level source review for Biyanlu, Platform, Linji, and excerpt seeds.
 
 ### P2 — next engineering work
 
+3. Verify the merged design at desktop/mobile light/dark widths when a real browser is available.
 4. Add an owner-approved non-skippable browser/accessibility CI job and complete mirrored-artifact coverage.
 5. Remove the 41 generated inline styles, then remove CSP `unsafe-inline` if feasible.
 6. Lazy-render secondary rooms and measure before splitting the data bundle.
@@ -246,7 +247,7 @@ No workflow file was edited because repository policy requires explicit owner ap
 | CI/CD | 6 | blocked on owner-approved workflow work |
 | Security/privacy | **8** | improved; inline styles/fonts remain |
 | Performance | 7 | needs measurement |
-| GitHub Pages presentation | **7** | redesigned; owner approval pending |
+| GitHub Pages presentation | **7** | merge requested; browser evidence pending |
 | UX/usability | 7 | needs browser review |
 | Accessibility | 7 | needs real-engine/screen-reader review |
 | Content quality | 6 | rights and field review pending |
@@ -270,10 +271,10 @@ diff -rq data docs/data                 PASS
 git diff --check                        PASS
 HTML parser                             PASS
 Markdown relative-link scan             PASS after one historical-link repair
-GitHub branch Quality                   PASS (run 31486895570)
+GitHub branch + PR Quality              PASS (through e6e24bf)
 npm run test:browser                    SKIP; Chromium unavailable
 Playwright browser download             FAIL; network ECONNRESET
 apt Chromium installation               FAIL; package network unavailable
 ```
 
-A green structural suite does not substitute for current screenshots, screen-reader verification, human content review, rights decisions, or owner approval.
+A green structural suite and merge instruction do not substitute for current screenshots, screen-reader verification, human content review, or rights decisions.

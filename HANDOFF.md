@@ -56,9 +56,10 @@ Current implementation:
 - smaller but intact source-language labels and Reader source text;
 - matching social image and `FC` monogram;
 - compact English mobile controls;
+- progressive disclosure that removes repeated Robo, citation, coverage, Lineage, Lexicon, and search prose from the reading surface;
 - no added runtime or image payload.
 
-This direction is implemented but **not owner-approved**. Current real-browser screenshots were unavailable in the audit environment.
+This direction and the subsequent copy cleanup are implemented, and the owner explicitly requested PR #18 merge. Current real-browser screenshots were unavailable in the audit environment.
 
 ## 4. Measured snapshot
 
@@ -95,7 +96,7 @@ Completion requires explicit `complete_selected_witness` status plus satisfied u
 
 ### Presentation
 
-- Owner desktop/mobile light/dark approval is pending.
+- Owner requested merge after the English-first design and copy-cleanup iterations; real-browser desktop/mobile light/dark evidence remains unavailable.
 - SVG social-card support varies; a PNG fallback is recommended.
 - Repository description/homepage/topics are empty.
 
@@ -192,4 +193,4 @@ Never append a full session narrative here; link the dated report.
 
 ## 12. Current pull request
 
-PR [#18](https://github.com/56eli/translatechan/pull/18) targets `main` from `arena/019ff089-translatechan`. Both implementation and audit push Quality runs passed; merge is intentionally left to owner review.
+PR [#18](https://github.com/56eli/translatechan/pull/18) targets `main` from `arena/019ff089-translatechan`. It is mergeable, current branch/PR Quality checks pass, and the owner explicitly requested merge after this final documentation handoff.

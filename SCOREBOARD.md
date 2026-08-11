@@ -11,7 +11,7 @@ The previous 7.6 summary did not match its own aspect table, whose weighted resu
 
 ## Owner direction
 
-The owner said the prior Pages design was **too plain/generic** and placed **too much focus on Chinese characters**, while choosing to **preserve the walnut-hall direction**. The current branch responds with a bolder English-first factory/editorial identity. Visual approval remains pending.
+The owner said the prior Pages design was **too plain/generic** and placed **too much focus on Chinese characters**, while choosing to **preserve the walnut-hall direction**. The current branch responds with a bolder English-first factory/editorial identity and progressive copy cleanup; after reviewing the iterations, the owner explicitly requested PR #18 merge.
 
 ## Highest priorities
 
@@ -20,7 +20,7 @@ The owner said the prior Pages design was **too plain/generic** and placed **too
 | 1 | Content quality | 6 | All 14 rights records still require human/jurisdiction review; field-level source review remains incomplete |
 | 2 | Deployment readiness | 6 | Rights, browser evidence, and operations gates block release |
 | 3 | CI/CD | 6 | Browser/a11y checks are not required; mirrored asset coverage and branch protection remain unresolved |
-| 4 | GitHub Pages presentation | 7 | English-first redesign shipped; real-browser screenshots and owner approval remain |
+| 4 | GitHub Pages presentation | 7 | English-first redesign and copy cleanup approved for merge; real-browser screenshots remain |
 | 5 | Performance | 7 | ~556 KB local gzip before fonts; all rooms and the full data global initialize up front |
 
 ## Score table
@@ -40,7 +40,7 @@ The owner said the prior Pages design was **too plain/generic** and placed **too
 | CI/CD | 4 | 7 | 6 | — | 6 | blocked manual workflow edit |
 | Security / privacy | 5 | 8 | 8 | — | 8 | healthy |
 | Performance | 3 | 8 | 7 | — | 7 | needs measurement |
-| GitHub Pages presentation | 5 | 8 | 7 | — | 7 | owner approval pending |
+| GitHub Pages presentation | 5 | 8 | 7 | — | 7 | merge approved; browser evidence pending |
 | UX / usability | 4 | 8 | 7 | — | 7 | needs browser review |
 | Accessibility | 3 | 8 | 7 | — | 7 | needs real-engine review |
 | Content quality | 3 | 8 | 6 | — | 6 | needs human review |
@@ -56,7 +56,7 @@ The gate requires security/privacy ≥8, tests ≥7, README ≥7, CI/CD ≥7, ag
 
 ## Current risk flags
 
-1. Owner visual approval is pending for the new English-first walnut design.
+1. The owner requested PR #18 merge; current real-browser desktop/mobile light/dark evidence remains unavailable.
 2. The contained Congronglu P0 must not be reintroduced without source-pinned field-level collation.
 3. All 14 quotation-rights records remain unresolved under the human review workflow.
 4. Biyanlu, Linji, Platform, and excerpt seeds need deeper field-level review.
@@ -65,8 +65,8 @@ The gate requires security/privacy ≥8, tests ≥7, README ≥7, CI/CD ≥7, ag
 
 ## Recommended order
 
-1. Obtain owner feedback on the current desktop/mobile preview and iterate.
-2. Complete rights decisions and the next field-level source-review tranche.
-3. Apply the documented owner-approved CI/browser/accessibility changes.
-4. Remove generated inline styles and re-evaluate CSP `unsafe-inline`.
-5. Measure cold-load performance, then lazy-render rooms before considering a data-bundle split.
+1. Merge PR #18 as requested and confirm main Quality/Pages deployment.
+2. Verify the published design in a real browser when Chromium is available.
+3. Complete rights decisions and the next field-level source-review tranche.
+4. Apply the documented owner-approved CI/browser/accessibility changes.
+5. Remove generated inline styles, then measure and lazy-render startup work.

@@ -8,7 +8,7 @@
 
 **Not release-ready: audited score 7.2/10 and `repo_ready = fail`.**
 
-The owner reported that the prior Pages design was too plain/generic and over-emphasized Chinese characters, while selecting preservation of the walnut-hall direction. The current branch implements a bolder English-first factory/editorial identity, keeps source Chinese in the Reader, adds recoverable startup failure UI, and corrects CSP ordering. The result still needs real-browser screenshot review and explicit owner approval.
+The owner reported that the prior Pages design was too plain/generic and over-emphasized Chinese characters, while selecting preservation of the walnut-hall direction. The current branch implements a bolder English-first factory/editorial identity, keeps source Chinese in the Reader, progressively removes repetitive copy, adds recoverable startup failure UI, and corrects CSP ordering. After the cleanup iterations, the owner explicitly requested PR #18 merge; real-browser screenshot evidence remains unavailable.
 
 Current generated measurements:
 
@@ -20,7 +20,7 @@ Current generated measurements:
 - Glossary: **31 terms**; Gong'an index: **24 entries**.
 - Bundle: **1,594,154 raw bytes / 497,352 gzip-9**; first-load local assets total about **556 KB gzip before fonts**.
 - Rights: **12 sources need rights review; 2 need jurisdiction review**.
-- Deployment: native GitHub Pages from `main /docs`, HTTPS enforced; branch Quality for `d2e9887` passed.
+- Deployment: native GitHub Pages from `main /docs`, HTTPS enforced; PR #18 is mergeable and current branch/PR Quality checks pass at `e6e24bf`.
 
 ## 2. Implemented this session
 
@@ -30,30 +30,30 @@ Current generated measurements:
 4. **Resilience:** bundle-shape validation, visible `role="alert"` recovery panel, reload/reset actions, and top-level initialization recovery.
 5. **Security:** CSP moved before `theme-init.js`; self-only script policy retained.
 6. **Regression coverage:** smoke guards for CSP order, English-first identity/headings, recovery UI, and updated Gong'an/epilogue markup.
-7. **Documentation hygiene:** one broken historical relative link fixed; canonical audit, scoreboard, handoffs, and disposable response summary synchronized.
+7. **Copy and disclosure cleanup:** removed repetitive hero/Matrix prose and Robo footers; compacted Lineage, Lexicon, verified citations, coverage, and search copy while preserving details on demand.
+8. **Documentation hygiene:** one broken historical relative link fixed; canonical audit, scoreboard, handoffs, and disposable response summary synchronized.
 
 ## 3. Active blockers
 
 ### P1 — release blockers
 
-1. **Owner visual approval:** current desktop/mobile light/dark browser output has not been approved.
-2. **Quotation rights:** all 14 manifest sources remain human/jurisdiction-review pending.
-3. **Source depth:** non-case field review remains incomplete, especially Biyanlu, Linji, Platform, and excerpt seeds.
+1. **Quotation rights:** all 14 manifest sources remain human/jurisdiction-review pending.
+2. **Source depth:** non-case field review remains incomplete, especially Biyanlu, Linji, Platform, and excerpt seeds.
 
 ### P2 — engineering and operations
 
-4. **Browser evidence:** Playwright exits successfully when Chromium is unavailable; browser execution is not required in CI.
-5. **CI coverage:** four mirrored deploy assets are omitted from the generated-artifact diff; browser/a11y/link/performance checks are not required.
-6. **Performance:** the complete data global and all hidden views initialize up front.
-7. **CSP/style debt:** 41 JS-generated inline styles still require `style-src 'unsafe-inline'`.
-8. **Validation depth:** JSON Schema is not executed and non-case field-level validation remains weaker than case validation.
+3. **Browser evidence:** Playwright exits successfully when Chromium is unavailable; browser execution is not required in CI.
+4. **CI coverage:** four mirrored deploy assets are omitted from the generated-artifact diff; browser/a11y/link/performance checks are not required.
+5. **Performance:** the complete data global and all hidden views initialize up front.
+6. **CSP/style debt:** 41 JS-generated inline styles still require `style-src 'unsafe-inline'`.
+7. **Validation depth:** JSON Schema is not executed and non-case field-level validation remains weaker than case validation.
 
 ### P3 — polish
 
-9. Repository description, homepage, and topics are empty; GitHub license detection returns `NOASSERTION`.
-10. Google Fonts is a third-party runtime request; no `SECURITY.md` exists.
-11. SVG social cards have uneven platform support; a PNG fallback would be safer.
-12. Six lineage profiles lack linked corpus keys and all 30 edges await exact locators.
+8. Repository description, homepage, and topics are empty; GitHub license detection returns `NOASSERTION`.
+9. Google Fonts is a third-party runtime request; no `SECURITY.md` exists.
+10. SVG social cards have uneven platform support; a PNG fallback would be safer.
+11. Six lineage profiles lack linked corpus keys and all 30 edges await exact locators.
 
 ## 4. Verification
 
@@ -66,7 +66,7 @@ npm audit --package-lock-only           PASS; 0 vulnerabilities
 diff -rq data docs/data                 PASS
 git diff --check                        PASS
 HTML parser / Markdown link scan        PASS
-GitHub branch Quality                   PASS (run 31486895570)
+GitHub branch + PR Quality              PASS (through e6e24bf)
 npm run test:browser                    SKIP; Chromium unavailable
 ```
 

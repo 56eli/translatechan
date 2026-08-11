@@ -2,13 +2,13 @@
 
 > **Last updated:** 2026-08-11 · **Session:** `arena/019ff089-translatechan`
 > **Fixed branch:** `arena/019ff089-translatechan` — do not switch or push elsewhere.
-> **Baseline:** `27ca224` (`main`, merged PR #17) · **Latest audit commit:** `d6b37f1` · **PR:** [#18](https://github.com/56eli/translatechan/pull/18)
+> **Baseline:** `27ca224` (`main`, merged PR #17) · **Latest implementation:** `e6e24bf` · **PR:** [#18](https://github.com/56eli/translatechan/pull/18), owner-requested merge
 
 ## Current state
 
 The owner said the GitHub Pages design was **too plain/generic** and focused **too heavily on Chinese characters**, then selected **preserve the walnut-hall direction**. This session implemented a bolder English-first walnut/factory identity across the shell, hero, room headings, Reader hierarchy, secondary rooms, mobile controls, and Open Graph image.
 
-The session also added visible recovery for missing/malformed data and top-level initialization failures, moved CSP before every script, extended smoke coverage, completed a full repository audit, and corrected scoreboard arithmetic.
+The session also added visible recovery for missing/malformed data and top-level initialization failures, moved CSP before every script, progressively removed repetitive visible copy while retaining on-demand provenance, extended smoke/browser coverage, completed a full repository audit, and corrected scoreboard arithmetic. The owner then requested documentation/handoff completion and PR #18 merge.
 
 Current weighted score: **7.2/10**; `repo_ready = fail`. All `user_score` fields remain `null`; the owner supplied qualitative, not numeric, feedback.
 
@@ -32,7 +32,7 @@ build + root/docs sync         PASS
 smoke (35 renderers)           PASS
 npm audit                      PASS; 0 vulnerabilities
 HTML / Markdown link scan      PASS
-branch Quality                 PASS; run 31486895570
+branch + PR Quality            PASS; through e6e24bf
 Playwright                     SKIP; Chromium unavailable
 ```
 
@@ -40,19 +40,18 @@ Browser download failed with network `ECONNRESET`; apt package sources were also
 
 ## Remaining blockers
 
-1. Owner approval of current desktop/mobile light/dark browser output.
-2. All 14 rights-manifest sources require human or jurisdiction review.
-3. Biyanlu, Linji, Platform, and excerpt seeds need deeper field-level source review.
-4. Browser execution remains skippable and is not required in CI.
-5. CI omits four mirrored paths; branch protection is unconfirmed.
-6. Full bundle and all hidden rooms initialize up front.
-7. Forty-one generated inline styles keep CSP `unsafe-inline` necessary.
-8. Six lineage profiles lack linked corpus keys; 30 edges await exact locators.
+1. All 14 rights-manifest sources require human or jurisdiction review.
+2. Biyanlu, Linji, Platform, and excerpt seeds need deeper field-level source review.
+3. Browser execution remains skippable and is not required in CI; current screenshots are unavailable.
+4. CI omits four mirrored paths; branch protection is unconfirmed.
+5. Full bundle and all hidden rooms initialize up front.
+6. Forty-one generated inline styles keep CSP `unsafe-inline` necessary.
+7. Six lineage profiles lack linked corpus keys; 30 edges await exact locators.
 
 ## Recommended next sequence
 
-1. Ask the owner to review the live preview and choose the next visual adjustment.
-2. Iterate only from that explicit feedback; do not infer approval.
+1. Merge PR #18 as explicitly requested and confirm main Quality/Pages deployment.
+2. Verify the published site in a real browser when Chromium is available.
 3. Continue human rights/source review as a separate content tranche.
 4. Apply workflow/browser/a11y changes only with explicit owner approval.
 5. Measure browser performance before lazy-rendering rooms or splitting the bundle.

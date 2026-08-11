@@ -28,6 +28,7 @@ The five-room public SPA keeps its dark-walnut Chan-hall structure while using a
 - **Hierarchy:** English leads navigation, room/document/unit headings, lineage, Gong'an, lexicon, and mobile controls; source Chinese remains available with `lang="zh"` and stays central inside the Reader.
 - **Reading system:** grouped 2/2/31 library shelf, progressive provenance ledger, ruled reading sheets, Matrix proof rows, Lineage directory/network, Gong'an catalogue, and dictionary definitions.
 - **Responsive and accessible behavior:** 1024px shelf collapse, 768px mobile layout, contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls, and no HTML inline styles.
+- **Progressive disclosure:** repeated hero/Matrix explanations and per-column Robo footers are removed; compact citations, coverage, Lineage, Lexicon, and search labels keep detailed provenance available on demand.
 - **Resilience and honesty:** redundant Robo badges are suppressed without hiding verified-quotation status; malformed preferences fail soft; missing/malformed data renders reload/reset recovery UI; edition verification and rights status remain separate.
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
