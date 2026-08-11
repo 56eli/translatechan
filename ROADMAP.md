@@ -29,7 +29,7 @@ This document outlines the detailed engineering, data science, translation, and 
 >
 > **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **177 verified corpus quotation slots across 10 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
 
-> **Website-design status (2026-08-11):** all five walnut rooms are implemented. After the owner found the result too plain/generic and too Chinese-dominant, the current branch introduced a bolder English-first factory/editorial hierarchy and three progressive copy-cleanup passes. The owner requested PR #18 merge; real-browser screenshots and accessibility evidence remain unavailable. See [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md).
+> **Website-design status (2026-08-11):** all five walnut rooms are implemented. After the owner found the result too plain/generic and too Chinese-dominant, the current branch introduced a bolder English-first factory/editorial hierarchy and three progressive copy-cleanup passes. PR #18 merged with green main Quality and Pages deployment; real-browser screenshots and accessibility evidence remain unavailable. See [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md).
 
 ---
 
@@ -43,14 +43,14 @@ This document outlines the detailed engineering, data science, translation, and 
   - `data/gongan/`: Master index of classic Gong'an / Koan collections with cross-references.
   - `src/` or `app/`: Production-ready, client-side web application designed for instant GitHub Pages deployment.
 - [x] **Interactive Web Application (GitHub Pages)**:
-  - Structural dark-walnut shell with English-first room navigation, a literature-first bilingual Reader, light/dark themes, and progressive disclosure (owner requested PR #18 merge; browser evidence pending).
+  - Structural dark-walnut shell with English-first room navigation, a literature-first bilingual Reader, light/dark themes, and progressive disclosure (PR #18 merged; browser evidence pending).
   - Reading font-size controls (`A+` / `A-`) for mobile, tablet, and desktop.
   - Side-by-side bilingual reading view (Classical Chinese with pinyin & English).
   - Multi-Translator Comparison matrix with explicit scholar, verified-quotation, reconstruction, and AI-draft disclosure.
   - Interactive Chan Lineage Tree visualizer with master bios, dates, and lineage branches.
   - Classical Chan Dictionary / Lexicon hover and search system.
   - Instant client-side search across **all 35 active texts and primary schema shapes**, including case pointers (accurate matching-unit counts, highlighting, and jump-to-anchor — [`sessions/AUDIT_archive_2026-08-08.md` §10](./sessions/AUDIT_archive_2026-08-08.md#10-2026-08-08--current-independent-audit-post-pr-3)).
-  - **Functional UX and five-room design implemented; English-first refinement merge requested (2026-08-11):** current work addresses owner feedback on generic styling, Chinese-dominant hierarchy, and repetitive copy; screenshot/accessibility evidence remains. See [`UX_ROADMAP.md`](./UX_ROADMAP.md) and the [current audit](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md).
+  - **Functional UX and five-room design implemented; English-first refinement merged (2026-08-11):** current work addresses owner feedback on generic styling, Chinese-dominant hierarchy, and repetitive copy; screenshot/accessibility evidence remains. See [`UX_ROADMAP.md`](./UX_ROADMAP.md) and the [current audit](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Corpus** (35 active files after the 2026-08-10 Congronglu quarantine; editorial completion status is explicit in the manifest):
   1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — **48/48 cases COMPLETE** + preface + epilogue, 2026-08-08)

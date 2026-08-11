@@ -1,6 +1,6 @@
 # 🏯 Fake Chan Factory — Website Vision (Historical Walnut-Hall Direction)
 
-> **Current direction (2026-08-11):** the walnut foundation remains, but the owner found the implementation too plain/generic, too Chinese-dominant, and later too repetitive in its explanatory copy. The current English-first, progressively disclosed interpretation is documented in [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md); the owner requested PR #18 merge.
+> **Current direction (2026-08-11):** the walnut foundation remains, but the owner found the implementation too plain/generic, too Chinese-dominant, and later too repetitive in its explanatory copy. The current English-first, progressively disclosed interpretation is documented in [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md); PR #18 merged with green main Quality and Pages deployment.
 >
 > **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10 and retained as historical design evidence.
 > **Status:** Superseded as current visual authority after the 2026-08-11 owner feedback; retained to explain the walnut-hall foundation.

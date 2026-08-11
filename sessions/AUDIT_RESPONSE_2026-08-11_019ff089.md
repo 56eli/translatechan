@@ -8,7 +8,7 @@
 
 **The repository is structurally sound and unusually honest about translation provenance, but it is not release-ready under its own gate: audited score 7.2/10, `repo_ready = fail`.**
 
-No new P0 defect was found. The prior Congronglu P0 remains contained. This pass fixed the most visible design mismatch by turning the restrained-but-generic walnut layout into an English-first editorial/factory identity while keeping source Chinese available where it belongs: the Reader. It also removed repetitive visible copy through progressive disclosure, closed the missing-bundle blank-screen failure, and corrected CSP ordering. The owner explicitly requested PR #18 merge after the iterations.
+No new P0 defect was found. The prior Congronglu P0 remains contained. This pass fixed the most visible design mismatch by turning the restrained-but-generic walnut layout into an English-first editorial/factory identity while keeping source Chinese available where it belongs: the Reader. It also removed repetitive visible copy through progressive disclosure, closed the missing-bundle blank-screen failure, and corrected CSP ordering. PR #18 then merged successfully with green main Quality and Pages deployment.
 
 The remaining release blockers are not cosmetic:
 
@@ -16,7 +16,7 @@ The remaining release blockers are not cosmetic:
 2. real-browser execution is skippable and could not run in this environment;
 3. CI still omits mirrored assets and has no required browser/accessibility job;
 4. source-field review remains incomplete beyond the two complete selected witnesses;
-5. the owner requested merge, but post-merge desktop/mobile light/dark verification remains unavailable in this environment.
+5. PR #18 merged; post-merge desktop/mobile light/dark verification remains unavailable in this environment.
 
 ## 2. Measured state
 
@@ -65,7 +65,7 @@ The prior implementation followed the walnut-hall specification literally but no
 
 ### Current design assessment
 
-The implementation now has a distinct product idea, clearer hierarchy, and quieter reading surface. It no longer asks decorative Chinese or repeated disclosure prose to carry the identity. The source language and provenance remain available where meaningful. The owner explicitly requested merge; the score remains capped at 7/10 until desktop/mobile light/dark browser evidence exists.
+The implementation now has a distinct product idea, clearer hierarchy, and quieter reading surface. It no longer asks decorative Chinese or repeated disclosure prose to carry the identity. The source language and provenance remain available where meaningful. PR #18 merged successfully; the score remains capped at 7/10 until desktop/mobile light/dark browser evidence exists.
 
 ## 4. UX and accessibility
 
@@ -247,7 +247,7 @@ No workflow file was edited because repository policy requires explicit owner ap
 | CI/CD | 6 | blocked on owner-approved workflow work |
 | Security/privacy | **8** | improved; inline styles/fonts remain |
 | Performance | 7 | needs measurement |
-| GitHub Pages presentation | **7** | merge requested; browser evidence pending |
+| GitHub Pages presentation | **7** | merged; browser evidence pending |
 | UX/usability | 7 | needs browser review |
 | Accessibility | 7 | needs real-engine/screen-reader review |
 | Content quality | 6 | rights and field review pending |
@@ -272,9 +272,11 @@ git diff --check                        PASS
 HTML parser                             PASS
 Markdown relative-link scan             PASS after one historical-link repair
 GitHub branch + PR Quality              PASS (through e6e24bf)
+GitHub main Quality                     PASS (run 31490146548)
+GitHub Pages deployment                 PASS (run 31490145334)
 npm run test:browser                    SKIP; Chromium unavailable
 Playwright browser download             FAIL; network ECONNRESET
 apt Chromium installation               FAIL; package network unavailable
 ```
 
-A green structural suite and merge instruction do not substitute for current screenshots, screen-reader verification, human content review, or rights decisions.
+Green structural, main Quality, and Pages deployment results do not substitute for current screenshots, screen-reader verification, human content review, or rights decisions.

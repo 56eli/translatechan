@@ -21,7 +21,7 @@ summary:
     - ci_cd
     - github_pages_presentation
   active_risk_flags:
-    - "Owner feedback on 2026-08-11: the Pages design was too plain/generic and over-emphasized Chinese characters; the English-first walnut redesign and copy cleanup are implemented, and the owner explicitly requested PR #18 merge. Real-browser evidence remains pending."
+    - "Owner feedback on 2026-08-11: the Pages design was too plain/generic and over-emphasized Chinese characters; the English-first walnut redesign and copy cleanup are implemented, and PR #18 merged successfully as `63dfe37`; main Quality and Pages deployment passed. Real-browser screenshot evidence remains pending."
     - "Contained P0: unreliable Congronglu data/locators/generating scripts remain removed; reintroduction is blocked on source-pinned field-level collation."
     - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; decisions remain pending."
     - "P2 source depth: Biyanlu, Linji, Platform, and other non-case records still need field-level coverage and broader human review."
@@ -332,12 +332,12 @@ aspects:
     status: needs_work
     confidence: high
     last_audited: 2026-08-11
-    ai_basis: "The English-first redesign gives the walnut shell a distinctive factory/editorial identity, rebalances navigation and headings away from decorative Chinese dominance, synchronizes the social image, and removes repetitive visible copy through progressive disclosure. The owner explicitly requested PR #18 merge; real-browser screenshots remain absent."
-    user_basis: "Qualitative owner feedback: the prior Pages design was too plain/generic and focused too heavily on Chinese characters; preserve and improve the walnut-hall direction, remove specified repetitive copy, update documentation, and merge PR #18. No numeric user score supplied."
+    ai_basis: "The English-first redesign gives the walnut shell a distinctive factory/editorial identity, rebalances navigation and headings away from decorative Chinese dominance, synchronizes the social image, and removes repetitive visible copy through progressive disclosure. PR #18 merged successfully and the live text surface was confirmed after Pages deployment; real-browser screenshots remain absent."
+    user_basis: "Qualitative owner feedback: the prior Pages design was too plain/generic and focused too heavily on Chinese characters; preserve and improve the walnut-hall direction, remove specified repetitive copy, update documentation, and merge PR #18; the merge and Pages deployment completed successfully. No numeric user score supplied."
     desired_direction: ["Preserve the walnut hall while making the identity bolder, less generic, English-first, and concise."]
     evidence: ["index.html English-first shell/hero/room headings", "app.css identity panel and hierarchy", "app.js English-first dynamic headings and progressive disclosure", "og-image.svg", "commits d2e9887..e6e24bf"]
     next_actions: ["Verify the merged Pages deployment in a real browser when Chromium is available."]
-    risk_flags: ["Owner requested merge, but current desktop/mobile light/dark screenshot evidence is still unavailable."]
+    risk_flags: ["PR #18 is merged and Pages is built; current desktop/mobile light/dark screenshot evidence is still unavailable."]
     files_reviewed: [index.html, app.css, app.js, og-image.svg, scripts/browser_test.mjs]
 
   - id: ux_usability

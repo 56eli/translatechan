@@ -8,7 +8,7 @@
 
 **Not release-ready: audited score 7.2/10 and `repo_ready = fail`.**
 
-The owner reported that the prior Pages design was too plain/generic and over-emphasized Chinese characters, while selecting preservation of the walnut-hall direction. The current branch implements a bolder English-first factory/editorial identity, keeps source Chinese in the Reader, progressively removes repetitive copy, adds recoverable startup failure UI, and corrects CSP ordering. After the cleanup iterations, the owner explicitly requested PR #18 merge; real-browser screenshot evidence remains unavailable.
+The owner reported that the prior Pages design was too plain/generic and over-emphasized Chinese characters, while selecting preservation of the walnut-hall direction. The published app now uses a bolder English-first factory/editorial identity, keeps source Chinese in the Reader, progressively removes repetitive copy, adds recoverable startup failure UI, and corrects CSP ordering. After the cleanup iterations, the owner requested PR #18 merge; the merge, main Quality, and Pages deployment completed successfully, while real-browser screenshot evidence remains unavailable.
 
 Current generated measurements:
 
@@ -20,7 +20,7 @@ Current generated measurements:
 - Glossary: **31 terms**; Gong'an index: **24 entries**.
 - Bundle: **1,594,154 raw bytes / 497,352 gzip-9**; first-load local assets total about **556 KB gzip before fonts**.
 - Rights: **12 sources need rights review; 2 need jurisdiction review**.
-- Deployment: native GitHub Pages from `main /docs`, HTTPS enforced; PR #18 is mergeable and current branch/PR Quality checks pass at `e6e24bf`.
+- Deployment: native GitHub Pages from `main /docs`, HTTPS enforced; PR #18 merged as `63dfe37`; main Quality and Pages deployment passed, and the published text surface was confirmed.
 
 ## 2. Implemented this session
 
@@ -67,6 +67,7 @@ diff -rq data docs/data                 PASS
 git diff --check                        PASS
 HTML parser / Markdown link scan        PASS
 GitHub branch + PR Quality              PASS (through e6e24bf)
+GitHub main Quality / Pages             PASS (runs 31490146548 / 31490145334)
 npm run test:browser                    SKIP; Chromium unavailable
 ```
 
