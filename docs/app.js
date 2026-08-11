@@ -116,25 +116,6 @@
     lexiconTarget: document.getElementById('lexicon-content-target'),
   };
 
-  // Keep the hero's hand-authored work/register chips truthful by deriving them
-  // from the live bundle rather than repeating counts in presentation code.
-  function updateHeroCounts() {
-    const corpusValue = document.getElementById('hero-corpus-count');
-    if (corpusValue && state.data.corpus) {
-      const count = Object.keys(state.data.corpus).length;
-      corpusValue.textContent = String(count);
-      corpusValue.parentElement?.setAttribute('aria-label', `${count} Canonical Works`);
-    }
-    const registerValue = document.getElementById('hero-translator-count');
-    const rows = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : [];
-    const matrixRegisters = state.data.project_metrics?.translations?.matrix_entries
-      || rows.reduce((total, row) => total + (Array.isArray(row?.translators) ? row.translators.length : 0), 0);
-    if (registerValue) {
-      registerValue.textContent = String(matrixRegisters);
-      registerValue.parentElement?.setAttribute('aria-label', `${matrixRegisters} Matrix Registers`);
-    }
-  }
-
   // Corpus selection has a single persistence path so sidebar, mobile picker,
   // deep links, and search jumps all restore the same reading context.
   function setCurrentCorpusKey(key) {
@@ -188,7 +169,7 @@
     reset?.addEventListener('click', () => {
       ['translatechan_corpus_key', 'translatechan_reader_mode', 'translatechan_show_pinyin',
        'translatechan_font_size', 'translatechan_collapsed_cases', 'translatechan_theme',
-       'translatechan_name_mode', 'translatechan_hero_dismissed'].forEach(storageRemove);
+       'translatechan_name_mode', 'translatechan_hero_dismissed' /* legacy key, retired with the hero gate */].forEach(storageRemove);
       window.location.reload();
     });
   }
@@ -208,8 +189,6 @@
     syncSettingsUI();
     setupShellMetrics();
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
-    updateHeroCounts();
-    setupHeroDismiss();
     populateLineageSchoolFilter();
     populateLexiconCategoryFilter();
     setupEventListeners();
@@ -224,38 +203,11 @@
     switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
   }
 
-  // L1 (audit 2026-08-10, session 019feabb): dismissable hero banner.
-  // The "about" block explains the project's joke once; after that, a
-  // returning reader wants the content area, not the joke. We honor a
-  // session-scoped hide (localStorage key) so the choice survives
-  // navigation but is easy to re-show by clearing the key. A small
-  // "ⓘ" button in the header re-shows the banner when it's hidden.
-  function setupHeroDismiss() {
-    const banner = document.getElementById('zen-hero-banner');
-    const btn = document.getElementById('hero-dismiss-btn');
-    const aboutBtn = document.getElementById('about-toggle');
-    if (!banner || !btn) return;
-    const isDismissed = () => storageGet('translatechan_hero_dismissed') === '1';
-    if (isDismissed()) {
-      banner.hidden = true;
-      if (aboutBtn) aboutBtn.hidden = false;
-    }
-    btn.addEventListener('click', () => {
-      banner.hidden = true;
-      storageSet('translatechan_hero_dismissed', '1');
-      if (aboutBtn) aboutBtn.hidden = false;
-    });
-    if (aboutBtn) {
-      aboutBtn.addEventListener('click', () => {
-        banner.hidden = false;
-        storageRemove('translatechan_hero_dismissed');
-        aboutBtn.hidden = true;
-        if (typeof banner.scrollIntoView === 'function') {
-          banner.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
-        }
-      });
-    }
-  }
+  // Owner decision 2026-08-11 (session 019ff0c0): the introductory hero gate
+  // ("The old texts are real. The translators are not.") read as a popup and
+  // was removed. There is no dismiss/re-show path — the reading room is the
+  // landing surface now, and the legacy `translatechan_hero_dismissed` key is
+  // only referenced by showLoadError's reset list for cleanup.
 
   // Reader mode switching (shared by sidebar + mobile bar, persisted)
   function setReaderMode(mode) {

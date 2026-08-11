@@ -44,19 +44,35 @@ for (const requiredFile of ['robots.txt', 'sitemap.xml']) {
     throw new Error(`missing generated ${requiredFile} at root and docs/`);
   }
 }
-// B3/B6: decorative nav emoji are hidden, and the hero chip count is data-derived.
+// B3/B6: decorative nav emoji are hidden; there is no hero greeting gate.
 for (const iconSpan of publicHtml.match(/<span[^>]*>[\u{1F300}-\u{1FAFF}️⃣][^<]*<\/span>/gu) || []) {
   if (iconSpan.includes('<span>Bilingual') || iconSpan.includes('<span>Comparative')) continue;
   if (!iconSpan.includes('aria-hidden="true"')) throw new Error(`decorative emoji span is not aria-hidden: ${iconSpan}`);
 }
-if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.includes('matrixRegisters')) {
-  throw new Error('hero work/register counts are not derived from data');
+// Owner decision 2026-08-11 (session 019ff0c0): the tagline hero read as a
+// popup and was removed entirely — neither markup, app code, share art, nor
+// prose docs may resurrect it.
+for (const retiredHero of [
+  'zen-hero-banner', 'hero-dismiss-btn', 'about-toggle', 'zen-quote-main',
+  'The old texts are real.', 'The translators are not.', 'translatechan_hero_dismissed'
+]) {
+  if (publicHtml.includes(retiredHero)) throw new Error(`retired hero popup marker returned to index.html: ${retiredHero}`);
+}
+if (/hero-(dismiss|corpus|translator)|setupHeroDismiss|updateHeroCounts/.test(appSrc)) {
+  throw new Error('retired hero logic returned to app.js');
+}
+{
+  const ogSrc = readFileSync(join(ROOT, 'og-image.svg'), 'utf8');
+  for (const banned of ['THE OLD TEXTS', 'THE TRANSLATORS']) {
+    if (ogSrc.includes(banned)) throw new Error(`retired hero tagline returned to og-image.svg: ${banned}`);
+  }
 }
 for (const shellToken of ['id="site-shell"', 'class="nav-tabs room-nav"', '閱藏堂', '對勘', '傳法堂', '公案架', '詞林']) {
   if (!publicHtml.includes(shellToken)) throw new Error(`walnut room shell missing: ${shellToken}`);
 }
-for (const identityToken of ['The old texts are real.', 'The translators are not.', 'data-room-index="01"', '<span>Comparative Matrix</span>']) {
-  if (!publicHtml.includes(identityToken)) throw new Error(`English-first visual direction missing: ${identityToken}`);
+// Chan-hall immersion shell: every room's content hangs on a paper sheet.
+for (const identityToken of ['class="content-panel paper-sheet"', 'paper-sheet room-sheet', 'data-room-index="01"', '<span>Comparative Matrix</span>']) {
+  if (!publicHtml.includes(identityToken)) throw new Error(`hall sheet structure missing: ${identityToken}`);
 }
 for (const removedCopy of [
   "「平常心是道。」— the Robo monks' practical joke.",
@@ -642,7 +658,7 @@ try {
 
 // 4jj. Reader rail is sticky below the measured walnut shell; case rail is not sticky.
 const cssSrc = readFileSync(join(ROOT, 'app.css'), 'utf8');
-if (!/\.reader-toolbar\s*\{[^}]*position:\s*sticky[^}]*top:\s*calc\(var\(--shell-height\)/s.test(cssSrc)) {
+if (!/\.reader-toolbar\s*\{[^}]*position:\s*sticky[^}]*top:\s*(?:calc\()?\s*var\(--shell-height\)/s.test(cssSrc)) {
   failures++; console.log('❌ 4jj: reader toolbar should stick below --shell-height');
 }
 if (!/\.case-jump-strip\s*\{[^}]*position:\s*static/s.test(cssSrc)) {
@@ -669,28 +685,23 @@ if (!cssSrc.includes('.dossier-panel') || !/\.dossier-panel\s*\{[^}]*background:
 if (!/\.dossier-panel\s*\{[^}]*border-left:\s*4px\s+solid\s+var\(--accent-gold\)/s.test(cssSrc)) {
   failures++; console.log('❌ 4kk: .dossier-panel should have a gold left accent stripe');
 }
+// 4gg (2026-08-11, session 019ff0c0): the hall shell — timber wall, paper
+// sheets, and the wooden shelf — replaced the retired hero popup. Guard the
+// new structure so the reading surface never reacquires a greeting gate.
 try {
-  const banner = ids['zen-hero-banner'];
-  const dismissBtn = ids['hero-dismiss-btn'];
-  if (banner && dismissBtn) {
-    // Banner should be visible initially (storage mock returns null for unknown key).
-    if (banner.hidden === true) {
-      failures++; console.log('❌ 4gg: hero banner should be visible on first visit');
-    }
-    // Click the dismiss button; banner.hidden becomes true (DOM property, not attribute).
-    (dismissBtn._handlers.click || []).forEach(fn => fn());
-    if (banner.hidden !== true) {
-      failures++; console.log('❌ 4gg: hero banner should hide after dismiss; banner.hidden = ' + banner.hidden);
-    }
-    // The about-toggle button should now be visible (no longer hidden).
-    const aboutBtn = ids['about-toggle'];
-    if (aboutBtn && aboutBtn.hidden === true) {
-      failures++; console.log('❌ 4gg: about-toggle should be visible after dismiss');
-    }
-  } else {
-    failures++; console.log('❌ 4gg: hero banner / dismiss button not found');
+  if (!cssSrc.includes('--hall-wall') || !cssSrc.includes('--paper:')) {
+    failures++; console.log('❌ 4gg: hall wall / paper sheet tokens missing from app.css');
   }
-} catch (e) { failures++; console.log(`❌ 4gg dismiss spot-check crashed: ${e.message}`); }
+  if (!/\.paper-sheet\s*\{[^}]*background-color:\s*var\(--paper\)/s.test(cssSrc)) {
+    failures++; console.log('❌ 4gg: .paper-sheet must hang paper on the wall');
+  }
+  if (!/\.sidebar-panel\s*\{[^}]*background-color:\s*var\(--wood-900\)/s.test(cssSrc)) {
+    failures++; console.log('❌ 4gg: sidebar should be the wooden shelf slab');
+  }
+  if (cssSrc.includes('.zen-hero-banner')) {
+    failures++; console.log('❌ 4gg: retired hero banner styles returned to app.css');
+  }
+} catch (e) { failures++; console.log(`❌ 4gg hall-structure check crashed: ${e.message}`); }
 
 // 4ee. Tier-4 (audit 2026-08-10, session 019feabb): the lineage dossier
 // should show real linked-corpus keys for masters that have them (the

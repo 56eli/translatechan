@@ -60,7 +60,6 @@
             <input type="search" id="global-search" class="search-input" placeholder="Search Chinese or English…" autocomplete="off" aria-label="Search all corpus texts — Chinese, pinyin, or English">
           </div>
           <button id="theme-toggle" class="theme-toggle" title="Toggle light or dark theme" aria-label="Toggle light or dark theme"><span aria-hidden="true">☾</span></button>
-          <button id="about-toggle" class="theme-toggle" title="Show project introduction" aria-label="Show project introduction" hidden><span aria-hidden="true">ⓘ</span></button>
           <div class="settings-menu">
             <button id="settings-btn" class="theme-toggle" title="Display settings" aria-label="Display settings" aria-expanded="false" aria-controls="settings-panel"><span aria-hidden="true">Aa</span></button>
             <div id="settings-panel" class="settings-panel" role="region" aria-label="Display settings" hidden>
@@ -87,31 +86,13 @@
   </header>
 
   <main id="main-content">
-  <!-- English-first identity panel: walnut hall structure, factory attitude, no
-       fake attribution. The source language remains central in the Reader. -->
-  <div class="zen-hero-banner" id="zen-hero-banner" role="region" aria-label="About Fake Chan Factory">
-    <button class="hero-dismiss-btn" id="hero-dismiss-btn" title="Hide this introduction for this session" aria-label="Hide project introduction">Close</button>
-    <div class="hero-main">
-      <div class="hero-kicker"><span>Open Chan Lab</span><span>Edition 01 / 2026</span></div>
-      <p class="zen-quote-main">The old texts are real.<br><em>The translators are not.</em></p>
-    </div>
-    <div class="hero-meta" aria-label="Project statistics">
-      <div class="hero-stamp" aria-hidden="true"><span>PROUDLY</span><strong>FAKE</strong><span>ENGLISH</span></div>
-      <div class="hero-stat" aria-label="35 Canonical Works"><strong id="hero-corpus-count">35</strong><span>source-tracked<br>works</span></div>
-      <div class="hero-stat" aria-label="21 Matrix Registers"><strong id="hero-translator-count">21</strong><span>comparison<br>registers</span></div>
-    </div>
-  </div>
-
-    <!-- View 1: Bilingual Reader -->
+    <!-- View 1: Bilingual Reader — the shelf hangs on the wall; the reading
+         sheet is the room. No greeting gate: Case 1 arrives within one fold. -->
     <section id="view-reader" class="view-section active" role="tabpanel" aria-labelledby="tab-reader">
-      <!-- Mobile corpus picker (sidebar is hidden below 960px) -->
-      <div class="mobile-corpus-picker">
-        <select id="corpus-mobile-select" class="search-input" aria-label="Select canonical text"></select>
-      </div>
       <div class="reader-layout">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar-panel">
-          <div class="sidebar-title"><span>Library</span><small>35 works</small></div>
+        <!-- Wooden library shelf: the corpus hangs on the hall's left wall -->
+        <aside class="sidebar-panel" aria-label="Canonical works shelf">
+          <div class="sidebar-title"><span>Library</span><small>35 Canonical Works</small></div>
           <!-- Corpus sidebar search filter — diacritic- and variant-tolerant -->
           <div class="corpus-filter">
             <span class="search-icon" aria-hidden="true">🔍</span>
@@ -121,8 +102,12 @@
 
         </aside>
 
-        <!-- Main Content Area -->
-        <div class="content-panel">
+        <!-- Main Content Area — the paper reading sheet -->
+        <div class="content-panel paper-sheet">
+          <!-- Mobile corpus picker (shelf is hidden below 1024px) -->
+          <div class="mobile-corpus-picker">
+            <select id="corpus-mobile-select" class="search-input" aria-label="Select canonical text"></select>
+          </div>
           <div class="reader-toolbar" aria-label="Reader controls">
             <div class="toolbar-group reader-mode-options" role="group" aria-label="Reading mode">
               <span class="toolbar-label">Reading</span>
@@ -146,16 +131,19 @@
 
     <!-- View 2: Comparative Matrix -->
     <section id="view-matrix" class="view-section" role="tabpanel" aria-labelledby="tab-matrix">
+      <div class="paper-sheet room-sheet">
       <div class="text-header room-heading">
         <p class="section-kicker">Room 02 · Comparison lab</p>
         <h1 class="text-title-zh"><span>Comparative Matrix</span><small lang="zh">多譯本對照矩陣</small></h1>
         <p class="text-title-en">Compare machine-made registers and verified quotations sentence by sentence.</p>
       </div>
       <div id="matrix-content-target" class="matrix-container"></div>
+      </div>
     </section>
 
     <!-- View 3: Lineage Tree Explorer -->
     <section id="view-lineage" class="view-section" role="tabpanel" aria-labelledby="tab-lineage">
+      <div class="paper-sheet room-sheet">
       <div class="text-header lineage-toolbar room-heading">
         <div>
           <p class="section-kicker">Room 03 · Transmission records</p>
@@ -201,20 +189,24 @@
       </div>
 
       <div id="lineage-content-target" class="lineage-grid" hidden></div>
+      </div>
     </section>
 
     <!-- View 4: Gong'an Cross-Reference Index -->
     <section id="view-gongan" class="view-section" role="tabpanel" aria-labelledby="tab-gongan">
+      <div class="paper-sheet room-sheet">
       <div class="text-header room-heading">
         <p class="section-kicker">Room 04 · Case catalogue</p>
         <h1 class="text-title-zh"><span>Gong'an Case Index</span><small lang="zh">歷代宗門公案總目</small></h1>
         <p class="text-title-en">Browse encounter cases by collection, theme, and canonical cross-reference.</p>
       </div>
       <div id="gongan-content-target" class="matrix-container"></div>
+      </div>
     </section>
 
     <!-- View 5: Classical Chan Lexicon -->
     <section id="view-lexicon" class="view-section" role="tabpanel" aria-labelledby="tab-lexicon">
+      <div class="paper-sheet room-sheet">
       <div class="text-header lexicon-toolbar room-heading">
         <div>
           <p class="section-kicker">Room 05 · Field dictionary</p>
@@ -233,6 +225,7 @@
         </div>
       </div>
       <div id="lexicon-content-target" class="lexicon-grid"></div>
+      </div>
     </section>
 
   </main>

@@ -4,7 +4,8 @@
    ========================================================================== */
 
 :root {
-  /* Warm Rice Paper Light Theme */
+  /* The Chan hall: walnut walls hold paper sheets. Day hall = warm paper
+     sheets on dark timber; night hall = lacquer paper on near-black timber. */
   --bg-primary: #f4efe5;
   --bg-secondary: #ebe2d3;
   --bg-card: #fbf8f1;
@@ -15,12 +16,25 @@
   --border-subtle: #e7dccb;
   --border-focus: #80591f;
 
-  /* Structural timber — shell/lintels, never decorative texture */
+  /* Structural timber — the hall walls, beam, shelf and tray */
   --wood-950: #211814;
   --wood-900: #2c211c;
   --wood-800: #3a2a22;
   --wood-text: #f3ead9;
   --wood-muted: #cdbda7;
+  --hall-wall: #241a14;
+  --hall-wall-deep: #1a120e;
+  --hall-post: rgba(12, 7, 5, 0.5);
+  --hall-post-lit: rgba(214, 178, 124, 0.06);
+  --beam-edge: #c9a66b;
+
+  /* The paper sheet every room's content hangs on */
+  --paper: #f6f0e1;
+  --paper-deep: #efe6d3;
+  --paper-edge: #b9a683;
+  --paper-fiber: rgba(120, 94, 58, 0.05);
+  --seal-red: #a83a2c;
+
   --shell-height: 7.25rem;
 
   /* Ink & Tea Typography */
@@ -57,16 +71,25 @@
 }
 
 [data-theme="dark"] {
-  /* Ink Stone Dark Theme */
+  /* Night hall: lamp-lit ink paper on near-black lacquer */
   --bg-primary: #121214;
   --bg-secondary: #18181b;
   --bg-card: #1f1f23;
   --bg-card-subtle: #232328;
-  --bg-hover: #292930;
+  --bg-hover: #2d2b26;
   --bg-accent: #32323b;
-  --border-color: #2f2f38;
-  --border-subtle: #25252e;
+  --border-color: #4a4238;
+  --border-subtle: #37322b;
   --border-focus: #c89f55;
+  --hall-wall: #150f0b;
+  --hall-wall-deep: #0d0907;
+  --hall-post: rgba(0, 0, 0, 0.55);
+  --hall-post-lit: rgba(214, 178, 124, 0.05);
+  --paper: #211c17;
+  --paper-deep: #2a231c;
+  --paper-edge: #050403;
+  --paper-fiber: rgba(222, 196, 150, 0.045);
+  --seal-red: #c24b3d;
 
   --text-primary: #ede8df;
   --text-secondary: #a49f96;
@@ -96,10 +119,17 @@
 }
 
 body {
-  background-color: var(--bg-primary);
+  /* The viewer stands inside the hall: walnut walls with timber posts, dim
+     lamp falloff at the corners. Fixed background keeps the wall still while
+     the paper sheets move. */
+  background-color: var(--hall-wall);
   background-image:
-    linear-gradient(90deg, transparent 0, transparent calc(50% - 0.5px), color-mix(in srgb, var(--border-subtle) 45%, transparent) 50%, transparent calc(50% + 0.5px)),
-    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--bg-card) 80%, transparent), transparent 28rem);
+    radial-gradient(ellipse 80% 60% at 50% -12%, rgba(214, 178, 124, 0.07), transparent 60%),
+    linear-gradient(90deg, transparent 0 calc(100% - 2px), var(--hall-post) calc(100% - 2px) 100%),
+    linear-gradient(90deg, transparent 0 calc(100% - 1px), var(--hall-post-lit) calc(100% - 1px) 100%),
+    linear-gradient(180deg, var(--hall-wall-deep), var(--hall-wall) 18rem);
+  background-size: auto, 228px 100%, 228px 100%, auto;
+  background-attachment: fixed;
   color: var(--text-primary);
   font-family: var(--font-sans);
   line-height: 1.65;
@@ -121,15 +151,16 @@ h2.term-card-zh {
   line-height: inherit;
 }
 
-/* Site shell — dark walnut is architecture, not decoration */
+/* Site shell — the hall's top beam: same wood as the walls, with a carved
+   lower edge (dark band + gold hairline) separating beam from hall floor. */
 .site-shell {
   position: sticky;
   top: 0;
   z-index: 100;
   background: var(--wood-950);
   color: var(--wood-text);
-  border-bottom: 3px solid #80591f;
-  box-shadow: 0 3px 12px rgba(32, 23, 18, 0.18);
+  border-bottom: 3px solid var(--beam-edge);
+  box-shadow: 0 10px 28px rgba(8, 5, 4, 0.55);
 }
 
 .shell-frame {
@@ -414,132 +445,30 @@ main {
   padding: 1.5rem;
 }
 
-.zen-hero-banner {
+/* ---- Paper sheets hung in the hall -------------------------------------
+   Owner feedback 2026-08-11 (session 019ff0c0): the tagline hero read as a
+   popup and is removed; the whole page is now the hall — walnut walls and a
+   top beam outside, one paper sheet per room inside, no greeting gate. */
+.paper-sheet {
   position: relative;
-  isolation: isolate;
-  min-height: 22rem;
-  margin-bottom: 2rem;
-  padding: clamp(1.5rem, 4vw, 3.8rem);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.38fr);
-  align-items: stretch;
-  gap: clamp(2rem, 7vw, 7rem);
-  overflow: hidden;
-  color: var(--wood-text);
-  background:
-    linear-gradient(115deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 72px),
-    linear-gradient(90deg, var(--wood-950), #2d211b 62%, #3a291f);
-  border: 1px solid #4c382d;
-  border-bottom: 5px solid #c9a66b;
-  box-shadow: 0 18px 45px rgba(33, 24, 20, 0.18);
-  clip-path: polygon(0 0, calc(100% - 2rem) 0, 100% 2rem, 100% 100%, 0 100%);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 5.5rem),
+    linear-gradient(90deg, transparent 0, transparent calc(50% - 0.5px), var(--paper-fiber) 50%, transparent calc(50% + 0.5px));
+  border: 1px solid var(--paper-edge);
+  border-radius: 2px;
+  box-shadow:
+    0 1px 0 rgba(255, 246, 224, 0.06) inset,
+    0 22px 60px rgba(8, 5, 4, 0.5),
+    0 4px 14px rgba(8, 5, 4, 0.35);
 }
-
-.zen-hero-banner::before {
-  content: 'FC // 01';
-  position: absolute;
-  right: -0.02em;
-  bottom: -0.25em;
-  z-index: -1;
-  font-family: var(--font-mono);
-  font-size: clamp(5rem, 15vw, 13rem);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.08em;
-  color: rgba(255, 255, 255, 0.025);
+.room-sheet {
+  padding: clamp(1.25rem, 3.4vw, 3rem) clamp(1.1rem, 3.6vw, 3.4rem) clamp(2rem, 4vw, 3.4rem);
 }
-
-body:not([data-current-view="reader"]) .zen-hero-banner,
-body:not([data-current-view="reader"]) #about-toggle {
-  display: none;
-}
-
-.hero-main { min-width: 0; }
-.hero-kicker {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
-  font-family: var(--font-mono);
-  font-size: 0.63rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: #c9a66b;
-}
-.zen-quote-main {
-  max-width: 18ch;
-  margin: 0 0 1rem;
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5.4vw, 5.25rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-  color: #fffaf0;
-}
-.zen-quote-main em { color: #d8b87d; font-style: normal; }
-.hero-meta {
-  min-width: 0;
-  padding-left: clamp(1.2rem, 3vw, 2.5rem);
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-content: end;
-  gap: 1.4rem 1rem;
-  border-left: 1px solid rgba(201, 166, 107, 0.35);
-}
-.hero-stamp {
-  grid-column: 1 / -1;
-  width: 7rem;
-  aspect-ratio: 1;
-  padding: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 1px solid #c9a66b;
-  color: #c9a66b;
-  font-family: var(--font-mono);
-  font-size: 0.53rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: 0.15em;
-  transform: rotate(-3deg);
-}
-.hero-stamp strong { font-size: 1.5rem; letter-spacing: -0.04em; color: #fffaf0; }
-.hero-stat { display: flex; flex-direction: column; gap: 0.2rem; }
-.hero-stat strong { font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 0.85; color: #fffaf0; }
-.hero-stat span { font-family: var(--font-mono); font-size: 0.55rem; line-height: 1.35; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wood-muted); }
-
-/* Dismissable introduction; re-opened by the header info control. */
-.zen-hero-banner[hidden] { display: none !important; }
-.hero-dismiss-btn {
-  position: absolute;
-  top: 0.8rem;
-  right: 1.1rem;
-  z-index: 2;
-  padding: 0.25rem 0;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid transparent;
-  color: var(--wood-muted);
-  font-family: var(--font-mono);
-  font-size: 0.56rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.hero-dismiss-btn:hover { color: var(--wood-text); border-bottom-color: #c9a66b; }
 
 @media (max-width: 768px) {
-  main { padding: 0.8rem; }
-  .zen-hero-banner { min-height: 0; grid-template-columns: 1fr; gap: 2rem; padding: 1.5rem; clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 1rem, 100% 100%, 0 100%); }
-  .hero-kicker { margin-bottom: 1.6rem; padding-right: 2.2rem; }
-  .hero-kicker span:last-child { display: none; }
-  .zen-quote-main { font-size: clamp(2.45rem, 13vw, 4rem); }
-  .hero-meta { padding: 1.5rem 0 0; grid-template-columns: 6.5rem 1fr 1fr; align-items: end; border-left: 0; border-top: 1px solid rgba(201, 166, 107, 0.35); }
-  .hero-stamp { grid-column: auto; width: 5.4rem; padding: 0.65rem; }
-  .hero-stamp strong { font-size: 1.1rem; }
-  .hero-stat strong { font-size: 2rem; }
+  main { padding: 0.6rem 0.5rem 0.9rem; }
+  .room-sheet { padding: 1.1rem 0.85rem 1.75rem; }
 }
 
 /* Views Management */
@@ -565,32 +494,37 @@ body:not([data-current-view="reader"]) #about-toggle {
   align-items: start;
 }
 
+/* The wooden library shelf bolted to the hall's left wall */
 .sidebar-panel {
-  background: transparent;
-  border: 0;
-  border-right: 1px solid var(--border-color);
-  border-radius: 0;
-  padding: 0 0.9rem 0 0;
-  box-shadow: none;
+  background-color: var(--wood-900);
+  background-image:
+    linear-gradient(90deg, transparent 0 calc(100% - 14px), rgba(8, 5, 4, 0.5) calc(100% - 14px) calc(100% - 12px), rgba(243, 234, 217, 0.05) calc(100% - 12px) calc(100% - 11px), transparent calc(100% - 11px)),
+    linear-gradient(180deg, rgba(243, 234, 217, 0.04), transparent 6rem);
+  border: 1px solid rgba(8, 5, 4, 0.65);
+  border-top: 3px solid var(--beam-edge);
+  border-radius: 2px;
+  box-shadow: 0 16px 40px rgba(8, 5, 4, 0.45), inset 0 1px 0 rgba(243, 234, 217, 0.05);
+  padding: 0.95rem 0.5rem 1.1rem;
   position: sticky;
   top: calc(var(--shell-height) + 0.75rem);
   max-height: calc(100vh - var(--shell-height) - 1.5rem);
   overflow-y: auto;
   scrollbar-width: thin;
+  scrollbar-color: var(--beam-edge) transparent;
 }
 
 .sidebar-title {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 0.6rem;
-  color: var(--text-primary);
+  margin: 0 0.35rem 0.6rem;
+  color: var(--wood-text);
   font-family: var(--font-serif);
   font-size: 1rem;
   font-weight: 800;
 }
 .sidebar-title small {
-  color: var(--text-muted);
+  color: var(--wood-muted);
   font-family: var(--font-mono);
   font-size: 0.56rem;
   font-weight: 650;
@@ -600,9 +534,10 @@ body:not([data-current-view="reader"]) #about-toggle {
 
 .corpus-selector-list { display: flex; flex-direction: column; gap: 0.9rem; }
 .corpus-group { display: block; }
-.corpus-group-title { display: flex; justify-content: space-between; align-items: center; margin: 0 0 0.3rem; padding-bottom: 0.2rem; border-bottom: 1px solid var(--border-color); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.corpus-group-title { display: flex; justify-content: space-between; align-items: center; margin: 0 0.35rem 0.3rem; padding-bottom: 0.22rem; border-bottom: 1px solid rgba(243, 234, 217, 0.14); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wood-muted); }
 .corpus-group-list { display: flex; flex-direction: column; gap: 0; }
 
+/* Shelf slots: pinned paper slips; the active work is the pulled slip */
 .corpus-btn {
   position: relative;
   width: 100%;
@@ -610,47 +545,53 @@ body:not([data-current-view="reader"]) #about-toggle {
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.42rem 0.25rem 0.42rem 0.55rem;
+  padding: 0.42rem 0.35rem 0.42rem 0.55rem;
   text-align: left;
   background: transparent;
   border: 0;
   border-left: 3px solid transparent;
   border-radius: 0;
-  color: var(--text-primary);
+  color: var(--wood-text);
   cursor: pointer;
   transition: background-color 0.16s ease, border-color 0.16s ease;
 }
 
-.corpus-btn:hover { background: var(--bg-hover); border-left-color: var(--border-color); }
-.corpus-btn.active { background: var(--accent-gold-light); border-left-color: var(--accent-gold); color: var(--text-primary); font-weight: 600; }
+.corpus-btn:hover { background: rgba(243, 234, 217, 0.07); border-left-color: rgba(243, 234, 217, 0.28); }
+.corpus-btn.active {
+  background: var(--paper);
+  border-left-color: var(--seal-red);
+  color: var(--text-primary);
+  font-weight: 600;
+  box-shadow: 2px 3px 8px rgba(8, 5, 4, 0.45);
+}
 .corpus-btn-text { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
 .corpus-title-en { font-size: 0.76rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.corpus-title-zh { margin-top: 0.08rem; font-family: var(--font-serif); font-size: 0.7rem; color: var(--text-secondary); }
+.corpus-title-zh { margin-top: 0.08rem; font-family: var(--font-serif); font-size: 0.7rem; color: var(--wood-muted); opacity: 0.85; }
+.corpus-btn.active .corpus-title-zh { color: var(--text-secondary); opacity: 1; }
 .corpus-btn-meta { display: inline-flex; align-items: center; gap: 0.25rem; flex-shrink: 0; }
-.corpus-badge { font-family: var(--font-mono); font-size: 0.59rem; padding: 0; border: 0; background: transparent; color: var(--text-muted); }
-.corpus-status-mark { font-family: var(--font-mono); font-size: 0.58rem; font-weight: 700; color: var(--text-muted); background: transparent; padding: 0; border: 0; border-radius: 0; white-space: nowrap; }
-.corpus-status-mark.is-complete { color: var(--accent-green); background: transparent; border: 0; }
-[data-theme="dark"] .corpus-status-mark.is-complete { color: #8bc9ad; background: transparent; border: 0; }
+.corpus-badge { font-family: var(--font-mono); font-size: 0.59rem; padding: 0; border: 0; background: transparent; color: var(--wood-muted); }
+.corpus-btn.active .corpus-badge { color: var(--text-muted); }
+.corpus-status-mark { font-family: var(--font-mono); font-size: 0.58rem; font-weight: 700; color: var(--wood-muted); background: transparent; padding: 0; border: 0; border-radius: 0; white-space: nowrap; }
+.corpus-btn.active .corpus-status-mark { color: var(--text-muted); }
+.corpus-btn.active .corpus-status-mark.is-complete,
+.corpus-status-mark.is-complete { color: #93d8b4; background: transparent; border: 0; }
+.corpus-btn.active .corpus-status-mark.is-complete { color: var(--accent-green); }
 
 @media (max-width: 1024px) {
   .reader-layout { grid-template-columns: minmax(0, 1fr); }
   .sidebar-panel { display: none; }
 }
 
-/* Content Panel & Reading Surface */
+/* Content Panel — the paper reading sheet (see .paper-sheet above) */
 .content-panel {
   min-width: 0;
-  background: var(--bg-card);
-  border: 0;
-  border-radius: 0;
-  padding: 0 1.25rem 2rem;
-  box-shadow: none;
+  padding: 0 clamp(0.9rem, 2.6vw, 2.2rem) 2.2rem;
   min-height: 600px;
 }
 
 @media (max-width: 768px) {
   .content-panel {
-    padding: 1.25rem;
+    padding: 0 0.9rem 1.5rem;
   }
 }
 
@@ -700,20 +641,27 @@ body:not([data-current-view="reader"]) #about-toggle {
   color: var(--text-secondary);
 }
 
+/* Room headband: double-ruled like a bound-sheet header, with one small
+   cinnabar seal slip — the hall's quiet signature, not a banner. */
 .room-heading {
   position: relative;
-  padding: 1.2rem 0 1.6rem 1.2rem;
-  border-left: 4px solid var(--wood-800);
+  padding: 1.15rem 0 1.5rem;
+  border-left: 0;
+  border-top: 3px double var(--paper-edge);
 }
 
-.room-heading::after {
+.room-heading .section-kicker::before,
+#reader-content-target .document-heading .section-kicker::before,
+.error-boundary-card .section-kicker::before {
   content: '';
-  position: absolute;
-  right: 0;
-  bottom: -1px;
-  width: min(22vw, 15rem);
-  height: 5px;
-  background: var(--accent-gold);
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.45rem;
+  background: var(--seal-red);
+  border-radius: 1px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.14);
+  transform: translateY(0.02rem);
 }
 
 .text-meta-chips {
@@ -735,62 +683,71 @@ body:not([data-current-view="reader"]) #about-toggle {
   color: var(--text-secondary);
 }
 
-/* Reader Toolbar & Font Size Adjuster */
+/* Reader lintel — the sheet's own control band, flush under the beam when
+   stuck; typographic controls, no floating pill boxes. */
 .reader-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.55rem 1rem;
-  background: var(--bg-card);
-  background: color-mix(in srgb, var(--bg-card) 94%, transparent);
-  padding: 0.5rem 0;
+  gap: 0.45rem 1.25rem;
+  background: color-mix(in srgb, var(--paper) 93%, transparent);
+  padding: 0.55rem 0 0.5rem;
   border-radius: 0;
   border: 0;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--paper-edge);
   margin-bottom: 0.9rem;
   position: sticky;
-  top: calc(var(--shell-height) + 0.35rem);
+  top: var(--shell-height);
   z-index: 60;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .toolbar-group {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.1rem;
   flex-wrap: wrap;
 }
 
 .toolbar-label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-right: 0.4rem;
 }
 
+/* Library controls: quiet typographic buttons; active state is a gold rule,
+   not a filled pill. */
 .btn-pill {
   background: transparent;
-  border: 1px solid var(--border-color);
-  padding: 0.32rem 0.65rem;
-  border-radius: 4px;
-  font-size: 0.78rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 0.3rem 0.35rem 0.28rem;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   cursor: pointer;
   color: var(--text-secondary);
   transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
 }
 
 .btn-pill:hover {
-  border-color: var(--border-focus);
+  border-bottom-color: var(--border-color);
   color: var(--text-primary);
 }
 
 .btn-pill.active,
 .btn-pill[aria-pressed="true"] {
-  background: var(--accent-gold-light);
-  border-color: var(--accent-gold);
+  background: transparent;
+  border-bottom-color: var(--accent-gold);
   color: var(--accent-gold-hover);
-  font-weight: 700;
+  font-weight: 750;
 }
 
 /* Case & Sentence Cards */
@@ -1128,7 +1085,8 @@ body:not([data-current-view="reader"]) #about-toggle {
 
 #reader-content-target .document-heading {
   margin-bottom: 0.35rem;
-  padding: 0.35rem 0 0.7rem;
+  padding: 1.05rem 0 0.85rem;
+  border-top: 3px double var(--paper-edge);
   border-bottom: 1px solid var(--border-color);
 }
 #reader-content-target .document-heading .text-title-zh { font-size: clamp(2rem, 4.4vw, 3.2rem); }
@@ -1155,18 +1113,43 @@ body:not([data-current-view="reader"]) #about-toggle {
 .front-matter { margin-top: 0.2rem; margin-bottom: 0.5rem; padding: 0.45rem 0; border-bottom: 1px solid var(--border-subtle); }
 .front-matter-content { padding: 1rem 0 0.5rem; }
 
+/* Folios on the sheet: units are separated by a bound-book dinkus (hairlines
+   around one small gold lozenge), not by boxes. The sheet is the surface. */
 #reader-content-target .case-card {
+  position: relative;
   margin-bottom: 0;
-  padding: 1.65rem 0 1.9rem;
+  padding: 2.7rem 0 2rem;
   background: transparent;
   border: 0;
-  border-top: 1px solid var(--border-subtle);
   border-radius: 0;
   box-shadow: none;
   transition: none;
 }
-#reader-content-target .case-card:hover { border-color: var(--border-subtle); box-shadow: none; }
-#reader-content-target .case-header { border-bottom: 0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; }
+#reader-content-target .case-card::before {
+  content: '';
+  position: absolute;
+  top: 1.28rem;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+#reader-content-target .case-card::after {
+  content: '◆';
+  position: absolute;
+  top: 1.28rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 0.7rem;
+  background: var(--paper);
+  color: var(--accent-gold);
+  font-size: 0.5rem;
+  line-height: 1;
+}
+#reader-content-target .case-card:hover { border-color: transparent; box-shadow: none; }
+#reader-content-target .case-card:first-of-type::before { display: none; }
+#reader-content-target .case-card:first-of-type::after { display: none; }
+#reader-content-target .case-header { border-bottom: 0; padding-bottom: 0.3rem; margin-bottom: 0.85rem; }
 #reader-content-target .case-num-title { color: var(--text-primary); }
 #reader-content-target .case-speaker { text-transform: none; letter-spacing: 0.03em; }
 #reader-content-target .translation-grid { gap: 0; border-top: 1px solid var(--border-subtle); }
@@ -1633,7 +1616,7 @@ mark {
   scrollbar-width: thin;
   border-bottom: 1px solid var(--border-subtle);
 }
-.case-strip-label { position: sticky; left: 0; z-index: 1; flex: none; padding-right: 0.45rem; background: var(--bg-card); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); white-space: nowrap; }
+.case-strip-label { position: sticky; left: 0; z-index: 1; flex: none; padding-right: 0.45rem; background: var(--paper); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); white-space: nowrap; }
 .case-chip { flex: none; min-width: 1.8rem; padding: 0.18rem 0.35rem; font-family: var(--font-mono); font-size: 0.68rem; border-radius: 3px; background: transparent; border: 1px solid transparent; color: var(--text-secondary); cursor: pointer; display: inline-flex; justify-content: center; align-items: center; line-height: 1.2; }
 .case-chip-num { font-weight: 700; }
 .case-chip-title { display: none; }
@@ -1698,6 +1681,12 @@ mark {
   padding: 1rem 1.4rem;
 }
 
+/* On the sheet a collapsed folio stays flush with the book column */
+#reader-content-target .case-card.collapsed {
+  margin-bottom: 0;
+  padding: 1.35rem 0 1.45rem;
+}
+
 .case-nav-footer {
   display: flex;
   justify-content: space-between;
@@ -1715,7 +1704,7 @@ mark {
 }
 .mobile-corpus-picker .search-input { padding: 0.55rem 0.7rem; background: var(--bg-card); }
 
-/* --- Mobile bottom action bar — min 44px touch target + safe-area --- */
+/* --- Mobile bottom action bar — a walnut tray slides under the sheet --- */
 .mobile-action-bar {
   display: none;
   position: fixed;
@@ -1725,33 +1714,37 @@ mark {
   z-index: 90;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.4rem;
+  gap: 0.3rem;
   flex-wrap: nowrap;
   overflow-x: auto;
   min-height: 44px;
-  padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom));
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  padding: 0.4rem 0.75rem calc(0.4rem + env(safe-area-inset-bottom));
+  background: var(--wood-950);
+  border-top: 2px solid var(--beam-edge);
+  box-shadow: 0 -10px 26px rgba(8, 5, 4, 0.5);
 }
 .mobile-action-bar .btn-pill {
   min-height: 36px;
-  padding: 0.35rem 0.7rem;
+  padding: 0.3rem 0.55rem;
+  color: var(--wood-muted);
+  font-weight: 700;
 }
+.mobile-action-bar .btn-pill:hover { color: var(--wood-text); border-bottom-color: rgba(243, 234, 217, 0.25); }
 
 .mobile-bar-divider {
   width: 1px;
   height: 1.4rem;
-  background: var(--border-color);
+  background: rgba(243, 234, 217, 0.16);
   flex: none;
 }
 
 .mobile-mode-btn.active,
-.mobile-mode-btn[aria-pressed="true"] {
-  background: var(--accent-gold-light);
-  border-color: var(--accent-gold);
-  color: var(--accent-gold-hover);
+.mobile-action-bar .btn-pill.active,
+.mobile-mode-btn[aria-pressed="true"],
+.mobile-action-bar .btn-pill[aria-pressed="true"] {
+  background: transparent;
+  border-bottom-color: var(--beam-edge);
+  color: var(--beam-edge);
 }
 
 /* Pinyin toggle (persisted; desktop default on) */
@@ -1781,7 +1774,7 @@ mark {
 
 /* --- C1: Print / Save-as-PDF --- */
 @media print {
-  header, .zen-hero-banner, .sidebar-panel, .reader-toolbar,
+  header, .sidebar-panel, .reader-toolbar,
   .mobile-corpus-picker, .mobile-action-bar, .case-jump-strip,
   .case-toggle, .case-nav-footer, .term-popover, footer,
   #term-popover, #citation-popover, #robo-popover, .graph-controls {
@@ -1791,6 +1784,13 @@ mark {
   body {
     background: #ffffff !important;
     color: #000000 !important;
+    padding: 0 !important;
+  }
+
+  .paper-sheet {
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
     padding: 0 !important;
   }
 
@@ -1987,6 +1987,14 @@ textarea:focus-visible,
   outline-offset: 2px;
 }
 
+/* Controls sitting on the timber (beam, shelf, tray) need a light ring — the
+   paper-tuned walnut focus color fails contrast on dark wood. */
+.site-shell :focus-visible,
+.sidebar-panel :focus-visible,
+.mobile-action-bar :focus-visible {
+  outline-color: #d8b87d;
+}
+
 /* Nav tab selected state is defined in the walnut shell section above. */
 
 /* Reduced motion: respect user preference */
@@ -2001,11 +2009,11 @@ textarea:focus-visible,
   }
 }
 
-/* Gong'an filter chips */
+/* Gong'an filter chips follow the lintel's typographic control language */
 .gongan-filter-chip.active,
 .gongan-filter-chip[aria-pressed="true"] {
-  background: var(--accent-gold-light);
-  border-color: var(--accent-gold);
+  background: transparent;
+  border-bottom-color: var(--accent-gold);
   color: var(--accent-gold-hover);
 }
 
@@ -2130,11 +2138,9 @@ textarea:focus-visible,
   border-left: 4px solid var(--accent-gold);
 }
 
-/* Reader mode controls live in the compact document rail. */
-.reader-toolbar .reader-mode-options { display: flex; flex-direction: row; gap: 0.3rem; }
+/* Reader mode controls live in the sheet lintel. */
+.reader-toolbar .reader-mode-options { display: flex; flex-direction: row; gap: 0.15rem; }
 .reader-toolbar .reader-mode-btn { width: auto; text-align: center; }
-.reader-toolbar .reader-mode-btn.active,
-.reader-toolbar .reader-mode-btn[aria-pressed="true"] { background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold-hover); font-weight: 700; }
 
 /* ==========================================================================
    Phases C & D: Visual System Consolidation & Secondary Rooms (019fec5c)
@@ -2185,16 +2191,32 @@ textarea:focus-visible,
   gap: 1rem;
   margin-bottom: 1.25rem;
 }
+/* Lineage network hangs as a scroll: walnut dowels cap the paper panel */
 .lineage-graph-frame {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 1.25rem;
+  border-radius: 2px;
+  padding: 1.5rem 1.25rem;
   margin-bottom: 1.5rem;
   position: relative;
   overflow: hidden;
   min-height: 480px;
 }
+.lineage-graph-frame::before,
+.lineage-graph-frame::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  height: 9px;
+  z-index: 2;
+  background: linear-gradient(180deg, var(--wood-800), var(--wood-950));
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(8, 5, 4, 0.4), inset 0 1px 0 rgba(243, 234, 217, 0.12);
+  pointer-events: none;
+}
+.lineage-graph-frame::before { top: -4px; }
+.lineage-graph-frame::after { bottom: -4px; box-shadow: 0 -2px 5px rgba(8, 5, 4, 0.4), inset 0 1px 0 rgba(243, 234, 217, 0.12); }
 .lineage-filter-row {
   display: flex;
   align-items: center;
