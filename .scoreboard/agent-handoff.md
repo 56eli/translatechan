@@ -2,13 +2,13 @@
 
 > **Last updated:** 2026-08-11 · **Session:** `arena/019ff089-translatechan`
 > **Fixed branch:** `arena/019ff089-translatechan` — do not switch or push elsewhere.
-> **Baseline:** `27ca224` (`main`, merged PR #17) · **Latest implementation:** `e6e24bf` · **PR:** [#18](https://github.com/56eli/translatechan/pull/18), owner-requested merge
+> **Main deployment:** `63dfe37` (PR #18 merged) · **Latest implementation:** `e6e24bf` · **Pages:** built
 
 ## Current state
 
 The owner said the GitHub Pages design was **too plain/generic** and focused **too heavily on Chinese characters**, then selected **preserve the walnut-hall direction**. This session implemented a bolder English-first walnut/factory identity across the shell, hero, room headings, Reader hierarchy, secondary rooms, mobile controls, and Open Graph image.
 
-The session also added visible recovery for missing/malformed data and top-level initialization failures, moved CSP before every script, progressively removed repetitive visible copy while retaining on-demand provenance, extended smoke/browser coverage, completed a full repository audit, and corrected scoreboard arithmetic. The owner then requested documentation/handoff completion and PR #18 merge.
+The session also added visible recovery for missing/malformed data and top-level initialization failures, moved CSP before every script, progressively removed repetitive visible copy while retaining on-demand provenance, extended smoke/browser coverage, completed a full repository audit, and corrected scoreboard arithmetic. The owner then requested documentation/handoff completion and PR #18 merge; main Quality and Pages deployment both passed.
 
 Current weighted score: **7.2/10**; `repo_ready = fail`. All `user_score` fields remain `null`; the owner supplied qualitative, not numeric, feedback.
 
@@ -33,6 +33,7 @@ smoke (35 renderers)           PASS
 npm audit                      PASS; 0 vulnerabilities
 HTML / Markdown link scan      PASS
 branch + PR Quality            PASS; through e6e24bf
+main Quality + Pages           PASS; 31490146548 / 31490145334
 Playwright                     SKIP; Chromium unavailable
 ```
 
@@ -50,11 +51,10 @@ Browser download failed with network `ECONNRESET`; apt package sources were also
 
 ## Recommended next sequence
 
-1. Merge PR #18 as explicitly requested and confirm main Quality/Pages deployment.
-2. Verify the published site in a real browser when Chromium is available.
-3. Continue human rights/source review as a separate content tranche.
-4. Apply workflow/browser/a11y changes only with explicit owner approval.
-5. Measure browser performance before lazy-rendering rooms or splitting the bundle.
+1. Verify the published site in a real browser when Chromium is available.
+2. Continue human rights/source review as a separate content tranche.
+3. Apply workflow/browser/a11y changes only with explicit owner approval.
+4. Measure browser performance before lazy-rendering rooms or splitting the bundle.
 
 ## Stable contracts
 

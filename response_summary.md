@@ -12,11 +12,11 @@
 - Moved CSP before every script and extended smoke regressions.
 - Corrected stale scoreboard arithmetic and synchronized the canonical audit, scoreboard, README, and handoffs.
 - Pushed the design, audit, and three copy-cleanup tranches through `e6e24bf`; current branch and PR Quality checks pass.
-- Prepared pull request [#18](https://github.com/56eli/translatechan/pull/18) for the owner-requested merge into `main`.
+- Merged pull request [#18](https://github.com/56eli/translatechan/pull/18) into `main` as `63dfe37`; main Quality and Pages deployment passed, and the live text surface was confirmed.
 
 ## Current gate
 
-**7.2/10; `repo_ready = fail`.** The owner requested this design merge; human quotation-rights decisions, deeper source review, and non-skippable browser/CI evidence remain.
+**7.2/10; `repo_ready = fail`.** The design is merged and deployed; human quotation-rights decisions, deeper source review, and non-skippable browser/CI evidence remain.
 
 ## Verification
 
@@ -26,7 +26,7 @@ Root and docs mirrors                   PASS
 Smoke: 35 renderers, 0 crashes          PASS
 npm audit                               PASS (0 vulnerabilities)
 HTML and Markdown link checks           PASS
-GitHub branch + PR Quality              PASS (through e6e24bf)
+GitHub branch / PR / main Quality       PASS
 Playwright                              SKIP (Chromium unavailable)
 ```
 
@@ -34,4 +34,4 @@ The live preview is running in Arena. Browser installation failed because the sa
 
 ## One-sentence summary
 
-Completed the full audit, English-first walnut redesign, progressive copy cleanup, resilience/security/test hardening, and final PR #18 merge handoff with current documentation synchronized.
+Completed the full audit, English-first walnut redesign, progressive copy cleanup, resilience/security/test hardening, PR #18 merge, successful Pages deployment, and final documentation handoff.

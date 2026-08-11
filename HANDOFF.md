@@ -59,7 +59,7 @@ Current implementation:
 - progressive disclosure that removes repeated Robo, citation, coverage, Lineage, Lexicon, and search prose from the reading surface;
 - no added runtime or image payload.
 
-This direction and the subsequent copy cleanup are implemented, and the owner explicitly requested PR #18 merge. Current real-browser screenshots were unavailable in the audit environment.
+This direction and the subsequent copy cleanup are implemented. PR #18 merged as `63dfe37`; main Quality and Pages deployment passed. Current real-browser screenshots were unavailable in the audit environment.
 
 ## 4. Measured snapshot
 
@@ -96,7 +96,7 @@ Completion requires explicit `complete_selected_witness` status plus satisfied u
 
 ### Presentation
 
-- Owner requested merge after the English-first design and copy-cleanup iterations; real-browser desktop/mobile light/dark evidence remains unavailable.
+- PR #18 merged after the English-first design and copy-cleanup iterations; real-browser desktop/mobile light/dark evidence remains unavailable.
 - SVG social-card support varies; a PNG fallback is recommended.
 - Repository description/homepage/topics are empty.
 
@@ -191,6 +191,6 @@ No custom Pages deployment workflow is needed.
 
 Never append a full session narrative here; link the dated report.
 
-## 12. Current pull request
+## 12. Merge and deployment status
 
-PR [#18](https://github.com/56eli/translatechan/pull/18) targets `main` from `arena/019ff089-translatechan`. It is mergeable, current branch/PR Quality checks pass, and the owner explicitly requested merge after this final documentation handoff.
+PR [#18](https://github.com/56eli/translatechan/pull/18) merged into `main` as `63dfe379e026b829349b1ff78752c771e5c7e5d3`. Main Quality run `31490146548` and Pages deployment `31490145334` passed; Pages reports `built` with HTTPS enforced.
