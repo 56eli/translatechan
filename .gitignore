@@ -5,3 +5,6 @@ __pycache__/
 # Common local editor/OS noise
 .DS_Store
 node_modules/
+
+# Arena sandbox scratch (design mockups, previews) — never version these
+.arena/
