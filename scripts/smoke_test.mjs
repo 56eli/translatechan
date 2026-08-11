@@ -132,8 +132,8 @@ if (!appSrc.includes(".normalize('NFD')") || !appSrc.includes('\\u0300-\\u036f')
 }
 // N4: result cards must disclose which field matched (translations/pinyin/
 // title) when the classical Chinese itself did not contain the query.
-if (!appSrc.includes('Matched in translations')) {
-  throw new Error('search result cards must disclose translation-field matches');
+if (!appSrc.includes('<strong>${escHtml(enHit.name)}</strong>') || !appSrc.includes('<strong>Pinyin</strong>')) {
+  throw new Error('search result cards must identify translation and pinyin matches');
 }
 // N7: the lineage graph re-lays out (debounced) on viewport resize while the
 // lineage view is visible.
@@ -392,7 +392,7 @@ for (const [q, label] of schemaQueries) {
   try {
     await fireSearch(q);
     const html = ids['reader-content-target']._innerHTML;
-    if (html.includes('No matches found')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
+    if (html.includes('No results.')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
   } catch (e) { failures++; console.log(`❌ full-schema search crash "${q}": ${e.message}`); }
 }
 
@@ -402,16 +402,16 @@ for (const [q, label] of schemaQueries) {
 try {
   await fireSearch('Buddha-nature');
   const html = ids['reader-content-target']._innerHTML;
-  if (html.includes('No matches found')) { failures++; console.log('❌ N4: "Buddha-nature" search found nothing'); }
-  if (!html.includes('Matched in translations')) { failures++; console.log('❌ N4: translation match not disclosed on the result card'); }
+  if (html.includes('No results.')) { failures++; console.log('❌ N4: "Buddha-nature" search found nothing'); }
+  if (!html.includes('<strong>Robo') && !html.includes('<strong>AI')) { failures++; console.log('❌ N4: translation match not identified on the result card'); }
 } catch (e) { failures++; console.log(`❌ N4 behavioral check crash: ${e.message}`); }
 try {
   // 'foxing' exists ONLY as tone-marked 佛性 pinyin (fóxìng) — zero plain-ASCII
   // occurrences in the corpus — so this can only match via diacritic folding.
   await fireSearch('foxing');
   const html = ids['reader-content-target']._innerHTML;
-  if (html.includes('No matches found')) { failures++; console.log('❌ N5: toneless pinyin query "foxing" found nothing'); }
-  if (!html.includes('Matched in pinyin')) { failures++; console.log('❌ N4/N5: pinyin match note missing from the result card'); }
+  if (html.includes('No results.')) { failures++; console.log('❌ N5: toneless pinyin query "foxing" found nothing'); }
+  if (!html.includes('<strong>Pinyin</strong>')) { failures++; console.log('❌ N4/N5: pinyin match note missing from the result card'); }
 } catch (e) { failures++; console.log(`❌ N5 behavioral check crash: ${e.message}`); }
 
 // 4c. No nested/duplicated term highlights from the annotator
@@ -489,13 +489,17 @@ const wmHtml = ids['reader-content-target']._innerHTML;
 if (!wmHtml.includes('case-jump-strip')) { failures++; console.log('❌ case index strip missing'); }
 if (!wmHtml.includes('case-toggle')) { failures++; console.log('❌ case collapse toggle missing'); }
 if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case prev/next nav missing'); }
-// 4i. Public reader source/translation disclosure: document + case locations,
-// book/page status, translator, AI/reconstruction label, and hoverable citation triggers.
+// 4i. Public reader provenance stays progressive: source/case locations and
+// verified citations are visible, Robo names carry on-demand disclosure, and
+// project commentary/verse drafts retain a compact status line.
 if (!wmHtml.includes('Source location: T2005') || !wmHtml.includes('Case source: T2005, case 1') || !wmHtml.includes('citation-trigger')) {
   failures++; console.log('❌ reader source-location disclosure missing');
 }
-if (!wmHtml.includes('Page / section:') || !wmHtml.includes('Robolation') || !wmHtml.includes('Robo draft')) {
-  failures++; console.log('❌ reader translation/AI disclosure missing');
+if (!wmHtml.includes('translation-source') || !wmHtml.includes('robo-name') || !wmHtml.includes('project AI draft')) {
+  failures++; console.log('❌ reader progressive translation/AI disclosure missing');
+}
+if (wmHtml.includes('— Robolation</div>') || wmHtml.includes('— Robo draft</div>')) {
+  failures++; console.log('❌ redundant Robo disclosure footer returned');
 }
 const citationId = (wmHtml.match(/data-citation-id="([^"]+)"/) || [])[1];
 if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandlers.focusin || []).length || !(documentHandlers.click || []).length) {
@@ -533,9 +537,9 @@ if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded too
 // a complete text — the reader header shows validator-derived coverage.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanCovHtml = ids['reader-content-target']._innerHTML;
-if (!biyanCovHtml.includes('Coverage: 100/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+if (!biyanCovHtml.includes('>100/100 cases</span>')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
-if (!ids['reader-content-target']._innerHTML.includes('Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
+if (!ids['reader-content-target']._innerHTML.includes('>48/48 cases</span>')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
 const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
 if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }
@@ -839,22 +843,23 @@ const matrixHtml = ids['matrix-content-target']._innerHTML;
 const matrixStatusCount = (matrixHtml.match(/class="translation-status/g) || []).length;
 if (matrixStatusCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixStatusCount} provenance badges (expected ${matrixEntries.length})`); }
 const matrixSourceCount = (matrixHtml.match(/class="translation-source/g) || []).length;
-if (matrixSourceCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixSourceCount} disclosure lines (expected ${matrixEntries.length})`); }
-if (!matrixHtml.includes('Source location:') || !matrixHtml.includes('Page / section:') || !matrixHtml.includes('Robo') || !matrixHtml.includes('citation-trigger')) {
-  failures++; console.log('❌ matrix citation/disclosure rendering missing');
+const verifiedMatrixCount = matrixEntries.filter(entry => entry.status === 'verified_quotation').length;
+if (matrixSourceCount !== verifiedMatrixCount) { failures++; console.log(`❌ matrix has ${matrixSourceCount} visible citation lines (expected ${verifiedMatrixCount} verified entries)`); }
+if (!matrixHtml.includes('Source location:') || !matrixHtml.includes('Robo') || !matrixHtml.includes('citation-trigger')) {
+  failures++; console.log('❌ matrix progressive citation/disclosure rendering missing');
 }
 // 4r. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
   await fireSearch(q);
   const html = ids['reader-content-target']._innerHTML;
-  if (html.includes('No matches found')) { failures++; console.log(`❌ variant search missed results for "${q}"`); }
+  if (html.includes('No results.')) { failures++; console.log(`❌ variant search missed results for "${q}"`); }
 }
 // 4s. Broad searches report the true hit count while clearly describing a
 // presentation limit, rather than claiming a truncated count is the total.
 await fireSearch('the');
 const broadSearchHtml = ids['reader-content-target']._innerHTML;
-const broadCount = broadSearchHtml.match(/(\d+) matching unit\(s\) across/);
-if (!broadCount || Number(broadCount[1]) <= 200 || !/Showing \d+ of \d+ matching units/.test(broadSearchHtml)) {
+const broadCount = broadSearchHtml.match(/(\d+) results in/);
+if (!broadCount || Number(broadCount[1]) <= 200 || !/Showing \d+ of \d+ · Refine to narrow/.test(broadSearchHtml)) {
   failures++; console.log('❌ broad-search count/cap accounting is not truthful');
 }
 // 4t. Search query must be HTML-escaped in both the header and no-results body (self-XSS guard)

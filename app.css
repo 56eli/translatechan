@@ -953,9 +953,13 @@ body:not([data-current-view="reader"]) #about-toggle {
 }
 
 .translation-source {
-  font-size: 0.72rem; /* raised from 0.62rem (~10px) — citation metadata must stay legible (N10, 2026-08-09) */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
-  margin-top: 0.3rem;
+  margin-top: 0.35rem;
   line-height: 1.4;
 }
 
@@ -1281,9 +1285,46 @@ mark {
   line-height: 1.5;
 }
 
-.search-match-note strong {
-  color: var(--accent-blue);
+.search-match-note strong { color: var(--accent-blue); }
+.search-header { margin-bottom: 1rem; }
+.search-result-limit,
+.search-more-note {
+  margin: 0.4rem 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
 }
+.search-document-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.08rem 0.75rem;
+  margin-top: 1.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--wood-800);
+  font-family: var(--font-serif);
+  font-weight: 750;
+  color: var(--text-primary);
+}
+.search-document-heading small {
+  grid-row: 2;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+.search-document-heading strong {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent-gold-hover);
+}
+#reader-content-target .search-result-card { padding-block: 1rem; }
+.search-result-title { font-size: 0.95rem; }
+.classical-zh.search-result-zh { font-size: 1.05rem; }
+.search-result-action { margin-top: 0.4rem; }
+.search-empty { color: var(--text-secondary); }
 
 .tooltip-term-title {
   font-weight: 700;

@@ -46,7 +46,7 @@ Browser download failed with network `ECONNRESET`; apt package sources were also
 4. Browser execution remains skippable and is not required in CI.
 5. CI omits four mirrored paths; branch protection is unconfirmed.
 6. Full bundle and all hidden rooms initialize up front.
-7. Forty-eight generated inline styles keep CSP `unsafe-inline` necessary.
+7. Forty-one generated inline styles keep CSP `unsafe-inline` necessary.
 8. Six lineage profiles lack linked corpus keys; 30 edges await exact locators.
 
 ## Recommended next sequence

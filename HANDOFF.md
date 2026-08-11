@@ -90,7 +90,7 @@ Completion requires explicit `complete_selected_witness` status plus satisfied u
 - Quality’s artifact diff omits four mirrored assets.
 - Branch protection is unconfirmed because the integration receives 403.
 - The full data bundle and all hidden rooms initialize up front.
-- Forty-eight JS-generated inline styles keep CSP `style-src 'unsafe-inline'` necessary.
+- Forty-one JS-generated inline styles keep CSP `style-src 'unsafe-inline'` necessary.
 - JSON Schema is not executed and non-case field-level validation remains incomplete.
 
 ### Presentation

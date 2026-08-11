@@ -45,7 +45,7 @@ Current generated measurements:
 4. **Browser evidence:** Playwright exits successfully when Chromium is unavailable; browser execution is not required in CI.
 5. **CI coverage:** four mirrored deploy assets are omitted from the generated-artifact diff; browser/a11y/link/performance checks are not required.
 6. **Performance:** the complete data global and all hidden views initialize up front.
-7. **CSP/style debt:** 48 JS-generated inline styles still require `style-src 'unsafe-inline'`.
+7. **CSP/style debt:** 41 JS-generated inline styles still require `style-src 'unsafe-inline'`.
 8. **Validation depth:** JSON Schema is not executed and non-case field-level validation remains weaker than case validation.
 
 ### P3 — polish

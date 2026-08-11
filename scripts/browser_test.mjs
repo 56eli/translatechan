@@ -267,7 +267,7 @@ async function main() {
   await testAsync('search', async () => {
     await page.goto(base, { waitUntil: 'load' });
     await page.fill('#global-search', '菩提本無樹');
-    await page.waitForFunction(() => document.body.textContent.includes('Search Results'));
+    await page.waitForSelector('.search-header');
     ok((await page.locator('mark').count()) > 0, 'search results are highlighted');
     const resultsText = await page.textContent('#reader-content-target');
     ok(resultsText.includes('Platform'), 'platform sutra surfaced for its verse');

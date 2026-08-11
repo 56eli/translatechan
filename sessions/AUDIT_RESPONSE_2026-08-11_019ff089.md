@@ -35,8 +35,8 @@ Lineage masters / edges             34 / 30
 Glossary / Gong'an entries          31 / 24
 app_data.js                         1,594,154 B raw / 497,352 B gzip-9
 First-load local gzip estimate      ~556 KB before fonts
-app.js / app.css                    3,127 / 2,528 lines
-Generated inline style attributes   48 (index.html: 0)
+app.js / app.css                    3,120 / 2,537 lines
+Generated inline style attributes   41 (index.html: 0)
 Lineage validator warnings          6 empty linked_corpus_keys
 Rights review status                12 needs review / 2 jurisdiction review
 Lineage edge verification           30 traditional links pending exact locator
@@ -99,8 +99,8 @@ The implementation now has a distinct product idea and a clearer hierarchy. It n
 
 ### Debt
 
-- `app.js` (3,127 lines), `app.css` (2,528), validator (1,216), and smoke suite (1,056) are still monoliths.
-- `app.js` retains 48 generated inline-style attributes, keeping CSP `style-src 'unsafe-inline'` necessary.
+- `app.js` (3,120 lines), `app.css` (2,537), validator (1,216), and smoke suite (1,070) are still monoliths.
+- `app.js` retains 41 generated inline-style attributes, keeping CSP `style-src 'unsafe-inline'` necessary.
 - All five hidden views render during startup; lineage SVG and catalogue/dictionary markup are generated before activation.
 - Data is one 1.59 MB raw global classic-script bundle, so opening a single excerpt downloads every corpus and index.
 - There are 23 `innerHTML` assignment sites; escaping is currently disciplined, but the attack surface merits continued regression tests.
@@ -219,7 +219,7 @@ No workflow file was edited because repository policy requires explicit owner ap
 ### P2 — next engineering work
 
 4. Add an owner-approved non-skippable browser/accessibility CI job and complete mirrored-artifact coverage.
-5. Remove the 48 generated inline styles, then remove CSP `unsafe-inline` if feasible.
+5. Remove the 41 generated inline styles, then remove CSP `unsafe-inline` if feasible.
 6. Lazy-render secondary rooms and measure before splitting the data bundle.
 7. Add non-case field validators/negative fixtures and execute or narrow the JSON Schema contract.
 

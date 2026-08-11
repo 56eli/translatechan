@@ -294,7 +294,7 @@ aspects:
     user_basis: null
     desired_direction: ["Remove generated inline styles, self-host fonts if privacy/offline resilience is prioritized, and add SECURITY.md."]
     evidence: ["index.html CSP order", "app.js escaping", "scripts/smoke_test.mjs poison/CSP guards", "npm audit zero vulnerabilities"]
-    next_actions: ["Migrate 48 generated inline styles before attempting to remove CSP unsafe-inline; document vulnerability reporting."]
+    next_actions: ["Migrate 41 generated inline styles before attempting to remove CSP unsafe-inline; document vulnerability reporting."]
     risk_flags: []
     files_reviewed: [index.html, app.js, app.css, LICENSE, package-lock.json]
 

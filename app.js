@@ -1248,7 +1248,8 @@
         ['Measured by', 'data/project_metrics.json → corpus.per_text (validator-generated)']
       ]
     };
-    return `<div class="source-location coverage-disclosure"><span>Coverage: ${escHtml(coverage)}</span>${renderCitationTrigger(detail, 'Details')}</div>`;
+    const visibleCoverage = represented || (unitSummary ? `Excerpt · ${unitSummary}` : 'Excerpt');
+    return `<div class="source-location coverage-disclosure"><span>${escHtml(visibleCoverage)}</span>${renderCitationTrigger(detail, 'Details')}</div>`;
   }
 
   function renderCaseSourceDisclosure(caseNum) {
@@ -1850,25 +1851,18 @@
           ...originalRows
         ]
       };
-      return `<div class="translation-source">📖 <strong>${escHtml(translator)}</strong> · ${escHtml(work)}<br>Edition: ${escHtml(edition)}<br>Page / section: ${escHtml(page)} ${renderCitationTrigger(detail, 'ⓘ Citation')}</div>`;
+      return `<div class="translation-source"><span>${escHtml(work)} · ${escHtml(page)}</span>${renderCitationTrigger(detail, 'Citation')}</div>`;
     }
 
-    const isAi = entry.status === 'ai_draft';
-    const short = isAi ? 'Robo draft' : 'Robolation';
-    const detail = {
-      title: 'Robo rendering disclosure',
-      rows: [
-        ['What this is', isAi ? 'AI draft \u2014 not a real translation.' : 'AI text in this translator\u2019s register \u2014 not their actual words.'],
-        ['Citation rule', 'Do not cite as the named translator\u2019s work.'],
-        ...originalRows
-      ]
-    };
-    return `<div class="translation-source source-disclosure">\u{1F916} <strong>${escHtml(translator)}</strong> \u2014 ${escHtml(short)}</div>`;
+    // Robo names already disclose reconstruction status and open the shared
+    // real-fakeness popover. Repeating “Robo X — Robolation” below every column
+    // adds noise without adding provenance.
+    return '';
   }
 
   function renderProjectDraftDisclosure(label = 'Project AI draft', originalContext = {}) {
     if (state.readerMode === 'chinese_only') return '';
-    return renderTranslationSource({ key: 'ai_project', status: 'ai_draft', source: null }, label, originalContext);
+    return `<div class="translation-source source-disclosure">${escHtml(label)}</div>`;
   }
 
   function renderFlatTranslationColumns(entries, originalContext = {}) {
@@ -2940,12 +2934,12 @@
     if (u.zh && normalizeForSearch(u.zh).includes(qLower)) return '';
     const enHit = (u.en || []).find(p => normalizeForSearch(p.text).includes(qLower));
     if (enHit) {
-      return `<div class="search-match-note">⚖️ Matched in translations — <strong>${escHtml(enHit.name)}</strong>: “${makeFieldSnippet(enHit.text, q)}”</div>`;
+      return `<div class="search-match-note"><strong>${escHtml(enHit.name)}</strong> · “${makeFieldSnippet(enHit.text, q)}”</div>`;
     }
     if (u.pinyin && normalizeForSearch(u.pinyin).includes(qLower)) {
-      return `<div class="search-match-note">🔤 Matched in pinyin: ${makeFieldSnippet(u.pinyin, q)}</div>`;
+      return `<div class="search-match-note"><strong>Pinyin</strong> · ${makeFieldSnippet(u.pinyin, q)}</div>`;
     }
-    return `<div class="search-match-note">🏷️ Matched in the unit title or speaker label</div>`;
+    return `<div class="search-match-note">Title or speaker</div>`;
   }
 
   // D1: searchable units are expensive to extract (traversal + string building),
@@ -2997,35 +2991,34 @@
       const shown = hits.slice(0, Math.min(MAX_PER_DOCUMENT, remaining));
       if (shown.length === 0) return;
 
-      bodyHtml += `<div style="margin: 1.25rem 0 0.4rem; font-weight: 700; color: var(--accent-gold);">${escHtml(doc.title_zh)} · ${escHtml(doc.title_en)} — ${hits.length} matching unit(s)</div>`;
+      bodyHtml += `<div class="search-document-heading"><span>${escHtml(doc.title_en)}</span><small lang="zh">${escHtml(doc.title_zh)}</small><strong>${hits.length}</strong></div>`;
       shown.forEach(u => {
         const action = u.jump && u.jump.kind === 'case'
-          ? `<button class="btn-pill active" data-open-case="${escHtml(corpKey)}" data-case-num="${u.jump.num}">View Case in Reader</button>`
-          : `<button class="btn-pill active" data-open-doc="${escHtml(corpKey)}">View in Reader</button>`;
+          ? `<button class="btn-pill active" data-open-case="${escHtml(corpKey)}" data-case-num="${u.jump.num}">Open case</button>`
+          : `<button class="btn-pill active" data-open-doc="${escHtml(corpKey)}">Open work</button>`;
         bodyHtml += `
-          <div class="case-card" style="margin-bottom: 0.75rem;">
-            <div class="case-header"><h2 class="case-num-title" style="font-size:0.95rem;">${escHtml(u.label)}</h2></div>
-            ${u.zh ? `<div class="classical-zh" lang="zh" style="font-size:1.15rem;">${makeSnippet(u.zh, q)}</div>` : ''}
+          <div class="case-card search-result-card">
+            <div class="case-header"><h2 class="case-num-title search-result-title">${escHtml(u.label)}</h2></div>
+            ${u.zh ? `<div class="classical-zh search-result-zh" lang="zh">${makeSnippet(u.zh, q)}</div>` : ''}
             ${renderSearchMatchNote(u, q, qLower)}
-            <div style="margin-top: 0.4rem;">${action}</div>
+            <div class="search-result-action">${action}</div>
           </div>`;
       });
       displayedHits += shown.length;
       const hiddenInDocument = hits.length - shown.length;
       if (hiddenInDocument > 0) {
-        bodyHtml += `<div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:0.75rem;">… ${hiddenInDocument} additional match(es) in this text (open the text to browse).</div>`;
+        bodyHtml += `<div class="search-more-note">+${hiddenInDocument} more in this work</div>`;
       }
     });
 
     const hiddenTotal = totalHits - displayedHits;
     const resultNotice = hiddenTotal > 0
-      ? `<div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">Showing ${displayedHits} of ${totalHits} matching units; narrow your query for more focused results.</div>`
+      ? `<div class="search-result-limit">Showing ${displayedHits} of ${totalHits} · Refine to narrow</div>`
       : '';
-    const headerHtml = `<div class="text-header"><h1 class="text-title-zh">🔍 Search Results for: "${escHtml(q)}"</h1><p class="text-title-en">${totalHits} matching unit(s) across ${matchedDocuments.length} text(s)</p>${resultNotice}</div>`;
+    const headerHtml = `<div class="text-header search-header"><p class="section-kicker">Corpus search</p><h1 class="text-title-zh"><span>Search</span><small>“${escHtml(q)}”</small></h1><p class="text-title-en">${totalHits} results in ${matchedDocuments.length} works</p>${resultNotice}</div>`;
 
-    const corpusCount = Object.keys(state.data.corpus).length;
     elements.readerContent.innerHTML = totalHits === 0
-      ? headerHtml + `<div class="case-card"><p>No matches found for "${escHtml(q)}". Try Classical Chinese (e.g. 狗子, 無, 佛性, 平常心, 絕學) or English (e.g. Buddha, mind, fox, mirror) across all ${corpusCount} texts.</p></div>`
+      ? headerHtml + `<div class="case-card search-empty"><p>No results. Try a title, term, or passage in English, pinyin, or Chinese.</p></div>`
       : headerHtml + bodyHtml;
   }
 
