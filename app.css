@@ -2043,14 +2043,24 @@ textarea:focus-visible,
   width: 100%;
   font-size: 0.78rem;
   padding: 0.35rem 0.5rem 0.35rem 1.6rem;
+  background: rgba(243, 234, 217, 0.08);
+  border-color: rgba(243, 234, 217, 0.22);
+  color: var(--wood-text);
 }
+.corpus-filter .search-input::placeholder { color: var(--wood-muted); }
+.corpus-filter .search-input:focus {
+  background: var(--wood-800);
+  border-color: var(--beam-edge);
+  box-shadow: 0 0 0 2px rgba(201, 166, 107, 0.22);
+}
+.corpus-filter .search-icon { color: var(--wood-muted); }
 .corpus-filter-empty {
   font-size: 0.8rem;
-  color: var(--text-secondary);
-  padding: 0.5rem 0.25rem;
-  border-left: 2px solid var(--accent-blue);
-  background: var(--bg-card);
-  border-radius: 4px;
+  color: var(--wood-text);
+  padding: 0.5rem 0.35rem;
+  border-left: 2px solid var(--beam-edge);
+  background: rgba(243, 234, 217, 0.06);
+  border-radius: 2px;
 }
 
 /* L1 (audit 2026-08-10, session 019feabb): reader breadcrumb — a
@@ -2289,11 +2299,14 @@ textarea:focus-visible,
   padding: 0;
 }
 
-/* Phase D: Matrix Room — Proof Sheet Layout */
+/* Phase D: Matrix Room — Proof Sheet rows on the room's paper sheet */
 .matrix-proof-sheet {
-  border-bottom: 2px solid var(--border-color);
-  padding: 2.25rem 0;
-  margin-bottom: 1.5rem;
+  border-bottom: 3px double var(--paper-edge);
+  padding: 2.1rem 0;
+  margin-bottom: 0.5rem;
+}
+.matrix-proof-sheet:last-child {
+  border-bottom: none;
 }
 .matrix-source-band {
   margin-bottom: 1.5rem;

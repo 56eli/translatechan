@@ -20,15 +20,16 @@
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the Five Houses and Seven Schools.
 5. **Deploy a Zero-Backend Static GitHub Pages Web App** for bilingual reading, comparative translation, lineage study, Gong'an indexing, and lexicon lookup.
 
-## 🏛️ English-First Walnut Hall Interface (2026-08-11)
+## 🏛️ Chan-Hall Immersion Interface (2026-08-11, second pass)
 
-The five-room public SPA keeps its dark-walnut Chan-hall structure while using a clearer, more distinctive **English-first factory/editorial identity**:
+The five-room public SPA now presents **the whole page as the Chan hall**: fixed walnut walls with timber posts, a carved top beam carrying identity and navigation, and every room's content hung on a ruled paper sheet. The earlier tagline hero was retired after owner feedback that it read as a popup — there is no greeting gate; the Reader opens directly on the current work.
 
-- **Identity:** `FC` monogram, asymmetric walnut introduction, edition/proof details, and the plain-language hook “The old texts are real. The translators are not.”
+- **Identity:** `FC` monogram carved into the beam; English-first navigation plaques (Read · Compare · Lineage · Cases · Terms) with small Chinese room labels; one small cinnabar seal slip marks each room headband.
 - **Hierarchy:** English leads navigation, room/document/unit headings, lineage, Gong'an, lexicon, and mobile controls; source Chinese remains available with `lang="zh"` and stays central inside the Reader.
-- **Reading system:** grouped 2/2/31 library shelf, progressive provenance ledger, ruled reading sheets, Matrix proof rows, Lineage directory/network, Gong'an catalogue, and dictionary definitions.
-- **Responsive and accessible behavior:** 1024px shelf collapse, 768px mobile layout, contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls, and no HTML inline styles.
-- **Progressive disclosure:** repeated hero/Matrix explanations and per-column Robo footers are removed; compact citations, coverage, Lineage, Lexicon, and search labels keep detailed provenance available on demand.
+- **Reading system:** a wooden library shelf on the wall (grouped 2/2/31 manifest), a paper reading sheet with a shelf-mark breadcrumb docket, colophon-style provenance ledger, folio units separated by hairline rules and a gold lozenge, and a typographic sheet lintel (reading mode, type size, print) that sticks flush under the beam.
+- **Secondary rooms:** Matrix proof rows, the Lineage network framed as a scroll with walnut dowels plus the master directory, the Gong'an catalogue, and dictionary-definition rows — all on the same paper-sheet system.
+- **Responsive and accessible behavior:** 1024px shelf collapse, 768px mobile layout with a walnut control tray, light-on-wood focus rings, contrast-safe tokens, reduced-motion handling, keyboard tabs, and no HTML inline styles.
+- **Progressive disclosure:** repeated explanatory copy and per-column Robo footers stay removed; compact citations, coverage, and search labels keep provenance on demand.
 - **Resilience and honesty:** redundant Robo badges are suppressed without hiding verified-quotation status; malformed preferences fail soft; missing/malformed data renders reload/reset recovery UI; edition verification and rights status remain separate.
 
 ## ✅ Verified Quotation Campaign (2026-08-08)

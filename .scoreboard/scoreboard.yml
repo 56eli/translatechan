@@ -21,7 +21,7 @@ summary:
     - ci_cd
     - github_pages_presentation
   active_risk_flags:
-    - "Owner feedback on 2026-08-11: the Pages design was too plain/generic and over-emphasized Chinese characters; the English-first walnut redesign and copy cleanup are implemented, and the owner explicitly requested PR #18 merge. Real-browser evidence remains pending."
+    - "Owner feedback on 2026-08-11 (second pass): the Pages design improved but reading surfaces felt unintegrated/shallow and the tagline hero read as a popup; the full Chan-hall immersion direction (owner-selected option B) is implemented. Real-browser evidence remains pending."
     - "Contained P0: unreliable Congronglu data/locators/generating scripts remain removed; reintroduction is blocked on source-pinned field-level collation."
     - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; decisions remain pending."
     - "P2 source depth: Biyanlu, Linji, Platform, and other non-case records still need field-level coverage and broader human review."
@@ -332,12 +332,12 @@ aspects:
     status: needs_work
     confidence: high
     last_audited: 2026-08-11
-    ai_basis: "The English-first redesign gives the walnut shell a distinctive factory/editorial identity, rebalances navigation and headings away from decorative Chinese dominance, synchronizes the social image, and removes repetitive visible copy through progressive disclosure. The owner explicitly requested PR #18 merge; real-browser screenshots remain absent."
-    user_basis: "Qualitative owner feedback: the prior Pages design was too plain/generic and focused too heavily on Chinese characters; preserve and improve the walnut-hall direction, remove specified repetitive copy, update documentation, and merge PR #18. No numeric user score supplied."
-    desired_direction: ["Preserve the walnut hall while making the identity bolder, less generic, English-first, and concise."]
-    evidence: ["index.html English-first shell/hero/room headings", "app.css identity panel and hierarchy", "app.js English-first dynamic headings and progressive disclosure", "og-image.svg", "commits d2e9887..e6e24bf"]
-    next_actions: ["Verify the merged Pages deployment in a real browser when Chromium is available."]
-    risk_flags: ["Owner requested merge, but current desktop/mobile light/dark screenshot evidence is still unavailable."]
+    ai_basis: "Second-pass redesign: full Chan-hall immersion — walnut wall-and-beam shell, one paper sheet per room, wooden corpus shelf, sheet lintel, folio dinkus separations, scroll-framed lineage graph, and a redrawn social image. The popup-tagline hero the owner rejected is removed with smoke guards. Owner direction pick recorded; real-browser screenshots remain absent."
+    user_basis: "Qualitative owner feedback: the site improved but reading felt unintegrated and shallow; the 'old texts / translators' banner was judged a horrible popup and removed on instruction; owner selected the full Chan-hall direction over zen-minimal and editorial-print alternatives. No numeric user score supplied."
+    desired_direction: ["Make the whole page the hall: timber structure everywhere, paper sheets for content, reading first, no greeting gate."]
+    evidence: ["index.html paper-sheet rooms and retired hero", "app.css hall wall/sheet/shelf/lintel systems", "app.js hero logic removed", "og-image.svg hall artwork", "scripts/smoke_test.mjs retired-hero guards"]
+    next_actions: ["Verify the new shell in a real browser when Chromium is available; confirm owner approval of the hall immersion before the next merge."]
+    risk_flags: ["Owner selected the direction, but current desktop/mobile light/dark screenshot evidence is still unavailable."]
     files_reviewed: [index.html, app.css, app.js, og-image.svg, scripts/browser_test.mjs]
 
   - id: ux_usability

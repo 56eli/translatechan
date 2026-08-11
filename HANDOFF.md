@@ -42,24 +42,25 @@ There are no runtime JavaScript packages. Playwright is an optional development 
 
 ## 3. Current design direction
 
-Owner feedback on 2026-08-11:
+Owner feedback on 2026-08-11 (two passes recorded):
 
-- prior Pages page was **too plain and generic**;
-- it put **too much focus on Chinese characters**;
-- preserve, rather than replace, the **walnut-hall direction**.
+1. First pass: prior Pages page was **too plain and generic** with **too much focus on Chinese characters**; preserve the walnut-hall direction. PR #18 (English-first walnut redesign) merged on that instruction.
+2. Second pass (this session): the site improved, but **reading surfaces felt unintegrated and shallow**, and the hero banner **“The old texts are real. The translators are not.” read as a horrible popup**. Direction: **full Chan-hall immersion** — the page itself is the hall.
 
 Current implementation:
 
-- English-first brand and room navigation;
-- dark-walnut editorial/factory hero: “The old texts are real. The translators are not.”;
-- English-first room, document, case, lineage, Gong'an, and lexicon headings;
-- smaller but intact source-language labels and Reader source text;
-- matching social image and `FC` monogram;
-- compact English mobile controls;
-- progressive disclosure that removes repeated Robo, citation, coverage, Lineage, Lexicon, and search prose from the reading surface;
+- fixed walnut wall with timber posts and lamp falloff behind everything; night-hall variant in dark theme;
+- sticky top beam carries the `FC` monogram, English room plaques, search, theme, and settings;
+- one paper sheet per room (`.paper-sheet` / `.room-sheet`) with cut edges and hall shadows;
+- the corpus sidebar is a wooden shelf with pinned paper slips; the active work is the pulled slip with a cinnabar edge;
+- the Reader toolbar is the sheet lintel and sticks flush under the beam; typography-first controls replace bordered pills;
+- document headbands use a double rule, shelf-mark breadcrumb docket, hairline-separated colophon ledger, and one small red seal slip per room;
+- folio units separate with a hairline + gold lozenge dinkus; source text reads at 1.95 line height; commentary/verse sit as flat ruled insets;
+- the mobile bottom bar is a walnut tray; print flattens sheets to white;
+- retired surfaces carry smoke guards so the popup/tagline cannot return (index.html, app.js, app.css, og-image.svg);
 - no added runtime or image payload.
 
-This direction and the subsequent copy cleanup are implemented, and the owner explicitly requested PR #18 merge. Current real-browser screenshots were unavailable in the audit environment.
+Real-browser screenshots remain unavailable in the sandbox (Chromium download fails); visual verification must happen on the live preview or after merge.
 
 ## 4. Measured snapshot
 
@@ -193,4 +194,4 @@ Never append a full session narrative here; link the dated report.
 
 ## 12. Current pull request
 
-PR [#18](https://github.com/56eli/translatechan/pull/18) targets `main` from `arena/019ff089-translatechan`. It is mergeable, current branch/PR Quality checks pass, and the owner explicitly requested merge after this final documentation handoff.
+PR [#18](https://github.com/56eli/translatechan/pull/18) is **merged** (baseline `63dfe37`). The current session branch is `arena/019ff0c0-translatechan` (Chan-hall immersion pass); open a PR into `main` when the owner approves the new direction.

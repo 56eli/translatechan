@@ -4,11 +4,11 @@
 > **Prior evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
 > **Convention:** this file is the current verdict and index; dated reports are immutable snapshots and may contain superseded metrics or conclusions.
 
-## 1. Current verdict — 2026-08-11
+## 1. Current verdict — 2026-08-11 (second pass)
 
 **Not release-ready: audited score 7.2/10 and `repo_ready = fail`.**
 
-The owner reported that the prior Pages design was too plain/generic and over-emphasized Chinese characters, while selecting preservation of the walnut-hall direction. The current branch implements a bolder English-first factory/editorial identity, keeps source Chinese in the Reader, progressively removes repetitive copy, adds recoverable startup failure UI, and corrects CSP ordering. After the cleanup iterations, the owner explicitly requested PR #18 merge; real-browser screenshot evidence remains unavailable.
+Second round of owner feedback (session `019ff0c0`): the reading surfaces still felt **unintegrated and shallow**, and the hero tagline gate read as a **popup that must go**. The current branch implements **full Chan-hall immersion**: walnut wall + beam shell, one paper sheet per room, the corpus sidebar as a wooden shelf, the Reader toolbar as the sheet lintel, folio-style reading units with dinkus separators, a wooden mobile tray, a redrawn social image, and smoke guards so the retired popup cannot return. Real-browser screenshot evidence remains unavailable in the sandbox; visual review happens on the live preview.
 
 Current generated measurements:
 
