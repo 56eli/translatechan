@@ -2180,8 +2180,8 @@
       ]
     };
     elements.lineageVerificationSummary.innerHTML =
-      `<span>📚 Chart status: ${verified} source-verified · ${pending} traditional links awaiting exact locators · ${frontiers.length} frontiers</span>` +
-      renderCitationTrigger(detail, 'ⓘ Verification details');
+      `<span>${verified} verified · ${pending} locator pending · ${frontiers.length} frontiers</span>` +
+      renderCitationTrigger(detail, 'Details');
   }
 
   function sortLineageMasters(masters) {
@@ -2776,7 +2776,7 @@
         <div class="lexicon-def-col">
           <div class="lexicon-def-text">${escHtml(item.definition)}</div>
           <div class="lexicon-occurrences">
-            ${item.occurrences.map(occ => `<span class="lexicon-occ-tag">${escHtml(occ)}</span>`).join('')}
+            ${item.occurrences.map(occ => `<span class="lexicon-occ-tag" title="Canonical occurrence reference; may fall outside the current Reader excerpt.">${escHtml(occ)}</span>`).join('')}
           </div>
         </div>
       </div>

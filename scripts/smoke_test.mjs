@@ -58,7 +58,12 @@ for (const shellToken of ['id="site-shell"', 'class="nav-tabs room-nav"', '閱�
 for (const identityToken of ['The old texts are real.', 'The translators are not.', 'data-room-index="01"', '<span>Comparative Matrix</span>']) {
   if (!publicHtml.includes(identityToken)) throw new Error(`English-first visual direction missing: ${identityToken}`);
 }
-for (const removedCopy of ["「平常心是道。」— the Robo monks' practical joke.", '<strong>Heads up:</strong> most translations here are']) {
+for (const removedCopy of [
+  "「平常心是道。」— the Robo monks' practical joke.",
+  '<strong>Heads up:</strong> most translations here are',
+  'without pretending they are the same thing',
+  '<span>Source tracked</span>'
+]) {
   if (publicHtml.includes(removedCopy)) throw new Error(`owner-removed explanatory copy returned: ${removedCopy}`);
 }
 if (!appSrc.includes('setupShellMetrics()') || !appSrc.includes("document.body.dataset.currentView = viewName")) {
@@ -551,7 +556,7 @@ if (Number(ids['lineage-svg-graph']._attrs.height || 0) < 1200) {
   failures++; console.log('❌ lineage chart did not expand into readable generation rows');
 }
 const lineageSummaryHtml = ids['lineage-verification-summary']._innerHTML;
-if (!lineageSummaryHtml.includes('Chart status') || !lineageSummaryHtml.includes('citation-trigger')) {
+if (!lineageSummaryHtml.includes('locator pending') || !lineageSummaryHtml.includes('citation-trigger')) {
   failures++; console.log('❌ lineage verification summary disclosure missing');
 }
 try {
@@ -773,11 +778,12 @@ if (!gonganFilteredHtml.includes('趙州洗缽') || gonganFilteredHtml.includes(
   failures++; console.log('❌ gongan theme-group chip did not restrict the index to the Everyday Way group');
 }
 chipClick('all');
-// 4m5. Lexicon occurrence scope note (audit A5): occurrence tags cite canonical
-// loci (chapter/fascicle/case) which may lie outside the excerpted units — the
-// Lexicon header must keep disclosing that scoping.
-if (!publicHtml.includes('occurrence tags cite each term') || !publicHtml.includes('canonical work')) {
-  failures++; console.log('❌ lexicon occurrence scope note missing');
+// 4m5. Keep the canonical-occurrence caveat available on demand without a
+// permanent explanatory paragraph above the dictionary.
+const lexiconAllHtml = ids['lexicon-content-target']._innerHTML;
+if (!lexiconAllHtml.includes('title="Canonical occurrence reference; may fall outside the current Reader excerpt."') ||
+    publicHtml.includes('<strong>Scope note:</strong>')) {
+  failures++; console.log('❌ lexicon occurrence caveat is not cleanly progressive');
 }
 // 4m6. Semantic document outline (a11y audit 2026-08-09): each public view's
 // title is a real heading element, not a styled <div>, so screen-reader users

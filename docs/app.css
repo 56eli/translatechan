@@ -467,19 +467,6 @@ body:not([data-current-view="reader"]) #about-toggle {
   text-transform: uppercase;
   color: #c9a66b;
 }
-.hero-brand-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.7rem;
-  color: var(--wood-muted);
-  font-size: 0.68rem;
-  font-weight: 650;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.hero-zh { font-family: var(--font-serif); font-size: 0.78rem; font-weight: 700; color: var(--wood-text); letter-spacing: 0.1em; }
-.hero-divider { width: 2rem; height: 1px; background: #c9a66b; }
 .zen-quote-main {
   max-width: 18ch;
   margin: 0 0 1rem;
@@ -491,25 +478,6 @@ body:not([data-current-view="reader"]) #about-toggle {
   color: #fffaf0;
 }
 .zen-quote-main em { color: #d8b87d; font-style: normal; }
-.zen-quote-sub {
-  max-width: 64ch;
-  font-size: 0.9rem;
-  color: var(--wood-muted);
-  line-height: 1.65;
-}
-.hero-principles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem 1.1rem;
-  margin-top: 1.35rem;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--wood-text);
-}
-.hero-principles span::before { content: '✓'; margin-right: 0.35rem; color: #c9a66b; }
 .hero-meta {
   min-width: 0;
   padding-left: clamp(1.2rem, 3vw, 2.5rem);
