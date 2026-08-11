@@ -60,7 +60,7 @@ Current implementation:
 - retired surfaces carry smoke guards so the popup/tagline cannot return (index.html, app.js, app.css, og-image.svg);
 - no added runtime or image payload.
 
-Real-browser screenshots remain unavailable in the sandbox (Chromium download fails); visual verification must happen on the live preview or after merge.
+**Browser evidence exists now.** Arena sandboxes cannot reach Playwright/apt font sources, but `npm install @sparticuz/chromium puppeteer-core` delivers a working headless Chromium via the npm registry; inflate its `al2023.tar.br` into `/tmp` and export `LD_LIBRARY_PATH=/tmp/al2023/lib`, convert npm-hosted Noto Serif SC woff2 subsets with `wawoff2` into `/tmp/fonts/ttf`, and point `FONTCONFIG_FILE` there. Ten states (desktop/mobile, light/dark, all five rooms) were screenshot-reviewed this session and drove five fixes. Screenshots are session scratch (`.arena/`, gitignored), not committed artifacts.
 
 ## 4. Measured snapshot
 

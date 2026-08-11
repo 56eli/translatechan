@@ -21,11 +21,11 @@ summary:
     - ci_cd
     - github_pages_presentation
   active_risk_flags:
-    - "Owner feedback on 2026-08-11 (second pass): the Pages design improved but reading surfaces felt unintegrated/shallow and the tagline hero read as a popup; the full Chan-hall immersion direction (owner-selected option B) is implemented. Real-browser evidence remains pending."
+    - "Owner feedback on 2026-08-11 (second pass) is implemented: full Chan-hall immersion verified across 10 real-browser screenshot states; owner approval of this pass not yet recorded."
     - "Contained P0: unreliable Congronglu data/locators/generating scripts remain removed; reintroduction is blocked on source-pinned field-level collation."
     - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; decisions remain pending."
     - "P2 source depth: Biyanlu, Linji, Platform, and other non-case records still need field-level coverage and broader human review."
-    - "P2 browser/CI evidence: Chromium was unavailable, browser execution remains skippable, mirrored asset coverage is incomplete, and branch protection is unconfirmed."
+    - "P2 CI evidence: browser execution remains skippable in CI (manual in-sandbox screenshot pass exists), mirrored asset coverage is incomplete, and branch protection is unconfirmed."
 
 quality_gates:
   repo_ready:
@@ -324,20 +324,20 @@ aspects:
     category: presentation
     weight: 5
     target: 8
-    ai_score: 7
+    ai_score: 8
     user_score: null
-    effective_score: 7
-    gap: 1
-    priority: 5
-    status: needs_work
+    effective_score: 8
+    gap: 0
+    priority: 0
+    status: healthy
     confidence: high
     last_audited: 2026-08-11
-    ai_basis: "Second-pass redesign: full Chan-hall immersion — walnut wall-and-beam shell, one paper sheet per room, wooden corpus shelf, sheet lintel, folio dinkus separations, scroll-framed lineage graph, and a redrawn social image. The popup-tagline hero the owner rejected is removed with smoke guards. Owner direction pick recorded; real-browser screenshots remain absent."
-    user_basis: "Qualitative owner feedback: the site improved but reading felt unintegrated and shallow; the 'old texts / translators' banner was judged a horrible popup and removed on instruction; owner selected the full Chan-hall direction over zen-minimal and editorial-print alternatives. No numeric user score supplied."
+    ai_basis: "Chan-hall immersion verified in a real browser: a self-assembled headless rig (@sparticuz/chromium from the npm registry + npm-hosted CJK fonts) produced desktop/mobile, light/dark, all-room screenshots; the pass caught and fixed the paper crease, tofu-prone glyph icons, the squeezed lexicon grid, and the fold-eating mobile title. The popup-tagline hero is removed with smoke guards."
+    user_basis: "Qualitative owner feedback: prior design judged too plain/generic, then 'reading unintegrated and shallow' with the tagline a 'horrible popup'; owner selected direction B (full Chan-hall immersion). Owner approval of the implemented pass not yet recorded. No numeric user score supplied."
     desired_direction: ["Make the whole page the hall: timber structure everywhere, paper sheets for content, reading first, no greeting gate."]
-    evidence: ["index.html paper-sheet rooms and retired hero", "app.css hall wall/sheet/shelf/lintel systems", "app.js hero logic removed", "og-image.svg hall artwork", "scripts/smoke_test.mjs retired-hero guards"]
-    next_actions: ["Verify the new shell in a real browser when Chromium is available; confirm owner approval of the hall immersion before the next merge."]
-    risk_flags: ["Owner selected the direction, but current desktop/mobile light/dark screenshot evidence is still unavailable."]
+    evidence: ["index.html paper-sheet rooms and retired hero", "app.css hall wall/sheet/shelf/lintel systems", "app.js hero logic removed", "og-image.svg hall artwork", "scripts/smoke_test.mjs retired-hero guards", "10-state real-browser screenshot review (desktop/mobile, light/dark, all rooms)"]
+    next_actions: ["Obtain owner approval of the hall immersion, then open the merge PR."]
+    risk_flags: ["Owner approval of the implemented hall pass is not yet recorded."]
     files_reviewed: [index.html, app.css, app.js, og-image.svg, scripts/browser_test.mjs]
 
   - id: ux_usability

@@ -2,29 +2,25 @@
 
 ## One-sentence summary
 
-Completed a fresh full audit, collected your feedback (hall-immersion direction, remove the tagline popup, deepen the reading integration), and rebuilt the Pages design as a full Chan hall — walnut wall + beam outside, paper sheets inside — with the hero popup deleted, the Reader re-composed as a bound reading sheet, and all quality gates green.
+Audited the repo, implemented your chosen Chan-hall immersion (popup hero deleted, reading re-composed as a bound sheet), and — after building a working headless-Chromium rig inside the sandbox — screenshot-reviewed all five rooms in light/dark + mobile and shipped seven evidence-driven fixes.
 
-## What you told me
+## Screenshots (this is how you see it without merging)
 
-- Reading felt **unintegrated and shallow** → everything reading-related is now composed into the sheet (headband, lintel, folios, colophon).
-- “The old texts are real. The translators are not.” was a **horrible popup** → deleted everywhere (markup, code, styles, social image); smoke tests now fail if it ever comes back.
-- Direction **B — Chan-hall immersion** → implemented.
+Real browser screenshots live in `.arena/screenshots/` (workspace scratch, gitignored):
+`desktop-light-reader.png` · `desktop-light-reader-scrolled.png` · `desktop-dark-reader.png` · `mobile-light-reader.png` · `mobile-dark-reader.png` · `desktop-light-matrix.png` · `desktop-dark-matrix.png` · `desktop-light-lineage.png` · `desktop-light-gongan.png` · `desktop-light-lexicon.png`.
 
-## What changed (all pushed to `arena/019ff0c0-translatechan`)
+Chromium was assembled in-sandbox from `@sparticuz/chromium` (downloaded via the npm registry, since Playwright CDNs are blocked) + npm-hosted CJK fonts. Full recipe in `sessions/AUDIT_RESPONSE_2026-08-11_019ff0c0.md`.
 
-- **The page is the hall:** dark walnut wall with timber posts stays fixed while content scrolls; the sticky header is the top beam with a carved gold edge; each of the five rooms is one paper sheet with cut edges and hall shadows. Dark theme = night hall.
-- **Library shelf:** the corpus sidebar is a wooden slab on the left wall; works are pinned paper slips; the active work is pulled out with a cinnabar edge.
-- **Reading depth:** sheet lintel (reading mode / type / print) sticks flush under the beam; document headband with shelf-mark docket + colophon ledger; folio units separated by hairline + gold lozenge; Kai source text breathing at 1.95 line-height; commentary/verse as flat ruled insets; case index as a token TOC rail.
-- **Secondary rooms:** Matrix proof rows, scroll-framed lineage graph, catalogue and dictionary rows — same sheet system.
-- **Mobile:** walnut control tray replaces the paper bar; focus rings are light-on-wood where they sit on timber.
-- **Social image:** redrawn as the hall (no tagline).
+## What the hall is now
 
-## Verify it
-
-The **Arena live preview** is running the working build. On merge to `main`, Pages republishes in ~60s. Note: I still cannot take real screenshots (sandbox can't install Chromium; github.io unreachable from here), so the scoreboard honestly keeps presentation at 7 pending real-browser evidence.
+- Walnut wall with timber posts (fixed) + top beam with carved gold edge; dark theme = night hall.
+- Every room is a paper sheet; the corpus sidebar is a wooden shelf with pinned paper slips (active = pulled slip, cinnabar edge).
+- Reader: lintel under the beam, shelf-mark docket, colophon ledger, folio units with gold-lozenge dinkus, 1.95 line-height Kai source, flattened commentary insets.
+- The tagline popup is deleted everywhere and smoke-guarded against return.
+- Social image redrawn as the hall.
 
 ## Gates
 
-validate / build / smoke (35 renderers + retired-hero guards) / mirror diff — all PASS. Commits: `1359398`, `bb1a326`, `0beda8a`, `132bec5` + this docs sync.
+validate / build / smoke / mirror diff / tag-balance parse — all PASS; branch CI green at `d08a8f5`. Commits: `1359398` … `d08a8f5`.
 
 Full evidence: `sessions/AUDIT_RESPONSE_2026-08-11_019ff0c0.md`.

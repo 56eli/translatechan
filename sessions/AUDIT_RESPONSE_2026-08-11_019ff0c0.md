@@ -55,9 +55,22 @@ node scripts/smoke_test.mjs        PASS (35 renderers, retired-hero guards, hall
 HTML tag-balance parse             PASS
 diff data docs/data                PASS
 git diff --check                   PASS
+GitHub Actions Quality (branch)    PASS at af3cc03 / ff25985
+Real-browser screenshots           PASS — 10 states reviewed and actioned
 ```
 
-Notes: an intermediate commit tripped the N10 legibility floor (`font-size: 0.62rem` guard); fixed to 0.66rem and re-gated before this file was written. Chromium remains uninstallable in the sandbox (CDN + package mirrors unreachable), and `56eli.github.io` is not fetchable from here — **no screenshot claims are made**; the Arena live preview (port 8080) shows the working build.
+**Browser-evidence rig (new this session):** the Playwright CDN and package mirrors are TLS-blocked in the sandbox, but the npm registry is reachable. `@sparticuz/chromium` ships a brotli-packed chromium-headless-shell through npm; launching it needs `LD_LIBRARY_PATH=/tmp/al2023/lib` after inflating `al2023.tar.br`, and CJK coverage comes from the npm `noto-serif-sc` package converted woff2→ttf with `wawoff2` into `/tmp/fonts/ttf` with `FONTCONFIG_FILE=/tmp/fonts/fonts.conf`. The rig is session scratch (nothing committed; the repo still only lists Playwright as an optional devDependency).
+
+**Screenshot-driven fixes shipped after evidence review:**
+1. `.paper-sheet` center-crease gradient removed (read as a stray vertical divider).
+2. Folio dinkus is now a CSS-drawn lozenge (the `◆` glyph tofued without symbol fonts).
+3. Case index rail gets a right-edge fade (truncation looked accidental).
+4. Tofu-prone glyphs `⌕`, `☾/☀`, `⤒`, `⟲` replaced by inline SVG icons / text labels.
+5. Lexicon definition rows now span the full sheet column (the legacy auto-fill card grid squeezed them to ~90px).
+6. Mobile work-title clamped so it no longer consumes the first fold.
+7. Lineage filter selects no longer stretch full width.
+
+Notes: an intermediate commit tripped the N10 legibility floor (`font-size: 0.62rem` guard); fixed to 0.66rem and re-gated immediately. `56eli.github.io` is not fetchable from the sandbox — post-merge verification of the live Pages site remains a follow-up.
 
 ## 4. Documentation synchronized
 

@@ -55,6 +55,8 @@ Current generated measurements:
 10. SVG social cards have uneven platform support; a PNG fallback would be safer.
 11. Six lineage profiles lack linked corpus keys and all 30 edges await exact locators.
 
+> Presentation note (2026-08-11, second pass): real-browser screenshot evidence now exists (10 states reviewed in-session); the presentation aspect is 8/10. Owner approval of the implemented hall pass is the remaining soft gate before merging this branch.
+
 ## 4. Verification
 
 ```text
