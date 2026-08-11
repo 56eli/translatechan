@@ -23,6 +23,9 @@ if (!publicHtml.includes('<script src="theme-init.js"></script>')) {
 if (publicHtml.indexOf('<script src="theme-init.js"></script>') > publicHtml.indexOf('<link rel="stylesheet" href="app.css">')) {
   throw new Error('theme-init.js must load before app.css to prevent a theme flash');
 }
+if (publicHtml.indexOf('http-equiv="Content-Security-Policy"') > publicHtml.indexOf('<script src="theme-init.js"></script>')) {
+  throw new Error('Content-Security-Policy must precede the scripts it governs');
+}
 if (!/localStorage[^]*translatechan_theme[^]*setAttribute\(['"]data-theme['"]/.test(themeInitSrc)) {
   throw new Error('theme-init.js must read translatechan_theme and set data-theme before paint');
 }
@@ -52,12 +55,19 @@ if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.inclu
 for (const shellToken of ['id="site-shell"', 'class="nav-tabs room-nav"', '閱藏堂', '對勘', '傳法堂', '公案架', '詞林']) {
   if (!publicHtml.includes(shellToken)) throw new Error(`walnut room shell missing: ${shellToken}`);
 }
+for (const identityToken of ['The old texts are real.', 'The translators are not.', 'data-room-index="01"', '<span>Comparative Matrix</span>']) {
+  if (!publicHtml.includes(identityToken)) throw new Error(`English-first visual direction missing: ${identityToken}`);
+}
 if (!appSrc.includes('setupShellMetrics()') || !appSrc.includes("document.body.dataset.currentView = viewName")) {
   throw new Error('shell height/current-view state is not synchronized by the app');
 }
 if (!appSrc.includes('✅ Edition-verified quotation') ||
     /verified public-domain text|Verified public-domain text/.test(publicHtml)) {
   throw new Error('edition verification must remain distinct from rights/public-domain status');
+}
+if (!appSrc.includes('function hasUsableDataBundle(') || !appSrc.includes('function showLoadError()') ||
+    !appSrc.includes('id="load-error-retry"') || !appSrc.includes('id="load-error-reset"')) {
+  throw new Error('missing or malformed data must render a recoverable load-error panel');
 }
 // B4: app_data/app.js should use defer so parsing is not blocked while the
 // deterministic data bundle downloads; order remains app_data.js then app.js.
@@ -405,7 +415,7 @@ if (annotatedHtml.includes('term-highlight"><span class="term-highlight') || ann
 if (!annotatedHtml.includes('無門評唱 / Wumen Commentary') || !annotatedHtml.includes('無門頌 / Wumen Verse')) {
   failures++; console.log('❌ Wumenguan commentary/verse labels missing');
 }
-const epiloguePos = annotatedHtml.indexOf("Wumen's Epilogue & Gatha");
+const epiloguePos = annotatedHtml.indexOf('Wumen&#39;s Epilogue &amp; Gatha');
 const lastInitialCasePos = annotatedHtml.lastIndexOf('id="case-12"');
 if (epiloguePos < 0 || lastInitialCasePos < 0 || epiloguePos < lastInitialCasePos) {
   failures++; console.log('❌ Wumenguan epilogue must render after the case units');
@@ -750,7 +760,7 @@ const gonganChipsHtml = ids['gongan-content-target']._innerHTML;
 if (!gonganChipsHtml.includes('data-gongan-filter="everyday_way"') || !gonganChipsHtml.includes('data-gongan-filter="what_is_buddha"')) {
   failures++; console.log('❌ gongan theme chips are not generated from the controlled theme taxonomy');
 }
-if (!gonganChipsHtml.includes('🏷️ The Everyday Way')) { failures++; console.log('❌ gongan cards do not show the theme group tag'); }
+if (!gonganChipsHtml.includes('Group: The Everyday Way')) { failures++; console.log('❌ gongan cards do not show the theme group tag'); }
 const chipClick = (key) => (ids['gongan-content-target']._handlers.click || []).forEach(fn => fn({
   target: { closest: (sel) => (sel === '.gongan-filter-chip' ? { getAttribute: () => key } : null) }
 }));
@@ -772,6 +782,9 @@ if (!publicHtml.includes('occurrence tags cite each term') || !publicHtml.includ
 // case/section/matrix/master/lexicon card title is an <h2>.
 const outlineReaderHtml = ids['reader-content-target']._innerHTML;
 if (!/<h1 class="text-title-zh">/.test(outlineReaderHtml)) { failures++; console.log('❌ reader document title is not an <h1>'); }
+if (!outlineReaderHtml.includes('<h1 class="text-title-zh"><span>The Gateless Gate (The Gateless Barrier)</span><small lang="zh">禪宗無門關</small>')) {
+  failures++; console.log('❌ reader document heading is not English-first');
+}
 if ((outlineReaderHtml.match(/<h2 class="case-num-title">/g) || []).length < 48) {
   failures++; console.log('❌ reader case/unit titles are not <h2> headings');
 }
@@ -992,7 +1005,7 @@ globalThis.window._printedReaderHtml = '';
 await sleep(20);
 const printedHtml = globalThis.window._printedReaderHtml;
 if ((printedHtml.match(/id="case-\d+"/g) || []).length !== 48 ||
-    printedHtml.indexOf('id="case-48"') > printedHtml.indexOf("Wumen's Epilogue & Gatha")) {
+    printedHtml.indexOf('id="case-48"') > printedHtml.indexOf('Wumen&#39;s Epilogue &amp; Gatha')) {
   failures++; console.log('❌ Print/PDF did not receive all 48 cases followed by the epilogue');
 }
 

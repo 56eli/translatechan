@@ -66,7 +66,7 @@ While **Phase A+B** successfully redesigned the global Shell and Reader room int
 ## 3. Senior Web Designer Audit: Visual, UX & Layout Inconsistencies
 
 ### 3.1. Design System Schism: Reader vs. Secondary Rooms (Phase C & D Gap)
-The redesign roadmap in [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) defined a five-phase transformation from a generic SaaS dashboard to a restrained Chinese Chan hall in dark walnut. **Phases A+B were completed**, but **Phases C–E remain unexecuted**:
+The redesign roadmap in [`WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./WEB_DESIGN_GAP_PLAN_2026-08-10.md) defined a five-phase transformation from a generic SaaS dashboard to a restrained Chinese Chan hall in dark walnut. **Phases A+B were completed**, but **Phases C–E remain unexecuted**:
 - **Reader (`#view-reader`):** Uses structural walnut framing, typography-first reading sheets, a compact horizontal case rail, and minimal emoji decoration.
 - **Matrix (`#view-matrix`):** Continues to render rounded `.matrix-card` containers with generic box shadows, repeated badge pills, and decorative symbols (`📌`, `💡`). It lacks the planned "proof sheet" full-width sentence band and shared baseline columns.
 - **Lineage (`#view-lineage`):** Renders master cards (`.master-card`) littered with decorative symbols (`👑`, `⏳`, `🏛️`, `📍`, `📜`, `👤`) and inline styles rather than a clean transmission chart on paper.

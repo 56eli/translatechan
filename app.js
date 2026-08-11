@@ -71,7 +71,7 @@
     showPinyin: storageGet('translatechan_show_pinyin') !== '0',
     fontSize: (() => {
       const v = parseFloat(storageGet('translatechan_font_size'));
-      return (v >= 1.0 && v <= 2.2) ? v : 1.35;
+      return (v >= 1.0 && v <= 2.2) ? v : 1.2;
     })(),
     collapsedCases: (() => {
       try {
@@ -119,16 +119,19 @@
   // Keep the hero's hand-authored work/register chips truthful by deriving them
   // from the live bundle rather than repeating counts in presentation code.
   function updateHeroCounts() {
-    const corpusChip = document.getElementById('hero-corpus-count');
-    if (corpusChip && state.data.corpus) {
-      corpusChip.textContent = `📜 ${Object.keys(state.data.corpus).length} Canonical Works`;
+    const corpusValue = document.getElementById('hero-corpus-count');
+    if (corpusValue && state.data.corpus) {
+      const count = Object.keys(state.data.corpus).length;
+      corpusValue.textContent = String(count);
+      corpusValue.parentElement?.setAttribute('aria-label', `${count} Canonical Works`);
     }
-    const translatorChip = document.getElementById('hero-translator-count');
+    const registerValue = document.getElementById('hero-translator-count');
     const rows = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : [];
     const matrixRegisters = state.data.project_metrics?.translations?.matrix_entries
       || rows.reduce((total, row) => total + (Array.isArray(row?.translators) ? row.translators.length : 0), 0);
-    if (translatorChip) {
-      translatorChip.textContent = `🤖 ${matrixRegisters} Matrix Registers`;
+    if (registerValue) {
+      registerValue.textContent = String(matrixRegisters);
+      registerValue.parentElement?.setAttribute('aria-label', `${matrixRegisters} Matrix Registers`);
     }
   }
 
@@ -158,8 +161,44 @@
     }
   }
 
+  function hasUsableDataBundle(data) {
+    return isRecord(data) && isRecord(data.corpus) && Object.keys(data.corpus).length > 0 &&
+      Array.isArray(data.corpus_manifest?.items) && Array.isArray(data.translations_matrix);
+  }
+
+  // A missing, blocked, or malformed 1.5 MB bundle used to leave a mostly blank
+  // shell. Fail visibly and give readers two recovery paths without requiring
+  // developer tools or assuming localStorage is available.
+  function showLoadError() {
+    const main = document.getElementById('main-content');
+    if (!main) return;
+    main.innerHTML = `
+      <section class="error-boundary-card" role="alert" aria-labelledby="load-error-title">
+        <p class="section-kicker">Reader unavailable</p>
+        <h1 class="error-boundary-title" id="load-error-title">The text bundle did not load.</h1>
+        <p class="error-boundary-text">The page shell is here, but its source-text bundle is missing or malformed. This is usually a temporary cache or network problem.</p>
+        <div class="error-boundary-actions">
+          <button type="button" class="btn-primary" id="load-error-retry">Reload page</button>
+          <button type="button" class="btn-pill" id="load-error-reset">Reset display preferences</button>
+        </div>
+      </section>`;
+    const retry = document.getElementById('load-error-retry');
+    const reset = document.getElementById('load-error-reset');
+    retry?.addEventListener('click', () => window.location.reload());
+    reset?.addEventListener('click', () => {
+      ['translatechan_corpus_key', 'translatechan_reader_mode', 'translatechan_show_pinyin',
+       'translatechan_font_size', 'translatechan_collapsed_cases', 'translatechan_theme',
+       'translatechan_name_mode', 'translatechan_hero_dismissed'].forEach(storageRemove);
+      window.location.reload();
+    });
+  }
+
   // Initialize
   function init() {
+    if (!hasUsableDataBundle(state.data)) {
+      showLoadError();
+      return;
+    }
     // Initial URL state (#/view/corpus) — deep links & refresh restore position
     const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
     if (m && VALID_VIEWS.includes(m[1])) state.currentView = m[1];
@@ -1249,6 +1288,12 @@
     return null;
   }
 
+  function renderUnitTitle(titleEn, titleZh, kicker = '') {
+    return `${kicker ? `<span class="case-heading-kicker">${escHtml(kicker)}</span>` : ''}` +
+      `<span class="case-heading-en">${escHtml(titleEn || titleZh || 'Untitled unit')}</span>` +
+      `${titleZh ? `<span class="case-heading-zh" lang="zh">${escHtml(titleZh)}</span>` : ''}`;
+  }
+
   // Render Reader View
   function renderReader() {
     if (!elements.readerContent || !state.data.corpus) return;
@@ -1264,7 +1309,7 @@
     // focus/hover without turning 48–100 chips into a multi-row sticky wall.
     const caseStrip = (Array.isArray(doc.cases) && doc.cases.length >= 10)
       ? `<div class="case-jump-strip" id="case-jump-strip" aria-label="Case index">
-           <span class="case-strip-label">則 / Case</span>
+           <span class="case-strip-label">Cases</span>
            ${doc.cases.map(c => {
              const title = escHtml(c.title_zh || '');
              const num = escHtml(c.case_num);
@@ -1289,8 +1334,9 @@
         </nav>
         <div class="document-title-row">
           <div>
-            <h1 class="text-title-zh">${escHtml(doc.title_zh)}</h1>
-            <p class="text-title-en">${escHtml(doc.title_en)} · ${escHtml(doc.title_pinyin)}</p>
+            <p class="section-kicker">Selected work · ${escHtml(doc.cbeta_id || 'Source pending')}</p>
+            <h1 class="text-title-zh"><span>${escHtml(doc.title_en)}</span><small lang="zh">${escHtml(doc.title_zh)}</small></h1>
+            <p class="text-title-en">${escHtml(doc.title_pinyin)}</p>
           </div>
           <span class="document-status">${escHtml(editorialStatus)}</span>
         </div>
@@ -1334,7 +1380,7 @@
     const epilogueHtml = doc.epilogue ? `
       <div class="case-card is-epilogue" style="margin-bottom: 1.5rem;">
         <div class="case-header">
-          <h2 class="case-num-title">後序與結頌 / Wumen's Epilogue & Gatha</h2>
+          <h2 class="case-num-title">${renderUnitTitle("Wumen's Epilogue & Gatha", '後序與結頌', 'End matter')}</h2>
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(doc.epilogue.zh)}</div>
         <div class="pinyin-line">${escHtml(doc.epilogue.pinyin)}</div>
@@ -1537,9 +1583,8 @@
     return `
       <div class="case-card ${collapsed ? 'collapsed' : ''}" id="case-${caseItem.case_num}">
         <div class="case-header">
-          <h2 class="case-num-title">第 ${escHtml(caseItem.case_num)} 則：${escHtml(caseItem.title_zh)}</h2>
-          <span style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
-            <span class="case-speaker">${escHtml(caseItem.title_en)}</span>
+          <h2 class="case-num-title">${renderUnitTitle(caseItem.title_en, caseItem.title_zh, `Case ${caseItem.case_num}`)}</h2>
+          <span class="case-header-actions">
             ${renderCaseSourceDisclosure(caseItem.case_num)}
             <button class="case-toggle" data-case-toggle="${escHtml(caseItem.case_num)}" aria-expanded="${collapsed ? 'false' : 'true'}" aria-label="${collapsed ? 'Expand' : 'Collapse'} case ${escHtml(caseItem.case_num)}" title="${collapsed ? 'Expand' : 'Collapse'} case">${collapsed ? '＋' : '−'}</button>
           </span>
@@ -1599,9 +1644,8 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <h2 class="case-num-title">${escHtml(sec.title_zh)}</h2>
-          <span class="case-speaker">${escHtml(sec.title_en)}</span>
-          ${renderSourceLocationDisclosure(sectionLocator, 'Section source', 'case-source-location')}
+          <h2 class="case-num-title">${renderUnitTitle(sec.title_en, sec.title_zh, 'Section')}</h2>
+          <span class="case-header-actions">${renderSourceLocationDisclosure(sectionLocator, 'Section source', 'case-source-location')}</span>
         </div>
         ${dialoguesHtml}${stanzasHtml}
       </div>
@@ -1621,8 +1665,7 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <h2 class="case-num-title">${escHtml(dia.title_zh)}</h2>
-          <span class="case-speaker">${escHtml(dia.title_en)}</span>
+          <h2 class="case-num-title">${renderUnitTitle(dia.title_en, dia.title_zh, 'Dialogue')}</h2>
         </div>
         ${dialoguesHtml}
       </div>
@@ -1634,8 +1677,8 @@
     return `
       <div class="case-card">
         <div class="case-header">
-          <h2 class="case-num-title">第 ${escHtml(st.stanza_num)} 節 / Stanza ${escHtml(st.stanza_num)}</h2>
-          ${renderSourceLocationDisclosure(stanzaLocator, 'Stanza source', 'case-source-location')}
+          <h2 class="case-num-title">${renderUnitTitle(`Stanza ${st.stanza_num}`, `第 ${st.stanza_num} 節`, 'Verse')}</h2>
+          <span class="case-header-actions">${renderSourceLocationDisclosure(stanzaLocator, 'Stanza source', 'case-source-location')}</span>
         </div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${escHtml(st.pinyin)}</div>
@@ -1683,9 +1726,8 @@
     return `
       <div class="case-card" data-chapter-num="${escHtml(ch.chapter_num)}">
         <div class="case-header">
-          <h2 class="case-num-title">${escHtml(ch.title_zh)}</h2>
-          <span class="case-speaker">${escHtml(ch.title_en)}</span>
-          ${renderSourceLocationDisclosure(chapterLocator, 'Chapter source', 'case-source-location')}
+          <h2 class="case-num-title">${renderUnitTitle(ch.title_en, ch.title_zh, `Chapter ${ch.chapter_num}`)}</h2>
+          <span class="case-header-actions">${renderSourceLocationDisclosure(chapterLocator, 'Chapter source', 'case-source-location')}</span>
         </div>
         ${contentBlocks.join('')}
       </div>
@@ -2247,7 +2289,7 @@
       <div class="master-directory-row" data-master-card="${escHtml(m.id)}" role="button" tabindex="0" aria-label="Open dossier for ${escHtml(m.name_en)}">
         <div class="master-dir-gen">Gen ${escHtml(m.lineage_depth)}</div>
         <div class="master-dir-main">
-          <h2 class="master-dir-name">${escHtml(m.name_zh)} <span class="text-sm-muted">(${escHtml(masterDisplayName(m))} · ${escHtml(m.name_pinyin)})</span></h2>
+          <h2 class="master-dir-name">${escHtml(masterDisplayName(m))}<span class="master-dir-name-zh" lang="zh">${escHtml(m.name_zh)} · ${escHtml(m.name_pinyin)}</span></h2>
           <div class="master-dir-title">${escHtml(m.title)}</div>
           <div class="master-dir-meta">
             <span>Dates: ${escHtml(m.dates)} (${escHtml(m.era)})</span>
@@ -2341,12 +2383,14 @@
     // the fallback only covers a malformed/old cached bundle.
     const color = schoolColors[master.school_key] || '#b38238';
 
-      const shortName = stringValue(masterDisplayName(master)).split(' ').pop().slice(0, 14);
+      const displayName = stringValue(masterDisplayName(master));
+      const shortName = displayName.split(' ').pop().slice(0, 14);
+      const monogram = displayName.split(/\s+/).map(part => part.charAt(0)).join('').slice(0, 2).toUpperCase() || '—';
       nodesHtml += `
         <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" data-master-node="${escHtml(master.id)}">
           <circle class="graph-node-halo" r="30" fill="${color}" fill-opacity="0.09"></circle>
           <circle r="24" fill="var(--bg-card)" stroke="${color}" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.12))"></circle>
-          <text text-anchor="middle" dy=".34em" font-size="12" font-weight="700" fill="var(--text-primary)" font-family="var(--font-serif)">${escHtml(master.name_zh.slice(-2))}</text>
+          <text text-anchor="middle" dy=".34em" font-size="10" font-weight="800" fill="var(--text-primary)" font-family="var(--font-mono)">${escHtml(monogram)}</text>
           <text text-anchor="middle" y="40" font-size="10" font-weight="650" fill="var(--text-secondary)" font-family="var(--font-sans)">${escHtml(shortName)}</text>
         </g>
       `;
@@ -2640,12 +2684,12 @@
       <div class="gongan-catalogue-row">
         <div class="catalogue-meta">${escHtml(g.collection)} · Canon ID: ${escHtml(g.cbeta_id)} · ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</div>
         <div class="catalogue-title-row">
-          <h2 class="catalogue-title-zh">${escHtml(g.title_zh)}</h2>
-          <span class="catalogue-title-en">${escHtml(g.title_en)}</span>
+          <h2 class="catalogue-title-en">${escHtml(g.title_en)}</h2>
+          <span class="catalogue-title-zh" lang="zh">${escHtml(g.title_zh)}</span>
         </div>
         <div class="catalogue-summary">${escHtml(g.summary)}</div>
         <div class="catalogue-tags">
-          <span class="catalogue-tag-item">🏷️ ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</span>
+          <span class="catalogue-tag-item">Group: ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</span>
           <span class="catalogue-tag-item">Theme: ${escHtml(g.theme)}</span>
           ${g.cross_refs ? g.cross_refs.map(cr => `<span class="catalogue-tag-item">${escHtml(cr)}</span>`).join('') : ''}
         </div>
@@ -2724,9 +2768,10 @@
     elements.lexiconTarget.innerHTML = summary + noMatchHint + list.map(item => `
       <div class="lexicon-definition-row">
         <div class="lexicon-headword-col">
-          <h2 class="lexicon-headword-zh">${escHtml(item.term)}</h2>
-          <div class="lexicon-headword-literal">${escHtml(item.literal)} · ${escHtml(item.pinyin)}</div>
-          <div class="lexicon-headword-meta">Sanskrit: ${escHtml(item.sanskrit || '—')} · Category: ${escHtml(item.category)}</div>
+          <p class="section-kicker">${escHtml(item.category)}</p>
+          <h2 class="lexicon-headword-literal">${escHtml(item.literal)}</h2>
+          <div class="lexicon-headword-zh" lang="zh">${escHtml(item.term)}</div>
+          <div class="lexicon-headword-meta">${escHtml(item.pinyin)} · Sanskrit: ${escHtml(item.sanskrit || '—')}</div>
         </div>
         <div class="lexicon-def-col">
           <div class="lexicon-def-text">${escHtml(item.definition)}</div>
@@ -3067,10 +3112,16 @@
     if (location.hash !== t) { try { location.hash = t; } catch (e) { /* ignore */ } }
   };
 
-  // Run on DOM ready
+  function startApp() {
+    try { init(); }
+    catch (error) { showLoadError(); }
+  }
+
+  // Run on DOM ready. A top-level render failure uses the same recoverable UI as
+  // a missing bundle rather than exposing a blank panel.
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', startApp);
   } else {
-    init();
+    startApp();
   }
 })();
