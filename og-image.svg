@@ -1,42 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Fake Chan Factory — Robo monks robolating Chan masters">
-  <!-- Background: rice paper -->
-  <rect width="1200" height="630" fill="#faf8f5"/>
-  <!-- Subtle paper texture via radial gradients (CSS noise would be image, keep simple) -->
-  <g opacity="0.04">
-    <circle cx="200" cy="120" r="300" fill="#2c2523"/>
-    <circle cx="1000" cy="500" r="280" fill="#9e7232"/>
-  </g>
-  <!-- Dark walnut top beam (Chinese Chan hall timber) -->
-  <rect x="0" y="0" width="1200" height="14" fill="#2c2523"/>
-  <!-- Dark walnut bottom beam -->
-  <rect x="0" y="618" width="1200" height="12" fill="#2c2523"/>
-  <!-- Side thin gold rule -->
-  <rect x="0" y="14" width="1200" height="1" fill="#e6decb"/>
-  <rect x="0" y="617" width="1200" height="1" fill="#e6decb"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Fake Chan Factory — The old texts are real. The translators are not.">
+  <rect width="1200" height="630" fill="#f4efe5"/>
+  <rect width="418" height="630" fill="#211814"/>
+  <rect x="418" width="7" height="630" fill="#c9a66b"/>
+  <path d="M0 0h418v630H0z" fill="url(#grain)" opacity=".45"/>
+  <defs>
+    <pattern id="grain" width="70" height="70" patternUnits="userSpaceOnUse">
+      <path d="M0 69L69 0M35 70L70 35" stroke="#fff" stroke-opacity=".025" stroke-width="1"/>
+    </pattern>
+  </defs>
 
-  <!-- Central hall content -->
-  <g text-anchor="middle">
-    <!-- Chinese hall name — big kai -->
-    <text x="600" y="235" font-family="'Noto Serif SC','Songti SC',serif" font-size="128" font-weight="900" letter-spacing="0.06em" fill="#1f1a18">假禪工廠</text>
-    <!-- Seal square -->
-    <g transform="translate(890, 145)">
-      <rect x="0" y="0" width="56" height="56" fill="none" stroke="#9e7232" stroke-width="2.5"/>
-      <text x="28" y="38" text-anchor="middle" font-family="'Noto Serif SC',serif" font-size="32" font-weight="700" fill="#9e7232">禪</text>
+  <g transform="translate(62 58)">
+    <rect width="82" height="82" fill="#c9a66b"/>
+    <text x="41" y="53" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="900" fill="#211814">FC</text>
+    <text x="0" y="130" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#f3ead9">FAKE CHAN FACTORY</text>
+    <text x="0" y="156" font-family="serif" font-size="17" letter-spacing="4" fill="#cdbda7">假禪工廠</text>
+
+    <g transform="translate(0 318)">
+      <text font-family="monospace" font-size="13" font-weight="700" letter-spacing="2" fill="#c9a66b">OPEN CHAN LAB / 2026</text>
+      <line x1="0" y1="25" x2="290" y2="25" stroke="#c9a66b" stroke-opacity=".5"/>
+      <text y="64" font-family="monospace" font-size="13" fill="#cdbda7">35 SOURCE-TRACKED WORKS</text>
+      <text y="91" font-family="monospace" font-size="13" fill="#cdbda7">21 COMPARISON REGISTERS</text>
+      <text y="118" font-family="monospace" font-size="13" fill="#cdbda7">100% DISCLOSED ROBO TEXT</text>
     </g>
-    <!-- English small caps -->
-    <text x="600" y="285" font-family="-apple-system,Inter,Helvetica,Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="0.22em" fill="#6e645e">FAKE CHAN FACTORY</text>
-    <!-- Divider gold -->
-    <rect x="540" y="312" width="120" height="2" fill="#9e7232" opacity="0.7"/>
-    <!-- Tagline — practical joke, then serious -->
-    <text x="600" y="360" font-family="'Kaiti SC','STKaiti',serif" font-size="26" font-style="italic" fill="#2c2523">「平常心是道。」— Robo monks at work, practical joke.</text>
-    <text x="600" y="395" font-family="Inter,Helvetica,Arial,sans-serif" font-size="20" fill="#6e645e">Source-tracked CBETA witnesses · Robo marked 🤖 · Edition-verified marked ✅</text>
-    <!-- Meta counts — accessible, not aria-hidden -->
-    <text x="600" y="455" font-family="ui-monospace,Menlo,monospace" font-size="18" letter-spacing="0.04em" fill="#756b64">📜 35 corpus works · ✅ 2 complete witnesses · 🤖 21 matrix registers · static</text>
   </g>
 
-  <!-- Bottom tiny colophon -->
-  <text x="36" y="600" font-family="ui-monospace,Menlo,monospace" font-size="13" fill="#9c9189" letter-spacing="0.06em">CBETA / Taishō 47·48·51 · Chinese Chan · Sophisticated minimal · Humor only in Robo names</text>
+  <g transform="translate(500 78)">
+    <text font-family="monospace" font-size="14" font-weight="800" letter-spacing="2.5" fill="#724e1e">SOURCE TEXTS IN / ROBO REGISTERS OUT</text>
+    <text y="102" font-family="Georgia,'Times New Roman',serif" font-size="70" font-weight="700" letter-spacing="-3" fill="#2c2523">THE OLD TEXTS</text>
+    <text y="174" font-family="Georgia,'Times New Roman',serif" font-size="70" font-weight="700" letter-spacing="-3" fill="#2c2523">ARE REAL.</text>
+    <text y="276" font-family="Georgia,'Times New Roman',serif" font-size="70" font-weight="700" letter-spacing="-3" fill="#8b622b">THE TRANSLATORS</text>
+    <text y="348" font-family="Georgia,'Times New Roman',serif" font-size="70" font-style="italic" font-weight="700" letter-spacing="-3" fill="#8b622b">ARE NOT.</text>
+    <line x1="0" y1="393" x2="620" y2="393" stroke="#d8cbb8" stroke-width="2"/>
+    <text y="438" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#6e645e">Source-aware Classical Chan, compared without fake attribution.</text>
+  </g>
 
-  <!-- Robot monk small, not gimmicky — bottom right -->
-  <text x="1164" y="600" font-family="serif" font-size="22" text-anchor="end" fill="#2c2523">🤖</text>
+  <path d="M1150 0h50v50z" fill="#c9a66b"/>
+  <text x="1158" y="596" text-anchor="end" font-family="monospace" font-size="12" letter-spacing="2" fill="#665c56">56ELI.GITHUB.IO/TRANSLATECHAN</text>
 </svg>

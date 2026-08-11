@@ -1,7 +1,7 @@
 meta:
   project_name: translatechan
   scoreboard_version: 1
-  last_updated: 2026-08-10
+  last_updated: 2026-08-11
   stale_after_days: 45
   agent_model: arena_sandboxed_agent
   effective_score_policy: user_score_overrides_ai_score
@@ -13,25 +13,25 @@ manual_workflow_policy:
   instruction: "Do not edit .github/workflows/* unless the user explicitly instructs it; document exact required changes in .scoreboard/manual-workflow-edits.md."
 
 summary:
-  overall_effective_score: 7.6
+  overall_effective_score: 7.2
   repo_ready_gate_status: fail
   top_priorities:
-    - github_pages_presentation
-    - deployment_readiness
     - content_quality
+    - deployment_readiness
     - ci_cd
+    - github_pages_presentation
   active_risk_flags:
-    - "Design Phase C & D implemented: Matrix Proof Sheet, Lineage Directory, Gong’an Catalogue, and Lexicon Dictionary Rows now follow the walnut Chan hall system; responsive breakpoints unified to 1024px/768px; redundant Robo badges silenced; owner visual approval remains."
+    - "Owner feedback on 2026-08-11: the Pages design was too plain/generic and over-emphasized Chinese characters; the English-first walnut redesign and copy cleanup are implemented, and the owner explicitly requested PR #18 merge. Real-browser evidence remains pending."
     - "Contained P0: unreliable Congronglu data/locators/generating scripts remain removed; reintroduction is blocked on source-pinned field-level collation."
     - "P1 rights governance: all 14 rights-manifest sources remain needs_rights_review or jurisdiction_review_required; decisions remain pending."
     - "P2 source depth: Biyanlu, Linji, Platform, and other non-case records still need field-level coverage and broader human review."
-    - "CI/branch-protection tasks remain."
+    - "P2 browser/CI evidence: Chromium was unavailable, browser execution remains skippable, mirrored asset coverage is incomplete, and branch protection is unconfirmed."
 
 quality_gates:
   repo_ready:
     status: fail
-    overall_effective_score: 7.6
-    last_evaluated: 2026-08-10
+    overall_effective_score: 7.2
+    last_evaluated: 2026-08-11
     minimum_overall_effective_score: 8
     required:
       security_privacy: 8
@@ -40,10 +40,10 @@ quality_gates:
       ci_cd: 7
       agent_readiness: 8
     notes:
-      - "Required aspects currently fail: security_privacy 7, ci_cd 6, and agent_readiness 7; tests and readme_onboarding now meet 7."
-      - "Overall effective score 6.9 is below the 8.0 gate."
-      - "The P0 and audited public-behavior P1s are fixed; unresolved rights decisions still block release readiness."
-      - "All user_score fields remain null; no user score was inferred."
+      - "Required aspect currently failing: ci_cd 6; security/privacy and agent readiness now meet 8, while tests and README meet 7."
+      - "Weighted effective score 7.2 is below the 8.0 gate; the previous 7.6 summary was inconsistent with its 6.9 aspect-weighted result and has been corrected."
+      - "Unresolved rights decisions and field-level source review independently block release readiness."
+      - "All user_score fields remain null; qualitative owner feedback was recorded without inventing a numeric score."
 
 aspects:
   - id: project_purpose_scope
@@ -198,21 +198,21 @@ aspects:
     category: engineering
     weight: 3
     target: 8
-    ai_score: 5
+    ai_score: 7
     user_score: null
-    effective_score: 5
-    gap: 3
-    priority: 9
+    effective_score: 7
+    gap: 1
+    priority: 3
     status: needs_work
     confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Storage API exceptions are caught, but failed data loading has no visible fatal state and parsed collapsed-case storage is not shape-validated."
+    last_audited: 2026-08-11
+    ai_basis: "Storage is fail-soft and shape-validated; missing/malformed bundles and top-level initialization failures now render a recoverable role=alert panel with reload/reset actions. Real-browser failure behavior remains unverified."
     user_basis: null
-    desired_direction: ["Show a recoverable fatal-load panel and validate every persisted value before use."]
-    evidence: ["app.js state initialization", "storageGet/Set helpers", "init"]
-    next_actions: ["Add failure UI and malformed-storage regression tests."]
-    risk_flags: ["A missing/malformed data bundle can leave a blank app without diagnosis."]
-    files_reviewed: [app.js, theme-init.js, scripts/smoke_test.mjs]
+    desired_direction: ["Keep fatal failures visible and recoverable without developer tools."]
+    evidence: ["app.js hasUsableDataBundle/showLoadError/startApp", "scripts/smoke_test.mjs recovery guard", "storageGet/Set helpers"]
+    next_actions: ["Exercise missing and malformed bundle recovery in the real-browser suite."]
+    risk_flags: ["An app.js parse failure cannot invoke an in-script boundary; browser/network behavior still needs real-engine evidence."]
+    files_reviewed: [app.js, app.css, theme-init.js, scripts/smoke_test.mjs]
 
   - id: dependency_hygiene
     name: Dependency hygiene
@@ -282,21 +282,21 @@ aspects:
     category: risk
     weight: 5
     target: 8
-    ai_score: 7
+    ai_score: 8
     user_score: null
-    effective_score: 7
-    gap: 1
-    priority: 5
-    status: needs_work
+    effective_score: 8
+    gap: 0
+    priority: 0
+    status: healthy
     confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Escaping and no-inline-handler discipline are strong; CSP is declared after a synchronous script, allows inline styles, and Google Fonts creates third-party requests."
+    last_audited: 2026-08-11
+    ai_basis: "CSP now precedes all scripts, script-src is self-only, dynamic fields are escaped and poison-tested, no inline handlers/eval exist, and npm audit is clean. Generated inline styles and Google Fonts remain bounded privacy/hardening debt."
     user_basis: null
-    desired_direction: ["Move CSP before scripts or to headers, reduce inline styles, self-host fonts, and add SECURITY.md."]
-    evidence: ["index.html head order/CSP", "app.js escaping", "npm audit zero vulnerabilities"]
-    next_actions: ["Correct CSP order and document vulnerability reporting."]
+    desired_direction: ["Remove generated inline styles, self-host fonts if privacy/offline resilience is prioritized, and add SECURITY.md."]
+    evidence: ["index.html CSP order", "app.js escaping", "scripts/smoke_test.mjs poison/CSP guards", "npm audit zero vulnerabilities"]
+    next_actions: ["Migrate 41 generated inline styles before attempting to remove CSP unsafe-inline; document vulnerability reporting."]
     risk_flags: []
-    files_reviewed: [index.html, app.js, app.css, LICENSE]
+    files_reviewed: [index.html, app.js, app.css, LICENSE, package-lock.json]
 
   - id: performance
     name: Performance
@@ -310,11 +310,11 @@ aspects:
     priority: 3
     status: needs_work
     confidence: medium
-    last_audited: 2026-08-10
-    ai_basis: "Compact JSON and lazy units help, but first-load local assets are about 576 KB gzip before fonts and all hidden views render during init."
+    last_audited: 2026-08-11
+    ai_basis: "Compact JSON and lazy units help, but first-load local assets are about 556 KB gzip before fonts, the full 1.59 MB data global parses up front, and all hidden views render during init."
     user_basis: null
-    desired_direction: ["Measure in-browser first, then lazy-load documents and render views on activation."]
-    evidence: ["gzip measurements", "app.js init renders five views", "post-containment app_data.js 1,594,154 raw bytes / 497,606 gzip-9"]
+    desired_direction: ["Measure in-browser first, then lazy-render rooms and lazy-load documents."]
+    evidence: ["2026-08-11 gzip measurements", "app.js init renders five views", "app_data.js 1,594,154 raw bytes / 497,352 gzip-9"]
     next_actions: ["Add performance budget after correctness work."]
     risk_flags: []
     files_reviewed: [app_data.js, app.js, scripts/build_data_bundle.py]
@@ -324,21 +324,21 @@ aspects:
     category: presentation
     weight: 5
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 10
+    effective_score: 7
+    gap: 1
+    priority: 5
     status: needs_work
     confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "Phase A+B implements a structural walnut shell, Chinese room navigation, initial-only gate, grouped corpus shelf, first-fold Reader text, ruled reading sheets, and Reader-only mobile controls. Secondary rooms, inline-style/emoji consolidation, screenshots, and owner approval remain."
-    user_basis: null
-    desired_direction: ["Preserve the approved minimal direction while fixing visible correctness, hierarchy, and sharing metadata."]
-    evidence: ["index.html", "app.css", "og-image.svg", "openDossierPanel hidden-state analysis"]
-    next_actions: ["Continue Phases C–E in the design gap plan: consolidate visual system, redesign four secondary rooms, then screenshot/accessibility verification and owner approval."]
-    risk_flags: ["Do not declare the website vision fulfilled without current desktop/mobile screenshots and explicit owner approval."]
-    files_reviewed: [index.html, app.css, app.js, og-image.svg]
+    last_audited: 2026-08-11
+    ai_basis: "The English-first redesign gives the walnut shell a distinctive factory/editorial identity, rebalances navigation and headings away from decorative Chinese dominance, synchronizes the social image, and removes repetitive visible copy through progressive disclosure. The owner explicitly requested PR #18 merge; real-browser screenshots remain absent."
+    user_basis: "Qualitative owner feedback: the prior Pages design was too plain/generic and focused too heavily on Chinese characters; preserve and improve the walnut-hall direction, remove specified repetitive copy, update documentation, and merge PR #18. No numeric user score supplied."
+    desired_direction: ["Preserve the walnut hall while making the identity bolder, less generic, English-first, and concise."]
+    evidence: ["index.html English-first shell/hero/room headings", "app.css identity panel and hierarchy", "app.js English-first dynamic headings and progressive disclosure", "og-image.svg", "commits d2e9887..e6e24bf"]
+    next_actions: ["Verify the merged Pages deployment in a real browser when Chromium is available."]
+    risk_flags: ["Owner requested merge, but current desktop/mobile light/dark screenshot evidence is still unavailable."]
+    files_reviewed: [index.html, app.css, app.js, og-image.svg, scripts/browser_test.mjs]
 
   - id: ux_usability
     name: UX / usability
@@ -450,21 +450,21 @@ aspects:
     category: operations
     weight: 5
     target: 8
-    ai_score: 7
+    ai_score: 8
     user_score: null
-    effective_score: 7
-    gap: 1
-    priority: 5
-    status: needs_work
+    effective_score: 8
+    gap: 0
+    priority: 0
+    status: healthy
     confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "AGENTS.md, scoreboard, live handoff, current audit, containment record, and operational guide are synchronized to this fixed branch and current blockers. Some broader historical/current documentation structure remains verbose."
+    last_audited: 2026-08-11
+    ai_basis: "AGENTS.md, the arithmetic-corrected scoreboard, current audit index/report, root and scoreboard handoffs, and disposable response summary identify the current branch, owner feedback, implementation, checks, and remaining blockers."
     user_basis: null
-    desired_direction: ["Keep the concise handoff session-neutral except for the current branch and active blockers."]
-    evidence: [".scoreboard/agent-handoff.md pre-audit state", "response_summary.md pre-audit state", "HANDOFF.md"]
-    next_actions: ["Continue using the refreshed handoff; consolidate remaining historical root audits when safe."]
+    desired_direction: ["Keep one concise current audit/handoff path and immutable dated evidence."]
+    evidence: ["sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md", "AUDIT.md", "HANDOFF.md", ".scoreboard/agent-handoff.md", "response_summary.md"]
+    next_actions: ["Consolidate historical root audits when safe without rewriting evidence."]
     risk_flags: []
-    files_reviewed: [AGENTS.md, HANDOFF.md, .scoreboard/agent-handoff.md, response_summary.md]
+    files_reviewed: [AGENTS.md, AUDIT.md, HANDOFF.md, .scoreboard/agent-handoff.md, response_summary.md]
 
   - id: task_hygiene
     name: Task hygiene

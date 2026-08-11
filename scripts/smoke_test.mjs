@@ -23,6 +23,9 @@ if (!publicHtml.includes('<script src="theme-init.js"></script>')) {
 if (publicHtml.indexOf('<script src="theme-init.js"></script>') > publicHtml.indexOf('<link rel="stylesheet" href="app.css">')) {
   throw new Error('theme-init.js must load before app.css to prevent a theme flash');
 }
+if (publicHtml.indexOf('http-equiv="Content-Security-Policy"') > publicHtml.indexOf('<script src="theme-init.js"></script>')) {
+  throw new Error('Content-Security-Policy must precede the scripts it governs');
+}
 if (!/localStorage[^]*translatechan_theme[^]*setAttribute\(['"]data-theme['"]/.test(themeInitSrc)) {
   throw new Error('theme-init.js must read translatechan_theme and set data-theme before paint');
 }
@@ -52,12 +55,27 @@ if (!appSrc.includes("getElementById('hero-translator-count')") || !appSrc.inclu
 for (const shellToken of ['id="site-shell"', 'class="nav-tabs room-nav"', '閱藏堂', '對勘', '傳法堂', '公案架', '詞林']) {
   if (!publicHtml.includes(shellToken)) throw new Error(`walnut room shell missing: ${shellToken}`);
 }
+for (const identityToken of ['The old texts are real.', 'The translators are not.', 'data-room-index="01"', '<span>Comparative Matrix</span>']) {
+  if (!publicHtml.includes(identityToken)) throw new Error(`English-first visual direction missing: ${identityToken}`);
+}
+for (const removedCopy of [
+  "「平常心是道。」— the Robo monks' practical joke.",
+  '<strong>Heads up:</strong> most translations here are',
+  'without pretending they are the same thing',
+  '<span>Source tracked</span>'
+]) {
+  if (publicHtml.includes(removedCopy)) throw new Error(`owner-removed explanatory copy returned: ${removedCopy}`);
+}
 if (!appSrc.includes('setupShellMetrics()') || !appSrc.includes("document.body.dataset.currentView = viewName")) {
   throw new Error('shell height/current-view state is not synchronized by the app');
 }
 if (!appSrc.includes('✅ Edition-verified quotation') ||
     /verified public-domain text|Verified public-domain text/.test(publicHtml)) {
   throw new Error('edition verification must remain distinct from rights/public-domain status');
+}
+if (!appSrc.includes('function hasUsableDataBundle(') || !appSrc.includes('function showLoadError()') ||
+    !appSrc.includes('id="load-error-retry"') || !appSrc.includes('id="load-error-reset"')) {
+  throw new Error('missing or malformed data must render a recoverable load-error panel');
 }
 // B4: app_data/app.js should use defer so parsing is not blocked while the
 // deterministic data bundle downloads; order remains app_data.js then app.js.
@@ -114,8 +132,8 @@ if (!appSrc.includes(".normalize('NFD')") || !appSrc.includes('\\u0300-\\u036f')
 }
 // N4: result cards must disclose which field matched (translations/pinyin/
 // title) when the classical Chinese itself did not contain the query.
-if (!appSrc.includes('Matched in translations')) {
-  throw new Error('search result cards must disclose translation-field matches');
+if (!appSrc.includes('<strong>${escHtml(enHit.name)}</strong>') || !appSrc.includes('<strong>Pinyin</strong>')) {
+  throw new Error('search result cards must identify translation and pinyin matches');
 }
 // N7: the lineage graph re-lays out (debounced) on viewport resize while the
 // lineage view is visible.
@@ -374,7 +392,7 @@ for (const [q, label] of schemaQueries) {
   try {
     await fireSearch(q);
     const html = ids['reader-content-target']._innerHTML;
-    if (html.includes('No matches found')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
+    if (html.includes('No results.')) { failures++; console.log(`❌ full-schema search missed ${label} for "${q}"`); }
   } catch (e) { failures++; console.log(`❌ full-schema search crash "${q}": ${e.message}`); }
 }
 
@@ -384,16 +402,16 @@ for (const [q, label] of schemaQueries) {
 try {
   await fireSearch('Buddha-nature');
   const html = ids['reader-content-target']._innerHTML;
-  if (html.includes('No matches found')) { failures++; console.log('❌ N4: "Buddha-nature" search found nothing'); }
-  if (!html.includes('Matched in translations')) { failures++; console.log('❌ N4: translation match not disclosed on the result card'); }
+  if (html.includes('No results.')) { failures++; console.log('❌ N4: "Buddha-nature" search found nothing'); }
+  if (!html.includes('<strong>Robo') && !html.includes('<strong>AI')) { failures++; console.log('❌ N4: translation match not identified on the result card'); }
 } catch (e) { failures++; console.log(`❌ N4 behavioral check crash: ${e.message}`); }
 try {
   // 'foxing' exists ONLY as tone-marked 佛性 pinyin (fóxìng) — zero plain-ASCII
   // occurrences in the corpus — so this can only match via diacritic folding.
   await fireSearch('foxing');
   const html = ids['reader-content-target']._innerHTML;
-  if (html.includes('No matches found')) { failures++; console.log('❌ N5: toneless pinyin query "foxing" found nothing'); }
-  if (!html.includes('Matched in pinyin')) { failures++; console.log('❌ N4/N5: pinyin match note missing from the result card'); }
+  if (html.includes('No results.')) { failures++; console.log('❌ N5: toneless pinyin query "foxing" found nothing'); }
+  if (!html.includes('<strong>Pinyin</strong>')) { failures++; console.log('❌ N4/N5: pinyin match note missing from the result card'); }
 } catch (e) { failures++; console.log(`❌ N5 behavioral check crash: ${e.message}`); }
 
 // 4c. No nested/duplicated term highlights from the annotator
@@ -405,7 +423,7 @@ if (annotatedHtml.includes('term-highlight"><span class="term-highlight') || ann
 if (!annotatedHtml.includes('無門評唱 / Wumen Commentary') || !annotatedHtml.includes('無門頌 / Wumen Verse')) {
   failures++; console.log('❌ Wumenguan commentary/verse labels missing');
 }
-const epiloguePos = annotatedHtml.indexOf("Wumen's Epilogue & Gatha");
+const epiloguePos = annotatedHtml.indexOf('Wumen&#39;s Epilogue &amp; Gatha');
 const lastInitialCasePos = annotatedHtml.lastIndexOf('id="case-12"');
 if (epiloguePos < 0 || lastInitialCasePos < 0 || epiloguePos < lastInitialCasePos) {
   failures++; console.log('❌ Wumenguan epilogue must render after the case units');
@@ -471,13 +489,17 @@ const wmHtml = ids['reader-content-target']._innerHTML;
 if (!wmHtml.includes('case-jump-strip')) { failures++; console.log('❌ case index strip missing'); }
 if (!wmHtml.includes('case-toggle')) { failures++; console.log('❌ case collapse toggle missing'); }
 if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case prev/next nav missing'); }
-// 4i. Public reader source/translation disclosure: document + case locations,
-// book/page status, translator, AI/reconstruction label, and hoverable citation triggers.
+// 4i. Public reader provenance stays progressive: source/case locations and
+// verified citations are visible, Robo names carry on-demand disclosure, and
+// project commentary/verse drafts retain a compact status line.
 if (!wmHtml.includes('Source location: T2005') || !wmHtml.includes('Case source: T2005, case 1') || !wmHtml.includes('citation-trigger')) {
   failures++; console.log('❌ reader source-location disclosure missing');
 }
-if (!wmHtml.includes('Page / section:') || !wmHtml.includes('Robolation') || !wmHtml.includes('Robo draft')) {
-  failures++; console.log('❌ reader translation/AI disclosure missing');
+if (!wmHtml.includes('translation-source') || !wmHtml.includes('robo-name') || !wmHtml.includes('project AI draft')) {
+  failures++; console.log('❌ reader progressive translation/AI disclosure missing');
+}
+if (wmHtml.includes('— Robolation</div>') || wmHtml.includes('— Robo draft</div>')) {
+  failures++; console.log('❌ redundant Robo disclosure footer returned');
 }
 const citationId = (wmHtml.match(/data-citation-id="([^"]+)"/) || [])[1];
 if (!citationId || !(documentHandlers.mouseover || []).length || !(documentHandlers.focusin || []).length || !(documentHandlers.click || []).length) {
@@ -515,9 +537,9 @@ if (wmHtml.includes('term-tooltip')) { failures++; console.log('❌ embedded too
 // a complete text — the reader header shows validator-derived coverage.
 corpusClicks['biyanlu_cases'] && corpusClicks['biyanlu_cases']();
 const biyanCovHtml = ids['reader-content-target']._innerHTML;
-if (!biyanCovHtml.includes('Coverage: 100/100 cases')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
+if (!biyanCovHtml.includes('>100/100 cases</span>')) { failures++; console.log('❌ Biyanlu coverage disclosure missing'); }
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
-if (!ids['reader-content-target']._innerHTML.includes('Coverage: 48/48 cases')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
+if (!ids['reader-content-target']._innerHTML.includes('>48/48 cases</span>')) { failures++; console.log('❌ Wumenguan coverage disclosure missing'); }
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
 const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
 if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }
@@ -538,7 +560,7 @@ if (Number(ids['lineage-svg-graph']._attrs.height || 0) < 1200) {
   failures++; console.log('❌ lineage chart did not expand into readable generation rows');
 }
 const lineageSummaryHtml = ids['lineage-verification-summary']._innerHTML;
-if (!lineageSummaryHtml.includes('Chart status') || !lineageSummaryHtml.includes('citation-trigger')) {
+if (!lineageSummaryHtml.includes('locator pending') || !lineageSummaryHtml.includes('citation-trigger')) {
   failures++; console.log('❌ lineage verification summary disclosure missing');
 }
 try {
@@ -750,7 +772,7 @@ const gonganChipsHtml = ids['gongan-content-target']._innerHTML;
 if (!gonganChipsHtml.includes('data-gongan-filter="everyday_way"') || !gonganChipsHtml.includes('data-gongan-filter="what_is_buddha"')) {
   failures++; console.log('❌ gongan theme chips are not generated from the controlled theme taxonomy');
 }
-if (!gonganChipsHtml.includes('🏷️ The Everyday Way')) { failures++; console.log('❌ gongan cards do not show the theme group tag'); }
+if (!gonganChipsHtml.includes('Group: The Everyday Way')) { failures++; console.log('❌ gongan cards do not show the theme group tag'); }
 const chipClick = (key) => (ids['gongan-content-target']._handlers.click || []).forEach(fn => fn({
   target: { closest: (sel) => (sel === '.gongan-filter-chip' ? { getAttribute: () => key } : null) }
 }));
@@ -760,11 +782,12 @@ if (!gonganFilteredHtml.includes('趙州洗缽') || gonganFilteredHtml.includes(
   failures++; console.log('❌ gongan theme-group chip did not restrict the index to the Everyday Way group');
 }
 chipClick('all');
-// 4m5. Lexicon occurrence scope note (audit A5): occurrence tags cite canonical
-// loci (chapter/fascicle/case) which may lie outside the excerpted units — the
-// Lexicon header must keep disclosing that scoping.
-if (!publicHtml.includes('occurrence tags cite each term') || !publicHtml.includes('canonical work')) {
-  failures++; console.log('❌ lexicon occurrence scope note missing');
+// 4m5. Keep the canonical-occurrence caveat available on demand without a
+// permanent explanatory paragraph above the dictionary.
+const lexiconAllHtml = ids['lexicon-content-target']._innerHTML;
+if (!lexiconAllHtml.includes('title="Canonical occurrence reference; may fall outside the current Reader excerpt."') ||
+    publicHtml.includes('<strong>Scope note:</strong>')) {
+  failures++; console.log('❌ lexicon occurrence caveat is not cleanly progressive');
 }
 // 4m6. Semantic document outline (a11y audit 2026-08-09): each public view's
 // title is a real heading element, not a styled <div>, so screen-reader users
@@ -772,6 +795,9 @@ if (!publicHtml.includes('occurrence tags cite each term') || !publicHtml.includ
 // case/section/matrix/master/lexicon card title is an <h2>.
 const outlineReaderHtml = ids['reader-content-target']._innerHTML;
 if (!/<h1 class="text-title-zh">/.test(outlineReaderHtml)) { failures++; console.log('❌ reader document title is not an <h1>'); }
+if (!outlineReaderHtml.includes('<h1 class="text-title-zh"><span>The Gateless Gate (The Gateless Barrier)</span><small lang="zh">禪宗無門關</small>')) {
+  failures++; console.log('❌ reader document heading is not English-first');
+}
 if ((outlineReaderHtml.match(/<h2 class="case-num-title">/g) || []).length < 48) {
   failures++; console.log('❌ reader case/unit titles are not <h2> headings');
 }
@@ -817,22 +843,23 @@ const matrixHtml = ids['matrix-content-target']._innerHTML;
 const matrixStatusCount = (matrixHtml.match(/class="translation-status/g) || []).length;
 if (matrixStatusCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixStatusCount} provenance badges (expected ${matrixEntries.length})`); }
 const matrixSourceCount = (matrixHtml.match(/class="translation-source/g) || []).length;
-if (matrixSourceCount !== matrixEntries.length) { failures++; console.log(`❌ matrix has ${matrixSourceCount} disclosure lines (expected ${matrixEntries.length})`); }
-if (!matrixHtml.includes('Source location:') || !matrixHtml.includes('Page / section:') || !matrixHtml.includes('Robo') || !matrixHtml.includes('citation-trigger')) {
-  failures++; console.log('❌ matrix citation/disclosure rendering missing');
+const verifiedMatrixCount = matrixEntries.filter(entry => entry.status === 'verified_quotation').length;
+if (matrixSourceCount !== verifiedMatrixCount) { failures++; console.log(`❌ matrix has ${matrixSourceCount} visible citation lines (expected ${verifiedMatrixCount} verified entries)`); }
+if (!matrixHtml.includes('Source location:') || !matrixHtml.includes('Robo') || !matrixHtml.includes('citation-trigger')) {
+  failures++; console.log('❌ matrix progressive citation/disclosure rendering missing');
 }
 // 4r. Variant-normalized search: 鉢/曰 must hit the corpus's 缽/云 spellings (e.g. 洗缽盂去, 師云)
 for (const q of ['鉢', '曰']) {
   await fireSearch(q);
   const html = ids['reader-content-target']._innerHTML;
-  if (html.includes('No matches found')) { failures++; console.log(`❌ variant search missed results for "${q}"`); }
+  if (html.includes('No results.')) { failures++; console.log(`❌ variant search missed results for "${q}"`); }
 }
 // 4s. Broad searches report the true hit count while clearly describing a
 // presentation limit, rather than claiming a truncated count is the total.
 await fireSearch('the');
 const broadSearchHtml = ids['reader-content-target']._innerHTML;
-const broadCount = broadSearchHtml.match(/(\d+) matching unit\(s\) across/);
-if (!broadCount || Number(broadCount[1]) <= 200 || !/Showing \d+ of \d+ matching units/.test(broadSearchHtml)) {
+const broadCount = broadSearchHtml.match(/(\d+) results in/);
+if (!broadCount || Number(broadCount[1]) <= 200 || !/Showing \d+ of \d+ · Refine to narrow/.test(broadSearchHtml)) {
   failures++; console.log('❌ broad-search count/cap accounting is not truthful');
 }
 // 4t. Search query must be HTML-escaped in both the header and no-results body (self-XSS guard)
@@ -992,7 +1019,7 @@ globalThis.window._printedReaderHtml = '';
 await sleep(20);
 const printedHtml = globalThis.window._printedReaderHtml;
 if ((printedHtml.match(/id="case-\d+"/g) || []).length !== 48 ||
-    printedHtml.indexOf('id="case-48"') > printedHtml.indexOf("Wumen's Epilogue & Gatha")) {
+    printedHtml.indexOf('id="case-48"') > printedHtml.indexOf('Wumen&#39;s Epilogue &amp; Gatha')) {
   failures++; console.log('❌ Print/PDF did not receive all 48 cases followed by the epilogue');
 }
 

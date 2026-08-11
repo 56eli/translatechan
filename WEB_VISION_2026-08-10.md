@@ -1,8 +1,10 @@
-# 🏯 Fake Chan Factory — Website Vision (Final — Chinese Chan Hall, Minimal)
+# 🏯 Fake Chan Factory — Website Vision (Historical Walnut-Hall Direction)
 
-> **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10, updated after owner feedback (Chinese Chan focus, minimal, no gimmicks).
-> **Status:** Accepted direction, partially implemented. Phase A+B now delivers the structural walnut shell and Reader literature hierarchy; four secondary rooms, visual-system consolidation, screenshot verification, and owner approval remain.
-> **Implementation authority:** [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B record](./sessions/DESIGN_PHASE_AB_2026-08-10.md).
+> **Current direction (2026-08-11):** the walnut foundation remains, but the owner found the implementation too plain/generic, too Chinese-dominant, and later too repetitive in its explanatory copy. The current English-first, progressively disclosed interpretation is documented in [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md); the owner requested PR #18 merge.
+>
+> **Purpose:** Make the GitHub Pages site *want-to-stay* appealing, so every function has a home. Written after full audit 2026-08-10 and retained as historical design evidence.
+> **Status:** Superseded as current visual authority after the 2026-08-11 owner feedback; retained to explain the walnut-hall foundation.
+> **Historical implementation records:** [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B](./sessions/DESIGN_PHASE_AB_2026-08-10.md) · [Phase C+D](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md).
 > **Related:** `vision.md` = scholarly/architectural blueprint. This doc = public-facing experience blueprint.
 > **Feedback incorporated:** Audience = me and friends introduced to niche Chan content mixed with my humor. First 30s = Chan hall/literature/Zen feeling with robo joke theme. After that = all serious literature composition, readability, transparent flow, no choppiness, no overflow, no distraction, no gimmicks, sophisticated but minimal. Lean into wood dark walnut, drop vermillion keep ✓, humor disappears except Robo names. No Japanese aesthetics — Chinese temple wood + Chinese calligraphy. No footer, no conveyor, no CTA (deferred per feedback).
 

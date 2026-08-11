@@ -20,13 +20,16 @@
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the Five Houses and Seven Schools.
 5. **Deploy a Zero-Backend Static GitHub Pages Web App** for bilingual reading, comparative translation, lineage study, Gong'an indexing, and lexicon lookup.
 
-## 🏛️ Walnut Chan Hall Design & Architecture Upgrades (2026-08-10)
+## 🏛️ English-First Walnut Hall Interface (2026-08-11)
 
-The public SPA implements a restrained **Chinese Chan hall in dark walnut** visual grammar across all five rooms (`#view-reader`, `#view-matrix`, `#view-lineage`, `#view-gongan`, `#view-lexicon`):
-- **Phase A+B (Shell & Reader):** Walnut two-row navigation lintel, initial-only gate, grouped 2/2/31 literature shelf, progressive document provenance ledger, ruled reading sheets, and reader-scoped mobile controls.
-- **Phase C+D (Secondary Rooms & Visual Consolidation):** Matrix Proof Sheet (`.matrix-proof-sheet`) with full-width source sentence bands and equal-column comparative registers; Lineage Chronological Directory (`.master-directory-row`); Gong'an Catalogue Shelf (`.gongan-catalogue-row`); and Lexicon Dictionary Rows (`.lexicon-definition-row`) without generic SaaS card styling or decorative emoji overload.
-- **Responsive & Accessibility Unification:** Standardized CSS media queries to a disciplined two-tier responsive architecture (`1024px` tablet/shelf collapse and `768px` mobile stack), hardened WCAG AA active token contrast ratios across light and dark themes, and eliminated all inline styles from `index.html`.
-- **UI Cleanliness & Resiliency:** Silenced redundant `🤖 Robolation` status badges (`.is-silent-robo`) where translator headers already display `🤖 Robo [Name]`, while preserving `✅ Edition-verified quotation` badges for genuine published editions. Patched strict-mode `localStorage` TypeError parsing and added a top-level `.error-boundary-card` for bundle load failures.
+The five-room public SPA keeps its dark-walnut Chan-hall structure while using a clearer, more distinctive **English-first factory/editorial identity**:
+
+- **Identity:** `FC` monogram, asymmetric walnut introduction, edition/proof details, and the plain-language hook “The old texts are real. The translators are not.”
+- **Hierarchy:** English leads navigation, room/document/unit headings, lineage, Gong'an, lexicon, and mobile controls; source Chinese remains available with `lang="zh"` and stays central inside the Reader.
+- **Reading system:** grouped 2/2/31 library shelf, progressive provenance ledger, ruled reading sheets, Matrix proof rows, Lineage directory/network, Gong'an catalogue, and dictionary definitions.
+- **Responsive and accessible behavior:** 1024px shelf collapse, 768px mobile layout, contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls, and no HTML inline styles.
+- **Progressive disclosure:** repeated hero/Matrix explanations and per-column Robo footers are removed; compact citations, coverage, Lineage, Lexicon, and search labels keep detailed provenance available on demand.
+- **Resilience and honesty:** redundant Robo badges are suppressed without hiding verified-quotation status; malformed preferences fail soft; missing/malformed data renders reload/reset recovery UI; edition verification and rights status remain separate.
 
 ## ✅ Verified Quotation Campaign (2026-08-08)
 
@@ -191,11 +194,10 @@ python3 -m http.server 8080
 ✅ **Already active**: Pages publishes from branch **`main`**, folder **`/docs`**, HTTPS enforced.
 👉 Live at `https://56eli.github.io/translatechan/`
 
-**Publishing flow for new work** (agent sessions commit to branches such as `arena/<session>-translatechan`):
-1. On the session branch, run `python3 scripts/validate_data.py`, `python3 scripts/build_data_bundle.py` (syncs root + `/docs`), and `node scripts/mit to branches such as `arena/<session>-translatechan`):
-1. On the session branch, run `python3 scripts/validate_data.py`, `python3 scripts/build_data_bundle.py` (syncs root + `/docs`), and `node scripts/smoke_test.mjs`.
-2. Commit generated metrics/bundle artifacts with the source change, push the branch, and open a pull request into `main`.
-3. On merge, GitHub Pages re-publishes automatically within ~60 seconds.
+**Publishing flow for new work** (agent sessions commit to `arena/<session>-translatechan` branches):
+1. Run `python3 scripts/validate_data.py`, `python3 scripts/build_data_bundle.py`, and `node scripts/smoke_test.mjs` on the session branch.
+2. Commit generated metrics and mirrored `/docs` artifacts with the source change, push the session branch, and open a pull request into `main`.
+3. On merge, GitHub Pages re-publishes automatically within about 60 seconds.
 
 > The app at root `/` and the `/docs` copy are byte-identical by construction, so the branch could also publish from `/ (root)` if ever preferred.
 
@@ -206,8 +208,8 @@ python3 -m http.server 8080
 - 📜 **Grand Vision & Architectural Blueprint**: [`vision.md`](./vision.md)
 - 🗺️ **Roadmap & Milestone Execution Plan**: [`ROADMAP.md`](./ROADMAP.md)
 - 🧘 **UX/UI Improvement Roadmap (mobile + desktop, anti-overload)**: [`UX_ROADMAP.md`](./UX_ROADMAP.md)
-- 🏯 **Accepted Web Vision**: [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md)
-- 🧱 **Current Vision Gap & Redesign Plan**: [`sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md`](./sessions/WEB_DESIGN_GAP_PLAN_2026-08-10.md) · [Phase A+B](./sessions/DESIGN_PHASE_AB_2026-08-10.md)
+- 🏯 **Original Walnut-Hall Vision**: [`WEB_VISION_2026-08-10.md`](./WEB_VISION_2026-08-10.md)
+- 🎨 **Current English-First Design Audit**: [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md)
 - 🔍 **Technical Audit & Remediation Log**: [`AUDIT.md`](./AUDIT.md)
 - 🤝 **Pull Request & Deployment Handoff Guide**: [`HANDOFF.md`](./HANDOFF.md)
 - 🎯 **Evidence-First Research Release Plan**: [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md)

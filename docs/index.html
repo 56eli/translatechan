@@ -18,15 +18,15 @@
   <meta name="twitter:image" content="https://56eli.github.io/translatechan/og-image.svg">
   <title>Fake Chan Factory | Robo-Translator Chan/Zen Translation Matrix</title>
   <meta name="description" content="Fake Chan Factory: Robo renderings are clearly marked, while edition-verified quotations cite their source and separate rights status over source-tracked Classical Chinese excerpts.">
+  <!-- Restrictive CSP must precede every resource it governs. Interactivity is
+       delegated in app.js; generated reader templates still require inline
+       style support until their final utility-class migration is complete. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <!-- Apply the persisted theme before first paint to avoid a light-mode flash
        for returning dark-mode users (FOUC guard). External file keeps the
        strict CSP (script-src 'self') satisfiable without inline scripts. -->
   <script src="theme-init.js"></script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🪷%3C/text%3E%3C/svg%3E">
-  <!-- Restrictive CSP: no inline scripts/event-handler attributes (all app
-       interactivity is delegated in app.js); Google Fonts stylesheet + font
-       files and inline style attributes are explicitly allowed. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23211814'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Arial' font-size='49' font-weight='800' fill='%23f3ead9'%3EFC%3C/text%3E%3C/svg%3E">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,8 +47,11 @@
     <div class="shell-frame">
       <div class="shell-primary">
         <a href="#/reader" class="brand" aria-label="Fake Chan Factory — Reader">
-          <span class="brand-title-chinese">假禪工廠</span>
-          <span class="brand-title-en">Fake Chan Factory</span>
+          <span class="brand-mark" aria-hidden="true">FC</span>
+          <span class="brand-lockup">
+            <span class="brand-title-en">Fake Chan Factory</span>
+            <span class="brand-title-chinese" lang="zh">假禪工廠 · Open Chan lab</span>
+          </span>
         </a>
 
         <div class="nav-controls">
@@ -74,30 +77,28 @@
       </div>
 
       <ul class="nav-tabs room-nav" role="tablist" aria-label="Main rooms">
-        <li role="none"><button class="nav-tab-btn active" data-view="reader" role="tab" id="tab-reader" aria-controls="view-reader" aria-selected="true" tabindex="0"><span class="room-name-zh">閱藏堂</span><span class="room-name-en">Reader</span></button></li>
-        <li role="none"><button class="nav-tab-btn" data-view="matrix" role="tab" id="tab-matrix" aria-controls="view-matrix" aria-selected="false" tabindex="-1"><span class="room-name-zh">對勘</span><span class="room-name-en">Matrix</span></button></li>
-        <li role="none"><button class="nav-tab-btn" data-view="lineage" role="tab" id="tab-lineage" aria-controls="view-lineage" aria-selected="false" tabindex="-1"><span class="room-name-zh">傳法堂</span><span class="room-name-en">Lineage</span></button></li>
-        <li role="none"><button class="nav-tab-btn" data-view="gongan" role="tab" id="tab-gongan" aria-controls="view-gongan" aria-selected="false" tabindex="-1"><span class="room-name-zh">公案架</span><span class="room-name-en">Gong'an</span></button></li>
-        <li role="none"><button class="nav-tab-btn" data-view="lexicon" role="tab" id="tab-lexicon" aria-controls="view-lexicon" aria-selected="false" tabindex="-1"><span class="room-name-zh">詞林</span><span class="room-name-en">Lexicon</span></button></li>
+        <li role="none"><button class="nav-tab-btn active" data-view="reader" data-room-index="01" role="tab" id="tab-reader" aria-controls="view-reader" aria-selected="true" tabindex="0"><span class="room-name-en">Read</span><span class="room-name-zh" lang="zh">閱藏堂</span></button></li>
+        <li role="none"><button class="nav-tab-btn" data-view="matrix" data-room-index="02" role="tab" id="tab-matrix" aria-controls="view-matrix" aria-selected="false" tabindex="-1"><span class="room-name-en">Compare</span><span class="room-name-zh" lang="zh">對勘</span></button></li>
+        <li role="none"><button class="nav-tab-btn" data-view="lineage" data-room-index="03" role="tab" id="tab-lineage" aria-controls="view-lineage" aria-selected="false" tabindex="-1"><span class="room-name-en">Lineage</span><span class="room-name-zh" lang="zh">傳法堂</span></button></li>
+        <li role="none"><button class="nav-tab-btn" data-view="gongan" data-room-index="04" role="tab" id="tab-gongan" aria-controls="view-gongan" aria-selected="false" tabindex="-1"><span class="room-name-en">Cases</span><span class="room-name-zh" lang="zh">公案架</span></button></li>
+        <li role="none"><button class="nav-tab-btn" data-view="lexicon" data-room-index="05" role="tab" id="tab-lexicon" aria-controls="view-lexicon" aria-selected="false" tabindex="-1"><span class="room-name-en">Terms</span><span class="room-name-zh" lang="zh">詞林</span></button></li>
       </ul>
     </div>
   </header>
 
   <main id="main-content">
-  <!-- Chan Hall Hero Banner — Chinese Chan hall, dark walnut lean, practical joke once, no gimmicks after -->
-  <div class="zen-hero-banner" id="zen-hero-banner" role="region" aria-label="About this project">
+  <!-- English-first identity panel: walnut hall structure, factory attitude, no
+       fake attribution. The source language remains central in the Reader. -->
+  <div class="zen-hero-banner" id="zen-hero-banner" role="region" aria-label="About Fake Chan Factory">
+    <button class="hero-dismiss-btn" id="hero-dismiss-btn" title="Hide this introduction for this session" aria-label="Hide project introduction">Close</button>
     <div class="hero-main">
-      <div class="hero-brand-row">
-        <span class="hero-zh">假禪工廠</span>
-        <span class="hero-icon" aria-hidden="true">🤖</span>
-      </div>
-      <div class="zen-quote-main">「平常心是道。」— the Robo monks' practical joke.</div>
-      <div class="zen-quote-sub">Source-tracked Chinese · Robo wording disclosed · Edition verification and rights kept separate.</div>
+      <div class="hero-kicker"><span>Open Chan Lab</span><span>Edition 01 / 2026</span></div>
+      <p class="zen-quote-main">The old texts are real.<br><em>The translators are not.</em></p>
     </div>
-    <div class="hero-meta">
-      <span class="meta-chip" id="hero-corpus-count"><span aria-hidden="true">📜</span> 35 Canonical Works</span>
-      <span class="meta-chip" id="hero-translator-count"><span aria-hidden="true">🤖</span> 21 Matrix Registers</span>
-      <button class="hero-dismiss-btn" id="hero-dismiss-btn" title="Hide this banner for this session" aria-label="Hide about banner">✕</button>
+    <div class="hero-meta" aria-label="Project statistics">
+      <div class="hero-stamp" aria-hidden="true"><span>PROUDLY</span><strong>FAKE</strong><span>ENGLISH</span></div>
+      <div class="hero-stat" aria-label="35 Canonical Works"><strong id="hero-corpus-count">35</strong><span>source-tracked<br>works</span></div>
+      <div class="hero-stat" aria-label="21 Matrix Registers"><strong id="hero-translator-count">21</strong><span>comparison<br>registers</span></div>
     </div>
   </div>
 
@@ -110,7 +111,7 @@
       <div class="reader-layout">
         <!-- Sidebar Navigation -->
         <aside class="sidebar-panel">
-          <div class="sidebar-title">Works / 經錄</div>
+          <div class="sidebar-title"><span>Library</span><small>35 works</small></div>
           <!-- Corpus sidebar search filter — diacritic- and variant-tolerant -->
           <div class="corpus-filter">
             <span class="search-icon" aria-hidden="true">🔍</span>
@@ -145,22 +146,21 @@
 
     <!-- View 2: Comparative Matrix -->
     <section id="view-matrix" class="view-section" role="tabpanel" aria-labelledby="tab-matrix">
-      <div class="text-header">
-        <h1 class="text-title-zh">多譯本對照矩陣 / Comparative Matrix</h1>
-        <p class="text-title-en">Sentence-by-sentence side-by-side comparison across historical and contemporary translators and AI synthesis</p>
-      </div>
-      <div class="meta-chip meta-chip-bare text-sm-muted" title="Robo renderings are AI text written in a translator's broad register — not their actual published words. Edition-verified quotations disclose source and separate rights status.">
-        <strong>Heads up:</strong> most translations here are <em>Robolations</em> — AI written in a scholar's register, not their real book. A ✅ means wording was checked against a recorded edition; it does not by itself mean public domain or approved reuse. Don't cite a Robo rendering as the translator's work.
+      <div class="text-header room-heading">
+        <p class="section-kicker">Room 02 · Comparison lab</p>
+        <h1 class="text-title-zh"><span>Comparative Matrix</span><small lang="zh">多譯本對照矩陣</small></h1>
+        <p class="text-title-en">Compare machine-made registers and verified quotations sentence by sentence.</p>
       </div>
       <div id="matrix-content-target" class="matrix-container"></div>
     </section>
 
     <!-- View 3: Lineage Tree Explorer -->
     <section id="view-lineage" class="view-section" role="tabpanel" aria-labelledby="tab-lineage">
-      <div class="text-header lineage-toolbar">
+      <div class="text-header lineage-toolbar room-heading">
         <div>
-          <h1 class="text-title-zh">禪宗宗派法脈傳承譜 / Lineage Knowledge Graph</h1>
-          <p class="text-title-en">Interactive Transmission Network & Genealogical Matrix from Bodhidharma to the Five Houses</p>
+          <p class="section-kicker">Room 03 · Transmission records</p>
+          <h1 class="text-title-zh"><span>Lineage Network</span><small lang="zh">禪宗宗派法脈傳承譜</small></h1>
+          <p class="text-title-en">Trace the traditional transmission network from Bodhidharma to the Five Houses.</p>
         </div>
         <div class="lineage-filter-row">
           <div class="lineage-filter-row">
@@ -184,9 +184,7 @@
           <div class="graph-controls">
             <button id="lineage-reset-btn" class="btn-pill">⟲ Reset View</button>
           </div>
-          <div class="graph-hint">
-            Traditional links are dashed until exact chart/record locators are reviewed · click a node or link for details
-          </div>
+          <div class="graph-hint">Dashed links await exact locators · Select any node or link</div>
         </div>
         <svg id="lineage-svg-graph" class="lineage-svg-graph"></svg>
       </div>
@@ -207,27 +205,26 @@
 
     <!-- View 4: Gong'an Cross-Reference Index -->
     <section id="view-gongan" class="view-section" role="tabpanel" aria-labelledby="tab-gongan">
-      <div class="text-header">
-        <h1 class="text-title-zh">歷代宗門公案總目 / Gong'an & Koan Master Index</h1>
-        <p class="text-title-en">Canonical encounter cases with bibliographic cross-references across Wumenguan, Biyanlu, Congronglu, and Chuandenglu</p>
+      <div class="text-header room-heading">
+        <p class="section-kicker">Room 04 · Case catalogue</p>
+        <h1 class="text-title-zh"><span>Gong'an Case Index</span><small lang="zh">歷代宗門公案總目</small></h1>
+        <p class="text-title-en">Browse encounter cases by collection, theme, and canonical cross-reference.</p>
       </div>
       <div id="gongan-content-target" class="matrix-container"></div>
     </section>
 
     <!-- View 5: Classical Chan Lexicon -->
     <section id="view-lexicon" class="view-section" role="tabpanel" aria-labelledby="tab-lexicon">
-      <div class="text-header lexicon-toolbar">
+      <div class="text-header lexicon-toolbar room-heading">
         <div>
-          <h1 class="text-title-zh">禪宗名相與術語典籍 / Classical Chan Lexicon</h1>
-          <p class="text-title-en">Foundational terminology, technical Sanskrit roots, and philosophical definitions</p>
+          <p class="section-kicker">Room 05 · Field dictionary</p>
+          <h1 class="text-title-zh"><span>Classical Chan Lexicon</span><small lang="zh">禪宗名相與術語典籍</small></h1>
+          <p class="text-title-en">Decode foundational terms, Sanskrit roots, and technical meanings.</p>
         </div>
         <div class="lexicon-filter-group">
           <label for="lexicon-cat-filter">Category:</label>
           <select id="lexicon-cat-filter" class="search-input" aria-label="Filter lexicon by category"></select>
         </div>
-      </div>
-      <div class="meta-chip meta-chip-bare text-sm-muted" title="Occurrence tags cite the term's locus in the canonical work (chapter, fascicle, or case). That locus may lie outside the units currently excerpted into this corpus.">
-        <strong>Scope note:</strong> occurrence tags cite each term's locus in the <em>canonical work</em>; a cited locus may sit outside the units currently excerpted (each Reader text carries a coverage disclosure).
       </div>
       <div class="lexicon-filter-row">
         <div class="search-box lexicon-search-box" role="search">
@@ -245,16 +242,16 @@
     <button id="mobile-font-dec-btn" class="btn-pill" aria-label="Decrease Chinese font size">A−</button>
     <button id="mobile-font-inc-btn" class="btn-pill" aria-label="Increase Chinese font size">A+</button>
     <span class="mobile-bar-divider"></span>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode" aria-pressed="true">雙語</button>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode" aria-pressed="false">多譯</button>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode" aria-pressed="false">漢</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode" aria-pressed="true">Bi</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode" aria-pressed="false">All</button>
+    <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode" aria-pressed="false">Zh</button>
     <span class="mobile-bar-divider"></span>
-    <button id="mobile-pinyin-btn" class="btn-pill active" aria-label="Toggle pinyin display" title="Show/hide pinyin">拼</button>
-    <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">則</button>
+    <button id="mobile-pinyin-btn" class="btn-pill active" aria-label="Toggle pinyin display" title="Show or hide pinyin">Py</button>
+    <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">#</button>
     <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">↑</button>
   </div>
 
-  <!-- Footer removed per 2026-08-10 vision feedback: site is now literature-first, minimal, no footer gimmick — real sources note lives in hero + docs -->
+  <!-- Footer removed per owner feedback: the public surface ends with the literature. -->
 
   <!-- Corpus Data Bundle & Application Scripts -->
   <script defer src="app_data.js"></script>
