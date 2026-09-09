@@ -11,18 +11,33 @@
 
 ## Active Milestone
 
-Lift the repository from audited **7.2/10** (`repo_ready = fail`, gate ≥ 8.0)
-via small, evidence-backed, single-PR tasks — without weakening the project's
-honest-disclosure invariants.
+**W1 COMPLETE (2026-09-09, this branch) — full-corpus collation evidence landed.** Report: `sessions/COLLATION_W1_2026-09-09.md`; per-field register: `sessions/COLLATION_REGISTER_2026-09-09.json` (637 flagged entries); harness: `scripts/collate_corpus.py` (refs NOT committed — 21MB; acquisition commands in harness docstring; digests in `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt`). Verdict: only 1/34 documents collates 100% to its claimed witness; 27 fail outright; verified fabrications exist inside both `complete_selected_witness` texts (Wumenguan preface/epilogue/verses, case-23 pointer); Zhaozhou's canonical claim (T1987) is false (T1987 = Caoshan). 233/237 title_zh fields are project-authored composites.
+
+**Next (in order):**
+1. W2 — spot-check the 177 "edition-verified quotations" vs public-domain editions (Senzaki & Reps 1934 first; fetchable via Archive.org if network allows).
+2. REMEDIATION — owner decision pending: R-A fix-in-place from witnesses / R-B honest relabel (retelling badges, drop witness claims) / R-C quarantine worst docs. Then per-doc PRs delegated to coder agents, keyed to register entries; composite titles split out of `title_zh`; README/HANDOFF/ROADMAP/AUDIT claims corrected; validator rules added (source fields must collate; no editorial text in source fields).
+3. Then scoreboard-removal PR + PR-A/B/D per earlier queue.
+
+Reference state: extracted CBETA refs live OUTSIDE the repo at `/home/user/audit-w1/ref_*.txt` (sandbox) — regenerate via `scripts/collate_corpus.py` docstring commands into any dir and run with `COLLATION_REFS=<dir> python3 scripts/collate_corpus.py`.
+
+## Standing Decisions (2026-09-09, owner)
+
+- **Vision:** vision.md in full is the target; the audit serves that ambition.
+- **Collation depth:** FULL — done (except 2 non-CBETA-witness docs: hanshan, niutou).
+- **Scoreboard: REMOVE** `.scoreboard/` + `SCOREBOARD.md` entirely; orchestrator oversight replaces it (queued PR after W1/W2; update AGENTS.md contract accordingly; user_score protocol dies with the file).
+- **Sequencing:** W1/W2 exclusive until corpus integrity is established. PR-A/B/D frozen.
 
 ## Task Queue
 
-- [x] **PR-C — Lineage corpus-key curation (6 profiles)** — *next; prompt issued 2026-09-09*
-- [ ] **PR-A — Real-browser verification pass**: obtain Chromium, capture desktop/mobile × light/dark evidence of the merged design, fix what surfaces, extend `scripts/browser_test.mjs` only as needed
-- [ ] **PR-B — CSP hardening**: remove the 41 JS-generated inline styles in `app.js` → drop `style-src 'unsafe-inline'` from `index.html`/`docs/index.html`
-- [ ] **PR-D — Performance (measure first)**: benchmark first-load; lazy-render hidden rooms / split bundle only if measurements justify it (audit's explicit precondition)
+- [x] **PR-C — Lineage corpus-key curation (6 profiles)** — MERGED as PR #20 (2026-09-09)
+- [x] **W1 — Full-corpus collation vs CBETA** — evidence on this branch; MERGE via PR (see Active Milestone)
+- [ ] **REMEDIATION R-A — Fix-in-place** (owner decision 2026-09-09): per-doc work packages in `.orchestrator/REMEDIATION_PLAN.md`; delegate to coder agents, one document per PR
+- [ ] **W2 — Verified-quotation spot-check** (177 slots vs public-domain editions; Senzaki & Reps 1934 first) — sequencing at successor's discretion (before or parallel to remediation)
+- [ ] **Scoreboard removal PR** — delete `.scoreboard/` + `SCOREBOARD.md`; update AGENTS.md contract (owner decision 2026-09-09)
+- [ ] **PR-A — Real-browser verification pass** (frozen during audit; resume after remediation starts)
+- [ ] **PR-B — CSP hardening** (frozen) · **PR-D — Performance, measure-first** (frozen)
 - [ ] Later tranche — 30 lineage edges exact-locator groundwork
-- [ ] Later tranche — Biyanlu / Linji / Platform / excerpt-seed field-level source review
+- [ ] Later tranche — Biyanlu / Linji / Platform / excerpt-seed field-level source review (fold into R-A packages)
 
 ## Deferred / Technical Debt
 
