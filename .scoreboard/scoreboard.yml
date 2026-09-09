@@ -1,7 +1,7 @@
 meta:
   project_name: translatechan
   scoreboard_version: 1
-  last_updated: 2026-08-11
+  last_updated: 2026-09-09
   stale_after_days: 45
   agent_model: arena_sandboxed_agent
   effective_score_policy: user_score_overrides_ai_score
@@ -16,10 +16,10 @@ summary:
   overall_effective_score: 7.2
   repo_ready_gate_status: fail
   top_priorities:
-    - content_quality
     - deployment_readiness
     - ci_cd
     - github_pages_presentation
+    - content_quality
   active_risk_flags:
     - "Owner feedback on 2026-08-11: the Pages design was too plain/generic and over-emphasized Chinese characters; the English-first walnut redesign and copy cleanup are implemented, and PR #18 merged successfully as `63dfe37`; main Quality and Pages deployment passed. Real-browser screenshot evidence remains pending."
     - "Contained P0: unreliable Congronglu data/locators/generating scripts remain removed; reintroduction is blocked on source-pinned field-level collation."
@@ -31,7 +31,7 @@ quality_gates:
   repo_ready:
     status: fail
     overall_effective_score: 7.2
-    last_evaluated: 2026-08-11
+    last_evaluated: 2026-09-09
     minimum_overall_effective_score: 8
     required:
       security_privacy: 8
@@ -42,6 +42,7 @@ quality_gates:
     notes:
       - "Required aspect currently failing: ci_cd 6; security/privacy and agent readiness now meet 8, while tests and README meet 7."
       - "Weighted effective score 7.2 is below the 8.0 gate; the previous 7.6 summary was inconsistent with its 6.9 aspect-weighted result and has been corrected."
+      - "2026-09-09 (PR-C): content_quality 6 → 7 on lineage corpus-key curation evidence (validator lineage warnings 6 → 3); weighted overall remains 7.2 and ci_cd 6 remains the only failing required aspect."
       - "Unresolved rights decisions and field-level source review independently block release readiness."
       - "All user_score fields remain null; qualitative owner feedback was recorded without inventing a numeric score."
 
@@ -387,18 +388,18 @@ aspects:
     category: presentation
     weight: 3
     target: 8
-    ai_score: 6
+    ai_score: 7
     user_score: null
-    effective_score: 6
-    gap: 2
-    priority: 6
+    effective_score: 7
+    gap: 1
+    priority: 3
     status: needs_work
     confidence: high
-    last_audited: 2026-08-10
-    ai_basis: "The P0 is contained: all unreliable Congronglu data, locator claims, and generating scripts were removed after authoritative headings disproved the purportedly collated records. Completion and edition-verification wording are corrected; Biyanlu field review and quotation rights decisions remain."
+    last_audited: 2026-09-09
+    ai_basis: "The P0 is contained: all unreliable Congronglu data, locator claims, and generating scripts were removed after authoritative headings disproved the purportedly collated records. Completion and edition-verification wording are corrected. 2026-09-09 (PR-C): the remaining Tier-4 lineage corpus-key gap closed — yaoshan_weiyan, yunyan_tansheng, and longtan_chongxin gained passage-verified linked_corpus_keys, while prajnatara, yangqi_fanghui, and dahong_zuzheng recorded dated honest negatives (the biyanlu 方會 hits are the grammatical phrase, not the master); validator lineage warnings fell 6 → 3 and every remaining empty list is a documented honest negative. Biyanlu field review and quotation rights decisions remain."
     user_basis: null
     desired_direction: ["Contain uncollated source text and establish field-level provenance before any expansion."]
-    evidence: ["data/corpus/congronglu_cases.json repeated strings", "scripts/ingest_* placeholders", "platform_sutra 680 content CJK"]
+    evidence: ["data/corpus/congronglu_cases.json repeated strings", "scripts/ingest_* placeholders", "platform_sutra 680 content CJK", "data/lineage/masters.json linked_corpus_keys curation 2026-09-09", "validate_data.py lineage warnings 6 → 3"]
     next_actions: ["Keep Congronglu quarantined; complete Biyanlu field review and human quotation-rights decisions."]
     risk_flags: ["Congronglu reintroduction would be unsafe without source-pinned TEI and field-level review.", "All modern quotation rights decisions remain unresolved."]
     files_reviewed: [data/corpus/congronglu_cases.json, data/corpus/platform_sutra.json, data/canonical_locators.json, data/translations/rights_manifest.json]
