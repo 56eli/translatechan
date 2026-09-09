@@ -11,6 +11,8 @@ combines a published schema with semantic checks:
 * translation/provenance records are structurally valid;
 * verified quotations link to the rights manifest;
 * canonical locator registry covers every document and every case-based unit;
+* manifest W1 evidence metadata and per-document source-review statuses are explicit;
+* complete-selected-witness status is compatible with a collated W1 source-review status;
 * generated project_metrics.json matches the live data;
 * live prose docs (README.md, HANDOFF.md, index.html) quote the same deterministic
   numbers — the "doc truthfulness" gate (skip with --skip-docs if editing docs).
@@ -74,6 +76,16 @@ VALID_COMPLETION_STATUSES = {
     "complete_selected_witness",
     "partial_selected_witness",
     "excerpt_seed",
+}
+VALID_SOURCE_REVIEW_STATUSES = {
+    "collated_to_claimed_witness",
+    "partial_or_failed_w1_collation",
+    "witness_unavailable",
+}
+W1_SOURCE_REVIEW_METADATA = {
+    "w1_report_path": "sessions/COLLATION_W1_2026-09-09.md",
+    "w1_register_path": "sessions/COLLATION_REGISTER_2026-09-09.json",
+    "evidence_date": "2026-09-09",
 }
 SOURCE_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 REQUIRED_DOCUMENT_FIELDS = {
@@ -605,12 +617,42 @@ def validate_lineage_profile_queue(lineage: Any, queue: Any, issues: Issues) -> 
     return {"profile_queue_records": len(actual), "statuses": dict(sorted(statuses.items()))}
 
 
+def validate_manifest_source_review(manifest: Any, issues: Issues) -> None:
+    """Validate the immutable W1 evidence pointers carried by the manifest."""
+    path = f"{rel(CORPUS_MANIFEST_PATH)}.source_review"
+    if not is_record(manifest):
+        return
+    record = manifest.get("source_review")
+    if not is_record(record):
+        issues.error(path, "requires a manifest-level source_review object")
+        return
+    require_fields(record, (*W1_SOURCE_REVIEW_METADATA, "status_scope"), path, issues)
+    extra_fields = set(record) - {*W1_SOURCE_REVIEW_METADATA, "status_scope"}
+    if extra_fields:
+        issues.error(path, f"has unknown source-review field(s): {sorted(extra_fields)}")
+
+    for field, expected in W1_SOURCE_REVIEW_METADATA.items():
+        value = record.get(field)
+        if value != expected:
+            issues.error(path, f"{field} must identify the committed W1 evidence as {expected!r}, got {value!r}")
+        if field.endswith("_path") and nonempty_string(value):
+            candidate = ROOT / value
+            if not candidate.is_file():
+                issues.error(path, f"{field} points to a missing file: {value!r}")
+
+    scope = record.get("status_scope")
+    scope_text = scope.lower() if isinstance(scope, str) else ""
+    if "containment" not in scope_text or "remediation" not in scope_text or "not a rights decision" not in scope_text:
+        issues.error(path, "status_scope must say that source-review status is containment/remediation state, not a rights decision")
+
+
 def validate_manifest_sync(corpus: dict[str, Any], manifest: Any, issues: Issues) -> dict[str, int]:
     path = rel(CORPUS_MANIFEST_PATH)
     if not is_record(manifest) or not isinstance(manifest.get("items"), list):
         issues.error(path, "must contain an object with an items list")
         return {}
 
+    validate_manifest_source_review(manifest, issues)
     if not manifest["items"]:
         issues.error(path, "items list must not be empty")
     corpus_keys = set(corpus)
@@ -629,6 +671,18 @@ def validate_manifest_sync(corpus: dict[str, Any], manifest: Any, issues: Issues
             issues.error(
                 item_path,
                 f"completion_status must be one of {sorted(VALID_COMPLETION_STATUSES)}, got {completion_status!r}",
+            )
+        source_review_status = item.get("source_review_status")
+        if source_review_status not in VALID_SOURCE_REVIEW_STATUSES:
+            issues.error(
+                item_path,
+                f"source_review_status must be one of {sorted(VALID_SOURCE_REVIEW_STATUSES)}, got {source_review_status!r}",
+            )
+        elif completion_status == "complete_selected_witness" and source_review_status != "collated_to_claimed_witness":
+            issues.error(
+                item_path,
+                "complete_selected_witness requires source_review_status='collated_to_claimed_witness'; "
+                f"got {source_review_status!r}",
             )
 
         # Optional canonical unit targets (e.g. {"cases": 100} for Biyanlu) make
@@ -941,6 +995,7 @@ def per_text_metrics(corpus: dict[str, Any], manifest: Any) -> dict[str, Any]:
             "shapes": content_shapes(document),
             "unit_counts": counts,
             "completion_status": completion_status,
+            "source_review_status": item.get("source_review_status"),
             "is_complete": completion_status == "complete_selected_witness",
         }
         coverage_note = document.get("coverage_note")
@@ -982,6 +1037,11 @@ def compute_metrics(
         for item in manifest_items
         if is_record(item) and item.get("completion_status") in VALID_COMPLETION_STATUSES
     )
+    source_review_statuses = Counter(
+        item.get("source_review_status")
+        for item in manifest_items
+        if is_record(item) and item.get("source_review_status") in VALID_SOURCE_REVIEW_STATUSES
+    )
     return {
         "schema_version": "1.0",
         "measurement_method": {
@@ -997,6 +1057,10 @@ def compute_metrics(
             "incomplete_documents": len(corpus) - len(complete_documents),
             "excerpt_seed_documents": completion_statuses.get("excerpt_seed", 0),
             "completion_statuses": dict(sorted(completion_statuses.items())),
+            "source_review_statuses": {
+                status: source_review_statuses.get(status, 0)
+                for status in sorted(VALID_SOURCE_REVIEW_STATUSES)
+            },
 
             "content_cjk_characters": sum(content_cjk_count(doc) for doc in corpus.values()),
             "all_corpus_cjk_characters": sum(all_cjk_count(doc) for doc in corpus.values()),
@@ -1055,12 +1119,13 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
     verified_slots = translations["corpus_statuses"]["verified_quotation"]
     verified_texts = translations.get("verified_corpus_texts", 0)
     matrix_verified = translations.get("matrix_statuses", {}).get("verified_quotation", 0)
+    source_review_statuses = corpus.get("source_review_statuses", {})
     checks = [
         ("README.md", f"**{corpus['content_cjk_characters']:,} source-content CJK characters** "
                       f"(or {corpus['all_corpus_cjk_characters']:,} across every corpus JSON string",
          "honest-status CJK counts"),
         ("README.md", f"manifest ({corpus['documents']} keys)", "manifest key count in repo tree"),
-        ("README.md", "48 / 48 cases ✅ complete", "Wumenguan coverage in corpus table"),
+        ("README.md", "48 / 48 cases represented; W1 source-review status: `partial_or_failed_w1_collation`", "Wumenguan containment status in corpus table"),
         ("README.md", f"currently **{len(lineage)} master profiles**", "master profile count in lineage feature"),
         ("README.md", f"— **{len(gongan)} indexed cases** at present", "gong'an count in index feature"),
         ("README.md", f"**{len(glossary)} terms** today", "glossary count in lexicon feature"),
@@ -1073,7 +1138,12 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
         ("HANDOFF.md", f"the remaining **{pending}**", "verified-reference pending count"),
         ("HANDOFF.md", f"# {len(glossary)} Classical Chan & Buddhist lexicon terms", "glossary count in repo tree"),
         ("HANDOFF.md", f"# {len(gongan)} Gong'an cross-references index entries", "gong'an count in repo tree"),
-        ("index.html", f"{corpus['documents']} Canonical Works", "hero corpus chip"),
+        ("index.html", f"{corpus['documents']} Corpus Works", "hero corpus chip"),
+        ("README.md", f"`collated_to_claimed_witness`: **{source_review_statuses.get('collated_to_claimed_witness', 0)}**", "W1 collated status count"),
+        ("README.md", f"`partial_or_failed_w1_collation`: **{source_review_statuses.get('partial_or_failed_w1_collation', 0)}**", "W1 partial/failed status count"),
+        ("README.md", f"`witness_unavailable`: **{source_review_statuses.get('witness_unavailable', 0)}**", "W1 unavailable status count"),
+        ("HANDOFF.md", f"source-review: collated={source_review_statuses.get('collated_to_claimed_witness', 0)} | partial/failed={source_review_statuses.get('partial_or_failed_w1_collation', 0)} | unavailable={source_review_statuses.get('witness_unavailable', 0)}", "W1 source-review status counts"),
+        ("AUDIT.md", f"Source review: **{source_review_statuses.get('collated_to_claimed_witness', 0)} collated**, **{source_review_statuses.get('partial_or_failed_w1_collation', 0)} partial/failed**, **{source_review_statuses.get('witness_unavailable', 0)} unavailable**", "current W1 source-review status counts"),
         # AUDIT 2026-08-09 turn-2: the verified-slot tallies must name the true
         # corpus-text spread (drifted 6 → 7 texts before this rule existed).
         ("README.md", f"**{verified_slots} verified quotation slots across {verified_texts} corpus texts + {matrix_verified} verified comparative-matrix entries**",
@@ -1100,7 +1170,7 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
         checks.append(("README.md", biyanlu["coverage"], "Biyanlu coverage string in honest status"))
         checks.append(("AUDIT.md", f"Biyanlu **{biyanlu['coverage']}**", "current-verdict Biyanlu coverage"))
     if wumenguan.get("coverage"):
-        checks.append(("AUDIT.md", f"Wumenguan **{wumenguan['coverage']}** complete", "current-verdict Wumenguan coverage"))
+        checks.append(("AUDIT.md", f"Wumenguan **{wumenguan['coverage']}** represented; W1 source-review status: `partial_or_failed_w1_collation`", "current-verdict Wumenguan containment status"))
     for filename, snippet, description in checks:
         path = ROOT / filename
         if not path.exists():

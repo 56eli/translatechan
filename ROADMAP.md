@@ -16,7 +16,7 @@ This document outlines the detailed engineering, data science, translation, and 
 │                 │  Structure      │  Lexicon        │  Disclosure      │  Community     │
 ├─────────────────┼─────────────────┼─────────────────┼─────────────────┼────────────────┤
 │  • Public reader│  • 48/48        │  • 4 Matrix     │  • Primary text │  • Middle      │
-│    + matrix +   │    Wumenguan    │    entries       │    aggregation   │    Chinese     │
+│    + matrix +   │    represented  │    entries       │    aggregation   │    Chinese     │
 │    lineage +    │  • 100/100 rec.│  • 31/150+      │  • Book/edition │  • DDB / SAT   │
 │    index +      │    Biyanlu part.│    Chan terms    │    verification  │  • Multi-ling  │
 │    lexicon      │  • 35 manifests │  • Status/rights │  • Hover/focus  │    / lineage   │
@@ -27,9 +27,11 @@ This document outlines the detailed engineering, data science, translation, and 
 
 > Statuses above are **measured** (see [`sessions/AUDIT_archive_2026-08-08.md`](./sessions/AUDIT_archive_2026-08-08.md) §3), not aspirational. Percentages estimate real content coverage against each phase's stated targets.
 >
-> **Attribution-integrity milestone (2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **177 verified corpus quotation slots across 10 texts + 2 verified Matrix entries** (Wumenguan 48/48 complete, 2026-08-08). Every verified source resolves through `rights_manifest.json`; Phase-3 curation proceeds on a provenance-first, rights-aware basis.
+> **Attribution-integrity milestone (historical, 2026-08-08)**: provenance policy v2.2 is live (`data/translations/provenance.json`, explicit Reader/Matrix badges ✅/⚠️/🤖); **177 verified corpus quotation slots across 10 texts + 2 verified Matrix entries** (the Wumenguan quotation set covered 48/48 represented cases). Every verified source resolves through `rights_manifest.json`; this English quotation layer is separate from the current W1 source-collation status and rights decisions.
 
 > **Website-design status (2026-08-11):** all five walnut rooms are implemented. After the owner found the result too plain/generic and too Chinese-dominant, the current branch introduced a bolder English-first factory/editorial hierarchy and three progressive copy-cleanup passes. PR #18 merged with green main Quality and Pages deployment; real-browser screenshots and accessibility evidence remain unavailable. See [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md).
+
+> **W1 containment/status-model status (2026-09-09):** the manifest now carries per-document source-review states from the full-corpus collation report/register. Current counts are **1** `collated_to_claimed_witness`, **32** `partial_or_failed_w1_collation`, and **2** `witness_unavailable`; complete selected-witness claims are blocked unless W1 status is collated. This state is remediation/containment evidence, not a rights decision. Represented units, W1 source collation, edition-verified English quotations, and rights review remain separate ledgers.
 
 ---
 
@@ -53,11 +55,11 @@ This document outlines the detailed engineering, data science, translation, and 
   - **Functional UX and five-room design implemented; English-first refinement merged (2026-08-11):** current work addresses owner feedback on generic styling, Chinese-dominant hierarchy, and repetitive copy; screenshot/accessibility evidence remains. See [`UX_ROADMAP.md`](./UX_ROADMAP.md) and the [current audit](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md).
   - Synchronized `/docs/` deployment bundle and handoff guide in [`HANDOFF.md`](./HANDOFF.md).
 - [x] **Core Foundational Corpus** (35 active files after the 2026-08-10 Congronglu quarantine; editorial completion status is explicit in the manifest):
-  1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — **48/48 cases COMPLETE** + preface + epilogue, 2026-08-08)
+  1. *Wumenguan* (無門關 / The Gateless Gate, T2005 — **48/48 cases represented; partial/failed W1 source collation** + preface + epilogue)
   2. *Linji Yulu* (臨濟語錄 / T1985 — 74 recorded sections; partial selected witness)
   3. *Huangbo Chuanxin Fayao* (黃檗傳心法要 / T2012A — opening sections)
   4. *Zhaozhou Yulu* (趙州語錄 / recorded-saying extracts)
-  5. *Xinxin Ming* (信心銘 / T2010 — 37/37 stanzas, complete selected witness)
+  5. *Xinxin Ming* (信心銘 / T2010 — 37/37 stanzas represented; partial/failed W1 source collation)
   6. *Baojing Sanmei* (寶鏡三昧 / opening stanzas)
   7. *Biyanlu* (碧巖錄 / T2003 — **100/100 case records represented; partial selected witness**)
   8. *Platform Sutra* (六祖壇經 / T2007 — 10/10 chapter headings represented by selected excerpts; not complete)
@@ -81,7 +83,7 @@ This document outlines the detailed engineering, data science, translation, and 
   - Real CBETA source fetching/normalization (Kanripo API or CBETA TEI download).
   - `scripts/align_translations.py` — sentence-level translation alignment (not yet written).
 - [ ] **Full-Text Ingestion Targets**:
-  - [x] Wumenguan (**48 / 48 cases** — completed 2026-08-08; every case carries the verified Senzaki & Reps 1934 public-domain register)
+  - [~] Wumenguan (**48 / 48 cases represented; partial/failed W1 source collation** — per-document remediation pending; the verified Senzaki & Reps quotation layer is separate)
   - [~] Biyanlu (**100 / 100 case records represented; partial selected witness** — post-verse commentary and human collation sign-off remain pending; N/N representation is not full-work completion)
   - [~] Linji Yulu (**74 recorded sections** — selected-witness completeness and full unit-level verification remain pending)
   - [!] Congronglu / Book of Serenity — **quarantined 2026-08-10** after generated source-looking placeholders and wrong case-number/page claims were found; reintroduce only from authoritative T48n2004 TEI with field-level collation tests
@@ -125,8 +127,8 @@ This document outlines the detailed engineering, data science, translation, and 
   - Verify source text against that recorded source before display; do not upgrade a seed excerpt to “verified” merely because it is widely mirrored online.
   - Verify published translations against the named **book/edition**, translator, and page or stable section reference. A web mirror may assist wording comparison but never substitutes for bibliographic provenance or rights review.
 - [~] **Content disclosure contract**:
-  - ✅ The public Reader and Matrix now render canonical source locations plus hover/focus/touch citation popups. Until a page/line or TEI locator exists, they show an honest `Locator pending`/document-level status rather than implying unit-level collation.
-  - ✅ Every displayed translation now renders translator, status, book/edition, page/section reference state, verification status, and citation/rights identifier. Current metrics record 135 recorded case/page/section references and 5 honest `Page/section locator pending` records; replacing those pending values is a blocking editorial task, not a silent omission.
+  - ✅ The public Reader and Matrix now render canonical source locations plus hover/focus/touch citation popups. The Reader also shows each document's W1 source-review state (`collated_to_claimed_witness`, `partial_or_failed_w1_collation`, or `witness_unavailable`) as a visible ledger item. These are containment/remediation states, not rights decisions; until a page/line or TEI locator exists, the UI shows an honest `Locator pending`/document-level status rather than implying unit-level collation.
+  - ✅ Every displayed translation now renders translator, translation status, book/edition, page/section reference state, edition-verification status, and citation/rights identifier. Current metrics record 135 recorded case/page/section references and 5 honest `Page/section locator pending` records; replacing those pending values is a blocking editorial task, not a silent omission. Edition verification and rights approval remain separate from W1 source collation.
   - ✅ Every AI-produced or AI-reconstructed item is visibly marked **AI draft** or **register reconstruction**; it never appears as a verified quotation or a scholar’s verbatim translation.
   - ✅ Citation/source badges are available by hover, keyboard focus, and touch popup in Reader and Matrix; future public surfaces must use the same component.
 - [ ] **Editorial review queue**:

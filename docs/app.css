@@ -1138,6 +1138,22 @@ body:not([data-current-view="reader"]) #about-toggle {
 .document-status { flex: none; padding: 0.2rem 0; border-bottom: 2px solid var(--accent-gold); font-family: var(--font-mono); font-size: 0.64rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
 .document-ledger { display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.75rem; margin-top: 0.45rem; font-size: 0.7rem; }
 .document-ledger .source-location { margin: 0; padding: 0; border: 0; background: transparent; font-size: 0.68rem; }
+.source-review-disclosure {
+  gap: 0.35rem;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card-subtle);
+}
+.document-ledger .source-review-disclosure { padding: 0.45rem 0.6rem; border: 1px solid var(--border-color); border-left: 3px solid var(--accent-gold); background: var(--bg-card-subtle); }
+.source-review-heading { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+.source-review-status { color: var(--accent-gold-hover); font-weight: 700; }
+.source-review-evidence { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.64rem; }
+.source-review-disclosure.is-collated { border-left-color: var(--accent-green); }
+.source-review-disclosure.is-collated .source-review-status { color: var(--accent-green); }
+.source-review-disclosure.is-unavailable { border-left-color: var(--accent-red); }
+.source-review-disclosure.is-unavailable .source-review-status { color: var(--accent-red); }
 .document-details { position: relative; }
 .document-details > summary,
 .front-matter > summary { color: var(--text-secondary); cursor: pointer; font-size: 0.72rem; font-weight: 650; list-style: none; }

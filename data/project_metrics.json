@@ -7,15 +7,11 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 109185,
-    "complete_documents": [
-      "wumenguan",
-      "xinxin_ming"
-    ],
+    "all_corpus_cjk_characters": 109181,
+    "complete_documents": [],
     "completion_statuses": {
-      "complete_selected_witness": 2,
       "excerpt_seed": 31,
-      "partial_selected_witness": 2
+      "partial_selected_witness": 4
     },
     "content_cjk_characters": 103723,
     "content_shapes": {
@@ -29,7 +25,7 @@
     },
     "documents": 35,
     "excerpt_seed_documents": 31,
-    "incomplete_documents": 33,
+    "incomplete_documents": 35,
     "per_text": {
       "baizhang_guanglu": {
         "all_cjk_chars": 333,
@@ -40,6 +36,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Baizhang Guanglu (百丈廣錄三句)",
         "unit_counts": {
           "sections": 3
@@ -54,6 +51,7 @@
         "shapes": [
           "stanzas"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Jewel Mirror Samadhi (寶鏡三昧)",
         "unit_counts": {
           "stanzas": 6
@@ -71,6 +69,7 @@
         "shapes": [
           "cases"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Blue Cliff Record (碧巖錄)",
         "unit_counts": {
           "cases": 100
@@ -85,6 +84,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Bodhidharma Erru Sixing (二入四行論)",
         "unit_counts": {
           "sections": 3
@@ -99,6 +99,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Caoxi Dashi Biezhuan (曹溪大師別傳)",
         "unit_counts": {
           "sections": 3
@@ -113,6 +114,7 @@
         "shapes": [
           "sample_records"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Transmission of Lamp (景德傳燈錄)",
         "unit_counts": {
           "sample_records": 2
@@ -127,6 +129,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Dahui & Hongzhi (看話書問與默照銘)",
         "unit_counts": {
           "sections": 4
@@ -141,6 +144,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Dahui Shobogenzo (大慧正法眼藏)",
         "unit_counts": {
           "sections": 3
@@ -155,6 +159,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Dazhu Huihai Dunwu Yaomen (頓悟入道要門)",
         "unit_counts": {
           "sections": 3
@@ -169,6 +174,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Deshan Xuanjian Yulu (德山宣鑑語錄)",
         "unit_counts": {
           "sections": 3
@@ -185,6 +191,7 @@
           "dialogues",
           "five_ranks"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Dongshan Yulu & Five Ranks (洞山五位)",
         "unit_counts": {
           "dialogues": 8,
@@ -201,6 +208,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Fayan Yulu & Ten Rules (法眼十規論)",
         "unit_counts": {
           "sections": 8
@@ -215,6 +223,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Foyan Qingyuan Instant Zen (佛眼坐禪銘)",
         "unit_counts": {
           "sections": 5
@@ -229,6 +238,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Guiyang Yulu & Circles (溈仰九十六圓相)",
         "unit_counts": {
           "sections": 3
@@ -243,6 +253,7 @@
         "shapes": [
           "stanzas"
         ],
+        "source_review_status": "witness_unavailable",
         "title": "Hanshan Cold Mountain Poems (寒山詩集)",
         "unit_counts": {
           "stanzas": 4
@@ -258,6 +269,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Transmission of Mind (黃檗法要)",
         "unit_counts": {
           "sections": 10
@@ -272,6 +284,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Huangbo Wanling Lu (黃檗宛陵錄)",
         "unit_counts": {
           "sections": 4
@@ -286,6 +299,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Lidai Fabao Ji (歷代法寶記)",
         "unit_counts": {
           "sections": 3
@@ -302,6 +316,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Record of Linji (臨濟語錄)",
         "unit_counts": {
           "sections": 74
@@ -317,6 +332,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Mazu Daoyi Yulu (江西馬祖語錄)",
         "unit_counts": {
           "sections": 6
@@ -331,6 +347,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Nanquan Puyuan Yulu (南泉普願語錄)",
         "unit_counts": {
           "sections": 3
@@ -345,6 +362,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "witness_unavailable",
         "title": "Niutou Farong Juezhu Lun (絕觀論)",
         "unit_counts": {
           "sections": 3
@@ -361,6 +379,7 @@
         "shapes": [
           "chapters"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Platform Sutra (六祖壇經)",
         "unit_counts": {
           "chapters": 10
@@ -375,6 +394,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Rules of Purity (百丈禪苑清規)",
         "unit_counts": {
           "sections": 3
@@ -389,6 +409,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Sengzhao Zhao Lun (僧肇肇論)",
         "unit_counts": {
           "sections": 3
@@ -403,6 +424,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Shitou Sandokai & Grass Hut (參同契與草庵歌)",
         "unit_counts": {
           "sections": 2
@@ -417,23 +439,25 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Compendium of Five Lamps (五燈會元)",
         "unit_counts": {
           "sections": 2
         }
       },
       "wumenguan": {
-        "all_cjk_chars": 5895,
+        "all_cjk_chars": 5891,
         "cbeta_id": "T2005",
-        "completion_status": "complete_selected_witness",
+        "completion_status": "partial_selected_witness",
         "content_zh_chars": 5528,
         "coverage": "48/48 cases",
-        "coverage_note": "Complete — all 48 cases + preface + epilogue (completed 2026-08-08; T2005 宗紹編, 48則)",
+        "coverage_note": "48/48 cases represented; W1 source-review status: partial_or_failed_w1_collation (113/181 evaluated content fields collate to the claimed T2005 witness); flagged fields, including front matter, epilogue, verses, and a case pointer, remain under per-document remediation. Representation does not establish complete selected-witness status.",
         "declared_zh_chars": 5528,
-        "is_complete": true,
+        "is_complete": false,
         "shapes": [
           "cases"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "The Gateless Gate (無門關)",
         "unit_counts": {
           "cases": 48
@@ -442,14 +466,15 @@
       "xinxin_ming": {
         "all_cjk_chars": 604,
         "cbeta_id": "T2010",
-        "completion_status": "complete_selected_witness",
+        "completion_status": "partial_selected_witness",
         "content_zh_chars": 584,
         "coverage": "37/37 stanzas",
-        "coverage_note": "100/100 complete text (37/37 four-clause stanzas, 100% of T2010)",
-        "is_complete": true,
+        "coverage_note": "37/37 four-clause stanzas represented; W1 source-review status: partial_or_failed_w1_collation (25/37 evaluated content fields collate to the claimed T2010 witness); edition variants and flagged fields remain under per-document remediation. Representation does not establish complete selected-witness status.",
+        "is_complete": false,
         "shapes": [
           "stanzas"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Faith in Mind (信心銘)",
         "unit_counts": {
           "stanzas": 37
@@ -464,6 +489,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Xuansha Shibei Yulu (玄沙宗一語錄)",
         "unit_counts": {
           "sections": 3
@@ -478,6 +504,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Xuefeng & Yantou Yulu (雪峰巖頭語錄)",
         "unit_counts": {
           "sections": 2
@@ -492,6 +519,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Yuanwu Zen Letters (圓悟克勤心要)",
         "unit_counts": {
           "sections": 2
@@ -507,6 +535,7 @@
         "shapes": [
           "sections"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Yunmen Yulu (雲門語錄一字關)",
         "unit_counts": {
           "sections": 10
@@ -522,6 +551,7 @@
         "shapes": [
           "dialogues"
         ],
+        "source_review_status": "partial_or_failed_w1_collation",
         "title": "Sayings of Zhaozhou (趙州語錄)",
         "unit_counts": {
           "dialogues": 15
@@ -536,11 +566,17 @@
         "shapes": [
           "stanzas"
         ],
+        "source_review_status": "collated_to_claimed_witness",
         "title": "Yongjia Zhengdao Ge (永嘉證道歌)",
         "unit_counts": {
           "stanzas": 6
         }
       }
+    },
+    "source_review_statuses": {
+      "collated_to_claimed_witness": 1,
+      "partial_or_failed_w1_collation": 32,
+      "witness_unavailable": 2
     }
   },
   "editorial_traceability": {

@@ -1,12 +1,12 @@
 # 🔍 Fake Chan Factory — Current Audit
 
-> **Current evidence:** [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md)
-> **Prior evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
+> **Current evidence:** [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md) · [`sessions/COLLATION_REGISTER_2026-09-09.json`](./sessions/COLLATION_REGISTER_2026-09-09.json)
+> **Prior evidence:** [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
 > **Convention:** this file is the current verdict and index; dated reports are immutable snapshots and may contain superseded metrics or conclusions.
 >
-> **⚠️ 2026-09-09 (W1 collation):** an independent collation of **every** corpus source-Chinese field against the official CBETA XML P5 edition ([report](./sessions/COLLATION_W1_2026-09-09.md), [register](./sessions/COLLATION_REGISTER_2026-09-09.json)) found that only 1 of 34 documents collates 100% against its claimed witness; 27 fail outright, including fabricated preface/verses inside the two `complete_selected_witness` texts and a false canonical claim for Zhaozhou (T1987 is the Caoshan record). Authenticity claims elsewhere in this file predate that evidence; remediation is pending an owner decision.
+> **⚠️ 2026-09-09 (W1 collation):** an independent collation of **every** corpus source-Chinese field in the 34-document W1 register against the official CBETA XML P5 edition ([report](./sessions/COLLATION_W1_2026-09-09.md), [register](./sessions/COLLATION_REGISTER_2026-09-09.json)) found that only 1 document collates 100% against its claimed witness; 27 fail outright, including fabricated preface/verses inside the former `complete_selected_witness` texts and a false canonical claim for Zhaozhou (T1987 is the Caoshan record). The manifest now contains a containment/status model; per-document remediation remains pending under the adopted hybrid R-A/R-B/R-C policy.
 
-## 1. Current verdict — 2026-08-11
+## 1. Current verdict — 2026-09-09
 
 **Not release-ready: audited score 7.2/10 and `repo_ready = fail`.**
 
@@ -14,13 +14,13 @@ The owner reported that the prior Pages design was too plain/generic and over-em
 
 Current generated measurements:
 
-- Corpus: **35 documents**; Wumenguan **48/48 cases** complete and Xinxin Ming 37/37 complete are the **2 complete selected witnesses**; Biyanlu **100/100 cases** represented and Linji remain partial; **31 excerpt seeds**.
-- Source volume: **103,723 content CJK / 109,185 all-string CJK**.
+- Corpus: **35 documents**; Source review: **1 collated**, **32 partial/failed**, **2 unavailable**; **0 complete selected witnesses** after the W1 containment update. Wumenguan **48/48 cases** represented; W1 source-review status: `partial_or_failed_w1_collation`. Xinxin Ming has 37/37 represented stanzas with the same partial/failed state. Biyanlu **100/100 cases** represented; Biyanlu and Linji remain partial; **31 excerpt seeds**.
+- Source volume: **103,723 content CJK / 109,181 all-string CJK**.
 - Translations: **1252 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**.
 - Locators: **148/148 case-level**; **33 document-level seeds**; case anchors do not prove every nested field was collated.
 - Lineage: **34 masters**; **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**; all 30 edges remain traditional/pending.
 - Glossary: **31 terms**; Gong'an index: **24 entries**.
-- Bundle: **1,594,154 raw bytes / 497,352 gzip-9**; first-load local assets total about **556 KB gzip before fonts**.
+- Bundle: **1,599,993 raw bytes / 498,126 gzip-9**; first-load local assets total about **557 KB gzip before fonts**.
 - Rights: **12 sources need rights review; 2 need jurisdiction review**.
 - Deployment: native GitHub Pages from `main /docs`, HTTPS enforced; PR #18 merged as `63dfe37`; main Quality and Pages deployment passed, and the published text surface was confirmed.
 
@@ -33,14 +33,15 @@ Current generated measurements:
 5. **Security:** CSP moved before `theme-init.js`; self-only script policy retained.
 6. **Regression coverage:** smoke guards for CSP order, English-first identity/headings, recovery UI, and updated Gong'an/epilogue markup.
 7. **Copy and disclosure cleanup:** removed repetitive hero/Matrix prose and Robo footers; compacted Lineage, Lexicon, verified citations, coverage, and search copy while preserving details on demand.
-8. **Documentation hygiene:** one broken historical relative link fixed; canonical audit, scoreboard, handoffs, and disposable response summary synchronized.
+8. **W1 public-integrity containment:** added manifest-level W1 evidence metadata, explicit per-document source-review statuses, completion/status incompatibility validation, deterministic status counts, and a visible Reader source-review ledger without changing corpus source fields.
+9. **Documentation hygiene:** current claims now distinguish represented units, W1 source collation, edition-verified English quotations, and rights review; dated W1 evidence remains immutable.
 
 ## 3. Active blockers
 
 ### P1 — release blockers
 
 1. **Quotation rights:** all 14 manifest sources remain human/jurisdiction-review pending.
-2. **Source depth:** non-case field review remains incomplete, especially Biyanlu, Linji, Platform, and excerpt seeds.
+2. **Source depth:** W1 found only one of 34 evaluated documents fully collated to its claimed witness; per-document remediation remains incomplete, especially Wumenguan, Xinxin Ming, Biyanlu, Linji, Platform, and excerpt seeds.
 
 ### P2 — engineering and operations
 
@@ -61,9 +62,9 @@ Current generated measurements:
 
 ```text
 python3 -m py_compile scripts/*.py      PASS
-python3 scripts/validate_data.py        PASS; 6 documented lineage warnings
+python3 scripts/validate_data.py        PASS; 3 documented lineage warnings
 python3 scripts/build_data_bundle.py    PASS; root/docs synchronized
-node scripts/smoke_test.mjs             PASS; 35 renderers, 0 crashes
+node scripts/smoke_test.mjs             PASS; 35 renderers, 0 crashes plus W1 status-model checks
 npm audit --package-lock-only           PASS; 0 vulnerabilities
 diff -rq data docs/data                 PASS
 git diff --check                        PASS

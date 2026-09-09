@@ -3,7 +3,7 @@
 > **Repository:** `56eli/translatechan`
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
-> **Current audit:** [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md)
+> **Current audit/status:** [`AUDIT.md`](./AUDIT.md) · W1 evidence: [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md)
 > **Current gate:** `repo_ready = fail` at **7.2/10**
 
 ## 1. Start here
@@ -65,22 +65,26 @@ This direction and the subsequent copy cleanup are implemented. PR #18 merged as
 
 ```text
 corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
-content CJK=103,723 | all-string CJK=109,185
-complete=2 | partial=2 | excerpt seeds=31
+content CJK=103,723 | all-string CJK=109,181
+source-review: collated=1 | partial/failed=32 | unavailable=2
+complete=0 | partial=4 | excerpt seeds=31
 lineage=34 masters / 30 edges | glossary=31 | gong'an=24
-app_data.js=1,594,154 raw bytes / 497,352 gzip-9
+app_data.js=1,599,993 raw bytes / 498,126 gzip-9
 local first-load estimate≈556 KB gzip before fonts
 ```
 
 Verified citation reference coverage is **176 / 179**; the remaining **3** references are explicitly pending. Edition verification still does not establish reuse rights.
 
-Completion requires explicit `complete_selected_witness` status plus satisfied unit targets. Only Wumenguan and Xinxin Ming qualify. Biyanlu and Linji remain partial; Platform remains an excerpt seed despite 10/10 represented chapter headings.
+**W1 source-review disclosure:** the manifest records `collated_to_claimed_witness`, `partial_or_failed_w1_collation`, or `witness_unavailable` for every corpus item. This is a containment/remediation state, not a rights decision. The Reader renders the state in each document header beside, but separately from, editorial completion, source location, translation status, edition verification, and rights details.
+
+Completion requires explicit `complete_selected_witness` status, satisfied unit targets, and a collated W1 source-review status. After the W1 containment update, no document qualifies as complete selected witness; Wumenguan and Xinxin Ming are represented at 48/48 and 37/37 units respectively but remain partial/failed W1 collation. Biyanlu and Linji remain partial; Platform remains an excerpt seed despite 10/10 represented chapter headings.
 
 ## 5. Release blockers
 
 ### Content and rights
 
 - All 14 translation-rights records remain `needs_rights_review` or `jurisdiction_review_required`.
+- W1 found only one of 34 evaluated documents fully collated to its claimed witness; Wumenguan and Xinxin Ming need per-document remediation, while the remaining partial/failed and unavailable states remain contained.
 - Biyanlu, Linji, Platform, and excerpt seeds need broader field-level review.
 - Three lineage profiles lack linked corpus keys (prajnatara, yangqi_fanghui, dahong_zuzheng — frontier scaffolds with no active-corpus occurrence; reviewed 2026-09-09); all 30 lineage edges await exact locators.
 - Congronglu remains quarantined; do not restore it without source-pinned field-level collation.
@@ -139,7 +143,7 @@ For canonical source additions:
 
 1. Name the selected edition/recension and stable locator.
 2. Import from an authoritative source; never generate canonical-looking Chinese.
-3. Store field-level provenance/collation status.
+3. Store field-level provenance and source-review status separately from representation, translation, edition-verification, and rights status.
 4. Add exact unit locators for each public source field.
 5. Keep pinyin/English generation status separate from Chinese source status.
 6. Add negative validator fixtures before increasing completion claims.

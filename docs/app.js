@@ -1109,11 +1109,18 @@
       const match = stringValue(title).match(/^(.*?)\s*\(([^()]*)\)\s*$/);
       return match ? { en: match[1], zh: match[2] } : { en: stringValue(title), zh: '' };
     };
+    const effectiveCompletionStatus = (key, metric) => {
+      const completion = stringValue(metric.completion_status);
+      const review = sourceReviewForCorpusKey(key);
+      return isCompletionSourceReviewCompatible(completion, review.status)
+        ? completion
+        : (completion === 'complete_selected_witness' ? 'partial_selected_witness' : completion);
+    };
     const renderCorpusRow = (c) => {
       const pt = perText[c.key] || {};
       const cov = stringValue(pt.coverage);
       const parts = titleParts(c.title);
-      const complete = pt.completion_status === 'complete_selected_witness';
+      const complete = effectiveCompletionStatus(c.key, pt) === 'complete_selected_witness';
       const coverageMark = complete
         ? '<span class="corpus-status-mark is-complete" aria-label="Complete selected witness" title="Complete selected witness">✓</span>'
         : (cov ? `<span class="corpus-status-mark" aria-label="${escHtml(cov)} represented">${escHtml(cov.match(/^(\d+)\/(\d+)/)?.[0] || '•')}</span>` : '');
@@ -1126,7 +1133,7 @@
       elements.corpusList.innerHTML = '<p class="corpus-filter-empty">No works match <strong>' + escHtml(filterRaw) + '</strong>.</p>';
     } else {
       elements.corpusList.innerHTML = groupOrder.map(group => {
-        const items = filteredMap.filter(item => (perText[item.key]?.completion_status || 'excerpt_seed') === group.key);
+        const items = filteredMap.filter(item => effectiveCompletionStatus(item.key, perText[item.key] || {}) === group.key);
         if (!items.length) return '';
         return `<section class="corpus-group" data-completion-group="${group.key}">
           <h3 class="corpus-group-title"><span>${group.label}</span><span>${items.length}</span></h3>
@@ -1211,6 +1218,70 @@
     return renderSourceLocationDisclosure(locator, 'Source location', 'document-source-location');
   }
 
+  const SOURCE_REVIEW_STATUS_LABELS = {
+    collated_to_claimed_witness: 'Collated to claimed witness',
+    partial_or_failed_w1_collation: 'Partial or failed W1 collation',
+    witness_unavailable: 'Witness unavailable'
+  };
+  const SOURCE_REVIEW_STATUS_CLASSES = {
+    collated_to_claimed_witness: 'is-collated',
+    partial_or_failed_w1_collation: 'is-partial',
+    witness_unavailable: 'is-unavailable'
+  };
+
+  function manifestItemForCorpusKey(corpusKey) {
+    const items = state.data.corpus_manifest && Array.isArray(state.data.corpus_manifest.items)
+      ? state.data.corpus_manifest.items
+      : [];
+    return items.find(item => isRecord(item) && item.key === corpusKey) || null;
+  }
+
+  function sourceReviewForCorpusKey(corpusKey) {
+    const manifest = state.data.corpus_manifest;
+    const item = manifestItemForCorpusKey(corpusKey);
+    return {
+      item,
+      status: item ? stringValue(item.source_review_status) : '',
+      evidence: isRecord(manifest && manifest.source_review) ? manifest.source_review : null
+    };
+  }
+
+  function sourceReviewStatusLabel(status) {
+    const value = stringValue(status);
+    if (Object.prototype.hasOwnProperty.call(SOURCE_REVIEW_STATUS_LABELS, value)) return SOURCE_REVIEW_STATUS_LABELS[value];
+    return value ? `Unknown source-review status — validation required (${value})` : 'Source-review status unavailable — validation required';
+  }
+
+  function isCompletionSourceReviewCompatible(completionStatus, sourceReviewStatus) {
+    return completionStatus !== 'complete_selected_witness' || sourceReviewStatus === 'collated_to_claimed_witness';
+  }
+
+  function renderSourceReviewDisclosure(corpusKey) {
+    const review = sourceReviewForCorpusKey(corpusKey);
+    const evidence = review.evidence;
+    const status = review.status;
+    const label = sourceReviewStatusLabel(status);
+    const statusClass = SOURCE_REVIEW_STATUS_CLASSES[status] || 'is-unavailable';
+    const evidenceDate = evidence ? stringValue(evidence.evidence_date) : '';
+    const detail = {
+      title: 'Source-review disclosure',
+      rows: [
+        ['Status', status ? `${label} (${status})` : label],
+        ['Evidence date', evidenceDate || 'W1 evidence metadata unavailable — validation required'],
+        ['W1 report', evidence ? stringValue(evidence.w1_report_path) : 'W1 report metadata unavailable — validation required'],
+        ['W1 register', evidence ? stringValue(evidence.w1_register_path) : 'W1 register metadata unavailable — validation required'],
+        ['Scope', evidence ? stringValue(evidence.status_scope) : 'Containment/remediation state, not a rights decision.'],
+        ['Rights review', 'Separate editorial and jurisdictional rights review; source collation does not approve reuse.']
+      ]
+    };
+    return `<div class="source-location source-review-disclosure ${statusClass}" data-source-review-status="${escHtml(status || 'missing')}" aria-label="Source review: ${escHtml(label)}">
+      <span class="source-review-heading">Source review</span>
+      <span class="source-review-status">${escHtml(label)}</span>
+      <span class="source-review-evidence">W1 · ${escHtml(evidenceDate || 'date unavailable')}</span>
+      ${renderCitationTrigger(detail, 'Details')}
+    </div>`;
+  }
+
   // Coverage disclosure: never let an excerpt be mistaken for a complete text.
   // Source of truth is the validator-generated per-text metrics (which embed the
   // document's own coverage_note when present); unit counts come from live data.
@@ -1228,9 +1299,11 @@
     };
     const unitSummary = Object.entries(unitCounts).map(([k, v]) => `${v} ${UNIT_LABELS[k] || k}`).join(' · ');
     const completionStatus = perText && stringValue(perText.completion_status) || 'excerpt_seed';
+    const sourceReview = sourceReviewForCorpusKey(corpusKey);
+    const completionCompatible = isCompletionSourceReviewCompatible(completionStatus, sourceReview.status);
     const represented = perText && stringValue(perText.coverage);
     const coverage = represented
-      ? (completionStatus === 'complete_selected_witness'
+      ? (completionStatus === 'complete_selected_witness' && completionCompatible
           ? `${represented} · Complete selected witness`
           : `${represented} represented · Incomplete source coverage`)
       : (unitSummary ? `Excerpt seed (${unitSummary})` : 'Excerpt seed');
@@ -1243,7 +1316,7 @@
       title: 'Coverage disclosure',
       rows: [
         ['Coverage', coverage],
-        ['Editorial status', statusLabels[completionStatus] || completionStatus],
+        ['Editorial status', completionCompatible ? (statusLabels[completionStatus] || completionStatus) : 'Completion/status conflict — validation required'],
         ['Note', coverageNote || 'Excerpt-scale seed: the full canonical text is not yet ingested (Phase 2).'],
         ['Measured by', 'data/project_metrics.json → corpus.per_text (validator-generated)']
       ]
@@ -1320,12 +1393,16 @@
       : '';
 
     const docMetric = state.data.project_metrics?.corpus?.per_text?.[state.currentCorpusKey] || {};
+    const sourceReview = sourceReviewForCorpusKey(state.currentCorpusKey);
     const statusLabels = {
       complete_selected_witness: 'Complete witness',
       partial_selected_witness: 'Partial witness',
       excerpt_seed: 'Excerpt seed'
     };
-    const editorialStatus = statusLabels[docMetric.completion_status] || 'Editorial status pending';
+    const completionCompatible = isCompletionSourceReviewCompatible(docMetric.completion_status, sourceReview.status);
+    const editorialStatus = completionCompatible
+      ? (statusLabels[docMetric.completion_status] || 'Editorial status pending')
+      : 'Completion/status conflict — validation required';
     let html = `
       <header class="text-header document-heading">
         <nav class="reader-breadcrumb" aria-label="Reader breadcrumb">
@@ -1343,6 +1420,7 @@
         </div>
         <div class="document-ledger">
           ${renderDocumentSourceDisclosure(doc, state.currentCorpusKey)}
+          ${renderSourceReviewDisclosure(state.currentCorpusKey)}
           ${renderCoverageDisclosure(state.currentCorpusKey)}
           <details class="document-details">
             <summary>Edition details</summary>
@@ -3093,6 +3171,9 @@
     const t = viewHash('reader', corpusKey);
     if (location.hash !== t) { try { location.hash = t; } catch (e) { /* ignore */ } }
     window.TranslateChan.scrollToCase(caseNum);
+  };
+  window.TranslateChan.getSourceReviewStatus = function(corpusKey = state.currentCorpusKey) {
+    return sourceReviewForCorpusKey(corpusKey).status;
   };
   window.TranslateChan.openDoc = function(corpusKey) {
     if (!setCurrentCorpusKey(corpusKey)) return;

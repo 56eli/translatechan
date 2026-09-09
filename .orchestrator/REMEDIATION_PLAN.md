@@ -1,6 +1,6 @@
-# W1 Remediation Plan — R-A Fix-in-Place (owner decision 2026-09-09)
+# W1 Remediation Plan — Adopted Hybrid R-A/R-B/R-C Policy (owner decision 2026-09-09)
 
-**Audience:** the orchestrator agent(s) succeeding session `arena/01a087e2-translatechan`.
+**Audience:** the orchestrator agent(s) succeeding this W1 status-model session.
 Everything needed to run this program is in the repository; no chat context is required.
 
 ## 0. Evidence base (read first)
@@ -15,10 +15,22 @@ Everything needed to run this program is in the repository; no chat context is r
 4. `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt` — sha256 of the 174 extracted
    reference texts; verify any freshly acquired refs against it before collating.
 
-## 1. Strategy (R-A, confirmed by owner)
+## 1. Strategy — adopted hybrid remediation policy (owner decision 2026-09-09)
 
-For every document, and every flagged field, make the corpus text **actually be the
-claimed witness's text** — or make the claim match reality. Rules:
+The project adopts a hybrid policy rather than treating every document as an R-A rewrite:
+
+- **R-A — authoritative witness available:** re-key source fields from the authoritative
+  witness, correct the witness claim where the evidence supports a different source, and
+  retain only text that can be mechanically tied to that witness.
+- **R-B — retained project retelling:** keep a useful project retelling only when it is
+  clearly labeled as such, remove unsupported witness claims from its public metadata and
+  prose, and keep translation/rights disclosures separate.
+- **R-C — quarantine:** quarantine material that cannot responsibly be sourced or relabeled
+  without inventing authority; do not expose it as a canonical witness excerpt.
+
+For each document and flagged field, choose R-A when authoritative witness text is available;
+choose R-B for a retained project retelling whose witness claim is removed; choose R-C when
+neither sourcing nor honest relabeling is responsible. Rules for the R-A work packages:
 
 - **EXACT/MINOR fields:** leave untouched. MINOR fields may optionally be aligned to the
   witness grapheme, but punctuation/grapheme residue is acceptable and not required.

@@ -10,6 +10,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // a header GitHub link; keep that composition from regressing during app work.
 const publicHtml = readFileSync(join(ROOT, 'index.html'), 'utf8');
 const appSrc = readFileSync(join(ROOT, 'app.js'), 'utf8');
+const validatorSrc = readFileSync(join(ROOT, 'scripts', 'validate_data.py'), 'utf8');
 const themeInitSrc = readFileSync(join(ROOT, 'theme-init.js'), 'utf8');
 for (const forbidden of ['data-view="studio"', 'data-view="agents"', 'id="view-studio"', 'id="view-agents"', 'https://github.com/56eli/translatechan']) {
   if (publicHtml.includes(forbidden)) throw new Error(`public Pages scope regression: ${forbidden}`);
@@ -275,8 +276,48 @@ globalThis.document = {
 // Load data bundle + app
 eval(readFileSync(join(ROOT, 'app_data.js'), 'utf8'));
 if (!window.TRANSLATECHAN_DATA) throw new Error('app_data.js did not populate TRANSLATECHAN_DATA');
-if (!Array.isArray(window.TRANSLATECHAN_DATA.corpus_manifest?.items) || window.TRANSLATECHAN_DATA.corpus_manifest.items.length !== 35) {
+const manifest = window.TRANSLATECHAN_DATA.corpus_manifest;
+const manifestItems = manifest?.items || [];
+if (!Array.isArray(manifestItems) || manifestItems.length !== 35) {
   throw new Error('app_data.js is missing the shared 35-item corpus manifest');
+}
+const allowedSourceReviewStatuses = new Set([
+  'collated_to_claimed_witness',
+  'partial_or_failed_w1_collation',
+  'witness_unavailable'
+]);
+const sourceReviewCounts = Object.fromEntries([...allowedSourceReviewStatuses].map(status => [status, 0]));
+for (const item of manifestItems) {
+  if (!allowedSourceReviewStatuses.has(item?.source_review_status)) {
+    throw new Error(`manifest item ${item?.key || '(missing key)'} has an invalid source-review status`);
+  }
+  sourceReviewCounts[item.source_review_status]++;
+}
+const expectedSourceReviewMetadata = {
+  w1_report_path: 'sessions/COLLATION_W1_2026-09-09.md',
+  w1_register_path: 'sessions/COLLATION_REGISTER_2026-09-09.json',
+  evidence_date: '2026-09-09'
+};
+for (const [field, expected] of Object.entries(expectedSourceReviewMetadata)) {
+  if (manifest.source_review?.[field] !== expected) throw new Error(`manifest source_review.${field} is missing or incorrect`);
+}
+if (!String(manifest.source_review?.status_scope || '').toLowerCase().includes('containment/remediation') ||
+    !String(manifest.source_review?.status_scope || '').toLowerCase().includes('not a rights decision')) {
+  throw new Error('manifest source_review scope must identify containment/remediation rather than rights approval');
+}
+const expectedSourceReviewCounts = {
+  collated_to_claimed_witness: 1,
+  partial_or_failed_w1_collation: 32,
+  witness_unavailable: 2
+};
+for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
+  if (sourceReviewCounts[status] !== expected) throw new Error(`unexpected ${status} count: ${sourceReviewCounts[status]}`);
+}
+const wumenguanManifestItem = manifestItems.find(item => item?.key === 'wumenguan');
+const xinxinManifestItem = manifestItems.find(item => item?.key === 'xinxin_ming');
+if (wumenguanManifestItem?.completion_status === 'complete_selected_witness' ||
+    xinxinManifestItem?.completion_status === 'complete_selected_witness') {
+  throw new Error('Wumenguan and Xinxin Ming must not be represented as complete selected witnesses');
 }
 if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 35 ||
     Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 35) {
@@ -291,9 +332,15 @@ if (Object.keys(perText).length !== 35) {
 for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['platform_sutra', '10/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
-if (perText.wumenguan?.is_complete !== true || perText.xinxin_ming?.is_complete !== true ||
+if (perText.wumenguan?.is_complete !== false || perText.xinxin_ming?.is_complete !== false ||
+    perText.wumenguan?.completion_status !== 'partial_selected_witness' ||
+    perText.xinxin_ming?.completion_status !== 'partial_selected_witness' ||
     perText.biyanlu_cases?.is_complete !== false || perText.platform_sutra?.is_complete !== false) {
-  throw new Error('editorial completion status must distinguish complete witnesses from represented unit counts');
+  throw new Error('editorial completion status must distinguish W1-contained witnesses from represented unit counts');
+}
+const metricSourceReviewCounts = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.source_review_statuses || {};
+for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
+  if (metricSourceReviewCounts[status] !== expected) throw new Error(`metrics missing ${status} count`);
 }
 if ('congronglu_cases' in perText || window.TRANSLATECHAN_DATA.corpus?.congronglu_cases) {
   throw new Error('quarantined Congronglu source placeholders must not be present in the public bundle');
@@ -309,10 +356,42 @@ console.log('APP executed + init() completed without crash');
 // 1. Exercise renderReader for every corpus key via corpus button clicks
 let failures = 0;
 for (const [key, fn] of Object.entries(corpusClicks)) {
-  try { fn(); }
+  try {
+    fn();
+    const expectedStatus = manifestItems.find(item => item?.key === key)?.source_review_status;
+    const rendered = ids['reader-content-target']._innerHTML;
+    if (!rendered.includes('class="source-location source-review-disclosure') ||
+        !rendered.includes(`data-source-review-status="${expectedStatus}"`)) {
+      failures++; console.log(`  ❌ Reader source-review disclosure missing for ${key}`);
+    }
+  }
   catch (e) { failures++; console.log(`  ❌ renderReader CRASH for ${key}: ${e.message}`); }
 }
 console.log(`RENDERER: ${Object.keys(corpusClicks).length} corpus texts exercised, ${failures} crashes`);
+if (!appSrc.includes('function sourceReviewForCorpusKey(') || !appSrc.includes('renderSourceReviewDisclosure')) {
+  failures++; console.log('❌ Reader source-review resolver/disclosure helper is missing');
+}
+if (!validatorSrc.includes("complete_selected_witness requires source_review_status='collated_to_claimed_witness'")) {
+  failures++; console.log('❌ validator does not reject incompatible completion/source-review status');
+}
+// An incompatible completion/status pair must never render as a complete witness,
+// even before the Python validator rejects the malformed bundle.
+const savedWumenguanCompletion = perText.wumenguan.completion_status;
+const savedWumenguanComplete = perText.wumenguan.is_complete;
+const savedWumenguanManifestCompletion = wumenguanManifestItem.completion_status;
+wumenguanManifestItem.completion_status = 'complete_selected_witness';
+perText.wumenguan.completion_status = 'complete_selected_witness';
+perText.wumenguan.is_complete = true;
+window.TranslateChan.openDoc('wumenguan');
+const incompatibleHtml = ids['reader-content-target']._innerHTML;
+if (!incompatibleHtml.includes('Completion/status conflict — validation required') ||
+    incompatibleHtml.includes('Complete witness</span>')) {
+  failures++; console.log('❌ incompatible completion/source-review pair rendered as complete');
+}
+wumenguanManifestItem.completion_status = savedWumenguanManifestCompletion;
+perText.wumenguan.completion_status = savedWumenguanCompletion;
+perText.wumenguan.is_complete = savedWumenguanComplete;
+window.TranslateChan.openDoc('wumenguan');
 
 // 1b. The Linji locator pilot must expose its reviewed unit anchor, not only T1985.
 // The complete-text ingestion (2026-08-09) makes the section list long: the reader
@@ -575,17 +654,20 @@ try {
 } catch (e) { failures++; console.log(`❌ lineage source disclosure crashed: ${e.message}`); }
 
 // 4ff. Completion marks come from explicit editorial status, not N/N arithmetic.
-// Wumenguan/Xinxin are complete selected witnesses; Biyanlu and Platform can
-// show representation ratios but must not receive a complete checkmark.
+// W1 containment removes the two former complete-selected-witness claims. The
+// represented Wumenguan/Xinxin units remain visible, but neither receives a
+// complete checkmark until its source-review status is collated.
 try {
   corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
   const corpusListHtml = ids['corpus-selector-list']._innerHTML;
-  if (!corpusListHtml.includes('Complete selected witness')) {
-    failures++; console.log('❌ 4ff: sidebar should expose complete-selected-witness marks');
+  if (corpusListHtml.includes('Complete selected witness') || corpusListHtml.includes('data-completion-group="complete_selected_witness"')) {
+    failures++; console.log('❌ 4ff: W1-contained corpus must not expose complete-selected-witness marks');
   }
-  for (const [group, label, count] of [['complete_selected_witness', 'Complete witnesses', 2], ['partial_selected_witness', 'Partial witnesses', 2], ['excerpt_seed', 'Excerpt seeds', 31]]) {
-    const pattern = new RegExp(`data-completion-group="${group}"[\\s\\S]*?${label}[\\s\\S]*?<span>${count}<\\/span>`);
-    if (!pattern.test(corpusListHtml)) failures++, console.log(`❌ 4ff: missing ${label} (${count}) shelf group`);
+  for (const [group, label, count] of [['partial_selected_witness', 'Partial witnesses', 4], ['excerpt_seed', 'Excerpt seeds', 31]]) {
+    const groupHeading = `<span>${label}</span><span>${count}</span>`;
+    if (!corpusListHtml.includes(`data-completion-group="${group}"`) || !corpusListHtml.includes(groupHeading)) {
+      failures++; console.log(`❌ 4ff: missing ${label} (${count}) shelf group`);
+    }
   }
   if (!corpusListHtml.includes('100/100') || !corpusListHtml.includes('10/10')) {
     failures++; console.log('❌ 4ff: partial/excerpt representation ratios should remain visible');
@@ -614,8 +696,8 @@ try {
     if (wmCount !== 1 || otherCount !== 0) {
       failures++; console.log(`❌ 4hh: corpus filter "wumenguan" should narrow to 1 entry (got wmCount=${wmCount}, otherCount=${otherCount})`);
     }
-    if (!filtered.includes('is-complete')) {
-      failures++; console.log('❌ 4hh: filtered Wumenguan button should still show ✓');
+    if (filtered.includes('is-complete') || !filtered.includes('48/48')) {
+      failures++; console.log('❌ 4hh: filtered Wumenguan button should show representation without a complete mark');
     }
     // Clear the filter and confirm the full active manifest returns.
     (filterInput._handlers['input'] || []).forEach(fn => fn({ target: { value: '' } }));
