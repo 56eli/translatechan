@@ -3,6 +3,8 @@
 > **Current evidence:** [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md)
 > **Prior evidence:** [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
 > **Convention:** this file is the current verdict and index; dated reports are immutable snapshots and may contain superseded metrics or conclusions.
+>
+> **⚠️ 2026-09-09 (W1 collation):** an independent collation of **every** corpus source-Chinese field against the official CBETA XML P5 edition ([report](./sessions/COLLATION_W1_2026-09-09.md), [register](./sessions/COLLATION_REGISTER_2026-09-09.json)) found that only 1 of 34 documents collates 100% against its claimed witness; 27 fail outright, including fabricated preface/verses inside the two `complete_selected_witness` texts and a false canonical claim for Zhaozhou (T1987 is the Caoshan record). Authenticity claims elsewhere in this file predate that evidence; remediation is pending an owner decision.
 
 ## 1. Current verdict — 2026-08-11
 
@@ -86,6 +88,7 @@ The weighted score is **7.2/10**. The prior 7.6 summary was inconsistent with it
 | 2026-08-10 | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) | Containment, behavior fixes, initial walnut shell and Reader |
 | 2026-08-10 | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md) | Earlier architecture/design audit; conclusions superseded where they conflict |
 | 2026-08-08–10 | [`sessions/`](./sessions/) | Historical audit and implementation evidence |
+| 2026-09-09 | [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md) | **Independent full-corpus collation vs CBETA XML P5** (W1); per-field register + refs manifest |
 
 ## 7. Maintenance rule
 
