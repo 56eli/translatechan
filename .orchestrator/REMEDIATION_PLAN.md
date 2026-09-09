@@ -43,6 +43,16 @@ claimed witness's text** — or make the claim match reality. Rules:
   include the before/after summary in the PR description. The register is the acceptance
   criterion: flagged count for the document must drop to the documented residual.
 
+### 1.1 Wave-0 policy (recorded 2026-09-09, before Wave 1 PR 1)
+
+Dialogue-marker & variant policy (R-A): Re-keyed fields reproduce the claimed witness's
+own text verbatim (NFKC-normalized), preserving the witness's dialogue markers
+(曰/云/問/…) and graphic variants (説/說, 爲/為, …) exactly; no repo-wide character or
+marker normalization is applied to stored text — the collation harness already treats
+曰/云 and listed variants as equivalent for matching, so residue is tolerated. Where a
+document has more than one candidate recension, exactly one is chosen, recorded in the
+field's provenance, and used for all re-keying in that document.
+
 ## 2. Sequencing (one document per PR; order below)
 
 **Wave 1 — flagship partials (95% of volume, mostly genuine):**
@@ -136,7 +146,7 @@ locators); witness changes; safety statement.
 
 ## 5. Wave checklist
 
-- [ ] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1)
+- [x] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1) — see §1.1
 - [ ] Wave 1: wumenguan ☐ biyanlu_cases ☐ linji_yulu ☐ xinxin_ming ☐ platform_sutra ☐
 - [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
