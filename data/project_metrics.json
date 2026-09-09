@@ -428,7 +428,7 @@
         "completion_status": "complete_selected_witness",
         "content_zh_chars": 5528,
         "coverage": "48/48 cases",
-        "coverage_note": "Complete — all 48 cases + preface + epilogue (completed 2026-08-08; T2005 宗紹編, 48則)",
+        "coverage_note": "Complete — all 48 cases + re-keyed preface + project-authored epilogue (completed 2026-08-08; T2005 宗紹編, 48則; epilogue project-authored, not from T2005)",
         "declared_zh_chars": 5528,
         "is_complete": true,
         "shapes": [
