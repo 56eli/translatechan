@@ -17,7 +17,7 @@ honest-disclosure invariants.
 
 ## Task Queue
 
-- [ ] **PR-C — Lineage corpus-key curation (6 profiles)** — *next; prompt issued 2026-09-09*
+- [x] **PR-C — Lineage corpus-key curation (6 profiles)** — *next; prompt issued 2026-09-09*
 - [ ] **PR-A — Real-browser verification pass**: obtain Chromium, capture desktop/mobile × light/dark evidence of the merged design, fix what surfaces, extend `scripts/browser_test.mjs` only as needed
 - [ ] **PR-B — CSP hardening**: remove the 41 JS-generated inline styles in `app.js` → drop `style-src 'unsafe-inline'` from `index.html`/`docs/index.html`
 - [ ] **PR-D — Performance (measure first)**: benchmark first-load; lazy-render hidden rooms / split bundle only if measurements justify it (audit's explicit precondition)
