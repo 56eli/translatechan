@@ -873,7 +873,10 @@
       "Yaoshan Weiyan (藥山惟儼)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "biyanlu_cases",
+      "wudeng_huiyuan"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -910,7 +913,10 @@
       "Yunyan Tansheng (雲巖曇晟)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "biyanlu_cases",
+      "dongshan_yulu"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -1230,7 +1236,7 @@
     "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "frontier_profile_unverified",
-      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding."
+      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding. Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus; linked_corpus_keys intentionally left empty."
     }
   },
   {
@@ -1260,7 +1266,11 @@
     "cbeta_id": "No source record assigned",
     "summary": "Included to make Deshan’s displayed teacher relationship navigable. Exact textual and biographical evidence remains to be recorded.",
     "profile_status": "Frontier profile — no exact biographical/source locator recorded",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "wumenguan",
+      "deshan_yulu",
+      "biyanlu_cases"
+    ],
     "profile_evidence": {
       "status": "frontier_profile_unverified",
       "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding."
@@ -1296,7 +1306,7 @@
     "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "frontier_profile_unverified",
-      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding."
+      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding. Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus (the 方會 hits in data/corpus/biyanlu_cases.json cases[21]/[23]/[87] commentary_zh are the grammatical phrase 方會 'would then understand', not the master's name); linked_corpus_keys intentionally left empty."
     }
   },
   {
@@ -1329,7 +1339,7 @@
     "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "frontier_profile_unverified",
-      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding."
+      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding. Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus; linked_corpus_keys intentionally left empty."
     }
   }
 ]

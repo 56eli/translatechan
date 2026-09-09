@@ -715,13 +715,14 @@ try {
   if (dossierPanel.hidden !== true) {
     failures++; console.log('❌ 4ee: closing a dossier must restore its hidden state');
   }
-  // Spot-check the Linked corpus warning: 4 frontier scaffolds (prajnatara,
-  // longtan_chongxin, yangqi_fanghui, dahong_zuzheng) + 2 historical masters
-  // (yaoshan_weiyan, yunyan_tansheng) still have empty linked_corpus_keys.
-  window.TranslateChan.openMasterDossier('yaoshan_weiyan');
-  const yaoshanHtml = ids['dossier-content']._innerHTML;
-  if (!yaoshanHtml.includes('Project corpus link not yet curated')) {
-    failures++; console.log('❌ 4ee: yaoshan_weiyan dossier should disclose the missing corpus link');
+  // Spot-check the Linked corpus warning: 3 frontier scaffolds (prajnatara,
+  // yangqi_fanghui, dahong_zuzheng) intentionally keep empty linked_corpus_keys
+  // after the 2026-09-09 curation (dated honest negatives); the dossier must
+  // still disclose the missing corpus link rather than hiding it.
+  window.TranslateChan.openMasterDossier('prajnatara');
+  const prajnataraHtml = ids['dossier-content']._innerHTML;
+  if (!prajnataraHtml.includes('Project corpus link not yet curated')) {
+    failures++; console.log('❌ 4ee: prajnatara dossier should disclose the missing corpus link');
   }
 } catch (e) { failures++; console.log(`❌ 4ee dossier spot-check crashed: ${e.message}`); }
 // 4m. Hash routing: initial deep-link state + viewHash helper

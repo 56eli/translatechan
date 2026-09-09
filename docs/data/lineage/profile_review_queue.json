@@ -176,7 +176,7 @@
       "priority": "normal",
       "review_status": "needs_exact_locator",
       "current_evidence_status": "seed_profile_pending_exact_locator",
-      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "next_action": "Corpus cross-reference completed 2026-09-09: linked_corpus_keys curated to verified active-corpus occurrences (biyanlu_cases, wudeng_huiyuan). Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
       "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
     },
     {
@@ -184,7 +184,7 @@
       "priority": "normal",
       "review_status": "needs_exact_locator",
       "current_evidence_status": "seed_profile_pending_exact_locator",
-      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "next_action": "Corpus cross-reference completed 2026-09-09: linked_corpus_keys curated to verified active-corpus occurrences (biyanlu_cases, dongshan_yulu). Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
       "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
     },
     {
@@ -248,7 +248,7 @@
       "priority": "high",
       "review_status": "frontier_source_needed",
       "current_evidence_status": "frontier_profile_unverified",
-      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "next_action": "Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus; linked_corpus_keys intentionally left empty. Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
       "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
     },
     {
@@ -256,7 +256,7 @@
       "priority": "high",
       "review_status": "frontier_source_needed",
       "current_evidence_status": "frontier_profile_unverified",
-      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "next_action": "Corpus cross-reference completed 2026-09-09: linked_corpus_keys curated to verified active-corpus occurrences (wumenguan, deshan_yulu, biyanlu_cases). Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
       "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
     },
     {
@@ -264,7 +264,7 @@
       "priority": "high",
       "review_status": "frontier_source_needed",
       "current_evidence_status": "frontier_profile_unverified",
-      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "next_action": "Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus (the biyanlu_cases 方會 hits are the grammatical phrase, not the name); linked_corpus_keys intentionally left empty. Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
       "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
     },
     {
@@ -272,7 +272,7 @@
       "priority": "high",
       "review_status": "frontier_source_needed",
       "current_evidence_status": "frontier_profile_unverified",
-      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "next_action": "Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus; linked_corpus_keys intentionally left empty. Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
       "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
     }
   ]
