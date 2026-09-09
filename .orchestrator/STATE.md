@@ -11,9 +11,16 @@
 
 ## Active Milestone
 
-Lift the repository from audited **7.2/10** (`repo_ready = fail`, gate ≥ 8.0)
-via small, evidence-backed, single-PR tasks — without weakening the project's
-honest-disclosure invariants.
+**W1/W2 — Full corpus authenticity collation against official CBETA** (user directive 2026-09-09: W1/W2 exclusively first). Interim evidence: `audit-w1/REPORT_W1_INTERIM.md` (orchestrator workspace; final report to land in `sessions/` via PR). Interim verdict: **the "source-tracked" claim does not hold — fabrication suspects and witness misattributions exist even in the two `complete_selected_witness` texts** (Wumenguan, Xinxin Ming). Reference library acquired: 174 official CBETA texts (T45/T47/T48/T51) + collation harness in `audit-w1/`. Remaining: fix harness containment/title/REWORDED bugs, acquire X-collection + Dunhuang witnesses, itemize every non-collating field, then remediation PRs.
+
+Previous milestone (superseded): lift 7.2/10 → gate 8.0 via small evidence-backed PRs. PR-C (lineage corpus keys) reviewed MERGE-approved, awaiting user merge (PR #20).
+
+## Standing Decisions (2026-09-09, owner)
+
+- **Vision:** vision.md in full is the target; the audit serves that ambition.
+- **Collation depth:** FULL — 100% of source Chinese fields, all documents.
+- **Scoreboard: REMOVE** `.scoreboard/` + `SCOREBOARD.md` entirely; orchestrator oversight replaces it (queued PR after W1/W2; update AGENTS.md contract accordingly; user_score protocol dies with the file).
+- **Sequencing:** W1/W2 exclusive until corpus integrity is established. PR-A/B/D frozen.
 
 ## Task Queue
 
