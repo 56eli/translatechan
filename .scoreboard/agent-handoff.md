@@ -1,16 +1,18 @@
 # Agent Handoff
 
-> **Last updated:** 2026-08-11 · **Session:** `arena/019ff089-translatechan`
-> **Fixed branch:** `arena/019ff089-translatechan` — do not switch or push elsewhere.
-> **Main deployment:** `63dfe37` (PR #18 merged) · **Latest implementation:** `e6e24bf` · **Pages:** built
+> **Last updated:** 2026-09-09 · **Session:** `arena/01a087ea-translatechan`
+> **Fixed branch:** `arena/01a087ea-translatechan` — do not switch or push elsewhere.
+> **Main deployment:** `63dfe37` (PR #18 merged) · **Latest implementation:** lineage corpus-key curation PR (this session) · **Pages:** built
 
 ## Current state
 
-The owner said the GitHub Pages design was **too plain/generic** and focused **too heavily on Chinese characters**, then selected **preserve the walnut-hall direction**. This session implemented a bolder English-first walnut/factory identity across the shell, hero, room headings, Reader hierarchy, secondary rooms, mobile controls, and Open Graph image.
+**2026-09-09 (PR-C):** lineage corpus-key curation closed the six-profile `linked_corpus_keys` gap. Yaoshan Weiyan, Yunyan Tansheng, and Longtan Chongxin gained passage-verified keys (Longtan confirmed as one master across Wumenguan/Deshan/Biyanlu); prajnatara, yangqi_fanghui, and dahong_zuzheng keep empty keys with dated 2026-09-09 corpus-negative notes in `profile_evidence.note` and the review queue (the biyanlu 方會 hits are the grammatical phrase "would then understand", not the master). Validator lineage warnings dropped **6 → 3**; all remaining empties are documented honest negatives. Cross-reference metadata only — no evidence status, review status, priority, or completion claim changed.
 
-The session also added visible recovery for missing/malformed data and top-level initialization failures, moved CSP before every script, progressively removed repetitive visible copy while retaining on-demand provenance, extended smoke/browser coverage, completed a full repository audit, and corrected scoreboard arithmetic. The owner then requested documentation/handoff completion and PR #18 merge; main Quality and Pages deployment both passed.
+The owner said the GitHub Pages design was **too plain/generic** and focused **too heavily on Chinese characters**, then selected **preserve the walnut-hall direction**. The 2026-08-11 session implemented a bolder English-first walnut/factory identity across the shell, hero, room headings, Reader hierarchy, secondary rooms, mobile controls, and Open Graph image.
 
-Current weighted score: **7.2/10**; `repo_ready = fail`. All `user_score` fields remain `null`; the owner supplied qualitative, not numeric, feedback.
+That session also added visible recovery for missing/malformed data and top-level initialization failures, moved CSP before every script, progressively removed repetitive visible copy while retaining on-demand provenance, extended smoke/browser coverage, completed a full repository audit, and corrected scoreboard arithmetic. The owner then requested documentation/handoff completion and PR #18 merge; main Quality and Pages deployment both passed.
+
+Current weighted score: **7.2/10**; `repo_ready = fail`. All `user_score` fields remain `null`; the owner supplied qualitative, not numeric, feedback. PR-C raised `content_quality` AI 6 → 7 on evidence (weighted overall unchanged when rounded).
 
 ## Current measured state
 
@@ -27,7 +29,7 @@ local first-load estimate≈556 KB gzip before fonts
 
 ```text
 compile                         PASS
-semantic validator             PASS; 6 lineage warnings
+semantic validator             PASS; 3 lineage warnings (was 6 before 2026-09-09)
 build + root/docs sync         PASS
 smoke (35 renderers)           PASS
 npm audit                      PASS; 0 vulnerabilities
@@ -47,7 +49,7 @@ Browser download failed with network `ECONNRESET`; apt package sources were also
 4. CI omits four mirrored paths; branch protection is unconfirmed.
 5. Full bundle and all hidden rooms initialize up front.
 6. Forty-one generated inline styles keep CSP `unsafe-inline` necessary.
-7. Six lineage profiles lack linked corpus keys; 30 edges await exact locators.
+7. Three lineage profiles lack linked corpus keys (prajnatara, yangqi_fanghui, dahong_zuzheng — frontier scaffolds with no active-corpus occurrence; reviewed 2026-09-09); 30 edges await exact locators.
 
 ## Recommended next sequence
 

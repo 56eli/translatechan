@@ -82,7 +82,7 @@ Completion requires explicit `complete_selected_witness` status plus satisfied u
 
 - All 14 translation-rights records remain `needs_rights_review` or `jurisdiction_review_required`.
 - Biyanlu, Linji, Platform, and excerpt seeds need broader field-level review.
-- Six lineage masters lack linked corpus keys; all 30 lineage edges await exact locators.
+- Three lineage profiles lack linked corpus keys (prajnatara, yangqi_fanghui, dahong_zuzheng — frontier scaffolds with no active-corpus occurrence; reviewed 2026-09-09); all 30 lineage edges await exact locators.
 - Congronglu remains quarantined; do not restore it without source-pinned field-level collation.
 
 ### Engineering and operations

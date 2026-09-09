@@ -53,7 +53,7 @@ Current generated measurements:
 8. Repository description, homepage, and topics are empty; GitHub license detection returns `NOASSERTION`.
 9. Google Fonts is a third-party runtime request; no `SECURITY.md` exists.
 10. SVG social cards have uneven platform support; a PNG fallback would be safer.
-11. Six lineage profiles lack linked corpus keys and all 30 edges await exact locators.
+11. Three lineage profiles lack linked corpus keys (prajnatara, yangqi_fanghui, dahong_zuzheng — frontier scaffolds with no active-corpus occurrence; reviewed 2026-09-09) and all 30 edges await exact locators.
 
 ## 4. Verification
 

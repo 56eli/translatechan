@@ -1,13 +1,13 @@
 # 📊 Fake Chan Factory — Repository Scoreboard
 
-> **Last updated:** 2026-08-11 · **Session:** `arena/019ff089-translatechan`
+> **Last updated:** 2026-09-09 · **Session:** `arena/01a087ea-translatechan`
 > **Evidence:** [current full audit](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md) · [YAML source](./.scoreboard/scoreboard.yml) · [history](./.scoreboard/history.md) · [handoff](./.scoreboard/agent-handoff.md)
 
 ## Current result
 
 **Overall effective score: 7.2/10. `repo_ready = fail`.**
 
-The previous 7.6 summary did not match its own aspect table, whose weighted result was 6.9. This audit corrected the arithmetic and then recorded evidenced improvements to error recovery, CSP ordering, Pages presentation, and agent handoff quality. No numeric owner score was supplied; every `user_score` remains `null`.
+The previous 7.6 summary did not match its own aspect table, whose weighted result was 6.9. This audit corrected the arithmetic and then recorded evidenced improvements to error recovery, CSP ordering, Pages presentation, and agent handoff quality. The 2026-09-09 lineage corpus-key curation (PR-C) raised content quality by one point on passage-verified evidence; the weighted overall stays 7.2 when rounded. No numeric owner score was supplied; every `user_score` remains `null`.
 
 ## Owner direction
 
@@ -17,10 +17,10 @@ The owner said the prior Pages design was **too plain/generic** and placed **too
 
 | Priority | Aspect | Score | Why |
 |---:|---|---:|---|
-| 1 | Content quality | 6 | All 14 rights records still require human/jurisdiction review; field-level source review remains incomplete |
-| 2 | Deployment readiness | 6 | Rights, browser evidence, and operations gates block release |
-| 3 | CI/CD | 6 | Browser/a11y checks are not required; mirrored asset coverage and branch protection remain unresolved |
-| 4 | GitHub Pages presentation | 7 | English-first redesign and copy cleanup merged; real-browser screenshots remain |
+| 1 | Deployment readiness | 6 | Rights, browser evidence, and operations gates block release |
+| 2 | CI/CD | 6 | Browser/a11y checks are not required; mirrored asset coverage and branch protection remain unresolved |
+| 3 | GitHub Pages presentation | 7 | English-first redesign and copy cleanup merged; real-browser screenshots remain |
+| 4 | Content quality | 7 | Lineage corpus-key curation closed 2026-09-09 (3 verified links + 3 dated negatives; warnings 6 → 3); rights review and field-level source review remain |
 | 5 | Performance | 7 | ~556 KB local gzip before fonts; all rooms and the full data global initialize up front |
 
 ## Score table
@@ -43,7 +43,7 @@ The owner said the prior Pages design was **too plain/generic** and placed **too
 | GitHub Pages presentation | 5 | 8 | 7 | — | 7 | merged; browser evidence pending |
 | UX / usability | 4 | 8 | 7 | — | 7 | needs browser review |
 | Accessibility | 3 | 8 | 7 | — | 7 | needs real-engine review |
-| Content quality | 3 | 8 | 6 | — | 6 | needs human review |
+| Content quality | 3 | 8 | 7 | — | 7 | needs human review |
 | Feature completeness | 4 | 8 | 7 | — | 7 | needs work |
 | Deployment readiness | 4 | 8 | 6 | — | 6 | release blocked |
 | Agent readiness | 5 | 8 | 8 | — | 8 | healthy |
