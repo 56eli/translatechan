@@ -5,33 +5,41 @@
 > contracts and scoring: [`AGENTS.md`](../AGENTS.md),
 > [`.scoreboard/`](../.scoreboard/), [`HANDOFF.md`](../HANDOFF.md),
 > [`AUDIT.md`](../AUDIT.md), and append-only [`sessions/`](../sessions/).
-> Maintained by the orchestrator on branch `arena/01a087e2-translatechan`.
+> Maintained as a repository coordination file; it is not tied to an unrelated branch.
 > Agents update it as a PR deliverable **only** when the task prompt says so;
 > the human operator may also edit it directly.
 
 ## Active Milestone
 
-**W1 COMPLETE (2026-09-09, this branch) — full-corpus collation evidence landed.** Report: `sessions/COLLATION_W1_2026-09-09.md`; per-field register: `sessions/COLLATION_REGISTER_2026-09-09.json` (637 flagged entries); harness: `scripts/collate_corpus.py` (refs NOT committed — 21MB; acquisition commands in harness docstring; digests in `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt`). Verdict: only 1/34 documents collates 100% to its claimed witness; 27 fail outright; verified fabrications exist inside both `complete_selected_witness` texts (Wumenguan preface/epilogue/verses, case-23 pointer); Zhaozhou's canonical claim (T1987) is false (T1987 = Caoshan). 233/237 title_zh fields are project-authored composites.
+**W1 COMPLETE (2026-09-09), CORRECTED (2026-09-10) — full-corpus collation evidence landed and is now reproducible.** Historical record (append-only): `sessions/COLLATION_W1_2026-09-09.md` + `sessions/COLLATION_REGISTER_2026-09-09.json` (34 documents, 622 flagged entries; the report's 637 figure is superseded and was never the register's arithmetic). Authoritative record: `sessions/COLLATION_W1_2026-09-10_CORRECTION.md` + `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` (35 documents — the 2026-09-10 overlay adds the Shitou Sandokai item the first run never mapped — 630 flagged entries) with `sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`. Reference layer is now regenerable from the repository: `scripts/collate_refs.py` implements the extraction rule, pins CBETA XML P5 revision `dbdea41071e1e260ad84b72faefd4587333cf76d`, and verifies every reference digest (33 of 39 byte-identical to the 2026-09-09 manifest; the 6 drifted references change no document verdict). Verdict: only 1 of 35 documents collates 100% to its claimed witness; 22 have no collating source-content field at all (the 2026-09-09 report's tier table narrated 27 under a different denominator); verified fabrications exist inside both former `complete_selected_witness` texts (Wumenguan preface/epilogue/verses, case-23 pointer); Zhaozhou's canonical claim (T1987) is false (T1987 = Caoshan) and the corpus record still carries it — re-pointing is R-A work, deliberately not done here. Title/name metadata is excluded from the content denominator (391 metadata fields measured separately), so `collated_to_claimed_witness` never claims excluded metadata was collated.
 
-**Next (in order):**
-1. W2 — spot-check the 177 "edition-verified quotations" vs public-domain editions (Senzaki & Reps 1934 first; fetchable via Archive.org if network allows).
-2. REMEDIATION — owner decision pending: R-A fix-in-place from witnesses / R-B honest relabel (retelling badges, drop witness claims) / R-C quarantine worst docs. Then per-doc PRs delegated to coder agents, keyed to register entries; composite titles split out of `title_zh`; README/HANDOFF/ROADMAP/AUDIT claims corrected; validator rules added (source fields must collate; no editorial text in source fields).
+**W1 public status model integrated (2026-09-09):** every manifest item now carries one of the exact source-review states `collated_to_claimed_witness`, `partial_or_failed_w1_collation`, or `witness_unavailable`; W1 report/register paths and evidence date are recorded at manifest level; completion/status incompatibilities are rejected; the Reader exposes the state visibly. This is a containment/remediation state, not a rights decision. No corpus source text was re-keyed. Per-document source remediation remains pending.
+
+**W1 evidence contract hardened (2026-09-10, current work — merge-ready PR pending):** `scripts/w1_evidence.py` now independently recomputes every derived figure instead of trusting stored ones — per-document field arithmetic (totals vs class summaries vs flagged arrays), per-document reference provenance against both committed digest manifests (a drifted/unlisted reference can never upgrade a status), the aggregate block, and the historical-vs-authoritative reproduction comparison; the correction report's numeric claims (document/flagged reconciliation, status counts, verification counts, cited register/manifest digests) and the report/register/manifest dates are validated. `--write-metrics` with any blocking evidence/data error exits nonzero and leaves `data/project_metrics.json` byte-identical (11-case mutation matrix in `scripts/test_source_review_rules.py`). One shared completion rule end-to-end: `complete` ⇔ `complete_selected_witness` + `collated_to_claimed_witness` (validator, `complete_document_keys()`, `per_text_metrics()`, Reader, shelf, smoke + runtime checks in `scripts/compat_runtime_check.mjs`). Source-Chinese preservation is CI-gated: `scripts/test_source_preservation.py` byte-compares `data/corpus/` against the pinned base commit `3cc7a8e9681ea8646d2b4fd8d86f1a4b1eea6b43` and permits only the two intended `coverage_note` changes. The accidental public API `window.TranslateChan.getSourceReviewStatus` is removed (no replacement). The 2026-09-09 evidence files remain untouched (append-only).
+
+**Next planned task:** visual-system reset (separate from this containment/status-model work; do not begin it in this PR).
+
+**Next (after the visual-system reset, in order):**
+1. REMEDIATION under the adopted hybrid policy: R-A where authoritative witness text is available; R-B for retained project retellings with witness claims removed; R-C for material that cannot responsibly be sourced or relabeled. Per-doc work remains keyed to register entries.
+2. W2 — spot-check the 177 "edition-verified quotations" vs public-domain editions (Senzaki & Reps 1934 first; fetchable via Archive.org if network allows).
 3. Then scoreboard-removal PR + PR-A/B/D per earlier queue.
 
-Reference state: extracted CBETA refs live OUTSIDE the repo at `/home/user/audit-w1/ref_*.txt` (sandbox) — regenerate via `scripts/collate_corpus.py` docstring commands into any dir and run with `COLLATION_REFS=<dir> python3 scripts/collate_corpus.py`.
+Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never committed). Reproduce the authoritative register byte-for-byte with `COLLATION_REFS=<refs> python3 scripts/collate_corpus.py --out /tmp/register.json --reproduce sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` (register sha256 `5369af1163e55eb25e2695160a0ec04805efc13a606841a6d6cb19b1936d3d31`, refs manifest sha256 `f3ac90b2ae9c7b969f157185d83651bcb00c24e535a0ef1f5ac143c4aa8174a9`); `--reproduce` replays the `generation_parameters` block the register itself records. The rule that produces them is committed: `python3 scripts/collate_corpus.py --print-refs` lists the works, `scripts/collate_refs.py` extracts + verifies them against a digest manifest, and `scripts/collate_corpus.py` collates on top of them (`--refs-manifest`, `--compare-historical-refs`, `--require-verified-refs`). Full command sequence: `sessions/COLLATION_W1_2026-09-10_CORRECTION.md` §7.
 
 ## Standing Decisions (2026-09-09, owner)
 
 - **Vision:** vision.md in full is the target; the audit serves that ambition.
 - **Collation depth:** FULL — done (except 2 non-CBETA-witness docs: hanshan, niutou).
 - **Scoreboard: REMOVE** `.scoreboard/` + `SCOREBOARD.md` entirely; orchestrator oversight replaces it (queued PR after W1/W2; update AGENTS.md contract accordingly; user_score protocol dies with the file).
-- **Sequencing:** W1/W2 exclusive until corpus integrity is established. PR-A/B/D frozen.
+- **Sequencing:** W1 evidence is now integrated into the public status model; per-document remediation remains pending. The visual-system reset is the next planned task; W2 and PR-A/B/D remain separate, with PR-A/B/D frozen.
 
 ## Task Queue
 
-- [x] **PR-C — Lineage corpus-key curation (6 profiles)** — MERGED as PR #20 (2026-09-09)
-- [x] **W1 — Full-corpus collation vs CBETA** — evidence on this branch; MERGE via PR (see Active Milestone)
-- [ ] **REMEDIATION R-A — Fix-in-place** (owner decision 2026-09-09): per-doc work packages in `.orchestrator/REMEDIATION_PLAN.md`; delegate to coder agents, one document per PR
+- [x] **Lineage corpus-key curation (6 profiles)** — integrated in the current baseline
+- [x] **W1 — Full-corpus collation vs CBETA** — evidence is recorded in the immutable report/register
+- [~] **W1 public status-model containment** — manifest statuses, validator guards, Reader disclosure, and current documentation integrated; evidence contract hardened and merge-ready (PR open, not merged); per-document source remediation remains pending
+- [ ] **Visual-system reset** — next planned task after this containment/status-model work
+- [ ] **REMEDIATION hybrid policy**: per-doc work packages in `.orchestrator/REMEDIATION_PLAN.md`; delegate to coder agents, one document per PR
 - [ ] **W2 — Verified-quotation spot-check** (177 slots vs public-domain editions; Senzaki & Reps 1934 first) — sequencing at successor's discretion (before or parallel to remediation)
 - [ ] **Scoreboard removal PR** — delete `.scoreboard/` + `SCOREBOARD.md`; update AGENTS.md contract (owner decision 2026-09-09)
 - [ ] **PR-A — Real-browser verification pass** (frozen during audit; resume after remediation starts)
@@ -58,7 +66,8 @@ Reference state: extracted CBETA refs live OUTSIDE the repo at `/home/user/audit
 
 ## Known Gaps
 
+- Per-document source remediation remains pending under the adopted hybrid R-A/R-B/R-C policy; the public status model prevents unsupported completion claims from being presented as verified and does not re-key source text.
 - Real-browser screenshot/accessibility evidence for the current design is unavailable (Chromium network failure `ECONNRESET` in the 2026-08-11 session); do not describe the design as screenshot-verified.
 - Branch protection on `main` unconfirmed (integration endpoint returns 403).
-- 30/30 lineage edges remain `traditional_link_pending_exact_locator`; 6 profiles had empty `linked_corpus_keys` as of 2026-09-09 (PR-C addresses this).
+- 30/30 lineage edges remain `traditional_link_pending_exact_locator`; lineage corpus-key curation is complete for the recorded six-profile scope, while later exact-locator work remains.
 - JSON Schema in `schemas/` is declarative only; the Python validator is the enforced contract.
