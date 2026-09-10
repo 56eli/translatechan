@@ -7,13 +7,13 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 109181,
+    "all_corpus_cjk_characters": 109614,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
       "partial_selected_witness": 4
     },
-    "content_cjk_characters": 103723,
+    "content_cjk_characters": 104155,
     "content_shapes": {
       "cases": 2,
       "chapters": 1,
@@ -844,13 +844,13 @@
         }
       },
       "wumenguan": {
-        "all_cjk_chars": 5891,
+        "all_cjk_chars": 6324,
         "cbeta_id": "T2005",
         "completion_status": "partial_selected_witness",
-        "content_zh_chars": 5528,
+        "content_zh_chars": 5960,
         "coverage": "48/48 cases",
-        "coverage_note": "48/48 cases represented; W1 source-review status: partial_or_failed_w1_collation (113/181 evaluated content fields collate to the claimed T2005 witness); flagged fields, including front matter, epilogue, verses, and a case pointer, remain under per-document remediation. Representation does not establish complete selected-witness status.",
-        "declared_zh_chars": 5528,
+        "coverage_note": "48/48 cases represented; W1 source-review status: partial_or_failed_w1_collation (174/181 evaluated content fields collate to the claimed T2005 witness after the 2026-09-10 re-key). Residual 9 flagged fields, documented and intentionally untouched: 6 MINOR dialogue/commentary fields (5 edition-graphic residue fields acceptable under the adopted policy, plus .cases[4].dialogue[0].zh, which is a verbatim-witness field flagged MINOR only because the harness extraction rule drops CBETA <g> glyph content — the corpus reproduces the witness's NFKC-normalized glyph 啣 that the rule strips), 2 SHORT_UNMATCHED case title_zh fields (composite-title work is a separate plan item), and the project-authored epilogue (R-B labeled in structured metadata; T48n2005 contains no epilogue). Representation does not establish complete selected-witness status.",
+        "declared_zh_chars": 5960,
         "is_complete": false,
         "shapes": [
           "cases"
