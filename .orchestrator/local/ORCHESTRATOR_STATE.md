@@ -18,21 +18,26 @@ R-A/R-B/R-C work program.
 ## Published Task Prompts
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
-| 001 | `.orchestrator/prompts/001-rekey-wumenguan-t2005.md` | Wumenguan R-A re-key (70 flagged fields) with mechanical acceptance | (agent's arena branch) | — | Dispatched |
+| 001 | `.orchestrator/prompts/001-rekey-wumenguan-t2005.md` | Wumenguan R-A re-key (70 flagged fields) with mechanical acceptance | arena/01a08caa-translatechan | #29 | REVISE (2 defects; see review) |
+| 002 | `.orchestrator/prompts/002-wumenguan-revision-case5-glyphs.md` | PR #29 revision: case-5 witness glyph + rare-glyph pinyin readings | (agent's arena branch) | — | Dispatched |
 
 ## Active Milestone
-Wave 1 remediation (R-A/R-B per adopted policy): re-key wumenguan properly
-after PR #23 failed independent verification.
+Wave 1 remediation (R-A/R-B per adopted policy): PR #29 (wumenguan re-key)
+verified independently — 62 fields verbatim-correct, harness numbers
+reproduced exactly; REVISE dispatched for case-5 glyph + 3 glyph pinyin
+readings.
 
 ## Task Queue
 - [x] PR #23 review — verdict DO-NOT-MERGE (see Interrupted Work)
-- [ ] Wave 1: wumenguan re-key (prompt 001, fresh from main; supersedes PR #23)
+- [~] Wave 1: wumenguan re-key — PR #29 open, review verdict REVISE
+      (prompt 002 dispatched; supersedes #29 on merge)
 - [ ] Wave 1: biyanlu_cases (42 flagged), linji_yulu (10 + titles), xinxin_ming
       (12), platform_sutra (recension decision first) — one doc per PR
 - [ ] W2 verified-quotation spot-check (177 slots; Senzaki & Reps 1934 first)
 - [ ] Scoreboard removal PR (owner decision 2026-09-09)
 - [ ] Post-remediation: README/HANDOFF/ROADMAP claim rewrite, validator
-      collation rule, new authoritative evidence register pass
+      collation rule, new authoritative evidence register pass; also
+      collate_refs.py `<g>`-content extraction improvement (see debt)
 - [ ] PR-A/B/D (frozen until corpus integrity established)
 
 ## Interrupted Work
@@ -58,12 +63,26 @@ after PR #23 failed independent verification.
   several are fragmentary (see `.preface.zh`, `.cases[5].dialogue[0].zh`,
   `.cases[22].commentary_zh` windows). Agents must re-key from the CBETA XML
   itself, never paste windows. Consider an evidence-quality follow-up.
+- **`collate_refs.py` drops `<g>` element CONTENT** (not just markup), so the
+  reference layer carries gaps where the witness has rare glyphs (T48n2005
+  has 8 `<g>`-with-content spots, incl. 口啣樹枝 in case 5). Consequence:
+  a verbatim-witness corpus field is flagged MINOR against the artifact ref.
+  Post-remediation improvement: keep `<g>` text content in extraction (breaks
+  all committed ref digests → belongs to the full evidence-refresh pass,
+  never a per-doc PR).
+- Rare witness glyphs need citable pinyin readings: 何故𦗚 = the 聻-variant
+  (interrogative nǐ in standard editions; some print 聾 — editions differ);
+  扇子𨁝跳 = jump-verb variant (standard editions print 踍/𨁝). PR #29
+  assigned uncited readings (lóng, bó) — being fixed by prompt 002.
 - Pinyin regeneration is unautomated and error-prone (PR #23 failure mode).
   Every remediation prompt must require hand-aligned pinyin + before/after
   listing in the PR description.
 - `.orchestrator/STATE.md` on main says "merge-ready (PR open, not merged)"
   for the W1 evidence hardening — stale now that PRs #25–#28 merged. The
-  prompt-001 PR updates it.
+  prompt-002 PR fixes it.
+- Review notes: PR #29 review used a detached worktree, which breaks
+  `smoke_test.mjs`/`test_source_preservation.py` (they copytree `.git`,
+  which is a file in worktrees) — always review-gate in a real clone.
 
 ## Architectural Invariants
 - Never generate source-looking Classical Chinese; re-key ONLY mechanically
