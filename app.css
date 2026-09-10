@@ -1136,6 +1136,25 @@ body:not([data-current-view="reader"]) #about-toggle {
 
 .document-title-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
 .document-status { flex: none; padding: 0.2rem 0; border-bottom: 2px solid var(--accent-gold); font-family: var(--font-mono); font-size: 0.64rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
+/* Five public disclosure ledgers (W1 containment). Each question gets its own always-visible
+   block: source collation, represented units, translation/edition verification, canonical
+   locator, rights review. Nothing here is hover-only, and no ledger implies another. */
+.document-ledgers { display: grid; grid-template-columns: repeat(auto-fit, minmax(228px, 1fr)); gap: 0.5rem; margin-top: 0.6rem; }
+.ledger-block { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.5rem 0.6rem; border: 1px solid var(--border-color); border-left: 3px solid var(--accent-gold); border-radius: var(--radius-sm); background: var(--bg-card-subtle); font-size: 0.7rem; }
+.ledger-name { margin: 0; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+.ledger-rows { display: flex; flex-direction: column; gap: 0.22rem; }
+.ledger-row { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: 0.4rem; align-items: baseline; }
+.ledger-key { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; }
+.ledger-value { color: var(--text-secondary); overflow-wrap: anywhere; }
+.ledger-code { padding: 0.05rem 0.24rem; border: 1px solid var(--border-color); border-radius: 3px; background: var(--bg-code); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.66rem; }
+.ledger-status { color: var(--accent-gold-hover); font-weight: 700; }
+.ledger-alert { color: var(--accent-red); font-weight: 700; }
+.ledger-footnote { grid-column: 1 / -1; margin: 0; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; }
+.ledger-block.is-collated { border-left-color: var(--accent-green); }
+.ledger-block.is-collated .ledger-status { color: var(--accent-green); }
+.ledger-block.is-unavailable { border-left-color: var(--accent-red); }
+.ledger-block.is-unavailable .ledger-status { color: var(--accent-red); }
+@media (max-width: 720px) { .ledger-row { grid-template-columns: 1fr; gap: 0.05rem; } }
 .document-ledger { display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.75rem; margin-top: 0.45rem; font-size: 0.7rem; }
 .document-ledger .source-location { margin: 0; padding: 0; border: 0; background: transparent; font-size: 0.68rem; }
 .source-review-disclosure {

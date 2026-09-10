@@ -26,6 +26,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from contextlib import contextmanager
 import sys
 from collections import Counter
 from pathlib import Path
@@ -47,6 +48,18 @@ PROVENANCE_PATH = DATA_DIR / "translations" / "provenance.json"
 MATRIX_PATH = DATA_DIR / "translations" / "comparative_matrix.json"
 SCHEMA_PATH = ROOT / "schemas" / "translatechan-data.schema.json"
 BUILD_SCRIPT = ROOT / "scripts" / "build_data_bundle.py"
+# The W1 status vocabulary, the completion/source-review compatibility rule, and the
+# dated evidence merge live next to this script so the validator, the metrics, the
+# collation harness and the regression tests cannot drift apart. `app.js` mirrors the
+# same rule; the smoke test pins that mirror against the generated metrics table.
+SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+import source_review  # noqa: E402
+import w1_evidence  # noqa: E402
+
+
 APP_SCRIPT = ROOT / "app.js"
 
 VALID_TRANSLATION_STATUSES = {
@@ -72,21 +85,12 @@ VALID_LINEAGE_FRONTIER_STATUSES = {"frontier_unprofiled"}
 VALID_TRACEABILITY_QUEUE_STATUSES = {"needs_unit_locator", "in_review", "blocked_source", "complete"}
 VALID_TRACEABILITY_PRIORITIES = {"high", "normal"}
 VALID_PROFILE_REVIEW_STATUSES = {"needs_exact_locator", "frontier_source_needed", "in_review", "complete"}
-VALID_COMPLETION_STATUSES = {
-    "complete_selected_witness",
-    "partial_selected_witness",
-    "excerpt_seed",
-}
-VALID_SOURCE_REVIEW_STATUSES = {
-    "collated_to_claimed_witness",
-    "partial_or_failed_w1_collation",
-    "witness_unavailable",
-}
-W1_SOURCE_REVIEW_METADATA = {
-    "w1_report_path": "sessions/COLLATION_W1_2026-09-09.md",
-    "w1_register_path": "sessions/COLLATION_REGISTER_2026-09-09.json",
-    "evidence_date": "2026-09-09",
-}
+# The W1 status vocabulary and the completion/source-review compatibility rule live in
+# scripts/source_review.py so the validator, the metrics, the collation harness and the
+# regression tests cannot drift apart. `app.js` mirrors the same rule and the smoke test
+# pins that mirror against the generated metrics table.
+VALID_COMPLETION_STATUSES = set(source_review.VALID_COMPLETION_STATUSES)
+VALID_SOURCE_REVIEW_STATUSES = set(source_review.VALID_SOURCE_REVIEW_STATUSES)
 SOURCE_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 REQUIRED_DOCUMENT_FIELDS = {
     "title_zh",
@@ -117,9 +121,28 @@ class Issues:
     def __init__(self) -> None:
         self.errors: list[str] = []
         self.warnings: list[str] = []
+        self.blocking_count = 0
+        self._nonblocking = False
 
     def error(self, path: str, message: str) -> None:
         self.errors.append(f"{path}: {message}")
+        if not self._nonblocking:
+            self.blocking_count += 1
+
+    @contextmanager
+    def nonblocking(self):
+        """Collect issues that must fail the run but must not block metric generation.
+
+        Prose that drifted out of sync with the numbers is a real failure, but the
+        numbers themselves are still valid — refusing to write metrics for it would only
+        force a contributor to guess the values the validator is supposed to compute.
+        """
+        previous = self._nonblocking
+        self._nonblocking = True
+        try:
+            yield
+        finally:
+            self._nonblocking = previous
 
     def warning(self, path: str, message: str) -> None:
         self.warnings.append(f"{path}: {message}")
@@ -617,33 +640,39 @@ def validate_lineage_profile_queue(lineage: Any, queue: Any, issues: Issues) -> 
     return {"profile_queue_records": len(actual), "statuses": dict(sorted(statuses.items()))}
 
 
-def validate_manifest_source_review(manifest: Any, issues: Issues) -> None:
-    """Validate the immutable W1 evidence pointers carried by the manifest."""
-    path = f"{rel(CORPUS_MANIFEST_PATH)}.source_review"
-    if not is_record(manifest):
-        return
-    record = manifest.get("source_review")
-    if not is_record(record):
-        issues.error(path, "requires a manifest-level source_review object")
-        return
-    require_fields(record, (*W1_SOURCE_REVIEW_METADATA, "status_scope"), path, issues)
-    extra_fields = set(record) - {*W1_SOURCE_REVIEW_METADATA, "status_scope"}
-    if extra_fields:
-        issues.error(path, f"has unknown source-review field(s): {sorted(extra_fields)}")
+def validate_w1_evidence(corpus_manifest: Any, corpus: dict[str, Any], issues: Issues) -> dict[str, Any]:
+    """Validate the dated W1 evidence records and return their computed aggregates.
 
-    for field, expected in W1_SOURCE_REVIEW_METADATA.items():
-        value = record.get(field)
-        if value != expected:
-            issues.error(path, f"{field} must identify the committed W1 evidence as {expected!r}, got {value!r}")
-        if field.endswith("_path") and nonempty_string(value):
-            candidate = ROOT / value
-            if not candidate.is_file():
-                issues.error(path, f"{field} points to a missing file: {value!r}")
-
-    scope = record.get("status_scope")
-    scope_text = scope.lower() if isinstance(scope, str) else ""
-    if "containment" not in scope_text or "remediation" not in scope_text or "not a rights decision" not in scope_text:
-        issues.error(path, "status_scope must say that source-review status is containment/remediation state, not a rights decision")
+    The manifest may only *declare* statuses; here every declaration is re-derived from the
+    merged evidence (historical register + dated correction overlay). Missing evidence, extra
+    evidence, a wrong date, a status no register supports, a register key with no manifest item,
+    or a collated claim resting on a non-verified reference all fail the run.
+    """
+    try:
+        import collate_corpus  # noqa: PLC0415 - only needed for its DOCS mapping keys
+        harness_docs = set(collate_corpus.DOCS)
+    except Exception as exc:  # noqa: BLE001 - the harness is optional tooling, not runtime
+        harness_docs = set()
+        issues.warning(rel(CORPUS_MANIFEST_PATH), f"W1 harness mapping could not be read ({exc})")
+    aggregates = w1_evidence.validate(
+        corpus_manifest, set(corpus), harness_docs, issues, root=ROOT
+    )
+    if not aggregates:
+        return {}
+    items = corpus_manifest.get("items") if is_record(corpus_manifest) else None
+    declared = Counter(
+        item.get("source_review_status")
+        for item in (items or [])
+        if is_record(item) and item.get("source_review_status") in VALID_SOURCE_REVIEW_STATUSES
+    )
+    for status, count in aggregates.get("status_counts", {}).items():
+        if declared.get(status, 0) != count:
+            issues.error(
+                rel(CORPUS_MANIFEST_PATH),
+                f"manifest declares {declared.get(status, 0)} item(s) with source_review_status={status!r} "
+                f"but the merged evidence derives {count}; recompute the statuses from the registers",
+            )
+    return aggregates
 
 
 def validate_manifest_sync(corpus: dict[str, Any], manifest: Any, issues: Issues) -> dict[str, int]:
@@ -652,7 +681,6 @@ def validate_manifest_sync(corpus: dict[str, Any], manifest: Any, issues: Issues
         issues.error(path, "must contain an object with an items list")
         return {}
 
-    validate_manifest_source_review(manifest, issues)
     if not manifest["items"]:
         issues.error(path, "items list must not be empty")
     corpus_keys = set(corpus)
@@ -678,7 +706,7 @@ def validate_manifest_sync(corpus: dict[str, Any], manifest: Any, issues: Issues
                 item_path,
                 f"source_review_status must be one of {sorted(VALID_SOURCE_REVIEW_STATUSES)}, got {source_review_status!r}",
             )
-        elif completion_status == "complete_selected_witness" and source_review_status != "collated_to_claimed_witness":
+        elif not source_review.is_completion_source_review_compatible(completion_status, source_review_status):
             issues.error(
                 item_path,
                 "complete_selected_witness requires source_review_status='collated_to_claimed_witness'; "
@@ -947,6 +975,12 @@ def complete_document_keys(corpus: dict[str, Any], manifest: Any) -> list[str]:
         item = items_by_key.get(key, {})
         if item.get("completion_status") != "complete_selected_witness":
             continue
+        # Same rule as the manifest check and the Reader: a document whose source was not
+        # collated to its claimed witness is not complete, whatever its containers hold.
+        if not source_review.is_completion_source_review_compatible(
+            item.get("completion_status"), item.get("source_review_status")
+        ):
+            continue
         targets = item.get("unit_targets")
         if not is_record(targets) or not targets:
             continue
@@ -971,7 +1005,7 @@ def coverage_from_targets(counts: dict[str, int], targets: Any) -> str | None:
     return ", ".join(rendered) if rendered else None
 
 
-def per_text_metrics(corpus: dict[str, Any], manifest: Any) -> dict[str, Any]:
+def per_text_metrics(corpus: dict[str, Any], manifest: Any, evidence: dict[str, Any] | None = None) -> dict[str, Any]:
     """Deterministic per-text coverage facts: zh counts, shapes, unit counts,
     declared coverage metadata, and (where the manifest declares targets) a
     machine-checkable '7/100 cases' coverage string. This is the single source
@@ -981,6 +1015,7 @@ def per_text_metrics(corpus: dict[str, Any], manifest: Any) -> dict[str, Any]:
         for item in manifest["items"]:
             if is_record(item) and nonempty_string(item.get("key")):
                 manifest_by_key[item["key"]] = item
+    evidence = evidence or {}
     out: dict[str, Any] = {}
     for key in sorted(corpus):
         document = corpus[key]
@@ -996,8 +1031,13 @@ def per_text_metrics(corpus: dict[str, Any], manifest: Any) -> dict[str, Any]:
             "unit_counts": counts,
             "completion_status": completion_status,
             "source_review_status": item.get("source_review_status"),
-            "is_complete": completion_status == "complete_selected_witness",
+            "is_complete": source_review.is_completion_source_review_compatible(
+                completion_status, item.get("source_review_status")
+            ) and completion_status == "complete_selected_witness",
         }
+        per_doc = (evidence or {}).get("per_document", {}).get(key)
+        if isinstance(per_doc, dict):
+            entry["source_review"] = dict(per_doc)
         coverage_note = document.get("coverage_note")
         if isinstance(coverage_note, str) and coverage_note:
             entry["coverage_note"] = coverage_note
@@ -1021,6 +1061,7 @@ def compute_metrics(
     profile_queue_metrics: dict[str, Any],
     manifest_metrics: dict[str, int],
     corpus_manifest: Any,
+    w1_evidence_aggregates: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     matrix_statuses = {
         status.removeprefix("matrix_"): stats.get(f"matrix_{status}", 0)
@@ -1042,14 +1083,16 @@ def compute_metrics(
         for item in manifest_items
         if is_record(item) and item.get("source_review_status") in VALID_SOURCE_REVIEW_STATUSES
     )
+    source_review_block = w1_evidence.metrics_block(w1_evidence_aggregates or {})
     return {
         "schema_version": "1.0",
         "measurement_method": {
             "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
             "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
             "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status.",
-            "complete_documents": "Documents explicitly marked complete_selected_witness whose manifest unit targets are all met; unit counts alone never establish completion.",
-            "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, editorial completion status, declared coverage_note/zh_chars, and (when declared) an N/M representation string."
+            "complete_documents": "Documents marked complete_selected_witness whose unit targets are all met AND whose W1 source-review status is collated_to_claimed_witness; unit counts alone never establish completion.",
+            "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, editorial completion status, W1 source-review evidence (status, per-document field and flag counts, byte-verified witnesses), declared coverage_note/zh_chars, and (when declared) an N/M representation string.",
+            "source_review": "W1 containment ledger: computed only from the dated evidence records merged by scripts/w1_evidence.py (historical register plus the dated correction overlay); status counts, flagged-entry totals, content-field denominators and reference verification are recomputed from those files on every run.",
         },
         "corpus": {
             "documents": len(corpus),
@@ -1065,7 +1108,8 @@ def compute_metrics(
             "content_cjk_characters": sum(content_cjk_count(doc) for doc in corpus.values()),
             "all_corpus_cjk_characters": sum(all_cjk_count(doc) for doc in corpus.values()),
             "content_shapes": dict(sorted(shapes.items())),
-            "per_text": per_text_metrics(corpus, corpus_manifest),
+            "source_review": source_review_block,
+            "per_text": per_text_metrics(corpus, corpus_manifest, w1_evidence_aggregates),
         },
         "translations": {
             "corpus_slots": stats.get("corpus_slots", 0),
@@ -1183,6 +1227,102 @@ def validate_doc_truthfulness(metrics: dict[str, Any], glossary: Any, lineage: A
                 f"(update the document, or the check rule in validate_data.py if the prose changed intentionally)",
             )
 
+    validate_w1_doc_claims(metrics, issues)
+
+
+def validate_w1_doc_claims(metrics: dict[str, Any], issues: Issues) -> None:
+    """Current docs must state the merged evidence and must not repeat known-false claims.
+
+    Two failure modes this guards, both of which actually happened here: a superseded figure kept
+    circulating as if current (the 2026-09-09 report's 637 flagged entries, which its own register
+    never supported), and a witness claim repeated after collation had proved it false (Zhaozhou
+    "T1987", which is the Caoshan record). Presence checks pin the truthful sentences to generated
+    numbers; absence checks forbid the false ones. Dated files under `sessions/` are historical
+    snapshots and are deliberately not scanned.
+    """
+    w1 = metrics["corpus"].get("source_review") or {}
+    if not w1:
+        issues.error(rel(METRICS_PATH), "carries no corpus.source_review aggregate to check docs against")
+        return
+    auth = w1.get("authoritative") or {}
+    historical = w1.get("historical") or {}
+    superseded = w1.get("superseded") or {}
+    ledgers = " · ".join(entry["label"] for entry in w1.get("disclosure_ledgers", []))
+    if not ledgers:
+        issues.error(rel(METRICS_PATH), "corpus.source_review.disclosure_ledgers is empty")
+        return
+    ledger_line = f"The Reader keeps **five separate, always-visible ledgers**: {ledgers}."
+    evidence_bits = [
+        f"**{auth.get('documents')} documents, {auth.get('flagged_entries'):,} flagged source fields**",
+        str(auth.get("register_path")),
+        str(historical.get("register_path")),
+        str(historical.get("evidence_date")),
+    ]
+    # Docs that must carry the full truthful framing.
+    framed = ("README.md", "AUDIT.md", "HANDOFF.md")
+    for filename in framed + ("ROADMAP.md", ".orchestrator/REMEDIATION_PLAN.md"):
+        path = ROOT / filename
+        if not path.exists():
+            issues.error(filename, "doc truthfulness: file missing for the W1 ledger rule")
+            continue
+        text = path.read_text(encoding="utf-8")
+        if ledger_line not in text:
+            issues.error(filename, f"doc truthfulness: the five-ledger separation sentence is missing or reworded: {ledger_line!r}")
+        for snippet in evidence_bits:
+            if snippet not in text:
+                issues.error(filename, f"doc truthfulness: W1 evidence figure {snippet!r} is missing (it is generated from data/project_metrics.json)")
+        if filename in framed:
+            for snippet, description in (
+                (str(w1.get("status_scope")), "containment-not-rights scope sentence"),
+                (str(w1.get("non_approval_statement")), "explicit non-approval-of-reuse sentence"),
+                (str(w1.get("metadata_field_note")), "metadata-exclusion caveat for collated_to_claimed_witness"),
+            ):
+                if snippet not in text:
+                    issues.error(filename, f"doc truthfulness: {description} is missing: {snippet!r}")
+    state = ROOT / ".orchestrator" / "STATE.md"
+    if state.exists():
+        state_text = state.read_text(encoding="utf-8")
+        if str(auth.get("flagged_entries")) not in state_text:
+            issues.error(".orchestrator/STATE.md", f"must quote the authoritative W1 flagged total {auth.get('flagged_entries')}")
+        if "CORRECTED" not in state_text and "superseded" not in state_text:
+            issues.error(".orchestrator/STATE.md", "must say which W1 figure is superseded / which record is corrected")
+
+    scanned = ["README.md", "AUDIT.md", "HANDOFF.md", "ROADMAP.md", "index.html", ".orchestrator/STATE.md"]
+    stale = {
+        str(superseded.get("report_flagged_total")): "the 2026-09-09 report's flagged-entry total",
+        str(historical.get("flagged_entries")): "the historical register's flagged-entry total",
+    }
+    stale.pop("None", None)
+    qualified = ("supersed", "historical", "2026-09-09", "corrected", "not reproduced", "never reproduced", "addendum")
+    for filename in scanned:
+        path = ROOT / filename
+        if not path.exists():
+            continue
+        prose = path.read_text(encoding="utf-8")
+        for lineno, line in enumerate(prose.splitlines(), 1):
+            for figure, label in stale.items():
+                if figure and figure in line and not any(word in line.lower() for word in qualified):
+                    issues.error(
+                        filename,
+                        f"line {lineno} states {figure} as a current W1 count without labelling it as {label}; "
+                        f"the merged registers sum to {auth.get('flagged_entries')}",
+                    )
+            if "T1987" in line and "false" not in line.lower() and "caoshan" not in line.lower():
+                issues.error(
+                    filename,
+                    f"line {lineno} presents Zhaozhou's T1987 witness claim without recording that the W1 collation "
+                    "found it false (T1987 is the Caoshan record); the claim must not be restated as valid",
+                )
+        if re.search(r"\d[\d,]{4,}[-\s]*(?:raw\s+bytes|bytes|gzip)", prose):
+            issues.error(
+                filename,
+                "quotes an exact bundle byte count; `scripts/build_data_bundle.py` prints the authoritative number "
+                "at build time, so a hand-typed size in prose is stale by construction",
+            )
+        for phrase in ("rights approved", "approved for reuse", "cleared for redistribution", "rights review complete"):
+            if phrase in prose.lower():
+                issues.error(filename, f"claims {phrase!r}; W1 source review and rights review are separate and no ledger approves reuse")
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -1245,13 +1385,23 @@ def main() -> int:
     lineage_profile_queue = load_json(LINEAGE_PROFILE_QUEUE_PATH, issues)
     profile_queue_metrics = validate_lineage_profile_queue(lineage, lineage_profile_queue, issues)
     manifest_metrics = validate_manifest_sync(corpus, corpus_manifest, issues)
+    w1_aggregates = validate_w1_evidence(corpus_manifest, corpus, issues)
 
-    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, profile_queue_metrics, manifest_metrics, corpus_manifest)
+    metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, profile_queue_metrics, manifest_metrics, corpus_manifest, w1_aggregates)
     if not args.skip_docs:
-        validate_doc_truthfulness(metrics, glossary, lineage, gongan, school_vocab, issues)
+        with issues.nonblocking():
+            validate_doc_truthfulness(metrics, glossary, lineage, gongan, school_vocab, issues)
     expected_metrics = canonical_json(metrics)
     if args.write_metrics:
-        METRICS_PATH.write_text(expected_metrics, encoding="utf-8")
+        if issues.blocking_count:
+            # Never leave a regenerated metrics file behind that encodes invalid data.
+            print(
+                f"\n❌ --write-metrics refused: {issues.blocking_count} data error(s) must be fixed first "
+                "(see the list below).",
+                file=sys.stderr,
+            )
+        else:
+            METRICS_PATH.write_text(expected_metrics, encoding="utf-8")
     elif not METRICS_PATH.exists():
         issues.error(rel(METRICS_PATH), "missing; run scripts/validate_data.py --write-metrics")
     elif METRICS_PATH.read_text(encoding="utf-8") != expected_metrics:
@@ -1279,6 +1429,20 @@ def main() -> int:
         )
         if args.write_metrics:
             print(f"   wrote {rel(METRICS_PATH)}")
+        evidence = metrics["corpus"].get("source_review") or {}
+        counts = evidence.get("status_counts") or {}
+        if counts:
+            print(
+                "   W1 source review: collated={collated} | partial/failed={partial} | unavailable={unavailable}"
+                " | flagged={flagged} | evidence={date} → {register}".format(
+                    collated=counts.get("collated_to_claimed_witness", 0),
+                    partial=counts.get("partial_or_failed_w1_collation", 0),
+                    unavailable=counts.get("witness_unavailable", 0),
+                    flagged=evidence.get("flagged_entries"),
+                    date=(evidence.get("authoritative") or {}).get("evidence_date"),
+                    register=(evidence.get("authoritative") or {}).get("register_path"),
+                )
+            )
     return 0
 
 

@@ -36,6 +36,21 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 10,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X69n1323",
+            "X68n1315"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Baizhang Guanglu (百丈廣錄三句)",
         "unit_counts": {
@@ -51,6 +66,21 @@
         "shapes": [
           "stanzas"
         ],
+        "source_review": {
+          "content_fields_collated": 2,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 5,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T47n1986A",
+            "T47n1986B"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Jewel Mirror Samadhi (寶鏡三昧)",
         "unit_counts": {
@@ -69,6 +99,20 @@
         "shapes": [
           "cases"
         ],
+        "source_review": {
+          "content_fields_collated": 353,
+          "content_fields_total": 395,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 128,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T48n2003"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Blue Cliff Record (碧巖錄)",
         "unit_counts": {
@@ -84,6 +128,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 1,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 9,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T48n2009"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Bodhidharma Erru Sixing (二入四行論)",
         "unit_counts": {
@@ -99,6 +157,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 4,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 7,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X86n1598"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Caoxi Dashi Biezhuan (曹溪大師別傳)",
         "unit_counts": {
@@ -114,6 +186,22 @@
         "shapes": [
           "sample_records"
         ],
+        "source_review": {
+          "content_fields_collated": 1,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 7,
+          "probe_refs": [
+            "X80n1565"
+          ],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T51n2076"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Transmission of Lamp (景德傳燈錄)",
         "unit_counts": {
@@ -129,6 +217,23 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 11,
+          "probe_refs": [],
+          "refs_total": 3,
+          "refs_verified": 3,
+          "status": "partial_or_failed_w1_collation",
+          "witness_note": "Hongzhi's Mozhaoming lives in T2001 Hongzhi guanglu, not claimed T1998A.",
+          "witness_refs": [
+            "T47n1998A",
+            "T47n1998B",
+            "T48n2001"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Dahui & Hongzhi (看話書問與默照銘)",
         "unit_counts": {
@@ -144,6 +249,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 4,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 8,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X67n1309"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Dahui Shobogenzo (大慧正法眼藏)",
         "unit_counts": {
@@ -159,6 +278,21 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 9,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X63n1223",
+            "X63n1224"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Dazhu Huihai Dunwu Yaomen (頓悟入道要門)",
         "unit_counts": {
@@ -174,6 +308,24 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 10,
+          "probe_refs": [
+            "X68n1315",
+            "X80n1565"
+          ],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_note": "Retellings; 0/6 content fields match T2076/X1315/X1565 phrasing.",
+          "witness_refs": [
+            "T51n2076"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Deshan Xuanjian Yulu (德山宣鑑語錄)",
         "unit_counts": {
@@ -191,6 +343,21 @@
           "dialogues",
           "five_ranks"
         ],
+        "source_review": {
+          "content_fields_collated": 1,
+          "content_fields_total": 21,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 27,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T47n1986A",
+            "T47n1986B"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Dongshan Yulu & Five Ranks (洞山五位)",
         "unit_counts": {
@@ -208,6 +375,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 1,
+          "content_fields_total": 11,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 16,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T47n1991"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Fayan Yulu & Ten Rules (法眼十規論)",
         "unit_counts": {
@@ -223,6 +404,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 12,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X68n1315"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Foyan Qingyuan Instant Zen (佛眼坐禪銘)",
         "unit_counts": {
@@ -238,6 +433,21 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 10,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T47n1989",
+            "T47n1990"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Guiyang Yulu & Circles (溈仰九十六圓相)",
         "unit_counts": {
@@ -253,6 +463,18 @@
         "shapes": [
           "stanzas"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 4,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 5,
+          "probe_refs": [],
+          "refs_total": 0,
+          "refs_verified": 0,
+          "status": "witness_unavailable",
+          "witness_refs": []
+        },
         "source_review_status": "witness_unavailable",
         "title": "Hanshan Cold Mountain Poems (寒山詩集)",
         "unit_counts": {
@@ -269,6 +491,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 2,
+          "content_fields_total": 11,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 18,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T48n2012A"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Transmission of Mind (黃檗法要)",
         "unit_counts": {
@@ -284,6 +520,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 7,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 12,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T48n2012B"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Huangbo Wanling Lu (黃檗宛陵錄)",
         "unit_counts": {
@@ -299,6 +549,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 3,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 7,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T51n2075"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Lidai Fabao Ji (歷代法寶記)",
         "unit_counts": {
@@ -316,6 +580,25 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 79,
+          "content_fields_total": 89,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 84,
+          "probe_refs": [
+            "X68n1315",
+            "T51n2076",
+            "X80n1565"
+          ],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_note": "Sections 67-73 are Xinglu-tradition retellings, not claimed T1985 text.",
+          "witness_refs": [
+            "T47n1985"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Record of Linji (臨濟語錄)",
         "unit_counts": {
@@ -332,6 +615,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 8,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 10,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X69n1321"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Mazu Daoyi Yulu (江西馬祖語錄)",
         "unit_counts": {
@@ -347,6 +644,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 9,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X68n1315"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Nanquan Puyuan Yulu (南泉普願語錄)",
         "unit_counts": {
@@ -362,6 +673,18 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 5,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 9,
+          "probe_refs": [],
+          "refs_total": 0,
+          "refs_verified": 0,
+          "status": "witness_unavailable",
+          "witness_refs": []
+        },
         "source_review_status": "witness_unavailable",
         "title": "Niutou Farong Juezhu Lun (絕觀論)",
         "unit_counts": {
@@ -379,6 +702,22 @@
         "shapes": [
           "chapters"
         ],
+        "source_review": {
+          "content_fields_collated": 4,
+          "content_fields_total": 13,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 19,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_note": "Content mixes Dunhuang (T2007) and Zongbao (T2008) recension readings.",
+          "witness_refs": [
+            "T48n2008",
+            "T48n2007"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Platform Sutra (六祖壇經)",
         "unit_counts": {
@@ -394,6 +733,21 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 5,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 9,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T48n2025",
+            "X63n1245"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Rules of Purity (百丈禪苑清規)",
         "unit_counts": {
@@ -409,6 +763,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 4,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 8,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T45n1858"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Sengzhao Zhao Lun (僧肇肇論)",
         "unit_counts": {
@@ -424,6 +792,22 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 6,
+          "content_fields_total": 11,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 7,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_note": "Both claimed witnesses were fetched and collated. Sandokai content fields collate 6/11 (6 EXACT against the T51n2076 embedding, 4 DIVERGENT at 0.93-0.97, 1 NOT_FOUND: the 草庵歌 body, absent from T51n2076 and X80n1565 alike), and the combined document title is a project composite. Witness supported, collation partial — neither complete nor witness-unavailable.",
+          "witness_refs": [
+            "T51n2076",
+            "X80n1565"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Shitou Sandokai & Grass Hut (參同契與草庵歌)",
         "unit_counts": {
@@ -439,6 +823,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 3,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 6,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X80n1565"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Compendium of Five Lamps (五燈會元)",
         "unit_counts": {
@@ -457,6 +855,20 @@
         "shapes": [
           "cases"
         ],
+        "source_review": {
+          "content_fields_collated": 113,
+          "content_fields_total": 181,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 70,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T48n2005"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "The Gateless Gate (無門關)",
         "unit_counts": {
@@ -474,6 +886,20 @@
         "shapes": [
           "stanzas"
         ],
+        "source_review": {
+          "content_fields_collated": 24,
+          "content_fields_total": 37,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 14,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T48n2010"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Faith in Mind (信心銘)",
         "unit_counts": {
@@ -489,6 +915,21 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 5,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 8,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X73n1445",
+            "X73n1446"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Xuansha Shibei Yulu (玄沙宗一語錄)",
         "unit_counts": {
@@ -504,6 +945,21 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 4,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 6,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "X69n1333",
+            "T51n2076"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Xuefeng & Yantou Yulu (雪峰巖頭語錄)",
         "unit_counts": {
@@ -519,6 +975,21 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 2,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 5,
+          "probe_refs": [],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T47n1997",
+            "X69n1357"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Yuanwu Zen Letters (圓悟克勤心要)",
         "unit_counts": {
@@ -535,6 +1006,20 @@
         "shapes": [
           "sections"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 12,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 19,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "partial_or_failed_w1_collation",
+          "witness_refs": [
+            "T47n1988"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Yunmen Yulu (雲門語錄一字關)",
         "unit_counts": {
@@ -551,6 +1036,24 @@
         "shapes": [
           "dialogues"
         ],
+        "source_review": {
+          "content_fields_collated": 0,
+          "content_fields_total": 19,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 35,
+          "probe_refs": [
+            "X68n1315"
+          ],
+          "refs_total": 2,
+          "refs_verified": 2,
+          "status": "partial_or_failed_w1_collation",
+          "witness_note": "Corpus claims T1987; T1987 is the Caoshan record (misattribution). True Zhaozhou witness: Guzunsu yulu X68n1315.",
+          "witness_refs": [
+            "T47n1987A",
+            "T47n1987B"
+          ]
+        },
         "source_review_status": "partial_or_failed_w1_collation",
         "title": "Sayings of Zhaozhou (趙州語錄)",
         "unit_counts": {
@@ -566,11 +1069,154 @@
         "shapes": [
           "stanzas"
         ],
+        "source_review": {
+          "content_fields_collated": 6,
+          "content_fields_total": 6,
+          "evidence_date": "2026-09-10",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "flagged_entries": 1,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "collated_to_claimed_witness",
+          "witness_refs": [
+            "T48n2014"
+          ]
+        },
         "source_review_status": "collated_to_claimed_witness",
         "title": "Yongjia Zhengdao Ge (永嘉證道歌)",
         "unit_counts": {
           "stanzas": 6
         }
+      }
+    },
+    "source_review": {
+      "authoritative": {
+        "documents": 35,
+        "evidence_date": "2026-09-10",
+        "flagged_entries": 630,
+        "refs_manifest_path": "sessions/COLLATION_W1_2026-09-10_refs_manifest.txt",
+        "register_path": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+        "report_path": "sessions/COLLATION_W1_2026-09-10_CORRECTION.md"
+      },
+      "class_totals": {
+        "DIVERGENT": 111,
+        "EXACT": 685,
+        "MINOR": 30,
+        "NOT_FOUND": 334,
+        "SHORT_UNMATCHED": 109,
+        "TITLE_COMPOSITE": 32,
+        "WITNESS_UNAVAILABLE": 14
+      },
+      "completion_compatibility": {
+        "complete_selected_witness": {
+          "collated_to_claimed_witness": true,
+          "partial_or_failed_w1_collation": false,
+          "witness_unavailable": false
+        },
+        "excerpt_seed": {
+          "collated_to_claimed_witness": true,
+          "partial_or_failed_w1_collation": true,
+          "witness_unavailable": true
+        },
+        "partial_selected_witness": {
+          "collated_to_claimed_witness": true,
+          "partial_or_failed_w1_collation": true,
+          "witness_unavailable": true
+        }
+      },
+      "content_fields_collated": 593,
+      "content_fields_total": 924,
+      "disclosure_ledgers": [
+        {
+          "key": "source_collation",
+          "label": "Source collation (W1)"
+        },
+        {
+          "key": "represented_units",
+          "label": "Represented units"
+        },
+        {
+          "key": "translation_edition_verification",
+          "label": "Translation & edition verification"
+        },
+        {
+          "key": "canonical_locator",
+          "label": "Canonical source locator"
+        },
+        {
+          "key": "rights_review",
+          "label": "Rights review"
+        }
+      ],
+      "documents": 35,
+      "documents_without_collating_content": 22,
+      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-10 correction overlay is authoritative for current status; scripts/validate_data.py merges and re-derives both",
+      "flagged_entries": 630,
+      "historical": {
+        "documents": 34,
+        "evidence_date": "2026-09-09",
+        "flagged_entries": 622,
+        "register_path": "sessions/COLLATION_REGISTER_2026-09-09.json",
+        "report_path": "sessions/COLLATION_W1_2026-09-09.md"
+      },
+      "ledger_separation_note": "Separate ledgers: none of these answers implies another.",
+      "metadata_field_note": "Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.",
+      "metadata_fields_total": 391,
+      "non_approval_statement": "Source collation does not approve reuse.",
+      "reference_verification": {
+        "counts": {
+          "drift": 0,
+          "none": 0,
+          "unlisted": 0,
+          "verified": 39
+        },
+        "drifted_refs": [
+          "T47n1987B",
+          "T48n2001",
+          "X67n1309",
+          "X68n1315",
+          "X69n1333",
+          "X73n1445"
+        ],
+        "historical_counts": {
+          "drift": 6,
+          "none": 0,
+          "unlisted": 0,
+          "verified": 33
+        },
+        "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+        "manifest": "sessions/COLLATION_W1_2026-09-10_refs_manifest.txt"
+      },
+      "reproduction": {
+        "compared_register": "sessions/COLLATION_REGISTER_2026-09-09.json",
+        "documents_classification_identical": 33,
+        "documents_compared": 34,
+        "documents_differing": 1,
+        "documents_with_changed_status": 0,
+        "flagged_entries": {
+          "historical": 622,
+          "this_run": 623
+        },
+        "historical_report_flagged_reproduced": false,
+        "historical_report_flagged_total": 637
+      },
+      "status_counts": {
+        "collated_to_claimed_witness": 1,
+        "partial_or_failed_w1_collation": 32,
+        "witness_unavailable": 2
+      },
+      "status_labels": {
+        "collated_to_claimed_witness": "Collated to claimed witness",
+        "partial_or_failed_w1_collation": "Partial or failed W1 collation",
+        "witness_unavailable": "Witness unavailable — not collated"
+      },
+      "status_scope": "Containment/remediation state, not a rights decision.",
+      "superseded": {
+        "register_flagged_total": 622,
+        "report_flagged_total": 637,
+        "reproduced_flagged_total": 623,
+        "status": "superseded"
       }
     },
     "source_review_statuses": {
@@ -608,9 +1254,10 @@
   },
   "measurement_method": {
     "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
-    "complete_documents": "Documents explicitly marked complete_selected_witness whose manifest unit targets are all met; unit counts alone never establish completion.",
+    "complete_documents": "Documents marked complete_selected_witness whose unit targets are all met AND whose W1 source-review status is collated_to_claimed_witness; unit counts alone never establish completion.",
     "content_cjk_characters": "CJK code points in source-content zh/_zh fields, excluding title_zh, author_zh, and name_zh metadata.",
-    "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, editorial completion status, declared coverage_note/zh_chars, and (when declared) an N/M representation string.",
+    "per_text": "Per-key coverage facts: zh char counts, content shapes, present unit counts, editorial completion status, W1 source-review evidence (status, per-document field and flag counts, byte-verified witnesses), declared coverage_note/zh_chars, and (when declared) an N/M representation string.",
+    "source_review": "W1 containment ledger: computed only from the dated evidence records merged by scripts/w1_evidence.py (historical register plus the dated correction overlay); status counts, flagged-entry totals, content-field denominators and reference verification are recomputed from those files on every run.",
     "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
   },
   "rights_coverage": {

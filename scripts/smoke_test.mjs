@@ -313,6 +313,89 @@ const expectedSourceReviewCounts = {
 for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
   if (sourceReviewCounts[status] !== expected) throw new Error(`unexpected ${status} count: ${sourceReviewCounts[status]}`);
 }
+
+
+// The dated correction overlay is the authoritative record: its paths, its date and its counts are
+// declared here, and every number is re-derived below from the files it points at — so a pointer that
+// drifted off its evidence (or an evidence file that no longer supports the number) fails here.
+const authoritativeEvidence = {
+  correction_report_path: 'sessions/COLLATION_W1_2026-09-10_CORRECTION.md',
+  correction_register_path: 'sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json',
+  correction_refs_manifest_path: 'sessions/COLLATION_W1_2026-09-10_refs_manifest.txt',
+  authoritative_register_path: 'sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json',
+  correction_evidence_date: '2026-09-10',
+  historical_documents: 34,
+  authoritative_documents: 35,
+  historical_flagged_total: 622,
+  authoritative_flagged_total: 630,
+  superseded_report_flagged_total: 637
+};
+for (const [field, expected] of Object.entries(authoritativeEvidence)) {
+  if (manifest.source_review?.[field] !== expected) {
+    throw new Error(`manifest source_review.${field} must be ${JSON.stringify(expected)} (W1 evidence contract)`);
+  }
+}
+for (const field of ['w1_report_path', 'w1_register_path', 'correction_report_path', 'correction_register_path',
+                     'correction_refs_manifest_path']) {
+  const declared = String(manifest.source_review?.[field] || '');
+  if (!declared || !existsSync(join(ROOT, declared))) {
+    throw new Error(`manifest source_review.${field} points at '${declared}', which is not committed`);
+  }
+}
+if (!String(manifest.source_review?.evidence_model || '').toLowerCase().includes('authoritative') ||
+    !String(manifest.source_review?.evidence_model || '').toLowerCase().includes('historical')) {
+  throw new Error('manifest source_review.evidence_model must name both the historical and the authoritative record');
+}
+const authoritativeRegister = JSON.parse(readFileSync(join(ROOT, manifest.source_review.authoritative_register_path), 'utf8'));
+const registerDocs = authoritativeRegister.documents || {};
+const registerCounts = { collated_to_claimed_witness: 0, partial_or_failed_w1_collation: 0, witness_unavailable: 0 };
+let registerFlagged = 0;
+for (const doc of Object.values(registerDocs)) {
+  const status = doc.source_review_status;
+  if (!Object.prototype.hasOwnProperty.call(registerCounts, status)) {
+    throw new Error(`authoritative register entry with unknown status '${status}'`);
+  }
+  registerCounts[status] += 1;
+  if (!Array.isArray(doc.flagged)) throw new Error('authoritative register entry has no flagged array');
+  registerFlagged += doc.flagged.length;
+}
+if (Object.keys(registerDocs).length !== manifest.source_review.authoritative_documents) {
+  throw new Error(`authoritative register documents (${Object.keys(registerDocs).length}) disagree with the manifest (${manifest.source_review.authoritative_documents})`);
+}
+if (registerFlagged !== manifest.source_review.authoritative_flagged_total) {
+  throw new Error(`authoritative register flagged total (${registerFlagged}) disagrees with the manifest (${manifest.source_review.authoritative_flagged_total})`);
+}
+for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
+  if (registerCounts[status] !== expected) {
+    throw new Error(`authoritative register ${status} count (${registerCounts[status] || 0}) != ${expected}`);
+  }
+}
+for (const item of manifestItems.filter((i) => i?.key)) {
+  const entry = registerDocs[item.key];
+  if (!entry) throw new Error(`manifest item '${item.key}' has no authoritative register entry`);
+  if (entry.source_review_status !== item.source_review_status) {
+    throw new Error(`'${item.key}': manifest status '${item.source_review_status}' contradicts the register entry '${entry.source_review_status}'`);
+  }
+}
+// Repo-side reproducibility gate: the published reference manifest must cover exactly the works the
+// collation harness claims. Re-hashing the bytes needs the CBETA checkout (scripts/collate_refs.py
+// --verify-against); a stale, renamed or truncated manifest must still fail here.
+const refsManifestText = readFileSync(join(ROOT, manifest.source_review.correction_refs_manifest_path), 'utf8');
+const manifestWorks = [];
+for (const line of refsManifestText.split('\n')) {
+  if (!line.trim()) continue;
+  const m = line.match(/^([0-9a-f]{64}) {2}ref_([A-Z][0-9]{2,3}n[0-9]{3,4}[A-Z]?)\.txt$/);
+  if (!m) throw new Error(`${manifest.source_review.correction_refs_manifest_path}: malformed line: ${line.slice(0, 60)}`);
+  manifestWorks.push(m[2]);
+}
+// Witness ids are read from the harness's own DOCS table rather than re-typed here, so the check
+// follows the harness when it changes instead of freezing a second copy of its expectations.
+const harnessDocs = readFileSync(join(ROOT, 'scripts', 'collate_corpus.py'), 'utf8').split('DOCS = {')[1] || '';
+const harnessWorks = new Set([...harnessDocs.matchAll(/'([A-Z][0-9]{2,3}n[0-9]{3,4}[A-Z]?)'/g)].map((m) => m[1]));
+if (harnessWorks.size === 0) throw new Error('scripts/collate_corpus.py: no claimed witness works parsed');
+const uncovered = [...harnessWorks].filter(w => !manifestWorks.includes(w));
+if (uncovered.length) throw new Error(`witness works absent from the published refs manifest: ${uncovered.join(', ')}`);
+
 const wumenguanManifestItem = manifestItems.find(item => item?.key === 'wumenguan');
 const xinxinManifestItem = manifestItems.find(item => item?.key === 'xinxin_ming');
 if (wumenguanManifestItem?.completion_status === 'complete_selected_witness' ||
@@ -354,22 +437,152 @@ eval(readFileSync(join(ROOT, 'app.js'), 'utf8'));
 console.log('APP executed + init() completed without crash');
 
 // 1. Exercise renderReader for every corpus key via corpus button clicks
+// The Reader header must show FIVE separate, always-visible ledgers. A single line of
+// chips let a collation status read as a completeness claim, an edition check, or a
+// rights clearance, so each question gets its own block with machine-readable attributes.
+const LEDGER_KEYS = [
+  'source_collation',
+  'represented_units',
+  'translation_edition_verification',
+  'canonical_locator',
+  'rights_review'
+];
+function ledgerSlice(html, key) {
+  // One ledger block = from its own opening tag to the next ledger block (or the footnote
+  // that closes the set). Slicing keeps each assertion about "this ledger" honest.
+  const start = html.lastIndexOf('<div', html.indexOf(`data-ledger="${key}"`));
+  if (start === -1) return '';
+  const bounds = [
+    html.indexOf('data-ledger="', html.indexOf('>', start) + 1),
+    html.indexOf('ledger-footnote', start)
+  ].filter(index => index > start);
+  return html.slice(start, bounds.length ? Math.min(...bounds) : html.length);
+}
 let failures = 0;
+const metricReview = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.source_review || {};
+const statusLabels = metricReview.status_labels || {};
 for (const [key, fn] of Object.entries(corpusClicks)) {
   try {
     fn();
-    const expectedStatus = manifestItems.find(item => item?.key === key)?.source_review_status;
     const rendered = ids['reader-content-target']._innerHTML;
-    if (!rendered.includes('class="source-location source-review-disclosure') ||
-        !rendered.includes(`data-source-review-status="${expectedStatus}"`)) {
-      failures++; console.log(`  ❌ Reader source-review disclosure missing for ${key}`);
+    const expectedStatus = manifestItems.find(item => item?.key === key)?.source_review_status;
+    const present = LEDGER_KEYS.map(ledger => [ledger, ledgerSlice(rendered, ledger)]);
+    const missing = present.filter(([, slice]) => !slice).map(([ledger]) => ledger);
+    if (missing.length) { failures++; console.log(`  ❌ Reader ledgers missing for ${key}: ${missing.join(', ')}`); continue; }
+    const collation = present[0][1];
+    if (!collation.includes(`data-source-review-status="${expectedStatus}"`) ||
+        !collation.includes(expectedStatus)) {
+      failures++; console.log(`  ❌ source-collation ledger does not state ${expectedStatus} for ${key}`);
+    }
+    if (!collation.includes(statusLabels[expectedStatus] || '')) {
+      failures++; console.log(`  ❌ source-collation ledger missing the human-readable status for ${key}`);
+    }
+    for (const required of ['Containment/remediation state, not a rights decision.', 'Source collation does not approve reuse.', 'sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json']) {
+      if (!collation.includes(required)) { failures++; console.log(`  ❌ source-collation ledger omits ${required} for ${key}`); }
+    }
+    if (!/\"evidence-date\"|data-evidence-date="2026-09-10"/.test(collation)) {
+      failures++; console.log(`  ❌ source-collation ledger has no machine-readable evidence date for ${key}`);
+    }
+    // Status must not be hover-only anywhere in the ledger set.
+    if (present.some(([, slice]) => /<details/.test(slice))) {
+      failures++; console.log(`  ❌ a Reader ledger hides its status behind a disclosure widget for ${key}`);
+    }
+    if (collation.includes('Complete witness') || present[1][1].includes('data-represented-complete="true"')) {
+      failures++; console.log(`  ❌ Reader ledger upgraded a contained document to complete: ${key}`);
+    }
+    if (!present[4][1].includes('not legal advice') && !present[4][1].includes('not yet reviewed') && !present[4][1].includes('no rights record')) {
+      failures++; console.log(`  ❌ rights ledger does not disclaim approval for ${key}`);
     }
   }
   catch (e) { failures++; console.log(`  ❌ renderReader CRASH for ${key}: ${e.message}`); }
 }
 console.log(`RENDERER: ${Object.keys(corpusClicks).length} corpus texts exercised, ${failures} crashes`);
-if (!appSrc.includes('function sourceReviewForCorpusKey(') || !appSrc.includes('renderSourceReviewDisclosure')) {
-  failures++; console.log('❌ Reader source-review resolver/disclosure helper is missing');
+
+// Per-document expectations for the W1 public-integrity contract. Each of these was a
+// concrete failure mode: two flagship texts claimed completeness, the third item in the
+// manifest had no evidence record at all, and two documents have no CBETA witness to
+// collate against. The ledger must state the truth for each, not the optimistic reading.
+const LEDGER_CASES = [
+  {
+    key: 'wumenguan',
+    status: 'partial_or_failed_w1_collation',
+    must: ['Partial or failed W1 collation', 'data-represented-complete=\"false\"', 'T48n2005', '113/181'],
+    mustNot: ['Complete witness', 'data-source-review-status=\"collated_to_claimed_witness\"']
+  },
+  {
+    key: 'xinxin_ming',
+    status: 'partial_or_failed_w1_collation',
+    must: ['Partial or failed W1 collation', 'Representation labels count containers present in this project'],
+    mustNot: ['Complete witness', 'Complete selected witness']
+  },
+  {
+    key: 'shitou_sandokai',
+    status: 'partial_or_failed_w1_collation',
+    must: ['T51n2076', 'X80n1565', '6/11', '2/2 claimed witness reference(s) byte-verified',
+           'Both claimed witnesses were fetched and collated'],
+    mustNot: ['witness_unavailable', 'Complete witness']
+  },
+  {
+    key: 'hanshan_poems',
+    status: 'witness_unavailable',
+    must: ['Witness unavailable', 'no claimed witness to verify'],
+    mustNot: ['Complete witness', 'Collated to claimed witness']
+  },
+  {
+    key: 'zhengdao_ge',
+    status: 'collated_to_claimed_witness',
+    must: ['Collated to claimed witness', 'collated_to_claimed_witness', 'is not proof',
+           'data-ledger="rights_review"'],
+    // A collated document must not borrow its collation verdict into rights or completeness.
+    mustNot: ['approved for reuse', 'Complete witness', 'data-represented-complete="true"']
+  }
+];
+for (const entry of LEDGER_CASES) {
+  const open = corpusClicks[entry.key];
+  if (!open) { failures++; console.log(`❌ smoke ledger case has no corpus button for ${entry.key}`); continue; }
+  open();
+  const html = ids['reader-content-target']._innerHTML;
+  const collation = ledgerSlice(html, 'source_collation');
+  for (const needle of entry.must) {
+    if (!html.includes(needle)) { failures++; console.log(`  ❌ ${entry.key}: expected public disclosure "${needle}"`); }
+  }
+  for (const needle of entry.mustNot) {
+    if (html.includes(needle)) { failures++; console.log(`  ❌ ${entry.key}: must never disclose ${needle} (got a forbidden public claim)`); }
+  }
+  if (!collation.includes(`data-source-review-status="${entry.status}"`)) {
+    failures++; console.log(`  ❌ ${entry.key}: source-collation ledger does not carry ${entry.status}`);
+  }
+}
+if (!metricReview.disclosure_ledgers || metricReview.disclosure_ledgers.length !== 5) {
+  failures++; console.log('❌ metrics must publish exactly five disclosure ledgers for the Reader');
+}
+if (metricReview.disclosure_ledgers && LEDGER_KEYS.join(',') !== metricReview.disclosure_ledgers.map(l => l.key).join(',')) {
+  failures++; console.log('❌ Reader ledger order does not match the generated disclosure-ledger list');
+}
+
+// The shared W1 rules (status vocabulary, completion compatibility, evidence merge) are
+// implemented once in Python and mirrored here in app.js. The workflows are frozen, so the
+// Python regression suite is invoked from this file rather than added to CI config.
+{
+  const { spawnSync } = await import('node:child_process');
+  const python = ['python3', 'python'].find(candidate => spawnSync(candidate, ['--version'], { encoding: 'utf8' }).status === 0);
+  if (!python) {
+    failures++;
+    console.log('❌ no python3 available to run scripts/test_source_review_rules.py — the W1 rule suite did not run');
+  }
+  const rules = python
+    ? spawnSync(python, [join(ROOT, 'scripts', 'test_source_review_rules.py')], { cwd: ROOT, encoding: 'utf8', timeout: 900000 })
+    : { status: 0, stdout: '', stderr: '' };
+  if (rules.status !== 0) {
+    failures++;
+    console.log('❌ scripts/test_source_review_rules.py failed');
+    console.log((rules.stdout || '') + (rules.stderr || ''));
+  } else {
+    console.log('W1 source-review rule suite: ' + (rules.stdout || '').trim().split('\n').pop());
+  }
+}
+if (!appSrc.includes('function sourceReviewForCorpusKey(') || !appSrc.includes('renderSourceCollationLedger')) {
+  failures++; console.log('❌ Reader source-review resolver/ledger helper is missing');
 }
 if (!validatorSrc.includes("complete_selected_witness requires source_review_status='collated_to_claimed_witness'")) {
   failures++; console.log('❌ validator does not reject incompatible completion/source-review status');
@@ -385,8 +598,13 @@ perText.wumenguan.is_complete = true;
 window.TranslateChan.openDoc('wumenguan');
 const incompatibleHtml = ids['reader-content-target']._innerHTML;
 if (!incompatibleHtml.includes('Completion/status conflict — validation required') ||
-    incompatibleHtml.includes('Complete witness</span>')) {
+    incompatibleHtml.includes('Complete witness</span>') ||
+    !incompatibleHtml.includes('data-represented-complete="false"') ||
+    ledgerSlice(incompatibleHtml, 'source_collation').includes('Complete')) {
   failures++; console.log('❌ incompatible completion/source-review pair rendered as complete');
+}
+if (!incompatibleHtml.includes(`data-source-review-status="${'partial_or_failed_w1_collation'}"`)) {
+  failures++; console.log('❌ the mutated document lost its contained source-review status in the Reader');
 }
 wumenguanManifestItem.completion_status = savedWumenguanManifestCompletion;
 perText.wumenguan.completion_status = savedWumenguanCompletion;
@@ -571,7 +789,8 @@ if (!wmHtml.includes('case-nav-footer')) { failures++; console.log('❌ case pre
 // 4i. Public reader provenance stays progressive: source/case locations and
 // verified citations are visible, Robo names carry on-demand disclosure, and
 // project commentary/verse drafts retain a compact status line.
-if (!wmHtml.includes('Source location: T2005') || !wmHtml.includes('Case source: T2005, case 1') || !wmHtml.includes('citation-trigger')) {
+if (!ledgerSlice(wmHtml, 'canonical_locator').includes('T2005') ||
+    !wmHtml.includes('Case source: T2005, case 1') || !wmHtml.includes('citation-trigger')) {
   failures++; console.log('❌ reader source-location disclosure missing');
 }
 if (!wmHtml.includes('translation-source') || !wmHtml.includes('robo-name') || !wmHtml.includes('project AI draft')) {

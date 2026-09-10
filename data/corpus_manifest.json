@@ -5,7 +5,20 @@
     "w1_report_path": "sessions/COLLATION_W1_2026-09-09.md",
     "w1_register_path": "sessions/COLLATION_REGISTER_2026-09-09.json",
     "evidence_date": "2026-09-09",
-    "status_scope": "Containment/remediation state, not a rights decision."
+    "status_scope": "Containment/remediation state, not a rights decision.",
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-10_CORRECTION.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-10_refs_manifest.txt",
+    "correction_evidence_date": "2026-09-10",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+    "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-10 correction overlay is authoritative for current status; scripts/validate_data.py merges and re-derives both",
+    "historical_documents": 34,
+    "authoritative_documents": 35,
+    "historical_flagged_total": 622,
+    "authoritative_flagged_total": 630,
+    "superseded_report_flagged_total": 637,
+    "metadata_field_note": "Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.",
+    "non_approval_statement": "Source collation does not approve reuse."
   },
   "items": [
     {

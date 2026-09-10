@@ -3,7 +3,7 @@
 > **Repository:** `56eli/translatechan`
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
-> **Current audit/status:** [`AUDIT.md`](./AUDIT.md) · W1 evidence: [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md)
+> **Current audit/status:** [`AUDIT.md`](./AUDIT.md) · W1 evidence (authoritative, dated): [`sessions/COLLATION_W1_2026-09-10_CORRECTION.md`](./sessions/COLLATION_W1_2026-09-10_CORRECTION.md) · W1 evidence (historical, append-only): [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md)
 > **Current gate:** `repo_ready = fail` at **7.2/10**
 
 ## 1. Start here
@@ -67,15 +67,18 @@ This direction and the subsequent copy cleanup are implemented. PR #18 merged as
 corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
 content CJK=103,723 | all-string CJK=109,181
 source-review: collated=1 | partial/failed=32 | unavailable=2
+w1-evidence: flagged=630 (authoritative 2026-09-10) | historical=622 (2026-09-09) | report-figure-superseded=637
 complete=0 | partial=4 | excerpt seeds=31
 lineage=34 masters / 30 edges | glossary=31 | gong'an=24
-app_data.js=1,599,993 raw bytes / 498,126 gzip-9
+app_data.js=<printed by scripts/build_data_bundle.py at build time>
 local first-load estimate≈556 KB gzip before fonts
 ```
 
 Verified citation reference coverage is **176 / 179**; the remaining **3** references are explicitly pending. Edition verification still does not establish reuse rights.
 
-**W1 source-review disclosure:** the manifest records `collated_to_claimed_witness`, `partial_or_failed_w1_collation`, or `witness_unavailable` for every corpus item. This is a containment/remediation state, not a rights decision. The Reader renders the state in each document header beside, but separately from, editorial completion, source location, translation status, edition verification, and rights details.
+**W1 source-review disclosure:** the manifest records `collated_to_claimed_witness`, `partial_or_failed_w1_collation`, or `witness_unavailable` for every corpus item, and each status is re-derived from the merged evidence records (historical 2026-09-09 register + authoritative 2026-09-10 correction overlay). This is a containment/remediation state, not a rights decision. The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
+
+W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-10 correction register: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all.
 
 Completion requires explicit `complete_selected_witness` status, satisfied unit targets, and a collated W1 source-review status. After the W1 containment update, no document qualifies as complete selected witness; Wumenguan and Xinxin Ming are represented at 48/48 and 37/37 units respectively but remain partial/failed W1 collation. Biyanlu and Linji remain partial; Platform remains an excerpt seed despite 10/10 represented chapter headings.
 
