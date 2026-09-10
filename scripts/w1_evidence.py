@@ -954,6 +954,53 @@ def validate_authoritative_register(reg: Any, path: str, record: dict[str, Any],
     return docs
 
 
+def canonical_partitions(root: Path, documents: dict[str, Any], path: str,
+                         problems: EvidenceIssues) -> dict[str, dict[str, Any]]:
+    """Re-use the harness's pure selector, including CJK and speaker/author exclusions.
+
+    The register stores only flagged paths; the unflagged complement comes from
+    the corpus, never from a declared denominator. Do not rewrite dated evidence.
+    """
+    from collate_corpus import iter_fields
+
+    canonical = {}
+    for key, entry in documents.items():
+        if not isinstance(entry, dict):
+            continue
+        try:
+            data = json.loads((root / "data" / "corpus" / f"{key}.json").read_text(encoding="utf-8"))
+        except (OSError, ValueError) as exc:
+            problems.error(path, f"{key}: cannot derive source-field paths: {exc}")
+            continue
+        paths = dict(iter_fields(data))
+        metadata = {p for p in paths if source_review.is_metadata_field(p)}
+        content = set(paths) - metadata
+        flags = [f for f in entry.get("flagged", []) if isinstance(f, dict)]
+        flagged_paths = [f.get("path") for f in flags]
+        if any(p not in paths for p in flagged_paths) or len(set(flagged_paths)) != len(flagged_paths):
+            problems.error(path, f"{key}: content/metadata partition mismatch: flagged source-field paths "
+                                 "must be unique members of the actual corpus field-path set")
+        totals = {"fields_total": len(paths), "content_fields_total": len(content),
+                  "metadata_fields_total": len(metadata)}
+        for label, selected in (("content", content), ("metadata", metadata)):
+            summary = entry.get(f"{label}_summary") or {}
+            for cls, count in summary.items():
+                if cls not in NEVER_FLAGGED_CLASSES:
+                    actual = sum(f.get("path") in selected and f.get("class") == cls for f in flags)
+                    if count != actual:
+                        problems.error(path, f"{key}: content/metadata partition mismatch: {label}_summary "
+                                             f"{cls} is {count}, actual field paths give {actual}")
+        totals["content_fields_collated"] = len(content) - sum(
+            f.get("path") in content and f.get("class") not in source_review.COLLATED_CLASSES
+            for f in flags)
+        for field, actual in totals.items():
+            if entry.get(field) != actual:
+                problems.error(path, f"{key}: content/metadata partition mismatch: {field} is "
+                                     f"{entry.get(field)!r}, canonical corpus field paths give {actual}")
+        canonical[key] = {**entry, **totals}
+    return canonical
+
+
 def validate_correction_report(text: str, path: str, record: dict[str, Any],
                                authoritative_docs: dict[str, Any],
                                historical_docs: dict[str, Any],
@@ -1302,8 +1349,18 @@ def validate(manifest: Any, corpus_keys: Any, harness_docs: Any, issues: Evidenc
                 problems.error(f"{path}.correction_report_path",
                                "the correction report must label the superseded report figure as superseded")
 
+    canonical_docs = canonical_partitions(root, authoritative_docs,
+                                          str(record.get("authoritative_register_path")), problems)
+    stored_aggregate = authoritative.get("aggregate", {}) if isinstance(authoritative, dict) else {}
+    for field in ("fields_total", "content_fields_total", "metadata_fields_total", "content_fields_collated"):
+        actual = sum(e[field] for e in canonical_docs.values())
+        if stored_aggregate.get(field) != actual:
+            problems.error(path, f"content/metadata partition mismatch: aggregate {field} is "
+                                 f"{stored_aggregate.get(field)!r}, canonical corpus field paths give {actual}")
+
     merged = dict(historical_docs)
     merged.update(authoritative_docs)
+    merged.update(canonical_docs)
     aggregates["merged_documents"] = merged
 
     missing_evidence = sorted(set(declared_by_key) - set(merged))
@@ -1436,7 +1493,7 @@ def validate(manifest: Any, corpus_keys: Any, harness_docs: Any, issues: Evidenc
         validate_correction_report(
             correction_text,
             str(record.get("correction_report_path") or "correction_report_path"),
-            record, authoritative_docs, historical_docs, superseded_claim,
+            record, {**authoritative_docs, **canonical_docs}, historical_docs, superseded_claim,
             current_digests, historical_digests, register_sha, manifest_sha, problems,
         )
 
