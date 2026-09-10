@@ -1,9 +1,9 @@
 # 🤖 Fake Chan Factory (`translatechan`)
 
-> **A proudly-fake AI translation factory robolating Chan/Zen translator registers over source-tracked Classical Chinese excerpts.**
+> **A proudly-fake AI translation factory robolating Chan/Zen translator registers over Classical Chinese corpus records with explicit source-review states.**
 > *"A special transmission outside the scriptures, not founded upon words and letters; pointing directly to the human mind, seeing into one's nature and attaining Buddhahood."*
 
-> ⚠️ **What this actually is.** The public app is **Fake Chan Factory**: most English renderings are **🤖 Robo** versions — AI text written in a famous translator's register, **not** their words and not citable as their work. Active Classical Chinese records are tied to named CBETA/Taishō witnesses and editorial status; the 2026-08-10 containment pass removed the uncollated Congronglu seed after finding generated source-looking placeholders. A **✅ Edition-verified quotation** badge means wording was checked against the recorded edition; rights/public-domain status is separate in its citation record. (Internal `translatechan` identifiers remain for continuity.)
+> ⚠️ **What this actually is.** The public app is **Fake Chan Factory**: most English renderings are **🤖 Robo** versions — AI text written in a famous translator's register, **not** their words and not citable as their work. Active Classical Chinese records retain named CBETA/Taishō witness claims where present, but W1 source-review status now distinguishes collated, partial/failed, and unavailable evidence; a named witness is not a completed collation claim. The 2026-08-10 containment pass removed the uncollated Congronglu seed after finding generated source-looking placeholders. A **✅ Edition-verified quotation** badge means wording was checked against the recorded edition; rights/public-domain status is separate in its citation record. (Internal `translatechan` identifiers remain for continuity.)
 
 [![GitHub Pages Deployment](https://img.shields.io/badge/GitHub%20Pages-Ready-brightgreen.svg)](https://56eli.github.io/translatechan/)
 [![License: MIT / CC-BY-SA](https://img.shields.io/badge/License-MIT%20%2F%20CC--BY--SA-blue.svg)](LICENSE)
@@ -14,7 +14,7 @@
 ## 🌟 Overview
 
 **Fake Chan Factory** is an open-source, computational, and *playfully honest* initiative created to:
-1. **Source and Ingest** the complete classical Chinese Chan (Zen) literature of the ancient masters (*唐宋諸祖語錄與傳燈公案文獻*), referencing canonical CBETA / Taishō Tripiṭaka volumes (T47, T48, T51, and the Zokuzōkyō).
+1. **Build toward and document** a source-aware collection of classical Chinese Chan (Zen) literature (*唐宋諸祖語錄與傳燈公案文獻*), referencing canonical CBETA / Taishō Tripiṭaka volumes (T47, T48, T51, and the Zokuzōkyō) without treating a representation count as proof of source completion.
 2. **Maintain a source-aware editorial workflow** for Classical Chinese parsing, multi-register project drafts, published-translation collation, and structured provenance data — with every AI-derived rendering disclosed as such.
 3. **Provide Multi-Translator Comparative Alignment** side-by-side, analyzing historical and contemporary renderings (Red Pine, Thomas Cleary, Ruth Fuller Sasaki, D.T. Suzuki, R.H. Blyth, John Blofeld, Steven Heine, Philip Yampolsky **— now extended with ✅ verified registers from Nyogen Senzaki & Paul Reps, Eiichi Shimomissé, Katsuki Sekida, Kōun Yamada, Robert Aitken, Burton Watson, Yoel Hoffman, Andy Ferguson, Richard B. Clarke**) alongside AI-assisted hermeneutic synthesis.
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the Five Houses and Seven Schools.
@@ -31,27 +31,29 @@ The five-room public SPA keeps its dark-walnut Chan-hall structure while using a
 - **Progressive disclosure:** repeated hero/Matrix explanations and per-column Robo footers are removed; compact citations, coverage, Lineage, Lexicon, and search labels keep detailed provenance available on demand.
 - **Resilience and honesty:** redundant Robo badges are suppressed without hiding verified-quotation status; malformed preferences fail soft; missing/malformed data renders reload/reset recovery UI; edition verification and rights status remain separate.
 
-## ✅ Verified Quotation Campaign (2026-08-08)
+## ✅ Verified Quotation Campaign (historical snapshot, 2026-08-08)
+
+This campaign is historical evidence about the English quotation layer. W1 source collation is a separate later review and supersedes the campaign's complete-witness wording for current corpus status.
 
 Every visible translation register carries a **✅ Edition-verified quotation**, **🤖 Robolation**, or **🤖 Robo draft** badge. Every citation also exposes the recorded source and rights status. Edition verification establishes wording, not permission or public-domain status; all rights records still require their documented human review. A Robolation is project text using broad style characteristics associated with a scholar, **not** copied from or attributable as wording in that scholar's work, and is not citable as their translation. The campaign delivered:
 
-- **177 verified quotation slots across 10 corpus texts + 2 verified comparative-matrix entries** (Wumenguan now 48/48 complete, every case carrying the verified 1934 Senzaki & Reps public-domain register). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
-- **Wumenguan excerpt set is public-domain-complete**: every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text (U.S. public domain via non-renewal) as a guaranteed-citable baseline — six ✅ editions stand side by side on Case 1 (Mu).
+- **177 verified quotation slots across 10 corpus texts + 2 verified comparative-matrix entries** (the historical Wumenguan quotation set covered 48/48 represented cases; this English quotation result is separate from W1 source collation). Corpus and Matrix verified items carry work/edition/verification fields plus a rights-manifest source identifier under provenance policy v2.2.
+- **Historical Wumenguan quotation set:** every anchor carries the 1934 Senzaki & Reps *Gateless Gate* text as a recorded U.S. public-domain baseline — six ✅ editions stand side by side on Case 1 (Mu). This quotation/rights record is separate from W1 source collation and current rights review.
 - All checks and honest negatives logged in [`sessions/AUDIT_archive_2026-08-08.md` §8](./sessions/AUDIT_archive_2026-08-08.md).
 
 ---
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: the active corpus contains **35 documents**: two `complete_selected_witness` works (Wumenguan 48/48 plus preface/epilogue; Xinxin Ming 37/37), two `partial_selected_witness` records (Biyanlu and Linji), and 31 excerpt seeds. Biyanlu has **100/100 cases** represented as case records, but source fields/human sign-off are incomplete. Platform Sutra has 10/10 chapter headings represented by selected excerpts (680 content CJK), not a complete text. The Congronglu seed was removed from the active bundle after the 2026-08-10 audit found uncollated generated placeholders and incorrect case-number/page claims. Generated metrics report **103,723 source-content CJK characters** (or 109,185 across every corpus JSON string, including metadata); representation counts never establish completion by themselves.
+> **Honest status**: the active corpus contains **35 documents** and no current `complete_selected_witness` item after W1 containment. W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-10 correction register: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all. Wumenguan has **48 / 48 cases represented; W1 source-review status: `partial_or_failed_w1_collation`**; Xinxin Ming has 37/37 stanzas represented with the same partial/failed W1 state. Biyanlu and Linji remain `partial_selected_witness`; 31 records remain excerpt seeds. The manifest source-review counts are `collated_to_claimed_witness`: **1**, `partial_or_failed_w1_collation`: **32**, and `witness_unavailable`: **2**. Biyanlu has **100/100 cases** represented as case records, but source fields/human sign-off are incomplete. Platform Sutra has 10/10 chapter headings represented by selected excerpts (680 content CJK), not a complete text. The Congronglu seed was removed from the active bundle after the 2026-08-10 audit found uncollated generated placeholders and incorrect case-number/page claims. Generated metrics report **103,723 source-content CJK characters** (or 109,181 across every corpus JSON string, including metadata); representation counts never establish completion by themselves.
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
-| **The Gateless Gate** | 禪宗無門關 | **T2005** (Vol. 48) | Wumen Huikai (無門慧開, 1228 CE) | **48 / 48 cases ✅ complete** (+ preface, epilogue) |
+| **The Gateless Gate** | 禪宗無門關 | **T2005** (Vol. 48) | Wumen Huikai (無門慧開, 1228 CE) | **48 / 48 cases represented; W1 source-review status: `partial_or_failed_w1_collation`** |
 | **The Record of Linji** | 鎮州臨濟慧照禪師語錄 | **T1985** (Vol. 47) | Linji Yixuan / Sansheng Huiran | 74 recorded sections; partial selected witness |
 | **Transmission of Mind** | 黃檗山斷際禪師傳心法要 | **T2012A** (Vol. 48) | Huangbo Xiyun / Pei Xiu (裴休) | Opening sections (One Mind) |
-| **Sayings of Zhaozhou** | 趙州真際禪師語錄 | **T1987** (Vol. 47) | Zhaozhou Congshen (趙州從諗) | Signature dialogues (狗子, 洗鉢盂…) |
-| **Inscription on Faith in Mind** | 信心銘 | **T2010** (Vol. 48) | Third Patriarch Jianzhi Sengcan | **37 / 37 stanzas ✅ complete selected witness** |
+| **Sayings of Zhaozhou** | 趙州真際禪師語錄 | claims **T1987** (Vol. 47) — **W1 found this claim false**: T1987 is the Caoshan record; the true witness is the Guzunsu yulu work X68n1315 | Zhaozhou Congshen (趙州從諗) | Signature dialogues (狗子, 洗鉢盂…); witness re-pointing pending (R-A) |
+| **Inscription on Faith in Mind** | 信心銘 | **T2010** (Vol. 48) | Third Patriarch Jianzhi Sengcan | **37 / 37 stanzas represented; partial/failed W1 source collation** |
 | **Jewel Mirror Samadhi** | 寶鏡三昧歌 | **T1986** (Vol. 47) | Dongshan Liangjie (洞山良价) | Opening stanzas |
 | **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | **100 / 100 cases represented**; partial selected witness |
 | **The Platform Sutra** | 六祖大師法寶壇經 | **T2007** (Vol. 48) | Sixth Patriarch Huineng / Fahai | 10 / 10 chapter headings represented by excerpts; **not complete** |
@@ -59,13 +61,23 @@ Every visible translation register carries a **✅ Edition-verified quotation**,
 
 ---
 
+## 🔎 W1 Source-Review Status Model
+
+The 2026-09-09 W1 report and register are the *historical* evidence for Classical Chinese source review; the dated 2026-09-10 correction overlay is the authoritative record and adds the item the first run never mapped. `scripts/validate_data.py` merges both and re-derives every status from them. These are containment/remediation states, **not rights decisions**:
+
+- `collated_to_claimed_witness`: **1** document fully collated to its claimed witness in the W1-evaluated set.
+- `partial_or_failed_w1_collation`: **32** manifest records are not fully supported by W1 collation; per-document remediation remains pending.
+- `witness_unavailable`: **2** records need an authoritative non-CBETA witness before source claims can be reviewed.
+
+The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Represented units describe what the Reader contains; source collation describes W1 evidence against a claimed witness; translation/edition verification describes wording checks for English registers; the canonical locator identifies where a text sits in the canon; rights review records permission and jurisdiction work. None of the five is inferred from another, and no ledger here approves reuse. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated. Historical evidence: [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md) and [`sessions/COLLATION_REGISTER_2026-09-09.json`](./sessions/COLLATION_REGISTER_2026-09-09.json); authoritative evidence: the dated correction overlay [`sessions/COLLATION_W1_2026-09-10_CORRECTION.md`](./sessions/COLLATION_W1_2026-09-10_CORRECTION.md) with [`sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`](./sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json) and its [`sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`](./sessions/COLLATION_W1_2026-09-10_refs_manifest.txt) digest list (regenerate the reference layer with `scripts/collate_refs.py`).
+
 ## 🚀 Key Features
 
 ### 1. 📖 Interactive Bilingual Reader
 - Sentence-by-sentence Classical Chinese with pinyin and disclosed English registers across all 35 active corpus documents.
 - Switchable reading modes: **Bilingual**, **Multi-Translators Side-by-Side**, or **Classical Chinese Only**.
 - Hover, focus, or tap key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
-- Visible source locations and validator-derived coverage disclosures that distinguish **complete selected witness**, **partial selected witness**, and **excerpt seed** from raw N/M representation counts; locator popups state granularity and review status.
+- Visible source locations, W1 source-review disclosures, and validator-derived coverage disclosures distinguish **source collation status**, **complete/partial/excerpt representation**, and locator review; raw N/M representation counts never establish source completion. The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review.
 - Client-side search across **all 35 active corpus documents and supported schema shapes** (case lists, sermons, dialogues, stanzas, chapters), with match counts, highlighting, and jump actions.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix

@@ -3,7 +3,7 @@
 > **Repository:** `56eli/translatechan`
 > **Public site:** `https://56eli.github.io/translatechan/`
 > **Deployment:** native GitHub Pages from `main /docs`, HTTPS
-> **Current audit:** [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md)
+> **Current audit/status:** [`AUDIT.md`](./AUDIT.md) · W1 evidence (authoritative, dated): [`sessions/COLLATION_W1_2026-09-10_CORRECTION.md`](./sessions/COLLATION_W1_2026-09-10_CORRECTION.md) · W1 evidence (historical, append-only): [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md)
 > **Current gate:** `repo_ready = fail` at **7.2/10**
 
 ## 1. Start here
@@ -65,22 +65,29 @@ This direction and the subsequent copy cleanup are implemented. PR #18 merged as
 
 ```text
 corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
-content CJK=103,723 | all-string CJK=109,185
-complete=2 | partial=2 | excerpt seeds=31
+content CJK=103,723 | all-string CJK=109,181
+source-review: collated=1 | partial/failed=32 | unavailable=2
+w1-evidence: flagged=630 (authoritative 2026-09-10) | historical=622 (2026-09-09) | report-figure-superseded=637
+complete=0 | partial=4 | excerpt seeds=31
 lineage=34 masters / 30 edges | glossary=31 | gong'an=24
-app_data.js=1,594,154 raw bytes / 497,352 gzip-9
+app_data.js=<printed by scripts/build_data_bundle.py at build time>
 local first-load estimate≈556 KB gzip before fonts
 ```
 
 Verified citation reference coverage is **176 / 179**; the remaining **3** references are explicitly pending. Edition verification still does not establish reuse rights.
 
-Completion requires explicit `complete_selected_witness` status plus satisfied unit targets. Only Wumenguan and Xinxin Ming qualify. Biyanlu and Linji remain partial; Platform remains an excerpt seed despite 10/10 represented chapter headings.
+**W1 source-review disclosure:** the manifest records `collated_to_claimed_witness`, `partial_or_failed_w1_collation`, or `witness_unavailable` for every corpus item, and each status is re-derived from the merged evidence records (historical 2026-09-09 register + authoritative 2026-09-10 correction overlay). This is a containment/remediation state, not a rights decision. The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
+
+W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-10 correction register: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all.
+
+Completion requires explicit `complete_selected_witness` status, satisfied unit targets, and a collated W1 source-review status. After the W1 containment update, no document qualifies as complete selected witness; Wumenguan and Xinxin Ming are represented at 48/48 and 37/37 units respectively but remain partial/failed W1 collation. Biyanlu and Linji remain partial; Platform remains an excerpt seed despite 10/10 represented chapter headings.
 
 ## 5. Release blockers
 
 ### Content and rights
 
 - All 14 translation-rights records remain `needs_rights_review` or `jurisdiction_review_required`.
+- W1 found only one of the 35 documents in the authoritative 2026-09-10 register fully collated to its claimed witness (the historical 2026-09-09 register covered 34 documents); Wumenguan and Xinxin Ming need per-document remediation, while the remaining partial/failed and unavailable states remain contained. Zhaozhou's claimed witness T1987 is the Caoshan record — W1 found the claim false, and re-pointing to X68n1315 is R-A work, deliberately not done here.
 - Biyanlu, Linji, Platform, and excerpt seeds need broader field-level review.
 - Three lineage profiles lack linked corpus keys (prajnatara, yangqi_fanghui, dahong_zuzheng — frontier scaffolds with no active-corpus occurrence; reviewed 2026-09-09); all 30 lineage edges await exact locators.
 - Congronglu remains quarantined; do not restore it without source-pinned field-level collation.
@@ -139,7 +146,7 @@ For canonical source additions:
 
 1. Name the selected edition/recension and stable locator.
 2. Import from an authoritative source; never generate canonical-looking Chinese.
-3. Store field-level provenance/collation status.
+3. Store field-level provenance and source-review status separately from representation, translation, edition-verification, and rights status.
 4. Add exact unit locators for each public source field.
 5. Keep pinyin/English generation status separate from Chinese source status.
 6. Add negative validator fixtures before increasing completion claims.

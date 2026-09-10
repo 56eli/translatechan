@@ -2970,6 +2970,6 @@
       "verse_en": "Before the step is taken you have already arrived; before the tongue moves it has already spoken. Even if every move precedes the trigger, you must still know the aperture above."
     }
   ],
-  "coverage_note": "Complete — all 48 cases + preface + epilogue (completed 2026-08-08; T2005 宗紹編, 48則)",
+  "coverage_note": "48/48 cases represented; W1 source-review status: partial_or_failed_w1_collation (113/181 evaluated content fields collate to the claimed T2005 witness); flagged fields, including front matter, epilogue, verses, and a case pointer, remain under per-document remediation. Representation does not establish complete selected-witness status.",
   "zh_chars": 5528
 }
