@@ -701,7 +701,7 @@ const schemaQueries = [
   ['菩提本無樹', 'platform_sutra (chapters schema)'],
   ['竺土大仙心', 'shitou_sandokai (embedded stanzas)'],
   ['赤肉團', 'linji_yulu (sections schema)'],
-  ['見面便見', 'biyanlu (pointer schema)'],
+  ['早知是火', 'biyanlu (pointer schema)'],
   ['Buddha-nature', 'translations text search']
 ];
 for (const [q, label] of schemaQueries) {
