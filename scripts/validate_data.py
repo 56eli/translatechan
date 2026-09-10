@@ -651,9 +651,11 @@ def validate_w1_evidence(corpus_manifest: Any, corpus: dict[str, Any], issues: I
     try:
         import collate_corpus  # noqa: PLC0415 - only needed for its DOCS mapping keys
         harness_docs = set(collate_corpus.DOCS)
-    except Exception as exc:  # noqa: BLE001 - the harness is optional tooling, not runtime
+    except Exception as exc:  # noqa: BLE001 - an unreadable harness means no item can be mapped
         harness_docs = set()
-        issues.warning(rel(CORPUS_MANIFEST_PATH), f"W1 harness mapping could not be read ({exc})")
+        issues.error(rel(CORPUS_MANIFEST_PATH), f"W1 harness mapping could not be read ({exc}); a manifest "
+                                                "item without a scripts/collate_corpus.py DOCS mapping is a "
+                                                "containment gap, not evidence")
     aggregates = w1_evidence.validate(
         corpus_manifest, set(corpus), harness_docs, issues, root=ROOT
     )
@@ -1279,6 +1281,20 @@ def validate_w1_doc_claims(metrics: dict[str, Any], issues: Issues) -> None:
             ):
                 if snippet not in text:
                     issues.error(filename, f"doc truthfulness: {description} is missing: {snippet!r}")
+            # The false Zhaozhou canonical claim must be *explained*, not merely
+            # avoided: the document must say T1987 is the Caoshan record.
+            if not any("T1987" in line and "caoshan" in line.lower()
+                       for line in text.splitlines()):
+                issues.error(filename, "doc truthfulness: the document must record that Zhaozhou's claimed "
+                                       "witness T1987 is the Caoshan record (the W1 collation found the claim "
+                                       "false); an unexplained T1987 is an unqualified false witness claim")
+        if filename == "README.md":
+            # The honest-status paragraph must keep saying no current document qualifies as
+            # a complete selected witness while W1 containment is open.
+            if "no current `complete_selected_witness`" not in text:
+                issues.error(filename, "doc truthfulness: README must state that no current "
+                                       "`complete_selected_witness` item exists after W1 containment; a stale "
+                                       "completion claim is exactly what the W1 ledger exists to prevent")
     state = ROOT / ".orchestrator" / "STATE.md"
     if state.exists():
         state_text = state.read_text(encoding="utf-8")
@@ -1312,6 +1328,22 @@ def validate_w1_doc_claims(metrics: dict[str, Any], issues: Issues) -> None:
                     filename,
                     f"line {lineno} presents Zhaozhou's T1987 witness claim without recording that the W1 collation "
                     "found it false (T1987 is the Caoshan record); the claim must not be restated as valid",
+                )
+            if "x68n1315a" in line.lower():
+                issues.error(
+                    filename,
+                    f"line {lineno} uses the unsupported Zhaozhou identifier 'X68n1315A'; the W1 evidence supports "
+                    "the Guzunsu yulu work id X68n1315, and an unbacked variant of a canonical identifier is a "
+                    "fabricated locator",
+                )
+            if "of 34 evaluated" in line.lower() and not any(
+                word in line.lower() for word in ("2026-09-09", "historical")
+            ):
+                issues.error(
+                    filename,
+                    f"line {lineno} states the superseded 'one of 34 evaluated documents' figure as current; the "
+                    f"authoritative 2026-09-10 record covers {auth.get('documents')} documents — label any 34-document "
+                    "statement as the historical 2026-09-09 register",
                 )
         if re.search(r"\d[\d,]{4,}[-\s]*(?:raw\s+bytes|bytes|gzip)", prose):
             issues.error(

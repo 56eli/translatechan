@@ -1,13 +1,14 @@
 # 🔍 Fake Chan Factory — Current Audit
 
-> **Current evidence (authoritative, dated correction overlay):** [`sessions/COLLATION_W1_2026-09-10_CORRECTION.md`](./sessions/COLLATION_W1_2026-09-10_CORRECTION.md) · [`sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`](./sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json) · [`sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`](./sessions/COLLATION_W1_2026-09-10_refs_manifest.txt)  
+> **Current evidence (authoritative, dated correction overlay):** [`sessions/COLLATION_W1_2026-09-10_CORRECTION.md`](./sessions/COLLATION_W1_2026-09-10_CORRECTION.md) · [`sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`](./sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json) · [`sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`](./sessions/COLLATION_W1_2026-09-10_refs_manifest.txt)
+>
 > **Historical evidence (append-only):** [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md) · [`sessions/COLLATION_REGISTER_2026-09-09.json`](./sessions/COLLATION_REGISTER_2026-09-09.json)
 > **Prior evidence:** [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019fec5c.md) · [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md)
 > **Convention:** this file is the current verdict and index; dated reports are immutable snapshots and may contain superseded metrics or conclusions.
 >
 > **⚠️ 2026-09-09 (W1 collation):** an independent collation of **every** corpus source-Chinese field in the 34-document W1 register against the official CBETA XML P5 edition ([report](./sessions/COLLATION_W1_2026-09-09.md), [register](./sessions/COLLATION_REGISTER_2026-09-09.json)) found that only 1 document collates 100% against its claimed witness; the register-derived figure is 22 documents with **no** collating source-content field (the report's tier table narrated 27 as failing outright, a different denominator), including fabricated preface/verses inside the former `complete_selected_witness` texts and a false canonical claim for Zhaozhou (T1987 is the Caoshan record). The manifest now contains a containment/status model; per-document remediation remains pending under the adopted hybrid R-A/R-B/R-C policy.
 
-## 1. Current verdict — 2026-09-09
+## 1. Current verdict — 2026-09-10
 
 **Not release-ready: audited score 7.2/10 and `repo_ready = fail`.**
 
@@ -27,7 +28,7 @@ Current generated measurements:
 W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-10 correction register: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all.
 - Deployment: native GitHub Pages from `main /docs`, HTTPS enforced; PR #18 merged as `63dfe37`; main Quality and Pages deployment passed, and the published text surface was confirmed.
 
-## 2. Implemented this session
+## 2. Implemented (2026-08-11 session)
 
 1. **English-first visual hierarchy:** brand, navigation, hero, room headings, Reader headings, cases/sections/chapters, lineage, Gong'an, lexicon, and mobile controls now lead with English while retaining smaller source-language labels where useful.
 2. **Distinctive walnut identity:** asymmetric dark-walnut hero, `FC` monogram, edition numbering, proof-stamp motif, structural grain, editorial typography, and a matching Open Graph image.
@@ -36,15 +37,18 @@ W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-
 5. **Security:** CSP moved before `theme-init.js`; self-only script policy retained.
 6. **Regression coverage:** smoke guards for CSP order, English-first identity/headings, recovery UI, and updated Gong'an/epilogue markup.
 7. **Copy and disclosure cleanup:** removed repetitive hero/Matrix prose and Robo footers; compacted Lineage, Lexicon, verified citations, coverage, and search copy while preserving details on demand.
+
+## 3. Implemented (2026-09-09/10 W1 sessions)
+
 8. **W1 public-integrity containment:** added manifest-level W1 evidence metadata, explicit per-document source-review statuses, completion/status incompatibility validation, deterministic status counts, and a visible Reader source-review ledger without changing corpus source fields.
 9. **Documentation hygiene:** current claims now distinguish represented units, W1 source collation, edition-verified English quotations, and rights review; dated W1 evidence remains immutable.
 
-## 3. Active blockers
+## 4. Active blockers
 
 ### P1 — release blockers
 
 1. **Quotation rights:** all 14 manifest sources remain human/jurisdiction-review pending.
-2. **Source depth:** W1 found only one of 34 evaluated documents fully collated to its claimed witness; per-document remediation remains incomplete, especially Wumenguan, Xinxin Ming, Biyanlu, Linji, Platform, and excerpt seeds.
+2. **Source depth:** W1 found only one of the 35 documents in the authoritative 2026-09-10 register fully collated to its claimed witness (the historical 2026-09-09 register covered 34 documents); per-document remediation remains incomplete, especially Wumenguan, Xinxin Ming, Biyanlu, Linji, Platform, and excerpt seeds.
 
 ### P2 — engineering and operations
 
@@ -61,7 +65,7 @@ W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-
 10. SVG social cards have uneven platform support; a PNG fallback would be safer.
 11. Three lineage profiles lack linked corpus keys (prajnatara, yangqi_fanghui, dahong_zuzheng — frontier scaffolds with no active-corpus occurrence; reviewed 2026-09-09) and all 30 edges await exact locators.
 
-## 4. Verification
+## 5. Verification
 
 ```text
 python3 -m py_compile scripts/*.py      PASS
@@ -79,11 +83,11 @@ npm run test:browser                    SKIP; Chromium unavailable
 
 Chromium download failed with network `ECONNRESET`; apt installation also could not reach package sources. A skipped browser run is not visual or accessibility evidence.
 
-## 5. Current score
+## 6. Current score
 
 The weighted score is **7.2/10**. The prior 7.6 summary was inconsistent with its aspect table, which calculated to 6.9; the current [scoreboard](./SCOREBOARD.md) corrects the arithmetic and records only evidenced improvements. All `user_score` values remain `null` because the owner supplied qualitative direction, not a numeric score.
 
-## 6. Report index
+## 7. Report index
 
 | Date | Report | Scope |
 |---|---|---|
@@ -92,11 +96,12 @@ The weighted score is **7.2/10**. The prior 7.6 summary was inconsistent with it
 | 2026-08-10 | [`sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md`](./sessions/AUDIT_RESPONSE_2026-08-10_019febb1.md) | Containment, behavior fixes, initial walnut shell and Reader |
 | 2026-08-10 | [`FULL_AUDIT_2026-08-10_019feaf5.md`](./FULL_AUDIT_2026-08-10_019feaf5.md) | Earlier architecture/design audit; conclusions superseded where they conflict |
 | 2026-08-08–10 | [`sessions/`](./sessions/) | Historical audit and implementation evidence |
-| 2026-09-09 | [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md) | **Independent full-corpus collation vs CBETA XML P5** (W1); per-field register + refs manifest |
+| 2026-09-10 | [`sessions/COLLATION_W1_2026-09-10_CORRECTION.md`](./sessions/COLLATION_W1_2026-09-10_CORRECTION.md) | **Authoritative correction overlay** (W1): 35th document (Shitou Sandokai), hash-verified reference layer, per-digest provenance; supersedes the 2026-09-09 figures |
+| 2026-09-09 | [`sessions/COLLATION_W1_2026-09-09.md`](./sessions/COLLATION_W1_2026-09-09.md) | **Independent full-corpus collation vs CBETA XML P5** (W1); per-field register + refs manifest (historical, append-only) |
 
-## 7. Maintenance rule
+## 8. Maintenance rule
 
-- Update §§1–5 only when current evidence changes.
+- Update §§1–6 only when current evidence changes.
 - Add one report-index row per completed audit session.
 - Keep detailed process in dated `sessions/` reports.
 - Never infer a numeric owner score from feedback, merge, or silence.

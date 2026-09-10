@@ -3391,9 +3391,6 @@
     if (location.hash !== t) { try { location.hash = t; } catch (e) { /* ignore */ } }
     window.TranslateChan.scrollToCase(caseNum);
   };
-  window.TranslateChan.getSourceReviewStatus = function(corpusKey = state.currentCorpusKey) {
-    return sourceReviewForCorpusKey(corpusKey).status;
-  };
   window.TranslateChan.openDoc = function(corpusKey) {
     if (!setCurrentCorpusKey(corpusKey)) return;
     if (state.currentView !== 'reader') switchViewRaw('reader', false);

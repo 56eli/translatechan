@@ -6,7 +6,17 @@ Run: python3 scripts/test_source_review_rules.py
 smoke test for this repo.)
 
 Every case mutates a *copy* of the repository inputs in a temp directory, so the real
-`data/` tree is never touched, and asserts what `scripts/validate_data.py` must refuse.
+`data/` tree is never touched, and asserts what `scripts/validate_data.py` must refuse:
+
+* the shipped inputs validate, and their aggregates equal the independently
+  recomputed evidence;
+* a complete_selected_witness claim on an uncollated witness fails everywhere
+  (validator, --write-metrics, complete_document_keys, per_text, and the rendered
+  runtime output);
+* a status with no evidence record fails, in both directions;
+* editing a status or an evidence figure without editing the matching evidence fails;
+* --write-metrics with any blocking data error exits nonzero and leaves
+  data/project_metrics.json byte-identical (mutation matrix below).
 """
 
 from __future__ import annotations
@@ -17,6 +27,7 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from collections import Counter
 
 import source_review
 
@@ -45,12 +56,24 @@ class Sandbox:
             REPO, self.root, symlinks=True, dirs_exist_ok=True,
             ignore=shutil.ignore_patterns(".git", "docs", "app_data.js", "node_modules", "__pycache__", ".pytest_cache"),
         )
+        # The baseline bundle ships into the sandbox: scripts/compat_runtime_check.mjs
+        # renders from it (with an in-memory mutation only). It is never modified here,
+        # and the --write-metrics assertions target data/project_metrics.json, not it.
+        bundle = REPO / "app_data.js"
+        if bundle.is_file():
+            shutil.copy2(bundle, self.root / "app_data.js")
 
     def read(self, relative: str):
         return json.loads((self.root / relative).read_text(encoding="utf-8"))
 
     def write(self, relative: str, payload) -> None:
         text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+        (self.root / relative).write_text(text, encoding="utf-8")
+
+    def read_text(self, relative: str) -> str:
+        return (self.root / relative).read_text(encoding="utf-8")
+
+    def write_text(self, relative: str, text: str) -> None:
         (self.root / relative).write_text(text, encoding="utf-8")
 
     def mutate_manifest(self, transform) -> None:
@@ -63,6 +86,15 @@ class Sandbox:
         transform(register)
         self.write(relative, register)
 
+    def corpus(self) -> dict:
+        return {
+            path.stem: json.loads(path.read_text(encoding="utf-8"))
+            for path in sorted((self.root / "data" / "corpus").glob("*.json"))
+        }
+
+    def metrics_text(self) -> str:
+        return (self.root / "data" / "project_metrics.json").read_text(encoding="utf-8")
+
     def run(self, *args: str) -> subprocess.CompletedProcess[str]:
         return subprocess.run(
             [sys.executable, str(self.root / "scripts" / "validate_data.py"), "--skip-docs", *args],
@@ -71,6 +103,221 @@ class Sandbox:
 
     def cleanup(self) -> None:
         shutil.rmtree(self.root, ignore_errors=True)
+
+
+AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json"
+CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-10_CORRECTION.md"
+
+
+def _is_metadata_path(path: str) -> bool:
+    leaf = str(path).rsplit(".", 1)[-1].split("[", 1)[0]
+    return leaf in ("title_zh", "name_zh")
+
+
+def mutation_fields_total(root: Sandbox) -> None:
+    def edit(register):
+        register["documents"]["wumenguan"]["fields_total"] += 1
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_content_fields_and_aggregate(root: Sandbox) -> None:
+    def edit(register):
+        register["documents"]["wumenguan"]["content_fields_total"] += 2
+        register["aggregate"]["content_fields_total"] += 2
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_aggregate_class_total(root: Sandbox) -> None:
+    def edit(register):
+        register["aggregate"]["class_totals"]["EXACT"] -= 1
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_report_total_to_999(root: Sandbox) -> None:
+    text = root.read_text(CORRECTION_REPORT)
+    text = text.replace("(35 documents, 630 flagged entries)", "(35 documents, 999 flagged entries)", 1)
+    root.write_text(CORRECTION_REPORT, text)
+
+
+def mutation_authoritative_date(root: Sandbox) -> None:
+    def edit(register):
+        register["generated"] = "2026-09-11"
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_drop_date_metadata(root: Sandbox) -> None:
+    def edit(manifest):
+        del manifest["source_review"]["correction_evidence_date"]
+    root.mutate_manifest(edit)
+
+
+def mutation_stale_reproduction(root: Sandbox) -> None:
+    """Move wumenguan's derived status to collated (per-doc, aggregate, and manifest
+    kept consistent) while the reproduction block still says 0 status changes."""
+    register = root.read(AUTH_REGISTER)
+    entry = register["documents"]["wumenguan"]
+    kept = [flag for flag in entry["flagged"] if _is_metadata_path(flag["path"])]
+    removed = [flag for flag in entry["flagged"] if not _is_metadata_path(flag["path"])]
+    entry["flagged"] = kept
+    meta_flags = Counter(flag["class"] for flag in kept)
+    entry["summary"] = {"EXACT": 160, **{c: n for c, n in meta_flags.items() if c != "EXACT"}}
+    entry["content_summary"] = {"EXACT": 113}
+    entry["metadata_summary"] = {"EXACT": 47, **{c: n for c, n in meta_flags.items() if c != "EXACT"}}
+    entry["fields_total"] = 113 + 47 + len(kept)
+    entry["content_fields_total"] = 113
+    entry["content_fields_collated"] = 113
+    entry["metadata_fields_total"] = 47 + len(kept)
+    entry["source_review_status"] = source_review.COLLATED_STATUS
+    aggregate = register["aggregate"]
+    aggregate["flagged_entries"] -= len(removed)
+    for flag in removed:
+        aggregate["class_totals"][flag["class"]] -= 1
+    aggregate["source_review_status_counts"][source_review.COLLATED_STATUS] += 1
+    aggregate["source_review_status_counts"][source_review.PARTIAL_STATUS] -= 1
+    aggregate["fields_total"] -= len(removed)
+    aggregate["content_fields_total"] -= len(removed)
+    root.write(AUTH_REGISTER, register)
+
+    def edit(manifest):
+        for item in manifest["items"]:
+            if item.get("key") == "wumenguan":
+                item["source_review_status"] = source_review.COLLATED_STATUS
+
+    root.mutate_manifest(edit)
+
+
+def mutation_drop_evidence_entry(root: Sandbox) -> None:
+    def edit(register):
+        register["documents"].pop("shitou_sandokai")
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_orphan_evidence_entry(root: Sandbox) -> None:
+    def edit(register):
+        register["documents"]["orphan_document"] = dict(register["documents"]["hanshan_poems"])
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_manifest_status_without_evidence(root: Sandbox) -> None:
+    def edit(manifest):
+        for item in manifest["items"]:
+            if item.get("key") == "wumenguan":
+                item["source_review_status"] = source_review.COLLATED_STATUS
+    root.mutate_manifest(edit)
+
+
+def mutation_complete_plus_partial(root: Sandbox) -> None:
+    def edit(manifest):
+        for item in manifest["items"]:
+            if item.get("key") == "wumenguan":
+                item["completion_status"] = "complete_selected_witness"
+    root.mutate_manifest(edit)
+
+
+WRITE_METRICS_MUTATIONS = (
+    ("change one document's fields_total", mutation_fields_total, "fields_total is"),
+    ("change content_fields_total and adjust the aggregate", mutation_content_fields_and_aggregate,
+     "content_fields_total is"),
+    ("change one aggregate class total", mutation_aggregate_class_total, "aggregate.class_totals"),
+    ("change the correction report's 630 claim to 999", mutation_report_total_to_999, "999"),
+    ("change the authoritative register's date", mutation_authoritative_date, "2026-09-11"),
+    ("remove required date metadata", mutation_drop_date_metadata, "missing field(s)"),
+    ("alter authoritative status data with stale reproduction metadata", mutation_stale_reproduction,
+     "reproduction"),
+    ("remove an evidence entry", mutation_drop_evidence_entry, "no evidence record"),
+    ("add an orphan evidence entry", mutation_orphan_evidence_entry, "no such item"),
+    ("change a manifest status without changing the evidence", mutation_manifest_status_without_evidence,
+     "derives"),
+    ("pair a complete status with a non-collated W1 status", mutation_complete_plus_partial,
+     "not representable"),
+)
+
+
+def run_write_metrics_matrix() -> None:
+    """--write-metrics with any blocking evidence/data error: nonzero exit and
+    byte-identical data/project_metrics.json, every time."""
+    for label, mutate, needle in WRITE_METRICS_MUTATIONS:
+        sandbox = Sandbox(f"wm-{label[:18]}")
+        try:
+            before = sandbox.metrics_text()
+            mutate(sandbox)
+            result = sandbox.run("--write-metrics")
+            combined = result.stdout + result.stderr
+            after = sandbox.metrics_text()
+            ok = (
+                result.returncode != 0
+                and after == before
+                and needle in combined
+                and "--write-metrics refused" in combined
+            )
+            check(ok, f"--write-metrics matrix: {label} fails with unchanged metrics")
+            if not ok:
+                print(f"  mutation: {label}")
+                print(f"  rc={result.returncode} metrics_unchanged={after == before}")
+                for line in combined.splitlines():
+                    if "❌" in line:
+                        print(f"    {line[:200]}")
+        finally:
+            sandbox.cleanup()
+
+
+def run_compatibility_regression() -> None:
+    """One shared rule end to end: the complete+partial pairing must fail validation,
+    write no metrics, be excluded from complete_documents, be is_complete=false in
+    per_text, and render no completeness claim at runtime."""
+    sandbox = Sandbox("compat")
+    try:
+        before = sandbox.metrics_text()
+        mutation_complete_plus_partial(sandbox)
+        result = sandbox.run("--write-metrics")
+        combined = result.stdout + result.stderr
+        check(result.returncode != 0, "compatibility: the complete+partial pairing fails validation")
+        check(sandbox.metrics_text() == before,
+              "compatibility: --write-metrics writes no metrics for the pairing")
+        check("--write-metrics refused" in combined,
+              "compatibility: the refusal message names --write-metrics")
+
+        # The metrics functions themselves must apply the same rule to the mutated data.
+        sys.path.insert(0, str(REPO / "scripts"))
+        import validate_data  # noqa: E402 - pure functions only; no file access
+        manifest = sandbox.read("data/corpus_manifest.json")
+        corpus = sandbox.corpus()
+        complete = validate_data.complete_document_keys(corpus, manifest)
+        check("wumenguan" not in complete,
+              "compatibility: complete_document_keys() excludes the uncollated work")
+        per_text = validate_data.per_text_metrics(corpus, manifest)
+        check(per_text["wumenguan"]["is_complete"] is False,
+              "compatibility: per_text.is_complete is false for the pairing")
+        check(per_text["wumenguan"]["completion_status"] == "complete_selected_witness",
+              "compatibility: per_text still reports the (rejected) editorial status, not a silent rewrite")
+
+        # The rendered runtime output for the same pairing must make no completeness claim.
+        node = shutil.which("node")
+        if not node:
+            check(False, "compatibility: node is available to run the runtime check")
+            return
+        runtime = subprocess.run(
+            [node, str(sandbox.root / "scripts" / "compat_runtime_check.mjs"), "wumenguan"],
+            cwd=sandbox.root, capture_output=True, text=True, timeout=600,
+        )
+        check(runtime.returncode == 0,
+              "compatibility: runtime output for the pairing has no 'Complete witness', no complete "
+              "mark, and no represented-complete claim")
+        if runtime.returncode != 0:
+            print(runtime.stdout)
+            print(runtime.stderr, file=sys.stderr)
+    finally:
+        sandbox.cleanup()
+
+
+def run_public_api_check() -> None:
+    app_src = (REPO / "app.js").read_text(encoding="utf-8")
+    check("getSourceReviewStatus" not in app_src,
+          "the removed public API getSourceReviewStatus is not present in app.js")
+    docs_copy = REPO / "docs" / "app.js"
+    if docs_copy.is_file():
+        check("getSourceReviewStatus" not in docs_copy.read_text(encoding="utf-8"),
+              "the removed public API getSourceReviewStatus is not present in docs/app.js")
 
 
 def main() -> int:
@@ -86,7 +333,7 @@ def main() -> int:
         evidence = metrics["corpus"]["source_review"]
         registers = [
             baseline.read("sessions/COLLATION_REGISTER_2026-09-09.json"),
-            baseline.read("sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json"),
+            baseline.read(AUTH_REGISTER),
         ]
         authoritative = registers[1]["documents"]
         derived = {key: source_review.derive_status(entry) for key, entry in authoritative.items()}
@@ -109,7 +356,7 @@ def main() -> int:
     # 2. a complete_selected_witness claim on an uncollated witness must fail everywhere
     conflict = Sandbox("conflict")
     try:
-        before = (conflict.root / "data" / "project_metrics.json").read_text(encoding="utf-8")
+        before = conflict.metrics_text()
 
         def mark_complete(manifest):
             for item in manifest["items"]:
@@ -123,8 +370,7 @@ def main() -> int:
         check("requires source_review_status='collated_to_claimed_witness'" in combined or
               "not representable with source_review_status" in combined,
               "the failure names the completion/source-review rule")
-        after = (conflict.root / "data" / "project_metrics.json").read_text(encoding="utf-8")
-        check(after == before, "--write-metrics writes nothing when the data is invalid")
+        check(conflict.metrics_text() == before, "--write-metrics writes nothing when the data is invalid")
     finally:
         conflict.cleanup()
 
@@ -134,7 +380,7 @@ def main() -> int:
         def drop_shitou(register):
             register["documents"].pop("shitou_sandokai", None)
 
-        no_evidence.mutate_register("sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json", drop_shitou)
+        no_evidence.mutate_register(AUTH_REGISTER, drop_shitou)
         result = no_evidence.run()
         combined = result.stdout + result.stderr
         check(result.returncode != 0, "removing the only evidence entry for a manifest item fails validation")
@@ -193,7 +439,7 @@ def main() -> int:
         def inflate(register):
             register["aggregate"]["flagged_entries"] = register["aggregate"]["flagged_entries"] + 5
 
-        arithmetic.mutate_register("sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json", inflate)
+        arithmetic.mutate_register(AUTH_REGISTER, inflate)
         result = arithmetic.run()
         combined = result.stdout + result.stderr
         check(result.returncode != 0, "a hand-edited register aggregate fails validation")
@@ -226,6 +472,16 @@ def main() -> int:
     check("isCompletionSourceReviewCompatible" in app_src
           and "completion_compatibility" in app_src,
           "the runtime reads the generated compatibility table instead of a second rule")
+
+    # 10. the removed public API must stay removed
+    run_public_api_check()
+
+    # 11. --write-metrics protection matrix: every blocking evidence/data mutation
+    #     must fail the run and leave data/project_metrics.json byte-identical.
+    run_write_metrics_matrix()
+
+    # 12. the full compatibility regression: validator, metrics functions, and runtime.
+    run_compatibility_regression()
 
     print(f"\n{len(passes)} W1 source-review rule checks passed")
     if failures:

@@ -184,8 +184,9 @@ approval.
   per-document remediation and W2 auditing were not started.
 - `sessions/COLLATION_W1_2026-09-09.md`, `sessions/COLLATION_REGISTER_2026-09-09.json`, and
   `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt` are unmodified.
-- Reference texts (21 MB) stay out of the repository; only the 39-line digest manifest and the
-  rule that regenerates them are committed.
+- Reference texts (21 MB) stay out of the repository; only the digest manifests — the 39-line
+  authoritative list and the 187-line historical anchor — and the rule that regenerates them are
+  committed.
 - The public interface remains the same five rooms; no localStorage key, CSP, room scope, or
   runtime API changed; `.github/workflows/*` and `.scoreboard/*` untouched.
 
@@ -252,4 +253,5 @@ Every note and flag is therefore part of the evidence file, not a re-typable inc
 reads them back out of the register, so a reviewer who changes one gets a different file rather than a
 silent mismatch, and the two operator notes stay verbatim. Everything else in the register — every
 class count, every digest, every status, every aggregate — is computed from the corpus JSON, the
-pinned CBETA revision, and the two digest manifests. `between them and the manifest, the metrics, `app_data.js`, or the documents.
+pinned CBETA revision, and the two digest manifests, and is never transcribed from the manifest,
+the metrics, `app_data.js`, or the documents.

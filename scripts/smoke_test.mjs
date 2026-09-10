@@ -580,9 +580,28 @@ if (metricReview.disclosure_ledgers && LEDGER_KEYS.join(',') !== metricReview.di
   } else {
     console.log('W1 source-review rule suite: ' + (rules.stdout || '').trim().split('\n').pop());
   }
+  // Source-Chinese preservation: the corpus must not differ from the pinned base
+  // commit except for the intended coverage_note fields. The base is pinned inside
+  // the test itself (an explicit commit), never a mutable fixture; a missing base
+  // commit is a failure, not a skip.
+  const preservation = python
+    ? spawnSync(python, [join(ROOT, 'scripts', 'test_source_preservation.py')], { cwd: ROOT, encoding: 'utf8', timeout: 900000 })
+    : { status: 1, stdout: 'no python3 available', stderr: '' };
+  if (preservation.status !== 0) {
+    failures++;
+    console.log('❌ scripts/test_source_preservation.py failed');
+    console.log((preservation.stdout || '') + (preservation.stderr || ''));
+  } else {
+    console.log('Source-preservation suite: ' + (preservation.stdout || '').trim().split('\n').pop());
+  }
 }
 if (!appSrc.includes('function sourceReviewForCorpusKey(') || !appSrc.includes('renderSourceCollationLedger')) {
   failures++; console.log('❌ Reader source-review resolver/ledger helper is missing');
+}
+// The W1 status must stay an internal implementation detail: the accidental public
+// accessor was removed and must not reappear as any public window.TranslateChan API.
+if (appSrc.includes('getSourceReviewStatus') || publicHtml.includes('getSourceReviewStatus')) {
+  failures++; console.log('❌ public API getSourceReviewStatus returned; W1 status is not a public API surface');
 }
 if (!validatorSrc.includes("complete_selected_witness requires source_review_status='collated_to_claimed_witness'")) {
   failures++; console.log('❌ validator does not reject incompatible completion/source-review status');

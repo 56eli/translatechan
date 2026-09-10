@@ -31,7 +31,7 @@ This document outlines the detailed engineering, data science, translation, and 
 
 > **Website-design status (2026-08-11):** all five walnut rooms are implemented. After the owner found the result too plain/generic and too Chinese-dominant, the current branch introduced a bolder English-first factory/editorial hierarchy and three progressive copy-cleanup passes. PR #18 merged with green main Quality and Pages deployment; real-browser screenshots and accessibility evidence remain unavailable. See [`sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md`](./sessions/AUDIT_RESPONSE_2026-08-11_019ff089.md).
 
-> **W1 containment/status-model status (2026-09-09):** the manifest now carries per-document source-review states from the full-corpus collation report/register. Current counts are **1** `collated_to_claimed_witness`, **32** `partial_or_failed_w1_collation`, and **2** `witness_unavailable`; complete selected-witness claims are blocked unless W1 status is collated. This state is remediation/containment evidence, not a rights decision. The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Edition-verified English quotations and rights review are never inferred from W1 collation, and represented-unit counts never establish source completion.
+> **W1 containment/status-model status (2026-09-09, corrected 2026-09-10):** the manifest now carries per-document source-review states from the full-corpus collation report/register. Current counts are **1** `collated_to_claimed_witness`, **32** `partial_or_failed_w1_collation`, and **2** `witness_unavailable`; complete selected-witness claims are blocked unless W1 status is collated. This state is remediation/containment evidence, not a rights decision. The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Edition-verified English quotations and rights review are never inferred from W1 collation, and represented-unit counts never establish source completion.
 > W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-10 correction register: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all. Authoritative record: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` (2026-09-10); historical record: `sessions/COLLATION_REGISTER_2026-09-09.json` (2026-09-09).
 
 ---
@@ -185,7 +185,7 @@ translatechan/
 │   ├── lineage/                # masters.json + verification + profile_review_queue (30 links / 4 frontiers)
 │   ├── translations/           # matrix, provenance, and rights manifest
 │   ├── glossary/           # chan_terms.json (31 terms)
-│   └── gongan/             # gongan_index.json (23 cases)
+│   └── gongan/             # gongan_index.json (24 cases)
 └── scripts/                # Ingestion, validation & parsing tools
     ├── segment_classical.py # Offline segmenter (manual input)
     ├── validate_data.py       # Semantic/rights/locator validator + metrics generator

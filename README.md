@@ -52,7 +52,7 @@ Every visible translation register carries a **✅ Edition-verified quotation**,
 | **The Gateless Gate** | 禪宗無門關 | **T2005** (Vol. 48) | Wumen Huikai (無門慧開, 1228 CE) | **48 / 48 cases represented; W1 source-review status: `partial_or_failed_w1_collation`** |
 | **The Record of Linji** | 鎮州臨濟慧照禪師語錄 | **T1985** (Vol. 47) | Linji Yixuan / Sansheng Huiran | 74 recorded sections; partial selected witness |
 | **Transmission of Mind** | 黃檗山斷際禪師傳心法要 | **T2012A** (Vol. 48) | Huangbo Xiyun / Pei Xiu (裴休) | Opening sections (One Mind) |
-| **Sayings of Zhaozhou** | 趙州真際禪師語錄 | claims **T1987** (Vol. 47) — **W1 found this claim false**: T1987 is the Caoshan record; Zhaozhou sayings sit in X68n1315A | Zhaozhou Congshen (趙州從諗) | Signature dialogues (狗子, 洗鉢盂…); witness re-pointing pending (R-A) |
+| **Sayings of Zhaozhou** | 趙州真際禪師語錄 | claims **T1987** (Vol. 47) — **W1 found this claim false**: T1987 is the Caoshan record; the true witness is the Guzunsu yulu work X68n1315 | Zhaozhou Congshen (趙州從諗) | Signature dialogues (狗子, 洗鉢盂…); witness re-pointing pending (R-A) |
 | **Inscription on Faith in Mind** | 信心銘 | **T2010** (Vol. 48) | Third Patriarch Jianzhi Sengcan | **37 / 37 stanzas represented; partial/failed W1 source collation** |
 | **Jewel Mirror Samadhi** | 寶鏡三昧歌 | **T1986** (Vol. 47) | Dongshan Liangjie (洞山良价) | Opening stanzas |
 | **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | **100 / 100 cases represented**; partial selected witness |

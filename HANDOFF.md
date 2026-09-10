@@ -87,7 +87,7 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 ### Content and rights
 
 - All 14 translation-rights records remain `needs_rights_review` or `jurisdiction_review_required`.
-- W1 found only one of 34 evaluated documents fully collated to its claimed witness; Wumenguan and Xinxin Ming need per-document remediation, while the remaining partial/failed and unavailable states remain contained.
+- W1 found only one of the 35 documents in the authoritative 2026-09-10 register fully collated to its claimed witness (the historical 2026-09-09 register covered 34 documents); Wumenguan and Xinxin Ming need per-document remediation, while the remaining partial/failed and unavailable states remain contained. Zhaozhou's claimed witness T1987 is the Caoshan record — W1 found the claim false, and re-pointing to X68n1315 is R-A work, deliberately not done here.
 - Biyanlu, Linji, Platform, and excerpt seeds need broader field-level review.
 - Three lineage profiles lack linked corpus keys (prajnatara, yangqi_fanghui, dahong_zuzheng — frontier scaffolds with no active-corpus occurrence; reviewed 2026-09-09); all 30 lineage edges await exact locators.
 - Congronglu remains quarantined; do not restore it without source-pinned field-level collation.

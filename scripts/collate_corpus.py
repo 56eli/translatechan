@@ -223,10 +223,10 @@ DOCS = {
     'dahui_hongzhi': (['T47n1998A', 'T47n1998B', 'T48n2001'], []),
     'zhengdao_ge': (['T48n2014'], []),
     # Added 2026-09-10: the 2026-09-09 run omitted this document even though the
-    # corpus claims `embedded: T2076 f.30 / X1565 f.14`. Its claimed witness is the
-    # Jingde Chuandeng lu (T51n2076); the Wudeng huiyuan (X80n1565) copy is probed.
-    # Both texts are claimed by the corpus record (`cbeta_id` = 'embedded: T2076 f.30 / X1565 f.14'),
-    # so both are collated as claimed witnesses rather than one being demoted to a probe.
+    # corpus claims `embedded: T2076 f.30 / X1565 f.14`. Both texts are claimed by
+    # the corpus record (`cbeta_id` = 'embedded: T2076 f.30 / X1565 f.14'), so both
+    # are collated as claimed witnesses (Jingde Chuandeng lu T51n2076 and Wudeng
+    # huiyuan X80n1565) rather than one being demoted to a probe.
     'shitou_sandokai': (['T51n2076', 'X80n1565'], []),
     'bodhidharma_erru': (['T48n2009'], []),
     'qinggui_monastic_codes': (['T48n2025', 'X63n1245'], []),
@@ -254,7 +254,7 @@ WITNESS_NOTES = {
     'dahui_hongzhi': 'Hongzhi\'s Mozhaoming lives in T2001 Hongzhi guanglu, not claimed T1998A.',
     'platform_sutra': 'Content mixes Dunhuang (T2007) and Zongbao (T2008) recension readings.',
     'linji_yulu': 'Sections 67-73 are Xinglu-tradition retellings, not claimed T1985 text.',
-    'deshan_yulu': 'Retellings; 0/6 content fields match T2076/X1315/X1565 phrasing.',
+    'deshan_yulu': 'Retellings; 0/6 content fields match T2076/X68n1315/X1565 phrasing.',
     'shitou_sandokai': ('Both claimed witnesses were fetched and collated. Sandokai content fields '
                         'collate 6/11 (6 EXACT against the T51n2076 embedding, 4 DIVERGENT at '
                         '0.93-0.97, 1 NOT_FOUND: the 草庵歌 body, absent from T51n2076 and X80n1565 '
