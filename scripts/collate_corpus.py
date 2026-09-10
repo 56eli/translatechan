@@ -14,29 +14,56 @@ and classifies each field:
   SHORT_UNMATCHED  <= 6 CJK chars, not contained (manual review)
   WITNESS_UNAVAILABLE  claimed witness text not present in the local reference set
 
-Reference extraction (from CBETA XML P5):
-  text of //text/body, skipping <note> elements, keeping <head>;
-  then NFKC + graphic-variant map + CJK-only filter.
+Reference extraction (from CBETA XML P5) — implemented by `scripts/collate_refs.py`:
+  text of //text/body, dropping the <note> and <g> subtrees (tails kept), keeping
+  <head>; then NFKC + graphic-variant map + CJK-only filter.
+A register is authoritative evidence only when its `reference_verification` block says
+which digest manifest the refs were checked against and which refs matched byte-for-byte.
+The 2026-09-09 run predates that: `sessions/COLLATION_W1_2026-09-10_CORRECTION.md`
+records what reproduces and what drifted, and
+`sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` is the authoritative record.
 Acquisition (git protocol; raw CDN may be blocked in sandboxes):
 
     git clone --filter=blob:none --no-checkout --depth 1 \
         https://github.com/cbeta-org/xml-p5 /tmp/xmlp5
     cd /tmp/xmlp5
-    git sparse-checkout set --no-cone '/T/T45/*' '/T/T47/*' '/T/T48/*' '/T/T51/*' \
-        '/X/X63/*' '/X/X67/*' '/X/X68/*' '/X/X69/*' '/X/X73/*' '/X/X80/*' '/X/X86/*'
-    git checkout
-    # then extract each needed work with scripts/extract logic (see report) into
-    # $REFS_DIR/ref_<WorkId>.txt  (e.g. ref_T48n2005.txt)
+    cd /tmp/xmlp5
+    # check out exactly the works this harness needs (paths are /<letter>/<dir>/<work>.xml)
+    sed 's/.*  ref_//; s/\.txt$//' /repo/sessions/COLLATION_W1_2026-09-10_refs_manifest.txt \
+        | while read -r w; do printf '/%s/%s/%s.xml\n' "${w:0:1}" "${w:0:3}" "$w"; done > /tmp/paths.txt
+    git sparse-checkout set --no-cone $(tr '\n' ' ' < /tmp/paths.txt) && git checkout
 
-Reference digests for verification: sessions/COLLATION_W1_2026-09-09_refs_manifest.txt
-Evidence report: sessions/COLLATION_W1_2026-09-09.md
+    # extract them with the committed rule (same directory as $REFS_DIR below)
+    python3 scripts/collate_refs.py --source-dir /tmp/xmlp5 --out-dir /tmp/refs \
+        --work-list sessions/COLLATION_W1_2026-09-10_refs_manifest.txt \
+        --verify-against sessions/COLLATION_W1_2026-09-10_refs_manifest.txt --allow-drift
+    # and re-check the published digests against the refs on disk (no checkout needed):
+    python3 scripts/collate_refs.py --verify-against \
+        sessions/COLLATION_W1_2026-09-10_refs_manifest.txt --refs-dir /tmp/refs
+
+Reference digests for verification: sessions/COLLATION_W1_2026-09-10_refs_manifest.txt
+(authoritative for the 39 works the current harness reads; the 2026-09-09 manifest is kept as the
+historical anchor for all 187 works and is where upstream drift is measured)
+Evidence reports: sessions/COLLATION_W1_2026-09-09.md (historical) and
+sessions/COLLATION_W1_2026-09-10_CORRECTION.md (authoritative)
 
 Usage:
     COLLATION_REFS=/path/to/refs python3 scripts/collate_corpus.py [--doc KEY] [--out FILE]
+
+Authoritative correction run (hash-verified refs, explicit date, aggregate block):
+
+    COLLATION_REFS=/tmp/refs python3 scripts/collate_corpus.py \
+        --out sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json \
+        --generated 2026-09-10 \
+        --refs-manifest sessions/COLLATION_W1_2026-09-10_refs_manifest.txt
 """
-import argparse, json, os, re, sys, unicodedata
+import argparse, datetime, hashlib, json, os, re, sys, unicodedata
 from collections import Counter
 from difflib import SequenceMatcher
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import collate_refs  # noqa: E402 - deterministic reference extraction + digest verification
+import source_review  # noqa: E402 - shared status semantics (validator/runtime use the same module)
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CORPUS_DIR = os.path.join(REPO, 'data', 'corpus')
@@ -158,6 +185,11 @@ def classify_title(refs, raw):
 
 SRC_KEYS = {'zh', 'verse_zh', 'commentary_zh', 'pointer_zh', 'title_zh', 'name_zh'}
 
+# Fixed class order so a regenerated register is byte-deterministic. The vocabulary lives in
+# `source_review.COLLATION_CLASSES` (the validator enforces the same tuple), so a class cannot
+# be produced here and simultaneously be unknown to the evidence validator.
+SUMMARY_ORDER = source_review.COLLATION_CLASSES
+
 
 def iter_fields(obj, path=''):
     if isinstance(obj, dict):
@@ -191,6 +223,12 @@ DOCS = {
     'guiyang_yulu': (['T47n1989', 'T47n1990'], []),
     'dahui_hongzhi': (['T47n1998A', 'T47n1998B', 'T48n2001'], []),
     'zhengdao_ge': (['T48n2014'], []),
+    # Added 2026-09-10: the 2026-09-09 run omitted this document even though the
+    # corpus claims `embedded: T2076 f.30 / X1565 f.14`. Both texts are claimed by
+    # the corpus record (`cbeta_id` = 'embedded: T2076 f.30 / X1565 f.14'), so both
+    # are collated as claimed witnesses (Jingde Chuandeng lu T51n2076 and Wudeng
+    # huiyuan X80n1565) rather than one being demoted to a probe.
+    'shitou_sandokai': (['T51n2076', 'X80n1565'], []),
     'bodhidharma_erru': (['T48n2009'], []),
     'qinggui_monastic_codes': (['T48n2025', 'X63n1245'], []),
     'chuandenglu': (['T51n2076'], ['X80n1565']),
@@ -217,19 +255,362 @@ WITNESS_NOTES = {
     'dahui_hongzhi': 'Hongzhi\'s Mozhaoming lives in T2001 Hongzhi guanglu, not claimed T1998A.',
     'platform_sutra': 'Content mixes Dunhuang (T2007) and Zongbao (T2008) recension readings.',
     'linji_yulu': 'Sections 67-73 are Xinglu-tradition retellings, not claimed T1985 text.',
-    'deshan_yulu': 'Retellings; 0/6 content fields match T2076/X1315/X1565 phrasing.',
+    'deshan_yulu': 'Retellings; 0/6 content fields match T2076/X68n1315/X1565 phrasing.',
+    'shitou_sandokai': ('Both claimed witnesses were fetched and collated. Sandokai content fields '
+                        'collate 6/11 (6 EXACT against the T51n2076 embedding, 4 DIVERGENT at '
+                        '0.93-0.97, 1 NOT_FOUND: the 草庵歌 body, absent from T51n2076 and X80n1565 '
+                        'alike), and the combined document title is a project composite. Witness '
+                        'supported, collation partial — neither complete nor witness-unavailable.'),
 }
+
+
+def relpath(path):
+    """Repo-relative POSIX path for a CLI argument that may be None."""
+    if not path:
+        return None
+    return os.path.relpath(path, REPO).replace(os.sep, '/')
+
+
+def digest_status(name, digest, expected, manifest_path):
+    """`verified` / `drift` / `unlisted`, or `none` when no manifest was supplied.
+
+    `unlisted` (the manifest never names the work) is deliberately distinct from `drift`
+    (the manifest names it with different bytes): only drift is evidence that the
+    reference layer moved underneath the collation.
+    """
+    if not manifest_path:
+        return 'none'
+    want = expected.get(name)
+    if want is None:
+        return 'unlisted'
+    return 'verified' if want == digest else 'drift'
+
+
+def ref_digest(path):
+    with open(path, 'rb') as fh:
+        return hashlib.sha256(fh.read()).hexdigest()
+
+
+SUMMARY_ORDER = source_review.COLLATION_CLASSES
+
+
+def document_entry(doc, claimed, probes, d, refs, probe_refs):
+    """Classify every source field of one document and derive its W1 status.
+
+    Titles (`title_zh`/`name_zh`) are measured but excluded from the content
+    denominator, so `collated_to_claimed_witness` never claims metadata was collated.
+    """
+    fields, stats = [], Counter()
+    content_stats, metadata_stats = Counter(), Counter()
+    for path, raw in iter_fields(d):
+        is_title = path.split('.')[-1] in ('title_zh', 'name_zh')
+        if not claimed:
+            cls, sim, rname, w = ('WITNESS_UNAVAILABLE', 0.0, None, '')
+        elif is_title:
+            cls, sim, rname, w = classify_title(refs, raw)
+        else:
+            cls, sim, rname, w = classify(refs, raw)
+        stats[cls] += 1
+        (metadata_stats if is_title else content_stats)[cls] += 1
+        record = {'path': path, 'class': cls, 'sim': sim, 'ref': rname,
+                  'corpus': norm(raw)[:120], 'ref_window': (w or '')[:120],
+                  'simplified': simplified_in(raw)}
+        if cls in ('NOT_FOUND', 'DIVERGENT', 'SHORT_UNMATCHED') and probe_refs:
+            hit = next((pr.name for pr in probe_refs if pr.t.find(norm(raw)) >= 0), None)
+            record['also_in'] = hit
+            fields.append(record)
+        elif cls not in ('EXACT', 'EMPTY'):
+            fields.append(record)
+    entry = {
+        'witness': claimed,
+        'probes': probes,
+        'summary': {k: stats[k] for k in SUMMARY_ORDER if stats[k]},
+        'content_summary': {k: content_stats[k] for k in SUMMARY_ORDER if content_stats[k]},
+        'metadata_summary': {k: metadata_stats[k] for k in SUMMARY_ORDER if metadata_stats[k]},
+        'fields_total': sum(stats.values()),
+        'content_fields_total': sum(content_stats.values()),
+        'content_fields_collated': sum(content_stats[k] for k in source_review.COLLATED_CLASSES),
+        'metadata_fields_total': sum(metadata_stats.values()),
+        'flagged': fields,
+    }
+    entry['source_review_status'] = source_review.derive_status(entry)
+    if doc in WITNESS_NOTES:
+        entry['witness_note'] = WITNESS_NOTES[doc]
+    return entry
+
+
+# Fields that carry the collation verdict. `probes`, `simplified` and the per-reference
+# digests are advisory/metadata: how they are recorded changed between harness versions,
+# so they are deliberately excluded from cross-run agreement (the docstring of
+# `simplified_in` already states it is not a classification input).
+CLASSIFICATION_FIELDS = ('witness', 'summary', 'fields_total')
+CLASSIFICATION_FLAG_FIELDS = ('path', 'class', 'sim', 'ref', 'also_in')
+
+
+def normalize_entry(entry):
+    """Canonical JSON of the classification-bearing parts of a register entry."""
+    payload = {k: entry.get(k) for k in CLASSIFICATION_FIELDS}
+    payload['flagged'] = [
+        {k: flag.get(k) for k in CLASSIFICATION_FLAG_FIELDS if flag.get(k) is not None}
+        for flag in (entry.get('flagged') or [])
+    ]
+    return json.dumps(payload, ensure_ascii=False, sort_keys=True)
+
+
+def reproduce(documents, compare_register, historical_report_flagged=None, notes=None):
+    """Reconcile this run against an earlier evidence register, difference by difference.
+
+    Agreement is reported per document; a document whose *derived status* moved is called
+    out separately, because that is the only kind of difference that changes what the
+    project may claim publicly.
+    """
+    with open(compare_register, encoding='utf-8') as fh:
+        earlier = json.load(fh)['documents']
+    compared = sorted(set(earlier) & set(documents))
+    identical, differences = 0, []
+    for key in compared:
+        before, after = earlier[key], documents[key]
+        if normalize_entry(before) == normalize_entry(after):
+            identical += 1
+            continue
+        flag_paths = lambda entry: sorted(f'{f["path"]}:{f["class"]}' for f in entry.get('flagged') or [])
+        only_here = set(flag_paths(after)) - set(flag_paths(before))
+        only_there = set(flag_paths(before)) - set(flag_paths(after))
+        keep = ('path', 'class', 'sim', 'ref', 'corpus', 'ref_window', 'also_in')
+        detail = lambda entry, paths: [
+            {k: v for k, v in flag.items() if k in keep}
+            for flag in entry.get('flagged') or [] if f'{flag["path"]}:{flag["class"]}' in paths
+        ]
+        before_status = before.get('source_review_status') or source_review.derive_status(before)
+        after_status = after.get('source_review_status') or source_review.derive_status(after)
+        differences.append({
+            'key': key,
+            'historical_summary': before.get('summary'),
+            'corrected_summary': after.get('summary'),
+            'historical_flagged_entries': len(before.get('flagged') or []),
+            'corrected_flagged_entries': len(after.get('flagged') or []),
+            'flags_only_in_historical': sorted(only_there),
+            'flags_only_in_this_run': sorted(only_here),
+            'flag_details_only_in_historical': detail(before, only_there),
+            'flag_details_only_in_this_run': detail(after, only_here),
+            'status_changed': before_status != after_status,
+            'historical_source_review_status': before_status,
+            'corrected_source_review_status': after_status,
+        })
+    block = {
+        'compared_register': os.path.relpath(compare_register, REPO).replace(os.sep, '/'),
+        'documents_compared': len(compared),
+        'documents_classification_identical': identical,
+        'documents_differing': len(differences),
+        'documents_with_changed_status': sum(1 for d in differences if d['status_changed']),
+        'flagged_entries': {
+            'historical': source_review.flagged_total({k: earlier[k] for k in compared}),
+            'this_run': source_review.flagged_total({k: documents[k] for k in compared}),
+        },
+        'differences': differences,
+        'operator_notes': notes or [],
+        'notes': [
+            'Field classes are computed from the reference text plus the harness variant map; '
+            'a difference can come from the reference layer or from harness normalization, and '
+            'each one is listed above rather than folded into a total.',
+        ],
+    }
+    if historical_report_flagged is not None:
+        block['historical_report_flagged_total'] = historical_report_flagged
+        block['historical_report_flagged_reproduced'] = (
+            historical_report_flagged == block['flagged_entries']['historical']
+        )
+        if block['historical_report_flagged_reproduced'] is False:
+            block['historical_report_flagged_status'] = (
+                f'superseded: the earlier report claimed {historical_report_flagged} flagged '
+                f'entries, its own committed register sums to '
+                f'{block["flagged_entries"]["historical"]}, and this run sums to '
+                f'{block["flagged_entries"]["this_run"]}'
+            )
+    return block
+
+
+# Generation parameters that define a register's identity. They are recorded verbatim in the register's
+# `generation_parameters` block, so `--reproduce` can replay an evidence run byte-for-byte instead of a
+# reviewer re-typing a flag list (and silently getting a different denominator or gate).
+REPLAYED_FLAGS = {
+    'kind': '--kind',
+    'generated': '--generated',
+    'corrects': '--corrects',
+    'refs_manifest': '--refs-manifest',
+    'compare_historical_refs': '--compare-historical-refs',
+    'compare_register': '--compare-register',
+    'historical_report_flagged': '--historical-report-flagged',
+    'upstream_repo': '--upstream-repo',
+    'upstream_revision': '--upstream-revision',
+    'note': '--note',
+    'doc': '--doc',
+}
+
+#: Replayed like the flags above, but recorded by `load_generation_parameters` rather than read
+#: straight out of the params map: the strict reference gate is part of the run's identity, so
+#: typing it alongside `--reproduce` is a conflict too.
+REPLAYED_GATE_FLAGS = {'require_verified_refs': '--require-verified-refs'}
+
+#: Every option a register can record, keyed by the internal name the CLI normalization produces.
+REPLAYABLE_FLAGS = {**REPLAYED_FLAGS, **REPLAYED_GATE_FLAGS}
+
+#: Operational options that stay under the operator's control during a replay. They are not part
+#: of the register's identity — where the reference checkout lives, where output goes, what to
+#: print, and the replay switch itself — so `--reproduce` may be combined with them.
+REPLAY_OPERATIONAL_FLAGS = frozenset({'refs_dir', 'out', 'print_refs', 'reproduce'})
+
+
+def cli_option_names(argv):
+    """Option names present in `argv`, normalized for comparison on both sides.
+
+    `--generated 1999-01-01` and `--generated=1999-01-01` are the same option, and the old
+    comparison normalized neither side, so the equals form slipped past the conflict check and
+    replayed with a re-typed date. Names are reduced to their internal spelling (`--a-b` ->
+    `a_b`) so the CLI form and the register key cannot disagree about whether a flag was given.
+    """
+    names = set()
+    for token in argv:
+        if not token.startswith('--'):
+            continue
+        name = token.split('=', 1)[0].lstrip('-').replace('-', '_')
+        if name:
+            names.add(name)
+    return names
+
+
+def _abs_recorded(value):
+    """Recorded paths are repo-relative; make them usable again from any working directory."""
+    if not value:
+        return value
+    return value if os.path.isabs(value) else os.path.join(REPO, value)
+
+
+def load_generation_parameters(path: str) -> dict:
+    try:
+        with open(path, encoding='utf-8') as fh:
+            register = json.load(fh)
+    except OSError as exc:
+        raise SystemExit(f'--reproduce: cannot read {path}: {exc}')
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f'--reproduce: {path} is not valid JSON: {exc}')
+    params = register.get('generation_parameters')
+    if not isinstance(params, dict) or not params:
+        raise SystemExit(
+            f'--reproduce: {path} records no generation_parameters block, so it cannot be replayed. '
+            'Registers written before that block existed must be reproduced with the explicit flags '
+            'listed in sessions/COLLATION_W1_2026-09-10_CORRECTION.md.'
+        )
+    replayed = {name: params[name] for name in REPLAYED_FLAGS if name in params}
+    for key in ('corrects', 'refs_manifest', 'compare_historical_refs', 'compare_register'):
+        if replayed.get(key):
+            replayed[key] = _abs_recorded(replayed[key])
+    if 'note' in replayed:
+        replayed['note'] = list(replayed['note'] or [])
+    if not replayed.get('doc'):
+        replayed.pop('doc', None)
+    # The strict reference gate is part of the run, not an opinion: honour what the register recorded.
+    replayed['require_verified_refs'] = bool(params.get('require_verified_refs'))
+    return replayed
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--refs-dir', default=os.environ.get('COLLATION_REFS'))
-    ap.add_argument('--doc', default=None)
+    ap.add_argument('--doc', action='append', default=None,
+                    help='limit to one document key (repeatable); default: every DOCS key')
     ap.add_argument('--out', default=None)
+    ap.add_argument('--generated', default=None,
+                    help='declared evidence date (YYYY-MM-DD) written into the register; required '
+                         'for a committed evidence record so the file is byte-reproducible')
+    ap.add_argument('--refs-manifest', default=os.environ.get('COLLATION_REFS_MANIFEST') or None,
+                    help='digest manifest the reference texts must match; defaults to '
+                         'sessions/COLLATION_W1_2026-09-09_refs_manifest.txt when it exists')
+    ap.add_argument('--compare-historical-refs', default=None,
+                    help='earlier digest manifest to report byte-identity against. Drift is recorded '
+                         'per reference and per document, never hidden, and it never changes a class.')
+    ap.add_argument('--require-verified-refs', action='store_true',
+                    help='fail when any claimed-witness reference is not byte-identical to --refs-manifest')
+    ap.add_argument('--compare-register', default=None,
+                    help='earlier evidence register to reconcile against; per-document agreement and '
+                         'every difference are recorded in the output register')
+    ap.add_argument('--historical-report-flagged', type=int, default=None,
+                    help='flagged-entry total claimed by the earlier human-readable report, recorded '
+                         'for reconciliation (a claim this run cannot reproduce is labelled superseded)')
+    ap.add_argument('--corrects', default=None,
+                    help='path of the evidence record this register corrects or extends (recorded verbatim; '
+                         'the original stays append-only and is never rewritten)')
+    ap.add_argument('--kind', default='collation-register',
+                    help='what this register is, e.g. `w1-correction` for a dated corrective overlay')
+    ap.add_argument('--note', action='append', default=[],
+                    help='operator annotation recorded verbatim in the reproduction block (repeatable); '
+                         'explains a difference instead of editing the register afterwards')
+    ap.add_argument('--upstream-repo', default=collate_refs.UPSTREAM_REPO)
+    ap.add_argument('--upstream-revision', default=None,
+                    help='pinned CBETA XML P5 revision the references were extracted from')
+    ap.add_argument('--reproduce', default=None, metavar='REGISTER.json',
+                    help='replay the `generation_parameters` block recorded in an existing register, so the '
+                         'documented reproduction is one command instead of a re-typed flag list (the refs '
+                         'directory still comes from --refs-dir/COLLATION_REFS)')
+    ap.add_argument('--print-refs', action='store_true',
+                    help='print the sorted work ids this harness needs, one per line, and exit '
+                         '(the input for scripts/collate_refs.py --work-list)')
     args = ap.parse_args()
+    if args.reproduce:
+        replayed = load_generation_parameters(args.reproduce)
+        given = cli_option_names(sys.argv[1:]) - set(REPLAY_OPERATIONAL_FLAGS)
+        # Only options the register actually records are conflicts: a flag its generation_parameters
+        # block has nothing to say about is not part of the identity being replayed. The gate is
+        # recorded by `load_generation_parameters` on every replay, so it is always replayable.
+        supplied = {name: value for name, value in REPLAYED_FLAGS.items() if name in replayed}
+        supplied.update(REPLAYED_GATE_FLAGS)
+        conflicts = sorted(name for name in given if name in supplied)
+        if conflicts:
+            # Rejecting here, before `--refs-dir` is required, keeps the failure about the
+            # command the operator typed rather than about a missing 21 MB checkout.
+            flags = ', '.join(supplied[name] for name in conflicts)
+            sys.exit(f'--reproduce already supplies {flags} from {args.reproduce}; drop {flags} or drop '
+                     '--reproduce — a replayed flag list must not silently disagree with the register '
+                     'it reproduces')
+        # The register records absence as well as presence: a replayed identity that the register
+        # never recorded cannot be reproduced from it, so say so instead of quietly folding a
+        # different run into a command that claims to replay the register.
+        unrecorded = sorted(name for name in given if name not in supplied and name in REPLAYABLE_FLAGS)
+        if unrecorded:
+            flags = ', '.join(REPLAYABLE_FLAGS[name] for name in unrecorded)
+            print(f'warning: --reproduce does not replay {flags}: {args.reproduce} records no value for '
+                  f'{flags}, so the replayed run is no longer identical to the register it names',
+                  file=sys.stderr)
+        for name, value in replayed.items():
+            setattr(args, name, value)
+    if args.print_refs:
+        selected = args.doc if args.doc else sorted(DOCS)
+        for doc in selected:
+            if doc not in DOCS:
+                sys.exit(f'unknown document key {doc!r}')
+        needed = sorted({name for doc in selected for name in DOCS[doc][0] + list(DOCS[doc][1])})
+        print('\n'.join(needed))
+        return 0
     if not args.refs_dir:
         sys.exit('Set --refs-dir or COLLATION_REFS to the extracted reference directory.')
+    if not args.generated:
+        sys.exit('--generated YYYY-MM-DD is required: an evidence register must declare its date '
+                 'instead of inheriting the clock (that is what made the 2026-09-09 records '
+                 'impossible to re-derive).')
+    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', args.generated):
+        sys.exit(f'--generated must be YYYY-MM-DD, got {args.generated!r}')
+    if args.refs_manifest is None:
+        candidate = os.path.join(REPO, 'sessions', 'COLLATION_W1_2026-09-09_refs_manifest.txt')
+        args.refs_manifest = candidate if os.path.isfile(candidate) else None
 
+    expected_digests = (
+        collate_refs.read_digest_manifest(args.refs_manifest) if args.refs_manifest else {}
+    )
+    historical_digests = (
+        collate_refs.read_digest_manifest(args.compare_historical_refs)
+        if args.compare_historical_refs else {}
+    )
+    verification = {}
     cache = {}
 
     def ref(name):
@@ -237,49 +618,142 @@ def main():
             path = os.path.join(args.refs_dir, f'ref_{name}.txt')
             with open(path, encoding='utf-8') as fh:
                 cache[name] = Ref(name, fh.read())
+            if args.refs_manifest or args.compare_historical_refs:
+                digest = ref_digest(path)
+                verification[name] = {
+                    'sha256': digest,
+                    'manifest': relpath(args.refs_manifest),
+                    'status': digest_status(name, digest, expected_digests, args.refs_manifest),
+                    'historical_manifest': relpath(args.compare_historical_refs),
+                    'historical_status': digest_status(name, digest, historical_digests,
+                                                        args.compare_historical_refs),
+                }
         return cache[name]
 
-    docs = [args.doc] if args.doc else sorted(DOCS)
-    out = {'harness': 'scripts/collate_corpus.py', 'documents': {}}
+    docs = args.doc if args.doc else sorted(DOCS)
+    out = {
+        'kind': args.kind,
+        'generated': args.generated,
+        'harness': 'scripts/collate_corpus.py',
+        'corrects': relpath(args.corrects) if args.corrects else None,
+        'reference_extraction': {'generator': 'scripts/collate_refs.py',
+                                 'rule_id': collate_refs.RULE_ID,
+                                 'rule': collate_refs.EXTRACTION_RULE},
+        'upstream': {'repo': args.upstream_repo, 'revision': args.upstream_revision or 'unrecorded'},
+        'refs_manifest': relpath(args.refs_manifest),
+        'historical_refs_manifest': relpath(args.compare_historical_refs),
+        # What to replay, recorded in the evidence itself: a register that cannot be re-derived is a
+        # receipt, not evidence. Paths are stored repo-relative so the block survives a different
+        # checkout location; the refs directory deliberately is not recorded (it is a 21 MB external
+        # checkout, identified instead by the digest manifest above).
+        'generation_parameters': {
+            **{
+                name: (relpath(getattr(args, name)) if name in ('corrects', 'refs_manifest',
+                                                                 'compare_historical_refs', 'compare_register')
+                       and getattr(args, name) else getattr(args, name))
+                for name in REPLAYED_FLAGS
+                if name != 'upstream_repo' and getattr(args, name) not in (None, [], 'collation-register')
+            },
+            'kind': args.kind,
+            'upstream_repo': args.upstream_repo,
+            'require_verified_refs': bool(args.require_verified_refs),
+            'refs_dir_provided': bool(args.refs_dir),
+        },
+        'content_denominator': 'source content fields only ('
+                               + ', '.join(sorted(source_review.CONTENT_SOURCE_FIELDS))
+                               + '); metadata fields ('
+                               + ', '.join(source_review.METADATA_SOURCE_FIELDS)
+                               + ') are measured separately and are not proof of collation',
+        'status_scope': source_review.STATUS_SCOPE,
+        'documents': {},
+    }
+    failures = []
     for doc in docs:
+        if doc not in DOCS:
+            sys.exit(f'unknown document key {doc!r}: scripts/collate_corpus.py DOCS has no mapping. '
+                     'A manifest item without a harness mapping is a containment gap, not evidence.')
         claimed, probes = DOCS[doc]
         with open(os.path.join(CORPUS_DIR, f'{doc}.json'), encoding='utf-8') as fh:
             d = json.load(fh)
         refs = [ref(n) for n in claimed]
         probe_refs = [ref(n) for n in probes]
-        fields, stats = [], Counter()
-        for path, raw in iter_fields(d):
-            is_title = path.split('.')[-1] in ('title_zh', 'name_zh')
-            if not claimed:
-                cls, sim, rname, w = ('WITNESS_UNAVAILABLE', 0.0, None, '')
-            elif is_title:
-                cls, sim, rname, w = classify_title(refs, raw)
-            else:
-                cls, sim, rname, w = classify(refs, raw)
-            stats[cls] += 1
-            if cls in ('NOT_FOUND', 'DIVERGENT', 'SHORT_UNMATCHED') and probe_refs:
-                hit = next((pr.name for pr in probe_refs if pr.t.find(norm(raw)) >= 0), None)
-                fields.append({'path': path, 'class': cls, 'sim': sim, 'ref': rname,
-                               'also_in': hit, 'corpus': norm(raw)[:120],
-                               'ref_window': (w or '')[:120], 'simplified': simplified_in(raw)})
-            elif cls not in ('EXACT', 'EMPTY'):
-                fields.append({'path': path, 'class': cls, 'sim': sim, 'ref': rname,
-                               'corpus': norm(raw)[:120], 'ref_window': (w or '')[:120],
-                               'simplified': simplified_in(raw)})
-        entry = {'witness': claimed,
-                 'summary': {k: stats[k] for k in ('EXACT', 'REWORDED', 'MINOR', 'DIVERGENT',
-                                                   'NOT_FOUND', 'TITLE_COMPOSITE',
-                                                   'SHORT_UNMATCHED', 'WITNESS_UNAVAILABLE',
-                                                   'EMPTY') if stats[k]},
-                 'fields_total': sum(stats.values()), 'flagged': fields}
-        if doc in WITNESS_NOTES:
-            entry['witness_note'] = WITNESS_NOTES[doc]
-        out['documents'][doc] = entry
-        print(f"{doc:24s} {json.dumps(entry['summary'], ensure_ascii=False)}")
+        out['documents'][doc] = document_entry(doc, claimed, probes, d, refs, probe_refs)
+        entry = out['documents'][doc]
+        used = list(dict.fromkeys(claimed + list(probes)))
+        if verification:
+            entry['reference_verification'] = {
+                name: {
+                    'sha256': verification[name]['sha256'],
+                    'status': verification[name]['status'],
+                    'historical_status': verification[name]['historical_status'],
+                }
+                for name in used if name in verification
+            }
+            entry['refs_total'] = len(claimed)
+            entry['refs_verified'] = sum(1 for name in claimed
+                                        if verification.get(name, {}).get('status') == 'verified')
+            entry['refs_historically_verified'] = sum(
+                1 for name in claimed
+                if verification.get(name, {}).get('historical_status') in ('verified', 'none'))
+        if args.require_verified_refs and entry['source_review_status'] == source_review.COLLATED_STATUS:
+            for name in claimed:
+                seen = verification.get(name, {})
+                for key, label in (('status', args.refs_manifest),
+                                   ('historical_status', args.compare_historical_refs or 'no history')):
+                    state = seen.get(key, 'unverified')
+                    if state not in ('verified', 'none'):
+                        failures.append(
+                            f'{doc}: {state!r} claim rests on {name}, which is {state!r} against {label}; '
+                            'a collated-to-witness claim requires byte-verified references')
+        print(f"{doc:24s} {json.dumps(entry['summary'], ensure_ascii=False)} -> {entry['source_review_status']}")
+    if failures:
+        for line in failures:
+            print(f'❌ {line}', file=sys.stderr)
+        sys.exit(1)
+
+    documents = out['documents']
+    statuses = Counter(entry['source_review_status'] for entry in documents.values())
+    out['reference_verification'] = {
+        'manifest': out['refs_manifest'],
+        'historical_manifest': out['historical_refs_manifest'],
+        'rule': 'statuses are byte-identity of the reference file against a named digest '
+                'manifest; `drift` never rescues a claim and never upgrades one',
+        'counts': {key: sum(1 for v in verification.values() if v['status'] == key)
+                   for key in ('verified', 'drift', 'unlisted', 'none')},
+        'historical_counts': {key: sum(1 for v in verification.values()
+                                       if v['historical_status'] == key)
+                              for key in ('verified', 'drift', 'unlisted', 'none')},
+        'drifted_refs': sorted(name for name, v in verification.items()
+                               if 'drift' in (v['status'], v['historical_status'])),
+        'refs': {name: verification[name] for name in sorted(verification)},
+    }
+    if args.compare_register:
+        out['reproduction'] = reproduce(out['documents'], args.compare_register,
+                                        args.historical_report_flagged, args.note)
+
+    out['aggregate'] = {
+        'documents': len(documents),
+        'flagged_entries': source_review.flagged_total(documents),
+        'fields_total': sum(e['fields_total'] for e in documents.values()),
+        'content_fields_total': sum(e['content_fields_total'] for e in documents.values()),
+        'content_fields_collated': sum(e['content_fields_collated'] for e in documents.values()),
+        'metadata_fields_total': sum(e['metadata_fields_total'] for e in documents.values()),
+        'class_totals': source_review.summary_flags(documents),
+        'source_review_status_counts': {status: statuses.get(status, 0)
+                                        for status in source_review.VALID_SOURCE_REVIEW_STATUSES},
+        'documents_without_evidence': sorted(set(DOCS) - set(documents)),
+        'documents_with_drifted_references': sorted(
+            doc for doc, entry in documents.items()
+            if entry.get('refs_total', 0) > entry.get('refs_verified', 0)
+            or entry.get('refs_verified', 0) > entry.get('refs_historically_verified', 0)
+        ),
+    }
+    print(f"aggregate: {json.dumps(out['aggregate'], ensure_ascii=False)}")
     if args.out:
         with open(args.out, 'w', encoding='utf-8') as fh:
             json.dump(out, fh, ensure_ascii=False, indent=1)
-        print(f"register written: {args.out}")
+            fh.write('\n')
+        print(f'register written: {args.out}')
 
 
 if __name__ == '__main__':

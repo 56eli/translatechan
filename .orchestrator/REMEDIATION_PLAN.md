@@ -1,6 +1,6 @@
-# W1 Remediation Plan — R-A Fix-in-Place (owner decision 2026-09-09)
+# W1 Remediation Plan — Adopted Hybrid R-A/R-B/R-C Policy (owner decision 2026-09-09)
 
-**Audience:** the orchestrator agent(s) succeeding session `arena/01a087e2-translatechan`.
+**Audience:** the orchestrator agent(s) succeeding this W1 status-model session.
 Everything needed to run this program is in the repository; no chat context is required.
 
 ## 0. Evidence base (read first)
@@ -12,13 +12,27 @@ Everything needed to run this program is in the repository; no chat context is r
    work id), `also_in` (where the text was found by probe, if anywhere), `corpus` (current
    normalized text), `ref_window` (best reference text window).
 3. `scripts/collate_corpus.py` — harness; docstring documents reference acquisition.
-4. `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt` — sha256 of the 174 extracted
-   reference texts; verify any freshly acquired refs against it before collating.
+4. `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt` — sha256 of the 187 extracted
+   reference texts the manifest lists (count the file, do not re-type a figure: the
+   2026-09-09 report's "174 files" prose is stale and the committed manifest is the
+   record); verify any freshly acquired refs against it before collating.
 
-## 1. Strategy (R-A, confirmed by owner)
+## 1. Strategy — adopted hybrid remediation policy (owner decision 2026-09-09)
 
-For every document, and every flagged field, make the corpus text **actually be the
-claimed witness's text** — or make the claim match reality. Rules:
+The project adopts a hybrid policy rather than treating every document as an R-A rewrite:
+
+- **R-A — authoritative witness available:** re-key source fields from the authoritative
+  witness, correct the witness claim where the evidence supports a different source, and
+  retain only text that can be mechanically tied to that witness.
+- **R-B — retained project retelling:** keep a useful project retelling only when it is
+  clearly labeled as such, remove unsupported witness claims from its public metadata and
+  prose, and keep translation/rights disclosures separate.
+- **R-C — quarantine:** quarantine material that cannot responsibly be sourced or relabeled
+  without inventing authority; do not expose it as a canonical witness excerpt.
+
+For each document and flagged field, choose R-A when authoritative witness text is available;
+choose R-B for a retained project retelling whose witness claim is removed; choose R-C when
+neither sourcing nor honest relabeling is responsible. Rules for the R-A work packages:
 
 - **EXACT/MINOR fields:** leave untouched. MINOR fields may optionally be aligned to the
   witness grapheme, but punctuation/grapheme residue is acceptable and not required.
@@ -78,8 +92,9 @@ field's provenance, and used for all re-keying in that document.
 13–27. `deshan_yulu, qinggui_monastic_codes, yunmen_yulu, fayan_yulu, guiyang_yulu,
 dahui_hongzhi, sengzhao_zhaolun, lidai_fabao_ji, dazhu_huihai, baizhang_guanglu,
 foyan_qingyuan, dahui_shobogenzo, nanquan_yulu, xuefeng_yantou, wudeng_huiyuan,
-xuansha_yulu, caoxi_zhuan, yuanwu_letters` — per-doc: locate true source text in the 174
-refs (probe-first), re-key, or relabel as project retellings with witness claims removed.
+xuansha_yulu, caoxi_zhuan, yuanwu_letters` — per-doc: locate true source text in the 187
+refs the committed manifest lists (probe-first), re-key, or relabel as project retellings with
+witness claims removed.
 
 **Wave 4 — no-CBETA-witness docs:** `hanshan_poems`, `niutou_juezhu` — either acquire a
 citable edition externally or mark witness unavailable honestly.
@@ -152,3 +167,9 @@ locators); witness changes; safety statement.
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
 - [ ] Post: README/HANDOFF/ROADMAP claim rewrite ☐ validator collation rule ☐ scoreboard removal ☐
+
+## W1 evidence records and the five public ledgers (2026-09-10)
+
+The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
+
+W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-10 correction register: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all.
