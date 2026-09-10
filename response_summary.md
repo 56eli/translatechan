@@ -29,3 +29,43 @@ diff -rq data docs/data                 PASS
 git diff --check                        PASS
 git diff --check origin/main...HEAD     PASS
 ```
+
+## Successor session — focused W1 gap closure (PR #27 follow-up)
+
+Five small review findings left after PR #27 were closed in five separate pushed checkpoints.
+PR #27's tree was merged in as a merge commit (`000d3cac76dcb24df2a574f548bb31fa3c04fe0c`) without
+checking out its branch; PR #27 itself was not amended, force-pushed, merged or rewritten, and no
+historical W1 evidence file was modified.
+
+| Checkpoint | Commit | Fix |
+| --- | --- | --- |
+| Replay conflict detection | `8c249b17f9952ef60f05f2451b71a3e5b737d478` | `--reproduce` now normalizes both sides of the flag comparison, so a re-typed `--generated 1999-01-01` **and** `--generated=1999-01-01` are rejected before a reference directory is required. Only options the register's `generation_parameters` records are conflicts; `--refs-dir/--out/--print-refs/--reproduce` stay operational. |
+| Source-preservation allowlist | `a33120d5ae4511e45f7b33ca5e0ceb81f873700e` | The allowlist is exact JSON pointers (`data/corpus/wumenguan.json:.coverage_note`, `data/corpus/xinxin_ming.json:.coverage_note`), not final key names: a nested `cases[0].coverage_note` now fails and is reported by its exact path. The run prints `35 corpus files compared / 2 permitted root coverage_note changes / 0 unauthorized changes`. |
+| Historical metadata validation | `d03f92d2d0e08794b0215c9d2a3d7b8bb83b65e6` | The 2026-09-09 register's legacy `refs_manifest` declaration (`refs_manifest.txt (sha256)`) is pinned and bound to the committed `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt`: `sessions/fake.txt`, a missing manifest, and a claimed witness the manifest does not list all fail. |
+| Evidence-class validation | `6ab20082dbd3e7a9427391b75a3c9960e36a8fec` | `source_review.COLLATION_CLASSES` is now the one class vocabulary (the harness `SUMMARY_ORDER` is that tuple) and is enforced in `summary`, `content_summary`, `metadata_summary`, `flagged[].class` and `aggregate.class_totals`; an unknown label such as `FORGED_CLASS` fails validation and is named in the error. |
+| Documentation correction + final integration | `fb3ba78d0c0afcea4793ed6a666faf311c87e9b6` | `.orchestrator/REMEDIATION_PLAN.md` no longer presents the stale 174-reference count as current: it quotes the 187 entries the committed historical manifest lists, and `validate_data.py` now enforces that (counting the manifest, and rejecting an unqualified 174). |
+
+Every invalid metrics run above exits nonzero with `--write-metrics` refused and leaves
+`data/project_metrics.json` byte-identical (sha256 prefix `fd9493ca6bdcc7e8`).
+
+Verification of the integrated tree:
+
+```text
+python3 -m py_compile scripts/*.py                     PASS
+python3 scripts/test_source_review_rules.py            PASS (96 checks, incl. replay conflicts,
+                                                             2 historical-metadata mutations,
+                                                             6 evidence-class mutations,
+                                                             174-claim documentation mutation)
+python3 scripts/test_source_preservation.py            PASS (35 compared / 2 permitted / 0 unauthorized;
+                                                             nested coverage_note copy exits 1 by exact path)
+python3 scripts/validate_data.py --write-metrics       PASS (metrics hash unchanged: fd9493ca6bdcc7e8)
+python3 scripts/validate_data.py                       PASS
+python3 scripts/build_data_bundle.py                   PASS
+node scripts/smoke_test.mjs                            PASS
+diff -rq data docs/data                                PASS (identical)
+npm audit --package-lock-only                          PASS (0 vulnerabilities)
+git diff --check / git diff --check origin/main...HEAD PASS
+```
+
+Browser testing was not attempted for this focused pass (no UI, runtime API, CSP or
+localStorage change is in scope), so no visual or accessibility verification is claimed.
