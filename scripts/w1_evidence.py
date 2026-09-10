@@ -114,6 +114,13 @@ FIXED_METADATA = {
 #: manifest metadata only declares the correction side by name.
 HISTORICAL_REFS_MANIFEST = "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt"
 
+#: How the 2026-09-09 register declares its reference manifest: the free-text form that run's
+#: harness printed, not a path. The manifest it stands for is HISTORICAL_REFS_MANIFEST above,
+#: and that is the only value the append-only register may carry: a re-pointed name (say
+#: `sessions/fake.txt`) would leave the historical reference layer resting on a file no one can
+#: re-derive from the repository, which is exactly the drift this ledger exists to prevent.
+LEGACY_REFS_MANIFEST_DECLARATION = "refs_manifest.txt (sha256)"
+
 #: Exact top-level keys each register must carry. The historical register is the
 #: original, leaner schema; the overlay adds the reference/reproduction/aggregate
 #: blocks that make the reference layer reproducible.
@@ -645,8 +652,16 @@ def _classification(entry: Any) -> Any:
 
 
 def validate_historical_register(reg: Any, path: str, record: dict[str, Any],
-                                 problems: EvidenceIssues) -> None:
-    """The append-only 2026-09-09 register: required shape, dates, per-entry arithmetic."""
+                                 problems: EvidenceIssues,
+                                 historical_digests: dict[str, str] | None = None) -> None:
+    """The append-only 2026-09-09 register: required shape, dates, reference metadata, arithmetic.
+
+    `historical_digests` is the canonical committed historical manifest, parsed from
+    HISTORICAL_REFS_MANIFEST. The register's own reference metadata is checked against it: the
+    legacy declaration must be the pinned one, the manifest must exist, and every claimed
+    witness must be a work the committed manifest actually lists. Without that binding the
+    metadata is just a string in a JSON file, and a rewritten value would pass unnoticed.
+    """
     if not isinstance(reg, dict):
         problems.error(path, "the historical register is not a JSON object")
         return
@@ -662,13 +677,41 @@ def validate_historical_register(reg: Any, path: str, record: dict[str, Any],
     if reg.get("harness") != "collate_v2":
         problems.error(path, f"historical register must identify its harness as 'collate_v2', "
                              f"got {reg.get('harness')!r}")
+    declared_manifest = reg.get("refs_manifest")
+    if declared_manifest != LEGACY_REFS_MANIFEST_DECLARATION:
+        problems.error(
+            path,
+            f"historical reference metadata (refs_manifest) must be the recorded legacy declaration "
+            f"{LEGACY_REFS_MANIFEST_DECLARATION!r}, which names the committed historical digest manifest "
+            f"{HISTORICAL_REFS_MANIFEST!r}; got {declared_manifest!r}. The 2026-09-09 register is "
+            "append-only: its reference metadata is never re-pointed at a different manifest."
+        )
+    bound = historical_digests if isinstance(historical_digests, dict) else {}
+    if not bound:
+        problems.error(
+            path,
+            f"historical reference metadata cannot be bound to the committed manifest "
+            f"{HISTORICAL_REFS_MANIFEST!r}: the manifest is missing, unreadable, or lists no reference works"
+        )
     docs = documents_of(reg)
     if not docs:
         problems.error(path, "historical register has no documents map")
         return
     for key in sorted(docs):
+        entry_path = f"{path}.documents.{key}"
         validate_entry(key, docs[key], REQUIRED_ENTRY_KEYS_HISTORICAL, False, {}, {},
-                       f"{path}.documents.{key}", problems)
+                       entry_path, problems)
+        entry = docs[key]
+        if not isinstance(entry, dict):
+            continue
+        for work in entry.get("witness") or []:
+            if isinstance(work, str) and work not in bound:
+                problems.error(
+                    entry_path,
+                    f"claimed witness {work} is not listed in the committed historical manifest "
+                    f"{HISTORICAL_REFS_MANIFEST!r}; a historical reference claim must be backed by a "
+                    "reference text the repository can re-derive, never by a name only the register has"
+                )
 
 
 def validate_authoritative_register(reg: Any, path: str, record: dict[str, Any],
@@ -1316,8 +1359,14 @@ def validate(manifest: Any, corpus_keys: Any, harness_docs: Any, issues: Evidenc
         loaded["records"].get("historical_refs_manifest_path", {}).get("text"),
         HISTORICAL_REFS_MANIFEST, problems)
 
+    if "historical_refs_manifest_path" not in loaded["records"]:
+        problems.error(
+            HISTORICAL_REFS_MANIFEST,
+            "the canonical committed historical reference manifest is missing, so the historical "
+            "register's reference metadata cannot be bound to any file in the repository",
+        )
     validate_historical_register(historical, str(record.get("w1_register_path") or "w1_register_path"),
-                                 record, problems)
+                                 record, problems, historical_digests)
     validate_authoritative_register(authoritative, str(record.get("correction_register_path") or
                                                        "correction_register_path"),
                                     record, current_digests, historical_digests,

@@ -107,6 +107,7 @@ class Sandbox:
 
 
 AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json"
+HISTORICAL_REGISTER = "sessions/COLLATION_REGISTER_2026-09-09.json"
 CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-10_CORRECTION.md"
 
 
@@ -264,6 +265,26 @@ def mutation_complete_plus_partial(root: Sandbox) -> None:
     root.mutate_manifest(edit)
 
 
+def mutation_historical_refs_metadata(root: Sandbox) -> None:
+    """A re-pointed historical reference manifest must not validate.
+
+    The 2026-09-09 register is append-only and declares its reference manifest in the legacy
+    free-text form that stands for `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt`; a fake
+    name like `sessions/fake.txt` leaves the historical reference layer resting on a file the
+    repository cannot re-derive.
+    """
+    def edit(register):
+        register["refs_manifest"] = "sessions/fake.txt"
+    root.mutate_register(HISTORICAL_REGISTER, edit)
+
+
+def mutation_historical_witness_not_in_manifest(root: Sandbox) -> None:
+    """A historical witness the committed manifest does not list must not validate."""
+    def edit(register):
+        register["documents"]["wumenguan"]["witness"] = ["T99n9999"]
+    root.mutate_register(HISTORICAL_REGISTER, edit)
+
+
 WRITE_METRICS_MUTATIONS = (
     ("change one document's fields_total", mutation_fields_total, "fields_total is"),
     ("change content_fields_total and adjust the aggregate", mutation_content_fields_and_aggregate,
@@ -280,6 +301,10 @@ WRITE_METRICS_MUTATIONS = (
      "derives"),
     ("pair a complete status with a non-collated W1 status", mutation_complete_plus_partial,
      "not representable"),
+    ("re-point the historical register's reference metadata", mutation_historical_refs_metadata,
+     "historical reference metadata"),
+    ("claim a historical witness the committed manifest does not list",
+     mutation_historical_witness_not_in_manifest, "committed historical manifest"),
 )
 
 
