@@ -12,14 +12,22 @@ Rules
   before the W1 containment PR). It is fetched on demand when the local clone
   does not contain the object (shallow CI checkouts); if it cannot be fetched the
   test fails instead of skipping.
-* The only permitted corpus differences are two exact JSON pointers:
-  `data/corpus/wumenguan.json:.coverage_note` and
-  `data/corpus/xinxin_ming.json:.coverage_note`, the completeness claims the W1
-  containment work re-worded into honest W1 status disclosures. Membership is
-  the pointer, not the leaf key name: a `coverage_note` anywhere else (for
-  instance `cases[0].coverage_note`) is a corpus edit and fails. Every other
-  field — in particular every source-Chinese field (`zh`, `verse_zh`,
-  `title_zh`, `name_zh`, …) — must be byte-identical to the base.
+* Every corpus difference must be an exact, pre-declared JSON pointer in
+  `ALLOWED_CHANGES` for that file. Membership is the pointer, not the leaf key
+  name: a `coverage_note` (or `zh`) anywhere else — for instance
+  `cases[0].coverage_note` in any of the 48 Wumenguan cases — is a corpus edit
+  and fails. The allowlist is remediation-aware:
+  - `data/corpus/xinxin_ming.json`: the root `.coverage_note`, the completeness
+    claim the W1 containment work re-worded into an honest W1 status disclosure.
+  - `data/corpus/wumenguan.json`: the same root `.coverage_note`, plus exactly
+    the pointers the owner-adopted R-A/R-B remediation (PR re-keying wumenguan
+    to the CBETA T2005 witness per the 2026-09-10 W1 correction register)
+    touched: each re-keyed source field and its rewritten sibling pinyin, the
+    additive `epilogue.editorial_note` provenance label (project-authored text,
+    no witness attribution — the `zh`/`pinyin`/translations stay untouched), and
+    the recomputed `zh_chars` total. No other field — in particular no
+    unlisted source-Chinese field (`verse_zh`, `title_zh`, `name_zh`, …) and no
+    English/translation field — may differ from the base.
 * The allowlist is exercised by a focused regression on a temporary copy of the
   tree: a nested `coverage_note` change must exit nonzero and name the exact
   path. The repository's own corpus files are never modified by any check here.
@@ -60,7 +68,138 @@ NESTED_REGRESSION_MARKER = "PRESERVATION_NESTED_REGRESSION"
 #: any of the 48 Wumenguan cases is a *corpus content* change and must fail, even though its
 #: final key is spelled the same as the two permitted root notes.
 ALLOWED_CHANGES = {
-    "data/corpus/wumenguan.json": frozenset({".coverage_note"}),
+    "data/corpus/wumenguan.json": frozenset({
+        # .coverage_note: W1 containment re-wording into an honest status disclosure (prior PR)
+        ".coverage_note",
+        # 2026-09-10 R-A re-key of the W1-flagged fields to the T2005 witness (62 zh + 62 pinyin),
+        # the additive R-B epilogue provenance label, and the recomputed zh_chars total:
+        ".cases[0].commentary_pinyin",
+        ".cases[0].commentary_zh",
+        ".cases[10].dialogue[0].pinyin",
+        ".cases[10].dialogue[0].zh",
+        ".cases[10].dialogue[1].pinyin",
+        ".cases[10].dialogue[1].zh",
+        ".cases[11].commentary_pinyin",
+        ".cases[11].commentary_zh",
+        ".cases[12].dialogue[0].pinyin",
+        ".cases[12].dialogue[0].zh",
+        ".cases[13].dialogue[0].pinyin",
+        ".cases[13].dialogue[0].zh",
+        ".cases[13].dialogue[1].pinyin",
+        ".cases[13].dialogue[1].zh",
+        ".cases[16].verse_pinyin",
+        ".cases[16].verse_zh",
+        ".cases[17].commentary_pinyin",
+        ".cases[17].commentary_zh",
+        ".cases[18].commentary_pinyin",
+        ".cases[18].commentary_zh",
+        ".cases[18].dialogue[0].pinyin",
+        ".cases[18].dialogue[0].zh",
+        ".cases[18].dialogue[2].pinyin",
+        ".cases[18].dialogue[2].zh",
+        ".cases[18].dialogue[3].pinyin",
+        ".cases[18].dialogue[3].zh",
+        ".cases[19].commentary_pinyin",
+        ".cases[19].commentary_zh",
+        ".cases[19].dialogue[0].pinyin",
+        ".cases[19].dialogue[0].zh",
+        ".cases[19].verse_pinyin",
+        ".cases[19].verse_zh",
+        ".cases[1].commentary_pinyin",
+        ".cases[1].commentary_zh",
+        ".cases[1].dialogue[1].pinyin",
+        ".cases[1].dialogue[1].zh",
+        ".cases[1].dialogue[2].pinyin",
+        ".cases[1].dialogue[2].zh",
+        ".cases[20].commentary_pinyin",
+        ".cases[20].commentary_zh",
+        ".cases[22].commentary_pinyin",
+        ".cases[22].commentary_zh",
+        ".cases[22].dialogue[0].pinyin",
+        ".cases[22].dialogue[0].zh",
+        ".cases[22].dialogue[1].pinyin",
+        ".cases[22].dialogue[1].zh",
+        ".cases[22].dialogue[2].pinyin",
+        ".cases[22].dialogue[2].zh",
+        ".cases[22].verse_pinyin",
+        ".cases[22].verse_zh",
+        ".cases[24].verse_pinyin",
+        ".cases[24].verse_zh",
+        ".cases[26].dialogue[0].pinyin",
+        ".cases[26].dialogue[0].zh",
+        ".cases[28].commentary_pinyin",
+        ".cases[28].commentary_zh",
+        ".cases[28].dialogue[0].pinyin",
+        ".cases[28].dialogue[0].zh",
+        ".cases[28].dialogue[1].pinyin",
+        ".cases[28].dialogue[1].zh",
+        ".cases[28].verse_pinyin",
+        ".cases[28].verse_zh",
+        ".cases[29].verse_pinyin",
+        ".cases[29].verse_zh",
+        ".cases[2].commentary_pinyin",
+        ".cases[2].commentary_zh",
+        ".cases[2].dialogue[0].pinyin",
+        ".cases[2].dialogue[0].zh",
+        ".cases[2].dialogue[1].pinyin",
+        ".cases[2].dialogue[1].zh",
+        ".cases[2].verse_pinyin",
+        ".cases[2].verse_zh",
+        ".cases[31].dialogue[0].pinyin",
+        ".cases[31].dialogue[0].zh",
+        ".cases[31].dialogue[1].pinyin",
+        ".cases[31].dialogue[1].zh",
+        ".cases[32].verse_pinyin",
+        ".cases[32].verse_zh",
+        ".cases[34].commentary_pinyin",
+        ".cases[34].commentary_zh",
+        ".cases[36].verse_pinyin",
+        ".cases[36].verse_zh",
+        ".cases[39].commentary_pinyin",
+        ".cases[39].commentary_zh",
+        ".cases[39].dialogue[1].pinyin",
+        ".cases[39].dialogue[1].zh",
+        ".cases[39].verse_pinyin",
+        ".cases[39].verse_zh",
+        ".cases[3].commentary_pinyin",
+        ".cases[3].commentary_zh",
+        ".cases[3].dialogue[0].pinyin",
+        ".cases[3].dialogue[0].zh",
+        ".cases[3].verse_pinyin",
+        ".cases[3].verse_zh",
+        ".cases[43].verse_pinyin",
+        ".cases[43].verse_zh",
+        ".cases[45].verse_pinyin",
+        ".cases[45].verse_zh",
+        ".cases[46].commentary_pinyin",
+        ".cases[46].commentary_zh",
+        ".cases[46].verse_pinyin",
+        ".cases[46].verse_zh",
+        ".cases[47].commentary_pinyin",
+        ".cases[47].commentary_zh",
+        ".cases[47].dialogue[1].pinyin",
+        ".cases[47].dialogue[1].zh",
+        ".cases[4].commentary_pinyin",
+        ".cases[4].commentary_zh",
+        ".cases[4].dialogue[0].pinyin",
+        ".cases[4].dialogue[0].zh",
+        ".cases[4].verse_pinyin",
+        ".cases[4].verse_zh",
+        ".cases[5].commentary_pinyin",
+        ".cases[5].commentary_zh",
+        ".cases[5].dialogue[0].pinyin",
+        ".cases[5].dialogue[0].zh",
+        ".cases[5].verse_pinyin",
+        ".cases[5].verse_zh",
+        ".cases[6].dialogue[0].pinyin",
+        ".cases[6].dialogue[0].zh",
+        ".cases[9].verse_pinyin",
+        ".cases[9].verse_zh",
+        ".epilogue.editorial_note",
+        ".preface.pinyin",
+        ".preface.zh",
+        ".zh_chars",
+    }),
     "data/corpus/xinxin_ming.json": frozenset({".coverage_note"}),
 }
 
@@ -170,7 +309,7 @@ def focused_allowlist_regression() -> list[str]:
     for rel in sorted(ALLOWED_CHANGES):
         permitted, unauthorized = classify_changes(rel, list(ALLOWED_CHANGES[rel]))
         if sorted(permitted) != sorted(ALLOWED_CHANGES[rel]) or unauthorized:
-            problems.append(f"{rel}: the permitted root coverage_note pointer was not recognised")
+            problems.append(f"{rel}: an ALLOWED_CHANGES pointer was not recognised as permitted")
         permitted, unauthorized = classify_changes(rel, [".cases[0].coverage_note"])
         if permitted or ".cases[0].coverage_note" not in unauthorized:
             problems.append(f"{rel}: nested coverage_note change was not reported as unauthorized")
@@ -278,7 +417,7 @@ def main() -> int:
     for rel in sorted(changes):
         permitted = changes[rel]["permitted"]
         if permitted:
-            print(f"  ℹ️  {rel}: permitted root coverage_note change: {', '.join(permitted)}")
+            print(f"  ℹ️  {rel}: permitted allowlisted change: {', '.join(permitted)}")
 
     # The docs/ mirror is part of the shipped bundle: it must not drift from the
     # working corpus either.
@@ -295,7 +434,7 @@ def main() -> int:
     permitted_total = sum(len(changes[rel]["permitted"]) for rel in changes)
     unauthorized_total = sum(len(changes[rel]["unauthorized"]) for rel in changes)
     print(f"{compared} corpus files compared")
-    print(f"{permitted_total} permitted root coverage_note changes")
+    print(f"{permitted_total} permitted allowlisted changes")
     print(f"{unauthorized_total} unauthorized changes")
 
     if failures:
@@ -305,7 +444,7 @@ def main() -> int:
         return 1
 
     print(f"✅ SOURCE-PRESERVATION OK: {compared} corpus files match base commit "
-          f"{BASE_COMMIT[:12]} ({BASE_COMMIT}) apart from the permitted root coverage_note changes; "
+          f"{BASE_COMMIT[:12]} ({BASE_COMMIT}) apart from the allowlisted remediation pointers; "
           "0 unauthorized changes")
     return 0
 
