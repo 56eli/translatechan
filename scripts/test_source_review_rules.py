@@ -311,6 +311,55 @@ def run_write_metrics_matrix() -> None:
             sandbox.cleanup()
 
 
+def run_replay_conflict_regressions() -> None:
+    """`--reproduce` must reject a re-typed replay flag in either CLI spelling.
+
+    The conflict check used to normalize neither side, so `--generated=1999-01-01` slipped past
+    a comparison written for `--generated 1999-01-01` and the register's own date was replayed
+    as if nothing had been typed. Both spellings must exit nonzero and name the conflict; the
+    control run (`--print-refs` alone) must still succeed, and every one of these runs must get
+    its answer without a CBETA reference checkout — no `--refs-dir`, no external reference files.
+    """
+    harness = str(REPO / "scripts" / "collate_corpus.py")
+    control = subprocess.run(
+        [sys.executable, harness, "--reproduce", AUTH_REGISTER, "--print-refs"],
+        cwd=REPO, capture_output=True, text=True, timeout=600,
+    )
+    control_works = control.stdout.split()
+    check(control.returncode == 0 and control_works,
+          "replay conflict: the non-conflicting control still replays and prints refs")
+    check(all(work[:1].isupper() and "n" in work for work in control_works),
+          "replay conflict: the control prints the CBETA work ids it needs")
+    check("--refs-dir" not in control.stdout + control.stderr,
+          "replay conflict: the control is answered without a reference checkout")
+
+    for label, extra in (
+        ("space form (--generated 1999-01-01)", ["--generated", "1999-01-01"]),
+        ("equals form (--generated=1999-01-01)", ["--generated=1999-01-01"]),
+    ):
+        result = subprocess.run(
+            [sys.executable, harness, "--reproduce", AUTH_REGISTER, *extra, "--print-refs"],
+            cwd=REPO, capture_output=True, text=True, timeout=600,
+        )
+        output = result.stdout + result.stderr
+        check(result.returncode != 0, f"replay conflict rejected: {label} exits nonzero")
+        check("--generated" in output and "--reproduce" in output,
+              f"replay conflict identified: {label} names the conflicting option")
+        check(result.stdout.strip() == "",
+              f"replay conflict stops before any work id is printed: {label}")
+        check("Set --refs-dir" not in output,
+              f"replay conflict is reported before the reference directory is required: {label}")
+
+    # Only options the register actually records are conflicts, and an unrecorded replayable
+    # option is reported rather than silently folded into a run that claims to replay the register.
+    unrecorded = subprocess.run(
+        [sys.executable, harness, "--reproduce", AUTH_REGISTER, "--doc", "wumenguan", "--print-refs"],
+        cwd=REPO, capture_output=True, text=True, timeout=600,
+    )
+    check(unrecorded.returncode == 0 and "does not replay --doc" in unrecorded.stderr,
+          "replay conflict: an option the register does not record is reported, not silently merged")
+
+
 def run_compatibility_regression() -> None:
     """One shared rule end to end: the complete+partial pairing must fail validation,
     write no metrics, be excluded from complete_documents, be is_complete=false in
@@ -534,6 +583,10 @@ def main() -> int:
     run_compatibility_regression()
 
     run_partition_and_report_regressions()
+
+    # 13. --reproduce flag conflicts: a re-typed replay flag fails in either CLI spelling,
+    #     before the external reference directory is required.
+    run_replay_conflict_regressions()
 
     print(f"\n{len(passes)} W1 source-review rule checks passed")
     if failures:

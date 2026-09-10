@@ -447,6 +447,37 @@ REPLAYED_FLAGS = {
     'doc': '--doc',
 }
 
+#: Replayed like the flags above, but recorded by `load_generation_parameters` rather than read
+#: straight out of the params map: the strict reference gate is part of the run's identity, so
+#: typing it alongside `--reproduce` is a conflict too.
+REPLAYED_GATE_FLAGS = {'require_verified_refs': '--require-verified-refs'}
+
+#: Every option a register can record, keyed by the internal name the CLI normalization produces.
+REPLAYABLE_FLAGS = {**REPLAYED_FLAGS, **REPLAYED_GATE_FLAGS}
+
+#: Operational options that stay under the operator's control during a replay. They are not part
+#: of the register's identity — where the reference checkout lives, where output goes, what to
+#: print, and the replay switch itself — so `--reproduce` may be combined with them.
+REPLAY_OPERATIONAL_FLAGS = frozenset({'refs_dir', 'out', 'print_refs', 'reproduce'})
+
+
+def cli_option_names(argv):
+    """Option names present in `argv`, normalized for comparison on both sides.
+
+    `--generated 1999-01-01` and `--generated=1999-01-01` are the same option, and the old
+    comparison normalized neither side, so the equals form slipped past the conflict check and
+    replayed with a re-typed date. Names are reduced to their internal spelling (`--a-b` ->
+    `a_b`) so the CLI form and the register key cannot disagree about whether a flag was given.
+    """
+    names = set()
+    for token in argv:
+        if not token.startswith('--'):
+            continue
+        name = token.split('=', 1)[0].lstrip('-').replace('-', '_')
+        if name:
+            names.add(name)
+    return names
+
 
 def _abs_recorded(value):
     """Recorded paths are repo-relative; make them usable again from any working directory."""
@@ -527,10 +558,29 @@ def main():
     args = ap.parse_args()
     if args.reproduce:
         replayed = load_generation_parameters(args.reproduce)
-        given = {token.split('=')[0] for token in sys.argv[1:] if token.startswith('--')} - {'--reproduce'}
-        conflicts = sorted(given & set(REPLAYED_FLAGS))
+        given = cli_option_names(sys.argv[1:]) - set(REPLAY_OPERATIONAL_FLAGS)
+        # Only options the register actually records are conflicts: a flag its generation_parameters
+        # block has nothing to say about is not part of the identity being replayed. The gate is
+        # recorded by `load_generation_parameters` on every replay, so it is always replayable.
+        supplied = {name: value for name, value in REPLAYED_FLAGS.items() if name in replayed}
+        supplied.update(REPLAYED_GATE_FLAGS)
+        conflicts = sorted(name for name in given if name in supplied)
         if conflicts:
-            sys.exit(f"--reproduce already supplies {', '.join(conflicts)}; drop those flags or drop --reproduce")
+            # Rejecting here, before `--refs-dir` is required, keeps the failure about the
+            # command the operator typed rather than about a missing 21 MB checkout.
+            flags = ', '.join(supplied[name] for name in conflicts)
+            sys.exit(f'--reproduce already supplies {flags} from {args.reproduce}; drop {flags} or drop '
+                     '--reproduce — a replayed flag list must not silently disagree with the register '
+                     'it reproduces')
+        # The register records absence as well as presence: a replayed identity that the register
+        # never recorded cannot be reproduced from it, so say so instead of quietly folding a
+        # different run into a command that claims to replay the register.
+        unrecorded = sorted(name for name in given if name not in supplied and name in REPLAYABLE_FLAGS)
+        if unrecorded:
+            flags = ', '.join(REPLAYABLE_FLAGS[name] for name in unrecorded)
+            print(f'warning: --reproduce does not replay {flags}: {args.reproduce} records no value for '
+                  f'{flags}, so the replayed run is no longer identical to the register it names',
+                  file=sys.stderr)
         for name, value in replayed.items():
             setattr(args, name, value)
     if args.print_refs:
