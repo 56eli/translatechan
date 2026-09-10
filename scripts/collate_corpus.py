@@ -185,9 +185,10 @@ def classify_title(refs, raw):
 
 SRC_KEYS = {'zh', 'verse_zh', 'commentary_zh', 'pointer_zh', 'title_zh', 'name_zh'}
 
-# Fixed class order so a regenerated register is byte-deterministic.
-SUMMARY_ORDER = ('EXACT', 'REWORDED', 'MINOR', 'DIVERGENT', 'NOT_FOUND', 'TITLE_COMPOSITE',
-                 'SHORT_UNMATCHED', 'WITNESS_UNAVAILABLE', 'EMPTY')
+# Fixed class order so a regenerated register is byte-deterministic. The vocabulary lives in
+# `source_review.COLLATION_CLASSES` (the validator enforces the same tuple), so a class cannot
+# be produced here and simultaneously be unknown to the evidence validator.
+SUMMARY_ORDER = source_review.COLLATION_CLASSES
 
 
 def iter_fields(obj, path=''):
@@ -290,8 +291,7 @@ def ref_digest(path):
         return hashlib.sha256(fh.read()).hexdigest()
 
 
-SUMMARY_ORDER = ('EXACT', 'REWORDED', 'MINOR', 'DIVERGENT', 'NOT_FOUND', 'TITLE_COMPOSITE',
-                 'SHORT_UNMATCHED', 'WITNESS_UNAVAILABLE', 'EMPTY')
+SUMMARY_ORDER = source_review.COLLATION_CLASSES
 
 
 def document_entry(doc, claimed, probes, d, refs, probe_refs):

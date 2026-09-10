@@ -265,6 +265,50 @@ def mutation_complete_plus_partial(root: Sandbox) -> None:
     root.mutate_manifest(edit)
 
 
+FORGED_CLASS = "FORGED_CLASS"
+
+
+def mutation_class_in_summary(root: Sandbox) -> None:
+    def edit(register):
+        register["documents"]["wumenguan"]["summary"][FORGED_CLASS] = 1
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_class_in_content_summary(root: Sandbox) -> None:
+    def edit(register):
+        entry = register["documents"]["wumenguan"]
+        first = sorted(entry["content_summary"])[0]
+        entry["content_summary"][FORGED_CLASS] = entry["content_summary"].pop(first)
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_class_in_metadata_summary(root: Sandbox) -> None:
+    def edit(register):
+        entry = register["documents"]["wumenguan"]
+        first = sorted(entry["metadata_summary"])[0]
+        entry["metadata_summary"][FORGED_CLASS] = entry["metadata_summary"].pop(first)
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_class_in_flagged(root: Sandbox) -> None:
+    def edit(register):
+        register["documents"]["wumenguan"]["flagged"][0]["class"] = FORGED_CLASS
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_class_in_aggregate(root: Sandbox) -> None:
+    def edit(register):
+        totals = register["aggregate"]["class_totals"]
+        totals[FORGED_CLASS] = totals.pop(sorted(totals)[0])
+    root.mutate_register(AUTH_REGISTER, edit)
+
+
+def mutation_class_in_historical_register(root: Sandbox) -> None:
+    def edit(register):
+        register["documents"]["wumenguan"]["summary"][FORGED_CLASS] = 1
+    root.mutate_register(HISTORICAL_REGISTER, edit)
+
+
 def mutation_historical_refs_metadata(root: Sandbox) -> None:
     """A re-pointed historical reference manifest must not validate.
 
@@ -305,6 +349,12 @@ WRITE_METRICS_MUTATIONS = (
      "historical reference metadata"),
     ("claim a historical witness the committed manifest does not list",
      mutation_historical_witness_not_in_manifest, "committed historical manifest"),
+    ("rename a summary class to FORGED_CLASS", mutation_class_in_summary, FORGED_CLASS),
+    ("rename a content_summary class to FORGED_CLASS", mutation_class_in_content_summary, FORGED_CLASS),
+    ("rename a metadata_summary class to FORGED_CLASS", mutation_class_in_metadata_summary, FORGED_CLASS),
+    ("rename a flagged[].class to FORGED_CLASS", mutation_class_in_flagged, FORGED_CLASS),
+    ("rename an aggregate class_totals class to FORGED_CLASS", mutation_class_in_aggregate, FORGED_CLASS),
+    ("rename a historical summary class to FORGED_CLASS", mutation_class_in_historical_register, FORGED_CLASS),
 )
 
 

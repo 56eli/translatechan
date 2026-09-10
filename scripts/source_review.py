@@ -58,6 +58,25 @@ CONTENT_SOURCE_FIELDS = ("zh", "verse_zh", "commentary_zh", "pointer_zh")
 #: Harness classes that mean "this content field is the claimed witness's text".
 COLLATED_CLASSES = ("EXACT", "REWORDED")
 
+#: The complete collation-class vocabulary, in the fixed order the harness writes summaries
+#: with (`scripts/collate_corpus.py`'s SUMMARY_ORDER is this tuple). It is the classification
+#: contract, not a list of suggestions: `EXACT`/`REWORDED` are the collated classes,
+#: `TITLE_COMPOSITE` is the composite-title finding, `EMPTY` is a field with no source text,
+#: and the rest are the non-collating finding grades. A record carrying a class outside this
+#: vocabulary describes a finding the harness cannot produce, so it cannot be validated — and
+#: an unknown label must never be silently counted as if it were one of these.
+COLLATION_CLASSES = (
+    "EXACT",
+    "REWORDED",
+    "MINOR",
+    "DIVERGENT",
+    "NOT_FOUND",
+    "TITLE_COMPOSITE",
+    "SHORT_UNMATCHED",
+    "WITNESS_UNAVAILABLE",
+    "EMPTY",
+)
+
 #: Five ledgers the public interface must keep visibly separate. `app.js` labels each
 #: rendered disclosure with `data-ledger`; the smoke test requires all five.
 DISCLOSURE_LEDGERS = (

@@ -358,12 +358,27 @@ def _check_keys(entry: dict[str, Any], required: tuple[str, ...], optional: tupl
                              "evidence records carry a fixed key set")
 
 
+def _check_class_name(cls: Any, path: str, problems: EvidenceIssues, label: str) -> bool:
+    """A class label must be one the harness can produce (source_review.COLLATION_CLASSES)."""
+    if cls in source_review.COLLATION_CLASSES:
+        return True
+    problems.error(
+        path,
+        f"{label} {cls!r} is not a valid collation class: the harness vocabulary is "
+        + ", ".join(source_review.COLLATION_CLASSES)
+        + ". An unknown label is not a finding this evidence can support, and it must never be "
+        "counted as if it were one of these classes.",
+    )
+    return False
+
+
 def _check_summary_map(value: Any, path: str, problems: EvidenceIssues, label: str) -> dict[str, int]:
     if not isinstance(value, dict) or not value:
         problems.error(path, f"{label} must be a non-empty object of class -> count")
         return {}
     result: dict[str, int] = {}
     for cls, count in value.items():
+        _check_class_name(cls, path, problems, f"{label} class")
         if not _is_int(count) or count < 0:
             problems.error(path, f"{label}.{cls} must be a non-negative integer, got {count!r}")
         else:
@@ -388,6 +403,7 @@ def _flag_classes(entry: dict[str, Any], path: str, problems: EvidenceIssues) ->
         if not isinstance(cls, str):
             problems.error(flag_path, f"class must be a string, got {cls!r}")
             continue
+        _check_class_name(cls, flag_path, problems, "class")
         if not isinstance(flag.get("path"), str) or not flag["path"]:
             problems.error(flag_path, "path must be a non-empty JSON-pointer-like string")
         if not _is_int(flag.get("sim")) and not (isinstance(flag.get("sim"), float)):
@@ -952,6 +968,12 @@ def validate_authoritative_register(reg: Any, path: str, record: dict[str, Any],
         problems.error(path, "the authoritative register carries no aggregate block")
     else:
         agg_path = f"{path}.aggregate"
+        stored_totals = aggregate.get("class_totals")
+        if not isinstance(stored_totals, dict) or not stored_totals:
+            problems.error(agg_path, "aggregate.class_totals must be a non-empty object of class -> count")
+        else:
+            for cls in sorted(stored_totals):
+                _check_class_name(cls, agg_path, problems, "aggregate.class_totals class")
         derived_counts = source_review.status_counts(_derived_or_empty(e) for e in docs.values())
         recomputed = {
             "documents": len(docs),
