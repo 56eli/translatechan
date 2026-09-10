@@ -22,6 +22,7 @@ Every case mutates a *copy* of the repository inputs in a temp directory, so the
 from __future__ import annotations
 
 import json
+import hashlib
 import shutil
 import subprocess
 import sys
@@ -112,6 +113,55 @@ CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-10_CORRECTION.md"
 def _is_metadata_path(path: str) -> bool:
     leaf = str(path).rsplit(".", 1)[-1].split("[", 1)[0]
     return leaf in ("title_zh", "name_zh")
+
+
+def run_partition_and_report_regressions() -> None:
+    """Focused forgeries must not write metrics, even with a valid register citation."""
+    for label in ("partition", "report-metadata"):
+        sandbox = Sandbox(label)
+        try:
+            metrics_path = sandbox.root / "data/project_metrics.json"
+            before = metrics_path.read_bytes()
+            if label == "partition":
+                old_sha = hashlib.sha256((sandbox.root / AUTH_REGISTER).read_bytes()).hexdigest()
+                register = sandbox.read(AUTH_REGISTER)
+                entry = register["documents"]["baizhang_guanglu"]
+                entry["content_summary"]["NOT_FOUND"] = 5
+                entry["metadata_summary"]["NOT_FOUND"] = 5
+                entry["content_fields_total"] = 5
+                entry["metadata_fields_total"] = 5
+                register["aggregate"]["content_fields_total"] = 923
+                register["aggregate"]["metadata_fields_total"] = 392
+                sandbox.write(AUTH_REGISTER, register)
+                new_sha = hashlib.sha256((sandbox.root / AUTH_REGISTER).read_bytes()).hexdigest()
+                report = sandbox.read_text(CORRECTION_REPORT)
+                check(old_sha in report, "partition test finds the original register hash citation")
+                sandbox.write_text(CORRECTION_REPORT, report.replace(old_sha, new_sha))
+                expected_error = "content/metadata partition mismatch"
+            else:
+                report = sandbox.read_text(CORRECTION_REPORT)
+                check("391 metadata fields" in report, "report test finds the labeled metadata claim")
+                sandbox.write_text(CORRECTION_REPORT, report.replace("391 metadata fields", "999 metadata fields", 1))
+                expected_error = "correction report states metadata fields as '999'"
+            result = subprocess.run(
+                [sys.executable, str(sandbox.root / "scripts/validate_data.py"), "--write-metrics"],
+                cwd=sandbox.root, capture_output=True, text=True, timeout=600,
+            )
+            output = result.stdout + result.stderr
+            unchanged = metrics_path.read_bytes() == before
+            check(result.returncode != 0, f"{label}: forged totals exit nonzero")
+            check(expected_error in output, f"{label}: failure identifies the forged claim")
+            check("--write-metrics refused" in output, f"{label}: metrics refusal path is triggered")
+            check(unchanged, f"{label}: metrics remain byte-identical")
+            if label == "partition":
+                check("cited digest no longer matches" not in output,
+                      "partition: updated register hash avoids unrelated citation failure")
+                metrics = sandbox.read("data/project_metrics.json")["corpus"]["source_review"]
+                check(metrics["content_fields_total"] == 924 and metrics["metadata_fields_total"] == 391,
+                      "partition: forged 923/392 totals were not written")
+            print(f"Focused mutation {label}: exit={result.returncode}, metrics_byte_identical={unchanged}")
+        finally:
+            sandbox.cleanup()
 
 
 def mutation_fields_total(root: Sandbox) -> None:
@@ -482,6 +532,8 @@ def main() -> int:
 
     # 12. the full compatibility regression: validator, metrics functions, and runtime.
     run_compatibility_regression()
+
+    run_partition_and_report_regressions()
 
     print(f"\n{len(passes)} W1 source-review rule checks passed")
     if failures:

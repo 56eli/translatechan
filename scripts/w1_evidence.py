@@ -1146,6 +1146,38 @@ def validate_correction_report(text: str, path: str, record: dict[str, Any],
                                      f"{refs_match.group(1)}/{refs_match.group(2)} but the {key} entry holds "
                                      f"{entry.get('refs_verified')}/{entry.get('refs_total')}")
 
+    # §5: labeled aggregate claims, not historical figures or §4 document totals.
+    section = re.search(r"^## 5\. Recomputed status counts[^\n]*\n(.*?)(?=^## |\Z)",
+                        text, re.M | re.S)
+    aggregate_prose = re.sub(r"\s+", " ", section.group(1)).replace("**", "") if section else ""
+    totals = {
+        "total fields": sum(e.get("fields_total", 0) for e in auth_docs.values()),
+        "content fields": sum(e.get("content_fields_total", 0) for e in auth_docs.values()),
+        "collated content fields": sum(e.get("content_fields_collated", 0) for e in auth_docs.values()),
+        "metadata fields": sum(e.get("metadata_fields_total", 0) for e in auth_docs.values()),
+    }
+    for label, expected in totals.items():
+        # Accept labeled prose or table rows; absent optional totals make no claim.
+        patterns = [r"\b([\d,]+)\s+" + re.escape(label) + r"\b",
+                    r"\b" + re.escape(label) + r"\s*[:=|]\s*([\d,]+)"]
+        if label == "content fields":
+            patterns[0] = r"(?<!collated )\b([\d,]+)\s+content fields\b"
+        if label == "total fields":
+            patterns.append(r"\b([\d,]+)\s+fields in total\b")
+        claims = [m.group(1) for pattern in patterns for m in re.finditer(pattern, aggregate_prose, re.I)]
+        if label == "metadata fields" and not claims:
+            problems.error(path, "correction report does not state metadata fields in §5")
+        for claim in claims:
+            if int(claim.replace(",", "")) != expected:
+                problems.error(path, f"correction report states {label} as {claim!r} but canonical "
+                                     f"corpus field paths and evidence support {expected}")
+    metadata_failed = sum(source_review.is_metadata_field(f.get("path"))
+                          and f.get("class") not in source_review.COLLATED_CLASSES
+                          for e in auth_docs.values() for f in e.get("flagged", []) if isinstance(f, dict))
+    expect(r"metadata fields, (\d+) of them non-collating", "non-collating metadata fields", metadata_failed)
+    expect(r"Derived from the merged evidence for all (\d+) manifest items",
+           "the status section document count", recomputed_docs)
+
     # §5: the recomputed status counts.
     for status in source_review.VALID_SOURCE_REVIEW_STATUSES:
         row = re.search(r"`" + re.escape(status) + r"`\s*\|\s*(\d+)\s*\|", prose)
