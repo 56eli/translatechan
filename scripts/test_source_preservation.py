@@ -12,11 +12,17 @@ Rules
   before the W1 containment PR). It is fetched on demand when the local clone
   does not contain the object (shallow CI checkouts); if it cannot be fetched the
   test fails instead of skipping.
-* The only permitted corpus differences are the `coverage_note` fields of the two
-  flagship texts (`wumenguan`, `xinxin_ming`) that the W1 containment work
-  re-worded from a completeness claim into an honest W1 status disclosure. Every
-  other field — in particular every source-Chinese field (`zh`, `verse_zh`,
+* The only permitted corpus differences are two exact JSON pointers:
+  `data/corpus/wumenguan.json:.coverage_note` and
+  `data/corpus/xinxin_ming.json:.coverage_note`, the completeness claims the W1
+  containment work re-worded into honest W1 status disclosures. Membership is
+  the pointer, not the leaf key name: a `coverage_note` anywhere else (for
+  instance `cases[0].coverage_note`) is a corpus edit and fails. Every other
+  field — in particular every source-Chinese field (`zh`, `verse_zh`,
   `title_zh`, `name_zh`, …) — must be byte-identical to the base.
+* The allowlist is exercised by a focused regression on a temporary copy of the
+  tree: a nested `coverage_note` change must exit nonzero and name the exact
+  path. The repository's own corpus files are never modified by any check here.
 * The set of corpus files must not grow or shrink.
 * The `docs/data/corpus` mirror must be byte-identical to `data/corpus`.
 
@@ -28,8 +34,11 @@ workflow changes.
 from __future__ import annotations
 
 import json
+import os
+import shutil
 import subprocess
 import sys
+import tempfile
 from typing import Any
 from pathlib import Path
 
@@ -41,10 +50,18 @@ DOCS_CORPUS_DIR = ROOT / "docs" / "data" / "corpus"
 #: when the corpus moves. (origin/main at the merge base of the W1 PR.)
 BASE_COMMIT = "3cc7a8e9681ea8646d2b4fd8d86f1a4b1eea6b43"
 
-#: The only corpus fields the W1 work may have touched, and in which files.
+#: Set only for the temporary copy that the nested-`coverage_note` regression runs: the copy
+#: then performs the real comparison but not the regression that spawned it. Nothing else sets
+#: it, so a normal run — including the smoke test — always runs the focused regression.
+NESTED_REGRESSION_MARKER = "PRESERVATION_NESTED_REGRESSION"
+
+#: The only corpus paths the W1 work may have touched: exact JSON pointers, per file. The
+#: allowlist is the pointer itself, never the leaf key name — ``.cases[0].coverage_note`` in
+#: any of the 48 Wumenguan cases is a *corpus content* change and must fail, even though its
+#: final key is spelled the same as the two permitted root notes.
 ALLOWED_CHANGES = {
-    "data/corpus/wumenguan.json": frozenset({"coverage_note"}),
-    "data/corpus/xinxin_ming.json": frozenset({"coverage_note"}),
+    "data/corpus/wumenguan.json": frozenset({".coverage_note"}),
+    "data/corpus/xinxin_ming.json": frozenset({".coverage_note"}),
 }
 
 
@@ -113,9 +130,102 @@ def deep_diff(base: Any, current: Any, parts: list[str | int], out: list[str]) -
             out.append(json_pointer(parts))
 
 
+def classify_changes(rel: str, diffs: list[str]) -> tuple[list[str], list[str]]:
+    """Split one file's changed JSON pointers into (permitted, unauthorized).
+
+    Membership is exact-pointer membership in `ALLOWED_CHANGES`. Matching the leaf key name
+    instead is what used to let `data/corpus/wumenguan.json.cases[0].coverage_note` through:
+    the same final key is a permitted disclosure at the document root and an unauthorized
+    corpus edit anywhere below it.
+    """
+    allowed = ALLOWED_CHANGES.get(rel, frozenset())
+    permitted = [pointer for pointer in diffs if pointer in allowed]
+    unauthorized = [pointer for pointer in diffs if pointer not in allowed]
+    return permitted, unauthorized
+
+
+def focused_allowlist_regression() -> list[str]:
+    """Prove the allowlist is exact: a nested `coverage_note` change must fail, by exact path.
+
+    Two levels, both on throwaway copies — the repository's corpus files are never touched:
+
+    * the classifier the real comparison uses, on a synthetic nested change, must report
+      `.cases[0].coverage_note` as unauthorized and permit nothing;
+    * the script itself, run in a temporary copy of the tree with a nested
+      `cases[0].coverage_note` added to `data/corpus/wumenguan.json`, must exit nonzero and
+      name that exact pointer, while the same copy unmutated must exit zero.
+    """
+    problems: list[str] = []
+
+    base_doc = {"coverage_note": "before", "cases": [{"coverage_note": "case note", "zh": "一二三四"}]}
+    nested_doc = {"coverage_note": "before", "cases": [{"coverage_note": "reworded", "zh": "一二三四"}]}
+    diffs: list[str] = []
+    deep_diff(base_doc, nested_doc, [], diffs)
+    permitted, unauthorized = classify_changes("data/corpus/wumenguan.json", diffs)
+    if permitted:
+        problems.append(f"nested coverage_note change was permitted: {permitted}")
+    if ".cases[0].coverage_note" not in unauthorized:
+        problems.append("nested coverage_note change did not report the exact path "
+                        f".cases[0].coverage_note (reported: {unauthorized or 'nothing'})")
+    for rel in sorted(ALLOWED_CHANGES):
+        permitted, unauthorized = classify_changes(rel, list(ALLOWED_CHANGES[rel]))
+        if sorted(permitted) != sorted(ALLOWED_CHANGES[rel]) or unauthorized:
+            problems.append(f"{rel}: the permitted root coverage_note pointer was not recognised")
+        permitted, unauthorized = classify_changes(rel, [".cases[0].coverage_note"])
+        if permitted or ".cases[0].coverage_note" not in unauthorized:
+            problems.append(f"{rel}: nested coverage_note change was not reported as unauthorized")
+
+    sandbox = Path(tempfile.mkdtemp(prefix="preservation-nested-"))
+    try:
+        # Only what the comparison reads: the git objects (for the pinned base), the script,
+        # the corpus, and the deploy mirror.
+        for piece in (".git", "scripts", "data/corpus", "docs/data/corpus"):
+            source = ROOT / piece
+            if not source.exists():
+                return problems + [f"nested-path regression: cannot copy {piece} into the temporary tree"]
+            shutil.copytree(source, sandbox / piece, symlinks=True,
+                            ignore=shutil.ignore_patterns("__pycache__", ".pytest_cache"))
+
+        def run_in_sandbox() -> subprocess.CompletedProcess[str]:
+            # NESTED_REGRESSION_MARKER tells the copied script it is the subject of this check:
+            # without it the copy would copy and run itself again, forever. The marker is only
+            # ever set here, so a normal run (and CI) always executes the full regression.
+            env = dict(os.environ, **{NESTED_REGRESSION_MARKER: "1"})
+            return subprocess.run([sys.executable, str(sandbox / "scripts" / "test_source_preservation.py")],
+                                  cwd=sandbox, capture_output=True, text=True, timeout=600, env=env)
+
+        clean = run_in_sandbox()
+        if clean.returncode != 0:
+            problems.append("the temporary copy fails before any mutation, so it cannot prove "
+                            f"the nested change is what fails: {clean.stdout[-400:]}{clean.stderr[-400:]}")
+
+        mutated = sandbox / "data" / "corpus" / "wumenguan.json"
+        document = json.loads(mutated.read_text(encoding="utf-8"))
+        document["cases"][0]["coverage_note"] = "unauthorized nested note"
+        mutated.write_text(json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        result = run_in_sandbox()
+        output = result.stdout + result.stderr
+        if result.returncode == 0:
+            problems.append("nested coverage_note change passed the temporary-copy run")
+        if ".cases[0].coverage_note" not in output:
+            problems.append("nested coverage_note failure did not name the exact path "
+                            ".cases[0].coverage_note in a temporary copy of the tree")
+        if "0 unauthorized changes" in output:
+            problems.append("nested coverage_note change was counted as authorized")
+        print(f"Focused allowlist regression: unmutated copy exit={clean.returncode}, "
+              f"nested coverage_note rejected (exit={result.returncode}) with the exact path reported")
+    finally:
+        shutil.rmtree(sandbox, ignore_errors=True)
+    return problems
+
+
 def main() -> int:
-    failures: list[str] = []
-    changes: dict[str, list[str]] = {}
+    if os.environ.get(NESTED_REGRESSION_MARKER):
+        failures: list[str] = []
+        print("nested-regression copy: focused self-test skipped, corpus comparison still enforced")
+    else:
+        failures = [f"focused allowlist regression: {line}" for line in focused_allowlist_regression()]
+    changes: dict[str, dict[str, list[str]]] = {}
 
     base_ref = ensure_base_commit()
     if base_ref is None:
@@ -157,22 +267,18 @@ def main() -> int:
             # Same JSON, different bytes: formatting was touched. Allow nothing.
             failures.append(f"{rel}: whitespace/formatting differs from the base commit")
             continue
-        allowed = ALLOWED_CHANGES.get(rel, frozenset())
-        for pointer in diffs:
-            leaf = pointer.rsplit(".", 1)[-1].split("[", 1)[0]
-            changes.setdefault(rel, []).append(pointer)
-            if leaf not in allowed:
-                failures.append(
-                    f"{rel}{pointer} differs from base commit {BASE_COMMIT[:12]} "
-                    f"(base: {json_get(base_doc, pointer)!r}, now: {json_get(current_doc, pointer)!r}); "
-                    "only the declared coverage_note fields may change, and no source-Chinese field may"
-                )
+        permitted, unauthorized = classify_changes(rel, diffs)
+        changes[rel] = {"permitted": permitted, "unauthorized": unauthorized}
+        for pointer in unauthorized:
+            failures.append(
+                f"{rel}{pointer} differs from base commit {BASE_COMMIT[:12]} "
+                f"(base: {json_get(base_doc, pointer)!r}, now: {json_get(current_doc, pointer)!r}); "
+                "only the declared coverage_note fields may change, and no source-Chinese field may"
+            )
     for rel in sorted(changes):
-        allowed = ALLOWED_CHANGES.get(rel, frozenset())
-        permitted = [p for p in changes[rel]
-                     if p.rsplit(".", 1)[-1].split("[", 1)[0] in allowed]
+        permitted = changes[rel]["permitted"]
         if permitted:
-            print(f"  ℹ️  {rel}: permitted coverage_note change: {', '.join(permitted)}")
+            print(f"  ℹ️  {rel}: permitted root coverage_note change: {', '.join(permitted)}")
 
     # The docs/ mirror is part of the shipped bundle: it must not drift from the
     # working corpus either.
@@ -185,34 +291,48 @@ def main() -> int:
             failures.append(f"docs/data/corpus/{path.name} differs from data/corpus/{path.name}; "
                             "rebuild with scripts/build_data_bundle.py")
 
+    compared = len(base_files & current_files)
+    permitted_total = sum(len(changes[rel]["permitted"]) for rel in changes)
+    unauthorized_total = sum(len(changes[rel]["unauthorized"]) for rel in changes)
+    print(f"{compared} corpus files compared")
+    print(f"{permitted_total} permitted root coverage_note changes")
+    print(f"{unauthorized_total} unauthorized changes")
+
     if failures:
         print(f"🔴 source preservation FAILED: {len(failures)} problem(s):")
         for line in failures:
             print(f"  ❌ {line}")
         return 1
 
-    compared = len(base_files & current_files)
-    print(f"✅ SOURCE-PRESERVATION OK: {compared} corpus files byte-compared against base commit "
-          f"{BASE_COMMIT[:12]} ({BASE_COMMIT}); permitted coverage_note changes: "
-          f"{sum(1 for rel in ALLOWED_CHANGES if rel in changes) or 'none found'}")
+    print(f"✅ SOURCE-PRESERVATION OK: {compared} corpus files match base commit "
+          f"{BASE_COMMIT[:12]} ({BASE_COMMIT}) apart from the permitted root coverage_note changes; "
+          "0 unauthorized changes")
     return 0
 
 
 def json_get(doc: Any, pointer: str) -> Any:
+    """The value at `pointer`, or a readable placeholder when the pointer is absent.
+
+    An added key (a pointer present in one version only) must produce a report, not a
+    traceback: the failure message is the thing that tells a reviewer which path moved.
+    """
     node = doc
     rest = pointer.lstrip(".")
-    while rest:
-        if rest.startswith("["):
-            index = int(rest[1:rest.index("]")])
-            rest = rest[rest.index("]") + 1:].lstrip(".")
-            node = node[index]
-        else:
-            dot = rest.find(".")
-            bracket = rest.find("[")
-            end = min(x for x in (dot, bracket, len(rest)) if x != -1)
-            key = rest[:end]
-            rest = rest[end:]
-            node = node[key]
+    try:
+        while rest:
+            if rest.startswith("["):
+                index = int(rest[1:rest.index("]")])
+                rest = rest[rest.index("]") + 1:].lstrip(".")
+                node = node[index]
+            else:
+                dot = rest.find(".")
+                bracket = rest.find("[")
+                end = min(x for x in (dot, bracket, len(rest)) if x != -1)
+                key = rest[:end]
+                rest = rest[end:]
+                node = node[key]
+    except (KeyError, IndexError, TypeError):
+        return "<absent in this version>"
     return node
 
 
