@@ -102,11 +102,19 @@ class Sandbox:
             cwd=self.root, capture_output=True, text=True, timeout=600,
         )
 
+    def run_with_docs(self, *args: str) -> subprocess.CompletedProcess[str]:
+        """Validation including the documentation-truthfulness checks (no --skip-docs)."""
+        return subprocess.run(
+            [sys.executable, str(self.root / "scripts" / "validate_data.py"), *args],
+            cwd=self.root, capture_output=True, text=True, timeout=600,
+        )
+
     def cleanup(self) -> None:
         shutil.rmtree(self.root, ignore_errors=True)
 
 
 AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json"
+REMEDIATION_PLAN = ".orchestrator/REMEDIATION_PLAN.md"
 HISTORICAL_REGISTER = "sessions/COLLATION_REGISTER_2026-09-09.json"
 CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-10_CORRECTION.md"
 
@@ -386,6 +394,43 @@ def run_write_metrics_matrix() -> None:
             sandbox.cleanup()
 
 
+def run_reference_count_doc_regression() -> None:
+    """The stale '174 extracted reference texts' claim must not validate.
+
+    The committed historical manifest lists 187 entries, so the active remediation plan must
+    quote that number and must never present 174 as the current count. The mutation restores
+    the old prose in a temporary copy: validation (with the documentation checks enabled, not
+    --skip-docs) must exit nonzero naming the plan, and --write-metrics must leave
+    data/project_metrics.json byte-identical. The plan in the working tree is never edited.
+    """
+    import re
+
+    sandbox = Sandbox("doc-174")
+    try:
+        plan = sandbox.read_text(REMEDIATION_PLAN)
+        check("187" in plan and "174" in plan,
+              "documentation: the plan states the committed manifest count and labels 174 as stale")
+        control = sandbox.run_with_docs("--write-metrics")
+        check(control.returncode == 0,
+              "documentation: the shipped plan passes the documentation-truthfulness checks")
+        before = sandbox.metrics_text()
+        stale = plan.replace("187", "174")
+        stale = re.sub(r"\s*\(count the file[^)]*\)", "", stale)
+        check("187" not in stale, "documentation: the mutation removes the committed manifest count")
+        sandbox.write_text(REMEDIATION_PLAN, stale)
+        result = sandbox.run_with_docs("--write-metrics")
+        combined = result.stdout + result.stderr
+        check(result.returncode != 0, "documentation: the stale 174 count exits nonzero")
+        check(REMEDIATION_PLAN in combined,
+              "documentation: the failure names the stale plan instead of failing elsewhere")
+        check("187" in combined and "174" in combined,
+              "documentation: the failure contrasts the stale claim with the committed count")
+        check(sandbox.metrics_text() == before,
+              "documentation: the stale count writes no metrics")
+    finally:
+        sandbox.cleanup()
+
+
 def run_replay_conflict_regressions() -> None:
     """`--reproduce` must reject a re-typed replay flag in either CLI spelling.
 
@@ -662,6 +707,9 @@ def main() -> int:
     # 13. --reproduce flag conflicts: a re-typed replay flag fails in either CLI spelling,
     #     before the external reference directory is required.
     run_replay_conflict_regressions()
+
+    # 14. documentation truthfulness: the stale "174 extracted reference texts" claim fails.
+    run_reference_count_doc_regression()
 
     print(f"\n{len(passes)} W1 source-review rule checks passed")
     if failures:

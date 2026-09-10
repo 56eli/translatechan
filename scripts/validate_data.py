@@ -1303,6 +1303,32 @@ def validate_w1_doc_claims(metrics: dict[str, Any], issues: Issues) -> None:
         if "CORRECTED" not in state_text and "superseded" not in state_text:
             issues.error(".orchestrator/STATE.md", "must say which W1 figure is superseded / which record is corrected")
 
+    # The committed manifest, not a hand-typed number, is how many reference texts exist. The
+    # 2026-09-09 report's prose said 174 while the committed manifest lists 187, and the active
+    # remediation plan repeated the stale figure as if it were the manifest's count. Count the
+    # file here and make the plan agree with it; a bare 174 is called out as the stale claim.
+    plan = ROOT / ".orchestrator" / "REMEDIATION_PLAN.md"
+    historical_manifest = ROOT / w1_evidence.HISTORICAL_REFS_MANIFEST
+    if plan.exists() and historical_manifest.exists():
+        entries = sum(1 for line in historical_manifest.read_text(encoding="utf-8").splitlines() if line.strip())
+        plan_text = plan.read_text(encoding="utf-8")
+        if str(entries) not in plan_text:
+            issues.error(
+                ".orchestrator/REMEDIATION_PLAN.md",
+                f"must quote the {entries} reference texts the committed historical manifest "
+                f"({w1_evidence.HISTORICAL_REFS_MANIFEST}) lists, so the count is read from the "
+                "file instead of re-typed",
+            )
+        stale_qualifiers = ("stale", "superseded", "historical", "2026-09-09", "report")
+        for lineno, line in enumerate(plan_text.splitlines(), 1):
+            if re.search(r"\b174\b", line) and not any(word in line.lower() for word in stale_qualifiers):
+                issues.error(
+                    ".orchestrator/REMEDIATION_PLAN.md",
+                    f"line {lineno} presents 174 as the current reference-manifest count; the committed "
+                    f"manifest lists {entries} entries — label any 174 statement as the superseded "
+                    "2026-09-09 report prose",
+                )
+
     scanned = ["README.md", "AUDIT.md", "HANDOFF.md", "ROADMAP.md", "index.html", ".orchestrator/STATE.md"]
     stale = {
         str(superseded.get("report_flagged_total")): "the 2026-09-09 report's flagged-entry total",

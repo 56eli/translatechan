@@ -12,8 +12,10 @@ Everything needed to run this program is in the repository; no chat context is r
    work id), `also_in` (where the text was found by probe, if anywhere), `corpus` (current
    normalized text), `ref_window` (best reference text window).
 3. `scripts/collate_corpus.py` — harness; docstring documents reference acquisition.
-4. `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt` — sha256 of the 174 extracted
-   reference texts; verify any freshly acquired refs against it before collating.
+4. `sessions/COLLATION_W1_2026-09-09_refs_manifest.txt` — sha256 of the 187 extracted
+   reference texts the manifest lists (count the file, do not re-type a figure: the
+   2026-09-09 report's "174 files" prose is stale and the committed manifest is the
+   record); verify any freshly acquired refs against it before collating.
 
 ## 1. Strategy — adopted hybrid remediation policy (owner decision 2026-09-09)
 
@@ -90,8 +92,9 @@ field's provenance, and used for all re-keying in that document.
 13–27. `deshan_yulu, qinggui_monastic_codes, yunmen_yulu, fayan_yulu, guiyang_yulu,
 dahui_hongzhi, sengzhao_zhaolun, lidai_fabao_ji, dazhu_huihai, baizhang_guanglu,
 foyan_qingyuan, dahui_shobogenzo, nanquan_yulu, xuefeng_yantou, wudeng_huiyuan,
-xuansha_yulu, caoxi_zhuan, yuanwu_letters` — per-doc: locate true source text in the 174
-refs (probe-first), re-key, or relabel as project retellings with witness claims removed.
+xuansha_yulu, caoxi_zhuan, yuanwu_letters` — per-doc: locate true source text in the 187
+refs the committed manifest lists (probe-first), re-key, or relabel as project retellings with
+witness claims removed.
 
 **Wave 4 — no-CBETA-witness docs:** `hanshan_poems`, `niutou_juezhu` — either acquire a
 citable edition externally or mark witness unavailable honestly.
