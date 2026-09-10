@@ -1422,7 +1422,7 @@ def validate(manifest: Any, corpus_keys: Any, harness_docs: Any, issues: Evidenc
     aggregates["per_document"] = {}
     counts: dict[str, int] = {status: 0 for status in source_review.VALID_SOURCE_REVIEW_STATUSES}
     for key in sorted(declared_by_key):
-        entry = documents.get(key) or merged.get(key)
+        entry = canonical_docs.get(key) or documents.get(key) or merged.get(key)
         item = declared_by_key[key]
         if not isinstance(entry, dict):
             continue
