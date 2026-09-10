@@ -2971,6 +2971,6 @@
       "verse_en": "Before the step is taken you have already arrived; before the tongue moves it has already spoken. Even if every move precedes the trigger, you must still know the aperture above."
     }
   ],
-  "coverage_note": "48/48 cases represented; W1 source-review status: partial_or_failed_w1_collation (175/181 evaluated content fields collate to the claimed T2005 witness after the 2026-09-10 re-key). Residual 8 flagged fields, documented and intentionally untouched: 5 MINOR dialogue/commentary fields (edition-graphic residue, acceptable under the adopted policy), 2 SHORT_UNMATCHED case title_zh fields (composite-title work is a separate plan item), and the project-authored epilogue (R-B labeled in structured metadata; T48n2005 contains no epilogue). Representation does not establish complete selected-witness status.",
-  "zh_chars": 5959
+  "coverage_note": "48/48 cases represented; W1 source-review status: partial_or_failed_w1_collation (174/181 evaluated content fields collate to the claimed T2005 witness after the 2026-09-10 re-key). Residual 9 flagged fields, documented and intentionally untouched: 6 MINOR dialogue/commentary fields (5 edition-graphic residue fields acceptable under the adopted policy, plus .cases[4].dialogue[0].zh, which is a verbatim-witness field flagged MINOR only because the harness extraction rule drops CBETA <g> glyph content — the corpus reproduces the witness's NFKC-normalized glyph 啣 that the rule strips), 2 SHORT_UNMATCHED case title_zh fields (composite-title work is a separate plan item), and the project-authored epilogue (R-B labeled in structured metadata; T48n2005 contains no epilogue). Representation does not establish complete selected-witness status.",
+  "zh_chars": 5960
 }
