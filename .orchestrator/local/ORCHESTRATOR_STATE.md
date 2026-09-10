@@ -18,19 +18,17 @@ R-A/R-B/R-C work program.
 ## Published Task Prompts
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
-| 001 | `.orchestrator/prompts/001-rekey-wumenguan-t2005.md` | Wumenguan R-A re-key (70 flagged fields) with mechanical acceptance | arena/01a08caa-translatechan | #29 | REVISE (2 defects; see review) |
-| 002 | `.orchestrator/prompts/002-wumenguan-revision-case5-glyphs.md` | PR #29 revision: case-5 witness glyph + rare-glyph pinyin readings | (agent's arena branch) | — | Dispatched |
+| 001 | `.orchestrator/prompts/001-rekey-wumenguan-t2005.md` | Wumenguan R-A re-key (70 flagged fields) with mechanical acceptance | arena/01a08caa-translatechan | #29 | MERGE (revision verified) |
+| 002 | `.orchestrator/prompts/002-wumenguan-revision-case5-glyphs.md` | PR #29 revision: case-5 witness glyph + rare-glyph pinyin readings | arena/01a08caa-translatechan | #29 | Fulfilled (revision landed on #29; agent documented platform reason) |
 
 ## Active Milestone
-Wave 1 remediation (R-A/R-B per adopted policy): PR #29 (wumenguan re-key)
-verified independently — 62 fields verbatim-correct, harness numbers
-reproduced exactly; REVISE dispatched for case-5 glyph + 3 glyph pinyin
-readings.
+Wave 1 remediation: wumenguan done pending merge of PR #29 (review verdict
+MERGE, 2026-09-10). Next: biyanlu_cases (Wave 1, doc 2).
 
 ## Task Queue
 - [x] PR #23 review — verdict DO-NOT-MERGE (see Interrupted Work)
-- [~] Wave 1: wumenguan re-key — PR #29 open, review verdict REVISE
-      (prompt 002 dispatched; supersedes #29 on merge)
+- [~] Wave 1: wumenguan re-key — PR #29 verdict MERGE (awaiting owner merge);
+      close PR #23 after
 - [ ] Wave 1: biyanlu_cases (42 flagged), linji_yulu (10 + titles), xinxin_ming
       (12), platform_sutra (recension decision first) — one doc per PR
 - [ ] W2 verified-quotation spot-check (177 slots; Senzaki & Reps 1934 first)
@@ -65,24 +63,29 @@ readings.
   itself, never paste windows. Consider an evidence-quality follow-up.
 - **`collate_refs.py` drops `<g>` element CONTENT** (not just markup), so the
   reference layer carries gaps where the witness has rare glyphs (T48n2005
-  has 8 `<g>`-with-content spots, incl. 口啣樹枝 in case 5). Consequence:
-  a verbatim-witness corpus field is flagged MINOR against the artifact ref.
-  Post-remediation improvement: keep `<g>` text content in extraction (breaks
-  all committed ref digests → belongs to the full evidence-refresh pass,
-  never a per-doc PR).
-- Rare witness glyphs need citable pinyin readings: 何故𦗚 = the 聻-variant
-  (interrogative nǐ in standard editions; some print 聾 — editions differ);
-  扇子𨁝跳 = jump-verb variant (standard editions print 踍/𨁝). PR #29
-  assigned uncited readings (lóng, bó) — being fixed by prompt 002.
+  has 8 `<g>`-with-content spots). Consequence (now live in PR #29): a
+  verbatim-witness corpus field (case 5, 口啣樹枝) is flagged MINOR 0.9804
+  against the artifact ref. Post-remediation improvement: keep `<g>` text
+  content in extraction (breaks all committed ref digests → belongs to the
+  full evidence-refresh pass, never a per-doc PR).
+- Rare witness glyph reading sources, now recorded in PR #29: 何故𦗚 =
+  聻-variant, interrogative nǐ (廣韻 乃里切; 正字通 cites 「何故聻」; editions
+  vary 聻/聾); 扇子𨁝跳 = ⿰𧾷孛 variant of 勃, bó (standard editions print
+  勃跳). Reuse these sources for future documents; do not re-derive.
 - Pinyin regeneration is unautomated and error-prone (PR #23 failure mode).
   Every remediation prompt must require hand-aligned pinyin + before/after
   listing in the PR description.
-- `.orchestrator/STATE.md` on main says "merge-ready (PR open, not merged)"
-  for the W1 evidence hardening — stale now that PRs #25–#28 merged. The
-  prompt-002 PR fixes it.
+- `.orchestrator/STATE.md` on main: fixed by PR #29 (evidence-hardening
+  marked merged PRs #25–#28; wumenguan queue entry updated).
 - Review notes: PR #29 review used a detached worktree, which breaks
   `smoke_test.mjs`/`test_source_preservation.py` (they copytree `.git`,
   which is a file in worktrees) — always review-gate in a real clone.
+- PR #29 revision landed on the PR's own branch rather than a new PR: the
+  platform provisioned the revision session on `arena/01a08caa-translatechan`
+  (the PR head). Future revision prompts should instruct: append commits to
+  the existing PR branch if the platform provisions it, else a new PR — and
+  never rewrite published history (verified: the revision was linear
+  commits on the reviewed head; no rewrite occurred).
 
 ## Architectural Invariants
 - Never generate source-looking Classical Chinese; re-key ONLY mechanically
