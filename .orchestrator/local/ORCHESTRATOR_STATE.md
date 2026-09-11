@@ -163,6 +163,15 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
   published history. Consequence for the protocol: always re-verify with a fetch-to-`_orch` +
   `git ls-tree` immediately before dispatching, and treat a *missing local commit* as a restore
   artifact, not as evidence that the publish failed.
+- **…and the restore can also leave the branch on a stale base.** The re-cloned `arena/*` HEAD was
+  pre-#30, so the branch tree lacked the merged remediation (`grep 早知是火` on
+  `data/corpus/biyanlu_cases.json` returning 0 was the tell). Aligning it hit the shallow-graft
+  failure the protocol predicts: `git merge origin/main` answered "refusing to merge unrelated
+  histories" even though a merge-base exists on the real remote. Fix: deepen **both** sides
+  (`git fetch --depth 200 origin +main:refs/remotes/origin/main`, same for the orchestrator ref);
+  then `git merge-base` resolves, the merge is ordinary and additive, and the push is a plain
+  fast-forward — no force-push, no rewrite. A single-parent "sync commit" would have been worse:
+  its tree-vs-`main` delta would present #30's merged work as this branch's own.
 
 ## Known Gaps
 
