@@ -7,13 +7,13 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 109848,
+    "all_corpus_cjk_characters": 110078,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
       "partial_selected_witness": 4
     },
-    "content_cjk_characters": 104351,
+    "content_cjk_characters": 104564,
     "content_shapes": {
       "cases": 2,
       "chapters": 1,
@@ -570,12 +570,12 @@
         }
       },
       "linji_yulu": {
-        "all_cjk_chars": 14978,
+        "all_cjk_chars": 15208,
         "cbeta_id": "T1985",
         "completion_status": "partial_selected_witness",
-        "content_zh_chars": 13993,
-        "coverage_note": "74 / 74 canonical sections complete across all 4 divisions (序, 上堂, 示眾, 勘辨, 行錄)",
-        "declared_zh_chars": 13993,
+        "content_zh_chars": 14206,
+        "coverage_note": "74/74 recorded sections represented; W1 source-review status: partial_or_failed_w1_collation (84/89 evaluated source-content fields collate to the claimed T47n1985 witness after the 2026-09-11 R-A re-key). Residual 5 flagged content fields, documented and intentionally not re-keyed: 2 MINOR dialogue fields (.sections[43].dialogue[0].zh and .sections[58].dialogue[0].zh, edition-graphic residue — the witness graphemes 㽄 and 㴸 sit in CBETA <g> apparatus the reference-extraction rule drops, so the fields flag MINOR against the otherwise-verbatim text; left untouched by the adopted policy, REMEDIATION_PLAN §1: EXACT/MINOR fields are left untouched) and 3 retained NOT_FOUND 行錄 fields (.sections[71].dialogue[0].zh, .sections[72].dialogue[0].zh, .sections[73].dialogue[0].zh), kept as explicitly project-authored retellings with no witness attribution and labelled in structured metadata. The 行錄 division (sections 67–73) was adjudicated per field under the owner decision of 2026-09-11: passages demonstrably present in T47n1985 were re-keyed verbatim to the witness (sections 67–70), and passages the witness does not carry were kept as labelled retellings (sections 71–73). Separately documented and out of scope: 74 title_zh metadata flags — composite-title splitting is a separate plan item, and title metadata is measured separately from source content, so it never blocks collated_to_claimed_witness. Representation does not establish complete selected-witness status.",
+        "declared_zh_chars": 14206,
         "is_complete": false,
         "shapes": [
           "sections"
