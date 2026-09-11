@@ -107,8 +107,22 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   zero extra PRs). Prompts from 006 on must require: "no `#NN`/`PR #N` placeholder in any committed
   tracker line; read back your own PR number after opening, then amend in a final `docs:` commit."
 - [ ] **Pick 006 (needs an operator/owner choice, so not authored yet).** Options measured this turn:
-  (i) **Wave 1 doc 5 `platform_sutra`** — still blocked on the recension ruling (T2008 宗寶 vs
-  Dunhuang T2007); the only Wave 1 item left, and unstartable without the owner.
+  (i) **Wave 1 doc 5 `platform_sutra`** — blocked on the owner's ruling, and **re-scoped by
+  measurement (2026-09-11)**: the assumption "text is mixed between the two recensions" is **wrong**.
+  Of the doc's 10 CJK-bearing content fields, **9 match neither witness verbatim** (0/620 graphs in
+  T48n2007; 53/620 = 8% in T48n2008, that one field being ch[3].dialogue[0]); only `ch[3].dialogue[0]`
+  is verbatim in T48n2008. The two witnesses barely overlap each other (16 of 1,627 sampled 16-graph
+  T2008 spans occur in T2007; T2008 is 26,043 graphs vs T2007's 12,124 = 2.15×), so this is **not** a
+  xinxin-style variant call — the "recension" choice selects a different book. The doc's 10-chapter
+  skeleton (行由/般若/疑問/定慧/坐禪/懺悔/機緣/頓漸/護法/付囑) matches T2008's division; T48n2007 lacks
+  the 行由/疑問/定慧/機緣 headings as section names. So the owner's real choice is: **(A)** treat it as
+  a 宗寶-recension document and replace the 9 fields with T48n2008 text (large rewrite; `coverage_note`
+  currently implies the 680 CJK are "selected excerpts" of T2007 and must be corrected either way);
+  **(B)** keep the condensed reader text but strip/replace the T2007 witness claim and label it
+  project-authored (the R-B shape) — **a doc-level R-B decision, which the linji-specific per-field
+  ruling does NOT extend to**; **(C)** remove it from the public 5-room scope. My recommendation:
+  **(B)** — least fabrication risk, no invented Classical Chinese, keeps the reader experience, and it
+  is the only option I can encode without the agent having to write scripture. Awaiting owner choice.
   (ii) **Post-remediation evidence pass** for the 4 completed docs — new dated register overlay +
   validator merge; the only route to `collated_to_claimed_witness` for wumenguan / biyanlu_cases /
   linji_yulu / xinxin_ming. No owner decision needed; touches `validate_data.py` + `w1_evidence.py`
