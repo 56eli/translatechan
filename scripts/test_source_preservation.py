@@ -33,8 +33,18 @@ Rules
     three additive `editorial_note` R-B provenance labels (kept project-authored
     retellings, no witness attribution — their `zh`/`pinyin`/translations stay
     untouched), and the recomputed `zh_chars` total.
-  - `data/corpus/xinxin_ming.json`: the root `.coverage_note`, the completeness
-    claim the W1 containment work re-worded into an honest W1 status disclosure.
+  - `data/corpus/xinxin_ming.json`: the same root `.coverage_note`, plus exactly
+    the pointers the owner-adopted R-A/R-B remediation (Wave 1, document 4 —
+    re-keying xinxin_ming's W1-flagged content fields to the CBETA T48n2010
+    witness per the 2026-09-10 W1 correction register) touched: 12 re-keyed
+    source stanzas and the sibling pinyin rewritten to match (two stanzas whose
+    substitution is graphic-only keep byte-identical pinyin and are therefore
+    not listed), and the additive `.stanzas[31].editorial_note` R-B provenance
+    label on the one kept retelling (project-authored text, no witness
+    attribution — its `zh`/`pinyin`/translations stay untouched). No other field
+    — in particular no unlisted source-Chinese field and no English/translation
+    field — may differ from the base. This document declares no `zh_chars`, so
+    no `zh_chars` pointer is allowlisted for it.
   - `data/corpus/wumenguan.json`: the same root `.coverage_note`, plus exactly
     the pointers the owner-adopted R-A/R-B remediation (PR re-keying wumenguan
     to the CBETA T2005 witness per the 2026-09-10 W1 correction register)
@@ -285,7 +295,42 @@ ALLOWED_CHANGES = {
         ".preface.zh",
         ".zh_chars",
     }),
-    "data/corpus/xinxin_ming.json": frozenset({".coverage_note"}),
+    "data/corpus/xinxin_ming.json": frozenset({
+        # 2026-09-11 R-A re-key of the 12 DIVERGENT W1-flagged content stanzas to the T48n2010
+        # witness (Wave 1, document 4): each re-keyed source field and the sibling pinyin
+        # rewritten to match — two pinyin fields (.stanzas[14] and .stanzas[32]) are absent
+        # because those substitutions are graphic-only and the reading is unchanged, so those
+        # fields are byte-identical and are not allowlisted. Plus the additive
+        # `.stanzas[31].editorial_note` R-B provenance label on the one NOT_FOUND stanza kept by
+        # the owner ruling (project-authored retelling, no witness attribution; its zh/pinyin/
+        # translations stay byte-identical), and the honest post-remediation `.coverage_note`.
+        # There is no `.zh_chars` pointer because this document declares none. The single
+        # `.title_zh` metadata flag (composite-title plan item) is deliberately absent.
+        ".coverage_note",
+        ".stanzas[10].pinyin",
+        ".stanzas[10].zh",
+        ".stanzas[14].zh",
+        ".stanzas[16].pinyin",
+        ".stanzas[16].zh",
+        ".stanzas[17].pinyin",
+        ".stanzas[17].zh",
+        ".stanzas[18].pinyin",
+        ".stanzas[18].zh",
+        ".stanzas[21].pinyin",
+        ".stanzas[21].zh",
+        ".stanzas[22].pinyin",
+        ".stanzas[22].zh",
+        ".stanzas[23].pinyin",
+        ".stanzas[23].zh",
+        ".stanzas[27].pinyin",
+        ".stanzas[27].zh",
+        ".stanzas[28].pinyin",
+        ".stanzas[28].zh",
+        ".stanzas[31].editorial_note",
+        ".stanzas[32].zh",
+        ".stanzas[34].pinyin",
+        ".stanzas[34].zh",
+    }),
 }
 
 
