@@ -106,6 +106,30 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   which is now known. Needs a 4-line docs PR (or fold into 006's deliverable set if the operator wants
   zero extra PRs). Prompts from 006 on must require: "no `#NN`/`PR #N` placeholder in any committed
   tracker line; read back your own PR number after opening, then amend in a final `docs:` commit."
+- [x] **platform_sutra pre-audit (owner ruling received: Dunhuang primary).** Verified with my own
+  digest-checked extraction (`ref_T48n2007.txt` = `4f6ac8de…`, `ref_T48n2008.txt` = `71a340cb…`, both ==
+  manifest). (1) The 3 gāthās in `chapters[0].verses[]` are **correctly cited, not mixed**: Shenxiu's
+  verse and the familiar 本來無一物 form are verbatim in **T48n2008** (so 本來無一物 is *not* a modern
+  coinage), and the 佛性常清淨 variant is verbatim in **T48n2007**; the file already carries a
+  `recension_note` doing exactly the labeling the owner asked for → **adopt `recension_note` as the
+  label field instead of inventing `witness_alternatives`** (plan §4 amended). (2) All 10
+  `chapters[*].title_zh` cores (行由品第一 … 付囑品第十) are attested in **neither** witness; 宗寶's TOC
+  uses 行由第一 without 品, the Dunhuang text has no 品 headings at all. (3) **`護法品第九` is not a
+  chapter name in either witness** — T48n2008 has `宣詔第九`; 護法 occurs 0× in both. Contained: 1
+  occurrence, data only (README/AUDIT/HANDOFF/STATE clean), and chapter names are collation-excluded so
+  the register structurally cannot catch it. (4) Root `title_zh` 六祖大師法寶壇經 is verbatim in T48n2008
+  only; the Dunhuang witness opens with the long 南宗頓教…一卷 title. Open scope decision before 009:
+  Dunhuang-primary = re-divide to the Dunhuang structure, or keep the 宗寶 chapter frame as a *labelled*
+  convenience. Current content state is far better than "9/10 fields match neither" implied: the verses
+  are sound and labelled, and 1 of the 10 narrative fields is verbatim in the 宗寶 witness.
+- [x] **RETRACTION — my own near-miss, recorded so it is not repeated.** I reported a "collation blind
+  spot": that `chapters[*].verses[*].zh` was never collated because `verses` is absent from
+  `CONTENT_COLLECTIONS`. **False.** That constant lives in `validate_data.py` and drives unit counting
+  and status rendering only; the collator enumerates through its own fully recursive `iter_fields()`
+  (`scripts/collate_corpus.py:194`) gated by `SRC_KEYS`, and it does reach the verses — the register's
+  13 content fields = 9 flagged + 4 collated, verses included. The lesson is precisely the owner's
+  mandate: inferring system behaviour from one tool's neighbouring constant is how false findings get
+  made. Verify by running the code, not by interpreting it.
 - [x] **Integrity campaign opened.** `.orchestrator/local/INTEGRITY_PLAN_2026-09-11.md` published
   (P0 taxonomy, verification protocol, oldest-near-complete witness policy, labeling vocabulary,
   5 phases, first ten steps). Phase 1 = full-corpus independent inventory (prompts 006–008, read-only
