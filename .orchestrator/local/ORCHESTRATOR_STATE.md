@@ -106,6 +106,28 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   which is now known. Needs a 4-line docs PR (or fold into 006's deliverable set if the operator wants
   zero extra PRs). Prompts from 006 on must require: "no `#NN`/`PR #N` placeholder in any committed
   tracker line; read back your own PR number after opening, then amend in a final `docs:` commit."
+- [x] **#35 MERGED as `3c838db`** (merge, parents `ef13b26` + `fd250e3`; `fd250e3` confirmed an ancestor of
+  main, so nothing was re-committed under me). **Post-merge verification on main:** `recension_note` ×14
+  present in `data/corpus/platform_sutra.json`; `WITNESS_INVENTORY.md` present; **0** residual `#NN` in
+  any tracked doc; pinned all-string CJK reads `110,165` in README/AUDIT/HANDOFF. Wave 1 of the integrity
+  campaign is now **complete as a wave**: 4 documents re-keyed to their witnesses (#29 #30 #32 #34) and 1
+  honestly labelled (#35), with `platform_sutra`'s checkbox deliberately left open because its *text
+  decision* is deferred to the inventory — the file records it as labelled-not-sourced, which is the true
+  state. **My doc-count sync rule paid for itself on first use**: main landed with all nine gates green,
+  so 007a/007b can be dispatched against `3c838db` without inheriting a red base.
+- [x] **006 DELIVERED — do not re-dispatch.** Its two deliverables (the 498-line family-1 inventory and
+  the four `#NN`→`#34` fixes) rode into #35 rather than opening their own PR. Consequence accepted: #35
+  became a two-package PR, which is against my own one-document-per-PR habit, but the inventory is
+  read-only so the risk was zero and the `#NN` debt is now cleared permanently. **007a/007b must read the
+  merged `WITNESS_INVENTORY.md` and match its block format** — their prompts already say so, and the file
+  now exists on main rather than being a sibling-branch promise, so that instruction is satisfiable.
+- [ ] **Live P0 findings from 006 awaiting a fix package** (008 sequences them; none is a re-key, so they
+  are label/citation work): `zhaozhou_yulu`'s `coverage_note` claims "15 signature encounter dialogues
+  excerpted from T1987" while measurement is 0/19 verbatim **and** T47n1987A/B is the 曹山 record (趙州 1
+  vs 曹山 25/28 occurrences) — a false public citation, the worst in the family; `dahui_hongzhi` presents
+  the 默照銘 with a tail found in no witness and omits its actual witness T48n2001; `guiyang_yulu` and
+  `yuanwu_letters` are 100% unattested **and** 100% undisclosed (no notes at all). All reproduced by me
+  independently, not taken on trust.
 - [x] **Phase 1 completed in structure: 006 + 007a + 007b** (three disjoint inventory PRs, 9 + 14 + 12
   documents = 35/35). 007a/007b are **pure additions** — each creates exactly one new
   `.orchestrator/WITNESS_INVENTORY_*.md`, touches no tracker and no data — so all three can run in
