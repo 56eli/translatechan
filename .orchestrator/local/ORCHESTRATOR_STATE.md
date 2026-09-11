@@ -35,7 +35,7 @@ source changes. Divergence from `main` is expected and is not a defect.
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
 | 001 | — | Phase 2 alignment + Phase 4 review of PR #30 (no coder dispatched) | (prev-gen 001's coder) `arena/01a08da1-translatechan` | #30 | **Merged 2026-09-11 10:30 CEST** as `3dd86df`; verdict MERGE, independently re-verified before merge |
-| 002 | `.orchestrator/prompts/002-scoreboard-removal.md` | Retire the scoreboard: delete `.scoreboard/` + `SCOREBOARD.md`, rewrite `AGENTS.md` / PR template / `HANDOFF.md` / `AUDIT.md` references, relocate the manual-workflow-edit record | next coder session | — | Published + remote-verified @ `1a66ec8`; **base condition now satisfied** — dispatch 002's stub |
+| 002 | `.orchestrator/prompts/002-scoreboard-removal.md` | Retire the scoreboard: delete `.scoreboard/` + `SCOREBOARD.md`, rewrite `AGENTS.md` / PR template / `HANDOFF.md` / `AUDIT.md` references, relocate the manual-workflow-edit record | `arena/01a08f97-translatechan` | #31 | **Verdict MERGE** (2026-09-11, all 3 stages pass, gates re-run locally on `db9f3c2`); awaiting operator merge |
 
 Numbering note: `.orchestrator/prompts/` is per-orchestrator-branch. This branch starts at
 002 because 001 is reserved above for the review task. The predecessor generation's prompts
@@ -57,17 +57,21 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   2026-09-11 10:30 CEST); post-merge `main` Quality run `34579532339` **success**
   (42 s), Pages `34579531886` **success**, Pages status `built` / HTTPS enforced. Verified
   content on `main`: `早知是火` present, `content CJK=104,351`, `all-string CJK=109,848`.
-- [ ] **Prompt 002 — scoreboard removal** — dispatch-ready (its required base, the #30 merge,
-  is now on `main`). Dispatch stub was handed to the operator 2026-09-11.
+- [x] **Prompt 002 — scoreboard removal** — dispatched; coder `arena/01a08f97-translatechan`
+  opened **PR #31**; reviewed 2026-09-11 with verdict **MERGE** (see Review Log).
+- [ ] **Operator action: merge PR #31.** Not agent work, not orchestrator work. On merge: refresh
+  `main`, mark 002 Merged here, then author 003 and 004.
 - [ ] **Prompt 003 (to author) — Wave 1 doc 3 `linji_yulu`**: 10 content flags (generate the
   class-grouped pointer list *programmatically from the register JSON* — see Prompt-authoring
   lessons), plus the fate of sections 67–73 (行錄 retellings: re-key / relabel / drop — needs an
   owner decision on the option set, ask before dispatch), plus 73 `title_zh` flags left to the
   composite-title plan item.
-- [ ] **Prompt 004 (to author) — tracker-drift + repo metadata PR**: fix `main`'s `STATE.md`
-  "Next planned task"/"Next (in order)" lines to post-scoreboard reality; set GitHub repo
-  `description`, `homepage`, `topics` (verified empty 2026-09-11) — the repo-metadata half may
-  need owner action via `gh` rather than an agent PR.
+- [ ] **Prompt 004 (to author, after #31 merges) — tracker-drift + repo metadata PR**: rewrite
+  `main`'s `STATE.md` "Next planned task" and "Next (after the visual-system reset, in order)"
+  block (currently still lists the scoreboard removal as step 3, which PR #31 completes) to
+  post-scoreboard reality; fix `HANDOFF.md` §9 repo-map comment alignment at `OPERATIONS.md`
+  (1 char, flagged in the #31 review); set GitHub repo `description`, `homepage`, `topics`
+  (verified empty 2026-09-11) — that half is likely owner work via `gh`, not an agent PR.
 - [ ] Wave 1 docs 4–5 — `xinxin_ming` (per-field recension decision), `platform_sutra`
   (**owner must pick the recension first**: T2008 宗寶 vs Dunhuang T2007).
 - [ ] Composite-title plan item (86 `biyanlu title_zh` + 73 Linji titles) — touches `app.js` +
@@ -104,6 +108,12 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   until prompt 002 relocates that file.
 - No real-browser/accessibility evidence obtainable in these sandboxes (Playwright Chromium
   download `ECONNRESET`, re-observed by PR #30). Never describe the design as screenshot-verified.
+- `app.css:2186` comment `/* Error Boundary UI (Scoreboard P2 resiliency fix) */` is now a
+  reference to a deleted system. **Do not hand-fix it**: the file is mirrored byte-identically to
+  `docs/app.css`, so any edit must go through `python3 scripts/build_data_bundle.py` in a PR that
+  touches CSS — fold into the visual-system reset (or PR-B), never into a docs PR.
+- `data/corpus/*` English follow-up debt recorded by PR #30 (13 `ai_literal`/`*_en` fields now
+  diverge from the re-keyed `zh`); keep it out of any re-key PR.
 
 ## Architectural Invariants
 
@@ -133,6 +143,7 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
 
 | Date | Prompt seq | PR | Verdict | Notes |
 |---|---|---|---|---|
+| 2026-09-11 | 002 | #31 | **MERGE** | Docs/contract PR retiring the scoreboard. 12 changed files == prompt 002's deliverable list exactly, nothing else (no `data/`, `docs/`, `scripts/`, `sessions/`, workflow, `README.md` — all verified by path). Net +76/−1084. `OPERATIONS.md` registered as rename of `.scoreboard/manual-workflow-edits.md` (R069) with Edits 1–3 preserved verbatim; the only altered content lines are the two the prompt authorized (validation block → pointer to `quality.yml`; the `repo_ready`/P1 sentence). `git ls-files \| grep -i scoreboard` empty; reference scan clean — every surviving "scoreboard" string is in a deliberately-retiring sentence, an authorized queue/tick line, or a historical file left untouched. All 35 markdown links in touched live docs resolve to existing paths (incl. both `HANDOFF.md#5-release-blockers` anchors; heading is `## 5. Release blockers`). Gates re-run by me on the PR head: compile, `validate_data.py` (no `--skip-docs`), build (no-op; artifact gate clean **even with the 4 mirrored paths CI omits**), smoke, mirror diff, preservation (0 unauthorized), 96 W1 rule checks, both `git diff --check`. CI `34579974025` pass on the final commit; orchestrator branch untouched (`0fc5ae1` unchanged); secret scan 0 hits across all 7 commits, not just the net diff. 6 `chore: wip` checkpoints map 1:1 to sub-tasks 1–6 then one `docs:` final — cadence as designed. Minor, non-blocking: `HANDOFF.md:174` repo-map comment column is 1 char off the block's alignment; `app.css:2186` keeps a stale "(Scoreboard P2 resiliency fix)" comment (mirrored to `docs/` — must NOT be hand-edited). `STATE.md:32` left as-is with a written scope argument (names a PR, not a deleted path) — accepted; the stale sequencing block is prompt 004's job. |
 | 2026-09-11 | prev-gen 001 | #30 | **MERGE** (independently re-verified by this session) | Net diff 13 files, all inside the prompt's deliverable list. Allowlist set == changed-pointer set (39 = 20 `zh`/`pointer_zh` + 17 pinyin + 2 `editorial_note` + `.coverage_note` + `.zh_chars`), 0 `title_zh`, 0 English. Independently re-extracted CBETA refs from `dbdea41…`; 39/39 verified, 0 drift; `ref_T48n2003.txt` sha256 `47678e84…` matches the published manifest. Harness re-run: content 353/395 → 373/395 EXACT; flagged 128 → 108; 0 DIVERGENT / 0 NOT_FOUND / 0 SHORT_UNMATCHED content residual; 22 MINOR + 86 titles untouched. 13 sampled re-keyed fields verified verbatim-contained in the witness CJK stream; two superseded main-side pointers confirmed absent from the witness. Gates re-run on `b767667` (py_compile, validate incl. committed metrics + doc truthfulness, build + clean artifact check, smoke incl. preservation + W1-rule suites, `diff -rq data docs/data`, `git diff --check`). No secrets in the net diff or the WIP commit (only `TRANSLATECHAN` identifier collisions); orchestrator branch `arena/01a08d90-translatechan` untouched by the coder (`db19997` → `b80ac28` are its own commits). Case-42 gap and case-82 gaiji are disclosed, not hidden. Status correctly left at `partial_or_failed_w1_collation`. |
 
 ## Prompt-Authoring Lessons (inherited + this session)
