@@ -106,6 +106,19 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   which is now known. Needs a 4-line docs PR (or fold into 006's deliverable set if the operator wants
   zero extra PRs). Prompts from 006 on must require: "no `#NN`/`PR #N` placeholder in any committed
   tracker line; read back your own PR number after opening, then amend in a final `docs:` commit."
+- [x] **Integrity campaign opened.** `.orchestrator/local/INTEGRITY_PLAN_2026-09-11.md` published
+  (P0 taxonomy, verification protocol, oldest-near-complete witness policy, labeling vocabulary,
+  5 phases, first ten steps). Phase 1 = full-corpus independent inventory (prompts 006–008, read-only
+  on data), which supersedes my earlier option list: 006 is now the T47-family inventory, not
+  `platform_sutra` and not the evidence pass. Findings already measured with my own extraction
+  (39/39 refs verified, 0 drift): register arithmetic holds for 35/35 docs (4 apparent gaps are my
+  post-remediation runs vs the append-only 2026-09-10 register — expected); 0 Latin contamination in
+  `zh` fields across all 35 files; `cbeta_id` vs collation witness agrees for 35/35; exactly 1 live
+  `coverage_note` carries completeness language (`platform_sutra`, and it is the misleading one);
+  `xinxin_ming` best-matching witness is `T48n2010` at 33/37 stanzas + 142/146 clauses vs `T48n2012A`
+  and `T48n2012B` at 0/37, so #34's certified witness survives the new oldest-rule untouched;
+  876 `reconstruction_unverified` labels across all 35 files (honest in data, invisible in Reader);
+  162 distinct `speaker` strings across 30 files still un-audited — Phase 3.
 - [ ] **Pick 006 (needs an operator/owner choice, so not authored yet).** Options measured this turn:
   (i) **Wave 1 doc 5 `platform_sutra`** — blocked on the owner's ruling, and **re-scoped by
   measurement (2026-09-11)**: the assumption "text is mixed between the two recensions" is **wrong**.
@@ -185,6 +198,22 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   diverge from the re-keyed `zh`); keep it out of any re-key PR.
 
 ## Owner Rulings (this session)
+
+- **2026-09-11, verification mandate (binding, program-level):** independently verify every claim the
+  project asserts; **past agent work is not trusted evidence** — re-measure it. False citations, false
+  teacher attribution, and misspellings are **P0**. Plan: `.orchestrator/local/INTEGRITY_PLAN_2026-09-11.md`.
+- **2026-09-11, witness preference (binding, all texts):** prefer the **oldest near-complete** copy over
+  what became popular later — not only for `platform_sutra`. Later/expanded editions become **named
+  alternatives in notes**, never silently merged, never deleted. "Everything can be cleanly labeled as
+  such, with notes referring to the alternative texts." This resolves the `platform_sutra` open question
+  toward the Dunhuang-era witness as primary, with the 宗寶 recension cited as the alternative — subject
+  to §3's near-complete definition being stated per document first.
+- **Derived standing rule — no over-correction gates.** A graph that looks simplified/modern but is
+  verbatim in the cited witness is CORRECT: measured today, `linji_yulu` `.sections[66].dialogue[0].zh`
+  has 机 where 機 looks "proper", and T47n1985 itself carries 机 twice (機 eleven times). Same for
+  麁/粗, 沈惛/昏沉, 疎/疏, 却/卻 from PR #34. So the `simplified` advisory list must never become a
+  classification input or a CI gate. Recorded because the intuitive "fix the misspellings" pass would
+  create false readings, which is itself a P0.
 
 - **2026-09-11, sequencing:** Phase 2 priorities approved as proposed, with one change — the
   scoreboard removal moved from last to slot 2. Done (PR #31, merged `e4b17f7`).
