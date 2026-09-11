@@ -124,6 +124,18 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   parse data structures by import, never by re-deriving their textual format. Recorded because it is the
   same failure mode I am auditing in others, and the near-miss was only caught by refusing to accept a
   surprising number.
+- [x] **Standing rule (from PR #35 review).** Before any task that can change CJK *prose* in corpus files
+  (notes, coverage text), the prompt must (1) require syncing the pinned all-string CJK figures in
+  `README.md:48` and `AUDIT.md:20` (the doc-truthfulness rule recomputes them from data and fails the
+  build otherwise; `HANDOFF.md` §4 also carries the same snapshot but is **not** pinned for these two
+  numbers, so it is a consistency choice, not a gate), (2) name the exact target numbers, and (3) keep
+  those doc edits in the same PR — a label/re-key PR that leaves `main` red on `validate_data.py` poisons
+  the base for the next task. Applied retroactively: 007a/007b/006 are read-only (no CJK change ⇒ no
+  sync needed); **008 and every future data-touching prompt must carry it.**
+- [!] **My own prompt 009 contained a wrong figure** ("620 of 680 content graphs accounted for"). The
+  coder's measured table superseded it. Consequence for me: numbers I put in a prompt are hypotheses;
+  §5-style "re-measure before writing" language is what caught it, so that clause is now mandatory in
+  every inventory/label prompt.
 - [x] **Scope decision taken on the owner's "Continue"** = **(a) label, don't re-divide** (my
   recommendation; recorded as *recommended-and-adopted*, not owner-authored — if the owner wants (b),
   009's data edits are additive so (b) stays available as a later package). **Prompts 006 and 009
@@ -325,6 +337,28 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
 | 2026-09-11 | 002 | #31 | **MERGE** | Docs/contract PR retiring the scoreboard. 12 changed files == prompt 002's deliverable list exactly, nothing else (no `data/`, `docs/`, `scripts/`, `sessions/`, workflow, `README.md` — all verified by path). Net +76/−1084. `OPERATIONS.md` registered as rename of `.scoreboard/manual-workflow-edits.md` (R069) with Edits 1–3 preserved verbatim; the only altered content lines are the two the prompt authorized (validation block → pointer to `quality.yml`; the `repo_ready`/P1 sentence). `git ls-files \| grep -i scoreboard` empty; reference scan clean — every surviving "scoreboard" string is in a deliberately-retiring sentence, an authorized queue/tick line, or a historical file left untouched. All 35 markdown links in touched live docs resolve to existing paths (incl. both `HANDOFF.md#5-release-blockers` anchors; heading is `## 5. Release blockers`). Gates re-run by me on the PR head: compile, `validate_data.py` (no `--skip-docs`), build (no-op; artifact gate clean **even with the 4 mirrored paths CI omits**), smoke, mirror diff, preservation (0 unauthorized), 96 W1 rule checks, both `git diff --check`. CI `34579974025` pass on the final commit; orchestrator branch untouched (`0fc5ae1` unchanged); secret scan 0 hits across all 7 commits, not just the net diff. 6 `chore: wip` checkpoints map 1:1 to sub-tasks 1–6 then one `docs:` final — cadence as designed. Minor, non-blocking: `HANDOFF.md:174` repo-map comment column is 1 char off the block's alignment; `app.css:2186` keeps a stale "(Scoreboard P2 resiliency fix)" comment (mirrored to `docs/` — must NOT be hand-edited). `STATE.md:32` left as-is with a written scope argument (names a PR, not a deleted path) — accepted; the stale sequencing block is prompt 004's job. |
 | 2026-09-11 | prev-gen 001 | #30 | **MERGE** (independently re-verified by this session) | Net diff 13 files, all inside the prompt's deliverable list. Allowlist set == changed-pointer set (39 = 20 `zh`/`pointer_zh` + 17 pinyin + 2 `editorial_note` + `.coverage_note` + `.zh_chars`), 0 `title_zh`, 0 English. Independently re-extracted CBETA refs from `dbdea41…`; 39/39 verified, 0 drift; `ref_T48n2003.txt` sha256 `47678e84…` matches the published manifest. Harness re-run: content 353/395 → 373/395 EXACT; flagged 128 → 108; 0 DIVERGENT / 0 NOT_FOUND / 0 SHORT_UNMATCHED content residual; 22 MINOR + 86 titles untouched. 13 sampled re-keyed fields verified verbatim-contained in the witness CJK stream; two superseded main-side pointers confirmed absent from the witness. Gates re-run on `b767667` (py_compile, validate incl. committed metrics + doc truthfulness, build + clean artifact check, smoke incl. preservation + W1-rule suites, `diff -rq data docs/data`, `git diff --check`). No secrets in the net diff or the WIP commit (only `TRANSLATECHAN` identifier collisions); orchestrator branch `arena/01a08d90-translatechan` untouched by the coder (`db19997` → `b80ac28` are its own commits). Case-42 gap and case-82 gaiji are disclosed, not hidden. Status correctly left at `partial_or_failed_w1_collation`. |
 
+- **PR #35** — `platform_sutra` recension labels (task 009), base `ef13b26`, head `cf4c9df`, 6 commits /
+  9 files. **Verdict: REVISE** (one mechanical, gate-required edit set; everything else is merge-ready).
+  Independently re-measured on a clean clone of the head: witnesses reproduce (`ref_T48n2007.txt`
+  12,124 graphs `4f6ac8de…`, `ref_T48n2008.txt` 26,043 `71a340cb…`, 2 verified / 0 drift); **0 non-note
+  changes** by full-tree walk (14 note leaf pointers, no new key types, `chapters[0].verses[2]` note left
+  byte-identical as instructed); every claim in every note is true (1 field in 2007 = 20 graphs, 3 in
+  2008 = 93, 9 in neither = 567, total 680 under the collator's own `norm()`; 護法 0 hits in both; all ten
+  `title_zh` cores in neither; root title only in 2008; Dunhuang opens 南宗頓教 ✓); content CJK identical
+  main↔head (107,527 by my walk, 104,564 by the project's rule — **unchanged**, so the zero-re-key claim
+  holds); manifest/locators/smoke/collators byte-identical; allowlist set-equal at 14 pointers *and*
+  correctly excludes the pre-existing note (over-broad pointers are uncatchable by the test —
+  `classify_changes()` only rejects unauthorized *actual* changes — so that judgement was the coder's, and
+  right). Gates: 3 red, one root cause — all-string CJK 110,081 → **110,165** (+84 from the note prose) is
+  *pinned into README.md:48 and AUDIT.md:20 prose* by `validate_data.py`'s doc-truthfulness rule, which
+  cascades into `smoke_test.mjs` and `test_source_review_rules.py`. Proved on clean main: 0 errors / 96 of
+  96; proved the fix: editing only those two numbers → **all 7 gates exit 0**, no rebuild needed, no
+  metrics churn. **The coder followed my prompt exactly and correctly refused to over-reach** — §7 forbade
+  `README.md`/`AUDIT.md`, §10 said report-don't-edit, and that is what it did, while also (a) re-measuring
+  under *both* normalizers, (b) correcting my own §5/§6 arithmetic (I wrote "620 of 680 accounted for"; the
+  true split is 20+93+567 = **680**), and (c) explicitly declining the tempting cheat of romanizing 宗寶 /
+  宣詔第九 to keep the metric flat. **My prompt defect, not theirs**: any PR adding or removing note prose
+  must sync the two pinned all-string CJK figures. Recorded for the standing rule below.
 ## Prompt-Authoring Lessons (inherited + this session)
 
 - **Standing step, not an incident note: verify my own base at the START of every turn.** The
