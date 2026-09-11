@@ -85,7 +85,7 @@ Chromium download failed with network `ECONNRESET`; apt installation also could 
 
 ## 6. Current score
 
-The weighted score is **7.2/10**. The prior 7.6 summary was inconsistent with its aspect table, which calculated to 6.9; the current [scoreboard](./SCOREBOARD.md) corrects the arithmetic and records only evidenced improvements. All `user_score` values remain `null` because the owner supplied qualitative direction, not a numeric score.
+The weighted score is **7.2/10**. The prior 7.6 summary was inconsistent with its aspect table, which calculated to 6.9; this audit corrects the arithmetic and records only evidenced improvements. All `user_score` values remain `null` because the owner supplied qualitative direction, not a numeric score. The scoreboard scoring system was retired on 2026-09-11; no live score file remains to consult.
 
 ## 7. Report index
 

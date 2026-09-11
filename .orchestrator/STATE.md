@@ -2,9 +2,10 @@
 
 > **Scope of this file:** the orchestrator's task queue and cross-session
 > decisions only. The repository's own systems remain authoritative for agent
-> contracts and scoring: [`AGENTS.md`](../AGENTS.md),
-> [`.scoreboard/`](../.scoreboard/), [`HANDOFF.md`](../HANDOFF.md),
-> [`AUDIT.md`](../AUDIT.md), and append-only [`sessions/`](../sessions/).
+> contracts and operations: [`AGENTS.md`](../AGENTS.md),
+> [`HANDOFF.md`](../HANDOFF.md), [`AUDIT.md`](../AUDIT.md),
+> [`OPERATIONS.md`](../OPERATIONS.md), and append-only
+> [`sessions/`](../sessions/).
 > Maintained as a repository coordination file; it is not tied to an unrelated branch.
 > Agents update it as a PR deliverable **only** when the task prompt says so;
 > the human operator may also edit it directly.
@@ -21,6 +22,8 @@
 
 **W1 remediation, Wave 1 document 2 (2026-09-10):** biyanlu_cases re-keyed to its claimed T2003 witness (PR #30): all 20 adjudicated content fields (12 DIVERGENT + 7 NOT_FOUND + 1 SHORT_UNMATCHED) re-keyed verbatim from the pinned, digest-verified CBETA T48n2003 text — every one re-classifies EXACT; two fields additionally carry additive `editorial_note` R-B labels (case 20's `verse_zh` had joined the 頌 to 雪竇's separate 復成一頌; case 96's `dialogue[0].zh` carried a project parenthetical inside the source field, now moved to structured metadata). 15 sibling pinyin fields rewritten syllable-by-syllable in the PR #29 style. The witness — not the work-order paraphrase — was the authority: cases 1, 3 and 81 each DO carry a 垂示 in T48n2003, so all three pointers were re-keyed rather than removed. Harness before → after: content flags 42 → 22 (DIVERGENT 12 → 0, NOT_FOUND 7 → 0, SHORT_UNMATCHED 1 → 0, MINOR 22 unchanged), total flagged 128 → 108, collating content fields 353/395 → 373/395. Documented residual: 22 MINOR fields (left untouched by policy) + 86 `title_zh` metadata flags (out of scope, separate plan item) + one disclosed, unfixed coverage gap (case 42's 垂示 exists in the witness and is not represented). `coverage_note` rewritten honestly, `zh_chars` 75658 → 75854, corpus CJK totals 104,155 → 104,351 content / 109,614 → 109,848 all-string (README/AUDIT/HANDOFF §4 regenerated), allowlist extended with exactly the 39 changed pointers. Document status remains `partial_or_failed_w1_collation` pending the separate post-remediation evidence pass.
 
+**Scoreboard retired (2026-09-11, PR #31):** `.scoreboard/` + `SCOREBOARD.md` deleted per the 2026-09-09 owner decision; the `.scoreboard/` history log and all `user_score` fields were deleted, not migrated (the owner decision superseded them); the owner-controlled workflow-edit record survives relocated to `OPERATIONS.md`, where the retired `blocked_manual_workflow_edit` status vocabulary is now a plain prose note.
+
 **Next planned task:** visual-system reset (separate from this containment/status-model work; do not begin it in this PR).
 
 **Next (after the visual-system reset, in order):**
@@ -34,7 +37,7 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 
 - **Vision:** vision.md in full is the target; the audit serves that ambition.
 - **Collation depth:** FULL — done (except 2 non-CBETA-witness docs: hanshan, niutou).
-- **Scoreboard: REMOVE** `.scoreboard/` + `SCOREBOARD.md` entirely; orchestrator oversight replaces it (queued PR after W1/W2; update AGENTS.md contract accordingly; user_score protocol dies with the file).
+- **Scoreboard: REMOVE** `.scoreboard/` + `SCOREBOARD.md` entirely; orchestrator oversight replaces it (queued PR after W1/W2; update AGENTS.md contract accordingly; user_score protocol dies with the file). (executed — PR #31)
 - **Sequencing:** W1 evidence is now integrated into the public status model; per-document remediation remains pending. The visual-system reset is the next planned task; W2 and PR-A/B/D remain separate, with PR-A/B/D frozen.
 
 ## Task Queue
@@ -46,7 +49,7 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 - [ ] **Visual-system reset** — next planned task after this containment/status-model work
 - [ ] **REMEDIATION hybrid policy**: per-doc work packages in `.orchestrator/REMEDIATION_PLAN.md`; delegate to coder agents, one document per PR. Wave 1 progress: wumenguan done (PR #29), **biyanlu_cases done (PR #30)**; **next: linji_yulu** (10 flagged content + the fate of sections 67–73), then xinxin_ming, platform_sutra
 - [ ] **W2 — Verified-quotation spot-check** (177 slots vs public-domain editions; Senzaki & Reps 1934 first) — sequencing at successor's discretion (before or parallel to remediation)
-- [ ] **Scoreboard removal PR** — delete `.scoreboard/` + `SCOREBOARD.md`; update AGENTS.md contract (owner decision 2026-09-09)
+- [x] **Scoreboard removal PR** — delete `.scoreboard/` + `SCOREBOARD.md`; update AGENTS.md contract (owner decision 2026-09-09; PR #31, 2026-09-11)
 - [ ] **PR-A — Real-browser verification pass** (frozen during audit; resume after remediation starts)
 - [ ] **PR-B — CSP hardening** (frozen) · **PR-D — Performance, measure-first** (frozen)
 - [ ] Later tranche — 30 lineage edges exact-locator groundwork
@@ -55,7 +58,7 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 ## Deferred / Technical Debt
 
 - **Congronglu reintroduction** — quarantined 2026-08-10 (generated source-looking placeholders). Blocked on source-pinned field-level collation from authoritative T48n2004 TEI. Do not restore.
-- **`.github/workflows/quality.yml` artifact-diff gaps** (4 mirrored assets missing) — documented in [`.scoreboard/manual-workflow-edits.md`](../.scoreboard/manual-workflow-edits.md). Owner approval withheld 2026-09-09; remain blocked.
+- **`.github/workflows/quality.yml` artifact-diff gaps** (4 mirrored assets missing) — documented in [`OPERATIONS.md`](../OPERATIONS.md) Edit 1. Owner approval withheld 2026-09-09; remain blocked.
 - **Rights review** — all 14 `rights_manifest.json` sources await human/jurisdiction review. Human decision; not agent work. Edition verification never implies rights approval.
 
 ## Architectural Invariants
@@ -65,7 +68,7 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 3. **Edition verification ≠ rights approval**; both are tracked separately everywhere.
 4. **Internal identifiers stay**: `translatechan_*` localStorage keys, `window.TranslateChan`, `TRANSLATECHAN_DATA`; public brand is "Fake Chan Factory". Humor-forward tone stays.
 5. **Public scope is exactly 5 rooms** (Reader, Matrix, Lineage, Gong'an, Lexicon), smoke-guarded; Translation Studio / Arena Agents / header GitHub link stay out.
-6. **No edits to `.github/workflows/*` without explicit owner approval**; `user_score` fields in the scoreboard are never inferred, invented, or changed.
+6. **No edits to `.github/workflows/*` without explicit owner approval**; `OPERATIONS.md` is the only record of owner-controlled CI/GitHub-side edits.
 7. **Pipeline order is fixed**: `data/` → `validate_data.py` → `project_metrics.json` → `build_data_bundle.py` → root assets + byte-identical `/docs` mirror. All five quality gates pass before every push.
 8. **Durable memory lives in repo files**, not chat; dated evidence in `sessions/` is immutable.
 
