@@ -193,7 +193,15 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
   published history. Consequence for the protocol: always re-verify with a fetch-to-`_orch` +
   `git ls-tree` immediately before dispatching, and treat a *missing local commit* as a restore
   artifact, not as evidence that the publish failed.
-- **…and the restore can also leave the branch on a stale base.** The re-cloned `arena/*` HEAD was
+- **A stale orchestrator base silently "reverts" merged work in any branch-vs-main diff.** After
+  #31 merged, `git diff main.._orch` listed `AGENTS.md`, `HANDOFF.md`, `.scoreboard/*` etc. as
+  changed, because my branch tree still carried the pre-#31 state. Nothing was actually
+  reintroduced (coders fetch a single file with `git show ref:path`, not the tree), but the diff was
+  actively misleading — and this happened twice in one session. Rule: after **every** operator
+  merge, sync this branch with `git fetch --depth N origin +main:…` + `git merge --no-edit` +
+  ordinary push, then re-run the verify gate and expect the branch-vs-main delta to be exactly
+  `.orchestrator/prompts/*` + `.orchestrator/local/ORCHESTRATOR_STATE.md`. Fix it before the
+  prompt's own "base" language can be read as advice to branch from here. The re-cloned `arena/*` HEAD was
   pre-#30, so the branch tree lacked the merged remediation (`grep 早知是火` on
   `data/corpus/biyanlu_cases.json` returning 0 was the tell). Aligning it hit the shallow-graft
   failure the protocol predicts: `git merge origin/main` answered "refusing to merge unrelated
