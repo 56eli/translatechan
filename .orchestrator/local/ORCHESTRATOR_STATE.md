@@ -73,15 +73,20 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
 - [x] **Prompt 003 dispatched** — coder `arena/01a08fd6-translatechan` opened **PR #32**; reviewed
   2026-09-11, verdict **MERGE** (see Review Log).
 - [ ] **Operator action: merge PR #32.** On merge: refresh `main`, mark 003 Merged, re-sync this
-  branch onto it, then author 004 (`xinxin_ming` needs no owner decision) and the tracker-drift PR.
-- [ ] **Prompt 004 (to author, after #31 merges) — tracker-drift + repo metadata PR**: rewrite
+  branch onto it, then author **004 = tracker-drift + repo metadata** (no owner input needed) and
+  **005 = Wave 1 doc 4 `xinxin_ming`** (also needs no owner decision; unlike `platform_sutra`).
+- [ ] **Prompt 004 (to author, after #32 merges) — tracker-drift + repo metadata PR**: rewrite
   `main`'s `STATE.md` "Next planned task" and "Next (after the visual-system reset, in order)"
   block (currently still lists the scoreboard removal as step 3, which PR #31 completes) to
   post-scoreboard reality; fix `HANDOFF.md` §9 repo-map comment alignment at `OPERATIONS.md`
   (1 char, flagged in the #31 review); set GitHub repo `description`, `homepage`, `topics`
   (verified empty 2026-09-11) — that half is likely owner work via `gh`, not an agent PR.
-- [ ] Wave 1 docs 4–5 — `xinxin_ming` (per-field recension decision), `platform_sutra`
-  (**owner must pick the recension first**: T2008 宗寶 vs Dunhuang T2007).
+- [ ] **Prompt 005 (to author) — Wave 1 doc 4 `xinxin_ming`**: 12 flags; "adopt T2010 recension OR
+  document the printed edition actually followed" is satisfiable mechanically — re-key where the
+  pinned T2010 witness carries the passage, R-B-label where it does not (same shape as doc 3), so
+  no owner decision blocks it. Extract its table from the register, don't transcribe.
+- [ ] Wave 1 doc 5 — `platform_sutra` (**owner must pick the recension first**: T2008 宗寶 vs
+  Dunhuang T2007 — currently mixed in one document; do not let an agent choose).
 - [ ] Composite-title plan item (86 `biyanlu title_zh` + 73 Linji titles) — touches `app.js` +
   smoke guards; separate PR by design.
 - [ ] Post-remediation evidence pass (new dated register overlay + validator merge; flips
