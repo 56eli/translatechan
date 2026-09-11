@@ -163,6 +163,34 @@ ALLOWED_CHANGES = {
         ".coverage_note",
         ".zh_chars",
     }),
+    "data/corpus/platform_sutra.json": frozenset({
+        # 2026-09-11 label-only recension package (task 009, Dunhuang-primary ruling): provenance
+        # labels under the owner's oldest-near-complete-copy ruling — CBETA T48n2007 (Dunhuang) is
+        # the primary witness, T48n2008 (宗寶) the named alternative. Every pointer here is a note:
+        # the root `.recension_note`, the corrected honest `.coverage_note`, and one
+        # `.recension_note` per source-content field. `.chapters[8].recension_note` carries both
+        # the précis label for `.chapters[8].zh` and the chapter-title disclosure (宗寶 titles that
+        # chapter 宣詔第九; 護法 occurs 0 times in both witnesses) — one pointer, not two.
+        # `.chapters[0].verses[2].recension_note` is deliberately ABSENT: that note predates this
+        # package, its text is left intact, and an allowlist pointer that is not an actual change
+        # fails this test. Not one character of Chinese was re-keyed, so there is no `.zh`,
+        # `.pinyin`, `.title_*` or `translations.*` pointer here — and this document declares no
+        # `zh_chars`, so there is no `.zh_chars` pointer either.
+        ".chapters[0].verses[0].recension_note",
+        ".chapters[0].verses[1].recension_note",
+        ".chapters[1].dialogue[0].recension_note",
+        ".chapters[1].dialogue[1].recension_note",
+        ".chapters[2].recension_note",
+        ".chapters[3].dialogue[0].recension_note",
+        ".chapters[4].dialogue[0].recension_note",
+        ".chapters[5].recension_note",
+        ".chapters[6].recension_note",
+        ".chapters[7].recension_note",
+        ".chapters[8].recension_note",
+        ".chapters[9].recension_note",
+        ".coverage_note",
+        ".recension_note",
+    }),
     "data/corpus/wumenguan.json": frozenset({
         # .coverage_note: W1 containment re-wording into an honest status disclosure (prior PR)
         ".coverage_note",
