@@ -35,7 +35,8 @@ source changes. Divergence from `main` is expected and is not a defect.
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
 | 001 | — | Phase 2 alignment + Phase 4 review of PR #30 (no coder dispatched) | (prev-gen 001's coder) `arena/01a08da1-translatechan` | #30 | **Merged 2026-09-11 10:30 CEST** as `3dd86df`; verdict MERGE, independently re-verified before merge |
-| 002 | `.orchestrator/prompts/002-scoreboard-removal.md` | Retire the scoreboard: delete `.scoreboard/` + `SCOREBOARD.md`, rewrite `AGENTS.md` / PR template / `HANDOFF.md` / `AUDIT.md` references, relocate the manual-workflow-edit record | `arena/01a08f97-translatechan` | #31 | **Verdict MERGE** (2026-09-11, all 3 stages pass, gates re-run locally on `db9f3c2`); awaiting operator merge |
+| 002 | `.orchestrator/prompts/002-scoreboard-removal.md` | Retire the scoreboard: delete `.scoreboard/` + `SCOREBOARD.md`, rewrite `AGENTS.md` / PR template / `HANDOFF.md` / `AUDIT.md` references, relocate the manual-workflow-edit record | `arena/01a08f97-translatechan` | #31 | **Merged 2026-09-11 11:04 CEST** as `e4b17f7`; verdict MERGE, all 3 stages passed, gates re-run locally on `db9f3c2` |
+| 003 | `.orchestrator/prompts/003-linji-yulu-rekey.md` | W1 remediation Wave 1 doc 3: adjudicate `linji_yulu`'s 10 content flags against T47n1985 (2 DIVERGENT + 6 NOT_FOUND adjudicated, 2 MINOR untouched), rewrite the false `coverage_note`, 行錄 sections 67–73 per the owner's per-field ruling | next coder session | — | Published 2026-09-11 — dispatch-ready; base `main` = `e4b17f7` |
 
 Numbering note: `.orchestrator/prompts/` is per-orchestrator-branch. This branch starts at
 002 because 001 is reserved above for the review task. The predecessor generation's prompts
@@ -57,15 +58,20 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   2026-09-11 10:30 CEST); post-merge `main` Quality run `34579532339` **success**
   (42 s), Pages `34579531886` **success**, Pages status `built` / HTTPS enforced. Verified
   content on `main`: `早知是火` present, `content CJK=104,351`, `all-string CJK=109,848`.
-- [x] **Prompt 002 — scoreboard removal** — dispatched; coder `arena/01a08f97-translatechan`
-  opened **PR #31**; reviewed 2026-09-11 with verdict **MERGE** (see Review Log).
-- [ ] **Operator action: merge PR #31.** Not agent work, not orchestrator work. On merge: refresh
-  `main`, mark 002 Merged here, then author 003 and 004.
-- [ ] **Prompt 003 (to author) — Wave 1 doc 3 `linji_yulu`**: 10 content flags (generate the
-  class-grouped pointer list *programmatically from the register JSON* — see Prompt-authoring
-  lessons), plus the fate of sections 67–73 (行錄 retellings: re-key / relabel / drop — needs an
-  owner decision on the option set, ask before dispatch), plus 73 `title_zh` flags left to the
-  composite-title plan item.
+- [x] **Prompt 002 — scoreboard removal** — PR #31 **merged 2026-09-11** as `e4b17f7`; post-merge
+  `main` Quality `34582372810` success, Pages `34582371827` success, Pages `built` + HTTPS.
+  Verified on merged `main`: 0 tracked paths matching `scoreboard`, `OPERATIONS.md` present.
+  The scoreboard system is gone from the contract — prompts authored from here must not send
+  agents to `.scoreboard/*` or `SCOREBOARD.md`.
+- [x] **Prompt 003 authored + published — Wave 1 doc 3 `linji_yulu`.** Owner ruling of
+  2026-09-11 recorded and encoded: **per-field** adjudication for the 行錄 division (re-key where
+  T47n1985 carries the passage, additive R-B `editorial_note` + witness-claim removal where it does
+  not; **no deletions, no blanket relabelling**), and the 74 `title_zh` flags stay out (separate
+  composite-title PR). Field table in the prompt was generated from the register JSON and then
+  re-verified row-by-row against it (10 rows, 0 mismatches) — the inherited hand-transcription
+  failure was not repeated.
+- [ ] **Operator action: dispatch prompt 003** to a fresh coder session using the stub handed over
+  2026-09-11. One agent at a time on this repo.
 - [ ] **Prompt 004 (to author, after #31 merges) — tracker-drift + repo metadata PR**: rewrite
   `main`'s `STATE.md` "Next planned task" and "Next (after the visual-system reset, in order)"
   block (currently still lists the scoreboard removal as step 3, which PR #31 completes) to
@@ -114,6 +120,19 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   touches CSS — fold into the visual-system reset (or PR-B), never into a docs PR.
 - `data/corpus/*` English follow-up debt recorded by PR #30 (13 `ai_literal`/`*_en` fields now
   diverge from the re-keyed `zh`); keep it out of any re-key PR.
+
+## Owner Rulings (this session)
+
+- **2026-09-11, sequencing:** Phase 2 priorities approved as proposed, with one change — the
+  scoreboard removal moved from last to slot 2. Done (PR #31, merged `e4b17f7`).
+- **2026-09-11, `linji_yulu` §67–73 (行錄 division):** per-field R-A where the witness has the
+  passage, R-B (keep + label + strip witness attribution) where it does not. Explicitly rejected:
+  blanket R-B over the whole division, and dropping the sections. Encoded in prompt 003 §4; treat
+  as binding for any future re-run of this task.
+- **2026-09-11, prompt 003 scope:** composite-title split stays a separate PR (it touches `app.js`
+  and the smoke guards, unlike a mechanical re-key).
+- **Still owed by the owner before doc 5:** the Platform Sutra recension decision (T2008 宗寶 vs
+  Dunhuang T2007) — do not let an agent pick it.
 
 ## Architectural Invariants
 
