@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110081,
+    "all_corpus_cjk_characters": 110165,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -692,12 +692,12 @@
         }
       },
       "platform_sutra": {
-        "all_cjk_chars": 905,
+        "all_cjk_chars": 989,
         "cbeta_id": "T2007 / T2008",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 680,
         "coverage": "10/10 chapters",
-        "coverage_note": "10/10 chapter headings represented by selected excerpts (680 content CJK); this is not the complete T2007 text.",
+        "coverage_note": "680 content CJK graphs across 13 source-content fields, measured against both witnesses: 1 field (20 graphs) is verbatim in the primary witness T48n2007 (Dunhuang), 3 fields (93 graphs) are verbatim in the alternative recension T48n2008 (宗寶), and 9 fields (567 graphs) are condensed project précis verbatim in neither — so 113 of the 680 content graphs are witness text and 567 are this project's own condensation; these are not selected excerpts of T2007. The 10 chapter headings are the 宗寶 division and do not match the Dunhuang structure. A précis condenses and paraphrases: it is not a text, and no field was re-keyed in this pass. Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "chapters"
