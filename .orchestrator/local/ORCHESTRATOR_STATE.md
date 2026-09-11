@@ -21,19 +21,21 @@ source changes. Divergence from `main` is expected and is not a defect.
   to `main` under the old layout. `main`'s `STATE.md` wins for merged history; this file wins
   for dispatch bookkeeping. Reconciliation of `main`'s stale "Next planned task" line is
   delegated to an agent PR, never done from this branch.
-- **Known defect in the canonical tracker:** `main`'s `STATE.md` "Active Milestone" still ends
-  with "next planned task: visual-system reset" and "Next … in order" listing the scoreboard
-  removal *last*. Owner direction of 2026-09-11 (this session) supersedes that:
-  **scoreboard removal moves up to slot 2**, immediately after the PR #30 review. To be
-  corrected by prompt 002 (which edits `STATE.md`'s queue line for its own task) and fully
-  rewritten by the later tracker-drift PR.
+- **Known defect in the canonical tracker, re-verified on the post-#30 `main`:** `STATE.md:24`
+  still ends "Next planned task: visual-system reset" and `:26-29` still sequence the scoreboard
+  removal *last*; `:49` still carries an unchecked "Scoreboard removal PR" queue line even though
+  prompt 002 is published; `:68` (Invariant 6) still binds agents to `user_score` handling.
+  Owner direction of 2026-09-11 (this session) supersedes that ordering: **scoreboard removal is
+  slot 2, dispatched immediately after the PR #30 review.** Prompt 002 repairs `:49` and `:68` as
+  its own deliverable; the `:24-29` narrative lines are prompt 004's job. Corrected only by agent
+  PRs — never from this branch.
 
 ## Published Task Prompts
 
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
-| 001 | — | Phase 2 alignment + Phase 4 review of PR #30 (no coder dispatched) | — | #30 | Review delivered; verdict MERGE (independently re-verified) |
-| 002 | `.orchestrator/prompts/002-scoreboard-removal.md` | Retire the scoreboard: delete `.scoreboard/` + `SCOREBOARD.md`, rewrite `AGENTS.md` / PR template / `HANDOFF.md` / `AUDIT.md` references, relocate the manual-workflow-edit record | next coder session | — | Published 2026-09-11 — **not yet dispatched**; dispatch after PR #30 is merged |
+| 001 | — | Phase 2 alignment + Phase 4 review of PR #30 (no coder dispatched) | (prev-gen 001's coder) `arena/01a08da1-translatechan` | #30 | **Merged 2026-09-11 10:30 CEST** as `3dd86df`; verdict MERGE, independently re-verified before merge |
+| 002 | `.orchestrator/prompts/002-scoreboard-removal.md` | Retire the scoreboard: delete `.scoreboard/` + `SCOREBOARD.md`, rewrite `AGENTS.md` / PR template / `HANDOFF.md` / `AUDIT.md` references, relocate the manual-workflow-edit record | next coder session | — | Published + remote-verified @ `1a66ec8`; **base condition now satisfied** — dispatch 002's stub |
 
 Numbering note: `.orchestrator/prompts/` is per-orchestrator-branch. This branch starts at
 002 because 001 is reserved above for the review task. The predecessor generation's prompts
@@ -51,9 +53,12 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
 - [x] **PR #30 review** (Wave 1 doc 2, `biyanlu_cases`) — verdict **MERGE**; recorded by the
   predecessor orchestrator at `arena/01a08d90-translatechan` @ `b80ac28` and independently
   re-verified by this session on freshly acquired, digest-verified CBETA refs.
-- [ ] **Operator action: merge PR #30.** Not agent work, not orchestrator work.
-- [ ] **Prompt 002 — scoreboard removal.** Dispatch after #30 merges (it edits `AGENTS.md`,
-  the contract every later coder reads first — it must land before more data PRs are authored).
+- [x] **Operator merged PR #30** — `main` is `3dd86df` ("Merge pull request #30 …",
+  2026-09-11 10:30 CEST); post-merge `main` Quality run `34579532339` **success**
+  (42 s), Pages `34579531886` **success**, Pages status `built` / HTTPS enforced. Verified
+  content on `main`: `早知是火` present, `content CJK=104,351`, `all-string CJK=109,848`.
+- [ ] **Prompt 002 — scoreboard removal** — dispatch-ready (its required base, the #30 merge,
+  is now on `main`). Dispatch stub was handed to the operator 2026-09-11.
 - [ ] **Prompt 003 (to author) — Wave 1 doc 3 `linji_yulu`**: 10 content flags (generate the
   class-grouped pointer list *programmatically from the register JSON* — see Prompt-authoring
   lessons), plus the fate of sections 67–73 (行錄 retellings: re-key / relabel / drop — needs an
@@ -148,6 +153,16 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
   mark collation tasks network-blocked.
 - Prompts must tell the coder the branch is platform-provisioned and pinned (`arena/*`) rather
   than inventing a `feature/*` name; the predecessor's shape worked and produced clean checkpoints.
+- **The workspace can be re-created under the session.** Between two of this session's turns the
+  sandbox was re-cloned: `git reflog` showed `clone: from …` at the then-current `main` followed by
+  `checkout: moving from main to arena/01a08e15-translatechan`, which moved local `HEAD` off my
+  published orchestrator commit while leaving the files on disk untracked. The remote branch was
+  untouched (`1a66ec8`), so nothing published was lost. Recovery: `git fetch` the branch to a named
+  ref, `diff` the working copies against `git show <ref>:<path>` to prove they match, then
+  `git reset --hard <ref>` — never push from the reset-back state, which would attempt to rewind
+  published history. Consequence for the protocol: always re-verify with a fetch-to-`_orch` +
+  `git ls-tree` immediately before dispatching, and treat a *missing local commit* as a restore
+  artifact, not as evidence that the publish failed.
 
 ## Known Gaps
 
