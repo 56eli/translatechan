@@ -2183,7 +2183,7 @@ textarea:focus-visible,
   transform: none;
 }
 
-/* Error Boundary UI (Scoreboard P2 resiliency fix) */
+/* Error boundary UI (reader resilience) */
 .error-boundary-card {
   max-width: 640px;
   margin: 3rem auto;

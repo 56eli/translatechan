@@ -162,7 +162,7 @@ locators); witness changes; safety statement.
 ## 5. Wave checklist
 
 - [x] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1) — see §1.1
-- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☐ platform_sutra ☐
+- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☑ (PR #NN, 2026-09-11) platform_sutra ☐
 - [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
@@ -219,6 +219,78 @@ untouched: the `sections.four_shouts` anchor still holds and every re-keyed span
 **Documented residual:** 2 MINOR content fields + 3 R-B-labelled 行錄 fields + 74 `title_zh` metadata flags.
 `source_review_status` stays `partial_or_failed_w1_collation` and `completion_status` stays
 `partial_selected_witness`; the status flip belongs to the separate post-remediation evidence pass.
+
+## Wave 1 progress — document 4: `xinxin_ming` (PR #NN, 2026-09-11)
+
+**Witness:** 信心銘 (三祖僧璨大師), `cbeta_id` T2010 → reference work **T48n2010**, CBETA XML P5 pinned at
+`dbdea41071e1e260ad84b72faefd4587333cf76d`; `ref_T48n2010.txt` extracted by `scripts/collate_refs.py`
+and byte-identical to `sessions/COLLATION_W1_2026-09-10_refs_manifest.txt` line 20
+(`9aaa3217647e519d24c3ecdf3fa6cd9fd6fcbead453334a8e03b60716a6e4635`, 588 CJK graphs, unpunctuated,
+no trailing newline).
+
+**Before → after** (`COLLATION_REFS=/tmp/refs python3 scripts/collate_corpus.py --doc xinxin_ming`):
+
+| | before | after |
+|---|---:|---:|
+| content fields collating to T2010 | 24 / 37 | **36 / 37** |
+| flagged entries (total) | 14 | **2** |
+| flagged content fields | 13 | **1** |
+| EXACT | 24 | **36** |
+| DIVERGENT | 12 | **0** |
+| NOT_FOUND (content) | 1 | **1** (kept, R-B labelled) |
+| MINOR / REWORDED | 0 | 0 |
+| `title_zh` metadata flags (out of scope) | 1 | 1 |
+
+**Derivation note — do not copy `ref_window` for this document.** The register's `ref_window` is the
+collator's *highest-similarity* window, not the replacement text: 5 of the 13 were not substrings of
+the witness at all, and several of the rest sit offset from the true stanza. Every replacement was
+re-derived from the reference file: split the field on ，/。 into clauses, take a clause occurring
+**exactly once** in the reference to fix the span start, cut `span = ref[start : start + 4·len(clauses)]`,
+and re-emit the field by replacing only its CJK graphs so every punctuation character keeps its
+position. Two further traps measured here: the reference is one unpunctuated line (compare after
+stripping punctuation; never test a raw corpus field against it), and it opens with the 3-graph title
+信心銘, so the 4-graph clauses sit at offsets ≡ 3 (mod 4) rather than at multiples of 4 — locate each
+stanza by its text, not by arithmetic. `stanzas[23]`, `[27]` and `[34]` anchor on their **second**
+clause, because their first clause is itself one of the divergences.
+
+**Per-field decisions:**
+
+- **DIVERGENT (12)** — re-keyed verbatim (R-A). `.stanzas[10].zh` 莫→勿 · `[14]` 象→像 and 粗→麁 ·
+  `[16]` 必→心 · `[17]` 昏沉→沈惛 (transposed) · `[18]` 疏→疎 and 取→趣 · `[21]` 良由→妄自 ·
+  `[22]` 用→勞 and 卻→却 · `[23]` 寐→眠 · `[27]` 契→啟 · `[28]` 寂然虛明→虛明自然 · `[32]` 忘→妄 ·
+  `[34]` 此→是. Each verified both ways: `strip_punct(new) in ref` **true** and
+  `strip_punct(old) in ref` **false**. Punctuation positions and clause grouping untouched, so no
+  MINOR/REWORDED residue is introduced.
+- **NOT_FOUND kept (1)** — `.stanzas[31].zh`: the fourth clause 一念萬年 returns **0 hits** in a
+  full-text search of `ref_T48n2010.txt` (一念 0, 萬年 0), and the span the alignment rule produces
+  for the field ends in the clause this document uses to open stanza 33 — the tell that the project's
+  fourth clause is not a variant of that span but a line the witness does not carry. Adopting the
+  witness here would delete a canonical line and duplicate stanza 33. Kept whole with an additive
+  `editorial_note` (R-B), no witness attribution and no witness clause quoted, per the owner's
+  2026-09-11 ruling for linji_yulu 行錄 71–73 (delete nothing, reorder nothing, label instead).
+- **`title_zh` metadata (1)** — out of scope; composite-title splitting is a separate plan item.
+
+**Derived artifacts:** document `content_zh_chars` 584 → **584** (unchanged — a like-for-like graph
+substitution, including `[28]`'s 4 → 4 reordering and `[31]` untouched); document all-string CJK
+604 → 607 (+3, the 信心銘 inside the new note, which is metadata rather than a source-content field);
+corpus `content_cjk_characters` stays **104,564** and `all_corpus_cjk_characters` moves
+110,078 → **110,081** (README/AUDIT/HANDOFF §4 counters regenerated). `data/corpus_manifest.json`
+byte-identical; `scripts/smoke_test.mjs` untouched.
+
+**Allowlist:** `scripts/test_source_preservation.py` extended for this file from `{".coverage_note"}`
+to exactly the 24 changed leaf pointers — 12 `.stanzas[i].zh`, 10 `.stanzas[i].pinyin`
+(`.stanzas[14]` and `.stanzas[32]` are byte-identical and deliberately **not** listed),
+`.stanzas[31].editorial_note`, and `.coverage_note`. No `.zh_chars` pointer: this document declares
+none.
+
+**Documented residual:** 1 R-B-labelled content field (`.stanzas[31].zh`) + 1 `title_zh` metadata
+flag. `source_review_status` stays `partial_or_failed_w1_collation` and `completion_status` stays
+`partial_selected_witness`; the status flip belongs to the separate post-remediation evidence pass.
+
+**Follow-up debt (not fixed here):** no English translation was edited. `.stanzas[28]`'s
+寂然虛明 → 虛明自然 and `[17]`'s 昏沉 → 沈惛 reorder the clause the published Suzuki rendering
+tracks, so those renderings now sit oddly against the source; recording, not repairing, is the PR #30
+precedent.
 
 ## Wave 1 progress — document 2: `biyanlu_cases` (PR #30, 2026-09-10)
 

@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110078,
+    "all_corpus_cjk_characters": 110081,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -876,12 +876,12 @@
         }
       },
       "xinxin_ming": {
-        "all_cjk_chars": 604,
+        "all_cjk_chars": 607,
         "cbeta_id": "T2010",
         "completion_status": "partial_selected_witness",
         "content_zh_chars": 584,
         "coverage": "37/37 stanzas",
-        "coverage_note": "37/37 four-clause stanzas represented; W1 source-review status: partial_or_failed_w1_collation (24/37 evaluated content fields collate to the claimed T2010 witness); edition variants and flagged fields remain under per-document remediation. Representation does not establish complete selected-witness status.",
+        "coverage_note": "37/37 stanzas represented (36 four-clause stanzas and a two-clause closing stanza); W1 source-review status: partial_or_failed_w1_collation (36/37 evaluated content fields collate to the claimed T2010 witness after the 2026-09-11 R-A re-key of 12 flagged stanzas to the pinned CBETA T48n2010 text). Residual 1 flagged content field, documented and intentionally not re-keyed: .stanzas[31].zh (NOT_FOUND) — its fourth clause is absent from T48n2010 (full-text search, 0 hits) and is kept as a labelled project-authored reading with no witness attribution (editorial_note). Separately documented and out of scope: 1 title_zh metadata flag — composite-title splitting is a separate plan item, and title metadata is measured separately from source content. Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "stanzas"
