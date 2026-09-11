@@ -36,7 +36,9 @@ source changes. Divergence from `main` is expected and is not a defect.
 |---|---|---|---|---|---|
 | 001 | — | Phase 2 alignment + Phase 4 review of PR #30 (no coder dispatched) | (prev-gen 001's coder) `arena/01a08da1-translatechan` | #30 | **Merged 2026-09-11 10:30 CEST** as `3dd86df`; verdict MERGE, independently re-verified before merge |
 | 002 | `.orchestrator/prompts/002-scoreboard-removal.md` | Retire the scoreboard: delete `.scoreboard/` + `SCOREBOARD.md`, rewrite `AGENTS.md` / PR template / `HANDOFF.md` / `AUDIT.md` references, relocate the manual-workflow-edit record | `arena/01a08f97-translatechan` | #31 | **Merged 2026-09-11 11:04 CEST** as `e4b17f7`; verdict MERGE, all 3 stages passed, gates re-run locally on `db9f3c2` |
-| 003 | `.orchestrator/prompts/003-linji-yulu-rekey.md` | W1 remediation Wave 1 doc 3: adjudicate `linji_yulu`'s 10 content flags against T47n1985 (2 DIVERGENT + 6 NOT_FOUND adjudicated, 2 MINOR untouched), rewrite the false `coverage_note`, 行錄 sections 67–73 per the owner's per-field ruling | `arena/01a08fd6-translatechan` | #32 | **Verdict MERGE** (2026-09-11) — all 3 stages pass; witness re-extracted and harness re-run by me on `af1be55`; awaiting operator merge |
+| 003 | `.orchestrator/prompts/003-linji-yulu-rekey.md` | W1 remediation Wave 1 doc 3: adjudicate `linji_yulu`'s 10 content flags against T47n1985 (2 DIVERGENT + 6 NOT_FOUND adjudicated, 2 MINOR untouched), rewrite the false `coverage_note`, 行錄 sections 67–73 per the owner's per-field ruling | `arena/01a08fd6-translatechan` | #32 | **Merged 2026-09-11 12:45 CEST** as `b82d904`; verdict MERGE, all 3 stages passed, witness re-extracted + harness re-run by me on `af1be55` |
+| 004 | `.orchestrator/prompts/004-tracker-comment-drift.md` | Docs-only drift after PR #31/#32: `STATE.md` sequencing block, `HANDOFF.md` §9 map alignment, `app.css`/`docs/app.css` scoreboard-era comment | (to dispatch) | — | **Authored + pushed 2026-09-11**; 13 sections; 4 allowed paths; 5-gate self-check; GitHub-side metadata split out to §13/queue as operator work |
+| 005 | `.orchestrator/prompts/005-xinxin-ming-rekey.md` | W1 Wave 1 doc 4: adjudicate `xinxin_ming`'s **13** content flags against T48n2010 — 12 re-key (1–4 graph variants) + `stanzas[31]` kept/labelled (witness lacks 一念萬年), `coverage_note` correction, allowlist extension | (to dispatch) | — | **Authored + pushed 2026-09-11**; 16 sections; §5 table generated from the ref file and self-checked; §12 defers `.title_zh` per the composite-title ruling |
 
 Numbering note: `.orchestrator/prompts/` is per-orchestrator-branch. This branch starts at
 002 because 001 is reserved above for the review task. The predecessor generation's prompts
@@ -72,22 +74,31 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   failure was not repeated.
 - [x] **Prompt 003 dispatched** — coder `arena/01a08fd6-translatechan` opened **PR #32**; reviewed
   2026-09-11, verdict **MERGE** (see Review Log).
-- [ ] **Operator action: merge PR #32.** On merge: refresh `main`, mark 003 Merged, re-sync this
-  branch onto it, then author **004 = tracker-drift + repo metadata** (no owner input needed) and
-  **005 = Wave 1 doc 4 `xinxin_ming`** (also needs no owner decision; unlike `platform_sutra`).
-- [ ] **Prompt 004 (to author, after #32 merges) — tracker-drift + repo metadata PR**: rewrite
-  `main`'s `STATE.md` "Next planned task" and "Next (after the visual-system reset, in order)"
-  block (currently still lists the scoreboard removal as step 3, which PR #31 completes) to
-  post-scoreboard reality; fix `HANDOFF.md` §9 repo-map comment alignment at `OPERATIONS.md`
-  (1 char, flagged in the #31 review); set GitHub repo `description`, `homepage`, `topics`
-  (verified empty 2026-09-11) — that half is likely owner work via `gh`, not an agent PR.
-- [ ] **Prompt 005 (to author) — Wave 1 doc 4 `xinxin_ming`**: 12 flags; "adopt T2010 recension OR
-  document the printed edition actually followed" is satisfiable mechanically — re-key where the
-  pinned T2010 witness carries the passage, R-B-label where it does not (same shape as doc 3), so
-  no owner decision blocks it. Extract its table from the register, don't transcribe.
+- [x] **PR #32 merged** (2026-09-11, `b82d904`); 003 marked Merged above; `main` refreshed and this
+  branch re-synced onto it (merge commit, delta vs `main` = the 3 orchestrator files).
+- [x] **Prompt 004 authored** — tracker + comment drift only: `STATE.md` sequencing block
+  (stale "Next planned task: visual-system reset" + "3. Then scoreboard-removal PR…"),
+  `HANDOFF.md` §9 map 1-char misalignment, `app.css:2186` + mirrored `docs/app.css:2186`
+  "Scoreboard P2 resiliency fix" comment. **Repo metadata was deliberately NOT bundled into the
+  prompt**: `description`/`homepage`/`topics` are GitHub settings, not files, so no PR can carry
+  them — it moved to the operator-actions queue below.
+- [x] **Prompt 005 authored** — Wave 1 doc 4 `xinxin_ming`. Register-measured scope: **13** content
+  flags (my earlier queue note said 12 — wrong), all `.stanzas[i].zh`; witness `T48n2010`, digest
+  `9aaa3217…`, 588 graphs, opens with the 3-graph title `信心銘` so clause pitch is ≡3 mod 4.
+  12 fields differ from the witness by 1–4 graph variants only → re-key; `stanzas[31]`'s 一念萬年 is
+  **absent from the witness (0 hits)** and its aligned witness span is the *next* stanza's opening
+  `無在不在`, so adopting it would delete a line and duplicate `stanzas[32]` → kept + `editorial_note`
+  per the owner's per-field ruling. `.title_zh` (1 metadata flag) deferred to the composite-title PR.
+- [ ] **Dispatch stubs for 004 and 005** (hand to operator): 004 first — it moves `main` and 005's
+  base line depends on it; dispatch 005 only after 004 merges (standing rule: no pre-authoring
+  against a base that an open PR will move).
+- [ ] **Operator action (not an agent PR): GitHub repo metadata** — `description`, `homepage`,
+  `topics` all verified empty on 2026-09-11; also 29 stale orphaned `arena/*` heads (137 refs) to
+  prune at the operator's discretion. `gh api repos/56eli/translatechan/branches/main/protection`
+  returns 403 for this token, so protection rules are unverified from here.
 - [ ] Wave 1 doc 5 — `platform_sutra` (**owner must pick the recension first**: T2008 宗寶 vs
   Dunhuang T2007 — currently mixed in one document; do not let an agent choose).
-- [ ] Composite-title plan item (86 `biyanlu title_zh` + 73 Linji titles) — touches `app.js` +
+- [ ] Composite-title plan item — measured from the register 2026-09-11: **299 `title_zh` flags across 35 documents** (biyanlu_cases 86, linji_yulu 74, zhaozhou_yulu 16, platform_sutra 10, huangbo_chuanxin 9 …); my earlier "86 + 73" note undercounted Linji (74) and ignored the other 216. Touches `app.js` +
   smoke guards; separate PR by design.
 - [ ] Post-remediation evidence pass (new dated register overlay + validator merge; flips
   `wumenguan`/`biyanlu` statuses).
@@ -170,11 +181,29 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
 | Date | Prompt seq | PR | Verdict | Notes |
 |---|---|---|---|---|
 | 2026-09-11 | 003 | #32 | **MERGE** | Net diff 12 files == prompt 003 §6 deliverables; no `smoke_test.mjs` change (correctly unnecessary: `赤肉團` still present, count 2) and `canonical_locators.json` untouched as authorized. Allowlist set-equal to the changed pointers (14/14, 0 over-broad, 0 missing). 0 `title_zh`/0 English changes proven by leaf-level pointer diff. Witness re-extracted here (39/39 verified, 0 drift; `ref_T47n1985.txt` = `4317e5fa…`); harness re-run: content flags 10 → 5, EXACT 79/89 → 84/89, total 84 → 79, residual = 2 MINOR (`[43]`,`[58]`) + 3 NOT_FOUND (`[71]`,`[72]`,`[73]`). Every re-keyed field verified verbatim in the witness; every kept field verified to contain **zero** collating fragments (my own 8/12/16/24-char window search of `[71]` found nothing; `龍門` count in witness = 0), so each R-B label was earned, not assumed. `[72]`'s note names the different 象田 exchange the witness *does* carry — I confirmed `不凡不聖，請師速道` is in the reference. `[73]`'s composite note verified: 傳法偈 phrases (`沿流不止`, `吹毛`) absent from the witness while the deathbed exchange is collated in `blind_donkey`, and `[0].dialogue[1]` is in fact that witness form — so the note's cross-reference is true, not decorative. Statuses unchanged, manifest byte-identical. Gates re-run: compile, validate (no `--skip-docs`), preservation (181 permitted / 0 unauthorized), 96 W1 rule checks, build + artifact check clean, smoke, mirror, both `git diff --check`. CI `34585791675`-family pass on final commit; secret scan clean over all 4 commits (only `secret`/`password` prose hits from Robolated Linji text); no `/tmp`/prompt leak; orchestrator branch untouched (`fa60595`). |
+| 2026-09-11 | 003 | #32 | **MERGED by operator** | Merged into `main` as `b82d904`; base verified as `e4b17f7` before review so the two-dot net diff was the real net diff. Post-merge `main` `STATE.md` carries the exact numbers my own harness run produced (84/89, 84 → 79), i.e. tracker truth == measured truth. Two notes for future prompts: the coder's `STATE.md` paragraph quotes my §-verification prose including my own `PR #29/#30 style` phrasing (harmless, but prompts should not smuggle reviewer-internal references into deliverable text), and my own spot-check of the merge used a wrong path twice (`data/linji_yulu.json`, `data/canonical/…`) before reading `git ls-tree` — the prompt's paths were right, my assumption was not.
 | 2026-09-11 | 003 | #32 | *(observations, non-blocking)* | (1) Cadence compressed: 4 commits for 8 sub-tasks — the single data commit `5aeb0bf` covers sub-tasks 2–4 (reference setup touches no repo file, so its "checkpoint" is unobservable). No work lost; next prompt must make each data-touching sub-task its own commit. (2) `.sections[72]`'s R-B note quotes a witness line (`不凡不聖，請師速道`); honest and non-rendered (`editorial_note` has no Reader rendering), but a witness quote inside a "no witness attribution" field is a tension the post-remediation evidence pass should either reword or promote to a structured `witness_alternative` field. (3) Coverage-note wording distinguishes "not re-keyed by policy" (MINOR) from "kept, labelled" (NOT_FOUND) — I first read it as conflating them and checked before flagging; no defect. |
 | 2026-09-11 | 002 | #31 | **MERGE** | Docs/contract PR retiring the scoreboard. 12 changed files == prompt 002's deliverable list exactly, nothing else (no `data/`, `docs/`, `scripts/`, `sessions/`, workflow, `README.md` — all verified by path). Net +76/−1084. `OPERATIONS.md` registered as rename of `.scoreboard/manual-workflow-edits.md` (R069) with Edits 1–3 preserved verbatim; the only altered content lines are the two the prompt authorized (validation block → pointer to `quality.yml`; the `repo_ready`/P1 sentence). `git ls-files \| grep -i scoreboard` empty; reference scan clean — every surviving "scoreboard" string is in a deliberately-retiring sentence, an authorized queue/tick line, or a historical file left untouched. All 35 markdown links in touched live docs resolve to existing paths (incl. both `HANDOFF.md#5-release-blockers` anchors; heading is `## 5. Release blockers`). Gates re-run by me on the PR head: compile, `validate_data.py` (no `--skip-docs`), build (no-op; artifact gate clean **even with the 4 mirrored paths CI omits**), smoke, mirror diff, preservation (0 unauthorized), 96 W1 rule checks, both `git diff --check`. CI `34579974025` pass on the final commit; orchestrator branch untouched (`0fc5ae1` unchanged); secret scan 0 hits across all 7 commits, not just the net diff. 6 `chore: wip` checkpoints map 1:1 to sub-tasks 1–6 then one `docs:` final — cadence as designed. Minor, non-blocking: `HANDOFF.md:174` repo-map comment column is 1 char off the block's alignment; `app.css:2186` keeps a stale "(Scoreboard P2 resiliency fix)" comment (mirrored to `docs/` — must NOT be hand-edited). `STATE.md:32` left as-is with a written scope argument (names a PR, not a deleted path) — accepted; the stale sequencing block is prompt 004's job. |
 | 2026-09-11 | prev-gen 001 | #30 | **MERGE** (independently re-verified by this session) | Net diff 13 files, all inside the prompt's deliverable list. Allowlist set == changed-pointer set (39 = 20 `zh`/`pointer_zh` + 17 pinyin + 2 `editorial_note` + `.coverage_note` + `.zh_chars`), 0 `title_zh`, 0 English. Independently re-extracted CBETA refs from `dbdea41…`; 39/39 verified, 0 drift; `ref_T48n2003.txt` sha256 `47678e84…` matches the published manifest. Harness re-run: content 353/395 → 373/395 EXACT; flagged 128 → 108; 0 DIVERGENT / 0 NOT_FOUND / 0 SHORT_UNMATCHED content residual; 22 MINOR + 86 titles untouched. 13 sampled re-keyed fields verified verbatim-contained in the witness CJK stream; two superseded main-side pointers confirmed absent from the witness. Gates re-run on `b767667` (py_compile, validate incl. committed metrics + doc truthfulness, build + clean artifact check, smoke incl. preservation + W1-rule suites, `diff -rq data docs/data`, `git diff --check`). No secrets in the net diff or the WIP commit (only `TRANSLATECHAN` identifier collisions); orchestrator branch `arena/01a08d90-translatechan` untouched by the coder (`db19997` → `b80ac28` are its own commits). Case-42 gap and case-82 gaiji are disclosed, not hidden. Status correctly left at `partial_or_failed_w1_collation`. |
 
 ## Prompt-Authoring Lessons (inherited + this session)
+
+- **A register `ref_window` is a *scored* window, not a replacement string.** On `xinxin_ming`, 5 of
+  13 `ref_window` values are not substrings of the witness at all and several are offset from the
+  true stanza, because `classify()` reports the best-similarity span. A prompt that pastes
+  `ref_window` in as "the witness text" would teach a coder to write fabricated "witness" readings.
+  Rule: derive every replacement from the reference file, then require the verifier
+  `strip_punct(new) in ref` → true and `strip_punct(old) in ref` → false.
+- **Never hard-code positional arithmetic into a prompt.** My first 005 draft assumed verse clauses
+  sit at multiples of 4; the ref opens with a 3-graph title (`信心銘`), so the pitch is ≡3 mod 4 and
+  every alignment silently failed. State alignment rules as *text anchors* ("find a clause that occurs
+  exactly once"), never as index formulas.
+- **Re-measure queue facts from the register at prompt-authoring time.** I had carried "`xinxin_ming`
+  12 flags" forward from a predecessor's summary; it is 13 content + 1 metadata. The same habit found
+  my "86 + 73 titles" note undercounting 299 to 159.
+- **Don't let reviewer-internal phrasing leak into deliverable text.** #32's `STATE.md` row echoed
+  my own prompt wording ("PR #29/#30 style"); prompts should say *what* to write, not *how I talk*
+  about it.
 
 - **Never hand-transcribe per-class pointer lists into a prompt.** The predecessor's prompt 001
   mislabelled `.cases[2].pointer_zh` as DIVERGENT (register: NOT_FOUND) and omitted
