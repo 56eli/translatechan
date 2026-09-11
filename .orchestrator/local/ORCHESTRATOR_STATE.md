@@ -38,7 +38,7 @@ source changes. Divergence from `main` is expected and is not a defect.
 | 002 | `.orchestrator/prompts/002-scoreboard-removal.md` | Retire the scoreboard: delete `.scoreboard/` + `SCOREBOARD.md`, rewrite `AGENTS.md` / PR template / `HANDOFF.md` / `AUDIT.md` references, relocate the manual-workflow-edit record | `arena/01a08f97-translatechan` | #31 | **Merged 2026-09-11 11:04 CEST** as `e4b17f7`; verdict MERGE, all 3 stages passed, gates re-run locally on `db9f3c2` |
 | 003 | `.orchestrator/prompts/003-linji-yulu-rekey.md` | W1 remediation Wave 1 doc 3: adjudicate `linji_yulu`'s 10 content flags against T47n1985 (2 DIVERGENT + 6 NOT_FOUND adjudicated, 2 MINOR untouched), rewrite the false `coverage_note`, 行錄 sections 67–73 per the owner's per-field ruling | `arena/01a08fd6-translatechan` | #32 | **Merged 2026-09-11 12:45 CEST** as `b82d904`; verdict MERGE, all 3 stages passed, witness re-extracted + harness re-run by me on `af1be55` |
 | 004 | `.orchestrator/prompts/004-tracker-comment-drift.md` | Docs-only drift after PR #31/#32: `STATE.md` sequencing block, `HANDOFF.md` §9 map alignment, `app.css`/`docs/app.css` scoreboard-era comment | `arena/01a09041-translatechan` | #33 | **Merged 2026-09-11 15:32 CEST** as `83865a6`; verdict MERGE, mirror contract proven by idempotent build |
-| 005 | `.orchestrator/prompts/005-xinxin-ming-rekey.md` | W1 Wave 1 doc 4: adjudicate `xinxin_ming`'s **13** content flags against T48n2010 — 12 re-key (1–4 graph variants) + `stanzas[31]` kept/labelled (witness lacks 一念萬年), `coverage_note` correction, allowlist extension | `arena/01a090ab-translatechan` | #34 | **Verdict MERGE** (2026-09-11) — 12/12 re-keys byte-identical to my own independent re-derivation, allowlist set-equal 24=24, all gates re-run; awaiting operator merge |
+| 005 | `.orchestrator/prompts/005-xinxin-ming-rekey.md` | W1 Wave 1 doc 4: adjudicate `xinxin_ming`'s **13** content flags against T48n2010 — 12 re-key (1–4 graph variants) + `stanzas[31]` kept/labelled (witness lacks 一念萬年), `coverage_note` correction, allowlist extension | `arena/01a090ab-translatechan` | #34 | **Merged 2026-09-11 17:37 CEST** as `ef13b26`; verdict MERGE, 12/12 re-keys byte-identical to my own independent re-derivation, allowlist set-equal 24=24, all gates re-run. Post-merge `main`: Quality + Pages both success |
 
 Numbering note: `.orchestrator/prompts/` is per-orchestrator-branch. This branch starts at
 002 because 001 is reserved above for the review task. The predecessor generation's prompts
@@ -99,11 +99,27 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   re-synced onto it (delta = the 5 orchestrator files).
 - [x] **Prompt 005 dispatched** → `arena/01a090ab-translatechan`, **PR #34 OPEN** at `b21b056`;
   reviewed 2026-09-11, verdict **MERGE** (see Review Log).
-- [ ] **Operator action: merge PR #34.** On merge: refresh `main`, mark 005 Merged, re-sync this
-  branch, then (a) **replace the 4 `#NN` placeholders** left in `STATE.md` (×2) and
-  `REMEDIATION_PLAN.md` (×2) with `#34` — same defect #32 shipped with and fixed in a follow-up, so
-  prompts must require "no `#NN`/`PR #N` placeholders in any committed tracker line"; then (b) author
-  006 = Wave 1 doc 5 `platform_sutra` **only after** the owner picks T2008 宗寶 vs Dunhuang T2007.
+- [x] **PR #34 merged** as `ef13b26`; 005 marked Merged; `main` refreshed and verified (witness form
+  `慎勿追尋` present / `慎莫追尋` absent on `main`, `[31]` note intact); post-merge Quality + Pages both green.
+- [ ] **Blocked on operator (repo files are PR-gated, and I don't open PRs): `#NN` cleanup.** 4
+  placeholders survive on `main` — `STATE.md` ×2, `REMEDIATION_PLAN.md` ×2 — all referring to PR #34,
+  which is now known. Needs a 4-line docs PR (or fold into 006's deliverable set if the operator wants
+  zero extra PRs). Prompts from 006 on must require: "no `#NN`/`PR #N` placeholder in any committed
+  tracker line; read back your own PR number after opening, then amend in a final `docs:` commit."
+- [ ] **Pick 006 (needs an operator/owner choice, so not authored yet).** Options measured this turn:
+  (i) **Wave 1 doc 5 `platform_sutra`** — still blocked on the recension ruling (T2008 宗寶 vs
+  Dunhuang T2007); the only Wave 1 item left, and unstartable without the owner.
+  (ii) **Post-remediation evidence pass** for the 4 completed docs — new dated register overlay +
+  validator merge; the only route to `collated_to_claimed_witness` for wumenguan / biyanlu_cases /
+  linji_yulu / xinxin_ming. No owner decision needed; touches `validate_data.py` + `w1_evidence.py`
+  semantics, so it must be scoped as evidence-only (no text edits).
+  (iii) **English-rendering reconciliation** for the re-keyed docs: I expected ~24 stale fields; on
+  measurement **only 1–2 actually need rewording** (xinxin `[16]` red_pine "surely enters" for
+  必→心, and `[28]` cleary/red_pine "Serene/Still, empty and bright" for 寂然虛明→虛明自然) — 10 of the
+  12 wording-sensitive renderings are pure graphic variants the English already renders correctly.
+  So this is small, not a good standalone PR; better folded into (ii)'s report as a note.
+  Also quantified: `reconstruction_unverified` appears **876 times across all 35 corpus files**
+  (wumenguan 81, xinxin 74, zhaozhou 54 …) — the real Phase-5 debt, and human work by standing ruling.
 - [ ] **Dispatch stubs for 004 and 005** (hand to operator): 004 first — it moves `main` and 005's
   base line depends on it; dispatch 005 only after 004 merges (standing rule: no pre-authoring
   against a base that an open PR will move).
