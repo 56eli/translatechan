@@ -24,7 +24,7 @@ never receives non-orchestrator content. Divergence from `main` is expected.
 
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
-| 001 | .orchestrator/prompts/001-biyanlu-r-a-rekey.md | W1 remediation Wave 1 doc 2: re-key biyanlu_cases to T2003 (42 content fields) | arena session at dispatch | — | Dispatched 2026-09-11 |
+| 001 | .orchestrator/prompts/001-biyanlu-r-a-rekey.md | W1 remediation Wave 1 doc 2: re-key biyanlu_cases to T2003 (42 content fields) | arena/01a08da1-translatechan | #30 | Verdict MERGE (2026-09-11) — awaiting operator merge |
 
 Numbering note: no `.orchestrator/prompts/` directory exists on `main` or on any
 reachable arena branch (checked 2026-09-11, incl. `arena/01a08caa-translatechan`, the
@@ -43,7 +43,7 @@ quotation spot-check → scoreboard removal (last).
 ## Task Queue
 
 - [x] Wave 1 doc 1 — `wumenguan` re-keyed to T2005 (PR #29, merged 2026-09-10)
-- [ ] Wave 1 doc 2 — `biyanlu_cases` re-key to T2003 (prompt 001, dispatched 2026-09-11)
+- [~] Wave 1 doc 2 — `biyanlu_cases` re-key to T2003 (prompt 001) — PR #30 open, **verdict MERGE** 2026-09-11, awaiting operator merge. On merge: refresh main, mark Merged here.
 - [ ] Wave 1 doc 3 — `linji_yulu` (10 content flags + fate of sections 67–73 retellings + 73 titles)
 - [ ] Wave 1 doc 4 — `xinxin_ming` (12 flags; adopt T2010 recension or document printed edition per field)
 - [ ] Wave 1 doc 5 — `platform_sutra` (decide recension policy FIRST: T2008 宗寶 vs Dunhuang T2007; 9 flags + titles)
@@ -57,7 +57,13 @@ quotation spot-check → scoreboard removal (last).
 
 ## Interrupted Work
 
-(none yet — no expired agents this generation)
+- **PR #30 agent session (arena/01a08da1-translatechan) stalled 2026-09-11** after saying
+  "Now I'll run final hygiene checks and clean up" (silent for hours on a bash step).
+  **Impact: none.** All 8 sub-tasks were pushed before the stall (2 commits: sub-tasks
+  1–6 + canonical-state update); CI green on the final commit `b767667`; the "final
+  hygiene checks" are the section-14 re-verification, which CI already performs.
+  Nothing unpushed of value existed. The session can be abandoned after merge.
+  Lesson: the push cadence did exactly its job — review proceeded from the remote.
 
 ## Deferred / Technical Debt
 
@@ -97,4 +103,19 @@ orchestrator advises MERGE / REVISE / DO-NOT-MERGE and never merges.
 
 | Date | Prompt seq | PR | Verdict | Notes |
 |---|---|---|---|---|
-| 2026-09-11 | 001 | — | — | Dispatched; awaiting PR hand-back |
+| 2026-09-11 | 001 | #30 | **MERGE** | All 3 stages pass. Net diff 13 files, all within deliverables; 39 corpus pointers changed == 39 allowlist pointers (set-equal, 0 title_zh, 0 English). CI green. Harness re-run by me on verified refs: content EXACT 353→373, flagged 128→108, 0 DIVERGENT/NOT_FOUND/SHORT_UNMATCHED content residual, 22 MINOR + 86 titles untouched; status stays `partial_or_failed_w1_collation`. 見面便見→早知是火 is the only smoke change and is correct (old string count 0, new count 1). |
+
+## Prompt-authoring lesson (from 001 review)
+
+My prompt 001 hand-transcribed the per-class pointer lists and got one field's class
+wrong: `.cases[2].pointer_zh` is **NOT_FOUND** in the register (I also listed it as
+DIVERGENT), and I omitted `.cases[1].dialogue[1].zh` (DIVERGENT). The agent caught the
+discrepancy, treated the register as ground truth, and handled all 20 correctly — the
+end state is verified right. **Rule going forward: generate the class-grouped pointer
+lists in the prompt programmatically from the register JSON, never by hand.**
+
+## Next dispatch (after operator merges #30)
+
+- Refresh `main`, mark 001 Merged here.
+- Author + publish prompt **002**: Wave 1 doc 3 `linji_yulu` (10 content flags + fate
+  of sections 67–73 retellings + 73 titles), base `main`, per REMEDIATION_PLAN §1–§2.
