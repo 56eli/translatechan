@@ -115,6 +115,25 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   decision* is deferred to the inventory — the file records it as labelled-not-sourced, which is the true
   state. **My doc-count sync rule paid for itself on first use**: main landed with all nine gates green,
   so 007a/007b can be dispatched against `3c838db` without inheriting a red base.
+- [x] **PR #36 — 007a + 007b delivered together — verdict MERGE** (head `2ba6834`, 2 commits, 2 files,
+  +1209/−0). Reviewer-grade verification, all independent of the PR's own tables: my own 39-work
+  extraction (`39 verified / 0 drift`); my own `collate_corpus` run on current main agrees with the two
+  inventories on **all 26 documents** (0 mismatches), including the four §6 self-test rows (wumenguan
+  174/181, biyanlu 373/395, xinxin 36/37 all moved; zhengdao_ge 6/6 unmoved, as required); **35/35
+  coverage** with no doc inventoried twice and no doc missed; 19 P0 bullets in family 2 and 35 in family
+  3, each with a reproducing command (23/35 `Reproduce:` markers); the `sengzhao_zhaolun` splicing claim
+  re-derived by me at 8-gram granularity (ref@1094 → ~ref@1579-1587 ⇒ ~470-493 graphs, matching their
+  figure); `hanshan_poems`/`niutou_juezhu` correctly routed as witness-unavailable; `OUT-OF-CBETA` used
+  24× with **no** claim of fetching, transcribing, or reconstructing anything; all eight gates exit 0 at
+  the head and `validate_data.py`'s doc-truthfulness rule provably does *not* extend to
+  `.orchestrator/WITNESS_INVENTORY*.md` (`framed` = README/AUDIT/HANDOFF + ROADMAP + REMEDIATION_PLAN), so
+  1,209 new prose lines cannot trip it. Phase 1 of the integrity plan is therefore **done**.
+- [!] **A false alarm I raised and then disproved against myself:** a substring test showed `X1458` still
+  present in `data/corpus/caoxi_zhuan.json`, which looked like the corrected mis-citation surviving as a
+  live claim. It is not — the only occurrence is *inside* `cbeta_note`, quoting the old error in order to
+  record the fix ("prior 'X1458' wrong"). Lesson: `key in json.dumps(doc)` proves presence, never
+  role; check the key before calling a P0. The inventory had this right by phrasing it as a question to
+  check rather than an assertion — that framing is what made me test instead of file.
 - [x] **006 DELIVERED — do not re-dispatch.** Its two deliverables (the 498-line family-1 inventory and
   the four `#NN`→`#34` fixes) rode into #35 rather than opening their own PR. Consequence accepted: #35
   became a two-package PR, which is against my own one-document-per-PR habit, but the inventory is
