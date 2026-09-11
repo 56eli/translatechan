@@ -106,6 +106,27 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   which is now known. Needs a 4-line docs PR (or fold into 006's deliverable set if the operator wants
   zero extra PRs). Prompts from 006 on must require: "no `#NN`/`PR #N` placeholder in any committed
   tracker line; read back your own PR number after opening, then amend in a final `docs:` commit."
+- [x] **Scope decision taken on the owner's "Continue"** = **(a) label, don't re-divide** (my
+  recommendation; recorded as *recommended-and-adopted*, not owner-authored — if the owner wants (b),
+  009's data edits are additive so (b) stays available as a later package). **Prompts 006 and 009
+  authored + pushed** (both 12.4 KB / 12.8 KB, self-contained, all cited paths verified to exist, all
+  cited commands verified real):
+  - **006** = Phase 1 inventory, family 1 (the **9** docs whose witnesses are T47n records, enumerated
+    from `collate_corpus.py`'s `DOCS` — not from memory: linji, zhaozhou, baojing, dongshan, yunmen,
+    fayan, guiyang, dahui_hongzhi, yuanwu), read-only on `data/`, plus the 4 `#NN`→`#34` fixes. Carries
+    an embedded **self-test**: the coder's `linji_yulu` row must move 79/89 → 84/89, because a run that
+    *agrees* with the stale register means it didn't run. Also encodes both traps: don't infer harness
+    behaviour from `validate_data.py`'s constants (my own retracted error), and never file a misspelling
+    P0 against a witness-verbatim graph (机/麁/沈惛/疎/却).
+  - **009** = `platform_sutra` **label-only**: 14 per-field `recension_note` + root note + honest
+    `coverage_note` + `chapters[8]` note disclosing 護法品第九 vs 宗寶's 宣詔第九. Zero `zh`/`title_*`/
+    English changes, manifest byte-identical, collation deliberately unchanged at 4/13, `recension_note`
+    reused as the existing convention (no new key). My §5 decision table for it (1 Dunhuang / 3 宗寶 /
+    9 neither of 13) was re-measured this turn from a fresh extraction, and I corrected one of my own
+    facts in it before publishing (manifest lines 21/22 → **17/18**, checked with `grep -n`).
+  - **Dispatch both in parallel**: they are provably disjoint (006 = inventory + 2 tracker files;
+    009 = 1 corpus file + generated artifacts + allowlist + 2 tracker *paragraphs* appended at
+    different anchors). 009's base check says "at or after `ef13b26`", so it survives 006 landing first.
 - [x] **platform_sutra pre-audit (owner ruling received: Dunhuang primary).** Verified with my own
   digest-checked extraction (`ref_T48n2007.txt` = `4f6ac8de…`, `ref_T48n2008.txt` = `71a340cb…`, both ==
   manifest). (1) The 3 gāthās in `chapters[0].verses[]` are **correctly cited, not mixed**: Shenxiu's
