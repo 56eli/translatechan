@@ -9,11 +9,10 @@
 ## 1. Start here
 
 1. Read [`AGENTS.md`](./AGENTS.md).
-2. Read [`.scoreboard/scoreboard.yml`](./.scoreboard/scoreboard.yml).
-3. Read [`.scoreboard/agent-handoff.md`](./.scoreboard/agent-handoff.md).
-4. Read [`.scoreboard/manual-workflow-edits.md`](./.scoreboard/manual-workflow-edits.md).
-5. Work only on the Arena-fixed session branch.
-6. Never infer or change a `user_score`.
+2. Read [`.orchestrator/STATE.md`](./.orchestrator/STATE.md).
+3. Read [`OPERATIONS.md`](./OPERATIONS.md).
+4. Work only on the Arena-fixed session branch.
+5. AI scoring is retired; no file carries a score to update.
 
 Historical reports are evidence, not current instructions.
 
@@ -95,7 +94,7 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 ### Engineering and operations
 
 - Playwright skips with success when Chromium is unavailable and is not a required CI job.
-- Quality’s artifact diff omits four mirrored assets.
+- Quality’s artifact diff omits four mirrored assets (see [`OPERATIONS.md`](./OPERATIONS.md) Edit 1).
 - Branch protection is unconfirmed because the integration receives 403.
 - The full data bundle and all hidden rooms initialize up front.
 - Forty-one JS-generated inline styles keep CSP `style-src 'unsafe-inline'` necessary.
@@ -172,13 +171,13 @@ schemas/                            # declarative schema
 scripts/                            # validator, build, smoke, browser, migration helpers
 sessions/                           # dated audit/implementation evidence
 docs/                               # GitHub Pages mirror
-.scoreboard/                        # current score, history, handoff, manual operations
+OPERATIONS.md                        # owner-controlled CI/GitHub admin edits
 response_summary.md                 # disposable current-session summary
 ```
 
 ## 10. Workflow and administration
 
-Agents must not edit `.github/workflows/*` without explicit owner approval. Exact pending changes are documented in [`.scoreboard/manual-workflow-edits.md`](./.scoreboard/manual-workflow-edits.md):
+Agents must not edit `.github/workflows/*` without explicit owner approval. Exact pending changes are documented in [`OPERATIONS.md`](./OPERATIONS.md):
 
 - include `docs/theme-init.js`, `docs/robots.txt`, `docs/sitemap.xml`, and `docs/og-image.svg` in artifact-diff coverage;
 - review/update Action majors;
@@ -190,13 +189,14 @@ No custom Pages deployment workflow is needed.
 ## 11. Documentation rule
 
 - [`AUDIT.md`](./AUDIT.md): current verdict and report index.
-- [`SCOREBOARD.md`](./SCOREBOARD.md): human-readable current scores.
-- [`.scoreboard/scoreboard.yml`](./.scoreboard/scoreboard.yml): machine-readable score source.
-- [`.scoreboard/agent-handoff.md`](./.scoreboard/agent-handoff.md): current branch/session handoff.
+- [`OPERATIONS.md`](./OPERATIONS.md): owner-controlled CI/GitHub administration edits.
 - [`response_summary.md`](./response_summary.md): disposable user-facing summary.
 - `sessions/*.md`: dated immutable evidence.
 
 Never append a full session narrative here; link the dated report.
+
+The repository scoreboard (`SCOREBOARD.md` + `.scoreboard/`) was retired
+by this PR; orchestrator oversight replaces it.
 
 ## 12. Merge and deployment status
 

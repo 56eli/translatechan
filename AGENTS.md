@@ -30,42 +30,22 @@ rebranded.
   `data-*` attributes that the document-level click handler in `app.js`
   routes.
 
-## Scoreboard Protocol
+## Project state and priority setting
 
-This repo uses a persistent scoreboard because Arena/sandboxed agent
-sessions may expire after PR merge. Durable context must live in repo
-files.
+Arena/sandboxed agent sessions may expire after a PR merge, so durable
+context lives in repo files: `AGENTS.md`, [`HANDOFF.md`](./HANDOFF.md),
+[`AUDIT.md`](./AUDIT.md), [`ROADMAP.md`](./ROADMAP.md),
+[`.orchestrator/STATE.md`](./.orchestrator/STATE.md), and append-only
+[`sessions/`](./sessions/). Priority is set by the task prompt you were
+dispatched with. The repository scoreboard was retired on 2026-09-11, so
+`user_score`-style AI scoring is retired too: no file in this repo
+carries a score to update. Do not directly edit `.github/workflows/*`
+unless the user explicitly instructs you. If a workflow change is
+needed, document the exact manual edit in
+[`OPERATIONS.md`](./OPERATIONS.md); there is no status file to flip any
+more.
 
-### Before work
-
-1. Read [`SCOREBOARD.md`](./SCOREBOARD.md).
-2. Read [`.scoreboard/scoreboard.yml`](./.scoreboard/scoreboard.yml).
-3. Read [`.scoreboard/agent-handoff.md`](./.scoreboard/agent-handoff.md).
-4. Read [`.scoreboard/manual-workflow-edits.md`](./.scoreboard/manual-workflow-edits.md).
-5. Identify affected scoreboard aspects.
-6. Prioritize high-priority, low-effective-score, high-weight,
-   risk-flagged, or user-unhappy aspects.
-
-### During work
-
-1. Preserve `user_score` fields. Do not invent, infer, or change
-   `user_score` without explicit user instruction.
-2. PR approval, merge, or user silence does **not** imply a new
-   `user_score`.
-3. Do not chase perfect AI scores if the user has accepted the area
-   (status `accepted_debt` or `risk_accepted`).
-4. If AI score is high but user score is low, follow user notes and
-   desired direction.
-5. If AI score is low but user score is high, treat as accepted debt
-   unless risk flags exist or the task touches that area.
-6. Do not directly edit `.github/workflows/*` unless the user explicitly
-   instructs you. If a workflow change is needed, document the exact
-   manual edit in `.scoreboard/manual-workflow-edits.md` and set the
-   affected aspect status to `blocked_manual_workflow_edit`.
-7. If a workflow change is needed, also add it as a `next_action` on
-   the affected aspect in `.scoreboard/scoreboard.yml`.
-
-### After work
+## After work
 
 1. Run the relevant checks where possible:
    ```bash
@@ -75,20 +55,9 @@ files.
    node scripts/smoke_test.mjs
    diff -rq data docs/data
    ```
-2. Update only audited AI scores in `.scoreboard/scoreboard.yml` with
-   evidence.
-3. Recalculate `effective_score`, `gap`, `priority`, and `status` for
-   every affected aspect.
-4. Recalculate `summary.overall_effective_score` (rounded to one
-   decimal) and `summary.repo_ready_gate_status`. Update
-   `quality_gates.repo_ready` with the same values.
-5. Update `summary.top_priorities` and `summary.active_risk_flags`.
-6. Add a row to `.scoreboard/history.md` for every aspect whose AI
-   score changed.
-7. Update `.scoreboard/agent-handoff.md` for the next sandboxed
-   agent.
-8. Summarize remaining manual workflow edits in your final response.
-9. Commit + push to the session branch.
+2. Summarize remaining manual workflow edits from
+   [`OPERATIONS.md`](./OPERATIONS.md) in your final response.
+3. Commit + push to the session branch.
 
 ## Public Pages scope
 

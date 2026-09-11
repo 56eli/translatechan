@@ -1,11 +1,17 @@
-# Manual Workflow / GitHub Administration Edits
+# Repository Operations
 
-> **Last audited:** 2026-08-11, session `arena/019ff089-translatechan`
-> **2026-08-11 status:** all three owner-controlled edits remain applicable; no workflow file was changed in this session.
+This file is the register of owner-controlled GitHub-side changes and
+repository administration that agents may not perform themselves, such as
+`.github/workflows/*` edits and branch-protection settings. It replaced
+`.scoreboard/manual-workflow-edits.md` when the repository scoreboard was
+retired on 2026-09-11; the three pending edits below were relocated here
+with their content preserved.
 
 ## Policy
 
-Agents must not edit `.github/workflows/*` unless the user explicitly requests it. Record exact changes here so an owner with the necessary GitHub permissions can apply and verify them.
+Agents must not edit `.github/workflows/*` unless the owner explicitly
+requests it. Record exact changes in this file so an owner with the
+necessary GitHub permissions can apply and verify them.
 
 ## Edit 1 — Cover every mirrored deploy asset in Quality
 
@@ -73,7 +79,16 @@ python3 scripts/validate_data.py
 python3 scripts/build_data_bundle.py
 node scripts/smoke_test.mjs
 diff -rq data docs/data
-git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/theme-init.js docs/robots.txt docs/sitemap.xml docs/og-image.svg docs/data data/project_metrics.json
+# plus the generated-artifact check from the "Require generated artifacts and deploy mirror to be committed" step in .github/workflows/quality.yml (single source of truth)
 ```
 
-These checks do not clear the remaining P1 rights and functional blockers; re-evaluate `repo_ready` only after those are remediated and tested.
+These checks do not clear the remaining rights and functional blockers;
+release is still gated by the blockers enumerated in `HANDOFF.md` §5.
+
+## Provenance
+
+Relocated from `.scoreboard/manual-workflow-edits.md` on 2026-09-11.
+Last audited: 2026-08-11, session `arena/019ff089-translatechan` (all
+three edits remain applicable; no workflow file was changed in that
+session). The `blocked_manual_workflow_edit` status vocabulary the old
+file used is retired with the scoreboard; there is no replacement status.
