@@ -292,7 +292,7 @@ flag. `source_review_status` stays `partial_or_failed_w1_collation` and `complet
 tracks, so those renderings now sit oddly against the source; recording, not repairing, is the PR #30
 precedent.
 
-## Wave 1 progress — document 5: `platform_sutra` — labelled, not sourced (2026-09-11)
+## Wave 1 progress — document 5: `platform_sutra` — labelled, not sourced (PR #35, 2026-09-11)
 
 **Ruling in force:** owner decision 2026-09-11 — *prefer the oldest near-complete copy* — makes CBETA
 **T48n2007** (Dunhuang) the primary witness over **T48n2008** (宗寶, the later popular recension), and
