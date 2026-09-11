@@ -162,11 +162,63 @@ locators); witness changes; safety statement.
 ## 5. Wave checklist
 
 - [x] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1) — see §1.1
-- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☐ xinxin_ming ☐ platform_sutra ☐
+- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☐ platform_sutra ☐
 - [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
 - [ ] Post: README/HANDOFF/ROADMAP claim rewrite ☐ validator collation rule ☐ scoreboard removal ☑ (PR #31, 2026-09-11)
+
+## Wave 1 progress — document 3: `linji_yulu` (PR #32, 2026-09-11)
+
+**Witness:** 鎮州臨濟慧照禪師語錄, `cbeta_id` T1985 → reference work **T47n1985**, CBETA XML P5 pinned at
+`dbdea41071e1e260ad84b72faefd4587333cf76d`; `ref_T47n1985.txt` extracted by `scripts/collate_refs.py`
+and byte-identical to `sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`
+(`4317e5fa14996b3f414187adb4264f1d52efb303392402f797d6e2019aeb8359`).
+
+**Before → after** (`COLLATION_REFS=/tmp/refs python3 scripts/collate_corpus.py --doc linji_yulu`):
+
+| | before | after |
+|---|---:|---:|
+| content fields collating to T1985 | 79 / 89 | **84 / 89** |
+| flagged entries (total) | 84 | **79** |
+| flagged content fields | 10 | **5** |
+| DIVERGENT | 2 | **0** |
+| NOT_FOUND | 6 | **3** (kept, R-B labelled) |
+| MINOR (untouched by policy) | 2 | 2 |
+| `title_zh` metadata flags (out of scope) | 74 | 74 |
+
+**Per-field decisions (owner ruling of 2026-09-11: adjudicate sections 67–73 per field — re-key where
+T47n1985 demonstrably carries the passage, keep+label where it does not; delete nothing, no blanket
+relabel):**
+
+- **DIVERGENT (2)** — re-keyed verbatim (R-A). `.sections[0].dialogue[1].zh`: one grapheme — witness
+  `向他道什麼` for the project `向他道甚麼`; the 滅却/滅卻 form follows the witness. `.sections[68].dialogue[0].zh`:
+  the 栽松 passage restored to the witness's wording (作什麼, 作境致, 钁頭打地, 黃蘗) per §1.1.
+- **NOT_FOUND kept (3)** — `.sections[71]` (龍門遇普化) and `.sections[72]` (象田問答): full-file search of
+  the reference proves T47n1985 does not carry either passage (the lone 象田 hit in the witness is the
+  different 不凡不聖 exchange); kept as project-authored retellings with additive `editorial_note` R-B
+  labels and no witness attribution. `.sections[73]` (行錄七 · 示寂): composite — the witness carries the
+  deathbed exchange alone (collated in `blind_donkey`), without the 傳法偈 or 塔名 clauses (沿流/吹毛: 0 hits);
+  kept whole with an R-B `editorial_note` rather than half-deleted, per the honesty rule.
+- **NOT_FOUND re-keyed (3)** — R-A to contiguous verbatim witness spans, each then EXACT: `.sections[67]`
+  (the 黃蘗三度被打–大愚 episode, from `師初在黃蘗會下` through `汝師黃蘗，非干我事`), `.sections[69]`
+  (普請空手, `一日普請次…便歸院` — the witness lifts the 钁頭, not a 拄杖), `.sections[70]`
+  (達磨塔頭, `師便拂袖而出`).
+- **MINOR (2)** — `.sections[43]`/`.sections[58]`: the only residue is the witness graphemes 㽄/㴸, which
+  CBETA encodes as `<g>` apparatus the extraction rule drops; left untouched (§1: "EXACT/MINOR fields:
+  leave untouched") and disclosed in the new `coverage_note`.
+- **`title_zh` metadata (74)** — out of scope; composite-title splitting is a separate plan item.
+
+`coverage_note` rewritten from the false completeness claim ("74 / 74 canonical sections complete across
+all 4 divisions" — five division names under "4", ignoring the 10 flagged fields) to the honest
+post-remediation disclosure. `zh_chars` 13993 → 14206; corpus CJK totals 104,351 → 104,564 content /
+109,848 → 110,078 all-string (README/AUDIT/HANDOFF §4 regenerated). `data/canonical_locators.json`
+untouched: the `sections.four_shouts` anchor still holds and every re-keyed span sits inside the loose
+行錄 page ranges. Sibling pinyin rewritten syllable-by-syllable for the four long re-keys (§10 style).
+
+**Documented residual:** 2 MINOR content fields + 3 R-B-labelled 行錄 fields + 74 `title_zh` metadata flags.
+`source_review_status` stays `partial_or_failed_w1_collation` and `completion_status` stays
+`partial_selected_witness`; the status flip belongs to the separate post-remediation evidence pass.
 
 ## Wave 1 progress — document 2: `biyanlu_cases` (PR #30, 2026-09-10)
 

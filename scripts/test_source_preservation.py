@@ -23,6 +23,16 @@ Rules
     correction register) touched: each re-keyed source field and its rewritten
     sibling pinyin, two additive `editorial_note` provenance labels, and the
     recomputed `zh_chars` total.
+  - `data/corpus/linji_yulu.json`: the same root `.coverage_note`, plus exactly
+    the pointers the owner-adopted R-A/R-B remediation (Wave 1, document 3 —
+    re-keying linji_yulu's W1-flagged content fields to the CBETA T47n1985
+    witness per the 2026-09-10 W1 correction register, under the owner's
+    2026-09-11 per-field ruling for the 行錄 division) touched: one
+    single-grapheme re-key and the four 行錄 re-keys — each re-keyed source
+    field with its rewritten sibling pinyin where the rewrite was needed —
+    three additive `editorial_note` R-B provenance labels (kept project-authored
+    retellings, no witness attribution — their `zh`/`pinyin`/translations stay
+    untouched), and the recomputed `zh_chars` total.
   - `data/corpus/xinxin_ming.json`: the root `.coverage_note`, the completeness
     claim the W1 containment work re-worded into an honest W1 status disclosure.
   - `data/corpus/wumenguan.json`: the same root `.coverage_note`, plus exactly
@@ -117,6 +127,29 @@ ALLOWED_CHANGES = {
         ".cases[97].dialogue[0].zh",
         ".cases[98].dialogue[0].pinyin",
         ".cases[98].dialogue[0].zh",
+        ".coverage_note",
+        ".zh_chars",
+    }),
+    "data/corpus/linji_yulu.json": frozenset({
+        # 2026-09-11 R-A re-key of the W1-flagged content fields to the T47n1985 witness (Wave 1,
+        # document 3), under the owner's 2026-09-11 per-field ruling for the 行錄 division: the
+        # re-keyed source fields (each a contiguous verbatim witness span) and the sibling pinyin
+        # rewritten to match, the three additive `editorial_note` R-B provenance labels on kept
+        # project-authored retellings (no witness attribution; their text stays byte-identical),
+        # the honest post-remediation `coverage_note`, and the recomputed `zh_chars` total. The two
+        # MINOR fields and every `title_zh` (composite-title plan item) are deliberately absent.
+        ".sections[0].dialogue[1].zh",
+        ".sections[67].dialogue[0].pinyin",
+        ".sections[67].dialogue[0].zh",
+        ".sections[68].dialogue[0].pinyin",
+        ".sections[68].dialogue[0].zh",
+        ".sections[69].dialogue[0].pinyin",
+        ".sections[69].dialogue[0].zh",
+        ".sections[70].dialogue[0].pinyin",
+        ".sections[70].dialogue[0].zh",
+        ".sections[71].dialogue[0].editorial_note",
+        ".sections[72].dialogue[0].editorial_note",
+        ".sections[73].dialogue[0].editorial_note",
         ".coverage_note",
         ".zh_chars",
     }),
