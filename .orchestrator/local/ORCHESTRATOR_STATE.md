@@ -89,6 +89,12 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   **absent from the witness (0 hits)** and its aligned witness span is the *next* stanza's opening
   `無在不在`, so adopting it would delete a line and duplicate `stanzas[32]` → kept + `editorial_note`
   per the owner's per-field ruling. `.title_zh` (1 metadata flag) deferred to the composite-title PR.
+- [x] **Prompt 004 dispatched** (2026-09-11) → coder branch `arena/01a09041-translatechan`,
+  **PR #33** OPEN at `704d9fc`: 4 paths == 004 §6, one commit == §9 message, base `main` `b8f452f`'s
+  ancestor `b82d904`, CI `Validate data, generated artifacts, and reader` pass. Full 3-stage review
+  owed on merge (docs-only; the review is mostly scope + mirror-consistency).
+- [x] **Prompt 005 dispatch message handed over** (2026-09-11) with the artifact gate (18,726 bytes,
+  16 sections, sha256 `0b9e3f8e6b53c009…`) and the 4 stop conditions; to be sent after #33 merges.
 - [ ] **Dispatch stubs for 004 and 005** (hand to operator): 004 first — it moves `main` and 005's
   base line depends on it; dispatch 005 only after 004 merges (standing rule: no pre-authoring
   against a base that an open PR will move).
@@ -187,6 +193,15 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
 | 2026-09-11 | prev-gen 001 | #30 | **MERGE** (independently re-verified by this session) | Net diff 13 files, all inside the prompt's deliverable list. Allowlist set == changed-pointer set (39 = 20 `zh`/`pointer_zh` + 17 pinyin + 2 `editorial_note` + `.coverage_note` + `.zh_chars`), 0 `title_zh`, 0 English. Independently re-extracted CBETA refs from `dbdea41…`; 39/39 verified, 0 drift; `ref_T48n2003.txt` sha256 `47678e84…` matches the published manifest. Harness re-run: content 353/395 → 373/395 EXACT; flagged 128 → 108; 0 DIVERGENT / 0 NOT_FOUND / 0 SHORT_UNMATCHED content residual; 22 MINOR + 86 titles untouched. 13 sampled re-keyed fields verified verbatim-contained in the witness CJK stream; two superseded main-side pointers confirmed absent from the witness. Gates re-run on `b767667` (py_compile, validate incl. committed metrics + doc truthfulness, build + clean artifact check, smoke incl. preservation + W1-rule suites, `diff -rq data docs/data`, `git diff --check`). No secrets in the net diff or the WIP commit (only `TRANSLATECHAN` identifier collisions); orchestrator branch `arena/01a08d90-translatechan` untouched by the coder (`db19997` → `b80ac28` are its own commits). Case-42 gap and case-82 gaiji are disclosed, not hidden. Status correctly left at `partial_or_failed_w1_collation`. |
 
 ## Prompt-Authoring Lessons (inherited + this session)
+
+- **Standing step, not an incident note: verify my own base at the START of every turn.** The
+  workspace has now been re-created on a stale base **three times** (`02e5db7` twice, once even
+  mid-turn: `refs/remotes/origin/_orch` vanished between two commands while local HEAD sat on
+  `02e5db7` with the working copy holding current `main` content + untracked `.orchestrator/`).
+  Opening sequence for every turn: `git fetch --depth 1 origin +arena/01a08e15-translatechan:
+  refs/remotes/origin/_orch` → compare `rev-parse HEAD` with it → if unequal, `cmp` my ledger and
+  prompt files against `git show _orch:<path>` and only then `reset --hard`. Content in the working
+  copy can look perfectly current while HEAD is stale, so `git status` alone proves nothing.
 
 - **A register `ref_window` is a *scored* window, not a replacement string.** On `xinxin_ming`, 5 of
   13 `ref_window` values are not substrings of the witness at all and several are offset from the
