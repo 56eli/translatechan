@@ -162,7 +162,7 @@ locators); witness changes; safety statement.
 ## 5. Wave checklist
 
 - [x] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1) — see §1.1
-- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☑ (PR #NN, 2026-09-11) platform_sutra ☐
+- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☑ (PR #34, 2026-09-11) platform_sutra ☐
 - [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
@@ -220,7 +220,7 @@ untouched: the `sections.four_shouts` anchor still holds and every re-keyed span
 `source_review_status` stays `partial_or_failed_w1_collation` and `completion_status` stays
 `partial_selected_witness`; the status flip belongs to the separate post-remediation evidence pass.
 
-## Wave 1 progress — document 4: `xinxin_ming` (PR #NN, 2026-09-11)
+## Wave 1 progress — document 4: `xinxin_ming` (PR #34, 2026-09-11)
 
 **Witness:** 信心銘 (三祖僧璨大師), `cbeta_id` T2010 → reference work **T48n2010**, CBETA XML P5 pinned at
 `dbdea41071e1e260ad84b72faefd4587333cf76d`; `ref_T48n2010.txt` extracted by `scripts/collate_refs.py`
@@ -291,6 +291,33 @@ flag. `source_review_status` stays `partial_or_failed_w1_collation` and `complet
 寂然虛明 → 虛明自然 and `[17]`'s 昏沉 → 沈惛 reorder the clause the published Suzuki rendering
 tracks, so those renderings now sit oddly against the source; recording, not repairing, is the PR #30
 precedent.
+
+## Wave 1 progress — document 5: `platform_sutra` — labelled, not sourced (PR #35, 2026-09-11)
+
+**Ruling in force:** owner decision 2026-09-11 — *prefer the oldest near-complete copy* — makes CBETA
+**T48n2007** (Dunhuang) the primary witness over **T48n2008** (宗寶, the later popular recension), and
+"everything can be cleanly labeled as such, with notes referring to the alternative texts". Witnesses
+pinned per `scripts/collate_refs.py`: xml-p5 at `dbdea41071e1e260ad84b72faefd4587333cf76d`, full 39-work
+extraction **39 verified / 0 drift**, `ref_T48n2007.txt` `4f6ac8de1ae5abb875712bc49ba78ee3582c7e3a56b6a2a0c1d9859de65a7121`
+(refs-manifest line 17, 12,124 graphs) and `ref_T48n2008.txt` `71a340cb4b01ad28c8ca0f8d2ac7b983436b624ff46f087b24e4934a1b3c3d75`
+(line 18, 26,043 graphs).
+
+**This is a label-only package — no re-key.** Nine of the thirteen source-content fields are verbatim in
+**neither** witness, so substituting "the correct text" would mean authoring new Chinese, which is
+prohibited project-wide; the four witness-verbatim fields keep the wording they have. Measured split
+(`strip_punct(field) in ref`, reproduced independently before writing any note): **1 field verbatim in
+T48n2007** (`.chapters[0].verses[2].zh`), **3 verbatim in T48n2008** (`.chapters[0].verses[0].zh`,
+`.chapters[0].verses[1].zh`, `.chapters[3].dialogue[0].zh`), **9 in neither** — 113 of 680 content graphs
+are witness text and 567 are project précis. Deliverables: root `recension_note`, 12 additive per-field
+`recension_note` labels, `.chapters[8].recension_note` (宗寶 titles that chapter 宣詔第九; 護法 occurs 0 times
+in both witnesses), and an honest `coverage_note` replacing the two misleading clauses. **14 changed leaf
+pointers**, allowlisted set-equal; 0 `zh`/`title_*`/`pinyin`/`translations.*` changes; `zh_chars` declared
+none; `corpus_manifest.json` and `canonical_locators.json` byte-identical; collation unchanged at 4/13
+collated, 9 content flags, status still `partial_or_failed_w1_collation`.
+
+**Deferred to the 006–008 inventory:** the text decision — replace the 9 précis fields with Dunhuang text,
+or keep them as labelled précis — and the composite-title split (all ten `title_zh` cores, plus the
+護法品第九 vs 宣詔第九 divergence). Neither belongs in a label-only PR.
 
 ## Wave 1 progress — document 2: `biyanlu_cases` (PR #30, 2026-09-10)
 

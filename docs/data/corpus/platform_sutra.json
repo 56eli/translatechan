@@ -46,7 +46,8 @@
                 "reference": "p. 130"
               }
             }
-          }
+          },
+          "recension_note": "verbatim in the alternative recension T48n2008 (宗寶), not in the primary witness; retained as the received reading and labelled."
         },
         {
           "author": "Huineng / 六祖慧能",
@@ -69,7 +70,8 @@
               "text": "Bodhi fundamentally has no tree, the bright mirror also has no stand. Fundamentally there is not a single thing: where could any dust alight?",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "recension_note": "verbatim in the alternative recension T48n2008 (宗寶), not in the primary witness; retained as the received reading and labelled."
         },
         {
           "author": "Huineng / 六祖慧能 (Dunhuang recension 敦煌本)",
@@ -115,7 +117,8 @@
               "text": "Good friends, the capacity of the mind is vast, like the great void. It is neither round nor square, neither large nor small. Mountains, rivers, and the great earth are all contained inside the space of mind.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "recension_note": "condensed project précis; not verbatim in T48n2007 or T48n2008; no witness attribution claimed."
         },
         {
           "speaker": "Huineng / 慧能",
@@ -134,7 +137,8 @@
               "text": "The nature of people is pure, like the blue sky. Wisdom is like the sun. When floating clouds of false thinking clear away, self-nature shines brilliantly.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "recension_note": "condensed project précis; not verbatim in T48n2007 or T48n2008; no witness attribution claimed."
         }
       ]
     },
@@ -159,7 +163,8 @@
           "text": "External blessings are not inner merit. Seeing your self-nature is merit; equal, upright mind is virtue.",
           "status": "reconstruction_unverified"
         }
-      }
+      },
+      "recension_note": "condensed project précis; not verbatim in T48n2007 or T48n2008; no witness attribution claimed."
     },
     {
       "chapter_num": 4,
@@ -188,7 +193,8 @@
               "text": "Good friends, in my system of Dharma, Dhyana and Prajna are of one essence. Dhyana is the body of Prajna, Prajna is the function of Dhyana.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "recension_note": "verbatim in the alternative recension T48n2008 (宗寶), not in the primary witness; retained as the received reading and labelled."
         }
       ]
     },
@@ -219,7 +225,8 @@
               "text": "In our tradition of Dhyana, sitting does not mean clinging to the mind, nor clinging to quietude. Outwardly to be detached from all objects is 'Sitting'; inwardly to see into one's Nature is 'Dhyana.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "recension_note": "condensed project précis; not verbatim in T48n2007 or T48n2008; no witness attribution claimed."
         }
       ]
     },
@@ -244,7 +251,8 @@
           "text": "Repentance removes delusion from within; true refuge is returning to Awakening, Truth, and Purity in your self-nature.",
           "status": "reconstruction_unverified"
         }
-      }
+      },
+      "recension_note": "condensed project précis; not verbatim in T48n2007 or T48n2008; no witness attribution claimed."
     },
     {
       "chapter_num": 7,
@@ -267,7 +275,8 @@
           "text": "Huairang awoke when he saw that Buddha-nature cannot be called a thing nor defiled by practice.",
           "status": "reconstruction_unverified"
         }
-      }
+      },
+      "recension_note": "condensed project précis; not verbatim in T48n2007 or T48n2008; no witness attribution claimed."
     },
     {
       "chapter_num": 8,
@@ -290,7 +299,8 @@
           "text": "In Dharma there is no sudden or gradual; names arise only from whether human minds awaken swiftly or slowly.",
           "status": "reconstruction_unverified"
         }
-      }
+      },
+      "recension_note": "condensed project précis; not verbatim in T48n2007 or T48n2008; no witness attribution claimed."
     },
     {
       "chapter_num": 9,
@@ -313,7 +323,8 @@
           "text": "Huineng refused imperial court titles, instructing the Emperor's envoy that Awakening is of the mind, not posture.",
           "status": "reconstruction_unverified"
         }
-      }
+      },
+      "recension_note": "condensed project précis; not verbatim in T48n2007 or T48n2008; no witness attribution claimed. The chapter title 護法品第九 is this project's label: 宗寶 (T48n2008) titles this chapter 宣詔第九, and 護法 occurs 0 times in both witnesses; the title is retained because title rendering is a separate, already-scoped PR."
     },
     {
       "chapter_num": 10,
@@ -336,8 +347,10 @@
           "text": "Huineng bequeathed the Thirty-Six Pairs of non-dual dialectics and passed into Nirvana, leaving the Platform Sutra as a living lamp.",
           "status": "reconstruction_unverified"
         }
-      }
+      },
+      "recension_note": "condensed project précis; not verbatim in T48n2007 or T48n2008; no witness attribution claimed."
     }
   ],
-  "coverage_note": "10/10 chapter headings represented by selected excerpts (680 content CJK); this is not the complete T2007 text."
+  "coverage_note": "680 content CJK graphs across 13 source-content fields, measured against both witnesses: 1 field (20 graphs) is verbatim in the primary witness T48n2007 (Dunhuang), 3 fields (93 graphs) are verbatim in the alternative recension T48n2008 (宗寶), and 9 fields (567 graphs) are condensed project précis verbatim in neither — so 113 of the 680 content graphs are witness text and 567 are this project's own condensation; these are not selected excerpts of T2007. The 10 chapter headings are the 宗寶 division and do not match the Dunhuang structure. A précis condenses and paraphrases: it is not a text, and no field was re-keyed in this pass. Representation does not establish complete selected-witness status.",
+  "recension_note": "Recension provenance (owner ruling 2026-09-11 — prefer the oldest near-complete copy): CBETA T48n2007, the Dunhuang manuscript (Taishō 48 no. 2007), is this document's primary witness; CBETA T48n2008, the 宗寶 recension and the later popular edition, is the named alternative. The 10-chapter frame and the ten 品-numbered chapter titles used here follow the 宗寶 division as a reading convenience and are attested in neither witness: none of the ten title cores (行由品第一 … 付囑品第十) occurs in T48n2007 or T48n2008, the 宗寶 table of contents writes them without 品 (行由第一 …), and 宗寶 titles chapter 9 宣詔第九 rather than 護法品第九. Measured against both witnesses, 9 of the 13 source-content fields are condensed project précis verbatim in neither, 1 field is verbatim in the primary witness and 3 in the alternative; even the root title 六祖大師法寶壇經 is a 宗寶 title — the Dunhuang witness opens 南宗頓教最上大乘摩訶般若波羅蜜經…一卷. This pass records provenance only: no source Chinese was re-keyed, and the text decision (Dunhuang text vs. retained précis) is deferred."
 }
