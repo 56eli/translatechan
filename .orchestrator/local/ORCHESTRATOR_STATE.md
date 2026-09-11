@@ -25,6 +25,7 @@ never receives non-orchestrator content. Divergence from `main` is expected.
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
 | 001 | .orchestrator/prompts/001-biyanlu-r-a-rekey.md | W1 remediation Wave 1 doc 2: re-key biyanlu_cases to T2003 (42 content fields) | arena/01a08da1-translatechan | #30 | Verdict MERGE (2026-09-11) — awaiting operator merge |
+| 002 | .orchestrator/prompts/002-linji-r-a-rekey.md | W1 remediation Wave 1 doc 3: adjudicate linji_yulu 10 content fields vs T1985 (2 DIVERGENT + 6 NOT_FOUND 行錄 + 2 MINOR) | — | — | Published 2026-09-11 — **dispatch HELD until PR #30 merged** (canonical STATE.md queue line must match the task; file scope is disjoint so no other hazard) |
 
 Numbering note: no `.orchestrator/prompts/` directory exists on `main` or on any
 reachable arena branch (checked 2026-09-11, incl. `arena/01a08caa-translatechan`, the
@@ -44,7 +45,7 @@ quotation spot-check → scoreboard removal (last).
 
 - [x] Wave 1 doc 1 — `wumenguan` re-keyed to T2005 (PR #29, merged 2026-09-10)
 - [~] Wave 1 doc 2 — `biyanlu_cases` re-key to T2003 (prompt 001) — PR #30 open, **verdict MERGE** 2026-09-11, awaiting operator merge. On merge: refresh main, mark Merged here.
-- [ ] Wave 1 doc 3 — `linji_yulu` (10 content flags + fate of sections 67–73 retellings + 73 titles)
+- [ ] Wave 1 doc 3 — `linji_yulu` (10 content flags + fate of sections 67–73 retellings + 73 titles) — prompt 002 published 2026-09-11; dispatch held until PR #30 merged
 - [ ] Wave 1 doc 4 — `xinxin_ming` (12 flags; adopt T2010 recension or document printed edition per field)
 - [ ] Wave 1 doc 5 — `platform_sutra` (decide recension policy FIRST: T2008 宗寶 vs Dunhuang T2007; 9 flags + titles)
 - [ ] Post-remediation evidence pass — new dated register overlay + validator merge; flips wumenguan/biyanlu statuses. Scope after Wave 1.
@@ -117,5 +118,14 @@ lists in the prompt programmatically from the register JSON, never by hand.**
 ## Next dispatch (after operator merges #30)
 
 - Refresh `main`, mark 001 Merged here.
-- Author + publish prompt **002**: Wave 1 doc 3 `linji_yulu` (10 content flags + fate
-  of sections 67–73 retellings + 73 titles), base `main`, per REMEDIATION_PLAN §1–§2.
+- **Dispatch prompt 002** (linji_yulu — already published on the orchestrator branch,
+  verified visible). Stub:
+  `translatechan coder - <session name>` + fetch of
+  `.orchestrator/prompts/002-linji-r-a-rekey.md` from
+  `arena/01a08d90-translatechan` (same stub shape as 001).
+- Facts baked into 002 (programmatically verified 2026-09-11 from the register):
+  witness T47n1985 DOES carry the 行錄 stories for sections idx 67/68/69/70 (and the
+  death passage for 73) — re-keyable; sections 71/72 (龍門普化驢鳴, 象田吸盡西江水)
+  have no window in T1985 (sim 0.0) → R-B label (default) or remove. Smoke guards:
+  `赤肉團` query hits section idx 28 (untouched); locator pilot `sections.four_shouts`
+  = idx 2 (untouched).
