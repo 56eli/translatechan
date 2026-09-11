@@ -162,11 +162,56 @@ locators); witness changes; safety statement.
 ## 5. Wave checklist
 
 - [x] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1) — see §1.1
-- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☐ linji_yulu ☐ xinxin_ming ☐ platform_sutra ☐
+- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☐ xinxin_ming ☐ platform_sutra ☐
 - [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
 - [ ] Post: README/HANDOFF/ROADMAP claim rewrite ☐ validator collation rule ☐ scoreboard removal ☐
+
+## Wave 1 progress — document 2: `biyanlu_cases` (PR #30, 2026-09-10)
+
+**Witness:** T48n2003 (佛果圓悟禪師碧巖錄), CBETA XML P5 pinned at
+`dbdea41071e1e260ad84b72faefd4587333cf76d`; `ref_T48n2003.txt` extracted by `scripts/collate_refs.py`
+and byte-identical to `sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`
+(`47678e84c49a270aab932182dfc3b287b86d6a33a7aadc31e32c663f4a27be09`).
+
+**Before → after** (`COLLATION_REFS=/tmp/refs python3 scripts/collate_corpus.py --doc biyanlu_cases`):
+
+| | before | after |
+|---|---:|---:|
+| content fields collating to T2003 | 353 / 395 | **373 / 395** |
+| flagged entries (total) | 128 | **108** |
+| flagged content fields | 42 | **22** |
+| DIVERGENT | 12 | **0** |
+| NOT_FOUND | 7 | **0** |
+| SHORT_UNMATCHED | 1 | **0** |
+| MINOR (untouched by policy) | 22 | 22 |
+| `title_zh` metadata flags (out of scope) | 86 | 86 |
+
+**Per-class decisions taken (§1 rules):**
+
+- **DIVERGENT (12)** — all re-keyed verbatim from the witness (R-A). Punctuation, speech markers and
+  graphic variants follow the witness (Wave-0 policy §1.1): `。`-separated phrases, 曰/云/磨/州/門 markers,
+  and witness readings such as 忠問師 (case 99) and 末句後 (case 51) kept as the witness has them. Where
+  雪竇's 著語 sit in the witness's body text rather than in `<note>` apparatus (cases 23, 31), they are
+  reproduced, because they are the witness's text at that location.
+- **NOT_FOUND (7)** — the register's "no 垂示" work-order note is **falsified by the reference text** for
+  cases 1, 3 and 81: all three carry a 垂示 in T48n2003, so all three pointers were re-keyed rather than
+  removed. Case 20's `verse_zh` had joined the 頌 to 雪竇's separate 復成一頌 (two passages, 評唱 between
+  them): the field now holds the 頌 alone and the joined form is disclaimed in an additive `editorial_note`
+  (R-B). Cases 23 and 75 were re-keyed to the witness 舉. Case 96's 舉 is exactly 趙州示眾三轉語; the
+  project parenthetical it carried was moved to `dialogue[0].editorial_note`.
+- **SHORT_UNMATCHED (1)** — case 12's `dialogue[1].zh` (`洞山云麻三斤`) does not occur in the witness; the
+  witness's marker is bare `山云`, so the field was re-keyed to `山云。麻三斤` (EXACT).
+- **MINOR (22)** — left untouched (§1: "EXACT/MINOR fields: leave untouched").
+- **`title_zh` metadata (86)** — out of scope; composite-title splitting is a separate plan item.
+
+**Documented residual:** 22 MINOR content fields + 86 `title_zh` metadata flags, plus one disclosed and
+deliberately unfixed coverage gap (case 42's 垂示 exists in the witness and is not represented in the
+document — recorded in the new `coverage_note` rather than implied absent).
+
+`source_review_status` stays `partial_or_failed_w1_collation`; the status flip belongs to the separate
+post-remediation evidence pass.
 
 ## W1 evidence records and the five public ledgers (2026-09-10)
 

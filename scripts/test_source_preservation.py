@@ -17,6 +17,12 @@ Rules
   name: a `coverage_note` (or `zh`) anywhere else — for instance
   `cases[0].coverage_note` in any of the 48 Wumenguan cases — is a corpus edit
   and fails. The allowlist is remediation-aware:
+  - `data/corpus/biyanlu_cases.json`: the same root `.coverage_note`, plus exactly
+    the pointers the owner-adopted R-A/R-B remediation (Wave 1, document 2 —
+    re-keying biyanlu to the CBETA T48n2003 witness per the 2026-09-10 W1
+    correction register) touched: each re-keyed source field and its rewritten
+    sibling pinyin, two additive `editorial_note` provenance labels, and the
+    recomputed `zh_chars` total.
   - `data/corpus/xinxin_ming.json`: the root `.coverage_note`, the completeness
     claim the W1 containment work re-worded into an honest W1 status disclosure.
   - `data/corpus/wumenguan.json`: the same root `.coverage_note`, plus exactly
@@ -68,6 +74,52 @@ NESTED_REGRESSION_MARKER = "PRESERVATION_NESTED_REGRESSION"
 #: any of the 48 Wumenguan cases is a *corpus content* change and must fail, even though its
 #: final key is spelled the same as the two permitted root notes.
 ALLOWED_CHANGES = {
+    "data/corpus/biyanlu_cases.json": frozenset({
+        # 2026-09-10 R-A re-key of the W1-flagged content fields to the T2003 witness (Wave 1,
+        # document 2): each re-keyed source field and its rewritten sibling pinyin, the two additive
+        # `editorial_note` R-B provenance labels (project-authored text moved out of a source field,
+        # no witness attribution), the honest post-remediation `coverage_note`, and the recomputed
+        # `zh_chars` total. No English/translation field and no title metadata may differ.
+        ".cases[0].dialogue[2].pinyin",
+        ".cases[0].dialogue[2].zh",
+        ".cases[0].pointer_zh",
+        ".cases[11].dialogue[1].pinyin",
+        ".cases[11].dialogue[1].zh",
+        ".cases[14].dialogue[0].pinyin",
+        ".cases[14].dialogue[0].zh",
+        ".cases[17].dialogue[0].pinyin",
+        ".cases[17].dialogue[0].zh",
+        ".cases[19].editorial_note",
+        ".cases[19].verse_zh",
+        ".cases[1].dialogue[1].pinyin",
+        ".cases[1].dialogue[1].zh",
+        ".cases[1].pointer_zh",
+        ".cases[22].dialogue[0].pinyin",
+        ".cases[22].dialogue[0].zh",
+        ".cases[2].dialogue[0].pinyin",
+        ".cases[2].dialogue[0].zh",
+        ".cases[2].pointer_zh",
+        ".cases[30].dialogue[0].pinyin",
+        ".cases[30].dialogue[0].zh",
+        ".cases[50].dialogue[0].pinyin",
+        ".cases[50].dialogue[0].zh",
+        ".cases[74].dialogue[0].pinyin",
+        ".cases[74].dialogue[0].zh",
+        ".cases[80].pointer_zh",
+        ".cases[81].dialogue[0].pinyin",
+        ".cases[81].dialogue[0].zh",
+        ".cases[87].dialogue[0].pinyin",
+        ".cases[87].dialogue[0].zh",
+        ".cases[95].dialogue[0].editorial_note",
+        ".cases[95].dialogue[0].pinyin",
+        ".cases[95].dialogue[0].zh",
+        ".cases[97].dialogue[0].pinyin",
+        ".cases[97].dialogue[0].zh",
+        ".cases[98].dialogue[0].pinyin",
+        ".cases[98].dialogue[0].zh",
+        ".coverage_note",
+        ".zh_chars",
+    }),
     "data/corpus/wumenguan.json": frozenset({
         # .coverage_note: W1 containment re-wording into an honest status disclosure (prior PR)
         ".coverage_note",

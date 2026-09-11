@@ -15,7 +15,7 @@
       "title_zh": "梁武帝問達磨：廓然無聖",
       "title_pinyin": "Liáng Wǔdì Wèn Dámó: Kuòrán Wúshèng",
       "title_en": "Emperor Wu Asks Bodhidharma: Vast Emptiness, Nothing Holy",
-      "pointer_zh": "垂示云：見面便見，更無可言。若向言中取則，句裏商量，正如以管窺天，以蠡酌海。且道：廓然無聖，如何承當？",
+      "pointer_zh": "垂示云。隔山見煙。早知是火。隔牆見角。便知是牛。舉一明三。目機銖兩。是衲僧家尋常茶飯。至於截斷眾流。東湧西沒。逆順縱橫。與奪自在。正當恁麼時。且道。是什麼人行履處。看取雪竇葛藤",
       "pointer_en": "Pointer: Seeing the face, you immediately see; there is nothing more to say. If you seek rules in words or deliberate in phrases, you are looking at the sky through a straw or scooping up the ocean with a ladle. Tell me: Vast emptiness, nothing holy—how do you take it up?",
       "dialogue": [
         {
@@ -66,8 +66,8 @@
         },
         {
           "speaker": "Emperor Wu / 梁武帝",
-          "zh": "帝曰：「對朕者誰？」磨云：「不識。」帝不契。達磨遂潛渡江至魏。",
-          "pinyin": "Dì yuē: 'Duì zhèn zhě shuí?' Mó yún: 'Bù shí.' Dì bù qì. Dámó suì qián dù jiāng zhì Wèi.",
+          "zh": "帝曰。對朕者誰磨云。不識帝不契達磨遂渡江至魏",
+          "pinyin": "Dì yuē. Duì zhèn zhě shuí mó yún. Bù shí dì bù qì Dá mó suì dù jiāng zhì Wèi.",
           "translations": {
             "red_pine": {
               "text": "The Emperor said: 'Who faces me?' Bodhidharma said: 'I don't know.' The Emperor did not understand. Bodhidharma secretly crossed the Yangzi River and went north to Wei.",
@@ -93,7 +93,7 @@
       "title_zh": "趙州至道無難",
       "title_pinyin": "Zhàozhōu Zhì Dào Wú Nán",
       "title_en": "Zhaozhou's The Ultimate Path is Not Difficult",
-      "pointer_zh": "垂示云：乾坤窄，日月星辰一時黑。直饒棒如雨點，喝似雷奔，也未酬得向上宗乘。",
+      "pointer_zh": "垂示云。乾坤窄。日月星辰一時黑。直饒棒如雨點。喝似雷奔。也未當得向上宗乘中事。設使三世諸佛。只可自知。歷代祖師全提不起。一大藏教詮注不及。明眼衲僧自救不了。到這裏。作麼生請益。道箇佛字。拖泥帶水。道箇禪字。滿面慚惶。久參上士不待言之。後學初機直須究取",
       "pointer_en": "Pointer: Heaven and earth narrow; sun, moon, and stars go black at once. Even if staff strikes fall like raindrops and shouts resound like thunder, you still haven't matched the ultimate ancestral vehicle.",
       "dialogue": [
         {
@@ -117,8 +117,8 @@
         },
         {
           "speaker": "Monk / 僧",
-          "zh": "時有僧問：「和尚既不在明白裏，護惜箇甚麼？」師云：「我亦不知。」僧云：「和尚既不知，為甚麼卻道不在明白裏？」師云：「問事即得，禮拜了退。」",
-          "pinyin": "Shí yǒu sēng wèn: 'Héshang jì bù zài míngbái lǐ, hùxī gè shénme?' Shī yún: 'Wǒ yì bù zhī.' Sēng yún: 'Héshang jì bù zhī, wèi shénme què dào bù zài míngbái lǐ?' Shī yún: 'Wèn shì jí dé, lǐbài le tuì.'",
+          "zh": "時有僧問。既不在明白裏。護惜箇什麼州云。我亦不知僧云。和尚既不知。為什麼却道不在明白裏州云。問事即得。禮拜了退",
+          "pinyin": "Shí yǒu sēng wèn. Jì bù zài míng bái lǐ. Hù xī gè shén me zhōu yún. Wǒ yì bù zhī sēng yún. Hé shang jì bù zhī. Wèi shén me què dào bù zài míng bái lǐ zhōu yún. Wèn shì jí dé. Lǐ bài le tuì.",
           "translations": {
             "red_pine": {
               "text": "A monk asked: 'Since you are not in clarity, what do you cherish?' The Master said: 'I don't know either.' The monk said: 'If you don't know, why do you say you are not in clarity?' The Master said: 'Asking is enough; now make your prostration and retire.'",
@@ -144,13 +144,13 @@
       "title_zh": "馬祖不安：日面佛月面佛",
       "title_pinyin": "Mǎzǔ Bù'ān: Rìmiàn Fó Yuèmiàn Fó",
       "title_en": "Master Mazu is Unwell: Sun-Face Buddha, Moon-Face Buddha",
-      "pointer_zh": "垂示云：一機一境，一棒一喝，若能徹照根源，便能坐斷天下人舌頭。",
+      "pointer_zh": "垂示云。一機一境。一言一句。且圖有箇入處。好肉上剜瘡。成窠成窟。大用現前不存軌則。且圖知有向上事。蓋天蓋地又摸索不著。恁麼也得。不恁麼也得。太廉纖生。恁麼也不得。不恁麼也不得。太孤危生。不涉二塗。如何即是。請試舉看",
       "pointer_en": "Pointer: One dynamic trigger, one realm; one staff strike, one shout. If you can penetrate to the source, you can cut off the tongues of everyone under heaven.",
       "dialogue": [
         {
           "speaker": "Monastery Ino / 院主",
-          "zh": "馬祖大師不安。院主問：「和尚近日尊位如何？」",
-          "pinyin": "Mǎzǔ dàshī bù'ān. Yuànzhǔ wèn: 'Héshang jìnrì zūnwèi rúhé?'",
+          "zh": "馬大師不安院主問。和尚近日。尊候如何",
+          "pinyin": "Mǎ dà shī bù ān yuàn zhǔ wèn. Hé shang jìn rì. Zūn hòu rú hé.",
           "translations": {
             "red_pine": {
               "text": "Great Master Mazu was unwell. The director asked: 'How has the Master's venerable health been lately?'",
@@ -539,8 +539,8 @@
         },
         {
           "speaker": "Dongshan / 洞山",
-          "zh": "洞山云：「麻三斤。」",
-          "pinyin": "Dòngshān yún: 'Má sān jīn.'",
+          "zh": "山云。麻三斤",
+          "pinyin": "Shān yún. Má sān jīn.",
           "translations": {
             "red_pine": {
               "text": "Dongshan said: 'Three pounds of flax.'",
@@ -621,8 +621,8 @@
       "dialogue": [
         {
           "speaker": "雲門與僧 / Yunmen and the monk",
-          "zh": "僧問雲門：「不是目前機，亦非目前事時如何？」雲門云：「倒一說。」",
-          "pinyin": "Sēng wèn Yúnmén：「 Bù shì mùqián jī， yì fēi mùqián shì， shí rúhé？」 Yúnmén yún：「 Dào yī shuō。」",
+          "zh": "僧問雲門。不是目前機。亦非目前事時如何門云。倒一說",
+          "pinyin": "Sēng wèn Yún mén. Bù shì mù qián jī. Yì fēi mù qián shì shí rú hé mén yún. Dǎo yī shuō.",
           "translations": {
             "ai_literal": {
               "text": "A monk asked Yunmen, 'When it is not the matter of the moment, nor the affair of the moment—what then?' Yunmen said, 'A reversed teaching.'",
@@ -691,8 +691,8 @@
       "dialogue": [
         {
           "speaker": "肅宗與忠國師、耽源 / Suzong, National Teacher Zhong, and Danyuan",
-          "zh": "肅宗皇帝問忠國師：「百年後所須何物？」國師云：「與老僧作箇無縫塔。」帝曰：「請師塔樣。」國師良久云：「會麼？」帝云：「不會。」國師云：「吾有付法弟子耽源，却諳此事，請詔問之。」國師遷化後，帝詔耽源問：「此意如何？」源云：「湘之南，潭之北，中有黃金充一國。無影樹下合同船，瑠璃殿上無知識。」",
-          "pinyin": "Sùzōng huángdì wèn Zhōng guóshī：「 Bǎinián hòu suǒxū héwù？」 Guóshī yún：「 Yǔ lǎosēng zuò ge wúfèngtǎ。」 Dì yuē：「 Qǐng shī tǎyàng。」 Guóshī liángjiǔ yún：「 Huì me？」 Dì yún：「 Bù huì。」 Guóshī yún：「 Wú yǒu fùfǎ dìzǐ Dānyuán， què ān cǐshì， qǐng zhào wèn zhī。」 Guóshī qiānhuà hòu， dì zhào Dānyuán wèn：「 Cǐyì rúhé？」 Yuán yún：「 xiāng zhī nán， tán zhī běi， zhōng yǒu huángjīn chōng yīguó。 Wúyǐngshù xià hétóngchuán， liúlí diàn shàng wú zhīshí。」",
+          "zh": "肅宗皇帝問忠國師。百年後所須何物國師云。與老僧作箇無縫塔帝曰。請師塔樣國師良久云。會麼帝云。不會國師云。吾有付法弟子耽源。却諳此事。請詔問之國師遷化後帝詔耽源。問此意如何源云。湘之南潭之北雪竇著語云。獨掌不浪鳴中有黃金。充一國雪竇著語云。山形拄杖子無影樹下合同船雪竇著語云。海晏河清瑠璃殿上無知識雪竇著語云。拈了也",
+          "pinyin": "Sù zōng huáng dì wèn Zhōng guó shī. Bǎi nián hòu suǒ xū hé wù guó shī yún. Yǔ lǎo sēng zuò gè wú fèng tǎ dì yuē. Qǐng shī tǎ yàng guó shī liáng jiǔ yún. Huì me dì yún. Bù huì guó shī yún. Wú yǒu fù fǎ dì zǐ Dān yuán. Què ān cǐ shì. Qǐng zhào wèn zhī guó shī qiān huà hòu dì zhào Dān yuán. Wèn cǐ yì rú hé yuán yún. Xiāng zhī nán Tán zhī běi xuě dòu zhù yǔ yún. Dú zhǎng bù làng míng zhōng yǒu huáng jīn. Chōng yī guó xuě dòu zhù yǔ yún. Shān xíng zhǔ zhàng zǐ wú yǐng shù xià hé tóng chuán xuě dòu zhù yǔ yún. Hǎi yàn hé qīng Liú lí diàn shàng wú zhī shí xuě dòu zhù yǔ yún. Niān le yě.",
           "translations": {
             "ai_literal": {
               "text": "Emperor Suzong asked National Teacher Zhong, 'What will you need a hundred years from now?' The teacher said, 'Build this old monk a seamless tower.' The emperor said, 'Show me the design of the tower.' The teacher paused a long while, then said, 'Do you understand?' The emperor said, 'No.' The teacher said, 'I have a Dharma-heir disciple, Danyuan, who knows this matter well — summon him and ask.' After the teacher passed away, the emperor had Danyuan summoned and asked, 'What was his meaning?' Danyuan said: 'South of the Xiang, north of the Tan — at its heart gold fills a whole kingdom. Beneath the shadowless tree, one shared boat; in the hall of lapis lazuli, no knowing mind.'",
@@ -750,8 +750,9 @@
         }
       ],
       "commentary_zh": "翠巖芝和尚云。當時如是。今時衲子。皮下還有血麼。溈山喆云。翠微臨濟。可謂本分宗師。龍牙一等是撥草瞻風。不妨與後人作龜鑑。住院後有僧問。和尚當時還肯二尊宿麼。牙云。肯即肯。只是無祖師西來意。龍牙瞻前顧後。應病與藥。大溈則不然。待伊問和尚當時還肯二尊宿麼。明不明。劈脊便打。非惟扶竪翠微臨濟。亦不辜負來問。石門聰云。龍牙無人拶著。猶可。被箇衲子挨著。失却一隻眼。雪竇云。臨濟翠微。只解把住不解放開。我當時如作龍牙。待伊索蒲團禪板。拈起劈面便擲。五祖戒云。和尚得恁麼面長。或云。祖師土宿臨頭。黃龍新云。龍牙驅耕夫之牛。奪飢人之食。既明則明矣。因什麼却無祖師西來意。會麼。棒頭有眼明如日。要識真金火裏看。大凡激揚要妙。提唱宗乘。向第一機下明得。可以坐斷天下人舌頭。儻或躊躇落在第二。這二老漢。雖然打風打雨。驚天動地。要且不曾打著箇明眼漢。古人參禪多少辛苦。立大丈夫志氣。經歷山川。參見尊宿。龍牙先參翠微臨濟。後參德山。遂問學人仗鏌鎁劍。擬取師頭時如何。德山引頸云。㘞。牙云。師頭落也。山微笑便休去。次到洞山。洞山問。近離甚處。牙云。德山來。洞山云。德山有何言句。牙遂舉前話。洞山云。他道什麼。牙云。他無語。洞山云。莫道無語。且試將德山落底頭呈似老僧看。牙於此有省。遂焚香遙望德山禮拜懺悔。德山聞云。洞山老漢不識好惡。這漢死來多少時。救得有什麼用處。從他擔老僧頭遶天下走。龍牙根性聰敏。擔一肚皮禪。行脚。直向長安翠微。便問。如何是祖師西來意。微云。與我過禪板來。牙取禪板與微。微接得便打。牙云。打即任打。要且無祖師西來意。又問臨濟。如何是祖師西來意。濟云。與我過蒲團來。牙取蒲團與臨濟。濟接得便打。牙云。打即任打。要且無祖師西來意。他致箇問端。不妨要見他曲彔木床上老漢。亦要明自己一段大事。可謂言不虛設。機不亂發。出在做工夫處。不見五洩參石頭。先自約曰。若一言相契。即住。不然即去。石頭據座。洩拂袖而出。石頭知是法器。即垂開示。洩不領其旨。告辭而出至門。石頭呼之云。闍黎。洩回顧。石頭云。從生至死。只是這箇。回頭轉腦。更莫別求。洩於言下大悟。又麻谷持錫到章敬。遶禪床三匝。振錫一下。卓然而立。敬云。是是。又到南泉。依前遶床振錫而立。南泉云。不是不是。此是風力所轉。終成敗壞。谷云。章敬道是。和尚為什麼道不是。南泉云。章敬即是。是汝不是。古人也不妨要提持透脫此一件事。如今人纔問著。全無些子用工夫處。今日也只是恁麼。明日也只是恁麼。爾若只恁麼盡未來際。也未有了日。須是抖擻精神。始得有少分相應。爾看龍牙發一問道。如何是祖師西來意。翠微云。與我過禪板來。牙過與微。微接得便打。牙當時取禪板時。豈不知翠微要打他。也不得便道他不會。為什麼却過禪板與他。且道當機承當得時。合作麼生。他不向活水處用。自去死水裏作活計。一向作主宰。便道打即任打。要且無祖師西來意。又走去河北參臨濟。依前恁麼問。濟云。與我過蒲團來。牙過與濟。濟接得便打。牙云。打即任打。要且無祖師西來意。且道二尊宿。又不同法嗣。為什麼答處相似。用處一般。須知古人。一言一句。不亂施為。他後來住院。有僧問云。和尚當時見二尊宿。是肯他不肯他。牙云。肯則肯。要且無祖師西來意。爛泥裏有刺。放過與人。已落第二。這老漢把得定。只做得洞下尊宿。若是德山臨濟門下。須知別有生涯。若是山僧則不然。只向他道。肯即未肯。要且無祖師西來意。不見僧問大梅。如何是祖師西來意。梅云。西來無意。鹽官聞云。一箇棺材。兩箇死漢。玄沙聞云。鹽官是作家。雪竇道。三箇也有。只如這僧問祖師西來意。却向他道西來無意。爾若恁麼會。墮在無事界裏。所以道。須參活句。莫參死句。活句下薦得。永劫不忘。死句下薦得。自救不了。龍牙恁麼道。不妨盡善。古人道相續也大難。他古人一言一句。不亂施為。前後相照。有權有實。有照有用。賓主歷然。互換縱橫。若要辨其親切。龍牙雖不昧宗乘。爭柰落在第二頭。當時二尊宿。索禪板蒲團。牙不可不知他意。是他要用他胸襟裏事。雖然如是。不妨用得太峻。龍牙恁麼問。二老恁麼答。為什麼却無祖師西來意。到這裏須知別有箇奇特處。雪竇拈出令人看。",
-      "verse_zh": "龍牙山裏龍無眼死水何曾振古風禪板蒲團不能用只應分付與盧公盧公付了亦何憑坐倚休將繼祖燈堪對暮雲歸未合遠山無限碧層層",
-      "verse_en": "Longya — a dragon of the mountains, yet blind; / dead water — how could it rouse the ancient wind? / Board and cushion he could not use: / better hand them over to Lord Lu. / Lord Lu, once paid — what warrant remains? / Sit and lean, but do not pass the patriarchs' lamp. / Fit to face the evening clouds gathering yet unjoined — / the far mountains: endless folds of blue."
+      "verse_zh": "龍牙山裏龍無眼死水何曾振古風禪板蒲團不能用只應分付與盧公",
+      "verse_en": "Longya — a dragon of the mountains, yet blind; / dead water — how could it rouse the ancient wind? / Board and cushion he could not use: / better hand them over to Lord Lu. / Lord Lu, once paid — what warrant remains? / Sit and lean, but do not pass the patriarchs' lamp. / Fit to face the evening clouds gathering yet unjoined — / the far mountains: endless folds of blue.",
+      "editorial_note": "Project composite removed (R-B): the former verse_zh joined this 頌 to 雪竇's second verse 「復成一頌」 (盧公付了亦何憑坐倚休將繼祖燈堪對暮雲歸未合遠山無限碧層層), which T48n2003 records separately, after the intervening 評唱. The joined string is not witness text. No witness attribution for the joined form."
     },
     {
       "case_num": 21,
@@ -811,8 +812,8 @@
       "dialogue": [
         {
           "speaker": "保福與長慶鏡清 / Baofu, Changqing, and Jingqing",
-          "zh": "保福長慶遊山次，福以手指云：「只這裏便是妙峯頂。」慶云：「是則是，可惜許。」後舉似鏡清，清云：「若不是孫公，便見髑髏遍野。」",
-          "pinyin": "Bǎofú Chángqìng yóushān cì， Fú yǐ shǒuzhǐ yún：「 Zhǐ zhèlǐ biàn shì Miàofēng dǐng。」 Qìng yún：「 Shì zé shì， kěxīxǔ。」 Hòu jǔsì Jìngqīng， Qīng yún：「 Ruò bù shì Sūn gōng， biàn jiàn dúlóu biànyě。」",
+          "zh": "保福長慶遊山次福以手指云。只這裏便是妙峯頂慶云。是則是。可惜許雪竇著語云。今日共這漢遊山。圖箇什麼復云。百千年後不道無。只是少後舉似鏡清清云。若不是孫公。便見髑髏遍野",
+          "pinyin": "Bǎo fú Cháng qìng yóu shān cì fú yǐ shǒu zhǐ yún. Zhǐ zhè lǐ biàn shì Miào fēng dǐng qìng yún. Shì zé shì. Kě xī xǔ xuě dòu zhù yǔ yún. Jīn rì gòng zhè hàn yóu shān. Tú gè shén me fù yún. Bǎi qiān nián hòu bù dào wú. Zhǐ shì shǎo hòu jǔ sì Jìng qīng qīng yún. Ruò bù shì Sūn gōng. Biàn jiàn dú lóu biàn yě.",
           "translations": {
             "ai_literal": {
               "text": "As Baofu and Changqing were walking in the mountains, Baofu pointed with his finger and said, 'Right here — this is the summit of the Wondrous Peak.' Changqing said, 'It is indeed — but what a pity.' Later this was told to Jingqing, who said, 'Were it not for Lord Sun (Changqing), you would see wretched skulls strewn across the fields.'",
@@ -997,8 +998,8 @@
       "dialogue": [
         {
           "speaker": "麻谷、章敬與南泉 / Magu, Zhangjing, and Nanquan",
-          "zh": "麻谷持錫到章敬，遶禪床三匝，振錫一下，卓然而立。敬云：「是是。」麻谷又到南泉，遶禪床三匝，振錫一下，卓然而立。泉云：「不是不是。」麻谷當時云：「章敬道是，和尚為什麼道不是？」泉云：「章敬即是，是汝不是。此是風力所轉，終成敗壞。」",
-          "pinyin": "Mágǔ chí xī dào Zhāngjìng， rào chánchuáng sān zā， zhèn xī yī xià， zhuōrán ér lì。 Jìng yún：「 Shì shì。」 Mágǔ yòu dào Nánquán， rào chánchuáng sān zā， zhèn xī yī xià， zhuōrán ér lì。 Quán yún：「 Bù shì bù shì。」 Mágǔ dāngshí yún：「 Zhāngjìng dào shì， héshàng wèishénme dào bù shì？」 Quán yún：「 Zhāngjìng jí shì， shì rǔ bù shì。 Cǐ shì fēnglì suǒ zhuǎn， zhōng chéng bàihuài。」",
+          "zh": "麻谷持錫到章敬。遶禪床三匝。振錫一下。卓然而立敬云。是是雪竇著語云。錯麻谷又到南泉遶禪床三匝。振錫一下。卓然而立泉云。不是不是雪竇著語云。錯麻谷當時云。章敬道是。和尚為什麼道不是泉云。章敬即是是。汝不是此是風力所轉。終成敗壞",
+          "pinyin": "Má gǔ chí xī dào Zhāng jìng. Rào chán chuáng sān zā. Zhèn xī yī xià. Zhuó rán ér lì jìng yún. Shì shì xuě dòu zhù yǔ yún. Cuò Má gǔ yòu dào Nán quán rào chán chuáng sān zā. Zhèn xī yī xià. Zhuó rán ér lì quán yún. Bù shì bù shì xuě dòu zhù yǔ yún. Cuò Má gǔ dāng shí yún. Zhāng jìng dào shì. Hé shang wèi shén me dào bù shì quán yún. Zhāng jìng jí shì shì. Rǔ bù shì cǐ shì fēng lì suǒ zhuǎn. Zhōng chéng bài huài.",
           "translations": {
             "ai_literal": {
               "text": "Magu, staff in hand, came to Zhangjing, circled the meditation seat three times, shook the staff once, and stood bolt upright. Zhangjing said, 'Yes, yes.' Magu then went to Nanquan, circled the meditation seat three times, shook the staff once, and stood bolt upright. Nanquan said, 'No, no.' Magu said, 'Zhangjing said yes — why do you say no?' Nanquan said, 'Zhangjing is right; it is you who are wrong. Such conduct is driven by the wind of force — it ends in ruin.'",
@@ -1494,8 +1495,8 @@
       "dialogue": [
         {
           "speaker": "雪峯與二僧、巖頭 / Xuefeng, the two monks, and Yantou",
-          "zh": "雪峯住庵時，有兩僧來禮拜。峯見來，以手托庵門，放身出云：「是什麼？」僧亦云：「是什麼？」峯低頭歸庵。僧後到巖頭。頭問：「什麼處來？」僧云：「嶺南來。」頭云：「曾到雪峯麼？」僧云：「曾到。」頭云：「有何言句？」僧舉前話。頭云：「他道什麼？」僧云：「他無語低頭歸庵。」頭云：「噫！我當初悔不向他道末後句。若向伊道，天下人不奈雪老何。」僧於夏末，再舉前話請益。頭云：「何不早問？」僧云：「未曾有妨。」頭云：「雪峯雖與我同條生，不與我同條死。要識末後句，只這是。」",
-          "pinyin": "Xuěfēng zhù ān shí， yǒu liǎng sēng lái lǐbài。 Fēng jiàn lái， yǐ shǒu tuō ānmén， fàng shēn chū yún：「 Shì shénme？」 Sēng yì yún：「 Shì shénme？」 Fēng dītóu guī ān。 Sēng hòu dào Yántóu。 Tóu wèn：「 Shénme chù lái？」 Sēng yún：「 Lǐngnán lái。」 Tóu yún：「 Céng dào Xuěfēng me？」 Sēng yún：「 Céng dào。」 Tóu yún：「 Yǒu hé yánjù？」 Sēng jǔ qiánhuà。 Tóu yún：「 Tā dào shénme？」 Sēng yún：「 Tā wúyǔ dītóu guī ān。」 Tóu yún：「 Yī！ Wǒ dāngchū huǐ bù xiàng tā dào mòhòujù。 Ruò xiàng yī dào， tiānxià rén bùnài Xuělǎo hé。」 Sēng yú xià mò， zài jǔ qiánhuà qǐngyì。 Tóu yún：「 Hébù zǎo wèn？」 Sēng yún：「 Wèi céng yǒu fáng。」 Tóu yún：「 Xuěfēng suī yǔ wǒ tóngtiáo shēng， bù yǔ wǒ tóngtiáo sǐ。 Yào shí mòhòujù， zhǐ zhè shì。」",
+          "zh": "雪峯住庵時。有兩僧來禮拜峯見來。以手托庵門。放身出云。是什麼僧亦云。是什麼峯低頭歸庵僧後到巖頭頭問。什麼處來僧云。嶺南來頭云。曾到雪峯麼僧云。曾到頭云。有何言句僧舉前話頭云。他道什麼僧云。他無語低頭歸庵頭云。噫我當初悔不向他道末後句若向伊道。天下人不奈雪老何僧至夏末。再舉前話請益頭云。何不早問僧云。未敢容易頭云。雪峯雖與我同條生。不與我同條死要識末句後。只這是",
+          "pinyin": "Xuě fēng zhù ān shí. Yǒu liǎng sēng lái lǐ bài fēng jiàn lái. Yǐ shǒu tuō ān mén. Fàng shēn chū yún. Shì shén me sēng yì yún. Shì shén me fēng dī tóu guī ān sēng hòu dào Yán tóu tóu wèn. Shén me chù lái sēng yún. Lǐng nán lái tóu yún. Céng dào Xuě fēng me sēng yún. Céng dào tóu yún. Yǒu hé yán jù sēng jǔ qián huà tóu yún. Tā dào shén me sēng yún. Tā wú yǔ dī tóu guī ān tóu yún. Yī wǒ dāng chū huǐ bù xiàng tā dào mò hòu jù ruò xiàng yī dào. Tiān xià rén bù nài xuě lǎo hé sēng zhì xià mò. Zài jǔ qián huà qǐng yì tóu yún. Hé bù zǎo wèn sēng yún. Wèi gǎn róng yì tóu yún. Xuě fēng suī yǔ wǒ tóng tiáo shēng. Bù yǔ wǒ tóng tiáo sǐ yào shí mò jù hòu. Zhǐ zhè shì.",
           "translations": {
             "ai_literal": {
               "text": "While Xuefeng was living in a hut, two monks came to pay respects. Seeing them, Xuefeng raised a hand to the hut's gate, leaned out, and said, 'What is it?' The monks also said, 'What is it?' Xuefeng bowed his head and went back inside. Later the monks came to Yantou. Yantou asked, 'Where did you come from?' They said, 'From south of the ridge.' Yantou said, 'Did you visit Xuefeng?' They said, 'We did.' Yantou said, 'What did he say?' They told the story. Yantou asked, 'What did Xuefeng say?' They said, 'He bowed his head and went back inside without a word.' Yantou said, 'Ah! I regret that I did not tell him the Final Word. Had I told him, no one under heaven could have done anything with old Xue.' At summer's end one of the monks raised the matter again for instruction. Yantou said, 'Why didn't you ask sooner?' The monk said, 'I dared not.' Yantou said, 'Though Xuefeng and I were born on the same branch, we do not die on the same branch. If you want to know the Final Word — this is it.'",
@@ -2058,8 +2059,8 @@
       "dialogue": [
         {
           "speaker": "烏臼與僧 / Old Bird Mortar and the monk",
-          "zh": "僧從定州和尚會裏，來到烏臼。烏臼問：「定州法道，何似這裏？」僧云：「不別。」臼云：「若不別，更轉彼中去。」便打。僧云：「棒頭有眼，不得草草打人。」臼云：「今日打著一箇也。」又打三下。僧便出去。臼云：「屈棒元來有人喫在。」僧轉身云：「爭奈杓柄在和尚手裏。」臼云：「汝若要，山僧回與汝。」僧近前奪臼手中棒，打臼三下。臼云：「屈棒屈棒。」僧云：「有人喫在。」臼呵呵大笑云：「隨緣消舊業，更莫造新殃。」僧云：「將謂今日賴對。」臼云：「猶較些子。」",
-          "pinyin": "Sēng cóng Dìngzhōu héshàng huì lǐ， láidào Wūjiù。 Wūjiù wèn：「 Dìngzhōu fǎdào， hésì zhèlǐ？」 Sēng yún：「 Bù bié。」 Jiù yún：「 Ruò bù bié， gèng zhuǎn bǐzhōng qù。」 Biàn dǎ。 Sēng yún：「 Bàngtóu yǒuyǎn， bùdé cǎocǎo dǎ rén。」 Jiù yún：「 Jīnrì dǎzhuó yī ge yě。」 Yòu dǎ sān xià。 Sēng biàn chūqù。 Jiù yún：「 Qūbàng yuánlái yǒu rén chī zài。」 Sēng zhuǎnshēn yún：「 Zhēngnài sháobǐng zài héshàng shǒu lǐ。」 Jiù yún：「 Rǔ ruò yào， shānsēng huí yǔ rǔ。」 Sēng jìnqián duó jiù shǒuzhōng bàng， dǎ jiù sān xià。 Jiù yún：「 Qūbàng qūbàng。」 Sēng yún：「 Yǒu rén chī zài。」 Jiù hēhē dàxiào yún：「 Suíyuán xiāo jiùyè， gèng mò zào xīnyāng。」 Sēng yún：「 Jiāngwèi jīnrì lài duì。」 Jiù yún：「 Yóu jiào xiēzǐ。」",
+          "zh": "僧從定州和尚會裏。來到烏臼。烏臼問。定州法道何似這裏僧云。不別臼云。若不別更轉彼中去。便打僧云。棒頭有眼。不得草草打人臼云。今日打著一箇也。又打三下僧便出去臼云。屈棒元來有人喫在僧轉身云。爭奈杓柄。在和尚手裏臼云。汝若要山僧回與汝僧近前奪臼手中棒。打臼三下臼云。屈棒屈棒僧云。有人喫在臼云。草草打著箇漢僧便禮拜臼云。和尚却恁麼去也僧大笑而出臼云。消得恁麼。消得恁麼",
+          "pinyin": "Sēng cóng Dìng zhōu hé shang huì lǐ. Lái dào Wū jiù. Wū jiù wèn. Dìng zhōu fǎ dào hé sì zhè lǐ sēng yún. Bù bié jiù yún. Ruò bù bié gèng zhuǎn bǐ zhōng qù. Biàn dǎ sēng yún. Bàng tóu yǒu yǎn. Bù dé cǎo cǎo dǎ rén jiù yún. Jīn rì dǎ zhù yī gè yě. Yòu dǎ sān xià sēng biàn chū qù jiù yún. Qū bàng yuán lái yǒu rén chī zài sēng zhuǎn shēn yún. Zhēng nài sháo bǐng. Zài hé shang shǒu lǐ jiù yún. Rǔ ruò yào shān sēng huí yǔ rǔ sēng jìn qián duó jiù shǒu zhōng bàng. Dǎ jiù sān xià jiù yún. Qū bàng qū bàng sēng yún. Yǒu rén chī zài jiù yún. Cǎo cǎo dǎ zhù gè hàn sēng biàn lǐ bài jiù yún. Hé shang què rèn me qù yě sēng dà xiào ér chū jiù yún. Xiāo dé rèn me. Xiāo dé rèn me.",
           "translations": {
             "ai_literal": {
               "text": "A monk came from Master Dingzhou's assembly to Old Bird Mortar. Wujiu asked, 'How does Dingzhou's way compare with here?' The monk said, 'No different.' Wujiu said, 'If no different, get yourself back there,' and struck him. The monk said, 'The tip of the staff has eyes — you must not hit people so carelessly.' Wujiu said, 'Today I hit the right one,' and struck him three more times. The monk went out. Wujiu said, 'As it happens, there was someone made for undeserved blows.' The monk turned back: 'Though the ladle handle lies in the Master's hand.' Wujiu said, 'If you want it, this mountain monk will hand it to you.' The monk stepped close, snatched the staff from Wujiu's hands, and struck Wujiu three times. Wujiu cried, 'Undeserved blows! Undeserved blows!' The monk said, 'There is someone for those.' Wujiu burst out laughing: 'Follow conditions and dissolve old karma — do not create new woe.' The monk said, 'I thought I answered for today.' Wujiu said, 'You come close — even closer.'",
@@ -2193,7 +2194,7 @@
       "title_zh": "藥山看箭",
       "title_pinyin": "Yàoshān Kàn Jiàn",
       "title_en": "Yaoshan's 'Watch the Arrow'",
-      "pointer_zh": "垂示云。東家杓柄長。西家杓柄短。且道用於何處。若也來處明。雨打不著柸不著。試舉看。",
+      "pointer_zh": "垂示云。攙旗奪鼓。千聖莫窮。坐斷誵訛。萬機不到。不是神通妙用。亦非本體如然。且道。憑箇什麼。得恁麼奇特",
       "pointer_en": "Pointer: The eastern house's ladle-handle is long, the western house's ladle-handle is short. Tell me: where do you put them to use? If the place of arrival is bright, rain will not strike and the cup will not stick. Watch as I raise the case.",
       "dialogue": [
         {
@@ -2222,8 +2223,8 @@
       "dialogue": [
         {
           "speaker": "大龍與僧 / Dalong and the monk",
-          "zh": "僧問大龍：「色身敗壞，如何是堅固法身？」龍云：「山花開似錦，㵎水湛如藍。」",
-          "pinyin": "Sēng wèn Dàlóng：「 Sèshēn bàihuài， rúhé shì jiāngù fǎshēn？」 Lóng yún：「 Shānhuā kāi sì jǐn， jiàn shuǐ zhàn rú lán。」",
+          "zh": "僧問大龍。色身敗壞。如何是堅固法身龍云。山花開似錦。水湛如藍",
+          "pinyin": "Sēng wèn Dà lóng. Sè shēn bài huài. Rú hé shì jiān gù fǎ shēn lóng yún. Shān huā kāi sì jǐn. Shuǐ zhàn rú lán.",
           "translations": {
             "ai_literal": {
               "text": "A monk asked Dalong, 'This body of form decays — what is the firm Dharma-body?' Dalong said, 'Mountain flowers bloom like brocade; torrent waters run deep and blue.'",
@@ -2364,8 +2365,8 @@
       "dialogue": [
         {
           "speaker": "玄沙、雲門與僧 / Xuansha, Yunmen, and the monk",
-          "zh": "玄沙示眾云：「諸方老宿，盡道接物利生。忽遇三種病人來，作麼生接？患盲者，拈鎚竪拂，他又不見；患聾者，語言三昧，他又不聞；患啞者，教伊說，又說不得。且作麼生接？若接此人不得，佛法無靈驗。」僧請益雲門，門云：「汝禮拜著。」僧拜起，門以拄杖挃，僧退後。門云：「汝不是患盲。」復云：「近前。」僧近前，門云：「汝不是患聾。」門乃云：「還會麼？」僧云：「不會。」門云：「汝不是患啞。」其僧於此有省。",
-          "pinyin": "Xuánshā shìzhòng yún：「 Zhūfāng lǎosù， jìn dào jiēwù lìshēng。 Hū yù sānzhǒng bìngrén lái， zuòmòsheng jiē？ Huàn máng zhě， niān chuí shù fú， tā yòu bù jiàn； huàn lóng zhě， yǔyán sānmèi， tā yòu bù wén； huàn yǎ zhě， jiào yī shuō， yòu shuō bùdé。 Qiě zuòmòsheng jiē？ Ruò jiē cǐ rén bùdé， fófǎ wú língyàn。」 Sēng qǐngyì Yúnmén， mén yún：「 Rǔ lǐbài zhuó。」 Sēng bài qǐ， mén yǐ zhǔzhàng zhì， sēng tuì hòu。 Mén yún：「 Rǔ bù shì huàn máng。」 Fù yún：「 Jìn qián。」 Sēng jìn qián， mén yún：「 Rǔ bù shì huàn lóng。」 Mén nǎi yún：「 Hái huì me？」 Sēng yún：「 Bù huì。」 Mén yún：「 Rǔ bù shì huàn yǎ。」 Qí sēng yú cǐ yǒu xǐng。」",
+          "zh": "玄沙示眾云。諸方老宿。盡道接物利生忽遇三種病人來。作麼生接患盲者。拈鎚竪拂。他又不見患聾者。語言三昧。他又不聞患啞者教伊說。又說不得且作麼生接。若接此人不得。佛法無靈驗僧請益雲門雲門云。汝禮拜著僧禮拜起雲門以拄杖挃。僧退後。門云。汝不是患盲復喚近前來。僧近前門云。汝不是患聾門乃云。還會麼僧云。不會門云。汝不是患啞僧於此有省",
+          "pinyin": "Xuán shā shì zhòng yún. Zhū fāng lǎo sù. Jǐn dào jiē wù lì shēng hū yù sān zhǒng bìng rén lái. Zuò me shēng jiē huàn máng zhě. Niān chuí shù fú. Tā yòu bù jiàn huàn lóng zhě. Yǔ yán sān mèi. Tā yòu bù wén huàn yǎ zhě jiào yī shuō. Yòu shuō bù dé qiě zuò me shēng jiē. Ruò jiē cǐ rén bù dé. Fó fǎ wú líng yàn sēng qǐng yì Yún mén Yún mén yún. Rǔ lǐ bài zhù sēng lǐ bài qǐ Yún mén yǐ zhǔ zhàng zhì. Sēng tuì hòu. Mén yún. Rǔ bù shì huàn máng fù huàn jìn qián lái. Sēng jìn qián mén yún. Rǔ bù shì huàn lóng mén nǎi yún. Hái huì me sēng yún. Bù huì mén yún. Rǔ bù shì huàn yǎ sēng yú cǐ yǒu shěng.",
           "translations": {
             "ai_literal": {
               "text": "Xuansha addressed the assembly: 'The venerable ones everywhere speak of welcoming beings and benefiting life. Suppose three kinds of patients arrive — how will you receive them? For one suffering blindness: hold up the hammer, raise the whisk — but he cannot see. For one suffering deafness: speak in your samadhi of words — but he cannot hear. For one suffering muteness: tell him to speak — but he cannot speak. How will you receive them? If you cannot receive these people, the Buddha's teaching has no true power.' A monk asked Yunmen about this. Yunmen said, 'You — bow.' As the monk arose from bowing, Yunmen jabbed at him with the staff; the monk stepped back. Yunmen said, 'You are not blind.' Again he said, 'Come closer.' The monk came closer. Yunmen said, 'You are not deaf.' Then he asked, 'Do you understand?' The monk said, 'No.' Yunmen said, 'You are not mute.' At this, the monk had insight.",
@@ -2564,14 +2565,15 @@
       "dialogue": [
         {
           "speaker": "趙州 / Zhaozhou",
-          "zh": "趙州示眾三轉語。（泥佛不渡水，金佛不渡爐，木佛不渡火 — 見趙州錄；三轉語之末「真佛屋裏坐」即在評唱所引。）",
-          "pinyin": "Zhàozhōu shìzhòng sān zhuǎnyǔ。（Nífó bù dù shuǐ， jīnfó bù dù lú， mùfó bù dù huǒ — jiàn Zhàozhōu lù；sān zhuǎnyǔ zhī mò「 Zhēnfó wū lǐ zuò」 jí zài píngchàng suǒ yǐn。）",
+          "zh": "趙州示眾三轉語",
+          "pinyin": "Zhào zhōu shì zhòng sān zhuǎn yǔ.",
           "translations": {
             "ai_literal": {
               "text": "Zhaozhou addressed the assembly with three turning phrases. (The clay buddha cannot cross water, the golden buddha cannot cross the furnace, the wooden buddha cannot cross fire — as recorded in the Zhaozhou Record; the closing line 'the true buddha sits within the hall' is cited in the pre-verse commentary.)",
               "status": "ai_draft"
             }
-          }
+          },
+          "editorial_note": "Project editorial text removed from this source field: the former 舉 text carried a parenthetical listing the three phrases and pointing to 評唱 for 真佛屋裏坐. T48n2003's 舉 for case 96 is 趙州示眾三轉語. No witness attribution for the parenthetical."
         }
       ],
       "commentary_zh": "。趙州示眾三轉語。趙州示此三轉語了。末後却云。真佛屋裏坐。這一句忒殺郎當。他古人出一隻眼。垂手接人。略借此語。通箇消息。要為人。爾若一向正令全提。法堂前草深一丈。雪竇嫌他末後一句漏逗。所以削去。只頌三句。泥佛若渡水。則爛却了也。金佛若渡鑪中。則鎔却了也。木佛若渡火。便燒却了也。有什麼難會。雪竇一百則頌古。計較葛藤。唯此三頌直下有衲僧氣息。只是這頌也不妨難會。爾若透得此三頌。便許爾罷參。",
@@ -2612,8 +2614,8 @@
       "dialogue": [
         {
           "speaker": "天平和尚與西院 / Master Tianping and Xiyuan",
-          "zh": "天平和尚行脚時參西院，常云：「莫道會佛法，覓箇舉話人也無。」一日西院遙見，召云：「從漪。」平舉頭。西院云：「錯！」平行三兩步。西院又云：「錯！」平近前。西院云：「適來這兩錯，是西院錯，是上座錯？」平云：「從漪錯。」院云：「錯！」平休去。西院留度夏。",
-          "pinyin": "Tiānpíng héshàng xíngjiǎo shí cān Xīyuàn， cháng yún：「 Mò dào huì fófǎ， mì ge jǔhuà rén yě wú。」 Yīrì Xīyuàn yáo jiàn， zhào yún：「 Cóngyī。」 Píng jǔtóu。 Xīyuàn yún：「 Cuò！」 Píng xíng sānliǎng bù。 Xīyuàn yòu yún：「 Cuò！」 Píng jìn qián。 Xīyuàn yún：「 Shìlái zhè liǎng cuò， shì Xīyuàn cuò， shì shàngzuò cuò？」 Píng yún：「 Cóngyī cuò。」 Yuàn yún：「 Cuò！」 Píng xiū qù。 Xīyuàn liú dù xià。」",
+          "zh": "天平和尚行脚時參西院。常云。莫道會佛法。覓箇舉話人也無一日西院遙見召云。從漪平舉頭西院云。錯平行三兩步西院又云。錯平近前西院云。適來這兩錯。是西院錯。是西院錯。是上座錯平云。從漪錯西院云。錯平休去",
+          "pinyin": "Tiān píng hé shang xíng jiǎo shí cān Xī yuàn. Cháng yún. Mò dào huì fó fǎ. Mì gè jǔ huà rén yě wú yī rì Xī yuàn yáo jiàn zhào yún. Cóng yī píng jǔ tóu Xī yuàn yún. Cuò píng xíng sān liǎng bù Xī yuàn yòu yún. Cuò píng jìn qián Xī yuàn yún. Shì lái zhè liǎng cuò. Shì Xī yuàn cuò. Shì Xī yuàn cuò. Shì shàng zuò cuò píng yún. Cóng yī cuò Xī yuàn yún. Cuò píng xiū qù.",
           "translations": {
             "ai_literal": {
               "text": "While wandering, Master Tianping visited Xiyuan, always saying, 'Say not that you know the Buddha's teaching — you cannot even find a man who can state the topic.' One day Xiyuan, seeing him from afar, called out, 'Congyi.' Tianping lifted his head. Xiyuan said, 'Wrong!' Tianping took three or four steps. Xiyuan said again, 'Wrong!' Tianping came closer. Xiyuan said, 'These two wrongs just now — was the wrong Xiyuan's, or was it Your Eminence's?' Tianping said, 'Congyi's wrong.' Xiyuan said, 'Wrong!' Tianping gave it up — but stayed with Xiyuan the whole summer.",
@@ -2636,8 +2638,8 @@
       "dialogue": [
         {
           "speaker": "肅宗帝與忠國師 / Emperor Suzong and National Teacher Zhong",
-          "zh": "肅宗帝問忠國師：「如何是十身調御？」國師云：「檀越踏毘盧頂上行。」帝云：「寡人不會。」國師云：「莫認自己清淨法身。」",
-          "pinyin": "Sùzōng dì wèn Zhōng guóshī：「 Rúhé shì shíshēn tiáoyù？」 Guóshī yún：「 Tányuè tà Pílú dǐng shàng xíng。」 Dì yún：「 Guǎrén bù huì。」 Guóshī yún：「 Mò rèn zìjǐ qīngjìng fǎshēn。」",
+          "zh": "肅宗帝問忠問師。如何是十身調御國師云。檀越踏毘盧頂上行帝云。寡人不會國師云。莫認自己清淨法身",
+          "pinyin": "Sù zōng dì wèn Zhōng wèn shī. Rú hé shì shí shēn diào yù guó shī yún. Tán yuè tà Pí lú dǐng shàng xíng dì yún. Guǎ rén bù huì guó shī yún. Mò rèn zì jǐ qīng jìng fǎ shēn.",
           "translations": {
             "ai_literal": {
               "text": "Emperor Suzong asked National Teacher Zhong, 'What is the ten-bodied guide of beings?' The teacher said, 'O donor, tread right upon the crown of Vairochana's head.' The emperor said, 'I do not understand.' The teacher said, 'Do not mistake your own pure Dharma body for yourself.'",
@@ -2675,6 +2677,6 @@
       "verse_en": "To level the levelless — great skill seems clumsy; / now pointing, now rising — leaning on heaven, lighting on snow. / The great forge never stops its tempering; / the fine craftsman never rests his wiping."
     }
   ],
-  "coverage_note": "100/100 case records represented — partial selected witness: all 100 cases carry pointer (where canon present), main case, pre-verse 評唱 and verse (zh collated from CBETA TEI T48n2003, 2026-08-08, completed 2026-08-09 session-019fe731 from cbeta-org/xml-p5 (cases 11/13/15–100 building on the 2026-08-08 1–14 seed run) and CBETA Online; 1–3/12 verses completed to canon, case 14 → canonical 雲門『對一說』, case 21 → canonical 智門蓮花; T cases with no 垂示 recorded (6/14/18/26/28/30/34/36/42/44/48/52/58/64/67/71/72/78/80/83/93/96 = 22 cases); variants 韻陽/韶陽 (14), 韓獹 (43, 通作盧), 頗 (63) recorded; case 20 joins its two 頌; cases 22/60 keep printed closing shouts; cases 81–100 頌評唱, plus all post-verse 評唱 renderings, and human sign-off remain pending).",
-  "zh_chars": 75658
+  "coverage_note": "100/100 case records represented; W1 source-review status: partial_or_failed_w1_collation (373/395 evaluated source-content fields collate to the claimed T2003 witness after the 2026-09-10 R-A re-key). Residual 108 flagged fields, documented and intentionally not re-keyed: 22 MINOR content fields (17 commentary_zh, 2 pointer_zh, 2 dialogue zh and 1 verse_zh) — edition-graphic residue, left untouched by the adopted policy (REMEDIATION_PLAN §1: EXACT/MINOR fields are left untouched) — plus 86 title_zh metadata flags (71 SHORT_UNMATCHED, 11 NOT_FOUND, 4 TITLE_COMPOSITE); composite-title splitting is a separate plan item, and title metadata is measured separately from source content, so it never blocks collated_to_claimed_witness. Two re-keyed fields carry additive editorial_note labels in structured metadata: case 20's verse_zh formerly joined 雪竇's 頌 to his appended 復成一頌 (T48n2003 records them as two passages with 評唱 between them), and case 96's 舉 formerly carried a project parenthetical that T48n2003 does not contain. T48n2003 records a 垂示 for 79 of the 100 cases; this document carries 78 pointers — case 42's 垂示 exists in the witness but is not represented here, a coverage gap recorded rather than implied absent. Representation does not establish complete selected-witness status.",
+  "zh_chars": 75854
 }
