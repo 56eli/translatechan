@@ -115,6 +115,36 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   decision* is deferred to the inventory — the file records it as labelled-not-sourced, which is the true
   state. **My doc-count sync rule paid for itself on first use**: main landed with all nine gates green,
   so 007a/007b can be dispatched against `3c838db` without inheriting a red base.
+- [x] **#36 MERGED as `b3cd14f`** — Phase 1 (measurement) closed on main: 3 inventory files, 35 doc
+  blocks, 70 P0 bullets, 35 `OUT-OF-CBETA` routes. 007a/007b are **delivered — do not re-dispatch**.
+- [x] **Prompt 008 authored + published** (`.orchestrator/prompts/008-phase2-consolidation.md`, 14,099 B,
+  sha256 `9eea38587f3127b1…`): consolidate the three inventories into `PHASE2_PLAN.md` (one row per
+  finding, ranked, each classified `RE-KEY`/`LABEL`/`CITATION`/`HUMAN-SOURCE`/`NONE`); re-verify rather
+  than aggregate (re-extract refs, re-run collation, spot-check 5 findings of the coder's choosing,
+  including one top-ranked and one `OUT-OF-CBETA`); report disagreements between the three files; fix
+  exactly three stale tracker facts (STATE.md's false "blocked on an owner recension ruling"; missing
+  007a/007b links; REMEDIATION_PLAN's unticked `platform_sutra` → "labelled (#35), text decision
+  deferred", **not** ticked done); end with the three questions only a human can answer. Base pinned to
+  `b3cd14f` with stop-if-absent. Tracker-only scope, no data path.
+  - **Self-corrections during authoring, both from measuring instead of recalling.** (1) My first §9 said
+    the five-ledger sentence is required in `STATE.md`; re-reading `validate_data.py:1264-1300` shows it
+    applies to `README/AUDIT/HANDOFF/ROADMAP/REMEDIATION_PLAN` only, `STATE.md` needing just `630` +
+    `CORRECTED|superseded`. Rewritten — a wrong hazard warning sends a coder to preserve text the gate
+    never asked for. (2) Found a **per-line** rule on the scanned files: any line containing `T1987` must
+    also say `false`/`caoshan`, and superseded totals (`622`/`637`) must be qualified — a live trap for a
+    consolidation doc whose top finding *is* `zhaozhou_yulu`/T1987. Both taught in 008, with the caveat
+    that those snippets are f-strings generated from `data/project_metrics.json`, so grepping the script
+    for them finds nothing.
+  - **New owner-queue fact:** `README`/`AUDIT`/`HANDOFF` are *gate-enforced* to state that Zhaozhou's
+    claimed T1987 is the Caoshan record and the claim is false, while `data/corpus/zhaozhou_yulu.json`
+    still cites T1987 — docs and data contradict each other by design of the gate. Strongest argument yet
+    for authorising the `CITATION` fix.
+  - **[!] Sandbox failure mode escalated:** this ledger edit was applied, verified by the writing script,
+    and then **silently discarded between the write and `git add`** (disk, HEAD and remote all 58,276 B,
+    edit absent) — the first time a revert ate a change *inside* one of my own commands rather than
+    between turns. Countermeasure now routine: write → `grep` for my marker → `git add` → `git diff
+    --cached --name-only` must list every intended file → commit → verify `git show HEAD:<file> | grep
+    marker` before pushing.
 - [x] **PR #36 — 007a + 007b delivered together — verdict MERGE** (head `2ba6834`, 2 commits, 2 files,
   +1209/−0). Reviewer-grade verification, all independent of the PR's own tables: my own 39-work
   extraction (`39 verified / 0 drift`); my own `collate_corpus` run on current main agrees with the two
