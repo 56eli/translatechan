@@ -162,7 +162,7 @@ locators); witness changes; safety statement.
 ## 5. Wave checklist
 
 - [x] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1) — see §1.1
-- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☑ (PR #NN, 2026-09-11) platform_sutra ☐
+- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☑ (PR #34, 2026-09-11) platform_sutra ☐
 - [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
@@ -220,7 +220,7 @@ untouched: the `sections.four_shouts` anchor still holds and every re-keyed span
 `source_review_status` stays `partial_or_failed_w1_collation` and `completion_status` stays
 `partial_selected_witness`; the status flip belongs to the separate post-remediation evidence pass.
 
-## Wave 1 progress — document 4: `xinxin_ming` (PR #NN, 2026-09-11)
+## Wave 1 progress — document 4: `xinxin_ming` (PR #34, 2026-09-11)
 
 **Witness:** 信心銘 (三祖僧璨大師), `cbeta_id` T2010 → reference work **T48n2010**, CBETA XML P5 pinned at
 `dbdea41071e1e260ad84b72faefd4587333cf76d`; `ref_T48n2010.txt` extracted by `scripts/collate_refs.py`
