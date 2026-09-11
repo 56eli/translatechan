@@ -106,6 +106,24 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   which is now known. Needs a 4-line docs PR (or fold into 006's deliverable set if the operator wants
   zero extra PRs). Prompts from 006 on must require: "no `#NN`/`PR #N` placeholder in any committed
   tracker line; read back your own PR number after opening, then amend in a final `docs:` commit."
+- [x] **Phase 1 completed in structure: 006 + 007a + 007b** (three disjoint inventory PRs, 9 + 14 + 12
+  documents = 35/35). 007a/007b are **pure additions** — each creates exactly one new
+  `.orchestrator/WITNESS_INVENTORY_*.md`, touches no tracker and no data — so all three can run in
+  parallel with 009 without rebase risk. 008 (consolidation + ranking + registering the three files in
+  `STATE.md`) is deliberately **not authored yet**: it consumes their outputs, so pre-writing it would
+  be authoring against content that does not exist.
+  Family split was derived by **importing `collate_corpus.DOCS`** (`T47n*` → 006: 9 docs; X-series →
+  007b: 12; remainder → 007a: 14 = 12 + 2 witness-unavailable). `qinggui_monastic_codes` and
+  `shitou_sandokai` cite X works but are assigned to 007a by precedence; `chuandenglu`/`deshan_yulu`
+  cite X as probes and go to 007b — both notes are in the prompts so the coder cannot "correct" the split.
+- [!] **Self-caught before publication:** my first draft of 007a/007b said 10 and 16 documents. Both
+  wrong, produced by hand-counting a rendered table. Verification attempts then failed three times for
+  tooling reasons (regexes that could not match the `X63n1223` id form or the manifest's `<sha>  ref_`
+  line, plus a walrus reassigning a set inside a comprehension), which briefly made the corpus look like
+  it contained **zero** X-series witnesses — a far more alarming and entirely fictional result. Fix:
+  parse data structures by import, never by re-deriving their textual format. Recorded because it is the
+  same failure mode I am auditing in others, and the near-miss was only caught by refusing to accept a
+  surprising number.
 - [x] **Scope decision taken on the owner's "Continue"** = **(a) label, don't re-divide** (my
   recommendation; recorded as *recommended-and-adopted*, not owner-authored — if the owner wants (b),
   009's data edits are additive so (b) stays available as a later package). **Prompts 006 and 009
