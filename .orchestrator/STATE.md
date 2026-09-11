@@ -26,12 +26,13 @@
 
 **Scoreboard retired (2026-09-11, PR #31):** `.scoreboard/` + `SCOREBOARD.md` deleted per the 2026-09-09 owner decision; the `.scoreboard/` history log and all `user_score` fields were deleted, not migrated (the owner decision superseded them); the owner-controlled workflow-edit record survives relocated to `OPERATIONS.md`, where the retired `blocked_manual_workflow_edit` status vocabulary is now a plain prose note.
 
-**Next planned task:** visual-system reset (separate from this containment/status-model work; do not begin it in this PR).
+**Active track — Wave 1 remediation (in progress):** per-document work under the adopted hybrid policy — R-A where authoritative witness text is available; R-B for retained project retellings with witness claims removed; R-C for material that cannot responsibly be sourced or relabeled. Done: wumenguan (PR #29), biyanlu_cases (PR #30), linji_yulu (PR #32).
 
-**Next (after the visual-system reset, in order):**
-1. REMEDIATION under the adopted hybrid policy: R-A where authoritative witness text is available; R-B for retained project retellings with witness claims removed; R-C for material that cannot responsibly be sourced or relabeled. Per-doc work remains keyed to register entries.
-2. W2 — spot-check the 177 "edition-verified quotations" vs public-domain editions (Senzaki & Reps 1934 first; fetchable via Archive.org if network allows).
-3. Then scoreboard-removal PR + PR-A/B/D per earlier queue.
+**Next (in order):**
+1. `xinxin_ming` remediation.
+2. `platform_sutra` remediation — blocked on an owner recension ruling: CBETA T2008 宗寶 vs Dunhuang T2007.
+
+**Not part of remediation PRs:** the visual-system reset — deferred, separate track. PR-A/B/D remain frozen. W2 remains separate.
 
 Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never committed). Reproduce the authoritative register byte-for-byte with `COLLATION_REFS=<refs> python3 scripts/collate_corpus.py --out /tmp/register.json --reproduce sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` (register sha256 `5369af1163e55eb25e2695160a0ec04805efc13a606841a6d6cb19b1936d3d31`, refs manifest sha256 `f3ac90b2ae9c7b969f157185d83651bcb00c24e535a0ef1f5ac143c4aa8174a9`); `--reproduce` replays the `generation_parameters` block the register itself records. The rule that produces them is committed: `python3 scripts/collate_corpus.py --print-refs` lists the works, `scripts/collate_refs.py` extracts + verifies them against a digest manifest, and `scripts/collate_corpus.py` collates on top of them (`--refs-manifest`, `--compare-historical-refs`, `--require-verified-refs`). Full command sequence: `sessions/COLLATION_W1_2026-09-10_CORRECTION.md` §7.
 
@@ -40,7 +41,7 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 - **Vision:** vision.md in full is the target; the audit serves that ambition.
 - **Collation depth:** FULL — done (except 2 non-CBETA-witness docs: hanshan, niutou).
 - **Scoreboard: REMOVE** `.scoreboard/` + `SCOREBOARD.md` entirely; orchestrator oversight replaces it (queued PR after W1/W2; update AGENTS.md contract accordingly; user_score protocol dies with the file). (executed — PR #31)
-- **Sequencing:** W1 evidence is now integrated into the public status model; per-document remediation remains pending. The visual-system reset is the next planned task; W2 and PR-A/B/D remain separate, with PR-A/B/D frozen.
+- **Sequencing:** Wave 1 remediation is the active track — wumenguan (PR #29), biyanlu_cases (PR #30), linji_yulu (PR #32) done; next `xinxin_ming`, then `platform_sutra` (blocked on an owner recension ruling: CBETA T2008 宗寶 vs Dunhuang T2007). The visual-system reset is deferred and is not part of remediation PRs; PR-A/B/D remain frozen; W2 remains separate.
 
 ## Task Queue
 

@@ -171,7 +171,7 @@ schemas/                            # declarative schema
 scripts/                            # validator, build, smoke, browser, migration helpers
 sessions/                           # dated audit/implementation evidence
 docs/                               # GitHub Pages mirror
-OPERATIONS.md                        # owner-controlled CI/GitHub admin edits
+OPERATIONS.md                       # owner-controlled CI/GitHub admin edits
 response_summary.md                 # disposable current-session summary
 ```
 
