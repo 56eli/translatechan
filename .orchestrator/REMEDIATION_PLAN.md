@@ -162,13 +162,13 @@ locators); witness changes; safety statement.
 ## 5. Wave checklist
 
 - [x] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1) — see §1.1
-- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #N, 2026-09-11) xinxin_ming ☐ platform_sutra ☐
+- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☐ platform_sutra ☐
 - [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
 - [ ] Post: README/HANDOFF/ROADMAP claim rewrite ☐ validator collation rule ☐ scoreboard removal ☑ (PR #31, 2026-09-11)
 
-## Wave 1 progress — document 3: `linji_yulu` (PR #N, 2026-09-11)
+## Wave 1 progress — document 3: `linji_yulu` (PR #32, 2026-09-11)
 
 **Witness:** 鎮州臨濟慧照禪師語錄, `cbeta_id` T1985 → reference work **T47n1985**, CBETA XML P5 pinned at
 `dbdea41071e1e260ad84b72faefd4587333cf76d`; `ref_T47n1985.txt` extracted by `scripts/collate_refs.py`
