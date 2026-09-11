@@ -22,7 +22,7 @@
 
 **W1 remediation, Wave 1 document 2 (2026-09-10):** biyanlu_cases re-keyed to its claimed T2003 witness (PR #30): all 20 adjudicated content fields (12 DIVERGENT + 7 NOT_FOUND + 1 SHORT_UNMATCHED) re-keyed verbatim from the pinned, digest-verified CBETA T48n2003 text — every one re-classifies EXACT; two fields additionally carry additive `editorial_note` R-B labels (case 20's `verse_zh` had joined the 頌 to 雪竇's separate 復成一頌; case 96's `dialogue[0].zh` carried a project parenthetical inside the source field, now moved to structured metadata). 15 sibling pinyin fields rewritten syllable-by-syllable in the PR #29 style. The witness — not the work-order paraphrase — was the authority: cases 1, 3 and 81 each DO carry a 垂示 in T48n2003, so all three pointers were re-keyed rather than removed. Harness before → after: content flags 42 → 22 (DIVERGENT 12 → 0, NOT_FOUND 7 → 0, SHORT_UNMATCHED 1 → 0, MINOR 22 unchanged), total flagged 128 → 108, collating content fields 353/395 → 373/395. Documented residual: 22 MINOR fields (left untouched by policy) + 86 `title_zh` metadata flags (out of scope, separate plan item) + one disclosed, unfixed coverage gap (case 42's 垂示 exists in the witness and is not represented). `coverage_note` rewritten honestly, `zh_chars` 75658 → 75854, corpus CJK totals 104,155 → 104,351 content / 109,614 → 109,848 all-string (README/AUDIT/HANDOFF §4 regenerated), allowlist extended with exactly the 39 changed pointers. Document status remains `partial_or_failed_w1_collation` pending the separate post-remediation evidence pass.
 
-**Scoreboard retired (2026-09-11, PR #N):** `.scoreboard/` + `SCOREBOARD.md` deleted per the 2026-09-09 owner decision; the `.scoreboard/` history log and all `user_score` fields were deleted, not migrated (the owner decision superseded them); the owner-controlled workflow-edit record survives relocated to `OPERATIONS.md`, where the retired `blocked_manual_workflow_edit` status vocabulary is now a plain prose note.
+**Scoreboard retired (2026-09-11, PR #31):** `.scoreboard/` + `SCOREBOARD.md` deleted per the 2026-09-09 owner decision; the `.scoreboard/` history log and all `user_score` fields were deleted, not migrated (the owner decision superseded them); the owner-controlled workflow-edit record survives relocated to `OPERATIONS.md`, where the retired `blocked_manual_workflow_edit` status vocabulary is now a plain prose note.
 
 **Next planned task:** visual-system reset (separate from this containment/status-model work; do not begin it in this PR).
 
@@ -37,7 +37,7 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 
 - **Vision:** vision.md in full is the target; the audit serves that ambition.
 - **Collation depth:** FULL — done (except 2 non-CBETA-witness docs: hanshan, niutou).
-- **Scoreboard: REMOVE** `.scoreboard/` + `SCOREBOARD.md` entirely; orchestrator oversight replaces it (queued PR after W1/W2; update AGENTS.md contract accordingly; user_score protocol dies with the file). (executed — PR #N)
+- **Scoreboard: REMOVE** `.scoreboard/` + `SCOREBOARD.md` entirely; orchestrator oversight replaces it (queued PR after W1/W2; update AGENTS.md contract accordingly; user_score protocol dies with the file). (executed — PR #31)
 - **Sequencing:** W1 evidence is now integrated into the public status model; per-document remediation remains pending. The visual-system reset is the next planned task; W2 and PR-A/B/D remain separate, with PR-A/B/D frozen.
 
 ## Task Queue
@@ -49,7 +49,7 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 - [ ] **Visual-system reset** — next planned task after this containment/status-model work
 - [ ] **REMEDIATION hybrid policy**: per-doc work packages in `.orchestrator/REMEDIATION_PLAN.md`; delegate to coder agents, one document per PR. Wave 1 progress: wumenguan done (PR #29), **biyanlu_cases done (PR #30)**; **next: linji_yulu** (10 flagged content + the fate of sections 67–73), then xinxin_ming, platform_sutra
 - [ ] **W2 — Verified-quotation spot-check** (177 slots vs public-domain editions; Senzaki & Reps 1934 first) — sequencing at successor's discretion (before or parallel to remediation)
-- [x] **Scoreboard removal PR** — delete `.scoreboard/` + `SCOREBOARD.md`; update AGENTS.md contract (owner decision 2026-09-09; PR #N, 2026-09-11)
+- [x] **Scoreboard removal PR** — delete `.scoreboard/` + `SCOREBOARD.md`; update AGENTS.md contract (owner decision 2026-09-09; PR #31, 2026-09-11)
 - [ ] **PR-A — Real-browser verification pass** (frozen during audit; resume after remediation starts)
 - [ ] **PR-B — CSP hardening** (frozen) · **PR-D — Performance, measure-first** (frozen)
 - [ ] Later tranche — 30 lineage edges exact-locator groundwork

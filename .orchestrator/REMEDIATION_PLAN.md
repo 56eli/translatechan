@@ -166,7 +166,7 @@ locators); witness changes; safety statement.
 - [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
-- [ ] Post: README/HANDOFF/ROADMAP claim rewrite ☐ validator collation rule ☐ scoreboard removal ☑ (PR #N, 2026-09-11)
+- [ ] Post: README/HANDOFF/ROADMAP claim rewrite ☐ validator collation rule ☐ scoreboard removal ☑ (PR #31, 2026-09-11)
 
 ## Wave 1 progress — document 2: `biyanlu_cases` (PR #30, 2026-09-10)
 
