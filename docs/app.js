@@ -1583,6 +1583,35 @@
     return null;
   }
 
+  // Provenance notes are the corpus's honesty mechanism for a passage: they record
+  // which recension a text belongs to and whether it is verbatim or a project
+  // précis (`recension_note`), which field carries no witness attribution
+  // (`editorial_note`), and which citation was corrected (`cbeta_note`). The
+  // corpus carries 49 of them; the reader used to show exactly one (a single
+  // verse-level site), so the rest of the honesty mechanism never reached anyone.
+  // One shared renderer keeps the muted-note treatment already used there — same
+  // markup shape, same ℹ️ affordance, same escHtml path — identical at every
+  // node, and keeps precedence in exactly one place: recension → editorial →
+  // cbeta, each on its own line, never concatenated into one sentence, because
+  // the three keys were introduced deliberately and mean different things.
+  // `coverage_note` is intentionally absent from this list: it is a dossier
+  // ledger field, not a passage label, and already renders as the "Reading" row
+  // of the represented-units ledger in the document header.
+  const PROVENANCE_NOTE_KEYS = ['recension_note', 'editorial_note', 'cbeta_note'];
+
+  function renderProvenanceNoteLine(note) {
+    // Missing, empty, whitespace-only or non-string ⇒ render nothing at all.
+    if (typeof note !== 'string') return '';
+    const text = note.trim();
+    if (!text) return '';
+    return `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${escHtml(text)}</div>`;
+  }
+
+  function renderProvenanceNotes(node) {
+    if (!isRecord(node)) return '';
+    return PROVENANCE_NOTE_KEYS.map(key => renderProvenanceNoteLine(node[key])).join('');
+  }
+
   function renderUnitTitle(titleEn, titleZh, kicker = '') {
     return `${kicker ? `<span class="case-heading-kicker">${escHtml(kicker)}</span>` : ''}` +
       `<span class="case-heading-en">${escHtml(titleEn || titleZh || 'Untitled unit')}</span>` +
@@ -1640,6 +1669,7 @@
           <span class="document-status">${escHtml(editorialStatus)}</span>
         </div>
         ${renderDocumentLedgers(state.currentCorpusKey)}
+        ${renderProvenanceNotes(doc)}
         <div class="document-ledger">
           <details class="document-details">
             <summary>Edition details</summary>
@@ -1668,6 +1698,7 @@
               { key: 'cleary', name: 'Thomas Cleary', text: doc.preface.en_cleary || '' },
               { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.preface.en_sasaki || '' }
             ], { zh: doc.preface.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
+            ${renderProvenanceNotes(doc.preface)}
           </div>
         </details>
       `;
@@ -1687,6 +1718,7 @@
           { key: 'cleary', name: 'Thomas Cleary', text: doc.epilogue.en_cleary || '' },
           { key: 'sasaki', name: 'Ruth Fuller Sasaki', text: doc.epilogue.en_sasaki || '' }
         ], { zh: doc.epilogue.zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}
+        ${renderProvenanceNotes(doc.epilogue)}
       </div>` : '';
 
     if (doc.cases && doc.cases.length > 0) {
@@ -1778,6 +1810,7 @@
               <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
               ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: r.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
             </div>
+            ${renderProvenanceNotes(r)}
           </div>
         `;
       });
@@ -1812,6 +1845,7 @@
             <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
             <div class="pinyin-line">${escHtml(d.pinyin)}</div>
             ${renderTranslationColumns(d.translations, d.zh)}
+            ${renderProvenanceNotes(d)}
           </div>
         `).join('');
 
@@ -1822,6 +1856,7 @@
               <span class="case-speaker">${escHtml(rec.title_en)}</span>
             </div>
             ${diaHtml}
+            ${renderProvenanceNotes(rec)}
           </div>
         `;
       });
@@ -1859,6 +1894,7 @@
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${escHtml(d.pinyin)}</div>
           ${renderTranslationColumns(d.translations, d.zh)}
+          ${renderProvenanceNotes(d)}
         </div>
       `).join('');
     }
@@ -1912,6 +1948,7 @@
             ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
+        ${renderProvenanceNotes(caseItem)}
         </div>
         ${navFooter}
       </div>
@@ -1926,6 +1963,7 @@
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${escHtml(d.pinyin)}</div>
         ${renderTranslationColumns(d.translations, d.zh, sectionLocator)}
+        ${renderProvenanceNotes(d)}
       </div>
     `).join('');
 
@@ -1936,6 +1974,7 @@
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${escHtml(st.pinyin)}</div>
         ${renderTranslationColumns(st.translations, st.zh, sectionLocator)}
+        ${renderProvenanceNotes(st)}
       </div>
     `).join('');
 
@@ -1946,6 +1985,7 @@
           <span class="case-header-actions">${renderSourceLocationDisclosure(sectionLocator, 'Section source', 'case-source-location')}</span>
         </div>
         ${dialoguesHtml}${stanzasHtml}
+        ${renderProvenanceNotes(sec)}
       </div>
     `;
   }
@@ -1957,6 +1997,7 @@
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${escHtml(d.pinyin)}</div>
         ${renderTranslationColumns(d.translations, d.zh)}
+        ${renderProvenanceNotes(d)}
       </div>
     `).join('');
 
@@ -1966,6 +2007,7 @@
           <h2 class="case-num-title">${renderUnitTitle(dia.title_en, dia.title_zh, 'Dialogue')}</h2>
         </div>
         ${dialoguesHtml}
+        ${renderProvenanceNotes(dia)}
       </div>
     `;
   }
@@ -1981,6 +2023,7 @@
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${escHtml(st.pinyin)}</div>
         ${renderTranslationColumns(st.translations, st.zh, stanzaLocator)}
+        ${renderProvenanceNotes(st)}
       </div>
     `;
   }
@@ -1995,7 +2038,7 @@
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(v.zh)}</div>
           <div class="pinyin-line">${escHtml(v.pinyin)}</div>
           ${renderTranslationColumns(v.translations, v.zh, chapterLocator)}
-          ${v.recension_note ? `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${escHtml(v.recension_note)}</div>` : ''}
+          ${renderProvenanceNotes(v)}
         </div>
       `).join(''));
     }
@@ -2006,6 +2049,7 @@
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${escHtml(d.pinyin)}</div>
           ${renderTranslationColumns(d.translations, d.zh, chapterLocator)}
+          ${renderProvenanceNotes(d)}
         </div>
       `).join(''));
     }
@@ -2028,6 +2072,7 @@
           <span class="case-header-actions">${renderSourceLocationDisclosure(chapterLocator, 'Chapter source', 'case-source-location')}</span>
         </div>
         ${contentBlocks.join('')}
+        ${renderProvenanceNotes(ch)}
       </div>
     `;
   }
