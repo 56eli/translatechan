@@ -152,7 +152,7 @@ asserted: 39 of 50 note strings render beside a passage
 
 Document-level and string-level counts are different units and must not be swapped: `cbeta_note` 17 documents / 17 strings (they coincide), `editorial_note` 5 documents / 8 strings, `recension_note` 1 document (`platform_sutra`) / 14 strings, `coverage_note` 11 documents / 11 strings — 23 documents with no overlap, 50 strings.
 
-- **Orchestrator branch:** `arena/01a08e15-translatechan` — the prompt **distribution channel**. It never merges into `main`, is never a PR base, and is never pushed to; a cold start fetches *from* it and works on the session branch the platform fixed. Tip when this section was written: `35021d04dd0c5a1113991e18413dccfbe67b72d8`.
+- **Orchestrator branch:** `arena/01a08e15-translatechan` — the prompt **distribution channel**. The orchestrator publishes prompt files and its working state to it; it never merges into `main`, is never a PR base, and **no coding agent ever pushes to it or bases from it** — a cold start fetches *from* it and works on the session branch the platform fixed. Tip when this section was written: `35021d04dd0c5a1113991e18413dccfbe67b72d8`.
 
   ```bash
   git ls-remote origin refs/heads/arena/01a08e15-translatechan
