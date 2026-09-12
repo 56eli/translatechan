@@ -54,6 +54,15 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 - **Scoreboard: REMOVE** `.scoreboard/` + `SCOREBOARD.md` entirely; orchestrator oversight replaces it (queued PR after W1/W2; update AGENTS.md contract accordingly; user_score protocol dies with the file). (executed — PR #31)
 - **Sequencing:** Wave 1 remediation is the active track — wumenguan (PR #29), biyanlu_cases (PR #30), linji_yulu (PR #32) done; next `xinxin_ming`, then `platform_sutra` (blocked on an owner recension ruling: CBETA T2008 宗寶 vs Dunhuang T2007). The visual-system reset is deferred and is not part of remediation PRs; PR-A/B/D remain frozen; W2 remains separate.
 
+## Standing Decisions (2026-09-12, owner — four rulings; executed by PR #43)
+
+- **Ruling 1 — the six `CITATION` rows ship in ONE PR.** Authorises a single PR carrying one commit per document for citation strings only (no source text); forbids batching any other remediation class — `RE-KEY`/`LABEL` work stays one document per PR, unchanged.
+- **Ruling 2 — the ledger stays as it is.** `630` remains the authoritative register figure and the 2026-09-12 post-remediation record stays a dated measurement; the published pass (PR #41, 2026-09-12) does **not** supersede the register. Authorises citing both figures with their dates; forbids re-designation — no `scripts/w1_evidence.py` or `FIXED_METADATA` change and no retiring the pinned `630` sentences.
+- **Ruling 3 — fabricated/unsupported text is replaced with real source text where the pinned witness carries it, labelled where it does not.** In PR #43 this is the §5 wording rule only: the false T1987 claim is **withdrawn** rather than re-pointed (the candidate X68n1315 is unverified — a probe collates 2 of 19 content fields), the document goes to the human-sourcing queue, and no field is re-keyed.
+- **Ruling 4 — `OUT-OF-CBETA` sourcing is human work.** Authorises acquisition work orders for the highest-value documents; forbids any agent fetch or transcription of those witnesses.
+
+Executed so far: **PR #43 (2026-09-12)** fixes the six `CITATION` rows — `zhaozhou_yulu` (the false T1987 claim, withdrawn), `fayan_yulu`, `dongshan_yulu`, `mazu_yulu`, `dahui_hongzhi` — with no status change, no re-designation and no new locator.
+
 ## Task Queue
 
 - [x] **Lineage corpus-key curation (6 profiles)** — integrated in the current baseline
