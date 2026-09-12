@@ -989,3 +989,39 @@ root `app_data.js` and `docs/data/**`, so it would have passed on their commit s
 correct contract is "empty `git status --porcelain` after the build". Standing change for every future prompt that
 can move data: gate on the *whole* worktree being clean after the generator runs, never on a hand-listed subset of
 generated paths.
+
+## PR #43 MERGED unreviewed (2026-09-12 22:59:14Z, by 56eli) — checked on main `1b41d0b`: healthy
+
+Operator merged the revised edition before my re-review; handled with the #38 procedure (main health first, content
+retrospectively). All 7 commits of §7 landed (`f33b306` = the rulings record with the real PR number ✓), CI
+*Validate data, generated artifacts, and reader* = SUCCESS twice.
+
+**My own gate run at `1b41d0b`:** all 8 gates exit 0; worktree empty after `build_data_bundle.py`; `diff -rq data
+docs/data` clean; metrics regenerate to content 104,564 / all-string **110,233** with only the CJK lines moving;
+README:48 / AUDIT:20 / HANDOFF:67 carry 110,233; every pinned disclosure sentence survives; T1987 qualified in every
+framed-doc line (6/6 total) and absent from `index.html`; `sessions/**` byte-identical (0/30), `scripts/` touched only
+in the preservation allowlist, `index.html`/`app.js`/`app.css`/`docs/*static` untouched; only the four intended corpus
+files + mirrors + manifest + locators + queue + lineage + metrics. Ruling 2 respected (630 authoritative / 622 / 637),
+and AUDIT:30 + HANDOFF:72/:89 now *state the ruling* instead of a pending supersession ✓. REMEDIATION_PLAN:92-93
+carry the resolved 10/35 figure; wave-2 box at :175 annotated. **Verdict: no revert; two follow-ups only.**
+
+**Follow-ups (posted on #43):** (1) the provenance-label census is stale in **9 lines** — truth is 50 strings / 39
+rendered / 23 documents / `cbeta_note` 17, and commit 6 updated only `ROADMAP.md:33`; stale at `ROADMAP.md:163`(×2),
+`:179`, `vision.md:57`(×2), `:59`, `:88`, `:90`, `:327`, `RESEARCH_RELEASE_PLAN.md:32`(×2), `:103`; `vision.md:88/:90`
+sit in a measured-output block, so regenerate rather than retype. `validate_data.py` does not cover this census — a
+checker change needs its own owner-ruled task. (2) `dahui_hongzhi`: the manifest now pairs 默照銘 with T48n2001 (sound
+bibliographically — the harness's own witness note says so, and their 2026-08-08-Correction-vs-volume-qualified
+distinction is right) but the register measures **0 of 6** content fields collating, the sole T48n2001 touch being
+`.sections[0].title_zh` at sim 0.57 in the metadata partition, and `cbeta_id` still says `T1998A` alone → extend
+`cbeta_note` (and align or scope `cbeta_id`). I withdrew my pre-merge item 6 (prose in `canonical_locator`): their
+counter-argument — the validator interlock means the chip can never be read without "unverified" — is better than my
+suggestion.
+
+**Prompt defect, mine again (third instance of the same class):** 014 §1/§2 told the coder that for rows 3–6 "the
+correct witness is the one the harness pins, so name it", and the harness *probing* a witness is not the same as a
+field *collating* in it. Rows 3–6 needed the clause I wrote for row 1: name a witness only if ≥1 evaluated content
+field collates there, otherwise qualify or withdraw. Row 6 is exactly that gap. Standing rule for future prompts:
+wherever a prompt says "the measurement supports X", it must also say what the measurement would look like if it did
+not — and I must run the per-document collation counts for **every** row, not only for the row whose fix I doubted.
+`collate_corpus.py`'s witness note remains the difference between *where a text lives* and *whether our copy is
+verbatim*; the campaign's whole point is that those two are never conflated.
