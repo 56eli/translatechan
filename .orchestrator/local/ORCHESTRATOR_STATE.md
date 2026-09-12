@@ -147,15 +147,32 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   Coder's report also volunteered a detail I would otherwise have flagged: `coverage_note`'s app.js mention
   count moved 2→3 solely because the renderer comment explains the exemption, render sites unchanged.
   **First PR of the campaign I could not improve by review.**
-- [ ] **Next after #40 merges: the post-remediation evidence pass (proposed 012).** It is now *mechanically*
-  unblocked — it needs no owner decision, unlike the fabricated-text and `CITATION` calls. Scope, if the
-  operator wants it: re-run the collation over current `main` and publish a new dated register + report under
-  `sessions/`, making today's measured **532** the authoritative figure; this necessarily edits
-  `scripts/validate_data.py` (the `framed` rule derives `**{documents} documents, {flagged} flagged source
-  fields**` from `metrics.corpus.source_review.authoritative`, and the register path is one of the pinned
-  snippets) plus README/AUDIT/HANDOFF/ROADMAP/REMEDIATION_PLAN prose, so it is a **gate-touching PR and must
-  not be dispatched alongside 011-class work**. My prompts' standing "never edit the checker" rule needs an
-  explicit carve-out here, or the coder will correctly refuse.
+- [x] **#39 MERGED as `44d2d6e`, #40 MERGED as `faff161`** — the doc-alignment campaign's 010/010b/011 are all on
+  `main`. Current `main` = `faff161`, and every figure below was measured on it.
+- [x] **Prompt 012 authored and pushed** — `.orchestrator/prompts/012-postremediation-evidence-pass.md`, the
+  post-remediation evidence pass. My earlier scoping note ("it must edit `scripts/validate_data.py` and needs a
+  checker carve-out") was **wrong, and reading `w1_evidence.py` is what disproved it**: `FIXED_METADATA`
+  (`scripts/w1_evidence.py:101-113`) pins exactly ONE historical register + ONE correction overlay, and `:752-758`
+  hard-requires `kind == "w1-correction"` with `corrects == sessions/COLLATION_REGISTER_2026-09-09.json`. A third
+  dated record therefore **cannot** take authority without converting the pair into a chain — which drags in
+  `metrics_block()`, the `historical`/`superseded`/`reproduction` blocks, `smoke_test.mjs`'s expected metadata and
+  the verbatim `evidence_bits` of five documents. 012 is consequently **publish-only**: it measures and records, and
+  leaves designation alone, using the room `validate_data.py:1240-1243` already grants — *"Dated files under
+  `sessions/` are historical snapshots and are deliberately not scanned."* Zero checker edits, so the standing rule
+  survives intact and the task can run beside anything.
+- [x] **012's evidence base measured by me, end to end** (not assumed): sparse blobless clone of `cbeta-org/xml-p5`
+  (39 works, 29 MB, ~3 s), HEAD still `dbdea410…` = `PINNED_UPSTREAM_REVISION`; `collate_refs.py` → **39 verified,
+  0 drift**; full `collate_corpus.py` run → **flagged 630 → 532, content fields collated 593 → 691 of 924,
+  `DIVERGENT` 111 → 37 across 16 docs, `NOT_FOUND` 334 → 310, `EXACT` 685 → 783, statuses unchanged 1/32/2,
+  `documents_with_changed_status: 0`**. The `xinxin_ming` 像/象 residual is gone (its 12 `DIVERGENT` are now `EXACT`);
+  `linji_yulu` and `platform_sutra` keep exactly 1 each, as the docs say they should. Two durable discoveries:
+  (1) `--reproduce` + `cmp` of the **committed** 09-10 overlay **no longer matches** (47 differing JSON keys, in
+  exactly 5 documents — `biyanlu_cases`, `deshan_yulu`, `linji_yulu`, `wumenguan`, `xinxin_ming`, i.e. the campaign's
+  own five) so the 09-10 report's §7 "cannot drift apart" claim holds only while the corpus is static: 012 must
+  publish that delta as the supersession evidence, not report it as a broken environment.
+  (2) `deshan_yulu`'s lone delta is `witness_note` (`X1315` → `X68n1315`), which is **harness-side** — the id table
+  inside `scripts/collate_corpus.py:214-242`, normalised in `7cde460` — so part of a document's claimed witness lives
+  in the script, not the data: never "fix" a witness id by editing `data/corpus/*.json`.
 - [x] **Prompt 010b delivered as PR #39** (head `e2b48c2`, base `c670e87`, 3 files / 3 commits, +18/−1) —
   **verdict MERGE.** Reviewed claim-by-claim, not diff-by-eye: §4.1's stale Platform-Sutra sentence replaced
   with the labelled state (1/3/9 split, 680 CJK, "not a complete text" retained); §4.3's 630/532 rule
@@ -693,3 +710,11 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
 - `schemas/translatechan-data.schema.json` is declarative only; the Python validator enforces.
 - `editorial_note` is accepted but never *rendered* or schema-validated structurally — accepted
   for both merged re-keys; whether to surface it in the Reader is an open design question.
+
+- **Name every path from a `test -f`, never from memory.** In 012's first draft I wrote `docs/ROADMAP.md` in six
+  places; the file is `ROADMAP.md` at the repo root and `docs/` holds only the built reader. Same error class as
+  last week's invented `verification_note` key. Standing remedy now applied before publishing any prompt:
+  extract every backticked repo path from the draft and `Path.exists()` each one (`python3 - <<'PY'` + a regex over
+  `data|docs|scripts|sessions|schemas|.orchestrator` prefixes) — it costs one command and it is how I caught this.
+  Also compile any Python fragment the prompt asks the coder to run, and quote line numbers only from a `sed -n` of
+  the file at the current base (`ROADMAP.md:198` in my draft was a phantom; `:163`/`:177` were real).
