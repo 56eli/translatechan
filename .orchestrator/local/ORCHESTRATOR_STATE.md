@@ -118,6 +118,30 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
 - [x] **#36 MERGED as `b3cd14f`** — Phase 1 (measurement) closed on main: 3 inventory files, 35 doc
   blocks, 70 P0 bullets, 35 `OUT-OF-CBETA` routes. 007a/007b are **delivered — do not re-dispatch**.
 - [x] **#37 MERGED as `29abad7`** (my MERGE recommendation taken; only the 3 allowed paths moved).
+- [x] **010 DELIVERED as #38, merged by the operator before orchestrator review ("accidentally"), head
+  `c670e87`. Retrospective review = clean.** Scope exactly `vision.md`/`ROADMAP.md`/`RESEARCH_RELEASE_PLAN.md`
+  (+196/−56, 0 data/docs/scripts paths); all metrics, `index.html`, `app.js`, both bundles byte-identical to
+  `29abad7`; **all 8 gates exit 0 on main itself** in a fresh clone and the build leaves 0 files dirty (so the
+  unreviewed merge did not break `main`). Every required correction present: Congronglu marked `†` in the
+  ASCII taxonomy with a footnote naming it a goal rather than a holding (not deleted, as instructed);
+  per-phase statuses rewritten as `5/5 rooms`, `0/35 complete`, `31/150 terms`, `5/35 re-keyed`, `Planned` —
+  each with its denominator **and the command that produces it**; objective-4 got an element-by-element table
+  with honest partials (`rights records`: policy + 14 sources, not per-item — verified: exactly 14;
+  `hover/focus`: "implemented, not browser-evidenced"); and the 630-vs-532 rule stated as *"two different
+  claims, and neither is a completion claim"*. All 3 `T1987` mentions qualified (false/Caoshan), no bare
+  `174` anywhere in the scanned set, ROADMAP keeps its two required strings and correctly omits the three
+  README/AUDIT/HANDOFF-only ones. **Numbers verified correct, including a subtlety I did not specify**:
+  "22 documents carry provenance labels" excludes `coverage_note` (16+5+1=22; union with coverage is 26) —
+  right judgement, and the first PR this campaign with no arithmetic error.
+- [!] **False alarm worth recording, because I nearly reported it as a rewrite:** after the sandbox
+  re-created my workspace as a **depth-1 clone**, `refs/remotes/origin/main` showed as a single **root**
+  commit (`git rev-list --count` = 1, no parents, `29abad7` unknown, `merge-base` NONE, merge refused with
+  "unrelated histories"). I did **not** conclude history was destroyed: `gh api …/commits/c670e87` showed
+  two parents (`29abad7`, `bbfdd18`) and normal ancestry, and `.git/shallow` existed. Fix per the earlier
+  graft lesson: `git fetch --deepen 500` on **both** `main` and my branch → 260/285 commits, real merge-base
+  `b3cd14f`, merge clean, then removed `.git/shallow` and verified 293 commits. Standing rule: a
+  *surprising* repo-level result must be confirmed against the GitHub API before I describe it to the owner,
+  and never merge/rebase against a grafted ref.
 - [x] **OWNER DIRECTIVE 2026-09-12 received and actioned:** *"update all documentation to the status quo and
   align the project with the vision of perfection of source integrity, referencing and presentation in its
   stated goals."* Survey → three prompts authored (**010**, **010b**, **011**), sequential A→B→C.
