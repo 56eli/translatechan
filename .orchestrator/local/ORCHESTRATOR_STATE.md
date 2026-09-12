@@ -224,7 +224,34 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   shared renderer plus the orphan gate. #40 updated only `.orchestrator/REMEDIATION_PLAN.md` (+1) and
   `.orchestrator/STATE.md` (+2). My own prompt fenced #41 off those lines (`:178-181 … not yours`), so the fix
   belongs in a separate one-commit docs task (**013**), whose only job is to re-point those five claims at the
-  shipped renderer (no numbers to invent; `grep -c` the render sites in `app.js` for the denominator).
+  shipped renderer (no numbers to invent; `grep -c` the render sites in `app.js` for the denominator). **Superseded in scope by the entry below: my "five lines" was low.**
+- [x] **#41 MERGED as `0f8432a`, and prompt 013 authored on top of it** —
+  `.orchestrator/prompts/013-shipped-state-docs.md`. Full sweep of `main` for claims that the shipped work is still
+  owed: **nine locations, not five** — `ROADMAP.md:33`, `:163` half (1), `:179`, `:248`;
+  `RESEARCH_RELEASE_PLAN.md:32` and its unchecked blockers `:102`/`:103`; `vision.md:55`, `:59`, `:75`, `:309`,
+  `:315`; `HANDOFF.md:87-92`. Two stale *figures* ride along, both machine-checkable: the docs say
+  `test_source_review_rules.py` runs **96** rule checks (it prints **120** now, grown by #40's note-render invariant)
+  and `vision.md:59` claims `platform_sutra` has "12 chapter/dialogue notes" where the data gives **14**
+  `recension_note` = 1 root + 3 verse + 6 chapter + 4 dialogue. `.orchestrator/STATE.md:39` (written by #40, verified
+  by me at review) is the source of truth for the shipped state — 17 call sites, 3 → 38 rendered note lines,
+  `coverage_note` as an explained exemption, `104,564 / 110,165` unmoved — so 013 tells the coder to match it rather
+  than re-derive phrasing. **The subtle find:** `vision.md:59`'s "Measure it with" script prints `app.js mentions=`
+  per key, which stopped meaning "rendered" the moment #40 added the precedence constant plus an exemption *comment*
+  mentioning `coverage_note` — a verify-script whose output now flatters the claim it is meant to audit. 013 hands the
+  coder a replacement I wrote and ran green on `0f8432a` (parses `PROVENANCE_NOTE_KEYS`, counts call sites, reads
+  `NOTE_RENDER_EXEMPTIONS` from the test, asserts no orphan keys, prints "38 of 49 note strings render beside a
+  passage"), embedded in the prompt after de-indent compile-checking. Two honesty rails encoded: every `[x]` must
+  carry the repo's own caveat shape ("implemented and gate-guarded; no real-browser evidence exists, so it is not
+  browser-verified", per `vision.md:314` / `RESEARCH_RELEASE_PLAN.md:40`), and **release blocker 1 stays unticked** —
+  #41 published the register but the *Exit* also demands `--write-metrics` regeneration plus re-pointed pinned
+  figures, i.e. the owner-gated re-designation (`w1_evidence.py:101-113`/`:752-758` fix the historical/overlay pair);
+  `documents_with_changed_status: 0` is quoted so nobody reads the re-measurement as progress.
+- [ ] **Owner decisions still outstanding (unchanged by 010/010b/011/012):** the fabricated-text ruling
+  (`PHASE2_PLAN.md → ## Owner decision required`), one PR vs per-document for the 6 `CITATION` rows, sequencing the
+  31 `OUT-OF-CBETA` documents, **and now the pair→chain ruling** — whether to convert the W1 evidence model from
+  {historical, one `w1-correction` overlay} into a dated chain so `630` can retire in favour of the published
+  `532`. That last one is the only remaining gate-touching item in the campaign; `012`'s §1 and `013`'s §1.3 both
+  describe its shape, so a prompt for it can be authored the moment the owner rules.
 - [x] **Prompt 010b delivered as PR #39** (head `e2b48c2`, base `c670e87`, 3 files / 3 commits, +18/−1) —
   **verdict MERGE.** Reviewed claim-by-claim, not diff-by-eye: §4.1's stale Platform-Sutra sentence replaced
   with the labelled state (1/3/9 split, 680 CJK, "not a complete text" retained); §4.3's 630/532 rule
