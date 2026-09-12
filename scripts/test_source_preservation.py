@@ -140,6 +140,15 @@ ALLOWED_CHANGES = {
         ".coverage_note",
         ".zh_chars",
     }),
+    "data/corpus/dongshan_yulu.json": frozenset({
+        # 2026-09-12 CITATION fix (task 014, rank 4): the `coverage_note` cited X1321 — the Mazu
+        # record (X69n1321) — as a witness of this document. Rewritten to name the witnesses the
+        # harness actually pins (T47n1986A/T47n1986B, the 筠州/瑞州洞山 records) and to state the
+        # measured 1/21 collation. Only the note changes: no source text, no `zh`/`*_zh` field, no
+        # `cbeta_id` change, and no `zh_chars` pointer (this document declares none). The 14
+        # `title_zh` metadata flags are untouched (composite-title plan item).
+        ".coverage_note",
+    }),
     "data/corpus/fayan_yulu.json": frozenset({
         # 2026-09-12 CITATION fix (task 014, rank 3): the `coverage_note` named T1985 / X1321 —
         # the Linji record and the Mazu record, neither a witness of this document. Rewritten to
