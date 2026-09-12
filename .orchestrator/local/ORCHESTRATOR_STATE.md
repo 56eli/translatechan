@@ -118,6 +118,44 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
 - [x] **#36 MERGED as `b3cd14f`** — Phase 1 (measurement) closed on main: 3 inventory files, 35 doc
   blocks, 70 P0 bullets, 35 `OUT-OF-CBETA` routes. 007a/007b are **delivered — do not re-dispatch**.
 - [x] **#37 MERGED as `29abad7`** (my MERGE recommendation taken; only the 3 allowed paths moved).
+- [x] **PR #40 — task 011, the presentation fix — verdict MERGE** (head `1fbc5bf`, base `44d2d6e` = main
+  after #39, 5 files / 4 commits, +287/−3). `app.js` +46/−1, `docs/app.js` byte-identical to it (regenerated,
+  not hand-edited — I diffed them), `test_source_review_rules.py` +192/−1 (the single deletion is a docstring
+  bullet's `.` → `;`), 2 tracker lines. **Zero** paths under `data/`, `docs/data`, `.github`, schemas, smoke,
+  README/AUDIT/vision/ROADMAP; `data/project_metrics.json` sha `69a9c2f51ab4` identical to main; all nine
+  gates exit 0 in a clean clone. **Implementation reviewed line by line:** one shared `renderProvenanceNotes`
+  with a `typeof !== 'string'` guard and `.trim()` (missing/empty/whitespace/non-string all render nothing),
+  `escHtml` on every note, the pre-existing style string reused verbatim so **no CSS and no new class** (I
+  diffed the added `font-size`/`color` occurrences: 1 each, copied from the old verse site), the old inline
+  verse expression **deleted** rather than left to double-render, precedence list as a named constant
+  (`PROVENANCE_NOTE_KEYS`) so the test can parse it, and 17 call sites covering root/preface/epilogue/case/
+  section/dialogue/stanza/chapter — every node type the data actually uses (verified by walking all 35 corpus
+  files: `cbeta_note` 16 at ROOT, `editorial_note` 8 in dialogue×4/cases/sections/stanzas/epilogue,
+  `recension_note` 14 at ROOT+chapters+dialogue+verses).
+  **My own end-to-end render test** (extracted the four real functions from the PR's `app.js` and ran actual
+  corpus JSON through them): `platform_sutra` ROOT recension ruling and `.chapters[2]` précis label both
+  emit; `caoxi_zhuan`'s `X1458 is 宗門寶積錄` correction now reaches a reader — closing the loop on the exact
+  orphaned-record finding that motivated 011; quotes/angle brackets escaped; 3 keys ⇒ 3 separate lines in
+  R→E→C order, never concatenated.
+  **The invariant test exceeds my spec and defends itself:** keys enumerated from data at run time (not a
+  constant), rendered side parsed from `app.js`; exemptions must be *stale-proof* (exempted key must still
+  exist in the corpus, must NOT be in the render list, reason ≥12 words, and its recorded alternative home
+  must still exist) — so the list cannot be widened into a get-out-of-jail card nor quietly narrowed; markup
+  count asserted == 1 (kills copy-paste drift); six named render functions each asserted to call the shared
+  renderer. Negative case injects `fabrication_note` into a **scratch** copy, measures `before` first so the
+  assertion is about the injected key even in an already-dirty tree, then proves the repo file is untouched.
+  Coder's report also volunteered a detail I would otherwise have flagged: `coverage_note`'s app.js mention
+  count moved 2→3 solely because the renderer comment explains the exemption, render sites unchanged.
+  **First PR of the campaign I could not improve by review.**
+- [ ] **Next after #40 merges: the post-remediation evidence pass (proposed 012).** It is now *mechanically*
+  unblocked — it needs no owner decision, unlike the fabricated-text and `CITATION` calls. Scope, if the
+  operator wants it: re-run the collation over current `main` and publish a new dated register + report under
+  `sessions/`, making today's measured **532** the authoritative figure; this necessarily edits
+  `scripts/validate_data.py` (the `framed` rule derives `**{documents} documents, {flagged} flagged source
+  fields**` from `metrics.corpus.source_review.authoritative`, and the register path is one of the pinned
+  snippets) plus README/AUDIT/HANDOFF/ROADMAP/REMEDIATION_PLAN prose, so it is a **gate-touching PR and must
+  not be dispatched alongside 011-class work**. My prompts' standing "never edit the checker" rule needs an
+  explicit carve-out here, or the coder will correctly refuse.
 - [x] **Prompt 010b delivered as PR #39** (head `e2b48c2`, base `c670e87`, 3 files / 3 commits, +18/−1) —
   **verdict MERGE.** Reviewed claim-by-claim, not diff-by-eye: §4.1's stale Platform-Sutra sentence replaced
   with the labelled state (1/3/9 split, 680 CJK, "not a complete text" retained); §4.3's 630/532 rule
