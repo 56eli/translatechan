@@ -163,10 +163,17 @@ file, stop and report what and why.
    carries the claims (`ROADMAP.md:65`, `:95`; `README.md:55`'s table cell; `RESEARCH_RELEASE_PLAN.md:109`); update
    `.orchestrator/REMEDIATION_PLAN.md:47`, `:87` and the `:167` wave-2 checkbox to whatever §5's measurement settled —
    including the "10/35 verbatim there" figure, which the 2026-09-12 register does not support; the regenerated
-   CJK figures in `README.md` / `AUDIT.md` / `HANDOFF.md`, and any `ROADMAP.md:161` framing that quoted the old counts. Keep every gate-pinned string verbatim: the five-ledger sentence, the
+   CJK figures in `README.md` / `AUDIT.md` / `HANDOFF.md`, and any `ROADMAP.md:161` framing that quoted the old counts.
+   Then align the supersession framing with ruling 2 — the one place this PR touches a sentence about the ledger:
+   `AUDIT.md:30` ends "only the post-remediation evidence pass may supersede the register" and `HANDOFF.md:72` says
+   "register superseded only by the post-remediation evidence pass", but the pass has since been published (PR #41)
+   and the owner ruled that it does **not** supersede 630; both must state the ruling instead of a pending
+   expectation, and `HANDOFF.md:89`'s "designation held for an owner ruling" becomes "owner ruled 2026-09-12: 630
+   stays authoritative". Leave `HANDOFF.md:71`'s `w1-evidence:` line alone. Keep every gate-pinned string verbatim: the five-ledger sentence, the
    `**35 documents, 630 flagged source fields**` snippet, both register paths, `2026-09-09`, and — where the file
    requires them — the three generated disclosure sentences and the `622|637` + `CORRECTED|superseded` pair in
-   `STATE.md`.
+   `STATE.md`. If a correction appears to *require* editing a pinned sentence, the pin — not the sentence — is what
+   is stale: stop and report it, and never edit `scripts/validate_data.py` to get a green gate.
 7. `docs: record the 2026-09-12 owner rulings in the canonical tracker` — one `.orchestrator/STATE.md` entry stating
    all four rulings, each with what it authorises and what it forbids (no re-designation; no agent handling of
    out-of-CBETA witnesses), and this PR's number. Read the number back with `gh pr view --json number` after opening

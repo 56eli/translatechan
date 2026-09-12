@@ -847,7 +847,7 @@ reorder anything).
 
 ## 014 — CITATION fixes (authored 2026-09-12, local only)
 
-`.orchestrator/prompts/014-citation-fixes.md` — **16,495 B, `sha256` prefix `5b228fe11d9b1584`** (measured with `wc -c` / `sha256sum` at commit `b96fea0`; verify these two on the remote when pushing, byte-for-byte).
+`.orchestrator/prompts/014-citation-fixes.md` — **17,341 B, 242 lines, `sha256` prefix `f32993790153ace1`, blob `49f3acb3cb`** (measured after the §7 supersession-wording amendment; on publishing, compare the remote blob against `git hash-object`, not a re-typed number).
 Design decisions worth inheriting:
 
 - The collation harness **already pins the right witnesses** (`scripts/collate_corpus.py`: zhaozhou
@@ -860,6 +860,25 @@ Design decisions worth inheriting:
   only the "data still carries it" clauses retire).
 - `content_cjk_characters` must stay **104,564**; `all_corpus_cjk_characters` **will** move (notes are prose) and the
   two figures pinned in `README.md:48`/`AUDIT.md:20` must be regenerated in the same PR.
+
+## Review Log — late entries (2026-09-12)
+
+- **#39 / task 010b — VERDICT: clean, merge was correct** (merged 2026-09-12 08:59:09Z as `44d2d6e`; reviewed after
+  the fact because it landed while I was mid-review). Scope exactly `AUDIT.md` +3, `HANDOFF.md` +10, `README.md` +6/−1
+  — no `data/**`, no `docs/` mirror, no `index.html`, so `docs/index.html` could not move ✓. README's stale
+  Platform-Sutra sentence is replaced by the measured one (10/10 headings represented, 13 source-content fields, 680
+  content CJK, 1 verbatim in T48n2007 / 3 in T48n2008 / 9 in neither → 1+3+9 = 13 ✓). Every gate-pinned string
+  survives verbatim; 630 stays authoritative with 532 attributed to the four merged re-keys and framed as a dated
+  measurement, which is exactly ruling 2's shape ✓.
+- **Main health on `77b4039`, my own run in a fresh clone:** `py_compile`, `validate_data.py`,
+  `build_data_bundle.py`, `smoke_test.mjs`, `test_source_preservation.py` ("35 corpus files match base commit"),
+  `test_source_review_rules.py`, `diff -rq data docs/data`, `git diff --check` — all exit 0; `git diff --exit-code`
+  after the build is empty and `git status --porcelain` is empty; unqualified `T1987` lines across the framed docs +
+  `index.html`: 0. So 014's base is sound and the #39/#42 pair left no artifact drift.
+- **The one stale thing #39 left behind is not #39's fault:** its `AUDIT.md:30` / `HANDOFF.md:72` supersession
+  sentences were written while the evidence pass was still pending, and the owner then declined re-designation — so
+  they now promise a supersession that will not happen. Folded into 014's commit 6 rather than a new task (same
+  files, three sentences, no data). `HANDOFF.md:89` was already corrected by #42 and only needs the ruling's outcome.
 
 ## Interrupted Work — 2026-09-12: sandbox lost GitHub access mid-task
 
