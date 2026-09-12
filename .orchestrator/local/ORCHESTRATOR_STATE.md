@@ -118,6 +118,21 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
 - [x] **#36 MERGED as `b3cd14f`** — Phase 1 (measurement) closed on main: 3 inventory files, 35 doc
   blocks, 70 P0 bullets, 35 `OUT-OF-CBETA` routes. 007a/007b are **delivered — do not re-dispatch**.
 - [x] **#37 MERGED as `29abad7`** (my MERGE recommendation taken; only the 3 allowed paths moved).
+- [x] **Prompt 010b delivered as PR #39** (head `e2b48c2`, base `c670e87`, 3 files / 3 commits, +18/−1) —
+  **verdict MERGE.** Reviewed claim-by-claim, not diff-by-eye: §4.1's stale Platform-Sutra sentence replaced
+  with the labelled state (1/3/9 split, 680 CJK, "not a complete text" retained); §4.3's 630/532 rule
+  handled correctly (630 kept as *the register*, 532 attributed to #29/#30/#32/#34 and to `PHASE2_PLAN.md`
+  §2, supersession reserved to the evidence pass — no quiet number swap); AUDIT +3 measured bullets; HANDOFF
+  snapshot +3 lines and the four next-actions each naming the file to read. All pinned strings intact (my
+  one red flag was a broken grep pattern on my side — disproved by running the identical pattern on main and
+  head, both 1); zero unqualified `T1987`/`622`/`637`/`174` added; metrics byte-identical; all 9 gates
+  exit 0 in a clean clone. **Reference integrity: every claim checked out** — 4 witness mappings match the
+  data (`T2005`→`ref_T48n2005` work-id form handled correctly), cited PRs #29/#30/#32/#34/#35 all exist and
+  are merged, `--require-verified-refs` is a real collator flag, and 3/3 inventory paths plus the
+  `Release-blocking checklist` / `## Owner decision required` / `## 7.` anchors resolve. **Unprompted
+  quality note:** both files add *"None of the five documents changed status and none became complete"*,
+  closing the exact misreading (5 re-keyed docs + friendly prose = "done") this campaign exists to prevent.
+  First PR whose report needed no correction from me at all.
 - [x] **010 DELIVERED as #38, merged by the operator before orchestrator review ("accidentally"), head
   `c670e87`. Retrospective review = clean.** Scope exactly `vision.md`/`ROADMAP.md`/`RESEARCH_RELEASE_PLAN.md`
   (+196/−56, 0 data/docs/scripts paths); all metrics, `index.html`, `app.js`, both bundles byte-identical to
