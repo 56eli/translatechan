@@ -162,7 +162,7 @@ locators); witness changes; safety statement.
 ## 5. Wave checklist
 
 - [x] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1) — see §1.1
-- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☑ (PR #34, 2026-09-11) platform_sutra ☐
+- [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☑ (PR #34, 2026-09-11) platform_sutra ☐ — labelled (#35); text decision deferred to PHASE2_PLAN
 - [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
