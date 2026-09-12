@@ -956,3 +956,36 @@ interlocks 014 depends on were re-read at that base (`validate_data.py:793` cano
 convention (stubs are not committed as files). **015 (out-of-CBETA acquisition work orders) stays unauthored until
 014 merges** — both touch `.orchestrator/STATE.md`, and the operator's ordering suggestions, still pending, win if
 they reorder.
+
+## Review of PR #43 (task 014) — VERDICT: REVISE, 2026-09-12
+
+Posted as a PR comment (a `--request-changes` review is rejected by GitHub because the PR author is this same bot
+identity). Head `2dc8a64`, base `77b4039`, 9 files +60/−15, 5 commits = the five per-document fixes; **commits 6 and
+7 of §7 were never written**, so the branch contradicts main's prose while the data no longer carries the claim.
+
+Reproduced in my own fresh clone (not from their report): `validate_data.py` **3 errors** — `data/project_metrics.json`
+is stale, and the generated figures pinned at `validate_data.py:1171` (README) / `:1203` (AUDIT) still read 110,165 where
+the data now measures **110,233**; `test_source_review_rules.py` fails its own invariant "the shipped plan passes the
+documentation-truthfulness checks"; `smoke_test.mjs` cascades it; `diff -rq data docs/data` fails because
+`app_data.js`, `docs/app_data.js` and six `docs/data/**` files were never rebuilt+committed. `py_compile`,
+`test_source_preservation.py` (their allowlist additions are pointer-only, with per-document rationale),
+`git diff --check` pass. CI agrees: *Validate data, generated artifacts, and reader* red on `2dc8a64`;
+`mergeStateStatus: UNSTABLE`.
+
+Substance is good and I said so: `content_cjk_characters` stays 104,564; only 10 metrics lines move (all-string CJK
++ the five per-doc `all_cjk_chars` + echoed notes) — **no status count and no verified-quotation coverage count moves**,
+which independently confirms their "episode/page pending unchanged" claim. They measured X68n1315 in a throwaway clone
+(2 of 19 content fields), withdrew rather than re-attributed, and dissolved the `REMEDIATION_PLAN:87` "10/35 verbatim"
+figure as 9 `title_zh` EXACT fields in a separate partition — the correct resolution of a contradiction the project had
+carried since 2026-09-09. Dropping `taisho_vol: 47` (X68n1315 is 卍續藏, not Taishō) was better than my instruction.
+Their `mazu_yulu` "6/6 sections carrying 8 evaluated fields" reconciles the count discrepancy more honestly than my
+prompt's "8, not 6".
+
+Their PR body overstates once: it says the 10/35 figure was "corrected in `.orchestrator/REMEDIATION_PLAN.md`", and
+that file is not in the diff. Flagged: land it or fix the sentence.
+
+**My prompt's defect, owned:** 014 §8's generated-artifact check listed only `docs/app_data.js` + `data` and omitted
+root `app_data.js` and `docs/data/**`, so it would have passed on their commit set for the manifest-only edits. The
+correct contract is "empty `git status --porcelain` after the build". Standing change for every future prompt that
+can move data: gate on the *whole* worktree being clean after the generator runs, never on a hand-listed subset of
+generated paths.
