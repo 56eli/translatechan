@@ -11,6 +11,26 @@
 and this file. Never merges, never a PR base, never a coder target, never receives
 source changes. Divergence from `main` is expected and is not a defect.
 
+## Continuation
+
+This is the state a successor orchestrator reads second, after `main`'s `.orchestrator/STATE.md`.
+
+- **My orchestrator branch:** `arena/01a08e15-translatechan` (distribution channel: never merges, never a base,
+  additive commits only, never force-pushed).
+- **At the moment of writing:** `main` = `1b41d0b` (PR #43 merged); **no open PRs**; prompt 016 published here and
+  not yet dispatched; 014b queued behind it; 015 a reserved slot.
+- **To resume (the v4.1.1 form, verified working here):**
+  `git fetch --depth 50 origin +arena/01a08e15-translatechan:refs/remotes/origin/_orch`, read
+  `refs/remotes/origin/_orch:.orchestrator/local/ORCHESTRATOR_STATE.md`, `git ls-tree` the prompt directory, then copy
+  `.orchestrator/` forward into your own branch with `git show` (never `git checkout <ref> --`), and add a
+  `Continuation from: arena/01a08e15-translatechan` line here.
+- **Two things a successor must not re-do:** the four 2026-09-12 owner rulings are settled (they are recorded on
+  `main` in `## Standing Decisions`, written by PR #43); and #38/#39/#43 were all merged *before* review, so their
+  verdicts live in this file's *Review Log* sections rather than in PR threads.
+- **Live hazard in this environment:** the sandbox rewinds the worktree to an old SHA and drops GitHub credentials
+  without notice. See *Hardening Log* rows 2026-09-12/014 and the reconciliation procedure under *Interrupted Work*.
+
+
 ## Canonical Project Tracker
 
 - `.orchestrator/STATE.md` on `main` — task queue, standing decisions, invariants, known gaps.
@@ -39,6 +59,19 @@ source changes. Divergence from `main` is expected and is not a defect.
 | 003 | `.orchestrator/prompts/003-linji-yulu-rekey.md` | W1 remediation Wave 1 doc 3: adjudicate `linji_yulu`'s 10 content flags against T47n1985 (2 DIVERGENT + 6 NOT_FOUND adjudicated, 2 MINOR untouched), rewrite the false `coverage_note`, 行錄 sections 67–73 per the owner's per-field ruling | `arena/01a08fd6-translatechan` | #32 | **Merged 2026-09-11 12:45 CEST** as `b82d904`; verdict MERGE, all 3 stages passed, witness re-extracted + harness re-run by me on `af1be55` |
 | 004 | `.orchestrator/prompts/004-tracker-comment-drift.md` | Docs-only drift after PR #31/#32: `STATE.md` sequencing block, `HANDOFF.md` §9 map alignment, `app.css`/`docs/app.css` scoreboard-era comment | `arena/01a09041-translatechan` | #33 | **Merged 2026-09-11 15:32 CEST** as `83865a6`; verdict MERGE, mirror contract proven by idempotent build |
 | 005 | `.orchestrator/prompts/005-xinxin-ming-rekey.md` | W1 Wave 1 doc 4: adjudicate `xinxin_ming`'s **13** content flags against T48n2010 — 12 re-key (1–4 graph variants) + `stanzas[31]` kept/labelled (witness lacks 一念萬年), `coverage_note` correction, allowlist extension | `arena/01a090ab-translatechan` | #34 | **Merged 2026-09-11 17:37 CEST** as `ef13b26`; verdict MERGE, 12/12 re-keys byte-identical to my own independent re-derivation, allowlist set-equal 24=24, all gates re-run. Post-merge `main`: Quality + Pages both success |
+| 006 | `.orchestrator/prompts/006-witness-inventory-t47.md` | Read-only witness inventory, family 1: the nine T47 recensions | `arena/01a091ad-translatechan` | #35 | **Merged 2026-09-11 22:44 UTC** — delivered inside the platform_sutra PR (its commit `654189a`); re-checked for zero data drift |
+| 007a | `.orchestrator/prompts/007a-inventory-t48-t51.md` | Witness inventory, families 2 (T45/T48/T51 + the witness-unavailable pair) | `arena/01a092aa-translatechan` | #36 | **Merged 2026-09-11 23:44 UTC** |
+| 007b | `.orchestrator/prompts/007b-inventory-xseries.md` | Witness inventory, family 3 (X-series, 27 of 28 collate) | `arena/01a092aa-translatechan` | #36 | **Merged in the same PR** |
+| 008 | `.orchestrator/prompts/008-phase2-consolidation.md` | Consolidate the three inventories into a ranked 76-row adjudication (`PHASE2_PLAN.md`) | `arena/01a0931e-translatechan` | #37 | **Merged 2026-09-12 01:36 UTC** |
+| 009 | `.orchestrator/prompts/009-platform-sutra-labels.md` | Label `platform_sutra`'s recensions honestly (Dunhuang-primary, label-only, zero re-key) | `arena/01a091ad-translatechan` | #35 | **Merged 2026-09-11 22:44 UTC** |
+| 010 | `.orchestrator/prompts/010-vision-roadmap-alignment.md` | Align `vision.md` / `ROADMAP.md` / `RESEARCH_RELEASE_PLAN.md` to the measured status quo | `arena/01a09352-translatechan` | #38 | **Merged 2026-09-12 08:14 UTC — merged before my review**; retrospectively verified clean (all 8 gates on `main`, artifacts byte-identical) |
+| 010b | `.orchestrator/prompts/010b-status-docs.md` | Bring `README.md` / `AUDIT.md` / `HANDOFF.md` to the measured status quo | `arena/01a094c5-translatechan` | #39 | **Merged 2026-09-12 08:59 UTC**; verdict recorded under *Review Log — late entries* |
+| 011 | `.orchestrator/prompts/011-note-rendering.md` | Render every provenance note the corpus carries (one shared muted-note renderer) | `arena/01a094d7-translatechan` | #40 | **Merged 2026-09-12 10:22 UTC** |
+| 012 | `.orchestrator/prompts/012-postremediation-evidence-pass.md` | Publish the post-remediation collation register and report | `arena/01a09543-translatechan` | #41 | **Merged 2026-09-12 12:12 UTC** |
+| 013 | `.orchestrator/prompts/013-shipped-state-docs.md` | Say what shipped: renderer visible, evidence pass split | `arena/01a095a4-translatechan` | #42 | **Merged 2026-09-12 14:55 UTC** |
+| 014 | `.orchestrator/prompts/014-citation-fixes.md` | Fix the six `CITATION` rows: stop saying six false citations | `arena/01a097bd-translatechan` | #43 | **Merged 2026-09-12 22:59 UTC — my REVISE verdict was not applied first**; main is healthy, **two follow-ups open (see 014b)** |
+| 015 | *(slot deliberately reserved, no file)* | Acquisition **work orders** for the 31 `OUT-OF-CBETA` documents (owner ruling 4: orders, not witnesses) | — | — | **Queued — do not author until 014b merges.** The gap in the sequence is a reservation, not a lost publish |
+| 016 | `.orchestrator/prompts/016-tracker-continuation-block.md` | Give the canonical tracker a cold-start `## Continuation (cold start)` block | — | — | **Published on this branch, NOT YET DISPATCHED** — stub handed to the operator 2026-09-13 |
 
 Numbering note: `.orchestrator/prompts/` is per-orchestrator-branch. This branch starts at
 002 because 001 is reserved above for the review task. The predecessor generation's prompts
@@ -613,6 +646,25 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
 - **Still owed by the owner before doc 5:** the Platform Sutra recension decision (T2008 宗寶 vs
   Dunhuang T2007) — do not let an agent pick it.
 
+## Scope Boundaries
+
+Owner-set limits that no task may cross; each has already cost a review cycle when an agent ignored it.
+
+- **Public surface is exactly five rooms** (Reader, Matrix, Lineage, Gong'an index, Lexicon). No new room, no new
+  nav entry, no marketing page.
+- **Never edit `.github/workflows/*`** (owner does), and never delete or rewrite `sessions/*` — evidence files are
+  append-only, superseded by date, not by deletion.
+- **`docs/app.css` and `docs/app_data.js` are build outputs**: rewritten only by `scripts/build_data_bundle.py`.
+- **Identifiers are fixed**: `translatechan_*`, `window.TranslateChan`, `TRANSLATECHAN_DATA`.
+- **No scoreboard references** — the system was retired by PR #31 and its return has been refused twice.
+- **No agent may generate Classical Chinese that looks source-like**: re-key verbatim from a pinned, digest-verified
+  CBETA witness or label the field. N/N representation is never presented as completion.
+- **One document per PR** for `RE-KEY`/`LABEL` work under the R-A/R-B/R-C policy; the only exception granted so far is
+  the citation-string batch the owner authorised for PR #43.
+- **Every data-touching sub-task is its own commit**, and a prompt that can move CJK prose must name the pinned
+  all-string CJK doc targets (`README.md:48`, `AUDIT.md:20`) and keep those edits in the same PR.
+
+
 ## Architectural Invariants
 
 Binding on every prompt authored here (from `main`'s `STATE.md` + owner decisions):
@@ -1025,3 +1077,18 @@ wherever a prompt says "the measurement supports X", it must also say what the m
 not — and I must run the per-document collation counts for **every** row, not only for the row whose fix I doubted.
 `collate_corpus.py`'s witness note remains the difference between *where a text lives* and *whether our copy is
 verbatim*; the campaign's whole point is that those two are never conflated.
+
+## Hardening Log
+
+Bounded session log (~20 recent); `Deferred (needs owner decision)` rows are never evicted.
+
+| Date | Seq | Category | Symptom | Impact | Disposition | Hardening |
+|---|---|---|---|---|---|---|
+| 2026-09-12 | 014 | Environment | Sandbox lost GitHub credentials twice mid-task (`GH_TOKEN` valid for minutes; `~/.gitconfig`, `~/.git-credentials`, the helper and the widened fetch refspec all gone) | two publishes stranded locally; a review could not be posted | Hardening candidate | On a announced reconnect the **push is the first command of the turn**; then verify the remote blob hash, never assume |
+| 2026-09-12 | 014 | Environment | Worktree rewound to stale base `02e5db7` three times; published tip's objects absent, so `cat-file -t` failed and `origin/arena/*` did not resolve | nearly reported "history lost" to the owner | Hardening candidate | Confirm any surprising repo-level result against `gh api repos/…/commits/<sha>` **and** `git ls-remote` before describing it; never conclude loss from local refs |
+| 2026-09-12 | 014 | Prompt | §8 named only `docs/app_data.js` as a generated artifact | PR #43 shipped with a stale `docs/data/**` mirror and uncommitted `app_data.js`; 3 gate failures | Hardening candidate | Standing rule: the gate is **an empty `git status --porcelain` after the generator**, never a hand-listed subset of generated paths |
+| 2026-09-12 | 014 | Prompt | §1/§2 told rows 3-6 to "name the witness the harness pins" | a manifest witness claim (`dahui_hongzhi` → T48n2001) with **0 of 6** content fields collating reached `main` | Deferred (needs owner decision) | 014b discloses it in `cbeta_note`; invariant proposed: *probing a witness ≠ a field collating in it*, checked per row, not per doubt |
+| 2026-09-12 | 014 | Tooling | `python3 - <<'PY'` patch scripts died on anchors I reconstructed; `sed -n`+`edit_file` worked | two files left unpatched while printing success | Scoped (recurring) | Quote-by-copy from a printed line range, one edit per call; never retype an anchor |
+| 2026-09-12 | 010b | Repository | `/tmp` is wiped mid-session; a prior snapshot restored `.git/shallow` | scratch clones and a durable backup path lost | Hardening candidate | The publish form's `mktemp -d /tmp/…` backup is not durable here; keep recovery copies in an ignored path **inside** the worktree, which survives `reset --hard` as untracked |
+| 2026-09-11 | 005 | Prompt | A prompt asserted a `verification_note` key that does not exist, and mis-quoted a gate sentence | coder would have hunted for a phantom key | Hardening candidate | Enumerate-and-print every key/quote a prompt names, at the current base, before publishing |
+| 2026-09-10 | 001 | Repository | `key in json.dumps(doc)` treated as field-role evidence (false alarm on `caoxi_zhuan` `X1458`) | one wasted review cycle | Hardening candidate | Check the container, never serialise-and-search, when attributing a field |
