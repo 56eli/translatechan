@@ -16,13 +16,19 @@ Every case mutates a *copy* of the repository inputs in a temp directory, so the
 * a status with no evidence record fails, in both directions;
 * editing a status or an evidence figure without editing the matching evidence fails;
 * --write-metrics with any blocking data error exits nonzero and leaves
-  data/project_metrics.json byte-identical (mutation matrix below).
+  data/project_metrics.json byte-identical (mutation matrix below);
+* every `*_note` provenance key the corpus carries is rendered by the reader or
+  explicitly exempted with a recorded reason, so "someone wrote a label nobody
+  shows" is a red test instead of a silent state (task 011 §4.5). The key list is
+  enumerated from data/corpus/*.json at run time and an orphaned key in a scratch
+  copy of the tree must turn the rule red.
 """
 
 from __future__ import annotations
 
 import json
 import hashlib
+import re
 import shutil
 import subprocess
 import sys
@@ -539,6 +545,187 @@ def run_public_api_check() -> None:
               "the removed public API getSourceReviewStatus is not present in docs/app.js")
 
 
+#: Task 011 §4.5 — the note keys the reader deliberately does NOT render beside a
+#: passage, each with its reason on the record. An exemption is a claim that has to
+#: stay true: the regression below also verifies the key is absent from the
+#: renderer's precedence list and that its recorded alternative home still exists in
+#: app.js, so the list cannot be widened into a get-out-of-jail card for an orphaned
+#: label, nor narrowed without a reviewer seeing the key go red.
+NOTE_RENDER_EXEMPTIONS: dict[str, str] = {
+    "coverage_note": (
+        "Dossier ledger field, not a passage label. It states document-scale coverage "
+        "(e.g. '100/100 case records represented; W1 source-review status: "
+        "partial_or_failed_w1_collation') and already renders once per document as the "
+        "'Reading' row of the represented-units ledger (renderRepresentedUnitsLedger) — "
+        "the same document header the reader uses for every other disclosure. Rendering "
+        "it beside each passage would repeat one document-level statement at every unit "
+        "and would imply it describes that unit. Verified home: the `doc.coverage_note` "
+        "ledger row in app.js."
+    ),
+}
+
+#: The content-render functions that must call the shared note renderer. This is the
+#: render-site map for the node types the corpus actually carries notes on: document
+#: root / front matter / end matter (renderReader) and the case, section, dialogue,
+#: stanza and chapter units with their nested dialogue/verse entries.
+NOTE_RENDER_SITES: tuple[str, ...] = (
+    "renderReader",
+    "renderCaseItem",
+    "renderSectionItem",
+    "renderDialogueItem",
+    "renderStanzaItem",
+    "renderChapterItem",
+)
+
+#: The §3 enumeration rule: a leaf key of exactly this shape is a provenance note.
+NOTE_KEY = re.compile(r"^[a-z_]+_note$")
+
+
+def corpus_note_keys(corpus_dir: Path) -> dict[str, dict]:
+    """Every `[a-z_]+_note` key under `corpus_dir`, with counts, files and node paths.
+
+    Enumerated from the data at run time — never from a constant in this file — so the
+    invariant stays data-driven and cannot be satisfied by editing a list here. Node
+    paths are array-normalized (`$.chapters[].dialogue[]`), which doubles as the
+    render-site map: they name the node types a note can sit on.
+    """
+    found: dict[str, dict] = {}
+
+    def walk(node, path: str, filename: str) -> None:
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if NOTE_KEY.match(key):
+                    entry = found.setdefault(key, {"count": 0, "nodes": Counter(), "files": set()})
+                    entry["count"] += 1
+                    entry["nodes"][path] += 1
+                    entry["files"].add(filename)
+                walk(value, f"{path}.{key}", filename)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item, f"{path}[]", filename)
+
+    for path in sorted(corpus_dir.glob("*.json")):
+        walk(json.loads(path.read_text(encoding="utf-8")), "$", path.name)
+    return found
+
+
+def reader_note_keys(app_src: str) -> list[str]:
+    """The precedence list the one shared note renderer in app.js renders.
+
+    Parsed out of app.js rather than duplicated here: the rendered side of the
+    invariant is whatever the reader actually renders.
+    """
+    declaration = re.search(r"const PROVENANCE_NOTE_KEYS = \[([^\]]*)\]", app_src)
+    return re.findall(r"'([a-z_]+_note)'", declaration.group(1)) if declaration else []
+
+
+def function_source(app_src: str, name: str) -> str:
+    """The source of a top-level `function name(` in app.js, up to the next one."""
+    start = app_src.find(f"function {name}(")
+    if start < 0:
+        return ""
+    end = app_src.find("\n  function ", start + 1)
+    return app_src[start:] if end < 0 else app_src[start:end]
+
+
+def run_provenance_note_render_regression() -> None:
+    """Task 011 §4.5: every corpus `*_note` key is rendered by the reader, or exempted.
+
+    Measured before the fix: 49 provenance notes across 4 keys in data/corpus/*.json
+    and exactly one render site (a verse-level `recension_note` in renderChapterItem),
+    so `cbeta_note` (16 citation corrections, e.g. caoxi_zhuan's "prior 'X1458'
+    wrong — X1458 is 宗門寶積錄"), `editorial_note` (8 witness-attribution labels) and
+    13 of 14 `recension_note` labels (including platform_sutra's root recension
+    ruling) were unreachable. This check makes that state red instead of silent.
+    """
+    app_src = (REPO / "app.js").read_text(encoding="utf-8")
+    keys = corpus_note_keys(REPO / "data" / "corpus")
+    rendered = reader_note_keys(app_src)
+    total_notes = sum(entry["count"] for entry in keys.values())
+
+    check(bool(rendered),
+          "app.js declares the shared note renderer's precedence list (PROVENANCE_NOTE_KEYS)")
+    check(len(rendered) == len(set(rendered)),
+          "the precedence list names each note key once, so keys render on separate lines")
+    check(rendered == ["recension_note", "editorial_note", "cbeta_note"],
+          "precedence is recension_note → editorial_note → cbeta_note (recension provenance, "
+          f"then witness-attribution status, then citation correction) — got {rendered}")
+
+    orphans = sorted(key for key in keys if key not in rendered and key not in NOTE_RENDER_EXEMPTIONS)
+    orphan_detail = "; ".join(
+        f"{key}: {keys[key]['count']} occurrence(s) at {', '.join(sorted(keys[key]['nodes']))} "
+        f"({len(keys[key]['files'])} file(s)) — rendered nowhere and not exempted"
+        for key in orphans
+    )
+    check(not orphans,
+          f"every *_note key in data/corpus/*.json is rendered by the reader or explicitly "
+          f"exempted with a reason ({len(keys)} keys / {total_notes} notes measured)"
+          + (f" — ORPHANED LABEL(S): {orphan_detail}" if orphans else ""))
+
+    for key, reason in sorted(NOTE_RENDER_EXEMPTIONS.items()):
+        check(key in keys,
+              f"the exempted {key} is still present in the corpus (a stale exemption hides nothing)")
+        check(key not in rendered,
+              f"the exempted {key} is not also rendered as a per-passage label")
+        check(len(reason.split()) >= 12,
+              f"the {key} exemption records a reason, not just a key name")
+    check("doc.coverage_note" in app_src and "function renderRepresentedUnitsLedger(" in app_src,
+          "the exempted coverage_note still renders in its recorded home (the Reading ledger row)")
+
+    # One renderer, called at every content site: no per-site copies of the markup,
+    # no new class, and no node type silently skipped.
+    check("function renderProvenanceNoteLine(" in app_src and "function renderProvenanceNotes(" in app_src,
+          "one shared renderer emits every provenance-note line")
+    check(app_src.count("ℹ️ ${escHtml(") == 1,
+          "the muted-note markup exists exactly once, inside the shared renderer "
+          "(no duplicated inline expression, no new CSS class)")
+    for name in NOTE_RENDER_SITES:
+        body = function_source(app_src, name)
+        check(bool(body), f"app.js still has the content-render function {name}")
+        check("renderProvenanceNotes(" in body,
+              f"{name} calls the shared note renderer, so a note-bearing node of that "
+              "type cannot be skipped")
+
+    # Re-derive the measured table on every run (task §1/§3): the counts are read from
+    # the data, so the report cannot drift from the corpus.
+    print("\n  corpus *_note keys measured now (data-driven):")
+    for key in sorted(keys):
+        entry = keys[key]
+        state = ("RENDERED" if key in rendered
+                 else "EXEMPT" if key in NOTE_RENDER_EXEMPTIONS else "ORPHANED")
+        print(f"    {key:16} occurrences={entry['count']:<3} files={len(entry['files']):<3} "
+              f"app.js mentions={app_src.count(key):<3} nodes={', '.join(sorted(entry['nodes']))} "
+              f"-> {state}")
+
+    # Negative case: the rule must bite. An orphaned key is injected into a scratch
+    # copy of the tree (Sandbox), never into the repository's own data/.
+    scratch_relative = "data/corpus/wumenguan.json"
+    sandbox = Sandbox("note-orphan")
+    try:
+        def scratch_orphans() -> list[str]:
+            scratch_keys = corpus_note_keys(sandbox.root / "data" / "corpus")
+            scratch_rendered = reader_note_keys(sandbox.read_text("app.js"))
+            return sorted(key for key in scratch_keys
+                          if key not in scratch_rendered and key not in NOTE_RENDER_EXEMPTIONS)
+
+        # Measured before the injection so the assertion is about the injected key even
+        # when this suite is run from a tree that already carries an orphan.
+        before = scratch_orphans()
+        document = sandbox.read(scratch_relative)
+        document["fabrication_note"] = (
+            "SCRATCH orphan label: proves the §4.5 invariant bites. Never committed."
+        )
+        sandbox.write(scratch_relative, document)
+        after = scratch_orphans()
+        check(after == sorted(set(before) | {"fabrication_note"}) and "fabrication_note" in after,
+              "an orphaned *_note key added to a scratch copy is reported as unrendered "
+              f"(before {before} -> after {after})")
+        check("fabrication_note" not in (REPO / scratch_relative).read_text(encoding="utf-8"),
+              "the negative case mutated only the scratch copy: the repository's corpus is untouched")
+    finally:
+        sandbox.cleanup()
+
+
 def main() -> int:
     # 1. the shipped inputs must validate, and their aggregates must equal the evidence
     baseline = Sandbox("baseline")
@@ -710,6 +897,10 @@ def main() -> int:
 
     # 14. documentation truthfulness: the stale "174 extracted reference texts" claim fails.
     run_reference_count_doc_regression()
+
+    # 15. label visibility (task 011 §4.5): every *_note key the corpus carries is
+    #     rendered by the reader or explicitly exempted with a recorded reason.
+    run_provenance_note_render_regression()
 
     print(f"\n{len(passes)} W1 source-review rule checks passed")
     if failures:
