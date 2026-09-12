@@ -140,6 +140,24 @@ ALLOWED_CHANGES = {
         ".coverage_note",
         ".zh_chars",
     }),
+    "data/corpus/dongshan_yulu.json": frozenset({
+        # 2026-09-12 CITATION fix (task 014, rank 4): the `coverage_note` cited X1321 — the Mazu
+        # record (X69n1321) — as a witness of this document. Rewritten to name the witnesses the
+        # harness actually pins (T47n1986A/T47n1986B, the 筠州/瑞州洞山 records) and to state the
+        # measured 1/21 collation. Only the note changes: no source text, no `zh`/`*_zh` field, no
+        # `cbeta_id` change, and no `zh_chars` pointer (this document declares none). The 14
+        # `title_zh` metadata flags are untouched (composite-title plan item).
+        ".coverage_note",
+    }),
+    "data/corpus/fayan_yulu.json": frozenset({
+        # 2026-09-12 CITATION fix (task 014, rank 3): the `coverage_note` named T1985 / X1321 —
+        # the Linji record and the Mazu record, neither a witness of this document. Rewritten to
+        # name the witness the harness actually pins (T47n1991) plus X63n1226 for 宗門十規論, and to
+        # state the measured 1/11 collation. Only the note changes: no source text, no `zh`/
+        # `*_zh` field, no `cbeta_id` (already T1991 / X1226), and no `zh_chars` pointer (this
+        # document declares none).
+        ".coverage_note",
+    }),
     "data/corpus/linji_yulu.json": frozenset({
         # 2026-09-11 R-A re-key of the W1-flagged content fields to the T47n1985 witness (Wave 1,
         # document 3), under the owner's 2026-09-11 per-field ruling for the 行錄 division: the
@@ -162,6 +180,14 @@ ALLOWED_CHANGES = {
         ".sections[73].dialogue[0].editorial_note",
         ".coverage_note",
         ".zh_chars",
+    }),
+    "data/corpus/mazu_yulu.json": frozenset({
+        # 2026-09-12 CITATION fix (task 014, rank 5): the `coverage_note` cited T1986 — a 洞山 work —
+        # and said "6" where the harness evaluates 8 source-content fields. Rewritten to name the
+        # witness the harness actually pins (X69n1321, 四家語錄卷一·馬祖道一禪師廣錄) and to state the
+        # measured 0/8 collation. Only the note changes: no source text, no `zh`/`*_zh` field, no
+        # `cbeta_id` change (already X1321), and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
     }),
     "data/corpus/platform_sutra.json": frozenset({
         # 2026-09-11 label-only recension package (task 009, Dunhuang-primary ruling): provenance
@@ -358,6 +384,25 @@ ALLOWED_CHANGES = {
         ".stanzas[32].zh",
         ".stanzas[34].pinyin",
         ".stanzas[34].zh",
+    }),
+    "data/corpus/zhaozhou_yulu.json": frozenset({
+        # 2026-09-12 CITATION fix (task 014, rank 1-2): the false T1987 witness claim is withdrawn,
+        # not re-attributed — `cbeta_id` becomes the qualified candidate form, the `taisho_vol 47`
+        # that belonged to the withdrawn claim is removed (X68n1315 is a 卍續藏 work, not a Taishō
+        # one), `coverage_note` states what the document represents and what the witness
+        # measurement shows in the same terms, and the additive `cbeta_note` records the probe
+        # measurement and the volume removal. The two verified-quotation `reference` strings that
+        # also cited T1987 are corrected to the candidate form; they are citation identifiers, not
+        # source text, and their `(translation book episode/page pending)` state is unchanged, so
+        # the verified-reference coverage counts do not move. Not one character of Chinese and no
+        # `zh`/`*_zh` field changes, no `zh_chars` pointer (this document declares none). The 15
+        # `title_zh` metadata flags are untouched (composite-title plan item).
+        ".cbeta_id",
+        ".cbeta_note",
+        ".coverage_note",
+        ".dialogues[1].dialogue[0].translations.hoffman.source.reference",
+        ".dialogues[1].dialogue[1].translations.hoffman.source.reference",
+        ".taisho_vol",
     }),
 }
 

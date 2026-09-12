@@ -3,8 +3,7 @@
   "title_zh": "趙州真際禪師語錄",
   "title_pinyin": "Zhàozhōu Zhēnjì Chánshī Yǔlù",
   "title_en": "The Recorded Sayings of Master Zhaozhou",
-  "cbeta_id": "T1987",
-  "taisho_vol": 47,
+  "cbeta_id": "claimed: X68n1315 古尊宿語錄 — unverified (2 of 19 evaluated source-content fields collate against the pinned extraction); the prior T1987 claim was false (T1987 is the Caoshan record)",
   "author_zh": "趙州從諗 禪師 說",
   "author_en": "Chan Master Zhaozhou Congshen (778–897 CE)",
   "era": "Tang Dynasty",
@@ -151,7 +150,7 @@
                 "edition": "Autumn Press, 1978",
                 "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08",
                 "source_id": "hoffman-radical-zen-1978",
-                "reference": "T1987 / Wash Your Bowl, dialogue unit 1 (translation book episode/page pending)"
+                "reference": "X68n1315 (candidate, unverified) / Wash Your Bowl, dialogue unit 1 (translation book episode/page pending)"
               }
             }
           }
@@ -185,7 +184,7 @@
                 "edition": "Autumn Press, 1978",
                 "verification": "verbatim vs Terebess reproduction of Hoffman's text, 2026-08-08",
                 "source_id": "hoffman-radical-zen-1978",
-                "reference": "T1987 / Wash Your Bowl, dialogue unit 2 (translation book episode/page pending)"
+                "reference": "X68n1315 (candidate, unverified) / Wash Your Bowl, dialogue unit 2 (translation book episode/page pending)"
               }
             }
           }
@@ -570,5 +569,6 @@
       ]
     }
   ],
-  "coverage_note": "15 signature encounter dialogues excerpted from T1987"
+  "cbeta_note": "Corrected 2026-09-12: the prior 'T1987' citation was false — T1987 is the Caoshan record, not Zhaozhou's — and is withdrawn rather than re-pointed, because the candidate in-set witness X68n1315 古尊宿語錄 does not verify. A read-only probe collation with X68n1315 as the sole witness (throwaway clone; digest-verified reference set; CBETA XML P5 dbdea41071e1e260ad84b72faefd4587333cf76d) collates 2 of 19 evaluated source-content fields (1 EXACT, 1 REWORDED; 6 DIVERGENT, 11 NOT_FOUND); reproduce by pointing DOCS['zhaozhou_yulu'] at (['X68n1315'], []) in a throwaway clone and running scripts/collate_corpus.py --doc zhaozhou_yulu against the 2026-09-10 refs manifest. The prior 'taisho_vol 47' belonged to that withdrawn claim and is removed: X68n1315 is a 卍續藏 work (vol. 68), not a Taishō one, so no Taishō volume is recorded.",
+  "coverage_note": "15/15 dialogues represented; W1 source-review status: partial_or_failed_w1_collation — no witness holds this text. The former claim T1987 was false (T1987 is the Caoshan record), and the candidate in-set witness X68n1315 古尊宿語錄 is unverified: a probe collation with X68n1315 as the sole witness collates 2 of 19 evaluated source-content fields (1 EXACT, 1 REWORDED; 6 DIVERGENT, 11 NOT_FOUND). Of the 35 fields that probe measured, 10 classify EXACT — 9 of them title_zh metadata, which is measured in a separate partition and never establishes content collation. The claim is withdrawn, not re-attributed: these dialogues are carried as project text with no verified witness, and the document is routed to the human-sourcing queue for a sourced Zhaozhou record. Representation does not establish complete selected-witness status."
 }

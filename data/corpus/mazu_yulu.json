@@ -217,5 +217,5 @@
     }
   ],
   "cbeta_note": "Corrected 2026-08-08: prior 'X1304 / T1985' wrong — X1304 is 林泉老人評唱丹霞淳禪師頌古虗堂集; T1985 is strictly the Record of Linji. Mazu's record is 四家語錄卷一 (X69n1321, 卍續藏第69冊); also 馬祖大寂行狀 in X1315.",
-  "coverage_note": "6 foundational sermons and dialogues from T1986 / X1321"
+  "coverage_note": "6/6 sections represented, carrying 8 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 8 source-content fields collate to the claimed X69n1321 witness (四家語錄卷一·馬祖道一禪師廣錄): 4 are DIVERGENT (0.89–0.91) and 4 NOT_FOUND, so the sermons and dialogues are carried as project text the witness does not hold verbatim. The former note's '6' counted this document's sections, not the 8 fields the harness evaluates, and its T1986 is a Dongshan work, not a Mazu witness; both errors are dropped. Representation does not establish complete selected-witness status."
 }

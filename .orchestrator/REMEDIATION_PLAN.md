@@ -45,8 +45,12 @@ neither sourcing nor honest relabeling is responsible. Rules for the R-A work pa
   project-authored label in structured metadata and NO witness attribution. Never leave a
   passage that implies witness authority without collating.
 - **Witness misattributions:** fix `cbeta_id` and all derived claims (zhaozhou_yulu →
-  X1315 古尊宿語錄 (X68n1315); fayan_yulu → correct source work(s); dahui_hongzhi →
-  T1998A + T2001; platform_sutra → pick ONE recension per document and re-key or split).
+  citation withdrawn 2026-09-12 (PR #43): the candidate 古尊宿語錄 work X68n1315 is
+  **unverified** — a probe with it as the sole witness collates 2 of 19 content fields —
+  so it is not written as a locator and the untouched content goes to the human-sourcing
+  queue; fayan_yulu → correct source work(s); dahui_hongzhi →
+  T1998A / T1998B + T48n2001 (volume-qualified: T48n2001 is 宏智禪師廣錄, the 默照銘 witness);
+  platform_sutra → pick ONE recension per document and re-key or split).
 - **Composite `title_zh` strings:** split into `title_zh` (witness heading only, collating)
   + a separate display/topic field for project-appended text. Update renderer references
   (`app.js`) and smoke guards as needed — check `scripts/smoke_test.mjs` expectations
@@ -84,7 +88,11 @@ field's provenance, and used for all re-keying in that document.
    currently mixed. Re-key chosen recension; 9 flagged + titles.
 
 **Wave 2 — misattributed but partially findable content:**
-6. `zhaozhou_yulu` (true witness X68n1315; 10/35 verbatim there) · 7. `dongshan_yulu`
+6. `zhaozhou_yulu` (citation withdrawn 2026-09-12, PR #43 — the candidate witness
+   X68n1315 is unverified: a probe collates 2 of 19 content fields, and the "10/35
+   verbatim there" figure this line used to carry was that probe's 10 EXACT fields
+   overall, 9 of them `title_zh` metadata, not content; sourcing a Zhaozhou record is a
+   human task, not a re-key) · 7. `dongshan_yulu`
    (20 flagged) · 8. `huangbo_chuanxin` · 9. `chuandenglu` · 10. `baojing_sanmei` ·
    11. `mazu_yulu` · 12. `bodhidharma_erru`.
 
@@ -164,7 +172,7 @@ locators); witness changes; safety statement.
 
 - [x] Policy note: 曰/云 + variant-grapheme policy (record BEFORE Wave 1 PR 1) — see §1.1
 - [ ] Wave 1: wumenguan ☑ (PR #29, 2026-09-10) biyanlu_cases ☑ (PR #30, 2026-09-10) linji_yulu ☑ (PR #32, 2026-09-11) xinxin_ming ☑ (PR #34, 2026-09-11) platform_sutra ☐ — labelled (#35); text decision deferred to PHASE2_PLAN
-- [ ] Wave 2: zhaozhou ☐ dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
+- [ ] Wave 2: zhaozhou ☐ — citation withdrawn (PR #43, 2026-09-12); content routed to the human-sourcing queue, not a re-key · dongshan ☐ huangbo_chuanxin ☐ chuandenglu ☐ baojing ☐ mazu ☐ erru ☐
 - [ ] Wave 3: (18 docs) ☐
 - [ ] Wave 4: hanshan ☐ niutou ☐
 - [ ] Post: README/HANDOFF/ROADMAP claim rewrite ☐ validator collation rule ☐ scoreboard removal ☑ (PR #31, 2026-09-11)
