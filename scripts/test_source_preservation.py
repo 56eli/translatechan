@@ -181,6 +181,14 @@ ALLOWED_CHANGES = {
         ".coverage_note",
         ".zh_chars",
     }),
+    "data/corpus/mazu_yulu.json": frozenset({
+        # 2026-09-12 CITATION fix (task 014, rank 5): the `coverage_note` cited T1986 — a 洞山 work —
+        # and said "6" where the harness evaluates 8 source-content fields. Rewritten to name the
+        # witness the harness actually pins (X69n1321, 四家語錄卷一·馬祖道一禪師廣錄) and to state the
+        # measured 0/8 collation. Only the note changes: no source text, no `zh`/`*_zh` field, no
+        # `cbeta_id` change (already X1321), and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
     "data/corpus/platform_sutra.json": frozenset({
         # 2026-09-11 label-only recension package (task 009, Dunhuang-primary ruling): provenance
         # labels under the owner's oldest-near-complete-copy ruling — CBETA T48n2007 (Dunhuang) is
