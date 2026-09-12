@@ -173,6 +173,40 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   (2) `deshan_yulu`'s lone delta is `witness_note` (`X1315` → `X68n1315`), which is **harness-side** — the id table
   inside `scripts/collate_corpus.py:214-242`, normalised in `7cde460` — so part of a document's claimed witness lives
   in the script, not the data: never "fix" a witness id by editing `data/corpus/*.json`.
+- [x] **PR #41 — task 012, the post-remediation evidence pass — verdict REVISE (2 mechanical items, both traceable to
+  my prompt, not the coder).** Head `e4a7e41`, base `faff161`, exactly 3 files (`ROADMAP.md` +3/−3, the new register
+  +7724, the new report +276), 2 commits in the mandated order, Quality green, mergeState CLEAN. **Authenticity
+  proved by me, not asserted:** I replayed *their* register from its own `generation_parameters`
+  (`--reproduce sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json`, my independent refs) and `cmp` is
+  **byte-identical**, sha256 `6bb74de7445ca67b…` matching the digest they published in §7. Every figure re-derived
+  from the two registers, not from their prose: 532 flagged, 691/924 content fields, `DIVERGENT` 37 across 16 docs,
+  `NOT_FOUND` 310 across 33, `EXACT` 783, statuses 1/32/2, `documents_with_changed_status` 0; per-document flagged
+  deltas (biyanlu −20, wumenguan −61, linji −5, xinxin −12) sum to exactly −98 = 630→532 **with no other document
+  changing**; the two residual `DIVERGENT` fields they name exist verbatim in the register
+  (`linji_yulu .sections[66].title_zh` sim 0.8571 序四… composite title; `platform_sutra .chapters[7].zh` sim 0.9444
+  師示眾云 vs witness 師謂眾曰) and 09-10 had 3 and 1 as claimed; `platform_sutra`'s entry is byte-identical; the
+  47-key/5-doc census (7 aggregate / 5 reproduction / 35 documents) and even the `cmp` failure offset
+  (char 8938, line 265) reproduce my own run; `historical_counts` 33 verified / 6 drift and the 6 `drifted_refs`
+  match the overlay exactly; the `2026R2` tag claim checks out against `git ls-remote` (`2026R2 → dbdea41071e1…`);
+  no new digest manifest; all 9 gates exit 0 in a real clone with `git status --porcelain` empty after rebuild and
+  `validate_data.py` still printing `flagged=630 | evidence=2026-09-10`, i.e. the no-re-designation rule held.
+  **The two revise items:** (1) `upstream.revision` is the literal `"unrecorded"` — `collate_corpus.py:642` writes
+  that unless `--upstream-revision` is passed, and my §3.4 command omitted it. Proved surgical: regenerating with
+  `--upstream-revision dbdea410…` changes **exactly 2 leaf keys** (`upstream.revision`,
+  `generation_parameters.upstream_revision`) and leaves `aggregate`, `documents`, `reproduction` identical.
+  (2) Report §6 calls the register "a drop-in for a future re-designation": key-set parity is true, adoption is not —
+  `w1_evidence.py:752-758/779-783` demand `kind == "w1-correction"`, `corrects == …2026-09-09.json`,
+  `upstream.revision == PINNED_UPSTREAM_REVISION`. A future task reading that sentence would plan around a record it
+  cannot adopt; the sentence must state what adoption actually requires. Patched 012's own §3.4/§5 so the class can't
+  recur.
+- [ ] **Follow-up found while reviewing #41 (main health, not #41's doing): the presentation tracker is stale by five
+  lines since #40 merged.** `ROADMAP.md:33`, `:163` half (1) and `:179`, plus `RESEARCH_RELEASE_PLAN.md:32` and its
+  open blocker `:103`, all still assert "the reader renders **one** site", that `cbeta_note`/`editorial_note` are
+  "never rendered" and that `platform_sutra`'s root note "is unreachable" — false as of `faff161`, which shipped the
+  shared renderer plus the orphan gate. #40 updated only `.orchestrator/REMEDIATION_PLAN.md` (+1) and
+  `.orchestrator/STATE.md` (+2). My own prompt fenced #41 off those lines (`:178-181 … not yours`), so the fix
+  belongs in a separate one-commit docs task (**013**), whose only job is to re-point those five claims at the
+  shipped renderer (no numbers to invent; `grep -c` the render sites in `app.js` for the denominator).
 - [x] **Prompt 010b delivered as PR #39** (head `e2b48c2`, base `c670e87`, 3 files / 3 commits, +18/−1) —
   **verdict MERGE.** Reviewed claim-by-claim, not diff-by-eye: §4.1's stale Platform-Sutra sentence replaced
   with the labelled state (1/3/9 split, 680 CJK, "not a complete text" retained); §4.3's 630/532 rule

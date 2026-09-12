@@ -140,6 +140,7 @@ COLLATION_REFS=/tmp/refs python3 scripts/collate_corpus.py \
   --compare-historical-refs sessions/COLLATION_W1_2026-09-09_refs_manifest.txt \
   --compare-register sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json \
   --require-verified-refs \
+  --upstream-revision "$(git -C /tmp/xmlp5 rev-parse HEAD)" \
   --note "measurement-only record: this register is not designated authoritative, data/project_metrics.json still reports the 2026-09-10 overlay, and the five documents that cite it keep doing so verbatim" \
   --note "deshan_yulu's witness_note delta versus the 2026-09-10 register is a harness-side id normalisation (7cde460), not a corpus change"
 ```
@@ -242,11 +243,17 @@ From the orchestrator's 2026-09-12 run at `faff161`, over 35 documents — confi
 adjudicated away, and **no document's status moved**. `ROADMAP.md` states no content-collation figure beyond the
 register's 593; after this PR a reader can see 691 with a source they can re-run.
 
-Also verify your new register is a drop-in for a future re-designation: its top-level key set must equal the
+Also verify two things, and write them up honestly. (1) Key-set parity: your top-level key set must equal the
 authoritative register's exactly (15 keys: `aggregate`, `content_denominator`, `corrects`, `documents`, `generated`,
 `generation_parameters`, `harness`, `historical_refs_manifest`, `kind`, `reference_extraction`,
 `reference_verification`, `refs_manifest`, `reproduction`, `status_scope`, `upstream`). Orchestrator measured this
 parity as complete even without `--corrects`; if your run drops a key, the harness changed — report it.
+(2) Do **not** describe the record as ready to be adopted: `w1_evidence.py:752-758` and `:779-783` require an
+authoritative record to carry `kind = "w1-correction"`, `corrects = sessions/COLLATION_REGISTER_2026-09-09.json`
+and `upstream.revision == PINNED_UPSTREAM_REVISION` (`collate_corpus.py:642` writes the literal `unrecorded` unless
+`--upstream-revision` is passed), so a measurement-only kind is by construction *not* a drop-in. Say that plainly in
+the report's invariants section: adoption means a deliberate re-run under the overlay flags, or a change to the
+evidence model — which is exactly the decision §10 defers to the owner.
 
 ---
 
