@@ -34,8 +34,10 @@
 
 **W1 independent witness inventory (2026-09-11, task 006):** family 1 — the nine T47-recension documents — measured read-only against the pinned, digest-verified CBETA refs (39 verified / 0 drift @ `dbdea41071e1e260ad84b72faefd4587333cf76d`); self-test passed (linji_yulu 84/89, moved off the stale register as predicted); per-doc P0 findings and the worst-doc ranking (zhaozhou_yulu first: T1987 is the Caoshan record) are in [WITNESS_INVENTORY.md](WITNESS_INVENTORY.md) — measurement only, no data touched; the findings feed the next work packages.
 
+**W1 independent witness inventories, families 2–3 (2026-09-11, tasks 007a/007b):** [WITNESS_INVENTORY_T48_T51.md](WITNESS_INVENTORY_T48_T51.md) (T45/T48/T51 documents + the witness-unavailable pair) and [WITNESS_INVENTORY_XSERIES.md](WITNESS_INVENTORY_XSERIES.md) (X-series witnesses) — measurement only, no data touched. The three inventories are consolidated, re-verified and ranked in [PHASE2_PLAN.md](PHASE2_PLAN.md) (task 008); the Phase-2 owner decisions live at the end of that file.
+
 **Next (in order):**
-1. `platform_sutra` remediation — blocked on an owner recension ruling: CBETA T2008 宗寶 vs Dunhuang T2007.
+1. `platform_sutra` — labelled via #35 (2026-09-11): provenance labels only (primary witness T48n2007 Dunhuang, alternative T48n2008 宗寶; zero characters re-keyed); the text decision (keep the 9 labelled précis fields or re-key to T48n2007) is framed for the owner in [PHASE2_PLAN.md](PHASE2_PLAN.md).
 
 **Not part of remediation PRs:** the visual-system reset — deferred, separate track. PR-A/B/D remain frozen. W2 remains separate.
 
