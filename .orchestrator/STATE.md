@@ -234,7 +234,6 @@ Document-level and string-level counts are different units and must not be swapp
 
 - **Open environment hazard (Arena sandbox):** the sandbox can rewind the worktree to an old SHA and can drop GitHub credentials mid-session. Neither event is lost history and neither is a licence to reconstruct state from memory: before concluding that a commit or a branch is gone, confirm with `gh api repos/56eli/translatechan/commits/<sha>` and `git ls-remote origin refs/heads/<branch>` — and remember a `--depth 1` clone legitimately shows one commit. Never `git pull` to fix a rejected push: a non-fast-forward rejection is a base mismatch, so halt and report the raw text, then sync with `git fetch --depth 50 origin +main:refs/remotes/origin/main && git merge --no-edit origin/main`. Never force-push, never pass `--allow-unrelated-histories`, and never commit on `main`. If a push fails on auth or network, report it, keep working locally and retry at the next checkpoint — never claim pushed what is not on the remote.
 
-
 ## Known Gaps
 
 - Per-document source remediation remains pending under the adopted hybrid R-A/R-B/R-C policy; the public status model prevents unsupported completion claims from being presented as verified and does not re-key source text.
