@@ -140,6 +140,15 @@ ALLOWED_CHANGES = {
         ".coverage_note",
         ".zh_chars",
     }),
+    "data/corpus/fayan_yulu.json": frozenset({
+        # 2026-09-12 CITATION fix (task 014, rank 3): the `coverage_note` named T1985 / X1321 —
+        # the Linji record and the Mazu record, neither a witness of this document. Rewritten to
+        # name the witness the harness actually pins (T47n1991) plus X63n1226 for 宗門十規論, and to
+        # state the measured 1/11 collation. Only the note changes: no source text, no `zh`/
+        # `*_zh` field, no `cbeta_id` (already T1991 / X1226), and no `zh_chars` pointer (this
+        # document declares none).
+        ".coverage_note",
+    }),
     "data/corpus/linji_yulu.json": frozenset({
         # 2026-09-11 R-A re-key of the W1-flagged content fields to the T47n1985 witness (Wave 1,
         # document 3), under the owner's 2026-09-11 per-field ruling for the 行錄 division: the
