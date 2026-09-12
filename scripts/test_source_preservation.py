@@ -359,6 +359,25 @@ ALLOWED_CHANGES = {
         ".stanzas[34].pinyin",
         ".stanzas[34].zh",
     }),
+    "data/corpus/zhaozhou_yulu.json": frozenset({
+        # 2026-09-12 CITATION fix (task 014, rank 1-2): the false T1987 witness claim is withdrawn,
+        # not re-attributed — `cbeta_id` becomes the qualified candidate form, the `taisho_vol 47`
+        # that belonged to the withdrawn claim is removed (X68n1315 is a 卍續藏 work, not a Taishō
+        # one), `coverage_note` states what the document represents and what the witness
+        # measurement shows in the same terms, and the additive `cbeta_note` records the probe
+        # measurement and the volume removal. The two verified-quotation `reference` strings that
+        # also cited T1987 are corrected to the candidate form; they are citation identifiers, not
+        # source text, and their `(translation book episode/page pending)` state is unchanged, so
+        # the verified-reference coverage counts do not move. Not one character of Chinese and no
+        # `zh`/`*_zh` field changes, no `zh_chars` pointer (this document declares none). The 15
+        # `title_zh` metadata flags are untouched (composite-title plan item).
+        ".cbeta_id",
+        ".cbeta_note",
+        ".coverage_note",
+        ".dialogues[1].dialogue[0].translations.hoffman.source.reference",
+        ".dialogues[1].dialogue[1].translations.hoffman.source.reference",
+        ".taisho_vol",
+    }),
 }
 
 

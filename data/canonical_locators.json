@@ -2309,8 +2309,8 @@
       "status": "legacy_document_seed"
     },
     "zhaozhou_yulu": {
-      "canonical_id": "T1987",
-      "canonical_locator": "T1987",
+      "canonical_id": "claimed: X68n1315 古尊宿語錄 — unverified (2 of 19 evaluated source-content fields collate against the pinned extraction); the prior T1987 claim was false (T1987 is the Caoshan record)",
+      "canonical_locator": "claimed: X68n1315 古尊宿語錄 — unverified (2 of 19 evaluated source-content fields collate against the pinned extraction); the prior T1987 claim was false (T1987 is the Caoshan record)",
       "granularity": "document",
       "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
       "status": "legacy_document_seed"
