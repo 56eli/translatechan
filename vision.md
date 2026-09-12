@@ -52,27 +52,45 @@ The five objectives above are stated at full strength and are **not** renegotiat
 **What now exists beyond the objective's 2026-08 wording** (the W1 source-integrity layer, built 2026-09-09 → 2026-09-12):
 
 - A **witness-pinned collation harness**: `scripts/collate_refs.py` extracts 39 reference texts from CBETA XML P5 pinned at revision `dbdea41071e1e260ad84b72faefd4587333cf76d` and verifies every digest (39 verified / 0 drift against `sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`); `scripts/collate_corpus.py` collates every source-content field against them; `scripts/w1_evidence.py` recomputes each published figure instead of trusting stored ones.
-- **Preservation and rule gates**: `scripts/test_source_preservation.py` byte-compares `data/corpus/` against the pinned base commit `3cc7a8e9681ea8646d2b4fd8d86f1a4b1eea6b43` and permits only exact allowlisted JSON pointers (218 permitted changes, 0 unauthorized on this run); `scripts/test_source_review_rules.py` runs 96 source-review rule checks, including the doc-truthfulness rules that pin the W1 sentences in the public documents.
+- **Preservation and rule gates**: `scripts/test_source_preservation.py` byte-compares `data/corpus/` against the pinned base commit `3cc7a8e9681ea8646d2b4fd8d86f1a4b1eea6b43` and permits only exact allowlisted JSON pointers (218 permitted changes, 0 unauthorized on this run); `scripts/test_source_review_rules.py` runs 120 source-review rule checks, including the doc-truthfulness rules that pin the W1 sentences in the public documents.
 - **A public per-document source-review state** in `data/corpus_manifest.json`, rendered as a visible Reader ledger, with completion/status incompatibility rejected by the validator: `complete` ⇔ `complete_selected_witness` + `collated_to_claimed_witness`.
 - **22 documents carry provenance labels** (`cbeta_note` in 16, `editorial_note` in 5, `recension_note` in 1) recording citation corrections, retained project retellings with no witness attribution, and recension provenance.
 
-**What does not render yet — the objective's open gap.** The corpus carries **49** provenance notes and the reader surfaces one of them: `recension_note` renders at verse level only (so `platform_sutra`'s root recension note and its 12 chapter/dialogue notes are unreachable), `coverage_note` appears in the dossier's Reading ledger rather than beside the text it describes, and **`cbeta_note` (16 fields) and `editorial_note` (8 fields) are never rendered at all**. That includes 16 recorded citation corrections — e.g. `caoxi_zhuan`'s note that the prior "X1458" citation was wrong (X1458 is 宗門寶積錄; the 曹溪大師別傳 is X86n1598 plus Dunhuang P.3018) — and the labels marking `linji_yulu` sections 71–73 and `xinxin_ming` stanza 31 as project retellings with no witness attribution. Measure it with:
+**What now renders — the presentation gap is closed (PR #40, 2026-09-12); it is implemented and gate-guarded, not browser-verified.** The corpus carries **49** provenance-note strings across four keys. One shared renderer now prints the three passage-level keys — precedence `recension_note` → `editorial_note` → `cbeta_note`, one line each, never concatenated — at **17** content sites covering every node type that carries a note (document root, preface/epilogue, case, section, dialogue, stanza, chapter and nested verse entries), so **38 of the 49** strings reach the passage they describe. The labels this paragraph previously named as unreachable are now visible and are the examples the permanent gate protects: `caoxi_zhuan`'s `cbeta_note` correction that the prior "X1458" citation was wrong (X1458 is 宗門寶積錄; the 曹溪大師別傳 is X86n1598 plus Dunhuang P.3018), the `editorial_note` labels marking `linji_yulu` sections 71–73 and `xinxin_ming` stanza 31 as project retellings with no witness attribution, and `platform_sutra`'s root recension note — the disclosure that 9 of its 13 source-content fields are project précis — now reachable beside its **10** chapter/dialogue notes (6 chapter + 4 dialogue); the document holds **14** `recension_note` values in all, 1 root + 3 verse + 6 chapter + 4 dialogue, and only the 3 verse-level ones rendered before. The remaining **11** strings are `coverage_note`, a document-scale dossier ledger field rather than a passage label: it keeps its single rendering as the "Reading" row of the represented-units ledger and is the sole explained exemption, with its reason recorded in `NOTE_RENDER_EXEMPTIONS` in `scripts/test_source_review_rules.py`. The true shape is therefore **38 rendered beside passages of 49 carried; 11 ledgered by recorded exemption** — no sentence may claim "all 49 notes render". The contract is measured, not asserted: parse the precedence constant, count the renderer's call sites, enumerate the note keys from the data, and assert every one is either rendered or exempted:
 
 ```bash
 python3 - <<'PY'
-import glob, re, collections
-c = collections.Counter()
-for f in glob.glob('data/corpus/*.json'):
-    s = open(f, encoding='utf-8').read()
-    for k in ('cbeta_note', 'editorial_note', 'recension_note', 'coverage_note'):
-        c[k] += s.count('"%s"' % k)
+import json, glob, re, collections
 js = open('app.js', encoding='utf-8').read()
-for k, v in c.most_common():
-    print(f"{k}: data={v} app.js mentions={js.count(k)}")
+rendered = tuple(k.strip().strip('"\'') for k in
+                 re.search(r"PROVENANCE_NOTE_KEYS = \[(.*?)\]", js).group(1).split(','))
+sites = js.count('renderProvenanceNotes(') - 1          # minus the definition
+test = open('scripts/test_source_review_rules.py', encoding='utf-8').read()
+body = re.search(r"NOTE_RENDER_EXEMPTIONS: dict\[str, str\] = \{(.*?)\n\}", test, re.S).group(1)
+exempt = set(re.findall(r'^\s{4}"([a-z_]+)":', body, re.M))
+keys = collections.Counter()
+for f in glob.glob('data/corpus/*.json'):
+    for k, v in re.findall(r'"([a-z_]+_note)"\s*:\s*"([^"]*)"', open(f, encoding='utf-8').read()):
+        if v.strip(): keys[k] += 1
+print(f'rendered={rendered} call_sites={sites} exempt={sorted(exempt)}')
+print('per-key:', dict(keys))
+orphans = sorted(k for k in keys if k not in rendered and k not in exempt)
+print('ORPHANS:', orphans or 'none — every key is rendered or exempted')
+assert not orphans, orphans
+print(f'asserted: {sum(keys[k] for k in rendered)} of {sum(keys.values())} note strings render beside a passage')
 PY
 ```
 
-Until that gap closes, objective 4's disclosure element is **partial, not met**: the data is honest and the presentation is not. Rendering every note the corpus carries is the next presentation work package (not started as of 2026-09-12), and [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) lists it as release-blocking.
+It prints on `main` (2026-09-12):
+
+```text
+rendered=('recension_note', 'editorial_note', 'cbeta_note') call_sites=17 exempt=['coverage_note']
+per-key: {'cbeta_note': 16, 'editorial_note': 8, 'coverage_note': 11, 'recension_note': 14}
+ORPHANS: none — every key is rendered or exempted
+asserted: 38 of 49 note strings render beside a passage
+```
+
+Objective 4's disclosure element is therefore **met as to implementation and gating**: every passage-level note key the data carries renders at every node that carries one, and the gate is permanent — `scripts/test_source_review_rules.py` §15 enumerates `[a-z_]+_note` keys from `data/corpus/*.json` at run time and fails if a key is neither in `app.js`'s `PROVENANCE_NOTE_KEYS` nor on the explained exemption list, so a future orphan label goes red in CI. The qualifier is the same one the hover/focus row carries: this is **implemented and gate-guarded, not browser-verified** — `scripts/browser_test.mjs` has never run (no Chromium; the 2026-08-11 attempt died with `ECONNRESET`), so no real-browser or screen-reader evidence exists. [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) release blocker 2 is ticked on exactly this basis.
 
 ---
 
@@ -306,13 +324,13 @@ The Fake Chan Factory web application is architected to run **100% client-side o
 
 ### Phase 4: Source Verification, Disclosure & Editorial Review
 
-> **Status as of 2026-09-12:** this phase moved furthest in the Wave 1 campaign and still carries its clearest gap. Delivered: the witness-pinned collation harness and its preservation/rule gates, independent witness inventories covering **35/35** documents, provenance labels in **22** documents, and **5** documents re-keyed to a pinned witness or labelled (PRs #29, #30, #32, #34, #35). Owed: exact unit locators for the 33 document-level seeds, human rights review for all 14 manifest sources, the six queued false-citation fixes, the post-remediation evidence pass, and **rendering the 49 provenance notes the corpus carries** — the reader surfaces one of them (§1.1). The checklist below is unchanged; the element-by-element measurement is in §1.1.
+> **Status as of 2026-09-12:** this phase moved furthest in the Wave 1 campaign and still carries its clearest gap. Delivered: the witness-pinned collation harness and its preservation/rule gates, independent witness inventories covering **35/35** documents, provenance labels in **22** documents, and **5** documents re-keyed to a pinned witness or labelled (PRs #29, #30, #32, #34, #35). Owed: exact unit locators for the 33 document-level seeds, human rights review for all 14 manifest sources, the six queued false-citation fixes, and — on the evidence side — the **designation half** of the post-remediation evidence pass: its measurement half is published at [`sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json`](./sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json) + [`sessions/COLLATION_W1_2026-09-12_POSTREMEDIATION.md`](./sessions/COLLATION_W1_2026-09-12_POSTREMEDIATION.md) (re-adjudicated 2026-09-12: 532 flagged fields, 691/924 content fields collating, statuses unchanged at 1 / 32 / 2, `documents_with_changed_status: 0`), but the authoritative total stays the 2026-09-10 register's 630 until the owner-ruled evidence-model change that release blocker 1 describes. The rendering debt this sentence carried in earlier revisions — *rendering the 49 provenance notes* — shipped through PR #40: 38 of 49 render beside passages and 11 stay in the dossier ledger by recorded exemption (§1.1). The checklist below is unchanged; the element-by-element measurement is in §1.1.
 
 - [~] Complete exact canonical locators for every non-case seed unit (page/line or TEI anchors).
 - [~] Complete exact book-page/episode references and human rights review for every verified modern translation.
 - [x] Render AI drafts/reconstructions only with explicit disclosure, never as scholar quotations.
 - [x] Provide source/translation/lineage citation details by hover, focus, and touch in public Pages surfaces. *(Implemented and smoke-guarded; no real-browser or screen-reader evidence exists, so it is not browser-verified — §1.1.)*
-- [ ] Surface every provenance label the data carries (`cbeta_note`, `editorial_note`, `recension_note`) beside the passage it describes — currently 49 notes in data, 1 rendered site.
+- [x] Surface every provenance label the data carries (`cbeta_note`, `editorial_note`, `recension_note`) beside the passage it describes — PR #40 renders **38 of the corpus's 49 note strings** at 17 shared-renderer call sites, one line each; the other 11 are `coverage_note` ledger strings under the single recorded exemption. *(Implemented and gate-guarded; no real-browser evidence exists, so it is not browser-verified — §1.1.)*
 
 ### Phase 5: Phonetics, Middle Chinese & Multilingual Global Canon
 
