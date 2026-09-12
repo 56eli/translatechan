@@ -67,6 +67,9 @@ corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
 content CJK=104,564 | all-string CJK=110,165
 source-review: collated=1 | partial/failed=32 | unavailable=2
 w1-evidence: flagged=630 (authoritative 2026-09-10) | historical=622 (2026-09-09) | report-figure-superseded=637
+w1-campaign: wumenguan(#29) biyanlu(#30) linji(#32) xinxin(#34) re-keyed | platform_sutra(#35) labelled
+w1-inventories: WITNESS_INVENTORY.md + WITNESS_INVENTORY_T48_T51.md + WITNESS_INVENTORY_XSERIES.md → PHASE2_PLAN.md
+w1-fresh-collation: flagged=532 on current main vs register=630 (2026-09-10) — register superseded only by the post-remediation evidence pass
 complete=0 | partial=4 | excerpt seeds=31
 lineage=34 masters / 30 edges | glossary=31 | gong'an=24
 app_data.js=<printed by scripts/build_data_bundle.py at build time>
@@ -80,6 +83,13 @@ Verified citation reference coverage is **176 / 179**; the remaining **3** refer
 W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-10 correction register: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all.
 
 Completion requires explicit `complete_selected_witness` status, satisfied unit targets, and a collated W1 source-review status. After the W1 containment update, no document qualifies as complete selected witness; Wumenguan and Xinxin Ming are represented at 48/48 and 37/37 units respectively but remain partial/failed W1 collation. Biyanlu and Linji remain partial; Platform remains an excerpt seed despite 10/10 represented chapter headings.
+
+**What's next — four items, each with the file to read:**
+
+- **Post-remediation evidence pass** — publish a new dated register/report over current `main` so the authoritative flagged total can move from the 2026-09-10 register's 630 to today's measured 532 (read [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) → "Release-blocking checklist" item 1).
+- **Label visibility in the Reader (task 011)** — render the provenance notes the corpus already carries (read [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) → "Release-blocking checklist" item 2).
+- **Owner's fabricated-text decision** — replace, label, or remove the fields attested in no witness (read [`.orchestrator/PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md) → `## Owner decision required`).
+- **OUT-OF-CBETA human-sourcing queue** — 31 documents; **not agent-authorisable** (read [`.orchestrator/PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md) → §7).
 
 ## 5. Release blockers
 

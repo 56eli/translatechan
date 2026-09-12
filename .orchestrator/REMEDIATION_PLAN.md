@@ -158,6 +158,7 @@ locators); witness changes; safety statement.
   HANDOFF/AUDIT/ROADMAP/index.html guarded metrics must be regenerated in the same PR
   (validator enforces; run `validate_data.py --write-metrics` then rebuild).
 - Keep `.orchestrator/STATE.md`'s task queue current; check off waves here as they merge.
+- **Every provenance label must be visible (2026-09-12, task 011):** a `*_note` key added to `data/corpus/*.json` by any remediation PR is rendered by the reader or listed with its reason in `NOTE_RENDER_EXEMPTIONS` — `scripts/test_source_review_rules.py` §15 enumerates the keys from the data at run time and fails otherwise, because an R-B `editorial_note`, a `recension_note` or a `cbeta_note` citation correction that no reader can see is not a disclosure (49 notes / 1 render site before; 38 rendered note lines after).
 
 ## 5. Wave checklist
 
