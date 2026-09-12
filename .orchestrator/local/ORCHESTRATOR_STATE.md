@@ -824,3 +824,83 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
   `data|docs|scripts|sessions|schemas|.orchestrator` prefixes) — it costs one command and it is how I caught this.
   Also compile any Python fragment the prompt asks the coder to run, and quote line numbers only from a `sed -n` of
   the file at the current base (`ROADMAP.md:198` in my draft was a phantom; `:163`/`:177` were real).
+
+## Owner Rulings — 2026-09-12 (source-integrity campaign, four `ask_user` answers)
+
+Recorded here because they bind tasks 014 onward; they are to be copied into `main`'s
+`.orchestrator/STATE.md` by 014's commit 7 (owner said suggestions may still arrive, and those win if they
+reorder anything).
+
+1. **Packaging of the six `CITATION` rows** → *one PR, five commits* (one per document). Relaxing "one document per
+   PR" is therefore authorised **for citation strings only**; it does not extend to `RE-KEY`/`LABEL` work.
+2. **Ledger arithmetic** → **keep 630 as the official figure.** No re-designation of the register, no
+   `FIXED_METADATA` class, no re-pointing of `data/project_metrics.json → corpus.source_review` or the five framed
+   documents' pinned sentences. `532` (and the 09-12 record generally) stays a **dated measurement**, never a
+   replacement headline number. Consequence: the pair→chain question that motivated re-designation is **deferred**.
+3. **Unattested / fabricated source text** → *re-key from the pinned witness where the witness carries the passage;
+   label it where it does not.* A label is not permitted as a substitute for a re-key that the evidence supports,
+   and a re-key is not permitted where the witness is silent.
+4. **The 31 `OUT-OF-CBETA` documents** → the orchestrator prepares **acquisition work orders** (shelfmark, edition,
+   what exactly to fetch, why it is outside the pinned set); the owner decides any spend. No agent fetches,
+   transcribes, or invents text for these witnesses — that is the only class where "no source-looking CJK" has no
+   workaround.
+
+## 014 — CITATION fixes (authored 2026-09-12, local only)
+
+`.orchestrator/prompts/014-citation-fixes.md` — **16,495 B, `sha256` prefix `5b228fe11d9b1584`** (measured with `wc -c` / `sha256sum` at commit `b96fea0`; verify these two on the remote when pushing, byte-for-byte).
+Design decisions worth inheriting:
+
+- The collation harness **already pins the right witnesses** (`scripts/collate_corpus.py`: zhaozhou
+  `T47n1987A/B`+probe `X68n1315`, fayan `T47n1991`, dongshan `T47n1986A/B`, mazu `X69n1321`, dahui
+  `T47n1998A/B`+`T48n2001`). So all six false claims are **data/docs strings**, not measurement defects: 014 aligns
+  what is *said* with what is *tested*, and therefore touches **no** status, no flag class, and no harness table.
+- Two interlocks force the commit shape: `validate_data.py:793` requires `canonical_locators.json`'s `canonical_id`
+  to match corpus `cbeta_id` **exactly** (so they change in one commit), and `:1286-1290` requires every line
+  mentioning `T1987` in the framed docs to say it is the Caoshan record (so the docs' explanatory sentences stay and
+  only the "data still carries it" clauses retire).
+- `content_cjk_characters` must stay **104,564**; `all_corpus_cjk_characters` **will** move (notes are prose) and the
+  two figures pinned in `README.md:48`/`AUDIT.md:20` must be regenerated in the same PR.
+
+## Interrupted Work — 2026-09-12: sandbox lost GitHub access mid-task
+
+- **Symptom:** `git fetch`/`ls-remote` began prompting for a username and `gh api` returned *Bad credentials*
+  (`gh auth status`: "The github.com token in GH_TOKEN is no longer valid"); `~/.gitconfig`, `~/.git-credentials` and
+  the `credential.helper` config were **gone**; `remote.origin.fetch` had been narrowed to
+  `+refs/heads/main:refs/remotes/origin/main`, so `origin/arena/01a08e15-translatechan` does not exist locally and the
+  objects of my published branch tip (`3d1dcc8…`) are **not in this clone** (`cat-file -t` → nonexistent).
+- **Second symptom:** the local branch had been re-parented onto the sandbox base `02e5db7` (recorded incident class).
+  My 014 commit `7002719` therefore sat on a stale tree, and an earlier `git add -A` had poisoned the index with
+  staged deletions of main-tracked files (`PHASE2_PLAN.md`, the three `WITNESS_INVENTORY*.md`, a phantom
+  `OPERATIONS.md` → `.scoreboard/…` rename).
+- **What I did:** did **not** push, force, or reset --hard. Saved the 014 blob out of `7002719` (`git cat-file blob`),
+  applied the two remaining text edits with copied anchors, then `update-ref` to `refs/heads/main` (`77b4039`) and
+  `git reset` (mixed, index only). Result: `git status --porcelain` shows **only** `?? .orchestrator/local/` and
+  `?? .orchestrator/prompts/`, and `git diff --stat HEAD` is **empty** — the worktree content was never lost or
+  reverted, only the pointer and index were wrong.
+- **Reconciliation when access returns (do this before any push):** re-add the fetch refspec or
+  `git fetch origin +refs/heads/arena/01a08e15-translatechan:refs/remotes/origin/_orch`; then compare
+  `git rev-parse refs/remotes/origin/_orch^{tree}` with my new commit's tree. The server tip should be
+  `77b4039` + the 14 prompts + `local/`; my new commit is that plus 014. If the server tree is a strict subset,
+  rebase my single commit onto the fetched tip (the prompt files are identical content, so the rebase is a no-op
+  except for 014) and push fast-forward. **Never** `push --force` before that comparison, and never merge the sandbox
+  base `02e5db7` into anything.
+- Owner-facing consequence: 014 was **not** published or dispatched this turn.
+
+## Prompt-Authoring Lessons (2026-09-12 addendum)
+
+- **I rebuilt an anchor from memory inside a `python3 - <<'PY'` batch again, and it silently aborted the whole
+  write.** The file's real text was ``:178`; `README.md:55`'s table cell;`` and I typed ``"claims **T1987**" column,``.
+  The same fix that worked before is the only one that works: print the exact line range (`sed -n`/`grep -n -A`) and
+  paste those bytes into one `edit_file` call per edit. Heredoc-patch scripts are banned for prompt prose.
+- **Consequence for publishing:** a prompt is not "authored" when the file exists; it is authored when the *branch*
+  has it and its remote bytes match. Both halves were impossible this turn because the transport died, which is why
+  the incident above is recorded rather than a green "014 published" line.
+
+## Known Gaps (addendum)
+
+- **`.orchestrator/REMEDIATION_PLAN.md:87` asserts "`zhaozhou_yulu` (true witness X68n1315; **10/35 verbatim
+  there**)", inherited from the superseded 2026-09-09 audit, while
+  `sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json` records `content_fields_collated: 0` of 19 with
+  `X68n1315` probed.** This is the live contradiction 014 §5 makes the coder measure in a throwaway clone instead of
+  adjudicating by documentation; `README.md:55`/`ROADMAP.md:65,:95,:178`/`RESEARCH_RELEASE_PLAN.md:109` all repeat the
+  "true witness is X68n1315" phrasing to some degree.
