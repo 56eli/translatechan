@@ -944,3 +944,15 @@ Design decisions worth inheriting:
   only, and this sandbox has twice restored `.git` from a snapshot (re-parenting HEAD onto `02e5db7`, and dropping
   `~/.gitconfig` / `~/.git-credentials` / the credential helper). Consequence: verify against the API **and** re-fetch
   the branch refspec before any push, and never `--force` a branch whose tip I have not fetched.
+
+## 014 dispatched to the operator (2026-09-12)
+
+Prompt bytes on the branch: `9a5dfd2` · `.orchestrator/prompts/014-citation-fixes.md` 17,341 B / 242 lines / blob
+`49f3acb3cb0ace9069abd4c44ec0db8786796fe4` (remote == local via the contents API). Preconditions checked at dispatch
+time, not assumed: `gh pr list --state open` → empty (no duplicate dispatch, no base-moving PR in flight);
+`main` = `77b4039` (the base 014 §2 pins); the 8 gates run green on `77b4039` in a fresh clone this session; the two
+interlocks 014 depends on were re-read at that base (`validate_data.py:793` canonical_id == cbeta_id,
+`:1286-1290` T1987⇒Caoshan qualification). The dispatch stub was handed to the operator in chat, per the standing
+convention (stubs are not committed as files). **015 (out-of-CBETA acquisition work orders) stays unauthored until
+014 merges** — both touch `.orchestrator/STATE.md`, and the operator's ordering suggestions, still pending, win if
+they reorder.
