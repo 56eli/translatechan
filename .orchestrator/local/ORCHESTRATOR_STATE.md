@@ -923,3 +923,20 @@ Design decisions worth inheriting:
   `X68n1315` probed.** This is the live contradiction 014 §5 makes the coder measure in a throwaway clone instead of
   adjudicating by documentation; `README.md:55`/`ROADMAP.md:65,:95,:178`/`RESEARCH_RELEASE_PLAN.md:109` all repeat the
   "true witness is X68n1315" phrasing to some degree.
+
+## Branch publication state (measured 2026-09-12, during the credential flap)
+
+- **Pushed and on the server:** `c17e426` = `3d1dcc8` + prompt 014 at **16,495 B, blob `af9fc11c`** (verified
+  byte-for-byte against the remote contents API: `remote size=16495 blob_sha=af9fc11c6339135ae511a113d9655fb7761a4ea6`
+  == `git hash-object`). This version is complete and dispatchable.
+- **Committed locally, NOT pushed:** `bd11649` = 014 at **17,341 B / 242 lines, blob `49f3acb3`** — the §7 addition
+  retiring `AUDIT.md:30` / `HANDOFF.md:72` / `HANDOFF.md:89`'s pending-supersession wording and the
+  "the pin is what is stale" guardrail — plus the #39 verdict and the `77b4039` gate run recorded above.
+- **On reconnect:** `git push origin arena/01a08e15-translatechan` must be a fast-forward from `c17e426`; re-verify
+  the remote blob of 014 equals `49f3acb3cb0ace9069abd4c44ec0db8786796fe4` before calling 014 published, and re-read
+  `git ls-remote` for the server tip rather than trusting the local remote-ref (the fetch refspec here is narrowed to
+  `refs/heads/main`, so `origin/arena/*` refs are only ever what I fetched by hand).
+- **Why the local ref cannot be trusted across turns:** `remote.origin.fetch` = `+refs/heads/main:refs/remotes/origin/main`
+  only, and this sandbox has twice restored `.git` from a snapshot (re-parenting HEAD onto `02e5db7`, and dropping
+  `~/.gitconfig` / `~/.git-credentials` / the credential helper). Consequence: verify against the API **and** re-fetch
+  the branch refspec before any push, and never `--force` a branch whose tip I have not fetched.
