@@ -252,6 +252,33 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   {historical, one `w1-correction` overlay} into a dated chain so `630` can retire in favour of the published
   `532`. That last one is the only remaining gate-touching item in the campaign; `012`'s §1 and `013`'s §1.3 both
   describe its shape, so a prompt for it can be authored the moment the owner rules.
+- [x] **PR #42 — task 013, say what shipped — verdict MERGE (nothing to revise).** Head `53b5787`, base
+  `0f8432a`, exactly the five allowed files (+51/−31), 3 commits in the mandated order, Quality green,
+  `mergeStateStatus: CLEAN`. **Reviewed by re-running the documents, not by reading them:** I extracted the
+  verification script *out of `vision.md` at their HEAD* with a regex and executed it — exit 0, and its stdout
+  matches the `text` block they pasted into the doc **line for line**, which is the property the old script had
+  lost (the doc's own "measure it with" command now proves the sentence above it: 17 call sites,
+  `recension_note → editorial_note → cbeta_note`, `coverage_note` exempt, **38 of 49**). Independently confirmed
+  every new figure at their head: 120 rule checks (docs said 96), 218 permitted changes (correctly *not*
+  "fixed"), the `platform_sutra` breakdown 14 = 1 root + 3 verse + 6 chapter + 4 dialogue (they replaced my §1.1
+  "12" with **10** chapter/dialogue and kept the arithmetic visible), 22 vs 26 document denominators left
+  distinct. All 8 runnable gates exit 0 in a fresh clone, repo clean after rebuild, `data/`+`docs/` byte-identical,
+  `validate_data.py` still printing `flagged=630 | evidence=2026-09-10`, and **pinned-string counts identical
+  between base and HEAD in all five framed files** (630 / both register paths / five-ledger / `104,564` /
+  `110,165`). Two sweeps came back empty: no live doc still describes the renderer as owed, and none still calls
+  the evidence pass wholly pending — outside `sessions/`, which stayed append-only ✓. Both honesty rails held:
+  blocker 1 stays `- [ ]` with the measurement/designation split and `documents_with_changed_status: 0` quoted, and
+  every ticked box carries "implemented and gate-guarded; no real-browser evidence exists, so it is not
+  browser-verified". **Scope judgement better than my list:** they found and fixed a **tenth** stale line I had
+  not enumerated (`ROADMAP.md:68`, "Owed, in order: … label visibility in the reader"), and re-titled
+  `HANDOFF.md`'s "What's next — four items" → "The four release-blocking items — where each stands" (keeping the
+  count, which I asked for, and fixing the framing, which I had not noticed was now false) — I grepped for
+  cross-references to the old heading: none. `#NN`-free ✓. Two things I checked so I would *not* misreport:
+  `response_summary.md`'s "PASS (57 checks, incl. 11-case mutation matrix)" is a **dated 2026-09-10 session
+  artifact**, correct as of its date — not stale prose; and `STATE.md:19`'s "11-case mutation matrix added" is
+  likewise historical. Only optional polish found: `ROADMAP.md:33` states "593 of 924" in the present tense
+  without naming the register (governed by the framing paragraph at `:43`, so not false — a candidate for the
+  next PR that touches that file).
 - [x] **Prompt 010b delivered as PR #39** (head `e2b48c2`, base `c670e87`, 3 files / 3 commits, +18/−1) —
   **verdict MERGE.** Reviewed claim-by-claim, not diff-by-eye: §4.1's stale Platform-Sutra sentence replaced
   with the labelled state (1/3/9 split, 680 CJK, "not a complete text" retained); §4.3's 630/532 rule
