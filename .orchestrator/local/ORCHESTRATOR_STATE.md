@@ -199,6 +199,24 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   `upstream.revision == PINNED_UPSTREAM_REVISION`. A future task reading that sentence would plan around a record it
   cannot adopt; the sentence must state what adoption actually requires. Patched 012's own §3.4/§5 so the class can't
   recur.
+- [x] **#41 REVISED — re-review verdict MERGE.** Head `ce8aaf5`: one additive commit on top of the two I had
+  already reviewed (no force-push over reviewed work), still exactly 3 paths, `ROADMAP.md` untouched by the
+  revision. **Item 1** — `upstream.revision` and `generation_parameters.upstream_revision` both read
+  `dbdea41071e1e260ad84b72faefd4587333cf76d` (= `PINNED_UPSTREAM_REVISION`), and the flag is written in the
+  reproducible form `--upstream-revision "$(git -C /tmp/xmlp5 rev-parse HEAD)"` in **both** §5 and §7: derived from
+  the clone, so it cannot be mistyped and it fails loudly if upstream ever moves. Leaf-by-leaf against the head I
+  reviewed: **exactly 2 keys** differ, and `aggregate` / `documents` / `reproduction` / `reference_verification` /
+  `reference_extraction` / both manifest declarations are byte-identical — my predicted delta confirmed. The
+  *revised* register still replays **`cmp`-identical** from its own parameters (sha256
+  `22d21b2881b30cc1d48c…`), the report publishes exactly that digest, and a new §5 regeneration note explains
+  there were two generations; **no stale reference to the superseded `6bb74de7…` survives in the repo or the PR
+  body** (grepped both). **Item 2** — §6 now reads "That is key-set parity, not adoptability" and enumerates the
+  three `w1_evidence.py` preconditions, recording that the record carries only the pinned revision and omits
+  `kind`/`corrects` *on purpose*: stronger than what I asked for. All nine gates exit 0 at `ce8aaf5`, repo clean
+  after rebuild, `validate_data.py` still prints `flagged=630 | evidence=2026-09-10` (no re-designation leaked
+  in), and every report figure re-checked against the register at HEAD (532 / 691 / 37 / 783 / 310 /
+  `changed_status` 0 / pinned revision). **Recommend merge; the operator pulls the trigger.** 013 (five stale
+  presentation lines on `main` after #40) is unaffected and still queued for dispatch.
 - [ ] **Follow-up found while reviewing #41 (main health, not #41's doing): the presentation tracker is stale by five
   lines since #40 merged.** `ROADMAP.md:33`, `:163` half (1) and `:179`, plus `RESEARCH_RELEASE_PLAN.md:32` and its
   open blocker `:103`, all still assert "the reader renders **one** site", that `cbeta_note`/`editorial_note` are
