@@ -117,6 +117,14 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   so 007a/007b can be dispatched against `3c838db` without inheriting a red base.
 - [x] **#36 MERGED as `b3cd14f`** — Phase 1 (measurement) closed on main: 3 inventory files, 35 doc
   blocks, 70 P0 bullets, 35 `OUT-OF-CBETA` routes. 007a/007b are **delivered — do not re-dispatch**.
+- [!] **My published prompt number was wrong and 008's coder corrected it.** 008 §3 asserted "35
+  `OUT-OF-CBETA` markers"; the true token count is **33** (9+12+12) across 31 documents. The coder did not
+  quietly fix it — they measured with a published command, printed 33, and logged it under
+  `Disagreements (d) Count discrepancy, not smoothed`. This is the third time a number I authored was
+  wrong on inspection (after the 620/680 and 10/16 doc-count errors), and the pattern is identical: I add
+  per-file figures from a rendered table instead of running the count. Standing rule for my own prompts:
+  **any number I cite must come from a command I pasted, and must be labelled "confirm, do not copy" —
+  which is exactly what I ask of coders and what saved this one.**
 - [x] **Prompt 008 authored + published** (`.orchestrator/prompts/008-phase2-consolidation.md`, 14,099 B,
   sha256 `9eea38587f3127b1…`): consolidate the three inventories into `PHASE2_PLAN.md` (one row per
   finding, ranked, each classified `RE-KEY`/`LABEL`/`CITATION`/`HUMAN-SOURCE`/`NONE`); re-verify rather
@@ -397,6 +405,29 @@ Binding on every prompt authored here (from `main`'s `STATE.md` + owner decision
    operator merges; this orchestrator advises MERGE / REVISE / DO-NOT-MERGE and never merges.
 
 ## Review Log
+
+- **PR #37** — task 008 Phase-2 consolidation, base `b3cd14f`, head `c6206a0`, 2 commits, 3 files
+  (+282/−2), 278-line `.orchestrator/PHASE2_PLAN.md`. **Verdict: MERGE** — the cleanest PR of the
+  campaign. Verified independently: base contains `b3cd14f`; scope is *exactly* the 3 allowed paths, no
+  data/artifact/script, no reintroduced deleted path (0 `.scoreboard` adds — checked because my own
+  workspace ate a commit into a stale base today); the two tracker edits are precisely §7.1–§7.3 and the
+  Wave-1 `platform_sutra` box is still **unchecked** with the honest `— labelled (#35); text decision
+  deferred to PHASE2_PLAN` suffix; all gated lines in `REMEDIATION_PLAN.md` survive (five-ledger sentence,
+  `**35 documents, 630 flagged source fields**`, historical-manifest count), and my earlier §9 mistake
+  (implying STATE.md carries them) did not mislead the coder — they read the code and edited only the
+  checklist line; `STATE.md` keeps `630` and `CORRECTED|superseded`. **Table integrity: 76 rows = 70 P0 +
+  6 NONE, every row exactly one kind (CITATION 6 / RE-KEY 11 / LABEL 51 / HUMAN-SOURCE 2 / NONE 6), and
+  all 35 inventory docs appear — nothing dropped**, which was the clause I most expected to be evaded.
+  Their 5 spot-checks reproduce under my own commands (`曹山大師語錄序` opens T47n1987A; 趙州 1 vs 曹山 25;
+  T47n1985 = 臨濟, X69n1321 = 馬祖; `雪覆夜沼 / 只這箇是 / 纖塵無表 / 深根不動` = 0 hits in all 39 refs;
+  sengzhao 0/4). `--require-verified-refs` is real (not an invented flag). Their fresh-run figure **532**
+  flagged matches my run exactly; 630 stays correct for the pinned 2026-09-10 register, and the delta is
+  the removals from #29/#30/#32/#34 — no edit to README/AUDIT/HANDOFF is warranted, and they did not
+  propose one. All nine gates exit 0 in a clean clone; artifacts deterministic.
+  **Non-blocking nit:** §2 calls 532 "total fields" where `aggregate.flagged_entries` is the precise name,
+  and attributes it to "007b's header"; harmless (the method is published), worth one sentence at the next
+  touch. Also `index.html`/`ROADMAP.md` share the per-line `T1987` rule — future prompts should say the
+  scanned set is those six files, not just README/AUDIT/HANDOFF.
 
 | Date | Prompt seq | PR | Verdict | Notes |
 |---|---|---|---|---|
