@@ -10,7 +10,7 @@
  },
  "upstream": {
   "repo": "https://github.com/cbeta-org/xml-p5",
-  "revision": "unrecorded"
+  "revision": "dbdea41071e1e260ad84b72faefd4587333cf76d"
  },
  "refs_manifest": "sessions/COLLATION_W1_2026-09-10_refs_manifest.txt",
  "historical_refs_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
@@ -20,6 +20,7 @@
   "refs_manifest": "sessions/COLLATION_W1_2026-09-10_refs_manifest.txt",
   "compare_historical_refs": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
   "compare_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+  "upstream_revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
   "note": [
    "measurement-only record: this register is not designated authoritative, data/project_metrics.json still reports the 2026-09-10 overlay, and the five documents that cite it keep doing so verbatim",
    "deshan_yulu's witness_note delta versus the 2026-09-10 register is a harness-side id normalisation (7cde460), not a corpus change"

@@ -173,6 +173,7 @@ $ COLLATION_REFS=/tmp/refs python3 scripts/collate_corpus.py \
     --compare-historical-refs sessions/COLLATION_W1_2026-09-09_refs_manifest.txt \
     --compare-register sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json \
     --require-verified-refs \
+    --upstream-revision "$(git -C /tmp/xmlp5 rev-parse HEAD)" \
     --note "measurement-only record: this register is not designated authoritative, data/project_metrics.json still reports the 2026-09-10 overlay, and the five documents that cite it keep doing so verbatim" \
     --note "deshan_yulu's witness_note delta versus the 2026-09-10 register is a harness-side id normalisation (7cde460), not a corpus change"
 register written: /tmp/register_2026-09-12.json
@@ -180,6 +181,15 @@ $ cmp /tmp/register_2026-09-12.json sessions/COLLATION_REGISTER_2026-09-12_POSTR
 $ echo $?
 0
 ```
+
+**Regeneration note (2026-09-12, post-review):** the register was regenerated once with
+`--upstream-revision "$(git -C /tmp/xmlp5 rev-parse HEAD)"` added, so the record itself pins the
+clone's HEAD instead of printing `unrecorded`. A leaf-by-leaf diff against the first generation
+(without that flag) differs in **exactly 2 leaf keys**: `upstream.revision` (`"unrecorded"` →
+`dbdea41071e1e260ad84b72faefd4587333cf76d`) and `generation_parameters.upstream_revision`
+(absent → the same hash). Everything else — the whole `aggregate`, `reproduction`, `documents` and
+`reference_verification` blocks, and both manifest declarations — is unchanged; the aggregate line
+below is identical in both generations.
 
 `--corrects` is deliberately absent and the kind is deliberately not `w1-correction`: the validator
 requires an authoritative record to correct the 2026-09-09 register, and pointing this record at
@@ -206,11 +216,16 @@ would create a second overlay competing for authority. Its aggregate line, paste
 - No new digest manifest; the two committed manifests are byte-identical to their committed selves.
 - After the data-bundle rebuild, `git diff --exit-code data docs` is clean, `diff -rq data docs/data`
   reports no differences, and `git status --porcelain` is empty.
-- The new register is a drop-in for a future re-designation: its top-level key set equals the
-  authoritative register's exactly (15 keys: `aggregate`, `content_denominator`, `corrects`,
-  `documents`, `generated`, `generation_parameters`, `harness`, `historical_refs_manifest`, `kind`,
-  `reference_extraction`, `reference_verification`, `refs_manifest`, `reproduction`, `status_scope`,
-  `upstream`), with `kind = "w1-post-remediation-measurement"` and `corrects = null`.
+- The new register's top-level key set equals the authoritative register's exactly (15 keys:
+  `aggregate`, `content_denominator`, `corrects`, `documents`, `generated`, `generation_parameters`,
+  `harness`, `historical_refs_manifest`, `kind`, `reference_extraction`, `reference_verification`,
+  `refs_manifest`, `reproduction`, `status_scope`, `upstream`). That is key-set parity, not
+  adoptability. Before this record could be designated authoritative, `scripts/w1_evidence.py`
+  requires three things of it: `kind == "w1-correction"`, `corrects ==
+  "sessions/COLLATION_REGISTER_2026-09-09.json"`, and `upstream.revision ==
+  PINNED_UPSTREAM_REVISION` (`dbdea41071e1e260ad84b72faefd4587333cf76d`). This record carries the
+  pinned `upstream.revision` but deliberately not the overlay `kind` and not `corrects` — it is a
+  measurement, and re-designation remains a separate, owner-ruled change to the evidence model.
 
 ## 7. How to reproduce this record
 
@@ -251,6 +266,7 @@ COLLATION_REFS=/tmp/refs python3 scripts/collate_corpus.py \
   --compare-historical-refs sessions/COLLATION_W1_2026-09-09_refs_manifest.txt \
   --compare-register sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json \
   --require-verified-refs \
+  --upstream-revision "$(git -C /tmp/xmlp5 rev-parse HEAD)" \
   --note "measurement-only record: this register is not designated authoritative, data/project_metrics.json still reports the 2026-09-10 overlay, and the five documents that cite it keep doing so verbatim" \
   --note "deshan_yulu's witness_note delta versus the 2026-09-10 register is a harness-side id normalisation (7cde460), not a corpus change"
 cmp /tmp/register_${RUN_DATE}.json sessions/COLLATION_REGISTER_${RUN_DATE}_POSTREMEDIATION.json
@@ -267,8 +283,9 @@ diff -rq data docs/data
 git diff --check
 ```
 
-    committed register sha256 6bb74de7445ca67bf7a209a312af5cd0da59a4b8e2182af9fb64463c3f7849c0
-      (sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json, the harness's own bytes)
+    committed register sha256 22d21b2881b30cc1d48c492ca75aa578dbfc226656e3b146b0ebe52b28d06317
+      (sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json, the harness's own bytes;
+       regenerated with --upstream-revision, see the regeneration note in §5)
 
 Every flag and note above is part of the evidence file via `generation_parameters`, not a re-typable
 incantation; every class count, digest, status and aggregate in the register is computed from the
