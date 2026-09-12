@@ -926,16 +926,20 @@ Design decisions worth inheriting:
 
 ## Branch publication state (measured 2026-09-12, during the credential flap)
 
-- **Pushed and on the server:** `c17e426` = `3d1dcc8` + prompt 014 at **16,495 B, blob `af9fc11c`** (verified
-  byte-for-byte against the remote contents API: `remote size=16495 blob_sha=af9fc11c6339135ae511a113d9655fb7761a4ea6`
-  == `git hash-object`). This version is complete and dispatchable.
-- **Committed locally, NOT pushed:** `bd11649` = 014 at **17,341 B / 242 lines, blob `49f3acb3`** — the §7 addition
-  retiring `AUDIT.md:30` / `HANDOFF.md:72` / `HANDOFF.md:89`'s pending-supersession wording and the
-  "the pin is what is stale" guardrail — plus the #39 verdict and the `77b4039` gate run recorded above.
-- **On reconnect:** `git push origin arena/01a08e15-translatechan` must be a fast-forward from `c17e426`; re-verify
-  the remote blob of 014 equals `49f3acb3cb0ace9069abd4c44ec0db8786796fe4` before calling 014 published, and re-read
-  `git ls-remote` for the server tip rather than trusting the local remote-ref (the fetch refspec here is narrowed to
-  `refs/heads/main`, so `origin/arena/*` refs are only ever what I fetched by hand).
+- **Published and verified on the server (2026-09-12, next reconnect):** branch tip `db4219d` = `c17e426` + `bd11649`
+  + `db4219d`, pushed as a plain fast-forward after `git ls-remote` confirmed the server still sat at `c17e426`
+  (no force, no rebase). Both amended files were then compared against the contents API, not against my own memory:
+  `014-citation-fixes.md` remote `size=17341 blob=49f3acb3cb0ace9069abd4c44ec0db8786796fe4` == local `git hash-object`;
+  `ORCHESTRATOR_STATE.md` remote `size=99869 blob=473ea0df3a97d76cad97f3a0b5b4af18069724f0` == local. The intermediate
+  `c17e426` blob (`af9fc11c`, 16,495 B) is superseded; **the dispatchable bytes of 014 are 17,341 B / 242 lines**.
+- **Credential flap, twice in one task, is now a planning input, not an anecdote.** The token worked, died within
+  minutes, and worked again after a reconnect: `gh auth status` goes from "Logged in as arena-ai-coding-agent[bot]"
+  to "The github.com token in GH_TOKEN is no longer valid" with no change on my side. So: (1) the moment a reconnect
+  is announced, the *push* is the first command of the turn, ahead of any reading or review work; (2) every
+  publication claim in this ledger is dated with the SHAs and blob hashes it was true for, because a claim of
+  "published" without bytes attached is unverifiable five minutes later; (3) a prompt is not published until the
+  remote blob hash matches, which is why `c17e426` and `db4219d` are recorded as two separate states rather than
+  collapsing them into "014 is on the branch".
 - **Why the local ref cannot be trusted across turns:** `remote.origin.fetch` = `+refs/heads/main:refs/remotes/origin/main`
   only, and this sandbox has twice restored `.git` from a snapshot (re-parenting HEAD onto `02e5db7`, and dropping
   `~/.gitconfig` / `~/.git-credentials` / the credential helper). Consequence: verify against the API **and** re-fetch
