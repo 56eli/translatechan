@@ -1,6 +1,10 @@
 # 🤖 Fake Chan Factory: Vision & Architectural Blueprint
 
-> **Document type**: *aspirational architecture with a current public-scope note*. For **measured current status**, see [`AUDIT.md`](./AUDIT.md); for phase tracking, see [`ROADMAP.md`](./ROADMAP.md); for operational flow, see [`HANDOFF.md`](./HANDOFF.md). The public Pages interface is deliberately limited to Reader, Matrix, Lineage, Gong'an Index, and Lexicon; it does not expose browser drafting, Arena-agent branding, or a header GitHub link.
+> **Document type**: *aspirational architecture with a current public-scope note*, aligned to the measured status quo **as of 2026-09-12**. For **measured current status**, see [`AUDIT.md`](./AUDIT.md); for phase tracking and each phase's denominator, see [`ROADMAP.md`](./ROADMAP.md); for release gating, see [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md); for operational flow, see [`HANDOFF.md`](./HANDOFF.md). The public Pages interface is deliberately limited to Reader, Matrix, Lineage, Gong'an Index, and Lexicon; it does not expose browser drafting, Arena-agent branding, or a header GitHub link.
+
+> **The public scope is exactly five rooms — measured, not intended.** `index.html` carries five room buttons (`grep -c 'data-room-index' index.html` → **5**: `data-room-index` 01–05 = `reader`, `matrix`, `lineage`, `gongan`, `lexicon`), and `scripts/smoke_test.mjs` guards that surface. Client-side full-text search is a cross-room feature, not a sixth room. Everything this document describes beyond those five rooms — a Translation Studio, Arena-agent surfaces, phonetics/chanting modules, community review and consensus voting, graph-database navigation, an offline PWA — is **outside the public scope today** and would require an explicit scope decision plus a smoke-guard update before it could appear. Where a section below reads as though more surface exists, this note is the correction.
+
+> **Where the corpus actually stands (2026-09-12).** **35 documents**, **0 complete**, **31 excerpt seeds**, **104,564** source-content CJK characters (**110,165** across every corpus JSON string) — `python3 -c "import json;m=json.load(open('data/project_metrics.json'))['corpus'];print(m['documents'],m['complete_documents'],m['excerpt_seed_documents'],m['content_cjk_characters'],m['all_corpus_cjk_characters'])"`. W1 source-review states: **1** `collated_to_claimed_witness` (`zhengdao_ge`), **32** `partial_or_failed_w1_collation`, **2** `witness_unavailable`. The Wave 1 integrity campaign (PRs #29, #30, #32, #34, #35) re-keyed four documents to their pinned CBETA witnesses and labelled a fifth; three independent witness inventories plus [`.orchestrator/PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md) now cover all 35 documents, and [`ROADMAP.md`](./ROADMAP.md) records the campaign. §1.1 below states, objective by objective and element by element, how far each ambition is from being met. **Nothing here is softened**: the objectives keep their full strength, *Congronglu* remains a named goal (§2 note), and no reduction in flagged fields is presented as completion.
 
 > 🤖 **Brand note (2026-08-09).** The public app is branded **Fake Chan Factory**: the English renderings are *Robolations* — AI text written in a famous translator's register, clearly badged and not citable as that translator's work. Edition-verified quotations are badged **✅ Edition-verified quotation** and keep their real attribution; rights/public-domain status remains separate. This document describes the *architecture and scholarly infrastructure* (canonical sources, lineage graph, locators, provenance) that the Factory runs on — that infrastructure is real whether a given rendering is Robo or verified.
 
@@ -25,6 +29,51 @@ Centuries of profound dialogues, encounter dialogues (*機緣問答*), recorded 
 4. **Source Verification & Disclosure Workflow**: Combine classical Chinese philology, technical glossaries, and clearly disclosed project/AI drafts with primary-source locators, book/edition references, page-or-section states, rights records, and hover/focus/touch citation details.
 5. **Zero-Backend Public Research Reader**: Deliver an ultra-fast, responsive GitHub Pages application for source-aware side-by-side reading, comparison, lineage exploration, gong'an indexing, and lexicon study.
 
+### 1.1 Distance to each objective (measured 2026-09-12)
+
+The five objectives above are stated at full strength and are **not** renegotiated here. What follows is the measured distance to each, with the command that produces every number, so a reader can check this section without opening `data/`.
+
+1. **Exhaustive Canonical Ingestion — not met.** 35 documents are ingested (`ls data/corpus/*.json | wc -l` → 35) out of a stated scope spanning Taishō 47/48/51 and the *Zokuzōkyō*; **0 are complete** (`corpus.complete_documents` is empty) and **31 are excerpt seeds**. 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all (`data/project_metrics.json` → `corpus.source_review`). *Jingde Chuandenglu*'s 30 fascicles, the monastic codes as complete texts, and Zhaozhou's full dialogue record are not ingested; *Congronglu* is quarantined at **zero** cases (§2 note). No automated CBETA ingestion exists — `scripts/segment_classical.py` is an offline manual segmenter and `scripts/ingest_cbeta.py` is a deprecated wrapper; the W1 harness (`scripts/collate_refs.py`) extracts pinned witnesses for collation only, not for ingestion.
+2. **Comprehensive Lineage & Genre Taxonomy — partial.** 34 master profiles (12 controlled `school_key` groups), 30 internal edge records and 4 frontiers, 7 lineage source records — **all 30 edges remain `traditional_link_pending_exact_locator`** (`data/lineage/lineage_verification.json`), and the profile queue holds 29 `needs_exact_locator`, 1 `in_review`, 4 `frontier_source_needed`. Gong'an cross-referencing covers 24 indexed cases in 7 curated theme groups. Monasteries, eras, and genre axes are modeled in metadata, not as a queryable graph.
+3. **Multi-Translator Comparative Analysis — partial.** The sentence-aligned format is complete and populated with **4 exemplar passages carrying 21 translator registers** (18 `reconstruction_unverified`, 2 `verified_quotation`, 1 `ai_draft`); corpus-side there are 1,252 translation slots (177 verified quotations, 876 unverified register reconstructions, 199 AI drafts). This is a demonstrated contract, not a comparative corpus: most of the roster's real published wording is not held, and reconstructive registers are badged as such precisely because they are not quotations.
+4. **Source Verification & Disclosure Workflow — partial; the element-by-element checklist is below.** This objective has moved furthest in the last campaign and also carries the campaign's clearest unfilled gap (disclosure that exists in data but does not render).
+5. **Zero-Backend Public Research Reader — met on surface, unmet on evidence.** Five rooms ship from `main /docs` with no backend, CSP `script-src 'self'`, and a green dependency-free smoke suite (`node scripts/smoke_test.mjs`). Against "ultra-fast": the bundle is monolithic (all 35 documents initialize up front), mobile first-load performance has never been measured, and 41 JS-generated inline styles still require `style-src 'unsafe-inline'`. Against "responsive, accessible": **no real-browser or screen-reader evidence exists** (Chromium failed with `ECONNRESET` in the 2026-08-11 session; `scripts/browser_test.mjs` is optional and not in CI), so the design must not be described as screenshot- or accessibility-verified.
+
+**Objective 4, element by element.** The objective's own words are *primary-source locators, book/edition references, page-or-section states, rights records, and hover/focus/touch citation details*. Each element, marked honestly:
+
+| Objective 4 element | State 2026-09-12 | Check with |
+| :--- | :--- | :--- |
+| **primary-source locators** | **Partial.** `data/canonical_locators.json` covers all 35 documents and 148/148 declared case records (48 *Wumenguan* + 100 *Biyanlu*) — but only **2** documents are case-level and **33** remain document-level seeds, and the editorial queue holds 30 `needs_unit_locator` + 3 `in_review` records. Page/line or TEI anchors for those 33 do not exist. A case-number anchor is not proof that every nested source field was collated. | `python3 -c "import json;print(json.load(open('data/project_metrics.json'))['canonical_locator_coverage'])"` |
+| **book/edition references** | **Exists for the English quotation layer.** 176 of 179 verified source records carry a recorded reference and 3 are pending; 13 distinct verified source ids resolve into the rights manifest's 14 source records. | `…['translations']['verified_reference_coverage']` → `{'recorded': 176, 'pending': 3}`; `…['rights_coverage']` |
+| **page-or-section states** | **Partial, and honest where missing.** Of the 177 verified corpus quotation slots, 175 `reference` fields record a case/page/section state and 2 state `translation book episode/page pending` explicitly (both in `zhaozhou_yulu`). The "135 recorded / 5 pending" figure that `ROADMAP.md`'s Phase 4 carried was stale and is corrected there in this alignment; measured 2026-09-12 it is 175/2 in the corpus and 176/3 across all 179 verified source records. | walk every `"reference"` string in `data/corpus/*.json` and count `pending` |
+| **rights records** | **Partial — policy-level, not per-item.** `data/translations/rights_manifest.json` carries one `policy` block plus **14** `sources` records; **all 14 still await human/jurisdiction review**, and there are no per-quotation rights entries. Edition verification never implies rights approval, and no ledger approves reuse. | `python3 -c "import json;print(len(json.load(open('data/translations/rights_manifest.json'))['sources']))"` → 14 |
+| **hover/focus/touch citation details** | **Implemented, not browser-evidenced.** Reader and Matrix render canonical location, translator + status, book/edition, page-or-section state, verification state, and rights identifier through hover, keyboard-focus and touch popups, and the smoke suite asserts that markup — but no real-browser or screen-reader run is on record, so the affordances are unverified in a browser. | `node scripts/smoke_test.mjs`; `scripts/browser_test.mjs` (optional, skips without Chromium) |
+
+**What now exists beyond the objective's 2026-08 wording** (the W1 source-integrity layer, built 2026-09-09 → 2026-09-12):
+
+- A **witness-pinned collation harness**: `scripts/collate_refs.py` extracts 39 reference texts from CBETA XML P5 pinned at revision `dbdea41071e1e260ad84b72faefd4587333cf76d` and verifies every digest (39 verified / 0 drift against `sessions/COLLATION_W1_2026-09-10_refs_manifest.txt`); `scripts/collate_corpus.py` collates every source-content field against them; `scripts/w1_evidence.py` recomputes each published figure instead of trusting stored ones.
+- **Preservation and rule gates**: `scripts/test_source_preservation.py` byte-compares `data/corpus/` against the pinned base commit `3cc7a8e9681ea8646d2b4fd8d86f1a4b1eea6b43` and permits only exact allowlisted JSON pointers (218 permitted changes, 0 unauthorized on this run); `scripts/test_source_review_rules.py` runs 96 source-review rule checks, including the doc-truthfulness rules that pin the W1 sentences in the public documents.
+- **A public per-document source-review state** in `data/corpus_manifest.json`, rendered as a visible Reader ledger, with completion/status incompatibility rejected by the validator: `complete` ⇔ `complete_selected_witness` + `collated_to_claimed_witness`.
+- **22 documents carry provenance labels** (`cbeta_note` in 16, `editorial_note` in 5, `recension_note` in 1) recording citation corrections, retained project retellings with no witness attribution, and recension provenance.
+
+**What does not render yet — the objective's open gap.** The corpus carries **49** provenance notes and the reader surfaces one of them: `recension_note` renders at verse level only (so `platform_sutra`'s root recension note and its 12 chapter/dialogue notes are unreachable), `coverage_note` appears in the dossier's Reading ledger rather than beside the text it describes, and **`cbeta_note` (16 fields) and `editorial_note` (8 fields) are never rendered at all**. That includes 16 recorded citation corrections — e.g. `caoxi_zhuan`'s note that the prior "X1458" citation was wrong (X1458 is 宗門寶積錄; the 曹溪大師別傳 is X86n1598 plus Dunhuang P.3018) — and the labels marking `linji_yulu` sections 71–73 and `xinxin_ming` stanza 31 as project retellings with no witness attribution. Measure it with:
+
+```bash
+python3 - <<'PY'
+import glob, re, collections
+c = collections.Counter()
+for f in glob.glob('data/corpus/*.json'):
+    s = open(f, encoding='utf-8').read()
+    for k in ('cbeta_note', 'editorial_note', 'recension_note', 'coverage_note'):
+        c[k] += s.count('"%s"' % k)
+js = open('app.js', encoding='utf-8').read()
+for k, v in c.most_common():
+    print(f"{k}: data={v} app.js mentions={js.count(k)}")
+PY
+```
+
+Until that gap closes, objective 4's disclosure element is **partial, not met**: the data is honest and the presentation is not. Rendering every note the corpus carries is the next presentation work package (not started as of 2026-09-12), and [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) lists it as release-blocking.
+
 ---
 
 ## 2. Corpus Scope & Canonical Taxonomy
@@ -46,16 +95,18 @@ The Fake Chan Factory corpus is systematically structured around the standard hi
          │                       │                       │                       │                       │
    • Linji Yulu            • Wumenguan             • Jingde Chuandeng      • Baizhang Qinggui      • Xinxin Ming
    • Zhaozhou Yulu         • Biyanlu               • Tiansheng Guangdeng   • Chanyuan Qinggui      • Sandokai
-   • Huangbo Chuanxin      • Congronglu            • Wudeng Huiyuan        • Chiting Qinggui       • Baojing Sanmei
+   • Huangbo Chuanxin      • Congronglu †         • Wudeng Huiyuan        • Chiting Qinggui       • Baojing Sanmei
    • Dongshan Yulu         • Xuetang Yulu          • Jiatai Pudeng         • Ruzhong Riyong        • Zhengdao Ge
 ```
+
+> **† *Congronglu* (從容錄, T2004) is a named goal of this taxonomy, not a corpus holding.** Its seed was removed from the active bundle on 2026-08-10 after the audit found generated source-looking placeholders and case-number/page claims that the authoritative T48n2004 headings disproved, and it remains **quarantined by standing owner decision**. The corpus therefore holds **zero** *Congronglu* cases today (`ls data/corpus/*.json | wc -l` → 35 documents, none of them *Congronglu*); no reader may conclude from this diagram, or from the "all 100 cases" ambition in §7 Phase 2, that 100 *Congronglu* cases are held. Reinstatement requires field-level collation of every restored case against the authoritative T48n2004 witness under the same contract the Wave 1 re-keys used (`ROADMAP.md` → Wave 1 integrity campaign), and none of the quarantined generated records may be copied back.
 
 ### 2.1 Canonical Volume Breakdown
 
 | CBETA / Taishō Canon | Category | Key Classical Works Included | Focus & Structure |
 | :--- | :--- | :--- | :--- |
-| **Taishō Vol. 48 (T1985–T2025)** | **Discourse & Gong'an (諸宗部五)** | *Wumenguan* (無門關 T2005), *Biyanlu* (碧巖錄 T2003), *Congronglu* (從容錄 T2004), *Linji Yulu* (臨濟語錄 T1985), *Platform Sutra* (六祖壇經 T2007/T2008), *Huangbo Chuanxin Fayao* (傳心法要 T2012A) | Foundational recorded sayings, classic encounter dialogues, case pointers (*垂示*), main cases (*本則*), verses (*頌*), and commentary (*評唱*). |
-| **Taishō Vol. 47 (T1957–T1984)** | **Sectarian & Recorded Sayings (諸宗部四)** | *Zhaozhou Yulu* (趙州語錄), *Dongshan Liangjie Yulu* (洞山良价語錄 T1986), *Caoshan Benji Yulu* (曹山本寂語錄 T1987), *Yunmen Yulu* (雲門語錄 T1988), *Xuanling Yulu* (玄沙語錄) | Detailed monastics discourse records, sermons (*上堂*), evening instructions (*晚參*), and question-and-answer encounters. |
+| **Taishō Vol. 48 (T1985–T2025)** | **Discourse & Gong'an (諸宗部五)** | *Wumenguan* (無門關 T2005), *Biyanlu* (碧巖錄 T2003), *Congronglu* (從容錄 T2004 — **quarantined; 0 cases held**, see the §2 † note), *Linji Yulu* (臨濟語錄 T1985), *Platform Sutra* (六祖壇經 — T2007 Dunhuang recension primary, T2008 宗寶 recension alternative), *Huangbo Chuanxin Fayao* (傳心法要 T2012A) | Foundational recorded sayings, classic encounter dialogues, case pointers (*垂示*), main cases (*本則*), verses (*頌*), and commentary (*評唱*). |
+| **Taishō Vol. 47 (T1957–T1984)** | **Sectarian & Recorded Sayings (諸宗部四)** | *Zhaozhou Yulu* (趙州語錄 — the corpus record still cites T1987 as its witness and that claim is **false**: T1987 is the Caoshan record, 曹山本寂語錄; re-pointing it is a queued citation fix), *Dongshan Liangjie Yulu* (洞山良价語錄 T1986), *Caoshan Benji Yulu* (曹山本寂語錄 T1987), *Yunmen Yulu* (雲門語錄 T1988), *Xuanling Yulu* (玄沙語錄) | Detailed monastics discourse records, sermons (*上堂*), evening instructions (*晚參*), and question-and-answer encounters. |
 | **Taishō Vol. 51 (T2075–T2089)** | **Histories & Transmission Records (史傳部三)** | *Jingde Chuandenglu* (景德傳燈錄 T2076, 30 fascicles), *Tiansheng Guangdenglu* (天聖廣燈錄), *Wudeng Huiyuan* (五燈會元, X1565) | The complete genealogy of Chan transmission from the Seven Buddhas of Antiquity and Indian Patriarchs through the Chinese lineage generations. |
 | **Taishō Vol. 48 (T2021–T2025)** | **Monastic Codes & Rules of Purity (清規部)** | *Baizhang Qinggui* (敕修百丈清規 T2025), *Chanyuan Qinggui* (禪苑清規, X1245) | Chan monastic guidelines, daily life routines, communal work (*普請* / "A day without work is a day without food"), ritual protocols. |
 | **Early Tang & Dunhuang Manuscripts** | **Early Lineage Texts (敦煌文獻)** | *Erru Sixing Lun* (二入四行論 / Bodhidharma's Two Entrances and Four Practices), *Juezhu Lun* (絕觀論 / Niutou Farong), *Lidai Fabao Ji* (歷代法寶記) | Proto-Chan texts, earliest direct records predating Song-dynasty editorial redactions. |
@@ -245,7 +296,7 @@ The Fake Chan Factory web application is architected to run **100% client-side o
 ### Phase 2: Ingestion Pipeline & CBETA Automation
 - [ ] Implement automated Python/Node scrapers for CBETA XML/P5 format to extract Chan volumes (Taishō 47, 48, 51; Zokuzōkyō).
 - [ ] Automatic punctuation normalization, stanza detection, and dialogue speaker attribution.
-- [ ] Expand canonical text coverage to all 48 cases of *Wumenguan*, all 100 cases of *Biyanlu*, and all 100 cases of *Congronglu* (從容錄).
+- [ ] Expand canonical text coverage to all 48 cases of *Wumenguan*, all 100 cases of *Biyanlu*, and all 100 cases of *Congronglu* (從容錄) — **a named goal, with its true distance attached (measured 2026-09-12).** *Wumenguan* represents 48/48 cases and *Biyanlu* 100/100 case records, but representation is not completion: both were re-keyed to their pinned witnesses (PRs #29, #30) and both remain `partial_or_failed_w1_collation` with documented residuals, and neither document is `complete_selected_witness`. **The corpus holds zero *Congronglu* cases**: the seed was quarantined on 2026-08-10 for source-integrity reasons (generated source-looking placeholders; case-number and page claims disproved by the authoritative T48n2004 headings) and stays out by standing owner decision. Reinstating the 100 cases requires field-level collation of every case against T48n2004 — the same contract the Wave 1 re-keys used — before any *Congronglu* text re-enters the bundle; none of the quarantined generated records may be copied back.
 - [ ] Ingest *Jingde Chuandenglu* (景德傳燈錄) 30 fascicles with automated master-index cross-linking.
 
 ### Phase 3: Advanced Comparative Matrix & Scholarly Notes
@@ -254,12 +305,19 @@ The Fake Chan Factory web application is architected to run **100% client-side o
 - [ ] Interlinear commentary toggle: view Yuanwu's comments (*圓悟評唱*), Wumen's warnings (*無門關評*), and Dahui's letters side-by-side.
 
 ### Phase 4: Source Verification, Disclosure & Editorial Review
+
+> **Status as of 2026-09-12:** this phase moved furthest in the Wave 1 campaign and still carries its clearest gap. Delivered: the witness-pinned collation harness and its preservation/rule gates, independent witness inventories covering **35/35** documents, provenance labels in **22** documents, and **5** documents re-keyed to a pinned witness or labelled (PRs #29, #30, #32, #34, #35). Owed: exact unit locators for the 33 document-level seeds, human rights review for all 14 manifest sources, the six queued false-citation fixes, the post-remediation evidence pass, and **rendering the 49 provenance notes the corpus carries** — the reader surfaces one of them (§1.1). The checklist below is unchanged; the element-by-element measurement is in §1.1.
+
 - [~] Complete exact canonical locators for every non-case seed unit (page/line or TEI anchors).
 - [~] Complete exact book-page/episode references and human rights review for every verified modern translation.
 - [x] Render AI drafts/reconstructions only with explicit disclosure, never as scholar quotations.
-- [x] Provide source/translation/lineage citation details by hover, focus, and touch in public Pages surfaces.
+- [x] Provide source/translation/lineage citation details by hover, focus, and touch in public Pages surfaces. *(Implemented and smoke-guarded; no real-browser or screen-reader evidence exists, so it is not browser-verified — §1.1.)*
+- [ ] Surface every provenance label the data carries (`cbeta_note`, `editorial_note`, `recension_note`) beside the passage it describes — currently 49 notes in data, 1 rendered site.
 
 ### Phase 5: Phonetics, Middle Chinese & Multilingual Global Canon
+
+> **Scope note (2026-09-12):** every item in Phases 5–6 sits **outside** the current public surface, which is exactly five rooms (Reader, Matrix, Lineage, Gong'an Index, Lexicon — the header note carries the measuring command). None of them may be read as an existing feature or as approved scope; each needs an explicit scope decision, a smoke-guard update, and its own evidence before it appears publicly.
+
 - [ ] Audio chanting / pronunciation guide in Middle Chinese (*中古漢語*) reconstructions, Mandarin Pinyin, and Sino-Japanese readings (*Kanbun*).
 - [ ] Expand rigorously verified multilingual translations and citation records.
 
