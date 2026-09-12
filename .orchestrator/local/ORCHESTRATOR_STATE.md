@@ -27,6 +27,8 @@ This is the state a successor orchestrator reads second, after `main`'s `.orches
 - **Two things a successor must not re-do:** the four 2026-09-12 owner rulings are settled (they are recorded on
   `main` in `## Standing Decisions`, written by PR #43); and #38/#39/#43 were all merged *before* review, so their
   verdicts live in this file's *Review Log* sections rather than in PR threads.
+- **014b is now three items, not two:** (1) the nine-line census sync, (2) `dahui_hongzhi`'s `cbeta_note` disclosure, (3) a dated addendum under `STATE.md:39` noting that its "`104,564 / 110,165` unmoved" sentence measured the pre-#43 state (main measures 110,233 at `1b41d0b`) — appended as a new bullet, never a rewrite.
+- **The platform can re-author my own commits:** `cbd6296` was republished as `35021d0` under `56eli`'s identity with an identical tree (verified: +279/−0, same two paths). So an "unexpected tip" on this branch is usually a re-author, not a rewrite: compare `git rev-parse <tip>^{tree}` before alarming anyone.
 - **Live hazard in this environment:** the sandbox rewinds the worktree to an old SHA and drops GitHub credentials
   without notice. See *Hardening Log* rows 2026-09-12/014 and the reconciliation procedure under *Interrupted Work*.
 
@@ -71,7 +73,7 @@ This is the state a successor orchestrator reads second, after `main`'s `.orches
 | 013 | `.orchestrator/prompts/013-shipped-state-docs.md` | Say what shipped: renderer visible, evidence pass split | `arena/01a095a4-translatechan` | #42 | **Merged 2026-09-12 14:55 UTC** |
 | 014 | `.orchestrator/prompts/014-citation-fixes.md` | Fix the six `CITATION` rows: stop saying six false citations | `arena/01a097bd-translatechan` | #43 | **Merged 2026-09-12 22:59 UTC — my REVISE verdict was not applied first**; main is healthy, **two follow-ups open (see 014b)** |
 | 015 | *(slot deliberately reserved, no file)* | Acquisition **work orders** for the 31 `OUT-OF-CBETA` documents (owner ruling 4: orders, not witnesses) | — | — | **Queued — do not author until 014b merges.** The gap in the sequence is a reservation, not a lost publish |
-| 016 | `.orchestrator/prompts/016-tracker-continuation-block.md` | Give the canonical tracker a cold-start `## Continuation (cold start)` block | — | — | **Published on this branch, NOT YET DISPATCHED** — stub handed to the operator 2026-09-13 |
+| 016 | `.orchestrator/prompts/016-tracker-continuation-block.md` | Give the canonical tracker a cold-start `## Continuation (cold start)` block | `arena/01a097f7-translatechan` | #44 | **OPEN — reviewed 2026-09-13: REVISE on one clause** (the branch-model sentence transplants a worker rule into an orchestrator's instructions). One line, then MERGE. All 8 gates green in my clone; +139/−0 single file; every number reproduced |
 
 Numbering note: `.orchestrator/prompts/` is per-orchestrator-branch. This branch starts at
 002 because 001 is reserved above for the review task. The predecessor generation's prompts
@@ -915,6 +917,21 @@ Design decisions worth inheriting:
 
 ## Review Log — late entries (2026-09-12)
 
+- **#44 / task 016 — VERDICT 2026-09-13: REVISE (one clause), then MERGE.** Stage 1: `+139/−0` in
+  `.orchestrator/STATE.md` alone, insert immediately before `## Known Gaps`, no pre-existing line touched, no
+  `/tmp` or orchestrator-path artifact, no push to the channel. Stage 2 (my own run, fresh clone at `ef9489b`):
+  `py_compile`, `validate_data.py`, `build_data_bundle.py`, `smoke_test.mjs`, `test_source_preservation.py`,
+  `test_source_review_rules.py`, `diff -rq data docs/data`, `git diff --check` all exit 0 and the worktree is empty
+  after the build; CI SUCCESS on both check runs. Stage 3: seven fields present with the §5 title verbatim; census
+  reproduced by me independently (50 strings / 39 rendered / cbeta_note 17 / coverage 11 exempt / 23 documents);
+  both 014b grep commands reproduce exactly the nine cited lines; the `scripts/` count claim (15 tracked vs 16
+  listed) checks out. **Defect:** "is never pushed to" was my §0 worker instruction copied into a document a
+  successor orchestrator reads as its own rules — it must become "the orchestrator publishes prompts to it; no coding
+  agent ever pushes to it or bases from it". Their `#### Session Irregularities` reported three items, all accepted,
+  all triaged into the Hardening Log above; two are prompt errors of mine, and their judgement *not* to rewrite the
+  dated `STATE.md:39` paragraph was correct practice.
+
+
 - **#39 / task 010b — VERDICT: clean, merge was correct** (merged 2026-09-12 08:59:09Z as `44d2d6e`; reviewed after
   the fact because it landed while I was mid-review). Scope exactly `AUDIT.md` +3, `HANDOFF.md` +10, `README.md` +6/−1
   — no `data/**`, no `docs/` mirror, no `index.html`, so `docs/index.html` could not move ✓. README's stale
@@ -1092,3 +1109,7 @@ Bounded session log (~20 recent); `Deferred (needs owner decision)` rows are nev
 | 2026-09-12 | 010b | Repository | `/tmp` is wiped mid-session; a prior snapshot restored `.git/shallow` | scratch clones and a durable backup path lost | Hardening candidate | The publish form's `mktemp -d /tmp/…` backup is not durable here; keep recovery copies in an ignored path **inside** the worktree, which survives `reset --hard` as untracked |
 | 2026-09-11 | 005 | Prompt | A prompt asserted a `verification_note` key that does not exist, and mis-quoted a gate sentence | coder would have hunted for a phantom key | Hardening candidate | Enumerate-and-print every key/quote a prompt names, at the current base, before publishing |
 | 2026-09-10 | 001 | Repository | `key in json.dumps(doc)` treated as field-role evidence (false alarm on `caoxi_zhuan` `X1458`) | one wasted review cycle | Hardening candidate | Check the container, never serialise-and-search, when attributing a field |
+| 2026-09-13 | 016 | Prompt | §8 named target branch `docs/tracker-continuation-block`; Arena sessions are hard-fixed to their own `arena/*` branch and cannot create or push another | would have blocked the task if followed literally; the coder worked on the platform branch and disclosed it | Hardening candidate | Every prompt's §8 must read "the platform-fixed session branch you were given — do not rename or recreate it"; the named-branch form is unsatisfiable on Arena |
+| 2026-09-13 | 016 | Prompt | §2 required-reading cited `HANDOFF.md` §"What's next", a heading that does not exist on `main` (sections are 1-12; the real sibling is §5 "Release blockers") | cost the worker inference; same class as my phantom `verification_note` key | Hardening candidate | Required-reading entries cite a heading or path **reproduced by a command at the base**, never one recalled from memory |
+| 2026-09-13 | 016 | Repository | `--depth 1` clones make `git log --diff-filter=A` useless, so a prompt-to-PR map is not derivable locally | ~10 min of `gh api` archaeology for one field | Hardening candidate | Never ask an agent to derive provenance from local history: use `gh pr list --state all` / `gh api …/pulls/<n>/files`. Resolved for the project by 016's field-3 index landing on `main` |
+| 2026-09-13 | 016 | Prompt | My §0 worker instruction ("never push to the orchestrator branch") was copied verbatim into `main`'s tracker, where it reads as a rule for the *successor orchestrator* — who must push there to publish prompts | a cold-started orchestrator could conclude publishing is forbidden and stall the pipeline silently | Hardening candidate | Audience check before publishing: a rule addressed to a worker must say "coding agents never push to it"; rules that cross documents get restated per audience. Caught by the worker, not by me |
