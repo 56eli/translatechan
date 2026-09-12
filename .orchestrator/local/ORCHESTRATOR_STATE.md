@@ -117,6 +117,39 @@ Retire the owner-superseded scoreboard system, then continue W1 remediation Wave
   so 007a/007b can be dispatched against `3c838db` without inheriting a red base.
 - [x] **#36 MERGED as `b3cd14f`** — Phase 1 (measurement) closed on main: 3 inventory files, 35 doc
   blocks, 70 P0 bullets, 35 `OUT-OF-CBETA` routes. 007a/007b are **delivered — do not re-dispatch**.
+- [x] **#37 MERGED as `29abad7`** (my MERGE recommendation taken; only the 3 allowed paths moved).
+- [x] **OWNER DIRECTIVE 2026-09-12 received and actioned:** *"update all documentation to the status quo and
+  align the project with the vision of perfection of source integrity, referencing and presentation in its
+  stated goals."* Survey → three prompts authored (**010**, **010b**, **011**), sequential A→B→C.
+  - **Headline finding (the directive's real content):** **49 provenance notes sit in `data/corpus/*.json`
+    and the public reader surfaces ONE.** Enumerated from the data, not from memory:
+    `cbeta_note` 16 docs / 0 mentions in `app.js`; `editorial_note` 8 / 0; `recension_note` 14 / rendered at
+    verse level only (so `platform_sutra`'s root note, its 9 chapter notes and 2 dialogue notes are
+    unreachable); `coverage_note` 11 / dossier-only by design. The 16 `cbeta_note` records include
+    `caoxi_zhuan`'s own account of a corrected false citation — a documented integrity fix with no path to
+    a reader. **`vision.md` objective 4 names exactly this ("…hover/focus/touch citation details"), so the
+    gap is a stated-goal violation, not a nice-to-have ⇒ 011.**
+  - **Documentation status quo, measured:** **no top-level document cites any PR #29–#37** — seven merged
+    work packages and the entire integrity campaign are invisible outside `.orchestrator/`; `vision.md`
+    still lists **Congronglu** three times (quarantined since the 2026-08-10 audit) as if in the corpus;
+    `ROADMAP.md` phase statuses are 2026-08-08-era (`100 / ~30 / ~20 / ~40 / Planned`) with percentages
+    lacking denominators; `README.md` describes `platform_sutra` by its *pre-#35* framing.
+  - **Deliberate scope decisions:** `AGENTS.md` and `OPERATIONS.md` verified current (they already record the
+    2026-09-11 scoreboard retirement correctly) → no change; the 10 dated artifacts (`AUDIT_*`,
+    `FULL_AUDIT_*`, `response_summary.md` — titled *"Current Session Result — 2026-09-10"*) are frozen
+    historical records → **explicitly excluded** (prompt 011 says do not rewrite history). Visual-system
+    reset stays deferred: 011 is presentation *completeness* using only existing markup patterns, with an
+    explicit "no new CSS / no styling redesign ⇒ REVISE" clause.
+  - **The 630/532 rule both prose prompts must obey:** `630` = flagged fields in the *authoritative
+    2026-09-10 register*, verbatim-pinned by `validate_data.py` in five documents; a fresh run on today's
+    data yields **532** because #29/#30/#32/#34 removed flags. Neither figure may be substituted for the
+    other; only the post-remediation evidence pass may supersede the register.
+  - **Two more of my own errors, caught by measuring:** I invented a `verification_note` key (it does not
+    exist; the real orphaned key is `cbeta_note`) and undercounted the notes as 22 by restricting to
+    Wave-1-created ones. Had I shipped the naive "every `*_note` key must be rendered" invariant, task 011
+    would have failed on `coverage_note` on day one. Also corrected in-flight: 010b's §3 originally implied
+    `ROADMAP.md` must carry the three `source_review` statements — it must not; that asymmetry is now
+    documented in 010 §5 and 010b §3 so neither task "fixes" a rule that is satisfied by design.
 - [!] **My published prompt number was wrong and 008's coder corrected it.** 008 §3 asserted "35
   `OUT-OF-CBETA` markers"; the true token count is **33** (9+12+12) across 31 documents. The coder did not
   quietly fix it — they measured with a published command, printed 33, and logged it under
