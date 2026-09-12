@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110165,
+    "all_corpus_cjk_characters": 110233,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -333,11 +333,11 @@
         }
       },
       "dongshan_yulu": {
-        "all_cjk_chars": 716,
+        "all_cjk_chars": 736,
         "cbeta_id": "T1986",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 573,
-        "coverage_note": "8 canonical encounter dialogues excerpted from T1986 / X1321",
+        "coverage_note": "8/8 encounter dialogues and 5/5 five-ranks entries represented; W1 source-review status: partial_or_failed_w1_collation — 1 of 21 evaluated source-content fields collates to the claimed T47n1986A/T47n1986B witnesses (筠州洞山悟本禪師語錄 / 瑞州洞山良价禪師語錄); 8 are DIVERGENT (0.88–0.98) and 12 NOT_FOUND, so the dialogues and five-ranks verses are carried as project text that the pinned witnesses do not hold verbatim. The former note's X1321 is the Mazu record (X69n1321), not a witness of this document, and is dropped. Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "dialogues",
@@ -366,11 +366,11 @@
         }
       },
       "fayan_yulu": {
-        "all_cjk_chars": 418,
+        "all_cjk_chars": 434,
         "cbeta_id": "T1991 / X1226 (宗門十規論)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 272,
-        "coverage_note": "8 canonical sermons and dialogues from T1985 / X1321",
+        "coverage_note": "8/8 sections represented; W1 source-review status: partial_or_failed_w1_collation — 1 of 11 evaluated source-content fields collates to the claimed T47n1991 witness (金陵清涼院文益禪師語錄); 9 are NOT_FOUND (max similarity 0.65) and 1 is SHORT_UNMATCHED. The 宗門十規論 component is X63n1226, as `cbeta_note` records, and it has no collatable witness — X63n1226 is not among the 39 works in the pinned reference set. The former note named T1985 / X1321, neither of which is a witness of this document (T47n1985 is the Linji record; X69n1321 is the Mazu record), and both are dropped. Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -606,11 +606,11 @@
         }
       },
       "mazu_yulu": {
-        "all_cjk_chars": 530,
+        "all_cjk_chars": 544,
         "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 383,
-        "coverage_note": "6 foundational sermons and dialogues from T1986 / X1321",
+        "coverage_note": "6/6 sections represented, carrying 8 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 8 source-content fields collate to the claimed X69n1321 witness (四家語錄卷一·馬祖道一禪師廣錄): 4 are DIVERGENT (0.89–0.91) and 4 NOT_FOUND, so the sermons and dialogues are carried as project text the witness does not hold verbatim. The former note's '6' counted this document's sections, not the 8 fields the harness evaluates, and its T1986 is a Dongshan work, not a Mazu witness; both errors are dropped. Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -1027,11 +1027,11 @@
         }
       },
       "zhaozhou_yulu": {
-        "all_cjk_chars": 640,
-        "cbeta_id": "T1987",
+        "all_cjk_chars": 658,
+        "cbeta_id": "claimed: X68n1315 古尊宿語錄 — unverified (2 of 19 evaluated source-content fields collate against the pinned extraction); the prior T1987 claim was false (T1987 is the Caoshan record)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 500,
-        "coverage_note": "15 signature encounter dialogues excerpted from T1987",
+        "coverage_note": "15/15 dialogues represented; W1 source-review status: partial_or_failed_w1_collation — no witness holds this text. The former claim T1987 was false (T1987 is the Caoshan record), and the candidate in-set witness X68n1315 古尊宿語錄 is unverified: a probe collation with X68n1315 as the sole witness collates 2 of 19 evaluated source-content fields (1 EXACT, 1 REWORDED; 6 DIVERGENT, 11 NOT_FOUND). Of the 35 fields that probe measured, 10 classify EXACT — 9 of them title_zh metadata, which is measured in a separate partition and never establishes content collation. The claim is withdrawn, not re-attributed: these dialogues are carried as project text with no verified witness, and the document is routed to the human-sourcing queue for a sourced Zhaozhou record. Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "dialogues"
