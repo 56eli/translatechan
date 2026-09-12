@@ -95,6 +95,106 @@ Executed so far: **PR #43 (2026-09-12)** fixes the six `CITATION` rows — `zhao
 7. **Pipeline order is fixed**: `data/` → `validate_data.py` → `project_metrics.json` → `build_data_bundle.py` → root assets + byte-identical `/docs` mirror. All five quality gates pass before every push.
 8. **Durable memory lives in repo files**, not chat; dated evidence in `sessions/` is immutable.
 
+## Continuation (cold start) — added 2026-09-13
+
+> **Why this section exists:** an orchestrator session expires. Everything a successor needs to
+> resume the source-integrity campaign from `main` alone — the prompt channel, the published prompt
+> index, the immediate next task, the owner's rulings, the frozen surface and the environment
+> hazard — is recorded here, so continuing never depends on reading an unmerged branch. This
+> section is additive: it rewords nothing above, and every figure in it was re-measured in the
+> session that wrote it, at `main` = `1b41d0b8c300bcbe98639a62e4b13fda76714e18`.
+
+Three campaign invariants that no other single file states together; every continuation inherits all three:
+
+1. **The harness probing a witness is not the same as a field collating in it.** Cite no work as a text's witness unless ≥1 *evaluated content field* matches it — a reference merely listed in `scripts/collate_corpus.py`'s `WITNESS` map is a bibliographic pairing, not collation evidence. `dahui_hongzhi`'s T48n2001 pairing is the current recorded exception; see **Immediate next task** below.
+2. **Representation never establishes completion.** Only explicit editorial `completion_status` counts and `scripts/validate_data.py` is the spec (invariant 2 of `## Architectural Invariants` above): N/N unit representation proves nothing, and `complete` ⇔ `complete_selected_witness` + `collated_to_claimed_witness`.
+3. **Source collation does not approve reuse.** Edition verification and rights review are separate ledgers tracked separately everywhere; all 14 `rights_manifest.json` sources still await human/jurisdiction review, and no W1 status is a rights decision.
+
+Measured baseline on that commit — reproduce it, do not copy it:
+
+```bash
+python3 - <<'PY'
+import json
+c = json.load(open('data/project_metrics.json'))['corpus']
+sr = c['source_review']
+man = json.load(open('data/corpus_manifest.json'))['items']
+print('corpus documents', c['documents'], '| incomplete', c['incomplete_documents'],
+      '| complete_selected_witness', sum(1 for i in man if i['completion_status'] == 'complete_selected_witness'))
+print('source-content CJK', c['content_cjk_characters'], '| all-string CJK', c['all_corpus_cjk_characters'])
+print('authoritative register', sr['authoritative']['register_path'], '| flagged', sr['authoritative']['flagged_entries'],
+      '| evidence', sr['authoritative']['evidence_date'], '| statuses', sr['status_counts'])
+print('superseded 2026-09-09 pair: register', sr['historical']['flagged_entries'],
+      '| report', sr['superseded']['report_flagged_total'], '| status', sr['superseded']['status'])
+r = json.load(open('sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json'))
+a = r['aggregate']
+print('dated measurement 2026-09-12 (not a re-designation): flagged', a['flagged_entries'],
+      '| collating content fields', a['content_fields_collated'], '/', a['content_fields_total'],
+      '| documents_with_changed_status', r['reproduction']['documents_with_changed_status'])
+PY
+```
+
+```text
+corpus documents 35 | incomplete 35 | complete_selected_witness 0
+source-content CJK 104564 | all-string CJK 110233
+authoritative register sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json | flagged 630 | evidence 2026-09-10 | statuses {'collated_to_claimed_witness': 1, 'partial_or_failed_w1_collation': 32, 'witness_unavailable': 2}
+superseded 2026-09-09 pair: register 622 | report 637 | status superseded
+dated measurement 2026-09-12 (not a re-designation): flagged 532 | collating content fields 691 / 924 | documents_with_changed_status 0
+```
+
+Provenance-label census on the same commit — **50** `*_note` strings, of which **39** render beside a passage (`cbeta_note` 17, `editorial_note` 8, `recension_note` 14) while the **11** `coverage_note` strings stay exempt by recorded design, and **23** documents carry at least one rendered label (script printed at `vision.md:61`-`:82`):
+
+```text
+rendered=('recension_note', 'editorial_note', 'cbeta_note') call_sites=17 exempt=['coverage_note']
+per-key: {'cbeta_note': 17, 'editorial_note': 8, 'coverage_note': 11, 'recension_note': 14}
+ORPHANS: none — every key is rendered or exempted
+asserted: 39 of 50 note strings render beside a passage
+```
+
+Document-level and string-level counts are different units and must not be swapped: `cbeta_note` 17 documents / 17 strings (they coincide), `editorial_note` 5 documents / 8 strings, `recension_note` 1 document (`platform_sutra`) / 14 strings, `coverage_note` 11 documents / 11 strings — 23 documents with no overlap, 50 strings.
+
+- **Orchestrator branch:** `arena/01a08e15-translatechan` — the prompt **distribution channel**. It never merges into `main`, is never a PR base, and is never pushed to; a cold start fetches *from* it and works on the session branch the platform fixed. Tip when this section was written: `35021d04dd0c5a1113991e18413dccfbe67b72d8`.
+
+  ```bash
+  git ls-remote origin refs/heads/arena/01a08e15-translatechan
+  # 35021d04dd0c5a1113991e18413dccfbe67b72d8	refs/heads/arena/01a08e15-translatechan
+  ```
+
+- **How to resume:** two commands, run from a clone of `main`. A single-branch clone has **no** `origin/arena/01a08e15-translatechan` ref and `FETCH_HEAD` is not a durable handle, so use the explicit refspec form; then read the prompt out of the fetched ref instead of checking the branch out.
+
+  ```bash
+  git fetch --depth 1 origin +arena/01a08e15-translatechan:refs/remotes/origin/_orch
+  git show refs/remotes/origin/_orch:.orchestrator/prompts/<NNN>-<slug>.md > /tmp/task.md
+  ```
+
+  Both forms were run in the session that wrote this section, against a real prompt: `git show refs/remotes/origin/_orch:.orchestrator/prompts/014-citation-fixes.md` → 242 lines, first line `# Task 014 — Stop saying six false citations: align the public claims with what the collation actually tested`. The fetched prompt is the task; if it and a chat stub disagree, the fetched file wins. `/tmp/task.md` is scratch and is never committed. A successor **copies the prompt set and the working state forward** — new prompts go into the same `.orchestrator/prompts/` index, continuing its numbering; never start a second index, never renumber an existing prompt, and never re-dispatch a merged prompt as if it were new.
+
+- **Prompt inventory:** every prompt published on the channel at `35021d0`, one line each — `NNN · title · PR · state`:
+
+  ```bash
+  git ls-tree --name-only refs/remotes/origin/_orch .orchestrator/prompts/
+  # → 16 files: 002, 003, 004, 005, 006, 007a, 007b, 008, 009, 010, 010b, 011, 012, 013, 014, 016
+  ```
+
+  - `002` · Retire the repository scoreboard (`.scoreboard/` + `SCOREBOARD.md`, relocate the workflow-edit record) · PR #31 · merged 2026-09-11
+  - `003` · Re-key `linji_yulu`'s W1-flagged content fields to T47n1985 (Wave 1, document 3) · PR #32 · merged 2026-09-11
+  - `004` · Tracker and comment drift after the scoreboard removal (docs-only) · PR #33 · merged 2026-09-11
+  - `005` · Re-key `xinxin_ming` to the T48n2010 witness (Wave 1, document 4) · PR #34 · merged 2026-09-11
+  - `006` · Independent witness inventory, family 1 (T47 recensions) · PR #35 · merged 2026-09-11 — its `.orchestrator/WITNESS_INVENTORY.md` rode in #35 alongside task 009 (commit `654189a6`)
+  - `007a` · Independent witness inventory, family 2 (T45/T48/T51 + the witness-unavailable pair) · PR #36 · merged 2026-09-11
+  - `007b` · Independent witness inventory, family 3 (X-series witnesses) · PR #36 · merged 2026-09-11
+  - `008` · Consolidate the three witness inventories into one Phase-2 decision instrument · PR #37 · merged 2026-09-12
+  - `009` · `platform_sutra`: label the recensions honestly (Dunhuang-primary ruling, label-only) · PR #35 · merged 2026-09-11
+  - `010` · Align the vision and roadmap documents to the measured status quo · PR #38 · merged 2026-09-12
+  - `010b` · Bring the status documents to today: `README.md`, `AUDIT.md`, `HANDOFF.md` · PR #39 · merged 2026-09-12
+  - `011` · Make the provenance labels visible: render every note the corpus carries · PR #40 · merged 2026-09-12
+  - `012` · Publish the post-remediation evidence pass (a new dated record, no re-designation) · PR #41 · merged 2026-09-12
+  - `013` · Say what shipped: close the presentation and register claims `main` still lists as owed · PR #42 · merged 2026-09-12
+  - `014` · Stop saying six false citations: align the public claims with what the collation tested · PR #43 · merged 2026-09-12 (this is `main` = `1b41d0b`)
+  - `015` · **not published** — no `015-*` file exists on the channel at `35021d0`; the gap is measured, not assumed, and the index is not renumbered to close it
+  - `016` · Make `main` cold-startable: this Continuation block · the PR that adds this section · open when this was written
+
+  Two pairs of prompts shipped in one PR each (`006`+`009` in #35, `007a`+`007b` in #36); that is recorded here so a successor does not hunt for a missing PR.
+
 ## Known Gaps
 
 - Per-document source remediation remains pending under the adopted hybrid R-A/R-B/R-C policy; the public status model prevents unsupported completion claims from being presented as verified and does not re-key source text.
