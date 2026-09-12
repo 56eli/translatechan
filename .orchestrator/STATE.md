@@ -215,6 +215,26 @@ Document-level and string-level counts are different units and must not be swapp
   - **Ruling 3 — fabricated or unsupported text is replaced with real source text where the pinned witness carries it, and labelled where it does not.** *Forbids* re-pointing a withdrawn claim at an unverified candidate: in PR #43 the false T1987 claim on `zhaozhou_yulu` (T1987 is the Caoshan record) was **withdrawn**, not re-pointed, because X68n1315 probes at only 2 of 19 evaluated content fields, the document went to the human-sourcing queue, and no field was re-keyed.
   - **Ruling 4 — `OUT-OF-CBETA` sourcing is human work.** *Forbids* any agent fetch, transcription or evaluation of the witnesses in the 31-document human-sourcing queue (`.orchestrator/PHASE2_PLAN.md` §7); agents may only work the label/citation rows already assigned.
 
+- **Frozen surface — none of this is "improved" inside a continuation PR:**
+
+  - **The five quality gates pass before every push** (CI runs the same set): `python3 -m py_compile scripts/*.py` · `python3 scripts/validate_data.py` · `python3 scripts/build_data_bundle.py` · `node scripts/smoke_test.mjs` · `diff -rq data docs/data`.
+  - **Never edit the checker to make a gate pass.** When a gate and the prose disagree, the prose is wrong: fix the document, not `scripts/validate_data.py`, `scripts/test_source_review_rules.py` or `scripts/test_source_preservation.py`. If a gate ever demands an out-of-scope edit, stop and report it — the rule as applied in `.orchestrator/PHASE2_PLAN.md` §6(a)3 is "fix the prose, not the checker".
+  - **`docs/` is generated.** `docs/app.css`, like every `docs/` mirror path, is rewritten only by `scripts/build_data_bundle.py` (its mirror list, `scripts/build_data_bundle.py:104`); hand-editing a `docs/` file is editing a build artifact at the wrong end, and a prose PR that moves `docs/index.html` has edited the wrong file.
+  - **Internal identifiers stay:** `translatechan_*` localStorage keys, `window.TranslateChan`, `TRANSLATECHAN_DATA`; the public brand is "Fake Chan Factory" and the humor-forward tone stays.
+  - **Public scope is exactly 5 rooms** (Reader, Comparative Matrix, Lineage, Gong'an Index, Chan Lexicon) and is smoke-guarded; Translation Studio, Arena AI Agents and the header GitHub link stay out.
+  - **`sessions/*` is append-only:** dated evidence is never edited or deleted — a new dated record supersedes an old one. No `.github/workflows/*` edit without explicit owner approval; `OPERATIONS.md` is the only register of owner-controlled GitHub-side changes.
+
+  ```bash
+  ls scripts/        # __pycache__/ also appears locally; it is gitignored, not a tracked tool
+  # arena_agent_pipeline.py  browser_test.mjs  build_data_bundle.py  collate_corpus.py  collate_refs.py
+  # compat_runtime_check.mjs  ingest_cbeta.py  migrate_translations.py  segment_classical.py
+  # smoke_test.mjs  source_review.py  test_source_preservation.py  test_source_review_rules.py
+  # validate_data.py  w1_evidence.py            # = git ls-files scripts/, 15 tracked tools
+  ```
+
+- **Open environment hazard (Arena sandbox):** the sandbox can rewind the worktree to an old SHA and can drop GitHub credentials mid-session. Neither event is lost history and neither is a licence to reconstruct state from memory: before concluding that a commit or a branch is gone, confirm with `gh api repos/56eli/translatechan/commits/<sha>` and `git ls-remote origin refs/heads/<branch>` — and remember a `--depth 1` clone legitimately shows one commit. Never `git pull` to fix a rejected push: a non-fast-forward rejection is a base mismatch, so halt and report the raw text, then sync with `git fetch --depth 50 origin +main:refs/remotes/origin/main && git merge --no-edit origin/main`. Never force-push, never pass `--allow-unrelated-histories`, and never commit on `main`. If a push fails on auth or network, report it, keep working locally and retry at the next checkpoint — never claim pushed what is not on the remote.
+
+
 ## Known Gaps
 
 - Per-document source remediation remains pending under the adopted hybrid R-A/R-B/R-C policy; the public status model prevents unsupported completion claims from being presented as verified and does not re-key source text.
