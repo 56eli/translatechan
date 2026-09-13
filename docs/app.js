@@ -216,11 +216,12 @@
     applyPinyinVisibility();
     renderCorpusList();
     renderReader();
-    renderMatrix();
-    renderLineage();
-    renderGonganIndex();
-    renderLexicon();
     setActiveModeButtons();
+    // Render-lazy (Checkpoint-C C-4): only the Reader renders at boot. The
+    // four hidden rooms render on first tab activation; this call renders the
+    // initial room when a deep link lands outside the Reader. One bundle, no
+    // pipeline change — boot simply skips DOM building for rooms nobody is
+    // looking at.
     switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
   }
 
@@ -290,7 +291,7 @@
       termPopoverEl.id = 'term-popover';
       termPopoverEl.className = 'term-popover';
       termPopoverEl.setAttribute('role', 'tooltip');
-      termPopoverEl.style.display = 'none';
+      termPopoverEl.hidden = true;
       // N8: the popover itself is interactive (scrollable); leaving it hides it.
       termPopoverEl.addEventListener('mouseleave', () => { hideTermPopover(); });
       document.body.appendChild(termPopoverEl);
@@ -327,15 +328,15 @@
       `<div class="tooltip-sanskrit">Sanskrit: ${escHtml(t.sanskrit || '—')}</div>` +
       `<div class="tooltip-row"><strong>Literal:</strong> ${escHtml(t.literal || '')}</div>` +
       `<div class="tooltip-row">${escHtml(t.definition || '')}</div>`;
-    pop.style.display = 'block'; // display first so the positioner can measure
+    pop.hidden = false; // shown first so the positioner can measure
     positionFloatingPopover(pop, termSpan, 290);
     pop._anchor = termSpan;
   }
   function hideTermPopover() {
-    if (termPopoverEl) termPopoverEl.style.display = 'none';
+    if (termPopoverEl) termPopoverEl.hidden = true;
   }
   function toggleTermPopover(termSpan) {
-    if (termPopoverEl && termPopoverEl.style.display === 'block' &&
+    if (termPopoverEl && !termPopoverEl.hidden &&
         termPopoverEl._anchor === termSpan) {
       hideTermPopover();
       return;
@@ -352,7 +353,7 @@
       roboPopoverEl.id = 'robo-popover';
       roboPopoverEl.className = 'robo-popover';
       roboPopoverEl.setAttribute('role', 'tooltip');
-      roboPopoverEl.style.display = 'none';
+      roboPopoverEl.hidden = true;
       roboPopoverEl.addEventListener('mouseleave', () => { hideRoboPopover(); });
       document.body.appendChild(roboPopoverEl);
     }
@@ -371,19 +372,19 @@
         `<div class="robo-tier-row">Real-fakeness: tier ${meta.tier}/5 · ${meta.pending ? 'evidence pending' : 'evidence-backed'}</div>` +
         `<div class="tooltip-row">${escHtml(meta.blurb)}</div>` +
         (meta.wu ? `<div class="tooltip-row"><strong>Renders 無:</strong> ${escHtml(meta.wu)}</div>` : '') +
-        (meta.personality ? `<div class="tooltip-row" style="margin-top:.35rem;font-style:italic;color:var(--ink-soft)">${escHtml(meta.personality)}</div>` : '');
+        (meta.personality ? `<div class="tooltip-row robo-personality">${escHtml(meta.personality)}</div>` : '');
     } else {
       pop.innerHTML = `<div class="tooltip-term-title">Robolation</div><div class="tooltip-row">AI text in a translator\u2019s register — not their actual words. Profile pending.</div>`;
     }
-    pop.style.display = 'block';
+    pop.hidden = false;
     positionFloatingPopover(pop, span, 300);
     pop._anchor = span;
   }
   function hideRoboPopover() {
-    if (roboPopoverEl) roboPopoverEl.style.display = 'none';
+    if (roboPopoverEl) roboPopoverEl.hidden = true;
   }
   function toggleRoboPopover(span) {
-    if (roboPopoverEl && roboPopoverEl.style.display === 'block' && roboPopoverEl._anchor === span) {
+    if (roboPopoverEl && !roboPopoverEl.hidden && roboPopoverEl._anchor === span) {
       hideRoboPopover();
       return;
     }
@@ -441,7 +442,7 @@
       citationPopoverEl.id = 'citation-popover';
       citationPopoverEl.className = 'citation-popover';
       citationPopoverEl.setAttribute('role', 'tooltip');
-      citationPopoverEl.style.display = 'none';
+      citationPopoverEl.hidden = true;
       // N8: the popover itself is interactive (scrollable); leaving it hides it.
       citationPopoverEl.addEventListener('mouseleave', () => { hideCitationPopover(); });
       document.body.appendChild(citationPopoverEl);
@@ -468,17 +469,17 @@
     const rows = Array.isArray(detail.rows) ? detail.rows : [];
     pop.innerHTML = `<div class="citation-title">${escHtml(detail.title || 'Citation & disclosure')}</div>` +
       rows.map(row => citationRow(row[0], row[1])).join('');
-    pop.style.display = 'block'; // display first so the positioner can measure
+    pop.hidden = false; // shown first so the positioner can measure
     positionFloatingPopover(pop, trigger, 340);
     pop._anchor = trigger;
   }
 
   function hideCitationPopover() {
-    if (citationPopoverEl) citationPopoverEl.style.display = 'none';
+    if (citationPopoverEl) citationPopoverEl.hidden = true;
   }
 
   function toggleCitationPopover(trigger) {
-    if (citationPopoverEl && citationPopoverEl.style.display === 'block' && citationPopoverEl._anchor === trigger) {
+    if (citationPopoverEl && !citationPopoverEl.hidden && citationPopoverEl._anchor === trigger) {
       hideCitationPopover();
       return;
     }
@@ -810,15 +811,15 @@
       graphBtn.addEventListener('click', () => {
         graphBtn.classList.add('active');
         cardsBtn.classList.remove('active');
-        graphContainer.style.display = 'block';
-        cardsContainer.style.display = 'none';
+        graphContainer.hidden = false;
+        cardsContainer.hidden = true;
       });
 
       cardsBtn.addEventListener('click', () => {
         cardsBtn.classList.add('active');
         graphBtn.classList.remove('active');
-        graphContainer.style.display = 'none';
-        cardsContainer.style.display = 'grid';
+        graphContainer.hidden = true;
+        cardsContainer.hidden = false;
       });
     }
 
@@ -843,9 +844,9 @@
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
       // Let an open tooltip absorb the first Escape press before the dossier closes.
-      if ((citationPopoverEl && citationPopoverEl.style.display === 'block') ||
-          (termPopoverEl && termPopoverEl.style.display === 'block') ||
-          (roboPopoverEl && roboPopoverEl.style.display === 'block')) return;
+      if ((citationPopoverEl && !citationPopoverEl.hidden) ||
+          (termPopoverEl && !termPopoverEl.hidden) ||
+          (roboPopoverEl && !roboPopoverEl.hidden)) return;
       closeDossierPanel();
     });
 
@@ -861,9 +862,9 @@
       const tag = target && target.tagName;
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (target && target.isContentEditable)) return;
       // Don't fight an open popover or the dossier.
-      if ((citationPopoverEl && citationPopoverEl.style.display === 'block') ||
-          (termPopoverEl && termPopoverEl.style.display === 'block') ||
-          (roboPopoverEl && roboPopoverEl.style.display === 'block')) return;
+      if ((citationPopoverEl && !citationPopoverEl.hidden) ||
+          (termPopoverEl && !termPopoverEl.hidden) ||
+          (roboPopoverEl && !roboPopoverEl.hidden)) return;
       const doc = state.data.corpus && state.data.corpus[state.currentCorpusKey];
       if (!doc) return;
       const cases = Array.isArray(doc.cases) ? doc.cases : [];
@@ -975,6 +976,26 @@
 
   // View Switcher (updates DOM + URL hash so back/forward and deep links work)
   const VALID_VIEWS = ['reader', 'matrix', 'lineage', 'gongan', 'lexicon'];
+
+  // Render-lazy (C-4, Phase 2): a hidden room builds its DOM the first time
+  // it becomes visible, not at boot. Renderers rewrite their whole target, so
+  // this is a first-render gate only — later re-renders (filters, name mode,
+  // resize) keep calling the renderers directly and remain correct if they
+  // happen before activation.
+  const ROOM_RENDERERS = {
+    matrix: () => renderMatrix(),
+    lineage: () => renderLineage(),
+    gongan: () => renderGonganIndex(),
+    lexicon: () => renderLexicon()
+  };
+  const renderedRooms = new Set(['reader']);
+  function ensureRoomRendered(viewName) {
+    const render = ROOM_RENDERERS[viewName];
+    if (!render || renderedRooms.has(viewName)) return;
+    renderedRooms.add(viewName);
+    render();
+  }
+
   function viewHash(view, corpusKey) {
     return `#/${view}${(view === 'reader' && corpusKey) ? '/' + corpusKey : ''}`;
   }
@@ -1009,6 +1030,7 @@
         section.classList.remove('active');
       }
     });
+    ensureRoomRendered(viewName); // C-4 render-lazy: first activation builds the room
     if (scroll) {
       window.scrollTo({ top: 0, behavior: motionBehavior() });
     } else if (state.viewScroll && typeof state.viewScroll[viewName] === 'number') {
@@ -1533,7 +1555,7 @@
     });
   }
 
-  function renderDocumentLedgers(corpusKey) {
+  function renderDocumentLedgers(corpusKey, doc = {}) {
     const blocks = [
       renderSourceCollationLedger(corpusKey),
       renderRepresentedUnitsLedger(corpusKey),
@@ -1541,9 +1563,28 @@
       renderCanonicalLocatorLedger(corpusKey),
       renderRightsLedger(corpusKey)
     ];
-    return `<div class="document-ledgers" data-ledger-count="${blocks.length}" aria-label="Document disclosure ledgers">`
-      + blocks.join('')
-      + `<p class="ledger-footnote">${escHtml(ledgerSeparationNote())}</p></div>`;
+    const canon = escHtml(stringValue(doc.cbeta_id) || 'Not recorded') +
+      ((/T\d{4}/.test(stringValue(doc.cbeta_id)) && doc.taisho_vol) ? ` · Vol. ${escHtml(doc.taisho_vol)}` : '');
+    const editionDetails = `<details class="document-details">
+            <summary>Edition details</summary>
+            <dl>
+              <div><dt>Canon</dt><dd>${canon}</dd></div>
+              <div><dt>Author</dt><dd>${escHtml(doc.author_zh || '')}</dd></div>
+              <div><dt>Era</dt><dd>${escHtml(doc.era || '')}</dd></div>
+              <div><dt>Genre</dt><dd>${escHtml(doc.genre || '')}</dd></div>
+            </dl>
+          </details>`;
+    // One drawer holds the set: the five blocks stay visible inside it (a drawer
+    // is a container, not a toggle — the separation note below repeats the
+    // rule the CSS cannot enforce). Edition metadata is the one line that
+    // expands on demand.
+    return `<div class="ledger-drawer" data-ledger-count="${blocks.length}" aria-label="About this edition — document disclosure ledgers">`
+      + `<div class="ledger-drawer-head"><h3 class="ledger-drawer-title">About this edition</h3>`
+      + `<span class="ledger-drawer-hint">${blocks.length} separate ledgers — a calmer set, not a quieter one</span></div>`
+      + `<div class="document-ledgers">${blocks.join('')}</div>`
+      + `<p class="ledger-footnote">${escHtml(ledgerSeparationNote())}</p>`
+      + editionDetails
+      + `</div>`;
   }
 
   function renderCaseSourceDisclosure(caseNum) {
@@ -1604,7 +1645,7 @@
     if (typeof note !== 'string') return '';
     const text = note.trim();
     if (!text) return '';
-    return `<div style="font-size:0.75rem; color:var(--ink-soft); margin-top:0.25rem;">ℹ️ ${escHtml(text)}</div>`;
+    return `<div class="provenance-line">ℹ️ ${escHtml(text)}</div>`;
   }
 
   function renderProvenanceNotes(node) {
@@ -1668,19 +1709,8 @@
           </div>
           <span class="document-status">${escHtml(editorialStatus)}</span>
         </div>
-        ${renderDocumentLedgers(state.currentCorpusKey)}
+        ${renderDocumentLedgers(state.currentCorpusKey, doc)}
         ${renderProvenanceNotes(doc)}
-        <div class="document-ledger">
-          <details class="document-details">
-            <summary>Edition details</summary>
-            <dl>
-              <div><dt>Canon</dt><dd>${escHtml(doc.cbeta_id || 'Not recorded')}${(/T\d{4}/.test(doc.cbeta_id || '') && doc.taisho_vol) ? ` · Vol. ${escHtml(doc.taisho_vol)}` : ''}</dd></div>
-              <div><dt>Author</dt><dd>${escHtml(doc.author_zh || '')}</dd></div>
-              <div><dt>Era</dt><dd>${escHtml(doc.era || '')}</dd></div>
-              <div><dt>Genre</dt><dd>${escHtml(doc.genre || '')}</dd></div>
-            </dl>
-          </details>
-        </div>
       </header>
       ${caseStrip}
     `;
@@ -1707,7 +1737,7 @@
     // Build the epilogue now but append it only after the document's units.
     // It previously appeared between the preface and Case 1.
     const epilogueHtml = doc.epilogue ? `
-      <div class="case-card is-epilogue" style="margin-bottom: 1.5rem;">
+      <div class="case-card is-epilogue">
         <div class="case-header">
           <h2 class="case-num-title">${renderUnitTitle("Wumen's Epilogue & Gatha", '後序與結頌', 'End matter')}</h2>
         </div>
@@ -1789,9 +1819,9 @@
     // Render Five Ranks (e.g. Dongshan Yulu)
     if (doc.five_ranks && doc.five_ranks.length > 0) {
       html += `
-        <div class="case-card" style="border-left: 4px solid var(--green); margin-bottom: 1.5rem;">
-          <h2 class="case-num-title" style="margin-bottom: 0.5rem; color: var(--green);">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</h2>
-          <div style="font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 1rem;">${escHtml(doc.overview || '')}</div>
+        <div class="case-card is-ranks">
+          <h2 class="case-num-title">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</h2>
+          <div class="sheet-overview">${escHtml(doc.overview || '')}</div>
         </div>
       `;
 
@@ -1802,13 +1832,13 @@
               <h2 class="case-num-title">第 ${escHtml(r.rank_num)} 位：${escHtml(r.name_zh)} (${escHtml(r.name_en)})</h2>
               <span class="case-speaker">${escHtml(r.symbol)}</span>
             </div>
-            <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
+            <div class="classical-zh" lang="zh">${annotateClassicalChinese(r.verse_zh)}</div>
             <div class="pinyin-line">${escHtml(r.verse_pinyin)}</div>
             ${renderTranslationColumns(r.translations, r.verse_zh)}
-            <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--green);">
-              <div class="commentary-label" style="color: var(--green);">曹山註解 / Caoshan Commentary</div>
-              <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
-              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.9rem; color: var(--ink); margin-top: 0.35rem;">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: r.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+            <div class="commentary-block is-caoshan">
+              <div class="commentary-label is-green">曹山註解 / Caoshan Commentary</div>
+              <div class="classical-zh is-secondary" lang="zh">${annotateClassicalChinese(r.commentary_zh)}</div>
+              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div class="prose-en is-small">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: r.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
             </div>
             ${renderProvenanceNotes(r)}
           </div>
@@ -1820,13 +1850,13 @@
     // (skipped when a five_ranks block is present — it already surfaces doc.overview)
     if (doc.overview && !doc.five_ranks) {
       html += `
-        <div class="case-card" style="border-left: 4px solid var(--gold); margin-bottom: 1.5rem;">
-          <h2 class="case-num-title" style="margin-bottom: 0.5rem;">📚 Canonical Architecture & Scope</h2>
-          <div style="font-size: 0.95rem; color: var(--ink); margin-bottom: 1rem;">${escHtml(doc.overview)}</div>
+        <div class="case-card is-architecture">
+          <h2 class="case-num-title">📚 Canonical Architecture & Scope</h2>
+          <div class="sheet-overview is-bright">${escHtml(doc.overview)}</div>
           ${doc.fascicle_structure ? `
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem;">
+            <div class="fascicle-grid">
               ${doc.fascicle_structure.map(f => `
-                <div style="background: var(--panel); padding: 0.5rem 0.75rem; border-radius: 4px; border: 1px solid var(--line); font-size: 0.78rem;">
+                <div class="fascicle-cell">
                   <strong>卷 ${escHtml(f.fascicle)}:</strong> ${escHtml(f.scope)}
                 </div>
               `).join('')}
@@ -1840,7 +1870,7 @@
     if (doc.sample_records && doc.sample_records.length > 0) {
       doc.sample_records.forEach(rec => {
         let diaHtml = rec.dialogue.map(d => `
-          <div style="margin-bottom: 1.25rem;">
+          <div class="dialogue-turn">
             <div class="case-speaker">${escHtml(d.speaker)}</div>
             <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
             <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -1889,7 +1919,7 @@
     let dialoguesHtml = '';
     if (caseItem.dialogue) {
       dialoguesHtml = caseItem.dialogue.map(d => `
-        <div style="margin-bottom: 1.25rem;">
+        <div class="dialogue-turn">
           <div class="case-speaker">${escHtml(d.speaker)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -1925,27 +1955,27 @@
         </div>
         <div class="case-body">
         ${caseItem.pointer_zh ? `
-          <div class="commentary-block" style="background: var(--panel); border-left-color: var(--blue); margin-bottom: 1rem;">
-            <div class="commentary-label" style="color: var(--blue);">垂示 / Pointer</div>
-            <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
-            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.88rem; color: var(--ink-soft);">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft', { zh: caseItem.pointer_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+          <div class="commentary-block is-pointer">
+            <div class="commentary-label is-blue">垂示 / Pointer</div>
+            <div class="classical-zh is-secondary" lang="zh">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
+            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div class="prose-en is-quiet">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft', { zh: caseItem.pointer_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${dialoguesHtml}
         ${caseItem.commentary_zh ? `
           <div class="commentary-block">
             <div class="commentary-label">${textLabels.commentary}</div>
-            <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
-            <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.commentary_pinyin || '')}</div>
-            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--ink);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: caseItem.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+            <div class="classical-zh is-lead" lang="zh">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
+            <div class="pinyin-line is-bare">${escHtml(caseItem.commentary_pinyin || '')}</div>
+            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div class="prose-en">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: caseItem.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${caseItem.verse_zh ? `
           <div class="verse-block">
-            <div class="commentary-label" style="color: var(--green);">${textLabels.verse}</div>
-            <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
-            <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.verse_pinyin || '')}</div>
-            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--ink);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+            <div class="commentary-label is-green">${textLabels.verse}</div>
+            <div class="classical-zh" lang="zh">${annotateClassicalChinese(caseItem.verse_zh)}</div>
+            <div class="pinyin-line is-bare">${escHtml(caseItem.verse_pinyin || '')}</div>
+            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div class="prose-en">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${renderProvenanceNotes(caseItem)}
@@ -1958,7 +1988,7 @@
   function renderSectionItem(sec) {
     const sectionLocator = unitLocatorForKey(state.currentCorpusKey, `sections.${sec.section_id}`);
     let dialoguesHtml = (sec.dialogue || []).map(d => `
-      <div style="margin-bottom: 1.25rem;">
+      <div class="dialogue-turn">
         <div class="case-speaker">${escHtml(d.speaker)}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -1969,7 +1999,7 @@
 
     // Sections may embed verse stanzas instead of dialogue (e.g. Shitou Sandokai / Grass Hut Song)
     let stanzasHtml = (sec.stanzas || []).map(st => `
-      <div style="margin-bottom: 1.25rem;">
+      <div class="dialogue-turn">
         <div class="case-speaker">第 ${escHtml(st.stanza_num)} 節 / Stanza ${escHtml(st.stanza_num)}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${escHtml(st.pinyin)}</div>
@@ -1992,7 +2022,7 @@
 
   function renderDialogueItem(dia) {
     let dialoguesHtml = (dia.dialogue || []).map(d => `
-      <div style="margin-bottom: 1.25rem;">
+      <div class="dialogue-turn">
         <div class="case-speaker">${escHtml(d.speaker)}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -2033,7 +2063,7 @@
     const contentBlocks = [];
     if (Array.isArray(ch.verses)) {
       contentBlocks.push(ch.verses.map(v => `
-        <div style="margin-bottom: 1.25rem;">
+        <div class="dialogue-turn">
           <div class="case-speaker">${escHtml(v.author)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(v.zh)}</div>
           <div class="pinyin-line">${escHtml(v.pinyin)}</div>
@@ -2044,7 +2074,7 @@
     }
     if (Array.isArray(ch.dialogue)) {
       contentBlocks.push(ch.dialogue.map(d => `
-        <div style="margin-bottom: 1.25rem;">
+        <div class="dialogue-turn">
           <div class="case-speaker">${escHtml(d.speaker)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -2057,7 +2087,7 @@
     // rather than nested `dialogue`/`verses`; these were previously empty cards.
     if (stringValue(ch.zh)) {
       contentBlocks.push(`
-        <div style="margin-bottom: 1.25rem;">
+        <div class="dialogue-turn">
           ${ch.speaker ? `<div class="case-speaker">${escHtml(ch.speaker)}</div>` : ''}
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(ch.zh)}</div>
           <div class="pinyin-line">${escHtml(ch.pinyin)}</div>
@@ -2857,11 +2887,10 @@
     const panel = getDossierPanel();
     if (!panel) return;
     panel._invoker = (typeof document.activeElement !== 'undefined') ? document.activeElement : null;
-    // The HTML ships with `hidden`; remove the semantic state as well as setting
-    // display. An inline display value alone cannot override [hidden] CSS.
+    // The HTML ships with `hidden`; clear the semantic state (Phase 2: the
+    // redundant inline display write is gone — [hidden] CSS alone governs).
     panel.hidden = false;
     panel.removeAttribute('hidden');
-    panel.style.display = 'block';
     if (typeof panel.scrollIntoView === 'function') panel.scrollIntoView({ behavior: motionBehavior() });
     if (typeof panel.focus === 'function') {
       try { panel.focus({ preventScroll: true }); } catch (e) { try { panel.focus(); } catch (err) { /* ignore */ } }
@@ -2872,7 +2901,6 @@
     if (!panel || panel.hidden === true) return;
     panel.hidden = true;
     panel.setAttribute('hidden', '');
-    panel.style.display = 'none';
     const invoker = panel._invoker || null;
     panel._invoker = null;
     if (invoker && typeof document.contains === 'function' && document.contains(invoker) && typeof invoker.focus === 'function') {
@@ -2904,7 +2932,7 @@
         ]
       };
       content.innerHTML = `
-        <div style="margin-top: 0.5rem; margin-bottom: 0.75rem;">
+        <div class="dossier-meta-row">
           <span class="dossier-ledger-label">School / Lineage:</span> ${escHtml(master.school)} &nbsp;|&nbsp;
           <span class="dossier-ledger-label">Primary Monastery:</span> ${escHtml(master.location)} &nbsp;|&nbsp;
           <span class="dossier-ledger-label">Canonical record:</span> ${escHtml(master.cbeta_id)} ${renderCitationTrigger(masterCitation, 'ⓘ Profile source')}
@@ -2958,13 +2986,13 @@
     if (nameEn) nameEn.textContent = `${teacherName} → ${discipleName}`;
     if (content) {
       content.innerHTML = `
-        <div style="margin-top:0.5rem; margin-bottom:0.75rem;">
+        <div class="dossier-meta-row">
           <strong>Verification status:</strong> ${escHtml(meta.label)}
         </div>
-        <div class="commentary-block" style="background:var(--panel); border-left-color:var(--blue); margin:0;">
-          <div class="commentary-label" style="color:var(--blue);">Lineage chart disclosure</div>
-          <div style="font-size:0.9rem; color:var(--ink);">${escHtml(stringValue(edge.note) || 'No verification note recorded.')}</div>
-          <div style="margin-top:0.55rem;">${renderCitationTrigger(detail, 'ⓘ Source chart & verification')}</div>
+        <div class="commentary-block is-blue is-flush">
+          <div class="commentary-label is-blue">Lineage chart disclosure</div>
+          <div class="prose-en is-small">${escHtml(stringValue(edge.note) || 'No verification note recorded.')}</div>
+          <div class="citation-line">${renderCitationTrigger(detail, 'ⓘ Source chart & verification')}</div>
         </div>`;
     }
     openDossierPanel();

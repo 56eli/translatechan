@@ -19,8 +19,11 @@
   <title>Fake Chan Factory | Robo-Translator Chan/Zen Translation Matrix</title>
   <meta name="description" content="Fake Chan Factory: Robo renderings are clearly marked, while edition-verified quotations cite their source and separate rights status alongside visible W1 source-review states for Classical Chinese records.">
   <!-- Restrictive CSP must precede every resource it governs. Interactivity is
-       delegated in app.js; generated reader templates still require inline
-       style support until their final utility-class migration is complete. -->
+       delegated in app.js. Since Phase 2 the generated templates carry no
+       inline style attributes; 'unsafe-inline' remains load-bearing only for
+       the popover positioning pair and the measured --shell-height/--zh-font-size
+       custom-property writes, and is scheduled for removal with Phase 3's
+       final utility-class migration. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <!-- Apply the persisted theme before first paint to avoid a light-mode flash
        for returning dark-mode users (FOUC guard). External file keeps the
@@ -31,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Typefaces. Source Serif 4 is the scholarly English voice (Checkpoint-C
-       C-2): it carries the hook, headings and — from Phase 2 — translation
+       C-2): it carries the hook, headings and (since Phase 2) translation
        prose, and it has a true italic for the turn of the hook. Inter stays
        for controls only; Noto Serif SC stays for source Chinese. Served from
        Google Fonts, which the shipped CSP already allows (style-src
