@@ -13,7 +13,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
 | 001 | .orchestrator/prompts/001-fix-doc-truthfulness-and-pipeline-hardening.md | Fix D-1..D-4 + O-1 + O-2 + O-3 | feature/fix-doc-truthfulness-and-pipeline-hardening | #45 | Merged 2026-09-13 — main now 93afcb5 |
-| 002 | .orchestrator/prompts/002-pages-revamp-proposal.md | Pages revamp proposal + Checkpoint-C | docs/pages-revamp-proposal | — | Published — not yet dispatched |
+| 002 | .orchestrator/prompts/002-pages-revamp-proposal.md | Pages revamp proposal + Checkpoint-C | docs/pages-revamp-proposal | — | Dispatched |
 
 
 ## Active Milestone
