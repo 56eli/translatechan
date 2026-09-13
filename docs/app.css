@@ -9,8 +9,9 @@
    margin), not as texture, illustration or icon.
 
    SHEET DISCIPLINE — read before adding a token
-   • 34 declarations here, 8 in the dark override. The previous sheet was
-     39 + 24 = 63.
+   • 35 declarations here, 8 in the dark override — 43 total, re-measured
+     2026-09-13 in Phase 2 (the Phase 1 record accepts 43 as measured). The
+     previous sheet was 39 + 24 = 63.
    • Eight tokens are THEME PRIMITIVES and are the only ones
      [data-theme="dark"] overrides: paper / panel / line / ink + four
      accents. Everything else is derived from them with color-mix(), so a
@@ -26,6 +27,9 @@
      the Reader sheet, where it is the largest text on the page
      (Checkpoint-C C-3). It is sized by --zh-font-size, never by a separate
      colour, so source text and commentary share one ink.
+   • The Phase 2 Reader sheet carries its own scoped composition dials on
+     #reader-content-target (Chinese dominance ratio, sheet measure). They are
+     ratios, not palette values, so they stay outside the global sheet.
    ========================================================================== */
 
 :root {
@@ -997,11 +1001,14 @@ body:not([data-current-view="reader"]) #about-toggle {
   align-items: center;
 }
 
+/* C-2 (Phase 2): translation prose is set in the scholarly English serif, so
+   the Chinese source can dominate by contrast rather than by being alone in
+   having a voice. */
 .translation-text {
-  font-family: var(--font-zh);
+  font-family: var(--font-display);
   font-size: 1rem;
   color: var(--ink);
-  line-height: 1.68;
+  line-height: 1.72;
   flex-grow: 1;
 }
 
@@ -1192,20 +1199,36 @@ body:not([data-current-view="reader"]) #about-toggle {
   margin-top: 0.45rem;
 }
 
-/* Reader as literature — ruled sheets, constrained measure, progressive metadata */
+/* ==========================================================================
+   Phase 2 — Reader sheet, ledger drawer, case rail (2026-09-13).
+   The sheet is *the* unit: generous whitespace, one hairline rule instead of
+   card borders, the source Chinese as the largest text in the room (C-3), and
+   translations as running prose in the English serif (C-2). The five ledgers
+   fold into one always-visible "About this edition" drawer band — calmer,
+   never quieter: nothing is hover-only, no ledger hides behind a disclosure,
+   and the separation note stays printed under the set.
+   ========================================================================== */
+#reader-content-target {
+  /* Scoped composition dials — ratios against the user-adjustable
+     --zh-font-size, so A−/A+ keep governing the whole sheet. */
+  --reader-zh-scale: 1.125;      /* base source text on the sheet */
+  --reader-zh-lead: 0.96;        /* commentary sized just under source */
+  --reader-zh-secondary: 0.875;  /* pointers and annotated blocks */
+  --reader-measure: 900px;       /* one measure for the whole column */
+}
 #reader-content-target > .document-heading,
 #reader-content-target > .case-jump-strip,
 #reader-content-target > .front-matter,
 #reader-content-target > .case-card,
 #reader-content-target > .case-load-more {
-  max-width: 900px;
+  max-width: var(--reader-measure);
   margin-left: auto;
   margin-right: auto;
 }
 
 #reader-content-target .document-heading {
   margin-bottom: 0.35rem;
-  padding: 0.35rem 0 0.7rem;
+  padding: 0.35rem 0 0.85rem;
   border-bottom: 1px solid var(--line);
 }
 #reader-content-target .document-heading .text-title-zh { font-size: clamp(2rem, 4.4vw, 3.2rem); }
@@ -1213,44 +1236,53 @@ body:not([data-current-view="reader"]) #about-toggle {
 
 .document-title-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
 .document-status { flex: none; padding: 0.2rem 0; border-bottom: 2px solid var(--gold); font-family: var(--font-mono); font-size: 0.64rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
-/* Five public disclosure ledgers (W1 containment). Each question gets its own always-visible
-   block: source collation, represented units, translation/edition verification, canonical
-   locator, rights review. Nothing here is hover-only, and no ledger implies another. */
-.document-ledgers { display: grid; grid-template-columns: repeat(auto-fit, minmax(228px, 1fr)); gap: 0.5rem; margin-top: 0.6rem; }
-.ledger-block { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.5rem 0.6rem; border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: var(--radius); background: var(--sunken); font-size: 0.7rem; }
+
+/* The ledger drawer: one sunken band under the heading. Each of the five
+   questions keeps its own block and its own data-* contract (the smoke test
+   slices each ledger and forbids a <details> inside any slice); what changed
+   in Phase 2 is the container — no card borders, hairline column rules. */
+.ledger-drawer {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.9rem 0.7rem;
+  background: var(--sunken);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.ledger-drawer-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.5rem;
+}
+.ledger-drawer-title { margin: 0; font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gold-strong); }
+.ledger-drawer-hint { font-size: 0.68rem; color: var(--ink-soft); }
+.document-ledgers { display: grid; grid-template-columns: repeat(auto-fit, minmax(228px, 1fr)); gap: 0.65rem 1rem; }
+.ledger-block { display: flex; flex-direction: column; gap: 0.3rem; padding: 0 0 0 0.6rem; border: 0; border-left: 2px solid var(--line); border-radius: 0; background: transparent; font-size: 0.7rem; }
 .ledger-name { margin: 0; color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
 .ledger-rows { display: flex; flex-direction: column; gap: 0.22rem; }
 .ledger-row { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: 0.4rem; align-items: baseline; }
 .ledger-key { color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; }
 .ledger-value { color: var(--ink-soft); overflow-wrap: anywhere; }
-.ledger-code { padding: 0.05rem 0.24rem; border: 1px solid var(--line); border-radius: 3px; background: var(--sunken); color: var(--ink); font-family: var(--font-mono); font-size: 0.66rem; }
+.ledger-code { padding: 0.05rem 0.24rem; border: 1px solid var(--line); border-radius: 3px; background: var(--panel); color: var(--ink); font-family: var(--font-mono); font-size: 0.66rem; }
 .ledger-status { color: var(--gold-strong); font-weight: 700; }
 .ledger-alert { color: var(--red); font-weight: 700; }
-.ledger-footnote { grid-column: 1 / -1; margin: 0; color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; }
+.ledger-footnote { margin: 0.55rem 0 0; color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; }
 .ledger-block.is-collated { border-left-color: var(--green); }
 .ledger-block.is-collated .ledger-status { color: var(--green); }
 .ledger-block.is-unavailable { border-left-color: var(--red); }
 .ledger-block.is-unavailable .ledger-status { color: var(--red); }
 @media (max-width: 720px) { .ledger-row { grid-template-columns: 1fr; gap: 0.05rem; } }
-.document-ledger { display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.75rem; margin-top: 0.45rem; font-size: 0.7rem; }
-.document-ledger .source-location { margin: 0; padding: 0; border: 0; background: transparent; font-size: 0.68rem; }
-.source-review-disclosure {
-  gap: 0.35rem;
-  padding: 0.45rem 0.6rem;
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--gold);
-  border-radius: var(--radius);
-  background: var(--sunken);
-}
-.document-ledger .source-review-disclosure { padding: 0.45rem 0.6rem; border: 1px solid var(--line); border-left: 3px solid var(--gold); background: var(--sunken); }
+.source-review-disclosure { gap: 0.35rem; }
 .source-review-heading { color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
 .source-review-status { color: var(--gold-strong); font-weight: 700; }
 .source-review-evidence { color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.64rem; }
-.source-review-disclosure.is-collated { border-left-color: var(--green); }
 .source-review-disclosure.is-collated .source-review-status { color: var(--green); }
-.source-review-disclosure.is-unavailable { border-left-color: var(--red); }
 .source-review-disclosure.is-unavailable .source-review-status { color: var(--red); }
-.document-details { position: relative; }
+
+/* Edition metadata is the one genuinely progressive part of the drawer: it
+   expands inline beneath the ledger set — no floating panel over the sheet. */
 .document-details > summary,
 .front-matter > summary { color: var(--ink-soft); cursor: pointer; font-size: 0.72rem; font-weight: 650; list-style: none; }
 .document-details > summary::-webkit-details-marker,
@@ -1259,17 +1291,20 @@ body:not([data-current-view="reader"]) #about-toggle {
 .front-matter > summary::before { content: '＋'; display: inline-block; width: 1rem; color: var(--gold); }
 .document-details[open] > summary::before,
 .front-matter[open] > summary::before { content: '−'; }
-.document-details dl { position: absolute; right: 0; top: calc(100% + 0.35rem); z-index: 70; min-width: min(30rem, 80vw); padding: 0.75rem; background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow); }
-.document-details dl > div { display: grid; grid-template-columns: 5rem 1fr; gap: 0.5rem; padding: 0.18rem 0; }
+.document-details { margin-top: 0.5rem; }
+.document-details dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.2rem 1.4rem; padding: 0.55rem 0.75rem; background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius); }
+.document-details dl > div { display: grid; grid-template-columns: 4.6rem 1fr; gap: 0.5rem; padding: 0.18rem 0; }
 .document-details dt { color: var(--ink-soft); font-weight: 600; }
 .document-details dd { margin: 0; color: var(--ink); }
 
 .front-matter { margin-top: 0.2rem; margin-bottom: 0.5rem; padding: 0.45rem 0; border-bottom: 1px solid var(--line-soft); }
 .front-matter-content { padding: 1rem 0 0.5rem; }
 
+/* The sheet itself: one hairline between units, wide top/bottom margins, and
+   the source Chinese governing the column. */
 #reader-content-target .case-card {
   margin-bottom: 0;
-  padding: 1.65rem 0 1.9rem;
+  padding: 2.1rem 0 2.3rem;
   background: transparent;
   border: 0;
   border-top: 1px solid var(--line-soft);
@@ -1278,22 +1313,41 @@ body:not([data-current-view="reader"]) #about-toggle {
   transition: none;
 }
 #reader-content-target .case-card:hover { border-color: var(--line-soft); box-shadow: none; }
-#reader-content-target .case-header { border-bottom: 0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; }
+#reader-content-target .case-header { border-bottom: 0; padding-bottom: 0.3rem; margin-bottom: 0.9rem; }
 #reader-content-target .case-num-title { color: var(--ink); }
 #reader-content-target .case-speaker { text-transform: none; letter-spacing: 0.03em; }
-#reader-content-target .translation-grid { gap: 0; border-top: 1px solid var(--line-soft); }
-#reader-content-target .translation-col { padding: 0.9rem 1rem 0.35rem 0; background: transparent; border: 0; border-right: 1px solid var(--line-soft); border-radius: 0; box-shadow: none; }
-#reader-content-target .translation-col + .translation-col { padding-left: 1rem; }
-#reader-content-target .translation-col:last-child { border-right: 0; }
+#reader-content-target .classical-zh { font-size: calc(var(--zh-font-size) * var(--reader-zh-scale)); margin-bottom: 0.8rem; }
+#reader-content-target .classical-zh.is-lead { font-size: calc(var(--zh-font-size) * var(--reader-zh-lead)); }
+#reader-content-target .classical-zh.is-secondary { font-size: calc(var(--zh-font-size) * var(--reader-zh-secondary)); }
+#reader-content-target .translation-grid { gap: 0 1.5rem; border-top: 1px solid var(--line-soft); }
+#reader-content-target .translation-col { padding: 0.9rem 0 0.35rem; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
 #reader-content-target .commentary-block,
 #reader-content-target .verse-block { background: transparent; border-radius: 0; box-shadow: none; }
+
+/* Special sheet blocks that once carried inline stripe/margin literals. */
+#reader-content-target .case-card.is-epilogue { margin-bottom: 1.5rem; }
+#reader-content-target .case-card.is-ranks {
+  border-left: 3px solid var(--green);
+  padding-left: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+#reader-content-target .case-card.is-ranks .case-num-title { color: var(--green); margin-bottom: 0.5rem; }
+#reader-content-target .case-card.is-architecture {
+  border-left: 3px solid var(--gold);
+  padding-left: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+#reader-content-target .case-card.is-architecture .case-num-title { margin-bottom: 0.5rem; }
+.sheet-overview { margin-bottom: 1rem; font-size: 0.92rem; color: var(--ink-soft); }
+.sheet-overview.is-bright { font-size: 0.95rem; color: var(--ink); }
+.fascicle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem; }
+.fascicle-cell { padding: 0.5rem 0.75rem; font-size: 0.78rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
 
 @media (max-width: 768px) {
   .document-title-row { align-items: flex-start; }
   .document-status { font-size: 0.58rem; }
-  .document-details dl { left: 0; right: auto; }
-  #reader-content-target .translation-col,
-  #reader-content-target .translation-col + .translation-col { padding-left: 0; padding-right: 0; border-right: 0; border-bottom: 1px solid var(--line-soft); }
+  .ledger-drawer { padding: 0.6rem 0.7rem 0.7rem; }
+  #reader-content-target .translation-col { padding-left: 0; padding-right: 0; border-bottom: 1px solid var(--line-soft); }
 }
 
 /* Commentary & Verse Blocks */
@@ -1321,6 +1375,32 @@ body:not([data-current-view="reader"]) #about-toggle {
   border-left: 4px solid var(--green);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
+
+/* --- Phase 2 utility classes: the named versions of every former inline
+       nudge in the Reader/dossier templates. One line each; the templates in
+       app.js carry only these class names. --- */
+.dialogue-turn { margin-bottom: 1.25rem; }
+.provenance-line { margin-top: 0.25rem; font-size: 0.75rem; color: var(--ink-soft); }
+.pinyin-line.is-bare { border-bottom: 0; padding-bottom: 0; }
+.commentary-block.is-caoshan { margin-top: 1rem; border-left-color: var(--green); }
+.commentary-block.is-pointer { margin-bottom: 1rem; background: var(--panel); border-left-color: var(--blue); }
+.commentary-block.is-blue { background: var(--panel); border-left-color: var(--blue); }
+.commentary-block.is-flush { margin-top: 0; }
+.commentary-label.is-green { color: var(--green); }
+.commentary-label.is-blue { color: var(--blue); }
+/* English prose under a zh block: display serif so the translation reads as
+   prose, not as UI copy. */
+.prose-en { margin-top: 0.45rem; font-family: var(--font-display); font-size: 0.92rem; color: var(--ink); }
+.prose-en.is-small { margin-top: 0.35rem; font-size: 0.9rem; }
+.prose-en.is-quiet { margin-top: 0; font-size: 0.88rem; color: var(--ink-soft); }
+.dossier-meta-row { margin: 0.5rem 0 0.75rem; }
+.citation-line { margin-top: 0.55rem; }
+.robo-popover .robo-personality { margin-top: 0.35rem; font-style: italic; color: var(--ink-soft); }
+/* Class-toggled popover visibility (replaces the JS .style.display writes;
+   hidden must beat the fixed-position display). */
+.term-popover[hidden],
+.robo-popover[hidden],
+.citation-popover[hidden] { display: none !important; }
 
 /* Interactive Lexicon Markers (content lives in ONE shared popover — see #term-popover) */
 .term-highlight {
@@ -1434,7 +1514,10 @@ mark {
 }
 #reader-content-target .search-result-card { padding-block: 1rem; }
 .search-result-title { font-size: 0.95rem; }
-.classical-zh.search-result-zh { font-size: 1.05rem; }
+/* Search hit cards stay compact — the sheet's Chinese-dominance scale is for
+   reading, not for result lists. Scoped so it wins the cascade inside the
+   reader column. */
+#reader-content-target .classical-zh.search-result-zh { font-size: 1.05rem; margin-bottom: 0.65rem; }
 .search-result-action { margin-top: 0.4rem; }
 .search-empty { color: var(--ink-soft); }
 
@@ -1528,11 +1611,15 @@ mark {
 }
 
 /* Lineage Cards & Explorer */
-.lineage-grid {
+/* Phase 2 (render-lazy companion): visibility is driven by the semantic
+   [hidden] attribute, not JS style writes — the attribute must win over the
+   grid display. */
+.lineage-grid:not([hidden]) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.35rem;
 }
+.lineage-graph-frame[hidden] { display: none; }
 
 .master-card {
   background: var(--panel);
@@ -1733,22 +1820,25 @@ mark {
    Calm Reader & Mobile-First (Phase A + B, 2026-08-08 — see UX_ROADMAP.md)
    ========================================================================== */
 
-/* Case index rail — one quiet horizontal line, never a sticky wall */
+/* Case index rail (Phase 2) — a thin register: one quiet line framed by two
+   hairlines, never a sticky wall, never a multi-row chip field. The full
+   title stays in the markup (title/aria-label) while CSS shows the number. */
 .case-jump-strip {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.15rem;
   position: static;
-  max-width: 900px;
-  margin: 0 auto 0.55rem;
-  padding: 0.35rem 0 0.5rem;
+  max-width: var(--reader-measure, 900px);
+  margin: 0 auto 0.45rem;
+  padding: 0.3rem 0.15rem 0.4rem;
   overflow-x: auto;
   scrollbar-width: thin;
+  border-top: 1px solid var(--line-soft);
   border-bottom: 1px solid var(--line-soft);
 }
-.case-strip-label { position: sticky; left: 0; z-index: 1; flex: none; padding-right: 0.45rem; background: var(--panel); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); white-space: nowrap; }
-.case-chip { flex: none; min-width: 1.8rem; padding: 0.18rem 0.35rem; font-family: var(--font-mono); font-size: 0.68rem; border-radius: 3px; background: transparent; border: 1px solid transparent; color: var(--ink-soft); cursor: pointer; display: inline-flex; justify-content: center; align-items: center; line-height: 1.2; }
+.case-strip-label { position: sticky; left: 0; z-index: 1; flex: none; padding-right: 0.45rem; background: var(--panel); font-size: 0.64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-strong); white-space: nowrap; }
+.case-chip { flex: none; min-width: 1.55rem; padding: 0.12rem 0.3rem; font-family: var(--font-mono); font-size: 0.66rem; border-radius: 3px; background: transparent; border: 1px solid transparent; color: var(--ink-soft); cursor: pointer; display: inline-flex; justify-content: center; align-items: center; line-height: 1.2; }
 .case-chip-num { font-weight: 700; }
 .case-chip-title { display: none; }
 .case-chip:hover,
@@ -1922,7 +2012,7 @@ mark {
     padding: 0;
   }
 
-  .content-panel, .case-card, .matrix-card {
+  .content-panel, .case-card, .matrix-card, .ledger-drawer {
     box-shadow: none !important;
     border: none !important;
     background: #ffffff !important;
