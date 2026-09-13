@@ -982,11 +982,13 @@ if (!publicHtml.includes('class="dossier-panel"') || !publicHtml.includes('id="m
   failures++; console.log('❌ 4kk: dossier panel should carry the .dossier-panel class on the dialog element');
 }
 // The CSS should define the dossier panel as a card (not the old
-// gold-bordered look with a light background).
-if (!cssSrc.includes('.dossier-panel') || !/\.dossier-panel\s*\{[^}]*background:\s*var\(--bg-card\)/s.test(cssSrc)) {
-  failures++; console.log('❌ 4kk: .dossier-panel should use var(--bg-card) background');
+// gold-bordered look with a light background). Token names follow the
+// consolidated Phase-1 sheet (--bg-card is now --panel, --accent-gold is
+// now --gold); the assertion itself is unchanged.
+if (!cssSrc.includes('.dossier-panel') || !/\.dossier-panel\s*\{[^}]*background:\s*var\(--panel\)/s.test(cssSrc)) {
+  failures++; console.log('❌ 4kk: .dossier-panel should use var(--panel) background');
 }
-if (!/\.dossier-panel\s*\{[^}]*border-left:\s*4px\s+solid\s+var\(--accent-gold\)/s.test(cssSrc)) {
+if (!/\.dossier-panel\s*\{[^}]*border-left:\s*4px\s+solid\s+var\(--gold\)/s.test(cssSrc)) {
   failures++; console.log('❌ 4kk: .dossier-panel should have a gold left accent stripe');
 }
 try {
