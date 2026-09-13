@@ -13,18 +13,22 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
 | 001 | .orchestrator/prompts/001-fix-doc-truthfulness-and-pipeline-hardening.md | Fix D-1..D-4 + O-1 + O-2 + O-3 | feature/fix-doc-truthfulness-and-pipeline-hardening | #45 | Merged 2026-09-13 — main now 93afcb5 |
-| 002 | .orchestrator/prompts/002-pages-revamp-proposal.md | Pages revamp proposal + Checkpoint-C | docs/pages-revamp-proposal | #46 | MERGE — proposal docs-only, gates PASS |
+| 002 | .orchestrator/prompts/002-pages-revamp-proposal.md | Pages revamp proposal + Checkpoint-C | docs/pages-revamp-proposal | #46 | Merged 2026-09-13 — main a1ebcef |
 
 
 ## Active Milestone
-Phase A — source-integrity fixes first (D-1..D-4, O-1 full, O-2, O-3), then Phase B — GitHub Pages revamp (top engineering priority, proposal-first per owner).
+Phase A COMPLETE (PRs #45, #46, #47 merged, main 239e3a9). Phase B — GitHub Pages revamp execution (top priority) — direction confirmed C-1..C-5, next Phase 1 system+masthead.
 
 ## Task Queue
 - [x] 001 — Fix D-1..D-4 + O-1..O-3 — PR #45 Merged (main 93afcb5) — docs truthfulness + pipeline hardening
-- [x] 002 — Pages revamp proposal — PR #46 Merged (main a1ebcef) — proposal + C-1..C-5 questions (approach, zones, preserve vs change) + Checkpoint-C questions — no code until owner confirms
-- [ ] 003 — Execute Pages revamp per confirmed direction (after owner confirmation)
-- [x] 003 — Record Checkpoint-C answers + dahui disclosure — PR #47 MERGE (Checkpoint-C verbatim + dahui 0/6)
-- [x] 004 — 014b-1 + 014b-2 follow-ups — DONE via 001 (census) + 003 (dahui) (stale census 49->50 etc + dahui_hongzhi disclosure) — disclosure-only, if not covered by 001
+- [x] 002 — Pages revamp proposal — PR #46 Merged (main a1ebcef) — proposal + C-1..C-5 questions
+- [x] 003 — Record Checkpoint-C answers + dahui disclosure — PR #47 Merged (main 239e3a9) — Checkpoint-C verbatim + dahui 0/6 bibliographic
+- [x] 004 — 014b follow-ups — DONE via 001 (census 50/39/23/17) + 003 (dahui)
+- [x] 005 — Phase B unblocked — direction confirmed C-1 colors ok rest replaceable, C-2 serif, C-3 subordinate, C-4 lazy, C-5 full plan
+- [ ] 006 — Phase 1: System + masthead (tokens, serif, shell, hero, mobile bar, OG redraw) — prompt 004
+- [ ] 007 — Phase 2: Reader (sheet, ledger drawer, case rail, inline styles → classes, render-lazy) — prompt 005
+- [ ] 008 — Phase 3: Secondary rooms + CSP tightening (Matrix, Lineage, Gong'an, Lexicon, 58→0 inline styles, CSP drop unsafe-inline) — prompt 006
+- [ ] 009 — Phase 4: Evidence and approval (owner light/dark review, docs final, frozen tracks close) — prompt 007 (stale census 49->50 etc + dahui_hongzhi disclosure) — disclosure-only, if not covered by 001
 - [ ] 005 — Remaining deferred: quotation rights (14 sources human), W1 per-doc remediation queue (51 LABEL + 11 RE-KEY one doc per PR), OPERATIONS Edits 1-3, P2.7 validation depth, frozen PR-A/B/D, OUT-OF-CBETA 31-doc human queue, platform_sutra decision, web polish leftovers
 
 ## Interrupted Work
@@ -72,7 +76,7 @@ None yet.
 - JSON Schema declarative only; Python validator is enforced contract.
 - Stale census prose 49/38/22/16 vs measured 50/39/23/17 in 9 lines — will be fixed in 001.
 - D-1..D-4 doc-precision defects — will be fixed in 001.
-- Pages revamp direction confirmed 2026-09-13: C-1 colors acceptable, everything else adaptable/replaceable; C-2 scholarly serif; C-3 subordinate except Reader; C-4 render-lazy only; C-5 full plan. Ready to execute.
+- Pages revamp direction confirmed 2026-09-13: C-1 colors acceptable, everything else adaptable/replaceable; C-2 scholarly serif; C-3 subordinate except Reader; C-4 render-lazy only; C-5 full plan. Main 239e3a9 includes Checkpoint-C section and dahui disclosure. Ready to execute Phase 1.
 
 ## Rulings in Force (verbatim from Pack 1, 2026-09-13)
 
