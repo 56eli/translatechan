@@ -17,8 +17,12 @@ This is the state a successor orchestrator reads second, after `main`'s `.orches
 
 - **My orchestrator branch:** `arena/01a08e15-translatechan` (distribution channel: never merges, never a base,
   additive commits only, never force-pushed).
-- **At the moment of writing:** `main` = `1b41d0b` (PR #43 merged); **no open PRs**; prompt 016 published here and
-  not yet dispatched; 014b queued behind it; 015 a reserved slot.
+- **At the moment of writing:** `main` = `1b41d0b` (PR #43 merged). PR #44 (prompt 016) is **approved for merge**
+  at `9de0f7d78` and waiting on the operator; the repair prompt 017 was executed inside that same PR. Next task
+  after it lands is **014b, now three items** (the nine-line census sync · `dahui_hongzhi`'s `cbeta_note`
+  disclosure · a dated addendum for `STATE.md:39`'s "`104,564 / 110,165` unmoved" line); `015` stays a reserved
+  slot. On merge, `main`'s own `## Continuation (cold start)` block carries the prompt index, so a successor's
+  cold start no longer needs my branch for the queue — only for any *new* prompt I have not yet dispatched.
 - **To resume (the v4.1.1 form, verified working here):**
   `git fetch --depth 50 origin +arena/01a08e15-translatechan:refs/remotes/origin/_orch`, read
   `refs/remotes/origin/_orch:.orchestrator/local/ORCHESTRATOR_STATE.md`, `git ls-tree` the prompt directory, then copy
@@ -73,8 +77,8 @@ This is the state a successor orchestrator reads second, after `main`'s `.orches
 | 013 | `.orchestrator/prompts/013-shipped-state-docs.md` | Say what shipped: renderer visible, evidence pass split | `arena/01a095a4-translatechan` | #42 | **Merged 2026-09-12 14:55 UTC** |
 | 014 | `.orchestrator/prompts/014-citation-fixes.md` | Fix the six `CITATION` rows: stop saying six false citations | `arena/01a097bd-translatechan` | #43 | **Merged 2026-09-12 22:59 UTC — my REVISE verdict was not applied first**; main is healthy, **two follow-ups open (see 014b)** |
 | 015 | *(slot deliberately reserved, no file)* | Acquisition **work orders** for the 31 `OUT-OF-CBETA` documents (owner ruling 4: orders, not witnesses) | — | — | **Queued — do not author until 014b merges.** The gap in the sequence is a reservation, not a lost publish |
-| 016 | `.orchestrator/prompts/016-tracker-continuation-block.md` | Give the canonical tracker a cold-start `## Continuation (cold start)` block | `arena/01a097f7-translatechan` | #44 | **OPEN — reviewed 2026-09-13: REVISE on one clause** (the branch-model sentence transplants a worker rule into an orchestrator's instructions). One line, then MERGE. All 8 gates green in my clone; +139/−0 single file; every number reproduced |
-| 017 | `.orchestrator/prompts/017-pr44-branch-model-clause.md` | Compact REVISE repair for #44: make the channel's push rule audience-explicit | `arena/01a097f7-translatechan` (continue) | #44 | **Published, dispatch stub handed over** — repair-only revision under the spec's compact variant, so it carries §0/§8/§9 only + DO NOT TOUCH. Numbered 017 rather than editing 016 in place, per *never edit a dispatched prompt* |
+| 016 | `.orchestrator/prompts/016-tracker-continuation-block.md` | Give the canonical tracker a cold-start `## Continuation (cold start)` block | `arena/01a097f7-translatechan` | #44 | **verdict MERGE issued 2026-09-13** (REVISE on one clause at `ef9489b` → repaired in `9de0f7d78`; +139/−0, all 8 gates green in my clone, CI SUCCESS); awaiting the operator's merge (the branch-model sentence transplants a worker rule into an orchestrator's instructions). One line, then MERGE. All 8 gates green in my clone; +139/−0 single file; every number reproduced |
+| 017 | `.orchestrator/prompts/017-pr44-branch-model-clause.md` | Compact REVISE repair for #44: make the channel's push rule audience-explicit | `arena/01a097f7-translatechan` (continue) | #44 | **Executed as `9de0f7d78` on the coder's own branch** — no second PR; the repaired clause also absorbed their hardening finding (platform-fixed session branch, dated tip snapshot) — repair-only revision under the spec's compact variant, so it carries §0/§8/§9 only + DO NOT TOUCH. Numbered 017 rather than editing 016 in place, per *never edit a dispatched prompt* |
 
 Numbering note: `.orchestrator/prompts/` is per-orchestrator-branch. This branch starts at
 002 because 001 is reserved above for the review task. The predecessor generation's prompts
