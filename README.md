@@ -20,14 +20,17 @@
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the Five Houses and Seven Schools.
 5. **Deploy a Zero-Backend Static GitHub Pages Web App** for bilingual reading, comparative translation, lineage study, Gong'an indexing, and lexicon lookup.
 
-## 🏛️ English-First Walnut Hall Interface (2026-08-11)
+## 🏛️ English-First Walnut Hall Interface
 
-The five-room public SPA keeps its dark-walnut Chan-hall structure while using a clearer, more distinctive **English-first factory/editorial identity**:
+The five-room public SPA presents one walnut **gate**: a lintel carrying the brand and the controls, a directory of the five rooms beneath it, and a beam that tells the joke once. The hall is expressed as structure — lintel, rule lines, margins, the beam's shadow — not as texture, illustration or icon. (Re-composed 2026-09-13, Pages revamp Phase 1; the 2026-08-11 English-first pass established the hierarchy, this pass establishes the system.)
 
-- **Identity:** `FC` monogram, asymmetric walnut introduction, edition/proof details, and the plain-language hook “The old texts are real. The translators are not.”
-- **Hierarchy:** English leads navigation, room/document/unit headings, lineage, Gong'an, lexicon, and mobile controls; source Chinese remains available with `lang="zh"` and stays central inside the Reader.
+- **Identity:** `FC` monogram on the walnut lintel, brass rule under it, the beam's hook “The old texts are real. The translators are not.” set in a scholarly serif with the turn in italic, and the `PROUDLY FAKE ENGLISH` seal.
+- **One token sheet:** 34 declarations plus 8 dark-theme overrides, consolidated from 63 accreted declarations. Eight *theme primitives* — paper, panel, line, ink and four accents — are the only values the dark theme overrides; every other tint is derived from them with `color-mix()`, so a tint is written once instead of hand-picked per theme.
+- **One type scale:** a single ~1.24 modular scale (`--type-hook` … `--type-small`) shared by English and Chinese at their own line-heights.
+- **English voice (Checkpoint-C C-2):** **Source Serif 4** carries the hook, headings and — from Phase 2 — translation prose; the system sans is for controls only; `ui-monospace` carries locators and counts. Source Serif 4 is served by Google Fonts, which the shipped CSP already allows, so it adds no repository bytes and no new third party; the CJK serif sits at the end of its stack so mixed headings never fall back to a system default. Self-hosting under `/fonts/` stays the documented alternative if a zero-third-party-request rule is ever wanted.
+- **Hierarchy:** English leads navigation, room/document headings, lineage, Gong'an, lexicon, and mobile controls; source Chinese is present everywhere and subordinate everywhere, except inside the Reader sheet where it is the largest text on the page (Checkpoint-C C-3) and always carries `lang="zh"`.
 - **Reading system:** grouped 2/2/31 library shelf, progressive provenance ledger, ruled reading sheets, Matrix proof rows, Lineage directory/network, Gong'an catalogue, and dictionary definitions.
-- **Responsive and accessible behavior:** 1024px shelf collapse, 768px mobile layout, contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls, and no HTML inline styles.
+- **Responsive and accessible behavior:** 1024px shelf collapse, 768px mobile layout, contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls regrouped into two clusters (text · move) with 44 px touch targets, and no HTML inline styles.
 - **Progressive disclosure:** repeated hero/Matrix explanations and per-column Robo footers are removed; compact citations, coverage, Lineage, Lexicon, and search labels keep detailed provenance available on demand.
 - **Resilience and honesty:** redundant Robo badges are suppressed without hiding verified-quotation status; malformed preferences fail soft; missing/malformed data renders reload/reset recovery UI; edition verification and rights status remain separate.
 
