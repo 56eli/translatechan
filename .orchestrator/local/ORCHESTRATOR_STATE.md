@@ -15,7 +15,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 001 | .orchestrator/prompts/001-fix-doc-truthfulness-and-pipeline-hardening.md | Fix D-1..D-4 + O-1 + O-2 + O-3 | feature/fix-doc-truthfulness-and-pipeline-hardening | #45 | Merged 2026-09-13 — main now 93afcb5 |
 | 002 | .orchestrator/prompts/002-pages-revamp-proposal.md | Pages revamp proposal + Checkpoint-C | docs/pages-revamp-proposal | #46 | Merged 2026-09-13 — main a1ebcef |
 | 003 | .orchestrator/prompts/003-record-checkpoint-c-and-dahui-disclosure.md | Record Checkpoint-C + dahui disclosure | fix/dahui-disclosure-and-checkpoint-c | #47 | Merged 2026-09-13 — main 239e3a9 |
-| 004 | .orchestrator/prompts/004-phase1-system-masthead.md | Phase 1 system+masthead (tokens, serif, shell, hero) | feature/pages-phase1-system-masthead | #48 | MERGE — Phase1 system+masthead, tokens 63→43, serif, 5 gates PASS |
+| 004 | .orchestrator/prompts/004-phase1-system-masthead.md | Phase 1 system+masthead (tokens, serif, shell, hero) | feature/pages-phase1-system-masthead | #48 | Merged 2026-09-13 — main 0d02c4c |
 
 
 
@@ -28,7 +28,7 @@ Phase A COMPLETE (PRs #45, #46, #47 merged, main 239e3a9). Phase B — GitHub Pa
 - [x] 003 — Record Checkpoint-C answers + dahui disclosure — PR #47 Merged (main 239e3a9) — Checkpoint-C verbatim + dahui 0/6 bibliographic
 - [x] 004 — 014b follow-ups — DONE via 001 (census 50/39/23/17) + 003 (dahui)
 - [x] 005 — Phase B unblocked — direction confirmed C-1 colors ok rest replaceable, C-2 serif, C-3 subordinate, C-4 lazy, C-5 full plan
-- [x] 006 — Phase 1: System + masthead — PR #48 MERGE (tokens 63→43, serif Source Serif 4, shell/hero/mobile bar, OG redraw, 5 gates PASS)
+- [x] 006 — Phase 1: System + masthead — PR #48 Merged (main 0d02c4c) — tokens 63→43, serif Source Serif 4, shell/hero/mobile bar, OG redraw
 - [ ] 007 — Phase 2: Reader (sheet, ledger drawer, case rail, inline styles → classes, render-lazy) — prompt 005
 - [ ] 008 — Phase 3: Secondary rooms + CSP tightening (Matrix, Lineage, Gong'an, Lexicon, 58→0 inline styles, CSP drop unsafe-inline) — prompt 006
 - [ ] 009 — Phase 4: Evidence and approval (owner light/dark review, docs final, frozen tracks close) — prompt 007 (stale census 49->50 etc + dahui_hongzhi disclosure) — disclosure-only, if not covered by 001
