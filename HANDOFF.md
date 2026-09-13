@@ -52,15 +52,15 @@ Current implementation (re-composed 2026-09-13, Pages revamp Phase 1 — see
 
 - one walnut **gate**: a lintel (brand + controls), a hairline, a directory of
   the five rooms, and a beam that tells the joke once — structure, not texture;
-- a consolidated token sheet: 34 declarations plus 8 dark-theme overrides,
-  down from 63. Eight theme primitives (paper, panel, line, ink + four
+- a consolidated token sheet: 35 declarations plus 8 dark-theme overrides
+  (43 total, re-measured in Phase 2), down from 63. Eight theme primitives (paper, panel, line, ink + four
   accents) are the only values the dark theme overrides; every other tint is
   derived with `color-mix()`, and every `[data-theme="dark"]` override maps
   to a primitive one-for-one;
 - one ~1.24 modular type scale (`--type-hook` … `--type-small`), shared by
   English and Chinese at their own line-heights;
 - **Source Serif 4** (Google-served, already inside the shipped CSP) for the
-  hook, headings and, from Phase 2, translation prose; system sans for
+  hook, headings and — since Phase 2 — translation prose; system sans for
   controls; `ui-monospace` for locators and counts. The CJK serif closes the
   display stack so mixed headings never fall back to a system default.
   Self-hosting under `/fonts/` is the documented alternative if a
@@ -80,6 +80,31 @@ Current implementation (re-composed 2026-09-13, Pages revamp Phase 1 — see
   Lineage, Lexicon, and search prose from the reading surface;
 - no added runtime dependency and no added image payload — the only new
   third-party bytes are the webfont request above.
+
+Phase 2 — Reader (2026-09-13, same revamp):
+
+- the reading surface is a **minimal sheet**: one hairline between units, wide
+  margins, fewer borders; source Chinese is sized from the user-adjustable
+  `--zh-font-size` by a sheet-scoped ratio so it stays the largest text in the
+  room (C-3) while A−/A+ govern every zh block;
+- translation prose is set in the C-2 serif voice (`.translation-text`,
+  `.prose-en`), so the page keeps its voice next to the Chinese;
+- the five disclosure ledgers sit in one always-visible **drawer band**
+  ("About this edition") — a calmer container, never a quieter one: every
+  ledger stays visible and the separation note stays printed under the set;
+  only the edition metadata (canon/author/era/genre) remains progressive,
+  expanding inline instead of floating over the sheet;
+- the case index is a **thin static register** — one line, two hairlines,
+  numbers only (titles stay in the accessible name), never a sticky wall;
+- the Reader templates carry **zero inline style attributes**: all 41 `style=`
+  literals (Reader and shared popovers) became named classes and all 15
+  `.style.display` writes became semantic `hidden` toggles; the remaining
+  JS inline-style sites are the popover positioning pair and three
+  `setProperty` runtime contracts, to be retired with CSP tightening in
+  Phase 3;
+- **render-lazy** (C-4): boot renders the Reader; the Matrix, Lineage, Gong'an
+  and Lexicon build their DOM on first tab activation — one bundle, no
+  pipeline change.
 
 This direction and the subsequent copy cleanup are implemented. PR #18 merged as `63dfe37`; main Quality and Pages deployment passed. Current real-browser screenshots were unavailable in the audit environment.
 
@@ -129,8 +154,8 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 - Playwright skips with success when Chromium is unavailable and is not a required CI job.
 - Quality’s artifact diff omits four mirrored assets (see [`OPERATIONS.md`](./OPERATIONS.md) Edit 1).
 - Branch protection is unconfirmed because the integration receives 403.
-- The full data bundle and all hidden rooms initialize up front.
-- Fifty-eight JS-generated inline-style sites (41 `style=` attribute literals + 17 `.style.prop =` property writes) keep CSP `style-src 'unsafe-inline'` necessary.
+- The full data bundle initializes up front; since Phase 2 the hidden rooms defer *rendering* only (first tab activation, per Checkpoint-C C-4 — option B bundle-splitting was not taken and remains open if browser measurements justify it).
+- Five JS inline-style sites remain (the popover positioning pair `left`/`top` and three `setProperty` runtime-contract writes for `--shell-height` / `--zh-font-size`): Phase 2 retired all 41 `style=` attribute literals and 15 `.style.display` property writes of the former 58 sites into classes and `[hidden]` toggles. `style-src 'unsafe-inline'` stays until Phase 3 retires the positioning pair.
 - JSON Schema is not executed and non-case field-level validation remains incomplete.
 
 ### Presentation
@@ -141,7 +166,7 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 
 ## 6. Fixed behavior and resilience
 
-- Lineage dossier toggles semantic hidden state and focus correctly.
+- Lineage dossier toggles semantic hidden state and focus correctly; the dossier, the three shared popovers, and the Lineage graph/directory switch now toggle `hidden` exclusively (no `.style.display` writes remain).
 - Platform direct chapter shapes render source text.
 - Wumenguan epilogue follows cases; Print/PDF expands all lazy units.
 - Wumenguan/Biyanlu labels name their commentator and verse author.
