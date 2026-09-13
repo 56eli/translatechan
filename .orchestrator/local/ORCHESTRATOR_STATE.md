@@ -16,7 +16,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 002 | .orchestrator/prompts/002-pages-revamp-proposal.md | Pages revamp proposal + Checkpoint-C | docs/pages-revamp-proposal | #46 | Merged 2026-09-13 — main a1ebcef |
 | 003 | .orchestrator/prompts/003-record-checkpoint-c-and-dahui-disclosure.md | Record Checkpoint-C + dahui disclosure | fix/dahui-disclosure-and-checkpoint-c | #47 | Merged 2026-09-13 — main 239e3a9 |
 | 004 | .orchestrator/prompts/004-phase1-system-masthead.md | Phase 1 system+masthead (tokens, serif, shell, hero) | feature/pages-phase1-system-masthead | #48 | Merged 2026-09-13 — main 0d02c4c |
-| 005 | .orchestrator/prompts/005-phase2-reader.md | Phase 2 Reader (sheet, ledger drawer, case rail, lazy) | feature/pages-phase2-reader | — | Published — not yet dispatched |
+| 005 | .orchestrator/prompts/005-phase2-reader.md | Phase 2 Reader (sheet, ledger drawer, case rail, lazy) | feature/pages-phase2-reader | — | Dispatched |
 
 
 
