@@ -745,8 +745,8 @@
       "status": "legacy_document_seed"
     },
     "dahui_hongzhi": {
-      "canonical_id": "T1998A (大慧普覺禪師語錄)",
-      "canonical_locator": "T1998A (大慧普覺禪師語錄)",
+      "canonical_id": "T47n1998A / T47n1998B + T48n2001 (大慧普覺禪師語錄 + 宏智禪師廣錄, 默照銘)",
+      "canonical_locator": "T47n1998A / T47n1998B + T48n2001 (大慧普覺禪師語錄 + 宏智禪師廣錄, 默照銘)",
       "granularity": "document",
       "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. Confirm page/line or TEI anchors when upgrading this seed.",
       "status": "legacy_document_seed"

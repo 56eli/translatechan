@@ -147,7 +147,7 @@ PY
 
 ```text
 corpus documents 35 | incomplete 35 | complete_selected_witness 0
-source-content CJK 104564 | all-string CJK 110233
+source-content CJK 104564 | all-string CJK 110252
 authoritative register sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json | flagged 630 | evidence 2026-09-10 | statuses {'collated_to_claimed_witness': 1, 'partial_or_failed_w1_collation': 32, 'witness_unavailable': 2}
 superseded 2026-09-09 pair: register 622 | report 637 | status superseded
 dated measurement 2026-09-12 (not a re-designation): flagged 532 | collating content fields 691 / 924 | documents_with_changed_status 0

@@ -385,6 +385,17 @@ ALLOWED_CHANGES = {
         ".stanzas[34].pinyin",
         ".stanzas[34].zh",
     }),
+    "data/corpus/dahui_hongzhi.json": frozenset({
+        # 2026-09-13 disclosure fix (task 014b-2): the document is brought into agreement with the
+        # manifest row PR #43 corrected — `cbeta_id` names all three witnesses the collation harness
+        # probes (T47n1998A, T47n1998B, T48n2001) and `cbeta_note` discloses that the T48n2001
+        # pairing is bibliographic (it comes from the collate_corpus.py witness note) and that
+        # 0 of 6 evaluated content fields collate in any of the three (harness probing is not
+        # collation). Metadata-only: no `zh`/`*_zh` field, no status, no `zh_chars` pointer
+        # (this document declares none).
+        ".cbeta_id",
+        ".cbeta_note",
+    }),
     "data/corpus/zhaozhou_yulu.json": frozenset({
         # 2026-09-12 CITATION fix (task 014, rank 1-2): the false T1987 witness claim is withdrawn,
         # not re-attributed — `cbeta_id` becomes the qualified candidate form, the `taisho_vol 47`
