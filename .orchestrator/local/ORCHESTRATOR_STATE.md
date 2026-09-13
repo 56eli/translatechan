@@ -13,6 +13,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
 | 001 | .orchestrator/prompts/001-fix-doc-truthfulness-and-pipeline-hardening.md | Fix D-1..D-4 + O-1 + O-2 + O-3 | feature/fix-doc-truthfulness-and-pipeline-hardening | — | Dispatched |
+| 002 | .orchestrator/prompts/002-pages-revamp-proposal.md | Pages revamp proposal + Checkpoint-C | docs/pages-revamp-proposal | — | Published — not yet dispatched |
 
 
 ## Active Milestone
@@ -20,7 +21,7 @@ Phase A — source-integrity fixes first (D-1..D-4, O-1 full, O-2, O-3), then Ph
 
 ## Task Queue
 - [x] 001 — Fix D-1..D-4 (published) + O-1 + O-2 + O-3 (docs truthfulness + pipeline hardening) — one PR per Pack 1 Step 4 suggestion (touches gate pins)
-- [ ] 002 — Pages revamp proposal (approach, zones, preserve vs change) + Checkpoint-C questions — no code until owner confirms
+- [x] 002 — Pages revamp proposal (published) (approach, zones, preserve vs change) + Checkpoint-C questions — no code until owner confirms
 - [ ] 003 — Execute Pages revamp per confirmed direction (after owner confirmation)
 - [ ] 004 — 014b-1 + 014b-2 follow-ups (stale census 49->50 etc + dahui_hongzhi disclosure) — disclosure-only, if not covered by 001
 - [ ] 005 — Remaining deferred: quotation rights (14 sources human), W1 per-doc remediation queue (51 LABEL + 11 RE-KEY one doc per PR), OPERATIONS Edits 1-3, P2.7 validation depth, frozen PR-A/B/D, OUT-OF-CBETA 31-doc human queue, platform_sutra decision, web polish leftovers
