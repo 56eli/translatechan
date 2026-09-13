@@ -17,7 +17,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 003 | .orchestrator/prompts/003-record-checkpoint-c-and-dahui-disclosure.md | Record Checkpoint-C + dahui disclosure | fix/dahui-disclosure-and-checkpoint-c | #47 | Merged 2026-09-13 — main 239e3a9 |
 | 004 | .orchestrator/prompts/004-phase1-system-masthead.md | Phase 1 system+masthead (tokens, serif, shell, hero) | feature/pages-phase1-system-masthead | #48 | Merged 2026-09-13 — main 0d02c4c |
 | 005 | .orchestrator/prompts/005-phase2-reader.md | Phase 2 Reader (sheet, ledger drawer, case rail, lazy) | feature/pages-phase2-reader | #49 | Merged 2026-09-13 — main cae8837 |
-| 006 | .orchestrator/prompts/006-phase3-secondary-rooms-csp.md | Phase 3 secondary rooms + CSP tightening | feature/pages-phase3-secondary-csp | — | Published — not yet dispatched |
+| 006 | .orchestrator/prompts/006-phase3-secondary-rooms-csp.md | Phase 3 secondary rooms + CSP tightening | feature/pages-phase3-secondary-csp | — | Dispatched |
 | 005 | .orchestrator/prompts/005-phase2-reader.md | Phase 2 Reader (sheet, ledger drawer, case rail, lazy) | feature/pages-phase2-reader | #49 | Merged 2026-09-13 — main cae8837 |
 
 
