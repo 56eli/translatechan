@@ -61,9 +61,35 @@ Output JSON format:
 """
 }
 
+_REQUIRED_SOURCE_FIELDS = ("work", "edition", "reference", "verification", "source_id")
+
+
+def _load_rights_source_ids():
+    """Return the set of valid source_ids from data/translations/rights_manifest.json.
+
+    Returns an empty set if the file cannot be loaded (callers degrade gracefully).
+    """
+    try:
+        rights_path = DATA_DIR / "translations" / "rights_manifest.json"
+        manifest = json.loads(rights_path.read_text(encoding="utf-8"))
+        return {s["source_id"] for s in manifest.get("sources", []) if s.get("source_id")}
+    except Exception:
+        return set()
+
+
 def create_translation_entry(source_id, source_title, sentence_zh, sentence_pinyin, contemporary_translations=None, ai_drafts=None):
     """
     Constructs a standardized comparative matrix entry.
+
+    Self-validation (O-2, 2026-09-13): when a caller passes status
+    ``verified_quotation`` together with a ``source`` object, that object must
+    carry all five required provenance keys (work, edition, reference,
+    verification, source_id) and the ``source_id`` must resolve to an entry in
+    ``data/translations/rights_manifest.json``. If either condition fails the
+    entry is downgraded to ``reconstruction_unverified`` and a note is added
+    rather than emitting a malformed record that the later gate would refuse.
+    For ``reconstruction_unverified`` / ``ai_draft`` statuses, existing
+    behaviour is preserved.
     """
     entry = {
         "id": source_id,
@@ -72,6 +98,35 @@ def create_translation_entry(source_id, source_title, sentence_zh, sentence_piny
         "sentence_pinyin": sentence_pinyin,
         "translators": []
     }
+    rights_ids = _load_rights_source_ids()
+
+    def _build_translator(base, status_default, source=None):
+        status = base.get("status", status_default)
+        out = dict(base)
+        out["status"] = status
+        # Caller may pass source either via the trans dict's 'source' key or
+        # via the explicit kwarg; kwarg wins when provided.
+        src = source if isinstance(source, dict) else base.get("source")
+        downgrade_reason = None
+        if status == "verified_quotation":
+            if not isinstance(src, dict):
+                downgrade_reason = "missing source object"
+            elif not all(isinstance(src.get(k), str) and src.get(k).strip() for k in _REQUIRED_SOURCE_FIELDS):
+                downgrade_reason = "incomplete source record"
+            elif rights_ids and src["source_id"] not in rights_ids:
+                downgrade_reason = f"source_id {src['source_id']!r} missing from rights_manifest"
+            if downgrade_reason:
+                out["status"] = "reconstruction_unverified"
+                note_add = f"[self-validation downgraded from verified_quotation: {downgrade_reason}]"
+                out["notes"] = ((out.get("notes") or "") + " " + note_add).strip()
+                out.pop("source", None)
+            else:
+                out["source"] = src
+        # For non-verified statuses, drop any stray source block (provenance
+        # policy: source objects belong only to verified_quotation entries).
+        if out["status"] != "verified_quotation":
+            out.pop("source", None)
+        return out
 
     # Add contemporary published translations.  Provenance policy v2.2: any
     # entry rendered in the Matrix needs an explicit status; a string-keyed
@@ -80,30 +135,29 @@ def create_translation_entry(source_id, source_title, sentence_zh, sentence_piny
     # may pass status='verified_quotation' together with a full `source`
     # object ({work, edition, reference, verification, source_id}) — that
     # source_id must also exist in data/translations/rights_manifest.json or
-    # the validator will refuse the commit.
+    # the entry is downgraded here (O-2 self-validation); the validator is the
+    # final backstop if this helper is bypassed.
     if contemporary_translations:
         for trans in contemporary_translations:
-            entry["translators"].append({
+            entry["translators"].append(_build_translator({
                 "translator": trans.get("translator"),
                 "work": trans.get("work"),
                 "style": trans.get("style", "Contemporary Scholarly"),
                 "text": trans.get("text"),
                 "notes": trans.get("notes", ""),
                 "status": trans.get("status", "reconstruction_unverified"),
-                **({"source": trans["source"]} if isinstance(trans.get("source"), dict) else {}),
-            })
+            }, "reconstruction_unverified", source=trans.get("source")))
 
     # Add Arena AI Agent generated drafts (always disclosed AI output).
     if ai_drafts:
         for draft in ai_drafts:
-            entry["translators"].append({
+            entry["translators"].append(_build_translator({
                 "translator": f"Arena AI Agent ({draft.get('model', 'Claude/GPT/DeepSeek')})",
                 "work": f"TranslateChan AI Matrix: {draft.get('register_label', 'Multi-Register')}",
                 "style": draft.get("style", "AI Synthesis"),
                 "text": draft.get("text"),
                 "notes": draft.get("notes", "Generated in sandboxed Arena AI session"),
-                "status": draft.get("status", "ai_draft"),
-            })
+            }, "ai_draft"))
 
     return entry
 
