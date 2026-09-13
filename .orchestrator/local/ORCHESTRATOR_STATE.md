@@ -12,7 +12,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 ## Published Task Prompts
 | Seq | Prompt path | Task | Agent branch | PR | Status |
 |---|---|---|---|---|---|
-| 001 | .orchestrator/prompts/001-fix-doc-truthfulness-and-pipeline-hardening.md | Fix D-1..D-4 + O-1 + O-2 + O-3 | feature/fix-doc-truthfulness-and-pipeline-hardening | #45 | MERGE — verified 2026-09-13 |
+| 001 | .orchestrator/prompts/001-fix-doc-truthfulness-and-pipeline-hardening.md | Fix D-1..D-4 + O-1 + O-2 + O-3 | feature/fix-doc-truthfulness-and-pipeline-hardening | #45 | Merged 2026-09-13 — main now 93afcb5 |
 | 002 | .orchestrator/prompts/002-pages-revamp-proposal.md | Pages revamp proposal + Checkpoint-C | docs/pages-revamp-proposal | — | Published — not yet dispatched |
 
 
@@ -20,7 +20,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 Phase A — source-integrity fixes first (D-1..D-4, O-1 full, O-2, O-3), then Phase B — GitHub Pages revamp (top engineering priority, proposal-first per owner).
 
 ## Task Queue
-- [x] 001 — Fix D-1..D-4 (published) + O-1 + O-2 + O-3 (docs truthfulness + pipeline hardening) — one PR per Pack 1 Step 4 suggestion (touches gate pins)
+- [x] 001 — Fix D-1..D-4 + O-1..O-3 — PR #45 Merged (main 93afcb5) — docs truthfulness + pipeline hardening
 - [x] 002 — Pages revamp proposal (published) (approach, zones, preserve vs change) + Checkpoint-C questions — no code until owner confirms
 - [ ] 003 — Execute Pages revamp per confirmed direction (after owner confirmation)
 - [ ] 004 — 014b-1 + 014b-2 follow-ups (stale census 49->50 etc + dahui_hongzhi disclosure) — disclosure-only, if not covered by 001
