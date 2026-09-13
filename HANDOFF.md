@@ -64,7 +64,7 @@ This direction and the subsequent copy cleanup are implemented. PR #18 merged as
 
 ```text
 corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
-content CJK=104,564 | all-string CJK=110,233
+content CJK=104,564 | all-string CJK=110,252
 source-review: collated=1 | partial/failed=32 | unavailable=2
 w1-evidence: flagged=630 (authoritative 2026-09-10) | historical=622 (2026-09-09) | report-figure-superseded=637
 w1-campaign: wumenguan(#29) biyanlu(#30) linji(#32) xinxin(#34) re-keyed | platform_sutra(#35) labelled

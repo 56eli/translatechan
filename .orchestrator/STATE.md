@@ -63,18 +63,30 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 
 Executed so far: **PR #43 (2026-09-12)** fixes the six `CITATION` rows — `zhaozhou_yulu` (the false T1987 claim, withdrawn), `fayan_yulu`, `dongshan_yulu`, `mazu_yulu`, `dahui_hongzhi` — with no status change, no re-designation and no new locator.
 
+## Checkpoint-C — Pages Revamp Direction (2026-09-13, owner — proposal PR #46)
+
+- Date: 2026-09-13
+- Source: owner answers to C-1..C-5 via structured questions, recorded verbatim
+- C-1 Visual intensity: "Colors are acceptable. Everything else can be adapted as seen fit, even fully replaced if suited." (owner custom)
+- C-2 English typographic voice: "(a) Scholarly serif for hook/headings/translations, sans for controls" + sub-decision self-hosted vs Google-served pending? Owner selected (a) scholarly serif.
+- C-3 Chinese/English balance: "(a) Present but subordinate everywhere except inside the Reader sheet where it is largest"
+- C-4 Performance strategy: "(a) Render-lazy only — keep one bundle, hidden rooms render on first activation"
+- C-5 Scope/sequencing: "(a) Full plan: system+masthead → Reader → secondary rooms → CSP tightening → evidence, fold PR-B/PR-D"
+- Additional: "I merged. Continue with plain word, guided questioning."
+- Implication: colors #2c2523 walnut etc acceptable, everything else may be replaced if suited; serif chosen; subordinate; lazy; full plan.
+
 ## Task Queue
 
 - [x] **Lineage corpus-key curation (6 profiles)** — integrated in the current baseline
 - [x] **W1 — Full-corpus collation vs CBETA** — evidence is recorded in the immutable report/register
 - [x] **REMEDIATION Wave 1, doc 1 — wumenguan re-keyed to T2005 (PR #29, 2026-09-10)** — 62 re-keyable flagged source fields re-keyed verbatim from CBETA T48n2005 @ `dbdea41071e1e260ad84b72faefd4587333cf76d` per `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` (collation re-run after the prompt-002 revision: flagged 70 → 9, the documented residual 6 MINOR + 2 SHORT_UNMATCHED titles + R-B epilogue); sibling pinyin rewritten syllable-by-syllable; epilogue R-B-labeled in structured metadata; `source_review_status` legitimately remains `partial_or_failed_w1_collation` until the post-remediation evidence pass, which re-adjudicated this document on 2026-09-12 (`sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json`; `documents_with_changed_status: 0`) and left the status unchanged at `partial_or_failed_w1_collation`. Supersedes PR #23 (verdict DO-NOT-MERGE: 65/70 fields untouched, truncated register-window fragments pasted as text, one corrupted field, garbled pinyin, false "Complete" claim).
 - [~] **W1 public status-model containment** — manifest statuses, validator guards, Reader disclosure, and current documentation integrated; evidence contract hardened (merged — PRs #25–#28); per-document source remediation remains pending
-- [ ] **Visual-system reset** — next planned task after this containment/status-model work
+- [ ] **Visual-system reset / Pages revamp** — **unblocked 2026-09-13** by Checkpoint-C (section above; proposal `PAGES_REVAMP_PROPOSAL_2026-09-13.md`, PR #46). Next slice: **Phase 1 — system + masthead** per the full plan (C-5 (a)), then Reader → secondary rooms → CSP tightening → evidence, folding PR-B/PR-D in
 - [ ] **REMEDIATION hybrid policy**: per-doc work packages in `.orchestrator/REMEDIATION_PLAN.md`; delegate to coder agents, one document per PR. Wave 1 progress: wumenguan (PR #29), biyanlu_cases (PR #30), linji_yulu (PR #32); **next: xinxin_ming**, then platform_sutra
 - [ ] **W2 — Verified-quotation spot-check** (177 slots vs public-domain editions; Senzaki & Reps 1934 first) — sequencing at successor's discretion (before or parallel to remediation)
 - [x] **Scoreboard removal PR** — delete `.scoreboard/` + `SCOREBOARD.md`; update AGENTS.md contract (owner decision 2026-09-09; PR #31, 2026-09-11)
 - [ ] **PR-A — Real-browser verification pass** (frozen during audit; resume after remediation starts)
-- [ ] **PR-B — CSP hardening** (frozen) · **PR-D — Performance, measure-first** (frozen)
+- [ ] **PR-B — CSP hardening** · **PR-D — Performance, measure-first** — per Checkpoint-C C-5 (a) these fold into the Pages revamp sequence (CSP tightening after the rooms; render-lazy only per C-4 (a)) rather than shipping as standalone frozen tracks
 - [ ] Later tranche — 30 lineage edges exact-locator groundwork
 - [ ] Later tranche — Biyanlu / Linji / Platform / excerpt-seed field-level source review (fold into R-A packages)
 
@@ -135,7 +147,7 @@ PY
 
 ```text
 corpus documents 35 | incomplete 35 | complete_selected_witness 0
-source-content CJK 104564 | all-string CJK 110233
+source-content CJK 104564 | all-string CJK 110252
 authoritative register sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json | flagged 630 | evidence 2026-09-10 | statuses {'collated_to_claimed_witness': 1, 'partial_or_failed_w1_collation': 32, 'witness_unavailable': 2}
 superseded 2026-09-09 pair: register 622 | report 637 | status superseded
 dated measurement 2026-09-12 (not a re-designation): flagged 532 | collating content fields 691 / 924 | documents_with_changed_status 0
