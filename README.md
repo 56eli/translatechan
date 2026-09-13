@@ -148,7 +148,7 @@ translatechan/
 │   │   └── profile_review_queue.json  # Enforced exact-locator review queue (34 profiles)
 │   ├── translations/       # Comparative data, provenance, rights & Robo profiles
 │   │   ├── comparative_matrix.json
-│   │   ├── translator_profiles.json  # Evidence-grounded Robo-translator personalities (13 in-corpus-verified; 7 documented-external)
+│   │   ├── translator_profiles.json  # Evidence-grounded Robo-translator personalities (14 in-corpus-verified; 6 documented-external; 1 not-applicable)
 │   │   ├── provenance.json
 │   │   └── rights_manifest.json
 │   ├── glossary/           # Classical Chan & Buddhist lexicon (31 terms)

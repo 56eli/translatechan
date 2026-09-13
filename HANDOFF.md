@@ -87,7 +87,7 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 **The four release-blocking items — where each stands, each with the file to read:**
 
 - **Post-remediation evidence pass — measurement published by PR #41 (2026-09-12); owner ruled 2026-09-12: 630 stays authoritative.** The dated register and report are committed as [`sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json`](./sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json) + [`sessions/COLLATION_W1_2026-09-12_POSTREMEDIATION.md`](./sessions/COLLATION_W1_2026-09-12_POSTREMEDIATION.md) (532 flagged fields, 691/924 content fields collating, statuses 1 / 32 / 2, `documents_with_changed_status: 0`); the pass does not supersede the register — the authoritative total stays at the 2026-09-10 register's 630, and the evidence-model change that would move it is not authorised by that ruling (read [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) → "Release-blocking checklist" item 1).
-- **Label visibility in the Reader (task 011) — delivered by PR #40 (2026-09-12).** One shared renderer prints the three passage-level note keys at 17 content sites — 38 of the corpus's 49 note strings; the 11 `coverage_note` strings stay in the represented-units ledger as the one recorded exemption — and §15 of `scripts/test_source_review_rules.py` fails CI on any future orphan key. Implemented and gate-guarded; no real-browser evidence exists, so it is not browser-verified (read [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) → "Release-blocking checklist" item 2).
+- **Label visibility in the Reader (task 011) — delivered by PR #40 (2026-09-12).** One shared renderer prints the three passage-level note keys at 17 content sites — 39 of the corpus's 50 note strings; the 11 `coverage_note` strings stay in the represented-units ledger as the one recorded exemption — and §15 of `scripts/test_source_review_rules.py` fails CI on any future orphan key. Implemented and gate-guarded; no real-browser evidence exists, so it is not browser-verified (read [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) → "Release-blocking checklist" item 2).
 - **Owner's fabricated-text decision — unchanged, owner-held.** Replace, label, or remove the fields attested in no witness; explicitly not agent-authorisable (read [`.orchestrator/PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md) → `## Owner decision required`).
 - **OUT-OF-CBETA human-sourcing queue — unchanged, owner-held.** 31 documents; **not agent-authorisable**: no agent may fetch, transcribe or evaluate those witnesses (read [`.orchestrator/PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md) → §7).
 
@@ -107,7 +107,7 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 - Quality’s artifact diff omits four mirrored assets (see [`OPERATIONS.md`](./OPERATIONS.md) Edit 1).
 - Branch protection is unconfirmed because the integration receives 403.
 - The full data bundle and all hidden rooms initialize up front.
-- Forty-one JS-generated inline styles keep CSP `style-src 'unsafe-inline'` necessary.
+- Fifty-eight JS-generated inline-style sites (41 `style=` attribute literals + 17 `.style.prop =` property writes) keep CSP `style-src 'unsafe-inline'` necessary.
 - JSON Schema is not executed and non-case field-level validation remains incomplete.
 
 ### Presentation

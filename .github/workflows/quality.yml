@@ -45,7 +45,11 @@ jobs:
 
       - name: Require generated artifacts and deploy mirror to be committed
         run: |
-          git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/data data/project_metrics.json
+          # Structural mirror-tree diff: covers root bundle, the entire docs/
+          # mirror tree, and generated metrics in one structural check, so new
+          # mirrored assets (e.g. theme-init.js, robots.txt, sitemap.xml,
+          # og-image.svg) are guarded without enumerating each path (O-3).
+          git diff --exit-code -- app_data.js docs data/project_metrics.json
 
       - name: Run dependency-free reader smoke test
         run: node scripts/smoke_test.mjs
