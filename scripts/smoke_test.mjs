@@ -436,6 +436,25 @@ console.log('DATA loaded. corpus keys:', Object.keys(window.TRANSLATECHAN_DATA.c
 eval(readFileSync(join(ROOT, 'app.js'), 'utf8'));
 console.log('APP executed + init() completed without crash');
 
+let failures = 0;
+// C-4 (render-lazy, Phase 2): at boot only the Reader renders; the four
+// hidden rooms stay unbuilt until first tab activation. No bundle split —
+// the same bundle simply defers hidden-room DOM work.
+{
+  if (!ids['reader-content-target']._innerHTML.includes('document-heading')) {
+    failures++; console.log('❌ C-4: the Reader did not render at boot');
+  }
+  for (const [label, id] of [['matrix', 'matrix-content-target'], ['lineage', 'lineage-content-target'],
+    ['gongan', 'gongan-content-target'], ['lexicon', 'lexicon-content-target'], ['lineage graph', 'lineage-svg-graph']]) {
+    if (document.getElementById(id)._innerHTML !== '') { failures++; console.log(`❌ C-4: ${label} rendered at boot (expected first-activation render)`); }
+  }
+  const initBody = (appSrc.match(/function init\(\)[\s\S]*?\n  \}/) || [''])[0];
+  if (/render(Matrix|Lineage|GonganIndex|Lexicon)\(\)/.test(initBody)) { failures++; console.log('❌ C-4: init() still boot-renders hidden rooms'); }
+  if (!appSrc.includes('function ensureRoomRendered(') || !appSrc.includes('ensureRoomRendered(viewName);')) {
+    failures++; console.log('❌ C-4: app.js is missing the render-lazy gate in switchViewRaw');
+  }
+}
+
 // 1. Exercise renderReader for every corpus key via corpus button clicks
 // The Reader header must show FIVE separate, always-visible ledgers. A single line of
 // chips let a collation status read as a completeness claim, an edition check, or a
@@ -458,7 +477,6 @@ function ledgerSlice(html, key) {
   ].filter(index => index > start);
   return html.slice(start, bounds.length ? Math.min(...bounds) : html.length);
 }
-let failures = 0;
 const metricReview = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.source_review || {};
 const statusLabels = metricReview.status_labels || {};
 for (const [key, fn] of Object.entries(corpusClicks)) {
@@ -860,6 +878,35 @@ if (!ids['reader-content-target']._innerHTML.includes('>48/48 cases</span>')) { 
 // 4j. Mobile corpus picker is populated (mirrors the sidebar)
 const mobileSelectHtml = ids['corpus-mobile-select']._innerHTML;
 if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobile corpus picker not populated'); }
+// 4j3. C-4 render-lazy: the hidden rooms build on first activation. Activate
+// each of the four through the same click handler the nav tabs carry, then
+// return to the Reader so the view state matches the remaining checks.
+{
+  const lazyTabs = document.querySelectorAll('.nav-tab-btn');
+  for (const tab of lazyTabs) {
+    if (tab.getAttribute('data-view') !== 'reader') tab.click();
+  }
+  lazyTabs[0].click();
+}
+console.log('RENDER-LAZY: hidden rooms rendered on first tab activation');
+
+// 4j4. Phase 2 exit criterion: Reader templates carry zero inline style
+// attributes; the ledger set sits in the drawer band; visibility toggles use
+// [hidden] instead of .style writes. Only the documented popover positioning
+// pair and the three measured-contract setProperty calls may remain.
+corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
+const styleAuditHtml = ids['reader-content-target']._innerHTML;
+if (styleAuditHtml.includes(' style="')) { failures++; console.log('❌ P2: rendered Reader HTML carries an inline style attribute'); }
+if (appSrc.includes('style="')) { failures++; console.log('❌ P2: app.js emits style= literals again (the utility-class migration regressed)'); }
+if (appSrc.includes('.style.display')) { failures++; console.log('❌ P2: JS .style.display writes returned; visibility toggles use [hidden]'); }
+const writeSites = (appSrc.match(/\.style\.[a-zA-Z]+ *=[^=]/g) || []).length;
+if (writeSites > 2) { failures++; console.log(`❌ P2: inline-style write sites rose to ${writeSites} (only the popover left/top pair is permitted until Phase 3)`); }
+const contractWrites = (appSrc.match(/\.style\.setProperty/g) || []).length;
+if (contractWrites !== 3) { failures++; console.log(`❌ P2: runtime contracts changed — expected 3 setProperty sites (--shell-height, --zh-font-size ×2), found ${contractWrites}`); }
+if (!styleAuditHtml.includes('ledger-drawer') || !styleAuditHtml.includes('data-ledger-count="5"')) {
+  failures++; console.log('❌ P2: the Reader ledger drawer band is missing from the document header');
+}
+
 // 4k. Lineage graph: pan/zoom group + reset controller present
 const svgHtml = ids['lineage-svg-graph']._innerHTML;
 if (!svgHtml.includes('lineage-panzoom')) { failures++; console.log('❌ lineage pan/zoom group missing'); }
