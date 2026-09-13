@@ -95,6 +95,145 @@ Executed so far: **PR #43 (2026-09-12)** fixes the six `CITATION` rows — `zhao
 7. **Pipeline order is fixed**: `data/` → `validate_data.py` → `project_metrics.json` → `build_data_bundle.py` → root assets + byte-identical `/docs` mirror. All five quality gates pass before every push.
 8. **Durable memory lives in repo files**, not chat; dated evidence in `sessions/` is immutable.
 
+## Continuation (cold start) — added 2026-09-13
+
+> **Why this section exists:** an orchestrator session expires. Everything a successor needs to
+> resume the source-integrity campaign from `main` alone — the prompt channel, the published prompt
+> index, the immediate next task, the owner's rulings, the frozen surface and the environment
+> hazard — is recorded here, so continuing never depends on reading an unmerged branch. This
+> section is additive: it rewords nothing above, and every figure in it was re-measured in the
+> session that wrote it, at `main` = `1b41d0b8c300bcbe98639a62e4b13fda76714e18`.
+
+Three campaign invariants that no other single file states together; every continuation inherits all three:
+
+1. **The harness probing a witness is not the same as a field collating in it.** Cite no work as a text's witness unless ≥1 *evaluated content field* matches it — a reference merely listed in `scripts/collate_corpus.py`'s `WITNESS` map is a bibliographic pairing, not collation evidence. `dahui_hongzhi`'s T48n2001 pairing is the current recorded exception; see **Immediate next task** below.
+2. **Representation never establishes completion.** Only explicit editorial `completion_status` counts and `scripts/validate_data.py` is the spec (invariant 2 of `## Architectural Invariants` above): N/N unit representation proves nothing, and `complete` ⇔ `complete_selected_witness` + `collated_to_claimed_witness`.
+3. **Source collation does not approve reuse.** Edition verification and rights review are separate ledgers tracked separately everywhere; all 14 `rights_manifest.json` sources still await human/jurisdiction review, and no W1 status is a rights decision.
+
+Measured baseline on that commit — reproduce it, do not copy it:
+
+```bash
+python3 - <<'PY'
+import json
+c = json.load(open('data/project_metrics.json'))['corpus']
+sr = c['source_review']
+man = json.load(open('data/corpus_manifest.json'))['items']
+print('corpus documents', c['documents'], '| incomplete', c['incomplete_documents'],
+      '| complete_selected_witness', sum(1 for i in man if i['completion_status'] == 'complete_selected_witness'))
+print('source-content CJK', c['content_cjk_characters'], '| all-string CJK', c['all_corpus_cjk_characters'])
+print('authoritative register', sr['authoritative']['register_path'], '| flagged', sr['authoritative']['flagged_entries'],
+      '| evidence', sr['authoritative']['evidence_date'], '| statuses', sr['status_counts'])
+print('superseded 2026-09-09 pair: register', sr['historical']['flagged_entries'],
+      '| report', sr['superseded']['report_flagged_total'], '| status', sr['superseded']['status'])
+r = json.load(open('sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json'))
+a = r['aggregate']
+print('dated measurement 2026-09-12 (not a re-designation): flagged', a['flagged_entries'],
+      '| collating content fields', a['content_fields_collated'], '/', a['content_fields_total'],
+      '| documents_with_changed_status', r['reproduction']['documents_with_changed_status'])
+PY
+```
+
+```text
+corpus documents 35 | incomplete 35 | complete_selected_witness 0
+source-content CJK 104564 | all-string CJK 110233
+authoritative register sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json | flagged 630 | evidence 2026-09-10 | statuses {'collated_to_claimed_witness': 1, 'partial_or_failed_w1_collation': 32, 'witness_unavailable': 2}
+superseded 2026-09-09 pair: register 622 | report 637 | status superseded
+dated measurement 2026-09-12 (not a re-designation): flagged 532 | collating content fields 691 / 924 | documents_with_changed_status 0
+```
+
+Provenance-label census on the same commit — **50** `*_note` strings, of which **39** render beside a passage (`cbeta_note` 17, `editorial_note` 8, `recension_note` 14) while the **11** `coverage_note` strings stay exempt by recorded design, and **23** documents carry at least one rendered label (script printed at `vision.md:61`-`:82`):
+
+```text
+rendered=('recension_note', 'editorial_note', 'cbeta_note') call_sites=17 exempt=['coverage_note']
+per-key: {'cbeta_note': 17, 'editorial_note': 8, 'coverage_note': 11, 'recension_note': 14}
+ORPHANS: none — every key is rendered or exempted
+asserted: 39 of 50 note strings render beside a passage
+```
+
+Document-level and string-level counts are different units and must not be swapped: `cbeta_note` 17 documents / 17 strings (they coincide), `editorial_note` 5 documents / 8 strings, `recension_note` 1 document (`platform_sutra`) / 14 strings, `coverage_note` 11 documents / 11 strings — 23 documents with no overlap, 50 strings.
+
+- **Orchestrator branch:** `arena/01a08e15-translatechan` — the prompt **distribution channel**. The orchestrator publishes prompt files and its working state to it; it never merges into `main`, is never a PR base, and **no coding agent ever pushes to it or bases from it** — a cold start fetches *from* it and works on the session branch the platform fixed. Tip when this section was written: `35021d04dd0c5a1113991e18413dccfbe67b72d8`.
+
+  ```bash
+  git ls-remote origin refs/heads/arena/01a08e15-translatechan
+  # 35021d04dd0c5a1113991e18413dccfbe67b72d8	refs/heads/arena/01a08e15-translatechan
+  ```
+
+- **How to resume:** two commands, run from a clone of `main`. A single-branch clone has **no** `origin/arena/01a08e15-translatechan` ref and `FETCH_HEAD` is not a durable handle, so use the explicit refspec form; then read the prompt out of the fetched ref instead of checking the branch out.
+
+  ```bash
+  git fetch --depth 1 origin +arena/01a08e15-translatechan:refs/remotes/origin/_orch
+  git show refs/remotes/origin/_orch:.orchestrator/prompts/<NNN>-<slug>.md > /tmp/task.md
+  ```
+
+  Both forms were run in the session that wrote this section, against a real prompt: `git show refs/remotes/origin/_orch:.orchestrator/prompts/014-citation-fixes.md` → 242 lines, first line `# Task 014 — Stop saying six false citations: align the public claims with what the collation actually tested`. The fetched prompt is the task; if it and a chat stub disagree, the fetched file wins. `/tmp/task.md` is scratch and is never committed. A successor **copies the prompt set and the working state forward** — new prompts go into the same `.orchestrator/prompts/` index, continuing its numbering; never start a second index, never renumber an existing prompt, and never re-dispatch a merged prompt as if it were new.
+
+- **Prompt inventory:** every prompt published on the channel at `35021d0`, one line each — `NNN · title · PR · state`:
+
+  ```bash
+  git ls-tree --name-only refs/remotes/origin/_orch .orchestrator/prompts/
+  # → 16 files: 002, 003, 004, 005, 006, 007a, 007b, 008, 009, 010, 010b, 011, 012, 013, 014, 016
+  ```
+
+  - `002` · Retire the repository scoreboard (`.scoreboard/` + `SCOREBOARD.md`, relocate the workflow-edit record) · PR #31 · merged 2026-09-11
+  - `003` · Re-key `linji_yulu`'s W1-flagged content fields to T47n1985 (Wave 1, document 3) · PR #32 · merged 2026-09-11
+  - `004` · Tracker and comment drift after the scoreboard removal (docs-only) · PR #33 · merged 2026-09-11
+  - `005` · Re-key `xinxin_ming` to the T48n2010 witness (Wave 1, document 4) · PR #34 · merged 2026-09-11
+  - `006` · Independent witness inventory, family 1 (T47 recensions) · PR #35 · merged 2026-09-11 — its `.orchestrator/WITNESS_INVENTORY.md` rode in #35 alongside task 009 (commit `654189a6`)
+  - `007a` · Independent witness inventory, family 2 (T45/T48/T51 + the witness-unavailable pair) · PR #36 · merged 2026-09-11
+  - `007b` · Independent witness inventory, family 3 (X-series witnesses) · PR #36 · merged 2026-09-11
+  - `008` · Consolidate the three witness inventories into one Phase-2 decision instrument · PR #37 · merged 2026-09-12
+  - `009` · `platform_sutra`: label the recensions honestly (Dunhuang-primary ruling, label-only) · PR #35 · merged 2026-09-11
+  - `010` · Align the vision and roadmap documents to the measured status quo · PR #38 · merged 2026-09-12
+  - `010b` · Bring the status documents to today: `README.md`, `AUDIT.md`, `HANDOFF.md` · PR #39 · merged 2026-09-12
+  - `011` · Make the provenance labels visible: render every note the corpus carries · PR #40 · merged 2026-09-12
+  - `012` · Publish the post-remediation evidence pass (a new dated record, no re-designation) · PR #41 · merged 2026-09-12
+  - `013` · Say what shipped: close the presentation and register claims `main` still lists as owed · PR #42 · merged 2026-09-12
+  - `014` · Stop saying six false citations: align the public claims with what the collation tested · PR #43 · merged 2026-09-12 (this is `main` = `1b41d0b`)
+  - `015` · **not published** — no `015-*` file exists on the channel at `35021d0`; the gap is measured, not assumed, and the index is not renumbered to close it
+  - `016` · Make `main` cold-startable: this Continuation block · the PR that adds this section · open when this was written
+
+  Two pairs of prompts shipped in one PR each (`006`+`009` in #35, `007a`+`007b` in #36); that is recorded here so a successor does not hunt for a missing PR.
+
+- **Immediate next task — `014b`, the two follow-ups PR #43 left open.** Both are disclosure work: neither re-keys a character of source text, and neither moves a status.
+
+  1. **Sync the stale provenance-label census.** Nine lines still assert **49 / 38 / 22 / 16** (note strings carried / strings rendered beside a passage / documents carrying a label / `cbeta_note` count) where `main` now measures **50 / 39 / 23 / 17**: `ROADMAP.md:163` and `:179`, `vision.md:57`, `:59`, `:88`, `:90` and `:327`, `RESEARCH_RELEASE_PLAN.md:32` and `:103`. The +1 is PR #43's own `zhaozhou_yulu` `cbeta_note` — that document carried only `coverage_note` at `77b4039`, so one added note moved all four figures at once. `ROADMAP.md:161` is already correct (**23** documents, `cbeta_note` 17 + `editorial_note` 5 + `recension_note` 1, no overlap) and must not be "fixed" back. The 11 `coverage_note` strings stay an explained exemption, so the honest sentence remains "**39 of 50** render beside a passage", never "all 50". `vision.md:88` and `:90` sit **inside a `text` block of measured output** (`vision.md:86`-`:91`, printed by the script at `:61`-`:82` and introduced at `:84` as what that script prints on `main`) — they must be **regenerated by re-running that script**, not retyped, and the date on `:84` moves with them.
+  2. **`data/corpus/dahui_hongzhi.json` disclosure.** PR #43 corrected the *manifest* row (`data/corpus_manifest.json` → `cbeta`: `T1998A / T1998B + T48n2001 (宏智禪師廣錄, 默照銘)`) and did not touch the document, so document and manifest now disagree. The document's `cbeta_note` still reads "dropped unverified '/T2001' pairing" and must disclose that the T48n2001 pairing is **bibliographic** — it comes from `scripts/collate_corpus.py`'s witness note, "Hongzhi's Mozhaoming lives in T2001 Hongzhi guanglu, not claimed T1998A" — and that **0 of 6** evaluated content fields collate in any of the three witnesses (invariant 1 above: a probe is not a collation). `cbeta_id`, currently `T1998A (大慧普覺禪師語錄)`, must either name all three works (T47n1998A, T47n1998B, T48n2001) or state that it covers the 看話書問 letters only.
+
+  ```bash
+  grep -n "of the 49\|49\*\* provenance\|22 documents carry\|cbeta_note\` in 16\|cbeta_note\` 16" ROADMAP.md vision.md RESEARCH_RELEASE_PLAN.md
+  grep -n "cbeta_note': 16\|38 of 49\|provenance labels in \*\*22\*\*" ROADMAP.md vision.md RESEARCH_RELEASE_PLAN.md
+  # → ROADMAP.md:163,:179 · vision.md:57,:59,:88,:90,:327 · RESEARCH_RELEASE_PLAN.md:32,:103
+  python3 -c "import json;d=json.load(open('sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json'))['documents']['dahui_hongzhi'];print(d['witness'],d['content_fields_collated'],'/',d['content_fields_total'],d['witness_note'])"
+  # → ['T47n1998A', 'T47n1998B', 'T48n2001'] 0 / 6 Hongzhi's Mozhaoming lives in T2001 Hongzhi guanglu, not claimed T1998A.
+  ```
+
+- **Owner rulings in force — the four 2026-09-12 rulings, recorded above under `## Standing Decisions (2026-09-12, owner — four rulings; executed by PR #43)` and still binding on every successor:**
+
+  - **Ruling 1 — the six `CITATION` rows ship in ONE PR** (executed by PR #43). *Forbids* batching any other remediation class into that PR: `RE-KEY` and `LABEL` work stays one document per PR, unchanged.
+  - **Ruling 2 — the ledger stays as it is.** `630` remains the authoritative register figure and the 2026-09-12 post-remediation record stays a dated measurement beside it. *Forbids* re-designation: no `scripts/w1_evidence.py` or `FIXED_METADATA` change, and no retiring the pinned `630` sentences — converting the fixed historical/overlay pair into a chain is its own owner-ruled change.
+  - **Ruling 3 — fabricated or unsupported text is replaced with real source text where the pinned witness carries it, and labelled where it does not.** *Forbids* re-pointing a withdrawn claim at an unverified candidate: in PR #43 the false T1987 claim on `zhaozhou_yulu` (T1987 is the Caoshan record) was **withdrawn**, not re-pointed, because X68n1315 probes at only 2 of 19 evaluated content fields, the document went to the human-sourcing queue, and no field was re-keyed.
+  - **Ruling 4 — `OUT-OF-CBETA` sourcing is human work.** *Forbids* any agent fetch, transcription or evaluation of the witnesses in the 31-document human-sourcing queue (`.orchestrator/PHASE2_PLAN.md` §7); agents may only work the label/citation rows already assigned.
+
+- **Frozen surface — none of this is "improved" inside a continuation PR:**
+
+  - **The five quality gates pass before every push** (CI runs the same set): `python3 -m py_compile scripts/*.py` · `python3 scripts/validate_data.py` · `python3 scripts/build_data_bundle.py` · `node scripts/smoke_test.mjs` · `diff -rq data docs/data`.
+  - **Never edit the checker to make a gate pass.** When a gate and the prose disagree, the prose is wrong: fix the document, not `scripts/validate_data.py`, `scripts/test_source_review_rules.py` or `scripts/test_source_preservation.py`. If a gate ever demands an out-of-scope edit, stop and report it — the rule as applied in `.orchestrator/PHASE2_PLAN.md` §6(a)3 is "fix the prose, not the checker".
+  - **`docs/` is generated.** `docs/app.css`, like every `docs/` mirror path, is rewritten only by `scripts/build_data_bundle.py` (its mirror list, `scripts/build_data_bundle.py:104`); hand-editing a `docs/` file is editing a build artifact at the wrong end, and a prose PR that moves `docs/index.html` has edited the wrong file.
+  - **Internal identifiers stay:** `translatechan_*` localStorage keys, `window.TranslateChan`, `TRANSLATECHAN_DATA`; the public brand is "Fake Chan Factory" and the humor-forward tone stays.
+  - **Public scope is exactly 5 rooms** (Reader, Comparative Matrix, Lineage, Gong'an Index, Chan Lexicon) and is smoke-guarded; Translation Studio, Arena AI Agents and the header GitHub link stay out.
+  - **`sessions/*` is append-only:** dated evidence is never edited or deleted — a new dated record supersedes an old one. No `.github/workflows/*` edit without explicit owner approval; `OPERATIONS.md` is the only register of owner-controlled GitHub-side changes.
+
+  ```bash
+  ls scripts/        # __pycache__/ also appears locally; it is gitignored, not a tracked tool
+  # arena_agent_pipeline.py  browser_test.mjs  build_data_bundle.py  collate_corpus.py  collate_refs.py
+  # compat_runtime_check.mjs  ingest_cbeta.py  migrate_translations.py  segment_classical.py
+  # smoke_test.mjs  source_review.py  test_source_preservation.py  test_source_review_rules.py
+  # validate_data.py  w1_evidence.py            # = git ls-files scripts/, 15 tracked tools
+  ```
+
+- **Open environment hazard (Arena sandbox):** the sandbox can rewind the worktree to an old SHA and can drop GitHub credentials mid-session. Neither event is lost history and neither is a licence to reconstruct state from memory: before concluding that a commit or a branch is gone, confirm with `gh api repos/56eli/translatechan/commits/<sha>` and `git ls-remote origin refs/heads/<branch>` — and remember a `--depth 1` clone legitimately shows one commit. Never `git pull` to fix a rejected push: a non-fast-forward rejection is a base mismatch, so halt and report the raw text, then sync with `git fetch --depth 50 origin +main:refs/remotes/origin/main && git merge --no-edit origin/main`. Never force-push, never pass `--allow-unrelated-histories`, and never commit on `main`. If a push fails on auth or network, report it, keep working locally and retry at the next checkpoint — never claim pushed what is not on the remote.
+
 ## Known Gaps
 
 - Per-document source remediation remains pending under the adopted hybrid R-A/R-B/R-C policy; the public status model prevents unsupported completion claims from being presented as verified and does not re-key source text.
