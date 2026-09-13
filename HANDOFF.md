@@ -47,16 +47,39 @@ Owner feedback on 2026-08-11:
 - it put **too much focus on Chinese characters**;
 - preserve, rather than replace, the **walnut-hall direction**.
 
-Current implementation:
+Current implementation (re-composed 2026-09-13, Pages revamp Phase 1 — see
+`.orchestrator/PAGES_REVAMP_PROPOSAL_2026-09-13.md`):
 
-- English-first brand and room navigation;
-- dark-walnut editorial/factory hero: “The old texts are real. The translators are not.”;
-- English-first room, document, case, lineage, Gong'an, and lexicon headings;
-- smaller but intact source-language labels and Reader source text;
-- matching social image and `FC` monogram;
-- compact English mobile controls;
-- progressive disclosure that removes repeated Robo, citation, coverage, Lineage, Lexicon, and search prose from the reading surface;
-- no added runtime or image payload.
+- one walnut **gate**: a lintel (brand + controls), a hairline, a directory of
+  the five rooms, and a beam that tells the joke once — structure, not texture;
+- a consolidated token sheet: 34 declarations plus 8 dark-theme overrides,
+  down from 63. Eight theme primitives (paper, panel, line, ink + four
+  accents) are the only values the dark theme overrides; every other tint is
+  derived with `color-mix()`, and every `[data-theme="dark"]` override maps
+  to a primitive one-for-one;
+- one ~1.24 modular type scale (`--type-hook` … `--type-small`), shared by
+  English and Chinese at their own line-heights;
+- **Source Serif 4** (Google-served, already inside the shipped CSP) for the
+  hook, headings and, from Phase 2, translation prose; system sans for
+  controls; `ui-monospace` for locators and counts. The CJK serif closes the
+  display stack so mixed headings never fall back to a system default.
+  Self-hosting under `/fonts/` is the documented alternative if a
+  zero-third-party-request rule is ever wanted;
+- English-first brand, room and document headings, with source Chinese
+  present but subordinate everywhere except inside the Reader sheet, where it
+  is the largest text on the page (Checkpoint-C C-3);
+- the hook: “The old texts are real. _The translators are not._” on the beam,
+  with the `PROUDLY FAKE ENGLISH` seal and the live counts as a quiet
+  colophon beneath it;
+- mobile controls regrouped from eight loose pills into two clusters (text ·
+  move) with 44 px targets;
+- redrawn social card that is the same gate — walnut beam, brass rule, serif
+  hook, colophon, seal (Georgia stands in for Source Serif 4 because a
+  crawler renders the SVG with system fonts only);
+- progressive disclosure that removes repeated Robo, citation, coverage,
+  Lineage, Lexicon, and search prose from the reading surface;
+- no added runtime dependency and no added image payload — the only new
+  third-party bytes are the webfont request above.
 
 This direction and the subsequent copy cleanup are implemented. PR #18 merged as `63dfe37`; main Quality and Pages deployment passed. Current real-browser screenshots were unavailable in the audit environment.
 

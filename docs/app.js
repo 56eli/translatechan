@@ -371,7 +371,7 @@
         `<div class="robo-tier-row">Real-fakeness: tier ${meta.tier}/5 · ${meta.pending ? 'evidence pending' : 'evidence-backed'}</div>` +
         `<div class="tooltip-row">${escHtml(meta.blurb)}</div>` +
         (meta.wu ? `<div class="tooltip-row"><strong>Renders 無:</strong> ${escHtml(meta.wu)}</div>` : '') +
-        (meta.personality ? `<div class="tooltip-row" style="margin-top:.35rem;font-style:italic;color:var(--text-secondary)">${escHtml(meta.personality)}</div>` : '');
+        (meta.personality ? `<div class="tooltip-row" style="margin-top:.35rem;font-style:italic;color:var(--ink-soft)">${escHtml(meta.personality)}</div>` : '');
     } else {
       pop.innerHTML = `<div class="tooltip-term-title">Robolation</div><div class="tooltip-row">AI text in a translator\u2019s register — not their actual words. Profile pending.</div>`;
     }
@@ -1604,7 +1604,7 @@
     if (typeof note !== 'string') return '';
     const text = note.trim();
     if (!text) return '';
-    return `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${escHtml(text)}</div>`;
+    return `<div style="font-size:0.75rem; color:var(--ink-soft); margin-top:0.25rem;">ℹ️ ${escHtml(text)}</div>`;
   }
 
   function renderProvenanceNotes(node) {
@@ -1789,9 +1789,9 @@
     // Render Five Ranks (e.g. Dongshan Yulu)
     if (doc.five_ranks && doc.five_ranks.length > 0) {
       html += `
-        <div class="case-card" style="border-left: 4px solid var(--accent-green); margin-bottom: 1.5rem;">
-          <h2 class="case-num-title" style="margin-bottom: 0.5rem; color: var(--accent-green);">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</h2>
-          <div style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">${escHtml(doc.overview || '')}</div>
+        <div class="case-card" style="border-left: 4px solid var(--green); margin-bottom: 1.5rem;">
+          <h2 class="case-num-title" style="margin-bottom: 0.5rem; color: var(--green);">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</h2>
+          <div style="font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 1rem;">${escHtml(doc.overview || '')}</div>
         </div>
       `;
 
@@ -1805,10 +1805,10 @@
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
             <div class="pinyin-line">${escHtml(r.verse_pinyin)}</div>
             ${renderTranslationColumns(r.translations, r.verse_zh)}
-            <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--accent-green);">
-              <div class="commentary-label" style="color: var(--accent-green);">曹山註解 / Caoshan Commentary</div>
+            <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--green);">
+              <div class="commentary-label" style="color: var(--green);">曹山註解 / Caoshan Commentary</div>
               <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
-              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: r.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.9rem; color: var(--ink); margin-top: 0.35rem;">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: r.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
             </div>
             ${renderProvenanceNotes(r)}
           </div>
@@ -1820,13 +1820,13 @@
     // (skipped when a five_ranks block is present — it already surfaces doc.overview)
     if (doc.overview && !doc.five_ranks) {
       html += `
-        <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
+        <div class="case-card" style="border-left: 4px solid var(--gold); margin-bottom: 1.5rem;">
           <h2 class="case-num-title" style="margin-bottom: 0.5rem;">📚 Canonical Architecture & Scope</h2>
-          <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${escHtml(doc.overview)}</div>
+          <div style="font-size: 0.95rem; color: var(--ink); margin-bottom: 1rem;">${escHtml(doc.overview)}</div>
           ${doc.fascicle_structure ? `
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem;">
               ${doc.fascicle_structure.map(f => `
-                <div style="background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 4px; border: 1px solid var(--border-color); font-size: 0.78rem;">
+                <div style="background: var(--panel); padding: 0.5rem 0.75rem; border-radius: 4px; border: 1px solid var(--line); font-size: 0.78rem;">
                   <strong>卷 ${escHtml(f.fascicle)}:</strong> ${escHtml(f.scope)}
                 </div>
               `).join('')}
@@ -1925,10 +1925,10 @@
         </div>
         <div class="case-body">
         ${caseItem.pointer_zh ? `
-          <div class="commentary-block" style="background: var(--bg-card); border-left-color: var(--accent-blue); margin-bottom: 1rem;">
-            <div class="commentary-label" style="color: var(--accent-blue);">垂示 / Pointer</div>
+          <div class="commentary-block" style="background: var(--panel); border-left-color: var(--blue); margin-bottom: 1rem;">
+            <div class="commentary-label" style="color: var(--blue);">垂示 / Pointer</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
-            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.88rem; color: var(--text-secondary);">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft', { zh: caseItem.pointer_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.88rem; color: var(--ink-soft);">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft', { zh: caseItem.pointer_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${dialoguesHtml}
@@ -1937,15 +1937,15 @@
             <div class="commentary-label">${textLabels.commentary}</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.commentary_pinyin || '')}</div>
-            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: caseItem.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--ink);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: caseItem.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${caseItem.verse_zh ? `
           <div class="verse-block">
-            <div class="commentary-label" style="color: var(--accent-green);">${textLabels.verse}</div>
+            <div class="commentary-label" style="color: var(--green);">${textLabels.verse}</div>
             <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
             <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.verse_pinyin || '')}</div>
-            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--ink);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${renderProvenanceNotes(caseItem)}
@@ -2685,7 +2685,7 @@
       const group = genGroups[gen];
       const y = TOP_PAD + gIdx * ROW_GAP;
       const availableWidth = width - horizontalMargin * 2;
-      generationLabelsHtml += `<text x="${rowLabelX}" y="${y + 4}" text-anchor="start" font-size="10" font-weight="700" fill="var(--text-muted)" font-family="var(--font-sans)">G${gen}</text>`;
+      generationLabelsHtml += `<text x="${rowLabelX}" y="${y + 4}" text-anchor="start" font-size="10" font-weight="700" fill="var(--ink-soft)" font-family="var(--font-ui)">G${gen}</text>`;
       group.forEach((m, mIdx) => {
         const x = group.length === 1
           ? width / 2
@@ -2725,9 +2725,9 @@
       nodesHtml += `
         <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" data-master-node="${escHtml(master.id)}">
           <circle class="graph-node-halo" r="30" fill="${color}" fill-opacity="0.09"></circle>
-          <circle r="24" fill="var(--bg-card)" stroke="${color}" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.12))"></circle>
-          <text text-anchor="middle" dy=".34em" font-size="10" font-weight="800" fill="var(--text-primary)" font-family="var(--font-mono)">${escHtml(monogram)}</text>
-          <text text-anchor="middle" y="40" font-size="10" font-weight="650" fill="var(--text-secondary)" font-family="var(--font-sans)">${escHtml(shortName)}</text>
+          <circle r="24" fill="var(--panel)" stroke="${color}" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.12))"></circle>
+          <text text-anchor="middle" dy=".34em" font-size="10" font-weight="800" fill="var(--ink)" font-family="var(--font-mono)">${escHtml(monogram)}</text>
+          <text text-anchor="middle" y="40" font-size="10" font-weight="650" fill="var(--ink-soft)" font-family="var(--font-ui)">${escHtml(shortName)}</text>
         </g>
       `;
     });
@@ -2961,9 +2961,9 @@
         <div style="margin-top:0.5rem; margin-bottom:0.75rem;">
           <strong>Verification status:</strong> ${escHtml(meta.label)}
         </div>
-        <div class="commentary-block" style="background:var(--bg-card); border-left-color:var(--accent-blue); margin:0;">
-          <div class="commentary-label" style="color:var(--accent-blue);">Lineage chart disclosure</div>
-          <div style="font-size:0.9rem; color:var(--text-primary);">${escHtml(stringValue(edge.note) || 'No verification note recorded.')}</div>
+        <div class="commentary-block" style="background:var(--panel); border-left-color:var(--blue); margin:0;">
+          <div class="commentary-label" style="color:var(--blue);">Lineage chart disclosure</div>
+          <div style="font-size:0.9rem; color:var(--ink);">${escHtml(stringValue(edge.note) || 'No verification note recorded.')}</div>
           <div style="margin-top:0.55rem;">${renderCitationTrigger(detail, 'ⓘ Source chart & verification')}</div>
         </div>`;
     }

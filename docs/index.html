@@ -30,7 +30,16 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Typefaces. Source Serif 4 is the scholarly English voice (Checkpoint-C
+       C-2): it carries the hook, headings and — from Phase 2 — translation
+       prose, and it has a true italic for the turn of the hook. Inter stays
+       for controls only; Noto Serif SC stays for source Chinese. Served from
+       Google Fonts, which the shipped CSP already allows (style-src
+       fonts.googleapis.com / font-src fonts.gstatic.com), so this adds no
+       repository bytes and no new third party. Self-hosting under /fonts/
+       remains a documented option if a zero-third-party-request rule is ever
+       wanted; it would add ~100–300 KB of woff2 to the repo. -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
   <!-- D4: parse the deterministic data bundle as early as possible. A modulepreload
        is not appropriate (app_data.js is a classic global script), so preload as
@@ -45,7 +54,7 @@
   <!-- Main Navigation Header -->
   <header id="site-shell" class="site-shell">
     <div class="shell-frame">
-      <div class="shell-primary">
+      <div class="shell-lintel">
         <a href="#/reader" class="brand" aria-label="Fake Chan Factory — Reader">
           <span class="brand-mark" aria-hidden="true">FC</span>
           <span class="brand-lockup">
@@ -87,19 +96,22 @@
   </header>
 
   <main id="main-content">
-  <!-- English-first identity panel: walnut hall structure, factory attitude, no
-       fake attribution. The source language remains central in the Reader. -->
+  <!-- English-first identity panel: the walnut beam. Walnut hall structure,
+       factory attitude, no fake attribution — the joke is told once, here,
+       and the counts are a quiet colophon beneath it. The source language
+       stays the largest text on the page inside the Reader (C-3). -->
   <div class="zen-hero-banner" id="zen-hero-banner" role="region" aria-label="About Fake Chan Factory">
     <button class="hero-dismiss-btn" id="hero-dismiss-btn" title="Hide this introduction for this session" aria-label="Hide project introduction">Close</button>
-    <div class="hero-main">
-      <div class="hero-kicker"><span>Open Chan Lab</span><span>Edition 01 / 2026</span></div>
+    <div class="hero-body">
+      <p class="hero-kicker"><span>Open Chan Lab</span><span>Edition 01 / 2026</span></p>
       <p class="zen-quote-main">The old texts are real.<br><em>The translators are not.</em></p>
+      <p class="hero-colophon">
+        <span class="hero-stat" aria-label="35 Corpus Works"><strong id="hero-corpus-count">35</strong> corpus works</span>
+        <span class="hero-stat" aria-label="21 Matrix Registers"><strong id="hero-translator-count">21</strong> comparison registers</span>
+        <span class="hero-colophon-zh" lang="zh">假禪工廠</span>
+      </p>
     </div>
-    <div class="hero-meta" aria-label="Project statistics">
-      <div class="hero-stamp" aria-hidden="true"><span>PROUDLY</span><strong>FAKE</strong><span>ENGLISH</span></div>
-      <div class="hero-stat" aria-label="35 Corpus Works"><strong id="hero-corpus-count">35</strong><span>corpus<br>works</span></div>
-      <div class="hero-stat" aria-label="21 Matrix Registers"><strong id="hero-translator-count">21</strong><span>comparison<br>registers</span></div>
-    </div>
+    <div class="hero-stamp" aria-hidden="true"><span>PROUDLY</span><strong>FAKE</strong><span>ENGLISH</span></div>
   </div>
 
     <!-- View 1: Bilingual Reader -->
@@ -237,18 +249,23 @@
 
   </main>
 
-  <!-- Mobile bottom action bar (touch devices / narrow screens) -->
+  <!-- Mobile bottom action bar (touch devices / narrow screens). The eight
+       former loose pills are regrouped into two clusters — text (size and
+       reading mode), then move (pinyin and jump) — with a hairline between
+       them and 44 px targets throughout. -->
   <div class="mobile-action-bar" role="toolbar" aria-label="Reading controls">
-    <button id="mobile-font-dec-btn" class="btn-pill" aria-label="Decrease Chinese font size">A−</button>
-    <button id="mobile-font-inc-btn" class="btn-pill" aria-label="Increase Chinese font size">A+</button>
-    <span class="mobile-bar-divider"></span>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode" aria-pressed="true">Bi</button>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode" aria-pressed="false">All</button>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode" aria-pressed="false">Zh</button>
-    <span class="mobile-bar-divider"></span>
-    <button id="mobile-pinyin-btn" class="btn-pill active" aria-label="Toggle pinyin display" title="Show or hide pinyin">Py</button>
-    <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">#</button>
-    <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">↑</button>
+    <div class="mobile-bar-cluster" role="group" aria-label="Text size and reading mode">
+      <button id="mobile-font-dec-btn" class="btn-pill" aria-label="Decrease Chinese font size">A−</button>
+      <button id="mobile-font-inc-btn" class="btn-pill" aria-label="Increase Chinese font size">A+</button>
+      <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode" aria-pressed="true">Bi</button>
+      <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode" aria-pressed="false">All</button>
+      <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode" aria-pressed="false">Zh</button>
+    </div>
+    <div class="mobile-bar-cluster" role="group" aria-label="Pinyin and navigation">
+      <button id="mobile-pinyin-btn" class="btn-pill active" aria-label="Toggle pinyin display" title="Show or hide pinyin">Py</button>
+      <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">#</button>
+      <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">↑</button>
+    </div>
   </div>
 
   <!-- Footer removed per owner feedback: the public surface ends with the literature. -->

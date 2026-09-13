@@ -1,39 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Fake Chan Factory — The old texts are real. The translators are not.">
-  <rect width="1200" height="630" fill="#f4efe5"/>
-  <rect width="418" height="630" fill="#211814"/>
-  <rect x="418" width="7" height="630" fill="#c9a66b"/>
-  <path d="M0 0h418v630H0z" fill="url(#grain)" opacity=".45"/>
+  <!-- Share card, redrawn 2026-09-13 against the Phase-1 system: it is the
+       same walnut gate the site opens with — lintel, brass rule, hook set in
+       a scholarly serif, quiet colophon, seal. Colours are the live tokens
+       (wood #211814 → #3a2a22, wood-ink #f3ead9, wood-muted #cdbda7, brass
+       #c9a66b). Georgia stands in for Source Serif 4 because a social
+       crawler renders this SVG with system fonts only. -->
   <defs>
-    <pattern id="grain" width="70" height="70" patternUnits="userSpaceOnUse">
-      <path d="M0 69L69 0M35 70L70 35" stroke="#fff" stroke-opacity=".025" stroke-width="1"/>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0.35">
+      <stop offset="0" stop-color="#211814"/>
+      <stop offset="1" stop-color="#3a2a22"/>
+    </linearGradient>
+    <pattern id="beams" width="68" height="8" patternUnits="userSpaceOnUse">
+      <rect width="1" height="8" fill="#f3ead9" fill-opacity=".05"/>
     </pattern>
   </defs>
 
-  <g transform="translate(62 58)">
-    <rect width="82" height="82" fill="#c9a66b"/>
-    <text x="41" y="53" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="29" font-weight="900" fill="#211814">FC</text>
-    <text x="0" y="130" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#f3ead9">FAKE CHAN FACTORY</text>
-    <text x="0" y="156" font-family="serif" font-size="17" letter-spacing="4" fill="#cdbda7">假禪工廠</text>
+  <rect width="1200" height="630" fill="url(#beam)"/>
+  <rect width="1200" height="630" fill="url(#beams)"/>
 
-    <g transform="translate(0 318)">
-      <text font-family="monospace" font-size="13" font-weight="700" letter-spacing="2" fill="#c9a66b">OPEN CHAN LAB / 2026</text>
-      <line x1="0" y1="25" x2="290" y2="25" stroke="#c9a66b" stroke-opacity=".5"/>
-      <text y="64" font-family="monospace" font-size="13" fill="#cdbda7">35 SOURCE-TRACKED WORKS</text>
-      <text y="91" font-family="monospace" font-size="13" fill="#cdbda7">21 COMPARISON REGISTERS</text>
-      <text y="118" font-family="monospace" font-size="13" fill="#cdbda7">100% DISCLOSED ROBO TEXT</text>
-    </g>
+  <!-- Lintel: monogram + wordmark, Chinese subordinate -->
+  <g transform="translate(72 26)">
+    <path d="M0 0h44v44H0z" fill="#c9a66b" clip-rule="evenodd"/>
+    <path d="M36 0h8v8h-8z" fill="#211814"/>
+    <text x="22" y="31" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="22" font-weight="700" fill="#211814">FC</text>
+  </g>
+  <text x="132" y="48" font-family="Georgia,'Times New Roman',serif" font-size="21" font-weight="700" letter-spacing="1.5" fill="#f3ead9">Fake Chan Factory</text>
+  <text x="132" y="72" font-family="Georgia,'Times New Roman',serif" font-size="15" letter-spacing="4" fill="#cdbda7">假禪工廠</text>
+
+  <!-- Hairline under the lintel, then the hall directory -->
+  <rect x="0" y="98" width="1200" height="1" fill="#f3ead9" fill-opacity=".1"/>
+  <text x="72" y="136" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2.4" fill="#c9a66b" fill-opacity=".8">READ · COMPARE · LINEAGE · CASES · TERMS</text>
+  <rect x="0" y="164" width="1200" height="1" fill="#f3ead9" fill-opacity=".06"/>
+
+  <!-- Kicker -->
+  <text x="72" y="228" font-family="monospace" font-size="13" font-weight="700" letter-spacing="2.8" fill="#c9a66b">OPEN CHAN LAB · EDITION 01 / 2026</text>
+
+  <!-- The hook: serif for the statement, brass italic for the turn -->
+  <text x="72" y="308" font-family="Georgia,'Times New Roman',serif" font-size="66" font-weight="700" letter-spacing="-2" fill="#f3ead9">The old texts are real.</text>
+  <text x="72" y="386" font-family="Georgia,'Times New Roman',serif" font-size="66" font-weight="700" font-style="italic" letter-spacing="-2" fill="#c9a66b">The translators are not.</text>
+
+  <!-- Colophon: live counts under a brass hairline -->
+  <rect x="72" y="444" width="700" height="1" fill="#c9a66b" fill-opacity=".32"/>
+  <text x="72" y="492" font-family="Georgia,'Times New Roman',serif" font-size="34" font-weight="700" fill="#f3ead9">35</text>
+  <text x="140" y="492" font-family="monospace" font-size="13" letter-spacing="1.6" fill="#cdbda7">CORPUS WORKS</text>
+  <text x="330" y="492" font-family="Georgia,'Times New Roman',serif" font-size="34" font-weight="700" fill="#f3ead9">21</text>
+  <text x="398" y="492" font-family="monospace" font-size="13" letter-spacing="1.6" fill="#cdbda7">COMPARISON REGISTERS</text>
+  <text x="72" y="524" font-family="monospace" font-size="12" letter-spacing="1.4" fill="#cdbda7" fill-opacity=".7">SOURCE CHINESE IS REAL · EVERY ROBO REGISTER IS LABELLED</text>
+
+  <!-- Seal: the PROUDLY FAKE ENGLISH stamp, same rotation as the hero -->
+  <g transform="translate(946 196) rotate(-3)">
+    <rect width="184" height="184" fill="none" stroke="#c9a66b" stroke-width="2"/>
+    <text x="92" y="72" text-anchor="middle" font-family="monospace" font-size="14" font-weight="800" letter-spacing="3.4" fill="#c9a66b">PROUDLY</text>
+    <text x="92" y="122" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="46" font-weight="700" letter-spacing="-1" fill="#f3ead9">FAKE</text>
+    <text x="92" y="152" text-anchor="middle" font-family="monospace" font-size="14" font-weight="800" letter-spacing="3.4" fill="#c9a66b">ENGLISH</text>
   </g>
 
-  <g transform="translate(500 78)">
-    <text font-family="monospace" font-size="14" font-weight="800" letter-spacing="2.5" fill="#724e1e">SOURCE TEXTS IN / ROBO REGISTERS OUT</text>
-    <text y="102" font-family="Georgia,'Times New Roman',serif" font-size="70" font-weight="700" letter-spacing="-3" fill="#2c2523">THE OLD TEXTS</text>
-    <text y="174" font-family="Georgia,'Times New Roman',serif" font-size="70" font-weight="700" letter-spacing="-3" fill="#2c2523">ARE REAL.</text>
-    <text y="276" font-family="Georgia,'Times New Roman',serif" font-size="70" font-weight="700" letter-spacing="-3" fill="#8b622b">THE TRANSLATORS</text>
-    <text y="348" font-family="Georgia,'Times New Roman',serif" font-size="70" font-style="italic" font-weight="700" letter-spacing="-3" fill="#8b622b">ARE NOT.</text>
-    <line x1="0" y1="393" x2="620" y2="393" stroke="#d8cbb8" stroke-width="2"/>
-    <text y="438" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#6e645e">Source-aware Classical Chan, compared without fake attribution.</text>
-  </g>
-
-  <path d="M1150 0h50v50z" fill="#c9a66b"/>
-  <text x="1158" y="596" text-anchor="end" font-family="monospace" font-size="12" letter-spacing="2" fill="#665c56">56ELI.GITHUB.IO/TRANSLATECHAN</text>
+  <!-- Milled shop-mark, and the address on the brass footing -->
+  <text x="1178" y="596" text-anchor="end" font-family="monospace" font-size="86" font-weight="900" letter-spacing="-7" fill="#f3ead9" fill-opacity=".045">FC // 01</text>
+  <text x="72" y="596" font-family="monospace" font-size="12" letter-spacing="2" fill="#cdbda7">56ELI.GITHUB.IO/TRANSLATECHAN</text>
+  <rect x="0" y="626" width="1200" height="4" fill="#c9a66b"/>
 </svg>
