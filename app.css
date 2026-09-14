@@ -2662,12 +2662,20 @@ textarea:focus-visible,
 .lexicon-entry-count { font-family: var(--font-mono); font-size: 0.64rem; color: var(--ink-soft); }
 
 /* --- Z3 responsive: 1024 / 768 / 480 ------------------------------------- */
-/* Tablet: the bands and rows keep their order, the printed column heads drop
-   out (every cell is self-describing), and a row may take a second line. */
+/* Tablet: the bands and rows keep their order and a row may take a second line.
+   The printed column heads leave the layout but stay in the a11y tree (the same
+   off-screen technique the skip link uses): a stacked cell like “T2005” or “1”
+   needs its column name more on a small screen, not less. */
 @media (max-width: 1024px) {
   .matrix-collation-head,
   .lineage-band-cols,
-  .gongan-catalogue-head { display: none; }
+  .gongan-catalogue-head {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
   .lineage-master-row { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); }
   .lineage-master-quote { grid-column: 1 / -1; padding-left: 0; border-left: 0; margin-top: 0.4rem; }
   .catalogue-row {

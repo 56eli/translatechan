@@ -2475,7 +2475,7 @@
           ${sourceDisclosure}
         </div>
         <div class="matrix-collation">
-          <div class="matrix-collation-head" aria-hidden="true">
+          <div class="matrix-collation-head">
             <span>Register</span><span>Machine-made English for this line</span>
           </div>
           ${translators.map(rawTranslator => {
@@ -2720,7 +2720,7 @@
           <h2 class="lineage-band-gen">Generation ${escHtml(gen)}</h2>
           <p class="lineage-band-meta">${bands.get(gen).length} ${bands.get(gen).length === 1 ? 'master' : 'masters'} · ${escHtml(lineageBandEra(bands.get(gen)))}</p>
         </div>
-        <div class="lineage-band-cols" aria-hidden="true">
+        <div class="lineage-band-cols">
           <span>Master</span><span>House</span><span>Dated record</span><span>Signature</span>
         </div>
         ${bands.get(gen).map(m => renderLineageMasterRow(m)).join('')}
@@ -3159,7 +3159,7 @@
 
     elements.gonganTarget.innerHTML = `${filterBar}
       <div class="gongan-catalogue">
-        <div class="gongan-catalogue-head" aria-hidden="true">
+        <div class="gongan-catalogue-head">
           <span>Case</span><span>Title</span><span>Collection</span><span>Theme</span><span>Record</span>
         </div>
         ${catalogue}
