@@ -216,11 +216,12 @@
     applyPinyinVisibility();
     renderCorpusList();
     renderReader();
-    renderMatrix();
-    renderLineage();
-    renderGonganIndex();
-    renderLexicon();
     setActiveModeButtons();
+    // Render-lazy (Checkpoint-C C-4): only the Reader renders at boot. The
+    // four hidden rooms render on first tab activation; this call renders the
+    // initial room when a deep link lands outside the Reader. One bundle, no
+    // pipeline change — boot simply skips DOM building for rooms nobody is
+    // looking at.
     switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
   }
 
@@ -288,9 +289,9 @@
     if (!termPopoverEl) {
       termPopoverEl = document.createElement('div');
       termPopoverEl.id = 'term-popover';
-      termPopoverEl.className = 'term-popover';
+      termPopoverEl.className = 'term-popover chan-popover';
       termPopoverEl.setAttribute('role', 'tooltip');
-      termPopoverEl.style.display = 'none';
+      termPopoverEl.hidden = true;
       // N8: the popover itself is interactive (scrollable); leaving it hides it.
       termPopoverEl.addEventListener('mouseleave', () => { hideTermPopover(); });
       document.body.appendChild(termPopoverEl);
@@ -304,6 +305,14 @@
   // Shared popover positioning (N8, 2026-08-09, session 019fe731): measure the
   // real rendered height (add display before calling) instead of hardcoding a
   // guess, so long citations/definitions flip cleanly above the anchor.
+  //
+  // Phase 3 (2026-09-13) turned the old `left`/`top` pair into ONE write of the
+  // `--pop-shift` custom property, consumed as `translate` by the shared
+  // .chan-popover rule in app.css. The mechanism is the one behind --shell-height
+  // and --zh-font-size too: the sheet owns placement, script publishes the
+  // measured number. A CSP style-src list governs style attributes and `style`
+  // elements, not CSSOM writes, so the tightened policy leaves this path working
+  // — see the note above the CSP meta in index.html for the full contract.
   function positionFloatingPopover(pop, anchor, popW) {
     const rect = anchor.getBoundingClientRect();
     const vw = window.innerWidth || document.documentElement.clientWidth || 900;
@@ -313,8 +322,7 @@
     const height = pop.offsetHeight || 220;
     let top = rect.bottom + 8;
     if (top + height > vh - 8) top = Math.max(8, rect.top - 8 - height);
-    pop.style.left = `${left}px`;
-    pop.style.top = `${top}px`;
+    pop.style.setProperty('--pop-shift', `${left}px ${top}px`);
   }
 
   function showTermPopover(termSpan) {
@@ -327,15 +335,15 @@
       `<div class="tooltip-sanskrit">Sanskrit: ${escHtml(t.sanskrit || '—')}</div>` +
       `<div class="tooltip-row"><strong>Literal:</strong> ${escHtml(t.literal || '')}</div>` +
       `<div class="tooltip-row">${escHtml(t.definition || '')}</div>`;
-    pop.style.display = 'block'; // display first so the positioner can measure
+    pop.hidden = false; // shown first so the positioner can measure
     positionFloatingPopover(pop, termSpan, 290);
     pop._anchor = termSpan;
   }
   function hideTermPopover() {
-    if (termPopoverEl) termPopoverEl.style.display = 'none';
+    if (termPopoverEl) termPopoverEl.hidden = true;
   }
   function toggleTermPopover(termSpan) {
-    if (termPopoverEl && termPopoverEl.style.display === 'block' &&
+    if (termPopoverEl && !termPopoverEl.hidden &&
         termPopoverEl._anchor === termSpan) {
       hideTermPopover();
       return;
@@ -350,9 +358,9 @@
     if (!roboPopoverEl) {
       roboPopoverEl = document.createElement('div');
       roboPopoverEl.id = 'robo-popover';
-      roboPopoverEl.className = 'robo-popover';
+      roboPopoverEl.className = 'robo-popover chan-popover';
       roboPopoverEl.setAttribute('role', 'tooltip');
-      roboPopoverEl.style.display = 'none';
+      roboPopoverEl.hidden = true;
       roboPopoverEl.addEventListener('mouseleave', () => { hideRoboPopover(); });
       document.body.appendChild(roboPopoverEl);
     }
@@ -371,19 +379,19 @@
         `<div class="robo-tier-row">Real-fakeness: tier ${meta.tier}/5 · ${meta.pending ? 'evidence pending' : 'evidence-backed'}</div>` +
         `<div class="tooltip-row">${escHtml(meta.blurb)}</div>` +
         (meta.wu ? `<div class="tooltip-row"><strong>Renders 無:</strong> ${escHtml(meta.wu)}</div>` : '') +
-        (meta.personality ? `<div class="tooltip-row" style="margin-top:.35rem;font-style:italic;color:var(--text-secondary)">${escHtml(meta.personality)}</div>` : '');
+        (meta.personality ? `<div class="tooltip-row robo-personality">${escHtml(meta.personality)}</div>` : '');
     } else {
       pop.innerHTML = `<div class="tooltip-term-title">Robolation</div><div class="tooltip-row">AI text in a translator\u2019s register — not their actual words. Profile pending.</div>`;
     }
-    pop.style.display = 'block';
+    pop.hidden = false;
     positionFloatingPopover(pop, span, 300);
     pop._anchor = span;
   }
   function hideRoboPopover() {
-    if (roboPopoverEl) roboPopoverEl.style.display = 'none';
+    if (roboPopoverEl) roboPopoverEl.hidden = true;
   }
   function toggleRoboPopover(span) {
-    if (roboPopoverEl && roboPopoverEl.style.display === 'block' && roboPopoverEl._anchor === span) {
+    if (roboPopoverEl && !roboPopoverEl.hidden && roboPopoverEl._anchor === span) {
       hideRoboPopover();
       return;
     }
@@ -439,9 +447,9 @@
     if (!citationPopoverEl) {
       citationPopoverEl = document.createElement('div');
       citationPopoverEl.id = 'citation-popover';
-      citationPopoverEl.className = 'citation-popover';
+      citationPopoverEl.className = 'citation-popover chan-popover';
       citationPopoverEl.setAttribute('role', 'tooltip');
-      citationPopoverEl.style.display = 'none';
+      citationPopoverEl.hidden = true;
       // N8: the popover itself is interactive (scrollable); leaving it hides it.
       citationPopoverEl.addEventListener('mouseleave', () => { hideCitationPopover(); });
       document.body.appendChild(citationPopoverEl);
@@ -468,17 +476,17 @@
     const rows = Array.isArray(detail.rows) ? detail.rows : [];
     pop.innerHTML = `<div class="citation-title">${escHtml(detail.title || 'Citation & disclosure')}</div>` +
       rows.map(row => citationRow(row[0], row[1])).join('');
-    pop.style.display = 'block'; // display first so the positioner can measure
+    pop.hidden = false; // shown first so the positioner can measure
     positionFloatingPopover(pop, trigger, 340);
     pop._anchor = trigger;
   }
 
   function hideCitationPopover() {
-    if (citationPopoverEl) citationPopoverEl.style.display = 'none';
+    if (citationPopoverEl) citationPopoverEl.hidden = true;
   }
 
   function toggleCitationPopover(trigger) {
-    if (citationPopoverEl && citationPopoverEl.style.display === 'block' && citationPopoverEl._anchor === trigger) {
+    if (citationPopoverEl && !citationPopoverEl.hidden && citationPopoverEl._anchor === trigger) {
       hideCitationPopover();
       return;
     }
@@ -800,26 +808,30 @@
       });
     }
 
-    // Mode switcher between Visual Network and Cards
+    // Mode switcher — Phase 3 made the transmission register the room's first
+    // view and the layered SVG network its optional second view. Visibility is
+    // toggled through the semantic `hidden` attribute only (no style writes), and
+    // the chart re-lays itself out on activation because a hidden <svg> measures
+    // zero width: without this the chart would keep the fallback viewBox from
+    // the render that happened while it was still hidden.
     const graphBtn = document.getElementById('lineage-mode-graph-btn');
     const cardsBtn = document.getElementById('lineage-mode-cards-btn');
     const graphContainer = document.getElementById('lineage-graph-container');
     const cardsContainer = document.getElementById('lineage-content-target');
 
     if (graphBtn && cardsBtn && graphContainer && cardsContainer) {
-      graphBtn.addEventListener('click', () => {
-        graphBtn.classList.add('active');
-        cardsBtn.classList.remove('active');
-        graphContainer.style.display = 'block';
-        cardsContainer.style.display = 'none';
-      });
-
-      cardsBtn.addEventListener('click', () => {
-        cardsBtn.classList.add('active');
-        graphBtn.classList.remove('active');
-        graphContainer.style.display = 'none';
-        cardsContainer.style.display = 'grid';
-      });
+      const setLineageMode = (mode) => {
+        const graph = mode === 'graph';
+        if (graph) { graphBtn.classList.add('active'); cardsBtn.classList.remove('active'); }
+        else { cardsBtn.classList.add('active'); graphBtn.classList.remove('active'); }
+        graphBtn.setAttribute('aria-pressed', graph ? 'true' : 'false');
+        cardsBtn.setAttribute('aria-pressed', graph ? 'false' : 'true');
+        graphContainer.hidden = !graph;
+        cardsContainer.hidden = graph;
+        if (graph) renderVisualLineageGraph(filteredLineageMasters());
+      };
+      graphBtn.addEventListener('click', () => setLineageMode('graph'));
+      cardsBtn.addEventListener('click', () => setLineageMode('register'));
     }
 
     const lineageResetBtn = document.getElementById('lineage-reset-btn');
@@ -843,9 +855,9 @@
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
       // Let an open tooltip absorb the first Escape press before the dossier closes.
-      if ((citationPopoverEl && citationPopoverEl.style.display === 'block') ||
-          (termPopoverEl && termPopoverEl.style.display === 'block') ||
-          (roboPopoverEl && roboPopoverEl.style.display === 'block')) return;
+      if ((citationPopoverEl && !citationPopoverEl.hidden) ||
+          (termPopoverEl && !termPopoverEl.hidden) ||
+          (roboPopoverEl && !roboPopoverEl.hidden)) return;
       closeDossierPanel();
     });
 
@@ -861,9 +873,9 @@
       const tag = target && target.tagName;
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (target && target.isContentEditable)) return;
       // Don't fight an open popover or the dossier.
-      if ((citationPopoverEl && citationPopoverEl.style.display === 'block') ||
-          (termPopoverEl && termPopoverEl.style.display === 'block') ||
-          (roboPopoverEl && roboPopoverEl.style.display === 'block')) return;
+      if ((citationPopoverEl && !citationPopoverEl.hidden) ||
+          (termPopoverEl && !termPopoverEl.hidden) ||
+          (roboPopoverEl && !roboPopoverEl.hidden)) return;
       const doc = state.data.corpus && state.data.corpus[state.currentCorpusKey];
       if (!doc) return;
       const cases = Array.isArray(doc.cases) ? doc.cases : [];
@@ -975,6 +987,26 @@
 
   // View Switcher (updates DOM + URL hash so back/forward and deep links work)
   const VALID_VIEWS = ['reader', 'matrix', 'lineage', 'gongan', 'lexicon'];
+
+  // Render-lazy (C-4, Phase 2): a hidden room builds its DOM the first time
+  // it becomes visible, not at boot. Renderers rewrite their whole target, so
+  // this is a first-render gate only — later re-renders (filters, name mode,
+  // resize) keep calling the renderers directly and remain correct if they
+  // happen before activation.
+  const ROOM_RENDERERS = {
+    matrix: () => renderMatrix(),
+    lineage: () => renderLineage(),
+    gongan: () => renderGonganIndex(),
+    lexicon: () => renderLexicon()
+  };
+  const renderedRooms = new Set(['reader']);
+  function ensureRoomRendered(viewName) {
+    const render = ROOM_RENDERERS[viewName];
+    if (!render || renderedRooms.has(viewName)) return;
+    renderedRooms.add(viewName);
+    render();
+  }
+
   function viewHash(view, corpusKey) {
     return `#/${view}${(view === 'reader' && corpusKey) ? '/' + corpusKey : ''}`;
   }
@@ -1009,6 +1041,7 @@
         section.classList.remove('active');
       }
     });
+    ensureRoomRendered(viewName); // C-4 render-lazy: first activation builds the room
     if (scroll) {
       window.scrollTo({ top: 0, behavior: motionBehavior() });
     } else if (state.viewScroll && typeof state.viewScroll[viewName] === 'number') {
@@ -1533,7 +1566,7 @@
     });
   }
 
-  function renderDocumentLedgers(corpusKey) {
+  function renderDocumentLedgers(corpusKey, doc = {}) {
     const blocks = [
       renderSourceCollationLedger(corpusKey),
       renderRepresentedUnitsLedger(corpusKey),
@@ -1541,9 +1574,28 @@
       renderCanonicalLocatorLedger(corpusKey),
       renderRightsLedger(corpusKey)
     ];
-    return `<div class="document-ledgers" data-ledger-count="${blocks.length}" aria-label="Document disclosure ledgers">`
-      + blocks.join('')
-      + `<p class="ledger-footnote">${escHtml(ledgerSeparationNote())}</p></div>`;
+    const canon = escHtml(stringValue(doc.cbeta_id) || 'Not recorded') +
+      ((/T\d{4}/.test(stringValue(doc.cbeta_id)) && doc.taisho_vol) ? ` · Vol. ${escHtml(doc.taisho_vol)}` : '');
+    const editionDetails = `<details class="document-details">
+            <summary>Edition details</summary>
+            <dl>
+              <div><dt>Canon</dt><dd>${canon}</dd></div>
+              <div><dt>Author</dt><dd>${escHtml(doc.author_zh || '')}</dd></div>
+              <div><dt>Era</dt><dd>${escHtml(doc.era || '')}</dd></div>
+              <div><dt>Genre</dt><dd>${escHtml(doc.genre || '')}</dd></div>
+            </dl>
+          </details>`;
+    // One drawer holds the set: the five blocks stay visible inside it (a drawer
+    // is a container, not a toggle — the separation note below repeats the
+    // rule the CSS cannot enforce). Edition metadata is the one line that
+    // expands on demand.
+    return `<div class="ledger-drawer" data-ledger-count="${blocks.length}" aria-label="About this edition — document disclosure ledgers">`
+      + `<div class="ledger-drawer-head"><h3 class="ledger-drawer-title">About this edition</h3>`
+      + `<span class="ledger-drawer-hint">${blocks.length} separate ledgers — a calmer set, not a quieter one</span></div>`
+      + `<div class="document-ledgers">${blocks.join('')}</div>`
+      + `<p class="ledger-footnote">${escHtml(ledgerSeparationNote())}</p>`
+      + editionDetails
+      + `</div>`;
   }
 
   function renderCaseSourceDisclosure(caseNum) {
@@ -1604,7 +1656,7 @@
     if (typeof note !== 'string') return '';
     const text = note.trim();
     if (!text) return '';
-    return `<div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">ℹ️ ${escHtml(text)}</div>`;
+    return `<div class="provenance-line">ℹ️ ${escHtml(text)}</div>`;
   }
 
   function renderProvenanceNotes(node) {
@@ -1668,19 +1720,8 @@
           </div>
           <span class="document-status">${escHtml(editorialStatus)}</span>
         </div>
-        ${renderDocumentLedgers(state.currentCorpusKey)}
+        ${renderDocumentLedgers(state.currentCorpusKey, doc)}
         ${renderProvenanceNotes(doc)}
-        <div class="document-ledger">
-          <details class="document-details">
-            <summary>Edition details</summary>
-            <dl>
-              <div><dt>Canon</dt><dd>${escHtml(doc.cbeta_id || 'Not recorded')}${(/T\d{4}/.test(doc.cbeta_id || '') && doc.taisho_vol) ? ` · Vol. ${escHtml(doc.taisho_vol)}` : ''}</dd></div>
-              <div><dt>Author</dt><dd>${escHtml(doc.author_zh || '')}</dd></div>
-              <div><dt>Era</dt><dd>${escHtml(doc.era || '')}</dd></div>
-              <div><dt>Genre</dt><dd>${escHtml(doc.genre || '')}</dd></div>
-            </dl>
-          </details>
-        </div>
       </header>
       ${caseStrip}
     `;
@@ -1707,7 +1748,7 @@
     // Build the epilogue now but append it only after the document's units.
     // It previously appeared between the preface and Case 1.
     const epilogueHtml = doc.epilogue ? `
-      <div class="case-card is-epilogue" style="margin-bottom: 1.5rem;">
+      <div class="case-card is-epilogue">
         <div class="case-header">
           <h2 class="case-num-title">${renderUnitTitle("Wumen's Epilogue & Gatha", '後序與結頌', 'End matter')}</h2>
         </div>
@@ -1789,9 +1830,9 @@
     // Render Five Ranks (e.g. Dongshan Yulu)
     if (doc.five_ranks && doc.five_ranks.length > 0) {
       html += `
-        <div class="case-card" style="border-left: 4px solid var(--accent-green); margin-bottom: 1.5rem;">
-          <h2 class="case-num-title" style="margin-bottom: 0.5rem; color: var(--accent-green);">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</h2>
-          <div style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">${escHtml(doc.overview || '')}</div>
+        <div class="case-card is-ranks">
+          <h2 class="case-num-title">☯️ 曹洞宗五位君臣綱宗 / The Dialectic of the Five Ranks</h2>
+          <div class="sheet-overview">${escHtml(doc.overview || '')}</div>
         </div>
       `;
 
@@ -1802,13 +1843,13 @@
               <h2 class="case-num-title">第 ${escHtml(r.rank_num)} 位：${escHtml(r.name_zh)} (${escHtml(r.name_en)})</h2>
               <span class="case-speaker">${escHtml(r.symbol)}</span>
             </div>
-            <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(r.verse_zh)}</div>
+            <div class="classical-zh" lang="zh">${annotateClassicalChinese(r.verse_zh)}</div>
             <div class="pinyin-line">${escHtml(r.verse_pinyin)}</div>
             ${renderTranslationColumns(r.translations, r.verse_zh)}
-            <div class="commentary-block" style="margin-top: 1rem; border-left-color: var(--accent-green);">
-              <div class="commentary-label" style="color: var(--accent-green);">曹山註解 / Caoshan Commentary</div>
-              <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(r.commentary_zh)}</div>
-              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.9rem; color: var(--text-primary); margin-top: 0.35rem;">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: r.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+            <div class="commentary-block is-caoshan">
+              <div class="commentary-label is-green">曹山註解 / Caoshan Commentary</div>
+              <div class="classical-zh is-secondary" lang="zh">${annotateClassicalChinese(r.commentary_zh)}</div>
+              ${r.commentary_en && state.readerMode !== 'chinese_only' ? `<div class="prose-en is-small">${escHtml(r.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: r.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
             </div>
             ${renderProvenanceNotes(r)}
           </div>
@@ -1820,13 +1861,13 @@
     // (skipped when a five_ranks block is present — it already surfaces doc.overview)
     if (doc.overview && !doc.five_ranks) {
       html += `
-        <div class="case-card" style="border-left: 4px solid var(--accent-gold); margin-bottom: 1.5rem;">
-          <h2 class="case-num-title" style="margin-bottom: 0.5rem;">📚 Canonical Architecture & Scope</h2>
-          <div style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 1rem;">${escHtml(doc.overview)}</div>
+        <div class="case-card is-architecture">
+          <h2 class="case-num-title">📚 Canonical Architecture & Scope</h2>
+          <div class="sheet-overview is-bright">${escHtml(doc.overview)}</div>
           ${doc.fascicle_structure ? `
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem;">
+            <div class="fascicle-grid">
               ${doc.fascicle_structure.map(f => `
-                <div style="background: var(--bg-card); padding: 0.5rem 0.75rem; border-radius: 4px; border: 1px solid var(--border-color); font-size: 0.78rem;">
+                <div class="fascicle-cell">
                   <strong>卷 ${escHtml(f.fascicle)}:</strong> ${escHtml(f.scope)}
                 </div>
               `).join('')}
@@ -1840,7 +1881,7 @@
     if (doc.sample_records && doc.sample_records.length > 0) {
       doc.sample_records.forEach(rec => {
         let diaHtml = rec.dialogue.map(d => `
-          <div style="margin-bottom: 1.25rem;">
+          <div class="dialogue-turn">
             <div class="case-speaker">${escHtml(d.speaker)}</div>
             <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
             <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -1889,7 +1930,7 @@
     let dialoguesHtml = '';
     if (caseItem.dialogue) {
       dialoguesHtml = caseItem.dialogue.map(d => `
-        <div style="margin-bottom: 1.25rem;">
+        <div class="dialogue-turn">
           <div class="case-speaker">${escHtml(d.speaker)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -1925,27 +1966,27 @@
         </div>
         <div class="case-body">
         ${caseItem.pointer_zh ? `
-          <div class="commentary-block" style="background: var(--bg-card); border-left-color: var(--accent-blue); margin-bottom: 1rem;">
-            <div class="commentary-label" style="color: var(--accent-blue);">垂示 / Pointer</div>
-            <div class="classical-zh" lang="zh" style="font-size: 1.05rem;">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
-            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div style="font-size: 0.88rem; color: var(--text-secondary);">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft', { zh: caseItem.pointer_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+          <div class="commentary-block is-pointer">
+            <div class="commentary-label is-blue">垂示 / Pointer</div>
+            <div class="classical-zh is-secondary" lang="zh">${annotateClassicalChinese(caseItem.pointer_zh)}</div>
+            ${caseItem.pointer_en && state.readerMode !== 'chinese_only' ? `<div class="prose-en is-quiet">${escHtml(caseItem.pointer_en)}</div>${renderProjectDraftDisclosure('Pointer: project AI draft', { zh: caseItem.pointer_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${dialoguesHtml}
         ${caseItem.commentary_zh ? `
           <div class="commentary-block">
             <div class="commentary-label">${textLabels.commentary}</div>
-            <div class="classical-zh" lang="zh" style="font-size: 1.15rem;">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
-            <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.commentary_pinyin || '')}</div>
-            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.5rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: caseItem.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+            <div class="classical-zh is-lead" lang="zh">${annotateClassicalChinese(caseItem.commentary_zh)}</div>
+            <div class="pinyin-line is-bare">${escHtml(caseItem.commentary_pinyin || '')}</div>
+            ${caseItem.commentary_en && state.readerMode !== 'chinese_only' ? `<div class="prose-en">${escHtml(caseItem.commentary_en)}</div>${renderProjectDraftDisclosure('Commentary: project AI draft', { zh: caseItem.commentary_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${caseItem.verse_zh ? `
           <div class="verse-block">
-            <div class="commentary-label" style="color: var(--accent-green);">${textLabels.verse}</div>
-            <div class="classical-zh" lang="zh" style="font-size: 1.2rem;">${annotateClassicalChinese(caseItem.verse_zh)}</div>
-            <div class="pinyin-line" style="border:none; padding:0;">${escHtml(caseItem.verse_pinyin || '')}</div>
-            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div style="margin-top: 0.4rem; font-size: 0.92rem; color: var(--text-primary);">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
+            <div class="commentary-label is-green">${textLabels.verse}</div>
+            <div class="classical-zh" lang="zh">${annotateClassicalChinese(caseItem.verse_zh)}</div>
+            <div class="pinyin-line is-bare">${escHtml(caseItem.verse_pinyin || '')}</div>
+            ${caseItem.verse_en && state.readerMode !== 'chinese_only' ? `<div class="prose-en">${escHtml(caseItem.verse_en)}</div>${renderProjectDraftDisclosure('Verse: project AI draft', { zh: caseItem.verse_zh, locator: locatorDocumentForKey(state.currentCorpusKey) })}` : ''}
           </div>
         ` : ''}
         ${renderProvenanceNotes(caseItem)}
@@ -1958,7 +1999,7 @@
   function renderSectionItem(sec) {
     const sectionLocator = unitLocatorForKey(state.currentCorpusKey, `sections.${sec.section_id}`);
     let dialoguesHtml = (sec.dialogue || []).map(d => `
-      <div style="margin-bottom: 1.25rem;">
+      <div class="dialogue-turn">
         <div class="case-speaker">${escHtml(d.speaker)}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -1969,7 +2010,7 @@
 
     // Sections may embed verse stanzas instead of dialogue (e.g. Shitou Sandokai / Grass Hut Song)
     let stanzasHtml = (sec.stanzas || []).map(st => `
-      <div style="margin-bottom: 1.25rem;">
+      <div class="dialogue-turn">
         <div class="case-speaker">第 ${escHtml(st.stanza_num)} 節 / Stanza ${escHtml(st.stanza_num)}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(st.zh)}</div>
         <div class="pinyin-line">${escHtml(st.pinyin)}</div>
@@ -1992,7 +2033,7 @@
 
   function renderDialogueItem(dia) {
     let dialoguesHtml = (dia.dialogue || []).map(d => `
-      <div style="margin-bottom: 1.25rem;">
+      <div class="dialogue-turn">
         <div class="case-speaker">${escHtml(d.speaker)}</div>
         <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
         <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -2033,7 +2074,7 @@
     const contentBlocks = [];
     if (Array.isArray(ch.verses)) {
       contentBlocks.push(ch.verses.map(v => `
-        <div style="margin-bottom: 1.25rem;">
+        <div class="dialogue-turn">
           <div class="case-speaker">${escHtml(v.author)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(v.zh)}</div>
           <div class="pinyin-line">${escHtml(v.pinyin)}</div>
@@ -2044,7 +2085,7 @@
     }
     if (Array.isArray(ch.dialogue)) {
       contentBlocks.push(ch.dialogue.map(d => `
-        <div style="margin-bottom: 1.25rem;">
+        <div class="dialogue-turn">
           <div class="case-speaker">${escHtml(d.speaker)}</div>
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(d.zh)}</div>
           <div class="pinyin-line">${escHtml(d.pinyin)}</div>
@@ -2057,7 +2098,7 @@
     // rather than nested `dialogue`/`verses`; these were previously empty cards.
     if (stringValue(ch.zh)) {
       contentBlocks.push(`
-        <div style="margin-bottom: 1.25rem;">
+        <div class="dialogue-turn">
           ${ch.speaker ? `<div class="case-speaker">${escHtml(ch.speaker)}</div>` : ''}
           <div class="classical-zh" lang="zh">${annotateClassicalChinese(ch.zh)}</div>
           <div class="pinyin-line">${escHtml(ch.pinyin)}</div>
@@ -2406,9 +2447,15 @@
     return roboNameSpanFromProfile(p, status, roboifyTranslatorName(name, status), p ? p.register_key : '');
   }
 
-  // Render Comparison Matrix. Unlike the early matrix seed, every visible
-  // translator entry now receives an explicit provenance status and (where
-  // verified) the same citation treatment used by the Reader.
+  // Render Comparison Matrix — Room 02, re-composed 2026-09-13 (Phase 3).
+  //
+  // The proposal's shape for this room is a collation table, not a card grid:
+  // one source line across the top of a proof, then one aligned register row
+  // per translator — the Robo name, the work it imitates and the provenance
+  // glyph in the margin rail, the register's English text in the column beside
+  // it. Every visible translator entry carries an explicit provenance status
+  // and (where verified) the same citation treatment used by the Reader; all of
+  // it is class-driven (the room emits no style attributes).
   function renderMatrix() {
     if (!elements.matrixTarget || !Array.isArray(state.data.translations_matrix)) return;
     const matrixList = state.data.translations_matrix;
@@ -2426,7 +2473,10 @@
           <div class="matrix-sentence-pinyin">${escHtml(item.sentence_pinyin)}</div>
           ${sourceDisclosure}
         </div>
-        <div class="matrix-registers-grid">
+        <div class="matrix-collation">
+          <div class="matrix-collation-head">
+            <span>Register</span><span>English rendering of this line</span>
+          </div>
           ${translators.map(rawTranslator => {
             const t = isRecord(rawTranslator) ? rawTranslator : {};
             const entry = normalizeTranslationEntry(t.translator, {
@@ -2438,18 +2488,16 @@
             });
             const displayTranslator = roboifyTranslatorName(t.translator, entry.status);
             return `
-            <div class="matrix-register-col">
-              <div>
-                <div class="matrix-reg-header">
-                  <div class="matrix-author">${roboNameSpanByName(t.translator, entry.status)}</div>
-                  <div class="matrix-work">${escHtml(t.work)}${t.style ? ` (${escHtml(t.style)})` : ''}</div>
-                </div>
-                <div class="matrix-reg-text">“${escHtml(entry.text)}”</div>
-              </div>
-              <div>
+            <div class="matrix-register-row">
+              <div class="matrix-register-rail">
+                <span class="matrix-register-name">${roboNameSpanByName(t.translator, entry.status)}</span>
+                <span class="matrix-register-work">${escHtml(t.work)}${t.style ? ` · ${escHtml(t.style)}` : ''}</span>
                 ${renderTranslationStatus(entry)}
+              </div>
+              <div class="matrix-register-body">
+                <div class="matrix-register-text">“${escHtml(entry.text)}”</div>
                 ${renderTranslationSource(entry, displayTranslator, { zh: item.sentence_zh, locator })}
-                ${t.notes ? `<div class="matrix-reg-note">${escHtml(t.notes)}</div>` : ''}
+                ${t.notes ? `<div class="matrix-register-note">${escHtml(t.notes)}</div>` : ''}
               </div>
             </div>
             `;
@@ -2609,39 +2657,106 @@
       ).join('');
   }
 
+  // Render Lineage — Room 03, re-composed 2026-09-13 (Phase 3).
+  //
+  // The room's first view is now the transmission register: masters banded by
+  // generation, one ruled row per master, the house (controlled school
+  // vocabulary) and the dated transmission record in fixed columns so a reader
+  // can scan Bodhidharma → the Five Houses top to bottom. The layered SVG chart
+  // is the room's second view (see the mode switch in setupEventListeners), and
+  // the dossier below the register stays the place a profile's full evidence
+  // record opens. Rows keep the `data-master-card`/role/tabindex contract and
+  // carry no style attributes.
   function renderLineage() {
     if (!elements.lineageTarget || !state.data.lineage) return;
     renderLineageVerificationSummary();
-    let masters = state.data.lineage;
+    const masters = filteredLineageMasters();
+    renderVisualLineageGraph(masters);
+    elements.lineageTarget.innerHTML = renderLineageRegister(masters);
+  }
 
+  // The room's one filter+sort path: the school filter narrows the record, the
+  // sort orders it. Both the register and the chart draw from this list, so the
+  // two views can never disagree about which masters are in scope.
+  function filteredLineageMasters() {
+    let masters = state.data.lineage || [];
     if (state.selectedMasterSchool !== 'all') {
       masters = masters.filter(m => m.school_key === state.selectedMasterSchool);
     }
+    return sortLineageMasters(masters);
+  }
 
-    masters = sortLineageMasters(masters);
-    renderVisualLineageGraph(masters);
+  // The register itself. Tree order reads as ruled generation bands (the
+  // transmission sequence is the room's spine); the chronology / name / school
+  // orders read as one flat ruled list, because banding by generation while the
+  // user asked for another order would hide what the control just did.
+  function renderLineageRegister(masters) {
+    if (!masters.length) {
+      return '<p class="lineage-register-empty">No master in the curated record matches this filter.</p>';
+    }
+    if (state.lineageSort !== 'generation') {
+      const order = { chronology: 'Chronological order', name: 'Name order', school: 'House order' }[state.lineageSort] || 'Register order';
+      return `<div class="lineage-register">
+        <div class="lineage-flat">
+          <h2 class="lineage-flat-head"><span>Transmission register</span><small>${masters.length} masters · ${escHtml(order)}</small></h2>
+          ${masters.map(m => renderLineageMasterRow(m, true)).join('')}
+        </div>
+      </div>`;
+    }
 
-    elements.lineageTarget.innerHTML = masters.map(m => `
-      <div class="master-directory-row" data-master-card="${escHtml(m.id)}" role="button" tabindex="0" aria-label="Open dossier for ${escHtml(m.name_en)}">
-        <div class="master-dir-gen">Gen ${escHtml(m.lineage_depth)}</div>
-        <div class="master-dir-main">
-          <h2 class="master-dir-name">${escHtml(masterDisplayName(m))}<span class="master-dir-name-zh" lang="zh">${escHtml(m.name_zh)} · ${escHtml(m.name_pinyin)}</span></h2>
-          <div class="master-dir-title">${escHtml(m.title)}</div>
-          <div class="master-dir-meta">
-            <span>Dates: ${escHtml(m.dates)} (${escHtml(m.era)})</span>
-            <span>Lineage: ${escHtml(m.school)}</span>
-            <span>Temple: ${escHtml(m.location)}</span>
-            <span>Ref: ${escHtml(m.cbeta_id)}</span>
-            <span>Teacher: ${lineageTeacherDetail(m)}</span>
+    const bands = new Map();
+    masters.forEach(m => {
+      const gen = Number(m.lineage_depth) || 0;
+      if (!bands.has(gen)) bands.set(gen, []);
+      bands.get(gen).push(m);
+    });
+    const generations = [...bands.keys()].sort((a, b) => a - b);
+
+    return `<div class="lineage-register">
+      ${generations.map(gen => `
+      <section class="lineage-band">
+        <div class="lineage-band-head">
+          <h2 class="lineage-band-gen">Generation ${escHtml(gen)}</h2>
+          <p class="lineage-band-meta">${bands.get(gen).length} ${bands.get(gen).length === 1 ? 'master' : 'masters'} · ${escHtml(lineageBandEra(bands.get(gen)))}</p>
+        </div>
+        <div class="lineage-band-cols">
+          <span>Master</span><span>House</span><span>Dated record</span><span>Signature</span>
+        </div>
+        ${bands.get(gen).map(m => renderLineageMasterRow(m)).join('')}
+      </section>`).join('')}
+    </div>`;
+  }
+
+  // One aligned master row. `showGeneration` labels the row when the register
+  // is not banded, so the generation is never silently dropped from view.
+  function renderLineageMasterRow(m, showGeneration = false) {
+    return `
+        <div class="lineage-master-row" data-master-card="${escHtml(m.id)}" role="button" tabindex="0" aria-label="Open dossier for ${escHtml(m.name_en)}">
+          <div class="lineage-master-name">
+            ${showGeneration ? `<span class="lineage-master-gen">Gen ${escHtml(m.lineage_depth)}</span>` : ''}
+            <h3 class="lineage-master-name-en">${escHtml(masterDisplayName(m))}</h3>
+            <span class="lineage-master-name-zh" lang="zh">${escHtml(m.name_zh)} · ${escHtml(m.name_pinyin)}</span>
+            <span class="lineage-master-title">${escHtml(m.title)}</span>
           </div>
-          <div class="text-sm-muted">${escHtml(m.summary)}</div>
-        </div>
-        <div class="master-dir-quote">
-          <div class="master-dir-quote-zh">“${escHtml(m.key_quote_zh)}”</div>
-          <div class="master-dir-quote-en">“${escHtml(m.key_quote_en)}”</div>
-        </div>
-      </div>
-    `).join('');
+          <div class="lineage-master-house">${escHtml(m.school)}</div>
+          <div class="lineage-master-record">
+            <span>${escHtml(m.dates)} · ${escHtml(m.era)}</span>
+            <span>${escHtml(m.location)}</span>
+            <span class="lineage-master-ref">${escHtml(m.cbeta_id)}</span>
+            <span class="lineage-master-teacher">${lineageTeacherDetail(m)}</span>
+          </div>
+          <div class="lineage-master-quote">
+            <span class="lineage-master-quote-zh" lang="zh">“${escHtml(m.key_quote_zh)}”</span>
+            <span class="lineage-master-quote-en">“${escHtml(m.key_quote_en)}”</span>
+          </div>
+        </div>`;
+  }
+
+  // A band's era line is derived from the masters in it — never invented.
+  function lineageBandEra(masters) {
+    const eras = [...new Set(masters.map(m => stringValue(m.era)).filter(Boolean))];
+    if (!eras.length) return 'Era not recorded';
+    return eras.length === 1 ? eras[0] : `${eras.length} eras in this band`;
   }
 
   // Interactive Visual SVG Lineage Graph (pan/zoom; reset via window.TranslateChan.resetLineageView)
@@ -2685,7 +2800,7 @@
       const group = genGroups[gen];
       const y = TOP_PAD + gIdx * ROW_GAP;
       const availableWidth = width - horizontalMargin * 2;
-      generationLabelsHtml += `<text x="${rowLabelX}" y="${y + 4}" text-anchor="start" font-size="10" font-weight="700" fill="var(--text-muted)" font-family="var(--font-sans)">G${gen}</text>`;
+      generationLabelsHtml += `<text x="${rowLabelX}" y="${y + 4}" text-anchor="start" font-size="10" font-weight="700" fill="var(--ink-soft)" font-family="var(--font-ui)">G${gen}</text>`;
       group.forEach((m, mIdx) => {
         const x = group.length === 1
           ? width / 2
@@ -2725,9 +2840,9 @@
       nodesHtml += `
         <g class="graph-node" transform="translate(${x}, ${y})" role="button" tabindex="0" aria-label="${escHtml(master.name_en)} — open profile source" data-master-node="${escHtml(master.id)}">
           <circle class="graph-node-halo" r="30" fill="${color}" fill-opacity="0.09"></circle>
-          <circle r="24" fill="var(--bg-card)" stroke="${color}" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.12))"></circle>
-          <text text-anchor="middle" dy=".34em" font-size="10" font-weight="800" fill="var(--text-primary)" font-family="var(--font-mono)">${escHtml(monogram)}</text>
-          <text text-anchor="middle" y="40" font-size="10" font-weight="650" fill="var(--text-secondary)" font-family="var(--font-sans)">${escHtml(shortName)}</text>
+          <circle r="24" fill="var(--panel)" stroke="${color}" stroke-width="2.5" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.12))"></circle>
+          <text text-anchor="middle" dy=".34em" font-size="10" font-weight="800" fill="var(--ink)" font-family="var(--font-mono)">${escHtml(monogram)}</text>
+          <text text-anchor="middle" y="40" font-size="10" font-weight="650" fill="var(--ink-soft)" font-family="var(--font-ui)">${escHtml(shortName)}</text>
         </g>
       `;
     });
@@ -2857,11 +2972,10 @@
     const panel = getDossierPanel();
     if (!panel) return;
     panel._invoker = (typeof document.activeElement !== 'undefined') ? document.activeElement : null;
-    // The HTML ships with `hidden`; remove the semantic state as well as setting
-    // display. An inline display value alone cannot override [hidden] CSS.
+    // The HTML ships with `hidden`; clear the semantic state (Phase 2: the
+    // redundant inline display write is gone — [hidden] CSS alone governs).
     panel.hidden = false;
     panel.removeAttribute('hidden');
-    panel.style.display = 'block';
     if (typeof panel.scrollIntoView === 'function') panel.scrollIntoView({ behavior: motionBehavior() });
     if (typeof panel.focus === 'function') {
       try { panel.focus({ preventScroll: true }); } catch (e) { try { panel.focus(); } catch (err) { /* ignore */ } }
@@ -2872,7 +2986,6 @@
     if (!panel || panel.hidden === true) return;
     panel.hidden = true;
     panel.setAttribute('hidden', '');
-    panel.style.display = 'none';
     const invoker = panel._invoker || null;
     panel._invoker = null;
     if (invoker && typeof document.contains === 'function' && document.contains(invoker) && typeof invoker.focus === 'function') {
@@ -2904,7 +3017,7 @@
         ]
       };
       content.innerHTML = `
-        <div style="margin-top: 0.5rem; margin-bottom: 0.75rem;">
+        <div class="dossier-meta-row">
           <span class="dossier-ledger-label">School / Lineage:</span> ${escHtml(master.school)} &nbsp;|&nbsp;
           <span class="dossier-ledger-label">Primary Monastery:</span> ${escHtml(master.location)} &nbsp;|&nbsp;
           <span class="dossier-ledger-label">Canonical record:</span> ${escHtml(master.cbeta_id)} ${renderCitationTrigger(masterCitation, 'ⓘ Profile source')}
@@ -2958,13 +3071,13 @@
     if (nameEn) nameEn.textContent = `${teacherName} → ${discipleName}`;
     if (content) {
       content.innerHTML = `
-        <div style="margin-top:0.5rem; margin-bottom:0.75rem;">
+        <div class="dossier-meta-row">
           <strong>Verification status:</strong> ${escHtml(meta.label)}
         </div>
-        <div class="commentary-block" style="background:var(--bg-card); border-left-color:var(--accent-blue); margin:0;">
-          <div class="commentary-label" style="color:var(--accent-blue);">Lineage chart disclosure</div>
-          <div style="font-size:0.9rem; color:var(--text-primary);">${escHtml(stringValue(edge.note) || 'No verification note recorded.')}</div>
-          <div style="margin-top:0.55rem;">${renderCitationTrigger(detail, 'ⓘ Source chart & verification')}</div>
+        <div class="commentary-block is-blue is-flush">
+          <div class="commentary-label is-blue">Lineage chart disclosure</div>
+          <div class="prose-en is-small">${escHtml(stringValue(edge.note) || 'No verification note recorded.')}</div>
+          <div class="citation-line">${renderCitationTrigger(detail, 'ⓘ Source chart & verification')}</div>
         </div>`;
     }
     openDossierPanel();
@@ -3000,37 +3113,56 @@
     return hit ? stringValue(hit.display) : key;
   }
 
-  // Render Gong'an Index
+  // Render Gong'an Index — Room 04, re-composed 2026-09-13 (Phase 3).
+  //
+  // The proposal's shape for this room is a case catalogue: one ruled row per
+  // indexed case, carrying the case number, both titles, the collection it was
+  // indexed from, the controlled theme group and the canonical record it points
+  // at. Nothing here is a card, and the theme filter is a single row of text
+  // filters rather than a field of pills. `gongan-filter-chip` +
+  // `data-gongan-filter` stay as the delegated click contract.
   function renderGonganIndex() {
     if (!elements.gonganTarget || !state.data.gongan_index) return;
     let list = state.data.gongan_index;
-    if (state.gonganThemeFilter && state.gonganThemeFilter !== 'all') {
-      list = list.filter(g => g.theme_group === state.gonganThemeFilter);
-    }
+    const activeGroup = state.gonganThemeFilter && state.gonganThemeFilter !== 'all'
+      ? state.gonganThemeFilter : '';
+    if (activeGroup) list = list.filter(g => g.theme_group === activeGroup);
 
     const groups = gonganThemeGroups();
+    const showAll = !activeGroup;
     const filterBar = `
-      <div class="room-filter-rail">
-        <span class="dossier-ledger-label">Theme groups:</span>
-        <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all" aria-pressed="${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'true' : 'false'}">All · ${state.data.gongan_index.length}</button>
-        ${groups.map(g => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === g.key ? 'active' : ''}" data-gongan-filter="${escHtml(g.key)}" aria-pressed="${state.gonganThemeFilter === g.key ? 'true' : 'false'}">${escHtml(g.display)} · ${g.count}</button>`).join('')}
+      <div class="room-filter-rail" role="group" aria-label="Filter the case catalogue by theme group">
+        <span class="room-filter-legend">Theme groups</span>
+        <button class="gongan-filter-chip${showAll ? ' active' : ''}" data-gongan-filter="all" aria-pressed="${showAll ? 'true' : 'false'}">All · ${state.data.gongan_index.length}</button>
+        ${groups.map(g => `<button class="gongan-filter-chip${activeGroup === g.key ? ' active' : ''}" data-gongan-filter="${escHtml(g.key)}" aria-pressed="${activeGroup === g.key ? 'true' : 'false'}">${escHtml(g.display)} · ${g.count}</button>`).join('')}
       </div>`;
 
-    elements.gonganTarget.innerHTML = filterBar + list.map(g => `
-      <div class="gongan-catalogue-row">
-        <div class="catalogue-meta">${escHtml(g.collection)} · Canon ID: ${escHtml(g.cbeta_id)} · ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</div>
-        <div class="catalogue-title-row">
+    const catalogue = list.map(g => `
+      <div class="catalogue-row">
+        <span class="catalogue-case">${escHtml(g.case_no)}</span>
+        <div class="catalogue-title">
           <h2 class="catalogue-title-en">${escHtml(g.title_en)}</h2>
           <span class="catalogue-title-zh" lang="zh">${escHtml(g.title_zh)}</span>
         </div>
-        <div class="catalogue-summary">${escHtml(g.summary)}</div>
-        <div class="catalogue-tags">
-          <span class="catalogue-tag-item">Group: ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</span>
-          <span class="catalogue-tag-item">Theme: ${escHtml(g.theme)}</span>
-          ${g.cross_refs ? g.cross_refs.map(cr => `<span class="catalogue-tag-item">${escHtml(cr)}</span>`).join('') : ''}
+        <span class="catalogue-collection">${escHtml(g.collection)}</span>
+        <div class="catalogue-theme">
+          <span>Group: ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</span>
+          <span>${escHtml(g.theme)}</span>
         </div>
-      </div>
-    `).join('');
+        <span class="catalogue-locator">${escHtml(g.cbeta_id)}</span>
+        <div class="catalogue-detail">
+          <p class="catalogue-summary">${escHtml(g.summary)}</p>
+          ${g.cross_refs ? `<p class="catalogue-cross">Cross-references: ${g.cross_refs.map(escHtml).join(' · ')}</p>` : ''}
+        </div>
+      </div>`).join('');
+
+    elements.gonganTarget.innerHTML = `${filterBar}
+      <div class="gongan-catalogue">
+        <div class="gongan-catalogue-head">
+          <span>Case</span><span>Title</span><span>Collection</span><span>Theme</span><span>Record</span>
+        </div>
+        ${catalogue}
+      </div>`;
   }
 
   // Gong'an theme filter chips
@@ -3068,7 +3200,14 @@
     ).join('');
   }
 
-  // Render Lexicon
+  // Render Lexicon — Room 05, re-composed 2026-09-13 (Phase 3).
+  //
+  // A field dictionary reads as a running list, so the room is one now: each
+  // entry puts the headword Chinese (largest), its pinyin and its literal
+  // gloss in the head line, the definition in the body, and the category plus
+  // the recorded occurrences in the margin. `lexicon-summary`,
+  // `lexicon-no-match` and the occurrence caveat title stay exactly as the
+  // smoke test guards them.
   function renderLexicon() {
     if (!elements.lexiconTarget || !state.data.glossary) return;
     let list = state.data.glossary;
@@ -3101,22 +3240,22 @@
       ? `<p class="lexicon-summary" aria-live="polite">${list.length} of ${state.data.glossary.length} terms</p>`
       : '';
 
-    elements.lexiconTarget.innerHTML = summary + noMatchHint + list.map(item => `
-      <div class="lexicon-definition-row">
-        <div class="lexicon-headword-col">
-          <p class="section-kicker">${escHtml(item.category)}</p>
-          <h2 class="lexicon-headword-literal">${escHtml(item.literal)}</h2>
-          <div class="lexicon-headword-zh" lang="zh">${escHtml(item.term)}</div>
-          <div class="lexicon-headword-meta">${escHtml(item.pinyin)} · Sanskrit: ${escHtml(item.sanskrit || '—')}</div>
+    elements.lexiconTarget.innerHTML = summary + noMatchHint + `<div class="lexicon-entries">` + list.map(item => `
+      <div class="lexicon-entry">
+        <div class="lexicon-entry-margin">
+          <span class="lexicon-entry-cat">${escHtml(item.category)}</span>
+          <span class="lexicon-entry-count">${item.occurrences.length} recorded ${item.occurrences.length === 1 ? 'occurrence' : 'occurrences'}</span>
         </div>
-        <div class="lexicon-def-col">
-          <div class="lexicon-def-text">${escHtml(item.definition)}</div>
+        <div class="lexicon-entry-main">
+          <h2 class="lexicon-headword">${escHtml(item.literal)}<span class="lexicon-headword-zh" lang="zh">${escHtml(item.term)}</span></h2>
+          <p class="lexicon-headword-meta">${escHtml(item.pinyin)}${item.sanskrit ? ` · Sanskrit: ${escHtml(item.sanskrit)}` : ''}</p>
+          <div class="lexicon-entry-def">${escHtml(item.definition)}</div>
           <div class="lexicon-occurrences">
             ${item.occurrences.map(occ => `<span class="lexicon-occ-tag" title="Canonical occurrence reference; may fall outside the current Reader excerpt.">${escHtml(occ)}</span>`).join('')}
           </div>
         </div>
       </div>
-    `).join('');
+    `).join('') + `</div>`;
   }
 
   // ---- Search: universal segment extraction across every corpus schema ----

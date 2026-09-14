@@ -11,17 +11,36 @@
   <meta property="og:title" content="Fake Chan Factory | Robo-Translator Chan/Zen Matrix">
   <meta property="og:description" content="A playful AI translation factory: Robo renderings are clearly marked, while edition-verified quotations cite their source and separate rights status over Classical Chinese records with visible W1 source-review status.">
   <meta property="og:url" content="https://56eli.github.io/translatechan/">
+  <!-- PNG first for broad platform compatibility (many crawlers/clients do not
+       render SVG social cards); SVG kept as a secondary og:image with an
+       explicit type, so clients that do support it get the crisper vector. -->
+  <meta property="og:image" content="https://56eli.github.io/translatechan/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image" content="https://56eli.github.io/translatechan/og-image.svg">
+  <meta property="og:image:type" content="image/svg+xml">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fake Chan Factory | Robo-Translator Chan/Zen Matrix">
   <meta name="twitter:description" content="A proudly-fake AI Chan translation factory: Robo text is marked, and edition-verified quotations disclose source and separate rights status alongside visible W1 source-review states.">
-  <meta name="twitter:image" content="https://56eli.github.io/translatechan/og-image.svg">
+  <meta name="twitter:image" content="https://56eli.github.io/translatechan/og-image.png">
   <title>Fake Chan Factory | Robo-Translator Chan/Zen Translation Matrix</title>
   <meta name="description" content="Fake Chan Factory: Robo renderings are clearly marked, while edition-verified quotations cite their source and separate rights status alongside visible W1 source-review states for Classical Chinese records.">
   <!-- Restrictive CSP must precede every resource it governs. Interactivity is
-       delegated in app.js; generated reader templates still require inline
-       style support until their final utility-class migration is complete. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+       delegated in app.js and every stylesheet is external, so nothing here
+       needs an inline-style exception: index.html carries no style attribute
+       and, as of Phase 3 (2026-09-13), neither does any DOM the renderers build
+       — the smoke test counts the literals in app.js, audits the rendered HTML
+       of all five rooms, and asserts this policy omits 'unsafe-inline'.
+       What remains in app.js is four CSSOM custom-property writes — the measured
+       runtime contracts --shell-height, --zh-font-size and --pop-shift, listed
+       in the app.css token sheet — which style-src does not govern: a policy
+       blocks the *parsing* of a style attribute or a `style` element, not a
+       script that already satisfied script-src 'self'. If a future slice ever
+       sets the attribute itself (setAttribute('style', …) or style.cssText) or
+       injects a `style` element, the browser will refuse it — use a class or a
+       custom property, as the room templates do. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <!-- Apply the persisted theme before first paint to avoid a light-mode flash
        for returning dark-mode users (FOUC guard). External file keeps the
        strict CSP (script-src 'self') satisfiable without inline scripts. -->
@@ -30,7 +49,16 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Typefaces. Source Serif 4 is the scholarly English voice (Checkpoint-C
+       C-2): it carries the hook, headings and (since Phase 2) translation
+       prose, and it has a true italic for the turn of the hook. Inter stays
+       for controls only; Noto Serif SC stays for source Chinese. Served from
+       Google Fonts, which the shipped CSP already allows (style-src
+       fonts.googleapis.com / font-src fonts.gstatic.com), so this adds no
+       repository bytes and no new third party. Self-hosting under /fonts/
+       remains a documented option if a zero-third-party-request rule is ever
+       wanted; it would add ~100–300 KB of woff2 to the repo. -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
   <!-- D4: parse the deterministic data bundle as early as possible. A modulepreload
        is not appropriate (app_data.js is a classic global script), so preload as
@@ -45,7 +73,7 @@
   <!-- Main Navigation Header -->
   <header id="site-shell" class="site-shell">
     <div class="shell-frame">
-      <div class="shell-primary">
+      <div class="shell-lintel">
         <a href="#/reader" class="brand" aria-label="Fake Chan Factory — Reader">
           <span class="brand-mark" aria-hidden="true">FC</span>
           <span class="brand-lockup">
@@ -87,19 +115,22 @@
   </header>
 
   <main id="main-content">
-  <!-- English-first identity panel: walnut hall structure, factory attitude, no
-       fake attribution. The source language remains central in the Reader. -->
+  <!-- English-first identity panel: the walnut beam. Walnut hall structure,
+       factory attitude, no fake attribution — the joke is told once, here,
+       and the counts are a quiet colophon beneath it. The source language
+       stays the largest text on the page inside the Reader (C-3). -->
   <div class="zen-hero-banner" id="zen-hero-banner" role="region" aria-label="About Fake Chan Factory">
     <button class="hero-dismiss-btn" id="hero-dismiss-btn" title="Hide this introduction for this session" aria-label="Hide project introduction">Close</button>
-    <div class="hero-main">
-      <div class="hero-kicker"><span>Open Chan Lab</span><span>Edition 01 / 2026</span></div>
+    <div class="hero-body">
+      <p class="hero-kicker"><span>Open Chan Lab</span><span>Edition 01 / 2026</span></p>
       <p class="zen-quote-main">The old texts are real.<br><em>The translators are not.</em></p>
+      <p class="hero-colophon">
+        <span class="hero-stat" aria-label="35 Corpus Works"><strong id="hero-corpus-count">35</strong> corpus works</span>
+        <span class="hero-stat" aria-label="21 Matrix Registers"><strong id="hero-translator-count">21</strong> comparison registers</span>
+        <span class="hero-colophon-zh" lang="zh">假禪工廠</span>
+      </p>
     </div>
-    <div class="hero-meta" aria-label="Project statistics">
-      <div class="hero-stamp" aria-hidden="true"><span>PROUDLY</span><strong>FAKE</strong><span>ENGLISH</span></div>
-      <div class="hero-stat" aria-label="35 Corpus Works"><strong id="hero-corpus-count">35</strong><span>corpus<br>works</span></div>
-      <div class="hero-stat" aria-label="21 Matrix Registers"><strong id="hero-translator-count">21</strong><span>comparison<br>registers</span></div>
-    </div>
+    <div class="hero-stamp" aria-hidden="true"><span>PROUDLY</span><strong>FAKE</strong><span>ENGLISH</span></div>
   </div>
 
     <!-- View 1: Bilingual Reader -->
@@ -149,9 +180,9 @@
       <div class="text-header room-heading">
         <p class="section-kicker">Room 02 · Comparison lab</p>
         <h1 class="text-title-zh"><span>Comparative Matrix</span><small lang="zh">多譯本對照矩陣</small></h1>
-        <p class="text-title-en">Compare machine-made registers and verified quotations sentence by sentence.</p>
+        <p class="text-title-en">One source line, then every register under it: machine-made English and verified quotations, sentence by sentence.</p>
       </div>
-      <div id="matrix-content-target" class="matrix-container"></div>
+      <div id="matrix-content-target" class="room-body"></div>
     </section>
 
     <!-- View 3: Lineage Tree Explorer -->
@@ -160,12 +191,12 @@
         <div>
           <p class="section-kicker">Room 03 · Transmission records</p>
           <h1 class="text-title-zh"><span>Lineage Network</span><small lang="zh">禪宗宗派法脈傳承譜</small></h1>
-          <p class="text-title-en">Trace the traditional transmission network from Bodhidharma to the Five Houses.</p>
+          <p class="text-title-en">Read the transmission record from Bodhidharma to the Five Houses — a register by generation, with the network chart as its second view.</p>
         </div>
         <div class="lineage-filter-row">
-          <div class="lineage-filter-row">
-            <button id="lineage-mode-graph-btn" class="btn-pill active">Visual Network</button>
-            <button id="lineage-mode-cards-btn" class="btn-pill">Master Directory</button>
+          <div class="lineage-view-switch" role="group" aria-label="Lineage view">
+            <button id="lineage-mode-cards-btn" class="btn-pill active" aria-pressed="true">Transmission register</button>
+            <button id="lineage-mode-graph-btn" class="btn-pill" aria-pressed="false">Network chart</button>
           </div>
           <select id="lineage-sort-filter" class="search-input" aria-label="Sort lineage display">
             <option value="generation">Tree order</option>
@@ -179,16 +210,6 @@
 
       <div id="lineage-verification-summary" class="lineage-verification-summary" aria-live="polite"></div>
 
-      <div id="lineage-graph-container" class="lineage-graph-frame">
-        <div class="graph-toolbar">
-          <div class="graph-controls">
-            <button id="lineage-reset-btn" class="btn-pill">⟲ Reset View</button>
-          </div>
-          <div class="graph-hint">Dashed links await exact locators · Select any node or link</div>
-        </div>
-        <svg id="lineage-svg-graph" class="lineage-svg-graph"></svg>
-      </div>
-
       <div id="master-dossier-panel" role="dialog" aria-labelledby="dossier-name-zh" tabindex="-1" class="dossier-panel" hidden>
         <div class="dossier-header">
           <div>
@@ -200,7 +221,22 @@
         <div id="dossier-content" class="dossier-content"></div>
       </div>
 
-      <div id="lineage-content-target" class="lineage-grid" hidden></div>
+      <div id="lineage-content-target" class="room-body"></div>
+
+      <!-- The register above (#lineage-content-target) has been the room's first
+           view since Phase 3; this layered chart is its optional second view and
+           ships hidden. The mode buttons in the room heading toggle `hidden` —
+           never a style write — and re-lay out the chart when it becomes
+           visible, because a hidden <svg> measures zero width. -->
+      <div id="lineage-graph-container" class="lineage-graph-frame" hidden>
+        <div class="graph-toolbar">
+          <div class="graph-controls">
+            <button id="lineage-reset-btn" class="btn-pill">⟲ Reset View</button>
+          </div>
+          <div class="graph-hint">Dashed links await exact locators · Select any node or link</div>
+        </div>
+        <svg id="lineage-svg-graph" class="lineage-svg-graph"></svg>
+      </div>
     </section>
 
     <!-- View 4: Gong'an Cross-Reference Index -->
@@ -208,9 +244,9 @@
       <div class="text-header room-heading">
         <p class="section-kicker">Room 04 · Case catalogue</p>
         <h1 class="text-title-zh"><span>Gong'an Case Index</span><small lang="zh">歷代宗門公案總目</small></h1>
-        <p class="text-title-en">Browse encounter cases by collection, theme, and canonical cross-reference.</p>
+        <p class="text-title-en">The indexed case shelf: case number, both titles, the collection it came from, its theme group and its canonical record.</p>
       </div>
-      <div id="gongan-content-target" class="matrix-container"></div>
+      <div id="gongan-content-target" class="room-body"></div>
     </section>
 
     <!-- View 5: Classical Chan Lexicon -->
@@ -219,7 +255,7 @@
         <div>
           <p class="section-kicker">Room 05 · Field dictionary</p>
           <h1 class="text-title-zh"><span>Classical Chan Lexicon</span><small lang="zh">禪宗名相與術語典籍</small></h1>
-          <p class="text-title-en">Decode foundational terms, Sanskrit roots, and technical meanings.</p>
+          <p class="text-title-en">A running dictionary: headword, reading, literal gloss, definition, and the category in the margin.</p>
         </div>
         <div class="lexicon-filter-group">
           <label for="lexicon-cat-filter">Category:</label>
@@ -232,23 +268,28 @@
           <input type="search" id="lexicon-query" class="search-input" placeholder="Filter terms (term / pinyin / definition)…" autocomplete="off" aria-label="Filter lexicon terms by term, pinyin, or definition">
         </div>
       </div>
-      <div id="lexicon-content-target" class="lexicon-grid"></div>
+      <div id="lexicon-content-target" class="room-body"></div>
     </section>
 
   </main>
 
-  <!-- Mobile bottom action bar (touch devices / narrow screens) -->
+  <!-- Mobile bottom action bar (touch devices / narrow screens). The eight
+       former loose pills are regrouped into two clusters — text (size and
+       reading mode), then move (pinyin and jump) — with a hairline between
+       them and 44 px targets throughout. -->
   <div class="mobile-action-bar" role="toolbar" aria-label="Reading controls">
-    <button id="mobile-font-dec-btn" class="btn-pill" aria-label="Decrease Chinese font size">A−</button>
-    <button id="mobile-font-inc-btn" class="btn-pill" aria-label="Increase Chinese font size">A+</button>
-    <span class="mobile-bar-divider"></span>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode" aria-pressed="true">Bi</button>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode" aria-pressed="false">All</button>
-    <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode" aria-pressed="false">Zh</button>
-    <span class="mobile-bar-divider"></span>
-    <button id="mobile-pinyin-btn" class="btn-pill active" aria-label="Toggle pinyin display" title="Show or hide pinyin">Py</button>
-    <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">#</button>
-    <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">↑</button>
+    <div class="mobile-bar-cluster" role="group" aria-label="Text size and reading mode">
+      <button id="mobile-font-dec-btn" class="btn-pill" aria-label="Decrease Chinese font size">A−</button>
+      <button id="mobile-font-inc-btn" class="btn-pill" aria-label="Increase Chinese font size">A+</button>
+      <button class="btn-pill mobile-mode-btn" data-reader-mode="bilingual" aria-label="Bilingual reading mode" aria-pressed="true">Bi</button>
+      <button class="btn-pill mobile-mode-btn" data-reader-mode="multi_translators" aria-label="All translators mode" aria-pressed="false">All</button>
+      <button class="btn-pill mobile-mode-btn" data-reader-mode="chinese_only" aria-label="Classical Chinese only mode" aria-pressed="false">Zh</button>
+    </div>
+    <div class="mobile-bar-cluster" role="group" aria-label="Pinyin and navigation">
+      <button id="mobile-pinyin-btn" class="btn-pill active" aria-label="Toggle pinyin display" title="Show or hide pinyin">Py</button>
+      <button id="mobile-cases-btn" class="btn-pill" aria-label="Jump to case index">#</button>
+      <button id="mobile-top-btn" class="btn-pill" aria-label="Scroll to top">↑</button>
+    </div>
   </div>
 
   <!-- Footer removed per owner feedback: the public surface ends with the literature. -->

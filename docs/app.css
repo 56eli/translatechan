@@ -1,90 +1,112 @@
 /* ==========================================================================
-   Fake Chan Factory: Zen Minimalist & Serene Aesthetic
-   Designed for deep contemplative reading on mobile, tablet, and desktop.
+   Fake Chan Factory — visual system
+   --------------------------------------------------------------------------
+   One token sheet, one type scale, one component vocabulary per room.
+   Rewritten 2026-09-13 (Pages revamp, Phase 1) against Checkpoint-C; the
+   secondary rooms were re-composed onto that system in Phase 3 (see Z3 near
+   the end of this sheet — the retired card vocabulary is deleted, not shadowed).
+   The
+   owner's colours are kept (walnut #211814, paper #f4efe5, ink #2c2523,
+   gold #8b622b …); every other layer — tokens, scale, composition — was
+   redesigned. The hall is expressed as structure (lintel, beam, rule,
+   margin), not as texture, illustration or icon.
+
+   SHEET DISCIPLINE — read before adding a token
+   • 35 declarations here, 8 in the dark override — 43 total, re-measured
+     2026-09-13 in Phase 2 (the Phase 1 record accepts 43 as measured). The
+     previous sheet was 39 + 24 = 63.
+   • Eight tokens are THEME PRIMITIVES and are the only ones
+     [data-theme="dark"] overrides: paper / panel / line / ink + four
+     accents. Everything else is derived from them with color-mix(), so a
+     tint that means "paper plus a little ink" in both themes is written
+     once instead of hand-picked twice per theme.
+   • Derived tints must stay theme-free. If a value cannot be expressed as
+     a mix of the primitives, it belongs in the primitive set.
+   • Type is one modular scale (--type-*), shared by zh and en at distinct
+     line-heights. English voice: a scholarly serif (--font-display) for the
+     hook, headings and translation prose; the system sans (--font-ui) is
+     for controls only; --font-mono carries locators and counts.
+   • Chinese is present everywhere and subordinate everywhere except inside
+     the Reader sheet, where it is the largest text on the page
+     (Checkpoint-C C-3). It is sized by --zh-font-size, never by a separate
+     colour, so source text and commentary share one ink.
+   • Scoped composition dials stay out of the global sheet. The Phase 2 Reader
+     sheet carries its own on #reader-content-target (Chinese dominance ratio,
+     sheet measure); Phase 3 gave the four secondary rooms the same treatment on
+     .room-body (--room-measure, --room-zh, --room-zh-label). They are ratios
+     and measures, not palette values, so the sheet is still 35 + 8 = 43.
    ========================================================================== */
 
 :root {
-  /* Warm Rice Paper Light Theme */
-  --bg-primary: #f4efe5;
-  --bg-secondary: #ebe2d3;
-  --bg-card: #fbf8f1;
-  --bg-card-subtle: #f7f1e7;
-  --bg-hover: #e9dece;
-  --bg-accent: #dfd0ba;
-  --border-color: #d8cbb8;
-  --border-subtle: #e7dccb;
-  --border-focus: #80591f;
+  /* -- 1. Theme primitives — the only tokens the dark theme overrides ------ */
+  --paper: #f4efe5;   /* page ground */
+  --panel: #fbf8f1;   /* raised sheet: cards, popovers, toolbar */
+  --line:  #d8cbb8;   /* hairline borders */
+  --ink:   #2c2523;   /* body text, and source Chinese */
+  --gold:  #8b622b;   /* walnut trim, focus ring, active state */
+  --green: #3d6e58;   /* edition-verified */
+  --blue:  #325d79;   /* robo / machine-made */
+  --red:   #9e3335;   /* withheld, rights-pending, warning */
 
-  /* Structural timber — shell/lintels, never decorative texture */
-  --wood-950: #211814;
-  --wood-900: #2c211c;
-  --wood-800: #3a2a22;
-  --wood-text: #f3ead9;
-  --wood-muted: #cdbda7;
-  --shell-height: 7.25rem;
+  /* -- 2. Derived tints — one rule, correct under both themes ------------- */
+  --sunken:      color-mix(in srgb, var(--ink)   6%, var(--paper));
+  --hover:       color-mix(in srgb, var(--ink)   8%, transparent);
+  --line-soft:   color-mix(in srgb, var(--line) 52%, transparent);
+  --ink-soft:    color-mix(in srgb, var(--ink)  70%, var(--paper));
+  --gold-soft:   color-mix(in srgb, var(--gold) 12%, var(--panel));
+  --gold-strong: color-mix(in srgb, var(--gold) 80%, var(--ink));
+  --blue-soft:   color-mix(in srgb, var(--blue) 11%, var(--panel));
 
-  /* Ink & Tea Typography */
-  --text-primary: #2c2523;
-  --text-secondary: #6e645e;
-  --text-muted: #665c56; /* darkened for WCAG AA contrast (was #9c9189 ≈ 2.8:1) */
-  --text-chinese: #1f1a18;
+  /* -- 3. Walnut structure — the hall's lintel, beams and rule lines ------ */
+  --wood:        #211814;
+  --wood-ink:    #f3ead9;
+  --brass:       #c9a66b;   /* gold on walnut: trim, monogram, active tab */
+  --wood-raised: color-mix(in srgb, var(--wood-ink) 12%, var(--wood));
+  --wood-muted:  color-mix(in srgb, var(--wood-ink) 72%, transparent);
 
-  /* Zen Natural Accents */
-  --accent-gold: #8b622b;
-  --accent-gold-light: #f7f2e7;
-  --accent-gold-hover: #724e1e;
-  --accent-green: #3d6e58;
-  --accent-green-light: #eef5f1;
-  --accent-blue: #325d79;
-  --accent-blue-light: #edf4f8;
-  --accent-red: #9e3335;
-
-  /* Typography Stacks */
-  --font-serif: "Noto Serif SC", "Songti SC", "SimSun", "STSong", serif;
+  /* -- 4. Typefaces ------------------------------------------------------- */
+  /* Latin comes from the scholarly serif; CJK falls through to the Chinese
+     serif so mixed headings never drop to a system default. */
+  --font-display: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, var(--font-zh);
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif;
+  --font-zh: "Noto Serif SC", "Songti SC", "SimSun", "STSong", serif;
   --font-kai: "Kaiti SC", "STKaiti", "KaiTi", "Noto Serif SC", serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Elevation & Rounding */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.08);
-  --radius-sm: 3px;
-  --radius-md: 7px;
-  --radius-lg: 12px;
-  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  --zh-font-size: 1.2rem;
+  /* -- 5. Type scale — one ~1.24 modular scale ---------------------------- */
+  --type-hook: clamp(2.3rem, 5.2vw, 4.4rem);    /* hero hook only */
+  --type-h1:   clamp(1.7rem, 3.2vw, 2.75rem);   /* room + document headings */
+  --type-h2:   clamp(1.2rem, 2.1vw, 1.65rem);   /* case, matrix, term heads */
+  --type-body: 1rem;
+  --type-small: 0.8125rem;                      /* captions, kicker labels */
+
+  /* -- 6. Shape & motion -------------------------------------------------- */
+  --radius: 4px;
+  --shadow: 0 1px 2px rgba(33, 24, 20, 0.06), 0 8px 24px rgba(33, 24, 20, 0.05);
+  --motion: 180ms;
+
+  /* -- 7. Runtime contracts — written by app.js, names must not change ----
+     Four sites, all CSSOM custom-property writes (never a style attribute, so
+     `style-src 'self'` governs none of them):
+       --shell-height  documentElement, measured by setupShellMetrics()
+       --zh-font-size  documentElement, A−/A+ and the persisted preference
+       --pop-shift     the shared popovers, measured by positionFloatingPopover()
+     Grep `style.setProperty` in app.js and the count must still be four. */
+  --shell-height: 7.25rem;   /* measured shell height (setupShellMetrics) */
+  --zh-font-size: 1.2rem;    /* user-adjustable source-text size */
+  /* --pop-shift is declared where it is consumed (.term-popover, .robo-popover,
+     .citation-popover) because it is per-popover geometry, not a global value. */
 }
 
 [data-theme="dark"] {
-  /* Ink Stone Dark Theme */
-  --bg-primary: #121214;
-  --bg-secondary: #18181b;
-  --bg-card: #1f1f23;
-  --bg-card-subtle: #232328;
-  --bg-hover: #292930;
-  --bg-accent: #32323b;
-  --border-color: #2f2f38;
-  --border-subtle: #25252e;
-  --border-focus: #c89f55;
-
-  --text-primary: #ede8df;
-  --text-secondary: #a49f96;
-  --text-muted: #8f8980; /* lightened for WCAG AA contrast on dark bg */
-  --text-chinese: #f5f2eb;
-
-  --accent-gold: #c89f55;
-  --accent-gold-light: #262117;
-  --accent-gold-hover: #dfb56c;
-  --accent-green: #4e8c72;
-  --accent-green-light: #16241e;
-  --accent-blue: #4d86a8;
-  --accent-blue-light: #18252e;
-  --accent-red: #c24b4d;
-
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.5);
-  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.6);
+  --paper: #121214;
+  --panel: #1f1f23;
+  --line:  #2f2f38;
+  --ink:   #ede8df;
+  --gold:  #c89f55;
+  --green: #4e8c72;
+  --blue:  #4d86a8;
+  --red:   #c24b4d;
 }
 
 /* Base Resets & Serene Atmosphere */
@@ -96,12 +118,12 @@
 }
 
 body {
-  background-color: var(--bg-primary);
+  background-color: var(--paper);
   background-image:
-    linear-gradient(90deg, transparent 0, transparent calc(50% - 0.5px), color-mix(in srgb, var(--border-subtle) 45%, transparent) 50%, transparent calc(50% + 0.5px)),
-    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--bg-card) 80%, transparent), transparent 28rem);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
+    linear-gradient(90deg, transparent 0, transparent calc(50% - 0.5px), color-mix(in srgb, var(--line-soft) 45%, transparent) 50%, transparent calc(50% + 0.5px)),
+    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--panel) 80%, transparent), transparent 28rem);
+  color: var(--ink);
+  font-family: var(--font-ui);
   line-height: 1.65;
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -113,84 +135,96 @@ body {
    assistive tech gets a real document outline (a11y audit 2026-08-09). */
 h1.text-title-zh,
 h2.case-num-title,
-h2.matrix-ref,
+h2.matrix-ref-clean,
 h2.master-name-zh,
-h2.term-card-zh {
+h2.catalogue-title-en,
+h2.lineage-band-gen,
+h2.lineage-flat-head,
+h2.lexicon-headword,
+h3.lineage-master-name-en {
   margin: 0;
   font-weight: 700;
   line-height: inherit;
 }
 
 /* Site shell — dark walnut is architecture, not decoration */
+/* ==========================================================================
+   Z1 — The gate: walnut lintel (shell) above, beam (hero) below.
+   The hall is structure, not texture: a lintel carries the brand and the
+   controls, a directory of five rooms hangs beneath it, and the joke is told
+   once on the beam. Chinese is present on the lintel and in the directory but
+   always subordinate to the English (Checkpoint-C C-3).
+   ========================================================================== */
+
 .site-shell {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--wood-950);
-  color: var(--wood-text);
-  border-bottom: 3px solid #80591f;
-  box-shadow: 0 3px 12px rgba(32, 23, 18, 0.18);
+  background: var(--wood);
+  color: var(--wood-ink);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 40%, transparent);
 }
 
 .shell-frame {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0.6rem 1.5rem 0;
+  padding: 0 1.5rem;
 }
 
-.shell-primary {
-  min-height: 3.2rem;
+/* Row 1 — the lintel: brand left, controls right */
+.shell-lintel {
+  min-height: 3.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.75rem;
   min-width: max-content;
   text-decoration: none;
-  color: var(--wood-text);
+  color: var(--wood-ink);
 }
 
 .brand-mark {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.4rem;
+  height: 2.4rem;
   display: inline-grid;
   place-items: center;
-  border: 1px solid #c9a66b;
-  background: #c9a66b;
-  color: var(--wood-950);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: -0.03em;
+  border: 1px solid var(--brass);
+  background: var(--brass);
+  color: var(--wood);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
   clip-path: polygon(0 0, 82% 0, 100% 18%, 100% 100%, 0 100%);
 }
 
 .brand-lockup {
   display: flex;
   flex-direction: column;
-  gap: 0.04rem;
-  line-height: 1.1;
+  gap: 0.1rem;
+  line-height: 1.05;
 }
 
 .brand-title-en {
-  color: var(--wood-text);
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
+/* Chinese sits under the English wordmark and stays subordinate */
 .brand-title-chinese {
+  font-family: var(--font-zh);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   color: var(--wood-muted);
-  font-family: var(--font-sans);
-  font-size: 0.56rem;
-  font-weight: 650;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
 }
 
 .nav-controls {
@@ -213,19 +247,20 @@ h2.term-card-zh {
 .search-input {
   width: 100%;
   padding: 0.5rem 0.75rem 0.5rem 2rem;
+  font-family: var(--font-ui);
   font-size: 0.85rem;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  color: var(--text-primary);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
   outline: none;
-  transition: border-color 0.18s ease, background-color 0.18s ease;
+  transition: border-color var(--motion) ease, background-color var(--motion) ease;
 }
 
 .shell-search .search-input {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--wood-text);
+  background: color-mix(in srgb, var(--wood-ink) 8%, transparent);
+  border-color: color-mix(in srgb, var(--wood-ink) 18%, transparent);
+  color: var(--wood-ink);
 }
 
 .shell-search .search-input::placeholder {
@@ -233,14 +268,18 @@ h2.term-card-zh {
 }
 
 .search-input:focus {
-  border-color: #c9a66b;
-  background: var(--bg-card);
-  box-shadow: 0 0 0 2px rgba(201, 166, 107, 0.2);
+  border-color: var(--brass);
+  background: var(--panel);
 }
 
 .shell-search .search-input:focus {
-  background: var(--wood-800);
-  color: var(--wood-text);
+  background: var(--wood-raised);
+  color: var(--wood-ink);
+}
+
+/* On walnut the focus ring follows the brass, not the paper-gold */
+.site-shell :focus-visible {
+  outline-color: var(--brass);
 }
 
 .search-icon {
@@ -248,7 +287,7 @@ h2.term-card-zh {
   left: 0.65rem;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--text-muted);
+  color: var(--ink-soft);
   pointer-events: none;
 }
 
@@ -258,37 +297,39 @@ h2.term-card-zh {
 
 .theme-toggle {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--wood-text);
+  border: 1px solid color-mix(in srgb, var(--wood-ink) 20%, transparent);
+  color: var(--wood-ink);
   min-width: 38px;
   height: 36px;
   padding: 0 0.45rem;
-  border-radius: 4px;
+  border-radius: var(--radius);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.18s ease, border-color 0.18s ease;
+  transition: background-color var(--motion) ease, border-color var(--motion) ease;
   text-decoration: none;
   font-size: 0.78rem;
   font-weight: 700;
 }
 
 .theme-toggle:hover {
-  border-color: #c9a66b;
-  background: var(--wood-800);
+  border-color: var(--brass);
+  background: var(--wood-raised);
 }
 
+/* Row 2 — the hall directory. A hairline separates it from the lintel. */
 .room-nav {
   display: flex;
   align-items: stretch;
   gap: 0;
-  margin: 0.15rem 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
   overflow-x: auto;
   scrollbar-width: none;
   border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
   background: transparent;
 }
 
@@ -302,10 +343,10 @@ h2.term-card-zh {
 
 .nav-tab-btn {
   position: relative;
-  min-height: 2.9rem;
-  padding: 0.32rem 1.2rem 0.42rem 2.05rem;
+  min-height: 3rem;
+  padding: 0.4rem 1.15rem 0.5rem 2.1rem;
   border: 0;
-  border-bottom: 3px solid transparent;
+  border-bottom: 2px solid transparent;
   background: transparent;
   color: var(--wood-muted);
   cursor: pointer;
@@ -315,51 +356,49 @@ h2.term-card-zh {
   justify-content: center;
   gap: 0;
   white-space: nowrap;
-  transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+  transition: color var(--motion) ease, background-color var(--motion) ease, border-color var(--motion) ease;
 }
 
 .nav-tab-btn::before {
   content: attr(data-room-index);
   position: absolute;
-  left: 0.65rem;
+  left: 0.7rem;
   top: 50%;
   transform: translateY(-50%);
   font-family: var(--font-mono);
-  font-size: 0.54rem;
-  color: #c9a66b;
-  opacity: 0.8;
+  font-size: var(--type-small);
+  color: var(--brass);
+  opacity: 0.75;
 }
 
 .nav-tab-btn:hover {
-  color: var(--wood-text);
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--wood-ink);
+  background: color-mix(in srgb, var(--wood-ink) 5%, transparent);
 }
 
 .nav-tab-btn.active,
 .nav-tab-btn[aria-selected="true"] {
-  color: #fff7e8;
-  border-bottom-color: #c9a66b;
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: none;
+  color: var(--wood-ink);
+  border-bottom-color: var(--brass);
+  background: color-mix(in srgb, var(--wood-ink) 7%, transparent);
 }
 
 .room-name-en {
   color: currentColor;
-  font-family: var(--font-sans);
-  font-size: 0.74rem;
-  font-weight: 750;
-  letter-spacing: 0.04em;
-  line-height: 1.15;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
 }
 
 .room-name-zh {
   color: var(--wood-muted);
-  font-family: var(--font-serif);
-  font-size: 0.55rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  line-height: 1.15;
-  opacity: 0.78;
+  font-family: var(--font-zh);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
 }
 
 /* Display settings popover returns to the paper material */
@@ -373,38 +412,39 @@ h2.term-card-zh {
   right: 0;
   z-index: 120;
   min-width: 230px;
-  background: var(--bg-card);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  box-shadow: var(--shadow-lg);
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   padding: 0.85rem 0.95rem;
   font-size: 0.82rem;
 }
 
 .settings-panel[hidden] { display: none; }
 .settings-row { display: flex; flex-direction: column; gap: 0.4rem; }
-.settings-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); }
+.settings-label { font-family: var(--font-mono); font-size: var(--type-small); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
 .settings-options { display: flex; gap: 0.35rem; }
-.settings-opt { flex: 1; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 0.45rem 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); cursor: pointer; text-align: center; }
-.settings-opt small { display: block; font-weight: 400; font-size: 0.68rem; color: var(--text-muted); margin-top: 0.1rem; }
-.settings-opt:hover { border-color: var(--border-focus); color: var(--text-primary); }
-.settings-opt.active { background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold-hover); }
+.settings-opt { flex: 1; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 0.45rem 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--ink-soft); cursor: pointer; text-align: center; }
+.settings-opt small { display: block; font-weight: 400; font-size: 0.68rem; color: var(--ink-soft); margin-top: 0.1rem; }
+.settings-opt:hover { border-color: var(--gold); color: var(--ink); }
+.settings-opt.active { background: var(--gold-soft); border-color: var(--gold); color: var(--gold-strong); }
 .settings-opt.active small { color: currentColor; opacity: 0.8; }
 
+/* Phone: brand and controls share one line; the directory scrolls sideways */
 @media (max-width: 768px) {
-  .shell-frame { padding: 0.5rem 0.75rem 0; }
-  .shell-primary { align-items: center; gap: 0.6rem; }
-  .brand-mark { width: 2rem; height: 2rem; }
-  .brand-title-en { font-size: 0.8rem; }
+  .shell-frame { padding: 0 0.75rem; }
+  .shell-lintel { min-height: 3rem; gap: 0.6rem; }
+  .brand-mark { width: 2rem; height: 2rem; font-size: 0.8rem; }
+  .brand-title-en { font-size: 0.85rem; }
   .brand-title-chinese { display: none; }
   .nav-controls { flex: 1; }
   .shell-search { width: auto; min-width: 0; flex: 1; }
   .theme-toggle { min-width: 34px; height: 34px; }
-  .nav-tab-btn { padding: 0.3rem 0.8rem 0.4rem 1.7rem; }
+  .nav-tab-btn { min-height: 2.75rem; padding: 0.35rem 0.8rem 0.45rem 1.7rem; }
   .nav-tab-btn::before { left: 0.5rem; }
-  .room-name-zh { font-size: 0.5rem; }
-  .room-name-en { font-size: 0.68rem; }
+  .room-name-en { font-size: 0.8rem; }
+  .room-name-zh { font-size: 0.55rem; }
 }
 
 /* Main Container & Zen Welcome Banner */
@@ -414,39 +454,37 @@ main {
   padding: 1.5rem;
 }
 
+/* --- The beam: the joke told once, then a quiet colophon ----------------- */
 .zen-hero-banner {
   position: relative;
   isolation: isolate;
-  min-height: 22rem;
   margin-bottom: 2rem;
-  padding: clamp(1.5rem, 4vw, 3.8rem);
+  padding: clamp(1.4rem, 3.2vw, 2.75rem) clamp(1.4rem, 3.2vw, 3rem);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.38fr);
-  align-items: stretch;
-  gap: clamp(2rem, 7vw, 7rem);
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: clamp(1.25rem, 4vw, 3rem);
   overflow: hidden;
-  color: var(--wood-text);
+  color: var(--wood-ink);
   background:
-    linear-gradient(115deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 72px),
-    linear-gradient(90deg, var(--wood-950), #2d211b 62%, #3a291f);
-  border: 1px solid #4c382d;
-  border-bottom: 5px solid #c9a66b;
-  box-shadow: 0 18px 45px rgba(33, 24, 20, 0.18);
-  clip-path: polygon(0 0, calc(100% - 2rem) 0, 100% 2rem, 100% 100%, 0 100%);
+    linear-gradient(90deg, color-mix(in srgb, var(--wood-ink) 5%, transparent) 0 1px, transparent 1px 68px),
+    linear-gradient(100deg, var(--wood), var(--wood-raised));
+  border-bottom: 2px solid var(--brass);
 }
 
+/* Milled shop-mark at the beam's end — architecture, not illustration */
 .zen-hero-banner::before {
   content: 'FC // 01';
   position: absolute;
   right: -0.02em;
-  bottom: -0.25em;
+  bottom: -0.28em;
   z-index: -1;
   font-family: var(--font-mono);
-  font-size: clamp(5rem, 15vw, 13rem);
+  font-size: clamp(4rem, 11vw, 9rem);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.08em;
-  color: rgba(255, 255, 255, 0.025);
+  color: color-mix(in srgb, var(--wood-ink) 4%, transparent);
 }
 
 body:not([data-current-view="reader"]) .zen-hero-banner,
@@ -454,67 +492,114 @@ body:not([data-current-view="reader"]) #about-toggle {
   display: none;
 }
 
-.hero-main { min-width: 0; }
+.hero-body {
+  min-width: 0;
+}
+
 .hero-kicker {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin: 0 0 clamp(0.9rem, 2.5vw, 1.75rem);
+  padding-right: 3.5rem;
   font-family: var(--font-mono);
-  font-size: 0.63rem;
+  font-size: var(--type-small);
   font-weight: 700;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #c9a66b;
+  color: var(--brass);
 }
+
 .zen-quote-main {
-  max-width: 18ch;
-  margin: 0 0 1rem;
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5.4vw, 5.25rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-  color: #fffaf0;
+  max-width: 20ch;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--type-hook);
+  font-weight: 600;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  color: var(--wood-ink);
 }
-.zen-quote-main em { color: #d8b87d; font-style: normal; }
-.hero-meta {
-  min-width: 0;
-  padding-left: clamp(1.2rem, 3vw, 2.5rem);
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-content: end;
-  gap: 1.4rem 1rem;
-  border-left: 1px solid rgba(201, 166, 107, 0.35);
+
+/* The serif has a true italic, so the turn of the joke is set in it. The
+   previous build forced this upright because the CJK serif has no cut. */
+.zen-quote-main em {
+  color: var(--brass);
+  font-style: italic;
 }
+
+.hero-colophon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem clamp(0.9rem, 2.5vw, 1.75rem);
+  margin: clamp(1.1rem, 3vw, 1.9rem) 0 0;
+  padding-top: clamp(0.7rem, 1.6vw, 1rem);
+  border-top: 1px solid color-mix(in srgb, var(--brass) 32%, transparent);
+  font-family: var(--font-mono);
+  font-size: var(--type-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--wood-muted);
+}
+
+.hero-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.hero-stat strong {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--wood-ink);
+}
+
+.hero-colophon-zh {
+  font-family: var(--font-zh);
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: none;
+  color: var(--brass);
+}
+
 .hero-stamp {
-  grid-column: 1 / -1;
-  width: 7rem;
+  width: 6.5rem;
   aspect-ratio: 1;
-  padding: 0.9rem;
+  padding: 0.85rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid #c9a66b;
-  color: #c9a66b;
+  gap: 0.05rem;
+  border: 1px solid var(--brass);
+  color: var(--brass);
   font-family: var(--font-mono);
-  font-size: 0.53rem;
+  font-size: 0.55rem;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: 0.15em;
+  text-align: center;
   transform: rotate(-3deg);
 }
-.hero-stamp strong { font-size: 1.5rem; letter-spacing: -0.04em; color: #fffaf0; }
-.hero-stat { display: flex; flex-direction: column; gap: 0.2rem; }
-.hero-stat strong { font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 0.85; color: #fffaf0; }
-.hero-stat span { font-family: var(--font-mono); font-size: 0.55rem; line-height: 1.35; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wood-muted); }
+
+.hero-stamp strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--wood-ink);
+}
 
 /* Dismissable introduction; re-opened by the header info control. */
 .zen-hero-banner[hidden] { display: none !important; }
+
 .hero-dismiss-btn {
   position: absolute;
-  top: 0.8rem;
-  right: 1.1rem;
+  top: 0.9rem;
+  right: clamp(1.4rem, 3.2vw, 3rem);
   z-index: 2;
   padding: 0.25rem 0;
   background: transparent;
@@ -522,24 +607,31 @@ body:not([data-current-view="reader"]) #about-toggle {
   border-bottom: 1px solid transparent;
   color: var(--wood-muted);
   font-family: var(--font-mono);
-  font-size: 0.56rem;
+  font-size: var(--type-small);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
 }
-.hero-dismiss-btn:hover { color: var(--wood-text); border-bottom-color: #c9a66b; }
+
+.hero-dismiss-btn:hover {
+  color: var(--wood-ink);
+  border-bottom-color: var(--brass);
+}
+
+.zen-hero-banner :focus-visible {
+  outline-color: var(--brass);
+}
 
 @media (max-width: 768px) {
   main { padding: 0.8rem; }
-  .zen-hero-banner { min-height: 0; grid-template-columns: 1fr; gap: 2rem; padding: 1.5rem; clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 1rem, 100% 100%, 0 100%); }
-  .hero-kicker { margin-bottom: 1.6rem; padding-right: 2.2rem; }
+  .zen-hero-banner { grid-template-columns: 1fr; gap: 1.5rem; }
   .hero-kicker span:last-child { display: none; }
-  .zen-quote-main { font-size: clamp(2.45rem, 13vw, 4rem); }
-  .hero-meta { padding: 1.5rem 0 0; grid-template-columns: 6.5rem 1fr 1fr; align-items: end; border-left: 0; border-top: 1px solid rgba(201, 166, 107, 0.35); }
-  .hero-stamp { grid-column: auto; width: 5.4rem; padding: 0.65rem; }
-  .hero-stamp strong { font-size: 1.1rem; }
-  .hero-stat strong { font-size: 2rem; }
+  .zen-quote-main { max-width: none; }
+  .hero-colophon { gap: 0.35rem 1rem; }
+  .hero-stat strong { font-size: 1.35rem; }
+  .hero-stamp { width: 5.25rem; padding: 0.7rem; }
+  .hero-stamp strong { font-size: 1.05rem; }
 }
 
 /* Views Management */
@@ -568,7 +660,7 @@ body:not([data-current-view="reader"]) #about-toggle {
 .sidebar-panel {
   background: transparent;
   border: 0;
-  border-right: 1px solid var(--border-color);
+  border-right: 1px solid var(--line);
   border-radius: 0;
   padding: 0 0.9rem 0 0;
   box-shadow: none;
@@ -584,13 +676,13 @@ body:not([data-current-view="reader"]) #about-toggle {
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 0.6rem;
-  color: var(--text-primary);
-  font-family: var(--font-serif);
+  color: var(--ink);
+  font-family: var(--font-zh);
   font-size: 1rem;
   font-weight: 800;
 }
 .sidebar-title small {
-  color: var(--text-muted);
+  color: var(--ink-soft);
   font-family: var(--font-mono);
   font-size: 0.56rem;
   font-weight: 650;
@@ -600,7 +692,7 @@ body:not([data-current-view="reader"]) #about-toggle {
 
 .corpus-selector-list { display: flex; flex-direction: column; gap: 0.9rem; }
 .corpus-group { display: block; }
-.corpus-group-title { display: flex; justify-content: space-between; align-items: center; margin: 0 0 0.3rem; padding-bottom: 0.2rem; border-bottom: 1px solid var(--border-color); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.corpus-group-title { display: flex; justify-content: space-between; align-items: center; margin: 0 0 0.3rem; padding-bottom: 0.2rem; border-bottom: 1px solid var(--line); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
 .corpus-group-list { display: flex; flex-direction: column; gap: 0; }
 
 .corpus-btn {
@@ -616,21 +708,21 @@ body:not([data-current-view="reader"]) #about-toggle {
   border: 0;
   border-left: 3px solid transparent;
   border-radius: 0;
-  color: var(--text-primary);
+  color: var(--ink);
   cursor: pointer;
   transition: background-color 0.16s ease, border-color 0.16s ease;
 }
 
-.corpus-btn:hover { background: var(--bg-hover); border-left-color: var(--border-color); }
-.corpus-btn.active { background: var(--accent-gold-light); border-left-color: var(--accent-gold); color: var(--text-primary); font-weight: 600; }
+.corpus-btn:hover { background: var(--hover); border-left-color: var(--line); }
+.corpus-btn.active { background: var(--gold-soft); border-left-color: var(--gold); color: var(--ink); font-weight: 600; }
 .corpus-btn-text { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
 .corpus-title-en { font-size: 0.76rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.corpus-title-zh { margin-top: 0.08rem; font-family: var(--font-serif); font-size: 0.7rem; color: var(--text-secondary); }
+.corpus-title-zh { margin-top: 0.08rem; font-family: var(--font-zh); font-size: 0.7rem; color: var(--ink-soft); }
 .corpus-btn-meta { display: inline-flex; align-items: center; gap: 0.25rem; flex-shrink: 0; }
-.corpus-badge { font-family: var(--font-mono); font-size: 0.59rem; padding: 0; border: 0; background: transparent; color: var(--text-muted); }
-.corpus-status-mark { font-family: var(--font-mono); font-size: 0.58rem; font-weight: 700; color: var(--text-muted); background: transparent; padding: 0; border: 0; border-radius: 0; white-space: nowrap; }
-.corpus-status-mark.is-complete { color: var(--accent-green); background: transparent; border: 0; }
-[data-theme="dark"] .corpus-status-mark.is-complete { color: #8bc9ad; background: transparent; border: 0; }
+.corpus-badge { font-family: var(--font-mono); font-size: 0.59rem; padding: 0; border: 0; background: transparent; color: var(--ink-soft); }
+.corpus-status-mark { font-family: var(--font-mono); font-size: 0.58rem; font-weight: 700; color: var(--ink-soft); background: transparent; padding: 0; border: 0; border-radius: 0; white-space: nowrap; }
+.corpus-status-mark.is-complete { color: var(--green); background: transparent; border: 0; }
+[data-theme="dark"] .corpus-status-mark.is-complete { color: color-mix(in srgb, var(--green) 72%, var(--wood-ink)); background: transparent; border: 0; }
 
 @media (max-width: 1024px) {
   .reader-layout { grid-template-columns: minmax(0, 1fr); }
@@ -640,7 +732,7 @@ body:not([data-current-view="reader"]) #about-toggle {
 /* Content Panel & Reading Surface */
 .content-panel {
   min-width: 0;
-  background: var(--bg-card);
+  background: var(--panel);
   border: 0;
   border-radius: 0;
   padding: 0 1.25rem 2rem;
@@ -654,87 +746,69 @@ body:not([data-current-view="reader"]) #about-toggle {
   }
 }
 
+/* --- Room heading: one rule, one serif title, Chinese subordinate --------- */
 .text-header {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--line);
   padding-bottom: 1.25rem;
   margin-bottom: 1.75rem;
 }
 
 .section-kicker {
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.63rem;
-  font-weight: 800;
+  font-size: var(--type-small);
+  font-weight: 700;
   line-height: 1.3;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent-gold-hover);
+  color: var(--gold-strong);
 }
 
 .text-title-zh {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.22rem;
-  margin-bottom: 0.35rem;
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3.65rem);
-  font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.045em;
-  color: var(--text-primary);
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-size: var(--type-h1);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--ink);
 }
 
 .text-title-zh small {
-  font-family: var(--font-serif);
-  font-size: 0.25em;
-  font-weight: 650;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
+  font-family: var(--font-zh);
+  font-size: 0.3em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
 }
 
 .text-title-en {
-  max-width: 65ch;
+  max-width: 62ch;
   margin-bottom: 0.6rem;
-  font-size: 0.92rem;
-  color: var(--text-secondary);
+  font-size: var(--type-body);
+  line-height: 1.55;
+  color: var(--ink-soft);
 }
 
 .room-heading {
   position: relative;
-  padding: 1.2rem 0 1.6rem 1.2rem;
-  border-left: 4px solid var(--wood-800);
+  padding: 0.35rem 0 1.35rem 1.15rem;
+  border-left: 3px solid var(--gold);
 }
 
 .room-heading::after {
   content: '';
   position: absolute;
-  right: 0;
+  left: 0;
   bottom: -1px;
-  width: min(22vw, 15rem);
-  height: 5px;
-  background: var(--accent-gold);
+  width: min(20vw, 12rem);
+  height: 3px;
+  background: var(--gold);
 }
-
-.text-meta-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.meta-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.775rem;
-  padding: 0.25rem 0.65rem;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  color: var(--text-secondary);
-}
-
 /* Reader Toolbar & Font Size Adjuster */
 .reader-toolbar {
   display: flex;
@@ -742,12 +816,12 @@ body:not([data-current-view="reader"]) #about-toggle {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.55rem 1rem;
-  background: var(--bg-card);
-  background: color-mix(in srgb, var(--bg-card) 94%, transparent);
+  background: var(--panel);
+  background: color-mix(in srgb, var(--panel) 94%, transparent);
   padding: 0.5rem 0;
   border-radius: 0;
   border: 0;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--line);
   margin-bottom: 0.9rem;
   position: sticky;
   top: calc(var(--shell-height) + 0.35rem);
@@ -766,30 +840,30 @@ body:not([data-current-view="reader"]) #about-toggle {
 .toolbar-label {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--ink-soft);
 }
 
 .btn-pill {
   background: transparent;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--line);
   padding: 0.32rem 0.65rem;
   border-radius: 4px;
   font-size: 0.78rem;
   cursor: pointer;
-  color: var(--text-secondary);
+  color: var(--ink-soft);
   transition: border-color 0.18s ease, color 0.18s ease, background-color 0.18s ease;
 }
 
 .btn-pill:hover {
-  border-color: var(--border-focus);
-  color: var(--text-primary);
+  border-color: var(--gold);
+  color: var(--ink);
 }
 
 .btn-pill.active,
 .btn-pill[aria-pressed="true"] {
-  background: var(--accent-gold-light);
-  border-color: var(--accent-gold);
-  color: var(--accent-gold-hover);
+  background: var(--gold-soft);
+  border-color: var(--gold);
+  color: var(--gold-strong);
   font-weight: 700;
 }
 
@@ -797,22 +871,22 @@ body:not([data-current-view="reader"]) #about-toggle {
 .case-card {
   margin-bottom: 2rem;
   padding: 1.65rem;
-  background: var(--bg-card-subtle);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  transition: var(--transition);
+  background: var(--sunken);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: var(--motion);
 }
 
 .case-card:hover {
-  border-color: var(--border-focus);
-  box-shadow: var(--shadow-sm);
+  border-color: var(--gold);
+  box-shadow: var(--shadow);
 }
 
 .case-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  border-bottom: 1px dashed var(--border-color);
+  border-bottom: 1px dashed var(--line);
   padding-bottom: 0.65rem;
   margin-bottom: 1.15rem;
   flex-wrap: wrap;
@@ -824,10 +898,11 @@ body:not([data-current-view="reader"]) #about-toggle {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--accent-gold);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-size: var(--type-h2);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--gold);
 }
 .case-heading-kicker {
   margin-bottom: 0.12rem;
@@ -837,14 +912,14 @@ body:not([data-current-view="reader"]) #about-toggle {
   line-height: 1.25;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: var(--accent-gold-hover);
+  color: var(--gold-strong);
 }
 .case-heading-en {
   font-size: 1.15rem;
   font-weight: 760;
   line-height: 1.25;
   letter-spacing: -0.015em;
-  color: var(--text-primary);
+  color: var(--ink);
 }
 .case-heading-zh {
   margin-top: 0.12rem;
@@ -852,7 +927,7 @@ body:not([data-current-view="reader"]) #about-toggle {
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--ink-soft);
 }
 .case-header-actions {
   display: flex;
@@ -864,29 +939,29 @@ body:not([data-current-view="reader"]) #about-toggle {
 .case-speaker {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--ink-soft);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 /* Classical Chinese Typography (Contemplative & Serene) */
 .classical-zh {
-  font-family: var(--font-kai), var(--font-serif);
+  font-family: var(--font-kai), var(--font-zh);
   font-size: var(--zh-font-size);
   line-height: 1.85;
-  color: var(--text-chinese);
+  color: var(--ink);
   margin-bottom: 0.65rem;
   letter-spacing: 0.045em;
   word-break: break-word;
 }
 
 .pinyin-line {
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--ink-soft);
   font-style: italic;
   margin-bottom: 1.15rem;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--line-soft);
   padding-bottom: 0.65rem;
   line-height: 1.5;
 }
@@ -900,11 +975,11 @@ body:not([data-current-view="reader"]) #about-toggle {
 }
 
 .translation-col {
-  background: var(--bg-card);
+  background: var(--panel);
   padding: 1.15rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -913,18 +988,21 @@ body:not([data-current-view="reader"]) #about-toggle {
 .translator-tag {
   font-size: 0.775rem;
   font-weight: 700;
-  color: var(--accent-gold);
+  color: var(--gold);
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* C-2 (Phase 2): translation prose is set in the scholarly English serif, so
+   the Chinese source can dominate by contrast rather than by being alone in
+   having a voice. */
 .translation-text {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1rem;
-  color: var(--text-primary);
-  line-height: 1.68;
+  color: var(--ink);
+  line-height: 1.72;
   flex-grow: 1;
 }
 
@@ -936,16 +1014,16 @@ body:not([data-current-view="reader"]) #about-toggle {
   font-size: 0.65rem;
   line-height: 1.25;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--ink-soft);
   text-align: right;
 }
 
 .translation-status.is-verified {
-  color: var(--accent-green);
+  color: var(--green);
 }
 
 .translation-status.is-ai {
-  color: var(--accent-blue);
+  color: var(--blue);
 }
 
 .translation-status.is-silent-robo {
@@ -958,17 +1036,17 @@ body:not([data-current-view="reader"]) #about-toggle {
   flex-wrap: wrap;
   gap: 0.35rem;
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--ink-soft);
   margin-top: 0.35rem;
   line-height: 1.4;
 }
 
 .translation-source.source-missing {
-  color: var(--accent-red);
+  color: var(--red);
 }
 
 .translation-source.source-disclosure {
-  color: var(--text-secondary);
+  color: var(--ink-soft);
 }
 
 .source-location {
@@ -978,17 +1056,9 @@ body:not([data-current-view="reader"]) #about-toggle {
   gap: 0.45rem;
   margin-top: 0.7rem;
   font-size: 0.75rem;
-  color: var(--text-secondary);
+  color: var(--ink-soft);
   line-height: 1.4;
 }
-
-.document-source-location {
-  padding: 0.55rem 0.7rem;
-  background: var(--bg-card-subtle);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-}
-
 .case-source-location {
   margin: 0;
   font-size: 0.68rem;
@@ -1001,9 +1071,9 @@ body:not([data-current-view="reader"]) #about-toggle {
 
 .citation-trigger {
   appearance: none;
-  border: 1px solid var(--border-color);
-  background: var(--bg-card);
-  color: var(--accent-blue);
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--blue);
   border-radius: 999px;
   padding: 0.1rem 0.45rem;
   font: inherit;
@@ -1016,8 +1086,22 @@ body:not([data-current-view="reader"]) #about-toggle {
 
 .citation-trigger:hover,
 .citation-trigger:focus-visible {
-  border-color: var(--accent-blue);
-  background: var(--accent-blue-light);
+  border-color: var(--blue);
+  background: var(--blue-soft);
+}
+
+/* Popover placement contract (Phase 3, replaces the former `.style.left` /
+   `.style.top` pair): positionFloatingPopover() measures the anchor and the
+   rendered popover, then writes the single custom property --pop-shift as a
+   runtime contract; the sheet owns the geometry. A CSP `style-src` list gates
+   style attributes and `style` elements, not CSSOM writes, so this stays valid
+   with 'unsafe-inline' removed — and the fallback keeps an unpositioned
+   popover inside the viewport instead of at the document's end. */
+.chan-popover {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  translate: var(--pop-shift, 0.5rem 0.5rem);
 }
 
 .citation-popover {
@@ -1025,14 +1109,14 @@ body:not([data-current-view="reader"]) #about-toggle {
   z-index: 320;
   width: 340px;
   max-width: calc(100vw - 16px);
-  background: var(--bg-card);
-  color: var(--text-primary);
+  background: var(--panel);
+  color: var(--ink);
   padding: 0.9rem 1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
   font-size: 0.78rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
   line-height: 1.45;
   /* N8: long disclosures stay fully reachable — capped height, internal scroll,
      interactive surface (dismissed via trigger/click-outside/Escape). */
@@ -1042,8 +1126,8 @@ body:not([data-current-view="reader"]) #about-toggle {
 }
 
 .citation-title {
-  color: var(--accent-gold);
-  font-family: var(--font-serif);
+  color: var(--gold);
+  font-family: var(--font-zh);
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 0.45rem;
@@ -1051,31 +1135,31 @@ body:not([data-current-view="reader"]) #about-toggle {
 
 .citation-row {
   margin-top: 0.25rem;
-  color: var(--text-secondary);
+  color: var(--ink-soft);
 }
 
 .citation-row strong {
-  color: var(--text-primary);
+  color: var(--ink);
 }
 
 /* --- Robo-name real-fakeness affordance (Fake Chan Factory) ---
    Hover/focus/tap a Robo name to see its real-fakeness score popover. */
 .robo-name {
   cursor: help;
-  border-bottom: 2px dotted var(--accent-blue);
-  color: var(--accent-blue);
+  border-bottom: 2px dotted var(--blue);
+  color: var(--blue);
   border-radius: 3px;
 }
 
 .robo-name:hover,
 .robo-name:focus-visible {
-  background-color: var(--accent-blue-light);
-  outline: 2px solid var(--border-focus);
+  background-color: var(--blue-soft);
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
 .real-name {
-  border-bottom: 2px solid var(--accent-green);
+  border-bottom: 2px solid var(--green);
 }
 
 .robo-popover {
@@ -1083,14 +1167,14 @@ body:not([data-current-view="reader"]) #about-toggle {
   z-index: 310;
   width: 300px;
   max-width: calc(100vw - 16px);
-  background: var(--bg-card);
-  color: var(--text-primary);
+  background: var(--panel);
+  color: var(--ink);
   padding: 0.85rem 1.1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
   font-size: 0.825rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
   line-height: 1.45;
   max-height: min(60vh, 22rem);
   overflow-y: auto;
@@ -1099,139 +1183,179 @@ body:not([data-current-view="reader"]) #about-toggle {
 
 .robo-popover .robo-score {
   font-size: 0.78rem;
-  color: var(--accent-blue);
+  color: var(--blue);
   font-weight: 700;
 }
 
 .robo-popover .robo-tier-row {
   font-size: 0.72rem;
-  color: var(--text-muted);
+  color: var(--ink-soft);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin: 0.15rem 0 0.4rem;
 }
-
-.matrix-col > .translation-status {
-  margin-top: 0.45rem;
+/* ==========================================================================
+   Phase 2 — Reader sheet, ledger drawer, case rail (2026-09-13).
+   The sheet is *the* unit: generous whitespace, one hairline rule instead of
+   card borders, the source Chinese as the largest text in the room (C-3), and
+   translations as running prose in the English serif (C-2). The five ledgers
+   fold into one always-visible "About this edition" drawer band — calmer,
+   never quieter: nothing is hover-only, no ledger hides behind a disclosure,
+   and the separation note stays printed under the set.
+   ========================================================================== */
+#reader-content-target {
+  /* Scoped composition dials — ratios against the user-adjustable
+     --zh-font-size, so A−/A+ keep governing the whole sheet. */
+  --reader-zh-scale: 1.125;      /* base source text on the sheet */
+  --reader-zh-lead: 0.96;        /* commentary sized just under source */
+  --reader-zh-secondary: 0.875;  /* pointers and annotated blocks */
+  --reader-measure: 900px;       /* one measure for the whole column */
 }
-
-/* Reader as literature — ruled sheets, constrained measure, progressive metadata */
 #reader-content-target > .document-heading,
 #reader-content-target > .case-jump-strip,
 #reader-content-target > .front-matter,
 #reader-content-target > .case-card,
 #reader-content-target > .case-load-more {
-  max-width: 900px;
+  max-width: var(--reader-measure);
   margin-left: auto;
   margin-right: auto;
 }
 
 #reader-content-target .document-heading {
   margin-bottom: 0.35rem;
-  padding: 0.35rem 0 0.7rem;
-  border-bottom: 1px solid var(--border-color);
+  padding: 0.35rem 0 0.85rem;
+  border-bottom: 1px solid var(--line);
 }
 #reader-content-target .document-heading .text-title-zh { font-size: clamp(2rem, 4.4vw, 3.2rem); }
 #reader-content-target .document-heading .text-title-en { margin-bottom: 0; font-family: var(--font-mono); font-size: 0.67rem; letter-spacing: 0.05em; }
 
 .document-title-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
-.document-status { flex: none; padding: 0.2rem 0; border-bottom: 2px solid var(--accent-gold); font-family: var(--font-mono); font-size: 0.64rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
-/* Five public disclosure ledgers (W1 containment). Each question gets its own always-visible
-   block: source collation, represented units, translation/edition verification, canonical
-   locator, rights review. Nothing here is hover-only, and no ledger implies another. */
-.document-ledgers { display: grid; grid-template-columns: repeat(auto-fit, minmax(228px, 1fr)); gap: 0.5rem; margin-top: 0.6rem; }
-.ledger-block { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.5rem 0.6rem; border: 1px solid var(--border-color); border-left: 3px solid var(--accent-gold); border-radius: var(--radius-sm); background: var(--bg-card-subtle); font-size: 0.7rem; }
-.ledger-name { margin: 0; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
+.document-status { flex: none; padding: 0.2rem 0; border-bottom: 2px solid var(--gold); font-family: var(--font-mono); font-size: 0.64rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* The ledger drawer: one sunken band under the heading. Each of the five
+   questions keeps its own block and its own data-* contract (the smoke test
+   slices each ledger and forbids a <details> inside any slice); what changed
+   in Phase 2 is the container — no card borders, hairline column rules. */
+.ledger-drawer {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.9rem 0.7rem;
+  background: var(--sunken);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.ledger-drawer-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.5rem;
+}
+.ledger-drawer-title { margin: 0; font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--gold-strong); }
+.ledger-drawer-hint { font-size: 0.68rem; color: var(--ink-soft); }
+.document-ledgers { display: grid; grid-template-columns: repeat(auto-fit, minmax(228px, 1fr)); gap: 0.65rem 1rem; }
+.ledger-block { display: flex; flex-direction: column; gap: 0.3rem; padding: 0 0 0 0.6rem; border: 0; border-left: 2px solid var(--line); border-radius: 0; background: transparent; font-size: 0.7rem; }
+.ledger-name { margin: 0; color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
 .ledger-rows { display: flex; flex-direction: column; gap: 0.22rem; }
 .ledger-row { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: 0.4rem; align-items: baseline; }
-.ledger-key { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; }
-.ledger-value { color: var(--text-secondary); overflow-wrap: anywhere; }
-.ledger-code { padding: 0.05rem 0.24rem; border: 1px solid var(--border-color); border-radius: 3px; background: var(--bg-code); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.66rem; }
-.ledger-status { color: var(--accent-gold-hover); font-weight: 700; }
-.ledger-alert { color: var(--accent-red); font-weight: 700; }
-.ledger-footnote { grid-column: 1 / -1; margin: 0; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; }
-.ledger-block.is-collated { border-left-color: var(--accent-green); }
-.ledger-block.is-collated .ledger-status { color: var(--accent-green); }
-.ledger-block.is-unavailable { border-left-color: var(--accent-red); }
-.ledger-block.is-unavailable .ledger-status { color: var(--accent-red); }
+.ledger-key { color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; }
+.ledger-value { color: var(--ink-soft); overflow-wrap: anywhere; }
+.ledger-code { padding: 0.05rem 0.24rem; border: 1px solid var(--line); border-radius: 3px; background: var(--panel); color: var(--ink); font-family: var(--font-mono); font-size: 0.66rem; }
+.ledger-status { color: var(--gold-strong); font-weight: 700; }
+.ledger-alert { color: var(--red); font-weight: 700; }
+.ledger-footnote { margin: 0.55rem 0 0; color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.03em; }
+.ledger-block.is-collated { border-left-color: var(--green); }
+.ledger-block.is-collated .ledger-status { color: var(--green); }
+.ledger-block.is-unavailable { border-left-color: var(--red); }
+.ledger-block.is-unavailable .ledger-status { color: var(--red); }
 @media (max-width: 720px) { .ledger-row { grid-template-columns: 1fr; gap: 0.05rem; } }
-.document-ledger { display: flex; align-items: center; flex-wrap: wrap; gap: 0.35rem 0.75rem; margin-top: 0.45rem; font-size: 0.7rem; }
-.document-ledger .source-location { margin: 0; padding: 0; border: 0; background: transparent; font-size: 0.68rem; }
-.source-review-disclosure {
-  gap: 0.35rem;
-  padding: 0.45rem 0.6rem;
-  border: 1px solid var(--border-color);
-  border-left: 3px solid var(--accent-gold);
-  border-radius: var(--radius-sm);
-  background: var(--bg-card-subtle);
-}
-.document-ledger .source-review-disclosure { padding: 0.45rem 0.6rem; border: 1px solid var(--border-color); border-left: 3px solid var(--accent-gold); background: var(--bg-card-subtle); }
-.source-review-heading { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
-.source-review-status { color: var(--accent-gold-hover); font-weight: 700; }
-.source-review-evidence { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.64rem; }
-.source-review-disclosure.is-collated { border-left-color: var(--accent-green); }
-.source-review-disclosure.is-collated .source-review-status { color: var(--accent-green); }
-.source-review-disclosure.is-unavailable { border-left-color: var(--accent-red); }
-.source-review-disclosure.is-unavailable .source-review-status { color: var(--accent-red); }
-.document-details { position: relative; }
+.source-review-disclosure { gap: 0.35rem; }
+.source-review-status { color: var(--gold-strong); font-weight: 700; }
+.source-review-disclosure.is-collated .source-review-status { color: var(--green); }
+.source-review-disclosure.is-unavailable .source-review-status { color: var(--red); }
+
+/* Edition metadata is the one genuinely progressive part of the drawer: it
+   expands inline beneath the ledger set — no floating panel over the sheet. */
 .document-details > summary,
-.front-matter > summary { color: var(--text-secondary); cursor: pointer; font-size: 0.72rem; font-weight: 650; list-style: none; }
+.front-matter > summary { color: var(--ink-soft); cursor: pointer; font-size: 0.72rem; font-weight: 650; list-style: none; }
 .document-details > summary::-webkit-details-marker,
 .front-matter > summary::-webkit-details-marker { display: none; }
 .document-details > summary::before,
-.front-matter > summary::before { content: '＋'; display: inline-block; width: 1rem; color: var(--accent-gold); }
+.front-matter > summary::before { content: '＋'; display: inline-block; width: 1rem; color: var(--gold); }
 .document-details[open] > summary::before,
 .front-matter[open] > summary::before { content: '−'; }
-.document-details dl { position: absolute; right: 0; top: calc(100% + 0.35rem); z-index: 70; min-width: min(30rem, 80vw); padding: 0.75rem; background: var(--bg-card); border: 1px solid var(--border-color); box-shadow: var(--shadow-md); }
-.document-details dl > div { display: grid; grid-template-columns: 5rem 1fr; gap: 0.5rem; padding: 0.18rem 0; }
-.document-details dt { color: var(--text-muted); font-weight: 600; }
-.document-details dd { margin: 0; color: var(--text-primary); }
+.document-details { margin-top: 0.5rem; }
+.document-details dl { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.2rem 1.4rem; padding: 0.55rem 0.75rem; background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius); }
+.document-details dl > div { display: grid; grid-template-columns: 4.6rem 1fr; gap: 0.5rem; padding: 0.18rem 0; }
+.document-details dt { color: var(--ink-soft); font-weight: 600; }
+.document-details dd { margin: 0; color: var(--ink); }
 
-.front-matter { margin-top: 0.2rem; margin-bottom: 0.5rem; padding: 0.45rem 0; border-bottom: 1px solid var(--border-subtle); }
+.front-matter { margin-top: 0.2rem; margin-bottom: 0.5rem; padding: 0.45rem 0; border-bottom: 1px solid var(--line-soft); }
 .front-matter-content { padding: 1rem 0 0.5rem; }
 
+/* The sheet itself: one hairline between units, wide top/bottom margins, and
+   the source Chinese governing the column. */
 #reader-content-target .case-card {
   margin-bottom: 0;
-  padding: 1.65rem 0 1.9rem;
+  padding: 2.1rem 0 2.3rem;
   background: transparent;
   border: 0;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-soft);
   border-radius: 0;
   box-shadow: none;
   transition: none;
 }
-#reader-content-target .case-card:hover { border-color: var(--border-subtle); box-shadow: none; }
-#reader-content-target .case-header { border-bottom: 0; padding-bottom: 0.3rem; margin-bottom: 0.75rem; }
-#reader-content-target .case-num-title { color: var(--text-primary); }
+#reader-content-target .case-card:hover { border-color: var(--line-soft); box-shadow: none; }
+#reader-content-target .case-header { border-bottom: 0; padding-bottom: 0.3rem; margin-bottom: 0.9rem; }
+#reader-content-target .case-num-title { color: var(--ink); }
 #reader-content-target .case-speaker { text-transform: none; letter-spacing: 0.03em; }
-#reader-content-target .translation-grid { gap: 0; border-top: 1px solid var(--border-subtle); }
-#reader-content-target .translation-col { padding: 0.9rem 1rem 0.35rem 0; background: transparent; border: 0; border-right: 1px solid var(--border-subtle); border-radius: 0; box-shadow: none; }
-#reader-content-target .translation-col + .translation-col { padding-left: 1rem; }
-#reader-content-target .translation-col:last-child { border-right: 0; }
+#reader-content-target .classical-zh { font-size: calc(var(--zh-font-size) * var(--reader-zh-scale)); margin-bottom: 0.8rem; }
+#reader-content-target .classical-zh.is-lead { font-size: calc(var(--zh-font-size) * var(--reader-zh-lead)); }
+#reader-content-target .classical-zh.is-secondary { font-size: calc(var(--zh-font-size) * var(--reader-zh-secondary)); }
+#reader-content-target .translation-grid { gap: 0 1.5rem; border-top: 1px solid var(--line-soft); }
+#reader-content-target .translation-col { padding: 0.9rem 0 0.35rem; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
 #reader-content-target .commentary-block,
 #reader-content-target .verse-block { background: transparent; border-radius: 0; box-shadow: none; }
+
+/* Special sheet blocks that once carried inline stripe/margin literals. */
+#reader-content-target .case-card.is-epilogue { margin-bottom: 1.5rem; }
+#reader-content-target .case-card.is-ranks {
+  border-left: 3px solid var(--green);
+  padding-left: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+#reader-content-target .case-card.is-ranks .case-num-title { color: var(--green); margin-bottom: 0.5rem; }
+#reader-content-target .case-card.is-architecture {
+  border-left: 3px solid var(--gold);
+  padding-left: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+#reader-content-target .case-card.is-architecture .case-num-title { margin-bottom: 0.5rem; }
+.sheet-overview { margin-bottom: 1rem; font-size: 0.92rem; color: var(--ink-soft); }
+.sheet-overview.is-bright { font-size: 0.95rem; color: var(--ink); }
+.fascicle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.5rem; }
+.fascicle-cell { padding: 0.5rem 0.75rem; font-size: 0.78rem; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); }
 
 @media (max-width: 768px) {
   .document-title-row { align-items: flex-start; }
   .document-status { font-size: 0.58rem; }
-  .document-details dl { left: 0; right: auto; }
-  #reader-content-target .translation-col,
-  #reader-content-target .translation-col + .translation-col { padding-left: 0; padding-right: 0; border-right: 0; border-bottom: 1px solid var(--border-subtle); }
+  .ledger-drawer { padding: 0.6rem 0.7rem 0.7rem; }
+  #reader-content-target .translation-col { padding-left: 0; padding-right: 0; border-bottom: 1px solid var(--line-soft); }
 }
 
 /* Commentary & Verse Blocks */
 .commentary-block {
   margin-top: 1.25rem;
   padding: 1.15rem 1.35rem;
-  background: var(--accent-gold-light);
-  border-left: 4px solid var(--accent-gold);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--gold-soft);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
 }
 
 .commentary-label {
   font-weight: 700;
   font-size: 0.8rem;
-  color: var(--accent-gold);
+  color: var(--gold);
   text-transform: uppercase;
   margin-bottom: 0.4rem;
   letter-spacing: 0.5px;
@@ -1240,15 +1364,41 @@ body:not([data-current-view="reader"]) #about-toggle {
 .verse-block {
   margin-top: 1.15rem;
   padding: 1.15rem 1.35rem;
-  background: var(--bg-card);
-  border-left: 4px solid var(--accent-green);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--panel);
+  border-left: 4px solid var(--green);
+  border-radius: 0 var(--radius) var(--radius) 0;
 }
+
+/* --- Phase 2 utility classes: the named versions of every former inline
+       nudge in the Reader/dossier templates. One line each; the templates in
+       app.js carry only these class names. --- */
+.dialogue-turn { margin-bottom: 1.25rem; }
+.provenance-line { margin-top: 0.25rem; font-size: 0.75rem; color: var(--ink-soft); }
+.pinyin-line.is-bare { border-bottom: 0; padding-bottom: 0; }
+.commentary-block.is-caoshan { margin-top: 1rem; border-left-color: var(--green); }
+.commentary-block.is-pointer { margin-bottom: 1rem; background: var(--panel); border-left-color: var(--blue); }
+.commentary-block.is-blue { background: var(--panel); border-left-color: var(--blue); }
+.commentary-block.is-flush { margin-top: 0; }
+.commentary-label.is-green { color: var(--green); }
+.commentary-label.is-blue { color: var(--blue); }
+/* English prose under a zh block: display serif so the translation reads as
+   prose, not as UI copy. */
+.prose-en { margin-top: 0.45rem; font-family: var(--font-display); font-size: 0.92rem; color: var(--ink); }
+.prose-en.is-small { margin-top: 0.35rem; font-size: 0.9rem; }
+.prose-en.is-quiet { margin-top: 0; font-size: 0.88rem; color: var(--ink-soft); }
+.dossier-meta-row { margin: 0.5rem 0 0.75rem; }
+.citation-line { margin-top: 0.55rem; }
+.robo-popover .robo-personality { margin-top: 0.35rem; font-style: italic; color: var(--ink-soft); }
+/* Class-toggled popover visibility (replaces the JS .style.display writes;
+   hidden must beat the fixed-position display). */
+.term-popover[hidden],
+.robo-popover[hidden],
+.citation-popover[hidden] { display: none !important; }
 
 /* Interactive Lexicon Markers (content lives in ONE shared popover — see #term-popover) */
 .term-highlight {
-  border-bottom: 2px dotted var(--accent-gold);
-  color: var(--accent-gold);
+  border-bottom: 2px dotted var(--gold);
+  color: var(--gold);
   cursor: help;
   font-weight: 600;
   border-radius: 3px;
@@ -1257,7 +1407,7 @@ body:not([data-current-view="reader"]) #about-toggle {
 .term-highlight:hover,
 .term-highlight:focus-visible {
   background-color: rgba(158, 114, 50, 0.12);
-  outline: 2px solid var(--border-focus);
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
@@ -1267,14 +1417,14 @@ body:not([data-current-view="reader"]) #about-toggle {
   z-index: 300;
   width: 290px;
   max-width: calc(100vw - 16px);
-  background: var(--bg-card);
-  color: var(--text-primary);
+  background: var(--panel);
+  color: var(--ink);
   padding: 0.85rem 1.1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
   font-size: 0.825rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
   text-align: left;
   line-height: 1.45;
   /* N8: capped height + internal scroll so long definitions never overflow the
@@ -1311,23 +1461,23 @@ mark {
    windowed snippet so the user sees what actually hit. */
 .search-match-note {
   font-size: 0.78rem;
-  color: var(--text-secondary);
-  border-left: 3px solid var(--accent-blue);
+  color: var(--ink-soft);
+  border-left: 3px solid var(--blue);
   padding: 0.35rem 0.6rem;
   margin-bottom: 0.65rem;
-  background: var(--accent-blue-light);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--blue-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
   line-height: 1.5;
 }
 
-.search-match-note strong { color: var(--accent-blue); }
+.search-match-note strong { color: var(--blue); }
 .search-header { margin-bottom: 1rem; }
 .search-result-limit,
 .search-more-note {
   margin: 0.4rem 0 0.75rem;
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--text-muted);
+  color: var(--ink-soft);
 }
 .search-document-heading {
   display: grid;
@@ -1335,17 +1485,17 @@ mark {
   gap: 0.08rem 0.75rem;
   margin-top: 1.5rem;
   padding-bottom: 0.4rem;
-  border-bottom: 2px solid var(--wood-800);
-  font-family: var(--font-serif);
+  border-bottom: 2px solid var(--wood-raised);
+  font-family: var(--font-zh);
   font-weight: 750;
-  color: var(--text-primary);
+  color: var(--ink);
 }
 .search-document-heading small {
   grid-row: 2;
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--text-muted);
+  color: var(--ink-soft);
 }
 .search-document-heading strong {
   grid-column: 2;
@@ -1353,300 +1503,110 @@ mark {
   align-self: center;
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--accent-gold-hover);
+  color: var(--gold-strong);
 }
 #reader-content-target .search-result-card { padding-block: 1rem; }
 .search-result-title { font-size: 0.95rem; }
-.classical-zh.search-result-zh { font-size: 1.05rem; }
+/* Search hit cards stay compact — the sheet's Chinese-dominance scale is for
+   reading, not for result lists. Scoped so it wins the cascade inside the
+   reader column. */
+#reader-content-target .classical-zh.search-result-zh { font-size: 1.05rem; margin-bottom: 0.65rem; }
 .search-result-action { margin-top: 0.4rem; }
-.search-empty { color: var(--text-secondary); }
+.search-empty { color: var(--ink-soft); }
 
 .tooltip-term-title {
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--accent-gold);
+  color: var(--gold);
   margin-bottom: 0.25rem;
-  font-family: var(--font-serif);
+  font-family: var(--font-zh);
 }
 
 .tooltip-sanskrit {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--ink-soft);
   font-style: italic;
   margin-bottom: 0.4rem;
 }
 
-/* Comparison Matrix Cards */
-.matrix-container {
+/* --- Secondary-room bodies (Z3, Phase 3) ----------------------------------
+   All four rooms share one container — a stack of ruled lists, no card
+   borders, one hairline per entry — and each room's own list class
+   (`.lineage-register`, `.gongan-catalogue`, `.lexicon-entries`,
+   `.matrix-proof-sheet`) carries its composition. The lineage view switch hides
+   a room body through the semantic [hidden] attribute, and that attribute must
+   keep winning over the flex display, so the rule is written :not([hidden]). */
+.room-body:not([hidden]) {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 0;
 }
-
-.matrix-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.matrix-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.matrix-ref {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--accent-gold);
-}
-
-.matrix-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.15rem;
-  margin-top: 1.25rem;
-}
-
-.matrix-col {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 1.15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.matrix-author {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.matrix-work {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 0.65rem;
-}
-
-.matrix-text {
-  font-size: 0.925rem;
-  line-height: 1.55;
-  color: var(--text-primary);
-  flex-grow: 1;
-}
-
-.matrix-note {
-  margin-top: 0.65rem;
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  border-top: 1px dashed var(--border-color);
-  padding-top: 0.45rem;
-}
-
-/* Lineage Cards & Explorer */
-.lineage-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.35rem;
-}
-
-.master-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.35rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.master-card:focus-visible {
-  outline: 3px solid var(--border-focus);
-  outline-offset: 3px;
-}
-
-.master-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent-gold);
-  box-shadow: var(--shadow-md);
-}
-
-.master-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.5rem;
-}
+.lineage-graph-frame[hidden] { display: none; }
 
 .master-name-zh {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text-chinese);
-}
-
-.master-name-en {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-}
-
-.master-title {
-  font-size: 0.8rem;
-  color: var(--accent-gold);
+  font-family: var(--font-display);
+  font-size: var(--type-h2);
   font-weight: 600;
-  margin-bottom: 0.65rem;
+  line-height: 1.15;
+  color: var(--ink);
 }
-
-.master-meta {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin-bottom: 0.85rem;
-}
-
 .master-quote {
-  background: var(--bg-primary);
-  border-left: 3px solid var(--accent-gold);
-  padding: 0.75rem 0.95rem;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 0.88rem;
+  padding: 0.2rem 0 0.2rem 0.9rem;
+  border-left: 2px solid var(--wood-raised);
+  font-size: 0.9rem;
   font-family: var(--font-kai);
-  color: var(--text-primary);
+  color: var(--ink);
   margin-bottom: 0.85rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
-
 .master-quote-en {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin-top: 0.3rem;
   font-style: italic;
 }
 
-/* Lexicon Cards */
-.lexicon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.35rem;
-}
-
-/* U3 (audit 2026-08-10, session 019feabb): lexicon filter row + summary +
-   no-match hint. Mirrors the global-search box and the reader's source-
-   location callout style for visual consistency. */
-.lexicon-filter-row {
-  align-items: center;
-}
+/* U3 (audit 2026-08-10, session 019feabb): the Lexicon's live filter readout.
+   Phase 3 kept both hooks but dropped the framed-card treatment: the tally is
+   a quiet line above the dictionary and the no-match hint is a ruled note, so
+   neither competes with the entries it describes. (The filter row's layout
+   lives with the shared control bands below.) */
 .lexicon-summary {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  margin: 0 0 0.75rem;
-  font-weight: 600;
+  margin: 0 0 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
 }
 .lexicon-no-match {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-left: 3px solid var(--accent-blue);
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.88rem;
-  color: var(--text-primary);
-  grid-column: 1 / -1;
+  margin: 0 0 1.1rem;
+  padding: 0.55rem 0 0.55rem 0.8rem;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  border-left: 2px solid var(--blue);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--ink);
 }
-
-.term-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.35rem;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.term-card:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-2px);
-}
-
-.term-card-zh {
-  font-family: var(--font-serif);
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--accent-gold);
-  margin-bottom: 0.25rem;
-}
-
-.term-card-literal {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
-}
-
-.term-card-sanskrit {
-  font-size: 0.775rem;
-  color: var(--text-muted);
-  font-style: italic;
-  margin-bottom: 0.65rem;
-}
-
-.term-card-def {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
-  margin-bottom: 0.75rem;
-  flex-grow: 1;
-}
-
-.term-card-occurrences {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.term-occ-tag {
-  font-size: 0.7rem;
-  background: var(--bg-primary);
-  padding: 0.2rem 0.45rem;
-  border-radius: 4px;
-  color: var(--text-muted);
-  border: 1px solid var(--border-color);
-}
-
-
 .btn-primary {
-  background: var(--accent-gold);
+  background: var(--gold);
   color: #ffffff;
   border: none;
   padding: 0.65rem 1.35rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius);
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: var(--transition);
+  transition: var(--motion);
 }
 
 .btn-primary:hover {
-  background: var(--accent-gold-hover);
+  background: var(--gold-strong);
 }
-
 
 /* Footer removed per WEB_VISION 2026-08-10 — site is now literature-first, minimal, no footer gimmick */
 
@@ -1654,26 +1614,29 @@ mark {
    Calm Reader & Mobile-First (Phase A + B, 2026-08-08 — see UX_ROADMAP.md)
    ========================================================================== */
 
-/* Case index rail — one quiet horizontal line, never a sticky wall */
+/* Case index rail (Phase 2) — a thin register: one quiet line framed by two
+   hairlines, never a sticky wall, never a multi-row chip field. The full
+   title stays in the markup (title/aria-label) while CSS shows the number. */
 .case-jump-strip {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.15rem;
   position: static;
-  max-width: 900px;
-  margin: 0 auto 0.55rem;
-  padding: 0.35rem 0 0.5rem;
+  max-width: var(--reader-measure, 900px);
+  margin: 0 auto 0.45rem;
+  padding: 0.3rem 0.15rem 0.4rem;
   overflow-x: auto;
   scrollbar-width: thin;
-  border-bottom: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
 }
-.case-strip-label { position: sticky; left: 0; z-index: 1; flex: none; padding-right: 0.45rem; background: var(--bg-card); font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); white-space: nowrap; }
-.case-chip { flex: none; min-width: 1.8rem; padding: 0.18rem 0.35rem; font-family: var(--font-mono); font-size: 0.68rem; border-radius: 3px; background: transparent; border: 1px solid transparent; color: var(--text-secondary); cursor: pointer; display: inline-flex; justify-content: center; align-items: center; line-height: 1.2; }
+.case-strip-label { position: sticky; left: 0; z-index: 1; flex: none; padding-right: 0.45rem; background: var(--panel); font-size: 0.64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-strong); white-space: nowrap; }
+.case-chip { flex: none; min-width: 1.55rem; padding: 0.12rem 0.3rem; font-family: var(--font-mono); font-size: 0.66rem; border-radius: 3px; background: transparent; border: 1px solid transparent; color: var(--ink-soft); cursor: pointer; display: inline-flex; justify-content: center; align-items: center; line-height: 1.2; }
 .case-chip-num { font-weight: 700; }
 .case-chip-title { display: none; }
 .case-chip:hover,
-.case-chip:focus-visible { border-color: var(--accent-gold); color: var(--accent-gold-hover); background: var(--accent-gold-light); }
+.case-chip:focus-visible { border-color: var(--gold); color: var(--gold-strong); background: var(--gold-soft); }
 
 /* U2 (audit 2026-08-10, session 019feabb): 12/24/all segmented control
    sitting beside the primary load-more button. The control collapses
@@ -1705,9 +1668,9 @@ mark {
 /* --- Collapsible case cards --- */
 
 .case-toggle {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  color: var(--accent-gold);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--gold);
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
@@ -1715,13 +1678,13 @@ mark {
   font-weight: 700;
   cursor: pointer;
   line-height: 1;
-  transition: var(--transition);
+  transition: var(--motion);
   flex: none;
 }
 
 .case-toggle:hover {
-  border-color: var(--accent-gold);
-  background: var(--accent-gold-light);
+  border-color: var(--gold);
+  background: var(--gold-soft);
 }
 
 .case-card.collapsed .case-body {
@@ -1740,7 +1703,7 @@ mark {
   gap: 0.5rem;
   margin-top: 1.25rem;
   padding-top: 0.8rem;
-  border-top: 1px dashed var(--border-color);
+  border-top: 1px dashed var(--line);
 }
 
 /* --- Mobile corpus picker (sidebar hidden below 960px) --- */
@@ -1748,9 +1711,10 @@ mark {
   display: none;
   margin-bottom: 1rem;
 }
-.mobile-corpus-picker .search-input { padding: 0.55rem 0.7rem; background: var(--bg-card); }
+.mobile-corpus-picker .search-input { padding: 0.55rem 0.7rem; background: var(--panel); }
 
 /* --- Mobile bottom action bar — min 44px touch target + safe-area --- */
+/* --- Mobile bottom action bar — two clusters, 44 px targets -------------- */
 .mobile-action-bar {
   display: none;
   position: fixed;
@@ -1760,35 +1724,43 @@ mark {
   z-index: 90;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.4rem;
+  gap: 0.75rem;
   flex-wrap: nowrap;
   overflow-x: auto;
   min-height: 44px;
   padding: 0.5rem 0.75rem calc(0.5rem + env(safe-area-inset-bottom));
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-color);
+  background: var(--sunken);
+  border-top: 1px solid var(--line);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
-.mobile-action-bar .btn-pill {
-  min-height: 36px;
-  padding: 0.35rem 0.7rem;
+
+/* Two clusters, not eight loose pills: text (size + mode), then move
+   (pinyin + jump). A hairline separates them instead of a bare divider. */
+.mobile-bar-cluster {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: none;
 }
 
-.mobile-bar-divider {
-  width: 1px;
-  height: 1.4rem;
-  background: var(--border-color);
-  flex: none;
+.mobile-bar-cluster + .mobile-bar-cluster {
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--line);
+}
+
+.mobile-action-bar .btn-pill {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.35rem 0.6rem;
 }
 
 .mobile-mode-btn.active,
 .mobile-mode-btn[aria-pressed="true"] {
-  background: var(--accent-gold-light);
-  border-color: var(--accent-gold);
-  color: var(--accent-gold-hover);
+  background: var(--gold-soft);
+  border-color: var(--gold);
+  color: var(--gold-strong);
 }
-
 /* Pinyin toggle (persisted; desktop default on) */
 #reader-content-target[data-show-pinyin="0"] .pinyin-line {
   display: none;
@@ -1806,6 +1778,7 @@ mark {
   body:not([data-current-view="reader"]) { padding-bottom: 0; }
   .reader-toolbar .reader-mode-options { display: none; }
   .translation-grid { grid-template-columns: 1fr; }
+  .lineage-view-switch { border-right: 0; padding-right: 0; }
   .case-jump-strip { scrollbar-width: none; }
   .case-jump-strip::-webkit-scrollbar { display: none; }
 }
@@ -1834,13 +1807,26 @@ mark {
     padding: 0;
   }
 
-  .content-panel, .case-card, .matrix-card {
+  .content-panel, .case-card, .ledger-drawer {
     box-shadow: none !important;
     border: none !important;
     background: #ffffff !important;
     padding: 0.5rem 0;
     break-inside: avoid;
   }
+
+  /* Z3 registers print as registers: no rails, no filters, no second view, and
+     one entry never splits across a page before its rule line. */
+  .room-filter-rail, .lineage-view-switch, .graph-toolbar,
+  #lineage-graph-container, .lexicon-entry-count { display: none !important; }
+  .matrix-collation-head, .lineage-band-cols, .gongan-catalogue-head { display: none !important; }
+  .matrix-proof-sheet { border-top: 1pt solid #000; }
+  .matrix-register-row, .lineage-master-row, .catalogue-row,
+  .lexicon-entry {
+    grid-template-columns: minmax(0, 1fr) !important;
+    break-inside: avoid;
+  }
+  .matrix-register-rail { flex-direction: row; gap: 0.5rem; }
 
   .case-card {
     margin-bottom: 1.25rem;
@@ -1850,16 +1836,19 @@ mark {
     display: block !important; /* print everything, never collapsed */
   }
 
-  .translation-grid, .matrix-grid {
+  .translation-grid {
     grid-template-columns: 1fr !important;
     gap: 0.5rem;
   }
 
-  .translation-col, .matrix-col {
+  .translation-col {
     box-shadow: none !important;
-    border: 1px solid #ddd !important;
+    border: 0 !important;
     background: #ffffff !important;
   }
+
+  .matrix-sentence-zh, .lineage-master-name-zh, .catalogue-title-zh,
+  .lexicon-headword { font-size: 1.05rem !important; }
 
   .classical-zh, .pinyin-line, .translation-text, .commentary-block,
   .verse-block, .text-title-zh, .text-title-en, .case-num-title {
@@ -1894,10 +1883,10 @@ mark {
   gap: 0.5rem;
   margin: 0 0 0.85rem;
   padding: 0.55rem 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  background: var(--bg-card-subtle);
-  color: var(--text-secondary);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--sunken);
+  color: var(--ink-soft);
   font-size: 0.75rem;
   line-height: 1.4;
 }
@@ -1920,22 +1909,22 @@ mark {
 }
 
 .graph-link.is-verified {
-  stroke: var(--accent-green);
+  stroke: var(--green);
   stroke-dasharray: none;
 }
 
 .graph-link.is-pending {
-  stroke: var(--accent-gold);
+  stroke: var(--gold);
   stroke-dasharray: 5, 5;
 }
 
 .graph-link.is-disputed {
-  stroke: var(--accent-red);
+  stroke: var(--red);
   stroke-dasharray: 2, 3;
 }
 
 .graph-link.is-missing {
-  stroke: var(--text-muted);
+  stroke: var(--ink-soft);
   stroke-dasharray: 2, 5;
 }
 
@@ -1971,11 +1960,11 @@ mark {
 .graph-hint {
   max-width: 680px;
   font-size: 0.72rem;
-  color: var(--text-muted);
-  background: var(--bg-primary);
+  color: var(--ink-soft);
+  background: var(--paper);
   padding: 0.3rem 0.6rem;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--line);
 }
 
 @media (max-width: 1024px) {
@@ -1999,10 +1988,10 @@ mark {
   left: -9999px;
   top: 0;
   z-index: 500;
-  background: var(--accent-gold);
+  background: var(--gold);
   color: #ffffff;
   padding: 0.6rem 1rem;
-  border-radius: 0 0 var(--radius-sm) 0;
+  border-radius: 0 0 var(--radius) 0;
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -2018,7 +2007,7 @@ select:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--border-focus);
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
@@ -2034,14 +2023,6 @@ textarea:focus-visible,
   html {
     scroll-behavior: auto !important;
   }
-}
-
-/* Gong'an filter chips */
-.gongan-filter-chip.active,
-.gongan-filter-chip[aria-pressed="true"] {
-  background: var(--accent-gold-light);
-  border-color: var(--accent-gold);
-  color: var(--accent-gold-hover);
 }
 
 /* L1 (audit 2026-08-10, session 019feabb): corpus sidebar search
@@ -2067,10 +2048,10 @@ textarea:focus-visible,
 }
 .corpus-filter-empty {
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: var(--ink-soft);
   padding: 0.5rem 0.25rem;
-  border-left: 2px solid var(--accent-blue);
-  background: var(--bg-card);
+  border-left: 2px solid var(--blue);
+  background: var(--panel);
   border-radius: 4px;
 }
 
@@ -2082,44 +2063,46 @@ textarea:focus-visible,
   align-items: center;
   gap: 0.4rem;
   font-size: 0.78rem;
-  color: var(--text-secondary);
+  color: var(--ink-soft);
   margin-bottom: 0.6rem;
 }
 .reader-breadcrumb a {
-  color: var(--accent-gold);
+  color: var(--gold);
   text-decoration: none;
   padding: 0.1rem 0.35rem;
   border-radius: 3px;
-  transition: var(--transition);
+  transition: var(--motion);
 }
 .reader-breadcrumb a:hover {
-  background: var(--bg-hover);
+  background: var(--hover);
 }
 .breadcrumb-sep {
   opacity: 0.5;
 }
 .breadcrumb-current {
-  color: var(--text-muted);
+  color: var(--ink-soft);
   font-weight: 500;
 }
 
-/* L1 (audit 2026-08-10, session 019feabb): the master dossier panel
-   used to be styled with inline attributes (gold border, light
-   background, serif h2). The result felt visually heavy and
-   inconsistent with the other cards. Moved to a proper class so
-   it shares the card system — same background + border + radius
-   as a case card, with a subtle gold accent stripe on the left
-   to mark it as a "you're looking at a specific master" state. */
+/* The master dossier is a sheet, not a card (Phase 3, 2026-09-13): the panel
+   sits flush with the register it belongs to, opens with a rule instead of a
+   border-radius box, and keeps the two accents the smoke test pins — the
+   var(--panel) ground and the 4px gold stripe that says "you are looking at
+   one master's record". (The L1 audit of 2026-08-10 moved its original inline
+   style attributes here; this phase only changed how heavy the result looked.) */
 .dossier-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--accent-gold);
-  border-left: 4px solid var(--accent-gold);
-  border-radius: var(--radius-md);
-  padding: 1.5rem 1.75rem;
+  background: var(--panel);
+  border: 0;
+  border-top: 2px solid var(--gold);
+  border-bottom: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: 0;
+  padding: 1.15rem 1.4rem 1.35rem;
   margin-bottom: 1.75rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
   animation: sereneFade 0.3s ease;
 }
+
 .dossier-panel[hidden] { display: none !important; }
 .dossier-header {
   display: flex;
@@ -2127,58 +2110,62 @@ textarea:focus-visible,
   align-items: flex-start;
   margin-bottom: 1rem;
   padding-bottom: 0.85rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--line);
   gap: 1rem;
 }
 .dossier-name-zh {
-  font-size: 1.75rem;
-  color: var(--accent-gold);
+  font-family: var(--font-display);
+  font-size: var(--type-h2);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ink);
   margin-bottom: 0.2rem;
 }
 .dossier-name-en {
-  font-size: 1.05rem;
-  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
 }
 .dossier-close-btn {
-  color: var(--accent-red);
+  color: var(--red);
   font-weight: 700;
   flex-shrink: 0;
 }
 .dossier-content {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--text-primary);
+  color: var(--ink);
 }
 
 /* L1 (audit 2026-08-10, session 019feabb): the case card had a lot
-   of inline `style="border-left: 4px solid var(--accent-gold); ..."`
+   of inline `style="border-left: 4px solid var(--gold); ..."`
    attributes in the JS. Moved to classes so the JS is cleaner
    and the styling is centralized. */
 .case-card.is-preface,
 .case-card.is-epilogue {
-  border-left: 4px solid var(--accent-gold);
+  border-left: 4px solid var(--gold);
 }
 .case-card.is-five-ranks {
-  border-left: 4px solid var(--accent-green);
+  border-left: 4px solid var(--green);
 }
 .case-card.is-overview {
-  border-left: 4px solid var(--accent-gold);
+  border-left: 4px solid var(--gold);
 }
 
 /* Reader mode controls live in the compact document rail. */
 .reader-toolbar .reader-mode-options { display: flex; flex-direction: row; gap: 0.3rem; }
 .reader-toolbar .reader-mode-btn { width: auto; text-align: center; }
 .reader-toolbar .reader-mode-btn.active,
-.reader-toolbar .reader-mode-btn[aria-pressed="true"] { background: var(--accent-gold-light); border-color: var(--accent-gold); color: var(--accent-gold-hover); font-weight: 700; }
+.reader-toolbar .reader-mode-btn[aria-pressed="true"] { background: var(--gold-soft); border-color: var(--gold); color: var(--gold-strong); font-weight: 700; }
 
 /* ==========================================================================
    Phases C & D: Visual System Consolidation & Secondary Rooms (019fec5c)
    ========================================================================== */
 
-/* Remove hover lifts from reading/catalogue cards across rooms */
-.matrix-card:hover,
-.master-card:hover,
-.term-card:hover,
+/* Nothing in the hall lifts on hover: entries are ledgers, not buttons that
+   want to be pressed. Registers may tint (see .lineage-master-row). */
 .case-card:hover {
   transform: none;
 }
@@ -2188,22 +2175,22 @@ textarea:focus-visible,
   max-width: 640px;
   margin: 3rem auto;
   padding: 2rem;
-  border-left: 4px solid var(--accent-red);
-  background: var(--bg-card);
-  border-top: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  border-left: 4px solid var(--red);
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 .error-boundary-title {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  color: var(--accent-red);
+  font-family: var(--font-display);
+  font-size: var(--type-h2);
+  color: var(--red);
   margin-bottom: 0.75rem;
 }
 .error-boundary-text {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--text-primary);
+  color: var(--ink);
   margin-bottom: 1.25rem;
 }
 .error-boundary-actions {
@@ -2211,37 +2198,10 @@ textarea:focus-visible,
   gap: 0.75rem;
 }
 
-/* Utility classes replacing inline style occurrences */
-.lineage-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-.lineage-graph-frame {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 1.25rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  overflow: hidden;
-  min-height: 480px;
-}
-.lineage-filter-row {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.lineage-svg-graph {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-height: 640px;
-}
+/* Room control bands — the controls the Lineage and Lexicon headings carry in
+   index.html. Both rooms need the same band and the same inline control group,
+   so each shape is one rule shared by the two rooms rather than two copies. */
+.lineage-toolbar,
 .lexicon-toolbar {
   display: flex;
   justify-content: space-between;
@@ -2250,323 +2210,495 @@ textarea:focus-visible,
   gap: 1rem;
   margin-bottom: 1.25rem;
 }
-.lexicon-filter-group {
+.lineage-filter-row,
+.lexicon-filter-group,
+.lexicon-filter-row {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
 }
-.room-filter-rail {
+/* The two views of one record: the switch is a labelled pair of text buttons
+   inside the control band, not a third band of its own. */
+.lineage-view-switch {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.5rem;
   align-items: center;
+  gap: 0.4rem;
+  padding-right: 0.6rem;
+  border-right: 1px solid var(--line);
 }
-.text-sm-muted {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
+.lineage-svg-graph {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 640px;
 }
 .dossier-ledger-item {
   margin-bottom: 0.6rem;
   font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--text-primary);
+  color: var(--ink);
 }
 .dossier-ledger-label {
   font-weight: 700;
-  color: var(--text-secondary);
+  color: var(--ink-soft);
   margin-right: 0.35rem;
 }
-.commentary-card {
-  background: var(--bg-card);
-  border-left: 3px solid var(--accent-blue);
-  padding: 1rem 1.25rem;
-  margin: 1rem 0;
-}
-.pinyin-line-bare {
-  border: none;
-  padding: 0;
+
+/* ==========================================================================
+   Z3 — the secondary rooms, re-composed (Phase 3, 2026-09-13).
+   --------------------------------------------------------------------------
+   Proposal §7 replaced the four rooms' generic card grids with the shapes the
+   hall already uses: the Matrix is a collation table, the Lineage room leads
+   with a transmission register (generations as ruled bands, house and dated
+   record as columns) and keeps the network chart as its second view, the
+   Gong'an index is a case catalogue, and the Lexicon runs as a dictionary.
+   Composition rules, shared by all four:
+   • no card borders, no shadows, no hover lifts — one hairline per entry, a
+     2px rule to open a band, and the sunken ground only where a control sits;
+   • the margin rail is always `--font-mono` at `0.66–0.72rem`; the reading
+     column is always `--font-display`; locators never get their own colour;
+   • source Chinese is sized from `--zh-font-size` through a room-scoped ratio
+     (below), so A−/A+ govern every zh block in the hall and Chinese stays
+     subordinate to the English voice outside the Reader sheet (C-3);
+   • every class below is written by an app.js template or by a room wrapper in
+     index.html. The rooms carry no style attributes, and that is what lets
+     `style-src` run without 'unsafe-inline' (index.html CSP note).
+   ========================================================================== */
+.room-body,
+.dossier-panel,
+#lineage-graph-container {
+  /* one measure per room, shared with the Reader's column rhythm */
+  --room-measure: 1120px;
+  --room-zh: 0.82;            /* zh ratio in a secondary room, vs the Reader's 1.125 */
+  --room-zh-label: 0.68;      /* the subordinate zh label: title gloss, signature */
+  max-width: min(100%, var(--room-measure));
 }
 
-/* Phase D: Matrix Room — Proof Sheet Layout */
-.matrix-proof-sheet {
-  border-bottom: 2px solid var(--border-color);
-  padding: 2.25rem 0;
-  margin-bottom: 1.5rem;
-}
-.matrix-source-band {
-  margin-bottom: 1.5rem;
-}
+/* --- Room 02 · Matrix: proof rows, then one aligned register row each ---- */
+.matrix-proof-sheet { padding: 1.9rem 0 0.4rem; border-top: 2px solid var(--wood-raised); }
+.room-body > .matrix-proof-sheet:first-child { padding-top: 0; border-top: 0; }
+.matrix-source-band { margin-bottom: 1.15rem; }
 .matrix-ref-clean {
+  margin: 0 0 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.4rem;
+  color: var(--gold-strong);
 }
 .matrix-sentence-zh {
-  max-width: 58ch;
-  margin-bottom: 0.35rem;
-  font-family: var(--font-serif);
-  font-size: 1.08rem;
-  line-height: 1.75;
-  letter-spacing: 0.035em;
-  color: var(--text-chinese);
+  max-width: 62ch;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-zh);
+  font-size: calc(var(--zh-font-size) * var(--room-zh));
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  color: var(--ink);
 }
-.matrix-sentence-pinyin {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-}
-.matrix-registers-grid {
+.matrix-sentence-pinyin { margin-bottom: 0.5rem; font-size: 0.82rem; color: var(--ink-soft); }
+.matrix-source-location { margin: 0 0 0.15rem; }
+
+.matrix-collation { border-top: 1px solid var(--line); }
+.matrix-collation-head,
+.matrix-register-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
-  border-top: 1px solid var(--border-color);
-  padding-top: 1.5rem;
+  grid-template-columns: minmax(9rem, 16rem) minmax(0, 1fr);
+  column-gap: 1.75rem;
+  align-items: baseline;
 }
-.matrix-register-col {
-  border-right: 1px solid var(--border-color);
-  padding-right: 1.25rem;
+.matrix-collation-head {
+  padding: 0.4rem 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.matrix-register-row { padding: 0.95rem 0 1rem; border-bottom: 1px solid var(--line-soft); }
+.matrix-register-row:last-child { border-bottom: 0; }
+.matrix-register-rail {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.2rem;
+  align-self: start;
 }
-.matrix-register-col:last-child {
-  border-right: none;
-  padding-right: 0;
+.matrix-register-name { font-size: 0.86rem; font-weight: 700; color: var(--ink); }
+.matrix-register-work {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
 }
-.matrix-reg-header {
-  margin-bottom: 0.75rem;
+.matrix-register-rail .translation-status { justify-content: flex-start; text-align: left; }
+.matrix-register-text {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.72;
+  color: var(--ink);
 }
-.matrix-reg-text {
-  font-family: var(--font-serif);
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: var(--text-primary);
-  flex-grow: 1;
-  margin-bottom: 0.85rem;
-}
-.matrix-reg-note {
+.matrix-register-body .translation-source { margin-top: 0.45rem; }
+.matrix-register-note {
+  margin-top: 0.45rem;
+  padding-top: 0.4rem;
+  border-top: 1px dashed var(--line-soft);
   font-size: 0.78rem;
-  color: var(--text-secondary);
-  border-top: 1px dashed var(--border-color);
-  padding-top: 0.5rem;
-  margin-top: 0.5rem;
+  color: var(--ink-soft);
 }
 
-/* Phase D: Gong'an Room — Catalogue Rows */
-.gongan-catalogue-row {
-  border-bottom: 1px solid var(--border-color);
-  padding: 1.5rem 0;
-}
-.gongan-catalogue-row:last-child {
-  border-bottom: none;
-}
-.catalogue-meta {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  margin-bottom: 0.35rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-.catalogue-title-row {
+/* --- Room 03 · Lineage: the transmission register ------------------------ */
+.lineage-register { padding-top: 0.15rem; }
+.lineage-band { padding: 0.2rem 0 1.15rem; margin-bottom: 1.15rem; border-bottom: 1px solid var(--line); }
+.lineage-band:last-child { border-bottom: 0; margin-bottom: 0; }
+.lineage-band-head {
   display: flex;
   align-items: baseline;
-  gap: 0.75rem;
+  justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+  gap: 0.15rem 1rem;
+  padding: 0.3rem 0 0.4rem;
+  border-bottom: 2px solid var(--wood-raised);
 }
-.catalogue-title-en {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 780;
+.lineage-band-gen {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+.lineage-band-meta { font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-soft); }
+
+/* The head row prints the column names once per band; the register body keeps
+   only hairlines, so a band scans as one table rather than N cards. */
+.lineage-band-cols,
+.lineage-master-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.1fr);
+  column-gap: 1.25rem;
+}
+.lineage-band-cols {
+  padding: 0.55rem 0 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.lineage-master-row {
+  padding: 0.8rem 0 0.9rem;
+  border-top: 1px solid var(--line-soft);
+  cursor: pointer;
+  transition: background-color 0.16s ease;
+}
+.lineage-master-row:hover { background: var(--hover); }
+.lineage-master-row:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.lineage-master-name { display: flex; flex-direction: column; gap: 0.12rem; }
+.lineage-master-gen {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+.lineage-master-name-en {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  font-weight: 600;
   line-height: 1.2;
-  color: var(--text-primary);
+  color: var(--ink);
+}
+.lineage-master-name-zh {
+  font-family: var(--font-zh);
+  font-size: calc(var(--zh-font-size) * var(--room-zh-label));
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+.lineage-master-title { font-size: 0.78rem; color: var(--gold); }
+.lineage-master-house { font-size: 0.8rem; line-height: 1.5; color: var(--ink); }
+.lineage-master-record {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  overflow-wrap: anywhere;
+}
+.lineage-master-record .teacher-link {
+  align-self: flex-start;
+  margin-top: 0.15rem;
+  font-size: 0.66rem;
+  padding: 0.1rem 0.35rem;
+}
+.lineage-master-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--line);
+}
+.lineage-master-quote-zh {
+  font-family: var(--font-kai);
+  font-size: calc(var(--zh-font-size) * var(--room-zh-label));
+  line-height: 1.6;
+  color: var(--ink);
+}
+.lineage-master-quote-en {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* Chronology / name / house order: the same rows, one flat ruled list. */
+.lineage-flat { border-top: 2px solid var(--wood-raised); }
+.lineage-flat-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+.lineage-flat-head small { font-weight: 600; letter-spacing: 0.04em; color: var(--ink-soft); }
+.lineage-register-empty { font-size: 0.85rem; color: var(--ink-soft); }
+
+/* The chart is the room's second view: a sunken frame, opened on demand. */
+.lineage-graph-frame {
+  background: var(--sunken);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 1.15rem 1.25rem 1.35rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+}
+
+/* --- Room 04 · Gong'an: the case catalogue -------------------------------- */
+.room-filter-rail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 1.15rem;
+  margin: 0 0 1.1rem;
+  padding: 0 0 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+.room-filter-legend {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+/* One row of text filters: no pills, no fills — the active group is set in
+   gold with a rule under it, the way an open ledger is marked. */
+.gongan-filter-chip {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 0.1rem 0 0.2rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color 0.16s ease, border-color 0.16s ease;
+}
+.gongan-filter-chip:hover { border-color: transparent; color: var(--ink); }
+.gongan-filter-chip.active,
+.gongan-filter-chip[aria-pressed="true"] {
+  background: none;
+  border-bottom-color: var(--gold);
+  color: var(--gold-strong);
+  font-weight: 700;
+}
+
+.gongan-catalogue-head,
+.catalogue-row {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1.7fr) minmax(0, 1fr) minmax(0, 1fr) 6rem;
+  column-gap: 1.25rem;
+}
+.gongan-catalogue-head {
+  padding: 0 0 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--wood-raised);
+}
+.catalogue-row { align-items: baseline; padding: 0.85rem 0 0.95rem; border-bottom: 1px solid var(--line-soft); }
+.catalogue-row:last-child { border-bottom: 0; }
+.catalogue-case { font-family: var(--font-mono); font-size: 0.95rem; font-weight: 700; color: var(--gold-strong); }
+.catalogue-title { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+.catalogue-title-en {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
 }
 .catalogue-title-zh {
-  font-family: var(--font-serif);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  color: var(--text-muted);
+  font-family: var(--font-zh);
+  font-size: calc(var(--zh-font-size) * var(--room-zh-label));
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
 }
-.catalogue-summary {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin-bottom: 0.75rem;
+.catalogue-collection,
+.catalogue-theme,
+.catalogue-locator {
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  overflow-wrap: anywhere;
 }
-.catalogue-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-.catalogue-tag-item {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.55rem;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-}
-
-/* Phase D: Lexicon Room — Dictionary Definition Rows */
-.lexicon-definition-row {
-  border-bottom: 1px solid var(--border-color);
-  padding: 1.75rem 0;
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-.lexicon-headword-col {
+.catalogue-theme { display: flex; flex-direction: column; gap: 0.12rem; }
+.catalogue-theme span:first-child { color: var(--ink); }
+.catalogue-locator { font-family: var(--font-mono); font-size: 0.7rem; }
+/* The précis and the cross-references share one full-width detail line under
+   the row's columns, so a row is one entry rather than four plus a tail. */
+.catalogue-detail {
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.45rem;
+  padding-top: 0.45rem;
+  border-top: 1px dashed var(--line-soft);
 }
-.lexicon-headword-literal {
-  margin: 0 0 0.2rem;
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 780;
+.catalogue-summary { margin: 0; font-size: 0.82rem; line-height: 1.6; color: var(--ink-soft); }
+.catalogue-cross {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+
+/* --- Room 05 · Lexicon: the running dictionary --------------------------- */
+.gongan-catalogue { min-width: 0; }
+.lexicon-entries { min-width: 0; border-top: 2px solid var(--wood-raised); }
+/* Margin (category + recorded tally) · entry. The headword Chinese sits under
+   the English literal — the dictionary's organising gloss — sized from
+   --zh-font-size, so the room keeps C-3's balance and A−/A+ still govern it. */
+.lexicon-entry {
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+  column-gap: 1.75rem;
+  align-items: baseline;
+  padding: 1.05rem 0 1.15rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.lexicon-entry:last-child { border-bottom: 0; }
+.lexicon-headword {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
   line-height: 1.2;
-  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 .lexicon-headword-zh {
-  margin-bottom: 0.25rem;
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 650;
-  line-height: 1.3;
-  letter-spacing: 0.08em;
-  color: var(--accent-gold-hover);
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-zh);
+  font-size: calc(var(--zh-font-size) * var(--room-zh));
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.05em;
+  color: var(--gold-strong);
 }
 .lexicon-headword-meta {
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  margin: 0.2rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-soft);
 }
-.lexicon-def-col {
-  display: flex;
-  flex-direction: column;
-}
-.lexicon-def-text {
+.lexicon-entry-def {
+  margin-top: 0.4rem;
+  font-family: var(--font-display);
   font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--text-primary);
-  margin-bottom: 0.85rem;
+  line-height: 1.68;
+  color: var(--ink);
 }
-.lexicon-occurrences {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
+.lexicon-occurrences { display: flex; flex-wrap: wrap; gap: 0.25rem 0.85rem; margin-top: 0.45rem; }
 .lexicon-occ-tag {
-  font-size: 0.75rem;
   font-family: var(--font-mono);
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  padding: 0.2rem 0.5rem;
-  color: var(--text-secondary);
+  font-size: 0.66rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  cursor: help;
 }
-
-/* Phase D: Lineage Room — Chronological Directory Rows */
-.master-directory-row {
-  border-bottom: 1px solid var(--border-color);
-  padding: 1.5rem 0;
-  display: grid;
-  grid-template-columns: 80px 1fr 320px;
-  gap: 1.5rem;
-  align-items: start;
-}
-.master-dir-gen {
+.lexicon-entry-margin { display: flex; flex-direction: column; gap: 0.15rem; align-items: flex-start; }
+.lexicon-entry-cat {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  color: var(--text-muted);
+  letter-spacing: 0.09em;
   text-transform: uppercase;
+  color: var(--gold-strong);
 }
-.master-dir-main {
-  display: flex;
-  flex-direction: column;
-}
-.master-dir-name {
-  display: flex;
-  flex-direction: column;
-  gap: 0.12rem;
-  margin-bottom: 0.25rem;
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 780;
-  line-height: 1.2;
-  color: var(--text-primary);
-}
-.master-dir-name-zh {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  color: var(--text-muted);
-}
-.master-dir-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--accent-gold);
-  margin-bottom: 0.4rem;
-}
-.master-dir-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-}
-.master-dir-quote {
-  border-left: 2px solid var(--wood-800);
-  padding-left: 1rem;
-  font-family: var(--font-serif);
-}
-.master-dir-quote-zh {
-  font-size: 1rem;
-  color: var(--text-chinese);
-  margin-bottom: 0.25rem;
-}
-.master-dir-quote-en {
-  font-size: 0.88rem;
-  font-style: italic;
-  color: var(--text-secondary);
-}
+.lexicon-entry-count { font-family: var(--font-mono); font-size: 0.64rem; color: var(--ink-soft); }
 
+/* --- Z3 responsive: 1024 / 768 / 480 ------------------------------------- */
+/* Tablet: the bands and rows keep their order and a row may take a second line.
+   The printed column heads leave the layout but stay in the a11y tree (the same
+   off-screen technique the skip link uses): a stacked cell like “T2005” or “1”
+   needs its column name more on a small screen, not less. */
 @media (max-width: 1024px) {
-  .master-directory-row {
-    grid-template-columns: 60px 1fr;
+  .matrix-collation-head,
+  .lineage-band-cols,
+  .gongan-catalogue-head {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
-  .master-dir-quote {
-    grid-column: 2;
-    margin-top: 0.75rem;
+  .lineage-master-row { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); }
+  .lineage-master-quote { grid-column: 1 / -1; padding-left: 0; border-left: 0; margin-top: 0.4rem; }
+  .catalogue-row {
+    grid-template-columns: 3.5rem minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr) 4.5rem;
+    column-gap: 0.9rem;
   }
+  .catalogue-detail { grid-column: 2 / -1; }
+  .lexicon-entry { grid-template-columns: minmax(0, 1fr); row-gap: 0.4rem; }
 }
+/* Phone: one column per row, the rail of a proof row becomes a lead line. */
 @media (max-width: 768px) {
-  .lexicon-definition-row {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-  .matrix-register-col {
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-    padding-right: 0;
-    padding-bottom: 1.25rem;
-  }
-  .matrix-register-col:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  .master-directory-row {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
+  .matrix-register-row,
+  .lineage-master-row,
+  .catalogue-row { grid-template-columns: minmax(0, 1fr); }
+  .matrix-register-rail { flex-direction: row; flex-wrap: wrap; gap: 0.15rem 0.75rem; align-items: baseline; }
+  .lineage-master-quote { margin-top: 0.5rem; }
+  .catalogue-detail { grid-column: 1; }
+  .lexicon-entry-margin { flex-direction: row; gap: 0.75rem; }
+}
+/* Small phone: tighten the rails, keep the type at the legibility floor. */
+@media (max-width: 480px) {
+  .catalogue-row { row-gap: 0.25rem; }
+  .catalogue-case { font-size: 0.8rem; }
+  .matrix-collation, .lineage-register, .lexicon-entry-def { font-size: 0.95rem; }
+  .lexicon-headword { font-size: 1.06rem; }
 }

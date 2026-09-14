@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110233,
+    "all_corpus_cjk_characters": 110252,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -209,8 +209,8 @@
         }
       },
       "dahui_hongzhi": {
-        "all_cjk_chars": 383,
-        "cbeta_id": "T1998A (大慧普覺禪師語錄)",
+        "all_cjk_chars": 402,
+        "cbeta_id": "T47n1998A / T47n1998B + T48n2001 (大慧普覺禪師語錄 + 宏智禪師廣錄, 默照銘)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 260,
         "is_complete": false,

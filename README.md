@@ -20,16 +20,37 @@
 4. **Map the Lineage Knowledge Graph** connecting the Six Patriarchs (Bodhidharma → Huineng) and the Five Houses and Seven Schools.
 5. **Deploy a Zero-Backend Static GitHub Pages Web App** for bilingual reading, comparative translation, lineage study, Gong'an indexing, and lexicon lookup.
 
-## 🏛️ English-First Walnut Hall Interface (2026-08-11)
+## 🏛️ English-First Walnut Hall Interface
 
-The five-room public SPA keeps its dark-walnut Chan-hall structure while using a clearer, more distinctive **English-first factory/editorial identity**:
+The five-room public SPA presents one walnut **gate**: a lintel carrying the brand and the controls, a directory of the five rooms beneath it, and a beam that tells the joke once. The hall is expressed as structure — lintel, rule lines, margins, the beam's shadow — not as texture, illustration or icon. (Re-composed 2026-09-13, Pages revamp Phase 1; the 2026-08-11 English-first pass established the hierarchy, this pass establishes the system.)
 
-- **Identity:** `FC` monogram, asymmetric walnut introduction, edition/proof details, and the plain-language hook “The old texts are real. The translators are not.”
-- **Hierarchy:** English leads navigation, room/document/unit headings, lineage, Gong'an, lexicon, and mobile controls; source Chinese remains available with `lang="zh"` and stays central inside the Reader.
-- **Reading system:** grouped 2/2/31 library shelf, progressive provenance ledger, ruled reading sheets, Matrix proof rows, Lineage directory/network, Gong'an catalogue, and dictionary definitions.
-- **Responsive and accessible behavior:** 1024px shelf collapse, 768px mobile layout, contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls, and no HTML inline styles.
+- **Identity:** `FC` monogram on the walnut lintel, brass rule under it, the beam's hook “The old texts are real. The translators are not.” set in a scholarly serif with the turn in italic, and the `PROUDLY FAKE ENGLISH` seal.
+- **One token sheet:** 35 declarations plus 8 dark-theme overrides (43 total, re-measured in Phase 2), consolidated from 63 accreted declarations. Eight *theme primitives* — paper, panel, line, ink and four accents — are the only values the dark theme overrides; every other tint is derived from them with `color-mix()`, so a tint is written once instead of hand-picked per theme.
+- **One type scale:** a single ~1.24 modular scale (`--type-hook` … `--type-small`) shared by English and Chinese at their own line-heights.
+- **English voice (Checkpoint-C C-2):** **Source Serif 4** carries the hook, headings and translation prose (delivered in Phase 2 together with the Reader sheet, the ledger drawer, the thin case register and render-lazy boot); the system sans is for controls only; `ui-monospace` carries locators and counts. Source Serif 4 is served by Google Fonts, which the shipped CSP already allows, so it adds no repository bytes and no new third party; the CJK serif sits at the end of its stack so mixed headings never fall back to a system default. Self-hosting under `/fonts/` stays the documented alternative if a zero-third-party-request rule is ever wanted.
+- **Hierarchy:** English leads navigation, room/document headings, lineage, Gong'an, lexicon, and mobile controls; source Chinese is present everywhere and subordinate everywhere, except inside the Reader sheet where it is the largest text on the page (Checkpoint-C C-3) and always carries `lang="zh"`.
+- **Reading system (Phase 2):** grouped 2/2/31 library shelf above a minimal ruled sheet — one hairline between reading units, generous margins, the source Chinese governing the column, and translation prose set in the scholarly serif (C-2). The five disclosure ledgers fold into one always-visible *About this edition* drawer band under the document heading (calmer, never quieter: no ledger hides behind a disclosure; edition metadata is the one progressive line, expanding inline). The case index is a thin static register.
+- **Secondary rooms (Phase 3, 2026-09-13):** the four hidden rooms were re-composed onto that same vocabulary instead of keeping their own card
+  kits. The Matrix is a **collation table** — one source line, then one aligned register row per translator, with the Robo name, its work and the
+  provenance badge in the margin rail and the machine-made English in the column beside it. Lineage leads with a **transmission register** — masters
+  banded by generation, one ruled row each, house and dated record in fixed columns, signature quote in the margin rule — and the layered SVG
+  network is now its *second* view, opened from the room's own switch (a hidden `<svg>` measures nothing, so the chart re-lays out on activation).
+  The Gong'an index is a **case catalogue** (case no. · both titles · collection · theme group · canonical record, with the précis and
+  cross-references on one detail line under each row) whose theme filter is a single row of text filters; the Lexicon runs as a **dictionary**
+  (headword Chinese under its literal gloss, definition, category in the margin). Nothing was cut to get there: the register's master rows hand the
+  summary, texts, names and evidence state to the dossier, which stays one activation away, and every disclosure the rooms carried before is still
+  printed — including the lineage scaffold profiles' pending-locator wording.
+- **Responsive and accessible behavior:** 1024 / 768 / 480 px breakpoints (the secondary rooms now carry all three: bands and catalogue rows collapse
+  their column grids to stacked rows), contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls regrouped into two
+  clusters (text · move) with 44 px touch targets, `lang="zh"` on every source-Chinese block, and — since Phase 3 — **zero inline style attributes**
+  in `index.html` and in `app.js` (`grep -c 'style="' app.js` is a smoke assertion), with every room template driving layout through classes and
+  visibility through the semantic `hidden` attribute. What remains are four CSSOM custom-property writes — the measured runtime contracts
+  `--shell-height`, `--zh-font-size` and the popover's `--pop-shift` — which `style-src` does not govern; `style-src 'unsafe-inline'` is therefore
+  gone from the CSP meta. No real-browser evidence exists for any of this — the repository's standing note — so the visual result is owner-review work on live Pages.
 - **Progressive disclosure:** repeated hero/Matrix explanations and per-column Robo footers are removed; compact citations, coverage, Lineage, Lexicon, and search labels keep detailed provenance available on demand.
+- **Boot cost (Checkpoint-C C-4, Phase 2):** one bundle, render-lazy — the Reader renders at boot and the four hidden rooms (Matrix, Lineage, Gong'an, Lexicon) build their DOM on first tab activation; data loading and the byte-identical bundle contract are unchanged. Raw bundle `app_data.js` + `app.js` + `app.css` + `index.html` = 1,925,366 B (~1.84 MB) <2 MB ceiling, gzipped 586,529 B (~573 KB) — measured `gzip -c app_data.js app.js app.css index.html | wc -c` on main 3a6ae32.
 - **Resilience and honesty:** redundant Robo badges are suppressed without hiding verified-quotation status; malformed preferences fail soft; missing/malformed data renders reload/reset recovery UI; edition verification and rights status remain separate.
+- **Phase 4 evidence (2026-09-13):** Pages revamp Phases 1-3 complete (PRs #48 system+masthead tokens 63→43 serif Source Serif 4, #49 Reader minimal sheet + ledger drawer + thin register + 41 style=→0 + render-lazy, #50 secondary rooms re-composed + CSP without `unsafe-inline` + 0 style=). Frozen tracks **PR-B CSP hardening folded into Phase 3** and **PR-D perf measure-first folded into Phase 2 lazy** per Checkpoint-C C-5 (a); PR-A real-browser remains frozen. Final system: 43 global tokens (35+8) + 6 scoped composition dials, 0 `style=` literals in `index.html` and `app.js`, 4 CSSOM custom-property writes (`--shell-height`, `--zh-font-size`, `--pop-shift`) as runtime contracts, CSP `style-src 'self' https://fonts.googleapis.com` without `unsafe-inline`, bundle <2 MB, render-lazy. Dated current-vision doc `WEB_VISION_2026-09-13.md` finalised; owner light/dark desktop/mobile review on live Pages pending — no self-declared completion.
 
 ## ✅ Verified Quotation Campaign (historical snapshot, 2026-08-08)
 
@@ -45,7 +66,7 @@ Every visible translation register carries a **✅ Edition-verified quotation**,
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: the active corpus contains **35 documents** and no current `complete_selected_witness` item after W1 containment. W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-10 correction register: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all; a fresh collation of current `main` reports **532** flagged fields — the difference is the four merged re-keys (PRs #29, #30, #32, #34) — and the owner ruled on 2026-09-12 that the published post-remediation evidence pass (PR #41) does **not** supersede the register: **630** stays authoritative and 532 stays today's measurement of `main`. Wumenguan has **48 / 48 cases represented; W1 source-review status: `partial_or_failed_w1_collation`**; Xinxin Ming has 37/37 stanzas represented with the same partial/failed W1 state. Biyanlu and Linji remain `partial_selected_witness`; 31 records remain excerpt seeds. The manifest source-review counts are `collated_to_claimed_witness`: **1**, `partial_or_failed_w1_collation`: **32**, and `witness_unavailable`: **2**. Biyanlu has **100/100 cases** represented as case records, but source fields/human sign-off are incomplete. Platform Sutra has 10/10 chapter headings represented, but is not a complete text: its 13 source-content fields (680 content CJK) are now provenance-labelled — 1 verbatim in the primary witness T48n2007 (Dunhuang), 3 in the alternative T48n2008 (宗寶), and 9 in neither, disclosed as project précis. The Congronglu seed was removed from the active bundle after the 2026-08-10 audit found uncollated generated placeholders and incorrect case-number/page claims. Generated metrics report **104,564 source-content CJK characters** (or 110,233 across every corpus JSON string, including metadata); representation counts never establish completion by themselves.
+> **Honest status**: the active corpus contains **35 documents** and no current `complete_selected_witness` item after W1 containment. W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-10 correction register: `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 593 of 924 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all; a fresh collation of current `main` reports **532** flagged fields — the difference is the four merged re-keys (PRs #29, #30, #32, #34) — and the owner ruled on 2026-09-12 that the published post-remediation evidence pass (PR #41) does **not** supersede the register: **630** stays authoritative and 532 stays today's measurement of `main`. Wumenguan has **48 / 48 cases represented; W1 source-review status: `partial_or_failed_w1_collation`**; Xinxin Ming has 37/37 stanzas represented with the same partial/failed W1 state. Biyanlu and Linji remain `partial_selected_witness`; 31 records remain excerpt seeds. The manifest source-review counts are `collated_to_claimed_witness`: **1**, `partial_or_failed_w1_collation`: **32**, and `witness_unavailable`: **2**. Biyanlu has **100/100 cases** represented as case records, but source fields/human sign-off are incomplete. Platform Sutra has 10/10 chapter headings represented, but is not a complete text: its 13 source-content fields (680 content CJK) are now provenance-labelled — 1 verbatim in the primary witness T48n2007 (Dunhuang), 3 in the alternative T48n2008 (宗寶), and 9 in neither, disclosed as project précis. The Congronglu seed was removed from the active bundle after the 2026-08-10 audit found uncollated generated placeholders and incorrect case-number/page claims. Generated metrics report **104,564 source-content CJK characters** (or 110,252 across every corpus JSON string, including metadata); representation counts never establish completion by themselves.
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -83,23 +104,32 @@ Five documents were re-keyed to their pinned CBETA witnesses or provenance-label
 - Hover, focus, or tap key Chan terms (e.g. *本來面目*, *無*, *平常心是道*, *公案*) for immediate popup definitions.
 - Visible source locations, W1 source-review disclosures, and validator-derived coverage disclosures distinguish **source collation status**, **complete/partial/excerpt representation**, and locator review; raw N/M representation counts never establish source completion. The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review.
 - Client-side search across **all 35 active corpus documents and supported schema shapes** (case lists, sermons, dialogues, stanzas, chapters), with match counts, highlighting, and jump actions.
+- The sheet is the unit: every template line carries its treatment in a named class (`.provenance-line`, `.dialogue-turn`, `.commentary-block.is-pointer`, …) rather than an inline `style=`; long case collections get the thin register rail, and the document header carries the drawer band above.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix
-- Segment-level side-by-side comparison across major 20th and 21st-century renderings (4 exemplar entries today).
+- Segment-level side-by-side comparison across major 20th and 21st-century renderings (4 exemplar entries today), composed as a **collation
+  table**: one source line, then one aligned register row per translator with the Robo name, the work it imitates and the provenance badge in the
+  margin rail. Source Chinese here is sized from `--zh-font-size`, so A−/A+ govern it too.
 - Each displayed translation discloses translator, status, book/edition, page-or-section reference state, verification, and rights identifier through visible lines plus hover/focus/touch citation popups.
 - Critical notes examine why renderings differ (e.g., *Mu* vs. *No* vs. *None* vs. *Emptiness*).
 - 🤖 **Robo note**: translator-attributed renderings are Robolations unless individually checked against a recorded edition (then they are ✅ Edition-verified quotations). Verification and rights approval remain separate.
 
 ### 3. 🌳 Lineage Knowledge Graph Explorer
-- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **34 master profiles** (30 researched seed profiles + 4 explicitly marked frontier scaffolds), with an SVG network graph and clickable dossiers.
+- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **34 master profiles** (30 researched seed profiles + 4 explicitly marked frontier scaffolds), with the network chart as its second view and clickable dossiers.
 - A visible chart-status disclosure distinguishes traditional links awaiting exact locators from future source-verified links; graph edges open source-chart/record details on click or keyboard activation.
-- Filter by lineage school, dates, temple location, canonical text reference, and signature quotes.
+- Filter by lineage school; sort the register by generation (ruled bands), chronology, name or school. Each row carries the school, dated record,
+  temple, canonical reference, teacher link and signature quote, and the dossier prints the full profile — including the pending-locator wording
+  on the four frontier scaffolds.
 
 ### 4. 🗂️ Gong'an Cross-Reference Index
-- Canonical cases indexed by theme, protagonist, and bibliographic cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* (the active Congronglu text is quarantined) — **24 indexed cases** at present (incl. 5 new Biyanlu entries, 2026-08-08), organized into **7 curated theme groups** (Buddha-Nature, Beyond Duality, What is Buddha, Direct Pointing, Everyday Way, Transmission & Causality, Existential Barrier) from the validator-enforced taxonomy in `data/gongan/theme_vocabulary.json`; cards keep a rich per-case theme descriptor while filter chips group by family.
+- Canonical cases indexed by theme, protagonist, and bibliographic cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* (the active Congronglu text is quarantined) — **24 indexed cases** at present (incl. 5 new Biyanlu entries, 2026-08-08), organized into **7 curated theme groups** (Buddha-Nature, Beyond Duality, What is Buddha, Direct Pointing, Everyday Way, Transmission & Causality, Existential Barrier) from the validator-enforced taxonomy in `data/gongan/theme_vocabulary.json`. The room reads as a **case catalogue** — one ruled row per case
+  (case no. · both titles · collection · theme group · canonical record) with the précis and cross-references on one detail line — and the theme
+  group filter is a single row of text filters rather than a field of pills.
 
 ### 5. 📚 Classical Chan Lexicon
 - Dictionary of technical Chan idioms, Buddhist ontology, dialectical structures, and monastic expressions — **31 terms** today, expanding toward 150+ (see Roadmap Phase 3).
+- Runs as a **dictionary list**: category and the recorded-occurrence tally in the margin, the literal gloss leading, the headword Chinese under
+  it, then the definition and the canonical occurrence references (whose caveat stays on demand, one `title` per locator).
 
 ---
 
@@ -128,7 +158,8 @@ translatechan/
 ├── AUDIT.md                # Current-state audit summary + session index (durable history in sessions/)
 ├── sessions/               # Dated session audit reports + historical audit archive (append-only)
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
-├── response_summary.md     # Live working summary of the current session (overwritten per session)
+├── SECURITY.md              # Minimal security-disclosure policy (GitHub Security Advisories)
+├── og-image.svg / og-image.png # Social-card image; SVG primary + PNG fallback (mirrored into docs/)
 ├── data/
 │   ├── corpus_manifest.json    # Shared active-corpus order/navigation manifest (35 keys)
 │   ├── canonical_locators.json # Document/case/unit source-locator registry
@@ -148,7 +179,7 @@ translatechan/
 │   │   └── profile_review_queue.json  # Enforced exact-locator review queue (34 profiles)
 │   ├── translations/       # Comparative data, provenance, rights & Robo profiles
 │   │   ├── comparative_matrix.json
-│   │   ├── translator_profiles.json  # Evidence-grounded Robo-translator personalities (13 in-corpus-verified; 7 documented-external)
+│   │   ├── translator_profiles.json  # Evidence-grounded Robo-translator personalities (14 in-corpus-verified; 6 documented-external; 1 not-applicable)
 │   │   ├── provenance.json
 │   │   └── rights_manifest.json
 │   ├── glossary/           # Classical Chan & Buddhist lexicon (31 terms)

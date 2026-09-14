@@ -45,7 +45,19 @@
 
 **Not part of remediation PRs:** the visual-system reset — deferred, separate track. PR-A/B/D remain frozen. W2 remains separate.
 
-Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never committed). Reproduce the authoritative register byte-for-byte with `COLLATION_REFS=<refs> python3 scripts/collate_corpus.py --out /tmp/register.json --reproduce sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` (register sha256 `5369af1163e55eb25e2695160a0ec04805efc13a606841a6d6cb19b1936d3d31`, refs manifest sha256 `f3ac90b2ae9c7b969f157185d83651bcb00c24e535a0ef1f5ac143c4aa8174a9`); `--reproduce` replays the `generation_parameters` block the register itself records. The rule that produces them is committed: `python3 scripts/collate_corpus.py --print-refs` lists the works, `scripts/collate_refs.py` extracts + verifies them against a digest manifest, and `scripts/collate_corpus.py` collates on top of them (`--refs-manifest`, `--compare-historical-refs`, `--require-verified-refs`). Full command sequence: `sessions/COLLATION_W1_2026-09-10_CORRECTION.md` §7.
+Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never committed). Verify the committed authoritative register's file integrity with sha256 `5369af1163e55eb25e2695160a0ec04805efc13a606841a6d6cb19b1936d3d31` (refs manifest sha256 `f3ac90b2ae9c7b969f157185d83651bcb00c24e535a0ef1f5ac143c4aa8174a9`). To replay the collation against current data and obtain the current-state register (532 flagged entries, dated 2026-09-12) along with a reproduction-comparison block against the 2026-09-10 authoritative record, run `COLLATION_REFS=<refs> python3 scripts/collate_corpus.py --out /tmp/register.json --reproduce sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json`; `--reproduce` replays the `generation_parameters` block the register records and emits a current-state measurement, not a byte-for-byte copy of the historical 630-flagged file (which cannot be re-emitted because the underlying data has changed through the four merged re-keys). The rule that produces them is committed: `python3 scripts/collate_corpus.py --print-refs` lists the works, `scripts/collate_refs.py` extracts + verifies them against a digest manifest, and `scripts/collate_corpus.py` collates on top of them (`--refs-manifest`, `--compare-historical-refs`, `--require-verified-refs`). Full command sequence: `sessions/COLLATION_W1_2026-09-10_CORRECTION.md` §7.
+
+
+**Phase B — Pages revamp COMPLETE pending owner approval (2026-09-13, main 3a6ae32):** Checkpoint-C C-1..C-5 answered 2026-09-13 (colors acceptable, everything else adaptable/replaceable, serif, subordinate, lazy, full plan) in proposal PR #46 (merged main a1ebcef). Phase 1 system+masthead PR #48 merged main 0d02c4c (tokens 63→43, serif Source Serif 4, shell/hero/mobile bar, OG redraw, 5 gates green). Phase 2 Reader PR #49 merged main cae8837 (sheet minimal, ledger drawer, thin register, 41 style=→0, render-lazy boot per C-4 a, 5 gates green). Phase 3 secondary rooms + CSP PR #50 merged main 3a6ae32 (collation table, transmission register, case catalogue, dictionary, 0 style=, CSP without unsafe-inline, 4 CSSOM writes remain, 5 gates green). Final measurements: 43 global tokens (35+8) + 6 scoped dials, 0 style= in index.html/app.js, CSP `style-src 'self' https://fonts.googleapis.com` without unsafe-inline, bundle raw 1,925,366 B (~1.84 MB) <2 MB gzipped 586,529 B, render-lazy. Dated current-vision doc `WEB_VISION_2026-09-13.md` created. Frozen tracks PR-B/PR-D closed as folded per C-5 (a), PR-A still frozen (no Chromium). Phase 4 evidence and approval in progress — owner light/dark desktop/mobile review on live Pages, docs finalization, release checklist, ask whether required real-browser CI job is approved.
+
+
+
+**Phase 4 owner review (2026-09-14, via ask_user):**
+- Visual: "Light dark and desktop mobile is functional, however the user experience on the website is insufficient. The layout is really bad for a human reader. Overhauling the website for a human-readable, easy-of-use, welcoming space is highest priority. Consider that AI agents are limited in their ability and heavily rely on user feedback to forge that vision."
+- Real-browser CI: "keep_frozen — no required browser job" — owner chooses to keep PR-A frozen, owner review on live Pages remains visual evidence.
+- Implication: Pages revamp Phases 1-3 (system+masthead, Reader sheet/drawer/register, secondary rooms, CSP without unsafe-inline, render-lazy, bundle <2MB) is **functionally complete and gate-green**, but **UX is insufficient for human reader** — next top priority is human-readable, easy-of-use, welcoming overhaul. This will be a new proposal-first track beyond Phase B, not part of this docs PR.
+- Docs: this PR (docs/pages-phase4-evidence, PR #51 from arena/01a09f16-translatechan) finalises README/HANDOFF/AUDIT/ROADMAP + WEB_VISION_2026-09-13.md + OPERATIONS Edit1 closed by O-3 + frozen PR-B/PR-D closed as folded. No self-declared visual completion — owner feedback recorded verbatim.
+
 
 ## Standing Decisions (2026-09-09, owner)
 
@@ -63,25 +75,38 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 
 Executed so far: **PR #43 (2026-09-12)** fixes the six `CITATION` rows — `zhaozhou_yulu` (the false T1987 claim, withdrawn), `fayan_yulu`, `dongshan_yulu`, `mazu_yulu`, `dahui_hongzhi` — with no status change, no re-designation and no new locator.
 
+## Checkpoint-C — Pages Revamp Direction (2026-09-13, owner — proposal PR #46)
+
+- Date: 2026-09-13
+- Source: owner answers to C-1..C-5 via structured questions, recorded verbatim
+- C-1 Visual intensity: "Colors are acceptable. Everything else can be adapted as seen fit, even fully replaced if suited." (owner custom)
+- C-2 English typographic voice: "(a) Scholarly serif for hook/headings/translations, sans for controls" + sub-decision self-hosted vs Google-served pending? Owner selected (a) scholarly serif.
+- C-3 Chinese/English balance: "(a) Present but subordinate everywhere except inside the Reader sheet where it is largest"
+- C-4 Performance strategy: "(a) Render-lazy only — keep one bundle, hidden rooms render on first activation"
+- C-5 Scope/sequencing: "(a) Full plan: system+masthead → Reader → secondary rooms → CSP tightening → evidence, fold PR-B/PR-D"
+- Additional: "I merged. Continue with plain word, guided questioning."
+- Implication: colors #2c2523 walnut etc acceptable, everything else may be replaced if suited; serif chosen; subordinate; lazy; full plan.
+
 ## Task Queue
 
 - [x] **Lineage corpus-key curation (6 profiles)** — integrated in the current baseline
 - [x] **W1 — Full-corpus collation vs CBETA** — evidence is recorded in the immutable report/register
 - [x] **REMEDIATION Wave 1, doc 1 — wumenguan re-keyed to T2005 (PR #29, 2026-09-10)** — 62 re-keyable flagged source fields re-keyed verbatim from CBETA T48n2005 @ `dbdea41071e1e260ad84b72faefd4587333cf76d` per `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` (collation re-run after the prompt-002 revision: flagged 70 → 9, the documented residual 6 MINOR + 2 SHORT_UNMATCHED titles + R-B epilogue); sibling pinyin rewritten syllable-by-syllable; epilogue R-B-labeled in structured metadata; `source_review_status` legitimately remains `partial_or_failed_w1_collation` until the post-remediation evidence pass, which re-adjudicated this document on 2026-09-12 (`sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json`; `documents_with_changed_status: 0`) and left the status unchanged at `partial_or_failed_w1_collation`. Supersedes PR #23 (verdict DO-NOT-MERGE: 65/70 fields untouched, truncated register-window fragments pasted as text, one corrupted field, garbled pinyin, false "Complete" claim).
 - [~] **W1 public status-model containment** — manifest statuses, validator guards, Reader disclosure, and current documentation integrated; evidence contract hardened (merged — PRs #25–#28); per-document source remediation remains pending
-- [ ] **Visual-system reset** — next planned task after this containment/status-model work
+- [x] **Visual-system reset / Pages revamp — Phase B COMPLETE (2026-09-13, main 3a6ae32):** Checkpoint-C C-1..C-5 answered, proposal PR #46 merged, then Phases 1-3 executed: **Phase 1 system+masthead PR #48** (tokens 63→43, serif Source Serif 4, shell/hero/mobile bar, OG redraw, 5 gates green), **Phase 2 Reader PR #49** (sheet minimal, ledger drawer, thin register, 41 style=→0, render-lazy boot per C-4 a, 5 gates green), **Phase 3 secondary rooms + CSP PR #50** (collation table, transmission register, case catalogue, dictionary, 0 style=, CSP without unsafe-inline, 4 CSSOM writes remain, 5 gates green). Final measurements: 43 global tokens (35+8) + 6 scoped dials, 0 style= in index.html/app.js, CSP `style-src 'self' https://fonts.googleapis.com` without unsafe-inline, bundle raw 1,925,366 B (~1.84 MB) <2 MB gzipped 586,529 B, render-lazy. Dated vision `WEB_VISION_2026-09-13.md` created. Owner light/dark desktop/mobile review on live Pages pending — no self-declared completion. **PR-B CSP hardening folded into Phase 3, PR-D perf measure-first folded into Phase 2 lazy per C-5 (a).**
 - [ ] **REMEDIATION hybrid policy**: per-doc work packages in `.orchestrator/REMEDIATION_PLAN.md`; delegate to coder agents, one document per PR. Wave 1 progress: wumenguan (PR #29), biyanlu_cases (PR #30), linji_yulu (PR #32); **next: xinxin_ming**, then platform_sutra
 - [ ] **W2 — Verified-quotation spot-check** (177 slots vs public-domain editions; Senzaki & Reps 1934 first) — sequencing at successor's discretion (before or parallel to remediation)
 - [x] **Scoreboard removal PR** — delete `.scoreboard/` + `SCOREBOARD.md`; update AGENTS.md contract (owner decision 2026-09-09; PR #31, 2026-09-11)
-- [ ] **PR-A — Real-browser verification pass** (frozen during audit; resume after remediation starts)
-- [ ] **PR-B — CSP hardening** (frozen) · **PR-D — Performance, measure-first** (frozen)
+- [ ] **PR-A — Real-browser verification pass** (frozen during audit; resume after remediation starts) — still frozen in Phase4, no Chromium run on record, owner review is exit.
+- [x] **PR-B — CSP hardening** · **PR-D — Performance, measure-first** — **CLOSED AS FOLDED (2026-09-13, main 3a6ae32):** per Checkpoint-C C-5 (a) these fold into the Pages revamp sequence — PR-B into Phase 3 (58→0 inline styles, CSP drop unsafe-inline), PR-D into Phase 2 (render-lazy only per C-4 a, bundle <2 MB). No standalone PRs.
+- [ ] **Phase 4 — Evidence and approval (owner light/dark review, docs final, frozen tracks close) — IN PROGRESS (2026-09-13):** prompt 007 dispatched, branch `docs/pages-phase4-evidence`, final system measured (tokens 43, 0 style=, CSP without unsafe-inline, bundle 1.91MB raw, 4 CSSOM writes, lazy boot), docs finalization README/HANDOFF/AUDIT/ROADMAP + dated vision `WEB_VISION_2026-09-13.md`, OPERATIONS Edit1 closed structurally by O-3, PR-B/PR-D closed as folded, release checklist noted, ask whether required real-browser CI job is approved. Exit: owner approval recorded, no self-declared completion, 5 gates green.
 - [ ] Later tranche — 30 lineage edges exact-locator groundwork
 - [ ] Later tranche — Biyanlu / Linji / Platform / excerpt-seed field-level source review (fold into R-A packages)
 
 ## Deferred / Technical Debt
 
 - **Congronglu reintroduction** — quarantined 2026-08-10 (generated source-looking placeholders). Blocked on source-pinned field-level collation from authoritative T48n2004 TEI. Do not restore.
-- **`.github/workflows/quality.yml` artifact-diff gaps** (4 mirrored assets missing) — documented in [`OPERATIONS.md`](../OPERATIONS.md) Edit 1. Owner approval withheld 2026-09-09; remain blocked.
+- **`.github/workflows/quality.yml` artifact-diff gaps** (4 mirrored assets missing) — **CLOSED STRUCTURALLY BY O-3 (2026-09-13, main 3a6ae32):** documented in [`OPERATIONS.md`](../OPERATIONS.md) Edit 1, now resolved via structural check `git diff --exit-code -- app_data.js docs data/project_metrics.json` in Quality workflow (PR #45, O-3). The old per-file enumeration gap is gone; Edit 1 closed.
 - **Rights review** — all 14 `rights_manifest.json` sources await human/jurisdiction review. Human decision; not agent work. Edition verification never implies rights approval.
 
 ## Architectural Invariants
@@ -135,7 +160,7 @@ PY
 
 ```text
 corpus documents 35 | incomplete 35 | complete_selected_witness 0
-source-content CJK 104564 | all-string CJK 110233
+source-content CJK 104564 | all-string CJK 110252
 authoritative register sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json | flagged 630 | evidence 2026-09-10 | statuses {'collated_to_claimed_witness': 1, 'partial_or_failed_w1_collation': 32, 'witness_unavailable': 2}
 superseded 2026-09-09 pair: register 622 | report 637 | status superseded
 dated measurement 2026-09-12 (not a re-designation): flagged 532 | collating content fields 691 / 924 | documents_with_changed_status 0

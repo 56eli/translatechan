@@ -13,25 +13,29 @@ Agents must not edit `.github/workflows/*` unless the owner explicitly
 requests it. Record exact changes in this file so an owner with the
 necessary GitHub permissions can apply and verify them.
 
-## Edit 1 — Cover every mirrored deploy asset in Quality
+## Edit 1 — Cover every mirrored deploy asset in Quality — CLOSED STRUCTURALLY BY O-3 (2026-09-13)
 
 **File:** `.github/workflows/quality.yml`
-**Reason:** `scripts/build_data_bundle.py` mirrors four files that the current `git diff --exit-code` list omits:
+**Reason (historical):** `scripts/build_data_bundle.py` mirrors four files that the previous `git diff --exit-code` list omitted:
 
 - `docs/theme-init.js`
 - `docs/robots.txt`
 - `docs/sitemap.xml`
 - `docs/og-image.svg`
 
-Replace the existing generated-artifact command with:
+**Resolution — O-3 structural mirror-tree diff (PR #45, adopted 2026-09-13):** the Quality workflow now runs the structural check
 
 ```yaml
       - name: Require generated artifacts and deploy mirror to be committed
         run: |
-          git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/theme-init.js docs/robots.txt docs/sitemap.xml docs/og-image.svg docs/data data/project_metrics.json
+          git diff --exit-code -- app_data.js docs data/project_metrics.json
 ```
 
-Then rerun Quality on an `arena/**` push and confirm the job **Validate data, generated artifacts, and reader** passes.
+This single structural diff covers root bundle, the entire `docs/` mirror tree, and generated metrics, so new mirrored assets (theme-init.js, robots.txt, sitemap.xml, og-image.svg) are guarded without enumerating each path. It satisfies Edit 1's intent without an explicit per-file list.
+
+- **Status:** closed structurally by O-3 — `git diff --exit-code -- app_data.js docs data/project_metrics.json` is now the gate in `.github/workflows/quality.yml` (see `quality.yml:35`).
+- **Verification:** `python3 scripts/build_data_bundle.py && git diff --exit-code -- app_data.js docs data/project_metrics.json` — PASS on main 3a6ae32 and on Phase B branches; re-confirmed 2026-09-14 (task 008) on main `766b97c` (PR #51), including the new `og-image.png` mirror path added to `scripts/build_data_bundle.py`'s copy list — the same structural diff covers it without an enumerated-list edit.
+- **Remaining:** Edit 1 no longer requires owner action; the enumerated-list form in the original proposal is superseded by the structural form. Edits 2 and 3 below remain owner-held per `AGENTS.md` §6 (agents must not edit `.github/workflows/*` without explicit owner approval) — no agent edit to either has been attempted.
 
 > This only closes mirror-path coverage. The full audit also recommends future owner-approved CI jobs for a non-skippable browser suite, HTML/JS/link checks, and accessibility checks after the underlying tests are corrected.
 

@@ -5,3 +5,8 @@ __pycache__/
 # Common local editor/OS noise
 .DS_Store
 node_modules/
+
+# Disposable per-session working summary (never a permanent repo file; see
+# HANDOFF.md §11 documentation rule). Archive a session's copy under
+# sessions/ instead of committing this at root.
+/response_summary.md
