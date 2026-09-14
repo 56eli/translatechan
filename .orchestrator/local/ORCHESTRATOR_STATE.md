@@ -19,10 +19,11 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 005 | .orchestrator/prompts/005-phase2-reader.md | Phase 2 Reader (sheet, ledger drawer, case rail, lazy) | feature/pages-phase2-reader | #49 | Merged 2026-09-13 — main cae8837 |
 | 006 | .orchestrator/prompts/006-phase3-secondary-rooms-csp.md | Phase 3 secondary rooms + CSP tightening | feature/pages-phase3-secondary-csp | #50 | Merged 2026-09-13 — main 3a6ae32 |
 | 007 | .orchestrator/prompts/007-phase4-evidence-approval.md | Phase 4 evidence and approval | docs/pages-phase4-evidence | #51 | Merged 2026-09-13 — main 766b97c |
+| 008 | .orchestrator/prompts/008-web-polish-and-validation-depth.md | Web polish + P2.7 validation depth + lineage docs | chore/web-polish-and-validation-depth | — | Published 2026-09-14 — bundled safe queue clear |
 
 
 ## Active Milestone
-Phase A COMPLETE (PRs #45, #46, #47 merged). Phase B Pages revamp COMPLETE pending owner visual approval (PRs #48 Phase1, #49 Phase2, #50 Phase3, #51 Phase4 merged, main 766b97c). All 5 gates PASS, 0 style=, CSP without unsafe-inline, tokens 43, serif Source Serif 4, lazy boot, 50/39/23/17 census pinned.
+Phase A COMPLETE, Phase B COMPLETE main 766b97c pending visual approval, Phase C queue-clear bundling started: 008 web polish + P2.7 + lineage docs published 2026-09-14, next W1 per-doc queue + human-readable Phase5 after.
 
 ## Task Queue
 - [x] 001 — Fix D-1..D-4 + O-1..O-3 — PR #45 Merged (main 93afcb5) — docs truthfulness + pipeline hardening
@@ -34,7 +35,9 @@ Phase A COMPLETE (PRs #45, #46, #47 merged). Phase B Pages revamp COMPLETE pendi
 - [x] 007 — Phase 2: Reader — PR #49 Merged (main cae8837) — sheet minimal, ledger drawer, case rail, 41 style=→0, lazy boot
 - [x] 008 — Phase 3: Secondary rooms + CSP — PR #50 Merged (main 3a6ae32) — 0 style=, CSP without unsafe-inline
 - [x] 009 — Phase 4: Evidence and approval — PR #51 Merged (main 766b97c) — docs final, WEB_VISION_2026-09-13, frozen tracks PR-B/PR-D folded, Edit1 closed structurally
-- [ ] 010 — Remaining deferred: quotation rights (14 sources human), W1 per-doc remediation queue (51 LABEL + 11 RE-KEY one doc per PR), OPERATIONS Edits 2-3, P2.7 validation depth, frozen PR-A, OUT-OF-CBETA 31-doc queue, platform_sutra decision, web polish leftovers
+- [x] 010 — Remaining deferred triaged 2026-09-14 — bundled safe dispatch: web polish + P2.7 + lineage docs = prompt 008
+- [ ] 011 — Remaining: quotation rights (14 human), W1 queue 51 LABEL + 11 RE-KEY (one doc per PR per R3), OPERATIONS Edits 2-3 owner-held, PR-A frozen, OUT-OF-CBETA 31-doc human queue, platform_sutra decision, repo metadata leftovers after 008
+- [ ] 012 — Human-readable overhaul Phase 5 — pending queue clear + owner visual feedback on live Pages
 
 
 
