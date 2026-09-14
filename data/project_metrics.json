@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110304,
+    "all_corpus_cjk_characters": 110317,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -519,10 +519,11 @@
         }
       },
       "huangbo_wanling": {
-        "all_cjk_chars": 311,
+        "all_cjk_chars": 324,
         "cbeta_id": "T2012B",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 214,
+        "coverage_note": "0/7 in claimed T48n2012B and 0/7 in all 39 refs (裴休/壁上畫像 and 噇酒糟漢 material retold not quoted), record names 宛陵錄 as witness but only one unit carries note, no coverage_note stating nothing verbatim",
         "is_complete": false,
         "shapes": [
           "sections"
