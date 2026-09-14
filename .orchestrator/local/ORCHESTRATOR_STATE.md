@@ -23,7 +23,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 009 | .orchestrator/prompts/009-label-bundle-1-yuanwu-yunmen-zhengdao.md | LABEL bundle 1 (3 docs minor) under Ruling 1 exception | fix/label-bundle-1-yuanwu-yunmen-zhengdao | #53 | Merged 2026-09-14 — main 60112b4 |
 | 010 | .orchestrator/prompts/010-label-bundle-2-baizhang-caoxi-dahui_shobogenzo.md | LABEL bundle 2 (3 docs minor) | fix/label-bundle-2-baizhang-caoxi-dahui_shobo | #54 | Merged 2026-09-14 — main 2fa921b |
 | 011 | .orchestrator/prompts/011-label-bundle-3-dazhu-deshan-fayan.md | LABEL bundle 3 (3 docs minor) | fix/label-bundle-3-dazhu-deshan-fayan | #55 | Merged 2026-09-14 — main e6d1243 |
-| 012 | .orchestrator/prompts/012-label-bundle-4-foyan-guiyang-huangbo_wanling.md | LABEL bundle 4 (3 docs minor) | fix/label-bundle-4-foyan-guiyang-huangbo_wanling | — | Published 2026-09-14 — 3 LABEL docs, <2h |
+| 012 | .orchestrator/prompts/012-label-bundle-4-foyan-guiyang-huangbo_wanling.md | LABEL bundle 4 (3 docs minor) | fix/label-bundle-4-foyan-guiyang-huangbo_wanling | #56 | Merged 2026-09-14 — main 1ccfc77 |
 
 
 
