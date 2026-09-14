@@ -149,5 +149,6 @@
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: dropped spurious '/T1985' pairing — T1985 is strictly the Record of Linji. Nanquan's record is 古尊宿語錄 (X68n1315, 卍續藏第68冊)."
+  "cbeta_note": "Corrected 2026-08-08: dropped spurious '/T1985' pairing — T1985 is strictly the Record of Linji. Nanquan's record is 古尊宿語錄 (X68n1315, 卍續藏第68冊).",
+  "coverage_note": "0/6 collated, largest contiguous run 23/27, s1.d0 19 graphs no ≥8-graph run in any of 39 refs, fragmentary wording, parts carried by 傳燈錄/雲門 records, retellings retained"
 }

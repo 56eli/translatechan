@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110317,
+    "all_corpus_cjk_characters": 110322,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -645,10 +645,11 @@
         }
       },
       "nanquan_yulu": {
-        "all_cjk_chars": 257,
+        "all_cjk_chars": 262,
         "cbeta_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 148,
+        "coverage_note": "0/6 collated, largest contiguous run 23/27, s1.d0 19 graphs no ≥8-graph run in any of 39 refs, fragmentary wording, parts carried by 傳燈錄/雲門 records, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"

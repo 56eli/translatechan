@@ -546,6 +546,18 @@ ALLOWED_CHANGES = {
         # (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/nanquan_yulu.json": frozenset({
+        # 2026-09-14 LABEL fix (task 013 bundle 5, PHASE2_PLAN ranks 18/38/64): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 6 source-content fields
+        # collate; the largest contiguous run is 23 graphs of 27, s1.d0 (19 graphs) has no run
+        # of 8 or more graphs in any of the 39 pinned refs, three fields match the 傳燈錄 at
+        # least as well as the claimed compendium, and s2.d0's windows all also sit in T47n1997.
+        # The wording is fragmentary, parts are carried by other records, and the project
+        # retellings are retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh`
+        # (composite-title metadata flag), no `cbeta_id` (the 2026-08-08 correction stands), and
+        # no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 
