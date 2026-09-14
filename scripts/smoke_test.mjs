@@ -890,21 +890,102 @@ if (!mobileSelectHtml.includes('wumenguan')) { failures++; console.log('❌ mobi
 }
 console.log('RENDER-LAZY: hidden rooms rendered on first tab activation');
 
-// 4j4. Phase 2 exit criterion: Reader templates carry zero inline style
-// attributes; the ledger set sits in the drawer band; visibility toggles use
-// [hidden] instead of .style writes. Only the documented popover positioning
-// pair and the three measured-contract setProperty calls may remain.
+// 4j4. Phase 2 opened, Phase 3 finished: the inline-style migration is closed.
+// Zero `style="` attribute literals in app.js, zero in any rendered room, and
+// every style write that remains is one documented mechanism — a CSSOM custom
+// property, i.e. a measured runtime contract, which `style-src` does not
+// govern. That is what makes the CSP in index.html able to run without
+// 'unsafe-inline' (asserted in 4j5 below).
 corpusClicks['wumenguan'] && corpusClicks['wumenguan']();
 const styleAuditHtml = ids['reader-content-target']._innerHTML;
 if (styleAuditHtml.includes(' style="')) { failures++; console.log('❌ P2: rendered Reader HTML carries an inline style attribute'); }
 if (appSrc.includes('style="')) { failures++; console.log('❌ P2: app.js emits style= literals again (the utility-class migration regressed)'); }
 if (appSrc.includes('.style.display')) { failures++; console.log('❌ P2: JS .style.display writes returned; visibility toggles use [hidden]'); }
 const writeSites = (appSrc.match(/\.style\.[a-zA-Z]+ *=[^=]/g) || []).length;
-if (writeSites > 2) { failures++; console.log(`❌ P2: inline-style write sites rose to ${writeSites} (only the popover left/top pair is permitted until Phase 3)`); }
+if (writeSites !== 0) { failures++; console.log(`❌ P3: direct CSSOM property writes returned (${writeSites}); publish a measured custom property instead`); }
+// The contract set is closed: four setProperty sites, each writing one of the
+// names the app.css token sheet declares. A fifth name means a new contract
+// was invented; a change in count means one was dropped.
 const contractWrites = (appSrc.match(/\.style\.setProperty/g) || []).length;
-if (contractWrites !== 3) { failures++; console.log(`❌ P2: runtime contracts changed — expected 3 setProperty sites (--shell-height, --zh-font-size ×2), found ${contractWrites}`); }
+const contractNames = [...appSrc.matchAll(/\.style\.setProperty\('(--[a-z-]+)'/g)].map(m => m[1]).sort();
+const expectedContracts = ['--pop-shift', '--shell-height', '--zh-font-size', '--zh-font-size'];
+if (contractWrites !== 4 || JSON.stringify(contractNames) !== JSON.stringify(expectedContracts)) {
+  failures++; console.log(`❌ P3: runtime contracts drifted — expected 4 setProperty sites (${expectedContracts.join(', ')}), found ${contractWrites} (${contractNames.join(', ') || 'none'})`);
+}
 if (!styleAuditHtml.includes('ledger-drawer') || !styleAuditHtml.includes('data-ledger-count="5"')) {
   failures++; console.log('❌ P2: the Reader ledger drawer band is missing from the document header');
+}
+
+// 4j5. Phase 3 exit criterion, both halves. (a) No inline *style* survives
+// anywhere the CSP could trip over it: not in the static markup, not in the
+// DOM any room builds, and not through the two mechanisms style-src does
+// govern — setAttribute('style', …)/cssText and an injected <style> element.
+// (b) style-src has dropped 'unsafe-inline' and still allows exactly the two
+// external stylesheets the page uses (app.css from 'self', Google Fonts).
+{
+  const renderedRooms = ['reader-content-target', 'matrix-content-target', 'lineage-content-target',
+    'gongan-content-target', 'lexicon-content-target', 'dossier-content', 'lineage-svg-graph']
+    .map(id => [id, (ids[id] && ids[id]._innerHTML) || '']);
+  for (const [id, html] of renderedRooms) {
+    if (html.includes(' style="')) { failures++; console.log(`❌ P3: #${id} rendered an inline style attribute`); }
+  }
+  const styleLiteralCount = (appSrc.match(/style="/g) || []).length;
+  if (styleLiteralCount !== 0) { failures++; console.log(`❌ P3: grep -c 'style="' app.js must be 0, found ${styleLiteralCount}`); }
+  if (publicHtml.includes(' style="') || publicHtml.includes('<style')) {
+    failures++; console.log('❌ P3: index.html carries an inline style attribute or a <style> block');
+  }
+  if (/setAttribute\(\s*['"]style['"]/.test(appSrc) || appSrc.includes('.style.cssText') || /createElement\(\s*['"]style['"]/.test(appSrc)) {
+    failures++; console.log('❌ P3: a style-src-governed style mechanism returned (setAttribute(style)/cssText/injected <style>) — the CSP has no exception for it');
+  }
+  if (!publicHtml.includes("<meta http-equiv=\"Content-Security-Policy\"") || !/script-src 'self'/.test(publicHtml)) {
+    failures++; console.log('❌ P3: the CSP meta no longer pins script-src to self');
+  }
+  if (!/\.chan-popover\s*\{[^}]*translate:\s*var\(--pop-shift/s.test(appCss)) {
+    failures++; console.log('❌ P3: the popover placement contract (--pop-shift consumed by .chan-popover) is missing from app.css');
+  }
+}
+
+// 4j6. Phase 3 re-composition: each secondary room renders as a register, and
+// the card vocabulary the rooms used before stays retired in BOTH files — a
+// re-style is fine, a silent return to cards is not.
+{
+  const matrixHtml = ids['matrix-content-target']._innerHTML;
+  const matrixRowTotal = (window.TRANSLATECHAN_DATA.translations_matrix || [])
+    .reduce((n, row) => n + ((row && Array.isArray(row.translators)) ? row.translators.length : 0), 0);
+  const matrixRows = (matrixHtml.match(/class="matrix-register-row/g) || []).length;
+  if (matrixRows !== matrixRowTotal) { failures++; console.log(`❌ P3: matrix renders ${matrixRows} register rows, expected ${matrixRowTotal} aligned proof rows`); }
+  if (!matrixHtml.includes('class="matrix-collation-head"') || !matrixHtml.includes('class="matrix-register-rail"')) {
+    failures++; console.log('❌ P3: matrix is not composed as a collation table with a margin rail');
+  }
+  const lineageHtml = ids['lineage-content-target']._innerHTML;
+  if (!lineageHtml.includes('class="lineage-band"') || !lineageHtml.includes('class="lineage-master-row"')) {
+    failures++; console.log('❌ P3: lineage is not rendering the banded transmission register');
+  }
+  const generations = new Set((window.TRANSLATECHAN_DATA.lineage || []).map(m => Number(m.lineage_depth) || 0));
+  const bandCount = (lineageHtml.match(/class="lineage-band"/g) || []).length;
+  if (bandCount !== generations.size) { failures++; console.log(`❌ P3: register has ${bandCount} generation bands, expected ${generations.size}`); }
+  if (!lineageHtml.includes('class="lineage-master-house"')) { failures++; console.log('❌ P3: register rows lost the house column'); }
+  if (!publicHtml.includes('id="lineage-content-target" class="room-body"') || !publicHtml.includes('id="lineage-graph-container" class="lineage-graph-frame" hidden')) {
+    failures++; console.log('❌ P3: the lineage register is not the room\'s first view with the chart as its second');
+  }
+  const gonganHtml = ids['gongan-content-target']._innerHTML;
+  if (!gonganHtml.includes('class="gongan-catalogue-head"') ||
+      (gonganHtml.match(/class="catalogue-row/g) || []).length !== window.TRANSLATECHAN_DATA.gongan_index.length) {
+    failures++; console.log('❌ P3: the gongan index is not rendering one catalogue row per case');
+  }
+  const lexiconHtml = ids['lexicon-content-target']._innerHTML;
+  if ((lexiconHtml.match(/class="lexicon-entry"/g) || []).length !== window.TRANSLATECHAN_DATA.glossary.length ||
+      !lexiconHtml.includes('class="lexicon-entry-cat"')) {
+    failures++; console.log('❌ P3: the lexicon is not running as dictionary entries with the category in the margin');
+  }
+  // Whole class tokens only: `matrix-col` is a prefix of `matrix-collation`, so
+  // a substring test would report a false regression.
+  const emittedTokens = new Set();
+  for (const m of appSrc.matchAll(/class="([^"]*)"/g)) m[1].split(/\s+/).forEach(t => { if (t && !t.includes('$')) emittedTokens.add(t); });
+  for (const retired of ['matrix-card', 'matrix-grid', 'matrix-col', 'master-card', 'term-card', 'lineage-grid', 'lexicon-grid', 'master-directory-row', 'lexicon-definition-row', 'gongan-catalogue-row']) {
+    if (appCss.includes(`.${retired} {`) || appCss.includes(`.${retired},`)) { failures++; console.log(`❌ P3: the retired card selector .${retired} is back in app.css`); }
+    if (emittedTokens.has(retired)) { failures++; console.log(`❌ P3: app.js emits the retired class ${retired} again`); }
+  }
 }
 
 // 4k. Lineage graph: pan/zoom group + reset controller present

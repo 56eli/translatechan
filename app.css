@@ -2,7 +2,10 @@
    Fake Chan Factory — visual system
    --------------------------------------------------------------------------
    One token sheet, one type scale, one component vocabulary per room.
-   Rewritten 2026-09-13 (Pages revamp, Phase 1) against Checkpoint-C: the
+   Rewritten 2026-09-13 (Pages revamp, Phase 1) against Checkpoint-C; the
+   secondary rooms were re-composed onto that system in Phase 3 (see Z3 near
+   the end of this sheet — the retired card vocabulary is deleted, not shadowed).
+   The
    owner's colours are kept (walnut #211814, paper #f4efe5, ink #2c2523,
    gold #8b622b …); every other layer — tokens, scale, composition — was
    redesigned. The hall is expressed as structure (lintel, beam, rule,
@@ -27,9 +30,11 @@
      the Reader sheet, where it is the largest text on the page
      (Checkpoint-C C-3). It is sized by --zh-font-size, never by a separate
      colour, so source text and commentary share one ink.
-   • The Phase 2 Reader sheet carries its own scoped composition dials on
-     #reader-content-target (Chinese dominance ratio, sheet measure). They are
-     ratios, not palette values, so they stay outside the global sheet.
+   • Scoped composition dials stay out of the global sheet. The Phase 2 Reader
+     sheet carries its own on #reader-content-target (Chinese dominance ratio,
+     sheet measure); Phase 3 gave the four secondary rooms the same treatment on
+     .room-body (--room-measure, --room-zh, --room-zh-label). They are ratios
+     and measures, not palette values, so the sheet is still 35 + 8 = 43.
    ========================================================================== */
 
 :root {
@@ -80,9 +85,17 @@
   --shadow: 0 1px 2px rgba(33, 24, 20, 0.06), 0 8px 24px rgba(33, 24, 20, 0.05);
   --motion: 180ms;
 
-  /* -- 7. Runtime contracts — written by app.js, names must not change ---- */
+  /* -- 7. Runtime contracts — written by app.js, names must not change ----
+     Four sites, all CSSOM custom-property writes (never a style attribute, so
+     `style-src 'self'` governs none of them):
+       --shell-height  documentElement, measured by setupShellMetrics()
+       --zh-font-size  documentElement, A−/A+ and the persisted preference
+       --pop-shift     the shared popovers, measured by positionFloatingPopover()
+     Grep `style.setProperty` in app.js and the count must still be four. */
   --shell-height: 7.25rem;   /* measured shell height (setupShellMetrics) */
   --zh-font-size: 1.2rem;    /* user-adjustable source-text size */
+  /* --pop-shift is declared where it is consumed (.term-popover, .robo-popover,
+     .citation-popover) because it is per-popover geometry, not a global value. */
 }
 
 [data-theme="dark"] {
@@ -95,7 +108,6 @@
   --blue:  #4d86a8;
   --red:   #c24b4d;
 }
-
 
 /* Base Resets & Serene Atmosphere */
 * {
@@ -123,9 +135,13 @@ body {
    assistive tech gets a real document outline (a11y audit 2026-08-09). */
 h1.text-title-zh,
 h2.case-num-title,
-h2.matrix-ref,
+h2.matrix-ref-clean,
 h2.master-name-zh,
-h2.term-card-zh {
+h2.catalogue-title-en,
+h2.lineage-band-gen,
+h2.lineage-flat-head,
+h2.lexicon-headword,
+h3.lineage-master-name-en {
   margin: 0;
   font-weight: 700;
   line-height: inherit;
@@ -431,14 +447,12 @@ h2.term-card-zh {
   .room-name-zh { font-size: 0.55rem; }
 }
 
-
 /* Main Container & Zen Welcome Banner */
 main {
   max-width: 1400px;
   margin: 0 auto;
   padding: 1.5rem;
 }
-
 
 /* --- The beam: the joke told once, then a quiet colophon ----------------- */
 .zen-hero-banner {
@@ -620,7 +634,6 @@ body:not([data-current-view="reader"]) #about-toggle {
   .hero-stamp strong { font-size: 1.05rem; }
 }
 
-
 /* Views Management */
 .view-section {
   display: none;
@@ -796,25 +809,6 @@ body:not([data-current-view="reader"]) #about-toggle {
   height: 3px;
   background: var(--gold);
 }
-.text-meta-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.meta-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.775rem;
-  padding: 0.25rem 0.65rem;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  color: var(--ink-soft);
-}
-
 /* Reader Toolbar & Font Size Adjuster */
 .reader-toolbar {
   display: flex;
@@ -1065,14 +1059,6 @@ body:not([data-current-view="reader"]) #about-toggle {
   color: var(--ink-soft);
   line-height: 1.4;
 }
-
-.document-source-location {
-  padding: 0.55rem 0.7rem;
-  background: var(--sunken);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-
 .case-source-location {
   margin: 0;
   font-size: 0.68rem;
@@ -1102,6 +1088,20 @@ body:not([data-current-view="reader"]) #about-toggle {
 .citation-trigger:focus-visible {
   border-color: var(--blue);
   background: var(--blue-soft);
+}
+
+/* Popover placement contract (Phase 3, replaces the former `.style.left` /
+   `.style.top` pair): positionFloatingPopover() measures the anchor and the
+   rendered popover, then writes the single custom property --pop-shift as a
+   runtime contract; the sheet owns the geometry. A CSP `style-src` list gates
+   style attributes and `style` elements, not CSSOM writes, so this stays valid
+   with 'unsafe-inline' removed — and the fallback keeps an unpositioned
+   popover inside the viewport instead of at the document's end. */
+.chan-popover {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  translate: var(--pop-shift, 0.5rem 0.5rem);
 }
 
 .citation-popover {
@@ -1194,11 +1194,6 @@ body:not([data-current-view="reader"]) #about-toggle {
   letter-spacing: 0.5px;
   margin: 0.15rem 0 0.4rem;
 }
-
-.matrix-col > .translation-status {
-  margin-top: 0.45rem;
-}
-
 /* ==========================================================================
    Phase 2 — Reader sheet, ledger drawer, case rail (2026-09-13).
    The sheet is *the* unit: generous whitespace, one hairline rule instead of
@@ -1275,9 +1270,7 @@ body:not([data-current-view="reader"]) #about-toggle {
 .ledger-block.is-unavailable .ledger-status { color: var(--red); }
 @media (max-width: 720px) { .ledger-row { grid-template-columns: 1fr; gap: 0.05rem; } }
 .source-review-disclosure { gap: 0.35rem; }
-.source-review-heading { color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.64rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; }
 .source-review-status { color: var(--gold-strong); font-weight: 700; }
-.source-review-evidence { color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.64rem; }
 .source-review-disclosure.is-collated .source-review-status { color: var(--green); }
 .source-review-disclosure.is-unavailable .source-review-status { color: var(--red); }
 
@@ -1536,120 +1529,19 @@ mark {
   margin-bottom: 0.4rem;
 }
 
-/* Comparison Matrix Cards */
-.matrix-container {
+/* --- Secondary-room bodies (Z3, Phase 3) ----------------------------------
+   All four rooms share one container — a stack of ruled lists, no card
+   borders, one hairline per entry — and each room's own list class
+   (`.lineage-register`, `.gongan-catalogue`, `.lexicon-entries`,
+   `.matrix-proof-sheet`) carries its composition. The lineage view switch hides
+   a room body through the semantic [hidden] attribute, and that attribute must
+   keep winning over the flex display, so the rule is written :not([hidden]). */
+.room-body:not([hidden]) {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
-}
-
-.matrix-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.75rem;
-  box-shadow: var(--shadow);
-}
-
-.matrix-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.matrix-ref {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--gold);
-}
-
-.matrix-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.15rem;
-  margin-top: 1.25rem;
-}
-
-.matrix-col {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.matrix-author {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--ink);
-}
-
-.matrix-work {
-  font-size: 0.75rem;
-  color: var(--ink-soft);
-  margin-bottom: 0.65rem;
-}
-
-.matrix-text {
-  font-size: 0.925rem;
-  line-height: 1.55;
-  color: var(--ink);
-  flex-grow: 1;
-}
-
-.matrix-note {
-  margin-top: 0.65rem;
-  font-size: 0.75rem;
-  color: var(--ink-soft);
-  border-top: 1px dashed var(--line);
-  padding-top: 0.45rem;
-}
-
-/* Lineage Cards & Explorer */
-/* Phase 2 (render-lazy companion): visibility is driven by the semantic
-   [hidden] attribute, not JS style writes — the attribute must win over the
-   grid display. */
-.lineage-grid:not([hidden]) {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.35rem;
+  gap: 0;
 }
 .lineage-graph-frame[hidden] { display: none; }
-
-.master-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.35rem;
-  box-shadow: var(--shadow);
-  transition: var(--motion);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.master-card:focus-visible {
-  outline: 3px solid var(--gold);
-  outline-offset: 3px;
-}
-
-.master-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--gold);
-  box-shadow: var(--shadow);
-}
-
-.master-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.5rem;
-}
 
 .master-name-zh {
   font-family: var(--font-display);
@@ -1658,53 +1550,21 @@ mark {
   line-height: 1.15;
   color: var(--ink);
 }
-
-.master-name-en {
-  font-size: 0.95rem;
-  color: var(--ink-soft);
-}
-
-.master-title {
-  font-size: 0.8rem;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 0.65rem;
-}
-
-.master-meta {
-  font-size: 0.8rem;
-  color: var(--ink-soft);
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin-bottom: 0.85rem;
-}
-
 .master-quote {
-  background: var(--paper);
-  border-left: 3px solid var(--gold);
-  padding: 0.75rem 0.95rem;
-  border-radius: 0 var(--radius) var(--radius) 0;
-  font-size: 0.88rem;
+  padding: 0.2rem 0 0.2rem 0.9rem;
+  border-left: 2px solid var(--wood-raised);
+  font-size: 0.9rem;
   font-family: var(--font-kai);
   color: var(--ink);
   margin-bottom: 0.85rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
-
 .master-quote-en {
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
   color: var(--ink-soft);
-  margin-top: 0.35rem;
+  margin-top: 0.3rem;
   font-style: italic;
-}
-
-/* Lexicon Cards */
-.lexicon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.35rem;
 }
 
 /* U3 (audit 2026-08-10, session 019feabb): lexicon filter row + summary +
@@ -1729,71 +1589,6 @@ mark {
   color: var(--ink);
   grid-column: 1 / -1;
 }
-
-.term-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.35rem;
-  box-shadow: var(--shadow);
-  transition: var(--motion);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.term-card:hover {
-  border-color: var(--gold);
-  transform: translateY(-2px);
-}
-
-.term-card-zh {
-  font-family: var(--font-display);
-  font-size: var(--type-h2);
-  font-weight: 600;
-  line-height: 1.15;
-  color: var(--gold);
-  margin-bottom: 0.25rem;
-}
-
-.term-card-literal {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 0.25rem;
-}
-
-.term-card-sanskrit {
-  font-size: 0.775rem;
-  color: var(--ink-soft);
-  font-style: italic;
-  margin-bottom: 0.65rem;
-}
-
-.term-card-def {
-  font-size: 0.88rem;
-  color: var(--ink-soft);
-  line-height: 1.55;
-  margin-bottom: 0.75rem;
-  flex-grow: 1;
-}
-
-.term-card-occurrences {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
-
-.term-occ-tag {
-  font-size: 0.7rem;
-  background: var(--paper);
-  padding: 0.2rem 0.45rem;
-  border-radius: 4px;
-  color: var(--ink-soft);
-  border: 1px solid var(--line);
-}
-
-
 .btn-primary {
   background: var(--gold);
   color: #ffffff;
@@ -1812,7 +1607,6 @@ mark {
 .btn-primary:hover {
   background: var(--gold-strong);
 }
-
 
 /* Footer removed per WEB_VISION 2026-08-10 — site is now literature-first, minimal, no footer gimmick */
 
@@ -1984,6 +1778,7 @@ mark {
   body:not([data-current-view="reader"]) { padding-bottom: 0; }
   .reader-toolbar .reader-mode-options { display: none; }
   .translation-grid { grid-template-columns: 1fr; }
+  .lineage-view-switch { border-right: 0; padding-right: 0; }
   .case-jump-strip { scrollbar-width: none; }
   .case-jump-strip::-webkit-scrollbar { display: none; }
 }
@@ -2012,13 +1807,26 @@ mark {
     padding: 0;
   }
 
-  .content-panel, .case-card, .matrix-card, .ledger-drawer {
+  .content-panel, .case-card, .ledger-drawer {
     box-shadow: none !important;
     border: none !important;
     background: #ffffff !important;
     padding: 0.5rem 0;
     break-inside: avoid;
   }
+
+  /* Z3 registers print as registers: no rails, no filters, no second view, and
+     one entry never splits across a page before its rule line. */
+  .room-filter-rail, .lineage-view-switch, .graph-toolbar,
+  #lineage-graph-container, .lexicon-entry-count { display: none !important; }
+  .matrix-collation-head, .lineage-band-cols, .gongan-catalogue-head { display: none !important; }
+  .matrix-proof-sheet { border-top: 1pt solid #000; }
+  .matrix-register-row, .lineage-master-row, .catalogue-row,
+  .lexicon-entry {
+    grid-template-columns: minmax(0, 1fr) !important;
+    break-inside: avoid;
+  }
+  .matrix-register-rail { flex-direction: row; gap: 0.5rem; }
 
   .case-card {
     margin-bottom: 1.25rem;
@@ -2028,16 +1836,19 @@ mark {
     display: block !important; /* print everything, never collapsed */
   }
 
-  .translation-grid, .matrix-grid {
+  .translation-grid {
     grid-template-columns: 1fr !important;
     gap: 0.5rem;
   }
 
-  .translation-col, .matrix-col {
+  .translation-col {
     box-shadow: none !important;
-    border: 1px solid #ddd !important;
+    border: 0 !important;
     background: #ffffff !important;
   }
+
+  .matrix-sentence-zh, .lineage-master-name-zh, .catalogue-title-zh,
+  .lexicon-headword { font-size: 1.05rem !important; }
 
   .classical-zh, .pinyin-line, .translation-text, .commentary-block,
   .verse-block, .text-title-zh, .text-title-en, .case-num-title {
@@ -2214,14 +2025,6 @@ textarea:focus-visible,
   }
 }
 
-/* Gong'an filter chips */
-.gongan-filter-chip.active,
-.gongan-filter-chip[aria-pressed="true"] {
-  background: var(--gold-soft);
-  border-color: var(--gold);
-  color: var(--gold-strong);
-}
-
 /* L1 (audit 2026-08-10, session 019feabb): corpus sidebar search
    filter — a tiny "🔍" + input above the active manifest list. Sits
    inside the sidebar so it's always visible while scrolling. */
@@ -2281,23 +2084,25 @@ textarea:focus-visible,
   font-weight: 500;
 }
 
-/* L1 (audit 2026-08-10, session 019feabb): the master dossier panel
-   used to be styled with inline attributes (gold border, light
-   background, serif h2). The result felt visually heavy and
-   inconsistent with the other cards. Moved to a proper class so
-   it shares the card system — same background + border + radius
-   as a case card, with a subtle gold accent stripe on the left
-   to mark it as a "you're looking at a specific master" state. */
+/* The master dossier is a sheet, not a card (Phase 3, 2026-09-13): the panel
+   sits flush with the register it belongs to, opens with a rule instead of a
+   border-radius box, and keeps the two accents the smoke test pins — the
+   var(--panel) ground and the 4px gold stripe that says "you are looking at
+   one master's record". (The L1 audit of 2026-08-10 moved its original inline
+   style attributes here; this phase only changed how heavy the result looked.) */
 .dossier-panel {
   background: var(--panel);
-  border: 1px solid var(--gold);
+  border: 0;
+  border-top: 2px solid var(--gold);
+  border-bottom: 1px solid var(--line);
   border-left: 4px solid var(--gold);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.75rem;
+  border-radius: 0;
+  padding: 1.15rem 1.4rem 1.35rem;
   margin-bottom: 1.75rem;
-  box-shadow: var(--shadow);
+  box-shadow: none;
   animation: sereneFade 0.3s ease;
 }
+
 .dossier-panel[hidden] { display: none !important; }
 .dossier-header {
   display: flex;
@@ -2313,12 +2118,15 @@ textarea:focus-visible,
   font-size: var(--type-h2);
   font-weight: 600;
   line-height: 1.15;
-  color: var(--gold);
+  color: var(--ink);
   margin-bottom: 0.2rem;
 }
 .dossier-name-en {
-  font-size: 1.05rem;
-  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
 }
 .dossier-close-btn {
   color: var(--red);
@@ -2356,10 +2164,8 @@ textarea:focus-visible,
    Phases C & D: Visual System Consolidation & Secondary Rooms (019fec5c)
    ========================================================================== */
 
-/* Remove hover lifts from reading/catalogue cards across rooms */
-.matrix-card:hover,
-.master-card:hover,
-.term-card:hover,
+/* Nothing in the hall lifts on hover: entries are ledgers, not buttons that
+   want to be pressed. Registers may tint (see .lineage-master-row). */
 .case-card:hover {
   transform: none;
 }
@@ -2392,62 +2198,24 @@ textarea:focus-visible,
   gap: 0.75rem;
 }
 
-/* Utility classes replacing inline style occurrences */
-.lineage-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-.lineage-graph-frame {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  overflow: hidden;
-  min-height: 480px;
-}
-.lineage-filter-row {
+/* Room control bands — the controls each room's index.html heading carries.
+   Lineage and Lexicon need the same band, so they share one rule. */
+.lineage-toolbar,
+.lineage-filter-row,
+/* The two views of one record: the switch is a labelled pair of text buttons,
+   not a third control band. */
+.lineage-view-switch {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-right: 0.6rem;
+  border-right: 1px solid var(--line);
 }
 .lineage-svg-graph {
   display: block;
   width: 100%;
   height: auto;
   min-height: 640px;
-}
-.lexicon-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-.lexicon-filter-group {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.room-filter-rail {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.5rem;
-  align-items: center;
-}
-.text-sm-muted {
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-  margin-bottom: 1rem;
 }
 .dossier-ledger-item {
   margin-bottom: 0.6rem;
@@ -2460,294 +2228,452 @@ textarea:focus-visible,
   color: var(--ink-soft);
   margin-right: 0.35rem;
 }
-.commentary-card {
-  background: var(--panel);
-  border-left: 3px solid var(--blue);
-  padding: 1rem 1.25rem;
-  margin: 1rem 0;
-}
-.pinyin-line-bare {
-  border: none;
-  padding: 0;
+
+/* ==========================================================================
+   Z3 — the secondary rooms, re-composed (Phase 3, 2026-09-13).
+   --------------------------------------------------------------------------
+   Proposal §7 replaced the four rooms' generic card grids with the shapes the
+   hall already uses: the Matrix is a collation table, the Lineage room leads
+   with a transmission register (generations as ruled bands, house and dated
+   record as columns) and keeps the network chart as its second view, the
+   Gong'an index is a case catalogue, and the Lexicon runs as a dictionary.
+   Composition rules, shared by all four:
+   • no card borders, no shadows, no hover lifts — one hairline per entry, a
+     2px rule to open a band, and the sunken ground only where a control sits;
+   • the margin rail is always `--font-mono` at `0.66–0.72rem`; the reading
+     column is always `--font-display`; locators never get their own colour;
+   • source Chinese is sized from `--zh-font-size` through a room-scoped ratio
+     (below), so A−/A+ govern every zh block in the hall and Chinese stays
+     subordinate to the English voice outside the Reader sheet (C-3);
+   • every class below is written by app.js templates or by the two index.html
+     room wrappers. The rooms carry no style attributes, and that is what lets
+     `style-src` run without 'unsafe-inline' (index.html CSP note).
+   ========================================================================== */
+.room-body,
+.dossier-panel,
+#lineage-graph-container {
+  /* one measure per room, shared with the Reader's column rhythm */
+  --room-measure: 1120px;
+  --room-zh: 0.82;            /* zh ratio in a secondary room, vs the Reader's 1.125 */
+  --room-zh-label: 0.68;      /* the subordinate zh label: title gloss, signature */
+  max-width: min(100%, var(--room-measure));
 }
 
-/* Phase D: Matrix Room — Proof Sheet Layout */
-.matrix-proof-sheet {
-  border-bottom: 2px solid var(--line);
-  padding: 2.25rem 0;
-  margin-bottom: 1.5rem;
-}
-.matrix-source-band {
-  margin-bottom: 1.5rem;
-}
+/* --- Room 02 · Matrix: proof rows, then one aligned register row each ---- */
+.matrix-proof-sheet { padding: 1.9rem 0 0.4rem; border-top: 2px solid var(--wood-raised); }
+.room-body > .matrix-proof-sheet:first-child { padding-top: 0; border-top: 0; }
+.matrix-source-band { margin-bottom: 1.15rem; }
 .matrix-ref-clean {
+  margin: 0 0 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--ink-soft);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.4rem;
+  color: var(--gold-strong);
 }
 .matrix-sentence-zh {
-  max-width: 58ch;
-  margin-bottom: 0.35rem;
+  max-width: 62ch;
+  margin-bottom: 0.3rem;
   font-family: var(--font-zh);
-  font-size: 1.08rem;
-  line-height: 1.75;
-  letter-spacing: 0.035em;
+  font-size: calc(var(--zh-font-size) * var(--room-zh));
+  line-height: 1.8;
+  letter-spacing: 0.03em;
   color: var(--ink);
 }
-.matrix-sentence-pinyin {
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-  margin-bottom: 0.5rem;
-}
-.matrix-registers-grid {
+.matrix-sentence-pinyin { margin-bottom: 0.5rem; font-size: 0.82rem; color: var(--ink-soft); }
+.matrix-source-location { margin: 0 0 0.15rem; }
+
+.matrix-collation { border-top: 1px solid var(--line); }
+.matrix-collation-head,
+.matrix-register-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
-  border-top: 1px solid var(--line);
-  padding-top: 1.5rem;
+  grid-template-columns: minmax(9rem, 16rem) minmax(0, 1fr);
+  column-gap: 1.75rem;
+  align-items: baseline;
 }
-.matrix-register-col {
-  border-right: 1px solid var(--line);
-  padding-right: 1.25rem;
+.matrix-collation-head {
+  padding: 0.4rem 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.matrix-register-row { padding: 0.95rem 0 1rem; border-bottom: 1px solid var(--line-soft); }
+.matrix-register-row:last-child { border-bottom: 0; }
+.matrix-register-rail {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.2rem;
+  align-self: start;
 }
-.matrix-register-col:last-child {
-  border-right: none;
-  padding-right: 0;
+.matrix-register-name { font-size: 0.86rem; font-weight: 700; color: var(--ink); }
+.matrix-register-work {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
 }
-.matrix-reg-header {
-  margin-bottom: 0.75rem;
-}
-.matrix-reg-text {
-  font-family: var(--font-zh);
-  font-size: 0.98rem;
-  line-height: 1.65;
+.matrix-register-rail .translation-status { justify-content: flex-start; text-align: left; }
+.matrix-register-text {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.72;
   color: var(--ink);
-  flex-grow: 1;
-  margin-bottom: 0.85rem;
 }
-.matrix-reg-note {
+.matrix-register-body .translation-source { margin-top: 0.45rem; }
+.matrix-register-note {
+  margin-top: 0.45rem;
+  padding-top: 0.4rem;
+  border-top: 1px dashed var(--line-soft);
   font-size: 0.78rem;
   color: var(--ink-soft);
-  border-top: 1px dashed var(--line);
-  padding-top: 0.5rem;
-  margin-top: 0.5rem;
 }
 
-/* Phase D: Gong'an Room — Catalogue Rows */
-.gongan-catalogue-row {
-  border-bottom: 1px solid var(--line);
-  padding: 1.5rem 0;
-}
-.gongan-catalogue-row:last-child {
-  border-bottom: none;
-}
-.catalogue-meta {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--ink-soft);
-  margin-bottom: 0.35rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-.catalogue-title-row {
+/* --- Room 03 · Lineage: the transmission register ------------------------ */
+.lineage-register { padding-top: 0.15rem; }
+.lineage-band { padding: 0.2rem 0 1.15rem; margin-bottom: 1.15rem; border-bottom: 1px solid var(--line); }
+.lineage-band:last-child { border-bottom: 0; margin-bottom: 0; }
+.lineage-band-head {
   display: flex;
   align-items: baseline;
-  gap: 0.75rem;
+  justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+  gap: 0.15rem 1rem;
+  padding: 0.3rem 0 0.4rem;
+  border-bottom: 2px solid var(--wood-raised);
 }
-.catalogue-title-en {
-  font-family: var(--font-zh);
-  font-size: 1.35rem;
-  font-weight: 780;
+.lineage-band-gen {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+.lineage-band-meta { font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-soft); }
+
+/* The head row prints the column names once per band; the register body keeps
+   only hairlines, so a band scans as one table rather than N cards. */
+.lineage-band-cols,
+.lineage-master-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.1fr);
+  column-gap: 1.25rem;
+}
+.lineage-band-cols {
+  padding: 0.55rem 0 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.lineage-master-row {
+  padding: 0.8rem 0 0.9rem;
+  border-top: 1px solid var(--line-soft);
+  cursor: pointer;
+  transition: background-color 0.16s ease;
+}
+.lineage-master-row:hover { background: var(--hover); }
+.lineage-master-row:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.lineage-master-name { display: flex; flex-direction: column; gap: 0.12rem; }
+.lineage-master-gen {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+.lineage-master-name-en {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  font-weight: 600;
   line-height: 1.2;
+  color: var(--ink);
+}
+.lineage-master-name-zh {
+  font-family: var(--font-zh);
+  font-size: calc(var(--zh-font-size) * var(--room-zh-label));
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+.lineage-master-title { font-size: 0.78rem; color: var(--gold); }
+.lineage-master-house { font-size: 0.8rem; line-height: 1.5; color: var(--ink); }
+.lineage-master-record {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  overflow-wrap: anywhere;
+}
+.lineage-master-record .teacher-link {
+  align-self: flex-start;
+  margin-top: 0.15rem;
+  font-size: 0.66rem;
+  padding: 0.1rem 0.35rem;
+}
+.lineage-master-quote {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--line);
+}
+.lineage-master-quote-zh {
+  font-family: var(--font-kai);
+  font-size: calc(var(--zh-font-size) * var(--room-zh-label));
+  line-height: 1.6;
+  color: var(--ink);
+}
+.lineage-master-quote-en {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* Chronology / name / house order: the same rows, one flat ruled list. */
+.lineage-flat { border-top: 2px solid var(--wood-raised); }
+.lineage-flat-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+.lineage-flat-head small { font-weight: 600; letter-spacing: 0.04em; color: var(--ink-soft); }
+.lineage-register-empty { font-size: 0.85rem; color: var(--ink-soft); }
+
+/* The chart is the room's second view: a sunken frame, opened on demand. */
+.lineage-graph-frame {
+  background: var(--sunken);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 1.15rem 1.25rem 1.35rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+}
+
+/* --- Room 04 · Gong'an: the case catalogue -------------------------------- */
+.room-filter-rail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 1.15rem;
+  margin: 0 0 1.1rem;
+  padding: 0 0 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+.room-filter-legend {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+/* One row of text filters: no pills, no fills — the active group is set in
+   gold with a rule under it, the way an open ledger is marked. */
+.gongan-filter-chip {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 0.1rem 0 0.2rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color 0.16s ease, border-color 0.16s ease;
+}
+.gongan-filter-chip:hover { border-color: transparent; color: var(--ink); }
+.gongan-filter-chip.active,
+.gongan-filter-chip[aria-pressed="true"] {
+  background: none;
+  border-bottom-color: var(--gold);
+  color: var(--gold-strong);
+  font-weight: 700;
+}
+
+.gongan-catalogue-head,
+.catalogue-row {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1.7fr) minmax(0, 1fr) minmax(0, 1fr) 6rem;
+  column-gap: 1.25rem;
+}
+.gongan-catalogue-head {
+  padding: 0 0 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--wood-raised);
+}
+.catalogue-row { align-items: baseline; padding: 0.85rem 0 0.95rem; border-bottom: 1px solid var(--line-soft); }
+.catalogue-row:last-child { border-bottom: 0; }
+.catalogue-case { font-family: var(--font-mono); font-size: 0.95rem; font-weight: 700; color: var(--gold-strong); }
+.catalogue-title { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+.catalogue-title-en {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.25;
   color: var(--ink);
 }
 .catalogue-title-zh {
   font-family: var(--font-zh);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
+  font-size: calc(var(--zh-font-size) * var(--room-zh-label));
+  letter-spacing: 0.05em;
   color: var(--ink-soft);
 }
-.catalogue-summary {
-  font-size: 0.95rem;
-  line-height: 1.6;
+.catalogue-collection,
+.catalogue-theme,
+.catalogue-locator {
+  font-size: 0.76rem;
+  line-height: 1.5;
   color: var(--ink-soft);
-  margin-bottom: 0.75rem;
+  overflow-wrap: anywhere;
 }
-.catalogue-tags {
+.catalogue-theme { display: flex; flex-direction: column; gap: 0.12rem; }
+.catalogue-theme span:first-child { color: var(--ink); }
+.catalogue-locator { font-family: var(--font-mono); font-size: 0.7rem; }
+/* The précis and the cross-references share one full-width detail line under
+   the row's columns, so a row is one entry rather than four plus a tail. */
+.catalogue-detail {
+  grid-column: 1 / -1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.45rem;
+  padding-top: 0.45rem;
+  border-top: 1px dashed var(--line-soft);
 }
-.catalogue-tag-item {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.55rem;
-  background: var(--paper);
-  border: 1px solid var(--line);
+.catalogue-summary { margin: 0; font-size: 0.82rem; line-height: 1.6; color: var(--ink-soft); }
+.catalogue-cross {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.02em;
   color: var(--ink-soft);
 }
 
-/* Phase D: Lexicon Room — Dictionary Definition Rows */
-.lexicon-definition-row {
-  border-bottom: 1px solid var(--line);
-  padding: 1.75rem 0;
+/* --- Room 05 · Lexicon: the running dictionary --------------------------- */
+.lexicon-entries { border-top: 2px solid var(--wood-raised); }
+/* Margin (category + recorded tally) · entry. The headword Chinese sits under
+   the English literal — the dictionary's organising gloss — sized from
+   --zh-font-size, so the room keeps C-3's balance and A−/A+ still govern it. */
+.lexicon-entry {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 2rem;
-  align-items: start;
+  grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+  column-gap: 1.75rem;
+  align-items: baseline;
+  padding: 1.05rem 0 1.15rem;
+  border-bottom: 1px solid var(--line-soft);
 }
-.lexicon-headword-col {
-  display: flex;
-  flex-direction: column;
-}
-.lexicon-headword-literal {
-  margin: 0 0 0.2rem;
-  font-family: var(--font-zh);
-  font-size: 1.35rem;
-  font-weight: 780;
+.lexicon-entry:last-child { border-bottom: 0; }
+.lexicon-headword {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
   line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
 .lexicon-headword-zh {
-  margin-bottom: 0.25rem;
+  display: block;
+  margin-top: 0.15rem;
   font-family: var(--font-zh);
-  font-size: 1rem;
-  font-weight: 650;
-  line-height: 1.3;
-  letter-spacing: 0.08em;
+  font-size: calc(var(--zh-font-size) * var(--room-zh));
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.05em;
   color: var(--gold-strong);
 }
 .lexicon-headword-meta {
-  font-size: 0.78rem;
+  margin: 0.2rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.03em;
   color: var(--ink-soft);
 }
-.lexicon-def-col {
-  display: flex;
-  flex-direction: column;
-}
-.lexicon-def-text {
+.lexicon-entry-def {
+  margin-top: 0.4rem;
+  font-family: var(--font-display);
   font-size: 0.95rem;
-  line-height: 1.65;
+  line-height: 1.68;
   color: var(--ink);
-  margin-bottom: 0.85rem;
 }
-.lexicon-occurrences {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-}
+.lexicon-occurrences { display: flex; flex-wrap: wrap; gap: 0.25rem 0.85rem; margin-top: 0.45rem; }
 .lexicon-occ-tag {
-  font-size: 0.75rem;
   font-family: var(--font-mono);
-  background: var(--paper);
-  border: 1px solid var(--line);
-  padding: 0.2rem 0.5rem;
+  font-size: 0.66rem;
   color: var(--ink-soft);
-}
-
-/* Phase D: Lineage Room — Chronological Directory Rows */
-.master-directory-row {
   border-bottom: 1px solid var(--line);
-  padding: 1.5rem 0;
-  display: grid;
-  grid-template-columns: 80px 1fr 320px;
-  gap: 1.5rem;
-  align-items: start;
+  cursor: help;
 }
-.master-dir-gen {
+.lexicon-entry-margin { display: flex; flex-direction: column; gap: 0.15rem; align-items: flex-start; }
+.lexicon-entry-cat {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  color: var(--ink-soft);
+  letter-spacing: 0.09em;
   text-transform: uppercase;
+  color: var(--gold-strong);
 }
-.master-dir-main {
-  display: flex;
-  flex-direction: column;
-}
-.master-dir-name {
-  display: flex;
-  flex-direction: column;
-  gap: 0.12rem;
-  margin-bottom: 0.25rem;
-  font-family: var(--font-zh);
-  font-size: 1.35rem;
-  font-weight: 780;
-  line-height: 1.2;
-  color: var(--ink);
-}
-.master-dir-name-zh {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  color: var(--ink-soft);
-}
-.master-dir-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--gold);
-  margin-bottom: 0.4rem;
-}
-.master-dir-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  font-size: 0.82rem;
-  color: var(--ink-soft);
-  margin-bottom: 0.5rem;
-}
-.master-dir-quote {
-  border-left: 2px solid var(--wood-raised);
-  padding-left: 1rem;
-  font-family: var(--font-zh);
-}
-.master-dir-quote-zh {
-  font-size: 1rem;
-  color: var(--ink);
-  margin-bottom: 0.25rem;
-}
-.master-dir-quote-en {
-  font-size: 0.88rem;
-  font-style: italic;
-  color: var(--ink-soft);
-}
+.lexicon-entry-count { font-family: var(--font-mono); font-size: 0.64rem; color: var(--ink-soft); }
 
+/* --- Z3 responsive: 1024 / 768 / 480 ------------------------------------- */
+/* Tablet: the bands and rows keep their order, the printed column heads drop
+   out (every cell is self-describing), and a row may take a second line. */
 @media (max-width: 1024px) {
-  .master-directory-row {
-    grid-template-columns: 60px 1fr;
+  .matrix-collation-head,
+  .lineage-band-cols,
+  .gongan-catalogue-head { display: none; }
+  .lineage-master-row { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); }
+  .lineage-master-quote { grid-column: 1 / -1; padding-left: 0; border-left: 0; margin-top: 0.4rem; }
+  .catalogue-row {
+    grid-template-columns: 3.5rem minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr) 4.5rem;
+    column-gap: 0.9rem;
   }
-  .master-dir-quote {
-    grid-column: 2;
-    margin-top: 0.75rem;
-  }
+  .catalogue-detail { grid-column: 2 / -1; }
+  .lexicon-entry { grid-template-columns: minmax(0, 1fr); row-gap: 0.4rem; }
 }
+/* Phone: one column per row, the rail of a proof row becomes a lead line. */
 @media (max-width: 768px) {
-  .lexicon-definition-row {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-  .matrix-register-col {
-    border-right: none;
-    border-bottom: 1px solid var(--line);
-    padding-right: 0;
-    padding-bottom: 1.25rem;
-  }
-  .matrix-register-col:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  .master-directory-row {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
+  .matrix-register-row,
+  .lineage-master-row,
+  .catalogue-row { grid-template-columns: minmax(0, 1fr); }
+  .matrix-register-rail { flex-direction: row; flex-wrap: wrap; gap: 0.15rem 0.75rem; align-items: baseline; }
+  .lineage-master-quote { margin-top: 0.5rem; }
+  .catalogue-detail { grid-column: 1; }
+  .lexicon-entry-margin { flex-direction: row; gap: 0.75rem; }
+}
+/* Small phone: tighten the rails, keep the type at the legibility floor. */
+@media (max-width: 480px) {
+  .catalogue-row { row-gap: 0.25rem; }
+  .catalogue-case { font-size: 0.8rem; }
+  .matrix-collation, .lineage-register, .lexicon-entry-def { font-size: 0.95rem; }
+  .lexicon-headword { font-size: 1.06rem; }
 }
