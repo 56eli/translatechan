@@ -19,12 +19,20 @@
   <title>Fake Chan Factory | Robo-Translator Chan/Zen Translation Matrix</title>
   <meta name="description" content="Fake Chan Factory: Robo renderings are clearly marked, while edition-verified quotations cite their source and separate rights status alongside visible W1 source-review states for Classical Chinese records.">
   <!-- Restrictive CSP must precede every resource it governs. Interactivity is
-       delegated in app.js. Since Phase 2 the generated templates carry no
-       inline style attributes; 'unsafe-inline' remains load-bearing only for
-       the popover positioning pair and the measured --shell-height/--zh-font-size
-       custom-property writes, and is scheduled for removal with Phase 3's
-       final utility-class migration. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+       delegated in app.js and every stylesheet is external, so nothing here
+       needs an inline-style exception: index.html carries no style attribute
+       and, as of Phase 3 (2026-09-13), neither does any DOM the renderers build
+       — the smoke test counts the literals in app.js, audits the rendered HTML
+       of all five rooms, and asserts this policy omits 'unsafe-inline'.
+       What remains in app.js is four CSSOM custom-property writes — the measured
+       runtime contracts --shell-height, --zh-font-size and --pop-shift, listed
+       in the app.css token sheet — which style-src does not govern: a policy
+       blocks the *parsing* of a style attribute or a `style` element, not a
+       script that already satisfied script-src 'self'. If a future slice ever
+       sets the attribute itself (setAttribute('style', …) or style.cssText) or
+       injects a `style` element, the browser will refuse it — use a class or a
+       custom property, as the room templates do. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <!-- Apply the persisted theme before first paint to avoid a light-mode flash
        for returning dark-mode users (FOUC guard). External file keeps the
        strict CSP (script-src 'self') satisfiable without inline scripts. -->

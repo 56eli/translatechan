@@ -937,6 +937,12 @@ if (!styleAuditHtml.includes('ledger-drawer') || !styleAuditHtml.includes('data-
   if (/setAttribute\(\s*['"]style['"]/.test(appSrc) || appSrc.includes('.style.cssText') || /createElement\(\s*['"]style['"]/.test(appSrc)) {
     failures++; console.log('❌ P3: a style-src-governed style mechanism returned (setAttribute(style)/cssText/injected <style>) — the CSP has no exception for it');
   }
+  const cspMeta = (publicHtml.match(/Content-Security-Policy"\s+content="([^"]+)"/) || [])[1] || '';
+  const styleSrc = (cspMeta.match(/style-src\s*([^;]*)/) || [])[1] || '';
+  if (styleSrc.includes('unsafe-inline')) { failures++; console.log("❌ P3: style-src still admits 'unsafe-inline'"); }
+  if (!/^'self' https:\/\/fonts\.googleapis\.com\s*$/.test(styleSrc.trim())) {
+    failures++; console.log(`❌ P3: style-src changed shape — expected "'self' https://fonts.googleapis.com", found "${styleSrc.trim()}"`);
+  }
   if (!publicHtml.includes("<meta http-equiv=\"Content-Security-Policy\"") || !/script-src 'self'/.test(publicHtml)) {
     failures++; console.log('❌ P3: the CSP meta no longer pins script-src to self');
   }
