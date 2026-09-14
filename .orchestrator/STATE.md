@@ -51,6 +51,14 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 **Phase B — Pages revamp COMPLETE pending owner approval (2026-09-13, main 3a6ae32):** Checkpoint-C C-1..C-5 answered 2026-09-13 (colors acceptable, everything else adaptable/replaceable, serif, subordinate, lazy, full plan) in proposal PR #46 (merged main a1ebcef). Phase 1 system+masthead PR #48 merged main 0d02c4c (tokens 63→43, serif Source Serif 4, shell/hero/mobile bar, OG redraw, 5 gates green). Phase 2 Reader PR #49 merged main cae8837 (sheet minimal, ledger drawer, thin register, 41 style=→0, render-lazy boot per C-4 a, 5 gates green). Phase 3 secondary rooms + CSP PR #50 merged main 3a6ae32 (collation table, transmission register, case catalogue, dictionary, 0 style=, CSP without unsafe-inline, 4 CSSOM writes remain, 5 gates green). Final measurements: 43 global tokens (35+8) + 6 scoped dials, 0 style= in index.html/app.js, CSP `style-src 'self' https://fonts.googleapis.com` without unsafe-inline, bundle raw 1,925,366 B (~1.84 MB) <2 MB gzipped 586,529 B, render-lazy. Dated current-vision doc `WEB_VISION_2026-09-13.md` created. Frozen tracks PR-B/PR-D closed as folded per C-5 (a), PR-A still frozen (no Chromium). Phase 4 evidence and approval in progress — owner light/dark desktop/mobile review on live Pages, docs finalization, release checklist, ask whether required real-browser CI job is approved.
 
 
+
+**Phase 4 owner review (2026-09-14, via ask_user):**
+- Visual: "Light dark and desktop mobile is functional, however the user experience on the website is insufficient. The layout is really bad for a human reader. Overhauling the website for a human-readable, easy-of-use, welcoming space is highest priority. Consider that AI agents are limited in their ability and heavily rely on user feedback to forge that vision."
+- Real-browser CI: "keep_frozen — no required browser job" — owner chooses to keep PR-A frozen, owner review on live Pages remains visual evidence.
+- Implication: Pages revamp Phases 1-3 (system+masthead, Reader sheet/drawer/register, secondary rooms, CSP without unsafe-inline, render-lazy, bundle <2MB) is **functionally complete and gate-green**, but **UX is insufficient for human reader** — next top priority is human-readable, easy-of-use, welcoming overhaul. This will be a new proposal-first track beyond Phase B, not part of this docs PR.
+- Docs: this PR (docs/pages-phase4-evidence, PR #51 from arena/01a09f16-translatechan) finalises README/HANDOFF/AUDIT/ROADMAP + WEB_VISION_2026-09-13.md + OPERATIONS Edit1 closed by O-3 + frozen PR-B/PR-D closed as folded. No self-declared visual completion — owner feedback recorded verbatim.
+
+
 ## Standing Decisions (2026-09-09, owner)
 
 - **Vision:** vision.md in full is the target; the audit serves that ambition.

@@ -153,6 +153,15 @@ Phase 4 — evidence and approval (2026-09-13, this PR):
 - Docs finalization: README interface, this section, AUDIT, ROADMAP, and dated vision `WEB_VISION_2026-09-13.md` finalised; OPERATIONS Edit1 closed structurally by O-3.
 - Exit: owner light/dark desktop/mobile review of live Pages site pending, release checklist noted, ask whether required real-browser CI job is approved — no self-declared completion.
 
+
+Phase 4 owner review (2026-09-14, ask_user):
+- Light/dark desktop/mobile functional, but UX insufficient — layout really bad for human reader.
+- Direction: overhauling website for human-readable, easy-of-use, welcoming space is highest priority.
+- Note: AI agents limited, heavily rely on user feedback to forge vision.
+- Real-browser CI: keep_frozen — PR-A remains frozen, owner review on live Pages remains evidence.
+- Implication: Pages revamp Phases 1-3 functionally complete (43 tokens, 0 style=, CSP without unsafe-inline, render-lazy, bundle <2MB, 5 gates green), but visual approval is conditional — next top priority is human-readable overhaul as new proposal-first track beyond Phase B.
+
+
 This direction and the subsequent copy cleanup are implemented. PR #18 merged as `63dfe37`; main Quality and Pages deployment passed. Current real-browser screenshots were unavailable in the audit environment — owner review on live Pages is the Phase4 exit.
 
 ## 4. Measured snapshot
