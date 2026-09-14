@@ -19,11 +19,11 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 005 | .orchestrator/prompts/005-phase2-reader.md | Phase 2 Reader (sheet, ledger drawer, case rail, lazy) | feature/pages-phase2-reader | #49 | Merged 2026-09-13 — main cae8837 |
 | 006 | .orchestrator/prompts/006-phase3-secondary-rooms-csp.md | Phase 3 secondary rooms + CSP tightening | feature/pages-phase3-secondary-csp | #50 | Merged 2026-09-13 — main 3a6ae32 |
 | 007 | .orchestrator/prompts/007-phase4-evidence-approval.md | Phase 4 evidence and approval | docs/pages-phase4-evidence | #51 | Merged 2026-09-13 — main 766b97c |
-| 008 | .orchestrator/prompts/008-web-polish-and-validation-depth.md | Web polish + P2.7 validation depth + lineage docs | chore/web-polish-and-validation-depth | #52 | MERGE — web polish bundle + P2.7 depth + lineage docs, 138 checks PASS |
+| 008 | .orchestrator/prompts/008-web-polish-and-validation-depth.md | Web polish + P2.7 validation depth + lineage docs | chore/web-polish-and-validation-depth | #52 | Merged 2026-09-14 — main b1e303f |
 
 
 ## Active Milestone
-Phase A COMPLETE, Phase B COMPLETE main 766b97c, Phase C web polish bundle PR #52 MERGE (SECURITY.md, PNG, P2.7, lineage docs), next W1 per-doc queue + human-readable Phase5.
+Phase A COMPLETE, Phase B COMPLETE main 766b97c, Phase C web polish bundle PR #52 Merged main b1e303f (SECURITY.md, PNG 71KB, audits/ vs sessions/ docs, response_summary removed, P2.7 depth 138 checks), next W1 per-doc queue (51 LABEL + 11 RE-KEY, one doc per PR per R3) + human-readable Phase5.
 
 ## Task Queue
 - [x] 001 — Fix D-1..D-4 + O-1..O-3 — PR #45 Merged (main 93afcb5) — docs truthfulness + pipeline hardening
@@ -35,7 +35,7 @@ Phase A COMPLETE, Phase B COMPLETE main 766b97c, Phase C web polish bundle PR #5
 - [x] 007 — Phase 2: Reader — PR #49 Merged (main cae8837) — sheet minimal, ledger drawer, case rail, 41 style=→0, lazy boot
 - [x] 008 — Phase 3: Secondary rooms + CSP — PR #50 Merged (main 3a6ae32) — 0 style=, CSP without unsafe-inline
 - [x] 009 — Phase 4: Evidence and approval — PR #51 Merged (main 766b97c) — docs final, WEB_VISION_2026-09-13, frozen tracks PR-B/PR-D folded, Edit1 closed structurally
-- [x] 010 — Web polish bundle — PR #52 MERGE (SECURITY.md, PNG fallback, audits/ vs sessions/ docs, response_summary removed, P2.7 depth, lineage frontier docs)
+- [x] 010 — Web polish bundle — PR #52 Merged (main b1e303f) — SECURITY.md, PNG 71KB, audits/ vs sessions/ docs, response_summary removed, P2.7 depth 138 checks, lineage frontier docs
 - [ ] 011 — Remaining: quotation rights (14 human), W1 queue 51 LABEL + 11 RE-KEY (one doc per PR per R3), OPERATIONS Edits 2-3 owner-held, PR-A frozen, OUT-OF-CBETA 31-doc human queue, platform_sutra decision
 
 
@@ -47,11 +47,11 @@ None yet.
 - Quotation rights review — 14 sources (12 needs_rights_review + 2 jurisdiction_review_required) — human work [from Lane 4 B-1]
 - W1 per-document remediation queue — one document per PR (Ruling 3); register 630 authoritative / 532 = main measurement [A-3, A-4, B-2]
 - OPERATIONS.md Edits 1–3 — Edit 1 = four mirror files (theme-init.js/robots.txt/sitemap.xml/og-image.svg) or structural diff form (O-3); Edit 2 = checkout v4→v7, setup-python v5→v7, setup-node v4→v7; Edit 3 = branch-protection verification by administrator (403) [B-4, Lane5 C-2/C-3/C-4]
-- P2.7 validation depth — JSON Schema not executed; cross_refs unvalidated; evidence_source enum absent [B-7]
+- P2.7 validation depth — partially closed 2026-09-14 via PR #52: optional jsonschema execution, gongan cross_refs case-number check, evidence_source enum check, 138 checks PASS — JSON Schema not required in CI, remains optional depth
 - Frozen tracks — PR-A (real-browser), PR-B (CSP hardening), PR-D (performance measure-first, bundle 1.64 MB < 2 MB P2 threshold) [B-3, B-5]
 - OUT-OF-CBETA human-sourcing queue — 31 documents; no agent fetch/transcription [C-4]
 - platform_sutra text decision — 9 labelled précis vs re-key to T48n2007 [C-3]
-- Web polish — response_summary.md committed at root; docs/audits/ vs sessions/ split undocumented; P3.8–P3.11 (repo metadata, Google Fonts/SECURITY.md, PNG fallback, 3 lineage profiles + 30 edges) [B-8..B-11]
+- Web polish — remaining: repo description/homepage/topics empty (GitHub settings), Google Fonts third-party runtime (by design), 30 lineage edges pending exact locator (later tranche) [B-8..B-11] — response_summary.md removed, audits/ vs sessions/ documented, SECURITY.md present, PNG fallback present, 3 lineage profiles documented as frontier scaffolds
 - This review's rulings requested — D-1..D-4, O-1..O-3 now approved per Pack 1 (see Rulings)
 
 ## Scope Boundaries
