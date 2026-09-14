@@ -396,6 +396,16 @@ ALLOWED_CHANGES = {
         ".cbeta_id",
         ".cbeta_note",
     }),
+    "data/corpus/zhengdao_ge.json": frozenset({
+        # 2026-09-14 LABEL fix (task 009 bundle 1, PHASE2_PLAN rank 70): the additive honest
+        # `.coverage_note` records a metadata-only disclosure — content is 6/6 verbatim in the
+        # claimed witness T48n2014 (no recension or re-key problem exists in the text), while the
+        # root title_zh 永嘉真覺大師 證道歌 is a project heading rather than the witness's attested
+        # title 永嘉證道歌. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (left as
+        # project composition by design), no `cbeta_id`, and no `zh_chars` pointer (this document
+        # declares none).
+        ".coverage_note",
+    }),
     "data/corpus/yunmen_yulu.json": frozenset({
         # 2026-09-14 LABEL fix (task 009 bundle 1, PHASE2_PLAN rank 45): the `.coverage_note` is
         # rewritten from "10 signature encounter dialogues and sermons from T1988" — a witness
