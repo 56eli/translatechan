@@ -534,6 +534,18 @@ ALLOWED_CHANGES = {
         # metadata flag), no `cbeta_id`, and no `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/lidai_fabao_ji.json": frozenset({
+        # 2026-09-14 LABEL fix (task 013 bundle 5, PHASE2_PLAN ranks 21/34): the additive honest
+        # `.coverage_note` records the measured collation — 0 of 3 source-content fields collate:
+        # field 1 condenses two witness runs (20 graphs of 53, at T51n2075@8,796 and @8,808),
+        # and fields 2–3 share no run of 8 or more graphs with any of the 39 pinned refs. The
+        # P.2125 named via `cbeta_id` is outside CBETA (the Dunhuang manuscript), so real sourcing
+        # stays the human queue's (PHASE2_PLAN rule 2 — no agent fetch); the note says so, and the
+        # project retellings are retained. Only the note changes: no `zh`/`*_zh` field, no
+        # `title_zh` (composite-title metadata flag), no `cbeta_id`, and no `zh_chars` pointer
+        # (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 

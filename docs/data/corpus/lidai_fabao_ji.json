@@ -92,5 +92,6 @@
         }
       ]
     }
-  ]
+  ],
+  "coverage_note": "0/3 collated, field1 condenses two witness runs 20/53 graphs at T51n2075@8,796/@8,808, fields 2-3 share nothing ≥8 graphs with any ref, P.2125 named by cbeta_id is out of CBETA (Dunhuang P.2125) → human sourcing Ruling 4, project retellings retained"
 }
