@@ -29,8 +29,24 @@ The five-room public SPA presents one walnut **gate**: a lintel carrying the bra
 - **One type scale:** a single ~1.24 modular scale (`--type-hook` … `--type-small`) shared by English and Chinese at their own line-heights.
 - **English voice (Checkpoint-C C-2):** **Source Serif 4** carries the hook, headings and translation prose (delivered in Phase 2 together with the Reader sheet, the ledger drawer, the thin case register and render-lazy boot); the system sans is for controls only; `ui-monospace` carries locators and counts. Source Serif 4 is served by Google Fonts, which the shipped CSP already allows, so it adds no repository bytes and no new third party; the CJK serif sits at the end of its stack so mixed headings never fall back to a system default. Self-hosting under `/fonts/` stays the documented alternative if a zero-third-party-request rule is ever wanted.
 - **Hierarchy:** English leads navigation, room/document headings, lineage, Gong'an, lexicon, and mobile controls; source Chinese is present everywhere and subordinate everywhere, except inside the Reader sheet where it is the largest text on the page (Checkpoint-C C-3) and always carries `lang="zh"`.
-- **Reading system (Phase 2):** grouped 2/2/31 library shelf above a minimal ruled sheet — one hairline between reading units, generous margins, the source Chinese governing the column, and translation prose set in the scholarly serif (C-2). The five disclosure ledgers fold into one always-visible *About this edition* drawer band under the document heading (calmer, never quieter: no ledger hides behind a disclosure; edition metadata is the one progressive line, expanding inline). The case index is a thin static register. Matrix proof rows, Lineage directory/network, Gong'an catalogue, and dictionary definitions are unchanged this phase.
-- **Responsive and accessible behavior:** 1024px shelf collapse, 768px mobile layout, contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls regrouped into two clusters (text · move) with 44 px touch targets, no HTML inline styles, and — since Phase 2 — no `style=` attribute literals anywhere in `app.js`: the Reader templates (and the shared popovers) drive layout through classes, and visibility toggles use the semantic `hidden` attribute.
+- **Reading system (Phase 2):** grouped 2/2/31 library shelf above a minimal ruled sheet — one hairline between reading units, generous margins, the source Chinese governing the column, and translation prose set in the scholarly serif (C-2). The five disclosure ledgers fold into one always-visible *About this edition* drawer band under the document heading (calmer, never quieter: no ledger hides behind a disclosure; edition metadata is the one progressive line, expanding inline). The case index is a thin static register.
+- **Secondary rooms (Phase 3, 2026-09-13):** the four hidden rooms were re-composed onto that same vocabulary instead of keeping their own card
+  kits. The Matrix is a **collation table** — one source line, then one aligned register row per translator, with the Robo name, its work and the
+  provenance badge in the margin rail and the machine-made English in the column beside it. Lineage leads with a **transmission register** — masters
+  banded by generation, one ruled row each, house and dated record in fixed columns, signature quote in the margin rule — and the layered SVG
+  network is now its *second* view, opened from the room's own switch (a hidden `<svg>` measures nothing, so the chart re-lays out on activation).
+  The Gong'an index is a **case catalogue** (case no. · both titles · collection · theme group · canonical record, with the précis and
+  cross-references on one detail line under each row) whose theme filter is a single row of text filters; the Lexicon runs as a **dictionary**
+  (headword Chinese under its literal gloss, definition, category in the margin). Nothing was cut to get there: the register's master rows hand the
+  summary, texts, names and evidence state to the dossier, which stays one activation away, and every disclosure the rooms carried before is still
+  printed — including the lineage scaffold profiles' pending-locator wording.
+- **Responsive and accessible behavior:** 1024 / 768 / 480 px breakpoints (the secondary rooms now carry all three: bands and catalogue rows collapse
+  their column grids to stacked rows), contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls regrouped into two
+  clusters (text · move) with 44 px touch targets, `lang="zh"` on every source-Chinese block, and — since Phase 3 — **zero inline style attributes**
+  in `index.html` and in `app.js` (`grep -c 'style="' app.js` is a smoke assertion), with every room template driving layout through classes and
+  visibility through the semantic `hidden` attribute. What remains are four CSSOM custom-property writes — the measured runtime contracts
+  `--shell-height`, `--zh-font-size` and the popover's `--pop-shift` — which `style-src` does not govern; `style-src 'unsafe-inline'` is therefore
+  gone from the CSP meta. No real-browser evidence exists for any of this — the repository's standing note — so the visual result is owner-review work on live Pages.
 - **Progressive disclosure:** repeated hero/Matrix explanations and per-column Robo footers are removed; compact citations, coverage, Lineage, Lexicon, and search labels keep detailed provenance available on demand.
 - **Boot cost (Checkpoint-C C-4, Phase 2):** one bundle, render-lazy — the Reader renders at boot and the four hidden rooms (Matrix, Lineage, Gong'an, Lexicon) build their DOM on first tab activation; data loading and the byte-identical bundle contract are unchanged.
 - **Resilience and honesty:** redundant Robo badges are suppressed without hiding verified-quotation status; malformed preferences fail soft; missing/malformed data renders reload/reset recovery UI; edition verification and rights status remain separate.
@@ -90,21 +106,29 @@ Five documents were re-keyed to their pinned CBETA witnesses or provenance-label
 - The sheet is the unit: every template line carries its treatment in a named class (`.provenance-line`, `.dialogue-turn`, `.commentary-block.is-pointer`, …) rather than an inline `style=`; long case collections get the thin register rail, and the document header carries the drawer band above.
 
 ### 2. ⚖️ Multi-Translator Comparative Matrix
-- Segment-level side-by-side comparison across major 20th and 21st-century renderings (4 exemplar entries today).
+- Segment-level side-by-side comparison across major 20th and 21st-century renderings (4 exemplar entries today), composed as a **collation
+  table**: one source line, then one aligned register row per translator with the Robo name, the work it imitates and the provenance badge in the
+  margin rail. Source Chinese here is sized from `--zh-font-size`, so A−/A+ govern it too.
 - Each displayed translation discloses translator, status, book/edition, page-or-section reference state, verification, and rights identifier through visible lines plus hover/focus/touch citation popups.
 - Critical notes examine why renderings differ (e.g., *Mu* vs. *No* vs. *None* vs. *Emptiness*).
 - 🤖 **Robo note**: translator-attributed renderings are Robolations unless individually checked against a recorded edition (then they are ✅ Edition-verified quotations). Verification and rights approval remain separate.
 
 ### 3. 🌳 Lineage Knowledge Graph Explorer
-- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **34 master profiles** (30 researched seed profiles + 4 explicitly marked frontier scaffolds), with an SVG network graph and clickable dossiers.
+- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **34 master profiles** (30 researched seed profiles + 4 explicitly marked frontier scaffolds), with the network chart as its second view and clickable dossiers.
 - A visible chart-status disclosure distinguishes traditional links awaiting exact locators from future source-verified links; graph edges open source-chart/record details on click or keyboard activation.
-- Filter by lineage school, dates, temple location, canonical text reference, and signature quotes.
+- Filter by lineage school; sort the register by generation (ruled bands), chronology, name or school. Each row carries the school, dated record,
+  temple, canonical reference, teacher link and signature quote, and the dossier prints the full profile — including the pending-locator wording
+  on the four frontier scaffolds.
 
 ### 4. 🗂️ Gong'an Cross-Reference Index
-- Canonical cases indexed by theme, protagonist, and bibliographic cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* (the active Congronglu text is quarantined) — **24 indexed cases** at present (incl. 5 new Biyanlu entries, 2026-08-08), organized into **7 curated theme groups** (Buddha-Nature, Beyond Duality, What is Buddha, Direct Pointing, Everyday Way, Transmission & Causality, Existential Barrier) from the validator-enforced taxonomy in `data/gongan/theme_vocabulary.json`; cards keep a rich per-case theme descriptor while filter chips group by family.
+- Canonical cases indexed by theme, protagonist, and bibliographic cross-references across *Wumenguan*, *Biyanlu*, and *Congronglu* (the active Congronglu text is quarantined) — **24 indexed cases** at present (incl. 5 new Biyanlu entries, 2026-08-08), organized into **7 curated theme groups** (Buddha-Nature, Beyond Duality, What is Buddha, Direct Pointing, Everyday Way, Transmission & Causality, Existential Barrier) from the validator-enforced taxonomy in `data/gongan/theme_vocabulary.json`. The room reads as a **case catalogue** — one ruled row per case
+  (case no. · both titles · collection · theme group · canonical record) with the précis and cross-references on one detail line — and the theme
+  group filter is a single row of text filters rather than a field of pills.
 
 ### 5. 📚 Classical Chan Lexicon
 - Dictionary of technical Chan idioms, Buddhist ontology, dialectical structures, and monastic expressions — **31 terms** today, expanding toward 150+ (see Roadmap Phase 3).
+- Runs as a **dictionary list**: category and the recorded-occurrence tally in the margin, the literal gloss leading, the headword Chinese under
+  it, then the definition and the canonical occurrence references (whose caveat stays on demand, one `title` per locator).
 
 ---
 

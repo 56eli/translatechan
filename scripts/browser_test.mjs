@@ -146,12 +146,20 @@ async function main() {
   });
 
   // 3. Lineage node opens a visible, focused dossier and Close hides it.
+  // Since Phase 3 the register is the room's first view and the chart its
+  // second, so the chart view is activated before a node is clicked.
   await testAsync('lineage-dossier-visibility', async () => {
     await page.goto(base + '#/lineage', { waitUntil: 'load' });
+    await page.waitForSelector('.lineage-master-row');
+    await page.click('#lineage-mode-graph-btn');
     await page.waitForSelector('.graph-node');
     await page.locator('.graph-node').first().click();
     const panel = page.locator('#master-dossier-panel');
     ok(await panel.isVisible(), 'dossier visible after node activation');
+    ok(await page.locator('#lineage-mode-graph-btn').evaluate(el => el.getAttribute('aria-pressed') === 'true'),
+      'chart view reports itself pressed after activation');
+    ok(await page.locator('#lineage-content-target').evaluate(el => el.hidden === true),
+      'register hidden while the chart view is open');
     ok((await panel.getAttribute('hidden')) === null, 'dossier hidden attribute removed');
     ok(await page.evaluate(() => document.activeElement?.id === 'master-dossier-panel'), 'focus moved into dossier');
     await page.click('#dossier-close-btn');

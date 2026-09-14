@@ -289,7 +289,7 @@
     if (!termPopoverEl) {
       termPopoverEl = document.createElement('div');
       termPopoverEl.id = 'term-popover';
-      termPopoverEl.className = 'term-popover';
+      termPopoverEl.className = 'term-popover chan-popover';
       termPopoverEl.setAttribute('role', 'tooltip');
       termPopoverEl.hidden = true;
       // N8: the popover itself is interactive (scrollable); leaving it hides it.
@@ -305,6 +305,14 @@
   // Shared popover positioning (N8, 2026-08-09, session 019fe731): measure the
   // real rendered height (add display before calling) instead of hardcoding a
   // guess, so long citations/definitions flip cleanly above the anchor.
+  //
+  // Phase 3 (2026-09-13) turned the old `left`/`top` pair into ONE write of the
+  // `--pop-shift` custom property, consumed as `translate` by the shared
+  // .chan-popover rule in app.css. The mechanism is the one behind --shell-height
+  // and --zh-font-size too: the sheet owns placement, script publishes the
+  // measured number. A CSP style-src list governs style attributes and `style`
+  // elements, not CSSOM writes, so the tightened policy leaves this path working
+  // — see the note above the CSP meta in index.html for the full contract.
   function positionFloatingPopover(pop, anchor, popW) {
     const rect = anchor.getBoundingClientRect();
     const vw = window.innerWidth || document.documentElement.clientWidth || 900;
@@ -314,8 +322,7 @@
     const height = pop.offsetHeight || 220;
     let top = rect.bottom + 8;
     if (top + height > vh - 8) top = Math.max(8, rect.top - 8 - height);
-    pop.style.left = `${left}px`;
-    pop.style.top = `${top}px`;
+    pop.style.setProperty('--pop-shift', `${left}px ${top}px`);
   }
 
   function showTermPopover(termSpan) {
@@ -351,7 +358,7 @@
     if (!roboPopoverEl) {
       roboPopoverEl = document.createElement('div');
       roboPopoverEl.id = 'robo-popover';
-      roboPopoverEl.className = 'robo-popover';
+      roboPopoverEl.className = 'robo-popover chan-popover';
       roboPopoverEl.setAttribute('role', 'tooltip');
       roboPopoverEl.hidden = true;
       roboPopoverEl.addEventListener('mouseleave', () => { hideRoboPopover(); });
@@ -440,7 +447,7 @@
     if (!citationPopoverEl) {
       citationPopoverEl = document.createElement('div');
       citationPopoverEl.id = 'citation-popover';
-      citationPopoverEl.className = 'citation-popover';
+      citationPopoverEl.className = 'citation-popover chan-popover';
       citationPopoverEl.setAttribute('role', 'tooltip');
       citationPopoverEl.hidden = true;
       // N8: the popover itself is interactive (scrollable); leaving it hides it.
@@ -801,26 +808,30 @@
       });
     }
 
-    // Mode switcher between Visual Network and Cards
+    // Mode switcher — Phase 3 made the transmission register the room's first
+    // view and the layered SVG network its optional second view. Visibility is
+    // toggled through the semantic `hidden` attribute only (no style writes), and
+    // the chart re-lays itself out on activation because a hidden <svg> measures
+    // zero width: without this the chart would keep the fallback viewBox from
+    // the render that happened while it was still hidden.
     const graphBtn = document.getElementById('lineage-mode-graph-btn');
     const cardsBtn = document.getElementById('lineage-mode-cards-btn');
     const graphContainer = document.getElementById('lineage-graph-container');
     const cardsContainer = document.getElementById('lineage-content-target');
 
     if (graphBtn && cardsBtn && graphContainer && cardsContainer) {
-      graphBtn.addEventListener('click', () => {
-        graphBtn.classList.add('active');
-        cardsBtn.classList.remove('active');
-        graphContainer.hidden = false;
-        cardsContainer.hidden = true;
-      });
-
-      cardsBtn.addEventListener('click', () => {
-        cardsBtn.classList.add('active');
-        graphBtn.classList.remove('active');
-        graphContainer.hidden = true;
-        cardsContainer.hidden = false;
-      });
+      const setLineageMode = (mode) => {
+        const graph = mode === 'graph';
+        if (graph) { graphBtn.classList.add('active'); cardsBtn.classList.remove('active'); }
+        else { cardsBtn.classList.add('active'); graphBtn.classList.remove('active'); }
+        graphBtn.setAttribute('aria-pressed', graph ? 'true' : 'false');
+        cardsBtn.setAttribute('aria-pressed', graph ? 'false' : 'true');
+        graphContainer.hidden = !graph;
+        cardsContainer.hidden = graph;
+        if (graph) renderVisualLineageGraph(filteredLineageMasters());
+      };
+      graphBtn.addEventListener('click', () => setLineageMode('graph'));
+      cardsBtn.addEventListener('click', () => setLineageMode('register'));
     }
 
     const lineageResetBtn = document.getElementById('lineage-reset-btn');
@@ -2436,9 +2447,15 @@
     return roboNameSpanFromProfile(p, status, roboifyTranslatorName(name, status), p ? p.register_key : '');
   }
 
-  // Render Comparison Matrix. Unlike the early matrix seed, every visible
-  // translator entry now receives an explicit provenance status and (where
-  // verified) the same citation treatment used by the Reader.
+  // Render Comparison Matrix — Room 02, re-composed 2026-09-13 (Phase 3).
+  //
+  // The proposal's shape for this room is a collation table, not a card grid:
+  // one source line across the top of a proof, then one aligned register row
+  // per translator — the Robo name, the work it imitates and the provenance
+  // glyph in the margin rail, the register's English text in the column beside
+  // it. Every visible translator entry carries an explicit provenance status
+  // and (where verified) the same citation treatment used by the Reader; all of
+  // it is class-driven (the room emits no style attributes).
   function renderMatrix() {
     if (!elements.matrixTarget || !Array.isArray(state.data.translations_matrix)) return;
     const matrixList = state.data.translations_matrix;
@@ -2456,7 +2473,10 @@
           <div class="matrix-sentence-pinyin">${escHtml(item.sentence_pinyin)}</div>
           ${sourceDisclosure}
         </div>
-        <div class="matrix-registers-grid">
+        <div class="matrix-collation">
+          <div class="matrix-collation-head">
+            <span>Register</span><span>English rendering of this line</span>
+          </div>
           ${translators.map(rawTranslator => {
             const t = isRecord(rawTranslator) ? rawTranslator : {};
             const entry = normalizeTranslationEntry(t.translator, {
@@ -2468,18 +2488,16 @@
             });
             const displayTranslator = roboifyTranslatorName(t.translator, entry.status);
             return `
-            <div class="matrix-register-col">
-              <div>
-                <div class="matrix-reg-header">
-                  <div class="matrix-author">${roboNameSpanByName(t.translator, entry.status)}</div>
-                  <div class="matrix-work">${escHtml(t.work)}${t.style ? ` (${escHtml(t.style)})` : ''}</div>
-                </div>
-                <div class="matrix-reg-text">“${escHtml(entry.text)}”</div>
-              </div>
-              <div>
+            <div class="matrix-register-row">
+              <div class="matrix-register-rail">
+                <span class="matrix-register-name">${roboNameSpanByName(t.translator, entry.status)}</span>
+                <span class="matrix-register-work">${escHtml(t.work)}${t.style ? ` · ${escHtml(t.style)}` : ''}</span>
                 ${renderTranslationStatus(entry)}
+              </div>
+              <div class="matrix-register-body">
+                <div class="matrix-register-text">“${escHtml(entry.text)}”</div>
                 ${renderTranslationSource(entry, displayTranslator, { zh: item.sentence_zh, locator })}
-                ${t.notes ? `<div class="matrix-reg-note">${escHtml(t.notes)}</div>` : ''}
+                ${t.notes ? `<div class="matrix-register-note">${escHtml(t.notes)}</div>` : ''}
               </div>
             </div>
             `;
@@ -2639,39 +2657,106 @@
       ).join('');
   }
 
+  // Render Lineage — Room 03, re-composed 2026-09-13 (Phase 3).
+  //
+  // The room's first view is now the transmission register: masters banded by
+  // generation, one ruled row per master, the house (controlled school
+  // vocabulary) and the dated transmission record in fixed columns so a reader
+  // can scan Bodhidharma → the Five Houses top to bottom. The layered SVG chart
+  // is the room's second view (see the mode switch in setupEventListeners), and
+  // the dossier below the register stays the place a profile's full evidence
+  // record opens. Rows keep the `data-master-card`/role/tabindex contract and
+  // carry no style attributes.
   function renderLineage() {
     if (!elements.lineageTarget || !state.data.lineage) return;
     renderLineageVerificationSummary();
-    let masters = state.data.lineage;
+    const masters = filteredLineageMasters();
+    renderVisualLineageGraph(masters);
+    elements.lineageTarget.innerHTML = renderLineageRegister(masters);
+  }
 
+  // The room's one filter+sort path: the school filter narrows the record, the
+  // sort orders it. Both the register and the chart draw from this list, so the
+  // two views can never disagree about which masters are in scope.
+  function filteredLineageMasters() {
+    let masters = state.data.lineage || [];
     if (state.selectedMasterSchool !== 'all') {
       masters = masters.filter(m => m.school_key === state.selectedMasterSchool);
     }
+    return sortLineageMasters(masters);
+  }
 
-    masters = sortLineageMasters(masters);
-    renderVisualLineageGraph(masters);
+  // The register itself. Tree order reads as ruled generation bands (the
+  // transmission sequence is the room's spine); the chronology / name / school
+  // orders read as one flat ruled list, because banding by generation while the
+  // user asked for another order would hide what the control just did.
+  function renderLineageRegister(masters) {
+    if (!masters.length) {
+      return '<p class="lineage-register-empty">No master in the curated record matches this filter.</p>';
+    }
+    if (state.lineageSort !== 'generation') {
+      const order = { chronology: 'Chronological order', name: 'Name order', school: 'House order' }[state.lineageSort] || 'Register order';
+      return `<div class="lineage-register">
+        <div class="lineage-flat">
+          <h2 class="lineage-flat-head"><span>Transmission register</span><small>${masters.length} masters · ${escHtml(order)}</small></h2>
+          ${masters.map(m => renderLineageMasterRow(m, true)).join('')}
+        </div>
+      </div>`;
+    }
 
-    elements.lineageTarget.innerHTML = masters.map(m => `
-      <div class="master-directory-row" data-master-card="${escHtml(m.id)}" role="button" tabindex="0" aria-label="Open dossier for ${escHtml(m.name_en)}">
-        <div class="master-dir-gen">Gen ${escHtml(m.lineage_depth)}</div>
-        <div class="master-dir-main">
-          <h2 class="master-dir-name">${escHtml(masterDisplayName(m))}<span class="master-dir-name-zh" lang="zh">${escHtml(m.name_zh)} · ${escHtml(m.name_pinyin)}</span></h2>
-          <div class="master-dir-title">${escHtml(m.title)}</div>
-          <div class="master-dir-meta">
-            <span>Dates: ${escHtml(m.dates)} (${escHtml(m.era)})</span>
-            <span>Lineage: ${escHtml(m.school)}</span>
-            <span>Temple: ${escHtml(m.location)}</span>
-            <span>Ref: ${escHtml(m.cbeta_id)}</span>
-            <span>Teacher: ${lineageTeacherDetail(m)}</span>
+    const bands = new Map();
+    masters.forEach(m => {
+      const gen = Number(m.lineage_depth) || 0;
+      if (!bands.has(gen)) bands.set(gen, []);
+      bands.get(gen).push(m);
+    });
+    const generations = [...bands.keys()].sort((a, b) => a - b);
+
+    return `<div class="lineage-register">
+      ${generations.map(gen => `
+      <section class="lineage-band">
+        <div class="lineage-band-head">
+          <h2 class="lineage-band-gen">Generation ${escHtml(gen)}</h2>
+          <p class="lineage-band-meta">${bands.get(gen).length} ${bands.get(gen).length === 1 ? 'master' : 'masters'} · ${escHtml(lineageBandEra(bands.get(gen)))}</p>
+        </div>
+        <div class="lineage-band-cols">
+          <span>Master</span><span>House</span><span>Dated record</span><span>Signature</span>
+        </div>
+        ${bands.get(gen).map(m => renderLineageMasterRow(m)).join('')}
+      </section>`).join('')}
+    </div>`;
+  }
+
+  // One aligned master row. `showGeneration` labels the row when the register
+  // is not banded, so the generation is never silently dropped from view.
+  function renderLineageMasterRow(m, showGeneration = false) {
+    return `
+        <div class="lineage-master-row" data-master-card="${escHtml(m.id)}" role="button" tabindex="0" aria-label="Open dossier for ${escHtml(m.name_en)}">
+          <div class="lineage-master-name">
+            ${showGeneration ? `<span class="lineage-master-gen">Gen ${escHtml(m.lineage_depth)}</span>` : ''}
+            <h3 class="lineage-master-name-en">${escHtml(masterDisplayName(m))}</h3>
+            <span class="lineage-master-name-zh" lang="zh">${escHtml(m.name_zh)} · ${escHtml(m.name_pinyin)}</span>
+            <span class="lineage-master-title">${escHtml(m.title)}</span>
           </div>
-          <div class="text-sm-muted">${escHtml(m.summary)}</div>
-        </div>
-        <div class="master-dir-quote">
-          <div class="master-dir-quote-zh">“${escHtml(m.key_quote_zh)}”</div>
-          <div class="master-dir-quote-en">“${escHtml(m.key_quote_en)}”</div>
-        </div>
-      </div>
-    `).join('');
+          <div class="lineage-master-house">${escHtml(m.school)}</div>
+          <div class="lineage-master-record">
+            <span>${escHtml(m.dates)} · ${escHtml(m.era)}</span>
+            <span>${escHtml(m.location)}</span>
+            <span class="lineage-master-ref">${escHtml(m.cbeta_id)}</span>
+            <span class="lineage-master-teacher">${lineageTeacherDetail(m)}</span>
+          </div>
+          <div class="lineage-master-quote">
+            <span class="lineage-master-quote-zh" lang="zh">“${escHtml(m.key_quote_zh)}”</span>
+            <span class="lineage-master-quote-en">“${escHtml(m.key_quote_en)}”</span>
+          </div>
+        </div>`;
+  }
+
+  // A band's era line is derived from the masters in it — never invented.
+  function lineageBandEra(masters) {
+    const eras = [...new Set(masters.map(m => stringValue(m.era)).filter(Boolean))];
+    if (!eras.length) return 'Era not recorded';
+    return eras.length === 1 ? eras[0] : `${eras.length} eras in this band`;
   }
 
   // Interactive Visual SVG Lineage Graph (pan/zoom; reset via window.TranslateChan.resetLineageView)
@@ -3028,37 +3113,56 @@
     return hit ? stringValue(hit.display) : key;
   }
 
-  // Render Gong'an Index
+  // Render Gong'an Index — Room 04, re-composed 2026-09-13 (Phase 3).
+  //
+  // The proposal's shape for this room is a case catalogue: one ruled row per
+  // indexed case, carrying the case number, both titles, the collection it was
+  // indexed from, the controlled theme group and the canonical record it points
+  // at. Nothing here is a card, and the theme filter is a single row of text
+  // filters rather than a field of pills. `gongan-filter-chip` +
+  // `data-gongan-filter` stay as the delegated click contract.
   function renderGonganIndex() {
     if (!elements.gonganTarget || !state.data.gongan_index) return;
     let list = state.data.gongan_index;
-    if (state.gonganThemeFilter && state.gonganThemeFilter !== 'all') {
-      list = list.filter(g => g.theme_group === state.gonganThemeFilter);
-    }
+    const activeGroup = state.gonganThemeFilter && state.gonganThemeFilter !== 'all'
+      ? state.gonganThemeFilter : '';
+    if (activeGroup) list = list.filter(g => g.theme_group === activeGroup);
 
     const groups = gonganThemeGroups();
+    const showAll = !activeGroup;
     const filterBar = `
-      <div class="room-filter-rail">
-        <span class="dossier-ledger-label">Theme groups:</span>
-        <button class="btn-pill gongan-filter-chip ${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'active' : ''}" data-gongan-filter="all" aria-pressed="${!state.gonganThemeFilter || state.gonganThemeFilter === 'all' ? 'true' : 'false'}">All · ${state.data.gongan_index.length}</button>
-        ${groups.map(g => `<button class="btn-pill gongan-filter-chip ${state.gonganThemeFilter === g.key ? 'active' : ''}" data-gongan-filter="${escHtml(g.key)}" aria-pressed="${state.gonganThemeFilter === g.key ? 'true' : 'false'}">${escHtml(g.display)} · ${g.count}</button>`).join('')}
+      <div class="room-filter-rail" role="group" aria-label="Filter the case catalogue by theme group">
+        <span class="room-filter-legend">Theme groups</span>
+        <button class="gongan-filter-chip${showAll ? ' active' : ''}" data-gongan-filter="all" aria-pressed="${showAll ? 'true' : 'false'}">All · ${state.data.gongan_index.length}</button>
+        ${groups.map(g => `<button class="gongan-filter-chip${activeGroup === g.key ? ' active' : ''}" data-gongan-filter="${escHtml(g.key)}" aria-pressed="${activeGroup === g.key ? 'true' : 'false'}">${escHtml(g.display)} · ${g.count}</button>`).join('')}
       </div>`;
 
-    elements.gonganTarget.innerHTML = filterBar + list.map(g => `
-      <div class="gongan-catalogue-row">
-        <div class="catalogue-meta">${escHtml(g.collection)} · Canon ID: ${escHtml(g.cbeta_id)} · ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</div>
-        <div class="catalogue-title-row">
+    const catalogue = list.map(g => `
+      <div class="catalogue-row">
+        <span class="catalogue-case">${escHtml(g.case_no)}</span>
+        <div class="catalogue-title">
           <h2 class="catalogue-title-en">${escHtml(g.title_en)}</h2>
           <span class="catalogue-title-zh" lang="zh">${escHtml(g.title_zh)}</span>
         </div>
-        <div class="catalogue-summary">${escHtml(g.summary)}</div>
-        <div class="catalogue-tags">
-          <span class="catalogue-tag-item">Group: ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</span>
-          <span class="catalogue-tag-item">Theme: ${escHtml(g.theme)}</span>
-          ${g.cross_refs ? g.cross_refs.map(cr => `<span class="catalogue-tag-item">${escHtml(cr)}</span>`).join('') : ''}
+        <span class="catalogue-collection">${escHtml(g.collection)}</span>
+        <div class="catalogue-theme">
+          <span>Group: ${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))}</span>
+          <span>${escHtml(g.theme)}</span>
         </div>
-      </div>
-    `).join('');
+        <span class="catalogue-locator">${escHtml(g.cbeta_id)}</span>
+        <div class="catalogue-detail">
+          <p class="catalogue-summary">${escHtml(g.summary)}</p>
+          ${g.cross_refs ? `<p class="catalogue-cross">Cross-references: ${g.cross_refs.map(escHtml).join(' · ')}</p>` : ''}
+        </div>
+      </div>`).join('');
+
+    elements.gonganTarget.innerHTML = `${filterBar}
+      <div class="gongan-catalogue">
+        <div class="gongan-catalogue-head">
+          <span>Case</span><span>Title</span><span>Collection</span><span>Theme</span><span>Record</span>
+        </div>
+        ${catalogue}
+      </div>`;
   }
 
   // Gong'an theme filter chips
@@ -3096,7 +3200,14 @@
     ).join('');
   }
 
-  // Render Lexicon
+  // Render Lexicon — Room 05, re-composed 2026-09-13 (Phase 3).
+  //
+  // A field dictionary reads as a running list, so the room is one now: each
+  // entry puts the headword Chinese (largest), its pinyin and its literal
+  // gloss in the head line, the definition in the body, and the category plus
+  // the recorded occurrences in the margin. `lexicon-summary`,
+  // `lexicon-no-match` and the occurrence caveat title stay exactly as the
+  // smoke test guards them.
   function renderLexicon() {
     if (!elements.lexiconTarget || !state.data.glossary) return;
     let list = state.data.glossary;
@@ -3129,22 +3240,22 @@
       ? `<p class="lexicon-summary" aria-live="polite">${list.length} of ${state.data.glossary.length} terms</p>`
       : '';
 
-    elements.lexiconTarget.innerHTML = summary + noMatchHint + list.map(item => `
-      <div class="lexicon-definition-row">
-        <div class="lexicon-headword-col">
-          <p class="section-kicker">${escHtml(item.category)}</p>
-          <h2 class="lexicon-headword-literal">${escHtml(item.literal)}</h2>
-          <div class="lexicon-headword-zh" lang="zh">${escHtml(item.term)}</div>
-          <div class="lexicon-headword-meta">${escHtml(item.pinyin)} · Sanskrit: ${escHtml(item.sanskrit || '—')}</div>
+    elements.lexiconTarget.innerHTML = summary + noMatchHint + `<div class="lexicon-entries">` + list.map(item => `
+      <div class="lexicon-entry">
+        <div class="lexicon-entry-margin">
+          <span class="lexicon-entry-cat">${escHtml(item.category)}</span>
+          <span class="lexicon-entry-count">${item.occurrences.length} recorded ${item.occurrences.length === 1 ? 'occurrence' : 'occurrences'}</span>
         </div>
-        <div class="lexicon-def-col">
-          <div class="lexicon-def-text">${escHtml(item.definition)}</div>
+        <div class="lexicon-entry-main">
+          <h2 class="lexicon-headword">${escHtml(item.literal)}<span class="lexicon-headword-zh" lang="zh">${escHtml(item.term)}</span></h2>
+          <p class="lexicon-headword-meta">${escHtml(item.pinyin)}${item.sanskrit ? ` · Sanskrit: ${escHtml(item.sanskrit)}` : ''}</p>
+          <div class="lexicon-entry-def">${escHtml(item.definition)}</div>
           <div class="lexicon-occurrences">
             ${item.occurrences.map(occ => `<span class="lexicon-occ-tag" title="Canonical occurrence reference; may fall outside the current Reader excerpt.">${escHtml(occ)}</span>`).join('')}
           </div>
         </div>
       </div>
-    `).join('');
+    `).join('') + `</div>`;
   }
 
   // ---- Search: universal segment extraction across every corpus schema ----
