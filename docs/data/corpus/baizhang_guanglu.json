@@ -149,5 +149,6 @@
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'T1985 / X1304' wrong — T1985 is strictly the Record of Linji; X1304 is 虗堂集. Baizhang's 廣錄 is 四家語錄卷三 (X69n1323); his 語錄 also in 古尊宿語錄 (X68n1315)."
+  "cbeta_note": "Corrected 2026-08-08: prior 'T1985 / X1304' wrong — T1985 is strictly the Record of Linji; X1304 is 虗堂集. Baizhang's 廣錄 is 四家語錄卷三 (X69n1323); his 語錄 also in 古尊宿語錄 (X68n1315).",
+  "coverage_note": "3/3 sections represented, carrying 6 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields are verbatim in either claimed witness (X69n1323 四家語錄卷三 and X68n1315 古尊宿語錄): no field carries a run of 8 or more graphs in either claimed work (0 of 44, 0 of 38, 0 of 34, 0 of 27, 0 of 41 and 0 of 40 runs per field). The only measured carrier of this wording is the uncited 五燈會元 X80n1565 — 4 of the 6 fields as 16–28-graph fragments (s1.d0 24/34 @60,222; s1.d1 16/27 @60,252; s2.d0 18/41 @60,428 + @60,441; s2.d1 28/40 @60,465 + @60,485) — while s0.d0 and s0.d1 have no run in any of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift). The wording is therefore a project composition, not an excerpt of either claimed work, and no field was re-keyed; an older complete copy is OUT-OF-CBETA human sourcing, not agent work. The cbeta_note (ID-correct) is unchanged."
 }

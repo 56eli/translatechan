@@ -446,6 +446,42 @@ ALLOWED_CHANGES = {
         ".dialogues[1].dialogue[1].translations.hoffman.source.reference",
         ".taisho_vol",
     }),
+    "data/corpus/baizhang_guanglu.json": frozenset({
+        # 2026-09-14 LABEL fix (task 010 bundle 2, PHASE2_PLAN ranks 20/31/57): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 6 source-content fields
+        # are verbatim in either claimed witness (X69n1323, X68n1315) and no field carries a run
+        # of 8 or more graphs in either claimed work, while the only measured carrier of the
+        # project's wording is the UNCITED 五燈會元 X80n1565 (4 of the 6 fields, as 16–28-graph
+        # fragments) and s0.d0/s0.d1 have no run in any of the 39 pinned refs. Only the note
+        # changes: no `zh`/`*_zh` field, no `title_zh` (the composite-title metadata flag is a
+        # separate plan item), no `cbeta_id` (ID-correct), and no `zh_chars` pointer (this
+        # document declares none).
+        ".coverage_note",
+    }),
+    "data/corpus/caoxi_zhuan.json": frozenset({
+        # 2026-09-14 LABEL fix (task 010 bundle 2, PHASE2_PLAN ranks 19/58; rank 33 stays
+        # HUMAN-SOURCE): the additive honest `.coverage_note` records the measured collation —
+        # 0 of 4 source-content fields are verbatim in the claimed witness X86n1598; three have
+        # no run of 8 or more graphs in it and the fourth (70 graphs) shares one 12-graph
+        # fragment, while the measurable relatives are 壇經 recension fragments (T48n2008,
+        # T48n2007). The Dunhuang manuscript P.3018 named by `cbeta_id` is out of CBETA, so
+        # acquiring it is human OUT-OF-CBETA sourcing (Ruling 4), not agent work. Only the note
+        # changes: no `zh`/`*_zh` field, no `title_zh` (composite-title metadata flag), no
+        # `cbeta_id` (ID-corrected), and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
+    "data/corpus/dahui_shobogenzo.json": frozenset({
+        # 2026-09-14 LABEL fix (task 010 bundle 2, PHASE2_PLAN ranks 17/41/60): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 4 source-content fields
+        # are verbatim in the claimed witness X67n1309: two are carried by it only as
+        # non-verbatim runs (21/40 @74,756 and 35/37 @7,536, DIVERGENT at 0.973), one has no
+        # source in the claimed work and only a 9/56 run in the older 景德傳燈錄 T51n2076
+        # @142,146, and the fourth (47 graphs) has no run of 8 or more graphs in any of the 39
+        # pinned refs. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (composite-title
+        # metadata flag), no `cbeta_id` (ID-correct), and no `zh_chars` pointer (this document
+        # declares none).
+        ".coverage_note",
+    }),
 }
 
 
