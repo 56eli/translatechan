@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110252,
+    "all_corpus_cjk_characters": 110274,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -971,6 +971,7 @@
         "cbeta_id": "X1357 / T1997",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 87,
+        "coverage_note": "2/2 letters represented, carrying 2 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 2 source-content fields collate to either claimed witness (T47n1997, X69n1357): both fields (42 and 45 graphs) are NOT_FOUND in both witnesses, and each carries 0 sixteen-graph windows in every one of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift), so no work in the reference set carries this text. The two passages are kept as project-authored retellings with the witness claim disclosed, not re-keyed: there is no in-set witness to re-key them to, and sourcing one belongs to the human OUT-OF-CBETA queue. The English renderings are register imitations, not translations of any recorded source.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -997,11 +998,11 @@
         }
       },
       "yunmen_yulu": {
-        "all_cjk_chars": 395,
+        "all_cjk_chars": 403,
         "cbeta_id": "T1988",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 269,
-        "coverage_note": "10 signature encounter dialogues and sermons from T1988",
+        "coverage_note": "10 sections represented, carrying 12 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 12 source-content fields collate to the claimed witness T47n1988 雲門匡真禪師廣錄 (11 NOT_FOUND; 1 DIVERGENT at 0.9583 similarity — close in wording, not verbatim), so the earlier \"from T1988\" claim is withdrawn: these are compressed project retellings, not excerpts of that work. The nearest measured proximity anywhere in the 39-ref set is X80n1565 (7 of 14 twenty-four-graph windows in .sections[3].dialogue[0].zh — formulaic proximity, not a verbatim carrier), and no work in the reference set carries these passages; nothing here was re-keyed, and the English renderings are register imitations rather than translations of a recorded source.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -1061,10 +1062,11 @@
         }
       },
       "zhengdao_ge": {
-        "all_cjk_chars": 188,
+        "all_cjk_chars": 202,
         "cbeta_id": "T2014",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 167,
+        "coverage_note": "6/6 stanzas represented, carrying 6 evaluated source-content fields; W1 source-review status: collated_to_claimed_witness — 6 of 6 source-content fields are verbatim in the claimed witness T48n2014, so the text itself has no recension or re-key problem to disclose. The document's one flagged field is metadata, and it is recorded here: the root title_zh 永嘉真覺大師 證道歌 is a project heading (the master's name prefixed to the title), while the title the witness attests is 永嘉證道歌. Title metadata sits outside the content denominator — it stays project composition, and no Chinese was re-keyed.",
         "is_complete": false,
         "shapes": [
           "stanzas"

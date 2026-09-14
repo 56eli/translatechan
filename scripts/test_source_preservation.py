@@ -396,6 +396,37 @@ ALLOWED_CHANGES = {
         ".cbeta_id",
         ".cbeta_note",
     }),
+    "data/corpus/zhengdao_ge.json": frozenset({
+        # 2026-09-14 LABEL fix (task 009 bundle 1, PHASE2_PLAN rank 70): the additive honest
+        # `.coverage_note` records a metadata-only disclosure — content is 6/6 verbatim in the
+        # claimed witness T48n2014 (no recension or re-key problem exists in the text), while the
+        # root title_zh 永嘉真覺大師 證道歌 is a project heading rather than the witness's attested
+        # title 永嘉證道歌. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (left as
+        # project composition by design), no `cbeta_id`, and no `zh_chars` pointer (this document
+        # declares none).
+        ".coverage_note",
+    }),
+    "data/corpus/yunmen_yulu.json": frozenset({
+        # 2026-09-14 LABEL fix (task 009 bundle 1, PHASE2_PLAN rank 45): the `.coverage_note` is
+        # rewritten from "10 signature encounter dialogues and sermons from T1988" — a witness
+        # claim the measurement does not support, since 0 of 12 source-content fields are verbatim
+        # in T47n1988 雲門匡真禪師廣錄 (11 NOT_FOUND, 1 DIVERGENT at 0.9583) — to the measured
+        # disclosure: compressed project retellings whose nearest in-set proximity is X80n1565
+        # (formulaic, not a verbatim carrier). Only the note changes: no `zh`/`*_zh` field, no
+        # `title_zh` (composite-title plan item), no `cbeta_id` (T1988 is the right work), and no
+        # `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
+    "data/corpus/yuanwu_letters.json": frozenset({
+        # 2026-09-14 LABEL fix (task 009 bundle 1, PHASE2_PLAN rank 9): the additive honest
+        # `.coverage_note` discloses the measured collation — 0 of 2 source-content fields collate
+        # to either claimed witness (T47n1997, X69n1357) and no ref of the 39-work pinned set
+        # carries the two letter fields, so the passages are disclosed as project-authored
+        # retellings with the witness claim removed. Only the note changes: no `zh`/`*_zh` field,
+        # no `title_zh` (the composite-title metadata flag is a separate plan item), no
+        # `cbeta_id`, and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
     "data/corpus/zhaozhou_yulu.json": frozenset({
         # 2026-09-12 CITATION fix (task 014, rank 1-2): the false T1987 witness claim is withdrawn,
         # not re-attributed — `cbeta_id` becomes the qualified candidate form, the `taisho_vol 47`
