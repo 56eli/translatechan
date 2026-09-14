@@ -21,6 +21,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 007 | .orchestrator/prompts/007-phase4-evidence-approval.md | Phase 4 evidence and approval | docs/pages-phase4-evidence | #51 | Merged 2026-09-13 — main 766b97c |
 | 008 | .orchestrator/prompts/008-web-polish-and-validation-depth.md | Web polish + P2.7 validation depth + lineage docs | chore/web-polish-and-validation-depth | #52 | Merged 2026-09-14 — main b1e303f |
 | 009 | .orchestrator/prompts/009-label-bundle-1-yuanwu-yunmen-zhengdao.md | LABEL bundle 1 (3 docs minor) under Ruling 1 exception | fix/label-bundle-1-yuanwu-yunmen-zhengdao | #53 | Merged 2026-09-14 — main 60112b4 |
+| 010 | .orchestrator/prompts/010-label-bundle-2-baizhang-caoxi-dahui_shobogenzo.md | LABEL bundle 2 (3 docs minor) | fix/label-bundle-2-baizhang-caoxi-dahui_shobo | — | Published 2026-09-14 — 3 LABEL docs, <2h |
 
 
 
@@ -40,7 +41,6 @@ Phase A COMPLETE, Phase B COMPLETE main 766b97c, Phase C web polish bundle PR #5
 - [x] 010 — Web polish bundle — PR #52 Merged (b1e303f)
 - [x] 011 — Ruling 1 exception 2026-09-14 approved: LABEL 3 per PR, RE-KEY 1 per PR, LOW RISK, 16 PRs vs 28
 - [x] 012 — W1 LABEL bundle 1 — PR #53 MERGE (yuanwu_letters 0/2, yunmen_yulu 0/12, zhengdao_ge 6/6, 3 notes, bundle 1,646,833 B, Ruling 1 exception recorded)
-- [ ] 013 — Remaining W1: 15 pure LABEL (5 bundles) + 10 RE-KEY (10 PRs) + lineage 30 edges + human-readable Phase5
 
 
 
