@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110298,
+    "all_corpus_cjk_characters": 110304,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -431,10 +431,11 @@
         }
       },
       "guiyang_yulu": {
-        "all_cjk_chars": 261,
+        "all_cjk_chars": 267,
         "cbeta_id": "T1989 / T1990",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 177,
+        "coverage_note": "0/6 content fields verbatim in T47n1989/T47n1990 or any of 39 refs, every field zero 16-graph windows, title asserts 96 圓相 but no 圓相 content (witnesses mention 圓相 2×/3×), no coverage/recension note, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"

@@ -514,6 +514,16 @@ ALLOWED_CHANGES = {
         # `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/guiyang_yulu.json": frozenset({
+        # 2026-09-14 LABEL fix (task 012 bundle 4, PHASE2_PLAN ranks 8/56): the additive honest
+        # `.coverage_note` records the measured collation — 0 of 6 content fields are verbatim
+        # in T47n1989/T47n1990 or in any of the 39 pinned refs (every field has zero
+        # sixteen-graph windows in every ref), and the title's 九十六圓相 claim names content
+        # the document does not carry (the witnesses merely mention 圓相 2x/3x). Retellings are
+        # retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (composite-title
+        # metadata flag), no `cbeta_id`, and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 
