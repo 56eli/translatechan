@@ -396,6 +396,16 @@ ALLOWED_CHANGES = {
         ".cbeta_id",
         ".cbeta_note",
     }),
+    "data/corpus/yuanwu_letters.json": frozenset({
+        # 2026-09-14 LABEL fix (task 009 bundle 1, PHASE2_PLAN rank 9): the additive honest
+        # `.coverage_note` discloses the measured collation — 0 of 2 source-content fields collate
+        # to either claimed witness (T47n1997, X69n1357) and no ref of the 39-work pinned set
+        # carries the two letter fields, so the passages are disclosed as project-authored
+        # retellings with the witness claim removed. Only the note changes: no `zh`/`*_zh` field,
+        # no `title_zh` (the composite-title metadata flag is a separate plan item), no
+        # `cbeta_id`, and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
     "data/corpus/zhaozhou_yulu.json": frozenset({
         # 2026-09-12 CITATION fix (task 014, rank 1-2): the false T1987 witness claim is withdrawn,
         # not re-attributed — `cbeta_id` becomes the qualified candidate form, the `taisho_vol 47`

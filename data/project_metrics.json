@@ -971,6 +971,7 @@
         "cbeta_id": "X1357 / T1997",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 87,
+        "coverage_note": "2/2 letters represented, carrying 2 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 2 source-content fields collate to either claimed witness (T47n1997, X69n1357): both fields (42 and 45 graphs) are NOT_FOUND in both witnesses, and each carries 0 sixteen-graph windows in every one of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift), so no work in the reference set carries this text. The two passages are kept as project-authored retellings with the witness claim disclosed, not re-keyed: there is no in-set witness to re-key them to, and sourcing one belongs to the human OUT-OF-CBETA queue. The English renderings are register imitations, not translations of any recorded source.",
         "is_complete": false,
         "shapes": [
           "sections"
