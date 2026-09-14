@@ -20,12 +20,12 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 006 | .orchestrator/prompts/006-phase3-secondary-rooms-csp.md | Phase 3 secondary rooms + CSP tightening | feature/pages-phase3-secondary-csp | #50 | Merged 2026-09-13 — main 3a6ae32 |
 | 007 | .orchestrator/prompts/007-phase4-evidence-approval.md | Phase 4 evidence and approval | docs/pages-phase4-evidence | #51 | Merged 2026-09-13 — main 766b97c |
 | 008 | .orchestrator/prompts/008-web-polish-and-validation-depth.md | Web polish + P2.7 validation depth + lineage docs | chore/web-polish-and-validation-depth | #52 | Merged 2026-09-14 — main b1e303f |
-| 009 | .orchestrator/prompts/009-label-bundle-1-yuanwu-yunmen-zhengdao.md | LABEL bundle 1 (3 docs minor) under Ruling 1 exception | fix/label-bundle-1-yuanwu-yunmen-zhengdao | #53 | MERGE — 3 LABEL docs (yuanwu, yunmen, zhengdao), 138 checks PASS, Ruling 1 exception recorded |
+| 009 | .orchestrator/prompts/009-label-bundle-1-yuanwu-yunmen-zhengdao.md | LABEL bundle 1 (3 docs minor) under Ruling 1 exception | fix/label-bundle-1-yuanwu-yunmen-zhengdao | #53 | Merged 2026-09-14 — main 60112b4 |
 
 
 
 ## Active Milestone
-Phase A COMPLETE, Phase B COMPLETE main 766b97c, Phase C web polish bundle PR #52 Merged main b1e303f, Ruling 1 exception 2026-09-14 approved (LABEL 3 per PR, RE-KEY 1 per PR, LOW RISK), Phase D W1 LABEL bundle 1 prompt 009 published (3 docs minor <2h), remaining 15 LABEL +10 RE-KEY =16 PRs total vs 28, then human-readable Phase5.
+Phase A COMPLETE, Phase B COMPLETE main 766b97c, Phase C web polish bundle PR #52 Merged main b1e303f, Ruling 1 exception 2026-09-14 approved (LABEL 3 per PR, RE-KEY 1 per PR, LOW RISK), Phase D W1 LABEL bundle 1 PR #53 Merged main 60112b4 (3 docs, bundle 1,646,833 B), remaining 15 LABEL (5 bundles) +10 RE-KEY =15 PRs, then human-readable Phase5.
 
 ## Task Queue
 - [x] 001 — Fix D-1..D-4 + O-1..O-3 — PR #45 Merged (main 93afcb5)
