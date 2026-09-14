@@ -458,6 +458,18 @@ ALLOWED_CHANGES = {
         # document declares none).
         ".coverage_note",
     }),
+    "data/corpus/caoxi_zhuan.json": frozenset({
+        # 2026-09-14 LABEL fix (task 010 bundle 2, PHASE2_PLAN ranks 19/58; rank 33 stays
+        # HUMAN-SOURCE): the additive honest `.coverage_note` records the measured collation —
+        # 0 of 4 source-content fields are verbatim in the claimed witness X86n1598; three have
+        # no run of 8 or more graphs in it and the fourth (70 graphs) shares one 12-graph
+        # fragment, while the measurable relatives are 壇經 recension fragments (T48n2008,
+        # T48n2007). The Dunhuang manuscript P.3018 named by `cbeta_id` is out of CBETA, so
+        # acquiring it is human OUT-OF-CBETA sourcing (Ruling 4), not agent work. Only the note
+        # changes: no `zh`/`*_zh` field, no `title_zh` (composite-title metadata flag), no
+        # `cbeta_id` (ID-corrected), and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 

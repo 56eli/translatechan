@@ -111,5 +111,6 @@
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'X1458' wrong — X1458 is 宗門寶積錄. The 曹溪大師別傳 is X86n1598 (卍續藏第86冊) plus the Dunhuang manuscript P.3018. The prior 'taisho_vol 86' was actually the 續藏 volume number."
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1458' wrong — X1458 is 宗門寶積錄. The 曹溪大師別傳 is X86n1598 (卍續藏第86冊) plus the Dunhuang manuscript P.3018. The prior 'taisho_vol 86' was actually the 續藏 volume number.",
+  "coverage_note": "3/3 sections represented, carrying 4 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields are verbatim in the claimed witness X86n1598 曹溪大師別傳: three of the four have no run of 8 or more graphs in it (0 of 25, 0 of 45 and 0 of 64 twelve-graph windows) and the fourth (.sections[0].dialogue[0].zh, 70 graphs) shares one 12-graph fragment @6,790. The measurable relatives of this wording are 壇經 recension fragments: T48n2008 carries 19/70 (@4,958 + @3,376), 22/56 (@3,570 + @3,588) and 10/75 (@5,711), and T48n2007 carries 8/70 @4,901 and 8/56 @481. The record's second witness, the Dunhuang manuscript P.3018, is named by cbeta_id but is out of CBETA (no hit in the 39 pinned refs), so no fragment or offset can be measured for it; acquiring it is human OUT-OF-CBETA sourcing under Ruling 4, not agent work. No field was re-keyed, and the cbeta_note (ID-corrected) is unchanged."
 }
