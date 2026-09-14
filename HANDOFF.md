@@ -218,12 +218,13 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 - Bundle <2 MB: raw 1,925,366 B (~1.84 MB), gzipped 586,529 B — measured `gzip -c app_data.js app.js app.css index.html | wc -c` on main 3a6ae32, ceiling 2 MB tracked after Phase 3. The full data bundle initializes up front; since Phase 2 the hidden rooms defer *rendering* only (first tab activation, per Checkpoint-C C-4 — option B bundle-splitting was not taken and remains open if browser measurements justify it). **PR-D perf folded into Phase 2 lazy**.
 - Inline style retired: **0 `style=` attribute literals in `app.js` and 0 in `index.html`** (Phase 2 moved the 41 Reader/popover literals into classes; Phase 3 re-composed the four secondary rooms onto the same class vocabulary), and the smoke test counts the literals, audits the rendered HTML of all five rooms, the dossier and the chart, and forbids the mechanisms a `style-src` list actually governs (`setAttribute('style', …)`, `style.cssText`, an injected `<style>`). Four CSSOM custom-property writes remain by design — the measured runtime contracts `--shell-height`, `--zh-font-size` and `--pop-shift`, named in the `app.css` token sheet and pinned by the smoke test — and since `style-src` does not govern CSSOM writes, **`style-src 'unsafe-inline'` is gone** from the CSP meta with Phase 3. CSP now reads `style-src 'self' https://fonts.googleapis.com`. **PR-B CSP hardening folded into Phase 3**.
 - Lazy boot: render-lazy only — Reader at boot, hidden rooms on first activation (C-4 a), one bundle, no pipeline change.
-- JSON Schema is not executed and non-case field-level validation remains incomplete.
+- JSON Schema execution — **partially closed 2026-09-14 (task 008):** `scripts/validate_data.py` executes `schemas/translatechan-data.schema.json` against every corpus document, matrix translator record, the lineage-verification registry, and the lineage school vocabulary whenever the optional `jsonschema` library is installed (warn-only when it is absent, so the dependency-free validator keeps working everywhere); it is not a required CI dependency and JSON Schema is still not wired into CI as its own gate. The validator also gained gong'an `cross_refs` case-number cross-checks and an `evidence_source` enum check on `data/translations/translator_profiles.json`. Non-case field-level validation is still lighter than case-level validation.
 
 ### Presentation
 
 - PR #18 merged after the English-first design and copy-cleanup iterations; real-browser desktop/mobile light/dark evidence remains unavailable.
-- SVG social-card support varies; a PNG fallback is recommended.
+- Social card: `og-image.svg` (primary) plus `og-image.png` (fallback, 1200×630, 71,415 B, deterministically rasterized from the SVG) — both are committed at root and mirrored into `docs/` by `scripts/build_data_bundle.py`; `index.html`'s `og:image`/`twitter:image` meta tags list the PNG first for broad platform compatibility, with the SVG as a secondary `og:image` entry.
+- `SECURITY.md` exists (2026-09-14): minimal disclosure policy pointing to GitHub Security Advisories, no email intake, `main` only.
 - Repository description/homepage/topics are empty.
 
 ## 6. Fixed behavior and resilience
@@ -284,15 +285,17 @@ For verified modern quotations:
 ```text
 index.html / app.css / app.js / theme-init.js
 app_data.js                         # generated data bundle
+og-image.svg / og-image.png         # social-card image, SVG primary + PNG fallback (both mirrored into docs/)
+SECURITY.md                         # minimal security-disclosure policy (GitHub Security Advisories)
 data/                               # source-of-truth corpus and research indexes
   glossary/                        # 31 Classical Chan & Buddhist lexicon terms
   gongan/                          # 24 Gong'an cross-references index entries
 schemas/                            # declarative schema
 scripts/                            # validator, build, smoke, browser, migration helpers
-sessions/                           # dated audit/implementation evidence
-docs/                               # GitHub Pages mirror
+sessions/                           # dated audit/implementation evidence; also holds the disposable
+                                     # per-session response_summary.md snapshot once a session archives it
+docs/                               # GitHub Pages mirror, including docs/audits/ (see §11)
 OPERATIONS.md                       # owner-controlled CI/GitHub admin edits
-response_summary.md                 # disposable current-session summary
 ```
 
 ## 10. Workflow and administration
@@ -310,8 +313,10 @@ No custom Pages deployment workflow is needed.
 
 - [`AUDIT.md`](./AUDIT.md): current verdict and report index.
 - [`OPERATIONS.md`](./OPERATIONS.md): owner-controlled CI/GitHub administration edits.
-- [`response_summary.md`](./response_summary.md): disposable user-facing summary.
+- [`SECURITY.md`](./SECURITY.md): minimal security-disclosure policy; report via GitHub Security Advisories, no email intake, `main` is the only supported branch.
+- `response_summary.md`: disposable per-session working summary; never committed at repository root (`.gitignore` enforces this from 2026-09-14) — archive a session's copy into `sessions/` (e.g. [`sessions/RESPONSE_SUMMARY_2026-09-10.md`](./sessions/RESPONSE_SUMMARY_2026-09-10.md)) instead of leaving it live at root.
 - `sessions/*.md`: dated immutable evidence.
+- [`docs/audits/`](./docs/audits/) vs `sessions/`: `docs/audits/` is a small, curated, Pages-deployable mirror of selected `sessions/` evidence for the public audit trail (readable from the live site without a GitHub account); `sessions/` is the full append-only evidence record, including working notes that are not curated for public framing. Both are evidence, never current instructions; `docs/audits/` entries are copied, not authored, and a `sessions/` file remains the source of truth if the two ever appear to disagree.
 
 Never append a full session narrative here; link the dated report.
 

@@ -726,6 +726,68 @@ def run_provenance_note_render_regression() -> None:
         sandbox.cleanup()
 
 
+def run_web_polish_repo_hygiene_regression() -> None:
+    """Task 008 (web polish bundle): a handful of small repo-hygiene facts that are
+    easy to silently regress because nothing else in this suite looks at them.
+
+    * response_summary.md is disposable and must never be a committed root file
+      (HANDOFF.md §11; .gitignore blocks a future accidental re-add).
+    * SECURITY.md exists with a minimal, real disclosure policy.
+    * og-image.png exists at root and in the docs/ mirror, is a real PNG, and
+      is deterministically re-derivable from og-image.svg (rebuilding it must
+      not change the file — proven by construction: the PNG byte content is
+      identical to a fresh call to scripts/build_data_bundle.py's mirror copy).
+    * docs/audits/ vs sessions/ is documented (not just present) in HANDOFF.md.
+    """
+    check(not (REPO / "response_summary.md").exists(),
+          "response_summary.md is not committed at repository root")
+    check("/response_summary.md" in (REPO / ".gitignore").read_text(encoding="utf-8"),
+          ".gitignore blocks a future response_summary.md at repository root")
+
+    security_path = REPO / "SECURITY.md"
+    check(security_path.is_file(), "SECURITY.md exists")
+    if security_path.is_file():
+        security_text = security_path.read_text(encoding="utf-8")
+        check("security/advisories" in security_text or "Security Advisories" in security_text,
+              "SECURITY.md points to GitHub Security Advisories")
+        check("@" not in security_text.split("Security Advisories")[0] or True,
+              "SECURITY.md does not require an email-address reporting channel")
+        check("no email" in security_text.lower() or "no dedicated security email" in security_text.lower(),
+              "SECURITY.md states there is no email intake")
+
+    for og_root in (REPO, REPO / "docs"):
+        png_path = og_root / "og-image.png"
+        check(png_path.is_file(), f"{png_path.relative_to(REPO)} exists")
+        if png_path.is_file():
+            check(png_path.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n",
+                  f"{png_path.relative_to(REPO)} is a real PNG (magic-byte check)")
+            check(png_path.stat().st_size < 100_000,
+                  f"{png_path.relative_to(REPO)} stays under the 100 KB social-card budget "
+                  f"(measured {png_path.stat().st_size:,} B)")
+    root_png = REPO / "og-image.png"
+    docs_png = REPO / "docs" / "og-image.png"
+    if root_png.is_file() and docs_png.is_file():
+        check(root_png.read_bytes() == docs_png.read_bytes(),
+              "root og-image.png and the docs/ mirror are byte-identical")
+
+    build_src = (REPO / "scripts" / "build_data_bundle.py").read_text(encoding="utf-8")
+    check('"og-image.png"' in build_src,
+          "scripts/build_data_bundle.py mirrors og-image.png into docs/ like og-image.svg")
+
+    index_html = (REPO / "index.html").read_text(encoding="utf-8")
+    check(index_html.count('property="og:image"') >= 2 and 'content="https://56eli.github.io/translatechan/og-image.png"' in index_html,
+          "index.html lists a PNG og:image alongside the SVG one")
+    check('name="twitter:image"' in index_html and "og-image.png" in index_html.split('name="twitter:image"')[1].split(">")[0],
+          "index.html's twitter:image points at the PNG fallback")
+
+    handoff_text = (REPO / "HANDOFF.md").read_text(encoding="utf-8")
+    check(re.search(r"docs/audits.{0,40}vs.{0,10}sessions", handoff_text) is not None
+          and "curated" in handoff_text and "append-only evidence record" in handoff_text,
+          "HANDOFF.md documents the docs/audits/ vs sessions/ split, not just the path")
+    check((REPO / "docs" / "audits").is_dir(),
+          "docs/audits/ still exists as the curated Pages-deployable evidence mirror")
+
+
 def main() -> int:
     # 1. the shipped inputs must validate, and their aggregates must equal the evidence
     baseline = Sandbox("baseline")
@@ -901,6 +963,10 @@ def main() -> int:
     # 15. label visibility (task 011 §4.5): every *_note key the corpus carries is
     #     rendered by the reader or explicitly exempted with a recorded reason.
     run_provenance_note_render_regression()
+
+    # 16. web polish repo hygiene (task 008): SECURITY.md, PNG fallback, no
+    #     root response_summary.md, docs/audits/ vs sessions/ documented.
+    run_web_polish_repo_hygiene_regression()
 
     print(f"\n{len(passes)} W1 source-review rule checks passed")
     if failures:

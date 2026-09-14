@@ -34,8 +34,8 @@ necessary GitHub permissions can apply and verify them.
 This single structural diff covers root bundle, the entire `docs/` mirror tree, and generated metrics, so new mirrored assets (theme-init.js, robots.txt, sitemap.xml, og-image.svg) are guarded without enumerating each path. It satisfies Edit 1's intent without an explicit per-file list.
 
 - **Status:** closed structurally by O-3 — `git diff --exit-code -- app_data.js docs data/project_metrics.json` is now the gate in `.github/workflows/quality.yml` (see `quality.yml:35`).
-- **Verification:** `python3 scripts/build_data_bundle.py && git diff --exit-code -- app_data.js docs data/project_metrics.json` — PASS on main 3a6ae32 and on Phase B branches.
-- **Remaining:** Edit 1 no longer requires owner action; the enumerated-list form in the original proposal is superseded by the structural form.
+- **Verification:** `python3 scripts/build_data_bundle.py && git diff --exit-code -- app_data.js docs data/project_metrics.json` — PASS on main 3a6ae32 and on Phase B branches; re-confirmed 2026-09-14 (task 008) on main `766b97c` (PR #51), including the new `og-image.png` mirror path added to `scripts/build_data_bundle.py`'s copy list — the same structural diff covers it without an enumerated-list edit.
+- **Remaining:** Edit 1 no longer requires owner action; the enumerated-list form in the original proposal is superseded by the structural form. Edits 2 and 3 below remain owner-held per `AGENTS.md` §6 (agents must not edit `.github/workflows/*` without explicit owner approval) — no agent edit to either has been attempted.
 
 > This only closes mirror-path coverage. The full audit also recommends future owner-approved CI jobs for a non-skippable browser suite, HTML/JS/link checks, and accessibility checks after the underlying tests are corrected.
 

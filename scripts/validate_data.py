@@ -51,6 +51,13 @@ PROVENANCE_PATH = DATA_DIR / "translations" / "provenance.json"
 MATRIX_PATH = DATA_DIR / "translations" / "comparative_matrix.json"
 SCHEMA_PATH = ROOT / "schemas" / "translatechan-data.schema.json"
 BUILD_SCRIPT = ROOT / "scripts" / "build_data_bundle.py"
+TRANSLATOR_PROFILES_PATH = DATA_DIR / "translations" / "translator_profiles.json"
+
+# P2.7 (executed JSON Schema): known-good enum for the translator-profile evidence
+# tier. This is intentionally the same vocabulary data/translations/translator_
+# profiles.json's own "methodology.tiers" documents in prose, so the check
+# catches a typo'd or invented tier rather than re-deriving policy here.
+VALID_EVIDENCE_SOURCES = frozenset({"in_corpus_verified", "documented_external", "not_applicable"})
 # The W1 status vocabulary, the completion/source-review compatibility rule, and the
 # dated evidence merge live next to this script so the validator, the metrics, the
 # collation harness and the regression tests cannot drift apart. `app.js` mirrors the
@@ -912,6 +919,178 @@ def validate_rights_manifest(
     }
 
 
+def validate_translator_profiles(profiles_doc: Any, issues: Issues) -> dict[str, Any]:
+    """P2.7 depth: `evidence_source` enum check (task 008).
+
+    Every Robo-translator profile declares which evidence tier its personality
+    is grounded in. The value is prose-documented in the file's own
+    `methodology.tiers` object; this check makes sure every profile actually
+    uses one of the tiers that prose defines (today: in_corpus_verified,
+    documented_external, not_applicable for the control/reference renderer),
+    instead of drifting to an undocumented ad-hoc string. This does not
+    second-guess *which* tier is correct for a given translator — that is an
+    editorial judgment recorded in evidence_pointers/evidence_pending — only
+    that the tier is a known, declared value.
+    """
+    path = rel(TRANSLATOR_PROFILES_PATH)
+    if not is_record(profiles_doc):
+        issues.error(path, "must be an object with schema_version, methodology, and profiles")
+        return {}
+    profiles = profiles_doc.get("profiles")
+    if not isinstance(profiles, list) or not profiles:
+        issues.error(path, "must declare a non-empty profiles list")
+        return {}
+    counts: Counter[str] = Counter()
+    seen_keys: set[str] = set()
+    for index, profile in enumerate(profiles):
+        profile_path = f"{path}.profiles[{index}]"
+        require_fields(profile, ("register_key", "translator", "robo_name", "evidence_source"), profile_path, issues)
+        if not is_record(profile):
+            continue
+        key = profile.get("register_key")
+        if nonempty_string(key):
+            if key in seen_keys:
+                issues.error(profile_path, f"duplicate register_key '{key}'")
+            seen_keys.add(key)
+        source = profile.get("evidence_source")
+        if source not in VALID_EVIDENCE_SOURCES:
+            issues.error(
+                profile_path,
+                f"evidence_source {source!r} is not a known tier {sorted(VALID_EVIDENCE_SOURCES)} "
+                "(see data/translations/translator_profiles.json methodology.tiers)",
+            )
+        else:
+            counts[source] += 1
+    return {"profiles": len(profiles), "evidence_source_counts": dict(sorted(counts.items()))}
+
+
+def validate_gongan_cross_refs(gongan: Any, corpus: dict[str, Any], issues: Issues) -> None:
+    """P2.7 depth: gong'an cross_refs and protagonist cross-reference check (task 008).
+
+    `data/gongan/gongan_index.json` carries two kinds of cross-reference that
+    the schema alone cannot check because they point sideways into other data
+    files rather than nesting inside the record:
+
+    * `protagonist` should name a master this project actually tracks
+      (`data/lineage/masters.json`), when the reference looks like an internal
+      lineage key (lowercase snake_case) rather than a prose label for a
+      figure without a lineage profile (e.g. deliberately unprofiled
+      teaching-story protagonists);
+    * `cross_refs` entries that cite a specific Wumenguan/Biyanlu case number
+      ("Wumenguan Case 18", "Biyanlu Case 47", …) must point at a case number
+      that collection's corpus document actually contains, so a typo'd case
+      number cannot silently ship. Free-text cross-references to other works
+      (e.g. "Zhaozhou Yulu", "Chuandenglu Vol. 6") are not checked here — they
+      name a work, not an addressable unit, and validating prose bibliographic
+      citations is out of this check's scope.
+    """
+    if not isinstance(gongan, list):
+        return
+    path = rel(DATA_DIR / "gongan" / "gongan_index.json")
+    master_ids = set()
+    lineage = load_json(DATA_DIR / "lineage" / "masters.json", Issues())
+    if isinstance(lineage, list):
+        master_ids = {m.get("id") for m in lineage if is_record(m) and nonempty_string(m.get("id"))}
+
+    case_numbers: dict[str, set[int]] = {}
+    for collection_name, corpus_key in (("Wumenguan", "wumenguan"), ("Biyanlu", "biyanlu_cases")):
+        document = corpus.get(corpus_key)
+        numbers: set[int] = set()
+        if is_record(document) and isinstance(document.get("cases"), list):
+            for case in document["cases"]:
+                if is_record(case) and isinstance(case.get("case_num"), int):
+                    numbers.add(case["case_num"])
+        case_numbers[collection_name] = numbers
+
+    case_ref_pattern = re.compile(r"^(Wumenguan|Biyanlu) Case (\d+)")
+    for index, entry in enumerate(gongan):
+        if not is_record(entry):
+            continue
+        entry_path = f"{path}[{index}]"
+        protagonist = entry.get("protagonist")
+        if nonempty_string(protagonist) and re.fullmatch(r"[a-z0-9][a-z0-9_]*", protagonist):
+            if master_ids and protagonist not in master_ids:
+                issues.warning(
+                    entry_path,
+                    f"protagonist {protagonist!r} looks like an internal lineage key but is not in "
+                    "data/lineage/masters.json — confirm it is an intentionally unprofiled figure",
+                )
+        for cross_ref in entry.get("cross_refs", []) if isinstance(entry.get("cross_refs"), list) else []:
+            if not nonempty_string(cross_ref):
+                continue
+            match = case_ref_pattern.match(cross_ref)
+            if not match:
+                continue
+            collection_name, case_num = match.group(1), int(match.group(2))
+            known_numbers = case_numbers.get(collection_name)
+            if known_numbers and case_num not in known_numbers:
+                issues.error(
+                    entry_path,
+                    f"cross_refs entry {cross_ref!r} cites {collection_name} case {case_num}, "
+                    f"which data/corpus/{'wumenguan' if collection_name == 'Wumenguan' else 'biyanlu_cases'}.json does not contain",
+                )
+
+
+def run_json_schema_checks(
+    corpus: dict[str, Any],
+    matrix: Any,
+    lineage_registry: Any,
+    school_vocab_raw: Any,
+    issues: Issues,
+) -> None:
+    """P2.7 depth: execute schemas/translatechan-data.schema.json (task 008).
+
+    The schema has always been a declarative companion the Python validator
+    enforces manually; this executes it for real against live data using the
+    optional `jsonschema` library. If the library is not installed, this is a
+    documented, printed warning — never a failure — because the dependency-free
+    validator must keep working in every environment (see the module
+    docstring). When the library *is* installed, any schema violation is a
+    hard validator error: JSON Schema failures reflect real structural drift,
+    not something to demote to advisory.
+    """
+    try:
+        import jsonschema  # type: ignore
+    except ImportError:
+        issues.warning(
+            "schemas/translatechan-data.schema.json",
+            "jsonschema library not installed — declarative schema was not executed this run "
+            "(pip install jsonschema to enable; see scripts/validate_data.py run_json_schema_checks)",
+        )
+        return
+
+    schema = load_json(SCHEMA_PATH, issues)
+    if not is_record(schema) or not is_record(schema.get("$defs")):
+        return
+
+    def sub_schema(def_name: str) -> dict[str, Any]:
+        return {"$schema": schema["$schema"], "$defs": schema["$defs"], **schema["$defs"][def_name]}
+
+    def run(def_name: str, instance: Any, path: str) -> None:
+        validator_cls = jsonschema.Draft202012Validator
+        validator = validator_cls(sub_schema(def_name))
+        for error in validator.iter_errors(instance):
+            location = "/".join(str(part) for part in error.absolute_path)
+            issues.error(path, f"JSON Schema ({def_name}{'/' + location if location else ''}): {error.message}")
+
+    for key, document in corpus.items():
+        run("corpusDocument", document, f"data/corpus/{key}.json")
+
+    if isinstance(matrix, list):
+        for entry in matrix:
+            if not is_record(entry):
+                continue
+            for translator in entry.get("translators", []) if isinstance(entry.get("translators"), list) else []:
+                run("matrixTranslator", translator, f"{rel(MATRIX_PATH)}[{entry.get('id', '?')}]")
+
+    if is_record(lineage_registry):
+        run("lineageVerificationRegistry", lineage_registry, rel(LINEAGE_VERIFICATION_PATH))
+
+    if is_record(school_vocab_raw) and isinstance(school_vocab_raw.get("schools"), list):
+        for school in school_vocab_raw["schools"]:
+            run("lineageSchool", school, f"{rel(LINEAGE_SCHOOL_VOCAB_PATH)}[{school.get('key', '?') if is_record(school) else '?'}]")
+
+
 def iter_strings(value: Any, field_name: str | None = None) -> Iterable[tuple[str | None, str]]:
     if is_record(value):
         for key, child in value.items():
@@ -1537,6 +1716,17 @@ def main() -> int:
     profile_queue_metrics = validate_lineage_profile_queue(lineage, lineage_profile_queue, issues)
     manifest_metrics = validate_manifest_sync(corpus, corpus_manifest, issues)
     w1_aggregates = validate_w1_evidence(corpus_manifest, corpus, issues)
+
+    # P2.7 validation depth (task 008): executed JSON Schema (optional
+    # dependency, warn-only if missing), gong'an cross_refs/protagonist
+    # cross-reference checks, and the translator-profile evidence_source enum.
+    # None of these can weaken or replace the checks above — they are
+    # additive and run after the checks whose metrics they might reference.
+    school_vocab_raw = load_json(LINEAGE_SCHOOL_VOCAB_PATH, Issues())
+    run_json_schema_checks(corpus, matrix, lineage_registry, school_vocab_raw, issues)
+    validate_gongan_cross_refs(gongan, corpus, issues)
+    translator_profiles = load_json(TRANSLATOR_PROFILES_PATH, issues)
+    validate_translator_profiles(translator_profiles, issues)
 
     metrics = compute_metrics(corpus, stats, locator_metrics, rights_metrics, lineage_metrics, traceability_metrics, profile_queue_metrics, manifest_metrics, corpus_manifest, w1_aggregates)
     if not args.skip_docs:
