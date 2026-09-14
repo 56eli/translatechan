@@ -326,5 +326,5 @@
       ]
     }
   ],
-  "coverage_note": "10 signature encounter dialogues and sermons from T1988"
+  "coverage_note": "10 sections represented, carrying 12 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 12 source-content fields collate to the claimed witness T47n1988 雲門匡真禪師廣錄 (11 NOT_FOUND; 1 DIVERGENT at 0.9583 similarity — close in wording, not verbatim), so the earlier \"from T1988\" claim is withdrawn: these are compressed project retellings, not excerpts of that work. The nearest measured proximity anywhere in the 39-ref set is X80n1565 (7 of 14 twenty-four-graph windows in .sections[3].dialogue[0].zh — formulaic proximity, not a verbatim carrier), and no work in the reference set carries these passages; nothing here was re-keyed, and the English renderings are register imitations rather than translations of a recorded source."
 }

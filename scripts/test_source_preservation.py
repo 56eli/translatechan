@@ -396,6 +396,17 @@ ALLOWED_CHANGES = {
         ".cbeta_id",
         ".cbeta_note",
     }),
+    "data/corpus/yunmen_yulu.json": frozenset({
+        # 2026-09-14 LABEL fix (task 009 bundle 1, PHASE2_PLAN rank 45): the `.coverage_note` is
+        # rewritten from "10 signature encounter dialogues and sermons from T1988" — a witness
+        # claim the measurement does not support, since 0 of 12 source-content fields are verbatim
+        # in T47n1988 雲門匡真禪師廣錄 (11 NOT_FOUND, 1 DIVERGENT at 0.9583) — to the measured
+        # disclosure: compressed project retellings whose nearest in-set proximity is X80n1565
+        # (formulaic, not a verbatim carrier). Only the note changes: no `zh`/`*_zh` field, no
+        # `title_zh` (composite-title plan item), no `cbeta_id` (T1988 is the right work), and no
+        # `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
     "data/corpus/yuanwu_letters.json": frozenset({
         # 2026-09-14 LABEL fix (task 009 bundle 1, PHASE2_PLAN rank 9): the additive honest
         # `.coverage_note` discloses the measured collation — 0 of 2 source-content fields collate
