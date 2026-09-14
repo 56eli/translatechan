@@ -482,6 +482,17 @@ ALLOWED_CHANGES = {
         # declares none).
         ".coverage_note",
     }),
+    "data/corpus/dazhu_huihai.json": frozenset({
+        # 2026-09-14 LABEL fix (task 011 bundle 3, PHASE2_PLAN ranks 16/37/61): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 6 source-content fields
+        # are verbatim in either claimed witness (X63n1223, X63n1224); two fields (s1.d0, s1.d1)
+        # have no run of 8 or more graphs in all 39 refs, X63n1223 listed first contributes zero
+        # runs, and the best carrier is T51n2076 (44/54 @58,336 for s0.d1). Project retellings
+        # are retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (composite-title
+        # metadata flag), no `cbeta_id` (ID-correct), and no `zh_chars` pointer (this document
+        # declares none).
+        ".coverage_note",
+    }),
 }
 
 

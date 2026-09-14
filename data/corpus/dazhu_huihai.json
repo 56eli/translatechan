@@ -149,5 +149,6 @@
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'X1258' wrong — X1258 is 禪宗直指 (明 石成金著). Dazhu Huihai's texts are X63n1223 頓悟入道要門論 and X63n1224 參問語錄 (唐 慧海撰)."
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1258' wrong — X1258 is 禪宗直指 (明 石成金著). Dazhu Huihai's texts are X63n1223 頓悟入道要門論 and X63n1224 參問語錄 (唐 慧海撰).",
+  "coverage_note": "0/6 collated, s1.d0/s1.d1 no ≥8-graph run in all 39 refs, X63n1223 listed first contributes zero runs, best carrier T51n2076 44/54 @58,336 for s0.d1, project retellings retained"
 }
