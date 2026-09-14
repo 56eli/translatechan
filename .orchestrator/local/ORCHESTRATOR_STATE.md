@@ -18,7 +18,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 004 | .orchestrator/prompts/004-phase1-system-masthead.md | Phase 1 system+masthead (tokens, serif, shell, hero) | feature/pages-phase1-system-masthead | #48 | Merged 2026-09-13 — main 0d02c4c |
 | 005 | .orchestrator/prompts/005-phase2-reader.md | Phase 2 Reader (sheet, ledger drawer, case rail, lazy) | feature/pages-phase2-reader | #49 | Merged 2026-09-13 — main cae8837 |
 | 006 | .orchestrator/prompts/006-phase3-secondary-rooms-csp.md | Phase 3 secondary rooms + CSP tightening | feature/pages-phase3-secondary-csp | #50 | Merged 2026-09-13 — main 3a6ae32 |
-| 007 | .orchestrator/prompts/007-phase4-evidence-approval.md | Phase 4 evidence and approval | docs/pages-phase4-evidence | — | Dispatched |
+| 007 | .orchestrator/prompts/007-phase4-evidence-approval.md | Phase 4 evidence and approval | docs/pages-phase4-evidence | #51 | MERGE — docs final, WEB_VISION_2026-09-13, frozen tracks closed, 5 gates PASS |
 | 005 | .orchestrator/prompts/005-phase2-reader.md | Phase 2 Reader (sheet, ledger drawer, case rail, lazy) | feature/pages-phase2-reader | #49 | Merged 2026-09-13 — main cae8837 |
 | 006 | .orchestrator/prompts/006-phase3-secondary-rooms-csp.md | Phase 3 secondary rooms + CSP tightening | feature/pages-phase3-secondary-csp | #50 | Merged 2026-09-13 — main 3a6ae32 |
 | 005 | .orchestrator/prompts/005-phase2-reader.md | Phase 2 Reader (sheet, ledger drawer, case rail, lazy) | feature/pages-phase2-reader | #49 | Merged 2026-09-13 — main cae8837 |
@@ -37,7 +37,7 @@ Phase A COMPLETE (PRs #45, #46, #47 merged, main 239e3a9). Phase B — GitHub Pa
 - [x] 006 — Phase 1: System + masthead — PR #48 Merged (main 0d02c4c) — tokens 63→43, serif Source Serif 4, shell/hero/mobile bar, OG redraw
 - [x] 007 — Phase 2: Reader — PR #49 Merged (main cae8837) — sheet minimal, ledger drawer, case rail, 41 style=→0, lazy boot
 - [x] 008 — Phase 3: Secondary rooms + CSP — PR #50 Merged (main 3a6ae32) — 0 style=, CSP without unsafe-inline
-- [x] 009 — Phase 4: Evidence and approval — prompt 007 published
+- [x] 009 — Phase 4: Evidence and approval — PR #51 MERGE (docs final, WEB_VISION_2026-09-13, frozen tracks PR-B/PR-D folded, OPERATIONS Edit1 closed)
 - [ ] 008 — Phase 3: Secondary rooms + CSP tightening (Matrix, Lineage, Gong'an, Lexicon, 58→0 inline styles, CSP drop unsafe-inline) — prompt 006
 - [ ] 009 — Phase 4: Evidence and approval (owner light/dark review, docs final, frozen tracks close) — prompt 007 (stale census 49->50 etc + dahui_hongzhi disclosure) — disclosure-only, if not covered by 001
 - [ ] 005 — Remaining deferred: quotation rights (14 sources human), W1 per-doc remediation queue (51 LABEL + 11 RE-KEY one doc per PR), OPERATIONS Edits 1-3, P2.7 validation depth, frozen PR-A/B/D, OUT-OF-CBETA 31-doc human queue, platform_sutra decision, web polish leftovers
