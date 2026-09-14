@@ -446,6 +446,18 @@ ALLOWED_CHANGES = {
         ".dialogues[1].dialogue[1].translations.hoffman.source.reference",
         ".taisho_vol",
     }),
+    "data/corpus/baizhang_guanglu.json": frozenset({
+        # 2026-09-14 LABEL fix (task 010 bundle 2, PHASE2_PLAN ranks 20/31/57): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 6 source-content fields
+        # are verbatim in either claimed witness (X69n1323, X68n1315) and no field carries a run
+        # of 8 or more graphs in either claimed work, while the only measured carrier of the
+        # project's wording is the UNCITED 五燈會元 X80n1565 (4 of the 6 fields, as 16–28-graph
+        # fragments) and s0.d0/s0.d1 have no run in any of the 39 pinned refs. Only the note
+        # changes: no `zh`/`*_zh` field, no `title_zh` (the composite-title metadata flag is a
+        # separate plan item), no `cbeta_id` (ID-correct), and no `zh_chars` pointer (this
+        # document declares none).
+        ".coverage_note",
+    }),
 }
 
 

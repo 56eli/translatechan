@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110274,
+    "all_corpus_cjk_characters": 110289,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -28,10 +28,11 @@
     "incomplete_documents": 35,
     "per_text": {
       "baizhang_guanglu": {
-        "all_cjk_chars": 333,
+        "all_cjk_chars": 348,
         "cbeta_id": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 224,
+        "coverage_note": "3/3 sections represented, carrying 6 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields are verbatim in either claimed witness (X69n1323 四家語錄卷三 and X68n1315 古尊宿語錄): no field carries a run of 8 or more graphs in either claimed work (0 of 44, 0 of 38, 0 of 34, 0 of 27, 0 of 41 and 0 of 40 runs per field). The only measured carrier of this wording is the uncited 五燈會元 X80n1565 — 4 of the 6 fields as 16–28-graph fragments (s1.d0 24/34 @60,222; s1.d1 16/27 @60,252; s2.d0 18/41 @60,428 + @60,441; s2.d1 28/40 @60,465 + @60,485) — while s0.d0 and s0.d1 have no run in any of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift). The wording is therefore a project composition, not an excerpt of either claimed work, and no field was re-keyed; an older complete copy is OUT-OF-CBETA human sourcing, not agent work. The cbeta_note (ID-correct) is unchanged.",
         "is_complete": false,
         "shapes": [
           "sections"
