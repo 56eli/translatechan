@@ -75,6 +75,13 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 
 Executed so far: **PR #43 (2026-09-12)** fixes the six `CITATION` rows — `zhaozhou_yulu` (the false T1987 claim, withdrawn), `fayan_yulu`, `dongshan_yulu`, `mazu_yulu`, `dahui_hongzhi` — with no status change, no re-designation and no new locator.
 
+## Standing Decisions (2026-09-14, owner — Ruling 1 exception for `LABEL` rows)
+
+- **Ruling 1 exception 2026-09-14 (recorded verbatim):** "LABEL-only docs may ship up to 3 per PR (minor, ~1.5h), RE-KEY docs stay one per PR (major, ~1-2h). No batching of HUMAN-SOURCE or OUT-OF-CBETA. Each doc must be a separate commit with its own collation before/after note, and PR description must list per-doc measurements. Record verbatim in STATE.md."
+- **What the exception relaxes:** Ruling 1's *one document per PR* rule, for `LABEL` rows only — additive disclosure notes with no Chinese re-key and no collation cross-talk, risk assessed LOW by the owner. It changes the queued PR count for the 28 remaining W1 documents from 28 to 16 (6 `LABEL` bundles of 3 + 10 `RE-KEY` PRs of 1).
+- **What it does not relax:** one commit per document; the per-document collation before/after measurement; `RE-KEY` staying one document per PR; the ban on batching `HUMAN-SOURCE` or `OUT-OF-CBETA` rows; Ruling 2 (630 authoritative, 532 today's measurement); Ruling 3 (a false claim is withdrawn, not re-pointed); Ruling 4 (no agent fetch or transcription of OUT-OF-CBETA witnesses).
+- **Executed first by LABEL bundle 1 (this PR, 2026-09-14):** `yuanwu_letters` (0/2 — both letter fields absent from both claimed witnesses and from all 39 pinned refs), `yunmen_yulu` (0/12 verbatim in the correct work T47n1988; its "from T1988" claim is withdrawn), `zhengdao_ge` (6/6 verbatim; the one flag is the root `title_zh`, disclosed as a project heading). Three commits, one per document, each with its own collation before/after note. No Chinese was re-keyed, no `source_review_status` moved, no locator was added, and all five gates stayed green (bundle 1,642,473 B → 1,646,833 B — the growth is the three note strings).
+
 ## Checkpoint-C — Pages Revamp Direction (2026-09-13, owner — proposal PR #46)
 
 - Date: 2026-09-13
