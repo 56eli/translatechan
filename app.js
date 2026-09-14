@@ -307,13 +307,12 @@
   // guess, so long citations/definitions flip cleanly above the anchor.
   //
   // Phase 3 (2026-09-13) turned the old `left`/`top` pair into ONE write of the
-  // `--pop-shift` custom property, which app.css consumes as `translate` on the
-  // three shared popovers. The mechanism is the same one behind --shell-height
-  // and --zh-font-size: the sheet owns placement, script only publishes the
-  // measured number, which the shared .chan-popover rule in app.css consumes. A
-  // CSP style-src list governs style attributes and `style` elements, not CSSOM
-  // writes, so the tightened policy in index.html leaves this path working —
-  // see the note above the CSP meta for the full contract.
+  // `--pop-shift` custom property, consumed as `translate` by the shared
+  // .chan-popover rule in app.css. The mechanism is the one behind --shell-height
+  // and --zh-font-size too: the sheet owns placement, script publishes the
+  // measured number. A CSP style-src list governs style attributes and `style`
+  // elements, not CSSOM writes, so the tightened policy leaves this path working
+  // — see the note above the CSP meta in index.html for the full contract.
   function positionFloatingPopover(pop, anchor, popW) {
     const rect = anchor.getBoundingClientRect();
     const vw = window.innerWidth || document.documentElement.clientWidth || 900;
@@ -2476,7 +2475,7 @@
         </div>
         <div class="matrix-collation">
           <div class="matrix-collation-head">
-            <span>Register</span><span>Machine-made English for this line</span>
+            <span>Register</span><span>English rendering of this line</span>
           </div>
           ${translators.map(rawTranslator => {
             const t = isRecord(rawTranslator) ? rawTranslator : {};
