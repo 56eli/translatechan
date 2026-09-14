@@ -111,5 +111,6 @@
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'T2002' wrong — T2002 is 如淨和尚語錄 (T48n2002A). Dahui's 正法眼藏 (宋 宗杲集並著語) is X67n1309 (卍續藏第67冊)."
+  "cbeta_note": "Corrected 2026-08-08: prior 'T2002' wrong — T2002 is 如淨和尚語錄 (T48n2002A). Dahui's 正法眼藏 (宋 宗杲集並著語) is X67n1309 (卍續藏第67冊).",
+  "coverage_note": "3/3 sections represented, carrying 4 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields are verbatim in the claimed witness X67n1309 正法眼藏. Two of the four are carried by it only as non-verbatim runs (.sections[0].dialogue[0].zh 21/40 @74,756; .sections[0].dialogue[1].zh 35/37 @7,536, DIVERGENT at 0.973 similarity). .sections[1].dialogue[0].zh (56 graphs) has no source in the claimed work and only a 9/56 run in the older 景德傳燈錄 T51n2076 @142,146; .sections[2].dialogue[0].zh (47 graphs) has no run of 8 or more graphs in any of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift). The cbeta_note is ID-correct but records no coverage: one field is carried only by the 傳燈錄 and one is carried by nothing in the reference set. No field was re-keyed; an older complete copy is OUT-OF-CBETA human sourcing, not agent work."
 }

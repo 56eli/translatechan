@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110297,
+    "all_corpus_cjk_characters": 110309,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -243,10 +243,11 @@
         }
       },
       "dahui_shobogenzo": {
-        "all_cjk_chars": 295,
+        "all_cjk_chars": 307,
         "cbeta_id": "X1309 (大慧普覺禪師正法眼藏)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 180,
+        "coverage_note": "3/3 sections represented, carrying 4 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields are verbatim in the claimed witness X67n1309 正法眼藏. Two of the four are carried by it only as non-verbatim runs (.sections[0].dialogue[0].zh 21/40 @74,756; .sections[0].dialogue[1].zh 35/37 @7,536, DIVERGENT at 0.973 similarity). .sections[1].dialogue[0].zh (56 graphs) has no source in the claimed work and only a 9/56 run in the older 景德傳燈錄 T51n2076 @142,146; .sections[2].dialogue[0].zh (47 graphs) has no run of 8 or more graphs in any of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift). The cbeta_note is ID-correct but records no coverage: one field is carried only by the 傳燈錄 and one is carried by nothing in the reference set. No field was re-keyed; an older complete copy is OUT-OF-CBETA human sourcing, not agent work.",
         "is_complete": false,
         "shapes": [
           "sections"

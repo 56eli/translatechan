@@ -470,6 +470,18 @@ ALLOWED_CHANGES = {
         # `cbeta_id` (ID-corrected), and no `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/dahui_shobogenzo.json": frozenset({
+        # 2026-09-14 LABEL fix (task 010 bundle 2, PHASE2_PLAN ranks 17/41/60): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 4 source-content fields
+        # are verbatim in the claimed witness X67n1309: two are carried by it only as
+        # non-verbatim runs (21/40 @74,756 and 35/37 @7,536, DIVERGENT at 0.973), one has no
+        # source in the claimed work and only a 9/56 run in the older 景德傳燈錄 T51n2076
+        # @142,146, and the fourth (47 graphs) has no run of 8 or more graphs in any of the 39
+        # pinned refs. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (composite-title
+        # metadata flag), no `cbeta_id` (ID-correct), and no `zh_chars` pointer (this document
+        # declares none).
+        ".coverage_note",
+    }),
 }
 
 
