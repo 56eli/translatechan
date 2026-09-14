@@ -98,13 +98,52 @@ Phase 2 — Reader (2026-09-13, same revamp):
   numbers only (titles stay in the accessible name), never a sticky wall;
 - the Reader templates carry **zero inline style attributes**: all 41 `style=`
   literals (Reader and shared popovers) became named classes and all 15
-  `.style.display` writes became semantic `hidden` toggles; the remaining
-  JS inline-style sites are the popover positioning pair and three
-  `setProperty` runtime contracts, to be retired with CSP tightening in
-  Phase 3;
+  `.style.display` writes became semantic `hidden` toggles;
 - **render-lazy** (C-4): boot renders the Reader; the Matrix, Lineage, Gong'an
   and Lexicon build their DOM on first tab activation — one bundle, no
   pipeline change.
+
+Phase 3 — secondary rooms + CSP tightening (2026-09-13, same revamp):
+
+- the four secondary rooms are composed on the Reader's vocabulary instead of
+  their own card kits: the Matrix is a **collation table** (`.matrix-collation`,
+  one `.matrix-register-row` per translator, name/work/provenance in the margin
+  rail), Lineage leads with a **transmission register** (`.lineage-band` per
+  generation, `.lineage-master-row` with house · dated record · signature
+  columns, the layered SVG chart kept as the room's second view), the Gong'an
+  index is a **case catalogue** (`.catalogue-row` per case) whose theme filter
+  is one row of text filters, and the Lexicon runs as a **dictionary list**
+  (`.lexicon-entry`, category in the margin). The retired card rules are deleted
+  from `app.css`, not shadowed: 24 selectors that no template used anymore
+  (every `.matrix-card`/`.matrix-col`/`.term-card`/`.meta-chip`/
+  `.source-review-*` block) and the whole Phase-D card-row vocabulary this slice
+  replaces (`.master-directory-row`, `.lexicon-definition-row`,
+  `.gongan-catalogue-row`, `.catalogue-tag-item`, `.matrix-registers-grid`).
+  Measured against `main` in this branch's diff: 12.3 KB of rules out, 19.6 KB
+  of room composition plus its print/480 px parity in. No byte total for a
+  generated asset is quoted in prose on purpose
+  (`scripts/build_data_bundle.py` prints the authoritative number for
+  `app_data.js`); a selector-vs-template scan now finds no class in `app.css`
+  that `app.js` and `index.html` never emit.
+- `style="` attribute literals are **0** in `app.js` and 0 in `index.html`, and
+  the smoke test now asserts that both in source *and* in the rendered HTML of
+  every room, the dossier and the lineage chart. `style-src 'unsafe-inline'` is
+  therefore gone from the CSP meta, which now reads
+  `style-src 'self' https://fonts.googleapis.com`;
+- what remains in `app.js` is four CSSOM custom-property writes —
+  `--shell-height`, `--zh-font-size` (init + A±) and `--pop-shift`, which
+  replaced the popover `left`/`top` pair — recorded as the runtime contracts in
+  the `app.css` token sheet (§7) and pinned by name in the smoke test.
+  `style-src` governs *parsed* style attributes and `style` elements, not
+  CSSOM writes; the mechanisms it does govern (`setAttribute('style', …)`,
+  `style.cssText`, an injected `<style>`) are asserted absent, which is why
+  removing `'unsafe-inline'` is safe and why these four can stay: each is a
+  measured number (shell height, user type size, viewport-clipped popover
+  placement) that no class expresses. CSS anchor positioning is the documented
+  alternative if a later phase wants placement purely in the sheet;
+- breakpoints for the secondary rooms are documented as 1024 / 768 / 480 and
+  the print sheet now covers the rooms (rails, filters and the chart are
+  dropped; rows never split across a page).
 
 This direction and the subsequent copy cleanup are implemented. PR #18 merged as `63dfe37`; main Quality and Pages deployment passed. Current real-browser screenshots were unavailable in the audit environment.
 
@@ -121,8 +160,11 @@ w1-fresh-collation: flagged=532 on current main vs register=630 (2026-09-10) —
 complete=0 | partial=4 | excerpt seeds=31
 lineage=34 masters / 30 edges | glossary=31 | gong'an=24
 app_data.js=<printed by scripts/build_data_bundle.py at build time>
-local first-load estimate≈556 KB gzip before fonts
+local first-load ≈573 KB gzipped across app_data.js + app.js + app.css + index.html
 ```
+
+Reproduce with `gzip -c app_data.js app.js app.css index.html | wc -c`; the raw total is the
+bundle budget the Pages revamp phases track (2 MB ceiling, measured after Phase 3).
 
 Verified citation reference coverage is **176 / 179**; the remaining **3** references are explicitly pending. Edition verification still does not establish reuse rights.
 
@@ -155,7 +197,7 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 - Quality’s artifact diff omits four mirrored assets (see [`OPERATIONS.md`](./OPERATIONS.md) Edit 1).
 - Branch protection is unconfirmed because the integration receives 403.
 - The full data bundle initializes up front; since Phase 2 the hidden rooms defer *rendering* only (first tab activation, per Checkpoint-C C-4 — option B bundle-splitting was not taken and remains open if browser measurements justify it).
-- Five JS inline-style sites remain (the popover positioning pair `left`/`top` and three `setProperty` runtime-contract writes for `--shell-height` / `--zh-font-size`): Phase 2 retired all 41 `style=` attribute literals and 15 `.style.display` property writes of the former 58 sites into classes and `[hidden]` toggles. `style-src 'unsafe-inline'` stays until Phase 3 retires the positioning pair.
+- Inline style is retired: 0 `style=` attribute literals in `app.js` and 0 in `index.html` (Phase 2 moved the 41 Reader/popover literals into classes; Phase 3 re-composed the four secondary rooms onto the same class vocabulary), and the smoke test counts the literals, audits the rendered HTML of all five rooms, the dossier and the chart, and forbids the mechanisms a `style-src` list actually governs (`setAttribute('style', …)`, `style.cssText`, an injected `<style>`). Four CSSOM custom-property writes remain by design — the measured runtime contracts `--shell-height`, `--zh-font-size` and `--pop-shift`, named in the `app.css` token sheet and pinned by the smoke test — and since `style-src` does not govern CSSOM writes, `style-src 'unsafe-inline'` was dropped from the CSP meta with Phase 3. **No real-browser verification exists** (Playwright is optional and skipped without Chromium), so the Pages deployment is the review surface for this change.
 - JSON Schema is not executed and non-case field-level validation remains incomplete.
 
 ### Presentation
@@ -166,7 +208,7 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 
 ## 6. Fixed behavior and resilience
 
-- Lineage dossier toggles semantic hidden state and focus correctly; the dossier, the three shared popovers, and the Lineage graph/directory switch now toggle `hidden` exclusively (no `.style.display` writes remain).
+- Lineage dossier toggles semantic hidden state and focus correctly; the dossier, the three shared popovers, and the Lineage register/chart view switch now toggle `hidden` exclusively (no `.style.display` writes remain), and the register is the room's first view with the chart as its second.
 - Platform direct chapter shapes render source text.
 - Wumenguan epilogue follows cases; Print/PDF expands all lazy units.
 - Wumenguan/Biyanlu labels name their commentator and verse author.

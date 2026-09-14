@@ -58,7 +58,14 @@ W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-
 3. **Browser evidence:** Playwright exits successfully when Chromium is unavailable; browser execution is not required in CI.
 4. **CI coverage:** four mirrored deploy assets are omitted from the generated-artifact diff; browser/a11y/link/performance checks are not required.
 5. **Performance:** the complete data global and all hidden views initialize up front.
-6. **CSP/style debt:** 41 JS-generated inline styles still require `style-src 'unsafe-inline'`.
+6. **CSP/style debt — closed 2026-09-13 (Pages revamp Phase 3).** This line read “41 JS-generated
+   inline styles still require `style-src 'unsafe-inline'`”; Phase 2 moved those 41 `style=` literals
+   into classes and Phase 3 re-composed the four secondary rooms onto the same vocabulary, so `app.js`
+   and `index.html` now carry **0** `style=` attributes (the smoke test counts the literals and audits
+   every rendered room, the dossier and the lineage chart) and the CSP meta dropped `'unsafe-inline'`
+   from `style-src`. Four CSSOM custom-property writes remain by design (the measured runtime contracts
+   `--shell-height`, `--zh-font-size`, `--pop-shift`), which `style-src` does not govern. No real-browser
+   evidence exists for the re-composition, so owner review on live Pages is still open.
 7. **Validation depth:** JSON Schema is not executed and non-case field-level validation remains weaker than case validation.
 
 ### P3 — polish
