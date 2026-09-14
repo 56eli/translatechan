@@ -558,6 +558,18 @@ ALLOWED_CHANGES = {
         # no `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/qinggui_monastic_codes.json": frozenset({
+        # 2026-09-14 LABEL fix (task 013 bundle 5, PHASE2_PLAN ranks 22/48): the additive honest
+        # `.coverage_note` records the measured collation — 0 of 5 source-content fields collate
+        # in either claimed 清規 (T48n2025 敕修百丈清規, X63n1245 禪苑清規) or any of the 39
+        # pinned refs; the document is a composite citing the two codes with no note saying which
+        # field comes from which, and the only measured fragments are 百丈's 一日不作一日不食
+        # (at T48n2025@10,064) and the 坐禪儀 passage 36/52 (in X63n1245@25,973). Project
+        # retellings are retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh`
+        # (composite-title metadata flag), no `cbeta_id` (both IDs name the works they cite),
+        # and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 

@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110322,
+    "all_corpus_cjk_characters": 110337,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -735,10 +735,11 @@
         }
       },
       "qinggui_monastic_codes": {
-        "all_cjk_chars": 315,
+        "all_cjk_chars": 330,
         "cbeta_id": "T2025 / X1245",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 239,
+        "coverage_note": "0/5 in T48n2025/X63n1245 and all 39 refs, composite citing two 清規 with no note which field from which, 百丈 一日不作一日不食 at T48n2025@10,064 and 坐禪儀 36/52 in X63n1245@25,973 only measured fragments, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
