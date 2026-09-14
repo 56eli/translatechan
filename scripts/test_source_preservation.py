@@ -503,6 +503,17 @@ ALLOWED_CHANGES = {
         # no `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/foyan_qingyuan.json": frozenset({
+        # 2026-09-14 LABEL fix (task 012 bundle 4, PHASE2_PLAN ranks 12/40/63): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 6 source-content fields
+        # collate; four fields have no run of 8 or more graphs in any of the 39 pinned refs,
+        # and the one substantial run (27/48) is double-carried by the claimed X68n1315 @4,284
+        # and the older T51n2076 @87,323 (variant 迴/迥), the passage circulating in four works.
+        # Project retellings are retained. Only the note changes: no `zh`/`*_zh` field, no
+        # `title_zh` (composite-title metadata flag), no `cbeta_id` (ID-correct), and no
+        # `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 

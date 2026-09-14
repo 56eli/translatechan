@@ -405,6 +405,7 @@
         "cbeta_id": "X1315 (古尊宿語錄·佛眼語錄)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 320,
+        "coverage_note": "0/6 collated, 4 fields no ≥8-graph run in all 39 refs, one substantial run 27/48 shared by claimed X68n1315 @4,284 and T51n2076 @87,323, double-carried, 4 works circulate, project retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
