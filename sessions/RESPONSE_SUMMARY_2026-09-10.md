@@ -1,4 +1,9 @@
-# Current Session Result — 2026-09-10
+# Session Result — 2026-09-10 (archived from root `response_summary.md`)
+
+> Archived 2026-09-14 (task 008, web polish bundle): this file was the disposable
+> per-session `response_summary.md` at repository root (see `HANDOFF.md` §11
+> documentation rule). It is preserved here, in append-only `sessions/`, rather
+> than deleted outright, and root no longer carries a live copy.
 
 ## Completed
 

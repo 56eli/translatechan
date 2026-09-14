@@ -68,14 +68,15 @@ W1 evidence: **35 documents, 630 flagged source fields** (authoritative 2026-09-
    from `style-src` to `style-src 'self' https://fonts.googleapis.com`. Four CSSOM custom-property writes remain by design (the measured runtime contracts
    `--shell-height`, `--zh-font-size`, `--pop-shift`), which `style-src` does not govern. No real-browser
    evidence exists for the re-composition, so owner review on live Pages is still open.
-7. **Validation depth:** JSON Schema is not executed and non-case field-level validation remains weaker than case validation.
+7. **Validation depth — partially closed 2026-09-14 (task 008).** `scripts/validate_data.py` now optionally executes `schemas/translatechan-data.schema.json` against every corpus document, matrix translator record, the lineage-verification registry, and the lineage school vocabulary when the `jsonschema` library is installed (warn-only, never a hard dependency, so the validator stays dependency-free by default); it also checks gong'an `cross_refs` case-number references against the Wumenguan/Biyanlu corpus documents they cite and the `evidence_source` enum on every `data/translations/translator_profiles.json` entry. All of these pass cleanly on the current data. Non-case field-level validation is still lighter than case-level validation, and JSON Schema is not wired into CI as a required step (it remains an optional depth check, not a gate).
 
 ### P3 — polish
 
 8. Repository description, homepage, and topics are empty; GitHub license detection returns `NOASSERTION`.
-9. Google Fonts is a third-party runtime request; no `SECURITY.md` exists.
-10. SVG social cards have uneven platform support; a PNG fallback would be safer.
-11. Three lineage profiles lack linked corpus keys (prajnatara, yangqi_fanghui, dahong_zuzheng — frontier scaffolds with no active-corpus occurrence; reviewed 2026-09-09) and all 30 edges await exact locators.
+9. Google Fonts remains a third-party runtime request. **Closed 2026-09-14:** [`SECURITY.md`](./SECURITY.md) now exists — minimal disclosure policy, GitHub Security Advisories only, no email intake, `main` is the only supported branch.
+10. **Closed 2026-09-14:** `og-image.png` (1200×630, 71,415 B, deterministically rasterized from `og-image.svg`) now ships alongside the SVG at root and in the `docs/` mirror; `index.html`'s `og:image`/`twitter:image` meta list the PNG first for broad platform compatibility, with the SVG as a secondary `og:image` entry.
+11. Three lineage profiles lack linked corpus keys by design, not as a bug — `prajnatara`, `yangqi_fanghui`, and `dahong_zuzheng` are frontier scaffolds recorded with no active-corpus occurrence (reviewed 2026-09-09; each carries an explicit `profile_evidence` note and triggers the validator's own `alternative_names`/`linked_corpus_keys` empty-list warning, which is expected for these three and not a data-quality regression to chase). All 30 internal lineage edges remain `traditional_link_pending_exact_locator`, which is later-tranche editorial work (exact chart/record locator review), not a defect in the current seed graph.
+12. **`docs/audits/` vs `sessions/` split documented 2026-09-14:** `docs/audits/` is a small, curated, Pages-deployable mirror of selected `sessions/` evidence for the public audit trail; `sessions/` is the full append-only evidence record. See `HANDOFF.md` §11 for the full convention.
 
 ## 5. Verification
 

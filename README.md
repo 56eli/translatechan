@@ -158,7 +158,8 @@ translatechan/
 ├── AUDIT.md                # Current-state audit summary + session index (durable history in sessions/)
 ├── sessions/               # Dated session audit reports + historical audit archive (append-only)
 ├── README.md / HANDOFF.md  # Project documentation / operational guide
-├── response_summary.md     # Live working summary of the current session (overwritten per session)
+├── SECURITY.md              # Minimal security-disclosure policy (GitHub Security Advisories)
+├── og-image.svg / og-image.png # Social-card image; SVG primary + PNG fallback (mirrored into docs/)
 ├── data/
 │   ├── corpus_manifest.json    # Shared active-corpus order/navigation manifest (35 keys)
 │   ├── canonical_locators.json # Document/case/unit source-locator registry
