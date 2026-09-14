@@ -291,5 +291,5 @@
     }
   ],
   "cbeta_note": "Corrected 2026-08-08: prior 'X1265' wrong — X1265 is 禪林寶訓順硃. Fayan's record is T47n1991 金陵清涼院文益禪師語錄; his 宗門十規論 is X63n1226.",
-  "coverage_note": "8/8 sections represented; W1 source-review status: partial_or_failed_w1_collation — 1 of 11 evaluated source-content fields collates to the claimed T47n1991 witness (金陵清涼院文益禪師語錄); 9 are NOT_FOUND (max similarity 0.65) and 1 is SHORT_UNMATCHED. The 宗門十規論 component is X63n1226, as `cbeta_note` records, and it has no collatable witness — X63n1226 is not among the 39 works in the pinned reference set. The former note named T1985 / X1321, neither of which is a witness of this document (T47n1985 is the Linji record; X69n1321 is the Mazu record), and both are dropped. Representation does not establish complete selected-witness status."
+  "coverage_note": "8 sermons citation fixed via #43, remaining 宗門十規論 component (5-item project summary) summarizes X63n1226 not in 39-ref set, no collatable witness, undisclosed, retained as project summary"
 }
