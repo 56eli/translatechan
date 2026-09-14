@@ -493,6 +493,16 @@ ALLOWED_CHANGES = {
         # declares none).
         ".coverage_note",
     }),
+    "data/corpus/deshan_yulu.json": frozenset({
+        # 2026-09-14 LABEL fix (task 011 bundle 3, PHASE2_PLAN ranks 29/62): the additive honest
+        # `.coverage_note` records the measured collation — 0 of 6 content fields match the
+        # claimed T51n2076 phrasing (which carries nothing measurable), while the honest carriers
+        # are the probes X80n1565 (five fields' runs) and X68n1315 (two fields). Retellings are
+        # retained with the primary witness assignment disclosed as wrong. Only the note changes:
+        # no `zh`/`*_zh` field, no `title_zh` (composite-title metadata flag), no `cbeta_id`, and
+        # no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 

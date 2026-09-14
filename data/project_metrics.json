@@ -308,6 +308,7 @@
         "cbeta_id": "embedded: T2076 f.15 / X1565 f.7",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 236,
+        "coverage_note": "0/6 content fields match T2076/X68n1315/X1565 phrasing as blanket claim understates probe coverage: X80n1565 carries 5 fields runs, X68n1315 2, honest carriers are probes, primary witness assignment wrong, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
