@@ -145,7 +145,24 @@ Phase 3 — secondary rooms + CSP tightening (2026-09-13, same revamp):
   the print sheet now covers the rooms (rails, filters and the chart are
   dropped; rows never split across a page).
 
-This direction and the subsequent copy cleanup are implemented. PR #18 merged as `63dfe37`; main Quality and Pages deployment passed. Current real-browser screenshots were unavailable in the audit environment.
+Phase 4 — evidence and approval (2026-09-13, this PR):
+
+- Pages revamp Phases 1-3 merged: #48 system+masthead (tokens 63→43, serif Source Serif 4, shell/hero/mobile bar, OG redraw), #49 Reader (sheet minimal, ledger drawer, case rail, 41 style=→0, lazy boot), #50 secondary rooms + CSP (0 style=, CSP without `unsafe-inline`, 4 CSSOM writes remain).
+- Final measurements: 43 global tokens (35+8) + 6 scoped dials, 0 `style=` in `index.html` and `app.js`, CSP `style-src 'self' https://fonts.googleapis.com` without `unsafe-inline`, bundle raw 1,925,366 B (~1.84 MB) <2 MB, gzipped 586,529 B, render-lazy (Reader boot, others first activation).
+- Frozen tracks: **PR-B CSP hardening folded into Phase 3**, **PR-D perf measure-first folded into Phase 2 lazy** per Checkpoint-C C-5 (a); PR-A real-browser still frozen, no Chromium run on record.
+- Docs finalization: README interface, this section, AUDIT, ROADMAP, and dated vision `WEB_VISION_2026-09-13.md` finalised; OPERATIONS Edit1 closed structurally by O-3.
+- Exit: owner light/dark desktop/mobile review of live Pages site pending, release checklist noted, ask whether required real-browser CI job is approved — no self-declared completion.
+
+
+Phase 4 owner review (2026-09-14, ask_user):
+- Light/dark desktop/mobile functional, but UX insufficient — layout really bad for human reader.
+- Direction: overhauling website for human-readable, easy-of-use, welcoming space is highest priority.
+- Note: AI agents limited, heavily rely on user feedback to forge vision.
+- Real-browser CI: keep_frozen — PR-A remains frozen, owner review on live Pages remains evidence.
+- Implication: Pages revamp Phases 1-3 functionally complete (43 tokens, 0 style=, CSP without unsafe-inline, render-lazy, bundle <2MB, 5 gates green), but visual approval is conditional — next top priority is human-readable overhaul as new proposal-first track beyond Phase B.
+
+
+This direction and the subsequent copy cleanup are implemented. PR #18 merged as `63dfe37`; main Quality and Pages deployment passed. Current real-browser screenshots were unavailable in the audit environment — owner review on live Pages is the Phase4 exit.
 
 ## 4. Measured snapshot
 
@@ -159,8 +176,10 @@ w1-inventories: WITNESS_INVENTORY.md + WITNESS_INVENTORY_T48_T51.md + WITNESS_IN
 w1-fresh-collation: flagged=532 on current main vs register=630 (2026-09-10) — register **not** superseded: owner ruled 2026-09-12 that the post-remediation evidence pass (PR #41) does not replace it, so 630 stays authoritative
 complete=0 | partial=4 | excerpt seeds=31
 lineage=34 masters / 30 edges | glossary=31 | gong'an=24
-app_data.js=<printed by scripts/build_data_bundle.py at build time>
-local first-load ≈573 KB gzipped across app_data.js + app.js + app.css + index.html
+app_data.js=<printed by scripts/build_data_bundle.py at build time> 1,642,473 B raw
+local first-load 586,529 B gzipped across app_data.js + app.js + app.css + index.html (raw 1,925,366 B ~1.84 MB <2 MB)
+pages-revamp: tokens 43 (35+8) + 6 scoped, 0 style= in index.html/app.js, CSP without unsafe-inline, 4 CSSOM writes, render-lazy
+frozen: PR-B CSP folded Phase3, PR-D perf folded Phase2, PR-A real-browser still frozen
 ```
 
 Reproduce with `gzip -c app_data.js app.js app.css index.html | wc -c`; the raw total is the
@@ -193,11 +212,12 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 
 ### Engineering and operations
 
-- Playwright skips with success when Chromium is unavailable and is not a required CI job.
-- Quality’s artifact diff omits four mirrored assets (see [`OPERATIONS.md`](./OPERATIONS.md) Edit 1).
-- Branch protection is unconfirmed because the integration receives 403.
-- The full data bundle initializes up front; since Phase 2 the hidden rooms defer *rendering* only (first tab activation, per Checkpoint-C C-4 — option B bundle-splitting was not taken and remains open if browser measurements justify it).
-- Inline style is retired: 0 `style=` attribute literals in `app.js` and 0 in `index.html` (Phase 2 moved the 41 Reader/popover literals into classes; Phase 3 re-composed the four secondary rooms onto the same class vocabulary), and the smoke test counts the literals, audits the rendered HTML of all five rooms, the dossier and the chart, and forbids the mechanisms a `style-src` list actually governs (`setAttribute('style', …)`, `style.cssText`, an injected `<style>`). Four CSSOM custom-property writes remain by design — the measured runtime contracts `--shell-height`, `--zh-font-size` and `--pop-shift`, named in the `app.css` token sheet and pinned by the smoke test — and since `style-src` does not govern CSSOM writes, `style-src 'unsafe-inline'` was dropped from the CSP meta with Phase 3. **No real-browser verification exists** (Playwright is optional and skipped without Chromium), so the Pages deployment is the review surface for this change.
+- Playwright skips with success when Chromium is unavailable and is not a required CI job; real-browser CI remains frozen track PR-A.
+- Quality’s artifact diff — **Edit 1 closed structurally by O-3 (2026-09-13):** `git diff --exit-code -- app_data.js docs data/project_metrics.json` now covers root bundle, entire `docs/` mirror tree and metrics (see [`OPERATIONS.md`](./OPERATIONS.md) Edit 1). The old four-asset enumeration gap is resolved.
+- Branch protection is unconfirmed because the integration receives 403 (Edit 3 still open).
+- Bundle <2 MB: raw 1,925,366 B (~1.84 MB), gzipped 586,529 B — measured `gzip -c app_data.js app.js app.css index.html | wc -c` on main 3a6ae32, ceiling 2 MB tracked after Phase 3. The full data bundle initializes up front; since Phase 2 the hidden rooms defer *rendering* only (first tab activation, per Checkpoint-C C-4 — option B bundle-splitting was not taken and remains open if browser measurements justify it). **PR-D perf folded into Phase 2 lazy**.
+- Inline style retired: **0 `style=` attribute literals in `app.js` and 0 in `index.html`** (Phase 2 moved the 41 Reader/popover literals into classes; Phase 3 re-composed the four secondary rooms onto the same class vocabulary), and the smoke test counts the literals, audits the rendered HTML of all five rooms, the dossier and the chart, and forbids the mechanisms a `style-src` list actually governs (`setAttribute('style', …)`, `style.cssText`, an injected `<style>`). Four CSSOM custom-property writes remain by design — the measured runtime contracts `--shell-height`, `--zh-font-size` and `--pop-shift`, named in the `app.css` token sheet and pinned by the smoke test — and since `style-src` does not govern CSSOM writes, **`style-src 'unsafe-inline'` is gone** from the CSP meta with Phase 3. CSP now reads `style-src 'self' https://fonts.googleapis.com`. **PR-B CSP hardening folded into Phase 3**.
+- Lazy boot: render-lazy only — Reader at boot, hidden rooms on first activation (C-4 a), one bundle, no pipeline change.
 - JSON Schema is not executed and non-case field-level validation remains incomplete.
 
 ### Presentation
