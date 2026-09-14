@@ -1567,27 +1567,27 @@ mark {
   font-style: italic;
 }
 
-/* U3 (audit 2026-08-10, session 019feabb): lexicon filter row + summary +
-   no-match hint. Mirrors the global-search box and the reader's source-
-   location callout style for visual consistency. */
-.lexicon-filter-row {
-  align-items: center;
-}
+/* U3 (audit 2026-08-10, session 019feabb): the Lexicon's live filter readout.
+   Phase 3 kept both hooks but dropped the framed-card treatment: the tally is
+   a quiet line above the dictionary and the no-match hint is a ruled note, so
+   neither competes with the entries it describes. (The filter row's layout
+   lives with the shared control bands below.) */
 .lexicon-summary {
-  font-size: 0.78rem;
+  margin: 0 0 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
   color: var(--ink-soft);
-  margin: 0 0 0.75rem;
-  font-weight: 600;
 }
 .lexicon-no-match {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--blue);
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius);
-  font-size: 0.88rem;
+  margin: 0 0 1.1rem;
+  padding: 0.55rem 0 0.55rem 0.8rem;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  border-left: 2px solid var(--blue);
+  font-size: 0.86rem;
+  line-height: 1.6;
   color: var(--ink);
-  grid-column: 1 / -1;
 }
 .btn-primary {
   background: var(--gold);
@@ -2198,12 +2198,28 @@ textarea:focus-visible,
   gap: 0.75rem;
 }
 
-/* Room control bands — the controls each room's index.html heading carries.
-   Lineage and Lexicon need the same band, so they share one rule. */
+/* Room control bands — the controls the Lineage and Lexicon headings carry in
+   index.html. Both rooms need the same band and the same inline control group,
+   so each shape is one rule shared by the two rooms rather than two copies. */
 .lineage-toolbar,
+.lexicon-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
 .lineage-filter-row,
-/* The two views of one record: the switch is a labelled pair of text buttons,
-   not a third control band. */
+.lexicon-filter-group,
+.lexicon-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+/* The two views of one record: the switch is a labelled pair of text buttons
+   inside the control band, not a third band of its own. */
 .lineage-view-switch {
   display: flex;
   align-items: center;
@@ -2245,8 +2261,8 @@ textarea:focus-visible,
    • source Chinese is sized from `--zh-font-size` through a room-scoped ratio
      (below), so A−/A+ govern every zh block in the hall and Chinese stays
      subordinate to the English voice outside the Reader sheet (C-3);
-   • every class below is written by app.js templates or by the two index.html
-     room wrappers. The rooms carry no style attributes, and that is what lets
+   • every class below is written by an app.js template or by a room wrapper in
+     index.html. The rooms carry no style attributes, and that is what lets
      `style-src` run without 'unsafe-inline' (index.html CSP note).
    ========================================================================== */
 .room-body,
@@ -2580,7 +2596,8 @@ textarea:focus-visible,
 }
 
 /* --- Room 05 · Lexicon: the running dictionary --------------------------- */
-.lexicon-entries { border-top: 2px solid var(--wood-raised); }
+.gongan-catalogue { min-width: 0; }
+.lexicon-entries { min-width: 0; border-top: 2px solid var(--wood-raised); }
 /* Margin (category + recorded tally) · entry. The headword Chinese sits under
    the English literal — the dictionary's organising gloss — sized from
    --zh-font-size, so the room keeps C-3's balance and A−/A+ still govern it. */
