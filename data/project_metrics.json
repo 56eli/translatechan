@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110298,
+    "all_corpus_cjk_characters": 110317,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -405,6 +405,7 @@
         "cbeta_id": "X1315 (古尊宿語錄·佛眼語錄)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 320,
+        "coverage_note": "0/6 collated, 4 fields no ≥8-graph run in all 39 refs, one substantial run 27/48 shared by claimed X68n1315 @4,284 and T51n2076 @87,323, double-carried, 4 works circulate, project retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -430,10 +431,11 @@
         }
       },
       "guiyang_yulu": {
-        "all_cjk_chars": 261,
+        "all_cjk_chars": 267,
         "cbeta_id": "T1989 / T1990",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 177,
+        "coverage_note": "0/6 content fields verbatim in T47n1989/T47n1990 or any of 39 refs, every field zero 16-graph windows, title asserts 96 圓相 but no 圓相 content (witnesses mention 圓相 2×/3×), no coverage/recension note, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -517,10 +519,11 @@
         }
       },
       "huangbo_wanling": {
-        "all_cjk_chars": 311,
+        "all_cjk_chars": 324,
         "cbeta_id": "T2012B",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 214,
+        "coverage_note": "0/7 in claimed T48n2012B and 0/7 in all 39 refs (裴休/壁上畫像 and 噇酒糟漢 material retold not quoted), record names 宛陵錄 as witness but only one unit carries note, no coverage_note stating nothing verbatim",
         "is_complete": false,
         "shapes": [
           "sections"

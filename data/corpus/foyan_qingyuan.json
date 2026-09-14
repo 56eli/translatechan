@@ -165,5 +165,6 @@
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'T1995' is actually 法演禪師語錄 (Wuzu Fayan's record, T47n1995), NOT Foyan's. Foyan Qingyuan's record is 古尊宿語錄·佛眼語錄 (X68n1315, 卍續藏第68冊)."
+  "cbeta_note": "Corrected 2026-08-08: prior 'T1995' is actually 法演禪師語錄 (Wuzu Fayan's record, T47n1995), NOT Foyan's. Foyan Qingyuan's record is 古尊宿語錄·佛眼語錄 (X68n1315, 卍續藏第68冊).",
+  "coverage_note": "0/6 collated, 4 fields no ≥8-graph run in all 39 refs, one substantial run 27/48 shared by claimed X68n1315 @4,284 and T51n2076 @87,323, double-carried, 4 works circulate, project retellings retained"
 }

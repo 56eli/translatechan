@@ -503,6 +503,37 @@ ALLOWED_CHANGES = {
         # no `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/foyan_qingyuan.json": frozenset({
+        # 2026-09-14 LABEL fix (task 012 bundle 4, PHASE2_PLAN ranks 12/40/63): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 6 source-content fields
+        # collate; four fields have no run of 8 or more graphs in any of the 39 pinned refs,
+        # and the one substantial run (27/48) is double-carried by the claimed X68n1315 @4,284
+        # and the older T51n2076 @87,323 (variant 迴/迥), the passage circulating in four works.
+        # Project retellings are retained. Only the note changes: no `zh`/`*_zh` field, no
+        # `title_zh` (composite-title metadata flag), no `cbeta_id` (ID-correct), and no
+        # `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
+    "data/corpus/guiyang_yulu.json": frozenset({
+        # 2026-09-14 LABEL fix (task 012 bundle 4, PHASE2_PLAN ranks 8/56): the additive honest
+        # `.coverage_note` records the measured collation — 0 of 6 content fields are verbatim
+        # in T47n1989/T47n1990 or in any of the 39 pinned refs (every field has zero
+        # sixteen-graph windows in every ref), and the title's 九十六圓相 claim names content
+        # the document does not carry (the witnesses merely mention 圓相 2x/3x). Retellings are
+        # retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (composite-title
+        # metadata flag), no `cbeta_id`, and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
+    "data/corpus/huangbo_wanling.json": frozenset({
+        # 2026-09-14 LABEL fix (task 012 bundle 4, PHASE2_PLAN ranks 10/47): the additive honest
+        # `.coverage_note` records the measured collation — 0 of 7 in the claimed T48n2012B and
+        # 0 of 7 in all 39 pinned refs (the 裴休/壁上畫像 and 噇酒糟漢 material is retold, not
+        # quoted); the record names the 宛陵錄 as its witness but only one unit carries a note,
+        # and until now no coverage_note stated that nothing is verbatim. Retellings are
+        # retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (composite-title
+        # metadata flag), no `cbeta_id`, and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 
