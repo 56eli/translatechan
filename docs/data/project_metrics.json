@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110317,
+    "all_corpus_cjk_characters": 110337,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -553,6 +553,7 @@
         "cbeta_id": "T2075 / P.2125",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 169,
+        "coverage_note": "0/3 collated, field1 condenses two witness runs 20/53 graphs at T51n2075@8,796/@8,808, fields 2-3 share nothing ≥8 graphs with any ref, P.2125 named by cbeta_id is out of CBETA (Dunhuang P.2125) → human sourcing Ruling 4, project retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -644,10 +645,11 @@
         }
       },
       "nanquan_yulu": {
-        "all_cjk_chars": 257,
+        "all_cjk_chars": 262,
         "cbeta_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 148,
+        "coverage_note": "0/6 collated, largest contiguous run 23/27, s1.d0 19 graphs no ≥8-graph run in any of 39 refs, fragmentary wording, parts carried by 傳燈錄/雲門 records, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -733,10 +735,11 @@
         }
       },
       "qinggui_monastic_codes": {
-        "all_cjk_chars": 315,
+        "all_cjk_chars": 330,
         "cbeta_id": "T2025 / X1245",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 239,
+        "coverage_note": "0/5 in T48n2025/X63n1245 and all 39 refs, composite citing two 清規 with no note which field from which, 百丈 一日不作一日不食 at T48n2025@10,064 and 坐禪儀 36/52 in X63n1245@25,973 only measured fragments, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
