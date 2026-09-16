@@ -27,7 +27,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 013 | .orchestrator/prompts/013-label-bundle-5-lidai-nanquan-qinggui.md | LABEL bundle 5 (3 docs minor) | fix/label-bundle-5-lidai-nanquan-qinggui | #57 | Merged 2026-09-14 — main 26b807a |
 | 014 | .orchestrator/prompts/014-label-bundle-6-wudeng-xuansha-xuefeng.md | LABEL bundle 6 final pure LABEL (3 docs minor) | fix/label-bundle-6-wudeng-xuansha-xuefeng | #58 | Merged 2026-09-14 — main 3b68483 — 10 min vs 24h, guard rails work |
 | 015 | .orchestrator/prompts/015-rekey-baojing_sanmei.md | RE-KEY 1/10 (major, single text PR) — baojing_sanmei | fix/rekey-baojing_sanmei | #59 | Merged 2026-09-14 — main 54876c4 — 2/6→6/6, 10 graphemes, 10 min, guard rails |
-| 016 | .orchestrator/prompts/016-rekey-biyanlu_cases.md | RE-KEY 2/10 (major, single text PR) — biyanlu_cases | fix/rekey-biyanlu_cases | — | Published 2026-09-14 — 2 graphs, single doc, guard rails |
+| 016 | .orchestrator/prompts/016-rekey-biyanlu_cases.md | RE-KEY 2/10 (major, single text PR) — biyanlu_cases | fix/rekey-biyanlu_cases | #60 | Merged 2026-09-14 — main a2a4187 — 373→375/395, 2 graphs, guard rails |
 
 
 
