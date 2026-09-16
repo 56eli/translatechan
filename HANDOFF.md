@@ -168,7 +168,7 @@ This direction and the subsequent copy cleanup are implemented. PR #18 merged as
 
 ```text
 corpus=35 | slots=1252 | verified=177 | matrix=21 | locators=148/148
-content CJK=104,610 | all-string CJK=110,721
+content CJK=104,612 | all-string CJK=110,956
 source-review: collated=1 | partial/failed=32 | unavailable=2
 w1-evidence: flagged=630 (authoritative 2026-09-10) | historical=622 (2026-09-09) | report-figure-superseded=637
 w1-campaign: wumenguan(#29) biyanlu(#30) linji(#32) xinxin(#34) re-keyed | platform_sutra(#35) labelled
@@ -196,7 +196,7 @@ Completion requires explicit `complete_selected_witness` status, satisfied unit 
 **The four release-blocking items — where each stands, each with the file to read:**
 
 - **Post-remediation evidence pass — measurement published by PR #41 (2026-09-12); owner ruled 2026-09-12: 630 stays authoritative.** The dated register and report are committed as [`sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json`](./sessions/COLLATION_REGISTER_2026-09-12_POSTREMEDIATION.json) + [`sessions/COLLATION_W1_2026-09-12_POSTREMEDIATION.md`](./sessions/COLLATION_W1_2026-09-12_POSTREMEDIATION.md) (532 flagged fields, 691/924 content fields collating, statuses 1 / 32 / 2, `documents_with_changed_status: 0`); the pass does not supersede the register — the authoritative total stays at the 2026-09-10 register's 630, and the evidence-model change that would move it is not authorised by that ruling (read [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) → "Release-blocking checklist" item 1).
-- **Label visibility in the Reader (task 011) — delivered by PR #40 (2026-09-12).** One shared renderer prints the three passage-level note keys at 17 content sites — 39 of the corpus's 55 note strings; the 16 `coverage_note` strings stay in the represented-units ledger as the one recorded exemption — and §15 of `scripts/test_source_review_rules.py` fails CI on any future orphan key. Implemented and gate-guarded; no real-browser evidence exists, so it is not browser-verified (read [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) → "Release-blocking checklist" item 2).
+- **Label visibility in the Reader (task 011) — delivered by PR #40 (2026-09-12).** One shared renderer prints the three passage-level note keys at 17 content sites — 40 of the corpus's 70 note strings; the 30 `coverage_note` strings stay in the represented-units ledger as the one recorded exemption — and §15 of `scripts/test_source_review_rules.py` fails CI on any future orphan key. Implemented and gate-guarded; no real-browser evidence exists, so it is not browser-verified (read [`RESEARCH_RELEASE_PLAN.md`](./RESEARCH_RELEASE_PLAN.md) → "Release-blocking checklist" item 2).
 - **Owner's fabricated-text decision — unchanged, owner-held.** Replace, label, or remove the fields attested in no witness; explicitly not agent-authorisable (read [`.orchestrator/PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md) → `## Owner decision required`).
 - **OUT-OF-CBETA human-sourcing queue — unchanged, owner-held.** 31 documents; **not agent-authorisable**: no agent may fetch, transcribe or evaluate those witnesses (read [`.orchestrator/PHASE2_PLAN.md`](./.orchestrator/PHASE2_PLAN.md) → §7).
 

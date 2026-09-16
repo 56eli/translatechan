@@ -218,6 +218,31 @@ ALLOWED_CHANGES = {
         ".sections[2].dialogue[1].pinyin",
         ".sections[2].dialogue[1].zh",
     }),
+    "data/corpus/chuandenglu.json": frozenset({
+        # 2026-09-16 R-A re-key (task 018, PHASE2_PLAN ranks 25 / 36 / 59 — RE-KEY 4 of 10):
+        # rank 36's finding is attribution — three works carry parts of this selection and the
+        # third was never cited. Two content fields are re-keyed grapheme-for-grapheme from the
+        # digest-verified CBETA X80n1565 (五燈會元; upstream dbdea41071e1, refs 39 verified /
+        # 0 drift): `.sample_records[0].dialogue[3].zh` 如人駕車 → 如牛駕車 (one graph; the field
+        # carried X80n1565's 車若不行 clause with T51n2076's 人) and
+        # `.sample_records[1].dialogue[1].zh` 士於言下大悟 → 士於言下頓領玄旨, each allowlisted
+        # with its rewritten sibling pinyin. `.sample_records[1].dialogue[0].zh` (the 龐居士問馬祖
+        # question) is NOT allowlisted because its text is byte-identical to base: it was already
+        # verbatim in T48n2001 at offset 66315, so its defect was the uncited witness, fixed in
+        # `scripts/collate_corpus.py`'s DOCS mapping rather than in the source.
+        # `.sample_records[0].dialogue[2].editorial_note` is an additive R-B label recording that
+        # 0 of that field's 30 twelve-graph windows occur in any of the 39 references, so it is a
+        # retained project paraphrase and is not re-keyed. The document collates 4/6 content
+        # fields instead of 1/6; s0.d0 stays DIVERGENT at 0.9677 (甚麼/什麼, one grapheme) and the
+        # 2 NOT_FOUND title_zh metadata flags are untouched (composite-title plan item). This
+        # document declares no `zh_chars`, so no `zh_chars` pointer is allowlisted for it.
+        ".coverage_note",
+        ".sample_records[0].dialogue[2].editorial_note",
+        ".sample_records[0].dialogue[3].pinyin",
+        ".sample_records[0].dialogue[3].zh",
+        ".sample_records[1].dialogue[1].pinyin",
+        ".sample_records[1].dialogue[1].zh",
+    }),
     "data/corpus/dongshan_yulu.json": frozenset({
         # 2026-09-12 CITATION fix (task 014, rank 4): the `coverage_note` cited X1321 — the Mazu
         # record (X69n1321) — as a witness of this document. Rewritten to name the witnesses the

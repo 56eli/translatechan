@@ -231,7 +231,18 @@ DOCS = {
     'shitou_sandokai': (['T51n2076', 'X80n1565'], []),
     'bodhidharma_erru': (['T48n2009'], []),
     'qinggui_monastic_codes': (['T48n2025', 'X63n1245'], []),
-    'chuandenglu': (['T51n2076'], ['X80n1565']),
+    # 2026-09-16 (task 018, PHASE2_PLAN rank 36): X80n1565 was a probe and T48n2001 was
+    # not cited at all, but a probe only annotates `also_in` and never contributes to
+    # `content_fields_collated`, so the attribution rank 36 found could not be measured.
+    # Measured on the digest-verified refs (39 verified / 0 drift at dbdea41071e1): the
+    # selection's six content fields are carried by three different works, none of which
+    # carries all six — T51n2076 carries 一曰圖作佛 whole; X80n1565 carries the 磨磚 and
+    # 西江水 exchanges (offsets 58424 and 83122); T48n2001 alone carries the 龐居士問馬祖
+    # question whole (17/17 graphs at offset 66315), which no other reference carries.
+    # All three are therefore claimed witnesses rather than one being demoted to a probe,
+    # in the shitou_sandokai pattern. All three are already in the 39-work refs manifest
+    # (lines 14, 26, 38), so the reference allowlist is unchanged as a set.
+    'chuandenglu': (['T51n2076', 'T48n2001', 'X80n1565'], []),
     'sengzhao_zhaolun': (['T45n1858'], []),
     'lidai_fabao_ji': (['T51n2075'], []),
     'dazhu_huihai': (['X63n1223', 'X63n1224'], []),

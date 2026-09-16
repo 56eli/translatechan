@@ -7,13 +7,13 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110721,
+    "all_corpus_cjk_characters": 110956,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
       "partial_selected_witness": 4
     },
-    "content_cjk_characters": 104610,
+    "content_cjk_characters": 104612,
     "content_shapes": {
       "cases": 2,
       "chapters": 1,
@@ -182,10 +182,11 @@
         }
       },
       "chuandenglu": {
-        "all_cjk_chars": 193,
+        "all_cjk_chars": 428,
         "cbeta_id": "T2076",
         "completion_status": "excerpt_seed",
-        "content_zh_chars": 142,
+        "content_zh_chars": 144,
+        "coverage_note": "6/6 source-content fields represented across the two sample records (南嶽磨磚作鏡, fasc. 5; 龐居士參馬祖, fasc. 8). RE-KEY 2026-09-16 (R-A, PHASE2_PLAN ranks 25 / 36 / 59, RE-KEY 4 of 10): before this change 1/6 content fields were verbatim against a claimed witness — that one being the five-graph line 一曰圖作佛 — with 2 DIVERGENT (0.9677, 0.9259) and 3 NOT_FOUND (0.8293, 0.7647, 0.8095), and the document carried no coverage, recension or ID note of any kind (rank 59). After it, 4/6 content fields collate (before: 1/6) and total flagged entries fall 7 → 4, measured on the digest-verified pinned references. Attribution — the substance of rank 36 — is that three works carry parts of this selection and none carries all six fields: the claimed Jingde Chuandeng lu T51n2076 (Taishō 51 no. 2076, the work this document is titled for) carries 一曰圖作佛 whole at offset 50789 and the 景德傳燈錄 root title at offset 0; the Wudeng huiyuan X80n1565, previously a probe only, carries the 磨磚 exchange at offset 58424 and the 西江水 exchange at offset 83122; and the previously uncited Hongzhi chanshi guanglu T48n2001 alone carries the 龐居士問馬祖 question whole — 17 of its 17 graphs — at offset 66315, which no other reference in the 39-work set carries. A probe annotates `also_in` but never contributes to `content_fields_collated`, so X80n1565 is promoted from probe to claimed witness and T48n2001 is added in scripts/collate_corpus.py's DOCS mapping; all three were already in the 39-work refs manifest (lines 14, 26, 38), so the reference set is unchanged and all three verify (3/3). Two source fields were re-keyed, both grapheme-for-grapheme from X80n1565 with the project's punctuation positions untouched: s0.d3 如人駕車 → 如牛駕車 (one graph — the field carried X80n1565's 車若不行 clause with T51n2076's 人), and s1.d1 士於言下大悟 → 士於言下頓領玄旨; their sibling pinyin was rewritten syllable-by-syllable (rén → niú; dà wù → dùn lǐng xuán zhǐ). s1.d0 needed no text change at all: it was already byte-verbatim in T48n2001, so its defect was the missing citation, not the wording. s0.d2 is retained rather than re-keyed — 0 of its 30 twelve-graph windows occur in any of the 39 references — and is labelled as a project paraphrase of an attested episode by the additive per-field editorial_note above. Readings not adopted are recorded rather than dropped: for the 磨磚 exchange T51n2076 writes 一塼 / 師作什麼 / 磨塼豈得成鏡耶坐禪豈得成佛耶 and X80n1565 writes 一甎 / 磨作甚麼 / 磨甎豈得成鏡邪 / 磨甎既不成鏡坐禪豈得作佛; for the 西江水 exchange T51n2076 writes 祖云…居士言下頓領, and for s1.d0 it writes 西參問馬祖云不與萬法為侶者是什麼人, without the 龐居士問馬祖 attribution this field carries and with 什麼 for 甚麼. Two residuals are documented and deliberately untouched: s0.d0 stays DIVERGENT at 0.9677 against T51n2076 on a single grapheme (corpus 甚麼, witness 什麼) and is outside this task's named scope; and 2 NOT_FOUND title_zh metadata flags (南嶽磨磚作鏡, 龐居士參馬祖一口吸盡西江水) are project composite titles, measured separately from source content (composite-title plan item). The W1 source-review status in data/corpus_manifest.json stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated by this change (630 remains the authoritative flagged total). Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "sample_records"
