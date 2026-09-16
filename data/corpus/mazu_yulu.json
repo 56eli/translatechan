@@ -19,8 +19,8 @@
       "dialogue": [
         {
           "speaker": "Mazu / 馬祖",
-          "zh": "師示眾云：「道不用修，但莫污染。如何是污染？但有生死心，造作趨向，皆是污染。若欲直會其道，平常心是道。何謂平常心？無造作、無是非、無取捨、無斷常、無凡無聖。」",
-          "pinyin": "Shī shì zhòng yún: 'Dào bù yòng xiū, dàn mò wūrǎn... wú fán wú shèng.'",
+          "zh": "示眾云：「道不用脩，但莫汙染。何為汙染？但有生死心，造作趨向，皆是汙染。若欲直會其道，平常心是道。何謂平常心？無造作、無是非、無取捨、無斷常、無凡無聖。」",
+          "pinyin": "Shì zhòng yún: 'Dào bù yòng xiū, dàn mò wūrǎn. Hé wéi wūrǎn? Dàn yǒu shēngsǐ xīn, zàozuò qūxiàng, jiē shì wūrǎn. Ruò yù zhí huì qí dào, píngcháng xīn shì dào. Hé wèi píngcháng xīn? Wú zàozuò, wú shìfēi, wú qǔshě, wú duàncháng, wú fán wú shèng.'",
           "translations": {
             "cleary": {
               "text": "The Master addressed the assembly: 'The Way needs no practice; just do not defile it. What is defilement? Whenever there is a mind subject to birth and death, making contrivances and directing toward a goal—that is all defilement. If you want to understand the Way directly, Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.'",
@@ -61,12 +61,13 @@
               "text": "Damei asked Baso: 'What is Buddha?' Baso replied: 'This very mind is Buddha.' Damei was deeply awakened at these words and went into mountain solitude.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-16, PHASE2_PLAN ranks 11/35). No reference of the 39-work pinned set carries any eight-graph run of this field, so it has no measured source and keeps no witness attribution; the 大梅法常 story it condenses is carried verbatim by the claimed witness X69n1321 in the two entries that follow. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Monk / 僧",
-          "zh": "僧問馬祖：「和尚為甚麼說即心即佛？」祖曰：「為止小兒啼。」僧曰：「啼止時如何？」祖曰：「非心非佛。」",
-          "pinyin": "Sēng wèn Mǎzǔ: 'Héshang wèishénme shuō jí xīn jí fó?' Zǔ yuē: 'Wèi zhǐ xiǎo'ér tí.' Sēng yuē: 'Tí zhǐ shí rúhé?' Zǔ yuē: 'Fēi xīn fēi fó.'",
+          "zh": "僧問和尚為甚麼說即心即佛？祖曰：「為止小兒啼。」曰：「啼止時如何？」祖曰：「非心非佛。」",
+          "pinyin": "Sēng wèn héshang wèishénme shuō jí xīn jí Fó? Zǔ yuē: 'Wèi zhǐ xiǎo'ér tí.' Yuē: 'Tí zhǐ shí rúhé?' Zǔ yuē: 'Fēi xīn fēi Fó.'",
           "translations": {
             "red_pine": {
               "text": "A monk asked Mazu: 'Why do you teach that this very mind is Buddha?' Mazu said: 'To stop the crying of small babies.' The monk asked: 'When the crying stops, what then?' Mazu said: 'Neither mind nor Buddha.'",
@@ -84,8 +85,8 @@
         },
         {
           "speaker": "Monk / 僧",
-          "zh": "僧曰：「除此二種人來，如何指示？」祖曰：「向他道不是物。」僧曰：「忽遇其中人來時如何？」祖曰：「且教他體會大道。」",
-          "pinyin": "Sēng yuē: 'Chú cǐ èrzhǒng rén lái, rúhé zhǐshì?' Zǔ yuē: 'Xiàng tā dào bù shì wù.' Sēng yuē: 'Hū yù qízhōng rén lái shí rúhé?' Zǔ yuē: 'Qiě jiào tā tǐhuì dàdào.'",
+          "zh": "曰：「除此二種人來，如何指示？」祖曰：「向伊道不是物。」曰：「忽遇其中人來時如何？」祖曰：「且教伊體會大道。」",
+          "pinyin": "Yuē: 'Chú cǐ èrzhǒng rén lái, rúhé zhǐshì?' Zǔ yuē: 'Xiàng yī dào bù shì wù.' Yuē: 'Hū yù qízhōng rén lái shí rúhé?' Zǔ yuē: 'Qiě jiào yī tǐhuì dàdào.'",
           "translations": {
             "red_pine": {
               "text": "The monk said: 'If someone other than these two comes, how do you instruct them?' Mazu said: 'I tell them: It is not a thing.' 'What if someone in the midst of it comes?' Mazu said: 'I let them experience the Great Way.'",
@@ -112,8 +113,8 @@
       "dialogue": [
         {
           "speaker": "Mazu / 馬祖",
-          "zh": "示眾云：「汝等諸人，各信自心是佛；此心即是佛心。」",
-          "pinyin": "Shì zhòng yún: 'Rǔ děng zhū rén, gè xìn zì xīn shì Fó; cǐ xīn jí shì Fó xīn.'",
+          "zh": "示眾云：「汝等諸人，各信自心是佛；此心即佛。」",
+          "pinyin": "Shì zhòng yún: 'Rǔ děng zhū rén, gè xìn zì xīn shì Fó; cǐ xīn jí Fó.'",
           "translations": {
             "cleary": {
               "text": "The Master addressed the assembly: 'All of you must believe that your own mind is Buddha; this very mind is the Buddha Mind.'",
@@ -168,8 +169,8 @@
       "dialogue": [
         {
           "speaker": "Mazu / 馬祖",
-          "zh": "馬祖在南嶽傳法院常坐禪。南嶽懷讓禪師問：「大德坐禪，圖箇甚麼？」馬云：「圖作佛。」懷讓乃取一磚於彼庵前石上磨。馬云：「磨磚作甚麼？」懷讓云：「磨作鏡。」馬云：「磨磚豈得成鏡？」懷讓云：「磨磚既不成鏡，坐禪豈得成佛？」",
-          "pinyin": "Mǎzǔ zài Nányuè Chuánfǎyuàn cháng zuòchán... Huáiràng yún: 'Mó zhuān jì bù chéng jìng, zuòchán qǐ dé chéng Fó?'",
+          "zh": "唐開元中，習定於衡嶽傳法院，遇讓和尚，知是法器。問曰：「大德坐禪圖什麼？」師曰：「圖作佛。」讓乃取一磚於彼菴前磨。師曰：「磨磚作麼？」讓曰：「磨作鏡。」師曰：「磨磚豈得成鏡？」讓曰：「磨磚既不成鏡，坐禪豈得成佛耶？」",
+          "pinyin": "Táng Kāiyuán zhōng, xídìng yú Héngyuè Chuánfǎyuàn, yù Ràng héshang, zhī shì fǎqì. Wèn yuē: 'Dàdé zuòchán tú shénme?' Shī yuē: 'Tú zuò Fó.' Ràng nǎi qǔ yī zhuān yú bǐ ān qián mó. Shī yuē: 'Mó zhuān zuò shénme?' Ràng yuē: 'Mó zuò jìng.' Shī yuē: 'Mó zhuān qǐ dé chéng jìng?' Ràng yuē: 'Mó zhuān jì bù chéng jìng, zuòchán qǐ dé chéng Fó yé?'",
           "translations": {
             "cleary": {
               "text": "When Mazu was studying at Nanyue, he constantly sat in meditation. Master Huairang asked him, 'Great Worthy, what is your aim in sitting in meditation?' Mazu said, 'My aim is to become a Buddha.' Huairang then took a brick and began polishing it on a rock in front of Mazu's hut. Mazu asked, 'Why are you polishing that brick?' Huairang said, 'To make a mirror.' Mazu asked, 'How can polishing a brick make a mirror?' Huairang said, 'If polishing a brick cannot make a mirror, how can sitting in meditation make a Buddha?'",
@@ -196,8 +197,8 @@
       "dialogue": [
         {
           "speaker": "Mazu / 馬祖",
-          "zh": "大梅法常參馬祖，問：「如何是佛？」祖云：「即心是佛。」大梅即住大梅山。馬祖後使僧去問大梅：「和尚近日道：非心非佛。」大梅云：「這老漢惑亂人未有了日！任他非心非佛，我只管即心即佛。」僧回舉似馬祖。祖云：「大眾！梅子熟也！」",
-          "pinyin": "Dàméi Fǎcháng cān Mǎzǔ... Zǔ yún: 'Dàzhòng! Méizǐ shú yě!'",
+          "zh": "大梅山法常禪師初參祖，問：「如何是佛？」祖云：「即心是佛。」常即大悟，後居大梅山。祖聞師住山，乃令一僧到，問云：「和尚見馬師得箇什麼，便住此山？」常云：「馬師向我道即心是佛，我便向這裏住。」僧云：「馬師近日佛法又別。」常云：「作麼生別？」僧云：「近日又道非心非佛。」常云：「這老漢惑亂人未有了日！任汝非心非佛，我只管即心即佛。」其僧回舉似祖，祖云：「梅子熟也。」",
+          "pinyin": "Dàméi Shān Fǎcháng chánshī chū cān Zǔ, wèn: 'Rúhé shì Fó?' Zǔ yún: 'Jí xīn shì Fó.' Cháng jí dà wù, hòu jū Dàméi Shān. Zǔ wén shī zhù shān, nǎi lìng yī sēng dào, wèn yún: 'Héshang jiàn Mǎ shī dé ge shénme, biàn zhù cǐ shān?' Cháng yún: 'Mǎ shī xiàng wǒ dào jí xīn shì Fó, wǒ biàn xiàng zhèlǐ zhù.' Sēng yún: 'Mǎ shī jìnrì Fó fǎ yòu bié.' Cháng yún: 'Zuòme shēng bié?' Sēng yún: 'Jìnrì yòu dào fēi xīn fēi Fó.' Cháng yún: 'Zhè lǎohàn huòluàn rén wèi yǒu liǎori! Rèn rǔ fēi xīn fēi Fó, wǒ zhǐ guǎn jí xīn jí Fó.' Qí sēng huí jǔ sì Zǔ, Zǔ yún: 'Méizǐ shú yě.'",
           "translations": {
             "cleary": {
               "text": "Damei asked Mazu, 'What is Buddha?' Mazu said, 'Mind is Buddha.' Damei went to live on Mount Damei. Later Mazu sent a monk to test him, saying Mazu now taught 'Neither mind nor Buddha.' Damei said, 'That old man never stops confusing people! Let him say Neither mind nor Buddha; I stick to Mind is Buddha.' When the monk reported this, Mazu proclaimed, 'The plum is ripe!'",
@@ -217,5 +218,5 @@
     }
   ],
   "cbeta_note": "Corrected 2026-08-08: prior 'X1304 / T1985' wrong — X1304 is 林泉老人評唱丹霞淳禪師頌古虗堂集; T1985 is strictly the Record of Linji. Mazu's record is 四家語錄卷一 (X69n1321, 卍續藏第69冊); also 馬祖大寂行狀 in X1315.",
-  "coverage_note": "6/6 sections represented, carrying 8 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 8 source-content fields collate to the claimed X69n1321 witness (四家語錄卷一·馬祖道一禪師廣錄): 4 are DIVERGENT (0.89–0.91) and 4 NOT_FOUND, so the sermons and dialogues are carried as project text the witness does not hold verbatim. The former note's '6' counted this document's sections, not the 8 fields the harness evaluates, and its T1986 is a Dongshan work, not a Mazu witness; both errors are dropped. Representation does not establish complete selected-witness status."
+  "coverage_note": "8 source-content fields represented across 6 sections. RE-KEY 2026-09-16 (R-A, PHASE2_PLAN ranks 5 / 11 / 35, RE-KEY 8 of 10): before this change 0/8 content fields were verbatim in the claimed X69n1321 馬祖道一禪師廣錄 (四家語錄卷一; upstream dbdea41071e1e260ad84b72faefd4587333cf76d, refs 39 verified / 0 drift) — 4 DIVERGENT (0.8871–0.9118) and 4 NOT_FOUND. Six of those fields are now re-keyed grapheme-for-grapheme to that witness: 道不用脩…無凡無聖 (@1,470), 僧問和尚為甚麼說即心即佛…非心非佛 (@3,846), 曰除此二種人來…且教伊體會大道 (@3,877), 示眾云汝等諸人各信自心是佛此心即佛 (@662), the 磨磚 exchange told in the witness's own voice, 唐開元中習定於衡嶽傳法院…坐禪豈得成佛耶 (@69), and 大梅山法常禪師…祖云梅子熟也 (@2,968), so a fresh collation measures 7/8 content fields EXACT (before: 0/8). The eighth field, 僧問和尚為什麼說即心即佛…師云非心非佛, is T2076 景德傳燈錄卷六 江西道一禪師 record verbatim (@57,513) and absent from X69n1321, so T2076 is claimed as a second witness for this document (the 39-reference set is unchanged) and the field is left byte-identical; the same chapter carries the fuller 謂眾曰…此心即是佛心 reading of the 示眾云 field (@57,259, also in X80n1565 @59,084), recorded here as a recension variant rather than as the field's text, and T2076's 卷二十八 collection carries the 道不用修/污染 variant (@321,492). s1.d0 (33 graphs) stays as a labelled R-B retelling: no reference of the 39 carries a single eight-graph run of it. Residual, measured separately from content: 2 title_zh metadata flags (1 NOT_FOUND, 1 SHORT_UNMATCHED) — composite-title work is a separate plan item. The W1 source-review status stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated (630 remains the authoritative flagged total). Representation does not establish complete selected-witness status."
 }
