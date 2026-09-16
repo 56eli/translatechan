@@ -29,7 +29,8 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 015 | .orchestrator/prompts/015-rekey-baojing_sanmei.md | RE-KEY 1/10 (major, single text PR) — baojing_sanmei | fix/rekey-baojing_sanmei | #59 | Merged 2026-09-14 — main 54876c4 — 2/6→6/6, 10 graphemes, 10 min, guard rails |
 | 016 | .orchestrator/prompts/016-rekey-biyanlu_cases.md | RE-KEY 2/10 (major, single text PR) — biyanlu_cases | fix/rekey-biyanlu_cases | #60 | Merged 2026-09-14 — main a2a4187 — 373→375/395, 2 graphs, guard rails |
 | 017 | .orchestrator/prompts/017-rekey-bodhidharma_erru.md | RE-KEY 3/10 (major, single text PR) — bodhidharma_erru | fix/rekey-bodhidharma_erru | #61 | Merged 2026-09-14 — main 9e444e8 — 1/6→6/6, guard rails fast |
-| 018 | .orchestrator/prompts/018-rekey-chuandenglu.md | RE-KEY 4/10 (major, single text PR) — chuandenglu | fix/rekey-chuandenglu | — | Published 2026-09-14 — single doc, guard rails |
+| 018 | .orchestrator/prompts/018-rekey-chuandenglu.md | RE-KEY 4/10 (major, single text PR) — chuandenglu | fix/rekey-chuandenglu | #62 | Merged 2026-09-14 — main 813ac18 — 1/6→4/6, 3 carriers, guard rails |
+| 019 | .orchestrator/prompts/019-rekey-dahui_hongzhi.md | RE-KEY 5/10 (major, single text PR) — dahui_hongzhi | fix/rekey-dahui_hongzhi | — | Published 2026-09-14 — single doc, guard rails |
 
 
 
