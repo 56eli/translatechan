@@ -62,6 +62,14 @@ Rules
     English/translation field differs (those renderings keep their
     `reconstruction_unverified`/`ai_draft` status), and this document declares no `zh_chars`, so
     no `zh_chars` pointer is allowlisted for it.
+  - `data/corpus/bodhidharma_erru.json`: the same root `.coverage_note`, plus exactly the pointers
+    the 2026-09-16 R-A re-key (task 017, PHASE2_PLAN rank 52 — RE-KEY 3 of 10) touched: the five
+    non-EXACT content fields (four DIVERGENT, one NOT_FOUND — the 無所求行 abridgment, re-keyed
+    because the claimed witness carries the passage) re-keyed grapheme-for-grapheme to the pinned
+    CBETA T48n2009 witness and the five sibling pinyin fields rewritten to match. The one field
+    already verbatim in that witness stays byte-identical and carries no pointer, no
+    English/translation field differs, and this document declares no `zh_chars`, so no
+    `zh_chars` pointer is allowlisted for it.
 * The allowlist is exercised by a focused regression on a temporary copy of the
   tree: a nested `coverage_note` change must exit nonzero and name the exact
   path. The repository's own corpus files are never modified by any check here.
@@ -185,6 +193,30 @@ ALLOWED_CHANGES = {
         ".cases[98].dialogue[0].zh",
         ".coverage_note",
         ".zh_chars",
+    }),
+    "data/corpus/bodhidharma_erru.json": frozenset({
+        # 2026-09-16 R-A re-key (task 017, PHASE2_PLAN rank 52 — RE-KEY 3 of 10): the five
+        # non-EXACT content fields (four DIVERGENT 0.9492–0.973, one NOT_FOUND 0.6615 — the
+        # 無所求行 abridgment of the witness passage, re-keyed per REMEDIATION_PLAN §1 because
+        # the claimed witness carries the passage) are re-keyed grapheme-for-grapheme to the
+        # pinned CBETA witness T48n2009 (upstream dbdea410; refs 39 verified / 0 drift), so the
+        # document collates 6/6 EXACT instead of 1/6. Each re-keyed source field is allowlisted
+        # with its rewritten sibling pinyin; the re-keyed fields keep the witness's own Taishō
+        # punctuation. The 2/6 fields that were verbatim in the second in-CBETA carrier
+        # T51n2076 before the re-key are recorded in the note, which also names the four
+        # residual NOT_FOUND title_zh metadata flags (composite-title plan item, untouched here).
+        # This document declares no `zh_chars`, so no `zh_chars` pointer is allowlisted for it.
+        ".coverage_note",
+        ".sections[0].dialogue[1].pinyin",
+        ".sections[0].dialogue[1].zh",
+        ".sections[1].dialogue[0].pinyin",
+        ".sections[1].dialogue[0].zh",
+        ".sections[1].dialogue[1].pinyin",
+        ".sections[1].dialogue[1].zh",
+        ".sections[2].dialogue[0].pinyin",
+        ".sections[2].dialogue[0].zh",
+        ".sections[2].dialogue[1].pinyin",
+        ".sections[2].dialogue[1].zh",
     }),
     "data/corpus/dongshan_yulu.json": frozenset({
         # 2026-09-12 CITATION fix (task 014, rank 4): the `coverage_note` cited X1321 — the Mazu
