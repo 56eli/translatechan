@@ -7,13 +7,13 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 111354,
+    "all_corpus_cjk_characters": 111522,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
       "partial_selected_witness": 4
     },
-    "content_cjk_characters": 104972,
+    "content_cjk_characters": 104971,
     "content_shapes": {
       "cases": 2,
       "chapters": 1,
@@ -493,11 +493,11 @@
         }
       },
       "huangbo_chuanxin": {
-        "all_cjk_chars": 565,
+        "all_cjk_chars": 733,
         "cbeta_id": "T2012A",
         "completion_status": "excerpt_seed",
-        "content_zh_chars": 452,
-        "coverage_note": "10 foundational sermons and dialogues from T2012A",
+        "content_zh_chars": 451,
+        "coverage_note": "11 source-content fields represented across 10 sections. RE-KEY 2026-09-16 (R-A, PHASE2_PLAN rank 24, RE-KEY 7 of 10): before this change 2/11 content fields were verbatim in the claimed T48n2012A 黃檗山斷際禪師傳心法要 (upstream dbdea41071e1e260ad84b72faefd4587333cf76d; refs 39 verified / 0 drift) — 1 MINOR (蹤跡 vs witness 縱跡), 2 DIVERGENT (不可度量 vs 不可測度; 即是佛也 vs 即是佛), 6 NOT_FOUND. The two DIVERGENT fields are now re-keyed grapheme-for-grapheme to T48n2012A (度量→測度; trailing 也 removed), so a fresh collation measures 4/11 content fields EXACT (before: 2/11). The MINOR field is left untouched per REMEDIATION_PLAN §1 (EXACT/MINOR leave untouched). Five of the six NOT_FOUND fields have zero eight-graph windows in all 39 refs and stay labelled R-B; the sixth (s1.d0) splices the T48n2012A 一心 opening onto 即心是佛佛即是心心佛不異心佛是一, which T48n2012A does not carry (rank 44: the tail is not T48n2012A; 佛即是心心佛不異 lives in T48n2012B Wanling Lu). The former coverage_note '10 foundational sermons and dialogues from T2012A' is withdrawn: 7 of 11 content fields are not the witness's verbatim text. Residual, measured separately from content: 8 title_zh metadata flags (1 TITLE_COMPOSITE, 7 SHORT_UNMATCHED/NOT_FOUND) — composite-title work is a separate plan item. The W1 source-review status stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated (630 remains the authoritative flagged total). Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "sections"

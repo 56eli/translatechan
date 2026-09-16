@@ -665,6 +665,30 @@ ALLOWED_CHANGES = {
         # metadata flag), no `cbeta_id`, and no `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/huangbo_chuanxin.json": frozenset({
+        # 2026-09-16 R-A re-key (task 021, PHASE2_PLAN rank 24 — RE-KEY 7 of 10): the two DIVERGENT
+        # content fields that T48n2012A carries at a distance are re-keyed grapheme-for-grapheme
+        # to the pinned CBETA witness T48n2012A 黃檗山斷際禪師傳心法要 (upstream dbdea41071e1,
+        # refs 39 verified / 0 drift): `.sections[0].dialogue[1].zh` 不可度量 → 不可測度 and
+        # `.sections[3].dialogue[0].zh` trailing 也 removed (即是佛也 → 即是佛), each allowlisted
+        # with its rewritten sibling pinyin. The MINOR field (蹤跡 vs witness 縱跡) is left
+        # untouched per REMEDIATION_PLAN §1. Six NOT_FOUND fields stay as labelled R-B retellings
+        # (five have zero eight-graph windows in all 39 refs; s1.d0 is a splice whose 即心是佛
+        # tail is not T48n2012A), each with an additive `editorial_note`. The document collates
+        # 4/11 content fields instead of 2/11. This document declares no `zh_chars`, so no
+        # `zh_chars` pointer is allowlisted for it.
+        ".coverage_note",
+        ".sections[0].dialogue[1].pinyin",
+        ".sections[0].dialogue[1].zh",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",
+        ".sections[3].dialogue[0].pinyin",
+        ".sections[3].dialogue[0].zh",
+        ".sections[5].dialogue[0].editorial_note",
+        ".sections[7].dialogue[0].editorial_note",
+        ".sections[8].dialogue[0].editorial_note",
+        ".sections[9].dialogue[0].editorial_note",
+    }),
     "data/corpus/huangbo_wanling.json": frozenset({
         # 2026-09-14 LABEL fix (task 012 bundle 4, PHASE2_PLAN ranks 10/47): the additive honest
         # `.coverage_note` records the measured collation — 0 of 7 in the claimed T48n2012B and
