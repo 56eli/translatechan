@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110342,
+    "all_corpus_cjk_characters": 110348,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -950,10 +950,11 @@
         }
       },
       "xuefeng_yantou": {
-        "all_cjk_chars": 268,
+        "all_cjk_chars": 274,
         "cbeta_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 170,
+        "coverage_note": "0/4 collated, s0.d0 80 graphs no ≥8-graph run in any of 39 refs, largest run 21/49, cbeta_id claims 景德傳燈錄 卷16 T51n2076 as witness but wording has no ≥8-graph run in T51n2076, cbeta_note ID-correct but no coverage of unmet claim, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"

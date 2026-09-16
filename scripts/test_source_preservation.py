@@ -594,6 +594,18 @@ ALLOWED_CHANGES = {
         # document declares none).
         ".coverage_note",
     }),
+    "data/corpus/xuefeng_yantou.json": frozenset({
+        # 2026-09-16 LABEL fix (task 014 bundle 6, PHASE2_PLAN ranks 14/32/67): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 4 source-content fields
+        # collate; s0.d0 (80 graphs) has no run of 8 or more graphs in any of the 39 pinned
+        # refs (largest run anywhere is 21/49), and the `cbeta_id` claim of 景德傳燈錄 卷16
+        # (T51n2076) as a witness is unmet — the project's wording has no ≥8-graph run in
+        # T51n2076. The cbeta_note is ID-correct but states no coverage of the unmet claim,
+        # and the project retellings are retained. Only the note changes: no `zh`/`*_zh`
+        # field, no `title_zh`, no `cbeta_id` (the 2026-08-08 correction stands), and no
+        # `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 
