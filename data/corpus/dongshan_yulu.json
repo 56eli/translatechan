@@ -17,8 +17,8 @@
       "name_pinyin": "Zhèng zhōng piān (Japanese: Shō-chū-hen)",
       "name_en": "The Apparent within the Real (The Relative within the Absolute)",
       "symbol": "● ○ (Lord oversees the Vassal)",
-      "verse_zh": "三更初夜月明前，莫怪相逢不相識。隱隱猶懷昔日嫌。",
-      "verse_pinyin": "Sān gēng chū yè yuè míng qián, mò guài xiāngféng bù xiāngshí. Yǐnyǐn yóu huái xīrì xián.",
+      "verse_zh": "三更初夜月明前，莫怪相逢不相識。隱隱猶懷舊日嫌。",
+      "verse_pinyin": "Sān gēng chū yè yuè míng qián, mò guài xiāngféng bù xiāngshí. Yǐnyǐn yóu huái jiùrì xián.",
       "translations": {
         "red_pine": {
           "text": "In the third watch of the night before the moon shines, do not be surprised if they meet and do not recognize each other. Still dimly harboring the resentment of former days.",
@@ -42,8 +42,8 @@
       "name_pinyin": "Piān zhōng zhèng (Japanese: Hen-chū-shō)",
       "name_en": "The Real within the Apparent (The Absolute within the Relative)",
       "symbol": "○ ● (Vassal turns toward the Lord)",
-      "verse_zh": "白頭宮女卸殘妝，醒來不辨菱花面。平生笑傲幾人知？",
-      "verse_pinyin": "Bái tóu gōngnǚ xiè cán zhuāng, xǐng lái bù biàn línghuā miàn. Píngshēng xiào'ào jǐ rén zhī?",
+      "verse_zh": "失曉老婆逢古鏡，分明覿面別無真。休更迷頭猶認影。",
+      "verse_pinyin": "Shī xiǎo lǎopó féng gǔjìng, fēnmíng dímiàn bié wú zhēn. Xiū gèng mí tóu yóu rèn yǐng.",
       "translations": {
         "red_pine": {
           "text": "An old white-haired court lady removes her faded makeup; awakening, she cannot distinguish her face in the water-chestnut mirror. In all her life, who has known her joyful pride?",
@@ -67,8 +67,8 @@
       "name_pinyin": "Zhèng zhōng lái (Japanese: Shō-chū-rai)",
       "name_en": "Coming from within the Real (Emergence of Function from the Absolute)",
       "symbol": "● ──► (The Lord steps down)",
-      "verse_zh": "無中有路出塵埃，但能不觸當今諱。也勝前朝斷舌才。",
-      "verse_pinyin": "Wú zhōng yǒu lù chū chén'āi, dàn néng bù chù dāngjīn huì. Yě shèng qiáncháo duàn shé cái.",
+      "verse_zh": "無中有路隔塵埃，但能不觸當今諱。也勝前朝斷舌才。",
+      "verse_pinyin": "Wú zhōng yǒu lù gé chén’āi, dàn néng bù chù dāngjīn huì. Yě shèng qiáncháo duàn shé cái.",
       "translations": {
         "red_pine": {
           "text": "Within non-being there is a path leading out of the dust; if you can avoid violating the present Emperor's taboo name, you surpass the eloquent talents of past dynasties.",
@@ -92,8 +92,8 @@
       "name_pinyin": "Jiān zhōng zhì (Japanese: Ken-chū-shi)",
       "name_en": "Arriving at Both (Dynamic Synthesis of Absolute and Relative)",
       "symbol": "⚔️ (Crossed sword blades)",
-      "verse_zh": "兩刃相交不須避，好手猶如火裏蓮。宛然自有沖天志。",
-      "verse_pinyin": "Liǎng rèn xiāng jiāo bù xū bì, hǎo shǒu yóu rú huǒ lǐ lián. Wǎnrán zì yǒu chōng tiān zhì.",
+      "verse_zh": "兩刃交鋒不須避，好手猶如火裏蓮。宛然自有冲天志。",
+      "verse_pinyin": "Liǎng rèn jiāofēng bù xū bì, hǎo shǒu yóu rú huǒ lǐ lián. Wǎnrán zì yǒu chōngtiān zhì.",
       "translations": {
         "red_pine": {
           "text": "When two crossed sword blades meet, there is no need to retreat; a master swordsman is like a lotus blooming in the midst of fire. Effortlessly possessing an aspiration that pierces heaven.",
@@ -118,7 +118,7 @@
       "name_en": "Attainment in Unity (Absolute Integration / Sitting in the Ashes)",
       "symbol": "⚪ (Seamless wholeness)",
       "verse_zh": "不落有無誰敢和？人人盡欲出常流。折合還歸炭裏坐。",
-      "verse_pinyin": "Bù luò yǒu wú shuí gǎn hè? Rénrén jìn yù chū cháng liú. Zhéhé hái guī tàn lǐ zuò.",
+      "verse_pinyin": "Bù luò yǒu wú shuí gǎn hè? Rénrén jìn yù chū chángliú. Zhéhé hái guī tàn lǐ zuò.",
       "translations": {
         "red_pine": {
           "text": "Not falling into being or non-being, who dares harmonize with it? Everyone wishes to escape the common flow, yet in the end they return to sit in the charcoal ashes.",
@@ -418,5 +418,5 @@
       ]
     }
   ],
-  "coverage_note": "8/8 encounter dialogues and 5/5 five-ranks entries represented; W1 source-review status: partial_or_failed_w1_collation — 1 of 21 evaluated source-content fields collates to the claimed T47n1986A/T47n1986B witnesses (筠州洞山悟本禪師語錄 / 瑞州洞山良价禪師語錄); 8 are DIVERGENT (0.88–0.98) and 12 NOT_FOUND, so the dialogues and five-ranks verses are carried as project text that the pinned witnesses do not hold verbatim. The former note's X1321 is the Mazu record (X69n1321), not a witness of this document, and is dropped. Representation does not establish complete selected-witness status."
+  "coverage_note": "Five Ranks commentary previously paraphrases are now verbatim re-keyed from T47n1987B 曹洞語錄 (正位即是空界…背理就事); five-ranks verses are now re-keyed from T47n1986B 瑞州洞山良价禪師語錄, replacing the 0-hit 白頭宮女 recension with 失曉老婆逢古鏡; the river-story reading is corrected 涉水睹影→過水睹影. The document remains an excerpt seed and representation does not establish complete selected-witness status."
 }

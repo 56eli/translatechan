@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 111331,
+    "all_corpus_cjk_characters": 111354,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -342,11 +342,11 @@
         }
       },
       "dongshan_yulu": {
-        "all_cjk_chars": 736,
+        "all_cjk_chars": 759,
         "cbeta_id": "T1986",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 573,
-        "coverage_note": "8/8 encounter dialogues and 5/5 five-ranks entries represented; W1 source-review status: partial_or_failed_w1_collation — 1 of 21 evaluated source-content fields collates to the claimed T47n1986A/T47n1986B witnesses (筠州洞山悟本禪師語錄 / 瑞州洞山良价禪師語錄); 8 are DIVERGENT (0.88–0.98) and 12 NOT_FOUND, so the dialogues and five-ranks verses are carried as project text that the pinned witnesses do not hold verbatim. The former note's X1321 is the Mazu record (X69n1321), not a witness of this document, and is dropped. Representation does not establish complete selected-witness status.",
+        "coverage_note": "Five Ranks commentary previously paraphrases are now verbatim re-keyed from T47n1987B 曹洞語錄 (正位即是空界…背理就事); five-ranks verses are now re-keyed from T47n1986B 瑞州洞山良价禪師語錄, replacing the 0-hit 白頭宮女 recension with 失曉老婆逢古鏡; the river-story reading is corrected 涉水睹影→過水睹影. The document remains an excerpt seed and representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "dialogues",

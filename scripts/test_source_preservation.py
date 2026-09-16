@@ -251,6 +251,23 @@ ALLOWED_CHANGES = {
         # `cbeta_id` change, and no `zh_chars` pointer (this document declares none). The 14
         # `title_zh` metadata flags are untouched (composite-title plan item).
         ".coverage_note",
+        ".five_ranks[0].verse_zh",
+        ".five_ranks[0].verse_pinyin",
+        ".five_ranks[0].commentary_zh",
+        ".five_ranks[1].verse_zh",
+        ".five_ranks[1].verse_pinyin",
+        ".five_ranks[1].commentary_zh",
+        ".five_ranks[2].verse_zh",
+        ".five_ranks[2].verse_pinyin",
+        ".five_ranks[2].commentary_zh",
+        ".five_ranks[3].verse_zh",
+        ".five_ranks[3].verse_pinyin",
+        ".five_ranks[3].commentary_zh",
+        ".five_ranks[4].verse_zh",
+        ".five_ranks[4].verse_pinyin",
+        ".five_ranks[4].commentary_zh",
+        ".dialogues[0].dialogue[0].zh",
+        ".dialogues[0].dialogue[0].pinyin",
     }),
     "data/corpus/fayan_yulu.json": frozenset({
         # 2026-09-12 CITATION fix (task 014, rank 3): the `coverage_note` named T1985 / X1321 —
