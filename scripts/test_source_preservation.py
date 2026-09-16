@@ -135,9 +135,19 @@ ALLOWED_CHANGES = {
         # `editorial_note` R-B provenance labels (project-authored text moved out of a source field,
         # no witness attribution), the honest post-remediation `coverage_note`, and the recomputed
         # `zh_chars` total. No English/translation field and no title metadata may differ.
+        # 2026-09-16 two-graph RE-KEY (task 016, PHASE2_PLAN ranks 68-69 — RE-KEY 2 of 10): the two
+        # MINOR fields that were project readings rather than <g>-glyph residue, re-keyed verbatim
+        # to the pinned CBETA T48n2003 witness (upstream dbdea410; refs 39 verified / 0 drift).
+        # `.cases[10].commentary_zh` 築 → 𡎺 (築 is 0× in the pinned XML and ref; the witness
+        # carries <g> CB05218 𡎺 at that position, the reading already used at the five other
+        # CB05218 positions in this document) and `.cases[64].pointer_zh` trailing 看 removed
+        # (the witness reads 試舉。 without 看 there; it uses 試舉看 at the 60 other 試舉
+        # positions). Neither field has a pinyin sibling; `.coverage_note` (wording fix for the
+        # 20/22 split) and `.zh_chars` (75854 → 75852) were already allowlisted.
         ".cases[0].dialogue[2].pinyin",
         ".cases[0].dialogue[2].zh",
         ".cases[0].pointer_zh",
+        ".cases[10].commentary_zh",
         ".cases[11].dialogue[1].pinyin",
         ".cases[11].dialogue[1].zh",
         ".cases[14].dialogue[0].pinyin",
@@ -158,6 +168,7 @@ ALLOWED_CHANGES = {
         ".cases[30].dialogue[0].zh",
         ".cases[50].dialogue[0].pinyin",
         ".cases[50].dialogue[0].zh",
+        ".cases[64].pointer_zh",
         ".cases[74].dialogue[0].pinyin",
         ".cases[74].dialogue[0].zh",
         ".cases[80].pointer_zh",
