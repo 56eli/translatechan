@@ -51,11 +51,28 @@
 10. TECHNICAL REQUIREMENTS
     Keep 5 rooms, internal IDs, CSP, tokens 43, bundle <2MB+PNG, 0 style=, no Chinese change.
 
-11. SAFETY
+11. SAFETY AND BANNED COMMANDS (hardening after 24h stall on 5575824)
     No zh change, allowlist set-equal, no HUMAN-SOURCE fetch.
+    CRITICAL — bundle is 1.6 MB (app_data.js) + 1.6 MB docs mirror = 3.2 MB diff per commit.
+    The following commands MUST NEVER be run, because they dump the full bundle diff and stall the agent for 24h (observed on commit 5575824):
+    - BANNED: git show <sha>  (without --name-only or --stat)
+    - BANNED: git show <sha> | head
+    - BANNED: git show <sha> --stat + git show <sha> | head -n 300 in same turn
+    - BANNED: git diff HEAD~1 (without --name-only or --stat) when app_data.js changed
+    - BANNED: git log -p, git diff without paths
+    SAFE alternatives (use these):
+    - git show --name-only <sha>
+    - git show --stat <sha>
+    - git diff --name-only HEAD~1
+    - git diff --stat HEAD~1
+    - git log --oneline -5
+    - ls -lh app_data.js
+    - git diff -- app_data.js | head -n 20 is still heavy — avoid, use --stat
+    To verify a commit, run: git show --stat <sha> AND git diff --name-only HEAD~1, never full diff.
+    This rule is now part of every prompt after 014.
 
 12. CLEANUP
-    Clean worktree.
+    Clean worktree, no large stdout dumps.
 
 13. OUT OF SCOPE
     Do not touch other docs, do not re-key.
