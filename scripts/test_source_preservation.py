@@ -570,6 +570,42 @@ ALLOWED_CHANGES = {
         # and no `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/wudeng_huiyuan.json": frozenset({
+        # 2026-09-16 LABEL fix (task 014 bundle 6, PHASE2_PLAN ranks 15/30/65): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 3 source-content fields
+        # collate; s0.d0 (59 graphs) has no measured source in any of the 39 pinned refs, and
+        # the measured carrier of the two 六祖 fields is the uncited 壇經 T48n2008 (18/40 at
+        # @4,914; 35/67 at @4,952), not the claimed compendium X80n1565 (0/40 and 12/67). The
+        # only prior note was the volume correction, and the project retellings are retained.
+        # Only the note changes: no `zh`/`*_zh` field, no `title_zh` (synthesis-title metadata
+        # flag), no `cbeta_id` (the ID names the compendium it cites), and no `zh_chars`
+        # pointer (this document declares none).
+        ".coverage_note",
+    }),
+    "data/corpus/xuansha_yulu.json": frozenset({
+        # 2026-09-16 LABEL fix (task 014 bundle 6, PHASE2_PLAN ranks 13/39/66): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 5 source-content fields
+        # collate; s2.d0 (72 graphs) has no run of 8 or more graphs in any of the 39 pinned
+        # refs, X73n1445 carries only one 10-graph run across the five fields, and for three
+        # fields the 傳燈錄 stratum equals or exceeds X73n1446. The cbeta_note is ID-correct
+        # but states no coverage of the effectively unused X73n1445, and the project retellings
+        # are retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh`, no
+        # `cbeta_id` (the 2026-08-08 correction stands), and no `zh_chars` pointer (this
+        # document declares none).
+        ".coverage_note",
+    }),
+    "data/corpus/xuefeng_yantou.json": frozenset({
+        # 2026-09-16 LABEL fix (task 014 bundle 6, PHASE2_PLAN ranks 14/32/67): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 4 source-content fields
+        # collate; s0.d0 (80 graphs) has no run of 8 or more graphs in any of the 39 pinned
+        # refs (largest run anywhere is 21/49), and the `cbeta_id` claim of 景德傳燈錄 卷16
+        # (T51n2076) as a witness is unmet — the project's wording has no ≥8-graph run in
+        # T51n2076. The cbeta_note is ID-correct but states no coverage of the unmet claim,
+        # and the project retellings are retained. Only the note changes: no `zh`/`*_zh`
+        # field, no `title_zh`, no `cbeta_id` (the 2026-08-08 correction stands), and no
+        # `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
 }
 
 

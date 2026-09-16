@@ -104,5 +104,6 @@
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'T1983 / T1985' wrong — T1983 is 淨土五會念佛略法事儀讚; T1985 is strictly the Record of Linji. Xuefeng's record is X69n1333 (真覺禪師語錄); Xuefeng & Yantou biographies in 景德傳燈錄 卷16 (T51n2076)."
+  "cbeta_note": "Corrected 2026-08-08: prior 'T1983 / T1985' wrong — T1983 is 淨土五會念佛略法事儀讚; T1985 is strictly the Record of Linji. Xuefeng's record is X69n1333 (真覺禪師語錄); Xuefeng & Yantou biographies in 景德傳燈錄 卷16 (T51n2076).",
+  "coverage_note": "0/4 collated, s0.d0 80 graphs no ≥8-graph run in any of 39 refs, largest run 21/49, cbeta_id claims 景德傳燈錄 卷16 T51n2076 as witness but wording has no ≥8-graph run in T51n2076, cbeta_note ID-correct but no coverage of unmet claim, retellings retained"
 }
