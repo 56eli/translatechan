@@ -307,7 +307,39 @@ ALLOWED_CHANGES = {
         # witness the harness actually pins (X69n1321, 四家語錄卷一·馬祖道一禪師廣錄) and to state the
         # measured 0/8 collation. Only the note changes: no source text, no `zh`/`*_zh` field, no
         # `cbeta_id` change (already X1321), and no `zh_chars` pointer (this document declares none).
+        #
+        # 2026-09-16 R-A re-key (task 022, PHASE2_PLAN ranks 5 / 11 / 35 — RE-KEY 8 of 10): the six
+        # content fields the claimed witness X69n1321 carries incompletely are re-keyed
+        # grapheme-for-grapheme to the pinned CBETA X69n1321 (四家語錄卷一·馬祖道一禪師廣錄; upstream
+        # dbdea41071e1, refs 39 verified / 0 drift): 道不用脩… (@1,470), 僧問和尚為甚麼說即心即佛…
+        # (@3,846), 曰除此二種人來… (@3,877), 示眾云汝等諸人各信自心是佛此心即佛 (@662), the
+        # 磨磚 exchange in the witness's own voice 唐開元中習定於衡嶽傳法院… (@69), and
+        # 大梅山法常禪師…祖云梅子熟也 (@2,968) — each allowlisted with its rewritten sibling pinyin,
+        # which is now a full romanization of the re-keyed text (the three formerly abridged pinyin
+        # fields carried an ellipsis and a leading 師/馬祖 that the witness text does not have).
+        # `.sections[3].dialogue[0].zh` is deliberately absent: it is byte-identical to the base — it
+        # was already T2076 景德傳燈錄卷六 text (32/32 @57,513) and the harness change in this commit
+        # claims T51n2076 as a second witness so the field collates where it stands. The one field with
+        # no measured source anywhere (`.sections[1].dialogue[0].zh`, 33 graphs) stays as a labelled
+        # R-B retelling and carries an additive `editorial_note` — its `zh`/`pinyin`/translations do not
+        # differ. No English/translation field differs (those renderings keep their
+        # `reconstruction_unverified` status), no `cbeta_id` change (X1321 stays the primary witness,
+        # the T2076 stratum is disclosed in the note), and no `zh_chars` pointer (this document declares
+        # none). The document collates 7/8 content fields instead of 0/8.
         ".coverage_note",
+        ".sections[0].dialogue[0].pinyin",
+        ".sections[0].dialogue[0].zh",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].pinyin",
+        ".sections[1].dialogue[1].zh",
+        ".sections[1].dialogue[2].pinyin",
+        ".sections[1].dialogue[2].zh",
+        ".sections[2].dialogue[0].pinyin",
+        ".sections[2].dialogue[0].zh",
+        ".sections[4].dialogue[0].pinyin",
+        ".sections[4].dialogue[0].zh",
+        ".sections[5].dialogue[0].pinyin",
+        ".sections[5].dialogue[0].zh",
     }),
     "data/corpus/platform_sutra.json": frozenset({
         # 2026-09-11 label-only recension package (task 009, Dunhuang-primary ruling): provenance

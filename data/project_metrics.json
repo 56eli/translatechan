@@ -7,13 +7,13 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 111522,
+    "all_corpus_cjk_characters": 111709,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
       "partial_selected_witness": 4
     },
-    "content_cjk_characters": 104971,
+    "content_cjk_characters": 105012,
     "content_shapes": {
       "cases": 2,
       "chapters": 1,
@@ -619,11 +619,11 @@
         }
       },
       "mazu_yulu": {
-        "all_cjk_chars": 544,
+        "all_cjk_chars": 731,
         "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
         "completion_status": "excerpt_seed",
-        "content_zh_chars": 383,
-        "coverage_note": "6/6 sections represented, carrying 8 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 8 source-content fields collate to the claimed X69n1321 witness (四家語錄卷一·馬祖道一禪師廣錄): 4 are DIVERGENT (0.89–0.91) and 4 NOT_FOUND, so the sermons and dialogues are carried as project text the witness does not hold verbatim. The former note's '6' counted this document's sections, not the 8 fields the harness evaluates, and its T1986 is a Dongshan work, not a Mazu witness; both errors are dropped. Representation does not establish complete selected-witness status.",
+        "content_zh_chars": 424,
+        "coverage_note": "8 source-content fields represented across 6 sections. RE-KEY 2026-09-16 (R-A, PHASE2_PLAN ranks 5 / 11 / 35, RE-KEY 8 of 10): before this change 0/8 content fields were verbatim in the claimed X69n1321 馬祖道一禪師廣錄 (四家語錄卷一; upstream dbdea41071e1e260ad84b72faefd4587333cf76d, refs 39 verified / 0 drift) — 4 DIVERGENT (0.8871–0.9118) and 4 NOT_FOUND. Six of those fields are now re-keyed grapheme-for-grapheme to that witness: 道不用脩…無凡無聖 (@1,470), 僧問和尚為甚麼說即心即佛…非心非佛 (@3,846), 曰除此二種人來…且教伊體會大道 (@3,877), 示眾云汝等諸人各信自心是佛此心即佛 (@662), the 磨磚 exchange told in the witness's own voice, 唐開元中習定於衡嶽傳法院…坐禪豈得成佛耶 (@69), and 大梅山法常禪師…祖云梅子熟也 (@2,968), so a fresh collation measures 7/8 content fields EXACT (before: 0/8). The eighth field, 僧問和尚為什麼說即心即佛…師云非心非佛, is T2076 景德傳燈錄卷六 江西道一禪師 record verbatim (@57,513) and absent from X69n1321, so T2076 is claimed as a second witness for this document (the 39-reference set is unchanged) and the field is left byte-identical; the same chapter carries the fuller 謂眾曰…此心即是佛心 reading of the 示眾云 field (@57,259, also in X80n1565 @59,084), recorded here as a recension variant rather than as the field's text, and T2076's 卷二十八 collection carries the 道不用修/污染 variant (@321,492). s1.d0 (33 graphs) stays as a labelled R-B retelling: no reference of the 39 carries a single eight-graph run of it. Residual, measured separately from content: 2 title_zh metadata flags (1 NOT_FOUND, 1 SHORT_UNMATCHED) — composite-title work is a separate plan item. The W1 source-review status stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated (630 remains the authoritative flagged total). Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "sections"

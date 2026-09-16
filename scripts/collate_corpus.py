@@ -249,7 +249,17 @@ DOCS = {
     'baizhang_guanglu': (['X69n1323', 'X68n1315'], []),
     'foyan_qingyuan': (['X68n1315'], []),
     'dahui_shobogenzo': (['X67n1309'], []),
-    'mazu_yulu': (['X69n1321'], []),
+    # 2026-09-16 (task 022, PHASE2_PLAN ranks 5 / 11 / 35 — RE-KEY 8 of 10): T51n2076 carries
+    # one content field of this selection whole and the record did not cite it, while the
+    # claimed X69n1321 carries nothing of it. A probe only annotates `also_in` and never
+    # contributes to `content_fields_collated`, so the ranking finding could not be measured;
+    # T51n2076 is therefore a claimed witness (shitou_sandokai / chuandenglu pattern). Measured
+    # on the digest-verified refs (39 verified / 0 drift at dbdea41071e1): 僧問和尚為什麼說即心即佛…
+    # 師云非心非佛 is T51n2076 @57,513 verbatim (32/32) and absent from X69n1321; the same chapter
+    # (卷六 江西道一禪師) carries the fuller 謂眾曰…此心即是佛心 reading @57,259; the other six
+    # content fields were re-keyed to X69n1321. Both works are already in the 39-work refs
+    # manifest, so the reference allowlist is unchanged as a set.
+    'mazu_yulu': (['X69n1321', 'T51n2076'], []),
     'nanquan_yulu': (['X68n1315'], []),
     'deshan_yulu': (['T51n2076'], ['X68n1315', 'X80n1565']),
     'xuefeng_yantou': (['X69n1333', 'T51n2076'], []),
