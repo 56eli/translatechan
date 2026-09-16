@@ -570,6 +570,18 @@ ALLOWED_CHANGES = {
         # and no `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/wudeng_huiyuan.json": frozenset({
+        # 2026-09-14 LABEL fix (task 014 bundle 6, PHASE2_PLAN ranks 15/30/65): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 3 source-content fields
+        # collate: s0.d0 (59 graphs) has no measured source in any of the 39 pinned refs,
+        # the two 六祖 fields' carrier is the uncited T48n2008 (18/40 @4,914 and 35/67 @4,952)
+        # not the claimed X80n1565 (0/40 and 12/67), and only the volume correction note
+        # exists. Project retellings are retained. Only the note changes: no `zh`/`*_zh` field,
+        # no `title_zh` (composite-title metadata flag), no `cbeta_id` (ID-correct, volume fixed),
+        # and no `zh_chars` pointer (this document declares none).
+        ".coverage_note",
+    }),
+
 }
 
 

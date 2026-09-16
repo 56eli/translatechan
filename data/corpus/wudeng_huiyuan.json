@@ -84,5 +84,6 @@
       ]
     }
   ],
-  "cbeta_note": "Volume field corrected 2026-08-08: X1565 五燈會元 is 卍續藏第80冊 (X80n1565) — the prior '80' was the 續藏 volume number stored under taisho_vol."
+  "cbeta_note": "Volume field corrected 2026-08-08: X1565 五燈會元 is 卍續藏第80冊 (X80n1565) — the prior '80' was the 續藏 volume number stored under taisho_vol.",
+  "coverage_note": "0/3 collated, s0.d0 59 graphs no measured source in 39 refs, 2 六祖 fields carrier is uncited T48n2008 (18/40 @4,914; 35/67 @4,952), not claimed X80n1565 (0/40 and 12/67), only volume correction note, retellings retained"
 }
