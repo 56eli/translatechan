@@ -54,6 +54,14 @@ Rules
     the recomputed `zh_chars` total. No other field — in particular no
     unlisted source-Chinese field (`verse_zh`, `title_zh`, `name_zh`, …) and no
     English/translation field — may differ from the base.
+  - `data/corpus/baojing_sanmei.json`: the same root `.coverage_note`, plus exactly the pointers
+    the 2026-09-16 R-A re-key (task 015, PHASE2_PLAN rank 26 — RE-KEY 1 of 10) touched: the four
+    W1-flagged stanzas re-keyed grapheme-for-grapheme to the pinned CBETA T47n1986A witness and
+    the four sibling pinyin fields rewritten syllable-by-syllable to match. The two stanzas that
+    were already verbatim in that witness stay byte-identical and carry no pointer, no
+    English/translation field differs (those renderings keep their
+    `reconstruction_unverified`/`ai_draft` status), and this document declares no `zh_chars`, so
+    no `zh_chars` pointer is allowlisted for it.
 * The allowlist is exercised by a focused regression on a temporary copy of the
   tree: a nested `coverage_note` change must exit nonzero and name the exact
   path. The repository's own corpus files are never modified by any check here.
@@ -94,6 +102,33 @@ NESTED_REGRESSION_MARKER = "PRESERVATION_NESTED_REGRESSION"
 #: any of the 48 Wumenguan cases is a *corpus content* change and must fail, even though its
 #: final key is spelled the same as the two permitted root notes.
 ALLOWED_CHANGES = {
+    "data/corpus/baojing_sanmei.json": frozenset({
+        # 2026-09-16 R-A re-key (task 015, PHASE2_PLAN rank 26 — RE-KEY 1 of 10): the four stanzas
+        # the 2026-09-10 register flagged (DIVERGENT `.stanzas[1]`/`[2]`/`[3]`, NOT_FOUND
+        # `.stanzas[5]`) are re-keyed grapheme-for-grapheme to the pinned CBETA witness T47n1986A
+        # (upstream dbdea410; refs 39 verified / 0 drift), the one carrier that holds the song as
+        # its own titled section (寶鏡三昧歌) and carries all six stanzas verbatim. The two stanzas
+        # that were already EXACT in it are byte-identical and therefore carry no pointer. Each
+        # re-keyed source field is allowlisted with its rewritten sibling pinyin — nine syllables
+        # change in total (弗齊→不齊, 便赴→亦赴, 共忌→俱非, 如面臨鏡容色相覷→如臨寶鏡形影相覩),
+        # and no syllable count changes because every substitution is one grapheme for one —
+        # plus the additive honest `.coverage_note`, which records the primary-witness choice, the
+        # carriers' variants (類之弗齊 / 銀怨盛雪) and the one residual metadata flag. The five
+        # superseded clauses it replaces (銀碗盛雪 / 來機便赴 / 背觸共忌 / 如面臨鏡 / 容色相覷)
+        # return 0 hits in all 39 pinned refs. There is no `zh_chars` pointer because this document
+        # declares none (and the re-key is length-neutral: 104 graphs before and after). The
+        # `.title_zh` composite-title metadata flag is deliberately absent (separate plan item), and
+        # no English/translation field differs — those renderings stay labelled unverified.
+        ".coverage_note",
+        ".stanzas[1].pinyin",
+        ".stanzas[1].zh",
+        ".stanzas[2].pinyin",
+        ".stanzas[2].zh",
+        ".stanzas[3].pinyin",
+        ".stanzas[3].zh",
+        ".stanzas[5].pinyin",
+        ".stanzas[5].zh",
+    }),
     "data/corpus/biyanlu_cases.json": frozenset({
         # 2026-09-10 R-A re-key of the W1-flagged content fields to the T2003 witness (Wave 1,
         # document 2): each re-keyed source field and its rewritten sibling pinyin, the two additive
