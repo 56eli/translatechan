@@ -33,7 +33,8 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 019 | .orchestrator/prompts/019-rekey-dahui_hongzhi.md | RE-KEY 5/10 (major, single text PR) — dahui_hongzhi | fix/rekey-dahui_hongzhi | #63 | Merged 2026-09-14 — main ddb9576 — 0/6→6/6, guard rails fast |
 | 020 | .orchestrator/prompts/020-rekey-dongshan_yulu.md | RE-KEY 6/10 (major, single text PR) — dongshan_yulu | fix/rekey-dongshan_yulu | #64 | Merged 2026-09-14 — main 383db27 — Five Ranks T47n1986B, guard rails |
 | 021 | .orchestrator/prompts/021-rekey-huangbo_chuanxin.md | RE-KEY 7/10 (major, single text PR) — huangbo_chuanxin | fix/rekey-huangbo_chuanxin | #65 | Merged 2026-09-14 — main ac57347 — 2/11→4/11, guard rails |
-| 022 | .orchestrator/prompts/022-rekey-mazu_yulu.md | RE-KEY 8/10 (major, single text PR) — mazu_yulu | fix/rekey-mazu_yulu | — | Published 2026-09-14 — single doc, guard rails |
+| 022 | .orchestrator/prompts/022-rekey-mazu_yulu.md | RE-KEY 8/10 (major, single text PR) — mazu_yulu | fix/rekey-mazu_yulu | #67 | Merged 2026-09-14 — main 2b3e2b5 — 0/8→7/8, guard rails |
+| 023 | .orchestrator/prompts/023-rekey-sengzhao_zhaolun.md | RE-KEY 9/10 (major, single text PR) — sengzhao_zhaolun | fix/rekey-sengzhao_zhaolun | — | Published 2026-09-14 — single doc, guard rails |
 
 
 
