@@ -7,13 +7,13 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110405,
+    "all_corpus_cjk_characters": 110413,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
       "partial_selected_witness": 4
     },
-    "content_cjk_characters": 104564,
+    "content_cjk_characters": 104562,
     "content_shapes": {
       "cases": 2,
       "chapters": 1,
@@ -90,13 +90,13 @@
         }
       },
       "biyanlu_cases": {
-        "all_cjk_chars": 76995,
+        "all_cjk_chars": 77003,
         "cbeta_id": "T2003",
         "completion_status": "partial_selected_witness",
-        "content_zh_chars": 75854,
+        "content_zh_chars": 75852,
         "coverage": "100/100 cases",
-        "coverage_note": "100/100 case records represented; W1 source-review status: partial_or_failed_w1_collation (373/395 evaluated source-content fields collate to the claimed T2003 witness after the 2026-09-10 R-A re-key). Residual 108 flagged fields, documented and intentionally not re-keyed: 22 MINOR content fields (17 commentary_zh, 2 pointer_zh, 2 dialogue zh and 1 verse_zh) — edition-graphic residue, left untouched by the adopted policy (REMEDIATION_PLAN §1: EXACT/MINOR fields are left untouched) — plus 86 title_zh metadata flags (71 SHORT_UNMATCHED, 11 NOT_FOUND, 4 TITLE_COMPOSITE); composite-title splitting is a separate plan item, and title metadata is measured separately from source content, so it never blocks collated_to_claimed_witness. Two re-keyed fields carry additive editorial_note labels in structured metadata: case 20's verse_zh formerly joined 雪竇's 頌 to his appended 復成一頌 (T48n2003 records them as two passages with 評唱 between them), and case 96's 舉 formerly carried a project parenthetical that T48n2003 does not contain. T48n2003 records a 垂示 for 79 of the 100 cases; this document carries 78 pointers — case 42's 垂示 exists in the witness but is not represented here, a coverage gap recorded rather than implied absent. Representation does not establish complete selected-witness status.",
-        "declared_zh_chars": 75854,
+        "coverage_note": "100/100 case records represented; W1 source-review status: partial_or_failed_w1_collation (375/395 evaluated source-content fields collate to the claimed T2003 witness after the 2026-09-10 R-A re-key and the 2026-09-16 two-graph RE-KEY). Residual 106 flagged fields: 20 MINOR content fields (16 commentary_zh, 1 pointer_zh, 2 dialogue zh and 1 verse_zh) — <g>-glyph / charDecl edition-graphic residue, left untouched by the adopted policy (REMEDIATION_PLAN §1: EXACT/MINOR fields are left untouched) — plus 86 title_zh metadata flags (71 SHORT_UNMATCHED, 11 NOT_FOUND, 4 TITLE_COMPOSITE); composite-title splitting is a separate plan item, and title metadata is measured separately from source content, so it never blocks collated_to_claimed_witness. Of the former 22 MINOR, 2 were project readings rather than edition-graphic residue and were re-keyed verbatim to the witness on 2026-09-16: 築 in .cases[10].commentary_zh (0× in the pinned XML and ref — the witness carries <g> 𡎺 at that position, the reading already used at five other CB05218 positions in this document) → 𡎺, and the final 看 in .cases[64].pointer_zh (the witness reads 試舉。 without 看 at this position; it uses 試舉看 at the 60 other 試舉 positions) removed. Two re-keyed fields carry additive editorial_note labels in structured metadata: case 20's verse_zh formerly joined 雪竇's 頌 to his appended 復成一頌 (T48n2003 records them as two passages with 評唱 between them), and case 96's 舉 formerly carried a project parenthetical that T48n2003 does not contain. T48n2003 records a 垂示 for 79 of the 100 cases; this document carries 78 pointers — case 42's 垂示 exists in the witness but is not represented here, a coverage gap recorded rather than implied absent. Representation does not establish complete selected-witness status.",
+        "declared_zh_chars": 75852,
         "is_complete": false,
         "shapes": [
           "cases"
