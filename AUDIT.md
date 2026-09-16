@@ -17,7 +17,7 @@ The owner reported that the prior Pages design was too plain/generic and over-em
 Current generated measurements (main 3a6ae32, after Phases 1-3):
 
 - Corpus: **35 documents**; Source review: **1 collated**, **32 partial/failed**, **2 unavailable**; **0 complete selected witnesses** after W1 containment. Wumenguan **48/48 cases** represented; W1 source-review status: `partial_or_failed_w1_collation`. Xinxin Ming has 37/37 represented stanzas with the same partial/failed state. Biyanlu **100/100 cases** represented; Biyanlu and Linji remain partial; **31 excerpt seeds**.
-- Source volume: **104,564 content CJK / 110,339 all-string CJK**.
+- Source volume: **104,564 content CJK / 110,342 all-string CJK**.
 - Translations: **1252 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**.
 - Locators: **148/148 case-level**; **33 document-level seeds**; case anchors do not prove every nested field was collated.
 - Lineage: **34 masters**; **12 controlled `school_key` groups**; **30 edge records + 4 frontiers**; all 30 edges remain traditional/pending.

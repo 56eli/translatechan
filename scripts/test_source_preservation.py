@@ -582,6 +582,18 @@ ALLOWED_CHANGES = {
         # pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/xuansha_yulu.json": frozenset({
+        # 2026-09-16 LABEL fix (task 014 bundle 6, PHASE2_PLAN ranks 13/39/66): the additive
+        # honest `.coverage_note` records the measured collation — 0 of 5 source-content fields
+        # collate; s2.d0 (72 graphs) has no run of 8 or more graphs in any of the 39 pinned
+        # refs, X73n1445 carries only one 10-graph run across the five fields, and for three
+        # fields the 傳燈錄 stratum equals or exceeds X73n1446. The cbeta_note is ID-correct
+        # but states no coverage of the effectively unused X73n1445, and the project retellings
+        # are retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh`, no
+        # `cbeta_id` (the 2026-08-08 correction stands), and no `zh_chars` pointer (this
+        # document declares none).
+        ".coverage_note",
+    }),
 }
 
 

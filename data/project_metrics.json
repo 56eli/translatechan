@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110339,
+    "all_corpus_cjk_characters": 110342,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -919,10 +919,11 @@
         }
       },
       "xuansha_yulu": {
-        "all_cjk_chars": 334,
+        "all_cjk_chars": 337,
         "cbeta_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 206,
+        "coverage_note": "0/5 collated, s2.d0 72 graphs no ≥8-graph run in any of 39 refs, X73n1445 carries one 10-graph run in 5 fields, for 3 fields 傳燈錄 equals/exceeds X73n1446, cbeta_note ID-correct but no coverage of unused X73n1445, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
