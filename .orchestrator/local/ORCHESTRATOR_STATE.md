@@ -31,7 +31,8 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 017 | .orchestrator/prompts/017-rekey-bodhidharma_erru.md | RE-KEY 3/10 (major, single text PR) — bodhidharma_erru | fix/rekey-bodhidharma_erru | #61 | Merged 2026-09-14 — main 9e444e8 — 1/6→6/6, guard rails fast |
 | 018 | .orchestrator/prompts/018-rekey-chuandenglu.md | RE-KEY 4/10 (major, single text PR) — chuandenglu | fix/rekey-chuandenglu | #62 | Merged 2026-09-14 — main 813ac18 — 1/6→4/6, 3 carriers, guard rails |
 | 019 | .orchestrator/prompts/019-rekey-dahui_hongzhi.md | RE-KEY 5/10 (major, single text PR) — dahui_hongzhi | fix/rekey-dahui_hongzhi | #63 | Merged 2026-09-14 — main ddb9576 — 0/6→6/6, guard rails fast |
-| 020 | .orchestrator/prompts/020-rekey-dongshan_yulu.md | RE-KEY 6/10 (major, single text PR) — dongshan_yulu | fix/rekey-dongshan_yulu | — | Published 2026-09-14 — single doc, guard rails |
+| 020 | .orchestrator/prompts/020-rekey-dongshan_yulu.md | RE-KEY 6/10 (major, single text PR) — dongshan_yulu | fix/rekey-dongshan_yulu | #64 | Merged 2026-09-14 — main 383db27 — Five Ranks T47n1986B, guard rails |
+| 021 | .orchestrator/prompts/021-rekey-huangbo_chuanxin.md | RE-KEY 7/10 (major, single text PR) — huangbo_chuanxin | fix/rekey-huangbo_chuanxin | — | Published 2026-09-14 — single doc, guard rails |
 
 
 
