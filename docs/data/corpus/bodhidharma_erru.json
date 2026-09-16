@@ -50,8 +50,8 @@
         },
         {
           "speaker": "Bodhidharma / 達摩",
-          "zh": "理入者，謂藉教悟宗，深信含生同一真性，但為客塵妄想所覆，不能顯了。若也捨妄歸真，凝住壁觀，無自無他，凡聖等一，堅住不移，更不隨於言教，此即與理冥符，無有分別，寂然無為，名之理入。",
-          "pinyin": "Lǐrù zhě, wèi jiè jiào wù zōng, shēnxìn hánshēng tóngyī zhēnxìng, dàn wèi kèchén wàngxiǎng suǒ fù, bùnéng xiǎnliǎo. Ruò yě shě wàng guī zhēn, níngzhù bìguān, wú zì wú tā, fán shèng děng yī, jiānzhù bù yí, gèng bù suí yú yánjiào, cǐ jí yǔ lǐ míng fú, wú yǒu fēnbié, jìrán wúwéi, míng zhī lǐrù.",
+          "zh": "理入者。謂藉教悟宗。深信含生同一真性。俱為客塵妄想所覆。不能顯了。若也捨妄歸真。凝住壁觀。無自無他。凡聖等一。堅住不移。更不隨於文教。此即與理冥符。無有分別。寂然無為。名之理入。",
+          "pinyin": "Lǐrù zhě. Wèi jiè jiào wù zōng. Shēnxìn hánshēng tóngyī zhēnxìng. Jù wèi kèchén wàngxiǎng su fù. Bùnéng xiǎnliǎo. Ruò yě shě wàng guī zhēn. Níngzhù bìguān. Wú zì wú tā. Fán shèng děng yī. Jiānzhù bù yí. Gèng bù suí yú wénjiào. Cǐ jí y lǐ míng fú. Wú yǒu fēnbié. Jìrán wúwéi. Míng zhī lǐrù.",
           "translations": {
             "red_pine": {
               "text": "To enter by reason means to realize the essence through instruction and to believe deeply that all living beings share the same true nature, which isn't apparent because it's shrouded by sensation and delusion. Those who turn from delusion to reality, who meditate on walls, the absence of self and other, the oneness of mortal and sage, and who remain unmoved even by scriptures are in complete and unspoken agreement with reason. Without discrimination, still and unmoving, this is called entry by reason.",
@@ -81,8 +81,8 @@
       "dialogue": [
         {
           "speaker": "Bodhidharma / 達摩",
-          "zh": "一、報冤行：修道行人，若受苦時，當自念言：我往昔無數劫中，棄本從末，流浪諸有，多起冤憎，違害無限。今雖無犯，是我宿殃，惡業果熟，非天非人所能見與。甘心忍受，都無冤訴。經云：逢苦不憂。何以故？識達故。此心生時，與理相應，體冤進道，故說報冤行。",
-          "pinyin": "Yī, bàoyuān xíng: Xiūdào xíngrén, ruò shòu kǔ shí, dāng zì niàn yán: Wǒ wǎngxī wúshù jié zhōng, qì běn cóng mò, liúlàng zhū yǒu, duō qǐ yuān zēng, wéihài wúxiàn. Jīn suī wú fàn, shì wǒ sùyāng, èyè guǒ shú, fēi tiān fēi rén suǒ néng jiàn yǔ. Gānxīn rěnshòu, dōu wú yuān sù. Jīng yún: Féng kǔ bù yōu. Héyǐ gù? Shí dá gù. Cǐ xīn shēng shí, yǔ lǐ xiāngyìng, tǐ yuān jìn dào, gù shuō bàoyuān xíng.",
+          "zh": "云何報冤行。謂修道行人若受苦時。當自念言我從往昔無數劫中。棄本從末流浪諸有。多起冤憎。違害無限。今雖無犯。是皆宿殃。惡業果熟。非天非人所能見與。甘心忍受。都無冤訴。經云。逢苦不憂。何以故。識達故。此心生時。與理相應。體冤進道故。說言報冤行。",
+          "pinyin": "Yún hé bàoyuān xíng. Wèi xiūdào xíngrén ruò shòu kǔ shí. Dāng zì niàn yán wǒ cóng wǎngxī wúshù jié zhōng. Qì běn cóng mò liúlàng zhū yǒu. Duō qǐ yuān zēng. Wéihài wúxiàn. Jīn suī wú fàn. Shì jiē sùyāng. Èyè guǒ shú. Fēi tiān fēi rén suǒ néng jiàn yǔ. Gānxīn rěnshòu. Dōu wú yuān sù. Jīng yún. Féng kǔ bù yōu. Héyǐ gù. Shí dá gù. Cǐ xīn shēng shí. Yǔ lǐ xiāngyìng. Tǐ yuān jìn dào gù. Shuō yán bàoyuān xíng.",
           "translations": {
             "red_pine": {
               "text": "First: Requiting Injustice. When those who search for the Way encounter suffering, they should think: In past kalpas I pursued the trivial instead of the essential, drifting through all states of existence, creating endless ill will. Though I commit no offense now, this is the fruition of past karma, not inflicted by gods or men. I willingly accept it without complaint. The sutras say: 'When you meet with suffering, do not be distressed.' Why? Because you understand. When this attitude arises, it accords with reason; using hardship to advance along the Way, this is called requiting injustice.",
@@ -100,8 +100,8 @@
         },
         {
           "speaker": "Bodhidharma / 達摩",
-          "zh": "二、隨緣行：眾生無我，並緣業所轉。苦樂齊受，都從緣生。若得勝報榮譽等事，是我過去宿因所感，今方得之。緣盡還無，何喜之有？得失從緣，心無增減，喜風不動，冥順於道，是故說隨緣行。",
-          "pinyin": "Èr, suíyuán xíng: Zhòngshēng wú wǒ, bìng yuán yè suǒ zhuǎn. Kǔlè qí shòu, dōu cóng yuán shēng. Ruò dé shèngbào róngyù děng shì, shì wǒ guòqù sùyīn suǒ gǎn, jīn fāng dé zhī. Yuán jìn hái wú, hé xǐ zhī yǒu? Déshī cóng yuán, xīn wú zēngjiǎn, xǐ fēng bù dòng, míng shùn yú dào, shìgù shuō suíyuán xíng.",
+          "zh": "二隨緣行者。眾生無我。並緣業所轉。苦樂齊受。皆從緣生。若得勝報榮譽等事。是我過去宿因所感。今方得之。緣盡還無。何喜之有。得失從緣。心無增減。喜風不動。冥順於道。是故說言隨緣行也。",
+          "pinyin": "Èr suíyuán xíng zhě. Zhòngshēng wú wǒ. Bìng yuán yè suǒ zhuǎn. Kǔlè qí shòu. Jiē cóng yuán shēng. Ruò dé shèngbào róngyù děng shì. Shì wǒ guòqù sùyīn suǒ gǎn. Jīn fāng dé zhī. Yuán jìn hái wú. Hé xǐ zhī yǒu. Déshī cóng yuán. Xīn wú zēngjiǎn. Xǐ fēng bù dòng. Míng shùn yú dào. Shìgù shuō yán suíyuán xíng yě.",
           "translations": {
             "red_pine": {
               "text": "Second: Adapting to Conditions. Sentient beings have no self; they are governed by karma. Pain and pleasure arise together from conditions. If I obtain praise, success, and prosperity, it is the result of past causes; when conditions exhaust, it vanishes. Why rejoice? Gain and loss follow conditions, while the mind neither increases nor decreases. Unmoved by the winds of delight, silently according with the Way, this is called adapting to conditions.",
@@ -127,8 +127,8 @@
       "dialogue": [
         {
           "speaker": "Bodhidharma / 達摩",
-          "zh": "三、無所求行：世人長迷，處處貪著，名之為求。智者悟真，理將俗反。安心無為，形隨運轉。萬有斯空，無所願樂。經云：有求皆苦，無求即樂。判知無求，真為道行，故言無所求行。",
-          "pinyin": "Sān, wúsuǒqiú xíng: Shìrén cháng mí, chùchù tānzhuó, míng zhī wéi qiú. Zhìzhě wù zhēn, lǐ jiāng sú fǎn. Ānxīn wúwéi, xíng suí yùnzhuǎn. Wànyǒu sī kōng, wú suǒ yuàn lè. Jīng yún: Yǒu qiú jiē kǔ, wú qiú jí lè. Pàn zhī wú qiú, zhēn wéi dào xíng, gù yán wúsuǒqiú xíng.",
+          "zh": "三無所求行者。世人長迷。處處貪著。名之為求。智者悟真。理將俗反。安心無為。形隨運轉。萬有斯空。無所願樂。功德黑暗。常相隨逐。三界久居猶如火宅。有身皆苦。誰得而安。了達此處。故捨諸有。息想無求。經云。有求皆苦。無求乃樂。判知無求真為道行。故言無所求行也。",
+          "pinyin": "Sān wúsuǒqiú xíng zhě. Shìrén cháng mí. Chùchù tānzhuó. Míng zhī wéi qiú. Zhìzhě wù zhēn. Lǐ jiāng sú fǎn. Ānxīn wúwéi. Xíng suí yùnzhuǎn. Wànyǒu sī kōng. Wú suǒ yuàn lè. Gōngdé hēi'àn. Cháng xiāng suízhú. Sānjiè jiǔjū yóurú huǒzhái. Yǒu shēn jiē kǔ. Shéi dé ér ān. Liǎo dá cǐ chù. Gù shě zhū yǒu. Xī xiǎng wú qiú. Jīng yún. Yǒu qiú jiē kǔ. Wú qiú nǎi lè. Pàn zhī wú qiú. Zhēn wéi dào xíng. Gù yán wúsuǒqiú xíng yě.",
           "translations": {
             "red_pine": {
               "text": "Third: Seeking Nothing. People of the world are perpetually deluded, everywhere attached to things; this is called seeking. The wise awaken to reality and choose the reverse of worldly ways. They pacify their minds in non-doing, letting their physical forms move with the seasons. The myriad things are empty, with nothing to desire or seek. The sutras say: 'To seek is suffering; to seek nothing is joy.' Knowing that non-seeking is the true practice of the Way, this is called seeking nothing.",
@@ -146,8 +146,8 @@
         },
         {
           "speaker": "Bodhidharma / 達摩",
-          "zh": "四、稱法行：性淨之理，目之為法。此理眾相斯空，無染無著，無此無彼。經云：法無眾生，離眾生垢故；法無有我，離我垢故。智者若能信解此理，應當稱法而行。",
-          "pinyin": "Sì, chèngfǎ xíng: Xìng jìng zhī lǐ, mù zhī wéi fǎ. Cǐ lǐ zhòngxiàng sī kōng, wú rǎn wú zhuó, wú cǐ wú bǐ. Jīng yún: Fǎ wú zhòngshēng, lí zhòngshēng gòu gù; fǎ wú yǒu wǒ, lí wǒ gòu gù. Zhìzhě ruò néng xìnjiě cǐ lǐ, yīngdāng chèngfǎ ér xíng.",
+          "zh": "四稱法行者。性淨之理目之為法。信解此理。眾相斯空。無染無著。無此無彼。經云。法無眾生。離眾生垢故。法無有我。離我垢故。智者若能信解此理。應當稱法而行。",
+          "pinyin": "Sì chèngfǎ xíng zhě. Xìng jìng zhī lǐ mù zhī wéi fǎ. Xìnjiě cǐ lǐ. Zhòngxiàng sī kōng. Wú rǎn wú zhuó. Wú cǐ wú bǐ. Jīng yún. Fǎ wú zhòngshēng. Lí zhòngshēng gòu gù. Fǎ wú yǒu wǒ. Lí wǒ gòu gù. Zhìzhě ruò néng xìnjiě cǐ lǐ. Yīngdāng chèngfǎ ér xíng.",
           "translations": {
             "red_pine": {
               "text": "Fourth: Practicing the Dharma. The fundamental truth of pure nature is named Dharma. In this truth, all forms are empty: there is no defilement, no attachment, no this or that. The sutras say: 'In the Dharma there are no sentient beings, because it is free from the stain of sentient beings; in the Dharma there is no self, because it is free from the stain of self.' If the wise can understand this truth, they should practice in accordance with the Dharma.",
@@ -165,5 +165,6 @@
         }
       ]
     }
-  ]
+  ],
+  "coverage_note": "6/6 source-content fields represented. RE-KEY 2026-09-16 (R-A, PHASE2_PLAN rank 52, RE-KEY 3 of 10): before this change 1/6 dialogue fields were verbatim against the pinned CBETA witness T48n2009 (upstream dbdea41071e1e260ad84b72faefd4587333cf76d; refs 39 verified / 0 drift) — four fields DIVERGENT at 0.9492–0.973 (single graphs and framing: 但/俱, 言/文, 都/皆, plus the enumeration headings) and one field NOT_FOUND at 0.6615 (38 of its 58 eight-graph windows in the witness) — and all five non-EXACT fields are now re-keyed grapheme-for-grapheme to T48n2009, so a fresh collation on the digest-verified refs measures 6/6 content fields EXACT (before: 1/6). Per REMEDIATION_PLAN §1: the four DIVERGENT fields are re-keyed from the witness (preferred), and the NOT_FOUND field (無所求行) is likewise re-keyed from the witness (preferred) because the claimed witness carries the passage — the corpus field was an abridgment of it, not a project retelling, so the R-B retained-retelling label did not apply. Re-keyed changes: 理入 但為→俱為, 言教→文教; 報冤行 一、報冤行：→云何報冤行, +謂, 我往昔→我從往昔, 是我宿殃→是皆宿殃, 體冤進道，故說報冤行→體冤進道故。說言報冤行; 隨緣行 二、隨緣行：→二隨緣行者, 都從緣生→皆從緣生, 是故說隨緣行→是故說言隨緣行也; 無所求行 三、無所求行：→三無所求行者, +功德黑暗。常相隨逐。三界久居猶如火宅。有身皆苦。誰得而安。了達此處。故捨諸有。息想無求。 (the 36 graphs the corpus field omitted), 無求即樂→無求乃樂, 故言無所求行→故言無所求行也; 稱法行 四、稱法行：→四稱法行者, 此理眾相斯空→信解此理。眾相斯空. The re-keyed fields keep the witness's own Taishō punctuation (。); pinyin was rewritten syllable-by-syllable for the five fields. Second in-CBETA carrier: T51n2076 (Jingde Chuandeng lu) carries the same passage; before the re-key 2/6 fields (the 夫入道多途 opening and the 稱法行 field) were verbatim in it, the corpus's superseded readings 但為 (理入), 是我宿殃 (報冤) and 四稱法行…此理眾相斯空 (稱法行) are T51n2076 readings, and 我往昔 / 都從緣生 / 無求即樂 matched neither carrier — the T48n2009 (claimed-witness) readings were adopted so the whole document measures against a single claimed witness, and the T51n2076 variants are recorded here rather than dropped silently. The English renderings were not touched (their statuses stay reconstruction_unverified / verified_quotation). Residual, measured separately from content: 4 NOT_FOUND title_zh metadata flags — the root title 達摩大師 二入四行論 is a project composite where the pinned witness's attested title is 少室六門 and this text is its third section (第三門二種入), and the three section headings are project composites; title metadata is measured separately from source content and composite-title work is a separate plan item (PHASE2_PLAN ranks 43, 53). The W1 source-review status in data/corpus_manifest.json stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated by this change (630 remains the authoritative flagged total). Representation does not establish complete selected-witness status."
 }
