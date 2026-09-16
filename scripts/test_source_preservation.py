@@ -496,8 +496,29 @@ ALLOWED_CHANGES = {
         # 0 of 6 evaluated content fields collate in any of the three (harness probing is not
         # collation). Metadata-only: no `zh`/`*_zh` field, no status, no `zh_chars` pointer
         # (this document declares none).
+        # 2026-09-16 RE-KEY (task 019, PHASE2_PLAN ranks 7 / 42 — RE-KEY 5 of 10): the six content
+        # fields are re-keyed grapheme-for-grapheme to the pinned CBETA witnesses (upstream
+        # dbdea41071e1, refs 39 verified / 0 drift): 2 默照銘 fields from T48n2001 whole poem
+        # (previously fabricated tail 雪覆夜沼 etc 0 hits in 39 refs, now verbatim), 4 letters
+        # from T47n1998A (狗子還有佛性也無 etc). Each re-keyed zh is allowlisted with its
+        # rewritten sibling pinyin, plus the honest .coverage_note and updated .cbeta_note
+        # (now 6/6 EXACT). Title 張九成 recipient 0 hits in T47n1998A disclosed in coverage_note.
+        # This document declares no zh_chars, so no zh_chars pointer is allowlisted.
         ".cbeta_id",
         ".cbeta_note",
+        ".coverage_note",
+        ".sections[0].dialogue[0].pinyin",
+        ".sections[0].dialogue[0].zh",
+        ".sections[0].dialogue[1].pinyin",
+        ".sections[0].dialogue[1].zh",
+        ".sections[1].dialogue[0].pinyin",
+        ".sections[1].dialogue[0].zh",
+        ".sections[1].dialogue[1].pinyin",
+        ".sections[1].dialogue[1].zh",
+        ".sections[2].dialogue[0].pinyin",
+        ".sections[2].dialogue[0].zh",
+        ".sections[3].dialogue[0].pinyin",
+        ".sections[3].dialogue[0].zh",
     }),
     "data/corpus/zhengdao_ge.json": frozenset({
         # 2026-09-14 LABEL fix (task 009 bundle 1, PHASE2_PLAN rank 70): the additive honest

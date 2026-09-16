@@ -7,13 +7,13 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110956,
+    "all_corpus_cjk_characters": 111331,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
       "partial_selected_witness": 4
     },
-    "content_cjk_characters": 104612,
+    "content_cjk_characters": 104972,
     "content_shapes": {
       "cases": 2,
       "chapters": 1,
@@ -214,10 +214,11 @@
         }
       },
       "dahui_hongzhi": {
-        "all_cjk_chars": 402,
+        "all_cjk_chars": 777,
         "cbeta_id": "T47n1998A / T47n1998B + T48n2001 (大慧普覺禪師語錄 + 宏智禪師廣錄, 默照銘)",
         "completion_status": "excerpt_seed",
-        "content_zh_chars": 260,
+        "content_zh_chars": 620,
+        "coverage_note": "0/6→6/6 after re-key, 默照銘 tail previously fabricated (雪覆夜沼 etc 0 hits in 39 refs) now verbatim T48n2001, 4 letters 0/4→4/4 verbatim T47n1998A/B, recipient 張九成 not in T47n1998A disclosed",
         "is_complete": false,
         "shapes": [
           "sections"

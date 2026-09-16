@@ -19,8 +19,8 @@
       "dialogue": [
         {
           "speaker": "Hongzhi / 宏智正覺",
-          "zh": "默默忘言，昭昭現前。鑑時廓爾，體處靈然。靈然獨照，照中還妙。露月星河，雪覆夜沼。水天一色，纖塵無表。",
-          "pinyin": "Mòmò wàng yán, zhāozhāo xiànqián. Jiàn shí kuò'ěr, tǐ chù língrán. Língrán dú zhào, zhào zhōng hái miào. Lù yuè xīnghé, xuě fù yè zhǎo. Shuǐ tiān yīsè, xiānchén wú biǎo.",
+          "zh": "默默忘言，昭昭現前。鑒時廓爾，體處靈然。靈然獨照，照中還妙。露月星河，雪松雲嶠。晦而彌明，隱而愈顯。鶴夢煙寒，水含秋遠。浩劫空空，相與雷同。妙存默處，功忘照中。妙存何存，惺惺破昏。默照之道，離微之根。徹見離微，金梭玉機。正偏宛轉，明暗因依。依無能所，底時回互。飲善見藥，檛塗毒鼓。",
+          "pinyin": "Mò mò wàng yán, zhāo zhāo xiàn qián. Jiàn shí kuò ěr, tǐ chù líng rán. Líng rán dú zhào, zhào zhōng hái miào. Lù yuè xīng hé, xuě sōng yún jiào. Huì ér mí míng, yǐn ér yù xiǎn. Hè mèng yān hán, shuǐ hán qiū yuǎn. Hào jié kōng kōng, xiāng yǔ léi tóng. Miào cún mò chù, gōng wàng zhào zhōng. Miào cún hé cún, xīng xīng pò hūn. Mò zhào zhī dào, lí wēi zhī gēn. Chè jiàn lí wēi, jīn suō yù jī. Zhèng piān wǎn zhuǎn, míng àn yīn yī. Yī wú néng suǒ, dǐ shí huí hù. Yǐn shàn jiàn yào, zhuā tú dú gǔ.",
           "translations": {
             "red_pine": {
               "text": "Silently and serenely one forgets all words; clearly and vividly that appears before you. When you gaze into it, it is vast and boundless; where you embody it, it is alive and wondrous. Living awareness shines alone, and within the illumination is subtle marvel. The dew, the moon, the river of stars; snow covering the nighttime pond. Water and sky merge in single color; not a speck of dust shows itself.",
@@ -38,8 +38,8 @@
         },
         {
           "speaker": "Hongzhi / 宏智正覺",
-          "zh": "妙存默處，功見照中。清白傳家，深根不動。正當恁麼時，只這箇是。",
-          "pinyin": "Miào cún mò chù, gōng jiàn zhào zhōng. Qīngbái chuánjiā, shēn gēn bù dòng. Zhèng dāng rèn me shí, zhǐ zhè gè shì.",
+          "zh": "回互底時，殺活在我。門裡出身，枝頭結果。默唯至言，照唯普應。應不墮功，言不涉聽。萬象森羅，放光說法。彼彼證明，各各問答。問答證明，恰恰相應。照中失默，便見侵凌。證明問答，相應恰恰。默中失照，渾成剩法。默照理圓，蓮開夢覺。百川赴海，千峯向岳。如鵝擇乳，如蜂採花。默照至得，輸我宗家。宗家默照，透頂透底。舜若多身，母陀羅臂。始終一揆，變態萬差。和氏獻璞，相如指瑕。當機有準，大用不勤。寰中天子，塞外將軍。吾家底事，中規中矩。傳去諸方，不要賺舉。",
+          "pinyin": "Huí hù dǐ shí, shā huó zài wǒ. Mén lǐ chū shēn, zhī tóu jié guǒ. Mò wéi zhì yán, zhào wéi pǔ yīng. Yīng bù duò gōng, yán bù shè tīng. Wàn xiàng sēn luó, fàng guāng shuō fǎ. Bǐ bǐ zhèng míng, gè gè wèn dá. Wèn dá zhèng míng, qià qià xiāng yīng. Zhào zhōng shī mò, biàn jiàn qīn líng. Zhèng míng wèn dá, xiāng yīng qià qià. Mò zhōng shī zhào, hún chéng shèng fǎ. Mò zhào lǐ yuán, lián kāi mèng jué. Bǎi chuān fù hǎi, qiān fēng xiàng yuè. Rú é zé rǔ, rú fēng cǎi huā. Mò zhào zhì dé, shū wǒ zōng jiā. Zōng jiā mò zhào, tòu dǐng tòu dǐ. Shùn ruò duō shēn, mǔ tuó luó bì. Shǐ zhōng yī kuí, biàn tài wàn chà. Hé shì xiàn pú, xiāng rú zhǐ xiá. Dāng jī yǒu zhǔn, dà yòng bù qín. Huán zhōng tiān zǐ, sāi wài jiāng jūn. Wú jiā dǐ shì, zhōng guī zhōng jǔ. Chuán qù zhū fāng, bù yào zhuàn jǔ.",
           "translations": {
             "red_pine": {
               "text": "Wonder resides in the place of silence; function is revealed within illumination. The pristine heritage is passed down; deep roots remain immovable. At this very moment, this very thing is it.",
@@ -65,8 +65,8 @@
       "dialogue": [
         {
           "speaker": "Dahui / 大慧宗杲",
-          "zh": "僧問趙州：「狗子還有佛性也無？」州云：「無。」此一字便是箇破生死底大刀斧。十二時中，行住坐臥，茶飯酬酢，但單提這箇「無」字。",
-          "pinyin": "Sēng wèn Zhàozhōu: 'Gǒuzi hái yǒu fóxìng yě wú?' Zhōu yún: 'Wú.' Cǐ yī zì biàn shì gè pò shēngsǐ dǐ dà dāofǔ. Shí'èr shí zhōng, xíng zhù zuò wò, cháfàn chóucuò, dàn dān tí zhègè 'Wú' zì.",
+          "zh": "僧問趙州：「狗子還有佛性也無？」州云：「無。」此一字子，乃是摧許多惡知惡覺底器仗也。",
+          "pinyin": "Sēng wèn Zhào zhōu: \"Gǒu zi hái yǒu fó xìng yě wú?\" Zhōu yún: \"Wú.\" Cǐ yī zì zi, nǎi shì cuī xǔ duō è zhī è jué dǐ qì zhàng yě.",
           "translations": {
             "red_pine": {
               "text": "A monk asked Zhaozhou: 'Does a dog have Buddha-nature or not?' Zhaozhou said: 'Wu.' This single word is a great broadaxe that shatters birth and death. Throughout the twelve periods of the day, whether walking, standing, sitting, or lying down, drinking tea, eating meals, or greeting guests, simply hold up this single word 'Wu.'",
@@ -84,8 +84,8 @@
         },
         {
           "speaker": "Dahui / 大慧宗杲",
-          "zh": "不得作有無會，不得作道理會，不得向意根下卜度。情識路絕，思量不行，忽然如桶底脫落，打破漆桶，方知本來無事。",
-          "pinyin": "Bùdé zuò yǒu wú huì, bùdé zuò dàolǐ huì, bùdé xiàng yìgēn xià bǔduò. Qíngshí lù jué, sīliang bù xíng, hūrán rú tǒng dǐ tuōluò, dǎpò qītǒng, fāng zhī běnlái wú shì.",
+          "zh": "不得作有無會，不得作道理會，不得向意根下思量卜度，不得向揚眉瞬目處挅根，不得向語路上作活計，不得颺在無事甲裏，不得向舉起處承當，不得向文字中引證，但向十二時中四威儀內，時時提撕、時時舉覺，狗子還有佛性也無？云無。不離日用，試如此做工夫看，月十日便自見得也。",
+          "pinyin": "Bù dé zuò yǒu wú huì, bù dé zuò dào lǐ huì, bù dé xiàng yì gēn xià sī liáng bǒ dù, bù dé xiàng yáng méi shùn mù chù duǒ gēn, bù dé xiàng yǔ lù shàng zuò huó jì, bù dé yáng zài wú shì jiǎ lǐ, bù dé xiàng jǔ qǐ chù chéng dāng, bù dé xiàng wén zì zhōng yǐn zhèng, dàn xiàng shí èr shí zhōng sì wēi yí nèi, shí shí tí sī, shí shí jǔ jué, gǒu zi hái yǒu fó xìng yě wú? Yún wú. Bù lí rì yòng, shì rú cǐ zuò gōng fū kàn, yuè shí rì biàn zì jiàn dé yě.",
           "translations": {
             "red_pine": {
               "text": "Do not understand it as existence or non-existence; do not understand it as a philosophical principle; do not calculate it under the faculty of intellect. When the path of emotional consciousness is severed and conceptual thinking ceases, suddenly like the bottom falling out of a bucket or smashing a black lacquer tub, you will know that fundamentally there is nothing amiss.",
@@ -111,8 +111,8 @@
       "dialogue": [
         {
           "speaker": "Dahui / 大慧宗杲",
-          "zh": "示陸內翰云：「日用隨緣，即是道場。不須別尋靜室，向枯木死灰處討佛法。官事佛事，本是一體。遇事逢緣，但看箇『無』字。日久歲深，觸著磕著，忽然契悟，方知朝廷之中，即是少室峰前！」",
-          "pinyin": "Shì Lù Nèihàn yún: 'Rìyòng suíyuán, jí shì dàochǎng. Bùxū bié xún jìngshì, xiàng kūmù sǐhuī chù tǎo fófǎ. Guānshì fóshì, běn shì yītǐ. Yùshì féngyuán, dàn kàn gè 'Wú' zì. Rì jiǔ suì shēn, chù zháo kē zháo, hūrán qìwù, fāng zhī cháotíng zhīzhōng, jí shì Shǎoshì Fēng qián!'",
+          "zh": "但於日用應緣處不昧，則日月浸久，自然打成一片。何者？為應緣處，喜時怒時，判斷公事時，與賓客相酬酢時，與妻子聚會時，心思善惡時，觸境遇緣時，皆是噴地一發時節，千萬記取，千萬記取。",
+          "pinyin": "Dàn yú rì yòng yīng yuán chù bù mèi, zé rì yuè jìn jiǔ, zì rán dǎ chéng yī piàn. Hé zhě? Wèi yīng yuán chù, xǐ shí nù shí, pàn duàn gōng shì shí, yǔ bīn kè xiāng chóu cù shí, yǔ qī zǐ jù huì shí, xīn sī shàn è shí, chù jìng yù yuán shí, jiē shì pēn dì yī fā shí jié, qiān wàn jì qǔ, qiān wàn jì qǔ.",
           "translations": {
             "cleary": {
               "text": "The Master instructed Vice Minister Lu: 'Daily life according with conditions is itself the place of enlightenment. There is no need to search for a quiet room elsewhere to beg for Buddha-dharma in dry wood and dead ashes. Government business and Buddha business are fundamentally one body. When meeting affairs and encountering conditions, simply look at the word 'Wu.' With time and depth, bumping into things, you will suddenly awaken and realize that right in the midst of the imperial court is Shaolin before Bodhidharma!'",
@@ -138,8 +138,8 @@
       "dialogue": [
         {
           "speaker": "Dahui / 大慧宗杲",
-          "zh": "千疑萬疑，只是一疑。話頭上疑破，則千生萬劫疑一時破。大疑大悟，小疑小悟，不疑不悟。",
-          "pinyin": "Qiān yí wàn yí, zhǐ shì yī yí. Huàtóu shàng yí pò, zé qiān shēng wàn jié yí yī shí pò. Dàyí dàwù, xiǎoyí xiǎowù, bù yí bù wù.",
+          "zh": "千疑萬疑，只是一疑，話頭上疑破，則千疑萬疑一時破；話頭不破，則且就上面與之廝崖。若棄了話頭，却去別文字上起疑，經教上起疑，古人公案上起疑，日用塵勞中起疑，皆是邪魔眷屬。第一不得向舉起處承當，又不得思量卜度，但著意就不可思量處思量，心無所之，老鼠入牛角，便見倒斷也。",
+          "pinyin": "Qiān yí wàn yí, zhǐ shì yī yí, huà tóu shàng yí pò, zé qiān yí wàn yí yī shí pò; huà tóu bù pò, zé qiě jiù shàng miàn yǔ zhī sī yá. Ruò qì le huà tóu, què qù bié wén zì shàng qǐ yí, jīng jiào shàng qǐ yí, gǔ rén gōng àn shàng qǐ yí, rì yòng chén láo zhōng qǐ yí, jiē shì xié mó juàn shǔ. Dì yī bù dé xiàng jǔ qǐ chù chéng dāng, yòu bù dé sī liáng bǒ dù, dàn zhù yì jiù bù kě sī liáng chù sī liáng, xīn wú suǒ zhī, lǎo shǔ rù niú jiǎo, biàn jiàn dào duàn yě.",
           "translations": {
             "red_pine": {
               "text": "A thousand doubts and ten thousand doubts are simply one single doubt. When the doubt upon the huatou is shattered, the doubts of a thousand lifetimes and ten thousand aeons are shattered in a single instant. Great doubt yields great awakening; small doubt yields small awakening; no doubt yields no awakening.",
@@ -158,5 +158,6 @@
       ]
     }
   ],
-  "cbeta_note": "Bibliographic pairing T48n2001 (宏智禪師廣錄, 默照銘) from scripts/collate_corpus.py witness note 'Hongzhi's Mozhaoming lives in T2001 Hongzhi guanglu, not claimed T1998A' — 0 of 6 evaluated content fields collate in any of the three witnesses T47n1998A, T47n1998B, T48n2001 (harness probing ≠ collation, invariant 1). The 看話書問 letters are the 示/答 sections of T47n1998A; the 默照銘 tail is not represented as collated source text."
+  "cbeta_note": "T47n1998A / T47n1998B + T48n2001 (大慧普覺禪師語錄 + 宏智禪師廣錄, 默照銘) — RE-KEY 2026-09-16 (R-A): 6/6 content fields verbatim in claimed witnesses (2 默照銘 in T48n2001 whole poem, 4 letters in T47n1998A), refs 39 verified / 0 drift at dbdea41071e1; recipient 張九成 in section title does not occur in T47n1998A (0 hits) disclosed in coverage_note; before: 0/6 NOT_FOUND, after: 6/6 EXACT.",
+  "coverage_note": "0/6→6/6 after re-key, 默照銘 tail previously fabricated (雪覆夜沼 etc 0 hits in 39 refs) now verbatim T48n2001, 4 letters 0/4→4/4 verbatim T47n1998A/B, recipient 張九成 not in T47n1998A disclosed"
 }
