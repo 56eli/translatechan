@@ -19,8 +19,8 @@
       "dialogue": [
         {
           "speaker": "Mazu / 馬祖",
-          "zh": "師示眾云：「道不用修，但莫污染。如何是污染？但有生死心，造作趨向，皆是污染。若欲直會其道，平常心是道。何謂平常心？無造作、無是非、無取捨、無斷常、無凡無聖。」",
-          "pinyin": "Shī shì zhòng yún: 'Dào bù yòng xiū, dàn mò wūrǎn... wú fán wú shèng.'",
+          "zh": "示眾云：「道不用脩，但莫汙染。何為汙染？但有生死心，造作趨向，皆是汙染。若欲直會其道，平常心是道。何謂平常心？無造作、無是非、無取捨、無斷常、無凡無聖。」",
+          "pinyin": "Shì zhòng yún: 'Dào bù yòng xiū, dàn mò wū rǎn. Hé wéi wū rǎn? Dàn yǒu shēng sǐ xīn, zào zuò qū xiàng, jiē shì wū rǎn. Ruò yù zhí huì qí dào, píng cháng xīn shì dào. Hé wèi píng cháng xīn? Wú zào zuò, wú shì fēi, wú qǔ shě, wú duàn cháng, wú fán wú shèng.'",
           "translations": {
             "cleary": {
               "text": "The Master addressed the assembly: 'The Way needs no practice; just do not defile it. What is defilement? Whenever there is a mind subject to birth and death, making contrivances and directing toward a goal—that is all defilement. If you want to understand the Way directly, Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.'",
@@ -34,7 +34,8 @@
               "text": "The Master addressed the assembly: 'The Way needs no practice; just do not defile it. What is defilement? Whenever there is a mind subject to birth and death, making contrivances and directing toward a goal—that is all defilement. If you want to understand the Way directly, Ordinary Mind is the Way. What is Ordinary Mind? No contrivance, no right or wrong, no grasping or rejecting, no annihilation or permanence, neither ordinary nor holy.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "R-A re-key, 2026-09-16: 60 CJK graphs copied mechanically from X69n1321 (X69n1321_p0003a12–0003a14; raw reference span [1470, 1530), zero-based, end-exclusive). The reference is extracted from the pinned CBETA XML P5 revision and verified against the digest manifest named in coverage_note. Punctuation follows that XML, with a closing quotation mark supplied at this excerpt boundary. Sibling pinyin was rewritten to match; it is a project reading aid, not witness text."
         }
       ]
     },
@@ -61,12 +62,13 @@
               "text": "Damei asked Baso: 'What is Buddha?' Baso replied: 'This very mind is Buddha.' Damei was deeply awakened at these words and went into mountain solitude.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-16, PHASE2_PLAN rank 11). This 33-graph field has no whole-field match in any of the 39 digest-verified references. The inventory's stronger 'no eight-graph run anywhere' claim does not reproduce: 6 of its 26 distinct eight-graph windows occur in X68n1315, with 1 also in X67n1309, but none in X69n1321. Those fragment hits are not witness attributions. The Damei episode is attested, but this wording is a retelling. Chinese, pinyin and translations are kept as written; no witness attribution applies to this field."
         },
         {
           "speaker": "Monk / 僧",
-          "zh": "僧問馬祖：「和尚為甚麼說即心即佛？」祖曰：「為止小兒啼。」僧曰：「啼止時如何？」祖曰：「非心非佛。」",
-          "pinyin": "Sēng wèn Mǎzǔ: 'Héshang wèishénme shuō jí xīn jí fó?' Zǔ yuē: 'Wèi zhǐ xiǎo'ér tí.' Sēng yuē: 'Tí zhǐ shí rúhé?' Zǔ yuē: 'Fēi xīn fēi fó.'",
+          "zh": "僧問：「和尚為甚麼說即心即佛？」祖曰：「為止小兒啼。」曰：「啼止時如何？」祖曰：「非心非佛。」",
+          "pinyin": "Sēng wèn: 'Hé shang wèi shén me shuō jí xīn jí fó?' Zǔ yuē: 'Wèi zhǐ xiǎo ér tí.' Yuē: 'Tí zhǐ shí rú hé?' Zǔ yuē: 'Fēi xīn fēi fó.'",
           "translations": {
             "red_pine": {
               "text": "A monk asked Mazu: 'Why do you teach that this very mind is Buddha?' Mazu said: 'To stop the crying of small babies.' The monk asked: 'When the crying stops, what then?' Mazu said: 'Neither mind nor Buddha.'",
@@ -80,12 +82,13 @@
               "text": "A monk asked Baso: 'Why do you say this mind is Buddha?' Baso said: 'To stop a crying child.' 'When the child stops crying?' Baso said: 'Neither mind nor Buddha.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "R-A re-key, 2026-09-16: 31 CJK graphs copied mechanically from X69n1321 (X69n1321_p0004c19–0004c20; raw reference span [3846, 3877), zero-based, end-exclusive). The reference is extracted from the pinned CBETA XML P5 revision and verified against the digest manifest named in coverage_note. Punctuation follows that XML. Sibling pinyin was rewritten to match; it is a project reading aid, not witness text."
         },
         {
           "speaker": "Monk / 僧",
-          "zh": "僧曰：「除此二種人來，如何指示？」祖曰：「向他道不是物。」僧曰：「忽遇其中人來時如何？」祖曰：「且教他體會大道。」",
-          "pinyin": "Sēng yuē: 'Chú cǐ èrzhǒng rén lái, rúhé zhǐshì?' Zǔ yuē: 'Xiàng tā dào bù shì wù.' Sēng yuē: 'Hū yù qízhōng rén lái shí rúhé?' Zǔ yuē: 'Qiě jiào tā tǐhuì dàdào.'",
+          "zh": "曰：「除此二種人來，如何指示？」祖曰：「向伊道不是物。」曰：「忽遇其中人來時如何？」祖曰：「且教伊體會大道。」",
+          "pinyin": "Yuē: 'Chú cǐ èr zhǒng rén lái, rú hé zhǐ shì?' Zǔ yuē: 'Xiàng yī dào bù shì wù.' Yuē: 'Hū yù qí zhōng rén lái shí rú hé?' Zǔ yuē: 'Qiě jiào yī tǐ huì dà dào.'",
           "translations": {
             "red_pine": {
               "text": "The monk said: 'If someone other than these two comes, how do you instruct them?' Mazu said: 'I tell them: It is not a thing.' 'What if someone in the midst of it comes?' Mazu said: 'I let them experience the Great Way.'",
@@ -99,7 +102,8 @@
               "text": "The monk asked: 'If someone comes who is neither of these?' Baso said: 'I tell him it is not a thing.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "R-A re-key, 2026-09-16: 38 CJK graphs copied mechanically from X69n1321 (X69n1321_p0004c20–0004c22; raw reference span [3877, 3915), zero-based, end-exclusive). The reference is extracted from the pinned CBETA XML P5 revision and verified against the digest manifest named in coverage_note. Punctuation follows that XML. Sibling pinyin was rewritten to match; it is a project reading aid, not witness text."
         }
       ]
     },
@@ -112,8 +116,8 @@
       "dialogue": [
         {
           "speaker": "Mazu / 馬祖",
-          "zh": "示眾云：「汝等諸人，各信自心是佛；此心即是佛心。」",
-          "pinyin": "Shì zhòng yún: 'Rǔ děng zhū rén, gè xìn zì xīn shì Fó; cǐ xīn jí shì Fó xīn.'",
+          "zh": "示眾云：「汝等諸人，各信自心是佛，此心即佛。」",
+          "pinyin": "Shì zhòng yún: 'Rǔ děng zhū rén, gè xìn zì xīn shì Fó; cǐ xīn jí Fó.'",
           "translations": {
             "cleary": {
               "text": "The Master addressed the assembly: 'All of you must believe that your own mind is Buddha; this very mind is the Buddha Mind.'",
@@ -127,7 +131,8 @@
               "text": "The Master addressed the assembly: 'All of you must believe that your own mind is Buddha; this very mind is the Buddha Mind.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "R-A re-key, 2026-09-16: 17 CJK graphs copied mechanically from X69n1321 (X69n1321_p0002b18; raw reference span [662, 679), zero-based, end-exclusive). The reference is extracted from the pinned CBETA XML P5 revision and verified against the digest manifest named in coverage_note. Punctuation follows that XML, with a closing quotation mark supplied at this excerpt boundary. Sibling pinyin was rewritten to match; it is a project reading aid, not witness text."
         }
       ]
     },
@@ -155,7 +160,8 @@
               "text": "A monk asked, 'Why does the Master say that Mind is Buddha?' Mazu said, 'To stop a crying child.' The monk asked, 'When the weeping stops, what then?' Mazu said, 'Neither Mind nor Buddha.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "R-A attribution correction, 2026-09-16 (PHASE2_PLAN rank 35): the existing 32 CJK graphs are verbatim in T51n2076 景德傳燈錄, fascicle 6, T51n2076_p0246a21–0246a22, raw reference span [57513, 57545). They are not in X69n1321. Chinese, project punctuation, pinyin and translations are unchanged. T51n2076 is added as a claimed carrier for this field, not as an attribution for the three retained retellings."
         }
       ]
     },
@@ -183,7 +189,8 @@
               "text": "When Mazu was studying at Nanyue, he constantly sat in meditation. Master Huairang asked him, 'Great Worthy, what is your aim in sitting in meditation?' Mazu said, 'My aim is to become a Buddha.' Huairang then took a brick and began polishing it on a rock in front of Mazu's hut. Mazu asked, 'Why are you polishing that brick?' Huairang said, 'To make a mirror.' Mazu asked, 'How can polishing a brick make a mirror?' Huairang said, 'If polishing a brick cannot make a mirror, how can sitting in meditation make a Buddha?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project paraphrase of an attested episode, not witness text (R-B, 2026-09-16). This 80-graph polishing-a-brick narrative has no whole-field match in any of the 39 digest-verified references; only 5 of its 73 distinct eight-graph windows occur in their union (all 5 occur in X69n1321). The related episode's presence does not make this wording a quotation. Chinese, pinyin and translations are kept as written; no witness attribution applies to this field."
         }
       ]
     },
@@ -211,11 +218,12 @@
               "text": "Damei asked Mazu, 'What is Buddha?' Mazu said, 'Mind is Buddha.' Damei went to live on Mount Damei. Later Mazu sent a monk to test him, saying Mazu now taught 'Neither mind nor Buddha.' Damei said, 'That old man never stops confusing people! Let him say Neither mind nor Buddha; I stick to Mind is Buddha.' When the monk reported this, Mazu proclaimed, 'The plum is ripe!'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project condensation of the Damei episode, not witness text (R-B, 2026-09-16). This 83-graph field has no whole-field match in any of the 39 digest-verified references. 28 of its 76 distinct eight-graph windows occur somewhere in that set, including 14 in X69n1321 and 12 in T51n2076; such fragments are not a continuous source passage. Chinese, pinyin and translations are kept as written; no witness attribution applies to this field."
         }
       ]
     }
   ],
   "cbeta_note": "Corrected 2026-08-08: prior 'X1304 / T1985' wrong — X1304 is 林泉老人評唱丹霞淳禪師頌古虗堂集; T1985 is strictly the Record of Linji. Mazu's record is 四家語錄卷一 (X69n1321, 卍續藏第69冊); also 馬祖大寂行狀 in X1315.",
-  "coverage_note": "6/6 sections represented, carrying 8 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 8 source-content fields collate to the claimed X69n1321 witness (四家語錄卷一·馬祖道一禪師廣錄): 4 are DIVERGENT (0.89–0.91) and 4 NOT_FOUND, so the sermons and dialogues are carried as project text the witness does not hold verbatim. The former note's '6' counted this document's sections, not the 8 fields the harness evaluates, and its T1986 is a Dongshan work, not a Mazu witness; both errors are dropped. Representation does not establish complete selected-witness status."
+  "coverage_note": "6 sections represented, carrying 8 evaluated source-content fields. RE-KEY 2026-09-16 (R-A/R-B, PHASE2_PLAN ranks 11/35, RE-KEY 8 of 10): before, 0/8 content fields collated to the claimed X69n1321 馬祖道一禪師廣錄（四家語錄卷一） (4 DIVERGENT, 4 NOT_FOUND); after, 5/8 are EXACT and 3 remain NOT_FOUND. Four DIVERGENT fields (s0.d0, s1.d1, s1.d2, s2.d0; zero-based section/dialogue indices) are re-keyed grapheme-for-grapheme from X69n1321, with matching pinyin and field-level source spans. The unchanged s3.d0 is 32/32 graphs in T51n2076 景德傳燈錄 at offset 57513, now a claimed carrier in the harness. The cbeta_id remains the bibliographic identity of the Mazu record in X1321, not a claim that it supplies every field in this mixed selection. Rank 35's pre-rekey s2.d0 '19/19' in T51n2076 is NOT a whole-field match: its first 8 graphs occur at 106667 and its last 11 at 57267, in separate passages. That field is instead re-keyed to X69n1321's contiguous 17-graph reading. The three other NOT_FOUND fields (s1.d0, s4.d0, s5.d0) remain explicitly labelled R-B project retellings, without witness attribution; no whole-field match was found in any of the 39 references, although related narratives and fragments are attested. References: CBETA XML P5 dbdea41071e1e260ad84b72faefd4587333cf76d, extracted under cbeta-p5-body-cjk-v1 and checked against sessions/COLLATION_W1_2026-09-10_refs_manifest.txt (39 verified / 0 drift; reference set unchanged). Two title metadata flags remain, measured separately from content: 1 NOT_FOUND and 1 SHORT_UNMATCHED. All English translations retain their reconstruction_unverified status; re-keying Chinese does not verify those renderings or approve rights. W1 source-review status stays partial_or_failed_w1_collation and editorial completion stays excerpt_seed. The authoritative 2026-09-10 register and its 630 flagged entries are unchanged; this before/after measurement does not replace them. Representation does not establish complete selected-witness status."
 }

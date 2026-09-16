@@ -249,7 +249,15 @@ DOCS = {
     'baizhang_guanglu': (['X69n1323', 'X68n1315'], []),
     'foyan_qingyuan': (['X68n1315'], []),
     'dahui_shobogenzo': (['X67n1309'], []),
-    'mazu_yulu': (['X69n1321'], []),
+    # 2026-09-16 (task 022, PHASE2_PLAN rank 35): the unchanged s3.d0 is a whole,
+    # strict 32-graph match in T51n2076 at [57513, 57545), p0246a21–0246a22, and
+    # absent from X69n1321. Claim that field's carrier rather than merely probing it;
+    # coverage_note and its editorial_note distinguish it from the X1321 record and
+    # the three R-B retellings. Rank 35's s2.d0 "19/19" instead joins two distant
+    # fragments (8 graphs @106667 + 11 @57267), NOT a whole-field T51n2076 match;
+    # that DIVERGENT field is re-keyed to X69n1321 along with the other three.
+    # Both works are already in the pinned 39-ref set (39 verified / 0 drift).
+    'mazu_yulu': (['X69n1321', 'T51n2076'], []),
     'nanquan_yulu': (['X68n1315'], []),
     'deshan_yulu': (['T51n2076'], ['X68n1315', 'X80n1565']),
     'xuefeng_yantou': (['X69n1333', 'T51n2076'], []),

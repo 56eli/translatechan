@@ -302,12 +302,36 @@ ALLOWED_CHANGES = {
         ".zh_chars",
     }),
     "data/corpus/mazu_yulu.json": frozenset({
-        # 2026-09-12 CITATION fix (task 014, rank 5): the `coverage_note` cited T1986 — a 洞山 work —
-        # and said "6" where the harness evaluates 8 source-content fields. Rewritten to name the
-        # witness the harness actually pins (X69n1321, 四家語錄卷一·馬祖道一禪師廣錄) and to state the
-        # measured 0/8 collation. Only the note changes: no source text, no `zh`/`*_zh` field, no
-        # `cbeta_id` change (already X1321), and no `zh_chars` pointer (this document declares none).
+        # 2026-09-12 CITATION fix (task 014, rank 5): coverage_note withdrew the wrong T1986
+        # citation (a Dongshan work) and corrected 6 sections to 8 evaluated content fields.
+        # 2026-09-16 R-A/R-B re-key (task 022, PHASE2_PLAN ranks 11/35 — RE-KEY 8 of 10):
+        # four DIVERGENT fields are copied mechanically from the digest-verified X69n1321
+        # reference (CBETA dbdea41071e1; refs 39 verified / 0 drift), with matching pinyin
+        # and per-field locators: s0.d0 [1470,1530), s1.d1 [3846,3877), s1.d2 [3877,3915),
+        # s2.d0 [662,679), all raw CJK offsets, zero-based and end-exclusive. The already
+        # verbatim s3.d0 gains only a T51n2076 carrier note ([57513,57545), p0246a21–a22);
+        # neither its zh nor its pinyin is allowlisted. Three NOT_FOUND paraphrases stay
+        # byte-identical with additive R-B notes: no whole-field carrier in the 39 refs,
+        # though fragments/related narratives exist. Fresh collation: 0/8 → 5/8 EXACT.
+        # All eight editorial_note pointers are additive. No title, translation, cbeta_id,
+        # or cbeta_note changes; no zh_chars pointer (this document declares none).
         ".coverage_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[0].pinyin",
+        ".sections[0].dialogue[0].zh",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[1].dialogue[1].pinyin",
+        ".sections[1].dialogue[1].zh",
+        ".sections[1].dialogue[2].editorial_note",
+        ".sections[1].dialogue[2].pinyin",
+        ".sections[1].dialogue[2].zh",
+        ".sections[2].dialogue[0].editorial_note",
+        ".sections[2].dialogue[0].pinyin",
+        ".sections[2].dialogue[0].zh",
+        ".sections[3].dialogue[0].editorial_note",
+        ".sections[4].dialogue[0].editorial_note",
+        ".sections[5].dialogue[0].editorial_note",
     }),
     "data/corpus/platform_sutra.json": frozenset({
         # 2026-09-11 label-only recension package (task 009, Dunhuang-primary ruling): provenance

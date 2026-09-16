@@ -7,13 +7,13 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 111522,
+    "all_corpus_cjk_characters": 111523,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
       "partial_selected_witness": 4
     },
-    "content_cjk_characters": 104971,
+    "content_cjk_characters": 104962,
     "content_shapes": {
       "cases": 2,
       "chapters": 1,
@@ -619,11 +619,11 @@
         }
       },
       "mazu_yulu": {
-        "all_cjk_chars": 544,
+        "all_cjk_chars": 545,
         "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
         "completion_status": "excerpt_seed",
-        "content_zh_chars": 383,
-        "coverage_note": "6/6 sections represented, carrying 8 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 8 source-content fields collate to the claimed X69n1321 witness (四家語錄卷一·馬祖道一禪師廣錄): 4 are DIVERGENT (0.89–0.91) and 4 NOT_FOUND, so the sermons and dialogues are carried as project text the witness does not hold verbatim. The former note's '6' counted this document's sections, not the 8 fields the harness evaluates, and its T1986 is a Dongshan work, not a Mazu witness; both errors are dropped. Representation does not establish complete selected-witness status.",
+        "content_zh_chars": 374,
+        "coverage_note": "6 sections represented, carrying 8 evaluated source-content fields. RE-KEY 2026-09-16 (R-A/R-B, PHASE2_PLAN ranks 11/35, RE-KEY 8 of 10): before, 0/8 content fields collated to the claimed X69n1321 馬祖道一禪師廣錄（四家語錄卷一） (4 DIVERGENT, 4 NOT_FOUND); after, 5/8 are EXACT and 3 remain NOT_FOUND. Four DIVERGENT fields (s0.d0, s1.d1, s1.d2, s2.d0; zero-based section/dialogue indices) are re-keyed grapheme-for-grapheme from X69n1321, with matching pinyin and field-level source spans. The unchanged s3.d0 is 32/32 graphs in T51n2076 景德傳燈錄 at offset 57513, now a claimed carrier in the harness. The cbeta_id remains the bibliographic identity of the Mazu record in X1321, not a claim that it supplies every field in this mixed selection. Rank 35's pre-rekey s2.d0 '19/19' in T51n2076 is NOT a whole-field match: its first 8 graphs occur at 106667 and its last 11 at 57267, in separate passages. That field is instead re-keyed to X69n1321's contiguous 17-graph reading. The three other NOT_FOUND fields (s1.d0, s4.d0, s5.d0) remain explicitly labelled R-B project retellings, without witness attribution; no whole-field match was found in any of the 39 references, although related narratives and fragments are attested. References: CBETA XML P5 dbdea41071e1e260ad84b72faefd4587333cf76d, extracted under cbeta-p5-body-cjk-v1 and checked against sessions/COLLATION_W1_2026-09-10_refs_manifest.txt (39 verified / 0 drift; reference set unchanged). Two title metadata flags remain, measured separately from content: 1 NOT_FOUND and 1 SHORT_UNMATCHED. All English translations retain their reconstruction_unverified status; re-keying Chinese does not verify those renderings or approve rights. W1 source-review status stays partial_or_failed_w1_collation and editorial completion stays excerpt_seed. The authoritative 2026-09-10 register and its 630 flagged entries are unchanged; this before/after measurement does not replace them. Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "sections"
