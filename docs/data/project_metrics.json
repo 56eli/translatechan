@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110337,
+    "all_corpus_cjk_characters": 110339,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -826,10 +826,11 @@
         }
       },
       "wudeng_huiyuan": {
-        "all_cjk_chars": 235,
+        "all_cjk_chars": 237,
         "cbeta_id": "X1565 (五燈會元)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 166,
+        "coverage_note": "0/3 collated, s0.d0 59 graphs no measured source in 39 refs, 2 六祖 fields carrier is uncited T48n2008 (18/40 @4,914; 35/67 @4,952), not claimed X80n1565 (0/40 and 12/67), only volume correction note, retellings retained",
         "is_complete": false,
         "shapes": [
           "sections"
