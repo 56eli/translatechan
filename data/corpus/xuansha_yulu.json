@@ -130,5 +130,6 @@
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'X1310 / T1991' wrong — X1310 is 拈八方珠玉集; T1991 is 金陵清涼院文益禪師語錄 (Fayan). Xuansha's records are X73n1445 廣錄 and X73n1446 語錄 (明 林弘衍編次)."
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1310 / T1991' wrong — X1310 is 拈八方珠玉集; T1991 is 金陵清涼院文益禪師語錄 (Fayan). Xuansha's records are X73n1445 廣錄 and X73n1446 語錄 (明 林弘衍編次).",
+  "coverage_note": "0/5 collated, s2.d0 72 graphs no ≥8-graph run in any of 39 refs, X73n1445 carries one 10-graph run in 5 fields, for 3 fields 傳燈錄 equals/exceeds X73n1446, cbeta_note ID-correct but no coverage of unused X73n1445, retellings retained"
 }
