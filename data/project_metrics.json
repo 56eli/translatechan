@@ -7,7 +7,7 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 110348,
+    "all_corpus_cjk_characters": 110405,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -59,10 +59,11 @@
         }
       },
       "baojing_sanmei": {
-        "all_cjk_chars": 124,
+        "all_cjk_chars": 181,
         "cbeta_id": "T1986",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 104,
+        "coverage_note": "6/6 stanzas represented. RE-KEY 2026-09-16 (R-A, PHASE2_PLAN rank 26): four of the six stanzas were re-keyed grapheme-for-grapheme to the pinned CBETA witness T47n1986A (upstream dbdea410; refs 39 verified / 0 drift); stanzas 1 and 5 were already verbatim in it and were left untouched. 5 of the replaced clauses (銀碗盛雪 / 來機便赴 / 背觸共忌 / 如面臨鏡 / 容色相覷) return 0 hits in all 39 pinned refs, so no witness in the set carries them, while every re-keyed clause is carried by in-set witnesses. The remaining replaced clause is a variant, not a fabrication: 類之弗齊 is carried by T47n1986B, X80n1565 while the primary reads 類之不齊; the primary's reading was adopted so that all six stanzas are verbatim in one claimed witness, and the variant is recorded here rather than dropped silently. T47n1986A is the primary because it carries the song as its own titled section (寶鏡三昧歌) and carries all six stanzas verbatim; the carriers' other disagreement is recorded the same way — 銀盌盛雪 (T47n1986A, X80n1565) against T47n1986B's unique 銀怨盛雪, which no other carrier supports. Pinyin was rewritten syllable-by-syllable for the four re-keyed stanzas; the English renderings stay labelled reconstruction_unverified / ai_draft and were not touched. A fresh collation on the digest-verified refs after the re-key measures 6/6 content fields EXACT in T47n1986A (before: 2/6 — DIVERGENT 3, NOT_FOUND 1); the W1 source-review status stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated by this change (630 remains the authoritative flagged total). Residual, measured separately from content and out of scope: one metadata flag — .title_zh is a project composite heading (洞山良价大師 寶鏡三昧歌) where the witness's attested title is 寶鏡三昧歌; composite-title work is a separate plan item. Representation does not establish complete selected-witness status.",
         "is_complete": false,
         "shapes": [
           "stanzas"
