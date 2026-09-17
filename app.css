@@ -2704,30 +2704,37 @@ textarea:focus-visible,
 }
 
 /* ==========================================================================
-   Phase 5 — LAYOUT switcher, bundle 026 (2026-09-14)
+   Phase 5 — LAYOUT switcher, bundle 028 (2026-09-14 → 2026-09-17)
    --------------------------------------------------------------------------
-   Numbers 1–6 on the header switcher. Layout 1 is the current ideal layout
-   AND the ideal colors (owner: the colors of 1 are ideal already) — it is
-   the :root base with no override. Layouts 2–6 are five distinct LAYOUT
-   STRUCTURES from LAYOUT_VARIANTS_2026-09-14.md (6–10), and they share
-   layout 1's colors exactly: only structure varies, never the palette.
+   Numbers 1–7 on the header switcher. Layout 1 is the current ideal layout
+   AND the ideal colors (owner: the colors of 1 are ideal already) — it is the
+   :root base with no override. Layout 2 is the bundle-026 Accordion Reader,
+   KEPT exactly as it shipped because the owner saw improvements there.
+   Layouts 3–7 are the previous 2–6 REIMPLEMENTED drastic: every room changes
+   structure now, not just Read. Having "2" twice is intended — old 2 stays 2
+   and its drastic reimplementation is 3, so the two accordions can be
+   compared side by side.
 
-   2 = Accordion Reader             — sections as accordions, English open.
-   3 = Progressive Disclosure Scroll — context appears piece-meal on scroll.
-   4 = Tabbed Reader                — Translation / Chinese / Context / Related.
-   5 = Modal Info                   — info sections in a modal, main minimal.
-   6 = Hover Cards                  — related teachers/works on hover/focus.
+   3 = Accordion, all rooms      — every unit folds to one English headline.
+   4 = Progressive reveal, all   — rooms unfold piece-meal as reading arrives.
+   5 = Tabbed rooms, all         — each room shows one kind of thing at a time.
+   6 = Modal info, all           — surfaces keep text, all info moves behind ⓘ.
+   7 = Hover cards, all          — names/headwords float their info section.
 
-   All six share the COMMON QUALITIES: light mental load (minimum info by
-   default, everything extra expandable / hoverable / togglable), English
-   first, not dense, comfortable to read, easy to navigate, piece-meal plain
-   language, and an info section for every work and teacher.
+   All seven share layout 1's colors exactly: only structure varies, never the
+   palette. All seven carry the COMMON QUALITIES: light mental load (minimum
+   information by default, everything extra expandable / hoverable /
+   togglable), English first, not dense, comfortable to read, easy to navigate,
+   piece-meal plain language, and an info section for every work and teacher
+   (where it came from, what or who is related, background context).
 
    Mechanisms are disclosure-only: native <details>, [hidden] toggles, class
-   toggles and the closed --pop-shift popover contract. Zero inline styles,
-   zero .style writes, zero new runtime contracts. The switcher applies a
+   toggles, IntersectionObserver and the closed --pop-shift popover contract.
+   Zero inline styles, zero .style writes, zero new runtime contracts — the
+   four CSSOM custom-property writes stay exactly four. The switcher applies a
    data-design attribute to <html>; this section does the rest.
    ========================================================================== */
+
 
 /* --- Layout 2 · Accordion Reader -------------------------------------------
    Every section is an accordion panel. Only the English translation starts
@@ -2766,36 +2773,50 @@ textarea:focus-visible,
 :root[data-design="2"] .dialogue-turn { margin: 0 0 0.6rem; }
 :root[data-design="2"] .case-card .case-body > .acc-sec:first-of-type { margin-top: 0.35rem; }
 
-/* --- Layout 3 · Progressive Disclosure Scroll -------------------------------
-   Pending units collapse to a quiet one-line stub with a reveal button;
-   IntersectionObserver (or a tap) unfolds them as reading arrives. Context
-   blocks sit behind their own "More context" folds. */
-:root[data-design="3"] .case-card.pd-pending { padding: 0.8rem 0 0.9rem; }
-:root[data-design="3"] .case-card.pd-pending .case-body,
-:root[data-design="3"] .case-card.pd-pending .case-nav-footer,
-:root[data-design="3"] .case-card.pd-pending > .classical-zh,
-:root[data-design="3"] .case-card.pd-pending > .pinyin-line { display: none; }
-:root[data-design="3"] .pd-reveal-btn {
-  display: none;
-  margin-top: 0.45rem;
-  padding: 0.45rem 0.95rem;
-  border: 1px dashed var(--line);
-  border-radius: var(--radius);
-  background: transparent;
-  color: var(--ink-soft);
-  font-family: var(--font-ui);
+/* --- Shared vocabulary for the drastic layouts 3–7 --------------------------
+   These classes are family-neutral: the same headline chips, info blocks and
+   folds are reused by the accordion, progressive, tabbed, modal and hover
+   families, in all five rooms. They are deliberately NOT keyed to one
+   data-design value, so a room keeps one consistent information shape while
+   only its disclosure structure changes. */
+.rm-acc-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+  white-space: nowrap;
+}
+.rm-acc-en { font-family: var(--font-display); font-size: 1.02rem; color: var(--ink); }
+.rm-acc-zh { font-family: var(--font-zh); font-size: 0.9rem; color: var(--ink-soft); }
+.rm-acc-note {
   font-size: 0.78rem;
-  cursor: pointer;
+  color: var(--ink-soft);
+  flex-basis: 100%;
 }
-:root[data-design="3"] .case-card.pd-pending .pd-reveal-btn { display: inline-flex; }
-:root[data-design="3"] .pd-reveal-btn:hover { color: var(--ink); border-color: var(--gold); }
-:root[data-design="3"] .pd-reveal-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-:root[data-design="3"] details.pd-context {
-  margin: 0.9rem 0;
-  border-left: 2px solid var(--line);
-  padding-left: 0.9rem;
+.rm-unit-info { margin-top: 0.9rem; }
+.rm-room-info { margin: 1rem 0 1.6rem; }
+.rm-info-stack { padding: 0.2rem 0 0.4rem; }
+.rm-stack-subhead {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 1.1rem 0 0.6rem;
 }
-:root[data-design="3"] details.pd-context > summary {
+.rm-teacher-block { margin: 0 0 1.3rem; }
+.rm-teacher-name { font-family: var(--font-display); font-size: 1.05rem; margin: 0 0 0.4rem; }
+.rm-teacher-zh { font-weight: 400; color: var(--ink-soft); font-family: var(--font-zh); }
+.rm-empty { color: var(--ink-soft); font-size: 0.88rem; }
+.rm-quiet { color: var(--ink-soft); font-size: 0.82rem; }
+.rm-modal-zh { font-family: var(--font-zh); font-size: 1.15rem; line-height: 1.9; margin-bottom: 0.35rem; }
+.rm-modal-py { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); margin-bottom: 0.6rem; }
+.rm-modal-en { font-family: var(--font-display); font-size: 1rem; }
+.rm-fold { margin: 0.9rem 0; border-left: 2px solid var(--line); padding-left: 0.9rem; }
+.rm-fold > summary {
   cursor: pointer;
   list-style: none;
   font-family: var(--font-mono);
@@ -2805,14 +2826,110 @@ textarea:focus-visible,
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-:root[data-design="3"] details.pd-context > summary::-webkit-details-marker { display: none; }
-:root[data-design="3"] details.pd-context > summary::before { content: '↓ '; color: var(--gold); }
-:root[data-design="3"] details.pd-context[open] > summary::before { content: '↑ '; }
+.rm-fold > summary::-webkit-details-marker { display: none; }
+.rm-fold > summary::before { content: '↓ '; color: var(--gold); }
+.rm-fold[open] > summary::before { content: '↑ '; }
+.rm-pane-lead {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 62ch;
+  margin: 0.2rem 0 1.3rem;
+}
 
-/* --- Layout 4 · Tabbed Reader ------------------------------------------------
-   One section at a time. The tablist sticks under the shell; each tab hides
-   the other three views' content, and the Context/Related panes hold the
-   info sections for the work and its teachers. */
+/* --- Layout 3 · Accordion, ALL ROOMS (drastic reimplementation of old 2) -----
+   Old layout 2 folded the sections INSIDE each Reader unit and left the other
+   four rooms alone. Layout 3 folds the units themselves, in every room: each
+   case, comparison line, teacher, catalogue row and term collapses to a single
+   English headline, and opening it reveals English first with the Chinese, the
+   records and the notes as nested folds. Column heads are retired because the
+   rows no longer sit in a shared grid — the accordion IS the structure. */
+:root[data-design="3"] .rm-acc {
+  margin: 0.55rem 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+:root[data-design="3"] .rm-acc > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.6rem;
+  cursor: pointer;
+  list-style: none;
+  padding: 0.7rem 0.95rem;
+}
+:root[data-design="3"] .rm-acc > summary::-webkit-details-marker { display: none; }
+:root[data-design="3"] .rm-acc > summary::before {
+  content: '+';
+  flex: 0 0 auto;
+  width: 1rem;
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+:root[data-design="3"] .rm-acc[open] > summary::before { content: '\2212'; }
+:root[data-design="3"] .rm-acc[open] > summary { border-bottom: 1px solid var(--line-soft); }
+:root[data-design="3"] .rm-acc > summary:hover { background: var(--gold-soft); }
+/* The adopted unit drops its own frame — the accordion panel is the frame. */
+:root[data-design="3"] .rm-acc > .case-card,
+:root[data-design="3"] .rm-acc > .matrix-proof-sheet,
+:root[data-design="3"] .rm-acc > .lineage-master-row,
+:root[data-design="3"] .rm-acc > .catalogue-row,
+:root[data-design="3"] .rm-acc > .lexicon-entry {
+  display: block;
+  margin: 0;
+  padding: 0.85rem 0.95rem 1rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+:root[data-design="3"] .gongan-catalogue-head,
+:root[data-design="3"] .lineage-band-cols,
+:root[data-design="3"] .matrix-collation-head { display: none; }
+/* One generation band reads as a quiet group label above its accordions. */
+:root[data-design="3"] .lineage-band { margin-bottom: 1.6rem; }
+:root[data-design="3"] .lineage-band-head { margin-bottom: 0.5rem; }
+/* Nested folds inside an opened unit keep the English-first order. */
+:root[data-design="3"] .rm-acc .acc-sec { margin: 0.7rem 0; border-color: var(--line-soft); }
+
+/* --- Layout 4 · Progressive reveal, ALL ROOMS (drastic reimplementation of
+   old 3) ----------------------------------------------------------------------
+   Old layout 3 revealed Reader units on scroll only. Layout 4 does it in every
+   room: the first unit reads in full, every later unit waits as a quiet
+   one-line stub, and extra material — Chinese, dated records, definitions,
+   catalogue detail, info sections — always waits behind its own fold. */
+.rm-reveal-btn {
+  display: none;
+  margin-top: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+:root[data-design="4"] .rm-pending .rm-collapse { display: none; }
+:root[data-design="4"] .rm-pending .rm-reveal-btn { display: inline-flex; }
+:root[data-design="4"] .rm-pending { opacity: 0.94; }
+.rm-reveal-btn:hover { color: var(--ink); border-color: var(--gold); }
+.rm-reveal-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+/* A pending unit is one headline tall in every room, so a room reads as a
+   list of promises rather than a wall of text. */
+:root[data-design="4"] .catalogue-row.rm-pending,
+:root[data-design="4"] .lineage-master-row.rm-pending,
+:root[data-design="4"] .lexicon-entry.rm-pending,
+:root[data-design="4"] .matrix-proof-sheet.rm-pending,
+:root[data-design="4"] .case-card.rm-pending { padding-bottom: 0.75rem; }
+
+/* --- Layout 5 · Tabbed rooms, ALL ROOMS (drastic reimplementation of old 4) --
+   Old layout 4 gave the Reader four tabs and left the other rooms alone.
+   Layout 5 gives EVERY room its own small tablist: a minimal pane first, the
+   full record second, and the plain-language info sections third. Tab counts
+   differ per room on purpose — the owner ruled that keeping the same number of
+   tabs is neither intended nor forbidden. */
 .layout-tabs {
   position: sticky;
   top: var(--shell-height, 0px);
@@ -2825,7 +2942,8 @@ textarea:focus-visible,
   background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
-.layout-tab-btn {
+.layout-tab-btn,
+.room-tab-btn {
   padding: 0.5rem 1.05rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -2836,47 +2954,149 @@ textarea:focus-visible,
   font-weight: 600;
   cursor: pointer;
 }
-.layout-tab-btn:hover { color: var(--ink); border-color: var(--gold); }
-.layout-tab-btn[aria-selected="true"] {
+.layout-tab-btn:hover,
+.room-tab-btn:hover { color: var(--ink); border-color: var(--gold); }
+.layout-tab-btn[aria-selected="true"],
+.room-tab-btn[aria-selected="true"] {
   background: var(--wood);
   border-color: var(--wood);
   color: var(--wood-ink);
 }
-.layout-tab-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.layout-pane { margin: 0.4rem 0 2rem; }
+.layout-tab-btn:focus-visible,
+.room-tab-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.layout-pane,
+.room-pane { margin: 0.4rem 0 2rem; }
+.room-pane[hidden] { display: none; }
+.room-tabpanes { display: block; }
+.rm-adopted { display: block; }
 .layout-pane-title {
   font-family: var(--font-display);
   font-size: 1.25rem;
   margin: 0.4rem 0 1.1rem;
 }
 .layout-pane-empty { color: var(--ink-soft); font-size: 0.9rem; }
-.related-teacher-block { margin: 0 0 1.4rem; }
-.related-teacher-name { font-family: var(--font-display); font-size: 1.05rem; margin: 0 0 0.4rem; }
-.related-teacher-zh { font-weight: 400; color: var(--ink-soft); }
-/* Translation tab: English only — the source waits behind the Chinese tab. */
-:root[data-design="4"] #reader-content-target[data-layout-tab="translation"] .classical-zh,
-:root[data-design="4"] #reader-content-target[data-layout-tab="translation"] .pinyin-line { display: none; }
-/* Chinese tab: source only — translation columns and notes wait their turn. */
-:root[data-design="4"] #reader-content-target[data-layout-tab="chinese"] .translation-grid,
-:root[data-design="4"] #reader-content-target[data-layout-tab="chinese"] .translation-source,
-:root[data-design="4"] #reader-content-target[data-layout-tab="chinese"] .prose-en,
-:root[data-design="4"] #reader-content-target[data-layout-tab="chinese"] .provenance-line { display: none; }
-/* Context tab: the literature steps out, the info sections step in. */
-:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .case-card,
-:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .case-jump-strip,
-:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .case-load-more,
-:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .front-matter,
-:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .layout-pane-related { display: none; }
-/* Related tab: teachers only. */
-:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .case-card,
-:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .case-jump-strip,
-:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .case-load-more,
-:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .front-matter,
-:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .layout-pane-context { display: none; }
+/* Reader tab panes: one kind of content at a time. */
+:root[data-design="5"] #reader-content-target[data-layout-tab="translation"] .classical-zh,
+:root[data-design="5"] #reader-content-target[data-layout-tab="translation"] .pinyin-line { display: none; }
+:root[data-design="5"] #reader-content-target[data-layout-tab="chinese"] .translation-grid,
+:root[data-design="5"] #reader-content-target[data-layout-tab="chinese"] .translation-source,
+:root[data-design="5"] #reader-content-target[data-layout-tab="chinese"] .prose-en,
+:root[data-design="5"] #reader-content-target[data-layout-tab="chinese"] .provenance-line { display: none; }
+:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .case-card,
+:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .case-jump-strip,
+:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .case-load-more,
+:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .front-matter,
+:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .layout-pane-related { display: none; }
+:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .case-card,
+:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .case-jump-strip,
+:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .case-load-more,
+:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .front-matter,
+:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .layout-pane-context { display: none; }
 
-/* --- Layout 5 · Modal Info ---------------------------------------------------
+/* Compare · "At a glance" pane: the source line, then each English voice. */
+.rm-glance-list { list-style: none; margin: 0; padding: 0; }
+.rm-glance-item {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+.rm-glance-ref {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+  margin-bottom: 0.6rem;
+}
+.rm-glance-lines { list-style: none; margin: 0; padding: 0; }
+.rm-glance-lines li { margin: 0 0 0.55rem; }
+.rm-glance-who {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.rm-glance-en { font-family: var(--font-display); font-size: 1.02rem; }
+/* Compare · "Where it came from" pane. */
+.rm-source-item {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1rem 1.1rem;
+  border-left: 2px solid var(--gold);
+  background: color-mix(in srgb, var(--panel) 70%, var(--paper));
+}
+.rm-source-ref { font-family: var(--font-mono); font-size: 0.78rem; color: var(--gold-strong); margin-bottom: 0.5rem; }
+.rm-source-zh { font-family: var(--font-zh); font-size: 1.15rem; line-height: 1.9; margin-top: 0.5rem; }
+.rm-source-pinyin { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); }
+.rm-source-loc { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-soft); margin-top: 0.4rem; }
+
+/* Lineage · "Timeline" pane: the chronological spine, one line per teacher. */
+.rm-timeline { list-style: none; margin: 0; padding: 0 0 0 1.4rem; border-left: 1px solid var(--line); }
+.rm-timeline-item { position: relative; margin: 0 0 1.3rem; padding-left: 0.6rem; }
+.rm-timeline-dot {
+  position: absolute;
+  inset-inline-start: -1.75rem;
+  inset-block-start: 0.45rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--brass);
+  border: 1px solid var(--gold);
+}
+.rm-timeline-name { font-family: var(--font-display); font-size: 1.08rem; }
+.rm-timeline-when { font-size: 0.82rem; color: var(--ink-soft); margin: 0.15rem 0 0.3rem; }
+.rm-timeline-teacher { font-size: 0.82rem; margin-bottom: 0.4rem; }
+/* Lineage · "Dossiers" pane, Cases · "By theme", Terms · "By category". */
+.rm-dossier,
+.rm-theme-group,
+.rm-cat-group { margin: 0 0 0.7rem; }
+
+/* Cases · "Records" pane: the catalogue record only, in plain language. */
+.rm-record-list { display: block; }
+.rm-record-item {
+  margin: 0 0 0.9rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 70%, var(--paper));
+}
+.rm-record-head { font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.25rem; }
+.rm-record-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-soft); }
+
+/* Terms · "Terms" pane: headwords only — the shortest possible list. */
+.rm-term-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.45rem 1.2rem;
+}
+.rm-term-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.rm-term-en { font-family: var(--font-display); font-size: 1rem; }
+.rm-term-zh { font-family: var(--font-zh); color: var(--ink-soft); }
+.rm-term-py { font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-soft); flex-basis: 100%; }
+@media (max-width: 768px) {
+  .rm-term-list { grid-template-columns: 1fr; }
+  .rm-acc-note { display: none; }
+  .layout-tabs,
+  .room-tabs { position: static; }
+}
+
+/* --- Layout 6 · Modal info — shared modal chrome -----------------------------
    The reading surface keeps only the literature; all info sections move
-   behind ⓘ doorways into one modal overlay. */
+   behind ⓘ doorways into ONE modal overlay. Room-by-room rules for layout 6
+   (what each room hands to the modal) follow the hover-card block below. */
 .info-modal-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.2rem; }
 .info-modal-btn { font-size: 0.8rem; }
 .layout-modal-root {
@@ -2936,7 +3156,7 @@ textarea:focus-visible,
    already the container. */
 .layout-modal-body .ledger-drawer { border: 0; padding: 0; background: transparent; box-shadow: none; }
 
-/* --- Layout 6 · Hover Cards ---------------------------------------------------
+/* --- Layout 7 · Hover cards — shared card chrome ------------------------------
    Related teachers/works float up as cards when their English name is
    hovered or focused. Dotted underline = there is more behind this name.
    Placement rides the shared --pop-shift popover contract. */
@@ -2969,12 +3189,75 @@ textarea:focus-visible,
   cursor: help;
 }
 
+
+/* --- Layout 6 · Modal info, ALL ROOMS (drastic reimplementation of old 5) ----
+   Old layout 5 pulled the Reader's info blocks behind three ⓘ doorways and
+   stopped there. Layout 6 does it in every room: each surface keeps only the
+   literature, and every explanatory block — Chinese source lines, dated
+   records, signature quotes, catalogue detail, definitions, occurrences —
+   moves into the one modal overlay. What is left on the page is the lightest
+   English-first reading surface the seven layouts offer. */
+:root[data-design="6"] .rm-modal-unit { position: relative; }
+.rm-info-doorway { font-size: 0.78rem; white-space: nowrap; }
+/* In the ruled rooms the doorway takes its own full-width line, so it never
+   lands inside a column and never fights the row's own grid. */
+:root[data-design="6"] .catalogue-row > .rm-info-doorway,
+:root[data-design="6"] .lineage-master-row > .rm-info-doorway,
+:root[data-design="6"] .lexicon-entry > .rm-info-doorway {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+:root[data-design="6"] .matrix-source-band > .rm-info-doorway { margin-top: 0.5rem; }
+/* Compare: the Chinese line and its record wait in the modal. */
+:root[data-design="6"] .matrix-sentence-zh,
+:root[data-design="6"] .matrix-sentence-pinyin,
+:root[data-design="6"] .matrix-source-location { display: none; }
+/* Lineage: name and house stay; the dated record and signature line wait. */
+:root[data-design="6"] .lineage-master-record,
+:root[data-design="6"] .lineage-master-quote { display: none; }
+/* Cases: number, title and collection stay; detail, theme and locator wait. */
+:root[data-design="6"] .catalogue-detail,
+:root[data-design="6"] .catalogue-theme,
+:root[data-design="6"] .catalogue-locator { display: none; }
+/* Terms: headword and reading stay; definition and occurrences wait. */
+:root[data-design="6"] .lexicon-entry-def,
+:root[data-design="6"] .lexicon-occurrences { display: none; }
+/* Column heads describe fields that are no longer on the page. */
+:root[data-design="6"] .gongan-catalogue-head,
+:root[data-design="6"] .lineage-band-cols { display: none; }
+/* --- Layout 7 · Hover cards, ALL ROOMS (drastic reimplementation of old 6) ---
+   Old layout 6 floated cards for teacher and work names inside the Reader
+   only. Layout 7 makes the whole site hoverable — case titles, register names,
+   source references, teacher names, houses, collections, headwords and
+   categories all carry a dotted underline and float their plain-language info
+   section on hover, focus or tap. Because the information now floats, the
+   surfaces themselves get thinner: the Compare room drops the Chinese line,
+   the Cases room drops the summary, the Terms room becomes a headword list. */
+:root[data-design="7"] .matrix-sentence-zh,
+:root[data-design="7"] .matrix-sentence-pinyin { display: none; }
+:root[data-design="7"] .catalogue-detail { display: none; }
+:root[data-design="7"] .lineage-master-quote { display: none; }
+:root[data-design="7"] .lexicon-entry-def,
+:root[data-design="7"] .lexicon-occurrences { display: none; }
+:root[data-design="7"] .lexicon-entry { padding-block: 0.55rem; }
+:root[data-design="7"] .catalogue-row { row-gap: 0.3rem; }
+/* Every hoverable name announces itself the same way in every room. */
+:root[data-design="7"] .hover-cardable {
+  text-decoration: underline dotted;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  cursor: help;
+}
+:root[data-design="7"] .hover-cardable:hover { text-decoration-color: var(--ink); }
+:root[data-design="7"] .hover-cardable:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
 /* --- Layout switcher control (header) — persistent, keyboard-operable --- */
 
 .design-switcher {
   display: inline-flex;
   align-items: center;
-  flex-wrap: wrap; /* bundle 026: six numbered layout buttons */
+  flex-wrap: wrap; /* bundle 028: seven numbered layout buttons */
   justify-content: flex-end;
   gap: 0.2rem;
   margin-left: 0.5rem;
