@@ -110,6 +110,44 @@ Adding documentation where nobody reads is not enough. Owner requires gates that
 
 **Status:** Applied per owner explicit request to introduce failing gates (scope boundary allows workflow edit with explicit owner approval). Verified locally: `python3 scripts/test_website_ruling.py` PASS on main 2b3e2b5+ with law files present. CI will now fail any PR that self-declares website beautiful/done or omits owner feedback questions.
 
+## Edit 5 — Turn off presentation gates while experimenting, keep text integrity gates (2026-09-14, owner)
+
+**File:** `.github/workflows/quality.yml`
+**Reason:** Owner feedback on PR #75: all layouts max 3/10, only Read tab changes partially, Compare/Lineage/Cases/Terms don't, same amount of tabs isn't necessarily intended nor forbidden, Accordion Reader some improvements, bundle ceiling 2MB isn't helping. Owner says: "We can turn off gates that don't touch text integrity as website should just be presentation, and we're allowed to break presentation while experimenting."
+
+**Changes (applied 2026-09-14, main d9fd30a+):**
+
+Text integrity gates — MUST stay ON, required, failing:
+- `python3 -m py_compile scripts/*.py`
+- `python3 scripts/validate_data.py` — corpus 35, W1 flagged 630
+- `python3 scripts/build_data_bundle.py` — deterministic bundle
+- `python3 scripts/test_source_preservation.py` — 0 unauthorized Chinese edits
+- `python3 scripts/test_source_review_rules.py` — 138 W1 checks
+
+Presentation gates — CAN be turned OFF while experimenting, allowed to break presentation, continue-on-error: true:
+- `git diff --exit-code -- app_data.js docs data/project_metrics.json` + `diff -rq data docs/data` — docs mirror byte-identical — presentation, allowed to break
+- `node scripts/smoke_test.mjs` — 35 texts render-lazy, 0 style=, CSP — presentation, allowed to break
+- Bundle ceiling extended from 2MB to 30MB for testing phase per RULING_BUNDLE_CEILING_2026-09-14.md — technically feasible, Quality workflow doesn't enforce size directly
+
+Website ruling law gate — kept ON even while experimenting because it enforces LAW (NOT beautiful NOT done, NOT capable to judge, 1-10 aim 8+, light mental load etc.), not presentation quality.
+
+```yaml
+      - name: Require generated artifacts and deploy mirror to be committed (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
+        continue-on-error: true
+        run: |
+          git diff --exit-code -- app_data.js docs data/project_metrics.json || echo "⚠️ Presentation mirror diff failed — allowed while experimenting"
+
+      - name: Run dependency-free reader smoke test (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
+        continue-on-error: true
+        run: |
+          node scripts/smoke_test.mjs || echo "⚠️ Smoke test failed — allowed while experimenting"
+
+      - name: Enforce website ruling law — NOT beautiful, NOT done, owner feedback 1-10 aim 8+ (law — kept ON even while experimenting)
+        run: python3 scripts/test_website_ruling.py
+```
+
+**Status:** Applied per owner explicit request to turn off presentation gates while experimenting (scope boundary allows workflow edit with explicit owner approval). Text integrity gates remain required. Presentation breakage allowed to enable drastic layout changes across ALL rooms (Reader, Compare, Lineage, Cases, Terms), different tab counts allowed, ideal colors of 1 kept, 30MB ceiling.
+
 ## Validation after either edit
 
 ```bash

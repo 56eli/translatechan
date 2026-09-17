@@ -43,22 +43,26 @@ jobs:
       - name: Rebuild generated Pages artifacts
         run: python3 scripts/build_data_bundle.py
 
-      - name: Require generated artifacts and deploy mirror to be committed
-        run: |
-          # Structural mirror-tree diff: covers root bundle, the entire docs/
-          # mirror tree, and generated metrics in one structural check, so new
-          # mirrored assets (e.g. theme-init.js, robots.txt, sitemap.xml,
-          # og-image.svg) are guarded without enumerating each path (O-3).
-          git diff --exit-code -- app_data.js docs data/project_metrics.json
-
-      - name: Run dependency-free reader smoke test
-        run: node scripts/smoke_test.mjs
-
       - name: Enforce source-preservation allowlist (no unauthorized Chinese edits)
         run: python3 scripts/test_source_preservation.py
 
       - name: Enforce W1 source-review rule suite (138 checks)
         run: python3 scripts/test_source_review_rules.py
 
-      - name: Enforce website ruling law — NOT beautiful, NOT done, owner feedback 1-10 aim 8+
+      - name: Require generated artifacts and deploy mirror to be committed (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
+        continue-on-error: true
+        run: |
+          # Structural mirror-tree diff: covers root bundle, the entire docs/
+          # mirror tree, and generated metrics in one structural check, so new
+          # mirrored assets (e.g. theme-init.js, robots.txt, sitemap.xml,
+          # og-image.svg) are guarded without enumerating each path (O-3).
+          # TURNED OFF for experimenting phase per RULING_GATES_EXPERIMENT_2026-09-14 — presentation can break while experimenting, text integrity gates remain required
+          git diff --exit-code -- app_data.js docs data/project_metrics.json || echo "⚠️ Presentation mirror diff failed — allowed while experimenting per owner ruling 2026-09-14"
+
+      - name: Run dependency-free reader smoke test (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
+        continue-on-error: true
+        run: |
+          node scripts/smoke_test.mjs || echo "⚠️ Smoke test failed — allowed while experimenting per owner ruling 2026-09-14, text integrity gates remain required"
+
+      - name: Enforce website ruling law — NOT beautiful, NOT done, owner feedback 1-10 aim 8+ (law — kept ON even while experimenting)
         run: python3 scripts/test_website_ruling.py
