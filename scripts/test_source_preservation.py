@@ -369,6 +369,68 @@ ALLOWED_CHANGES = {
         ".coverage_note",
         ".recension_note",
     }),
+    "data/corpus/sengzhao_zhaolun.json": frozenset({
+        # 2026-09-17 R-A re-key (task 023, PHASE2_PLAN rank 23 — RE-KEY 9 of 10): all four
+        # content fields the document held were NOT_FOUND or spliced against the claimed
+        # witness T45n1858 (肇論; refs 39 verified / 0 drift at dbdea410), and all four
+        # title_zh metadata fields were TITLE_COMPOSITE (project-appended taglines after the
+        # witness's own title). Each content `zh` is re-keyed verbatim to a T45n1858 passage
+        # (物不遷論 @1,564 既無往返之微朕…復何怪哉, @1,454 求向物於向…故知物不去; 不真空論
+        # @2,406 夫至虛無生者…何能契神於有無之間哉; 涅槃無名論 @13,289 天地與我同根…而道存
+        # 乎其間矣); each sibling `pinyin` is rewritten to match the new text; each `title_zh`
+        # is shortened to the witness's attested title (with matching `title_pinyin`/
+        # `title_en`); `section_id` `one_body_universe` is renamed to `nirvana_nameless` to
+        # match the new title; the root metadata (`title_*`, `author_*`, `era`, `genre`,
+        # `overview`, `cbeta_id`, `cbeta_note`) are rewritten for truthfulness (title → 肇論,
+        # author → 後秦 釋僧肇 撰 per the XML <author>, era/genre/overview rewritten to match);
+        # English `translations.*.text` for the three translators are updated to match the new
+        # source wording (they were reconstructions against fabricated text and stay
+        # `reconstruction_unverified`); additive honest `.coverage_note` and `.cbeta_note`
+        # record the primary witness and the 0/12→12/12 measurement. No `zh_chars` pointer
+        # (this document declares none, and the re-keyed content totals 185 CJK vs 188
+        # previously — no byte-length metric is computed).
+        ".author_en",
+        ".author_zh",
+        ".cbeta_id",
+        ".cbeta_note",
+        ".coverage_note",
+        ".era",
+        ".genre",
+        ".overview",
+        ".sections[0].dialogue[0].pinyin",
+        ".sections[0].dialogue[0].translations.cleary.text",
+        ".sections[0].dialogue[0].translations.liebenthal.text",
+        ".sections[0].dialogue[0].translations.red_pine.text",
+        ".sections[0].dialogue[0].zh",
+        ".sections[0].dialogue[1].pinyin",
+        ".sections[0].dialogue[1].translations.cleary.text",
+        ".sections[0].dialogue[1].translations.liebenthal.text",
+        ".sections[0].dialogue[1].translations.red_pine.text",
+        ".sections[0].dialogue[1].zh",
+        ".sections[0].title_en",
+        ".sections[0].title_pinyin",
+        ".sections[0].title_zh",
+        ".sections[1].dialogue[0].pinyin",
+        ".sections[1].dialogue[0].translations.cleary.text",
+        ".sections[1].dialogue[0].translations.liebenthal.text",
+        ".sections[1].dialogue[0].translations.red_pine.text",
+        ".sections[1].dialogue[0].zh",
+        ".sections[1].title_en",
+        ".sections[1].title_pinyin",
+        ".sections[1].title_zh",
+        ".sections[2].dialogue[0].pinyin",
+        ".sections[2].dialogue[0].translations.cleary.text",
+        ".sections[2].dialogue[0].translations.liebenthal.text",
+        ".sections[2].dialogue[0].translations.red_pine.text",
+        ".sections[2].dialogue[0].zh",
+        ".sections[2].section_id",
+        ".sections[2].title_en",
+        ".sections[2].title_pinyin",
+        ".sections[2].title_zh",
+        ".title_en",
+        ".title_pinyin",
+        ".title_zh",
+    }),
     "data/corpus/wumenguan.json": frozenset({
         # .coverage_note: W1 containment re-wording into an honest status disclosure (prior PR)
         ".coverage_note",

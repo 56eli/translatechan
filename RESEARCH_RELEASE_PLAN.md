@@ -3,6 +3,8 @@
 > **Purpose:** turn a healthy static reader into a trustworthy, maintainable research corpus without treating generated text, online mirrors, or incomplete locators as scholarly completion.
 >
 > **Working rule:** no content expansion may weaken the source, provenance, rights, validation, or deploy contract already in place.
+>
+> **Refresh 2026-09-17 (sengzhao_zhaolun RE-KEY):** current gate-run totals are **80** provenance-note strings across four keys (`cbeta_note` 18, `recension_note` 14, `coverage_note` 32, `editorial_note` 16); **48 of 80** passage-level strings render at 26 document sites. CJK totals after the re-key are **104,989 content / 111,648 all-string**. The 2026-09-12 baseline block below is kept as the dated record it is.
 
 ## Release standard
 
