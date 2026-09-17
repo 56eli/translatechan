@@ -75,6 +75,41 @@ If Quality is not required:
 
 No Pages deployment workflow is needed: GitHub Pages currently publishes natively from `main /docs`, and the Pages API reports `built` with HTTPS enforced.
 
+## Edit 4 — Enforce website ruling law + source gates in CI (2026-09-14, owner definitive ruling)
+
+**File:** `.github/workflows/quality.yml`
+**Reason:** Owner ruling 2026-09-14 definitive: "In no way is the website beautiful. In no way is it done. Immediately after chinese integrity, it is of utmost importance to work on the website. YOU AS ORCHESTRATOR AND ALL DISPATCH AGENTS ARE NOT CAPABLE TO JUDGE THE WEBSITE. You are 100% relying on my feedback, all you can do is provide examples, suggestions and demonstration and ask 'does this look good?', 'Is this the right direction?', 'how good is it on a scale from 1-10 where we aim for at least 8?'. This is definitive."
+
+Adding documentation where nobody reads is not enough. Owner requires gates that FAIL if subjective standards are not met.
+
+**Changes (applied 2026-09-14, main 2b3e2b5+):**
+
+```yaml
+      - name: Enforce source-preservation allowlist (no unauthorized Chinese edits)
+        run: python3 scripts/test_source_preservation.py
+
+      - name: Enforce W1 source-review rule suite (138 checks)
+        run: python3 scripts/test_source_review_rules.py
+
+      - name: Enforce website ruling law — NOT beautiful, NOT done, owner feedback 1-10 aim 8+
+        run: python3 scripts/test_website_ruling.py
+```
+
+**Gate `test_website_ruling.py` enforces:**
+
+1. Ruling file `.orchestrator/RULING_WEBSITE_2026-09-14.md` exists and contains verbatim law phrases
+2. Canonical tracker `.orchestrator/STATE.md` contains "Website is NOT beautiful, NOT done" + "NOT CAPABLE TO JUDGE" + 1-10 scale
+3. Working state `.orchestrator/local/ORCHESTRATOR_STATE.md` contains same law
+4. No repo prose (README/AUDIT/HANDOFF/ROADMAP/vision.md/WEB_VISION) claims "website is beautiful/done" without NOT qualification
+5. Future website prompts seq >=24 that are website/human-readable Phase5 must contain:
+   - "does this look good?"
+   - "1-10" scale question
+   - "NOT beautiful, NOT done" reference
+   - "NOT CAPABLE TO JUDGE"
+   Failure = CI fails, subjective standard not met
+
+**Status:** Applied per owner explicit request to introduce failing gates (scope boundary allows workflow edit with explicit owner approval). Verified locally: `python3 scripts/test_website_ruling.py` PASS on main 2b3e2b5+ with law files present. CI will now fail any PR that self-declares website beautiful/done or omits owner feedback questions.
+
 ## Validation after either edit
 
 ```bash
