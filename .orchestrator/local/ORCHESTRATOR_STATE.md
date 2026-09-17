@@ -35,6 +35,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 021 | .orchestrator/prompts/021-rekey-huangbo_chuanxin.md | RE-KEY 7/10 (major, single text PR) — huangbo_chuanxin | fix/rekey-huangbo_chuanxin | #65 | Merged 2026-09-14 — main ac57347 — 2/11→4/11, guard rails |
 | 022 | .orchestrator/prompts/022-rekey-mazu_yulu.md | RE-KEY 8/10 (major, single text PR) — mazu_yulu | fix/rekey-mazu_yulu | #67 | Merged 2026-09-14 — main 2b3e2b5 — 0/8→7/8, guard rails |
 | 023 | .orchestrator/prompts/023-rekey-sengzhao_zhaolun.md | RE-KEY 9/10 (major, single text PR) — sengzhao_zhaolun | fix/rekey-sengzhao_zhaolun | — | Published 2026-09-14 — single doc, guard rails |
+| 024 | .orchestrator/RULING_WEBSITE_2026-09-14.md + scripts/test_website_ruling.py | LAW — Website NOT beautiful NOT done, failing gate | fix/enforce-website-ruling-gate | #68 | Merged 2026-09-14 — main e85d5c5 — gate PASS, CI now fails if subjective standards not met |
 
 
 
