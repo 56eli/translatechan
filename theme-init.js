@@ -19,4 +19,15 @@
   } catch (e) {
     /* storage unavailable — keep the server-rendered default theme */
   }
+  // Apply the persisted website-design preset (A–E) before first paint so a
+  // returning reader never sees a flash of the default design. The five presets
+  // are pure token overrides in app.css; this only sets the data-design attr.
+  try {
+    var design = window.localStorage ? window.localStorage.getItem('translatechan_design_variant') : null;
+    if (design === 'a' || design === 'b' || design === 'c' || design === 'd' || design === 'e') {
+      document.documentElement.setAttribute('data-design', design);
+    }
+  } catch (e) {
+    /* storage unavailable — keep the server-rendered default design */
+  }
 })();

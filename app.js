@@ -80,6 +80,7 @@
       } catch (e) { return {}; }
     })(),
     theme: storageGet('translatechan_theme') || 'light',
+    designVariant: (() => { const v = storageGet('translatechan_design_variant'); return ['a', 'b', 'c', 'd', 'e'].includes(v) ? v : 'a'; })(),
     nameMode: (() => { const v = storageGet('translatechan_name_mode'); return v === 'romaji' ? 'romaji' : 'pinyin'; })(),
     searchQuery: '',
     selectedMasterSchool: 'all',
@@ -95,6 +96,7 @@
   // DOM Elements
   const elements = {
     themeToggle: document.getElementById('theme-toggle'),
+    designSwitcher: document.getElementById('design-switcher'),
     navTabs: document.querySelectorAll('.nav-tab-btn'),
     viewSections: document.querySelectorAll('.view-section'),
     globalSearch: document.getElementById('global-search'),
@@ -205,6 +207,8 @@
     if (m && m[2]) setCurrentCorpusKey(m[2]);
 
     applyTheme(state.theme);
+    applyDesignVariant(state.designVariant);
+    renderDesignSwitcher();
     syncSettingsUI();
     setupShellMetrics();
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
@@ -574,6 +578,52 @@
     if (elements.themeToggle) {
       elements.themeToggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">☀</span>' : '<span aria-hidden="true">☾</span>';
     }
+  }
+
+  // Phase 5 — 5-design switcher. Applies a data-design attribute to <html> so
+  // the five token maps in app.css drive the whole look. The choice is the
+  // owner's to make and rate; the agent only provides examples. No inline
+  // styles, no new runtime contracts — just an attribute + class toggles.
+  const DESIGN_VARIANTS = [
+    { key: 'a', label: 'A', name: 'Scholarly' },
+    { key: 'b', label: 'B', name: 'Warm' },
+    { key: 'c', label: 'C', name: 'Monastic' },
+    { key: 'd', label: 'D', name: 'Modernist' },
+    { key: 'e', label: 'E', name: 'Dark' }
+  ];
+
+  function applyDesignVariant(variant) {
+    if (!['a', 'b', 'c', 'd', 'e'].includes(variant)) variant = 'a';
+    state.designVariant = variant;
+    document.documentElement.setAttribute('data-design', variant);
+    storageSet('translatechan_design_variant', variant);
+    // Reflect the active state on the switcher buttons (class + ARIA only).
+    if (elements.designSwitcher) {
+      elements.designSwitcher.querySelectorAll('.design-btn').forEach(btn => {
+        const on = btn.getAttribute('data-design-variant') === variant;
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.classList.toggle('active', on);
+      });
+    }
+  }
+
+  function renderDesignSwitcher() {
+    const container = elements.designSwitcher;
+    if (!container) return;
+    container.innerHTML =
+      '<span class="design-switcher-label" aria-hidden="true">Design</span>' +
+      DESIGN_VARIANTS.map(v =>
+        `<button type="button" class="design-btn" data-design-variant="${v.key}" ` +
+        `aria-label="Website design ${v.name} (${v.key})" ` +
+        `title="Design ${v.key}: ${v.name} — examples only, not a judgment" ` +
+        `aria-pressed="${state.designVariant === v.key ? 'true' : 'false'}">${v.label}</button>`
+      ).join('');
+    // One delegated activator: each button applies the design and persists it.
+    container.addEventListener('click', (e) => {
+      const btn = e.target && e.target.closest ? e.target.closest('.design-btn') : null;
+      if (!btn) return;
+      applyDesignVariant(btn.getAttribute('data-design-variant'));
+    });
   }
 
   // Event Listeners
@@ -1598,6 +1648,69 @@
       + `</div>`;
   }
 
+  // Phase 5 — Info section for every WORK (common qualities: where it came
+  // from, what/who is related, background context; collapsed by default so the
+  // default view stays light on mental load; plain-language, piece-meal).
+  // Built only from existing data fields — no invented Classical Chinese.
+  function renderWorkContext(corpusKey) {
+    const doc = state.data.corpus && state.data.corpus[corpusKey];
+    if (!doc) return '';
+    const manifestItem = manifestItemForCorpusKey(corpusKey);
+    const metrics = state.data.project_metrics?.corpus?.per_text?.[corpusKey] || {};
+    const cbeta = stringValue(doc.cbeta_id || (manifestItem && manifestItem.cbeta)) || 'Not recorded';
+    const coverage = stringValue(metrics.coverage) || 'representation not recorded';
+    // Related teachers: masters whose curated corpus links include this work.
+    const masters = Array.isArray(state.data.lineage) ? state.data.lineage : [];
+    const related = masters.filter(m => Array.isArray(m.linked_corpus_keys) && m.linked_corpus_keys.includes(corpusKey));
+    const relatedHtml = related.length
+      ? related.map(m => `<button class="btn-pill teacher-link" data-master-teacher="${escHtml(m.id)}">${escHtml(masterDisplayName(m))}</button>`).join(' ')
+      : '<span>Not yet linked to a profiled teacher in this project.</span>';
+    const background = related.length
+      ? `This text is part of the Chan / Zen corpus held in this project. It is shown here alongside ${related.length} related teacher profile${related.length === 1 ? '' : 's'}, and as an excerpt-scale seed unless its editorial status states otherwise.`
+      : `This text is part of the Chan / Zen corpus held in this project. It is shown here as an excerpt-scale seed unless its editorial status states otherwise.`;
+    return `<details class="context-info work-context">\n` +
+      `  <summary>About this work — context</summary>\n` +
+      `  <div class="context-info-body">\n` +
+      `    <div class="context-row"><div class="context-label">Where it came from</div><div class="context-text">Drawn from the CBETA canon witness ${escHtml(cbeta)}. Recorded coverage here: ${escHtml(coverage)}. The Classical Chinese is the source; English renderings are separate and clearly marked.</div></div>\n` +
+      `    <div class="context-row"><div class="context-label">Related teachers</div><div class="context-text">${relatedHtml}</div></div>\n` +
+      `    <div class="context-row"><div class="context-label">Background</div><div class="context-text">${escHtml(background)}</div></div>\n` +
+      `  </div>\n` +
+      `</details>`;
+  }
+
+  // Phase 5 — Info section for every TEACHER (common qualities: where they came
+  // from, who they are related to, background context). Built only from existing
+  // data fields — no invented Classical Chinese.
+  function renderTeacherContext(master) {
+    const teacher = (state.data.lineage || []).find(m => m && m.id === master.teacher);
+    const disciples = Array.isArray(master.disciples) ? master.disciples : [];
+    const discipleNames = disciples
+      .map(id => (state.data.lineage || []).find(m => m.id === id))
+      .filter(Boolean)
+      .map(m => escHtml(masterDisplayName(m)));
+    const relatedWorks = Array.isArray(master.linked_corpus_keys)
+      ? master.linked_corpus_keys.filter(k => state.data.corpus && state.data.corpus[k])
+      : [];
+    const relatedHtml = relatedWorks.length
+      ? relatedWorks.map(k =>
+          `<button class="btn-pill" data-open-doc="${escHtml(k)}">${escHtml((state.data.corpus_manifest?.items || []).find(i => i.key === k)?.title || k)}</button>`
+        ).join(' ')
+      : '<span>No linked project work yet.</span>';
+    const teacherHtml = teacher
+      ? `<button class="btn-pill teacher-link" data-master-teacher="${escHtml(teacher.id)}">${escHtml(masterDisplayName(teacher))}</button>`
+      : `<span>${escHtml(master.teacher || 'Frontier — teacher not yet profiled')}</span>`;
+    const disciplesHtml = discipleNames.length ? discipleNames.join(', ') : 'No profiled disciples in this project';
+    const summary = stringValue(master.summary) || 'No background summary recorded.';
+    return `<details class="context-info teacher-context">\n` +
+      `  <summary>About this teacher — context</summary>\n` +
+      `  <div class="context-info-body">\n` +
+      `    <div class="context-row"><div class="context-label">Where they came from</div><div class="context-text">${escHtml(master.name_zh)} — ${escHtml(master.dates || 'dates not recorded')} · ${escHtml(master.era || 'era not recorded')} · ${escHtml(master.location || 'location not recorded')}. Lineage depth: generation ${escHtml(String(master.lineage_depth))}.</div></div>\n` +
+      `    <div class="context-row"><div class="context-label">Who they are related to</div><div class="context-text">Teacher: ${teacherHtml}. Disciples profiled here: ${escHtml(discipleNames.length ? disciplesHtml : 'none')}.</div></div>\n` +
+      `    <div class="context-row"><div class="context-label">Background</div><div class="context-text">${escHtml(summary)} Linked project works: ${relatedHtml}</div></div>\n` +
+      `  </div>\n` +
+      `</details>`;
+  }
+
   function renderCaseSourceDisclosure(caseNum) {
     const documentLocator = locatorDocumentForKey(state.currentCorpusKey);
     const caseLocators = documentLocator && isRecord(documentLocator.case_locators) ? documentLocator.case_locators : {};
@@ -1721,6 +1834,7 @@
           <span class="document-status">${escHtml(editorialStatus)}</span>
         </div>
         ${renderDocumentLedgers(state.currentCorpusKey, doc)}
+        ${renderWorkContext(state.currentCorpusKey)}
         ${renderProvenanceNotes(doc)}
       </header>
       ${caseStrip}
@@ -3037,6 +3151,10 @@
           <span class="dossier-ledger-label">Historical & Philosophical Significance:</span> ${escHtml(master.summary)}
         </div>
       `;
+      // Phase 5 — Info section for every TEACHER (common qualities: where they
+      // came from, who they are related to, background context). Collapsed by
+      // default so the dossier stays calm; plain-language, piece-meal.
+      content.innerHTML += renderTeacherContext(master);
     }
 
     openDossierPanel();

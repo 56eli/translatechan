@@ -2702,3 +2702,206 @@ textarea:focus-visible,
   .matrix-collation, .lineage-register, .lexicon-entry-def { font-size: 0.95rem; }
   .lexicon-headword { font-size: 1.06rem; }
 }
+
+/* ==========================================================================
+   Phase 5 — 5-design switcher (2026-09-14, owner DEFINITIVE common qualities)
+   --------------------------------------------------------------------------
+   All five directions share the COMMON QUALITIES law: light mental load
+   (minimum shown by default, extra behind expand/toggle), English first, not
+   dense, comfortable to read, easy to navigate, piece-meal plain language, and
+   an info section for every work and teacher. They vary only in colour
+   temperature, typography voice, density-of-emphasis and mood.
+
+   A = Scholarly Minimal  — the refined current base (:root, no override).
+   B = Warm Editorial     — warm paper, generous leading, welcoming.
+   C = Monastic Scroll    — rice-paper ink, vertical rhythm, contemplative.
+   D = Modernist Grid     — Swiss, stark contrast, sans-serif voice.
+   E = Contemplative Dark — dark-first, soft, meditative.
+
+   These blocks set ONLY design tokens + a few scoped rhythm rules. They add
+   zero inline styles, zero .style writes, and zero new runtime contracts —
+   the four closed CSSOM contracts above remain the only style writes. The
+   switcher applies a data-design attribute to <html>; CSS does the rest.
+   ========================================================================== */
+
+/* --- B · Warm Editorial --- */
+:root[data-design="b"] {
+  --paper: #fbf4ea;
+  --panel: #fffaf2;
+  --line:  #e7d6c2;
+  --ink:   #352a1f;
+  --gold:  #b5702f;
+  --green: #5a7d54;
+  --blue:  #4a6f8a;
+  --red:   #b04a3a;
+  --wood:        #3a2a1c;
+  --wood-ink:    #f7ecdd;
+  --brass:       #d9b074;
+  --radius: 6px;
+  --shadow: 0 1px 2px rgba(58, 42, 28, 0.08), 0 10px 28px rgba(58, 42, 28, 0.06);
+}
+:root[data-design="b"] .classical-zh { line-height: 2.0; }
+:root[data-design="b"] .translation-text { line-height: 1.86; }
+:root[data-design="b"] #reader-content-target .case-card { padding: 2.4rem 0 2.6rem; }
+:root[data-design="b"] #reader-content-target .translation-col { padding-top: 1.15rem; }
+:root[data-design="b"] .zen-hero-banner { border-bottom-color: var(--gold); }
+
+/* --- C · Monastic Scroll --- */
+:root[data-design="c"] {
+  --paper: #f3efe2;
+  --panel: #faf7ec;
+  --line:  #d9cfbb;
+  --ink:   #23201c;
+  --gold:  #9c3b2e;
+  --green: #4f6b53;
+  --blue:  #456079;
+  --red:   #9c3b2e;
+  --wood:        #2e2a23;
+  --wood-ink:    #ece4d2;
+  --brass:       #b98b5e;
+  --radius: 2px;
+  --shadow: 0 1px 2px rgba(46, 42, 35, 0.07);
+}
+:root[data-design="c"] .classical-zh { line-height: 2.08; }
+:root[data-design="c"] .translation-text { line-height: 1.9; }
+:root[data-design="c"] #reader-content-target .case-card { padding: 2.8rem 0 3rem; border-top-width: 2px; }
+:root[data-design="c"] .ledger-drawer { border-top-width: 2px; border-bottom-width: 2px; }
+:root[data-design="c"] .case-card.is-epilogue,
+:root[data-design="c"] .case-card.is-ranks { border-left-width: 4px; }
+
+/* --- D · Modernist Grid --- */
+:root[data-design="d"] {
+  --paper: #ffffff;
+  --panel: #ffffff;
+  --line:  #e3e3e3;
+  --ink:   #111111;
+  --gold:  #d4302a;
+  --green: #1f6f4a;
+  --blue:  #1457a8;
+  --red:   #d4302a;
+  --wood:        #0f0f0f;
+  --wood-ink:    #ffffff;
+  --brass:       #d4302a;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius: 2px;
+  --shadow: none;
+}
+:root[data-design="d"] body { background-image: none; }
+:root[data-design="d"] .case-card { border-top: 2px solid var(--ink); box-shadow: none; }
+:root[data-design="d"] .ledger-drawer { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+:root[data-design="d"] .matrix-collation-head { border-bottom: 2px solid var(--ink); }
+:root[data-design="d"] .translation-col { box-shadow: none; }
+:root[data-design="d"] .zen-hero-banner { border-bottom-width: 3px; }
+:root[data-design="d"] .text-title-zh { letter-spacing: -0.02em; }
+
+/* --- E · Contemplative Dark (dark-first, soft, meditative) --- */
+:root[data-design="e"] {
+  --paper: #16181d;
+  --panel: #1f2228;
+  --line:  #2c3038;
+  --ink:   #e9e4d8;
+  --gold:  #b8924e;
+  --green: #5c8c72;
+  --blue:  #6f9bb8;
+  --red:   #c4625a;
+  --wood:        #0e0f12;
+  --wood-ink:    #e9e4d8;
+  --brass:       #b8924e;
+  --radius: 6px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+:root[data-design="e"] body { background-image: none; color: var(--ink); }
+:root[data-design="e"] .classical-zh { line-height: 2.0; }
+:root[data-design="e"] .translation-text { line-height: 1.84; }
+
+/* --- Design switcher control (header) — persistent, keyboard-operable --- */
+.design-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: 0.5rem;
+  padding-left: 0.6rem;
+  border-left: 1px solid color-mix(in srgb, var(--wood-ink) 18%, transparent);
+}
+.design-switcher-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--wood-muted);
+  margin-right: 0.1rem;
+  white-space: nowrap;
+}
+.design-btn {
+  min-width: 1.85rem;
+  height: 30px;
+  padding: 0 0.4rem;
+  border: 1px solid color-mix(in srgb, var(--wood-ink) 22%, transparent);
+  background: transparent;
+  color: var(--wood-muted);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--motion) ease, border-color var(--motion) ease, color var(--motion) ease;
+}
+.design-btn:hover { color: var(--wood-ink); border-color: var(--brass); background: color-mix(in srgb, var(--wood-ink) 6%, transparent); }
+.design-btn.active,
+.design-btn[aria-pressed="true"] {
+  color: var(--wood);
+  background: var(--brass);
+  border-color: var(--brass);
+}
+.design-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+/* On small screens the switcher label drops and the buttons shrink so the
+   controls row never wraps awkwardly. */
+@media (max-width: 768px) {
+  .design-switcher-label { display: none; }
+  .design-switcher { margin-left: 0.3rem; padding-left: 0.4rem; }
+  .design-btn { min-width: 1.5rem; height: 28px; font-size: 0.6rem; }
+}
+
+/* --- Work / teacher context info sections (common qualities: every work and
+   teacher gets an info section that puts it into context; collapsed by default
+   = light mental load; plain-language, piece-meal, expandable). --- */
+.context-info {
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 70%, var(--paper));
+}
+.context-info > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+.context-info > summary::-webkit-details-marker { display: none; }
+.context-info > summary::before { content: '+'; display: inline-block; width: 1rem; color: var(--gold); }
+.context-info[open] > summary::before { content: '\2212'; }
+.context-info-body { padding: 0 0.85rem 0.85rem; }
+.context-row { margin-bottom: 0.65rem; }
+.context-row:last-child { margin-bottom: 0; }
+.context-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.15rem;
+}
+.context-text { font-size: 0.86rem; line-height: 1.6; color: var(--ink); }
+.context-text .teacher-link { margin: 0.1rem 0.3rem 0.1rem 0; }
