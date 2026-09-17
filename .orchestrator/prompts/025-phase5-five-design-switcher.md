@@ -10,9 +10,10 @@
 2. REQUIRED READING ORDER
    - /tmp/state.md — main 662df41, LABEL 18/18 complete, RE-KEY 10/10 complete, Chinese integrity ~100% verified, next utmost importance website per LAW
    - .orchestrator/RULING_WEBSITE_2026-09-14.md — DEFINITIVE LAW verbatim: website NOT beautiful NOT done, NOT capable to judge, 100% owner feedback, must ask does this look good? right direction? 1-10 aim 8+
-   - .orchestrator/STATE.md — law section
-   - scripts/test_website_ruling.py — failing gate that enforces law
-   - PAGES_REVAMP_PROPOSAL_2026-09-13.md + WEB_VISION_2026-09-13.md — prior proposal, now superseded by 5-design approach
+   - .orchestrator/COMMON_QUALITIES_2026-09-14.md — COMMON QUALITIES law verbatim: light mental load, minimum amount of information, expand/hover/toggle, English first, not dense layout, comfortable to read, easy to navigate, piece meal plain language, info section for every work and teacher (where they came from, what/who related, background context)
+   - .orchestrator/STATE.md — law section + common qualities
+   - scripts/test_website_ruling.py — failing gate that enforces law + common qualities
+   - PAGES_REVAMP_PROPOSAL_2026-09-13.md + WEB_VISION_2026-09-13.md — prior proposal, now superseded by 5-design approach with common base
    - app.js, app.css, index.html — current functional gate-green (43 tokens, 0 style=, CSP without unsafe-inline, bundle <2MB, render-lazy)
 
 3. PROJECT CONTEXT
@@ -29,19 +30,29 @@
 5. CORE OBJECTIVE
    Implement 5 different website setups (design variants) with buttons to switch through them on live website, so owner can cycle and rate each 1-10 aiming for 8+. Provide examples, not judgments.
 
+   COMMON QUALITIES — ALL 5 must share (owner definitive 2026-09-14):
+   - light mental load: minimum amount of information presented by default, everything extra can be expanded, or hovered over, or toggled
+   - English first: primary reading is English, Chinese subordinate except Reader where largest, but English first for mental load
+   - not dense layout: no dense walls, generous whitespace, comfortable measure
+   - comfortable to read and easy to navigate
+   - explanations piece meal, plain language
+   - info section for every work and teacher that puts into context where they came from, what or who is related, what the background context is
+
+   Distinct directions may vary in color temperature, density (but all non-dense), typography voice, grid vs scroll, light vs dark emphasis, mood — but must keep common qualities.
+
 6. EXACT DELIVERABLES
-   - app.css — 5 token maps: [data-design="a"], [data-design="b"], [data-design="c"], [data-design="d"], [data-design="e"] — each distinct visual direction, e.g.:
-     A Scholarly Minimal (current base refined, serif dominant, max whitespace, quiet ledger)
-     B Warm Editorial (magazine-like, warm paper, generous leading, welcoming)
-     C Monastic Scroll (vertical rhythm, traditional, ink-like, contemplative)
-     D Modernist Grid (Swiss grid, stark contrast, clear hierarchy)
-     E Contemplative Dark (dark-first, soft, meditative)
-     Each must be distinct but keep bundle <2MB, 0 style=, CSP compliant
-   - app.js — renderDesignSwitcher() — persistent control (e.g., header or bottom corner) with 5 buttons to cycle through setups, stores choice in localStorage translatechan_design_variant, applies data-design attribute to html, keyboard accessible, no inline style=
+   - app.css — 5 token maps: [data-design="a"], [data-design="b"], [data-design="c"], [data-design="d"], [data-design="e"] — each distinct visual direction, but ALL share common qualities: light mental load, English first, not dense layout, comfortable to read, easy to navigate, piece meal plain language, info section for every work and teacher. E.g.:
+     A Scholarly Minimal (current base refined, serif dominant, max whitespace, quiet ledger, light mental load)
+     B Warm Editorial (magazine-like, warm paper, generous leading, welcoming, English first)
+     C Monastic Scroll (vertical rhythm, traditional, ink-like, contemplative, not dense)
+     D Modernist Grid (Swiss grid, stark contrast, clear hierarchy, comfortable to read)
+     E Contemplative Dark (dark-first, soft, meditative, easy to navigate)
+     Each must be distinct but keep bundle <2MB, 0 style=, CSP compliant, and implement common qualities
+   - app.js — renderDesignSwitcher() — persistent control (e.g., header or bottom corner) with 5 buttons to cycle through setups, stores choice in localStorage translatechan_design_variant, applies data-design attribute to html, keyboard accessible, no inline style=. Also implement light mental load: minimum info by default, extra expand/hover/toggle; English first; info section for every work and teacher (where they came from, what/who related, background context) rendered via renderProvenance? Actually new info sections for work/teacher context — plain language, piece meal
    - index.html — add switcher container if needed, no style=
    - docs/ mirror — regenerated via build_data_bundle.py
-   - Must keep 5 quality gates + preservation + review rules + website ruling gate PASS
-   - Must NOT claim website is beautiful/done, must NOT self-judge, must include in PR description and in code comments: examples only, not judgments, and ask does this look good? right direction? 1-10 aim 8+
+   - Must keep 5 quality gates + preservation + review rules + website ruling gate PASS (now checks common qualities)
+   - Must NOT claim website is beautiful/done, must NOT self-judge, must include in PR description and in code comments: examples only, not judgments, and ask does this look good? right direction? 1-10 aim 8+ plus common qualities implementation
 
 7. SUB-TASK BREAKDOWN
    1. Read LAW and existing tokens, design 5 distinct token maps (keep 43 base + 5 variants)
@@ -63,10 +74,10 @@
 
 10. TECHNICAL REQUIREMENTS
     - Keep bundle <2MB raw, gzipped <1MB, render-lazy, 0 style=, CSP without unsafe-inline
-    - 5 variants must be distinct, but share same 35 texts, same 5 rooms, same functionality
+    - 5 variants must be distinct, but share same 35 texts, same 5 rooms, same functionality AND common qualities: light mental load (minimum info default, extra expand/hover/toggle), English first, not dense layout, comfortable to read, easy to navigate, piece meal plain language, info section for every work and teacher (where they came from, what/who related, background context)
     - Switcher must be accessible, keyboard navigable, no layout shift that breaks smoke test
     - No generation of source-looking Chinese, no workflow edit beyond allowed, allowlist set-equal, 630 not re-designated
-    - Must pass test_website_ruling.py — this gate checks prompts >=24 contain does this look good? + 1-10 + NOT beautiful/NOT done + NOT CAPABLE TO JUDGE
+    - Must pass test_website_ruling.py — this gate checks prompts >=24 contain does this look good? + 1-10 + NOT beautiful/NOT done + NOT CAPABLE TO JUDGE, and for seq >=25 checks common qualities: light mental load, English first, not dense, comfortable to read, easy to navigate, piece meal, plain language, info section for every work and teacher
 
 11. SAFETY
     - No .github/workflows/* edit (Edit4 already done), no 630 re-designation, no other corpus docs touched
@@ -80,15 +91,16 @@
     Do not touch corpus Chinese, do not claim beauty, do not self-score website, do not merge without gates PASS
 
 14. QUALITY CHECKS
-    py_compile PASS, validate PASS (corpus 35, slots 1252, verified 177, matrix 21, locators 148/148, W1 collated 1/32/2 flagged 630), build PASS bundle <2MB deterministic, smoke PASS 35 texts render-lazy OK, diff -rq data docs/data PASS, structural diff PASS, preservation PASS 0 unauthorized, review rules PASS 138 checks, website ruling PASS — law enforced: NOT beautiful NOT done, NOT capable to judge, 1-10 aim 8+
+    py_compile PASS, validate PASS (corpus 35, slots 1252, verified 177, matrix 21, locators 148/148, W1 collated 1/32/2 flagged 630), build PASS bundle <2MB deterministic, smoke PASS 35 texts render-lazy OK, diff -rq data docs/data PASS, structural diff PASS, preservation PASS 0 unauthorized, review rules PASS 138 checks, website ruling PASS — law enforced: NOT beautiful NOT done, NOT capable to judge, 1-10 aim 8+, common qualities: light mental load, English first, not dense, comfortable to read, easy to navigate, piece meal plain language, info section for every work and teacher
 
 15. PR DESCRIPTION (must include)
-    - Summary: Phase5 5-design switcher, 5 setups with buttons on live website, examples only, no judgments
+    - Summary: Phase5 5-design switcher, 5 setups with buttons on live website, examples only, no judgments, common qualities shared
     - LAW verbatim: In no way is the website beautiful. In no way is it done. Immediately after chinese integrity, it is of utmost importance to work on the website. YOU AS ORCHESTRATOR AND ALL DISPATCH AGENTS ARE NOT CAPABLE TO JUDGE THE WEBSITE. You are 100% relying on my feedback, all you can do is provide examples, suggestions and demonstration and ask "does this look good?", "Is this the right direction?", "how good is it on a scale from 1-10 where we aim for at least 8?". This is definitive.
-    - Approach: 5 token maps A-E, switcher UI, localStorage, data-design attribute, bundle <2MB, 0 style=
-    - Preserve vs change: preserve all corpus Chinese, translations, functionality; change app.css (5 variants), app.js (switcher), index.html (container)
-    - Test results: all gates PASS including website ruling gate
-    - Questions for owner: does this look good? Is this the right direction? How good is it on a scale from 1-10 where we aim for at least 8? (per law, must ask)
+    - COMMON QUALITIES verbatim: All directions need to have a light mental load. That means the minimum amount of information is presented to the viewer, and everything extra he wants to see he can expand, or hover over, or toggle. It should be english first and it can't be a dense layout. It needs to feel comfortable to read and easy to navigate. Explanations and description need to be piece meal. Everything should be explained in plain language. There should be some form of info section for every work and teacher that put into context where they came from, what or who is related, what the background context is.
+    - Approach: 5 token maps A-E, switcher UI, localStorage, data-design attribute, bundle <2MB, 0 style=, all share common qualities: light mental load, English first, not dense, comfortable, piece meal plain language, info section for every work and teacher
+    - Preserve vs change: preserve all corpus Chinese, translations, functionality; change app.css (5 variants), app.js (switcher + info sections + disclosure pattern), index.html (container)
+    - Test results: all gates PASS including website ruling gate with common qualities
+    - Questions for owner: does this look good? Is this the right direction? How good is it on a scale from 1-10 where we aim for at least 8? (per law, must ask) plus how well do common qualities (light mental load, English first, not dense, comfortable, piece meal, info sections) work on 1-10?
     - Note: untested PRs have to be merged first to see on live website which is unfortunate — mitigated by gate-green and smoke test
 
 16. HARDENING REPORT
