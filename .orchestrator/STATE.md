@@ -58,6 +58,15 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 - Implication: Pages revamp Phases 1-3 (system+masthead, Reader sheet/drawer/register, secondary rooms, CSP without unsafe-inline, render-lazy, bundle <2MB) is **functionally complete and gate-green**, but **UX is insufficient for human reader** — next top priority is human-readable, easy-of-use, welcoming overhaul. This will be a new proposal-first track beyond Phase B, not part of this docs PR.
 - Docs: this PR (docs/pages-phase4-evidence, PR #51 from arena/01a09f16-translatechan) finalises README/HANDOFF/AUDIT/ROADMAP + WEB_VISION_2026-09-13.md + OPERATIONS Edit1 closed by O-3 + frozen PR-B/PR-D closed as folded. No self-declared visual completion — owner feedback recorded verbatim.
 
+**Ruling 2026-09-14 — Website is NOT beautiful, NOT done (definitive, verbatim, law):**
+- Owner ruling verbatim 2026-09-14: "In no way is the website beautiful. In no way is it done. Immediately after chinese integrity, it is of utmost importance to work on the website. YOU AS ORCHESTRATOR AND ALL DISPATCH AGENTS ARE NOT CAPABLE TO JUDGE THE WEBSITE. You are 100% relying on my feedback, all you can do is provide examples, suggestions and demonstration and ask 'does this look good?', 'Is this the right direction?', 'how good is it on a scale from 1-10 where we aim for at least 8?'. This is definitive. Put these statement into law so that internal documentation reflects them."
+- Law:
+  1. The website is NOT beautiful. The website is NOT done. No agent, orchestrator, or dispatch agent may claim otherwise. Prior statements that Phase B is "COMPLETE" refer only to functional gate-green (5 gates, bundle <2MB, CSP, render-lazy), never to human UX.
+  2. Immediately after Chinese source integrity (Phase A/D W1 remediation to 100% verified integrity as close as possible) is complete, the utmost importance is to work on the website for human-readable, easy-of-use, welcoming space.
+  3. Orchestrator and ALL dispatch agents ARE NOT CAPABLE TO JUDGE THE WEBSITE. They must not self-declare beauty, completeness, or quality.
+  4. 100% reliance on owner feedback. All website work must provide examples, suggestions, demonstrations, and ask: "does this look good?", "Is this the right direction?", "how good is it on a scale from 1-10 where we aim for at least 8?".
+  5. This ruling is definitive and must be reflected in all internal documentation, prompts, and PR descriptions for any website work. Future Pages revamp prompts must include this law verbatim and require the 1-10 scale question.
+
 
 ## Standing Decisions (2026-09-09, owner)
 
