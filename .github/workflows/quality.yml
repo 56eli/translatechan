@@ -53,3 +53,12 @@ jobs:
 
       - name: Run dependency-free reader smoke test
         run: node scripts/smoke_test.mjs
+
+      - name: Enforce source-preservation allowlist (no unauthorized Chinese edits)
+        run: python3 scripts/test_source_preservation.py
+
+      - name: Enforce W1 source-review rule suite (138 checks)
+        run: python3 scripts/test_source_review_rules.py
+
+      - name: Enforce website ruling law — NOT beautiful, NOT done, owner feedback 1-10 aim 8+
+        run: python3 scripts/test_website_ruling.py
