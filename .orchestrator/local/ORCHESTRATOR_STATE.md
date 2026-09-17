@@ -36,7 +36,7 @@ Empty — fresh engagement per Pack 1 (2026-09-13). Previous orchestrator branch
 | 022 | .orchestrator/prompts/022-rekey-mazu_yulu.md | RE-KEY 8/10 (major, single text PR) — mazu_yulu | fix/rekey-mazu_yulu | #67 | Merged 2026-09-14 — main 2b3e2b5 — 0/8→7/8, guard rails |
 | 023 | .orchestrator/prompts/023-rekey-sengzhao_zhaolun.md | RE-KEY 9/10 (major, single text PR) — sengzhao_zhaolun | fix/rekey-sengzhao_zhaolun | #69 | Merged 2026-09-14 — main 5df65d6 — 0/12→12/12 T45n1858, guard rails, law gate PASS |
 | 024 | .orchestrator/prompts/024-rekey-shitou_sandokai.md | RE-KEY 10/10 (major, single text PR) — shitou_sandokai | fix/rekey-shitou_sandokai | #71 | Merged 2026-09-14 — main 662df41 — 6/11→11/11 FINAL, RE-KEY 10/10 COMPLETE, law gate PASS |
-| 025 | .orchestrator/prompts/025-phase5-five-design-switcher.md | Phase5 — 5 different website designs with buttons on live website | feature/phase5-five-design-switcher | — | Published 2026-09-14 — 5 designs switcher, law verbatim + common qualities (light mental load, English first, not dense, comfortable, piece meal, info sections), failing gate, examples only, base 6e84cb3 |
+| 025 | .orchestrator/prompts/025-phase5-five-design-switcher.md | Phase5 — 5 different website designs with buttons on live website | feature/phase5-five-design-switcher | #73 | Merged 2026-09-14 — main 31ac12a — 5 designs A-E switcher live, common qualities light mental load English first not dense comfortable piece meal info sections, law gate PASS |
 | 024 | .orchestrator/RULING_WEBSITE_2026-09-14.md + scripts/test_website_ruling.py | LAW — Website NOT beautiful NOT done, failing gate | fix/enforce-website-ruling-gate | #68 | Merged 2026-09-14 — main e85d5c5 — gate PASS, CI now fails if subjective standards not met |
 
 
