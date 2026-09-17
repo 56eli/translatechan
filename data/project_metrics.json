@@ -7,13 +7,13 @@
     "documents": 35
   },
   "corpus": {
-    "all_corpus_cjk_characters": 111648,
+    "all_corpus_cjk_characters": 111708,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
       "partial_selected_witness": 4
     },
-    "content_cjk_characters": 104989,
+    "content_cjk_characters": 104975,
     "content_shapes": {
       "cases": 2,
       "chapters": 1,
@@ -800,10 +800,11 @@
         }
       },
       "shitou_sandokai": {
-        "all_cjk_chars": 303,
+        "all_cjk_chars": 363,
         "cbeta_id": "embedded: T2076 f.30 / X1565 f.14",
         "completion_status": "excerpt_seed",
-        "content_zh_chars": 262,
+        "content_zh_chars": 248,
+        "coverage_note": "11/11 content fields collate EXACT to claimed witness T51n2076 (景德傳燈錄卷三十) after RE-KEY 2026-09-17 (R-A, PHASE2_PLAN rank 51 — RE-KEY 10 of 10, final RE-KEY). Previously 6/11 collated (4 DIVERGENT at 0.93-0.97 in 參同契, 1 NOT_FOUND in 草庵歌). The 4 DIVERGENT Sandokai stanzas were re-keyed grapheme-for-grapheme to T51n2076@347,446: stanza 6 鹹酢→鹹醋, stanza 7 相睹…相睹→相遇…相覩, stanza 8 各有功→自有功, stanza 10 山川→山河; sibling pinyin rewritten to match. Section 1 草庵歌 (previously an unattested 42-graph paraphrase 吾結草庵無箇事… returning 0 hits at k≥12 in all 39 refs) was re-keyed to the witness's authentic opening at T51n2076@350,849 (吾結草庵無寶貝，飯了從容圖睡快。成時初見茆草新，破後還將茆草蓋。), with sibling pinyin rewritten. All 11 content fields are now verbatim in claimed witness T51n2076 (Sandokai stanzas 1-10 also corroborated in X80n1565@112,123 except stanza 3 which is carried whole in T51n2076 only). Residual metadata flags: 2 title_zh flags (.title_zh TITLE_COMPOSITE, .sections[0].title_zh SHORT_UNMATCHED) remain outside content denominator. W1 source_review_status remains partial_or_failed_w1_collation under authoritative 2026-09-10 register (630 authoritative flagged entries not re-designated).",
         "is_complete": false,
         "shapes": [
           "sections"

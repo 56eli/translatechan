@@ -829,6 +829,33 @@ ALLOWED_CHANGES = {
         # and no `zh_chars` pointer (this document declares none).
         ".coverage_note",
     }),
+    "data/corpus/shitou_sandokai.json": frozenset({
+        # 2026-09-17 R-A re-key (task 024, PHASE2_PLAN rank 51 — RE-KEY 10 of 10, final RE-KEY):
+        # all 11 content fields now collate EXACT to claimed witness T51n2076 (景德傳燈錄卷三十).
+        # Previously 6/11 collated (4 DIVERGENT at 0.93-0.97 in 參同契, 1 NOT_FOUND in 草庵歌).
+        # The 4 DIVERGENT Sandokai stanzas were re-keyed grapheme-for-grapheme to T51n2076@347,446:
+        # stanza 6 鹹酢→鹹醋, stanza 7 相睹…相睹→相遇…相覩, stanza 8 各有功→自有功,
+        # stanza 10 山川→山河, with sibling pinyin rewritten to match.
+        # Section 1 草庵歌 (previously an unattested 42-graph paraphrase 吾結草庵無箇事…
+        # returning 0 hits at k≥12 in all 39 refs) was re-keyed to the witness's authentic opening
+        # at T51n2076@350,849 (吾結草庵無寶貝，飯了從容圖睡快。成時初見茆草新，破後還將茆草蓋。),
+        # with sibling pinyin and reconstruction translations updated against the new Chinese.
+        # Additive honest .coverage_note records the 11/11 measurement.
+        ".coverage_note",
+        ".sections[0].stanzas[5].pinyin",
+        ".sections[0].stanzas[5].zh",
+        ".sections[0].stanzas[6].pinyin",
+        ".sections[0].stanzas[6].zh",
+        ".sections[0].stanzas[7].pinyin",
+        ".sections[0].stanzas[7].zh",
+        ".sections[0].stanzas[9].pinyin",
+        ".sections[0].stanzas[9].zh",
+        ".sections[1].stanzas[0].pinyin",
+        ".sections[1].stanzas[0].translations.cleary.text",
+        ".sections[1].stanzas[0].translations.red_pine.text",
+        ".sections[1].stanzas[0].translations.sasaki.text",
+        ".sections[1].stanzas[0].zh",
+    }),
     "data/corpus/wudeng_huiyuan.json": frozenset({
         # 2026-09-16 LABEL fix (task 014 bundle 6, PHASE2_PLAN ranks 15/30/65): the additive
         # honest `.coverage_note` records the measured collation — 0 of 3 source-content fields
