@@ -2704,22 +2704,20 @@ textarea:focus-visible,
 }
 
 /* ==========================================================================
-   Phase 5 — LAYOUT switcher, bundle 028 (2026-09-14 → 2026-09-17)
+   Phase 5 — LAYOUT switcher, redo 3–7 truly drastic (2026-09-17)
    --------------------------------------------------------------------------
    Numbers 1–7 on the header switcher. Layout 1 is the current ideal layout
    AND the ideal colors (owner: the colors of 1 are ideal already) — it is the
    :root base with no override. Layout 2 is the bundle-026 Accordion Reader,
    KEPT exactly as it shipped because the owner saw improvements there.
-   Layouts 3–7 are the previous 2–6 REIMPLEMENTED drastic: every room changes
-   structure now, not just Read. Having "2" twice is intended — old 2 stays 2
-   and its drastic reimplementation is 3, so the two accordions can be
-   compared side by side.
 
-   3 = Accordion, all rooms      — every unit folds to one English headline.
-   4 = Progressive reveal, all   — rooms unfold piece-meal as reading arrives.
-   5 = Tabbed rooms, all         — each room shows one kind of thing at a time.
-   6 = Modal info, all           — surfaces keep text, all info moves behind ⓘ.
-   7 = Hover cards, all          — names/headwords float their info section.
+   Layouts 3–7 are COMPLETELY REDONE as truly drastic shell+nav+grid+IA
+   changes (owner: "3-7 must be completely redone in next batch"):
+   3 = Focus Mode          — centered 38rem, no sidebar/filter/hero, [i] drawers
+   4 = Timeline View       — horizontal scroll-snap cards 18–26rem on gold rail
+   5 = Graph + Reader Split — 32% sticky dots + 68% English-first reader
+   6 = Minimal Header + Hamburger — 3rem header, nav behind drawer, 42rem body
+   7 = Info-First Dossier  — info section is hero; translation collapsed
 
    All seven share layout 1's colors exactly: only structure varies, never the
    palette. All seven carry the COMMON QUALITIES: light mental load (minimum
@@ -2728,11 +2726,11 @@ textarea:focus-visible,
    piece-meal plain language, and an info section for every work and teacher
    (where it came from, what or who is related, background context).
 
-   Mechanisms are disclosure-only: native <details>, [hidden] toggles, class
-   toggles, IntersectionObserver and the closed --pop-shift popover contract.
-   Zero inline styles, zero .style writes, zero new runtime contracts — the
-   four CSSOM custom-property writes stay exactly four. The switcher applies a
-   data-design attribute to <html>; this section does the rest.
+   Mechanisms: native <details>, [hidden] toggles, class toggles, alternative
+   DOM structure via enhanceRoomLayout. Zero inline styles, zero new .style
+   writes — the four CSSOM custom-property writes stay exactly four. The
+   switcher applies a data-design attribute to <html>; this section does the
+   rest. Bundle ceiling 30MB testing; presentation gates optional.
    ========================================================================== */
 
 
@@ -2773,12 +2771,9 @@ textarea:focus-visible,
 :root[data-design="2"] .dialogue-turn { margin: 0 0 0.6rem; }
 :root[data-design="2"] .case-card .case-body > .acc-sec:first-of-type { margin-top: 0.35rem; }
 
-/* --- Shared vocabulary for the drastic layouts 3–7 --------------------------
-   These classes are family-neutral: the same headline chips, info blocks and
-   folds are reused by the accordion, progressive, tabbed, modal and hover
-   families, in all five rooms. They are deliberately NOT keyed to one
-   data-design value, so a room keeps one consistent information shape while
-   only its disclosure structure changes. */
+/* --- Shared vocabulary for drastic layouts 3–7 (Phase 5 redo) ---------------
+   Headline chips, info blocks and folds reused by Focus / Timeline / Graph /
+   Hamburger / Dossier. Deliberately NOT keyed to one data-design value. */
 .rm-acc-kicker {
   font-family: var(--font-mono);
   font-size: 0.66rem;
@@ -2812,9 +2807,6 @@ textarea:focus-visible,
 .rm-teacher-zh { font-weight: 400; color: var(--ink-soft); font-family: var(--font-zh); }
 .rm-empty { color: var(--ink-soft); font-size: 0.88rem; }
 .rm-quiet { color: var(--ink-soft); font-size: 0.82rem; }
-.rm-modal-zh { font-family: var(--font-zh); font-size: 1.15rem; line-height: 1.9; margin-bottom: 0.35rem; }
-.rm-modal-py { font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-soft); margin-bottom: 0.6rem; }
-.rm-modal-en { font-family: var(--font-display); font-size: 1rem; }
 .rm-fold { margin: 0.9rem 0; border-left: 2px solid var(--line); padding-left: 0.9rem; }
 .rm-fold > summary {
   cursor: pointer;
@@ -2835,422 +2827,2344 @@ textarea:focus-visible,
   max-width: 62ch;
   margin: 0.2rem 0 1.3rem;
 }
-
-/* --- Layout 3 · Accordion, ALL ROOMS (drastic reimplementation of old 2) -----
-   Old layout 2 folded the sections INSIDE each Reader unit and left the other
-   four rooms alone. Layout 3 folds the units themselves, in every room: each
-   case, comparison line, teacher, catalogue row and term collapses to a single
-   English headline, and opening it reveals English first with the Chinese, the
-   records and the notes as nested folds. Column heads are retired because the
-   rows no longer sit in a shared grid — the accordion IS the structure. */
-:root[data-design="3"] .rm-acc {
-  margin: 0.55rem 0;
+.rm-i-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.35rem;
+  margin-left: 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--gold-strong);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.rm-i-btn:hover { background: var(--gold-soft); border-color: var(--gold); }
+.rm-i-btn[aria-expanded="true"] { background: var(--gold); color: var(--wood); border-color: var(--gold); }
+.rm-i-drawer {
+  display: none;
+  margin: 0.55rem 0 0.9rem;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 70%, var(--paper));
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+.rm-i-drawer.is-open { display: block; }
+.rm-tl-track {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  align-items: stretch;
+  width: max-content;
+  min-height: 18rem;
+  padding: 2rem 1rem 2.5rem;
+}
+.rm-tl-track::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.rm-tl-card {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--panel);
   box-shadow: var(--shadow);
-}
-:root[data-design="3"] .rm-acc > summary {
+  padding: 1rem 1.1rem 1.15rem;
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.35rem 0.6rem;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-height: min(70vh, 32rem);
+  overflow: auto;
+}
+.rm-tl-card > summary,
+.rm-tl-card .rm-tl-face {
   cursor: pointer;
   list-style: none;
-  padding: 0.7rem 0.95rem;
 }
-:root[data-design="3"] .rm-acc > summary::-webkit-details-marker { display: none; }
-:root[data-design="3"] .rm-acc > summary::before {
-  content: '+';
-  flex: 0 0 auto;
-  width: 1rem;
-  color: var(--gold);
+.rm-tl-era {
   font-family: var(--font-mono);
+  font-size: 0.62rem;
   font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
 }
-:root[data-design="3"] .rm-acc[open] > summary::before { content: '\2212'; }
-:root[data-design="3"] .rm-acc[open] > summary { border-bottom: 1px solid var(--line-soft); }
-:root[data-design="3"] .rm-acc > summary:hover { background: var(--gold-soft); }
-/* The adopted unit drops its own frame — the accordion panel is the frame. */
-:root[data-design="3"] .rm-acc > .case-card,
-:root[data-design="3"] .rm-acc > .matrix-proof-sheet,
-:root[data-design="3"] .rm-acc > .lineage-master-row,
-:root[data-design="3"] .rm-acc > .catalogue-row,
-:root[data-design="3"] .rm-acc > .lexicon-entry {
-  display: block;
+.rm-tl-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.rm-tl-body { display: none; }
+.rm-tl-card.is-open .rm-tl-body,
+details.rm-tl-card[open] .rm-tl-body { display: block; }
+.rm-graph-split {
+  display: grid;
+  grid-template-columns: 32% 68%;
+  gap: 0;
+  min-height: calc(100vh - var(--shell-height, 4rem));
+  width: 100%;
+}
+.rm-graph-pane {
+  background: var(--sunken, color-mix(in srgb, var(--paper) 70%, var(--wood) 8%));
+  border-right: 1px solid var(--line);
+  position: sticky;
+  top: var(--shell-height, 4rem);
+  height: calc(100vh - var(--shell-height, 4rem));
+  overflow-y: auto;
+  padding: 1rem 0.85rem 2rem;
+  scrollbar-width: thin;
+}
+.rm-reader-pane {
+  padding: 1.5rem 2rem 3rem;
+  overflow-y: auto;
+  min-width: 0;
+  max-height: calc(100vh - var(--shell-height, 4rem));
+}
+.rm-graph-title {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.85rem;
+}
+.rm-graph-dot-list {
+  list-style: none;
   margin: 0;
-  padding: 0.85rem 0.95rem 1rem;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
 }
-:root[data-design="3"] .gongan-catalogue-head,
-:root[data-design="3"] .lineage-band-cols,
-:root[data-design="3"] .matrix-collation-head { display: none; }
-/* One generation band reads as a quiet group label above its accordions. */
-:root[data-design="3"] .lineage-band { margin-bottom: 1.6rem; }
-:root[data-design="3"] .lineage-band-head { margin-bottom: 0.5rem; }
-/* Nested folds inside an opened unit keep the English-first order. */
-:root[data-design="3"] .rm-acc .acc-sec { margin: 0.7rem 0; border-color: var(--line-soft); }
-
-/* --- Layout 4 · Progressive reveal, ALL ROOMS (drastic reimplementation of
-   old 3) ----------------------------------------------------------------------
-   Old layout 3 revealed Reader units on scroll only. Layout 4 does it in every
-   room: the first unit reads in full, every later unit waits as a quiet
-   one-line stub, and extra material — Chinese, dated records, definitions,
-   catalogue detail, info sections — always waits behind its own fold. */
-.rm-reveal-btn {
-  display: none;
-  margin-top: 0.5rem;
-  padding: 0.45rem 0.95rem;
-  border: 1px dashed var(--line);
-  border-radius: var(--radius);
+.rm-graph-dot-list li { margin: 0; }
+.rm-graph-dot {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  text-align: left;
+  border: 0;
   background: transparent;
   color: var(--ink-soft);
   font-family: var(--font-ui);
   font-size: 0.78rem;
+  padding: 0.35rem 0.25rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+.rm-graph-dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+  justify-self: center;
+}
+.rm-graph-dot:hover { color: var(--ink); background: var(--hover); }
+.rm-graph-dot.is-active { color: var(--ink); font-weight: 600; }
+.rm-graph-dot.is-active::before { background: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+.rm-graph-dot-en { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hamburger-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 38px;
+  height: 36px;
+  padding: 0.35rem;
+  border: 1px solid color-mix(in srgb, var(--wood-ink) 20%, transparent);
+  background: transparent;
+  color: var(--wood-ink);
+  border-radius: var(--radius);
   cursor: pointer;
 }
-:root[data-design="4"] .rm-pending .rm-collapse { display: none; }
-:root[data-design="4"] .rm-pending .rm-reveal-btn { display: inline-flex; }
-:root[data-design="4"] .rm-pending { opacity: 0.94; }
-.rm-reveal-btn:hover { color: var(--ink); border-color: var(--gold); }
-.rm-reveal-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-/* A pending unit is one headline tall in every room, so a room reads as a
-   list of promises rather than a wall of text. */
-:root[data-design="4"] .catalogue-row.rm-pending,
-:root[data-design="4"] .lineage-master-row.rm-pending,
-:root[data-design="4"] .lexicon-entry.rm-pending,
-:root[data-design="4"] .matrix-proof-sheet.rm-pending,
-:root[data-design="4"] .case-card.rm-pending { padding-bottom: 0.75rem; }
-
-/* --- Layout 5 · Tabbed rooms, ALL ROOMS (drastic reimplementation of old 4) --
-   Old layout 4 gave the Reader four tabs and left the other rooms alone.
-   Layout 5 gives EVERY room its own small tablist: a minimal pane first, the
-   full record second, and the plain-language info sections third. Tab counts
-   differ per room on purpose — the owner ruled that keeping the same number of
-   tabs is neither intended nor forbidden. */
-.layout-tabs {
-  position: sticky;
-  top: var(--shell-height, 0px);
-  z-index: 20;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 1.1rem 0 1.4rem;
-  padding: 0.55rem 0;
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
+.hamburger-btn span {
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
 }
-.layout-tab-btn,
-.room-tab-btn {
-  padding: 0.5rem 1.05rem;
+.hamburger-btn:hover { border-color: var(--brass); background: var(--wood-raised); }
+.rm-dossier-hero {
+  order: -1;
+  margin: 0 0 1.5rem;
+  padding: 1.1rem 1.2rem 1.25rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--panel);
-  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--panel) 75%, var(--paper));
+  box-shadow: var(--shadow);
+}
+.rm-dossier-hero h2 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+.rm-dossier-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.85rem 0 0;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--gold-soft);
+  color: var(--gold-strong);
   font-family: var(--font-ui);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
 }
-.layout-tab-btn:hover,
-.room-tab-btn:hover { color: var(--ink); border-color: var(--gold); }
-.layout-tab-btn[aria-selected="true"],
-.room-tab-btn[aria-selected="true"] {
-  background: var(--wood);
-  border-color: var(--wood);
-  color: var(--wood-ink);
+.rm-dossier-toggle:hover { background: var(--gold); color: var(--wood); }
+.rm-dossier-translation {
+  order: 1;
+  border-top: 2px solid var(--gold);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
 }
-.layout-tab-btn:focus-visible,
-.room-tab-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.layout-pane,
-.room-pane { margin: 0.4rem 0 2rem; }
-.room-pane[hidden] { display: none; }
-.room-tabpanes { display: block; }
-.rm-adopted { display: block; }
-.layout-pane-title {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  margin: 0.4rem 0 1.1rem;
-}
-.layout-pane-empty { color: var(--ink-soft); font-size: 0.9rem; }
-/* Reader tab panes: one kind of content at a time. */
-:root[data-design="5"] #reader-content-target[data-layout-tab="translation"] .classical-zh,
-:root[data-design="5"] #reader-content-target[data-layout-tab="translation"] .pinyin-line { display: none; }
-:root[data-design="5"] #reader-content-target[data-layout-tab="chinese"] .translation-grid,
-:root[data-design="5"] #reader-content-target[data-layout-tab="chinese"] .translation-source,
-:root[data-design="5"] #reader-content-target[data-layout-tab="chinese"] .prose-en,
-:root[data-design="5"] #reader-content-target[data-layout-tab="chinese"] .provenance-line { display: none; }
-:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .case-card,
-:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .case-jump-strip,
-:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .case-load-more,
-:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .front-matter,
-:root[data-design="5"] #reader-content-target[data-layout-tab="context"] .layout-pane-related { display: none; }
-:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .case-card,
-:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .case-jump-strip,
-:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .case-load-more,
-:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .front-matter,
-:root[data-design="5"] #reader-content-target[data-layout-tab="related"] .layout-pane-context { display: none; }
+.rm-dossier-translation[hidden] { display: none !important; }
 
-/* Compare · "At a glance" pane: the source line, then each English voice. */
-.rm-glance-list { list-style: none; margin: 0; padding: 0; }
-.rm-glance-item {
-  margin: 0 0 1.5rem;
-  padding: 0.9rem 1rem 1.1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--panel);
+/* ==========================================================================
+   LAYOUT 3 · FOCUS MODE (variant 13) — truly drastic
+   --------------------------------------------------------------------------
+   No sidebar, no filter rail, no hero, no room heading. Centered 38rem
+   English reading column with 3× whitespace. Extra material (Chinese, notes,
+   provenance, ledgers, info) hides behind a tiny [i] drawer per unit.
+   Overrides shell + nav + body grid — first glance instantly different from 1.
+   Common qualities: minimum default English only; expand via [i]; plain-
+   language info sections in the drawer (where from / related / background).
+   ========================================================================== */
+
+:root[data-design="3"] .site-shell {
+  height: 2.8rem;
+  min-height: 2.8rem;
+  max-height: 2.8rem;
+  background: var(--wood);
+  border-bottom: none;
+  box-shadow: none;
+  overflow: hidden;
 }
-.rm-glance-ref {
+:root[data-design="3"] .shell-frame {
+  max-width: none;
+  margin: 0;
+  padding: 0.35rem 1rem;
+  height: 2.8rem;
+}
+:root[data-design="3"] .shell-lintel {
+  min-height: 2.1rem;
+  height: 2.1rem;
+  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: center;
+}
+:root[data-design="3"] .brand-mark { display: none !important; }
+:root[data-design="3"] .brand-title-chinese { display: none !important; }
+:root[data-design="3"] .brand-lockup { gap: 0; }
+:root[data-design="3"] .brand-title-en {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+:root[data-design="3"] .brand { gap: 0; min-width: 0; }
+:root[data-design="3"] .room-nav { display: none !important; }
+:root[data-design="3"] .shell-search { width: clamp(140px, 18vw, 220px); }
+:root[data-design="3"] .shell-search .search-input {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  font-size: 0.78rem;
+}
+:root[data-design="3"] .theme-toggle {
+  min-width: 32px;
+  height: 30px;
+  font-size: 0.7rem;
+}
+:root[data-design="3"] .design-btn {
+  min-width: 1.55rem;
+  height: 26px;
+  font-size: 0.58rem;
+}
+:root[data-design="3"] .nav-controls { gap: 0.3rem; }
+:root[data-design="3"] .settings-menu .settings-panel { top: 2.4rem; }
+
+/* Hero and room chrome vanish — reading is the only surface. */
+:root[data-design="3"] .zen-hero-banner,
+:root[data-design="3"] #zen-hero-banner,
+:root[data-design="3"] .hero,
+:root[data-design="3"] .room-heading,
+:root[data-design="3"] .text-header.room-heading,
+:root[data-design="3"] .room-filter-rail,
+:root[data-design="3"] .lineage-toolbar .room-filter-rail,
+:root[data-design="3"] .gongan-filter-rail,
+:root[data-design="3"] .mobile-corpus-picker { display: none !important; }
+
+:root[data-design="3"] #main-content {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+:root[data-design="3"] .view-section {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+:root[data-design="3"] .view-section.active {
+  display: block;
+  padding: 0;
+}
+
+/* Reader: kill the two-column shelf — one centered column. */
+:root[data-design="3"] .reader-layout {
+  display: block;
+  max-width: none;
+  margin: 0;
+  gap: 0;
+  grid-template-columns: none;
+}
+:root[data-design="3"] .sidebar-panel { display: none !important; }
+:root[data-design="3"] .content-panel {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 3rem 1rem 6rem;
+  background: transparent;
+  min-height: 0;
+  box-shadow: none;
+  border: 0;
+}
+:root[data-design="3"] .reader-toolbar {
+  position: static;
+  top: auto;
+  background: transparent;
+  border-bottom: 0;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  justify-content: center;
+  opacity: 0.7;
+}
+:root[data-design="3"] .reader-toolbar:hover,
+:root[data-design="3"] .reader-toolbar:focus-within { opacity: 1; }
+:root[data-design="3"] .toolbar-label { display: none; }
+
+:root[data-design="3"] #reader-content-target {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 0;
+  line-height: 1.9;
+  font-size: 1.15rem;
+}
+
+/* Other rooms share the same centered measure. */
+:root[data-design="3"] .room-body,
+:root[data-design="3"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 3rem 1rem 6rem;
+  line-height: 1.75;
+}
+:root[data-design="3"] #view-matrix,
+:root[data-design="3"] #view-lineage,
+:root[data-design="3"] #view-gongan,
+:root[data-design="3"] #view-lexicon {
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+
+/* English-first: Chinese / pinyin / provenance / ledgers wait behind [i]. */
+:root[data-design="3"] .classical-zh,
+:root[data-design="3"] .pinyin-line,
+:root[data-design="3"] .provenance-line,
+:root[data-design="3"] .ledger-drawer,
+:root[data-design="3"] .matrix-sentence-zh,
+:root[data-design="3"] .matrix-sentence-pinyin,
+:root[data-design="3"] .matrix-source-location,
+:root[data-design="3"] .lineage-master-record,
+:root[data-design="3"] .lineage-master-quote,
+:root[data-design="3"] .catalogue-detail,
+:root[data-design="3"] .catalogue-theme,
+:root[data-design="3"] .catalogue-locator,
+:root[data-design="3"] .lexicon-entry-def,
+:root[data-design="3"] .lexicon-occurrences,
+:root[data-design="3"] .front-matter,
+:root[data-design="3"] .document-details,
+:root[data-design="3"] .work-context,
+:root[data-design="3"] .gongan-catalogue-head,
+:root[data-design="3"] .lineage-band-cols,
+:root[data-design="3"] .matrix-collation-head,
+:root[data-design="3"] .case-heading-zh,
+:root[data-design="3"] .lineage-master-name-zh,
+:root[data-design="3"] .catalogue-title-zh,
+:root[data-design="3"] .lexicon-headword-zh { display: none; }
+
+/* When a unit's [i] drawer is open, reveal the hidden bits that were moved into it. */
+:root[data-design="3"] .rm-i-drawer.is-open .classical-zh,
+:root[data-design="3"] .rm-i-drawer.is-open .pinyin-line,
+:root[data-design="3"] .rm-i-drawer.is-open .provenance-line,
+:root[data-design="3"] .rm-i-drawer.is-open .ledger-drawer,
+:root[data-design="3"] .rm-i-drawer.is-open .matrix-sentence-zh,
+:root[data-design="3"] .rm-i-drawer.is-open .matrix-sentence-pinyin,
+:root[data-design="3"] .rm-i-drawer.is-open .matrix-source-location,
+:root[data-design="3"] .rm-i-drawer.is-open .lineage-master-record,
+:root[data-design="3"] .rm-i-drawer.is-open .lineage-master-quote,
+:root[data-design="3"] .rm-i-drawer.is-open .catalogue-detail,
+:root[data-design="3"] .rm-i-drawer.is-open .catalogue-theme,
+:root[data-design="3"] .rm-i-drawer.is-open .lexicon-entry-def,
+:root[data-design="3"] .rm-i-drawer.is-open .lexicon-occurrences,
+:root[data-design="3"] .rm-i-drawer.is-open .front-matter,
+:root[data-design="3"] .rm-i-drawer.is-open [lang="zh"] { display: block; }
+
+:root[data-design="3"] .translation-grid {
+  display: block;
+  grid-template-columns: none;
+  gap: 0;
+  font-size: 1.15rem;
+  line-height: 1.9;
+}
+:root[data-design="3"] .translation-text,
+:root[data-design="3"] .prose-en {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  max-width: 38rem;
+}
+:root[data-design="3"] .case-card {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 0 0 2.5rem;
+  margin: 0 0 0.5rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="3"] .case-card:last-child { border-bottom: 0; }
+:root[data-design="3"] .case-num-title,
+:root[data-design="3"] .case-heading-en {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 0 0 0.85rem;
+  color: var(--ink);
+}
+:root[data-design="3"] .case-heading-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+:root[data-design="3"] .dialogue-turn { margin: 0 0 1.25rem; padding: 0; border: 0; }
+:root[data-design="3"] .document-heading {
+  margin: 0 0 2.5rem;
+  padding: 0;
+  border: 0;
+  text-align: left;
+}
+:root[data-design="3"] .document-heading .text-title-zh,
+:root[data-design="3"] .document-heading h1 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+/* Secondary rooms: quiet English headlines, dense chrome gone. */
+:root[data-design="3"] .matrix-proof-sheet,
+:root[data-design="3"] .lineage-master-row,
+:root[data-design="3"] .catalogue-row,
+:root[data-design="3"] .lexicon-entry {
+  display: block;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  padding: 1.35rem 0 1.5rem;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+  grid-template-columns: none;
+}
+:root[data-design="3"] .matrix-register-row { padding: 0.35rem 0; border: 0; }
+:root[data-design="3"] .matrix-register-name {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+:root[data-design="3"] .matrix-register-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+:root[data-design="3"] .lineage-master-name-en {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+:root[data-design="3"] .lineage-band { margin: 0 0 1.5rem; border: 0; padding: 0; }
+:root[data-design="3"] .lineage-band-head {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem;
+  padding: 0;
+  border: 0;
+}
+:root[data-design="3"] .catalogue-title-en {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+:root[data-design="3"] .catalogue-case {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gold-strong);
+  margin-bottom: 0.25rem;
+}
+:root[data-design="3"] .lexicon-headword {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+:root[data-design="3"] .focus-room-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  max-width: 38rem;
+  padding: 0 1rem;
+}
+:root[data-design="3"] .focus-room-nav button {
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--gold-strong);
-  margin-bottom: 0.6rem;
+  cursor: pointer;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid transparent;
 }
-.rm-glance-lines { list-style: none; margin: 0; padding: 0; }
-.rm-glance-lines li { margin: 0 0 0.55rem; }
-.rm-glance-who {
-  display: block;
+:root[data-design="3"] .focus-room-nav button.is-active,
+:root[data-design="3"] .focus-room-nav button[aria-current="page"] {
+  color: var(--gold-strong);
+  border-bottom-color: var(--gold);
+  font-weight: 700;
+}
+:root[data-design="3"] .focus-room-nav button:hover { color: var(--ink); }
+
+/* Focus mode: more vertical rhythm = 3× whitespace vs classic. */
+:root[data-design="3"] .case-body { margin-top: 1.25rem; }
+:root[data-design="3"] .commentary-block,
+:root[data-design="3"] .verse-block {
+  margin: 1.5rem 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+:root[data-design="3"] .rm-focus-unit { position: relative; }
+:root[data-design="3"] .rm-focus-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  margin-bottom: 0.65rem;
+}
+:root[data-design="3"] .lineage-graph-frame { display: none !important; }
+:root[data-design="3"] .case-jump-strip,
+:root[data-design="3"] .case-load-more { opacity: 0.65; max-width: 38rem; margin-left: auto; margin-right: auto; }
+:root[data-design="3"] #view-reader .content-panel { padding-top: 2.5rem; }
+:root[data-design="3"] .matrix-source-band { padding: 0; border: 0; margin: 0 0 0.75rem; }
+:root[data-design="3"] .matrix-ref-clean {
   font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+:root[data-design="3"] .lineage-master-house,
+:root[data-design="3"] .lineage-master-gen {
+  font-size: 0.78rem;
   color: var(--ink-soft);
 }
-.rm-glance-en { font-family: var(--font-display); font-size: 1.02rem; }
-/* Compare · "Where it came from" pane. */
-.rm-source-item {
-  margin: 0 0 1.5rem;
-  padding: 0.9rem 1rem 1.1rem;
-  border-left: 2px solid var(--gold);
-  background: color-mix(in srgb, var(--panel) 70%, var(--paper));
+:root[data-design="3"] .catalogue-collection {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 0.25rem;
 }
-.rm-source-ref { font-family: var(--font-mono); font-size: 0.78rem; color: var(--gold-strong); margin-bottom: 0.5rem; }
-.rm-source-zh { font-family: var(--font-zh); font-size: 1.15rem; line-height: 1.9; margin-top: 0.5rem; }
-.rm-source-pinyin { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); }
-.rm-source-loc { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-soft); margin-top: 0.4rem; }
+:root[data-design="3"] .lexicon-headword-meta,
+:root[data-design="3"] .lexicon-entry-cat {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+:root[data-design="3"] .rm-i-drawer .context-label { margin-top: 0.55rem; }
+:root[data-design="3"] .rm-i-drawer .context-row:first-child .context-label { margin-top: 0; }
+:root[data-design="3"] .rm-room-info { max-width: 38rem; margin: 0 auto 2rem; }
+:root[data-design="3"] .document-heading .section-kicker { display: none; }
+:root[data-design="3"] .translation-source { display: none; }
+:root[data-design="3"] .speaker-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.25rem;
+}
 
-/* Lineage · "Timeline" pane: the chronological spine, one line per teacher. */
-.rm-timeline { list-style: none; margin: 0; padding: 0 0 0 1.4rem; border-left: 1px solid var(--line); }
-.rm-timeline-item { position: relative; margin: 0 0 1.3rem; padding-left: 0.6rem; }
-.rm-timeline-dot {
-  position: absolute;
-  inset-inline-start: -1.75rem;
-  inset-block-start: 0.45rem;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--brass);
-  border: 1px solid var(--gold);
+/* Focus responsive: stay single-column forever. */
+@media (max-width: 720px) {
+  :root[data-design="3"] .content-panel,
+  :root[data-design="3"] #reader-content-target,
+  :root[data-design="3"] .room-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  :root[data-design="3"] .shell-search { display: none; }
 }
-.rm-timeline-name { font-family: var(--font-display); font-size: 1.08rem; }
-.rm-timeline-when { font-size: 0.82rem; color: var(--ink-soft); margin: 0.15rem 0 0.3rem; }
-.rm-timeline-teacher { font-size: 0.82rem; margin-bottom: 0.4rem; }
-/* Lineage · "Dossiers" pane, Cases · "By theme", Terms · "By category". */
-.rm-dossier,
-.rm-theme-group,
-.rm-cat-group { margin: 0 0 0.7rem; }
 
-/* Cases · "Records" pane: the catalogue record only, in plain language. */
-.rm-record-list { display: block; }
-.rm-record-item {
-  margin: 0 0 0.9rem;
-  padding: 0.7rem 0.9rem;
-  border: 1px solid var(--line-soft);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--panel) 70%, var(--paper));
-}
-.rm-record-head { font-family: var(--font-display); font-size: 1rem; margin-bottom: 0.25rem; }
-.rm-record-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-soft); }
+/* ==========================================================================
+   LAYOUT 4 · TIMELINE VIEW (variant 15) — truly drastic
+   --------------------------------------------------------------------------
+   Horizontal scroll, scroll-snap cards on a gold timeline rule. room-body
+   becomes flex row overflow-x. Each room unit is a fixed-width card
+   (18–26rem). Only era/name visible by default; where-from / related /
+   background behind card expand. First layout that is horizontal, not vertical.
+   ========================================================================== */
 
-/* Terms · "Terms" pane: headwords only — the shortest possible list. */
-.rm-term-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 0.45rem 1.2rem;
+:root[data-design="4"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 40%, transparent);
 }
-.rm-term-item {
+:root[data-design="4"] .shell-frame {
+  max-width: none;
+  padding: 0 1rem;
+}
+:root[data-design="4"] .shell-lintel { min-height: 3.2rem; }
+:root[data-design="4"] .brand-mark {
+  width: 1.9rem;
+  height: 1.9rem;
+  font-size: 0.8rem;
+}
+:root[data-design="4"] .brand-title-chinese { display: none; }
+:root[data-design="4"] .room-nav {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.4rem;
-  padding: 0.45rem 0.6rem;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+  overflow-x: auto;
+}
+:root[data-design="4"] .nav-tab-btn {
+  min-height: 2.4rem;
+  padding: 0.3rem 0.9rem 0.35rem 1.6rem;
+}
+:root[data-design="4"] .room-name-zh { display: none; }
+
+:root[data-design="4"] .zen-hero-banner,
+:root[data-design="4"] #zen-hero-banner { display: none !important; }
+
+:root[data-design="4"] #main-content {
+  max-width: none;
+  padding: 0;
+  overflow: hidden;
+}
+:root[data-design="4"] .view-section.active {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--shell-height, 5rem));
+  padding: 0;
+  max-width: none;
+}
+:root[data-design="4"] .room-heading,
+:root[data-design="4"] .text-header.room-heading {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--paper);
+  margin: 0;
+  padding: 1rem 1.25rem 0.85rem;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+  max-width: none;
+  width: 100%;
+}
+:root[data-design="4"] .room-heading::after { display: none; }
+:root[data-design="4"] .room-filter-rail {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--paper);
+  margin: 0;
+  padding: 0.55rem 1.25rem;
   border-bottom: 1px solid var(--line-soft);
 }
-.rm-term-en { font-family: var(--font-display); font-size: 1rem; }
-.rm-term-zh { font-family: var(--font-zh); color: var(--ink-soft); }
-.rm-term-py { font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-soft); flex-basis: 100%; }
-@media (max-width: 768px) {
-  .rm-term-list { grid-template-columns: 1fr; }
-  .rm-acc-note { display: none; }
-  .layout-tabs,
-  .room-tabs { position: static; }
+
+/* The body IS the horizontal timeline. */
+:root[data-design="4"] .room-body,
+:root[data-design="4"] .room-body:not([hidden]) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1.5rem;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem 3rem;
+  position: relative;
+  max-width: none;
+  width: 100%;
+  min-height: calc(100vh - var(--shell-height, 5rem) - 6rem);
+  align-items: center;
+  scrollbar-width: thin;
+}
+:root[data-design="4"] .room-body::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* --- Layout 6 · Modal info — shared modal chrome -----------------------------
-   The reading surface keeps only the literature; all info sections move
-   behind ⓘ doorways into ONE modal overlay. Room-by-room rules for layout 6
-   (what each room hands to the modal) follow the hover-card block below. */
-.info-modal-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.2rem; }
-.info-modal-btn { font-size: 0.8rem; }
-.layout-modal-root {
-  position: fixed;
-  inset: 0;
-  z-index: 340;
+/* Reader becomes chapter chunks on the same timeline. */
+:root[data-design="4"] .reader-layout {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.2rem;
+  flex-direction: column;
+  max-width: none;
+  gap: 0;
+  grid-template-columns: none;
+  min-height: calc(100vh - var(--shell-height, 5rem));
 }
-.layout-modal-root[hidden] { display: none; }
-.layout-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: color-mix(in srgb, var(--wood) 55%, transparent);
+:root[data-design="4"] .sidebar-panel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  position: static;
+  max-height: none;
+  border-right: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0.6rem 1rem;
+  gap: 0.5rem;
+  width: 100%;
+  background: var(--paper);
 }
-.layout-modal-panel {
+:root[data-design="4"] .sidebar-title { display: none; }
+:root[data-design="4"] .corpus-filter { display: none; }
+:root[data-design="4"] .corpus-selector-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+}
+:root[data-design="4"] .corpus-group { display: contents; }
+:root[data-design="4"] .corpus-group-title { display: none; }
+:root[data-design="4"] .corpus-group-list { display: contents; }
+:root[data-design="4"] .corpus-btn {
+  flex: 0 0 auto;
+  width: auto;
+  border-left: 0;
+  border-bottom: 2px solid transparent;
+  padding: 0.35rem 0.7rem;
+  white-space: nowrap;
+}
+:root[data-design="4"] .corpus-btn.active { border-bottom-color: var(--gold); background: var(--gold-soft); }
+:root[data-design="4"] .corpus-title-zh { display: none; }
+:root[data-design="4"] .content-panel {
+  flex: 1;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+:root[data-design="4"] .reader-toolbar {
+  position: static;
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--paper);
+  backdrop-filter: none;
+}
+:root[data-design="4"] #reader-content-target {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1.5rem;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem 3rem;
   position: relative;
-  width: min(46rem, 100%);
-  max-height: min(84vh, 52rem);
-  overflow: auto;
-  padding: 1.3rem 1.5rem 1.5rem;
+  align-items: center;
+  min-height: 22rem;
+  flex: 1;
+}
+:root[data-design="4"] #reader-content-target::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: var(--gold);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Card widths per room — distinct measures on the rail. */
+:root[data-design="4"] .case-card {
+  flex: 0 0 26rem;
+  width: 26rem;
+  max-width: 26rem;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 1;
   background: var(--panel);
-  color: var(--ink);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  padding: 1.1rem 1.15rem 1.2rem;
+  margin: 0;
+  max-height: min(70vh, 34rem);
+  overflow: auto;
+  align-self: center;
 }
-.layout-modal-head {
+:root[data-design="4"] .matrix-proof-sheet {
+  flex: 0 0 24rem;
+  width: 24rem;
+  max-width: 24rem;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.1rem;
+  margin: 0;
+  display: block;
+  max-height: min(70vh, 32rem);
+  overflow: auto;
+  align-self: center;
+}
+:root[data-design="4"] .lineage-band {
+  display: contents; /* masters become direct flex children of room-body */
+}
+:root[data-design="4"] .lineage-band-head {
+  flex: 0 0 12rem;
+  width: 12rem;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  background: color-mix(in srgb, var(--panel) 60%, var(--gold-soft));
+  border: 1px dashed var(--gold);
+  border-radius: var(--radius);
+  padding: 1rem;
+  writing-mode: horizontal-tb;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="4"] .lineage-master-row {
+  flex: 0 0 22rem;
+  width: 22rem;
+  max-width: 22rem;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.1rem;
+  margin: 0;
+  display: block;
+  grid-template-columns: none;
+  max-height: min(70vh, 30rem);
+  overflow: auto;
+  align-self: center;
+}
+:root[data-design="4"] .catalogue-row {
+  flex: 0 0 20rem;
+  width: 20rem;
+  max-width: 20rem;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.1rem;
+  margin: 0;
+  display: block;
+  grid-template-columns: none;
+  max-height: min(70vh, 28rem);
+  overflow: auto;
+  align-self: center;
+}
+:root[data-design="4"] .lexicon-entry {
+  flex: 0 0 18rem;
+  width: 18rem;
+  max-width: 18rem;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.1rem;
+  margin: 0;
+  display: block;
+  max-height: min(70vh, 26rem);
+  overflow: auto;
+  align-self: center;
+}
+
+/* Default face: era + name only. Body collapsed until expand. */
+:root[data-design="4"] .rm-tl-collapsed .rm-tl-extra { display: none; }
+:root[data-design="4"] .rm-tl-collapsed.is-open .rm-tl-extra { display: block; }
+:root[data-design="4"] .gongan-catalogue-head,
+:root[data-design="4"] .lineage-band-cols,
+:root[data-design="4"] .matrix-collation-head { display: none; }
+:root[data-design="4"] .lineage-graph-frame { display: none !important; }
+
+:root[data-design="4"] .document-heading,
+:root[data-design="4"] .front-matter,
+:root[data-design="4"] .ledger-drawer,
+:root[data-design="4"] .case-jump-strip,
+:root[data-design="4"] .work-context {
+  flex: 0 0 22rem;
+  width: 22rem;
+  scroll-snap-align: start;
+  position: relative;
+  z-index: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin: 0;
+  align-self: center;
+  max-height: min(70vh, 30rem);
+  overflow: auto;
+}
+:root[data-design="4"] .rm-tl-expand {
+  margin-top: 0.55rem;
+  border: 1px dashed var(--line);
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  align-self: flex-start;
+}
+:root[data-design="4"] .rm-tl-expand:hover { color: var(--ink); border-color: var(--gold); }
+:root[data-design="4"] .case-heading-zh,
+:root[data-design="4"] .classical-zh,
+:root[data-design="4"] .pinyin-line { font-size: 0.92rem; }
+:root[data-design="4"] .matrix-sentence-zh { font-family: var(--font-zh); line-height: 1.7; }
+:root[data-design="4"] .rm-tl-face .rm-tl-era { display: block; margin-bottom: 0.25rem; }
+:root[data-design="4"] .rm-tl-face .rm-tl-name { display: block; }
+:root[data-design="4"] .catalogue-title-zh,
+:root[data-design="4"] .lexicon-headword-zh { color: var(--ink-soft); font-size: 0.85rem; }
+:root[data-design="4"] .mobile-corpus-picker { display: none !important; }
+:root[data-design="4"] .case-load-more {
+  flex: 0 0 14rem;
+  scroll-snap-align: start;
+  align-self: center;
+  z-index: 1;
+  position: relative;
+}
+
+/* Timeline: quiet scrollbar, generous track padding. */
+:root[data-design="4"] .room-body::-webkit-scrollbar,
+:root[data-design="4"] #reader-content-target::-webkit-scrollbar { height: 10px; }
+:root[data-design="4"] .room-body::-webkit-scrollbar-thumb,
+:root[data-design="4"] #reader-content-target::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--gold) 55%, var(--line));
+  border-radius: 999px;
+}
+:root[data-design="4"] .rm-room-info {
+  flex: 0 0 24rem;
+  width: 24rem;
+  scroll-snap-align: start;
+  z-index: 1;
+  position: relative;
+  align-self: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+  max-height: min(70vh, 30rem);
+  overflow: auto;
+  margin: 0;
+}
+:root[data-design="4"] .lineage-master-name-en { font-family: var(--font-display); font-size: 1.15rem; }
+:root[data-design="4"] .lexicon-headword { font-family: var(--font-display); font-size: 1.1rem; }
+:root[data-design="4"] .catalogue-case { color: var(--gold-strong); font-family: var(--font-mono); font-size: 0.7rem; }
+:root[data-design="4"] .matrix-ref-clean { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-soft); }
+:root[data-design="4"] .translation-grid { display: block; }
+:root[data-design="4"] .rm-tl-extra .context-info { margin-top: 0.75rem; }
+
+@media (max-width: 640px) {
+  :root[data-design="4"] .case-card { flex-basis: 85vw; width: 85vw; max-width: 85vw; }
+  :root[data-design="4"] .matrix-proof-sheet { flex-basis: 85vw; width: 85vw; max-width: 85vw; }
+  :root[data-design="4"] .lineage-master-row { flex-basis: 80vw; width: 80vw; max-width: 80vw; }
+  :root[data-design="4"] .catalogue-row { flex-basis: 78vw; width: 78vw; max-width: 78vw; }
+  :root[data-design="4"] .lexicon-entry { flex-basis: 75vw; width: 75vw; max-width: 75vw; }
+}
+
+/* ==========================================================================
+   LAYOUT 5 · GRAPH + READER SPLIT (variant 16) — truly drastic
+   --------------------------------------------------------------------------
+   Persistent two-pane shell: left 32% sticky dots nav, right 68% reader.
+   JS builds .rm-graph-split with .rm-graph-pane + .rm-reader-pane. First
+   layout with left sticky index + right scroll detail. English first on
+   the right; extra behind hover/click. Dots are 8px gold when active.
+   ========================================================================== */
+
+:root[data-design="5"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 40%, transparent);
+}
+:root[data-design="5"] .shell-frame { max-width: none; padding: 0 1rem; }
+:root[data-design="5"] .shell-lintel { min-height: 3.2rem; }
+:root[data-design="5"] .brand-title-chinese { font-size: 0.55rem; }
+:root[data-design="5"] .room-nav {
   display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="5"] .nav-tab-btn { min-height: 2.5rem; padding: 0.3rem 1rem 0.35rem 1.8rem; }
+:root[data-design="5"] .room-name-zh { font-size: 0.55rem; }
+
+:root[data-design="5"] .zen-hero-banner,
+:root[data-design="5"] #zen-hero-banner { display: none !important; }
+
+:root[data-design="5"] #main-content {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+:root[data-design="5"] .view-section.active {
+  display: block;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+  min-height: calc(100vh - var(--shell-height, 5rem));
+}
+:root[data-design="5"] .room-heading,
+:root[data-design="5"] .text-header.room-heading {
+  display: none; /* title lives in the graph pane */
+}
+:root[data-design="5"] .room-filter-rail {
+  display: none; /* filters move into graph pane if needed */
+}
+
+:root[data-design="5"] .room-body,
+:root[data-design="5"] .room-body:not([hidden]) {
+  display: block;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  min-height: calc(100vh - var(--shell-height, 5rem));
+}
+:root[data-design="5"] .room-body > .rm-graph-split {
+  display: grid;
+  grid-template-columns: 32% 68%;
+  gap: 0;
+  min-height: calc(100vh - var(--shell-height, 5rem));
+}
+
+/* Reader room also splits. */
+:root[data-design="5"] .reader-layout {
+  display: block;
+  max-width: none;
+  grid-template-columns: none;
+  gap: 0;
+  min-height: calc(100vh - var(--shell-height, 5rem));
+}
+:root[data-design="5"] .sidebar-panel { display: none !important; }
+:root[data-design="5"] .content-panel {
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  background: transparent;
+  min-height: calc(100vh - var(--shell-height, 5rem));
+}
+:root[data-design="5"] .reader-toolbar {
+  position: sticky;
+  top: var(--shell-height, 5rem);
+  z-index: 40;
+  margin: 0;
+  padding: 0.45rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  backdrop-filter: none;
+  grid-column: 1 / -1;
+}
+:root[data-design="5"] #reader-content-target {
+  display: block;
+  padding: 0;
+  min-height: calc(100vh - var(--shell-height, 5rem) - 3rem);
+}
+:root[data-design="5"] #reader-content-target > .rm-graph-split {
+  display: grid;
+  grid-template-columns: 32% 68%;
+  min-height: calc(100vh - var(--shell-height, 5rem) - 3rem);
+}
+
+:root[data-design="5"] .rm-graph-pane {
+  background: var(--sunken, color-mix(in srgb, var(--paper) 72%, var(--wood) 10%));
+  border-right: 1px solid var(--line);
+  position: sticky;
+  top: var(--shell-height, 5rem);
+  height: calc(100vh - var(--shell-height, 5rem));
+  overflow-y: auto;
+  padding: 1.1rem 0.9rem 2rem;
+}
+:root[data-design="5"] .reader-toolbar ~ * .rm-graph-pane,
+:root[data-design="5"] #reader-content-target .rm-graph-pane {
+  top: 0;
+  height: calc(100vh - var(--shell-height, 5rem) - 3rem);
+}
+:root[data-design="5"] .rm-reader-pane {
+  padding: 1.75rem 2rem 3rem;
+  overflow-y: auto;
+  max-height: calc(100vh - var(--shell-height, 5rem));
+  min-width: 0;
+  background: var(--panel);
+}
+:root[data-design="5"] #reader-content-target .rm-reader-pane {
+  max-height: calc(100vh - var(--shell-height, 5rem) - 3rem);
+}
+
+/* Right pane: English first, dense chrome relaxed. */
+:root[data-design="5"] .rm-reader-pane .classical-zh,
+:root[data-design="5"] .rm-reader-pane .pinyin-line,
+:root[data-design="5"] .rm-reader-pane .matrix-sentence-zh,
+:root[data-design="5"] .rm-reader-pane .matrix-sentence-pinyin {
+  display: none;
+}
+:root[data-design="5"] .rm-reader-pane .rm-unit.is-expanded .classical-zh,
+:root[data-design="5"] .rm-reader-pane .rm-unit.is-expanded .pinyin-line,
+:root[data-design="5"] .rm-reader-pane .rm-unit.is-expanded .matrix-sentence-zh,
+:root[data-design="5"] .rm-reader-pane .rm-unit.is-expanded .matrix-sentence-pinyin {
+  display: block;
+}
+:root[data-design="5"] .rm-reader-pane .case-card,
+:root[data-design="5"] .rm-reader-pane .matrix-proof-sheet,
+:root[data-design="5"] .rm-reader-pane .lineage-master-row,
+:root[data-design="5"] .rm-reader-pane .catalogue-row,
+:root[data-design="5"] .rm-reader-pane .lexicon-entry {
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  box-shadow: none;
+  background: transparent;
+  padding: 1.25rem 0 1.5rem;
+  margin: 0;
+  scroll-margin-top: 1.5rem;
+}
+:root[data-design="5"] .rm-reader-pane .case-card.is-active-dot,
+:root[data-design="5"] .rm-reader-pane .matrix-proof-sheet.is-active-dot,
+:root[data-design="5"] .rm-reader-pane .lineage-master-row.is-active-dot,
+:root[data-design="5"] .rm-reader-pane .catalogue-row.is-active-dot,
+:root[data-design="5"] .rm-reader-pane .lexicon-entry.is-active-dot {
+  background: var(--gold-soft);
+  border-radius: var(--radius);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+:root[data-design="5"] .gongan-catalogue-head,
+:root[data-design="5"] .lineage-band-cols,
+:root[data-design="5"] .matrix-collation-head,
+:root[data-design="5"] .lineage-graph-frame { display: none !important; }
+:root[data-design="5"] .lineage-band { margin: 0; padding: 0; border: 0; }
+:root[data-design="5"] .lineage-band-head {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 1.25rem 0 0.4rem;
+  padding: 0;
+  border: 0;
+}
+:root[data-design="5"] .rm-reader-pane .translation-grid { display: block; }
+:root[data-design="5"] .rm-reader-pane .translation-text,
+:root[data-design="5"] .rm-reader-pane .prose-en {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 62ch;
+}
+:root[data-design="5"] .rm-graph-dot {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  gap: 0.55rem;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.9rem;
-  padding-bottom: 0.7rem;
+}
+:root[data-design="5"] .rm-graph-dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+}
+:root[data-design="5"] .rm-graph-dot.is-active::before {
+  background: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-soft);
+}
+:root[data-design="5"] .rm-graph-group {
+  margin: 0 0 1.1rem;
+}
+:root[data-design="5"] .rm-graph-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.4rem;
+  padding: 0 0.25rem;
+}
+:root[data-design="5"] .rm-unit-info { margin-top: 0.75rem; }
+:root[data-design="5"] .mobile-corpus-picker { display: none !important; }
+:root[data-design="5"] .rm-reader-pane .document-heading {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--line);
 }
-.layout-modal-head h2 { margin: 0; font-family: var(--font-display); font-size: 1.2rem; }
-.layout-modal-body .modal-section { margin: 0 0 0.9rem; border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--panel) 70%, var(--paper)); }
-.layout-modal-body .modal-section > summary {
+:root[data-design="5"] .rm-expand-zh {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+:root[data-design="5"] .rm-expand-zh:hover { color: var(--ink); border-color: var(--gold); }
+:root[data-design="5"] .rm-reader-pane .lineage-master-row,
+:root[data-design="5"] .rm-reader-pane .catalogue-row,
+:root[data-design="5"] .rm-reader-pane .lexicon-entry,
+:root[data-design="5"] .rm-reader-pane .matrix-proof-sheet {
+  display: block;
+  grid-template-columns: none;
+}
+:root[data-design="5"] .rm-graph-pane .room-filter-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+  border: 0;
+  margin: 0 0 1rem;
+  padding: 0 0 0.75rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="5"] .rm-graph-count {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.75rem;
+  padding: 0 0.25rem;
+}
+
+@media (max-width: 900px) {
+  :root[data-design="5"] .room-body > .rm-graph-split,
+  :root[data-design="5"] #reader-content-target > .rm-graph-split {
+    grid-template-columns: 38% 62%;
+  }
+}
+@media (max-width: 700px) {
+  :root[data-design="5"] .room-body > .rm-graph-split,
+  :root[data-design="5"] #reader-content-target > .rm-graph-split {
+    grid-template-columns: 1fr;
+  }
+  :root[data-design="5"] .rm-graph-pane {
+    position: static;
+    height: auto;
+    max-height: 40vh;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  :root[data-design="5"] .rm-reader-pane { max-height: none; }
+}
+
+
+/* Layout 5 continued — denser graph affordances, witness dots, TOC chrome */
+:root[data-design="5"] .rm-graph-pane .rm-graph-title {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.35rem;
+  padding: 0 0.25rem;
+}
+:root[data-design="5"] .rm-graph-pane .rm-graph-sub {
+  font-size: 0.78rem;
+  color: var(--ink);
+  margin: 0 0 1rem;
+  padding: 0 0.25rem;
+  font-family: var(--font-display);
+  line-height: 1.3;
+}
+:root[data-design="5"] .rm-graph-dot-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+:root[data-design="5"] .rm-graph-dot small {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--ink-soft);
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+:root[data-design="5"] .rm-graph-dot.is-active small { color: var(--ink-soft); }
+:root[data-design="5"] .rm-graph-dot:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+:root[data-design="5"] .rm-graph-witnesses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 1rem;
+  padding: 0 0.25rem;
+}
+:root[data-design="5"] .rm-graph-witness {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: var(--line);
+  cursor: pointer;
+}
+:root[data-design="5"] .rm-graph-witness.is-active {
+  background: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-soft);
+}
+:root[data-design="5"] .rm-graph-witness:hover { background: var(--gold-strong); }
+:root[data-design="5"] .rm-reader-pane .case-heading-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="5"] .rm-reader-pane .case-heading-en {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin: 0.2rem 0 0.75rem;
+}
+:root[data-design="5"] .rm-reader-pane .case-heading-zh { display: none; }
+:root[data-design="5"] .rm-reader-pane .document-heading h1,
+:root[data-design="5"] .rm-reader-pane .document-heading .text-title-zh {
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+:root[data-design="5"] .rm-reader-pane .ledger-drawer {
+  margin-top: 1rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  background: color-mix(in srgb, var(--panel) 70%, var(--paper));
+}
+:root[data-design="5"] .rm-reader-pane .provenance-line {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0.35rem 0;
+}
+:root[data-design="5"] .rm-reader-pane .matrix-register-row {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="5"] .rm-reader-pane .matrix-register-row:last-child { border-bottom: 0; }
+:root[data-design="5"] .rm-reader-pane .matrix-register-name {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+:root[data-design="5"] .rm-reader-pane .matrix-register-text {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+:root[data-design="5"] .rm-reader-pane .lineage-master-name-en {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+:root[data-design="5"] .rm-reader-pane .lineage-master-name-zh {
+  font-family: var(--font-zh);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+:root[data-design="5"] .rm-reader-pane .lineage-master-house,
+:root[data-design="5"] .rm-reader-pane .lineage-master-gen {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+:root[data-design="5"] .rm-reader-pane .lineage-master-record,
+:root[data-design="5"] .rm-reader-pane .lineage-master-quote {
+  margin-top: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 1.6;
+}
+:root[data-design="5"] .rm-reader-pane .catalogue-case {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold-strong);
+}
+:root[data-design="5"] .rm-reader-pane .catalogue-title-en {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+}
+:root[data-design="5"] .rm-reader-pane .catalogue-title-zh { color: var(--ink-soft); font-size: 0.85rem; }
+:root[data-design="5"] .rm-reader-pane .catalogue-collection {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 0.25rem;
+}
+:root[data-design="5"] .rm-reader-pane .catalogue-detail {
+  margin-top: 0.55rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+:root[data-design="5"] .rm-reader-pane .lexicon-headword {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+:root[data-design="5"] .rm-reader-pane .lexicon-headword-zh {
+  font-family: var(--font-zh);
+  color: var(--ink-soft);
+}
+:root[data-design="5"] .rm-reader-pane .lexicon-entry-def {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 58ch;
+}
+:root[data-design="5"] .rm-reader-pane .lexicon-occurrences {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+:root[data-design="5"] .rm-reader-pane .dialogue-turn {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+}
+:root[data-design="5"] .rm-reader-pane .speaker-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+:root[data-design="5"] .rm-reader-pane .commentary-block,
+:root[data-design="5"] .rm-reader-pane .verse-block {
+  margin: 1rem 0;
+  padding: 0.75rem 0 0.75rem 0.85rem;
+  border-left: 2px solid var(--line);
+}
+:root[data-design="5"] .rm-graph-pane::-webkit-scrollbar { width: 8px; }
+:root[data-design="5"] .rm-graph-pane::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--line) 80%, var(--gold));
+  border-radius: 999px;
+}
+:root[data-design="5"] .rm-reader-pane::-webkit-scrollbar { width: 8px; }
+:root[data-design="5"] .rm-reader-pane::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--line) 70%, var(--gold));
+  border-radius: 999px;
+}
+:root[data-design="5"] .rm-room-info { margin: 0 0 1.25rem; }
+:root[data-design="5"] .rm-reader-pane .case-jump-strip {
+  margin: 0 0 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="5"] .rm-reader-pane .front-matter {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+:root[data-design="5"] .rm-graph-empty {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  padding: 0.5rem 0.25rem;
+}
+:root[data-design="5"] .rm-unit-info .context-info { margin-top: 0.5rem; }
+:root[data-design="5"] .rm-reader-pane .matrix-ref-clean {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+:root[data-design="5"] .rm-reader-pane .matrix-source-band {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="5"] #view-matrix .rm-graph-pane,
+:root[data-design="5"] #view-lineage .rm-graph-pane,
+:root[data-design="5"] #view-gongan .rm-graph-pane,
+:root[data-design="5"] #view-lexicon .rm-graph-pane {
+  top: var(--shell-height, 5rem);
+}
+:root[data-design="5"] .rm-graph-dot .rm-acc-kicker {
+  display: none;
+}
+:root[data-design="5"] .rm-split-note {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin: 0.75rem 0 0;
+  padding: 0.5rem 0.25rem 0;
+  border-top: 1px solid var(--line-soft);
+  line-height: 1.45;
+}
+:root[data-design="5"] .design-switcher { border-left-color: color-mix(in srgb, var(--wood-ink) 14%, transparent); }
+:root[data-design="5"] .content-panel > .rm-graph-split { min-height: inherit; }
+:root[data-design="5"] .rm-reader-pane .work-context { display: none; }
+:root[data-design="5"] .rm-reader-pane h2.case-num-title { font-size: 1.2rem; margin: 0 0 0.75rem; }
+:root[data-design="5"] .rm-reader-pane .translation-source { display: none; }
+:root[data-design="5"] .rm-graph-pane a { color: var(--ink); }
+
+/* ==========================================================================
+   LAYOUT 6 · MINIMAL HEADER + HAMBURGER (variant 27) — truly drastic
+   --------------------------------------------------------------------------
+   Header 3rem, brand text only, room-nav hidden behind hamburger drawer.
+   Filter rail lives inside the drawer. Body max-width 42rem centered,
+   generous whitespace. No sidebar. First hamburger paradigm on the site.
+   ========================================================================== */
+
+:root[data-design="6"] .site-shell {
+  height: 3rem;
+  min-height: 3rem;
+  max-height: 3rem;
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 35%, transparent);
+  overflow: visible;
+}
+:root[data-design="6"] .shell-frame {
+  max-width: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  height: 3rem;
+  position: relative;
+}
+:root[data-design="6"] .shell-lintel {
+  min-height: 2rem;
+  height: 2rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+:root[data-design="6"] .brand-mark { display: none !important; }
+:root[data-design="6"] .brand-title-chinese { display: none !important; }
+:root[data-design="6"] .brand-title-en {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+:root[data-design="6"] .brand-title-en::after {
+  content: none;
+}
+/* Brand collapses to "TranslateChan" text via JS class on lockup. */
+:root[data-design="6"] .brand.is-minimal .brand-title-en { font-size: 0.95rem; }
+:root[data-design="6"] .nav-controls { gap: 0.3rem; }
+:root[data-design="6"] .shell-search { width: clamp(120px, 16vw, 200px); }
+:root[data-design="6"] .shell-search .search-input {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  font-size: 0.78rem;
+}
+:root[data-design="6"] .theme-toggle { min-width: 32px; height: 30px; }
+:root[data-design="6"] .design-btn { min-width: 1.5rem; height: 26px; font-size: 0.58rem; }
+
+/* Room nav becomes a right drawer when html.nav-open. */
+:root[data-design="6"] .room-nav {
+  display: none;
+  position: fixed;
+  top: 3rem;
+  right: 0;
+  width: 18rem;
+  height: calc(100vh - 3rem);
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  z-index: 200;
+  overflow-y: auto;
+  padding: 1rem 0.75rem 2rem;
+  margin: 0;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.15rem;
+  border-top: 0;
+  box-shadow: var(--shadow);
+  list-style: none;
+}
+:root[data-design="6"].nav-open .room-nav,
+:root[data-design="6"] html.nav-open .room-nav { display: flex; }
+html[data-design="6"].nav-open .room-nav { display: flex; }
+
+:root[data-design="6"] .room-nav li { width: 100%; flex: none; }
+:root[data-design="6"] .nav-tab-btn {
+  width: 100%;
+  min-height: 2.6rem;
+  padding: 0.55rem 0.85rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  border-bottom: 0;
+  border-left: 3px solid transparent;
+  color: var(--ink);
+  background: transparent;
+}
+:root[data-design="6"] .nav-tab-btn .room-name-en {
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+:root[data-design="6"] .nav-tab-btn .room-name-zh {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+:root[data-design="6"] .nav-tab-btn.active,
+:root[data-design="6"] .nav-tab-btn[aria-selected="true"] {
+  border-left-color: var(--gold);
+  background: var(--gold-soft);
+  color: var(--ink);
+}
+:root[data-design="6"] .nav-tab-btn::before { display: none; }
+:root[data-design="6"] .hamburger-btn { display: inline-flex; }
+
+/* Drawer also hosts filter rail + reader library. */
+:root[data-design="6"] .rm-drawer-extras {
+  display: none;
+  position: fixed;
+  top: 3rem;
+  right: 0;
+  width: 18rem;
+  height: calc(100vh - 3rem);
+  z-index: 199;
+  pointer-events: none;
+}
+html[data-design="6"].nav-open .rm-drawer-extras { display: block; }
+:root[data-design="6"] .room-filter-rail {
+  display: none;
+}
+html[data-design="6"].nav-open .room-nav .room-filter-rail,
+:root[data-design="6"] .room-nav .rm-drawer-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+  margin: 1rem 0 0;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 0;
+}
+
+:root[data-design="6"] .zen-hero-banner,
+:root[data-design="6"] #zen-hero-banner { display: none !important; }
+
+:root[data-design="6"] #main-content {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="6"] .view-section.active {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0;
+}
+:root[data-design="6"] .room-heading,
+:root[data-design="6"] .text-header.room-heading {
+  font-size: 1.2rem;
+  margin: 3rem 0 1rem;
+  padding: 0 0 0.75rem;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="6"] .room-heading::after { display: none; }
+:root[data-design="6"] .room-heading .text-title-zh { font-size: 1.35rem; }
+:root[data-design="6"] .room-heading .section-kicker {
+  font-size: 0.68rem;
+  margin-bottom: 0.35rem;
+}
+
+:root[data-design="6"] .room-body,
+:root[data-design="6"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+}
+
+:root[data-design="6"] .reader-layout {
+  display: block;
+  grid-template-columns: none;
+  max-width: 42rem;
+  margin: 0 auto;
+  gap: 0;
+}
+:root[data-design="6"] .sidebar-panel { display: none !important; }
+:root[data-design="6"] .content-panel {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  min-height: 0;
+}
+:root[data-design="6"] .reader-toolbar {
+  position: static;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  margin: 1.5rem 0 1.25rem;
+  padding: 0.35rem 0;
+  backdrop-filter: none;
+}
+:root[data-design="6"] #reader-content-target {
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+/* English first; Chinese and dense fields wait behind disclosure. */
+:root[data-design="6"] .classical-zh,
+:root[data-design="6"] .pinyin-line,
+:root[data-design="6"] .matrix-sentence-zh,
+:root[data-design="6"] .matrix-sentence-pinyin,
+:root[data-design="6"] .lineage-master-record,
+:root[data-design="6"] .lineage-master-quote,
+:root[data-design="6"] .catalogue-detail,
+:root[data-design="6"] .lexicon-entry-def,
+:root[data-design="6"] .lexicon-occurrences { display: none; }
+:root[data-design="6"] .rm-more[open] .classical-zh,
+:root[data-design="6"] .rm-more[open] .pinyin-line,
+:root[data-design="6"] .rm-more[open] .matrix-sentence-zh,
+:root[data-design="6"] .rm-more[open] .matrix-sentence-pinyin,
+:root[data-design="6"] .rm-more[open] .lineage-master-record,
+:root[data-design="6"] .rm-more[open] .lineage-master-quote,
+:root[data-design="6"] .rm-more[open] .catalogue-detail,
+:root[data-design="6"] .rm-more[open] .lexicon-entry-def,
+:root[data-design="6"] .rm-more[open] .lexicon-occurrences { display: block; }
+
+:root[data-design="6"] .case-card,
+:root[data-design="6"] .matrix-proof-sheet,
+:root[data-design="6"] .lineage-master-row,
+:root[data-design="6"] .catalogue-row,
+:root[data-design="6"] .lexicon-entry {
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  box-shadow: none;
+  background: transparent;
+  padding: 1.5rem 0;
+  margin: 0;
+  display: block;
+  grid-template-columns: none;
+}
+:root[data-design="6"] .gongan-catalogue-head,
+:root[data-design="6"] .lineage-band-cols,
+:root[data-design="6"] .matrix-collation-head,
+:root[data-design="6"] .lineage-graph-frame { display: none !important; }
+:root[data-design="6"] .translation-grid { display: block; }
+:root[data-design="6"] .translation-text,
+:root[data-design="6"] .prose-en {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  max-width: 42rem;
+}
+:root[data-design="6"] .case-heading-en,
+:root[data-design="6"] .lineage-master-name-en,
+:root[data-design="6"] .catalogue-title-en,
+:root[data-design="6"] .lexicon-headword {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+:root[data-design="6"] .rm-more {
+  margin-top: 0.65rem;
+  border: 0;
+  border-left: 2px solid var(--line);
+  padding-left: 0.75rem;
+}
+:root[data-design="6"] .rm-more > summary {
   cursor: pointer;
   list-style: none;
-  padding: 0.55rem 0.85rem;
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+  color: var(--ink-soft);
+}
+:root[data-design="6"] .rm-more > summary::-webkit-details-marker { display: none; }
+:root[data-design="6"] .rm-more > summary::before { content: '+ '; color: var(--gold); }
+:root[data-design="6"] .rm-more[open] > summary::before { content: '\\2212 '; }
+:root[data-design="6"] .mobile-corpus-picker { display: none !important; }
+:root[data-design="6"] .nav-drawer-backdrop {
+  display: none;
+  position: fixed;
+  inset: 3rem 0 0 0;
+  background: color-mix(in srgb, var(--wood) 35%, transparent);
+  z-index: 190;
+}
+html[data-design="6"].nav-open .nav-drawer-backdrop { display: block; }
+:root[data-design="6"] .room-nav .rm-drawer-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.5rem;
+  padding: 0 0.5rem;
+}
+:root[data-design="6"] .document-heading { margin-bottom: 2rem; }
+:root[data-design="6"] .lineage-band { margin-bottom: 1.5rem; }
+:root[data-design="6"] .lineage-band-head {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+:root[data-design="6"] .rm-room-info { margin: 1.5rem 0 2rem; }
+:root[data-design="6"] .hamburger-btn[aria-expanded="true"] {
+  border-color: var(--brass);
+  background: var(--wood-raised);
+}
+
+@media (max-width: 600px) {
+  :root[data-design="6"] .shell-search { display: none; }
+  :root[data-design="6"] .room-nav { width: min(18rem, 88vw); }
+  :root[data-design="6"] #main-content { padding-left: 1rem; padding-right: 1rem; }
+}
+
+
+/* Layout 6 continued — drawer library list, quiet body rhythm */
+:root[data-design="6"] .room-nav .corpus-mini-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid var(--line-soft);
+  max-height: 40vh;
+  overflow-y: auto;
+}
+:root[data-design="6"] .room-nav .corpus-mini-list button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+:root[data-design="6"] .room-nav .corpus-mini-list button:hover { background: var(--hover); }
+:root[data-design="6"] .room-nav .corpus-mini-list button.is-active {
+  background: var(--gold-soft);
+  font-weight: 600;
+}
+:root[data-design="6"] .case-card + .case-card { margin-top: 0.25rem; }
+:root[data-design="6"] .document-heading .text-title-zh { font-size: 1.5rem; }
+:root[data-design="6"] .document-heading .section-kicker { margin-bottom: 0.35rem; }
+:root[data-design="6"] .rm-more .context-info { margin-top: 0.75rem; }
+:root[data-design="6"] .matrix-register-text { font-size: 1.02rem; line-height: 1.7; }
+:root[data-design="6"] .matrix-register-name {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+:root[data-design="6"] .lineage-master-house { font-size: 0.8rem; color: var(--ink-soft); }
+:root[data-design="6"] .catalogue-collection { font-size: 0.8rem; color: var(--ink-soft); }
+:root[data-design="6"] .lexicon-headword-meta { font-size: 0.78rem; color: var(--ink-soft); }
+:root[data-design="6"] .rm-room-info .context-info { border-color: var(--line-soft); }
+:root[data-design="6"] .case-jump-strip { opacity: 0.85; margin: 1rem 0; }
+:root[data-design="6"] .dialogue-turn { margin: 0 0 1.1rem; }
+:root[data-design="6"] .speaker-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+:root[data-design="6"] .commentary-block,
+:root[data-design="6"] .verse-block {
+  margin: 1.1rem 0;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--line);
+}
+:root[data-design="6"] .provenance-line { font-size: 0.8rem; color: var(--ink-soft); }
+:root[data-design="6"] .ledger-drawer {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+:root[data-design="6"] .nav-tab-btn .room-index {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--ink-soft);
+  margin-right: 0.25rem;
+}
+:root[data-design="6"] .hamburger-btn:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+:root[data-design="6"] .design-switcher { margin-left: 0.25rem; padding-left: 0.4rem; }
+:root[data-design="6"] .settings-panel { z-index: 210; }
+:root[data-design="6"] .rm-drawer-section-title {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 1rem 0 0.4rem;
+  padding: 0 0.5rem;
+}
+
+/* ==========================================================================
+   LAYOUT 7 · INFO-FIRST DOSSIER (variant 22) — truly drastic
+   --------------------------------------------------------------------------
+   Inverts layout 1: info section is the hero at the top; translation is
+   secondary and collapsed behind "Read translation". CSS order + JS prepend
+   move front-matter / ledger / context above the grid. First layout where
+   IA is inverted — info first, literature second.
+   ========================================================================== */
+
+:root[data-design="7"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 40%, transparent);
+}
+:root[data-design="7"] .shell-frame {
+  max-width: 1100px;
+  padding: 0 1.25rem;
+}
+:root[data-design="7"] .shell-lintel { min-height: 3.4rem; }
+:root[data-design="7"] .brand-mark {
+  width: 2.1rem;
+  height: 2.1rem;
+  font-size: 0.85rem;
+}
+:root[data-design="7"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="7"] .nav-tab-btn { min-height: 2.7rem; }
+
+:root[data-design="7"] .zen-hero-banner,
+:root[data-design="7"] #zen-hero-banner {
+  display: none !important; /* dossier hero replaces the factory banner */
+}
+
+:root[data-design="7"] #main-content {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+:root[data-design="7"] .view-section.active {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0;
+}
+:root[data-design="7"] .room-heading,
+:root[data-design="7"] .text-header.room-heading {
+  margin: 1.75rem 0 1rem;
+  padding: 0 0 0.85rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="7"] .room-heading::after { display: none; }
+:root[data-design="7"] .room-filter-rail {
+  margin: 0 0 1.25rem;
+  padding: 0.5rem 0;
+}
+
+:root[data-design="7"] .room-body,
+:root[data-design="7"] .room-body:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+}
+
+:root[data-design="7"] .reader-layout {
+  display: block;
+  max-width: 52rem;
+  margin: 0 auto;
+  grid-template-columns: none;
+  gap: 0;
+}
+:root[data-design="7"] .sidebar-panel {
+  display: none !important; /* library access stays via mobile picker / search */
+}
+:root[data-design="7"] .content-panel {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  min-height: 0;
+}
+:root[data-design="7"] .reader-toolbar {
+  position: static;
+  margin: 1rem 0;
+  padding: 0.4rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="7"] #reader-content-target {
+  display: flex;
+  flex-direction: column;
+  max-width: 52rem;
+  margin: 0 auto;
+  gap: 0;
+}
+
+/* Dossier hero sits first. */
+:root[data-design="7"] .rm-dossier-hero {
+  order: -1;
+  margin: 1.25rem 0 1.5rem;
+  padding: 1.35rem 1.4rem 1.5rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 78%, var(--paper));
+  box-shadow: var(--shadow);
+}
+:root[data-design="7"] .rm-dossier-hero h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+:root[data-design="7"] .rm-dossier-hero .rm-dossier-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+  margin: 0 0 0.75rem;
+}
+:root[data-design="7"] .rm-dossier-hero .context-row { margin-bottom: 0.85rem; }
+:root[data-design="7"] .rm-dossier-hero .context-label {
+  color: var(--gold-strong);
+  margin-bottom: 0.2rem;
+}
+:root[data-design="7"] .rm-dossier-hero .context-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  max-width: 60ch;
+}
+:root[data-design="7"] .rm-dossier-toggle {
+  display: inline-flex;
+  margin-top: 1rem;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: var(--wood);
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+:root[data-design="7"] .rm-dossier-toggle:hover {
+  background: var(--gold-strong);
+  border-color: var(--gold-strong);
+}
+:root[data-design="7"] .rm-dossier-toggle[aria-expanded="true"] {
+  background: transparent;
   color: var(--gold-strong);
 }
-.layout-modal-body .modal-section > summary::-webkit-details-marker { display: none; }
-.layout-modal-body .modal-section > summary::before { content: '+'; display: inline-block; width: 1rem; color: var(--gold); }
-.layout-modal-body .modal-section[open] > summary::before { content: '\2212'; }
-.layout-modal-body .modal-section-body { padding: 0.4rem 0.85rem 0.85rem; }
-/* Inside the modal the ledgers drop their own drawer frame — the modal is
-   already the container. */
-.layout-modal-body .ledger-drawer { border: 0; padding: 0; background: transparent; box-shadow: none; }
 
-/* --- Layout 7 · Hover cards — shared card chrome ------------------------------
-   Related teachers/works float up as cards when their English name is
-   hovered or focused. Dotted underline = there is more behind this name.
-   Placement rides the shared --pop-shift popover contract. */
-.hover-card {
-  position: fixed;
-  inset-block-start: 0;
-  inset-inline-start: 0;
-  translate: var(--pop-shift, 0.5rem 0.5rem);
-  z-index: 330;
-  width: min(340px, calc(100vw - 16px));
-  max-height: min(60vh, 26rem);
-  overflow-y: auto;
-  pointer-events: auto;
-  padding: 0.9rem 1rem;
-  background: var(--panel);
-  color: var(--ink);
+/* Translation / unit list is secondary — collapsed by default. */
+:root[data-design="7"] .rm-dossier-translation {
+  order: 1;
+  border-top: 2px solid var(--gold);
+  padding-top: 1.5rem;
+  margin-top: 0.25rem;
+}
+:root[data-design="7"] .rm-dossier-translation[hidden] { display: none !important; }
+
+:root[data-design="7"] .document-heading { order: 0; margin-bottom: 0.5rem; }
+:root[data-design="7"] .front-matter,
+:root[data-design="7"] .ledger-drawer,
+:root[data-design="7"] .work-context {
+  /* pulled into dossier hero by JS; hide leftovers */
+  display: none;
+}
+
+:root[data-design="7"] .case-card,
+:root[data-design="7"] .matrix-proof-sheet,
+:root[data-design="7"] .lineage-master-row,
+:root[data-design="7"] .catalogue-row,
+:root[data-design="7"] .lexicon-entry {
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  background: transparent;
+  box-shadow: none;
+  padding: 1.25rem 0 1.4rem;
+  margin: 0;
+  display: block;
+  grid-template-columns: none;
+}
+:root[data-design="7"] .gongan-catalogue-head,
+:root[data-design="7"] .lineage-band-cols,
+:root[data-design="7"] .matrix-collation-head,
+:root[data-design="7"] .lineage-graph-frame { display: none !important; }
+
+/* Per-unit mini-dossier: info open-ish at top of card, body collapsible. */
+:root[data-design="7"] .rm-unit-dossier {
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 65%, var(--paper));
+}
+:root[data-design="7"] .rm-unit-dossier .context-label {
+  font-size: 0.62rem;
+  color: var(--gold-strong);
+}
+:root[data-design="7"] .rm-unit-body[hidden] { display: none !important; }
+:root[data-design="7"] .rm-unit-read {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.85rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  font-size: 0.82rem;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  cursor: pointer;
 }
-.hover-card[hidden] { display: none; }
-.hover-card-title { font-weight: 700; margin-bottom: 0.5rem; font-size: 0.9rem; }
-.hover-card-zh { font-weight: 400; color: var(--ink-soft); }
-.hover-card .context-row { margin-bottom: 0.55rem; }
-.hover-cardable {
-  text-decoration: underline dotted;
-  text-decoration-color: var(--gold);
-  text-underline-offset: 3px;
-  cursor: help;
+:root[data-design="7"] .rm-unit-read:hover { color: var(--ink); border-color: var(--gold); }
+:root[data-design="7"] .rm-unit-read[aria-expanded="true"] {
+  color: var(--gold-strong);
+  border-color: var(--gold);
+}
+
+:root[data-design="7"] .translation-grid { display: block; }
+:root[data-design="7"] .translation-text,
+:root[data-design="7"] .prose-en {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 60ch;
+}
+:root[data-design="7"] .classical-zh {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-top: 0.75rem;
+  color: var(--ink-soft);
+}
+:root[data-design="7"] .lineage-band { margin: 0 0 1.25rem; }
+:root[data-design="7"] .lineage-band-head {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.55rem;
+}
+:root[data-design="7"] .lineage-master-name-en,
+:root[data-design="7"] .catalogue-title-en,
+:root[data-design="7"] .lexicon-headword,
+:root[data-design="7"] .case-heading-en {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  color: var(--ink);
+}
+:root[data-design="7"] .rm-dossier-teachers {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line-soft);
+}
+:root[data-design="7"] .rm-dossier-teachers h3 {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 0.65rem;
+}
+:root[data-design="7"] .rm-dossier-teacher-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0.4rem 0.4rem 0;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  font-size: 0.78rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+:root[data-design="7"] .rm-dossier-teacher-chip:hover {
+  border-color: var(--gold);
+  background: var(--gold-soft);
+}
+:root[data-design="7"] .mobile-corpus-picker {
+  max-width: 52rem;
+  margin: 1rem auto 0;
+}
+:root[data-design="7"] .rm-dossier-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+:root[data-design="7"] .rm-dossier-meta strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+:root[data-design="7"] .case-jump-strip { order: 2; margin-top: 1rem; }
+:root[data-design="7"] .rm-room-info { order: -1; }
+
+/* Matrix top dossier: what is collation */
+:root[data-design="7"] #view-matrix .rm-dossier-hero .rm-dossier-kicker::before { content: none; }
+:root[data-design="7"] .matrix-proof-sheet .rm-unit-dossier { margin-bottom: 0.65rem; }
+:root[data-design="7"] .lexicon-entry .rm-unit-dossier { margin-bottom: 0.5rem; }
+
+@media (max-width: 700px) {
+  :root[data-design="7"] #main-content { padding-left: 1rem; padding-right: 1rem; }
+  :root[data-design="7"] .rm-dossier-hero { padding: 1.1rem 1rem 1.2rem; }
+  :root[data-design="7"] .rm-dossier-hero h2 { font-size: 1.25rem; }
 }
 
 
-/* --- Layout 6 · Modal info, ALL ROOMS (drastic reimplementation of old 5) ----
-   Old layout 5 pulled the Reader's info blocks behind three ⓘ doorways and
-   stopped there. Layout 6 does it in every room: each surface keeps only the
-   literature, and every explanatory block — Chinese source lines, dated
-   records, signature quotes, catalogue detail, definitions, occurrences —
-   moves into the one modal overlay. What is left on the page is the lightest
-   English-first reading surface the seven layouts offer. */
-:root[data-design="6"] .rm-modal-unit { position: relative; }
-.rm-info-doorway { font-size: 0.78rem; white-space: nowrap; }
-/* In the ruled rooms the doorway takes its own full-width line, so it never
-   lands inside a column and never fights the row's own grid. */
-:root[data-design="6"] .catalogue-row > .rm-info-doorway,
-:root[data-design="6"] .lineage-master-row > .rm-info-doorway,
-:root[data-design="6"] .lexicon-entry > .rm-info-doorway {
-  grid-column: 1 / -1;
-  justify-self: start;
+/* Layout 7 continued — dossier stack polish */
+:root[data-design="7"] .rm-dossier-hero .rm-dossier-zh {
+  font-family: var(--font-zh);
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.85rem;
+}
+:root[data-design="7"] .rm-dossier-translation .case-card:first-child {
+  padding-top: 0.5rem;
+}
+:root[data-design="7"] .rm-dossier-translation .document-heading { display: none; }
+:root[data-design="7"] .rm-unit-dossier .context-text {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  max-width: 58ch;
+}
+:root[data-design="7"] .rm-unit-body {
   margin-top: 0.5rem;
+  padding-top: 0.5rem;
 }
-:root[data-design="6"] .matrix-source-band > .rm-info-doorway { margin-top: 0.5rem; }
-/* Compare: the Chinese line and its record wait in the modal. */
-:root[data-design="6"] .matrix-sentence-zh,
-:root[data-design="6"] .matrix-sentence-pinyin,
-:root[data-design="6"] .matrix-source-location { display: none; }
-/* Lineage: name and house stay; the dated record and signature line wait. */
-:root[data-design="6"] .lineage-master-record,
-:root[data-design="6"] .lineage-master-quote { display: none; }
-/* Cases: number, title and collection stay; detail, theme and locator wait. */
-:root[data-design="6"] .catalogue-detail,
-:root[data-design="6"] .catalogue-theme,
-:root[data-design="6"] .catalogue-locator { display: none; }
-/* Terms: headword and reading stay; definition and occurrences wait. */
-:root[data-design="6"] .lexicon-entry-def,
-:root[data-design="6"] .lexicon-occurrences { display: none; }
-/* Column heads describe fields that are no longer on the page. */
-:root[data-design="6"] .gongan-catalogue-head,
-:root[data-design="6"] .lineage-band-cols { display: none; }
-/* --- Layout 7 · Hover cards, ALL ROOMS (drastic reimplementation of old 6) ---
-   Old layout 6 floated cards for teacher and work names inside the Reader
-   only. Layout 7 makes the whole site hoverable — case titles, register names,
-   source references, teacher names, houses, collections, headwords and
-   categories all carry a dotted underline and float their plain-language info
-   section on hover, focus or tap. Because the information now floats, the
-   surfaces themselves get thinner: the Compare room drops the Chinese line,
-   the Cases room drops the summary, the Terms room becomes a headword list. */
-:root[data-design="7"] .matrix-sentence-zh,
-:root[data-design="7"] .matrix-sentence-pinyin { display: none; }
-:root[data-design="7"] .catalogue-detail { display: none; }
-:root[data-design="7"] .lineage-master-quote { display: none; }
-:root[data-design="7"] .lexicon-entry-def,
-:root[data-design="7"] .lexicon-occurrences { display: none; }
-:root[data-design="7"] .lexicon-entry { padding-block: 0.55rem; }
-:root[data-design="7"] .catalogue-row { row-gap: 0.3rem; }
-/* Every hoverable name announces itself the same way in every room. */
-:root[data-design="7"] .hover-cardable {
-  text-decoration: underline dotted;
-  text-decoration-color: var(--gold);
-  text-underline-offset: 3px;
-  cursor: help;
+:root[data-design="7"] .rm-dossier-hero + .rm-dossier-translation {
+  animation: none;
 }
-:root[data-design="7"] .hover-cardable:hover { text-decoration-color: var(--ink); }
-:root[data-design="7"] .hover-cardable:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+:root[data-design="7"] .matrix-proof-sheet .rm-unit-read,
+:root[data-design="7"] .lineage-master-row .rm-unit-read,
+:root[data-design="7"] .catalogue-row .rm-unit-read,
+:root[data-design="7"] .lexicon-entry .rm-unit-read {
+  margin-bottom: 0.35rem;
+}
+:root[data-design="7"] .rm-dossier-empty {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+:root[data-design="7"] .rm-dossier-hero details.context-info {
+  border: 0;
+  background: transparent;
+  margin: 0.5rem 0 0;
+}
+:root[data-design="7"] .rm-dossier-hero details.context-info > summary {
+  padding-left: 0;
+}
+:root[data-design="7"] .case-load-more { margin: 1rem 0; }
+:root[data-design="7"] .design-btn.active { box-shadow: none; }
+:root[data-design="7"] .rm-dossier-toggle:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+:root[data-design="7"] .lineage-master-quote {
+  font-family: var(--font-kai);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-top: 0.5rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--wood-raised);
+}
+:root[data-design="7"] .rm-unit-dossier .rm-acc-kicker { margin-bottom: 0.35rem; display: inline-block; }
+:root[data-design="7"] #view-lineage .rm-dossier-hero h2 { font-size: 1.35rem; }
+:root[data-design="7"] #view-gongan .rm-dossier-hero h2 { font-size: 1.35rem; }
+:root[data-design="7"] #view-lexicon .rm-dossier-hero h2 { font-size: 1.35rem; }
+:root[data-design="7"] #view-matrix .rm-dossier-hero h2 { font-size: 1.35rem; }
+:root[data-design="7"] .rm-dossier-translation .translation-grid { margin-top: 0.35rem; }
+:root[data-design="7"] .rm-dossier-hero .teacher-link { margin: 0.15rem 0.35rem 0.15rem 0; }
+
+/* Shared responsive bits for drastic layouts */
+@media (max-width: 768px) {
+  .rm-graph-dot-en { white-space: normal; }
+  .hamburger-btn { display: none; }
+  :root[data-design="6"] .hamburger-btn { display: inline-flex; }
+}
 
 /* --- Layout switcher control (header) — persistent, keyboard-operable --- */
 
@@ -3346,3 +5260,4 @@ textarea:focus-visible,
 }
 .context-text { font-size: 0.86rem; line-height: 1.6; color: var(--ink); }
 .context-text .teacher-link { margin: 0.1rem 0.3rem 0.1rem 0; }
+.rm-drawer-note { padding: 0 0.5rem; font-size: 0.8rem; color: var(--ink-soft); line-height: 1.45; }
