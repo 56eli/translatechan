@@ -19,15 +19,19 @@
   } catch (e) {
     /* storage unavailable — keep the server-rendered default theme */
   }
-  // Apply the persisted website-design preset (A–E) before first paint so a
-  // returning reader never sees a flash of the default design. The five presets
-  // are pure token overrides in app.css; this only sets the data-design attr.
+  // Apply the persisted layout preset (1–6) before first paint so a returning
+  // reader never sees a flash of the default layout. Layout 1 (current ideal
+  // layout + colors) is the page default and needs no attribute; layouts 2–6
+  // are the structural disclosure layouts of Phase 5 bundle 026. Legacy 025
+  // letter presets (a–e, colors-only) normalize to 1.
   try {
     var design = window.localStorage ? window.localStorage.getItem('translatechan_design_variant') : null;
-    if (design === 'a' || design === 'b' || design === 'c' || design === 'd' || design === 'e') {
+    if (design === '2' || design === '3' || design === '4' || design === '5' || design === '6') {
       document.documentElement.setAttribute('data-design', design);
+    } else if (design === 'a' || design === 'b' || design === 'c' || design === 'd' || design === 'e') {
+      try { window.localStorage.setItem('translatechan_design_variant', '1'); } catch (e2) { /* ignore */ }
     }
   } catch (e) {
-    /* storage unavailable — keep the server-rendered default design */
+    /* storage unavailable — keep the server-rendered default layout */
   }
 })();

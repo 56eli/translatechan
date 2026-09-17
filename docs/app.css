@@ -2704,120 +2704,278 @@ textarea:focus-visible,
 }
 
 /* ==========================================================================
-   Phase 5 — 5-design switcher (2026-09-14, owner DEFINITIVE common qualities)
+   Phase 5 — LAYOUT switcher, bundle 026 (2026-09-14)
    --------------------------------------------------------------------------
-   All five directions share the COMMON QUALITIES law: light mental load
-   (minimum shown by default, extra behind expand/toggle), English first, not
-   dense, comfortable to read, easy to navigate, piece-meal plain language, and
-   an info section for every work and teacher. They vary only in colour
-   temperature, typography voice, density-of-emphasis and mood.
+   Numbers 1–6 on the header switcher. Layout 1 is the current ideal layout
+   AND the ideal colors (owner: the colors of 1 are ideal already) — it is
+   the :root base with no override. Layouts 2–6 are five distinct LAYOUT
+   STRUCTURES from LAYOUT_VARIANTS_2026-09-14.md (6–10), and they share
+   layout 1's colors exactly: only structure varies, never the palette.
 
-   A = Scholarly Minimal  — the refined current base (:root, no override).
-   B = Warm Editorial     — warm paper, generous leading, welcoming.
-   C = Monastic Scroll    — rice-paper ink, vertical rhythm, contemplative.
-   D = Modernist Grid     — Swiss, stark contrast, sans-serif voice.
-   E = Contemplative Dark — dark-first, soft, meditative.
+   2 = Accordion Reader             — sections as accordions, English open.
+   3 = Progressive Disclosure Scroll — context appears piece-meal on scroll.
+   4 = Tabbed Reader                — Translation / Chinese / Context / Related.
+   5 = Modal Info                   — info sections in a modal, main minimal.
+   6 = Hover Cards                  — related teachers/works on hover/focus.
 
-   These blocks set ONLY design tokens + a few scoped rhythm rules. They add
-   zero inline styles, zero .style writes, and zero new runtime contracts —
-   the four closed CSSOM contracts above remain the only style writes. The
-   switcher applies a data-design attribute to <html>; CSS does the rest.
+   All six share the COMMON QUALITIES: light mental load (minimum info by
+   default, everything extra expandable / hoverable / togglable), English
+   first, not dense, comfortable to read, easy to navigate, piece-meal plain
+   language, and an info section for every work and teacher.
+
+   Mechanisms are disclosure-only: native <details>, [hidden] toggles, class
+   toggles and the closed --pop-shift popover contract. Zero inline styles,
+   zero .style writes, zero new runtime contracts. The switcher applies a
+   data-design attribute to <html>; this section does the rest.
    ========================================================================== */
 
-/* --- B · Warm Editorial --- */
-:root[data-design="b"] {
-  --paper: #fbf4ea;
-  --panel: #fffaf2;
-  --line:  #e7d6c2;
-  --ink:   #352a1f;
-  --gold:  #b5702f;
-  --green: #5a7d54;
-  --blue:  #4a6f8a;
-  --red:   #b04a3a;
-  --wood:        #3a2a1c;
-  --wood-ink:    #f7ecdd;
-  --brass:       #d9b074;
-  --radius: 6px;
-  --shadow: 0 1px 2px rgba(58, 42, 28, 0.08), 0 10px 28px rgba(58, 42, 28, 0.06);
+/* --- Layout 2 · Accordion Reader -------------------------------------------
+   Every section is an accordion panel. Only the English translation starts
+   open; Chinese, notes, ledgers start folded. Panels inherit the ideal
+   colors — panel ground, hairline border, brass marker. */
+:root[data-design="2"] .acc-sec {
+  margin: 0.7rem 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
 }
-:root[data-design="b"] .classical-zh { line-height: 2.0; }
-:root[data-design="b"] .translation-text { line-height: 1.86; }
-:root[data-design="b"] #reader-content-target .case-card { padding: 2.4rem 0 2.6rem; }
-:root[data-design="b"] #reader-content-target .translation-col { padding-top: 1.15rem; }
-:root[data-design="b"] .zen-hero-banner { border-bottom-color: var(--gold); }
-
-/* --- C · Monastic Scroll --- */
-:root[data-design="c"] {
-  --paper: #f3efe2;
-  --panel: #faf7ec;
-  --line:  #d9cfbb;
-  --ink:   #23201c;
-  --gold:  #9c3b2e;
-  --green: #4f6b53;
-  --blue:  #456079;
-  --red:   #9c3b2e;
-  --wood:        #2e2a23;
-  --wood-ink:    #ece4d2;
-  --brass:       #b98b5e;
-  --radius: 2px;
-  --shadow: 0 1px 2px rgba(46, 42, 35, 0.07);
+:root[data-design="2"] .acc-sec > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.6rem 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
 }
-:root[data-design="c"] .classical-zh { line-height: 2.08; }
-:root[data-design="c"] .translation-text { line-height: 1.9; }
-:root[data-design="c"] #reader-content-target .case-card { padding: 2.8rem 0 3rem; border-top-width: 2px; }
-:root[data-design="c"] .ledger-drawer { border-top-width: 2px; border-bottom-width: 2px; }
-:root[data-design="c"] .case-card.is-epilogue,
-:root[data-design="c"] .case-card.is-ranks { border-left-width: 4px; }
+:root[data-design="2"] .acc-sec > summary::-webkit-details-marker { display: none; }
+:root[data-design="2"] .acc-sec > summary::before { content: '+'; display: inline-block; width: 1rem; color: var(--gold); }
+:root[data-design="2"] .acc-sec[open] > summary::before { content: '\2212'; }
+:root[data-design="2"] .acc-sec[open] > summary { border-bottom: 1px solid var(--line-soft); }
+:root[data-design="2"] .acc-sec > .translation-grid,
+:root[data-design="2"] .acc-sec > .classical-zh,
+:root[data-design="2"] .acc-sec > .pinyin-line,
+:root[data-design="2"] .acc-sec > .provenance-line,
+:root[data-design="2"] .acc-sec > .ledger-drawer { padding: 0.65rem 0.95rem 0.85rem; }
+:root[data-design="2"] .acc-sec > .translation-grid { padding-top: 0.8rem; }
+:root[data-design="2"] .acc-zh-chip { margin-left: 0.4rem; text-transform: none; letter-spacing: 0; color: var(--ink-soft); }
+/* The accordion does the grouping, so per-turn spacing relaxes. */
+:root[data-design="2"] .dialogue-turn { margin: 0 0 0.6rem; }
+:root[data-design="2"] .case-card .case-body > .acc-sec:first-of-type { margin-top: 0.35rem; }
 
-/* --- D · Modernist Grid --- */
-:root[data-design="d"] {
-  --paper: #ffffff;
-  --panel: #ffffff;
-  --line:  #e3e3e3;
-  --ink:   #111111;
-  --gold:  #d4302a;
-  --green: #1f6f4a;
-  --blue:  #1457a8;
-  --red:   #d4302a;
-  --wood:        #0f0f0f;
-  --wood-ink:    #ffffff;
-  --brass:       #d4302a;
-  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --radius: 2px;
-  --shadow: none;
+/* --- Layout 3 · Progressive Disclosure Scroll -------------------------------
+   Pending units collapse to a quiet one-line stub with a reveal button;
+   IntersectionObserver (or a tap) unfolds them as reading arrives. Context
+   blocks sit behind their own "More context" folds. */
+:root[data-design="3"] .case-card.pd-pending { padding: 0.8rem 0 0.9rem; }
+:root[data-design="3"] .case-card.pd-pending .case-body,
+:root[data-design="3"] .case-card.pd-pending .case-nav-footer,
+:root[data-design="3"] .case-card.pd-pending > .classical-zh,
+:root[data-design="3"] .case-card.pd-pending > .pinyin-line { display: none; }
+:root[data-design="3"] .pd-reveal-btn {
+  display: none;
+  margin-top: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  cursor: pointer;
 }
-:root[data-design="d"] body { background-image: none; }
-:root[data-design="d"] .case-card { border-top: 2px solid var(--ink); box-shadow: none; }
-:root[data-design="d"] .ledger-drawer { border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
-:root[data-design="d"] .matrix-collation-head { border-bottom: 2px solid var(--ink); }
-:root[data-design="d"] .translation-col { box-shadow: none; }
-:root[data-design="d"] .zen-hero-banner { border-bottom-width: 3px; }
-:root[data-design="d"] .text-title-zh { letter-spacing: -0.02em; }
-
-/* --- E · Contemplative Dark (dark-first, soft, meditative) --- */
-:root[data-design="e"] {
-  --paper: #16181d;
-  --panel: #1f2228;
-  --line:  #2c3038;
-  --ink:   #e9e4d8;
-  --gold:  #b8924e;
-  --green: #5c8c72;
-  --blue:  #6f9bb8;
-  --red:   #c4625a;
-  --wood:        #0e0f12;
-  --wood-ink:    #e9e4d8;
-  --brass:       #b8924e;
-  --radius: 6px;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 30px rgba(0, 0, 0, 0.35);
+:root[data-design="3"] .case-card.pd-pending .pd-reveal-btn { display: inline-flex; }
+:root[data-design="3"] .pd-reveal-btn:hover { color: var(--ink); border-color: var(--gold); }
+:root[data-design="3"] .pd-reveal-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+:root[data-design="3"] details.pd-context {
+  margin: 0.9rem 0;
+  border-left: 2px solid var(--line);
+  padding-left: 0.9rem;
 }
-:root[data-design="e"] body { background-image: none; color: var(--ink); }
-:root[data-design="e"] .classical-zh { line-height: 2.0; }
-:root[data-design="e"] .translation-text { line-height: 1.84; }
+:root[data-design="3"] details.pd-context > summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+:root[data-design="3"] details.pd-context > summary::-webkit-details-marker { display: none; }
+:root[data-design="3"] details.pd-context > summary::before { content: '↓ '; color: var(--gold); }
+:root[data-design="3"] details.pd-context[open] > summary::before { content: '↑ '; }
 
-/* --- Design switcher control (header) — persistent, keyboard-operable --- */
+/* --- Layout 4 · Tabbed Reader ------------------------------------------------
+   One section at a time. The tablist sticks under the shell; each tab hides
+   the other three views' content, and the Context/Related panes hold the
+   info sections for the work and its teachers. */
+.layout-tabs {
+  position: sticky;
+  top: var(--shell-height, 0px);
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.1rem 0 1.4rem;
+  padding: 0.55rem 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.layout-tab-btn {
+  padding: 0.5rem 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--ink-soft);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.layout-tab-btn:hover { color: var(--ink); border-color: var(--gold); }
+.layout-tab-btn[aria-selected="true"] {
+  background: var(--wood);
+  border-color: var(--wood);
+  color: var(--wood-ink);
+}
+.layout-tab-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.layout-pane { margin: 0.4rem 0 2rem; }
+.layout-pane-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 0.4rem 0 1.1rem;
+}
+.layout-pane-empty { color: var(--ink-soft); font-size: 0.9rem; }
+.related-teacher-block { margin: 0 0 1.4rem; }
+.related-teacher-name { font-family: var(--font-display); font-size: 1.05rem; margin: 0 0 0.4rem; }
+.related-teacher-zh { font-weight: 400; color: var(--ink-soft); }
+/* Translation tab: English only — the source waits behind the Chinese tab. */
+:root[data-design="4"] #reader-content-target[data-layout-tab="translation"] .classical-zh,
+:root[data-design="4"] #reader-content-target[data-layout-tab="translation"] .pinyin-line { display: none; }
+/* Chinese tab: source only — translation columns and notes wait their turn. */
+:root[data-design="4"] #reader-content-target[data-layout-tab="chinese"] .translation-grid,
+:root[data-design="4"] #reader-content-target[data-layout-tab="chinese"] .translation-source,
+:root[data-design="4"] #reader-content-target[data-layout-tab="chinese"] .prose-en,
+:root[data-design="4"] #reader-content-target[data-layout-tab="chinese"] .provenance-line { display: none; }
+/* Context tab: the literature steps out, the info sections step in. */
+:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .case-card,
+:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .case-jump-strip,
+:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .case-load-more,
+:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .front-matter,
+:root[data-design="4"] #reader-content-target[data-layout-tab="context"] .layout-pane-related { display: none; }
+/* Related tab: teachers only. */
+:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .case-card,
+:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .case-jump-strip,
+:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .case-load-more,
+:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .front-matter,
+:root[data-design="4"] #reader-content-target[data-layout-tab="related"] .layout-pane-context { display: none; }
+
+/* --- Layout 5 · Modal Info ---------------------------------------------------
+   The reading surface keeps only the literature; all info sections move
+   behind ⓘ doorways into one modal overlay. */
+.info-modal-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.2rem; }
+.info-modal-btn { font-size: 0.8rem; }
+.layout-modal-root {
+  position: fixed;
+  inset: 0;
+  z-index: 340;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+}
+.layout-modal-root[hidden] { display: none; }
+.layout-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--wood) 55%, transparent);
+}
+.layout-modal-panel {
+  position: relative;
+  width: min(46rem, 100%);
+  max-height: min(84vh, 52rem);
+  overflow: auto;
+  padding: 1.3rem 1.5rem 1.5rem;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.layout-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+.layout-modal-head h2 { margin: 0; font-family: var(--font-display); font-size: 1.2rem; }
+.layout-modal-body .modal-section { margin: 0 0 0.9rem; border: 1px solid var(--line); border-radius: var(--radius); background: color-mix(in srgb, var(--panel) 70%, var(--paper)); }
+.layout-modal-body .modal-section > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+.layout-modal-body .modal-section > summary::-webkit-details-marker { display: none; }
+.layout-modal-body .modal-section > summary::before { content: '+'; display: inline-block; width: 1rem; color: var(--gold); }
+.layout-modal-body .modal-section[open] > summary::before { content: '\2212'; }
+.layout-modal-body .modal-section-body { padding: 0.4rem 0.85rem 0.85rem; }
+/* Inside the modal the ledgers drop their own drawer frame — the modal is
+   already the container. */
+.layout-modal-body .ledger-drawer { border: 0; padding: 0; background: transparent; box-shadow: none; }
+
+/* --- Layout 6 · Hover Cards ---------------------------------------------------
+   Related teachers/works float up as cards when their English name is
+   hovered or focused. Dotted underline = there is more behind this name.
+   Placement rides the shared --pop-shift popover contract. */
+.hover-card {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  translate: var(--pop-shift, 0.5rem 0.5rem);
+  z-index: 330;
+  width: min(340px, calc(100vw - 16px));
+  max-height: min(60vh, 26rem);
+  overflow-y: auto;
+  pointer-events: auto;
+  padding: 0.9rem 1rem;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 0.82rem;
+}
+.hover-card[hidden] { display: none; }
+.hover-card-title { font-weight: 700; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.hover-card-zh { font-weight: 400; color: var(--ink-soft); }
+.hover-card .context-row { margin-bottom: 0.55rem; }
+.hover-cardable {
+  text-decoration: underline dotted;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+  cursor: help;
+}
+
+/* --- Layout switcher control (header) — persistent, keyboard-operable --- */
+
 .design-switcher {
   display: inline-flex;
   align-items: center;
+  flex-wrap: wrap; /* bundle 026: six numbered layout buttons */
+  justify-content: flex-end;
   gap: 0.2rem;
   margin-left: 0.5rem;
   padding-left: 0.6rem;

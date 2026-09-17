@@ -80,7 +80,10 @@
       } catch (e) { return {}; }
     })(),
     theme: storageGet('translatechan_theme') || 'light',
-    designVariant: (() => { const v = storageGet('translatechan_design_variant'); return ['a', 'b', 'c', 'd', 'e'].includes(v) ? v : 'a'; })(),
+    // Bundle 026: numbered LAYOUT presets 1–6 (1 = current ideal layout +
+    // colors; 2–6 = structural disclosure layouts sharing 1's colors). Legacy
+    // 025 letter presets (a–e, colors-only) collapse to 1.
+    designVariant: (() => { const v = storageGet('translatechan_design_variant'); return ['1', '2', '3', '4', '5', '6'].includes(v) ? v : '1'; })(),
     nameMode: (() => { const v = storageGet('translatechan_name_mode'); return v === 'romaji' ? 'romaji' : 'pinyin'; })(),
     searchQuery: '',
     selectedMasterSchool: 'all',
@@ -227,6 +230,7 @@
     // pipeline change — boot simply skips DOM building for rooms nobody is
     // looking at.
     switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
+    appBooted = true; // layout switches may now trigger live re-renders
   }
 
   // L1 (audit 2026-08-10, session 019feabb): dismissable hero banner.
@@ -580,20 +584,27 @@
     }
   }
 
-  // Phase 5 — 5-design switcher. Applies a data-design attribute to <html> so
-  // the five token maps in app.css drive the whole look. The choice is the
-  // owner's to make and rate; the agent only provides examples. No inline
-  // styles, no new runtime contracts — just an attribute + class toggles.
+  // Boot-complete flag: applyDesignVariant re-renders rooms only after init()
+  // finishes (during boot it merely applies the persisted layout).
+  let appBooted = false;
+
+  // Phase 5 — layout switcher (bundle 026). Numbers 1–6: 1 keeps the current
+  // ideal layout AND colors; 2–6 are five distinct LAYOUT STRUCTURES from
+  // LAYOUT_VARIANTS_2026-09-14.md (6–10), sharing layout 1's colors and the
+  // COMMON QUALITIES (light mental load, English first, not dense, comfortable,
+  // easy to navigate, piece-meal plain language, work/teacher info sections).
+  // data-design attribute on <html>; examples only — the owner rates them.
   const DESIGN_VARIANTS = [
-    { key: 'a', label: 'A', name: 'Scholarly' },
-    { key: 'b', label: 'B', name: 'Warm' },
-    { key: 'c', label: 'C', name: 'Monastic' },
-    { key: 'd', label: 'D', name: 'Modernist' },
-    { key: 'e', label: 'E', name: 'Dark' }
+    { key: '1', label: '1', name: 'Classic scroll — current ideal' },
+    { key: '2', label: '2', name: 'Accordion Reader' },
+    { key: '3', label: '3', name: 'Progressive Disclosure Scroll' },
+    { key: '4', label: '4', name: 'Tabbed Reader' },
+    { key: '5', label: '5', name: 'Modal Info' },
+    { key: '6', label: '6', name: 'Hover Cards' }
   ];
 
   function applyDesignVariant(variant) {
-    if (!['a', 'b', 'c', 'd', 'e'].includes(variant)) variant = 'a';
+    if (!['1', '2', '3', '4', '5', '6'].includes(variant)) variant = '1';
     state.designVariant = variant;
     document.documentElement.setAttribute('data-design', variant);
     storageSet('translatechan_design_variant', variant);
@@ -605,20 +616,30 @@
         btn.classList.toggle('active', on);
       });
     }
+    // Layouts 2–6 are structural: rebuild the Reader (and any already-seen
+    // rooms) so the new disclosure structure takes effect immediately.
+    // Skipped before boot finishes (init applies the persisted variant first).
+    if (appBooted) {
+      closeLayoutModal();
+      renderReader();
+      for (const name of Object.keys(ROOM_RENDERERS)) {
+        if (renderedRooms.has(name)) ROOM_RENDERERS[name]();
+      }
+    }
   }
 
   function renderDesignSwitcher() {
     const container = elements.designSwitcher;
     if (!container) return;
     container.innerHTML =
-      '<span class="design-switcher-label" aria-hidden="true">Design</span>' +
+      '<span class="design-switcher-label" aria-hidden="true">Layout</span>' +
       DESIGN_VARIANTS.map(v =>
         `<button type="button" class="design-btn" data-design-variant="${v.key}" ` +
-        `aria-label="Website design ${v.name} (${v.key})" ` +
-        `title="Design ${v.key}: ${v.name} — examples only, not a judgment" ` +
+        `aria-label="Layout ${v.label}: ${v.name}" ` +
+        `title="Layout ${v.label}: ${v.name} — examples only, not a judgment" ` +
         `aria-pressed="${state.designVariant === v.key ? 'true' : 'false'}">${v.label}</button>`
       ).join('');
-    // One delegated activator: each button applies the design and persists it.
+    // One delegated activator: each button applies the layout and persists it.
     container.addEventListener('click', (e) => {
       const btn = e.target && e.target.closest ? e.target.closest('.design-btn') : null;
       if (!btn) return;
@@ -626,10 +647,446 @@
     });
   }
 
+  // ==========================================================================
+  // Phase 5 bundle 026 — LAYOUTS 2–6 (structural disclosure layouts)
+  // --------------------------------------------------------------------------
+  // Layout 1 renders exactly as before (current ideal layout + ideal colors).
+  // Layouts 2–6 re-structure the SAME rendered content after innerHTML is set:
+  // accordion, progressive scroll, tabs, modal, hover cards. All keep the
+  // ideal colors of 1 and the COMMON QUALITIES — light mental load (minimum
+  // info by default, extra behind expand/hover/toggle), English first, not
+  // dense, comfortable to read, easy to navigate, piece-meal plain language,
+  // info section for every work and teacher. Mechanisms: native <details>,
+  // [hidden] toggles, IntersectionObserver, one modal dialog, one hover card
+  // reusing the closed --pop-shift contract. Zero inline styles, zero new
+  // setProperty contracts. Runs only when designVariant is 2–6.
+  // ==========================================================================
+
+  function enhanceReaderLayout() {
+    hideHoverCard(); // a stale card must never survive a re-render
+    const root = elements.readerContent;
+    // Clear any previous layout's root class (switching back to 1 must not
+    // leave residue on the reader element).
+    if (root && root.classList) {
+      ['layout-accordion', 'layout-progressive', 'layout-tabbed', 'layout-modal', 'layout-hovercards']
+        .forEach(c => root.classList.remove(c));
+    }
+    const v = state.designVariant;
+    if (!v || v === '1') return;
+    if (v === '2') enhanceAccordionReader();
+    else if (v === '3') enhanceProgressiveScroll();
+    else if (v === '4') enhanceTabbedReader();
+    else if (v === '5') enhanceModalInfo();
+    else if (v === '6') enhanceHoverCards();
+  }
+
+  // Wrap sibling nodes in a fresh <details> section where the first node stood.
+  function wrapNodesInDetails(nodes, summaryHtml, className, open) {
+    const list = Array.from(nodes || []).filter(Boolean);
+    if (!list.length) return null;
+    const d = document.createElement('details');
+    d.className = className;
+    if (open) d.setAttribute('open', '');
+    const s = document.createElement('summary');
+    s.innerHTML = summaryHtml;
+    d.appendChild(s);
+    const first = list[0];
+    if (first.parentNode) first.parentNode.insertBefore(d, first);
+    list.forEach(n => d.appendChild(n));
+    return d;
+  }
+
+  // --- Layout 2 · Accordion Reader: sections as accordions; only English open.
+  function enhanceAccordionReader() {
+    const root = elements.readerContent;
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    root.classList.add('layout-accordion');
+
+    // Dialogue turns: Chinese + pinyin fold away; English stays open.
+    root.querySelectorAll('.dialogue-turn').forEach(turn => {
+      if (!turn || !turn.children) return;
+      const zhNodes = Array.from(turn.children).filter(n =>
+        n.classList && (n.classList.contains('classical-zh') || n.classList.contains('pinyin-line')));
+      if (zhNodes.length) {
+        wrapNodesInDetails(zhNodes, 'Chinese source <span class="acc-zh-chip" lang="zh">漢文</span>', 'acc-sec acc-zh', false);
+      }
+      const grids = Array.from(turn.children).filter(n => n.classList && n.classList.contains('translation-grid'));
+      if (grids.length) wrapNodesInDetails(grids, 'Translation — English', 'acc-sec acc-en', true);
+      const notes = Array.from(turn.children).filter(n => n.classList && n.classList.contains('provenance-line'));
+      if (notes.length) wrapNodesInDetails(notes, 'Notes on this passage', 'acc-sec acc-notes', false);
+    });
+
+    // Commentary/pointer/verse: Chinese folds; English stays visible.
+    root.querySelectorAll('.commentary-block, .verse-block').forEach(block => {
+      if (!block || !block.children) return;
+      const kind = block.classList.contains('verse-block') ? 'Verse'
+        : (block.classList.contains('is-pointer') ? 'Pointer' : 'Commentary');
+      const zhNodes = Array.from(block.children).filter(n =>
+        n.classList && (n.classList.contains('classical-zh') || n.classList.contains('pinyin-line')));
+      if (zhNodes.length) wrapNodesInDetails(zhNodes, `${kind} — Chinese source`, 'acc-sec acc-zh', false);
+    });
+
+    // Document header: the five edition ledgers fold into one accordion.
+    const drawer = root.querySelector('.ledger-drawer');
+    if (drawer) wrapNodesInDetails([drawer], 'About this edition — ledgers', 'acc-sec acc-ledgers', false);
+    const header = root.querySelector('.document-heading');
+    if (header && header.children) {
+      const prov = Array.from(header.children).filter(n => n.classList && n.classList.contains('provenance-line'));
+      if (prov.length) wrapNodesInDetails(prov, 'Notes on this text', 'acc-sec acc-notes', false);
+    }
+  }
+
+  // --- Layout 3 · Progressive Disclosure Scroll: units reveal piece-meal as
+  // they scroll into view (or on tap); context blocks sit behind their own fold.
+  let progressiveObserver = null;
+  function enhanceProgressiveScroll() {
+    const root = elements.readerContent;
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    root.classList.add('layout-progressive');
+
+    if (progressiveObserver && typeof progressiveObserver.disconnect === 'function') progressiveObserver.disconnect();
+    progressiveObserver = null;
+
+    const cards = root.querySelectorAll('.case-card');
+    cards.forEach((card, i) => {
+      if (i === 0 || !card || !card.classList) return; // the first piece reads in full
+      card.classList.add('pd-pending');
+      const hint = document.createElement('button');
+      hint.setAttribute('type', 'button');
+      hint.className = 'pd-reveal-btn';
+      hint.textContent = 'Continue reading — reveal this part';
+      hint.addEventListener('click', () => {
+        card.classList.remove('pd-pending');
+        if (hint.parentNode) hint.parentNode.removeChild(hint);
+      });
+      card.appendChild(hint);
+    });
+
+    // Commentary/pointer/verse become optional context folds on every unit.
+    root.querySelectorAll('.commentary-block, .verse-block').forEach(block => {
+      if (!block) return;
+      const kind = block.classList.contains('verse-block') ? 'verse'
+        : (block.classList.contains('is-pointer') ? 'pointer' : 'commentary');
+      wrapNodesInDetails([block], `More context — ${kind}`, 'pd-context', false);
+    });
+
+    // Edition ledgers: last, folded, piece-meal.
+    const drawer = root.querySelector('.ledger-drawer');
+    if (drawer) wrapNodesInDetails([drawer], 'About this edition — when you want it', 'pd-context', false);
+
+    // Scroll reveal; tapping is the fallback where IO is unavailable.
+    if (typeof IntersectionObserver === 'function') {
+      progressiveObserver = new IntersectionObserver(entries => {
+        entries.forEach(en => {
+          if (en && en.isIntersecting && en.target && en.target.classList && en.target.classList.contains('pd-pending')) {
+            en.target.classList.remove('pd-pending');
+            const btn = typeof en.target.querySelector === 'function' ? en.target.querySelector('.pd-reveal-btn') : null;
+            if (btn && btn.parentNode) btn.parentNode.removeChild(btn);
+          }
+        });
+      }, { rootMargin: '220px 0px' });
+      cards.forEach(c => {
+        if (c && c.classList && c.classList.contains('pd-pending')) progressiveObserver.observe(c);
+      });
+    }
+  }
+
+  // --- Layout 4 · Tabbed Reader: Translation (default) / Chinese / Context /
+  // Related — one thing at a time; info sections gather in their own tabs.
+  function enhanceTabbedReader() {
+    const root = elements.readerContent;
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    root.classList.add('layout-tabbed');
+
+    const bar = document.createElement('div');
+    bar.className = 'layout-tabs';
+    bar.setAttribute('role', 'tablist');
+    bar.setAttribute('aria-label', 'Reader sections');
+    const tabs = [
+      { key: 'translation', label: 'Translation' },
+      { key: 'chinese', label: 'Chinese' },
+      { key: 'context', label: 'Context' },
+      { key: 'related', label: 'Related' }
+    ];
+    tabs.forEach((t, i) => {
+      const b = document.createElement('button');
+      b.setAttribute('type', 'button');
+      b.className = 'layout-tab-btn';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('data-layout-tab-btn', t.key);
+      b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      b.setAttribute('tabindex', i === 0 ? '0' : '-1');
+      b.textContent = t.label;
+      bar.appendChild(b);
+    });
+    const heading = root.querySelector('.document-heading');
+    if (heading && heading.parentNode) heading.parentNode.insertBefore(bar, heading.nextSibling);
+
+    // Context pane: ledgers + work info section + document notes move here.
+    const contextPane = document.createElement('section');
+    contextPane.className = 'layout-pane layout-pane-context';
+    contextPane.setAttribute('aria-label', 'Context for this work');
+    contextPane.setAttribute('hidden', '');
+    contextPane.innerHTML = '<h2 class="layout-pane-title">Context — where this work came from</h2>';
+    const drawer = root.querySelector('.ledger-drawer');
+    if (drawer) contextPane.appendChild(drawer);
+    const workCtx = root.querySelector('.work-context');
+    if (workCtx) { workCtx.setAttribute('open', ''); contextPane.appendChild(workCtx); }
+    const header = root.querySelector('.document-heading');
+    if (header && header.children) {
+      Array.from(header.children).filter(n => n.classList && n.classList.contains('provenance-line'))
+        .forEach(n => contextPane.appendChild(n));
+    }
+
+    // Related pane: linked teachers, each with its plain-language info section.
+    const relatedPane = document.createElement('section');
+    relatedPane.className = 'layout-pane layout-pane-related';
+    relatedPane.setAttribute('aria-label', 'Related teachers and works');
+    relatedPane.setAttribute('hidden', '');
+    const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
+    relatedPane.innerHTML = '<h2 class="layout-pane-title">Related teachers</h2>' + (related.length
+      ? related.map(m =>
+          `<div class="related-teacher-block">` +
+          `<h3 class="related-teacher-name">${escHtml(masterDisplayName(m))}${m.name_zh ? ` <span lang="zh" class="related-teacher-zh">${escHtml(m.name_zh)}</span>` : ''}</h3>` +
+          renderTeacherContext(m) +
+          `</div>`).join('')
+      : '<p class="layout-pane-empty">No profiled teachers are linked to this work yet.</p>');
+
+    root.appendChild(contextPane);
+    root.appendChild(relatedPane);
+    root.setAttribute('data-layout-tab', 'translation');
+
+    const setTab = (key, focusBtn) => {
+      root.setAttribute('data-layout-tab', key);
+      bar.querySelectorAll('.layout-tab-btn').forEach(b => {
+        const on = b.getAttribute('data-layout-tab-btn') === key;
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+        b.setAttribute('tabindex', on ? '0' : '-1');
+        if (on && focusBtn && typeof b.focus === 'function') b.focus();
+      });
+      if (key === 'context') contextPane.removeAttribute('hidden'); else contextPane.setAttribute('hidden', '');
+      if (key === 'related') relatedPane.removeAttribute('hidden'); else relatedPane.setAttribute('hidden', '');
+    };
+    bar.addEventListener('click', (e) => {
+      const btn = e.target && e.target.closest ? e.target.closest('.layout-tab-btn') : null;
+      if (btn) setTab(btn.getAttribute('data-layout-tab-btn'), false);
+    });
+    // ARIA roving tabindex: arrows/Home/End move between tabs.
+    bar.addEventListener('keydown', (e) => {
+      const keys = tabs.map(t => t.key);
+      const btn = e.target && e.target.closest ? e.target.closest('.layout-tab-btn') : null;
+      if (!btn) return;
+      const idx = keys.indexOf(btn.getAttribute('data-layout-tab-btn'));
+      let next = -1;
+      if (e.key === 'ArrowRight') next = (idx + 1) % keys.length;
+      else if (e.key === 'ArrowLeft') next = (idx - 1 + keys.length) % keys.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = keys.length - 1;
+      if (next < 0) return;
+      e.preventDefault();
+      e.stopPropagation(); // don't also trigger the reader's ←/→ case-jump
+      setTab(keys[next], true);
+    });
+  }
+
+  // --- Layout 5 · Modal Info: the reading surface keeps only the literature;
+  // work context, ledgers and notes sit behind ⓘ buttons in one modal overlay
+  // (Escape / backdrop / ✕ close it).
+  let layoutModalEl = null;
+  let layoutModalLastTrigger = null;
+  let layoutModalEscBound = false;
+
+  function getLayoutModal() {
+    if (!layoutModalEl) {
+      const rootEl = document.createElement('div');
+      rootEl.className = 'layout-modal-root';
+      rootEl.setAttribute('hidden', '');
+      rootEl.innerHTML =
+        '<div class="layout-modal-backdrop" data-modal-close></div>' +
+        '<div class="layout-modal-panel" role="dialog" aria-modal="true" aria-labelledby="layout-modal-title">' +
+          '<div class="layout-modal-head">' +
+            '<h2 id="layout-modal-title">About this text</h2>' +
+            '<button type="button" class="btn-pill layout-modal-close" data-modal-close aria-label="Close information panel">✕ Close</button>' +
+          '</div>' +
+          '<div class="layout-modal-body"></div>' +
+        '</div>';
+      rootEl.addEventListener('click', (e) => {
+        const t = e.target && e.target.closest ? e.target.closest('[data-modal-close]') : null;
+        if (t) closeLayoutModal();
+      });
+      document.body.appendChild(rootEl);
+      layoutModalEl = rootEl;
+      if (!layoutModalEscBound) {
+        layoutModalEscBound = true;
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLayoutModal(); });
+      }
+    }
+    return layoutModalEl;
+  }
+
+  function openLayoutModal(sectionKey, trigger) {
+    if (state.designVariant !== '5') return;
+    const modal = getLayoutModal();
+    const body = modal.querySelector('.layout-modal-body');
+    if (!body) return;
+    const corpusKey = state.currentCorpusKey;
+    const doc = (state.data.corpus && state.data.corpus[corpusKey]) || {};
+    const notesHtml = renderProvenanceNotes(doc);
+    // Three piece-meal folds, the requested one open; rebuilt on every open.
+    body.innerHTML =
+      `<details class="modal-section modal-work" data-modal-sec="work">` +
+        `<summary>About this work — context</summary>` +
+        `<div class="context-info-body">${workContextRows(corpusKey)}</div></details>` +
+      `<details class="modal-section modal-edition" data-modal-sec="edition">` +
+        `<summary>About this edition — ledgers</summary>` +
+        `<div class="modal-section-body">${renderDocumentLedgers(corpusKey, doc)}</div></details>` +
+      (notesHtml
+        ? `<details class="modal-section modal-notes" data-modal-sec="notes">` +
+            `<summary>Notes on this text</summary>` +
+            `<div class="context-info-body">${notesHtml}</div></details>`
+        : '');
+    body.querySelectorAll('details').forEach(d => {
+      if (sectionKey && d.getAttribute('data-modal-sec') === sectionKey) d.setAttribute('open', '');
+      else d.removeAttribute('open');
+    });
+    layoutModalLastTrigger = trigger || null;
+    modal.removeAttribute('hidden');
+    const closeBtn = modal.querySelector('.layout-modal-close');
+    if (closeBtn && typeof closeBtn.focus === 'function') closeBtn.focus();
+  }
+
+  function closeLayoutModal() {
+    if (!layoutModalEl || layoutModalEl.hasAttribute('hidden')) return;
+    layoutModalEl.setAttribute('hidden', '');
+    if (layoutModalLastTrigger && typeof layoutModalLastTrigger.focus === 'function') layoutModalLastTrigger.focus();
+    layoutModalLastTrigger = null;
+  }
+
+  function enhanceModalInfo() {
+    const root = elements.readerContent;
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    root.classList.add('layout-modal');
+    const header = root.querySelector('.document-heading');
+    if (!header) return;
+    // Pull the info blocks out of the reading flow…
+    const drawer = root.querySelector('.ledger-drawer');
+    if (drawer && drawer.parentNode) drawer.parentNode.removeChild(drawer);
+    const workCtx = root.querySelector('.work-context');
+    if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
+    Array.from(header.children).filter(n => n.classList && n.classList.contains('provenance-line'))
+      .forEach(n => { if (n.parentNode) n.parentNode.removeChild(n); });
+    // …and leave three quiet ⓘ doorways in their place.
+    const row = document.createElement('div');
+    row.className = 'info-modal-row';
+    row.innerHTML =
+      '<button type="button" class="btn-pill info-modal-btn" data-modal-open="work">ⓘ About this work</button>' +
+      '<button type="button" class="btn-pill info-modal-btn" data-modal-open="edition">About this edition</button>' +
+      '<button type="button" class="btn-pill info-modal-btn" data-modal-open="notes">Notes</button>';
+    header.appendChild(row);
+  }
+
+  // --- Layout 6 · Hover Cards: related teachers/works float up as cards on
+  // hover/focus of their English names, carrying the same info rows; clicking
+  // a name inside a card still opens its dossier/doc.
+  let hoverCardEl = null;
+  let hoverCardTimer = null;
+
+  function getHoverCard() {
+    if (!hoverCardEl) {
+      hoverCardEl = document.createElement('div');
+      hoverCardEl.id = 'layout-hover-card';
+      hoverCardEl.className = 'hover-card chan-popover';
+      hoverCardEl.setAttribute('role', 'tooltip');
+      hoverCardEl.setAttribute('hidden', '');
+      hoverCardEl.addEventListener('mouseleave', () => { hideHoverCard(); });
+      document.body.appendChild(hoverCardEl);
+    }
+    return hoverCardEl;
+  }
+
+  function hideHoverCard() {
+    if (hoverCardEl) hoverCardEl.setAttribute('hidden', '');
+  }
+
+  function hoverAnchorFromEvent(e) {
+    if (!e || !e.target || typeof e.target.closest !== 'function') return null;
+    return e.target.closest('.teacher-link[data-master-teacher], button[data-open-doc]');
+  }
+
+  function showHoverCardFor(anchor) {
+    if (state.designVariant !== '6' || !anchor) return;
+    let html = '';
+    const masterId = anchor.getAttribute ? anchor.getAttribute('data-master-teacher') : null;
+    const docKey = anchor.getAttribute ? anchor.getAttribute('data-open-doc') : null;
+    if (masterId) {
+      const m = (state.data.lineage || []).find(x => x && x.id === masterId);
+      if (!m) return;
+      html = `<div class="hover-card-title">${escHtml(masterDisplayName(m))}${m.name_zh ? ` <span class="hover-card-zh" lang="zh">${escHtml(m.name_zh)}</span>` : ''}</div>` +
+        `<div class="context-info-body">${teacherContextRows(m)}</div>`;
+    } else if (docKey && state.data.corpus && state.data.corpus[docKey]) {
+      const item = ((state.data.corpus_manifest && state.data.corpus_manifest.items) || []).find(i => i.key === docKey);
+      html = `<div class="hover-card-title">${escHtml(item ? item.title : docKey)}</div>` +
+        `<div class="context-info-body">${workContextRows(docKey)}</div>`;
+    }
+    if (!html) return;
+    const card = getHoverCard();
+    card.innerHTML = html;
+    card.removeAttribute('hidden');
+    positionFloatingPopover(card, anchor, 340);
+    card._anchor = anchor;
+  }
+
+  function setupHoverCardListeners() {
+    // Registered once at boot; every handler no-ops outside layout 6.
+    document.addEventListener('mouseover', (e) => {
+      if (state.designVariant !== '6') return;
+      clearTimeout(hoverCardTimer);
+      const anchor = hoverAnchorFromEvent(e);
+      if (!anchor) return;
+      hoverCardTimer = setTimeout(() => showHoverCardFor(anchor), 120);
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (state.designVariant !== '6' || !hoverCardEl || hoverCardEl.hasAttribute('hidden')) return;
+      clearTimeout(hoverCardTimer);
+      const to = e.relatedTarget;
+      if (to && typeof hoverCardEl.contains === 'function' && hoverCardEl.contains(to)) return;
+      const anchor = hoverCardEl._anchor;
+      if (to && anchor && typeof anchor.contains === 'function' && anchor.contains(to)) return;
+      hideHoverCard();
+    });
+    document.addEventListener('focusin', (e) => {
+      if (state.designVariant !== '6') return;
+      const anchor = hoverAnchorFromEvent(e);
+      if (anchor) showHoverCardFor(anchor);
+      else hideHoverCard();
+    });
+    document.addEventListener('focusout', () => {
+      if (state.designVariant !== '6' || !hoverCardEl || hoverCardEl.hasAttribute('hidden')) return;
+      setTimeout(() => {
+        const ae = document.activeElement;
+        const inCard = ae && typeof hoverCardEl.contains === 'function' && hoverCardEl.contains(ae);
+        const onAnchor = ae && hoverCardEl._anchor === ae;
+        if (!inCard && !onAnchor) hideHoverCard();
+      }, 0);
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideHoverCard(); });
+  }
+
+  function enhanceHoverCards() {
+    const root = elements.readerContent;
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    root.classList.add('layout-hovercards');
+    // Dotted-underline affordance on every hoverable English name.
+    root.querySelectorAll('.teacher-link[data-master-teacher], button[data-open-doc]').forEach(el => {
+      if (el && el.classList) el.classList.add('hover-cardable');
+    });
+  }
+
   // Event Listeners
   function setupEventListeners() {
     setupCitationPopoverListeners();
     setupRoboNameListeners();
+    setupHoverCardListeners(); // Phase 5 bundle 026 layout 6 (no-ops outside it)
     if (elements.themeToggle) {
       elements.themeToggle.addEventListener('click', () => {
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
@@ -994,6 +1451,13 @@
       if (openDocBtn) {
         e.preventDefault();
         window.TranslateChan.openDoc(openDocBtn.getAttribute('data-open-doc'));
+        return;
+      }
+      // Bundle 026 layout 5 (Modal Info): ⓘ doorways open the info modal.
+      const modalOpenBtn = hit('[data-modal-open]');
+      if (modalOpenBtn) {
+        e.preventDefault();
+        openLayoutModal(modalOpenBtn.getAttribute('data-modal-open'), modalOpenBtn);
         return;
       }
       // Lineage teacher links inside master cards / dossier
@@ -1652,28 +2116,42 @@
   // from, what/who is related, background context; collapsed by default so the
   // default view stays light on mental load; plain-language, piece-meal).
   // Built only from existing data fields — no invented Classical Chinese.
-  function renderWorkContext(corpusKey) {
+  // Related teachers: masters whose curated corpus links include this work.
+  function relatedTeachersForCorpusKey(corpusKey) {
+    const masters = Array.isArray(state.data.lineage) ? state.data.lineage : [];
+    return masters.filter(m => Array.isArray(m.linked_corpus_keys) && m.linked_corpus_keys.includes(corpusKey));
+  }
+
+  // The three plain-language info rows for a WORK (where it came from, what/
+  // who is related, background) — split out from the <details> wrapper so
+  // bundle-026 layouts can reuse them (tabs pane, modal, hover cards). Built
+  // only from existing data fields (no invented Chinese).
+  function workContextRows(corpusKey) {
     const doc = state.data.corpus && state.data.corpus[corpusKey];
     if (!doc) return '';
     const manifestItem = manifestItemForCorpusKey(corpusKey);
     const metrics = state.data.project_metrics?.corpus?.per_text?.[corpusKey] || {};
     const cbeta = stringValue(doc.cbeta_id || (manifestItem && manifestItem.cbeta)) || 'Not recorded';
     const coverage = stringValue(metrics.coverage) || 'representation not recorded';
-    // Related teachers: masters whose curated corpus links include this work.
-    const masters = Array.isArray(state.data.lineage) ? state.data.lineage : [];
-    const related = masters.filter(m => Array.isArray(m.linked_corpus_keys) && m.linked_corpus_keys.includes(corpusKey));
+    const related = relatedTeachersForCorpusKey(corpusKey);
     const relatedHtml = related.length
       ? related.map(m => `<button class="btn-pill teacher-link" data-master-teacher="${escHtml(m.id)}">${escHtml(masterDisplayName(m))}</button>`).join(' ')
       : '<span>Not yet linked to a profiled teacher in this project.</span>';
     const background = related.length
       ? `This text is part of the Chan / Zen corpus held in this project. It is shown here alongside ${related.length} related teacher profile${related.length === 1 ? '' : 's'}, and as an excerpt-scale seed unless its editorial status states otherwise.`
       : `This text is part of the Chan / Zen corpus held in this project. It is shown here as an excerpt-scale seed unless its editorial status states otherwise.`;
+    return `    <div class="context-row"><div class="context-label">Where it came from</div><div class="context-text">Drawn from the CBETA canon witness ${escHtml(cbeta)}. Recorded coverage here: ${escHtml(coverage)}. The Classical Chinese is the source; English renderings are separate and clearly marked.</div></div>\n` +
+      `    <div class="context-row"><div class="context-label">Related teachers</div><div class="context-text">${relatedHtml}</div></div>\n` +
+      `    <div class="context-row"><div class="context-label">Background</div><div class="context-text">${escHtml(background)}</div></div>\n`;
+  }
+
+  function renderWorkContext(corpusKey) {
+    const doc = state.data.corpus && state.data.corpus[corpusKey];
+    if (!doc) return '';
     return `<details class="context-info work-context">\n` +
       `  <summary>About this work — context</summary>\n` +
       `  <div class="context-info-body">\n` +
-      `    <div class="context-row"><div class="context-label">Where it came from</div><div class="context-text">Drawn from the CBETA canon witness ${escHtml(cbeta)}. Recorded coverage here: ${escHtml(coverage)}. The Classical Chinese is the source; English renderings are separate and clearly marked.</div></div>\n` +
-      `    <div class="context-row"><div class="context-label">Related teachers</div><div class="context-text">${relatedHtml}</div></div>\n` +
-      `    <div class="context-row"><div class="context-label">Background</div><div class="context-text">${escHtml(background)}</div></div>\n` +
+      workContextRows(corpusKey) +
       `  </div>\n` +
       `</details>`;
   }
@@ -1681,7 +2159,8 @@
   // Phase 5 — Info section for every TEACHER (common qualities: where they came
   // from, who they are related to, background context). Built only from existing
   // data fields — no invented Classical Chinese.
-  function renderTeacherContext(master) {
+  // The three plain-language info rows for a TEACHER — see workContextRows.
+  function teacherContextRows(master) {
     const teacher = (state.data.lineage || []).find(m => m && m.id === master.teacher);
     const disciples = Array.isArray(master.disciples) ? master.disciples : [];
     const discipleNames = disciples
@@ -1701,12 +2180,16 @@
       : `<span>${escHtml(master.teacher || 'Frontier — teacher not yet profiled')}</span>`;
     const disciplesHtml = discipleNames.length ? discipleNames.join(', ') : 'No profiled disciples in this project';
     const summary = stringValue(master.summary) || 'No background summary recorded.';
+    return `    <div class="context-row"><div class="context-label">Where they came from</div><div class="context-text">${escHtml(master.name_zh)} — ${escHtml(master.dates || 'dates not recorded')} · ${escHtml(master.era || 'era not recorded')} · ${escHtml(master.location || 'location not recorded')}. Lineage depth: generation ${escHtml(String(master.lineage_depth))}.</div></div>\n` +
+      `    <div class="context-row"><div class="context-label">Who they are related to</div><div class="context-text">Teacher: ${teacherHtml}. Disciples profiled here: ${escHtml(discipleNames.length ? disciplesHtml : 'none')}.</div></div>\n` +
+      `    <div class="context-row"><div class="context-label">Background</div><div class="context-text">${escHtml(summary)} Linked project works: ${relatedHtml}</div></div>\n`;
+  }
+
+  function renderTeacherContext(master) {
     return `<details class="context-info teacher-context">\n` +
       `  <summary>About this teacher — context</summary>\n` +
       `  <div class="context-info-body">\n` +
-      `    <div class="context-row"><div class="context-label">Where they came from</div><div class="context-text">${escHtml(master.name_zh)} — ${escHtml(master.dates || 'dates not recorded')} · ${escHtml(master.era || 'era not recorded')} · ${escHtml(master.location || 'location not recorded')}. Lineage depth: generation ${escHtml(String(master.lineage_depth))}.</div></div>\n` +
-      `    <div class="context-row"><div class="context-label">Who they are related to</div><div class="context-text">Teacher: ${teacherHtml}. Disciples profiled here: ${escHtml(discipleNames.length ? disciplesHtml : 'none')}.</div></div>\n` +
-      `    <div class="context-row"><div class="context-label">Background</div><div class="context-text">${escHtml(summary)} Linked project works: ${relatedHtml}</div></div>\n` +
+      teacherContextRows(master) +
       `  </div>\n` +
       `</details>`;
   }
@@ -2027,6 +2510,9 @@
     // End matter belongs after all rendered source units.
     html += epilogueHtml;
     elements.readerContent.innerHTML = html;
+    // Bundle 026: layouts 2–6 re-structure this content into their disclosure
+    // pattern; a no-op in layout 1, which renders exactly as before.
+    enhanceReaderLayout();
   }
 
   function caseTextLabels(corpusKey) {
