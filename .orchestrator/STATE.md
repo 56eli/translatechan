@@ -58,6 +58,15 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 - Implication: Pages revamp Phases 1-3 (system+masthead, Reader sheet/drawer/register, secondary rooms, CSP without unsafe-inline, render-lazy, bundle <2MB) is **functionally complete and gate-green**, but **UX is insufficient for human reader** — next top priority is human-readable, easy-of-use, welcoming overhaul. This will be a new proposal-first track beyond Phase B, not part of this docs PR.
 - Docs: this PR (docs/pages-phase4-evidence, PR #51 from arena/01a09f16-translatechan) finalises README/HANDOFF/AUDIT/ROADMAP + WEB_VISION_2026-09-13.md + OPERATIONS Edit1 closed by O-3 + frozen PR-B/PR-D closed as folded. No self-declared visual completion — owner feedback recorded verbatim.
 
+**Ruling 2026-09-14 — Website is NOT beautiful, NOT done (definitive, verbatim, law):**
+- Owner ruling verbatim 2026-09-14: "In no way is the website beautiful. In no way is it done. Immediately after chinese integrity, it is of utmost importance to work on the website. YOU AS ORCHESTRATOR AND ALL DISPATCH AGENTS ARE NOT CAPABLE TO JUDGE THE WEBSITE. You are 100% relying on my feedback, all you can do is provide examples, suggestions and demonstration and ask 'does this look good?', 'Is this the right direction?', 'how good is it on a scale from 1-10 where we aim for at least 8?'. This is definitive. Put these statement into law so that internal documentation reflects them."
+- Law:
+  1. The website is NOT beautiful. The website is NOT done. No agent, orchestrator, or dispatch agent may claim otherwise. Prior statements that Phase B is "COMPLETE" refer only to functional gate-green (5 gates, bundle <2MB, CSP, render-lazy), never to human UX.
+  2. Immediately after Chinese source integrity (Phase A/D W1 remediation to 100% verified integrity as close as possible) is complete, the utmost importance is to work on the website for human-readable, easy-of-use, welcoming space.
+  3. Orchestrator and ALL dispatch agents ARE NOT CAPABLE TO JUDGE THE WEBSITE. They must not self-declare beauty, completeness, or quality.
+  4. 100% reliance on owner feedback. All website work must provide examples, suggestions, demonstrations, and ask: "does this look good?", "Is this the right direction?", "how good is it on a scale from 1-10 where we aim for at least 8?".
+  5. This ruling is definitive and must be reflected in all internal documentation, prompts, and PR descriptions for any website work. Future Pages revamp prompts must include this law verbatim and require the 1-10 scale question.
+
 
 ## Standing Decisions (2026-09-09, owner)
 
@@ -74,13 +83,6 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
 - **Ruling 4 — `OUT-OF-CBETA` sourcing is human work.** Authorises acquisition work orders for the highest-value documents; forbids any agent fetch or transcription of those witnesses.
 
 Executed so far: **PR #43 (2026-09-12)** fixes the six `CITATION` rows — `zhaozhou_yulu` (the false T1987 claim, withdrawn), `fayan_yulu`, `dongshan_yulu`, `mazu_yulu`, `dahui_hongzhi` — with no status change, no re-designation and no new locator.
-
-## Standing Decisions (2026-09-14, owner — Ruling 1 exception for `LABEL` rows)
-
-- **Ruling 1 exception 2026-09-14 (recorded verbatim):** "LABEL-only docs may ship up to 3 per PR (minor, ~1.5h), RE-KEY docs stay one per PR (major, ~1-2h). No batching of HUMAN-SOURCE or OUT-OF-CBETA. Each doc must be a separate commit with its own collation before/after note, and PR description must list per-doc measurements. Record verbatim in STATE.md."
-- **What the exception relaxes:** Ruling 1's *one document per PR* rule, for `LABEL` rows only — additive disclosure notes with no Chinese re-key and no collation cross-talk, risk assessed LOW by the owner. It changes the queued PR count for the 28 remaining W1 documents from 28 to 16 (6 `LABEL` bundles of 3 + 10 `RE-KEY` PRs of 1).
-- **What it does not relax:** one commit per document; the per-document collation before/after measurement; `RE-KEY` staying one document per PR; the ban on batching `HUMAN-SOURCE` or `OUT-OF-CBETA` rows; Ruling 2 (630 authoritative, 532 today's measurement); Ruling 3 (a false claim is withdrawn, not re-pointed); Ruling 4 (no agent fetch or transcription of OUT-OF-CBETA witnesses).
-- **Executed first by LABEL bundle 1 (this PR, 2026-09-14):** `yuanwu_letters` (0/2 — both letter fields absent from both claimed witnesses and from all 39 pinned refs), `yunmen_yulu` (0/12 verbatim in the correct work T47n1988; its "from T1988" claim is withdrawn), `zhengdao_ge` (6/6 verbatim; the one flag is the root `title_zh`, disclosed as a project heading). Three commits, one per document, each with its own collation before/after note. No Chinese was re-keyed, no `source_review_status` moved, no locator was added, and all five gates stayed green (bundle 1,642,473 B → 1,646,833 B — the growth is the three note strings).
 
 ## Checkpoint-C — Pages Revamp Direction (2026-09-13, owner — proposal PR #46)
 
