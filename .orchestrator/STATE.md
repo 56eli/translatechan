@@ -67,6 +67,18 @@ Reference state: extracted CBETA refs live OUTSIDE the repo (21 MB, never commit
   4. 100% reliance on owner feedback. All website work must provide examples, suggestions, demonstrations, and ask: "does this look good?", "Is this the right direction?", "how good is it on a scale from 1-10 where we aim for at least 8?".
   5. This ruling is definitive and must be reflected in all internal documentation, prompts, and PR descriptions for any website work. Future Pages revamp prompts must include this law verbatim and require the 1-10 scale question.
 
+**Ruling 2026-09-14 — COMMON QUALITIES for all 5 design directions (definitive, verbatim, law):**
+- Owner ruling verbatim 2026-09-14: "All directions need to have a light mental load. That means the minimum amount of information is presented to the viewer, and everything extra he wants to see he can expand, or hover over, or toggle. It should be english first and it can't be a dense layout. It needs to feel comfortable to read and easy to navigate. Explanations and description need to be piece meal. Everything should be explained in plain language. There should be some form of info section for every work and teacher that put into context where they came from, what or who is related, what the background context is."
+- Law:
+  1. Light mental load: minimum info by default, extra expand/hover/toggle
+  2. English first: primary reading is English, Chinese subordinate except Reader largest but English first for mental load
+  3. Not dense layout: no dense walls, generous whitespace, comfortable measure
+  4. Comfortable to read and easy to navigate
+  5. Explanations piece meal, plain language
+  6. Info section for every work and teacher: where they came from, what/who related, background context
+- All 5 distinct directions must share these common qualities while varying in color temperature, density (but all non-dense), typography voice, grid vs scroll, mood
+- Enforced by failing gate test_website_ruling.py — Phase5 prompts seq>=25 must contain light mental load, English first, not dense, comfortable to read, easy to navigate, piece meal, plain language, info section for every work and teacher
+
 
 ## Standing Decisions (2026-09-09, owner)
 
