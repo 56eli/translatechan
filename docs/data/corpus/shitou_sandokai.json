@@ -114,7 +114,7 @@
         },
         {
           "stanza_num": 6,
-          "zh": "眼色耳音聲，鼻香舌鹹酢。然依一一法，依根葉分布。本末須歸宗，尊卑用其語。",
+          "zh": "眼色耳音聲，鼻香舌鹹醋。然依一一法，依根葉分布。本末須歸宗，尊卑用其語。",
           "pinyin": "Yǎn sè ěr yīnshēng, bí xiāng shé xián cù. Rán yī yīyī fǎ, yī gēn yè fēnbù. Běnmò xū guī zōng, zūnbēi yòng qí yǔ.",
           "translations": {
             "red_pine": {
@@ -133,8 +133,8 @@
         },
         {
           "stanza_num": 7,
-          "zh": "當明中有暗，勿以暗相睹。當暗中有明，勿以明相睹。明暗各相對，比如前後步。",
-          "pinyin": "Dāng míng zhōng yǒu àn, wù yǐ àn xiāng dǔ. Dāng àn zhōng yǒu míng, wù yǐ míng xiāng dǔ. Míng'àn gè xiāngduì, bǐrú qiánhòu bù.",
+          "zh": "當明中有暗，勿以暗相遇。當暗中有明，勿以明相覩。明暗各相對，比如前後步。",
+          "pinyin": "Dāng míng zhōng yǒu àn, wù yǐ àn xiāng yù. Dāng àn zhōng yǒu míng, wù yǐ míng xiāng dǔ. Míng'àn gè xiāngduì, bǐrú qiánhòu bù.",
           "translations": {
             "red_pine": {
               "text": "Right in the light there is darkness, but do not look at it as darkness. Right in the darkness there is light, but do not look at it as light. Light and darkness face each other, like the forward and backward steps of walking.",
@@ -152,8 +152,8 @@
         },
         {
           "stanza_num": 8,
-          "zh": "萬物各有功，當言用及處。事存函蓋合，理應箭鋒拄。",
-          "pinyin": "Wànwù gè yǒu gōng, dāng yán yòng jí chù. Shì cún hán gài hé, lǐ yīng jiàn fēng zhǔ.",
+          "zh": "萬物自有功，當言用及處。事存函蓋合，理應箭鋒拄。",
+          "pinyin": "Wànwù zì yǒu gōng, dāng yán yòng jí chù. Shì cún hán gài hé, lǐ yīng jiàn fēng zhǔ.",
           "translations": {
             "red_pine": {
               "text": "All things have their own function, spoken of according to use and place. Phenomena exist like box and lid fitting; the principle responds like two arrowheads meeting in mid-air.",
@@ -190,8 +190,8 @@
         },
         {
           "stanza_num": 10,
-          "zh": "進步非近遠，迷隔山川固。謹白參玄人，光陰莫虛度。",
-          "pinyin": "Jìnbù fēi jìn yuǎn, mí gé shānchuān gù. Jǐnbái cān xuán rén, guāngyīn mò xū dù.",
+          "zh": "進步非近遠，迷隔山河固。謹白參玄人，光陰莫虛度。",
+          "pinyin": "Jìnbù fēi jìn yuǎn, mí gé shānhé gù. Jǐnbái cān xuán rén, guāngyīn mò xū dù.",
           "translations": {
             "red_pine": {
               "text": "Advancing is not a matter of near or far; delusion creates barriers of mountains and rivers. I respectfully caution those who study the mystery: do not waste your lifetime in vain!",
@@ -217,19 +217,19 @@
       "stanzas": [
         {
           "stanza_num": 1,
-          "zh": "吾結草庵無箇事，飽食休餐睡摩意。草庵雖小含法界，方丈老僧處太虛。雖無珍寶周身物，滿目青山不可量。",
-          "pinyin": "Wú jié cǎo'ān wú gè shì, bǎoshí xiū cān shuì mó yì. Cǎo'ān suī xiǎo hán fǎjiè, fāngzhàng lǎosēng chù tài xū. Suī wú zhēnbǎo zhōushēn wù, mǎnmù qīngshān bùkě liàng.",
+          "zh": "吾結草庵無寶貝，飯了從容圖睡快。成時初見茆草新，破後還將茆草蓋。",
+          "pinyin": "Wú jié cǎo'ān wú bǎobèi, fàn liǎo cōngróng tú shuì kuài. Chéng shí chū jiàn máocǎo xīn, pò hòu hái jiāng máocǎo gài.",
           "translations": {
             "red_pine": {
-              "text": "I built a grass hut where there is nothing of value; after eating my meal, I enjoy a peaceful nap. Though the grass hut is small, it embraces the universe; in ten feet square, an old monk rests in boundless space. Though there are no jewels or riches, the green mountains filling the eyes are immeasurable.",
+              "text": "I built a grass hut where there is no treasure; after eating I rest peacefully and sleep well. When first made, the thatch was fresh and new; when broken down, I cover it again with thatch.",
               "status": "reconstruction_unverified"
             },
             "cleary": {
-              "text": "I built a grass hut where there are no affairs; after eating I rest peacefully. The grass hut is small yet contains the universe; in ten feet square the old monk rests in open space. Though there are no jewels, the green mountains before my eyes are beyond measure.",
+              "text": "I built a grass hut where there are no jewels; after eating, I rest easy and sleep soundly. When first completed, the thatch was fresh and new; when it is damaged, thatch is again laid over it.",
               "status": "reconstruction_unverified"
             },
             "sasaki": {
-              "text": "I built a grass hut with no affairs; after eating I enjoy a quiet nap. Though the hut is small, it holds the cosmos; in a tiny room an old monk abides in the vast void.",
+              "text": "I built a grass hut with no precious things; having eaten, I relax and enjoy a good sleep. When newly built, the thatch was fresh; when ruined, it is covered with thatch once more.",
               "status": "reconstruction_unverified"
             }
           }
@@ -237,5 +237,6 @@
       ]
     }
   ],
-  "cbeta_note": "Volume corrected 2026-08-08: T2076 (景德傳燈錄) is Taishō vol. 51 (was 47)."
+  "cbeta_note": "Volume corrected 2026-08-08: T2076 (景德傳燈錄) is Taishō vol. 51 (was 47).",
+  "coverage_note": "11/11 content fields collate EXACT to claimed witness T51n2076 (景德傳燈錄卷三十) after RE-KEY 2026-09-17 (R-A, PHASE2_PLAN rank 51 — RE-KEY 10 of 10, final RE-KEY). Previously 6/11 collated (4 DIVERGENT at 0.93-0.97 in 參同契, 1 NOT_FOUND in 草庵歌). The 4 DIVERGENT Sandokai stanzas were re-keyed grapheme-for-grapheme to T51n2076@347,446: stanza 6 鹹酢→鹹醋, stanza 7 相睹…相睹→相遇…相覩, stanza 8 各有功→自有功, stanza 10 山川→山河; sibling pinyin rewritten to match. Section 1 草庵歌 (previously an unattested 42-graph paraphrase 吾結草庵無箇事… returning 0 hits at k≥12 in all 39 refs) was re-keyed to the witness's authentic opening at T51n2076@350,849 (吾結草庵無寶貝，飯了從容圖睡快。成時初見茆草新，破後還將茆草蓋。), with sibling pinyin rewritten. All 11 content fields are now verbatim in claimed witness T51n2076 (Sandokai stanzas 1-10 also corroborated in X80n1565@112,123 except stanza 3 which is carried whole in T51n2076 only). Residual metadata flags: 2 title_zh flags (.title_zh TITLE_COMPOSITE, .sections[0].title_zh SHORT_UNMATCHED) remain outside content denominator. W1 source_review_status remains partial_or_failed_w1_collation under authoritative 2026-09-10 register (630 authoritative flagged entries not re-designated)."
 }
