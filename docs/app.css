@@ -14360,3 +14360,159 @@ html[data-design="6"].nav-open .nav-drawer-backdrop { display: block; }
 .v6h-rest[hidden], .v6h-ctx[hidden] { display: none; --v6h-m: 1; }
 .v6h-ctx { margin: 0.85rem 0 0; padding: 0.85rem 0 0; border-top: 1px dashed var(--line-soft); font-size: var(--v6h-t2); --v6h-m: 1; }
 /* == rebuild:6 end == */ /* == rebuild:5 end == */ /* == rebuild:4 end == */ /* == rebuild:3 end == */
+/* == rebuild:7 begin — Batch 2 slot 7 NEW skeleton: Info-First Dossier — top-lintel / single-continuous-column / dossier-first / comfortable-default / scale-1.33-min-0.9rem / two-step, type steps 0.9/1/1.33/1.77/2.36rem. Built by rebuild:7 in app.js (new roomDossier). Scoped under .v7d-app wrapper; shared re-render tears it down == */
+.v7d-app .case-card,
+.v7d-app .matrix-proof-sheet,
+.v7d-app .lineage-master-row,
+.v7d-app .catalogue-row,
+.v7d-app .lexicon-entry,
+.v8t-app .case-card,
+.v8t-app .matrix-proof-sheet,
+.v8t-app .lineage-master-row,
+.v8t-app .catalogue-row,
+.v8t-app .lexicon-entry,
+.v9b-app .case-card,
+.v9b-app .matrix-proof-sheet,
+.v9b-app .lineage-master-row,
+.v9b-app .catalogue-row,
+.v9b-app .lexicon-entry,
+.v10s-app .case-card,
+.v10s-app .matrix-proof-sheet,
+.v10s-app .lineage-master-row,
+.v10s-app .catalogue-row,
+.v10s-app .lexicon-entry,
+.v11f-app .case-card,
+.v11f-app .matrix-proof-sheet,
+.v11f-app .lineage-master-row,
+.v11f-app .catalogue-row,
+.v11f-app .lexicon-entry,
+.v12q-app .case-card,
+.v12q-app .matrix-proof-sheet,
+.v12q-app .lineage-master-row,
+.v12q-app .catalogue-row,
+.v12q-app .lexicon-entry { width: auto; max-width: none; margin: 0; padding: 0; border: 0; box-shadow: none; background: transparent; transform: none; --v7d-m: 1; }
+:root[data-design="7"] .v7d-app {
+  --v7d-s0: 0.9rem; --v7d-s1: 1rem; --v7d-s2: 1.33rem; --v7d-s3: 1.77rem; --v7d-s4: 2.36rem;
+  max-width: 44rem; margin: 0 auto; padding: 2rem 1.25rem 6rem;
+  font-family: var(--font-display); font-size: var(--v7d-s1); line-height: 1.78; color: var(--ink); --v7d-m: 1;
+}
+:root[data-design="7"] .v7d-hero { margin: 0 0 1.75rem; padding: 1.35rem 1.25rem 1.25rem; border: 1px solid var(--line-soft); border-left: 3px solid var(--gold); border-radius: var(--radius); background: var(--gold-soft); --v7d-m: 1; }
+:root[data-design="7"] .v7d-kicker { font-family: var(--font-ui); font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 0.35rem; --v7d-m: 1; }
+:root[data-design="7"] .v7d-title { font-size: var(--v7d-s2); line-height: 1.25; margin: 0 0 0.9rem; --v7d-m: 1; }
+:root[data-design="7"] .v7d-stack { font-size: var(--v7d-s0); --v7d-m: 1; }
+:root[data-design="7"] .v7d-toggle, :root[data-design="7"] .v7d-step { cursor: pointer; padding: 0.38rem 0.95rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; font-family: var(--font-ui); font-size: 0.9rem; color: var(--gold); --v7d-m: 1; }
+:root[data-design="7"] .v7d-toggle[aria-expanded="true"], :root[data-design="7"] .v7d-step[aria-expanded="true"] { color: var(--ink); border-color: var(--gold); background: var(--panel); --v7d-m: 1; }
+:root[data-design="7"] .v7d-body[hidden] { display: none; --v7d-m: 1; }
+:root[data-design="7"] .v7d-unit { margin: 0 0 2.2rem; padding: 0 0 1.6rem; border-bottom: 1px solid var(--line-soft); --v7d-m: 1; }
+:root[data-design="7"] .v7d-face { display: flex; align-items: baseline; gap: 0.6rem; margin: 0 0 0.45rem; --v7d-m: 1; }
+:root[data-design="7"] .v7d-k { font-family: var(--font-ui); font-size: 0.9rem; color: var(--gold); --v7d-m: 1; }
+:root[data-design="7"] .v7d-zh { font-family: var(--font-zh); font-size: 0.9rem; color: var(--ink-soft); margin-left: auto; --v7d-m: 1; }
+:root[data-design="7"] .v7d-rest { margin: 0.6rem 0 0; font-size: var(--v7d-s1); --v7d-m: 1; }
+:root[data-design="7"] .v7d-ctx[hidden] { display: none; --v7d-m: 1; }
+:root[data-design="7"] .v7d-ctx { margin: 0.9rem 0 0; padding: 0.9rem 0 0; border-top: 1px dashed var(--line-soft); font-size: var(--v7d-s0); --v7d-m: 1; }
+
+/* == rebuild:8 begin — Batch 2 slot 8 NEW skeleton: Tabbed + Breadcrumb — top-lintel / single-continuous-column / english-first-then-source / comfortable-default / scale-1.2-min-0.8rem / tabs, type steps 0.8/1/1.2/1.44/1.728rem. Built by rebuild:8 in app.js (new roomTabbed). Scoped under .v8t-app wrapper; shared re-render tears it down == */
+.v8t-app {
+  --v8t-s0: 0.8rem; --v8t-s1: 1rem; --v8t-s2: 1.2rem; --v8t-s3: 1.44rem; --v8t-s4: 1.728rem;
+  max-width: 46rem; margin: 0 auto; padding: 1.25rem 1.25rem 6rem;
+  font-family: var(--font-display); font-size: var(--v8t-s1); line-height: 1.72; color: var(--ink); --v8t-m: 1;
+}
+.v8t-crumb { display: flex; flex-wrap: wrap; gap: 0.35rem 0.6rem; align-items: center; margin: 0 0 1rem; font-family: var(--font-ui); font-size: 0.8rem; color: var(--ink-soft); --v8t-m: 1; }
+.v8t-crumb a, .v8t-crumb button { cursor: pointer; border: 0; background: transparent; padding: 0; font: inherit; color: var(--gold); --v8t-m: 1; }
+.v8t-tabs { position: sticky; top: var(--shell-height); z-index: 20; display: flex; gap: 0.2rem; margin: 0 0 1.5rem; padding: 0.35rem; background: var(--sunken); border: 1px solid var(--line-soft); border-radius: var(--radius); --v8t-m: 1; }
+.v8t-tab { cursor: pointer; flex: 1; padding: 0.5rem 0.3rem; border: 0; border-radius: 6px; background: transparent; font-family: var(--font-ui); font-size: 0.8rem; color: var(--ink-soft); --v8t-m: 1; }
+.v8t-tab[aria-selected="true"] { background: var(--panel); color: var(--ink); box-shadow: var(--shadow); --v8t-m: 1; }
+.v8t-pane[hidden] { display: none; --v8t-m: 1; }
+.v8t-unit { margin: 0 0 2rem; padding: 0 0 1.4rem; border-bottom: 1px solid var(--line-soft); --v8t-m: 1; }
+.v8t-face { display: flex; gap: 0.6rem; margin: 0 0 0.4rem; --v8t-m: 1; }
+.v8t-k { font-family: var(--font-ui); font-size: 0.8rem; color: var(--gold); --v8t-m: 1; }
+.v8t-zh { font-family: var(--font-zh); font-size: 0.8rem; color: var(--ink-soft); margin-left: auto; --v8t-m: 1; }
+.v8t-lead { font-size: var(--v8t-s2); line-height: 1.4; margin: 0 0 0.7rem; --v8t-m: 1; }
+.v8t-body { font-size: var(--v8t-s1); --v8t-m: 1; }
+.v8t-ctx { margin: 0.8rem 0 0; padding: 0.8rem 1rem; background: var(--sunken); border: 1px solid var(--line-soft); border-radius: var(--radius); font-size: 0.8rem; --v8t-m: 1; }
+
+/* == rebuild:9 begin — Batch 2 slot 9 NEW skeleton: Bottom Sheet — top-lintel / single-continuous-column / english-first-then-source / comfortable-default / scale-1.125-min-0.85rem-alt / bottom-sheet, type steps 0.85/0.95/1.125/1.35/1.62rem. Built by rebuild:9 in app.js (new roomBottomSheet) == */
+.v9b-app {
+  --v9b-s0: 0.85rem; --v9b-s1: 0.95rem; --v9b-s2: 1.125rem; --v9b-s3: 1.35rem; --v9b-s4: 1.62rem;
+  max-width: 46rem; margin: 0 auto; padding: 1.5rem 1.25rem 7rem;
+  font-family: var(--font-display); font-size: var(--v9b-s1); line-height: 1.72; color: var(--ink); --v9b-m: 1;
+}
+.v9b-main { min-height: 60vh; --v9b-m: 1; }
+.v9b-unit { margin: 0 0 2rem; padding: 0 0 1.4rem; border-bottom: 1px solid var(--line-soft); --v9b-m: 1; }
+.v9b-face { display: flex; gap: 0.6rem; margin: 0 0 0.4rem; --v9b-m: 1; }
+.v9b-k { font-family: var(--font-ui); font-size: 0.85rem; color: var(--gold); --v9b-m: 1; }
+.v9b-zh { font-family: var(--font-zh); font-size: 0.85rem; color: var(--ink-soft); margin-left: auto; --v9b-m: 1; }
+.v9b-lead { font-size: var(--v9b-s2); line-height: 1.38; margin: 0 0 0.6rem; --v9b-m: 1; }
+.v9b-body { font-size: var(--v9b-s1); --v9b-m: 1; }
+.v9b-handle { position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%); z-index: 45; display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; padding: 0.55rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); box-shadow: var(--shadow); font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink); --v9b-m: 1; }
+.v9b-handle::before { content: ""; width: 1.2rem; height: 2px; background: var(--gold); border-radius: 1px; --v9b-m: 1; }
+.v9b-scrim { position: fixed; inset: 0; z-index: 49; background: rgba(33,24,20,0.28); --v9b-m: 1; }
+.v9b-scrim[hidden] { display: none; --v9b-m: 1; }
+.v9b-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; max-height: min(78vh, 42rem); overflow: auto; padding: 1.25rem 1.25rem 2rem; background: var(--panel); border-top: 1px solid var(--line); border-radius: 16px 16px 0 0; box-shadow: 0 -12px 32px rgba(33,24,20,0.18); transform: translateY(104%); transition: transform 260ms ease; --v9b-m: 1; }
+.v9b-sheet.is-open { transform: none; --v9b-m: 1; }
+.v9b-sheet-head { display: flex; align-items: center; justify-content: space-between; margin: 0 0 1rem; --v9b-m: 1; }
+.v9b-sheet-title { font-family: var(--font-ui); font-size: var(--v9b-s2); --v9b-m: 1; }
+.v9b-close { cursor: pointer; border: 1px solid var(--line); border-radius: var(--radius); background: transparent; padding: 0.3rem 0.6rem; font-size: 0.85rem; color: var(--ink-soft); --v9b-m: 1; }
+
+/* == rebuild:10 begin — Batch 2 slot 10 NEW skeleton: Sticky TOC — side-rail-left / magazine-2col / english-first-then-source / comfortable-default / scale-1.25-min-0.85rem / native-details, type steps 0.85/1/1.25/1.563/1.953rem. Built by rebuild:10 in app.js (new roomStickyToc) == */
+.v10s-app {
+  --v10s-s0: 0.85rem; --v10s-s1: 1rem; --v10s-s2: 1.25rem; --v10s-s3: 1.563rem; --v10s-s4: 1.953rem;
+  display: grid; grid-template-columns: 16rem minmax(0,1fr) 16rem; gap: 1.5rem; align-items: start;
+  max-width: 84rem; margin: 0 auto; padding: 1rem 1.25rem 6rem;
+  font-family: var(--font-display); font-size: var(--v10s-s1); line-height: 1.72; color: var(--ink); --v10s-m: 1;
+}
+.v10s-toc { position: sticky; top: calc(var(--shell-height) + 1rem); max-height: calc(100vh - var(--shell-height) - 2rem); overflow: auto; padding: 0.9rem 0.85rem 1.2rem; background: var(--sunken); border: 1px solid var(--line-soft); border-radius: var(--radius); --v10s-m: 1; }
+.v10s-toc-title { font-family: var(--font-ui); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin: 0 0 0.6rem; --v10s-m: 1; }
+.v10s-toc-list { list-style: none; margin: 0; padding: 0; --v10s-m: 1; }
+.v10s-toc-item { margin: 0 0 0.15rem; --v10s-m: 1; }
+.v10s-toc-link { cursor: pointer; display: block; width: 100%; text-align: left; padding: 0.35rem 0.4rem; border: 0; border-radius: 6px; background: transparent; font-family: var(--font-ui); font-size: 0.85rem; color: var(--ink); --v10s-m: 1; }
+.v10s-toc-link.is-active { background: var(--gold-soft); color: var(--gold); --v10s-m: 1; }
+.v10s-center { min-width: 0; --v10s-m: 1; }
+.v10s-context { position: sticky; top: calc(var(--shell-height) + 1rem); padding: 0.9rem 0.9rem 1.2rem; background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius); font-size: 0.85rem; --v10s-m: 1; }
+.v10s-unit { margin: 0 0 2.2rem; padding: 0 0 1.5rem; border-bottom: 1px solid var(--line-soft); --v10s-m: 1; }
+.v10s-face { display: flex; gap: 0.6rem; margin: 0 0 0.4rem; --v10s-m: 1; }
+.v10s-k { font-family: var(--font-ui); font-size: 0.85rem; color: var(--gold); --v10s-m: 1; }
+.v10s-zh { font-family: var(--font-zh); font-size: 0.85rem; color: var(--ink-soft); margin-left: auto; --v10s-m: 1; }
+.v10s-lead { font-size: var(--v10s-s2); line-height: 1.35; margin: 0 0 0.6rem; --v10s-m: 1; }
+.v10s-body { font-size: var(--v10s-s1); column-count: 1; --v10s-m: 1; }
+@media (min-width: 900px) { .v10s-body { column-count: 2; column-gap: 2rem; --v10s-m: 1; } }
+@media (max-width: 1100px) { .v10s-app { grid-template-columns: 1fr; --v10s-m: 1; } .v10s-toc, .v10s-context { position: static; max-height: none; --v10s-m: 1; } }
+
+/* == rebuild:11 begin — Batch 2 slot 11 NEW skeleton: Search-First — top-lintel / card-stream / search-first / comfortable-default / scale-1.2-min-0.8rem / native-details, type steps 0.8/1/1.2/1.44/1.728rem. Built by rebuild:11 in app.js (new roomSearchFirst) == */
+.v11f-app {
+  --v11f-s0: 0.8rem; --v11f-s1: 1rem; --v11f-s2: 1.2rem; --v11f-s3: 1.44rem; --v11f-s4: 1.728rem;
+  max-width: 72rem; margin: 0 auto; padding: 1.5rem 1.25rem 6rem;
+  font-family: var(--font-display); font-size: var(--v11f-s1); line-height: 1.7; color: var(--ink); --v11f-m: 1;
+}
+.v11f-search { max-width: 32rem; margin: 0 0 1rem; --v11f-m: 1; }
+.v11f-search input { width: 100%; padding: 0.65rem 0.9rem; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); font-family: var(--font-ui); font-size: var(--v11f-s1); color: var(--ink); --v11f-m: 1; }
+.v11f-explain { max-width: 32rem; margin: 0 0 1.5rem; padding: 0.9rem 1rem; background: var(--gold-soft); border: 1px solid var(--line-soft); border-radius: var(--radius); font-size: 0.8rem; color: var(--ink-soft); --v11f-m: 1; }
+.v11f-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: 1rem; --v11f-m: 1; }
+.v11f-card { padding: 1.1rem 1.15rem 1.15rem; background: var(--panel); border: 1px solid var(--line-soft); border-radius: var(--radius); box-shadow: var(--shadow); --v11f-m: 1; }
+.v11f-face { display: flex; gap: 0.5rem; margin: 0 0 0.4rem; --v11f-m: 1; }
+.v11f-k { font-family: var(--font-ui); font-size: 0.8rem; color: var(--gold); --v11f-m: 1; }
+.v11f-zh { font-family: var(--font-zh); font-size: 0.8rem; color: var(--ink-soft); margin-left: auto; --v11f-m: 1; }
+.v11f-lead { font-size: var(--v11f-s2); line-height: 1.35; margin: 0 0 0.5rem; --v11f-m: 1; }
+.v11f-body { font-size: 0.8rem; color: var(--ink-soft); --v11f-m: 1; }
+.v11f-ctx { margin: 0.7rem 0 0; padding: 0.7rem 0 0; border-top: 1px dashed var(--line-soft); font-size: 0.8rem; --v11f-m: 1; }
+.v11f-card[hidden] { display: none; --v11f-m: 1; }
+
+/* == rebuild:12 begin — Batch 2 slot 12 NEW skeleton: Question-Driven — top-lintel / single-continuous-column / question-driven / comfortable-default / scale-1.125-min-0.78rem / native-details, type steps 0.78/0.889/1.125/1.266/1.424rem. Built by rebuild:12 in app.js (new roomQuestionDriven) == */
+.v12q-app {
+  --v12q-s0: 0.78rem; --v12q-s1: 0.889rem; --v12q-s2: 1.125rem; --v12q-s3: 1.266rem; --v12q-s4: 1.424rem;
+  max-width: 46rem; margin: 0 auto; padding: 1.5rem 1.25rem 6rem;
+  font-family: var(--font-display); font-size: var(--v12q-s1); line-height: 1.72; color: var(--ink); --v12q-m: 1;
+}
+.v12q-questions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1.5rem; --v12q-m: 1; }
+.v12q-q { cursor: pointer; padding: 0.42rem 0.9rem; border: 1px solid var(--line); border-radius: 999px; background: transparent; font-family: var(--font-ui); font-size: 0.78rem; color: var(--ink-soft); --v12q-m: 1; }
+.v12q-q[aria-expanded="true"] { color: var(--ink); border-color: var(--gold); background: var(--gold-soft); --v12q-m: 1; }
+.v12q-drawer { margin: 0 0 1.2rem; padding: 0.9rem 1rem 1rem; background: var(--sunken); border: 1px solid var(--line-soft); border-radius: var(--radius); font-size: 0.78rem; --v12q-m: 1; }
+.v12q-drawer[hidden] { display: none; --v12q-m: 1; }
+.v12q-unit { margin: 0 0 2rem; padding: 0 0 1.4rem; border-bottom: 1px solid var(--line-soft); --v12q-m: 1; }
+.v12q-face { display: flex; gap: 0.5rem; margin: 0 0 0.35rem; --v12q-m: 1; }
+.v12q-k { font-family: var(--font-ui); font-size: 0.78rem; color: var(--gold); --v12q-m: 1; }
+.v12q-zh { font-family: var(--font-zh); font-size: 0.78rem; color: var(--ink-soft); margin-left: auto; --v12q-m: 1; }
+.v12q-lead { font-size: var(--v12q-s2); line-height: 1.38; margin: 0 0 0.5rem; --v12q-m: 1; }
+.v12q-body { font-size: var(--v12q-s1); --v12q-m: 1; }
+.v12q-ctx { margin: 0.7rem 0 0; padding: 0.7rem 0 0; border-top: 1px dashed var(--line-soft); font-size: 0.78rem; --v12q-m: 1; }
+/* == rebuild:12 end == */ /* == rebuild:11 end == */ /* == rebuild:10 end == */ /* == rebuild:9 end == */ /* == rebuild:8 end == */ /* == rebuild:7 end == */

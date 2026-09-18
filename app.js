@@ -9471,5 +9471,370 @@
       });
     }
   // == rebuild:6 end ==  // == rebuild:5 end ==  // == rebuild:4 end ==  // == rebuild:3 end ==
+// == rebuild:7 begin — Batch 2 slot 7 NEW skeleton: Info-First Dossier — top-lintel / single-continuous-column / dossier-first / comfortable-default / scale-1.33-min-0.9rem / two-step ==
+function roomDossier(room, root) {
+  b1HideFleetNav();
+  if (!root || typeof root.querySelectorAll !== 'function') return;
+  if (root.querySelector(':scope > .v7d-app')) return;
+  const kids = Array.from(root.childNodes);
+  const app = document.createElement('div');
+  app.className = 'v7d-app';
+  const hero = document.createElement('section');
+  hero.className = 'v7d-hero';
+  hero.innerHTML = '<p class="v7d-kicker">Dossier first</p><h2 class="v7d-title">' + escHtml(b1RoomName(room)) + '</h2><div class="v7d-stack">' + b1StackHtml(room) + '</div>';
+  const toggle = b1Btn('v7d-toggle', 'Read translation');
+  hero.appendChild(toggle);
+  const body = document.createElement('div');
+  body.className = 'v7d-body';
+  body.setAttribute('hidden', '');
+  app.appendChild(hero);
+  app.appendChild(body);
+  root.appendChild(app);
+  kids.forEach(n => body.appendChild(n));
+  const units = roomUnits(body, room);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const wrap = document.createElement('section');
+    wrap.className = 'v7d-unit';
+    if (unit.parentNode) unit.parentNode.insertBefore(wrap, unit);
+    const face = document.createElement('div');
+    face.className = 'v7d-face';
+    face.innerHTML = b1Face('v7d-k', 'v7d-zh', h, 'Item ' + (i + 1));
+    wrap.appendChild(face);
+    const lead = document.createElement('p');
+    lead.className = 'v7d-rest';
+    lead.textContent = clipText(h.en && h.note ? h.en + ' — ' + h.note : (h.en || h.note || ''), 220) || 'Untitled';
+    wrap.appendChild(lead);
+    wrap.appendChild(unit);
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows && rows.length) {
+      const ctx = document.createElement('div');
+      ctx.className = 'v7d-ctx';
+      ctx.setAttribute('hidden', '');
+      harvestExtras(unit, room).forEach(nn => ctx.appendChild(nn));
+      ctx.appendChild(b1InfoDiv(rows));
+      wrap.appendChild(ctx);
+      const s2 = b1Btn('v7d-step', 'Show context');
+      wrap.appendChild(s2);
+      b1WireStep(s2, ctx, 'Hide context', 'Show context');
+    }
+  });
+  b1WireStep(toggle, body, 'Hide translation', 'Read translation');
+}
+// == rebuild:8 begin — Batch 2 slot 8 NEW skeleton: Tabbed + Breadcrumb — top-lintel / single-continuous-column / english-first-then-source / comfortable-default / scale-1.2-min-0.8rem / tabs ==
+function roomTabbed(room, root) {
+  b1HideFleetNav();
+  if (!root || typeof root.querySelectorAll !== 'function') return;
+  if (root.querySelector(':scope > .v8t-app')) return;
+  const kids = Array.from(root.childNodes);
+  const app = document.createElement('div');
+  app.className = 'v8t-app';
+  const crumb = document.createElement('nav');
+  crumb.className = 'v8t-crumb';
+  crumb.setAttribute('aria-label', 'Breadcrumb');
+  crumb.innerHTML = '<span>Chan</span><span aria-hidden="true">›</span><span>' + escHtml(b1RoomName(room)) + '</span>';
+  const tabs = document.createElement('div');
+  tabs.className = 'v8t-tabs';
+  tabs.setAttribute('role', 'tablist');
+  tabs.setAttribute('aria-label', 'Rooms');
+  const panes = {};
+  b1RoomList().forEach(([key, en], idx) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'v8t-tab';
+    b.setAttribute('role', 'tab');
+    b.id = 'v8t-tab-' + room + '-' + key;
+    b.setAttribute('aria-selected', key === room ? 'true' : 'false');
+    b.textContent = en;
+    tabs.appendChild(b);
+    const p = document.createElement('div');
+    p.className = 'v8t-pane';
+    p.setAttribute('role', 'tabpanel');
+    if (key !== room) p.setAttribute('hidden', '');
+    panes[key] = p;
+  });
+  const stream = document.createElement('div');
+  stream.className = 'v8t-stream';
+  Object.values(panes).forEach(p => stream.appendChild(p));
+  app.appendChild(crumb);
+  app.appendChild(tabs);
+  app.appendChild(stream);
+  root.appendChild(app);
+  kids.forEach(n => panes[room] ? panes[room].appendChild(n) : stream.appendChild(n));
+  tabs.addEventListener('click', (e) => {
+    const b = e.target && e.target.closest ? e.target.closest('.v8t-tab') : null;
+    if (!b) return;
+    tabs.querySelectorAll('.v8t-tab').forEach(t => t.setAttribute('aria-selected', t === b ? 'true' : 'false'));
+    Object.keys(panes).forEach(k => {
+      if (('v8t-tab-' + room + '-' + k) === b.id) panes[k].removeAttribute('hidden');
+      else panes[k].setAttribute('hidden', '');
+    });
+    const targetKey = b.id.replace('v8t-tab-' + room + '-', '');
+    if (targetKey !== room && typeof switchView === 'function') switchView(targetKey);
+  });
+  const units = roomUnits(panes[room] || stream, room);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const sec = document.createElement('section');
+    sec.className = 'v8t-unit';
+    if (unit.parentNode) unit.parentNode.insertBefore(sec, unit);
+    const face = document.createElement('div');
+    face.className = 'v8t-face';
+    face.innerHTML = b1Face('v8t-k', 'v8t-zh', h, 'Item ' + (i + 1));
+    sec.appendChild(face);
+    const lead = document.createElement('p');
+    lead.className = 'v8t-lead';
+    lead.textContent = clipText(h.en || h.note || '', 200) || 'Untitled';
+    sec.appendChild(lead);
+    sec.appendChild(unit);
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows && rows.length) {
+      const ctx = document.createElement('div');
+      ctx.className = 'v8t-ctx';
+      ctx.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
+      sec.appendChild(ctx);
+    }
+  });
+  const about = b1Fold('v8t-ctx', 'About this room — where from · related · background');
+  about.innerHTML = '<summary>About this room — where from · related · background</summary><div class="context-info-body">' + (room === 'reader' ? readerInfoStackHtml() : infoRows(roomInfoRowsFor(room))) + '</div>';
+  panes[room] ? panes[room].appendChild(about) : stream.appendChild(about);
+}
+// == rebuild:9 begin — Batch 2 slot 9 NEW skeleton: Bottom Sheet — top-lintel / single-continuous-column / english-first-then-source / comfortable-default / scale-1.125-min-0.85rem-alt / bottom-sheet ==
+function roomBottomSheet(room, root) {
+  b1HideFleetNav();
+  if (!root || typeof root.querySelectorAll !== 'function') return;
+  if (root.querySelector(':scope > .v9b-app')) return;
+  const kids = Array.from(root.childNodes);
+  const app = document.createElement('div');
+  app.className = 'v9b-app';
+  const main = document.createElement('div');
+  main.className = 'v9b-main';
+  const handle = document.createElement('button');
+  handle.type = 'button';
+  handle.className = 'v9b-handle';
+  handle.textContent = 'Room info';
+  const scrim = document.createElement('div');
+  scrim.className = 'v9b-scrim';
+  scrim.setAttribute('hidden', '');
+  const sheet = document.createElement('aside');
+  sheet.className = 'v9b-sheet';
+  sheet.setAttribute('aria-label', 'Room info sheet');
+  const head = document.createElement('div');
+  head.className = 'v9b-sheet-head';
+  head.innerHTML = '<span class="v9b-sheet-title">' + escHtml(b1RoomName(room)) + ' — where from · related · background</span>';
+  const close = b1Btn('v9b-close', '×');
+  close.setAttribute('aria-label', 'Close sheet');
+  head.appendChild(close);
+  sheet.appendChild(head);
+  const stack = document.createElement('div');
+  stack.innerHTML = b1StackHtml(room);
+  sheet.appendChild(stack);
+  app.appendChild(main);
+  app.appendChild(handle);
+  app.appendChild(scrim);
+  app.appendChild(sheet);
+  root.appendChild(app);
+  kids.forEach(n => main.appendChild(n));
+  const setOpen = (open) => {
+    sheet.classList.toggle('is-open', open);
+    if (open) scrim.removeAttribute('hidden');
+    else scrim.setAttribute('hidden', '');
+  };
+  handle.addEventListener('click', () => setOpen(true));
+  close.addEventListener('click', () => setOpen(false));
+  scrim.addEventListener('click', () => setOpen(false));
+  roomUnits(main, room).forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const sec = document.createElement('section');
+    sec.className = 'v9b-unit';
+    if (unit.parentNode) unit.parentNode.insertBefore(sec, unit);
+    const face = document.createElement('div');
+    face.className = 'v9b-face';
+    face.innerHTML = b1Face('v9b-k', 'v9b-zh', h, 'Item ' + (i + 1));
+    sec.appendChild(face);
+    const lead = document.createElement('p');
+    lead.className = 'v9b-lead';
+    lead.textContent = clipText(h.en || h.note || '', 200) || 'Untitled';
+    sec.appendChild(lead);
+    sec.appendChild(unit);
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows && rows.length) {
+      const ctx = document.createElement('div');
+      ctx.className = 'v9b-ctx';
+      ctx.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
+      sec.appendChild(ctx);
+    }
+  });
+}
+// == rebuild:10 begin — Batch 2 slot 10 NEW skeleton: Sticky TOC — side-rail-left / magazine-2col / english-first-then-source / comfortable-default / scale-1.25-min-0.85rem / native-details ==
+function roomStickyToc(room, root) {
+  b1HideFleetNav();
+  if (!root || typeof root.querySelectorAll !== 'function') return;
+  if (root.querySelector(':scope > .v10s-app')) return;
+  const kids = Array.from(root.childNodes);
+  const app = document.createElement('div');
+  app.className = 'v10s-app';
+  const toc = document.createElement('nav');
+  toc.className = 'v10s-toc';
+  toc.setAttribute('aria-label', 'Table of contents');
+  toc.innerHTML = '<p class="v10s-toc-title">On this page</p>';
+  const list = document.createElement('ul');
+  list.className = 'v10s-toc-list';
+  toc.appendChild(list);
+  const center = document.createElement('div');
+  center.className = 'v10s-center';
+  const ctx = document.createElement('aside');
+  ctx.className = 'v10s-context';
+  ctx.innerHTML = b1StackHtml(room);
+  app.appendChild(toc);
+  app.appendChild(center);
+  app.appendChild(ctx);
+  root.appendChild(app);
+  kids.forEach(n => center.appendChild(n));
+  const units = roomUnits(center, room);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const sec = document.createElement('section');
+    sec.className = 'v10s-unit';
+    if (!unit.id) unit.id = 'v10s-unit-' + room + '-' + i;
+    if (unit.parentNode) unit.parentNode.insertBefore(sec, unit);
+    const face = document.createElement('div');
+    face.className = 'v10s-face';
+    face.innerHTML = b1Face('v10s-k', 'v10s-zh', h, 'Item ' + (i + 1));
+    sec.appendChild(face);
+    const lead = document.createElement('p');
+    lead.className = 'v10s-lead';
+    lead.textContent = clipText(h.en || h.note || '', 200) || 'Untitled';
+    sec.appendChild(lead);
+    sec.appendChild(unit);
+    const li = document.createElement('li');
+    li.className = 'v10s-toc-item';
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'v10s-toc-link';
+    b.textContent = clipText(h.en || h.kicker || ('Item ' + (i + 1)), 48);
+    b.addEventListener('click', () => { if (typeof unit.scrollIntoView === 'function') unit.scrollIntoView({ behavior: motionBehavior(), block: 'start' }); });
+    li.appendChild(b);
+    list.appendChild(li);
+  });
+}
+// == rebuild:11 begin — Batch 2 slot 11 NEW skeleton: Search-First — top-lintel / card-stream / search-first / comfortable-default / scale-1.2-min-0.8rem / native-details ==
+function roomSearchFirst(room, root) {
+  b1HideFleetNav();
+  if (!root || typeof root.querySelectorAll !== 'function') return;
+  if (root.querySelector(':scope > .v11f-app')) return;
+  const kids = Array.from(root.childNodes);
+  const app = document.createElement('div');
+  app.className = 'v11f-app';
+  const search = document.createElement('div');
+  search.className = 'v11f-search';
+  search.innerHTML = '<input type="search" placeholder="Filter in this room…" aria-label="Filter in this room">';
+  const explain = document.createElement('div');
+  explain.className = 'v11f-explain';
+  explain.innerHTML = '<p>Search first — type to filter, then open any card. English first, context behind a fold.</p><div>' + b1StackHtml(room) + '</div>';
+  const grid = document.createElement('div');
+  grid.className = 'v11f-grid';
+  app.appendChild(search);
+  app.appendChild(explain);
+  app.appendChild(grid);
+  root.appendChild(app);
+  kids.forEach(n => grid.appendChild(n));
+  const units = roomUnits(grid, room);
+  const cards = [];
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const card = document.createElement('article');
+    card.className = 'v11f-card';
+    if (unit.parentNode) unit.parentNode.insertBefore(card, unit);
+    const face = document.createElement('div');
+    face.className = 'v11f-face';
+    face.innerHTML = b1Face('v11f-k', 'v11f-zh', h, 'Item ' + (i + 1));
+    card.appendChild(face);
+    const lead = document.createElement('p');
+    lead.className = 'v11f-lead';
+    lead.textContent = clipText(h.en || h.note || '', 180) || 'Untitled';
+    card.appendChild(lead);
+    card.appendChild(unit);
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows && rows.length) {
+      const ctx = document.createElement('div');
+      ctx.className = 'v11f-ctx';
+      ctx.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
+      card.appendChild(ctx);
+    }
+    cards.push({ card, text: ((h.en || '') + ' ' + (h.note || '') + ' ' + (h.kicker || '')).toLowerCase() });
+  });
+  const input = search.querySelector('input');
+  if (input) {
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      cards.forEach(({ card, text }) => {
+        if (!q) card.removeAttribute('hidden');
+        else if (text.indexOf(q) !== -1) card.removeAttribute('hidden');
+        else card.setAttribute('hidden', '');
+      });
+    });
+  }
+}
+// == rebuild:12 begin — Batch 2 slot 12 NEW skeleton: Question-Driven — top-lintel / single-continuous-column / question-driven / comfortable-default / scale-1.125-min-0.78rem / native-details ==
+function roomQuestionDriven(room, root) {
+  b1HideFleetNav();
+  if (!root || typeof root.querySelectorAll !== 'function') return;
+  if (root.querySelector(':scope > .v12q-app')) return;
+  const kids = Array.from(root.childNodes);
+  const app = document.createElement('div');
+  app.className = 'v12q-app';
+  const qs = document.createElement('div');
+  qs.className = 'v12q-questions';
+  const drawers = {};
+  [['where', 'Where from?'], ['who', 'Who related?'], ['bg', 'Background?']].forEach(([key, label]) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'v12q-q';
+    b.textContent = label;
+    b.setAttribute('aria-expanded', 'false');
+    qs.appendChild(b);
+    const d = document.createElement('div');
+    d.className = 'v12q-drawer';
+    d.setAttribute('hidden', '');
+    drawers[key] = { btn: b, drawer: d };
+    b.addEventListener('click', () => {
+      const open = d.hasAttribute('hidden');
+      Object.values(drawers).forEach(({ drawer: dd, btn: bb }) => { dd.setAttribute('hidden', ''); bb.setAttribute('aria-expanded', 'false'); });
+      if (open) { d.removeAttribute('hidden'); b.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+  app.appendChild(qs);
+  Object.values(drawers).forEach(({ drawer }) => app.appendChild(drawer));
+  drawers.where.drawer.innerHTML = b1StackHtml(room);
+  drawers.who.drawer.innerHTML = '<p>Teachers, disciples, related works — open any item below for its plain-language info section.</p>';
+  drawers.bg.drawer.innerHTML = '<p>Background context — where this collection came from, how it is used for study, and how the English keeps the minimum up front.</p>';
+  root.appendChild(app);
+  kids.forEach(n => app.appendChild(n));
+  const units = roomUnits(app, room);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const sec = document.createElement('section');
+    sec.className = 'v12q-unit';
+    if (unit.parentNode) unit.parentNode.insertBefore(sec, unit);
+    const face = document.createElement('div');
+    face.className = 'v12q-face';
+    face.innerHTML = b1Face('v12q-k', 'v12q-zh', h, 'Item ' + (i + 1));
+    sec.appendChild(face);
+    const lead = document.createElement('p');
+    lead.className = 'v12q-lead';
+    lead.textContent = clipText(h.en || h.note || '', 200) || 'Untitled';
+    sec.appendChild(lead);
+    sec.appendChild(unit);
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows && rows.length) {
+      const ctx = document.createElement('div');
+      ctx.className = 'v12q-ctx';
+      ctx.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
+      sec.appendChild(ctx);
+    }
+  });
+}
+// == rebuild:12 end ==  // == rebuild:11 end ==  // == rebuild:10 end ==  // == rebuild:9 end ==  // == rebuild:8 end ==  // == rebuild:7 end ==
 
 })();
