@@ -8986,4 +8986,490 @@
   }
 
   // == rebuild:36 end — The Chan Room faithful rebuild (Batch 0, work order 2026-09-18-letter-002 item 5) ==
+    // == rebuild:3 begin — Batch 1 slots 3-6 NEW skeletons (work order 2026-09-18-letter-002 items 6-7) ==
+    // Each block REDECLARES its room enhancer; the later declaration in the same module scope supersedes
+    // the fleet one (Batch-0 mechanism — last declaration wins), so enhanceRoomLayout picks the rebuild
+    // up untouched. Each skeleton is its own DOM (structural rebuild, not an rm- reskin — the F1/F2 cure).
+    // Text only from what rooms already rendered plus the bundle. No style attributes, no setProperty;
+    // idempotent via :scope guards; teardown is the shared resetLayoutRuntime + re-render path. Pure append.
+    // ==
+
+    // Scope-level const/let would sit in the TDZ when startApp() runs mid-body
+    // (deferred script, readyState interactive) — everything here is a hoisted
+    // function declaration for exactly that reason (rebuild:36's precedent).
+    function b1RoomList() {
+      return [
+        ['reader', 'Read', '閱藏堂'], ['matrix', 'Compare', '對勘'], ['lineage', 'Lineage', '傳法堂'],
+        ['gongan', 'Cases', '公案架'], ['lexicon', 'Terms', '詞林']
+      ];
+    }
+    function b1RoomName(room) { const r = b1RoomList().find(x => x[0] === room); return r ? r[1] : room; }
+    function b1HideFleetNav() { const fn = document.getElementById('focus-room-nav'); if (fn) fn.hidden = true; }
+    function b1Btn(cls, label) {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = cls; b.textContent = label;
+      b.setAttribute('aria-expanded', 'false');
+      return b;
+    }
+    function b1Fold(cls, label) {
+      const d = document.createElement('details');
+      d.className = cls;
+      const s = document.createElement('summary');
+      s.textContent = label;
+      d.appendChild(s);
+      return d;
+    }
+    function b1InfoDiv(rows) {
+      const d = document.createElement('div');
+      d.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
+      return d;
+    }
+    function b1StackHtml(room) { // room-level COMMON QUALITIES info section
+      return '<div class="context-info-body">' +
+        (room === 'reader' ? readerInfoStackHtml() : infoRows(roomInfoRowsFor(room))) + '</div>';
+    }
+    function b1Face(kCls, zhCls, h, fallback) {
+      return '<span class="' + kCls + '">' + escHtml(h.kicker || fallback) + '</span>' +
+        (h.zh ? '<span class="' + zhCls + '" lang="zh">' + escHtml(h.zh) + '</span>' : '');
+    }
+    function b1RoomButtons(host, activeRoom, cls, zhCls, onPick) { // slots 4/6 nav paradigm rows
+      b1RoomList().forEach(([key, en, zh]) => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = cls;
+        b.innerHTML = escHtml(en) + ' <small class="' + zhCls + '" lang="zh">' + escHtml(zh) + '</small>';
+        if (key === activeRoom) b.setAttribute('aria-current', 'page');
+        b.addEventListener('click', () => {
+          if (onPick) onPick();
+          if (typeof switchView === 'function') switchView(key);
+        });
+        host.appendChild(b);
+      });
+    }
+    function b1WireStep(btn, panel, openLabel, closedLabel) { // slots 4/6 disclosure steps
+      btn.addEventListener('click', () => {
+        const open = panel.hasAttribute('hidden');
+        if (open) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.textContent = open ? openLabel : closedLabel;
+      });
+    }
+    function b1UnitFold(cls, bodyCls, label, unit, room, idx) { // slots 3/5 per-unit fold
+      const extras = harvestExtras(unit, room);
+      const rows = unitInfoRowsFor(room, unit, idx);
+      if (!extras.length && !(rows && rows.length)) return null;
+      const d = b1Fold(cls, label);
+      const body = document.createElement('div');
+      body.className = bodyCls;
+      extras.forEach(n => body.appendChild(n));
+      if (rows && rows.length) body.appendChild(b1InfoDiv(rows));
+      d.appendChild(body);
+      return d;
+    }
+
+    // --- slot 3 · Focus Mode: one sparse idea per viewport, native-details drawers -----------
+    function roomFocus(room, root) {
+      b1HideFleetNav();
+      if (!root || typeof root.querySelectorAll !== 'function') return;
+      if (root.querySelector(':scope > .v3f-app')) return; // idempotent
+      const app = document.createElement('div');
+      app.className = 'v3f-app';
+      const heading = root.querySelector('.document-heading');
+      while (root.firstChild) app.appendChild(root.firstChild);
+      root.appendChild(app);
+
+      const roomFold = b1Fold('v3f-room', room === 'reader'
+        ? 'About this work and its teachers' : 'About this room — where from · related · background');
+      const roomBody = document.createElement('div');
+      roomBody.className = 'v3f-why-body';
+      roomBody.innerHTML = b1StackHtml(room);
+      roomFold.appendChild(roomBody);
+      if (heading) heading.insertAdjacentElement('afterend', roomFold);
+      else app.insertBefore(roomFold, app.firstChild);
+
+      const units = roomUnits(app, room);
+      units.forEach((unit, i) => {
+        const h = unitHeadline(room, unit, i);
+        const section = document.createElement('section');
+        section.className = 'v3f-idea';
+        if (unit.parentNode) unit.parentNode.insertBefore(section, unit);
+        section.appendChild(unit);
+        const mast = document.createElement('div');
+        mast.className = 'v3f-mast';
+        mast.innerHTML = b1Face('v3f-kicker', 'v3f-zh', h, 'Idea ' + (i + 1)) +
+          '<span class="v3f-count">' + (i + 1) + ' / ' + units.length + '</span>';
+        section.insertBefore(mast, unit);
+        const fold = b1UnitFold('v3f-src', 'v3f-src-body', 'Source & context', unit, room, i);
+        if (fold) section.appendChild(fold);
+        const rows = unitInfoRowsFor(room, unit, i);
+        if (rows && rows.length) {
+          const why = b1Fold('v3f-why', 'Where from · related · background');
+          const wb = document.createElement('div');
+          wb.className = 'v3f-why-body';
+          wb.appendChild(b1InfoDiv(rows));
+          why.appendChild(wb);
+          section.appendChild(why);
+        }
+      });
+
+      const ledger = app.querySelector('.ledger-drawer');
+      if (ledger && ledger.parentNode) {
+        const fold = b1Fold('v3f-src', 'About this edition — ledgers');
+        const body = document.createElement('div');
+        body.className = 'v3f-src-body';
+        ledger.parentNode.insertBefore(fold, ledger);
+        body.appendChild(ledger);
+        fold.appendChild(body);
+      }
+    }
+
+    // == rebuild:4 begin — Batch 1 slot 4 NEW skeleton: Timeline rail + bottom tab bar ==
+    // The reveal observer lives on a function-object property, not a module-level
+    // let, for the same TDZ reason noted above.
+    function v4tObsSwap(next) {
+      if (v4tObsSwap.cur && typeof v4tObsSwap.cur.disconnect === 'function') v4tObsSwap.cur.disconnect();
+      v4tObsSwap.cur = next || null;
+    }
+
+    // NEW roomTimeline: gold rail of scroll-snap stops, IntersectionObserver reveal,
+    // progress hairline, fixed bottom tab bar. Stops in the room's own chronological order.
+    function roomTimeline(room, root) {
+      b1HideFleetNav();
+      if (!root || typeof root.querySelectorAll !== 'function') return;
+      if (root.querySelector(':scope > .v4t-app')) return; // idempotent
+      // previous reveal observer disconnected inside v4tObsSwap below
+
+      const kids = Array.from(root.childNodes);
+      const app = document.createElement('div');
+      app.className = 'v4t-app';
+      const progress = document.createElement('div');
+      progress.className = 'v4t-progress';
+      progress.innerHTML = '<span class="v4t-status" aria-live="polite"></span>' +
+        '<span class="v4t-progress-track"><span class="v4t-progress-fill"></span></span>';
+      const rail = document.createElement('div');
+      rail.className = 'v4t-rail';
+      rail.setAttribute('aria-label', 'Chronological rail — scroll sideways');
+      const tabbar = document.createElement('nav');
+      tabbar.className = 'v4t-tabbar';
+      tabbar.setAttribute('aria-label', 'Rooms');
+      app.appendChild(progress);
+      app.appendChild(rail);
+      app.appendChild(tabbar);
+      root.appendChild(app);
+
+      const intro = document.createElement('article');
+      intro.className = 'v4t-stop v4t-intro is-in';
+      intro.innerHTML = '<span class="v4t-era">Start here</span><span class="v4t-name">' +
+        escHtml(b1RoomName(room)) + '</span><span class="v4t-note">Stop by stop, in order. ' +
+        'Scroll sideways; open Context on any stop.</span>';
+      const introMore = document.createElement('div');
+      introMore.className = 'v4t-more';
+      introMore.setAttribute('hidden', '');
+      introMore.innerHTML = b1StackHtml(room);
+      const introBtn = b1Btn('v4t-ctx', 'Context');
+      intro.appendChild(introBtn);
+      intro.appendChild(introMore);
+      b1WireStep(introBtn, introMore, 'Hide context', 'Context');
+      rail.appendChild(intro);
+
+      roomUnits(root, room).forEach((unit, i) => {
+        const h = unitHeadline(room, unit, i);
+        const stop = document.createElement('article');
+        stop.className = 'v4t-stop';
+        stop.innerHTML = '<span class="v4t-era">' + escHtml(h.kicker || 'Stop ' + (i + 1)) + '</span>' +
+          '<span class="v4t-name">' + escHtml(clipText(h.en, 90) || 'Untitled') + '</span>' +
+          (h.zh ? '<span class="v4t-zhc" lang="zh">' + escHtml(clipText(h.zh, 40)) + '</span>' : '') +
+          (h.note ? '<span class="v4t-note">' + escHtml(clipText(h.note, 110)) + '</span>' : '');
+        const btn = b1Btn('v4t-ctx', 'Context');
+        stop.appendChild(btn);
+        const more = document.createElement('div');
+        more.className = 'v4t-more';
+        more.setAttribute('hidden', '');
+        harvestExtras(unit, room).forEach(n => more.appendChild(n));
+        const rows = unitInfoRowsFor(room, unit, i);
+        if (rows && rows.length) more.appendChild(b1InfoDiv(rows));
+        stop.appendChild(more);
+        b1WireStep(btn, more, 'Hide context', 'Context');
+        rail.appendChild(stop);
+        stop.appendChild(unit);
+      });
+
+      // Leftover chrome rides on the first stop: heading visible, tools folded.
+      const stopCount = rail.querySelectorAll('.v4t-stop').length;
+      kids.forEach(k => {
+        if (!k || k.nodeType !== 1 || !k.parentNode || app.contains(k)) return;
+        if (k.classList && k.classList.contains('document-heading')) intro.insertBefore(k, introBtn);
+        else introMore.appendChild(k);
+      });
+
+      const stops = Array.from(rail.querySelectorAll('.v4t-stop'));
+      if (typeof IntersectionObserver === 'function') {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('is-in'); });
+        }, { root: rail, threshold: 0.35 });
+        stops.forEach(s => obs.observe(s));
+        v4tObsSwap(obs);
+      } else { stops.forEach(s => s.classList.add('is-in')); v4tObsSwap(null); }
+
+      const fill = progress.querySelector('.v4t-progress-fill');
+      const status = progress.querySelector('.v4t-status');
+      const setProgress = () => {
+        const max = rail.scrollWidth - rail.clientWidth;
+        const pct = max > 0 ? (rail.scrollLeft / max) : 1;
+        if (fill) fill.style.width = Math.round(pct * 100) + '%';
+        if (status) status.textContent = 'Stop ' + (Math.min(stopCount, Math.round(pct * (stopCount - 1)) + 1)) + ' of ' + stopCount;
+      };
+      rail.addEventListener('scroll', setProgress, { passive: true });
+      setProgress();
+      b1RoomButtons(tabbar, room, 'v4t-tab', 'v4t-zhc', null);
+    }
+
+    // == rebuild:5 begin — Batch 1 slot 5 NEW skeleton: Graph + Reader split rail ==
+    function v5gTeacherCardsHtml(room) {
+      if (room === 'reader') {
+        const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
+        if (!related.length) return '<p class="v5g-note">No profiled teacher is linked to this work yet.</p>';
+        return related.map(m =>
+          '<div class="v5g-tcard"><h3 class="v5g-tcard-name">' + escHtml(masterDisplayName(m)) +
+          (m.name_zh ? ' <span lang="zh">' + escHtml(m.name_zh) + '</span>' : '') + '</h3>' +
+          '<div class="context-info-body">' + teacherContextRows(m) + '</div></div>').join('');
+      }
+      if (room === 'lineage' && Array.isArray(state.data.lineage) && state.data.lineage.length) {
+        const m = state.data.lineage[0];
+        return '<div class="v5g-tcard"><h3 class="v5g-tcard-name">' + escHtml(masterDisplayName(m)) + '</h3>' +
+          '<div class="context-info-body">' + teacherContextRows(m) + '</div></div>' +
+          '<p class="v5g-note">The register runs teacher-first, generation by generation.</p>';
+      }
+      return '<p class="v5g-note">No teacher is recorded for this room yet — see About for what it holds.</p>';
+    }
+
+    // NEW roomGraphSplit: sticky left rail (resizable) with Dots/Teacher/About
+    // tabs over a teacher-first stream.
+    function roomGraphSplit(room, root) {
+      b1HideFleetNav();
+      if (!root || typeof root.querySelectorAll !== 'function') return;
+      if (root.querySelector(':scope > .v5g-app')) return; // idempotent
+      const kids = Array.from(root.childNodes);
+      const app = document.createElement('div');
+      app.className = 'v5g-app';
+      const rail = document.createElement('aside');
+      rail.className = 'v5g-rail';
+      rail.setAttribute('aria-label', 'Index rail');
+      const grip = document.createElement('button');
+      grip.type = 'button';
+      grip.className = 'v5g-grip';
+      grip.setAttribute('aria-label', 'Resize the index column');
+      const stream = document.createElement('div');
+      stream.className = 'v5g-stream';
+      app.appendChild(rail);
+      app.appendChild(grip);
+      app.appendChild(stream);
+      root.appendChild(app);
+      kids.forEach(n => stream.appendChild(n));
+
+      const tabbar = document.createElement('div');
+      tabbar.className = 'v5g-tabs';
+      tabbar.setAttribute('role', 'tablist');
+      tabbar.setAttribute('aria-label', 'Rail views');
+      const panes = {};
+      [['dots', 'Dots'], ['teacher', 'Teacher'], ['about', 'About']].forEach(([key, label], ti) => {
+        const t = document.createElement('button');
+        t.type = 'button';
+        t.className = 'v5g-tab';
+        t.setAttribute('role', 'tab');
+        t.id = 'v5g-tab-' + room + '-' + key;
+        t.setAttribute('aria-selected', ti === 0 ? 'true' : 'false');
+        t.textContent = label;
+        tabbar.appendChild(t);
+        const p = document.createElement('div');
+        p.className = 'v5g-pane';
+        p.setAttribute('role', 'tabpanel');
+        if (ti !== 0) p.setAttribute('hidden', '');
+        panes[key] = p;
+        rail.appendChild(p);
+      });
+      rail.insertBefore(tabbar, panes.dots);
+      tabbar.addEventListener('click', (e) => {
+        const b = e.target && e.target.closest ? e.target.closest('.v5g-tab') : null;
+        if (!b) return;
+        tabbar.querySelectorAll('.v5g-tab').forEach(t => t.setAttribute('aria-selected', t === b ? 'true' : 'false'));
+        Object.keys(panes).forEach(k => {
+          if (('v5g-tab-' + room + '-' + k) === b.id) panes[k].removeAttribute('hidden');
+          else panes[k].setAttribute('hidden', '');
+        });
+      });
+      panes.teacher.innerHTML = v5gTeacherCardsHtml(room);
+      panes.about.appendChild(b1InfoDiv(roomInfoRowsFor(room)));
+
+      // Teacher-first lead at the head of the stream (IA axis).
+      const lead = document.createElement('section');
+      lead.className = 'v5g-lead';
+      lead.innerHTML = '<p class="v5g-lead-kicker">Teacher first</p>' + v5gTeacherCardsHtml(room);
+      stream.insertBefore(lead, stream.firstChild);
+
+      const units = roomUnits(stream, room);
+      units.forEach((unit, i) => {
+        const h = unitHeadline(room, unit, i);
+        const wrap = document.createElement('section');
+        wrap.className = 'v5g-unit';
+        if (unit.parentNode) unit.parentNode.insertBefore(wrap, unit);
+        wrap.appendChild(unit);
+        const face = document.createElement('div');
+        face.className = 'v5g-face';
+        face.innerHTML = b1Face('v5g-face-k', 'v5g-face-zh', h, 'Item ' + (i + 1));
+        wrap.insertBefore(face, unit);
+        if (!unit.id) unit.id = 'v5g-unit-' + room + '-' + i;
+        const fold = b1UnitFold('v5g-src', 'v5g-src-body', 'Source · where from · related · background', unit, room, i);
+        if (fold) wrap.appendChild(fold);
+      });
+
+      const dotsList = document.createElement('ul');
+      dotsList.className = 'v5g-dots';
+      units.forEach((unit, i) => {
+        const h = unitHeadline(room, unit, i);
+        const li = document.createElement('li');
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'v5g-dot' + (i === 0 ? ' is-active' : '');
+        b.innerHTML = escHtml(clipText(h.en || h.kicker || ('Item ' + (i + 1)), 44)) +
+          (h.note ? ' <small>' + escHtml(clipText(h.note, 46)) + '</small>' : '');
+        b.addEventListener('click', () => {
+          dotsList.querySelectorAll('.v5g-dot').forEach(d => d.classList.remove('is-active'));
+          b.classList.add('is-active');
+          if (room === 'lineage' || room === 'gongan') {
+            const rows = unitInfoRowsFor(room, unit, i);
+            if (rows && rows.length) {
+              panes.teacher.innerHTML = '<div class="v5g-tcard"><h3 class="v5g-tcard-name">' +
+                escHtml(clipText(h.en || h.kicker || ('Item ' + (i + 1)), 60)) + '</h3>' +
+                '<div class="context-info-body">' + infoRows(rows) + '</div></div>';
+            }
+          }
+          if (typeof unit.scrollIntoView === 'function') unit.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
+        });
+        li.appendChild(b);
+        dotsList.appendChild(li);
+      });
+      panes.dots.appendChild(dotsList);
+
+      // Resizable split (RA axis): drag the grip or nudge with arrows. The
+      // flexBasis property write keeps the inline-style census untouched.
+      let drag = false;
+      const applySplit = (clientX) => {
+        const rect = app.getBoundingClientRect();
+        if (!rect.width) return;
+        const pct = Math.min(0.55, Math.max(0.18, (clientX - rect.left) / rect.width));
+        rail.style.flexBasis = (pct * 100).toFixed(1) + '%';
+      };
+      grip.addEventListener('pointerdown', (e) => { drag = true; e.preventDefault(); });
+      if (typeof window !== 'undefined') {
+        window.addEventListener('pointermove', (e) => { if (drag) applySplit(e.clientX); });
+        window.addEventListener('pointerup', () => { drag = false; });
+      }
+      grip.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+        const cur = parseFloat(rail.style.flexBasis) || 32;
+        rail.style.flexBasis = Math.min(55, Math.max(18, cur + (e.key === 'ArrowRight' ? 4 : -4))) + '%';
+        e.preventDefault();
+      });
+    }
+
+    // == rebuild:6 begin — Batch 1 slot 6 NEW skeleton: Minimal header + hamburger drawer ==
+    // NEW roomHamburger: per-room 3rem header, the variant's own drawer, two-step units.
+    function roomHamburger(room, root) {
+      b1HideFleetNav();
+      if (!root || typeof root.querySelectorAll !== 'function') return;
+      if (root.querySelector(':scope > .v6h-app')) return; // idempotent
+
+      const app = document.createElement('div');
+      app.className = 'v6h-app';
+      const top = document.createElement('div');
+      top.className = 'v6h-top';
+      top.innerHTML = '<span class="v6h-title">' + escHtml(b1RoomName(room)) + '</span>' +
+        '<span class="v6h-sub">rooms &amp; info in the drawer</span>';
+      const burger = document.createElement('button');
+      burger.type = 'button';
+      burger.className = 'v6h-burger';
+      burger.setAttribute('aria-label', 'Open rooms and room info');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.innerHTML = '<span></span><span></span><span></span>';
+      top.appendChild(burger);
+      app.appendChild(top);
+
+      const scrim = document.createElement('div');
+      scrim.className = 'v6h-scrim';
+      scrim.setAttribute('hidden', '');
+      app.appendChild(scrim);
+
+      const drawer = document.createElement('aside');
+      drawer.className = 'v6h-drawer';
+      drawer.setAttribute('aria-label', 'Rooms and room info');
+      const head = document.createElement('div');
+      head.className = 'v6h-drawer-head';
+      head.innerHTML = '<span class="v6h-drawer-title">Rooms</span>';
+      const closeBtn = b1Btn('v6h-close', '×');
+      closeBtn.setAttribute('aria-label', 'Close drawer');
+      head.appendChild(closeBtn);
+      drawer.appendChild(head);
+      const setOpen = (open) => {
+        drawer.classList.toggle('is-open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) scrim.removeAttribute('hidden');
+        else scrim.setAttribute('hidden', '');
+      };
+      b1RoomButtons(drawer, room, 'v6h-link', '', () => setOpen(false));
+      const about = b1Fold('v6h-about', 'About this room — where from · related · background');
+      const aboutBody = document.createElement('div');
+      aboutBody.className = 'v6h-about-body';
+      aboutBody.innerHTML = b1StackHtml(room);
+      about.appendChild(aboutBody);
+      drawer.appendChild(about);
+      app.appendChild(drawer);
+
+      const column = document.createElement('div');
+      column.className = 'v6h-column';
+      app.appendChild(column);
+      root.appendChild(app);
+      while (root.firstChild && root.firstChild !== app) column.appendChild(root.firstChild);
+      burger.addEventListener('click', () => setOpen(!drawer.classList.contains('is-open')));
+      closeBtn.addEventListener('click', () => setOpen(false));
+      scrim.addEventListener('click', () => setOpen(false));
+
+      roomUnits(column, room).forEach((unit, i) => {
+        const h = unitHeadline(room, unit, i);
+        const wrap = document.createElement('section');
+        wrap.className = 'v6h-unit';
+        if (unit.parentNode) unit.parentNode.insertBefore(wrap, unit);
+        const face = document.createElement('div');
+        face.className = 'v6h-face';
+        face.innerHTML = b1Face('v6h-face-k', 'v6h-face-zh', h, 'Item ' + (i + 1));
+        wrap.appendChild(face);
+        const lead = document.createElement('p');
+        lead.className = 'v6h-lead';
+        lead.textContent = clipText(h.en && h.note ? h.en + ' — ' + h.note : (h.en || h.note || ''), 240) || 'Untitled';
+        wrap.appendChild(lead);
+        const steps = document.createElement('div');
+        steps.className = 'v6h-steps';
+        const s1 = b1Btn('v6h-step', 'Read more');
+        const s2 = b1Btn('v6h-step', 'Show context');
+        steps.appendChild(s1);
+        steps.appendChild(s2);
+        wrap.appendChild(steps);
+        const rest = document.createElement('div');
+        rest.className = 'v6h-rest';
+        rest.setAttribute('hidden', '');
+        wrap.appendChild(rest);
+        rest.appendChild(unit);
+        const ctx = document.createElement('div');
+        ctx.className = 'v6h-ctx';
+        ctx.setAttribute('hidden', '');
+        harvestExtras(unit, room).forEach(n => ctx.appendChild(n));
+        const rows = unitInfoRowsFor(room, unit, i);
+        if (rows && rows.length) ctx.appendChild(b1InfoDiv(rows));
+        wrap.appendChild(ctx);
+        b1WireStep(s1, rest, 'Show less', 'Read more');
+        b1WireStep(s2, ctx, 'Hide context', 'Show context');
+      });
+    }
+  // == rebuild:6 end ==  // == rebuild:5 end ==  // == rebuild:4 end ==  // == rebuild:3 end ==
+
 })();
