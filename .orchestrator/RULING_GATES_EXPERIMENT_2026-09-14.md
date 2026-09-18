@@ -49,3 +49,14 @@
 - Does turning off presentation gates while keeping text integrity gates look good?
 - Is this the right direction — allow breaking presentation while experimenting to enable drastic layout changes?
 - How good is it on a scale from 1-10 where we aim for at least 8?
+
+## AMENDMENT 2026-09-18 — narrow, per work order 2026-09-18-letter-002 item 3
+
+Presentation gates RETURN for rebuilt variants as per-variant acceptance checks
+(`scripts/check_layout_variant.py N`: floor / invariants / weight / distinctness /
+isolation, with file:line evidence), wired as a required step in
+`.github/workflows/quality.yml` on layout-touching PRs. Variants 1-2 and the
+base shell remain grandfathered (floor cleanup owner-deferred). Free
+experimentation elsewhere continues unchanged; the required text-integrity gates
+are untouched. Full record: `.orchestrator/CANARY_V3_PASS_2026-09-18.md`.
+

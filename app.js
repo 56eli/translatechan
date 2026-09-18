@@ -8720,4 +8720,270 @@
   } else {
     startApp();
   }
+    // == rebuild:36 begin — The Chan Room enhancer, rebuilt faithfully from the owner's zip ==
+  //
+  // Batch 0 per work order 2026-09-18-letter-002-36-distinct-rebuild.md item 5.
+  // This block REDECLARES roomChanLibrary: the later declaration in the same
+  // module scope supersedes the fleet-assimilated v36 enhancer above (the
+  // Phase-0 canary mechanism — last declaration wins), so the existing
+  // dispatch in enhanceRoomLayout picks the rebuild up with zero edits to
+  // neighboring bytes. It builds the prototype's OWN structure, not a reskin
+  // of the fleet skeleton: the Reader becomes the prototype's detail grid
+  // (reading column + sticky dossier aside), room units become hairline card
+  // grids, dossiers and records are native <details> folds (the prototype's
+  // own DOM idiom, carried over), Reader blocks become rust-border passage
+  // figures. Own tcr- class namespace; text only from what rooms already
+  // rendered plus the deterministic bundle — nothing invented. No style
+  // attributes, no setProperty, no document-level chrome (switches tear rooms
+  // down through the shared resetLayoutRuntime + re-render path, so no
+  // parallel teardown is invented). Pure append; idempotent via :scope and
+  // dataset.tcrReady guards; neighbors byte-untouched; no zip code verbatim.
+  // ==
+
+  function tcrEl(tag, className, html) {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    if (html !== undefined) el.innerHTML = html;
+    return el;
+  }
+
+  // The prototype's Disclosure: native <details>, ▸ marker drawn in CSS,
+  // label + quiet right-aligned hint, rows behind the fold.
+  function tcrDisclosure(label, rows, hint) {
+    const d = tcrEl('details', 'tcr-disclosure');
+    const s = tcrEl('summary');
+    s.innerHTML = '<span class="tcr-disc-label">' + escHtml(label) + '</span>' +
+      (hint ? '<span class="tcr-hint">' + escHtml(hint) + '</span>' : '');
+    d.appendChild(s);
+    if (Array.isArray(rows) && rows.length) {
+      d.appendChild(tcrEl('div', 'tcr-disc-body', infoRows(rows)));
+    }
+    return d;
+  }
+
+  // Empty native fold for moving existing nodes behind (provenance, records).
+  function tcrFold(label, hint) {
+    const d = tcrEl('details', 'tcr-fold');
+    const s = tcrEl('summary');
+    s.innerHTML = '<span class="tcr-disc-label">' + escHtml(label) + '</span>' +
+      (hint ? '<span class="tcr-hint">' + escHtml(hint) + '</span>' : '');
+    d.appendChild(s);
+    return d;
+  }
+
+  // Hairline card grid — the library's signature: 1px stone gap, opaque cells.
+  function tcrWrapGrid(parent, selector, gridClass) {
+    if (!parent || !parent.querySelectorAll) return;
+    if (parent.querySelector(':scope > .' + gridClass.split(' ').join('.'))) return;
+    const kids = Array.from(parent.querySelectorAll(selector)).filter(k => k.parentNode === parent);
+    if (!kids.length) return;
+    const grid = tcrEl('div', gridClass);
+    kids.forEach(k => grid.appendChild(k));
+    parent.appendChild(grid);
+  }
+
+  // The Reader's fourth dossier question — "How reliable is the text?" — built
+  // from the per-text W1 metrics in the deterministic bundle. Nothing invented.
+  function tcrReliabilityDisclosure() {
+    const key = state.currentCorpusKey;
+    const perText = state.data.project_metrics && state.data.project_metrics.corpus &&
+      state.data.project_metrics.corpus.per_text ? state.data.project_metrics.corpus.per_text : {};
+    const m = isRecord(perText[key]) ? perText[key] : {};
+    const sr = isRecord(m.source_review) ? m.source_review : null;
+    const statusLabels = {
+      collated_to_claimed_witness: 'collated to the claimed witness',
+      partial_or_failed_w1_collation: 'partial or failed W1 collation',
+      witness_unavailable: 'witness unavailable'
+    };
+    const rows = [];
+    rows.push(['Coverage here',
+      escHtml(stringValue(m.coverage) || 'representation not recorded') +
+      ' · editorial status: ' + escHtml(stringValue(m.completion_status) || 'not recorded')]);
+    if (sr) {
+      rows.push(['W1 source review',
+        escHtml(statusLabels[sr.status] || stringValue(sr.status)) +
+        ' — ' + escHtml(String(sr.content_fields_collated !== undefined ? sr.content_fields_collated : 'n/a')) +
+        ' of ' + escHtml(String(sr.content_fields_total !== undefined ? sr.content_fields_total : 'n/a')) +
+        ' content fields collate to the claimed witness; ' +
+        escHtml(String(sr.flagged_entries !== undefined ? sr.flagged_entries : 'n/a')) +
+        ' entries flagged and visibly marked, never quietly fixed.']);
+      if (Array.isArray(sr.witness_refs) && sr.witness_refs.length) {
+        rows.push(['Claimed witness', escHtml(sr.witness_refs.join(', '))]);
+      }
+      if (sr.evidence_date) rows.push(['Evidence date', escHtml(String(sr.evidence_date))]);
+    }
+    rows.push(['Rule',
+      'Nothing in the Chinese above has been normalised, punctuated silently or corrected. Where editions disagree, the Compare room carries both readings rather than resolving them here.']);
+    return tcrDisclosure('How reliable is the text?', rows, 'provenance');
+  }
+
+  function tcrRoomReader(root) {
+    if (root.querySelector(':scope > .tcr-detail')) return;
+    const detail = tcrEl('div', 'tcr-detail');
+    const reading = tcrEl('div', 'tcr-reading');
+    const aside = tcrEl('aside', 'tcr-dossier');
+    aside.setAttribute('aria-label', 'Work dossier');
+    // Reading column first (the prototype's minmax(0,44rem)), dossier aside
+    // second (sticky, folds only) — the prototype's Read-detail skeleton.
+    const kids = Array.from(root.childNodes);
+    kids.forEach(k => reading.appendChild(k));
+    root.appendChild(detail);
+    detail.appendChild(reading);
+    detail.appendChild(aside);
+    aside.appendChild(tcrEl('p', 'tcr-dossier-label', 'Dossier'));
+    // The edition furniture moves out of the reading column into the dossier —
+    // where the prototype keeps "everything extra" behind folds, out of the
+    // way of the text itself.
+    const heading = reading.querySelector('.document-heading');
+    if (heading) {
+      const ledgers = heading.querySelector('.ledger-drawer');
+      if (ledgers) aside.appendChild(ledgers);
+      const context = heading.querySelector('.context-info.work-context');
+      if (context) aside.appendChild(context);
+      const provs = Array.from(heading.querySelectorAll(':scope > .provenance-line'));
+      if (provs.length) {
+        const fold = tcrFold('Where this text came from', 'provenance');
+        const body = tcrEl('div', 'tcr-disc-body');
+        provs.forEach(n => body.appendChild(n));
+        fold.appendChild(body);
+        aside.appendChild(fold);
+      }
+    }
+    aside.appendChild(tcrReliabilityDisclosure());
+    aside.appendChild(tcrDisclosure('About this reading — where from · related · background', roomInfoRowsFor('reader'), 'dossier'));
+    // Each block of a case becomes the prototype's passage figure: rust left
+    // border, label, Chinese largest, renderings, provenance one fold away.
+    root.querySelectorAll('.case-card').forEach(card => {
+      if (card.dataset.tcrReady === '1') return;
+      card.dataset.tcrReady = '1';
+      const host = card.querySelector('.case-body') || card;
+      let fig = null;
+      Array.from(host.children).forEach(el => {
+        const cls = String(el.className).split(' ')[0];
+        if (cls === 'case-header' || cls === 'case-nav-footer' || cls === 'case-load-more') { fig = null; return; }
+        if (/^(dialogue-turn|commentary-block|verse-block|classical-zh)$/.test(cls) || !fig) {
+          fig = tcrEl('figure', 'tcr-passage');
+          host.insertBefore(fig, el);
+        }
+        fig.appendChild(el);
+      });
+      (card.querySelector('.case-body') || card).querySelectorAll('figure.tcr-passage').forEach(pfig => {
+        const provs = Array.from(pfig.querySelectorAll(':scope > .provenance-line, :scope .provenance-line'));
+        if (provs.length) {
+          const fold = tcrFold('Where this rendering came from', 'provenance');
+          const body = tcrEl('div', 'tcr-disc-body');
+          provs.forEach(n => body.appendChild(n));
+          fold.appendChild(body);
+          pfig.appendChild(fold);
+        }
+      });
+    });
+  }
+
+  function tcrRoomLineage(root) {
+    // Banded register (tree order) or flat register (any other sort): the
+    // masters become the prototype's hairline card wall; the register's
+    // column-header row goes away because the cards carry their own labels.
+    root.querySelectorAll('.lineage-band').forEach(band => {
+      tcrWrapGrid(band, ':scope > .lineage-master-row', 'tcr-grid tcr-grid-3');
+    });
+    root.querySelectorAll('.lineage-flat').forEach(flat => {
+      tcrWrapGrid(flat, ':scope > .lineage-master-row', 'tcr-grid tcr-grid-3');
+    });
+    root.querySelectorAll('.lineage-master-row').forEach((row, i) => {
+      if (row.dataset.tcrReady === '1') return;
+      row.dataset.tcrReady = '1';
+      // The card leads with who the person is; dates, place and source wait
+      // behind the record fold, exactly like the prototype's "lineage & links".
+      const rec = row.querySelector('.lineage-master-record');
+      if (rec) {
+        const fold = tcrFold('The record', 'dates · place · source');
+        const body = tcrEl('div', 'tcr-disc-body');
+        body.appendChild(rec);
+        fold.appendChild(body);
+        row.appendChild(fold);
+      }
+      row.appendChild(tcrDisclosure('About this teacher — where from · related · background', unitInfoRowsFor('lineage', row, i), 'dossier'));
+    });
+  }
+
+  function tcrRoomGongan(root) {
+    const cat = root.querySelector('.gongan-catalogue');
+    if (cat) tcrWrapGrid(cat, ':scope > .catalogue-row', 'tcr-grid tcr-grid-2');
+    root.querySelectorAll('.catalogue-row').forEach((row, i) => {
+      if (row.dataset.tcrReady === '1') return;
+      row.dataset.tcrReady = '1';
+      // The prototype's case card: titles and the one-line summary up front;
+      // the record locator and cross-references behind one small fold.
+      const locator = row.querySelector('.catalogue-locator');
+      const cross = row.querySelector('.catalogue-cross');
+      if (locator || cross) {
+        const fold = tcrFold('Record', 'locator · cross-refs');
+        const body = tcrEl('div', 'tcr-disc-body');
+        if (locator) body.appendChild(locator);
+        if (cross) body.appendChild(cross);
+        fold.appendChild(body);
+        row.appendChild(fold);
+      }
+      row.appendChild(tcrDisclosure('About this case — where from · related · background', unitInfoRowsFor('gongan', row, i), 'dossier'));
+    });
+  }
+
+  function tcrRoomMatrix(root) {
+    root.querySelectorAll('.matrix-proof-sheet').forEach((sheet, i) => {
+      if (sheet.dataset.tcrReady === '1') return;
+      sheet.dataset.tcrReady = '1';
+      sheet.appendChild(tcrDisclosure('About this line — where from · related · background', unitInfoRowsFor('matrix', sheet, i), 'dossier'));
+    });
+  }
+
+  // The prototype's Terms idiom: the vocabulary one sentence at a time; the
+  // longer answer and the recorded occurrences wait behind a fold.
+  function tcrFirstSentence(text) {
+    const m = String(text || '').trim().match(/^([\s\S]{20,400}?[.!?])(\s+|$)/);
+    return m ? m[1] : '';
+  }
+
+  function tcrRoomLexicon(root) {
+    root.querySelectorAll('.lexicon-entry').forEach((entry, i) => {
+      if (entry.dataset.tcrReady === '1') return;
+      entry.dataset.tcrReady = '1';
+      const def = entry.querySelector('.lexicon-entry-def');
+      const main = entry.querySelector('.lexicon-entry-main');
+      if (def && main) {
+        const full = def.textContent.replace(/\s+/g, ' ').trim();
+        const first = tcrFirstSentence(full);
+        if (first && first.length < full.length) {
+          def.textContent = first;
+          const fold = tcrFold('The longer answer', 'expand');
+          const body = tcrEl('div', 'tcr-disc-body');
+          const rest = tcrEl('p', 'tcr-def-rest');
+          rest.textContent = full.slice(first.length).trim();
+          body.appendChild(rest);
+          const occ = entry.querySelector('.lexicon-occurrences');
+          if (occ) body.appendChild(occ);
+          fold.appendChild(body);
+          main.appendChild(fold);
+        }
+      }
+      entry.appendChild(tcrDisclosure('About this term — where from · related · background', unitInfoRowsFor('lexicon', entry, i), 'dossier'));
+    });
+  }
+
+  // The rebuild's room enhancer. This later declaration supersedes the fleet-
+  // assimilated v36 enhancer above (same module scope, last declaration wins);
+  // it is called by the existing dispatch in enhanceRoomLayout, untouched.
+  function roomChanLibrary(room, root) {
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    root.classList.add('tcr-room');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    if (room === 'reader') tcrRoomReader(root);
+    else if (room === 'lineage') tcrRoomLineage(root);
+    else if (room === 'gongan') tcrRoomGongan(root);
+    else if (room === 'matrix') tcrRoomMatrix(root);
+    else if (room === 'lexicon') tcrRoomLexicon(root);
+  }
+
+  // == rebuild:36 end — The Chan Room faithful rebuild (Batch 0, work order 2026-09-18-letter-002 item 5) ==
 })();

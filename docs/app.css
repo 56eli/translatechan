@@ -13843,3 +13843,366 @@ html[data-design="6"].nav-open .nav-drawer-backdrop { display: block; }
   .design-switcher { width: 100%; justify-content: flex-start; margin-left: 0; padding-left: 0; border-left: 0; }
   .design-btn { min-width: 1.45rem; }
 }
+/* == rebuild:36 begin — The Chan Room, rebuilt faithfully from chan-buddhism-digital-library.zip ==
+   Batch 0 per work order 2026-09-18-letter-002-36-distinct-rebuild.md item 5.
+   This block is the FAITHFUL rebuild of variant 36: the zip prototype's visual
+   system — warm cream ground #F8F5EF, stone-grey hairlines #E7E5E4, rust accent
+   #9A3B1E, scholarly serif English (the site's Source Serif 4 stands in for the
+   prototype's EB Garamond: same role, already licensed and served under the
+   shipped CSP — no zip file ships verbatim), Noto Serif SC as the largest type
+   in the Reader, sticky blurred header with the 禪 badge, pill room nav, hairline
+   card grids (1px stone gap, opaque cells), native <details> disclosure dossiers
+   (the prototype's own DOM idiom, carried over rather than flattened), passage
+   figures with the rust left border, chips, and verified/flagged status dots.
+   The structure is the prototype's OWN: .tcr-* components below are built by the
+   rebuild's enhancer (app.js rebuild:36) instead of restyling the fleet skeleton.
+   Every font-size introduced here is >= 0.72rem (legibility floor; the prototype's
+   0.66-0.70rem small-caps labels are lifted to 0.72-0.75rem — the one deliberate,
+   documented deviation, because the floor is hard law per work order item 2(a)).
+   The fleet-assimilated v36 block above stays byte-untouched (grandfathered per
+   work order item 5 until the owner rates this rebuild); on equal specificity the
+   cascade applies later rules first, so where both style the same chrome, the
+   values below win. No style=, no setProperty, no corpus edits, no zip code
+   verbatim, layouts 1-35 untouched.
+   == */
+/* --- 36.R.0 · the library's token sheet (light + warm-dark key) ---------- */
+:root[data-design="36"] {
+  --cr-ground: #F8F5EF;
+  --cr-ground-alt: #F4F0E8;
+  --cr-sheet: #FDFCF9;
+  --cr-sheet-soft: color-mix(in srgb, white 62%, var(--cr-ground));
+  --cr-line: #E7E5E4;
+  --cr-line-soft: color-mix(in srgb, #E7E5E4 70%, transparent);
+  --cr-ink-8: #292524;
+  --cr-ink-7: #44403C;
+  --cr-ink-6: #57534E;
+  --cr-ink-5: #78716C;
+  --cr-ink-4: #A8A29E;
+  --cr-ink-3: #D6D3D1;
+  --cr-rust: #9A3B1E;
+  --cr-rust-strong: color-mix(in srgb, #9A3B1E 82%, var(--cr-ink-8));
+  --cr-rust-soft: color-mix(in srgb, #9A3B1E 9%, var(--cr-ground));
+  --cr-rust-faint: color-mix(in srgb, #9A3B1E 25%, transparent);
+  --cr-rust-line: color-mix(in srgb, #9A3B1E 40%, transparent);
+  --cr-verified: #059669;
+  --cr-flagged: #F59E0B;
+  --cr-serif: var(--font-display);
+  --cr-zh: var(--font-zh);
+  --cr-cream: #F8F5EF;
+  --cr-tcr-hover: #FFFFFF;
+}
+[data-theme="dark"][data-design="36"] {
+  --cr-ground: #1C1917;
+  --cr-ground-alt: #211E1B;
+  --cr-sheet: #262220;
+  --cr-sheet-soft: color-mix(in srgb, white 4%, var(--cr-ground));
+  --cr-line: #3B3531;
+  --cr-line-soft: color-mix(in srgb, #3B3531 72%, transparent);
+  --cr-ink-8: #E7E5E4;
+  --cr-ink-7: #D6D3D1;
+  --cr-ink-6: #B5AEA5;
+  --cr-ink-5: #8F887E;
+  --cr-ink-4: #6F685F;
+  --cr-ink-3: #4A443E;
+  --cr-rust: #C96A4A;
+  --cr-rust-strong: #DA8563;
+  --cr-rust-soft: color-mix(in srgb, #C96A4A 14%, var(--cr-ground));
+  --cr-rust-faint: color-mix(in srgb, #C96A4A 30%, transparent);
+  --cr-rust-line: color-mix(in srgb, #C96A4A 45%, transparent);
+  --cr-cream: #262220;
+  --cr-tcr-hover: #2E2A26;
+}
+/* --- 36.R.1 · ground, selection, focus ----------------------------------- */
+:root[data-design="36"] body { background: var(--cr-ground); color: var(--cr-ink-6) }
+:root[data-design="36"] ::selection { background: color-mix(in srgb, var(--cr-rust) 15%, transparent) }
+:root[data-design="36"] :focus-visible { outline: 2px solid var(--cr-rust); outline-offset: 1px; border-radius: 2px }
+/* --- 36.R.2 · small-caps label voice, lifted to the floor ---------------- */
+:root[data-design="36"] .text-header.room-heading .section-kicker,
+:root[data-design="36"] .document-heading .section-kicker,
+:root[data-design="36"] .case-heading-kicker,
+:root[data-design="36"] .case-speaker,
+:root[data-design="36"] .commentary-label,
+:root[data-design="36"] .translation-column-name,
+:root[data-design="36"] .context-label,
+:root[data-design="36"] .case-strip-label,
+:root[data-design="36"] .matrix-ref-clean,
+:root[data-design="36"] .matrix-collation-head,
+:root[data-design="36"] .lineage-master-gen,
+:root[data-design="36"] .room-filter-legend,
+:root[data-design="36"] .catalogue-case,
+:root[data-design="36"] .lexicon-entry-cat,
+:root[data-design="36"] .lexicon-occ-tag,
+:root[data-design="36"] .toolbar-label,
+:root[data-design="36"] .tcr-dossier-label,
+:root[data-design="36"] .tcr-meta-label,
+:root[data-design="36"] .tcr-hint {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cr-ink-4);
+}
+:root[data-design="36"] .text-header.room-heading .section-kicker,
+:root[data-design="36"] .document-heading .section-kicker,
+:root[data-design="36"] .case-heading-kicker { color: var(--cr-rust); letter-spacing: 0.22em }
+:root[data-design="36"] .commentary-label.is-blue { color: var(--cr-rust) }
+:root[data-design="36"] .commentary-label.is-green { color: var(--cr-verified) }
+:root[data-design="36"] .hero-kicker { color: var(--cr-rust); font-size: 0.75rem; letter-spacing: 0.24em }
+/* --- 36.R.3 · the room frame: one 72rem column, RoomTitle heads ---------- */
+:root[data-design="36"] .view-section.active .text-header.room-heading {
+  max-width: 72rem;
+  margin: 2.75rem auto 1.5rem;
+  padding: 0 0 1.1rem;
+  border-bottom: 1px solid var(--cr-line);
+  background: transparent;
+  display: block;
+}
+:root[data-design="36"] .text-header.room-heading .text-title-zh span {
+  font-family: var(--cr-serif);
+  font-size: clamp(1.7rem, 3vw, 2.1rem);
+  line-height: 1.2;
+  font-weight: 500;
+  color: var(--cr-ink-8);
+  letter-spacing: 0;
+}
+:root[data-design="36"] .text-header.room-heading .text-title-zh small {
+  font-family: var(--cr-zh);
+  font-size: 1.05rem;
+  color: var(--cr-ink-4);
+  font-weight: 400;
+  margin-left: 0.75rem;
+}
+:root[data-design="36"] .text-header.room-heading .text-title-en {
+  max-width: 38rem;
+  margin-top: 0.7rem;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--cr-ink-6);
+}
+:root[data-design="36"] .lineage-filter-row, :root[data-design="36"] .lexicon-filter-group, :root[data-design="36"] .lexicon-filter-row { margin-top: 1rem }
+:root[data-design="36"] .lineage-verification-summary { max-width: 72rem; margin: 0.75rem auto; color: var(--cr-ink-5); font-size: 0.85rem }
+/* --- 36.R.4 · the works index (library sidebar as the prototype's index list) --- */
+:root[data-design="36"] .sidebar-panel { background: transparent; border: 0; padding: 0 }
+:root[data-design="36"] .sidebar-title {
+  font-family: var(--cr-serif);
+  color: var(--cr-ink-7);
+  border-bottom: 1px solid var(--cr-line);
+  padding-bottom: 0.5rem;
+}
+:root[data-design="36"] .corpus-selector-list {
+  max-height: 17rem;
+  overflow-y: auto;
+  border: 1px solid var(--cr-line);
+  border-radius: 8px;
+  background: var(--cr-sheet-soft);
+}
+:root[data-design="36"] .corpus-btn { background: transparent; border-bottom: 1px solid var(--cr-line-soft); border-radius: 0; color: var(--cr-ink-6) }
+:root[data-design="36"] .corpus-btn:hover { background: color-mix(in srgb, white 45%, var(--cr-ground)); color: var(--cr-ink-8) }
+:root[data-design="36"] .corpus-btn.active { background: var(--cr-rust-soft); color: var(--cr-rust); border-left: 2px solid var(--cr-rust) }
+:root[data-design="36"] .corpus-title-en { font-family: var(--cr-serif); font-size: 0.95rem }
+:root[data-design="36"] .corpus-btn-meta { font-size: 0.72rem; color: var(--cr-ink-4) }
+/* --- 36.R.5 · controls: pills, fields, status dots ------------------------ */
+:root[data-design="36"] .btn-pill {
+  border-radius: 999px;
+  border: 1px solid var(--cr-ink-3);
+  background: transparent;
+  color: var(--cr-ink-6);
+  font-size: 0.82rem;
+  min-height: 1.7rem;
+  padding: 0.22rem 0.7rem;
+}
+:root[data-design="36"] .btn-pill:hover { border-color: var(--cr-ink-5); color: var(--cr-ink-8) }
+:root[data-design="36"] .btn-pill.active, :root[data-design="36"] .btn-pill[aria-pressed="true"] { background: var(--cr-ink-8); border-color: var(--cr-ink-8); color: var(--cr-ground) }
+:root[data-design="36"] .search-input {
+  background: color-mix(in srgb, white 60%, var(--cr-ground));
+  border: 1px solid var(--cr-ink-3);
+  border-radius: 999px;
+  color: var(--cr-ink-7);
+  font-size: 0.85rem;
+}
+:root[data-design="36"] .search-input:focus { border-color: var(--cr-rust-line); outline: none; box-shadow: 0 0 0 3px var(--cr-rust-faint) }
+:root[data-design="36"] .translation-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  border-radius: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cr-ink-5);
+}
+:root[data-design="36"] .translation-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cr-ink-3);
+  flex: 0 0 auto;
+}
+:root[data-design="36"] .translation-status.is-verified { color: var(--cr-ink-6) }
+:root[data-design="36"] .translation-status.is-verified::before { background: var(--cr-verified) }
+:root[data-design="36"] .translation-status.is-ai::before,
+:root[data-design="36"] .translation-status.is-reconstruction::before,
+:root[data-design="36"] .translation-status.is-silent-robo::before { background: var(--cr-flagged) }
+/* --- 36.R.6 · Reader: the prototype's detail grid + dossier aside --------- */
+:root[data-design="36"] .tcr-detail { display: grid; grid-template-columns: minmax(0, 44rem) 1fr; gap: 3.25rem; align-items: start }
+:root[data-design="36"] .tcr-reading { min-width: 0 }
+:root[data-design="36"] .tcr-dossier { position: sticky; top: 5.5rem; min-width: 0 }
+:root[data-design="36"] .tcr-dossier-label { margin: 0 0 0.9rem }
+:root[data-design="36"] .tcr-dossier > .ledger-drawer,
+:root[data-design="36"] .tcr-dossier > .context-info,
+:root[data-design="36"] .tcr-dossier > .tcr-disclosure,
+:root[data-design="36"] .tcr-dossier > .tcr-fold {
+  background: var(--cr-sheet-soft);
+  border: 1px solid var(--cr-line);
+  border-radius: 8px;
+  padding: 0 1.2rem;
+  margin: 0 0 0.9rem;
+}
+:root[data-design="36"] .tcr-dossier .document-ledgers details { background: transparent; border: 0; border-radius: 0; box-shadow: none; padding: 0 }
+:root[data-design="36"] .tcr-dossier .ledger-drawer-head { padding-top: 0.8rem }
+:root[data-design="36"] .tcr-dossier .ledger-drawer-title { font-family: var(--cr-serif); font-size: 1rem; font-weight: 500; color: var(--cr-ink-7) }
+:root[data-design="36"] .tcr-dossier .ledger-drawer-hint { font-size: 0.72rem; color: var(--cr-ink-4) }
+:root[data-design="36"] .tcr-dossier .ledger-footnote { font-size: 0.78rem; color: var(--cr-ink-5); padding-bottom: 0.8rem }
+/* The document head, in the prototype's Read-detail voice. */
+:root[data-design="36"] .document-heading {
+  max-width: none;
+  margin: 0 0 1.4rem;
+  padding: 0 0 1.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--cr-line);
+  background: transparent;
+}
+:root[data-design="36"] .reader-breadcrumb { color: var(--cr-ink-4); font-size: 0.78rem }
+:root[data-design="36"] .document-heading .text-title-zh span {
+  font-family: var(--cr-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.2rem);
+  font-weight: 500;
+  color: var(--cr-ink-8);
+  letter-spacing: 0;
+}
+:root[data-design="36"] .document-heading .text-title-zh small { font-family: var(--cr-zh); color: var(--cr-ink-4); font-size: 1.25rem; font-weight: 400 }
+:root[data-design="36"] .document-heading .text-title-en { max-width: 38rem; font-size: 0.95rem; font-style: italic; color: var(--cr-ink-5) }
+:root[data-design="36"] .document-status {
+  border: 1px solid var(--cr-ink-3);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--cr-ink-5);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+/* --- 36.R.7 · passages: the prototype's rust-border figures --------------- */
+:root[data-design="36"] .case-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  box-shadow: none;
+  scroll-margin-top: 4.5rem;
+}
+:root[data-design="36"] .case-header { margin-bottom: 0.9rem }
+:root[data-design="36"] .case-num-title { font-family: var(--cr-serif); font-size: 1.3rem; font-weight: 500; line-height: 1.35; color: var(--cr-ink-8); letter-spacing: 0 }
+:root[data-design="36"] .case-num-title .case-heading-kicker { display: block; margin-bottom: 0.3rem }
+:root[data-design="36"] .case-num-title .case-heading-zh { font-family: var(--cr-zh); font-weight: 400; color: var(--cr-ink-5); margin-left: 0.6rem }
+:root[data-design="36"] .case-toggle { border-radius: 999px; border: 1px solid var(--cr-line); background: transparent; color: var(--cr-ink-4); min-height: 1.5rem; width: 1.5rem }
+:root[data-design="36"] .case-toggle:hover { border-color: var(--cr-ink-5); color: var(--cr-ink-7) }
+:root[data-design="36"] figure.tcr-passage { border-left: 2px solid var(--cr-rust-faint); padding: 0.1rem 0 0.1rem 1.25rem; margin: 1.15rem 0 }
+:root[data-design="36"] .tcr-passage > .dialogue-turn, :root[data-design="36"] .tcr-passage > .commentary-block, :root[data-design="36"] .tcr-passage > .verse-block { padding: 0; border: 0; background: transparent }
+:root[data-design="36"] .case-speaker { margin-bottom: 0.4rem }
+:root[data-design="36"] .classical-zh { font-family: var(--cr-zh); font-size: calc(var(--zh-font-size) * 1.06); line-height: 1.95; color: var(--cr-ink-8); max-width: none }
+:root[data-design="36"] .classical-zh.is-secondary, :root[data-design="36"] .classical-zh.is-lead { font-size: calc(var(--zh-font-size) * 0.95) }
+:root[data-design="36"] .pinyin-line { font-size: 0.86rem; font-style: italic; color: var(--cr-ink-5); margin-top: 0.35rem }
+:root[data-design="36"] .translation-text, :root[data-design="36"] .prose-en { font-family: var(--cr-serif); font-size: 1.06rem; line-height: 1.85; color: var(--cr-ink-7); max-width: 62ch }
+:root[data-design="36"] .prose-en.is-quiet { color: var(--cr-ink-6); font-size: 0.98rem }
+:root[data-design="36"] .translation-grid { display: block; gap: 0; margin-top: 0.9rem }
+:root[data-design="36"] .translation-grid > * + * { margin-top: 0.9rem }
+:root[data-design="36"] .translation-source { margin-top: 0.4rem; font-size: 0.8rem; color: var(--cr-ink-5) }
+:root[data-design="36"] .translation-source.source-disclosure { color: var(--cr-ink-4); font-size: 0.75rem }
+:root[data-design="36"] .provenance-line { margin: 0; padding: 0.35rem 0; border: 0; font-size: 0.78rem; color: var(--cr-ink-5) }
+/* The prototype's native <details> folds (disclosure dossiers + provenance). */
+:root[data-design="36"] .tcr-disclosure, :root[data-design="36"] .tcr-fold, :root[data-design="36"] .front-matter, :root[data-design="36"] .context-info, :root[data-design="36"] .ledger-drawer > .document-ledgers details { border-top: 1px solid var(--cr-line-soft) }
+:root[data-design="36"] .tcr-disclosure > summary, :root[data-design="36"] .tcr-fold > summary, :root[data-design="36"] .front-matter > summary, :root[data-design="36"] .context-info > summary, :root[data-design="36"] .document-details > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.9rem 0.15rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--cr-ink-7);
+  user-select: none;
+}
+:root[data-design="36"] .tcr-disclosure > summary::-webkit-details-marker, :root[data-design="36"] .tcr-fold > summary::-webkit-details-marker, :root[data-design="36"] .front-matter > summary::-webkit-details-marker, :root[data-design="36"] .context-info > summary::-webkit-details-marker, :root[data-design="36"] .document-details > summary::-webkit-details-marker { display: none }
+:root[data-design="36"] .tcr-disclosure > summary::before, :root[data-design="36"] .tcr-fold > summary::before, :root[data-design="36"] .front-matter > summary::before, :root[data-design="36"] .context-info > summary::before, :root[data-design="36"] .document-details > summary::before {
+  content: "▸";
+  display: inline-block;
+  width: 0.85rem;
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  color: var(--cr-ink-4);
+  transition: transform 0.18s ease;
+}
+:root[data-design="36"] .tcr-disclosure[open] > summary::before, :root[data-design="36"] .tcr-fold[open] > summary::before, :root[data-design="36"] .front-matter[open] > summary::before, :root[data-design="36"] .context-info[open] > summary::before, :root[data-design="36"] .document-details[open] > summary::before { transform: rotate(90deg) }
+:root[data-design="36"] .tcr-disclosure > summary:hover, :root[data-design="36"] .tcr-disclosure > summary:hover .tcr-disc-label, :root[data-design="36"] .tcr-fold > summary:hover, :root[data-design="36"] .front-matter > summary:hover, :root[data-design="36"] .context-info > summary:hover, :root[data-design="36"] .document-details > summary:hover { color: var(--cr-rust) }
+:root[data-design="36"] .tcr-disc-label { font-size: 0.95rem; font-weight: 500; color: inherit }
+:root[data-design="36"] .tcr-hint { margin-left: auto; text-transform: lowercase; letter-spacing: 0.06em }
+:root[data-design="36"] .tcr-disc-body { padding: 0 0 1.3rem 1.35rem; font-size: 0.95rem; line-height: 1.75; color: var(--cr-ink-6) }
+:root[data-design="36"] .tcr-disc-body .context-row { margin-bottom: 0.85rem }
+:root[data-design="36"] .tcr-disc-body .context-row:last-child { margin-bottom: 0 }
+:root[data-design="36"] .tcr-disc-body .context-label { margin-bottom: 0.15rem }
+:root[data-design="36"] .tcr-disc-body .btn-pill { margin: 0 0.15rem 0.25rem 0; font-size: 0.75rem }
+:root[data-design="36"] .tcr-disc-body .tcr-def-rest { margin-bottom: 0.85rem }
+/* Case furniture: front matter, jump chips, nav footer, load-more. */
+/* --- 36.R.8 · hairline card grids — the library's signature --------------- */
+:root[data-design="36"] .tcr-grid { display: grid; gap: 1px; background: var(--cr-line); border: 1px solid var(--cr-line); border-radius: 8px; overflow: hidden; margin: 1.25rem 0 }
+:root[data-design="36"] .tcr-grid > * { background: var(--cr-ground); min-width: 0; transition: background 0.15s ease }
+:root[data-design="36"] .tcr-grid > *:hover { background: var(--cr-tcr-hover) }
+:root[data-design="36"] .tcr-grid-2 { grid-template-columns: 1fr }
+:root[data-design="36"] .tcr-grid-3 { grid-template-columns: 1fr }
+/* --- 36.R.9 · Lineage: era bands of teacher cards ------------------------- */
+:root[data-design="36"] .lineage-band-cols { display: none }
+:root[data-design="36"] .tcr-grid .lineage-master-row { display: block; padding: 1.3rem 1.4rem; cursor: pointer }
+:root[data-design="36"] .tcr-grid .lineage-master-row:hover .lineage-master-name-en { color: var(--cr-rust) }
+:root[data-design="36"] .lineage-master-name-zh { font-family: var(--cr-zh); font-size: 0.9rem; color: var(--cr-ink-4); margin-left: 0.4rem }
+/* --- 36.R.10 · Cases: the catalogue as card wall -------------------------- */
+:root[data-design="36"] .gongan-catalogue-head { display: none }
+:root[data-design="36"] .tcr-grid .catalogue-row { display: block; padding: 1.3rem 1.4rem }
+/* --- 36.R.11 · Compare: one proof sheet per line -------------------------- */
+/* --- 36.R.12 · Terms: index rows, one sentence up, the rest behind a fold -- */
+:root[data-design="36"] .lexicon-entries { border-top: 1px solid var(--cr-line) }
+:root[data-design="36"] .lexicon-entry { display: grid; grid-template-columns: 11rem 1fr; gap: 0.4rem 2rem; padding: 1.25rem 0; border: 0; border-bottom: 1px solid var(--cr-line); border-radius: 0; background: transparent; box-shadow: none }
+:root[data-design="36"] .lexicon-entry:hover { background: color-mix(in srgb, white 45%, var(--cr-ground)) }
+:root[data-design="36"] .lexicon-entry-count { display: block; margin-top: 0.3rem; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--cr-ink-4) }
+:root[data-design="36"] .lexicon-occ-tag { display: inline-block; border: 1px solid var(--cr-line); border-radius: 999px; padding: 0.05rem 0.55rem; margin: 0 0.25rem 0.25rem 0; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--cr-ink-5); background: var(--cr-sheet-soft) }
+/* --- 36.R.13 · the lineage dossier panel, restyled as a library sheet ------ */
+/* --- 36.R.14 · responsive ------------------------------------------------- */
+@media (max-width: 1023px) {
+  :root[data-design="36"] .tcr-detail { grid-template-columns: 1fr; gap: 1.75rem }
+  :root[data-design="36"] .tcr-dossier { position: static }
+}
+@media (min-width: 640px) {
+  :root[data-design="36"] .tcr-grid-2 { grid-template-columns: 1fr 1fr }
+  :root[data-design="36"] .tcr-grid-3 { grid-template-columns: 1fr 1fr }
+}
+@media (min-width: 1024px) {
+  :root[data-design="36"] .tcr-grid-3 { grid-template-columns: 1fr 1fr 1fr }
+}
+@media (max-width: 720px) {
+  :root[data-design="36"] .matrix-register-row { grid-template-columns: 1fr }
+  :root[data-design="36"] .lexicon-entry { grid-template-columns: 1fr }
+}
+/* --- 36.R.15 · print ------------------------------------------------------ */
+@media print {
+  :root[data-design="36"] .site-shell, :root[data-design="36"] .mobile-action-bar, :root[data-design="36"] .hero-dismiss-btn, :root[data-design="36"] .case-toggle, :root[data-design="36"] .tcr-dossier { display: none }
+  :root[data-design="36"] body { background: #fff }
+  :root[data-design="36"] .tcr-detail { grid-template-columns: 1fr }
+  :root[data-design="36"] .tcr-grid, :root[data-design="36"] .case-card, :root[data-design="36"] .matrix-proof-sheet { border: 1px solid #ccc; break-inside: avoid }
+  :root[data-design="36"] .tcr-disclosure > summary::before, :root[data-design="36"] .tcr-fold > summary::before, :root[data-design="36"] .front-matter > summary::before, :root[data-design="36"] .context-info > summary::before { content: "" }
+}
+/* == rebuild:36 end — The Chan Room faithful rebuild (Batch 0, work order 2026-09-18-letter-002 item 5) == */
