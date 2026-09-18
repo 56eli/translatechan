@@ -10464,5 +10464,264 @@ function roomCommandPalette(room, root) {
   b24kArmKeys();
 }
 // == rebuild:24 end == // == rebuild:23 end == // == rebuild:22 end == // == rebuild:21 end == // == rebuild:20 end == // == rebuild:19 end ==
+// == rebuild:25 begin — Batch 5 slot 25: Trail + PrevNext + Slider + Inline Origin; redeclares roomTrailPrevNext ==
+function b5El(tag) { return document.createElement(tag); }
+function b25bDraw(bar, room, here) {
+  let html = '<button type="button" class="v25b-crumb" data-v25b-home>Home</button>';
+  if (room !== 'reader') html += '<span class="v25b-sep" aria-hidden="true">›</span><button type="button" class="v25b-crumb" data-v25b-room="' + room + '">' + escHtml(b1RoomName(room)) + '</button>';
+  if (here) html += '<span class="v25b-sep" aria-hidden="true">›</span><span class="v25b-here">' + escHtml(clipText(here, 32)) + '</span>';
+  bar.innerHTML = html;
+}
+function b25bTrail(room) {
+  const bar = b5El('nav'); bar.className = 'v25b-trail'; bar.setAttribute('aria-label', 'Bookmark trail');
+  bar.addEventListener('click', (e) => { const b = e.target && e.target.closest ? e.target.closest('.v25b-crumb') : null; if (!b) return; if (b.hasAttribute('data-v25b-home')) switchView('reader'); else { const r = b.getAttribute('data-v25b-room'); if (r) switchView(r); } });
+  return bar;
+}
+function b5bRail(host, room, units, headCls, btnCls) {
+  const rh = b5El('h3'); rh.className = headCls; rh.textContent = 'In this room'; host.appendChild(rh);
+  units.slice(0, 24).forEach((unit, i) => { const h = unitHeadline(room, unit, i); const rb = b1Btn(btnCls, clipText(h.kicker + ' ' + h.en, 24) || ('Item ' + (i + 1))); rb.addEventListener('click', () => scrollToUnit(unit)); host.appendChild(rb); });
+}
+function roomTrailPrevNext(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v25b-app'); if (!made) return;
+  const bar = b25bTrail(room); made.app.appendChild(bar);
+  const head = b5El('header'); head.className = 'v25b-bar'; head.innerHTML = '<strong>Trail + related</strong><span>bottom trail marks where you are</span>';
+  const nav = b5El('nav'); nav.className = 'v25b-nav'; b1RoomButtons(nav, room, 'v25b-navbtn', '', null); head.appendChild(nav); made.app.appendChild(head);
+  const body = b5El('div'); body.className = 'v25b-body';
+  const col = b5El('div'); col.className = 'v25b-col';
+  const rail = b5El('aside'); rail.className = 'v25b-rail'; rail.setAttribute('aria-label', 'Parts in this room');
+  body.append(col, rail); made.app.appendChild(body); col.append(...made.old);
+  const units = roomUnits(col, room);
+  b5bRail(rail, room, units, 'v25b-railhead', 'v25b-railbtn');
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const u = b5El('article'); u.className = 'v25b-unit'; if (unit.parentNode) unit.parentNode.insertBefore(u, unit);
+    const face = b5El('div'); face.className = 'v25b-face'; face.innerHTML = b1Face('v25b-k', 'v25b-zh', h, 'Part ' + (i + 1));
+    const orig = b1Btn('v25b-orig', 'origin');
+    const note = b5El('div'); note.className = 'v25b-ornote'; note.hidden = true; note.appendChild(b4Info('', unitInfoRowsFor(room, unit, i), harvestExtras(unit, room)));
+    orig.addEventListener('click', () => { note.hidden = !note.hidden; orig.setAttribute('aria-expanded', note.hidden ? 'false' : 'true'); });
+    face.appendChild(orig); u.append(face, unit);
+    if (room === 'matrix') {
+      const rows = Array.from(unit.querySelectorAll('.matrix-register-row'));
+      if (rows.length > 1) {
+        const mix = b5El('div'); mix.className = 'v25b-mix';
+        const input = b5El('input'); input.type = 'range'; input.min = '0'; input.max = String(rows.length - 1); input.setAttribute('aria-label', 'Blend the witnesses of this line');
+        const outp = b5El('span'); outp.className = 'v25b-out';
+        const apply = () => { const v = parseInt(input.value, 10) || 0; rows.forEach((r, j) => r.classList.toggle('is-emphasis', j === v)); outp.textContent = (v + 1) + ' of ' + rows.length + ' of the witnesses of this line'; };
+        input.addEventListener('input', apply); mix.append(input, outp); u.appendChild(mix); apply();
+      }
+    }
+    const pn = b5El('div'); pn.className = 'v25b-pnrow';
+    const prev = b1Btn('v25b-pn', '‹ Previous');
+    const next = b1Btn('v25b-pn', 'Next ›');
+    if (i === 0) prev.hidden = true;
+    if (i === units.length - 1) next.hidden = true;
+    const why = b5El('span'); why.className = 'v25b-why'; why.textContent = 'part ' + (i + 1) + ' of ' + units.length + ' · neighbours are the record just before and after';
+    prev.addEventListener('click', () => { scrollToUnit(units[i - 1]); b25bDraw(bar, room, 'Previous part'); });
+    next.addEventListener('click', () => { scrollToUnit(units[i + 1]); b25bDraw(bar, room, 'Next part'); });
+    pn.append(prev, next, why); u.appendChild(pn);
+  });
+  b25bDraw(bar, room, null);
+}
+// == rebuild:26 begin — Batch 5 slot 26: Empty State Guidance; redeclares roomEmptyState ==
+function b26eGuide(room) {
+  const doc = (state.data.corpus || {})[state.currentCorpusKey] || {};
+  const related = room === 'reader' ? relatedTeachersForCorpusKey(state.currentCorpusKey) : [];
+  const answers = [
+    ['What is Chan?', 'Chan (also called Zen) is the school of Buddhism these records come from. Its teaching is carried in short encounters — a teacher asks, a student answers, and the point is met in the moment.'],
+    ['Where do the works come from?', room === 'reader' ? 'This work, ' + escHtml(corpusTitle()) + ', comes from the CBETA digital canon, witness ' + escHtml(stringValue(doc.cbeta_id) || 'not recorded') + '. The project holds an excerpt-scale seed of it; each English line is a separate, marked rendering.' : 'Every work comes from the CBETA digital canon, the standard scholarly digital edition of the Buddhist canon. The project holds excerpt-scale seeds; each English line is a separate, marked rendering.'],
+    ['Who is related?', related.length ? 'Teachers linked here: ' + escHtml(related.map(m => masterDisplayName(m)).join(', ')) + '. The Lineage room holds the full register.' : 'Teachers are profiled in the Lineage room, each with where they came from, who is related, and background.'],
+    ['What is the background?', 'Machine-made drafts are marked as drafts; quoted renderings carry their edition record. The factory is proudly fake, the records are real.']
+  ];
+  const g = b5El('section'); g.className = 'v26e-guide';
+  g.innerHTML = '<p class="v26e-gk">Start with plain words</p><h2 class="v26e-gt">' + escHtml(room === 'reader' ? corpusTitle() : b1RoomName(room)) + '</h2>' + answers.map(a => '<details class="v26e-q"><summary>' + escHtml(a[0]) + '</summary><p>' + a[1] + '</p></details>').join('');
+  return g;
+}
+function roomEmptyState(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v26e-app'); if (!made) return;
+  const lintel = b5El('header'); lintel.className = 'v26e-lintel'; lintel.innerHTML = '<strong>Plain start</strong><span>what it is · where from · who related · background</span>'; made.app.appendChild(lintel);
+  b4NavRow(made.app, room, 'v26e-nav', 'v26e-navbtn');
+  const col = b5El('div'); col.className = 'v26e-col'; made.app.appendChild(col); col.append(...made.old);
+  const units = roomUnits(col, room);
+  const guide = b26eGuide(room); if (units.length) guide.classList.add('is-closed');
+  const tog = b1Btn('v26e-tog', units.length ? 'Hide the guide' : 'Open the guide'); guide.appendChild(tog);
+  tog.addEventListener('click', () => { const closed = guide.classList.toggle('is-closed'); tog.setAttribute('aria-expanded', closed ? 'false' : 'true'); tog.textContent = closed ? 'Open the guide' : 'Hide the guide'; });
+  made.app.insertBefore(guide, col);
+  if (!units.length) { const none = b5El('p'); none.className = 'v26e-none'; none.textContent = room === 'reader' ? 'No work is open yet — pick one from the library above, or read the four plain answers first.' : 'Nothing to show here right now — the guide above says what the room is for.'; col.appendChild(none); return; }
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const u = b5El('article'); u.className = 'v26e-unit'; if (unit.parentNode) unit.parentNode.insertBefore(u, unit);
+    u.appendChild(b4Face('v26e-face', 'v26e-k', 'v26e-zh', h, 'Item ' + (i + 1))); u.appendChild(unit);
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length || harvestExtras(unit, room).length) { const d = b1Fold('v26e-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); u.appendChild(d); }
+  });
+}
+// == rebuild:27 begin — Batch 5 slot 27: Comparison Slider; redeclares roomComparisonSlider ==
+function b27cRight(room, unit, i) {
+  const a = b5El('div'); const b = b5El('div'); a.className = 'v27c-a'; b.className = 'v27c-b';
+  if (room === 'reader') {
+    const zh = queryText(unit, '.classical-zh'); const doc = (state.data.corpus || {})[state.currentCorpusKey] || {}; const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
+    a.innerHTML = zh ? '<blockquote class="v27c-srczh" lang="zh">' + escHtml(zh) + '</blockquote>' : '<p class="v27c-quiet">No Classical Chinese line recorded for this part yet.</p>';
+    b.innerHTML = '<div class="context-info-body">' + infoRows([['Witness', 'CBETA canon witness ' + escHtml(stringValue(doc.cbeta_id) || 'not recorded') + '.'], ['Related', related.length ? 'Teachers linked: ' + escHtml(related.map(m => masterDisplayName(m)).join(', ')) + '.' : 'No profiled teacher linked yet.'], ['Background', 'The Chinese is the source; each English rendering is a separate, marked voice.']]) + '</div>';
+    return [a, b];
+  }
+  const rows = unitInfoRowsFor(room, unit, i);
+  a.innerHTML = '<div class="context-info-body">' + infoRows(rows.slice(0, 2)) + '</div>';
+  b.innerHTML = '<div class="context-info-body">' + infoRows(rows.slice(2)) + '</div>';
+  return [a, b];
+}
+function roomComparisonSlider(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v27c-app'); if (!made) return;
+  const lintel = b5El('header'); lintel.className = 'v27c-lintel'; lintel.innerHTML = '<strong>Witness blend</strong>';
+  const out = b5El('span'); out.className = 'v27c-out'; lintel.appendChild(out); made.app.appendChild(lintel);
+  const ctl = b5El('div'); ctl.className = 'v27c-ctl';
+  const lab = b5El('span'); lab.className = 'v27c-lab'; lab.textContent = room === 'matrix' ? 'Blend the English witnesses' : 'Context level';
+  const input = b5El('input'); input.type = 'range'; input.className = 'v27c-range';
+  ctl.append(lab, input); made.app.appendChild(ctl);
+  b4NavRow(made.app, room, 'v27c-nav', 'v27c-navbtn');
+  const book = b5El('div'); book.className = 'v27c-book'; made.app.appendChild(book); book.append(...made.old);
+  const units = roomUnits(book, room);
+  const matrix = room === 'matrix' ? (Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : []) : [];
+  const maxReg = matrix.reduce((mx, it) => Math.max(mx, it && Array.isArray(it.translators) ? it.translators.length : 0), 1);
+  if (room === 'matrix') { input.min = '0'; input.max = String(Math.max(0, maxReg - 1)); input.value = '0'; }
+  else { input.min = '0'; input.max = '2'; input.value = '1'; book.classList.add('lv1'); }
+  const sheets = [];
+  const apply = () => {
+    const v = parseInt(input.value, 10) || 0;
+    if (room === 'matrix') {
+      sheets.forEach(sh => {
+        let vi = Math.min(v, sh.slts.length - 1); if (vi < 0) vi = 0;
+        sh.slts.forEach(s => s.toggleAttribute('hidden', parseInt(s.getAttribute('data-v27c-i'), 10) !== vi));
+        sh.regs.forEach(r => r.classList.toggle('is-on', parseInt(r.getAttribute('data-v27c-i'), 10) === vi));
+      });
+      out.textContent = 'register ' + (v + 1) + ' of ' + maxReg + ' at the left';
+    } else {
+      book.classList.toggle('lv0', v === 0); book.classList.toggle('lv1', v === 1); book.classList.toggle('lv2', v === 2);
+      out.textContent = v === 0 ? 'English only' : (v === 1 ? 'English + source' : 'English + source + context');
+    }
+  };
+  input.addEventListener('input', apply);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const sheet = b5El('article'); sheet.className = 'v27c-sheet'; if (unit.parentNode) unit.parentNode.insertBefore(sheet, unit);
+    sheet.appendChild(b4Face('v27c-face', 'v27c-k', 'v27c-fzh', h, 'Item ' + (i + 1)));
+    const panes = b5El('div'); panes.className = 'v27c-panes';
+    const left = b5El('div'); const right = b5El('div'); left.className = 'v27c-left'; right.className = 'v27c-right';
+    panes.append(left, right); sheet.appendChild(panes);
+    if (room === 'matrix') {
+      const item = matrix[i]; const regs = item && Array.isArray(item.translators) ? item.translators : [];
+      const host = b5El('div'); host.className = 'v27c-slthost'; left.appendChild(host);
+      const list = b5El('div'); list.className = 'v27c-regs'; right.appendChild(list);
+      const slts = []; const regBtns = [];
+      regs.forEach((t, j) => {
+        const s = b5El('p'); s.className = 'v27c-slt'; s.setAttribute('data-v27c-i', String(j)); s.hidden = j !== 0; s.textContent = stringValue(t.text) || 'No rendering recorded.'; host.appendChild(s); slts.push(s);
+        const r = b5El('button'); r.type = 'button'; r.className = 'v27c-reg' + (j === 0 ? ' is-on' : ''); r.setAttribute('data-v27c-i', String(j));
+        r.innerHTML = '<span class="v27c-regname">' + escHtml(stringValue(t.translator) || 'Unnamed register') + '</span><span class="v27c-regmeta">' + escHtml(stringValue(t.work) || 'work not recorded') + '</span>';
+        r.addEventListener('click', () => { input.value = String(j); apply(); }); list.appendChild(r); regBtns.push(r);
+      });
+      if (!regs.length) { const p = b5El('p'); p.className = 'v27c-quiet'; p.textContent = 'No registers recorded for this line.'; host.appendChild(p); }
+      sheets.push({ slts: slts, regs: regBtns });
+      right.appendChild(unit);
+    } else {
+      left.appendChild(unit); const pair = b27cRight(room, unit, i); right.append(pair[0], pair[1]);
+    }
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length) { const d = b1Fold('v27c-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); sheet.appendChild(d); }
+  });
+  apply();
+}
+// == rebuild:28 begin — Batch 5 slot 28: Inline Teacher Origin; redeclares roomInlineOrigin ==
+function b28oOrigin(m) {
+  const d = b5El('button'); d.type = 'button'; d.className = 'v28o-origin';
+  const era = [stringValue(m.dates), stringValue(m.era)].filter(Boolean).join(' · ') || 'era not recorded';
+  d.innerHTML = '<span class="v28o-name">' + escHtml(masterDisplayName(m)) + (m.name_zh ? ' <span class="v28o-mzh" lang="zh">' + escHtml(m.name_zh) + '</span>' : '') + '</span><span class="v28o-era">' + escHtml(era) + '</span><span class="v28o-originbody"><span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span></span>';
+  d.addEventListener('click', () => d.classList.toggle('is-pinned'));
+  return d;
+}
+function roomInlineOrigin(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v28o-app'); if (!made) return;
+  const rail = b5El('aside'); rail.className = 'v28o-rail'; rail.setAttribute('aria-label', 'Rooms and teacher origin');
+  rail.innerHTML = '<h2 class="v28o-brand">Teacher origin</h2><p class="v28o-note">name and era stay inline · hover or tap to expand origin</p>';
+  const nav = b5El('nav'); nav.className = 'v28o-nav'; b1RoomButtons(nav, room, 'v28o-navbtn', '', null); rail.appendChild(nav);
+  const main = b5El('div'); main.className = 'v28o-main'; made.app.append(rail, main); main.append(...made.old);
+  const lead = b5El('section'); lead.className = 'v28o-lead'; lead.innerHTML = '<p class="v28o-kick">Teacher first</p>';
+  const lineage = Array.isArray(state.data.lineage) ? state.data.lineage : [];
+  let cards = 0;
+  if (room === 'reader') relatedTeachersForCorpusKey(state.currentCorpusKey).slice(0, 4).forEach(m => { lead.appendChild(b28oOrigin(m)); cards++; });
+  else if (room === 'lineage') lineage.slice(0, 4).forEach(m => { lead.appendChild(b28oOrigin(m)); cards++; });
+  if (!cards) { const p = b5El('p'); p.className = 'v28o-none'; p.textContent = room === 'reader' ? 'No profiled teacher is linked to this work yet — the rooms below still carry where the record came from.' : 'Teacher origin leads every room; the Lineage room carries the full register.'; lead.appendChild(p); }
+  main.insertBefore(lead, main.firstChild);
+  const units = roomUnits(main, room);
+  const railList = b5El('div'); railList.className = 'v28o-teacherlist';
+  if (room === 'lineage' && units.length) units.slice(0, 6).forEach((unit, i) => { const b = b1Btn('v28o-railbtn', clipText(unitHeadline(room, unit, i).en || 'Teacher ' + (i + 1), 24)); b.addEventListener('click', () => scrollToUnit(unit)); railList.appendChild(b); });
+  else { const p = b5El('p'); p.className = 'v28o-railnote'; p.textContent = room === 'reader' ? 'The teachers above open on hover; the reading continues below.' : 'The origin block above leads this room.'; railList.appendChild(p); }
+  rail.appendChild(railList);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const u = b5El('article'); u.className = 'v28o-unit'; if (unit.parentNode) unit.parentNode.insertBefore(u, unit);
+    u.appendChild(b4Face('v28o-face', 'v28o-k', 'v28o-fzh', h, 'Item ' + (i + 1))); u.appendChild(unit);
+    if (room === 'lineage') {
+      const nameEl = unit.querySelector('.lineage-master-name-en');
+      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
+      const m = lineage.find(x => x && x.id === idm);
+      if (nameEl && nameEl.parentNode && m) {
+        const chip = b5El('button'); chip.type = 'button'; chip.className = 'v28o-chip';
+        const pop = b5El('span'); pop.className = 'v28o-pop'; pop.innerHTML = '<span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span>';
+        chip.appendChild(pop); nameEl.parentNode.insertBefore(chip, nameEl); chip.appendChild(nameEl);
+        chip.addEventListener('click', () => chip.classList.toggle('is-pinned'));
+      }
+    }
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length) { const d = b1Fold('v28o-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); u.appendChild(d); }
+  });
+}
+// == rebuild:29 begin — Batch 5 slot 29: Minimal Header + Full-Bleed; redeclares roomFullBleed ==
+function roomFullBleed(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v29f-app'); if (!made) return;
+  const head = b5El('header'); head.className = 'v29f-head';
+  const hin = b5El('div'); hin.className = 'v29f-headin'; hin.innerHTML = '<strong>Full-bleed reader</strong>';
+  const nav = b5El('nav'); nav.className = 'v29f-nav'; b1RoomButtons(nav, room, 'v29f-navbtn', '', null);
+  hin.appendChild(nav); head.appendChild(hin); made.app.appendChild(head);
+  const body = b5El('div'); body.className = 'v29f-body';
+  const col = b5El('div'); col.className = 'v29f-col';
+  const rail = b5El('aside'); rail.className = 'v29f-rail'; rail.setAttribute('aria-label', 'Parts in this room');
+  body.append(col, rail); made.app.appendChild(body); col.append(...made.old);
+  const units = roomUnits(col, room);
+  b5bRail(rail, room, units, 'v29f-railhead', 'v29f-railbtn');
+  units.forEach((unit, i) => {
+    const band = b5El('section'); band.className = 'v29f-band';
+    const bandin = b5El('div'); bandin.className = 'v29f-bandin';
+    if (unit.parentNode) unit.parentNode.insertBefore(band, unit);
+    band.appendChild(bandin); bandin.appendChild(unit);
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length || harvestExtras(unit, room).length) { const d = b1Fold('v29f-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); bandin.appendChild(d); }
+  });
+}
+// == rebuild:30 begin — Batch 5 slot 30: Magazine Spread; redeclares roomMagazine ==
+function roomMagazine(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v30m-app'); if (!made) return;
+  const lintel = b5El('header'); lintel.className = 'v30m-lintel'; lintel.innerHTML = '<strong>Magazine spread</strong><span>English left · context right</span>'; made.app.appendChild(lintel);
+  b4NavRow(made.app, room, 'v30m-nav', 'v30m-navbtn');
+  const doc = room === 'reader' ? (state.data.corpus || {})[state.currentCorpusKey] || {} : null;
+  const rzh = (b1RoomList().find(x => x[0] === room) || [])[2] || '';
+  const zhLine = (room === 'reader' && doc.title_zh) || rzh;
+  const mast = b5El('section'); mast.className = 'v30m-mast';
+  mast.innerHTML = '<p class="v30m-mk">' + (room === 'reader' ? 'The work, in spread form' : 'Room in spread form') + '</p><h2 class="v30m-mt">' + escHtml(room === 'reader' ? corpusTitle() : b1RoomName(room)) + '</h2>' + (zhLine ? '<p class="v30m-mzh" lang="zh">' + escHtml(zhLine) + '</p>' : '');
+  made.app.appendChild(mast);
+  const spread = b5El('div'); spread.className = 'v30m-spread';
+  const story = b5El('div'); story.className = 'v30m-story';
+  const margin = b5El('aside'); margin.className = 'v30m-margin'; margin.setAttribute('aria-label', 'Context margin');
+  const mctx = b1Fold('v30m-ctx', 'About this room — where from · related · background');
+  const mbody = b5El('div'); mbody.className = 'v30m-ctxbody'; mbody.innerHTML = room === 'reader' ? readerInfoStackHtml() : infoRows(roomInfoRowsFor(room));
+  mctx.appendChild(mbody); margin.appendChild(mctx); spread.append(story, margin); made.app.appendChild(spread); story.append(...made.old);
+  const units = roomUnits(story, room);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const pg = b5El('article'); pg.className = 'v30m-pg'; if (unit.parentNode) unit.parentNode.insertBefore(pg, unit); pg.appendChild(unit);
+    if (i === 0) { const prose = unit.querySelector('.translation-text, .prose-en, .matrix-register-text'); if (prose) prose.classList.add('v30m-drop'); }
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length || harvestExtras(unit, room).length) { const d = b1Fold('v30m-note', (h.kicker || 'Item ' + (i + 1)) + ' · where from · related · background'); const nb = b5El('div'); nb.className = 'v30m-notebody'; nb.appendChild(b4Info('', rows, harvestExtras(unit, room))); d.appendChild(nb); margin.appendChild(d); }
+  });
+}
+// == rebuild:30 end == // == rebuild:29 end == // == rebuild:28 end == // == rebuild:27 end == // == rebuild:26 end == // == rebuild:25 end ==
 
 })();
