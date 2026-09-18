@@ -624,12 +624,23 @@
     { key: '22', label: '22', name: 'Teacher dossier page' },
     { key: '23', label: '23', name: 'Two-step reader' },
     { key: '24', label: '24', name: 'Command palette (cmd+k)' },
-    { key: '25', label: '25', name: 'Trail + prev/next + slider + inline origin' }
+    { key: '25', label: '25', name: 'Trail + prev/next + slider + inline origin' },
+    { key: '26', label: '26', name: 'Empty state guidance' },
+    { key: '27', label: '27', name: 'Comparison slider' },
+    { key: '28', label: '28', name: 'Inline teacher origin' },
+    { key: '29', label: '29', name: 'Minimal header + full-bleed reading' },
+    { key: '30', label: '30', name: 'Magazine spread' },
+    { key: '31', label: '31', name: 'Card wall' },
+    { key: '32', label: '32', name: 'Vertical timeline' },
+    { key: '33', label: '33', name: 'Split with resizable context drawer' },
+    { key: '34', label: '34', name: 'Glossary sidebar + footnotes' },
+    { key: '35', label: '35', name: 'Focus + TOC hybrid' }
   ];
 
   function applyDesignVariant(variant) {
     if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
-      '16', '17', '18', '19', '20', '21', '22', '23', '24', '25'].includes(variant)) variant = '1';
+      '16', '17', '18', '19', '20', '21', '22', '23', '24', '25',
+      '26', '27', '28', '29', '30', '31', '32', '33', '34', '35'].includes(variant)) variant = '1';
     state.designVariant = variant;
     document.documentElement.setAttribute('data-design', variant);
     storageSet('translatechan_design_variant', variant);
@@ -751,7 +762,8 @@
   }
 
   const DRASTIC_LAYOUTS = ['3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
-    '16', '17', '18', '19', '20', '21', '22', '23', '24', '25'];
+    '16', '17', '18', '19', '20', '21', '22', '23', '24', '25',
+    '26', '27', '28', '29', '30', '31', '32', '33', '34', '35'];
 
   function roomRoot(room) {
     if (room === 'reader') return elements.readerContent;
@@ -778,7 +790,9 @@
     'rm-accordion', 'rm-progressive', 'rm-tabbed', 'rm-modal', 'rm-hovercards',
     'rm-sheet', 'rm-toc', 'rm-searchfirst', 'rm-questions', 'rm-sidebyside', 'rm-rail', 'rm-notes',
     'rm-reveal', 'rm-modalinfo', 'rm-hovercard', 'rm-sentence', 'rm-chunks', 'rm-workdossier',
-    'rm-teacherdossier', 'rm-twostep', 'rm-palette', 'rm-trail'];
+    'rm-teacherdossier', 'rm-twostep', 'rm-palette', 'rm-trail',
+    'rm-emptystate', 'rm-cmpslider', 'rm-inlineorigin', 'rm-fullbleed', 'rm-magazine',
+    'rm-cardwall', 'rm-vtimeline', 'rm-splitresize', 'rm-glossbar', 'rm-hybrid'];
 
   function clearRoomLayoutClasses(root) {
     if (!root || !root.classList) return;
@@ -1051,6 +1065,17 @@
     else if (v === '23') roomTwoStep(room, root);
     else if (v === '24') roomCommandPalette(room, root);
     else if (v === '25') roomTrailPrevNext(room, root);
+    // 26-35: the final usable hand-pick batch before review (more examples).
+    else if (v === '26') roomEmptyState(room, root);
+    else if (v === '27') roomComparisonSlider(room, root);
+    else if (v === '28') roomInlineOrigin(room, root);
+    else if (v === '29') roomFullBleed(room, root);
+    else if (v === '30') roomMagazine(room, root);
+    else if (v === '31') roomCardWall(room, root);
+    else if (v === '32') roomVerticalTimeline(room, root);
+    else if (v === '33') roomSplitResizable(room, root);
+    else if (v === '34') roomGlossaryBar(room, root);
+    else if (v === '35') roomFocusTocHybrid(room, root);
   }
 
   // Tear down layout-6 drawer chrome that lives outside room roots.
@@ -3404,12 +3429,15 @@
   // teardownLayout16Chrome() the moment the layout is left.
   // ==========================================================================
 
-  // Document-level chrome handles for 16–25 (cleared by teardownLayout16Chrome).
+  // Document-level chrome handles for 16–35 (cleared by teardownLayout16Chrome).
+  // Layouts 26–35 keep their chrome inside the room root, except layout 35's
+  // hybrid progress rail, which needs one window scroll listener like 16.
   let layout16ScrollHandler = null;
   let cmdKeyHandler = null;
   let layout25Trail = [];
+  let layout35ScrollHandler = null;
 
-  // Remove every piece of document-level chrome 16–25 can create, plus their
+  // Remove every piece of document-level chrome 16–35 can create, plus their
   // window/document listeners, so none of it survives into the next layout.
   function teardownLayout16Chrome() {
     if (typeof document !== 'undefined' && document.getElementById) {
@@ -3425,6 +3453,10 @@
     if (cmdKeyHandler) {
       document.removeEventListener('keydown', cmdKeyHandler);
       cmdKeyHandler = null;
+    }
+    if (layout35ScrollHandler) {
+      window.removeEventListener('scroll', layout35ScrollHandler);
+      layout35ScrollHandler = null;
     }
     layout25Trail = [];
   }
@@ -4345,6 +4377,1033 @@
     dos.setAttribute('role', 'tooltip');
     dos.innerHTML = '<span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span>';
     anchor.appendChild(dos);
+  }
+
+  // ==========================================================================
+  // Phase 5 — LAYOUTS 26–35 · FINAL BATCH BEFORE REVIEW (2026-09-18)
+  // --------------------------------------------------------------------------
+  // Owner: "26-35 yes" — ten MORE usable examples before the review, each one
+  // a complete alternative rendering of all five rooms with hand-pickable
+  // elements for a targeted page build later:
+  //   26 Empty State Guidance — a plain-language guide that is the whole page
+  //      when a room is empty and a small banner once a work is open;
+  //   27 Comparison Slider — one slider per unit blends between witnesses, or
+  //      between English-first and source-first, with a live readout;
+  //   28 Inline Teacher Origin — names stay minimal (name + era); hover, focus
+  //      or tap expands where they come from, who is related and background;
+  //   29 Minimal Header + Full-Bleed — a 2rem shell, nav and filter as top
+  //      bars, and a full-bleed page with a calm 42rem reading column;
+  //   30 Magazine Spread — each unit is a two-column spread: English with a
+  //      drop cap on the left, source and background on the right;
+  //   31 Card Wall — the room is a masonry wall of cards; each card opens its
+  //      full detail in place;
+  //   32 Vertical Timeline — gold dots on a left rail, content cards right,
+  //      chronological piece by piece;
+  //   33 Split Resizable — 60% English reader left, 40% context drawer right,
+  //      with a draggable handle (30–70%) plus an accessible slider;
+  //   34 Glossary Sidebar + Footnotes — a 14rem plain-language glossary left,
+  //      the reading in the centre, numbered notes in a 14rem rail right;
+  //   35 Focus + TOC Hybrid — a 40rem centred column with a 10rem mini-TOC
+  //      left and a 10rem progress + trail + related rail right.
+  //
+  // Every one of them keeps the walnut shell and the room nav VISIBLE, leaves
+  // the room's own filter reachable, shows English first with the Chinese one
+  // intentional step away, and carries a plain-language info section for the
+  // work, teacher, case or term in view (where it came from · what or who is
+  // related · background). Layout 1's colours are untouched — structure only,
+  // scoped by data-design.
+  //
+  // Zero inline styles, zero new .style writes — the four CSSOM
+  // custom-property writes elsewhere stay exactly four. Class toggles, the
+  // hidden attribute, native <details>, <progress> and <input type=range>
+  // .value writes, and data-* attributes only. Layout 35's rail progress is
+  // the only window listener, removed by teardownLayout16Chrome.
+  // ==========================================================================
+
+  // ==========================================================================
+  // LAYOUT 26 · EMPTY STATE GUIDANCE — when a room has nothing to show (no
+  // work picked, a filter with no hits), the page is a plain-language guide:
+  // what Chan is, where the works come from, who is related, background —
+  // one expandable answer at a time. Once content exists the guide collapses
+  // to a small banner and the room reads English first. Nav + filter visible.
+  // ==========================================================================
+  function roomEmptyState(room, root) {
+    root.classList.add('rm-emptystate');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    const units = roomUnitsIn(root, room);
+    if (!root.querySelector(':scope > .es-guide')) {
+      root.insertBefore(buildEmptyGuide(room, units.length), root.firstChild);
+    }
+    units.forEach((unit, i) => {
+      if (unit.dataset.esReady === '1') return;
+      unit.dataset.esReady = '1';
+      unit.classList.add('es-unit');
+      unit.appendChild(unitDetails(room, unit, i));
+    });
+    if (!root.querySelector(':scope > .rm-emptystate-note')) {
+      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
+      note.classList.add('rm-emptystate-note');
+      root.appendChild(note);
+    }
+  }
+
+  // Data-derived counts for the guide, so the numbers are never invented.
+  function guideCounts() {
+    const corpus = state.data.corpus || {};
+    return {
+      works: Object.keys(corpus).length,
+      teachers: Array.isArray(state.data.lineage) ? state.data.lineage.length : 0,
+      cases: Array.isArray(state.data.gongan_index) ? state.data.gongan_index.length : 0,
+      terms: Array.isArray(state.data.glossary) ? state.data.glossary.length : 0,
+      lines: Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix.length : 0
+    };
+  }
+
+  function buildEmptyGuide(room, unitCount) {
+    const c = guideCounts();
+    const empty = unitCount === 0;
+    const sec = document.createElement('section');
+    sec.className = 'es-guide empty-state' + (empty ? ' is-empty' : ' is-banner');
+    sec.setAttribute('aria-label', 'A short guide for new readers');
+    const head = document.createElement('div');
+    head.className = 'es-head';
+    head.innerHTML =
+      '<span class="rm-acc-kicker">Start here</span>' +
+      '<h2 class="es-title">New to these texts? Read this first.</h2>' +
+      '<p class="es-lead">Four short answers in plain language. Open one at a time — ' +
+      'the ' + escHtml(ROOM_LABEL[room] || 'room') + ' room is right below, English first.</p>';
+    sec.appendChild(head);
+    const toggle = toggleButton(
+      empty ? 'Hide the guide' : 'Show the 2-minute guide',
+      'btn-pill es-toggle'
+    );
+    toggle.setAttribute('aria-controls', 'es-parts-' + room);
+    head.appendChild(toggle);
+    const parts = document.createElement('div');
+    parts.className = 'es-parts';
+    parts.id = 'es-parts-' + room;
+    if (!empty) parts.setAttribute('hidden', '');
+    else toggle.setAttribute('aria-expanded', 'true');
+    emptyGuideParts(room, c).forEach((p, i) => {
+      const det = document.createElement('details');
+      det.className = 'es-part';
+      if (empty && i === 0) det.setAttribute('open', '');
+      const sum = document.createElement('summary');
+      sum.textContent = p[0];
+      det.appendChild(sum);
+      const body = document.createElement('div');
+      body.className = 'es-answer';
+      const para = document.createElement('p');
+      para.textContent = p[1];
+      body.appendChild(para);
+      det.appendChild(body);
+      parts.appendChild(det);
+    });
+    sec.appendChild(parts);
+    toggle.addEventListener('click', () => {
+      const open = parts.hasAttribute('hidden');
+      if (open) parts.removeAttribute('hidden');
+      else parts.setAttribute('hidden', '');
+      sec.classList.toggle('is-open', open);
+      setToggleState(toggle, open, 'Hide the guide', 'Show the 2-minute guide');
+    });
+    if (empty) sec.classList.add('is-open');
+    return sec;
+  }
+
+  // The four plain-language answers. Counts come from the bundle; the lineage
+  // answer names the related teachers of the open work where there are any.
+  function emptyGuideParts(room, c) {
+    let who = 'This project profiles ' + c.teachers + ' teachers in the Lineage room. ' +
+      'Each teacher links back to the works they appear in, forward to their disciples, ' +
+      'and carries a short background in plain language.';
+    if (room === 'reader') {
+      const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
+      if (related.length) {
+        who = 'The open work is linked to ' + related.length + ' profiled teacher' +
+          (related.length === 1 ? '' : 's') + ': ' +
+          related.map(m => masterDisplayName(m)).join(', ') + '. ' +
+          'Each one has an info fold with where they came from, who they are related to, and background.';
+      } else {
+        who = 'The open work is not linked to a profiled teacher yet. The project profiles ' +
+          c.teachers + ' teachers in the Lineage room, and every linked work names them.';
+      }
+    }
+    return [
+      ['What is Chan?',
+        'Chan — Zen in Japanese — is a school of Chinese Buddhism known for short, sharp ' +
+        'dialogues between teachers and students. This site collects old Chan texts in English ' +
+        'translation, always next to the Chinese source they came from. Start with the English; ' +
+        'open the Chinese when you are curious.'],
+      ['Where do these works come from?',
+        'From the Chinese Buddhist canon, CBETA edition. This project currently holds ' +
+        c.works + ' works, ' + c.lines + ' compared lines, ' + c.cases + ' indexed cases and ' +
+        c.terms + ' glossary terms. Every English line says who made it: a quoted edition, ' +
+        'or a machine-made draft that is clearly labelled as one.'],
+      ['Who is related?', who],
+      ['What is the background?',
+        'These texts were written in Classical Chinese over many centuries, then copied, ' +
+        'printed and commented on. Each part here carries an info fold — where it came from, ' +
+        'what or who is related, and background — so nothing arrives without context. ' +
+        'Read piece by piece; there is no need to finish anything.']
+    ];
+  }
+
+  // ==========================================================================
+  // LAYOUT 27 · COMPARISON SLIDER — one slider per unit. In Compare it walks
+  // the witness registers and emphasises one at a time; in the other rooms it
+  // blends between English-first and source-first in three labelled steps with
+  // a live readout. Nothing is removed — the slider only shifts emphasis — and
+  // the plain-language context sits one toggle away. Nav + filter visible.
+  // ==========================================================================
+  const MIX_STEPS = {
+    reader: {
+      label: 'English to source', aria: 'Blend between English reading and Chinese source',
+      keys: ['mix-en', 'mix-mid', 'mix-src'],
+      readouts: ['English first — source quiet', 'Balanced — English with source', 'Source emphasised']
+    },
+    lineage: {
+      label: 'Name to record', aria: 'Blend between name only and the full teacher record',
+      keys: ['mix-en', 'mix-mid', 'mix-src'],
+      readouts: ['Name and era only', 'Name with record', 'Full record with quote']
+    },
+    gongan: {
+      label: 'Title to detail', aria: 'Blend between case title and full case detail',
+      keys: ['mix-en', 'mix-mid', 'mix-src'],
+      readouts: ['Title only', 'Title with theme', 'Full detail with locator']
+    },
+    lexicon: {
+      label: 'Word to entry', aria: 'Blend between headword and the full dictionary entry',
+      keys: ['mix-en', 'mix-mid', 'mix-src'],
+      readouts: ['Headword only', 'Headword with definition', 'Full entry with occurrences']
+    }
+  };
+
+  function roomComparisonSlider(room, root) {
+    root.classList.add('rm-cmpslider');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    const units = roomUnitsIn(root, room);
+    units.forEach((unit, i) => addCompareSlider27(unit, room, i));
+    if (!root.querySelector(':scope > .rm-cmpslider-note')) {
+      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
+      note.classList.add('rm-cmpslider-note');
+      root.appendChild(note);
+    }
+  }
+
+  function addCompareSlider27(unit, room, idx) {
+    if (!unit || unit.dataset.cmpReady === '1') return;
+    unit.dataset.cmpReady = '1';
+    unit.classList.add('cmp-unit');
+    unit.appendChild(unitDetails(room, unit, idx));
+    const ctl = document.createElement('div');
+    ctl.className = 'comparison-slider';
+    const lbl = document.createElement('span');
+    lbl.className = 'cs27-label';
+    const input = document.createElement('input');
+    input.type = 'range';
+    input.className = 'cs27-range';
+    const out = document.createElement('span');
+    out.className = 'cs27-out';
+    out.setAttribute('aria-live', 'polite');
+    if (room === 'matrix') {
+      const rows = Array.from(unit.querySelectorAll('.matrix-register-row'));
+      if (rows.length < 2) return;
+      lbl.textContent = 'Compare witnesses';
+      input.min = '0';
+      input.max = String(rows.length - 1);
+      input.value = '0';
+      input.setAttribute('aria-label', 'Emphasise one rendering of this line');
+      const apply = () => {
+        const v = parseInt(input.value, 10) || 0;
+        rows.forEach((r, i) => {
+          r.classList.toggle('is-emphasis', i === v);
+          r.classList.toggle('is-dim', i !== v);
+        });
+        out.textContent = (v + 1) + ' of ' + rows.length + ' · ' +
+          (queryText(rows[v], '.matrix-register-name') || 'register');
+      };
+      input.addEventListener('input', apply);
+      apply();
+    } else {
+      const steps = MIX_STEPS[room] || MIX_STEPS.reader;
+      lbl.textContent = steps.label;
+      input.min = '0';
+      input.max = '2';
+      input.value = '0';
+      input.setAttribute('aria-label', steps.aria);
+      const apply = () => {
+        const raw = parseInt(input.value, 10);
+        const v = Math.max(0, Math.min(2, isNaN(raw) ? 0 : raw));
+        unit.dataset.mix = steps.keys[v];
+        out.textContent = steps.readouts[v];
+      };
+      input.addEventListener('input', apply);
+      unit.dataset.mix = steps.keys[0];
+      out.textContent = steps.readouts[0];
+    }
+    ctl.appendChild(lbl);
+    ctl.appendChild(input);
+    ctl.appendChild(out);
+    unit.appendChild(ctl);
+  }
+
+  // ==========================================================================
+  // LAYOUT 28 · INLINE TEACHER ORIGIN — every row stays minimal: a name, an
+  // era, a quiet dotted underline. Hover, focus or tap expands an inline
+  // drawer with where they come from, who is related, background, and related
+  // works. Other rooms get the same drawer on their own anchors (work, line,
+  // case, term). Nav + filter visible.
+  // ==========================================================================
+  function roomInlineOrigin(room, root) {
+    root.classList.add('rm-inlineorigin');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    const units = roomUnitsIn(root, room);
+    if (room === 'lineage') {
+      units.forEach(unit => {
+        if (!unit || unit.dataset.ioReady === '1') return;
+        const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
+        const m = (state.data.lineage || []).find(x => x && x.id === id);
+        if (!m) return;
+        unit.dataset.ioReady = '1';
+        unit.classList.add('origin-row');
+        const anchor = unit.querySelector('.lineage-master-name-en') || unit;
+        anchor.classList.add('origin-anchor');
+        anchor.setAttribute('tabindex', '0');
+        anchor.setAttribute('aria-expanded', 'false');
+        const drawer = document.createElement('span');
+        drawer.className = 'inline-drawer';
+        drawer.setAttribute('role', 'tooltip');
+        drawer.innerHTML = '<span class="od-title">Where ' + escHtml(masterDisplayName(m)) + ' comes from</span>' +
+          '<span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span>';
+        const works = Array.isArray(m.linked_corpus_keys)
+          ? m.linked_corpus_keys.filter(k => state.data.corpus && state.data.corpus[k])
+          : [];
+        if (works.length) {
+          const wb = document.createElement('span');
+          wb.className = 'od-works';
+          works.forEach(k => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'btn-pill od-work';
+            b.textContent = stringValue(state.data.corpus[k].title_en) || k;
+            b.addEventListener('click', (e) => { e.stopPropagation(); openCorpusDoc(k); });
+            wb.appendChild(b);
+          });
+          drawer.appendChild(wb);
+        }
+        anchor.appendChild(drawer);
+        armInlineDrawer(anchor);
+      });
+    } else if (room === 'reader') {
+      const teachers = relatedTeachersForCorpusKey(state.currentCorpusKey).slice(0, 3);
+      units.forEach((unit, i) => {
+        if (!unit || unit.dataset.ioReady === '1') return;
+        unit.dataset.ioReady = '1';
+        unit.classList.add('origin-unit');
+        const holder = document.createElement('div');
+        holder.className = 'origin-holders';
+        if (teachers.length) {
+          teachers.forEach(m => {
+            holder.appendChild(inlineTeacherChip(m));
+          });
+        } else {
+          const chip = document.createElement('span');
+          chip.className = 'origin-anchor origin-chip';
+          chip.tabIndex = 0;
+          chip.setAttribute('aria-expanded', 'false');
+          chip.innerHTML = '<span class="origin-chip-label">About this work</span>' +
+            '<span class="inline-drawer" role="tooltip"><span class="context-info-body">' +
+            infoRows(roomInfoRowsFor('reader')) + '</span></span>';
+          armInlineDrawer(chip);
+          holder.appendChild(chip);
+        }
+        unit.appendChild(holder);
+        unit.appendChild(unitDetails(room, unit, i));
+      });
+    } else {
+      units.forEach((unit, i) => {
+        if (!unit || unit.dataset.ioReady === '1') return;
+        unit.dataset.ioReady = '1';
+        unit.classList.add('origin-unit');
+        const h = unitHeadline(room, unit, i);
+        const chip = document.createElement('span');
+        chip.className = 'origin-anchor origin-chip';
+        chip.tabIndex = 0;
+        chip.setAttribute('aria-expanded', 'false');
+        const label = room === 'matrix' ? 'Line origin'
+          : room === 'gongan' ? 'Case origin' : 'Term origin';
+        chip.innerHTML = '<span class="origin-chip-label">' + escHtml(label) + '</span>' +
+          '<span class="inline-drawer" role="tooltip">' +
+          '<span class="od-title">' + escHtml(clipText(h.en || 'Untitled', 60)) + '</span>' +
+          '<span class="context-info-body">' + infoRows(unitInfoRowsFor(room, unit, i)) + '</span></span>';
+        armInlineDrawer(chip);
+        const anchor = headlineAnchor(room, unit);
+        if (anchor && anchor.parentNode && anchor !== unit) anchor.appendChild(chip);
+        else unit.insertBefore(chip, unit.firstChild);
+      });
+    }
+    if (!root.querySelector(':scope > .rm-inlineorigin-note')) {
+      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
+      note.classList.add('rm-inlineorigin-note');
+      root.appendChild(note);
+    }
+  }
+
+  // One teacher chip for the Reader: the teacher's name with an origin drawer.
+  function inlineTeacherChip(m) {
+    const chip = document.createElement('span');
+    chip.className = 'origin-anchor origin-chip';
+    chip.tabIndex = 0;
+    chip.setAttribute('aria-expanded', 'false');
+    chip.innerHTML = '<span class="origin-chip-label">' + escHtml(masterDisplayName(m)) + '</span>' +
+      '<span class="inline-drawer" role="tooltip">' +
+      '<span class="od-title">Where ' + escHtml(masterDisplayName(m)) + ' comes from</span>' +
+      '<span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span></span>';
+    armInlineDrawer(chip);
+    return chip;
+  }
+
+  // Hover and focus are handled by CSS; click and Enter/Space toggle .is-open
+  // so touch and keyboard users get the same drawer.
+  function armInlineDrawer(anchor) {
+    if (!anchor || anchor.dataset.armed === '1') return;
+    anchor.dataset.armed = '1';
+    anchor.addEventListener('click', (e) => {
+      if (e.target && e.target.closest && e.target.closest('.od-work')) return;
+      const open = !anchor.classList.contains('is-open');
+      anchor.classList.toggle('is-open', open);
+      anchor.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    anchor.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        if (e.target !== anchor) return;
+        e.preventDefault();
+        const open = !anchor.classList.contains('is-open');
+        anchor.classList.toggle('is-open', open);
+        anchor.setAttribute('aria-expanded', open ? 'true' : 'false');
+      } else if (e.key === 'Escape') {
+        anchor.classList.remove('is-open');
+        anchor.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // ==========================================================================
+  // LAYOUT 29 · MINIMAL HEADER + FULL-BLEED READING — the shell shrinks to a
+  // 2rem strip, the room nav and the filter become quiet top bars, and the
+  // page goes full-bleed with a calm centred 42rem reading column. More usable
+  // than the plain focus column because nothing is hidden: nav, filter and
+  // info folds are all one glance away.
+  // ==========================================================================
+  function roomFullBleed(room, root) {
+    root.classList.add('rm-fullbleed');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    const units = roomUnitsIn(root, room);
+    if (!root.querySelector(':scope > .fb-lead')) {
+      const lead = document.createElement('div');
+      lead.className = 'fb-lead';
+      lead.innerHTML = '<span class="rm-acc-kicker">' + escHtml(ROOM_LABEL[room] || 'Room') + '</span>' +
+        '<p class="fb-lead-text">' + units.length + ' ' + escHtml(ROOM_NOUN_PLURAL[room] || 'items') +
+        ' · English first · source and background one toggle away.</p>';
+      root.insertBefore(lead, root.firstChild);
+    }
+    units.forEach((unit, i) => {
+      if (unit.dataset.fbReady === '1') return;
+      unit.dataset.fbReady = '1';
+      unit.classList.add('fb-unit');
+      unit.appendChild(unitDetails(room, unit, i));
+    });
+    if (!root.querySelector(':scope > .rm-fullbleed-note')) {
+      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
+      note.classList.add('rm-fullbleed-note');
+      root.appendChild(note);
+    }
+  }
+
+  // ==========================================================================
+  // LAYOUT 30 · MAGAZINE SPREAD — each unit is a two-column magazine spread:
+  // the English reading on the left with a drop cap, the source Chinese plus
+  // the plain-language background on the right. A folio line counts the unit
+  // within the room. Nav + filter visible.
+  // ==========================================================================
+  function roomMagazine(room, root) {
+    root.classList.add('rm-magazine');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    const units = roomUnitsIn(root, room);
+    units.forEach((unit, i) => {
+      if (unit.dataset.magReady === '1') return;
+      unit.dataset.magReady = '1';
+      unit.classList.add('mag-unit');
+      const rows = unitInfoRowsFor(room, unit, i);
+      const folio = document.createElement('div');
+      folio.className = 'mag-folio';
+      folio.innerHTML = '<span class="mag-room">' + escHtml(ROOM_LABEL[room] || 'Room') + '</span>' +
+        '<span class="mag-rule" aria-hidden="true"></span>' +
+        '<span class="mag-count">' + (i + 1) + ' of ' + units.length + '</span>';
+      const spread = document.createElement('div');
+      spread.className = 'mag-spread';
+      const left = document.createElement('div');
+      left.className = 'mag-left';
+      const right = document.createElement('aside');
+      right.className = 'mag-right';
+      right.setAttribute('aria-label', 'Source and background');
+      while (unit.firstChild) left.appendChild(unit.firstChild);
+      const drop = left.querySelector('.translation-text, .prose-en, .matrix-register-text, ' +
+        '.lexicon-entry-def, .catalogue-detail, .lineage-master-quote');
+      if (drop) drop.classList.add('mag-dropcap');
+      harvestExtras(left, room).forEach(n => right.appendChild(n));
+      if (rows.length) {
+        const info = document.createElement('div');
+        info.className = 'mag-context';
+        info.innerHTML = '<h3 class="mag-context-title">Where from · related · background</h3>' +
+          '<div class="context-info-body">' + infoRows(rows) + '</div>';
+        right.appendChild(info);
+      }
+      if (!right.childNodes.length) {
+        const p = document.createElement('p');
+        p.className = 'rm-quiet';
+        p.textContent = 'No source or background recorded for this ' + (ROOM_NOUN[room] || 'unit') + ' yet.';
+        right.appendChild(p);
+      }
+      spread.appendChild(left);
+      spread.appendChild(right);
+      unit.appendChild(folio);
+      unit.appendChild(spread);
+    });
+    if (!root.querySelector(':scope > .rm-magazine-note')) {
+      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
+      note.classList.add('rm-magazine-note');
+      root.appendChild(note);
+    }
+  }
+
+  // ==========================================================================
+  // LAYOUT 31 · CARD WALL — the room is a masonry wall of cards (18rem
+  // minimum). Each card shows its English headline first; opening it expands
+  // the full detail plus the plain-language context in place. Nav + filter
+  // visible above the wall.
+  // ==========================================================================
+  function roomCardWall(room, root) {
+    root.classList.add('rm-cardwall');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    const units = roomUnitsIn(root, room);
+    units.forEach((unit, i) => {
+      if (unit.dataset.cwReady === '1') return;
+      unit.dataset.cwReady = '1';
+      const h = unitHeadline(room, unit, i);
+      const det = unitDetails(room, unit, i);
+      unit.classList.add('card-wall-card');
+      const detail = document.createElement('div');
+      detail.className = 'cw-detail';
+      detail.id = 'rm-cw-detail-' + room + '-' + i;
+      detail.setAttribute('hidden', '');
+      while (unit.firstChild) detail.appendChild(unit.firstChild);
+      detail.appendChild(det);
+      const head = document.createElement('button');
+      head.type = 'button';
+      head.className = 'cw-open';
+      head.setAttribute('aria-expanded', 'false');
+      head.setAttribute('aria-controls', detail.id);
+      head.innerHTML = '<span class="rm-acc-kicker">' + escHtml(h.kicker || (ROOM_NOUN[room] || 'item') + ' ' + (i + 1)) + '</span>' +
+        '<span class="cw-title">' + escHtml(h.en || 'Untitled') + '</span>' +
+        (h.zh ? '<span class="rm-acc-zh" lang="zh">' + escHtml(h.zh) + '</span>' : '') +
+        (h.note ? '<span class="rm-acc-note">' + escHtml(h.note) + '</span>' : '') +
+        '<span class="cw-hint">Open</span>';
+      head.addEventListener('click', () => {
+        const open = detail.hasAttribute('hidden');
+        if (open) detail.removeAttribute('hidden');
+        else detail.setAttribute('hidden', '');
+        unit.classList.toggle('is-expanded', open);
+        head.setAttribute('aria-expanded', open ? 'true' : 'false');
+        const hint = head.querySelector('.cw-hint');
+        if (hint) hint.textContent = open ? 'Close' : 'Open';
+      });
+      unit.appendChild(head);
+      unit.appendChild(detail);
+    });
+    if (!root.querySelector(':scope > .rm-cardwall-note')) {
+      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
+      note.classList.add('rm-cardwall-note');
+      root.appendChild(note);
+    }
+  }
+
+  // ==========================================================================
+  // LAYOUT 32 · VERTICAL TIMELINE — a gold rail runs down the left with one
+  // dot per unit; each card sits right of its dot with a small when-line
+  // (dates, case number, source reference). Chronological, quiet, one piece
+  // at a time, context one toggle away. Nav + filter visible.
+  // ==========================================================================
+  function roomVerticalTimeline(room, root) {
+    root.classList.add('rm-vtimeline');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    const units = roomUnitsIn(root, room);
+    units.forEach((unit, i) => {
+      if (unit.dataset.vtReady === '1') return;
+      unit.dataset.vtReady = '1';
+      unit.classList.add('timeline-unit');
+      const dot = document.createElement('span');
+      dot.className = 'timeline-dot';
+      dot.setAttribute('aria-hidden', 'true');
+      unit.insertBefore(dot, unit.firstChild);
+      const when = timelineWhen(room, unit, i);
+      if (when) {
+        const date = document.createElement('div');
+        date.className = 'timeline-when';
+        date.textContent = when;
+        unit.insertBefore(date, dot.nextSibling);
+      }
+      unit.appendChild(unitDetails(room, unit, i));
+    });
+    if (!root.querySelector(':scope > .rm-vtimeline-note')) {
+      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
+      note.classList.add('rm-vtimeline-note');
+      root.appendChild(note);
+    }
+  }
+
+  // The small when-line left of each timeline card, from bundled fields only.
+  function timelineWhen(room, unit, idx) {
+    if (room === 'lineage') {
+      const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
+      const m = (state.data.lineage || []).find(x => x && x.id === id);
+      if (m) return [stringValue(m.dates), stringValue(m.era)].filter(Boolean).join(' · ');
+      return queryText(unit, '.lineage-master-record span');
+    }
+    if (room === 'gongan') {
+      return [queryText(unit, '.catalogue-case'), queryText(unit, '.catalogue-collection')]
+        .filter(Boolean).join(' · ');
+    }
+    if (room === 'matrix') return queryText(unit, '.matrix-ref-clean') || ('Line ' + (idx + 1));
+    if (room === 'lexicon') return queryText(unit, '.lexicon-entry-cat');
+    return queryText(unit, '.case-heading-kicker') || ('Part ' + (idx + 1));
+  }
+
+  // ==========================================================================
+  // LAYOUT 33 · SPLIT WITH RESIZABLE CONTEXT DRAWER — 60% English reader on
+  // the left, 40% context drawer on the right. The divider is a real drag
+  // handle (pointer drag, 30–70% in tens) with an accessible range slider as
+  // its twin, so keyboard and touch users get the same control. Each unit
+  // parks its source and background in the drawer behind "Show in drawer".
+  // Nav + filter visible.
+  // ==========================================================================
+  function roomSplitResizable(room, root) {
+    root.classList.add('rm-splitresize');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    if (root.querySelector(':scope > .rm-split-shell')) return;
+    const shell = document.createElement('div');
+    shell.className = 'rm-split-shell';
+    shell.dataset.split = '40';
+    const left = document.createElement('div');
+    left.className = 'split-left';
+    const handle = document.createElement('div');
+    handle.className = 'resize-handle';
+    handle.setAttribute('aria-hidden', 'true');
+    handle.innerHTML = '<span class="resize-grip"></span>';
+    const right = document.createElement('aside');
+    right.className = 'split-right';
+    right.setAttribute('aria-label', 'Context drawer');
+    right.innerHTML =
+      '<div class="sr-head"><span class="sr-title">Context drawer</span>' +
+      '<button type="button" class="sr-pane-toggle" aria-expanded="true">Hide drawer</button></div>' +
+      '<p class="sr-lead">English stays on the left. Press “Show in drawer” on any ' +
+      escHtml(ROOM_NOUN[room] || 'unit') + ' and its source plus background opens here.</p>' +
+      '<label class="sr-size"><span class="sr-size-label">Drawer width</span></label>' +
+      '<div class="sr-body"></div>';
+    const sizeLabel = right.querySelector('.sr-size');
+    const range = document.createElement('input');
+    range.type = 'range';
+    range.className = 'resize-range';
+    range.min = '30';
+    range.max = '70';
+    range.step = '10';
+    range.value = '40';
+    range.setAttribute('aria-label', 'Context drawer width, percent of the room');
+    const rangeOut = document.createElement('span');
+    rangeOut.className = 'resize-out';
+    rangeOut.textContent = '60 / 40';
+    sizeLabel.appendChild(range);
+    sizeLabel.appendChild(rangeOut);
+    const setSplit = (v) => {
+      const n = Math.max(30, Math.min(70, Math.round(v / 10) * 10));
+      shell.dataset.split = String(n);
+      range.value = String(n);
+      rangeOut.textContent = (100 - n) + ' / ' + n;
+    };
+    range.addEventListener('input', () => setSplit(parseInt(range.value, 10) || 40));
+    let dragging = false;
+    const fromPoint = (clientX) => {
+      const r = shell.getBoundingClientRect ? shell.getBoundingClientRect() : null;
+      if (!r || !r.width) return;
+      setSplit(((r.right - clientX) / r.width) * 100);
+    };
+    handle.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      if (handle.setPointerCapture && e.pointerId !== undefined) {
+        try { handle.setPointerCapture(e.pointerId); } catch (err) { /* capture is best-effort */ }
+      }
+      fromPoint(e.clientX);
+    });
+    handle.addEventListener('pointermove', (e) => { if (dragging) fromPoint(e.clientX); });
+    handle.addEventListener('pointerup', () => { dragging = false; });
+    handle.addEventListener('pointercancel', () => { dragging = false; });
+    while (root.firstChild) left.appendChild(root.firstChild);
+    shell.appendChild(left);
+    shell.appendChild(handle);
+    shell.appendChild(right);
+    root.appendChild(shell);
+    const body = right.querySelector('.sr-body');
+    body.appendChild(infoStackBlock('About this room', roomInfoRowsFor(room), true));
+    const units = roomUnitsIn(left, room);
+    units.forEach((unit, i) => {
+      const h = unitHeadline(room, unit, i);
+      const card = document.createElement('section');
+      card.className = 'split-card';
+      card.id = 'rm-split-card-' + room + '-' + i;
+      card.setAttribute('hidden', '');
+      card.innerHTML = '<h3 class="split-card-head"><span class="rm-acc-kicker">' +
+        escHtml(h.kicker || (ROOM_NOUN[room] || 'Item') + ' ' + (i + 1)) + '</span>' +
+        '<span class="rm-acc-en">' + escHtml(h.en || 'Untitled') + '</span></h3>';
+      harvestExtras(unit, room).forEach(n => card.appendChild(n));
+      const rows = unitInfoRowsFor(room, unit, i);
+      if (rows.length) {
+        const info = document.createElement('div');
+        info.className = 'context-info-body';
+        info.innerHTML = infoRows(rows);
+        card.appendChild(info);
+      }
+      body.appendChild(card);
+      const btn = toggleButton('Show in drawer', 'btn-pill rm-split-toggle');
+      btn.setAttribute('aria-controls', card.id);
+      btn.addEventListener('click', () => {
+        const open = card.hasAttribute('hidden');
+        if (open) card.removeAttribute('hidden');
+        else card.setAttribute('hidden', '');
+        setToggleState(btn, open, 'Hide in drawer', 'Show in drawer');
+        right.classList.toggle('has-open', body.querySelectorAll('.split-card:not([hidden])').length > 0);
+        if (open && typeof card.scrollIntoView === 'function') {
+          card.scrollIntoView({ behavior: motionBehavior(), block: 'nearest' });
+        }
+      });
+      unit.appendChild(btn);
+    });
+    const paneToggle = right.querySelector('.sr-pane-toggle');
+    paneToggle.addEventListener('click', () => {
+      const off = root.classList.toggle('is-pane-off');
+      paneToggle.setAttribute('aria-expanded', off ? 'false' : 'true');
+      paneToggle.textContent = off ? 'Show drawer' : 'Hide drawer';
+    });
+  }
+
+  // ==========================================================================
+  // LAYOUT 34 · GLOSSARY SIDEBAR + FOOTNOTES — the reading sits in a calm
+  // centre column with a 14rem plain-language glossary docked left (dotted
+  // words, tooltips on hover, focus or tap) and a 14rem numbered-notes rail
+  // docked right (each unit carries a number that jumps to its note and back).
+  // Both rails collapse for small screens. Nav + filter visible.
+  // ==========================================================================
+  function roomGlossaryBar(room, root) {
+    root.classList.add('rm-glossbar');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    if (root.querySelector(':scope > .rm-gloss-shell')) return;
+    const shell = document.createElement('div');
+    shell.className = 'rm-gloss-shell';
+    const gloss = document.createElement('aside');
+    gloss.className = 'glossary-sidebar';
+    gloss.setAttribute('aria-label', 'Plain-language glossary');
+    const center = document.createElement('div');
+    center.className = 'reading-center';
+    const notes = document.createElement('aside');
+    notes.className = 'footnotes-sidebar';
+    notes.setAttribute('aria-label', 'Footnotes');
+    while (root.firstChild) center.appendChild(root.firstChild);
+    shell.appendChild(gloss);
+    shell.appendChild(center);
+    shell.appendChild(notes);
+    root.appendChild(shell);
+    gloss.innerHTML =
+      '<div class="gb-head"><span class="gb-title">Glossary</span>' +
+      '<button type="button" class="gb-collapse" aria-expanded="true">Hide</button></div>' +
+      '<p class="gb-lead">Plain-language words for this room. Hover, focus or tap a word.</p>' +
+      '<ul class="gloss-list"></ul>';
+    const list = gloss.querySelector('.gloss-list');
+    glossTermsForRoom(room, center).forEach(t => list.appendChild(glossItem(t)));
+    if (!list.childNodes.length) {
+      const li = document.createElement('li');
+      li.className = 'gloss-empty';
+      li.textContent = 'No glossary terms recorded yet.';
+      list.appendChild(li);
+    }
+    notes.innerHTML =
+      '<div class="gb-head"><span class="gb-title">Notes</span>' +
+      '<button type="button" class="gb-collapse" aria-expanded="true">Hide</button></div>' +
+      '<p class="gb-lead">Background for each ' + escHtml(ROOM_NOUN[room] || 'unit') +
+      ', kept beside the reading. The numbers in the text point here.</p>' +
+      '<div class="g34-notes"></div>';
+    const holder = notes.querySelector('.g34-notes');
+    const units = roomUnitsIn(center, room);
+    units.forEach((unit, i) => {
+      const h = unitHeadline(room, unit, i);
+      const rows = unitInfoRowsFor(room, unit, i);
+      const n = i + 1;
+      const noteId = 'rm-g34-note-' + room + '-' + i;
+      const mark = document.createElement('button');
+      mark.type = 'button';
+      mark.className = 'g34-mark';
+      mark.textContent = String(n);
+      mark.setAttribute('aria-label', 'Note ' + n + ': background for ' + clipText(h.en || 'this item', 48));
+      mark.addEventListener('click', () => {
+        const note = document.getElementById(noteId);
+        if (note && typeof note.scrollIntoView === 'function') {
+          note.scrollIntoView({ behavior: motionBehavior(), block: 'center' });
+          note.classList.add('rm-flash');
+          setTimeout(() => note.classList.remove('rm-flash'), 1100);
+        }
+      });
+      const anchor = headlineAnchor(room, unit);
+      if (anchor && anchor.parentNode && anchor !== unit) anchor.appendChild(mark);
+      else unit.insertBefore(mark, unit.firstChild);
+      const note = document.createElement('article');
+      note.className = 'g34-note';
+      note.id = noteId;
+      note.innerHTML = '<div class="g34-note-head"><span class="g34-num">' + n + '</span>' +
+        '<span class="g34-title">' + escHtml((h.kicker ? h.kicker + ' · ' : '') + clipText(h.en || 'Untitled', 60)) + '</span></div>' +
+        '<div class="context-info-body">' + infoRows(rows) + '</div>';
+      const back = document.createElement('button');
+      back.type = 'button';
+      back.className = 'btn-pill g34-back';
+      back.textContent = '↑ Back to the text';
+      back.addEventListener('click', () => scrollToUnit(unit));
+      note.appendChild(back);
+      holder.appendChild(note);
+    });
+    notes.appendChild(infoStackBlock('About this room', roomInfoRowsFor(room), false));
+    const gBtn = gloss.querySelector('.gb-collapse');
+    gBtn.addEventListener('click', () => {
+      const off = root.classList.toggle('is-gloss-off');
+      gBtn.setAttribute('aria-expanded', off ? 'false' : 'true');
+      gBtn.textContent = off ? 'Show' : 'Hide';
+    });
+    const nBtn = notes.querySelector('.gb-collapse');
+    nBtn.addEventListener('click', () => {
+      const off = root.classList.toggle('is-notes-off');
+      nBtn.setAttribute('aria-expanded', off ? 'false' : 'true');
+      nBtn.textContent = off ? 'Show' : 'Hide';
+    });
+  }
+
+  // Glossary terms actually mentioned in the room come first; otherwise the
+  // head of the project glossary stands in. Never more than twelve.
+  function glossTermsForRoom(room, scope) {
+    const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
+    if (!list.length) return [];
+    const text = nodeText(scope).toLowerCase();
+    const found = list.filter(t => {
+      if (!t) return false;
+      const term = stringValue(t.term);
+      const literal = stringValue(t.literal);
+      if (term.length >= 2 && text.includes(term.toLowerCase())) return true;
+      return literal.length >= 5 && text.includes(literal.toLowerCase());
+    });
+    return (found.length ? found : list).slice(0, 12);
+  }
+
+  function glossItem(t) {
+    const li = document.createElement('li');
+    li.className = 'gloss-item';
+    const wrap = document.createElement('span');
+    wrap.className = 'gloss-word';
+    wrap.tabIndex = 0;
+    wrap.setAttribute('role', 'button');
+    wrap.setAttribute('aria-expanded', 'false');
+    const label = stringValue(t.literal) || stringValue(t.term);
+    wrap.innerHTML = '<span class="gloss-label">' + escHtml(label) + '</span>' +
+      '<span class="gloss-tip" role="tooltip" hidden>' +
+      '<span class="gloss-tip-head">' + escHtml(stringValue(t.term)) + ' · ' +
+      escHtml(stringValue(t.pinyin) || 'reading not recorded') + '</span>' +
+      '<span class="gloss-tip-body">' +
+      escHtml(clipText(stringValue(t.definition), 220) || 'No definition recorded.') + '</span></span>';
+    const flip = () => {
+      const tip = wrap.querySelector('.gloss-tip');
+      const open = tip.hasAttribute('hidden');
+      if (open) tip.removeAttribute('hidden');
+      else tip.setAttribute('hidden', '');
+      wrap.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    wrap.addEventListener('click', flip);
+    wrap.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+    });
+    li.appendChild(wrap);
+    if (stringValue(t.pinyin)) {
+      const meta = document.createElement('span');
+      meta.className = 'gloss-meta';
+      meta.textContent = stringValue(t.pinyin);
+      li.appendChild(meta);
+    }
+    return li;
+  }
+
+  // ==========================================================================
+  // LAYOUT 35 · FOCUS + TOC HYBRID — the best of three layouts in one: a calm
+  // centred 40rem reading column (Focus), a sticky 10rem mini-TOC of titles on
+  // the left, and a 10rem right rail with a progress meter, a bookmark trail
+  // and three related cards (Trail). The filter stays in the top bar. Usable
+  // because every aid is visible and every context fold is one toggle away.
+  // ==========================================================================
+  function roomFocusTocHybrid(room, root) {
+    root.classList.add('rm-hybrid');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    if (!root.querySelector(':scope > .rm-hybrid-shell')) buildHybridShell(room, root);
+    ensureHybridProgress();
+  }
+
+  function buildHybridShell(room, root) {
+    const shell = document.createElement('div');
+    shell.className = 'rm-hybrid-shell';
+    const toc = document.createElement('nav');
+    toc.className = 'mini-toc';
+    toc.setAttribute('aria-label', 'In this ' + (ROOM_LABEL[room] || 'room'));
+    const center = document.createElement('div');
+    center.className = 'focus-center';
+    const rail = document.createElement('aside');
+    rail.className = 'progress-rail';
+    rail.setAttribute('aria-label', 'Progress, trail and related');
+    while (root.firstChild) center.appendChild(root.firstChild);
+    shell.appendChild(toc);
+    shell.appendChild(center);
+    shell.appendChild(rail);
+    root.appendChild(shell);
+    const units = roomUnitsIn(center, room);
+    toc.innerHTML = '<div class="mt-head"><span class="mt-title">In this ' +
+      escHtml(ROOM_LABEL[room] || 'room') + '</span>' +
+      '<span class="mt-count">' + units.length + '</span></div>' +
+      '<ol class="mini-toc-list"></ol>';
+    const list = toc.querySelector('.mini-toc-list');
+    units.forEach((unit, i) => {
+      const h = unitHeadline(room, unit, i);
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'mini-toc-link';
+      b.textContent = clipText(h.en || ((ROOM_NOUN[room] || 'item') + ' ' + (i + 1)), 30);
+      b.setAttribute('aria-label', (h.kicker ? h.kicker + ' · ' : '') + clipText(h.en || 'Untitled', 60));
+      b.addEventListener('click', () => {
+        list.querySelectorAll('.mini-toc-link').forEach(x => x.removeAttribute('aria-current'));
+        b.setAttribute('aria-current', 'true');
+        scrollToUnit(unit);
+        pushHybridTrail(rail, room, clipText(h.en || (ROOM_LABEL[room] || 'Room'), 24), unit);
+      });
+      li.appendChild(b);
+      list.appendChild(li);
+      unit.classList.add('hybrid-unit');
+      unit.appendChild(unitDetails(room, unit, i));
+    });
+    const prog = document.createElement('div');
+    prog.className = 'hybrid-progress';
+    const hpLabel = document.createElement('span');
+    hpLabel.className = 'hp-label';
+    hpLabel.textContent = 'Progress';
+    const meter = document.createElement('progress');
+    meter.className = 'hybrid-progress-meter';
+    meter.max = 100;
+    meter.value = 0;
+    prog.appendChild(hpLabel);
+    prog.appendChild(meter);
+    rail.appendChild(prog);
+    const trail = document.createElement('nav');
+    trail.className = 'hybrid-trail';
+    trail.setAttribute('aria-label', 'Bookmark trail');
+    const htLabel = document.createElement('span');
+    htLabel.className = 'ht-label';
+    htLabel.textContent = 'Trail';
+    const crumbs = document.createElement('span');
+    crumbs.className = 'ht-crumbs';
+    const home = document.createElement('button');
+    home.type = 'button';
+    home.className = 'ht-crumb ht-home';
+    home.textContent = 'Home';
+    home.addEventListener('click', () => switchView('reader'));
+    crumbs.appendChild(home);
+    trail.appendChild(htLabel);
+    trail.appendChild(crumbs);
+    rail.appendChild(trail);
+    pushHybridTrail(rail, room, room === 'reader' ? clipText(corpusTitle(), 24) : (ROOM_LABEL[room] || 'Room'), null);
+    const rel = document.createElement('div');
+    rel.className = 'hybrid-related';
+    const hrLabel = document.createElement('span');
+    hrLabel.className = 'hr-label';
+    hrLabel.textContent = 'Related';
+    rel.appendChild(hrLabel);
+    const items = relatedRailItems(room, units).slice(0, 3);
+    if (!items.length) {
+      const p = document.createElement('p');
+      p.className = 'rm-quiet';
+      p.textContent = 'Nothing else is linked here in the project data yet.';
+      rel.appendChild(p);
+    }
+    items.forEach(it => {
+      const c = document.createElement('button');
+      c.type = 'button';
+      c.className = 'hr-card';
+      c.innerHTML = '<span class="hr-name">' + escHtml(it.name) + '</span>' +
+        '<span class="hr-why">' + escHtml(it.why || '') + '</span>';
+      c.addEventListener('click', () => {
+        if (it.unit) scrollToUnit(it.unit);
+        else if (it.docKey) openCorpusDoc(it.docKey);
+      });
+      rel.appendChild(c);
+    });
+    rail.appendChild(rel);
+    rail.appendChild(infoStackBlock('About this room', roomInfoRowsFor(room), false));
+  }
+
+  // The hybrid trail is DOM-held per room: Home plus the last six stops.
+  function pushHybridTrail(rail, room, label, unit) {
+    const box = rail ? rail.querySelector('.ht-crumbs') : null;
+    if (!box) return;
+    const last = box.lastChild;
+    if (last && last.textContent === label) return;
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'ht-crumb';
+    b.textContent = label;
+    b.addEventListener('click', () => {
+      if (unit) scrollToUnit(unit);
+      else switchView(room);
+    });
+    box.appendChild(b);
+    while (box.childNodes.length > 7) box.removeChild(box.firstChild);
+  }
+
+  function ensureHybridProgress() {
+    if (typeof document === 'undefined' || typeof window === 'undefined') return;
+    if (!layout35ScrollHandler) {
+      layout35ScrollHandler = () => updateHybridProgress();
+      window.addEventListener('scroll', layout35ScrollHandler, { passive: true });
+    }
+    updateHybridProgress();
+  }
+
+  function updateHybridProgress() {
+    if (typeof document === 'undefined' || !document.querySelectorAll) return;
+    const meters = document.querySelectorAll('.hybrid-progress-meter');
+    if (!meters.length) return;
+    const doc = document.documentElement;
+    const span = (doc.scrollHeight - window.innerHeight) || 1;
+    const pct = Math.max(0, Math.min(100, Math.round(((window.scrollY || 0) / span) * 100)));
+    meters.forEach(m => { m.value = pct; });
   }
 
   function setupEventListeners() {
