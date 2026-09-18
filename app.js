@@ -10724,4 +10724,376 @@ function roomMagazine(room, root) {
 }
 // == rebuild:30 end == // == rebuild:29 end == // == rebuild:28 end == // == rebuild:27 end == // == rebuild:26 end == // == rebuild:25 end ==
 
+// Batch 6 (work order 2026-09-18-letter-002 items 6-7 — final batch, owner-rated):
+// slots 31-35 rebuilt from scratch on NEW skeletons per the approved grid
+// (.orchestrator/DESIGN_GRID_2026-09-18_36_DISTINCT.md — six-axis unique tuples,
+// the F1/F2 copy-paste cure decided at structural-axis level, not by class names).
+// Pure append at the module tail: each block redeclares its fleet room enhancer
+// (the later function declaration wins in this module scope), so the existing
+// enhanceRoomLayout dispatcher picks the rebuild up with no earlier byte touched.
+// Hoisted function declarations only — no scope-level const/let (TDZ when
+// startApp() runs mid-body, rebuild:3 precedent); no inline style writes, no
+// setProperty; teardown rides the shared resetLayoutRuntime + re-render path.
+// ==
+// == rebuild:31 begin — Batch 6 slot 31 NEW skeleton: Card Wall — top-lintel / masonry-wall 18rem / thematic / comfortable-default / scale-1.2-min-0.8rem / modal dossier; redeclares roomCardWall ==
+function b6E(tag, cls) { const n = document.createElement(tag); n.className = cls; return n; }
+function b6T(tag, cls, text) { const n = b6E(tag, cls); n.textContent = text; return n; }
+function b6Root(root, cls) {
+  if (!root || !root.querySelectorAll || root.querySelector(':scope > .' + cls)) return null;
+  const old = Array.from(root.childNodes), app = document.createElement('div');
+  app.className = cls; root.appendChild(app);
+  return { old: old, app: app };
+}
+function b6Nav(host, room, cls, btnCls) {
+  const nav = b6E('nav', cls); nav.setAttribute('aria-label', 'Rooms');
+  b1RoomButtons(nav, room, btnCls, '', null); host.appendChild(nav); return nav;
+}
+function b6Face(cls, h, fb) { const d = b6E('div', cls); d.innerHTML = b1Face(cls + '-k', cls + '-zh', h, fb); return d; }
+function b6Ctx(cls, label, room, unit, i) {
+  const rows = unitInfoRowsFor(room, unit, i), extras = harvestExtras(unit, room);
+  if (!rows.length && !extras.length) return null;
+  const d = b1Fold(cls, label); d.appendChild(b4Info('', rows, extras)); return d;
+}
+function b6Stack(cls, room) {
+  const d = b1Fold(cls, 'About this room — where from · related · background'), body = b6E('div', cls + '-body');
+  body.innerHTML = b1StackHtml(room); d.appendChild(body); return d;
+}
+function b31wTheme(room, unit) {
+  if (room === 'gongan') return queryText(unit, '.catalogue-theme') || 'Cases';
+  if (room === 'lineage') return queryText(unit, '.lineage-master-house') || 'Transmission';
+  if (room === 'lexicon') return queryText(unit, '.lexicon-entry-cat') || 'Terms';
+  if (room === 'matrix') return clipText(queryText(unit, '.matrix-ref-clean'), 26) || 'Source lines';
+  return clipText(corpusTitle(), 42) || 'Parts';
+}
+function roomCardWall(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v31w-app'); if (!made) return;
+  const lintel = b6E('header', 'v31w-lintel');
+  lintel.innerHTML = '<strong>Card wall</strong><span>themes · open a card for its dossier</span>';
+  made.app.appendChild(lintel);
+  b6Nav(made.app, room, 'v31w-nav', 'v31w-navbtn');
+  const chrome = b6E('div', 'v31w-chrome'), wall = b6E('div', 'v31w-wall');
+  made.app.append(chrome, wall); chrome.append(...made.old);
+  const modal = b6E('div', 'v31w-modal'); modal.hidden = true;
+  modal.setAttribute('role', 'dialog'); modal.setAttribute('aria-modal', 'true');
+  modal.innerHTML = '<div class="v31w-sheet"><button type="button" class="v31w-close">Close</button>' +
+    '<div class="v31w-sheethead"></div><div class="v31w-sheetbody"></div></div>';
+  made.app.appendChild(modal);
+  const sheetHead = modal.querySelector('.v31w-sheethead'), sheetBody = modal.querySelector('.v31w-sheetbody');
+  let held = null, holder = null;
+  const close = () => { if (held && holder) holder.appendChild(held); modal.hidden = true; held = null; holder = null; };
+  modal.querySelector('.v31w-close').addEventListener('click', close);
+  modal.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  const groups = {};
+  roomUnits(chrome, room).forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i), theme = b31wTheme(room, unit);
+    if (!groups[theme]) {
+      const sec = b6E('section', 'v31w-group');
+      sec.appendChild(b6T('h3', 'v31w-gt', theme)); wall.appendChild(sec); groups[theme] = sec;
+    }
+    const head = '<p class="v31w-k">' + escHtml(h.kicker || 'Item ' + (i + 1)) + '</p>' +
+      '<h4 class="v31w-t">' + escHtml(h.en || 'Untitled') + '</h4>' +
+      (h.zh ? '<p class="v31w-zh" lang="zh">' + escHtml(h.zh) + '</p>' : '') +
+      (h.note ? '<p class="v31w-note">' + escHtml(clipText(h.note, 84)) + '</p>' : '');
+    const card = b6E('article', 'v31w-card'); card.innerHTML = head;
+    const body = b6E('div', 'v31w-dossier'); body.hidden = true; body.appendChild(unit);
+    const ctx = b6Ctx('v31w-ctx', 'Where from · related · background', room, unit, i);
+    if (ctx) body.appendChild(ctx);
+    const btn = b1Btn('v31w-open', 'Open dossier');
+    btn.addEventListener('click', () => {
+      if (held && holder && held !== body) holder.appendChild(held);
+      held = body; holder = card;
+      body.hidden = false; sheetHead.innerHTML = head; sheetBody.appendChild(body); modal.hidden = false;
+      const c = modal.querySelector('.v31w-close'); if (c) c.focus();
+    });
+    card.append(body, btn); groups[theme].appendChild(card);
+  });
+  made.app.appendChild(b6Stack('v31w-room', room));
+}
+// == rebuild:32 begin — Batch 6 slot 32 NEW skeleton: Vertical Timeline — side-rail-left / dots left content right / chronological re-order / comfortable-default / scale-1.2-min-0.78rem-alt / native-details; redeclares roomVerticalTimeline ==
+function b32tWhen(room, unit, i) {
+  if (room === 'lineage') return queryText(unit, '.lineage-master-gen') || 'Gen ' + (i + 1);
+  if (room === 'gongan') return queryText(unit, '.catalogue-case') || 'Case ' + (i + 1);
+  if (room === 'matrix') return clipText(queryText(unit, '.matrix-ref-clean'), 30) || 'Line ' + (i + 1);
+  if (room === 'lexicon') return queryText(unit, '.lexicon-entry-cat') || 'Term ' + (i + 1);
+  return queryText(unit, '.case-heading-kicker') || 'Part ' + (i + 1);
+}
+function b32tOrder(room, unit, i) {
+  if (room === 'lineage' || room === 'gongan') {
+    const m = /(\d+)/.exec(b32tWhen(room, unit, i));
+    return m ? parseInt(m[1], 10) : 900 + i;
+  }
+  if (room === 'lexicon') {
+    const m = /(\d+)/.exec(queryText(unit, '.lexicon-entry-count'));
+    return m ? -parseInt(m[1], 10) : i;
+  }
+  return i;
+}
+function roomVerticalTimeline(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v32t-app'); if (!made) return;
+  const shell = b6E('div', 'v32t-shell'), rail = b6E('aside', 'v32t-rail'), main = b6E('div', 'v32t-main');
+  rail.setAttribute('aria-label', 'Rooms and the recorded order');
+  shell.append(rail, main); made.app.appendChild(shell);
+  const head = b6E('div', 'v32t-head');
+  head.innerHTML = '<strong>Vertical timeline</strong><span>one dot per record · in recorded order</span>';
+  main.appendChild(head);
+  b6Nav(rail, room, 'v32t-nav', 'v32t-navbtn');
+  rail.appendChild(b6Stack('v32t-ctx', room));
+  const chrome = b6E('div', 'v32t-chrome'); main.appendChild(chrome); chrome.append(...made.old);
+  const seq = roomUnits(chrome, room).map((unit, i) => ({ unit: unit, i: i, k: b32tOrder(room, unit, i) }))
+    .sort((a, b) => (a.k - b.k) || (a.i - b.i));
+  rail.appendChild(b6T('h3', 'v32t-rh', 'In recorded order'));
+  const list = b6E('div', 'v32t-list'); main.appendChild(list);
+  seq.forEach((row, n) => {
+    const h = unitHeadline(room, row.unit, row.i), when = b32tWhen(room, row.unit, row.i);
+    const jump = b1Btn('v32t-jump', clipText(when + ' · ' + (h.en || ''), 30));
+    jump.addEventListener('click', () => scrollToUnit(row.unit));
+    rail.appendChild(jump);
+    const item = b6E('article', 'v32t-item'), body = b6E('div', 'v32t-body');
+    item.appendChild(b6T('span', 'v32t-dot', '')).setAttribute('aria-hidden', 'true');
+    body.appendChild(b6T('p', 'v32t-when', when + ' · ' + (n + 1) + ' of ' + seq.length));
+    body.appendChild(b6Face('v32t-face', h, 'Item ' + (row.i + 1)));
+    body.appendChild(row.unit);
+    const fold = b6Ctx('v32t-src', 'Source & context — where from · related · background', room, row.unit, row.i);
+    if (fold) body.appendChild(fold);
+    item.appendChild(body); list.appendChild(item);
+  });
+}
+// == rebuild:33 begin — Batch 6 slot 33 NEW skeleton: Split 60/40 Resizable — side-rail-right / split-60-40 drag handle / english-first-then-source / comfortable-default / scale-1.125-min-0.85rem-alt / native-details; redeclares roomSplitResizable ==
+function b33sPct(split) { return parseInt(split.getAttribute('data-v33s') || '40', 10); }
+function roomSplitResizable(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v33s-app'); if (!made) return;
+  const head = b6E('header', 'v33s-head');
+  head.innerHTML = '<strong>Split 60 / 40</strong><span>English on the reading side · the rail holds the rooms, the size control and every source</span>';
+  made.app.appendChild(head);
+  const split = b6E('div', 'v33s-split'); split.setAttribute('data-v33s', '40');
+  const reader = b6E('div', 'v33s-reader'), handle = b6E('div', 'v33s-handle'), rail = b6E('aside', 'v33s-rail');
+  handle.tabIndex = 0; handle.setAttribute('role', 'separator'); handle.setAttribute('aria-orientation', 'vertical');
+  handle.setAttribute('aria-label', 'Resize the reading side and the context rail');
+  handle.appendChild(b6T('span', 'v33s-grip', '')).setAttribute('aria-hidden', 'true');
+  rail.setAttribute('aria-label', 'Rooms, split control and source context');
+  split.append(reader, handle, rail); made.app.appendChild(split);
+  reader.append(...made.old);
+  b6Nav(rail, room, 'v33s-nav', 'v33s-navbtn');
+  const ctl = b6E('div', 'v33s-size'), range = b6E('input', 'v33s-range'), out = b6E('span', 'v33s-out');
+  range.type = 'range'; range.min = '30'; range.max = '70'; range.step = '10';
+  range.setAttribute('aria-label', 'Context rail width, percent of the room');
+  ctl.append(b6T('span', 'v33s-sizelabel', 'Left / rail'), range, out);
+  rail.appendChild(ctl);
+  const setSplit = (p) => {
+    const n = Math.max(30, Math.min(70, Math.round((Number(p) || 40) / 10) * 10));
+    split.setAttribute('data-v33s', String(n)); range.value = String(n); out.textContent = (100 - n) + ' / ' + n;
+  };
+  setSplit(40);
+  range.addEventListener('input', () => setSplit(range.value));
+  handle.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') setSplit(b33sPct(split) + 10);
+    else if (e.key === 'ArrowRight') setSplit(b33sPct(split) - 10);
+  });
+  let drag = false;
+  const at = (x) => {
+    const r = split.getBoundingClientRect ? split.getBoundingClientRect() : null;
+    if (r && r.width) setSplit(((r.right - x) / r.width) * 100);
+  };
+  handle.addEventListener('pointerdown', (e) => {
+    drag = true; at(e.clientX);
+    if (handle.setPointerCapture && e.pointerId !== undefined) {
+      try { handle.setPointerCapture(e.pointerId); } catch (err) { drag = drag; }
+    }
+  });
+  handle.addEventListener('pointermove', (e) => { if (drag) at(e.clientX); });
+  handle.addEventListener('pointerup', () => { drag = false; });
+  handle.addEventListener('pointercancel', () => { drag = false; });
+  rail.appendChild(b6Stack('v33s-room', room));
+  rail.appendChild(b6T('h3', 'v33s-rh', 'Source of each part'));
+  const drawer = b6E('div', 'v33s-drawer'); rail.appendChild(drawer);
+  roomUnits(reader, room).forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const label = (h.kicker ? h.kicker + ' · ' : '') + (h.en || 'Item ' + (i + 1));
+    const panel = b1Fold('v33s-panel', clipText(label, 50));
+    panel.appendChild(b4Info('v33s-panelbody', unitInfoRowsFor(room, unit, i), harvestExtras(unit, room)));
+    drawer.appendChild(panel);
+    const btn = b1Btn('v33s-show', 'Source & context');
+    btn.addEventListener('click', () => {
+      panel.open = true; btn.setAttribute('aria-expanded', 'true');
+      if (panel.scrollIntoView) panel.scrollIntoView({ behavior: motionBehavior(), block: 'nearest' });
+    });
+    unit.appendChild(btn);
+  });
+}
+// == rebuild:34 begin — Batch 6 slot 34 NEW skeleton: Glossary Sidebar + Footnotes — side-rail-left 14rem glossary / single-continuous-column / english-first-then-source / comfortable-default / scale-1.125-min-0.78rem / expand-on-hover tooltips + numbered notes rail; redeclares roomGlossaryBar ==
+function b34gTerms() {
+  const list = Array.isArray(state.data.glossary) ? state.data.glossary : [], seen = {}, out = [];
+  list.forEach(t => {
+    const lit = t ? stringValue(t.literal) : '';
+    if (!lit || lit.length < 5 || seen[lit] || out.length >= 24) return;
+    seen[lit] = 1;
+    out.push({ lit: lit, zh: stringValue(t.term), py: stringValue(t.pinyin), def: stringValue(t.definition) });
+  });
+  return out;
+}
+function b34gWrap(block, terms) {
+  if (!block || !terms.length || block.dataset.v34gDone === '1') return;
+  block.dataset.v34gDone = '1';
+  const walker = document.createTreeWalker(block, 4, null), texts = [];
+  while (walker.nextNode()) texts.push(walker.currentNode);
+  const byLower = {}, alt = [], used = {};
+  terms.forEach(t => { byLower[t.lit.toLowerCase()] = t; alt.push(t.lit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); });
+  const re = new RegExp('(' + alt.join('|') + ')', 'gi');
+  let hits = 0;
+  texts.forEach(node => {
+    const raw = node.nodeValue || '';
+    if (raw.length < 5) return;
+    const parts = raw.split(re);
+    if (parts.length < 2) return;
+    const frag = document.createDocumentFragment();
+    parts.forEach(p => {
+      const t = p ? byLower[p.toLowerCase()] : null;
+      const key = t ? t.lit.toLowerCase() : '';
+      // one hover-note per term per part, ten at most: enough to teach the
+      // vocabulary without turning the prose into a field of tab stops
+      if (!t || used[key] || hits >= 10) { if (p) frag.appendChild(document.createTextNode(p)); return; }
+      used[key] = 1; hits++;
+      const s = b6E('span', 'v34g-t'); s.tabIndex = 0;
+      s.setAttribute('role', 'button');
+      s.setAttribute('aria-label', 'Plain-language note for ' + p);
+      const tip = b6E('span', 'v34g-tip'); tip.setAttribute('role', 'tooltip');
+      tip.innerHTML = '<strong>' + escHtml(t.lit) + '</strong> <span class="v34g-tipzh" lang="zh">' + escHtml(t.zh) +
+        '</span><br>' + escHtml(t.py) + ' — ' + escHtml(clipText(t.def, 190));
+      s.appendChild(document.createTextNode(p)); s.appendChild(tip); frag.appendChild(s);
+    });
+    if (node.parentNode) node.parentNode.replaceChild(frag, node);
+  });
+}
+function roomGlossaryBar(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v34g-app'); if (!made) return;
+  const head = b6E('header', 'v34g-head');
+  head.innerHTML = '<strong>Glossary reading</strong><span>dotted terms explain themselves on hover · every part carries a numbered note</span>';
+  made.app.appendChild(head);
+  const shell = b6E('div', 'v34g-shell'), left = b6E('aside', 'v34g-side');
+  const col = b6E('div', 'v34g-col'), right = b6E('aside', 'v34g-side');
+  left.setAttribute('aria-label', 'Rooms and the plain-language glossary');
+  right.setAttribute('aria-label', 'Footnotes for every part');
+  shell.append(left, col, right); made.app.appendChild(shell);
+  b6Nav(left, room, 'v34g-nav', 'v34g-navbtn');
+  left.appendChild(b6T('h3', 'v34g-sh', 'Terms in plain words'));
+  const terms = b34gTerms();
+  terms.forEach(t => {
+    const b = b6E('span', 'v34g-term'); b.tabIndex = 0;
+    b.innerHTML = escHtml(t.lit) + '<span class="v34g-tb"><strong>' + escHtml(t.zh) + '</strong> ' + escHtml(t.py) +
+      '<br>' + escHtml(clipText(t.def, 150)) + '</span>';
+    left.appendChild(b);
+  });
+  right.appendChild(b6T('h3', 'v34g-sh', 'Notes'));
+  right.appendChild(b6Stack('v34g-room', room));
+  const chrome = b6E('div', 'v34g-chrome'); col.appendChild(chrome); chrome.append(...made.old);
+  roomUnits(chrome, room).forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const idea = b6E('section', 'v34g-idea');
+    if (unit.parentNode) unit.parentNode.insertBefore(idea, unit);
+    const row = b6E('div', 'v34g-ideahead');
+    row.appendChild(b6Face('v34g-face', h, 'Part ' + (i + 1)));
+    const note = b6E('div', 'v34g-note'), nbody = b6E('div', 'v34g-notebody');
+    nbody.innerHTML = unitInfoRowsFor(room, unit, i).map(r => '<p><strong>' + r[0] + '</strong> ' + r[1] + '</p>').join('');
+    note.append(b6T('span', 'v34g-num', String(i + 1)),
+      b6T('span', 'v34g-notehead', clipText(h.en || 'Item ' + (i + 1), 34)), nbody);
+    right.appendChild(note);
+    const mark = b1Btn('v34g-mark', 'note ' + (i + 1));
+    mark.setAttribute('aria-label', 'Open note ' + (i + 1) + ' in the footnotes sidebar');
+    mark.addEventListener('click', () => {
+      right.querySelectorAll('.v34g-note').forEach(n => n.classList.remove('is-open'));
+      note.classList.add('is-open'); mark.setAttribute('aria-expanded', 'true');
+      if (note.scrollIntoView) note.scrollIntoView({ behavior: motionBehavior(), block: 'nearest' });
+    });
+    row.appendChild(mark);
+    idea.append(row, unit);
+    const src = b6Ctx('v34g-src', 'Chinese source · where from · related · background', room, unit, i);
+    if (src) idea.appendChild(src);
+    col.appendChild(idea);
+    b34gWrap(unit, terms);
+  });
+}
+// == rebuild:35 begin — Batch 6 slot 35 NEW skeleton: Focus + TOC Hybrid 10rem/40rem/10rem — bottom-sheet-nav / single-continuous-column with sparse one-idea sections / english-first-then-source / sparse-single-idea / scale-1.25-min-0.85rem / bookmark-trail + progress rail; redeclares roomFocusTocHybrid ==
+function b35hProgress(app, units, meter, pct) {
+  if (!units.length || typeof window === 'undefined' || !app.isConnected) return;
+  const update = () => {
+    if (!app.isConnected) { window.removeEventListener('scroll', update, true); return; }
+    let seen = 0;
+    for (let i = 0; i < units.length; i++) {
+      const r = units[i].getBoundingClientRect ? units[i].getBoundingClientRect() : null;
+      if (r && r.top < (window.innerHeight || 0) * 0.62) seen = i + 1;
+    }
+    const v = Math.round((seen / units.length) * 100);
+    meter.value = v; pct.textContent = v + '% read';
+  };
+  window.addEventListener('scroll', update, true);
+  update();
+}
+function roomFocusTocHybrid(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v35h-app'); if (!made) return;
+  const grid = b6E('div', 'v35h-grid'), toc = b6E('nav', 'v35h-toc');
+  const col = b6E('div', 'v35h-col'), rail = b6E('aside', 'v35h-rail');
+  toc.setAttribute('aria-label', 'In this ' + (ROOM_NOUN[room] || 'room'));
+  rail.setAttribute('aria-label', 'Progress');
+  grid.append(toc, col, rail); made.app.appendChild(grid);
+  const ol = b6E('ul', 'v35h-list');
+  toc.append(b6T('h3', 'v35h-th', 'In this ' + (ROOM_NOUN[room] || 'room')), ol);
+  const meter = b6E('progress', 'v35h-meter'); meter.max = 100; meter.value = 0;
+  const pct = b6T('span', 'v35h-pct', '0% read');
+  rail.append(b6T('h3', 'v35h-rh', 'Progress'), meter, pct);
+  rail.appendChild(b6Stack('v35h-room', room));
+  const bar = b6E('div', 'v35h-bar'), sheetBtn = b1Btn('v35h-sheetbtn', 'Rooms');
+  sheetBtn.setAttribute('aria-expanded', 'false');
+  const crumbs = b6E('nav', 'v35h-crumbs'); crumbs.setAttribute('aria-label', 'Bookmark trail');
+  bar.append(sheetBtn, crumbs);
+  const sheet = b6E('div', 'v35h-sheet'); sheet.hidden = true;
+  const sheetIn = b6E('div', 'v35h-sheetin'); sheet.appendChild(sheetIn);
+  b6Nav(sheetIn, room, 'v35h-nav', 'v35h-navbtn');
+  const setSheet = (open) => {
+    sheet.hidden = !open;
+    sheetBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    sheetBtn.textContent = open ? 'Close rooms' : 'Rooms';
+  };
+  sheetBtn.addEventListener('click', () => setSheet(sheet.hidden));
+  sheet.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSheet(false); });
+  made.app.append(bar, sheet);
+  const crumb = (label, unit) => {
+    const b = b1Btn('v35h-crumb', label);
+    b.addEventListener('click', () => { if (unit) scrollToUnit(unit); else switchView('reader'); });
+    if (crumbs.childNodes.length) {
+      const sep = b6T('span', 'v35h-sep', '›'); sep.setAttribute('aria-hidden', 'true'); crumbs.appendChild(sep);
+    }
+    crumbs.appendChild(b);
+    const all = crumbs.querySelectorAll('.v35h-crumb');
+    if (all.length > 4) crumbs.removeChild(all[0]);
+  };
+  crumb('Home', null);
+  const chrome = b6E('div', 'v35h-chrome'); col.appendChild(chrome); chrome.append(...made.old);
+  const units = roomUnits(chrome, room);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const idea = b6E('section', 'v35h-idea');
+    if (unit.parentNode) unit.parentNode.insertBefore(idea, unit);
+    idea.append(b6Face('v35h-face', h, (ROOM_NOUN[room] || 'Item') + ' ' + (i + 1)), unit);
+    const src = b6Ctx('v35h-src', 'Source · where from · related · background', room, unit, i);
+    if (src) idea.appendChild(src);
+    col.appendChild(idea);
+    const tb = b1Btn('v35h-tocbtn', clipText(h.en || 'Item ' + (i + 1), 22));
+    tb.setAttribute('aria-label', (h.kicker ? h.kicker + ' · ' : '') + clipText(h.en || 'Untitled', 60));
+    tb.addEventListener('click', () => {
+      ol.querySelectorAll('.v35h-tocbtn').forEach(x => x.removeAttribute('aria-current'));
+      tb.setAttribute('aria-current', 'true');
+      crumb(clipText(h.en || 'Item ' + (i + 1), 20), unit);
+      scrollToUnit(unit);
+    });
+    const li = b6E('li', 'v35h-li'); li.appendChild(tb); ol.appendChild(li);
+  });
+  b35hProgress(made.app, units, meter, pct);
+}
+// == rebuild:35 end == // == rebuild:34 end == // == rebuild:33 end == // == rebuild:32 end == // == rebuild:31 end ==
+
 })();

@@ -10464,5 +10464,636 @@ function roomCommandPalette(room, root) {
   b24kArmKeys();
 }
 // == rebuild:24 end == // == rebuild:23 end == // == rebuild:22 end == // == rebuild:21 end == // == rebuild:20 end == // == rebuild:19 end ==
+// == rebuild:25 begin — Batch 5 slot 25: Trail + PrevNext + Slider + Inline Origin; redeclares roomTrailPrevNext ==
+function b5El(tag) { return document.createElement(tag); }
+function b25bDraw(bar, room, here) {
+  let html = '<button type="button" class="v25b-crumb" data-v25b-home>Home</button>';
+  if (room !== 'reader') html += '<span class="v25b-sep" aria-hidden="true">›</span><button type="button" class="v25b-crumb" data-v25b-room="' + room + '">' + escHtml(b1RoomName(room)) + '</button>';
+  if (here) html += '<span class="v25b-sep" aria-hidden="true">›</span><span class="v25b-here">' + escHtml(clipText(here, 32)) + '</span>';
+  bar.innerHTML = html;
+}
+function b25bTrail(room) {
+  const bar = b5El('nav'); bar.className = 'v25b-trail'; bar.setAttribute('aria-label', 'Bookmark trail');
+  bar.addEventListener('click', (e) => { const b = e.target && e.target.closest ? e.target.closest('.v25b-crumb') : null; if (!b) return; if (b.hasAttribute('data-v25b-home')) switchView('reader'); else { const r = b.getAttribute('data-v25b-room'); if (r) switchView(r); } });
+  return bar;
+}
+function b5bRail(host, room, units, headCls, btnCls) {
+  const rh = b5El('h3'); rh.className = headCls; rh.textContent = 'In this room'; host.appendChild(rh);
+  units.slice(0, 24).forEach((unit, i) => { const h = unitHeadline(room, unit, i); const rb = b1Btn(btnCls, clipText(h.kicker + ' ' + h.en, 24) || ('Item ' + (i + 1))); rb.addEventListener('click', () => scrollToUnit(unit)); host.appendChild(rb); });
+}
+function roomTrailPrevNext(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v25b-app'); if (!made) return;
+  const bar = b25bTrail(room); made.app.appendChild(bar);
+  const head = b5El('header'); head.className = 'v25b-bar'; head.innerHTML = '<strong>Trail + related</strong><span>bottom trail marks where you are</span>';
+  const nav = b5El('nav'); nav.className = 'v25b-nav'; b1RoomButtons(nav, room, 'v25b-navbtn', '', null); head.appendChild(nav); made.app.appendChild(head);
+  const body = b5El('div'); body.className = 'v25b-body';
+  const col = b5El('div'); col.className = 'v25b-col';
+  const rail = b5El('aside'); rail.className = 'v25b-rail'; rail.setAttribute('aria-label', 'Parts in this room');
+  body.append(col, rail); made.app.appendChild(body); col.append(...made.old);
+  const units = roomUnits(col, room);
+  b5bRail(rail, room, units, 'v25b-railhead', 'v25b-railbtn');
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const u = b5El('article'); u.className = 'v25b-unit'; if (unit.parentNode) unit.parentNode.insertBefore(u, unit);
+    const face = b5El('div'); face.className = 'v25b-face'; face.innerHTML = b1Face('v25b-k', 'v25b-zh', h, 'Part ' + (i + 1));
+    const orig = b1Btn('v25b-orig', 'origin');
+    const note = b5El('div'); note.className = 'v25b-ornote'; note.hidden = true; note.appendChild(b4Info('', unitInfoRowsFor(room, unit, i), harvestExtras(unit, room)));
+    orig.addEventListener('click', () => { note.hidden = !note.hidden; orig.setAttribute('aria-expanded', note.hidden ? 'false' : 'true'); });
+    face.appendChild(orig); u.append(face, unit);
+    if (room === 'matrix') {
+      const rows = Array.from(unit.querySelectorAll('.matrix-register-row'));
+      if (rows.length > 1) {
+        const mix = b5El('div'); mix.className = 'v25b-mix';
+        const input = b5El('input'); input.type = 'range'; input.min = '0'; input.max = String(rows.length - 1); input.setAttribute('aria-label', 'Blend the witnesses of this line');
+        const outp = b5El('span'); outp.className = 'v25b-out';
+        const apply = () => { const v = parseInt(input.value, 10) || 0; rows.forEach((r, j) => r.classList.toggle('is-emphasis', j === v)); outp.textContent = (v + 1) + ' of ' + rows.length + ' of the witnesses of this line'; };
+        input.addEventListener('input', apply); mix.append(input, outp); u.appendChild(mix); apply();
+      }
+    }
+    const pn = b5El('div'); pn.className = 'v25b-pnrow';
+    const prev = b1Btn('v25b-pn', '‹ Previous');
+    const next = b1Btn('v25b-pn', 'Next ›');
+    if (i === 0) prev.hidden = true;
+    if (i === units.length - 1) next.hidden = true;
+    const why = b5El('span'); why.className = 'v25b-why'; why.textContent = 'part ' + (i + 1) + ' of ' + units.length + ' · neighbours are the record just before and after';
+    prev.addEventListener('click', () => { scrollToUnit(units[i - 1]); b25bDraw(bar, room, 'Previous part'); });
+    next.addEventListener('click', () => { scrollToUnit(units[i + 1]); b25bDraw(bar, room, 'Next part'); });
+    pn.append(prev, next, why); u.appendChild(pn);
+  });
+  b25bDraw(bar, room, null);
+}
+// == rebuild:26 begin — Batch 5 slot 26: Empty State Guidance; redeclares roomEmptyState ==
+function b26eGuide(room) {
+  const doc = (state.data.corpus || {})[state.currentCorpusKey] || {};
+  const related = room === 'reader' ? relatedTeachersForCorpusKey(state.currentCorpusKey) : [];
+  const answers = [
+    ['What is Chan?', 'Chan (also called Zen) is the school of Buddhism these records come from. Its teaching is carried in short encounters — a teacher asks, a student answers, and the point is met in the moment.'],
+    ['Where do the works come from?', room === 'reader' ? 'This work, ' + escHtml(corpusTitle()) + ', comes from the CBETA digital canon, witness ' + escHtml(stringValue(doc.cbeta_id) || 'not recorded') + '. The project holds an excerpt-scale seed of it; each English line is a separate, marked rendering.' : 'Every work comes from the CBETA digital canon, the standard scholarly digital edition of the Buddhist canon. The project holds excerpt-scale seeds; each English line is a separate, marked rendering.'],
+    ['Who is related?', related.length ? 'Teachers linked here: ' + escHtml(related.map(m => masterDisplayName(m)).join(', ')) + '. The Lineage room holds the full register.' : 'Teachers are profiled in the Lineage room, each with where they came from, who is related, and background.'],
+    ['What is the background?', 'Machine-made drafts are marked as drafts; quoted renderings carry their edition record. The factory is proudly fake, the records are real.']
+  ];
+  const g = b5El('section'); g.className = 'v26e-guide';
+  g.innerHTML = '<p class="v26e-gk">Start with plain words</p><h2 class="v26e-gt">' + escHtml(room === 'reader' ? corpusTitle() : b1RoomName(room)) + '</h2>' + answers.map(a => '<details class="v26e-q"><summary>' + escHtml(a[0]) + '</summary><p>' + a[1] + '</p></details>').join('');
+  return g;
+}
+function roomEmptyState(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v26e-app'); if (!made) return;
+  const lintel = b5El('header'); lintel.className = 'v26e-lintel'; lintel.innerHTML = '<strong>Plain start</strong><span>what it is · where from · who related · background</span>'; made.app.appendChild(lintel);
+  b4NavRow(made.app, room, 'v26e-nav', 'v26e-navbtn');
+  const col = b5El('div'); col.className = 'v26e-col'; made.app.appendChild(col); col.append(...made.old);
+  const units = roomUnits(col, room);
+  const guide = b26eGuide(room); if (units.length) guide.classList.add('is-closed');
+  const tog = b1Btn('v26e-tog', units.length ? 'Hide the guide' : 'Open the guide'); guide.appendChild(tog);
+  tog.addEventListener('click', () => { const closed = guide.classList.toggle('is-closed'); tog.setAttribute('aria-expanded', closed ? 'false' : 'true'); tog.textContent = closed ? 'Open the guide' : 'Hide the guide'; });
+  made.app.insertBefore(guide, col);
+  if (!units.length) { const none = b5El('p'); none.className = 'v26e-none'; none.textContent = room === 'reader' ? 'No work is open yet — pick one from the library above, or read the four plain answers first.' : 'Nothing to show here right now — the guide above says what the room is for.'; col.appendChild(none); return; }
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const u = b5El('article'); u.className = 'v26e-unit'; if (unit.parentNode) unit.parentNode.insertBefore(u, unit);
+    u.appendChild(b4Face('v26e-face', 'v26e-k', 'v26e-zh', h, 'Item ' + (i + 1))); u.appendChild(unit);
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length || harvestExtras(unit, room).length) { const d = b1Fold('v26e-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); u.appendChild(d); }
+  });
+}
+// == rebuild:27 begin — Batch 5 slot 27: Comparison Slider; redeclares roomComparisonSlider ==
+function b27cRight(room, unit, i) {
+  const a = b5El('div'); const b = b5El('div'); a.className = 'v27c-a'; b.className = 'v27c-b';
+  if (room === 'reader') {
+    const zh = queryText(unit, '.classical-zh'); const doc = (state.data.corpus || {})[state.currentCorpusKey] || {}; const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
+    a.innerHTML = zh ? '<blockquote class="v27c-srczh" lang="zh">' + escHtml(zh) + '</blockquote>' : '<p class="v27c-quiet">No Classical Chinese line recorded for this part yet.</p>';
+    b.innerHTML = '<div class="context-info-body">' + infoRows([['Witness', 'CBETA canon witness ' + escHtml(stringValue(doc.cbeta_id) || 'not recorded') + '.'], ['Related', related.length ? 'Teachers linked: ' + escHtml(related.map(m => masterDisplayName(m)).join(', ')) + '.' : 'No profiled teacher linked yet.'], ['Background', 'The Chinese is the source; each English rendering is a separate, marked voice.']]) + '</div>';
+    return [a, b];
+  }
+  const rows = unitInfoRowsFor(room, unit, i);
+  a.innerHTML = '<div class="context-info-body">' + infoRows(rows.slice(0, 2)) + '</div>';
+  b.innerHTML = '<div class="context-info-body">' + infoRows(rows.slice(2)) + '</div>';
+  return [a, b];
+}
+function roomComparisonSlider(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v27c-app'); if (!made) return;
+  const lintel = b5El('header'); lintel.className = 'v27c-lintel'; lintel.innerHTML = '<strong>Witness blend</strong>';
+  const out = b5El('span'); out.className = 'v27c-out'; lintel.appendChild(out); made.app.appendChild(lintel);
+  const ctl = b5El('div'); ctl.className = 'v27c-ctl';
+  const lab = b5El('span'); lab.className = 'v27c-lab'; lab.textContent = room === 'matrix' ? 'Blend the English witnesses' : 'Context level';
+  const input = b5El('input'); input.type = 'range'; input.className = 'v27c-range';
+  ctl.append(lab, input); made.app.appendChild(ctl);
+  b4NavRow(made.app, room, 'v27c-nav', 'v27c-navbtn');
+  const book = b5El('div'); book.className = 'v27c-book'; made.app.appendChild(book); book.append(...made.old);
+  const units = roomUnits(book, room);
+  const matrix = room === 'matrix' ? (Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : []) : [];
+  const maxReg = matrix.reduce((mx, it) => Math.max(mx, it && Array.isArray(it.translators) ? it.translators.length : 0), 1);
+  if (room === 'matrix') { input.min = '0'; input.max = String(Math.max(0, maxReg - 1)); input.value = '0'; }
+  else { input.min = '0'; input.max = '2'; input.value = '1'; book.classList.add('lv1'); }
+  const sheets = [];
+  const apply = () => {
+    const v = parseInt(input.value, 10) || 0;
+    if (room === 'matrix') {
+      sheets.forEach(sh => {
+        let vi = Math.min(v, sh.slts.length - 1); if (vi < 0) vi = 0;
+        sh.slts.forEach(s => s.toggleAttribute('hidden', parseInt(s.getAttribute('data-v27c-i'), 10) !== vi));
+        sh.regs.forEach(r => r.classList.toggle('is-on', parseInt(r.getAttribute('data-v27c-i'), 10) === vi));
+      });
+      out.textContent = 'register ' + (v + 1) + ' of ' + maxReg + ' at the left';
+    } else {
+      book.classList.toggle('lv0', v === 0); book.classList.toggle('lv1', v === 1); book.classList.toggle('lv2', v === 2);
+      out.textContent = v === 0 ? 'English only' : (v === 1 ? 'English + source' : 'English + source + context');
+    }
+  };
+  input.addEventListener('input', apply);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const sheet = b5El('article'); sheet.className = 'v27c-sheet'; if (unit.parentNode) unit.parentNode.insertBefore(sheet, unit);
+    sheet.appendChild(b4Face('v27c-face', 'v27c-k', 'v27c-fzh', h, 'Item ' + (i + 1)));
+    const panes = b5El('div'); panes.className = 'v27c-panes';
+    const left = b5El('div'); const right = b5El('div'); left.className = 'v27c-left'; right.className = 'v27c-right';
+    panes.append(left, right); sheet.appendChild(panes);
+    if (room === 'matrix') {
+      const item = matrix[i]; const regs = item && Array.isArray(item.translators) ? item.translators : [];
+      const host = b5El('div'); host.className = 'v27c-slthost'; left.appendChild(host);
+      const list = b5El('div'); list.className = 'v27c-regs'; right.appendChild(list);
+      const slts = []; const regBtns = [];
+      regs.forEach((t, j) => {
+        const s = b5El('p'); s.className = 'v27c-slt'; s.setAttribute('data-v27c-i', String(j)); s.hidden = j !== 0; s.textContent = stringValue(t.text) || 'No rendering recorded.'; host.appendChild(s); slts.push(s);
+        const r = b5El('button'); r.type = 'button'; r.className = 'v27c-reg' + (j === 0 ? ' is-on' : ''); r.setAttribute('data-v27c-i', String(j));
+        r.innerHTML = '<span class="v27c-regname">' + escHtml(stringValue(t.translator) || 'Unnamed register') + '</span><span class="v27c-regmeta">' + escHtml(stringValue(t.work) || 'work not recorded') + '</span>';
+        r.addEventListener('click', () => { input.value = String(j); apply(); }); list.appendChild(r); regBtns.push(r);
+      });
+      if (!regs.length) { const p = b5El('p'); p.className = 'v27c-quiet'; p.textContent = 'No registers recorded for this line.'; host.appendChild(p); }
+      sheets.push({ slts: slts, regs: regBtns });
+      right.appendChild(unit);
+    } else {
+      left.appendChild(unit); const pair = b27cRight(room, unit, i); right.append(pair[0], pair[1]);
+    }
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length) { const d = b1Fold('v27c-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); sheet.appendChild(d); }
+  });
+  apply();
+}
+// == rebuild:28 begin — Batch 5 slot 28: Inline Teacher Origin; redeclares roomInlineOrigin ==
+function b28oOrigin(m) {
+  const d = b5El('button'); d.type = 'button'; d.className = 'v28o-origin';
+  const era = [stringValue(m.dates), stringValue(m.era)].filter(Boolean).join(' · ') || 'era not recorded';
+  d.innerHTML = '<span class="v28o-name">' + escHtml(masterDisplayName(m)) + (m.name_zh ? ' <span class="v28o-mzh" lang="zh">' + escHtml(m.name_zh) + '</span>' : '') + '</span><span class="v28o-era">' + escHtml(era) + '</span><span class="v28o-originbody"><span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span></span>';
+  d.addEventListener('click', () => d.classList.toggle('is-pinned'));
+  return d;
+}
+function roomInlineOrigin(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v28o-app'); if (!made) return;
+  const rail = b5El('aside'); rail.className = 'v28o-rail'; rail.setAttribute('aria-label', 'Rooms and teacher origin');
+  rail.innerHTML = '<h2 class="v28o-brand">Teacher origin</h2><p class="v28o-note">name and era stay inline · hover or tap to expand origin</p>';
+  const nav = b5El('nav'); nav.className = 'v28o-nav'; b1RoomButtons(nav, room, 'v28o-navbtn', '', null); rail.appendChild(nav);
+  const main = b5El('div'); main.className = 'v28o-main'; made.app.append(rail, main); main.append(...made.old);
+  const lead = b5El('section'); lead.className = 'v28o-lead'; lead.innerHTML = '<p class="v28o-kick">Teacher first</p>';
+  const lineage = Array.isArray(state.data.lineage) ? state.data.lineage : [];
+  let cards = 0;
+  if (room === 'reader') relatedTeachersForCorpusKey(state.currentCorpusKey).slice(0, 4).forEach(m => { lead.appendChild(b28oOrigin(m)); cards++; });
+  else if (room === 'lineage') lineage.slice(0, 4).forEach(m => { lead.appendChild(b28oOrigin(m)); cards++; });
+  if (!cards) { const p = b5El('p'); p.className = 'v28o-none'; p.textContent = room === 'reader' ? 'No profiled teacher is linked to this work yet — the rooms below still carry where the record came from.' : 'Teacher origin leads every room; the Lineage room carries the full register.'; lead.appendChild(p); }
+  main.insertBefore(lead, main.firstChild);
+  const units = roomUnits(main, room);
+  const railList = b5El('div'); railList.className = 'v28o-teacherlist';
+  if (room === 'lineage' && units.length) units.slice(0, 6).forEach((unit, i) => { const b = b1Btn('v28o-railbtn', clipText(unitHeadline(room, unit, i).en || 'Teacher ' + (i + 1), 24)); b.addEventListener('click', () => scrollToUnit(unit)); railList.appendChild(b); });
+  else { const p = b5El('p'); p.className = 'v28o-railnote'; p.textContent = room === 'reader' ? 'The teachers above open on hover; the reading continues below.' : 'The origin block above leads this room.'; railList.appendChild(p); }
+  rail.appendChild(railList);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const u = b5El('article'); u.className = 'v28o-unit'; if (unit.parentNode) unit.parentNode.insertBefore(u, unit);
+    u.appendChild(b4Face('v28o-face', 'v28o-k', 'v28o-fzh', h, 'Item ' + (i + 1))); u.appendChild(unit);
+    if (room === 'lineage') {
+      const nameEl = unit.querySelector('.lineage-master-name-en');
+      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
+      const m = lineage.find(x => x && x.id === idm);
+      if (nameEl && nameEl.parentNode && m) {
+        const chip = b5El('button'); chip.type = 'button'; chip.className = 'v28o-chip';
+        const pop = b5El('span'); pop.className = 'v28o-pop'; pop.innerHTML = '<span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span>';
+        chip.appendChild(pop); nameEl.parentNode.insertBefore(chip, nameEl); chip.appendChild(nameEl);
+        chip.addEventListener('click', () => chip.classList.toggle('is-pinned'));
+      }
+    }
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length) { const d = b1Fold('v28o-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); u.appendChild(d); }
+  });
+}
+// == rebuild:29 begin — Batch 5 slot 29: Minimal Header + Full-Bleed; redeclares roomFullBleed ==
+function roomFullBleed(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v29f-app'); if (!made) return;
+  const head = b5El('header'); head.className = 'v29f-head';
+  const hin = b5El('div'); hin.className = 'v29f-headin'; hin.innerHTML = '<strong>Full-bleed reader</strong>';
+  const nav = b5El('nav'); nav.className = 'v29f-nav'; b1RoomButtons(nav, room, 'v29f-navbtn', '', null);
+  hin.appendChild(nav); head.appendChild(hin); made.app.appendChild(head);
+  const body = b5El('div'); body.className = 'v29f-body';
+  const col = b5El('div'); col.className = 'v29f-col';
+  const rail = b5El('aside'); rail.className = 'v29f-rail'; rail.setAttribute('aria-label', 'Parts in this room');
+  body.append(col, rail); made.app.appendChild(body); col.append(...made.old);
+  const units = roomUnits(col, room);
+  b5bRail(rail, room, units, 'v29f-railhead', 'v29f-railbtn');
+  units.forEach((unit, i) => {
+    const band = b5El('section'); band.className = 'v29f-band';
+    const bandin = b5El('div'); bandin.className = 'v29f-bandin';
+    if (unit.parentNode) unit.parentNode.insertBefore(band, unit);
+    band.appendChild(bandin); bandin.appendChild(unit);
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length || harvestExtras(unit, room).length) { const d = b1Fold('v29f-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); bandin.appendChild(d); }
+  });
+}
+// == rebuild:30 begin — Batch 5 slot 30: Magazine Spread; redeclares roomMagazine ==
+function roomMagazine(room, root) {
+  b1HideFleetNav(); const made = b4Root(root, 'v30m-app'); if (!made) return;
+  const lintel = b5El('header'); lintel.className = 'v30m-lintel'; lintel.innerHTML = '<strong>Magazine spread</strong><span>English left · context right</span>'; made.app.appendChild(lintel);
+  b4NavRow(made.app, room, 'v30m-nav', 'v30m-navbtn');
+  const doc = room === 'reader' ? (state.data.corpus || {})[state.currentCorpusKey] || {} : null;
+  const rzh = (b1RoomList().find(x => x[0] === room) || [])[2] || '';
+  const zhLine = (room === 'reader' && doc.title_zh) || rzh;
+  const mast = b5El('section'); mast.className = 'v30m-mast';
+  mast.innerHTML = '<p class="v30m-mk">' + (room === 'reader' ? 'The work, in spread form' : 'Room in spread form') + '</p><h2 class="v30m-mt">' + escHtml(room === 'reader' ? corpusTitle() : b1RoomName(room)) + '</h2>' + (zhLine ? '<p class="v30m-mzh" lang="zh">' + escHtml(zhLine) + '</p>' : '');
+  made.app.appendChild(mast);
+  const spread = b5El('div'); spread.className = 'v30m-spread';
+  const story = b5El('div'); story.className = 'v30m-story';
+  const margin = b5El('aside'); margin.className = 'v30m-margin'; margin.setAttribute('aria-label', 'Context margin');
+  const mctx = b1Fold('v30m-ctx', 'About this room — where from · related · background');
+  const mbody = b5El('div'); mbody.className = 'v30m-ctxbody'; mbody.innerHTML = room === 'reader' ? readerInfoStackHtml() : infoRows(roomInfoRowsFor(room));
+  mctx.appendChild(mbody); margin.appendChild(mctx); spread.append(story, margin); made.app.appendChild(spread); story.append(...made.old);
+  const units = roomUnits(story, room);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const pg = b5El('article'); pg.className = 'v30m-pg'; if (unit.parentNode) unit.parentNode.insertBefore(pg, unit); pg.appendChild(unit);
+    if (i === 0) { const prose = unit.querySelector('.translation-text, .prose-en, .matrix-register-text'); if (prose) prose.classList.add('v30m-drop'); }
+    const rows = unitInfoRowsFor(room, unit, i);
+    if (rows.length || harvestExtras(unit, room).length) { const d = b1Fold('v30m-note', (h.kicker || 'Item ' + (i + 1)) + ' · where from · related · background'); const nb = b5El('div'); nb.className = 'v30m-notebody'; nb.appendChild(b4Info('', rows, harvestExtras(unit, room))); d.appendChild(nb); margin.appendChild(d); }
+  });
+}
+// == rebuild:30 end == // == rebuild:29 end == // == rebuild:28 end == // == rebuild:27 end == // == rebuild:26 end == // == rebuild:25 end ==
+
+// Batch 6 (work order 2026-09-18-letter-002 items 6-7 — final batch, owner-rated):
+// slots 31-35 rebuilt from scratch on NEW skeletons per the approved grid
+// (.orchestrator/DESIGN_GRID_2026-09-18_36_DISTINCT.md — six-axis unique tuples,
+// the F1/F2 copy-paste cure decided at structural-axis level, not by class names).
+// Pure append at the module tail: each block redeclares its fleet room enhancer
+// (the later function declaration wins in this module scope), so the existing
+// enhanceRoomLayout dispatcher picks the rebuild up with no earlier byte touched.
+// Hoisted function declarations only — no scope-level const/let (TDZ when
+// startApp() runs mid-body, rebuild:3 precedent); no inline style writes, no
+// setProperty; teardown rides the shared resetLayoutRuntime + re-render path.
+// ==
+// == rebuild:31 begin — Batch 6 slot 31 NEW skeleton: Card Wall — top-lintel / masonry-wall 18rem / thematic / comfortable-default / scale-1.2-min-0.8rem / modal dossier; redeclares roomCardWall ==
+function b6E(tag, cls) { const n = document.createElement(tag); n.className = cls; return n; }
+function b6T(tag, cls, text) { const n = b6E(tag, cls); n.textContent = text; return n; }
+function b6Root(root, cls) {
+  if (!root || !root.querySelectorAll || root.querySelector(':scope > .' + cls)) return null;
+  const old = Array.from(root.childNodes), app = document.createElement('div');
+  app.className = cls; root.appendChild(app);
+  return { old: old, app: app };
+}
+function b6Nav(host, room, cls, btnCls) {
+  const nav = b6E('nav', cls); nav.setAttribute('aria-label', 'Rooms');
+  b1RoomButtons(nav, room, btnCls, '', null); host.appendChild(nav); return nav;
+}
+function b6Face(cls, h, fb) { const d = b6E('div', cls); d.innerHTML = b1Face(cls + '-k', cls + '-zh', h, fb); return d; }
+function b6Ctx(cls, label, room, unit, i) {
+  const rows = unitInfoRowsFor(room, unit, i), extras = harvestExtras(unit, room);
+  if (!rows.length && !extras.length) return null;
+  const d = b1Fold(cls, label); d.appendChild(b4Info('', rows, extras)); return d;
+}
+function b6Stack(cls, room) {
+  const d = b1Fold(cls, 'About this room — where from · related · background'), body = b6E('div', cls + '-body');
+  body.innerHTML = b1StackHtml(room); d.appendChild(body); return d;
+}
+function b31wTheme(room, unit) {
+  if (room === 'gongan') return queryText(unit, '.catalogue-theme') || 'Cases';
+  if (room === 'lineage') return queryText(unit, '.lineage-master-house') || 'Transmission';
+  if (room === 'lexicon') return queryText(unit, '.lexicon-entry-cat') || 'Terms';
+  if (room === 'matrix') return clipText(queryText(unit, '.matrix-ref-clean'), 26) || 'Source lines';
+  return clipText(corpusTitle(), 42) || 'Parts';
+}
+function roomCardWall(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v31w-app'); if (!made) return;
+  const lintel = b6E('header', 'v31w-lintel');
+  lintel.innerHTML = '<strong>Card wall</strong><span>themes · open a card for its dossier</span>';
+  made.app.appendChild(lintel);
+  b6Nav(made.app, room, 'v31w-nav', 'v31w-navbtn');
+  const chrome = b6E('div', 'v31w-chrome'), wall = b6E('div', 'v31w-wall');
+  made.app.append(chrome, wall); chrome.append(...made.old);
+  const modal = b6E('div', 'v31w-modal'); modal.hidden = true;
+  modal.setAttribute('role', 'dialog'); modal.setAttribute('aria-modal', 'true');
+  modal.innerHTML = '<div class="v31w-sheet"><button type="button" class="v31w-close">Close</button>' +
+    '<div class="v31w-sheethead"></div><div class="v31w-sheetbody"></div></div>';
+  made.app.appendChild(modal);
+  const sheetHead = modal.querySelector('.v31w-sheethead'), sheetBody = modal.querySelector('.v31w-sheetbody');
+  let held = null, holder = null;
+  const close = () => { if (held && holder) holder.appendChild(held); modal.hidden = true; held = null; holder = null; };
+  modal.querySelector('.v31w-close').addEventListener('click', close);
+  modal.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  const groups = {};
+  roomUnits(chrome, room).forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i), theme = b31wTheme(room, unit);
+    if (!groups[theme]) {
+      const sec = b6E('section', 'v31w-group');
+      sec.appendChild(b6T('h3', 'v31w-gt', theme)); wall.appendChild(sec); groups[theme] = sec;
+    }
+    const head = '<p class="v31w-k">' + escHtml(h.kicker || 'Item ' + (i + 1)) + '</p>' +
+      '<h4 class="v31w-t">' + escHtml(h.en || 'Untitled') + '</h4>' +
+      (h.zh ? '<p class="v31w-zh" lang="zh">' + escHtml(h.zh) + '</p>' : '') +
+      (h.note ? '<p class="v31w-note">' + escHtml(clipText(h.note, 84)) + '</p>' : '');
+    const card = b6E('article', 'v31w-card'); card.innerHTML = head;
+    const body = b6E('div', 'v31w-dossier'); body.hidden = true; body.appendChild(unit);
+    const ctx = b6Ctx('v31w-ctx', 'Where from · related · background', room, unit, i);
+    if (ctx) body.appendChild(ctx);
+    const btn = b1Btn('v31w-open', 'Open dossier');
+    btn.addEventListener('click', () => {
+      if (held && holder && held !== body) holder.appendChild(held);
+      held = body; holder = card;
+      body.hidden = false; sheetHead.innerHTML = head; sheetBody.appendChild(body); modal.hidden = false;
+      const c = modal.querySelector('.v31w-close'); if (c) c.focus();
+    });
+    card.append(body, btn); groups[theme].appendChild(card);
+  });
+  made.app.appendChild(b6Stack('v31w-room', room));
+}
+// == rebuild:32 begin — Batch 6 slot 32 NEW skeleton: Vertical Timeline — side-rail-left / dots left content right / chronological re-order / comfortable-default / scale-1.2-min-0.78rem-alt / native-details; redeclares roomVerticalTimeline ==
+function b32tWhen(room, unit, i) {
+  if (room === 'lineage') return queryText(unit, '.lineage-master-gen') || 'Gen ' + (i + 1);
+  if (room === 'gongan') return queryText(unit, '.catalogue-case') || 'Case ' + (i + 1);
+  if (room === 'matrix') return clipText(queryText(unit, '.matrix-ref-clean'), 30) || 'Line ' + (i + 1);
+  if (room === 'lexicon') return queryText(unit, '.lexicon-entry-cat') || 'Term ' + (i + 1);
+  return queryText(unit, '.case-heading-kicker') || 'Part ' + (i + 1);
+}
+function b32tOrder(room, unit, i) {
+  if (room === 'lineage' || room === 'gongan') {
+    const m = /(\d+)/.exec(b32tWhen(room, unit, i));
+    return m ? parseInt(m[1], 10) : 900 + i;
+  }
+  if (room === 'lexicon') {
+    const m = /(\d+)/.exec(queryText(unit, '.lexicon-entry-count'));
+    return m ? -parseInt(m[1], 10) : i;
+  }
+  return i;
+}
+function roomVerticalTimeline(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v32t-app'); if (!made) return;
+  const shell = b6E('div', 'v32t-shell'), rail = b6E('aside', 'v32t-rail'), main = b6E('div', 'v32t-main');
+  rail.setAttribute('aria-label', 'Rooms and the recorded order');
+  shell.append(rail, main); made.app.appendChild(shell);
+  const head = b6E('div', 'v32t-head');
+  head.innerHTML = '<strong>Vertical timeline</strong><span>one dot per record · in recorded order</span>';
+  main.appendChild(head);
+  b6Nav(rail, room, 'v32t-nav', 'v32t-navbtn');
+  rail.appendChild(b6Stack('v32t-ctx', room));
+  const chrome = b6E('div', 'v32t-chrome'); main.appendChild(chrome); chrome.append(...made.old);
+  const seq = roomUnits(chrome, room).map((unit, i) => ({ unit: unit, i: i, k: b32tOrder(room, unit, i) }))
+    .sort((a, b) => (a.k - b.k) || (a.i - b.i));
+  rail.appendChild(b6T('h3', 'v32t-rh', 'In recorded order'));
+  const list = b6E('div', 'v32t-list'); main.appendChild(list);
+  seq.forEach((row, n) => {
+    const h = unitHeadline(room, row.unit, row.i), when = b32tWhen(room, row.unit, row.i);
+    const jump = b1Btn('v32t-jump', clipText(when + ' · ' + (h.en || ''), 30));
+    jump.addEventListener('click', () => scrollToUnit(row.unit));
+    rail.appendChild(jump);
+    const item = b6E('article', 'v32t-item'), body = b6E('div', 'v32t-body');
+    item.appendChild(b6T('span', 'v32t-dot', '')).setAttribute('aria-hidden', 'true');
+    body.appendChild(b6T('p', 'v32t-when', when + ' · ' + (n + 1) + ' of ' + seq.length));
+    body.appendChild(b6Face('v32t-face', h, 'Item ' + (row.i + 1)));
+    body.appendChild(row.unit);
+    const fold = b6Ctx('v32t-src', 'Source & context — where from · related · background', room, row.unit, row.i);
+    if (fold) body.appendChild(fold);
+    item.appendChild(body); list.appendChild(item);
+  });
+}
+// == rebuild:33 begin — Batch 6 slot 33 NEW skeleton: Split 60/40 Resizable — side-rail-right / split-60-40 drag handle / english-first-then-source / comfortable-default / scale-1.125-min-0.85rem-alt / native-details; redeclares roomSplitResizable ==
+function b33sPct(split) { return parseInt(split.getAttribute('data-v33s') || '40', 10); }
+function roomSplitResizable(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v33s-app'); if (!made) return;
+  const head = b6E('header', 'v33s-head');
+  head.innerHTML = '<strong>Split 60 / 40</strong><span>English on the reading side · the rail holds the rooms, the size control and every source</span>';
+  made.app.appendChild(head);
+  const split = b6E('div', 'v33s-split'); split.setAttribute('data-v33s', '40');
+  const reader = b6E('div', 'v33s-reader'), handle = b6E('div', 'v33s-handle'), rail = b6E('aside', 'v33s-rail');
+  handle.tabIndex = 0; handle.setAttribute('role', 'separator'); handle.setAttribute('aria-orientation', 'vertical');
+  handle.setAttribute('aria-label', 'Resize the reading side and the context rail');
+  handle.appendChild(b6T('span', 'v33s-grip', '')).setAttribute('aria-hidden', 'true');
+  rail.setAttribute('aria-label', 'Rooms, split control and source context');
+  split.append(reader, handle, rail); made.app.appendChild(split);
+  reader.append(...made.old);
+  b6Nav(rail, room, 'v33s-nav', 'v33s-navbtn');
+  const ctl = b6E('div', 'v33s-size'), range = b6E('input', 'v33s-range'), out = b6E('span', 'v33s-out');
+  range.type = 'range'; range.min = '30'; range.max = '70'; range.step = '10';
+  range.setAttribute('aria-label', 'Context rail width, percent of the room');
+  ctl.append(b6T('span', 'v33s-sizelabel', 'Left / rail'), range, out);
+  rail.appendChild(ctl);
+  const setSplit = (p) => {
+    const n = Math.max(30, Math.min(70, Math.round((Number(p) || 40) / 10) * 10));
+    split.setAttribute('data-v33s', String(n)); range.value = String(n); out.textContent = (100 - n) + ' / ' + n;
+  };
+  setSplit(40);
+  range.addEventListener('input', () => setSplit(range.value));
+  handle.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') setSplit(b33sPct(split) + 10);
+    else if (e.key === 'ArrowRight') setSplit(b33sPct(split) - 10);
+  });
+  let drag = false;
+  const at = (x) => {
+    const r = split.getBoundingClientRect ? split.getBoundingClientRect() : null;
+    if (r && r.width) setSplit(((r.right - x) / r.width) * 100);
+  };
+  handle.addEventListener('pointerdown', (e) => {
+    drag = true; at(e.clientX);
+    if (handle.setPointerCapture && e.pointerId !== undefined) {
+      try { handle.setPointerCapture(e.pointerId); } catch (err) { drag = drag; }
+    }
+  });
+  handle.addEventListener('pointermove', (e) => { if (drag) at(e.clientX); });
+  handle.addEventListener('pointerup', () => { drag = false; });
+  handle.addEventListener('pointercancel', () => { drag = false; });
+  rail.appendChild(b6Stack('v33s-room', room));
+  rail.appendChild(b6T('h3', 'v33s-rh', 'Source of each part'));
+  const drawer = b6E('div', 'v33s-drawer'); rail.appendChild(drawer);
+  roomUnits(reader, room).forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const label = (h.kicker ? h.kicker + ' · ' : '') + (h.en || 'Item ' + (i + 1));
+    const panel = b1Fold('v33s-panel', clipText(label, 50));
+    panel.appendChild(b4Info('v33s-panelbody', unitInfoRowsFor(room, unit, i), harvestExtras(unit, room)));
+    drawer.appendChild(panel);
+    const btn = b1Btn('v33s-show', 'Source & context');
+    btn.addEventListener('click', () => {
+      panel.open = true; btn.setAttribute('aria-expanded', 'true');
+      if (panel.scrollIntoView) panel.scrollIntoView({ behavior: motionBehavior(), block: 'nearest' });
+    });
+    unit.appendChild(btn);
+  });
+}
+// == rebuild:34 begin — Batch 6 slot 34 NEW skeleton: Glossary Sidebar + Footnotes — side-rail-left 14rem glossary / single-continuous-column / english-first-then-source / comfortable-default / scale-1.125-min-0.78rem / expand-on-hover tooltips + numbered notes rail; redeclares roomGlossaryBar ==
+function b34gTerms() {
+  const list = Array.isArray(state.data.glossary) ? state.data.glossary : [], seen = {}, out = [];
+  list.forEach(t => {
+    const lit = t ? stringValue(t.literal) : '';
+    if (!lit || lit.length < 5 || seen[lit] || out.length >= 24) return;
+    seen[lit] = 1;
+    out.push({ lit: lit, zh: stringValue(t.term), py: stringValue(t.pinyin), def: stringValue(t.definition) });
+  });
+  return out;
+}
+function b34gWrap(block, terms) {
+  if (!block || !terms.length || block.dataset.v34gDone === '1') return;
+  block.dataset.v34gDone = '1';
+  const walker = document.createTreeWalker(block, 4, null), texts = [];
+  while (walker.nextNode()) texts.push(walker.currentNode);
+  const byLower = {}, alt = [], used = {};
+  terms.forEach(t => { byLower[t.lit.toLowerCase()] = t; alt.push(t.lit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); });
+  const re = new RegExp('(' + alt.join('|') + ')', 'gi');
+  let hits = 0;
+  texts.forEach(node => {
+    const raw = node.nodeValue || '';
+    if (raw.length < 5) return;
+    const parts = raw.split(re);
+    if (parts.length < 2) return;
+    const frag = document.createDocumentFragment();
+    parts.forEach(p => {
+      const t = p ? byLower[p.toLowerCase()] : null;
+      const key = t ? t.lit.toLowerCase() : '';
+      // one hover-note per term per part, ten at most: enough to teach the
+      // vocabulary without turning the prose into a field of tab stops
+      if (!t || used[key] || hits >= 10) { if (p) frag.appendChild(document.createTextNode(p)); return; }
+      used[key] = 1; hits++;
+      const s = b6E('span', 'v34g-t'); s.tabIndex = 0;
+      s.setAttribute('role', 'button');
+      s.setAttribute('aria-label', 'Plain-language note for ' + p);
+      const tip = b6E('span', 'v34g-tip'); tip.setAttribute('role', 'tooltip');
+      tip.innerHTML = '<strong>' + escHtml(t.lit) + '</strong> <span class="v34g-tipzh" lang="zh">' + escHtml(t.zh) +
+        '</span><br>' + escHtml(t.py) + ' — ' + escHtml(clipText(t.def, 190));
+      s.appendChild(document.createTextNode(p)); s.appendChild(tip); frag.appendChild(s);
+    });
+    if (node.parentNode) node.parentNode.replaceChild(frag, node);
+  });
+}
+function roomGlossaryBar(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v34g-app'); if (!made) return;
+  const head = b6E('header', 'v34g-head');
+  head.innerHTML = '<strong>Glossary reading</strong><span>dotted terms explain themselves on hover · every part carries a numbered note</span>';
+  made.app.appendChild(head);
+  const shell = b6E('div', 'v34g-shell'), left = b6E('aside', 'v34g-side');
+  const col = b6E('div', 'v34g-col'), right = b6E('aside', 'v34g-side');
+  left.setAttribute('aria-label', 'Rooms and the plain-language glossary');
+  right.setAttribute('aria-label', 'Footnotes for every part');
+  shell.append(left, col, right); made.app.appendChild(shell);
+  b6Nav(left, room, 'v34g-nav', 'v34g-navbtn');
+  left.appendChild(b6T('h3', 'v34g-sh', 'Terms in plain words'));
+  const terms = b34gTerms();
+  terms.forEach(t => {
+    const b = b6E('span', 'v34g-term'); b.tabIndex = 0;
+    b.innerHTML = escHtml(t.lit) + '<span class="v34g-tb"><strong>' + escHtml(t.zh) + '</strong> ' + escHtml(t.py) +
+      '<br>' + escHtml(clipText(t.def, 150)) + '</span>';
+    left.appendChild(b);
+  });
+  right.appendChild(b6T('h3', 'v34g-sh', 'Notes'));
+  right.appendChild(b6Stack('v34g-room', room));
+  const chrome = b6E('div', 'v34g-chrome'); col.appendChild(chrome); chrome.append(...made.old);
+  roomUnits(chrome, room).forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const idea = b6E('section', 'v34g-idea');
+    if (unit.parentNode) unit.parentNode.insertBefore(idea, unit);
+    const row = b6E('div', 'v34g-ideahead');
+    row.appendChild(b6Face('v34g-face', h, 'Part ' + (i + 1)));
+    const note = b6E('div', 'v34g-note'), nbody = b6E('div', 'v34g-notebody');
+    nbody.innerHTML = unitInfoRowsFor(room, unit, i).map(r => '<p><strong>' + r[0] + '</strong> ' + r[1] + '</p>').join('');
+    note.append(b6T('span', 'v34g-num', String(i + 1)),
+      b6T('span', 'v34g-notehead', clipText(h.en || 'Item ' + (i + 1), 34)), nbody);
+    right.appendChild(note);
+    const mark = b1Btn('v34g-mark', 'note ' + (i + 1));
+    mark.setAttribute('aria-label', 'Open note ' + (i + 1) + ' in the footnotes sidebar');
+    mark.addEventListener('click', () => {
+      right.querySelectorAll('.v34g-note').forEach(n => n.classList.remove('is-open'));
+      note.classList.add('is-open'); mark.setAttribute('aria-expanded', 'true');
+      if (note.scrollIntoView) note.scrollIntoView({ behavior: motionBehavior(), block: 'nearest' });
+    });
+    row.appendChild(mark);
+    idea.append(row, unit);
+    const src = b6Ctx('v34g-src', 'Chinese source · where from · related · background', room, unit, i);
+    if (src) idea.appendChild(src);
+    col.appendChild(idea);
+    b34gWrap(unit, terms);
+  });
+}
+// == rebuild:35 begin — Batch 6 slot 35 NEW skeleton: Focus + TOC Hybrid 10rem/40rem/10rem — bottom-sheet-nav / single-continuous-column with sparse one-idea sections / english-first-then-source / sparse-single-idea / scale-1.25-min-0.85rem / bookmark-trail + progress rail; redeclares roomFocusTocHybrid ==
+function b35hProgress(app, units, meter, pct) {
+  if (!units.length || typeof window === 'undefined' || !app.isConnected) return;
+  const update = () => {
+    if (!app.isConnected) { window.removeEventListener('scroll', update, true); return; }
+    let seen = 0;
+    for (let i = 0; i < units.length; i++) {
+      const r = units[i].getBoundingClientRect ? units[i].getBoundingClientRect() : null;
+      if (r && r.top < (window.innerHeight || 0) * 0.62) seen = i + 1;
+    }
+    const v = Math.round((seen / units.length) * 100);
+    meter.value = v; pct.textContent = v + '% read';
+  };
+  window.addEventListener('scroll', update, true);
+  update();
+}
+function roomFocusTocHybrid(room, root) {
+  b1HideFleetNav();
+  const made = b6Root(root, 'v35h-app'); if (!made) return;
+  const grid = b6E('div', 'v35h-grid'), toc = b6E('nav', 'v35h-toc');
+  const col = b6E('div', 'v35h-col'), rail = b6E('aside', 'v35h-rail');
+  toc.setAttribute('aria-label', 'In this ' + (ROOM_NOUN[room] || 'room'));
+  rail.setAttribute('aria-label', 'Progress');
+  grid.append(toc, col, rail); made.app.appendChild(grid);
+  const ol = b6E('ul', 'v35h-list');
+  toc.append(b6T('h3', 'v35h-th', 'In this ' + (ROOM_NOUN[room] || 'room')), ol);
+  const meter = b6E('progress', 'v35h-meter'); meter.max = 100; meter.value = 0;
+  const pct = b6T('span', 'v35h-pct', '0% read');
+  rail.append(b6T('h3', 'v35h-rh', 'Progress'), meter, pct);
+  rail.appendChild(b6Stack('v35h-room', room));
+  const bar = b6E('div', 'v35h-bar'), sheetBtn = b1Btn('v35h-sheetbtn', 'Rooms');
+  sheetBtn.setAttribute('aria-expanded', 'false');
+  const crumbs = b6E('nav', 'v35h-crumbs'); crumbs.setAttribute('aria-label', 'Bookmark trail');
+  bar.append(sheetBtn, crumbs);
+  const sheet = b6E('div', 'v35h-sheet'); sheet.hidden = true;
+  const sheetIn = b6E('div', 'v35h-sheetin'); sheet.appendChild(sheetIn);
+  b6Nav(sheetIn, room, 'v35h-nav', 'v35h-navbtn');
+  const setSheet = (open) => {
+    sheet.hidden = !open;
+    sheetBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    sheetBtn.textContent = open ? 'Close rooms' : 'Rooms';
+  };
+  sheetBtn.addEventListener('click', () => setSheet(sheet.hidden));
+  sheet.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSheet(false); });
+  made.app.append(bar, sheet);
+  const crumb = (label, unit) => {
+    const b = b1Btn('v35h-crumb', label);
+    b.addEventListener('click', () => { if (unit) scrollToUnit(unit); else switchView('reader'); });
+    if (crumbs.childNodes.length) {
+      const sep = b6T('span', 'v35h-sep', '›'); sep.setAttribute('aria-hidden', 'true'); crumbs.appendChild(sep);
+    }
+    crumbs.appendChild(b);
+    const all = crumbs.querySelectorAll('.v35h-crumb');
+    if (all.length > 4) crumbs.removeChild(all[0]);
+  };
+  crumb('Home', null);
+  const chrome = b6E('div', 'v35h-chrome'); col.appendChild(chrome); chrome.append(...made.old);
+  const units = roomUnits(chrome, room);
+  units.forEach((unit, i) => {
+    const h = unitHeadline(room, unit, i);
+    const idea = b6E('section', 'v35h-idea');
+    if (unit.parentNode) unit.parentNode.insertBefore(idea, unit);
+    idea.append(b6Face('v35h-face', h, (ROOM_NOUN[room] || 'Item') + ' ' + (i + 1)), unit);
+    const src = b6Ctx('v35h-src', 'Source · where from · related · background', room, unit, i);
+    if (src) idea.appendChild(src);
+    col.appendChild(idea);
+    const tb = b1Btn('v35h-tocbtn', clipText(h.en || 'Item ' + (i + 1), 22));
+    tb.setAttribute('aria-label', (h.kicker ? h.kicker + ' · ' : '') + clipText(h.en || 'Untitled', 60));
+    tb.addEventListener('click', () => {
+      ol.querySelectorAll('.v35h-tocbtn').forEach(x => x.removeAttribute('aria-current'));
+      tb.setAttribute('aria-current', 'true');
+      crumb(clipText(h.en || 'Item ' + (i + 1), 20), unit);
+      scrollToUnit(unit);
+    });
+    const li = b6E('li', 'v35h-li'); li.appendChild(tb); ol.appendChild(li);
+  });
+  b35hProgress(made.app, units, meter, pct);
+}
+// == rebuild:35 end == // == rebuild:34 end == // == rebuild:33 end == // == rebuild:32 end == // == rebuild:31 end ==
 
 })();
