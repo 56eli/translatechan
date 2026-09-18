@@ -9837,4 +9837,46 @@ function roomQuestionDriven(room, root) {
 }
 // == rebuild:12 end ==  // == rebuild:11 end ==  // == rebuild:10 end ==  // == rebuild:9 end ==  // == rebuild:8 end ==  // == rebuild:7 end ==
 
+// == rebuild:13 begin — Batch 3 slot 13 NEW skeleton: right rail / side-by-side panes / English first / native details ==
+function b3NewRoot(root, cls) {
+  if (!root || !root.querySelectorAll || root.querySelector(':scope > .' + cls)) return null;
+  const old = Array.from(root.childNodes), app = document.createElement('div'); app.className = cls;
+  root.appendChild(app); return { old, app };
+}
+function b3UnitShell(room, host, unit, i, prefix) {
+  const h = unitHeadline(room, unit, i), article = document.createElement('article'); article.className = prefix + '-unit';
+  if (unit.parentNode) unit.parentNode.insertBefore(article, unit);
+  const head = document.createElement('header'); head.className = prefix + '-head'; head.innerHTML = b1Face(prefix + '-k', prefix + '-zh', h, 'Reading ' + (i + 1)); article.appendChild(head);
+  const en = document.createElement('section'); en.className = prefix + '-english'; const lead = document.createElement('p'); lead.className = prefix + '-lead'; lead.textContent = clipText(h.en || h.note || '', 220) || 'Untitled'; en.appendChild(lead); en.appendChild(unit); article.appendChild(en);
+  return { article, h };
+}
+function roomSideBySide(room, root) {
+  b1HideFleetNav(); const made = b3NewRoot(root, 'v13p-app'); if (!made) return;
+  const main=document.createElement('main'), rail=document.createElement('aside'); main.className='v13p-reading'; rail.className='v13p-rail'; rail.innerHTML='<h2>Room guide</h2>'+b1StackHtml(room); made.app.append(main,rail); made.old.forEach(n=>main.appendChild(n));
+  roomUnits(main,room).forEach((u,i)=>{ const x=b3UnitShell(room,main,u,i,'v13p'); const source=document.createElement('details'); source.className='v13p-source'; source.innerHTML='<summary>Chinese source</summary><div class="v13p-source-note">Open the source beside the English reading.</div>'; x.article.appendChild(source); });
+}
+// == rebuild:14 begin — Batch 3 slot 14 NEW skeleton: right related rail / work-first / hover disclosure ==
+function roomRelatedRail(room, root) {
+  b1HideFleetNav(); const made=b3NewRoot(root,'v14r-app'); if(!made)return; const intro=document.createElement('header'); intro.className='v14r-work'; intro.innerHTML='<p>Work first</p><h1>'+escHtml(b1RoomName(room))+'</h1><div>'+b1StackHtml(room)+'</div>'; const flow=document.createElement('main'),rail=document.createElement('aside'); flow.className='v14r-flow';rail.className='v14r-related';rail.innerHTML='<h2>Related</h2><p>Hover or focus a card to see why it belongs here.</p>';made.app.append(intro,flow,rail);made.old.forEach(n=>flow.appendChild(n));
+  roomUnits(flow,room).forEach((u,i)=>{const x=b3UnitShell(room,flow,u,i,'v14r');const card=document.createElement('button');card.type='button';card.className='v14r-relation';card.innerHTML='<span>'+escHtml(clipText(x.h.en||('Reading '+(i+1)),42))+'</span><small>Related through this room’s work and teaching context.</small>';rail.appendChild(card);});
+}
+// == rebuild:15 begin — Batch 3 slot 15 NEW skeleton: footnotes + glossary / top lintel / hover definitions ==
+function roomFootnotes(room, root) {
+  b1HideFleetNav();const made=b3NewRoot(root,'v15g-app');if(!made)return;const lintel=document.createElement('nav');lintel.className='v15g-lintel';lintel.innerHTML='<strong>Footnotes + glossary</strong><span>English reading · source notes on demand</span>';const flow=document.createElement('main');flow.className='v15g-flow';made.app.append(lintel,flow);made.old.forEach(n=>flow.appendChild(n));
+  roomUnits(flow,room).forEach((u,i)=>{const x=b3UnitShell(room,flow,u,i,'v15g');const mark=document.createElement('button');mark.type='button';mark.className='v15g-term';mark.textContent='context';mark.setAttribute('aria-label','Context glossary definition');const tip=document.createElement('span');tip.className='v15g-tip';tip.textContent='Background, relationships, and origin for this reading.';x.article.insertBefore(mark,x.article.children[1]);x.article.insertBefore(tip,x.article.children[2]);const foot=document.createElement('details');foot.className='v15g-foot';foot.innerHTML='<summary>Footnote '+(i+1)+'</summary><div>'+b1StackHtml(room)+'</div>';x.article.appendChild(foot);});
+}
+// == rebuild:16 begin — Batch 3 slot 16 NEW skeleton: progressive scroll / progress bar ==
+function roomProgressiveReveal(room, root) {
+  b1HideFleetNav();const made=b3NewRoot(root,'v16s-app');if(!made)return;const lintel=document.createElement('header');lintel.className='v16s-lintel';lintel.innerHTML='<strong>Progressive reading</strong><span class="v16s-meter"><i></i></span>';const flow=document.createElement('main');flow.className='v16s-flow';made.app.append(lintel,flow);made.old.forEach(n=>flow.appendChild(n));const units=roomUnits(flow,room);units.forEach((u,i)=>{const x=b3UnitShell(room,flow,u,i,'v16s');if(i>0)x.article.classList.add('is-upcoming');const reveal=document.createElement('button');reveal.type='button';reveal.className='v16s-next';reveal.textContent='Reveal next passage';reveal.addEventListener('click',()=>{const next=x.article.nextElementSibling;if(next)next.classList.remove('is-upcoming');reveal.setAttribute('hidden','');});x.article.appendChild(reveal);});
+}
+// == rebuild:17 begin — Batch 3 slot 17 NEW skeleton: modal information / top lintel ==
+function roomModalInfo(room, root) {
+  b1HideFleetNav();const made=b3NewRoot(root,'v17m-app');if(!made)return;const bar=document.createElement('header');bar.className='v17m-lintel';bar.innerHTML='<strong>'+escHtml(b1RoomName(room))+'</strong>';const info=b1Btn('v17m-info','ⓘ About this room');const flow=document.createElement('main'),dialog=document.createElement('div');flow.className='v17m-flow';dialog.className='v17m-modal';dialog.setAttribute('hidden','');dialog.innerHTML='<div class="v17m-dialog" role="dialog" aria-modal="true" aria-label="Room information"><button type="button" class="v17m-close">Close</button><h2>Where this comes from</h2>'+b1StackHtml(room)+'</div>';bar.appendChild(info);made.app.append(bar,flow,dialog);made.old.forEach(n=>flow.appendChild(n));roomUnits(flow,room).forEach((u,i)=>b3UnitShell(room,flow,u,i,'v17m'));const close=dialog.querySelector('.v17m-close');info.addEventListener('click',()=>dialog.removeAttribute('hidden'));close.addEventListener('click',()=>dialog.setAttribute('hidden',''));
+}
+// == rebuild:18 begin — Batch 3 slot 18 NEW skeleton: teacher/work hover cards / top lintel ==
+function roomHoverCards(room, root) {
+  b1HideFleetNav();const made=b3NewRoot(root,'v18h-app');if(!made)return;const lintel=document.createElement('header');lintel.className='v18h-lintel';lintel.innerHTML='<strong>Reading room</strong><span>Hover dotted names for context</span>';const flow=document.createElement('main');flow.className='v18h-flow';made.app.append(lintel,flow);made.old.forEach(n=>flow.appendChild(n));roomUnits(flow,room).forEach((u,i)=>{const x=b3UnitShell(room,flow,u,i,'v18h');const cards=document.createElement('div');cards.className='v18h-cards';cards.innerHTML='<button type="button">Teacher<span>Who taught, where they came from, and related people.</span></button><button type="button">Work<span>Background, lineage, and related readings in this collection.</span></button>';x.article.insertBefore(cards,x.article.children[1]);});
+}
+// == rebuild:18 end == // == rebuild:17 end == // == rebuild:16 end == // == rebuild:15 end == // == rebuild:14 end == // == rebuild:13 end ==
+
 })();
