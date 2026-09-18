@@ -49,7 +49,7 @@ jobs:
       - name: Enforce W1 source-review rule suite (138 checks)
         run: python3 scripts/test_source_review_rules.py
 
-      - name: Require generated artifacts and deploy mirror to be committed (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
+      - name: Require generated artifacts and deploy mirror to be committed (presentation — allowed to break while experimenting per owner ruling 2026-09-14, but acceptance script is required for rebuilds per work order 2026-09-18-letter-002)
         continue-on-error: true
         run: |
           # Structural mirror-tree diff: covers root bundle, the entire docs/
@@ -57,12 +57,53 @@ jobs:
           # mirrored assets (e.g. theme-init.js, robots.txt, sitemap.xml,
           # og-image.svg) are guarded without enumerating each path (O-3).
           # TURNED OFF for experimenting phase per RULING_GATES_EXPERIMENT_2026-09-14 — presentation can break while experimenting, text integrity gates remain required
-          git diff --exit-code -- app_data.js docs data/project_metrics.json || echo "⚠️ Presentation mirror diff failed — allowed while experimenting per owner ruling 2026-09-14"
+          # For rebuilds per work order 2026-09-18-letter-002, presentation gates RETURN as per-variant acceptance checks (scripts/check_layout_variant.py) — see next step
+          git diff --exit-code -- app_data.js docs data/project_metrics.json || echo "⚠️ Presentation mirror diff failed — allowed while experimenting per owner ruling 2026-09-14, but acceptance script must PASS for rebuilt variants 3-36"
 
-      - name: Run dependency-free reader smoke test (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
+      - name: Run dependency-free reader smoke test (presentation — allowed to break while experimenting per owner ruling 2026-09-14, but acceptance script floor check is required for rebuilds)
         continue-on-error: true
         run: |
-          node scripts/smoke_test.mjs || echo "⚠️ Smoke test failed — allowed while experimenting per owner ruling 2026-09-14, text integrity gates remain required"
+          node scripts/smoke_test.mjs || echo "⚠️ Smoke test failed — allowed while experimenting per owner ruling 2026-09-14, text integrity gates remain required, but per work order 2026-09-18-letter-002 floor check in acceptance script must PASS for rebuilt variants 3-36"
 
       - name: Enforce website ruling law — NOT beautiful, NOT done, owner feedback 1-10 aim 8+ (law — kept ON even while experimenting)
         run: python3 scripts/test_website_ruling.py
+
+      - name: Acceptance script for 36-distinct rebuild — per-variant floor/distinctness/weight/invariants/isolation with file:line evidence (required for rebuilds per work order 2026-09-18-letter-002-36-distinct-rebuild.md)
+        # This check REPLACES the continue-on-error presentation steps for rebuilt variants per work order item 3
+        # It runs on any PR that touches layout files (app.css, app.js, index.html, docs/ mirror)
+        # Variants 1-2 and base shell are grandfathered (floor cleanup deferred) — script scopes to 3-36
+        # For rebuilds, red floor or distinctness failure must FAIL the PR, not read green
+        # Amends RULING_GATES_EXPERIMENT_2026-09-14.md narrowly: presentation gates RETURN for rebuilds as per-variant acceptance checks
+        run: |
+          echo "=== Acceptance script — 36-distinct rebuild per work order 2026-09-18-letter-002 ==="
+          echo "Reference pin main 9af86f2, checks floor 0.72rem, invariants style=0 setProperty 4, weight ≤40KB, distinctness no duplicated bodies, isolation pure append"
+          echo ""
+          # Detect if layout files touched — if not, skip (still PASS)
+          if git diff --name-only origin/main...HEAD | grep -E "^(app\.css|app\.js|index\.html|docs/app\.css|docs/app\.js|docs/index\.html)" > /dev/null; then
+            echo "Layout files touched — running per-variant acceptance for 3-36 (1-2 grandfathered)"
+            echo ""
+            # For canary and batches, run for all rebuilt variants present in current branch
+            # The script itself scopes to [data-design="N"] — if variant not present, it will PASS with 0 rules
+            # We run for 3-36 and collect results
+            FAIL=0
+            for N in $(seq 3 36); do
+              echo "--- Checking variant $N ---"
+              if ! python3 scripts/check_layout_variant.py $N; then
+                echo "❌ Variant $N FAIL"
+                FAIL=1
+              else
+                echo "✅ Variant $N PASS"
+              fi
+              echo ""
+            done
+            if [ $FAIL -ne 0 ]; then
+              echo "=== ACCEPTANCE SCRIPT FAIL — one or more rebuilt variants 3-36 failed floor/distinctness/weight/invariants/isolation ==="
+              echo "Per work order 2026-09-18-letter-002 item 3, this is a REQUIRED check for rebuilds — red floor or distinctness failure must FAIL the PR"
+              echo "Variants 1-2 and base shell are grandfathered — floor cleanup deferred per owner"
+              exit 1
+            else
+              echo "=== ACCEPTANCE SCRIPT PASS — all rebuilt variants 3-36 PASS ==="
+            fi
+          else
+            echo "No layout files touched — skipping per-variant acceptance (still PASS, text-integrity gates remain required)"
+          fi
