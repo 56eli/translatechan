@@ -7964,26 +7964,1746 @@ html[data-design="6"].nav-open .nav-drawer-backdrop { display: block; }
 }
 
 /* ==========================================================================
-   LAYOUT SWITCHER — fifteen numbered examples
+   Phase 5 — LAYOUTS 16–25 · MORE USABLE HAND-PICK FAMILY (2026-09-18)
    --------------------------------------------------------------------------
-   The header control now carries 1–15. The only shared control the usable
-   family touches: the row wraps, and the numbers are slightly narrower so all
-   fifteen stay one quiet strip rather than pushing the brand row around. No
-   layout section above is altered.
+   Owner: "Lets first implement more examples before going into review" and
+   "now next stub for 16-25". So 16–25 are ten MORE alternative renderings of
+   the same five rooms, each one staying usable: the walnut shell and the room
+   nav are visible in every one of them (no hamburger, no hidden navigation),
+   the room's own filter stays reachable, English comes first and the Chinese /
+   records / background sit one intentional step away (scroll reveal · modal ·
+   hover card · sentence drawer · chunk · dossier · two-step · palette · trail).
+
+   Every layout keeps layout 1's colours exactly — only structure varies — and
+   carries the COMMON QUALITIES: light mental load (minimum information by
+   default, extra material behind expand / hover / toggle / scroll), English
+   first, not dense, comfortable to read, easy to navigate, piece-meal plain
+   language, and a plain-language info section for the work, teacher, case or
+   term in view (where it came from · what or who is related · background).
+
+   Mechanisms: class toggles, `hidden`, native <details>, <progress> and
+   <input type=range>, and scoped [data-design] CSS. Zero inline styles and zero
+   new .style writes — the four CSSOM custom-property writes elsewhere stay
+   exactly four. The switcher applies data-design to <html>; these sections do
+   the rest. The shared shell/nav/body preamble below is repeated per layout so
+   each one is a complete, self-contained alternative renderer.
+   ========================================================================== */
+
+/* ==========================================================================
+   LAYOUT 16 · PROGRESSIVE DISCLOSURE SCROLL
+   --------------------------------------------------------------------------
+   A calm 44rem English column. Each part shows its English first; as it nears
+   the viewport its source Chinese, records and plain-language context fade in
+   (IntersectionObserver adds .revealed). A thin gold rail pinned to the top
+   reports how far through the room you are. Nav and filter stay visible.
+   ========================================================================== */
+
+:root[data-design="16"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="16"] .shell-frame { max-width: 1120px; padding: 0 1rem; }
+:root[data-design="16"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="16"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="16"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="16"] #main-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="16"] .view-section.active { max-width: 1120px; margin: 0 auto; padding: 0; }
+:root[data-design="16"] .room-heading,
+:root[data-design="16"] .text-header.room-heading {
+  max-width: 44rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="16"] .room-filter-rail,
+:root[data-design="16"] .gongan-filter-rail,
+:root[data-design="16"] .lexicon-filter-row {
+  max-width: 44rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="16"] .room-body,
+:root[data-design="16"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="16"] .reader-layout { display: block; max-width: 44rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="16"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="16"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="16"] .content-panel { max-width: 44rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="16"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="16"] #reader-content-target { display: block; max-width: 44rem; margin: 0 auto; }
+:root[data-design="16"] .document-heading { max-width: 44rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="16"] .case-jump-strip,
+:root[data-design="16"] .case-load-more { max-width: 44rem; margin: 1rem auto; }
+:root[data-design="16"] .gongan-catalogue-head { display: none; }
+
+/* --- the reading units, English first --- */
+:root[data-design="16"] .translation-text,
+:root[data-design="16"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  line-height: 1.85;
+  max-width: 40ch;
+  color: var(--ink);
+}
+:root[data-design="16"] .progressive-unit {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 1.2rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="16"] .progressive-unit:last-of-type { border-bottom: 0; }
+:root[data-design="16"] .matrix-proof-sheet,
+:root[data-design="16"] .lineage-master-row,
+:root[data-design="16"] .catalogue-row,
+:root[data-design="16"] .lexicon-entry {
+  margin: 0 0 1.1rem;
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="16"] .lexicon-entry { display: block; }
+
+/* --- the reveal: hidden until the unit scrolls near, then it fades in --- */
+:root[data-design="16"] .progressive-extra {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(0.35rem);
+  transition: opacity 420ms ease, max-height 420ms ease, transform 420ms ease;
+}
+:root[data-design="16"] .progressive-unit.revealed .progressive-extra {
+  max-height: 60rem;
+  opacity: 1;
+  transform: none;
+}
+:root[data-design="16"] .progressive-context { margin-top: 0.7rem; padding-top: 0.6rem; border-top: 1px dotted var(--line); }
+:root[data-design="16"] .progressive-toggle { margin-top: 0.7rem; font-size: 0.78rem; }
+:root[data-design="16"] .progressive-unit .context-label { color: var(--gold-strong); }
+
+/* --- the thin gold progress rail pinned to the top --- */
+:root[data-design="16"] .rm-progress-rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 1rem;
+  background: color-mix(in srgb, var(--wood) 92%, transparent);
+  backdrop-filter: blur(6px);
+}
+:root[data-design="16"] .rm-progress-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+:root[data-design="16"] .rm-progress-meter {
+  flex: 1 1 auto;
+  height: 0.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--wood-ink) 18%, transparent);
+  color: var(--brass);
+  appearance: none;
+}
+:root[data-design="16"] .rm-progress-meter::-webkit-progress-bar {
+  background: color-mix(in srgb, var(--wood-ink) 18%, transparent);
+  border-radius: 999px;
+}
+:root[data-design="16"] .rm-progress-meter::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--gold), var(--brass));
+  border-radius: 999px;
+}
+:root[data-design="16"] .rm-progress-meter::-moz-progress-bar {
+  background: var(--brass);
+  border-radius: 999px;
+}
+:root[data-design="16"] .rm-reveal-note { max-width: 44rem; margin: 1.5rem auto 0; }
+
+@media (max-width: 768px) {
+  :root[data-design="16"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="16"] .rm-progress-rail { padding: 0.25rem 0.75rem; }
+  :root[data-design="16"] .rm-progress-label { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="16"] .progressive-extra { transition: none; }
+  :root[data-design="16"] .progressive-unit.revealed .progressive-extra { max-height: none; }
+}
+@media print {
+  :root[data-design="16"] .rm-progress-rail { display: none; }
+  :root[data-design="16"] .progressive-extra { max-height: none; opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   LAYOUT 17 · MODAL INFO
+   --------------------------------------------------------------------------
+   The page stays a quiet 46rem English column. Every part carries an ⓘ that
+   opens one shared modal with where-from · related · background plus the source
+   records; backdrop, Esc and Close all dismiss it and focus is trapped inside.
+   Nav and filter stay visible; the modal is additional, never instead.
+   ========================================================================== */
+
+:root[data-design="17"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="17"] .shell-frame { max-width: 1140px; padding: 0 1rem; }
+:root[data-design="17"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="17"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="17"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="17"] #main-content { max-width: 1140px; margin: 0 auto; padding: 0 1rem 4rem; }
+:root[data-design="17"] .view-section.active { max-width: 1140px; margin: 0 auto; padding: 0; }
+:root[data-design="17"] .room-heading,
+:root[data-design="17"] .text-header.room-heading {
+  max-width: 46rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="17"] .room-filter-rail,
+:root[data-design="17"] .gongan-filter-rail,
+:root[data-design="17"] .lexicon-filter-row {
+  max-width: 46rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="17"] .room-body,
+:root[data-design="17"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="17"] .reader-layout { display: block; max-width: 46rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="17"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="17"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="17"] .content-panel { max-width: 46rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="17"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="17"] #reader-content-target { display: block; max-width: 46rem; margin: 0 auto; }
+:root[data-design="17"] .document-heading { max-width: 46rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="17"] .case-jump-strip,
+:root[data-design="17"] .case-load-more { max-width: 46rem; margin: 1rem auto; }
+:root[data-design="17"] .gongan-catalogue-head { display: none; }
+
+/* --- the quiet English column --- */
+:root[data-design="17"] .translation-text,
+:root[data-design="17"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  line-height: 1.85;
+  max-width: 42ch;
+  color: var(--ink);
+}
+:root[data-design="17"] .case-card {
+  max-width: 46rem;
+  margin: 0 auto 1.3rem;
+  padding: 0.9rem 0 1.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+:root[data-design="17"] .case-card:last-child { border-bottom: 0; }
+:root[data-design="17"] .matrix-proof-sheet,
+:root[data-design="17"] .lineage-master-row,
+:root[data-design="17"] .catalogue-row,
+:root[data-design="17"] .lexicon-entry {
+  margin: 0 0 1rem;
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="17"] .lexicon-entry { display: block; }
+/* Source + records live in the modal, not inline, so the page stays minimal. */
+:root[data-design="17"] .classical-zh,
+:root[data-design="17"] .pinyin-line,
+:root[data-design="17"] .provenance-line,
+:root[data-design="17"] .matrix-sentence-zh,
+:root[data-design="17"] .matrix-sentence-pinyin,
+:root[data-design="17"] .lineage-master-record,
+:root[data-design="17"] .lineage-master-quote,
+:root[data-design="17"] .catalogue-detail,
+:root[data-design="17"] .lexicon-occurrences { display: none; }
+
+/* --- the ⓘ opener on each unit --- */
+:root[data-design="17"] .rm-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-left: 0.45rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--gold) 55%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gold) 8%, var(--panel));
+  color: var(--gold-strong);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  line-height: 1;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background-color var(--motion) ease, border-color var(--motion) ease;
+}
+:root[data-design="17"] .rm-info-btn:hover,
+:root[data-design="17"] .rm-info-btn:focus-visible {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--paper);
+  outline: none;
+}
+:root[data-design="17"] .rm-modalinfo-room { max-width: 46rem; margin: 0 auto 1rem; }
+:root[data-design="17"] .rm-room-info-btn { font-size: 0.8rem; }
+
+/* --- the shared modal --- */
+:root[data-design="17"] .rm-modal-root {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+:root[data-design="17"] .rm-modal-root[hidden] { display: none; }
+:root[data-design="17"] .rm-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--wood) 62%, transparent);
+  backdrop-filter: blur(3px);
+}
+:root[data-design="17"] .rm-modal-panel {
+  position: relative;
+  width: min(100%, 40rem);
+  max-height: min(80vh, 46rem);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+:root[data-design="17"] .rm-modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="17"] .rm-modal-title { font-family: var(--font-display); font-size: 1.12rem; line-height: 1.3; margin: 0; color: var(--ink); }
+:root[data-design="17"] .rm-modal-close {
+  flex: 0 0 auto;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+:root[data-design="17"] .rm-modal-close:hover,
+:root[data-design="17"] .rm-modal-close:focus-visible { border-color: var(--gold); color: var(--gold-strong); outline: none; }
+:root[data-design="17"] .rm-modal-body { padding: 1rem 1.1rem 1.2rem; overflow-y: auto; }
+:root[data-design="17"] .rm-modal-body .context-label { color: var(--gold-strong); }
+:root[data-design="17"] .rm-modal-subhead {
+  margin: 1.1rem 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+:root[data-design="17"] .rm-modal-source .classical-zh,
+:root[data-design="17"] .rm-modal-source .pinyin-line,
+:root[data-design="17"] .rm-modal-source .provenance-line,
+:root[data-design="17"] .rm-modal-source .matrix-sentence-zh,
+:root[data-design="17"] .rm-modal-source .lineage-master-record,
+:root[data-design="17"] .rm-modal-source .lineage-master-quote,
+:root[data-design="17"] .rm-modal-source .catalogue-detail,
+:root[data-design="17"] .rm-modal-source .lexicon-occurrences { display: block; }
+
+@media (max-width: 768px) {
+  :root[data-design="17"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="17"] .rm-modal-root { padding: 0.75rem; align-items: flex-end; }
+  :root[data-design="17"] .rm-modal-panel { width: 100%; max-height: 86vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="17"] .rm-info-btn { transition: none; }
+}
+@media print {
+  :root[data-design="17"] .rm-modal-root { display: none; }
+  :root[data-design="17"] .classical-zh,
+  :root[data-design="17"] .provenance-line { display: block; }
+}
+
+/* ==========================================================================
+   LAYOUT 18 · HOVER CARDS
+   --------------------------------------------------------------------------
+   A comfortable 46rem English column. The English name of each part is dotted;
+   hover, focus or tap lifts a card with where-from · related · background, so
+   nothing extra sits inline and the reading stays quiet. Nav + filter visible.
+   ========================================================================== */
+
+:root[data-design="18"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="18"] .shell-frame { max-width: 1140px; padding: 0 1rem; }
+:root[data-design="18"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="18"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="18"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="18"] #main-content { max-width: 1140px; margin: 0 auto; padding: 0 1rem 4rem; }
+:root[data-design="18"] .view-section.active { max-width: 1140px; margin: 0 auto; padding: 0; }
+:root[data-design="18"] .room-heading,
+:root[data-design="18"] .text-header.room-heading {
+  max-width: 46rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="18"] .room-filter-rail,
+:root[data-design="18"] .gongan-filter-rail,
+:root[data-design="18"] .lexicon-filter-row {
+  max-width: 46rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="18"] .room-body,
+:root[data-design="18"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="18"] .reader-layout { display: block; max-width: 46rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="18"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="18"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="18"] .content-panel { max-width: 46rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="18"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="18"] #reader-content-target { display: block; max-width: 46rem; margin: 0 auto; }
+:root[data-design="18"] .document-heading { max-width: 46rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="18"] .case-jump-strip,
+:root[data-design="18"] .case-load-more { max-width: 46rem; margin: 1rem auto; }
+:root[data-design="18"] .gongan-catalogue-head { display: none; }
+
+:root[data-design="18"] .translation-text,
+:root[data-design="18"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  line-height: 1.85;
+  max-width: 42ch;
+  color: var(--ink);
+}
+:root[data-design="18"] .case-card {
+  max-width: 46rem;
+  margin: 0 auto 1.3rem;
+  padding: 0.9rem 0 1.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+:root[data-design="18"] .case-card:last-child { border-bottom: 0; }
+:root[data-design="18"] .matrix-proof-sheet,
+:root[data-design="18"] .lineage-master-row,
+:root[data-design="18"] .catalogue-row,
+:root[data-design="18"] .lexicon-entry {
+  margin: 0 0 1rem;
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="18"] .lexicon-entry { display: block; }
+
+/* --- dotted, hover-cardable English names --- */
+:root[data-design="18"] .hover-cardable {
+  position: relative;
+  border-bottom: 1px dotted var(--gold);
+  cursor: help;
+}
+:root[data-design="18"] .hover-cardable:hover,
+:root[data-design="18"] .hover-cardable:focus-visible { border-bottom-style: solid; outline: none; }
+:root[data-design="18"] .hover-card {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 40;
+  width: max-content;
+  max-width: 26rem;
+  margin-top: 0.45rem;
+  padding: 0.7rem 0.85rem 0.8rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  text-align: left;
+  cursor: auto;
+}
+:root[data-design="18"] .hover-cardable:hover .hover-card,
+:root[data-design="18"] .hover-cardable:focus-within .hover-card { display: block; }
+:root[data-design="18"] .hover-card-head {
+  display: block;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+:root[data-design="18"] .hover-card-body { display: block; }
+:root[data-design="18"] .hover-card-body .context-row { display: block; margin-bottom: 0.5rem; }
+:root[data-design="18"] .hover-card-body .context-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="18"] .hover-card-body .context-text { font-family: var(--font-ui); font-size: 0.82rem; line-height: 1.55; color: var(--ink); }
+:root[data-design="18"] .rm-hovercard-note { max-width: 46rem; margin: 1.5rem auto 0; }
+
+@media (max-width: 768px) {
+  :root[data-design="18"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="18"] .hover-card { max-width: 18rem; }
+}
+@media (hover: none) {
+  /* No hover on touch: the dotted name is focusable, so tap focuses and shows. */
+  :root[data-design="18"] .hover-cardable { border-bottom-style: solid; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="18"] .hover-cardable { transition: none; }
+}
+@media print {
+  :root[data-design="18"] .hover-card { position: static; display: block; box-shadow: none; max-width: none; }
+}
+
+/* ==========================================================================
+   LAYOUT 19 · SENTENCE-BY-SENTENCE
+   --------------------------------------------------------------------------
+   A focused 44rem column where the English reads one sentence at a time. Each
+   sentence carries an [i]; pressing it opens a drawer underneath with the
+   source Chinese, pinyin, records and the plain-language context for the part.
+   Chinese is optional per sentence, so the page never gets dense. Nav + filter
+   stay visible.
+   ========================================================================== */
+
+:root[data-design="19"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="19"] .shell-frame { max-width: 1100px; padding: 0 1rem; }
+:root[data-design="19"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="19"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="19"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="19"] #main-content { max-width: 1100px; margin: 0 auto; padding: 0 1rem 4rem; }
+:root[data-design="19"] .view-section.active { max-width: 1100px; margin: 0 auto; padding: 0; }
+:root[data-design="19"] .room-heading,
+:root[data-design="19"] .text-header.room-heading {
+  max-width: 44rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="19"] .room-filter-rail,
+:root[data-design="19"] .gongan-filter-rail,
+:root[data-design="19"] .lexicon-filter-row {
+  max-width: 44rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="19"] .room-body,
+:root[data-design="19"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="19"] .reader-layout { display: block; max-width: 44rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="19"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="19"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="19"] .content-panel { max-width: 44rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="19"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="19"] #reader-content-target { display: block; max-width: 44rem; margin: 0 auto; }
+:root[data-design="19"] .document-heading { max-width: 44rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="19"] .case-jump-strip,
+:root[data-design="19"] .case-load-more { max-width: 44rem; margin: 1rem auto; }
+:root[data-design="19"] .gongan-catalogue-head { display: none; }
+
+/* --- the English reads as sentences --- */
+:root[data-design="19"] .translation-text,
+:root[data-design="19"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 2;
+  max-width: 40ch;
+  color: var(--ink);
+}
+:root[data-design="19"] .sentence-unit {
+  margin: 0 0 1.5rem;
+  padding: 1rem 0 1.2rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="19"] .sentence-unit:last-of-type { border-bottom: 0; }
+:root[data-design="19"] .sentence { white-space: normal; }
+:root[data-design="19"] .matrix-proof-sheet,
+:root[data-design="19"] .lineage-master-row,
+:root[data-design="19"] .catalogue-row,
+:root[data-design="19"] .lexicon-entry {
+  margin: 0 0 1.1rem;
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="19"] .lexicon-entry { display: block; }
+
+/* --- the [i] toggle --- */
+:root[data-design="19"] .sentence-i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0 0.15rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--gold) 50%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gold) 8%, var(--panel));
+  color: var(--gold-strong);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1;
+  vertical-align: super;
+  cursor: pointer;
+  transition: background-color var(--motion) ease, border-color var(--motion) ease;
+}
+:root[data-design="19"] .sentence-i:hover,
+:root[data-design="19"] .sentence-i:focus-visible,
+:root[data-design="19"] .sentence-i[aria-expanded="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--paper);
+  outline: none;
+}
+
+/* --- the per-sentence drawer --- */
+:root[data-design="19"] .sentence-drawer {
+  margin: 0.7rem 0 0.2rem;
+  padding: 0.8rem 0.9rem 0.9rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 78%, var(--paper));
+}
+:root[data-design="19"] .sentence-drawer[hidden] { display: none; }
+:root[data-design="19"] .sentence-drawer-head {
+  margin-bottom: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="19"] .sentence-drawer .classical-zh { font-family: var(--font-zh); font-size: 1.05rem; line-height: 1.9; color: var(--ink); }
+:root[data-design="19"] .sentence-drawer .pinyin-line { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); }
+:root[data-design="19"] .sentence-drawer .context-info-body { margin-top: 0.6rem; padding-top: 0.55rem; border-top: 1px dotted var(--line); }
+:root[data-design="19"] .sentence-drawer .context-label { color: var(--gold-strong); }
+:root[data-design="19"] .rm-sentence-note { max-width: 44rem; margin: 1.5rem auto 0; }
+
+@media (max-width: 768px) {
+  :root[data-design="19"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="19"] .translation-text,
+  :root[data-design="19"] .prose-en { line-height: 1.9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="19"] .sentence-i { transition: none; }
+}
+@media print {
+  :root[data-design="19"] .sentence-drawer { display: block; border: 0; background: transparent; }
+  :root[data-design="19"] .sentence-i { display: none; }
+}
+
+/* ==========================================================================
+   LAYOUT 20 · CHAPTER CHUNKS
+   --------------------------------------------------------------------------
+   A 44rem column broken into small chunks. Only the first chunk shows; a
+   "Continue" button reveals the next, and each chunk carries its own "Show
+   context" fold so the background stays one step away. The reader controls the
+   pace, which keeps the mental load light. Nav + filter stay visible.
+   ========================================================================== */
+
+:root[data-design="20"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="20"] .shell-frame { max-width: 1100px; padding: 0 1rem; }
+:root[data-design="20"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="20"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="20"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="20"] #main-content { max-width: 1100px; margin: 0 auto; padding: 0 1rem 4rem; }
+:root[data-design="20"] .view-section.active { max-width: 1100px; margin: 0 auto; padding: 0; }
+:root[data-design="20"] .room-heading,
+:root[data-design="20"] .text-header.room-heading {
+  max-width: 44rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="20"] .room-filter-rail,
+:root[data-design="20"] .gongan-filter-rail,
+:root[data-design="20"] .lexicon-filter-row {
+  max-width: 44rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="20"] .room-body,
+:root[data-design="20"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="20"] .reader-layout { display: block; max-width: 44rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="20"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="20"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="20"] .content-panel { max-width: 44rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="20"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="20"] #reader-content-target { display: block; max-width: 44rem; margin: 0 auto; }
+:root[data-design="20"] .document-heading { max-width: 44rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="20"] .case-jump-strip,
+:root[data-design="20"] .case-load-more { max-width: 44rem; margin: 1rem auto; }
+:root[data-design="20"] .gongan-catalogue-head { display: none; }
+
+:root[data-design="20"] .translation-text,
+:root[data-design="20"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 40ch;
+  color: var(--ink);
+}
+:root[data-design="20"] .chunk-unit {
+  margin: 0 0 1.1rem;
+  padding: 0.95rem 1rem 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="20"] .chunk-unit[hidden] { display: none; }
+:root[data-design="20"] .case-card { border: 0; background: transparent; box-shadow: none; padding: 0; margin: 0; }
+
+/* --- the per-chunk context fold --- */
+:root[data-design="20"] .chunk-context {
+  margin: 0 0 1.1rem;
+  border: 1px dashed color-mix(in srgb, var(--gold) 45%, var(--line));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--gold) 5%, var(--panel));
+}
+:root[data-design="20"] .chunk-context[hidden] { display: none; }
+:root[data-design="20"] .chunk-context > summary {
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="20"] .chunk-context > summary::-webkit-details-marker { display: none; }
+:root[data-design="20"] .chunk-context > summary::before { content: '+'; display: inline-block; width: 1rem; color: var(--gold); }
+:root[data-design="20"] .chunk-context[open] > summary::before { content: '\2212'; }
+:root[data-design="20"] .chunk-context[open] > summary { border-bottom: 1px solid var(--line-soft); }
+:root[data-design="20"] .chunk-context-body { display: grid; gap: 0.7rem; padding: 0.85rem 0.9rem 1rem; }
+:root[data-design="20"] .chunk-context-body .context-label { color: var(--gold-strong); }
+
+/* --- the Continue control --- */
+:root[data-design="20"] .rm-chunks-ctl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 44rem;
+  margin: 1.4rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+:root[data-design="20"] .rm-chunk-continue { font-size: 0.86rem; }
+:root[data-design="20"] .rm-chunk-continue[hidden] { display: none; }
+:root[data-design="20"] .rm-chunk-status { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-soft); }
+
+@media (max-width: 768px) {
+  :root[data-design="20"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="20"] .chunk-unit { padding: 0.85rem; }
+}
+@media print {
+  :root[data-design="20"] .chunk-unit[hidden] { display: block; }
+  :root[data-design="20"] .rm-chunks-ctl { display: none; }
+}
+
+/* ==========================================================================
+   LAYOUT 21 · WORK DOSSIER PAGE
+   --------------------------------------------------------------------------
+   Context leads. A dossier at the top of a 48rem column gives the witness and
+   coverage, where the work came from, the teachers related to it and the
+   background in plain language; the translation sits below and folds behind
+   "Read translation". English first within the dossier. Nav + filter visible.
+   ========================================================================== */
+
+:root[data-design="21"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="21"] .shell-frame { max-width: 1160px; padding: 0 1rem; }
+:root[data-design="21"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="21"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="21"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="21"] #main-content { max-width: 1160px; margin: 0 auto; padding: 0 1rem 4rem; }
+:root[data-design="21"] .view-section.active { max-width: 1160px; margin: 0 auto; padding: 0; }
+:root[data-design="21"] .room-heading,
+:root[data-design="21"] .text-header.room-heading {
+  max-width: 48rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="21"] .room-filter-rail,
+:root[data-design="21"] .gongan-filter-rail,
+:root[data-design="21"] .lexicon-filter-row {
+  max-width: 48rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="21"] .room-body,
+:root[data-design="21"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="21"] .reader-layout { display: block; max-width: 48rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="21"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="21"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="21"] .content-panel { max-width: 48rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="21"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="21"] #reader-content-target { display: block; max-width: 48rem; margin: 0 auto; }
+:root[data-design="21"] .case-jump-strip,
+:root[data-design="21"] .case-load-more { max-width: 48rem; margin: 1rem auto; }
+:root[data-design="21"] .gongan-catalogue-head { display: none; }
+
+/* --- the dossier panel --- */
+:root[data-design="21"] .work-dossier {
+  max-width: 48rem;
+  margin: 1.4rem auto 1.2rem;
+  padding: 1.1rem 1.2rem 1.2rem;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+:root[data-design="21"] .wd-head { margin-bottom: 0.7rem; }
+:root[data-design="21"] .wd-title { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.25; margin: 0.2rem 0 0; color: var(--ink); }
+:root[data-design="21"] .wd-body .context-row { display: block; margin-bottom: 0.65rem; }
+:root[data-design="21"] .wd-body .context-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="21"] .wd-body .context-text { font-size: 0.9rem; line-height: 1.65; }
+:root[data-design="21"] .work-dossier .rm-related-block { margin-top: 0.9rem; padding-top: 0.8rem; border-top: 1px solid var(--line-soft); }
+:root[data-design="21"] .work-dossier .rm-related-card { margin-bottom: 0.7rem; }
+:root[data-design="21"] .wd-read { margin-top: 1rem; }
+
+/* --- the translation folds behind the dossier --- */
+:root[data-design="21"] .wd-translation { max-width: 48rem; margin: 0 auto; transition: opacity var(--motion) ease; }
+:root[data-design="21"] .wd-translation.is-collapsed { display: none; }
+:root[data-design="21"] .translation-text,
+:root[data-design="21"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 44ch;
+  color: var(--ink);
+}
+:root[data-design="21"] .case-card {
+  margin: 0 0 1.3rem;
+  padding: 0.95rem 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="21"] .document-heading { max-width: 48rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+
+@media (max-width: 768px) {
+  :root[data-design="21"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="21"] .work-dossier { padding: 0.95rem; }
+}
+@media print {
+  :root[data-design="21"] .wd-translation.is-collapsed { display: block; }
+  :root[data-design="21"] .wd-read { display: none; }
+}
+
+/* ==========================================================================
+   LAYOUT 22 · TEACHER DOSSIER PAGE
+   --------------------------------------------------------------------------
+   Teachers lead. In Lineage each entry becomes a dossier — origin, teacher and
+   disciples, background, related works — with the quote and records folded
+   away. In the other rooms a "Teachers connected to this" panel gathers the
+   profiled teachers in plain language. Nav + filter stay visible.
+   ========================================================================== */
+
+:root[data-design="22"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="22"] .shell-frame { max-width: 1160px; padding: 0 1rem; }
+:root[data-design="22"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="22"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="22"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="22"] #main-content { max-width: 1160px; margin: 0 auto; padding: 0 1rem 4rem; }
+:root[data-design="22"] .view-section.active { max-width: 1160px; margin: 0 auto; padding: 0; }
+:root[data-design="22"] .room-heading,
+:root[data-design="22"] .text-header.room-heading {
+  max-width: 48rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="22"] .room-filter-rail,
+:root[data-design="22"] .gongan-filter-rail,
+:root[data-design="22"] .lexicon-filter-row {
+  max-width: 48rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="22"] .room-body,
+:root[data-design="22"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="22"] .reader-layout { display: block; max-width: 48rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="22"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="22"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="22"] .content-panel { max-width: 48rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="22"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="22"] #reader-content-target { display: block; max-width: 48rem; margin: 0 auto; }
+:root[data-design="22"] .document-heading { max-width: 48rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="22"] .case-jump-strip,
+:root[data-design="22"] .case-load-more { max-width: 48rem; margin: 1rem auto; }
+:root[data-design="22"] .gongan-catalogue-head { display: none; }
+
+/* --- Lineage rows become dossiers --- */
+:root[data-design="22"] .lineage-master-row {
+  display: block;
+  margin: 0 0 1.1rem;
+  padding: 1rem 1.1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="22"] .lineage-master-name-en { font-family: var(--font-display); font-size: 1.18rem; color: var(--ink); }
+:root[data-design="22"] .lineage-master-name-zh { font-family: var(--font-zh); color: var(--ink-soft); }
+:root[data-design="22"] .td-more { margin-top: 0.8rem; border-top: 1px solid var(--line-soft); padding-top: 0.6rem; }
+:root[data-design="22"] .td-more > summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="22"] .td-more > summary::-webkit-details-marker { display: none; }
+:root[data-design="22"] .td-more > summary::before { content: '+'; display: inline-block; width: 1rem; color: var(--gold); }
+:root[data-design="22"] .td-more[open] > summary::before { content: '\2212'; }
+:root[data-design="22"] .td-more .context-info-body { margin-top: 0.5rem; }
+:root[data-design="22"] .td-more .context-label { color: var(--gold-strong); }
+
+/* --- "Teachers connected to this" panel in the other rooms --- */
+:root[data-design="22"] .td-related {
+  max-width: 48rem;
+  margin: 1.4rem auto 1.2rem;
+  padding: 1.1rem 1.2rem 1.2rem;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+:root[data-design="22"] .td-related-title { font-family: var(--font-display); font-size: 1.2rem; margin: 0.2rem 0 0.8rem; color: var(--ink); }
+:root[data-design="22"] .td-card {
+  margin-bottom: 1rem;
+  padding: 0.85rem 0.95rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 70%, var(--paper));
+}
+:root[data-design="22"] .td-card:last-child { margin-bottom: 0; }
+:root[data-design="22"] .td-name { font-family: var(--font-display); font-size: 1.05rem; margin: 0 0 0.5rem; color: var(--ink); }
+:root[data-design="22"] .td-zh { font-family: var(--font-zh); font-weight: 400; color: var(--ink-soft); }
+:root[data-design="22"] .td-card .context-label { color: var(--gold-strong); }
+:root[data-design="22"] .td-works { margin-top: 0.7rem; border-top: 1px solid var(--line-soft); padding-top: 0.5rem; }
+:root[data-design="22"] .td-works > summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="22"] .td-works > summary::-webkit-details-marker { display: none; }
+:root[data-design="22"] .td-works > summary::before { content: '+'; display: inline-block; width: 1rem; color: var(--gold); }
+:root[data-design="22"] .td-works[open] > summary::before { content: '\2212'; }
+:root[data-design="22"] .td-works .rm-index-list { list-style: none; margin: 0.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+@media (max-width: 768px) {
+  :root[data-design="22"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="22"] .td-related,
+  :root[data-design="22"] .lineage-master-row { padding: 0.95rem; }
+}
+@media print {
+  :root[data-design="22"] .td-more { display: block; }
+  :root[data-design="22"] .td-more .context-info-body { display: block; }
+}
+
+/* ==========================================================================
+   LAYOUT 23 · TWO-STEP READER
+   --------------------------------------------------------------------------
+   A 44rem column where each part shows only its headline and first English
+   paragraph at first. "Read more" reveals the rest of the part; "Show context"
+   reveals the source Chinese, records and background. Two intentional steps
+   keep the initial load light. Nav + filter stay visible.
+   ========================================================================== */
+
+:root[data-design="23"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="23"] .shell-frame { max-width: 1100px; padding: 0 1rem; }
+:root[data-design="23"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="23"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="23"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="23"] #main-content { max-width: 1100px; margin: 0 auto; padding: 0 1rem 4rem; }
+:root[data-design="23"] .view-section.active { max-width: 1100px; margin: 0 auto; padding: 0; }
+:root[data-design="23"] .room-heading,
+:root[data-design="23"] .text-header.room-heading {
+  max-width: 44rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="23"] .room-filter-rail,
+:root[data-design="23"] .gongan-filter-rail,
+:root[data-design="23"] .lexicon-filter-row {
+  max-width: 44rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="23"] .room-body,
+:root[data-design="23"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="23"] .reader-layout { display: block; max-width: 44rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="23"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="23"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="23"] .content-panel { max-width: 44rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="23"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="23"] #reader-content-target { display: block; max-width: 44rem; margin: 0 auto; }
+:root[data-design="23"] .document-heading { max-width: 44rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="23"] .case-jump-strip,
+:root[data-design="23"] .case-load-more { max-width: 44rem; margin: 1rem auto; }
+:root[data-design="23"] .gongan-catalogue-head { display: none; }
+
+:root[data-design="23"] .translation-text,
+:root[data-design="23"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  line-height: 1.85;
+  max-width: 40ch;
+  color: var(--ink);
+}
+:root[data-design="23"] .two-step {
+  margin: 0 0 1.4rem;
+  padding: 1rem 0 1.2rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="23"] .two-step:last-of-type { border-bottom: 0; }
+:root[data-design="23"] .matrix-proof-sheet,
+:root[data-design="23"] .lineage-master-row,
+:root[data-design="23"] .catalogue-row,
+:root[data-design="23"] .lexicon-entry {
+  margin: 0 0 1.1rem;
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="23"] .lexicon-entry { display: block; }
+
+/* --- the two controls --- */
+:root[data-design="23"] .twostep-ctl { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+:root[data-design="23"] .twostep-ctl .btn-pill { font-size: 0.8rem; }
+:root[data-design="23"] .twostep-ctl .btn-pill[hidden] { display: none; }
+
+/* --- step two: the rest of the part --- */
+:root[data-design="23"] .twostep-rest { margin-top: 0.8rem; padding-top: 0.7rem; border-top: 1px dotted var(--line); }
+:root[data-design="23"] .twostep-rest[hidden] { display: none; }
+
+/* --- the context drawer --- */
+:root[data-design="23"] .twostep-context {
+  margin-top: 0.8rem;
+  padding: 0.8rem 0.9rem 0.9rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 78%, var(--paper));
+}
+:root[data-design="23"] .twostep-context[hidden] { display: none; }
+:root[data-design="23"] .twostep-context .context-label { color: var(--gold-strong); }
+:root[data-design="23"] .twostep-context .classical-zh { font-family: var(--font-zh); font-size: 1.05rem; line-height: 1.9; }
+:root[data-design="23"] .rm-twostep-note { max-width: 44rem; margin: 1.5rem auto 0; }
+
+@media (max-width: 768px) {
+  :root[data-design="23"] #main-content { padding: 0 0.85rem 3.5rem; }
+}
+@media print {
+  :root[data-design="23"] .twostep-rest,
+  :root[data-design="23"] .twostep-context { display: block; }
+  :root[data-design="23"] .twostep-ctl { display: none; }
+}
+
+/* ==========================================================================
+   LAYOUT 24 · COMMAND PALETTE
+   --------------------------------------------------------------------------
+   A minimal 46rem English page. Ctrl/⌘+K (or the button) opens a palette to
+   jump straight to any work, teacher, case or term; results are plain-English
+   cards and Enter opens the pick. The room nav stays visible, but the palette
+   is the fast path. Nav + filter stay visible.
+   ========================================================================== */
+
+:root[data-design="24"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="24"] .shell-frame { max-width: 1140px; padding: 0 1rem; }
+:root[data-design="24"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="24"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="24"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="24"] #main-content { max-width: 1140px; margin: 0 auto; padding: 0 1rem 4rem; }
+:root[data-design="24"] .view-section.active { max-width: 1140px; margin: 0 auto; padding: 0; }
+:root[data-design="24"] .room-heading,
+:root[data-design="24"] .text-header.room-heading {
+  max-width: 46rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="24"] .room-filter-rail,
+:root[data-design="24"] .gongan-filter-rail,
+:root[data-design="24"] .lexicon-filter-row {
+  max-width: 46rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="24"] .room-body,
+:root[data-design="24"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="24"] .reader-layout { display: block; max-width: 46rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="24"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="24"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="24"] .content-panel { max-width: 46rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="24"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="24"] #reader-content-target { display: block; max-width: 46rem; margin: 0 auto; }
+:root[data-design="24"] .document-heading { max-width: 46rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="24"] .case-jump-strip,
+:root[data-design="24"] .case-load-more { max-width: 46rem; margin: 1rem auto; }
+:root[data-design="24"] .gongan-catalogue-head { display: none; }
+
+:root[data-design="24"] .translation-text,
+:root[data-design="24"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 42ch;
+  color: var(--ink);
+}
+:root[data-design="24"] .case-card {
+  max-width: 46rem;
+  margin: 0 auto 1.2rem;
+  padding: 0.9rem 0 1.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+:root[data-design="24"] .matrix-proof-sheet,
+:root[data-design="24"] .lineage-master-row,
+:root[data-design="24"] .catalogue-row,
+:root[data-design="24"] .lexicon-entry {
+  margin: 0 0 1rem;
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="24"] .lexicon-entry { display: block; }
+
+/* --- the palette hint button --- */
+:root[data-design="24"] .rm-palette-hint { max-width: 46rem; margin: 0 auto 1.1rem; }
+:root[data-design="24"] .rm-palette-open {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+  color: var(--gold-strong);
+}
+:root[data-design="24"] .rm-palette-open:hover,
+:root[data-design="24"] .rm-palette-open:focus-visible {
+  border-style: solid;
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+}
+
+/* --- the palette overlay --- */
+:root[data-design="24"] .rm-cmd-palette {
+  position: fixed;
+  inset: 0;
+  z-index: 85;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 1.25rem 1.25rem;
+}
+:root[data-design="24"] .rm-cmd-palette[hidden] { display: none; }
+:root[data-design="24"] .cmd-backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--wood) 58%, transparent);
+  backdrop-filter: blur(3px);
+}
+:root[data-design="24"] .cmd-panel {
+  position: relative;
+  width: min(100%, 38rem);
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+:root[data-design="24"] .cmd-input {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+:root[data-design="24"] .cmd-input:focus { outline: none; background: color-mix(in srgb, var(--gold) 5%, transparent); }
+:root[data-design="24"] .cmd-results { list-style: none; margin: 0; padding: 0.4rem 0; overflow-y: auto; }
+:root[data-design="24"] .cmd-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
+}
+:root[data-design="24"] .cmd-item.is-active { background: color-mix(in srgb, var(--gold) 12%, transparent); }
+:root[data-design="24"] .cmd-kind {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="24"] .cmd-label { font-family: var(--font-display); font-size: 0.98rem; color: var(--ink); }
+:root[data-design="24"] .cmd-sub { font-size: 0.78rem; color: var(--ink-soft); }
+:root[data-design="24"] .cmd-empty { padding: 0.8rem 1.1rem; color: var(--ink-soft); font-size: 0.88rem; }
+:root[data-design="24"] .cmd-foot {
+  margin: 0;
+  padding: 0.5rem 1.1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 768px) {
+  :root[data-design="24"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="24"] .rm-cmd-palette { padding: 8vh 0.75rem 0.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="24"] .rm-palette-open { transition: none; }
+}
+@media print {
+  :root[data-design="24"] .rm-cmd-palette { display: none; }
+}
+
+/* ==========================================================================
+   LAYOUT 25 · BOOKMARK TRAIL + PREV/NEXT + SLIDER + INLINE ORIGIN
+   --------------------------------------------------------------------------
+   A 46rem column with four orientation aids: a trail along the bottom edge
+   says where you came from in plain language; prev/next walks the room and
+   lists what is related (with one line on why); Matrix gets a witness
+   comparison slider; Lineage names expand their origin on hover or focus.
+   Nav + filter stay visible.
+   ========================================================================== */
+
+:root[data-design="25"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="25"] .shell-frame { max-width: 1140px; padding: 0 1rem; }
+:root[data-design="25"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="25"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="25"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="25"] #main-content { max-width: 1140px; margin: 0 auto; padding: 0 1rem 7rem; }
+:root[data-design="25"] .view-section.active { max-width: 1140px; margin: 0 auto; padding: 0; }
+:root[data-design="25"] .room-heading,
+:root[data-design="25"] .text-header.room-heading {
+  max-width: 46rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="25"] .room-filter-rail,
+:root[data-design="25"] .gongan-filter-rail,
+:root[data-design="25"] .lexicon-filter-row {
+  max-width: 46rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="25"] .room-body,
+:root[data-design="25"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="25"] .reader-layout { display: block; max-width: 46rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="25"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="25"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="25"] .content-panel { max-width: 46rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="25"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="25"] #reader-content-target { display: block; max-width: 46rem; margin: 0 auto; }
+:root[data-design="25"] .document-heading { max-width: 46rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="25"] .case-jump-strip,
+:root[data-design="25"] .case-load-more { max-width: 46rem; margin: 1rem auto; }
+:root[data-design="25"] .gongan-catalogue-head { display: none; }
+
+:root[data-design="25"] .translation-text,
+:root[data-design="25"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 42ch;
+  color: var(--ink);
+}
+:root[data-design="25"] .case-card {
+  max-width: 46rem;
+  margin: 0 auto 1.2rem;
+  padding: 0.9rem 0 1.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+:root[data-design="25"] .matrix-proof-sheet,
+:root[data-design="25"] .lineage-master-row,
+:root[data-design="25"] .catalogue-row,
+:root[data-design="25"] .lexicon-entry {
+  margin: 0 0 1rem;
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="25"] .lexicon-entry { display: block; }
+
+/* --- the bookmark trail pinned to the bottom edge --- */
+:root[data-design="25"] .bookmark-trail {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -2px 12px rgba(33, 24, 20, 0.06);
+}
+:root[data-design="25"] .trail-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+  margin-right: 0.3rem;
+}
+:root[data-design="25"] .trail-sep { color: var(--ink-soft); font-size: 0.8rem; }
+:root[data-design="25"] .trail-crumb {
+  padding: 0.2rem 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+:root[data-design="25"] .trail-crumb:hover,
+:root[data-design="25"] .trail-crumb:focus-visible { background: color-mix(in srgb, var(--gold) 12%, transparent); outline: none; }
+:root[data-design="25"] .trail-crumb.trail-home { color: var(--gold-strong); font-weight: 600; }
+
+/* --- prev / next + related --- */
+:root[data-design="25"] .prev-next {
+  max-width: 46rem;
+  margin: 1.6rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+:root[data-design="25"] .pn-row { display: flex; gap: 0.75rem; margin-bottom: 0.9rem; }
+:root[data-design="25"] .pn-btn {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--motion) ease, background-color var(--motion) ease;
+}
+:root[data-design="25"] .pn-btn:hover,
+:root[data-design="25"] .pn-btn:focus-visible { border-color: var(--gold); background: var(--gold-soft); outline: none; }
+:root[data-design="25"] .pn-next { text-align: right; align-items: flex-end; }
+:root[data-design="25"] .pn-dir { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-strong); }
+:root[data-design="25"] .pn-name { font-family: var(--font-display); font-size: 0.95rem; line-height: 1.3; color: var(--ink); }
+:root[data-design="25"] .pn-spacer { flex: 1 1 0; }
+:root[data-design="25"] .pn-related { display: grid; gap: 0.6rem; }
+:root[data-design="25"] .pn-card {
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 72%, var(--paper));
+  cursor: pointer;
+}
+:root[data-design="25"] .pn-card-name { display: block; font-family: var(--font-display); font-size: 0.95rem; color: var(--ink); }
+:root[data-design="25"] .pn-card-why { display: block; margin-top: 0.2rem; font-size: 0.8rem; line-height: 1.5; color: var(--ink-soft); }
+
+/* --- the Matrix witness comparison slider --- */
+:root[data-design="25"] .comparison-slider {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line-soft);
+}
+:root[data-design="25"] .cs-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+  white-space: nowrap;
+}
+:root[data-design="25"] .cs-range { flex: 1 1 auto; accent-color: var(--gold); cursor: pointer; }
+:root[data-design="25"] .cs-out { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-soft); white-space: nowrap; }
+:root[data-design="25"] .matrix-register-row { transition: opacity var(--motion) ease, background-color var(--motion) ease; }
+:root[data-design="25"] .matrix-register-row.is-emphasis {
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  border-radius: var(--radius);
+}
+
+/* --- inline teacher origin on hover/focus --- */
+:root[data-design="25"] .inline-origin { position: relative; border-bottom: 1px dotted var(--gold); cursor: help; }
+:root[data-design="25"] .inline-origin:hover,
+:root[data-design="25"] .inline-origin:focus-visible { border-bottom-style: solid; outline: none; }
+:root[data-design="25"] .inline-origin-dossier {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 40;
+  width: max-content;
+  max-width: 26rem;
+  margin-top: 0.45rem;
+  padding: 0.7rem 0.85rem 0.8rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  text-align: left;
+  cursor: auto;
+}
+:root[data-design="25"] .inline-origin:hover .inline-origin-dossier,
+:root[data-design="25"] .inline-origin:focus-within .inline-origin-dossier { display: block; }
+:root[data-design="25"] .inline-origin-dossier .context-row { display: block; margin-bottom: 0.5rem; }
+:root[data-design="25"] .inline-origin-dossier .context-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="25"] .inline-origin-dossier .context-text { font-family: var(--font-ui); font-size: 0.82rem; line-height: 1.55; }
+
+@media (max-width: 768px) {
+  :root[data-design="25"] #main-content { padding: 0 0.85rem 7.5rem; }
+  :root[data-design="25"] .bookmark-trail { padding: 0.45rem 0.75rem; }
+  :root[data-design="25"] .trail-label { display: none; }
+  :root[data-design="25"] .inline-origin-dossier { max-width: 18rem; }
+  :root[data-design="25"] .pn-row { flex-direction: column; }
+  :root[data-design="25"] .pn-next { text-align: left; align-items: flex-start; }
+}
+@media (hover: none) {
+  :root[data-design="25"] .inline-origin { border-bottom-style: solid; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="25"] .pn-btn,
+  :root[data-design="25"] .matrix-register-row { transition: none; }
+}
+@media print {
+  :root[data-design="25"] .bookmark-trail { display: none; }
+  :root[data-design="25"] .inline-origin-dossier { position: static; display: block; box-shadow: none; }
+}
+
+/* ==========================================================================
+   LAYOUT SWITCHER — twenty-five numbered examples
+   --------------------------------------------------------------------------
+   The header control now carries 1–25. The only shared control the usable
+   families touch: the row wraps, and the numbers are slightly narrower so all
+   twenty-five stay one quiet strip rather than pushing the brand row around.
+   No layout section above is altered.
    ========================================================================== */
 .design-switcher {
-  max-width: min(100%, 46rem);
+  max-width: min(100%, 52rem);
   row-gap: 0.15rem;
 }
 .design-btn {
-  min-width: 1.7rem;
-  padding: 0 0.35rem;
+  min-width: 1.6rem;
+  padding: 0 0.3rem;
 }
 @media (max-width: 1180px) {
   .design-switcher { max-width: 100%; }
-  .design-btn { min-width: 1.55rem; padding: 0 0.28rem; }
+  .design-btn { min-width: 1.5rem; padding: 0 0.26rem; }
 }
 @media (max-width: 768px) {
   .design-switcher { width: 100%; justify-content: flex-start; margin-left: 0; padding-left: 0; border-left: 0; }
-  .design-btn { min-width: 1.5rem; }
+  .design-btn { min-width: 1.45rem; }
 }
