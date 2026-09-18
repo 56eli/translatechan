@@ -9684,15 +9684,3235 @@ html[data-design="6"].nav-open .nav-drawer-backdrop { display: block; }
 }
 
 /* ==========================================================================
-   LAYOUT SWITCHER — twenty-five numbered examples
+   Phase 5 — LAYOUTS 26–35 · FINAL BATCH BEFORE REVIEW (2026-09-18)
    --------------------------------------------------------------------------
-   The header control now carries 1–25. The only shared control the usable
+   Owner: "26-35 yes" — ten MORE usable examples before the review, each a
+   complete alternative renderer of the same five rooms with hand-pickable
+   elements for a targeted page build later: an empty-state guide, a
+   comparison slider, an inline origin drawer, a 2rem minimal header with a
+   full-bleed column, a magazine spread with drop cap, a card wall, a
+   vertical timeline, a resizable 60/40 split, glossary + footnotes sidebars,
+   and a focus/TOC/trail hybrid.
+
+   Every layout keeps the walnut shell and the room nav VISIBLE (no hidden
+   navigation), leaves the room's own filter reachable, shows English first
+   with the Chinese one intentional step away, and carries a plain-language
+   info section for the work, teacher, case or term in view (where it came
+   from · what or who is related · background).
+
+   Every layout keeps layout 1's colours exactly — only structure varies.
+   Mechanisms: class toggles, `hidden`, native <details>, <progress> and
+   <input type=range>, data-* attributes, and scoped [data-design] CSS. Zero
+   inline styles and zero new .style writes. The switcher applies data-design
+   to <html>; these sections do the rest. The shared shell/nav/body preamble
+   below is repeated per layout so each one is a complete, self-contained
+   alternative renderer.
+   ========================================================================== */
+
+/* ==========================================================================
+   LAYOUT 26 · EMPTY STATE GUIDANCE
+   --------------------------------------------------------------------------
+   A plain-language guide is the whole page when a room is empty (no work
+   picked, a filter with no hits): what Chan is, where the works come from,
+   who is related, and background — one expandable answer at a time in a
+   centred 36rem card. Once content exists the guide collapses to a small
+   banner and the room reads English first in a 44rem column. Nav and filter
+   stay visible throughout.
+   ========================================================================== */
+
+:root[data-design="26"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="26"] .shell-frame { max-width: 1120px; padding: 0 1rem; }
+:root[data-design="26"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="26"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="26"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="26"] #main-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="26"] .view-section.active { max-width: 1120px; margin: 0 auto; padding: 0; }
+:root[data-design="26"] .room-heading,
+:root[data-design="26"] .text-header.room-heading {
+  max-width: 44rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="26"] .room-filter-rail,
+:root[data-design="26"] .gongan-filter-rail,
+:root[data-design="26"] .lexicon-filter-row {
+  max-width: 44rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="26"] .room-body,
+:root[data-design="26"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="26"] .reader-layout { display: block; max-width: 44rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="26"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="26"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="26"] .content-panel { max-width: 44rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="26"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="26"] #reader-content-target { display: block; max-width: 44rem; margin: 0 auto; }
+:root[data-design="26"] .document-heading { max-width: 44rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="26"] .case-jump-strip,
+:root[data-design="26"] .case-load-more { max-width: 44rem; margin: 1rem auto; }
+:root[data-design="26"] .gongan-catalogue-head { display: none; }
+
+/* --- the guide: a centred 36rem card, whole page when empty --- */
+:root[data-design="26"] .es-guide,
+:root[data-design="26"] .empty-state {
+  max-width: 36rem;
+  margin: 1.25rem auto 1.75rem;
+  padding: 1.25rem 1.4rem 1.35rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+:root[data-design="26"] .es-guide.is-empty {
+  margin-top: 2rem;
+  padding: 1.6rem 1.7rem 1.7rem;
+  border-left-width: 4px;
+}
+:root[data-design="26"] .es-guide.is-banner:not(.is-open) {
+  padding: 0.85rem 1.1rem;
+  box-shadow: none;
+}
+:root[data-design="26"] .es-head .rm-acc-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="26"] .es-title {
+  margin: 0.3rem 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: var(--ink);
+}
+:root[data-design="26"] .es-guide.is-banner:not(.is-open) .es-title {
+  font-size: 1.02rem;
+}
+:root[data-design="26"] .es-guide.is-banner:not(.is-open) .es-lead {
+  display: none;
+}
+:root[data-design="26"] .es-lead {
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+:root[data-design="26"] .es-toggle {
+  margin-top: 0.15rem;
+}
+:root[data-design="26"] .es-guide.is-banner:not(.is-open) .es-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.9rem;
+}
+:root[data-design="26"] .es-guide.is-banner:not(.is-open) .es-title {
+  margin: 0;
+}
+:root[data-design="26"] .es-guide.is-banner:not(.is-open) .es-toggle {
+  margin: 0 0 0 auto;
+}
+
+/* --- the four plain-language answers, one at a time --- */
+:root[data-design="26"] .es-parts {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+:root[data-design="26"] .es-part {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 55%, var(--paper));
+}
+:root[data-design="26"] .es-part > summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+:root[data-design="26"] .es-part > summary::-webkit-details-marker { display: none; }
+:root[data-design="26"] .es-part > summary::before {
+  content: '+';
+  flex: 0 0 auto;
+  width: 1rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--gold);
+}
+:root[data-design="26"] .es-part[open] > summary::before { content: '\2212'; }
+:root[data-design="26"] .es-part[open] > summary {
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="26"] .es-part > summary:hover { color: var(--gold-strong); }
+:root[data-design="26"] .es-part > summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+:root[data-design="26"] .es-answer {
+  padding: 0.75rem 0.85rem 0.85rem 2.45rem;
+}
+:root[data-design="26"] .es-answer p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+:root[data-design="26"] .es-guide.is-empty .es-answer p {
+  font-size: 0.96rem;
+}
+
+/* --- the room below the guide: English first, quiet units --- */
+:root[data-design="26"] .translation-text,
+:root[data-design="26"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  line-height: 1.85;
+  max-width: 40ch;
+  color: var(--ink);
+}
+:root[data-design="26"] .es-unit {
+  margin: 0 0 1.4rem;
+  padding: 1rem 0 1.2rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="26"] .es-unit:last-of-type { border-bottom: 0; }
+:root[data-design="26"] .matrix-proof-sheet.es-unit,
+:root[data-design="26"] .lineage-master-row.es-unit,
+:root[data-design="26"] .catalogue-row.es-unit,
+:root[data-design="26"] .lexicon-entry.es-unit {
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="26"] .lexicon-entry.es-unit { display: block; }
+:root[data-design="26"] .rm-unit-note { margin: 0.7rem 0 0; }
+:root[data-design="26"] .rm-unit-note > summary { font-size: 0.66rem; }
+:root[data-design="26"] .rm-emptystate-note { margin: 1.5rem auto 0; max-width: 36rem; }
+:root[data-design="26"] .rm-emptystate-note > summary { font-size: 0.66rem; }
+
+/* --- empty rooms: the guide carries the page, notes stay reachable --- */
+:root[data-design="26"] .es-guide.is-empty + .rm-emptystate-note {
+  max-width: 36rem;
+}
+:root[data-design="26"] .classical-zh {
+  font-size: var(--zh-font-size);
+  line-height: 1.9;
+}
+:root[data-design="26"] .pinyin-line,
+:root[data-design="26"] .provenance-line {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 768px) {
+  :root[data-design="26"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="26"] .es-guide,
+  :root[data-design="26"] .empty-state { margin: 1rem 0 1.4rem; padding: 1rem 1rem 1.1rem; }
+  :root[data-design="26"] .es-answer { padding-left: 0.85rem; }
+  :root[data-design="26"] .es-guide.is-banner:not(.is-open) .es-head { gap: 0.3rem 0.6rem; }
+  :root[data-design="26"] .translation-text,
+  :root[data-design="26"] .prose-en { font-size: 1rem; }
+}
+@media (hover: none) {
+  :root[data-design="26"] .es-part > summary:hover { color: var(--ink); }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="26"] .es-part > summary { transition: none; }
+}
+@media print {
+  :root[data-design="26"] .es-guide { box-shadow: none; break-inside: avoid; }
+  :root[data-design="26"] .es-parts { display: block; }
+  :root[data-design="26"] .es-part { break-inside: avoid; margin-bottom: 0.5rem; }
+}
+
+/* --- per-room tuning inside the guided column --- */
+:root[data-design="26"] .es-unit .matrix-register-text { font-size: 0.94rem; line-height: 1.7; }
+:root[data-design="26"] .es-unit .matrix-register-row + .matrix-register-row { border-top: 1px dotted var(--line-soft); }
+:root[data-design="26"] .es-unit .lineage-master-name-en { font-family: var(--font-display); font-size: 1.04rem; }
+:root[data-design="26"] .es-unit .lineage-master-record { font-size: 0.85rem; color: var(--ink-soft); }
+:root[data-design="26"] .es-unit .lineage-master-quote {
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--gold);
+  font-style: italic;
+}
+:root[data-design="26"] .es-unit .catalogue-title-en { font-family: var(--font-display); font-size: 1rem; }
+:root[data-design="26"] .es-unit .catalogue-theme { font-size: 0.84rem; color: var(--gold-strong); }
+:root[data-design="26"] .es-unit .catalogue-detail,
+:root[data-design="26"] .es-unit .catalogue-locator { font-size: 0.84rem; color: var(--ink-soft); }
+:root[data-design="26"] .es-unit .lexicon-headword { font-family: var(--font-display); font-size: 1.02rem; }
+:root[data-design="26"] .es-unit .lexicon-entry-def { font-size: 0.92rem; line-height: 1.65; }
+:root[data-design="26"] .es-unit .lexicon-occurrences { font-size: 0.8rem; color: var(--ink-soft); }
+
+/* --- guide polish: focus ring, open state, wide screens --- */
+:root[data-design="26"] .es-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+:root[data-design="26"] .es-part[open] { background: var(--panel); }
+:root[data-design="26"] .es-guide.is-empty .es-toggle { margin-top: 0.6rem; }
+:root[data-design="26"] .es-guide.is-open { border-left-width: 3px; }
+@media (min-width: 1100px) {
+  :root[data-design="26"] .es-guide,
+  :root[data-design="26"] .empty-state { max-width: 38rem; }
+  :root[data-design="26"] .es-answer p { font-size: 0.95rem; }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  :root[data-design="26"] .es-guide,
+  :root[data-design="26"] .empty-state { margin-left: auto; margin-right: auto; }
+}
+
+/* --- guide finish: focus ring, first-unit rhythm, print widows --- */
+:root[data-design="26"] .es-guide:focus-within { border-color: var(--gold); }
+:root[data-design="26"] .es-part[open] > summary:hover { color: var(--ink); }
+:root[data-design="26"] .es-unit:first-of-type { margin-top: 0.25rem; }
+:root[data-design="26"] .es-guide.is-banner.is-open .es-lead { display: block; }
+:root[data-design="26"] .matrix-proof-sheet.es-unit .matrix-source-band { margin-bottom: 0.4rem; }
+:root[data-design="26"] .catalogue-row.es-unit .catalogue-case {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold-strong);
+}
+@media print {
+  :root[data-design="26"] .es-answer p { orphans: 3; widows: 3; }
+}
+
+/* ==========================================================================
+   LAYOUT 27 · COMPARISON SLIDER
+   --------------------------------------------------------------------------
+   One slider per unit in a 48rem column. In Compare it walks the witness
+   registers and emphasises one at a time with a live readout ("2 of 5 ·
+   name"); in the other rooms it blends English-first to source-first in
+   three labelled steps. Nothing is removed — emphasis only — and the
+   plain-language context sits one toggle away. Nav + filter visible.
+   ========================================================================== */
+
+:root[data-design="27"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="27"] .shell-frame { max-width: 1140px; padding: 0 1rem; }
+:root[data-design="27"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="27"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="27"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="27"] #main-content {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="27"] .view-section.active { max-width: 1140px; margin: 0 auto; padding: 0; }
+:root[data-design="27"] .room-heading,
+:root[data-design="27"] .text-header.room-heading {
+  max-width: 48rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="27"] .room-filter-rail,
+:root[data-design="27"] .gongan-filter-rail,
+:root[data-design="27"] .lexicon-filter-row {
+  max-width: 48rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="27"] .room-body,
+:root[data-design="27"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="27"] .reader-layout { display: block; max-width: 48rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="27"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="27"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="27"] .content-panel { max-width: 48rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="27"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="27"] #reader-content-target { display: block; max-width: 48rem; margin: 0 auto; }
+:root[data-design="27"] .document-heading { max-width: 48rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="27"] .case-jump-strip,
+:root[data-design="27"] .case-load-more { max-width: 48rem; margin: 1rem auto; }
+:root[data-design="27"] .gongan-catalogue-head { display: none; }
+
+/* --- the reading units, English first --- */
+:root[data-design="27"] .translation-text,
+:root[data-design="27"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  line-height: 1.85;
+  max-width: 42ch;
+  color: var(--ink);
+}
+:root[data-design="27"] .cmp-unit {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.1rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="27"] .lexicon-entry.cmp-unit { display: block; }
+:root[data-design="27"] .classical-zh {
+  font-size: var(--zh-font-size);
+  line-height: 1.9;
+  transition: opacity var(--motion) ease, background-color var(--motion) ease;
+}
+:root[data-design="27"] .pinyin-line,
+:root[data-design="27"] .provenance-line,
+:root[data-design="27"] .translation-source {
+  transition: opacity var(--motion) ease;
+}
+
+/* --- the slider control itself --- */
+:root[data-design="27"] .comparison-slider {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 0.9rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line-soft);
+  border-top: 2px solid var(--gold);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 55%, var(--paper));
+}
+:root[data-design="27"] .cs27-label {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+  white-space: nowrap;
+}
+:root[data-design="27"] .cs27-range {
+  flex: 1 1 auto;
+  min-width: 4rem;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+:root[data-design="27"] .cs27-range:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+:root[data-design="27"] .cs27-out {
+  flex: 0 1 auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  text-align: right;
+}
+:root[data-design="27"] .rm-unit-note { margin: 0.7rem 0 0; }
+:root[data-design="27"] .rm-unit-note > summary { font-size: 0.66rem; }
+:root[data-design="27"] .rm-cmpslider-note { margin-top: 1.5rem; }
+
+/* --- matrix: one witness emphasised, the rest dimmed --- */
+:root[data-design="27"] .matrix-register-row {
+  border-radius: var(--radius);
+  transition: opacity var(--motion) ease, background-color var(--motion) ease;
+}
+:root[data-design="27"] .matrix-register-row.is-emphasis {
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  outline: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  outline-offset: 2px;
+  opacity: 1;
+}
+:root[data-design="27"] .matrix-register-row.is-dim { opacity: 0.5; }
+:root[data-design="27"] .matrix-register-name {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--gold-strong);
+}
+:root[data-design="27"] .matrix-register-row.is-emphasis .matrix-register-name {
+  font-weight: 700;
+}
+
+/* --- reader: English stays, the source goes quiet / balanced / forward --- */
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .classical-zh,
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .pinyin-line,
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .provenance-line,
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .translation-source,
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .case-heading-zh {
+  opacity: 0.35;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .classical-zh,
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .pinyin-line,
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .provenance-line,
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .translation-source,
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .case-heading-zh {
+  opacity: 1;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .classical-zh {
+  opacity: 1;
+  background: color-mix(in srgb, var(--gold) 9%, transparent);
+  border-radius: var(--radius);
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .pinyin-line,
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .provenance-line {
+  opacity: 1;
+}
+
+/* --- lineage: name only, then record, then record + quote --- */
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .lineage-master-record,
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .lineage-master-quote {
+  display: none;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .lineage-master-record {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .lineage-master-quote {
+  display: none;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .lineage-master-record {
+  display: block;
+  margin-top: 0.5rem;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .lineage-master-quote {
+  display: block;
+  margin-top: 0.5rem;
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--gold);
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* --- cases: title only, then theme, then full detail --- */
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .catalogue-detail,
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .catalogue-theme,
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .catalogue-locator {
+  display: none;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .catalogue-theme {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .catalogue-detail,
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .catalogue-locator {
+  display: none;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .catalogue-detail,
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .catalogue-theme,
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .catalogue-locator {
+  display: block;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .catalogue-theme {
+  margin-top: 0.4rem;
+  color: var(--gold-strong);
+}
+
+/* --- terms: headword only, then definition, then occurrences --- */
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .lexicon-entry-def,
+:root[data-design="27"] .cmp-unit[data-mix="mix-en"] .lexicon-occurrences {
+  display: none;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .lexicon-entry-def {
+  display: block;
+  margin-top: 0.45rem;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .lexicon-occurrences {
+  display: none;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .lexicon-entry-def,
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .lexicon-occurrences {
+  display: block;
+}
+:root[data-design="27"] .cmp-unit[data-mix="mix-src"] .lexicon-entry-def {
+  margin-top: 0.45rem;
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--gold);
+}
+
+/* --- slider step hints under the control --- */
+:root[data-design="27"] .comparison-slider::after {
+  content: '';
+  display: none;
+}
+:root[data-design="27"] .lineage-master-name-en,
+:root[data-design="27"] .catalogue-title-en,
+:root[data-design="27"] .lexicon-headword {
+  font-family: var(--font-display);
+}
+
+@media (max-width: 768px) {
+  :root[data-design="27"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="27"] .cmp-unit { padding: 0.85rem 0.85rem 1rem; }
+  :root[data-design="27"] .comparison-slider { flex-wrap: wrap; }
+  :root[data-design="27"] .cs27-range { flex: 1 1 100%; order: 3; }
+  :root[data-design="27"] .cs27-out { text-align: left; }
+  :root[data-design="27"] .translation-text,
+  :root[data-design="27"] .prose-en { font-size: 1rem; }
+}
+@media (hover: none) {
+  :root[data-design="27"] .matrix-register-row.is-dim { opacity: 0.6; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="27"] .classical-zh,
+  :root[data-design="27"] .pinyin-line,
+  :root[data-design="27"] .provenance-line,
+  :root[data-design="27"] .translation-source,
+  :root[data-design="27"] .matrix-register-row { transition: none; }
+}
+@media print {
+  :root[data-design="27"] .comparison-slider { display: none; }
+  :root[data-design="27"] .matrix-register-row.is-dim { opacity: 1; }
+  :root[data-design="27"] .cmp-unit[data-mix="mix-en"] .lineage-master-record,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-en"] .lineage-master-quote,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .lineage-master-quote,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-en"] .catalogue-detail,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-en"] .catalogue-theme,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-en"] .catalogue-locator,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .catalogue-detail,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .catalogue-locator,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-en"] .lexicon-entry-def,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-en"] .lexicon-occurrences,
+  :root[data-design="27"] .cmp-unit[data-mix="mix-mid"] .lexicon-occurrences {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   LAYOUT 28 · INLINE TEACHER ORIGIN
+   --------------------------------------------------------------------------
+   Every lineage row stays minimal — a name, an era, a quiet dotted
+   underline. Hover, focus or tap expands an inline drawer with where they
+   come from, who is related, background, and related works. The other rooms
+   get the same drawer on their own anchors (work, line, case, term) in a
+   46rem column. Nav + filter visible.
+   ========================================================================== */
+
+:root[data-design="28"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="28"] .shell-frame { max-width: 1120px; padding: 0 1rem; }
+:root[data-design="28"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="28"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="28"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="28"] #main-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="28"] .view-section.active { max-width: 1120px; margin: 0 auto; padding: 0; }
+:root[data-design="28"] .room-heading,
+:root[data-design="28"] .text-header.room-heading {
+  max-width: 46rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="28"] .room-filter-rail,
+:root[data-design="28"] .gongan-filter-rail,
+:root[data-design="28"] .lexicon-filter-row {
+  max-width: 46rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="28"] .room-body,
+:root[data-design="28"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="28"] .reader-layout { display: block; max-width: 46rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="28"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="28"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="28"] .content-panel { max-width: 46rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="28"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="28"] #reader-content-target { display: block; max-width: 46rem; margin: 0 auto; }
+:root[data-design="28"] .document-heading { max-width: 46rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="28"] .case-jump-strip,
+:root[data-design="28"] .case-load-more { max-width: 46rem; margin: 1rem auto; }
+:root[data-design="28"] .gongan-catalogue-head { display: none; }
+
+/* --- minimal lineage rows: name + era on the surface --- */
+:root[data-design="28"] .translation-text,
+:root[data-design="28"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.06rem;
+  line-height: 1.85;
+  max-width: 40ch;
+  color: var(--ink);
+}
+:root[data-design="28"] .origin-row {
+  margin: 0 0 0.55rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="28"] .origin-row .lineage-master-record,
+:root[data-design="28"] .origin-row .lineage-master-quote {
+  display: none;
+}
+:root[data-design="28"] .origin-row .lineage-master-name-en {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+:root[data-design="28"] .origin-row .lineage-master-house {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+:root[data-design="28"] .origin-row .lineage-master-gen {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--gold-strong);
+}
+:root[data-design="28"] .origin-unit {
+  margin: 0 0 1.4rem;
+  padding: 1rem 0 1.2rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="28"] .origin-unit:last-of-type { border-bottom: 0; }
+:root[data-design="28"] .matrix-proof-sheet.origin-unit,
+:root[data-design="28"] .catalogue-row.origin-unit,
+:root[data-design="28"] .lexicon-entry.origin-unit {
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="28"] .lexicon-entry.origin-unit { display: block; }
+
+/* --- the anchor: dotted, quiet, keyboard-reachable --- */
+:root[data-design="28"] .origin-anchor {
+  position: relative;
+  border-bottom: 1px dotted var(--gold);
+  cursor: help;
+}
+:root[data-design="28"] .origin-anchor:hover,
+:root[data-design="28"] .origin-anchor:focus-visible,
+:root[data-design="28"] .origin-anchor.is-open {
+  border-bottom-style: solid;
+}
+:root[data-design="28"] .origin-anchor:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+:root[data-design="28"] .origin-chip {
+  display: inline-block;
+  margin: 0.15rem 0.35rem 0.15rem 0;
+  padding: 0.2rem 0.65rem 0.25rem;
+  border: 1px solid var(--line);
+  border-bottom: 1px dotted var(--gold);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--panel) 70%, var(--paper));
+  font-size: 0.85rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+:root[data-design="28"] .origin-chip:hover,
+:root[data-design="28"] .origin-chip.is-open {
+  border-color: var(--gold);
+  border-bottom-style: solid;
+  color: var(--gold-strong);
+}
+:root[data-design="28"] .origin-chip-label { white-space: nowrap; }
+:root[data-design="28"] .origin-holders {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.1rem 0.1rem;
+  margin-top: 0.7rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line-soft);
+}
+:root[data-design="28"] .origin-holders::before {
+  content: 'Teachers of this work';
+  flex: 1 1 100%;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+
+/* --- the inline drawer: hidden until hover, focus, or tap --- */
+:root[data-design="28"] .inline-drawer {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 40;
+  width: max-content;
+  max-width: 27rem;
+  min-width: 16rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 0.9rem 0.85rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  text-align: left;
+  cursor: auto;
+  white-space: normal;
+}
+:root[data-design="28"] .origin-anchor:hover .inline-drawer,
+:root[data-design="28"] .origin-anchor:focus-within .inline-drawer,
+:root[data-design="28"] .origin-anchor.is-open .inline-drawer {
+  display: block;
+}
+:root[data-design="28"] .inline-drawer .od-title {
+  display: block;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+:root[data-design="28"] .inline-drawer .context-info-body {
+  padding: 0;
+}
+:root[data-design="28"] .inline-drawer .context-row {
+  display: block;
+  margin-bottom: 0.55rem;
+}
+:root[data-design="28"] .inline-drawer .context-row:last-child { margin-bottom: 0; }
+:root[data-design="28"] .inline-drawer .context-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="28"] .inline-drawer .context-text {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+:root[data-design="28"] .inline-drawer .od-works {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--line-soft);
+}
+:root[data-design="28"] .inline-drawer .od-work { font-size: 0.75rem; }
+
+/* --- drawers near the right edge open leftwards instead --- */
+:root[data-design="28"] .origin-row:last-child .inline-drawer,
+:root[data-design="28"] .origin-unit:last-child .inline-drawer {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+:root[data-design="28"] .rm-unit-note { margin: 0.7rem 0 0; }
+:root[data-design="28"] .rm-unit-note > summary { font-size: 0.66rem; }
+:root[data-design="28"] .rm-inlineorigin-note { margin-top: 1.5rem; }
+:root[data-design="28"] .classical-zh { font-size: var(--zh-font-size); line-height: 1.9; }
+
+@media (max-width: 768px) {
+  :root[data-design="28"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="28"] .inline-drawer {
+    position: fixed;
+    left: 0.85rem;
+    right: 0.85rem;
+    top: auto;
+    bottom: 0.85rem;
+    width: auto;
+    max-width: none;
+    margin: 0;
+  }
+  :root[data-design="28"] .origin-row:last-child .inline-drawer,
+  :root[data-design="28"] .origin-unit:last-child .inline-drawer {
+    top: auto;
+    bottom: 0.85rem;
+    margin-bottom: 0;
+  }
+  :root[data-design="28"] .translation-text,
+  :root[data-design="28"] .prose-en { font-size: 1rem; }
+}
+@media (hover: none) {
+  :root[data-design="28"] .origin-anchor { border-bottom-style: solid; }
+  :root[data-design="28"] .origin-chip { border-bottom-style: solid; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="28"] .origin-chip { transition: none; }
+}
+@media print {
+  :root[data-design="28"] .inline-drawer {
+    position: static;
+    display: block;
+    max-width: none;
+    margin: 0.5rem 0 0;
+    box-shadow: none;
+  }
+  :root[data-design="28"] .origin-anchor { border-bottom: 0; }
+}
+/* --- drawer comfort: long dossiers scroll, works read as a shelf --- */
+:root[data-design="28"] .inline-drawer { max-height: min(24rem, 70vh); overflow-y: auto; }
+:root[data-design="28"] .inline-drawer .od-works::before {
+  content: 'Related works';
+  flex: 1 1 100%;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="28"] .origin-row .lineage-master-name-zh { font-size: 0.85rem; color: var(--ink-soft); }
+:root[data-design="28"] .origin-chip .inline-drawer { min-width: 18rem; }
+:root[data-design="28"] .matrix-proof-sheet .origin-chip,
+:root[data-design="28"] .catalogue-row .origin-chip,
+:root[data-design="28"] .lexicon-entry .origin-chip { margin-left: 0.5rem; vertical-align: baseline; }
+:root[data-design="28"] .origin-anchor .rm-acc-kicker { pointer-events: none; }
+
+/* ==========================================================================
+   LAYOUT 29 · MINIMAL HEADER + FULL-BLEED READING
+   --------------------------------------------------------------------------
+   The shell shrinks to a 2rem strip — brand mark plus title only — while
+   the room nav and the filter stay visible as quiet top bars underneath.
+   The page goes full-bleed edge to edge with a calm centred 42rem reading
+   column. More usable than the plain focus column because nothing is
+   hidden: nav, filter, library strip and info folds are all one glance
+   away.
+   ========================================================================== */
+
+:root[data-design="29"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="29"] .shell-frame { max-width: none; padding: 0.25rem 1rem 0; }
+:root[data-design="29"] .shell-lintel {
+  min-height: 2rem;
+  padding: 0;
+  gap: 0.6rem;
+}
+:root[data-design="29"] .site-shell .brand { gap: 0.45rem; }
+:root[data-design="29"] .site-shell .brand-mark {
+  width: 1.4rem;
+  height: 1.4rem;
+  font-size: 0.62rem;
+  line-height: 1.4rem;
+}
+:root[data-design="29"] .site-shell .brand-title-en { font-size: 0.85rem; }
+:root[data-design="29"] .site-shell .brand-title-chinese { display: none; }
+:root[data-design="29"] .site-shell .nav-controls { gap: 0.4rem; }
+:root[data-design="29"] .site-shell .shell-search { max-width: 12rem; }
+:root[data-design="29"] .site-shell .search-input { min-height: 1.7rem; font-size: 0.78rem; }
+:root[data-design="29"] .site-shell .theme-toggle { min-width: 1.7rem; min-height: 1.7rem; }
+:root[data-design="29"] .site-shell .design-switcher { row-gap: 0.1rem; }
+:root[data-design="29"] .site-shell .design-btn { min-height: 1.5rem; font-size: 0.68rem; }
+:root[data-design="29"] .room-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  margin: 0.3rem 0 0;
+  padding: 0.35rem 0 0.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+  list-style: none;
+}
+:root[data-design="29"] .room-nav li { margin: 0; padding: 0; }
+:root[data-design="29"] .nav-tab-btn {
+  min-height: 2.1rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+}
+:root[data-design="29"] .nav-tab-btn .room-name-zh { font-size: 0.72rem; }
+:root[data-design="29"] #main-content {
+  max-width: none;
+  margin: 0;
+  padding: 0 0 4rem;
+}
+:root[data-design="29"] .view-section.active { max-width: none; margin: 0; padding: 0; }
+:root[data-design="29"] .room-heading,
+:root[data-design="29"] .text-header.room-heading {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.75rem 1rem 0.8rem;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="29"] .room-filter-rail,
+:root[data-design="29"] .gongan-filter-rail,
+:root[data-design="29"] .lexicon-filter-row {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+/* --- the full-bleed page: edge to edge, column centred --- */
+:root[data-design="29"] .room-body,
+:root[data-design="29"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 100vw;
+  margin: 0;
+  padding: 1.5rem 4vw 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="29"] .reader-layout {
+  display: block;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: none;
+}
+:root[data-design="29"] .sidebar-panel {
+  width: 100%;
+  max-width: 42rem;
+  margin: 0 auto 0.5rem;
+  padding: 0 1rem;
+}
+:root[data-design="29"] .sidebar-panel .sidebar-title { margin-bottom: 0.4rem; }
+:root[data-design="29"] .sidebar-panel .corpus-filter { margin-bottom: 0.5rem; }
+:root[data-design="29"] .sidebar-panel .corpus-selector-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+  max-height: none;
+  padding-bottom: 0.6rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+:root[data-design="29"] .sidebar-panel .corpus-selector-list > * {
+  flex: 0 0 auto;
+}
+:root[data-design="29"] .content-panel {
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+:root[data-design="29"] .reader-toolbar {
+  position: static;
+  max-width: 42rem;
+  margin: 0.5rem auto 1rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="29"] #reader-content-target {
+  display: block;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0 4vw 1rem;
+}
+:root[data-design="29"] .document-heading {
+  max-width: 42rem;
+  margin: 0 auto 0.9rem;
+  padding: 0 1rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="29"] .case-jump-strip,
+:root[data-design="29"] .case-load-more { max-width: 42rem; margin: 1rem auto; padding: 0 1rem; }
+:root[data-design="29"] .gongan-catalogue-head { display: none; }
+
+/* --- every unit centres itself in the 42rem column --- */
+:root[data-design="29"] .fb-lead {
+  max-width: 42rem;
+  margin: 0 auto 1.25rem;
+  padding: 0 1rem 0.8rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="29"] .fb-lead .rm-acc-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="29"] .fb-lead-text {
+  margin: 0.25rem 0 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+:root[data-design="29"] .translation-text,
+:root[data-design="29"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  line-height: 1.9;
+  max-width: 40ch;
+  color: var(--ink);
+}
+:root[data-design="29"] .fb-unit {
+  max-width: 42rem;
+  margin: 0 auto 1.6rem;
+  padding: 0 1rem 1.4rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="29"] .fb-unit:last-of-type { border-bottom: 0; }
+:root[data-design="29"] .matrix-proof-sheet.fb-unit,
+:root[data-design="29"] .lineage-master-row.fb-unit,
+:root[data-design="29"] .catalogue-row.fb-unit,
+:root[data-design="29"] .lexicon-entry.fb-unit {
+  padding: 1.1rem 1.2rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="29"] .lexicon-entry.fb-unit { display: block; }
+:root[data-design="29"] .rm-unit-note { margin: 0.7rem 0 0; }
+:root[data-design="29"] .rm-unit-note > summary { font-size: 0.66rem; }
+:root[data-design="29"] .rm-fullbleed-note { max-width: 42rem; margin: 1.5rem auto 0; padding: 0 1rem; }
+:root[data-design="29"] .classical-zh { font-size: var(--zh-font-size); line-height: 1.9; }
+:root[data-design="29"] .pinyin-line,
+:root[data-design="29"] .provenance-line {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+/* --- full-bleed bands behind alternating reader parts --- */
+:root[data-design="29"] #reader-content-target .fb-unit:nth-of-type(even) {
+  background: color-mix(in srgb, var(--sunken) 55%, transparent);
+  border-bottom-color: transparent;
+  border-radius: var(--radius);
+}
+:root[data-design="29"] .matrix-register-row { padding: 0.35rem 0; }
+:root[data-design="29"] .matrix-register-row + .matrix-register-row {
+  border-top: 1px dotted var(--line-soft);
+}
+:root[data-design="29"] .lineage-master-name-en,
+:root[data-design="29"] .catalogue-title-en,
+:root[data-design="29"] .lexicon-headword {
+  font-family: var(--font-display);
+}
+
+@media (max-width: 768px) {
+  :root[data-design="29"] .shell-frame { padding: 0.2rem 0.7rem 0; }
+  :root[data-design="29"] .site-shell .shell-search { display: none; }
+  :root[data-design="29"] .room-nav { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 0.4rem; }
+  :root[data-design="29"] .nav-tab-btn { flex: 0 0 auto; }
+  :root[data-design="29"] .room-body,
+  :root[data-design="29"] .room-body:not([hidden]),
+  :root[data-design="29"] #reader-content-target { padding-left: 0.85rem; padding-right: 0.85rem; }
+  :root[data-design="29"] .fb-unit { padding-left: 0.4rem; padding-right: 0.4rem; }
+  :root[data-design="29"] .translation-text,
+  :root[data-design="29"] .prose-en { font-size: 1rem; }
+}
+@media (hover: none) {
+  :root[data-design="29"] .nav-tab-btn:hover { text-decoration: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="29"] .sidebar-panel .corpus-selector-list { scroll-behavior: auto; }
+}
+@media print {
+  :root[data-design="29"] .site-shell .nav-controls { display: none; }
+  :root[data-design="29"] .room-body,
+  :root[data-design="29"] .room-body:not([hidden]),
+  :root[data-design="29"] #reader-content-target { padding: 0; }
+  :root[data-design="29"] #reader-content-target .fb-unit:nth-of-type(even) { background: none; }
+}
+
+/* --- per-room tuning inside the full-bleed column --- */
+:root[data-design="29"] .fb-unit .matrix-register-text { font-size: 0.95rem; line-height: 1.7; }
+:root[data-design="29"] .fb-unit .matrix-register-name { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gold-strong); }
+:root[data-design="29"] .fb-unit .lineage-master-name-en { font-size: 1.06rem; }
+:root[data-design="29"] .fb-unit .lineage-master-record { font-size: 0.86rem; color: var(--ink-soft); }
+:root[data-design="29"] .fb-unit .lineage-master-quote {
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--gold);
+  font-style: italic;
+}
+:root[data-design="29"] .fb-unit .catalogue-theme { font-size: 0.86rem; color: var(--gold-strong); }
+:root[data-design="29"] .fb-unit .catalogue-detail,
+:root[data-design="29"] .fb-unit .catalogue-locator { font-size: 0.86rem; color: var(--ink-soft); }
+:root[data-design="29"] .fb-unit .lexicon-headword { font-size: 1.04rem; }
+:root[data-design="29"] .fb-unit .lexicon-entry-def { font-size: 0.94rem; line-height: 1.65; }
+:root[data-design="29"] .fb-unit .lexicon-occurrences { font-size: 0.8rem; color: var(--ink-soft); }
+
+/* --- minimal shell details: compact controls, visible strip --- */
+:root[data-design="29"] .site-shell .brand-lockup { line-height: 1.1; }
+:root[data-design="29"] .site-shell .settings-menu,
+:root[data-design="29"] .site-shell #about-toggle { display: inline-flex; align-items: center; }
+:root[data-design="29"] .site-shell .search-input:focus-visible { outline: 2px solid var(--brass); outline-offset: 1px; }
+:root[data-design="29"] .mobile-corpus-picker { max-width: 42rem; margin: 0 auto; padding: 0.6rem 1rem 0; }
+:root[data-design="29"] .reader-toolbar .toolbar-group { flex-wrap: wrap; row-gap: 0.3rem; }
+:root[data-design="29"] .sidebar-panel .sidebar-title small { font-family: var(--font-mono); font-size: 0.66rem; }
+:root[data-design="29"] .fb-lead .fb-lead-text strong { color: var(--ink); }
+@media (min-width: 1400px) {
+  :root[data-design="29"] .room-body,
+  :root[data-design="29"] .room-body:not([hidden]),
+  :root[data-design="29"] #reader-content-target { padding-left: 6vw; padding-right: 6vw; }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  :root[data-design="29"] .site-shell .shell-search { max-width: 9rem; }
+}
+
+/* --- top-bar finish: active pill, wrapping lintel, strip buttons --- */
+:root[data-design="29"] .nav-tab-btn[aria-selected="true"] {
+  background: var(--brass);
+  color: var(--wood);
+  border-color: transparent;
+}
+:root[data-design="29"] .shell-lintel { flex-wrap: wrap; row-gap: 0.2rem; }
+:root[data-design="29"] .sidebar-panel .corpus-selector-list .btn-pill { flex: 0 0 auto; }
+:root[data-design="29"] .fb-unit .case-heading-en,
+:root[data-design="29"] .fb-unit .case-num-title { font-size: 1.12rem; }
+:root[data-design="29"] .fb-unit .matrix-source-band { margin-bottom: 0.4rem; }
+:root[data-design="29"] .fb-unit .catalogue-case {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold-strong);
+}
+:root[data-design="29"] .room-body > .fb-lead:first-child { padding-top: 0.25rem; }
+@media print {
+  :root[data-design="29"] .sidebar-panel,
+  :root[data-design="29"] .mobile-corpus-picker { display: none; }
+}
+
+/* ==========================================================================
+   LAYOUT 30 · MAGAZINE SPREAD
+   --------------------------------------------------------------------------
+   Each unit is a two-column magazine spread in a 56rem page: the English
+   reading on the left with a drop cap, the source Chinese plus the
+   plain-language background on the right. A folio line counts the unit
+   within the room. Familiar, unhurried, comfortable. Nav + filter visible.
+   ========================================================================== */
+
+:root[data-design="30"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="30"] .shell-frame { max-width: 1200px; padding: 0 1rem; }
+:root[data-design="30"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="30"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="30"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="30"] #main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="30"] .view-section.active { max-width: 1200px; margin: 0 auto; padding: 0; }
+:root[data-design="30"] .room-heading,
+:root[data-design="30"] .text-header.room-heading {
+  max-width: 56rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+:root[data-design="30"] .room-filter-rail,
+:root[data-design="30"] .gongan-filter-rail,
+:root[data-design="30"] .lexicon-filter-row {
+  max-width: 56rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="30"] .room-body,
+:root[data-design="30"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="30"] .reader-layout { display: block; max-width: 56rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="30"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="30"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="30"] .content-panel { max-width: 56rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="30"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="30"] #reader-content-target { display: block; max-width: 56rem; margin: 0 auto; }
+:root[data-design="30"] .document-heading {
+  max-width: 56rem;
+  margin: 0 auto 0.9rem;
+  padding: 0 0 0.7rem;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+:root[data-design="30"] .case-jump-strip,
+:root[data-design="30"] .case-load-more { max-width: 56rem; margin: 1rem auto; }
+:root[data-design="30"] .gongan-catalogue-head { display: none; }
+
+/* --- the spread: folio line, then two balanced columns --- */
+:root[data-design="30"] .mag-unit {
+  margin: 0 0 2rem;
+  padding: 1.25rem 1.4rem 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+:root[data-design="30"] .lexicon-entry.mag-unit { display: block; }
+:root[data-design="30"] .mag-folio {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="30"] .mag-room {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="30"] .mag-rule {
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--line-soft);
+}
+:root[data-design="30"] .mag-count {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+:root[data-design="30"] .mag-spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* --- left column: English first, with a drop cap --- */
+:root[data-design="30"] .mag-left {
+  min-width: 0;
+}
+:root[data-design="30"] .mag-left .translation-text,
+:root[data-design="30"] .mag-left .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.04rem;
+  line-height: 1.85;
+  color: var(--ink);
+}
+:root[data-design="30"] .mag-left .mag-dropcap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.4em;
+  font-weight: 700;
+  line-height: 0.85;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--gold-strong);
+}
+:root[data-design="30"] .mag-left .case-heading-en,
+:root[data-design="30"] .mag-left .case-num-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+:root[data-design="30"] .mag-left .lineage-master-name-en,
+:root[data-design="30"] .mag-left .catalogue-title-en,
+:root[data-design="30"] .mag-left .lexicon-headword {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+:root[data-design="30"] .mag-left .matrix-ref-clean {
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+:root[data-design="30"] .mag-left .matrix-register-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+:root[data-design="30"] .mag-left .lexicon-entry-def {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* --- right column: source and background, smaller and sunken --- */
+:root[data-design="30"] .mag-right {
+  min-width: 0;
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--sunken);
+  font-size: 0.88rem;
+}
+:root[data-design="30"] .mag-right .classical-zh {
+  font-size: calc(var(--zh-font-size) * 0.85);
+  line-height: 1.9;
+}
+:root[data-design="30"] .mag-right .pinyin-line,
+:root[data-design="30"] .mag-right .provenance-line,
+:root[data-design="30"] .mag-right .translation-source,
+:root[data-design="30"] .mag-right .matrix-source-location,
+:root[data-design="30"] .mag-right .matrix-register-note,
+:root[data-design="30"] .mag-right .lineage-master-record,
+:root[data-design="30"] .mag-right .lineage-master-quote,
+:root[data-design="30"] .mag-right .catalogue-detail,
+:root[data-design="30"] .mag-right .catalogue-theme,
+:root[data-design="30"] .mag-right .catalogue-locator,
+:root[data-design="30"] .mag-right .lexicon-occurrences {
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+:root[data-design="30"] .mag-right .lineage-master-quote,
+:root[data-design="30"] .mag-right .catalogue-detail {
+  padding-left: 0.65rem;
+  border-left: 2px solid var(--gold);
+}
+:root[data-design="30"] .mag-context { margin-top: 0.8rem; }
+:root[data-design="30"] .mag-context-title {
+  margin: 0 0 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="30"] .mag-context .context-info-body { padding: 0; }
+:root[data-design="30"] .mag-context .context-row {
+  display: block;
+  margin-bottom: 0.55rem;
+}
+:root[data-design="30"] .mag-context .context-row:last-child { margin-bottom: 0; }
+:root[data-design="30"] .mag-context .context-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="30"] .mag-context .context-text {
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+:root[data-design="30"] .mag-right .rm-quiet { font-size: 0.82rem; }
+:root[data-design="30"] .rm-magazine-note { margin-top: 1.5rem; }
+
+/* --- pull-quote treatment for the first English line of reader parts --- */
+:root[data-design="30"] .mag-left .case-heading-kicker {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="30"] .mag-spread .rm-acc-note {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 900px) {
+  :root[data-design="30"] .mag-spread { grid-template-columns: 1fr; gap: 1.25rem; }
+  :root[data-design="30"] .mag-left .mag-dropcap::first-letter { font-size: 2.9em; }
+}
+@media (max-width: 768px) {
+  :root[data-design="30"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="30"] .mag-unit { padding: 1rem 1rem 1.2rem; }
+  :root[data-design="30"] .room-heading,
+  :root[data-design="30"] .text-header.room-heading,
+  :root[data-design="30"] .document-heading { text-align: left; }
+  :root[data-design="30"] .mag-left .translation-text,
+  :root[data-design="30"] .mag-left .prose-en { font-size: 0.98rem; }
+}
+@media (hover: none) {
+  :root[data-design="30"] .mag-unit { box-shadow: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="30"] .mag-unit { transition: none; }
+}
+@media print {
+  :root[data-design="30"] .mag-unit { box-shadow: none; break-inside: avoid; }
+  :root[data-design="30"] .mag-spread { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+}
+
+/* --- right-column extras: bands, records and captions --- */
+:root[data-design="30"] .mag-right .matrix-source-band { margin-bottom: 0.5rem; font-size: 0.8rem; }
+:root[data-design="30"] .mag-right .matrix-register-note { padding-left: 0.65rem; border-left: 2px solid var(--gold); }
+:root[data-design="30"] .mag-right .case-heading-zh { font-size: 0.9rem; color: var(--ink-soft); }
+:root[data-design="30"] .mag-left .commentary-block,
+:root[data-design="30"] .mag-left .verse-block { margin: 0.7rem 0; }
+:root[data-design="30"] .mag-left .dialogue-turn + .dialogue-turn { margin-top: 0.8rem; }
+:root[data-design="30"] .mag-count { font-variant-numeric: tabular-nums; }
+:root[data-design="30"] .mag-unit .rm-magazine-note { text-align: left; }
+@media (max-width: 1100px) and (min-width: 901px) {
+  :root[data-design="30"] .mag-spread { gap: 1.5rem; }
+  :root[data-design="30"] .mag-left .translation-text,
+  :root[data-design="30"] .mag-left .prose-en { font-size: 1rem; }
+}
+@media (min-width: 1400px) {
+  :root[data-design="30"] .room-body,
+  :root[data-design="30"] .room-body:not([hidden]),
+  :root[data-design="30"] #reader-content-target { max-width: 58rem; }
+}
+
+/* --- spread finish: left rhythm, right captions, folio tabular --- */
+:root[data-design="30"] .mag-left p { margin: 0 0 0.7rem; }
+:root[data-design="30"] .mag-left p:last-child { margin-bottom: 0; }
+:root[data-design="30"] .mag-right .matrix-register-note { margin-top: 0.5rem; }
+:root[data-design="30"] .mag-right .rm-quiet { margin: 0; }
+:root[data-design="30"] .mag-folio .mag-room { white-space: nowrap; }
+
+/* --- spread colophon: quiet folio footnote --- */
+:root[data-design="30"] .mag-unit:last-of-type { margin-bottom: 1rem; }
+
+/* ==========================================================================
+   LAYOUT 31 · CARD WALL
+   --------------------------------------------------------------------------
+   The room is a masonry wall of cards (18rem minimum): works, teachers,
+   cases and terms as an overview first. Each card shows its English
+   headline with a quiet note; opening it expands the full detail plus the
+   plain-language context in place. Nav + filter visible above the wall.
+   ========================================================================== */
+
+:root[data-design="31"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="31"] .shell-frame { max-width: 1280px; padding: 0 1rem; }
+:root[data-design="31"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="31"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="31"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="31"] #main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="31"] .view-section.active { max-width: 1280px; margin: 0 auto; padding: 0; }
+:root[data-design="31"] .room-heading,
+:root[data-design="31"] .text-header.room-heading {
+  max-width: 60rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="31"] .room-filter-rail,
+:root[data-design="31"] .gongan-filter-rail,
+:root[data-design="31"] .lexicon-filter-row {
+  max-width: 60rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="31"] .reader-layout { display: block; max-width: 75rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="31"] .sidebar-panel { width: 100%; max-width: 60rem; margin: 0 auto 1rem; }
+:root[data-design="31"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="31"] .content-panel { max-width: 75rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="31"] .reader-toolbar {
+  position: static;
+  max-width: 60rem;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="31"] .document-heading { max-width: 60rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="31"] .gongan-catalogue-head { display: none; }
+
+/* --- the wall: masonry-feel grid, 18rem minimum cards --- */
+:root[data-design="31"] .room-body,
+:root[data-design="31"] .room-body:not([hidden]),
+:root[data-design="31"] #reader-content-target {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="31"] .room-body > :not(.card-wall-card),
+:root[data-design="31"] #reader-content-target > :not(.card-wall-card) {
+  grid-column: 1 / -1;
+}
+:root[data-design="31"] .case-jump-strip,
+:root[data-design="31"] .case-load-more { margin: 0.5rem 0; }
+:root[data-design="31"] .rm-cardwall-note { margin-top: 1rem; }
+
+/* --- the card: English headline first, detail behind Open --- */
+:root[data-design="31"] .card-wall-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 12rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+:root[data-design="31"] .lexicon-entry.card-wall-card { display: flex; }
+:root[data-design="31"] .card-wall-card.is-expanded {
+  border-left: 3px solid var(--gold);
+}
+@media (min-width: 60rem) {
+  :root[data-design="31"] .card-wall-card.is-expanded { grid-column: span 2; }
+}
+:root[data-design="31"] .cw-open {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  width: 100%;
+  padding: 0.9rem 1rem 1rem;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+:root[data-design="31"] .cw-open:hover { background: var(--gold-soft); }
+:root[data-design="31"] .cw-open:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+:root[data-design="31"] .cw-open .rm-acc-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="31"] .cw-title {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+:root[data-design="31"] .cw-open .rm-acc-zh {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+:root[data-design="31"] .cw-open .rm-acc-note {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+:root[data-design="31"] .cw-hint {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="31"] .cw-open::after {
+  content: none;
+}
+
+/* --- the expanded detail inside the card --- */
+:root[data-design="31"] .cw-detail {
+  padding: 0.9rem 1rem 1.1rem;
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 60%, var(--paper));
+  font-size: 0.9rem;
+}
+:root[data-design="31"] .cw-detail[hidden] { display: none; }
+:root[data-design="31"] .cw-detail .translation-text,
+:root[data-design="31"] .cw-detail .prose-en {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+:root[data-design="31"] .cw-detail .classical-zh {
+  font-size: calc(var(--zh-font-size) * 0.8);
+  line-height: 1.85;
+}
+:root[data-design="31"] .cw-detail .pinyin-line,
+:root[data-design="31"] .cw-detail .provenance-line {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+:root[data-design="31"] .cw-detail .lineage-master-name-en,
+:root[data-design="31"] .cw-detail .catalogue-title-en,
+:root[data-design="31"] .cw-detail .lexicon-headword {
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+:root[data-design="31"] .cw-detail .matrix-register-text {
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+:root[data-design="31"] .cw-detail .rm-unit-note { margin: 0.7rem 0 0; }
+:root[data-design="31"] .cw-detail .rm-unit-note > summary { font-size: 0.62rem; }
+:root[data-design="31"] .cw-detail .rm-unit-note .context-text { font-size: 0.8rem; }
+
+/* --- wall rhythm: quiet hover lift, calm focus --- */
+:root[data-design="31"] .card-wall-card {
+  transition: border-color var(--motion) ease, box-shadow var(--motion) ease;
+}
+:root[data-design="31"] .card-wall-card:hover {
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+}
+:root[data-design="31"] .card-wall-card.is-expanded:hover { border-left-color: var(--gold); }
+
+@media (max-width: 768px) {
+  :root[data-design="31"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="31"] .room-body,
+  :root[data-design="31"] .room-body:not([hidden]),
+  :root[data-design="31"] #reader-content-target {
+    grid-template-columns: 1fr;
+  }
+  :root[data-design="31"] .card-wall-card { min-height: 0; }
+}
+@media (hover: none) {
+  :root[data-design="31"] .cw-open:hover { background: transparent; }
+  :root[data-design="31"] .card-wall-card:hover { border-color: var(--line); }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="31"] .card-wall-card { transition: none; }
+}
+@media print {
+  :root[data-design="31"] .room-body,
+  :root[data-design="31"] .room-body:not([hidden]),
+  :root[data-design="31"] #reader-content-target {
+    display: block;
+  }
+  :root[data-design="31"] .card-wall-card { break-inside: avoid; margin-bottom: 0.8rem; min-height: 0; }
+  :root[data-design="31"] .cw-detail[hidden] { display: block; }
+  :root[data-design="31"] .cw-hint { display: none; }
+}
+/* --- expanded detail per room: registers, records, definitions --- */
+:root[data-design="31"] .cw-detail .matrix-ref-clean { font-family: var(--font-display); font-size: 0.95rem; }
+:root[data-design="31"] .cw-detail .matrix-register-row { padding: 0.3rem 0; }
+:root[data-design="31"] .cw-detail .matrix-register-row + .matrix-register-row { border-top: 1px dotted var(--line-soft); }
+:root[data-design="31"] .cw-detail .matrix-register-name { font-family: var(--font-mono); font-size: 0.66rem; color: var(--gold-strong); }
+:root[data-design="31"] .cw-detail .matrix-sentence-zh { font-size: 0.9rem; }
+:root[data-design="31"] .cw-detail .lineage-master-record { font-size: 0.8rem; color: var(--ink-soft); }
+:root[data-design="31"] .cw-detail .lineage-master-quote {
+  padding-left: 0.6rem;
+  border-left: 2px solid var(--gold);
+  font-size: 0.86rem;
+  font-style: italic;
+}
+:root[data-design="31"] .cw-detail .catalogue-theme { font-size: 0.8rem; color: var(--gold-strong); }
+:root[data-design="31"] .cw-detail .catalogue-detail,
+:root[data-design="31"] .cw-detail .catalogue-locator { font-size: 0.8rem; color: var(--ink-soft); }
+:root[data-design="31"] .cw-detail .lexicon-entry-def { font-size: 0.86rem; line-height: 1.6; }
+:root[data-design="31"] .cw-detail .lexicon-occurrences { font-size: 0.76rem; color: var(--ink-soft); }
+:root[data-design="31"] .cw-detail .case-heading-en,
+:root[data-design="31"] .cw-detail .case-num-title { font-size: 1rem; }
+:root[data-design="31"] .cw-detail .case-heading-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+
+/* --- wall polish: calm focus, even rhythm, strip notes --- */
+:root[data-design="31"] .card-wall-card:focus-within { border-color: var(--gold); }
+:root[data-design="31"] .cw-open .cw-title { text-wrap: balance; }
+:root[data-design="31"] .case-jump-strip .btn-pill,
+:root[data-design="31"] .case-load-more .btn-pill { font-size: 0.78rem; }
+:root[data-design="31"] .rm-cardwall-note { max-width: 60rem; }
+@media (min-width: 1400px) {
+  :root[data-design="31"] .room-body,
+  :root[data-design="31"] .room-body:not([hidden]),
+  :root[data-design="31"] #reader-content-target { max-width: 80rem; }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  :root[data-design="31"] .room-body,
+  :root[data-design="31"] .room-body:not([hidden]),
+  :root[data-design="31"] #reader-content-target { grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); }
+}
+
+/* --- card finish: detail headings, verse rhythm, wide walls --- */
+:root[data-design="31"] .cw-detail .commentary-block,
+:root[data-design="31"] .cw-detail .verse-block { margin: 0.6rem 0; }
+:root[data-design="31"] .cw-detail .dialogue-turn + .dialogue-turn { margin-top: 0.6rem; }
+:root[data-design="31"] .cw-detail .matrix-source-band { margin-bottom: 0.4rem; font-size: 0.8rem; }
+:root[data-design="31"] .cw-detail .lineage-master-house { font-size: 0.78rem; color: var(--ink-soft); }
+:root[data-design="31"] .cw-detail .lexicon-headword-meta { font-size: 0.76rem; color: var(--ink-soft); }
+:root[data-design="31"] .cw-open .cw-title + .rm-acc-note { margin-top: 0.1rem; }
+:root[data-design="31"] .card-wall-card.is-expanded .cw-open { background: var(--gold-soft); }
+:root[data-design="31"] .rm-cardwall-note > summary { font-size: 0.66rem; }
+@media (min-width: 90rem) {
+  :root[data-design="31"] .room-body,
+  :root[data-design="31"] .room-body:not([hidden]),
+  :root[data-design="31"] #reader-content-target { gap: 1.25rem; }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  :root[data-design="31"] .cw-title { font-size: 0.96rem; }
+}
+
+/* --- wall colophon: notes span the wall, cards keep calm --- */
+:root[data-design="31"] .rm-cardwall-note { grid-column: 1 / -1; }
+:root[data-design="31"] .document-heading { grid-column: 1 / -1; }
+:root[data-design="31"] .card-wall-card .cw-open { row-gap: 0.3rem; }
+
+/* --- wall keep: expanded cards breathe, hints stay gold --- */
+:root[data-design="31"] .card-wall-card.is-expanded .cw-detail { padding-bottom: 1.25rem; }
+:root[data-design="31"] .card-wall-card.is-expanded .cw-hint { color: var(--gold); }
+
+/* ==========================================================================
+   LAYOUT 32 · VERTICAL TIMELINE
+   --------------------------------------------------------------------------
+   A gold rail runs down the left of a 48rem column with one dot per unit;
+   each card sits right of its dot with a small when-line (dates, case
+   number, source reference). Chronological, quiet, one piece at a time,
+   context one toggle away. Nav + filter visible.
+   ========================================================================== */
+
+:root[data-design="32"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="32"] .shell-frame { max-width: 1120px; padding: 0 1rem; }
+:root[data-design="32"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="32"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="32"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="32"] #main-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="32"] .view-section.active { max-width: 1120px; margin: 0 auto; padding: 0; }
+:root[data-design="32"] .room-heading,
+:root[data-design="32"] .text-header.room-heading {
+  max-width: 48rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="32"] .room-filter-rail,
+:root[data-design="32"] .gongan-filter-rail,
+:root[data-design="32"] .lexicon-filter-row {
+  max-width: 48rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="32"] .room-body,
+:root[data-design="32"] .room-body:not([hidden]) {
+  display: block;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="32"] .reader-layout { display: block; max-width: 48rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="32"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="32"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="32"] .content-panel { max-width: 48rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="32"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="32"] #reader-content-target { display: block; max-width: 48rem; margin: 0 auto; }
+:root[data-design="32"] .document-heading { max-width: 48rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="32"] .case-jump-strip,
+:root[data-design="32"] .case-load-more { max-width: 48rem; margin: 1rem auto; }
+:root[data-design="32"] .gongan-catalogue-head { display: none; }
+
+/* --- the rail: dots left, content right --- */
+:root[data-design="32"] .translation-text,
+:root[data-design="32"] .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 40ch;
+  color: var(--ink);
+}
+:root[data-design="32"] .timeline-unit {
+  position: relative;
+  margin: 0 0 1.35rem;
+  padding: 1rem 1.1rem 1.15rem 2.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="32"] .lexicon-entry.timeline-unit { display: block; }
+:root[data-design="32"] .timeline-unit::before {
+  content: '';
+  position: absolute;
+  left: 0.95rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: color-mix(in srgb, var(--gold) 55%, var(--line));
+}
+:root[data-design="32"] .timeline-unit:first-of-type::before { top: 1.6rem; }
+:root[data-design="32"] .timeline-unit:last-of-type::before { bottom: auto; height: 1.6rem; }
+:root[data-design="32"] .timeline-dot {
+  position: absolute;
+  left: 0.62rem;
+  top: 1.25rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: var(--panel);
+}
+:root[data-design="32"] .timeline-unit:first-of-type .timeline-dot {
+  background: var(--gold);
+}
+:root[data-design="32"] .timeline-when {
+  margin-bottom: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="32"] .timeline-unit .lineage-master-name-en,
+:root[data-design="32"] .timeline-unit .catalogue-title-en,
+:root[data-design="32"] .timeline-unit .lexicon-headword,
+:root[data-design="32"] .timeline-unit .case-heading-en,
+:root[data-design="32"] .timeline-unit .case-num-title {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+}
+:root[data-design="32"] .timeline-unit .matrix-ref-clean {
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+:root[data-design="32"] .timeline-unit .matrix-register-text {
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+:root[data-design="32"] .timeline-unit .classical-zh {
+  font-size: calc(var(--zh-font-size) * 0.88);
+  line-height: 1.9;
+}
+:root[data-design="32"] .timeline-unit .pinyin-line,
+:root[data-design="32"] .timeline-unit .provenance-line {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+:root[data-design="32"] .timeline-unit .rm-unit-note { margin: 0.7rem 0 0; }
+:root[data-design="32"] .timeline-unit .rm-unit-note > summary { font-size: 0.64rem; }
+:root[data-design="32"] .rm-vtimeline-note { margin: 1.5rem 0 0 2.9rem; }
+
+/* --- lineage generations get numbered dots --- */
+:root[data-design="32"] .lineage-master-row.timeline-unit .lineage-master-gen {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--gold-strong);
+  background: color-mix(in srgb, var(--panel) 60%, var(--paper));
+}
+:root[data-design="32"] .catalogue-row.timeline-unit .catalogue-case {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--gold-strong);
+}
+:root[data-design="32"] .lexicon-entry.timeline-unit .lexicon-entry-cat {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold-strong);
+}
+:root[data-design="32"] .matrix-proof-sheet.timeline-unit .matrix-source-band {
+  margin-bottom: 0.5rem;
+}
+
+/* --- the rail continues behind the room note --- */
+:root[data-design="32"] .rm-vtimeline-note {
+  position: relative;
+  padding-left: 0;
+}
+:root[data-design="32"] .case-card.timeline-unit {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: none;
+  padding: 1rem 1.1rem 1.15rem 2.9rem;
+  margin: 0 0 1.35rem;
+}
+
+@media (max-width: 768px) {
+  :root[data-design="32"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="32"] .timeline-unit { padding: 0.85rem 0.85rem 1rem 2.4rem; }
+  :root[data-design="32"] .timeline-unit::before { left: 0.72rem; }
+  :root[data-design="32"] .timeline-dot { left: 0.4rem; }
+  :root[data-design="32"] .rm-vtimeline-note { margin-left: 2.4rem; }
+  :root[data-design="32"] .translation-text,
+  :root[data-design="32"] .prose-en { font-size: 0.98rem; }
+}
+@media (hover: none) {
+  :root[data-design="32"] .timeline-unit { box-shadow: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="32"] .timeline-unit { transition: none; }
+}
+@media print {
+  :root[data-design="32"] .timeline-unit { break-inside: avoid; box-shadow: none; }
+  :root[data-design="32"] .timeline-unit::before { background: var(--line); }
+  :root[data-design="32"] .timeline-dot { border-color: var(--ink-soft); }
+}
+
+/* --- per-room cards on the rail: bands, quotes, themes --- */
+:root[data-design="32"] .timeline-unit .matrix-register-name { font-family: var(--font-mono); font-size: 0.68rem; color: var(--gold-strong); }
+:root[data-design="32"] .timeline-unit .matrix-register-row { padding: 0.3rem 0; }
+:root[data-design="32"] .timeline-unit .matrix-register-row + .matrix-register-row { border-top: 1px dotted var(--line-soft); }
+:root[data-design="32"] .timeline-unit .matrix-sentence-zh { font-size: 0.92rem; }
+:root[data-design="32"] .timeline-unit .lineage-master-record { font-size: 0.85rem; color: var(--ink-soft); }
+:root[data-design="32"] .timeline-unit .lineage-master-quote {
+  padding-left: 0.7rem;
+  border-left: 2px solid var(--gold);
+  font-style: italic;
+}
+:root[data-design="32"] .timeline-unit .lineage-master-house { font-size: 0.82rem; color: var(--ink-soft); }
+:root[data-design="32"] .timeline-unit .catalogue-theme { font-size: 0.85rem; color: var(--gold-strong); }
+:root[data-design="32"] .timeline-unit .catalogue-detail,
+:root[data-design="32"] .timeline-unit .catalogue-locator { font-size: 0.85rem; color: var(--ink-soft); }
+:root[data-design="32"] .timeline-unit .lexicon-entry-def { font-size: 0.92rem; line-height: 1.65; }
+:root[data-design="32"] .timeline-unit .lexicon-occurrences { font-size: 0.8rem; color: var(--ink-soft); }
+:root[data-design="32"] .timeline-unit .case-heading-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+
+/* --- rail polish: hover ring, tabular whens, note tail --- */
+:root[data-design="32"] .timeline-unit { transition: border-color var(--motion) ease; }
+:root[data-design="32"] .timeline-unit:hover { border-color: color-mix(in srgb, var(--gold) 50%, var(--line)); }
+:root[data-design="32"] .timeline-when { font-variant-numeric: tabular-nums; }
+:root[data-design="32"] .timeline-unit:last-of-type .timeline-dot {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 20%, transparent);
+}
+:root[data-design="32"] .rm-vtimeline-note::before {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 1rem;
+  margin: 0 0 0.6rem 0.35rem;
+  background: color-mix(in srgb, var(--gold) 55%, var(--line));
+}
+:root[data-design="32"] .case-card.timeline-unit .translation-text { max-width: 38ch; }
+@media (min-width: 1100px) {
+  :root[data-design="32"] .room-body,
+  :root[data-design="32"] .room-body:not([hidden]),
+  :root[data-design="32"] #reader-content-target { max-width: 50rem; }
+}
+@media (max-width: 1100px) and (min-width: 769px) {
+  :root[data-design="32"] .timeline-unit { padding-right: 1.25rem; }
+}
+
+/* --- timeline finish: headings, jump strip, note tail, print --- */
+:root[data-design="32"] .timeline-unit .case-heading-en,
+:root[data-design="32"] .timeline-unit .case-num-title { margin-bottom: 0.4rem; }
+:root[data-design="32"] .timeline-unit .matrix-proof-sheet { border: 0; padding: 0; background: transparent; }
+:root[data-design="32"] .timeline-unit .commentary-block,
+:root[data-design="32"] .timeline-unit .verse-block { margin: 0.6rem 0; }
+:root[data-design="32"] .timeline-unit .lexicon-headword-meta { font-size: 0.78rem; color: var(--ink-soft); }
+:root[data-design="32"] .case-jump-strip,
+:root[data-design="32"] .case-load-more { padding-left: 2.9rem; }
+:root[data-design="32"] .rm-vtimeline-note > summary { font-size: 0.64rem; }
+:root[data-design="32"] .timeline-unit .timeline-when + .lineage-master-name-en { margin-top: 0.1rem; }
+@media (max-width: 1100px) and (min-width: 769px) {
+  :root[data-design="32"] .timeline-dot { width: 0.66rem; height: 0.66rem; }
+  :root[data-design="32"] .rm-vtimeline-note { margin-left: 2.9rem; }
+}
+@media print {
+  :root[data-design="32"] .case-jump-strip,
+  :root[data-design="32"] .case-load-more { padding-left: 0; }
+  :root[data-design="32"] .rm-vtimeline-note::before { display: none; }
+}
+
+/* --- timeline colophon: calm motion, quiet caps --- */
+:root[data-design="32"] .timeline-unit .timeline-dot { transition: background-color var(--motion) ease; }
+:root[data-design="32"] .timeline-unit:hover .timeline-dot { background: var(--gold); }
+:root[data-design="32"] .room-body > .rm-vtimeline-note:last-child { margin-bottom: 0.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="32"] .timeline-unit:hover .timeline-dot { background: var(--panel); }
+  :root[data-design="32"] .timeline-unit:first-of-type:hover .timeline-dot { background: var(--gold); }
+}
+
+/* --- rail keep: note links, dot alignment, calm caps --- */
+:root[data-design="32"] .rm-vtimeline-note .context-text { font-size: 0.84rem; }
+:root[data-design="32"] .timeline-unit .timeline-dot { margin-top: 0.05rem; }
+:root[data-design="32"] .timeline-unit .rm-unit-note .context-text { font-size: 0.84rem; }
+
+/* --- rail keep two: when-lines never crowd the card --- */
+:root[data-design="32"] .timeline-unit .timeline-when { margin-top: 0.05rem; }
+:root[data-design="32"] .timeline-unit .timeline-when:last-child { margin-bottom: 0; }
+
+/* ==========================================================================
+   LAYOUT 33 · SPLIT WITH RESIZABLE CONTEXT DRAWER
+   --------------------------------------------------------------------------
+   60% English reader on the left, 40% context drawer on the right. The
+   divider is a real drag handle (pointer drag, 30–70% in tens) with an
+   accessible range slider as its twin, so keyboard and touch users get the
+   same control. Each unit parks its source and background in the drawer
+   behind "Show in drawer". Nav + filter visible.
+   ========================================================================== */
+
+:root[data-design="33"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="33"] .shell-frame { max-width: 1280px; padding: 0 1rem; }
+:root[data-design="33"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="33"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="33"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="33"] #main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="33"] .view-section.active { max-width: 1280px; margin: 0 auto; padding: 0; }
+:root[data-design="33"] .room-heading,
+:root[data-design="33"] .text-header.room-heading {
+  max-width: 75rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="33"] .room-filter-rail,
+:root[data-design="33"] .gongan-filter-rail,
+:root[data-design="33"] .lexicon-filter-row {
+  max-width: 75rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="33"] .room-body,
+:root[data-design="33"] .room-body:not([hidden]),
+:root[data-design="33"] #reader-content-target {
+  display: block;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="33"] .reader-layout { display: block; max-width: 75rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="33"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="33"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="33"] .content-panel { max-width: 75rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="33"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="33"] .document-heading { max-width: 75rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="33"] .case-jump-strip,
+:root[data-design="33"] .case-load-more { max-width: 75rem; margin: 1rem auto; }
+:root[data-design="33"] .gongan-catalogue-head { display: none; }
+
+/* --- the split shell: reader left, drawer right, handle between --- */
+:root[data-design="33"] .rm-split-shell {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow: hidden;
+}
+:root[data-design="33"] .split-left {
+  flex: 0 0 60%;
+  min-width: 0;
+  padding: 1.1rem 1.25rem 1.5rem;
+  background: transparent;
+}
+:root[data-design="33"] .rm-split-shell[data-split="30"] .split-left { flex-basis: 70%; }
+:root[data-design="33"] .rm-split-shell[data-split="40"] .split-left { flex-basis: 60%; }
+:root[data-design="33"] .rm-split-shell[data-split="50"] .split-left { flex-basis: 50%; }
+:root[data-design="33"] .rm-split-shell[data-split="60"] .split-left { flex-basis: 40%; }
+:root[data-design="33"] .rm-split-shell[data-split="70"] .split-left { flex-basis: 30%; }
+:root[data-design="33"] .split-right {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 1rem 1.1rem 1.25rem;
+  border-left: 1px solid var(--line);
+  background: var(--panel);
+}
+:root[data-design="33"] .translation-text,
+:root[data-design="33"] .split-left .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 40ch;
+  color: var(--ink);
+}
+:root[data-design="33"] .split-left .case-card,
+:root[data-design="33"] .split-left .matrix-proof-sheet,
+:root[data-design="33"] .split-left .lineage-master-row,
+:root[data-design="33"] .split-left .catalogue-row,
+:root[data-design="33"] .split-left .lexicon-entry {
+  margin: 0 0 1.3rem;
+  padding: 0 0 1.1rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="33"] .split-left .lexicon-entry { display: block; }
+:root[data-design="33"] .split-left .case-card:last-child,
+:root[data-design="33"] .split-left .matrix-proof-sheet:last-child,
+:root[data-design="33"] .split-left .lineage-master-row:last-child,
+:root[data-design="33"] .split-left .catalogue-row:last-child,
+:root[data-design="33"] .split-left .lexicon-entry:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* --- the drag handle: visible grip, pointer-draggable --- */
+:root[data-design="33"] .resize-handle {
+  flex: 0 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--gold) 14%, var(--paper));
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  cursor: ew-resize;
+  touch-action: none;
+  user-select: none;
+}
+:root[data-design="33"] .resize-handle:hover,
+:root[data-design="33"] .resize-handle:active {
+  background: color-mix(in srgb, var(--gold) 26%, var(--paper));
+}
+:root[data-design="33"] .resize-grip {
+  width: 4px;
+  height: 2.6rem;
+  border-radius: 2px;
+  background:
+    radial-gradient(circle at 50% 20%, var(--gold) 1.4px, transparent 1.5px),
+    radial-gradient(circle at 50% 40%, var(--gold) 1.4px, transparent 1.5px),
+    radial-gradient(circle at 50% 60%, var(--gold) 1.4px, transparent 1.5px),
+    radial-gradient(circle at 50% 80%, var(--gold) 1.4px, transparent 1.5px);
+}
+
+/* --- the drawer: head, width slider, per-unit cards --- */
+:root[data-design="33"] .sr-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="33"] .sr-title {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="33"] .sr-pane-toggle {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0.2rem 0.55rem;
+}
+:root[data-design="33"] .sr-pane-toggle:hover { color: var(--gold-strong); border-color: var(--gold); }
+:root[data-design="33"] .sr-lead {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+:root[data-design="33"] .sr-size {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.8rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 55%, var(--paper));
+}
+:root[data-design="33"] .sr-size-label {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+  white-space: nowrap;
+}
+:root[data-design="33"] .resize-range {
+  flex: 1 1 auto;
+  min-width: 3rem;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+:root[data-design="33"] .resize-range:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+:root[data-design="33"] .resize-out {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+:root[data-design="33"] .sr-body { display: grid; gap: 0.7rem; }
+:root[data-design="33"] .sr-body .rm-room-note { margin: 0; }
+:root[data-design="33"] .sr-body .rm-room-note > summary { font-size: 0.64rem; }
+:root[data-design="33"] .split-card {
+  padding: 0.75rem 0.85rem 0.85rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 60%, var(--paper));
+}
+:root[data-design="33"] .split-card[hidden] { display: none; }
+:root[data-design="33"] .split-card-head { margin: 0 0 0.5rem; }
+:root[data-design="33"] .split-card-head .rm-acc-kicker {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="33"] .split-card-head .rm-acc-en {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+:root[data-design="33"] .split-card .classical-zh {
+  font-size: calc(var(--zh-font-size) * 0.78);
+  line-height: 1.85;
+}
+:root[data-design="33"] .split-card .pinyin-line,
+:root[data-design="33"] .split-card .provenance-line,
+:root[data-design="33"] .split-card .translation-source,
+:root[data-design="33"] .split-card .matrix-source-location,
+:root[data-design="33"] .split-card .matrix-register-note,
+:root[data-design="33"] .split-card .lineage-master-record,
+:root[data-design="33"] .split-card .lineage-master-quote,
+:root[data-design="33"] .split-card .catalogue-detail,
+:root[data-design="33"] .split-card .catalogue-theme,
+:root[data-design="33"] .split-card .catalogue-locator,
+:root[data-design="33"] .split-card .lexicon-entry-def,
+:root[data-design="33"] .split-card .lexicon-occurrences {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+:root[data-design="33"] .split-card .context-info-body { padding: 0.4rem 0 0; }
+:root[data-design="33"] .split-card .context-row { display: block; margin-bottom: 0.5rem; }
+:root[data-design="33"] .split-card .context-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="33"] .split-card .context-text { font-size: 0.82rem; line-height: 1.55; }
+:root[data-design="33"] .split-right.has-open .sr-lead { display: none; }
+:root[data-design="33"] .rm-split-toggle { margin-top: 0.6rem; }
+
+/* --- drawer off: the reader takes the whole room --- */
+:root[data-design="33"] .room-body.is-pane-off .split-right,
+:root[data-design="33"] #reader-content-target.is-pane-off .split-right,
+:root[data-design="33"] .room-body.is-pane-off .resize-handle,
+:root[data-design="33"] #reader-content-target.is-pane-off .resize-handle {
+  display: none;
+}
+:root[data-design="33"] .room-body.is-pane-off .split-left,
+:root[data-design="33"] #reader-content-target.is-pane-off .split-left {
+  flex-basis: 100%;
+}
+:root[data-design="33"] .room-body.is-pane-off .rm-split-toggle,
+:root[data-design="33"] #reader-content-target.is-pane-off .rm-split-toggle {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  :root[data-design="33"] .rm-split-shell { flex-direction: column; }
+  :root[data-design="33"] .rm-split-shell[data-split="30"] .split-left,
+  :root[data-design="33"] .rm-split-shell[data-split="40"] .split-left,
+  :root[data-design="33"] .rm-split-shell[data-split="50"] .split-left,
+  :root[data-design="33"] .rm-split-shell[data-split="60"] .split-left,
+  :root[data-design="33"] .rm-split-shell[data-split="70"] .split-left {
+    flex-basis: auto;
+    width: 100%;
+  }
+  :root[data-design="33"] .resize-handle { display: none; }
+  :root[data-design="33"] .split-right { border-left: 0; border-top: 1px solid var(--line); }
+  :root[data-design="33"] .sr-size { display: none; }
+}
+@media (max-width: 768px) {
+  :root[data-design="33"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="33"] .split-left { padding: 0.9rem 0.9rem 1.1rem; }
+  :root[data-design="33"] .translation-text,
+  :root[data-design="33"] .split-left .prose-en { font-size: 0.98rem; }
+}
+@media (hover: none) {
+  :root[data-design="33"] .resize-handle { cursor: default; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="33"] .split-left { transition: none; }
+}
+@media print {
+  :root[data-design="33"] .rm-split-shell { display: block; border: 0; }
+  :root[data-design="33"] .resize-handle,
+  :root[data-design="33"] .sr-size,
+  :root[data-design="33"] .sr-pane-toggle { display: none; }
+  :root[data-design="33"] .split-right { border: 0; padding: 1rem 0 0; }
+  :root[data-design="33"] .split-card[hidden] { display: block; }
+}
+/* ==========================================================================
+   LAYOUT 34 · GLOSSARY SIDEBAR + FOOTNOTES
+   --------------------------------------------------------------------------
+   The reading sits in a calm centre column with a 14rem plain-language
+   glossary docked left — dotted words with tooltips on hover, focus or
+   tap — and a 14rem numbered-notes rail docked right, where each unit
+   carries a number that jumps to its note and back. Both rails collapse
+   for small screens. Nav + filter visible.
+   ========================================================================== */
+
+:root[data-design="34"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="34"] .shell-frame { max-width: 1280px; padding: 0 1rem; }
+:root[data-design="34"] .shell-lintel { min-height: 3.5rem; }
+:root[data-design="34"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="34"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="34"] #main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="34"] .view-section.active { max-width: 1280px; margin: 0 auto; padding: 0; }
+:root[data-design="34"] .room-heading,
+:root[data-design="34"] .text-header.room-heading {
+  max-width: 64rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="34"] .room-filter-rail,
+:root[data-design="34"] .gongan-filter-rail,
+:root[data-design="34"] .lexicon-filter-row {
+  max-width: 64rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="34"] .room-body,
+:root[data-design="34"] .room-body:not([hidden]),
+:root[data-design="34"] #reader-content-target {
+  display: block;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="34"] .reader-layout { display: block; max-width: 64rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="34"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="34"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="34"] .content-panel { max-width: 64rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="34"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="34"] .document-heading { max-width: 64rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="34"] .case-jump-strip,
+:root[data-design="34"] .case-load-more { max-width: 64rem; margin: 1rem auto; }
+:root[data-design="34"] .gongan-catalogue-head { display: none; }
+
+/* --- the three-column shell: 14rem glossary, reading, 14rem notes --- */
+:root[data-design="34"] .rm-gloss-shell {
+  display: grid;
+  grid-template-columns: 14rem minmax(0, 1fr) 14rem;
+  gap: 1rem;
+  align-items: start;
+}
+:root[data-design="34"] .room-body.is-gloss-off .rm-gloss-shell,
+:root[data-design="34"] #reader-content-target.is-gloss-off .rm-gloss-shell {
+  grid-template-columns: minmax(0, 1fr) 14rem;
+}
+:root[data-design="34"] .room-body.is-notes-off .rm-gloss-shell,
+:root[data-design="34"] #reader-content-target.is-notes-off .rm-gloss-shell {
+  grid-template-columns: 14rem minmax(0, 1fr);
+}
+:root[data-design="34"] .room-body.is-gloss-off.is-notes-off .rm-gloss-shell,
+:root[data-design="34"] #reader-content-target.is-gloss-off.is-notes-off .rm-gloss-shell {
+  grid-template-columns: minmax(0, 1fr);
+}
+:root[data-design="34"] .room-body.is-gloss-off .glossary-sidebar,
+:root[data-design="34"] #reader-content-target.is-gloss-off .glossary-sidebar,
+:root[data-design="34"] .room-body.is-notes-off .footnotes-sidebar,
+:root[data-design="34"] #reader-content-target.is-notes-off .footnotes-sidebar {
+  display: none;
+}
+:root[data-design="34"] .glossary-sidebar,
+:root[data-design="34"] .footnotes-sidebar {
+  position: sticky;
+  top: var(--shell-height);
+  max-height: calc(100vh - var(--shell-height) - 1.5rem);
+  overflow-y: auto;
+  padding: 0.9rem 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--sunken);
+}
+:root[data-design="34"] .footnotes-sidebar { background: var(--panel); }
+:root[data-design="34"] .reading-center {
+  min-width: 0;
+  max-width: 38rem;
+  margin: 0 auto;
+  width: 100%;
+}
+:root[data-design="34"] .gb-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="34"] .gb-title {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="34"] .gb-collapse {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0.15rem 0.5rem;
+}
+:root[data-design="34"] .gb-collapse:hover { color: var(--gold-strong); border-color: var(--gold); }
+:root[data-design="34"] .gb-lead {
+  margin: 0 0 0.65rem;
+  font-size: 0.76rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* --- the centre reading column, English first --- */
+:root[data-design="34"] .reading-center .translation-text,
+:root[data-design="34"] .reading-center .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 38ch;
+  color: var(--ink);
+}
+:root[data-design="34"] .reading-center .case-card,
+:root[data-design="34"] .reading-center .matrix-proof-sheet,
+:root[data-design="34"] .reading-center .lineage-master-row,
+:root[data-design="34"] .reading-center .catalogue-row,
+:root[data-design="34"] .reading-center .lexicon-entry {
+  margin: 0 0 1.3rem;
+  padding: 0 0 1.1rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="34"] .reading-center .lexicon-entry { display: block; }
+:root[data-design="34"] .reading-center .classical-zh {
+  font-size: calc(var(--zh-font-size) * 0.88);
+  line-height: 1.9;
+}
+:root[data-design="34"] .reading-center .pinyin-line,
+:root[data-design="34"] .reading-center .provenance-line {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/* --- the footnote markers in the text --- */
+:root[data-design="34"] .g34-mark {
+  display: inline-block;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  margin-left: 0.4rem;
+  padding: 0 0.3rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1.2rem;
+  color: var(--gold-strong);
+  vertical-align: super;
+  cursor: pointer;
+}
+:root[data-design="34"] .g34-mark:hover {
+  background: var(--gold);
+  color: var(--panel);
+}
+:root[data-design="34"] .g34-mark:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* --- the glossary words: dotted, with tooltips --- */
+:root[data-design="34"] .gloss-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+:root[data-design="34"] .gloss-item { position: relative; }
+:root[data-design="34"] .gloss-word {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted var(--gold);
+  font-size: 0.86rem;
+  color: var(--ink);
+  cursor: help;
+}
+:root[data-design="34"] .gloss-word:hover,
+:root[data-design="34"] .gloss-word:focus-visible,
+:root[data-design="34"] .gloss-word[aria-expanded="true"] {
+  border-bottom-style: solid;
+  color: var(--gold-strong);
+}
+:root[data-design="34"] .gloss-word:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+:root[data-design="34"] .gloss-meta {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--ink-soft);
+}
+:root[data-design="34"] .gloss-empty {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+:root[data-design="34"] .gloss-tip[hidden] { display: none; }
+:root[data-design="34"] .gloss-word:hover .gloss-tip,
+:root[data-design="34"] .gloss-word:focus-within .gloss-tip,
+:root[data-design="34"] .gloss-word .gloss-tip:not([hidden]) {
+  display: block;
+  position: absolute;
+  left: 100%;
+  top: -0.4rem;
+  z-index: 50;
+  width: 15rem;
+  margin-left: 0.6rem;
+  padding: 0.6rem 0.7rem 0.7rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  cursor: auto;
+}
+:root[data-design="34"] .gloss-tip-head {
+  display: block;
+  margin-bottom: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: var(--gold-strong);
+}
+:root[data-design="34"] .gloss-tip-body {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* --- the notes rail: numbered, with back-to-text --- */
+:root[data-design="34"] .g34-notes { display: grid; gap: 0.65rem; }
+:root[data-design="34"] .g34-note {
+  padding: 0.65rem 0.7rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 60%, var(--paper));
+}
+:root[data-design="34"] .g34-note.rm-flash { animation: rmFlash34 1.1s ease; }
+@keyframes rmFlash34 {
+  0% { outline: 2px solid var(--gold); outline-offset: 2px; }
+  100% { outline: 2px solid transparent; outline-offset: 2px; }
+}
+:root[data-design="34"] .g34-note-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  margin-bottom: 0.4rem;
+}
+:root[data-design="34"] .g34-num {
+  flex: 0 0 auto;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: var(--gold);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  text-align: center;
+  color: var(--panel);
+}
+:root[data-design="34"] .g34-title {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+:root[data-design="34"] .g34-note .context-info-body { padding: 0; }
+:root[data-design="34"] .g34-note .context-row { display: block; margin-bottom: 0.45rem; }
+:root[data-design="34"] .g34-note .context-row:last-child { margin-bottom: 0; }
+:root[data-design="34"] .g34-note .context-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="34"] .g34-note .context-text { font-size: 0.78rem; line-height: 1.55; }
+:root[data-design="34"] .g34-back { margin-top: 0.5rem; font-size: 0.7rem; }
+:root[data-design="34"] .footnotes-sidebar .rm-room-note { margin: 0.8rem 0 0; }
+:root[data-design="34"] .footnotes-sidebar .rm-room-note > summary { font-size: 0.62rem; }
+
+@media (max-width: 1100px) {
+  :root[data-design="34"] .rm-gloss-shell { grid-template-columns: 12rem minmax(0, 1fr) 12rem; }
+  :root[data-design="34"] .gloss-word:hover .gloss-tip,
+  :root[data-design="34"] .gloss-word:focus-within .gloss-tip,
+  :root[data-design="34"] .gloss-word .gloss-tip:not([hidden]) {
+    width: 12rem;
+  }
+}
+@media (max-width: 900px) {
+  :root[data-design="34"] .rm-gloss-shell,
+  :root[data-design="34"] .room-body.is-gloss-off .rm-gloss-shell,
+  :root[data-design="34"] #reader-content-target.is-gloss-off .rm-gloss-shell,
+  :root[data-design="34"] .room-body.is-notes-off .rm-gloss-shell,
+  :root[data-design="34"] #reader-content-target.is-notes-off .rm-gloss-shell,
+  :root[data-design="34"] .room-body.is-gloss-off.is-notes-off .rm-gloss-shell,
+  :root[data-design="34"] #reader-content-target.is-gloss-off.is-notes-off .rm-gloss-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  :root[data-design="34"] .reading-center { order: -1; max-width: 44rem; }
+  :root[data-design="34"] .glossary-sidebar,
+  :root[data-design="34"] .footnotes-sidebar {
+    position: static;
+    max-height: none;
+  }
+  :root[data-design="34"] .gloss-word:hover .gloss-tip,
+  :root[data-design="34"] .gloss-word:focus-within .gloss-tip,
+  :root[data-design="34"] .gloss-word .gloss-tip:not([hidden]) {
+    left: 0;
+    top: 100%;
+    width: min(18rem, 80vw);
+    margin: 0.5rem 0 0;
+  }
+}
+@media (max-width: 768px) {
+  :root[data-design="34"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="34"] .reading-center .translation-text,
+  :root[data-design="34"] .reading-center .prose-en { font-size: 0.98rem; }
+}
+@media (hover: none) {
+  :root[data-design="34"] .gloss-word { border-bottom-style: solid; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="34"] .g34-note.rm-flash { animation: none; }
+}
+@media print {
+  :root[data-design="34"] .rm-gloss-shell { display: block; }
+  :root[data-design="34"] .reading-center { max-width: none; }
+  :root[data-design="34"] .glossary-sidebar,
+  :root[data-design="34"] .footnotes-sidebar {
+    position: static;
+    max-height: none;
+    margin-top: 1rem;
+    break-inside: avoid;
+  }
+  :root[data-design="34"] .gloss-word .gloss-tip { display: none; }
+}
+
+/* ==========================================================================
+   LAYOUT 35 · FOCUS + TOC HYBRID
+   --------------------------------------------------------------------------
+   The best of three layouts in one: a calm centred 40rem reading column
+   (Focus), a sticky 10rem mini-TOC of titles on the left, and a 10rem
+   right rail with a progress meter, a bookmark trail and three related
+   cards (Trail). The filter stays in the top bar. Every aid is visible
+   and every context fold is one toggle away.
+   ========================================================================== */
+
+:root[data-design="35"] .site-shell {
+  background: var(--wood);
+  border-bottom: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
+}
+:root[data-design="35"] .shell-frame { max-width: 1280px; padding: 0 1rem; }
+:root[data-design="35"] .shell-lintel { min-height: 2.8rem; }
+:root[data-design="35"] .room-nav {
+  display: flex;
+  border-top: 1px solid color-mix(in srgb, var(--wood-ink) 10%, transparent);
+}
+:root[data-design="35"] .nav-tab-btn { min-height: 2.6rem; }
+:root[data-design="35"] #main-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+}
+:root[data-design="35"] .view-section.active { max-width: 1280px; margin: 0 auto; padding: 0; }
+:root[data-design="35"] .room-heading,
+:root[data-design="35"] .text-header.room-heading {
+  max-width: 60rem;
+  margin: 1.5rem auto 0.7rem;
+  padding: 0 0 0.7rem 0;
+  border-left: 0;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="35"] .room-filter-rail,
+:root[data-design="35"] .gongan-filter-rail,
+:root[data-design="35"] .lexicon-filter-row {
+  max-width: 60rem;
+  margin: 0 auto 0.75rem;
+  padding: 0.35rem 0;
+  background: transparent;
+}
+:root[data-design="35"] .room-body,
+:root[data-design="35"] .room-body:not([hidden]),
+:root[data-design="35"] #reader-content-target {
+  display: block;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+:root[data-design="35"] .reader-layout { display: block; max-width: 60rem; margin: 0 auto; grid-template-columns: none; }
+:root[data-design="35"] .sidebar-panel { width: 100%; margin-bottom: 1rem; }
+:root[data-design="35"] .sidebar-panel .corpus-selector-list { max-height: 11rem; overflow-y: auto; }
+:root[data-design="35"] .content-panel { max-width: 60rem; margin: 0 auto; padding: 0; background: transparent; }
+:root[data-design="35"] .reader-toolbar {
+  position: static;
+  margin: 0.75rem auto 1rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line-soft);
+  backdrop-filter: none;
+}
+:root[data-design="35"] .document-heading { max-width: 60rem; margin: 0 auto 0.9rem; padding: 0 0 0.7rem; border-bottom: 1px solid var(--line); }
+:root[data-design="35"] .case-jump-strip,
+:root[data-design="35"] .case-load-more { max-width: 60rem; margin: 1rem auto; }
+:root[data-design="35"] .gongan-catalogue-head { display: none; }
+
+/* --- the hybrid shell: 10rem TOC, 40rem focus, 10rem rail --- */
+:root[data-design="35"] .rm-hybrid-shell {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 40rem) 10rem;
+  justify-content: center;
+  gap: 1rem;
+  align-items: start;
+}
+:root[data-design="35"] .mini-toc,
+:root[data-design="35"] .progress-rail {
+  position: sticky;
+  top: var(--shell-height);
+  max-height: calc(100vh - var(--shell-height) - 1.5rem);
+  overflow-y: auto;
+}
+:root[data-design="35"] .focus-center { min-width: 0; }
+:root[data-design="35"] .focus-center .translation-text,
+:root[data-design="35"] .focus-center .prose-en {
+  font-family: var(--font-display);
+  font-size: 1.07rem;
+  line-height: 1.9;
+  max-width: 38ch;
+  color: var(--ink);
+}
+:root[data-design="35"] .hybrid-unit {
+  margin: 0 0 1.5rem;
+  padding: 0 0 1.3rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+:root[data-design="35"] .hybrid-unit:last-of-type { border-bottom: 0; }
+:root[data-design="35"] .hybrid-unit.rm-flash { animation: rmFlash35 1.1s ease; }
+@keyframes rmFlash35 {
+  0% { outline: 2px solid var(--gold); outline-offset: 4px; }
+  100% { outline: 2px solid transparent; outline-offset: 4px; }
+}
+:root[data-design="35"] .hybrid-unit .classical-zh {
+  font-size: calc(var(--zh-font-size) * 0.9);
+  line-height: 1.9;
+}
+:root[data-design="35"] .hybrid-unit .rm-unit-note { margin: 0.7rem 0 0; }
+:root[data-design="35"] .hybrid-unit .rm-unit-note > summary { font-size: 0.64rem; }
+
+/* --- the mini-TOC: titles only, sticky left --- */
+:root[data-design="35"] .mini-toc {
+  padding: 0.8rem 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="35"] .mt-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line);
+}
+:root[data-design="35"] .mt-title {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="35"] .mt-count {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--ink-soft);
+}
+:root[data-design="35"] .mini-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+:root[data-design="35"] .mini-toc-link {
+  display: block;
+  width: 100%;
+  padding: 0.3rem 0.45rem;
+  border: 0;
+  border-left: 2px solid transparent;
+  border-radius: 0 2px 2px 0;
+  background: transparent;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--ink-soft);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+:root[data-design="35"] .mini-toc-link:hover {
+  color: var(--ink);
+  background: var(--gold-soft);
+}
+:root[data-design="35"] .mini-toc-link[aria-current="true"] {
+  border-left-color: var(--gold);
+  color: var(--ink);
+  font-weight: 600;
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+}
+:root[data-design="35"] .mini-toc-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+/* --- the right rail: progress, trail, related --- */
+:root[data-design="35"] .progress-rail {
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+  padding: 0.8rem 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+:root[data-design="35"] .hybrid-progress { display: grid; gap: 0.3rem; }
+:root[data-design="35"] .hp-label,
+:root[data-design="35"] .ht-label,
+:root[data-design="35"] .hr-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-strong);
+}
+:root[data-design="35"] .hybrid-progress-meter {
+  width: 100%;
+  height: 0.45rem;
+  accent-color: var(--gold);
+}
+:root[data-design="35"] .hybrid-trail {
+  display: grid;
+  gap: 0.35rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line-soft);
+}
+:root[data-design="35"] .ht-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+:root[data-design="35"] .ht-crumb {
+  max-width: 100%;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+:root[data-design="35"] .ht-crumb:hover { color: var(--gold-strong); border-color: var(--gold); }
+:root[data-design="35"] .ht-home {
+  border-style: dashed;
+  color: var(--gold-strong);
+}
+:root[data-design="35"] .hybrid-related {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line-soft);
+}
+:root[data-design="35"] .hr-card {
+  display: block;
+  width: 100%;
+  padding: 0.45rem 0.55rem 0.5rem;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--gold);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 60%, var(--paper));
+  text-align: left;
+  cursor: pointer;
+}
+:root[data-design="35"] .hr-card:hover { border-color: var(--gold); }
+:root[data-design="35"] .hr-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+:root[data-design="35"] .hr-why {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+:root[data-design="35"] .progress-rail .rm-room-note { margin: 0; }
+:root[data-design="35"] .progress-rail .rm-room-note > summary { font-size: 0.6rem; }
+:root[data-design="35"] .progress-rail .rm-quiet { font-size: 0.72rem; line-height: 1.5; }
+
+@media (max-width: 1100px) {
+  :root[data-design="35"] .rm-hybrid-shell {
+    grid-template-columns: 9rem minmax(0, 1fr) 9rem;
+  }
+}
+@media (max-width: 900px) {
+  :root[data-design="35"] .rm-hybrid-shell { grid-template-columns: minmax(0, 1fr); }
+  :root[data-design="35"] .mini-toc,
+  :root[data-design="35"] .progress-rail {
+    position: static;
+    max-height: none;
+  }
+  :root[data-design="35"] .mini-toc-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+  :root[data-design="35"] .mini-toc-list li { flex: 0 0 auto; }
+  :root[data-design="35"] .mini-toc-link {
+    border-left: 0;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  :root[data-design="35"] .mini-toc-link[aria-current="true"] {
+    border-color: var(--gold);
+  }
+  :root[data-design="35"] .progress-rail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 0.8rem 1rem;
+  }
+  :root[data-design="35"] .hybrid-trail,
+  :root[data-design="35"] .hybrid-related {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+@media (max-width: 768px) {
+  :root[data-design="35"] #main-content { padding: 0 0.85rem 3.5rem; }
+  :root[data-design="35"] .shell-lintel { min-height: 3.2rem; }
+  :root[data-design="35"] .focus-center .translation-text,
+  :root[data-design="35"] .focus-center .prose-en { font-size: 1rem; }
+}
+@media (hover: none) {
+  :root[data-design="35"] .mini-toc-link:hover,
+  :root[data-design="35"] .ht-crumb:hover { background: transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-design="35"] .hybrid-unit.rm-flash { animation: none; }
+}
+@media print {
+  :root[data-design="35"] .rm-hybrid-shell { display: block; }
+  :root[data-design="35"] .mini-toc,
+  :root[data-design="35"] .progress-rail {
+    position: static;
+    max-height: none;
+    margin-bottom: 1rem;
+    break-inside: avoid;
+  }
+  :root[data-design="35"] .hybrid-progress { display: none; }
+}
+
+/* ==========================================================================
+   LAYOUT SWITCHER — thirty-five numbered examples
+   --------------------------------------------------------------------------
+   The header control now carries 1–35. The only shared control the usable
    families touch: the row wraps, and the numbers are slightly narrower so all
-   twenty-five stay one quiet strip rather than pushing the brand row around.
+   thirty-five stay one quiet strip rather than pushing the brand row around.
    No layout section above is altered.
    ========================================================================== */
 .design-switcher {
-  max-width: min(100%, 52rem);
+  max-width: min(100%, 62rem);
   row-gap: 0.15rem;
 }
 .design-btn {
