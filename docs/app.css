@@ -14533,3 +14533,147 @@ html[data-design="6"].nav-open .nav-drawer-backdrop { display: block; }
 .v18h-app{max-width:46rem;margin:auto;padding:0 1.25rem 6rem;line-height:1.8}.v18h-lintel{display:flex;justify-content:space-between;padding:1.1rem 0;border-bottom:1px solid var(--line);font-size:.8rem}.v18h-unit{margin:2.6rem 0}.v18h-head{display:flex}.v18h-k,.v18h-zh{font-size:.8rem}.v18h-zh{margin-left:auto}.v18h-lead{font-size:1.2rem}.v18h-cards{display:flex;gap:.6rem}.v18h-cards button{position:relative;border:0;border-bottom:2px dotted var(--gold);background:none;font-size:.8rem}.v18h-cards span{display:none;position:absolute;left:0;top:2rem;width:16rem;z-index:8;padding:.8rem;background:var(--ink);color:var(--panel);text-align:left}.v18h-cards button:hover span,.v18h-cards button:focus span{display:block}
 @media(max-width:720px){.v14r-app{grid-template-columns:1fr}.v14r-related{position:static}}
 /* == rebuild:18 end == */ /* == rebuild:17 end == */ /* == rebuild:16 end == */ /* == rebuild:15 end == */ /* == rebuild:14 end == */ /* == rebuild:13 end == */
+
+/* == rebuild:19 begin — Batch 4 slot 19 NEW skeleton: Sentence-by-Sentence — top-lintel / single-continuous-column / english-first-then-source / sparse-single-idea / scale-1.25-min-0.85rem / sentence-toggle; app.js redeclares roomSentenceBySentence; fleet v19 grandfathered; pure append == */
+.v19s-app{max-width:40rem;margin:0 auto;padding:0 1.25rem 7rem;line-height:1.85}
+.v19s-lintel{position:sticky;top:0;z-index:12;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1rem 0;background:var(--bg);border-bottom:2px solid var(--gold)}
+.v19s-lintel strong{font-size:1.328rem;letter-spacing:.02em}
+.v19s-lintel span{font-size:.85rem;color:var(--ink-soft)}
+.v19s-nav{display:flex;flex-wrap:wrap;gap:.4rem;padding:.7rem 0;border-bottom:1px solid var(--line-soft)}
+.v19s-navbtn{border:1px solid var(--line);background:var(--panel);padding:.35rem .7rem;font-size:.85rem}
+.v19s-navbtn[aria-current="page"]{border-color:var(--gold);color:var(--gold)}
+.v19s-idea{min-height:58vh;display:flex;flex-direction:column;justify-content:center;gap:1.5rem;padding:3rem 0 4.5rem;border-bottom:1px solid var(--line-soft)}
+.v19s-mast{display:flex;align-items:baseline;gap:.8rem}
+.v19s-k{font-size:.85rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold)}
+.v19s-zh{margin-left:auto;font-size:.85rem;color:var(--ink-soft)}
+.v19s-n{font-size:.85rem;color:var(--ink-soft)}
+.v19s-lead{margin:0;font-size:1.328rem;line-height:1.75}
+.v19s-i{display:inline-block;min-width:1.25rem;height:1.25rem;margin:0 .18rem;padding:0 .25rem;border:1px solid var(--gold);border-radius:999px;background:transparent;color:var(--gold);font-size:.85rem;font-style:italic;line-height:1.1;cursor:pointer;vertical-align:baseline}
+.v19s-drawer{margin-top:1.3rem;padding:1.1rem 1.2rem;background:var(--sunken);border-left:3px solid var(--gold)}
+.v19s-shut{float:right;border:0;background:none;color:var(--ink-soft);font-size:.85rem}
+.v19s-quote{margin:0 0 .9rem;font-size:1.063rem;line-height:1.6}
+.v19s-src{font-size:.85rem}
+/* == rebuild:20 begin — Batch 4 slot 20 NEW skeleton: Chapter Chunks — top-lintel / paginated-chapters / english-first-then-source / comfortable-default / scale-1.2-min-0.8rem / two-step; app.js redeclares roomChapterChunks; pure append == */
+.v20c-app{max-width:44rem;margin:0 auto;padding:0 1.25rem 6rem;line-height:1.75}
+.v20c-lintel{position:sticky;top:0;z-index:12;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem 0;background:var(--bg);border-bottom:2px solid var(--gold)}
+.v20c-lintel strong{font-size:1.2rem}
+.v20c-pos{font-size:.8rem;color:var(--ink-soft)}
+.v20c-nav{display:flex;flex-wrap:wrap;gap:.4rem;padding:.65rem 0;border-bottom:1px solid var(--line-soft)}
+.v20c-navbtn{border:1px solid var(--line);background:var(--panel);padding:.32rem .65rem;font-size:.8rem}
+.v20c-navbtn[aria-current="page"]{border-color:var(--gold);color:var(--gold)}
+.v20c-track{display:flex;gap:.3rem;padding:.8rem 0 0}
+.v20c-dot{width:.55rem;height:.55rem;border:1px solid var(--gold);border-radius:999px;background:transparent}
+.v20c-dot.is-done{background:var(--gold)}
+.v20c-dot.is-current{background:var(--gold);outline:2px solid var(--gold-soft);outline-offset:2px}
+.v20c-phead{margin:1.6rem 0 1.8rem;padding-bottom:.8rem;border-bottom:1px solid var(--line)}
+.v20c-pk{margin:0;font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--gold)}
+.v20c-pt{margin:.35rem 0 0;font-size:1.728rem;line-height:1.25}
+.v20c-unit{margin:0 0 2.6rem}
+.v20c-face{display:flex;align-items:baseline;gap:.8rem;margin-bottom:.6rem}
+.v20c-k{font-size:.8rem;color:var(--gold);text-transform:uppercase;letter-spacing:.12em}
+.v20c-zh{margin-left:auto;font-size:.8rem;color:var(--ink-soft)}
+.v20c-ctx{margin:1rem 0;padding:1rem 1.1rem;background:var(--sunken);border-left:3px solid var(--gold);font-size:1rem}
+.v20c-ctxbtn{margin:1.2rem 0;padding:.55rem 1rem;border:1px solid var(--gold);background:transparent;font-size:.8rem}
+.v20c-pager{display:flex;align-items:center;gap:.8rem;margin:2rem 0 3rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.v20c-back,.v20c-next{padding:.55rem 1rem;border:1px solid var(--gold);background:var(--gold-soft);font-size:.8rem}
+.v20c-hint{margin-left:auto;font-size:.8rem;color:var(--ink-soft)}
+/* == rebuild:21 begin — Batch 4 slot 21 NEW skeleton: Work Dossier — top-lintel / single-continuous-column / work-first / comfortable-default / scale-1.33-min-0.9rem / two-step; app.js redeclares roomWorkDossier; pure append == */
+.v21w-app{max-width:42rem;margin:0 auto;padding:0 1.25rem 6rem;line-height:1.75}
+.v21w-lintel{position:sticky;top:0;z-index:12;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.95rem 0;background:var(--bg);border-bottom:2px solid var(--gold)}
+.v21w-lintel strong{font-size:1.2rem}
+.v21w-lintel span{font-size:.9rem;color:var(--ink-soft)}
+.v21w-nav{display:flex;flex-wrap:wrap;gap:.4rem;padding:.7rem 0;border-bottom:1px solid var(--line-soft)}
+.v21w-navbtn{border:1px solid var(--line);background:var(--panel);padding:.35rem .7rem;font-size:.9rem}
+.v21w-navbtn[aria-current="page"]{border-color:var(--gold);color:var(--gold)}
+.v21w-eyebrow{margin:2.2rem 0 .4rem;font-size:.9rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gold)}
+.v21w-title{margin:0 0 1.6rem;font-size:2.128rem;line-height:1.2}
+.v21w-sheet{padding:1.3rem 1.4rem;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.v21w-fields{margin:0}
+.v21w-field{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:.25rem 1.3rem;padding:.75rem 0;border-bottom:1px solid var(--line-soft)}
+.v21w-field:last-child{border-bottom:0}
+.v21w-field dt{font-size:.9rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
+.v21w-field dd{margin:0;font-size:1.2rem;line-height:1.6}
+.v21w-gate{margin:2.6rem 0 0;padding:1.4rem;background:var(--gold-soft);border-radius:var(--radius)}
+.v21w-gate p{margin:0 0 1rem;font-size:1.2rem}
+.v21w-read{padding:.6rem 1.1rem;border:1px solid var(--gold);background:var(--panel);font-size:1.2rem}
+.v21w-body{margin-top:2.4rem}
+.v21w-unit{margin:0 0 3rem;padding-bottom:2.2rem;border-bottom:1px solid var(--line-soft)}
+.v21w-face{display:flex;align-items:baseline;gap:.9rem;margin-bottom:.7rem}
+.v21w-fk{font-size:.9rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+.v21w-fzh{margin-left:auto;font-size:.9rem;color:var(--ink-soft)}
+.v21w-ctx{margin-top:1rem;padding:1rem 1.1rem;background:var(--sunken);border-left:3px solid var(--gold);font-size:.9rem}
+.v21w-step{margin-top:1rem;padding:.5rem .9rem;border:1px solid var(--line);background:transparent;font-size:.9rem}
+/* == rebuild:22 begin — Batch 4 slot 22 NEW skeleton: Teacher Dossier — side-rail-left / single-continuous-column / teacher-first / comfortable-default / scale-1.25-min-0.85rem / native-details; app.js redeclares roomTeacherDossier; pure append == */
+.v22t-app{display:grid;grid-template-columns:14rem minmax(0,1fr);gap:2.2rem;max-width:78rem;margin:0 auto;padding:0 1.25rem 6rem;line-height:1.75}
+.v22t-rail{position:sticky;top:1rem;align-self:start;display:flex;flex-direction:column;gap:1.1rem;padding:1.1rem;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+.v22t-brand{margin:0;font-size:1.328rem;line-height:1.2}
+.v22t-railnote{margin:0;font-size:.85rem;color:var(--ink-soft)}
+.v22t-nav{display:flex;flex-direction:column;gap:.3rem}
+.v22t-navbtn{display:flex;justify-content:space-between;gap:.5rem;padding:.45rem .6rem;border:0;border-radius:var(--radius);background:transparent;font-size:.85rem;text-align:left;cursor:pointer}
+.v22t-navbtn small{color:var(--ink-soft);font-size:.85rem}
+.v22t-navbtn[aria-current="page"]{background:var(--gold-soft);color:var(--gold)}
+.v22t-main{min-width:0;max-width:44rem}
+.v22t-eyebrow{margin:1.8rem 0 .5rem;font-size:.85rem;text-transform:uppercase;letter-spacing:.16em;color:var(--gold)}
+.v22t-teacher{margin:.7rem 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
+.v22t-teacher summary{display:flex;justify-content:space-between;gap:.6rem;padding:.8rem 1rem;cursor:pointer;font-size:1.063rem}
+.v22t-zh{color:var(--ink-soft);font-size:.85rem}
+.v22t-teacher .context-info-body{padding:0 1rem 1rem}
+.v22t-none{margin:.6rem 0;font-size:.85rem;color:var(--ink-soft)}
+.v22t-workshead{margin:2.6rem 0 1rem;padding-bottom:.6rem;border-bottom:2px solid var(--gold);font-size:1.66rem}
+.v22t-unit{margin:0 0 2.4rem}
+.v22t-face{display:flex;align-items:baseline;gap:.8rem;margin-bottom:.6rem}
+.v22t-fk{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+.v22t-fzh{margin-left:auto;font-size:.85rem;color:var(--ink-soft)}
+.v22t-ctx summary{padding:.5rem 0;color:var(--gold);font-size:.85rem;cursor:pointer}
+@media(max-width:860px){.v22t-app{grid-template-columns:1fr}.v22t-rail{position:static}}
+/* == rebuild:23 begin — Batch 4 slot 23 NEW skeleton: Two-Step Reader — top-lintel / single-continuous-column / english-first-then-source / comfortable-default / scale-1.125-min-0.78rem / two-step; app.js redeclares roomTwoStep; pure append == */
+.v23w-app{max-width:42rem;margin:0 auto;padding:0 1.25rem 6rem;line-height:1.75}
+.v23w-lintel{position:sticky;top:0;z-index:12;display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.9rem 0;background:var(--bg);border-bottom:2px solid var(--gold)}
+.v23w-lintel strong{font-size:1.125rem}
+.v23w-lintel span{font-size:.78rem;color:var(--ink-soft)}
+.v23w-nav{display:flex;flex-wrap:wrap;gap:.4rem;padding:.65rem 0;border-bottom:1px solid var(--line-soft)}
+.v23w-navbtn{border:1px solid var(--line);background:var(--panel);padding:.32rem .65rem;font-size:.78rem}
+.v23w-navbtn[aria-current="page"]{border-color:var(--gold);color:var(--gold)}
+.v23w-item{margin:0 0 3.2rem;padding:0 0 2.4rem;border-bottom:1px solid var(--line-soft)}
+.v23w-face{display:flex;align-items:baseline;gap:.8rem;margin-bottom:.8rem}
+.v23w-fk{font-size:.78rem;text-transform:uppercase;letter-spacing:.13em;color:var(--gold)}
+.v23w-fzh{margin-left:auto;font-size:.78rem;color:var(--ink-soft)}
+.v23w-first{margin:0 0 1.1rem;font-size:1.125rem;line-height:1.7}
+.v23w-more{padding:.5rem 1rem;border:1px solid var(--gold);background:var(--gold-soft);font-size:.889rem}
+.v23w-rest{margin-top:1.2rem}
+.v23w-step2{margin-top:1.1rem}
+.v23w-ctx{margin-top:.8rem;padding:.95rem 1.05rem;background:var(--sunken);border-left:3px solid var(--gold);font-size:.889rem}
+.v23w-ctxbtn{padding:.5rem .95rem;border:1px solid var(--line);background:transparent;font-size:.889rem}
+/* == rebuild:24 begin — Batch 4 slot 24 NEW skeleton: Command Palette — top-lintel / single-continuous-column / search-first / comfortable-default / scale-1.2-min-0.8rem / command-palette; app.js redeclares roomCommandPalette; pure append == */
+.v24k-app{max-width:44rem;margin:0 auto;padding:0 1.25rem 6rem;line-height:1.75}
+.v24k-lintel{position:sticky;top:0;z-index:12;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.85rem 0;background:var(--bg);border-bottom:2px solid var(--gold)}
+.v24k-lintel strong{font-size:1.2rem}
+.v24k-open{padding:.45rem .9rem;border:1px solid var(--gold);background:var(--gold-soft);font-size:.8rem}
+.v24k-nav{display:flex;flex-wrap:wrap;gap:.4rem;padding:.65rem 0;border-bottom:1px solid var(--line-soft)}
+.v24k-navbtn{border:1px solid var(--line);background:var(--panel);padding:.32rem .65rem;font-size:.8rem}
+.v24k-navbtn[aria-current="page"]{border-color:var(--gold);color:var(--gold)}
+.v24k-landing{margin:1.8rem 0 2.2rem;padding:1.4rem;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.v24k-eyebrow{margin:0 0 .6rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.16em;color:var(--gold)}
+.v24k-q{width:100%;padding:.65rem .8rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);font-size:1.2rem}
+.v24k-hint{margin:.75rem 0 0;font-size:.8rem;color:var(--ink-soft)}
+.v24k-count{margin:.9rem 0 .45rem;font-size:.8rem;color:var(--ink-soft)}
+.v24k-results{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.35rem;max-height:19rem;overflow-y:auto}
+.v24k-results button{display:block;width:100%;text-align:left;padding:.5rem .7rem;border:1px solid var(--line-soft);border-radius:var(--radius);background:transparent;font-size:1rem;cursor:pointer}
+.v24k-results button:hover,.v24k-results button:focus{border-color:var(--gold);background:var(--gold-soft)}
+.v24k-results small{display:block;color:var(--ink-soft);font-size:.8rem}
+.v24k-unit{margin:0 0 2.8rem;padding-bottom:2rem;border-bottom:1px solid var(--line-soft)}
+.v24k-face{display:flex;align-items:baseline;gap:.8rem;margin-bottom:.6rem}
+.v24k-fk{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+.v24k-fzh{margin-left:auto;font-size:.8rem;color:var(--ink-soft)}
+.v24k-palette{position:fixed;inset:0;z-index:90;padding:9vh 1rem 1rem;background:rgba(20,16,14,.55)}
+.v24k-backdrop{position:absolute;inset:0}
+.v24k-panel{position:relative;max-width:34rem;margin:0 auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.v24k-pq{width:100%;padding:.85rem 1rem;border:0;border-bottom:1px solid var(--line-soft);background:transparent;font-size:1.2rem}
+.v24k-list{list-style:none;margin:0;padding:.4rem;max-height:17rem;overflow-y:auto}
+.v24k-item{display:flex;align-items:baseline;gap:.7rem;padding:.5rem .7rem;border-radius:var(--radius);cursor:pointer;font-size:1rem}
+.v24k-item.is-active{background:var(--gold-soft)}
+.v24k-kind{flex:none;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold)}
+.v24k-sub{margin-left:auto;color:var(--ink-soft);font-size:.8rem}
+.v24k-empty{padding:.6rem .7rem;font-size:1rem;color:var(--ink-soft)}
+.v24k-foot{margin:0;padding:.55rem .9rem;border-top:1px solid var(--line-soft);color:var(--ink-soft);font-size:.8rem}
+/* == rebuild:24 end == */ /* == rebuild:23 end == */ /* == rebuild:22 end == */ /* == rebuild:21 end == */ /* == rebuild:20 end == */ /* == rebuild:19 end == */
