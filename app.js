@@ -634,13 +634,14 @@
     { key: '32', label: '32', name: 'Vertical timeline' },
     { key: '33', label: '33', name: 'Split with resizable context drawer' },
     { key: '34', label: '34', name: 'Glossary sidebar + footnotes' },
-    { key: '35', label: '35', name: 'Focus + TOC hybrid' }
+    { key: '35', label: '35', name: 'Focus + TOC hybrid' },
+    { key: '36', label: '36', name: 'Chan Library — The Chan Room (owner-provided zip)' }
   ];
 
   function applyDesignVariant(variant) {
     if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
       '16', '17', '18', '19', '20', '21', '22', '23', '24', '25',
-      '26', '27', '28', '29', '30', '31', '32', '33', '34', '35'].includes(variant)) variant = '1';
+      '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36'].includes(variant)) variant = '1';
     state.designVariant = variant;
     document.documentElement.setAttribute('data-design', variant);
     storageSet('translatechan_design_variant', variant);
@@ -763,7 +764,7 @@
 
   const DRASTIC_LAYOUTS = ['3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
     '16', '17', '18', '19', '20', '21', '22', '23', '24', '25',
-    '26', '27', '28', '29', '30', '31', '32', '33', '34', '35'];
+    '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36'];
 
   function roomRoot(room) {
     if (room === 'reader') return elements.readerContent;
@@ -792,7 +793,7 @@
     'rm-reveal', 'rm-modalinfo', 'rm-hovercard', 'rm-sentence', 'rm-chunks', 'rm-workdossier',
     'rm-teacherdossier', 'rm-twostep', 'rm-palette', 'rm-trail',
     'rm-emptystate', 'rm-cmpslider', 'rm-inlineorigin', 'rm-fullbleed', 'rm-magazine',
-    'rm-cardwall', 'rm-vtimeline', 'rm-splitresize', 'rm-glossbar', 'rm-hybrid'];
+    'rm-cardwall', 'rm-vtimeline', 'rm-splitresize', 'rm-glossbar', 'rm-hybrid', 'rm-chanroom'];
 
   function clearRoomLayoutClasses(root) {
     if (!root || !root.classList) return;
@@ -1076,6 +1077,8 @@
     else if (v === '33') roomSplitResizable(room, root);
     else if (v === '34') roomGlossaryBar(room, root);
     else if (v === '35') roomFocusTocHybrid(room, root);
+    // 36: The Chan Room — the owner-provided library's design language.
+    else if (v === '36') roomChanLibrary(room, root);
   }
 
   // Tear down layout-6 drawer chrome that lives outside room roots.
@@ -5404,6 +5407,184 @@
     const span = (doc.scrollHeight - window.innerHeight) || 1;
     const pct = Math.max(0, Math.min(100, Math.round(((window.scrollY || 0) / span) * 100)));
     meters.forEach(m => { m.value = pct; });
+  }
+
+  // ==========================================================================
+  // LAYOUT 36 · CHAN LIBRARY — "The Chan Room" (owner-provided zip, 2026-09-18)
+  // --------------------------------------------------------------------------
+  // The owner provided chan-buddhism-digital-library.zip: a React/Vite
+  // prototype called "The Chan Room" — cream ground (#F8F5EF), rust accent
+  // (#9A3B1E), stone-grey hairlines, a scholarly serif for English and
+  // controls in sans, a sticky pill nav, hairline card grids (1px gap,
+  // opaque cells), a disclosure (▸) dossier that asks "Where did this come
+  // from? / What is the background? / Who and what is related? / How
+  // reliable is the text?", and small status dots (verified / flagged) next
+  // to every line.
+  //
+  // Layout 36 ports that design language onto the live site: the CSS half
+  // lives under :root[data-design="36"] in app.css (shell, pills, hairline
+  // grids, disclosures, status dots, dark theme); the JS half re-structures
+  // the room DOM the same way the library's rooms do — cards in hairline
+  // grids, one disclosure per unit carrying the three plain-language info
+  // rows, and a fourth "How reliable is the text?" fold in the Reader built
+  // from the per-text W1 metrics. Layouts 1–35 stay byte-identical and
+  // untouched; every block below no-ops for the other 35 values, and every
+  // string it renders comes from the bundled data (35 texts, 34 teachers,
+  // 24 cases, 31 terms, 4 matrix lines) — no invented copy, no style
+  // attributes, no new setProperty writes.
+  // ==========================================================================
+
+  // One library-style disclosure: ▸ label … hint, rows behind the fold.
+  function chanDisclosure(label, rows, hint) {
+    const d = document.createElement('details');
+    d.className = 'chan-disclosure';
+    const s = document.createElement('summary');
+    s.innerHTML = '<span class="chan-disc-label">' + escHtml(label) + '</span>' +
+      (hint ? '<span class="chan-disc-hint">' + escHtml(hint) + '</span>' : '');
+    d.appendChild(s);
+    if (Array.isArray(rows) && rows.length) {
+      const body = document.createElement('div');
+      body.className = 'chan-disc-body';
+      body.innerHTML = infoRows(rows);
+      d.appendChild(body);
+    }
+    return d;
+  }
+
+  // Wrap the matched direct children in one hairline-grid card wall
+  // (the library's signature: 1px stone gap, opaque cells, no outer frame).
+  function chanWrapGrid(parent, selector, gridClass) {
+    if (!parent || !parent.querySelectorAll) return;
+    if (parent.querySelector(':scope > .' + gridClass)) return;
+    const kids = Array.from(parent.querySelectorAll(selector)).filter(k => k.parentNode === parent);
+    if (!kids.length) return;
+    const grid = document.createElement('div');
+    grid.className = gridClass;
+    kids.forEach(k => grid.appendChild(k));
+    parent.appendChild(grid);
+  }
+
+  // The library's fourth dossier question, Reader only. Every number comes
+  // from the per-text metrics in the deterministic bundle — nothing invented.
+  function chanReliabilityDisclosure() {
+    const key = state.currentCorpusKey;
+    const perText = state.data.project_metrics && state.data.project_metrics.corpus &&
+      state.data.project_metrics.corpus.per_text ? state.data.project_metrics.corpus.per_text : {};
+    const m = isRecord(perText[key]) ? perText[key] : {};
+    const sr = isRecord(m.source_review) ? m.source_review : null;
+    const statusLabels = {
+      collated_to_claimed_witness: 'collated to the claimed witness',
+      partial_or_failed_w1_collation: 'partial or failed W1 collation',
+      witness_unavailable: 'witness unavailable'
+    };
+    const rows = [];
+    rows.push(['Coverage here',
+      escHtml(stringValue(m.coverage) || 'representation not recorded') +
+      ' · editorial status: ' + escHtml(stringValue(m.completion_status) || 'not recorded')]);
+    if (sr) {
+      rows.push(['W1 source review',
+        escHtml(statusLabels[sr.status] || stringValue(sr.status)) +
+        ' — ' + escHtml(String(sr.content_fields_collated !== undefined ? sr.content_fields_collated : 'n/a')) +
+        ' of ' + escHtml(String(sr.content_fields_total !== undefined ? sr.content_fields_total : 'n/a')) +
+        ' content fields collate to the claimed witness; ' +
+        escHtml(String(sr.flagged_entries !== undefined ? sr.flagged_entries : 'n/a')) +
+        ' entries flagged and visibly marked, never quietly fixed.']);
+      if (Array.isArray(sr.witness_refs) && sr.witness_refs.length) {
+        rows.push(['Claimed witness', escHtml(sr.witness_refs.join(', '))]);
+      }
+      if (sr.evidence_date) rows.push(['Evidence date', escHtml(String(sr.evidence_date))]);
+    }
+    rows.push(['Rule',
+      'Nothing in the Chinese above has been normalised, punctuated silently or corrected. Where editions disagree, the Compare room carries both readings rather than resolving them here.']);
+    const d = chanDisclosure('How reliable is the text?', rows, 'provenance');
+    d.classList.add('chan-reliability');
+    return d;
+  }
+
+  function chanRoomReader(root) {
+    const heading = root.querySelector('.document-heading');
+    if (heading && !heading.querySelector('.chan-reliability')) {
+      heading.appendChild(chanReliabilityDisclosure());
+    }
+  }
+
+  function chanRoomLineage(root) {
+    // Banded register (tree order): one card wall per generation band.
+    root.querySelectorAll('.lineage-band').forEach(band => {
+      chanWrapGrid(band, ':scope > .lineage-master-row', 'chan-grid chan-grid-3');
+    });
+    // Flat register (any other sort): one card wall for the whole list.
+    root.querySelectorAll('.lineage-flat').forEach(flat => {
+      chanWrapGrid(flat, ':scope > .lineage-master-row', 'chan-grid chan-grid-3');
+    });
+    root.querySelectorAll('.lineage-master-row').forEach(row => {
+      if (row.dataset.chanReady === '1') return;
+      row.dataset.chanReady = '1';
+      row.appendChild(chanDisclosure(
+        'About this teacher — where from · related · background',
+        unitInfoRowsFor('lineage', row, 0), 'dossier'));
+    });
+  }
+
+  function chanRoomGongan(root) {
+    const cat = root.querySelector('.gongan-catalogue');
+    if (cat) chanWrapGrid(cat, ':scope > .catalogue-row', 'chan-grid chan-grid-2');
+    root.querySelectorAll('.catalogue-row').forEach((row, i) => {
+      if (row.dataset.chanReady === '1') return;
+      row.dataset.chanReady = '1';
+      // The library's case card: title + one line by default; the record
+      // locator and cross-references sit behind one small fold.
+      const locator = row.querySelector('.catalogue-locator');
+      const cross = row.querySelector('.catalogue-cross');
+      if (locator || cross) {
+        const fold = document.createElement('details');
+        fold.className = 'chan-disclosure chan-record-fold';
+        const s = document.createElement('summary');
+        s.innerHTML = '<span class="chan-disc-label">Record</span><span class="chan-disc-hint">locator · cross-refs</span>';
+        fold.appendChild(s);
+        const body = document.createElement('div');
+        body.className = 'chan-disc-body';
+        if (locator) body.appendChild(locator);
+        if (cross) body.appendChild(cross);
+        fold.appendChild(body);
+        row.appendChild(fold);
+      }
+      row.appendChild(chanDisclosure(
+        'About this case — where from · related · background',
+        unitInfoRowsFor('gongan', row, i), 'dossier'));
+    });
+  }
+
+  function chanRoomMatrix(root) {
+    root.querySelectorAll('.matrix-proof-sheet').forEach((sheet, i) => {
+      if (sheet.dataset.chanReady === '1') return;
+      sheet.dataset.chanReady = '1';
+      sheet.classList.add('chan-unit');
+      sheet.appendChild(chanDisclosure(
+        'About this line — where from · related · background',
+        unitInfoRowsFor('matrix', sheet, i), 'dossier'));
+    });
+  }
+
+  function chanRoomLexicon(root) {
+    root.querySelectorAll('.lexicon-entry').forEach((entry, i) => {
+      if (entry.dataset.chanReady === '1') return;
+      entry.dataset.chanReady = '1';
+      entry.appendChild(chanDisclosure(
+        'About this term — where from · related · background',
+        unitInfoRowsFor('lexicon', entry, i), 'dossier'));
+    });
+  }
+
+  function roomChanLibrary(room, root) {
+    root.classList.add('rm-chanroom');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    if (room === 'reader') chanRoomReader(root);
+    else if (room === 'lineage') chanRoomLineage(root);
+    else if (room === 'gongan') chanRoomGongan(root);
+    else if (room === 'matrix') chanRoomMatrix(root);
+    else if (room === 'lexicon') chanRoomLexicon(root);
   }
 
   function setupEventListeners() {
