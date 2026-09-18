@@ -591,23 +591,22 @@
   // finishes (during boot it merely applies the persisted layout).
   let appBooted = false;
 
-  // Phase 5 — layout switcher (bundle 028). Numbers 1–7: 1 keeps the current
-  // ideal layout AND ideal colors; 2 keeps the bundle-026 Accordion Reader the
-  // owner saw improvements in; 3–7 are the previous 2–6 REIMPLEMENTED drastic —
-  // every room changes structure, not just Read. Having "2" twice is intended:
-  // old 2 stays as 2 and its drastic reimplementation is 3, so the two can be
-  // compared. All seven share layout 1's colors and the COMMON QUALITIES (light
-  // mental load, English first, not dense, comfortable to read, easy to
-  // navigate, piece-meal plain language, work/teacher info sections).
-  // data-design attribute on <html>; examples only — the owner rates them.
+  // Phase 5 — layout switcher. Numbers 1–7: 1 keeps the current ideal layout
+  // AND ideal colors; 2 keeps the bundle-026 Accordion Reader the owner saw
+  // improvements in; 3–7 are COMPLETELY REDONE as truly drastic layouts
+  // (Focus / Timeline / Graph-Split / Hamburger / Dossier). All seven share
+  // layout 1's colors and the COMMON QUALITIES (light mental load, English
+  // first, not dense, comfortable to read, easy to navigate, piece-meal plain
+  // language, work/teacher info sections). data-design on <html>; examples
+  // only — the owner rates them.
   const DESIGN_VARIANTS = [
     { key: '1', label: '1', name: 'Classic scroll — current ideal' },
     { key: '2', label: '2', name: 'Accordion Reader — kept' },
-    { key: '3', label: '3', name: 'Accordion — all rooms (drastic)' },
-    { key: '4', label: '4', name: 'Progressive reveal — all rooms (drastic)' },
-    { key: '5', label: '5', name: 'Tabbed rooms — all rooms (drastic)' },
-    { key: '6', label: '6', name: 'Modal info — all rooms (drastic)' },
-    { key: '7', label: '7', name: 'Hover cards — all rooms (drastic)' }
+    { key: '3', label: '3', name: 'Focus Mode — centered 38rem' },
+    { key: '4', label: '4', name: 'Timeline — horizontal scroll' },
+    { key: '5', label: '5', name: 'Graph + Reader split 32/68' },
+    { key: '6', label: '6', name: 'Minimal header + hamburger' },
+    { key: '7', label: '7', name: 'Info-first dossier' }
   ];
 
   function applyDesignVariant(variant) {
@@ -642,10 +641,14 @@
   function resetLayoutRuntime() {
     closeInfoModal();
     hideHoverCard();
+    closeNavDrawer();
     if (roomRevealObserver && typeof roomRevealObserver.disconnect === 'function') roomRevealObserver.disconnect();
     roomRevealObserver = null;
     infoModalRegistry.clear();
     hoverCardRegistry.clear();
+    applyShellBrandForVariant(state.designVariant);
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = state.designVariant !== '3';
   }
 
   function renderDesignSwitcher() {
@@ -668,22 +671,18 @@
   }
 
   // ==========================================================================
-  // Phase 5 bundle 028 — LAYOUTS 1–7
-  // keep 1 + 2, reimplement old 2–6 as new 3–7 DRASTIC across ALL rooms
+  // Phase 5 — LAYOUTS 1–7 (redo 3–7 truly drastic, 2026-09-17)
+  // keep 1 + 2, completely redo 3–7 per owner "3-7 must be completely redone"
   // --------------------------------------------------------------------------
   // 1 = the current ideal layout AND the ideal colors (no override at all).
   // 2 = Accordion Reader — KEPT byte-for-byte as bundle 026 shipped it, because
-  //     the owner saw improvements there. Reader only, on purpose: it is the
-  //     baseline the drastic reimplementation is compared against.
-  // 3–7 = the same five disclosure ideas as old 2–6, REIMPLEMENTED drastic —
-  //     every room changes structure now, not just Read:
-  //       3 Accordion          — all five rooms fold to a one-line headline
-  //       4 Progressive reveal — all five rooms unfold piece-meal as you arrive
-  //       5 Tabbed rooms       — all five rooms split into 3–4 panes
-  //       6 Modal info         — all five rooms keep text, move info to ⓘ
-  //       7 Hover cards        — all five rooms float info on hover/focus/tap
-  //     "2" appearing twice is intended: old 2 stays 2, its drastic
-  //     reimplementation is 3, so the two accordions can be compared directly.
+  //     the owner saw improvements there. Reader only.
+  // 3–7 = truly drastic alternative layouts (shell+nav+grid+IA), not wrappers:
+  //       3 Focus Mode             — centered 38rem, chrome off, [i] drawers
+  //       4 Timeline View          — horizontal scroll-snap cards 18–26rem
+  //       5 Graph + Reader Split   — 32% sticky dots + 68% English reader
+  //       6 Minimal Header+Hamburger — 3rem header, nav in drawer, 42rem body
+  //       7 Info-First Dossier     — info hero top, translation collapsed
   //
   // All seven share layout 1's colors exactly — only structure varies — and all
   // seven carry the COMMON QUALITIES: light mental load (minimum information by
@@ -692,15 +691,34 @@
   // language, and an info section for every work and teacher (where it came
   // from, what or who is related, background context).
   //
-  // Mechanisms stay disclosure-only: native <details>, [hidden] toggles, class
-  // toggles, IntersectionObserver, ONE modal dialog and ONE hover card reusing
-  // the closed --pop-shift popover contract. Zero inline styles, zero .style
-  // writes, zero new runtime contracts. Everything below no-ops in layout 1.
+  // Zero inline styles, zero new .style writes — four setProperty calls stay
+  // four. Everything below no-ops in layout 1. Layout 2 path unchanged.
   // ==========================================================================
 
   // Layouts 3–7 are structural in every room, so each room renderer calls
   // enhanceRoomLayout(room) after it writes innerHTML. That covers lazy first
   // render, filter changes, sort changes and layout switches alike.
+
+  // Stubs kept so older listeners and resetLayoutRuntime stay safe after the
+  // 3–7 redo removed modal/hover/progressive families. No-ops unless a future
+  // layout reintroduces the real implementations.
+  const infoModalRegistry = new Map();
+  const hoverCardRegistry = new Map();
+  let roomRevealObserver = null;
+  let hoverCardEl = null;
+  let hoverCardTimer = null;
+  function closeInfoModal() {
+    const root = document.getElementById('layout-info-modal');
+    if (root) root.setAttribute('hidden', '');
+  }
+  function hideHoverCard() {
+    if (hoverCardEl) hoverCardEl.setAttribute('hidden', '');
+    clearTimeout(hoverCardTimer);
+  }
+  function setupHoverCardListeners() {
+    // No-op: layout 7 is now Info-First Dossier, not hover cards.
+  }
+
   const DRASTIC_LAYOUTS = ['3', '4', '5', '6', '7'];
 
   function roomRoot(room) {
@@ -724,7 +742,7 @@
   const ROOM_UNIT_NOUN = {
     reader: 'part', matrix: 'line', lineage: 'teacher', gongan: 'case', lexicon: 'term'
   };
-  const ROOM_LAYOUT_CLASSES = ['rm-accordion', 'rm-progressive', 'rm-tabbed', 'rm-modal', 'rm-hovercards'];
+  const ROOM_LAYOUT_CLASSES = ['rm-focus', 'rm-timeline', 'rm-graphsplit', 'rm-hamburger', 'rm-dossier', 'rm-accordion', 'rm-progressive', 'rm-tabbed', 'rm-modal', 'rm-hovercards'];
 
   function clearRoomLayoutClasses(root) {
     if (!root || !root.classList) return;
@@ -946,10 +964,13 @@
   // Reader entry point: layout 1 renders as before, layout 2 keeps the bundle
   // 026 accordion, layouts 3–7 go through the drastic all-room dispatcher.
   function enhanceReaderLayout() {
-    hideHoverCard(); // a stale card must never survive a re-render
+    hideHoverCard();
+    closeInfoModal();
+    closeNavDrawer();
     const root = elements.readerContent;
     if (root && root.classList) {
-      ['layout-accordion', 'layout-progressive', 'layout-tabbed', 'layout-modal', 'layout-hovercards']
+      ['layout-accordion', 'layout-progressive', 'layout-tabbed', 'layout-modal', 'layout-hovercards',
+        'rm-focus', 'rm-timeline', 'rm-graphsplit', 'rm-hamburger', 'rm-dossier']
         .forEach(c => root.classList.remove(c));
       clearRoomLayoutClasses(root);
     }
@@ -965,1232 +986,858 @@
     if (!v || !DRASTIC_LAYOUTS.includes(v)) return;
     const root = roomRoot(room);
     if (!root || typeof root.querySelectorAll !== 'function') return;
-    if (v === '3') roomAccordion(room, root);
-    else if (v === '4') roomProgressive(room, root);
-    else if (v === '5') roomTabbed(room, root);
-    else if (v === '6') roomModal(room, root);
-    else if (v === '7') roomHoverCards(room, root);
+    clearRoomLayoutClasses(root);
+    if (v === '3') roomFocus(room, root);
+    else if (v === '4') roomTimeline(room, root);
+    else if (v === '5') roomGraphSplit(room, root);
+    else if (v === '6') roomHamburger(room, root);
+    else if (v === '7') roomDossier(room, root);
+  }
+
+  // Tear down layout-6 drawer chrome that lives outside room roots.
+  function closeNavDrawer() {
+    const rootEl = typeof document !== 'undefined' ? document.documentElement : null;
+    if (rootEl && rootEl.classList) rootEl.classList.remove('nav-open');
+    const btn = typeof document !== 'undefined' ? document.getElementById('hamburger-btn') : null;
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+    const backdrop = typeof document !== 'undefined' ? document.getElementById('nav-drawer-backdrop') : null;
+    if (backdrop) backdrop.setAttribute('hidden', '');
+  }
+
+  function ensureHamburgerChrome() {
+    if (typeof document === 'undefined' || !document.getElementById) return;
+    const shell = document.getElementById('site-shell');
+    if (!shell) return;
+    let btn = document.getElementById('hamburger-btn');
+    if (!btn) {
+      btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'hamburger-btn';
+      btn.className = 'hamburger-btn';
+      btn.setAttribute('aria-label', 'Open navigation menu');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-controls', 'site-room-nav');
+      btn.innerHTML = '<span></span><span></span><span></span>';
+      const lintel = shell.querySelector('.shell-lintel');
+      const controls = shell.querySelector('.nav-controls');
+      if (controls && controls.parentNode) controls.parentNode.insertBefore(btn, controls.nextSibling);
+      else if (lintel) lintel.appendChild(btn);
+      btn.addEventListener('click', () => {
+        const open = !document.documentElement.classList.contains('nav-open');
+        document.documentElement.classList.toggle('nav-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        const backdrop = document.getElementById('nav-drawer-backdrop');
+        if (backdrop) {
+          if (open) backdrop.removeAttribute('hidden');
+          else backdrop.setAttribute('hidden', '');
+        }
+      });
+    }
+    let backdrop = document.getElementById('nav-drawer-backdrop');
+    if (!backdrop) {
+      backdrop = document.createElement('div');
+      backdrop.id = 'nav-drawer-backdrop';
+      backdrop.className = 'nav-drawer-backdrop';
+      backdrop.setAttribute('hidden', '');
+      backdrop.addEventListener('click', closeNavDrawer);
+      document.body.appendChild(backdrop);
+    }
+    const nav = shell.querySelector('.room-nav');
+    if (nav && !nav.id) nav.id = 'site-room-nav';
+  }
+
+  function applyShellBrandForVariant(v) {
+    if (typeof document === 'undefined' || !document.querySelector) return;
+    const brand = document.querySelector('.site-shell .brand');
+    const title = document.querySelector('.site-shell .brand-title-en');
+    if (!brand || !title) return;
+    if (!title.dataset.originalTitle) title.dataset.originalTitle = title.textContent || '';
+    if (v === '6') {
+      brand.classList.add('is-minimal');
+      title.textContent = 'TranslateChan';
+    } else {
+      brand.classList.remove('is-minimal');
+      title.textContent = title.dataset.originalTitle || 'Fake Chan Factory';
+    }
   }
 
   // ==========================================================================
-  // LAYOUT 3 · ACCORDION — drastic, all five rooms
-  // --------------------------------------------------------------------------
-  // Old layout 2 folded the sections INSIDE each Reader unit. Layout 3 folds
-  // the units THEMSELVES, in every room: each one collapses to a single
-  // English headline, and opening it reveals English first with the Chinese,
-  // the notes and the records as nested folds. This is the direct comparison
-  // the owner asked for — 2 (kept) against 3 (drastic).
+  // LAYOUT 3 · FOCUS MODE — centered 38rem, no chrome, [i] drawers
   // ==========================================================================
-  function accordionizeUnit(unit, summaryHtml, extraClass, open) {
-    if (!unit || !unit.parentNode || typeof document.createElement !== 'function') return null;
-    const d = document.createElement('details');
-    d.className = 'rm-acc' + (extraClass ? ' ' + extraClass : '');
-    if (open) d.setAttribute('open', '');
-    const s = document.createElement('summary');
-    s.innerHTML = summaryHtml;
-    unit.parentNode.insertBefore(d, unit);
-    d.appendChild(s);
-    d.appendChild(unit);
+  function roomFocus(room, root) {
+    root.classList.add('rm-focus');
+    ensureFocusRoomNav(room);
+    const units = roomUnits(root, room);
+    units.forEach((unit, i) => focusizeUnit(room, unit, i));
+    if (room === 'reader') focusReaderExtras(root);
+    else if (room === 'matrix') focusMatrixExtras(root, units);
+    else if (room === 'lineage') focusLineageExtras(root, units);
+    else if (room === 'gongan') focusGonganExtras(root, units);
+    else if (room === 'lexicon') focusLexiconExtras(root, units);
+  }
+
+  function ensureFocusRoomNav(activeRoom) {
+    // Tiny text room switcher under the thin shell (room-nav is display:none).
+    if (typeof document === 'undefined' || !document.getElementById) return;
+    let bar = document.getElementById('focus-room-nav');
+    if (!bar) {
+      bar = document.createElement('nav');
+      bar.id = 'focus-room-nav';
+      bar.className = 'focus-room-nav';
+      bar.setAttribute('aria-label', 'Rooms');
+      const main = document.getElementById('main-content');
+      if (main && main.parentNode) main.parentNode.insertBefore(bar, main);
+      else document.body.appendChild(bar);
+      bar.addEventListener('click', (e) => {
+        const b = e.target && e.target.closest ? e.target.closest('button[data-view]') : null;
+        if (!b) return;
+        const view = b.getAttribute('data-view');
+        if (view && typeof switchView === 'function') switchView(view);
+      });
+    }
+    const rooms = [
+      ['reader', 'Read'], ['matrix', 'Compare'], ['lineage', 'Lineage'],
+      ['gongan', 'Cases'], ['lexicon', 'Terms']
+    ];
+    bar.innerHTML = rooms.map(([k, lab]) =>
+      `<button type="button" data-view="${k}" class="${k === activeRoom ? 'is-active' : ''}" ` +
+      `aria-current="${k === activeRoom ? 'page' : 'false'}">${lab}</button>`
+    ).join('');
+    bar.hidden = state.designVariant !== '3';
+  }
+
+  function makeInfoButton(drawerId) {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'rm-i-btn';
+    btn.textContent = 'i';
+    btn.setAttribute('aria-label', 'Show more information');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', drawerId);
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const drawer = document.getElementById(drawerId);
+      if (!drawer) return;
+      const open = !drawer.classList.contains('is-open');
+      drawer.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    return btn;
+  }
+
+  function makeInfoDrawer(id, html) {
+    const d = document.createElement('div');
+    d.className = 'rm-i-drawer';
+    d.id = id;
+    d.innerHTML = html;
     return d;
   }
 
-  function roomAccordion(room, root) {
-    root.classList.add('rm-accordion');
-    const units = roomUnits(root, room);
-    units.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      // The first unit of the room starts open so the room never looks empty.
-      accordionizeUnit(unit, headlineHtml(h), 'rm-acc-unit', i === 0);
+  function harvestNodes(unit, selectors) {
+    const out = [];
+    selectors.forEach(sel => {
+      Array.from(unit.querySelectorAll(sel)).forEach(n => {
+        if (n && out.indexOf(n) < 0) out.push(n);
+      });
     });
-    if (room === 'reader') readerAccordionExtras(root);
-    else if (room === 'matrix') matrixAccordionExtras(root, units);
-    else if (room === 'lineage') lineageAccordionExtras(root, units);
-    else if (room === 'gongan') gonganAccordionExtras(root, units);
-    else if (room === 'lexicon') lexiconAccordionExtras(root, units);
+    return out;
   }
 
-  // Reader: inside each opened unit, Chinese and notes stay folded (English
-  // first), and the room gains one info stack for the work and its teachers.
-  function readerAccordionExtras(root) {
-    root.querySelectorAll('.case-card .dialogue-turn').forEach(turn => {
-      if (!turn || !turn.children) return;
-      const zhNodes = Array.from(turn.children).filter(n =>
-        n.classList && (n.classList.contains('classical-zh') || n.classList.contains('pinyin-line')));
-      if (zhNodes.length) wrapNodesInDetails(zhNodes, 'Chinese source', 'acc-sec acc-zh', false);
-      const notes = Array.from(turn.children).filter(n => n.classList && n.classList.contains('provenance-line'));
-      if (notes.length) wrapNodesInDetails(notes, 'Notes on this passage', 'acc-sec acc-notes', false);
-    });
-    root.querySelectorAll('.case-card .commentary-block, .case-card .verse-block').forEach(block => {
-      if (!block) return;
-      const kind = block.classList.contains('verse-block') ? 'verse'
-        : (block.classList.contains('is-pointer') ? 'pointer' : 'commentary');
-      wrapNodeInDetails(block, `More context — ${kind}`, 'acc-sec acc-context', false);
-    });
+  function focusizeUnit(room, unit, idx) {
+    if (!unit || unit.dataset.focusReady === '1') return;
+    unit.dataset.focusReady = '1';
+    unit.classList.add('rm-focus-unit');
+    const id = `focus-drawer-${room}-${idx}-${Math.random().toString(36).slice(2, 7)}`;
+    const h = unitHeadline(room, unit, idx);
+    // Attach [i] next to the primary English headline.
+    let anchor = null;
+    if (room === 'reader') anchor = unit.querySelector('.case-heading-en, .case-num-title, .case-heading');
+    else if (room === 'matrix') anchor = unit.querySelector('.matrix-ref-clean, .matrix-source-band');
+    else if (room === 'lineage') anchor = unit.querySelector('.lineage-master-name-en');
+    else if (room === 'gongan') anchor = unit.querySelector('.catalogue-title-en');
+    else if (room === 'lexicon') anchor = unit.querySelector('.lexicon-headword');
+    if (!anchor) anchor = unit;
+
+    const btn = makeInfoButton(id);
+    if (anchor.parentNode && anchor !== unit) anchor.appendChild(btn);
+    else {
+      const head = document.createElement('div');
+      head.className = 'rm-focus-head';
+      head.innerHTML = `<span class="rm-acc-en">${escHtml(h.en || 'Untitled')}</span>`;
+      head.appendChild(btn);
+      unit.insertBefore(head, unit.firstChild);
+    }
+
+    // Build drawer: move Chinese/extra nodes in + plain-language info section.
+    const drawer = makeInfoDrawer(id, '');
+    const extras = harvestNodes(unit, [
+      '.classical-zh', '.pinyin-line', '.provenance-line',
+      '.matrix-sentence-zh', '.matrix-sentence-pinyin', '.matrix-source-location',
+      '.lineage-master-record', '.lineage-master-quote',
+      '.catalogue-detail', '.catalogue-theme', '.catalogue-locator',
+      '.lexicon-entry-def', '.lexicon-occurrences',
+      '.case-heading-zh', '.lineage-master-name-zh', '.catalogue-title-zh', '.lexicon-headword-zh'
+    ]);
+    extras.forEach(n => drawer.appendChild(n));
+
+    let infoHtml = '';
+    if (room === 'reader') {
+      const corpusKey = state.currentCorpusKey;
+      const doc = (state.data.corpus && state.data.corpus[corpusKey]) || {};
+      const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
+      infoHtml = infoRows([
+        ['Where it came from', `Part of ${escHtml(stringValue(doc.title_en) || corpusKey)}. English first — Chinese source is above when you need it.`],
+        ['What is related', `Open the work info for teachers linked to this text.`],
+        ['Background', escHtml(clipText(lead, 220) || 'No English rendering recorded for this part.')]
+      ]);
+    } else if (room === 'matrix') {
+      const item = (state.data.translations_matrix || [])[idx];
+      if (item) infoHtml = infoRows(matrixInfoRows(item, idx));
+    } else if (room === 'lineage') {
+      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
+      const m = (state.data.lineage || []).find(x => x && x.id === idm);
+      if (m) infoHtml = teacherContextRows(m);
+    } else if (room === 'gongan') {
+      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
+      const no = queryText(unit, '.catalogue-case');
+      const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
+      if (g) infoHtml = infoRows(gonganInfoRows(g));
+    } else if (room === 'lexicon') {
+      const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
+      const head = queryText(unit, '.lexicon-headword-zh') || queryText(unit, '.lexicon-headword');
+      const item = list.find(x => x && (x.term === head || x.literal === head)) || list[idx];
+      if (item) infoHtml = infoRows(lexiconInfoRows(item));
+    }
+    if (infoHtml) {
+      const infoWrap = document.createElement('div');
+      infoWrap.className = 'rm-unit-info';
+      infoWrap.innerHTML = `<div class="context-info-body">${infoHtml}</div>`;
+      drawer.appendChild(infoWrap);
+    }
+    unit.appendChild(drawer);
+  }
+
+  function focusReaderExtras(root) {
     const drawer = root.querySelector('.ledger-drawer');
-    if (drawer) wrapNodeInDetails(drawer, 'About this edition — ledgers', 'acc-sec acc-ledgers', false);
+    const front = root.querySelector('.front-matter, .document-details');
     const workCtx = root.querySelector('.work-context');
     if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
     const stack = document.createElement('div');
     stack.className = 'rm-room-info';
-    // Closed by default: light mental load means the info section is one line
-    // until the reader asks for it.
-    stack.innerHTML = `<details class="context-info rm-info">` +
-      `<summary>About this work and its teachers</summary>` +
-      `<div class="context-info-body">${readerInfoStackHtml()}</div></details>`;
+    const id = 'focus-work-info';
+    stack.innerHTML = `<span class="rm-acc-en">This work</span>`;
+    const btn = makeInfoButton(id);
+    stack.appendChild(btn);
+    const d = makeInfoDrawer(id, `<div class="context-info-body">${readerInfoStackHtml()}</div>`);
+    if (drawer) d.appendChild(drawer);
+    if (front) d.appendChild(front);
+    stack.appendChild(d);
     const heading = root.querySelector('.document-heading');
     if (heading && heading.parentNode) heading.parentNode.insertBefore(stack, heading.nextSibling);
     else root.insertBefore(stack, root.firstChild);
   }
 
-  // Matrix: the Chinese source band folds under the English line, and each
-  // register after the first folds too — one voice at a time.
-  function matrixAccordionExtras(root, units) {
-    units.forEach((unit, i) => {
-      const item = (state.data.translations_matrix || [])[i];
-      const band = typeof unit.querySelector === 'function' ? unit.querySelector('.matrix-source-band') : null;
-      if (band) {
-        const zh = band.querySelector('.matrix-sentence-zh');
-        const py = band.querySelector('.matrix-sentence-pinyin');
-        const loc = band.querySelector('.matrix-source-location');
-        const fold = [];
-        if (zh) fold.push(zh);
-        if (py) fold.push(py);
-        if (loc) fold.push(loc);
-        if (fold.length) wrapNodesInDetails(fold, 'Chinese source and record', 'acc-sec acc-zh', false);
-      }
-      const rows = typeof unit.querySelectorAll === 'function' ? Array.from(unit.querySelectorAll('.matrix-register-row')) : [];
-      rows.slice(1).forEach((row, j) => {
-        const name = queryText(row, '.matrix-register-name') || `Register ${j + 2}`;
-        wrapNodeInDetails(row, `Another voice — ${escHtml(clipText(name, 40))}`, 'acc-sec acc-register', false);
-      });
-      if (item) {
-        const info = document.createElement('div');
-        info.className = 'rm-unit-info';
-        info.innerHTML = infoBlock('About this line — info section', matrixInfoRows(item, i));
-        unit.appendChild(info);
-      }
+  function focusMatrixExtras(root, units) { /* per-unit drawers already attached */ }
+  function focusLineageExtras(root, units) { /* per-unit drawers already attached */ }
+  function focusGonganExtras(root, units) { /* per-unit drawers already attached */ }
+  function focusLexiconExtras(root, units) { /* per-unit drawers already attached */ }
+
+  // ==========================================================================
+  // LAYOUT 4 · TIMELINE — horizontal scroll-snap cards
+  // ==========================================================================
+  function roomTimeline(room, root) {
+    root.classList.add('rm-timeline');
+    // Hide focus nav if present
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+
+    if (room === 'reader') {
+      // Move non-card chrome into cards on the rail; case-cards already sized by CSS.
+      const heading = root.querySelector('.document-heading');
+      if (heading) heading.classList.add('rm-tl-card-like');
+      root.querySelectorAll('.case-card').forEach((card, i) => timelineCardify(room, card, i));
+      // Work info as first rail card
+      const workCtx = root.querySelector('.work-context');
+      if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
+      const info = document.createElement('div');
+      info.className = 'rm-room-info';
+      info.innerHTML = `<div class="rm-tl-era">Work</div><div class="rm-tl-name">About this work</div>` +
+        `<div class="rm-tl-extra"><div class="context-info-body">${readerInfoStackHtml()}</div></div>` +
+        `<button type="button" class="rm-tl-expand" aria-expanded="false">Show context</button>`;
+      wireTimelineExpand(info);
+      root.insertBefore(info, root.firstChild);
+      return;
+    }
+
+    const units = roomUnits(root, room);
+    units.forEach((unit, i) => timelineCardify(room, unit, i));
+
+    // Room-level intro card
+    const intro = document.createElement('div');
+    intro.className = 'rm-room-info';
+    const titles = {
+      matrix: ['Compare', 'What this room is', 'One Chinese line, several English voices. Scroll sideways by dynasty line.'],
+      lineage: ['Lineage', 'Teachers over time', 'Each card is one teacher. Open a card for where they came from, who is related, background.'],
+      gongan: ['Cases', 'Cases by theme', 'Scroll the catalogue as a timeline of cases. Only the title shows until you expand.'],
+      lexicon: ['Terms', 'A–Z rail', 'Each term is a card. Definition and occurrences wait behind expand.']
+    };
+    const t = titles[room] || ['Room', 'Overview', ''];
+    intro.innerHTML = `<div class="rm-tl-era">${escHtml(t[0])}</div><div class="rm-tl-name">${escHtml(t[1])}</div>` +
+      `<div class="rm-tl-extra"><p class="rm-pane-lead">${escHtml(t[2])}</p></div>` +
+      `<button type="button" class="rm-tl-expand" aria-expanded="false">Show context</button>`;
+    wireTimelineExpand(intro);
+    root.insertBefore(intro, root.firstChild);
+  }
+
+  function wireTimelineExpand(card) {
+    card.classList.add('rm-tl-collapsed');
+    const btn = card.querySelector('.rm-tl-expand');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const open = !card.classList.contains('is-open');
+      card.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Hide context' : 'Show context';
     });
   }
 
-  // Lineage: each teacher's record and quote fold, and every teacher gains its
-  // own info section (where from · who related · background).
-  function lineageAccordionExtras(root, units) {
-    const masters = filteredLineageMasters();
-    units.forEach((unit, i) => {
-      const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = masters.find(x => x && x.id === id) || (state.data.lineage || []).find(x => x && x.id === id);
-      const record = typeof unit.querySelector === 'function' ? unit.querySelector('.lineage-master-record') : null;
-      if (record) wrapNodeInDetails(record, 'Dated record', 'acc-sec acc-record', false);
-      const quote = typeof unit.querySelector === 'function' ? unit.querySelector('.lineage-master-quote') : null;
-      if (quote) wrapNodeInDetails(quote, 'Signature line', 'acc-sec acc-quote', false);
-      if (m) {
+  function timelineCardify(room, unit, idx) {
+    if (!unit || unit.dataset.tlReady === '1') return;
+    unit.dataset.tlReady = '1';
+    unit.classList.add('rm-tl-collapsed');
+    const h = unitHeadline(room, unit, idx);
+
+    // Build a face (era + name) at the top; wrap the rest as extra.
+    const face = document.createElement('div');
+    face.className = 'rm-tl-face';
+    const era = h.kicker || (room === 'reader' ? `Part ${idx + 1}` : 'Entry');
+    face.innerHTML = `<span class="rm-tl-era">${escHtml(era)}</span>` +
+      `<span class="rm-tl-name">${escHtml(h.en || 'Untitled')}</span>` +
+      (h.zh ? `<span class="rm-acc-zh" lang="zh">${escHtml(h.zh)}</span>` : '');
+    unit.insertBefore(face, unit.firstChild);
+
+    // Move existing children (except face) into extra wrapper conceptually via class
+    // Mark heavy bits
+    const extraBits = harvestNodes(unit, [
+      '.case-body', '.dialogue-turn', '.commentary-block', '.verse-block',
+      '.translation-grid', '.classical-zh', '.pinyin-line', '.provenance-line',
+      '.matrix-register-list', '.matrix-registers', '.matrix-sentence-zh', '.matrix-sentence-pinyin',
+      '.lineage-master-record', '.lineage-master-quote',
+      '.catalogue-detail', '.catalogue-theme', '.catalogue-locator',
+      '.lexicon-entry-def', '.lexicon-occurrences'
+    ]);
+    // Prefer wrapping: create extra container and move bits
+    if (extraBits.length) {
+      const extra = document.createElement('div');
+      extra.className = 'rm-tl-extra';
+      extraBits.forEach(n => {
+        if (n.parentNode === unit || (n.parentNode && unit.contains(n.parentNode))) {
+          // only move direct-ish content once
+        }
+      });
+      // Simpler approach: add class rm-tl-extra to a wrapper of all non-face children
+      const wrap = document.createElement('div');
+      wrap.className = 'rm-tl-extra';
+      Array.from(unit.childNodes).forEach(n => {
+        if (n === face) return;
+        wrap.appendChild(n);
+      });
+      unit.appendChild(wrap);
+
+      // Append plain-language info section inside extra
+      let infoHtml = '';
+      if (room === 'reader') {
+        const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
+        infoHtml = infoRows([
+          ['Where it came from', `A part of the open work.`],
+          ['What is related', `See the work card at the start of this timeline.`],
+          ['Background', escHtml(clipText(lead, 200) || 'No English yet.')]
+        ]);
+      } else if (room === 'matrix') {
+        const item = (state.data.translations_matrix || [])[idx];
+        if (item) infoHtml = infoRows(matrixInfoRows(item, idx));
+      } else if (room === 'lineage') {
+        const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
+        const m = (state.data.lineage || []).find(x => x && x.id === idm);
+        if (m) infoHtml = teacherContextRows(m);
+      } else if (room === 'gongan') {
+        const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
+        const no = queryText(unit, '.catalogue-case');
+        const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
+        if (g) infoHtml = infoRows(gonganInfoRows(g));
+      } else if (room === 'lexicon') {
+        const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
+        const head = queryText(unit, '.lexicon-headword-zh');
+        const item = list.find(x => x && x.term === head) || list[idx];
+        if (item) infoHtml = infoRows(lexiconInfoRows(item));
+      }
+      if (infoHtml) {
         const info = document.createElement('div');
         info.className = 'rm-unit-info';
-        info.innerHTML = infoBlock('About this teacher — info section', [
+        info.innerHTML = infoBlock('About — info section', [
+          // infoBlock expects rows; pass via innerHTML of infoRows directly instead
+        ]);
+        // Use plain rows to avoid nested details title noise
+        info.innerHTML = `<div class="context-info-body">${infoHtml}</div>`;
+        wrap.appendChild(info);
+      }
+    }
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'rm-tl-expand';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.textContent = 'Open card';
+    unit.appendChild(btn);
+    btn.addEventListener('click', () => {
+      const open = !unit.classList.contains('is-open');
+      unit.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Close card' : 'Open card';
+    });
+  }
+
+  // ==========================================================================
+  // LAYOUT 5 · GRAPH + READER SPLIT — 32% dots + 68% detail
+  // ==========================================================================
+  function roomGraphSplit(room, root) {
+    root.classList.add('rm-graphsplit');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+
+    // Avoid double-wrapping
+    if (root.querySelector(':scope > .rm-graph-split')) return;
+
+    const units = roomUnits(root, room);
+    const split = document.createElement('div');
+    split.className = 'rm-graph-split';
+    const pane = document.createElement('aside');
+    pane.className = 'rm-graph-pane';
+    pane.setAttribute('aria-label', 'Index');
+    const reader = document.createElement('div');
+    reader.className = 'rm-reader-pane';
+
+    // Move all current children into reader pane
+    while (root.firstChild) reader.appendChild(root.firstChild);
+    root.appendChild(split);
+    split.appendChild(pane);
+    split.appendChild(reader);
+
+    // Build dots from units (now inside reader)
+    const liveUnits = roomUnits(reader, room);
+    const titleMap = {
+      reader: 'Parts', matrix: 'Lines', lineage: 'Teachers', gongan: 'Cases', lexicon: 'Terms'
+    };
+    let html = `<div class="rm-graph-title">${titleMap[room] || 'Index'}</div>`;
+    html += `<div class="rm-graph-count">${liveUnits.length} items · click a dot to jump</div>`;
+    html += '<ul class="rm-graph-dot-list">';
+    liveUnits.forEach((unit, i) => {
+      const h = unitHeadline(room, unit, i);
+      const uid = `graph-unit-${room}-${i}`;
+      unit.id = unit.id || uid;
+      unit.setAttribute('data-graph-idx', String(i));
+      html += `<li><button type="button" class="rm-graph-dot${i === 0 ? ' is-active' : ''}" data-graph-target="${escHtml(unit.id)}">` +
+        `<span class="rm-graph-dot-en">${escHtml(clipText(h.en || h.kicker || `Item ${i + 1}`, 42))}</span>` +
+        (h.note ? `<small>${escHtml(clipText(h.note, 48))}</small>` : '') +
+        `</button></li>`;
+      // English-first extras + info section
+      graphEnrichUnit(room, unit, i);
+    });
+    html += '</ul>';
+    html += '<p class="rm-split-note">Left: minimal dots (light mental load). Right: English first — expand a unit for Chinese and notes.</p>';
+    pane.innerHTML = html;
+
+    pane.addEventListener('click', (e) => {
+      const b = e.target && e.target.closest ? e.target.closest('.rm-graph-dot') : null;
+      if (!b) return;
+      const id = b.getAttribute('data-graph-target');
+      let target = null;
+      if (id) {
+        try { target = reader.querySelector('#' + id.replace(/([^a-zA-Z0-9_-])/g, '\\$1')); }
+        catch (err) { target = document.getElementById(id); }
+      }
+      pane.querySelectorAll('.rm-graph-dot').forEach(d => d.classList.remove('is-active'));
+      b.classList.add('is-active');
+      reader.querySelectorAll('.is-active-dot').forEach(n => n.classList.remove('is-active-dot'));
+      if (target) {
+        target.classList.add('is-active-dot');
+        if (typeof target.scrollIntoView === 'function') {
+          target.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
+        }
+      }
+    });
+
+    // Room work/teacher stack for reader
+    if (room === 'reader') {
+      const workCtx = reader.querySelector('.work-context');
+      if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
+      const stack = document.createElement('div');
+      stack.className = 'rm-room-info';
+      stack.innerHTML = `<details class="context-info rm-info"><summary>About this work and its teachers</summary>` +
+        `<div class="context-info-body">${readerInfoStackHtml()}</div></details>`;
+      reader.insertBefore(stack, reader.firstChild);
+    }
+  }
+
+  function graphEnrichUnit(room, unit, idx) {
+    // Toggle to reveal Chinese
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'rm-expand-zh';
+    btn.textContent = 'Show Chinese & notes';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', () => {
+      const open = !unit.classList.contains('is-expanded');
+      unit.classList.toggle('is-expanded', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.textContent = open ? 'Hide Chinese & notes' : 'Show Chinese & notes';
+    });
+    unit.appendChild(btn);
+
+    let infoHtml = '';
+    if (room === 'matrix') {
+      const item = (state.data.translations_matrix || [])[idx];
+      if (item) infoHtml = infoBlock('About this line — info section', matrixInfoRows(item, idx));
+    } else if (room === 'lineage') {
+      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
+      const m = (state.data.lineage || []).find(x => x && x.id === idm);
+      if (m) {
+        infoHtml = infoBlock('About this teacher — info section', [
           ['Where they came from', `${escHtml(stringValue(m.name_zh))} — ${escHtml(stringValue(m.dates) || 'dates not recorded')} · ${escHtml(stringValue(m.era) || 'era not recorded')} · ${escHtml(stringValue(m.location) || 'location not recorded')}. Generation ${escHtml(String(m.lineage_depth))} of the recorded transmission.`],
           ['Who they are related to', `House: ${escHtml(stringValue(m.school) || 'not recorded')}. ${lineageTeacherDetail(m)}. Disciples profiled here: ${escHtml(discipleNamesFor(m) || 'none')}.`],
           ['Background', escHtml(stringValue(m.summary) || 'No background summary recorded.')]
         ]);
-        unit.appendChild(info);
       }
-    });
-  }
-
-  // Cases: the catalogue detail folds; every case gains its info section.
-  function gonganAccordionExtras(root, units) {
-    const list = state.data.gongan_index || [];
-    units.forEach((unit, i) => {
+    } else if (room === 'gongan') {
+      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
       const no = queryText(unit, '.catalogue-case');
-      const g = list.find(x => x && stringValue(x.case_no) === no) || list[i];
-      const detail = typeof unit.querySelector === 'function' ? unit.querySelector('.catalogue-detail') : null;
-      if (detail) wrapNodeInDetails(detail, 'What happens in this case', 'acc-sec acc-detail', false);
-      const theme = typeof unit.querySelector === 'function' ? unit.querySelector('.catalogue-theme') : null;
-      if (theme) wrapNodeInDetails(theme, 'Theme and group', 'acc-sec acc-theme', false);
-      if (g) {
-        const info = document.createElement('div');
-        info.className = 'rm-unit-info';
-        info.innerHTML = infoBlock('About this case — info section', gonganInfoRows(g));
-        unit.appendChild(info);
-      }
-    });
-  }
-
-  // Terms: definition and occurrences fold under the headword; info section.
-  function lexiconAccordionExtras(root, units) {
-    const list = state.data.glossary || [];
-    units.forEach((unit, i) => {
+      const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
+      if (g) infoHtml = infoBlock('About this case — info section', gonganInfoRows(g));
+    } else if (room === 'lexicon') {
+      const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
       const head = queryText(unit, '.lexicon-headword-zh');
-      const g = list.find(x => x && x.term === head) || list[i];
-      const def = typeof unit.querySelector === 'function' ? unit.querySelector('.lexicon-entry-def') : null;
-      if (def) wrapNodeInDetails(def, 'Plain-language definition', 'acc-sec acc-def', false);
-      const occ = typeof unit.querySelector === 'function' ? unit.querySelector('.lexicon-occurrences') : null;
-      if (occ) wrapNodeInDetails(occ, 'Where it is recorded', 'acc-sec acc-occ', false);
-      if (g) {
-        const info = document.createElement('div');
-        info.className = 'rm-unit-info';
-        info.innerHTML = infoBlock('About this term — info section', lexiconInfoRows(g));
-        unit.appendChild(info);
-      }
-    });
+      const item = list.find(x => x && x.term === head) || list[idx];
+      if (item) infoHtml = infoBlock('About this term — info section', lexiconInfoRows(item));
+    } else if (room === 'reader') {
+      const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
+      infoHtml = infoBlock('About this part — info section', [
+        ['Where it came from', 'A numbered part of the open work in the Reader.'],
+        ['What is related', 'Teachers linked to this work are in the fold above.'],
+        ['Background', escHtml(clipText(lead, 220) || 'No English rendering recorded.')]
+      ]);
+    }
+    if (infoHtml) {
+      const info = document.createElement('div');
+      info.className = 'rm-unit-info';
+      info.innerHTML = infoHtml;
+      unit.appendChild(info);
+    }
   }
-
-  // Profiled disciple names for a master (plain text, comma separated).
-  function discipleNamesFor(m) {
-    const ids = Array.isArray(m.disciples) ? m.disciples : [];
-    const names = ids
-      .map(id => (state.data.lineage || []).find(x => x && x.id === id))
-      .filter(Boolean)
-      .map(x => masterDisplayName(x));
-    return names.join(', ');
-  }
-
 
   // ==========================================================================
-  // LAYOUT 4 · PROGRESSIVE REVEAL — drastic, all five rooms
-  // --------------------------------------------------------------------------
-  // Old layout 3 revealed Reader units on scroll only. Layout 4 does it in
-  // every room: each room opens with ONE unit in full and every later unit as
-  // a quiet one-line stub that unfolds when reading arrives (or on a tap,
-  // which is the fallback where IntersectionObserver is unavailable). Extra
-  // material — Chinese, records, definitions, info sections — always waits
-  // behind its own fold, so nothing arrives before it is wanted.
+  // LAYOUT 6 · HAMBURGER — minimal 3rem header, nav in drawer
   // ==========================================================================
-  let roomRevealObserver = null;
+  function roomHamburger(room, root) {
+    root.classList.add('rm-hamburger');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    ensureHamburgerChrome();
+    applyShellBrandForVariant('6');
 
-  function revealUnit(unit) {
-    if (!unit || !unit.classList) return;
-    unit.classList.remove('rm-pending');
-    const btn = typeof unit.querySelector === 'function' ? unit.querySelector('.rm-reveal-btn') : null;
-    if (btn && btn.parentNode) btn.parentNode.removeChild(btn);
-  }
-
-  function setupRevealObserver(units) {
-    if (roomRevealObserver && typeof roomRevealObserver.disconnect === 'function') roomRevealObserver.disconnect();
-    roomRevealObserver = null;
-    if (typeof IntersectionObserver !== 'function') return;
-    roomRevealObserver = new IntersectionObserver(entries => {
-      entries.forEach(en => {
-        if (en && en.isIntersecting && en.target) revealUnit(en.target);
-      });
-    }, { rootMargin: '200px 0px' });
-    units.forEach(u => {
-      if (u && u.classList && u.classList.contains('rm-pending')) roomRevealObserver.observe(u);
-    });
-  }
-
-  // Mark the parts of a unit that should wait: they are hidden by CSS while the
-  // unit is `rm-pending`, and they stay as they are once it is revealed.
-  function markCollapsible(unit, selector) {
-    if (!unit || typeof unit.querySelectorAll !== 'function') return;
-    unit.querySelectorAll(selector).forEach(n => { if (n && n.classList) n.classList.add('rm-collapse'); });
-  }
-
-  function addRevealButton(unit, noun) {
-    if (!unit || typeof document.createElement !== 'function') return;
-    const btn = document.createElement('button');
-    btn.setAttribute('type', 'button');
-    btn.className = 'rm-reveal-btn';
-    btn.textContent = `Continue — reveal this ${noun}`;
-    btn.addEventListener('click', () => revealUnit(unit));
-    unit.appendChild(btn);
-  }
-
-  function roomProgressive(room, root) {
-    root.classList.add('rm-progressive');
     const units = roomUnits(root, room);
-    const noun = ROOM_UNIT_NOUN[room] || 'part';
-    units.forEach((unit, i) => {
-      if (i === 0) return; // the first piece always reads in full
-      if (!unit.classList) return;
-      unit.classList.add('rm-pending');
-      addRevealButton(unit, noun);
-    });
+    units.forEach((unit, i) => hamburgerizeUnit(room, unit, i));
 
     if (room === 'reader') {
-      units.forEach(unit => markCollapsible(unit, '.case-body, .case-nav-footer'));
-      root.querySelectorAll('.case-card > .classical-zh, .case-card > .pinyin-line').forEach(n => {
-        if (n && n.classList) n.classList.add('rm-collapse');
-      });
-      readerProgressiveExtras(root);
-    } else if (room === 'matrix') {
-      units.forEach(unit => markCollapsible(unit, '.matrix-collation'));
-      matrixProgressiveExtras(root, units);
+      const workCtx = root.querySelector('.work-context');
+      if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
+      const stack = document.createElement('div');
+      stack.className = 'rm-room-info';
+      stack.innerHTML = `<details class="context-info rm-info"><summary>About this work and its teachers</summary>` +
+        `<div class="context-info-body">${readerInfoStackHtml()}</div></details>`;
+      const heading = root.querySelector('.document-heading');
+      if (heading && heading.parentNode) heading.parentNode.insertBefore(stack, heading.nextSibling);
+      else root.insertBefore(stack, root.firstChild);
+      // Fold ledgers
+      const drawer = root.querySelector('.ledger-drawer');
+      if (drawer) wrapNodeInDetails(drawer, 'About this edition — ledgers', 'rm-more', false);
+    }
+
+    // Move visible filter rails' clone label into drawer once
+    populateHamburgerDrawerExtras(room);
+  }
+
+  function populateHamburgerDrawerExtras(room) {
+    const nav = document.querySelector('.site-shell .room-nav');
+    if (!nav) return;
+    let extras = nav.querySelector('.rm-drawer-extras-slot');
+    if (!extras) {
+      extras = document.createElement('div');
+      extras.className = 'rm-drawer-extras-slot';
+      nav.appendChild(extras);
+    }
+    const labels = {
+      reader: 'Library and rooms sit in this drawer. The page stays a quiet 42rem column.',
+      matrix: 'Compare filters stay here so the page can stay English-first.',
+      lineage: 'Lineage filters stay here so the page can stay English-first.',
+      gongan: 'Case filters stay here so the page can stay English-first.',
+      lexicon: 'Term filters stay here so the page can stay English-first.'
+    };
+    extras.innerHTML = `<p class="rm-drawer-section-title">This room</p>` +
+      `<p class="rm-quiet rm-drawer-note">${escHtml(labels[room] || '')}</p>`;
+    // NOTE: no inline style attributes allowed — fix below
+  }
+
+  function hamburgerizeUnit(room, unit, idx) {
+    if (!unit || unit.dataset.hamReady === '1') return;
+    unit.dataset.hamReady = '1';
+    const bits = harvestNodes(unit, [
+      '.classical-zh', '.pinyin-line',
+      '.matrix-sentence-zh', '.matrix-sentence-pinyin',
+      '.lineage-master-record', '.lineage-master-quote',
+      '.catalogue-detail', '.lexicon-entry-def', '.lexicon-occurrences'
+    ]);
+    if (bits.length) {
+      const d = document.createElement('details');
+      d.className = 'rm-more';
+      const s = document.createElement('summary');
+      s.textContent = 'More — Chinese, records, detail';
+      d.appendChild(s);
+      bits.forEach(n => d.appendChild(n));
+      unit.appendChild(d);
+    }
+    // Info section
+    let infoHtml = '';
+    if (room === 'matrix') {
+      const item = (state.data.translations_matrix || [])[idx];
+      if (item) infoHtml = infoBlock('About this line — info section', matrixInfoRows(item, idx));
     } else if (room === 'lineage') {
-      units.forEach(unit => markCollapsible(unit, '.lineage-master-record, .lineage-master-quote'));
-      lineageProgressiveExtras(root, units);
+      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
+      const m = (state.data.lineage || []).find(x => x && x.id === idm);
+      if (m) {
+        infoHtml = infoBlock('About this teacher — info section', [
+          ['Where they came from', `${escHtml(stringValue(m.name_zh))} — ${escHtml(stringValue(m.dates) || 'dates not recorded')} · ${escHtml(stringValue(m.era) || 'era not recorded')} · ${escHtml(stringValue(m.location) || 'location not recorded')}.`],
+          ['Who they are related to', `House: ${escHtml(stringValue(m.school) || 'not recorded')}. ${lineageTeacherDetail(m)}. Disciples: ${escHtml(discipleNamesFor(m) || 'none')}.`],
+          ['Background', escHtml(stringValue(m.summary) || 'No background summary recorded.')]
+        ]);
+      }
     } else if (room === 'gongan') {
-      units.forEach(unit => markCollapsible(unit, '.catalogue-detail, .catalogue-theme, .catalogue-locator'));
-      gonganProgressiveExtras(root, units);
+      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
+      const no = queryText(unit, '.catalogue-case');
+      const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
+      if (g) infoHtml = infoBlock('About this case — info section', gonganInfoRows(g));
     } else if (room === 'lexicon') {
-      units.forEach(unit => markCollapsible(unit, '.lexicon-entry-def, .lexicon-occurrences'));
-      lexiconProgressiveExtras(root, units);
-    }
-
-    setupRevealObserver(units);
-  }
-
-  // Reader: commentary / verse / ledgers become optional context folds, and the
-  // work + teacher info stack waits at the end behind one more fold.
-  function readerProgressiveExtras(root) {
-    root.querySelectorAll('.commentary-block, .verse-block').forEach(block => {
-      if (!block) return;
-      const kind = block.classList.contains('verse-block') ? 'verse'
-        : (block.classList.contains('is-pointer') ? 'pointer' : 'commentary');
-      wrapNodeInDetails(block, `More context — ${kind}`, 'rm-fold', false);
-    });
-    const drawer = root.querySelector('.ledger-drawer');
-    if (drawer) wrapNodeInDetails(drawer, 'About this edition — when you want it', 'rm-fold', false);
-    const workCtx = root.querySelector('.work-context');
-    if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
-    const stack = document.createElement('details');
-    stack.className = 'rm-fold rm-room-info';
-    stack.innerHTML = `<summary>About this work and its teachers</summary>` +
-      `<div class="context-info-body">${readerInfoStackHtml()}</div>`;
-    root.appendChild(stack);
-  }
-
-  function matrixProgressiveExtras(root, units) {
-    const list = state.data.translations_matrix || [];
-    units.forEach((unit, i) => {
-      const item = list[i];
-      if (!item) return;
-      const band = typeof unit.querySelector === 'function' ? unit.querySelector('.matrix-source-band') : null;
-      if (band) {
-        const zh = band.querySelector('.matrix-sentence-zh');
-        const py = band.querySelector('.matrix-sentence-pinyin');
-        const fold = [zh, py].filter(Boolean);
-        if (fold.length) wrapNodesInDetails(fold, 'Chinese source — when you want it', 'rm-fold', false);
-      }
-      const info = document.createElement('div');
-      info.className = 'rm-unit-info rm-collapse';
-      info.innerHTML = infoBlock('About this line — info section', matrixInfoRows(item, i));
-      unit.appendChild(info);
-    });
-  }
-
-  function lineageProgressiveExtras(root, units) {
-    units.forEach(unit => {
-      const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = (state.data.lineage || []).find(x => x && x.id === id);
-      if (!m) return;
-      const info = document.createElement('div');
-      info.className = 'rm-unit-info rm-collapse';
-      info.innerHTML = infoBlock('About this teacher — info section', [
-        ['Where they came from', `${escHtml(stringValue(m.name_zh))} — ${escHtml(stringValue(m.dates) || 'dates not recorded')} · ${escHtml(stringValue(m.era) || 'era not recorded')} · ${escHtml(stringValue(m.location) || 'location not recorded')}.`],
-        ['Who they are related to', `${lineageTeacherDetail(m)} Disciples profiled here: ${escHtml(discipleNamesFor(m) || 'none')}.`],
-        ['Background', escHtml(stringValue(m.summary) || 'No background summary recorded.')]
+      const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
+      const head = queryText(unit, '.lexicon-headword-zh');
+      const item = list.find(x => x && x.term === head) || list[idx];
+      if (item) infoHtml = infoBlock('About this term — info section', lexiconInfoRows(item));
+    } else if (room === 'reader') {
+      const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
+      infoHtml = infoBlock('About this part — info section', [
+        ['Where it came from', 'A part of the open work.'],
+        ['What is related', 'See the work info fold at the top of the page.'],
+        ['Background', escHtml(clipText(lead, 200) || 'No English rendering recorded.')]
       ]);
-      unit.appendChild(info);
-    });
-  }
-
-  function gonganProgressiveExtras(root, units) {
-    const list = state.data.gongan_index || [];
-    units.forEach((unit, i) => {
-      const no = queryText(unit, '.catalogue-case');
-      const g = list.find(x => x && stringValue(x.case_no) === no) || list[i];
-      if (!g) return;
+    }
+    if (infoHtml) {
       const info = document.createElement('div');
-      info.className = 'rm-unit-info rm-collapse';
-      info.innerHTML = infoBlock('About this case — info section', gonganInfoRows(g));
+      info.className = 'rm-unit-info';
+      info.innerHTML = infoHtml;
       unit.appendChild(info);
-    });
-  }
-
-  function lexiconProgressiveExtras(root, units) {
-    const list = state.data.glossary || [];
-    units.forEach((unit, i) => {
-      const head = queryText(unit, '.lexicon-headword-zh');
-      const g = list.find(x => x && x.term === head) || list[i];
-      if (!g) return;
-      const info = document.createElement('div');
-      info.className = 'rm-unit-info rm-collapse';
-      info.innerHTML = infoBlock('About this term — info section', lexiconInfoRows(g));
-      unit.appendChild(info);
-    });
+    }
   }
 
   // ==========================================================================
-  // LAYOUT 5 · TABBED ROOMS — drastic, all five rooms
-  // --------------------------------------------------------------------------
-  // Old layout 4 gave the Reader four tabs and left the other rooms alone.
-  // Layout 5 gives EVERY room its own small tablist, so a room shows one kind
-  // of thing at a time: a minimal pane first, the full record second, and the
-  // plain-language info sections third. Tab counts differ per room on purpose —
-  // the owner ruled that keeping the same number of tabs is neither intended
-  // nor forbidden.
+  // LAYOUT 7 · INFO-FIRST DOSSIER — info hero, translation collapsed
   // ==========================================================================
+  function roomDossier(room, root) {
+    root.classList.add('rm-dossier');
+    const fn = document.getElementById('focus-room-nav');
+    if (fn) fn.hidden = true;
+    applyShellBrandForVariant('7');
 
-  // Which pane a room remembers across re-renders (filter changes, layout
-  // switches). Keyed per layout + room so rooms never fight over one value.
-  function roomTabKey(room) { return `${state.designVariant}:${room}`; }
-  function rememberRoomTab(room, key) {
-    if (!state.roomTab) state.roomTab = {};
-    state.roomTab[roomTabKey(room)] = key;
-  }
-  function rememberedRoomTab(room) {
-    return state.roomTab ? state.roomTab[roomTabKey(room)] : null;
-  }
+    // Build room-level dossier hero
+    const hero = document.createElement('section');
+    hero.className = 'rm-dossier-hero';
+    hero.innerHTML = dossierHeroHtml(room);
+    root.insertBefore(hero, root.firstChild);
 
-  // One generic room tablist: roving tabindex, arrow/Home/End keys, [hidden]
-  // panes, no inline styles. `panes` = [{key, label, html?, node?}].
-  function makeRoomTabs(root, room, ariaLabel, panes) {
-    if (!root || !Array.isArray(panes) || !panes.length) return null;
-    const wanted = rememberedRoomTab(room);
-    let activeIdx = panes.findIndex(p => p.key === wanted);
-    if (activeIdx < 0) activeIdx = 0;
+    // Wrap remaining content as translation/body, hidden by default
+    const body = document.createElement('div');
+    body.className = 'rm-dossier-translation';
+    body.hidden = true;
+    body.id = `dossier-body-${room}`;
+    const toMove = Array.from(root.childNodes).filter(n => n !== hero);
+    toMove.forEach(n => body.appendChild(n));
+    root.appendChild(body);
 
-    const bar = document.createElement('div');
-    bar.className = 'layout-tabs room-tabs';
-    bar.setAttribute('role', 'tablist');
-    bar.setAttribute('aria-label', ariaLabel);
-    panes.forEach((p, i) => {
-      const b = document.createElement('button');
-      b.setAttribute('type', 'button');
-      b.className = 'room-tab-btn';
-      b.setAttribute('role', 'tab');
-      b.setAttribute('data-room-tab-btn', p.key);
-      b.setAttribute('aria-selected', i === activeIdx ? 'true' : 'false');
-      b.setAttribute('tabindex', i === activeIdx ? '0' : '-1');
-      b.textContent = p.label;
-      bar.appendChild(b);
-    });
-
-    const wrap = document.createElement('div');
-    wrap.className = 'room-tabpanes';
-    panes.forEach((p, i) => {
-      const sec = document.createElement('section');
-      sec.className = 'room-pane';
-      sec.setAttribute('data-room-pane', p.key);
-      sec.setAttribute('aria-label', p.label);
-      if (i !== activeIdx) sec.setAttribute('hidden', '');
-      if (p.node) sec.appendChild(p.node);
-      else sec.innerHTML = p.html || '';
-      wrap.appendChild(sec);
-    });
-
-    root.insertBefore(bar, root.firstChild);
-    root.appendChild(wrap);
-    root.setAttribute('data-room-tabs', String(panes.length));
-
-    const setTab = (key, focusBtn) => {
-      rememberRoomTab(room, key);
-      bar.querySelectorAll('.room-tab-btn').forEach(b => {
-        const on = b.getAttribute('data-room-tab-btn') === key;
-        b.setAttribute('aria-selected', on ? 'true' : 'false');
-        b.setAttribute('tabindex', on ? '0' : '-1');
-        if (on && focusBtn && typeof b.focus === 'function') b.focus();
+    const toggle = hero.querySelector('.rm-dossier-toggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        const open = body.hidden;
+        body.hidden = !open;
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.textContent = open ? 'Hide translation' : dossierToggleLabel(room);
       });
-      wrap.querySelectorAll('.room-pane').forEach(sec => {
-        if (sec.getAttribute('data-room-pane') === key) sec.removeAttribute('hidden');
-        else sec.setAttribute('hidden', '');
-      });
-    };
-
-    bar.addEventListener('click', (e) => {
-      const btn = e.target && e.target.closest ? e.target.closest('.room-tab-btn') : null;
-      if (btn) setTab(btn.getAttribute('data-room-tab-btn'), false);
-    });
-    bar.addEventListener('keydown', (e) => {
-      const keys = panes.map(p => p.key);
-      const btn = e.target && e.target.closest ? e.target.closest('.room-tab-btn') : null;
-      if (!btn) return;
-      const idx = keys.indexOf(btn.getAttribute('data-room-tab-btn'));
-      let next = -1;
-      if (e.key === 'ArrowRight') next = (idx + 1) % keys.length;
-      else if (e.key === 'ArrowLeft') next = (idx - 1 + keys.length) % keys.length;
-      else if (e.key === 'Home') next = 0;
-      else if (e.key === 'End') next = keys.length - 1;
-      if (next < 0) return;
-      e.preventDefault();
-      e.stopPropagation(); // never also trigger the Reader's ←/→ case jump
-      setTab(keys[next], true);
-    });
-    return { bar, setTab };
-  }
-
-  function paneLead(text) {
-    return `<p class="rm-pane-lead">${escHtml(text)}</p>`;
-  }
-
-  function roomTabbed(room, root) {
-    root.classList.add('rm-tabbed');
-    if (room === 'reader') { readerTabbed(root); return; }
-    if (room === 'matrix') { matrixTabbed(root); return; }
-    if (room === 'lineage') { lineageTabbed(root); return; }
-    if (room === 'gongan') { gonganTabbed(root); return; }
-    if (room === 'lexicon') { lexiconTabbed(root); return; }
-  }
-
-  // --- Reader: Translation (default) / Chinese / Context / Related -----------
-  function readerTabbed(root) {
-    const bar = document.createElement('div');
-    bar.className = 'layout-tabs';
-    bar.setAttribute('role', 'tablist');
-    bar.setAttribute('aria-label', 'Reader sections');
-    const tabs = [
-      { key: 'translation', label: 'Translation' },
-      { key: 'chinese', label: 'Chinese' },
-      { key: 'context', label: 'Context' },
-      { key: 'related', label: 'Related' }
-    ];
-    tabs.forEach((t, i) => {
-      const b = document.createElement('button');
-      b.setAttribute('type', 'button');
-      b.className = 'layout-tab-btn';
-      b.setAttribute('role', 'tab');
-      b.setAttribute('data-layout-tab-btn', t.key);
-      b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-      b.setAttribute('tabindex', i === 0 ? '0' : '-1');
-      b.textContent = t.label;
-      bar.appendChild(b);
-    });
-    const heading = root.querySelector('.document-heading');
-    if (heading && heading.parentNode) heading.parentNode.insertBefore(bar, heading.nextSibling);
-
-    // Context pane: ledgers + work info section + document notes move here.
-    const contextPane = document.createElement('section');
-    contextPane.className = 'layout-pane layout-pane-context';
-    contextPane.setAttribute('aria-label', 'Context for this work');
-    contextPane.setAttribute('hidden', '');
-    contextPane.innerHTML = '<h2 class="layout-pane-title">Context — where this work came from</h2>';
-    const drawer = root.querySelector('.ledger-drawer');
-    if (drawer) contextPane.appendChild(drawer);
-    const workCtx = root.querySelector('.work-context');
-    if (workCtx) { workCtx.setAttribute('open', ''); contextPane.appendChild(workCtx); }
-    if (heading && heading.children) {
-      Array.from(heading.children).filter(n => n.classList && n.classList.contains('provenance-line'))
-        .forEach(n => contextPane.appendChild(n));
     }
 
-    // Related pane: linked teachers, each with its plain-language info section.
-    const relatedPane = document.createElement('section');
-    relatedPane.className = 'layout-pane layout-pane-related';
-    relatedPane.setAttribute('aria-label', 'Related teachers and works');
-    relatedPane.setAttribute('hidden', '');
-    const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
-    relatedPane.innerHTML = '<h2 class="layout-pane-title">Related teachers</h2>' + (related.length
-      ? related.map(m =>
-          `<div class="rm-teacher-block">` +
-          `<h3 class="rm-teacher-name">${escHtml(masterDisplayName(m))}${m.name_zh ? ` <span lang="zh" class="rm-teacher-zh">${escHtml(m.name_zh)}</span>` : ''}</h3>` +
-          renderTeacherContext(m) +
-          `</div>`).join('')
-      : '<p class="rm-empty">No profiled teachers are linked to this work yet.</p>');
-
-    root.appendChild(contextPane);
-    root.appendChild(relatedPane);
-    root.setAttribute('data-layout-tab', 'translation');
-
-    const setTab = (key, focusBtn) => {
-      root.setAttribute('data-layout-tab', key);
-      bar.querySelectorAll('.layout-tab-btn').forEach(b => {
-        const on = b.getAttribute('data-layout-tab-btn') === key;
-        b.setAttribute('aria-selected', on ? 'true' : 'false');
-        b.setAttribute('tabindex', on ? '0' : '-1');
-        if (on && focusBtn && typeof b.focus === 'function') b.focus();
-      });
-      if (key === 'context') contextPane.removeAttribute('hidden'); else contextPane.setAttribute('hidden', '');
-      if (key === 'related') relatedPane.removeAttribute('hidden'); else relatedPane.setAttribute('hidden', '');
-    };
-    bar.addEventListener('click', (e) => {
-      const btn = e.target && e.target.closest ? e.target.closest('.layout-tab-btn') : null;
-      if (btn) setTab(btn.getAttribute('data-layout-tab-btn'), false);
-    });
-    bar.addEventListener('keydown', (e) => {
-      const keys = tabs.map(t => t.key);
-      const btn = e.target && e.target.closest ? e.target.closest('.layout-tab-btn') : null;
-      if (!btn) return;
-      const idx = keys.indexOf(btn.getAttribute('data-layout-tab-btn'));
-      let next = -1;
-      if (e.key === 'ArrowRight') next = (idx + 1) % keys.length;
-      else if (e.key === 'ArrowLeft') next = (idx - 1 + keys.length) % keys.length;
-      else if (e.key === 'Home') next = 0;
-      else if (e.key === 'End') next = keys.length - 1;
-      if (next < 0) return;
-      e.preventDefault();
-      e.stopPropagation();
-      setTab(keys[next], true);
-    });
+    // Per-unit mini dossiers inside the body (info first on each card)
+    const units = roomUnits(body, room);
+    units.forEach((unit, i) => dossierizeUnit(room, unit, i));
   }
 
-  // --- Compare: At a glance / Full comparison / Where it came from -----------
-  function matrixTabbed(root) {
-    const list = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : [];
-    const glance = paneLead('One line at a time: the source reference, then each English voice for it. Nothing else.') +
-      `<ol class="rm-glance-list">` + list.map(item => {
-        const regs = Array.isArray(item.translators) ? item.translators : [];
-        return `<li class="rm-glance-item">` +
-          `<div class="rm-glance-ref">${escHtml(stringValue(item.source_ref))}</div>` +
-          `<ul class="rm-glance-lines">` + regs.map(t =>
-            `<li><span class="rm-glance-who">${escHtml(stringValue(t.translator))}</span> ` +
-            `<span class="rm-glance-en">“${escHtml(stringValue(t.text))}”</span></li>`).join('') + `</ul>` +
-          `</li>`;
-      }).join('') + `</ol>`;
-    const sources = paneLead('Where each line comes from, in plain language — witness, record, and what the room is for.') +
-      list.map((item, i) => {
-        const locator = matrixLocatorForReference(item.source_ref);
-        return `<div class="rm-source-item">` +
-          `<h3 class="rm-source-ref">${escHtml(stringValue(item.source_ref))}</h3>` +
-          `<div class="context-info-body">${infoRows(matrixInfoRows(item, i))}</div>` +
-          `<div class="rm-source-zh" lang="zh">${escHtml(stringValue(item.sentence_zh))}</div>` +
-          `<div class="rm-source-pinyin">${escHtml(stringValue(item.sentence_pinyin))}</div>` +
-          (locator ? `<div class="rm-source-loc">Record: ${escHtml(stringValue(locator.document || ''))}${locator.locator ? ' · ' + escHtml(stringValue(locator.locator)) : ''}</div>` : '') +
-          `</div>`;
-      }).join('');
-    const full = adoptRoomChildren(root, 'rm-adopted');
-    makeRoomTabs(root, 'matrix', 'Compare room sections', [
-      { key: 'glance', label: 'At a glance', html: glance },
-      { key: 'full', label: 'Full comparison', node: full },
-      { key: 'sources', label: 'Where it came from', html: sources }
-    ]);
+  function dossierToggleLabel(room) {
+    if (room === 'reader') return 'Read translation';
+    if (room === 'matrix') return 'Show comparison lines';
+    if (room === 'lineage') return 'Show teachers';
+    if (room === 'gongan') return 'Show cases';
+    if (room === 'lexicon') return 'Show terms';
+    return 'Show content';
   }
 
-  // --- Lineage: Timeline / Register / Dossiers -------------------------------
-  function lineageTabbed(root) {
-    const masters = filteredLineageMasters();
-    const timeline = paneLead('The chronological spine: who came first, and who taught whom. Open a dossier for the full record.') +
-      `<ol class="rm-timeline">` + masters.map(m =>
-        `<li class="rm-timeline-item">` +
-        `<span class="rm-timeline-dot" aria-hidden="true"></span>` +
-        `<div class="rm-timeline-body">` +
-        `<div class="rm-timeline-name">${escHtml(masterDisplayName(m))} <span lang="zh" class="rm-timeline-zh">${escHtml(stringValue(m.name_zh))}</span></div>` +
-        `<div class="rm-timeline-when">${escHtml(stringValue(m.dates) || 'dates not recorded')} · ${escHtml(stringValue(m.era) || 'era not recorded')} · ${escHtml(stringValue(m.school) || 'house not recorded')}</div>` +
-        `<div class="rm-timeline-teacher">${lineageTeacherDetail(m)}</div>` +
-        `<button type="button" class="btn-pill" data-master-teacher="${escHtml(m.id)}">Open dossier</button>` +
-        `</div></li>`).join('') + `</ol>`;
-    const dossiers = paneLead('One info section per teacher: where they came from, who they are related to, and the background.') +
-      masters.map(m =>
-        `<details class="context-info rm-dossier">` +
-        `<summary>${escHtml(masterDisplayName(m))}${m.name_zh ? ` <span lang="zh" class="rm-teacher-zh">${escHtml(m.name_zh)}</span>` : ''}</summary>` +
-        `<div class="context-info-body">${teacherContextRows(m)}</div></details>`).join('');
-    const register = adoptRoomChildren(root, 'rm-adopted');
-    makeRoomTabs(root, 'lineage', 'Lineage room sections', [
-      { key: 'timeline', label: 'Timeline', html: timeline },
-      { key: 'register', label: 'Register', node: register },
-      { key: 'dossiers', label: 'Dossiers', html: dossiers }
-    ]);
-  }
-
-  // --- Cases: Cases / By theme / Records -------------------------------------
-  function gonganTabbed(root) {
-    const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-    const groups = gonganThemeGroups();
-    const byTheme = paneLead('Cases grouped by theme family, with a plain-language line for each family.') +
-      groups.map(gr => {
-        const inGroup = list.filter(g => g && g.theme_group === gr.key);
-        const vocab = (state.data.gongan_theme_vocab && Array.isArray(state.data.gongan_theme_vocab.themes))
-          ? state.data.gongan_theme_vocab.themes.find(v => v && v.key === gr.key) : null;
-        return `<details class="context-info rm-theme-group">` +
-          `<summary>${escHtml(gr.display)} · ${gr.count} case${gr.count === 1 ? '' : 's'}</summary>` +
-          `<div class="context-info-body">` +
-          (vocab && vocab.note ? `<div class="context-row"><div class="context-label">What this family means</div><div class="context-text">${escHtml(stringValue(vocab.note))}</div></div>` : '') +
-          `<div class="context-row"><div class="context-label">Cases in this family</div><div class="context-text">` +
-          inGroup.map(g => `${escHtml(stringValue(g.case_no))} · ${escHtml(stringValue(g.title_en))}`).join('<br>') +
-          `</div></div></div></details>`;
-      }).join('');
-    const records = paneLead('The catalogue records only: collection, canonical reference, and cross-references.') +
-      `<div class="rm-record-list">` + list.map(g =>
-        `<div class="rm-record-item">` +
-        `<div class="rm-record-head">Case ${escHtml(stringValue(g.case_no))} · ${escHtml(stringValue(g.title_en))}</div>` +
-        `<div class="rm-record-meta">Collection: ${escHtml(stringValue(g.collection) || 'not recorded')} · Record: ${escHtml(stringValue(g.cbeta_id) || 'not recorded')}</div>` +
-        `<div class="rm-record-meta">Cross-references: ${Array.isArray(g.cross_refs) && g.cross_refs.length ? escHtml(g.cross_refs.join(' · ')) : 'none recorded'}</div>` +
-        `</div>`).join('') + `</div>`;
-    const cases = adoptRoomChildren(root, 'rm-adopted');
-    makeRoomTabs(root, 'gongan', 'Cases room sections', [
-      { key: 'cases', label: 'Cases', node: cases },
-      { key: 'themes', label: 'By theme', html: byTheme },
-      { key: 'records', label: 'Records', html: records }
-    ]);
-  }
-
-  // --- Terms: Terms / Entries / By category ----------------------------------
-  function lexiconTabbed(root) {
-    const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-    const terms = paneLead('Headwords only — the shortest possible list. Switch to Entries for definitions.') +
-      `<ul class="rm-term-list">` + list.map(item =>
-        `<li class="rm-term-item"><span class="rm-term-en">${escHtml(stringValue(item.literal))}</span>` +
-        `<span class="rm-term-zh" lang="zh">${escHtml(stringValue(item.term))}</span>` +
-        `<span class="rm-term-py">${escHtml(stringValue(item.pinyin))}</span></li>`).join('') + `</ul>`;
-    const cats = new Map();
-    list.forEach(item => {
-      const c = stringValue(item.category) || 'Uncategorised';
-      if (!cats.has(c)) cats.set(c, []);
-      cats.get(c).push(item);
-    });
-    const byCat = paneLead('Terms grouped by category, each with its plain-language definition behind a fold.') +
-      Array.from(cats.entries()).map(([cat, items]) =>
-        `<details class="context-info rm-cat-group">` +
-        `<summary>${escHtml(LEXICON_CATEGORY_LABELS[cat] || cat)} · ${items.length} term${items.length === 1 ? '' : 's'}</summary>` +
-        `<div class="context-info-body">` + items.map(item =>
-          `<div class="context-row"><div class="context-label">${escHtml(stringValue(item.literal))} <span lang="zh">${escHtml(stringValue(item.term))}</span></div>` +
-          `<div class="context-text">${escHtml(stringValue(item.definition))}</div></div>`).join('') +
-        `</div></details>`).join('');
-    const entries = adoptRoomChildren(root, 'rm-adopted');
-    makeRoomTabs(root, 'lexicon', 'Terms room sections', [
-      { key: 'terms', label: 'Terms', html: terms },
-      { key: 'entries', label: 'Entries', node: entries },
-      { key: 'categories', label: 'By category', node: null, html: byCat }
-    ]);
-  }
-
-
-  // ==========================================================================
-  // LAYOUT 6 · MODAL INFO — drastic, all five rooms
-  // --------------------------------------------------------------------------
-  // Old layout 5 pulled the Reader's info blocks behind three ⓘ doorways and
-  // stopped there. Layout 6 does it in every room: each surface keeps only the
-  // literature (English first, minimal), and ALL explanatory material —
-  // Chinese source lines, dated records, definitions, catalogue details, info
-  // sections for every work and teacher — moves into ONE modal overlay behind
-  // an ⓘ doorway. Escape, backdrop click and ✕ all close it, and focus returns
-  // to the doorway that opened it.
-  // ==========================================================================
-  let layoutModalEl = null;
-  let layoutModalLastTrigger = null;
-  let layoutModalEscBound = false;
-  // Content registry, rebuilt on every render so a modal never shows a stale
-  // work/teacher after a filter change or a switch to another text.
-  const infoModalRegistry = new Map();
-
-  function getInfoModal() {
-    if (!layoutModalEl) {
-      const rootEl = document.createElement('div');
-      rootEl.className = 'layout-modal-root';
-      rootEl.setAttribute('hidden', '');
-      rootEl.innerHTML =
-        '<div class="layout-modal-backdrop" data-modal-close></div>' +
-        '<div class="layout-modal-panel" role="dialog" aria-modal="true" aria-labelledby="layout-modal-title">' +
-          '<div class="layout-modal-head">' +
-            '<h2 id="layout-modal-title">About this</h2>' +
-            '<button type="button" class="btn-pill layout-modal-close" data-modal-close aria-label="Close information panel">✕ Close</button>' +
-          '</div>' +
-          '<div class="layout-modal-body"></div>' +
-        '</div>';
-      rootEl.addEventListener('click', (e) => {
-        const t = e.target && e.target.closest ? e.target.closest('[data-modal-close]') : null;
-        if (t) closeInfoModal();
-      });
-      document.body.appendChild(rootEl);
-      layoutModalEl = rootEl;
-      if (!layoutModalEscBound) {
-        layoutModalEscBound = true;
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeInfoModal(); });
-      }
+  function dossierHeroHtml(room) {
+    if (room === 'reader') {
+      const corpusKey = state.currentCorpusKey;
+      const doc = (state.data.corpus && state.data.corpus[corpusKey]) || {};
+      const title = stringValue(doc.title_en) || corpusKey || 'Work';
+      const zh = stringValue(doc.title_zh);
+      return `<p class="rm-dossier-kicker">Work dossier</p>` +
+        `<h2>${escHtml(title)}</h2>` +
+        (zh ? `<p class="rm-dossier-zh" lang="zh">${escHtml(zh)}</p>` : '') +
+        `<div class="rm-dossier-meta"><span>Witness <strong>${escHtml(stringValue(doc.cbeta_id) || 'not recorded')}</strong></span>` +
+        `<span>Status <strong>${escHtml(stringValue(doc.status) || 'open')}</strong></span></div>` +
+        `<div class="context-info-body">${workContextRows(corpusKey)}</div>` +
+        `<div class="rm-dossier-teachers"><h3>Related teachers</h3>${dossierTeacherChips(corpusKey)}</div>` +
+        `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-reader">${dossierToggleLabel('reader')}</button>`;
     }
-    return layoutModalEl;
+    if (room === 'matrix') {
+      const n = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix.length : 0;
+      return `<p class="rm-dossier-kicker">Compare dossier</p>` +
+        `<h2>What is collation here?</h2>` +
+        `<div class="context-info-body">${infoRows([
+          ['Where it came from', 'Each line is one Classical Chinese sentence taken from a recorded source, shown with several English renderings side by side.'],
+          ['What is related', `${n} source line${n === 1 ? '' : 's'} are indexed in this room. Quoted registers keep their edition record; project drafts are labelled as drafts.`],
+          ['Background', 'Collation means reading one Chinese line against more than one English voice so differences in tone, vocabulary and structure stay visible.']
+        ])}</div>` +
+        `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-matrix">${dossierToggleLabel('matrix')}</button>`;
+    }
+    if (room === 'lineage') {
+      const n = Array.isArray(state.data.lineage) ? state.data.lineage.length : 0;
+      return `<p class="rm-dossier-kicker">Lineage dossier</p>` +
+        `<h2>Generation context</h2>` +
+        `<div class="context-info-body">${infoRows([
+          ['Where it came from', `This room lists ${n} profiled teachers with dates, houses and places drawn from the project lineage register.`],
+          ['What is related', 'Each teacher card links house, disciples and the works tied to them. Open a card for the full plain-language info section.'],
+          ['Background', 'Lineage here is a reading aid, not a claim of unbroken transmission. Dates and places are recorded as the project has them.']
+        ])}</div>` +
+        `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-lineage">${dossierToggleLabel('lineage')}</button>`;
+    }
+    if (room === 'gongan') {
+      const n = Array.isArray(state.data.gongan_index) ? state.data.gongan_index.length : 0;
+      return `<p class="rm-dossier-kicker">Cases dossier</p>` +
+        `<h2>Theme context</h2>` +
+        `<div class="context-info-body">${infoRows([
+          ['Where it came from', `${n} cases are indexed from recorded collections with case numbers and CBETA ids where known.`],
+          ['What is related', 'Each case points at a protagonist and theme group. Cross-references sit in the case info section.'],
+          ['Background', 'A gong\'an is a recorded encounter used for study. This catalogue is an index into those encounters, not the full commentary apparatus.']
+        ])}</div>` +
+        `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-gongan">${dossierToggleLabel('gongan')}</button>`;
+    }
+    // lexicon
+    const n = Array.isArray(state.data.glossary) ? state.data.glossary.length : 0;
+    return `<p class="rm-dossier-kicker">Terms dossier</p>` +
+      `<h2>Headword context</h2>` +
+      `<div class="context-info-body">${infoRows([
+        ['Where it came from', `${n} Classical Chan terms are glossed with readings, categories and occurrence lists.`],
+        ['What is related', 'Categories group terms by family of usage. Occurrences point back into the corpus.'],
+        ['Background', 'Definitions are plain-language project notes to keep reading light — expand a term for the full entry.']
+      ])}</div>` +
+      `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-lexicon">${dossierToggleLabel('lexicon')}</button>`;
   }
 
-  function registerInfoModal(key, spec) { infoModalRegistry.set(key, spec); }
-
-  function openInfoModal(key, trigger, openSection) {
-    if (state.designVariant !== '6') return;
-    const spec = infoModalRegistry.get(key);
-    if (!spec) return;
-    const modal = getInfoModal();
-    const titleEl = modal.querySelector('.layout-modal-head h2');
-    if (titleEl) titleEl.textContent = spec.title || 'About this';
-    const body = modal.querySelector('.layout-modal-body');
-    if (!body) return;
-    const sections = Array.isArray(spec.sections) ? spec.sections : [];
-    body.innerHTML = sections.length
-      ? sections.map(s =>
-          `<details class="modal-section" data-modal-sec="${escHtml(s.key)}">` +
-          `<summary>${escHtml(s.label)}</summary>` +
-          `<div class="modal-section-body">${s.html}</div></details>`).join('')
-      : '<p class="rm-empty">Nothing recorded here yet.</p>';
-    const wanted = openSection || spec.open || (sections[0] && sections[0].key);
-    body.querySelectorAll('details').forEach(d => {
-      if (wanted && d.getAttribute('data-modal-sec') === wanted) d.setAttribute('open', '');
-      else d.removeAttribute('open');
-    });
-    layoutModalLastTrigger = trigger || null;
-    modal.removeAttribute('hidden');
-    const closeBtn = modal.querySelector('.layout-modal-close');
-    if (closeBtn && typeof closeBtn.focus === 'function') closeBtn.focus();
-  }
-
-  function closeInfoModal() {
-    if (!layoutModalEl || layoutModalEl.hasAttribute('hidden')) return;
-    layoutModalEl.setAttribute('hidden', '');
-    if (layoutModalLastTrigger && typeof layoutModalLastTrigger.focus === 'function') layoutModalLastTrigger.focus();
-    layoutModalLastTrigger = null;
-  }
-
-  // One ⓘ doorway: registers its modal content and appends the button.
-  function addInfoDoorway(host, key, label, spec, section) {
-    if (!host || typeof host.appendChild !== 'function') return null;
-    registerInfoModal(key, spec);
-    const btn = document.createElement('button');
-    btn.setAttribute('type', 'button');
-    btn.className = 'btn-pill rm-info-doorway';
-    btn.setAttribute('data-info-modal', key);
-    if (section) btn.setAttribute('data-info-sec', section);
-    btn.setAttribute('aria-haspopup', 'dialog');
-    btn.textContent = label;
-    host.appendChild(btn);
-    if (host.classList) host.classList.add('rm-modal-unit');
-    return btn;
-  }
-
-  function roomModal(room, root) {
-    root.classList.add('rm-modal');
-    if (room === 'reader') { readerModal(root); return; }
-    const units = roomUnits(root, room);
-    if (room === 'matrix') matrixModal(root, units);
-    else if (room === 'lineage') lineageModal(root, units);
-    else if (room === 'gongan') gonganModal(root, units);
-    else if (room === 'lexicon') lexiconModal(root, units);
-  }
-
-  // Reader: literature only; four quiet ⓘ doorways in the document heading.
-  function readerModal(root) {
-    const header = root.querySelector('.document-heading');
-    if (!header) return;
-    const corpusKey = state.currentCorpusKey;
-    const doc = (state.data.corpus && state.data.corpus[corpusKey]) || {};
-    const drawer = root.querySelector('.ledger-drawer');
-    if (drawer && drawer.parentNode) drawer.parentNode.removeChild(drawer);
-    const workCtx = root.querySelector('.work-context');
-    if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
-    Array.from(header.children).filter(n => n.classList && n.classList.contains('provenance-line'))
-      .forEach(n => { if (n.parentNode) n.parentNode.removeChild(n); });
-
+  function dossierTeacherChips(corpusKey) {
     const related = relatedTeachersForCorpusKey(corpusKey);
-    const teachersHtml = related.length
-      ? related.map(m =>
-          `<div class="rm-teacher-block"><h3 class="rm-teacher-name">${escHtml(masterDisplayName(m))}` +
-          `${m.name_zh ? ` <span lang="zh" class="rm-teacher-zh">${escHtml(m.name_zh)}</span>` : ''}</h3>` +
-          `<div class="context-info-body">${teacherContextRows(m)}</div></div>`).join('')
-      : '<p class="rm-empty">No profiled teacher is linked to this work yet.</p>';
-    const notesHtml = renderProvenanceNotes(doc);
-
-    registerInfoModal('reader:info', {
-      title: `About ${stringValue(doc.title_en) || 'this work'}`,
-      sections: [
-        { key: 'work', label: 'About this work — context', html: `<div class="context-info-body">${workContextRows(corpusKey)}</div>` },
-        { key: 'teachers', label: 'Teachers connected to this work', html: teachersHtml },
-        { key: 'edition', label: 'About this edition — ledgers', html: renderDocumentLedgers(corpusKey, doc) },
-        ...(notesHtml ? [{ key: 'notes', label: 'Notes on this text', html: `<div class="context-info-body">${notesHtml}</div>` }] : [])
-      ]
-    });
-
-    const row = document.createElement('div');
-    row.className = 'info-modal-row';
-    header.appendChild(row);
-    ['work', 'teachers', 'edition', ...(notesHtml ? ['notes'] : [])].forEach(sec => {
-      const label = { work: 'ⓘ About this work', teachers: 'Teachers', edition: 'This edition', notes: 'Notes' }[sec];
-      const btn = document.createElement('button');
-      btn.setAttribute('type', 'button');
-      btn.className = 'btn-pill info-modal-btn';
-      btn.setAttribute('data-info-modal', 'reader:info');
-      btn.setAttribute('data-info-sec', sec);
-      btn.setAttribute('aria-haspopup', 'dialog');
-      btn.textContent = label;
-      row.appendChild(btn);
-    });
+    if (!related.length) return '<p class="rm-dossier-empty">No profiled teacher is linked to this work yet.</p>';
+    return related.map(m =>
+      `<button type="button" class="rm-dossier-teacher-chip teacher-link" data-master-teacher="${escHtml(m.id)}">` +
+      `${escHtml(masterDisplayName(m))}</button>`
+    ).join('');
   }
 
-  // Compare: the sheet keeps the English renderings; the Chinese line, the
-  // record and the register notes wait behind ⓘ.
-  function matrixModal(root, units) {
-    const list = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : [];
-    units.forEach((unit, i) => {
-      const item = list[i];
-      if (!item) return;
-      const regs = Array.isArray(item.translators) ? item.translators : [];
-      const locator = matrixLocatorForReference(item.source_ref);
-      const registersHtml = regs.map(t => {
-        const entry = normalizeTranslationEntry(t.translator, { text: t.text, status: t.status, source: t.source }, { isAI: /\bAI\b/i.test(stringValue(t.translator)) });
-        return `<div class="context-row"><div class="context-label">${escHtml(stringValue(t.translator))} · ${escHtml(stringValue(t.work) || 'work not recorded')}</div>` +
-          `<div class="context-text">“${escHtml(entry.text)}”${t.style ? `<br><span class="rm-quiet">Style: ${escHtml(stringValue(t.style))}</span>` : ''}` +
-          `${t.notes ? `<br><span class="rm-quiet">${escHtml(stringValue(t.notes))}</span>` : ''}</div></div>`;
-      }).join('');
-      const band = typeof unit.querySelector === 'function' ? unit.querySelector('.matrix-source-band') : null;
-      addInfoDoorway(band || unit, `matrix:${i}`, 'ⓘ About this line', {
-        title: `About ${stringValue(item.source_ref)}`,
-        sections: [
-          { key: 'source', label: 'Where this line came from', html: `<div class="context-info-body">${infoRows(matrixInfoRows(item, i))}</div>` },
-          { key: 'chinese', label: 'The Chinese source line', html: `<div class="rm-modal-zh" lang="zh">${escHtml(stringValue(item.sentence_zh))}</div><div class="rm-modal-py">${escHtml(stringValue(item.sentence_pinyin))}</div>` + (locator ? `<div class="rm-quiet">Record: ${escHtml(stringValue(locator.document || ''))}${locator.locator ? ' · ' + escHtml(stringValue(locator.locator)) : ''}</div>` : '') },
-          { key: 'registers', label: `Every rendering of this line (${regs.length})`, html: registersHtml || '<p class="rm-empty">No renderings recorded.</p>' }
-        ]
-      }, 'source');
-    });
-  }
+  function dossierizeUnit(room, unit, idx) {
+    if (!unit || unit.dataset.dossierReady === '1') return;
+    unit.dataset.dossierReady = '1';
+    const h = unitHeadline(room, unit, idx);
 
-  // Lineage: the row keeps name + house; the dated record, the signature line
-  // and the whole teacher dossier wait behind ⓘ.
-  function lineageModal(root, units) {
-    units.forEach((unit, i) => {
-      const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = (state.data.lineage || []).find(x => x && x.id === id);
-      if (!m) return;
-      addInfoDoorway(unit, `lineage:${i}`, 'ⓘ Dossier', {
-        title: `${masterDisplayName(m)}${m.name_zh ? ' · ' + stringValue(m.name_zh) : ''}`,
-        sections: [
-          { key: 'teacher', label: 'About this teacher — info section', html: `<div class="context-info-body">${teacherContextRows(m)}</div>` },
-          { key: 'record', label: 'Dated record', html: `<div class="context-info-body">${infoRows([
-              ['Dates and era', escHtml(`${stringValue(m.dates) || 'dates not recorded'} · ${stringValue(m.era) || 'era not recorded'}`)],
-              ['Place', escHtml(stringValue(m.location) || 'location not recorded')],
-              ['Canonical record', escHtml(stringValue(m.cbeta_id) || 'not recorded')],
-              ['House', escHtml(stringValue(m.school) || 'not recorded')]
-            ])}</div>` },
-          { key: 'quote', label: 'Signature line', html: `<div class="rm-modal-zh" lang="zh">“${escHtml(stringValue(m.key_quote_zh))}”</div><div class="rm-modal-en">“${escHtml(stringValue(m.key_quote_en))}”</div>` }
-        ]
-      }, 'teacher');
-    });
-  }
-
-  // Cases: the row keeps number, title and collection; the summary, the theme
-  // and the catalogue record wait behind ⓘ.
-  function gonganModal(root, units) {
-    const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-    units.forEach((unit, i) => {
+    let rowsHtml = '';
+    if (room === 'matrix') {
+      const item = (state.data.translations_matrix || [])[idx];
+      if (item) rowsHtml = infoRows(matrixInfoRows(item, idx));
+    } else if (room === 'lineage') {
+      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
+      const m = (state.data.lineage || []).find(x => x && x.id === idm);
+      if (m) rowsHtml = teacherContextRows(m);
+    } else if (room === 'gongan') {
+      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
       const no = queryText(unit, '.catalogue-case');
-      const g = list.find(x => x && stringValue(x.case_no) === no) || list[i];
-      if (!g) return;
-      addInfoDoorway(unit, `gongan:${i}`, 'ⓘ About this case', {
-        title: `Case ${stringValue(g.case_no)} · ${stringValue(g.title_en)}`,
-        sections: [
-          { key: 'case', label: 'About this case — info section', html: `<div class="context-info-body">${infoRows(gonganInfoRows(g))}</div>` },
-          { key: 'summary', label: 'What happens in this case', html: `<div class="context-text">${escHtml(stringValue(g.summary) || 'No summary recorded.')}</div>` },
-          { key: 'record', label: 'Catalogue record', html: `<div class="context-info-body">${infoRows([
-              ['Collection', escHtml(stringValue(g.collection) || 'not recorded')],
-              ['Canonical reference', escHtml(stringValue(g.cbeta_id) || 'not recorded')],
-              ['Theme', `${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))} — ${escHtml(stringValue(g.theme) || 'not recorded')}`],
-              ['Cross-references', Array.isArray(g.cross_refs) && g.cross_refs.length ? escHtml(g.cross_refs.join(' · ')) : 'none recorded']
-            ])}</div>` }
-        ]
-      }, 'case');
-    });
-  }
-
-  // Terms: the entry keeps headword + reading; the definition, the category and
-  // the recorded occurrences wait behind ⓘ.
-  function lexiconModal(root, units) {
-    const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-    units.forEach((unit, i) => {
+      const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
+      if (g) rowsHtml = infoRows(gonganInfoRows(g));
+    } else if (room === 'lexicon') {
+      const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
       const head = queryText(unit, '.lexicon-headword-zh');
-      const item = list.find(x => x && x.term === head) || list[i];
-      if (!item) return;
-      const occ = Array.isArray(item.occurrences) ? item.occurrences : [];
-      addInfoDoorway(unit, `lexicon:${i}`, 'ⓘ Definition', {
-        title: `${stringValue(item.literal)}${item.term ? ' · ' + stringValue(item.term) : ''}`,
-        sections: [
-          { key: 'term', label: 'About this term — info section', html: `<div class="context-info-body">${infoRows(lexiconInfoRows(item))}</div>` },
-          { key: 'definition', label: 'Plain-language definition', html: `<div class="context-text">${escHtml(stringValue(item.definition) || 'No definition recorded.')}</div>` },
-          { key: 'occurrences', label: `Where it is recorded (${occ.length})`, html: occ.length ? `<div class="lexicon-occurrences">${occ.map(o => `<span class="lexicon-occ-tag">${escHtml(o)}</span>`).join('')}</div>` : '<p class="rm-empty">No canonical occurrence recorded.</p>' }
-        ]
-      }, 'term');
-    });
-  }
-
-  // ==========================================================================
-  // LAYOUT 7 · HOVER CARDS — drastic, all five rooms
-  // --------------------------------------------------------------------------
-  // Old layout 6 floated cards for teacher/work names in the Reader only.
-  // Layout 7 makes the whole site hoverable: in every room the English names,
-  // headwords, case titles, register names and source references carry a dotted
-  // underline, and hovering, focusing or tapping one floats a card with the
-  // plain-language info section. Because the info now floats, layout 7 also
-  // thins the surfaces themselves — the Terms room becomes a headword list, the
-  // Cases room a title list — so the default view is the lightest of the seven.
-  // Placement rides the shared --pop-shift popover contract; ONE card element
-  // is reused, so no card can be left behind by a re-render.
-  // ==========================================================================
-  let hoverCardEl = null;
-  let hoverCardTimer = null;
-  const hoverCardRegistry = new Map();
-
-  function getHoverCard() {
-    if (!hoverCardEl) {
-      hoverCardEl = document.createElement('div');
-      hoverCardEl.id = 'layout-hover-card';
-      hoverCardEl.className = 'hover-card chan-popover';
-      hoverCardEl.setAttribute('role', 'tooltip');
-      hoverCardEl.setAttribute('hidden', '');
-      hoverCardEl.addEventListener('mouseleave', () => { hideHoverCard(); });
-      document.body.appendChild(hoverCardEl);
+      const item = list.find(x => x && x.term === head) || list[idx];
+      if (item) rowsHtml = infoRows(lexiconInfoRows(item));
+    } else if (room === 'reader') {
+      const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
+      rowsHtml = infoRows([
+        ['Where it came from', `Part ${idx + 1} of the open work.`],
+        ['What is related', 'Teachers for this work are listed in the dossier above.'],
+        ['Background', escHtml(clipText(lead, 180) || 'No English rendering recorded.')]
+      ]);
     }
-    return hoverCardEl;
+
+    const mini = document.createElement('div');
+    mini.className = 'rm-unit-dossier';
+    mini.innerHTML = `<span class="rm-acc-kicker">${escHtml(h.kicker || ROOM_UNIT_NOUN[room] || 'Item')}</span>` +
+      `<div class="rm-acc-en">${escHtml(h.en || 'Untitled')}</div>` +
+      `<div class="context-info-body">${rowsHtml}</div>`;
+    unit.insertBefore(mini, unit.firstChild);
+
+    // Collapse the rest of the unit behind a read button
+    const body = document.createElement('div');
+    body.className = 'rm-unit-body';
+    body.hidden = true;
+    Array.from(unit.childNodes).forEach(n => {
+      if (n === mini) return;
+      body.appendChild(n);
+    });
+    const read = document.createElement('button');
+    read.type = 'button';
+    read.className = 'rm-unit-read';
+    read.setAttribute('aria-expanded', 'false');
+    read.textContent = room === 'reader' ? 'Read this part' : 'Show details';
+    read.addEventListener('click', () => {
+      const open = body.hidden;
+      body.hidden = !open;
+      read.setAttribute('aria-expanded', open ? 'true' : 'false');
+      read.textContent = open ? 'Hide details' : (room === 'reader' ? 'Read this part' : 'Show details');
+    });
+    unit.appendChild(read);
+    unit.appendChild(body);
   }
 
-  function hideHoverCard() {
-    if (hoverCardEl) hoverCardEl.setAttribute('hidden', '');
-  }
-
-  function registerHoverCard(key, spec) { hoverCardRegistry.set(key, spec); }
-
-  function markHoverable(el, key, spec) {
-    if (!el || !el.setAttribute || !el.classList) return;
-    registerHoverCard(key, spec);
-    el.setAttribute('data-hover-info', key);
-    el.classList.add('hover-cardable');
-  }
-
-  function hoverAnchorFromEvent(e) {
-    if (!e || !e.target || typeof e.target.closest !== 'function') return null;
-    return e.target.closest('[data-hover-info], .teacher-link[data-master-teacher], button[data-open-doc]');
-  }
-
-  // Registered content first; the bundle-026 data lookups (teacher / work) stay
-  // as the fallback so existing name buttons keep floating their dossiers.
-  function hoverSpecFor(anchor) {
-    if (!anchor || typeof anchor.getAttribute !== 'function') return null;
-    const key = anchor.getAttribute('data-hover-info');
-    if (key && hoverCardRegistry.has(key)) return hoverCardRegistry.get(key);
-    const masterId = anchor.getAttribute('data-master-teacher');
-    const docKey = anchor.getAttribute('data-open-doc');
-    if (masterId) {
-      const m = (state.data.lineage || []).find(x => x && x.id === masterId);
-      if (!m) return null;
-      return {
-        title: `${escHtml(masterDisplayName(m))}${m.name_zh ? ` <span class="hover-card-zh" lang="zh">${escHtml(m.name_zh)}</span>` : ''}`,
-        html: teacherContextRows(m)
-      };
+  function discipleNamesFor(m) {
+    if (!m) return '';
+    const all = Array.isArray(state.data.lineage) ? state.data.lineage : [];
+    const id = m.id;
+    const kids = all.filter(x => x && (x.teacher_id === id || x.parent_id === id ||
+      (Array.isArray(x.teachers) && x.teachers.indexOf(id) >= 0)));
+    if (!kids.length && Array.isArray(m.disciples)) {
+      return m.disciples.map(d => stringValue(d)).filter(Boolean).join(', ');
     }
-    if (docKey && state.data.corpus && state.data.corpus[docKey]) {
-      const item = ((state.data.corpus_manifest && state.data.corpus_manifest.items) || []).find(i => i.key === docKey);
-      return {
-        title: escHtml(item ? item.title : docKey),
-        html: workContextRows(docKey)
-      };
-    }
-    return null;
+    return kids.map(x => masterDisplayName(x)).filter(Boolean).join(', ');
   }
 
-  function showHoverCardFor(anchor) {
-    if (state.designVariant !== '7' || !anchor) return;
-    const spec = hoverSpecFor(anchor);
-    if (!spec) return;
-    const card = getHoverCard();
-    card.innerHTML = `<div class="hover-card-title">${spec.title}</div>` +
-      `<div class="context-info-body">${spec.html}</div>`;
-    card.removeAttribute('hidden');
-    positionFloatingPopover(card, anchor, 340);
-    card._anchor = anchor;
-  }
-
-  function setupHoverCardListeners() {
-    // Registered once at boot; every handler no-ops outside layout 7.
-    document.addEventListener('mouseover', (e) => {
-      if (state.designVariant !== '7') return;
-      clearTimeout(hoverCardTimer);
-      const anchor = hoverAnchorFromEvent(e);
-      if (!anchor) return;
-      hoverCardTimer = setTimeout(() => showHoverCardFor(anchor), 120);
-    });
-    document.addEventListener('mouseout', (e) => {
-      if (state.designVariant !== '7' || !hoverCardEl || hoverCardEl.hasAttribute('hidden')) return;
-      clearTimeout(hoverCardTimer);
-      const to = e.relatedTarget;
-      if (to && typeof hoverCardEl.contains === 'function' && hoverCardEl.contains(to)) return;
-      const anchor = hoverCardEl._anchor;
-      if (to && anchor && typeof anchor.contains === 'function' && anchor.contains(to)) return;
-      hideHoverCard();
-    });
-    document.addEventListener('focusin', (e) => {
-      if (state.designVariant !== '7') return;
-      const anchor = hoverAnchorFromEvent(e);
-      if (anchor) showHoverCardFor(anchor);
-      else hideHoverCard();
-    });
-    document.addEventListener('focusout', () => {
-      if (state.designVariant !== '7' || !hoverCardEl || hoverCardEl.hasAttribute('hidden')) return;
-      setTimeout(() => {
-        const ae = document.activeElement;
-        const inCard = ae && typeof hoverCardEl.contains === 'function' && hoverCardEl.contains(ae);
-        const onAnchor = ae && hoverCardEl._anchor === ae;
-        if (!inCard && !onAnchor) hideHoverCard();
-      }, 0);
-    });
-    // Tap / click pins the card — hover does not exist on touch devices, and
-    // keyboard users get the same affordance. Navigation buttons keep their own
-    // delegated click path and are never intercepted here.
-    document.addEventListener('click', (e) => {
-      if (state.designVariant !== '7') return;
-      const anchor = e.target && e.target.closest ? e.target.closest('[data-hover-info]') : null;
-      if (!anchor) return;
-      if (typeof anchor.closest === 'function' &&
-          anchor.closest('button[data-open-doc], .teacher-link[data-master-teacher], button[data-jump-case], summary, a')) return;
-      e.preventDefault();
-      if (hoverCardEl && !hoverCardEl.hasAttribute('hidden') && hoverCardEl._anchor === anchor) hideHoverCard();
-      else showHoverCardFor(anchor);
-    });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideHoverCard(); });
-  }
-
-  function roomHoverCards(room, root) {
-    root.classList.add('rm-hovercards');
-    if (room === 'reader') readerHoverCards(root);
-    else if (room === 'matrix') matrixHoverCards(root);
-    else if (room === 'lineage') lineageHoverCards(root);
-    else if (room === 'gongan') gonganHoverCards(root);
-    else if (room === 'lexicon') lexiconHoverCards(root);
-    // The dotted-underline affordance on names that already carry data.
-    root.querySelectorAll('.teacher-link[data-master-teacher], button[data-open-doc]').forEach(el => {
-      if (el && el.classList) el.classList.add('hover-cardable');
-    });
-  }
-
-  // Reader: case titles float where the case came from; work/teacher names keep
-  // their dossiers; the room's info stack stays as one fold at the top.
-  function readerHoverCards(root) {
-    const corpusKey = state.currentCorpusKey;
-    const doc = (state.data.corpus && state.data.corpus[corpusKey]) || {};
-    const workCtx = root.querySelector('.work-context');
-    if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
-    const stack = document.createElement('details');
-    stack.className = 'rm-fold rm-room-info';
-    stack.innerHTML = `<summary>About this work and its teachers</summary>` +
-      `<div class="context-info-body">${readerInfoStackHtml()}</div>`;
-    const heading = root.querySelector('.document-heading');
-    if (heading && heading.parentNode) heading.parentNode.insertBefore(stack, heading.nextSibling);
-    else root.insertBefore(stack, root.firstChild);
-
-    const locators = locatorDocumentForKey(corpusKey);
-    root.querySelectorAll('.case-card').forEach((card, i) => {
-      const title = typeof card.querySelector === 'function' ? card.querySelector('.case-num-title') : null;
-      if (!title) return;
-      const num = card.getAttribute ? (card.id || '').replace('case-', '') : '';
-      const caseLoc = num && locators && isRecord(locators.case_locators) ? locators.case_locators[num] : null;
-      const en = queryText(card, '.translation-text') || queryText(card, '.prose-en');
-      markHoverable(title, `reader:${i}`, {
-        title: escHtml(clipText(queryText(title, '.case-heading-en') || nodeText(title), 70)),
-        html: infoRows([
-          ['Where it came from', `Part of ${escHtml(stringValue(doc.title_en) || corpusKey)}, CBETA witness ${escHtml(stringValue(doc.cbeta_id) || 'not recorded')}.${caseLoc && caseLoc.locator ? ` This part: ${escHtml(stringValue(caseLoc.locator))}.` : ''}`],
-          ['What is related', `The whole work, its edition ledgers and the teachers linked to it — see the fold above this reading.`],
-          ['Background', escHtml(clipText(en, 220) || 'No English rendering recorded for this part.')]
-        ])
-      });
-    });
-  }
-
-  // Compare: register names float who rendered the line and how; the source
-  // reference floats the Chinese line and its record.
-  function matrixHoverCards(root) {
-    const list = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : [];
-    root.querySelectorAll('.matrix-proof-sheet').forEach((sheet, i) => {
-      const item = list[i];
-      if (!item) return;
-      const ref = typeof sheet.querySelector === 'function' ? sheet.querySelector('.matrix-ref-clean') : null;
-      if (ref) {
-        const locator = matrixLocatorForReference(item.source_ref);
-        markHoverable(ref, `matrix-ref:${i}`, {
-          title: escHtml(stringValue(item.source_ref)),
-          html: `<div class="rm-modal-zh" lang="zh">${escHtml(stringValue(item.sentence_zh))}</div>` +
-            `<div class="rm-modal-py">${escHtml(stringValue(item.sentence_pinyin))}</div>` +
-            `<div class="context-info-body">${infoRows(matrixInfoRows(item, i))}</div>` +
-            (locator ? `<div class="rm-quiet">Record: ${escHtml(stringValue(locator.document || ''))}${locator.locator ? ' · ' + escHtml(stringValue(locator.locator)) : ''}</div>` : '')
-        });
-      }
-      const regs = Array.isArray(item.translators) ? item.translators : [];
-      sheet.querySelectorAll('.matrix-register-row').forEach((row, j) => {
-        const t = regs[j] || {};
-        const nameEl = typeof row.querySelector === 'function' ? row.querySelector('.matrix-register-name') : null;
-        if (!nameEl) return;
-        markHoverable(nameEl, `matrix-reg:${i}:${j}`, {
-          title: escHtml(stringValue(t.translator) || queryText(nameEl, '') || 'Register'),
-          html: infoRows([
-            ['Where it came from', `${escHtml(stringValue(t.work) || 'work not recorded')}${t.style ? ` · ${escHtml(stringValue(t.style))}` : ''}. Status: ${escHtml(stringValue(t.status) || 'not recorded')}.`],
-            ['What is related', `One of ${regs.length} renderings of ${escHtml(stringValue(item.source_ref))}.`],
-            ['Background', escHtml(stringValue(t.notes) || 'No note recorded for this rendering.') + ` “${escHtml(clipText(stringValue(t.text), 200))}”`]
-          ])
-        });
-      });
-    });
-  }
-
-  // Lineage: a teacher's name floats their whole dossier; the house floats the
-  // controlled-vocabulary note for that school.
-  function lineageHoverCards(root) {
-    const vocab = (state.data.lineage_school_vocab && Array.isArray(state.data.lineage_school_vocab.schools))
-      ? state.data.lineage_school_vocab.schools : [];
-    root.querySelectorAll('.lineage-master-row').forEach((row, i) => {
-      const id = row.getAttribute ? row.getAttribute('data-master-card') : null;
-      const m = (state.data.lineage || []).find(x => x && x.id === id);
-      const nameEl = typeof row.querySelector === 'function' ? row.querySelector('.lineage-master-name-en') : null;
-      if (m && nameEl) {
-        markHoverable(nameEl, `lineage:${i}`, {
-          title: `${escHtml(masterDisplayName(m))}${m.name_zh ? ` <span class="hover-card-zh" lang="zh">${escHtml(m.name_zh)}</span>` : ''}`,
-          html: teacherContextRows(m)
-        });
-      }
-      const houseEl = typeof row.querySelector === 'function' ? row.querySelector('.lineage-master-house') : null;
-      if (houseEl && m) {
-        const school = vocab.find(v => v && v.key === m.school_key);
-        markHoverable(houseEl, `lineage-school:${i}`, {
-          title: escHtml(stringValue(m.school) || 'House'),
-          html: infoRows([
-            ['Where it came from', escHtml(stringValue(school && school.note) || 'No vocabulary note recorded for this house.')],
-            ['Who is related', `${escHtml(discipleNamesFor(m) || 'No profiled disciples')} are profiled here as this teacher's disciples.`],
-            ['Background', escHtml(clipText(stringValue(m.summary), 240) || 'No background summary recorded.')]
-          ])
-        });
-      }
-    });
-  }
-
-  // Cases: a case title floats what happens and where it was indexed from; the
-  // collection floats how many cases in this project come from it.
-  function gonganHoverCards(root) {
-    const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-    root.querySelectorAll('.catalogue-row').forEach((row, i) => {
-      const no = queryText(row, '.catalogue-case');
-      const g = list.find(x => x && stringValue(x.case_no) === no) || list[i];
-      if (!g) return;
-      const titleEl = typeof row.querySelector === 'function' ? row.querySelector('.catalogue-title-en') : null;
-      if (titleEl) {
-        markHoverable(titleEl, `gongan:${i}`, {
-          title: `Case ${escHtml(stringValue(g.case_no))} · ${escHtml(stringValue(g.title_en))}`,
-          html: `<div class="context-info-body">${infoRows(gonganInfoRows(g))}</div>`
-        });
-      }
-      const collEl = typeof row.querySelector === 'function' ? row.querySelector('.catalogue-collection') : null;
-      if (collEl) {
-        const same = list.filter(x => x && x.collection === g.collection);
-        markHoverable(collEl, `gongan-coll:${i}`, {
-          title: escHtml(stringValue(g.collection)),
-          html: infoRows([
-            ['Where it came from', `${same.length} indexed case${same.length === 1 ? '' : 's'} in this project come from this collection.`],
-            ['What is related', same.map(x => `Case ${escHtml(stringValue(x.case_no))}`).join(' · ')],
-            ['Background', 'A collection is the compiled book a case was indexed from; the case numbers here are that book\'s own numbering.']
-          ])
-        });
-      }
-    });
-  }
-
-  // Terms: the headword floats the definition, so the room can stay a bare
-  // headword list — the lightest default surface of the seven layouts.
-  function lexiconHoverCards(root) {
-    const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-    root.querySelectorAll('.lexicon-entry').forEach((entry, i) => {
-      const head = queryText(entry, '.lexicon-headword-zh');
-      const item = list.find(x => x && x.term === head) || list[i];
-      if (!item) return;
-      const headEl = typeof entry.querySelector === 'function' ? entry.querySelector('.lexicon-headword') : null;
-      if (headEl) {
-        markHoverable(headEl, `lexicon:${i}`, {
-          title: `${escHtml(stringValue(item.literal))}${item.term ? ` <span class="hover-card-zh" lang="zh">${escHtml(item.term)}</span>` : ''}`,
-          html: `<div class="context-info-body">${infoRows(lexiconInfoRows(item))}</div>`
-        });
-      }
-      const occEl = typeof entry.querySelector === 'function' ? entry.querySelector('.lexicon-entry-cat') : null;
-      if (occEl) {
-        markHoverable(occEl, `lexicon-cat:${i}`, {
-          title: escHtml(stringValue(item.category)),
-          html: infoRows([
-            ['Where it came from', `Terms in this project are grouped by the family of Chan usage they belong to.`],
-            ['What is related', `${list.filter(x => x && x.category === item.category).length} term(s) share this category.`],
-            ['Background', escHtml(clipText(stringValue(item.definition), 240))]
-          ])
-        });
-      }
-    });
-  }
-
-
-  // Event Listeners
   function setupEventListeners() {
     setupCitationPopoverListeners();
     setupRoboNameListeners();
