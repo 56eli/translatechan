@@ -49,6 +49,21 @@ jobs:
       - name: Enforce W1 source-review rule suite (138 checks)
         run: python3 scripts/test_source_review_rules.py
 
+      - name: Per-variant acceptance gate for rebuilt layouts (required per work order 2026-09-18-letter-002 item 3 — replaces continue-on-error presentation steps for rebuilt variants; variants 1-2 and the base shell grandfathered)
+        run: |
+          git fetch --depth=1 origin main 2>/dev/null || true
+          variants="$(git diff --unified=0 FETCH_HEAD -- app.css 2>/dev/null | grep -o 'rebuild:[0-9][0-9]* begin' | grep -o '[0-9][0-9]*' | sort -un || true)"
+          if [ -z "$variants" ]; then
+            echo "No rebuilt-variant block in this diff — per-variant acceptance gate not applicable."
+            exit 0
+          fi
+          status=0
+          for v in $variants; do
+            echo "Acceptance — variant $v"
+            python3 scripts/check_layout_variant.py "$v" || status=1
+          done
+          exit $status
+
       - name: Require generated artifacts and deploy mirror to be committed (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
         continue-on-error: true
         run: |
