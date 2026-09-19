@@ -80,13 +80,9 @@
       } catch (e) { return {}; }
     })(),
     theme: storageGet('translatechan_theme') || 'light',
-    // Bundle 028: numbered LAYOUT presets 1–7 (1 = current ideal layout +
-    // ideal colors; 2 = the bundle-026 Accordion Reader, kept; 3–7 = the same
-    // five disclosure ideas reimplemented DRASTIC across all five rooms).
-    // Legacy 025 letter presets (a–e, colors-only) and 026's 3–6 collapse to 1.
-    designVariant: (() => { const v = storageGet('translatechan_design_variant'); return ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'].includes(v) ? v : '1'; })(),
-    // Per-room pane memory for the tabbed layout (keyed "<variant>:<room>").
-    roomTab: {},
+    // Reading preferences (measure, register count, quiet, context rail) are
+    // loaded from storage in loadReadingPrefs() and published as data-*
+    // attributes on <html>; the sheet and the margin read them from there.
     nameMode: (() => { const v = storageGet('translatechan_name_mode'); return v === 'romaji' ? 'romaji' : 'pinyin'; })(),
     searchQuery: '',
     selectedMasterSchool: 'all',
@@ -102,7 +98,6 @@
   // DOM Elements
   const elements = {
     themeToggle: document.getElementById('theme-toggle'),
-    designSwitcher: document.getElementById('design-switcher'),
     navTabs: document.querySelectorAll('.nav-tab-btn'),
     viewSections: document.querySelectorAll('.view-section'),
     globalSearch: document.getElementById('global-search'),
@@ -213,9 +208,11 @@
     if (m && m[2]) setCurrentCorpusKey(m[2]);
 
     applyTheme(state.theme);
-    applyDesignVariant(state.designVariant);
-    renderDesignSwitcher();
+    loadReadingPrefs();
+    applyReadingPrefs();
     syncSettingsUI();
+    syncReadingUI();
+    setupMargin();
     setupShellMetrics();
     document.documentElement.style.setProperty('--zh-font-size', `${state.fontSize}rem`);
     updateHeroCounts();
@@ -233,7 +230,12 @@
     // pipeline change — boot simply skips DOM building for rooms nobody is
     // looking at.
     switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
-    appBooted = true; // layout switches may now trigger live re-renders
+    // The margin follows the sheet from the first passage onward — but it is
+    // only *shown* on entry where it is a column. Under the hall's rail
+    // breakpoint the same rail is a sheet over the text, so nothing opens
+    // itself: the reader asks for it (Context in the mobile bar, or a door).
+    armScrollSpy();
+    if (READER_PREFS.contextOn && marginWide()) marginFollowCurrent(true);
   }
 
   // L1 (audit 2026-08-10, session 019feabb): dismissable hero banner.
@@ -587,5010 +589,1319 @@
     }
   }
 
-  // Boot-complete flag: applyDesignVariant re-renders rooms only after init()
-  // finishes (during boot it merely applies the persisted layout).
-  let appBooted = false;
 
-  // Phase 5 — layout switcher. Numbers 1–7: 1 keeps the current ideal layout
-  // AND ideal colors; 2 keeps the bundle-026 Accordion Reader the owner saw
-  // improvements in; 3–7 are COMPLETELY REDONE as truly drastic layouts
-  // (Focus / Timeline / Graph-Split / Hamburger / Dossier). All seven share
-  // layout 1's colors and the COMMON QUALITIES (light mental load, English
-  // first, not dense, comfortable to read, easy to navigate, piece-meal plain
-  // language, work/teacher info sections). data-design on <html>; examples
-  // only — the owner rates them.
-  const DESIGN_VARIANTS = [
-    { key: '1', label: '1', name: 'Classic scroll — current ideal' },
-    { key: '2', label: '2', name: 'Accordion Reader — kept' },
-    { key: '3', label: '3', name: 'Focus Mode — centered 38rem' },
-    { key: '4', label: '4', name: 'Timeline — horizontal scroll' },
-    { key: '5', label: '5', name: 'Graph + Reader split 32/68' },
-    { key: '6', label: '6', name: 'Minimal header + hamburger' },
-    { key: '7', label: '7', name: 'Info-first dossier' },
-    { key: '8', label: '8', name: 'Tabbed + breadcrumb' },
-    { key: '9', label: '9', name: 'Bottom sheet' },
-    { key: '10', label: '10', name: 'Sticky TOC 16rem / 1fr / 16rem' },
-    { key: '11', label: '11', name: 'Search-first landing' },
-    { key: '12', label: '12', name: 'Question-driven — where from / who related / background' },
-    { key: '13', label: '13', name: 'Side-by-side English / Chinese' },
-    { key: '14', label: '14', name: 'Related rail 18rem — hover for why' },
-    { key: '15', label: '15', name: 'Footnotes + glossary' },
-    { key: '16', label: '16', name: 'Progressive disclosure scroll' },
-    { key: '17', label: '17', name: 'Modal info' },
-    { key: '18', label: '18', name: 'Hover cards' },
-    { key: '19', label: '19', name: 'Sentence-by-sentence' },
-    { key: '20', label: '20', name: 'Chapter chunks' },
-    { key: '21', label: '21', name: 'Work dossier page' },
-    { key: '22', label: '22', name: 'Teacher dossier page' },
-    { key: '23', label: '23', name: 'Two-step reader' },
-    { key: '24', label: '24', name: 'Command palette (cmd+k)' },
-    { key: '25', label: '25', name: 'Trail + prev/next + slider + inline origin' },
-    { key: '26', label: '26', name: 'Empty state guidance' },
-    { key: '27', label: '27', name: 'Comparison slider' },
-    { key: '28', label: '28', name: 'Inline teacher origin' },
-    { key: '29', label: '29', name: 'Minimal header + full-bleed reading' },
-    { key: '30', label: '30', name: 'Magazine spread' },
-    { key: '31', label: '31', name: 'Card wall' },
-    { key: '32', label: '32', name: 'Vertical timeline' },
-    { key: '33', label: '33', name: 'Split with resizable context drawer' },
-    { key: '34', label: '34', name: 'Glossary sidebar + footnotes' },
-    { key: '35', label: '35', name: 'Focus + TOC hybrid' },
-    { key: '36', label: '36', name: 'Chan Library — The Chan Room (owner-provided zip)' }
-  ];
-
-  function applyDesignVariant(variant) {
-    if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
-      '16', '17', '18', '19', '20', '21', '22', '23', '24', '25',
-      '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36'].includes(variant)) variant = '1';
-    state.designVariant = variant;
-    document.documentElement.setAttribute('data-design', variant);
-    storageSet('translatechan_design_variant', variant);
-    // Reflect the active state on the switcher buttons (class + ARIA only).
-    if (elements.designSwitcher) {
-      elements.designSwitcher.querySelectorAll('.design-btn').forEach(btn => {
-        const on = btn.getAttribute('data-design-variant') === variant;
-        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-        btn.classList.toggle('active', on);
-      });
-    }
-    // Layouts 2–7 are structural: rebuild the Reader AND every already-seen
-    // room, so the new disclosure structure takes effect immediately in all
-    // five rooms — that is the whole point of the drastic reimplementation.
-    // Skipped before boot finishes (init applies the persisted variant first).
-    if (appBooted) {
-      resetLayoutRuntime();
-      renderReader();
-      for (const name of Object.keys(ROOM_RENDERERS)) {
-        if (renderedRooms.has(name)) ROOM_RENDERERS[name]();
-      }
-    }
-  }
-
-  // Leaving a layout must not leave its runtime behind: an open modal, a pinned
-  // hover card, a live IntersectionObserver or a stale content registry would
-  // all survive into the next layout and show the wrong room's information.
-  function resetLayoutRuntime() {
-    closeInfoModal();
-    hideHoverCard();
-    closeNavDrawer();
-    // 8–15 leave no runtime behind either: the bottom sheet (layout 9) closes
-    // and every room's chrome container is torn down before a re-render.
-    if (typeof document !== 'undefined' && document.querySelectorAll) {
-      document.querySelectorAll('.rm-sheet-shell').forEach(shell => {
-        shell.classList.remove('is-open');
-        shell.setAttribute('hidden', '');
-      });
-    }
-    // 16–25 own document-level chrome (progress rail, modal-info overlay,
-    // command palette, bookmark trail, hover card). Leaving the layout removes
-    // all of it so none of it survives into the next layout or into layout 1.
-    teardownLayout16Chrome();
-    if (roomRevealObserver && typeof roomRevealObserver.disconnect === 'function') roomRevealObserver.disconnect();
-    roomRevealObserver = null;
-    infoModalRegistry.clear();
-    hoverCardRegistry.clear();
-    applyShellBrandForVariant(state.designVariant);
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = state.designVariant !== '3';
-  }
-
-  function renderDesignSwitcher() {
-    const container = elements.designSwitcher;
-    if (!container) return;
-    container.innerHTML =
-      '<span class="design-switcher-label" aria-hidden="true">Layout</span>' +
-      DESIGN_VARIANTS.map(v =>
-        `<button type="button" class="design-btn" data-design-variant="${v.key}" ` +
-        `aria-label="Layout ${v.label}: ${v.name}" ` +
-        `title="Layout ${v.label}: ${v.name} — examples only, not a judgment" ` +
-        `aria-pressed="${state.designVariant === v.key ? 'true' : 'false'}">${v.label}</button>`
-      ).join('');
-    // One delegated activator: each button applies the layout and persists it.
-    container.addEventListener('click', (e) => {
-      const btn = e.target && e.target.closest ? e.target.closest('.design-btn') : null;
-      if (!btn) return;
-      applyDesignVariant(btn.getAttribute('data-design-variant'));
-    });
-  }
 
   // ==========================================================================
-  // Phase 5 — LAYOUTS 1–7 (redo 3–7 truly drastic, 2026-09-17)
-  // keep 1 + 2, completely redo 3–7 per owner "3-7 must be completely redone"
+  //  THE MARGIN — the built-in wiki
   // --------------------------------------------------------------------------
-  // 1 = the current ideal layout AND the ideal colors (no override at all).
-  // 2 = Accordion Reader — KEPT byte-for-byte as bundle 026 shipped it, because
-  //     the owner saw improvements there. Reader only.
-  // 3–7 = truly drastic alternative layouts (shell+nav+grid+IA), not wrappers:
-  //       3 Focus Mode             — centered 38rem, chrome off, [i] drawers
-  //       4 Timeline View          — horizontal scroll-snap cards 18–26rem
-  //       5 Graph + Reader Split   — 32% sticky dots + 68% English reader
-  //       6 Minimal Header+Hamburger — 3rem header, nav in drawer, 42rem body
-  //       7 Info-First Dossier     — info hero top, translation collapsed
+  //  The hall used to be five rooms that never spoke to each other: a Reader, a
+  //  Matrix, a Lineage tree, a case index and a dictionary — the same master,
+  //  the same case and the same term written five times in five vocabularies,
+  //  with thirty-six layout demonstrations piled on top (removed 2026-09-19).
   //
-  // All seven share layout 1's colors exactly — only structure varies — and all
-  // seven carry the COMMON QUALITIES: light mental load (minimum information by
-  // default, everything extra behind expand / hover / toggle), English first,
-  // not dense, comfortable to read, easy to navigate, piece-meal plain
-  // language, and an info section for every work and teacher (where it came
-  // from, what or who is related, background context).
-  //
-  // Zero inline styles, zero new .style writes — four setProperty calls stay
-  // four. Everything below no-ops in layout 1. Layout 2 path unchanged.
+  //  This block is the recomposition. One index of entities is built from the
+  //  deterministic bundle (masters, works, terms, cases, registers); an
+  //  annotator turns the names inside the text into doors; and one margin rail
+  //  renders the record of whatever the reader is looking at. The margin IS the
+  //  dossier panel (#master-dossier-panel), so a master, a term, a case card and
+  //  a work's provenance all open in the same place, one gesture from the
+  //  passage. Nothing here invents content: every string comes from data/, and
+  //  every disclosure the rooms already printed is still printed — quieter, in
+  //  one voice, beside the text it describes.
   // ==========================================================================
 
-  // Layouts 3–7 are structural in every room, so each room renderer calls
-  // enhanceRoomLayout(room) after it writes innerHTML. That covers lazy first
-  // render, filter changes, sort changes and layout switches alike.
+  const WIKI_LABEL = { master: 'Master', work: 'Work', term: 'Term', case: 'Case', register: 'Register', edge: 'Lineage link' };
+  const FRONTIER_NOTE = 'Not profiled in this project; the record stays with the frontier list in data/lineage/profile_review_queue.json.';
+  const glossaryList = () => (Array.isArray(state.data.glossary) ? state.data.glossary : []);
+  const lineageList = () => (Array.isArray(state.data.lineage) ? state.data.lineage : []);
+  const gonganList = () => (Array.isArray(state.data.gongan_index) ? state.data.gongan_index : []);
 
-  // Stubs kept so older listeners and resetLayoutRuntime stay safe after the
-  // 3–7 redo removed modal/hover/progressive families. No-ops unless a future
-  // layout reintroduces the real implementations.
-  const infoModalRegistry = new Map();
-  const hoverCardRegistry = new Map();
-  let roomRevealObserver = null;
-  let hoverCardEl = null;
-  let hoverCardTimer = null;
-  function closeInfoModal() {
-    const root = document.getElementById('layout-info-modal');
-    if (root) root.setAttribute('hidden', '');
-  }
-  function hideHoverCard() {
-    if (hoverCardEl) hoverCardEl.setAttribute('hidden', '');
-    clearTimeout(hoverCardTimer);
-  }
-  function setupHoverCardListeners() {
-    // No-op: layout 7 is now Info-First Dossier, not hover cards.
-  }
-
-  const DRASTIC_LAYOUTS = ['3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15',
-    '16', '17', '18', '19', '20', '21', '22', '23', '24', '25',
-    '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36'];
-
-  function roomRoot(room) {
-    if (room === 'reader') return elements.readerContent;
-    if (room === 'matrix') return elements.matrixTarget;
-    if (room === 'lineage') return elements.lineageTarget;
-    if (room === 'gongan') return elements.gonganTarget;
-    if (room === 'lexicon') return elements.lexiconTarget;
-    return null;
-  }
-
-  // The repeating unit of each room — the thing a drastic layout re-structures.
-  const ROOM_UNIT_SELECTOR = {
-    reader: '.case-card',
-    matrix: '.matrix-proof-sheet',
-    lineage: '.lineage-master-row',
-    gongan: '.catalogue-row',
-    lexicon: '.lexicon-entry'
-  };
-  // Plain-language noun for the unit, used in button labels ("About this case").
-  const ROOM_UNIT_NOUN = {
-    reader: 'part', matrix: 'line', lineage: 'teacher', gongan: 'case', lexicon: 'term'
-  };
-  const ROOM_LAYOUT_CLASSES = ['rm-focus', 'rm-timeline', 'rm-graphsplit', 'rm-hamburger', 'rm-dossier',
-    'rm-accordion', 'rm-progressive', 'rm-tabbed', 'rm-modal', 'rm-hovercards',
-    'rm-sheet', 'rm-toc', 'rm-searchfirst', 'rm-questions', 'rm-sidebyside', 'rm-rail', 'rm-notes',
-    'rm-reveal', 'rm-modalinfo', 'rm-hovercard', 'rm-sentence', 'rm-chunks', 'rm-workdossier',
-    'rm-teacherdossier', 'rm-twostep', 'rm-palette', 'rm-trail',
-    'rm-emptystate', 'rm-cmpslider', 'rm-inlineorigin', 'rm-fullbleed', 'rm-magazine',
-    'rm-cardwall', 'rm-vtimeline', 'rm-splitresize', 'rm-glossbar', 'rm-hybrid', 'rm-chanroom'];
-
-  function clearRoomLayoutClasses(root) {
-    if (!root || !root.classList) return;
-    ROOM_LAYOUT_CLASSES.forEach(c => root.classList.remove(c));
-  }
-
-  function roomUnits(root, room) {
-    if (!root || typeof root.querySelectorAll !== 'function') return [];
-    const sel = ROOM_UNIT_SELECTOR[room];
-    if (!sel) return [];
-    return Array.from(root.querySelectorAll(sel)).filter(Boolean);
-  }
-
-  // Text helpers — everything generated here is escaped before it reaches HTML.
-  function nodeText(node) {
-    return node && typeof node.textContent === 'string' ? node.textContent.replace(/\s+/g, ' ').trim() : '';
-  }
-  function queryText(scope, sel) {
-    if (!scope || typeof scope.querySelector !== 'function') return '';
-    return nodeText(scope.querySelector(sel));
-  }
-  function clipText(text, max) {
-    const s = String(text || '').trim();
-    if (!s) return '';
-    return s.length > max ? s.slice(0, max - 1).trimEnd() + '…' : s;
-  }
-
-  // One English-first headline per unit. Built from what the room already
-  // rendered (never invented), Chinese kept as a quiet subordinate chip.
-  function unitHeadline(room, unit, idx) {
-    if (room === 'reader') {
-      const kicker = queryText(unit, '.case-heading-kicker');
-      const en = queryText(unit, '.case-heading-en') || queryText(unit, '.case-num-title');
-      const zh = queryText(unit, '.case-heading-zh');
-      const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
-      return { kicker: kicker || `Part ${idx + 1}`, en: clipText(en, 90), zh, note: clipText(lead, 110) };
+  // ---- folded matching ------------------------------------------------------
+  // English needles are tone-marked (Zhàozhōu, Sēngcàn) while prose is not, so
+  // both sides fold through normalizeForSearch. The fold map turns a folded
+  // offset back into a raw one, so a span never cuts a combining mark in half.
+  const foldMapCache = new Map();
+  function foldMap(text) {
+    const cached = foldMapCache.get(text);
+    if (cached) return cached;
+    const offsets = [];
+    const chars = [];
+    for (let i = 0; i < text.length; i += 1) {
+      const folded = normalizeForSearch(text[i]);
+      for (let j = 0; j < folded.length; j += 1) { chars.push(folded[j]); offsets.push(i); }
     }
-    if (room === 'matrix') {
-      const ref = queryText(unit, '.matrix-ref-clean');
-      const firstEn = queryText(unit, '.matrix-register-text');
-      const count = typeof unit.querySelectorAll === 'function' ? unit.querySelectorAll('.matrix-register-row').length : 0;
-      return { kicker: `Line ${idx + 1}`, en: clipText(ref, 80), zh: '', note: `${count} register${count === 1 ? '' : 's'} · ${clipText(firstEn, 90)}` };
-    }
-    if (room === 'lineage') {
-      const en = queryText(unit, '.lineage-master-name-en');
-      const zh = queryText(unit, '.lineage-master-name-zh');
-      const house = queryText(unit, '.lineage-master-house');
-      const dates = queryText(unit, '.lineage-master-record span');
-      return { kicker: queryText(unit, '.lineage-master-gen'), en: clipText(en, 60), zh: clipText(zh, 40), note: `${house}${dates ? ' · ' + dates : ''}` };
-    }
-    if (room === 'gongan') {
-      return {
-        kicker: queryText(unit, '.catalogue-case'),
-        en: clipText(queryText(unit, '.catalogue-title-en'), 80),
-        zh: clipText(queryText(unit, '.catalogue-title-zh'), 40),
-        note: clipText(queryText(unit, '.catalogue-collection'), 60)
-      };
-    }
-    // lexicon
-    return {
-      kicker: queryText(unit, '.lexicon-entry-cat'),
-      en: clipText(queryText(unit, '.lexicon-headword'), 60),
-      zh: clipText(queryText(unit, '.lexicon-headword-zh'), 24),
-      note: clipText(queryText(unit, '.lexicon-headword-meta'), 60)
+    const map = { folded: chars.join(''), offsets };
+    if (foldMapCache.size > 6000) foldMapCache.clear();
+    foldMapCache.set(text, map);
+    return map;
+  }
+
+  // ---- the entity index ------------------------------------------------------
+  let wikiIndex = null;
+
+  function wikiEnsure() {
+    if (wikiIndex) return wikiIndex;
+    const entities = new Map();
+    const zhNeedles = [];
+    const enNeedles = [];
+
+    const add = (kind, id, record) => {
+      if (!id) return null;
+      const key = `${kind}:${id}`;
+      if (entities.has(key)) return key;
+      entities.set(key, Object.assign({ kind, id, key }, record || {}));
+      return key;
     };
-  }
+    const push = (list, needle, key, minLength, once) => {
+      const text = stringValue(needle).trim();
+      if (!text || !key) return;
+      if (minLength && text.length < minLength) return;
+      list.push({ needle: text, key, once: !!once });
+    };
 
-  function headlineHtml(h) {
-    return `${h.kicker ? `<span class="rm-acc-kicker">${escHtml(h.kicker)}</span>` : ''}` +
-      `<span class="rm-acc-en">${escHtml(h.en || 'Untitled')}</span>` +
-      `${h.zh ? `<span class="rm-acc-zh" lang="zh">${escHtml(h.zh)}</span>` : ''}` +
-      `${h.note ? `<span class="rm-acc-note">${escHtml(h.note)}</span>` : ''}`;
-  }
-
-  // A plain-language info block, used wherever a room has no curated info
-  // section of its own yet (matrix lines, cases, terms). Three rows, same
-  // shape as the work/teacher info sections: where from · related · background.
-  function infoRows(rows) {
-    return rows.map(r =>
-      `    <div class="context-row"><div class="context-label">${escHtml(r[0])}</div><div class="context-text">${r[1]}</div></div>\n`
-    ).join('');
-  }
-  function infoBlock(title, rows, className) {
-    return `<details class="context-info rm-info${className ? ' ' + className : ''}">\n` +
-      `  <summary>${escHtml(title)}</summary>\n` +
-      `  <div class="context-info-body">\n` + infoRows(rows) + `  </div>\n` +
-      `</details>`;
-  }
-
-  // Per-room info sections (common qualities: every work and every teacher gets
-  // one). Built only from bundled data fields — no invented Chinese.
-  function matrixInfoRows(item, idx) {
-    const translators = Array.isArray(item.translators) ? item.translators : [];
-    const locator = matrixLocatorForReference(item.source_ref);
-    const locatorText = locator
-      ? `${stringValue(locator.document || 'recorded document')}${locator.locator ? ' · ' + stringValue(locator.locator) : ''}`
-      : 'Locator not recorded for this line yet.';
-    const registers = translators.map(t => stringValue(t.translator)).filter(Boolean);
-    return [
-      ['Where it came from', `One source line, ${escHtml(stringValue(item.source_ref))}, taken from ${escHtml(locatorText)}. The Classical Chinese is the source; every English line under it is a separate rendering.`],
-      ['What is related', `${registers.length} rendering${registers.length === 1 ? '' : 's'} of this same line: ${escHtml(registers.length ? registers.join(', ') : 'none recorded')}. Compare them in the Full comparison pane.`],
-      ['Background', `This room exists so one Chinese sentence can be read against several English voices at once. Renderings marked as project drafts are machine-made and clearly labelled; quoted renderings carry their own edition record.`]
-    ];
-  }
-
-  function gonganInfoRows(g) {
-    const masters = Array.isArray(state.data.lineage) ? state.data.lineage : [];
-    const protagonist = masters.find(m => m && (m.id === g.protagonist || m.name_zh === g.protagonist));
-    const related = protagonist
-      ? `<button class="btn-pill teacher-link" data-master-teacher="${escHtml(protagonist.id)}">${escHtml(masterDisplayName(protagonist))}</button>`
-      : escHtml(stringValue(g.protagonist) || 'Not recorded');
-    const crosses = Array.isArray(g.cross_refs) ? g.cross_refs : [];
-    return [
-      ['Where it came from', `Indexed from ${escHtml(stringValue(g.collection) || 'a recorded collection')} as case ${escHtml(stringValue(g.case_no))}. Canonical record: ${escHtml(stringValue(g.cbeta_id) || 'not recorded')}.`],
-      ['What is related', `Protagonist: ${related}. Cross-references: ${crosses.length ? escHtml(crosses.join(' · ')) : 'none recorded'}.`],
-      ['Background', `${escHtml(gonganGroupDisplay(stringValue(g.theme_group)))} — ${escHtml(stringValue(g.theme) || 'theme not recorded')}. ${escHtml(clipText(stringValue(g.summary), 260))}`]
-    ];
-  }
-
-  function lexiconInfoRows(item) {
-    const occ = Array.isArray(item.occurrences) ? item.occurrences : [];
-    return [
-      ['Where it came from', `A Classical Chan term, read ${escHtml(stringValue(item.pinyin) || 'reading not recorded')}${item.sanskrit ? `, from Sanskrit ${escHtml(stringValue(item.sanskrit))}` : ''}. Recorded in ${occ.length} canonical location${occ.length === 1 ? '' : 's'} in this project.`],
-      ['What is related', `Category: ${escHtml(stringValue(item.category) || 'not recorded')}. Occurrences: ${occ.length ? escHtml(occ.join(' · ')) : 'none recorded'}.`],
-      ['Background', `${escHtml(stringValue(item.definition) || 'No definition recorded.')}`]
-    ];
-  }
-
-  // The Reader's own info stack: this work, plus every teacher linked to it.
-  // Layouts 3–7 all surface it, each in its own structure.
-  function readerInfoStackHtml() {
-    const corpusKey = state.currentCorpusKey;
-    const related = relatedTeachersForCorpusKey(corpusKey);
-    const teachers = related.length
-      ? related.map(m =>
-          `<div class="rm-teacher-block"><h3 class="rm-teacher-name">${escHtml(masterDisplayName(m))}` +
-          `${m.name_zh ? ` <span lang="zh" class="rm-teacher-zh">${escHtml(m.name_zh)}</span>` : ''}</h3>` +
-          `<div class="context-info-body">${teacherContextRows(m)}</div></div>`).join('')
-      : '<p class="rm-empty">No profiled teacher is linked to this work yet.</p>';
-    return `<div class="rm-info-stack">` +
-      `<div class="context-info-body">${workContextRows(corpusKey)}</div>` +
-      `<h3 class="rm-stack-subhead">Teachers connected to this work</h3>${teachers}` +
-      `</div>`;
-  }
-
-  // Adopt everything a room already rendered into one box, so a tabbed layout
-  // can offer it as a single pane without rewriting the room's own renderer.
-  function adoptRoomChildren(root, className) {
-    const box = document.createElement('div');
-    box.className = className;
-    Array.from(root.childNodes).forEach(n => box.appendChild(n));
-    root.appendChild(box);
-    return box;
-  }
-
-  // Move a set of sibling nodes into a fresh <details> where the first stood.
-  function wrapNodesInDetails(nodes, summaryHtml, className, open) {
-    const list = Array.from(nodes || []).filter(Boolean);
-    if (!list.length) return null;
-    const d = document.createElement('details');
-    d.className = className;
-    if (open) d.setAttribute('open', '');
-    const s = document.createElement('summary');
-    s.innerHTML = summaryHtml;
-    d.appendChild(s);
-    const first = list[0];
-    if (first.parentNode) first.parentNode.insertBefore(d, first);
-    list.forEach(n => d.appendChild(n));
-    return d;
-  }
-
-  // Wrap ONE node in a <details> panel (used by every drastic family).
-  function wrapNodeInDetails(node, summaryHtml, className, open) {
-    return wrapNodesInDetails([node], summaryHtml, className, open);
-  }
-
-  // --- Layout 2 · Accordion Reader — KEPT from bundle 026, unchanged. ---------
-  // The owner saw improvements here, so this code path stays exactly as it was:
-  // Reader only, inner sections fold, English translation starts open.
-  function enhanceAccordionReader() {
-    const root = elements.readerContent;
-    if (!root || typeof root.querySelectorAll !== 'function') return;
-    root.classList.add('layout-accordion');
-
-    // Dialogue turns: Chinese + pinyin fold away; English stays open.
-    root.querySelectorAll('.dialogue-turn').forEach(turn => {
-      if (!turn || !turn.children) return;
-      const zhNodes = Array.from(turn.children).filter(n =>
-        n.classList && (n.classList.contains('classical-zh') || n.classList.contains('pinyin-line')));
-      if (zhNodes.length) {
-        wrapNodesInDetails(zhNodes, 'Chinese source <span class="acc-zh-chip" lang="zh">漢文</span>', 'acc-sec acc-zh', false);
-      }
-      const grids = Array.from(turn.children).filter(n => n.classList && n.classList.contains('translation-grid'));
-      if (grids.length) wrapNodesInDetails(grids, 'Translation — English', 'acc-sec acc-en', true);
-      const notes = Array.from(turn.children).filter(n => n.classList && n.classList.contains('provenance-line'));
-      if (notes.length) wrapNodesInDetails(notes, 'Notes on this passage', 'acc-sec acc-notes', false);
+    lineageList().forEach(m => {
+      if (!isRecord(m) || !m.id) return;
+      const key = add('master', m.id, {
+        name_zh: m.name_zh, name_en: m.name_en, name_pinyin: m.name_pinyin, name_romaji: m.name_romaji,
+        title: m.title, dates: m.dates, era: m.era, school: m.school, school_key: m.school_key,
+        location: m.location, summary: m.summary, cbeta_id: m.cbeta_id, profile_status: m.profile_status
+      });
+      const zhName = stringValue(m.name_zh);
+      push(zhNeedles, zhName, key, 2);
+      // Names are often written bare (僧璨) rather than with the patriarchal
+      // prefix (三祖僧璨), so the given name is a needle too.
+      if (zhName.length >= 3) push(zhNeedles, zhName.slice(-2), key, 2);
+      [m.name_pinyin, m.name_romaji, m.name_en].forEach(form => {
+        push(enNeedles, stringValue(form).replace(/\s*\(.*?\)\s*/g, '').trim(), key, 4);
+      });
+      (Array.isArray(m.alternative_names) ? m.alternative_names : []).forEach(alt => {
+        const value = stringValue(alt);
+        const han = value.match(/[㐀-鿿]{2,}/g);
+        if (han) han.forEach(part => push(zhNeedles, part, key, 2));
+        const latin = value.replace(/[㐀-鿿]{2,}/g, ' ').replace(/\s*\/\s*/g, ' ')
+          .replace(/[^A-Za-z .-]/g, ' ').replace(/\s+/g, ' ').trim();
+        latin.split(',').forEach(part => push(enNeedles, part.trim(), key, 6));
+      });
     });
 
-    // Commentary/pointer/verse: Chinese folds; English stays visible.
-    root.querySelectorAll('.commentary-block, .verse-block').forEach(block => {
-      if (!block || !block.children) return;
-      const kind = block.classList.contains('verse-block') ? 'Verse'
-        : (block.classList.contains('is-pointer') ? 'Pointer' : 'Commentary');
-      const zhNodes = Array.from(block.children).filter(n =>
-        n.classList && (n.classList.contains('classical-zh') || n.classList.contains('pinyin-line')));
-      if (zhNodes.length) wrapNodesInDetails(zhNodes, `${kind} — Chinese source`, 'acc-sec acc-zh', false);
+    const manifestItems = (state.data.corpus_manifest && Array.isArray(state.data.corpus_manifest.items))
+      ? state.data.corpus_manifest.items : [];
+    manifestItems.forEach(item => {
+      if (!isRecord(item) || !item.key || !state.data.corpus || !state.data.corpus[item.key]) return;
+      const doc = state.data.corpus[item.key] || {};
+      const key = add('work', item.key, {
+        title: item.title, title_en: doc.title_en, title_zh: doc.title_zh, title_pinyin: doc.title_pinyin,
+        cbeta: item.cbeta, author_en: doc.author_en, era: doc.era, genre: doc.genre
+      });
+      push(zhNeedles, doc.title_zh, key, 3);
+      push(enNeedles, stringValue(doc.title_en).replace(/\s*\(.*?\)\s*/g, '').trim(), key, 7, true);
     });
 
-    // Document header: the five edition ledgers fold into one accordion.
-    const drawer = root.querySelector('.ledger-drawer');
-    if (drawer) wrapNodesInDetails([drawer], 'About this edition — ledgers', 'acc-sec acc-ledgers', false);
-    const header = root.querySelector('.document-heading');
-    if (header && header.children) {
-      const prov = Array.from(header.children).filter(n => n.classList && n.classList.contains('provenance-line'));
-      if (prov.length) wrapNodesInDetails(prov, 'Notes on this text', 'acc-sec acc-notes', false);
+    glossaryList().forEach(t => {
+      if (!isRecord(t) || !t.id || !t.term) return;
+      const key = add('term', t.id, {
+        term: t.term, pinyin: t.pinyin, literal: t.literal, sanskrit: t.sanskrit,
+        category: t.category, definition: t.definition, occurrences: t.occurrences
+      });
+      push(zhNeedles, t.term, key, 1);
+      const py = stringValue(t.pinyin).split(/[(/,]/)[0].trim();
+      if (py.length >= 4) push(enNeedles, py, key, 4, true);
+      push(enNeedles, t.literal, key, 6, true);
+    });
+
+    gonganList().forEach(g => {
+      if (!isRecord(g) || !g.id) return;
+      const key = add('case', g.id, {
+        case_no: g.case_no, title_zh: g.title_zh, title_en: g.title_en, collection: g.collection,
+        theme_group: g.theme_group, theme: g.theme, protagonist: g.protagonist,
+        cbeta_id: g.cbeta_id, summary: g.summary, cross_refs: g.cross_refs
+      });
+      push(zhNeedles, g.title_zh, key, 3);
+      push(enNeedles, stringValue(g.title_en).replace(/\s*\(.*?\)\s*/g, '').trim(), key, 9, true);
+    });
+
+    profileList().forEach(p => {
+      if (!isRecord(p) || !p.register_key) return;
+      const key = add('register', p.register_key, {
+        translator: p.translator, robo_name: p.robo_name, evidence_source: p.evidence_source,
+        verified_sample_count: p.verified_sample_count
+      });
+      push(enNeedles, p.robo_name, key, 5, true);
+    });
+
+    const dedupe = list => {
+      const seen = new Set();
+      const out = [];
+      list.forEach(entry => {
+        const id = `${entry.needle}|${entry.key}`;
+        if (seen.has(id)) return;
+        seen.add(id);
+        out.push(entry);
+      });
+      out.sort((a, b) => b.needle.length - a.needle.length);
+      return out;
+    };
+
+    const byProtagonist = new Map();
+    gonganList().forEach(g => {
+      if (!g || !g.protagonist) return;
+      if (!byProtagonist.has(g.protagonist)) byProtagonist.set(g.protagonist, []);
+      byProtagonist.get(g.protagonist).push(g);
+    });
+
+    wikiIndex = { entities, zh: dedupe(zhNeedles), en: dedupe(enNeedles), byProtagonist };
+    return wikiIndex;
+  }
+
+  function wikiGet(key) {
+    const value = stringValue(key);
+    if (!value || value.indexOf(':') === -1) return null;
+    return wikiEnsure().entities.get(value) || null;
+  }
+
+  // Master names follow the reader's romanization choice (pinyin ↔ rōmaji), the
+  // same preference the lineage register honours.
+  function masterRomanization(master) {
+    if (!master) return '';
+    if (state.nameMode === 'romaji' && master.name_romaji) return master.name_romaji;
+    return stringValue(master.name_pinyin || master.name_en || master.id);
+  }
+
+  function entityLabel(entity) {
+    if (!entity) return 'Record';
+    switch (entity.kind) {
+      case 'master': return `${stringValue(entity.name_zh)} · ${masterRomanization(entity)}`;
+      case 'work': return stringValue(entity.title_en || entity.title || entity.id);
+      case 'term': return `${stringValue(entity.term)} · ${stringValue(entity.literal || entity.pinyin || '')}`.trim();
+      case 'case': return `Case ${stringValue(entity.case_no)} · ${stringValue(entity.title_en || entity.title_zh || '')}`;
+      case 'register': return stringValue(entity.robo_name || entity.translator || entity.id);
+      default: return stringValue(entity.id);
     }
   }
 
-  // Reader entry point: layout 1 renders as before, layout 2 keeps the bundle
-  // 026 accordion, layouts 3–7 go through the drastic all-room dispatcher.
-  function enhanceReaderLayout() {
-    hideHoverCard();
-    closeInfoModal();
-    closeNavDrawer();
-    const root = elements.readerContent;
-    if (root && root.classList) {
-      ['layout-accordion', 'layout-progressive', 'layout-tabbed', 'layout-modal', 'layout-hovercards',
-        'rm-focus', 'rm-timeline', 'rm-graphsplit', 'rm-hamburger', 'rm-dossier']
-        .forEach(c => root.classList.remove(c));
-      clearRoomLayoutClasses(root);
-    }
-    const v = state.designVariant;
-    if (!v || v === '1') return;
-    if (v === '2') { enhanceAccordionReader(); return; }
-    enhanceRoomLayout('reader');
+  // A gong'an protagonist id is a data-side label and the lineage registry keys
+  // masters its own way (huangbo vs huangbo_xiyun). Resolve by exact id, then by
+  // the leading token — never by a fuzzy guess.
+  function masterForLabel(label) {
+    const value = stringValue(label).trim();
+    if (!value) return null;
+    const masters = lineageList();
+    const exact = masters.find(m => m && (m.id === value || m.name_zh === value || m.name_en === value));
+    if (exact) return exact;
+    const head = value.toLowerCase().replace(/[^a-z0-9]+/g, '_').split('_')[0];
+    if (head.length < 4) return null;
+    return masters.find(m => m && String(m.id).toLowerCase().split('_')[0] === head) || null;
   }
 
-  // The one dispatcher every room calls after it renders.
-  function enhanceRoomLayout(room) {
-    const v = state.designVariant;
-    if (!v || !DRASTIC_LAYOUTS.includes(v)) return;
-    // Layout 9's sheet is one per room; a room being (re)built always starts
-    // with every other room's sheet closed, so two sheets can never stack.
-    closeOpenBottomSheets(null);
-    const root = roomRoot(room);
-    if (!root || typeof root.querySelectorAll !== 'function') return;
-    clearRoomLayoutClasses(root);
-    if (v === '3') roomFocus(room, root);
-    else if (v === '4') roomTimeline(room, root);
-    else if (v === '5') roomGraphSplit(room, root);
-    else if (v === '6') roomHamburger(room, root);
-    else if (v === '7') roomDossier(room, root);
-    // 8–15: the usable hand-pick family (alternative renderings of all rooms).
-    else if (v === '8') roomTabbed(room, root);
-    else if (v === '9') roomBottomSheet(room, root);
-    else if (v === '10') roomStickyToc(room, root);
-    else if (v === '11') roomSearchFirst(room, root);
-    else if (v === '12') roomQuestionDriven(room, root);
-    else if (v === '13') roomSideBySide(room, root);
-    else if (v === '14') roomRelatedRail(room, root);
-    else if (v === '15') roomFootnotes(room, root);
-    // 16–25: the second usable hand-pick family (more examples before review).
-    else if (v === '16') roomProgressiveReveal(room, root);
-    else if (v === '17') roomModalInfo(room, root);
-    else if (v === '18') roomHoverCards(room, root);
-    else if (v === '19') roomSentenceBySentence(room, root);
-    else if (v === '20') roomChapterChunks(room, root);
-    else if (v === '21') roomWorkDossier(room, root);
-    else if (v === '22') roomTeacherDossier(room, root);
-    else if (v === '23') roomTwoStep(room, root);
-    else if (v === '24') roomCommandPalette(room, root);
-    else if (v === '25') roomTrailPrevNext(room, root);
-    // 26-35: the final usable hand-pick batch before review (more examples).
-    else if (v === '26') roomEmptyState(room, root);
-    else if (v === '27') roomComparisonSlider(room, root);
-    else if (v === '28') roomInlineOrigin(room, root);
-    else if (v === '29') roomFullBleed(room, root);
-    else if (v === '30') roomMagazine(room, root);
-    else if (v === '31') roomCardWall(room, root);
-    else if (v === '32') roomVerticalTimeline(room, root);
-    else if (v === '33') roomSplitResizable(room, root);
-    else if (v === '34') roomGlossaryBar(room, root);
-    else if (v === '35') roomFocusTocHybrid(room, root);
-    // 36: The Chan Room — the owner-provided library's design language.
-    else if (v === '36') roomChanLibrary(room, root);
-  }
+  // ---- the annotator --------------------------------------------------------
+  // One matcher for both languages: gather every needle occurrence, prefer the
+  // longest needle at a position, never overlap, escape everything else. The
+  // glossary side keeps its historical class (.term-highlight + data-term-id)
+  // because the popover and keyboard paths are bound to it; every other entity
+  // gets .wiki-link. English prose links once per block — a wall of links is a
+  // maze, not a wiki.
+  function markEntities(text, mode) {
+    const source = stringValue(text);
+    if (!source) return '';
+    const index = wikiEnsure();
+    const needles = mode === 'zh' ? index.zh : index.en;
+    if (!needles.length) return escHtml(source);
+    const folded = mode === 'en' ? foldMap(source) : null;
+    const hits = [];
+    const claimed = [];
+    const usedOnce = new Set();
 
-  // Tear down layout-6 drawer chrome that lives outside room roots.
-  function closeNavDrawer() {
-    const rootEl = typeof document !== 'undefined' ? document.documentElement : null;
-    if (rootEl && rootEl.classList) rootEl.classList.remove('nav-open');
-    const btn = typeof document !== 'undefined' ? document.getElementById('hamburger-btn') : null;
-    if (btn) btn.setAttribute('aria-expanded', 'false');
-    const backdrop = typeof document !== 'undefined' ? document.getElementById('nav-drawer-backdrop') : null;
-    if (backdrop) backdrop.setAttribute('hidden', '');
-  }
+    const overlaps = (from, to) => claimed.some(span => from < span[1] && to > span[0]);
+    const claim = (from, to) => { claimed.push([from, to]); };
 
-  function ensureHamburgerChrome() {
-    if (typeof document === 'undefined' || !document.getElementById) return;
-    const shell = document.getElementById('site-shell');
-    if (!shell) return;
-    let btn = document.getElementById('hamburger-btn');
-    if (!btn) {
-      btn = document.createElement('button');
-      btn.type = 'button';
-      btn.id = 'hamburger-btn';
-      btn.className = 'hamburger-btn';
-      btn.setAttribute('aria-label', 'Open navigation menu');
-      btn.setAttribute('aria-expanded', 'false');
-      btn.setAttribute('aria-controls', 'site-room-nav');
-      btn.innerHTML = '<span></span><span></span><span></span>';
-      const lintel = shell.querySelector('.shell-lintel');
-      const controls = shell.querySelector('.nav-controls');
-      if (controls && controls.parentNode) controls.parentNode.insertBefore(btn, controls.nextSibling);
-      else if (lintel) lintel.appendChild(btn);
-      btn.addEventListener('click', () => {
-        const open = !document.documentElement.classList.contains('nav-open');
-        document.documentElement.classList.toggle('nav-open', open);
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        const backdrop = document.getElementById('nav-drawer-backdrop');
-        if (backdrop) {
-          if (open) backdrop.removeAttribute('hidden');
-          else backdrop.setAttribute('hidden', '');
+    needles.forEach(entry => {
+      const needleFolded = mode === 'en' ? normalizeForSearch(entry.needle) : '';
+      if (mode === 'en' && (!needleFolded || folded.folded.indexOf(needleFolded) === -1)) return;
+      if (mode === 'zh' && source.indexOf(entry.needle) === -1) return;
+      let searchFrom = 0;
+      let guard = 0;
+      while (guard < 40) {
+        guard += 1;
+        let at;
+        let end;
+        if (mode === 'zh') {
+          at = source.indexOf(entry.needle, searchFrom);
+          if (at === -1) break;
+          end = at + entry.needle.length;
+        } else {
+          const foldedAt = folded.folded.indexOf(needleFolded, searchFrom);
+          if (foldedAt === -1) break;
+          at = folded.offsets[foldedAt];
+          const after = foldedAt + needleFolded.length;
+          end = after < folded.offsets.length ? folded.offsets[after] : source.length;
+          searchFrom = foldedAt + needleFolded.length;
+          // Word boundary: "Mu" must not bite the middle of "museum".
+          const before = at > 0 ? source[at - 1] : ' ';
+          const next = end < source.length ? source[end] : ' ';
+          if (/[A-Za-z0-9]/.test(before) || /[A-Za-z0-9]/.test(next)) continue;
         }
-      });
-    }
-    let backdrop = document.getElementById('nav-drawer-backdrop');
-    if (!backdrop) {
-      backdrop = document.createElement('div');
-      backdrop.id = 'nav-drawer-backdrop';
-      backdrop.className = 'nav-drawer-backdrop';
-      backdrop.setAttribute('hidden', '');
-      backdrop.addEventListener('click', closeNavDrawer);
-      document.body.appendChild(backdrop);
-    }
-    const nav = shell.querySelector('.room-nav');
-    if (nav && !nav.id) nav.id = 'site-room-nav';
-  }
-
-  function applyShellBrandForVariant(v) {
-    if (typeof document === 'undefined' || !document.querySelector) return;
-    const brand = document.querySelector('.site-shell .brand');
-    const title = document.querySelector('.site-shell .brand-title-en');
-    if (!brand || !title) return;
-    if (!title.dataset.originalTitle) title.dataset.originalTitle = title.textContent || '';
-    if (v === '6') {
-      brand.classList.add('is-minimal');
-      title.textContent = 'TranslateChan';
-    } else {
-      brand.classList.remove('is-minimal');
-      title.textContent = title.dataset.originalTitle || 'Fake Chan Factory';
-    }
-  }
-
-  // ==========================================================================
-  // LAYOUT 3 · FOCUS MODE — centered 38rem, no chrome, [i] drawers
-  // ==========================================================================
-  function roomFocus(room, root) {
-    root.classList.add('rm-focus');
-    ensureFocusRoomNav(room);
-    const units = roomUnits(root, room);
-    units.forEach((unit, i) => focusizeUnit(room, unit, i));
-    if (room === 'reader') focusReaderExtras(root);
-    else if (room === 'matrix') focusMatrixExtras(root, units);
-    else if (room === 'lineage') focusLineageExtras(root, units);
-    else if (room === 'gongan') focusGonganExtras(root, units);
-    else if (room === 'lexicon') focusLexiconExtras(root, units);
-  }
-
-  function ensureFocusRoomNav(activeRoom) {
-    // Tiny text room switcher under the thin shell (room-nav is display:none).
-    if (typeof document === 'undefined' || !document.getElementById) return;
-    let bar = document.getElementById('focus-room-nav');
-    if (!bar) {
-      bar = document.createElement('nav');
-      bar.id = 'focus-room-nav';
-      bar.className = 'focus-room-nav';
-      bar.setAttribute('aria-label', 'Rooms');
-      const main = document.getElementById('main-content');
-      if (main && main.parentNode) main.parentNode.insertBefore(bar, main);
-      else document.body.appendChild(bar);
-      bar.addEventListener('click', (e) => {
-        const b = e.target && e.target.closest ? e.target.closest('button[data-view]') : null;
-        if (!b) return;
-        const view = b.getAttribute('data-view');
-        if (view && typeof switchView === 'function') switchView(view);
-      });
-    }
-    const rooms = [
-      ['reader', 'Read'], ['matrix', 'Compare'], ['lineage', 'Lineage'],
-      ['gongan', 'Cases'], ['lexicon', 'Terms']
-    ];
-    bar.innerHTML = rooms.map(([k, lab]) =>
-      `<button type="button" data-view="${k}" class="${k === activeRoom ? 'is-active' : ''}" ` +
-      `aria-current="${k === activeRoom ? 'page' : 'false'}">${lab}</button>`
-    ).join('');
-    bar.hidden = state.designVariant !== '3';
-  }
-
-  function makeInfoButton(drawerId) {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'rm-i-btn';
-    btn.textContent = 'i';
-    btn.setAttribute('aria-label', 'Show more information');
-    btn.setAttribute('aria-expanded', 'false');
-    btn.setAttribute('aria-controls', drawerId);
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const drawer = document.getElementById(drawerId);
-      if (!drawer) return;
-      const open = !drawer.classList.contains('is-open');
-      drawer.classList.toggle('is-open', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (usedOnce.has(entry.key)) { if (mode === 'zh') searchFrom = end; continue; }
+        if (overlaps(at, end)) { if (mode === 'zh') searchFrom = end; continue; }
+        usedOnce.add(entry.key);
+        claim(at, end);
+        hits.push({ start: at, end, key: entry.key });
+        if (mode === 'zh') searchFrom = end;
+      }
     });
-    return btn;
-  }
 
-  function makeInfoDrawer(id, html) {
-    const d = document.createElement('div');
-    d.className = 'rm-i-drawer';
-    d.id = id;
-    d.innerHTML = html;
-    return d;
-  }
-
-  function harvestNodes(unit, selectors) {
-    const out = [];
-    selectors.forEach(sel => {
-      Array.from(unit.querySelectorAll(sel)).forEach(n => {
-        if (n && out.indexOf(n) < 0) out.push(n);
-      });
+    if (!hits.length) return escHtml(source);
+    // Restraint: a word gets one door per passage in either language, and the
+    // Chinese sheet never turns into a wall of dotted rules. Needles are matched
+    // longest-first, so if the ceiling bites it is the shortest, least specific
+    // marks that fall away — the text is never rewritten to achieve this.
+    if (mode === 'zh' && hits.length > MAX_DOORS_PER_BLOCK) hits.length = MAX_DOORS_PER_BLOCK;
+    hits.sort((a, b) => a.start - b.start);
+    let out = '';
+    let cursor = 0;
+    hits.forEach(hit => {
+      if (hit.start < cursor) return;
+      out += escHtml(source.slice(cursor, hit.start));
+      const entity = index.entities.get(hit.key);
+      const kind = entity ? entity.kind : hit.key.split(':')[0];
+      const label = entity ? entityLabel(entity) : hit.key;
+      const cls = kind === 'term' ? 'term-highlight wiki-link wiki-link-term' : `wiki-link wiki-link-${kind}`;
+      const attrs = kind === 'term' && entity && entity.id ? ` data-term-id="${escHtml(entity.id)}"` : '';
+      out += `<span class="${cls}"${attrs} data-wiki="${escHtml(hit.key)}" tabindex="0" role="link"`
+        + ` aria-label="${escHtml(`${label} — open the record in the margin`)}" title="${escHtml(label)}">`
+        + `${escHtml(source.slice(hit.start, hit.end))}</span>`;
+      cursor = hit.end;
     });
+    out += escHtml(source.slice(cursor));
     return out;
   }
 
-  function focusizeUnit(room, unit, idx) {
-    if (!unit || unit.dataset.focusReady === '1') return;
-    unit.dataset.focusReady = '1';
-    unit.classList.add('rm-focus-unit');
-    const id = `focus-drawer-${room}-${idx}-${Math.random().toString(36).slice(2, 7)}`;
-    const h = unitHeadline(room, unit, idx);
-    // Attach [i] next to the primary English headline.
-    let anchor = null;
-    if (room === 'reader') anchor = unit.querySelector('.case-heading-en, .case-num-title, .case-heading');
-    else if (room === 'matrix') anchor = unit.querySelector('.matrix-ref-clean, .matrix-source-band');
-    else if (room === 'lineage') anchor = unit.querySelector('.lineage-master-name-en');
-    else if (room === 'gongan') anchor = unit.querySelector('.catalogue-title-en');
-    else if (room === 'lexicon') anchor = unit.querySelector('.lexicon-headword');
-    if (!anchor) anchor = unit;
+  // Source Chinese: terms and master names at every occurrence — the reader is
+  // looking at the Chinese, so the door belongs where the word is. English: the
+  // first occurrence of each entity per block only.
+  // A ceiling, not a quota: about one door per sixteen characters of source.
+  const MAX_DOORS_PER_BLOCK = 6;
 
-    const btn = makeInfoButton(id);
-    if (anchor.parentNode && anchor !== unit) anchor.appendChild(btn);
-    else {
-      const head = document.createElement('div');
-      head.className = 'rm-focus-head';
-      head.innerHTML = `<span class="rm-acc-en">${escHtml(h.en || 'Untitled')}</span>`;
-      head.appendChild(btn);
-      unit.insertBefore(head, unit.firstChild);
-    }
+  function annotateSourceText(text) { return markEntities(text, 'zh'); }
+  function annotateEnglishProse(text) { return markEntities(text, 'en'); }
 
-    // Build drawer: move Chinese/extra nodes in + plain-language info section.
-    const drawer = makeInfoDrawer(id, '');
-    const extras = harvestNodes(unit, [
-      '.classical-zh', '.pinyin-line', '.provenance-line',
-      '.matrix-sentence-zh', '.matrix-sentence-pinyin', '.matrix-source-location',
-      '.lineage-master-record', '.lineage-master-quote',
-      '.catalogue-detail', '.catalogue-theme', '.catalogue-locator',
-      '.lexicon-entry-def', '.lexicon-occurrences',
-      '.case-heading-zh', '.lineage-master-name-zh', '.catalogue-title-zh', '.lexicon-headword-zh'
+  // ---- the margin rail ------------------------------------------------------
+  const margin = { mode: 'follow', key: null, history: [], future: [], currentUnit: null };
+
+  function marginOpen() {
+    const panel = document.getElementById('master-dossier-panel');
+    if (!panel) return;
+    panel.hidden = false;
+    panel.removeAttribute('hidden');
+    document.documentElement.setAttribute('data-margin', 'open');
+    const toggle = document.getElementById('context-toggle');
+    if (toggle && typeof toggle.setAttribute === 'function') toggle.setAttribute('aria-expanded', 'true');
+  }
+
+  function marginClose() {
+    const panel = document.getElementById('master-dossier-panel');
+    if (!panel) return;
+    panel.hidden = true;
+    panel.setAttribute('hidden', '');
+    document.documentElement.setAttribute('data-margin', 'closed');
+    const toggle = document.getElementById('context-toggle');
+    if (toggle && typeof toggle.setAttribute === 'function') toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  // Is there room for the third column? Below this width the rail is a sheet
+  // over the text, so it must never open itself — a tap asks for it. The number
+  // is the same 1180px the stylesheet switches on in app.css (THE HALL section).
+  function marginWide() {
+    if (typeof window.matchMedia !== 'function') return true;
+    return window.matchMedia('(min-width: 1180px)').matches;
+  }
+
+  // Dossier atoms. Every record is a lede in plain language, the ledger, then
+  // the doors out of it — so learning one teaches all five kinds.
+  function dossierSection(title, body, note) {
+    if (!body) return '';
+    return `<section class="dossier-section"><h3 class="dossier-section-head">${escHtml(title)}</h3>${body}`
+      + `${note ? `<p class="dossier-section-note">${escHtml(note)}</p>` : ''}</section>`;
+  }
+  function dossierRows(rows) {
+    const body = rows.filter(row => Array.isArray(row) && row[1] !== '' && row[1] != null)
+      .map(([label, value]) => `<div class="dossier-row"><span class="dossier-row-label">${escHtml(label)}</span>`
+        + `<span class="dossier-row-value">${value}</span></div>`).join('');
+    return body ? `<div class="dossier-rows">${body}</div>` : '';
+  }
+  function dossierText(value) { return escHtml(stringValue(value)); }
+  function dossierCode(value) {
+    const text = stringValue(value);
+    return text ? `<code class="dossier-code">${escHtml(text)}</code>` : '';
+  }
+  function dossierChips(items) {
+    const kept = items.filter(Boolean);
+    return kept.length ? `<div class="dossier-chips">${kept.join('')}</div>` : '';
+  }
+  function dossierList(items) {
+    return items.length ? `<ul class="dossier-list">${items.map(item => `<li>${dossierText(item)}</li>`).join('')}</ul>` : '';
+  }
+  function wikiButton(kind, id, label) {
+    const entity = wikiGet(`${kind}:${id}`);
+    const title = entity ? entityLabel(entity) : stringValue(label);
+    return `<button type="button" class="btn-pill wiki-jump" data-wiki-open="${escHtml(`${kind}:${id}`)}`
+      + `" title="${escHtml(`${title} — open in the margin`)}">`
+      + `<span class="wiki-jump-kind" aria-hidden="true">${escHtml(WIKI_LABEL[kind] || '')}</span>`
+      + `<span class="wiki-jump-label">${escHtml(stringValue(label) || title)}</span></button>`;
+  }
+  function docButton(corpusKey, label) {
+    const item = manifestItemForCorpusKey(corpusKey);
+    const title = stringValue(label) || (item ? stringValue(item.title) : corpusKey);
+    return `<button type="button" class="btn-pill doc-jump" data-open-doc="${escHtml(corpusKey)}">${escHtml(title)}</button>`;
+  }
+  function itemLabel(corpusKey) {
+    const item = manifestItemForCorpusKey(corpusKey);
+    return item ? stringValue(item.title) : 'No work open';
+  }
+  function metricsPerText(corpusKey) {
+    const metrics = state.data.project_metrics;
+    return (metrics && metrics.corpus && metrics.corpus.per_text && metrics.corpus.per_text[corpusKey]) || {};
+  }
+
+  // ---- one master's record --------------------------------------------------
+  function renderMasterDossierBody(masterId) {
+    const master = lineageList().find(m => m && m.id === masterId);
+    if (!master) return '';
+    const masters = lineageList();
+    const teacher = masters.find(m => m && m.id === master.teacher);
+    const edge = master.teacher ? lineageEdgeRecord(master.teacher, master.id) : null;
+    const edgeMeta = edge ? lineageStatusMeta(edge.status) : null;
+    const edgeSource = edge ? lineageSourceRecord(edge.source_id) : null;
+    const disciples = (Array.isArray(master.disciples) ? master.disciples : [])
+      .map(id => masters.find(m => m && m.id === id)).filter(Boolean);
+    const cases = (wikiEnsure().byProtagonist.get(master.id) || []).slice(0, 12);
+    const works = (Array.isArray(master.linked_corpus_keys) ? master.linked_corpus_keys : [])
+      .filter(key => state.data.corpus && state.data.corpus[key]);
+    const schoolEntry = ((((state.data.lineage_school_vocab || {}).schools) || []).find(s => s && s.key === master.school_key));
+    const texts = Array.isArray(master.texts) ? master.texts : [];
+    const evidence = isRecord(master.profile_evidence) ? master.profile_evidence : {};
+
+    const lede = `<p class="dossier-lede">${annotateEnglishProse(stringValue(master.summary)
+      || 'No biographical summary has been recorded for this master in this project yet.')}</p>`
+      + `<p class="dossier-tagline">${dossierText(master.dates)} · ${dossierText(master.era)} · `
+      + `${dossierText(master.location)} · generation ${dossierText(master.lineage_depth)}</p>`;
+
+    const quote = master.key_quote_zh
+      ? `<figure class="dossier-quote"><blockquote class="dossier-quote-zh" lang="zh">${annotateSourceText(master.key_quote_zh)}</blockquote>`
+        + (master.key_quote_en ? `<figcaption class="dossier-quote-en">${annotateEnglishProse(master.key_quote_en)}</figcaption>` : '')
+        + '</figure>' : '';
+
+    const transmission = dossierRows([
+      ['Teacher', teacher
+        ? `${wikiButton('master', teacher.id, masterDisplayName(teacher))}`
+          + (edgeMeta ? `<span class="dossier-inline-status ${edgeMeta.className}">${dossierText(edgeMeta.label)}</span>` : '')
+        : `<span>${dossierText(stringValue(master.teacher) || 'Frontier — teacher not profiled here')}</span>`],
+      ['Disciples profiled here', disciples.length
+        ? dossierChips(disciples.map(d => wikiButton('master', d.id, masterDisplayName(d))))
+        : '<span>No profiled disciple in this project.</span>'],
+      ['House', schoolEntry
+        ? `<span class="school-tag" data-school="${dossierText(schoolEntry.key)}">${dossierText(schoolEntry.display)}</span>`
+        : `<span>${dossierText(master.school)}</span>`]
     ]);
-    extras.forEach(n => drawer.appendChild(n));
+    const edgeNote = edge && edgeMeta
+      ? `<p class="dossier-edge ${edgeMeta.className}"><strong>${dossierText(edgeMeta.label)}</strong> · `
+        + `${dossierText(stringValue(edge.reference) || 'No reference recorded.')}`
+        + `${edgeSource ? ` · ${dossierText(edgeSource.title)} (${dossierText(edgeSource.canonical_id)})` : ''}`
+        + ` — ${dossierText(stringValue(edge.note) || 'Do not treat this displayed link as source-verified.')}</p>`
+      : '';
 
-    let infoHtml = '';
-    if (room === 'reader') {
-      const corpusKey = state.currentCorpusKey;
-      const doc = (state.data.corpus && state.data.corpus[corpusKey]) || {};
-      const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
-      infoHtml = infoRows([
-        ['Where it came from', `Part of ${escHtml(stringValue(doc.title_en) || corpusKey)}. English first — Chinese source is above when you need it.`],
-        ['What is related', `Open the work info for teachers linked to this text.`],
-        ['Background', escHtml(clipText(lead, 220) || 'No English rendering recorded for this part.')]
-      ]);
-    } else if (room === 'matrix') {
-      const item = (state.data.translations_matrix || [])[idx];
-      if (item) infoHtml = infoRows(matrixInfoRows(item, idx));
-    } else if (room === 'lineage') {
-      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = (state.data.lineage || []).find(x => x && x.id === idm);
-      if (m) infoHtml = teacherContextRows(m);
-    } else if (room === 'gongan') {
-      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-      const no = queryText(unit, '.catalogue-case');
-      const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
-      if (g) infoHtml = infoRows(gonganInfoRows(g));
-    } else if (room === 'lexicon') {
-      const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-      const head = queryText(unit, '.lexicon-headword-zh') || queryText(unit, '.lexicon-headword');
-      const item = list.find(x => x && (x.term === head || x.literal === head)) || list[idx];
-      if (item) infoHtml = infoRows(lexiconInfoRows(item));
-    }
-    if (infoHtml) {
-      const infoWrap = document.createElement('div');
-      infoWrap.className = 'rm-unit-info';
-      infoWrap.innerHTML = `<div class="context-info-body">${infoHtml}</div>`;
-      drawer.appendChild(infoWrap);
-    }
-    unit.appendChild(drawer);
-  }
-
-  function focusReaderExtras(root) {
-    const drawer = root.querySelector('.ledger-drawer');
-    const front = root.querySelector('.front-matter, .document-details');
-    const workCtx = root.querySelector('.work-context');
-    if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
-    const stack = document.createElement('div');
-    stack.className = 'rm-room-info';
-    const id = 'focus-work-info';
-    stack.innerHTML = `<span class="rm-acc-en">This work</span>`;
-    const btn = makeInfoButton(id);
-    stack.appendChild(btn);
-    const d = makeInfoDrawer(id, `<div class="context-info-body">${readerInfoStackHtml()}</div>`);
-    if (drawer) d.appendChild(drawer);
-    if (front) d.appendChild(front);
-    stack.appendChild(d);
-    const heading = root.querySelector('.document-heading');
-    if (heading && heading.parentNode) heading.parentNode.insertBefore(stack, heading.nextSibling);
-    else root.insertBefore(stack, root.firstChild);
-  }
-
-  function focusMatrixExtras(root, units) { /* per-unit drawers already attached */ }
-  function focusLineageExtras(root, units) { /* per-unit drawers already attached */ }
-  function focusGonganExtras(root, units) { /* per-unit drawers already attached */ }
-  function focusLexiconExtras(root, units) { /* per-unit drawers already attached */ }
-
-  // ==========================================================================
-  // LAYOUT 4 · TIMELINE — horizontal scroll-snap cards
-  // ==========================================================================
-  function roomTimeline(room, root) {
-    root.classList.add('rm-timeline');
-    // Hide focus nav if present
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-
-    if (room === 'reader') {
-      // Move non-card chrome into cards on the rail; case-cards already sized by CSS.
-      const heading = root.querySelector('.document-heading');
-      if (heading) heading.classList.add('rm-tl-card-like');
-      root.querySelectorAll('.case-card').forEach((card, i) => timelineCardify(room, card, i));
-      // Work info as first rail card
-      const workCtx = root.querySelector('.work-context');
-      if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
-      const info = document.createElement('div');
-      info.className = 'rm-room-info';
-      info.innerHTML = `<div class="rm-tl-era">Work</div><div class="rm-tl-name">About this work</div>` +
-        `<div class="rm-tl-extra"><div class="context-info-body">${readerInfoStackHtml()}</div></div>` +
-        `<button type="button" class="rm-tl-expand" aria-expanded="false">Show context</button>`;
-      wireTimelineExpand(info);
-      root.insertBefore(info, root.firstChild);
-      return;
-    }
-
-    const units = roomUnits(root, room);
-    units.forEach((unit, i) => timelineCardify(room, unit, i));
-
-    // Room-level intro card
-    const intro = document.createElement('div');
-    intro.className = 'rm-room-info';
-    const titles = {
-      matrix: ['Compare', 'What this room is', 'One Chinese line, several English voices. Scroll sideways by dynasty line.'],
-      lineage: ['Lineage', 'Teachers over time', 'Each card is one teacher. Open a card for where they came from, who is related, background.'],
-      gongan: ['Cases', 'Cases by theme', 'Scroll the catalogue as a timeline of cases. Only the title shows until you expand.'],
-      lexicon: ['Terms', 'A–Z rail', 'Each term is a card. Definition and occurrences wait behind expand.']
+    const profileDetail = {
+      title: 'Master profile source disclosure',
+      rows: [
+        ['Master', `${stringValue(master.name_zh)} / ${stringValue(master.name_en)}`],
+        ['Canonical record', stringValue(master.cbeta_id) || 'Locator pending'],
+        ['Profile status', stringValue(master.profile_status) || 'Seed profile — exact biographical/source locator pending'],
+        ['Evidence note', stringValue(evidence.note) || 'No evidence note recorded.']
+      ]
     };
-    const t = titles[room] || ['Room', 'Overview', ''];
-    intro.innerHTML = `<div class="rm-tl-era">${escHtml(t[0])}</div><div class="rm-tl-name">${escHtml(t[1])}</div>` +
-      `<div class="rm-tl-extra"><p class="rm-pane-lead">${escHtml(t[2])}</p></div>` +
-      `<button type="button" class="rm-tl-expand" aria-expanded="false">Show context</button>`;
-    wireTimelineExpand(intro);
-    root.insertBefore(intro, root.firstChild);
+
+    return lede + quote
+      + dossierSection('Transmission', transmission + edgeNote,
+        'A traditional link is not a verified one: the status above is the record in data/lineage/lineage_verification.json.')
+      + dossierSection('Works in this project', renderMasterWorkLinks(master),
+        'Only works the project actually carries are linked; the record above names the rest.')
+      + dossierSection('Cases naming this master', cases.length
+        ? dossierChips(cases.map(g => wikiButton('case', g.id, `Case ${g.case_no} · ${stringValue(g.title_en || g.title_zh)}`)))
+        : '<p class="dossier-empty">The case index names no record with this master as protagonist.</p>')
+      + dossierSection('The record', dossierRows([
+        ['Name in English', dossierText(master.name_en) || 'not recorded'],
+        ['Title', dossierText(master.title) || 'not recorded'],
+        ['Canonical record', dossierCode(master.cbeta_id) || 'not recorded'],
+        ['Primary texts', texts.length ? texts.map(dossierText).join(' · ') : 'Transmission records pending'],
+        ['Names on record', (Array.isArray(master.alternative_names) && master.alternative_names.length)
+          ? master.alternative_names.map(dossierText).join(' · ') : 'Alternative names not yet reviewed'],
+        ['Profile status', master.profile_status || 'Seed profile — exact biographical/source locator pending'],
+        ['Evidence', `${stringValue(evidence.status) || 'not recorded'} — ${stringValue(evidence.note) || 'No evidence note recorded.'}`]
+      ]) + renderCitationTrigger(profileDetail, 'ⓘ Profile source'),
+        'Where this profile came from, stated plainly: this project’s own record of a seed profile is not a scholarly edition.')
+      + renderTeacherContext(master);
   }
 
-  function wireTimelineExpand(card) {
-    card.classList.add('rm-tl-collapsed');
-    const btn = card.querySelector('.rm-tl-expand');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-      const open = !card.classList.contains('is-open');
-      card.classList.toggle('is-open', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.textContent = open ? 'Hide context' : 'Show context';
-    });
+  // ---- one work's record ----------------------------------------------------
+  // Where a glossary term actually occurs in the works this project carries,
+  // counted from the shipped Chinese — never from the occurrence citations, which
+  // name canonical locators that may sit outside the current excerpt.
+  function termHitsInDocument(corpusKey) {
+    const doc = state.data.corpus && state.data.corpus[corpusKey];
+    if (!doc) return [];
+    const haystack = JSON.stringify(doc);
+    return glossaryList()
+      .map(t => {
+        if (!t || !t.term || !t.id || t.term.length < 2) return null;
+        let count = 0;
+        let at = haystack.indexOf(t.term);
+        while (at !== -1 && count < 400) { count += 1; at = haystack.indexOf(t.term, at + t.term.length); }
+        return count ? { id: t.id, count } : null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.count - a.count);
   }
 
-  function timelineCardify(room, unit, idx) {
-    if (!unit || unit.dataset.tlReady === '1') return;
-    unit.dataset.tlReady = '1';
-    unit.classList.add('rm-tl-collapsed');
-    const h = unitHeadline(room, unit, idx);
-
-    // Build a face (era + name) at the top; wrap the rest as extra.
-    const face = document.createElement('div');
-    face.className = 'rm-tl-face';
-    const era = h.kicker || (room === 'reader' ? `Part ${idx + 1}` : 'Entry');
-    face.innerHTML = `<span class="rm-tl-era">${escHtml(era)}</span>` +
-      `<span class="rm-tl-name">${escHtml(h.en || 'Untitled')}</span>` +
-      (h.zh ? `<span class="rm-acc-zh" lang="zh">${escHtml(h.zh)}</span>` : '');
-    unit.insertBefore(face, unit.firstChild);
-
-    // Move existing children (except face) into extra wrapper conceptually via class
-    // Mark heavy bits
-    const extraBits = harvestNodes(unit, [
-      '.case-body', '.dialogue-turn', '.commentary-block', '.verse-block',
-      '.translation-grid', '.classical-zh', '.pinyin-line', '.provenance-line',
-      '.matrix-register-list', '.matrix-registers', '.matrix-sentence-zh', '.matrix-sentence-pinyin',
-      '.lineage-master-record', '.lineage-master-quote',
-      '.catalogue-detail', '.catalogue-theme', '.catalogue-locator',
-      '.lexicon-entry-def', '.lexicon-occurrences'
-    ]);
-    // Prefer wrapping: create extra container and move bits
-    if (extraBits.length) {
-      const extra = document.createElement('div');
-      extra.className = 'rm-tl-extra';
-      extraBits.forEach(n => {
-        if (n.parentNode === unit || (n.parentNode && unit.contains(n.parentNode))) {
-          // only move direct-ish content once
-        }
-      });
-      // Simpler approach: add class rm-tl-extra to a wrapper of all non-face children
-      const wrap = document.createElement('div');
-      wrap.className = 'rm-tl-extra';
-      Array.from(unit.childNodes).forEach(n => {
-        if (n === face) return;
-        wrap.appendChild(n);
-      });
-      unit.appendChild(wrap);
-
-      // Append plain-language info section inside extra
-      let infoHtml = '';
-      if (room === 'reader') {
-        const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
-        infoHtml = infoRows([
-          ['Where it came from', `A part of the open work.`],
-          ['What is related', `See the work card at the start of this timeline.`],
-          ['Background', escHtml(clipText(lead, 200) || 'No English yet.')]
-        ]);
-      } else if (room === 'matrix') {
-        const item = (state.data.translations_matrix || [])[idx];
-        if (item) infoHtml = infoRows(matrixInfoRows(item, idx));
-      } else if (room === 'lineage') {
-        const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-        const m = (state.data.lineage || []).find(x => x && x.id === idm);
-        if (m) infoHtml = teacherContextRows(m);
-      } else if (room === 'gongan') {
-        const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-        const no = queryText(unit, '.catalogue-case');
-        const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
-        if (g) infoHtml = infoRows(gonganInfoRows(g));
-      } else if (room === 'lexicon') {
-        const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-        const head = queryText(unit, '.lexicon-headword-zh');
-        const item = list.find(x => x && x.term === head) || list[idx];
-        if (item) infoHtml = infoRows(lexiconInfoRows(item));
-      }
-      if (infoHtml) {
-        const info = document.createElement('div');
-        info.className = 'rm-unit-info';
-        info.innerHTML = infoBlock('About — info section', [
-          // infoBlock expects rows; pass via innerHTML of infoRows directly instead
-        ]);
-        // Use plain rows to avoid nested details title noise
-        info.innerHTML = `<div class="context-info-body">${infoHtml}</div>`;
-        wrap.appendChild(info);
-      }
-    }
-
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'rm-tl-expand';
-    btn.setAttribute('aria-expanded', 'false');
-    btn.textContent = 'Open card';
-    unit.appendChild(btn);
-    btn.addEventListener('click', () => {
-      const open = !unit.classList.contains('is-open');
-      unit.classList.toggle('is-open', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.textContent = open ? 'Close card' : 'Open card';
-    });
-  }
-
-  // ==========================================================================
-  // LAYOUT 5 · GRAPH + READER SPLIT — 32% dots + 68% detail
-  // ==========================================================================
-  function roomGraphSplit(room, root) {
-    root.classList.add('rm-graphsplit');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-
-    // Avoid double-wrapping
-    if (root.querySelector(':scope > .rm-graph-split')) return;
-
-    const units = roomUnits(root, room);
-    const split = document.createElement('div');
-    split.className = 'rm-graph-split';
-    const pane = document.createElement('aside');
-    pane.className = 'rm-graph-pane';
-    pane.setAttribute('aria-label', 'Index');
-    const reader = document.createElement('div');
-    reader.className = 'rm-reader-pane';
-
-    // Move all current children into reader pane
-    while (root.firstChild) reader.appendChild(root.firstChild);
-    root.appendChild(split);
-    split.appendChild(pane);
-    split.appendChild(reader);
-
-    // Build dots from units (now inside reader)
-    const liveUnits = roomUnits(reader, room);
-    const titleMap = {
-      reader: 'Parts', matrix: 'Lines', lineage: 'Teachers', gongan: 'Cases', lexicon: 'Terms'
-    };
-    let html = `<div class="rm-graph-title">${titleMap[room] || 'Index'}</div>`;
-    html += `<div class="rm-graph-count">${liveUnits.length} items · click a dot to jump</div>`;
-    html += '<ul class="rm-graph-dot-list">';
-    liveUnits.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      const uid = `graph-unit-${room}-${i}`;
-      unit.id = unit.id || uid;
-      unit.setAttribute('data-graph-idx', String(i));
-      html += `<li><button type="button" class="rm-graph-dot${i === 0 ? ' is-active' : ''}" data-graph-target="${escHtml(unit.id)}">` +
-        `<span class="rm-graph-dot-en">${escHtml(clipText(h.en || h.kicker || `Item ${i + 1}`, 42))}</span>` +
-        (h.note ? `<small>${escHtml(clipText(h.note, 48))}</small>` : '') +
-        `</button></li>`;
-      // English-first extras + info section
-      graphEnrichUnit(room, unit, i);
-    });
-    html += '</ul>';
-    html += '<p class="rm-split-note">Left: minimal dots (light mental load). Right: English first — expand a unit for Chinese and notes.</p>';
-    pane.innerHTML = html;
-
-    pane.addEventListener('click', (e) => {
-      const b = e.target && e.target.closest ? e.target.closest('.rm-graph-dot') : null;
-      if (!b) return;
-      const id = b.getAttribute('data-graph-target');
-      let target = null;
-      if (id) {
-        try { target = reader.querySelector('#' + id.replace(/([^a-zA-Z0-9_-])/g, '\\$1')); }
-        catch (err) { target = document.getElementById(id); }
-      }
-      pane.querySelectorAll('.rm-graph-dot').forEach(d => d.classList.remove('is-active'));
-      b.classList.add('is-active');
-      reader.querySelectorAll('.is-active-dot').forEach(n => n.classList.remove('is-active-dot'));
-      if (target) {
-        target.classList.add('is-active-dot');
-        if (typeof target.scrollIntoView === 'function') {
-          target.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
-        }
-      }
-    });
-
-    // Room work/teacher stack for reader
-    if (room === 'reader') {
-      const workCtx = reader.querySelector('.work-context');
-      if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
-      const stack = document.createElement('div');
-      stack.className = 'rm-room-info';
-      stack.innerHTML = `<details class="context-info rm-info"><summary>About this work and its teachers</summary>` +
-        `<div class="context-info-body">${readerInfoStackHtml()}</div></details>`;
-      reader.insertBefore(stack, reader.firstChild);
-    }
-  }
-
-  function graphEnrichUnit(room, unit, idx) {
-    // Toggle to reveal Chinese
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'rm-expand-zh';
-    btn.textContent = 'Show Chinese & notes';
-    btn.setAttribute('aria-expanded', 'false');
-    btn.addEventListener('click', () => {
-      const open = !unit.classList.contains('is-expanded');
-      unit.classList.toggle('is-expanded', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.textContent = open ? 'Hide Chinese & notes' : 'Show Chinese & notes';
-    });
-    unit.appendChild(btn);
-
-    let infoHtml = '';
-    if (room === 'matrix') {
-      const item = (state.data.translations_matrix || [])[idx];
-      if (item) infoHtml = infoBlock('About this line — info section', matrixInfoRows(item, idx));
-    } else if (room === 'lineage') {
-      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = (state.data.lineage || []).find(x => x && x.id === idm);
-      if (m) {
-        infoHtml = infoBlock('About this teacher — info section', [
-          ['Where they came from', `${escHtml(stringValue(m.name_zh))} — ${escHtml(stringValue(m.dates) || 'dates not recorded')} · ${escHtml(stringValue(m.era) || 'era not recorded')} · ${escHtml(stringValue(m.location) || 'location not recorded')}. Generation ${escHtml(String(m.lineage_depth))} of the recorded transmission.`],
-          ['Who they are related to', `House: ${escHtml(stringValue(m.school) || 'not recorded')}. ${lineageTeacherDetail(m)}. Disciples profiled here: ${escHtml(discipleNamesFor(m) || 'none')}.`],
-          ['Background', escHtml(stringValue(m.summary) || 'No background summary recorded.')]
-        ]);
-      }
-    } else if (room === 'gongan') {
-      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-      const no = queryText(unit, '.catalogue-case');
-      const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
-      if (g) infoHtml = infoBlock('About this case — info section', gonganInfoRows(g));
-    } else if (room === 'lexicon') {
-      const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-      const head = queryText(unit, '.lexicon-headword-zh');
-      const item = list.find(x => x && x.term === head) || list[idx];
-      if (item) infoHtml = infoBlock('About this term — info section', lexiconInfoRows(item));
-    } else if (room === 'reader') {
-      const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
-      infoHtml = infoBlock('About this part — info section', [
-        ['Where it came from', 'A numbered part of the open work in the Reader.'],
-        ['What is related', 'Teachers linked to this work are in the fold above.'],
-        ['Background', escHtml(clipText(lead, 220) || 'No English rendering recorded.')]
-      ]);
-    }
-    if (infoHtml) {
-      const info = document.createElement('div');
-      info.className = 'rm-unit-info';
-      info.innerHTML = infoHtml;
-      unit.appendChild(info);
-    }
-  }
-
-  // ==========================================================================
-  // LAYOUT 6 · HAMBURGER — minimal 3rem header, nav in drawer
-  // ==========================================================================
-  function roomHamburger(room, root) {
-    root.classList.add('rm-hamburger');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    ensureHamburgerChrome();
-    applyShellBrandForVariant('6');
-
-    const units = roomUnits(root, room);
-    units.forEach((unit, i) => hamburgerizeUnit(room, unit, i));
-
-    if (room === 'reader') {
-      const workCtx = root.querySelector('.work-context');
-      if (workCtx && workCtx.parentNode) workCtx.parentNode.removeChild(workCtx);
-      const stack = document.createElement('div');
-      stack.className = 'rm-room-info';
-      stack.innerHTML = `<details class="context-info rm-info"><summary>About this work and its teachers</summary>` +
-        `<div class="context-info-body">${readerInfoStackHtml()}</div></details>`;
-      const heading = root.querySelector('.document-heading');
-      if (heading && heading.parentNode) heading.parentNode.insertBefore(stack, heading.nextSibling);
-      else root.insertBefore(stack, root.firstChild);
-      // Fold ledgers
-      const drawer = root.querySelector('.ledger-drawer');
-      if (drawer) wrapNodeInDetails(drawer, 'About this edition — ledgers', 'rm-more', false);
-    }
-
-    // Move visible filter rails' clone label into drawer once
-    populateHamburgerDrawerExtras(room);
-  }
-
-  function populateHamburgerDrawerExtras(room) {
-    const nav = document.querySelector('.site-shell .room-nav');
-    if (!nav) return;
-    let extras = nav.querySelector('.rm-drawer-extras-slot');
-    if (!extras) {
-      extras = document.createElement('div');
-      extras.className = 'rm-drawer-extras-slot';
-      nav.appendChild(extras);
-    }
-    const labels = {
-      reader: 'Library and rooms sit in this drawer. The page stays a quiet 42rem column.',
-      matrix: 'Compare filters stay here so the page can stay English-first.',
-      lineage: 'Lineage filters stay here so the page can stay English-first.',
-      gongan: 'Case filters stay here so the page can stay English-first.',
-      lexicon: 'Term filters stay here so the page can stay English-first.'
-    };
-    extras.innerHTML = `<p class="rm-drawer-section-title">This room</p>` +
-      `<p class="rm-quiet rm-drawer-note">${escHtml(labels[room] || '')}</p>`;
-    // NOTE: no inline style attributes allowed — fix below
-  }
-
-  function hamburgerizeUnit(room, unit, idx) {
-    if (!unit || unit.dataset.hamReady === '1') return;
-    unit.dataset.hamReady = '1';
-    const bits = harvestNodes(unit, [
-      '.classical-zh', '.pinyin-line',
-      '.matrix-sentence-zh', '.matrix-sentence-pinyin',
-      '.lineage-master-record', '.lineage-master-quote',
-      '.catalogue-detail', '.lexicon-entry-def', '.lexicon-occurrences'
-    ]);
-    if (bits.length) {
-      const d = document.createElement('details');
-      d.className = 'rm-more';
-      const s = document.createElement('summary');
-      s.textContent = 'More — Chinese, records, detail';
-      d.appendChild(s);
-      bits.forEach(n => d.appendChild(n));
-      unit.appendChild(d);
-    }
-    // Info section
-    let infoHtml = '';
-    if (room === 'matrix') {
-      const item = (state.data.translations_matrix || [])[idx];
-      if (item) infoHtml = infoBlock('About this line — info section', matrixInfoRows(item, idx));
-    } else if (room === 'lineage') {
-      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = (state.data.lineage || []).find(x => x && x.id === idm);
-      if (m) {
-        infoHtml = infoBlock('About this teacher — info section', [
-          ['Where they came from', `${escHtml(stringValue(m.name_zh))} — ${escHtml(stringValue(m.dates) || 'dates not recorded')} · ${escHtml(stringValue(m.era) || 'era not recorded')} · ${escHtml(stringValue(m.location) || 'location not recorded')}.`],
-          ['Who they are related to', `House: ${escHtml(stringValue(m.school) || 'not recorded')}. ${lineageTeacherDetail(m)}. Disciples: ${escHtml(discipleNamesFor(m) || 'none')}.`],
-          ['Background', escHtml(stringValue(m.summary) || 'No background summary recorded.')]
-        ]);
-      }
-    } else if (room === 'gongan') {
-      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-      const no = queryText(unit, '.catalogue-case');
-      const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
-      if (g) infoHtml = infoBlock('About this case — info section', gonganInfoRows(g));
-    } else if (room === 'lexicon') {
-      const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-      const head = queryText(unit, '.lexicon-headword-zh');
-      const item = list.find(x => x && x.term === head) || list[idx];
-      if (item) infoHtml = infoBlock('About this term — info section', lexiconInfoRows(item));
-    } else if (room === 'reader') {
-      const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
-      infoHtml = infoBlock('About this part — info section', [
-        ['Where it came from', 'A part of the open work.'],
-        ['What is related', 'See the work info fold at the top of the page.'],
-        ['Background', escHtml(clipText(lead, 200) || 'No English rendering recorded.')]
-      ]);
-    }
-    if (infoHtml) {
-      const info = document.createElement('div');
-      info.className = 'rm-unit-info';
-      info.innerHTML = infoHtml;
-      unit.appendChild(info);
-    }
-  }
-
-  // ==========================================================================
-  // LAYOUT 7 · INFO-FIRST DOSSIER — info hero, translation collapsed
-  // ==========================================================================
-  function roomDossier(room, root) {
-    root.classList.add('rm-dossier');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    applyShellBrandForVariant('7');
-
-    // Build room-level dossier hero
-    const hero = document.createElement('section');
-    hero.className = 'rm-dossier-hero';
-    hero.innerHTML = dossierHeroHtml(room);
-    root.insertBefore(hero, root.firstChild);
-
-    // Wrap remaining content as translation/body, hidden by default
-    const body = document.createElement('div');
-    body.className = 'rm-dossier-translation';
-    body.hidden = true;
-    body.id = `dossier-body-${room}`;
-    const toMove = Array.from(root.childNodes).filter(n => n !== hero);
-    toMove.forEach(n => body.appendChild(n));
-    root.appendChild(body);
-
-    const toggle = hero.querySelector('.rm-dossier-toggle');
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        const open = body.hidden;
-        body.hidden = !open;
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.textContent = open ? 'Hide translation' : dossierToggleLabel(room);
-      });
-    }
-
-    // Per-unit mini dossiers inside the body (info first on each card)
-    const units = roomUnits(body, room);
-    units.forEach((unit, i) => dossierizeUnit(room, unit, i));
-  }
-
-  function dossierToggleLabel(room) {
-    if (room === 'reader') return 'Read translation';
-    if (room === 'matrix') return 'Show comparison lines';
-    if (room === 'lineage') return 'Show teachers';
-    if (room === 'gongan') return 'Show cases';
-    if (room === 'lexicon') return 'Show terms';
-    return 'Show content';
-  }
-
-  function dossierHeroHtml(room) {
-    if (room === 'reader') {
-      const corpusKey = state.currentCorpusKey;
-      const doc = (state.data.corpus && state.data.corpus[corpusKey]) || {};
-      const title = stringValue(doc.title_en) || corpusKey || 'Work';
-      const zh = stringValue(doc.title_zh);
-      return `<p class="rm-dossier-kicker">Work dossier</p>` +
-        `<h2>${escHtml(title)}</h2>` +
-        (zh ? `<p class="rm-dossier-zh" lang="zh">${escHtml(zh)}</p>` : '') +
-        `<div class="rm-dossier-meta"><span>Witness <strong>${escHtml(stringValue(doc.cbeta_id) || 'not recorded')}</strong></span>` +
-        `<span>Status <strong>${escHtml(stringValue(doc.status) || 'open')}</strong></span></div>` +
-        `<div class="context-info-body">${workContextRows(corpusKey)}</div>` +
-        `<div class="rm-dossier-teachers"><h3>Related teachers</h3>${dossierTeacherChips(corpusKey)}</div>` +
-        `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-reader">${dossierToggleLabel('reader')}</button>`;
-    }
-    if (room === 'matrix') {
-      const n = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix.length : 0;
-      return `<p class="rm-dossier-kicker">Compare dossier</p>` +
-        `<h2>What is collation here?</h2>` +
-        `<div class="context-info-body">${infoRows([
-          ['Where it came from', 'Each line is one Classical Chinese sentence taken from a recorded source, shown with several English renderings side by side.'],
-          ['What is related', `${n} source line${n === 1 ? '' : 's'} are indexed in this room. Quoted registers keep their edition record; project drafts are labelled as drafts.`],
-          ['Background', 'Collation means reading one Chinese line against more than one English voice so differences in tone, vocabulary and structure stay visible.']
-        ])}</div>` +
-        `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-matrix">${dossierToggleLabel('matrix')}</button>`;
-    }
-    if (room === 'lineage') {
-      const n = Array.isArray(state.data.lineage) ? state.data.lineage.length : 0;
-      return `<p class="rm-dossier-kicker">Lineage dossier</p>` +
-        `<h2>Generation context</h2>` +
-        `<div class="context-info-body">${infoRows([
-          ['Where it came from', `This room lists ${n} profiled teachers with dates, houses and places drawn from the project lineage register.`],
-          ['What is related', 'Each teacher card links house, disciples and the works tied to them. Open a card for the full plain-language info section.'],
-          ['Background', 'Lineage here is a reading aid, not a claim of unbroken transmission. Dates and places are recorded as the project has them.']
-        ])}</div>` +
-        `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-lineage">${dossierToggleLabel('lineage')}</button>`;
-    }
-    if (room === 'gongan') {
-      const n = Array.isArray(state.data.gongan_index) ? state.data.gongan_index.length : 0;
-      return `<p class="rm-dossier-kicker">Cases dossier</p>` +
-        `<h2>Theme context</h2>` +
-        `<div class="context-info-body">${infoRows([
-          ['Where it came from', `${n} cases are indexed from recorded collections with case numbers and CBETA ids where known.`],
-          ['What is related', 'Each case points at a protagonist and theme group. Cross-references sit in the case info section.'],
-          ['Background', 'A gong\'an is a recorded encounter used for study. This catalogue is an index into those encounters, not the full commentary apparatus.']
-        ])}</div>` +
-        `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-gongan">${dossierToggleLabel('gongan')}</button>`;
-    }
-    // lexicon
-    const n = Array.isArray(state.data.glossary) ? state.data.glossary.length : 0;
-    return `<p class="rm-dossier-kicker">Terms dossier</p>` +
-      `<h2>Headword context</h2>` +
-      `<div class="context-info-body">${infoRows([
-        ['Where it came from', `${n} Classical Chan terms are glossed with readings, categories and occurrence lists.`],
-        ['What is related', 'Categories group terms by family of usage. Occurrences point back into the corpus.'],
-        ['Background', 'Definitions are plain-language project notes to keep reading light — expand a term for the full entry.']
-      ])}</div>` +
-      `<button type="button" class="rm-dossier-toggle" aria-expanded="false" aria-controls="dossier-body-lexicon">${dossierToggleLabel('lexicon')}</button>`;
-  }
-
-  function dossierTeacherChips(corpusKey) {
+  function renderWorkDossierBody(corpusKey) {
+    const doc = state.data.corpus && state.data.corpus[corpusKey];
+    if (!doc) return '';
+    const perText = metricsPerText(corpusKey);
+    const review = sourceReviewForCorpusKey(corpusKey);
     const related = relatedTeachersForCorpusKey(corpusKey);
-    if (!related.length) return '<p class="rm-dossier-empty">No profiled teacher is linked to this work yet.</p>';
-    return related.map(m =>
-      `<button type="button" class="rm-dossier-teacher-chip teacher-link" data-master-teacher="${escHtml(m.id)}">` +
-      `${escHtml(masterDisplayName(m))}</button>`
-    ).join('');
+    const counts = isRecord(perText.unit_counts) ? perText.unit_counts : {};
+    const collectionHint = stringValue(doc.title_zh).slice(0, 3);
+    const cases = collectionHint
+      ? gonganList().filter(g => stringValue(g.collection).indexOf(collectionHint) !== -1) : [];
+    const termHits = termHitsInDocument(corpusKey);
+    const completion = stringValue(perText.completion_status) || 'excerpt_seed';
+    const compatible = isCompletionSourceReviewCompatible(completion, review.status);
+    const firstCase = Array.isArray(doc.cases) && doc.cases.length ? doc.cases[0] : null;
+
+    return `<p class="dossier-titles"><span class="dossier-title-zh" lang="zh">${dossierText(doc.title_zh)}</span>`
+      + `<span class="dossier-title-pinyin">${dossierText(doc.title_pinyin)}</span></p>`
+      + `<p class="dossier-lede">${annotateEnglishProse(stringValue(doc.author_en) || 'Compiler not recorded.')} · `
+      + `${dossierText(doc.era)} · ${dossierText(doc.genre)}</p>`
+      + `<p class="dossier-coverage"><span class="dossier-coverage-number">${dossierText(stringValue(perText.coverage) || 'units not declared')}</span>`
+      + `<span class="dossier-coverage-label">${compatible ? dossierText(completion) : 'Completion/status conflict — validation required'}</span>`
+      + `<span class="ledger-status ledger-status-${review.status || 'missing'}">${dossierText(sourceReviewStatusLabel(review.status))}</span></p>`
+      + dossierSection('Open the text', `<div class="dossier-open-row">${docButton(corpusKey,
+        firstCase ? `Begin at case ${firstCase.case_num}` : 'Read this work')}</div>`)
+      + dossierSection('What is held here', dossierRows([
+        ['Units present', Object.keys(counts).length
+          ? Object.keys(counts).map(name => `${counts[name]} ${dossierText(String(name).replace(/_/g, ' '))}`).join(' · ')
+          : 'No unit containers in this document'],
+        ['Canonical id', dossierCode(doc.cbeta_id) || 'not recorded'],
+        ['Locator', (locatorDocumentForKey(corpusKey) || {}).canonical_locator || 'Locator pending'],
+        ['Source review', `${dossierText(sourceReviewStatusLabel(review.status))} ${dossierCode(review.status || 'missing')}`],
+        ['Reading note', doc.coverage_note || 'Excerpt-scale seed: the full canonical text is not yet ingested.']
+      ]), 'Representation counts what this project carries. It is not a collation verdict and never a completeness claim.')
+      + dossierSection('Masters linked to this work', related.length
+        ? dossierChips(related.map(m => wikiButton('master', m.id, masterDisplayName(m))))
+        : '<p class="dossier-empty">No profiled master is linked to this work yet.</p>')
+      + dossierSection('Cases indexed from this collection', cases.length
+        ? dossierChips(cases.slice(0, 12).map(g => wikiButton('case', g.id, `Case ${g.case_no} · ${stringValue(g.title_en)}`)))
+        : '<p class="dossier-empty">The case index names no entry from this collection.</p>')
+      + dossierSection('Glossary terms in this text', termHits.length
+        ? dossierChips(termHits.slice(0, 10).map(hit => {
+            const entry = termById(hit.id);
+            return wikiButton('term', hit.id, `${entry && entry.term ? entry.term : hit.id} · ${hit.count}`);
+          }))
+        : '<p class="dossier-empty">No glossary term of this project occurs in the Chinese held here.</p>')
+      + renderProvenanceNotes(doc)
+      + renderWorkContext(corpusKey);
   }
 
-  function dossierizeUnit(room, unit, idx) {
-    if (!unit || unit.dataset.dossierReady === '1') return;
-    unit.dataset.dossierReady = '1';
-    const h = unitHeadline(room, unit, idx);
+  // ---- one term's record ----------------------------------------------------
+  function renderTermDossierBody(termId) {
+    const term = termById(termId);
+    if (!term) return '';
+    const occurrences = Array.isArray(term.occurrences) ? term.occurrences : [];
+    const hits = Object.keys(state.data.corpus || {})
+      .map(key => {
+        const found = termHitsInDocument(key).filter(hit => hit.id === termId)[0];
+        return found ? { key, count: found.count } : null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.count - a.count);
+    const caseLinks = gonganList().filter(g => term.term && stringValue(g.summary).indexOf(term.term) !== -1);
 
-    let rowsHtml = '';
-    if (room === 'matrix') {
-      const item = (state.data.translations_matrix || [])[idx];
-      if (item) rowsHtml = infoRows(matrixInfoRows(item, idx));
-    } else if (room === 'lineage') {
-      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = (state.data.lineage || []).find(x => x && x.id === idm);
-      if (m) rowsHtml = teacherContextRows(m);
-    } else if (room === 'gongan') {
-      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-      const no = queryText(unit, '.catalogue-case');
-      const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
-      if (g) rowsHtml = infoRows(gonganInfoRows(g));
-    } else if (room === 'lexicon') {
-      const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-      const head = queryText(unit, '.lexicon-headword-zh');
-      const item = list.find(x => x && x.term === head) || list[idx];
-      if (item) rowsHtml = infoRows(lexiconInfoRows(item));
-    } else if (room === 'reader') {
-      const lead = queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
-      rowsHtml = infoRows([
-        ['Where it came from', `Part ${idx + 1} of the open work.`],
-        ['What is related', 'Teachers for this work are listed in the dossier above.'],
-        ['Background', escHtml(clipText(lead, 180) || 'No English rendering recorded.')]
-      ]);
-    }
-
-    const mini = document.createElement('div');
-    mini.className = 'rm-unit-dossier';
-    mini.innerHTML = `<span class="rm-acc-kicker">${escHtml(h.kicker || ROOM_UNIT_NOUN[room] || 'Item')}</span>` +
-      `<div class="rm-acc-en">${escHtml(h.en || 'Untitled')}</div>` +
-      `<div class="context-info-body">${rowsHtml}</div>`;
-    unit.insertBefore(mini, unit.firstChild);
-
-    // Collapse the rest of the unit behind a read button
-    const body = document.createElement('div');
-    body.className = 'rm-unit-body';
-    body.hidden = true;
-    Array.from(unit.childNodes).forEach(n => {
-      if (n === mini) return;
-      body.appendChild(n);
-    });
-    const read = document.createElement('button');
-    read.type = 'button';
-    read.className = 'rm-unit-read';
-    read.setAttribute('aria-expanded', 'false');
-    read.textContent = room === 'reader' ? 'Read this part' : 'Show details';
-    read.addEventListener('click', () => {
-      const open = body.hidden;
-      body.hidden = !open;
-      read.setAttribute('aria-expanded', open ? 'true' : 'false');
-      read.textContent = open ? 'Hide details' : (room === 'reader' ? 'Read this part' : 'Show details');
-    });
-    unit.appendChild(read);
-    unit.appendChild(body);
+    return `<p class="dossier-reading">${dossierText(term.pinyin)}`
+      + `${term.sanskrit ? ` · Sanskrit ${dossierText(term.sanskrit)}` : ''}`
+      + `${term.category ? ` · ${dossierText(term.category)}` : ''}</p>`
+      + `<p class="dossier-literal">${dossierText(term.literal)}</p>`
+      + dossierSection('What it means', `<p class="dossier-lede">${annotateEnglishProse(stringValue(term.definition))}</p>`)
+      + dossierSection('Where it turns up in the works you can read', hits.length
+        ? dossierChips(hits.slice(0, 8).map(hit => docButton(hit.key, `${itemLabel(hit.key)} · ${hit.count}`)))
+        : '<p class="dossier-empty">Not in any work this project carries yet — the citations below name the canon, not the excerpt.</p>',
+        'Counted from the Chinese actually held in the bundle.')
+      + dossierSection('Cases whose précis uses it', caseLinks.length
+        ? dossierChips(caseLinks.slice(0, 6).map(g => wikiButton('case', g.id, `Case ${g.case_no} · ${stringValue(g.title_en)}`))) : '')
+      + dossierSection('Canonical citations', occurrences.length
+        ? dossierList(occurrences)
+        : '<p class="dossier-empty">No canonical citation recorded for this term.</p>',
+        'A citation names where the term is attested in the canon; it is not a claim that the wording was checked here.');
   }
 
-  function discipleNamesFor(m) {
-    if (!m) return '';
-    const all = Array.isArray(state.data.lineage) ? state.data.lineage : [];
-    const id = m.id;
-    const kids = all.filter(x => x && (x.teacher_id === id || x.parent_id === id ||
-      (Array.isArray(x.teachers) && x.teachers.indexOf(id) >= 0)));
-    if (!kids.length && Array.isArray(m.disciples)) {
-      return m.disciples.map(d => stringValue(d)).filter(Boolean).join(', ');
-    }
-    return kids.map(x => masterDisplayName(x)).filter(Boolean).join(', ');
-  }
-
-  // ==========================================================================
-  // Phase 5 — LAYOUTS 8–15 · USABLE HAND-PICK FAMILY (2026-09-18)
-  // --------------------------------------------------------------------------
-  // Owner feedback on 3–7 (2026-09-14): "The good news is that there have been
-  // drastic changes. The less good news is that it's not useable yet. However
-  // there are individual elements that might be able to be handpicked later on
-  // for a targeted page build. Lets first implement more examples before going
-  // into review."
-  //
-  // So 8–15 are eight MORE examples, each a usable alternative rendering of all
-  // five rooms. Every one of them:
-  //   • keeps the walnut shell and the room nav VISIBLE — no hamburger, no
-  //     hidden navigation — and leaves the room's own filter reachable;
-  //   • shows English first and keeps Chinese one intentional step away
-  //     (tab · bottom sheet · TOC pane · card · drawer · side pane · rail ·
-  //     footnote), never gone and never invented;
-  //   • carries a plain-language info section for the work, teacher, case or
-  //     term in view (where it came from · what or who is related · background);
-  //   • moves nothing out of the page and edits no text: extras are toggles;
-  //   • keeps layout 1's colours exactly — structure only, scoped by data-design.
-  //
-  // Zero inline styles, zero new .style writes: the four CSSOM custom-property
-  // writes elsewhere stay four. Class toggles + the hidden attribute only.
-  // ==========================================================================
-
-  const USABLE_LAYOUTS = ['8', '9', '10', '11', '12', '13', '14', '15'];
-  const ROOM_LABEL = { reader: 'Read', matrix: 'Compare', lineage: 'Lineage', gongan: 'Cases', lexicon: 'Terms' };
-  const ROOM_NOUN = { reader: 'part', matrix: 'line', lineage: 'teacher', gongan: 'case', lexicon: 'term' };
-  const ROOM_NOUN_PLURAL = { reader: 'parts', matrix: 'lines', lineage: 'teachers', gongan: 'cases', lexicon: 'terms' };
-
-  // "The rest" of a unit in the rooms where a layout parks it one step away:
-  // source Chinese, reading aids, provenance and long records. The Reader's own
-  // disclosure ledgers are deliberately NOT in this list — they stay in the
-  // page in every layout (source-review status must never hide behind chrome).
-  const UNIT_EXTRA_SELECTORS = {
-    reader: ['.classical-zh', '.pinyin-line', '.provenance-line', '.translation-source', '.case-heading-zh'],
-    matrix: ['.matrix-sentence-zh', '.matrix-sentence-pinyin', '.matrix-source-location', '.matrix-register-note'],
-    lineage: ['.lineage-master-record', '.lineage-master-quote'],
-    gongan: ['.catalogue-detail', '.catalogue-theme', '.catalogue-locator'],
-    lexicon: ['.lexicon-entry-def', '.lexicon-occurrences']
-  };
-
-  function harvestExtras(unit, room) {
-    return harvestNodes(unit, UNIT_EXTRA_SELECTORS[room] || []);
-  }
-
-  function ensureUnitId(room, unit, idx) {
-    if (!unit.id) unit.id = `rm-unit-${room}-${idx}`;
-    return unit.id;
-  }
-
-  function scrollToUnit(unit) {
-    if (!unit) return;
-    // If the unit lives in a hidden tab pane, open that pane first.
-    if (typeof unit.closest === 'function') {
-      const pane = unit.closest('.rm-tab-pane');
-      const panels = pane && pane.parentNode ? pane.parentNode : null;
-      if (pane && panels && pane.hasAttribute('hidden')) {
-        const shell = panels.parentNode;
-        const bar = shell && shell.querySelector ? shell.querySelector('.layout-tabs') : null;
-        const btn = bar ? bar.querySelector(`.layout-tab[data-tab="${pane.getAttribute('data-tab')}"]`) : null;
-        if (btn) btn.click();
-      }
-    }
-    if (typeof unit.scrollIntoView === 'function') {
-      unit.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
-    }
-    unit.classList.add('rm-flash');
-    setTimeout(() => { if (unit.classList) unit.classList.remove('rm-flash'); }, 1100);
-  }
-
-  function jumpButton(label, unit, className) {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = `btn-pill rm-jump${className ? ' ' + className : ''}`;
-    b.textContent = label;
-    b.addEventListener('click', () => scrollToUnit(unit));
-    return b;
-  }
-
-  function toggleButton(label, className) {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = className || 'btn-pill rm-toggle';
-    b.textContent = label;
-    b.setAttribute('aria-expanded', 'false');
-    return b;
-  }
-
-  function setToggleState(btn, open, openLabel, closedLabel) {
-    if (!btn) return;
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    btn.textContent = open ? openLabel : closedLabel;
-  }
-
-  function corpusTitle() {
-    const doc = (state.data.corpus && state.data.corpus[state.currentCorpusKey]) || {};
-    return stringValue(doc.title_en) || state.currentCorpusKey;
-  }
-
-  function readerLead(unit) {
-    return queryText(unit, '.translation-text') || queryText(unit, '.prose-en');
-  }
-
-  function unitForIndex(room, units, idx) {
-    return units && units[idx] ? units[idx] : null;
-  }
-
-  // The three plain-language rows for one TEACHER (where from · related ·
-  // background). Same content as teacherContextRows(), delivered as rows so the
-  // usable layouts can place it in a pane, a sheet, a drawer or a footnote.
-  function teacherRowsFor(m) {
-    const teacher = (state.data.lineage || []).find(x => x && x.id === m.teacher);
-    const disciples = Array.isArray(m.disciples)
-      ? m.disciples.map(id => (state.data.lineage || []).find(x => x && x.id === id)).filter(Boolean)
-      : [];
-    const works = Array.isArray(m.linked_corpus_keys)
-      ? m.linked_corpus_keys
-          .filter(k => state.data.corpus && state.data.corpus[k])
-          .map(k => stringValue(state.data.corpus[k].title_en) || k)
-      : [];
-    return [
-      ['Where they came from', `${escHtml(stringValue(m.name_zh))} — ${escHtml(stringValue(m.dates) || 'dates not recorded')} · ${escHtml(stringValue(m.era) || 'era not recorded')} · ${escHtml(stringValue(m.location) || 'location not recorded')}. Generation ${escHtml(String(m.lineage_depth))} of the recorded transmission.`],
-      ['Who they are related to', `Teacher: ${teacher ? escHtml(masterDisplayName(teacher)) : escHtml(stringValue(m.teacher) || 'not recorded')}. House: ${escHtml(stringValue(m.school) || 'not recorded')}. Disciples profiled here: ${disciples.length ? escHtml(disciples.map(d => masterDisplayName(d)).join(', ')) : 'none'}.`],
-      ['Background', `${escHtml(stringValue(m.summary) || 'No background summary recorded.')}${works.length ? ` Linked project works: ${escHtml(works.join(', '))}.` : ''}`]
-    ];
-  }
-
-  // The three plain-language rows for the unit in view, per room — built only
-  // from bundled data fields, never invented Chinese.
-  function unitInfoRowsFor(room, unit, idx) {
-    if (room === 'matrix') {
-      const item = (state.data.translations_matrix || [])[idx];
-      return item ? matrixInfoRows(item, idx) : [];
-    }
-    if (room === 'lineage') {
-      const idm = unit && unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = (state.data.lineage || []).find(x => x && x.id === idm);
-      return m ? teacherRowsFor(m) : [];
-    }
-    if (room === 'gongan') {
-      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-      const no = queryText(unit, '.catalogue-case');
-      const g = list.find(x => x && stringValue(x.case_no) === no) || list[idx];
-      return g ? gonganInfoRows(g) : [];
-    }
-    if (room === 'lexicon') {
-      const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-      const head = queryText(unit, '.lexicon-headword-zh') || queryText(unit, '.lexicon-headword');
-      const item = list.find(x => x && (x.term === head || x.literal === head)) || list[idx];
-      return item ? lexiconInfoRows(item) : [];
-    }
-    const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
-    const label = unitHeadline('reader', unit, idx);
-    return [
-      ['Where it came from', `A numbered part of ${escHtml(corpusTitle())} — ${escHtml(label.kicker || `part ${idx + 1}`)}. The Classical Chinese is the source; each English line under it is a separate rendering.`],
-      ['What is related', related.length
-        ? `Teachers linked to this work: ${escHtml(related.map(m => masterDisplayName(m)).join(', '))}.`
-        : 'No profiled teacher is linked to this work yet.'],
-      ['Background', escHtml(clipText(readerLead(unit), 240) || 'No English rendering recorded for this part yet.')]
-    ];
-  }
-
-  // The three plain-language rows for the ROOM itself.
-  function roomInfoRowsFor(room) {
-    if (room === 'reader') {
-      const doc = (state.data.corpus && state.data.corpus[state.currentCorpusKey]) || {};
-      const metrics = state.data.project_metrics?.corpus?.per_text?.[state.currentCorpusKey] || {};
-      const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
-      return [
-        ['Where it came from', `Drawn from the CBETA canon witness ${escHtml(stringValue(doc.cbeta_id) || 'not recorded')}. Recorded coverage here: ${escHtml(stringValue(metrics.coverage) || 'representation not recorded')}. The Classical Chinese is the source; English renderings are separate and clearly marked.`],
-        ['What is related', related.length
-          ? `Teachers linked to this work: ${escHtml(related.map(m => masterDisplayName(m)).join(', '))}.`
-          : 'No profiled teacher is linked to this work yet.'],
-        ['Background', 'This work is part of the Chan / Zen corpus held in this project and is an excerpt-scale seed unless its editorial status says otherwise. Every register under a line is labelled: machine-made drafts are marked, quoted renderings carry their edition record.']
-      ];
-    }
-    if (room === 'matrix') {
-      return [
-        ['Where it came from', 'Each line is one Classical Chinese sentence from the canon, with the source reference it was recorded under.'],
-        ['What is related', 'Under each line sit the English registers that render it: machine-made drafts and edition-verified quotations, side by side.'],
-        ['Background', 'Compare is the room for disagreement between translators. The lines are the same source; the voices are different.']
-      ];
-    }
-    if (room === 'lineage') {
-      return [
-        ['Where it came from', 'Each entry is one teacher from the recorded transmission register, from the First Patriarch to the Five Houses.'],
-        ['What is related', 'Every teacher is linked back to the teacher who preceded them and forward to their recorded disciples and project works.'],
-        ['Background', 'The register is a record of what the project holds, generation by generation. Dashed links await exact locators.']
-      ];
-    }
-    if (room === 'gongan') {
-      return [
-        ['Where it came from', 'Each case is indexed from a recorded collection with its case number and canonical record identifier.'],
-        ['What is related', 'Cases are grouped by theme and cross-referenced to the collections they appear in and the teachers in them.'],
-        ['Background', 'The case shelf is a catalogue: title, collection, theme and record, with the summary one toggle away.']
-      ];
-    }
-    return [
-      ['Where it came from', 'Each entry is a Classical Chan term recorded in this project with its reading, literal gloss and category.'],
-      ['What is related', 'Terms carry the canonical locations they occur in, so a word can be followed back into the texts.'],
-      ['Background', 'The dictionary is a working field list, not a finished glossary: definitions are plain-language and expandable.']
-    ];
-  }
-
-  function infoStackBlock(title, rows, open) {
-    const d = document.createElement('details');
-    d.className = 'context-info rm-room-note';
-    if (open) d.setAttribute('open', '');
-    d.innerHTML = `<summary>${escHtml(title)}</summary>` +
-      `<div class="context-info-body">${infoRows(rows)}</div>`;
-    return d;
-  }
-
-  function unitDetails(room, unit, idx) {
-    const rows = unitInfoRowsFor(room, unit, idx);
-    const h = unitHeadline(room, unit, idx);
-    const d = document.createElement('details');
-    d.className = 'context-info rm-unit-note';
-    const summary = document.createElement('summary');
-    summary.textContent = `${h.kicker ? h.kicker + ' · ' : ''}${clipText(h.en || `${ROOM_NOUN[room] || 'item'} ${idx + 1}`, 58)} — where from · related · background`;
-    d.appendChild(summary);
-    const body = document.createElement('div');
-    body.className = 'context-info-body';
-    body.innerHTML = infoRows(rows);
-    d.appendChild(body);
-    return d;
-  }
-
-  function roomUnitsIn(root, room) {
-    return roomUnits(root, room);
-  }
-
-  // ==========================================================================
-  // LAYOUT 8 · TABBED + BREADCRUMB — sticky tab strip per room, breadcrumb that
-  // opens the context drawer in place.
-  // ==========================================================================
-  const TABBED_SPEC = {
-    reader: [
-      { key: 'translation', label: 'Translation', hint: 'English first' },
-      { key: 'chinese', label: 'Chinese', hint: 'Source and reading' },
-      { key: 'context', label: 'Context', hint: 'Where from · related · background' },
-      { key: 'related', label: 'Related', hint: 'Teachers of this work' }
-    ],
-    matrix: [
-      { key: 'glance', label: 'At a glance', hint: 'One card per line' },
-      { key: 'full', label: 'Full', hint: 'Every register' },
-      { key: 'context', label: 'Context', hint: 'About each line' }
-    ],
-    lineage: [
-      { key: 'list', label: 'List', hint: 'The register' },
-      { key: 'generations', label: 'By generation', hint: 'Who followed whom' },
-      { key: 'context', label: 'Context', hint: 'About each teacher' }
-    ],
-    gongan: [
-      { key: 'list', label: 'List', hint: 'The catalogue' },
-      { key: 'themes', label: 'By theme', hint: 'Grouped cases' },
-      { key: 'context', label: 'Context', hint: 'About each case' }
-    ],
-    lexicon: [
-      { key: 'az', label: 'A–Z', hint: 'Headwords' },
-      { key: 'detail', label: 'Detail', hint: 'Definitions and occurrences' },
-      { key: 'context', label: 'Context', hint: 'About each term' }
-    ]
-  };
-  const TABBED_BODY_TAB = { reader: 'translation', matrix: 'full', lineage: 'list', gongan: 'list', lexicon: 'az' };
-
-  function roomTabbed(room, root) {
-    root.classList.add('rm-tabbed');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (root.querySelector(':scope > .rm-tab-shell')) return;
-
-    const spec = TABBED_SPEC[room] || [{ key: 'main', label: 'Main', hint: '' }];
-    const bodyKey = TABBED_BODY_TAB[room] || spec[0].key;
-    const shell = document.createElement('div');
-    shell.className = 'rm-tab-shell';
-    const bar = document.createElement('div');
-    bar.className = 'layout-tabs';
-    bar.setAttribute('role', 'tablist');
-    bar.setAttribute('aria-label', `${ROOM_LABEL[room] || 'Room'} sections`);
-    const panels = document.createElement('div');
-    panels.className = 'rm-tab-panels';
-    spec.forEach((t, i) => {
-      const pane = document.createElement('div');
-      pane.className = 'rm-tab-pane';
-      pane.setAttribute('data-tab', t.key);
-      pane.id = `rm-tab-${room}-${t.key}`;
-      pane.setAttribute('role', 'tabpanel');
-      if (i > 0) pane.setAttribute('hidden', '');
-      panels.appendChild(pane);
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = `layout-tab${i === 0 ? ' is-active' : ''}`;
-      btn.setAttribute('role', 'tab');
-      btn.setAttribute('data-tab', t.key);
-      btn.setAttribute('aria-controls', pane.id);
-      btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
-      btn.tabIndex = i === 0 ? 0 : -1;
-      btn.innerHTML = `<span class="rm-tab-label">${escHtml(t.label)}</span>` +
-        (t.hint ? `<span class="rm-tab-hint">${escHtml(t.hint)}</span>` : '');
-      bar.appendChild(btn);
-    });
-    shell.appendChild(bar);
-    shell.appendChild(panels);
-
-    // The room's own content moves into its body pane; the shell then owns the
-    // room root. Nothing is discarded — the other panes only add index/context.
-    const bodyPane = panels.querySelector(`[data-tab="${bodyKey}"]`);
-    while (root.firstChild) bodyPane.appendChild(root.firstChild);
-    root.appendChild(shell);
-    root.insertBefore(buildBreadcrumb(room, root), shell);
-
-    fillTabPanes(room, bodyPane, panels);
-    wireTabBar(bar, panels);
-  }
-
-  function buildBreadcrumb(room, root) {
-    const nav = document.createElement('nav');
-    nav.className = 'bc-bar';
-    nav.setAttribute('aria-label', 'Breadcrumb');
-    const here = room === 'reader' ? clipText(corpusTitle(), 44) : (ROOM_LABEL[room] || 'Room');
-    nav.innerHTML =
-      `<button type="button" class="bc-crumb bc-home" data-bc-view="reader">Fake Chan Factory</button>` +
-      `<span class="bc-sep" aria-hidden="true">›</span>` +
-      `<span class="bc-crumb bc-here" aria-current="page">${escHtml(ROOM_LABEL[room] || 'Room')}</span>` +
-      `<span class="bc-sep" aria-hidden="true">›</span>` +
-      `<span class="bc-crumb bc-leaf">${escHtml(here)}</span>` +
-      `<button type="button" class="bc-context-toggle" aria-expanded="false" aria-controls="bc-context-${room}">Where am I?</button>`;
-    const drawer = document.createElement('div');
-    drawer.className = 'bc-context';
-    drawer.id = `bc-context-${room}`;
-    drawer.setAttribute('hidden', '');
-    drawer.innerHTML = `<div class="context-info-body">${infoRows(roomInfoRowsFor(room))}</div>`;
-    nav.appendChild(drawer);
-    nav.addEventListener('click', (e) => {
-      const t = e.target && e.target.closest ? e.target.closest('button') : null;
-      if (!t) return;
-      if (t.classList.contains('bc-home')) {
-        if (typeof switchView === 'function') switchView('reader');
-        return;
-      }
-      if (!t.classList.contains('bc-context-toggle')) return;
-      const open = drawer.hasAttribute('hidden');
-      if (open) drawer.removeAttribute('hidden');
-      else drawer.setAttribute('hidden', '');
-      t.setAttribute('aria-expanded', open ? 'true' : 'false');
-      t.textContent = open ? 'Hide context' : 'Where am I?';
-    });
-    if (!nav.id) nav.id = `bc-nav-${room}`;
-    return nav;
-  }
-
-  function wireTabBar(bar, panels) {
-    if (!bar || bar.dataset.wired === '1') return;
-    bar.dataset.wired = '1';
-    const activate = (key) => {
-      Array.from(bar.querySelectorAll('.layout-tab')).forEach(t => {
-        const on = t.getAttribute('data-tab') === key;
-        t.classList.toggle('is-active', on);
-        t.setAttribute('aria-selected', on ? 'true' : 'false');
-        t.tabIndex = on ? 0 : -1;
-      });
-      Array.from(panels.children).forEach(p => {
-        if (p.getAttribute('data-tab') === key) p.removeAttribute('hidden');
-        else p.setAttribute('hidden', '');
-      });
-    };
-    bar.addEventListener('click', (e) => {
-      const b = e.target && e.target.closest ? e.target.closest('.layout-tab') : null;
-      if (!b) return;
-      activate(b.getAttribute('data-tab'));
-    });
-    bar.addEventListener('keydown', (e) => {
-      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-      const tabs = Array.from(bar.querySelectorAll('.layout-tab'));
-      const i = tabs.indexOf(document.activeElement);
-      if (i < 0) return;
-      const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
-      next.focus();
-      activate(next.getAttribute('data-tab'));
-      e.preventDefault();
-    });
-  }
-
-  function fillTabPanes(room, bodyPane, panels) {
-    const pane = (key) => panels.querySelector(`[data-tab="${key}"]`);
-    const units = roomUnitsIn(bodyPane, room);
-
-    if (room === 'reader') {
-      const zh = pane('chinese');
-      if (zh) {
-        zh.appendChild(paneHead('Chinese source', 'Each part, with its source Chinese, pinyin and provenance note — the English stays on the Translation tab.'));
-        units.forEach((unit, i) => zh.appendChild(sourceBlock(room, unit, i)));
-      }
-      const ctx = pane('context');
-      if (ctx) {
-        ctx.appendChild(paneHead('Context', 'Plain-language notes: where this work came from, who is related, what the background is.'));
-        ctx.appendChild(infoStackBlock('About this work and its teachers', roomInfoRowsFor('reader'), false));
-        units.forEach((unit, i) => ctx.appendChild(unitDetails(room, unit, i)));
-      }
-      const related = pane('related');
-      if (related) {
-        related.appendChild(paneHead('Related', 'Teachers the project links to this work, and the other works they are linked to.'));
-        related.appendChild(relatedTeachersBlock(state.currentCorpusKey, true));
-      }
-      return;
-    }
-
-    if (room === 'matrix') {
-      const glance = pane('glance');
-      if (glance) {
-        glance.appendChild(paneHead('At a glance', 'One card per source line — the reference and the first English voice. Open Full for every register.'));
-        units.forEach((unit, i) => glance.appendChild(glanceCard(room, unit, i)));
-      }
-      const ctx = pane('context');
-      if (ctx) {
-        ctx.appendChild(paneHead('Context', 'About each line: where it came from, which registers render it, and what the room is for.'));
-        ctx.appendChild(infoStackBlock('About this room', roomInfoRowsFor('matrix'), false));
-        units.forEach((unit, i) => ctx.appendChild(unitDetails(room, unit, i)));
-      }
-      return;
-    }
-
-    if (room === 'lineage') {
-      const gens = pane('generations');
-      if (gens) {
-        gens.appendChild(paneHead('By generation', 'The same teachers, grouped by the generation the project records them in. Select a name to open it in the register.'));
-        gens.appendChild(generationIndex(units));
-      }
-      const ctx = pane('context');
-      if (ctx) {
-        ctx.appendChild(paneHead('Context', 'About each teacher: where they came from, who they are related to, and the background the project records.'));
-        ctx.appendChild(infoStackBlock('About this room', roomInfoRowsFor('lineage'), false));
-        units.forEach((unit, i) => ctx.appendChild(unitDetails(room, unit, i)));
-      }
-      return;
-    }
-
-    if (room === 'gongan') {
-      const themes = pane('themes');
-      if (themes) {
-        themes.appendChild(paneHead('By theme', 'The same cases, grouped by the theme the catalogue records. Select a case to open it in the list.'));
-        themes.appendChild(themeIndex(units));
-      }
-      const ctx = pane('context');
-      if (ctx) {
-        ctx.appendChild(paneHead('Context', 'About each case: where it came from, what it is related to, and its background.'));
-        ctx.appendChild(infoStackBlock('About this room', roomInfoRowsFor('gongan'), false));
-        units.forEach((unit, i) => ctx.appendChild(unitDetails(room, unit, i)));
-      }
-      return;
-    }
-
-    // lexicon
-    const detail = pane('detail');
-    if (detail) {
-      detail.appendChild(paneHead('Detail', 'Definitions and the canonical locations each term occurs in, gathered in one place.'));
-      units.forEach((unit, i) => detail.appendChild(detailBlock(room, unit, i)));
-    }
-    const ctx = pane('context');
-    if (ctx) {
-      ctx.appendChild(paneHead('Context', 'About each term: where it came from, what it is related to, and the background.'));
-      ctx.appendChild(infoStackBlock('About this room', roomInfoRowsFor('lexicon'), false));
-      units.forEach((unit, i) => ctx.appendChild(unitDetails(room, unit, i)));
-    }
-  }
-
-  function paneHead(title, lead) {
-    const h = document.createElement('div');
-    h.className = 'rm-pane-head';
-    h.innerHTML = `<h2 class="rm-pane-title">${escHtml(title)}</h2><p class="rm-pane-lead">${escHtml(lead)}</p>`;
-    return h;
-  }
-
-  function sourceBlock(room, unit, idx) {
-    const h = unitHeadline(room, unit, idx);
-    const box = document.createElement('section');
-    box.className = 'rm-zh-block';
-    box.innerHTML = `<h3 class="rm-zh-head"><span class="rm-acc-kicker">${escHtml(h.kicker || `Part ${idx + 1}`)}</span>` +
-      `<span class="rm-zh-name">${escHtml(h.en || 'Untitled')}</span></h3>`;
-    const extras = harvestExtras(unit, room);
-    extras.forEach(n => box.appendChild(n));
-    if (!extras.length) {
-      const p = document.createElement('p');
-      p.className = 'rm-quiet';
-      p.textContent = 'No source text recorded for this part in the project yet.';
-      box.appendChild(p);
-    }
-    return box;
-  }
-
-  function glanceCard(room, unit, idx) {
-    const h = unitHeadline(room, unit, idx);
-    const card = document.createElement('article');
-    card.className = 'rm-glance-card';
-    card.innerHTML = `<div class="rm-glance-kicker">${escHtml(h.kicker || `Line ${idx + 1}`)}</div>` +
-      `<h3 class="rm-glance-title">${escHtml(h.en || 'Untitled')}</h3>` +
-      (h.note ? `<p class="rm-glance-note">${escHtml(h.note)}</p>` : '');
-    card.appendChild(jumpButton('Show in full comparison', unit));
-    return card;
-  }
-
-  function generationIndex(units) {
-    const box = document.createElement('div');
-    box.className = 'rm-index-groups';
-    const masters = Array.isArray(state.data.lineage) ? state.data.lineage : [];
-    const groups = new Map();
-    units.forEach((unit, i) => {
-      const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = masters.find(x => x && x.id === id);
-      const gen = m ? String(m.lineage_depth) : (queryText(unit, '.lineage-master-gen') || 'n');
-      const era = m ? stringValue(m.era) : '';
-      if (!groups.has(gen)) groups.set(gen, { era: era, items: [] });
-      groups.get(gen).items.push({ unit: unit, label: unitHeadline('lineage', unit, i).en || 'Untitled', sub: m ? `${stringValue(m.dates)} · ${stringValue(m.school)}` : '' });
-    });
-    Array.from(groups.keys()).sort((a, b) => (parseInt(a, 10) || 99) - (parseInt(b, 10) || 99)).forEach(gen => {
-      const g = groups.get(gen);
-      const sec = document.createElement('section');
-      sec.className = 'rm-index-group';
-      sec.innerHTML = `<h3 class="rm-index-gen">Generation ${escHtml(gen)}${g.era ? ` <span class="rm-quiet">· ${escHtml(g.era)}</span>` : ''}</h3>`;
-      const list = document.createElement('ul');
-      list.className = 'rm-index-list';
-      g.items.forEach(it => {
-        const li = document.createElement('li');
-        li.appendChild(jumpButton(it.label + (it.sub ? ` — ${it.sub}` : ''), it.unit, 'rm-index-link'));
-        list.appendChild(li);
-      });
-      sec.appendChild(list);
-      box.appendChild(sec);
-    });
-    return box;
-  }
-
-  function themeIndex(units) {
-    const box = document.createElement('div');
-    box.className = 'rm-index-groups';
-    const groups = new Map();
-    units.forEach((unit, i) => {
-      const themeText = queryText(unit, '.catalogue-theme');
-      const group = themeText.split('Group: ')[1] || themeText || 'Theme not recorded';
-      const key = group.split(' ·')[0] || group;
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push({ unit: unit, label: unitHeadline('gongan', unit, i).en || 'Untitled', no: queryText(unit, '.catalogue-case') });
-    });
-    Array.from(groups.keys()).forEach(key => {
-      const items = groups.get(key);
-      const sec = document.createElement('section');
-      sec.className = 'rm-index-group';
-      sec.innerHTML = `<h3 class="rm-index-gen">${escHtml(key)} <span class="rm-quiet">· ${items.length} case${items.length === 1 ? '' : 's'}</span></h3>`;
-      const list = document.createElement('ul');
-      list.className = 'rm-index-list';
-      items.forEach(it => {
-        const li = document.createElement('li');
-        li.appendChild(jumpButton(`${it.no ? it.no + ' · ' : ''}${it.label}`, it.unit, 'rm-index-link'));
-        list.appendChild(li);
-      });
-      sec.appendChild(list);
-      box.appendChild(sec);
-    });
-    return box;
-  }
-
-  function detailBlock(room, unit, idx) {
-    const h = unitHeadline(room, unit, idx);
-    const box = document.createElement('section');
-    box.className = 'rm-detail-block';
-    box.innerHTML = `<h3 class="rm-detail-head"><span class="rm-acc-kicker">${escHtml(h.kicker || 'Term')}</span>` +
-      `<span class="rm-detail-title">${escHtml(h.en || 'Untitled')}</span>` +
-      (h.zh ? `<span class="rm-acc-zh" lang="zh">${escHtml(h.zh)}</span>` : '') + `</h3>`;
-    const extras = harvestExtras(unit, room);
-    extras.forEach(n => box.appendChild(n));
-    if (!extras.length) {
-      const p = document.createElement('p');
-      p.className = 'rm-quiet';
-      p.textContent = 'No definition recorded for this term yet.';
-      box.appendChild(p);
-    }
-    return box;
-  }
-
-  function relatedTeachersBlock(corpusKey, withWorks) {
-    const box = document.createElement('div');
-    box.className = 'rm-related-block';
-    const related = relatedTeachersForCorpusKey(corpusKey);
-    if (!related.length) {
-      box.innerHTML = '<p class="rm-quiet">No profiled teacher is linked to this work yet.</p>';
-      return box;
-    }
-    related.forEach(m => {
-      const card = document.createElement('article');
-      card.className = 'rm-related-card';
-      const works = Array.isArray(m.linked_corpus_keys)
-        ? m.linked_corpus_keys.filter(k => state.data.corpus && state.data.corpus[k])
-            .map(k => stringValue(state.data.corpus[k].title_en) || k)
-        : [];
-      card.innerHTML = `<h3 class="rm-related-name">${escHtml(masterDisplayName(m))}` +
-        (m.name_zh ? ` <span class="rm-related-zh" lang="zh">${escHtml(m.name_zh)}</span>` : '') + `</h3>` +
-        `<p class="rm-related-meta">${escHtml(stringValue(m.dates) || 'dates not recorded')} · ${escHtml(stringValue(m.era) || 'era not recorded')}</p>` +
-        `<p class="rm-related-why">Linked to this work because the project records their transmission here${works.length ? `; their linked works are ${escHtml(works.join(', '))}` : ''}.</p>`;
-      box.appendChild(card);
-    });
-    if (withWorks) {
-      const works = Array.from(new Set(related.flatMap(m => Array.isArray(m.linked_corpus_keys) ? m.linked_corpus_keys : [])))
-        .filter(k => state.data.corpus && state.data.corpus[k]);
-      if (works.length) {
-        const sec = document.createElement('section');
-        sec.className = 'rm-related-works';
-        sec.innerHTML = `<h3 class="rm-index-gen">Works these teachers are linked to</h3>`;
-        const list = document.createElement('ul');
-        list.className = 'rm-index-list';
-        works.forEach(k => {
-          const li = document.createElement('li');
-          const b = document.createElement('button');
-          b.type = 'button';
-          b.className = 'btn-pill rm-index-link';
-          b.textContent = stringValue(state.data.corpus[k].title_en) || k;
-          b.addEventListener('click', () => openCorpusDoc(k));
-          li.appendChild(b);
-          list.appendChild(li);
-        });
-        sec.appendChild(list);
-        box.appendChild(sec);
-      }
-    }
-    return box;
-  }
-
-  function openCorpusDoc(key) {
-    if (!key) return;
-    // The public API owns corpus switching (it also persists the choice); the
-    // corpus-list button is the fallback when the API has not been reached.
-    if (window.TranslateChan && typeof window.TranslateChan.openDoc === 'function') {
-      window.TranslateChan.openDoc(key);
-      return;
-    }
-    const btn = document.querySelector(`[data-corpus-key="${key}"]`);
-    if (btn && typeof btn.click === 'function') btn.click();
-  }
-
-  // ==========================================================================
-  // LAYOUT 9 · BOTTOM SHEET — English-first page; everything extra slides up
-  // from the bottom edge in one sheet, with a handle and a plain-language head.
-  // ==========================================================================
-  function roomBottomSheet(room, root) {
-    root.classList.add('rm-sheet');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const shell = ensureBottomSheet(room, root);
-    const units = roomUnitsIn(root, room);
-
-    units.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      const section = document.createElement('section');
-      section.className = 'rm-sheet-block';
-      section.id = `rm-sheet-block-${room}-${i}`;
-      section.innerHTML = `<h3 class="rm-sheet-block-head"><span class="rm-acc-kicker">${escHtml(h.kicker || `Item ${i + 1}`)}</span>` +
-        `<span class="rm-acc-en">${escHtml(h.en || 'Untitled')}</span></h3>`;
-      harvestExtras(unit, room).forEach(n => section.appendChild(n));
-      const rows = unitInfoRowsFor(room, unit, i);
-      if (rows.length) {
-        const info = document.createElement('div');
-        info.className = 'context-info-body';
-        info.innerHTML = infoRows(rows);
-        section.appendChild(info);
-      }
-      shell.body.appendChild(section);
-
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'rm-sheet-open rm-sheet-unit-btn';
-      btn.textContent = 'More — source, notes and context';
-      btn.setAttribute('aria-controls', section.id);
-      btn.addEventListener('click', () => openBottomSheet(room, root, section.id));
-      unit.appendChild(btn);
-    });
-
-    const roomBlock = document.createElement('section');
-    roomBlock.className = 'rm-sheet-block rm-sheet-room';
-    roomBlock.id = `rm-sheet-block-${room}-room`;
-    roomBlock.innerHTML = `<h3 class="rm-sheet-block-head">About this room</h3>` +
-      `<div class="context-info-body">${infoRows(roomInfoRowsFor(room))}</div>`;
-    shell.body.insertBefore(roomBlock, shell.body.firstChild);
-  }
-
-  function ensureBottomSheet(room, root) {
-    let shell = root.querySelector(':scope > .rm-sheet-shell');
-    if (shell) return shell;
-    shell = document.createElement('div');
-    shell.className = 'rm-sheet-shell';
-    shell.id = `rm-bottom-sheet-${room}`;
-    shell.setAttribute('hidden', '');
-    shell.setAttribute('role', 'dialog');
-    shell.setAttribute('aria-label', 'Context and source detail');
-    shell.innerHTML =
-      `<div class="rm-sheet-handle" aria-hidden="true"></div>` +
-      `<div class="rm-sheet-head">` +
-      `<h2 class="rm-sheet-title">Context</h2>` +
-      `<p class="rm-sheet-sub">Everything that is not the English reading, in plain language.</p>` +
-      `<button type="button" class="rm-sheet-close" aria-label="Close context sheet">Close</button>` +
-      `</div>` +
-      `<div class="rm-sheet-body"></div>`;
-    root.appendChild(shell);
-    const body = shell.querySelector('.rm-sheet-body');
-    const fab = document.createElement('button');
-    fab.type = 'button';
-    fab.className = 'rm-sheet-fab';
-    fab.innerHTML = `<span aria-hidden="true">▲</span> Show context`;
-    fab.setAttribute('aria-controls', shell.id);
-    fab.addEventListener('click', () => openBottomSheet(room, root, roomBlockId(room)));
-    root.appendChild(fab);
-    shell.querySelector('.rm-sheet-close').addEventListener('click', () => closeBottomSheet(root));
-    shell.addEventListener('click', (e) => {
-      if (e.target === shell) closeBottomSheet(root);
-    });
-    shell.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeBottomSheet(root);
-    });
-    shell.dataset.room = room;
-    return { shell: shell, body: body, fab: fab };
-  }
-
-  function roomBlockId(room) { return `rm-sheet-block-${room}-room`; }
-
-  // Close every open layout-9 sheet, except the one being opened (if any).
-  function closeOpenBottomSheets(keep) {
-    if (typeof document === 'undefined' || !document.querySelectorAll) return;
-    document.querySelectorAll('.rm-sheet-shell.is-open').forEach(shell => {
-      if (keep && shell === keep) return;
-      shell.classList.remove('is-open');
-      shell.setAttribute('hidden', '');
-    });
-  }
-
-  function openBottomSheet(room, root, blockId) {
-    const shell = root.querySelector(':scope > .rm-sheet-shell');
-    if (!shell) return;
-    closeOpenBottomSheets(shell);
-    shell.removeAttribute('hidden');
-    if (typeof requestAnimationFrame === 'function') requestAnimationFrame(() => shell.classList.add('is-open'));
-    else shell.classList.add('is-open');
-    const body = shell.querySelector('.rm-sheet-body');
-    const target = blockId ? document.getElementById(blockId) : null;
-    if (target && body && body.contains(target)) {
-      if (typeof target.scrollIntoView === 'function') {
-        target.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
-      }
-    }
-    const close = shell.querySelector('.rm-sheet-close');
-    if (close && typeof close.focus === 'function') close.focus();
-  }
-
-  function closeBottomSheet(root) {
-    const host = root || document;
-    const shell = host.querySelector ? host.querySelector('.rm-sheet-shell') : null;
-    if (!shell) return;
-    shell.classList.remove('is-open');
-    setTimeout(() => { if (shell && !shell.classList.contains('is-open')) shell.setAttribute('hidden', ''); }, 220);
-  }
-  // ==========================================================================
-  // LAYOUT 10 · STICKY TOC + READER + CONTEXT — 16rem / 1fr / 16rem, titles in
-  // the left pane, English in the middle, context in the right, and a Context
-  // button that folds the right pane without hiding the contents.
-  // ==========================================================================
-  function roomStickyToc(room, root) {
-    root.classList.add('rm-toc');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (root.querySelector(':scope > .rm-toc-shell')) return;
-
-    const shell = document.createElement('div');
-    shell.className = 'rm-toc-shell';
-    shell.innerHTML =
-      `<aside class="toc-pane" aria-label="Contents">` +
-      `<div class="toc-head"><span class="toc-title">${escHtml(ROOM_LABEL[room] || 'Room')}</span>` +
-      `<button type="button" class="toc-context-btn" aria-expanded="true" aria-controls="toc-context-${room}">Context</button></div>` +
-      `<ul class="toc-list"></ul>` +
-      `<p class="toc-note">Titles only. Select one to jump to it.</p>` +
-      `</aside>` +
-      `<div class="reader-pane" id="toc-reader-${room}"></div>` +
-      `<aside class="context-pane" id="toc-context-${room}" aria-label="Context">` +
-      `<div class="context-pane-head">Where from · related · background</div>` +
-      `</aside>`;
-    const main = shell.querySelector('.reader-pane');
-    while (root.firstChild) main.appendChild(root.firstChild);
-    root.appendChild(shell);
-
-    const units = roomUnitsIn(main, room);
-    const list = shell.querySelector('.toc-list');
-    units.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      const li = document.createElement('li');
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'toc-link';
-      b.innerHTML = `<span class="toc-kicker">${escHtml(h.kicker || `${i + 1}`)}</span>` +
-        `<span class="toc-name">${escHtml(clipText(h.en || 'Untitled', 46))}</span>`;
-      b.addEventListener('click', () => scrollToUnit(unit));
-      li.appendChild(b);
-      list.appendChild(li);
-    });
-    if (!units.length) {
-      const li = document.createElement('li');
-      li.className = 'rm-quiet';
-      li.textContent = 'Nothing recorded here yet.';
-      list.appendChild(li);
-    }
-
-    const ctx = shell.querySelector('.context-pane');
-    ctx.appendChild(infoStackBlock('About this room', roomInfoRowsFor(room), true));
-    units.forEach((unit, i) => ctx.appendChild(unitDetails(room, unit, i)));
-
-    const btn = shell.querySelector('.toc-context-btn');
-    btn.addEventListener('click', () => {
-      const off = root.classList.toggle('is-context-off');
-      btn.setAttribute('aria-expanded', off ? 'false' : 'true');
-      btn.textContent = off ? 'Show context' : 'Context';
-    });
-  }
-
-  // ==========================================================================
-  // LAYOUT 11 · SEARCH-FIRST LANDING — a big plain-English search box, minimal
-  // cards, context on the card, and the room's own text kept below untouched.
-  // ==========================================================================
-  function roomSearchFirst(room, root) {
-    root.classList.add('rm-searchfirst');
-    if (root.querySelector(':scope > .sf-landing')) return;
-
-    const units = roomUnitsIn(root, room);
-    const landing = document.createElement('section');
-    landing.className = 'sf-landing';
-    landing.innerHTML =
-      `<h2 class="sf-title">Start with a question</h2>` +
-      `<p class="sf-lead">What is Chan? Where do these works come from? Who is related to whom, and what is the background? ` +
-      `Type below to narrow the ${escHtml(ROOM_NOUN_PLURAL[room] || 'items')} in this room, or read the cards first — each one opens its own plain-language context.</p>` +
-      `<div class="sf-search">` +
-      `<label class="sf-label" for="sf-input-${room}">Search this room</label>` +
-      `<input id="sf-input-${room}" class="sf-input" type="search" autocomplete="off" ` +
-      `placeholder="${escHtml(searchPlaceholder(room))}" aria-label="Search this room">` +
-      `</div>` +
-      `<p class="sf-count" aria-live="polite"></p>`;
-    root.insertBefore(landing, root.firstChild);
-
-    // The room's own filter stays visible at the top of the landing.
-    const filter = root.querySelector('.room-filter-rail, .lexicon-filter-row, .gongan-filter-rail');
-    if (filter) landing.appendChild(filter);
-
-    const cards = document.createElement('div');
-    cards.className = 'sf-cards';
-    cards.setAttribute('aria-label', `Quick cards for this room`);
-    units.forEach((unit, i) => cards.appendChild(searchCard(room, unit, i)));
-    root.insertBefore(cards, landing.nextSibling);
-
-    const full = document.createElement('section');
-    full.className = 'sf-full';
-    const head = document.createElement('div');
-    head.className = 'sf-full-head';
-    head.innerHTML = `<h2 class="rm-pane-title">Full ${escHtml(ROOM_NOUN_PLURAL[room] || 'room')}</h2>` +
-      `<p class="rm-pane-lead">The room as it is — English first, nothing hidden. The cards above are only a way in.</p>`;
-    const toggle = toggleButton('Hide full text', 'btn-pill sf-full-toggle');
-    head.appendChild(toggle);
-    const body = document.createElement('div');
-    body.className = 'sf-full-body';
-    Array.from(root.childNodes)
-      .filter(n => n !== landing && n !== cards)
-      .forEach(n => body.appendChild(n));
-    full.appendChild(head);
-    full.appendChild(body);
-    root.appendChild(full);
-    toggle.addEventListener('click', () => {
-      const collapsed = full.classList.toggle('is-collapsed');
-      setToggleState(toggle, !collapsed, 'Hide full text', 'Show full text');
-    });
-
-    const input = landing.querySelector('.sf-input');
-    const count = landing.querySelector('.sf-count');
-    const apply = () => {
-      const q = normalizeForSearch(input.value.trim());
-      let hits = 0;
-      Array.from(cards.children).forEach(card => {
-        const hay = card.getAttribute('data-search') || '';
-        const on = !q || hay.includes(q);
-        if (on) card.removeAttribute('hidden');
-        else card.setAttribute('hidden', '');
-        if (on) hits++;
-      });
-      units.forEach(unit => {
-        const hay = normalizeForSearch(nodeText(unit));
-        const on = !q || hay.includes(q);
-        if (on) unit.removeAttribute('hidden');
-        else unit.setAttribute('hidden', '');
-      });
-      const total = units.length;
-      count.textContent = q
-        ? `${hits} of ${total} ${ROOM_NOUN_PLURAL[room] || 'items'} match “${input.value.trim()}”.`
-        : `${total} ${ROOM_NOUN_PLURAL[room] || 'items'} in this room. Type to narrow them.`;
-      if (q) landing.classList.add('is-searching');
-    };
-    input.addEventListener('input', apply);
-    apply();
-  }
-
-  function searchPlaceholder(room) {
-    if (room === 'reader') return 'A word, a phrase, or a question — e.g. “Buddha-nature”';
-    if (room === 'matrix') return 'A source reference, or a word from a rendering';
-    if (room === 'lineage') return 'A teacher, a house, a place or an era';
-    if (room === 'gongan') return 'A case title, a number or a theme';
-    return 'A term, its reading, or a word from the definition';
-  }
-
-  function searchCard(room, unit, idx) {
-    const h = unitHeadline(room, unit, idx);
-    const rows = unitInfoRowsFor(room, unit, idx);
-    const card = document.createElement('article');
-    card.className = 'sf-card';
-    card.setAttribute('data-search', normalizeForSearch([
-      h.kicker, h.en, h.zh, h.note,
-      rows.map(r => stripTags(r[1])).join(' ')
-    ].filter(Boolean).join(' ')));
-    card.innerHTML =
-      `<div class="sf-card-kicker">${escHtml(h.kicker || `${ROOM_NOUN[room] || 'item'} ${idx + 1}`)}</div>` +
-      `<h3 class="sf-card-title">${escHtml(h.en || 'Untitled')}</h3>` +
-      (h.note ? `<p class="sf-card-note">${escHtml(h.note)}</p>` : '') +
-      `<div class="sf-card-why" hidden><div class="context-info-body">${infoRows(rows)}</div></div>`;
-    const why = card.querySelector('.sf-card-why');
-    const more = toggleButton('Why this is here', 'btn-pill sf-card-toggle');
-    more.addEventListener('click', () => {
-      const open = why.hasAttribute('hidden');
-      if (open) why.removeAttribute('hidden');
-      else why.setAttribute('hidden', '');
-      setToggleState(more, open, 'Hide context', 'Why this is here');
-    });
-    const jump = jumpButton('Read it below', unit, 'sf-card-jump');
-    jump.addEventListener('click', () => {
-      const landing = card.closest ? card.closest('.rm-searchfirst') : null;
-      const box = landing ? landing.querySelector('.sf-landing') : null;
-      if (box) box.classList.add('is-compact');
-    });
-    const foot = document.createElement('div');
-    foot.className = 'sf-card-foot';
-    foot.appendChild(more);
-    foot.appendChild(jump);
-    card.appendChild(foot);
-    return card;
-  }
-
-  function stripTags(html) {
-    return String(html || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
-  }
-  // ==========================================================================
-  // LAYOUT 12 · QUESTION-DRIVEN DISCLOSURE — the page asks the three questions
-  // the corpus can answer, and every answer arrives one piece at a time.
-  // ==========================================================================
-  const QUESTION_SPEC = {
-    reader: {
-      row: ['Where did this come from?', 'Who is related?', 'What is the background?'],
-      lead: [
-        'Each part is a piece of the open work. This is where its text was taken from, in one line.',
-        'The project links teachers to the works they are recorded with. This is who is linked here.',
-        'Background is the plain-language note for each part — one piece at a time, never a wall of text.'
-      ]
-    },
-    matrix: {
-      row: ['Where does this line come from?', 'Who renders it?', 'What is the background?'],
-      lead: [
-        'Each line is one Classical Chinese sentence. This is the canon reference it was recorded under.',
-        'Under every line sit the English registers that render it. This is who those voices are.',
-        'Background explains what the comparison room is for: the lines agree, the voices do not.'
-      ]
-    },
-    lineage: {
-      row: ['Where did this teacher come from?', 'Who are they related to?', 'What is the background?'],
-      lead: [
-        'Each teacher is a node in the recorded transmission register, with dates, era and place.',
-        'Teacher and disciples are recorded as edges in the same register. This is each teacher\'s own edge set.',
-        'Background is the recorded summary for each teacher, one short note at a time.'
-      ]
-    },
-    gongan: {
-      row: ['Where did this case come from?', 'What is it related to?', 'What is the background?'],
-      lead: [
-        'Each case is indexed from a recorded collection with its own canonical record identifier.',
-        'Cases name a protagonist and cross-reference other cases and collections.',
-        'Background is the theme the catalogue groups the case under, plus its own summary.'
-      ]
-    },
-    lexicon: {
-      row: ['Where did this term come from?', 'Where is it related?', 'What is the background?'],
-      lead: [
-        'Each term is a Classical Chan word with a reading, a literal gloss and a category.',
-        'Terms carry the canonical locations they occur in. This is where each one is recorded.',
-        'Background is the plain-language definition, one term at a time.'
-      ]
-    }
-  };
-
-  function roomQuestionDriven(room, root) {
-    root.classList.add('rm-questions');
-    if (root.querySelector(':scope > .question-row')) return;
-    const spec = QUESTION_SPEC[room] || QUESTION_SPEC.reader;
-    const units = roomUnitsIn(root, room);
-
-    const row = document.createElement('div');
-    row.className = 'question-row';
-    row.setAttribute('role', 'group');
-    row.setAttribute('aria-label', 'Questions this room can answer');
-    const drawers = [];
-    spec.row.forEach((label, qi) => {
-      const wrap = document.createElement('div');
-      wrap.className = 'question-item';
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'question-btn';
-      btn.textContent = label;
-      btn.setAttribute('aria-expanded', 'false');
-      btn.id = `rm-q-btn-${room}-${qi}`;
-      const drawer = questionDrawer(room, units, qi, label, spec.lead[qi]);
-      drawer.setAttribute('aria-labelledby', btn.id);
-      btn.setAttribute('aria-controls', drawer.id);
-      btn.addEventListener('click', () => {
-        const open = drawer.hasAttribute('hidden');
-        drawers.forEach((d, i) => {
-          const on = d === drawer && open;
-          if (on) d.removeAttribute('hidden');
-          else d.setAttribute('hidden', '');
-          const b = row.querySelector(`#rm-q-btn-${room}-${i}`);
-          if (b) {
-            b.setAttribute('aria-expanded', on ? 'true' : 'false');
-            b.classList.toggle('is-active', on);
-          }
-        });
-      });
-      wrap.appendChild(btn);
-      wrap.appendChild(drawer);
-      row.appendChild(wrap);
-      drawers.push(drawer);
-    });
-    root.insertBefore(row, root.firstChild);
-
-    // Every unit also carries its own three questions, so a reader who already
-    // knows which part they are looking at never has to scan the room.
-    units.forEach((unit, i) => unitQuestionRow(room, unit, i, spec));
-  }
-
-  function questionDrawer(room, units, qi, label, lead) {
-    const drawer = document.createElement('div');
-    drawer.className = 'question-drawer';
-    drawer.id = `rm-q-drawer-${room}-${qi}`;
-    drawer.setAttribute('hidden', '');
-    drawer.setAttribute('role', 'region');
-    const head = document.createElement('p');
-    head.className = 'question-lead';
-    head.textContent = lead;
-    drawer.appendChild(head);
-    units.forEach((unit, i) => {
-      const rows = unitInfoRowsFor(room, unit, i);
-      const row = rows[qi];
-      if (!row) return;
-      const h = unitHeadline(room, unit, i);
-      const block = document.createElement('article');
-      block.className = 'question-answer';
-      block.innerHTML = `<div class="question-answer-head">${escHtml(clipText(h.en || `${ROOM_NOUN[room] || 'Item'} ${i + 1}`, 60))}</div>` +
-        `<div class="context-text">${row[1]}</div>`;
-      block.appendChild(jumpButton('Open it in the room', unit, 'question-jump'));
-      drawer.appendChild(block);
-    });
-    if (!drawer.querySelector('.question-answer')) {
-      const p = document.createElement('p');
-      p.className = 'rm-quiet';
-      p.textContent = 'Nothing is recorded for this question yet.';
-      drawer.appendChild(p);
-    }
-    return drawer;
-  }
-
-  function unitQuestionRow(room, unit, idx, spec) {
-    if (unit.dataset.qReady === '1') return;
-    unit.dataset.qReady = '1';
-    const rows = unitInfoRowsFor(room, unit, idx);
-    if (!rows.length) return;
-    const row = document.createElement('div');
-    row.className = 'rm-q-row';
-    row.setAttribute('role', 'group');
-    row.setAttribute('aria-label', `Questions about this ${ROOM_NOUN[room] || 'unit'}`);
-    const holder = document.createElement('div');
-    holder.className = 'rm-q-answers';
-    spec.row.forEach((label, qi) => {
-      const short = ['Where from?', 'Who related?', 'Background?'][qi] || label;
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'rm-q-btn';
-      btn.textContent = short;
-      btn.setAttribute('aria-expanded', 'false');
-      const drawer = document.createElement('div');
-      drawer.className = 'rm-q-drawer';
-      drawer.setAttribute('hidden', '');
-      drawer.innerHTML = `<div class="context-label">${escHtml(rows[qi] ? stripTags(rows[qi][0]) : label)}</div>` +
-        `<div class="context-text">${rows[qi] ? rows[qi][1] : 'Not recorded yet.'}</div>`;
-      btn.addEventListener('click', () => {
-        const open = drawer.hasAttribute('hidden');
-        if (open) drawer.removeAttribute('hidden');
-        else drawer.setAttribute('hidden', '');
-        setToggleState(btn, open, 'Hide', short);
-      });
-      row.appendChild(btn);
-      holder.appendChild(drawer);
-    });
-    unit.appendChild(row);
-    unit.appendChild(holder);
-  }
-
-  // ==========================================================================
-  // LAYOUT 13 · SIDE-BY-SIDE MINIMAL — English on the left, source and detail
-  // on the right, each collapsed until a part asks for it.
-  // ==========================================================================
-  function roomSideBySide(room, root) {
-    root.classList.add('rm-sidebyside');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (root.querySelector(':scope > .rm-sb-shell')) return;
-
-    const shell = document.createElement('div');
-    shell.className = 'rm-sb-shell';
-    const left = document.createElement('div');
-    left.className = 'en-pane';
-    const right = document.createElement('aside');
-    right.className = 'zh-pane';
-    right.setAttribute('aria-label', 'Source text and detail');
-    right.innerHTML =
-      `<div class="zh-pane-head"><span class="zh-pane-title">Source &amp; detail</span>` +
-      `<button type="button" class="zh-pane-toggle" aria-expanded="true" aria-controls="sb-pane-body-${room}">Hide pane</button></div>` +
-      `<p class="zh-pane-lead">The English reading is on the left. Press “Show source &amp; detail” on a ${escHtml(ROOM_NOUN[room] || 'unit')} and its Chinese and records appear here, with the plain-language context.</p>` +
-      `<div class="zh-pane-body" id="sb-pane-body-${room}"></div>`;
-    while (root.firstChild) left.appendChild(root.firstChild);
-    shell.appendChild(left);
-    shell.appendChild(right);
-    root.appendChild(shell);
-
-    const body = right.querySelector('.zh-pane-body');
-    body.appendChild(infoStackBlock('About this room', roomInfoRowsFor(room), true));
-
-    const units = roomUnitsIn(left, room);
-    units.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      const card = document.createElement('section');
-      card.className = 'sb-card';
-      card.id = `rm-sb-card-${room}-${i}`;
-      card.setAttribute('hidden', '');
-      card.innerHTML = `<h3 class="sb-card-head"><span class="rm-acc-kicker">${escHtml(h.kicker || `${ROOM_NOUN[room] || 'Item'} ${i + 1}`)}</span>` +
-        `<span class="rm-acc-en">${escHtml(h.en || 'Untitled')}</span></h3>`;
-      harvestExtras(unit, room).forEach(n => card.appendChild(n));
-      const rows = unitInfoRowsFor(room, unit, i);
-      if (rows.length) {
-        const info = document.createElement('div');
-        info.className = 'context-info-body';
-        info.innerHTML = infoRows(rows);
-        card.appendChild(info);
-      }
-      body.appendChild(card);
-
-      const btn = toggleButton('Show source & detail', 'btn-pill rm-sb-toggle');
-      btn.setAttribute('aria-controls', card.id);
-      btn.addEventListener('click', () => {
-        const open = card.hasAttribute('hidden');
-        if (open) card.removeAttribute('hidden');
-        else card.setAttribute('hidden', '');
-        setToggleState(btn, open, 'Hide source & detail', 'Show source & detail');
-        right.classList.toggle('has-open', body.querySelectorAll('.sb-card:not([hidden])').length > 0);
-      });
-      unit.appendChild(btn);
-    });
-
-    const paneToggle = right.querySelector('.zh-pane-toggle');
-    paneToggle.addEventListener('click', () => {
-      const off = root.classList.toggle('is-pane-off');
-      paneToggle.setAttribute('aria-expanded', off ? 'false' : 'true');
-      paneToggle.textContent = off ? 'Show pane' : 'Hide pane';
-    });
-  }
-  // ==========================================================================
-  // LAYOUT 14 · RELATED RAIL — the main column stays the room; a 18rem rail
-  // lists only what is related, and every card says why on hover or select.
-  // ==========================================================================
-  function roomRelatedRail(room, root) {
-    root.classList.add('rm-rail');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (root.querySelector(':scope > .rm-rail-shell')) return;
-
-    const shell = document.createElement('div');
-    shell.className = 'rm-rail-shell';
-    const main = document.createElement('div');
-    main.className = 'rm-rail-main';
-    const rail = document.createElement('aside');
-    rail.className = 'related-rail';
-    rail.setAttribute('aria-label', 'Related');
-    while (root.firstChild) main.appendChild(root.firstChild);
-    shell.appendChild(main);
-    shell.appendChild(rail);
-    root.appendChild(shell);
-
-    const units = roomUnitsIn(main, room);
-    const items = relatedRailItems(room, units);
-    const shown = items.slice(0, 30);
-    rail.innerHTML =
-      `<div class="rail-head"><span class="rail-title">Related</span>` +
-      `<span class="rail-count">${shown.length}${items.length > shown.length ? ` of ${items.length}` : ''}</span></div>` +
-      `<p class="rail-lead">Only what is related to ${escHtml(ROOM_LABEL[room] || 'this room')} at this point. Hover or select a card and it says why.</p>` +
-      `<ul class="rail-list"></ul>`;
-    const list = rail.querySelector('.rail-list');
-    if (!shown.length) {
-      const p = document.createElement('p');
-      p.className = 'rm-quiet rail-empty';
-      p.textContent = 'Nothing is linked yet in the project data for this room.';
-      rail.appendChild(p);
-    }
-    shown.forEach(it => list.appendChild(railCard(room, it)));
-    rail.appendChild(infoStackBlock('About this room', roomInfoRowsFor(room), false));
-  }
-
-  // What a room is related to, drawn only from bundled links (never invented).
-  function relatedRailItems(room, units) {
-    const items = [];
-    if (room === 'reader') {
-      relatedTeachersForCorpusKey(state.currentCorpusKey).forEach(m => items.push({
-        name: masterDisplayName(m),
-        zh: stringValue(m.name_zh),
-        meta: `${stringValue(m.dates) || 'dates not recorded'} · ${stringValue(m.era) || 'era not recorded'}`,
-        why: `Recorded in the transmission register of this project and linked to ${corpusTitle()}.`,
-        unit: null
-      }));
-      return items;
-    }
-    if (room === 'matrix') {
-      const matrix = Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : [];
-      units.forEach((unit, i) => {
-        const item = matrix[i];
-        if (!item || !Array.isArray(item.translators)) return;
-        item.translators.forEach(t => items.push({
-          name: stringValue(t.translator) || 'Unnamed register',
-          meta: `${stringValue(t.work) || 'work not recorded'} · line ${stringValue(item.source_ref)}`,
-          why: `One of the English registers rendering line ${stringValue(item.source_ref)} in this room.`,
-          unit: unit
-        }));
-      });
-      return items;
-    }
-    if (room === 'lineage') {
-      const masters = Array.isArray(state.data.lineage) ? state.data.lineage : [];
-      units.forEach(unit => {
-        const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-        const m = masters.find(x => x && x.id === id);
-        if (!m) return;
-        (Array.isArray(m.linked_corpus_keys) ? m.linked_corpus_keys : []).forEach(k => {
-          const doc = state.data.corpus && state.data.corpus[k];
-          if (!doc) return;
-          items.push({
-            name: stringValue(doc.title_en) || k,
-            meta: `linked to ${masterDisplayName(m)}`,
-            why: `The project records this work with ${masterDisplayName(m)}; opening it moves the Reader to that work.`,
-            docKey: k
+  // ---- one case's record ----------------------------------------------------
+  function renderCaseDossierBody(caseId) {
+    const entry = gonganList().find(g => g && g.id === caseId);
+    if (!entry) return '';
+    const protagonist = masterForLabel(entry.protagonist);
+    const cross = Array.isArray(entry.cross_refs) ? entry.cross_refs : [];
+    const collection = stringValue(entry.collection);
+    const corpusKey = /碧巖|biyanlu/i.test(collection) ? 'biyanlu_cases'
+      : (/無門關|wumenguan/i.test(collection) ? 'wumenguan' : '');
+    const doc = corpusKey && state.data.corpus ? state.data.corpus[corpusKey] : null;
+    const target = doc && Array.isArray(doc.cases)
+      ? doc.cases.find(c => String(c.case_num) === String(entry.case_no)) : null;
+    const locatorDoc = corpusKey ? locatorDocumentForKey(corpusKey) : null;
+    const caseLocator = locatorDoc && isRecord(locatorDoc.case_locators)
+      ? locatorDoc.case_locators[String(entry.case_no)] : null;
+
+    const doors = `<div class="dossier-open-row">`
+      + (target ? `<button type="button" class="btn-primary case-open" data-open-case="${escHtml(corpusKey)}`
+        + `" data-case-num="${escHtml(entry.case_no)}">Read case ${dossierText(entry.case_no)} in the sheet</button>` : '')
+      + (corpusKey && !target ? docButton(corpusKey, 'Open the collection') : '')
+      + (!corpusKey ? '<p class="dossier-empty">This collection is not in the reading room yet.</p>' : '')
+      + '</div>';
+
+    return `<p class="dossier-caseno">Case ${dossierText(entry.case_no)} · ${dossierText(collection)}</p>`
+      + `<p class="dossier-titles"><span class="dossier-title-zh" lang="zh">${dossierText(entry.title_zh)}</span></p>`
+      + `<p class="dossier-title-en">${dossierText(entry.title_en)}</p>`
+      + `<p class="dossier-lede">${annotateEnglishProse(stringValue(entry.summary))}</p>`
+      + doors
+      + dossierSection('The record', dossierRows([
+        ['Protagonist', protagonist ? wikiButton('master', protagonist.id, masterDisplayName(protagonist))
+          : `<span>${dossierText(entry.protagonist || 'not recorded')} — ${FRONTIER_NOTE}</span>`],
+        ['Theme group', dossierText(gonganGroupDisplay(stringValue(entry.theme_group)))],
+        ['Theme', dossierText(entry.theme)],
+        ['Canonical record', dossierCode(entry.cbeta_id) || 'not recorded'],
+        ['In the Reader', target ? dossierText(target.title_en) : 'not represented in the current excerpt']
+      ]))
+      + dossierSection('Cross-references', cross.length ? dossierChips(cross.map(ref => {
+          const words = stringValue(ref).toLowerCase().split(/\s+/).filter(word => word.length > 3);
+          if (!words.length) return `<span class="dossier-ref">${dossierText(ref)}</span>`;
+          const match = (((state.data.corpus_manifest || {}).items) || []).find(it => {
+            const title = stringValue(it.title).toLowerCase();
+            return words.every(word => title.indexOf(word.slice(0, Math.max(4, word.length - 2))) !== -1);
           });
-        });
+          return match ? docButton(match.key, ref) : `<span class="dossier-ref">${dossierText(ref)}</span>`;
+        })) : '',
+        'Only the cross-references that name a work held here are clickable.')
+      + (caseLocator && locatorDoc
+        ? renderSourceLocationDisclosure(Object.assign({}, locatorDoc, {
+            canonical_locator: caseLocator.canonical_locator, granularity: 'case', status: caseLocator.status
+          }), 'Case source', 'dossier-locator') : '');
+  }
+
+  // ---- one register's record (the twenty-one voices) ------------------------
+  function countRegisterSlots(registerKey) {
+    let total = 0;
+    let verified = 0;
+    Object.keys(state.data.corpus || {}).forEach(key => {
+      documentTranslationSlots(state.data.corpus[key], key).forEach(slot => {
+        if (slot.translator !== registerKey) return;
+        total += 1;
+        if (slot.status === 'verified_quotation') verified += 1;
       });
-      return items;
-    }
-    if (room === 'gongan') {
-      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
-      const masters = Array.isArray(state.data.lineage) ? state.data.lineage : [];
-      units.forEach(unit => {
-        const no = queryText(unit, '.catalogue-case');
-        const g = list.find(x => x && stringValue(x.case_no) === no);
-        if (!g) return;
-        const m = masters.find(x => x && (x.id === g.protagonist || x.name_zh === g.protagonist));
-        items.push({
-          name: m ? masterDisplayName(m) : stringValue(g.protagonist) || 'Protagonist not recorded',
-          zh: m ? stringValue(m.name_zh) : '',
-          meta: `case ${stringValue(g.case_no)} · ${stringValue(g.collection)}`,
-          why: m ? `Recorded as the protagonist of this case.` : `Named in this case; not yet profiled as a teacher in this project.`,
-          unit: unit
-        });
-      });
-      return items;
-    }
-    const glossary = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-    units.forEach(unit => {
-      const term = queryText(unit, '.lexicon-headword-zh') || queryText(unit, '.lexicon-headword');
-      const entry = glossary.find(x => x && (x.term === term || x.literal === term)) ||
-        glossary.find(x => term && stringValue(x.literal) === term);
-      if (!entry || !Array.isArray(entry.occurrences)) return;
-      entry.occurrences.forEach(occ => items.push({
-        name: stringValue(occ),
-        meta: `recorded for ${stringValue(entry.term)}`,
-        why: `A canonical location this project records the term in; the tag may fall outside the current Reader excerpt.`,
-        unit: unit
-      }));
     });
-    return items;
+    return { total, verified };
   }
 
-  function railCard(room, it) {
-    const li = document.createElement('li');
-    li.className = 'rail-item';
-    const card = document.createElement('button');
-    card.type = 'button';
-    card.className = 'related-card';
-    card.setAttribute('aria-expanded', 'false');
-    card.innerHTML =
-      `<span class="rr-name">${escHtml(it.name)}${it.zh ? ` <span class="rr-zh" lang="zh">${escHtml(it.zh)}</span>` : ''}</span>` +
-      `<span class="rr-meta">${escHtml(it.meta || '')}</span>` +
-      `<span class="rr-why">${escHtml(it.why || '')}</span>`;
-    card.addEventListener('click', () => {
-      const open = !card.classList.contains('is-open');
-      card.classList.toggle('is-open', open);
-      card.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    li.appendChild(card);
-    if (it.unit || it.docKey) {
-      const open = document.createElement('button');
-      open.type = 'button';
-      open.className = 'rr-open';
-      open.textContent = it.docKey ? 'Open work' : 'Show in room';
-      open.addEventListener('click', () => {
-        if (it.docKey) openCorpusDoc(it.docKey);
-        else scrollToUnit(it.unit);
-      });
-      li.appendChild(open);
-    }
-    return li;
+  function fakenessMeterHtml(meta) {
+    if (!meta) return '';
+    return `<div class="fakeness-meter" role="img" aria-label="Real-fakeness tier ${meta.tier} of 5${meta.pending ? ', evidence pending' : ''}">`
+      + `<span class="fakeness-bars" aria-hidden="true">`
+      + [1, 2, 3, 4, 5].map(step => `<i class="fakeness-bar${step <= meta.tier ? ' is-on' : ''}"></i>`).join('')
+      + `</span><span class="fakeness-label">${dossierText(meta.label)}${meta.pending ? ' ⏳' : ''}</span></div>`
+      + `<p class="fakeness-blurb">${dossierText(meta.blurb)}</p>`;
   }
 
-  // ==========================================================================
-  // LAYOUT 15 · FOOTNOTES + GLOSSARY — a comfortable English column, numbered
-  // notes at the foot of the page, and dotted terms that explain themselves in
-  // plain language on hover, focus or tap.
-  // ==========================================================================
-  function roomFootnotes(room, root) {
-    root.classList.add('rm-notes');
-    if (root.querySelector(':scope > .rm-footnotes')) return;
-    const units = roomUnitsIn(root, room);
-    const entries = [];
+  function renderRegisterDossierBody(registerKey) {
+    const profile = profileForKey(registerKey);
+    if (!profile) return '';
+    const meta = fakenessFromProfile(profile);
+    const slots = countRegisterSlots(registerKey);
 
-    units.forEach((unit, i) => {
-      const rows = unitInfoRowsFor(room, unit, i);
-      if (!rows.length) return;
-      const h = unitHeadline(room, unit, i);
-      const n = entries.length + 1;
-      const noteId = `rm-fn-${room}-${i}`;
-      const marker = document.createElement('button');
-      marker.type = 'button';
-      marker.className = 'fn-mark';
-      marker.textContent = String(n);
-      marker.setAttribute('aria-label', `Note ${n}: background for ${clipText(h.en || 'this item', 48)}`);
-      marker.addEventListener('click', () => openFootnote(root, noteId));
-      const anchor = headlineAnchor(room, unit);
-      if (anchor && anchor.parentNode && anchor !== unit) anchor.appendChild(marker);
-      else unit.insertBefore(marker, unit.firstChild);
-      entries.push({ id: noteId, n: n, unit: unit, h: h, rows: rows });
-      buildGlossaryStrip(room, unit, i);
-    });
-
-    const details = document.createElement('details');
-    details.className = 'footnotes';
-    const summary = document.createElement('summary');
-    summary.textContent = `Show footnotes (${entries.length})`;
-    details.appendChild(summary);
-    const body = document.createElement('div');
-    body.className = 'footnotes-body';
-    entries.forEach(e => body.appendChild(footnoteItem(room, e)));
-    if (!entries.length) {
-      const p = document.createElement('p');
-      p.className = 'rm-quiet';
-      p.textContent = 'No notes recorded for this room yet.';
-      body.appendChild(p);
-    }
-    details.appendChild(body);
-    root.appendChild(details);
-
-    const opener = toggleButton(`Show footnotes (${entries.length})`, 'btn-pill rm-footnotes-toggle');
-    opener.setAttribute('aria-controls', 'rm-footnotes-list-' + room);
-    opener.addEventListener('click', () => {
-      const open = !details.hasAttribute('open');
-      if (open) details.setAttribute('open', '');
-      else details.removeAttribute('open');
-      setToggleState(opener, open, 'Hide footnotes', `Show footnotes (${entries.length})`);
-      if (open && typeof details.scrollIntoView === 'function') {
-        details.scrollIntoView({ behavior: motionBehavior(), block: 'nearest' });
-      }
-    });
-    details.id = 'rm-footnotes-list-' + room;
-    const footHead = document.createElement('div');
-    footHead.className = 'rm-footnotes-head';
-    footHead.innerHTML = `<h2 class="rm-pane-title">Notes</h2>` +
-      `<p class="rm-pane-lead">Background for each ${escHtml(ROOM_NOUN[room] || 'unit')}, kept at the foot of the page so the reading stays quiet. The numbers in the text point here.</p>`;
-    footHead.appendChild(opener);
-    root.insertBefore(footHead, details);
+    return `<p class="dossier-lede">${dossierText(stringValue(profile.personality)
+      || 'No stylistic note recorded for this register.')}</p>`
+      + fakenessMeterHtml(meta)
+      + dossierSection('The register', dossierRows([
+        ['Imitates', dossierText(profile.translator)],
+        ['Shown here as', dossierText(profile.robo_name)],
+        ['Evidence source', dossierText(profile.evidence_source)],
+        ['Verified samples in the corpus', dossierText(profile.verified_sample_count)],
+        ['Renders 無', dossierText(profile.rendering_of_wu)],
+        ['Naming', dossierText(profile.naming)]
+      ]), 'A Robolation is project text written in a translator\u2019s broad register — not their words, and not citable as their translation.')
+      + dossierSection('What the imitation listens to', Array.isArray(profile.observed_features) && profile.observed_features.length
+        ? dossierList(profile.observed_features) : '')
+      + dossierSection('Where this register is used',
+        `<p class="dossier-usage">${slots.total} corpus slot${slots.total === 1 ? '' : 's'} carry this register; ${slots.verified} of them hold an edition-verified quotation.</p>`);
   }
 
-  function headlineAnchor(room, unit) {
-    if (room === 'reader') return unit.querySelector('.case-heading-en, .case-num-title, .case-heading');
-    if (room === 'matrix') return unit.querySelector('.matrix-ref-clean, .matrix-source-band');
-    if (room === 'lineage') return unit.querySelector('.lineage-master-name-en');
-    if (room === 'gongan') return unit.querySelector('.catalogue-title-en');
-    if (room === 'lexicon') return unit.querySelector('.lexicon-headword');
-    return unit;
-  }
-
-  function footnoteItem(room, e) {
-    const item = document.createElement('article');
-    item.className = 'footnote-item';
-    item.id = e.id;
-    item.innerHTML = `<div class="footnote-head"><span class="fn-num">${e.n}</span>` +
-      `<span class="fn-title">${escHtml(e.h.kicker ? e.h.kicker + ' · ' : '')}${escHtml(clipText(e.h.en || 'Untitled', 70))}</span></div>` +
-      `<div class="context-info-body">${infoRows(e.rows)}</div>`;
-    const back = document.createElement('button');
-    back.type = 'button';
-    back.className = 'btn-pill fn-back';
-    back.textContent = '↑ Back to the text';
-    back.addEventListener('click', () => scrollToUnit(e.unit));
-    item.appendChild(back);
-    return item;
-  }
-
-  function openFootnote(root, noteId) {
-    const details = root.querySelector(':scope > .rm-footnotes');
-    const note = document.getElementById(noteId);
-    if (details) details.setAttribute('open', '');
-    const opener = root.querySelector('.rm-footnotes-toggle');
-    if (opener) setToggleState(opener, true, 'Hide footnotes', opener.textContent);
-    if (note && typeof note.scrollIntoView === 'function') {
-      note.scrollIntoView({ behavior: motionBehavior(), block: 'center' });
-      note.classList.add('rm-flash');
-      setTimeout(() => note.classList.remove('rm-flash'), 1100);
-    }
-  }
-
-  // Dotted terms that explain themselves from the project's own glossary. Only
-  // terms actually mentioned in the unit are listed — nothing is inserted into
-  // the text itself, so the rendered text stays exactly what the data says.
-  function buildGlossaryStrip(room, unit, idx) {
-    const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-    if (!list.length) return;
-    const text = nodeText(unit).toLowerCase();
-    const found = list.filter(t => {
-      if (!t) return false;
-      const term = stringValue(t.term);
-      const literal = stringValue(t.literal);
-      if (term.length >= 2 && text.includes(term.toLowerCase())) return true;
-      return literal.length >= 5 && text.includes(literal.toLowerCase());
-    }).slice(0, 4);
-    if (!found.length) return;
-    const strip = document.createElement('div');
-    strip.className = 'glossary-strip';
-    const label = document.createElement('span');
-    label.className = 'glossary-strip-label';
-    label.textContent = 'Terms in this ' + (ROOM_NOUN[room] || 'unit');
-    strip.appendChild(label);
-    found.forEach(t => {
-      const wrap = document.createElement('span');
-      wrap.className = 'glossary-term';
-      wrap.tabIndex = 0;
-      wrap.setAttribute('role', 'button');
-      wrap.setAttribute('aria-expanded', 'false');
-      const tipId = `gloss-${room}-${idx}-${stringValue(t.id) || 'term'}`;
-      wrap.innerHTML = `<span class="glossary-word">${escHtml(stringValue(t.literal) || stringValue(t.term))}</span>` +
-        `<span class="glossary-tooltip" id="${escHtml(tipId)}" role="tooltip" hidden>` +
-        `<span class="glossary-tip-head">${escHtml(stringValue(t.term))} · ${escHtml(stringValue(t.pinyin))}</span>` +
-        `<span class="glossary-tip-body">${escHtml(clipText(stringValue(t.definition), 240))}</span></span>`;
-      const flip = () => {
-        const tip = wrap.querySelector('.glossary-tooltip');
-        const open = tip.hasAttribute('hidden');
-        if (open) tip.removeAttribute('hidden');
-        else tip.setAttribute('hidden', '');
-        wrap.setAttribute('aria-expanded', open ? 'true' : 'false');
-      };
-      wrap.addEventListener('click', flip);
-      wrap.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
-      });
-      strip.appendChild(wrap);
-    });
-    unit.appendChild(strip);
-  }
-
-  // ==========================================================================
-  // Phase 5 — LAYOUTS 16–25 · MORE USABLE HAND-PICK FAMILY (2026-09-18)
-  // --------------------------------------------------------------------------
-  // Owner: "Lets first implement more examples before going into review" and
-  // "now next stub for 16-25". So 16–25 are ten MORE alternative renderings of
-  // the same five rooms. Each one stays usable — the walnut shell and the room
-  // nav are visible, the room's own filter stays reachable, English comes first
-  // and the Chinese / records / background sit one intentional step away (scroll
-  // reveal · modal · hover card · sentence drawer · chunk · dossier · two-step ·
-  // palette · trail). Every layout keeps layout 1's colours exactly — only
-  // structure varies — and carries the COMMON QUALITIES: light mental load,
-  // English first, not dense, comfortable to read, easy to navigate, piece-meal
-  // plain language, and a plain-language info section (where from · related ·
-  // background) for the work, teacher, case or term in view.
-  //
-  // Mechanisms: class toggles, `hidden`, native <details>, <progress>/<input
-  // type=range> .value writes, and scoped [data-design] CSS. Zero inline styles
-  // and zero new .style writes — the four CSSOM custom-property writes elsewhere
-  // stay exactly four. Document-level chrome (progress rail, info modal, command
-  // palette, bookmark trail) is registered here and removed by
-  // teardownLayout16Chrome() the moment the layout is left.
-  // ==========================================================================
-
-  // Document-level chrome handles for 16–35 (cleared by teardownLayout16Chrome).
-  // Layouts 26–35 keep their chrome inside the room root, except layout 35's
-  // hybrid progress rail, which needs one window scroll listener like 16.
-  let layout16ScrollHandler = null;
-  let cmdKeyHandler = null;
-  let layout25Trail = [];
-  let layout35ScrollHandler = null;
-
-  // Remove every piece of document-level chrome 16–35 can create, plus their
-  // window/document listeners, so none of it survives into the next layout.
-  function teardownLayout16Chrome() {
-    if (typeof document !== 'undefined' && document.getElementById) {
-      ['rm-progress-rail', 'layout-info-modal', 'rm-cmd-palette', 'rm-bookmark-trail'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el && el.parentNode) el.parentNode.removeChild(el);
-      });
-    }
-    if (layout16ScrollHandler) {
-      window.removeEventListener('scroll', layout16ScrollHandler);
-      layout16ScrollHandler = null;
-    }
-    if (cmdKeyHandler) {
-      document.removeEventListener('keydown', cmdKeyHandler);
-      cmdKeyHandler = null;
-    }
-    if (layout35ScrollHandler) {
-      window.removeEventListener('scroll', layout35ScrollHandler);
-      layout35ScrollHandler = null;
-    }
-    layout25Trail = [];
-  }
-
-  // Keep a Tab cycle inside one container (used by the modal and the palette).
-  function trapFocus(e, panel) {
-    if (!panel || typeof panel.querySelectorAll !== 'function') return;
-    const nodes = panel.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    const list = Array.from(nodes).filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
-    if (!list.length) return;
-    const first = list[0];
-    const last = list[list.length - 1];
-    if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
-    else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
-  }
-
-  // ==========================================================================
-  // LAYOUT 16 · PROGRESSIVE DISCLOSURE SCROLL — English first; as a unit nears
-  // the viewport its source + context fade in. A thin gold rail up top reports
-  // how far through the room you are. Nav + filter stay visible.
-  // ==========================================================================
-  function roomProgressiveReveal(room, root) {
-    root.classList.add('rm-reveal');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    ensureProgressRail();
-    const units = roomUnitsIn(root, room);
-    units.forEach((unit, i) => {
-      if (unit.dataset.revealReady === '1') return;
-      unit.dataset.revealReady = '1';
-      unit.classList.add('progressive-unit');
-      const reveal = document.createElement('div');
-      reveal.className = 'progressive-extra';
-      harvestExtras(unit, room).forEach(n => reveal.appendChild(n));
-      const rows = unitInfoRowsFor(room, unit, i);
-      if (rows.length) {
-        const info = document.createElement('div');
-        info.className = 'context-info-body progressive-context';
-        info.innerHTML = infoRows(rows);
-        reveal.appendChild(info);
-      }
-      if (!reveal.childNodes.length) {
-        const p = document.createElement('p');
-        p.className = 'rm-quiet';
-        p.textContent = 'No extra source or context recorded for this ' + (ROOM_NOUN[room] || 'unit') + ' yet.';
-        reveal.appendChild(p);
-      }
-      const btn = toggleButton('Show context', 'btn-pill progressive-toggle');
-      btn.addEventListener('click', () => {
-        const on = unit.classList.toggle('revealed');
-        setToggleState(btn, on, 'Hide context', 'Show context');
-      });
-      unit.appendChild(btn);
-      unit.appendChild(reveal);
-    });
-    observeReveal(root);
-    if (!root.querySelector(':scope > .rm-reveal-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-reveal-note');
-      root.appendChild(note);
-    }
-  }
-
-  function observeReveal(root) {
-    if (typeof IntersectionObserver !== 'function') {
-      root.querySelectorAll('.progressive-unit').forEach(u => u.classList.add('revealed'));
-      return;
-    }
-    if (!roomRevealObserver) {
-      roomRevealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('revealed'); });
-      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-    }
-    root.querySelectorAll('.progressive-unit').forEach(u => roomRevealObserver.observe(u));
-  }
-
-  function ensureProgressRail() {
-    if (typeof document === 'undefined' || !document.getElementById) return;
-    let rail = document.getElementById('rm-progress-rail');
-    if (!rail) {
-      rail = document.createElement('div');
-      rail.id = 'rm-progress-rail';
-      rail.className = 'rm-progress-rail';
-      const label = document.createElement('span');
-      label.className = 'rm-progress-label';
-      label.textContent = 'Progress';
-      const meter = document.createElement('progress');
-      meter.className = 'rm-progress-meter';
-      meter.max = 100;
-      meter.value = 0;
-      rail.appendChild(label);
-      rail.appendChild(meter);
-      document.body.appendChild(rail);
-    }
-    if (!layout16ScrollHandler) {
-      layout16ScrollHandler = () => updateProgressRail();
-      window.addEventListener('scroll', layout16ScrollHandler, { passive: true });
-    }
-    updateProgressRail();
-  }
-
-  function updateProgressRail() {
-    const rail = typeof document !== 'undefined' ? document.getElementById('rm-progress-rail') : null;
-    if (!rail) return;
-    const meter = rail.querySelector('.rm-progress-meter');
-    if (!meter) return;
-    const doc = document.documentElement;
-    const span = (doc.scrollHeight - window.innerHeight) || 1;
-    const pct = Math.max(0, Math.min(100, Math.round(((window.scrollY || 0) / span) * 100)));
-    meter.value = pct;
-  }
-
-  // ==========================================================================
-  // LAYOUT 17 · MODAL INFO — the page stays a quiet English column; every unit
-  // carries an ⓘ that opens one shared modal with where-from · related ·
-  // background plus the source records. Backdrop / Esc / Close all dismiss it.
-  // ==========================================================================
-  function roomModalInfo(room, root) {
-    root.classList.add('rm-modalinfo');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    ensureInfoModal();
-    const units = roomUnitsIn(root, room);
-    units.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'rm-info-btn';
-      btn.textContent = 'ⓘ';
-      btn.setAttribute('aria-label', 'More information about ' + clipText(h.en || 'this ' + (ROOM_NOUN[room] || 'item'), 48));
-      btn.addEventListener('click', () => openInfoModalWith(room, unit, i));
-      const anchor = headlineAnchor(room, unit);
-      if (anchor && anchor.parentNode && anchor !== unit) anchor.appendChild(btn);
-      else unit.insertBefore(btn, unit.firstChild);
-    });
-    if (!root.querySelector(':scope > .rm-modalinfo-room')) {
-      const bar = document.createElement('div');
-      bar.className = 'rm-modalinfo-room';
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'btn-pill rm-room-info-btn';
-      b.textContent = 'About this room';
-      b.addEventListener('click', () => openInfoModalRoom(room));
-      bar.appendChild(b);
-      root.insertBefore(bar, root.firstChild);
-    }
-  }
-
-  function ensureInfoModal() {
-    if (typeof document === 'undefined' || !document.getElementById) return null;
-    let modal = document.getElementById('layout-info-modal');
-    if (modal) return modal;
-    modal = document.createElement('div');
-    modal.id = 'layout-info-modal';
-    modal.className = 'rm-modal-root';
-    modal.setAttribute('hidden', '');
-    modal.innerHTML =
-      '<div class="rm-modal-backdrop" data-modal-close></div>' +
-      '<div class="rm-modal-panel" role="dialog" aria-modal="true" aria-labelledby="rm-modal-title">' +
-        '<div class="rm-modal-head">' +
-          '<h2 id="rm-modal-title" class="rm-modal-title">Context</h2>' +
-          '<button type="button" class="rm-modal-close" aria-label="Close">Close</button>' +
-        '</div>' +
-        '<div class="rm-modal-body"></div>' +
-      '</div>';
-    document.body.appendChild(modal);
-    modal.addEventListener('click', (e) => {
-      const t = e.target;
-      if (t === modal || (t.closest && (t.closest('[data-modal-close]') || t.closest('.rm-modal-close')))) closeInfoModal();
-    });
-    modal.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') { closeInfoModal(); return; }
-      if (e.key === 'Tab') trapFocus(e, modal.querySelector('.rm-modal-panel'));
-    });
-    return modal;
-  }
-
-  function openInfoModalWith(room, unit, idx) {
-    const modal = ensureInfoModal();
-    if (!modal) return;
-    const h = unitHeadline(room, unit, idx);
-    const rows = unitInfoRowsFor(room, unit, idx);
-    modal.querySelector('.rm-modal-title').textContent =
-      (h.kicker ? h.kicker + ' · ' : '') + clipText(h.en || (ROOM_NOUN[room] || 'Item') + ' ' + (idx + 1), 70);
-    const body = modal.querySelector('.rm-modal-body');
-    body.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
-    const extras = harvestExtras(unit, room);
-    if (extras.length) {
-      const sec = document.createElement('div');
-      sec.className = 'rm-modal-source';
-      const head = document.createElement('h3');
-      head.className = 'rm-modal-subhead';
-      head.textContent = 'Source and records';
-      sec.appendChild(head);
-      extras.forEach(n => sec.appendChild(n.cloneNode(true)));
-      body.appendChild(sec);
-    }
-    modal.removeAttribute('hidden');
-    const close = modal.querySelector('.rm-modal-close');
-    if (close && close.focus) close.focus();
-  }
-
-  function openInfoModalRoom(room) {
-    const modal = ensureInfoModal();
-    if (!modal) return;
-    modal.querySelector('.rm-modal-title').textContent = 'About the ' + (ROOM_LABEL[room] || 'room') + ' room';
-    modal.querySelector('.rm-modal-body').innerHTML =
-      '<div class="context-info-body">' + infoRows(roomInfoRowsFor(room)) + '</div>';
-    modal.removeAttribute('hidden');
-    const close = modal.querySelector('.rm-modal-close');
-    if (close && close.focus) close.focus();
-  }
-
-  // ==========================================================================
-  // LAYOUT 18 · HOVER CARDS — English names are dotted; hover, focus or tap
-  // lifts a card with where-from · related · background. Nothing is inline, so
-  // the reading column stays quiet. Nav + filter stay visible.
-  // ==========================================================================
-  function roomHoverCards(room, root) {
-    root.classList.add('rm-hovercard');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    units.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      const rows = unitInfoRowsFor(room, unit, i);
-      const anchor = headlineAnchor(room, unit) || unit;
-      anchor.classList.add('hover-cardable');
-      anchor.setAttribute('tabindex', '0');
-      const card = document.createElement('span');
-      card.className = 'hover-card';
-      card.setAttribute('role', 'tooltip');
-      card.innerHTML =
-        '<span class="hover-card-head">' + escHtml(clipText(h.en || 'Untitled', 60)) + '</span>' +
-        '<span class="hover-card-body">' + infoRows(rows) + '</span>';
-      anchor.appendChild(card);
-    });
-    if (!root.querySelector(':scope > .rm-hovercard-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-hovercard-note');
-      root.appendChild(note);
-    }
-  }
-
-  // ==========================================================================
-  // LAYOUT 19 · SENTENCE-BY-SENTENCE — the English reads in sentences; each one
-  // carries an [i] that opens a drawer with the source Chinese, pinyin, records
-  // and the plain-language context for the part. Nav + filter stay visible.
-  // ==========================================================================
-  function roomSentenceBySentence(room, root) {
-    root.classList.add('rm-sentence');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    units.forEach((unit, i) => {
-      if (unit.dataset.sentReady === '1') return;
-      unit.dataset.sentReady = '1';
-      unit.classList.add('sentence-unit');
-      const drawerId = `rm-sent-drawer-${room}-${i}`;
-      const drawer = buildSentenceDrawer(room, unit, i, drawerId);
-      unit.appendChild(drawer);
-      if (room === 'reader') {
-        const blocks = Array.from(unit.querySelectorAll('.translation-text, .prose-en'));
-        let made = 0;
-        blocks.forEach(b => { if (sentencize(b, drawerId)) made++; });
-        if (!made) {
-          const anchor = headlineAnchor(room, unit) || unit;
-          anchor.appendChild(makeSentenceI(drawerId));
-        }
-      } else {
-        const anchor = headlineAnchor(room, unit) || unit;
-        anchor.appendChild(makeSentenceI(drawerId));
-      }
-    });
-    if (!root.querySelector(':scope > .rm-sentence-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-sentence-note');
-      root.appendChild(note);
-    }
-  }
-
-  function makeSentenceI(drawerId) {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'sentence-i';
-    b.textContent = 'i';
-    b.setAttribute('aria-label', 'Show source and context');
-    b.setAttribute('aria-expanded', 'false');
-    b.setAttribute('aria-controls', drawerId);
-    b.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const d = document.getElementById(drawerId);
-      if (!d) return;
-      const open = d.hasAttribute('hidden');
-      if (open) d.removeAttribute('hidden'); else d.setAttribute('hidden', '');
-      b.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    return b;
-  }
-
-  function sentencize(block, drawerId) {
-    if (!block || block.dataset.sentDone === '1') return false;
-    const text = block.textContent || '';
-    const parts = text.match(/[^.!?。！？]+[.!?。！？]*/g);
-    block.dataset.sentDone = '1';
-    if (!parts || parts.length < 2) {
-      block.classList.add('sentence');
-      block.appendChild(makeSentenceI(drawerId));
-      return true;
-    }
-    block.textContent = '';
-    parts.forEach(p => {
-      const t = p.replace(/\s+$/, '');
-      if (!t.trim()) return;
-      const s = document.createElement('span');
-      s.className = 'sentence';
-      s.textContent = t.trim() + ' ';
-      s.appendChild(makeSentenceI(drawerId));
-      block.appendChild(s);
-    });
-    return true;
-  }
-
-  function buildSentenceDrawer(room, unit, i, id) {
-    const d = document.createElement('div');
-    d.className = 'sentence-drawer';
-    d.id = id;
-    d.setAttribute('hidden', '');
-    const head = document.createElement('div');
-    head.className = 'sentence-drawer-head';
-    head.textContent = 'Source & context for this ' + (ROOM_NOUN[room] || 'part');
-    d.appendChild(head);
-    harvestExtras(unit, room).forEach(n => d.appendChild(n));
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows.length) {
-      const info = document.createElement('div');
-      info.className = 'context-info-body';
-      info.innerHTML = infoRows(rows);
-      d.appendChild(info);
-    }
-    return d;
-  }
-
-  // ==========================================================================
-  // LAYOUT 20 · CHAPTER CHUNKS — units are grouped into small chunks; only the
-  // first shows, "Continue" reveals the next, and each chunk carries its own
-  // "Show context" fold. Nav + filter stay visible.
-  // ==========================================================================
-  function roomChapterChunks(room, root) {
-    root.classList.add('rm-chunks');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (root.querySelector(':scope > .rm-chunks-ctl')) return;
-    const units = roomUnitsIn(root, room);
-    const SIZE = room === 'reader' ? 2 : 3;
-    const chunkCount = Math.max(1, Math.ceil(units.length / SIZE));
-    units.forEach((unit, i) => {
-      const ci = Math.floor(i / SIZE);
-      unit.dataset.chunk = String(ci);
-      unit.classList.add('chunk-unit');
-      if (ci > 0) unit.setAttribute('hidden', '');
-      if ((i + 1) % SIZE === 0 || i === units.length - 1) {
-        const det = chunkContext(room, units, ci, i);
-        if (det && unit.parentNode) {
-          if (ci > 0) det.setAttribute('hidden', '');
-          unit.parentNode.insertBefore(det, unit.nextSibling);
-        }
-      }
-    });
-    const ctl = document.createElement('div');
-    ctl.className = 'rm-chunks-ctl';
-    const btn = toggleButton('Continue', 'btn-primary rm-chunk-continue');
-    const status = document.createElement('span');
-    status.className = 'rm-chunk-status';
-    status.setAttribute('aria-live', 'polite');
-    ctl.appendChild(btn);
-    ctl.appendChild(status);
-    root.appendChild(ctl);
-    let shown = 1;
-    const paint = () => {
-      const seen = Math.min(units.length, shown * SIZE);
-      status.textContent = shown >= chunkCount
-        ? `All ${units.length} ${ROOM_NOUN_PLURAL[room] || 'items'} shown.`
-        : `Chunk ${shown} of ${chunkCount} · ${seen} of ${units.length} ${ROOM_NOUN_PLURAL[room] || 'items'} shown.`;
-      if (shown >= chunkCount) btn.setAttribute('hidden', ''); else btn.removeAttribute('hidden');
+  // ---- what the margin shows while you read ---------------------------------
+  // The rail is never empty: when nothing is pinned it follows the passage on
+  // screen — who speaks, which terms are in it, what the record says about it.
+  function passageWorkContext(doc) {
+    const review = sourceReviewForCorpusKey(state.currentCorpusKey);
+    const perText = metricsPerText(state.currentCorpusKey);
+    return {
+      kicker: 'Reading · the whole work',
+      nameZh: stringValue(doc.title_zh),
+      nameEn: stringValue(doc.title_en),
+      content: `<p class="context-unit">${dossierText(doc.title_en)}</p>`
+        + dossierSection('This work', dossierRows([
+          ['Canonical id', dossierCode(doc.cbeta_id) || 'not recorded'],
+          ['Held here', dossierText(perText.coverage || 'units not declared')],
+          ['Source review', dossierText(sourceReviewStatusLabel(review.status))]
+        ]), 'The margin follows the sheet. Select any name, term or case and it becomes the record on screen.')
+        + dossierSection('Open the dossier', dossierChips([wikiButton('work', state.currentCorpusKey, itemLabel(state.currentCorpusKey))]))
     };
-    btn.addEventListener('click', () => {
-      if (shown >= chunkCount) return;
-      units.forEach(u => { if (u.dataset.chunk === String(shown)) u.removeAttribute('hidden'); });
-      root.querySelectorAll(`.chunk-context[data-chunk="${shown}"]`).forEach(d => d.removeAttribute('hidden'));
-      shown++;
-      paint();
-    });
-    paint();
   }
 
-  function chunkContext(room, units, ci, lastIdx) {
-    const start = ci * (room === 'reader' ? 2 : 3);
-    const slice = units.slice(start, lastIdx + 1);
-    if (!slice.length) return null;
-    const det = document.createElement('details');
-    det.className = 'chunk-context';
-    det.dataset.chunk = String(ci);
-    const sum = document.createElement('summary');
-    sum.textContent = `Show context for this chunk (${slice.length})`;
-    det.appendChild(sum);
-    const body = document.createElement('div');
-    body.className = 'chunk-context-body';
-    slice.forEach((u, k) => body.appendChild(unitDetails(room, u, start + k)));
-    det.appendChild(body);
-    return det;
-  }
-
-  // ==========================================================================
-  // LAYOUT 21 · WORK DOSSIER PAGE — a dossier leads: witness + coverage, where
-  // from, related teachers, background in plain language; the translation sits
-  // below it and folds behind "Read translation". Nav + filter stay visible.
-  // ==========================================================================
-  function roomWorkDossier(room, root) {
-    root.classList.add('rm-workdossier');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (root.querySelector(':scope > .rm-workdossier-shell')) return;
-    const shell = document.createElement('div');
-    shell.className = 'rm-workdossier-shell';
-    const translation = document.createElement('div');
-    translation.className = 'wd-translation';
-    while (root.firstChild) translation.appendChild(root.firstChild);
-    shell.appendChild(translation);
-    root.appendChild(shell);
-
-    const dossier = document.createElement('section');
-    dossier.className = 'work-dossier';
-    const head = document.createElement('div');
-    head.className = 'wd-head';
-    head.innerHTML = '<span class="rm-acc-kicker">Dossier</span>' +
-      `<h2 class="wd-title">${escHtml(room === 'reader' ? clipText(corpusTitle(), 60) : (ROOM_LABEL[room] || 'Room'))}</h2>`;
-    dossier.appendChild(head);
-    const body = document.createElement('div');
-    body.className = 'context-info-body wd-body';
-    if (room === 'reader') {
-      const key = state.currentCorpusKey;
-      const metrics = state.data.project_metrics?.corpus?.per_text?.[key] || {};
-      body.innerHTML = workContextRows(key) +
-        `    <div class="context-row"><div class="context-label">Coverage</div><div class="context-text">${escHtml(stringValue(metrics.coverage) || 'representation not recorded')} · editorial status ${escHtml(stringValue(metrics.completion_status) || 'pending')}.</div></div>\n`;
-    } else {
-      body.innerHTML = infoRows(roomInfoRowsFor(room));
+  function findUnit(corpusKey, ref) {
+    const doc = state.data.corpus && state.data.corpus[corpusKey];
+    if (!doc || !ref || !ref.id) return null;
+    const pools = [
+      ['cases', 'case_num', num => `Case ${num}`],
+      ['sections', 'section_id', () => 'Section'],
+      ['dialogues', 'dialogue_id', () => 'Dialogue'],
+      ['stanzas', 'stanza_num', num => `Stanza ${num}`],
+      ['chapters', 'chapter_num', num => `Chapter ${num}`],
+      ['five_ranks', 'rank_num', num => `Rank ${num}`]
+    ];
+    for (const pool of pools) {
+      const items = Array.isArray(doc[pool[0]]) ? doc[pool[0]] : [];
+      const found = items.find(item => item && String(item[pool[1]]) === String(ref.id));
+      if (found) {
+        return Object.assign({}, found, {
+          __label: `${pool[2](found[pool[1]])} · ${stringValue(found.title_zh || found.name_zh || '')}`.trim(),
+          __kind: ref.kind
+        });
+      }
     }
-    dossier.appendChild(body);
-    if (room === 'reader') dossier.appendChild(relatedTeachersBlock(state.currentCorpusKey, true));
-    root.insertBefore(dossier, shell);
-
-    const btn = toggleButton('Hide translation', 'btn-primary wd-read');
-    btn.setAttribute('aria-expanded', 'true');
-    btn.addEventListener('click', () => {
-      const off = translation.classList.toggle('is-collapsed');
-      setToggleState(btn, !off, 'Hide translation', 'Read translation');
-      btn.setAttribute('aria-expanded', off ? 'false' : 'true');
-    });
-    dossier.appendChild(btn);
+    if (String(ref.id) === 'preface' && doc.preface) return Object.assign({}, doc.preface, { __label: '序 Front matter' });
+    if (String(ref.id) === 'epilogue' && doc.epilogue) return Object.assign({}, doc.epilogue, { __label: '後 End matter' });
+    return null;
   }
 
-  // ==========================================================================
-  // LAYOUT 22 · TEACHER DOSSIER PAGE — each teacher leads with origin, teacher
-  // & disciples, background and related works; the quote and records fold away.
-  // Nav + filter stay visible.
-  // ==========================================================================
-  function roomTeacherDossier(room, root) {
-    root.classList.add('rm-teacherdossier');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    if (room === 'lineage') {
-      units.forEach(unit => {
-        if (unit.dataset.tdReady === '1') return;
-        unit.dataset.tdReady = '1';
-        const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-        const m = (state.data.lineage || []).find(x => x && x.id === id);
-        if (!m) return;
-        unit.classList.add('teacher-dossier');
-        const det = document.createElement('details');
-        det.className = 'td-more';
-        det.innerHTML = '<summary>More — origin · teacher &amp; disciples · background · works</summary>' +
-          '<div class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</div>';
-        unit.appendChild(det);
+  function renderPassageContext(ref) {
+    const doc = state.data.corpus && state.data.corpus[state.currentCorpusKey];
+    if (!doc) return { kicker: 'Reading', nameZh: '', nameEn: '', content: '<p class="dossier-empty">No work is open.</p>' };
+    const unit = findUnit(state.currentCorpusKey, ref);
+    if (!unit) return passageWorkContext(doc);
+    const zh = [unit.zh, unit.commentary_zh, unit.verse_zh, unit.pointer_zh].filter(Boolean).join(' ');
+    const terms = glossaryList().filter(t => t && t.term && zh.indexOf(t.term) !== -1).slice(0, 6);
+    const voices = lineageList().filter(m => m && m.name_zh && zh.indexOf(m.name_zh) !== -1).slice(0, 4);
+    const caseEntry = unit.case_num !== undefined && unit.case_num !== null
+      ? gonganList().find(g => g && String(g.case_no) === String(unit.case_num)
+        && stringValue(g.collection).indexOf(stringValue(doc.title_zh).slice(0, 3)) !== -1)
+      : null;
+    const registers = isRecord(unit.translations)
+      ? Object.keys(unit.translations).map(key => normalizeTranslationEntry(key, unit.translations[key])) : [];
+    const verified = registers.filter(entry => entry.status === 'verified_quotation').length;
+
+    const body = [
+      `<p class="context-unit">${dossierText(unit.__label)}</p>`,
+      unit.speaker ? `<p class="context-speaker">${annotateEnglishProse(stringValue(unit.speaker))}</p>` : '',
+      zh ? `<p class="context-excerpt" lang="zh">${dossierText(zh.length > 96 ? `${zh.slice(0, 96)}…` : zh)}</p>` : '',
+      terms.length ? dossierSection('Terms in this passage', dossierChips(
+        terms.map(t => wikiButton('term', t.id, `${t.term} · ${stringValue(t.literal)}`)))) : '',
+      voices.length ? dossierSection('Voices in this passage', dossierChips(
+        voices.map(m => wikiButton('master', m.id, masterDisplayName(m))))) : '',
+      caseEntry ? dossierSection('On the case shelf',
+        `<p class="context-case">${dossierText(caseEntry.theme)} — ${dossierText(caseEntry.summary)}</p>`
+        + dossierChips([wikiButton('case', caseEntry.id, 'Open the case record')])) : '',
+      registers.length ? dossierSection('English here',
+        `<p class="context-registers">${registers.length} register${registers.length === 1 ? '' : 's'} · ${verified} edition-verified</p>`,
+        'Select a register name in the text for its record, its citation and its real-fakeness.') : ''
+    ].filter(Boolean).join('');
+
+    return {
+      kicker: `Reading · ${stringValue(unit.__label).slice(0, 46)}`,
+      nameZh: stringValue(unit.title_zh) || stringValue(doc.title_zh),
+      nameEn: stringValue(unit.title_en) || stringValue(doc.title_en),
+      content: body
+    };
+  }
+
+  // ---- opening a record -----------------------------------------------------
+  const DOSSIER_BUILDERS = {
+    master: {
+      body: renderMasterDossierBody,
+      head(id) {
+        const master = lineageList().find(m => m && m.id === id);
+        if (!master) return null;
+        return {
+          kicker: `Master dossier · generation ${master.lineage_depth} · ${stringValue(master.era)}`,
+          nameZh: `${stringValue(master.name_zh)} (${stringValue(master.title)})`,
+          nameEn: `${masterDisplayName(master)} • Pinyin: ${stringValue(master.name_pinyin)}`
+            + (master.name_romaji ? ` • Rōmaji: ${stringValue(master.name_romaji)}` : '')
+            + ` • Generation: ${stringValue(master.lineage_depth)} • Era: ${stringValue(master.dates)}`
+        };
+      }
+    },
+    work: {
+      body: renderWorkDossierBody,
+      head(id) {
+        const doc = state.data.corpus && state.data.corpus[id];
+        if (!doc) return null;
+        return { kicker: 'Work dossier', nameZh: doc.title_zh, nameEn: `${stringValue(doc.title_en)} · ${stringValue(doc.cbeta_id) || 'source pending'}` };
+      }
+    },
+    term: {
+      body: renderTermDossierBody,
+      head(id) {
+        const term = termById(id);
+        if (!term) return null;
+        return { kicker: `Term · ${stringValue(term.category)}`, nameZh: term.term, nameEn: `${stringValue(term.pinyin)} · ${stringValue(term.literal)}` };
+      }
+    },
+    case: {
+      body: renderCaseDossierBody,
+      head(id) {
+        const entry = gonganList().find(g => g && g.id === id);
+        if (!entry) return null;
+        return {
+          kicker: `Case ${entry.case_no} · ${gonganGroupDisplay(stringValue(entry.theme_group))}`,
+          nameZh: entry.title_zh,
+          nameEn: `${stringValue(entry.title_en)} · ${stringValue(entry.collection)}`
+        };
+      }
+    },
+    register: {
+      body: renderRegisterDossierBody,
+      head(id) {
+        const profile = profileForKey(id);
+        if (!profile) return null;
+        const count = Number(profile.verified_sample_count) || 0;
+        return {
+          kicker: 'Register dossier',
+          nameZh: profile.robo_name || profile.translator,
+          nameEn: `${stringValue(profile.translator)} · ${count} verified sample${count === 1 ? '' : 's'}`
+        };
+      }
+    }
+  };
+
+  function openWiki(key, options) {
+    const opts = options || {};
+    const value = stringValue(key);
+    if (value.indexOf(':') === -1) return;
+    const kind = value.split(':')[0];
+    const id = value.slice(kind.length + 1);
+    const builder = DOSSIER_BUILDERS[kind];
+    const content = document.getElementById('dossier-content');
+    if (!builder || !content) return;
+    const head = builder.head(id);
+    if (!head) return;
+    const body = builder.body(id);
+    if (!body) return;
+
+    if (margin.key !== value) {
+      if (margin.key) margin.history.push(margin.key);
+      if (margin.history.length > 30) margin.history.shift();
+      margin.future = [];
+    }
+    margin.mode = 'pinned';
+    margin.key = value;
+
+    const kicker = document.getElementById('dossier-kicker');
+    if (kicker) kicker.innerHTML = escHtml(head.kicker);
+    const nameZh = document.getElementById('dossier-name-zh');
+    if (nameZh) { nameZh.textContent = stringValue(head.nameZh); nameZh.setAttribute('lang', 'zh'); }
+    const nameEn = document.getElementById('dossier-name-en');
+    if (nameEn) nameEn.innerHTML = escHtml(head.nameEn);
+    content.innerHTML = body;
+    marginOpen();
+    renderDossierTrail();
+
+    const panel = document.getElementById('master-dossier-panel');
+    if (panel && !opts.keepScroll && typeof panel.scrollTo === 'function') panel.scrollTo({ top: 0, behavior: motionBehavior() });
+    if (opts.focus && panel && typeof panel.focus === 'function') {
+      try { panel.focus({ preventScroll: true }); } catch (err) { try { panel.focus(); } catch (e) { /* no focus */ } }
+    }
+    if (opts.shareHash) {
+      const target = `#/wiki/${kind}/${id}`;
+      if (location.hash !== target) { try { location.hash = target; } catch (e) { /* file:// edge cases */ } }
+    }
+    document.documentElement.setAttribute('data-margin-kind', kind);
+  }
+
+  function renderDossierTrail() {
+    const trail = document.getElementById('dossier-trail');
+    if (!trail) return;
+    const kind = margin.key ? margin.key.split(':')[0] : '';
+    const parts = [`<button type="button" class="trail-btn${margin.mode === 'follow' ? ' is-active' : ''}" data-wiki-follow>Follow the text</button>`];
+    if (kind) parts.push(`<span class="trail-kind">${dossierText(WIKI_LABEL[kind] || kind)}</span>`);
+    if (margin.history.length) parts.push('<button type="button" class="trail-btn" data-wiki-back>← back</button>');
+    if (margin.future.length) parts.push('<button type="button" class="trail-btn" data-wiki-fwd>forward →</button>');
+    trail.innerHTML = parts.join('');
+  }
+
+  function wikiBack() {
+    let prev = margin.history.pop();
+    while (prev && !wikiGet(prev)) prev = margin.history.pop();
+    if (!prev) { marginResumeFollow(); return; }
+    if (margin.key) margin.future.push(margin.key);
+    openWiki(prev, { keepScroll: true });
+  }
+  function wikiForward() {
+    const next = margin.future.pop();
+    if (!next) return;
+    if (margin.key) margin.history.push(margin.key);
+    openWiki(next, { keepScroll: true });
+  }
+  function marginResumeFollow() {
+    margin.mode = 'follow';
+    margin.key = null;
+    document.documentElement.setAttribute('data-margin-kind', 'context');
+    marginFollowCurrent(true);
+  }
+  function marginFollowCurrent(force) {
+    if (margin.mode !== 'follow' && !force) return;
+    const content = document.getElementById('dossier-content');
+    if (!content) return;
+    const context = renderPassageContext(margin.currentUnit);
+    content.innerHTML = context.content;
+    const kicker = document.getElementById('dossier-kicker');
+    if (kicker) kicker.innerHTML = escHtml(context.kicker);
+    const nameZh = document.getElementById('dossier-name-zh');
+    if (nameZh) { nameZh.textContent = stringValue(context.nameZh); nameZh.setAttribute('lang', 'zh'); }
+    const nameEn = document.getElementById('dossier-name-en');
+    if (nameEn) nameEn.innerHTML = escHtml(context.nameEn);
+    renderDossierTrail();
+    if (force && READER_PREFS.contextOn) marginOpen();
+  }
+
+  // ---- scroll spy ------------------------------------------------------------
+  // One observer, re-armed after every reader render: it reports the unit whose
+  // head has passed the reading line, which is what "the passage you are on"
+  // means under a fixed lintel.
+  let unitObserver = null;
+  let unitNodes = [];
+
+  function parseUnitRef(raw) {
+    const match = stringValue(raw).match(/^([a-z]+):(.+)$/);
+    return match ? { kind: match[1], id: match[2] } : null;
+  }
+
+  function markActiveUnit(ref) {
+    unitNodes.forEach(node => {
+      if (!node || !node.classList || typeof node.classList.toggle !== 'function') return;
+      const nodeRef = parseUnitRef(node.getAttribute('data-unit-ref'));
+      const on = !!(nodeRef && ref && nodeRef.kind === ref.kind && String(nodeRef.id) === String(ref.id));
+      node.classList.toggle('is-current', on);
+    });
+  }
+
+  function armScrollSpy() {
+    const root = document.getElementById('reader-content-target');
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    unitNodes = Array.prototype.slice.call(root.querySelectorAll('[data-unit-ref]'));
+    margin.currentUnit = unitNodes.length ? parseUnitRef(unitNodes[0].getAttribute('data-unit-ref')) : null;
+    markActiveUnit(margin.currentUnit);
+    if (typeof window.IntersectionObserver !== 'function') return;
+    if (unitObserver && typeof unitObserver.disconnect === 'function') unitObserver.disconnect();
+    unitObserver = new window.IntersectionObserver(entries => {
+      if (margin.mode !== 'follow') return;
+      let best = null;
+      entries.forEach(entry => {
+        if (!entry.isIntersecting || !entry.target || typeof entry.target.getAttribute !== 'function') return;
+        const top = entry.boundingClientRect ? entry.boundingClientRect.top : 0;
+        if (!best || Math.abs(top) < Math.abs(best.top)) {
+          best = { ref: parseUnitRef(entry.target.getAttribute('data-unit-ref')), top };
+        }
       });
-      return;
-    }
-    if (root.querySelector(':scope > .td-related')) return;
-    const teachers = teachersForRoom(room, units);
-    const block = document.createElement('section');
-    block.className = 'td-related';
-    const head = document.createElement('div');
-    head.className = 'td-related-head';
-    head.innerHTML = '<span class="rm-acc-kicker">Teachers</span>' +
-      `<h2 class="td-related-title">Teachers connected to this ${escHtml(ROOM_NOUN[room] || 'room')}</h2>`;
-    block.appendChild(head);
-    if (!teachers.length) {
-      const p = document.createElement('p');
-      p.className = 'rm-quiet';
-      p.textContent = 'No profiled teacher is linked here in the project data yet.';
-      block.appendChild(p);
-    } else {
-      teachers.forEach(m => block.appendChild(teacherDossierCard(m)));
-    }
-    root.insertBefore(block, root.firstChild);
+      if (!best || !best.ref) return;
+      const current = margin.currentUnit;
+      if (current && best.ref.kind === current.kind && String(best.ref.id) === String(current.id)) return;
+      margin.currentUnit = best.ref;
+      markActiveUnit(best.ref);
+      marginFollowCurrent(false);
+    }, { rootMargin: '-12% 0px -60% 0px', threshold: [0, 0.2] });
+    unitNodes.forEach(node => { if (node && typeof unitObserver.observe === 'function') unitObserver.observe(node); });
   }
 
-  function teachersForRoom(room, units) {
-    const masters = Array.isArray(state.data.lineage) ? state.data.lineage : [];
-    if (room === 'reader') return relatedTeachersForCorpusKey(state.currentCorpusKey);
-    if (room === 'gongan') {
-      const list = Array.isArray(state.data.gongan_index) ? state.data.gongan_index : [];
+  // ---- the index palette (⌘K) ----------------------------------------------
+  // One box for "take me to X": every work, master, case, term and register in
+  // the bundle, with a hand-off to the full-corpus search. Built from the same
+  // entity index the annotator uses, so the palette can never list something the
+  // data does not carry.
+  const palette = { open: false, query: '', results: [], cursor: 0, index: null };
+
+  function paletteEntries() {
+    if (palette.index) return palette.index;
+    const out = [];
+    (((state.data.corpus_manifest || {}).items) || []).forEach(item => {
+      if (!item || !state.data.corpus || !state.data.corpus[item.key]) return;
+      const doc = state.data.corpus[item.key] || {};
+      out.push({ kind: 'work', key: `work:${item.key}`, label: stringValue(doc.title_en), zh: stringValue(doc.title_zh), note: stringValue(item.cbeta) });
+    });
+    lineageList().forEach(m => {
+      if (!m) return;
+      out.push({ kind: 'master', key: `master:${m.id}`, label: masterDisplayName(m), zh: stringValue(m.name_zh), note: `${stringValue(m.era)} · ${stringValue(m.school)}` });
+    });
+    gonganList().forEach(g => {
+      if (!g) return;
+      out.push({ kind: 'case', key: `case:${g.id}`, label: stringValue(g.title_en), zh: stringValue(g.title_zh), note: `Case ${g.case_no} · ${stringValue(g.collection)}` });
+    });
+    glossaryList().forEach(t => {
+      if (!t) return;
+      out.push({ kind: 'term', key: `term:${t.id}`, label: `${stringValue(t.term)} — ${stringValue(t.literal)}`, zh: stringValue(t.term), note: `${stringValue(t.pinyin)} · ${stringValue(t.category)}` });
+    });
+    profileList().forEach(p => {
+      if (!p) return;
+      out.push({ kind: 'register', key: `register:${p.register_key}`, label: stringValue(p.robo_name || p.translator), zh: '', note: `${p.verified_sample_count || 0} verified sample(s) in the corpus` });
+    });
+    out.forEach(entry => { entry.hay = normalizeForSearch(`${entry.label} ${entry.zh} ${entry.note} ${entry.key}`); });
+    palette.index = out;
+    return out;
+  }
+
+  function paletteFilter(query) {
+    const entries = paletteEntries();
+    const q = normalizeForSearch(query);
+    if (!q) {
       const out = [];
-      units.forEach(unit => {
-        const no = queryText(unit, '.catalogue-case');
-        const g = list.find(x => x && stringValue(x.case_no) === no);
-        if (!g) return;
-        const m = masters.find(x => x && (x.id === g.protagonist || x.name_zh === g.protagonist));
-        if (m && out.indexOf(m) < 0) out.push(m);
+      [['work', 6], ['master', 5], ['case', 4], ['term', 4], ['register', 3]].forEach(([kind, limit]) => {
+        entries.filter(entry => entry.kind === kind).slice(0, limit).forEach(entry => out.push(entry));
       });
       return out;
     }
-    return [];
-  }
-
-  function teacherDossierCard(m) {
-    const card = document.createElement('article');
-    card.className = 'td-card';
-    const works = Array.isArray(m.linked_corpus_keys)
-      ? m.linked_corpus_keys.filter(k => state.data.corpus && state.data.corpus[k])
-      : [];
-    card.innerHTML =
-      `<h3 class="td-name">${escHtml(masterDisplayName(m))}` +
-      (m.name_zh ? ` <span class="td-zh" lang="zh">${escHtml(m.name_zh)}</span>` : '') + `</h3>` +
-      `<div class="context-info-body">${infoRows(teacherRowsFor(m))}</div>`;
-    if (works.length) {
-      const det = document.createElement('details');
-      det.className = 'td-works';
-      det.innerHTML = `<summary>Related works (${works.length})</summary>`;
-      const ul = document.createElement('ul');
-      ul.className = 'rm-index-list';
-      works.forEach(k => {
-        const li = document.createElement('li');
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'btn-pill rm-index-link';
-        b.textContent = stringValue(state.data.corpus[k].title_en) || k;
-        b.addEventListener('click', () => openCorpusDoc(k));
-        li.appendChild(b);
-        ul.appendChild(li);
-      });
-      det.appendChild(ul);
-      card.appendChild(det);
-    }
-    return card;
-  }
-
-  // ==========================================================================
-  // LAYOUT 23 · TWO-STEP READER — a unit shows its headline + first English
-  // paragraph; "Read more" reveals the rest, "Show context" reveals the source
-  // and background. Nav + filter stay visible.
-  // ==========================================================================
-  const TWOSTEP_BLOCKS = {
-    reader: ['.dialogue-turn', '.commentary-block', '.verse-block'],
-    matrix: ['.matrix-collation'],
-    lineage: ['.lineage-master-record', '.lineage-master-quote'],
-    gongan: ['.catalogue-detail', '.catalogue-theme'],
-    lexicon: ['.lexicon-entry-def', '.lexicon-occurrences']
-  };
-
-  function roomTwoStep(room, root) {
-    root.classList.add('rm-twostep');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    units.forEach((unit, i) => {
-      if (unit.dataset.tsReady === '1') return;
-      unit.dataset.tsReady = '1';
-      unit.classList.add('two-step');
-      const ctx = document.createElement('div');
-      ctx.className = 'twostep-context';
-      ctx.setAttribute('hidden', '');
-      harvestExtras(unit, room).forEach(n => ctx.appendChild(n));
-      const rows = unitInfoRowsFor(room, unit, i);
-      if (rows.length) {
-        const info = document.createElement('div');
-        info.className = 'context-info-body';
-        info.innerHTML = infoRows(rows);
-        ctx.appendChild(info);
-      }
-      const rest = document.createElement('div');
-      rest.className = 'twostep-rest';
-      rest.setAttribute('hidden', '');
-      const blocks = harvestNodes(unit, TWOSTEP_BLOCKS[room] || []);
-      const keep = room === 'reader' ? 1 : 0;
-      blocks.slice(keep).forEach(n => rest.appendChild(n));
-      const ctl = document.createElement('div');
-      ctl.className = 'twostep-ctl';
-      const more = toggleButton('Read more', 'btn-pill ts-more');
-      const ctxBtn = toggleButton('Show context', 'btn-pill ts-context');
-      ctl.appendChild(more);
-      ctl.appendChild(ctxBtn);
-      unit.appendChild(ctl);
-      unit.appendChild(rest);
-      unit.appendChild(ctx);
-      more.addEventListener('click', () => {
-        const open = rest.hasAttribute('hidden');
-        if (open) rest.removeAttribute('hidden'); else rest.setAttribute('hidden', '');
-        setToggleState(more, open, 'Show less', 'Read more');
-      });
-      ctxBtn.addEventListener('click', () => {
-        const open = ctx.hasAttribute('hidden');
-        if (open) ctx.removeAttribute('hidden'); else ctx.setAttribute('hidden', '');
-        setToggleState(ctxBtn, open, 'Hide context', 'Show context');
-      });
-      if (!rest.childNodes.length) more.setAttribute('hidden', '');
-      if (!ctx.childNodes.length) ctxBtn.setAttribute('hidden', '');
+    const scored = [];
+    entries.forEach(entry => {
+      const label = normalizeForSearch(entry.label);
+      let score = -1;
+      if (label.indexOf(q) === 0) score = 0;
+      else if (label.indexOf(q) !== -1) score = 1;
+      else if (entry.hay.indexOf(q) !== -1) score = 2;
+      if (score > -1) scored.push({ entry, score });
     });
-    if (!root.querySelector(':scope > .rm-twostep-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-twostep-note');
-      root.appendChild(note);
-    }
+    scored.sort((a, b) => a.score - b.score || a.entry.label.localeCompare(b.entry.label));
+    return scored.slice(0, 40).map(item => item.entry);
   }
 
-  // ==========================================================================
-  // LAYOUT 24 · COMMAND PALETTE — a minimal page; Ctrl/⌘+K (or the button)
-  // opens a palette to jump to any work, teacher, case or term. Nav stays
-  // visible but the palette is the fast path.
-  // ==========================================================================
-  function roomCommandPalette(room, root) {
-    root.classList.add('rm-palette');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    ensureCommandPalette();
-    if (!root.querySelector(':scope > .rm-palette-hint')) {
-      const hint = document.createElement('div');
-      hint.className = 'rm-palette-hint';
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'btn-pill rm-palette-open';
-      b.textContent = 'Jump to a work, teacher, case or term  ·  Ctrl/⌘ + K';
-      b.addEventListener('click', openCommandPalette);
-      hint.appendChild(b);
-      root.insertBefore(hint, root.firstChild);
-    }
-  }
-
-  function ensureCommandPalette() {
-    if (typeof document === 'undefined' || !document.getElementById) return null;
-    let pal = document.getElementById('rm-cmd-palette');
-    if (!pal) {
-      pal = document.createElement('div');
-      pal.id = 'rm-cmd-palette';
-      pal.className = 'rm-cmd-palette';
-      pal.setAttribute('hidden', '');
-      pal.innerHTML =
-        '<div class="cmd-backdrop" data-cmd-close></div>' +
-        '<div class="cmd-panel" role="dialog" aria-modal="true" aria-label="Command palette">' +
-          '<input class="cmd-input" type="search" autocomplete="off" ' +
-            'placeholder="Jump to a work, teacher, case or term…" aria-label="Search works, teachers, cases and terms">' +
-          '<ul class="cmd-results" role="listbox" aria-label="Results"></ul>' +
-          '<p class="cmd-foot">Enter to open · Esc to close · ↑ ↓ to move</p>' +
-        '</div>';
-      document.body.appendChild(pal);
-      const input = pal.querySelector('.cmd-input');
-      const results = pal.querySelector('.cmd-results');
-      let items = [];
-      let active = 0;
-      const draw = () => {
-        results.innerHTML = '';
-        const slice = items.slice(0, 40);
-        if (!slice.length) {
-          const li = document.createElement('li');
-          li.className = 'cmd-empty';
-          li.textContent = 'No match. Try a shorter word.';
-          results.appendChild(li);
-          return;
-        }
-        slice.forEach((it, i) => {
-          const li = document.createElement('li');
-          li.className = 'cmd-item' + (i === active ? ' is-active' : '');
-          li.setAttribute('role', 'option');
-          li.innerHTML = `<span class="cmd-kind">${escHtml(it.kind)}</span>` +
-            `<span class="cmd-label">${escHtml(it.label)}</span>` +
-            (it.sub ? `<span class="cmd-sub">${escHtml(it.sub)}</span>` : '');
-          li.addEventListener('click', () => paletteGo(it));
-          li.addEventListener('mouseenter', () => { active = i; draw(); });
-          results.appendChild(li);
-        });
-      };
-      const runQuery = () => {
-        const q = normalizeForSearch(input.value.trim());
-        items = buildPaletteIndex().filter(it => !q || normalizeForSearch(it.label + ' ' + (it.sub || '')).includes(q));
-        active = 0;
-        draw();
-      };
-      input.addEventListener('input', runQuery);
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') { closeCommandPalette(); return; }
-        if (e.key === 'ArrowDown') { active = Math.min(active + 1, Math.min(items.length, 40) - 1); draw(); e.preventDefault(); return; }
-        if (e.key === 'ArrowUp') { active = Math.max(active - 1, 0); draw(); e.preventDefault(); return; }
-        if (e.key === 'Enter') { const it = items[Math.min(active, items.length - 1)]; if (it) paletteGo(it); e.preventDefault(); }
-      });
-      pal.addEventListener('keydown', (e) => { if (e.key === 'Tab') trapFocus(e, pal.querySelector('.cmd-panel')); });
-      pal.addEventListener('click', (e) => { if (e.target === pal || (e.target.closest && e.target.closest('[data-cmd-close]'))) closeCommandPalette(); });
-      pal._runQuery = runQuery;
-    }
-    if (!cmdKeyHandler) {
-      cmdKeyHandler = (e) => {
-        if (state.designVariant !== '24') return;
-        if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) { e.preventDefault(); openCommandPalette(); }
-      };
-      document.addEventListener('keydown', cmdKeyHandler);
-    }
-    return pal;
-  }
-
-  function openCommandPalette() {
-    const pal = ensureCommandPalette();
-    if (!pal) return;
-    pal.removeAttribute('hidden');
-    const input = pal.querySelector('.cmd-input');
-    if (input) { input.value = ''; if (pal._runQuery) pal._runQuery(); input.focus(); }
-  }
-
-  function closeCommandPalette() {
-    const pal = typeof document !== 'undefined' ? document.getElementById('rm-cmd-palette') : null;
-    if (pal) pal.setAttribute('hidden', '');
-  }
-
-  function buildPaletteIndex() {
-    const idx = [];
-    const corpus = state.data.corpus || {};
-    Object.keys(corpus).forEach(k => {
-      const d = corpus[k] || {};
-      idx.push({ kind: 'Work', label: stringValue(d.title_en) || k, sub: stringValue(d.cbeta_id), go: 'work', key: k });
-    });
-    (Array.isArray(state.data.lineage) ? state.data.lineage : []).forEach(m => {
-      idx.push({ kind: 'Teacher', label: masterDisplayName(m), sub: stringValue(m.school), go: 'teacher', id: m.id });
-    });
-    (Array.isArray(state.data.gongan_index) ? state.data.gongan_index : []).forEach(g => {
-      idx.push({ kind: 'Case', label: stringValue(g.title_en), sub: 'Case ' + stringValue(g.case_no) + ' · ' + stringValue(g.collection), go: 'gongan' });
-    });
-    (Array.isArray(state.data.glossary) ? state.data.glossary : []).forEach(t => {
-      idx.push({ kind: 'Term', label: stringValue(t.literal) || stringValue(t.term), sub: stringValue(t.pinyin), go: 'lexicon' });
-    });
-    return idx;
-  }
-
-  function paletteGo(item) {
-    closeCommandPalette();
-    if (!item) return;
-    if (item.go === 'work') { openCorpusDoc(item.key); return; }
-    if (item.go === 'teacher') {
-      switchView('lineage');
-      setTimeout(() => {
-        const el = document.querySelector(`[data-master-card="${item.id}"]`);
-        if (el) scrollToUnit(el);
-      }, 80);
+  function paletteRender() {
+    const list = document.getElementById('palette-list');
+    if (!list) return;
+    palette.results = paletteFilter(palette.query);
+    if (!palette.results.length) {
+      list.innerHTML = '<li class="palette-empty">Nothing in the index matches. Press Enter to search every work for those words instead.</li>';
       return;
     }
-    if (item.go === 'gongan') { switchView('gongan'); return; }
-    if (item.go === 'lexicon') { switchView('lexicon'); }
+    list.innerHTML = palette.results.map((entry, i) => `<li class="palette-item${i === palette.cursor ? ' is-cursor' : ''}" role="option" aria-selected="${i === palette.cursor ? 'true' : 'false'}">`
+      + `<button type="button" data-palette-key="${escHtml(entry.key)}">`
+      + `<span class="palette-kind">${escHtml(WIKI_LABEL[entry.kind] || entry.kind)}</span>`
+      + `<span class="palette-label">${escHtml(entry.label)}</span>`
+      + (entry.zh ? `<span class="palette-zh" lang="zh">${escHtml(entry.zh)}</span>` : '')
+      + `<span class="palette-note">${escHtml(entry.note)}</span></button></li>`).join('');
   }
 
-  // ==========================================================================
-  // LAYOUT 25 · BOOKMARK TRAIL + PREV/NEXT + SLIDER + INLINE ORIGIN — a trail
-  // along the bottom says where you are; prev/next walks the room and lists what
-  // is related (with why); Matrix gets a witness comparison slider; Lineage
-  // names expand their origin on hover. Nav + filter stay visible.
-  // ==========================================================================
-  function roomTrailPrevNext(room, root) {
-    root.classList.add('rm-trail');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    pushTrail(room, room === 'reader' ? clipText(corpusTitle(), 26) : (ROOM_LABEL[room] || 'Room'));
-    if (room === 'matrix') units.forEach(u => addMatrixSlider(u));
-    if (room === 'lineage') units.forEach((u, i) => addInlineOrigin(room, u, i));
-    if (!root.querySelector(':scope > .prev-next')) root.appendChild(buildPrevNext(room, units));
+  function paletteMove(delta) {
+    const total = palette.results.length;
+    if (!total) return;
+    palette.cursor = (palette.cursor + delta + total) % total;
+    paletteRender();
   }
 
-  function ensureBookmarkTrail() {
-    if (typeof document === 'undefined' || !document.getElementById) return null;
-    let bar = document.getElementById('rm-bookmark-trail');
-    if (!bar) {
-      bar = document.createElement('nav');
-      bar.id = 'rm-bookmark-trail';
-      bar.className = 'bookmark-trail';
-      bar.setAttribute('aria-label', 'Where you are');
-      bar.addEventListener('click', (e) => {
-        const b = e.target && e.target.closest ? e.target.closest('button') : null;
-        if (!b) return;
-        if (b.hasAttribute('data-trail-home')) { switchView('reader'); return; }
-        const r = b.getAttribute('data-trail-room');
-        if (r) switchView(r);
-      });
-      document.body.appendChild(bar);
+  function paletteGo(key) {
+    paletteClose();
+    const kind = String(key).split(':')[0];
+    const id = String(key).slice(kind.length + 1);
+    if (kind === 'work') { window.TranslateChan.openDoc(id); return; }
+    if (kind === 'case') {
+      const entry = gonganList().find(g => g && g.id === id);
+      const collection = entry ? stringValue(entry.collection) : '';
+      const corpusKey = /碧巖|biyanlu/i.test(collection) ? 'biyanlu_cases'
+        : (/無門關|wumenguan/i.test(collection) ? 'wumenguan' : '');
+      const doc = corpusKey && state.data.corpus ? state.data.corpus[corpusKey] : null;
+      const target = doc && Array.isArray(doc.cases) && entry
+        ? doc.cases.find(c => String(c.case_num) === String(entry.case_no)) : null;
+      if (target) { window.TranslateChan.openCase(corpusKey, entry.case_no); return; }
     }
-    return bar;
+    openWiki(key, { focus: true, shareHash: true });
   }
 
-  function pushTrail(room, label) {
-    const bar = ensureBookmarkTrail();
-    if (!bar) return;
-    const last = layout25Trail[layout25Trail.length - 1];
-    if (!last || last.room !== room || last.label !== label) layout25Trail.push({ room: room, label: label });
-    if (layout25Trail.length > 6) layout25Trail.shift();
-    bar.innerHTML = '<span class="trail-label">Trail</span>' +
-      '<button type="button" class="trail-crumb trail-home" data-trail-home>Home</button>' +
-      layout25Trail.map(t =>
-        '<span class="trail-sep" aria-hidden="true">›</span>' +
-        `<button type="button" class="trail-crumb" data-trail-room="${escHtml(t.room)}">${escHtml(clipText(t.label, 26))}</button>`
-      ).join('');
+  function paletteDom() {
+    let root = document.getElementById('index-palette');
+    if (root) return root;
+    root = document.createElement('div');
+    root.id = 'index-palette';
+    root.className = 'palette-shell';
+    root.setAttribute('role', 'dialog');
+    root.setAttribute('aria-modal', 'true');
+    root.setAttribute('aria-label', 'Index palette');
+    root.innerHTML = '<div class="palette-frame"><div class="palette-input-row">'
+      + '<span class="palette-glyph" aria-hidden="true">⌕</span>'
+      + '<input type="search" id="palette-input" class="palette-input" placeholder="Jump to a work, master, case, term or register…" autocomplete="off" spellcheck="false" aria-label="Jump to an entry in the index">'
+      + '<button type="button" class="palette-close" data-palette-close aria-label="Close the index palette">✕</button></div>'
+      + '<ul class="palette-list" id="palette-list" role="listbox" aria-label="Index results"></ul>'
+      + '<p class="palette-foot">↑ ↓ move · Enter open · Esc close · the header box searches every work for words</p></div>';
+    document.body.appendChild(root);
+    return root;
   }
 
-  function buildPrevNext(room, units) {
-    const wrap = document.createElement('nav');
-    wrap.className = 'prev-next';
-    wrap.setAttribute('aria-label', 'Neighbouring and related');
-    let idx = 0;
-    const row = document.createElement('div');
-    row.className = 'pn-row';
-    const related = document.createElement('div');
-    related.className = 'pn-related';
-    wrap.appendChild(row);
-    wrap.appendChild(related);
-    const card = (dirClass, dirLabel, unit, target) => {
-      const h = unitHeadline(room, unit, target);
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'pn-btn ' + dirClass;
-      b.innerHTML = `<span class="pn-dir">${escHtml(dirLabel)}</span>` +
-        `<span class="pn-name">${escHtml(clipText(h.en || 'Untitled', 42))}</span>`;
-      b.addEventListener('click', () => {
-        idx = target;
-        scrollToUnit(unit);
-        render();
-        pushTrail(room, clipText(h.en || (ROOM_LABEL[room] || 'Room'), 24));
-      });
-      return b;
-    };
-    const render = () => {
-      row.innerHTML = '';
-      const prev = units[idx - 1];
-      const next = units[idx + 1];
-      if (prev) row.appendChild(card('pn-prev', '‹ Previous', prev, idx - 1));
-      else { const s = document.createElement('span'); s.className = 'pn-spacer'; row.appendChild(s); }
-      if (next) row.appendChild(card('pn-next', 'Next ›', next, idx + 1));
-    };
-    const rel = relatedRailItems(room, units).slice(0, 3);
-    if (rel.length) {
-      rel.forEach(it => {
-        const c = document.createElement('article');
-        c.className = 'pn-card';
-        c.innerHTML = `<span class="pn-card-name">${escHtml(it.name)}</span>` +
-          `<span class="pn-card-why">${escHtml(it.why || '')}</span>`;
-        if (it.unit) { c.tabIndex = 0; c.addEventListener('click', () => scrollToUnit(it.unit)); }
-        else if (it.docKey) { c.tabIndex = 0; c.addEventListener('click', () => openCorpusDoc(it.docKey)); }
-        related.appendChild(c);
-      });
-    } else {
-      const p = document.createElement('p');
-      p.className = 'rm-quiet';
-      p.textContent = 'Nothing else is linked here in the project data yet.';
-      related.appendChild(p);
+  // Bound once, on first open: the palette element is built lazily, and the
+  // wiring must follow the element rather than the build step, so a palette that
+  // was already in the document can never end up without its listeners.
+  function paletteWire() {
+    const root = paletteDom();
+    if (!root || root._wired) return;
+    root._wired = true;
+    const input = document.getElementById('palette-input');
+    if (input) {
+      input.addEventListener('input', () => { palette.query = input.value; palette.cursor = 0; paletteRender(); });
+      input.addEventListener('keydown', paletteKeydown);
     }
-    render();
-    return wrap;
-  }
-
-  function addMatrixSlider(unit) {
-    if (!unit || unit.dataset.sliderReady === '1') return;
-    const rows = Array.from(unit.querySelectorAll('.matrix-register-row'));
-    if (rows.length < 2) return;
-    unit.dataset.sliderReady = '1';
-    const ctl = document.createElement('div');
-    ctl.className = 'comparison-slider';
-    const lbl = document.createElement('span');
-    lbl.className = 'cs-label';
-    lbl.textContent = 'Compare witnesses';
-    const input = document.createElement('input');
-    input.type = 'range';
-    input.className = 'cs-range';
-    input.min = '0';
-    input.max = String(rows.length - 1);
-    input.value = '0';
-    input.setAttribute('aria-label', 'Emphasise one rendering of this line');
-    const out = document.createElement('span');
-    out.className = 'cs-out';
-    const apply = () => {
-      const v = parseInt(input.value, 10) || 0;
-      rows.forEach((r, i) => r.classList.toggle('is-emphasis', i === v));
-      out.textContent = `${v + 1} of ${rows.length} · ${queryText(rows[v], '.matrix-register-name') || 'register'}`;
-    };
-    input.addEventListener('input', apply);
-    ctl.appendChild(lbl);
-    ctl.appendChild(input);
-    ctl.appendChild(out);
-    unit.appendChild(ctl);
-    apply();
-  }
-
-  function addInlineOrigin(room, unit, i) {
-    if (!unit || unit.dataset.originReady === '1') return;
-    const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-    const m = (state.data.lineage || []).find(x => x && x.id === id);
-    if (!m) return;
-    unit.dataset.originReady = '1';
-    const anchor = unit.querySelector('.lineage-master-name-en') || unit;
-    anchor.classList.add('inline-origin');
-    anchor.setAttribute('tabindex', '0');
-    const dos = document.createElement('span');
-    dos.className = 'inline-origin-dossier';
-    dos.setAttribute('role', 'tooltip');
-    dos.innerHTML = '<span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span>';
-    anchor.appendChild(dos);
-  }
-
-  // ==========================================================================
-  // Phase 5 — LAYOUTS 26–35 · FINAL BATCH BEFORE REVIEW (2026-09-18)
-  // --------------------------------------------------------------------------
-  // Owner: "26-35 yes" — ten MORE usable examples before the review, each one
-  // a complete alternative rendering of all five rooms with hand-pickable
-  // elements for a targeted page build later:
-  //   26 Empty State Guidance — a plain-language guide that is the whole page
-  //      when a room is empty and a small banner once a work is open;
-  //   27 Comparison Slider — one slider per unit blends between witnesses, or
-  //      between English-first and source-first, with a live readout;
-  //   28 Inline Teacher Origin — names stay minimal (name + era); hover, focus
-  //      or tap expands where they come from, who is related and background;
-  //   29 Minimal Header + Full-Bleed — a 2rem shell, nav and filter as top
-  //      bars, and a full-bleed page with a calm 42rem reading column;
-  //   30 Magazine Spread — each unit is a two-column spread: English with a
-  //      drop cap on the left, source and background on the right;
-  //   31 Card Wall — the room is a masonry wall of cards; each card opens its
-  //      full detail in place;
-  //   32 Vertical Timeline — gold dots on a left rail, content cards right,
-  //      chronological piece by piece;
-  //   33 Split Resizable — 60% English reader left, 40% context drawer right,
-  //      with a draggable handle (30–70%) plus an accessible slider;
-  //   34 Glossary Sidebar + Footnotes — a 14rem plain-language glossary left,
-  //      the reading in the centre, numbered notes in a 14rem rail right;
-  //   35 Focus + TOC Hybrid — a 40rem centred column with a 10rem mini-TOC
-  //      left and a 10rem progress + trail + related rail right.
-  //
-  // Every one of them keeps the walnut shell and the room nav VISIBLE, leaves
-  // the room's own filter reachable, shows English first with the Chinese one
-  // intentional step away, and carries a plain-language info section for the
-  // work, teacher, case or term in view (where it came from · what or who is
-  // related · background). Layout 1's colours are untouched — structure only,
-  // scoped by data-design.
-  //
-  // Zero inline styles, zero new .style writes — the four CSSOM
-  // custom-property writes elsewhere stay exactly four. Class toggles, the
-  // hidden attribute, native <details>, <progress> and <input type=range>
-  // .value writes, and data-* attributes only. Layout 35's rail progress is
-  // the only window listener, removed by teardownLayout16Chrome.
-  // ==========================================================================
-
-  // ==========================================================================
-  // LAYOUT 26 · EMPTY STATE GUIDANCE — when a room has nothing to show (no
-  // work picked, a filter with no hits), the page is a plain-language guide:
-  // what Chan is, where the works come from, who is related, background —
-  // one expandable answer at a time. Once content exists the guide collapses
-  // to a small banner and the room reads English first. Nav + filter visible.
-  // ==========================================================================
-  function roomEmptyState(room, root) {
-    root.classList.add('rm-emptystate');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    if (!root.querySelector(':scope > .es-guide')) {
-      root.insertBefore(buildEmptyGuide(room, units.length), root.firstChild);
-    }
-    units.forEach((unit, i) => {
-      if (unit.dataset.esReady === '1') return;
-      unit.dataset.esReady = '1';
-      unit.classList.add('es-unit');
-      unit.appendChild(unitDetails(room, unit, i));
+    root.addEventListener('click', e => {
+      const target = e && e.target;
+      if (!target || typeof target.closest !== 'function') return;
+      if (target === root || target.closest('[data-palette-close]')) { paletteClose(); return; }
+      const option = target.closest('[data-palette-key]');
+      if (option) paletteGo(option.getAttribute('data-palette-key'));
     });
-    if (!root.querySelector(':scope > .rm-emptystate-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-emptystate-note');
-      root.appendChild(note);
-    }
   }
 
-  // Data-derived counts for the guide, so the numbers are never invented.
-  function guideCounts() {
-    const corpus = state.data.corpus || {};
-    return {
-      works: Object.keys(corpus).length,
-      teachers: Array.isArray(state.data.lineage) ? state.data.lineage.length : 0,
-      cases: Array.isArray(state.data.gongan_index) ? state.data.gongan_index.length : 0,
-      terms: Array.isArray(state.data.glossary) ? state.data.glossary.length : 0,
-      lines: Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix.length : 0
-    };
-  }
-
-  function buildEmptyGuide(room, unitCount) {
-    const c = guideCounts();
-    const empty = unitCount === 0;
-    const sec = document.createElement('section');
-    sec.className = 'es-guide empty-state' + (empty ? ' is-empty' : ' is-banner');
-    sec.setAttribute('aria-label', 'A short guide for new readers');
-    const head = document.createElement('div');
-    head.className = 'es-head';
-    head.innerHTML =
-      '<span class="rm-acc-kicker">Start here</span>' +
-      '<h2 class="es-title">New to these texts? Read this first.</h2>' +
-      '<p class="es-lead">Four short answers in plain language. Open one at a time — ' +
-      'the ' + escHtml(ROOM_LABEL[room] || 'room') + ' room is right below, English first.</p>';
-    sec.appendChild(head);
-    const toggle = toggleButton(
-      empty ? 'Hide the guide' : 'Show the 2-minute guide',
-      'btn-pill es-toggle'
-    );
-    toggle.setAttribute('aria-controls', 'es-parts-' + room);
-    head.appendChild(toggle);
-    const parts = document.createElement('div');
-    parts.className = 'es-parts';
-    parts.id = 'es-parts-' + room;
-    if (!empty) parts.setAttribute('hidden', '');
-    else toggle.setAttribute('aria-expanded', 'true');
-    emptyGuideParts(room, c).forEach((p, i) => {
-      const det = document.createElement('details');
-      det.className = 'es-part';
-      if (empty && i === 0) det.setAttribute('open', '');
-      const sum = document.createElement('summary');
-      sum.textContent = p[0];
-      det.appendChild(sum);
-      const body = document.createElement('div');
-      body.className = 'es-answer';
-      const para = document.createElement('p');
-      para.textContent = p[1];
-      body.appendChild(para);
-      det.appendChild(body);
-      parts.appendChild(det);
-    });
-    sec.appendChild(parts);
-    toggle.addEventListener('click', () => {
-      const open = parts.hasAttribute('hidden');
-      if (open) parts.removeAttribute('hidden');
-      else parts.setAttribute('hidden', '');
-      sec.classList.toggle('is-open', open);
-      setToggleState(toggle, open, 'Hide the guide', 'Show the 2-minute guide');
-    });
-    if (empty) sec.classList.add('is-open');
-    return sec;
-  }
-
-  // The four plain-language answers. Counts come from the bundle; the lineage
-  // answer names the related teachers of the open work where there are any.
-  function emptyGuideParts(room, c) {
-    let who = 'This project profiles ' + c.teachers + ' teachers in the Lineage room. ' +
-      'Each teacher links back to the works they appear in, forward to their disciples, ' +
-      'and carries a short background in plain language.';
-    if (room === 'reader') {
-      const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
-      if (related.length) {
-        who = 'The open work is linked to ' + related.length + ' profiled teacher' +
-          (related.length === 1 ? '' : 's') + ': ' +
-          related.map(m => masterDisplayName(m)).join(', ') + '. ' +
-          'Each one has an info fold with where they came from, who they are related to, and background.';
-      } else {
-        who = 'The open work is not linked to a profiled teacher yet. The project profiles ' +
-          c.teachers + ' teachers in the Lineage room, and every linked work names them.';
+  function paletteKeydown(e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); paletteMove(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); paletteMove(-1); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      const entry = palette.results[palette.cursor];
+      if (entry) { paletteGo(entry.key); return; }
+      const query = palette.query;
+      paletteClose();
+      if (query) {
+        state.searchQuery = String(query).toLowerCase();
+        if (elements.globalSearch) elements.globalSearch.value = query;
+        handleGlobalSearch();
       }
-    }
-    return [
-      ['What is Chan?',
-        'Chan — Zen in Japanese — is a school of Chinese Buddhism known for short, sharp ' +
-        'dialogues between teachers and students. This site collects old Chan texts in English ' +
-        'translation, always next to the Chinese source they came from. Start with the English; ' +
-        'open the Chinese when you are curious.'],
-      ['Where do these works come from?',
-        'From the Chinese Buddhist canon, CBETA edition. This project currently holds ' +
-        c.works + ' works, ' + c.lines + ' compared lines, ' + c.cases + ' indexed cases and ' +
-        c.terms + ' glossary terms. Every English line says who made it: a quoted edition, ' +
-        'or a machine-made draft that is clearly labelled as one.'],
-      ['Who is related?', who],
-      ['What is the background?',
-        'These texts were written in Classical Chinese over many centuries, then copied, ' +
-        'printed and commented on. Each part here carries an info fold — where it came from, ' +
-        'what or who is related, and background — so nothing arrives without context. ' +
-        'Read piece by piece; there is no need to finish anything.']
-    ];
+    } else if (e.key === 'Escape') { e.preventDefault(); paletteClose(); }
   }
 
-  // ==========================================================================
-  // LAYOUT 27 · COMPARISON SLIDER — one slider per unit. In Compare it walks
-  // the witness registers and emphasises one at a time; in the other rooms it
-  // blends between English-first and source-first in three labelled steps with
-  // a live readout. Nothing is removed — the slider only shifts emphasis — and
-  // the plain-language context sits one toggle away. Nav + filter visible.
-  // ==========================================================================
-  const MIX_STEPS = {
-    reader: {
-      label: 'English to source', aria: 'Blend between English reading and Chinese source',
-      keys: ['mix-en', 'mix-mid', 'mix-src'],
-      readouts: ['English first — source quiet', 'Balanced — English with source', 'Source emphasised']
-    },
-    lineage: {
-      label: 'Name to record', aria: 'Blend between name only and the full teacher record',
-      keys: ['mix-en', 'mix-mid', 'mix-src'],
-      readouts: ['Name and era only', 'Name with record', 'Full record with quote']
-    },
-    gongan: {
-      label: 'Title to detail', aria: 'Blend between case title and full case detail',
-      keys: ['mix-en', 'mix-mid', 'mix-src'],
-      readouts: ['Title only', 'Title with theme', 'Full detail with locator']
-    },
-    lexicon: {
-      label: 'Word to entry', aria: 'Blend between headword and the full dictionary entry',
-      keys: ['mix-en', 'mix-mid', 'mix-src'],
-      readouts: ['Headword only', 'Headword with definition', 'Full entry with occurrences']
-    }
-  };
+  function paletteOpen() {
+    const root = paletteDom();
+    paletteWire();
+    palette.open = true;
+    palette.cursor = 0;
+    root.removeAttribute('hidden');
+    document.documentElement.setAttribute('data-palette', 'open');
+    paletteRender();
+    const input = document.getElementById('palette-input');
+    if (input && typeof input.focus === 'function') input.focus();
+  }
 
-  function roomComparisonSlider(room, root) {
-    root.classList.add('rm-cmpslider');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    units.forEach((unit, i) => addCompareSlider27(unit, room, i));
-    if (!root.querySelector(':scope > .rm-cmpslider-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-cmpslider-note');
-      root.appendChild(note);
+  function paletteClose() {
+    const root = document.getElementById('index-palette');
+    if (root) root.setAttribute('hidden', '');
+    palette.open = false;
+    document.documentElement.setAttribute('data-palette', 'closed');
+  }
+
+  // ---- reading preferences, shared by the sheet and the margin --------------
+  const READER_PREFS = { measure: 'narrow', registerCount: 2, quiet: false, contextOn: true };
+
+  function loadReadingPrefs() {
+    const measure = storageGet('translatechan_measure');
+    if (measure === 'wide' || measure === 'narrow') READER_PREFS.measure = measure;
+    const count = storageGet('translatechan_register_count');
+    if (count === '0' || count === '1' || count === '2') READER_PREFS.registerCount = Number(count);
+    READER_PREFS.quiet = storageGet('translatechan_quiet') === '1';
+    READER_PREFS.contextOn = storageGet('translatechan_context') !== '0';
+  }
+
+  function applyReadingPrefs() {
+    const root = document.documentElement;
+    if (!root || typeof root.setAttribute !== 'function') return;
+    root.setAttribute('data-measure', READER_PREFS.measure);
+    root.setAttribute('data-registers', String(READER_PREFS.registerCount));
+    root.setAttribute('data-quiet', READER_PREFS.quiet ? 'on' : 'off');
+    root.setAttribute('data-context', READER_PREFS.contextOn ? 'on' : 'off');
+    const quiet = document.getElementById('quiet-toggle-btn');
+    if (quiet) {
+      if (READER_PREFS.quiet) quiet.classList.add('active'); else quiet.classList.remove('active');
+      if (typeof quiet.setAttribute === 'function') quiet.setAttribute('aria-pressed', READER_PREFS.quiet ? 'true' : 'false');
     }
   }
 
-  function addCompareSlider27(unit, room, idx) {
-    if (!unit || unit.dataset.cmpReady === '1') return;
-    unit.dataset.cmpReady = '1';
-    unit.classList.add('cmp-unit');
-    unit.appendChild(unitDetails(room, unit, idx));
-    const ctl = document.createElement('div');
-    ctl.className = 'comparison-slider';
-    const lbl = document.createElement('span');
-    lbl.className = 'cs27-label';
-    const input = document.createElement('input');
-    input.type = 'range';
-    input.className = 'cs27-range';
-    const out = document.createElement('span');
-    out.className = 'cs27-out';
-    out.setAttribute('aria-live', 'polite');
-    if (room === 'matrix') {
-      const rows = Array.from(unit.querySelectorAll('.matrix-register-row'));
-      if (rows.length < 2) return;
-      lbl.textContent = 'Compare witnesses';
-      input.min = '0';
-      input.max = String(rows.length - 1);
-      input.value = '0';
-      input.setAttribute('aria-label', 'Emphasise one rendering of this line');
-      const apply = () => {
-        const v = parseInt(input.value, 10) || 0;
-        rows.forEach((r, i) => {
-          r.classList.toggle('is-emphasis', i === v);
-          r.classList.toggle('is-dim', i !== v);
-        });
-        out.textContent = (v + 1) + ' of ' + rows.length + ' · ' +
-          (queryText(rows[v], '.matrix-register-name') || 'register');
-      };
-      input.addEventListener('input', apply);
-      apply();
-    } else {
-      const steps = MIX_STEPS[room] || MIX_STEPS.reader;
-      lbl.textContent = steps.label;
-      input.min = '0';
-      input.max = '2';
-      input.value = '0';
-      input.setAttribute('aria-label', steps.aria);
-      const apply = () => {
-        const raw = parseInt(input.value, 10);
-        const v = Math.max(0, Math.min(2, isNaN(raw) ? 0 : raw));
-        unit.dataset.mix = steps.keys[v];
-        out.textContent = steps.readouts[v];
-      };
-      input.addEventListener('input', apply);
-      unit.dataset.mix = steps.keys[0];
-      out.textContent = steps.readouts[0];
-    }
-    ctl.appendChild(lbl);
-    ctl.appendChild(input);
-    ctl.appendChild(out);
-    unit.appendChild(ctl);
+  function toggleQuiet() {
+    READER_PREFS.quiet = !READER_PREFS.quiet;
+    storageSet('translatechan_quiet', READER_PREFS.quiet ? '1' : '0');
+    applyReadingPrefs();
   }
 
-  // ==========================================================================
-  // LAYOUT 28 · INLINE TEACHER ORIGIN — every row stays minimal: a name, an
-  // era, a quiet dotted underline. Hover, focus or tap expands an inline
-  // drawer with where they come from, who is related, background, and related
-  // works. Other rooms get the same drawer on their own anchors (work, line,
-  // case, term). Nav + filter visible.
-  // ==========================================================================
-  function roomInlineOrigin(room, root) {
-    root.classList.add('rm-inlineorigin');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    if (room === 'lineage') {
-      units.forEach(unit => {
-        if (!unit || unit.dataset.ioReady === '1') return;
-        const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-        const m = (state.data.lineage || []).find(x => x && x.id === id);
-        if (!m) return;
-        unit.dataset.ioReady = '1';
-        unit.classList.add('origin-row');
-        const anchor = unit.querySelector('.lineage-master-name-en') || unit;
-        anchor.classList.add('origin-anchor');
-        anchor.setAttribute('tabindex', '0');
-        anchor.setAttribute('aria-expanded', 'false');
-        const drawer = document.createElement('span');
-        drawer.className = 'inline-drawer';
-        drawer.setAttribute('role', 'tooltip');
-        drawer.innerHTML = '<span class="od-title">Where ' + escHtml(masterDisplayName(m)) + ' comes from</span>' +
-          '<span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span>';
-        const works = Array.isArray(m.linked_corpus_keys)
-          ? m.linked_corpus_keys.filter(k => state.data.corpus && state.data.corpus[k])
-          : [];
-        if (works.length) {
-          const wb = document.createElement('span');
-          wb.className = 'od-works';
-          works.forEach(k => {
-            const b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'btn-pill od-work';
-            b.textContent = stringValue(state.data.corpus[k].title_en) || k;
-            b.addEventListener('click', (e) => { e.stopPropagation(); openCorpusDoc(k); });
-            wb.appendChild(b);
-          });
-          drawer.appendChild(wb);
-        }
-        anchor.appendChild(drawer);
-        armInlineDrawer(anchor);
-      });
-    } else if (room === 'reader') {
-      const teachers = relatedTeachersForCorpusKey(state.currentCorpusKey).slice(0, 3);
-      units.forEach((unit, i) => {
-        if (!unit || unit.dataset.ioReady === '1') return;
-        unit.dataset.ioReady = '1';
-        unit.classList.add('origin-unit');
-        const holder = document.createElement('div');
-        holder.className = 'origin-holders';
-        if (teachers.length) {
-          teachers.forEach(m => {
-            holder.appendChild(inlineTeacherChip(m));
-          });
-        } else {
-          const chip = document.createElement('span');
-          chip.className = 'origin-anchor origin-chip';
-          chip.tabIndex = 0;
-          chip.setAttribute('aria-expanded', 'false');
-          chip.innerHTML = '<span class="origin-chip-label">About this work</span>' +
-            '<span class="inline-drawer" role="tooltip"><span class="context-info-body">' +
-            infoRows(roomInfoRowsFor('reader')) + '</span></span>';
-          armInlineDrawer(chip);
-          holder.appendChild(chip);
-        }
-        unit.appendChild(holder);
-        unit.appendChild(unitDetails(room, unit, i));
-      });
-    } else {
-      units.forEach((unit, i) => {
-        if (!unit || unit.dataset.ioReady === '1') return;
-        unit.dataset.ioReady = '1';
-        unit.classList.add('origin-unit');
-        const h = unitHeadline(room, unit, i);
-        const chip = document.createElement('span');
-        chip.className = 'origin-anchor origin-chip';
-        chip.tabIndex = 0;
-        chip.setAttribute('aria-expanded', 'false');
-        const label = room === 'matrix' ? 'Line origin'
-          : room === 'gongan' ? 'Case origin' : 'Term origin';
-        chip.innerHTML = '<span class="origin-chip-label">' + escHtml(label) + '</span>' +
-          '<span class="inline-drawer" role="tooltip">' +
-          '<span class="od-title">' + escHtml(clipText(h.en || 'Untitled', 60)) + '</span>' +
-          '<span class="context-info-body">' + infoRows(unitInfoRowsFor(room, unit, i)) + '</span></span>';
-        armInlineDrawer(chip);
-        const anchor = headlineAnchor(room, unit);
-        if (anchor && anchor.parentNode && anchor !== unit) anchor.appendChild(chip);
-        else unit.insertBefore(chip, unit.firstChild);
-      });
-    }
-    if (!root.querySelector(':scope > .rm-inlineorigin-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-inlineorigin-note');
-      root.appendChild(note);
-    }
+  // The size control lives in two places (the reader toolbar and the settings
+  // menu) and writes one value: --zh-font-size, a measured runtime contract.
+  function adjustFontSize(delta) {
+    const next = Math.min(2.2, Math.max(1.0, Math.round((state.fontSize + delta) * 100) / 100));
+    if (next === state.fontSize) return;
+    state.fontSize = next;
+    document.documentElement.style.setProperty('--zh-font-size', `${next}rem`);
+    storageSet('translatechan_font_size', String(next));
   }
 
-  // One teacher chip for the Reader: the teacher's name with an origin drawer.
-  function inlineTeacherChip(m) {
-    const chip = document.createElement('span');
-    chip.className = 'origin-anchor origin-chip';
-    chip.tabIndex = 0;
-    chip.setAttribute('aria-expanded', 'false');
-    chip.innerHTML = '<span class="origin-chip-label">' + escHtml(masterDisplayName(m)) + '</span>' +
-      '<span class="inline-drawer" role="tooltip">' +
-      '<span class="od-title">Where ' + escHtml(masterDisplayName(m)) + ' comes from</span>' +
-      '<span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span></span>';
-    armInlineDrawer(chip);
-    return chip;
+  function dismissHero() {
+    const banner = document.getElementById('zen-hero-banner');
+    if (!banner) return;
+    banner.hidden = true;
+    banner.setAttribute('hidden', '');
+    storageSet('translatechan_hero_dismissed', '1');
+    const about = document.getElementById('about-toggle');
+    if (about) { about.removeAttribute('hidden'); about.hidden = false; }
   }
 
-  // Hover and focus are handled by CSS; click and Enter/Space toggle .is-open
-  // so touch and keyboard users get the same drawer.
-  function armInlineDrawer(anchor) {
-    if (!anchor || anchor.dataset.armed === '1') return;
-    anchor.dataset.armed = '1';
-    anchor.addEventListener('click', (e) => {
-      if (e.target && e.target.closest && e.target.closest('.od-work')) return;
-      const open = !anchor.classList.contains('is-open');
-      anchor.classList.toggle('is-open', open);
-      anchor.setAttribute('aria-expanded', open ? 'true' : 'false');
+  // Keep the settings panel's controls honest with the live state. The name-mode
+  // radios are synced by syncSettingsUI(); the reading controls are synced here.
+  function syncReadingUI() {
+    const setPressed = (el, on) => {
+      if (!el) return;
+      if (on) el.classList.add('active'); else el.classList.remove('active');
+      if (typeof el.setAttribute === 'function') {
+        el.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (el.getAttribute('role') === 'radio') el.setAttribute('aria-checked', on ? 'true' : 'false');
+      }
+    };
+    document.querySelectorAll('[data-measure]').forEach(opt => {
+      setPressed(opt, opt.getAttribute('data-measure') === READER_PREFS.measure);
     });
-    anchor.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        if (e.target !== anchor) return;
+    document.querySelectorAll('[data-register-count]').forEach(opt => {
+      setPressed(opt, Number(opt.getAttribute('data-register-count')) === READER_PREFS.registerCount);
+    });
+    document.querySelectorAll('[data-pref="pinyin"]').forEach(opt => setPressed(opt, state.showPinyin));
+    const pinyinBtn = document.getElementById('pinyin-toggle-btn');
+    setPressed(pinyinBtn, state.showPinyin);
+    const mobilePinyin = document.getElementById('mobile-pinyin-btn');
+    setPressed(mobilePinyin, state.showPinyin);
+  }
+
+  // ---- the margin's one delegated listener --------------------------------
+  // Every generated link, chip and dossier button routes through here, so the
+  // file never emits an inline handler and the CSP stays script-src 'self'.
+  function setupMargin() {
+    document.addEventListener('click', e => {
+      const target = e.target;
+      if (!target || typeof target.closest !== 'function') return;
+      const door = target.closest('[data-wiki]');
+      if (door) { e.preventDefault(); openWiki(door.getAttribute('data-wiki'), { shareHash: true }); return; }
+      const chip = target.closest('[data-wiki-open]');
+      if (chip) { e.preventDefault(); openWiki(chip.getAttribute('data-wiki-open'), { shareHash: true }); return; }
+      if (target.closest('[data-wiki-follow]')) { e.preventDefault(); marginResumeFollow(); return; }
+      if (target.closest('[data-wiki-back]')) { e.preventDefault(); wikiBack(); return; }
+      if (target.closest('[data-wiki-fwd]')) { e.preventDefault(); wikiForward(); return; }
+      if (target.closest('#context-toggle')) {
         e.preventDefault();
-        const open = !anchor.classList.contains('is-open');
-        anchor.classList.toggle('is-open', open);
-        anchor.setAttribute('aria-expanded', open ? 'true' : 'false');
-      } else if (e.key === 'Escape') {
-        anchor.classList.remove('is-open');
-        anchor.setAttribute('aria-expanded', 'false');
+        READER_PREFS.contextOn = !READER_PREFS.contextOn;
+        storageSet('translatechan_context', READER_PREFS.contextOn ? '1' : '0');
+        applyReadingPrefs();
+        if (READER_PREFS.contextOn) marginFollowCurrent(true); else marginClose();
+        return;
+      }
+      if (target.closest('#mobile-context-btn')) {
+        e.preventDefault();
+        READER_PREFS.contextOn = true;
+        storageSet('translatechan_context', '1');
+        applyReadingPrefs();
+        marginFollowCurrent(true);
+        return;
+      }
+      if (target.closest('#quiet-toggle-btn')) { e.preventDefault(); toggleQuiet(); return; }
+      if (target.closest('#pinyin-toggle-btn')) {
+        e.preventDefault();
+        state.showPinyin = !state.showPinyin;
+        storageSet('translatechan_show_pinyin', state.showPinyin ? '1' : '0');
+        applyPinyinVisibility();
+        syncReadingUI();
+        return;
+      }
+      if (target.closest('#palette-btn')) { e.preventDefault(); paletteOpen(); return; }
+      if (target.closest('#hero-begin-btn')) { e.preventDefault(); window.TranslateChan.openDoc('wumenguan'); dismissHero(); return; }
+      const measure = target.closest('[data-measure]');
+      if (measure) {
+        e.preventDefault();
+        READER_PREFS.measure = measure.getAttribute('data-measure') === 'wide' ? 'wide' : 'narrow';
+        storageSet('translatechan_measure', READER_PREFS.measure);
+        applyReadingPrefs();
+        syncReadingUI();
+        return;
+      }
+      const registers = target.closest('[data-register-count]');
+      if (registers) {
+        e.preventDefault();
+        READER_PREFS.registerCount = Number(registers.getAttribute('data-register-count')) || 0;
+        storageSet('translatechan_register_count', String(READER_PREFS.registerCount));
+        applyReadingPrefs();
+        syncReadingUI();
+        renderReader();
+        return;
+      }
+      const step = target.closest('[data-size-step]');
+      if (step) { e.preventDefault(); adjustFontSize(Number(step.getAttribute('data-size-step')) * 0.15); return; }
+      if (target.closest('[data-pref="pinyin"]')) {
+        e.preventDefault();
+        state.showPinyin = !state.showPinyin;
+        storageSet('translatechan_show_pinyin', state.showPinyin ? '1' : '0');
+        applyPinyinVisibility();
+        syncReadingUI();
+      }
+    });
+
+    // Hover or focus on an entity name: one line of identity in the shared
+    // popover, so a reader can keep moving without opening anything.
+    document.addEventListener('mouseover', e => {
+      const span = e.target && e.target.closest ? e.target.closest('.wiki-link') : null;
+      if (!span) return;
+      const entity = wikiGet(span.getAttribute('data-wiki'));
+      if (!entity) return;
+      const pop = getCitationPopover();
+      pop.innerHTML = `<div class="citation-title">${escHtml(entityLabel(entity))}</div>`
+        + `<div class="citation-row">${escHtml(wikiPreviewLine(entity))}</div>`
+        + '<div class="citation-row citation-open-hint">Click — the record opens in the margin beside the text.</div>';
+      pop.hidden = false;
+      positionFloatingPopover(pop, span, 320);
+      pop._anchor = span;
+    });
+    document.addEventListener('mouseout', e => {
+      const span = e.target && e.target.closest ? e.target.closest('.wiki-link') : null;
+      if (!span) return;
+      const intoPop = e.relatedTarget && typeof e.relatedTarget.closest === 'function' && e.relatedTarget.closest('#citation-popover');
+      if (!intoPop) hideCitationPopover();
+    });
+
+    document.addEventListener('keydown', e => {
+      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+        e.preventDefault();
+        if (palette.open) paletteClose(); else paletteOpen();
+        return;
+      }
+      if (palette.open) return;
+      if (e.key === 'Escape' && READER_PREFS.quiet) { toggleQuiet(); return; }
+      if (e.key === 'Enter' || e.key === ' ') {
+        const span = e.target && e.target.closest ? e.target.closest('.wiki-link') : null;
+        if (!span || !span.classList || typeof span.classList.contains !== 'function') return;
+        // A glossary span keeps its own keyboard path (Enter reveals the shared
+        // tooltip); every other entity opens its record.
+        if (span.classList.contains('term-highlight') && !span.classList.contains('wiki-link-master')) return;
+        e.preventDefault();
+        openWiki(span.getAttribute('data-wiki'), { shareHash: true });
       }
     });
   }
 
-  // ==========================================================================
-  // LAYOUT 29 · MINIMAL HEADER + FULL-BLEED READING — the shell shrinks to a
-  // 2rem strip, the room nav and the filter become quiet top bars, and the
-  // page goes full-bleed with a calm centred 42rem reading column. More usable
-  // than the plain focus column because nothing is hidden: nav, filter and
-  // info folds are all one glance away.
-  // ==========================================================================
-  function roomFullBleed(room, root) {
-    root.classList.add('rm-fullbleed');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    if (!root.querySelector(':scope > .fb-lead')) {
-      const lead = document.createElement('div');
-      lead.className = 'fb-lead';
-      lead.innerHTML = '<span class="rm-acc-kicker">' + escHtml(ROOM_LABEL[room] || 'Room') + '</span>' +
-        '<p class="fb-lead-text">' + units.length + ' ' + escHtml(ROOM_NOUN_PLURAL[room] || 'items') +
-        ' · English first · source and background one toggle away.</p>';
-      root.insertBefore(lead, root.firstChild);
-    }
-    units.forEach((unit, i) => {
-      if (unit.dataset.fbReady === '1') return;
-      unit.dataset.fbReady = '1';
-      unit.classList.add('fb-unit');
-      unit.appendChild(unitDetails(room, unit, i));
-    });
-    if (!root.querySelector(':scope > .rm-fullbleed-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-fullbleed-note');
-      root.appendChild(note);
+  function wikiPreviewLine(entity) {
+    if (!entity) return '';
+    switch (entity.kind) {
+      case 'master': return `${stringValue(entity.era)} · ${stringValue(entity.location)} — ${stringValue(entity.summary).slice(0, 170)}`;
+      case 'work': return `${stringValue(entity.era)} · ${stringValue(entity.cbeta)} — ${stringValue(entity.genre)}`;
+      case 'term': return `${stringValue(entity.pinyin)} — ${stringValue(entity.definition).slice(0, 170)}`;
+      case 'case': return `${stringValue(entity.collection)}, case ${stringValue(entity.case_no)} — ${stringValue(entity.summary).slice(0, 170)}`;
+      case 'register': return `${stringValue(entity.translator)} · ${stringValue(entity.verified_sample_count)} verified sample(s) in the corpus`;
+      default: return stringValue(entity.id);
     }
   }
-
-  // ==========================================================================
-  // LAYOUT 30 · MAGAZINE SPREAD — each unit is a two-column magazine spread:
-  // the English reading on the left with a drop cap, the source Chinese plus
-  // the plain-language background on the right. A folio line counts the unit
-  // within the room. Nav + filter visible.
-  // ==========================================================================
-  function roomMagazine(room, root) {
-    root.classList.add('rm-magazine');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    units.forEach((unit, i) => {
-      if (unit.dataset.magReady === '1') return;
-      unit.dataset.magReady = '1';
-      unit.classList.add('mag-unit');
-      const rows = unitInfoRowsFor(room, unit, i);
-      const folio = document.createElement('div');
-      folio.className = 'mag-folio';
-      folio.innerHTML = '<span class="mag-room">' + escHtml(ROOM_LABEL[room] || 'Room') + '</span>' +
-        '<span class="mag-rule" aria-hidden="true"></span>' +
-        '<span class="mag-count">' + (i + 1) + ' of ' + units.length + '</span>';
-      const spread = document.createElement('div');
-      spread.className = 'mag-spread';
-      const left = document.createElement('div');
-      left.className = 'mag-left';
-      const right = document.createElement('aside');
-      right.className = 'mag-right';
-      right.setAttribute('aria-label', 'Source and background');
-      while (unit.firstChild) left.appendChild(unit.firstChild);
-      const drop = left.querySelector('.translation-text, .prose-en, .matrix-register-text, ' +
-        '.lexicon-entry-def, .catalogue-detail, .lineage-master-quote');
-      if (drop) drop.classList.add('mag-dropcap');
-      harvestExtras(left, room).forEach(n => right.appendChild(n));
-      if (rows.length) {
-        const info = document.createElement('div');
-        info.className = 'mag-context';
-        info.innerHTML = '<h3 class="mag-context-title">Where from · related · background</h3>' +
-          '<div class="context-info-body">' + infoRows(rows) + '</div>';
-        right.appendChild(info);
-      }
-      if (!right.childNodes.length) {
-        const p = document.createElement('p');
-        p.className = 'rm-quiet';
-        p.textContent = 'No source or background recorded for this ' + (ROOM_NOUN[room] || 'unit') + ' yet.';
-        right.appendChild(p);
-      }
-      spread.appendChild(left);
-      spread.appendChild(right);
-      unit.appendChild(folio);
-      unit.appendChild(spread);
-    });
-    if (!root.querySelector(':scope > .rm-magazine-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-magazine-note');
-      root.appendChild(note);
-    }
-  }
-
-  // ==========================================================================
-  // LAYOUT 31 · CARD WALL — the room is a masonry wall of cards (18rem
-  // minimum). Each card shows its English headline first; opening it expands
-  // the full detail plus the plain-language context in place. Nav + filter
-  // visible above the wall.
-  // ==========================================================================
-  function roomCardWall(room, root) {
-    root.classList.add('rm-cardwall');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    units.forEach((unit, i) => {
-      if (unit.dataset.cwReady === '1') return;
-      unit.dataset.cwReady = '1';
-      const h = unitHeadline(room, unit, i);
-      const det = unitDetails(room, unit, i);
-      unit.classList.add('card-wall-card');
-      const detail = document.createElement('div');
-      detail.className = 'cw-detail';
-      detail.id = 'rm-cw-detail-' + room + '-' + i;
-      detail.setAttribute('hidden', '');
-      while (unit.firstChild) detail.appendChild(unit.firstChild);
-      detail.appendChild(det);
-      const head = document.createElement('button');
-      head.type = 'button';
-      head.className = 'cw-open';
-      head.setAttribute('aria-expanded', 'false');
-      head.setAttribute('aria-controls', detail.id);
-      head.innerHTML = '<span class="rm-acc-kicker">' + escHtml(h.kicker || (ROOM_NOUN[room] || 'item') + ' ' + (i + 1)) + '</span>' +
-        '<span class="cw-title">' + escHtml(h.en || 'Untitled') + '</span>' +
-        (h.zh ? '<span class="rm-acc-zh" lang="zh">' + escHtml(h.zh) + '</span>' : '') +
-        (h.note ? '<span class="rm-acc-note">' + escHtml(h.note) + '</span>' : '') +
-        '<span class="cw-hint">Open</span>';
-      head.addEventListener('click', () => {
-        const open = detail.hasAttribute('hidden');
-        if (open) detail.removeAttribute('hidden');
-        else detail.setAttribute('hidden', '');
-        unit.classList.toggle('is-expanded', open);
-        head.setAttribute('aria-expanded', open ? 'true' : 'false');
-        const hint = head.querySelector('.cw-hint');
-        if (hint) hint.textContent = open ? 'Close' : 'Open';
-      });
-      unit.appendChild(head);
-      unit.appendChild(detail);
-    });
-    if (!root.querySelector(':scope > .rm-cardwall-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-cardwall-note');
-      root.appendChild(note);
-    }
-  }
-
-  // ==========================================================================
-  // LAYOUT 32 · VERTICAL TIMELINE — a gold rail runs down the left with one
-  // dot per unit; each card sits right of its dot with a small when-line
-  // (dates, case number, source reference). Chronological, quiet, one piece
-  // at a time, context one toggle away. Nav + filter visible.
-  // ==========================================================================
-  function roomVerticalTimeline(room, root) {
-    root.classList.add('rm-vtimeline');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    const units = roomUnitsIn(root, room);
-    units.forEach((unit, i) => {
-      if (unit.dataset.vtReady === '1') return;
-      unit.dataset.vtReady = '1';
-      unit.classList.add('timeline-unit');
-      const dot = document.createElement('span');
-      dot.className = 'timeline-dot';
-      dot.setAttribute('aria-hidden', 'true');
-      unit.insertBefore(dot, unit.firstChild);
-      const when = timelineWhen(room, unit, i);
-      if (when) {
-        const date = document.createElement('div');
-        date.className = 'timeline-when';
-        date.textContent = when;
-        unit.insertBefore(date, dot.nextSibling);
-      }
-      unit.appendChild(unitDetails(room, unit, i));
-    });
-    if (!root.querySelector(':scope > .rm-vtimeline-note')) {
-      const note = infoStackBlock('About this room', roomInfoRowsFor(room), false);
-      note.classList.add('rm-vtimeline-note');
-      root.appendChild(note);
-    }
-  }
-
-  // The small when-line left of each timeline card, from bundled fields only.
-  function timelineWhen(room, unit, idx) {
-    if (room === 'lineage') {
-      const id = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = (state.data.lineage || []).find(x => x && x.id === id);
-      if (m) return [stringValue(m.dates), stringValue(m.era)].filter(Boolean).join(' · ');
-      return queryText(unit, '.lineage-master-record span');
-    }
-    if (room === 'gongan') {
-      return [queryText(unit, '.catalogue-case'), queryText(unit, '.catalogue-collection')]
-        .filter(Boolean).join(' · ');
-    }
-    if (room === 'matrix') return queryText(unit, '.matrix-ref-clean') || ('Line ' + (idx + 1));
-    if (room === 'lexicon') return queryText(unit, '.lexicon-entry-cat');
-    return queryText(unit, '.case-heading-kicker') || ('Part ' + (idx + 1));
-  }
-
-  // ==========================================================================
-  // LAYOUT 33 · SPLIT WITH RESIZABLE CONTEXT DRAWER — 60% English reader on
-  // the left, 40% context drawer on the right. The divider is a real drag
-  // handle (pointer drag, 30–70% in tens) with an accessible range slider as
-  // its twin, so keyboard and touch users get the same control. Each unit
-  // parks its source and background in the drawer behind "Show in drawer".
-  // Nav + filter visible.
-  // ==========================================================================
-  function roomSplitResizable(room, root) {
-    root.classList.add('rm-splitresize');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (root.querySelector(':scope > .rm-split-shell')) return;
-    const shell = document.createElement('div');
-    shell.className = 'rm-split-shell';
-    shell.dataset.split = '40';
-    const left = document.createElement('div');
-    left.className = 'split-left';
-    const handle = document.createElement('div');
-    handle.className = 'resize-handle';
-    handle.setAttribute('aria-hidden', 'true');
-    handle.innerHTML = '<span class="resize-grip"></span>';
-    const right = document.createElement('aside');
-    right.className = 'split-right';
-    right.setAttribute('aria-label', 'Context drawer');
-    right.innerHTML =
-      '<div class="sr-head"><span class="sr-title">Context drawer</span>' +
-      '<button type="button" class="sr-pane-toggle" aria-expanded="true">Hide drawer</button></div>' +
-      '<p class="sr-lead">English stays on the left. Press “Show in drawer” on any ' +
-      escHtml(ROOM_NOUN[room] || 'unit') + ' and its source plus background opens here.</p>' +
-      '<label class="sr-size"><span class="sr-size-label">Drawer width</span></label>' +
-      '<div class="sr-body"></div>';
-    const sizeLabel = right.querySelector('.sr-size');
-    const range = document.createElement('input');
-    range.type = 'range';
-    range.className = 'resize-range';
-    range.min = '30';
-    range.max = '70';
-    range.step = '10';
-    range.value = '40';
-    range.setAttribute('aria-label', 'Context drawer width, percent of the room');
-    const rangeOut = document.createElement('span');
-    rangeOut.className = 'resize-out';
-    rangeOut.textContent = '60 / 40';
-    sizeLabel.appendChild(range);
-    sizeLabel.appendChild(rangeOut);
-    const setSplit = (v) => {
-      const n = Math.max(30, Math.min(70, Math.round(v / 10) * 10));
-      shell.dataset.split = String(n);
-      range.value = String(n);
-      rangeOut.textContent = (100 - n) + ' / ' + n;
-    };
-    range.addEventListener('input', () => setSplit(parseInt(range.value, 10) || 40));
-    let dragging = false;
-    const fromPoint = (clientX) => {
-      const r = shell.getBoundingClientRect ? shell.getBoundingClientRect() : null;
-      if (!r || !r.width) return;
-      setSplit(((r.right - clientX) / r.width) * 100);
-    };
-    handle.addEventListener('pointerdown', (e) => {
-      dragging = true;
-      if (handle.setPointerCapture && e.pointerId !== undefined) {
-        try { handle.setPointerCapture(e.pointerId); } catch (err) { /* capture is best-effort */ }
-      }
-      fromPoint(e.clientX);
-    });
-    handle.addEventListener('pointermove', (e) => { if (dragging) fromPoint(e.clientX); });
-    handle.addEventListener('pointerup', () => { dragging = false; });
-    handle.addEventListener('pointercancel', () => { dragging = false; });
-    while (root.firstChild) left.appendChild(root.firstChild);
-    shell.appendChild(left);
-    shell.appendChild(handle);
-    shell.appendChild(right);
-    root.appendChild(shell);
-    const body = right.querySelector('.sr-body');
-    body.appendChild(infoStackBlock('About this room', roomInfoRowsFor(room), true));
-    const units = roomUnitsIn(left, room);
-    units.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      const card = document.createElement('section');
-      card.className = 'split-card';
-      card.id = 'rm-split-card-' + room + '-' + i;
-      card.setAttribute('hidden', '');
-      card.innerHTML = '<h3 class="split-card-head"><span class="rm-acc-kicker">' +
-        escHtml(h.kicker || (ROOM_NOUN[room] || 'Item') + ' ' + (i + 1)) + '</span>' +
-        '<span class="rm-acc-en">' + escHtml(h.en || 'Untitled') + '</span></h3>';
-      harvestExtras(unit, room).forEach(n => card.appendChild(n));
-      const rows = unitInfoRowsFor(room, unit, i);
-      if (rows.length) {
-        const info = document.createElement('div');
-        info.className = 'context-info-body';
-        info.innerHTML = infoRows(rows);
-        card.appendChild(info);
-      }
-      body.appendChild(card);
-      const btn = toggleButton('Show in drawer', 'btn-pill rm-split-toggle');
-      btn.setAttribute('aria-controls', card.id);
-      btn.addEventListener('click', () => {
-        const open = card.hasAttribute('hidden');
-        if (open) card.removeAttribute('hidden');
-        else card.setAttribute('hidden', '');
-        setToggleState(btn, open, 'Hide in drawer', 'Show in drawer');
-        right.classList.toggle('has-open', body.querySelectorAll('.split-card:not([hidden])').length > 0);
-        if (open && typeof card.scrollIntoView === 'function') {
-          card.scrollIntoView({ behavior: motionBehavior(), block: 'nearest' });
-        }
-      });
-      unit.appendChild(btn);
-    });
-    const paneToggle = right.querySelector('.sr-pane-toggle');
-    paneToggle.addEventListener('click', () => {
-      const off = root.classList.toggle('is-pane-off');
-      paneToggle.setAttribute('aria-expanded', off ? 'false' : 'true');
-      paneToggle.textContent = off ? 'Show drawer' : 'Hide drawer';
-    });
-  }
-
-  // ==========================================================================
-  // LAYOUT 34 · GLOSSARY SIDEBAR + FOOTNOTES — the reading sits in a calm
-  // centre column with a 14rem plain-language glossary docked left (dotted
-  // words, tooltips on hover, focus or tap) and a 14rem numbered-notes rail
-  // docked right (each unit carries a number that jumps to its note and back).
-  // Both rails collapse for small screens. Nav + filter visible.
-  // ==========================================================================
-  function roomGlossaryBar(room, root) {
-    root.classList.add('rm-glossbar');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (root.querySelector(':scope > .rm-gloss-shell')) return;
-    const shell = document.createElement('div');
-    shell.className = 'rm-gloss-shell';
-    const gloss = document.createElement('aside');
-    gloss.className = 'glossary-sidebar';
-    gloss.setAttribute('aria-label', 'Plain-language glossary');
-    const center = document.createElement('div');
-    center.className = 'reading-center';
-    const notes = document.createElement('aside');
-    notes.className = 'footnotes-sidebar';
-    notes.setAttribute('aria-label', 'Footnotes');
-    while (root.firstChild) center.appendChild(root.firstChild);
-    shell.appendChild(gloss);
-    shell.appendChild(center);
-    shell.appendChild(notes);
-    root.appendChild(shell);
-    gloss.innerHTML =
-      '<div class="gb-head"><span class="gb-title">Glossary</span>' +
-      '<button type="button" class="gb-collapse" aria-expanded="true">Hide</button></div>' +
-      '<p class="gb-lead">Plain-language words for this room. Hover, focus or tap a word.</p>' +
-      '<ul class="gloss-list"></ul>';
-    const list = gloss.querySelector('.gloss-list');
-    glossTermsForRoom(room, center).forEach(t => list.appendChild(glossItem(t)));
-    if (!list.childNodes.length) {
-      const li = document.createElement('li');
-      li.className = 'gloss-empty';
-      li.textContent = 'No glossary terms recorded yet.';
-      list.appendChild(li);
-    }
-    notes.innerHTML =
-      '<div class="gb-head"><span class="gb-title">Notes</span>' +
-      '<button type="button" class="gb-collapse" aria-expanded="true">Hide</button></div>' +
-      '<p class="gb-lead">Background for each ' + escHtml(ROOM_NOUN[room] || 'unit') +
-      ', kept beside the reading. The numbers in the text point here.</p>' +
-      '<div class="g34-notes"></div>';
-    const holder = notes.querySelector('.g34-notes');
-    const units = roomUnitsIn(center, room);
-    units.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      const rows = unitInfoRowsFor(room, unit, i);
-      const n = i + 1;
-      const noteId = 'rm-g34-note-' + room + '-' + i;
-      const mark = document.createElement('button');
-      mark.type = 'button';
-      mark.className = 'g34-mark';
-      mark.textContent = String(n);
-      mark.setAttribute('aria-label', 'Note ' + n + ': background for ' + clipText(h.en || 'this item', 48));
-      mark.addEventListener('click', () => {
-        const note = document.getElementById(noteId);
-        if (note && typeof note.scrollIntoView === 'function') {
-          note.scrollIntoView({ behavior: motionBehavior(), block: 'center' });
-          note.classList.add('rm-flash');
-          setTimeout(() => note.classList.remove('rm-flash'), 1100);
-        }
-      });
-      const anchor = headlineAnchor(room, unit);
-      if (anchor && anchor.parentNode && anchor !== unit) anchor.appendChild(mark);
-      else unit.insertBefore(mark, unit.firstChild);
-      const note = document.createElement('article');
-      note.className = 'g34-note';
-      note.id = noteId;
-      note.innerHTML = '<div class="g34-note-head"><span class="g34-num">' + n + '</span>' +
-        '<span class="g34-title">' + escHtml((h.kicker ? h.kicker + ' · ' : '') + clipText(h.en || 'Untitled', 60)) + '</span></div>' +
-        '<div class="context-info-body">' + infoRows(rows) + '</div>';
-      const back = document.createElement('button');
-      back.type = 'button';
-      back.className = 'btn-pill g34-back';
-      back.textContent = '↑ Back to the text';
-      back.addEventListener('click', () => scrollToUnit(unit));
-      note.appendChild(back);
-      holder.appendChild(note);
-    });
-    notes.appendChild(infoStackBlock('About this room', roomInfoRowsFor(room), false));
-    const gBtn = gloss.querySelector('.gb-collapse');
-    gBtn.addEventListener('click', () => {
-      const off = root.classList.toggle('is-gloss-off');
-      gBtn.setAttribute('aria-expanded', off ? 'false' : 'true');
-      gBtn.textContent = off ? 'Show' : 'Hide';
-    });
-    const nBtn = notes.querySelector('.gb-collapse');
-    nBtn.addEventListener('click', () => {
-      const off = root.classList.toggle('is-notes-off');
-      nBtn.setAttribute('aria-expanded', off ? 'false' : 'true');
-      nBtn.textContent = off ? 'Show' : 'Hide';
-    });
-  }
-
-  // Glossary terms actually mentioned in the room come first; otherwise the
-  // head of the project glossary stands in. Never more than twelve.
-  function glossTermsForRoom(room, scope) {
-    const list = Array.isArray(state.data.glossary) ? state.data.glossary : [];
-    if (!list.length) return [];
-    const text = nodeText(scope).toLowerCase();
-    const found = list.filter(t => {
-      if (!t) return false;
-      const term = stringValue(t.term);
-      const literal = stringValue(t.literal);
-      if (term.length >= 2 && text.includes(term.toLowerCase())) return true;
-      return literal.length >= 5 && text.includes(literal.toLowerCase());
-    });
-    return (found.length ? found : list).slice(0, 12);
-  }
-
-  function glossItem(t) {
-    const li = document.createElement('li');
-    li.className = 'gloss-item';
-    const wrap = document.createElement('span');
-    wrap.className = 'gloss-word';
-    wrap.tabIndex = 0;
-    wrap.setAttribute('role', 'button');
-    wrap.setAttribute('aria-expanded', 'false');
-    const label = stringValue(t.literal) || stringValue(t.term);
-    wrap.innerHTML = '<span class="gloss-label">' + escHtml(label) + '</span>' +
-      '<span class="gloss-tip" role="tooltip" hidden>' +
-      '<span class="gloss-tip-head">' + escHtml(stringValue(t.term)) + ' · ' +
-      escHtml(stringValue(t.pinyin) || 'reading not recorded') + '</span>' +
-      '<span class="gloss-tip-body">' +
-      escHtml(clipText(stringValue(t.definition), 220) || 'No definition recorded.') + '</span></span>';
-    const flip = () => {
-      const tip = wrap.querySelector('.gloss-tip');
-      const open = tip.hasAttribute('hidden');
-      if (open) tip.removeAttribute('hidden');
-      else tip.setAttribute('hidden', '');
-      wrap.setAttribute('aria-expanded', open ? 'true' : 'false');
-    };
-    wrap.addEventListener('click', flip);
-    wrap.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
-    });
-    li.appendChild(wrap);
-    if (stringValue(t.pinyin)) {
-      const meta = document.createElement('span');
-      meta.className = 'gloss-meta';
-      meta.textContent = stringValue(t.pinyin);
-      li.appendChild(meta);
-    }
-    return li;
-  }
-
-  // ==========================================================================
-  // LAYOUT 35 · FOCUS + TOC HYBRID — the best of three layouts in one: a calm
-  // centred 40rem reading column (Focus), a sticky 10rem mini-TOC of titles on
-  // the left, and a 10rem right rail with a progress meter, a bookmark trail
-  // and three related cards (Trail). The filter stays in the top bar. Usable
-  // because every aid is visible and every context fold is one toggle away.
-  // ==========================================================================
-  function roomFocusTocHybrid(room, root) {
-    root.classList.add('rm-hybrid');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (!root.querySelector(':scope > .rm-hybrid-shell')) buildHybridShell(room, root);
-    ensureHybridProgress();
-  }
-
-  function buildHybridShell(room, root) {
-    const shell = document.createElement('div');
-    shell.className = 'rm-hybrid-shell';
-    const toc = document.createElement('nav');
-    toc.className = 'mini-toc';
-    toc.setAttribute('aria-label', 'In this ' + (ROOM_LABEL[room] || 'room'));
-    const center = document.createElement('div');
-    center.className = 'focus-center';
-    const rail = document.createElement('aside');
-    rail.className = 'progress-rail';
-    rail.setAttribute('aria-label', 'Progress, trail and related');
-    while (root.firstChild) center.appendChild(root.firstChild);
-    shell.appendChild(toc);
-    shell.appendChild(center);
-    shell.appendChild(rail);
-    root.appendChild(shell);
-    const units = roomUnitsIn(center, room);
-    toc.innerHTML = '<div class="mt-head"><span class="mt-title">In this ' +
-      escHtml(ROOM_LABEL[room] || 'room') + '</span>' +
-      '<span class="mt-count">' + units.length + '</span></div>' +
-      '<ol class="mini-toc-list"></ol>';
-    const list = toc.querySelector('.mini-toc-list');
-    units.forEach((unit, i) => {
-      const h = unitHeadline(room, unit, i);
-      const li = document.createElement('li');
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'mini-toc-link';
-      b.textContent = clipText(h.en || ((ROOM_NOUN[room] || 'item') + ' ' + (i + 1)), 30);
-      b.setAttribute('aria-label', (h.kicker ? h.kicker + ' · ' : '') + clipText(h.en || 'Untitled', 60));
-      b.addEventListener('click', () => {
-        list.querySelectorAll('.mini-toc-link').forEach(x => x.removeAttribute('aria-current'));
-        b.setAttribute('aria-current', 'true');
-        scrollToUnit(unit);
-        pushHybridTrail(rail, room, clipText(h.en || (ROOM_LABEL[room] || 'Room'), 24), unit);
-      });
-      li.appendChild(b);
-      list.appendChild(li);
-      unit.classList.add('hybrid-unit');
-      unit.appendChild(unitDetails(room, unit, i));
-    });
-    const prog = document.createElement('div');
-    prog.className = 'hybrid-progress';
-    const hpLabel = document.createElement('span');
-    hpLabel.className = 'hp-label';
-    hpLabel.textContent = 'Progress';
-    const meter = document.createElement('progress');
-    meter.className = 'hybrid-progress-meter';
-    meter.max = 100;
-    meter.value = 0;
-    prog.appendChild(hpLabel);
-    prog.appendChild(meter);
-    rail.appendChild(prog);
-    const trail = document.createElement('nav');
-    trail.className = 'hybrid-trail';
-    trail.setAttribute('aria-label', 'Bookmark trail');
-    const htLabel = document.createElement('span');
-    htLabel.className = 'ht-label';
-    htLabel.textContent = 'Trail';
-    const crumbs = document.createElement('span');
-    crumbs.className = 'ht-crumbs';
-    const home = document.createElement('button');
-    home.type = 'button';
-    home.className = 'ht-crumb ht-home';
-    home.textContent = 'Home';
-    home.addEventListener('click', () => switchView('reader'));
-    crumbs.appendChild(home);
-    trail.appendChild(htLabel);
-    trail.appendChild(crumbs);
-    rail.appendChild(trail);
-    pushHybridTrail(rail, room, room === 'reader' ? clipText(corpusTitle(), 24) : (ROOM_LABEL[room] || 'Room'), null);
-    const rel = document.createElement('div');
-    rel.className = 'hybrid-related';
-    const hrLabel = document.createElement('span');
-    hrLabel.className = 'hr-label';
-    hrLabel.textContent = 'Related';
-    rel.appendChild(hrLabel);
-    const items = relatedRailItems(room, units).slice(0, 3);
-    if (!items.length) {
-      const p = document.createElement('p');
-      p.className = 'rm-quiet';
-      p.textContent = 'Nothing else is linked here in the project data yet.';
-      rel.appendChild(p);
-    }
-    items.forEach(it => {
-      const c = document.createElement('button');
-      c.type = 'button';
-      c.className = 'hr-card';
-      c.innerHTML = '<span class="hr-name">' + escHtml(it.name) + '</span>' +
-        '<span class="hr-why">' + escHtml(it.why || '') + '</span>';
-      c.addEventListener('click', () => {
-        if (it.unit) scrollToUnit(it.unit);
-        else if (it.docKey) openCorpusDoc(it.docKey);
-      });
-      rel.appendChild(c);
-    });
-    rail.appendChild(rel);
-    rail.appendChild(infoStackBlock('About this room', roomInfoRowsFor(room), false));
-  }
-
-  // The hybrid trail is DOM-held per room: Home plus the last six stops.
-  function pushHybridTrail(rail, room, label, unit) {
-    const box = rail ? rail.querySelector('.ht-crumbs') : null;
-    if (!box) return;
-    const last = box.lastChild;
-    if (last && last.textContent === label) return;
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'ht-crumb';
-    b.textContent = label;
-    b.addEventListener('click', () => {
-      if (unit) scrollToUnit(unit);
-      else switchView(room);
-    });
-    box.appendChild(b);
-    while (box.childNodes.length > 7) box.removeChild(box.firstChild);
-  }
-
-  function ensureHybridProgress() {
-    if (typeof document === 'undefined' || typeof window === 'undefined') return;
-    if (!layout35ScrollHandler) {
-      layout35ScrollHandler = () => updateHybridProgress();
-      window.addEventListener('scroll', layout35ScrollHandler, { passive: true });
-    }
-    updateHybridProgress();
-  }
-
-  function updateHybridProgress() {
-    if (typeof document === 'undefined' || !document.querySelectorAll) return;
-    const meters = document.querySelectorAll('.hybrid-progress-meter');
-    if (!meters.length) return;
-    const doc = document.documentElement;
-    const span = (doc.scrollHeight - window.innerHeight) || 1;
-    const pct = Math.max(0, Math.min(100, Math.round(((window.scrollY || 0) / span) * 100)));
-    meters.forEach(m => { m.value = pct; });
-  }
-
-  // ==========================================================================
-  // LAYOUT 36 · CHAN LIBRARY — "The Chan Room" (owner-provided zip, 2026-09-18)
-  // --------------------------------------------------------------------------
-  // The owner provided chan-buddhism-digital-library.zip: a React/Vite
-  // prototype called "The Chan Room" — cream ground (#F8F5EF), rust accent
-  // (#9A3B1E), stone-grey hairlines, a scholarly serif for English and
-  // controls in sans, a sticky pill nav, hairline card grids (1px gap,
-  // opaque cells), a disclosure (▸) dossier that asks "Where did this come
-  // from? / What is the background? / Who and what is related? / How
-  // reliable is the text?", and small status dots (verified / flagged) next
-  // to every line.
-  //
-  // Layout 36 ports that design language onto the live site: the CSS half
-  // lives under :root[data-design="36"] in app.css (shell, pills, hairline
-  // grids, disclosures, status dots, dark theme); the JS half re-structures
-  // the room DOM the same way the library's rooms do — cards in hairline
-  // grids, one disclosure per unit carrying the three plain-language info
-  // rows, and a fourth "How reliable is the text?" fold in the Reader built
-  // from the per-text W1 metrics. Layouts 1–35 stay byte-identical and
-  // untouched; every block below no-ops for the other 35 values, and every
-  // string it renders comes from the bundled data (35 texts, 34 teachers,
-  // 24 cases, 31 terms, 4 matrix lines) — no invented copy, no style
-  // attributes, no new setProperty writes.
-  // ==========================================================================
-
-  // One library-style disclosure: ▸ label … hint, rows behind the fold.
-  function chanDisclosure(label, rows, hint) {
-    const d = document.createElement('details');
-    d.className = 'chan-disclosure';
-    const s = document.createElement('summary');
-    s.innerHTML = '<span class="chan-disc-label">' + escHtml(label) + '</span>' +
-      (hint ? '<span class="chan-disc-hint">' + escHtml(hint) + '</span>' : '');
-    d.appendChild(s);
-    if (Array.isArray(rows) && rows.length) {
-      const body = document.createElement('div');
-      body.className = 'chan-disc-body';
-      body.innerHTML = infoRows(rows);
-      d.appendChild(body);
-    }
-    return d;
-  }
-
-  // Wrap the matched direct children in one hairline-grid card wall
-  // (the library's signature: 1px stone gap, opaque cells, no outer frame).
-  function chanWrapGrid(parent, selector, gridClass) {
-    if (!parent || !parent.querySelectorAll) return;
-    if (parent.querySelector(':scope > .' + gridClass)) return;
-    const kids = Array.from(parent.querySelectorAll(selector)).filter(k => k.parentNode === parent);
-    if (!kids.length) return;
-    const grid = document.createElement('div');
-    grid.className = gridClass;
-    kids.forEach(k => grid.appendChild(k));
-    parent.appendChild(grid);
-  }
-
-  // The library's fourth dossier question, Reader only. Every number comes
-  // from the per-text metrics in the deterministic bundle — nothing invented.
-  function chanReliabilityDisclosure() {
-    const key = state.currentCorpusKey;
-    const perText = state.data.project_metrics && state.data.project_metrics.corpus &&
-      state.data.project_metrics.corpus.per_text ? state.data.project_metrics.corpus.per_text : {};
-    const m = isRecord(perText[key]) ? perText[key] : {};
-    const sr = isRecord(m.source_review) ? m.source_review : null;
-    const statusLabels = {
-      collated_to_claimed_witness: 'collated to the claimed witness',
-      partial_or_failed_w1_collation: 'partial or failed W1 collation',
-      witness_unavailable: 'witness unavailable'
-    };
-    const rows = [];
-    rows.push(['Coverage here',
-      escHtml(stringValue(m.coverage) || 'representation not recorded') +
-      ' · editorial status: ' + escHtml(stringValue(m.completion_status) || 'not recorded')]);
-    if (sr) {
-      rows.push(['W1 source review',
-        escHtml(statusLabels[sr.status] || stringValue(sr.status)) +
-        ' — ' + escHtml(String(sr.content_fields_collated !== undefined ? sr.content_fields_collated : 'n/a')) +
-        ' of ' + escHtml(String(sr.content_fields_total !== undefined ? sr.content_fields_total : 'n/a')) +
-        ' content fields collate to the claimed witness; ' +
-        escHtml(String(sr.flagged_entries !== undefined ? sr.flagged_entries : 'n/a')) +
-        ' entries flagged and visibly marked, never quietly fixed.']);
-      if (Array.isArray(sr.witness_refs) && sr.witness_refs.length) {
-        rows.push(['Claimed witness', escHtml(sr.witness_refs.join(', '))]);
-      }
-      if (sr.evidence_date) rows.push(['Evidence date', escHtml(String(sr.evidence_date))]);
-    }
-    rows.push(['Rule',
-      'Nothing in the Chinese above has been normalised, punctuated silently or corrected. Where editions disagree, the Compare room carries both readings rather than resolving them here.']);
-    const d = chanDisclosure('How reliable is the text?', rows, 'provenance');
-    d.classList.add('chan-reliability');
-    return d;
-  }
-
-  function chanRoomReader(root) {
-    const heading = root.querySelector('.document-heading');
-    if (heading && !heading.querySelector('.chan-reliability')) {
-      heading.appendChild(chanReliabilityDisclosure());
-    }
-  }
-
-  function chanRoomLineage(root) {
-    // Banded register (tree order): one card wall per generation band.
-    root.querySelectorAll('.lineage-band').forEach(band => {
-      chanWrapGrid(band, ':scope > .lineage-master-row', 'chan-grid chan-grid-3');
-    });
-    // Flat register (any other sort): one card wall for the whole list.
-    root.querySelectorAll('.lineage-flat').forEach(flat => {
-      chanWrapGrid(flat, ':scope > .lineage-master-row', 'chan-grid chan-grid-3');
-    });
-    root.querySelectorAll('.lineage-master-row').forEach(row => {
-      if (row.dataset.chanReady === '1') return;
-      row.dataset.chanReady = '1';
-      row.appendChild(chanDisclosure(
-        'About this teacher — where from · related · background',
-        unitInfoRowsFor('lineage', row, 0), 'dossier'));
-    });
-  }
-
-  function chanRoomGongan(root) {
-    const cat = root.querySelector('.gongan-catalogue');
-    if (cat) chanWrapGrid(cat, ':scope > .catalogue-row', 'chan-grid chan-grid-2');
-    root.querySelectorAll('.catalogue-row').forEach((row, i) => {
-      if (row.dataset.chanReady === '1') return;
-      row.dataset.chanReady = '1';
-      // The library's case card: title + one line by default; the record
-      // locator and cross-references sit behind one small fold.
-      const locator = row.querySelector('.catalogue-locator');
-      const cross = row.querySelector('.catalogue-cross');
-      if (locator || cross) {
-        const fold = document.createElement('details');
-        fold.className = 'chan-disclosure chan-record-fold';
-        const s = document.createElement('summary');
-        s.innerHTML = '<span class="chan-disc-label">Record</span><span class="chan-disc-hint">locator · cross-refs</span>';
-        fold.appendChild(s);
-        const body = document.createElement('div');
-        body.className = 'chan-disc-body';
-        if (locator) body.appendChild(locator);
-        if (cross) body.appendChild(cross);
-        fold.appendChild(body);
-        row.appendChild(fold);
-      }
-      row.appendChild(chanDisclosure(
-        'About this case — where from · related · background',
-        unitInfoRowsFor('gongan', row, i), 'dossier'));
-    });
-  }
-
-  function chanRoomMatrix(root) {
-    root.querySelectorAll('.matrix-proof-sheet').forEach((sheet, i) => {
-      if (sheet.dataset.chanReady === '1') return;
-      sheet.dataset.chanReady = '1';
-      sheet.classList.add('chan-unit');
-      sheet.appendChild(chanDisclosure(
-        'About this line — where from · related · background',
-        unitInfoRowsFor('matrix', sheet, i), 'dossier'));
-    });
-  }
-
-  function chanRoomLexicon(root) {
-    root.querySelectorAll('.lexicon-entry').forEach((entry, i) => {
-      if (entry.dataset.chanReady === '1') return;
-      entry.dataset.chanReady = '1';
-      entry.appendChild(chanDisclosure(
-        'About this term — where from · related · background',
-        unitInfoRowsFor('lexicon', entry, i), 'dossier'));
-    });
-  }
-
-  function roomChanLibrary(room, root) {
-    root.classList.add('rm-chanroom');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (room === 'reader') chanRoomReader(root);
-    else if (room === 'lineage') chanRoomLineage(root);
-    else if (room === 'gongan') chanRoomGongan(root);
-    else if (room === 'matrix') chanRoomMatrix(root);
-    else if (room === 'lexicon') chanRoomLexicon(root);
-  }
-
   function setupEventListeners() {
     setupCitationPopoverListeners();
     setupRoboNameListeners();
-    setupHoverCardListeners(); // Phase 5 bundle 028 layout 7 (no-ops outside it)
     if (elements.themeToggle) {
       elements.themeToggle.addEventListener('click', () => {
         applyTheme(state.theme === 'dark' ? 'light' : 'dark');
@@ -5661,17 +1972,10 @@
     const fontIncBtnMobile = document.getElementById('mobile-font-inc-btn');
     const fontDecBtnMobile = document.getElementById('mobile-font-dec-btn');
 
-    function changeFontSize(delta) {
-      const next = Math.min(2.2, Math.max(1.0, Math.round((state.fontSize + delta) * 100) / 100));
-      if (next === state.fontSize) return;
-      state.fontSize = next;
-      document.documentElement.style.setProperty('--zh-font-size', `${next}rem`);
-      storageSet('translatechan_font_size', String(next));
-    }
-    if (fontIncBtn) fontIncBtn.addEventListener('click', () => changeFontSize(0.15));
-    if (fontDecBtn) fontDecBtn.addEventListener('click', () => changeFontSize(-0.15));
-    if (fontIncBtnMobile) fontIncBtnMobile.addEventListener('click', () => changeFontSize(0.15));
-    if (fontDecBtnMobile) fontDecBtnMobile.addEventListener('click', () => changeFontSize(-0.15));
+    if (fontIncBtn) fontIncBtn.addEventListener('click', () => adjustFontSize(0.15));
+    if (fontDecBtn) fontDecBtn.addEventListener('click', () => adjustFontSize(-0.15));
+    if (fontIncBtnMobile) fontIncBtnMobile.addEventListener('click', () => adjustFontSize(0.15));
+    if (fontDecBtnMobile) fontDecBtnMobile.addEventListener('click', () => adjustFontSize(-0.15));
 
     // Mobile corpus picker
     const mobileCorpusSelect = document.getElementById('corpus-mobile-select');
@@ -5957,18 +2261,6 @@
         window.TranslateChan.openDoc(openDocBtn.getAttribute('data-open-doc'));
         return;
       }
-      // Bundle 028 layout 6 (Modal info, all rooms): ⓘ doorways open the one
-      // info modal, at the section the doorway asked for.
-      const modalOpenBtn = hit('[data-info-modal]');
-      if (modalOpenBtn) {
-        e.preventDefault();
-        openInfoModal(
-          modalOpenBtn.getAttribute('data-info-modal'),
-          modalOpenBtn,
-          modalOpenBtn.getAttribute('data-info-sec')
-        );
-        return;
-      }
       // Lineage teacher links inside master cards / dossier
       const teacherLink = hit('[data-master-teacher]');
       if (teacherLink) {
@@ -6064,7 +2356,6 @@
         section.classList.remove('active');
       }
     });
-    closeOpenBottomSheets(null); // layout 9: never carry a sheet into the next room
     ensureRoomRendered(viewName); // C-4 render-lazy: first activation builds the room
     if (scroll) {
       window.scrollTo({ top: 0, behavior: motionBehavior() });
@@ -6076,6 +2367,12 @@
 
   // Apply the URL hash to app state (view + reader corpus); no re-render loop.
   function applyHash() {
+    const wikiMatch = /^#\/wiki\/([a-z]+):?(.*)$/.exec(location.hash || '');
+    if (wikiMatch && DOSSIER_BUILDERS[wikiMatch[1]] && wikiMatch[2]) {
+      switchView('reader');
+      openWiki(`${wikiMatch[1]}:${wikiMatch[2]}`, { focus: true });
+      return;
+    }
     const m = (location.hash || '').match(/^#\/([a-z]+)(?:\/([a-z0-9_]+))?/);
     const view = m && VALID_VIEWS.includes(m[1]) ? m[1] : 'reader';
     if (view !== state.currentView) switchViewRaw(view, false);
@@ -6094,6 +2391,13 @@
   // showTermPopover) — occurrence spans carry only `data-term-id`, which keeps
   // the DOM lean (previously every 無 occurrence inlined the full definition).
   function annotateClassicalChinese(text) {
+    // One pass for the whole source line: glossary terms (.term-highlight, the
+    // historical class the popover and keyboard path are bound to) and every
+    // other entity (.wiki-link) come out of the same matcher, so no span is ever
+    // nested in another and nothing in the Chinese is rewritten.
+    return annotateSourceText(text);
+  }
+  function annotateClassicalChineseLegacy(text) {
     if (!text) return '';
     if (!state.data.glossary || !Array.isArray(state.data.glossary)) return escHtml(text);
     const terms = state.data.glossary.filter(t => t && t.term && t.id && text.includes(t.term));
@@ -6825,6 +3129,7 @@
             <p class="text-title-en">${escHtml(doc.title_pinyin)}</p>
           </div>
           <span class="document-status">${escHtml(editorialStatus)}</span>
+          ${marginDoor(`work:${state.currentCorpusKey}`, 'Work dossier', 'document-dossier-btn')}
         </div>
         ${renderDocumentLedgers(state.currentCorpusKey, doc)}
         ${renderWorkContext(state.currentCorpusKey)}
@@ -6945,7 +3250,7 @@
 
       doc.five_ranks.forEach(r => {
         html += `
-          <div class="case-card">
+          <div class="case-card" data-unit-ref="five_ranks:${escHtml(r.rank_num)}">
             <div class="case-header">
               <h2 class="case-num-title">第 ${escHtml(r.rank_num)} 位：${escHtml(r.name_zh)} (${escHtml(r.name_en)})</h2>
               <span class="case-speaker">${escHtml(r.symbol)}</span>
@@ -7020,9 +3325,12 @@
     // End matter belongs after all rendered source units.
     html += epilogueHtml;
     elements.readerContent.innerHTML = html;
+    // The margin follows this sheet: re-arm the observer over the units just
+    // rendered and republish the passage context (no-op while a record is pinned).
+    armScrollSpy();
+    marginFollowCurrent(false);
     // Bundle 026: layouts 2–6 re-structure this content into their disclosure
     // pattern; a no-op in layout 1, which renders exactly as before.
-    enhanceReaderLayout();
   }
 
   function caseTextLabels(corpusKey) {
@@ -7066,10 +3374,11 @@
       </div>` : '';
 
     return `
-      <div class="case-card ${collapsed ? 'collapsed' : ''}" id="case-${caseItem.case_num}">
+      <div class="case-card ${collapsed ? 'collapsed' : ''}" id="case-${caseItem.case_num}" data-unit-ref="cases:${caseItem.case_num}">
         <div class="case-header">
           <h2 class="case-num-title">${renderUnitTitle(caseItem.title_en, caseItem.title_zh, `Case ${caseItem.case_num}`)}</h2>
           <span class="case-header-actions">
+            ${marginDoor(`case:${stringValue((gonganEntryForCase(state.currentCorpusKey, caseItem.case_num) || {}).id)}`, 'Case record', 'case-record-btn')}
             ${renderCaseSourceDisclosure(caseItem.case_num)}
             <button class="case-toggle" data-case-toggle="${escHtml(caseItem.case_num)}" aria-expanded="${collapsed ? 'false' : 'true'}" aria-label="${collapsed ? 'Expand' : 'Collapse'} case ${escHtml(caseItem.case_num)}" title="${collapsed ? 'Expand' : 'Collapse'} case">${collapsed ? '＋' : '−'}</button>
           </span>
@@ -7130,7 +3439,7 @@
     `).join('');
 
     return `
-      <div class="case-card">
+      <div class="case-card" data-unit-ref="sections:${sec.section_id != null ? escHtml(sec.section_id) : 'n' + (sec.section_num != null ? sec.section_num : 'x')}">
         <div class="case-header">
           <h2 class="case-num-title">${renderUnitTitle(sec.title_en, sec.title_zh, 'Section')}</h2>
           <span class="case-header-actions">${renderSourceLocationDisclosure(sectionLocator, 'Section source', 'case-source-location')}</span>
@@ -7153,7 +3462,7 @@
     `).join('');
 
     return `
-      <div class="case-card">
+      <div class="case-card" data-unit-ref="dialogues:${dia.dialogue_id != null ? escHtml(dia.dialogue_id) : 'n' + (dia.dialogue_num != null ? dia.dialogue_num : 'x')}">
         <div class="case-header">
           <h2 class="case-num-title">${renderUnitTitle(dia.title_en, dia.title_zh, 'Dialogue')}</h2>
         </div>
@@ -7166,7 +3475,7 @@
   function renderStanzaItem(st) {
     const stanzaLocator = unitLocatorForKey(state.currentCorpusKey, `stanzas.${st.stanza_num}`);
     return `
-      <div class="case-card">
+      <div class="case-card" data-unit-ref="stanzas:${st.stanza_num}">
         <div class="case-header">
           <h2 class="case-num-title">${renderUnitTitle(`Stanza ${st.stanza_num}`, `第 ${st.stanza_num} 節`, 'Verse')}</h2>
           <span class="case-header-actions">${renderSourceLocationDisclosure(stanzaLocator, 'Stanza source', 'case-source-location')}</span>
@@ -7217,7 +3526,7 @@
     }
 
     return `
-      <div class="case-card" data-chapter-num="${escHtml(ch.chapter_num)}">
+      <div class="case-card" data-chapter-num="${escHtml(ch.chapter_num)}" data-unit-ref="chapters:${escHtml(ch.chapter_num)}">
         <div class="case-header">
           <h2 class="case-num-title">${renderUnitTitle(ch.title_en, ch.title_zh, `Chapter ${ch.chapter_num}`)}</h2>
           <span class="case-header-actions">${renderSourceLocationDisclosure(chapterLocator, 'Chapter source', 'case-source-location')}</span>
@@ -7359,9 +3668,12 @@
   }
 
   function renderFlatTranslationColumns(entries, originalContext = {}) {
+    const shown = state.readerMode === 'bilingual'
+      ? entries.filter(item => item && String(item.text || '').trim()).slice(0, READER_PREFS.registerCount || entries.length)
+      : entries;
     return `
       <div class="translation-grid">
-        ${entries.map(item => {
+        ${shown.map(item => {
           const entry = normalizeTranslationEntry(item.key, item.text);
           const name = formatTranslatorName(item.key, entry.status);
           return `
@@ -7377,6 +3689,14 @@
       </div>`;
   }
 
+  function limitRegisters(keys, prefer) {
+    const wanted = READER_PREFS.registerCount;
+    if (state.readerMode !== 'bilingual') return keys;
+    if (!wanted || wanted <= 0 || wanted >= keys.length) return keys;
+    const chosen = (prefer || []).filter(k => keys.indexOf(k) !== -1);
+    return chosen.concat(keys.filter(k => chosen.indexOf(k) === -1)).slice(0, wanted);
+  }
+
   function renderTranslationColumns(translations, zh = '', locatorOverride = null) {
     if (!translations) return '';
     if (state.readerMode === 'chinese_only') return '';
@@ -7385,12 +3705,10 @@
     const keys = Object.keys(translations);
     if (keys.length === 0) return '';
 
-    let displayKeys = keys;
-    if (state.readerMode === 'bilingual') {
-      // Prefer the two anchor registers (Red Pine + Cleary); fall back to first two available
-      const preferred = ['red_pine', 'cleary'].filter(k => keys.includes(k));
-      displayKeys = preferred.length > 0 ? preferred : keys.slice(0, 2);
-    }
+    // A bilingual sheet is a reading choice, not a fixed pair: the settings menu
+    // asks how many registers to lay beside the source (one anchor, two, or
+    // every one this unit carries). 'All registers' mode ignores the preference.
+    let displayKeys = limitRegisters(keys, ['red_pine', 'cleary']);
 
     return `
       <div class="translation-grid">
@@ -7603,6 +3921,7 @@
                 <span class="matrix-register-name">${roboNameSpanByName(t.translator, entry.status)}</span>
                 <span class="matrix-register-work">${escHtml(t.work)}${t.style ? ` · ${escHtml(t.style)}` : ''}</span>
                 ${renderTranslationStatus(entry)}
+                ${marginDoor(`register:${registerKeyForName(t.translator)}`, 'Register record', 'matrix-register-door')}
               </div>
               <div class="matrix-register-body">
                 <div class="matrix-register-text">“${escHtml(entry.text)}”</div>
@@ -7616,8 +3935,6 @@
       </div>
       `;
     }).join('');
-    // Bundle 028: layouts 3–7 re-structure this room too (no-op in layouts 1–2).
-    enhanceRoomLayout('matrix');
   }
 
   // ---- Lineage chart aggregation + verification registry ----
@@ -7785,8 +4102,6 @@
     const masters = filteredLineageMasters();
     renderVisualLineageGraph(masters);
     elements.lineageTarget.innerHTML = renderLineageRegister(masters);
-    // Bundle 028: layouts 3–7 re-structure the register as well (no-op in 1–2).
-    enhanceRoomLayout('lineage');
   }
 
   // The room's one filter+sort path: the school filter narrows the record, the
@@ -8109,55 +4424,15 @@
 
   // Master Dossier Modal Display
   window.TranslateChan = window.TranslateChan || {};
+  // One door for every master record: the lineage register, a name inside a
+  // passage, a case's protagonist and a search result all open the same dossier
+  // in the margin. The legacy direct-write path is gone, so the trail, the
+  // history and the follow-mode rail stay coherent whatever opened them.
   window.TranslateChan.openMasterDossier = function(masterId) {
     if (!state.data.lineage) return;
-    const master = state.data.lineage.find(m => m.id === masterId);
+    const master = state.data.lineage.find(m => m && m.id === masterId);
     if (!master) return;
-
-    const nameZh = document.getElementById('dossier-name-zh');
-    const nameEn = document.getElementById('dossier-name-en');
-    const content = document.getElementById('dossier-content');
-
-    if (nameZh) nameZh.textContent = `${master.name_zh} (${master.title})`;
-    if (nameEn) nameEn.textContent = `${masterDisplayName(master)} • Pinyin: ${master.name_pinyin}${master.name_romaji ? ' • Rōmaji: ' + master.name_romaji : ''} • Generation: ${master.lineage_depth} • Era: ${master.dates}`;
-    if (content) {
-      const masterCitation = {
-        title: 'Master profile source disclosure',
-        rows: [
-          ['Master', `${master.name_zh} / ${master.name_en}`],
-          ['Canonical record', stringValue(master.cbeta_id) || 'Locator pending'],
-          ['Primary texts', Array.isArray(master.texts) ? master.texts.join(', ') : 'Transmission record pending'],
-          ['Profile status', 'Seed profile — exact biographical/source locator pending']
-        ]
-      };
-      content.innerHTML = `
-        <div class="dossier-meta-row">
-          <span class="dossier-ledger-label">School / Lineage:</span> ${escHtml(master.school)} &nbsp;|&nbsp;
-          <span class="dossier-ledger-label">Primary Monastery:</span> ${escHtml(master.location)} &nbsp;|&nbsp;
-          <span class="dossier-ledger-label">Canonical record:</span> ${escHtml(master.cbeta_id)} ${renderCitationTrigger(masterCitation, 'ⓘ Profile source')}
-        </div>
-        <div class="master-quote">
-          “${escHtml(master.key_quote_zh)}”
-          <div class="master-quote-en">“${escHtml(master.key_quote_en)}”</div>
-        </div>
-        <div class="dossier-ledger-item"><span class="dossier-ledger-label">Teacher:</span> ${lineageTeacherDetail(master)}</div>
-        <div class="dossier-ledger-item">
-          <span class="dossier-ledger-label">Primary Classical Texts & Records:</span> ${master.texts ? master.texts.map(escHtml).join(', ') : 'Transmission records pending'}
-        </div>
-        <div class="dossier-ledger-item"><span class="dossier-ledger-label">Names & record state:</span> ${escHtml((master.alternative_names || []).join(' · ') || 'Alternative names not yet reviewed')} · ${escHtml(master.profile_status || 'Seed profile — exact biographical/source locator pending')}</div>
-        <div class="dossier-ledger-item"><span class="dossier-ledger-label">Evidence status:</span> ${escHtml(master.profile_evidence?.status || 'not recorded')} — ${escHtml(master.profile_evidence?.note || 'No evidence note recorded.')}</div>
-        <div class="dossier-ledger-item"><span class="dossier-ledger-label">Cross-referenced project works:</span> ${renderMasterWorkLinks(master)}</div>
-        <div class="dossier-ledger-item">
-          <span class="dossier-ledger-label">Historical & Philosophical Significance:</span> ${escHtml(master.summary)}
-        </div>
-      `;
-      // Phase 5 — Info section for every TEACHER (common qualities: where they
-      // came from, who they are related to, background context). Collapsed by
-      // default so the dossier stays calm; plain-language, piece-meal.
-      content.innerHTML += renderTeacherContext(master);
-    }
-
-    openDossierPanel();
+    openWiki(`master:${masterId}`, { focus: true });
   };
 
   window.TranslateChan.openLineageEdge = function(teacherId, discipleId) {
@@ -8281,8 +4556,6 @@
         </div>
         ${catalogue}
       </div>`;
-    // Bundle 028: layouts 3–7 re-structure the catalogue too (no-op in 1–2).
-    enhanceRoomLayout('gongan');
   }
 
   // Gong'an theme filter chips
@@ -8365,6 +4638,7 @@
         <div class="lexicon-entry-margin">
           <span class="lexicon-entry-cat">${escHtml(item.category)}</span>
           <span class="lexicon-entry-count">${item.occurrences.length} recorded ${item.occurrences.length === 1 ? 'occurrence' : 'occurrences'}</span>
+          ${marginDoor(`term:${item.id}`, 'Full record', 'lexicon-entry-door')}
         </div>
         <div class="lexicon-entry-main">
           <h2 class="lexicon-headword">${escHtml(item.literal)}<span class="lexicon-headword-zh" lang="zh">${escHtml(item.term)}</span></h2>
@@ -8376,8 +4650,6 @@
         </div>
       </div>
     `).join('') + `</div>`;
-    // Bundle 028: layouts 3–7 re-structure the dictionary too (no-op in 1–2).
-    enhanceRoomLayout('lexicon');
   }
 
   // ---- Search: universal segment extraction across every corpus schema ----
@@ -8625,6 +4897,35 @@
       : headerHtml + bodyHtml;
   }
 
+  // The margin's public surface: any room, and any future slice, opens a record
+  // through these three calls rather than duplicating the dossier markup.
+  window.TranslateChan.openWiki = function(key, options) { openWiki(key, options); };
+  window.TranslateChan.closeWiki = function() { marginResumeFollow(); };
+  window.TranslateChan.openPalette = function() { paletteOpen(); };
+
+  // The case shelf and the Reader sheet use one id each: resolve a corpus case
+  // number to its gong'an index entry so a case card can offer its own record.
+  function registerKeyForName(name) {
+    const label = stringValue(name);
+    const found = profileList().find(p => p && (stringValue(p.translator) === label
+      || stringValue(p.robo_name) === label));
+    return found ? found.register_key : '';
+  }
+
+  // A door into the margin, drawn as a pill so it obeys the house button and
+  // never needs its own stylesheet entry.
+  function marginDoor(key, label, extraClass) {
+    if (!key || !wikiGet(key)) return '';
+    return `<button type="button" class="btn-pill${extraClass ? ` ${extraClass}` : ''}" data-wiki-open="${escHtml(key)}"`
+      + ` title="Open ${escHtml(entityLabel(wikiGet(key)))} in the margin">${escHtml(label)}</button>`;
+  }
+
+  function gonganEntryForCase(corpusKey, caseNum) {
+    const collection = /biyanlu/i.test(stringValue(corpusKey)) ? '碧巖' : '無門關';
+    return gonganList().find(g => g && String(g.case_no) === String(caseNum)
+      && stringValue(g.collection).indexOf(collection) !== -1) || null;
+  }
+
   // Global helpers (merge into existing namespace — do NOT overwrite openMasterDossier)
   window.TranslateChan = window.TranslateChan || {};
   const CASE_CHUNK = 12;
@@ -8720,2380 +5021,5 @@
   } else {
     startApp();
   }
-    // == rebuild:36 begin — The Chan Room enhancer, rebuilt faithfully from the owner's zip ==
-  //
-  // Batch 0 per work order 2026-09-18-letter-002-36-distinct-rebuild.md item 5.
-  // This block REDECLARES roomChanLibrary: the later declaration in the same
-  // module scope supersedes the fleet-assimilated v36 enhancer above (the
-  // Phase-0 canary mechanism — last declaration wins), so the existing
-  // dispatch in enhanceRoomLayout picks the rebuild up with zero edits to
-  // neighboring bytes. It builds the prototype's OWN structure, not a reskin
-  // of the fleet skeleton: the Reader becomes the prototype's detail grid
-  // (reading column + sticky dossier aside), room units become hairline card
-  // grids, dossiers and records are native <details> folds (the prototype's
-  // own DOM idiom, carried over), Reader blocks become rust-border passage
-  // figures. Own tcr- class namespace; text only from what rooms already
-  // rendered plus the deterministic bundle — nothing invented. No style
-  // attributes, no setProperty, no document-level chrome (switches tear rooms
-  // down through the shared resetLayoutRuntime + re-render path, so no
-  // parallel teardown is invented). Pure append; idempotent via :scope and
-  // dataset.tcrReady guards; neighbors byte-untouched; no zip code verbatim.
-  // ==
-
-  function tcrEl(tag, className, html) {
-    const el = document.createElement(tag);
-    if (className) el.className = className;
-    if (html !== undefined) el.innerHTML = html;
-    return el;
-  }
-
-  // The prototype's Disclosure: native <details>, ▸ marker drawn in CSS,
-  // label + quiet right-aligned hint, rows behind the fold.
-  function tcrDisclosure(label, rows, hint) {
-    const d = tcrEl('details', 'tcr-disclosure');
-    const s = tcrEl('summary');
-    s.innerHTML = '<span class="tcr-disc-label">' + escHtml(label) + '</span>' +
-      (hint ? '<span class="tcr-hint">' + escHtml(hint) + '</span>' : '');
-    d.appendChild(s);
-    if (Array.isArray(rows) && rows.length) {
-      d.appendChild(tcrEl('div', 'tcr-disc-body', infoRows(rows)));
-    }
-    return d;
-  }
-
-  // Empty native fold for moving existing nodes behind (provenance, records).
-  function tcrFold(label, hint) {
-    const d = tcrEl('details', 'tcr-fold');
-    const s = tcrEl('summary');
-    s.innerHTML = '<span class="tcr-disc-label">' + escHtml(label) + '</span>' +
-      (hint ? '<span class="tcr-hint">' + escHtml(hint) + '</span>' : '');
-    d.appendChild(s);
-    return d;
-  }
-
-  // Hairline card grid — the library's signature: 1px stone gap, opaque cells.
-  function tcrWrapGrid(parent, selector, gridClass) {
-    if (!parent || !parent.querySelectorAll) return;
-    if (parent.querySelector(':scope > .' + gridClass.split(' ').join('.'))) return;
-    const kids = Array.from(parent.querySelectorAll(selector)).filter(k => k.parentNode === parent);
-    if (!kids.length) return;
-    const grid = tcrEl('div', gridClass);
-    kids.forEach(k => grid.appendChild(k));
-    parent.appendChild(grid);
-  }
-
-  // The Reader's fourth dossier question — "How reliable is the text?" — built
-  // from the per-text W1 metrics in the deterministic bundle. Nothing invented.
-  function tcrReliabilityDisclosure() {
-    const key = state.currentCorpusKey;
-    const perText = state.data.project_metrics && state.data.project_metrics.corpus &&
-      state.data.project_metrics.corpus.per_text ? state.data.project_metrics.corpus.per_text : {};
-    const m = isRecord(perText[key]) ? perText[key] : {};
-    const sr = isRecord(m.source_review) ? m.source_review : null;
-    const statusLabels = {
-      collated_to_claimed_witness: 'collated to the claimed witness',
-      partial_or_failed_w1_collation: 'partial or failed W1 collation',
-      witness_unavailable: 'witness unavailable'
-    };
-    const rows = [];
-    rows.push(['Coverage here',
-      escHtml(stringValue(m.coverage) || 'representation not recorded') +
-      ' · editorial status: ' + escHtml(stringValue(m.completion_status) || 'not recorded')]);
-    if (sr) {
-      rows.push(['W1 source review',
-        escHtml(statusLabels[sr.status] || stringValue(sr.status)) +
-        ' — ' + escHtml(String(sr.content_fields_collated !== undefined ? sr.content_fields_collated : 'n/a')) +
-        ' of ' + escHtml(String(sr.content_fields_total !== undefined ? sr.content_fields_total : 'n/a')) +
-        ' content fields collate to the claimed witness; ' +
-        escHtml(String(sr.flagged_entries !== undefined ? sr.flagged_entries : 'n/a')) +
-        ' entries flagged and visibly marked, never quietly fixed.']);
-      if (Array.isArray(sr.witness_refs) && sr.witness_refs.length) {
-        rows.push(['Claimed witness', escHtml(sr.witness_refs.join(', '))]);
-      }
-      if (sr.evidence_date) rows.push(['Evidence date', escHtml(String(sr.evidence_date))]);
-    }
-    rows.push(['Rule',
-      'Nothing in the Chinese above has been normalised, punctuated silently or corrected. Where editions disagree, the Compare room carries both readings rather than resolving them here.']);
-    return tcrDisclosure('How reliable is the text?', rows, 'provenance');
-  }
-
-  function tcrRoomReader(root) {
-    if (root.querySelector(':scope > .tcr-detail')) return;
-    const detail = tcrEl('div', 'tcr-detail');
-    const reading = tcrEl('div', 'tcr-reading');
-    const aside = tcrEl('aside', 'tcr-dossier');
-    aside.setAttribute('aria-label', 'Work dossier');
-    // Reading column first (the prototype's minmax(0,44rem)), dossier aside
-    // second (sticky, folds only) — the prototype's Read-detail skeleton.
-    const kids = Array.from(root.childNodes);
-    kids.forEach(k => reading.appendChild(k));
-    root.appendChild(detail);
-    detail.appendChild(reading);
-    detail.appendChild(aside);
-    aside.appendChild(tcrEl('p', 'tcr-dossier-label', 'Dossier'));
-    // The edition furniture moves out of the reading column into the dossier —
-    // where the prototype keeps "everything extra" behind folds, out of the
-    // way of the text itself.
-    const heading = reading.querySelector('.document-heading');
-    if (heading) {
-      const ledgers = heading.querySelector('.ledger-drawer');
-      if (ledgers) aside.appendChild(ledgers);
-      const context = heading.querySelector('.context-info.work-context');
-      if (context) aside.appendChild(context);
-      const provs = Array.from(heading.querySelectorAll(':scope > .provenance-line'));
-      if (provs.length) {
-        const fold = tcrFold('Where this text came from', 'provenance');
-        const body = tcrEl('div', 'tcr-disc-body');
-        provs.forEach(n => body.appendChild(n));
-        fold.appendChild(body);
-        aside.appendChild(fold);
-      }
-    }
-    aside.appendChild(tcrReliabilityDisclosure());
-    aside.appendChild(tcrDisclosure('About this reading — where from · related · background', roomInfoRowsFor('reader'), 'dossier'));
-    // Each block of a case becomes the prototype's passage figure: rust left
-    // border, label, Chinese largest, renderings, provenance one fold away.
-    root.querySelectorAll('.case-card').forEach(card => {
-      if (card.dataset.tcrReady === '1') return;
-      card.dataset.tcrReady = '1';
-      const host = card.querySelector('.case-body') || card;
-      let fig = null;
-      Array.from(host.children).forEach(el => {
-        const cls = String(el.className).split(' ')[0];
-        if (cls === 'case-header' || cls === 'case-nav-footer' || cls === 'case-load-more') { fig = null; return; }
-        if (/^(dialogue-turn|commentary-block|verse-block|classical-zh)$/.test(cls) || !fig) {
-          fig = tcrEl('figure', 'tcr-passage');
-          host.insertBefore(fig, el);
-        }
-        fig.appendChild(el);
-      });
-      (card.querySelector('.case-body') || card).querySelectorAll('figure.tcr-passage').forEach(pfig => {
-        const provs = Array.from(pfig.querySelectorAll(':scope > .provenance-line, :scope .provenance-line'));
-        if (provs.length) {
-          const fold = tcrFold('Where this rendering came from', 'provenance');
-          const body = tcrEl('div', 'tcr-disc-body');
-          provs.forEach(n => body.appendChild(n));
-          fold.appendChild(body);
-          pfig.appendChild(fold);
-        }
-      });
-    });
-  }
-
-  function tcrRoomLineage(root) {
-    // Banded register (tree order) or flat register (any other sort): the
-    // masters become the prototype's hairline card wall; the register's
-    // column-header row goes away because the cards carry their own labels.
-    root.querySelectorAll('.lineage-band').forEach(band => {
-      tcrWrapGrid(band, ':scope > .lineage-master-row', 'tcr-grid tcr-grid-3');
-    });
-    root.querySelectorAll('.lineage-flat').forEach(flat => {
-      tcrWrapGrid(flat, ':scope > .lineage-master-row', 'tcr-grid tcr-grid-3');
-    });
-    root.querySelectorAll('.lineage-master-row').forEach((row, i) => {
-      if (row.dataset.tcrReady === '1') return;
-      row.dataset.tcrReady = '1';
-      // The card leads with who the person is; dates, place and source wait
-      // behind the record fold, exactly like the prototype's "lineage & links".
-      const rec = row.querySelector('.lineage-master-record');
-      if (rec) {
-        const fold = tcrFold('The record', 'dates · place · source');
-        const body = tcrEl('div', 'tcr-disc-body');
-        body.appendChild(rec);
-        fold.appendChild(body);
-        row.appendChild(fold);
-      }
-      row.appendChild(tcrDisclosure('About this teacher — where from · related · background', unitInfoRowsFor('lineage', row, i), 'dossier'));
-    });
-  }
-
-  function tcrRoomGongan(root) {
-    const cat = root.querySelector('.gongan-catalogue');
-    if (cat) tcrWrapGrid(cat, ':scope > .catalogue-row', 'tcr-grid tcr-grid-2');
-    root.querySelectorAll('.catalogue-row').forEach((row, i) => {
-      if (row.dataset.tcrReady === '1') return;
-      row.dataset.tcrReady = '1';
-      // The prototype's case card: titles and the one-line summary up front;
-      // the record locator and cross-references behind one small fold.
-      const locator = row.querySelector('.catalogue-locator');
-      const cross = row.querySelector('.catalogue-cross');
-      if (locator || cross) {
-        const fold = tcrFold('Record', 'locator · cross-refs');
-        const body = tcrEl('div', 'tcr-disc-body');
-        if (locator) body.appendChild(locator);
-        if (cross) body.appendChild(cross);
-        fold.appendChild(body);
-        row.appendChild(fold);
-      }
-      row.appendChild(tcrDisclosure('About this case — where from · related · background', unitInfoRowsFor('gongan', row, i), 'dossier'));
-    });
-  }
-
-  function tcrRoomMatrix(root) {
-    root.querySelectorAll('.matrix-proof-sheet').forEach((sheet, i) => {
-      if (sheet.dataset.tcrReady === '1') return;
-      sheet.dataset.tcrReady = '1';
-      sheet.appendChild(tcrDisclosure('About this line — where from · related · background', unitInfoRowsFor('matrix', sheet, i), 'dossier'));
-    });
-  }
-
-  // The prototype's Terms idiom: the vocabulary one sentence at a time; the
-  // longer answer and the recorded occurrences wait behind a fold.
-  function tcrFirstSentence(text) {
-    const m = String(text || '').trim().match(/^([\s\S]{20,400}?[.!?])(\s+|$)/);
-    return m ? m[1] : '';
-  }
-
-  function tcrRoomLexicon(root) {
-    root.querySelectorAll('.lexicon-entry').forEach((entry, i) => {
-      if (entry.dataset.tcrReady === '1') return;
-      entry.dataset.tcrReady = '1';
-      const def = entry.querySelector('.lexicon-entry-def');
-      const main = entry.querySelector('.lexicon-entry-main');
-      if (def && main) {
-        const full = def.textContent.replace(/\s+/g, ' ').trim();
-        const first = tcrFirstSentence(full);
-        if (first && first.length < full.length) {
-          def.textContent = first;
-          const fold = tcrFold('The longer answer', 'expand');
-          const body = tcrEl('div', 'tcr-disc-body');
-          const rest = tcrEl('p', 'tcr-def-rest');
-          rest.textContent = full.slice(first.length).trim();
-          body.appendChild(rest);
-          const occ = entry.querySelector('.lexicon-occurrences');
-          if (occ) body.appendChild(occ);
-          fold.appendChild(body);
-          main.appendChild(fold);
-        }
-      }
-      entry.appendChild(tcrDisclosure('About this term — where from · related · background', unitInfoRowsFor('lexicon', entry, i), 'dossier'));
-    });
-  }
-
-  // The rebuild's room enhancer. This later declaration supersedes the fleet-
-  // assimilated v36 enhancer above (same module scope, last declaration wins);
-  // it is called by the existing dispatch in enhanceRoomLayout, untouched.
-  function roomChanLibrary(room, root) {
-    if (!root || typeof root.querySelectorAll !== 'function') return;
-    root.classList.add('tcr-room');
-    const fn = document.getElementById('focus-room-nav');
-    if (fn) fn.hidden = true;
-    if (room === 'reader') tcrRoomReader(root);
-    else if (room === 'lineage') tcrRoomLineage(root);
-    else if (room === 'gongan') tcrRoomGongan(root);
-    else if (room === 'matrix') tcrRoomMatrix(root);
-    else if (room === 'lexicon') tcrRoomLexicon(root);
-  }
-
-  // == rebuild:36 end — The Chan Room faithful rebuild (Batch 0, work order 2026-09-18-letter-002 item 5) ==
-    // == rebuild:3 begin — Batch 1 slots 3-6 NEW skeletons (work order 2026-09-18-letter-002 items 6-7) ==
-    // Each block REDECLARES its room enhancer; the later declaration in the same module scope supersedes
-    // the fleet one (Batch-0 mechanism — last declaration wins), so enhanceRoomLayout picks the rebuild
-    // up untouched. Each skeleton is its own DOM (structural rebuild, not an rm- reskin — the F1/F2 cure).
-    // Text only from what rooms already rendered plus the bundle. No style attributes, no setProperty;
-    // idempotent via :scope guards; teardown is the shared resetLayoutRuntime + re-render path. Pure append.
-    // ==
-
-    // Scope-level const/let would sit in the TDZ when startApp() runs mid-body
-    // (deferred script, readyState interactive) — everything here is a hoisted
-    // function declaration for exactly that reason (rebuild:36's precedent).
-    function b1RoomList() {
-      return [
-        ['reader', 'Read', '閱藏堂'], ['matrix', 'Compare', '對勘'], ['lineage', 'Lineage', '傳法堂'],
-        ['gongan', 'Cases', '公案架'], ['lexicon', 'Terms', '詞林']
-      ];
-    }
-    function b1RoomName(room) { const r = b1RoomList().find(x => x[0] === room); return r ? r[1] : room; }
-    function b1HideFleetNav() { const fn = document.getElementById('focus-room-nav'); if (fn) fn.hidden = true; }
-    function b1Btn(cls, label) {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = cls; b.textContent = label;
-      b.setAttribute('aria-expanded', 'false');
-      return b;
-    }
-    function b1Fold(cls, label) {
-      const d = document.createElement('details');
-      d.className = cls;
-      const s = document.createElement('summary');
-      s.textContent = label;
-      d.appendChild(s);
-      return d;
-    }
-    function b1InfoDiv(rows) {
-      const d = document.createElement('div');
-      d.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
-      return d;
-    }
-    function b1StackHtml(room) { // room-level COMMON QUALITIES info section
-      return '<div class="context-info-body">' +
-        (room === 'reader' ? readerInfoStackHtml() : infoRows(roomInfoRowsFor(room))) + '</div>';
-    }
-    function b1Face(kCls, zhCls, h, fallback) {
-      return '<span class="' + kCls + '">' + escHtml(h.kicker || fallback) + '</span>' +
-        (h.zh ? '<span class="' + zhCls + '" lang="zh">' + escHtml(h.zh) + '</span>' : '');
-    }
-    function b1RoomButtons(host, activeRoom, cls, zhCls, onPick) { // slots 4/6 nav paradigm rows
-      b1RoomList().forEach(([key, en, zh]) => {
-        const b = document.createElement('button');
-        b.type = 'button'; b.className = cls;
-        b.innerHTML = escHtml(en) + ' <small class="' + zhCls + '" lang="zh">' + escHtml(zh) + '</small>';
-        if (key === activeRoom) b.setAttribute('aria-current', 'page');
-        b.addEventListener('click', () => {
-          if (onPick) onPick();
-          if (typeof switchView === 'function') switchView(key);
-        });
-        host.appendChild(b);
-      });
-    }
-    function b1WireStep(btn, panel, openLabel, closedLabel) { // slots 4/6 disclosure steps
-      btn.addEventListener('click', () => {
-        const open = panel.hasAttribute('hidden');
-        if (open) panel.removeAttribute('hidden');
-        else panel.setAttribute('hidden', '');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        btn.textContent = open ? openLabel : closedLabel;
-      });
-    }
-    function b1UnitFold(cls, bodyCls, label, unit, room, idx) { // slots 3/5 per-unit fold
-      const extras = harvestExtras(unit, room);
-      const rows = unitInfoRowsFor(room, unit, idx);
-      if (!extras.length && !(rows && rows.length)) return null;
-      const d = b1Fold(cls, label);
-      const body = document.createElement('div');
-      body.className = bodyCls;
-      extras.forEach(n => body.appendChild(n));
-      if (rows && rows.length) body.appendChild(b1InfoDiv(rows));
-      d.appendChild(body);
-      return d;
-    }
-
-    // --- slot 3 · Focus Mode: one sparse idea per viewport, native-details drawers -----------
-    function roomFocus(room, root) {
-      b1HideFleetNav();
-      if (!root || typeof root.querySelectorAll !== 'function') return;
-      if (root.querySelector(':scope > .v3f-app')) return; // idempotent
-      const app = document.createElement('div');
-      app.className = 'v3f-app';
-      const heading = root.querySelector('.document-heading');
-      while (root.firstChild) app.appendChild(root.firstChild);
-      root.appendChild(app);
-
-      const roomFold = b1Fold('v3f-room', room === 'reader'
-        ? 'About this work and its teachers' : 'About this room — where from · related · background');
-      const roomBody = document.createElement('div');
-      roomBody.className = 'v3f-why-body';
-      roomBody.innerHTML = b1StackHtml(room);
-      roomFold.appendChild(roomBody);
-      if (heading) heading.insertAdjacentElement('afterend', roomFold);
-      else app.insertBefore(roomFold, app.firstChild);
-
-      const units = roomUnits(app, room);
-      units.forEach((unit, i) => {
-        const h = unitHeadline(room, unit, i);
-        const section = document.createElement('section');
-        section.className = 'v3f-idea';
-        if (unit.parentNode) unit.parentNode.insertBefore(section, unit);
-        section.appendChild(unit);
-        const mast = document.createElement('div');
-        mast.className = 'v3f-mast';
-        mast.innerHTML = b1Face('v3f-kicker', 'v3f-zh', h, 'Idea ' + (i + 1)) +
-          '<span class="v3f-count">' + (i + 1) + ' / ' + units.length + '</span>';
-        section.insertBefore(mast, unit);
-        const fold = b1UnitFold('v3f-src', 'v3f-src-body', 'Source & context', unit, room, i);
-        if (fold) section.appendChild(fold);
-        const rows = unitInfoRowsFor(room, unit, i);
-        if (rows && rows.length) {
-          const why = b1Fold('v3f-why', 'Where from · related · background');
-          const wb = document.createElement('div');
-          wb.className = 'v3f-why-body';
-          wb.appendChild(b1InfoDiv(rows));
-          why.appendChild(wb);
-          section.appendChild(why);
-        }
-      });
-
-      const ledger = app.querySelector('.ledger-drawer');
-      if (ledger && ledger.parentNode) {
-        const fold = b1Fold('v3f-src', 'About this edition — ledgers');
-        const body = document.createElement('div');
-        body.className = 'v3f-src-body';
-        ledger.parentNode.insertBefore(fold, ledger);
-        body.appendChild(ledger);
-        fold.appendChild(body);
-      }
-    }
-
-    // == rebuild:4 begin — Batch 1 slot 4 NEW skeleton: Timeline rail + bottom tab bar ==
-    // The reveal observer lives on a function-object property, not a module-level
-    // let, for the same TDZ reason noted above.
-    function v4tObsSwap(next) {
-      if (v4tObsSwap.cur && typeof v4tObsSwap.cur.disconnect === 'function') v4tObsSwap.cur.disconnect();
-      v4tObsSwap.cur = next || null;
-    }
-
-    // NEW roomTimeline: gold rail of scroll-snap stops, IntersectionObserver reveal,
-    // progress hairline, fixed bottom tab bar. Stops in the room's own chronological order.
-    function roomTimeline(room, root) {
-      b1HideFleetNav();
-      if (!root || typeof root.querySelectorAll !== 'function') return;
-      if (root.querySelector(':scope > .v4t-app')) return; // idempotent
-      // previous reveal observer disconnected inside v4tObsSwap below
-
-      const kids = Array.from(root.childNodes);
-      const app = document.createElement('div');
-      app.className = 'v4t-app';
-      const progress = document.createElement('div');
-      progress.className = 'v4t-progress';
-      progress.innerHTML = '<span class="v4t-status" aria-live="polite"></span>' +
-        '<span class="v4t-progress-track"><span class="v4t-progress-fill"></span></span>';
-      const rail = document.createElement('div');
-      rail.className = 'v4t-rail';
-      rail.setAttribute('aria-label', 'Chronological rail — scroll sideways');
-      const tabbar = document.createElement('nav');
-      tabbar.className = 'v4t-tabbar';
-      tabbar.setAttribute('aria-label', 'Rooms');
-      app.appendChild(progress);
-      app.appendChild(rail);
-      app.appendChild(tabbar);
-      root.appendChild(app);
-
-      const intro = document.createElement('article');
-      intro.className = 'v4t-stop v4t-intro is-in';
-      intro.innerHTML = '<span class="v4t-era">Start here</span><span class="v4t-name">' +
-        escHtml(b1RoomName(room)) + '</span><span class="v4t-note">Stop by stop, in order. ' +
-        'Scroll sideways; open Context on any stop.</span>';
-      const introMore = document.createElement('div');
-      introMore.className = 'v4t-more';
-      introMore.setAttribute('hidden', '');
-      introMore.innerHTML = b1StackHtml(room);
-      const introBtn = b1Btn('v4t-ctx', 'Context');
-      intro.appendChild(introBtn);
-      intro.appendChild(introMore);
-      b1WireStep(introBtn, introMore, 'Hide context', 'Context');
-      rail.appendChild(intro);
-
-      roomUnits(root, room).forEach((unit, i) => {
-        const h = unitHeadline(room, unit, i);
-        const stop = document.createElement('article');
-        stop.className = 'v4t-stop';
-        stop.innerHTML = '<span class="v4t-era">' + escHtml(h.kicker || 'Stop ' + (i + 1)) + '</span>' +
-          '<span class="v4t-name">' + escHtml(clipText(h.en, 90) || 'Untitled') + '</span>' +
-          (h.zh ? '<span class="v4t-zhc" lang="zh">' + escHtml(clipText(h.zh, 40)) + '</span>' : '') +
-          (h.note ? '<span class="v4t-note">' + escHtml(clipText(h.note, 110)) + '</span>' : '');
-        const btn = b1Btn('v4t-ctx', 'Context');
-        stop.appendChild(btn);
-        const more = document.createElement('div');
-        more.className = 'v4t-more';
-        more.setAttribute('hidden', '');
-        harvestExtras(unit, room).forEach(n => more.appendChild(n));
-        const rows = unitInfoRowsFor(room, unit, i);
-        if (rows && rows.length) more.appendChild(b1InfoDiv(rows));
-        stop.appendChild(more);
-        b1WireStep(btn, more, 'Hide context', 'Context');
-        rail.appendChild(stop);
-        stop.appendChild(unit);
-      });
-
-      // Leftover chrome rides on the first stop: heading visible, tools folded.
-      const stopCount = rail.querySelectorAll('.v4t-stop').length;
-      kids.forEach(k => {
-        if (!k || k.nodeType !== 1 || !k.parentNode || app.contains(k)) return;
-        if (k.classList && k.classList.contains('document-heading')) intro.insertBefore(k, introBtn);
-        else introMore.appendChild(k);
-      });
-
-      const stops = Array.from(rail.querySelectorAll('.v4t-stop'));
-      if (typeof IntersectionObserver === 'function') {
-        const obs = new IntersectionObserver((entries) => {
-          entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('is-in'); });
-        }, { root: rail, threshold: 0.35 });
-        stops.forEach(s => obs.observe(s));
-        v4tObsSwap(obs);
-      } else { stops.forEach(s => s.classList.add('is-in')); v4tObsSwap(null); }
-
-      const fill = progress.querySelector('.v4t-progress-fill');
-      const status = progress.querySelector('.v4t-status');
-      const setProgress = () => {
-        const max = rail.scrollWidth - rail.clientWidth;
-        const pct = max > 0 ? (rail.scrollLeft / max) : 1;
-        if (fill) fill.style.width = Math.round(pct * 100) + '%';
-        if (status) status.textContent = 'Stop ' + (Math.min(stopCount, Math.round(pct * (stopCount - 1)) + 1)) + ' of ' + stopCount;
-      };
-      rail.addEventListener('scroll', setProgress, { passive: true });
-      setProgress();
-      b1RoomButtons(tabbar, room, 'v4t-tab', 'v4t-zhc', null);
-    }
-
-    // == rebuild:5 begin — Batch 1 slot 5 NEW skeleton: Graph + Reader split rail ==
-    function v5gTeacherCardsHtml(room) {
-      if (room === 'reader') {
-        const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
-        if (!related.length) return '<p class="v5g-note">No profiled teacher is linked to this work yet.</p>';
-        return related.map(m =>
-          '<div class="v5g-tcard"><h3 class="v5g-tcard-name">' + escHtml(masterDisplayName(m)) +
-          (m.name_zh ? ' <span lang="zh">' + escHtml(m.name_zh) + '</span>' : '') + '</h3>' +
-          '<div class="context-info-body">' + teacherContextRows(m) + '</div></div>').join('');
-      }
-      if (room === 'lineage' && Array.isArray(state.data.lineage) && state.data.lineage.length) {
-        const m = state.data.lineage[0];
-        return '<div class="v5g-tcard"><h3 class="v5g-tcard-name">' + escHtml(masterDisplayName(m)) + '</h3>' +
-          '<div class="context-info-body">' + teacherContextRows(m) + '</div></div>' +
-          '<p class="v5g-note">The register runs teacher-first, generation by generation.</p>';
-      }
-      return '<p class="v5g-note">No teacher is recorded for this room yet — see About for what it holds.</p>';
-    }
-
-    // NEW roomGraphSplit: sticky left rail (resizable) with Dots/Teacher/About
-    // tabs over a teacher-first stream.
-    function roomGraphSplit(room, root) {
-      b1HideFleetNav();
-      if (!root || typeof root.querySelectorAll !== 'function') return;
-      if (root.querySelector(':scope > .v5g-app')) return; // idempotent
-      const kids = Array.from(root.childNodes);
-      const app = document.createElement('div');
-      app.className = 'v5g-app';
-      const rail = document.createElement('aside');
-      rail.className = 'v5g-rail';
-      rail.setAttribute('aria-label', 'Index rail');
-      const grip = document.createElement('button');
-      grip.type = 'button';
-      grip.className = 'v5g-grip';
-      grip.setAttribute('aria-label', 'Resize the index column');
-      const stream = document.createElement('div');
-      stream.className = 'v5g-stream';
-      app.appendChild(rail);
-      app.appendChild(grip);
-      app.appendChild(stream);
-      root.appendChild(app);
-      kids.forEach(n => stream.appendChild(n));
-
-      const tabbar = document.createElement('div');
-      tabbar.className = 'v5g-tabs';
-      tabbar.setAttribute('role', 'tablist');
-      tabbar.setAttribute('aria-label', 'Rail views');
-      const panes = {};
-      [['dots', 'Dots'], ['teacher', 'Teacher'], ['about', 'About']].forEach(([key, label], ti) => {
-        const t = document.createElement('button');
-        t.type = 'button';
-        t.className = 'v5g-tab';
-        t.setAttribute('role', 'tab');
-        t.id = 'v5g-tab-' + room + '-' + key;
-        t.setAttribute('aria-selected', ti === 0 ? 'true' : 'false');
-        t.textContent = label;
-        tabbar.appendChild(t);
-        const p = document.createElement('div');
-        p.className = 'v5g-pane';
-        p.setAttribute('role', 'tabpanel');
-        if (ti !== 0) p.setAttribute('hidden', '');
-        panes[key] = p;
-        rail.appendChild(p);
-      });
-      rail.insertBefore(tabbar, panes.dots);
-      tabbar.addEventListener('click', (e) => {
-        const b = e.target && e.target.closest ? e.target.closest('.v5g-tab') : null;
-        if (!b) return;
-        tabbar.querySelectorAll('.v5g-tab').forEach(t => t.setAttribute('aria-selected', t === b ? 'true' : 'false'));
-        Object.keys(panes).forEach(k => {
-          if (('v5g-tab-' + room + '-' + k) === b.id) panes[k].removeAttribute('hidden');
-          else panes[k].setAttribute('hidden', '');
-        });
-      });
-      panes.teacher.innerHTML = v5gTeacherCardsHtml(room);
-      panes.about.appendChild(b1InfoDiv(roomInfoRowsFor(room)));
-
-      // Teacher-first lead at the head of the stream (IA axis).
-      const lead = document.createElement('section');
-      lead.className = 'v5g-lead';
-      lead.innerHTML = '<p class="v5g-lead-kicker">Teacher first</p>' + v5gTeacherCardsHtml(room);
-      stream.insertBefore(lead, stream.firstChild);
-
-      const units = roomUnits(stream, room);
-      units.forEach((unit, i) => {
-        const h = unitHeadline(room, unit, i);
-        const wrap = document.createElement('section');
-        wrap.className = 'v5g-unit';
-        if (unit.parentNode) unit.parentNode.insertBefore(wrap, unit);
-        wrap.appendChild(unit);
-        const face = document.createElement('div');
-        face.className = 'v5g-face';
-        face.innerHTML = b1Face('v5g-face-k', 'v5g-face-zh', h, 'Item ' + (i + 1));
-        wrap.insertBefore(face, unit);
-        if (!unit.id) unit.id = 'v5g-unit-' + room + '-' + i;
-        const fold = b1UnitFold('v5g-src', 'v5g-src-body', 'Source · where from · related · background', unit, room, i);
-        if (fold) wrap.appendChild(fold);
-      });
-
-      const dotsList = document.createElement('ul');
-      dotsList.className = 'v5g-dots';
-      units.forEach((unit, i) => {
-        const h = unitHeadline(room, unit, i);
-        const li = document.createElement('li');
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'v5g-dot' + (i === 0 ? ' is-active' : '');
-        b.innerHTML = escHtml(clipText(h.en || h.kicker || ('Item ' + (i + 1)), 44)) +
-          (h.note ? ' <small>' + escHtml(clipText(h.note, 46)) + '</small>' : '');
-        b.addEventListener('click', () => {
-          dotsList.querySelectorAll('.v5g-dot').forEach(d => d.classList.remove('is-active'));
-          b.classList.add('is-active');
-          if (room === 'lineage' || room === 'gongan') {
-            const rows = unitInfoRowsFor(room, unit, i);
-            if (rows && rows.length) {
-              panes.teacher.innerHTML = '<div class="v5g-tcard"><h3 class="v5g-tcard-name">' +
-                escHtml(clipText(h.en || h.kicker || ('Item ' + (i + 1)), 60)) + '</h3>' +
-                '<div class="context-info-body">' + infoRows(rows) + '</div></div>';
-            }
-          }
-          if (typeof unit.scrollIntoView === 'function') unit.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
-        });
-        li.appendChild(b);
-        dotsList.appendChild(li);
-      });
-      panes.dots.appendChild(dotsList);
-
-      // Resizable split (RA axis): drag the grip or nudge with arrows. The
-      // flexBasis property write keeps the inline-style census untouched.
-      let drag = false;
-      const applySplit = (clientX) => {
-        const rect = app.getBoundingClientRect();
-        if (!rect.width) return;
-        const pct = Math.min(0.55, Math.max(0.18, (clientX - rect.left) / rect.width));
-        rail.style.flexBasis = (pct * 100).toFixed(1) + '%';
-      };
-      grip.addEventListener('pointerdown', (e) => { drag = true; e.preventDefault(); });
-      if (typeof window !== 'undefined') {
-        window.addEventListener('pointermove', (e) => { if (drag) applySplit(e.clientX); });
-        window.addEventListener('pointerup', () => { drag = false; });
-      }
-      grip.addEventListener('keydown', (e) => {
-        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-        const cur = parseFloat(rail.style.flexBasis) || 32;
-        rail.style.flexBasis = Math.min(55, Math.max(18, cur + (e.key === 'ArrowRight' ? 4 : -4))) + '%';
-        e.preventDefault();
-      });
-    }
-
-    // == rebuild:6 begin — Batch 1 slot 6 NEW skeleton: Minimal header + hamburger drawer ==
-    // NEW roomHamburger: per-room 3rem header, the variant's own drawer, two-step units.
-    function roomHamburger(room, root) {
-      b1HideFleetNav();
-      if (!root || typeof root.querySelectorAll !== 'function') return;
-      if (root.querySelector(':scope > .v6h-app')) return; // idempotent
-
-      const app = document.createElement('div');
-      app.className = 'v6h-app';
-      const top = document.createElement('div');
-      top.className = 'v6h-top';
-      top.innerHTML = '<span class="v6h-title">' + escHtml(b1RoomName(room)) + '</span>' +
-        '<span class="v6h-sub">rooms &amp; info in the drawer</span>';
-      const burger = document.createElement('button');
-      burger.type = 'button';
-      burger.className = 'v6h-burger';
-      burger.setAttribute('aria-label', 'Open rooms and room info');
-      burger.setAttribute('aria-expanded', 'false');
-      burger.innerHTML = '<span></span><span></span><span></span>';
-      top.appendChild(burger);
-      app.appendChild(top);
-
-      const scrim = document.createElement('div');
-      scrim.className = 'v6h-scrim';
-      scrim.setAttribute('hidden', '');
-      app.appendChild(scrim);
-
-      const drawer = document.createElement('aside');
-      drawer.className = 'v6h-drawer';
-      drawer.setAttribute('aria-label', 'Rooms and room info');
-      const head = document.createElement('div');
-      head.className = 'v6h-drawer-head';
-      head.innerHTML = '<span class="v6h-drawer-title">Rooms</span>';
-      const closeBtn = b1Btn('v6h-close', '×');
-      closeBtn.setAttribute('aria-label', 'Close drawer');
-      head.appendChild(closeBtn);
-      drawer.appendChild(head);
-      const setOpen = (open) => {
-        drawer.classList.toggle('is-open', open);
-        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-        if (open) scrim.removeAttribute('hidden');
-        else scrim.setAttribute('hidden', '');
-      };
-      b1RoomButtons(drawer, room, 'v6h-link', '', () => setOpen(false));
-      const about = b1Fold('v6h-about', 'About this room — where from · related · background');
-      const aboutBody = document.createElement('div');
-      aboutBody.className = 'v6h-about-body';
-      aboutBody.innerHTML = b1StackHtml(room);
-      about.appendChild(aboutBody);
-      drawer.appendChild(about);
-      app.appendChild(drawer);
-
-      const column = document.createElement('div');
-      column.className = 'v6h-column';
-      app.appendChild(column);
-      root.appendChild(app);
-      while (root.firstChild && root.firstChild !== app) column.appendChild(root.firstChild);
-      burger.addEventListener('click', () => setOpen(!drawer.classList.contains('is-open')));
-      closeBtn.addEventListener('click', () => setOpen(false));
-      scrim.addEventListener('click', () => setOpen(false));
-
-      roomUnits(column, room).forEach((unit, i) => {
-        const h = unitHeadline(room, unit, i);
-        const wrap = document.createElement('section');
-        wrap.className = 'v6h-unit';
-        if (unit.parentNode) unit.parentNode.insertBefore(wrap, unit);
-        const face = document.createElement('div');
-        face.className = 'v6h-face';
-        face.innerHTML = b1Face('v6h-face-k', 'v6h-face-zh', h, 'Item ' + (i + 1));
-        wrap.appendChild(face);
-        const lead = document.createElement('p');
-        lead.className = 'v6h-lead';
-        lead.textContent = clipText(h.en && h.note ? h.en + ' — ' + h.note : (h.en || h.note || ''), 240) || 'Untitled';
-        wrap.appendChild(lead);
-        const steps = document.createElement('div');
-        steps.className = 'v6h-steps';
-        const s1 = b1Btn('v6h-step', 'Read more');
-        const s2 = b1Btn('v6h-step', 'Show context');
-        steps.appendChild(s1);
-        steps.appendChild(s2);
-        wrap.appendChild(steps);
-        const rest = document.createElement('div');
-        rest.className = 'v6h-rest';
-        rest.setAttribute('hidden', '');
-        wrap.appendChild(rest);
-        rest.appendChild(unit);
-        const ctx = document.createElement('div');
-        ctx.className = 'v6h-ctx';
-        ctx.setAttribute('hidden', '');
-        harvestExtras(unit, room).forEach(n => ctx.appendChild(n));
-        const rows = unitInfoRowsFor(room, unit, i);
-        if (rows && rows.length) ctx.appendChild(b1InfoDiv(rows));
-        wrap.appendChild(ctx);
-        b1WireStep(s1, rest, 'Show less', 'Read more');
-        b1WireStep(s2, ctx, 'Hide context', 'Show context');
-      });
-    }
-  // == rebuild:6 end ==  // == rebuild:5 end ==  // == rebuild:4 end ==  // == rebuild:3 end ==
-// == rebuild:7 begin — Batch 2 slot 7 NEW skeleton: Info-First Dossier — top-lintel / single-continuous-column / dossier-first / comfortable-default / scale-1.33-min-0.9rem / two-step ==
-function roomDossier(room, root) {
-  b1HideFleetNav();
-  if (!root || typeof root.querySelectorAll !== 'function') return;
-  if (root.querySelector(':scope > .v7d-app')) return;
-  const kids = Array.from(root.childNodes);
-  const app = document.createElement('div');
-  app.className = 'v7d-app';
-  const hero = document.createElement('section');
-  hero.className = 'v7d-hero';
-  hero.innerHTML = '<p class="v7d-kicker">Dossier first</p><h2 class="v7d-title">' + escHtml(b1RoomName(room)) + '</h2><div class="v7d-stack">' + b1StackHtml(room) + '</div>';
-  const toggle = b1Btn('v7d-toggle', 'Read translation');
-  hero.appendChild(toggle);
-  const body = document.createElement('div');
-  body.className = 'v7d-body';
-  body.setAttribute('hidden', '');
-  app.appendChild(hero);
-  app.appendChild(body);
-  root.appendChild(app);
-  kids.forEach(n => body.appendChild(n));
-  const units = roomUnits(body, room);
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const wrap = document.createElement('section');
-    wrap.className = 'v7d-unit';
-    if (unit.parentNode) unit.parentNode.insertBefore(wrap, unit);
-    const face = document.createElement('div');
-    face.className = 'v7d-face';
-    face.innerHTML = b1Face('v7d-k', 'v7d-zh', h, 'Item ' + (i + 1));
-    wrap.appendChild(face);
-    const lead = document.createElement('p');
-    lead.className = 'v7d-rest';
-    lead.textContent = clipText(h.en && h.note ? h.en + ' — ' + h.note : (h.en || h.note || ''), 220) || 'Untitled';
-    wrap.appendChild(lead);
-    wrap.appendChild(unit);
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows && rows.length) {
-      const ctx = document.createElement('div');
-      ctx.className = 'v7d-ctx';
-      ctx.setAttribute('hidden', '');
-      harvestExtras(unit, room).forEach(nn => ctx.appendChild(nn));
-      ctx.appendChild(b1InfoDiv(rows));
-      wrap.appendChild(ctx);
-      const s2 = b1Btn('v7d-step', 'Show context');
-      wrap.appendChild(s2);
-      b1WireStep(s2, ctx, 'Hide context', 'Show context');
-    }
-  });
-  b1WireStep(toggle, body, 'Hide translation', 'Read translation');
-}
-// == rebuild:8 begin — Batch 2 slot 8 NEW skeleton: Tabbed + Breadcrumb — top-lintel / single-continuous-column / english-first-then-source / comfortable-default / scale-1.2-min-0.8rem / tabs ==
-function roomTabbed(room, root) {
-  b1HideFleetNav();
-  if (!root || typeof root.querySelectorAll !== 'function') return;
-  if (root.querySelector(':scope > .v8t-app')) return;
-  const kids = Array.from(root.childNodes);
-  const app = document.createElement('div');
-  app.className = 'v8t-app';
-  const crumb = document.createElement('nav');
-  crumb.className = 'v8t-crumb';
-  crumb.setAttribute('aria-label', 'Breadcrumb');
-  crumb.innerHTML = '<span>Chan</span><span aria-hidden="true">›</span><span>' + escHtml(b1RoomName(room)) + '</span>';
-  const tabs = document.createElement('div');
-  tabs.className = 'v8t-tabs';
-  tabs.setAttribute('role', 'tablist');
-  tabs.setAttribute('aria-label', 'Rooms');
-  const panes = {};
-  b1RoomList().forEach(([key, en], idx) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'v8t-tab';
-    b.setAttribute('role', 'tab');
-    b.id = 'v8t-tab-' + room + '-' + key;
-    b.setAttribute('aria-selected', key === room ? 'true' : 'false');
-    b.textContent = en;
-    tabs.appendChild(b);
-    const p = document.createElement('div');
-    p.className = 'v8t-pane';
-    p.setAttribute('role', 'tabpanel');
-    if (key !== room) p.setAttribute('hidden', '');
-    panes[key] = p;
-  });
-  const stream = document.createElement('div');
-  stream.className = 'v8t-stream';
-  Object.values(panes).forEach(p => stream.appendChild(p));
-  app.appendChild(crumb);
-  app.appendChild(tabs);
-  app.appendChild(stream);
-  root.appendChild(app);
-  kids.forEach(n => panes[room] ? panes[room].appendChild(n) : stream.appendChild(n));
-  tabs.addEventListener('click', (e) => {
-    const b = e.target && e.target.closest ? e.target.closest('.v8t-tab') : null;
-    if (!b) return;
-    tabs.querySelectorAll('.v8t-tab').forEach(t => t.setAttribute('aria-selected', t === b ? 'true' : 'false'));
-    Object.keys(panes).forEach(k => {
-      if (('v8t-tab-' + room + '-' + k) === b.id) panes[k].removeAttribute('hidden');
-      else panes[k].setAttribute('hidden', '');
-    });
-    const targetKey = b.id.replace('v8t-tab-' + room + '-', '');
-    if (targetKey !== room && typeof switchView === 'function') switchView(targetKey);
-  });
-  const units = roomUnits(panes[room] || stream, room);
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const sec = document.createElement('section');
-    sec.className = 'v8t-unit';
-    if (unit.parentNode) unit.parentNode.insertBefore(sec, unit);
-    const face = document.createElement('div');
-    face.className = 'v8t-face';
-    face.innerHTML = b1Face('v8t-k', 'v8t-zh', h, 'Item ' + (i + 1));
-    sec.appendChild(face);
-    const lead = document.createElement('p');
-    lead.className = 'v8t-lead';
-    lead.textContent = clipText(h.en || h.note || '', 200) || 'Untitled';
-    sec.appendChild(lead);
-    sec.appendChild(unit);
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows && rows.length) {
-      const ctx = document.createElement('div');
-      ctx.className = 'v8t-ctx';
-      ctx.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
-      sec.appendChild(ctx);
-    }
-  });
-  const about = b1Fold('v8t-ctx', 'About this room — where from · related · background');
-  about.innerHTML = '<summary>About this room — where from · related · background</summary><div class="context-info-body">' + (room === 'reader' ? readerInfoStackHtml() : infoRows(roomInfoRowsFor(room))) + '</div>';
-  panes[room] ? panes[room].appendChild(about) : stream.appendChild(about);
-}
-// == rebuild:9 begin — Batch 2 slot 9 NEW skeleton: Bottom Sheet — top-lintel / single-continuous-column / english-first-then-source / comfortable-default / scale-1.125-min-0.85rem-alt / bottom-sheet ==
-function roomBottomSheet(room, root) {
-  b1HideFleetNav();
-  if (!root || typeof root.querySelectorAll !== 'function') return;
-  if (root.querySelector(':scope > .v9b-app')) return;
-  const kids = Array.from(root.childNodes);
-  const app = document.createElement('div');
-  app.className = 'v9b-app';
-  const main = document.createElement('div');
-  main.className = 'v9b-main';
-  const handle = document.createElement('button');
-  handle.type = 'button';
-  handle.className = 'v9b-handle';
-  handle.textContent = 'Room info';
-  const scrim = document.createElement('div');
-  scrim.className = 'v9b-scrim';
-  scrim.setAttribute('hidden', '');
-  const sheet = document.createElement('aside');
-  sheet.className = 'v9b-sheet';
-  sheet.setAttribute('aria-label', 'Room info sheet');
-  const head = document.createElement('div');
-  head.className = 'v9b-sheet-head';
-  head.innerHTML = '<span class="v9b-sheet-title">' + escHtml(b1RoomName(room)) + ' — where from · related · background</span>';
-  const close = b1Btn('v9b-close', '×');
-  close.setAttribute('aria-label', 'Close sheet');
-  head.appendChild(close);
-  sheet.appendChild(head);
-  const stack = document.createElement('div');
-  stack.innerHTML = b1StackHtml(room);
-  sheet.appendChild(stack);
-  app.appendChild(main);
-  app.appendChild(handle);
-  app.appendChild(scrim);
-  app.appendChild(sheet);
-  root.appendChild(app);
-  kids.forEach(n => main.appendChild(n));
-  const setOpen = (open) => {
-    sheet.classList.toggle('is-open', open);
-    if (open) scrim.removeAttribute('hidden');
-    else scrim.setAttribute('hidden', '');
-  };
-  handle.addEventListener('click', () => setOpen(true));
-  close.addEventListener('click', () => setOpen(false));
-  scrim.addEventListener('click', () => setOpen(false));
-  roomUnits(main, room).forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const sec = document.createElement('section');
-    sec.className = 'v9b-unit';
-    if (unit.parentNode) unit.parentNode.insertBefore(sec, unit);
-    const face = document.createElement('div');
-    face.className = 'v9b-face';
-    face.innerHTML = b1Face('v9b-k', 'v9b-zh', h, 'Item ' + (i + 1));
-    sec.appendChild(face);
-    const lead = document.createElement('p');
-    lead.className = 'v9b-lead';
-    lead.textContent = clipText(h.en || h.note || '', 200) || 'Untitled';
-    sec.appendChild(lead);
-    sec.appendChild(unit);
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows && rows.length) {
-      const ctx = document.createElement('div');
-      ctx.className = 'v9b-ctx';
-      ctx.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
-      sec.appendChild(ctx);
-    }
-  });
-}
-// == rebuild:10 begin — Batch 2 slot 10 NEW skeleton: Sticky TOC — side-rail-left / magazine-2col / english-first-then-source / comfortable-default / scale-1.25-min-0.85rem / native-details ==
-function roomStickyToc(room, root) {
-  b1HideFleetNav();
-  if (!root || typeof root.querySelectorAll !== 'function') return;
-  if (root.querySelector(':scope > .v10s-app')) return;
-  const kids = Array.from(root.childNodes);
-  const app = document.createElement('div');
-  app.className = 'v10s-app';
-  const toc = document.createElement('nav');
-  toc.className = 'v10s-toc';
-  toc.setAttribute('aria-label', 'Table of contents');
-  toc.innerHTML = '<p class="v10s-toc-title">On this page</p>';
-  const list = document.createElement('ul');
-  list.className = 'v10s-toc-list';
-  toc.appendChild(list);
-  const center = document.createElement('div');
-  center.className = 'v10s-center';
-  const ctx = document.createElement('aside');
-  ctx.className = 'v10s-context';
-  ctx.innerHTML = b1StackHtml(room);
-  app.appendChild(toc);
-  app.appendChild(center);
-  app.appendChild(ctx);
-  root.appendChild(app);
-  kids.forEach(n => center.appendChild(n));
-  const units = roomUnits(center, room);
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const sec = document.createElement('section');
-    sec.className = 'v10s-unit';
-    if (!unit.id) unit.id = 'v10s-unit-' + room + '-' + i;
-    if (unit.parentNode) unit.parentNode.insertBefore(sec, unit);
-    const face = document.createElement('div');
-    face.className = 'v10s-face';
-    face.innerHTML = b1Face('v10s-k', 'v10s-zh', h, 'Item ' + (i + 1));
-    sec.appendChild(face);
-    const lead = document.createElement('p');
-    lead.className = 'v10s-lead';
-    lead.textContent = clipText(h.en || h.note || '', 200) || 'Untitled';
-    sec.appendChild(lead);
-    sec.appendChild(unit);
-    const li = document.createElement('li');
-    li.className = 'v10s-toc-item';
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'v10s-toc-link';
-    b.textContent = clipText(h.en || h.kicker || ('Item ' + (i + 1)), 48);
-    b.addEventListener('click', () => { if (typeof unit.scrollIntoView === 'function') unit.scrollIntoView({ behavior: motionBehavior(), block: 'start' }); });
-    li.appendChild(b);
-    list.appendChild(li);
-  });
-}
-// == rebuild:11 begin — Batch 2 slot 11 NEW skeleton: Search-First — top-lintel / card-stream / search-first / comfortable-default / scale-1.2-min-0.8rem / native-details ==
-function roomSearchFirst(room, root) {
-  b1HideFleetNav();
-  if (!root || typeof root.querySelectorAll !== 'function') return;
-  if (root.querySelector(':scope > .v11f-app')) return;
-  const kids = Array.from(root.childNodes);
-  const app = document.createElement('div');
-  app.className = 'v11f-app';
-  const search = document.createElement('div');
-  search.className = 'v11f-search';
-  search.innerHTML = '<input type="search" placeholder="Filter in this room…" aria-label="Filter in this room">';
-  const explain = document.createElement('div');
-  explain.className = 'v11f-explain';
-  explain.innerHTML = '<p>Search first — type to filter, then open any card. English first, context behind a fold.</p><div>' + b1StackHtml(room) + '</div>';
-  const grid = document.createElement('div');
-  grid.className = 'v11f-grid';
-  app.appendChild(search);
-  app.appendChild(explain);
-  app.appendChild(grid);
-  root.appendChild(app);
-  kids.forEach(n => grid.appendChild(n));
-  const units = roomUnits(grid, room);
-  const cards = [];
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const card = document.createElement('article');
-    card.className = 'v11f-card';
-    if (unit.parentNode) unit.parentNode.insertBefore(card, unit);
-    const face = document.createElement('div');
-    face.className = 'v11f-face';
-    face.innerHTML = b1Face('v11f-k', 'v11f-zh', h, 'Item ' + (i + 1));
-    card.appendChild(face);
-    const lead = document.createElement('p');
-    lead.className = 'v11f-lead';
-    lead.textContent = clipText(h.en || h.note || '', 180) || 'Untitled';
-    card.appendChild(lead);
-    card.appendChild(unit);
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows && rows.length) {
-      const ctx = document.createElement('div');
-      ctx.className = 'v11f-ctx';
-      ctx.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
-      card.appendChild(ctx);
-    }
-    cards.push({ card, text: ((h.en || '') + ' ' + (h.note || '') + ' ' + (h.kicker || '')).toLowerCase() });
-  });
-  const input = search.querySelector('input');
-  if (input) {
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      cards.forEach(({ card, text }) => {
-        if (!q) card.removeAttribute('hidden');
-        else if (text.indexOf(q) !== -1) card.removeAttribute('hidden');
-        else card.setAttribute('hidden', '');
-      });
-    });
-  }
-}
-// == rebuild:12 begin — Batch 2 slot 12 NEW skeleton: Question-Driven — top-lintel / single-continuous-column / question-driven / comfortable-default / scale-1.125-min-0.78rem / native-details ==
-function roomQuestionDriven(room, root) {
-  b1HideFleetNav();
-  if (!root || typeof root.querySelectorAll !== 'function') return;
-  if (root.querySelector(':scope > .v12q-app')) return;
-  const kids = Array.from(root.childNodes);
-  const app = document.createElement('div');
-  app.className = 'v12q-app';
-  const qs = document.createElement('div');
-  qs.className = 'v12q-questions';
-  const drawers = {};
-  [['where', 'Where from?'], ['who', 'Who related?'], ['bg', 'Background?']].forEach(([key, label]) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'v12q-q';
-    b.textContent = label;
-    b.setAttribute('aria-expanded', 'false');
-    qs.appendChild(b);
-    const d = document.createElement('div');
-    d.className = 'v12q-drawer';
-    d.setAttribute('hidden', '');
-    drawers[key] = { btn: b, drawer: d };
-    b.addEventListener('click', () => {
-      const open = d.hasAttribute('hidden');
-      Object.values(drawers).forEach(({ drawer: dd, btn: bb }) => { dd.setAttribute('hidden', ''); bb.setAttribute('aria-expanded', 'false'); });
-      if (open) { d.removeAttribute('hidden'); b.setAttribute('aria-expanded', 'true'); }
-    });
-  });
-  app.appendChild(qs);
-  Object.values(drawers).forEach(({ drawer }) => app.appendChild(drawer));
-  drawers.where.drawer.innerHTML = b1StackHtml(room);
-  drawers.who.drawer.innerHTML = '<p>Teachers, disciples, related works — open any item below for its plain-language info section.</p>';
-  drawers.bg.drawer.innerHTML = '<p>Background context — where this collection came from, how it is used for study, and how the English keeps the minimum up front.</p>';
-  root.appendChild(app);
-  kids.forEach(n => app.appendChild(n));
-  const units = roomUnits(app, room);
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const sec = document.createElement('section');
-    sec.className = 'v12q-unit';
-    if (unit.parentNode) unit.parentNode.insertBefore(sec, unit);
-    const face = document.createElement('div');
-    face.className = 'v12q-face';
-    face.innerHTML = b1Face('v12q-k', 'v12q-zh', h, 'Item ' + (i + 1));
-    sec.appendChild(face);
-    const lead = document.createElement('p');
-    lead.className = 'v12q-lead';
-    lead.textContent = clipText(h.en || h.note || '', 200) || 'Untitled';
-    sec.appendChild(lead);
-    sec.appendChild(unit);
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows && rows.length) {
-      const ctx = document.createElement('div');
-      ctx.className = 'v12q-ctx';
-      ctx.innerHTML = '<div class="context-info-body">' + infoRows(rows) + '</div>';
-      sec.appendChild(ctx);
-    }
-  });
-}
-// == rebuild:12 end ==  // == rebuild:11 end ==  // == rebuild:10 end ==  // == rebuild:9 end ==  // == rebuild:8 end ==  // == rebuild:7 end ==
-
-// == rebuild:13 begin — Batch 3 slot 13 NEW skeleton: right rail / side-by-side panes / English first / native details ==
-function b3NewRoot(root, cls) {
-  if (!root || !root.querySelectorAll || root.querySelector(':scope > .' + cls)) return null;
-  const old = Array.from(root.childNodes), app = document.createElement('div'); app.className = cls;
-  root.appendChild(app); return { old, app };
-}
-function b3UnitShell(room, host, unit, i, prefix) {
-  const h = unitHeadline(room, unit, i), article = document.createElement('article'); article.className = prefix + '-unit';
-  if (unit.parentNode) unit.parentNode.insertBefore(article, unit);
-  const head = document.createElement('header'); head.className = prefix + '-head'; head.innerHTML = b1Face(prefix + '-k', prefix + '-zh', h, 'Reading ' + (i + 1)); article.appendChild(head);
-  const en = document.createElement('section'); en.className = prefix + '-english'; const lead = document.createElement('p'); lead.className = prefix + '-lead'; lead.textContent = clipText(h.en || h.note || '', 220) || 'Untitled'; en.appendChild(lead); en.appendChild(unit); article.appendChild(en);
-  return { article, h };
-}
-function roomSideBySide(room, root) {
-  b1HideFleetNav(); const made = b3NewRoot(root, 'v13p-app'); if (!made) return;
-  const main=document.createElement('main'), rail=document.createElement('aside'); main.className='v13p-reading'; rail.className='v13p-rail'; rail.innerHTML='<h2>Room guide</h2>'+b1StackHtml(room); made.app.append(main,rail); made.old.forEach(n=>main.appendChild(n));
-  roomUnits(main,room).forEach((u,i)=>{ const x=b3UnitShell(room,main,u,i,'v13p'); const source=document.createElement('details'); source.className='v13p-source'; source.innerHTML='<summary>Chinese source</summary><div class="v13p-source-note">Open the source beside the English reading.</div>'; x.article.appendChild(source); });
-}
-// == rebuild:14 begin — Batch 3 slot 14 NEW skeleton: right related rail / work-first / hover disclosure ==
-function roomRelatedRail(room, root) {
-  b1HideFleetNav(); const made=b3NewRoot(root,'v14r-app'); if(!made)return; const intro=document.createElement('header'); intro.className='v14r-work'; intro.innerHTML='<p>Work first</p><h1>'+escHtml(b1RoomName(room))+'</h1><div>'+b1StackHtml(room)+'</div>'; const flow=document.createElement('main'),rail=document.createElement('aside'); flow.className='v14r-flow';rail.className='v14r-related';rail.innerHTML='<h2>Related</h2><p>Hover or focus a card to see why it belongs here.</p>';made.app.append(intro,flow,rail);made.old.forEach(n=>flow.appendChild(n));
-  roomUnits(flow,room).forEach((u,i)=>{const x=b3UnitShell(room,flow,u,i,'v14r');const card=document.createElement('button');card.type='button';card.className='v14r-relation';card.innerHTML='<span>'+escHtml(clipText(x.h.en||('Reading '+(i+1)),42))+'</span><small>Related through this room’s work and teaching context.</small>';rail.appendChild(card);});
-}
-// == rebuild:15 begin — Batch 3 slot 15 NEW skeleton: footnotes + glossary / top lintel / hover definitions ==
-function roomFootnotes(room, root) {
-  b1HideFleetNav();const made=b3NewRoot(root,'v15g-app');if(!made)return;const lintel=document.createElement('nav');lintel.className='v15g-lintel';lintel.innerHTML='<strong>Footnotes + glossary</strong><span>English reading · source notes on demand</span>';const flow=document.createElement('main');flow.className='v15g-flow';made.app.append(lintel,flow);made.old.forEach(n=>flow.appendChild(n));
-  roomUnits(flow,room).forEach((u,i)=>{const x=b3UnitShell(room,flow,u,i,'v15g');const mark=document.createElement('button');mark.type='button';mark.className='v15g-term';mark.textContent='context';mark.setAttribute('aria-label','Context glossary definition');const tip=document.createElement('span');tip.className='v15g-tip';tip.textContent='Background, relationships, and origin for this reading.';x.article.insertBefore(mark,x.article.children[1]);x.article.insertBefore(tip,x.article.children[2]);const foot=document.createElement('details');foot.className='v15g-foot';foot.innerHTML='<summary>Footnote '+(i+1)+'</summary><div>'+b1StackHtml(room)+'</div>';x.article.appendChild(foot);});
-}
-// == rebuild:16 begin — Batch 3 slot 16 NEW skeleton: progressive scroll / progress bar ==
-function roomProgressiveReveal(room, root) {
-  b1HideFleetNav();const made=b3NewRoot(root,'v16s-app');if(!made)return;const lintel=document.createElement('header');lintel.className='v16s-lintel';lintel.innerHTML='<strong>Progressive reading</strong><span class="v16s-meter"><i></i></span>';const flow=document.createElement('main');flow.className='v16s-flow';made.app.append(lintel,flow);made.old.forEach(n=>flow.appendChild(n));const units=roomUnits(flow,room);units.forEach((u,i)=>{const x=b3UnitShell(room,flow,u,i,'v16s');if(i>0)x.article.classList.add('is-upcoming');const reveal=document.createElement('button');reveal.type='button';reveal.className='v16s-next';reveal.textContent='Reveal next passage';reveal.addEventListener('click',()=>{const next=x.article.nextElementSibling;if(next)next.classList.remove('is-upcoming');reveal.setAttribute('hidden','');});x.article.appendChild(reveal);});
-}
-// == rebuild:17 begin — Batch 3 slot 17 NEW skeleton: modal information / top lintel ==
-function roomModalInfo(room, root) {
-  b1HideFleetNav();const made=b3NewRoot(root,'v17m-app');if(!made)return;const bar=document.createElement('header');bar.className='v17m-lintel';bar.innerHTML='<strong>'+escHtml(b1RoomName(room))+'</strong>';const info=b1Btn('v17m-info','ⓘ About this room');const flow=document.createElement('main'),dialog=document.createElement('div');flow.className='v17m-flow';dialog.className='v17m-modal';dialog.setAttribute('hidden','');dialog.innerHTML='<div class="v17m-dialog" role="dialog" aria-modal="true" aria-label="Room information"><button type="button" class="v17m-close">Close</button><h2>Where this comes from</h2>'+b1StackHtml(room)+'</div>';bar.appendChild(info);made.app.append(bar,flow,dialog);made.old.forEach(n=>flow.appendChild(n));roomUnits(flow,room).forEach((u,i)=>b3UnitShell(room,flow,u,i,'v17m'));const close=dialog.querySelector('.v17m-close');info.addEventListener('click',()=>dialog.removeAttribute('hidden'));close.addEventListener('click',()=>dialog.setAttribute('hidden',''));
-}
-// == rebuild:18 begin — Batch 3 slot 18 NEW skeleton: teacher/work hover cards / top lintel ==
-function roomHoverCards(room, root) {
-  b1HideFleetNav();const made=b3NewRoot(root,'v18h-app');if(!made)return;const lintel=document.createElement('header');lintel.className='v18h-lintel';lintel.innerHTML='<strong>Reading room</strong><span>Hover dotted names for context</span>';const flow=document.createElement('main');flow.className='v18h-flow';made.app.append(lintel,flow);made.old.forEach(n=>flow.appendChild(n));roomUnits(flow,room).forEach((u,i)=>{const x=b3UnitShell(room,flow,u,i,'v18h');const cards=document.createElement('div');cards.className='v18h-cards';cards.innerHTML='<button type="button">Teacher<span>Who taught, where they came from, and related people.</span></button><button type="button">Work<span>Background, lineage, and related readings in this collection.</span></button>';x.article.insertBefore(cards,x.article.children[1]);});
-}
-// == rebuild:18 end == // == rebuild:17 end == // == rebuild:16 end == // == rebuild:15 end == // == rebuild:14 end == // == rebuild:13 end ==
-
-
-// Batch 4 (work order 2026-09-18-letter-002 items 6-7, pace 6 per owner 2026-09-18):
-// slots 19-24 rebuilt from scratch on NEW skeletons per the approved grid
-// (.orchestrator/DESIGN_GRID_2026-09-18_36_DISTINCT.md — six-axis unique tuples,
-// the F1/F2 copy-paste cure decided at structural-axis level, not by class names).
-// Mechanism as Batches 1-3, pure append: each block redeclares its fleet room
-// enhancer (later function declaration wins in this module scope), so the
-// enhanceRoomLayout dispatcher picks the rebuild up without touching one earlier
-// byte. Hoisted function declarations only — no scope-level const/let (TDZ when
-// startApp() runs mid-body, rebuild:3 precedent). No inline style writes, no
-// setProperty; teardown rides the shared resetLayoutRuntime + re-render path, and
-// slot 24 reuses the module-level cmdKeyHandler the shared teardown removes.
-
-// == rebuild:19 begin — Batch 4 slot 19 NEW skeleton: Sentence-by-Sentence — top-lintel / single-continuous-column / english-first-then-source / sparse-single-idea / scale-1.25-min-0.85rem / sentence-toggle ==
-
-function b4Root(root, cls) {
-  if (!root || !root.querySelectorAll || root.querySelector(':scope > .' + cls)) return null;
-  const old = Array.from(root.childNodes), app = document.createElement('div');
-  app.className = cls;
-  root.appendChild(app);
-  return { old, app };
-}
-function b4NavRow(app, room, navCls, btnCls) {
-  const nav = document.createElement('nav');
-  nav.className = navCls;
-  nav.setAttribute('aria-label', 'Rooms');
-  app.appendChild(nav);
-  b1RoomButtons(nav, room, btnCls, '', null);
-}
-function b4Face(faceCls, kCls, zhCls, h, fallback) {
-  const face = document.createElement('div');
-  face.className = faceCls;
-  face.innerHTML = b1Face(kCls, zhCls, h, fallback);
-  return face;
-}
-function b4Info(cls, rows, extras) {
-  const box = document.createElement('div');
-  if (cls) box.className = cls;
-  (extras || []).forEach(n => box.appendChild(n));
-  if (rows && rows.length) {
-    const info = document.createElement('div');
-    info.className = 'context-info-body';
-    info.innerHTML = infoRows(rows);
-    box.appendChild(info);
-  }
-  return box;
-}
-// --- slot 19 · Sentence-by-Sentence: sparse one-idea sections, [i] per sentence, one drawer per idea ---
-function b19sSplit(block, wire) {
-  if (!block || block.dataset.v19sDone === '1') return 0;
-  block.dataset.v19sDone = '1';
-  const parts = String(block.textContent || '').match(/[^.!?。！？]+[.!?。！？]*/g);
-  if (!parts || !parts.length) return 0;
-  block.textContent = '';
-  let made = 0;
-  parts.forEach(p => {
-    const t = p.trim();
-    if (!t) return;
-    const s = document.createElement('span');
-    s.className = 'v19s-sent';
-    s.textContent = p.replace(/\s+/g, ' ');
-    const b = b1Btn('v19s-i', 'i');
-    b.setAttribute('aria-label', 'Source and context for this sentence');
-    wire(b, t);
-    s.appendChild(b);
-    block.appendChild(s);
-    made++;
-  });
-  return made;
-}
-function roomSentenceBySentence(room, root) {
-  b1HideFleetNav();
-  const made = b4Root(root, 'v19s-app');
-  if (!made) return;
-  const lintel = document.createElement('header');
-  lintel.className = 'v19s-lintel';
-  lintel.innerHTML = '<strong>Sentence by sentence</strong><span>one idea per screen · the small <i>i</i> after a sentence opens its source and context</span>';
-  made.app.appendChild(lintel);
-  b4NavRow(made.app, room, 'v19s-nav', 'v19s-navbtn');
-  const col = document.createElement('div');
-  col.className = 'v19s-col';
-  made.app.appendChild(col);
-  made.old.forEach(n => col.appendChild(n));
-  const units = roomUnits(col, room);
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const idea = document.createElement('section');
-    idea.className = 'v19s-idea';
-    if (unit.parentNode) unit.parentNode.insertBefore(idea, unit);
-    const mast = document.createElement('div');
-    mast.className = 'v19s-mast';
-    mast.innerHTML = b1Face('v19s-k', 'v19s-zh', h, 'Idea ' + (i + 1)) + '<span class="v19s-n">' + (i + 1) + ' / ' + units.length + '</span>';
-    idea.appendChild(mast);
-    const drawer = document.createElement('div');
-    drawer.className = 'v19s-drawer';
-    drawer.id = 'v19s-d-' + room + '-' + i;
-    drawer.setAttribute('hidden', '');
-    drawer.setAttribute('aria-live', 'polite');
-    const shut = b1Btn('v19s-shut', 'Close');
-    const quote = document.createElement('blockquote');
-    quote.className = 'v19s-quote';
-    drawer.appendChild(shut);
-    drawer.appendChild(quote);
-    drawer.appendChild(b4Info('v19s-src', unitInfoRowsFor(room, unit, i), harvestExtras(unit, room)));
-    const wire = (btn, sentenceText) => {
-      btn.setAttribute('aria-controls', drawer.id);
-      btn.addEventListener('click', () => {
-        if (drawer.hasAttribute('hidden')) {
-          quote.textContent = sentenceText;
-          drawer.removeAttribute('hidden');
-          btn.setAttribute('aria-expanded', 'true');
-        } else if (quote.textContent === sentenceText) {
-          drawer.setAttribute('hidden', '');
-          btn.setAttribute('aria-expanded', 'false');
-        } else {
-          quote.textContent = sentenceText;
-        }
-      });
-    };
-    let sent = 0;
-    if (room === 'reader') {
-      Array.from(unit.querySelectorAll('.translation-text, .prose-en')).forEach(b => { sent += b19sSplit(b, wire); });
-    }
-    if (!sent) {
-      const lead = document.createElement('p');
-      lead.className = 'v19s-lead';
-      lead.textContent = h.en && h.note ? h.en + ' — ' + h.note : (h.en || h.note || 'Untitled');
-      b19sSplit(lead, wire);
-      idea.appendChild(lead);
-    }
-    idea.appendChild(unit);
-    idea.appendChild(drawer);
-    shut.addEventListener('click', () => {
-      drawer.setAttribute('hidden', '');
-      idea.querySelectorAll('.v19s-i').forEach(b => b.setAttribute('aria-expanded', 'false'));
-    });
-  });
-}
-// == rebuild:20 begin — Batch 4 slot 20 NEW skeleton: Chapter Chunks — top-lintel / paginated-chapters / english-first-then-source / comfortable-default / scale-1.2-min-0.8rem / two-step ==
-// --- slot 20 · Chapter Chunks: chapters as pages, Continue advances, context toggle per chapter ---
-function roomChapterChunks(room, root) {
-  b1HideFleetNav();
-  const made = b4Root(root, 'v20c-app');
-  if (!made) return;
-  const lintel = document.createElement('header');
-  lintel.className = 'v20c-lintel';
-  lintel.innerHTML = '<strong>Chapter chunks</strong><span class="v20c-pos">Chapter 1</span>';
-  made.app.appendChild(lintel);
-  b4NavRow(made.app, room, 'v20c-nav', 'v20c-navbtn');
-  const track = document.createElement('div');
-  track.className = 'v20c-track';
-  track.setAttribute('aria-hidden', 'true');
-  made.app.appendChild(track);
-  const book = document.createElement('div');
-  book.className = 'v20c-book';
-  made.app.appendChild(book);
-  made.old.forEach(n => book.appendChild(n));
-  const all = roomUnits(book, room);
-  const SIZE = room === 'reader' ? 2 : 3;
-  const groups = [];
-  all.forEach((u, i) => { const pi = Math.floor(i / SIZE); (groups[pi] = groups[pi] || []).push(u); });
-  if (!groups.length) groups.push([]);
-  const posEl = lintel.querySelector('.v20c-pos');
-  const dots = groups.map(() => {
-    const d = document.createElement('span');
-    d.className = 'v20c-dot';
-    track.appendChild(d);
-    return d;
-  });
-  if (dots[0]) dots[0].classList.add('is-current');
-  const pages = groups.map((groupUnits, pi) => {
-    const page = document.createElement('section');
-    page.className = 'v20c-page';
-    if (pi > 0) page.setAttribute('hidden', '');
-    const first = groupUnits.length ? unitHeadline(room, groupUnits[0], pi * SIZE) : null;
-    const head = document.createElement('header');
-    head.className = 'v20c-phead';
-    head.innerHTML = '<p class="v20c-pk">Chapter ' + (pi + 1) + ' of ' + groups.length + '</p>' +
-      '<h3 class="v20c-pt">' + escHtml(clipText((first && (first.en || first.kicker)) || 'Chapter ' + (pi + 1), 90)) + '</h3>';
-    page.appendChild(head);
-    groupUnits.forEach((unit, j) => {
-      const gi = pi * SIZE + j;
-      const wrap = document.createElement('article');
-      wrap.className = 'v20c-unit';
-      wrap.appendChild(b4Face('v20c-face', 'v20c-k', 'v20c-zh', unitHeadline(room, unit, gi), 'Part ' + (gi + 1)));
-      wrap.appendChild(unit);
-      page.appendChild(wrap);
-    });
-    const ctx = document.createElement('div');
-    ctx.className = 'v20c-ctx';
-    ctx.setAttribute('hidden', '');
-    ctx.innerHTML = b1StackHtml(room);
-    const ctxBtn = b1Btn('v20c-ctxbtn', 'Show context for this chapter');
-    page.appendChild(ctx);
-    page.appendChild(ctxBtn);
-    b1WireStep(ctxBtn, ctx, 'Hide context', 'Show context for this chapter');
-    const pager = document.createElement('div');
-    pager.className = 'v20c-pager';
-    const back = b1Btn('v20c-back', '← Previous chapter');
-    if (pi === 0) back.setAttribute('hidden', '');
-    const next = b1Btn('v20c-next', 'Continue →');
-    const hint = document.createElement('span');
-    hint.className = 'v20c-hint';
-    hint.textContent = 'chapter ' + (pi + 1) + ' of ' + groups.length;
-    pager.appendChild(back);
-    pager.appendChild(next);
-    pager.appendChild(hint);
-    page.appendChild(pager);
-    book.appendChild(page);
-    return { page, back, next };
-  });
-  const go = (target) => {
-    const idx = Math.max(0, Math.min(groups.length - 1, target));
-    pages.forEach((p, i) => {
-      if (i === idx) p.page.removeAttribute('hidden');
-      else p.page.setAttribute('hidden', '');
-    });
-    dots.forEach((d, i) => {
-      d.classList.toggle('is-current', i === idx);
-      d.classList.toggle('is-done', i < idx);
-    });
-    posEl.textContent = 'Chapter ' + (idx + 1) + ' of ' + groups.length;
-    if (typeof book.scrollIntoView === 'function') book.scrollIntoView({ behavior: motionBehavior(), block: 'start' });
-  };
-  pages.forEach((p, pi) => {
-    p.next.addEventListener('click', () => go(pi + 1 >= groups.length ? 0 : pi + 1));
-    p.back.addEventListener('click', () => go(pi - 1));
-  });
-}
-// == rebuild:21 begin — Batch 4 slot 21 NEW skeleton: Work Dossier — top-lintel / single-continuous-column / work-first / comfortable-default / scale-1.33-min-0.9rem / two-step ==
-// --- slot 21 · Work Dossier: fielded witness/coverage/where-from/related/background sheet first, translation behind a two-step gate ---
-function roomWorkDossier(room, root) {
-  b1HideFleetNav();
-  const made = b4Root(root, 'v21w-app');
-  if (!made) return;
-  const lintel = document.createElement('header');
-  lintel.className = 'v21w-lintel';
-  lintel.innerHTML = '<strong>Work dossier</strong><span>the work first — witness, coverage, related, background — then the translation</span>';
-  made.app.appendChild(lintel);
-  b4NavRow(made.app, room, 'v21w-nav', 'v21w-navbtn');
-  let fields = '';
-  if (room === 'reader') {
-    const doc = (state.data.corpus || {})[state.currentCorpusKey] || {};
-    const perText = (state.data.project_metrics && state.data.project_metrics.corpus && state.data.project_metrics.corpus.per_text) || {};
-    const metrics = perText[state.currentCorpusKey] || {};
-    fields += '<div class="v21w-field"><dt>Witness</dt><dd>' + escHtml(stringValue(doc.cbeta_id) || 'not recorded') + '</dd></div>';
-    fields += '<div class="v21w-field"><dt>Coverage</dt><dd>' + escHtml(stringValue(metrics.coverage) || 'representation not recorded') + '</dd></div>';
-  }
-  roomInfoRowsFor(room).forEach(r => {
-    fields += '<div class="v21w-field"><dt>' + escHtml(r[0]) + '</dt><dd>' + r[1] + '</dd></div>';
-  });
-  const sheet = document.createElement('section');
-  sheet.className = 'v21w-sheet';
-  sheet.innerHTML = '<p class="v21w-eyebrow">Work first</p>' +
-    '<h2 class="v21w-title">' + escHtml(room === 'reader' ? corpusTitle() : b1RoomName(room)) + '</h2>' +
-    '<dl class="v21w-fields">' + fields + '</dl>';
-  const gate = document.createElement('div');
-  gate.className = 'v21w-gate';
-  gate.innerHTML = '<p>The English translation follows the dossier. It starts closed, so the work can be read about before it is read.</p>';
-  const read = b1Btn('v21w-read', 'Read the translation');
-  gate.appendChild(read);
-  const body = document.createElement('div');
-  body.className = 'v21w-body';
-  body.setAttribute('hidden', '');
-  made.app.appendChild(sheet);
-  made.app.appendChild(gate);
-  made.app.appendChild(body);
-  made.old.forEach(n => body.appendChild(n));
-  b1WireStep(read, body, 'Hide the translation', 'Read the translation');
-  roomUnits(body, room).forEach((unit, i) => {
-    const wrap = document.createElement('article');
-    wrap.className = 'v21w-unit';
-    wrap.appendChild(b4Face('v21w-face', 'v21w-fk', 'v21w-fzh', unitHeadline(room, unit, i), 'Part ' + (i + 1)));
-    if (unit.parentNode) unit.parentNode.insertBefore(wrap, unit);
-    wrap.appendChild(unit);
-    const rows = unitInfoRowsFor(room, unit, i);
-    if ((rows && rows.length) || harvestExtras(unit, room).length) {
-      const ctx = document.createElement('div');
-      ctx.className = 'v21w-ctx';
-      ctx.setAttribute('hidden', '');
-      ctx.appendChild(b4Info('', rows, harvestExtras(unit, room)));
-      const step = b1Btn('v21w-step', 'Show context');
-      wrap.appendChild(ctx);
-      wrap.appendChild(step);
-      b1WireStep(step, ctx, 'Hide context', 'Show context');
-    }
-  });
-}
-// == rebuild:22 begin — Batch 4 slot 22 NEW skeleton: Teacher Dossier — side-rail-left / single-continuous-column / teacher-first / comfortable-default / scale-1.25-min-0.85rem / native-details ==
-// --- slot 22 · Teacher Dossier: 14rem sticky room rail, teacher dossier leads, everything extra in native details ---
-function v22tTeacherCard(m, open) {
-  return '<details class="v22t-teacher"' + (open ? ' open' : '') + '><summary>' + escHtml(masterDisplayName(m)) +
-    (m && m.name_zh ? ' <span class="v22t-zh" lang="zh">' + escHtml(m.name_zh) + '</span>' : '') +
-    '</summary><div class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</div></details>';
-}
-function v22tDossierHtml(room) {
-  if (room === 'reader') {
-    const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
-    if (!related.length) return '<p class="v22t-none">No profiled teacher is linked to this work yet — the fields below still say where it came from.</p>';
-    return related.map((m, i) => v22tTeacherCard(m, i === 0)).join('');
-  }
-  if (room === 'lineage' && Array.isArray(state.data.lineage) && state.data.lineage.length) {
-    return state.data.lineage.slice(0, 5).map((m, i) => v22tTeacherCard(m, i === 0)).join('') +
-      '<p class="v22t-none">The first teachers of the register — the full line continues below.</p>';
-  }
-  return '<p class="v22t-none">Teacher dossiers lead every room; the Lineage room carries the full register.</p>';
-}
-function roomTeacherDossier(room, root) {
-  b1HideFleetNav();
-  const made = b4Root(root, 'v22t-app');
-  if (!made) return;
-  const rail = document.createElement('aside');
-  rail.className = 'v22t-rail';
-  rail.setAttribute('aria-label', 'Rooms and teacher dossier');
-  rail.innerHTML = '<h2 class="v22t-brand">Teacher dossier</h2><p class="v22t-railnote">origin · teacher and disciples · background · related works</p>';
-  const railNav = document.createElement('nav');
-  railNav.className = 'v22t-nav';
-  b1RoomButtons(railNav, room, 'v22t-navbtn', 'v22t-navzh', null);
-  rail.appendChild(railNav);
-  const main = document.createElement('div');
-  main.className = 'v22t-main';
-  made.app.appendChild(rail);
-  made.app.appendChild(main);
-  made.old.forEach(n => main.appendChild(n));
-  const lead = document.createElement('section');
-  lead.className = 'v22t-lead';
-  lead.innerHTML = '<p class="v22t-eyebrow">Teacher first</p>' + v22tDossierHtml(room);
-  main.insertBefore(lead, main.firstChild);
-  const works = document.createElement('h2');
-  works.className = 'v22t-workshead';
-  works.textContent = room === 'lineage' ? 'The register, teacher by teacher' : 'Works and readings';
-  main.insertBefore(works, lead.nextSibling);
-  roomUnits(main, room).forEach((unit, i) => {
-    const wrap = document.createElement('article');
-    wrap.className = 'v22t-unit';
-    wrap.appendChild(b4Face('v22t-face', 'v22t-fk', 'v22t-fzh', unitHeadline(room, unit, i), 'Item ' + (i + 1)));
-    if (unit.parentNode) unit.parentNode.insertBefore(wrap, unit);
-    wrap.appendChild(unit);
-    const rows = unitInfoRowsFor(room, unit, i);
-    if ((rows && rows.length) || harvestExtras(unit, room).length) {
-      const ctx = document.createElement('details');
-      ctx.className = 'v22t-ctx';
-      const sum = document.createElement('summary');
-      sum.textContent = 'Where from · related · background';
-      ctx.appendChild(sum);
-      ctx.appendChild(b4Info('', rows, harvestExtras(unit, room)));
-      wrap.appendChild(ctx);
-    }
-  });
-}
-// == rebuild:23 begin — Batch 4 slot 23 NEW skeleton: Two-Step Reader — top-lintel / single-continuous-column / english-first-then-source / comfortable-default / scale-1.125-min-0.78rem / two-step ==
-// --- slot 23 · Two-Step Reader: first paragraph in the open, Read more for the full part, context only after step one ---
-function roomTwoStep(room, root) {
-  b1HideFleetNav();
-  const made = b4Root(root, 'v23w-app');
-  if (!made) return;
-  const lintel = document.createElement('header');
-  lintel.className = 'v23w-lintel';
-  lintel.innerHTML = '<strong>Two-step reader</strong><span>first paragraph first — read more only when you want it</span>';
-  made.app.appendChild(lintel);
-  b4NavRow(made.app, room, 'v23w-nav', 'v23w-navbtn');
-  const stream = document.createElement('div');
-  stream.className = 'v23w-stream';
-  made.app.appendChild(stream);
-  made.old.forEach(n => stream.appendChild(n));
-  roomUnits(stream, room).forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const item = document.createElement('article');
-    item.className = 'v23w-item';
-    if (unit.parentNode) unit.parentNode.insertBefore(item, unit);
-    item.appendChild(b4Face('v23w-face', 'v23w-fk', 'v23w-fzh', h, 'Item ' + (i + 1)));
-    const fullLead = room === 'reader' ? readerLead(unit) : (h.note || h.en || '');
-    const m = String(fullLead || '').match(/[^.!?。！？]+[.!?。！？]?/);
-    const first = document.createElement('p');
-    first.className = 'v23w-first';
-    first.textContent = (m ? m[0].trim() : '') || clipText(fullLead, 160) || 'Untitled';
-    item.appendChild(first);
-    const more = b1Btn('v23w-more', 'Read more');
-    item.appendChild(more);
-    const rest = document.createElement('div');
-    rest.className = 'v23w-rest';
-    rest.setAttribute('hidden', '');
-    rest.appendChild(unit);
-    item.appendChild(rest);
-    const step2 = document.createElement('div');
-    step2.className = 'v23w-step2';
-    step2.setAttribute('hidden', '');
-    const ctx = document.createElement('div');
-    ctx.className = 'v23w-ctx';
-    ctx.setAttribute('hidden', '');
-    ctx.appendChild(b4Info('', unitInfoRowsFor(room, unit, i), harvestExtras(unit, room)));
-    const ctxBtn = b1Btn('v23w-ctxbtn', 'Show context');
-    step2.appendChild(ctxBtn);
-    step2.appendChild(ctx);
-    item.appendChild(step2);
-    more.addEventListener('click', () => {
-      const opening = rest.hasAttribute('hidden');
-      if (opening) {
-        rest.removeAttribute('hidden');
-        step2.removeAttribute('hidden');
-      } else {
-        rest.setAttribute('hidden', '');
-        step2.setAttribute('hidden', '');
-        ctx.setAttribute('hidden', '');
-        ctxBtn.setAttribute('aria-expanded', 'false');
-        ctxBtn.textContent = 'Show context';
-      }
-      more.setAttribute('aria-expanded', opening ? 'true' : 'false');
-      more.textContent = opening ? 'Show less' : 'Read more';
-    });
-    b1WireStep(ctxBtn, ctx, 'Hide context', 'Show context');
-  });
-}
-// == rebuild:24 begin — Batch 4 slot 24 NEW skeleton: Command Palette — top-lintel / single-continuous-column / search-first / comfortable-default / scale-1.2-min-0.8rem / command-palette ==
-// --- slot 24 · Command Palette: search-first landing per room, ctrl/cmd+k palette jumps the library.
-// The palette lives inside this room's own app wrapper (a re-render destroys it);
-// the keydown armament reuses the module-level cmdKeyHandler that the shared
-// resetLayoutRuntime path already removes — hooked, not reinvented. ---
-function b24kClose(pal) { if (pal) pal.setAttribute('hidden', ''); }
-function b24kOpen(pal) {
-  if (!pal) return;
-  pal.removeAttribute('hidden');
-  const q = pal.querySelector('.v24k-pq');
-  if (q) {
-    q.value = '';
-    if (typeof pal._v24kQuery === 'function') pal._v24kQuery();
-    q.focus();
-  }
-}
-function b24kOpenActive() {
-  let pal = null;
-  if (typeof document !== 'undefined' && typeof document.querySelector === 'function') {
-    pal = document.querySelector('.view-section.active .v24k-palette') || document.querySelector('.v24k-palette');
-  }
-  b24kOpen(pal);
-}
-function b24kArmKeys() {
-  if (cmdKeyHandler) return; // the shared teardown removes + nulls it on every layout change
-  cmdKeyHandler = function (e) {
-    if (state.designVariant !== '24') return;
-    if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
-      e.preventDefault();
-      b24kOpenActive();
-    }
-  };
-  document.addEventListener('keydown', cmdKeyHandler);
-}
-function roomCommandPalette(room, root) {
-  b1HideFleetNav();
-  const made = b4Root(root, 'v24k-app');
-  if (!made) return;
-  const lintel = document.createElement('header');
-  lintel.className = 'v24k-lintel';
-  lintel.innerHTML = '<strong>Command palette</strong>';
-  const openBtn = b1Btn('v24k-open', 'Jump to anything · Ctrl/⌘ K');
-  openBtn.removeAttribute('aria-expanded');
-  lintel.appendChild(openBtn);
-  made.app.appendChild(lintel);
-  b4NavRow(made.app, room, 'v24k-nav', 'v24k-navbtn');
-  const landing = document.createElement('section');
-  landing.className = 'v24k-landing';
-  landing.innerHTML = '<p class="v24k-eyebrow">Search first</p>' +
-    '<input class="v24k-q" type="search" autocomplete="off" placeholder="Find a part, line, teacher, case or term in this room…" aria-label="Search this room">' +
-    '<p class="v24k-hint">Type to narrow this room as you go. To jump anywhere in the library — works, teachers, cases, terms — press Ctrl or ⌘ K.</p>' +
-    '<p class="v24k-count"></p>';
-  made.app.appendChild(landing);
-  const stream = document.createElement('div');
-  stream.className = 'v24k-stream';
-  made.app.appendChild(stream);
-  made.old.forEach(n => stream.appendChild(n));
-  const units = roomUnits(stream, room);
-  const index = units.map((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    if (!unit.id) unit.id = 'v24k-u-' + room + '-' + i;
-    return { unit, h };
-  });
-  index.forEach((e, i) => {
-    const wrap = document.createElement('article');
-    wrap.className = 'v24k-unit';
-    wrap.appendChild(b4Face('v24k-face', 'v24k-fk', 'v24k-fzh', e.h, 'Item ' + (i + 1)));
-    if (e.unit.parentNode) e.unit.parentNode.insertBefore(wrap, e.unit);
-    wrap.appendChild(e.unit);
-  });
-  const list = document.createElement('ul');
-  list.className = 'v24k-results';
-  list.setAttribute('aria-label', 'Matches in this room');
-  landing.appendChild(list);
-  const count = landing.querySelector('.v24k-count');
-  const input = landing.querySelector('.v24k-q');
-  const draw = () => {
-    const q = normalizeForSearch(input.value.trim());
-    const hits = index.filter(e => !q ||
-      normalizeForSearch(e.h.en + ' ' + e.h.kicker + ' ' + (e.h.zh || '') + ' ' + (e.h.note || '')).includes(q));
-    list.innerHTML = '';
-    hits.slice(0, 14).forEach(e => {
-      const li = document.createElement('li');
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.innerHTML = escHtml(clipText(e.h.en || e.h.kicker || 'Item', 90)) +
-        (e.h.note ? '<small>' + escHtml(clipText(e.h.note, 110)) + '</small>' : '');
-      b.addEventListener('click', () => scrollToUnit(e.unit));
-      li.appendChild(b);
-      list.appendChild(li);
-    });
-    if (!hits.length) {
-      const li = document.createElement('li');
-      li.className = 'v24k-empty';
-      li.textContent = 'No match in this room — try a shorter word, or Ctrl/⌘ K for the whole library.';
-      list.appendChild(li);
-    }
-    count.textContent = hits.length
-      ? 'showing ' + Math.min(hits.length, 14) + ' of ' + hits.length + ' matches'
-      : 'no matches yet';
-  };
-  input.addEventListener('input', draw);
-  draw();
-  const pal = document.createElement('div');
-  pal.className = 'v24k-palette';
-  pal.setAttribute('hidden', '');
-  pal.innerHTML = '<div class="v24k-backdrop"></div>' +
-    '<div class="v24k-panel" role="dialog" aria-modal="true" aria-label="Command palette">' +
-    '<input class="v24k-pq" type="search" autocomplete="off" placeholder="Jump to a work, teacher, case or term…" aria-label="Search works, teachers, cases and terms">' +
-    '<ul class="v24k-list" role="listbox" aria-label="Results"></ul>' +
-    '<p class="v24k-foot">Enter to open · Esc to close · ↑ ↓ to move</p></div>';
-  made.app.appendChild(pal);
-  const pInput = pal.querySelector('.v24k-pq');
-  const pList = pal.querySelector('.v24k-list');
-  let items = [];
-  let active = 0;
-  const pDraw = () => {
-    pList.innerHTML = '';
-    const slice = items.slice(0, 40);
-    if (!slice.length) {
-      const li = document.createElement('li');
-      li.className = 'v24k-empty';
-      li.textContent = 'No match. Try a shorter word.';
-      pList.appendChild(li);
-      return;
-    }
-    slice.forEach((it, i) => {
-      const li = document.createElement('li');
-      li.className = 'v24k-item' + (i === active ? ' is-active' : '');
-      li.setAttribute('role', 'option');
-      li.innerHTML = '<span class="v24k-kind">' + escHtml(it.kind) + '</span><span>' + escHtml(it.label) + '</span>' +
-        (it.sub ? '<span class="v24k-sub">' + escHtml(it.sub) + '</span>' : '');
-      li.addEventListener('click', () => {
-        b24kClose(pal);
-        if (typeof paletteGo === 'function') paletteGo(it);
-      });
-      li.addEventListener('mouseenter', () => { active = i; pDraw(); });
-      pList.appendChild(li);
-    });
-  };
-  const pQuery = () => {
-    const q = normalizeForSearch(pInput.value.trim());
-    items = (typeof buildPaletteIndex === 'function' ? buildPaletteIndex() : [])
-      .filter(it => !q || normalizeForSearch(it.label + ' ' + (it.sub || '')).includes(q));
-    active = 0;
-    pDraw();
-  };
-  pal._v24kQuery = pQuery;
-  pInput.addEventListener('input', pQuery);
-  pInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') { b24kClose(pal); return; }
-    if (e.key === 'ArrowDown') { active = Math.min(active + 1, Math.min(items.length, 40) - 1); pDraw(); e.preventDefault(); return; }
-    if (e.key === 'ArrowUp') { active = Math.max(active - 1, 0); pDraw(); e.preventDefault(); return; }
-    if (e.key === 'Enter') {
-      const it = items[Math.min(active, items.length - 1)];
-      if (it) {
-        b24kClose(pal);
-        if (typeof paletteGo === 'function') paletteGo(it);
-      }
-      e.preventDefault();
-    }
-  });
-  pal.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') trapFocus(e, pal.querySelector('.v24k-panel'));
-  });
-  pal.addEventListener('click', (e) => {
-    if (e.target === pal || (e.target.closest && e.target.closest('.v24k-backdrop'))) b24kClose(pal);
-  });
-  openBtn.addEventListener('click', () => b24kOpen(pal));
-  b24kArmKeys();
-}
-// == rebuild:24 end == // == rebuild:23 end == // == rebuild:22 end == // == rebuild:21 end == // == rebuild:20 end == // == rebuild:19 end ==
-// == rebuild:25 begin — Batch 5 slot 25: Trail + PrevNext + Slider + Inline Origin; redeclares roomTrailPrevNext ==
-function b5El(tag) { return document.createElement(tag); }
-function b25bDraw(bar, room, here) {
-  let html = '<button type="button" class="v25b-crumb" data-v25b-home>Home</button>';
-  if (room !== 'reader') html += '<span class="v25b-sep" aria-hidden="true">›</span><button type="button" class="v25b-crumb" data-v25b-room="' + room + '">' + escHtml(b1RoomName(room)) + '</button>';
-  if (here) html += '<span class="v25b-sep" aria-hidden="true">›</span><span class="v25b-here">' + escHtml(clipText(here, 32)) + '</span>';
-  bar.innerHTML = html;
-}
-function b25bTrail(room) {
-  const bar = b5El('nav'); bar.className = 'v25b-trail'; bar.setAttribute('aria-label', 'Bookmark trail');
-  bar.addEventListener('click', (e) => { const b = e.target && e.target.closest ? e.target.closest('.v25b-crumb') : null; if (!b) return; if (b.hasAttribute('data-v25b-home')) switchView('reader'); else { const r = b.getAttribute('data-v25b-room'); if (r) switchView(r); } });
-  return bar;
-}
-function b5bRail(host, room, units, headCls, btnCls) {
-  const rh = b5El('h3'); rh.className = headCls; rh.textContent = 'In this room'; host.appendChild(rh);
-  units.slice(0, 24).forEach((unit, i) => { const h = unitHeadline(room, unit, i); const rb = b1Btn(btnCls, clipText(h.kicker + ' ' + h.en, 24) || ('Item ' + (i + 1))); rb.addEventListener('click', () => scrollToUnit(unit)); host.appendChild(rb); });
-}
-function roomTrailPrevNext(room, root) {
-  b1HideFleetNav(); const made = b4Root(root, 'v25b-app'); if (!made) return;
-  const bar = b25bTrail(room); made.app.appendChild(bar);
-  const head = b5El('header'); head.className = 'v25b-bar'; head.innerHTML = '<strong>Trail + related</strong><span>bottom trail marks where you are</span>';
-  const nav = b5El('nav'); nav.className = 'v25b-nav'; b1RoomButtons(nav, room, 'v25b-navbtn', '', null); head.appendChild(nav); made.app.appendChild(head);
-  const body = b5El('div'); body.className = 'v25b-body';
-  const col = b5El('div'); col.className = 'v25b-col';
-  const rail = b5El('aside'); rail.className = 'v25b-rail'; rail.setAttribute('aria-label', 'Parts in this room');
-  body.append(col, rail); made.app.appendChild(body); col.append(...made.old);
-  const units = roomUnits(col, room);
-  b5bRail(rail, room, units, 'v25b-railhead', 'v25b-railbtn');
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const u = b5El('article'); u.className = 'v25b-unit'; if (unit.parentNode) unit.parentNode.insertBefore(u, unit);
-    const face = b5El('div'); face.className = 'v25b-face'; face.innerHTML = b1Face('v25b-k', 'v25b-zh', h, 'Part ' + (i + 1));
-    const orig = b1Btn('v25b-orig', 'origin');
-    const note = b5El('div'); note.className = 'v25b-ornote'; note.hidden = true; note.appendChild(b4Info('', unitInfoRowsFor(room, unit, i), harvestExtras(unit, room)));
-    orig.addEventListener('click', () => { note.hidden = !note.hidden; orig.setAttribute('aria-expanded', note.hidden ? 'false' : 'true'); });
-    face.appendChild(orig); u.append(face, unit);
-    if (room === 'matrix') {
-      const rows = Array.from(unit.querySelectorAll('.matrix-register-row'));
-      if (rows.length > 1) {
-        const mix = b5El('div'); mix.className = 'v25b-mix';
-        const input = b5El('input'); input.type = 'range'; input.min = '0'; input.max = String(rows.length - 1); input.setAttribute('aria-label', 'Blend the witnesses of this line');
-        const outp = b5El('span'); outp.className = 'v25b-out';
-        const apply = () => { const v = parseInt(input.value, 10) || 0; rows.forEach((r, j) => r.classList.toggle('is-emphasis', j === v)); outp.textContent = (v + 1) + ' of ' + rows.length + ' of the witnesses of this line'; };
-        input.addEventListener('input', apply); mix.append(input, outp); u.appendChild(mix); apply();
-      }
-    }
-    const pn = b5El('div'); pn.className = 'v25b-pnrow';
-    const prev = b1Btn('v25b-pn', '‹ Previous');
-    const next = b1Btn('v25b-pn', 'Next ›');
-    if (i === 0) prev.hidden = true;
-    if (i === units.length - 1) next.hidden = true;
-    const why = b5El('span'); why.className = 'v25b-why'; why.textContent = 'part ' + (i + 1) + ' of ' + units.length + ' · neighbours are the record just before and after';
-    prev.addEventListener('click', () => { scrollToUnit(units[i - 1]); b25bDraw(bar, room, 'Previous part'); });
-    next.addEventListener('click', () => { scrollToUnit(units[i + 1]); b25bDraw(bar, room, 'Next part'); });
-    pn.append(prev, next, why); u.appendChild(pn);
-  });
-  b25bDraw(bar, room, null);
-}
-// == rebuild:26 begin — Batch 5 slot 26: Empty State Guidance; redeclares roomEmptyState ==
-function b26eGuide(room) {
-  const doc = (state.data.corpus || {})[state.currentCorpusKey] || {};
-  const related = room === 'reader' ? relatedTeachersForCorpusKey(state.currentCorpusKey) : [];
-  const answers = [
-    ['What is Chan?', 'Chan (also called Zen) is the school of Buddhism these records come from. Its teaching is carried in short encounters — a teacher asks, a student answers, and the point is met in the moment.'],
-    ['Where do the works come from?', room === 'reader' ? 'This work, ' + escHtml(corpusTitle()) + ', comes from the CBETA digital canon, witness ' + escHtml(stringValue(doc.cbeta_id) || 'not recorded') + '. The project holds an excerpt-scale seed of it; each English line is a separate, marked rendering.' : 'Every work comes from the CBETA digital canon, the standard scholarly digital edition of the Buddhist canon. The project holds excerpt-scale seeds; each English line is a separate, marked rendering.'],
-    ['Who is related?', related.length ? 'Teachers linked here: ' + escHtml(related.map(m => masterDisplayName(m)).join(', ')) + '. The Lineage room holds the full register.' : 'Teachers are profiled in the Lineage room, each with where they came from, who is related, and background.'],
-    ['What is the background?', 'Machine-made drafts are marked as drafts; quoted renderings carry their edition record. The factory is proudly fake, the records are real.']
-  ];
-  const g = b5El('section'); g.className = 'v26e-guide';
-  g.innerHTML = '<p class="v26e-gk">Start with plain words</p><h2 class="v26e-gt">' + escHtml(room === 'reader' ? corpusTitle() : b1RoomName(room)) + '</h2>' + answers.map(a => '<details class="v26e-q"><summary>' + escHtml(a[0]) + '</summary><p>' + a[1] + '</p></details>').join('');
-  return g;
-}
-function roomEmptyState(room, root) {
-  b1HideFleetNav(); const made = b4Root(root, 'v26e-app'); if (!made) return;
-  const lintel = b5El('header'); lintel.className = 'v26e-lintel'; lintel.innerHTML = '<strong>Plain start</strong><span>what it is · where from · who related · background</span>'; made.app.appendChild(lintel);
-  b4NavRow(made.app, room, 'v26e-nav', 'v26e-navbtn');
-  const col = b5El('div'); col.className = 'v26e-col'; made.app.appendChild(col); col.append(...made.old);
-  const units = roomUnits(col, room);
-  const guide = b26eGuide(room); if (units.length) guide.classList.add('is-closed');
-  const tog = b1Btn('v26e-tog', units.length ? 'Hide the guide' : 'Open the guide'); guide.appendChild(tog);
-  tog.addEventListener('click', () => { const closed = guide.classList.toggle('is-closed'); tog.setAttribute('aria-expanded', closed ? 'false' : 'true'); tog.textContent = closed ? 'Open the guide' : 'Hide the guide'; });
-  made.app.insertBefore(guide, col);
-  if (!units.length) { const none = b5El('p'); none.className = 'v26e-none'; none.textContent = room === 'reader' ? 'No work is open yet — pick one from the library above, or read the four plain answers first.' : 'Nothing to show here right now — the guide above says what the room is for.'; col.appendChild(none); return; }
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const u = b5El('article'); u.className = 'v26e-unit'; if (unit.parentNode) unit.parentNode.insertBefore(u, unit);
-    u.appendChild(b4Face('v26e-face', 'v26e-k', 'v26e-zh', h, 'Item ' + (i + 1))); u.appendChild(unit);
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows.length || harvestExtras(unit, room).length) { const d = b1Fold('v26e-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); u.appendChild(d); }
-  });
-}
-// == rebuild:27 begin — Batch 5 slot 27: Comparison Slider; redeclares roomComparisonSlider ==
-function b27cRight(room, unit, i) {
-  const a = b5El('div'); const b = b5El('div'); a.className = 'v27c-a'; b.className = 'v27c-b';
-  if (room === 'reader') {
-    const zh = queryText(unit, '.classical-zh'); const doc = (state.data.corpus || {})[state.currentCorpusKey] || {}; const related = relatedTeachersForCorpusKey(state.currentCorpusKey);
-    a.innerHTML = zh ? '<blockquote class="v27c-srczh" lang="zh">' + escHtml(zh) + '</blockquote>' : '<p class="v27c-quiet">No Classical Chinese line recorded for this part yet.</p>';
-    b.innerHTML = '<div class="context-info-body">' + infoRows([['Witness', 'CBETA canon witness ' + escHtml(stringValue(doc.cbeta_id) || 'not recorded') + '.'], ['Related', related.length ? 'Teachers linked: ' + escHtml(related.map(m => masterDisplayName(m)).join(', ')) + '.' : 'No profiled teacher linked yet.'], ['Background', 'The Chinese is the source; each English rendering is a separate, marked voice.']]) + '</div>';
-    return [a, b];
-  }
-  const rows = unitInfoRowsFor(room, unit, i);
-  a.innerHTML = '<div class="context-info-body">' + infoRows(rows.slice(0, 2)) + '</div>';
-  b.innerHTML = '<div class="context-info-body">' + infoRows(rows.slice(2)) + '</div>';
-  return [a, b];
-}
-function roomComparisonSlider(room, root) {
-  b1HideFleetNav(); const made = b4Root(root, 'v27c-app'); if (!made) return;
-  const lintel = b5El('header'); lintel.className = 'v27c-lintel'; lintel.innerHTML = '<strong>Witness blend</strong>';
-  const out = b5El('span'); out.className = 'v27c-out'; lintel.appendChild(out); made.app.appendChild(lintel);
-  const ctl = b5El('div'); ctl.className = 'v27c-ctl';
-  const lab = b5El('span'); lab.className = 'v27c-lab'; lab.textContent = room === 'matrix' ? 'Blend the English witnesses' : 'Context level';
-  const input = b5El('input'); input.type = 'range'; input.className = 'v27c-range';
-  ctl.append(lab, input); made.app.appendChild(ctl);
-  b4NavRow(made.app, room, 'v27c-nav', 'v27c-navbtn');
-  const book = b5El('div'); book.className = 'v27c-book'; made.app.appendChild(book); book.append(...made.old);
-  const units = roomUnits(book, room);
-  const matrix = room === 'matrix' ? (Array.isArray(state.data.translations_matrix) ? state.data.translations_matrix : []) : [];
-  const maxReg = matrix.reduce((mx, it) => Math.max(mx, it && Array.isArray(it.translators) ? it.translators.length : 0), 1);
-  if (room === 'matrix') { input.min = '0'; input.max = String(Math.max(0, maxReg - 1)); input.value = '0'; }
-  else { input.min = '0'; input.max = '2'; input.value = '1'; book.classList.add('lv1'); }
-  const sheets = [];
-  const apply = () => {
-    const v = parseInt(input.value, 10) || 0;
-    if (room === 'matrix') {
-      sheets.forEach(sh => {
-        let vi = Math.min(v, sh.slts.length - 1); if (vi < 0) vi = 0;
-        sh.slts.forEach(s => s.toggleAttribute('hidden', parseInt(s.getAttribute('data-v27c-i'), 10) !== vi));
-        sh.regs.forEach(r => r.classList.toggle('is-on', parseInt(r.getAttribute('data-v27c-i'), 10) === vi));
-      });
-      out.textContent = 'register ' + (v + 1) + ' of ' + maxReg + ' at the left';
-    } else {
-      book.classList.toggle('lv0', v === 0); book.classList.toggle('lv1', v === 1); book.classList.toggle('lv2', v === 2);
-      out.textContent = v === 0 ? 'English only' : (v === 1 ? 'English + source' : 'English + source + context');
-    }
-  };
-  input.addEventListener('input', apply);
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const sheet = b5El('article'); sheet.className = 'v27c-sheet'; if (unit.parentNode) unit.parentNode.insertBefore(sheet, unit);
-    sheet.appendChild(b4Face('v27c-face', 'v27c-k', 'v27c-fzh', h, 'Item ' + (i + 1)));
-    const panes = b5El('div'); panes.className = 'v27c-panes';
-    const left = b5El('div'); const right = b5El('div'); left.className = 'v27c-left'; right.className = 'v27c-right';
-    panes.append(left, right); sheet.appendChild(panes);
-    if (room === 'matrix') {
-      const item = matrix[i]; const regs = item && Array.isArray(item.translators) ? item.translators : [];
-      const host = b5El('div'); host.className = 'v27c-slthost'; left.appendChild(host);
-      const list = b5El('div'); list.className = 'v27c-regs'; right.appendChild(list);
-      const slts = []; const regBtns = [];
-      regs.forEach((t, j) => {
-        const s = b5El('p'); s.className = 'v27c-slt'; s.setAttribute('data-v27c-i', String(j)); s.hidden = j !== 0; s.textContent = stringValue(t.text) || 'No rendering recorded.'; host.appendChild(s); slts.push(s);
-        const r = b5El('button'); r.type = 'button'; r.className = 'v27c-reg' + (j === 0 ? ' is-on' : ''); r.setAttribute('data-v27c-i', String(j));
-        r.innerHTML = '<span class="v27c-regname">' + escHtml(stringValue(t.translator) || 'Unnamed register') + '</span><span class="v27c-regmeta">' + escHtml(stringValue(t.work) || 'work not recorded') + '</span>';
-        r.addEventListener('click', () => { input.value = String(j); apply(); }); list.appendChild(r); regBtns.push(r);
-      });
-      if (!regs.length) { const p = b5El('p'); p.className = 'v27c-quiet'; p.textContent = 'No registers recorded for this line.'; host.appendChild(p); }
-      sheets.push({ slts: slts, regs: regBtns });
-      right.appendChild(unit);
-    } else {
-      left.appendChild(unit); const pair = b27cRight(room, unit, i); right.append(pair[0], pair[1]);
-    }
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows.length) { const d = b1Fold('v27c-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); sheet.appendChild(d); }
-  });
-  apply();
-}
-// == rebuild:28 begin — Batch 5 slot 28: Inline Teacher Origin; redeclares roomInlineOrigin ==
-function b28oOrigin(m) {
-  const d = b5El('button'); d.type = 'button'; d.className = 'v28o-origin';
-  const era = [stringValue(m.dates), stringValue(m.era)].filter(Boolean).join(' · ') || 'era not recorded';
-  d.innerHTML = '<span class="v28o-name">' + escHtml(masterDisplayName(m)) + (m.name_zh ? ' <span class="v28o-mzh" lang="zh">' + escHtml(m.name_zh) + '</span>' : '') + '</span><span class="v28o-era">' + escHtml(era) + '</span><span class="v28o-originbody"><span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span></span>';
-  d.addEventListener('click', () => d.classList.toggle('is-pinned'));
-  return d;
-}
-function roomInlineOrigin(room, root) {
-  b1HideFleetNav(); const made = b4Root(root, 'v28o-app'); if (!made) return;
-  const rail = b5El('aside'); rail.className = 'v28o-rail'; rail.setAttribute('aria-label', 'Rooms and teacher origin');
-  rail.innerHTML = '<h2 class="v28o-brand">Teacher origin</h2><p class="v28o-note">name and era stay inline · hover or tap to expand origin</p>';
-  const nav = b5El('nav'); nav.className = 'v28o-nav'; b1RoomButtons(nav, room, 'v28o-navbtn', '', null); rail.appendChild(nav);
-  const main = b5El('div'); main.className = 'v28o-main'; made.app.append(rail, main); main.append(...made.old);
-  const lead = b5El('section'); lead.className = 'v28o-lead'; lead.innerHTML = '<p class="v28o-kick">Teacher first</p>';
-  const lineage = Array.isArray(state.data.lineage) ? state.data.lineage : [];
-  let cards = 0;
-  if (room === 'reader') relatedTeachersForCorpusKey(state.currentCorpusKey).slice(0, 4).forEach(m => { lead.appendChild(b28oOrigin(m)); cards++; });
-  else if (room === 'lineage') lineage.slice(0, 4).forEach(m => { lead.appendChild(b28oOrigin(m)); cards++; });
-  if (!cards) { const p = b5El('p'); p.className = 'v28o-none'; p.textContent = room === 'reader' ? 'No profiled teacher is linked to this work yet — the rooms below still carry where the record came from.' : 'Teacher origin leads every room; the Lineage room carries the full register.'; lead.appendChild(p); }
-  main.insertBefore(lead, main.firstChild);
-  const units = roomUnits(main, room);
-  const railList = b5El('div'); railList.className = 'v28o-teacherlist';
-  if (room === 'lineage' && units.length) units.slice(0, 6).forEach((unit, i) => { const b = b1Btn('v28o-railbtn', clipText(unitHeadline(room, unit, i).en || 'Teacher ' + (i + 1), 24)); b.addEventListener('click', () => scrollToUnit(unit)); railList.appendChild(b); });
-  else { const p = b5El('p'); p.className = 'v28o-railnote'; p.textContent = room === 'reader' ? 'The teachers above open on hover; the reading continues below.' : 'The origin block above leads this room.'; railList.appendChild(p); }
-  rail.appendChild(railList);
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const u = b5El('article'); u.className = 'v28o-unit'; if (unit.parentNode) unit.parentNode.insertBefore(u, unit);
-    u.appendChild(b4Face('v28o-face', 'v28o-k', 'v28o-fzh', h, 'Item ' + (i + 1))); u.appendChild(unit);
-    if (room === 'lineage') {
-      const nameEl = unit.querySelector('.lineage-master-name-en');
-      const idm = unit.getAttribute ? unit.getAttribute('data-master-card') : null;
-      const m = lineage.find(x => x && x.id === idm);
-      if (nameEl && nameEl.parentNode && m) {
-        const chip = b5El('button'); chip.type = 'button'; chip.className = 'v28o-chip';
-        const pop = b5El('span'); pop.className = 'v28o-pop'; pop.innerHTML = '<span class="context-info-body">' + infoRows(teacherRowsFor(m)) + '</span>';
-        chip.appendChild(pop); nameEl.parentNode.insertBefore(chip, nameEl); chip.appendChild(nameEl);
-        chip.addEventListener('click', () => chip.classList.toggle('is-pinned'));
-      }
-    }
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows.length) { const d = b1Fold('v28o-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); u.appendChild(d); }
-  });
-}
-// == rebuild:29 begin — Batch 5 slot 29: Minimal Header + Full-Bleed; redeclares roomFullBleed ==
-function roomFullBleed(room, root) {
-  b1HideFleetNav(); const made = b4Root(root, 'v29f-app'); if (!made) return;
-  const head = b5El('header'); head.className = 'v29f-head';
-  const hin = b5El('div'); hin.className = 'v29f-headin'; hin.innerHTML = '<strong>Full-bleed reader</strong>';
-  const nav = b5El('nav'); nav.className = 'v29f-nav'; b1RoomButtons(nav, room, 'v29f-navbtn', '', null);
-  hin.appendChild(nav); head.appendChild(hin); made.app.appendChild(head);
-  const body = b5El('div'); body.className = 'v29f-body';
-  const col = b5El('div'); col.className = 'v29f-col';
-  const rail = b5El('aside'); rail.className = 'v29f-rail'; rail.setAttribute('aria-label', 'Parts in this room');
-  body.append(col, rail); made.app.appendChild(body); col.append(...made.old);
-  const units = roomUnits(col, room);
-  b5bRail(rail, room, units, 'v29f-railhead', 'v29f-railbtn');
-  units.forEach((unit, i) => {
-    const band = b5El('section'); band.className = 'v29f-band';
-    const bandin = b5El('div'); bandin.className = 'v29f-bandin';
-    if (unit.parentNode) unit.parentNode.insertBefore(band, unit);
-    band.appendChild(bandin); bandin.appendChild(unit);
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows.length || harvestExtras(unit, room).length) { const d = b1Fold('v29f-ctx', 'Where from · related · background'); d.appendChild(b4Info('', rows, harvestExtras(unit, room))); bandin.appendChild(d); }
-  });
-}
-// == rebuild:30 begin — Batch 5 slot 30: Magazine Spread; redeclares roomMagazine ==
-function roomMagazine(room, root) {
-  b1HideFleetNav(); const made = b4Root(root, 'v30m-app'); if (!made) return;
-  const lintel = b5El('header'); lintel.className = 'v30m-lintel'; lintel.innerHTML = '<strong>Magazine spread</strong><span>English left · context right</span>'; made.app.appendChild(lintel);
-  b4NavRow(made.app, room, 'v30m-nav', 'v30m-navbtn');
-  const doc = room === 'reader' ? (state.data.corpus || {})[state.currentCorpusKey] || {} : null;
-  const rzh = (b1RoomList().find(x => x[0] === room) || [])[2] || '';
-  const zhLine = (room === 'reader' && doc.title_zh) || rzh;
-  const mast = b5El('section'); mast.className = 'v30m-mast';
-  mast.innerHTML = '<p class="v30m-mk">' + (room === 'reader' ? 'The work, in spread form' : 'Room in spread form') + '</p><h2 class="v30m-mt">' + escHtml(room === 'reader' ? corpusTitle() : b1RoomName(room)) + '</h2>' + (zhLine ? '<p class="v30m-mzh" lang="zh">' + escHtml(zhLine) + '</p>' : '');
-  made.app.appendChild(mast);
-  const spread = b5El('div'); spread.className = 'v30m-spread';
-  const story = b5El('div'); story.className = 'v30m-story';
-  const margin = b5El('aside'); margin.className = 'v30m-margin'; margin.setAttribute('aria-label', 'Context margin');
-  const mctx = b1Fold('v30m-ctx', 'About this room — where from · related · background');
-  const mbody = b5El('div'); mbody.className = 'v30m-ctxbody'; mbody.innerHTML = room === 'reader' ? readerInfoStackHtml() : infoRows(roomInfoRowsFor(room));
-  mctx.appendChild(mbody); margin.appendChild(mctx); spread.append(story, margin); made.app.appendChild(spread); story.append(...made.old);
-  const units = roomUnits(story, room);
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const pg = b5El('article'); pg.className = 'v30m-pg'; if (unit.parentNode) unit.parentNode.insertBefore(pg, unit); pg.appendChild(unit);
-    if (i === 0) { const prose = unit.querySelector('.translation-text, .prose-en, .matrix-register-text'); if (prose) prose.classList.add('v30m-drop'); }
-    const rows = unitInfoRowsFor(room, unit, i);
-    if (rows.length || harvestExtras(unit, room).length) { const d = b1Fold('v30m-note', (h.kicker || 'Item ' + (i + 1)) + ' · where from · related · background'); const nb = b5El('div'); nb.className = 'v30m-notebody'; nb.appendChild(b4Info('', rows, harvestExtras(unit, room))); d.appendChild(nb); margin.appendChild(d); }
-  });
-}
-// == rebuild:30 end == // == rebuild:29 end == // == rebuild:28 end == // == rebuild:27 end == // == rebuild:26 end == // == rebuild:25 end ==
-
-// Batch 6 (work order 2026-09-18-letter-002 items 6-7 — final batch, owner-rated):
-// slots 31-35 rebuilt from scratch on NEW skeletons per the approved grid
-// (.orchestrator/DESIGN_GRID_2026-09-18_36_DISTINCT.md — six-axis unique tuples,
-// the F1/F2 copy-paste cure decided at structural-axis level, not by class names).
-// Pure append at the module tail: each block redeclares its fleet room enhancer
-// (the later function declaration wins in this module scope), so the existing
-// enhanceRoomLayout dispatcher picks the rebuild up with no earlier byte touched.
-// Hoisted function declarations only — no scope-level const/let (TDZ when
-// startApp() runs mid-body, rebuild:3 precedent); no inline style writes, no
-// setProperty; teardown rides the shared resetLayoutRuntime + re-render path.
-// ==
-// == rebuild:31 begin — Batch 6 slot 31 NEW skeleton: Card Wall — top-lintel / masonry-wall 18rem / thematic / comfortable-default / scale-1.2-min-0.8rem / modal dossier; redeclares roomCardWall ==
-function b6E(tag, cls) { const n = document.createElement(tag); n.className = cls; return n; }
-function b6T(tag, cls, text) { const n = b6E(tag, cls); n.textContent = text; return n; }
-function b6Root(root, cls) {
-  if (!root || !root.querySelectorAll || root.querySelector(':scope > .' + cls)) return null;
-  const old = Array.from(root.childNodes), app = document.createElement('div');
-  app.className = cls; root.appendChild(app);
-  return { old: old, app: app };
-}
-function b6Nav(host, room, cls, btnCls) {
-  const nav = b6E('nav', cls); nav.setAttribute('aria-label', 'Rooms');
-  b1RoomButtons(nav, room, btnCls, '', null); host.appendChild(nav); return nav;
-}
-function b6Face(cls, h, fb) { const d = b6E('div', cls); d.innerHTML = b1Face(cls + '-k', cls + '-zh', h, fb); return d; }
-function b6Ctx(cls, label, room, unit, i) {
-  const rows = unitInfoRowsFor(room, unit, i), extras = harvestExtras(unit, room);
-  if (!rows.length && !extras.length) return null;
-  const d = b1Fold(cls, label); d.appendChild(b4Info('', rows, extras)); return d;
-}
-function b6Stack(cls, room) {
-  const d = b1Fold(cls, 'About this room — where from · related · background'), body = b6E('div', cls + '-body');
-  body.innerHTML = b1StackHtml(room); d.appendChild(body); return d;
-}
-function b31wTheme(room, unit) {
-  if (room === 'gongan') return queryText(unit, '.catalogue-theme') || 'Cases';
-  if (room === 'lineage') return queryText(unit, '.lineage-master-house') || 'Transmission';
-  if (room === 'lexicon') return queryText(unit, '.lexicon-entry-cat') || 'Terms';
-  if (room === 'matrix') return clipText(queryText(unit, '.matrix-ref-clean'), 26) || 'Source lines';
-  return clipText(corpusTitle(), 42) || 'Parts';
-}
-function roomCardWall(room, root) {
-  b1HideFleetNav();
-  const made = b6Root(root, 'v31w-app'); if (!made) return;
-  const lintel = b6E('header', 'v31w-lintel');
-  lintel.innerHTML = '<strong>Card wall</strong><span>themes · open a card for its dossier</span>';
-  made.app.appendChild(lintel);
-  b6Nav(made.app, room, 'v31w-nav', 'v31w-navbtn');
-  const chrome = b6E('div', 'v31w-chrome'), wall = b6E('div', 'v31w-wall');
-  made.app.append(chrome, wall); chrome.append(...made.old);
-  const modal = b6E('div', 'v31w-modal'); modal.hidden = true;
-  modal.setAttribute('role', 'dialog'); modal.setAttribute('aria-modal', 'true');
-  modal.innerHTML = '<div class="v31w-sheet"><button type="button" class="v31w-close">Close</button>' +
-    '<div class="v31w-sheethead"></div><div class="v31w-sheetbody"></div></div>';
-  made.app.appendChild(modal);
-  const sheetHead = modal.querySelector('.v31w-sheethead'), sheetBody = modal.querySelector('.v31w-sheetbody');
-  let held = null, holder = null;
-  const close = () => { if (held && holder) holder.appendChild(held); modal.hidden = true; held = null; holder = null; };
-  modal.querySelector('.v31w-close').addEventListener('click', close);
-  modal.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
-  const groups = {};
-  roomUnits(chrome, room).forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i), theme = b31wTheme(room, unit);
-    if (!groups[theme]) {
-      const sec = b6E('section', 'v31w-group');
-      sec.appendChild(b6T('h3', 'v31w-gt', theme)); wall.appendChild(sec); groups[theme] = sec;
-    }
-    const head = '<p class="v31w-k">' + escHtml(h.kicker || 'Item ' + (i + 1)) + '</p>' +
-      '<h4 class="v31w-t">' + escHtml(h.en || 'Untitled') + '</h4>' +
-      (h.zh ? '<p class="v31w-zh" lang="zh">' + escHtml(h.zh) + '</p>' : '') +
-      (h.note ? '<p class="v31w-note">' + escHtml(clipText(h.note, 84)) + '</p>' : '');
-    const card = b6E('article', 'v31w-card'); card.innerHTML = head;
-    const body = b6E('div', 'v31w-dossier'); body.hidden = true; body.appendChild(unit);
-    const ctx = b6Ctx('v31w-ctx', 'Where from · related · background', room, unit, i);
-    if (ctx) body.appendChild(ctx);
-    const btn = b1Btn('v31w-open', 'Open dossier');
-    btn.addEventListener('click', () => {
-      if (held && holder && held !== body) holder.appendChild(held);
-      held = body; holder = card;
-      body.hidden = false; sheetHead.innerHTML = head; sheetBody.appendChild(body); modal.hidden = false;
-      const c = modal.querySelector('.v31w-close'); if (c) c.focus();
-    });
-    card.append(body, btn); groups[theme].appendChild(card);
-  });
-  made.app.appendChild(b6Stack('v31w-room', room));
-}
-// == rebuild:32 begin — Batch 6 slot 32 NEW skeleton: Vertical Timeline — side-rail-left / dots left content right / chronological re-order / comfortable-default / scale-1.2-min-0.78rem-alt / native-details; redeclares roomVerticalTimeline ==
-function b32tWhen(room, unit, i) {
-  if (room === 'lineage') return queryText(unit, '.lineage-master-gen') || 'Gen ' + (i + 1);
-  if (room === 'gongan') return queryText(unit, '.catalogue-case') || 'Case ' + (i + 1);
-  if (room === 'matrix') return clipText(queryText(unit, '.matrix-ref-clean'), 30) || 'Line ' + (i + 1);
-  if (room === 'lexicon') return queryText(unit, '.lexicon-entry-cat') || 'Term ' + (i + 1);
-  return queryText(unit, '.case-heading-kicker') || 'Part ' + (i + 1);
-}
-function b32tOrder(room, unit, i) {
-  if (room === 'lineage' || room === 'gongan') {
-    const m = /(\d+)/.exec(b32tWhen(room, unit, i));
-    return m ? parseInt(m[1], 10) : 900 + i;
-  }
-  if (room === 'lexicon') {
-    const m = /(\d+)/.exec(queryText(unit, '.lexicon-entry-count'));
-    return m ? -parseInt(m[1], 10) : i;
-  }
-  return i;
-}
-function roomVerticalTimeline(room, root) {
-  b1HideFleetNav();
-  const made = b6Root(root, 'v32t-app'); if (!made) return;
-  const shell = b6E('div', 'v32t-shell'), rail = b6E('aside', 'v32t-rail'), main = b6E('div', 'v32t-main');
-  rail.setAttribute('aria-label', 'Rooms and the recorded order');
-  shell.append(rail, main); made.app.appendChild(shell);
-  const head = b6E('div', 'v32t-head');
-  head.innerHTML = '<strong>Vertical timeline</strong><span>one dot per record · in recorded order</span>';
-  main.appendChild(head);
-  b6Nav(rail, room, 'v32t-nav', 'v32t-navbtn');
-  rail.appendChild(b6Stack('v32t-ctx', room));
-  const chrome = b6E('div', 'v32t-chrome'); main.appendChild(chrome); chrome.append(...made.old);
-  const seq = roomUnits(chrome, room).map((unit, i) => ({ unit: unit, i: i, k: b32tOrder(room, unit, i) }))
-    .sort((a, b) => (a.k - b.k) || (a.i - b.i));
-  rail.appendChild(b6T('h3', 'v32t-rh', 'In recorded order'));
-  const list = b6E('div', 'v32t-list'); main.appendChild(list);
-  seq.forEach((row, n) => {
-    const h = unitHeadline(room, row.unit, row.i), when = b32tWhen(room, row.unit, row.i);
-    const jump = b1Btn('v32t-jump', clipText(when + ' · ' + (h.en || ''), 30));
-    jump.addEventListener('click', () => scrollToUnit(row.unit));
-    rail.appendChild(jump);
-    const item = b6E('article', 'v32t-item'), body = b6E('div', 'v32t-body');
-    item.appendChild(b6T('span', 'v32t-dot', '')).setAttribute('aria-hidden', 'true');
-    body.appendChild(b6T('p', 'v32t-when', when + ' · ' + (n + 1) + ' of ' + seq.length));
-    body.appendChild(b6Face('v32t-face', h, 'Item ' + (row.i + 1)));
-    body.appendChild(row.unit);
-    const fold = b6Ctx('v32t-src', 'Source & context — where from · related · background', room, row.unit, row.i);
-    if (fold) body.appendChild(fold);
-    item.appendChild(body); list.appendChild(item);
-  });
-}
-// == rebuild:33 begin — Batch 6 slot 33 NEW skeleton: Split 60/40 Resizable — side-rail-right / split-60-40 drag handle / english-first-then-source / comfortable-default / scale-1.125-min-0.85rem-alt / native-details; redeclares roomSplitResizable ==
-function b33sPct(split) { return parseInt(split.getAttribute('data-v33s') || '40', 10); }
-function roomSplitResizable(room, root) {
-  b1HideFleetNav();
-  const made = b6Root(root, 'v33s-app'); if (!made) return;
-  const head = b6E('header', 'v33s-head');
-  head.innerHTML = '<strong>Split 60 / 40</strong><span>English on the reading side · the rail holds the rooms, the size control and every source</span>';
-  made.app.appendChild(head);
-  const split = b6E('div', 'v33s-split'); split.setAttribute('data-v33s', '40');
-  const reader = b6E('div', 'v33s-reader'), handle = b6E('div', 'v33s-handle'), rail = b6E('aside', 'v33s-rail');
-  handle.tabIndex = 0; handle.setAttribute('role', 'separator'); handle.setAttribute('aria-orientation', 'vertical');
-  handle.setAttribute('aria-label', 'Resize the reading side and the context rail');
-  handle.appendChild(b6T('span', 'v33s-grip', '')).setAttribute('aria-hidden', 'true');
-  rail.setAttribute('aria-label', 'Rooms, split control and source context');
-  split.append(reader, handle, rail); made.app.appendChild(split);
-  reader.append(...made.old);
-  b6Nav(rail, room, 'v33s-nav', 'v33s-navbtn');
-  const ctl = b6E('div', 'v33s-size'), range = b6E('input', 'v33s-range'), out = b6E('span', 'v33s-out');
-  range.type = 'range'; range.min = '30'; range.max = '70'; range.step = '10';
-  range.setAttribute('aria-label', 'Context rail width, percent of the room');
-  ctl.append(b6T('span', 'v33s-sizelabel', 'Left / rail'), range, out);
-  rail.appendChild(ctl);
-  const setSplit = (p) => {
-    const n = Math.max(30, Math.min(70, Math.round((Number(p) || 40) / 10) * 10));
-    split.setAttribute('data-v33s', String(n)); range.value = String(n); out.textContent = (100 - n) + ' / ' + n;
-  };
-  setSplit(40);
-  range.addEventListener('input', () => setSplit(range.value));
-  handle.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') setSplit(b33sPct(split) + 10);
-    else if (e.key === 'ArrowRight') setSplit(b33sPct(split) - 10);
-  });
-  let drag = false;
-  const at = (x) => {
-    const r = split.getBoundingClientRect ? split.getBoundingClientRect() : null;
-    if (r && r.width) setSplit(((r.right - x) / r.width) * 100);
-  };
-  handle.addEventListener('pointerdown', (e) => {
-    drag = true; at(e.clientX);
-    if (handle.setPointerCapture && e.pointerId !== undefined) {
-      try { handle.setPointerCapture(e.pointerId); } catch (err) { drag = drag; }
-    }
-  });
-  handle.addEventListener('pointermove', (e) => { if (drag) at(e.clientX); });
-  handle.addEventListener('pointerup', () => { drag = false; });
-  handle.addEventListener('pointercancel', () => { drag = false; });
-  rail.appendChild(b6Stack('v33s-room', room));
-  rail.appendChild(b6T('h3', 'v33s-rh', 'Source of each part'));
-  const drawer = b6E('div', 'v33s-drawer'); rail.appendChild(drawer);
-  roomUnits(reader, room).forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const label = (h.kicker ? h.kicker + ' · ' : '') + (h.en || 'Item ' + (i + 1));
-    const panel = b1Fold('v33s-panel', clipText(label, 50));
-    panel.appendChild(b4Info('v33s-panelbody', unitInfoRowsFor(room, unit, i), harvestExtras(unit, room)));
-    drawer.appendChild(panel);
-    const btn = b1Btn('v33s-show', 'Source & context');
-    btn.addEventListener('click', () => {
-      panel.open = true; btn.setAttribute('aria-expanded', 'true');
-      if (panel.scrollIntoView) panel.scrollIntoView({ behavior: motionBehavior(), block: 'nearest' });
-    });
-    unit.appendChild(btn);
-  });
-}
-// == rebuild:34 begin — Batch 6 slot 34 NEW skeleton: Glossary Sidebar + Footnotes — side-rail-left 14rem glossary / single-continuous-column / english-first-then-source / comfortable-default / scale-1.125-min-0.78rem / expand-on-hover tooltips + numbered notes rail; redeclares roomGlossaryBar ==
-function b34gTerms() {
-  const list = Array.isArray(state.data.glossary) ? state.data.glossary : [], seen = {}, out = [];
-  list.forEach(t => {
-    const lit = t ? stringValue(t.literal) : '';
-    if (!lit || lit.length < 5 || seen[lit] || out.length >= 24) return;
-    seen[lit] = 1;
-    out.push({ lit: lit, zh: stringValue(t.term), py: stringValue(t.pinyin), def: stringValue(t.definition) });
-  });
-  return out;
-}
-function b34gWrap(block, terms) {
-  if (!block || !terms.length || block.dataset.v34gDone === '1') return;
-  block.dataset.v34gDone = '1';
-  const walker = document.createTreeWalker(block, 4, null), texts = [];
-  while (walker.nextNode()) texts.push(walker.currentNode);
-  const byLower = {}, alt = [], used = {};
-  terms.forEach(t => { byLower[t.lit.toLowerCase()] = t; alt.push(t.lit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')); });
-  const re = new RegExp('(' + alt.join('|') + ')', 'gi');
-  let hits = 0;
-  texts.forEach(node => {
-    const raw = node.nodeValue || '';
-    if (raw.length < 5) return;
-    const parts = raw.split(re);
-    if (parts.length < 2) return;
-    const frag = document.createDocumentFragment();
-    parts.forEach(p => {
-      const t = p ? byLower[p.toLowerCase()] : null;
-      const key = t ? t.lit.toLowerCase() : '';
-      // one hover-note per term per part, ten at most: enough to teach the
-      // vocabulary without turning the prose into a field of tab stops
-      if (!t || used[key] || hits >= 10) { if (p) frag.appendChild(document.createTextNode(p)); return; }
-      used[key] = 1; hits++;
-      const s = b6E('span', 'v34g-t'); s.tabIndex = 0;
-      s.setAttribute('role', 'button');
-      s.setAttribute('aria-label', 'Plain-language note for ' + p);
-      const tip = b6E('span', 'v34g-tip'); tip.setAttribute('role', 'tooltip');
-      tip.innerHTML = '<strong>' + escHtml(t.lit) + '</strong> <span class="v34g-tipzh" lang="zh">' + escHtml(t.zh) +
-        '</span><br>' + escHtml(t.py) + ' — ' + escHtml(clipText(t.def, 190));
-      s.appendChild(document.createTextNode(p)); s.appendChild(tip); frag.appendChild(s);
-    });
-    if (node.parentNode) node.parentNode.replaceChild(frag, node);
-  });
-}
-function roomGlossaryBar(room, root) {
-  b1HideFleetNav();
-  const made = b6Root(root, 'v34g-app'); if (!made) return;
-  const head = b6E('header', 'v34g-head');
-  head.innerHTML = '<strong>Glossary reading</strong><span>dotted terms explain themselves on hover · every part carries a numbered note</span>';
-  made.app.appendChild(head);
-  const shell = b6E('div', 'v34g-shell'), left = b6E('aside', 'v34g-side');
-  const col = b6E('div', 'v34g-col'), right = b6E('aside', 'v34g-side');
-  left.setAttribute('aria-label', 'Rooms and the plain-language glossary');
-  right.setAttribute('aria-label', 'Footnotes for every part');
-  shell.append(left, col, right); made.app.appendChild(shell);
-  b6Nav(left, room, 'v34g-nav', 'v34g-navbtn');
-  left.appendChild(b6T('h3', 'v34g-sh', 'Terms in plain words'));
-  const terms = b34gTerms();
-  terms.forEach(t => {
-    const b = b6E('span', 'v34g-term'); b.tabIndex = 0;
-    b.innerHTML = escHtml(t.lit) + '<span class="v34g-tb"><strong>' + escHtml(t.zh) + '</strong> ' + escHtml(t.py) +
-      '<br>' + escHtml(clipText(t.def, 150)) + '</span>';
-    left.appendChild(b);
-  });
-  right.appendChild(b6T('h3', 'v34g-sh', 'Notes'));
-  right.appendChild(b6Stack('v34g-room', room));
-  const chrome = b6E('div', 'v34g-chrome'); col.appendChild(chrome); chrome.append(...made.old);
-  roomUnits(chrome, room).forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const idea = b6E('section', 'v34g-idea');
-    if (unit.parentNode) unit.parentNode.insertBefore(idea, unit);
-    const row = b6E('div', 'v34g-ideahead');
-    row.appendChild(b6Face('v34g-face', h, 'Part ' + (i + 1)));
-    const note = b6E('div', 'v34g-note'), nbody = b6E('div', 'v34g-notebody');
-    nbody.innerHTML = unitInfoRowsFor(room, unit, i).map(r => '<p><strong>' + r[0] + '</strong> ' + r[1] + '</p>').join('');
-    note.append(b6T('span', 'v34g-num', String(i + 1)),
-      b6T('span', 'v34g-notehead', clipText(h.en || 'Item ' + (i + 1), 34)), nbody);
-    right.appendChild(note);
-    const mark = b1Btn('v34g-mark', 'note ' + (i + 1));
-    mark.setAttribute('aria-label', 'Open note ' + (i + 1) + ' in the footnotes sidebar');
-    mark.addEventListener('click', () => {
-      right.querySelectorAll('.v34g-note').forEach(n => n.classList.remove('is-open'));
-      note.classList.add('is-open'); mark.setAttribute('aria-expanded', 'true');
-      if (note.scrollIntoView) note.scrollIntoView({ behavior: motionBehavior(), block: 'nearest' });
-    });
-    row.appendChild(mark);
-    idea.append(row, unit);
-    const src = b6Ctx('v34g-src', 'Chinese source · where from · related · background', room, unit, i);
-    if (src) idea.appendChild(src);
-    col.appendChild(idea);
-    b34gWrap(unit, terms);
-  });
-}
-// == rebuild:35 begin — Batch 6 slot 35 NEW skeleton: Focus + TOC Hybrid 10rem/40rem/10rem — bottom-sheet-nav / single-continuous-column with sparse one-idea sections / english-first-then-source / sparse-single-idea / scale-1.25-min-0.85rem / bookmark-trail + progress rail; redeclares roomFocusTocHybrid ==
-function b35hProgress(app, units, meter, pct) {
-  if (!units.length || typeof window === 'undefined' || !app.isConnected) return;
-  const update = () => {
-    if (!app.isConnected) { window.removeEventListener('scroll', update, true); return; }
-    let seen = 0;
-    for (let i = 0; i < units.length; i++) {
-      const r = units[i].getBoundingClientRect ? units[i].getBoundingClientRect() : null;
-      if (r && r.top < (window.innerHeight || 0) * 0.62) seen = i + 1;
-    }
-    const v = Math.round((seen / units.length) * 100);
-    meter.value = v; pct.textContent = v + '% read';
-  };
-  window.addEventListener('scroll', update, true);
-  update();
-}
-function roomFocusTocHybrid(room, root) {
-  b1HideFleetNav();
-  const made = b6Root(root, 'v35h-app'); if (!made) return;
-  const grid = b6E('div', 'v35h-grid'), toc = b6E('nav', 'v35h-toc');
-  const col = b6E('div', 'v35h-col'), rail = b6E('aside', 'v35h-rail');
-  toc.setAttribute('aria-label', 'In this ' + (ROOM_NOUN[room] || 'room'));
-  rail.setAttribute('aria-label', 'Progress');
-  grid.append(toc, col, rail); made.app.appendChild(grid);
-  const ol = b6E('ul', 'v35h-list');
-  toc.append(b6T('h3', 'v35h-th', 'In this ' + (ROOM_NOUN[room] || 'room')), ol);
-  const meter = b6E('progress', 'v35h-meter'); meter.max = 100; meter.value = 0;
-  const pct = b6T('span', 'v35h-pct', '0% read');
-  rail.append(b6T('h3', 'v35h-rh', 'Progress'), meter, pct);
-  rail.appendChild(b6Stack('v35h-room', room));
-  const bar = b6E('div', 'v35h-bar'), sheetBtn = b1Btn('v35h-sheetbtn', 'Rooms');
-  sheetBtn.setAttribute('aria-expanded', 'false');
-  const crumbs = b6E('nav', 'v35h-crumbs'); crumbs.setAttribute('aria-label', 'Bookmark trail');
-  bar.append(sheetBtn, crumbs);
-  const sheet = b6E('div', 'v35h-sheet'); sheet.hidden = true;
-  const sheetIn = b6E('div', 'v35h-sheetin'); sheet.appendChild(sheetIn);
-  b6Nav(sheetIn, room, 'v35h-nav', 'v35h-navbtn');
-  const setSheet = (open) => {
-    sheet.hidden = !open;
-    sheetBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    sheetBtn.textContent = open ? 'Close rooms' : 'Rooms';
-  };
-  sheetBtn.addEventListener('click', () => setSheet(sheet.hidden));
-  sheet.addEventListener('keydown', (e) => { if (e.key === 'Escape') setSheet(false); });
-  made.app.append(bar, sheet);
-  const crumb = (label, unit) => {
-    const b = b1Btn('v35h-crumb', label);
-    b.addEventListener('click', () => { if (unit) scrollToUnit(unit); else switchView('reader'); });
-    if (crumbs.childNodes.length) {
-      const sep = b6T('span', 'v35h-sep', '›'); sep.setAttribute('aria-hidden', 'true'); crumbs.appendChild(sep);
-    }
-    crumbs.appendChild(b);
-    const all = crumbs.querySelectorAll('.v35h-crumb');
-    if (all.length > 4) crumbs.removeChild(all[0]);
-  };
-  crumb('Home', null);
-  const chrome = b6E('div', 'v35h-chrome'); col.appendChild(chrome); chrome.append(...made.old);
-  const units = roomUnits(chrome, room);
-  units.forEach((unit, i) => {
-    const h = unitHeadline(room, unit, i);
-    const idea = b6E('section', 'v35h-idea');
-    if (unit.parentNode) unit.parentNode.insertBefore(idea, unit);
-    idea.append(b6Face('v35h-face', h, (ROOM_NOUN[room] || 'Item') + ' ' + (i + 1)), unit);
-    const src = b6Ctx('v35h-src', 'Source · where from · related · background', room, unit, i);
-    if (src) idea.appendChild(src);
-    col.appendChild(idea);
-    const tb = b1Btn('v35h-tocbtn', clipText(h.en || 'Item ' + (i + 1), 22));
-    tb.setAttribute('aria-label', (h.kicker ? h.kicker + ' · ' : '') + clipText(h.en || 'Untitled', 60));
-    tb.addEventListener('click', () => {
-      ol.querySelectorAll('.v35h-tocbtn').forEach(x => x.removeAttribute('aria-current'));
-      tb.setAttribute('aria-current', 'true');
-      crumb(clipText(h.en || 'Item ' + (i + 1), 20), unit);
-      scrollToUnit(unit);
-    });
-    const li = b6E('li', 'v35h-li'); li.appendChild(tb); ol.appendChild(li);
-  });
-  b35hProgress(made.app, units, meter, pct);
-}
-// == rebuild:35 end == // == rebuild:34 end == // == rebuild:33 end == // == rebuild:32 end == // == rebuild:31 end ==
 
 })();

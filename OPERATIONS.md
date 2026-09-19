@@ -148,6 +148,40 @@ Website ruling law gate — kept ON even while experimenting because it enforces
 
 **Status:** Applied per owner explicit request to turn off presentation gates while experimenting (scope boundary allows workflow edit with explicit owner approval). Text integrity gates remain required. Presentation breakage allowed to enable drastic layout changes across ALL rooms (Reader, Compare, Lineage, Cases, Terms), different tab counts allowed, ideal colors of 1 kept, 30MB ceiling.
 
+## Edit 6 — Retire the per-variant acceptance gate now that the demo layouts are gone (2026-09-19)
+
+**File:** `.github/workflows/quality.yml`
+**Reason:** the step *"Per-variant acceptance gate for rebuilt layouts"* derives its variant list
+from the diff (`git diff … -- app.css | grep -o 'rebuild:[0-9][0-9]* begin'`) and then runs
+`scripts/check_layout_variant.py N` for each N. The 2026-09-19 Pages rebuild deleted every
+`rebuild:NN` block (3–36) from `app.css` and `app.js`, so the only occurrences of that token in
+the diff are the *deleted* lines: the gate now resolves variants 3–36, looks for blocks that no
+longer exist, and fails with `variant N: no marked rebuild block 'rebuild:N begin' in app.css`.
+The gate polices a scaffold that this PR removes, so it cannot pass by construction.
+
+**Suggested patch** (owner-side; agents may not edit workflow files):
+
+```yaml
+      - name: Per-variant acceptance gate for rebuilt layouts
+        run: |
+          if git grep -q 'rebuild:[0-9][0-9]* begin' -- app.css app.js; then
+            git fetch --depth=1 origin main 2>/dev/null || true
+            variants="$(git diff --unified=0 FETCH_HEAD -- app.css 2>/dev/null | grep -o 'rebuild:[0-9][0-9]* begin' | grep -o '[0-9][0-9]*' | sort -un || true)"
+            status=0
+            for v in $variants; do
+              echo "Acceptance — variant $v"
+              python3 scripts/check_layout_variant.py "$v" || status=1
+            done
+            exit $status
+          fi
+          echo "No rebuild:NN variant scaffold in the tree — per-variant acceptance gate retired."
+```
+
+**Also pending (same reason, cosmetic):** `scripts/check_layout_variant.py` and its `__pycache__`
+entry are dead weight once no `rebuild:NN` block exists; deleting the script is an owner call.
+Nothing else in `scripts/` references the variant scaffold (verified 2026-09-19: the only repo
+files still naming `rebuild:`/`data-design` are `check_layout_variant.py` itself and this record).
+
 ## Validation after either edit
 
 ```bash
