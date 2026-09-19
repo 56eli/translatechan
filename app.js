@@ -230,9 +230,12 @@
     // pipeline change — boot simply skips DOM building for rooms nobody is
     // looking at.
     switchViewRaw(state.currentView, false); // sync nav/section classes with the initial hash
-    // The margin follows the sheet from the first passage onward.
+    // The margin follows the sheet from the first passage onward — but it is
+    // only *shown* on entry where it is a column. Under the hall's rail
+    // breakpoint the same rail is a sheet over the text, so nothing opens
+    // itself: the reader asks for it (Context in the mobile bar, or a door).
     armScrollSpy();
-    if (READER_PREFS.contextOn) marginFollowCurrent(true);
+    if (READER_PREFS.contextOn && marginWide()) marginFollowCurrent(true);
   }
 
   // L1 (audit 2026-08-10, session 019feabb): dismissable hero banner.
@@ -902,6 +905,14 @@
     document.documentElement.setAttribute('data-margin', 'closed');
     const toggle = document.getElementById('context-toggle');
     if (toggle && typeof toggle.setAttribute === 'function') toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  // Is there room for the third column? Below this width the rail is a sheet
+  // over the text, so it must never open itself — a tap asks for it. The number
+  // is the same 1180px the stylesheet switches on in app.css (THE HALL section).
+  function marginWide() {
+    if (typeof window.matchMedia !== 'function') return true;
+    return window.matchMedia('(min-width: 1180px)').matches;
   }
 
   // Dossier atoms. Every record is a lede in plain language, the ledger, then
