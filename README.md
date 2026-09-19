@@ -40,6 +40,22 @@ The five-room public SPA presents one walnut **gate**: a lintel carrying the bra
   (headword Chinese under its literal gloss, definition, category in the margin). Nothing was cut to get there: the register's master rows hand the
   summary, texts, names and evidence state to the dossier, which stays one activation away, and every disclosure the rooms carried before is still
   printed — including the lineage scaffold profiles' pending-locator wording.
+- **The margin — the built-in wiki (2026-09-19):** the Reader is three columns, not two: the
+  library rail, the sheet, and a margin that carries whatever the reader is looking at. One entity
+  index is built from the shipped bundle (masters, works, terms, cases, registers); source Chinese
+  and the English registers are annotated from it, so a name, a term or a case title is a door into
+  its record — with the Chinese itself never rewritten, only wrapped. The record is one component in
+  five shapes: a lede in plain language, the ledger rows (dates, canonical id, source-review state,
+  evidence note), then the doors out of it (the work dossier, the case record, the register's
+  real-fakeness). While nothing is pinned the margin follows the passage on screen; ⌘K opens an
+  index palette over every record in the bundle. Hover, focus and Enter are all first-class, and a
+  phone gets the same record as a sheet rising from the bottom edge.
+- **The demo foundation is gone (2026-09-19):** the 36 numbered layout demonstrations (the
+  `rebuild:NN` switcher, `applyDesignVariant`, per-variant CSS and the orphaned `enhanceRoomLayout`
+  runtime) were removed rather than pruned: `grep -c 'data-design\|rebuild:\|design-switcher'` is
+  now 0 in `index.html`, `app.js` and `app.css`, which fell from 14,992 to ~3,600 lines in the
+  process. The per-variant acceptance gate in CI is therefore inapplicable — see
+  `OPERATIONS.md` Edit 6 for the owner-side workflow change that retires it.
 - **Responsive and accessible behavior:** 1024 / 768 / 480 px breakpoints (the secondary rooms now carry all three: bands and catalogue rows collapse
   their column grids to stacked rows), contrast-safe tokens, reduced-motion handling, keyboard tabs, reader-scoped mobile controls regrouped into two
   clusters (text · move) with 44 px touch targets, `lang="zh"` on every source-Chinese block, and — since Phase 3 — **zero inline style attributes**
