@@ -73,15 +73,18 @@ Rules
 * The allowlist is exercised by a focused regression on a temporary copy of the
   tree: a nested `coverage_note` change must exit nonzero and name the exact
   path. The repository's own corpus files are never modified by any check here.
-* One new corpus file is declared: `data/corpus/congronglu.json`, the
-  2026-09-20 Congronglu reinstatement (task 043, owner-ruled). It is a new
-  extraction from the pinned CBETA T48n2004 witness — not a copy of the
-  2026-08-10 quarantined seed — so it is `DECLARED_NEW_CORPUS`, and every field
-  in it is additionally checked against the pinned witness extraction by that
-  task's own producer and collation (`scripts/collate_corpus.py --doc
-  congronglu`: 601 EXACT, 0 flagged). Any *other* new corpus file is a failure.
+* Two new corpus files are declared: `data/corpus/congronglu.json`, the
+  2026-09-20 Congronglu reinstatement (task 043, owner-ruled) — a new
+  extraction from the pinned CBETA T48n2004 witness (100 cases;
+  `scripts/collate_corpus.py --doc congronglu`: 500/500 EXACT, 0 flagged) — and
+  `data/corpus/chuandenglu_full.json`, the 2026-09-20 full 30-fascicle Jingde
+  Chuandeng Lu (task 045) — a new extraction from the pinned CBETA T51n2076
+  witness (1,274 units; `scripts/collate_corpus.py --doc chuandenglu_full`:
+  2,549/2,549 EXACT, 0 flagged), a sibling of the untouched `chuandenglu`
+  excerpt record, from which nothing is copied. Any *other* new corpus file is
+  a failure.
 * The set of corpus files must not grow or shrink, except for the declared new
-  document above.
+  documents above.
 * The `docs/data/corpus` mirror must be byte-identical to `data/corpus`.
 
 Run: python3 scripts/test_source_preservation.py   (exit 0 = preserved)
@@ -118,6 +121,14 @@ DECLARED_NEW_CORPUS = {
         "no quarantined record copied). Declared evidence: "
         "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json + "
         "sessions/COLLATION_W1_2026-09-20_CORRECTION.md."
+    ),
+    "data/corpus/chuandenglu_full.json": (
+        "2026-09-20 full 30-fascicle Jingde Chuandeng Lu (task 045): a new extraction from the "
+        "pinned CBETA T51n2076 witness (1,274 units — 971 biography entries, 69 titled works, 234 "
+        "sections — tiling all 350,269 CJK characters of the 30 fascicles; 2,549/2,549 fields "
+        "EXACT, 0 flagged; sibling of the untouched `chuandenglu` excerpt record, nothing copied "
+        "from it). Declared evidence: sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json "
+        "+ sessions/P1_CHUANDENGLU_FULL_2026-09-20.md."
     ),
 }
 

@@ -219,6 +219,13 @@ DOCS = {
     # reference anchor, so its reference is verified against the authoritative manifest
     # only and that drift is declared via --new-document (see the 2026-09-20 overlay).
     'congronglu': (['T48n2004'], []),
+    # 2026-09-20 (task 045): full 30-fascicle Jingde Chuandeng Lu from the pinned T51n2076
+    # witness (sibling of the `chuandenglu` excerpt record). 1,274 units (971 biography
+    # entries, 69 titled works, 234 sections) tiling all 350,269 CJK characters of the
+    # 30 fascicles verbatim. T51n2076 carries the same digest in the 2026-09-09 and the
+    # 2026-09-20 manifests, so its reference has a verified historical anchor; the
+    # document itself is new to the evidence record and declared via --new-document.
+    'chuandenglu_full': (['T51n2076'], []),
     'wumenguan': (['T48n2005'], []),
     'xinxin_ming': (['T48n2010'], []),
     'biyanlu_cases': (['T48n2003'], []),

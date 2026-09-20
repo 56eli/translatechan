@@ -278,8 +278,8 @@ eval(readFileSync(join(ROOT, 'app_data.js'), 'utf8'));
 if (!window.TRANSLATECHAN_DATA) throw new Error('app_data.js did not populate TRANSLATECHAN_DATA');
 const manifest = window.TRANSLATECHAN_DATA.corpus_manifest;
 const manifestItems = manifest?.items || [];
-if (!Array.isArray(manifestItems) || manifestItems.length !== 36) {
-  throw new Error('app_data.js is missing the shared 36-item corpus manifest');
+if (!Array.isArray(manifestItems) || manifestItems.length !== 37) {
+  throw new Error('app_data.js is missing the shared 37-item corpus manifest');
 }
 const allowedSourceReviewStatuses = new Set([
   'collated_to_claimed_witness',
@@ -306,7 +306,7 @@ if (!String(manifest.source_review?.status_scope || '').toLowerCase().includes('
   throw new Error('manifest source_review scope must identify containment/remediation rather than rights approval');
 }
 const expectedSourceReviewCounts = {
-  collated_to_claimed_witness: 2,
+  collated_to_claimed_witness: 3,
   partial_or_failed_w1_collation: 32,
   witness_unavailable: 2
 };
@@ -319,13 +319,13 @@ for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
 // declared here, and every number is re-derived below from the files it points at — so a pointer that
 // drifted off its evidence (or an evidence file that no longer supports the number) fails here.
 const authoritativeEvidence = {
-  correction_report_path: 'sessions/COLLATION_W1_2026-09-20_CORRECTION.md',
-  correction_register_path: 'sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json',
+  correction_report_path: 'sessions/COLLATION_W1_2026-09-20_CHUANDENGLU_FULL.md',
+  correction_register_path: 'sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json',
   correction_refs_manifest_path: 'sessions/COLLATION_W1_2026-09-20_refs_manifest.txt',
-  authoritative_register_path: 'sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json',
+  authoritative_register_path: 'sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json',
   correction_evidence_date: '2026-09-20',
   historical_documents: 34,
-  authoritative_documents: 36,
+  authoritative_documents: 37,
   historical_flagged_total: 622,
   authoritative_flagged_total: 630,
   superseded_report_flagged_total: 637
@@ -402,17 +402,17 @@ if (wumenguanManifestItem?.completion_status === 'complete_selected_witness' ||
     xinxinManifestItem?.completion_status === 'complete_selected_witness') {
   throw new Error('Wumenguan and Xinxin Ming must not be represented as complete selected witnesses');
 }
-if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 36 ||
-    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 36) {
+if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 37 ||
+    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 37) {
   throw new Error('app_data.js is missing validated metrics or canonical locator coverage');
 }
 // F4: per-text coverage metrics (zh counts, unit counts, representation strings,
 // and explicit editorial completion states) must exist for every corpus key.
 const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {};
-if (Object.keys(perText).length !== 36) {
+if (Object.keys(perText).length !== 37) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu', '100/100 cases'], ['platform_sutra', '10/10 chapters']]) {
+for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu', '100/100 cases'], ['chuandenglu_full', '1274/1274 cases'], ['platform_sutra', '10/10 chapters']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.is_complete !== false || perText.xinxin_ming?.is_complete !== false ||
@@ -505,7 +505,7 @@ for (const [key, fn] of Object.entries(corpusClicks)) {
     if (!collation.includes(statusLabels[expectedStatus] || '')) {
       failures++; console.log(`  ❌ source-collation ledger missing the human-readable status for ${key}`);
     }
-    for (const required of ['Containment/remediation state, not a rights decision.', 'Source collation does not approve reuse.', 'sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json']) {
+    for (const required of ['Containment/remediation state, not a rights decision.', 'Source collation does not approve reuse.', 'sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json']) {
       if (!collation.includes(required)) { failures++; console.log(`  ❌ source-collation ledger omits ${required} for ${key}`); }
     }
     if (!/\"evidence-date\"|data-evidence-date="2026-09-20"/.test(collation)) {
@@ -1059,7 +1059,7 @@ try {
   if (corpusListHtml.includes('Complete selected witness') || corpusListHtml.includes('data-completion-group="complete_selected_witness"')) {
     failures++; console.log('❌ 4ff: W1-contained corpus must not expose complete-selected-witness marks');
   }
-  for (const [group, label, count] of [['partial_selected_witness', 'Partial witnesses', 5], ['excerpt_seed', 'Excerpt seeds', 31]]) {
+  for (const [group, label, count] of [['partial_selected_witness', 'Partial witnesses', 6], ['excerpt_seed', 'Excerpt seeds', 31]]) {
     const groupHeading = `<span>${label}</span><span>${count}</span>`;
     if (!corpusListHtml.includes(`data-completion-group="${group}"`) || !corpusListHtml.includes(groupHeading)) {
       failures++; console.log(`❌ 4ff: missing ${label} (${count}) shelf group`);
@@ -1100,8 +1100,8 @@ try {
     await sleep(200);
     const restored = ids['corpus-selector-list']._innerHTML;
     const restoredCount = (restored.match(/data-corpus-key=/g) || []).length;
-    if (restoredCount !== 36) {
-      failures++; console.log(`❌ 4hh: clearing the filter should restore all 36 entries (got ${restoredCount})`);
+    if (restoredCount !== 37) {
+      failures++; console.log(`❌ 4hh: clearing the filter should restore all 37 entries (got ${restoredCount})`);
     }
   }
 } catch (e) { failures++; console.log(`❌ 4hh corpus filter spot-check crashed: ${e.message}`); }
