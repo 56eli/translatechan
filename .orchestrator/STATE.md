@@ -122,7 +122,7 @@ Executed so far: **PR #43 (2026-09-12)** fixes the six `CITATION` rows — `zhao
 
 ## Deferred / Technical Debt
 
-- **Congronglu reintroduction** — quarantined 2026-08-10 (generated source-looking placeholders). Blocked on source-pinned field-level collation from authoritative T48n2004 TEI. Do not restore.
+- **Congronglu reintroduction** — **DONE (2026-09-20, task 043):** the document was rebuilt from the authoritative T48n2004 TEI under source-pinned field-level collation — 100/100 cases, 500/500 source-content fields EXACT, 0 flagged, no quarantined record copied — and recorded in `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json` (which inherits the 2026-09-10 overlay's 35 entries verbatim, so the designated 630 flagged fields stay designated). The one reference caveat (no reproducible 2026-09-09 anchor for `T48n2004`) is adjudicated in `sessions/COLLATION_W1_2026-09-20_CORRECTION.md` §4. Still open: human editorial sign-off, the witness's front matter and interlinear 著語 apparatus, and gong'an indexing of the cases.
 - **`.github/workflows/quality.yml` artifact-diff gaps** (4 mirrored assets missing) — **CLOSED STRUCTURALLY BY O-3 (2026-09-13, main 3a6ae32):** documented in [`OPERATIONS.md`](../OPERATIONS.md) Edit 1, now resolved via structural check `git diff --exit-code -- app_data.js docs data/project_metrics.json` in Quality workflow (PR #45, O-3). The old per-file enumeration gap is gone; Edit 1 closed.
 - **Rights review** — all 14 `rights_manifest.json` sources await human/jurisdiction review. Human decision; not agent work. Edition verification never implies rights approval.
 

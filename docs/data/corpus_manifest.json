@@ -6,14 +6,14 @@
     "w1_register_path": "sessions/COLLATION_REGISTER_2026-09-09.json",
     "evidence_date": "2026-09-09",
     "status_scope": "Containment/remediation state, not a rights decision.",
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-10_CORRECTION.md",
-    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
-    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-10_refs_manifest.txt",
-    "correction_evidence_date": "2026-09-10",
-    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
-    "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-10 correction overlay is authoritative for current status; scripts/validate_data.py merges and re-derives both",
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CORRECTION.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+    "correction_evidence_date": "2026-09-20",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+    "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); scripts/validate_data.py merges and re-derives both",
     "historical_documents": 34,
-    "authoritative_documents": 35,
+    "authoritative_documents": 36,
     "historical_flagged_total": 622,
     "authoritative_flagged_total": 630,
     "superseded_report_flagged_total": 637,
@@ -277,6 +277,16 @@
       "cbeta": "X1357",
       "completion_status": "excerpt_seed",
       "source_review_status": "partial_or_failed_w1_collation"
+    },
+    {
+      "key": "congronglu",
+      "title": "Book of Serenity (從容錄)",
+      "cbeta": "T2004",
+      "unit_targets": {
+        "cases": 100
+      },
+      "completion_status": "partial_selected_witness",
+      "source_review_status": "collated_to_claimed_witness"
     }
   ]
 }

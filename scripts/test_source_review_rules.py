@@ -119,10 +119,10 @@ class Sandbox:
         shutil.rmtree(self.root, ignore_errors=True)
 
 
-AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json"
+AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json"
 REMEDIATION_PLAN = ".orchestrator/REMEDIATION_PLAN.md"
 HISTORICAL_REGISTER = "sessions/COLLATION_REGISTER_2026-09-09.json"
-CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-10_CORRECTION.md"
+CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-20_CORRECTION.md"
 
 
 def _is_metadata_path(path: str) -> bool:
@@ -145,8 +145,8 @@ def run_partition_and_report_regressions() -> None:
                 entry["metadata_summary"]["NOT_FOUND"] = 5
                 entry["content_fields_total"] = 5
                 entry["metadata_fields_total"] = 5
-                register["aggregate"]["content_fields_total"] = 923
-                register["aggregate"]["metadata_fields_total"] = 392
+                register["aggregate"]["content_fields_total"] = 1423
+                register["aggregate"]["metadata_fields_total"] = 491
                 sandbox.write(AUTH_REGISTER, register)
                 new_sha = hashlib.sha256((sandbox.root / AUTH_REGISTER).read_bytes()).hexdigest()
                 report = sandbox.read_text(CORRECTION_REPORT)
@@ -155,8 +155,8 @@ def run_partition_and_report_regressions() -> None:
                 expected_error = "content/metadata partition mismatch"
             else:
                 report = sandbox.read_text(CORRECTION_REPORT)
-                check("391 metadata fields" in report, "report test finds the labeled metadata claim")
-                sandbox.write_text(CORRECTION_REPORT, report.replace("391 metadata fields", "999 metadata fields", 1))
+                check("492 metadata fields" in report, "report test finds the labeled metadata claim")
+                sandbox.write_text(CORRECTION_REPORT, report.replace("492 metadata fields", "999 metadata fields", 1))
                 expected_error = "correction report states metadata fields as '999'"
             result = subprocess.run(
                 [sys.executable, str(sandbox.root / "scripts/validate_data.py"), "--write-metrics"],
@@ -172,8 +172,8 @@ def run_partition_and_report_regressions() -> None:
                 check("cited digest no longer matches" not in output,
                       "partition: updated register hash avoids unrelated citation failure")
                 metrics = sandbox.read("data/project_metrics.json")["corpus"]["source_review"]
-                check(metrics["content_fields_total"] == 924 and metrics["metadata_fields_total"] == 391,
-                      "partition: forged 923/392 totals were not written")
+                check(metrics["content_fields_total"] == 1424 and metrics["metadata_fields_total"] == 492,
+                      "partition: forged 1423/491 totals were not written")
             print(f"Focused mutation {label}: exit={result.returncode}, metrics_byte_identical={unchanged}")
         finally:
             sandbox.cleanup()
@@ -200,7 +200,7 @@ def mutation_aggregate_class_total(root: Sandbox) -> None:
 
 def mutation_report_total_to_999(root: Sandbox) -> None:
     text = root.read_text(CORRECTION_REPORT)
-    text = text.replace("(35 documents, 630 flagged entries)", "(35 documents, 999 flagged entries)", 1)
+    text = text.replace("(36 documents, 630 flagged entries)", "(36 documents, 999 flagged entries)", 1)
     root.write_text(CORRECTION_REPORT, text)
 
 
@@ -952,6 +952,55 @@ def main() -> int:
     run_compatibility_regression()
 
     run_partition_and_report_regressions()
+
+    # 12b. the overlay-only reference waiver is declared, load-bearing and bounded.
+    #     1) the live register declares exactly the document it adds, records the drift, and still
+    #        claims the collation on the pinned anchor;
+    #     2) dropping the declaration must fail — a drifted anchor may not silently support a
+    #        collated claim;
+    #     3) declaring a document the historical register already covers must fail — the waiver is
+    #        only for what this overlay adds.
+    waiver = Sandbox("overlay-only-waiver")
+    try:
+        register = waiver.read(AUTH_REGISTER)
+        declared = register.get("generation_parameters", {}).get("new_documents")
+        check(declared == ["congronglu"],
+              f"the live overlay declares the document it adds (new_documents={declared!r})")
+        entry = register["documents"]["congronglu"]
+        check(entry["source_review_status"] == source_review.COLLATED_STATUS
+              and entry["refs_historically_verified"] == 0
+              and entry["reference_verification"]["T48n2004"]["historical_status"] == "drift"
+              and entry["reference_verification"]["T48n2004"]["status"] == "verified",
+              "the reinstated document claims collation on a verified pinned anchor and records the "
+              "historical drift instead of rewriting it")
+        check("congronglu" in register["aggregate"]["documents_with_drifted_references"],
+              "the drifted historical anchor stays visible in the aggregate's drifted-reference list")
+
+        def drop_declaration(reg):
+            reg["generation_parameters"].pop("new_documents", None)
+
+        waiver.mutate_register(AUTH_REGISTER, drop_declaration)
+        result = waiver.run()
+        combined = result.stdout + result.stderr
+        check(result.returncode != 0, "removing the declared waiver fails validation")
+        check("do not verify against both digest anchors" in combined,
+              "the failure names the both-anchor rule that the waiver suspends")
+    finally:
+        waiver.cleanup()
+
+    false_waiver = Sandbox("overlay-only-waiver-bounded")
+    try:
+        def declare_covered_document(reg):
+            reg["generation_parameters"]["new_documents"] = ["congronglu", "wumenguan"]
+
+        false_waiver.mutate_register(AUTH_REGISTER, declare_covered_document)
+        result = false_waiver.run()
+        combined = result.stdout + result.stderr
+        check(result.returncode != 0, "declaring a historical document as new fails validation")
+        check("the historical register already covers" in combined,
+              "the failure says the waiver is only for documents this overlay adds")
+    finally:
+        false_waiver.cleanup()
 
     # 13. --reproduce flag conflicts: a re-typed replay flag fails in either CLI spelling,
     #     before the external reference directory is required.

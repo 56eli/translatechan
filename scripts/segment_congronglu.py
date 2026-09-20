@@ -199,15 +199,18 @@ COVERAGE_NOTE = (
 )
 
 CBETA_NOTE = (
-    "Reinstatement candidate for the seed quarantined on 2026-08-10. Corrected attribution: CBETA "
-    "work T48n2004, Taishō vol. 48 no. 2004, 萬松老人評唱天童覺和尚頌古從容庵錄 — Hongzhi "
-    "Zhengjue's 頌古 with Wansong Xingxiu's 評唱 (witness header: 宋 正覺頌古．元 行秀評唱); the "
-    "1224 CE completion date and the T48n2004/T2004 identifier claim were verified against the "
-    "pinned TEI file (sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md overturned the quarantined "
-    "record's case numbering and page claims against these same headings). This record is a new "
-    "extraction from the pinned witness: no quarantined Congronglu record was read or copied. "
-    "English and pinyin case titles are project drafts (not translations, not citable); the case "
-    "Chinese is witness text."
+    "Quarantined on 2026-08-10 (sessions/CONTAINMENT_2026-08-10_CONGRONGLU.md) for generated "
+    "source-looking placeholders and for case-number/page claims that the authoritative T48n2004 "
+    "headings disproved; this record is a new extraction from the pinned witness and copies nothing "
+    "from the quarantined seed. Attribution read from the witness itself: CBETA work T48n2004, "
+    "Taishō vol. 48 no. 2004, 萬松老人評唱天童覺和尚頌古從容庵錄 — Hongzhi Zhengjue's 頌古 with "
+    "Wansong Xingxiu's 評唱 (witness byline: 宋 正覺頌古．元 行秀評唱). Reinstated 2026-09-20: the "
+    "collation measured every represented field EXACT against this pinned witness (601 fields: 500 "
+    "source-content + 101 metadata, 0 flagged), so the claim rests on the pinned extraction; this "
+    "work id has no reproducible 2026-09-09 reference anchor, and that recorded drift is adjudicated "
+    "in sessions/COLLATION_W1_2026-09-20_CORRECTION.md §4 rather than hidden. English and pinyin case "
+    "titles are project-authored metadata, not witness text and not translations of any recorded "
+    "source; the Chinese fields are witness text."
 )
 
 

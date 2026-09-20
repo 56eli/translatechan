@@ -34,8 +34,10 @@ to agree with another stored number proves nothing about the underlying fields:
 
 Two records exist on purpose. `sessions/COLLATION_REGISTER_2026-09-09.json` is the
 historical W1 register (34 documents) and is append-only evidence;
-`sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` is a dated correction overlay
-(35 documents, including the item the original run never mapped). The overlay is
+`sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json` is the dated correction overlay
+(36 documents: it inherits the 35 per-document entries of the 2026-09-10 overlay
+verbatim and adds the Congrong Lu reinstatement measured against the pinned T48n2004
+witness; the 2026-09-10 overlay itself stays committed and unmodified). The overlay is
 authoritative for current status; the original stays readable and is still verified, so
 "the register and the report are missing, wrong, or internally inconsistent" cannot be
 papered over by editing one of them.
@@ -46,7 +48,13 @@ are checked against the two committed manifests byte-for-byte (the digests recor
 the register must equal the committed digests, and `verified`/`drift`/`unlisted` must
 be the truth for that digest). A drifted or unlisted reference never upgrades a W1
 status: a `collated_to_claimed_witness` claim whose claimed witness reference is not
-byte-verified against both anchors is a validation failure.
+byte-verified against both anchors is a validation failure. The one declared exception
+(2026-09-20, owner-ruled) is a document the overlay itself adds to the evidence: the
+historical pass predates it, so no historical anchor for its reference can exist. Such
+a key must be named in the register's `generation_parameters.new_documents`; its
+authoritative (pinned) anchor must still verify byte-identically; its historical state
+is still recorded in the entry and the aggregate's drifted-reference list; and any key
+the historical register already covers keeps the strict both-anchor rule.
 
 Nothing here re-scores a document: classification comes from `scripts/collate_corpus.py`
 and vocabulary/semantics from `scripts/source_review.py`.
@@ -104,11 +112,16 @@ FIXED_METADATA = {
     "evidence_date": "2026-09-09",
     "status_scope": source_review.STATUS_SCOPE,
     "non_approval_statement": source_review.NON_APPROVAL_STATEMENT,
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-10_CORRECTION.md",
-    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
-    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-10_refs_manifest.txt",
-    "correction_evidence_date": "2026-09-10",
-    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+    # 2026-09-20 (task 043, owner-ruled): the authoritative overlay moves to the dated 2026-09-20
+    # record so the Congrong Lu reinstatement (100 cases from the pinned T48n2004 witness) can be
+    # recorded. The 2026-09-10 overlay and its 2026-09-09 manifest stay committed and unmodified as
+    # the historical record; the new overlay inherits its 35 per-document entries verbatim and adds
+    # exactly one measured document.
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CORRECTION.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+    "correction_evidence_date": "2026-09-20",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
 }
 #: The historical digest manifest is part of the committed evidence even though the
 #: manifest metadata only declares the correction side by name.
@@ -420,8 +433,22 @@ def _flag_classes(entry: dict[str, Any], path: str, problems: EvidenceIssues) ->
 
 def validate_entry(key: str, entry: Any, required_keys: tuple[str, ...], is_authoritative: bool,
                    current_digests: dict[str, str], historical_digests: dict[str, str],
-                   path: str, problems: EvidenceIssues) -> None:
-    """One document entry: key integrity + all internal arithmetic + reference provenance."""
+                   path: str, problems: EvidenceIssues,
+                   declared_new_documents: frozenset[str] = frozenset()) -> None:
+    """One document entry: key integrity + all internal arithmetic + reference provenance.
+
+    `declared_new_documents` names the keys this overlay added to the evidence with no historical
+    evidence record (recorded in `generation_parameters.new_documents`). For those keys only, a
+    historical reference anchor that is `drift`/`unlisted` is a recorded fact rather than a veto:
+    the historical pass predates the document, so no anchor could exist. The authoritative
+    (pinned) anchor must still verify byte-identically, and a document that *is* covered by the
+    historical register keeps the strict rule — drift never upgrades a claim.
+
+    Transitional compatibility: an authoritative register generated before this key existed
+    (e.g. the 2026-09-10 overlay, or a `--reproduce` replay of it) declares no `new_documents`,
+    and every key it contains is covered by the historical register, so the strict rule applies
+    exactly as before.
+    """
     if not isinstance(entry, dict):
         problems.error(path, f"{key}: evidence entry is not an object")
         return
@@ -575,8 +602,10 @@ def validate_entry(key: str, entry: Any, required_keys: tuple[str, ...], is_auth
             problems.error(path, f"{key}: refs_historically_verified is {refs_hist} but "
                                  f"{historically_verified_witnesses} claimed witness reference(s) verify against "
                                  "the historical manifest")
+        waived = key in declared_new_documents
         if stored == source_review.COLLATED_STATUS and (
-            verified_witnesses != len(witness_set) or historically_verified_witnesses != len(witness_set)
+            verified_witnesses != len(witness_set)
+            or (historically_verified_witnesses != len(witness_set) and not waived)
         ):
             bad = sorted(work for work in witness_set & set(rv)
                          if isinstance(rv[work], dict)
@@ -584,7 +613,9 @@ def validate_entry(key: str, entry: Any, required_keys: tuple[str, ...], is_auth
                               or rv[work].get("historical_status") not in ("verified", "none")))
             problems.error(path, f"{key}: claims {source_review.COLLATED_STATUS} but reference(s) "
                                  f"{', '.join(bad) or '(missing)'} do not verify against both digest anchors; "
-                                 "a drifted or unlisted reference never upgrades a W1 status")
+                                 "a drifted or unlisted reference never upgrades a W1 status"
+                                 + (" (the overlay declares this key new, but its authoritative anchor "
+                                    "does not verify either)" if waived else ""))
 
 
 def _harness_normalizer():
@@ -818,10 +849,31 @@ def validate_authoritative_register(reg: Any, path: str, record: dict[str, Any],
         if not isinstance(params.get("note"), list):
             problems.error(path, "generation_parameters.note must be the verbatim operator notes")
 
+    # Declared overlay-only additions: the register names the keys it adds to the evidence with no
+    # historical record, so the historical-anchor waiver is declared rather than implied.
+    declared_new = params.get("new_documents") if isinstance(params, dict) else None
+    if declared_new is None:
+        declared_new_documents: frozenset[str] = frozenset()
+    elif not isinstance(declared_new, list) or any(not isinstance(k, str) for k in declared_new):
+        problems.error(path, "generation_parameters.new_documents must be a list of document keys")
+        declared_new_documents = frozenset()
+    else:
+        declared_new_documents = frozenset(declared_new)
+        overlay_only = sorted(set(docs) - set(historical_docs))
+        for key in sorted(declared_new_documents):
+            if key not in docs:
+                problems.error(path, f"generation_parameters.new_documents names {key!r}, which is not a "
+                                     "document in this register")
+            elif key not in overlay_only:
+                problems.error(path, f"generation_parameters.new_documents names {key!r}, which the "
+                                     "historical register already covers; the waiver is only for documents "
+                                     "this overlay adds")
+
     # Per-document arithmetic and reference provenance.
     for key in sorted(docs):
         validate_entry(key, docs[key], REQUIRED_ENTRY_KEYS_AUTHORITATIVE, True,
-                       current_digests, historical_digests, f"{path}.documents.{key}", problems)
+                       current_digests, historical_digests, f"{path}.documents.{key}", problems,
+                       declared_new_documents=declared_new_documents)
 
     # Top-level reference verification block, recomputed from the per-entry details
     # and the two committed manifests.
@@ -1115,7 +1167,9 @@ def validate_correction_report(text: str, path: str, record: dict[str, Any],
         problems.error(path, f"correction report covers the historical record as "
                              f"{hist_match.group(1)}/{hist_match.group(2)} documents/flags but the register holds "
                              f"{len(historical_docs)}/{hist_flagged}")
-    auth_match = re.search(r"COLLATION_REGISTER_2026-09-10_CORRECTION\.json` \((\d+) documents, (\d+) flagged entries\)", prose)
+    register_name = str(record.get("correction_register_path") or "").rsplit("/", 1)[-1]
+    auth_pattern = re.escape(register_name) + r"` \((\d+) documents, (\d+) flagged entries\)"
+    auth_match = re.search(auth_pattern, prose)
     if auth_match and (int(auth_match.group(1)), int(auth_match.group(2))) != (recomputed_docs, recomputed_flagged):
         problems.error(path, f"correction report covers the authoritative record as "
                              f"{auth_match.group(1)}/{auth_match.group(2)} documents/flags but the register holds "
@@ -1159,10 +1213,13 @@ def validate_correction_report(text: str, path: str, record: dict[str, Any],
     expect(r"Verification results for the (\d+) works the collator actually reads",
            "the work count the collator reads", len(current_digests))
     expect(r"Across all (\d+) manifest works", "the historical manifest work count", len(historical_digests))
+    manifest_name = str(record.get("correction_refs_manifest_path") or "").rsplit("/", 1)[-1]
     current_row = re.search(
-        r"COLLATION_W1_2026-09-10_refs_manifest\.txt` \([^)]*\)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|", prose)
+        re.escape(manifest_name)
+        + r"` \([^)]*\)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|", prose)
     historical_row = re.search(
-        r"COLLATION_W1_2026-09-09_refs_manifest\.txt` \([^)]*\)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|", prose)
+        re.escape(HISTORICAL_REFS_MANIFEST.rsplit("/", 1)[-1])
+        + r"` \([^)]*\)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|", prose)
     if not current_row:
         problems.error(path, "correction report does not state verification against the authoritative manifest")
     else:
@@ -1195,21 +1252,36 @@ def validate_correction_report(text: str, path: str, record: dict[str, Any],
         if key not in prose:
             problems.error(path, f"correction report does not document the overlay-only document {key}")
         entry = auth_docs.get(key)
-        if isinstance(entry, dict) and _is_int(entry.get("content_fields_total")):
-            fields_match = re.search(r"Content fields: (\d+) measured, (\d+) collated", prose)
-            if fields_match and (int(fields_match.group(1)), int(fields_match.group(2))) != (
+        if not isinstance(entry, dict):
+            continue
+        # Each overlay-only document states its own figures beside its own name: with more than one
+        # such document a single global match cannot describe them all, and a document whose figures
+        # the report never states would otherwise pass on a sibling's numbers.
+        if _is_int(entry.get("content_fields_total")):
+            fields_match = re.search(re.escape(key)
+                                     + r"[^|]{0,400}?Content fields: (\d+) measured, (\d+) collated",
+                                     prose, re.S)
+            if not fields_match:
+                problems.error(path, f"correction report does not state the {key} content-field figures "
+                                     "('Content fields: N measured, M collated' beside the document name)")
+            elif (int(fields_match.group(1)), int(fields_match.group(2))) != (
                 entry["content_fields_total"], entry["content_fields_collated"]
             ):
                 problems.error(path, f"correction report states Content fields {fields_match.group(1)}/"
-                                     f"{fields_match.group(2)} but the {key} entry holds "
+                                     f"{fields_match.group(2)} for {key} but its entry holds "
                                      f"{entry['content_fields_total']}/{entry['content_fields_collated']}")
-            refs_match = re.search(r"refs_verified = (\d+) / refs_total = (\d+)", prose)
-            if refs_match and (int(refs_match.group(1)), int(refs_match.group(2))) != (
+            refs_match = re.search(re.escape(key)
+                                   + r"[^|]{0,400}?refs_verified = (\d+) / refs_total = (\d+)",
+                                   prose, re.S)
+            if not refs_match:
+                problems.error(path, f"correction report does not state the {key} reference "
+                                     "verification ('refs_verified = N / refs_total = M')")
+            elif (int(refs_match.group(1)), int(refs_match.group(2))) != (
                 entry.get("refs_verified"), entry.get("refs_total")
             ):
                 problems.error(path, f"correction report states refs_verified/refs_total "
-                                     f"{refs_match.group(1)}/{refs_match.group(2)} but the {key} entry holds "
-                                     f"{entry.get('refs_verified')}/{entry.get('refs_total')}")
+                                     f"{refs_match.group(1)}/{refs_match.group(2)} for {key} but its entry "
+                                     f"holds {entry.get('refs_verified')}/{entry.get('refs_total')}")
 
     # §5: labeled aggregate claims, not historical figures or §4 document totals.
     section = re.search(r"^## 5\. Recomputed status counts[^\n]*\n(.*?)(?=^## |\Z)",
@@ -1552,12 +1624,15 @@ def validate(manifest: Any, corpus_keys: Any, harness_docs: Any, issues: Evidenc
         }
         drifted = {name for name, detail in (verification.get("refs") or {}).items()
                    if isinstance(detail, dict) and 'drift' in (detail.get('status'), detail.get('historical_status'))}
+        declared_new = set((authoritative.get("generation_parameters") or {}).get("new_documents") or [])
         for key, entry in documents.items():
             item = declared_by_key.get(key)
             if not isinstance(item, dict) or item.get("source_review_status") != source_review.COLLATED_STATUS:
                 continue
             claimed = set((entry or {}).get("witness") or [])
-            offenders = sorted(claimed & drifted)
+            # A declared overlay-only document's historical drift is recorded, not gating (see the
+            # module docstring); its authoritative anchor is still checked by validate_entry.
+            offenders = sorted(claimed & drifted) if key not in declared_new else []
             if offenders:
                 problems.error(
                     f"{path}.items[{key}]",

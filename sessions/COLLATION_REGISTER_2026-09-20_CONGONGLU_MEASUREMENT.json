@@ -1,0 +1,156 @@
+{
+ "kind": "w1-congronglu-reinstatement-measurement",
+ "generated": "2026-09-20",
+ "harness": "scripts/collate_corpus.py",
+ "corrects": null,
+ "reference_extraction": {
+  "generator": "scripts/collate_refs.py",
+  "rule_id": "cbeta-p5-body-cjk-v1",
+  "rule": "tei:text/tei:body document-order text; drop the subtree of every tei:note and tei:g (tails kept); tei:head kept; keep only U+3400-U+9FFF and U+F900-U+FAFF; one UTF-8 line, no trailing newline"
+ },
+ "upstream": {
+  "repo": "https://github.com/cbeta-org/xml-p5",
+  "revision": "dbdea41071e1e260ad84b72faefd4587333cf76d"
+ },
+ "refs_manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+ "historical_refs_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+ "generation_parameters": {
+  "kind": "w1-congronglu-reinstatement-measurement",
+  "generated": "2026-09-20",
+  "refs_manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+  "compare_historical_refs": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+  "upstream_revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+  "note": [
+   "Measurement of the reinstated document alone (task 043): data/corpus/congronglu.json as landed, collated against the pinned T48n2004 reference and compared against the 2026-09-09 anchor manifest. Its per-document entry is what sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json records verbatim; the other 35 entries are inherited from the 2026-09-10 overlay, not re-measured. --new-document declares the historical-anchor waiver documented in that overlay's report §4."
+  ],
+  "doc": [
+   "congronglu"
+  ],
+  "new_documents": [
+   "congronglu"
+  ],
+  "upstream_repo": "https://github.com/cbeta-org/xml-p5",
+  "require_verified_refs": true,
+  "refs_dir_provided": true
+ },
+ "content_denominator": "source content fields only (commentary_zh, pointer_zh, verse_zh, zh); metadata fields (title_zh, name_zh) are measured separately and are not proof of collation",
+ "status_scope": "Containment/remediation state, not a rights decision.",
+ "documents": {
+  "congronglu": {
+   "witness": [
+    "T48n2004"
+   ],
+   "probes": [],
+   "summary": {
+    "EXACT": 601
+   },
+   "content_summary": {
+    "EXACT": 500
+   },
+   "metadata_summary": {
+    "EXACT": 101
+   },
+   "fields_total": 601,
+   "content_fields_total": 500,
+   "content_fields_collated": 500,
+   "metadata_fields_total": 101,
+   "flagged": [],
+   "source_review_status": "collated_to_claimed_witness",
+   "reference_verification": {
+    "T48n2004": {
+     "sha256": "70413b279195b74148f03d6081c311511393dfaa65458f73e107116510738ba0",
+     "status": "verified",
+     "historical_status": "drift"
+    }
+   },
+   "refs_total": 1,
+   "refs_verified": 1,
+   "refs_historically_verified": 0
+  }
+ },
+ "reference_verification": {
+  "manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+  "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+  "rule": "statuses are byte-identity of the reference file against a named digest manifest; `drift` never rescues a claim and never upgrades one",
+  "counts": {
+   "verified": 1,
+   "drift": 0,
+   "unlisted": 0,
+   "none": 0
+  },
+  "historical_counts": {
+   "verified": 0,
+   "drift": 1,
+   "unlisted": 0,
+   "none": 0
+  },
+  "drifted_refs": [
+   "T48n2004"
+  ],
+  "refs": {
+   "T48n2004": {
+    "sha256": "70413b279195b74148f03d6081c311511393dfaa65458f73e107116510738ba0",
+    "manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "historical_status": "drift"
+   }
+  }
+ },
+ "aggregate": {
+  "documents": 1,
+  "flagged_entries": 0,
+  "fields_total": 601,
+  "content_fields_total": 500,
+  "content_fields_collated": 500,
+  "metadata_fields_total": 101,
+  "class_totals": {
+   "EXACT": 601
+  },
+  "source_review_status_counts": {
+   "collated_to_claimed_witness": 1,
+   "partial_or_failed_w1_collation": 0,
+   "witness_unavailable": 0
+  },
+  "documents_without_evidence": [
+   "baizhang_guanglu",
+   "baojing_sanmei",
+   "biyanlu_cases",
+   "bodhidharma_erru",
+   "caoxi_zhuan",
+   "chuandenglu",
+   "dahui_hongzhi",
+   "dahui_shobogenzo",
+   "dazhu_huihai",
+   "deshan_yulu",
+   "dongshan_yulu",
+   "fayan_yulu",
+   "foyan_qingyuan",
+   "guiyang_yulu",
+   "hanshan_poems",
+   "huangbo_chuanxin",
+   "huangbo_wanling",
+   "lidai_fabao_ji",
+   "linji_yulu",
+   "mazu_yulu",
+   "nanquan_yulu",
+   "niutou_juezhu",
+   "platform_sutra",
+   "qinggui_monastic_codes",
+   "sengzhao_zhaolun",
+   "shitou_sandokai",
+   "wudeng_huiyuan",
+   "wumenguan",
+   "xinxin_ming",
+   "xuansha_yulu",
+   "xuefeng_yantou",
+   "yuanwu_letters",
+   "yunmen_yulu",
+   "zhaozhou_yulu",
+   "zhengdao_ge"
+  ],
+  "documents_with_drifted_references": [
+   "congronglu"
+  ]
+ }
+}
