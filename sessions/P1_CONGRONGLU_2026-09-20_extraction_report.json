@@ -1,0 +1,29 @@
+{
+  "work_id": "T48n2004",
+  "upstream_revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+  "witness_sha256": "838d8713596a7f53502d0e290801b123cb05a5fa09078a893a122b6668e37649",
+  "cases": 100,
+  "reference_cjk": 88155,
+  "cjk_per_field": {
+    "commentary_zh": 39013,
+    "dialogue[0].zh": 6203,
+    "pointer_zh": 3754,
+    "title_zh": 857,
+    "verse_commentary.commentary_zh": 31109,
+    "verse_zh": 4575
+  },
+  "all_fields_contiguous": true,
+  "verse_not_in_lg": [
+    98,
+    99
+  ],
+  "locator_anchor": "heading line: the lb printed before the case div (2026-08-10 containment convention); close: last lb inside the div",
+  "containment_anchors": {
+    "33": "0249b21",
+    "34": "0250a10",
+    "35": "0250b19",
+    "37": "0252a03",
+    "38": "0252b28"
+  },
+  "zh_chars": 84654
+}

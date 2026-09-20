@@ -1,0 +1,704 @@
+{
+  "congronglu": {
+    "1": {
+      "canonical_locator": "T48n2004 case 1 · T48n2004 p.0227c28–p.0228b06",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第一則世尊陞座 and line head 0227c28 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 1 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "2": {
+      "canonical_locator": "T48n2004 case 2 · T48n2004 p.0228b07–p.0229a11",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二則達磨廓然 and line head 0228b07 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 2 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "3": {
+      "canonical_locator": "T48n2004 case 3 · T48n2004 p.0229a12–p.0229c29",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三則東印請祖 and line head 0229a12 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 3 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "4": {
+      "canonical_locator": "T48n2004 case 4 · T48n2004 p.0230a01–p.0230a23",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四則世尊指地 and line head 0230a01 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 4 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "5": {
+      "canonical_locator": "T48n2004 case 5 · T48n2004 p.0230a24–p.0230b24",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五則清源米價 and line head 0230a24 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 5 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "6": {
+      "canonical_locator": "T48n2004 case 6 · T48n2004 p.0230b25–p.0231b04",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六則馬祖白黑 and line head 0230b25 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 6 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "7": {
+      "canonical_locator": "T48n2004 case 7 · T48n2004 p.0231b05–p.0231c24",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七則藥山陞座 and line head 0231b05 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 7 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "8": {
+      "canonical_locator": "T48n2004 case 8 · T48n2004 p.0231c25–p.0232b24",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八則百丈野狐 and line head 0231c25 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 8 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "9": {
+      "canonical_locator": "T48n2004 case 9 · T48n2004 p.0232b25–p.0233a27",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九則南泉斬猫 and line head 0232b25 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 9 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "10": {
+      "canonical_locator": "T48n2004 case 10 · T48n2004 p.0233a28–p.0233c26",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十則臺山婆子 and line head 0233a28 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 10 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "11": {
+      "canonical_locator": "T48n2004 case 11 · T48n2004 p.0233c27–p.0234c07",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十一則雲門兩病 and line head 0233c27 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 11 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "12": {
+      "canonical_locator": "T48n2004 case 12 · T48n2004 p.0234c08–p.0235b08",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十二則地藏種田 and line head 0234c08 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 12 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "13": {
+      "canonical_locator": "T48n2004 case 13 · T48n2004 p.0235b09–p.0235c16",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十三臨際瞎驢 and line head 0235b09 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 13 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "14": {
+      "canonical_locator": "T48n2004 case 14 · T48n2004 p.0235c17–p.0236a27",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十四則廓侍過茶 and line head 0235c17 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 14 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "15": {
+      "canonical_locator": "T48n2004 case 15 · T48n2004 p.0236a28–p.0236c09",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十五則仰山插鍬 and line head 0236a28 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 15 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "16": {
+      "canonical_locator": "T48n2004 case 16 · T48n2004 p.0236c10–p.0237c04",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十六麻谷振錫 and line head 0236c10 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 16 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "17": {
+      "canonical_locator": "T48n2004 case 17 · T48n2004 p.0237c14–p.0238b20",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十七法眼毫釐 and line head 0237c14 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 17 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "18": {
+      "canonical_locator": "T48n2004 case 18 · T48n2004 p.0238b21–p.0239a28",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十八則趙州狗子 and line head 0238b21 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 18 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "19": {
+      "canonical_locator": "T48n2004 case 19 · T48n2004 p.0239a29–p.0240a03",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第十九則雲門須彌 and line head 0239a29 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 19 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "20": {
+      "canonical_locator": "T48n2004 case 20 · T48n2004 p.0240a04–p.0240c08",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十則地藏親切 and line head 0240a04 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 20 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "21": {
+      "canonical_locator": "T48n2004 case 21 · T48n2004 p.0240c09–p.0241b12",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十一則雲巖掃地 and line head 0240c09 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 21 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "22": {
+      "canonical_locator": "T48n2004 case 22 · T48n2004 p.0241b13–p.0242a17",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十二則巖頭拜喝 and line head 0241b13 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 22 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "23": {
+      "canonical_locator": "T48n2004 case 23 · T48n2004 p.0242a18–p.0242c24",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十三則魯祖面壁 and line head 0242a18 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 23 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "24": {
+      "canonical_locator": "T48n2004 case 24 · T48n2004 p.0242c25–p.0243b17",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十四則雪峯看蛇 and line head 0242c25 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 24 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "25": {
+      "canonical_locator": "T48n2004 case 25 · T48n2004 p.0243b18–p.0244a09",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十五則鹽官犀扇 and line head 0243b18 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 25 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "26": {
+      "canonical_locator": "T48n2004 case 26 · T48n2004 p.0244a10–p.0244b26",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十六則仰山指雪 and line head 0244a10 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 26 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "27": {
+      "canonical_locator": "T48n2004 case 27 · T48n2004 p.0244b27–p.0245a18",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十七則法眼指簾 and line head 0244b27 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 27 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "28": {
+      "canonical_locator": "T48n2004 case 28 · T48n2004 p.0245a19–p.0246a12",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十八則護國三懡 and line head 0245a19 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 28 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "29": {
+      "canonical_locator": "T48n2004 case 29 · T48n2004 p.0246a13–p.0247a03",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第二十九則風穴鐵牛 and line head 0246a13 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 29 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "30": {
+      "canonical_locator": "T48n2004 case 30 · T48n2004 p.0247a04–p.0247c29",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十則大隨劫火 and line head 0247a04 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 30 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "31": {
+      "canonical_locator": "T48n2004 case 31 · T48n2004 p.0248a01–p.0248b06",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十一則雲門露柱 and line head 0248a01 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 31 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "32": {
+      "canonical_locator": "T48n2004 case 32 · T48n2004 p.0248b07–p.0249b10",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十二則仰山心境 and line head 0248b07 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 32 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "33": {
+      "canonical_locator": "T48n2004 case 33 · T48n2004 p.0249b21–p.0250a09",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十三則三聖金鱗 and line head 0249b21 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 33 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "34": {
+      "canonical_locator": "T48n2004 case 34 · T48n2004 p.0250a10–p.0250b18",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十四則風穴一塵 and line head 0250a10 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 34 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "35": {
+      "canonical_locator": "T48n2004 case 35 · T48n2004 p.0250b19–p.0251b15",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十五則洛浦伏膺 and line head 0250b19 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 35 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "36": {
+      "canonical_locator": "T48n2004 case 36 · T48n2004 p.0251b16–p.0252a02",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十六則馬師不安 and line head 0251b16 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 36 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "37": {
+      "canonical_locator": "T48n2004 case 37 · T48n2004 p.0252a03–p.0252b27",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十七則溈山業識 and line head 0252a03 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 37 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "38": {
+      "canonical_locator": "T48n2004 case 38 · T48n2004 p.0252b28–p.0253a19",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十八則臨濟真人 and line head 0252b28 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 38 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "39": {
+      "canonical_locator": "T48n2004 case 39 · T48n2004 p.0253a20–p.0253b17",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第三十九則趙州洗鉢 and line head 0253a20 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 39 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "40": {
+      "canonical_locator": "T48n2004 case 40 · T48n2004 p.0253b18–p.0253c28",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十則雲門白黑 and line head 0253b18 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 40 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "41": {
+      "canonical_locator": "T48n2004 case 41 · T48n2004 p.0253c29–p.0254b18",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十一則洛浦臨終 and line head 0253c29 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 41 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "42": {
+      "canonical_locator": "T48n2004 case 42 · T48n2004 p.0254b19–p.0254c16",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十二則南陽淨瓶 and line head 0254b19 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 42 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "43": {
+      "canonical_locator": "T48n2004 case 43 · T48n2004 p.0254c17–p.0255b11",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十三則羅山起滅 and line head 0254c17 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 43 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "44": {
+      "canonical_locator": "T48n2004 case 44 · T48n2004 p.0255b12–p.0256a01",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十四則興陽妙翅 and line head 0255b12 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 44 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "45": {
+      "canonical_locator": "T48n2004 case 45 · T48n2004 p.0256a02–p.0256b07",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十五則覺經四節 and line head 0256a02 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 45 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "46": {
+      "canonical_locator": "T48n2004 case 46 · T48n2004 p.0256b08–p.0256c12",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十六則德山學畢 and line head 0256b08 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 46 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "47": {
+      "canonical_locator": "T48n2004 case 47 · T48n2004 p.0256c13–p.0257a29",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十七則趙州柏樹 and line head 0256c13 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 47 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "48": {
+      "canonical_locator": "T48n2004 case 48 · T48n2004 p.0257b01–p.0258a10",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十八則摩經不二 and line head 0257b01 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 48 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "49": {
+      "canonical_locator": "T48n2004 case 49 · T48n2004 p.0258a11–p.0258c01",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第四十九則洞山供真 and line head 0258a11 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 49 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "50": {
+      "canonical_locator": "T48n2004 case 50 · T48n2004 p.0258c02–p.0259a25",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十則雪峯甚麼 and line head 0258c02 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 50 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "51": {
+      "canonical_locator": "T48n2004 case 51 · T48n2004 p.0259a26–p.0259c16",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十一則法眼舡陸 and line head 0259a26 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 51 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "52": {
+      "canonical_locator": "T48n2004 case 52 · T48n2004 p.0259c17–p.0260b16",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十二則曹山法身 and line head 0259c17 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 52 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "53": {
+      "canonical_locator": "T48n2004 case 53 · T48n2004 p.0260b17–p.0261b15",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十三則黃檗噇糟 and line head 0260b17 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 53 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "54": {
+      "canonical_locator": "T48n2004 case 54 · T48n2004 p.0261b25–p.0262a19",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十四則雲巖大悲 and line head 0261b25 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 54 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "55": {
+      "canonical_locator": "T48n2004 case 55 · T48n2004 p.0262a20–p.0262c05",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十五則雪峯飯頭 and line head 0262a20 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 55 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "56": {
+      "canonical_locator": "T48n2004 case 56 · T48n2004 p.0262c06–p.0263a19",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十六則密師白兔 and line head 0262c06 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 56 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "57": {
+      "canonical_locator": "T48n2004 case 57 · T48n2004 p.0263a20–p.0263b27",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十七則嚴陽一物 and line head 0263a20 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 57 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "58": {
+      "canonical_locator": "T48n2004 case 58 · T48n2004 p.0263b28–p.0264a21",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十八則剛經輕賤 and line head 0263b28 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 58 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "59": {
+      "canonical_locator": "T48n2004 case 59 · T48n2004 p.0264a22–p.0264c21",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第五十九青林死蛇 and line head 0264a22 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 59 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "60": {
+      "canonical_locator": "T48n2004 case 60 · T48n2004 p.0264c22–p.0265a16",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十則鐵磨牸牛 and line head 0264c22 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 60 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "61": {
+      "canonical_locator": "T48n2004 case 61 · T48n2004 p.0265a17–p.0265c06",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十一則乾峯一畫 and line head 0265a17 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 61 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "62": {
+      "canonical_locator": "T48n2004 case 62 · T48n2004 p.0265c07–p.0266b07",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十二則米胡悟否 and line head 0265c07 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 62 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "63": {
+      "canonical_locator": "T48n2004 case 63 · T48n2004 p.0266b08–p.0266c28",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十三則趙州問死 and line head 0266b08 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 63 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "64": {
+      "canonical_locator": "T48n2004 case 64 · T48n2004 p.0266c29–p.0267c06",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十四則子昭承嗣 and line head 0266c29 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 64 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "65": {
+      "canonical_locator": "T48n2004 case 65 · T48n2004 p.0267c07–p.0268a10",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十五則首山新婦 and line head 0267c07 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 65 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "66": {
+      "canonical_locator": "T48n2004 case 66 · T48n2004 p.0268a11–p.0268c21",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十六則九峯頭尾 and line head 0268a11 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 66 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "67": {
+      "canonical_locator": "T48n2004 case 67 · T48n2004 p.0269a08–p.0269c11",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十七則嚴經智慧 and line head 0269a08 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 67 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "68": {
+      "canonical_locator": "T48n2004 case 68 · T48n2004 p.0269c12–p.0270b01",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十八則夾山揮劍 and line head 0269c12 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 68 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "69": {
+      "canonical_locator": "T48n2004 case 69 · T48n2004 p.0270b02–p.0271b01",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第六十九則南泉白牯 and line head 0270b02 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 69 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "70": {
+      "canonical_locator": "T48n2004 case 70 · T48n2004 p.0271b02–p.0271c28",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十則進山問性 and line head 0271b02 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 70 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "71": {
+      "canonical_locator": "T48n2004 case 71 · T48n2004 p.0271c29–p.0272b16",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十一則翠巖眉毛 and line head 0271c29 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 71 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "72": {
+      "canonical_locator": "T48n2004 case 72 · T48n2004 p.0272b17–p.0273a08",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十二則中邑獼猴 and line head 0272b17 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 72 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "73": {
+      "canonical_locator": "T48n2004 case 73 · T48n2004 p.0273a09–p.0273c04",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十三則曹山孝滿 and line head 0273a09 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 73 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "74": {
+      "canonical_locator": "T48n2004 case 74 · T48n2004 p.0273c05–p.0274b19",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十四則法眼質名 and line head 0273c05 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 74 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "75": {
+      "canonical_locator": "T48n2004 case 75 · T48n2004 p.0274b20–p.0275a07",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十五則瑞巖常理 and line head 0274b20 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 75 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "76": {
+      "canonical_locator": "T48n2004 case 76 · T48n2004 p.0275a08–p.0275c27",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十六則首山三句 and line head 0275a08 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 76 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "77": {
+      "canonical_locator": "T48n2004 case 77 · T48n2004 p.0275c28–p.0277b01",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十七則仰山隨分 and line head 0275c28 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 77 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "78": {
+      "canonical_locator": "T48n2004 case 78 · T48n2004 p.0277b02–p.0277c05",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十八則雲門餬餅 and line head 0277b02 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 78 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "79": {
+      "canonical_locator": "T48n2004 case 79 · T48n2004 p.0277c06–p.0278b18",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第七十九則長沙進步 and line head 0277c06 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 79 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "80": {
+      "canonical_locator": "T48n2004 case 80 · T48n2004 p.0278b19–p.0279b10",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十則龍牙過板 and line head 0278b19 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 80 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "81": {
+      "canonical_locator": "T48n2004 case 81 · T48n2004 p.0279b11–p.0280a08",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十一則玄沙到縣 and line head 0279b11 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 81 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "82": {
+      "canonical_locator": "T48n2004 case 82 · T48n2004 p.0280a09–p.0280b07",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十二則雲門聲色 and line head 0280a09 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 82 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "83": {
+      "canonical_locator": "T48n2004 case 83 · T48n2004 p.0280b15–p.0280c26",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十三則道吾看病 and line head 0280b15 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 83 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "84": {
+      "canonical_locator": "T48n2004 case 84 · T48n2004 p.0280c27–p.0281c13",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十四則俱胝一指 and line head 0280c27 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 84 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "85": {
+      "canonical_locator": "T48n2004 case 85 · T48n2004 p.0281c14–p.0282c02",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十五則國師塔樣 and line head 0281c14 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 85 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "86": {
+      "canonical_locator": "T48n2004 case 86 · T48n2004 p.0282c03–p.0283b09",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十六則臨濟大悟 and line head 0282c03 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 86 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "87": {
+      "canonical_locator": "T48n2004 case 87 · T48n2004 p.0283b10–p.0284a21",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十七則疎山有無 and line head 0283b10 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 87 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "88": {
+      "canonical_locator": "T48n2004 case 88 · T48n2004 p.0284a22–p.0285a03",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十八則楞嚴不見 and line head 0284a22 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 88 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "89": {
+      "canonical_locator": "T48n2004 case 89 · T48n2004 p.0285a04–p.0285b16",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第八十九則洞山無草 and line head 0285a04 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 89 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "90": {
+      "canonical_locator": "T48n2004 case 90 · T48n2004 p.0285b17–p.0286a16",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十則仰山謹白 and line head 0285b17 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 90 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "91": {
+      "canonical_locator": "T48n2004 case 91 · T48n2004 p.0286a17–p.0286c08",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十一則南泉牡丹 and line head 0286a17 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 91 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "92": {
+      "canonical_locator": "T48n2004 case 92 · T48n2004 p.0286c09–p.0287b02",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十二則雲門一寶 and line head 0286c09 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 92 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "93": {
+      "canonical_locator": "T48n2004 case 93 · T48n2004 p.0287b03–p.0287c28",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十三則魯祖不會 and line head 0287b03 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 93 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "94": {
+      "canonical_locator": "T48n2004 case 94 · T48n2004 p.0287c29–p.0288c18",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十四則洞山不安 and line head 0287c29 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 94 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "95": {
+      "canonical_locator": "T48n2004 case 95 · T48n2004 p.0288c19–p.0289a29",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十五則臨濟一畫 and line head 0288c19 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 95 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "96": {
+      "canonical_locator": "T48n2004 case 96 · T48n2004 p.0289b01–p.0290a06",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十六則九峯不肯 and line head 0289b01 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 96 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "97": {
+      "canonical_locator": "T48n2004 case 97 · T48n2004 p.0290a07–p.0290c24",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十七則光帝檏頭 and line head 0290a07 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 97 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "98": {
+      "canonical_locator": "T48n2004 case 98 · T48n2004 p.0290c25–p.0291b04",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十八則洞山常切 and line head 0290c25 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 98 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "99": {
+      "canonical_locator": "T48n2004 case 99 · T48n2004 p.0291b05–p.0291c04",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第九十九則雲門鉢桶 and line head 0291b05 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 99 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "100": {
+      "canonical_locator": "T48n2004 case 100 · T48n2004 p.0291c05–p.0292a20",
+      "status": "collated_with_normalization",
+      "note": "Case heading 第百則瑯琊山河 and line head 0291c05 read from the pinned CBETA XML P5 T48n2004 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the pointer, 本則, 評唱, 頌 and post-verse 評唱 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+      "collation_note": "All five represented source fields of case 100 collate verbatim to the pinned witness; the locator anchors the case's heading line per the 2026-08-10 containment table.",
+      "source_edition": "CBETA XML P5 T48n2004 (T48 no. 2004 萬松老人評唱天童覺和尚頌古從容庵錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    }
+  }
+}

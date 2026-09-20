@@ -19,9 +19,10 @@ Reference extraction (from CBETA XML P5) — implemented by `scripts/collate_ref
   <head>; then NFKC + graphic-variant map + CJK-only filter.
 A register is authoritative evidence only when its `reference_verification` block says
 which digest manifest the refs were checked against and which refs matched byte-for-byte.
-The 2026-09-09 run predates that: `sessions/COLLATION_W1_2026-09-10_CORRECTION.md`
-records what reproduces and what drifted, and
-`sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` is the authoritative record.
+The 2026-09-09 run predates that: `sessions/COLLATION_W1_2026-09-20_CORRECTION.md`
+records what reproduces and what drifted (superseding the 2026-09-10 record it inherits its 35
+per-document entries from), and `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json` is the
+authoritative record.
 Acquisition (git protocol; raw CDN may be blocked in sandboxes):
 
     git clone --filter=blob:none --no-checkout --depth 1 \
@@ -29,23 +30,23 @@ Acquisition (git protocol; raw CDN may be blocked in sandboxes):
     cd /tmp/xmlp5
     cd /tmp/xmlp5
     # check out exactly the works this harness needs (paths are /<letter>/<dir>/<work>.xml)
-    sed 's/.*  ref_//; s/\.txt$//' /repo/sessions/COLLATION_W1_2026-09-10_refs_manifest.txt \
+    sed 's/.*  ref_//; s/\.txt$//' /repo/sessions/COLLATION_W1_2026-09-20_refs_manifest.txt \
         | while read -r w; do printf '/%s/%s/%s.xml\n' "${w:0:1}" "${w:0:3}" "$w"; done > /tmp/paths.txt
     git sparse-checkout set --no-cone $(tr '\n' ' ' < /tmp/paths.txt) && git checkout
 
     # extract them with the committed rule (same directory as $REFS_DIR below)
     python3 scripts/collate_refs.py --source-dir /tmp/xmlp5 --out-dir /tmp/refs \
-        --work-list sessions/COLLATION_W1_2026-09-10_refs_manifest.txt \
-        --verify-against sessions/COLLATION_W1_2026-09-10_refs_manifest.txt --allow-drift
+        --work-list sessions/COLLATION_W1_2026-09-20_refs_manifest.txt \
+        --verify-against sessions/COLLATION_W1_2026-09-20_refs_manifest.txt
     # and re-check the published digests against the refs on disk (no checkout needed):
     python3 scripts/collate_refs.py --verify-against \
-        sessions/COLLATION_W1_2026-09-10_refs_manifest.txt --refs-dir /tmp/refs
+        sessions/COLLATION_W1_2026-09-20_refs_manifest.txt --refs-dir /tmp/refs
 
-Reference digests for verification: sessions/COLLATION_W1_2026-09-10_refs_manifest.txt
-(authoritative for the 39 works the current harness reads; the 2026-09-09 manifest is kept as the
+Reference digests for verification: sessions/COLLATION_W1_2026-09-20_refs_manifest.txt
+(authoritative for the 40 works the current harness reads; the 2026-09-09 manifest is kept as the
 historical anchor for all 187 works and is where upstream drift is measured)
 Evidence reports: sessions/COLLATION_W1_2026-09-09.md (historical) and
-sessions/COLLATION_W1_2026-09-10_CORRECTION.md (authoritative)
+sessions/COLLATION_W1_2026-09-20_CORRECTION.md (authoritative)
 
 Usage:
     COLLATION_REFS=/path/to/refs python3 scripts/collate_corpus.py [--doc KEY] [--out FILE]
@@ -53,9 +54,14 @@ Usage:
 Authoritative correction run (hash-verified refs, explicit date, aggregate block):
 
     COLLATION_REFS=/tmp/refs python3 scripts/collate_corpus.py \
-        --out sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json \
-        --generated 2026-09-10 \
-        --refs-manifest sessions/COLLATION_W1_2026-09-10_refs_manifest.txt
+        --out sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json \
+        --generated 2026-09-20 \
+        --refs-manifest sessions/COLLATION_W1_2026-09-20_refs_manifest.txt \
+        --corrects sessions/COLLATION_REGISTER_2026-09-09.json \
+        --compare-historical-refs sessions/COLLATION_W1_2026-09-09_refs_manifest.txt \
+        --compare-register sessions/COLLATION_REGISTER_2026-09-09.json \
+        --historical-report-flagged 637 --kind w1-correction --upstream-revision dbdea41071e1e260ad84b72faefd4587333cf76d \
+        --new-document congronglu --require-verified-refs
 """
 import argparse, datetime, hashlib, json, os, re, sys, unicodedata
 from collections import Counter
@@ -208,6 +214,11 @@ def iter_fields(obj, path=''):
 
 # document -> (claimed witness refs, extra probe refs)
 DOCS = {
+    # 2026-09-20 (task 043): Congrong Lu reinstated from the pinned T48n2004 witness —
+    # 100/100 cases collating, 0 flagged. The work id has no reproducible 2026-09-09
+    # reference anchor, so its reference is verified against the authoritative manifest
+    # only and that drift is declared via --new-document (see the 2026-09-20 overlay).
+    'congronglu': (['T48n2004'], []),
     'wumenguan': (['T48n2005'], []),
     'xinxin_ming': (['T48n2010'], []),
     'biyanlu_cases': (['T48n2003'], []),
@@ -466,6 +477,7 @@ REPLAYED_FLAGS = {
     'upstream_revision': '--upstream-revision',
     'note': '--note',
     'doc': '--doc',
+    'new_documents': '--new-document',
 }
 
 #: Replayed like the flags above, but recorded by `load_generation_parameters` rather than read
@@ -550,6 +562,13 @@ def main():
     ap.add_argument('--compare-historical-refs', default=None,
                     help='earlier digest manifest to report byte-identity against. Drift is recorded '
                          'per reference and per document, never hidden, and it never changes a class.')
+    ap.add_argument('--new-document', dest='new_documents', action='append', default=[], metavar='KEY',
+                    help='document key this overlay adds to the evidence for the first time (no '
+                         'evidence record in the historical register). Such a document cannot have a '
+                         'historical reference anchor, so its historical state is still recorded '
+                         'truthfully (drift/unlisted/none) but does not by itself veto a collated '
+                         'claim; the waiver is listed in generation_parameters.new_documents so the '
+                         'register declares it instead of implying it.')
     ap.add_argument('--require-verified-refs', action='store_true',
                     help='fail when any claimed-witness reference is not byte-identical to --refs-manifest')
     ap.add_argument('--compare-register', default=None,
@@ -679,6 +698,9 @@ def main():
             'upstream_repo': args.upstream_repo,
             'require_verified_refs': bool(args.require_verified_refs),
             'refs_dir_provided': bool(args.refs_dir),
+            # Declared, not implied: the documents this overlay adds to the evidence with no
+            # historical evidence record, whose historical reference anchor is therefore empty.
+            'new_documents': sorted(set(args.new_documents or [])),
         },
         'content_denominator': 'source content fields only ('
                                + ', '.join(sorted(source_review.CONTENT_SOURCE_FIELDS))
@@ -722,10 +744,21 @@ def main():
                 for key, label in (('status', args.refs_manifest),
                                    ('historical_status', args.compare_historical_refs or 'no history')):
                     state = seen.get(key, 'unverified')
-                    if state not in ('verified', 'none'):
-                        failures.append(
-                            f'{doc}: {state!r} claim rests on {name}, which is {state!r} against {label}; '
-                            'a collated-to-witness claim requires byte-verified references')
+                    if state in ('verified', 'none'):
+                        continue
+                    if key == 'historical_status' and doc in set(args.new_documents):
+                        # The historical pass predates this document's evidence record, so its
+                        # reference cannot have a historical anchor. The state is still recorded —
+                        # the entry carries it and the aggregate lists the document under
+                        # documents_with_drifted_references — but it does not veto the claim, and
+                        # the waiver is declared by --new-document and echoed into the register.
+                        print(f'warning: {doc}: historical anchor for {name} is {state!r}; accepted '
+                              f'because {doc} is declared new to this overlay (no historical evidence '
+                              'record)', file=sys.stderr)
+                        continue
+                    failures.append(
+                        f'{doc}: {state!r} claim rests on {name}, which is {state!r} against {label}; '
+                        'a collated-to-witness claim requires byte-verified references')
         print(f"{doc:24s} {json.dumps(entry['summary'], ensure_ascii=False)} -> {entry['source_review_status']}")
     if failures:
         for line in failures:

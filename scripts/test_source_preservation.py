@@ -73,7 +73,15 @@ Rules
 * The allowlist is exercised by a focused regression on a temporary copy of the
   tree: a nested `coverage_note` change must exit nonzero and name the exact
   path. The repository's own corpus files are never modified by any check here.
-* The set of corpus files must not grow or shrink.
+* One new corpus file is declared: `data/corpus/congronglu.json`, the
+  2026-09-20 Congronglu reinstatement (task 043, owner-ruled). It is a new
+  extraction from the pinned CBETA T48n2004 witness — not a copy of the
+  2026-08-10 quarantined seed — so it is `DECLARED_NEW_CORPUS`, and every field
+  in it is additionally checked against the pinned witness extraction by that
+  task's own producer and collation (`scripts/collate_corpus.py --doc
+  congronglu`: 601 EXACT, 0 flagged). Any *other* new corpus file is a failure.
+* The set of corpus files must not grow or shrink, except for the declared new
+  document above.
 * The `docs/data/corpus` mirror must be byte-identical to `data/corpus`.
 
 Run: python3 scripts/test_source_preservation.py   (exit 0 = preserved)
@@ -99,6 +107,19 @@ DOCS_CORPUS_DIR = ROOT / "docs" / "data" / "corpus"
 #: The tree the W1 work started from. Pinned deliberately: the base must not move
 #: when the corpus moves. (origin/main at the merge base of the W1 PR.)
 BASE_COMMIT = "3cc7a8e9681ea8646d2b4fd8d86f1a4b1eea6b43"
+
+#: Corpus files that may legitimately appear after the base commit, with the dated ruling that
+#: declares them. A new corpus file is corpus expansion — normally out of scope for W1 work — so
+#: entry here is the exception, and the docstring above records what backs it.
+DECLARED_NEW_CORPUS = {
+    "data/corpus/congronglu.json": (
+        "2026-09-20 Congronglu reinstatement (task 043, owner-ruled): a new extraction from the "
+        "pinned CBETA T48n2004 witness (100 cases, 500/500 source-content fields EXACT, 0 flagged, "
+        "no quarantined record copied). Declared evidence: "
+        "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json + "
+        "sessions/COLLATION_W1_2026-09-20_CORRECTION.md."
+    ),
+}
 
 #: Set only for the temporary copy that the nested-`coverage_note` regression runs: the copy
 #: then performs the real comparison but not the regression that spawned it. Nothing else sets
@@ -1074,6 +1095,9 @@ def main() -> int:
         failures.append(f"corpus file {rel} exists at the base commit but is missing from the working tree "
                         "(corpus files are never deleted by W1 work)")
     for rel in sorted(current_files - base_files):
+        if rel in DECLARED_NEW_CORPUS:
+            print(f"  ℹ️  {rel}: declared new document — {DECLARED_NEW_CORPUS[rel]}")
+            continue
         failures.append(f"corpus file {rel} is new since the base commit "
                         "(corpus expansion is out of scope for W1 work)")
 
@@ -1124,7 +1148,10 @@ def main() -> int:
     compared = len(base_files & current_files)
     permitted_total = sum(len(changes[rel]["permitted"]) for rel in changes)
     unauthorized_total = sum(len(changes[rel]["unauthorized"]) for rel in changes)
+    declared_new = sorted(current_files - base_files & set(current_files))
     print(f"{compared} corpus files compared")
+    if declared_new:
+        print(f"{len(declared_new)} declared new corpus file(s): {', '.join(declared_new)}")
     print(f"{permitted_total} permitted allowlisted changes")
     print(f"{unauthorized_total} unauthorized changes")
 

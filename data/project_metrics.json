@@ -1,21 +1,21 @@
 {
   "canonical_locator_coverage": {
-    "case_level_documents": 2,
-    "case_locators": 148,
-    "declared_cases": 148,
+    "case_level_documents": 3,
+    "case_locators": 248,
+    "declared_cases": 248,
     "document_level_seed_documents": 33,
-    "documents": 35
+    "documents": 36
   },
   "corpus": {
-    "all_corpus_cjk_characters": 111708,
+    "all_corpus_cjk_characters": 199094,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
-      "partial_selected_witness": 4
+      "partial_selected_witness": 5
     },
-    "content_cjk_characters": 104975,
+    "content_cjk_characters": 189629,
     "content_shapes": {
-      "cases": 2,
+      "cases": 3,
       "chapters": 1,
       "dialogues": 2,
       "five_ranks": 1,
@@ -23,9 +23,9 @@
       "sections": 25,
       "stanzas": 4
     },
-    "documents": 35,
+    "documents": 36,
     "excerpt_seed_documents": 31,
-    "incomplete_documents": 35,
+    "incomplete_documents": 36,
     "per_text": {
       "baizhang_guanglu": {
         "all_cjk_chars": 348,
@@ -40,8 +40,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 10,
           "probe_refs": [],
           "refs_total": 2,
@@ -71,8 +71,8 @@
         "source_review": {
           "content_fields_collated": 2,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 2,
@@ -104,8 +104,8 @@
         "source_review": {
           "content_fields_collated": 353,
           "content_fields_total": 395,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 128,
           "probe_refs": [],
           "refs_total": 1,
@@ -134,8 +134,8 @@
         "source_review": {
           "content_fields_collated": 1,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 1,
@@ -164,8 +164,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 7,
           "probe_refs": [],
           "refs_total": 1,
@@ -194,8 +194,8 @@
         "source_review": {
           "content_fields_collated": 1,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 7,
           "probe_refs": [
             "X80n1565"
@@ -213,6 +213,39 @@
           "sample_records": 2
         }
       },
+      "congronglu": {
+        "all_cjk_chars": 87386,
+        "cbeta_id": "T2004",
+        "completion_status": "partial_selected_witness",
+        "content_zh_chars": 84654,
+        "coverage": "100/100 cases",
+        "coverage_note": "100/100 cases represented, carrying 500 evaluated source-content fields (pointer_zh, dialogue[0].zh, commentary_zh, verse_zh, verse_commentary.commentary_zh) — every one verbatim and contiguous in the claimed witness T48n2004 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). Coverage gaps, recorded rather than implied absent: (1) the witness's interlinear 著語 annotations are CBETA tei:note elements, which the pinned rule drops — 7,716 CJK characters of apparatus are therefore not represented; (2) the front matter (two prefaces, the letter to Yelü Chucai, Wansong's own preface and the table of contents) is not represented; (3) the case headings' 則 numbering is preserved verbatim, including the witness's own irregularities (第十一 and 第六十四 print 則 before the title; 第十三, 第十六, 第十七, 第五十九 and 第百 omit it); (4) cases 98 and 99 print the 頌 as a plain paragraph rather than a verse block, and are carried as such. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
+        "declared_zh_chars": 84654,
+        "is_complete": false,
+        "shapes": [
+          "cases"
+        ],
+        "source_review": {
+          "content_fields_collated": 500,
+          "content_fields_total": 500,
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "flagged_entries": 0,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "collated_to_claimed_witness",
+          "witness_note": "Reinstated 2026-09-20 from the pinned witness: all 500 source-content fields (100 cases × pointer 垂示, 本則, 評唱, 頌 and post-verse 評唱) are verbatim and contiguous in T48n2004, 0 fields flagged. Case locators anchor at the lb line head printed before each case div, which reproduces the five anchors the 2026-08-10 containment table recorded (cases 33/34/35/37/38). This document is new to the evidence: the 2026-09-09 pass never covered it, so its reference has no historical anchor — the entry records that drift (historical_status='drift') and the document is declared in generation_parameters.new_documents. No quarantined Congronglu record was read or copied: the producer's only input is the pinned witness file, and every field is asserted to be a contiguous run of that extraction.",
+          "witness_refs": [
+            "T48n2004"
+          ]
+        },
+        "source_review_status": "collated_to_claimed_witness",
+        "title": "Book of Serenity (從容錄)",
+        "unit_counts": {
+          "cases": 100
+        }
+      },
       "dahui_hongzhi": {
         "all_cjk_chars": 777,
         "cbeta_id": "T47n1998A / T47n1998B + T48n2001 (大慧普覺禪師語錄 + 宏智禪師廣錄, 默照銘)",
@@ -226,8 +259,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 11,
           "probe_refs": [],
           "refs_total": 3,
@@ -259,8 +292,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 8,
           "probe_refs": [],
           "refs_total": 1,
@@ -289,8 +322,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 2,
@@ -320,8 +353,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 10,
           "probe_refs": [
             "X68n1315",
@@ -355,8 +388,8 @@
         "source_review": {
           "content_fields_collated": 1,
           "content_fields_total": 21,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 27,
           "probe_refs": [],
           "refs_total": 2,
@@ -387,8 +420,8 @@
         "source_review": {
           "content_fields_collated": 1,
           "content_fields_total": 11,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 16,
           "probe_refs": [],
           "refs_total": 1,
@@ -417,8 +450,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 12,
           "probe_refs": [],
           "refs_total": 1,
@@ -447,8 +480,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 10,
           "probe_refs": [],
           "refs_total": 2,
@@ -477,8 +510,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 0,
@@ -505,8 +538,8 @@
         "source_review": {
           "content_fields_collated": 2,
           "content_fields_total": 11,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 18,
           "probe_refs": [],
           "refs_total": 1,
@@ -535,8 +568,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 7,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 12,
           "probe_refs": [],
           "refs_total": 1,
@@ -565,8 +598,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 3,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 7,
           "probe_refs": [],
           "refs_total": 1,
@@ -596,8 +629,8 @@
         "source_review": {
           "content_fields_collated": 79,
           "content_fields_total": 89,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 84,
           "probe_refs": [
             "X68n1315",
@@ -631,8 +664,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 8,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 10,
           "probe_refs": [],
           "refs_total": 1,
@@ -661,8 +694,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 1,
@@ -690,8 +723,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 5,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 0,
@@ -719,8 +752,8 @@
         "source_review": {
           "content_fields_collated": 4,
           "content_fields_total": 13,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 19,
           "probe_refs": [],
           "refs_total": 2,
@@ -751,8 +784,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 5,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 2,
@@ -782,8 +815,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 8,
           "probe_refs": [],
           "refs_total": 1,
@@ -812,8 +845,8 @@
         "source_review": {
           "content_fields_collated": 6,
           "content_fields_total": 11,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 7,
           "probe_refs": [],
           "refs_total": 2,
@@ -844,8 +877,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 3,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 6,
           "probe_refs": [],
           "refs_total": 1,
@@ -876,8 +909,8 @@
         "source_review": {
           "content_fields_collated": 113,
           "content_fields_total": 181,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 70,
           "probe_refs": [],
           "refs_total": 1,
@@ -907,8 +940,8 @@
         "source_review": {
           "content_fields_collated": 24,
           "content_fields_total": 37,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 14,
           "probe_refs": [],
           "refs_total": 1,
@@ -937,8 +970,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 5,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 8,
           "probe_refs": [],
           "refs_total": 2,
@@ -968,8 +1001,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 4,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 6,
           "probe_refs": [],
           "refs_total": 2,
@@ -999,8 +1032,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 2,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 2,
@@ -1030,8 +1063,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 12,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 19,
           "probe_refs": [],
           "refs_total": 1,
@@ -1060,8 +1093,8 @@
         "source_review": {
           "content_fields_collated": 0,
           "content_fields_total": 19,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 35,
           "probe_refs": [
             "X68n1315"
@@ -1094,8 +1127,8 @@
         "source_review": {
           "content_fields_collated": 6,
           "content_fields_total": 6,
-          "evidence_date": "2026-09-10",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
           "flagged_entries": 1,
           "probe_refs": [],
           "refs_total": 1,
@@ -1114,16 +1147,16 @@
     },
     "source_review": {
       "authoritative": {
-        "documents": 35,
-        "evidence_date": "2026-09-10",
+        "documents": 36,
+        "evidence_date": "2026-09-20",
         "flagged_entries": 630,
-        "refs_manifest_path": "sessions/COLLATION_W1_2026-09-10_refs_manifest.txt",
-        "register_path": "sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json",
-        "report_path": "sessions/COLLATION_W1_2026-09-10_CORRECTION.md"
+        "refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+        "register_path": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+        "report_path": "sessions/COLLATION_W1_2026-09-20_CORRECTION.md"
       },
       "class_totals": {
         "DIVERGENT": 111,
-        "EXACT": 685,
+        "EXACT": 1286,
         "MINOR": 30,
         "NOT_FOUND": 334,
         "SHORT_UNMATCHED": 109,
@@ -1147,8 +1180,8 @@
           "witness_unavailable": true
         }
       },
-      "content_fields_collated": 593,
-      "content_fields_total": 924,
+      "content_fields_collated": 1093,
+      "content_fields_total": 1424,
       "disclosure_ledgers": [
         {
           "key": "source_collation",
@@ -1171,9 +1204,9 @@
           "label": "Rights review"
         }
       ],
-      "documents": 35,
+      "documents": 36,
       "documents_without_collating_content": 22,
-      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-10 correction overlay is authoritative for current status; scripts/validate_data.py merges and re-derives both",
+      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); scripts/validate_data.py merges and re-derives both",
       "flagged_entries": 630,
       "historical": {
         "documents": 34,
@@ -1184,31 +1217,32 @@
       },
       "ledger_separation_note": "Separate ledgers: none of these answers implies another.",
       "metadata_field_note": "Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.",
-      "metadata_fields_total": 391,
+      "metadata_fields_total": 492,
       "non_approval_statement": "Source collation does not approve reuse.",
       "reference_verification": {
         "counts": {
           "drift": 0,
           "none": 0,
           "unlisted": 0,
-          "verified": 39
+          "verified": 40
         },
         "drifted_refs": [
           "T47n1987B",
           "T48n2001",
+          "T48n2004",
           "X67n1309",
           "X68n1315",
           "X69n1333",
           "X73n1445"
         ],
         "historical_counts": {
-          "drift": 6,
+          "drift": 7,
           "none": 0,
           "unlisted": 0,
           "verified": 33
         },
         "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
-        "manifest": "sessions/COLLATION_W1_2026-09-10_refs_manifest.txt"
+        "manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt"
       },
       "reproduction": {
         "compared_register": "sessions/COLLATION_REGISTER_2026-09-09.json",
@@ -1224,7 +1258,7 @@
         "historical_report_flagged_total": 637
       },
       "status_counts": {
-        "collated_to_claimed_witness": 1,
+        "collated_to_claimed_witness": 2,
         "partial_or_failed_w1_collation": 32,
         "witness_unavailable": 2
       },
@@ -1242,7 +1276,7 @@
       }
     },
     "source_review_statuses": {
-      "collated_to_claimed_witness": 1,
+      "collated_to_claimed_witness": 2,
       "partial_or_failed_w1_collation": 32,
       "witness_unavailable": 2
     }
@@ -1271,8 +1305,8 @@
     }
   },
   "manifest_integrity": {
-    "corpus_files": 35,
-    "shared_manifest_items": 35
+    "corpus_files": 36,
+    "shared_manifest_items": 36
   },
   "measurement_method": {
     "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
