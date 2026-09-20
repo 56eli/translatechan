@@ -75,112 +75,29 @@ If Quality is not required:
 
 No Pages deployment workflow is needed: GitHub Pages currently publishes natively from `main /docs`, and the Pages API reports `built` with HTTPS enforced.
 
-## Edit 4 — Enforce website ruling law + source gates in CI (2026-09-14, owner definitive ruling)
+## Edit 4 — Retired 2026-09-19 — Pages scope out of scope
 
-**File:** `.github/workflows/quality.yml`
-**Reason:** Owner ruling 2026-09-14 definitive: "In no way is the website beautiful. In no way is it done. Immediately after chinese integrity, it is of utmost importance to work on the website. YOU AS ORCHESTRATOR AND ALL DISPATCH AGENTS ARE NOT CAPABLE TO JUDGE THE WEBSITE. You are 100% relying on my feedback, all you can do is provide examples, suggestions and demonstration and ask 'does this look good?', 'Is this the right direction?', 'how good is it on a scale from 1-10 where we aim for at least 8?'. This is definitive."
+**File:** `.orchestrator/RULING_WEBSITE_2026-09-14.md`
 
-Adding documentation where nobody reads is not enough. Owner requires gates that FAIL if subjective standards are not met.
+**Reason:** 2026-09-19 owner directive: github pages deployment and creation is outside of the scope of translatechan agents, unless specifically asked for. Previous website ruling law (NOT beautiful NOT done etc.) stripped and replaced.
 
-**Changes (applied 2026-09-14, main 2b3e2b5+):**
+**Status:** Ruling file now contains only out-of-scope notice. `scripts/test_website_ruling.py` deleted. `quality.yml` no longer enforces website law.
 
-```yaml
-      - name: Enforce source-preservation allowlist (no unauthorized Chinese edits)
-        run: python3 scripts/test_source_preservation.py
+## Edit 5 — Retired 2026-09-19 — Bundle ceiling and gates experiment reverted
 
-      - name: Enforce W1 source-review rule suite (138 checks)
-        run: python3 scripts/test_source_review_rules.py
+**Files:** `.orchestrator/RULING_BUNDLE_CEILING_2026-09-14.md`, `.orchestrator/RULING_GATES_EXPERIMENT_2026-09-14.md`, `.github/workflows/quality.yml`
 
-      - name: Enforce website ruling law — NOT beautiful, NOT done, owner feedback 1-10 aim 8+
-        run: python3 scripts/test_website_ruling.py
-```
+**Reason:** 2026-09-19 owner directive: revert bundle ceiling (30MB testing) and gates experiment (presentation allowed to break). Remove mention of both.
 
-**Gate `test_website_ruling.py` enforces:**
+**Status:** Both ruling files deleted. `quality.yml` retired to text-integrity only: py_compile, validate_data, build_data_bundle, test_source_preservation, test_source_review_rules, mirror diff, smoke_test — no per-variant gate, no website ruling gate, no continue-on-error presentation mentions.
 
-1. Ruling file `.orchestrator/RULING_WEBSITE_2026-09-14.md` exists and contains verbatim law phrases
-2. Canonical tracker `.orchestrator/STATE.md` contains "Website is NOT beautiful, NOT done" + "NOT CAPABLE TO JUDGE" + 1-10 scale
-3. Working state `.orchestrator/local/ORCHESTRATOR_STATE.md` contains same law
-4. No repo prose (README/AUDIT/HANDOFF/ROADMAP/vision.md/WEB_VISION) claims "website is beautiful/done" without NOT qualification
-5. Future website prompts seq >=24 that are website/human-readable Phase5 must contain:
-   - "does this look good?"
-   - "1-10" scale question
-   - "NOT beautiful, NOT done" reference
-   - "NOT CAPABLE TO JUDGE"
-   Failure = CI fails, subjective standard not met
+## Edit 6 — Retired 2026-09-19 — Per-variant acceptance gate retired, work letter distinct rebuild removed
 
-**Status:** Applied per owner explicit request to introduce failing gates (scope boundary allows workflow edit with explicit owner approval). Verified locally: `python3 scripts/test_website_ruling.py` PASS on main 2b3e2b5+ with law files present. CI will now fail any PR that self-declares website beautiful/done or omits owner feedback questions.
+**Files:** `.orchestrator/DESIGN_GRID_2026-09-18_36_DISTINCT.md`, `.orchestrator/CANARY_V3_PASS_2026-09-18.md`, `.orchestrator/prompts/035-041*`, `.orchestrator/stubs/035-041*`, `scripts/check_layout_variant.py`, `.github/workflows/quality.yml`
 
-## Edit 5 — Turn off presentation gates while experimenting, keep text integrity gates (2026-09-14, owner)
+**Reason:** 2026-09-19 owner merged PR #91 one hall one margin, 36 demo layouts deleted (app.css 14,992→3,619 lines, app.js 8,746→~4,980 lines, net -39,194). Work order 2026-09-18-letter-002 36-distinct rebuild removed. Per-variant gate retired.
 
-**File:** `.github/workflows/quality.yml`
-**Reason:** Owner feedback on PR #75: all layouts max 3/10, only Read tab changes partially, Compare/Lineage/Cases/Terms don't, same amount of tabs isn't necessarily intended nor forbidden, Accordion Reader some improvements, bundle ceiling 2MB isn't helping. Owner says: "We can turn off gates that don't touch text integrity as website should just be presentation, and we're allowed to break presentation while experimenting."
-
-**Changes (applied 2026-09-14, main d9fd30a+):**
-
-Text integrity gates — MUST stay ON, required, failing:
-- `python3 -m py_compile scripts/*.py`
-- `python3 scripts/validate_data.py` — corpus 35, W1 flagged 630
-- `python3 scripts/build_data_bundle.py` — deterministic bundle
-- `python3 scripts/test_source_preservation.py` — 0 unauthorized Chinese edits
-- `python3 scripts/test_source_review_rules.py` — 138 W1 checks
-
-Presentation gates — CAN be turned OFF while experimenting, allowed to break presentation, continue-on-error: true:
-- `git diff --exit-code -- app_data.js docs data/project_metrics.json` + `diff -rq data docs/data` — docs mirror byte-identical — presentation, allowed to break
-- `node scripts/smoke_test.mjs` — 35 texts render-lazy, 0 style=, CSP — presentation, allowed to break
-- Bundle ceiling extended from 2MB to 30MB for testing phase per RULING_BUNDLE_CEILING_2026-09-14.md — technically feasible, Quality workflow doesn't enforce size directly
-
-Website ruling law gate — kept ON even while experimenting because it enforces LAW (NOT beautiful NOT done, NOT capable to judge, 1-10 aim 8+, light mental load etc.), not presentation quality.
-
-```yaml
-      - name: Require generated artifacts and deploy mirror to be committed (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
-        continue-on-error: true
-        run: |
-          git diff --exit-code -- app_data.js docs data/project_metrics.json || echo "⚠️ Presentation mirror diff failed — allowed while experimenting"
-
-      - name: Run dependency-free reader smoke test (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
-        continue-on-error: true
-        run: |
-          node scripts/smoke_test.mjs || echo "⚠️ Smoke test failed — allowed while experimenting"
-
-      - name: Enforce website ruling law — NOT beautiful, NOT done, owner feedback 1-10 aim 8+ (law — kept ON even while experimenting)
-        run: python3 scripts/test_website_ruling.py
-```
-
-**Status:** Applied per owner explicit request to turn off presentation gates while experimenting (scope boundary allows workflow edit with explicit owner approval). Text integrity gates remain required. Presentation breakage allowed to enable drastic layout changes across ALL rooms (Reader, Compare, Lineage, Cases, Terms), different tab counts allowed, ideal colors of 1 kept, 30MB ceiling.
-
-## Edit 6 — Retire the per-variant acceptance gate now that the demo layouts are gone (2026-09-19)
-
-**File:** `.github/workflows/quality.yml`
-**Reason:** the step *"Per-variant acceptance gate for rebuilt layouts"* derives its variant list
-from the diff (`git diff … -- app.css | grep -o 'rebuild:[0-9][0-9]* begin'`) and then runs
-`scripts/check_layout_variant.py N` for each N. The 2026-09-19 Pages rebuild deleted every
-`rebuild:NN` block (3–36) from `app.css` and `app.js`, so the only occurrences of that token in
-the diff are the *deleted* lines: the gate now resolves variants 3–36, looks for blocks that no
-longer exist, and fails with `variant N: no marked rebuild block 'rebuild:N begin' in app.css`.
-The gate polices a scaffold that this PR removes, so it cannot pass by construction.
-
-**Suggested patch** (owner-side; agents may not edit workflow files):
-
-```yaml
-      - name: Per-variant acceptance gate for rebuilt layouts
-        run: |
-          if git grep -q 'rebuild:[0-9][0-9]* begin' -- app.css app.js; then
-            git fetch --depth=1 origin main 2>/dev/null || true
-            variants="$(git diff --unified=0 FETCH_HEAD -- app.css 2>/dev/null | grep -o 'rebuild:[0-9][0-9]* begin' | grep -o '[0-9][0-9]*' | sort -un || true)"
-            status=0
-            for v in $variants; do
-              echo "Acceptance — variant $v"
-              python3 scripts/check_layout_variant.py "$v" || status=1
-            done
-            exit $status
-          fi
-          echo "No rebuild:NN variant scaffold in the tree — per-variant acceptance gate retired."
-```
-
-**Also pending (same reason, cosmetic):** `scripts/check_layout_variant.py` and its `__pycache__`
-entry are dead weight once no `rebuild:NN` block exists; deleting the script is an owner call.
-Nothing else in `scripts/` references the variant scaffold (verified 2026-09-19: the only repo
-files still naming `rebuild:`/`data-design` are `check_layout_variant.py` itself and this record).
+**Status:** DESIGN_GRID, CANARY, prompts 035-041, stubs 035-041, GITHUB_PAGES_OUTSOURCE_SPEC, PAGE_RULES_REVOCATION, EXTERNAL_GITHUB_PAGES_INSTRUCTIONS, check_layout_variant.py deleted. quality.yml retired to text-integrity only.
 
 ## Validation after either edit
 

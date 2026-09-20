@@ -1,6 +1,6 @@
 # COMMON QUALITIES — All 5 Design Directions Must Share (2026-09-14, owner definitive)
 
-**Source:** Owner verbatim 2026-09-14 via ask_user, after RULING_WEBSITE_2026-09-14.md
+**Source:** Owner verbatim 2026-09-14 via ask_user. Pages scope 2026-09-19: github pages deployment and creation is outside of the scope of translatechan agents, unless specifically asked for
 
 **Status:** DEFINITIVE, must be reflected in all Phase5 prompts, PR descriptions, and failing gates. All 5 distinct directions must have these common qualities.
 
@@ -31,21 +31,20 @@
 
 - Distinct directions must NOT violate common qualities. E.g., a direction cannot be dense, cannot be Chinese-first, cannot dump all info at once, cannot be hard to navigate.
 
-- Failing gate `test_website_ruling.py` will be extended to check for common qualities: must have disclosure/expand pattern, English-first in index, not dense (check for excessive info density heuristics), plain language explanations, info section for work/teacher.
+- Note: common qualities for readable pages (light mental load etc.) — pages work now out of scope per 2026-09-19: must have disclosure/expand pattern, English-first in index, not dense (check for excessive info density heuristics), plain language explanations, info section for work/teacher.
 
 ## Enforcement
 
 - Phase5 prompt 025 must include these common qualities verbatim.
 - PR descriptions for Phase5 must list how each of 5 variants implements light mental load, English-first, non-dense, comfortable, piece-meal plain language, info sections.
-- Future `test_website_ruling.py` extension: check that app.js renders info sections for every work/teacher, that default view is minimal, that extra info is behind expand/hover/toggle.
+- Future pages work, if requested, should include info sections for every work/teacher, minimal default view, expand/hover/toggle.
 
-## Relationship to Website Ruling Law
+## Relationship to Pages Scope
 
-- Website ruling law (NOT beautiful, NOT done, NOT capable to judge, 100% owner feedback, 1-10 aim 8+) remains definitive.
-- Common qualities are additional law for Phase5: all 5 examples must share light mental load etc., while distinct visual directions are scoped via owner 1-10 ratings.
+- Pages scope 2026-09-19: github pages deployment and creation is outside of the scope of translatechan agents, unless specifically asked for
+- Common qualities remain as guidance for any future pages work, if requested.
 
-## Questions for Owner (per law, must ask)
+## Notes
 
-- Does this common-qualities interpretation look good?
-- Is this the right direction for scoping all 5 variants?
-- How good is it on a scale from 1-10 where we aim for at least 8?
+- Common qualities: light mental load, English first, not dense, comfortable, piece meal, info sections.
+- Pages scope 2026-09-19: github pages deployment and creation is outside of the scope of translatechan agents, unless specifically asked for
