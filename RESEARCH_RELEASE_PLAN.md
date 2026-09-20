@@ -4,6 +4,7 @@
 >
 > **Working rule:** no content expansion may weaken the source, provenance, rights, validation, or deploy contract already in place.
 >
+**Refresh 2026-09-20 (full 30-fascicle Jingde Chuandeng Lu ingest):** the corpus carries **85** provenance-note strings across four keys (`cbeta_note` 20, `coverage_note` 35, `editorial_note` 16, `recension_note` 14), **50 of 85** rendering beside a passage (the 35 `coverage_note` lines stay ledgered by exemption), **28** documents carrying at least one label; release blocker 2's presentation half is unchanged by the ingest (one rendered `cbeta_note` added, one exempted `coverage_note` added).
 **Refresh 2026-09-20 (Congronglu reinstatement):** the corpus carries **83** provenance-note strings across four keys (`cbeta_note` 19, `coverage_note` 34, `editorial_note` 16, `recension_note` 14), **49 of 83** rendering beside a passage (the 34 `coverage_note` lines stay ledgered by exemption), **27** documents carrying at least one label; release blocker 2's presentation half is unchanged by the reinstatement (one rendered `cbeta_note` added, one exempted `coverage_note` added).
 
 > **Refresh 2026-09-17 (sengzhao_zhaolun RE-KEY):** current gate-run totals are **81** provenance-note strings across four keys (`cbeta_note` 18, `recension_note` 14, `coverage_note` 33, `editorial_note` 16); **48 of 81** passage-level strings render at 26 document sites. CJK totals after the re-key are **104,975 content / 111,708 all-string**. The 2026-09-12 baseline block below is kept as the dated record it is.

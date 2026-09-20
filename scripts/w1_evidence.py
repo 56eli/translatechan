@@ -117,11 +117,16 @@ FIXED_METADATA = {
     # recorded. The 2026-09-10 overlay and its 2026-09-09 manifest stay committed and unmodified as
     # the historical record; the new overlay inherits its 35 per-document entries verbatim and adds
     # exactly one measured document.
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CORRECTION.md",
-    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+    # 2026-09-20 (task 045): the authoritative overlay moves one step further so the full
+    # 30-fascicle Jingde Chuandeng Lu (1,274 units from the pinned T51n2076 witness, 2,549 fields
+    # EXACT) can be recorded. The 2026-09-20 correction overlay stays committed and unmodified as
+    # the chain's historical record; the new overlay inherits its 36 per-document entries verbatim
+    # and adds exactly one measured document. The designated flagged total stays 630.
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CHUANDENGLU_FULL.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
     "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
     "correction_evidence_date": "2026-09-20",
-    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
 }
 #: The historical digest manifest is part of the committed evidence even though the
 #: manifest metadata only declares the correction side by name.

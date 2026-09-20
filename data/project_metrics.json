@@ -1,21 +1,21 @@
 {
   "canonical_locator_coverage": {
-    "case_level_documents": 3,
-    "case_locators": 248,
-    "declared_cases": 248,
+    "case_level_documents": 4,
+    "case_locators": 1522,
+    "declared_cases": 1522,
     "document_level_seed_documents": 33,
-    "documents": 36
+    "documents": 37
   },
   "corpus": {
-    "all_corpus_cjk_characters": 199094,
+    "all_corpus_cjk_characters": 568899,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
-      "partial_selected_witness": 5
+      "partial_selected_witness": 6
     },
-    "content_cjk_characters": 189629,
+    "content_cjk_characters": 540668,
     "content_shapes": {
-      "cases": 3,
+      "cases": 4,
       "chapters": 1,
       "dialogues": 2,
       "five_ranks": 1,
@@ -23,9 +23,9 @@
       "sections": 25,
       "stanzas": 4
     },
-    "documents": 36,
+    "documents": 37,
     "excerpt_seed_documents": 31,
-    "incomplete_documents": 36,
+    "incomplete_documents": 37,
     "per_text": {
       "baizhang_guanglu": {
         "all_cjk_chars": 348,
@@ -41,7 +41,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 10,
           "probe_refs": [],
           "refs_total": 2,
@@ -72,7 +72,7 @@
           "content_fields_collated": 2,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 2,
@@ -105,7 +105,7 @@
           "content_fields_collated": 353,
           "content_fields_total": 395,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 128,
           "probe_refs": [],
           "refs_total": 1,
@@ -135,7 +135,7 @@
           "content_fields_collated": 1,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 1,
@@ -165,7 +165,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 4,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 7,
           "probe_refs": [],
           "refs_total": 1,
@@ -195,7 +195,7 @@
           "content_fields_collated": 1,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 7,
           "probe_refs": [
             "X80n1565"
@@ -211,6 +211,39 @@
         "title": "Transmission of Lamp (景德傳燈錄)",
         "unit_counts": {
           "sample_records": 2
+        }
+      },
+      "chuandenglu_full": {
+        "all_cjk_chars": 369805,
+        "cbeta_id": "T2076",
+        "completion_status": "partial_selected_witness",
+        "content_zh_chars": 351039,
+        "coverage": "1274/1274 cases",
+        "coverage_note": "All 1274 units are verbatim and contiguous in the claimed witness T51n2076 under the pinned extraction rule (scripts/collate_refs.py `cbeta-p5-body-cjk-v1`, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). The 30 fascicles (350269 CJK characters) are partitioned into 971 biography units, 69 work units and 234 section units (fascicle headings, tables of contents and generation lists); the partition tiles every fascicle exactly, asserted by the producer. The only overlaps are the titled sub-verses the witness nests inside its multi-part works (13 sub-units, 770 CJK characters counted both inside the parent work and as their own units, listed in the extraction report). What the 30 fascicles do not contain is disclosed, not omitted: the front matter before the fascicle-1 heading (3995 CJK characters: imperial edict, the petition for publication, the Xilai chronology and the table of contents) and the matter appended after the fascicle-30 heading (4237 CJK characters). The witness's interlinear apparatus (tei:note/tei:g) is dropped by the pinned rule and is not represented. Representation does not establish complete selected-witness status, and source collation does not approve reuse.",
+        "declared_zh_chars": 351039,
+        "is_complete": false,
+        "shapes": [
+          "cases"
+        ],
+        "source_review": {
+          "content_fields_collated": 1274,
+          "content_fields_total": 1274,
+          "evidence_date": "2026-09-20",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
+          "flagged_entries": 0,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "collated_to_claimed_witness",
+          "witness_note": "Recorded 2026-09-20 from the pinned witness: all 1,274 units (971 biography entries, 69 titled works, 234 sections) are verbatim and contiguous in T51n2076 — 2,549 fields measured, 2,549 EXACT, 0 flagged. The producer asserts the partition tiles the 30-fascicle region exactly (350,269 CJK characters); the only overlaps are the titled sub-verses the witness nests inside its multi-part works (13 sub-units, 770 CJK characters, listed in the extraction report). Case locators anchor at the lb line head printed before each unit, with the last lb inside the unit as the closing line. This document is new to the evidence: the 2026-09-09 pass never covered it, so it is declared in generation_parameters.new_documents; its reference T51n2076 verifies byte-identically against both the authoritative and the historical manifest (historical_status='verified'), so the collated claim rests on a byte-verified reference with a byte-verified historical anchor. No existing corpus record was read: the producer's only inputs are the pinned witness file and its digest-verified reference extraction, and every field is asserted to be a contiguous run of that extraction.",
+          "witness_refs": [
+            "T51n2076"
+          ]
+        },
+        "source_review_status": "collated_to_claimed_witness",
+        "title": "Transmission of the Lamp, Complete 30 Fascicles (景德傳燈錄)",
+        "unit_counts": {
+          "cases": 1274
         }
       },
       "congronglu": {
@@ -229,7 +262,7 @@
           "content_fields_collated": 500,
           "content_fields_total": 500,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 0,
           "probe_refs": [],
           "refs_total": 1,
@@ -260,7 +293,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 11,
           "probe_refs": [],
           "refs_total": 3,
@@ -293,7 +326,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 4,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 8,
           "probe_refs": [],
           "refs_total": 1,
@@ -323,7 +356,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 2,
@@ -354,7 +387,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 10,
           "probe_refs": [
             "X68n1315",
@@ -389,7 +422,7 @@
           "content_fields_collated": 1,
           "content_fields_total": 21,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 27,
           "probe_refs": [],
           "refs_total": 2,
@@ -421,7 +454,7 @@
           "content_fields_collated": 1,
           "content_fields_total": 11,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 16,
           "probe_refs": [],
           "refs_total": 1,
@@ -451,7 +484,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 12,
           "probe_refs": [],
           "refs_total": 1,
@@ -481,7 +514,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 10,
           "probe_refs": [],
           "refs_total": 2,
@@ -511,7 +544,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 4,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 0,
@@ -539,7 +572,7 @@
           "content_fields_collated": 2,
           "content_fields_total": 11,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 18,
           "probe_refs": [],
           "refs_total": 1,
@@ -569,7 +602,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 7,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 12,
           "probe_refs": [],
           "refs_total": 1,
@@ -599,7 +632,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 3,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 7,
           "probe_refs": [],
           "refs_total": 1,
@@ -630,7 +663,7 @@
           "content_fields_collated": 79,
           "content_fields_total": 89,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 84,
           "probe_refs": [
             "X68n1315",
@@ -665,7 +698,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 8,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 10,
           "probe_refs": [],
           "refs_total": 1,
@@ -695,7 +728,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 1,
@@ -724,7 +757,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 5,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 0,
@@ -753,7 +786,7 @@
           "content_fields_collated": 4,
           "content_fields_total": 13,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 19,
           "probe_refs": [],
           "refs_total": 2,
@@ -785,7 +818,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 5,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 2,
@@ -816,7 +849,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 4,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 8,
           "probe_refs": [],
           "refs_total": 1,
@@ -846,7 +879,7 @@
           "content_fields_collated": 6,
           "content_fields_total": 11,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 7,
           "probe_refs": [],
           "refs_total": 2,
@@ -878,7 +911,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 3,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 6,
           "probe_refs": [],
           "refs_total": 1,
@@ -910,7 +943,7 @@
           "content_fields_collated": 113,
           "content_fields_total": 181,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 70,
           "probe_refs": [],
           "refs_total": 1,
@@ -941,7 +974,7 @@
           "content_fields_collated": 24,
           "content_fields_total": 37,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 14,
           "probe_refs": [],
           "refs_total": 1,
@@ -971,7 +1004,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 5,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 8,
           "probe_refs": [],
           "refs_total": 2,
@@ -1002,7 +1035,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 4,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 6,
           "probe_refs": [],
           "refs_total": 2,
@@ -1033,7 +1066,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 2,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 2,
@@ -1064,7 +1097,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 12,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 19,
           "probe_refs": [],
           "refs_total": 1,
@@ -1094,7 +1127,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 19,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 35,
           "probe_refs": [
             "X68n1315"
@@ -1128,7 +1161,7 @@
           "content_fields_collated": 6,
           "content_fields_total": 6,
           "evidence_date": "2026-09-20",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
           "flagged_entries": 1,
           "probe_refs": [],
           "refs_total": 1,
@@ -1147,16 +1180,16 @@
     },
     "source_review": {
       "authoritative": {
-        "documents": 36,
+        "documents": 37,
         "evidence_date": "2026-09-20",
         "flagged_entries": 630,
         "refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
-        "register_path": "sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json",
-        "report_path": "sessions/COLLATION_W1_2026-09-20_CORRECTION.md"
+        "register_path": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
+        "report_path": "sessions/COLLATION_W1_2026-09-20_CHUANDENGLU_FULL.md"
       },
       "class_totals": {
         "DIVERGENT": 111,
-        "EXACT": 1286,
+        "EXACT": 3835,
         "MINOR": 30,
         "NOT_FOUND": 334,
         "SHORT_UNMATCHED": 109,
@@ -1180,8 +1213,8 @@
           "witness_unavailable": true
         }
       },
-      "content_fields_collated": 1093,
-      "content_fields_total": 1424,
+      "content_fields_collated": 2367,
+      "content_fields_total": 2698,
       "disclosure_ledgers": [
         {
           "key": "source_collation",
@@ -1204,9 +1237,9 @@
           "label": "Rights review"
         }
       ],
-      "documents": 36,
+      "documents": 37,
       "documents_without_collating_content": 22,
-      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); scripts/validate_data.py merges and re-derives both",
+      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the newest authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); scripts/validate_data.py merges and re-derives both",
       "flagged_entries": 630,
       "historical": {
         "documents": 34,
@@ -1217,7 +1250,7 @@
       },
       "ledger_separation_note": "Separate ledgers: none of these answers implies another.",
       "metadata_field_note": "Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.",
-      "metadata_fields_total": 492,
+      "metadata_fields_total": 1767,
       "non_approval_statement": "Source collation does not approve reuse.",
       "reference_verification": {
         "counts": {
@@ -1258,7 +1291,7 @@
         "historical_report_flagged_total": 637
       },
       "status_counts": {
-        "collated_to_claimed_witness": 2,
+        "collated_to_claimed_witness": 3,
         "partial_or_failed_w1_collation": 32,
         "witness_unavailable": 2
       },
@@ -1276,7 +1309,7 @@
       }
     },
     "source_review_statuses": {
-      "collated_to_claimed_witness": 2,
+      "collated_to_claimed_witness": 3,
       "partial_or_failed_w1_collation": 32,
       "witness_unavailable": 2
     }
@@ -1305,8 +1338,8 @@
     }
   },
   "manifest_integrity": {
-    "corpus_files": 36,
-    "shared_manifest_items": 36
+    "corpus_files": 37,
+    "shared_manifest_items": 37
   },
   "measurement_method": {
     "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
