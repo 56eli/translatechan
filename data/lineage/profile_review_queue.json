@@ -108,6 +108,14 @@
       "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
     },
     {
+      "master_id": "caoshan_benji",
+      "priority": "high",
+      "review_status": "needs_exact_locator",
+      "current_evidence_status": "seed_profile_pending_exact_locator",
+      "next_action": "Corpus cross-reference completed 2026-09-20: linked_corpus_keys curated to the collated caoshan_benji record (T47n1987A, 84/84 source-content units verbatim, 169/169 fields collating). Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator for the seed fields; record an editor review before changing profile evidence status.",
+      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+    },
+    {
       "master_id": "yunmen_wenyan",
       "priority": "high",
       "review_status": "needs_exact_locator",

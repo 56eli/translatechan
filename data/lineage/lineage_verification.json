@@ -150,6 +150,14 @@
       "note": "Traditional lineage relation represented in the current seed graph; exact chart/record locator awaits editorial verification."
     },
     {
+      "teacher": "dongshan_liangjie",
+      "disciple": "caoshan_benji",
+      "status": "traditional_link_pending_exact_locator",
+      "source_id": "jingde-chuandenglu",
+      "reference": "Candidate source context: T1987A 撫州曹山元證禪師語錄 (Vol. 47) and the T2076 景德傳燈錄 heir lists (fasc. 17 洞山法嗣; fasc. 20 前撫州曹山本寂禪師法嗣)",
+      "note": "Traditional lineage relation represented in the current seed graph; the project's collated Chuandeng Lu and Caoshan records carry the anchor text, but no exact chart/record locator has been editorially reviewed, so the edge stays pending."
+    },
+    {
       "teacher": "xuefeng_yicun",
       "disciple": "yunmen_wenyan",
       "status": "traditional_link_pending_exact_locator",

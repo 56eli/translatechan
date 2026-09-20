@@ -119,10 +119,10 @@ class Sandbox:
         shutil.rmtree(self.root, ignore_errors=True)
 
 
-AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json"
+AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json"
 REMEDIATION_PLAN = ".orchestrator/REMEDIATION_PLAN.md"
 HISTORICAL_REGISTER = "sessions/COLLATION_REGISTER_2026-09-09.json"
-CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-20_CHUANDENGLU_FULL.md"
+CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI.md"
 
 
 def _is_metadata_path(path: str) -> bool:
@@ -145,8 +145,8 @@ def run_partition_and_report_regressions() -> None:
                 entry["metadata_summary"]["NOT_FOUND"] = 5
                 entry["content_fields_total"] = 5
                 entry["metadata_fields_total"] = 5
-                register["aggregate"]["content_fields_total"] = 2697
-                register["aggregate"]["metadata_fields_total"] = 1766
+                register["aggregate"]["content_fields_total"] = 2781
+                register["aggregate"]["metadata_fields_total"] = 1851
                 sandbox.write(AUTH_REGISTER, register)
                 new_sha = hashlib.sha256((sandbox.root / AUTH_REGISTER).read_bytes()).hexdigest()
                 report = sandbox.read_text(CORRECTION_REPORT)
@@ -155,8 +155,8 @@ def run_partition_and_report_regressions() -> None:
                 expected_error = "content/metadata partition mismatch"
             else:
                 report = sandbox.read_text(CORRECTION_REPORT)
-                check("1,767 metadata fields" in report, "report test finds the labeled metadata claim")
-                sandbox.write_text(CORRECTION_REPORT, report.replace("1,767 metadata fields", "999 metadata fields", 1))
+                check("1,852 metadata fields" in report, "report test finds the labeled metadata claim")
+                sandbox.write_text(CORRECTION_REPORT, report.replace("1,852 metadata fields", "999 metadata fields", 1))
                 expected_error = "correction report states metadata fields as '999'"
             result = subprocess.run(
                 [sys.executable, str(sandbox.root / "scripts/validate_data.py"), "--write-metrics"],
@@ -172,7 +172,7 @@ def run_partition_and_report_regressions() -> None:
                 check("cited digest no longer matches" not in output,
                       "partition: updated register hash avoids unrelated citation failure")
                 metrics = sandbox.read("data/project_metrics.json")["corpus"]["source_review"]
-                check(metrics["content_fields_total"] == 2698 and metrics["metadata_fields_total"] == 1767,
+                check(metrics["content_fields_total"] == 2782 and metrics["metadata_fields_total"] == 1852,
                       "partition: forged 2697/1766 totals were not written")
             print(f"Focused mutation {label}: exit={result.returncode}, metrics_byte_identical={unchanged}")
         finally:
@@ -200,7 +200,7 @@ def mutation_aggregate_class_total(root: Sandbox) -> None:
 
 def mutation_report_total_to_999(root: Sandbox) -> None:
     text = root.read_text(CORRECTION_REPORT)
-    text = text.replace("(37 documents, 630 flagged entries)", "(37 documents, 999 flagged entries)", 1)
+    text = text.replace("(38 documents, 630 flagged entries)", "(38 documents, 999 flagged entries)", 1)
     root.write_text(CORRECTION_REPORT, text)
 
 
@@ -964,7 +964,7 @@ def main() -> int:
     try:
         register = waiver.read(AUTH_REGISTER)
         declared = register.get("generation_parameters", {}).get("new_documents")
-        check(declared == ["congronglu", "chuandenglu_full"],
+        check(declared == ["congronglu", "chuandenglu_full", "caoshan_benji"],
               f"the live overlay declares the documents it adds, cumulatively "
               f"(new_documents={declared!r})")
         entry = register["documents"]["congronglu"]

@@ -226,6 +226,17 @@ DOCS = {
     # 2026-09-20 manifests, so its reference has a verified historical anchor; the
     # document itself is new to the evidence record and declared via --new-document.
     'chuandenglu_full': (['T51n2076'], []),
+    # 2026-09-20 (task 046): Caoshan Benji's record from the pinned T47n1987A witness
+    # (撫州曹山元證禪師語錄, one fascicle: preface, opening heading, 75 record paragraphs, the six
+    # Caodong treatises and the close, 84 units tiling all 12,343 CJK characters of the pinned
+    # extraction). Probes, not claimed witnesses: T47n1987B (撫州曹山本寂禪師語錄, the 曹洞語錄
+    # recension of the same Taishō number), X68n1315 (古尊宿語錄) and T51n2076 (景德傳燈錄) carry
+    # material *about* the master, not this record's text. T48n2006 (人天眼目) enters the reference
+    # set with this task because its 曹洞宗 section carries a parallel recension of the record's
+    # 五位君臣旨訣 passage; it is a probe, so it can only annotate `also_in` and never a class. The
+    # claimed reference T47n1987A carries the same digest in the 2026-09-09 historical anchor and
+    # in the 2026-09-20 Caoshan manifest (41 works), so the new-document waiver is declarative.
+    'caoshan_benji': (['T47n1987A'], ['T47n1987B', 'X68n1315', 'T51n2076', 'T48n2006']),
     'wumenguan': (['T48n2005'], []),
     'xinxin_ming': (['T48n2010'], []),
     'biyanlu_cases': (['T48n2003'], []),

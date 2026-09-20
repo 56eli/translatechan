@@ -122,11 +122,17 @@ FIXED_METADATA = {
     # EXACT) can be recorded. The 2026-09-20 correction overlay stays committed and unmodified as
     # the chain's historical record; the new overlay inherits its 36 per-document entries verbatim
     # and adds exactly one measured document. The designated flagged total stays 630.
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CHUANDENGLU_FULL.md",
-    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
-    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+    # 2026-09-20 (task 046): the authoritative overlay moves one step further again so Caoshan
+    # Benji's record (84 units from the pinned T47n1987A witness — 撫州曹山元證禪師語錄 — 169 fields
+    # EXACT, 0 flagged) can be recorded. The 2026-09-20 Chuandeng Lu overlay stays committed and
+    # unmodified as the chain's historical record; the new overlay inherits its 37 per-document
+    # entries verbatim and adds exactly one measured document. Its manifest also carries the task's
+    # 41st reference work, the probe T48n2006 (人天眼目); the designated flagged total stays 630.
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
     "correction_evidence_date": "2026-09-20",
-    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
 }
 #: The historical digest manifest is part of the committed evidence even though the
 #: manifest metadata only declares the correction side by name.

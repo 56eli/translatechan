@@ -82,7 +82,7 @@ Every visible translation register carries a **✅ Edition-verified quotation**,
 
 ## 📚 Core Foundational Corpus (Seed Excerpts)
 
-> **Honest status**: the active corpus contains **37 documents** and no current `complete_selected_witness` item after W1 containment. W1 evidence: **37 documents, 630 flagged source fields** (authoritative 2026-09-20 full-Jingde-Chuandeng-Lu overlay: `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json`, which inherits the 36 entries of the 2026-09-20 correction overlay: `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, itself the 35 entries of the 2026-09-10 correction register `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 2,367 of 2,698 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all; a fresh collation of current `main` reports **486** flagged fields — the difference is the four merged re-keys (PRs #29, #30, #32, #34) the 2026-09-20 Congronglu reinstatement and the 2026-09-20 full 30-fascicle Jingde Chuandeng Lu ingest — and the owner ruled on 2026-09-12 that the published post-remediation evidence pass (PR #41) does **not** supersede the register: **630** stays authoritative and 486 stays today's measurement of `main`. Wumenguan has **48 / 48 cases represented; W1 source-review status: `partial_or_failed_w1_collation`**; Xinxin Ming has 37/37 stanzas represented with the same partial/failed W1 state. Biyanlu and Linji remain `partial_selected_witness`; 31 records remain excerpt seeds. The manifest source-review counts are `collated_to_claimed_witness`: **3**, `partial_or_failed_w1_collation`: **32**, and `witness_unavailable`: **2**. Biyanlu has **100/100 cases** represented as case records, but source fields/human sign-off are incomplete. Platform Sutra has 10/10 chapter headings represented, but is not a complete text: its 13 source-content fields (680 content CJK) are now provenance-labelled — 1 verbatim in the primary witness T48n2007 (Dunhuang), 3 in the alternative T48n2008 (宗寶), and 9 in neither, disclosed as project précis. The Congronglu seed removed after the 2026-08-10 audit (uncollated generated placeholders, incorrect case-number/page claims) was rebuilt from scratch out of the authoritative T48n2004 witness and reinstated on 2026-09-20: 100/100 cases, 500/500 source-content fields collating, 0 flagged, none of the quarantined records copied. Generated metrics report **540,668 source-content CJK characters** (or 568,899 across every corpus JSON string, including metadata); representation counts never establish completion by themselves.
+> **Honest status**: the active corpus contains **38 documents** and no current `complete_selected_witness` item after W1 containment. W1 evidence: **38 documents, 630 flagged source fields** (authoritative 2026-09-20 Caoshan Benji overlay: `sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json`, which inherits the 37 entries of the 2026-09-20 full-Jingde-Chuandeng-Lu overlay `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json` verbatim, itself inheriting the 36 entries of the 2026-09-20 correction overlay `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, the 35 entries of the 2026-09-10 correction register `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 2,451 of 2,782 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all; a fresh collation of current `main` reports **486** flagged fields — the difference is the four merged re-keys (PRs #29, #30, #32, #34) the 2026-09-20 Congronglu reinstatement and the 2026-09-20 full 30-fascicle Jingde Chuandeng Lu ingest and the 2026-09-20 Caoshan Benji ingest — and the owner ruled on 2026-09-12 that the published post-remediation evidence pass (PR #41) does **not** supersede the register: **630** stays authoritative and 486 stays today's measurement of `main` (re-measured 2026-09-20 over the 38 documents, still 486). Wumenguan has **48 / 48 cases represented; W1 source-review status: `partial_or_failed_w1_collation`**; Xinxin Ming has 37/37 stanzas represented with the same partial/failed W1 state. Biyanlu and Linji remain `partial_selected_witness`; 31 records remain excerpt seeds. The manifest source-review counts are `collated_to_claimed_witness`: **4**, `partial_or_failed_w1_collation`: **32**, and `witness_unavailable`: **2**. Biyanlu has **100/100 cases** represented as case records, but source fields/human sign-off are incomplete. Platform Sutra has 10/10 chapter headings represented, but is not a complete text: its 13 source-content fields (680 content CJK) are now provenance-labelled — 1 verbatim in the primary witness T48n2007 (Dunhuang), 3 in the alternative T48n2008 (宗寶), and 9 in neither, disclosed as project précis. The Congronglu seed removed after the 2026-08-10 audit (uncollated generated placeholders, incorrect case-number/page claims) was rebuilt from scratch out of the authoritative T48n2004 witness and reinstated on 2026-09-20: 100/100 cases, 500/500 source-content fields collating, 0 flagged, none of the quarantined records copied. The Caoshan Benji record (撫州曹山元證禪師語錄, T47n1987A) was extracted from scratch on 2026-09-20 as the 38th document — 84/84 units, 84/84 source-content fields collating, 0 flagged. Generated metrics report **553,011 source-content CJK characters** (or 583,291 across every corpus JSON string, including metadata); representation counts never establish completion by themselves.
 
 | Text Name (English) | Classical Chinese | CBETA Canon ID | Author / Compiler | Current Coverage |
 | :--- | :--- | :--- | :--- | :--- |
@@ -93,8 +93,9 @@ Every visible translation register carries a **✅ Edition-verified quotation**,
 | **Inscription on Faith in Mind** | 信心銘 | **T2010** (Vol. 48) | Third Patriarch Jianzhi Sengcan | **37 / 37 stanzas represented; partial/failed W1 source collation** |
 | **Jewel Mirror Samadhi** | 寶鏡三昧歌 | **T1986** (Vol. 47) | Dongshan Liangjie (洞山良价) | Opening stanzas |
 | **The Blue Cliff Record** | 佛果圓悟禪師碧巖錄 | **T2003** (Vol. 48) | Xuedou Chongxian / Yuanwu Keqin | **100 / 100 cases represented**; partial selected witness |
+| **The Record of Caoshan Benji** | 撫州曹山元證禪師語錄 | **T1987A** (Vol. 47) | Caoshan Benji (曹山本寂, 840–901) / 慧印 校訂 | **84 / 84 units represented; W1 source-review status: `collated_to_claimed_witness`** |
 | **The Platform Sutra** | 六祖大師法寶壇經 | **T2007** (Vol. 48) | Sixth Patriarch Huineng / Fahai | 10 / 10 chapter headings represented by excerpts; **not complete** |
-| **(+ 27 further yulu, treatises & poems)** | — | T/X canon | Mazu, Dongshan, Yunmen, Fayan, Guiyang, Dahui, Hanshan… | Excerpt/partial seeds — see `data/corpus/` |
+| **(+ 28 further yulu, treatises & poems)** | — | T/X canon | Mazu, Dongshan, Yunmen, Fayan, Guiyang, Dahui, Hanshan… | Excerpt/partial seeds — see `data/corpus/` |
 
 ---
 
@@ -102,7 +103,7 @@ Every visible translation register carries a **✅ Edition-verified quotation**,
 
 The 2026-09-09 W1 report and register are the *historical* evidence for Classical Chinese source review; the dated 2026-09-10 correction overlay is the authoritative record and adds the item the first run never mapped. `scripts/validate_data.py` merges both and re-derives every status from them. These are containment/remediation states, **not rights decisions**:
 
-- `collated_to_claimed_witness`: **3** documents fully collated to their claimed witness in the W1-evaluated set (`zhengdao_ge`, the 2026-09-20 Congronglu reinstatement, and the 2026-09-20 full 30-fascicle Jingde Chuandeng Lu).
+- `collated_to_claimed_witness`: **4** documents fully collated to their claimed witness in the W1-evaluated set (`zhengdao_ge`, the 2026-09-20 Congronglu reinstatement, the 2026-09-20 full 30-fascicle Jingde Chuandeng Lu, and the 2026-09-20 Caoshan Benji record).
 - `partial_or_failed_w1_collation`: **32** manifest records are not fully supported by W1 collation; per-document remediation remains pending.
 - `witness_unavailable`: **2** records need an authoritative non-CBETA witness before source claims can be reviewed.
 
@@ -131,7 +132,7 @@ Five documents were re-keyed to their pinned CBETA witnesses or provenance-label
 - 🤖 **Robo note**: translator-attributed renderings are Robolations unless individually checked against a recorded edition (then they are ✅ Edition-verified quotations). Verification and rights approval remain separate.
 
 ### 3. 🌳 Lineage Knowledge Graph Explorer
-- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **34 master profiles** (30 researched seed profiles + 4 explicitly marked frontier scaffolds), with the network chart as its second view and clickable dossiers.
+- Chronological and genealogical mapping from Bodhidharma (d. ~532 CE) through the Six Patriarchs, Mazu, Shitou, Baizhang, Huangbo, to the Five Houses — currently **35 master profiles** (31 researched seed profiles + 4 explicitly marked frontier scaffolds), with the network chart as its second view and clickable dossiers.
 - A visible chart-status disclosure distinguishes traditional links awaiting exact locators from future source-verified links; graph edges open source-chart/record details on click or keyboard activation.
 - Filter by lineage school; sort the register by generation (ruled bands), chronology, name or school. Each row carries the school, dated record,
   temple, canonical reference, teacher link and signature quote, and the dossier prints the full profile — including the pending-locator wording
@@ -177,7 +178,7 @@ translatechan/
 ├── SECURITY.md              # Minimal security-disclosure policy (GitHub Security Advisories)
 ├── og-image.svg / og-image.png # Social-card image; SVG primary + PNG fallback (mirrored into docs/)
 ├── data/
-│   ├── corpus_manifest.json    # Shared active-corpus order/navigation manifest (37 keys)
+│   ├── corpus_manifest.json    # Shared active-corpus order/navigation manifest (38 keys)
 │   ├── canonical_locators.json # Document/case/unit source-locator registry
 │   ├── project_metrics.json    # Deterministic, validator-generated project counts
 │   ├── corpus/                 # 35 active structured source files (complete/partial/excerpt)
@@ -188,11 +189,11 @@ translatechan/
 │   │   └── ... (31 more: yulu, treatises, poems — see data/corpus/)
 │   ├── editorial/          # Enforced document-level source-locator migration queue (33 seeds)
 │   │   └── traceability_queue.json
-│   ├── lineage/            # 34 profiles (30 seed profiles + 4 explicit frontier scaffolds)
+│   ├── lineage/            # 35 profiles (31 seed profiles + 4 explicit frontier scaffolds)
 │   │   ├── masters.json
 │   │   ├── school_vocabulary.json   # Controlled school_key/display/color vocabulary (validator-enforced)
-│   │   ├── lineage_verification.json  # 30 internal-edge + 4 frontier source-status records
-│   │   └── profile_review_queue.json  # Enforced exact-locator review queue (34 profiles)
+│   │   ├── lineage_verification.json  # 31 internal-edge + 4 frontier source-status records
+│   │   └── profile_review_queue.json  # Enforced exact-locator review queue (35 profiles)
 │   ├── translations/       # Comparative data, provenance, rights & Robo profiles
 │   │   ├── comparative_matrix.json
 │   │   ├── translator_profiles.json  # Evidence-grounded Robo-translator personalities (14 in-corpus-verified; 6 documented-external; 1 not-applicable)

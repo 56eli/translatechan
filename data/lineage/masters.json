@@ -526,6 +526,47 @@
     }
   },
   {
+    "id": "caoshan_benji",
+    "name_zh": "曹山本寂",
+    "name_pinyin": "Cáoshān Běnjì",
+    "name_romaji": "Sōzan Honjaku",
+    "name_en": "Caoshan Benji",
+    "title": "Second founder of the Caodong (Sōtō) School (曹洞宗第二祖)",
+    "dates": "840–901 CE",
+    "era": "Late Tang Dynasty",
+    "school": "Caodong School (曹洞宗)",
+    "school_key": "caodong",
+    "location": "Mount Cao, Fuzhou, Jiangxi (撫州曹山)",
+    "lineage_depth": 12,
+    "teacher": "dongshan_liangjie",
+    "disciples": [
+      "heyu_guanghui",
+      "dongshan_daoyan",
+      "jingfeng_congzhi"
+    ],
+    "texts": [
+      "Caoshan Benji Yulu (撫州曹山元證禪師語錄 / T1987A)"
+    ],
+    "key_quote_zh": "正位即空界本來無物偏位即色界有萬象形正中偏者背理就事偏中正者舍事入理",
+    "key_quote_en": "The 'upright position' is the emptiness-realm, originally without things; the 'biased position' is the form-realm, possessing the myriad images. 'Upright within the biased' turns from principle towards events; 'biased within the upright' leaves events to enter principle.",
+    "cbeta_id": "T1987A (Vol. 47)",
+    "summary": "Dongshan Liangjie's dharma heir and the 'Cao' of the Caodong house. His Record (撫州曹山元證禪師語錄, T1987A) carries the 五位君臣旨訣 the tradition credits to him together with the appended Caodong treatises (解釋洞山五位顯訣, 逐位頌竝注別揀, 五位旨訣, 三種墮, 四種異類, 三然燈), and closes with his death in 天復辛酉 (901) and the posthumous title 元證禪師. The project's 84-unit record is verbatim against the pinned witness (T47n1987A, revision dbdea410) and its reference digest is byte-verified in the 2026-09-09 and 2026-09-20 manifests.",
+    "alternative_names": [
+      "撫州曹山本寂禪師",
+      "元證禪師",
+      "Sōzan Honjaku",
+      "Ts'ao-shan Pen-chi (Caoshan Benji)"
+    ],
+    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "linked_corpus_keys": [
+      "caoshan_benji"
+    ],
+    "profile_evidence": {
+      "status": "seed_profile_pending_exact_locator",
+      "note": "Canonical identifiers and descriptive seed data are recorded, and the project's collated record data/corpus/caoshan_benji.json supplies a byte-verified source anchor (T47n1987A, 84/84 source-content units verbatim, 169/169 fields collating). The exact biographical locators for the seed fields and the source-status decision remain unreviewed; this note does not upgrade any traditional lineage link or biographical claim."
+    }
+  },
+  {
     "id": "yunmen_wenyan",
     "name_zh": "雲門文偃",
     "name_pinyin": "Yúnmén Wényǎn",
