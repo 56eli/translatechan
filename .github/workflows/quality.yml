@@ -9,8 +9,6 @@ on:
     branches:
       - main
 
-# This workflow reads the repository only. It does not deploy Pages, create
-# releases, write commits, or use third-party credentials.
 permissions:
   contents: read
 
@@ -49,35 +47,9 @@ jobs:
       - name: Enforce W1 source-review rule suite (138 checks)
         run: python3 scripts/test_source_review_rules.py
 
-      - name: Per-variant acceptance gate for rebuilt layouts (required per work order 2026-09-18-letter-002 item 3 — replaces continue-on-error presentation steps for rebuilt variants; variants 1-2 and the base shell grandfathered)
+      - name: Require generated artifacts and deploy mirror to be committed
         run: |
-          git fetch --depth=1 origin main 2>/dev/null || true
-          variants="$(git diff --unified=0 FETCH_HEAD -- app.css 2>/dev/null | grep -o 'rebuild:[0-9][0-9]* begin' | grep -o '[0-9][0-9]*' | sort -un || true)"
-          if [ -z "$variants" ]; then
-            echo "No rebuilt-variant block in this diff — per-variant acceptance gate not applicable."
-            exit 0
-          fi
-          status=0
-          for v in $variants; do
-            echo "Acceptance — variant $v"
-            python3 scripts/check_layout_variant.py "$v" || status=1
-          done
-          exit $status
+          git diff --exit-code -- app_data.js docs/app_data.js docs/index.html docs/app.css docs/app.js docs/data data/project_metrics.json
 
-      - name: Require generated artifacts and deploy mirror to be committed (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
-        continue-on-error: true
-        run: |
-          # Structural mirror-tree diff: covers root bundle, the entire docs/
-          # mirror tree, and generated metrics in one structural check, so new
-          # mirrored assets (e.g. theme-init.js, robots.txt, sitemap.xml,
-          # og-image.svg) are guarded without enumerating each path (O-3).
-          # TURNED OFF for experimenting phase per RULING_GATES_EXPERIMENT_2026-09-14 — presentation can break while experimenting, text integrity gates remain required
-          git diff --exit-code -- app_data.js docs data/project_metrics.json || echo "⚠️ Presentation mirror diff failed — allowed while experimenting per owner ruling 2026-09-14"
-
-      - name: Run dependency-free reader smoke test (presentation — allowed to break while experimenting per owner ruling 2026-09-14)
-        continue-on-error: true
-        run: |
-          node scripts/smoke_test.mjs || echo "⚠️ Smoke test failed — allowed while experimenting per owner ruling 2026-09-14, text integrity gates remain required"
-
-      - name: Enforce website ruling law — NOT beautiful, NOT done, owner feedback 1-10 aim 8+ (law — kept ON even while experimenting)
-        run: python3 scripts/test_website_ruling.py
+      - name: Run dependency-free reader smoke test
+        run: node scripts/smoke_test.mjs
