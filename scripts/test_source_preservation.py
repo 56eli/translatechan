@@ -73,7 +73,7 @@ Rules
 * The allowlist is exercised by a focused regression on a temporary copy of the
   tree: a nested `coverage_note` change must exit nonzero and name the exact
   path. The repository's own corpus files are never modified by any check here.
-* Two new corpus files are declared: `data/corpus/congronglu.json`, the
+* Three new corpus files are declared: `data/corpus/congronglu.json`, the
   2026-09-20 Congronglu reinstatement (task 043, owner-ruled) — a new
   extraction from the pinned CBETA T48n2004 witness (100 cases;
   `scripts/collate_corpus.py --doc congronglu`: 500/500 EXACT, 0 flagged) — and
@@ -81,8 +81,13 @@ Rules
   Chuandeng Lu (task 045) — a new extraction from the pinned CBETA T51n2076
   witness (1,274 units; `scripts/collate_corpus.py --doc chuandenglu_full`:
   2,549/2,549 EXACT, 0 flagged), a sibling of the untouched `chuandenglu`
-  excerpt record, from which nothing is copied. Any *other* new corpus file is
-  a failure.
+  excerpt record, from which nothing is copied — and
+  `data/corpus/caoshan_benji.json`, the 2026-09-20 Caoshan Benji record
+  (task 046) — a new extraction from the pinned CBETA T47n1987A witness (84
+  units tiling all 12,343 CJK characters of the fascicle;
+  `scripts/collate_corpus.py --doc caoshan_benji`: 169/169 EXACT, 0 flagged,
+  84/84 source-content fields collating), the last of the Five Houses'
+  founders to enter the corpus. Any *other* new corpus file is a failure.
 * The set of corpus files must not grow or shrink, except for the declared new
   documents above.
 * The `docs/data/corpus` mirror must be byte-identical to `data/corpus`.
@@ -129,6 +134,16 @@ DECLARED_NEW_CORPUS = {
         "EXACT, 0 flagged; sibling of the untouched `chuandenglu` excerpt record, nothing copied "
         "from it). Declared evidence: sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json "
         "+ sessions/P1_CHUANDENGLU_FULL_2026-09-20.md."
+    ),
+    "data/corpus/caoshan_benji.json": (
+        "2026-09-20 Caoshan Benji record (task 046, P1-3): a new extraction from the pinned CBETA "
+        "T47n1987A witness (撫州曹山元證禪師語錄; 84 units — 1 preface, 1 opening heading, 75 record "
+        "paragraphs, 6 Caodong treatises, 1 close — tiling all 12,343 CJK characters of the "
+        "fascicle; 169/169 fields EXACT, 0 flagged; 84/84 source-content fields collating; the "
+        "sibling T47n1987B recension, X68n1315, T51n2076 and T48n2006 are probes, not claimed "
+        "witnesses, and nothing is copied from them). Declared evidence: "
+        "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json + "
+        "sessions/P1_CAOSHAN_BENJI_2026-09-20.md."
     ),
 }
 

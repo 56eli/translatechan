@@ -1,0 +1,1032 @@
+{
+ "work_id": "T47n1987A",
+ "upstream_revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+ "witness_sha256": "d0d0336d02c420f9b614be9a138322eb2ff4870853c5c8ac4afdca00342d1cfe",
+ "reference_cjk": 12343,
+ "reference_sha256": "cdb2f4e2f2982ecfb4317e911cdfe96ff3ae6c7968f9909bbfbc6bde74768a18",
+ "units": {
+  "total": 84,
+  "preface": 1,
+  "heading": 1,
+  "record": 75,
+  "treatise": 6,
+  "end": 1
+ },
+ "record_title_chars": 12,
+ "record_titles_unique": true,
+ "unit_list": [
+  {
+   "case_num": 1,
+   "kind": "preface",
+   "span": [
+    0,
+    277
+   ],
+   "cjk": 277,
+   "title_zh": "曹山大師語錄序",
+   "page_line": "0526b27",
+   "case_close_line": "0526c16"
+  },
+  {
+   "case_num": 2,
+   "kind": "heading",
+   "span": [
+    277,
+    295
+   ],
+   "cjk": 18,
+   "title_zh": "撫州曹山元證禪師語錄",
+   "page_line": "0526c19",
+   "case_close_line": "0526c21"
+  },
+  {
+   "case_num": 3,
+   "kind": "record",
+   "span": [
+    295,
+    493
+   ],
+   "cjk": 198,
+   "title_zh": "師諱本寂泉州莆田黃氏子少",
+   "page_line": "0526c22",
+   "case_close_line": "0527a04"
+  },
+  {
+   "case_num": 4,
+   "kind": "record",
+   "span": [
+    493,
+    1003
+   ],
+   "cjk": 510,
+   "title_zh": "因有僧問五位君臣旨訣師曰",
+   "page_line": "0527a05",
+   "case_close_line": "0527b06"
+  },
+  {
+   "case_num": 5,
+   "kind": "record",
+   "span": [
+    1003,
+    1071
+   ],
+   "cjk": 68,
+   "title_zh": "雲門問如何是沙門行師曰喫",
+   "page_line": "0527b07",
+   "case_close_line": "0527b11"
+  },
+  {
+   "case_num": 6,
+   "kind": "record",
+   "span": [
+    1071,
+    1179
+   ],
+   "cjk": 108,
+   "title_zh": "師示眾曰諸方盡把格則何不",
+   "page_line": "0527b12",
+   "case_close_line": "0527b18"
+  },
+  {
+   "case_num": 7,
+   "kind": "record",
+   "span": [
+    1179,
+    1230
+   ],
+   "cjk": 51,
+   "title_zh": "因米和尚至未相見米遂坐却",
+   "page_line": "0527b19",
+   "case_close_line": "0527b22"
+  },
+  {
+   "case_num": 8,
+   "kind": "record",
+   "span": [
+    1230,
+    1267
+   ],
+   "cjk": 37,
+   "title_zh": "智炬到參問云古人提持那邊",
+   "page_line": "0527b23",
+   "case_close_line": "0527b25"
+  },
+  {
+   "case_num": 9,
+   "kind": "record",
+   "span": [
+    1267,
+    1317
+   ],
+   "cjk": 50,
+   "title_zh": "金峯志至師問曰作甚麼來志",
+   "page_line": "0527b26",
+   "case_close_line": "0527b29"
+  },
+  {
+   "case_num": 10,
+   "kind": "record",
+   "span": [
+    1317,
+    1356
+   ],
+   "cjk": 39,
+   "title_zh": "僧清銳問某甲孤貧請師拯濟",
+   "page_line": "0527c01",
+   "case_close_line": "0527c03"
+  },
+  {
+   "case_num": 11,
+   "kind": "record",
+   "span": [
+    1356,
+    1461
+   ],
+   "cjk": 105,
+   "title_zh": "鏡清問心徑苔生時如何師曰",
+   "page_line": "0527c04",
+   "case_close_line": "0527c10"
+  },
+  {
+   "case_num": 12,
+   "kind": "record",
+   "span": [
+    1461,
+    1581
+   ],
+   "cjk": 120,
+   "title_zh": "師問德上座菩薩在定聞香象",
+   "page_line": "0527c11",
+   "case_close_line": "0527c18"
+  },
+  {
+   "case_num": 13,
+   "kind": "record",
+   "span": [
+    1581,
+    1754
+   ],
+   "cjk": 173,
+   "title_zh": "紙衣道者來參師問莫是紙衣",
+   "page_line": "0527c19",
+   "case_close_line": "0527c29"
+  },
+  {
+   "case_num": 14,
+   "kind": "record",
+   "span": [
+    1754,
+    1895
+   ],
+   "cjk": 141,
+   "title_zh": "僧舉陸亙大夫問南泉姓甚麼",
+   "page_line": "0528a01",
+   "case_close_line": "0528a09"
+  },
+  {
+   "case_num": 15,
+   "kind": "record",
+   "span": [
+    1895,
+    1929
+   ],
+   "cjk": 34,
+   "title_zh": "僧問學人通身是病請師醫師",
+   "page_line": "0528a10",
+   "case_close_line": "0528a12"
+  },
+  {
+   "case_num": 16,
+   "kind": "record",
+   "span": [
+    1929,
+    2045
+   ],
+   "cjk": 116,
+   "title_zh": "僧問古人曰吾有大病非世所",
+   "page_line": "0528a13",
+   "case_close_line": "0528a19"
+  },
+  {
+   "case_num": 17,
+   "kind": "record",
+   "span": [
+    2045,
+    2105
+   ],
+   "cjk": 60,
+   "title_zh": "僧問沙門豈不是具大慈悲底",
+   "page_line": "0528a20",
+   "case_close_line": "0528a23"
+  },
+  {
+   "case_num": 18,
+   "kind": "record",
+   "span": [
+    2105,
+    2197
+   ],
+   "cjk": 92,
+   "title_zh": "僧問眉與目還相識也無師曰",
+   "page_line": "0528a24",
+   "case_close_line": "0528a29"
+  },
+  {
+   "case_num": 19,
+   "kind": "record",
+   "span": [
+    2197,
+    2279
+   ],
+   "cjk": 82,
+   "title_zh": "僧問五位對賓時如何師曰汝",
+   "page_line": "0528b01",
+   "case_close_line": "0528b05"
+  },
+  {
+   "case_num": 20,
+   "kind": "record",
+   "span": [
+    2279,
+    2318
+   ],
+   "cjk": 39,
+   "title_zh": "僧問萬法從何而生師曰從顛",
+   "page_line": "0528b06",
+   "case_close_line": "0528b08"
+  },
+  {
+   "case_num": 21,
+   "kind": "record",
+   "span": [
+    2318,
+    2345
+   ],
+   "cjk": 27,
+   "title_zh": "僧問不萠之草為甚麼能藏香",
+   "page_line": "0528b09",
+   "case_close_line": "0528b10"
+  },
+  {
+   "case_num": 22,
+   "kind": "record",
+   "span": [
+    2345,
+    2380
+   ],
+   "cjk": 35,
+   "title_zh": "僧問三界擾擾六趣昏昏如何",
+   "page_line": "0528b11",
+   "case_close_line": "0528b13"
+  },
+  {
+   "case_num": 23,
+   "kind": "record",
+   "span": [
+    2380,
+    2404
+   ],
+   "cjk": 24,
+   "title_zh": "師聞鐘聲乃曰阿阿僧問和尚",
+   "page_line": "0528b14",
+   "case_close_line": "0528b15"
+  },
+  {
+   "case_num": 24,
+   "kind": "record",
+   "span": [
+    2404,
+    2432
+   ],
+   "cjk": 28,
+   "title_zh": "師問維那甚處來云牽醋槽去",
+   "page_line": "0528b16",
+   "case_close_line": "0528b17"
+  },
+  {
+   "case_num": 25,
+   "kind": "record",
+   "span": [
+    2432,
+    2497
+   ],
+   "cjk": 65,
+   "title_zh": "師一日入僧堂向火有僧云今",
+   "page_line": "0528b18",
+   "case_close_line": "0528b21"
+  },
+  {
+   "case_num": 26,
+   "kind": "record",
+   "span": [
+    2497,
+    2526
+   ],
+   "cjk": 29,
+   "title_zh": "僧問不與萬法為侶者是甚麼",
+   "page_line": "0528b22",
+   "case_close_line": "0528b23"
+  },
+  {
+   "case_num": 27,
+   "kind": "record",
+   "span": [
+    2526,
+    2605
+   ],
+   "cjk": 79,
+   "title_zh": "僧問如何是無刃劍師曰非淬",
+   "page_line": "0528b24",
+   "case_close_line": "0528b28"
+  },
+  {
+   "case_num": 28,
+   "kind": "record",
+   "span": [
+    2605,
+    2628
+   ],
+   "cjk": 23,
+   "title_zh": "僧問於相何真師曰即相即真",
+   "page_line": "0528b29",
+   "case_close_line": "0528c01"
+  },
+  {
+   "case_num": 29,
+   "kind": "record",
+   "span": [
+    2628,
+    2672
+   ],
+   "cjk": 44,
+   "title_zh": "僧問幻本何真師曰幻本元真",
+   "page_line": "0528c02",
+   "case_close_line": "0528c04"
+  },
+  {
+   "case_num": 30,
+   "kind": "record",
+   "span": [
+    2672,
+    2700
+   ],
+   "cjk": 28,
+   "title_zh": "僧問即心即佛即不問如何是",
+   "page_line": "0528c05",
+   "case_close_line": "0528c06"
+  },
+  {
+   "case_num": 31,
+   "kind": "record",
+   "span": [
+    2700,
+    2729
+   ],
+   "cjk": 29,
+   "title_zh": "問如何是常在底人師曰恰遇",
+   "page_line": "0528c07",
+   "case_close_line": "0528c08"
+  },
+  {
+   "case_num": 32,
+   "kind": "record",
+   "span": [
+    2729,
+    2758
+   ],
+   "cjk": 29,
+   "title_zh": "僧問擬豈不是類師曰直是不",
+   "page_line": "0528c09",
+   "case_close_line": "0528c10"
+  },
+  {
+   "case_num": 33,
+   "kind": "record",
+   "span": [
+    2758,
+    2794
+   ],
+   "cjk": 36,
+   "title_zh": "人問古人曰人人盡有弟子在",
+   "page_line": "0528c11",
+   "case_close_line": "0528c13"
+  },
+  {
+   "case_num": 34,
+   "kind": "record",
+   "span": [
+    2794,
+    2809
+   ],
+   "cjk": 15,
+   "title_zh": "僧問魯祖面壁用表何事師以",
+   "page_line": "0528c14",
+   "case_close_line": "0528c14"
+  },
+  {
+   "case_num": 35,
+   "kind": "record",
+   "span": [
+    2809,
+    2845
+   ],
+   "cjk": 36,
+   "title_zh": "僧問承古有言未有一人倒地",
+   "page_line": "0528c15",
+   "case_close_line": "0528c17"
+  },
+  {
+   "case_num": 36,
+   "kind": "record",
+   "span": [
+    2845,
+    2896
+   ],
+   "cjk": 51,
+   "title_zh": "僧問子歸就父為甚麼父全不",
+   "page_line": "0528c18",
+   "case_close_line": "0528c20"
+  },
+  {
+   "case_num": 37,
+   "kind": "record",
+   "span": [
+    2896,
+    2923
+   ],
+   "cjk": 27,
+   "title_zh": "問靈衣不挂時如何師曰曹山",
+   "page_line": "0528c21",
+   "case_close_line": "0528c22"
+  },
+  {
+   "case_num": 38,
+   "kind": "record",
+   "span": [
+    2923,
+    3012
+   ],
+   "cjk": 89,
+   "title_zh": "問承教有言大海不宿死屍如",
+   "page_line": "0528c23",
+   "case_close_line": "0528c28"
+  },
+  {
+   "case_num": 39,
+   "kind": "record",
+   "span": [
+    3012,
+    3070
+   ],
+   "cjk": 58,
+   "title_zh": "問具何知解善能對眾問難師",
+   "page_line": "0528c29",
+   "case_close_line": "0529a03"
+  },
+  {
+   "case_num": 40,
+   "kind": "record",
+   "span": [
+    3070,
+    3104
+   ],
+   "cjk": 34,
+   "title_zh": "僧問世間甚麼物最貴師曰死",
+   "page_line": "0529a04",
+   "case_close_line": "0529a06"
+  },
+  {
+   "case_num": 41,
+   "kind": "record",
+   "span": [
+    3104,
+    3136
+   ],
+   "cjk": 32,
+   "title_zh": "僧問無言如何顯師曰莫向這",
+   "page_line": "0529a07",
+   "case_close_line": "0529a08"
+  },
+  {
+   "case_num": 42,
+   "kind": "record",
+   "span": [
+    3136,
+    3169
+   ],
+   "cjk": 33,
+   "title_zh": "僧問日未出時如何師曰曹山",
+   "page_line": "0529a09",
+   "case_close_line": "0529a11"
+  },
+  {
+   "case_num": 43,
+   "kind": "record",
+   "span": [
+    3169,
+    3203
+   ],
+   "cjk": 34,
+   "title_zh": "師問僧作甚麼僧云掃地師曰",
+   "page_line": "0529a12",
+   "case_close_line": "0529a14"
+  },
+  {
+   "case_num": 44,
+   "kind": "record",
+   "span": [
+    3203,
+    3234
+   ],
+   "cjk": 31,
+   "title_zh": "僧問抱璞投師請師彫琢師曰",
+   "page_line": "0529a15",
+   "case_close_line": "0529a16"
+  },
+  {
+   "case_num": 45,
+   "kind": "record",
+   "span": [
+    3234,
+    3255
+   ],
+   "cjk": 21,
+   "title_zh": "僧問如何是曹山眷屬師曰白",
+   "page_line": "0529a17",
+   "case_close_line": "0529a18"
+  },
+  {
+   "case_num": 46,
+   "kind": "record",
+   "span": [
+    3255,
+    3310
+   ],
+   "cjk": 55,
+   "title_zh": "僧問古德道盡大地惟有此人",
+   "page_line": "0529a19",
+   "case_close_line": "0529a22"
+  },
+  {
+   "case_num": 47,
+   "kind": "record",
+   "span": [
+    3310,
+    3337
+   ],
+   "cjk": 27,
+   "title_zh": "僧問學人十二時中如何保任",
+   "page_line": "0529a23",
+   "case_close_line": "0529a24"
+  },
+  {
+   "case_num": 48,
+   "kind": "record",
+   "span": [
+    3337,
+    3362
+   ],
+   "cjk": 25,
+   "title_zh": "僧問如何是法身主師曰謂秦",
+   "page_line": "0529a25",
+   "case_close_line": "0529a26"
+  },
+  {
+   "case_num": 49,
+   "kind": "record",
+   "span": [
+    3362,
+    3426
+   ],
+   "cjk": 64,
+   "title_zh": "僧問親何道伴即得常聞於未",
+   "page_line": "0529a27",
+   "case_close_line": "0529b01"
+  },
+  {
+   "case_num": 50,
+   "kind": "record",
+   "span": [
+    3426,
+    3495
+   ],
+   "cjk": 69,
+   "title_zh": "僧問國內按劍者是誰師曰曹",
+   "page_line": "0529b02",
+   "case_close_line": "0529b06"
+  },
+  {
+   "case_num": 51,
+   "kind": "record",
+   "span": [
+    3495,
+    3535
+   ],
+   "cjk": 40,
+   "title_zh": "師問僧時節恁麼熱向甚處迴",
+   "page_line": "0529b07",
+   "case_close_line": "0529b09"
+  },
+  {
+   "case_num": 52,
+   "kind": "record",
+   "span": [
+    3535,
+    3567
+   ],
+   "cjk": 32,
+   "title_zh": "僧問家貧遭劫時如何師曰不",
+   "page_line": "0529b10",
+   "case_close_line": "0529b11"
+  },
+  {
+   "case_num": 53,
+   "kind": "record",
+   "span": [
+    3567,
+    3594
+   ],
+   "cjk": 27,
+   "title_zh": "僧問一牛飲水五馬不嘶時如",
+   "page_line": "0529b12",
+   "case_close_line": "0529b13"
+  },
+  {
+   "case_num": 54,
+   "kind": "record",
+   "span": [
+    3594,
+    3648
+   ],
+   "cjk": 54,
+   "title_zh": "僧問常在生死海中沈沒者是",
+   "page_line": "0529b14",
+   "case_close_line": "0529b17"
+  },
+  {
+   "case_num": 55,
+   "kind": "record",
+   "span": [
+    3648,
+    3684
+   ],
+   "cjk": 36,
+   "title_zh": "僧問雪覆千山為甚麼孤峯不",
+   "page_line": "0529b18",
+   "case_close_line": "0529b20"
+  },
+  {
+   "case_num": 56,
+   "kind": "record",
+   "span": [
+    3684,
+    3743
+   ],
+   "cjk": 59,
+   "title_zh": "僧舉藥山問僧年多少云七十",
+   "page_line": "0529b21",
+   "case_close_line": "0529b24"
+  },
+  {
+   "case_num": 57,
+   "kind": "record",
+   "span": [
+    3743,
+    3943
+   ],
+   "cjk": 200,
+   "title_zh": "僧問香嚴如何是道香嚴曰枯",
+   "page_line": "0529b25",
+   "case_close_line": "0529c07"
+  },
+  {
+   "case_num": 58,
+   "kind": "record",
+   "span": [
+    3943,
+    3958
+   ],
+   "cjk": 15,
+   "title_zh": "僧問如何是佛法大意師曰填",
+   "page_line": "0529c08",
+   "case_close_line": "0529c08"
+  },
+  {
+   "case_num": 59,
+   "kind": "record",
+   "span": [
+    3958,
+    4088
+   ],
+   "cjk": 130,
+   "title_zh": "僧問如何是師子師曰眾獸近",
+   "page_line": "0529c09",
+   "case_close_line": "0529c16"
+  },
+  {
+   "case_num": 60,
+   "kind": "record",
+   "span": [
+    4088,
+    4105
+   ],
+   "cjk": 17,
+   "title_zh": "僧問纔有是非紛然失心時如",
+   "page_line": "0529c17",
+   "case_close_line": "0529c17"
+  },
+  {
+   "case_num": 61,
+   "kind": "record",
+   "span": [
+    4105,
+    4203
+   ],
+   "cjk": 98,
+   "title_zh": "師讀杜順傅大士所作法身偈",
+   "page_line": "0529c18",
+   "case_close_line": "0529c23"
+  },
+  {
+   "case_num": 62,
+   "kind": "record",
+   "span": [
+    4203,
+    4251
+   ],
+   "cjk": 48,
+   "title_zh": "師垂語曰有一人向萬丈崖頭",
+   "page_line": "0529c25",
+   "case_close_line": "0529c27"
+  },
+  {
+   "case_num": 63,
+   "kind": "record",
+   "span": [
+    4251,
+    4351
+   ],
+   "cjk": 100,
+   "title_zh": "僧舉西園一日自燒浴次僧問",
+   "page_line": "0529c28",
+   "case_close_line": "0530a04"
+  },
+  {
+   "case_num": 64,
+   "kind": "record",
+   "span": [
+    4351,
+    4410
+   ],
+   "cjk": 59,
+   "title_zh": "南州帥南平鐘王雅聞師有道",
+   "page_line": "0530a05",
+   "case_close_line": "0530a08"
+  },
+  {
+   "case_num": 65,
+   "kind": "record",
+   "span": [
+    4410,
+    4436
+   ],
+   "cjk": 26,
+   "title_zh": "師作四禁偈曰莫行心處路不",
+   "page_line": "0530a09",
+   "case_close_line": "0530a10"
+  },
+  {
+   "case_num": 66,
+   "kind": "record",
+   "span": [
+    4436,
+    4469
+   ],
+   "cjk": 33,
+   "title_zh": "示學人偈曰從緣薦得相應疾",
+   "page_line": "0530a11",
+   "case_close_line": "0530a12"
+  },
+  {
+   "case_num": 67,
+   "kind": "record",
+   "span": [
+    4469,
+    5330
+   ],
+   "cjk": 861,
+   "title_zh": "云眾曰僧家在此等衣線下理",
+   "page_line": "0530a13",
+   "case_close_line": "0530c05"
+  },
+  {
+   "case_num": 68,
+   "kind": "record",
+   "span": [
+    5330,
+    5662
+   ],
+   "cjk": 332,
+   "title_zh": "上堂僧問如何是大闡提人師",
+   "page_line": "0530c06",
+   "case_close_line": "0530c25"
+  },
+  {
+   "case_num": 69,
+   "kind": "record",
+   "span": [
+    5662,
+    5772
+   ],
+   "cjk": 110,
+   "title_zh": "忠國師驀喚侍者侍者來立國",
+   "page_line": "0530c26",
+   "case_close_line": "0531a03"
+  },
+  {
+   "case_num": 70,
+   "kind": "record",
+   "span": [
+    5772,
+    5863
+   ],
+   "cjk": 91,
+   "title_zh": "南泉曰未具胞胎時還有語也",
+   "page_line": "0531a04",
+   "case_close_line": "0531a09"
+  },
+  {
+   "case_num": 71,
+   "kind": "record",
+   "span": [
+    5863,
+    5887
+   ],
+   "cjk": 24,
+   "title_zh": "僧問師教云一句能吞百千萬",
+   "page_line": "0531a10",
+   "case_close_line": "0531a11"
+  },
+  {
+   "case_num": 72,
+   "kind": "record",
+   "span": [
+    5887,
+    5937
+   ],
+   "cjk": 50,
+   "title_zh": "有一座主辭南泉泉問什麼處",
+   "page_line": "0531a12",
+   "case_close_line": "0531a14"
+  },
+  {
+   "case_num": 73,
+   "kind": "record",
+   "span": [
+    5937,
+    6010
+   ],
+   "cjk": 73,
+   "title_zh": "溈山一日喚院主院主來山曰",
+   "page_line": "0531a15",
+   "case_close_line": "0531a19"
+  },
+  {
+   "case_num": 74,
+   "kind": "record",
+   "span": [
+    6010,
+    6220
+   ],
+   "cjk": 210,
+   "title_zh": "師舉有僧辭藥山歸鄉去藥山",
+   "page_line": "0531a20",
+   "case_close_line": "0531b03"
+  },
+  {
+   "case_num": 75,
+   "kind": "record",
+   "span": [
+    6220,
+    6328
+   ],
+   "cjk": 108,
+   "title_zh": "俱胝和尚凡有詰問唯舉一指",
+   "page_line": "0531b04",
+   "case_close_line": "0531b10"
+  },
+  {
+   "case_num": 76,
+   "kind": "record",
+   "span": [
+    6328,
+    6411
+   ],
+   "cjk": 83,
+   "title_zh": "僧問維摩默然文殊讚善未審",
+   "page_line": "0531b11",
+   "case_close_line": "0531b15"
+  },
+  {
+   "case_num": 77,
+   "kind": "record",
+   "span": [
+    6411,
+    6496
+   ],
+   "cjk": 85,
+   "title_zh": "師於天復辛酉夏夜問知事曰",
+   "page_line": "0531b16",
+   "case_close_line": "0531b20"
+  },
+  {
+   "case_num": 78,
+   "kind": "treatise",
+   "span": [
+    6496,
+    8489
+   ],
+   "cjk": 1993,
+   "title_zh": "解釋洞山五位顯訣",
+   "page_line": "0531b22",
+   "case_close_line": "0532c26"
+  },
+  {
+   "case_num": 79,
+   "kind": "treatise",
+   "span": [
+    8489,
+    9116
+   ],
+   "cjk": 627,
+   "title_zh": "逐位頌竝注別揀",
+   "page_line": "0532c27",
+   "case_close_line": "0533b17"
+  },
+  {
+   "case_num": 80,
+   "kind": "treatise",
+   "span": [
+    9116,
+    9368
+   ],
+   "cjk": 252,
+   "title_zh": "五位旨訣",
+   "page_line": "0533b18",
+   "case_close_line": "0533c04"
+  },
+  {
+   "case_num": 81,
+   "kind": "treatise",
+   "span": [
+    9368,
+    10454
+   ],
+   "cjk": 1086,
+   "title_zh": "三種墮",
+   "page_line": "0533c05",
+   "case_close_line": "0534b15"
+  },
+  {
+   "case_num": 82,
+   "kind": "treatise",
+   "span": [
+    10454,
+    12229
+   ],
+   "cjk": 1775,
+   "title_zh": "四種異類",
+   "page_line": "0534b16",
+   "case_close_line": "0535c10"
+  },
+  {
+   "case_num": 83,
+   "kind": "treatise",
+   "span": [
+    12229,
+    12333
+   ],
+   "cjk": 104,
+   "title_zh": "三然燈",
+   "page_line": "0535c11",
+   "case_close_line": "0535c17"
+  },
+  {
+   "case_num": 84,
+   "kind": "end",
+   "span": [
+    12333,
+    12343
+   ],
+   "cjk": 10,
+   "title_zh": "撫州曹山元證禪師語錄",
+   "page_line": "0535c18",
+   "case_close_line": "0535c18"
+  }
+ ],
+ "tiling": {
+  "asserted": true,
+  "concatenation_equals_reference": true,
+  "cjk_total": 12343
+ }
+}

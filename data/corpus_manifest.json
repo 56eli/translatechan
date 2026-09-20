@@ -6,14 +6,14 @@
   "w1_register_path": "sessions/COLLATION_REGISTER_2026-09-09.json",
   "evidence_date": "2026-09-09",
   "status_scope": "Containment/remediation state, not a rights decision.",
-  "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CHUANDENGLU_FULL.md",
-  "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
-  "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+  "correction_report_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI.md",
+  "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+  "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
   "correction_evidence_date": "2026-09-20",
-  "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json",
-  "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the newest authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); scripts/validate_data.py merges and re-derives both",
+  "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json",
+  "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the newest authoritative record (it inherits the Chuandeng Lu overlay's 37 per-document entries verbatim and records the T47n1987A record of Caoshan Benji as the 38th document); scripts/validate_data.py merges and re-derives both",
   "historical_documents": 34,
-  "authoritative_documents": 37,
+  "authoritative_documents": 38,
   "historical_flagged_total": 622,
   "authoritative_flagged_total": 630,
   "superseded_report_flagged_total": 637,
@@ -294,6 +294,16 @@
    "cbeta": "T2076",
    "unit_targets": {
     "cases": 1274
+   },
+   "completion_status": "partial_selected_witness",
+   "source_review_status": "collated_to_claimed_witness"
+  },
+  {
+   "key": "caoshan_benji",
+   "title": "The Record of Caoshan Benji (曹山元證禪師語錄)",
+   "cbeta": "T1987A",
+   "unit_targets": {
+    "cases": 84
    },
    "completion_status": "partial_selected_witness",
    "source_review_status": "collated_to_claimed_witness"

@@ -1,0 +1,207 @@
+{
+ "kind": "w1-caoshan-benji-measurement",
+ "generated": "2026-09-20",
+ "harness": "scripts/collate_corpus.py",
+ "corrects": null,
+ "reference_extraction": {
+  "generator": "scripts/collate_refs.py",
+  "rule_id": "cbeta-p5-body-cjk-v1",
+  "rule": "tei:text/tei:body document-order text; drop the subtree of every tei:note and tei:g (tails kept); tei:head kept; keep only U+3400-U+9FFF and U+F900-U+FAFF; one UTF-8 line, no trailing newline"
+ },
+ "upstream": {
+  "repo": "https://github.com/cbeta-org/xml-p5",
+  "revision": "dbdea41071e1e260ad84b72faefd4587333cf76d"
+ },
+ "refs_manifest": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
+ "historical_refs_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+ "generation_parameters": {
+  "kind": "w1-caoshan-benji-measurement",
+  "generated": "2026-09-20",
+  "refs_manifest": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
+  "compare_historical_refs": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+  "upstream_revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+  "doc": [
+   "caoshan_benji"
+  ],
+  "new_documents": [
+   "caoshan_benji"
+  ],
+  "upstream_repo": "https://github.com/cbeta-org/xml-p5",
+  "require_verified_refs": true,
+  "refs_dir_provided": true
+ },
+ "content_denominator": "source content fields only (commentary_zh, pointer_zh, verse_zh, zh); metadata fields (title_zh, name_zh) are measured separately and are not proof of collation",
+ "status_scope": "Containment/remediation state, not a rights decision.",
+ "documents": {
+  "caoshan_benji": {
+   "witness": [
+    "T47n1987A"
+   ],
+   "probes": [
+    "T47n1987B",
+    "X68n1315",
+    "T51n2076",
+    "T48n2006"
+   ],
+   "summary": {
+    "EXACT": 169
+   },
+   "content_summary": {
+    "EXACT": 84
+   },
+   "metadata_summary": {
+    "EXACT": 85
+   },
+   "fields_total": 169,
+   "content_fields_total": 84,
+   "content_fields_collated": 84,
+   "metadata_fields_total": 85,
+   "flagged": [],
+   "source_review_status": "collated_to_claimed_witness",
+   "reference_verification": {
+    "T47n1987A": {
+     "sha256": "cdb2f4e2f2982ecfb4317e911cdfe96ff3ae6c7968f9909bbfbc6bde74768a18",
+     "status": "verified",
+     "historical_status": "verified"
+    },
+    "T47n1987B": {
+     "sha256": "eb16d53cf0add1d63622778c101b94643ead8b0ca5e9b10a396ed2b13817f0da",
+     "status": "verified",
+     "historical_status": "drift"
+    },
+    "X68n1315": {
+     "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+     "status": "verified",
+     "historical_status": "drift"
+    },
+    "T51n2076": {
+     "sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+     "status": "verified",
+     "historical_status": "verified"
+    },
+    "T48n2006": {
+     "sha256": "11024c5f5bc0852ab5fad1cfcefc1459a6033f4de05f7e844dc3809e7a95c558",
+     "status": "verified",
+     "historical_status": "verified"
+    }
+   },
+   "refs_total": 1,
+   "refs_verified": 1,
+   "refs_historically_verified": 1
+  }
+ },
+ "reference_verification": {
+  "manifest": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
+  "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+  "rule": "statuses are byte-identity of the reference file against a named digest manifest; `drift` never rescues a claim and never upgrades one",
+  "counts": {
+   "verified": 5,
+   "drift": 0,
+   "unlisted": 0,
+   "none": 0
+  },
+  "historical_counts": {
+   "verified": 3,
+   "drift": 2,
+   "unlisted": 0,
+   "none": 0
+  },
+  "drifted_refs": [
+   "T47n1987B",
+   "X68n1315"
+  ],
+  "refs": {
+   "T47n1987A": {
+    "sha256": "cdb2f4e2f2982ecfb4317e911cdfe96ff3ae6c7968f9909bbfbc6bde74768a18",
+    "manifest": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "historical_status": "verified"
+   },
+   "T47n1987B": {
+    "sha256": "eb16d53cf0add1d63622778c101b94643ead8b0ca5e9b10a396ed2b13817f0da",
+    "manifest": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "historical_status": "drift"
+   },
+   "T48n2006": {
+    "sha256": "11024c5f5bc0852ab5fad1cfcefc1459a6033f4de05f7e844dc3809e7a95c558",
+    "manifest": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "historical_status": "verified"
+   },
+   "T51n2076": {
+    "sha256": "a860907edd3d34b99927b157849b8ac45c5e6c134abd67cde7b6a3400797ab10",
+    "manifest": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "historical_status": "verified"
+   },
+   "X68n1315": {
+    "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+    "manifest": "sessions/COLLATION_W1_2026-09-20_CAOSHAN_BENJI_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
+    "historical_status": "drift"
+   }
+  }
+ },
+ "aggregate": {
+  "documents": 1,
+  "flagged_entries": 0,
+  "fields_total": 169,
+  "content_fields_total": 84,
+  "content_fields_collated": 84,
+  "metadata_fields_total": 85,
+  "class_totals": {
+   "EXACT": 169
+  },
+  "source_review_status_counts": {
+   "collated_to_claimed_witness": 1,
+   "partial_or_failed_w1_collation": 0,
+   "witness_unavailable": 0
+  },
+  "documents_without_evidence": [
+   "baizhang_guanglu",
+   "baojing_sanmei",
+   "biyanlu_cases",
+   "bodhidharma_erru",
+   "caoxi_zhuan",
+   "chuandenglu",
+   "chuandenglu_full",
+   "congronglu",
+   "dahui_hongzhi",
+   "dahui_shobogenzo",
+   "dazhu_huihai",
+   "deshan_yulu",
+   "dongshan_yulu",
+   "fayan_yulu",
+   "foyan_qingyuan",
+   "guiyang_yulu",
+   "hanshan_poems",
+   "huangbo_chuanxin",
+   "huangbo_wanling",
+   "lidai_fabao_ji",
+   "linji_yulu",
+   "mazu_yulu",
+   "nanquan_yulu",
+   "niutou_juezhu",
+   "platform_sutra",
+   "qinggui_monastic_codes",
+   "sengzhao_zhaolun",
+   "shitou_sandokai",
+   "wudeng_huiyuan",
+   "wumenguan",
+   "xinxin_ming",
+   "xuansha_yulu",
+   "xuefeng_yantou",
+   "yuanwu_letters",
+   "yunmen_yulu",
+   "zhaozhou_yulu",
+   "zhengdao_ge"
+  ],
+  "documents_with_drifted_references": []
+ }
+}

@@ -11957,6 +11957,603 @@
      "source_edition": "CBETA XML P5 T51n2076 (T51 no. 2076 景德傳燈錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
     }
    }
+  },
+  "caoshan_benji": {
+   "canonical_id": "T1987A",
+   "canonical_locator": "T1987A",
+   "granularity": "case",
+   "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. The 84 case locators below are line-head anchors read from the pinned CBETA XML P5 witness T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d): the preface, the opening heading, the 75 paragraphs of the master's record and the six Caodong treatises, tiling the whole fascicle; each unit is anchored at the lb printed before it, with the last lb inside the unit as its closing line (the Congrong Lu convention).",
+   "status": "case_level_anchor",
+   "case_locators": {
+    "1": {
+     "canonical_locator": "T1987A · 曹山大師語錄序 · p.0526b27–p.0526c16",
+     "status": "collated_with_normalization",
+     "note": "Unit '曹山大師語錄序' (preface) and line head 0526b27 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "2": {
+     "canonical_locator": "T1987A · 撫州曹山元證禪師語錄 · p.0526c19–p.0526c21",
+     "status": "collated_with_normalization",
+     "note": "Unit '撫州曹山元證禪師語錄' (heading) and line head 0526c19 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "3": {
+     "canonical_locator": "T1987A · 師諱本寂泉州莆田黃氏子少 · p.0526c22–p.0527a04",
+     "status": "collated_with_normalization",
+     "note": "Unit '師諱本寂泉州莆田黃氏子少' (record) and line head 0526c22 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "4": {
+     "canonical_locator": "T1987A · 因有僧問五位君臣旨訣師曰 · p.0527a05–p.0527b06",
+     "status": "collated_with_normalization",
+     "note": "Unit '因有僧問五位君臣旨訣師曰' (record) and line head 0527a05 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "5": {
+     "canonical_locator": "T1987A · 雲門問如何是沙門行師曰喫 · p.0527b07–p.0527b11",
+     "status": "collated_with_normalization",
+     "note": "Unit '雲門問如何是沙門行師曰喫' (record) and line head 0527b07 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "6": {
+     "canonical_locator": "T1987A · 師示眾曰諸方盡把格則何不 · p.0527b12–p.0527b18",
+     "status": "collated_with_normalization",
+     "note": "Unit '師示眾曰諸方盡把格則何不' (record) and line head 0527b12 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "7": {
+     "canonical_locator": "T1987A · 因米和尚至未相見米遂坐却 · p.0527b19–p.0527b22",
+     "status": "collated_with_normalization",
+     "note": "Unit '因米和尚至未相見米遂坐却' (record) and line head 0527b19 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "8": {
+     "canonical_locator": "T1987A · 智炬到參問云古人提持那邊 · p.0527b23–p.0527b25",
+     "status": "collated_with_normalization",
+     "note": "Unit '智炬到參問云古人提持那邊' (record) and line head 0527b23 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "9": {
+     "canonical_locator": "T1987A · 金峯志至師問曰作甚麼來志 · p.0527b26–p.0527b29",
+     "status": "collated_with_normalization",
+     "note": "Unit '金峯志至師問曰作甚麼來志' (record) and line head 0527b26 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "10": {
+     "canonical_locator": "T1987A · 僧清銳問某甲孤貧請師拯濟 · p.0527c01–p.0527c03",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧清銳問某甲孤貧請師拯濟' (record) and line head 0527c01 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "11": {
+     "canonical_locator": "T1987A · 鏡清問心徑苔生時如何師曰 · p.0527c04–p.0527c10",
+     "status": "collated_with_normalization",
+     "note": "Unit '鏡清問心徑苔生時如何師曰' (record) and line head 0527c04 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "12": {
+     "canonical_locator": "T1987A · 師問德上座菩薩在定聞香象 · p.0527c11–p.0527c18",
+     "status": "collated_with_normalization",
+     "note": "Unit '師問德上座菩薩在定聞香象' (record) and line head 0527c11 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "13": {
+     "canonical_locator": "T1987A · 紙衣道者來參師問莫是紙衣 · p.0527c19–p.0527c29",
+     "status": "collated_with_normalization",
+     "note": "Unit '紙衣道者來參師問莫是紙衣' (record) and line head 0527c19 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "14": {
+     "canonical_locator": "T1987A · 僧舉陸亙大夫問南泉姓甚麼 · p.0528a01–p.0528a09",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧舉陸亙大夫問南泉姓甚麼' (record) and line head 0528a01 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "15": {
+     "canonical_locator": "T1987A · 僧問學人通身是病請師醫師 · p.0528a10–p.0528a12",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問學人通身是病請師醫師' (record) and line head 0528a10 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "16": {
+     "canonical_locator": "T1987A · 僧問古人曰吾有大病非世所 · p.0528a13–p.0528a19",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問古人曰吾有大病非世所' (record) and line head 0528a13 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "17": {
+     "canonical_locator": "T1987A · 僧問沙門豈不是具大慈悲底 · p.0528a20–p.0528a23",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問沙門豈不是具大慈悲底' (record) and line head 0528a20 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "18": {
+     "canonical_locator": "T1987A · 僧問眉與目還相識也無師曰 · p.0528a24–p.0528a29",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問眉與目還相識也無師曰' (record) and line head 0528a24 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "19": {
+     "canonical_locator": "T1987A · 僧問五位對賓時如何師曰汝 · p.0528b01–p.0528b05",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問五位對賓時如何師曰汝' (record) and line head 0528b01 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "20": {
+     "canonical_locator": "T1987A · 僧問萬法從何而生師曰從顛 · p.0528b06–p.0528b08",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問萬法從何而生師曰從顛' (record) and line head 0528b06 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "21": {
+     "canonical_locator": "T1987A · 僧問不萠之草為甚麼能藏香 · p.0528b09–p.0528b10",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問不萠之草為甚麼能藏香' (record) and line head 0528b09 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "22": {
+     "canonical_locator": "T1987A · 僧問三界擾擾六趣昏昏如何 · p.0528b11–p.0528b13",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問三界擾擾六趣昏昏如何' (record) and line head 0528b11 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "23": {
+     "canonical_locator": "T1987A · 師聞鐘聲乃曰阿阿僧問和尚 · p.0528b14–p.0528b15",
+     "status": "collated_with_normalization",
+     "note": "Unit '師聞鐘聲乃曰阿阿僧問和尚' (record) and line head 0528b14 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "24": {
+     "canonical_locator": "T1987A · 師問維那甚處來云牽醋槽去 · p.0528b16–p.0528b17",
+     "status": "collated_with_normalization",
+     "note": "Unit '師問維那甚處來云牽醋槽去' (record) and line head 0528b16 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "25": {
+     "canonical_locator": "T1987A · 師一日入僧堂向火有僧云今 · p.0528b18–p.0528b21",
+     "status": "collated_with_normalization",
+     "note": "Unit '師一日入僧堂向火有僧云今' (record) and line head 0528b18 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "26": {
+     "canonical_locator": "T1987A · 僧問不與萬法為侶者是甚麼 · p.0528b22–p.0528b23",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問不與萬法為侶者是甚麼' (record) and line head 0528b22 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "27": {
+     "canonical_locator": "T1987A · 僧問如何是無刃劍師曰非淬 · p.0528b24–p.0528b28",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問如何是無刃劍師曰非淬' (record) and line head 0528b24 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "28": {
+     "canonical_locator": "T1987A · 僧問於相何真師曰即相即真 · p.0528b29–p.0528c01",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問於相何真師曰即相即真' (record) and line head 0528b29 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "29": {
+     "canonical_locator": "T1987A · 僧問幻本何真師曰幻本元真 · p.0528c02–p.0528c04",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問幻本何真師曰幻本元真' (record) and line head 0528c02 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "30": {
+     "canonical_locator": "T1987A · 僧問即心即佛即不問如何是 · p.0528c05–p.0528c06",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問即心即佛即不問如何是' (record) and line head 0528c05 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "31": {
+     "canonical_locator": "T1987A · 問如何是常在底人師曰恰遇 · p.0528c07–p.0528c08",
+     "status": "collated_with_normalization",
+     "note": "Unit '問如何是常在底人師曰恰遇' (record) and line head 0528c07 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "32": {
+     "canonical_locator": "T1987A · 僧問擬豈不是類師曰直是不 · p.0528c09–p.0528c10",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問擬豈不是類師曰直是不' (record) and line head 0528c09 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "33": {
+     "canonical_locator": "T1987A · 人問古人曰人人盡有弟子在 · p.0528c11–p.0528c13",
+     "status": "collated_with_normalization",
+     "note": "Unit '人問古人曰人人盡有弟子在' (record) and line head 0528c11 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "34": {
+     "canonical_locator": "T1987A · 僧問魯祖面壁用表何事師以 · p.0528c14–p.0528c14",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問魯祖面壁用表何事師以' (record) and line head 0528c14 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "35": {
+     "canonical_locator": "T1987A · 僧問承古有言未有一人倒地 · p.0528c15–p.0528c17",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問承古有言未有一人倒地' (record) and line head 0528c15 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "36": {
+     "canonical_locator": "T1987A · 僧問子歸就父為甚麼父全不 · p.0528c18–p.0528c20",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問子歸就父為甚麼父全不' (record) and line head 0528c18 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "37": {
+     "canonical_locator": "T1987A · 問靈衣不挂時如何師曰曹山 · p.0528c21–p.0528c22",
+     "status": "collated_with_normalization",
+     "note": "Unit '問靈衣不挂時如何師曰曹山' (record) and line head 0528c21 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "38": {
+     "canonical_locator": "T1987A · 問承教有言大海不宿死屍如 · p.0528c23–p.0528c28",
+     "status": "collated_with_normalization",
+     "note": "Unit '問承教有言大海不宿死屍如' (record) and line head 0528c23 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "39": {
+     "canonical_locator": "T1987A · 問具何知解善能對眾問難師 · p.0528c29–p.0529a03",
+     "status": "collated_with_normalization",
+     "note": "Unit '問具何知解善能對眾問難師' (record) and line head 0528c29 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "40": {
+     "canonical_locator": "T1987A · 僧問世間甚麼物最貴師曰死 · p.0529a04–p.0529a06",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問世間甚麼物最貴師曰死' (record) and line head 0529a04 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "41": {
+     "canonical_locator": "T1987A · 僧問無言如何顯師曰莫向這 · p.0529a07–p.0529a08",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問無言如何顯師曰莫向這' (record) and line head 0529a07 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "42": {
+     "canonical_locator": "T1987A · 僧問日未出時如何師曰曹山 · p.0529a09–p.0529a11",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問日未出時如何師曰曹山' (record) and line head 0529a09 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "43": {
+     "canonical_locator": "T1987A · 師問僧作甚麼僧云掃地師曰 · p.0529a12–p.0529a14",
+     "status": "collated_with_normalization",
+     "note": "Unit '師問僧作甚麼僧云掃地師曰' (record) and line head 0529a12 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "44": {
+     "canonical_locator": "T1987A · 僧問抱璞投師請師彫琢師曰 · p.0529a15–p.0529a16",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問抱璞投師請師彫琢師曰' (record) and line head 0529a15 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "45": {
+     "canonical_locator": "T1987A · 僧問如何是曹山眷屬師曰白 · p.0529a17–p.0529a18",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問如何是曹山眷屬師曰白' (record) and line head 0529a17 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "46": {
+     "canonical_locator": "T1987A · 僧問古德道盡大地惟有此人 · p.0529a19–p.0529a22",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問古德道盡大地惟有此人' (record) and line head 0529a19 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "47": {
+     "canonical_locator": "T1987A · 僧問學人十二時中如何保任 · p.0529a23–p.0529a24",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問學人十二時中如何保任' (record) and line head 0529a23 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "48": {
+     "canonical_locator": "T1987A · 僧問如何是法身主師曰謂秦 · p.0529a25–p.0529a26",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問如何是法身主師曰謂秦' (record) and line head 0529a25 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "49": {
+     "canonical_locator": "T1987A · 僧問親何道伴即得常聞於未 · p.0529a27–p.0529b01",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問親何道伴即得常聞於未' (record) and line head 0529a27 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "50": {
+     "canonical_locator": "T1987A · 僧問國內按劍者是誰師曰曹 · p.0529b02–p.0529b06",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問國內按劍者是誰師曰曹' (record) and line head 0529b02 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "51": {
+     "canonical_locator": "T1987A · 師問僧時節恁麼熱向甚處迴 · p.0529b07–p.0529b09",
+     "status": "collated_with_normalization",
+     "note": "Unit '師問僧時節恁麼熱向甚處迴' (record) and line head 0529b07 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "52": {
+     "canonical_locator": "T1987A · 僧問家貧遭劫時如何師曰不 · p.0529b10–p.0529b11",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問家貧遭劫時如何師曰不' (record) and line head 0529b10 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "53": {
+     "canonical_locator": "T1987A · 僧問一牛飲水五馬不嘶時如 · p.0529b12–p.0529b13",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問一牛飲水五馬不嘶時如' (record) and line head 0529b12 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "54": {
+     "canonical_locator": "T1987A · 僧問常在生死海中沈沒者是 · p.0529b14–p.0529b17",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問常在生死海中沈沒者是' (record) and line head 0529b14 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "55": {
+     "canonical_locator": "T1987A · 僧問雪覆千山為甚麼孤峯不 · p.0529b18–p.0529b20",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問雪覆千山為甚麼孤峯不' (record) and line head 0529b18 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "56": {
+     "canonical_locator": "T1987A · 僧舉藥山問僧年多少云七十 · p.0529b21–p.0529b24",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧舉藥山問僧年多少云七十' (record) and line head 0529b21 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "57": {
+     "canonical_locator": "T1987A · 僧問香嚴如何是道香嚴曰枯 · p.0529b25–p.0529c07",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問香嚴如何是道香嚴曰枯' (record) and line head 0529b25 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "58": {
+     "canonical_locator": "T1987A · 僧問如何是佛法大意師曰填 · p.0529c08–p.0529c08",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問如何是佛法大意師曰填' (record) and line head 0529c08 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "59": {
+     "canonical_locator": "T1987A · 僧問如何是師子師曰眾獸近 · p.0529c09–p.0529c16",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問如何是師子師曰眾獸近' (record) and line head 0529c09 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "60": {
+     "canonical_locator": "T1987A · 僧問纔有是非紛然失心時如 · p.0529c17–p.0529c17",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問纔有是非紛然失心時如' (record) and line head 0529c17 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "61": {
+     "canonical_locator": "T1987A · 師讀杜順傅大士所作法身偈 · p.0529c18–p.0529c23",
+     "status": "collated_with_normalization",
+     "note": "Unit '師讀杜順傅大士所作法身偈' (record) and line head 0529c18 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "62": {
+     "canonical_locator": "T1987A · 師垂語曰有一人向萬丈崖頭 · p.0529c25–p.0529c27",
+     "status": "collated_with_normalization",
+     "note": "Unit '師垂語曰有一人向萬丈崖頭' (record) and line head 0529c25 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "63": {
+     "canonical_locator": "T1987A · 僧舉西園一日自燒浴次僧問 · p.0529c28–p.0530a04",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧舉西園一日自燒浴次僧問' (record) and line head 0529c28 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "64": {
+     "canonical_locator": "T1987A · 南州帥南平鐘王雅聞師有道 · p.0530a05–p.0530a08",
+     "status": "collated_with_normalization",
+     "note": "Unit '南州帥南平鐘王雅聞師有道' (record) and line head 0530a05 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "65": {
+     "canonical_locator": "T1987A · 師作四禁偈曰莫行心處路不 · p.0530a09–p.0530a10",
+     "status": "collated_with_normalization",
+     "note": "Unit '師作四禁偈曰莫行心處路不' (record) and line head 0530a09 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "66": {
+     "canonical_locator": "T1987A · 示學人偈曰從緣薦得相應疾 · p.0530a11–p.0530a12",
+     "status": "collated_with_normalization",
+     "note": "Unit '示學人偈曰從緣薦得相應疾' (record) and line head 0530a11 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "67": {
+     "canonical_locator": "T1987A · 云眾曰僧家在此等衣線下理 · p.0530a13–p.0530c05",
+     "status": "collated_with_normalization",
+     "note": "Unit '云眾曰僧家在此等衣線下理' (record) and line head 0530a13 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "68": {
+     "canonical_locator": "T1987A · 上堂僧問如何是大闡提人師 · p.0530c06–p.0530c25",
+     "status": "collated_with_normalization",
+     "note": "Unit '上堂僧問如何是大闡提人師' (record) and line head 0530c06 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "69": {
+     "canonical_locator": "T1987A · 忠國師驀喚侍者侍者來立國 · p.0530c26–p.0531a03",
+     "status": "collated_with_normalization",
+     "note": "Unit '忠國師驀喚侍者侍者來立國' (record) and line head 0530c26 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "70": {
+     "canonical_locator": "T1987A · 南泉曰未具胞胎時還有語也 · p.0531a04–p.0531a09",
+     "status": "collated_with_normalization",
+     "note": "Unit '南泉曰未具胞胎時還有語也' (record) and line head 0531a04 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "71": {
+     "canonical_locator": "T1987A · 僧問師教云一句能吞百千萬 · p.0531a10–p.0531a11",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問師教云一句能吞百千萬' (record) and line head 0531a10 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "72": {
+     "canonical_locator": "T1987A · 有一座主辭南泉泉問什麼處 · p.0531a12–p.0531a14",
+     "status": "collated_with_normalization",
+     "note": "Unit '有一座主辭南泉泉問什麼處' (record) and line head 0531a12 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "73": {
+     "canonical_locator": "T1987A · 溈山一日喚院主院主來山曰 · p.0531a15–p.0531a19",
+     "status": "collated_with_normalization",
+     "note": "Unit '溈山一日喚院主院主來山曰' (record) and line head 0531a15 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "74": {
+     "canonical_locator": "T1987A · 師舉有僧辭藥山歸鄉去藥山 · p.0531a20–p.0531b03",
+     "status": "collated_with_normalization",
+     "note": "Unit '師舉有僧辭藥山歸鄉去藥山' (record) and line head 0531a20 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "75": {
+     "canonical_locator": "T1987A · 俱胝和尚凡有詰問唯舉一指 · p.0531b04–p.0531b10",
+     "status": "collated_with_normalization",
+     "note": "Unit '俱胝和尚凡有詰問唯舉一指' (record) and line head 0531b04 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "76": {
+     "canonical_locator": "T1987A · 僧問維摩默然文殊讚善未審 · p.0531b11–p.0531b15",
+     "status": "collated_with_normalization",
+     "note": "Unit '僧問維摩默然文殊讚善未審' (record) and line head 0531b11 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "77": {
+     "canonical_locator": "T1987A · 師於天復辛酉夏夜問知事曰 · p.0531b16–p.0531b20",
+     "status": "collated_with_normalization",
+     "note": "Unit '師於天復辛酉夏夜問知事曰' (record) and line head 0531b16 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "78": {
+     "canonical_locator": "T1987A · 解釋洞山五位顯訣 · p.0531b22–p.0532c26",
+     "status": "collated_with_normalization",
+     "note": "Unit '解釋洞山五位顯訣' (treatise) and line head 0531b22 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "79": {
+     "canonical_locator": "T1987A · 逐位頌竝注別揀 · p.0532c27–p.0533b17",
+     "status": "collated_with_normalization",
+     "note": "Unit '逐位頌竝注別揀' (treatise) and line head 0532c27 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "80": {
+     "canonical_locator": "T1987A · 五位旨訣 · p.0533b18–p.0533c04",
+     "status": "collated_with_normalization",
+     "note": "Unit '五位旨訣' (treatise) and line head 0533b18 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "81": {
+     "canonical_locator": "T1987A · 三種墮 · p.0533c05–p.0534b15",
+     "status": "collated_with_normalization",
+     "note": "Unit '三種墮' (treatise) and line head 0533c05 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "82": {
+     "canonical_locator": "T1987A · 四種異類 · p.0534b16–p.0535c10",
+     "status": "collated_with_normalization",
+     "note": "Unit '四種異類' (treatise) and line head 0534b16 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "83": {
+     "canonical_locator": "T1987A · 三然燈 · p.0535c11–p.0535c17",
+     "status": "collated_with_normalization",
+     "note": "Unit '三然燈' (treatise) and line head 0535c11 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    },
+    "84": {
+     "canonical_locator": "T1987A · 撫州曹山元證禪師語錄 · p.0535c18–p.0535c18",
+     "status": "collated_with_normalization",
+     "note": "Unit '撫州曹山元證禪師語錄' (end) and line head 0535c18 read from the pinned CBETA XML P5 T47n1987A (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the unit's text is verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording), which is the documented normalization; human sign-off pending.",
+     "collation_note": "The unit's single source field collates verbatim to the pinned witness; the locator anchors the unit at its line head.",
+     "source_edition": "CBETA XML P5 T47n1987A (T47 no. 1987A 撫州曹山元證禪師語錄), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+    }
+   }
   }
  },
  "policy": {
