@@ -1,9 +1,13 @@
 # P1 Audit — Evidence-Model Extension 35 → 36 (Task 044)
 
-**Audit date:** 2026-09-20 UTC  
-**Audited base / main:** `72539fe55fa22633570275bbc9fe536f6f654e7e` (PR #93)  
-**Landing parent:** `f099932` (PR #92)  
-**Audit branch:** `arena/01a0c0cf-translatechan`  
+**Audit date:** 2026-09-20 UTC
+
+**Audited base / main:** `72539fe55fa22633570275bbc9fe536f6f654e7e` (PR #93)
+
+**Landing parent:** `f099932` (PR #92)
+
+**Audit branch:** `arena/01a0c0cf-translatechan`
+
 **Dispatch:** `da1d7f1`, fetched from `arena/01a09829-translatechan`; its only changes relative to the audited base are the task-044 prompt and stub.
 
 ## 1. Verdict and scope
