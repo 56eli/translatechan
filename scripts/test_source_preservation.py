@@ -738,7 +738,22 @@ ALLOWED_CHANGES = {
         # changes: no `zh`/`*_zh` field, no `title_zh` (the composite-title metadata flag is a
         # separate plan item), no `cbeta_id` (ID-correct), and no `zh_chars` pointer (this
         # document declares none).
+        # 2026-09-20 P2 authenticity labels (task 047, target fix/p2-baizhang-huangbo-authenticity):
+        # per-field R-B provenance labels for the same adjudication, re-measured 2026-09-20 on
+        # the 40-work pinned set (refs 40 verified / 0 drift at dbdea41071e1e260ad84b72faefd4587333cf76d)
+        # — the six dialogue `editorial_note` labels below, one per source-content field, name the
+        # measured carrier state of that field (s0.d0/s0.d1: no run of 8 or more graphs in any of
+        # the 40 refs; s1.d0/s1.d1/s2.d0/s2.d1: carried only by the uncited X80n1565, 16–28-graph
+        # fragments at the offsets the coverage_note records). No `zh`/`pinyin`/translation field
+        # changes, no re-key (no verbatim carrier exists), no `cbeta_id` (ID-correct, unchanged),
+        # no `zh_chars` pointer (this document declares none).
         ".coverage_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",
+        ".sections[2].dialogue[1].editorial_note",
     }),
     "data/corpus/caoxi_zhuan.json": frozenset({
         # 2026-09-14 LABEL fix (task 010 bundle 2, PHASE2_PLAN ranks 19/58; rank 33 stays
@@ -838,7 +853,29 @@ ALLOWED_CHANGES = {
         # and until now no coverage_note stated that nothing is verbatim. Retellings are
         # retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (composite-title
         # metadata flag), no `cbeta_id`, and no `zh_chars` pointer (this document declares none).
+        # 2026-09-20 P2 authenticity labels (task 047, target fix/p2-baizhang-huangbo-authenticity):
+        # the `.coverage_note` is rewritten as the full per-field disclosure of the same
+        # adjudication re-measured on the 40-work pinned set (refs 40 verified / 0 drift at
+        # dbdea41071e1e260ad84b72faefd4587333cf76d) — including the one near-carrier, s3.d0 at
+        # 14 of 15 graphs in T48n2012B @2,571 (the witness holds the question anonymously; the
+        # field's one-graph attribution prefix is not in it; its R-A re-key is a separate RE-KEY
+        # work item, not landed here); the additive `.cbeta_note` records the T2012A/T2012B
+        # fascicle split and why the T2012B citation stands; the seven dialogue `editorial_note`
+        # labels below give each field its measured carrier state (R-B, no re-key — no verbatim
+        # carrier); and `.sections[3].editorial_note` closes the 2026-08-08 move note's
+        # "unit-level collation remains pending" with the 2026-09-20 measurement. No
+        # `zh`/`pinyin`/translation field changes, no `cbeta_id` change (T2012B stands), no
+        # `zh_chars` pointer (this document declares none).
         ".coverage_note",
+        ".cbeta_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",
+        ".sections[3].editorial_note",
+        ".sections[3].dialogue[0].editorial_note",
+        ".sections[3].dialogue[1].editorial_note",
     }),
     "data/corpus/lidai_fabao_ji.json": frozenset({
         # 2026-09-14 LABEL fix (task 013 bundle 5, PHASE2_PLAN ranks 21/34): the additive honest
