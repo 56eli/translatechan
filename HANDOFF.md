@@ -168,7 +168,7 @@ This direction and the subsequent copy cleanup are implemented. PR #18 merged as
 
 ```text
 corpus=44 | slots=1252 | verified=177 | matrix=21 | locators=4192/4192
-content CJK=855,603 | all-string CJK=917,776
+content CJK=855,603 | all-string CJK=918,065
 source-review: collated=10 | partial/failed=32 | unavailable=2
 w1-evidence: flagged=630 (authoritative 2026-09-21 enthusiast fulls overlay) | historical=622 (2026-09-09) | report-figure-superseded=637
 w1-campaign: wumenguan(#29) biyanlu(#30) linji(#32) xinxin(#34) re-keyed | platform_sutra(#35) labelled
@@ -330,4 +330,5 @@ by this PR; orchestrator oversight replaces it.
 
 PR [#18](https://github.com/56eli/translatechan/pull/18) merged into `main` as `63dfe379e026b829349b1ff78752c771e5c7e5d3`. Main Quality run `31490146548` and Pages deployment `31490145334` passed; Pages reports `built` with HTTPS enforced.
 
+> **Measured status refresh 2026-09-21 (P2 Tier2 next, task 056):** the corpus carries **150** provenance-note strings across four keys (`cbeta_note` 29, `coverage_note` 42, `editorial_note` 65, `recension_note` 14), **108 of 150** rendering beside a passage (the 42 `coverage_note` lines stay ledgered by exemption), **36** documents carrying at least one rendered label — task 056 added 16 dialogue `editorial_note` R-B labels (6 `guiyang_yulu`, 10 `fayan_yulu`), added the `guiyang_yulu` `cbeta_note` and extended the `fayan_yulu` `cbeta_note`, and rewrote 2 `coverage_note` lines (125 → 150); it also corrects this series' previous line, whose `editorial_note` 16 figure undercounted the dialogue-level labels (measured 49 before this task) and whose 125 total was the key-sum, not the measured string count. The W1 register's authoritative flagged total stays 630.
 > **Measured status refresh 2026-09-21 (P2 + enthusiast):** the corpus carries **125** provenance-note strings across four keys (`cbeta_note` 28, `coverage_note` 42, `editorial_note` 16, `recension_note` 14), **83 of 125** rendering beside a passage, **35** documents carrying at least one label.

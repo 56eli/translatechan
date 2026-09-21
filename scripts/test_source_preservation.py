@@ -375,7 +375,32 @@ ALLOWED_CHANGES = {
         # state the measured 1/11 collation. Only the note changes: no source text, no `zh`/
         # `*_zh` field, no `cbeta_id` (already T1991 / X1226), and no `zh_chars` pointer (this
         # document declares none).
+        # 2026-09-21 P2 Tier2 next authenticity labels (task 056, target fix/p2-tier2-next):
+        # the R-A re-key from the claimed witness T47n1991 (+ the record's own 宗門十規論 X63n1226,
+        # now added to the pinned reference set — refs 43 verified / 0 drift at
+        # dbdea41071e1e260ad84b72faefd4587333cf76d) was measured and NOT landed — 1 of 11
+        # source-content fields is EXACT (s4.d0 曹源一滴水, T47n1991 @3,813, 18 of 18 graphs),
+        # far below the 80-percent re-key threshold. The `.coverage_note` above is rewritten to
+        # the full per-field run measurement (single claimed-witness runs at offsets 163, 178,
+        # 254, 3,527 and 3,725; s2.d0 shares 0 of its 60 eight-graph windows with the treatise
+        # itself; s1.d2/s5.d0/s7.d0 no run anywhere; s1.d1 below the 8-graph floor), the
+        # `.cbeta_note` gains the 2026-09-21 extension recording the X63n1226 verification and
+        # measurement, and the ten non-verbatim dialogue fields carry the `editorial_note` R-B
+        # labels below (the verbatim s4.d0 stays unlabelled — nothing to disclose). No `zh`/
+        # `pinyin`/translation field changes, no re-key, no `cbeta_id` change, no `zh_chars`
+        # pointer (this document declares none).
         ".coverage_note",
+        ".cbeta_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[1].dialogue[2].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",
+        ".sections[3].dialogue[0].editorial_note",
+        ".sections[5].dialogue[0].editorial_note",
+        ".sections[6].dialogue[0].editorial_note",
+        ".sections[7].dialogue[0].editorial_note",
     }),
     "data/corpus/linji_yulu.json": frozenset({
         # 2026-09-11 R-A re-key of the W1-flagged content fields to the T47n1985 witness (Wave 1,
@@ -854,6 +879,19 @@ ALLOWED_CHANGES = {
         # 28/32; s2.d1: split 16/43 three ways). No `zh`/`pinyin`/translation field changes,
         # no re-key, no `cbeta_id` (the 2026-08-08 correction stands), no `zh_chars` pointer.
         ".coverage_note",
+        # 2026-09-21 rectification (task 056, target fix/p2-tier2-next): the P2 retry (task 054,
+        # landed at e2ee031) added a root `.editorial_note` and three section-level
+        # `.sections[N].editorial_note` labels to this document but did not extend this
+        # allowlist, so the preservation gate has been red on `main` since that landing. The
+        # four pointers below are exactly those landed strings (root: "Project retelling — no
+        # witness attribution, retained with honest coverage_note and cbeta_note per P2
+        # authenticity labeling (tasks 047/048/054)"; sections: "Section — project retelling,
+        # no witness attribution, retained per P2 retry 054, 0/6 EXACT."), allowlisted verbatim
+        # so the gate reports 0 unauthorized again. No data bytes change in this rectification.
+        ".editorial_note",
+        ".sections[0].editorial_note",
+        ".sections[1].editorial_note",
+        ".sections[2].editorial_note",
         ".sections[0].dialogue[0].editorial_note",
         ".sections[0].dialogue[1].editorial_note",
         ".sections[1].dialogue[0].editorial_note",
@@ -890,7 +928,26 @@ ALLOWED_CHANGES = {
         # the document does not carry (the witnesses merely mention 圓相 2x/3x). Retellings are
         # retained. Only the note changes: no `zh`/`*_zh` field, no `title_zh` (composite-title
         # metadata flag), no `cbeta_id`, and no `zh_chars` pointer (this document declares none).
+        # 2026-09-21 P2 Tier2 next authenticity labels (task 056, target fix/p2-tier2-next):
+        # the R-A re-key from the claimed witnesses T47n1989/T47n1990 was measured on the
+        # 43-work pinned set (refs 43 verified / 0 drift at dbdea41071e1e260ad84b72faefd4587333cf76d)
+        # and NOT landed — 0 of 6 source-content fields are EXACT in any of the 43 refs, far
+        # below the 80-percent re-key threshold. The `.coverage_note` above is rewritten to the
+        # full per-field run measurement (s0.d0 11/32 claimed @545, best carrier uncited
+        # X80n1565 13/32 @218,137; s0.d2 10/25 claimed @571; s0.d1/s1.d0/s1.d1 no run of 8 or
+        # more graphs in any ref; s2.d0 one 8-graph run in the 警策 base text pinned inside
+        # X65n1294 @3,640), an additive `.cbeta_note` records the title verification and the
+        # X65n1294 measurement, and the six dialogue `editorial_note` labels below give each
+        # field its measured carrier state. No `zh`/`pinyin`/translation field changes, no
+        # re-key, no `cbeta_id` change, no `zh_chars` pointer (this document declares none).
         ".coverage_note",
+        ".cbeta_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[0].dialogue[2].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",
     }),
     "data/corpus/huangbo_chuanxin.json": frozenset({
         # 2026-09-16 R-A re-key (task 021, PHASE2_PLAN rank 24 — RE-KEY 7 of 10): the two DIVERGENT
@@ -985,6 +1042,19 @@ ALLOWED_CHANGES = {
         # field changes, no re-key, no `cbeta_id` (the 2026-08-08 correction stands), no
         # `zh_chars` pointer.
         ".coverage_note",
+        # 2026-09-21 rectification (task 056, target fix/p2-tier2-next): the P2 retry (task 054,
+        # landed at e2ee031) added a root `.editorial_note` and three section-level
+        # `.sections[N].editorial_note` labels to this document but did not extend this
+        # allowlist, so the preservation gate has been red on `main` since that landing. The
+        # four pointers below are exactly those landed strings (root: "Project retelling — no
+        # witness attribution, retained with honest coverage_note and cbeta_note per P2
+        # authenticity labeling (tasks 047/048/054)"; sections: "Section — project retelling,
+        # no witness attribution, retained per P2 retry 054, 0/6 EXACT."), allowlisted verbatim
+        # so the gate reports 0 unauthorized again. No data bytes change in this rectification.
+        ".editorial_note",
+        ".sections[0].editorial_note",
+        ".sections[1].editorial_note",
+        ".sections[2].editorial_note",
         ".sections[0].dialogue[0].editorial_note",
         ".sections[0].dialogue[1].editorial_note",
         ".sections[1].dialogue[0].editorial_note",

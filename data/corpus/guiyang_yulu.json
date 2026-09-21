@@ -34,7 +34,8 @@
               "text": "Hyakujō wished to appoint an abbot for Mount Dai-i, and set a question to the assembly. Placing a water pitcher on the floor, he asked: 'Not calling this a water pitcher, what do you call it?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The re-key attempt failed: no complete copy in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift) — the claimed T47n1989 carries a single 11-graph run at offset 545 (不得喚作淨瓶汝喚作甚麼; 4 of the field's 25 eight-graph windows) and the best measured carrier is the uncited Wudeng Huiyuan X80n1565 at 13 of 32 (offset 218,137; 6 of 25 windows). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Head Monk / 首座",
@@ -53,7 +54,8 @@
               "text": "The Head Monk said: 'You cannot call it a piece of wood.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 2 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); neither claimed work (T47n1989, T47n1990) carries a run of 8 or more graphs of the 9-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Guishan / 溈山",
@@ -72,7 +74,8 @@
               "text": "Guishan came forward, kicked over the water pitcher, and walked out. Hyakujō laughed: 'The Head Monk has lost the mountain!' And appointed Guishan as founder.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The re-key attempt failed: no complete copy in any of the 43 digest-verified pinned references — the claimed T47n1989 carries a single 10-graph run at offset 571 (踢倒淨瓶便出去百丈笑, the story's frame in the witness's own wording; 3 of the field's 18 eight-graph windows) and no other reference carries more; T47n1990 carries nothing measurable. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -99,7 +102,8 @@
               "text": "Yangshan drew a circle '○' on the ground with his staff and said: 'The Buddhas' seal is beyond words. Where does this circle begin, and where does it end?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 34 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); neither claimed work (T47n1989, T47n1990 — which mention 圓相 twice and three times respectively) carries a run of 8 or more graphs of the 41-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Guishan / 溈山",
@@ -118,7 +122,8 @@
               "text": "Guishan drew a cross in the circle '⊕'. Yangshan added a central dot '⊙'. Master and disciple were perfectly attuned without a word.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 19 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); neither claimed work (T47n1989, T47n1990) carries a run of 8 or more graphs of the 26-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -145,10 +150,12 @@
               "text": "One who leaves household life enters the Way to transcend worldly bonds. Time flies like a weaver's shuttle; this phantom body is fleeting. Strive with all your might, lest your life be spent in vain.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 37 eight-graph windows occur in either claimed work (T47n1989, T47n1990 carry no 警策 text); the 警策 base text as pinned — inside the 註 edition X65n1294 — shares a single 8-graph run at offset 3,640 (發足超方心形異俗; 1 of 37 windows), the field inserting 捨俗入道 and rewording the sequence. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     }
   ],
-  "coverage_note": "0/6 content fields verbatim in T47n1989/T47n1990 or any of 39 refs, every field zero 16-graph windows, title asserts 96 圓相 but no 圓相 content (witnesses mention 圓相 2×/3×), no coverage/recension note, retellings retained"
+  "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields are verbatim in either claimed witness (T47n1989 潭州溈山靈祐禪師語錄, T47n1990 袁州仰山慧寂禪師語錄) or in any of the 43 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift). The 2026-09-21 re-key attempt (task 056) is NOT landed: 0 of 6 fields, far below the 80 percent threshold. Per field: s0.d0 11 of 32 graphs as a single run in the claimed witness (T47n1989 @545, the riddle line 不得喚作淨瓶汝喚作甚麼), best measured carrier the uncited X80n1565 13 of 32 @218,137; s0.d2 10 of 25 in the claimed witness (@571, the witness's own 踢倒淨瓶 frame 踢倒淨瓶便出去百丈笑); s0.d1, s1.d0 and s1.d1 carry no run of 8 or more graphs in any of the 43 refs; s2.d0 (the 溈山警策 opening) has no run in either claimed work — the 警策 base text as pinned (inside the 註 edition X65n1294) shares a single 8-graph run @3,640 (發足超方心形異俗). The title's 九十六圓相 names content no pinned witness carries as wording (the claimed works mention 圓相 2×/3×; the two 圓相 fields share zero eight-graph windows with all 43 refs). The wording is a project retelling/composition under the record's name, not an excerpt of either claimed work; every field is R-B-labelled and no field was re-keyed; an older complete copy is OUT-OF-CBETA human sourcing, not agent work.",
+  "cbeta_note": "Added 2026-09-21 (task 056): cbeta_id verified against the pinned CBETA XML P5 titles — T47n1989 is 潭州溈山靈祐禪師語錄 and T47n1990 is 袁州仰山慧寂禪師語錄; no ID correction needed. Neither claimed work carries the 溈山警策 text; in the pinned edition the 警策 base text survives inside the 註 edition X65n1294 溈山警策註, measured 2026-09-21 at a single 8-graph shared run with s2.d0 (offset 3,640)."
 }

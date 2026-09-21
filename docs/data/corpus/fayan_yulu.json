@@ -34,7 +34,8 @@
               "text": "Master Hōgen was on pilgrimage and detained by snow at Dizang's temple. Dizang asked: 'Where are you going?' Hōgen said: 'On pilgrimage.' Dizang asked: 'What is the purpose of pilgrimage?' Hōgen replied: 'I do not know.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The re-key attempt failed: no complete copy in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift) — the claimed T47n1991 carries a single 9-graph run at offset 163 (去地藏云作麼生是行…; 2 of the field's 32 eight-graph windows). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Dizang / 地藏桂琛",
@@ -53,7 +54,8 @@
               "text": "Dizang said: 'Not knowing is most intimate.' At this Hōgen was completely enlightened.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The re-key attempt failed: no complete copy in any of the 43 digest-verified pinned references — the claimed T47n1991 carries 8 of the 14 graphs as a single run at offset 178 (地藏云不知最親切; 1 of the field's 7 eight-graph windows). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -80,7 +82,8 @@
               "text": "Hōgen pointed to a stone in the garden and asked a monk: 'Scriptures say the three worlds are Mind alone. Is this stone inside or outside your mind?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The re-key attempt failed: no complete copy in any of the 43 digest-verified pinned references — the claimed T47n1991 carries a single 9-graph run at offset 254 (說三界唯心萬法唯識; 2 of the field's 23 eight-graph windows), the 三界唯心，萬法唯識 formula re-appearing as single spans in later records (best elsewhere X80n1565, 9 of 30). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Monk / 僧",
@@ -99,7 +102,8 @@
               "text": "The monk said: 'Inside my mind.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The 5-graph field sits below the 8-graph measurement floor (0 eight-graph windows) and occurs verbatim in none of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift). Kept as written rather than re-keyed."
         },
         {
           "speaker": "Fayan / 法眼",
@@ -118,7 +122,8 @@
               "text": "Hōgen said: 'A traveling monk on an empty belly—what madness causes you to carry a boulder around inside your mind?' The monk was speechless.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 17 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); the claimed T47n1991 carries no run of 8 or more graphs of the 24-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -145,7 +150,8 @@
               "text": "The Ten Rules of the Chan School: Clarify one's own awakening; avoid sectarian rivalry; do not cling to words; discern the moment before striking or shouting; and harmonize principle with worldly reality.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project summary, not treatise text (R-B, 2026-09-21, task 056). 0 of this field's 60 eight-graph windows occur in any of the 43 digest-verified pinned references — including the 宗門十規論 X63n1226 itself, in the reference set since this task: the treatise's ten rules are condensed into five project-worded items sharing no run of 8 or more graphs with it. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -173,7 +179,8 @@
               "text": "Fayan taught that while the three worlds are only mind, one must not cling to concepts of mind and consciousness.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The re-key attempt failed: no complete copy in any of the 43 digest-verified pinned references — the claimed T47n1991 carries a single 10-graph run at offset 3,527 (云三界唯心萬法唯識唯; 3 of the field's 17 eight-graph windows) and the formula re-appears in T51n2076 as two 9-graph runs (18 of 24, offsets 118,896 and 341,117); no reference carries the field's closing 不可更作心識解會 wording. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -229,7 +236,8 @@
               "text": "Fayan taught that subject and object arise together; apart from mind no objects exist.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 13 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); the claimed T47n1991 carries no run of 8 or more graphs of the 20-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -257,7 +265,8 @@
               "text": "When asked why Bodhidharma came from the West, Fayan said he could not see through the monk.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). The question 如何是祖師西來意 is the pan-sectarian formula (5 of the field's 10 eight-graph windows in T48n2004, T51n2076 and X68n1315); the claimed T47n1991 carries a single 10-graph run at offset 3,725 (僧問如何是祖師西來意; 3 of 10 windows) whose recorded answer is a different master's (趙州云庭前柏樹子) — no reference carries this field's 我看汝不得 answer wording. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -285,11 +294,12 @@
               "text": "When two monks rolled up bamboo blinds at his gesture, Fayan remarked that one gained and one lost.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, task 056). 0 of this field's 7 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); the claimed T47n1991 carries no run of 8 or more graphs of the 14-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     }
   ],
-  "cbeta_note": "Corrected 2026-08-08: prior 'X1265' wrong — X1265 is 禪林寶訓順硃. Fayan's record is T47n1991 金陵清涼院文益禪師語錄; his 宗門十規論 is X63n1226.",
-  "coverage_note": "8 sermons citation fixed via #43, remaining 宗門十規論 component (5-item project summary) summarizes X63n1226 not in 39-ref set, no collatable witness, undisclosed, retained as project summary"
+  "cbeta_note": "Corrected 2026-08-08: prior 'X1265' wrong — X1265 is 禪林寶訓順硃. Fayan's record is T47n1991 金陵清涼院文益禪師語錄; his 宗門十規論 is X63n1226. Extended 2026-09-21 (task 056): X63n1226 宗門十規論 title-verified in the pinned CBETA XML P5 and added to the reference set (43 works) — the s2.d0 five-item summary shares 0 of its 60 eight-graph windows with the treatise; the document's one verbatim field (s4.d0, 曹源一滴水) is carried whole by T47n1991 at offset 3,813.",
+  "coverage_note": "11 source-content fields evaluated across 8 sections; W1 source-review status: partial_or_failed_w1_collation — 1 of 11 source-content fields is verbatim in the claimed witness (s4.d0 carried whole by T47n1991 @3,813, 18 of 18 graphs, 11 of 11 eight-graph windows) and 1 of 11 in any of the 43 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift). The 2026-09-21 re-key attempt (task 056) is NOT landed: 1 of 11 is far below the 80 percent threshold. Per field: s0.d0 9 of 39, s0.d1 8 of 14, s1.d0 9 of 30, s3.d0 10 of 24 and s6.d0 10 of 17 as single runs in the claimed T47n1991 (offsets 163, 178, 254, 3,527 and 3,725 — the 地藏 exchange frame, the punchline 不知最親切, and the 三界唯心 / 西來意 formulas); s3.d0's formula re-appears in T51n2076 as two 9-graph runs (18 of 24, offsets 118,896 and 341,117) and s6.d0's question is the pan-sectarian 西來意 formula (5 of 10 windows in T48n2004/T51n2076/X68n1315, the recorded answers all differing from this field's 我看汝不得); s1.d2, s5.d0 and s7.d0 carry no run of 8 or more graphs in any ref; s1.d1 (5 graphs) sits below the measurement floor. The 宗門十規論 component (s2.d0) is a 5-item project summary of X63n1226, measured in the reference set since this task: 0 of its 60 eight-graph windows occur in the treatise itself — no collatable witness, retained as project summary. Every non-verbatim field is R-B-labelled; no field was re-keyed; a witness that would carry the retellings as written is OUT-OF-CBETA human sourcing, not agent work."
 }

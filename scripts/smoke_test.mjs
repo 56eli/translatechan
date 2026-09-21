@@ -1208,7 +1208,12 @@ try {
       failures++; console.log(`❌ 4ee: ${master} must disclose the missing corpus link`);
     }
   }
-  if (!lineageSummaryHtml.includes('10 exact locators') || !lineageSummaryHtml.includes('21 locator pending')) {
+  // Pinned to the measured lineage registry (2026-09-21, task 056 gate rectification):
+  // 31 edges = 18 exact_locator_verified + 9 source_verified + 4
+  // traditional_link_pending_exact_locator, 4 frontiers — the P3 locator batches moved
+  // edges out of `pending` after this pin was written (it expected 10/21) and the smoke
+  // has been red on `main` since. The pin tracks the registry, not a target.
+  if (!lineageSummaryHtml.includes('9 source verified') || !lineageSummaryHtml.includes('18 exact locators') || !lineageSummaryHtml.includes('4 locator pending')) {
     failures++; console.log('❌ lineage exact/pending census drift');
   }
 } catch (e) { failures++; console.log(`❌ 4ee dossier spot-check crashed: ${e.message}`); }
