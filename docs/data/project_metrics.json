@@ -1579,19 +1579,19 @@
   "lineage_profile_review": {
     "profile_queue_records": 35,
     "statuses": {
-      "frontier_source_needed": 4,
+      "complete": 4,
+      "frontier_source_needed": 1,
       "in_review": 1,
-      "needs_exact_locator": 30
+      "needs_exact_locator": 29
     }
   },
   "lineage_verification": {
     "frontiers": 4,
     "internal_edges": 31,
-    "source_records": 7,
+    "source_records": 9,
     "statuses": {
       "exact_locator_verified": 20,
-      "source_verified": 10,
-      "traditional_link_pending_exact_locator": 1
+      "source_verified": 11
     }
   },
   "manifest_integrity": {

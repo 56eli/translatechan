@@ -1028,7 +1028,10 @@ const lineageVerification = window.TRANSLATECHAN_DATA.lineage_verification;
 if (!lineageVerification || lineageVerification.edges.length !== 31 || lineageVerification.frontiers.length !== 4) {
   failures++; console.log('❌ lineage verification registry coverage is incorrect');
 }
-if (!svgHtml.includes('graph-link is-pending') || !svgHtml.includes('graph-generation-labels') || !svgHtml.includes('graph-node-halo') || typeof window.TranslateChan.openLineageEdge !== 'function') {
+// P3 frontier final (2026-09-21): every registered edge now carries a reviewed
+// locator, so the graph renders no `is-pending` link — the layered chart is pinned
+// on the verified link class instead.
+if (!svgHtml.includes('graph-link is-verified') || !svgHtml.includes('graph-generation-labels') || !svgHtml.includes('graph-node-halo') || typeof window.TranslateChan.openLineageEdge !== 'function') {
   failures++; console.log('❌ source-aware layered lineage chart missing');
 }
 if (Number(ids['lineage-svg-graph']._attrs.height || 0) < 1200) {
@@ -1208,12 +1211,12 @@ try {
       failures++; console.log(`❌ 4ee: ${master} must disclose the missing corpus link`);
     }
   }
-  // Pinned to the measured lineage registry (2026-09-21, task 056 gate rectification):
-  // 31 edges = 18 exact_locator_verified + 9 source_verified + 4
-  // traditional_link_pending_exact_locator, 4 frontiers — the P3 locator batches moved
-  // edges out of `pending` after this pin was written (it expected 10/21) and the smoke
-  // has been red on `main` since. The pin tracks the registry, not a target.
-  if (!lineageSummaryHtml.includes('9 source verified') || !lineageSummaryHtml.includes('18 exact locators') || !lineageSummaryHtml.includes('4 locator pending')) {
+  // Pinned to the measured lineage registry (2026-09-21, P3 frontier final):
+  // 31 edges = 20 exact_locator_verified + 11 source_verified + 0
+  // traditional_link_pending_exact_locator, 4 frontiers. The earlier pin (18/9/4,
+  // batch-3 state) went red when the P3 locator batches moved four edges out of
+  // `pending`; this pin tracks the registry, not a target.
+  if (!lineageSummaryHtml.includes('11 source verified') || !lineageSummaryHtml.includes('20 exact locators') || !lineageSummaryHtml.includes('0 locator pending')) {
     failures++; console.log('❌ lineage exact/pending census drift');
   }
 } catch (e) { failures++; console.log(`❌ 4ee dossier spot-check crashed: ${e.message}`); }

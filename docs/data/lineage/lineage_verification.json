@@ -50,6 +50,20 @@
       "canonical_id": "T1985",
       "reference": "T47n1985_p0496c10–p0496c14 (無位真人 encounter)",
       "source_type": "canonical master record"
+    },
+    {
+      "source_id": "wudeng-huiyuan-xulue",
+      "title": "五燈會元續略 / Wudeng Huiyuan Xulüe (Continuation of the Compendium of Five Lamps)",
+      "canonical_id": "X1566",
+      "reference": "CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; digest-verified extraction ref_X80n1566.txt (129,305 CJK, sha256 e09dfeeb45f415bf…) run by scripts/collate_refs.py; reviewed edge locators below.",
+      "source_type": "later lineage compilation"
+    },
+    {
+      "source_id": "xudeng-lu",
+      "title": "續傳燈錄 / Xu Chuandenglu (Continued Record of the Transmission of the Lamp)",
+      "canonical_id": "T2077",
+      "reference": "CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; digest-verified extraction ref_T51n2077.txt (334,417 CJK, sha256 da9e4e8aaff4484e…) run by scripts/collate_refs.py; reviewed edge locators below.",
+      "source_type": "later lineage compilation"
     }
   ],
   "edges": [
@@ -162,8 +176,8 @@
       "disciple": "yunmen_wenyan",
       "status": "source_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "T51n2076 fascicle 16, page-line 0329a01 (雪峰義存法嗣 → 雲門文偃)",
-      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d). Reviewed 2026-09-21 against pinned CBETA XML dbdea410 witness (batch2 rebased onto batch1)."
+      "reference": "T51n2076_p0356b27–p0356b28 · fascicle 19 · 韶州雲門山文偃禪師 · chuandenglu_full case extension + p0353a11 heir directory (福州雪峯義存禪師法嗣下四十二人, 韶州雲門文偃禪師 listed at p0353a26)",
+      "note": "Reviewed 2026-09-21 against the pinned CBETA XML P5 witness. Verbatim text (XML apparatus omitted; whitespace joined): 韶州雲門山文偃禪師姑蘇嘉興人也姓張氏初參睦州陳尊宿發明大旨後造雪峯而益資玄要 — the case records Yunmen's coming to Xuefeng (後造雪峯而益資玄要), and the fascicle-19 directory heading 福州雪峯義存禪師法嗣下四十二人 lists 韶州雲門文偃禪師 at p0353a26. Corrected 2026-09-21 (P3 frontier final): the previously recorded locator (fascicle 16, page-line 0329a01, labelled 雪峰義存法嗣 → 雲門文偃) points at 廬山棲賢懷祐禪師 and is not a Xuefeng-heir heading; the witness prints 峯 (not 峰) and carries the Yunmen case at p0356b27. Re-verified graph-by-graph against the digest-verified reference extraction ref_T51n2076.txt. This verifies the record's traditional transmission claim, not independent historical fact."
     },
     {
       "teacher": "baizhang_huaihai",
@@ -185,17 +199,17 @@
       "teacher": "wuzu_fayan",
       "disciple": "yuanwu_keqin",
       "status": "source_verified",
-      "source_id": "jingde-chuandenglu",
-      "reference": "T51n2076 fascicle 20, page-line 0363c10 (五祖法演法嗣)",
-      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d). Reviewed 2026-09-21 against pinned CBETA XML dbdea410 witness (batch2 rebased onto batch1)."
+      "source_id": "xudeng-lu",
+      "reference": "T51n2077 juan 25, p0633c27–p0633c28 (五祖演禪師法嗣 heir section → 昭覺克勤禪師 / 成都府昭覺寺克勤佛果禪師) + juan 20, p0601c14 (蘄州五祖法演禪師 case under the 白雲端禪師法嗣 heading) · 續傳燈錄, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the digest-verified 續傳燈錄 extraction (ref_T51n2077.txt, 334,417 CJK, sha256 da9e4e8aaff4484e…; CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). Verbatim text (XML apparatus omitted; whitespace joined): 五祖演禪師法嗣 … 昭覺克勤禪師 … 成都府昭覺寺克勤佛果禪師 — the juan-25 heir section lists Yuanwu Keqin (佛果克勤) as Fayan's heir, and Fayan's own case (juan 20, p0601c14, 蘄州五祖法演禪師) carries the deathbed scene 佛果曰看脚下師曰滅吾宗者乃克勤爾. Corrected 2026-09-21: the previously recorded locator (T51n2076 fascicle 20, page-line 0363c10, labelled 五祖法演法嗣) is unrelated — T2076 closes in 1004 and contains neither 五祖法演 nor 克勤 (0 occurrences), and that page-line carries 前撫州曹山本寂禪師法嗣. This verifies the record's traditional transmission claim, not independent historical fact."
     },
     {
       "teacher": "yuelin_shiguan",
       "disciple": "wumen_huikai",
       "status": "source_verified",
-      "source_id": "yuelin-shiguan-record",
-      "reference": "T51n2076 fascicle 24, page-line 0408a01 (無門慧開)",
-      "note": "Exact fascicle/page-line locator reviewed against data/corpus/chuandenglu_full.json (CBETA XML revision dbdea41071e1e260ad84b72faefd4587333cf76d). Reviewed 2026-09-21 against pinned CBETA XML dbdea410 witness (batch2 rebased onto batch1)."
+      "source_id": "wudeng-huiyuan-xulue",
+      "reference": "X80n1566 juan 2, p0906a09–p0906a15 (萬壽觀禪師法嗣 heir section → 杭州黃龍無門慧開禪師; biography 參月林, 機語脗合 at p0906a14) · 五燈會元續略, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d + corroborating heir list T51n2077 juan 35, p0708b28–p0708b29 (黃龍慧開禪師字無門杭州人 under the 萬壽崇觀禪師法嗣 heading)",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the digest-verified 五燈會元續略 extraction (ref_X80n1566.txt, 129,305 CJK, sha256 e09dfeeb45f415bf…; CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). Verbatim text (XML apparatus omitted; whitespace joined): 萬壽觀禪師法嗣 … 杭州黃龍無門慧開禪師 … 杭州梁氏子參月林看無字話六年無省 … 林遽曰何處見神見鬼了也師便喝林亦喝師又喝自此機語脗合 — the heir section and the biography name 月林 (Yuelin Shiguan) as the teacher he attended and matched. Yuelin's own record X69n1354 (pinned edition) lists 慧開 among its compilers in the CBETA header — (侍者)法寶．法璹．慶會．法清．有宗．惟珪．道果．慧開．德秀 編. Heading variance recorded honestly: X1566 prints 萬壽觀禪師法嗣 (its own index lists the same master as 萬壽月林師觀禪師 under 大洪證禪師法嗣 at p0902b08), while 續傳燈錄 juan 35 prints 萬壽崇觀禪師法嗣 for the same 慧開 (字無門, 杭州人). Corrected 2026-09-21: the previously recorded locator (T51n2076 fascicle 24, page-line 0408a01, labelled 無門慧開) is unrelated — Wumen Huikai (1183–1260) postdates T2076 (closes 1004; 無門慧開 and 慧開 occur 0 times there) and p0408a01 carries an unrelated dialogue. This verifies the record's traditional transmission claim, not independent historical fact."
     },
     {
       "teacher": "huineng",
@@ -219,7 +233,7 @@
       "status": "exact_locator_verified",
       "source_id": "jingde-chuandenglu",
       "reference": "T51n2076_p0257b18–p0259b04 · fasc. 8 · 池州南泉普願禪師 · chuandenglu_full case 156",
-      "note": "Reviewed 2026-09-21 against pinned CBETA XML P5 witness. Verbatim text (XML apparatus omitted; whitespace joined): 池州南泉普願禪師者鄭州新鄭人也姓王氏初在江西大寂禪師處 — Nanquan studied under Mazu Daoyi (Jiangxi Daji). This verifies the record's traditional transmission claim, not independent historical fact. Evidence: chuandenglu_full fasc 8 p0257b18–p0259b04."
+      "note": "Reviewed 2026-09-21 against pinned CBETA XML P5 witness. Verbatim text (XML apparatus omitted; whitespace joined): 池州南泉普願禪師者鄭州新鄭人也姓王氏唐至德二年依大隗山大慧禪師受業三十詣嵩嶽受戒初習相部舊章究毘尼篇聚次遊諸講肆歷聽楞伽華嚴入中百門觀精練玄義後扣大寂之室頓然忘筌 — the case records Nanquan's ordination history and his 後扣大寂之室 (knocking at the chamber of 大寂, Mazu Daoyi of Jiangxi), the traditional teacher link. Re-verified 2026-09-21 (P3 frontier final) graph-by-graph against the digest-verified reference extraction ref_T51n2076.txt: the span maps to lb p0257b18–p0257b22, inside the recorded range. An earlier paraphrase fragment (…姓王氏初在江西大寂禪師處) that is not contiguous in the witness was replaced by the witness text. This verifies the record's traditional transmission claim, not independent historical fact. Evidence: chuandenglu_full fasc 8 p0257b18–p0259b04."
     },
     {
       "teacher": "shitou_xiqian",
@@ -227,7 +241,7 @@
       "status": "exact_locator_verified",
       "source_id": "jingde-chuandenglu",
       "reference": "T51n2076_p0309b01–p0309c14 · fasc. 14 · 石頭希遷大師 · chuandenglu_full case 304 + T51n2076_p0311b16–p0312c02 · 澧州藥山惟儼禪師",
-      "note": "Reviewed 2026-09-21 against pinned CBETA XML P5 witness. Verbatim text (XML apparatus omitted; whitespace joined): 澧州藥山惟儼禪師絳州人也姓韓氏年十七出家納戒後二十事南嶽希操律師乃曰大丈夫當離法自淨豈能屑屑事細行於布巾耶即謁石頭密領玄旨 — Yaoshan received mysterious旨 from Shitou. Also Shitou case lists Yaoshan as heir. This verifies the record's traditional transmission claim, not independent historical fact. Evidence: chuandenglu_full fasc 14 p0309b01–p0309c14 and p0311b16–p0312c02."
+      "note": "Reviewed 2026-09-21 against pinned CBETA XML P5 witness. Verbatim text (XML apparatus omitted; whitespace joined): 澧州藥山惟儼禪師絳州人姓韓氏年十七依潮陽西山慧照禪師出家唐大歷八年納戒于衡嶽希操律師乃曰大丈夫當離法自淨豈能屑屑事細行於布巾耶即謁石頭密領玄旨 — Yaoshan received the mysterious purport from Shitou (即謁石頭密領玄旨). The fascicle also carries the heir heading 藥山惟儼禪師法嗣 (T51n2076 p0314a10) listing Yaoshan as Shitou's heir. Re-verified 2026-09-21 (P3 frontier final) graph-by-graph against the digest-verified reference extraction ref_T51n2076.txt: the span maps to lb p0311b16–p0311b20, inside the recorded range. An earlier paraphrase (…絳州人也姓韓氏年十七出家納戒後二十事南嶽希操律師…) that is not contiguous in the witness was replaced by the witness text. This verifies the record's traditional transmission claim, not independent historical fact. Evidence: chuandenglu_full fasc 14 p0309b01–p0309c14 and p0311b16–p0312c02."
     },
     {
       "teacher": "yaoshan_weiyan",
@@ -235,7 +249,7 @@
       "status": "exact_locator_verified",
       "source_id": "jingde-chuandenglu",
       "reference": "T51n2076_p0311b16–p0312c02 · fasc. 14 · 澧州藥山惟儼禪師 · chuandenglu_full case 314 + T51n2076_p0314c24–p0315b18 · 潭州雲巖曇晟禪師",
-      "note": "Reviewed 2026-09-21 against pinned CBETA XML P5 witness. Verbatim text (XML apparatus omitted; whitespace joined): 師問雲巖作什麼巖曰擔屎 — Yunyan Tansheng as attendant/disciple of Yaoshan Weiyan. Yunyan case fasc 14 p0314c24: 潭州雲巖曇晟禪師鍾陵建昌人也姓王氏藥山惟儼禪師法嗣 — Yunyan is Yaoshan's heir. This verifies the record's traditional transmission claim, not independent historical fact. Evidence: chuandenglu_full fasc 14 p0311b16–p0312c02 and p0314c24–p0315b18."
+      "note": "Reviewed 2026-09-21 against pinned CBETA XML P5 witness. Verbatim text (XML apparatus omitted; whitespace joined): 師問雲巖作什麼巖曰擔屎 — Yunyan Tansheng as attendant/disciple of Yaoshan Weiyan. The Yunyan case (fasc 14) opens 潭州雲巖曇晟禪師鍾陵建昌人也姓王氏少出家於石門初參百丈海禪師未悟玄旨侍左右二十年百丈歸寂師乃謁藥山言下契會 and sits under the heir heading 藥山惟儼禪師法嗣 (T51n2076 p0314a10) — Yunyan is Yaoshan's heir. Re-verified 2026-09-21 (P3 frontier final) graph-by-graph against the digest-verified reference extraction ref_T51n2076.txt: 師問雲巖作什麼巖曰擔屎 maps to lb p0311c22–p0311c23 and the biography span to lb p0314c24–p0314c27, both inside the recorded ranges. An earlier splice (…姓王氏 + the heir heading …藥山惟儼禪師法嗣 presented as one contiguous quotation) is now recorded as the two separate witness spans. This verifies the record's traditional transmission claim, not independent historical fact. Evidence: chuandenglu_full fasc 14 p0311b16–p0312c02 and p0314c24–p0315b18."
     },
     {
       "teacher": "deshan_xuanjian",
@@ -282,24 +296,24 @@
       "disciple": "deshan_xuanjian",
       "status": "exact_locator_verified",
       "source_id": "jingde-chuandenglu",
-      "reference": "T51n2076_p0317b13–p0318a27 · fasc. 15 · 朗州德山宣鑑禪師 · chuandenglu_full case 452 + T51n2076_p0313b10–p0313c05 · fasc. 14 · 澧州龍潭崇信禪師 · case 429",
-      "note": "Reviewed 2026-09-21 (P3 frontier final) against the pinned CBETA XML P5 witness (revision dbdea41071e1e260ad84b72faefd4587333cf76d). Verbatim text (XML apparatus omitted; whitespace joined): 因造龍潭信禪師問答皆一語而已師即時辭去龍潭留之一夕於室外默坐龍問何不歸來師對曰黑龍乃點燭與師師擬接龍便吹滅師乃禮拜龍曰見什麼曰從今向去不疑天下老和尚舌頭也 — Deshan's case records his going to Longtan Xin (Longtan Chongxin) and the lamp-candle encounter; the Longtan case itself closes with 德山問久嚮龍潭到來潭又不見龍亦不現師曰子親到龍潭德山即休. This verifies the record's traditional transmission claim, not independent historical fact. Evidence: sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md."
+      "reference": "T51n2076_p0317b13–p0318a27 · fasc. 15 · 朗州德山宣鑒禪師 · chuandenglu_full case 452 + T51n2076_p0313b10–p0313c05 · fasc. 14 · 澧州龍潭崇信禪師 · case 429",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the pinned CBETA XML P5 witness (revision dbdea41071e1e260ad84b72faefd4587333cf76d). Verbatim text (XML apparatus omitted; whitespace joined): 因造龍潭信禪師問答皆一語而已師即時辭去龍潭留之一夕於室外默坐龍問何不歸來師對曰黑龍乃點燭與師師擬接龍便吹滅師乃禮拜龍曰見什麼曰從今向去不疑天下老和尚舌頭也 — Deshan's case records his going to Longtan Xin (Longtan Chongxin) and the lamp-candle encounter; the Longtan case itself closes with 德山問久嚮龍潭到來潭又不見龍亦不現師曰子親到龍潭德山即休. This verifies the record's traditional transmission claim, not independent historical fact. Evidence: sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md. Re-verified 2026-09-21 (P3 frontier final) graph-by-graph against the digest-verified reference extraction ref_T51n2076.txt: the Deshan span maps to lb p0317b17–p0317b22 and the Longtan close (德山問久嚮龍潭到來潭又不見龍亦不現師曰子親到龍潭德山即休) to lb p0313c03–p0313c05, both inside the recorded ranges. The witness writes the fascicle heading 朗州德山宣鑒禪師 (鑒), now used in the reference field."
     },
     {
       "teacher": "yangqi_fanghui",
       "disciple": "baiyun_shouduan",
       "status": "source_verified",
       "source_id": "wudeng-huiyuan",
-      "reference": "X80n1565 fasc. 19, p0724a11 (舒州白雲守端禪師 case, listed under the 楊歧會禪師法嗣 heir section) + p0721b05 (袁州楊岐方會禪師 case, listed under the 石霜圓禪師法嗣 section) · Wudeng Huiyuan, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d",
-      "note": "Reviewed 2026-09-21 (P3 frontier final) against the digest-verified X80n1565 extraction (581,588 CJK; sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md). Verbatim text (XML apparatus omitted; whitespace joined): 冠依茶陵郁禪師披削往參楊岐 — Baiyun's case records his going to Yangqi (Fanghui) — and 歧曰渠愛人笑汝怕人笑師大悟巾侍久之 — his awakening at 'he loves people's laughter, you fear people's laughter'. He is listed under the 楊歧會禪師法嗣 heir section; Yangqi Fanghui's own case (p0721b05) sits under 石霜圓禪師法嗣. Status source_verified: the X1565 heir-list plus case attests the link; the exact_locator_verified tier requires a T51n2076 lb range with source_id jingde-chuandenglu, and this Song-era pair postdates T2076's 1004 closing date, so no T2076 lb anchor exists for this edge. This verifies the record's traditional transmission claim, not independent historical fact."
+      "reference": "X80n1565 fasc. 19, p0721b05 (袁州楊歧方會禪師 case, under the 石霜圓禪師法嗣 heir heading at p0721b04) + p0724a11 (舒州白雲守端禪師 case, under the 楊歧會禪師法嗣 heir heading at p0724a10) · Wudeng Huiyuan, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the digest-verified X80n1565 extraction (581,588 CJK; sessions/P3_LINEAGE_FRONTIER_FINAL_2026-09-21.md). Verbatim text (XML apparatus omitted; whitespace joined): 冠依茶陵郁禪師披削往參楊歧 — Baiyun's case records his going to Yangqi (Fanghui) — and 歧曰渠愛人笑汝怕人笑師大悟巾侍久之 — his awakening at 'he loves people's laughter, you fear people's laughter'. He is listed under the 楊歧會禪師法嗣 heir section (heading p0724a10); Yangqi Fanghui's own case (p0721b05) sits under 石霜圓禪師法嗣 (heading p0721b04). Re-verified 2026-09-21 (P3 frontier final) against the digest-verified extraction: the witness writes the graph 歧 (not 岐) in all four places — case and heir headings included — and the two quoted spans (13 + 17 graphs) now read exactly as the witness does; the earlier 岐 spellings were the popular form, not this witness's text. Status source_verified: the X1565 heir-list plus case attests the link; the exact_locator_verified tier requires a T51n2076 lb range with source_id jingde-chuandenglu, and this Song-era pair postdates T2076's 1004 closing date, so no T2076 lb anchor exists for this edge. This verifies the record's traditional transmission claim, not independent historical fact."
     },
     {
       "teacher": "dahong_zuzheng",
       "disciple": "yuelin_shiguan",
-      "status": "traditional_link_pending_exact_locator",
-      "source_id": "frontier-master-record",
-      "reference": "Traditional relationship retained from the previous frontier record; exact locator pending.",
-      "note": "Frontier: Dahong Zuzheng → Yuelin Shiguan, Dahong no biographical witness in active corpus, linked_corpus_keys [] intentional, remains frontier. Profile scaffold makes this relationship navigable but does not upgrade it to source-verified status."
+      "status": "source_verified",
+      "source_id": "wudeng-huiyuan-xulue",
+      "reference": "X80n1566 juan 2, p0902b07–p0902b08 (大洪證禪師法嗣 heir section → 萬壽月林師觀禪師) · 五燈會元續略, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d + corroborating heir list T51n2077 juan 33, p0701a01–p0701a02 (大洪證禪師法嗣四人 … 萬壽師觀禪師)",
+      "note": "Frontier closed 2026-09-21 (P3 frontier final). Verbatim text (XML apparatus omitted; whitespace joined): 大洪證禪師法嗣 … 萬壽月林師觀禪師 — the 五燈會元續略 heir section lists Yuelin Shiguan as Dahong's heir, and the 續傳燈錄 juan-33 heir index independently lists 大洪證禪師法嗣四人 … 萬壽師觀禪師. Both spans were re-verified graph-by-graph against digest-verified extractions of the pinned CBETA XML P5 revision (ref_X80n1566.txt 129,305 CJK sha256 e09dfeeb45f415bf…; ref_T51n2077.txt 334,417 CJK sha256 da9e4e8aaff4484e…). Status source_verified, not exact_locator_verified: the attestation carries an ordered lb range, but that tier is attested for the T51n2076 witness only and this pair postdates T2076 (大洪, 祖證, 月林 0 occurrences there; 師觀 only as the verb phrases 塑師觀之/祖師觀此土). The master's own case (X1565 fasc. 20, p0823b11) is sayings-only and names no teacher, so his upstream teacher stays the recorded frontier while this edge is now verified. This verifies the record's traditional transmission claim, not independent historical fact."
     }
   ],
   "frontiers": [
@@ -329,7 +343,7 @@
       "disciple": "dahong_zuzheng",
       "status": "frontier_unprofiled",
       "source_id": "frontier-master-record",
-      "reference": "Teacher profile and exact source locator pending."
+      "reference": "Upstream teacher still unrecorded: his own case (X1565 fasc. 20, p0823b11) is sayings-only with no teacher line, and X1566/T2077 print only his heir section (大洪證禪師法嗣). The dahong_zuzheng→yuelin_shiguan edge is now source_verified — see edges."
     }
   ]
 }

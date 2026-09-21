@@ -1237,14 +1237,14 @@
       "Yuelin (月林)",
       "Yuelin Shiguan (月林師觀)"
     ],
-    "profile_status": "Seed profile — exact biographical/source locator pending",
+    "profile_status": "Seed profile — updated 2026-09-21: the wumen_huikai edge and the Dahong teacher link now carry reviewed locators (X1566 juan 2 p0902b08 and p0906a10); descriptive biographical fields remain seed, exact locator for dates/location pending",
     "linked_corpus_keys": [
       "dahui_hongzhi",
       "wudeng_huiyuan"
     ],
     "profile_evidence": {
-      "status": "seed_profile_pending_exact_locator",
-      "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
+      "status": "seed_profile_locators_reviewed_biographical_fields_pending",
+      "note": "Locator review 2026-09-21 (P3 frontier final) against digest-verified extractions of the pinned CBETA XML P5 revision (X1566 sha256 e09dfeeb45f415bf…, X1565 sha256 a3d20a107ff69495…): 五燈會元續略 X80n1566 juan 2 p0902b07–p0902b08 lists 萬壽月林師觀禪師 as the heir of 大洪證禪師 (the dahong_zuzheng→yuelin_shiguan edge, source_verified), and p0906a09–p0906a15 opens the 萬壽觀禪師法嗣 heir section with 杭州黃龍無門慧開禪師, whose biography 杭州梁氏子參月林看無字話六年無省 … 林遽曰何處見神見鬼了也師便喝林亦喝師又喝自此機語脗合 names 月林 as his teacher (the yuelin_shiguan→wumen_huikai edge, source_verified). The seed profile's descriptive fields stay unreviewed: the 2026-09-21 X1566/續傳燈錄 search found no dated biography for this master — X69n1354 (his own record, 9,494 CJK) carries the 嘉定戊寅 (1218) preface by 陳貴謙 and lists 慧開 among its 侍者 compilers in the CBETA header, and X1566 gives the heir-section entry only. Dates and location therefore remain seed values, not verified facts."
     }
   },
   {
@@ -1346,11 +1346,11 @@
     "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
     "cbeta_id": "No source record assigned",
     "summary": "Included to connect Baiyun Shouduan’s traditional teacher relationship in the navigable tree. Exact records and dates remain an editorial task.",
-    "profile_status": "Frontier profile — reviewed 2026-09-21: case located in X1565 (fasc. 19, p0721b05); edge to Baiyun Shouduan source_verified; own teacher (石霜圓 慈明) identified in the record but not profiled; linked_corpus_keys [] intentional",
+    "profile_status": "Frontier profile — reviewed 2026-09-21: case located in X1565 (fasc. 19, p0721b05, under the 石霜圓禪師法嗣 heir heading p0721b04); edge to Baiyun Shouduan source_verified; own teacher (石霜圓 慈明) identified in the record but not profiled; linked_corpus_keys [] intentional",
     "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "frontier_profile_reviewed_case_located_edge_source_verified",
-      "note": "Reviewed 2026-09-21 (P3 frontier final) against the digest-verified X80n1565 extraction (581,588 CJK, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d): the 袁州楊岐方會禪師 case, X80n1565 fasc. 19 p0721b05 (listed under 石霜圓禪師法嗣), records his awakening under 慈明 (明): 一日明適出雨忽作師偵之小徑既見遂搊住曰這老漢今日須與我說不說打你去…師大悟即拜於泥途. The yangqi_fanghui→baiyun_shouduan edge is source_verified via the Baiyun case (fasc. 19 p0724a11, 披削往參楊岐) in lineage_verification.json. Active-corpus cross-reference: dahui_yulu_full quotes the master's signature line with 楊岐 attribution (e.g. case 585 僧問楊岐如何是佛岐云三脚驢子弄蹄行) — a later-master citation, not this master's record, so linked_corpus_keys stays [] (the batch-1 smoke contract requires this scaffold's missing-link disclosure). His own teacher (石霜圓 慈明, unprofiled) remains the unrecorded frontier; dates remain unverified."
+      "note": "Reviewed 2026-09-21 (P3 frontier final) against the digest-verified X80n1565 extraction (581,588 CJK, sha256 a3d20a107ff69495…, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d): the 袁州楊歧方會禪師 case, X80n1565 fasc. 19 p0721b05 (listed under the 石霜圓禪師法嗣 heir heading at p0721b04), records his awakening under 慈明 (明): 一日明適出雨忽作師偵之小徑既見遂搊住曰這老漢今日須與我說不說打你去…師大悟即拜於泥途. The yangqi_fanghui→baiyun_shouduan edge is source_verified via the Baiyun case (fasc. 19 p0724a11, under the 楊歧會禪師法嗣 heading p0724a10; 披削往參楊歧) in lineage_verification.json. The witness writes the graph 歧 (not 岐) in case and heir headings alike; a re-verification pass on 2026-09-21 corrected the quoted spans to the witness reading. Active-corpus cross-reference: dahui_yulu_full quotes the master's signature line in its own spelling (e.g. 僧問楊岐如何是佛岐云三脚驢子弄蹄行; the X1565 case itself reads 問如何是佛師曰三脚驢子弄蹄行) — a later-master citation, not this master's record, so linked_corpus_keys stays [] (the batch-1 smoke contract requires this scaffold's missing-link disclosure). His own teacher (石霜圓 慈明, unprofiled) remains the unrecorded frontier; dates remain unverified."
     }
   },
   {
@@ -1379,11 +1379,11 @@
     "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
     "cbeta_id": "No source record assigned",
     "summary": "Included to connect Yuelin Shiguan’s traditional teacher relationship in the navigable tree. Exact records and dates remain an editorial task.",
-    "profile_status": "Frontier profile — reviewed 2026-09-21, pending exact locator: case located in X1565 (fasc. 20, p0823b11, sayings-only); no biographical witness for the link to Yuelin Shiguan in X1565, chuandenglu_full, or the active corpus 44 documents; linked_corpus_keys [] intentional",
+    "profile_status": "Frontier profile — reviewed 2026-09-21: disciple edge to Yuelin Shiguan source_verified (X1566 heir section p0902b08 + T2077 heir index p0701a02); own case sayings-only at X1565 fasc. 20 p0823b11; upstream teacher remains unrecorded; linked_corpus_keys [] intentional",
     "linked_corpus_keys": [],
     "profile_evidence": {
-      "status": "frontier_profile_reviewed_pending_exact_locator",
-      "note": "Reviewed 2026-09-21 (P3 frontier final) with the digest-verified X80n1565 extraction (581,588 CJK, juan 1–20, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d): the master's own case 隨州大洪老衲祖證禪師 exists at X80n1565 fasc. 20 p0823b11 but carries only on-platform sayings and two dialogues (上堂萬象之中獨露身…師曰速禮三拜) — no dates, no teacher, no heir named. Search terms 月林/師觀: 0 occurrences in X1565 (the two 月林 hits are verse lines 林泉好商量/月林間鶴唳); in chuandenglu_full the 師觀 hits are the verb phrase 塑師觀之/祖師觀此土; the active corpus 44 documents carry 0 occurrences of 月林/師觀/祖證/祖政/大洪老衲. The dahong_zuzheng→yuelin_shiguan edge therefore remains traditional_link_pending_exact_locator, documented as an intentional frontier in lineage_verification.json. linked_corpus_keys [] intentional: no active-corpus document contains content about this master."
+      "status": "frontier_profile_reviewed_edge_source_verified_upstream_teacher_unrecorded",
+      "note": "Reviewed 2026-09-21 (P3 frontier final) with the digest-verified X80n1565 extraction (581,588 CJK, juan 1–20, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d): the master's own case 隨州大洪老衲祖證禪師 exists at X80n1565 fasc. 20 p0823b11 but carries only on-platform sayings and two dialogues (上堂萬象之中獨露身…師曰速禮三拜) — no dates, no teacher, no heir named. Search terms: 月林 → 2 hits in X1565, both verse lines (…日月林泉好商量…, …之月林間鶴唳…); 師觀 → 0 hits in X1565; in chuandenglu_full the 師觀 hits are the verb phrase 塑師觀之/祖師觀此土; across the active corpus the only 師觀 hits are the verb phrases 祖師觀此土 (biyanlu_cases) and 塑師觀之/祖師觀此土 (chuandenglu_full, whose two hits mirror T2076), never this master's name; 月林/祖證/祖政/大洪老衲 occur 0 times in the active corpus and 大洪/月林/祖證/祖政/老衲 occur 0 times in T2076. The dahong_zuzheng→yuelin_shiguan edge therefore remains traditional_link_pending_exact_locator, documented as an intentional frontier in lineage_verification.json. linked_corpus_keys [] intentional: no active-corpus document contains content about this master. Re-verified 2026-09-21 (P3 frontier final) against the digest-verified extraction of the pinned witness: the case heading 隨州大洪老衲祖證禪師 maps to X80n1565 fasc. 20 lb p0823b11 and its sayings (上堂萬象之中獨露身…師曰速禮三拜) sit inside that case; the 月林 occurrences map to juan 12 lb 0429a13 and juan 14 lb 0531a03, and the T2076 師觀 hits are 塑師觀之/祖師觀此土 as recorded. Frontier closed for the disciple edge on 2026-09-21 (P3 frontier final): 五燈會元續略 X80n1566 juan 2 p0902b07–p0902b08 prints the heir section 大洪證禪師法嗣 → 萬壽月林師觀禪師, and 續傳燈錄 T51n2077 juan 33 p0701a01–p0701a02 prints 大洪證禪師法嗣四人 … 萬壽師觀禪師; both are digest-verified extractions of the pinned CBETA XML P5 revision (X1566 sha256 e09dfeeb45f415bf…, T2077 sha256 da9e4e8aaff4484e…). The edge dahong_zuzheng→yuelin_shiguan is source_verified in lineage_verification.json. His own upstream teacher remains unrecorded (the X1565 case names none), so this profile stays a frontier; the descriptive fields (dates, era, location) are still unverified and nothing has been invented."
     }
   }
 ]

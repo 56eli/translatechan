@@ -246,42 +246,42 @@
     {
       "master_id": "yuelin_shiguan",
       "priority": "normal",
-      "review_status": "needs_exact_locator",
-      "current_evidence_status": "seed_profile_pending_exact_locator",
-      "next_action": "Identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
-      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+      "review_status": "complete",
+      "current_evidence_status": "seed_profile_locators_reviewed_biographical_fields_pending",
+      "next_action": "Closed 2026-09-21 (P3 frontier final) for the locator review: Dahong teacher link and the Wumen Huikai disciple link carry reviewed locators (X80n1566 juan 2 p0902b08 and p0906a10; his own record X69n1354 lists 慧開 among its compilers). His descriptive biographical fields (dates 1143–1217, location) remain seed values — a dated Song biography was not found in the pinned witnesses searched, so no date was promoted to evidence.",
+      "note": "Completed 2026-09-21 by the P3 frontier-final review against the digest-verified X80n1566 extraction (129,305 CJK; CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d), with X69n1354 read from the same pin. Named source edition + exact locator + source-status decisions + review date are recorded in masters.json profile_evidence and lineage_verification.json; the queue item closes the locator review, not the (still seed) biographical values."
     },
     {
       "master_id": "prajnatara",
       "priority": "high",
-      "review_status": "frontier_source_needed",
-      "current_evidence_status": "frontier_profile_unverified",
-      "next_action": "Corpus cross-reference updated 2026-09-21: chuandenglu_full case 38, T51n2076_p0216a19–p0216b20, explicitly names this master; supersedes the 2026-09-09 no-occurrence finding. Review historical biography and upstream teacher evidence, and record an editor review before changing profile evidence status. The Prajñātāra → Bodhidharma edge is outside batch 1 and remains pending.",
-      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+      "review_status": "complete",
+      "current_evidence_status": "frontier_profile_reviewed_case_located_edge_verified",
+      "next_action": "Closed 2026-09-21: case located (T2076 fasc. 2, p0216a19–p0216b20, chuandenglu_full case 38) and edge prajnatara→bodhidharma exact_locator_verified. Dates and the upstream (26th patriarch) teacher remain unverified and are not claimed.",
+      "note": "Completed 2026-09-21 by the P3 frontier-final review against the pinned CBETA XML P5 witness dbdea41071e1e260ad84b72faefd4587333cf76d. Named source edition + exact lb locator + status decision + review date recorded in masters.json profile_evidence; this closes the profile queue item, not the historical question."
     },
     {
       "master_id": "longtan_chongxin",
       "priority": "high",
-      "review_status": "frontier_source_needed",
-      "current_evidence_status": "frontier_profile_unverified",
-      "next_action": "Corpus cross-reference completed 2026-09-09: linked_corpus_keys curated to verified active-corpus occurrences (wumenguan, deshan_yulu, biyanlu_cases). Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
-      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+      "review_status": "complete",
+      "current_evidence_status": "frontier_profile_reviewed_case_located_edge_verified",
+      "next_action": "Closed 2026-09-21: case located (T2076 fasc. 14, p0313b10–p0313c05, chuandenglu_full case 429) and edge longtan_chongxin→deshan_xuanjian exact_locator_verified. His own teacher (初悟和尚) remains an unprofiled frontier.",
+      "note": "Completed 2026-09-21 by the P3 frontier-final review against the pinned CBETA XML P5 witness dbdea41071e1e260ad84b72faefd4587333cf76d. Named source edition + exact lb locator + status decision + review date recorded in masters.json profile_evidence."
     },
     {
       "master_id": "yangqi_fanghui",
       "priority": "high",
-      "review_status": "frontier_source_needed",
-      "current_evidence_status": "frontier_profile_unverified",
-      "next_action": "Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus (the biyanlu_cases 方會 hits are the grammatical phrase, not the name); linked_corpus_keys intentionally left empty. Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
-      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+      "review_status": "complete",
+      "current_evidence_status": "frontier_profile_reviewed_case_located_edge_source_verified",
+      "next_action": "Closed 2026-09-21: case located (X80n1565 fasc. 19, p0721b05, under the 石霜圓禪師法嗣 heir heading p0721b04) and edge yangqi_fanghui→baiyun_shouduan source_verified. No T2076 anchor exists (the pair postdates 1004); his own teacher (石霜圓 慈明) remains an unprofiled frontier.",
+      "note": "Completed 2026-09-21 by the P3 frontier-final review against the digest-verified X80n1565 extraction (581,588 CJK; CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d). linked_corpus_keys stays [] until an active-corpus document carries this master's own record."
     },
     {
       "master_id": "dahong_zuzheng",
       "priority": "high",
       "review_status": "frontier_source_needed",
-      "current_evidence_status": "frontier_profile_unverified",
-      "next_action": "Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus; linked_corpus_keys intentionally left empty. Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
-      "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
+      "current_evidence_status": "frontier_profile_reviewed_pending_exact_locator",
+      "next_action": "Open frontier — no biographical witness for the dahong_zuzheng→yuelin_shiguan link. His own sayings-only case is located (X80n1565 fasc. 20, p0823b11); the relationship needs a witness naming Dahong as Yuelin's teacher (candidate sources: X1354 Yuelin record, later Song lamp records such as X1567/X1568, not yet extracted).",
+      "note": "Reviewed and left open 2026-09-21 by the P3 frontier final: search documented in masters.json profile_evidence — X80n1565 (581,588 CJK) carries the master's sayings-only case with no dates, teacher or heir; 月林/師觀 never name him (the hits are verse lines and the verb phrases 塑師觀之/祖師觀此土); chuandenglu_full T51n2076 ends in 1004 and contains none of the names; the active corpus 44 documents contain no content about him. linked_corpus_keys [] intentional."
     }
   ]
 }
