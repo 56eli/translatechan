@@ -7,7 +7,7 @@
     "documents": 44
   },
   "corpus": {
-    "all_corpus_cjk_characters": 917778,
+    "all_corpus_cjk_characters": 917810,
     "complete_documents": [],
     "completion_statuses": {
       "excerpt_seed": 31,
@@ -417,11 +417,11 @@
         }
       },
       "dazhu_huihai": {
-        "all_cjk_chars": 373,
+        "all_cjk_chars": 389,
         "cbeta_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 260,
-        "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the witnesses recorded in the record (X63n1223 / X63n1224; 2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in any of the 40 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed. X63n1223 (listed first, a treatise) contributes zero runs of 8 or more graphs to every field; X63n1224 (the record proper) carries the material rearranged — 35 of 60 (s0.d0, three runs), 40 of 54 (s0.d1), 28 of 32 (s2.d0), 16 of 43 (s2.d1, whose closing attribution adds a one-graph name prefix the witness does not carry). Best measured carriers elsewhere: X80n1565 55 of 60 for s0.d0 (three runs, longest 30 graphs at offset 71,318) and T51n2076 44 of 54 in a single run at offset 58,336 for s0.d1; s1.d0 and s1.d1 have no run of 8 or more graphs in any of the 40 refs; s2.d1 is split across T51n2076, X63n1224 and X80n1565 (16 of 43 each). Retellings retained as written (below the re-key threshold); a witness that would carry a field as written would be OUT-OF-CBETA human sourcing, not agent work.",
+        "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the witnesses recorded in the record (X63n1223 / X63n1224; 2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in any of the 40 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed. X63n1223 (listed first, a treatise) contributes zero runs of 8 or more graphs to every field; X63n1224 (the record proper) carries the material rearranged — 35 of 60 (s0.d0, three runs), 40 of 54 (s0.d1), 28 of 32 (s2.d0), 16 of 43 (s2.d1, whose closing attribution adds a one-graph name prefix the witness does not carry). Best measured carriers elsewhere: X80n1565 55 of 60 for s0.d0 (three runs, longest 30 graphs at offset 71,318) and T51n2076 44 of 54 in a single run at offset 58,336 for s0.d1; s1.d0 and s1.d1 have no run of 8 or more graphs in any of the 40 refs; s2.d1 is split across T51n2076, X63n1224 and X80n1565 (16 of 43 each). Retellings retained as written (below the re-key threshold); a witness that would carry a field as written would be OUT-OF-CBETA human sourcing, not agent work.  Retry 2026-09-21 task 054: re-extracted X63n1223 (26,007 CJK, 頓悟入道要門論) X63n1224 (24,933 CJK, 參問語錄) X68n1315 (1,336,350 CJK, 古尊宿語錄) via cbeta-p5-body-cjk-v1 from CBETA XML P5 revision dbdea410, verified digests, collated with COLLATION_REFS=/tmp/refs --require-verified-refs --generated 2026-09-21 — result still 0/6 EXACT (1 EXACT title, 2 DIVERGENT, 7 NOT_FOUND for dazhu; 1 EXACT title, 1 DIVERGENT, 7 NOT_FOUND, 1 TITLE_COMPOSITE for nanquan), partial_or_failed_w1_collation, threshold 5/6 not met, no field re-keyed. Largest shared runs remain as previously measured; no new carrier found.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -899,11 +899,11 @@
         }
       },
       "nanquan_yulu": {
-        "all_cjk_chars": 264,
+        "all_cjk_chars": 280,
         "cbeta_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
         "completion_status": "excerpt_seed",
         "content_zh_chars": 148,
-        "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the claimed X68n1315 (2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in the claimed witness, so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift). Largest shared run with the claimed witness: 23 of 27 (s2.d0, split at variant points: 10 graphs at offset 433,963 + 13 graphs at offset 433,978); s1.d0 (19 graphs) has no run of 8 or more graphs in any of the 40 refs; the other fields are fragmentary (s0.d0 8 of 15, s0.d1 9 of 33, s1.d1 9 of 28 — formulaic wording in 9- to 10-graph spans across 11 refs — s2.d1 11 of 26). The 傳燈錄 T48n2005 carries the s1.d1 span, and the only verbatim carrier of any field is the uncited T47n1997, the 圓悟語錄, which carries s2.d0 27 of 27 at offset 114,323 — a candidate for a later re-key decision, not a landing in this labelling task. Retellings retained as written; witnesses that would carry the other fields as written are OUT-OF-CBETA human sourcing, not agent work.",
+        "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the claimed X68n1315 (2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in the claimed witness, so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift). Largest shared run with the claimed witness: 23 of 27 (s2.d0, split at variant points: 10 graphs at offset 433,963 + 13 graphs at offset 433,978); s1.d0 (19 graphs) has no run of 8 or more graphs in any of the 40 refs; the other fields are fragmentary (s0.d0 8 of 15, s0.d1 9 of 33, s1.d1 9 of 28 — formulaic wording in 9- to 10-graph spans across 11 refs — s2.d1 11 of 26). The 傳燈錄 T48n2005 carries the s1.d1 span, and the only verbatim carrier of any field is the uncited T47n1997, the 圓悟語錄, which carries s2.d0 27 of 27 at offset 114,323 — a candidate for a later re-key decision, not a landing in this labelling task. Retellings retained as written; witnesses that would carry the other fields as written are OUT-OF-CBETA human sourcing, not agent work.  Retry 2026-09-21 task 054: re-extracted X63n1223 (26,007 CJK, 頓悟入道要門論) X63n1224 (24,933 CJK, 參問語錄) X68n1315 (1,336,350 CJK, 古尊宿語錄) via cbeta-p5-body-cjk-v1 from CBETA XML P5 revision dbdea410, verified digests, collated with COLLATION_REFS=/tmp/refs --require-verified-refs --generated 2026-09-21 — result still 0/6 EXACT (1 EXACT title, 2 DIVERGENT, 7 NOT_FOUND for dazhu; 1 EXACT title, 1 DIVERGENT, 7 NOT_FOUND, 1 TITLE_COMPOSITE for nanquan), partial_or_failed_w1_collation, threshold 5/6 not met, no field re-keyed. Largest shared runs remain as previously measured; no new carrier found.",
         "is_complete": false,
         "shapes": [
           "sections"
@@ -1589,9 +1589,9 @@
     "internal_edges": 31,
     "source_records": 7,
     "statuses": {
-      "exact_locator_verified": 10,
-      "source_verified": 8,
-      "traditional_link_pending_exact_locator": 13
+      "exact_locator_verified": 18,
+      "source_verified": 9,
+      "traditional_link_pending_exact_locator": 4
     }
   },
   "manifest_integrity": {

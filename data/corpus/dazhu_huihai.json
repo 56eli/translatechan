@@ -56,7 +56,8 @@
           },
           "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 47 eight-graph windows occur in the claimed X63n1223 (no run of 8 or more graphs of the field); X63n1224 carries 40 of the 54 graphs in a single run (offset 88); the best measured carrier is the uncited T51n2076 at 44 of 54 in a single run (offset 58,336), with X69n1321 carrying 36 of 54 in a single run (offset 2,400). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
-      ]
+      ],
+      "editorial_note": "Section  — project retelling, no witness attribution, retained per P2 retry 054, 0/6 EXACT."
     },
     {
       "section_id": "seeing_nature_blind",
@@ -104,7 +105,8 @@
           },
           "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-20, task 048). 0 of this field's 43 eight-graph windows occur in any of the 40 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift); the claimed witnesses X63n1223/X63n1224 carry no run of 8 or more graphs of the 50-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
-      ]
+      ],
+      "editorial_note": "Section  — project retelling, no witness attribution, retained per P2 retry 054, 0/6 EXACT."
     },
     {
       "section_id": "ordinary_living",
@@ -152,9 +154,11 @@
           },
           "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 36 eight-graph windows are carried by a single complete copy in any of the 40 refs; X63n1224 carries the opening 16 of the 43 graphs (offset 1,381) — the field's closing attribution adds a one-graph name prefix the witness does not carry, and its middle is a compressed form of the witness's longer answer — the same 16-graph span also occurs in the uncited X80n1565 (offset 72,597) and T51n2076 (offset 59,608). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
-      ]
+      ],
+      "editorial_note": "Section  — project retelling, no witness attribution, retained per P2 retry 054, 0/6 EXACT."
     }
   ],
   "cbeta_note": "Corrected 2026-08-08: prior 'X1258' wrong — X1258 is 禪宗直指 (明 石成金著). Dazhu Huihai's texts are X63n1223 頓悟入道要門論 and X63n1224 參問語錄 (唐 慧海撰).",
-  "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the witnesses recorded in the record (X63n1223 / X63n1224; 2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in any of the 40 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed. X63n1223 (listed first, a treatise) contributes zero runs of 8 or more graphs to every field; X63n1224 (the record proper) carries the material rearranged — 35 of 60 (s0.d0, three runs), 40 of 54 (s0.d1), 28 of 32 (s2.d0), 16 of 43 (s2.d1, whose closing attribution adds a one-graph name prefix the witness does not carry). Best measured carriers elsewhere: X80n1565 55 of 60 for s0.d0 (three runs, longest 30 graphs at offset 71,318) and T51n2076 44 of 54 in a single run at offset 58,336 for s0.d1; s1.d0 and s1.d1 have no run of 8 or more graphs in any of the 40 refs; s2.d1 is split across T51n2076, X63n1224 and X80n1565 (16 of 43 each). Retellings retained as written (below the re-key threshold); a witness that would carry a field as written would be OUT-OF-CBETA human sourcing, not agent work."
+  "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the witnesses recorded in the record (X63n1223 / X63n1224; 2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in any of the 40 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed. X63n1223 (listed first, a treatise) contributes zero runs of 8 or more graphs to every field; X63n1224 (the record proper) carries the material rearranged — 35 of 60 (s0.d0, three runs), 40 of 54 (s0.d1), 28 of 32 (s2.d0), 16 of 43 (s2.d1, whose closing attribution adds a one-graph name prefix the witness does not carry). Best measured carriers elsewhere: X80n1565 55 of 60 for s0.d0 (three runs, longest 30 graphs at offset 71,318) and T51n2076 44 of 54 in a single run at offset 58,336 for s0.d1; s1.d0 and s1.d1 have no run of 8 or more graphs in any of the 40 refs; s2.d1 is split across T51n2076, X63n1224 and X80n1565 (16 of 43 each). Retellings retained as written (below the re-key threshold); a witness that would carry a field as written would be OUT-OF-CBETA human sourcing, not agent work.  Retry 2026-09-21 task 054: re-extracted X63n1223 (26,007 CJK, 頓悟入道要門論) X63n1224 (24,933 CJK, 參問語錄) X68n1315 (1,336,350 CJK, 古尊宿語錄) via cbeta-p5-body-cjk-v1 from CBETA XML P5 revision dbdea410, verified digests, collated with COLLATION_REFS=/tmp/refs --require-verified-refs --generated 2026-09-21 — result still 0/6 EXACT (1 EXACT title, 2 DIVERGENT, 7 NOT_FOUND for dazhu; 1 EXACT title, 1 DIVERGENT, 7 NOT_FOUND, 1 TITLE_COMPOSITE for nanquan), partial_or_failed_w1_collation, threshold 5/6 not met, no field re-keyed. Largest shared runs remain as previously measured; no new carrier found.",
+  "editorial_note": "Project retelling — no witness attribution, retained with honest coverage_note and cbeta_note per P2 authenticity label task 047/054. The 6 source-content fields are project compositions, not verbatim excerpts of claimed X-series witnesses (X63n1223/X63n1224 for Dazhu, X68n1315 for Nanquan), measured 0/6 EXACT in 40 pinned refs + fresh X-series extraction 26k/25k/1.3M CJK, threshold 5/6 not met, no field re-keyed."
 }

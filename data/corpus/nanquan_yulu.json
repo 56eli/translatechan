@@ -56,7 +56,8 @@
           },
           "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 26 eight-graph windows occur in a complete copy — the claimed X68n1315 carries 9 of the 33 graphs (offset 92,350); the best measured carriers are the uncited X80n1565 at 11 of 33 (offset 66,082) and T51n2076 at 10 of 33 (offset 75,502). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
-      ]
+      ],
+      "editorial_note": "Section  — project retelling, no witness attribution, retained per P2 retry 054, 0/6 EXACT."
     },
     {
       "section_id": "not_mind_not_buddha",
@@ -104,7 +105,8 @@
           },
           "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 21 eight-graph windows occur in a complete copy; the claimed X68n1315 carries 9 of the 28 graphs (offset 93,279) — formulaic wording carried in 9- to 10-graph spans by 11 of the 40 refs (T48n2005 9 of 28 at offset 4,467 among them), best the uncited X80n1565 at 10 of 28 (offset 73,230). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
-      ]
+      ],
+      "editorial_note": "Section  — project retelling, no witness attribution, retained per P2 retry 054, 0/6 EXACT."
     },
     {
       "section_id": "peony_flower",
@@ -152,9 +154,11 @@
           },
           "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 19 eight-graph windows occur in a complete copy — the claimed X68n1315 carries 11 of the 26 graphs (offset 434,001); the best measured carriers are the uncited X80n1565 at 20 of 26 (offset 65,513) and T48n2001 / T48n2004 at 13 of 26. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
-      ]
+      ],
+      "editorial_note": "Section  — project retelling, no witness attribution, retained per P2 retry 054, 0/6 EXACT."
     }
   ],
   "cbeta_note": "Corrected 2026-08-08: dropped spurious '/T1985' pairing — T1985 is strictly the Record of Linji. Nanquan's record is 古尊宿語錄 (X68n1315, 卍續藏第68冊).",
-  "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the claimed X68n1315 (2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in the claimed witness, so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift). Largest shared run with the claimed witness: 23 of 27 (s2.d0, split at variant points: 10 graphs at offset 433,963 + 13 graphs at offset 433,978); s1.d0 (19 graphs) has no run of 8 or more graphs in any of the 40 refs; the other fields are fragmentary (s0.d0 8 of 15, s0.d1 9 of 33, s1.d1 9 of 28 — formulaic wording in 9- to 10-graph spans across 11 refs — s2.d1 11 of 26). The 傳燈錄 T48n2005 carries the s1.d1 span, and the only verbatim carrier of any field is the uncited T47n1997, the 圓悟語錄, which carries s2.d0 27 of 27 at offset 114,323 — a candidate for a later re-key decision, not a landing in this labelling task. Retellings retained as written; witnesses that would carry the other fields as written are OUT-OF-CBETA human sourcing, not agent work."
+  "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the claimed X68n1315 (2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in the claimed witness, so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift). Largest shared run with the claimed witness: 23 of 27 (s2.d0, split at variant points: 10 graphs at offset 433,963 + 13 graphs at offset 433,978); s1.d0 (19 graphs) has no run of 8 or more graphs in any of the 40 refs; the other fields are fragmentary (s0.d0 8 of 15, s0.d1 9 of 33, s1.d1 9 of 28 — formulaic wording in 9- to 10-graph spans across 11 refs — s2.d1 11 of 26). The 傳燈錄 T48n2005 carries the s1.d1 span, and the only verbatim carrier of any field is the uncited T47n1997, the 圓悟語錄, which carries s2.d0 27 of 27 at offset 114,323 — a candidate for a later re-key decision, not a landing in this labelling task. Retellings retained as written; witnesses that would carry the other fields as written are OUT-OF-CBETA human sourcing, not agent work.  Retry 2026-09-21 task 054: re-extracted X63n1223 (26,007 CJK, 頓悟入道要門論) X63n1224 (24,933 CJK, 參問語錄) X68n1315 (1,336,350 CJK, 古尊宿語錄) via cbeta-p5-body-cjk-v1 from CBETA XML P5 revision dbdea410, verified digests, collated with COLLATION_REFS=/tmp/refs --require-verified-refs --generated 2026-09-21 — result still 0/6 EXACT (1 EXACT title, 2 DIVERGENT, 7 NOT_FOUND for dazhu; 1 EXACT title, 1 DIVERGENT, 7 NOT_FOUND, 1 TITLE_COMPOSITE for nanquan), partial_or_failed_w1_collation, threshold 5/6 not met, no field re-keyed. Largest shared runs remain as previously measured; no new carrier found.",
+  "editorial_note": "Project retelling — no witness attribution, retained with honest coverage_note and cbeta_note per P2 authenticity label task 047/054. The 6 source-content fields are project compositions, not verbatim excerpts of claimed X-series witnesses (X63n1223/X63n1224 for Dazhu, X68n1315 for Nanquan), measured 0/6 EXACT in 40 pinned refs + fresh X-series extraction 26k/25k/1.3M CJK, threshold 5/6 not met, no field re-keyed."
 }
