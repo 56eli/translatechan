@@ -1,5 +1,6 @@
 # Fake Chan Factory Research-Release Plan
 
+> **Measured correction 2026-09-21 (P2 Tier2 remaining follow-up):** **184** provenance-note strings, **142 of 184** rendered beside passages, **37** documents, `cbeta_note` **30**; 42 coverage notes remain ledgered. Measured by the gate itself (`validate_data.py`); lands with the P2 Tier2 remaining follow-up corpus-note edits (deshan_yulu, xuansha_yulu, xuefeng_yantou, yuanwu_letters, foyan_qingyuan, caoxi_zhuan).
 > **Measured correction 2026-09-21 (P2 Tier2 next, task 056):** **150** provenance-note strings, **108 of 150** rendered beside passages, **36** documents, `cbeta_note` **29**; 42 coverage notes remain ledgered. Measured by the gate itself (`validate_data.py`); corrects the lineage-batch-1 baseline line below, whose 125 total was already the key-sum rather than the measured count (measured before this task: 133), and lands with the task-056 corpus-note edits (guiyang_yulu, fayan_yulu).
 > **Measured correction 2026-09-21 (lineage batch 1 baseline):** **125** provenance-note strings, **83 of 125** rendered beside passages, **35** documents, `cbeta_note` **28**; 42 coverage notes remain ledgered. This corrects the task-050 census below without editing corpus data.
 

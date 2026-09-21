@@ -34,7 +34,8 @@
               "text": "Tokusan had written vast commentaries on the Diamond Sutra. Hearing of Southern Zen, he carried his books south. On the road he stopped at an old woman's tea stall for refreshment.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). 0 of this field's 35 eight-graph windows occur in any of the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift); the claimed T51n2076 carries no run of 8 or more graphs of the 42-graph 婆子 field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Old Woman / 婆子",
@@ -53,7 +54,8 @@
               "text": "The old woman asked: 'What are those books?' Tokusan said: 'Commentaries on the Diamond Sutra.' She said: 'If you can answer my question, the cakes are free; if not, begone.'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The re-key attempt failed: the claimed T51n2076 carries no run of 8 or more graphs of the 39-graph field; the only measured carrier is the uncited 五燈會元 X80n1565, which carries 12 of the 39 graphs as a single run at offset 157,994 (若答得施與點心若答不得且; the witness's 德山 reading continues 且別處去 where this field reads 且請他去; 5 of the field's 32 eight-graph windows). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Old Woman / 婆子",
@@ -72,7 +74,8 @@
               "text": "The old woman asked: 'The Diamond Sutra says past mind is ungraspable, present mind is ungraspable, future mind is ungraspable. Which mind do you wish to refresh with your cakes?' Tokusan was struck dumb.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The claimed T51n2076 carries no run of 8 or more graphs of the 35-graph field; the 金剛經道過去心不可得 question is carried 24 of 35 in the uncited X80n1565 (runs @158,009 and @527,436; 17 of 28 windows) and 19 of 35 in X68n1315 (@291,657 + @390,643/390,649) — the 三心不可得 formula is pan-sectarian (T47n1998A 18/35 @16,176/16,266 among others), a formula, not a copy. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -99,7 +102,8 @@
               "text": "Late at night, Tokusan was with Master Ryūtan. Ryūtan said: 'It is late; why don't you retire?' Tokusan stepped out and said: 'It is pitch dark outside.' Ryūtan lit a paper candle and handed it to him. As Tokusan reached out, Ryūtan blew it out! Tokusan was instantly enlightened.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The re-key attempt failed: the claimed T51n2076 carries the 龍潭 candle story in its own recension (offset 152,456: 龍問何不歸來師對曰黑龍乃點燭與師師擬接龍便吹滅) with no run of 8 or more graphs of the 50-graph field; the uncited X80n1565 carries 31 of 50 in three runs (@158,087 潭曰更深何不下去師, @158,106 潭點紙燭度與師師擬接, @158,116 潭復吹滅師於此大悟便禮拜; 10 of 43 windows). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Deshan / 德山",
@@ -118,7 +122,8 @@
               "text": "Next morning Tokusan took his commentaries before the hall, held up a torch, and said: 'Even if you master all subtle teachings, it is like a hair in the vast sky; even if you master all worldly knowledge, it is like a drop in the ocean.' He then burned them all.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The claimed T51n2076 carries no run of 8 or more graphs of the 39-graph field; the 窮諸玄辯 burning line is carried 31 of 39 in the uncited X80n1565 (@158,198 + @444,681 + @158,216 + @444,692; 17 of 32 windows) and 23 of 39 in the uncited T48n2003 @6,260 (窮諸玄辯若一毫置於太虛竭世樞機似) — a widely recirculated formula, not a complete copy of this field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -145,11 +150,13 @@
               "text": "Tokusan said to the monks: 'To ask is a fault; not to ask is an error. Speak, and thirty blows; do not speak, and thirty blows! Speak at once! Speak at once!'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-21, P2 Tier2 remaining follow-up). The claimed T51n2076 carries no run of 8 or more graphs of the 31-graph field; the 德山棒 formula is carried 21 of 31 in the uncited X80n1565 (@158,868 道得也三十棒道不得也三十棒 + @158,969 問即有過不問猶乖; 14 of 24 windows) and 13 of 31 in the uncited T47n1985 @12,455 and X68n1315 @39,956. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     }
   ],
-  "cbeta_note": "Volume corrected 2026-08-08: T2076 (景德傳燈錄) is Taishō vol. 51 (was 47).",
-  "coverage_note": "0/6 content fields match T2076/X68n1315/X1565 phrasing as blanket claim understates probe coverage: X80n1565 carries 5 fields runs, X68n1315 2, honest carriers are probes, primary witness assignment wrong, retellings retained"
+  "cbeta_note": "Volume corrected 2026-08-08: T2076 (景德傳燈錄) is Taishō vol. 51 (was 47). Extended 2026-09-21 (P2 Tier2 remaining follow-up): both claimed witnesses title-verified in the pinned CBETA XML P5 (dbdea41071e1e260ad84b72faefd4587333cf76d; 43 refs verified / 0 drift) — T51n2076 景德傳燈錄 (358,501 CJK; the 德山 candle story at offset 152,456 in its own recension) and X80n1565 五燈會元 (581,588 CJK; the 鼎州德山宣鑒禪師 chapter of fasc. 7 at offsets 157,793–158,969, cited in the record as X1565 f.7). 0 of 6 fields verbatim in either; no re-key.",
+  "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields is verbatim in the claimed T51n2076 (景德傳燈錄 卷15) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs against the claimed witness (floor 8 graphs): s0.d0 0/42 (no run of 8 or more graphs of the 婆子 field in any of the 43 refs); s0.d1 0/39; s0.d2 0/35 (the 金剛經道過去心不可得 question is carried 24/35 in the uncited X80n1565 @158,009 + @527,436, 19/35 in X68n1315 @291,657, 18/35 in T47n1998A — the 三心不可得 formula is pan-sectarian, a formula not a copy); s1.d0 0/50 (the Jingde carries the 龍潭 candle story in its own recension at offset 152,456 — 龍問何不歸來師對曰黑龍乃點燭與師師擬接龍便吹滅 — with no run of 8 or more graphs against the field; the uncited X80n1565 carries 31/50 @158,087 + @158,106 + @158,116); s1.d1 0/39 (the 窮諸玄辯 burning-sutras line: 31/39 in the uncited X80n1565 @158,198 + @158,216, 23/39 in T48n2003 @6,260); s2.d0 0/31 (the 道得也三十棒 formula: 21/31 in the uncited X80n1565 @158,868 + @158,969, 13/31 in T47n1985 @12,455 and X68n1315 @39,956). The honest carriers are the uncited 五燈會元 X80n1565 (the 德山 chapter of fasc. 7, offsets 157,793–158,969) as 12–31-graph fragments — its own wording differs (e.g. 若答不得且別處去 where this record reads 若答不得且請他去) — and no field is carried complete by any pinned ref. Retellings retained with R-B labels.",
+  "editorial_note": "Project retelling — no witness attribution, retained with honest coverage_note and cbeta_note per the P2 authenticity-label series (047 Baizhang/Huangbo, 054 Dazhu/Nanquan, 056 Guiyang/Fayan; P2 Tier2 remaining follow-up, 2026-09-21). The 6 source-content fields are project retellings, not verbatim excerpts of the claimed T2076/X1565 witnesses; measured 0/6 EXACT in the 43 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), below the 80 percent re-key threshold (5 of 6). No field re-keyed; each dialogue carries its own R-B label naming the measured carrier state."
 }

@@ -785,7 +785,13 @@ ALLOWED_CHANGES = {
         # no `title_zh` (the composite-title metadata flag is a separate plan item), no
         # `cbeta_id`, and no `zh_chars` pointer (this document declares none).
         ".coverage_note",
-    }),
+
+        # 2026-09-21 P2 Tier2 remaining follow-up authenticity labels (dispatch presented as docs/P2_STUB.md, session branch arena/01a0c42c-translatechan; the stub's named branch fix/p2-tier2-next was accommodated on the session branch per 047/048/056 precedent): the R-A re-key from the claimed witnesses was measured on the 43-work pinned set (refs 43 verified / 0 drift at dbdea41071e1e260ad84b72faefd4587333cf76d) and NOT landed — below the 80-percent re-key threshold. The `.coverage_note` is rewritten to the full per-field run measurement, the `.cbeta_note` gains the 2026-09-21 extension (additive for this document — it previously had none), the root `editorial_note` carries the 054-pattern "Project retelling — no witness attribution" disclosure, and the dialogue `editorial_note` R-B labels below give each field its measured carrier state. No `zh`/`pinyin`/translation field changes, no re-key, no `cbeta_id` change, no `zh_chars` pointer (this document declares none).
+        # measured 0/2 EXACT in any of the 43 refs (s0.d0 0/42, s1.d0 0/45 — no run of 8 or more graphs in any ref; X69n1357's attested title is 佛果克勤禪師心要, a letter collection to named addressees, and T47n1997 the 圓悟佛果禪師語錄; neither carries either project field).
+        ".cbeta_note",
+        ".editorial_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",    }),
     "data/corpus/zhaozhou_yulu.json": frozenset({
         # 2026-09-12 CITATION fix (task 014, rank 1-2): the false T1987 witness claim is withdrawn,
         # not re-attributed — `cbeta_id` becomes the qualified candidate form, the `taisho_vol 47`
@@ -843,7 +849,15 @@ ALLOWED_CHANGES = {
         # changes: no `zh`/`*_zh` field, no `title_zh` (composite-title metadata flag), no
         # `cbeta_id` (ID-corrected), and no `zh_chars` pointer (this document declares none).
         ".coverage_note",
-    }),
+
+        # 2026-09-21 P2 Tier2 remaining follow-up authenticity labels (dispatch presented as docs/P2_STUB.md, session branch arena/01a0c42c-translatechan; the stub's named branch fix/p2-tier2-next was accommodated on the session branch per 047/048/056 precedent): the R-A re-key from the claimed witnesses was measured on the 43-work pinned set (refs 43 verified / 0 drift at dbdea41071e1e260ad84b72faefd4587333cf76d) and NOT landed — below the 80-percent re-key threshold. The `.coverage_note` is rewritten to the full per-field run measurement, the `.cbeta_note` gains the 2026-09-21 extension (additive for this document — it previously had none), the root `editorial_note` carries the 054-pattern "Project retelling — no witness attribution" disclosure, and the dialogue `editorial_note` R-B labels below give each field its measured carrier state. No `zh`/`pinyin`/translation field changes, no re-key, no `cbeta_id` change, no `zh_chars` pointer (this document declares none).
+        # measured 0/4 EXACT in the claimed X86n1598 or any of the 43 refs (s0.d0 12/70 — the only claimed-witness run 應無所住而生其心言下大悟 @6,790 sits inside the 別傳's 壇經-comparison passage; s1.d0 0/36; s1.d1 0/56, relatives T48n2008 22/56 + T48n2007 8/56; s2.d0 0/75, relative T48n2008 10/75).
+        ".cbeta_note",
+        ".editorial_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",    }),
     "data/corpus/dahui_shobogenzo.json": frozenset({
         # 2026-09-14 LABEL fix (task 010 bundle 2, PHASE2_PLAN ranks 17/41/60): the additive
         # honest `.coverage_note` records the measured collation — 0 of 4 source-content fields
@@ -908,7 +922,17 @@ ALLOWED_CHANGES = {
         # no `zh`/`*_zh` field, no `title_zh` (composite-title metadata flag), no `cbeta_id`, and
         # no `zh_chars` pointer (this document declares none).
         ".coverage_note",
-    }),
+
+        # 2026-09-21 P2 Tier2 remaining follow-up authenticity labels (dispatch presented as docs/P2_STUB.md, session branch arena/01a0c42c-translatechan; the stub's named branch fix/p2-tier2-next was accommodated on the session branch per 047/048/056 precedent): the R-A re-key from the claimed witnesses was measured on the 43-work pinned set (refs 43 verified / 0 drift at dbdea41071e1e260ad84b72faefd4587333cf76d) and NOT landed — below the 80-percent re-key threshold. The `.coverage_note` is rewritten to the full per-field run measurement, the `.cbeta_note` gains the 2026-09-21 extension (additive for this document — it previously had none), the root `editorial_note` carries the 054-pattern "Project retelling — no witness attribution" disclosure, and the dialogue `editorial_note` R-B labels below give each field its measured carrier state. No `zh`/`pinyin`/translation field changes, no re-key, no `cbeta_id` change, no `zh_chars` pointer (this document declares none).
+        # measured 0/6 EXACT in the claimed T51n2076 or any of the 43 refs (s0.d0 0/42 no run anywhere; s0.d1 0/39, carrier X80n1565 12/39 @157,994; s0.d2 0/35, X80n1565 24/35 @158,009/527,436; s1.d0 0/50 — the Jingde carries the 龍潭 story in its own recension @152,456, X80n1565 31/50; s1.d1 0/39, X80n1565 31/39 + T48n2003 23/39; s2.d0 0/31, X80n1565 21/31 + T47n1985/X68n1315 13/31).
+        ".cbeta_note",
+        ".editorial_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[0].dialogue[2].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",    }),
     "data/corpus/foyan_qingyuan.json": frozenset({
         # 2026-09-14 LABEL fix (task 012 bundle 4, PHASE2_PLAN ranks 12/40/63): the additive
         # honest `.coverage_note` records the measured collation — 0 of 6 source-content fields
@@ -919,7 +943,17 @@ ALLOWED_CHANGES = {
         # `title_zh` (composite-title metadata flag), no `cbeta_id` (ID-correct), and no
         # `zh_chars` pointer (this document declares none).
         ".coverage_note",
-    }),
+
+        # 2026-09-21 P2 Tier2 remaining follow-up authenticity labels (dispatch presented as docs/P2_STUB.md, session branch arena/01a0c42c-translatechan; the stub's named branch fix/p2-tier2-next was accommodated on the session branch per 047/048/056 precedent): the R-A re-key from the claimed witnesses was measured on the 43-work pinned set (refs 43 verified / 0 drift at dbdea41071e1e260ad84b72faefd4587333cf76d) and NOT landed — below the 80-percent re-key threshold. The `.coverage_note` is rewritten to the full per-field run measurement, the `.cbeta_note` gains the 2026-09-21 extension (additive for this document — it previously had none), the root `editorial_note` carries the 054-pattern "Project retelling — no witness attribution" disclosure, and the dialogue `editorial_note` R-B labels below give each field its measured carrier state. No `zh`/`pinyin`/translation field changes, no re-key, no `cbeta_id` change, no `zh_chars` pointer (this document declares none).
+        # measured 0/6 EXACT in the claimed X68n1315 or any of the 43 refs (s0.d0 0/56, s0.d1 0/53 no run anywhere; s1.d0 27/48 @4,284 + @282,150 — the 靈光獨耀 formula, 迥/迴 variant, also 27/48 in T48n2003/T51n2076/X67n1309/X80n1565; s2.d0 0/63, best T48n2001 9/63; s3.d0 8/60 @440,604; s4.d0 0/40 no run anywhere).
+        ".cbeta_note",
+        ".editorial_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",
+        ".sections[3].dialogue[0].editorial_note",
+        ".sections[4].dialogue[0].editorial_note",    }),
     "data/corpus/guiyang_yulu.json": frozenset({
         # 2026-09-14 LABEL fix (task 012 bundle 4, PHASE2_PLAN ranks 8/56): the additive honest
         # `.coverage_note` records the measured collation — 0 of 6 content fields are verbatim
@@ -1124,7 +1158,16 @@ ALLOWED_CHANGES = {
         # `cbeta_id` (the 2026-08-08 correction stands), and no `zh_chars` pointer (this
         # document declares none).
         ".coverage_note",
-    }),
+
+        # 2026-09-21 P2 Tier2 remaining follow-up authenticity labels (dispatch presented as docs/P2_STUB.md, session branch arena/01a0c42c-translatechan; the stub's named branch fix/p2-tier2-next was accommodated on the session branch per 047/048/056 precedent): the R-A re-key from the claimed witnesses was measured on the 43-work pinned set (refs 43 verified / 0 drift at dbdea41071e1e260ad84b72faefd4587333cf76d) and NOT landed — below the 80-percent re-key threshold. The `.coverage_note` is rewritten to the full per-field run measurement, the `.cbeta_note` gains the 2026-09-21 extension (additive for this document — it previously had none), the root `editorial_note` carries the 054-pattern "Project retelling — no witness attribution" disclosure, and the dialogue `editorial_note` R-B labels below give each field its measured carrier state. No `zh`/`pinyin`/translation field changes, no re-key, no `cbeta_id` change, no `zh_chars` pointer (this document declares none).
+        # measured 0/5 EXACT in either claimed work or any of the 43 refs (s0.d0 9/40 X73n1446 @768; s0.d1 23/36 X73n1446 @804, 10/36 X73n1445 @460, uncited T51n2076 24/36; s1.d0 26/36 X73n1446 — the 盡十方世界是一顆明珠 formula, also 26/36 in T51n2076/X80n1565; s1.d1 17/22 X73n1446 @12,333; s2.d0 0/72 no run in any of the 43 refs).
+        ".cbeta_note",
+        ".editorial_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",
+        ".sections[1].dialogue[1].editorial_note",
+        ".sections[2].dialogue[0].editorial_note",    }),
     "data/corpus/xuefeng_yantou.json": frozenset({
         # 2026-09-16 LABEL fix (task 014 bundle 6, PHASE2_PLAN ranks 14/32/67): the additive
         # honest `.coverage_note` records the measured collation — 0 of 4 source-content fields
@@ -1136,7 +1179,15 @@ ALLOWED_CHANGES = {
         # field, no `title_zh`, no `cbeta_id` (the 2026-08-08 correction stands), and no
         # `zh_chars` pointer (this document declares none).
         ".coverage_note",
-    }),
+
+        # 2026-09-21 P2 Tier2 remaining follow-up authenticity labels (dispatch presented as docs/P2_STUB.md, session branch arena/01a0c42c-translatechan; the stub's named branch fix/p2-tier2-next was accommodated on the session branch per 047/048/056 precedent): the R-A re-key from the claimed witnesses was measured on the 43-work pinned set (refs 43 verified / 0 drift at dbdea41071e1e260ad84b72faefd4587333cf76d) and NOT landed — below the 80-percent re-key threshold. The `.coverage_note` is rewritten to the full per-field run measurement, the `.cbeta_note` gains the 2026-09-21 extension (additive for this document — it previously had none), the root `editorial_note` carries the 054-pattern "Project retelling — no witness attribution" disclosure, and the dialogue `editorial_note` R-B labels below give each field its measured carrier state. No `zh`/`pinyin`/translation field changes, no re-key, no `cbeta_id` change, no `zh_chars` pointer (this document declares none).
+        # measured 0/4 EXACT in either claimed work or any of the 43 refs (s0.d0 0/80 no run anywhere; s0.d1 11/14 X69n1333 @2,091; s0.d2 21/49 X69n1333, best carrier T48n2003 32/49; s1.d0 DIVERGENT 0.8889 — 19/27 X69n1333 @17,021, the 漆桶/漆黑窠裏 recension difference).
+        ".cbeta_note",
+        ".editorial_note",
+        ".sections[0].dialogue[0].editorial_note",
+        ".sections[0].dialogue[1].editorial_note",
+        ".sections[0].dialogue[2].editorial_note",
+        ".sections[1].dialogue[0].editorial_note",    }),
 }
 
 
