@@ -12,9 +12,9 @@ This doc satisfies R1-R12 of TC-EXPORT-CONSUMER-REQUIREMENTS.md.
 
 - Every entity has `id`: lowercase, digits, hyphen/underscore, never reused, never renumbered on title change.
 - Pattern:
-  - work: `wumenguan`, `congronglu`, `chuandenglu_full`, `caoshan_benji`, `huangbo_fayao_full`, `mazu_guanglu_full`, `yunmen_guanglu_full`, `dongshan_yulu_full`, `zhaozhou_yulu_full`, `dahui_yulu_full`, `zhengdao_ge`
+  - work: `wumenguan`, `congronglu`, `chuandenglu_full`, `caoshan_benji`, `huangbo_fayao_full`, `mazu_guanglu_full`, `yunmen_guanglu_full`, `dongshan_yulu_full`, `zhaozhou_yulu_full`, `dahui_yulu_full`, `zhengdao_ge`, `linji_yulu`
   - fascicle: `{work}_fascicle_{nn}` e.g. `chuandenglu_full_fascicle_06`
-  - passage: `{work}_{type}_{nn}` e.g. `wumenguan_case_01`, `congronglu_case_001`, `chuandenglu_full_case_0128`, `zhengdao_ge_stanza_01`
+  - passage: `{work}_{type}_{nn}` e.g. `wumenguan_case_01`, `congronglu_case_001`, `chuandenglu_full_case_0128`, `zhengdao_ge_stanza_01`, `linji_yulu_section_078`
   - master: `master_{id}` e.g. `master_bodhidharma`
   - lineage_edge: `{teacher}_{disciple}` e.g. `bodhidharma_huike` (R1 explicit edge id)
   - gongan: `gongan_{nn}`
@@ -95,13 +95,15 @@ From `scripts/source_review.py`:
 - `commit`: git commit hash of corpus it was produced from
 - `CHANGELOG.md` documents version bumps.
 
-## 6. Gate (R6)
+## 6. Gate (R6) — unprivileged disposable clone, stdlib-only, mandatory verification
 
 - Gate command: `python3 scripts/validate_data.py` — exit 0 safe to publish, non-zero do not publish, read-only unless --write-metrics.
-- Needs checkout of repo, Python 3.11+, no extra deps (jsonschema optional).
+- **Execution:** unprivileged in disposable clone `/tmp/tc-$COMMIT`, stdlib-only, read-only, no network, no BookStack credentials. Adding a dependency or network access is a new owner decision, not an implementation detail.
+- **Python:** minimum 3.11, tested set 3.11 and 3.12 (CI uses 3.12, br1 system python3 is 3.12.3 accepted without container, future 3.13 must be re-validated and doc updated). No container — system `python3` is official.
+- **Mandatory integrity:** sha256 verification of every file in `export_manifest.json` is mandatory, not optional, plus `export_ready.json` timestamp+commit match — a manifest nobody verifies proves nothing.
 - Secondary: `python3 scripts/build_data_bundle.py` determinism check — two consecutive builds byte-identical, root/docs mirror diff clean.
 - Tertiary: `node scripts/smoke_test.mjs` reader smoke.
-- Documented in `docs/GATE.md`.
+- Documented in `docs/GATE.md` — official delivery is git clone at commit pinned in manifest.
 
 ## 7. Tombstones (R7)
 
@@ -145,8 +147,9 @@ From `scripts/source_review.py`:
   - `is_ai_styled`: boolean
 - Page composed of several records — original plus translation plus notes — as `texts` array linked by parent passage id, not one blob.
 
-## 12. Manifest, atomicity, integrity (R12)
+## 12. Manifest, atomicity, integrity (R12) — git clone at manifest commit, mandatory sha256
 
+- **Official delivery (owner decision 2026-09-21):** git clone at commit pinned in `export_manifest.json` — `git clone https://github.com/56eli/translatechan.git /tmp/tc-$COMMIT && git checkout $COMMIT`. No release tarball. Botrunner read-only by charter, clone is read-only, no credentials.
 - `export_manifest.json` with:
   - `schema_version`
   - `export_timestamp` ISO8601
@@ -155,15 +158,16 @@ From `scripts/source_review.py`:
   - `only_collated`: true (owner ruling)
   - `w1_filter`: `collated_to_claimed_witness` only
 - `export_ready.json` ready marker written last for atomicity — contains same timestamp+commit, written after all files.
+- **Mandatory verification (not optional):** botrunner must verify `export_ready.json` timestamp+commit matches manifest, and must verify sha256+size of every file in `files[]` via `sha256sum -c`. If any mismatch, abort import. Manifest nobody verifies proves nothing.
 - Format: JSONL preferred for diffability — one record per line, easiest to diff/stream. We publish both JSONL and JSON.
 - Sample export: 5 masters +6 passages with all required fields, including one `section`-type record (`linji_yulu_section_078`) (see `docs/sample_export.jsonl`).
 
 ---
 
-## What is NOT asked for (per consumer doc §5)
+## What is NOT asked for (per consumer doc §5) — delivery now decided
 
 - Not BookStack-shaped export — we export domain, botrunner does mapping
 - Not presentation decisions — layout, ordering-for-effect, SEO titles, theme — botrunner lane
 - Not credentials — never hold secrets, owner applies
 - Not performance work — volumes small
-- Not delivery mechanism yet — owner decides release artifact, fetched file, manual copy
+- Delivery decided 2026-09-21: git clone at manifest commit is official, system python3 no container, mandatory sha256 verification, gate unprivileged disposable stdlib-only read-only

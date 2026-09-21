@@ -1,41 +1,38 @@
 # Changelog — TranslateChan Export Schema
 
-## Export re-issue — 2026-09-21 — after the Linji re-key (task P2.9) · `schema_version` stays `1.1`
+## Export re-issue — 2026-09-21 — after the Linji re-key (task P2.9) + law amendments — `schema_version` stays `1.1`
 
-**Why:** the 1.1 manifest was written in the purge commit and pinned `commit: a77d577662a168e4db437f781da4d7c16c642573`, a
-pre-purge tree whose own hashes no longer matched three of its files (`data/corpus_manifest.json`,
-`data/canonical_locators.json`, `data/lineage/masters.json` — i.e. it was internally inconsistent at issue time), and the
-corpus has since gained the re-keyed Record of Linji. The re-issue recomputes every hash from one tree.
+**Why:** the 1.1 manifest was written in the purge commit and pinned `commit: a77d577`, a pre-purge tree whose hashes no longer matched three files, and corpus has since gained re-keyed Record of Linji (107 sections, 215/215 EXACT, 0 flagged, T47n1985). The re-issue recomputes every hash from one tree and includes law amendments for official delivery.
+
+**Law amendments 2026-09-21 (owner + botrunner agreement) — included in this re-issue:**
+- (a) sha256 verification of every manifest file is **mandatory**, not optional — manifest nobody verifies proves nothing
+- (b) gate executed **unprivileged in disposable clone** and must stay **stdlib-only and read-only** — adding dep/network is new decision
+- (c) GATE.md states **minimum version 3.11 and tested set 3.11, 3.12** — system python3 br1 3.12.3 accepted no container, future 3.13 must be re-validated
+- Official delivery: **git clone at manifest commit** is official — `git clone https://github.com/56eli/translatechan.git /tmp/tc-$COMMIT && git checkout $COMMIT` — no tarball, no container, read-only by charter
 
 **Changed (files, not schema):**
-- `export_manifest.json` — 23 files (was 22): the 11 `collated_to_claimed_witness` documents now include
-  `data/corpus/linji_yulu.json`; all `sha256`/`size` values recomputed from the exported content commit; `commit` names that
-  commit (the manifest and its `export_ready.json` marker are the release artifacts committed immediately after the content
-  commit, and neither is listed in `files`, so the tree they describe is exactly the tree the hashes verify against);
-  `only_collated: true`, `w1_filter: collated_to_claimed_witness`, `remaining_docs: 13`, `exported_to_wiki: 11`,
-  `purged_retellings: 32`.
-- `export_ready.json` — same timestamp + commit as the manifest, written last (atomicity rule unchanged).
-- **Scope correction (declared, not silent):** the 1.1 manifest listed **all 12** corpus files, including the two
-  `witness_unavailable` excerpt seeds `data/corpus/hanshan_poems.json` and `data/corpus/niutou_juezhu.json`, while its own
-  counters said 10 collated documents were exported. Q7 W3 is unambiguous ("wiki receives ONLY 100% collated"), so this
-  re-issue lists the **11** `collated_to_claimed_witness` documents only. The two seeds are honest project texts with no
-  source claim, not retellings — if the wiki should keep them, that is an owner/botrunner decision; they are simply not
-  "100% collated" and so are not in the export file list.
-- `docs/sample_export.jsonl` / `docs/sample_export.json` — 11 records (5 masters + 6 passages): the new
-  `linji_yulu_section_078` record is the sample's first `section`-type unit (parent `linji_yulu`, order 78, locator
-  `T47n1985_p0504a26–p0504a29`, `w1_status.code = collated_to_claimed_witness`, the document's own `coverage_note`, and
-  `provenance.import_reference.commit` naming the commit the re-key's data landed in).
+- `export_manifest.json` — 21 files (was 22): 11 collated docs now include `data/corpus/linji_yulu.json`; all sha256/size recomputed from content commit; commit names that commit; only_collated true, w1_filter collated_to_claimed_witness, remaining_docs 13, exported_to_wiki 11, purged_retellings 32
+- `export_ready.json` — same timestamp+commit as manifest, written last
+- **Scope correction (declared):** 1.1 manifest listed 12 corpus files including 2 witness_unavailable seeds while claiming 10 exported; Q7 W3 says wiki receives ONLY 100% collated, so re-issue lists 11 collated only
+- `docs/sample_export.jsonl` / `json` — 11 records (5 masters +6 passages): new `linji_yulu_section_078` first section-type unit
+- `docs/GATE.md` — rewritten with official delivery + mandatory sha256 + execution env + Python min/tested (law)
+- `docs/SCHEMA.md` — R6 and R12 updated with official delivery + mandatory sha256, sample export 5+6, work pattern includes linji_yulu
+- `docs/BOTRUNNER_REVIEW_2026-09-21_LAW.md` — new law version 13 docs 11 collated incl. Linji, official delivery, mandatory sha256, unprivileged disposable stdlib-only, Python min/tested
 
-**Unchanged:** record schema and every enum (`schema_version` stays `1.1` — this is an export re-issue, not a schema change);
-the 1.1 rulings (Q1-Q7 W3, `only_collated`, fail-closed badges, tombstones); the gate command and read-only promise in
-`docs/GATE.md`.
+**Unchanged:** record schema and enums (schema_version stays 1.1 — export re-issue not schema change); 1.1 rulings Q1-Q7 W3, only_collated, fail-closed badges, tombstones; gate command and read-only promise (now with law amendments).
 
-**Honest note:** no script in this repository generates `export_manifest.json` / `export_ready.json`. The 1.2 files were
-produced by the 2026-09-21 P2.9 session with `sha256` values computed from the content commit named in the manifest, and this
-entry records that fact rather than implying a generator exists. If the release process wants a scripted artifact, that is a
-new task.
+**Honest note:** no script generates export_manifest.json / export_ready.json — produced manually with sha256 computed from content commit named in manifest.
 
-## 1.1 — 2026-09-21 — Only 100% collated export, stable ids, manifest, tombstones
+## 1.1 — 2026-09-21 — Only 100% collated export, stable ids, manifest, tombstones — amended same day official delivery + mandatory sha256 + gate execution env (main 58964d8)
+
+**Amendment 2026-09-21 (owner + botrunner agreement):**
+- (a) sha256 verification of every manifest file is **mandatory**, not optional — manifest nobody verifies proves nothing
+- (b) gate executed **unprivileged in disposable clone** and must stay **stdlib-only and read-only** — adding dependency or network access is new decision not impl detail
+- (c) GATE.md states **minimum version 3.11 and tested set 3.11, 3.12** — system python3 on br1 is 3.12.3 accepted without container, future 3.13 must be re-validated and doc updated
+- Official delivery: **git clone at manifest commit** is official — `git clone https://github.com/56eli/translatechan.git /tmp/tc-$COMMIT && git checkout $COMMIT` — no release tarball, no container, read-only by charter
+- Docs updated: `docs/GATE.md` rewritten with official delivery + mandatory sha256 example + execution env + Python min/tested, `docs/SCHEMA.md` R6 and R12 updated, `docs/ANSWERS_FOR_BOTRUNNER_2026-09-21.md` Q7 updated, `docs/BOTRUNNER_REVIEW_2026-09-21_PURGED.md` gate section updated
+
+## 1.1 — 2026-09-21 — Only 100% collated export, stable ids, manifest, tombstones (original)
 
 **Owner rulings:**
 - Q1: work=Book, fascicle=Chapter, passage=Page — confirmed
