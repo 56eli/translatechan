@@ -256,7 +256,7 @@
       "priority": "high",
       "review_status": "frontier_source_needed",
       "current_evidence_status": "frontier_profile_unverified",
-      "next_action": "Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus; linked_corpus_keys intentionally left empty. Exact-locator review remains open: identify a named source edition and exact biographical/lineage locator; record an editor review before changing profile evidence status.",
+      "next_action": "Corpus cross-reference updated 2026-09-21: chuandenglu_full case 38, T51n2076_p0216a19–p0216b20, explicitly names this master; supersedes the 2026-09-09 no-occurrence finding. Review historical biography and upstream teacher evidence, and record an editor review before changing profile evidence status. The Prajñātāra → Bodhidharma edge is outside batch 1 and remains pending.",
       "note": "Queue record only; it does not upgrade any traditional link or biographical claim."
     },
     {

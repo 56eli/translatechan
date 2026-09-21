@@ -1040,7 +1040,7 @@ if (!lineageSummaryHtml.includes('locator pending') || !lineageSummaryHtml.inclu
 }
 try {
   window.TranslateChan.openLineageEdge('bodhidharma', 'huike');
-  if (!ids['dossier-content']._innerHTML.includes('Traditional link') || !ids['dossier-content']._innerHTML.includes('citation-trigger')) {
+  if (!ids['dossier-content']._innerHTML.includes('Exact locator verified — traditional claim') || !ids['dossier-content']._innerHTML.includes('citation-trigger')) {
     failures++; console.log('❌ lineage edge citation panel missing');
   }
   window.TranslateChan.openMasterDossier('bodhidharma');
@@ -1195,14 +1195,21 @@ try {
   if (dossierPanel.hidden !== true) {
     failures++; console.log('❌ 4ee: closing a dossier must restore its hidden state');
   }
-  // Spot-check the Linked corpus warning: 3 frontier scaffolds (prajnatara,
-  // yangqi_fanghui, dahong_zuzheng) intentionally keep empty linked_corpus_keys
-  // after the 2026-09-09 curation (dated honest negatives); the dossier must
-  // still disclose the missing corpus link rather than hiding it.
+  // Batch 1 links Prajñātāra to its named full-witness entry, while two
+  // other frontier scaffolds must retain their missing-link disclosure.
   window.TranslateChan.openMasterDossier('prajnatara');
   const prajnataraHtml = ids['dossier-content']._innerHTML;
-  if (!prajnataraHtml.includes('Project corpus link not yet curated')) {
-    failures++; console.log('❌ 4ee: prajnatara dossier should disclose the missing corpus link');
+  if (!prajnataraHtml.includes('chuandenglu_full') || prajnataraHtml.includes('Project corpus link not yet curated')) {
+    failures++; console.log('❌ 4ee: prajnatara dossier should link to chuandenglu_full');
+  }
+  for (const master of ['yangqi_fanghui', 'dahong_zuzheng']) {
+    window.TranslateChan.openMasterDossier(master);
+    if (!ids['dossier-content']._innerHTML.includes('Project corpus link not yet curated')) {
+      failures++; console.log(`❌ 4ee: ${master} must disclose the missing corpus link`);
+    }
+  }
+  if (!lineageSummaryHtml.includes('10 exact locators') || !lineageSummaryHtml.includes('21 locator pending')) {
+    failures++; console.log('❌ lineage exact/pending census drift');
   }
 } catch (e) { failures++; console.log(`❌ 4ee dossier spot-check crashed: ${e.message}`); }
 // 4m. Hash routing: initial deep-link state + viewHash helper

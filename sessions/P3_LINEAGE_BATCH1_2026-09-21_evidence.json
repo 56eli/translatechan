@@ -1,0 +1,134 @@
+{
+  "witness": "T51n2076",
+  "revision": "dbdea41071e1e260ad84b72faefd4587333cf76d",
+  "sha256": "41e4717ce9c71ff6892f8a83d6a28438cf67a1dc09e8e938165b1222daa9e40e",
+  "extraction": "tei:body; omit note/g subtrees retaining tails; T lb anchors; remove whitespace only, retain punctuation and headings",
+  "edges": [
+    {
+      "teacher": "bodhidharma",
+      "disciple": "huike",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 41,
+      "fascicle": 3,
+      "entry": "第二十八祖菩提達磨",
+      "start_lb": "0219c04",
+      "end_lb": "0219c08",
+      "reference": "T51n2076_p0219c04–p0219c08 · fasc. 3 · 第二十八祖菩提達磨 · chuandenglu_full case 41",
+      "quotation": "一法可得。師曰。汝得吾骨。最後慧可禮拜後依位而立。師曰。汝得吾髓。乃顧慧可而告之曰。昔如來以正法眼付迦葉大士。展轉囑累而至於我。我今付汝。汝當護持。并授汝袈裟以為法信。各有所表宜可知矣。可曰。請師"
+    },
+    {
+      "teacher": "huike",
+      "disciple": "sengcan",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 42,
+      "fascicle": 3,
+      "entry": "第二十九祖慧可大師",
+      "start_lb": "0220c22",
+      "end_lb": "0220c27",
+      "reference": "T51n2076_p0220c22–p0220c27 · fasc. 3 · 第二十九祖慧可大師 · chuandenglu_full case 42",
+      "quotation": "無二也。大師深器之。即為剃髮。云是吾寶也。宜名僧璨。其年三月十八日於光福寺受具。自茲疾漸愈。執侍經二載。大師乃告曰。菩提達磨遠自竺乾以正法眼藏密付於吾。吾今授汝并達磨信衣。汝當守護無令斷絕。聽吾偈曰。"
+    },
+    {
+      "teacher": "sengcan",
+      "disciple": "daoxin",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 46,
+      "fascicle": 3,
+      "entry": "第三十祖僧璨大師",
+      "start_lb": "0221c18",
+      "end_lb": "0221c22",
+      "reference": "T51n2076_p0221c18–p0221c22 · fasc. 3 · 第三十祖僧璨大師 · chuandenglu_full case 46",
+      "quotation": "隋開皇十二年壬子歲。有沙彌道信。年始十四。來禮師曰。願和尚慈悲乞與解脫法門。師曰。誰縛汝。曰無人縛。師曰。何更求解脫乎。信於言下大悟服勞九載。後於吉州受戒侍奉尤謹。師屢試以玄微。知其緣熟乃付衣法。"
+    },
+    {
+      "teacher": "daoxin",
+      "disciple": "hongren",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 47,
+      "fascicle": 3,
+      "entry": "第三十一祖道信大師",
+      "start_lb": "0222b14",
+      "end_lb": "0222b16",
+      "reference": "T51n2076_p0222b14–p0222b16 · fasc. 3 · 第三十一祖道信大師 · chuandenglu_full case 47",
+      "quotation": "識其法器。即俾侍者至其家。於父母所乞令出家。父母以宿緣故殊無難色。遂捨為弟子。名曰弘忍"
+    },
+    {
+      "teacher": "hongren",
+      "disciple": "huineng",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 48,
+      "fascicle": 3,
+      "entry": "第三十二祖弘忍大師",
+      "start_lb": "0223a08",
+      "end_lb": "0223a19",
+      "reference": "T51n2076_p0223a08–p0223a19 · fasc. 3 · 第三十二祖弘忍大師 · chuandenglu_full case 48",
+      "quotation": "大師後見此偈云。此是誰作亦未見性。眾聞師語遂不之顧。逮夜乃潛令人自碓坊召能行者入室。告曰。諸佛出世為一大事故。隨機小大而引導之。遂有十地三乘頓漸等旨。以為教門。然以無上微妙祕密圓明真實正法眼藏。付于上首大迦葉尊者。展轉傳授二十八世。至達磨屆于此土。得可大師。承襲以至于吾。今以法寶及所傳袈裟用付於汝。善自保護無令斷絕。聽吾偈曰。有情來下種因地果還生無情既無種無性亦無生能居士跪受衣法。啟曰。法則既授衣付何人。"
+    },
+    {
+      "teacher": "huineng",
+      "disciple": "nanyue_huairang",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 105,
+      "fascicle": 5,
+      "entry": "南嶽懷讓禪師",
+      "start_lb": "0240c11",
+      "end_lb": "0240c17",
+      "reference": "T51n2076_p0240c11–p0240c17 · fasc. 5 · 南嶽懷讓禪師 · chuandenglu_full case 105",
+      "quotation": "尚。安啟發之。乃直詣曹谿參六祖。祖問。什麼處來。曰嵩山來。祖曰。什麼物恁麼來。曰說似一物即不中。祖曰。還可修證否。曰修證即不無。污染即不得。祖曰。只此不污染諸佛之所護念。汝既如是吾亦如是。西天般若多羅讖。汝足下出一馬駒。蹋殺天下人。並在汝心不須速說。師豁然契會。執侍左右一十五載。唐"
+    },
+    {
+      "teacher": "huineng",
+      "disciple": "qingyuan_xingsi",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 104,
+      "fascicle": 5,
+      "entry": "吉州青原山行思禪師",
+      "start_lb": "0240a23",
+      "end_lb": "0240a28",
+      "reference": "T51n2076_p0240a23–p0240a28 · fasc. 5 · 吉州青原山行思禪師 · chuandenglu_full case 104",
+      "quotation": "不言少林謂之得髓矣。一日祖謂師曰。從上衣法雙行師資遞授。衣以表信。法乃印心。吾今得人何患不信。吾受衣以來遭此多難。況乎後代爭競必多。衣即留鎮山門。汝當分化一方無令斷絕。師既得法。住吉州青原山靜居寺。六祖將示滅。有沙彌希遷問曰。"
+    },
+    {
+      "teacher": "nanyue_huairang",
+      "disciple": "mazu_daoyi",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 114,
+      "fascicle": 6,
+      "entry": "江西道一禪師",
+      "start_lb": "0245c23",
+      "end_lb": "0245c27",
+      "reference": "T51n2076_p0245c23–p0245c27 · fasc. 6 · 江西道一禪師 · chuandenglu_full case 114",
+      "quotation": "江西道一禪師江西道一禪師漢州什邡人也。姓馬氏。容貌奇異牛行虎視。引舌過鼻。足下有二輪文。幼歲依資州唐和尚落髮。受具於渝州圓律師。唐開元中習禪定於衡嶽傳法院。遇讓和尚。同參九人唯師密受心印"
+    },
+    {
+      "teacher": "qingyuan_xingsi",
+      "disciple": "shitou_xiqian",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 104,
+      "fascicle": 5,
+      "entry": "吉州青原山行思禪師",
+      "start_lb": "0240c03",
+      "end_lb": "0240c06",
+      "reference": "T51n2076_p0240c03–p0240c06 · fasc. 5 · 吉州青原山行思禪師 · chuandenglu_full case 104",
+      "quotation": "問。如何是佛法大意。師曰。廬陵米作麼價。師既付法石頭。唐開元二十八年庚辰十二月十三日。陞堂告眾跏趺而逝。僖宗諡弘濟禪師歸真之塔。"
+    },
+    {
+      "teacher": "mazu_daoyi",
+      "disciple": "baizhang_huaihai",
+      "corpus_key": "chuandenglu_full",
+      "case_num": 128,
+      "fascicle": 6,
+      "entry": "洪州百丈山懷海禪師",
+      "start_lb": "0249b26",
+      "end_lb": "0249c02",
+      "reference": "T51n2076_p0249b26–p0249c02 · fasc. 6 · 洪州百丈山懷海禪師 · chuandenglu_full case 128",
+      "quotation": "洪州百丈山懷海禪師洪州百丈山懷海禪師者。福州長樂人也。丱歲離塵三學該練。屬大寂闡化南康乃傾心依附。與西堂智藏禪師同號入室。時二大士為角立焉。一夕二士隨侍馬祖翫月次。祖曰。正恁麼時如何。西堂云。正好供養。師云。正好修行。祖云。經入藏禪歸海。馬祖上堂"
+    }
+  ],
+  "profile": {
+    "master_id": "prajnatara",
+    "case_num": 38,
+    "start_lb": "0216a19",
+    "end_lb": "0216b20"
+  }
+}

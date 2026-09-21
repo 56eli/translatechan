@@ -150,6 +150,7 @@
         "status": {
           "enum": [
             "source_verified",
+            "exact_locator_verified",
             "traditional_link_pending_exact_locator",
             "disputed"
           ]

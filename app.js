@@ -3962,6 +3962,7 @@
   }
 
   function lineageStatusMeta(status) {
+    if (status === 'exact_locator_verified') return { label: 'Exact locator verified — traditional claim', className: 'is-verified' };
     if (status === 'source_verified') return { label: 'Source verified', className: 'is-verified' };
     if (status === 'disputed') return { label: 'Disputed lineage claim', className: 'is-disputed' };
     if (status === 'traditional_link_pending_exact_locator') {
@@ -3982,18 +3983,20 @@
     }, {});
     const pending = counts.traditional_link_pending_exact_locator || 0;
     const verified = counts.source_verified || 0;
+    const exact = counts.exact_locator_verified || 0;
     const detail = {
       title: 'Lineage chart aggregation status',
       rows: [
         ['Internal links represented', String(edges.length)],
         ['Source-verified links', String(verified)],
+        ['Exact-locator attestations (traditional claims)', String(exact)],
         ['Traditional links awaiting exact locator', String(pending)],
         ['Frontier teachers not yet profiled', String(frontiers.length)],
         ['Policy', stringValue(registry.policy) || 'Lineage verification registry pending.']
       ]
     };
     elements.lineageVerificationSummary.innerHTML =
-      `<span>${verified} verified · ${pending} locator pending · ${frontiers.length} frontiers</span>` +
+      `<span>${verified} source verified · ${exact} exact locators · ${pending} locator pending · ${frontiers.length} frontiers</span>` +
       renderCitationTrigger(detail, 'Details');
   }
 
