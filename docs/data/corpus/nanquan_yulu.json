@@ -33,7 +33,8 @@
               "text": "Before Nansen passed away, a monk asked: 'After your death, Master, where will you go?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 8 eight-graph windows occur in a complete copy — the claimed X68n1315 carries 8 of the 15 graphs (offset 92,337) and the best measured carrier is the uncited X80n1565 at 9 of 15 (offset 189,146); T47n1987A and T47n1987B carry the same 8-graph span. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Nanquan / 南泉",
@@ -52,7 +53,8 @@
               "text": "Nansen said: 'I will go down the mountain and be a water buffalo.' The monk said: 'May I follow you?' Nansen said: 'If you follow me, you must come with a mouthful of grass!'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 26 eight-graph windows occur in a complete copy — the claimed X68n1315 carries 9 of the 33 graphs (offset 92,350); the best measured carriers are the uncited X80n1565 at 11 of 33 (offset 66,082) and T51n2076 at 10 of 33 (offset 75,502). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -79,7 +81,8 @@
               "text": "A monk asked: 'Ancient masters always preached mind and preached Buddha. What do you teach today?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project composition, not witness text (R-B, 2026-09-20, task 048). 0 of this field's 12 eight-graph windows occur in any of the 40 digest-verified pinned references (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift); the claimed X68n1315 carries no run of 8 or more graphs of the 19-graph field. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         },
         {
           "speaker": "Nanquan / 南泉",
@@ -98,7 +101,8 @@
               "text": "Nansen said: 'Not mind, not Buddha, not a thing.' The monk said: 'Where does one settle?' Nansen said: 'Pierce your ears and tread on your fur!'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 21 eight-graph windows occur in a complete copy; the claimed X68n1315 carries 9 of the 28 graphs (offset 93,279) — formulaic wording carried in 9- to 10-graph spans by 11 of the 40 refs (T48n2005 9 of 28 at offset 4,467 among them), best the uncited X80n1565 at 10 of 28 (offset 73,230). Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     },
@@ -125,7 +129,8 @@
               "text": "Governor Riko said to Nansen: 'Master Jō said: Heaven and earth share the same root as myself; all things are one with me. Isn't this wondrous?'",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project wording with a measured near-carrier, not re-keyed in this task (R-B, 2026-09-20, task 048). The claimed X68n1315 carries 23 of the 27 graphs split at variant points (10 graphs at offset 433,963 + 13 graphs at offset 433,978); the uncited T47n1997 carries the field 27 of 27 verbatim at offset 114,323 and T48n2003 carries 20 of 27 (offset 51,250). The re-key decision — to the claimed work's wording or the T47n1997 wording — is a separate RE-KEY work item, not landed in this labelling task. Kept as written."
         },
         {
           "speaker": "Nanquan / 南泉",
@@ -144,11 +149,12 @@
               "text": "Nansen pointed to a peony flower in the garden: 'Governor, people of this world look at this flower as if in a dream.' Riko was speechless.",
               "status": "reconstruction_unverified"
             }
-          }
+          },
+          "editorial_note": "Retained project retelling, not witness text (R-B, 2026-09-20, task 048). The re-key attempt failed: 0 of this field's 19 eight-graph windows occur in a complete copy — the claimed X68n1315 carries 11 of the 26 graphs (offset 434,001); the best measured carriers are the uncited X80n1565 at 20 of 26 (offset 65,513) and T48n2001 / T48n2004 at 13 of 26. Below the 80 percent re-key threshold. Kept as written rather than re-keyed."
         }
       ]
     }
   ],
   "cbeta_note": "Corrected 2026-08-08: dropped spurious '/T1985' pairing — T1985 is strictly the Record of Linji. Nanquan's record is 古尊宿語錄 (X68n1315, 卍續藏第68冊).",
-  "coverage_note": "0/6 collated, largest contiguous run 23/27, s1.d0 19 graphs no ≥8-graph run in any of 39 refs, fragmentary wording, parts carried by 傳燈錄/雲門 records, retellings retained"
+  "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the claimed X68n1315 (2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in the claimed witness, so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift). Largest shared run with the claimed witness: 23 of 27 (s2.d0, split at variant points: 10 graphs at offset 433,963 + 13 graphs at offset 433,978); s1.d0 (19 graphs) has no run of 8 or more graphs in any of the 40 refs; the other fields are fragmentary (s0.d0 8 of 15, s0.d1 9 of 33, s1.d1 9 of 28 — formulaic wording in 9- to 10-graph spans across 11 refs — s2.d1 11 of 26). The 傳燈錄 T48n2005 carries the s1.d1 span, and the only verbatim carrier of any field is the uncited T47n1997, the 圓悟語錄, which carries s2.d0 27 of 27 at offset 114,323 — a candidate for a later re-key decision, not a landing in this labelling task. Retellings retained as written; witnesses that would carry the other fields as written are OUT-OF-CBETA human sourcing, not agent work."
 }

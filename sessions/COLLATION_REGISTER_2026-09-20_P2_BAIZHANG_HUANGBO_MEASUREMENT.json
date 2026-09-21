@@ -1,0 +1,398 @@
+{
+ "kind": "p2-core-yulu-measurement",
+ "generated": "2026-09-20",
+ "harness": "scripts/collate_corpus.py",
+ "corrects": null,
+ "reference_extraction": {
+  "generator": "scripts/collate_refs.py",
+  "rule_id": "cbeta-p5-body-cjk-v1",
+  "rule": "tei:text/tei:body document-order text; drop the subtree of every tei:note and tei:g (tails kept); tei:head kept; keep only U+3400-U+9FFF and U+F900-U+FAFF; one UTF-8 line, no trailing newline"
+ },
+ "upstream": {
+  "repo": "https://github.com/cbeta-org/xml-p5",
+  "revision": "unrecorded"
+ },
+ "refs_manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+ "historical_refs_manifest": null,
+ "generation_parameters": {
+  "generated": "2026-09-20",
+  "refs_manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+  "doc": [
+   "baizhang_guanglu"
+  ],
+  "kind": "collation-register",
+  "upstream_repo": "https://github.com/cbeta-org/xml-p5",
+  "require_verified_refs": true,
+  "refs_dir_provided": true,
+  "new_documents": []
+ },
+ "content_denominator": "source content fields only (commentary_zh, pointer_zh, verse_zh, zh); metadata fields (title_zh, name_zh) are measured separately and are not proof of collation",
+ "status_scope": "Containment/remediation state, not a rights decision.",
+ "documents": {
+  "baizhang_guanglu": {
+   "witness": [
+    "X69n1323",
+    "X68n1315"
+   ],
+   "probes": [],
+   "summary": {
+    "NOT_FOUND": 10
+   },
+   "content_summary": {
+    "NOT_FOUND": 6
+   },
+   "metadata_summary": {
+    "NOT_FOUND": 4
+   },
+   "fields_total": 10,
+   "content_fields_total": 6,
+   "content_fields_collated": 0,
+   "metadata_fields_total": 4,
+   "flagged": [
+    {
+     "path": ".title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "洪州百丈懷海禪師廣錄",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "百丈三句綱要三階超拔",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "師示眾云初透初關不著世間染法次透中關不滯出世淨法後透極頂亦不居無滯無礙之處此即百丈三句也",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].dialogue[1].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "若但了初句是為凡夫脫縛若了中句是為二乘聖人若圓通三句不住凡聖方名佛祖大用現前",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "馬祖捏鼻頭何曾飛去",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "師隨馬祖行次見野鴨子飛過祖曰是甚麼師曰野鴨子祖曰甚處去也師曰飛過去也",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].dialogue[1].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "祖遂把師鼻頭猛捏師負痛失聲祖曰又道飛過去也師於言下大悟",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[2].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "馬祖上堂百丈卷席",
+     "ref_window": "",
+     "simplified": [
+      "席"
+     ]
+    },
+    {
+     "path": ".sections[2].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "次日馬祖陞座眾才集師即出卷卻席祖便下座歸方丈師隨後入祖曰我適來未曾說話汝因何便卷席",
+     "ref_window": "",
+     "simplified": [
+      "席"
+     ]
+    },
+    {
+     "path": ".sections[2].dialogue[1].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "師曰昨日被和尚捏得鼻頭痛祖曰汝昨日向甚處留心師曰今日鼻頭又不痛也祖曰汝深明昨日事",
+     "ref_window": "",
+     "simplified": []
+    }
+   ],
+   "source_review_status": "partial_or_failed_w1_collation",
+   "reference_verification": {
+    "X69n1323": {
+     "sha256": "15e331904f26112b6555f78258f3aba9142ca7c95581d0cea2c85fabeaf5a1ae",
+     "status": "verified",
+     "historical_status": "none"
+    },
+    "X68n1315": {
+     "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+     "status": "verified",
+     "historical_status": "none"
+    }
+   },
+   "refs_total": 2,
+   "refs_verified": 2,
+   "refs_historically_verified": 2
+  },
+  "huangbo_wanling": {
+   "witness": [
+    "T48n2012B"
+   ],
+   "probes": [],
+   "summary": {
+    "DIVERGENT": 1,
+    "NOT_FOUND": 11
+   },
+   "content_summary": {
+    "DIVERGENT": 1,
+    "NOT_FOUND": 6
+   },
+   "metadata_summary": {
+    "NOT_FOUND": 5
+   },
+   "fields_total": 12,
+   "content_fields_total": 7,
+   "content_fields_collated": 0,
+   "metadata_fields_total": 5,
+   "flagged": [
+    {
+     "path": ".title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "黃檗山斷際禪師宛陵錄",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "裴休進畫像真容在此長老在甚麼處",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "相國裴休一日請師至府指壁上畫像問曰真容在此長老在甚麼處師應聲召曰裴休休應曰諾",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[0].dialogue[1].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "師曰在甚麼處休於言下大悟如獲寶珠便禮拜謝師",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "大唐國內無禪師不道無禪祇是無師",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "師示眾云汝等諸人盡是噇酒糟漢恁麼行腳何處有今日還知大唐國內無禪師麼",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[1].dialogue[1].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "時有僧出問只如諸方聚眾接人又作麼生師曰不道無禪祇是無師",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[2].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "虛空本無體心亦如虛空",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[2].dialogue[0].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "虛空不可度量心體亦不可度量若能了達無心則十方虛空盡是自心起心動念即乖法體休歇無求當下菩提",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[3].title_zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "無緣大慈不見有佛可成眾生可度",
+     "ref_window": "",
+     "simplified": []
+    },
+    {
+     "path": ".sections[3].dialogue[0].zh",
+     "class": "DIVERGENT",
+     "sim": 0.9333,
+     "ref": "T48n2012B",
+     "corpus": "休問諸佛如何行大慈悲為眾生說法",
+     "ref_window": "別問諸佛如何行大慈悲為眾生說法",
+     "simplified": []
+    },
+    {
+     "path": ".sections[3].dialogue[1].zh",
+     "class": "NOT_FOUND",
+     "sim": 0.0,
+     "ref": null,
+     "corpus": "師曰佛慈悲者無緣慈也不見有佛可成不見有眾生可度無說無示無聽無得是名大慈悲",
+     "ref_window": "",
+     "simplified": []
+    }
+   ],
+   "source_review_status": "partial_or_failed_w1_collation",
+   "reference_verification": {
+    "T48n2012B": {
+     "sha256": "94a75d508303b70bcaade3c92cc3cb6cdc7c8f0e11a471cda940c05cc7e75f36",
+     "status": "verified",
+     "historical_status": "none"
+    }
+   },
+   "refs_total": 1,
+   "refs_verified": 1,
+   "refs_historically_verified": 1
+  }
+ },
+ "reference_verification": {
+  "manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+  "historical_manifest": null,
+  "rule": "statuses are byte-identity of the reference file against a named digest manifest; `drift` never rescues a claim and never upgrades one",
+  "counts": {
+   "verified": 2,
+   "drift": 0,
+   "unlisted": 0,
+   "none": 0
+  },
+  "historical_counts": {
+   "verified": 0,
+   "drift": 0,
+   "unlisted": 0,
+   "none": 2
+  },
+  "drifted_refs": [],
+  "refs": {
+   "X68n1315": {
+    "sha256": "36727779ec415315fe716971174d303eb8161ebad2614a3ec929de3dd337d243",
+    "manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": null,
+    "historical_status": "none"
+   },
+   "X69n1323": {
+    "sha256": "15e331904f26112b6555f78258f3aba9142ca7c95581d0cea2c85fabeaf5a1ae",
+    "manifest": "sessions/COLLATION_W1_2026-09-20_refs_manifest.txt",
+    "status": "verified",
+    "historical_manifest": null,
+    "historical_status": "none"
+   }
+  }
+ },
+ "aggregate": {
+  "documents": 1,
+  "flagged_entries": 10,
+  "fields_total": 10,
+  "content_fields_total": 6,
+  "content_fields_collated": 0,
+  "metadata_fields_total": 4,
+  "class_totals": {
+   "NOT_FOUND": 10
+  },
+  "source_review_status_counts": {
+   "collated_to_claimed_witness": 0,
+   "partial_or_failed_w1_collation": 1,
+   "witness_unavailable": 0
+  },
+  "documents_without_evidence": [
+   "baojing_sanmei",
+   "biyanlu_cases",
+   "bodhidharma_erru",
+   "caoshan_benji",
+   "caoxi_zhuan",
+   "chuandenglu",
+   "chuandenglu_full",
+   "congronglu",
+   "dahui_hongzhi",
+   "dahui_shobogenzo",
+   "dazhu_huihai",
+   "deshan_yulu",
+   "dongshan_yulu",
+   "fayan_yulu",
+   "foyan_qingyuan",
+   "guiyang_yulu",
+   "hanshan_poems",
+   "huangbo_chuanxin",
+   "huangbo_wanling",
+   "lidai_fabao_ji",
+   "linji_yulu",
+   "mazu_yulu",
+   "nanquan_yulu",
+   "niutou_juezhu",
+   "platform_sutra",
+   "qinggui_monastic_codes",
+   "sengzhao_zhaolun",
+   "shitou_sandokai",
+   "wudeng_huiyuan",
+   "wumenguan",
+   "xinxin_ming",
+   "xuansha_yulu",
+   "xuefeng_yantou",
+   "yuanwu_letters",
+   "yunmen_yulu",
+   "zhaozhou_yulu",
+   "zhengdao_ge"
+  ],
+  "documents_with_drifted_references": []
+ },
+ "note": "Task 047 (P2 core yulu — Baizhang Guanglu + Huangbo Wanling authenticity labels) measurement: per-document harness registers merged; authoritative W1 register chain unchanged (no status change, no re-key)."
+}
