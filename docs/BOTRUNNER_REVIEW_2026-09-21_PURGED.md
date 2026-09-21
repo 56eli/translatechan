@@ -106,7 +106,7 @@ See `docs/SCHEMA.md` full.
 
 ## 5. Sample export
 
-`docs/sample_export.jsonl` 10 records: 5 masters +5 passages from collated docs with all fields: id, type, parent_id, order, lifecycle_status, w1_status {code,label,explanation}, provenance {source_key, source_edition, cbeta_id, witness_path, extraction_rule, witness_revision, is_ai_styled, import_reference {commit,timestamp,evidence_register_path}}, texts [{lang,script,transliteration_scheme,body,is_ai_styled}], body_format, rights_status, visibility, canonical_locator, cross_refs by id.
+`docs/sample_export.jsonl` 11 records: 5 masters +6 passages from collated docs (the 6th is the `section`-type `linji_yulu_section_078`, added with the 2026-09-21 Linji re-key) with all fields: id, type, parent_id, order, lifecycle_status, w1_status {code,label,explanation}, provenance {source_key, source_edition, cbeta_id, witness_path, extraction_rule, witness_revision, is_ai_styled, import_reference {commit,timestamp,evidence_register_path}}, texts [{lang,script,transliteration_scheme,body,is_ai_styled}], body_format, rights_status, visibility, canonical_locator, cross_refs by id.
 
 Example passage:
 ```json

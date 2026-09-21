@@ -408,14 +408,19 @@
       "Rinzai Gigen",
       "臨濟義玄"
     ],
-    "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "profile_status": "Seed profile — exact biographical/source locator pending; linked corpus document added 2026-09-21 (task P2.9): the corpus's Record of Linji was re-keyed from the pinned witness T47n1985 as `linji_yulu` (107 verbatim sections, 0 flagged)",
+    "linked_corpus_keys": [
+      "linji_yulu"
+    ],
     "profile_evidence": {
-      "status": "canonical_anchor_identified",
+      "status": "canonical_anchor_identified_linked_document_collated",
       "source_id": "linji-record-t1985",
       "canonical_locator": "T47n1985_p0496c10–p0496c14",
       "source_url": "https://cbetaonline.dila.edu.tw/zh/T47n1985_p0496c",
-      "note": "The canonical line-head range identifies the 無位真人 encounter represented in this project’s Linji seed. This is a source-anchor identification, not a complete biographical review or a source-verified lineage claim."
+      "note": "The canonical line-head range identifies the 無位真人 encounter (T47n1985_p0496c10–p0496c14, the corpus document's section `true_person_of_no_rank`). This is a source-anchor identification, not a complete biographical review or a source-verified lineage claim. 2026-09-21 (task P2.9): the project's Record of Linji was purged as a retelling and rebuilt from the pinned CBETA XML P5 witness T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d) by scripts/segment_linji_yulu.py — the whole 16,366-CJK fascicle in 107 verbatim contiguous sections (215 fields measured, 215 EXACT, 0 flagged; sessions/COLLATION_REGISTER_2026-09-21_LINJI.json), so `linked_corpus_keys` now names a document whose source fields are the witness's own text. The biographical fields above (dates, location, title) remain seed values and the lineage edges are unchanged: this link is containment evidence, not a rights or completeness claim.",
+      "linked_corpus_keys": [
+        "linji_yulu"
+      ]
     }
   },
   {

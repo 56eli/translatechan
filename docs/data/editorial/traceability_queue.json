@@ -29,6 +29,16 @@
       "review_status": "complete",
       "next_action": "none",
       "editorial_note": "Purged retellings removed, queue reset"
+    },
+    {
+      "document_key": "linji_yulu",
+      "canonical_id": "T1985",
+      "current_locator": "T47n1985_p0495a01–p0506c28",
+      "content_shape": "sections",
+      "priority": "normal",
+      "review_status": "complete",
+      "next_action": "none",
+      "editorial_note": "Task P2.9 (2026-09-21): the document-level migration is done — 107 section locators are recorded in `unit_locators`, each an `lb` line-head anchor read from the pinned CBETA XML P5 T47n1985 (revision dbdea41071e1e260ad84b72faefd4587333cf76d), and the document is a from-scratch extraction of that witness (215/215 fields EXACT, 0 flagged). The locator status is collated_with_normalization, i.e. human sign-off is still pending; this queue tracks locator coverage, not collation or rights."
     }
   ]
 }

@@ -49,3 +49,45 @@
 **Owner ruling:** Wiki receives ONLY 100% collated — this re-key qualifies, no imperfections.
 
 **Note:** If T47n1985 not in current digest manifest, need to add reference extraction for it — follow pattern of `scripts/segment_full_witness.py` which asserts concatenation equals reference extraction char for char, so no run omitted/duplicated/invented.
+
+---
+
+## Delivered 2026-09-21 (session `arena/01a0c4aa-translatechan`)
+
+Every numbered item above is done; the numbers differ from the stub's guesses because they were
+measured, not assumed:
+
+- **Witness:** T47n1985 (鎮州臨濟慧照禪師語錄, T47 no. 1985) from the pinned CBETA XML P5 revision
+  `dbdea41071e1e260ad84b72faefd4587333cf76d`; body extraction digest
+  `4317e5fa14996b3f414187adb4264f1d52efb303392402f797d6e2019aeb8359`, 16,366 CJK characters —
+  byte-identical to the digest the historical 2026-09-09 refs manifest already carried for the
+  same work, so no `new_documents` waiver is used. The authoritative refs manifest is the
+  previous 17 works **+ T47n1985 = 18 works** (`sessions/COLLATION_W1_2026-09-21_LINJI_refs_manifest.txt`).
+- **Segmentation:** 107 sections (not ~60 encounters: the record's whole fascicle tiles into
+  107 contiguous units — prefaces, juan opening, main record, 勘辨, 行錄, close, colophon),
+  produced by `scripts/segment_linji_yulu.py` with run-time tiling assertions (concatenation ==
+  reference extraction, char for char; nothing omitted, duplicated or invented).
+- **Collation:** `scripts/collate_corpus.py --doc linji_yulu` → **215/215 measured fields EXACT,
+  0 flagged**; the document carries 107 sections / 16,366 CJK /
+  `T47n1985_p0495a01–p0506c28`; sha256 `d1004987b6e9c886b58a6a6ea13a3f692c4037db424116d54cee7d15c70eb419`,
+  byte-for-byte reproducible.
+- **Manifest / lineage / locators / evidence:** `linji_yulu` is the 13th manifest item
+  (`sections: 107`, `partial_selected_witness`, `collated_to_claimed_witness` — a complete
+  witness is **not** claimed: the 行錄 division's provenance is still being reviewed);
+  `masters.json` `linji_yixuan.linked_corpus_keys = ["linji_yulu"]`; 107 section locators in
+  `data/canonical_locators.json`; evidence overlay `sessions/COLLATION_W1_2026-09-21_LINJI.md` +
+  register `sessions/COLLATION_REGISTER_2026-09-21_LINJI.json` (13 documents, 15 flagged fields).
+- **Gates:** `py_compile` OK · `validate_data.py --write-metrics --skip-docs` then full run
+  **PASS** · `build_data_bundle.py` deterministic (two runs byte-identical) ·
+  `diff -rq data docs/data` identical. The three pinned suites
+  (`test_source_preservation.py`, `test_source_review_rules.py`, `smoke_test.mjs`) are red —
+  **pre-existing on `f1207ea`** against the 13-document corpus, and repaired under
+  [`STUB_P2.10_GATE_SUITE_REPIN.md`](./STUB_P2.10_GATE_SUITE_REPIN.md). P2.9 repins only the
+  smoke suite's W1-evidence pointers and count pins (its own outputs), and the Linji-specific
+  pins the suite already carried are satisfied by the new bundle (four-shouts section
+  disclosure, `collated_with_normalization`, `赤肉團` search hit).
+- **Export:** `export_manifest.json` was purged-era (commit `a77d577…`) and cannot be
+  regenerated in-repo (no generator is committed); the P2.9 handoff records that
+  `data/corpus/linji_yulu.json` must be added to it when the owner re-issues the export — the
+  wiki's `linji_yulu` page and the "Book" mapping are otherwise ready (13 documents in the
+  bundle, locators and ledgers rendering).

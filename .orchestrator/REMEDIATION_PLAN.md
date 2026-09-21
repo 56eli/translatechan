@@ -229,6 +229,14 @@ untouched: the `sections.four_shouts` anchor still holds and every re-keyed span
 `source_review_status` stays `partial_or_failed_w1_collation` and `completion_status` stays
 `partial_selected_witness`; the status flip belongs to the separate post-remediation evidence pass.
 
+> **Superseded 2026-09-21 (task P2.9).** The document this section patched was purged with the other
+> retellings and rebuilt from scratch out of the pinned witness T47n1985: `scripts/segment_linji_yulu.py`
+> tiles the whole 16,366-CJK fascicle in 107 verbatim contiguous sections (concatenation asserted equal to
+> the digest-verified reference) and `scripts/collate_corpus.py --doc linji_yulu` measures 215 fields, 215
+> EXACT, 0 flagged. The status flip this section deferred has now happened under its own dated overlay
+> (`sessions/COLLATION_REGISTER_2026-09-21_LINJI.json`, `collated_to_claimed_witness`); every figure above
+> describes the purged retelling and is kept as the historical record of the Wave 1 patch.
+
 ## Wave 1 progress — document 4: `xinxin_ming` (PR #34, 2026-09-11)
 
 **Witness:** 信心銘 (三祖僧璨大師), `cbeta_id` T2010 → reference work **T48n2010**, CBETA XML P5 pinned at
@@ -377,6 +385,6 @@ post-remediation evidence pass.
 
 The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
 
-W1 evidence: **12 documents, 15 flagged source fields** (authoritative 2026-09-21 enthusiast fulls overlay: `sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json`, inheriting the 38 entries of the 2026-09-20 Caoshan Benji overlay `sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json` verbatim — itself inheriting the 37 entries of the 2026-09-20 full-Jingde-Chuandeng-Lu overlay `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json`, the 36 entries of `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, and the 35 entries of `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 5,037 of 5,368 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all.
+W1 evidence: **13 documents, 15 flagged source fields** (authoritative 2026-09-21 Linji re-key overlay: `sessions/COLLATION_REGISTER_2026-09-21_LINJI.json` — the re-keyed Record of Linji T47n1985 as the 13th document, inheriting the 12 entries of the 2026-09-21 enthusiast fulls overlay `sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json` verbatim, which itself inherits the 38 entries of the 2026-09-20 Caoshan Benji overlay `sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json`, the 37 entries of the 2026-09-20 full-Jingde-Chuandeng-Lu overlay `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json`, the 36 entries of the 2026-09-20 correction overlay `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, and the 35 entries of the 2026-09-10 correction register `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 4,557 of 4,566 source-content fields collate to their claimed witness, and 2 documents have no collating source-content field at all.
 
 > **Measured status refresh 2026-09-21 (PURGE retellings removed):** the corpus carries **21** provenance-note strings across four keys (`cbeta_note` 11, `coverage_note` 10, `editorial_note` 0, `recension_note` 0), **11 of 21** rendering beside a passage, **11** documents carrying at least one label. **12 documents, 15 flagged source fields**.

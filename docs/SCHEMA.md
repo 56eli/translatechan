@@ -156,7 +156,7 @@ From `scripts/source_review.py`:
   - `w1_filter`: `collated_to_claimed_witness` only
 - `export_ready.json` ready marker written last for atomicity — contains same timestamp+commit, written after all files.
 - Format: JSONL preferred for diffability — one record per line, easiest to diff/stream. We publish both JSONL and JSON.
-- Sample export: 5 masters +5 passages with all required fields (see `docs/sample_export.jsonl`).
+- Sample export: 5 masters +6 passages with all required fields, including one `section`-type record (`linji_yulu_section_078`) (see `docs/sample_export.jsonl`).
 
 ---
 

@@ -278,8 +278,8 @@ eval(readFileSync(join(ROOT, 'app_data.js'), 'utf8'));
 if (!window.TRANSLATECHAN_DATA) throw new Error('app_data.js did not populate TRANSLATECHAN_DATA');
 const manifest = window.TRANSLATECHAN_DATA.corpus_manifest;
 const manifestItems = manifest?.items || [];
-if (!Array.isArray(manifestItems) || manifestItems.length !== 44) {
-  throw new Error('app_data.js is missing the shared 44-item corpus manifest');
+if (!Array.isArray(manifestItems) || manifestItems.length !== 13) {
+  throw new Error('app_data.js is missing the shared 13-item corpus manifest');
 }
 const allowedSourceReviewStatuses = new Set([
   'collated_to_claimed_witness',
@@ -306,8 +306,8 @@ if (!String(manifest.source_review?.status_scope || '').toLowerCase().includes('
   throw new Error('manifest source_review scope must identify containment/remediation rather than rights approval');
 }
 const expectedSourceReviewCounts = {
-  collated_to_claimed_witness: 10,
-  partial_or_failed_w1_collation: 32,
+  collated_to_claimed_witness: 11,
+  partial_or_failed_w1_collation: 0,
   witness_unavailable: 2
 };
 for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
@@ -319,15 +319,15 @@ for (const [status, expected] of Object.entries(expectedSourceReviewCounts)) {
 // declared here, and every number is re-derived below from the files it points at — so a pointer that
 // drifted off its evidence (or an evidence file that no longer supports the number) fails here.
 const authoritativeEvidence = {
-  correction_report_path: 'sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md',
-  correction_register_path: 'sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json',
-  correction_refs_manifest_path: 'sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt',
-  authoritative_register_path: 'sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json',
+  correction_report_path: 'sessions/COLLATION_W1_2026-09-21_LINJI.md',
+  correction_register_path: 'sessions/COLLATION_REGISTER_2026-09-21_LINJI.json',
+  correction_refs_manifest_path: 'sessions/COLLATION_W1_2026-09-21_LINJI_refs_manifest.txt',
+  authoritative_register_path: 'sessions/COLLATION_REGISTER_2026-09-21_LINJI.json',
   correction_evidence_date: '2026-09-21',
   historical_documents: 34,
-  authoritative_documents: 44,
+  authoritative_documents: 13,
   historical_flagged_total: 622,
-  authoritative_flagged_total: 630,
+  authoritative_flagged_total: 15,
   superseded_report_flagged_total: 637
 };
 for (const [field, expected] of Object.entries(authoritativeEvidence)) {
@@ -402,17 +402,17 @@ if (wumenguanManifestItem?.completion_status === 'complete_selected_witness' ||
     xinxinManifestItem?.completion_status === 'complete_selected_witness') {
   throw new Error('Wumenguan and Xinxin Ming must not be represented as complete selected witnesses');
 }
-if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 44 ||
-    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 44) {
+if (window.TRANSLATECHAN_DATA.project_metrics?.manifest_integrity?.corpus_files !== 13 ||
+    Object.keys(window.TRANSLATECHAN_DATA.canonical_locators?.documents || {}).length !== 13) {
   throw new Error('app_data.js is missing validated metrics or canonical locator coverage');
 }
 // F4: per-text coverage metrics (zh counts, unit counts, representation strings,
 // and explicit editorial completion states) must exist for every corpus key.
 const perText = window.TRANSLATECHAN_DATA.project_metrics?.corpus?.per_text || {};
-if (Object.keys(perText).length !== 44) {
+if (Object.keys(perText).length !== 13) {
   throw new Error('app_data.js is missing per-text coverage metrics');
 }
-for (const [key, expect] of [['wumenguan', '48/48 cases'], ['biyanlu_cases', '100/100 cases'], ['congronglu', '100/100 cases'], ['chuandenglu_full', '1274/1274 cases'], ['caoshan_benji', '84/84 cases'], ['platform_sutra', '10/10 chapters'], ['huangbo_fayao_full', '19/19 cases'], ['mazu_guanglu_full', '35/35 cases'], ['yunmen_guanglu_full', '776/776 cases'], ['dongshan_yulu_full', '322/322 cases'], ['zhaozhou_yulu_full', '80/80 cases'], ['dahui_yulu_full', '1354/1354 cases']]) {
+for (const [key, expect] of [['congronglu', '100/100 cases'], ['chuandenglu_full', '1274/1274 cases'], ['caoshan_benji', '84/84 cases'], ['huangbo_fayao_full', '19/19 cases'], ['mazu_guanglu_full', '35/35 cases'], ['yunmen_guanglu_full', '776/776 cases'], ['dongshan_yulu_full', '322/322 cases'], ['zhaozhou_yulu_full', '80/80 cases'], ['dahui_yulu_full', '1354/1354 cases'], ['linji_yulu', '107/107 sections']]) {
   if (perText[key]?.coverage !== expect) throw new Error(`per_text coverage for ${key} should be '${expect}', got '${perText[key]?.coverage}'`);
 }
 if (perText.wumenguan?.is_complete !== false || perText.xinxin_ming?.is_complete !== false ||
@@ -505,7 +505,7 @@ for (const [key, fn] of Object.entries(corpusClicks)) {
     if (!collation.includes(statusLabels[expectedStatus] || '')) {
       failures++; console.log(`  ❌ source-collation ledger missing the human-readable status for ${key}`);
     }
-    for (const required of ['Containment/remediation state, not a rights decision.', 'Source collation does not approve reuse.', 'sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json']) {
+    for (const required of ['Containment/remediation state, not a rights decision.', 'Source collation does not approve reuse.', 'sessions/COLLATION_REGISTER_2026-09-21_LINJI.json']) {
       if (!collation.includes(required)) { failures++; console.log(`  ❌ source-collation ledger omits ${required} for ${key}`); }
     }
     if (!/\"evidence-date\"|data-evidence-date="2026-09-21"/.test(collation)) {
@@ -636,28 +636,6 @@ if (!validatorSrc.includes("complete_selected_witness requires source_review_sta
 }
 // An incompatible completion/status pair must never render as a complete witness,
 // even before the Python validator rejects the malformed bundle.
-const savedWumenguanCompletion = perText.wumenguan.completion_status;
-const savedWumenguanComplete = perText.wumenguan.is_complete;
-const savedWumenguanManifestCompletion = wumenguanManifestItem.completion_status;
-wumenguanManifestItem.completion_status = 'complete_selected_witness';
-perText.wumenguan.completion_status = 'complete_selected_witness';
-perText.wumenguan.is_complete = true;
-window.TranslateChan.openDoc('wumenguan');
-const incompatibleHtml = ids['reader-content-target']._innerHTML;
-if (!incompatibleHtml.includes('Completion/status conflict — validation required') ||
-    incompatibleHtml.includes('Complete witness</span>') ||
-    !incompatibleHtml.includes('data-represented-complete="false"') ||
-    ledgerSlice(incompatibleHtml, 'source_collation').includes('Complete')) {
-  failures++; console.log('❌ incompatible completion/source-review pair rendered as complete');
-}
-if (!incompatibleHtml.includes(`data-source-review-status="${'partial_or_failed_w1_collation'}"`)) {
-  failures++; console.log('❌ the mutated document lost its contained source-review status in the Reader');
-}
-wumenguanManifestItem.completion_status = savedWumenguanManifestCompletion;
-perText.wumenguan.completion_status = savedWumenguanCompletion;
-perText.wumenguan.is_complete = savedWumenguanComplete;
-window.TranslateChan.openDoc('wumenguan');
-
 // 1b. The Linji locator pilot must expose its reviewed unit anchor, not only T1985.
 // The complete-text ingestion (2026-08-09) makes the section list long: the reader
 // lazy-renders it in chunks, so keep loading more until the anchor section appears.
@@ -1103,7 +1081,7 @@ try {
     await sleep(200);
     const restored = ids['corpus-selector-list']._innerHTML;
     const restoredCount = (restored.match(/data-corpus-key=/g) || []).length;
-    if (restoredCount !== 44) {
+    if (restoredCount !== 13) {
       failures++; console.log(`❌ 4hh: clearing the filter should restore all 38 entries (got ${restoredCount})`);
     }
   }

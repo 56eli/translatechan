@@ -1,5 +1,34 @@
 # Changelog — TranslateChan Export Schema
 
+## Export re-issue — 2026-09-21 — after the Linji re-key (task P2.9) · `schema_version` stays `1.1`
+
+**Why:** the 1.1 manifest was written in the purge commit and pinned `commit: a77d577662a168e4db437f781da4d7c16c642573`, a
+pre-purge tree whose own hashes no longer matched three of its files (`data/corpus_manifest.json`,
+`data/canonical_locators.json`, `data/lineage/masters.json` — i.e. it was internally inconsistent at issue time), and the
+corpus has since gained the re-keyed Record of Linji. The re-issue recomputes every hash from one tree.
+
+**Changed (files, not schema):**
+- `export_manifest.json` — 23 files (was 22): the 11 `collated_to_claimed_witness` documents now include
+  `data/corpus/linji_yulu.json`; all `sha256`/`size` values recomputed from the exported content commit; `commit` names that
+  commit (the manifest and its `export_ready.json` marker are the release artifacts committed immediately after the content
+  commit, and neither is listed in `files`, so the tree they describe is exactly the tree the hashes verify against);
+  `only_collated: true`, `w1_filter: collated_to_claimed_witness`, `remaining_docs: 13`, `exported_to_wiki: 11`,
+  `purged_retellings: 32`.
+- `export_ready.json` — same timestamp + commit as the manifest, written last (atomicity rule unchanged).
+- `docs/sample_export.jsonl` / `docs/sample_export.json` — 11 records (5 masters + 6 passages): the new
+  `linji_yulu_section_078` record is the sample's first `section`-type unit (parent `linji_yulu`, order 78, locator
+  `T47n1985_p0504a26–p0504a29`, `w1_status.code = collated_to_claimed_witness`, the document's own `coverage_note`, and
+  `provenance.import_reference.commit` naming the commit the re-key's data landed in).
+
+**Unchanged:** record schema and every enum (`schema_version` stays `1.1` — this is an export re-issue, not a schema change);
+the 1.1 rulings (Q1-Q7 W3, `only_collated`, fail-closed badges, tombstones); the gate command and read-only promise in
+`docs/GATE.md`.
+
+**Honest note:** no script in this repository generates `export_manifest.json` / `export_ready.json`. The 1.2 files were
+produced by the 2026-09-21 P2.9 session with `sha256` values computed from the content commit named in the manifest, and this
+entry records that fact rather than implying a generator exists. If the release process wants a scripted artifact, that is a
+new task.
+
 ## 1.1 — 2026-09-21 — Only 100% collated export, stable ids, manifest, tombstones
 
 **Owner rulings:**

@@ -137,11 +137,23 @@ FIXED_METADATA = {
     # the new overlay inherits its 38 per-document entries verbatim and adds exactly the six measured
     # documents. The reference set is unchanged as a set (the manifest is byte-identical to the
     # Caoshan overlay's 41 works); the designated flagged total stays 630.
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md",
-    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt",
+    # 2026-09-21 (task P2.9): the authoritative overlay moves one step further so the Record of Linji
+    # can be recorded — the purged retelling replaced by a from-scratch extraction of the pinned
+    # witness T47n1985 (鎮州臨濟慧照禪師語錄, the whole 16,366-CJK fascicle: 4 序 prefaces, the fascicle
+    # heading, 38 record sections, 23 勘辨, 21 行錄, the close and the printing colophon; 107 units,
+    # 215 fields measured, 215 EXACT, 0 flagged). The 2026-09-21 enthusiast-fulls overlay stays
+    # committed and unmodified as the chain's previous record; the new overlay inherits its 12
+    # per-document entries verbatim and adds exactly the one measured document, whose reference
+    # T47n1985 verifies byte-identically against both the new 18-work manifest and the historical
+    # 2026-09-09 anchor (the 18-work manifest differs from the 17-work one by that single line), so
+    # no new-document waiver is involved — the historical register already covered the document and
+    # this overlay records the status move with its reproduction block. The designated flagged total
+    # stays 15 for the 13 active documents.
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-21_LINJI.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-21_LINJI.json",
+    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_LINJI_refs_manifest.txt",
     "correction_evidence_date": "2026-09-21",
-    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-21_LINJI.json",
 }
 #: The historical digest manifest is part of the committed evidence even though the
 #: manifest metadata only declares the correction side by name.
