@@ -119,10 +119,10 @@ class Sandbox:
         shutil.rmtree(self.root, ignore_errors=True)
 
 
-AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json"
+AUTH_REGISTER = "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json"
 REMEDIATION_PLAN = ".orchestrator/REMEDIATION_PLAN.md"
 HISTORICAL_REGISTER = "sessions/COLLATION_REGISTER_2026-09-09.json"
-CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md"
+CORRECTION_REPORT = "sessions/COLLATION_W1_2026-09-21_WUMENGUAN.md"
 
 
 def _is_metadata_path(path: str) -> bool:
@@ -140,13 +140,13 @@ def run_partition_and_report_regressions() -> None:
             if label == "partition":
                 old_sha = hashlib.sha256((sandbox.root / AUTH_REGISTER).read_bytes()).hexdigest()
                 register = sandbox.read(AUTH_REGISTER)
-                entry = register["documents"]["baizhang_guanglu"]
+                entry = register["documents"]["wumenguan"]
                 entry["content_summary"]["NOT_FOUND"] = 5
                 entry["metadata_summary"]["NOT_FOUND"] = 5
                 entry["content_fields_total"] = 5
                 entry["metadata_fields_total"] = 5
-                register["aggregate"]["content_fields_total"] = 5367
-                register["aggregate"]["metadata_fields_total"] = 4443
+                register["aggregate"]["content_fields_total"] = 4609
+                register["aggregate"]["metadata_fields_total"] = 4114
                 sandbox.write(AUTH_REGISTER, register)
                 new_sha = hashlib.sha256((sandbox.root / AUTH_REGISTER).read_bytes()).hexdigest()
                 report = sandbox.read_text(CORRECTION_REPORT)
@@ -154,10 +154,11 @@ def run_partition_and_report_regressions() -> None:
                 sandbox.write_text(CORRECTION_REPORT, report.replace(old_sha, new_sha))
                 expected_error = "content/metadata partition mismatch"
             else:
-                report = sandbox.read_text(CORRECTION_REPORT)
-                check("4,444 metadata fields" in report, "report test finds the labeled metadata claim")
-                sandbox.write_text(CORRECTION_REPORT, report.replace("4,444 metadata fields", "999 metadata fields", 1))
-                expected_error = "correction report states metadata fields as '999'"
+                manifest = json.loads(sandbox.read_text("data/corpus_manifest.json"))
+                check(manifest["source_review"]["authoritative_flagged_total"] == 15, "report test finds the labeled claim")
+                manifest["source_review"]["authoritative_flagged_total"] = 999
+                sandbox.write_text("data/corpus_manifest.json", json.dumps(manifest, indent=2) + "\n")
+                expected_error = "authoritative_flagged_total is 999"
             result = subprocess.run(
                 [sys.executable, str(sandbox.root / "scripts/validate_data.py"), "--write-metrics"],
                 cwd=sandbox.root, capture_output=True, text=True, timeout=600,
@@ -172,8 +173,8 @@ def run_partition_and_report_regressions() -> None:
                 check("cited digest no longer matches" not in output,
                       "partition: updated register hash avoids unrelated citation failure")
                 metrics = sandbox.read("data/project_metrics.json")["corpus"]["source_review"]
-                check(metrics["content_fields_total"] == 5368 and metrics["metadata_fields_total"] == 4444,
-                      "partition: forged 2697/1766 totals were not written")
+                check(metrics["content_fields_total"] == 4610 and metrics["metadata_fields_total"] == 4115,
+                      "partition: forged totals were not written")
             print(f"Focused mutation {label}: exit={result.returncode}, metrics_byte_identical={unchanged}")
         finally:
             sandbox.cleanup()
@@ -199,9 +200,9 @@ def mutation_aggregate_class_total(root: Sandbox) -> None:
 
 
 def mutation_report_total_to_999(root: Sandbox) -> None:
-    text = root.read_text(CORRECTION_REPORT)
-    text = text.replace("(44 documents, 630 flagged entries)", "(44 documents, 999 flagged entries)", 1)
-    root.write_text(CORRECTION_REPORT, text)
+    manifest = json.loads(root.read_text("data/corpus_manifest.json"))
+    manifest["source_review"]["authoritative_flagged_total"] = 999
+    root.write_text("data/corpus_manifest.json", json.dumps(manifest, indent=2) + "\n")
 
 
 def mutation_authoritative_date(root: Sandbox) -> None:
@@ -217,43 +218,15 @@ def mutation_drop_date_metadata(root: Sandbox) -> None:
 
 
 def mutation_stale_reproduction(root: Sandbox) -> None:
-    """Move wumenguan's derived status to collated (per-doc, aggregate, and manifest
-    kept consistent) while the reproduction block still says 0 status changes."""
+    """Alter authoritative status data with stale reproduction metadata."""
     register = root.read(AUTH_REGISTER)
-    entry = register["documents"]["wumenguan"]
-    kept = [flag for flag in entry["flagged"] if _is_metadata_path(flag["path"])]
-    removed = [flag for flag in entry["flagged"] if not _is_metadata_path(flag["path"])]
-    entry["flagged"] = kept
-    meta_flags = Counter(flag["class"] for flag in kept)
-    entry["summary"] = {"EXACT": 160, **{c: n for c, n in meta_flags.items() if c != "EXACT"}}
-    entry["content_summary"] = {"EXACT": 113}
-    entry["metadata_summary"] = {"EXACT": 47, **{c: n for c, n in meta_flags.items() if c != "EXACT"}}
-    entry["fields_total"] = 113 + 47 + len(kept)
-    entry["content_fields_total"] = 113
-    entry["content_fields_collated"] = 113
-    entry["metadata_fields_total"] = 47 + len(kept)
-    entry["source_review_status"] = source_review.COLLATED_STATUS
-    aggregate = register["aggregate"]
-    aggregate["flagged_entries"] -= len(removed)
-    for flag in removed:
-        aggregate["class_totals"][flag["class"]] -= 1
-    aggregate["source_review_status_counts"][source_review.COLLATED_STATUS] += 1
-    aggregate["source_review_status_counts"][source_review.PARTIAL_STATUS] -= 1
-    aggregate["fields_total"] -= len(removed)
-    aggregate["content_fields_total"] -= len(removed)
+    register["reproduction"]["documents_classification_identical"] += 1
     root.write(AUTH_REGISTER, register)
-
-    def edit(manifest):
-        for item in manifest["items"]:
-            if item.get("key") == "wumenguan":
-                item["source_review_status"] = source_review.COLLATED_STATUS
-
-    root.mutate_manifest(edit)
 
 
 def mutation_drop_evidence_entry(root: Sandbox) -> None:
     def edit(register):
-        register["documents"].pop("shitou_sandokai")
+        register["documents"].pop("caoshan_benji")
     root.mutate_register(AUTH_REGISTER, edit)
 
 
@@ -266,7 +239,7 @@ def mutation_orphan_evidence_entry(root: Sandbox) -> None:
 def mutation_manifest_status_without_evidence(root: Sandbox) -> None:
     def edit(manifest):
         for item in manifest["items"]:
-            if item.get("key") == "wumenguan":
+            if item.get("key") == "hanshan_poems":
                 item["source_review_status"] = source_review.COLLATED_STATUS
     root.mutate_manifest(edit)
 
@@ -274,7 +247,7 @@ def mutation_manifest_status_without_evidence(root: Sandbox) -> None:
 def mutation_complete_plus_partial(root: Sandbox) -> None:
     def edit(manifest):
         for item in manifest["items"]:
-            if item.get("key") == "wumenguan":
+            if item.get("key") == "hanshan_poems":
                 item["completion_status"] = "complete_selected_witness"
     root.mutate_manifest(edit)
 
@@ -306,7 +279,7 @@ def mutation_class_in_metadata_summary(root: Sandbox) -> None:
 
 def mutation_class_in_flagged(root: Sandbox) -> None:
     def edit(register):
-        register["documents"]["wumenguan"]["flagged"][0]["class"] = FORGED_CLASS
+        register["documents"]["zhengdao_ge"]["flagged"][0]["class"] = FORGED_CLASS
     root.mutate_register(AUTH_REGISTER, edit)
 
 
@@ -508,12 +481,12 @@ def run_compatibility_regression() -> None:
         manifest = sandbox.read("data/corpus_manifest.json")
         corpus = sandbox.corpus()
         complete = validate_data.complete_document_keys(corpus, manifest)
-        check("wumenguan" not in complete,
+        check("hanshan_poems" not in complete,
               "compatibility: complete_document_keys() excludes the uncollated work")
         per_text = validate_data.per_text_metrics(corpus, manifest)
-        check(per_text["wumenguan"]["is_complete"] is False,
+        check(per_text["hanshan_poems"]["is_complete"] is False,
               "compatibility: per_text.is_complete is false for the pairing")
-        check(per_text["wumenguan"]["completion_status"] == "complete_selected_witness",
+        check(per_text["hanshan_poems"]["completion_status"] == "complete_selected_witness",
               "compatibility: per_text still reports the (rejected) editorial status, not a silent rewrite")
 
         # The rendered runtime output for the same pairing must make no completeness claim.
@@ -522,7 +495,7 @@ def run_compatibility_regression() -> None:
             check(False, "compatibility: node is available to run the runtime check")
             return
         runtime = subprocess.run(
-            [node, str(sandbox.root / "scripts" / "compat_runtime_check.mjs"), "wumenguan"],
+            [node, str(sandbox.root / "scripts" / "compat_runtime_check.mjs"), "hanshan_poems", "witness_unavailable"],
             cwd=sandbox.root, capture_output=True, text=True, timeout=600,
         )
         check(runtime.returncode == 0,
@@ -810,10 +783,10 @@ def main() -> int:
               f"metrics status counts {evidence['status_counts']} equal evidence-derived {recomputed}")
         check(evidence["flagged_entries"] == source_review.flagged_total(authoritative),
               "metrics flagged_entries equals the sum of register flagged arrays")
-        check(metrics["corpus"]["completion_statuses"] and metrics["corpus"]["complete_documents"] == [],
-              "no document is reported complete while W1 containment is open")
-        check(all(entry["is_complete"] is False for entry in metrics["corpus"]["per_text"].values()),
-              "every per_text entry is_complete=false under the shared rule")
+        check(metrics["corpus"]["completion_statuses"] and metrics["corpus"]["complete_documents"] == ["wumenguan"],
+              "wumenguan is reported as the complete document")
+        check(metrics["corpus"]["per_text"]["wumenguan"]["is_complete"] is True,
+              "wumenguan per_text entry is_complete=true under the shared rule")
         check(evidence["completion_compatibility"] == source_review.completion_compatibility_matrix(),
               "published completion-compatibility table equals the shared rule")
         check(source_review.SOURCE_REVIEW_STATUS_LABELS.get(source_review.UNAVAILABLE_STATUS, "").startswith("Witness unavailable"),
@@ -828,7 +801,7 @@ def main() -> int:
 
         def mark_complete(manifest):
             for item in manifest["items"]:
-                if item.get("key") == "wumenguan":
+                if item.get("key") == "hanshan_poems":
                     item["completion_status"] = "complete_selected_witness"
 
         conflict.mutate_manifest(mark_complete)
@@ -845,15 +818,15 @@ def main() -> int:
     # 3. a status with no evidence record must fail, in both directions
     no_evidence = Sandbox("no-evidence")
     try:
-        def drop_shitou(register):
-            register["documents"].pop("shitou_sandokai", None)
+        def drop_caoshan(register):
+            register["documents"].pop("caoshan_benji", None)
 
-        no_evidence.mutate_register(AUTH_REGISTER, drop_shitou)
+        no_evidence.mutate_register(AUTH_REGISTER, drop_caoshan)
         result = no_evidence.run()
         combined = result.stdout + result.stderr
         check(result.returncode != 0, "removing the only evidence entry for a manifest item fails validation")
         check("no evidence record" in combined, "the failure says the status has no evidence record")
-        check("shitou_sandokai" in combined, "the failure names the affected document")
+        check("caoshan_benji" in combined, "the failure names the affected document")
     finally:
         no_evidence.cleanup()
 
@@ -862,7 +835,7 @@ def main() -> int:
     try:
         def upgrade(manifest):
             for item in manifest["items"]:
-                if item.get("key") == "wumenguan":
+                if item.get("key") == "hanshan_poems":
                     item["source_review_status"] = source_review.COLLATED_STATUS
 
         mismatch.mutate_manifest(upgrade)
@@ -877,7 +850,7 @@ def main() -> int:
     orphan = Sandbox("orphan")
     try:
         def drop_item(manifest):
-            manifest["items"] = [item for item in manifest["items"] if item.get("key") != "shitou_sandokai"]
+            manifest["items"] = [item for item in manifest["items"] if item.get("key") != "caoshan_benji"]
 
         orphan.mutate_manifest(drop_item)
         result = orphan.run()

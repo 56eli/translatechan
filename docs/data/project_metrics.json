@@ -1,25 +1,28 @@
 {
   "canonical_locator_coverage": {
-    "case_level_documents": 9,
-    "case_locators": 4044,
-    "declared_cases": 4044,
+    "case_level_documents": 10,
+    "case_locators": 4092,
+    "declared_cases": 4092,
     "document_level_seed_documents": 3,
-    "documents": 12
+    "documents": 13
   },
   "corpus": {
-    "all_corpus_cjk_characters": 806651,
-    "complete_documents": [],
+    "all_corpus_cjk_characters": 814652,
+    "complete_documents": [
+      "wumenguan"
+    ],
     "completion_statuses": {
+      "complete_selected_witness": 1,
       "excerpt_seed": 3,
       "partial_selected_witness": 9
     },
-    "content_cjk_characters": 751084,
+    "content_cjk_characters": 758747,
     "content_shapes": {
-      "cases": 9,
+      "cases": 10,
       "sections": 1,
       "stanzas": 2
     },
-    "documents": 12,
+    "documents": 13,
     "excerpt_seed_documents": 3,
     "incomplete_documents": 12,
     "per_text": {
@@ -39,7 +42,7 @@
           "content_fields_collated": 84,
           "content_fields_total": 84,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 0,
           "probe_refs": [
             "T47n1987B",
@@ -77,7 +80,7 @@
           "content_fields_collated": 1274,
           "content_fields_total": 1274,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 0,
           "probe_refs": [],
           "refs_total": 1,
@@ -110,7 +113,7 @@
           "content_fields_collated": 500,
           "content_fields_total": 500,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 0,
           "probe_refs": [],
           "refs_total": 1,
@@ -143,7 +146,7 @@
           "content_fields_collated": 1354,
           "content_fields_total": 1354,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 0,
           "probe_refs": [
             "T48n2001"
@@ -179,7 +182,7 @@
           "content_fields_collated": 322,
           "content_fields_total": 322,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 0,
           "probe_refs": [
             "T47n1987A",
@@ -214,7 +217,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 4,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 5,
           "probe_refs": [],
           "refs_total": 0,
@@ -244,7 +247,7 @@
           "content_fields_collated": 19,
           "content_fields_total": 19,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 0,
           "probe_refs": [
             "T48n2012B",
@@ -280,7 +283,7 @@
           "content_fields_collated": 35,
           "content_fields_total": 35,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 0,
           "probe_refs": [
             "T51n2076",
@@ -313,7 +316,7 @@
           "content_fields_collated": 0,
           "content_fields_total": 5,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 9,
           "probe_refs": [],
           "refs_total": 0,
@@ -325,6 +328,38 @@
         "title": "Niutou Farong Juezhu Lun (絕觀論)",
         "unit_counts": {
           "sections": 3
+        }
+      },
+      "wumenguan": {
+        "all_cjk_chars": 8001,
+        "cbeta_id": "T2005",
+        "completion_status": "complete_selected_witness",
+        "content_zh_chars": 7663,
+        "coverage": "48/48 cases",
+        "coverage_note": "All 48 cases verbatim and contiguous in claimed witness T48n2005 under pinned extraction rule cbeta-p5-body-cjk-v1, CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d.",
+        "declared_zh_chars": 7663,
+        "is_complete": true,
+        "shapes": [
+          "cases"
+        ],
+        "source_review": {
+          "content_fields_collated": 151,
+          "content_fields_total": 151,
+          "evidence_date": "2026-09-21",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
+          "flagged_entries": 0,
+          "probe_refs": [],
+          "refs_total": 1,
+          "refs_verified": 1,
+          "status": "collated_to_claimed_witness",
+          "witness_refs": [
+            "T48n2005"
+          ]
+        },
+        "source_review_status": "collated_to_claimed_witness",
+        "title": "The Gateless Gate (無門關)",
+        "unit_counts": {
+          "cases": 48
         }
       },
       "yunmen_guanglu_full": {
@@ -343,7 +378,7 @@
           "content_fields_collated": 776,
           "content_fields_total": 776,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 0,
           "probe_refs": [
             "X68n1315"
@@ -378,7 +413,7 @@
           "content_fields_collated": 80,
           "content_fields_total": 80,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 0,
           "probe_refs": [
             "T51n2076",
@@ -412,7 +447,7 @@
           "content_fields_collated": 6,
           "content_fields_total": 6,
           "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
           "flagged_entries": 1,
           "probe_refs": [],
           "refs_total": 1,
@@ -431,15 +466,15 @@
     },
     "source_review": {
       "authoritative": {
-        "documents": 12,
+        "documents": 13,
         "evidence_date": "2026-09-21",
         "flagged_entries": 15,
-        "refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt",
-        "register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-        "report_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md"
+        "refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_WUMENGUAN_refs_manifest.txt",
+        "register_path": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
+        "report_path": "sessions/COLLATION_W1_2026-09-21_WUMENGUAN.md"
       },
       "class_totals": {
-        "EXACT": 8503,
+        "EXACT": 8710,
         "NOT_FOUND": 1,
         "WITNESS_UNAVAILABLE": 14
       },
@@ -460,8 +495,8 @@
           "witness_unavailable": true
         }
       },
-      "content_fields_collated": 4450,
-      "content_fields_total": 4459,
+      "content_fields_collated": 4601,
+      "content_fields_total": 4610,
       "disclosure_ledgers": [
         {
           "key": "source_collation",
@@ -484,9 +519,9 @@
           "label": "Rights review"
         }
       ],
-      "documents": 12,
+      "documents": 13,
       "documents_without_collating_content": 2,
-      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the next authoritative record (it inherits the 2026-09-20 Chuandeng Lu overlay's 37 per-document entries verbatim and records the Caoshan Benji record as the 38th document); the dated 2026-09-21 enthusiast-fulls overlay is the newest authoritative record (it inherits the 2026-09-20 Caoshan overlay's 38 per-document entries verbatim and records the six full-witness documents — Huangbo T48n2012A, Mazu X69n1321, Yunmen T47n1988, Dongshan T47n1986A+B, Zhaozhou X68n1315 juan 13–14, Dahui T47n1998A+B — as the 39th through 44th); the designated flagged total stays 630; purged 2026-09-21 retellings removed, 12 docs remain, flagged total 15",
+      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the next authoritative record (it inherits the 2026-09-20 Chuandeng Lu overlay's 37 per-document entries verbatim and records the Caoshan Benji record as the 38th document); the dated 2026-09-21 enthusiast-fulls overlay records six full-witness documents; the dated 2026-09-21 Wumenguan overlay reinstates Wumenguan (T48n2005, 48 cases, 207/207 fields EXACT, 0 flagged) as the 13th active document; designated flagged total stays 630; purged 2026-09-21 retellings removed, 13 docs remain, flagged total 15",
       "flagged_entries": 15,
       "historical": {
         "documents": 34,
@@ -497,14 +532,14 @@
       },
       "ledger_separation_note": "Separate ledgers: none of these answers implies another.",
       "metadata_field_note": "Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.",
-      "metadata_fields_total": 4059,
+      "metadata_fields_total": 4115,
       "non_approval_statement": "Source collation does not approve reuse.",
       "reference_verification": {
         "counts": {
           "drift": 0,
           "none": 0,
           "unlisted": 0,
-          "verified": 17
+          "verified": 18
         },
         "drifted_refs": [
           "T47n1987B",
@@ -516,26 +551,26 @@
           "drift": 4,
           "none": 0,
           "unlisted": 0,
-          "verified": 13
+          "verified": 14
         },
         "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
-        "manifest": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt"
+        "manifest": "sessions/COLLATION_W1_2026-09-21_WUMENGUAN_refs_manifest.txt"
       },
       "reproduction": {
         "compared_register": "sessions/COLLATION_REGISTER_2026-09-09.json",
         "documents_classification_identical": 3,
-        "documents_compared": 3,
-        "documents_differing": 0,
-        "documents_with_changed_status": 0,
+        "documents_compared": 4,
+        "documents_differing": 1,
+        "documents_with_changed_status": 1,
         "flagged_entries": {
-          "historical": 15,
+          "historical": 85,
           "this_run": 15
         },
         "historical_report_flagged_reproduced": false,
         "historical_report_flagged_total": 637
       },
       "status_counts": {
-        "collated_to_claimed_witness": 10,
+        "collated_to_claimed_witness": 11,
         "partial_or_failed_w1_collation": 0,
         "witness_unavailable": 2
       },
@@ -553,7 +588,7 @@
       }
     },
     "source_review_statuses": {
-      "collated_to_claimed_witness": 10,
+      "collated_to_claimed_witness": 11,
       "partial_or_failed_w1_collation": 0,
       "witness_unavailable": 2
     }
@@ -583,8 +618,8 @@
     }
   },
   "manifest_integrity": {
-    "corpus_files": 12,
-    "shared_manifest_items": 12
+    "corpus_files": 13,
+    "shared_manifest_items": 13
   },
   "measurement_method": {
     "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",

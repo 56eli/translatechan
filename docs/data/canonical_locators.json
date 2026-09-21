@@ -28409,6 +28409,351 @@
           "source_edition": "CBETA XML P5 T47n1998B, revision dbdea41071e1e260ad84b72faefd4587333cf76d"
         }
       }
+    },
+    "wumenguan": {
+      "canonical_id": "T2005",
+      "canonical_locator": "T2005",
+      "granularity": "case",
+      "source_note": "Locator registry derives canonical_id verbatim from corpus metadata. The 48 case locators below are heading-line anchors read from the pinned CBETA XML P5 witness T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); each case is anchored at the lb printed before its div.",
+      "status": "case_level_anchor",
+      "case_locators": {
+        "1": {
+          "canonical_locator": "T48n2005 case 1 · T48n2005 p.0292c23–p.0293a14",
+          "status": "collated_with_normalization",
+          "note": "Case heading 趙州狗子 and line head 0292c23 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 1 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "2": {
+          "canonical_locator": "T48n2005 case 2 · T48n2005 p.0293a16–p.0293b09",
+          "status": "collated_with_normalization",
+          "note": "Case heading 百丈野狐 and line head 0293a16 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 2 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "3": {
+          "canonical_locator": "T48n2005 case 3 · T48n2005 p.0293b11–p.0293b22",
+          "status": "collated_with_normalization",
+          "note": "Case heading 俱胝竪指 and line head 0293b11 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 3 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "4": {
+          "canonical_locator": "T48n2005 case 4 · T48n2005 p.0293b24–p.0293b29",
+          "status": "collated_with_normalization",
+          "note": "Case heading 胡子無鬚 and line head 0293b24 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 4 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "5": {
+          "canonical_locator": "T48n2005 case 5 · T48n2005 p.0293c02–p.0293c11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 香嚴上樹 and line head 0293c02 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 5 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "6": {
+          "canonical_locator": "T48n2005 case 6 · T48n2005 p.0293c13–p.0293c25",
+          "status": "collated_with_normalization",
+          "note": "Case heading 世尊拈花 and line head 0293c13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 6 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "7": {
+          "canonical_locator": "T48n2005 case 7 · T48n2005 p.0293c27–p.0294a05",
+          "status": "collated_with_normalization",
+          "note": "Case heading 趙州洗鉢 and line head 0293c27 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 7 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "8": {
+          "canonical_locator": "T48n2005 case 8 · T48n2005 p.0294a07–p.0294a13",
+          "status": "collated_with_normalization",
+          "note": "Case heading 奚仲造車 and line head 0294a07 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 8 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "9": {
+          "canonical_locator": "T48n2005 case 9 · T48n2005 p.0294a15–p.0294a23",
+          "status": "collated_with_normalization",
+          "note": "Case heading 大通智勝 and line head 0294a15 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 9 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "10": {
+          "canonical_locator": "T48n2005 case 10 · T48n2005 p.0294a25–p.0294b04",
+          "status": "collated_with_normalization",
+          "note": "Case heading 清稅孤貧 and line head 0294a25 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 10 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "11": {
+          "canonical_locator": "T48n2005 case 11 · T48n2005 p.0294b06–p.0294b17",
+          "status": "collated_with_normalization",
+          "note": "Case heading 州勘庵主 and line head 0294b06 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 11 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "12": {
+          "canonical_locator": "T48n2005 case 12 · T48n2005 p.0294b19–p.0294b27",
+          "status": "collated_with_normalization",
+          "note": "Case heading 巖喚主人 and line head 0294b19 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 12 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "13": {
+          "canonical_locator": "T48n2005 case 13 · T48n2005 p.0294b29–p.0294c11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 德山托鉢 and line head 0294b29 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 13 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "14": {
+          "canonical_locator": "T48n2005 case 14 · T48n2005 p.0294c13–p.0294c22",
+          "status": "collated_with_normalization",
+          "note": "Case heading 南泉斬猫 and line head 0294c13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 14 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "15": {
+          "canonical_locator": "T48n2005 case 15 · T48n2005 p.0294c24–p.0295a10",
+          "status": "collated_with_normalization",
+          "note": "Case heading 洞山三頓 and line head 0294c24 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 15 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "16": {
+          "canonical_locator": "T48n2005 case 16 · T48n2005 p.0295a12–p.0295a22",
+          "status": "collated_with_normalization",
+          "note": "Case heading 鐘聲七條 and line head 0295a12 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 16 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "17": {
+          "canonical_locator": "T48n2005 case 17 · T48n2005 p.0295a24–p.0295b03",
+          "status": "collated_with_normalization",
+          "note": "Case heading 國師三喚 and line head 0295a24 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 17 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "18": {
+          "canonical_locator": "T48n2005 case 18 · T48n2005 p.0295b05–p.0295b12",
+          "status": "collated_with_normalization",
+          "note": "Case heading 洞山三斤 and line head 0295b05 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 18 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "19": {
+          "canonical_locator": "T48n2005 case 19 · T48n2005 p.0295b14–p.0295b24",
+          "status": "collated_with_normalization",
+          "note": "Case heading 平常是道 and line head 0295b14 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 19 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "20": {
+          "canonical_locator": "T48n2005 case 20 · T48n2005 p.0295b26–p.0295c04",
+          "status": "collated_with_normalization",
+          "note": "Case heading 大力量人 and line head 0295b26 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 20 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "21": {
+          "canonical_locator": "T48n2005 case 21 · T48n2005 p.0295c06–p.0295c11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 雲門屎橛 and line head 0295c06 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 21 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "22": {
+          "canonical_locator": "T48n2005 case 22 · T48n2005 p.0295c13–p.0295c21",
+          "status": "collated_with_normalization",
+          "note": "Case heading 迦葉剎竿 and line head 0295c13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 22 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "23": {
+          "canonical_locator": "T48n2005 case 23 · T48n2005 p.0295c23–p.0296a11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 不思善惡 and line head 0295c23 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 23 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "24": {
+          "canonical_locator": "T48n2005 case 24 · T48n2005 p.0296a13–p.0296a20",
+          "status": "collated_with_normalization",
+          "note": "Case heading 離却語言 and line head 0296a13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 24 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "25": {
+          "canonical_locator": "T48n2005 case 25 · T48n2005 p.0296a22–p.0296a29",
+          "status": "collated_with_normalization",
+          "note": "Case heading 三座說法 and line head 0296a22 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 25 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "26": {
+          "canonical_locator": "T48n2005 case 26 · T48n2005 p.0296b02–p.0296b09",
+          "status": "collated_with_normalization",
+          "note": "Case heading 二僧卷簾 and line head 0296b02 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 26 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "27": {
+          "canonical_locator": "T48n2005 case 27 · T48n2005 p.0296b11–p.0296b18",
+          "status": "collated_with_normalization",
+          "note": "Case heading 不是心佛 and line head 0296b11 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 27 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "28": {
+          "canonical_locator": "T48n2005 case 28 · T48n2005 p.0296b20–p.0296c16",
+          "status": "collated_with_normalization",
+          "note": "Case heading 久響龍潭 and line head 0296b20 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 28 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "29": {
+          "canonical_locator": "T48n2005 case 29 · T48n2005 p.0296c18–p.0296c26",
+          "status": "collated_with_normalization",
+          "note": "Case heading 非風非幡 and line head 0296c18 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 29 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "30": {
+          "canonical_locator": "T48n2005 case 30 · T48n2005 p.0296c28–p.0297a07",
+          "status": "collated_with_normalization",
+          "note": "Case heading 即心即佛 and line head 0296c28 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 30 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "31": {
+          "canonical_locator": "T48n2005 case 31 · T48n2005 p.0297a09–p.0297a20",
+          "status": "collated_with_normalization",
+          "note": "Case heading 趙州勘婆 and line head 0297a09 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 31 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "32": {
+          "canonical_locator": "T48n2005 case 32 · T48n2005 p.0297a22–p.0297b02",
+          "status": "collated_with_normalization",
+          "note": "Case heading 外道問佛 and line head 0297a22 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 32 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "33": {
+          "canonical_locator": "T48n2005 case 33 · T48n2005 p.0297b04–p.0297b08",
+          "status": "collated_with_normalization",
+          "note": "Case heading 非心非佛 and line head 0297b04 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 33 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "34": {
+          "canonical_locator": "T48n2005 case 34 · T48n2005 p.0297b10–p.0297b15",
+          "status": "collated_with_normalization",
+          "note": "Case heading 智不是道 and line head 0297b10 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 34 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "35": {
+          "canonical_locator": "T48n2005 case 35 · T48n2005 p.0297b17–p.0297b24",
+          "status": "collated_with_normalization",
+          "note": "Case heading 倩女離魂 and line head 0297b17 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 35 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "36": {
+          "canonical_locator": "T48n2005 case 36 · T48n2005 p.0297b26–p.0297c03",
+          "status": "collated_with_normalization",
+          "note": "Case heading 路逢達道 and line head 0297b26 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 36 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "37": {
+          "canonical_locator": "T48n2005 case 37 · T48n2005 p.0297c05–p.0297c11",
+          "status": "collated_with_normalization",
+          "note": "Case heading 庭前柏樹 and line head 0297c05 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 37 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "38": {
+          "canonical_locator": "T48n2005 case 38 · T48n2005 p.0297c13–p.0297c20",
+          "status": "collated_with_normalization",
+          "note": "Case heading 牛過窓櫺 and line head 0297c13 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 38 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "39": {
+          "canonical_locator": "T48n2005 case 39 · T48n2005 p.0297c22–p.0298a01",
+          "status": "collated_with_normalization",
+          "note": "Case heading 雲門話墮 and line head 0297c22 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 39 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "40": {
+          "canonical_locator": "T48n2005 case 40 · T48n2005 p.0298a03–p.0298a14",
+          "status": "collated_with_normalization",
+          "note": "Case heading 趯倒淨瓶 and line head 0298a03 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 40 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "41": {
+          "canonical_locator": "T48n2005 case 41 · T48n2005 p.0298a16–p.0298a24",
+          "status": "collated_with_normalization",
+          "note": "Case heading 達磨安心 and line head 0298a16 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 41 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "42": {
+          "canonical_locator": "T48n2005 case 42 · T48n2005 p.0298a26–p.0298b13",
+          "status": "collated_with_normalization",
+          "note": "Case heading 女子出定 and line head 0298a26 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 42 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "43": {
+          "canonical_locator": "T48n2005 case 43 · T48n2005 p.0298b15–p.0298b22",
+          "status": "collated_with_normalization",
+          "note": "Case heading 首山竹篦 and line head 0298b15 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 43 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "44": {
+          "canonical_locator": "T48n2005 case 44 · T48n2005 p.0298b24–p.0298c01",
+          "status": "collated_with_normalization",
+          "note": "Case heading 芭蕉拄杖 and line head 0298b24 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 44 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "45": {
+          "canonical_locator": "T48n2005 case 45 · T48n2005 p.0298c03–p.0298c10",
+          "status": "collated_with_normalization",
+          "note": "Case heading 他是阿誰 and line head 0298c03 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 45 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "46": {
+          "canonical_locator": "T48n2005 case 46 · T48n2005 p.0298c12–p.0298c19",
+          "status": "collated_with_normalization",
+          "note": "Case heading 竿頭進步 and line head 0298c12 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 46 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "47": {
+          "canonical_locator": "T48n2005 case 47 · T48n2005 p.0298c21–p.0298c30",
+          "status": "collated_with_normalization",
+          "note": "Case heading 兜率三關 and line head 0298c21 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 47 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        },
+        "48": {
+          "canonical_locator": "T48n2005 case 48 · T48n2005 p.0299a02–p.0299a26",
+          "status": "collated_with_normalization",
+          "note": "Case heading 乾峯一路 and line head 0299a02 read from the pinned CBETA XML P5 T48n2005 (revision dbdea41071e1e260ad84b72faefd4587333cf76d); the 本則, 評唱, and 頌 are verbatim in that extraction under the pinned rule (tei:note/tei:g apparatus dropped, no rewording).",
+          "collation_note": "All represented source fields of case 48 collate verbatim to the pinned witness; the locator anchors the case's heading line.",
+          "source_edition": "CBETA XML P5 T48n2005 (T48 no. 2005 禪宗無門關), revision dbdea41071e1e260ad84b72faefd4587333cf76d"
+        }
+      }
     }
   },
   "policy": {

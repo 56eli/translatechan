@@ -167,9 +167,9 @@ This direction and the subsequent copy cleanup are implemented. PR #18 merged as
 ## 4. Measured snapshot
 
 ```text
-corpus=12 | slots=46 | verified=1 | matrix=21 | locators=4044/4044
+corpus=13 | slots=46 | verified=1 | matrix=21 | locators=4092/4092
 content CJK=855,603 | all-string CJK=918,065
-source-review: collated=10 | partial/failed=0 | unavailable=2
+source-review: collated=11 | partial/failed=0 | unavailable=2
 w1-evidence: flagged=630 (authoritative 2026-09-21 enthusiast fulls overlay) | historical=622 (2026-09-09) | report-figure-superseded=637
 w1-campaign: wumenguan(#29) biyanlu(#30) linji(#32) xinxin(#34) re-keyed | platform_sutra(#35) labelled
 w1-inventories: WITNESS_INVENTORY.md + WITNESS_INVENTORY_T48_T51.md + WITNESS_INVENTORY_XSERIES.md → PHASE2_PLAN.md
@@ -192,7 +192,7 @@ Verified citation reference coverage is **2 / 3**; the remaining **3** reference
 
 **W1 source-review disclosure:** the manifest records `collated_to_claimed_witness`, `partial_or_failed_w1_collation`, or `witness_unavailable` for every corpus item, and each status is re-derived from the merged evidence records (historical 2026-09-09 register + authoritative 2026-09-21 enthusiast fulls overlay, which inherits the chain back to the 2026-09-10 overlay's 35 entries). This is a containment/remediation state, not a rights decision. The Reader keeps **five separate, always-visible ledgers**: Source collation (W1) · Represented units · Translation & edition verification · Canonical source locator · Rights review. Containment/remediation state, not a rights decision. Source collation does not approve reuse. Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.
 
-W1 evidence: **12 documents, 15 flagged source fields** (authoritative 2026-09-21 enthusiast fulls overlay: `sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json`, inheriting the 38 entries of the 2026-09-20 Caoshan Benji overlay `sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json` verbatim — itself inheriting the 37 entries of the 2026-09-20 full-Jingde-Chuandeng-Lu overlay `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json`, the 36 entries of `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, and the 35 entries of `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 5,037 of 5,368 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all.
+W1 evidence: **13 documents, 15 flagged source fields** (authoritative 2026-09-21 enthusiast fulls overlay: `sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json`, inheriting the 38 entries of the 2026-09-20 Caoshan Benji overlay `sessions/COLLATION_REGISTER_2026-09-20_CAOSHAN_BENJI.json` verbatim — itself inheriting the 37 entries of the 2026-09-20 full-Jingde-Chuandeng-Lu overlay `sessions/COLLATION_REGISTER_2026-09-20_CHUANDENGLU_FULL.json`, the 36 entries of `sessions/COLLATION_REGISTER_2026-09-20_CORRECTION.json`, and the 35 entries of `sessions/COLLATION_REGISTER_2026-09-10_CORRECTION.json` plus the Congrong Lu reinstatement; historical 2026-09-09 register: `sessions/COLLATION_REGISTER_2026-09-09.json` with 34 documents and 622 flagged fields — the 637 figure in the 2026-09-09 report is **superseded**); 5,037 of 5,368 source-content fields collate to their claimed witness, and 22 documents have no collating source-content field at all.
 
 Completion requires explicit `complete_selected_witness` status, satisfied unit targets, and a collated W1 source-review status. After the W1 containment update, no document qualifies as complete selected witness; Wumenguan and Xinxin Ming are represented at 48/48 and 37/37 units respectively but remain partial/failed W1 collation. Biyanlu and Linji remain partial; Platform remains an excerpt seed despite 10/10 represented chapter headings.
 
@@ -335,6 +335,6 @@ PR [#18](https://github.com/56eli/translatechan/pull/18) merged into `main` as `
 
 > **Measured status refresh 2026-09-21 (P2 Tier2 + enthusiast final):** the corpus carries **184** provenance-note strings across four keys (`cbeta_note` 30, `coverage_note` 42, `editorial_note` 98, `recension_note` 14), **142 of 184** rendering beside a passage, **37** documents carrying at least one label.
 
-> **Measured status refresh 2026-09-21 (PURGE retellings removed):** the corpus carries **21** provenance-note strings across four keys (`cbeta_note` 11, `coverage_note` 10, `editorial_note` 0, `recension_note` 0), **11 of 21** rendering beside a passage, **11** documents carrying at least one label. **12 documents, 15 flagged source fields**.
+> **Measured status refresh 2026-09-21 (PURGE retellings removed):** the corpus carries **21** provenance-note strings across four keys (`cbeta_note` 11, `coverage_note` 10, `editorial_note` 0, `recension_note` 0), **11 of 21** rendering beside a passage, **11** documents carrying at least one label. **13 documents, 15 flagged source fields**.
 
 > the remaining **1**

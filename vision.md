@@ -374,4 +374,4 @@ Translating Classical Chinese Chan literature requires balancing three essential
 
 > **12 documents, 15 flagged source fields** — purged retellings removed, 12 docs remain (10 collated +2 unavailable), flagged total 15
 
-> **Measured status refresh 2026-09-21 (PURGE retellings removed):** the corpus carries **21** provenance-note strings across four keys (`cbeta_note` 11, `coverage_note` 10, `editorial_note` 0, `recension_note` 0), **11 of 21** rendering beside a passage, **11** documents carrying at least one label. **12 documents, 15 flagged source fields**.
+> **Measured status refresh 2026-09-21 (PURGE retellings removed):** the corpus carries **21** provenance-note strings across four keys (`cbeta_note` 12, `coverage_note` 10, `editorial_note` 0, `recension_note` 0), **11 of 21** rendering beside a passage, **11** documents carrying at least one label. **12 documents, 15 flagged source fields**.

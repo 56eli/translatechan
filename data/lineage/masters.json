@@ -715,7 +715,9 @@
       "無門慧開"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [],
+    "linked_corpus_keys": [
+      "wumenguan"
+    ],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."

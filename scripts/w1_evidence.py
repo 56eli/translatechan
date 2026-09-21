@@ -137,11 +137,11 @@ FIXED_METADATA = {
     # the new overlay inherits its 38 per-document entries verbatim and adds exactly the six measured
     # documents. The reference set is unchanged as a set (the manifest is byte-identical to the
     # Caoshan overlay's 41 works); the designated flagged total stays 630.
-    "correction_report_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md",
-    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt",
+    "correction_report_path": "sessions/COLLATION_W1_2026-09-21_WUMENGUAN.md",
+    "correction_register_path": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
+    "correction_refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_WUMENGUAN_refs_manifest.txt",
     "correction_evidence_date": "2026-09-21",
-    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
+    "authoritative_register_path": "sessions/COLLATION_REGISTER_2026-09-21_WUMENGUAN.json",
 }
 #: The historical digest manifest is part of the committed evidence even though the
 #: manifest metadata only declares the correction side by name.

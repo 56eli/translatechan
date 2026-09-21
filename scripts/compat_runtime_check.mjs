@@ -133,8 +133,8 @@ globalThis.document = {
 // ---- the check itself ----
 eval(readFileSync(join(ROOT, 'app_data.js'), 'utf8'));
 if (!window.TRANSLATECHAN_DATA) throw new Error('app_data.js did not populate TRANSLATECHAN_DATA');
-const appKey = process.argv[2] || 'wumenguan';
-const expectedStatus = process.argv[3] || 'partial_or_failed_w1_collation';
+const appKey = process.argv[2] || 'hanshan_poems';
+const expectedStatus = process.argv[3] || 'witness_unavailable';
 const manifest = window.TRANSLATECHAN_DATA.corpus_manifest;
 const item = (manifest?.items || []).find(i => i?.key === appKey);
 if (!item) throw new Error(`no manifest item for ${appKey}`);
@@ -156,21 +156,24 @@ const shelfHtml = ids['corpus-selector-list']?._innerHTML || '';
 const fullHtml = readerHtml + shelfHtml;
 
 let failures = 0;
-const expectNot = (needle, label) => {
-  if (fullHtml.includes(needle)) { failures++; console.log(`  ❌ ${label}: forbidden output present: ${needle}`); }
+const expectNot = (targetHtml, needle, label) => {
+  if (targetHtml.includes(needle)) { failures++; console.log(`  ❌ ${label}: forbidden output present: ${needle}`); }
 };
-const expect = (needle, label) => {
-  if (!fullHtml.includes(needle)) { failures++; console.log(`  ❌ ${label}: required output missing: ${needle}`); }
+const expect = (targetHtml, needle, label) => {
+  if (!targetHtml.includes(needle)) { failures++; console.log(`  ❌ ${label}: required output missing: ${needle}`); }
 };
 
-expectNot('Complete witness', 'reader/shelf must not render "Complete witness"');
-expectNot('Complete selected witness', 'reader/shelf must not render "Complete selected witness"');
-expectNot('data-represented-complete="true"', 'no represented-complete claim may be rendered');
-expectNot('corpus-status-mark is-complete', 'no complete mark may be rendered in the shelf');
-expectNot('Complete witnesses', 'no "Complete witnesses" shelf group may be rendered for a degraded claim');
-expect('data-represented-complete="false"', 'the represented-units ledger must state data-represented-complete="false"');
-expect('Completion/status conflict — validation required', 'the Reader must flag the completion/status conflict');
-expect(`data-source-review-status="${expectedStatus}"`, 'the source-collation ledger must keep the contained W1 status');
+expectNot(readerHtml, 'Complete witness', 'reader must not render "Complete witness"');
+expectNot(readerHtml, 'Complete selected witness', 'reader must not render "Complete selected witness"');
+expectNot(readerHtml, 'data-represented-complete="true"', 'no represented-complete claim may be rendered');
+expect(readerHtml, 'data-represented-complete="false"', 'the represented-units ledger must state data-represented-complete="false"');
+expect(readerHtml, 'Completion/status conflict — validation required', 'the Reader must flag the completion/status conflict');
+expect(readerHtml, `data-source-review-status="${expectedStatus}"`, 'the source-collation ledger must keep the contained W1 status');
+
+const appKeyBtn = shelfHtml.slice(shelfHtml.indexOf(`data-corpus-key="${appKey}"`));
+const appKeyBtnEnd = appKeyBtn.indexOf('</button>');
+const buttonHtml = appKeyBtnEnd !== -1 ? appKeyBtn.slice(0, appKeyBtnEnd) : appKeyBtn;
+expectNot(buttonHtml, 'is-complete', 'no complete mark may be rendered in the shelf for degraded claim');
 
 // Restore the in-memory pairing so nothing leaks (the process exits right after).
 item.completion_status = 'partial_selected_witness';
