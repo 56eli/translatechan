@@ -1,20 +1,15 @@
 {
   "schema_version": "1.1",
-  "export_timestamp": "2026-09-21T15:05:02Z",
-  "commit": "dea0c2685ff479af1927ce516919380610d8c9d6",
+  "export_timestamp": "2026-09-21T15:27:31Z",
+  "commit": "a77d577662a168e4db437f781da4d7c16c642573",
   "only_collated": true,
   "w1_filter": "collated_to_claimed_witness",
-  "description": "TranslateChan export — ONLY 100% collated docs per owner ruling Q7 W3. No imperfections on wiki. 10 collated docs. 5 masters +5 passages sample.",
+  "description": "TranslateChan export PURGED — retellings removed, 12 docs remain (10 collated +2 unavailable), 10 exported to wiki per Q7 W3. No imperfections.",
   "files": [
     {
-      "path": "data/corpus/zhengdao_ge.json",
-      "sha256": "7e66c28e3c470cc8fe8674d2adb2edefe7421b2530cd4b75c6d934c3507d5e0a",
-      "size": 10356
-    },
-    {
-      "path": "data/corpus/congronglu.json",
-      "sha256": "4b5eb6f4723d14362dbd8e74ef31080e30f234097c24edeeccc8ce74e1e4d0d6",
-      "size": 375574
+      "path": "data/corpus/caoshan_benji.json",
+      "sha256": "3a790e52c461f3a7cadcf69150d82978b84b0b9c3b31e0256998c886a1da5d71",
+      "size": 85055
     },
     {
       "path": "data/corpus/chuandenglu_full.json",
@@ -22,9 +17,24 @@
       "size": 1799640
     },
     {
-      "path": "data/corpus/caoshan_benji.json",
-      "sha256": "3a790e52c461f3a7cadcf69150d82978b84b0b9c3b31e0256998c886a1da5d71",
-      "size": 85055
+      "path": "data/corpus/congronglu.json",
+      "sha256": "4b5eb6f4723d14362dbd8e74ef31080e30f234097c24edeeccc8ce74e1e4d0d6",
+      "size": 375574
+    },
+    {
+      "path": "data/corpus/dahui_yulu_full.json",
+      "sha256": "af73aa19c9561c284b8d765170eb8c4d044b5f5f1623c1da9346fc4c39252a47",
+      "size": 1296442
+    },
+    {
+      "path": "data/corpus/dongshan_yulu_full.json",
+      "sha256": "7c03aad95e930f5e45e06c0e6d70011c954a143d8fcb1d9c517eb5aceb86be1b",
+      "size": 241126
+    },
+    {
+      "path": "data/corpus/hanshan_poems.json",
+      "sha256": "db727a6a087ac327085aed9d6fa1e068ccac8ad65d080e2f69ea01f44b12979e",
+      "size": 6820
     },
     {
       "path": "data/corpus/huangbo_fayao_full.json",
@@ -37,14 +47,14 @@
       "size": 35131
     },
     {
+      "path": "data/corpus/niutou_juezhu.json",
+      "sha256": "2bc0db58324dc55f6b57ca9980ccb6de3482e33ad8ef0642526a3b23a039531a",
+      "size": 8274
+    },
+    {
       "path": "data/corpus/yunmen_guanglu_full.json",
       "sha256": "b46337502bc37e36d1b17808c936fc361a3365d29024a72986499c585cdcb762",
       "size": 526216
-    },
-    {
-      "path": "data/corpus/dongshan_yulu_full.json",
-      "sha256": "7c03aad95e930f5e45e06c0e6d70011c954a143d8fcb1d9c517eb5aceb86be1b",
-      "size": 241126
     },
     {
       "path": "data/corpus/zhaozhou_yulu_full.json",
@@ -52,14 +62,14 @@
       "size": 107334
     },
     {
-      "path": "data/corpus/dahui_yulu_full.json",
-      "sha256": "af73aa19c9561c284b8d765170eb8c4d044b5f5f1623c1da9346fc4c39252a47",
-      "size": 1296442
+      "path": "data/corpus/zhengdao_ge.json",
+      "sha256": "7e66c28e3c470cc8fe8674d2adb2edefe7421b2530cd4b75c6d934c3507d5e0a",
+      "size": 10356
     },
     {
       "path": "data/lineage/masters.json",
-      "sha256": "531d1b652486db09e1e4f0a2aa6ea674df1ea57582ada710fbbd21af71b579b3",
-      "size": 63933
+      "sha256": "9805ea161bb52165caff0d652d82d5d8964834765b2aec559159316317deed34",
+      "size": 62811
     },
     {
       "path": "data/lineage/lineage_verification.json",
@@ -68,8 +78,13 @@
     },
     {
       "path": "data/corpus_manifest.json",
-      "sha256": "0b48170658e91b3efe853d705fbb3679c8a1c8647b89a8370b024efd4850071e",
-      "size": 13009
+      "sha256": "31a2dd1d78d2d9df39d965001abd0b77d03cac2c326aef0877e80987a3dd69a5",
+      "size": 6218
+    },
+    {
+      "path": "data/canonical_locators.json",
+      "sha256": "a0dde0d82bdfb14651e3698a35a176c4375a006c0f8148bb522f0f487cf03183",
+      "size": 3348006
     },
     {
       "path": "docs/SCHEMA.md",
@@ -93,18 +108,16 @@
     },
     {
       "path": "docs/ANSWERS_FOR_BOTRUNNER_2026-09-21.md",
-      "sha256": "efdeb8979413de6e065e4a0d03594f8f7d4ae22d6de6c88860e201951b8ecd00",
-      "size": 20710
+      "sha256": "4487182e4936695a5746bb209de634ce6e428f1534c73b588a1a58087b9c2135",
+      "size": 25568
     },
     {
       "path": "docs/sample_export.jsonl",
       "sha256": "360648b43a6c85dc8042aa019a3fddd436d23f36e05f5d0db888a34aa203c23a",
       "size": 16258
-    },
-    {
-      "path": "docs/sample_export.json",
-      "sha256": "ddbb05c72bd8136677587ca2cf7c7d607b7fd1a0ab0923a793f46048866f53a2",
-      "size": 19368
     }
-  ]
+  ],
+  "purged_retellings": 32,
+  "remaining_docs": 12,
+  "exported_to_wiki": 10
 }

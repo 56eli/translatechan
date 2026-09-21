@@ -665,16 +665,11 @@
     "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
     "rule": "statuses are byte-identity of the reference file against a named digest manifest; `drift` never rescues a claim and never upgrades one",
     "counts": {
-      "verified": 17,
-      "drift": 0,
-      "unlisted": 0,
-      "none": 0
+      "verified": 17
     },
     "historical_counts": {
       "verified": 13,
-      "drift": 4,
-      "unlisted": 0,
-      "none": 0
+      "drift": 4
     },
     "drifted_refs": [
       "T47n1987B",

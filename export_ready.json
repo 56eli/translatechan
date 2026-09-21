@@ -1,8 +1,8 @@
 {
   "schema_version": "1.1",
-  "export_timestamp": "2026-09-21T15:05:02Z",
-  "commit": "dea0c2685ff479af1927ce516919380610d8c9d6",
+  "export_timestamp": "2026-09-21T15:27:31Z",
+  "commit": "a77d577662a168e4db437f781da4d7c16c642573",
   "ready": true,
   "only_collated": true,
-  "files_sha256": "7f5de51fa4d2fc54005541ede28e451dd56f9aa08fea755d306e5286cce64f74"
+  "purged": true
 }

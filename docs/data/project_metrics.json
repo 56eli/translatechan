@@ -1,156 +1,28 @@
 {
   "canonical_locator_coverage": {
-    "case_level_documents": 11,
-    "case_locators": 4192,
-    "declared_cases": 4192,
-    "document_level_seed_documents": 33,
-    "documents": 44
+    "case_level_documents": 9,
+    "case_locators": 4044,
+    "declared_cases": 4044,
+    "document_level_seed_documents": 3,
+    "documents": 12
   },
   "corpus": {
-    "all_corpus_cjk_characters": 919112,
+    "all_corpus_cjk_characters": 806651,
     "complete_documents": [],
     "completion_statuses": {
-      "excerpt_seed": 31,
-      "partial_selected_witness": 13
+      "excerpt_seed": 3,
+      "partial_selected_witness": 9
     },
-    "content_cjk_characters": 855603,
+    "content_cjk_characters": 751084,
     "content_shapes": {
-      "cases": 11,
-      "chapters": 1,
-      "dialogues": 2,
-      "five_ranks": 1,
-      "sample_records": 1,
-      "sections": 25,
-      "stanzas": 4
+      "cases": 9,
+      "sections": 1,
+      "stanzas": 2
     },
-    "documents": 44,
-    "excerpt_seed_documents": 31,
-    "incomplete_documents": 44,
+    "documents": 12,
+    "excerpt_seed_documents": 3,
+    "incomplete_documents": 12,
     "per_text": {
-      "baizhang_guanglu": {
-        "all_cjk_chars": 348,
-        "cbeta_id": "X1323 (四家語錄卷三·百丈懷海禪師廣錄) / X1315 (古尊宿語錄·百丈懷海語錄)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 224,
-        "coverage_note": "3/3 sections represented, carrying 6 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields are verbatim in either claimed witness (X69n1323 四家語錄卷三 and X68n1315 古尊宿語錄): no field carries a run of 8 or more graphs in either claimed work (0 of 44, 0 of 38, 0 of 34, 0 of 27, 0 of 41 and 0 of 40 runs per field). The only measured carrier of this wording is the uncited 五燈會元 X80n1565 — 4 of the 6 fields as 16–28-graph fragments (s1.d0 24/34 @60,222; s1.d1 16/27 @60,252; s2.d0 18/41 @60,428 + @60,441; s2.d1 28/40 @60,465 + @60,485) — while s0.d0 and s0.d1 have no run in any of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift). The wording is therefore a project composition, not an excerpt of either claimed work, and no field was re-keyed; an older complete copy is OUT-OF-CBETA human sourcing, not agent work. The cbeta_note (ID-correct) is unchanged.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 10,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X69n1323",
-            "X68n1315"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Baizhang Guanglu (百丈廣錄三句)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
-      "baojing_sanmei": {
-        "all_cjk_chars": 181,
-        "cbeta_id": "T1986",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 104,
-        "coverage_note": "6/6 stanzas represented. RE-KEY 2026-09-16 (R-A, PHASE2_PLAN rank 26): four of the six stanzas were re-keyed grapheme-for-grapheme to the pinned CBETA witness T47n1986A (upstream dbdea410; refs 39 verified / 0 drift); stanzas 1 and 5 were already verbatim in it and were left untouched. 5 of the replaced clauses (銀碗盛雪 / 來機便赴 / 背觸共忌 / 如面臨鏡 / 容色相覷) return 0 hits in all 39 pinned refs, so no witness in the set carries them, while every re-keyed clause is carried by in-set witnesses. The remaining replaced clause is a variant, not a fabrication: 類之弗齊 is carried by T47n1986B, X80n1565 while the primary reads 類之不齊; the primary's reading was adopted so that all six stanzas are verbatim in one claimed witness, and the variant is recorded here rather than dropped silently. T47n1986A is the primary because it carries the song as its own titled section (寶鏡三昧歌) and carries all six stanzas verbatim; the carriers' other disagreement is recorded the same way — 銀盌盛雪 (T47n1986A, X80n1565) against T47n1986B's unique 銀怨盛雪, which no other carrier supports. Pinyin was rewritten syllable-by-syllable for the four re-keyed stanzas; the English renderings stay labelled reconstruction_unverified / ai_draft and were not touched. A fresh collation on the digest-verified refs after the re-key measures 6/6 content fields EXACT in T47n1986A (before: 2/6 — DIVERGENT 3, NOT_FOUND 1); the W1 source-review status stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated by this change (630 remains the authoritative flagged total). Residual, measured separately from content and out of scope: one metadata flag — .title_zh is a project composite heading (洞山良价大師 寶鏡三昧歌) where the witness's attested title is 寶鏡三昧歌; composite-title work is a separate plan item. Representation does not establish complete selected-witness status.",
-        "is_complete": false,
-        "shapes": [
-          "stanzas"
-        ],
-        "source_review": {
-          "content_fields_collated": 2,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 5,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T47n1986A",
-            "T47n1986B"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Jewel Mirror Samadhi (寶鏡三昧)",
-        "unit_counts": {
-          "stanzas": 6
-        }
-      },
-      "biyanlu_cases": {
-        "all_cjk_chars": 77003,
-        "cbeta_id": "T2003",
-        "completion_status": "partial_selected_witness",
-        "content_zh_chars": 75852,
-        "coverage": "100/100 cases",
-        "coverage_note": "100/100 case records represented; W1 source-review status: partial_or_failed_w1_collation (375/395 evaluated source-content fields collate to the claimed T2003 witness after the 2026-09-10 R-A re-key and the 2026-09-16 two-graph RE-KEY). Residual 106 flagged fields: 20 MINOR content fields (16 commentary_zh, 1 pointer_zh, 2 dialogue zh and 1 verse_zh) — <g>-glyph / charDecl edition-graphic residue, left untouched by the adopted policy (REMEDIATION_PLAN §1: EXACT/MINOR fields are left untouched) — plus 86 title_zh metadata flags (71 SHORT_UNMATCHED, 11 NOT_FOUND, 4 TITLE_COMPOSITE); composite-title splitting is a separate plan item, and title metadata is measured separately from source content, so it never blocks collated_to_claimed_witness. Of the former 22 MINOR, 2 were project readings rather than edition-graphic residue and were re-keyed verbatim to the witness on 2026-09-16: 築 in .cases[10].commentary_zh (0× in the pinned XML and ref — the witness carries <g> 𡎺 at that position, the reading already used at five other CB05218 positions in this document) → 𡎺, and the final 看 in .cases[64].pointer_zh (the witness reads 試舉。 without 看 at this position; it uses 試舉看 at the 60 other 試舉 positions) removed. Two re-keyed fields carry additive editorial_note labels in structured metadata: case 20's verse_zh formerly joined 雪竇's 頌 to his appended 復成一頌 (T48n2003 records them as two passages with 評唱 between them), and case 96's 舉 formerly carried a project parenthetical that T48n2003 does not contain. T48n2003 records a 垂示 for 79 of the 100 cases; this document carries 78 pointers — case 42's 垂示 exists in the witness but is not represented here, a coverage gap recorded rather than implied absent. Representation does not establish complete selected-witness status.",
-        "declared_zh_chars": 75852,
-        "is_complete": false,
-        "shapes": [
-          "cases"
-        ],
-        "source_review": {
-          "content_fields_collated": 353,
-          "content_fields_total": 395,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 128,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T48n2003"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Blue Cliff Record (碧巖錄)",
-        "unit_counts": {
-          "cases": 100
-        }
-      },
-      "bodhidharma_erru": {
-        "all_cjk_chars": 768,
-        "cbeta_id": "T2009",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 434,
-        "coverage_note": "6/6 source-content fields represented. RE-KEY 2026-09-16 (R-A, PHASE2_PLAN rank 52, RE-KEY 3 of 10): before this change 1/6 dialogue fields were verbatim against the pinned CBETA witness T48n2009 (upstream dbdea41071e1e260ad84b72faefd4587333cf76d; refs 39 verified / 0 drift) — four fields DIVERGENT at 0.9492–0.973 (single graphs and framing: 但/俱, 言/文, 都/皆, plus the enumeration headings) and one field NOT_FOUND at 0.6615 (38 of its 58 eight-graph windows in the witness) — and all five non-EXACT fields are now re-keyed grapheme-for-grapheme to T48n2009, so a fresh collation on the digest-verified refs measures 6/6 content fields EXACT (before: 1/6). Per REMEDIATION_PLAN §1: the four DIVERGENT fields are re-keyed from the witness (preferred), and the NOT_FOUND field (無所求行) is likewise re-keyed from the witness (preferred) because the claimed witness carries the passage — the corpus field was an abridgment of it, not a project retelling, so the R-B retained-retelling label did not apply. Re-keyed changes: 理入 但為→俱為, 言教→文教; 報冤行 一、報冤行：→云何報冤行, +謂, 我往昔→我從往昔, 是我宿殃→是皆宿殃, 體冤進道，故說報冤行→體冤進道故。說言報冤行; 隨緣行 二、隨緣行：→二隨緣行者, 都從緣生→皆從緣生, 是故說隨緣行→是故說言隨緣行也; 無所求行 三、無所求行：→三無所求行者, +功德黑暗。常相隨逐。三界久居猶如火宅。有身皆苦。誰得而安。了達此處。故捨諸有。息想無求。 (the 36 graphs the corpus field omitted), 無求即樂→無求乃樂, 故言無所求行→故言無所求行也; 稱法行 四、稱法行：→四稱法行者, 此理眾相斯空→信解此理。眾相斯空. The re-keyed fields keep the witness's own Taishō punctuation (。); pinyin was rewritten syllable-by-syllable for the five fields. Second in-CBETA carrier: T51n2076 (Jingde Chuandeng lu) carries the same passage; before the re-key 2/6 fields (the 夫入道多途 opening and the 稱法行 field) were verbatim in it, the corpus's superseded readings 但為 (理入), 是我宿殃 (報冤) and 四稱法行…此理眾相斯空 (稱法行) are T51n2076 readings, and 我往昔 / 都從緣生 / 無求即樂 matched neither carrier — the T48n2009 (claimed-witness) readings were adopted so the whole document measures against a single claimed witness, and the T51n2076 variants are recorded here rather than dropped silently. The English renderings were not touched (their statuses stay reconstruction_unverified / verified_quotation). Residual, measured separately from content: 4 NOT_FOUND title_zh metadata flags — the root title 達摩大師 二入四行論 is a project composite where the pinned witness's attested title is 少室六門 and this text is its third section (第三門二種入), and the three section headings are project composites; title metadata is measured separately from source content and composite-title work is a separate plan item (PHASE2_PLAN ranks 43, 53). The W1 source-review status in data/corpus_manifest.json stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated by this change (630 remains the authoritative flagged total). Representation does not establish complete selected-witness status.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 1,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 9,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T48n2009"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Bodhidharma Erru Sixing (二入四行論)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
       "caoshan_benji": {
         "all_cjk_chars": 14392,
         "cbeta_id": "T1987A",
@@ -187,68 +59,6 @@
         "title": "The Record of Caoshan Benji (曹山元證禪師語錄)",
         "unit_counts": {
           "cases": 84
-        }
-      },
-      "caoxi_zhuan": {
-        "all_cjk_chars": 480,
-        "cbeta_id": "X1598 (曹溪大師別傳) / P.3018",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 237,
-        "coverage_note": "4 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields is verbatim in the claimed X86n1598 (曹溪大師別傳) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (4 of 4 — 3 of 4 is 75 percent) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 12/70 in X86n1598 — the longest claimed-witness run is 應無所住而生其心言下大悟 @6,790 (12 graphs), and it sits inside the 別傳's 壇經-comparison passage (獨壇經記曰三鼓入室…為說金剛經至應無所住而生其心言下大悟今謂…), not the market-awakening narrative this field retells; the field's 應無所住而生其心 span also matches three shorter 別傳 occurrences (@6,745, @6,881, @6,986); the measurable relatives of the wording are the Tanjing recensions — the uncited T48n2008 carries 19/70 (@4,958 + @3,376) and X68n1315 16/70; s1.d0 0/36 (no run of 8 or more graphs in any ref); s1.d1 0/56 in the claimed work (the 獦獠 exchange's relatives: the uncited T48n2008 22/56 @3,570 + @3,588, T48n2007 8/56 @481); s2.d0 0/75 in the claimed work (the hunters passage's relative: the uncited T48n2008 10/75 @5,711, 每至飯時以菜寄煮肉鍋). Retellings retained with R-B labels.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 4,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 7,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X86n1598"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Caoxi Dashi Biezhuan (曹溪大師別傳)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
-      "chuandenglu": {
-        "all_cjk_chars": 428,
-        "cbeta_id": "T2076",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 144,
-        "coverage_note": "6/6 source-content fields represented across the two sample records (南嶽磨磚作鏡, fasc. 5; 龐居士參馬祖, fasc. 8). RE-KEY 2026-09-16 (R-A, PHASE2_PLAN ranks 25 / 36 / 59, RE-KEY 4 of 10): before this change 1/6 content fields were verbatim against a claimed witness — that one being the five-graph line 一曰圖作佛 — with 2 DIVERGENT (0.9677, 0.9259) and 3 NOT_FOUND (0.8293, 0.7647, 0.8095), and the document carried no coverage, recension or ID note of any kind (rank 59). After it, 4/6 content fields collate (before: 1/6) and total flagged entries fall 7 → 4, measured on the digest-verified pinned references. Attribution — the substance of rank 36 — is that three works carry parts of this selection and none carries all six fields: the claimed Jingde Chuandeng lu T51n2076 (Taishō 51 no. 2076, the work this document is titled for) carries 一曰圖作佛 whole at offset 50789 and the 景德傳燈錄 root title at offset 0; the Wudeng huiyuan X80n1565, previously a probe only, carries the 磨磚 exchange at offset 58424 and the 西江水 exchange at offset 83122; and the previously uncited Hongzhi chanshi guanglu T48n2001 alone carries the 龐居士問馬祖 question whole — 17 of its 17 graphs — at offset 66315, which no other reference in the 39-work set carries. A probe annotates `also_in` but never contributes to `content_fields_collated`, so X80n1565 is promoted from probe to claimed witness and T48n2001 is added in scripts/collate_corpus.py's DOCS mapping; all three were already in the 39-work refs manifest (lines 14, 26, 38), so the reference set is unchanged and all three verify (3/3). Two source fields were re-keyed, both grapheme-for-grapheme from X80n1565 with the project's punctuation positions untouched: s0.d3 如人駕車 → 如牛駕車 (one graph — the field carried X80n1565's 車若不行 clause with T51n2076's 人), and s1.d1 士於言下大悟 → 士於言下頓領玄旨; their sibling pinyin was rewritten syllable-by-syllable (rén → niú; dà wù → dùn lǐng xuán zhǐ). s1.d0 needed no text change at all: it was already byte-verbatim in T48n2001, so its defect was the missing citation, not the wording. s0.d2 is retained rather than re-keyed — 0 of its 30 twelve-graph windows occur in any of the 39 references — and is labelled as a project paraphrase of an attested episode by the additive per-field editorial_note above. Readings not adopted are recorded rather than dropped: for the 磨磚 exchange T51n2076 writes 一塼 / 師作什麼 / 磨塼豈得成鏡耶坐禪豈得成佛耶 and X80n1565 writes 一甎 / 磨作甚麼 / 磨甎豈得成鏡邪 / 磨甎既不成鏡坐禪豈得作佛; for the 西江水 exchange T51n2076 writes 祖云…居士言下頓領, and for s1.d0 it writes 西參問馬祖云不與萬法為侶者是什麼人, without the 龐居士問馬祖 attribution this field carries and with 什麼 for 甚麼. Two residuals are documented and deliberately untouched: s0.d0 stays DIVERGENT at 0.9677 against T51n2076 on a single grapheme (corpus 甚麼, witness 什麼) and is outside this task's named scope; and 2 NOT_FOUND title_zh metadata flags (南嶽磨磚作鏡, 龐居士參馬祖一口吸盡西江水) are project composite titles, measured separately from source content (composite-title plan item). The W1 source-review status in data/corpus_manifest.json stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated by this change (630 remains the authoritative flagged total). Representation does not establish complete selected-witness status.",
-        "is_complete": false,
-        "shapes": [
-          "sample_records"
-        ],
-        "source_review": {
-          "content_fields_collated": 1,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 7,
-          "probe_refs": [
-            "X80n1565"
-          ],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T51n2076"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Transmission of Lamp (景德傳燈錄)",
-        "unit_counts": {
-          "sample_records": 2
         }
       },
       "chuandenglu_full": {
@@ -317,69 +127,6 @@
           "cases": 100
         }
       },
-      "dahui_hongzhi": {
-        "all_cjk_chars": 777,
-        "cbeta_id": "T47n1998A / T47n1998B + T48n2001 (大慧普覺禪師語錄 + 宏智禪師廣錄, 默照銘)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 620,
-        "coverage_note": "0/6→6/6 after re-key, 默照銘 tail previously fabricated (雪覆夜沼 etc 0 hits in 39 refs) now verbatim T48n2001, 4 letters 0/4→4/4 verbatim T47n1998A/B, recipient 張九成 not in T47n1998A disclosed",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 11,
-          "probe_refs": [],
-          "refs_total": 3,
-          "refs_verified": 3,
-          "status": "partial_or_failed_w1_collation",
-          "witness_note": "Hongzhi's Mozhaoming lives in T2001 Hongzhi guanglu, not claimed T1998A.",
-          "witness_refs": [
-            "T47n1998A",
-            "T47n1998B",
-            "T48n2001"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Dahui & Hongzhi (看話書問與默照銘)",
-        "unit_counts": {
-          "sections": 4
-        }
-      },
-      "dahui_shobogenzo": {
-        "all_cjk_chars": 307,
-        "cbeta_id": "X1309 (大慧普覺禪師正法眼藏)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 180,
-        "coverage_note": "3/3 sections represented, carrying 4 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields are verbatim in the claimed witness X67n1309 正法眼藏. Two of the four are carried by it only as non-verbatim runs (.sections[0].dialogue[0].zh 21/40 @74,756; .sections[0].dialogue[1].zh 35/37 @7,536, DIVERGENT at 0.973 similarity). .sections[1].dialogue[0].zh (56 graphs) has no source in the claimed work and only a 9/56 run in the older 景德傳燈錄 T51n2076 @142,146; .sections[2].dialogue[0].zh (47 graphs) has no run of 8 or more graphs in any of the 39 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 39 verified / 0 drift). The cbeta_note is ID-correct but records no coverage: one field is carried only by the 傳燈錄 and one is carried by nothing in the reference set. No field was re-keyed; an older complete copy is OUT-OF-CBETA human sourcing, not agent work.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 4,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 8,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X67n1309"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Dahui Shobogenzo (大慧正法眼藏)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
       "dahui_yulu_full": {
         "all_cjk_chars": 217999,
         "cbeta_id": "T1998A + T1998B",
@@ -414,104 +161,6 @@
         "title": "The Recorded Sayings of Dahui Zonggao, Complete (大慧普覺禪師語錄)",
         "unit_counts": {
           "cases": 1354
-        }
-      },
-      "dazhu_huihai": {
-        "all_cjk_chars": 389,
-        "cbeta_id": "X1223 (頓悟入道要門論) / X1224 (諸方門人參問語錄)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 260,
-        "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the witnesses recorded in the record (X63n1223 / X63n1224; 2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in any of the 40 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed. X63n1223 (listed first, a treatise) contributes zero runs of 8 or more graphs to every field; X63n1224 (the record proper) carries the material rearranged — 35 of 60 (s0.d0, three runs), 40 of 54 (s0.d1), 28 of 32 (s2.d0), 16 of 43 (s2.d1, whose closing attribution adds a one-graph name prefix the witness does not carry). Best measured carriers elsewhere: X80n1565 55 of 60 for s0.d0 (three runs, longest 30 graphs at offset 71,318) and T51n2076 44 of 54 in a single run at offset 58,336 for s0.d1; s1.d0 and s1.d1 have no run of 8 or more graphs in any of the 40 refs; s2.d1 is split across T51n2076, X63n1224 and X80n1565 (16 of 43 each). Retellings retained as written (below the re-key threshold); a witness that would carry a field as written would be OUT-OF-CBETA human sourcing, not agent work.  Retry 2026-09-21 task 054: re-extracted X63n1223 (26,007 CJK, 頓悟入道要門論) X63n1224 (24,933 CJK, 參問語錄) X68n1315 (1,336,350 CJK, 古尊宿語錄) via cbeta-p5-body-cjk-v1 from CBETA XML P5 revision dbdea410, verified digests, collated with COLLATION_REFS=/tmp/refs --require-verified-refs --generated 2026-09-21 — result still 0/6 EXACT (1 EXACT title, 2 DIVERGENT, 7 NOT_FOUND for dazhu; 1 EXACT title, 1 DIVERGENT, 7 NOT_FOUND, 1 TITLE_COMPOSITE for nanquan), partial_or_failed_w1_collation, threshold 5/6 not met, no field re-keyed. Largest shared runs remain as previously measured; no new carrier found.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 9,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X63n1223",
-            "X63n1224"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Dazhu Huihai Dunwu Yaomen (頓悟入道要門)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
-      "deshan_yulu": {
-        "all_cjk_chars": 575,
-        "cbeta_id": "embedded: T2076 f.15 / X1565 f.7",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 236,
-        "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields is verbatim in the claimed T51n2076 (景德傳燈錄 卷15) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs against the claimed witness (floor 8 graphs): s0.d0 0/42 (no run of 8 or more graphs of the 婆子 field in any of the 43 refs); s0.d1 0/39; s0.d2 0/35 (the 金剛經道過去心不可得 question is carried 24/35 in the uncited X80n1565 @158,009 + @527,436, 19/35 in X68n1315 @291,657, 18/35 in T47n1998A — the 三心不可得 formula is pan-sectarian, a formula not a copy); s1.d0 0/50 (the Jingde carries the 龍潭 candle story in its own recension at offset 152,456 — 龍問何不歸來師對曰黑龍乃點燭與師師擬接龍便吹滅 — with no run of 8 or more graphs against the field; the uncited X80n1565 carries 31/50 @158,087 + @158,106 + @158,116); s1.d1 0/39 (the 窮諸玄辯 burning-sutras line: 31/39 in the uncited X80n1565 @158,198 + @158,216, 23/39 in T48n2003 @6,260); s2.d0 0/31 (the 道得也三十棒 formula: 21/31 in the uncited X80n1565 @158,868 + @158,969, 13/31 in T47n1985 @12,455 and X68n1315 @39,956). The honest carriers are the uncited 五燈會元 X80n1565 (the 德山 chapter of fasc. 7, offsets 157,793–158,969) as 12–31-graph fragments — its own wording differs (e.g. 若答不得且別處去 where this record reads 若答不得且請他去) — and no field is carried complete by any pinned ref. Retellings retained with R-B labels.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 10,
-          "probe_refs": [
-            "X68n1315",
-            "X80n1565"
-          ],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_note": "Retellings; 0/6 content fields match T2076/X1315/X1565 phrasing.",
-          "witness_refs": [
-            "T51n2076"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Deshan Xuanjian Yulu (德山宣鑑語錄)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
-      "dongshan_yulu": {
-        "all_cjk_chars": 759,
-        "cbeta_id": "T1986",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 573,
-        "coverage_note": "Five Ranks commentary previously paraphrases are now verbatim re-keyed from T47n1987B 曹洞語錄 (正位即是空界…背理就事); five-ranks verses are now re-keyed from T47n1986B 瑞州洞山良价禪師語錄, replacing the 0-hit 白頭宮女 recension with 失曉老婆逢古鏡; the river-story reading is corrected 涉水睹影→過水睹影. The document remains an excerpt seed and representation does not establish complete selected-witness status.",
-        "is_complete": false,
-        "shapes": [
-          "dialogues",
-          "five_ranks"
-        ],
-        "source_review": {
-          "content_fields_collated": 1,
-          "content_fields_total": 21,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 27,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T47n1986A",
-            "T47n1986B"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Dongshan Yulu & Five Ranks (洞山五位)",
-        "unit_counts": {
-          "dialogues": 8,
-          "five_ranks": 5
         }
       },
       "dongshan_yulu_full": {
@@ -552,97 +201,6 @@
           "cases": 322
         }
       },
-      "fayan_yulu": {
-        "all_cjk_chars": 543,
-        "cbeta_id": "T1991 / X1226 (宗門十規論)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 272,
-        "coverage_note": "11 source-content fields evaluated across 8 sections; W1 source-review status: partial_or_failed_w1_collation — 1 of 11 source-content fields is verbatim in the claimed witness (s4.d0 carried whole by T47n1991 @3,813, 18 of 18 graphs, 11 of 11 eight-graph windows) and 1 of 11 in any of the 43 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift). The 2026-09-21 re-key attempt (task 056) is NOT landed: 1 of 11 is far below the 80 percent threshold. Per field: s0.d0 9 of 39, s0.d1 8 of 14, s1.d0 9 of 30, s3.d0 10 of 24 and s6.d0 10 of 17 as single runs in the claimed T47n1991 (offsets 163, 178, 254, 3,527 and 3,725 — the 地藏 exchange frame, the punchline 不知最親切, and the 三界唯心 / 西來意 formulas); s3.d0's formula re-appears in T51n2076 as two 9-graph runs (18 of 24, offsets 118,896 and 341,117) and s6.d0's question is the pan-sectarian 西來意 formula (5 of 10 windows in T48n2004/T51n2076/X68n1315, the recorded answers all differing from this field's 我看汝不得); s1.d2, s5.d0 and s7.d0 carry no run of 8 or more graphs in any ref; s1.d1 (5 graphs) sits below the measurement floor. The 宗門十規論 component (s2.d0) is a 5-item project summary of X63n1226, measured in the reference set since this task: 0 of its 60 eight-graph windows occur in the treatise itself — no collatable witness, retained as project summary. Every non-verbatim field is R-B-labelled; no field was re-keyed; a witness that would carry the retellings as written is OUT-OF-CBETA human sourcing, not agent work.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 1,
-          "content_fields_total": 11,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 16,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T47n1991"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Fayan Yulu & Ten Rules (法眼十規論)",
-        "unit_counts": {
-          "sections": 8
-        }
-      },
-      "foyan_qingyuan": {
-        "all_cjk_chars": 632,
-        "cbeta_id": "X1315 (古尊宿語錄·佛眼語錄)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 320,
-        "coverage_note": "6 source-content fields evaluated across 5 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields is verbatim in the claimed X68n1315 (古尊宿語錄·佛眼語錄) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/56 and s0.d1 0/53 (the 騎驢覓驢 二種病 sermon — no run of 8 or more graphs in any ref); s1.d0 27/48 in X68n1315 @4,284 (27-graph run 脫根塵體露真常不拘文字心性無染本自圓成但離妄緣即如如佛; the witness's frame reads 上堂云靈光獨耀迥脫根塵 — 迥 against this field's 迴 — and the same 27/48 recurs in five further works: T48n2003 @71,657, T51n2076 @87,323, X67n1309 @95,918, X80n1565 @61,229/87,087/468,418 — a formula, not a copy); s2.d0 0/63 (best measured carrier the uncited T48n2001 at 9/63, the 山河大地草木叢林 formula); s3.d0 8/60 in X68n1315 @440,604 (a single 8-graph run 省力處便是得力處, inside the emperor's conversation — 覺得省力處便是得力處; the uncited T47n1998A 8/60 @160,099); s4.d0 0/40 (the 坐禪銘 — no run of 8 or more graphs in any ref). Retellings retained with R-B labels.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 12,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X68n1315"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Foyan Qingyuan Instant Zen (佛眼坐禪銘)",
-        "unit_counts": {
-          "sections": 5
-        }
-      },
-      "guiyang_yulu": {
-        "all_cjk_chars": 402,
-        "cbeta_id": "T1989 / T1990",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 177,
-        "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 6 source-content fields are verbatim in either claimed witness (T47n1989 潭州溈山靈祐禪師語錄, T47n1990 袁州仰山慧寂禪師語錄) or in any of the 43 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift). The 2026-09-21 re-key attempt (task 056) is NOT landed: 0 of 6 fields, far below the 80 percent threshold. Per field: s0.d0 11 of 32 graphs as a single run in the claimed witness (T47n1989 @545, the riddle line 不得喚作淨瓶汝喚作甚麼), best measured carrier the uncited X80n1565 13 of 32 @218,137; s0.d2 10 of 25 in the claimed witness (@571, the witness's own 踢倒淨瓶 frame 踢倒淨瓶便出去百丈笑); s0.d1, s1.d0 and s1.d1 carry no run of 8 or more graphs in any of the 43 refs; s2.d0 (the 溈山警策 opening) has no run in either claimed work — the 警策 base text as pinned (inside the 註 edition X65n1294) shares a single 8-graph run @3,640 (發足超方心形異俗). The title's 九十六圓相 names content no pinned witness carries as wording (the claimed works mention 圓相 2×/3×; the two 圓相 fields share zero eight-graph windows with all 43 refs). The wording is a project retelling/composition under the record's name, not an excerpt of either claimed work; every field is R-B-labelled and no field was re-keyed; an older complete copy is OUT-OF-CBETA human sourcing, not agent work.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 10,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T47n1989",
-            "T47n1990"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Guiyang Yulu & Circles (溈仰九十六圓相)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
       "hanshan_poems": {
         "all_cjk_chars": 167,
         "cbeta_id": "SBCK / Zoku lineage (not in Taishō)",
@@ -668,36 +226,6 @@
         "title": "Hanshan Cold Mountain Poems (寒山詩集)",
         "unit_counts": {
           "stanzas": 4
-        }
-      },
-      "huangbo_chuanxin": {
-        "all_cjk_chars": 733,
-        "cbeta_id": "T2012A",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 451,
-        "coverage_note": "11 source-content fields represented across 10 sections. RE-KEY 2026-09-16 (R-A, PHASE2_PLAN rank 24, RE-KEY 7 of 10): before this change 2/11 content fields were verbatim in the claimed T48n2012A 黃檗山斷際禪師傳心法要 (upstream dbdea41071e1e260ad84b72faefd4587333cf76d; refs 39 verified / 0 drift) — 1 MINOR (蹤跡 vs witness 縱跡), 2 DIVERGENT (不可度量 vs 不可測度; 即是佛也 vs 即是佛), 6 NOT_FOUND. The two DIVERGENT fields are now re-keyed grapheme-for-grapheme to T48n2012A (度量→測度; trailing 也 removed), so a fresh collation measures 4/11 content fields EXACT (before: 2/11). The MINOR field is left untouched per REMEDIATION_PLAN §1 (EXACT/MINOR leave untouched). Five of the six NOT_FOUND fields have zero eight-graph windows in all 39 refs and stay labelled R-B; the sixth (s1.d0) splices the T48n2012A 一心 opening onto 即心是佛佛即是心心佛不異心佛是一, which T48n2012A does not carry (rank 44: the tail is not T48n2012A; 佛即是心心佛不異 lives in T48n2012B Wanling Lu). The former coverage_note '10 foundational sermons and dialogues from T2012A' is withdrawn: 7 of 11 content fields are not the witness's verbatim text. Residual, measured separately from content: 8 title_zh metadata flags (1 TITLE_COMPOSITE, 7 SHORT_UNMATCHED/NOT_FOUND) — composite-title work is a separate plan item. The W1 source-review status stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated (630 remains the authoritative flagged total). Representation does not establish complete selected-witness status.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 2,
-          "content_fields_total": 11,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 18,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T48n2012A"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Transmission of Mind (黃檗法要)",
-        "unit_counts": {
-          "sections": 10
         }
       },
       "huangbo_fayao_full": {
@@ -736,102 +264,6 @@
           "cases": 19
         }
       },
-      "huangbo_wanling": {
-        "all_cjk_chars": 324,
-        "cbeta_id": "T2012B",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 214,
-        "coverage_note": "7 source-content fields evaluated across 4 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 7 source-content fields are verbatim in the claimed witness T48n2012B (宛陵錄) and 0 of 7 in any of the 40 pinned refs (CBETA xml-p5 dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift): the 裴休/壁上畫像 encounter (s0) and the 噇酒糟漢 line (s1.d0) are retold, not quoted. Per field: s3.d0 is carried at 14 of 15 graphs by the claimed work itself (offset 2,571) — the witness holds the question anonymously within that session and the field's one-graph attribution prefix is not in it (a single-graph difference; the R-A re-key of this DIVERGENT field is a separate work item, deliberately not landed in this labelling task) — s0.d0, s0.d1, s2.d0 and s3.d1 carry no run of 8 or more graphs in any of the 40 refs (s3.d1 is a compressed retelling of the claimed work's own compassion Q&A answer, longest shared run 7 graphs), and s1.d0 circulates only in fragments of at most 17 graphs in later lamp records (best run total 26 of 33, T48n2003 @16,495 + @16,512) while s1.d1 does so as single 10- and 9-graph runs (X80n1565 @84,874, X68n1315 @426,389), no copy carrying a field as written. The wording is therefore a project retelling under the record's name, not an excerpt of T48n2012B, and no field was re-keyed (task 047: no verbatim carrier); a witness that would carry it is OUT-OF-CBETA human sourcing, not agent work.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 7,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 12,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T48n2012B"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Huangbo Wanling Lu (黃檗宛陵錄)",
-        "unit_counts": {
-          "sections": 4
-        }
-      },
-      "lidai_fabao_ji": {
-        "all_cjk_chars": 237,
-        "cbeta_id": "T2075 / P.2125",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 169,
-        "coverage_note": "0/3 collated, field1 condenses two witness runs 20/53 graphs at T51n2075@8,796/@8,808, fields 2-3 share nothing ≥8 graphs with any ref, P.2125 named by cbeta_id is out of CBETA (Dunhuang P.2125) → human sourcing Ruling 4, project retellings retained",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 3,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 7,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T51n2075"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Lidai Fabao Ji (歷代法寶記)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
-      "linji_yulu": {
-        "all_cjk_chars": 15208,
-        "cbeta_id": "T1985",
-        "completion_status": "partial_selected_witness",
-        "content_zh_chars": 14206,
-        "coverage_note": "74/74 recorded sections represented; W1 source-review status: partial_or_failed_w1_collation (84/89 evaluated source-content fields collate to the claimed T47n1985 witness after the 2026-09-11 R-A re-key). Residual 5 flagged content fields, documented and intentionally not re-keyed: 2 MINOR dialogue fields (.sections[43].dialogue[0].zh and .sections[58].dialogue[0].zh, edition-graphic residue — the witness graphemes 㽄 and 㴸 sit in CBETA <g> apparatus the reference-extraction rule drops, so the fields flag MINOR against the otherwise-verbatim text; left untouched by the adopted policy, REMEDIATION_PLAN §1: EXACT/MINOR fields are left untouched) and 3 retained NOT_FOUND 行錄 fields (.sections[71].dialogue[0].zh, .sections[72].dialogue[0].zh, .sections[73].dialogue[0].zh), kept as explicitly project-authored retellings with no witness attribution and labelled in structured metadata. The 行錄 division (sections 67–73) was adjudicated per field under the owner decision of 2026-09-11: passages demonstrably present in T47n1985 were re-keyed verbatim to the witness (sections 67–70), and passages the witness does not carry were kept as labelled retellings (sections 71–73). Separately documented and out of scope: 74 title_zh metadata flags — composite-title splitting is a separate plan item, and title metadata is measured separately from source content, so it never blocks collated_to_claimed_witness. Representation does not establish complete selected-witness status.",
-        "declared_zh_chars": 14206,
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 79,
-          "content_fields_total": 89,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 84,
-          "probe_refs": [
-            "X68n1315",
-            "T51n2076",
-            "X80n1565"
-          ],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_note": "Sections 67-73 are Xinglu-tradition retellings, not claimed T1985 text.",
-          "witness_refs": [
-            "T47n1985"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Record of Linji (臨濟語錄)",
-        "unit_counts": {
-          "sections": 74
-        }
-      },
       "mazu_guanglu_full": {
         "all_cjk_chars": 5271,
         "cbeta_id": "X1321",
@@ -868,66 +300,6 @@
           "cases": 35
         }
       },
-      "mazu_yulu": {
-        "all_cjk_chars": 731,
-        "cbeta_id": "X1321 (四家語錄卷一·馬祖道一禪師廣錄)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 424,
-        "coverage_note": "8 source-content fields represented across 6 sections. RE-KEY 2026-09-16 (R-A, PHASE2_PLAN ranks 5 / 11 / 35, RE-KEY 8 of 10): before this change 0/8 content fields were verbatim in the claimed X69n1321 馬祖道一禪師廣錄 (四家語錄卷一; upstream dbdea41071e1e260ad84b72faefd4587333cf76d, refs 39 verified / 0 drift) — 4 DIVERGENT (0.8871–0.9118) and 4 NOT_FOUND. Six of those fields are now re-keyed grapheme-for-grapheme to that witness: 道不用脩…無凡無聖 (@1,470), 僧問和尚為甚麼說即心即佛…非心非佛 (@3,846), 曰除此二種人來…且教伊體會大道 (@3,877), 示眾云汝等諸人各信自心是佛此心即佛 (@662), the 磨磚 exchange told in the witness's own voice, 唐開元中習定於衡嶽傳法院…坐禪豈得成佛耶 (@69), and 大梅山法常禪師…祖云梅子熟也 (@2,968), so a fresh collation measures 7/8 content fields EXACT (before: 0/8). The eighth field, 僧問和尚為什麼說即心即佛…師云非心非佛, is T2076 景德傳燈錄卷六 江西道一禪師 record verbatim (@57,513) and absent from X69n1321, so T2076 is claimed as a second witness for this document (the 39-reference set is unchanged) and the field is left byte-identical; the same chapter carries the fuller 謂眾曰…此心即是佛心 reading of the 示眾云 field (@57,259, also in X80n1565 @59,084), recorded here as a recension variant rather than as the field's text, and T2076's 卷二十八 collection carries the 道不用修/污染 variant (@321,492). s1.d0 (33 graphs) stays as a labelled R-B retelling: no reference of the 39 carries a single eight-graph run of it. Residual, measured separately from content: 2 title_zh metadata flags (1 NOT_FOUND, 1 SHORT_UNMATCHED) — composite-title work is a separate plan item. The W1 source-review status stays partial_or_failed_w1_collation because the authoritative 2026-09-10 register is a dated measurement and is not re-designated (630 remains the authoritative flagged total). Representation does not establish complete selected-witness status.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 8,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 10,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X69n1321"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Mazu Daoyi Yulu (江西馬祖語錄)",
-        "unit_counts": {
-          "sections": 6
-        }
-      },
-      "nanquan_yulu": {
-        "all_cjk_chars": 280,
-        "cbeta_id": "X1315 (古尊宿語錄·池州南泉普願禪師語要)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 148,
-        "coverage_note": "6 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — the R-A re-key attempt from the claimed X68n1315 (2026-09-20, task 048) was measured and failed: 0 of 6 source-content fields are EXACT in the claimed witness, so the 80-percent re-key threshold (5 of 6) is not met and no field was re-keyed (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 40 verified / 0 drift). Largest shared run with the claimed witness: 23 of 27 (s2.d0, split at variant points: 10 graphs at offset 433,963 + 13 graphs at offset 433,978); s1.d0 (19 graphs) has no run of 8 or more graphs in any of the 40 refs; the other fields are fragmentary (s0.d0 8 of 15, s0.d1 9 of 33, s1.d1 9 of 28 — formulaic wording in 9- to 10-graph spans across 11 refs — s2.d1 11 of 26). The 傳燈錄 T48n2005 carries the s1.d1 span, and the only verbatim carrier of any field is the uncited T47n1997, the 圓悟語錄, which carries s2.d0 27 of 27 at offset 114,323 — a candidate for a later re-key decision, not a landing in this labelling task. Retellings retained as written; witnesses that would carry the other fields as written are OUT-OF-CBETA human sourcing, not agent work.  Retry 2026-09-21 task 054: re-extracted X63n1223 (26,007 CJK, 頓悟入道要門論) X63n1224 (24,933 CJK, 參問語錄) X68n1315 (1,336,350 CJK, 古尊宿語錄) via cbeta-p5-body-cjk-v1 from CBETA XML P5 revision dbdea410, verified digests, collated with COLLATION_REFS=/tmp/refs --require-verified-refs --generated 2026-09-21 — result still 0/6 EXACT (1 EXACT title, 2 DIVERGENT, 7 NOT_FOUND for dazhu; 1 EXACT title, 1 DIVERGENT, 7 NOT_FOUND, 1 TITLE_COMPOSITE for nanquan), partial_or_failed_w1_collation, threshold 5/6 not met, no field re-keyed. Largest shared runs remain as previously measured; no new carrier found.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 6,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 9,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X68n1315"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Nanquan Puyuan Yulu (南泉普願語錄)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
       "niutou_juezhu": {
         "all_cjk_chars": 214,
         "cbeta_id": "Dunhuang P.2885 / S.5619",
@@ -953,318 +325,6 @@
         "title": "Niutou Farong Juezhu Lun (絕觀論)",
         "unit_counts": {
           "sections": 3
-        }
-      },
-      "platform_sutra": {
-        "all_cjk_chars": 989,
-        "cbeta_id": "T2007 / T2008",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 680,
-        "coverage": "10/10 chapters",
-        "coverage_note": "680 content CJK graphs across 13 source-content fields, measured against both witnesses: 1 field (20 graphs) is verbatim in the primary witness T48n2007 (Dunhuang), 3 fields (93 graphs) are verbatim in the alternative recension T48n2008 (宗寶), and 9 fields (567 graphs) are condensed project précis verbatim in neither — so 113 of the 680 content graphs are witness text and 567 are this project's own condensation; these are not selected excerpts of T2007. The 10 chapter headings are the 宗寶 division and do not match the Dunhuang structure. A précis condenses and paraphrases: it is not a text, and no field was re-keyed in this pass. Representation does not establish complete selected-witness status.",
-        "is_complete": false,
-        "shapes": [
-          "chapters"
-        ],
-        "source_review": {
-          "content_fields_collated": 4,
-          "content_fields_total": 13,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 19,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_note": "Content mixes Dunhuang (T2007) and Zongbao (T2008) recension readings.",
-          "witness_refs": [
-            "T48n2008",
-            "T48n2007"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Platform Sutra (六祖壇經)",
-        "unit_counts": {
-          "chapters": 10
-        }
-      },
-      "qinggui_monastic_codes": {
-        "all_cjk_chars": 330,
-        "cbeta_id": "T2025 / X1245",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 239,
-        "coverage_note": "0/5 in T48n2025/X63n1245 and all 39 refs, composite citing two 清規 with no note which field from which, 百丈 一日不作一日不食 at T48n2025@10,064 and 坐禪儀 36/52 in X63n1245@25,973 only measured fragments, retellings retained",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 5,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 9,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T48n2025",
-            "X63n1245"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Rules of Purity (百丈禪苑清規)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
-      "sengzhao_zhaolun": {
-        "all_cjk_chars": 202,
-        "cbeta_id": "T1858",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 165,
-        "coverage_note": "0/12→12/12 after re-key, previously DIVERGENT 0.85-0.95 single graphs + framing, now verbatim T45n1858",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 4,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 8,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T45n1858"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Sengzhao Zhao Lun (僧肇肇論)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
-      "shitou_sandokai": {
-        "all_cjk_chars": 363,
-        "cbeta_id": "embedded: T2076 f.30 / X1565 f.14",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 248,
-        "coverage_note": "11/11 content fields collate EXACT to claimed witness T51n2076 (景德傳燈錄卷三十) after RE-KEY 2026-09-17 (R-A, PHASE2_PLAN rank 51 — RE-KEY 10 of 10, final RE-KEY). Previously 6/11 collated (4 DIVERGENT at 0.93-0.97 in 參同契, 1 NOT_FOUND in 草庵歌). The 4 DIVERGENT Sandokai stanzas were re-keyed grapheme-for-grapheme to T51n2076@347,446: stanza 6 鹹酢→鹹醋, stanza 7 相睹…相睹→相遇…相覩, stanza 8 各有功→自有功, stanza 10 山川→山河; sibling pinyin rewritten to match. Section 1 草庵歌 (previously an unattested 42-graph paraphrase 吾結草庵無箇事… returning 0 hits at k≥12 in all 39 refs) was re-keyed to the witness's authentic opening at T51n2076@350,849 (吾結草庵無寶貝，飯了從容圖睡快。成時初見茆草新，破後還將茆草蓋。), with sibling pinyin rewritten. All 11 content fields are now verbatim in claimed witness T51n2076 (Sandokai stanzas 1-10 also corroborated in X80n1565@112,123 except stanza 3 which is carried whole in T51n2076 only). Residual metadata flags: 2 title_zh flags (.title_zh TITLE_COMPOSITE, .sections[0].title_zh SHORT_UNMATCHED) remain outside content denominator. W1 source_review_status remains partial_or_failed_w1_collation under authoritative 2026-09-10 register (630 authoritative flagged entries not re-designated).",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 6,
-          "content_fields_total": 11,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 7,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_note": "Both claimed witnesses were fetched and collated. Sandokai content fields collate 6/11 (6 EXACT against the T51n2076 embedding, 4 DIVERGENT at 0.93-0.97, 1 NOT_FOUND: the 草庵歌 body, absent from T51n2076 and X80n1565 alike), and the combined document title is a project composite. Witness supported, collation partial — neither complete nor witness-unavailable.",
-          "witness_refs": [
-            "T51n2076",
-            "X80n1565"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Shitou Sandokai & Grass Hut (參同契與草庵歌)",
-        "unit_counts": {
-          "sections": 2
-        }
-      },
-      "wudeng_huiyuan": {
-        "all_cjk_chars": 237,
-        "cbeta_id": "X1565 (五燈會元)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 166,
-        "coverage_note": "0/3 collated, s0.d0 59 graphs no measured source in 39 refs, 2 六祖 fields carrier is uncited T48n2008 (18/40 @4,914; 35/67 @4,952), not claimed X80n1565 (0/40 and 12/67), only volume correction note, retellings retained",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 3,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 6,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X80n1565"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Compendium of Five Lamps (五燈會元)",
-        "unit_counts": {
-          "sections": 2
-        }
-      },
-      "wumenguan": {
-        "all_cjk_chars": 6324,
-        "cbeta_id": "T2005",
-        "completion_status": "partial_selected_witness",
-        "content_zh_chars": 5960,
-        "coverage": "48/48 cases",
-        "coverage_note": "48/48 cases represented; W1 source-review status: partial_or_failed_w1_collation (174/181 evaluated content fields collate to the claimed T2005 witness after the 2026-09-10 re-key). Residual 9 flagged fields, documented and intentionally untouched: 6 MINOR dialogue/commentary fields (5 edition-graphic residue fields acceptable under the adopted policy, plus .cases[4].dialogue[0].zh, which is a verbatim-witness field flagged MINOR only because the harness extraction rule drops CBETA <g> glyph content — the corpus reproduces the witness's NFKC-normalized glyph 啣 that the rule strips), 2 SHORT_UNMATCHED case title_zh fields (composite-title work is a separate plan item), and the project-authored epilogue (R-B labeled in structured metadata; T48n2005 contains no epilogue). Representation does not establish complete selected-witness status.",
-        "declared_zh_chars": 5960,
-        "is_complete": false,
-        "shapes": [
-          "cases"
-        ],
-        "source_review": {
-          "content_fields_collated": 113,
-          "content_fields_total": 181,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 70,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T48n2005"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "The Gateless Gate (無門關)",
-        "unit_counts": {
-          "cases": 48
-        }
-      },
-      "xinxin_ming": {
-        "all_cjk_chars": 607,
-        "cbeta_id": "T2010",
-        "completion_status": "partial_selected_witness",
-        "content_zh_chars": 584,
-        "coverage": "37/37 stanzas",
-        "coverage_note": "37/37 stanzas represented (36 four-clause stanzas and a two-clause closing stanza); W1 source-review status: partial_or_failed_w1_collation (36/37 evaluated content fields collate to the claimed T2010 witness after the 2026-09-11 R-A re-key of 12 flagged stanzas to the pinned CBETA T48n2010 text). Residual 1 flagged content field, documented and intentionally not re-keyed: .stanzas[31].zh (NOT_FOUND) — its fourth clause is absent from T48n2010 (full-text search, 0 hits) and is kept as a labelled project-authored reading with no witness attribution (editorial_note). Separately documented and out of scope: 1 title_zh metadata flag — composite-title splitting is a separate plan item, and title metadata is measured separately from source content. Representation does not establish complete selected-witness status.",
-        "is_complete": false,
-        "shapes": [
-          "stanzas"
-        ],
-        "source_review": {
-          "content_fields_collated": 24,
-          "content_fields_total": 37,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 14,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T48n2010"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Faith in Mind (信心銘)",
-        "unit_counts": {
-          "stanzas": 37
-        }
-      },
-      "xuansha_yulu": {
-        "all_cjk_chars": 566,
-        "cbeta_id": "X1445 (玄沙師備禪師廣錄) / X1446 (玄沙師備禪師語錄)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 206,
-        "coverage_note": "5 source-content fields evaluated across 3 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 5 source-content fields is verbatim in either claimed witness (X73n1445 廣錄 / X73n1446 語錄) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (4 of 5) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/40 in X73n1445; X73n1446 9/40 (one 9-graph run @768, 曰是身非有痛從何來 — the witness reads 築著脚指流血痛楚歎曰…便回雪峯); s0.d1 10/36 in X73n1445 @460 (the 廣錄's 初祖 attribution) and 23/36 in X73n1446 @804 (曰備頭陀何不遍參去師曰達摩不來東土二祖不往西天 — the witness closes 峯然之 where this field reads 雪峰大喜印可之); the uncited T51n2076 24/36 @188,548 + @188,561; s1.d0 26/36 in X73n1446 (the 盡十方世界是一顆明珠 formula as four 10-graph runs + a 16-graph run @12,317; the same 26/36 in the uncited T51n2076 @192,447–192,503 and X80n1565 @171,433–171,491 — the strongest near-carrier measured for this document, still no complete copy); s1.d1 17/22 in X73n1446 @12,333 (師曰盡十方世界是一顆明珠用會作麼 — the witness reads 僧便休 where this field reads 僧於言下有省); s2.d0 0/72 (no run of 8 or more graphs of the 盲聾啞 sermon in any of the 43 refs). Retellings retained with R-B labels.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 5,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 8,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X73n1445",
-            "X73n1446"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Xuansha Shibei Yulu (玄沙宗一語錄)",
-        "unit_counts": {
-          "sections": 3
-        }
-      },
-      "xuefeng_yantou": {
-        "all_cjk_chars": 470,
-        "cbeta_id": "X1333 (雪峰義存禪師語錄·真覺禪師語錄) / T2076 f.16",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 170,
-        "coverage_note": "4 source-content fields evaluated across 2 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 4 source-content fields is verbatim in either claimed witness (X69n1333 / T51n2076 卷16) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (4 of 4 — 3 of 4 is 75 percent) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/80 (the 鰲山 snowbound narrative — no run of 8 or more graphs in any ref; X69n1333 holds the story at offsets ~2,000–2,340 in its own recension, 噇眠去…自點胸曰…盇天盇地…鼇山成道); s0.d1 11/14 in X69n1333 @2,091 (胸曰我這裏未穩在不敢自 — the witness reads 自點胸 / 謾 where this field reads 師撫胸 / 瞞; the uncited X80n1565 11/14 @161,679); s0.d2 21/49 in X69n1333 @2,299 (13-run 若欲播揚大教一一從自己胸襟 + 8-run 地去師於言下大悟 — best measured carrier the uncited T48n2003 at 32/49, @31,811 + @31,824 + @31,850/31,858, and the uncited X80n1565 28/49); s1.d0 19/27 in X69n1333 @17,021 (師示眾云盡大地撮來如粟米粒大拋向… — the witness reads 漆桶 where this field reads 漆黑窠裏; W1 class DIVERGENT 0.8889; the uncited T47n1997 and T48n2003 carry 18/27). Retellings retained with R-B labels.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 4,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 6,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "X69n1333",
-            "T51n2076"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Xuefeng & Yantou Yulu (雪峰巖頭語錄)",
-        "unit_counts": {
-          "sections": 2
-        }
-      },
-      "yuanwu_letters": {
-        "all_cjk_chars": 207,
-        "cbeta_id": "X1357 / T1997",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 87,
-        "coverage_note": "2 source-content fields evaluated across 2 sections; W1 source-review status: partial_or_failed_w1_collation — 0 of 2 source-content fields is verbatim in either claimed witness (T47n1997 圓悟佛果禪師語錄 / X69n1357 佛果克勤禪師心要) or in any of the 43 pinned refs (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d; 43 verified / 0 drift), so the 80-percent re-key threshold (2 of 2) is not met and no field was re-keyed (2026-09-21, P2 Tier2 remaining follow-up). Per-field runs (floor 8 graphs): s0.d0 0/42 — no run of 8 or more graphs in any of the 43 refs (0 of 35 eight-graph windows); s1.d0 0/45 — no run of 8 or more graphs in any of the 43 refs (0 of 38 eight-graph windows). X69n1357 is a letter collection to named addressees (佛果圜悟真覺禪師心要, 62,651 CJK: 示華藏明首座, 寄張宣撫相公, …) and T47n1997 the 134,134-CJK 語錄; neither carries either of the two project 示眾 fields as written. Retellings retained with R-B labels.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 2,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 5,
-          "probe_refs": [],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T47n1997",
-            "X69n1357"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Yuanwu Zen Letters (圓悟克勤心要)",
-        "unit_counts": {
-          "sections": 2
         }
       },
       "yunmen_guanglu_full": {
@@ -1300,70 +360,6 @@
         "title": "The Expanded Record of Yunmen Kuangzhen, Complete (雲門匡真禪師廣錄)",
         "unit_counts": {
           "cases": 776
-        }
-      },
-      "yunmen_yulu": {
-        "all_cjk_chars": 403,
-        "cbeta_id": "T1988",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 269,
-        "coverage_note": "10 sections represented, carrying 12 evaluated source-content fields; W1 source-review status: partial_or_failed_w1_collation — 0 of 12 source-content fields collate to the claimed witness T47n1988 雲門匡真禪師廣錄 (11 NOT_FOUND; 1 DIVERGENT at 0.9583 similarity — close in wording, not verbatim), so the earlier \"from T1988\" claim is withdrawn: these are compressed project retellings, not excerpts of that work. The nearest measured proximity anywhere in the 39-ref set is X80n1565 (7 of 14 twenty-four-graph windows in .sections[3].dialogue[0].zh — formulaic proximity, not a verbatim carrier), and no work in the reference set carries these passages; nothing here was re-keyed, and the English renderings are register imitations rather than translations of a recorded source.",
-        "is_complete": false,
-        "shapes": [
-          "sections"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 12,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 19,
-          "probe_refs": [],
-          "refs_total": 1,
-          "refs_verified": 1,
-          "status": "partial_or_failed_w1_collation",
-          "witness_refs": [
-            "T47n1988"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Yunmen Yulu (雲門語錄一字關)",
-        "unit_counts": {
-          "sections": 10
-        }
-      },
-      "zhaozhou_yulu": {
-        "all_cjk_chars": 658,
-        "cbeta_id": "claimed: X68n1315 古尊宿語錄 — unverified (2 of 19 evaluated source-content fields collate against the pinned extraction); the prior T1987 claim was false (T1987 is the Caoshan record)",
-        "completion_status": "excerpt_seed",
-        "content_zh_chars": 500,
-        "coverage_note": "15/15 dialogues represented; W1 source-review status: partial_or_failed_w1_collation — no witness holds this text. The former claim T1987 was false (T1987 is the Caoshan record), and the candidate in-set witness X68n1315 古尊宿語錄 is unverified: a probe collation with X68n1315 as the sole witness collates 2 of 19 evaluated source-content fields (1 EXACT, 1 REWORDED; 6 DIVERGENT, 11 NOT_FOUND). Of the 35 fields that probe measured, 10 classify EXACT — 9 of them title_zh metadata, which is measured in a separate partition and never establishes content collation. The claim is withdrawn, not re-attributed: these dialogues are carried as project text with no verified witness, and the document is routed to the human-sourcing queue for a sourced Zhaozhou record. Representation does not establish complete selected-witness status.",
-        "is_complete": false,
-        "shapes": [
-          "dialogues"
-        ],
-        "source_review": {
-          "content_fields_collated": 0,
-          "content_fields_total": 19,
-          "evidence_date": "2026-09-21",
-          "evidence_register": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
-          "flagged_entries": 35,
-          "probe_refs": [
-            "X68n1315"
-          ],
-          "refs_total": 2,
-          "refs_verified": 2,
-          "status": "partial_or_failed_w1_collation",
-          "witness_note": "Corpus claims T1987; T1987 is the Caoshan record (misattribution). True Zhaozhou witness: Guzunsu yulu X68n1315.",
-          "witness_refs": [
-            "T47n1987A",
-            "T47n1987B"
-          ]
-        },
-        "source_review_status": "partial_or_failed_w1_collation",
-        "title": "Sayings of Zhaozhou (趙州語錄)",
-        "unit_counts": {
-          "dialogues": 15
         }
       },
       "zhaozhou_yulu_full": {
@@ -1435,20 +431,16 @@
     },
     "source_review": {
       "authoritative": {
-        "documents": 44,
+        "documents": 12,
         "evidence_date": "2026-09-21",
-        "flagged_entries": 630,
+        "flagged_entries": 15,
         "refs_manifest_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt",
         "register_path": "sessions/COLLATION_REGISTER_2026-09-21_ENTHUSIAST_100PCT.json",
         "report_path": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT.md"
       },
       "class_totals": {
-        "DIVERGENT": 111,
-        "EXACT": 9182,
-        "MINOR": 30,
-        "NOT_FOUND": 334,
-        "SHORT_UNMATCHED": 109,
-        "TITLE_COMPOSITE": 32,
+        "EXACT": 8503,
+        "NOT_FOUND": 1,
         "WITNESS_UNAVAILABLE": 14
       },
       "completion_compatibility": {
@@ -1468,8 +460,8 @@
           "witness_unavailable": true
         }
       },
-      "content_fields_collated": 5037,
-      "content_fields_total": 5368,
+      "content_fields_collated": 4450,
+      "content_fields_total": 4459,
       "disclosure_ledgers": [
         {
           "key": "source_collation",
@@ -1492,10 +484,10 @@
           "label": "Rights review"
         }
       ],
-      "documents": 44,
-      "documents_without_collating_content": 22,
-      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the next authoritative record (it inherits the 2026-09-20 Chuandeng Lu overlay's 37 per-document entries verbatim and records the Caoshan Benji record as the 38th document); the dated 2026-09-21 enthusiast-fulls overlay is the newest authoritative record (it inherits the 2026-09-20 Caoshan overlay's 38 per-document entries verbatim and records the six full-witness documents — Huangbo T48n2012A, Mazu X69n1321, Yunmen T47n1988, Dongshan T47n1986A+B, Zhaozhou X68n1315 juan 13–14, Dahui T47n1998A+B — as the 39th through 44th); the designated flagged total stays 630",
-      "flagged_entries": 630,
+      "documents": 12,
+      "documents_without_collating_content": 2,
+      "evidence_model": "the 2026-09-09 register is historical evidence and stays append-only; the dated 2026-09-20 correction overlay is authoritative for current status (it inherits the 2026-09-10 overlay's 35 per-document entries verbatim and records the Congrong Lu reinstatement as the 36th document); the dated 2026-09-20 Chuandeng Lu full overlay is the next authoritative record (it inherits the 2026-09-20 correction overlay's 36 per-document entries verbatim and records the full 30-fascicle Jingde Chuandeng Lu as the 37th document); the dated 2026-09-20 Caoshan Benji overlay is the next authoritative record (it inherits the 2026-09-20 Chuandeng Lu overlay's 37 per-document entries verbatim and records the Caoshan Benji record as the 38th document); the dated 2026-09-21 enthusiast-fulls overlay is the newest authoritative record (it inherits the 2026-09-20 Caoshan overlay's 38 per-document entries verbatim and records the six full-witness documents — Huangbo T48n2012A, Mazu X69n1321, Yunmen T47n1988, Dongshan T47n1986A+B, Zhaozhou X68n1315 juan 13–14, Dahui T47n1998A+B — as the 39th through 44th); the designated flagged total stays 630; purged 2026-09-21 retellings removed, 12 docs remain, flagged total 15",
+      "flagged_entries": 15,
       "historical": {
         "documents": 34,
         "evidence_date": "2026-09-09",
@@ -1505,49 +497,46 @@
       },
       "ledger_separation_note": "Separate ledgers: none of these answers implies another.",
       "metadata_field_note": "Title and name metadata (title_zh, name_zh) is measured and reported separately from source content, so collated_to_claimed_witness is not proof that the excluded metadata fields were collated.",
-      "metadata_fields_total": 4444,
+      "metadata_fields_total": 4059,
       "non_approval_statement": "Source collation does not approve reuse.",
       "reference_verification": {
         "counts": {
           "drift": 0,
           "none": 0,
           "unlisted": 0,
-          "verified": 41
+          "verified": 17
         },
         "drifted_refs": [
           "T47n1987B",
           "T48n2001",
           "T48n2004",
-          "X67n1309",
-          "X68n1315",
-          "X69n1333",
-          "X73n1445"
+          "X68n1315"
         ],
         "historical_counts": {
-          "drift": 7,
+          "drift": 4,
           "none": 0,
           "unlisted": 0,
-          "verified": 34
+          "verified": 13
         },
         "historical_manifest": "sessions/COLLATION_W1_2026-09-09_refs_manifest.txt",
         "manifest": "sessions/COLLATION_W1_2026-09-21_ENTHUSIAST_100PCT_refs_manifest.txt"
       },
       "reproduction": {
         "compared_register": "sessions/COLLATION_REGISTER_2026-09-09.json",
-        "documents_classification_identical": 33,
-        "documents_compared": 34,
-        "documents_differing": 1,
+        "documents_classification_identical": 3,
+        "documents_compared": 3,
+        "documents_differing": 0,
         "documents_with_changed_status": 0,
         "flagged_entries": {
-          "historical": 622,
-          "this_run": 623
+          "historical": 15,
+          "this_run": 15
         },
         "historical_report_flagged_reproduced": false,
         "historical_report_flagged_total": 637
       },
       "status_counts": {
         "collated_to_claimed_witness": 10,
-        "partial_or_failed_w1_collation": 32,
+        "partial_or_failed_w1_collation": 0,
         "witness_unavailable": 2
       },
       "status_labels": {
@@ -1559,21 +548,20 @@
       "superseded": {
         "register_flagged_total": 622,
         "report_flagged_total": 637,
-        "reproduced_flagged_total": 623,
+        "reproduced_flagged_total": 15,
         "status": "superseded"
       }
     },
     "source_review_statuses": {
       "collated_to_claimed_witness": 10,
-      "partial_or_failed_w1_collation": 32,
+      "partial_or_failed_w1_collation": 0,
       "witness_unavailable": 2
     }
   },
   "editorial_traceability": {
-    "document_level_queue_records": 33,
+    "document_level_queue_records": 3,
     "statuses": {
-      "in_review": 3,
-      "needs_unit_locator": 30
+      "complete": 3
     }
   },
   "lineage_profile_review": {
@@ -1595,8 +583,8 @@
     }
   },
   "manifest_integrity": {
-    "corpus_files": 44,
-    "shared_manifest_items": 44
+    "corpus_files": 12,
+    "shared_manifest_items": 12
   },
   "measurement_method": {
     "all_corpus_cjk_characters": "CJK code points across every string in data/corpus JSON files.",
@@ -1607,17 +595,17 @@
     "translation_slot": "One register value under a translations object; string values use policy defaults and object values use explicit status."
   },
   "rights_coverage": {
-    "distinct_verified_sources": 13,
+    "distinct_verified_sources": 3,
     "manifest_sources": 14,
-    "verified_source_records": 179
+    "verified_source_records": 3
   },
   "schema_version": "1.0",
   "translations": {
-    "corpus_slots": 1252,
+    "corpus_slots": 46,
     "corpus_statuses": {
-      "ai_draft": 199,
-      "reconstruction_unverified": 876,
-      "verified_quotation": 177
+      "ai_draft": 0,
+      "reconstruction_unverified": 45,
+      "verified_quotation": 1
     },
     "matrix_entries": 21,
     "matrix_statuses": {
@@ -1625,10 +613,10 @@
       "reconstruction_unverified": 18,
       "verified_quotation": 2
     },
-    "verified_corpus_texts": 10,
+    "verified_corpus_texts": 1,
     "verified_reference_coverage": {
-      "pending": 3,
-      "recorded": 176
+      "pending": 1,
+      "recorded": 2
     }
   }
 }

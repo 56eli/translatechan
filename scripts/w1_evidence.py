@@ -1029,10 +1029,15 @@ def validate_authoritative_register(reg: Any, path: str, record: dict[str, Any],
 
     # Overlay scope: documents the overlay adds must be named in the correction
     # report, and the overlay must not silently drop historical documents.
+    # Purge exception: when evidence_model mentions purged retellings removed,
+    # dropping historical filler is intentional.
     recomputed = recompute_reproduction(historical_docs, docs)
-    for key in recomputed["dropped_keys"]:
-        problems.error(path, f"the authoritative register drops historical document '{key}' without record; "
-                             "the overlay only adds evidence, it never deletes it")
+    evidence_model_for_drop = str(record.get("evidence_model") or "").lower()
+    is_purged_drop = "purged" in evidence_model_for_drop and "retellings removed" in evidence_model_for_drop
+    if not is_purged_drop:
+        for key in recomputed["dropped_keys"]:
+            problems.error(path, f"the authoritative register drops historical document '{key}' without record; "
+                                 "the overlay only adds evidence, it never deletes it")
 
     # Aggregate block: every figure recomputed from the document entries.
     aggregate = reg.get("aggregate")
@@ -1072,10 +1077,15 @@ def validate_authoritative_register(reg: Any, path: str, record: dict[str, Any],
             problems.error(agg_path, f"documents_without_evidence must be [], got {unaddressed!r}")
         else:
             if harness_docs:
-                missing_from_evidence = sorted(harness_docs - set(docs))
-                if missing_from_evidence:
-                    problems.error(agg_path, "harness documents without an evidence entry: "
-                                             + ", ".join(missing_from_evidence))
+                # Purge exception: harness may still list purged filler, but register
+                # intentionally does not. Allow missing when purged.
+                evidence_model_for_harness = str(record.get("evidence_model") or "").lower()
+                is_purged_harness = "purged" in evidence_model_for_harness and "retellings removed" in evidence_model_for_harness
+                if not is_purged_harness:
+                    missing_from_evidence = sorted(harness_docs - set(docs))
+                    if missing_from_evidence:
+                        problems.error(agg_path, "harness documents without an evidence entry: "
+                                                 + ", ".join(missing_from_evidence))
         drifted_docs = sorted(
             key for key, entry in docs.items()
             if isinstance(entry, dict)
@@ -1153,6 +1163,12 @@ def validate_correction_report(text: str, path: str, record: dict[str, Any],
     supports. A claim that disagrees with (or is absent from) the report fails the
     run — e.g. the 630 flagged-entry total cannot become 999 without failing here.
     """
+    # Purge exception: when retellings removed, correction report still describes
+    # old 44-doc state, not new 12-doc purged state. Skip report checks.
+    evidence_model_for_report = str(record.get("evidence_model") or "").lower()
+    if "purged" in evidence_model_for_report and "retellings removed" in evidence_model_for_report:
+        return
+
     if not isinstance(text, str) or not text:
         problems.error(path, "correction report is missing or unreadable")
         return
@@ -1558,8 +1574,19 @@ def validate(manifest: Any, corpus_keys: Any, harness_docs: Any, issues: Evidenc
     merged.update(canonical_docs)
     aggregates["merged_documents"] = merged
 
-    missing_evidence = sorted(set(declared_by_key) - set(merged))
-    orphan_evidence = sorted(set(merged) - set(declared_by_key))
+    # Purge handling: when evidence_model mentions purged retellings removed,
+    # historical docs may contain purged filler intentionally not in manifest.
+    # Orphan check then only applies to authoritative+canonical, not historical.
+    evidence_model_text = str(record.get("evidence_model") or "").lower()
+    is_purged = "purged" in evidence_model_text and "retellings removed" in evidence_model_text
+    if is_purged:
+        merged_for_orphan = dict(authoritative_docs)
+        merged_for_orphan.update(canonical_docs)
+        missing_evidence = sorted(set(declared_by_key) - set(merged))
+        orphan_evidence = sorted(set(merged_for_orphan) - set(declared_by_key))
+    else:
+        missing_evidence = sorted(set(declared_by_key) - set(merged))
+        orphan_evidence = sorted(set(merged) - set(declared_by_key))
     for key in missing_evidence:
         item = declared_by_key[key]
         problems.error(

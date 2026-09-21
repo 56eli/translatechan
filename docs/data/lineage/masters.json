@@ -32,9 +32,7 @@
       "菩提達磨"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "bodhidharma_erru"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -70,9 +68,7 @@
       "Dazu Huike (大祖慧可)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "chuandenglu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -108,9 +104,7 @@
       "三祖 / Third Patriarch"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "xinxin_ming"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -147,10 +141,7 @@
       "四祖 / Fourth Patriarch"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "chuandenglu",
-      "dazhu_huihai"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -188,10 +179,7 @@
       "五祖 / Fifth Patriarch"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "platform_sutra",
-      "chuandenglu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -229,9 +217,7 @@
       "慧能"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "platform_sutra"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -270,9 +256,7 @@
       "馬祖道一"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "mazu_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -311,9 +295,7 @@
       "Shitou the Stone Head"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "shitou_sandokai"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -351,10 +333,7 @@
       "Great Master Baizhang"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "baizhang_guanglu",
-      "qinggui_monastic_codes"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -392,10 +371,7 @@
       "黃檗希運"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "huangbo_chuanxin",
-      "huangbo_wanling"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -433,9 +409,7 @@
       "臨濟義玄"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "linji_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "canonical_anchor_identified",
       "source_id": "linji-record-t1985",
@@ -475,9 +449,7 @@
       "趙州從諗"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "zhaozhou_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -516,10 +488,7 @@
       "洞山良价"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "dongshan_yulu",
-      "baojing_sanmei"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -597,9 +566,7 @@
       "雲門文偃"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "yunmen_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -637,9 +604,7 @@
       "Great Master Guishan"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "guiyang_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -676,9 +641,7 @@
       "Great Master Fayan"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "fayan_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -716,10 +679,7 @@
       "圓悟克勤"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "biyanlu_cases",
-      "yuanwu_letters"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -755,9 +715,7 @@
       "無門慧開"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "wumenguan"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -794,9 +752,7 @@
       "Nanyue (South Peak)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "mazu_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -833,9 +789,7 @@
       "Great Master Qingyuan"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "shitou_sandokai"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -874,9 +828,7 @@
       "池州南泉 / Chizhou Nanquan"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "nanquan_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -914,10 +866,7 @@
       "Yaoshan Weiyan (藥山惟儼)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "biyanlu_cases",
-      "wudeng_huiyuan"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -954,10 +903,7 @@
       "Yunyan Tansheng (雲巖曇晟)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "biyanlu_cases",
-      "dongshan_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -997,10 +943,7 @@
       "Sima Xuanjian (司馬宣鑑)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "deshan_yulu",
-      "biyanlu_cases"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -1039,9 +982,7 @@
       "Xuefeng Yicun (雪峰義存)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "xuefeng_yantou"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -1079,9 +1020,7 @@
       "Xuansha Shibei (玄沙師備)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "xuansha_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -1118,9 +1057,7 @@
       "Luohan Guichen (羅漢桂琛)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "fayan_yulu"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -1158,9 +1095,7 @@
       "Baiyun Shouduan (白雲守端)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "wudeng_huiyuan"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -1198,10 +1133,7 @@
       "Wuzu (Fifth Patriarch of the Linji Yangqi line)"
     ],
     "profile_status": "Seed profile — exact biographical/source locator pending",
-    "linked_corpus_keys": [
-      "dahui_hongzhi",
-      "wudeng_huiyuan"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_pending_exact_locator",
       "note": "Canonical identifiers and descriptive seed data are recorded; exact biographical/source locators remain to be reviewed."
@@ -1238,10 +1170,7 @@
       "Yuelin Shiguan (月林師觀)"
     ],
     "profile_status": "Seed profile — updated 2026-09-21: the wumen_huikai edge and the Dahong teacher link now carry reviewed locators (X1566 juan 2 p0902b08 and p0906a10); descriptive biographical fields remain seed, exact locator for dates/location pending",
-    "linked_corpus_keys": [
-      "dahui_hongzhi",
-      "wudeng_huiyuan"
-    ],
+    "linked_corpus_keys": [],
     "profile_evidence": {
       "status": "seed_profile_locators_reviewed_biographical_fields_pending",
       "note": "Locator review 2026-09-21 (P3 frontier final) against digest-verified extractions of the pinned CBETA XML P5 revision (X1566 sha256 e09dfeeb45f415bf…, X1565 sha256 a3d20a107ff69495…): 五燈會元續略 X80n1566 juan 2 p0902b07–p0902b08 lists 萬壽月林師觀禪師 as the heir of 大洪證禪師 (the dahong_zuzheng→yuelin_shiguan edge, source_verified), and p0906a09–p0906a15 opens the 萬壽觀禪師法嗣 heir section with 杭州黃龍無門慧開禪師, whose biography 杭州梁氏子參月林看無字話六年無省 … 林遽曰何處見神見鬼了也師便喝林亦喝師又喝自此機語脗合 names 月林 as his teacher (the yuelin_shiguan→wumen_huikai edge, source_verified). The seed profile's descriptive fields stay unreviewed: the 2026-09-21 X1566/續傳燈錄 search found no dated biography for this master — X69n1354 (his own record, 9,494 CJK) carries the 嘉定戊寅 (1218) preface by 陳貴謙 and lists 慧開 among its 侍者 compilers in the CBETA header, and X1566 gives the heir-section entry only. Dates and location therefore remain seed values, not verified facts."
@@ -1310,9 +1239,6 @@
     "summary": "Included to make Deshan’s displayed teacher relationship navigable. Exact textual and biographical evidence remains to be recorded.",
     "profile_status": "Frontier profile — reviewed 2026-09-21: case located in T2076 (fasc. 14, case 429); edge to Deshan exact_locator_verified; own teacher remains unrecorded frontier",
     "linked_corpus_keys": [
-      "wumenguan",
-      "deshan_yulu",
-      "biyanlu_cases",
       "chuandenglu_full"
     ],
     "profile_evidence": {
