@@ -1271,13 +1271,15 @@
     "texts": [],
     "key_quote_zh": "未錄引文",
     "key_quote_en": "No quotation entered; profile is a clearly marked lineage frontier scaffold.",
-    "cbeta_id": "No source record assigned",
-    "summary": "Traditional predecessor of Bodhidharma in later patriarchal lists. This scaffold preserves the graph frontier without asserting an exact source locator or a settled historical biography.",
-    "profile_status": "Frontier profile — no exact biographical/source locator recorded",
-    "linked_corpus_keys": [],
+    "cbeta_id": "T2076 fasc. 2 · T51n2076_p0216a19–p0216b20",
+    "summary": "Traditional predecessor of Bodhidharma in later patriarchal lists. The named entry in chuandenglu_full case 38 is now linked; this frontier scaffold does not assert a settled historical biography or a verified upstream teacher.",
+    "profile_status": "Frontier profile — exact corpus entry located; biography and teacher frontier remain unverified",
+    "linked_corpus_keys": [
+      "chuandenglu_full"
+    ],
     "profile_evidence": {
       "status": "frontier_profile_unverified",
-      "note": "No exact biographical/source locator has been recorded; this profile remains navigational/editorial scaffolding. Corpus cross-reference reviewed 2026-09-09: no occurrence of this master in the active corpus; linked_corpus_keys intentionally left empty."
+      "note": "Reviewed 2026-09-21: chuandenglu_full case 38, 第二十七祖般若多羅, T51n2076_p0216a19–p0216b20 (CBETA XML P5 revision dbdea41071e1e260ad84b72faefd4587333cf76d), explicitly names this master. Supersedes the 2026-09-09 no-occurrence note. Corpus cross-reference only: dates, historical biography, upstream teacher frontier, and Prajñātāra → Bodhidharma edge remain unverified/pending; no quote or teacher profile invented."
     }
   },
   {

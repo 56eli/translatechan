@@ -88,6 +88,7 @@ VALID_REVIEW_STATUSES = {
 }
 VALID_LINEAGE_EDGE_STATUSES = {
     "source_verified",
+    "exact_locator_verified",
     "traditional_link_pending_exact_locator",
     "disputed",
 }
@@ -583,6 +584,14 @@ def validate_lineage_verification(lineage: Any, registry: Any, issues: Issues) -
                 issues.error(edge_path, f"invalid edge status {status!r}")
             else:
                 status_counts[status] += 1
+            if status == "exact_locator_verified":
+                match = re.search(r"T51n2076_p(\d{4}[abc]\d{2})–p(\d{4}[abc]\d{2})", str(edge.get("reference", "")))
+                if not match or match[1] > match[2]:
+                    issues.error(edge_path, "exact_locator_verified requires an ordered T51n2076 lb range")
+                if edge.get("source_id") != "jingde-chuandenglu":
+                    issues.error(edge_path, "exact_locator_verified currently supports the reviewed T2076 witness only")
+                if "Verbatim text" not in str(edge.get("note", "")):
+                    issues.error(edge_path, "exact_locator_verified requires a verbatim evidence note")
             if edge.get("source_id") not in source_ids:
                 issues.error(edge_path, f"unknown lineage source_id {edge.get('source_id')!r}")
 

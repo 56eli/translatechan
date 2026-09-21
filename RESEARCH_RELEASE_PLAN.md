@@ -1,5 +1,7 @@
 # Fake Chan Factory Research-Release Plan
 
+> **Measured correction 2026-09-21 (lineage batch 1 baseline):** **125** provenance-note strings, **83 of 125** rendered beside passages, **35** documents, `cbeta_note` **28**; 42 coverage notes remain ledgered. This corrects the task-050 census below without editing corpus data.
+
 > **Purpose:** turn a healthy static reader into a trustworthy, maintainable research corpus without treating generated text, online mirrors, or incomplete locators as scholarly completion.
 >
 > **Working rule:** no content expansion may weaken the source, provenance, rights, validation, or deploy contract already in place.

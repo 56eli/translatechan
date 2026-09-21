@@ -1589,7 +1589,8 @@
     "internal_edges": 31,
     "source_records": 7,
     "statuses": {
-      "traditional_link_pending_exact_locator": 31
+      "exact_locator_verified": 10,
+      "traditional_link_pending_exact_locator": 21
     }
   },
   "manifest_integrity": {
