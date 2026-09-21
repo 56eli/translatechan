@@ -23,7 +23,7 @@ Current generated measurements (main 3a6ae32, after Phases 1-3):
 - Source volume: **553,011 content CJK / 583,293 all-string CJK**.
 =======
 - Corpus: **44 documents**; Source review: **10 collated**, **32 partial/failed**, **2 unavailable**; **0 complete selected witnesses** after W1 containment. Wumenguan **48/48 cases** represented; W1 source-review status: `partial_or_failed_w1_collation`. Xinxin Ming has 37/37 represented stanzas with the same partial/failed state. Biyanlu **100/100 cases** represented; Biyanlu and Linji remain partial; **31 excerpt seeds**.
-- Source volume: **855,603 content CJK / 917,776 all-string CJK**.
+- Source volume: **855,603 content CJK / 917,778 all-string CJK**.
 >>>>>>> tmp-050
 - Translations: **1252 corpus slots**; **177 verified quotations**; **21 matrix registers**; verified-reference coverage **176 recorded / 3 pending**.
 - Locators: **4192/4192 case-level**; **33 document-level seeds**; case anchors do not prove every nested field was collated.
@@ -126,3 +126,5 @@ The weighted score is **7.2/10**. The prior 7.6 summary was inconsistent with it
 - Add one report-index row per completed audit session.
 - Keep detailed process in dated `sessions/` reports.
 - Never infer a numeric owner score from feedback, merge, or silence.
+
+> **Measured status refresh 2026-09-21 (P2 + enthusiast):** the corpus carries **125** provenance-note strings across four keys (`cbeta_note` 28, `coverage_note` 42, `editorial_note` 16, `recension_note` 14), **83 of 125** rendering beside a passage, **35** documents carrying at least one label.

@@ -128,3 +128,5 @@ diff -rq data docs/data
 ```
 
 Then commit the source, metrics, bundle, and `/docs` mirror together; push the session branch; require the Quality workflow to pass; and open a PR to `main`.
+
+> **Measured status refresh 2026-09-21 (P2 + enthusiast):** the corpus carries **125** provenance-note strings across four keys (`cbeta_note` 28, `coverage_note` 42, `editorial_note` 16, `recension_note` 14), **83 of 125** rendering beside a passage, **35** documents carrying at least one label.

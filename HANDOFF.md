@@ -329,3 +329,5 @@ by this PR; orchestrator oversight replaces it.
 ## 12. Merge and deployment status
 
 PR [#18](https://github.com/56eli/translatechan/pull/18) merged into `main` as `63dfe379e026b829349b1ff78752c771e5c7e5d3`. Main Quality run `31490146548` and Pages deployment `31490145334` passed; Pages reports `built` with HTTPS enforced.
+
+> **Measured status refresh 2026-09-21 (P2 + enthusiast):** the corpus carries **125** provenance-note strings across four keys (`cbeta_note` 28, `coverage_note` 42, `editorial_note` 16, `recension_note` 14), **83 of 125** rendering beside a passage, **35** documents carrying at least one label.
